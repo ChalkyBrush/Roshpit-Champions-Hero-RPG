@@ -483,6 +483,9 @@ function Tutorial:TutorialEvent(msg)
 		elseif hero.tutorial.active_challenge == "6_2" then
 			Tutorial:UpdateChallengeSummaryProgress(hero, 6, 2, 0, false)
 			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
+		elseif hero.tutorial.active_challenge == "6_3" then
+			Tutorial:UpdateChallengeSummaryProgress(hero, 6, 3, 0, false)
+			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
 		end
 	elseif code == "reward_select" then
 		Tutorial:ClaimReward(msg)
@@ -1324,6 +1327,53 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 							end
 							if hero.special_key == 2 then
 								Tutorial:TutorialServerEvent(hero, "6_2", 0)
+							end
+						else
+							return 6
+						end
+					end
+				end)
+			end
+		end)
+	elseif code == "6_3" then
+		hero.master_is_talking = true
+		Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_3a", 5, false)
+		local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+		Timers:CreateTimer(5, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_3b", 5, false)
+			end
+		end)
+		Timers:CreateTimer(10, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 0.9, 2.0)
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_3c", 5, false)
+			end
+		end)
+		Timers:CreateTimer(15, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_3d", 5, false)
+				Tutorial:UpdateSpecialKeyOnWeb(hero, 3)
+			end
+		end)
+		Timers:CreateTimer(20, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				hero.tutorial_polling_count = 0
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_3e", 5, false)
+				Timers:CreateTimer(0, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						hero.tutorial_polling_count = hero.tutorial_polling_count + 1
+						Tutorial:CheckSpecialKeyAndLoop(hero)
+						if hero.special_key then
+							if hero.special_key == 3 then
+								if hero.tutorial_polling_count%8 == 0 then
+									Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 0.9, 2.0)
+									Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2g", 5, false)
+								end
+								return 6
+							end
+							if hero.special_key == 4 then
+								Tutorial:TutorialServerEvent(hero, "6_3", 0)
 							end
 						else
 							return 6
@@ -2419,6 +2469,15 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 				hero.active_challenge_progress = hero.active_challenge_progress + 1
 				Tutorial:ProgressUpdateOrNot(hero, 6, 2)
 				Tutorial:UpdateChallengeSummaryProgress(hero, 6, 2, 2, true)
+			end
+		elseif code1 == "6_3" then
+			if code2 == 0 and hero.active_challenge_progress == code2 then
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_6_3f", 5, false)
+				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				Tutorial:ProgressUpdateOrNot(hero, 6, 3)
+				Tutorial:UpdateChallengeSummaryProgress(hero, 6, 3, 1, true)
 			end
 		end
 	end
