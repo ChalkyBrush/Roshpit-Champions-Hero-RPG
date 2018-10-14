@@ -632,3 +632,19 @@
 	"tutorial_master_dialogue_6_4c"										"Череби найдет тебя там! Нажми на него! На странице описаны функции Web Premium жетона."
 
 	"tutorial_master_dialogue_6_4d"										"Это жетон - дополнительная возможность поддержать разработку. На этом закончим урок."
+	
+	"quest_6_challenge_5_desc"											"Roshpit Champions имеет активный канал Discord'а. Там можно пообщаться с игроками и разработчиками. Ссылка: discord.gg/ZUhfMZG"
+	"quest_6_challenge_5_sub_0_summary"									"Найди канал Curator's Library в Дискорде Roshpit. Найди там пароль в Прикрепленных сообщениях (Pinned)."
+
+	"tutorial_master_dialogue_6_5a"										"Discord - отличный вариант найти союзников и обсудить вопросы по игре."
+	"tutorial_master_dialogue_6_5b"										"Канал Рошпит находится по ссылке discord.gg/ZUhfMZG. Можешь также найти ее в описании мода."
+	"tutorial_master_dialogue_6_5c"										"Я хочу чтобы ты ее посетил."
+	"tutorial_master_dialogue_6_5d"										"А чтобы доказать, что ты там был, в канале curators-library будет прикреплен пароль."
+
+	"tutorial_quiz_question_19"											"Найди канал Curator's Library в Дискорде Roshpit. Найди там пароль в Прикрепленных сообщениях и скажи мне его."
+
+	"tutorial_quiz_wrong_6_5_1"											"Проверь прикрепленные сообщения в канале curators-library."
+	"tutorial_quiz_wrong_6_5_2"											"Нет. Зайди в discord.gg/ZUhfMZG, найди канал curators-library, проверь прикрепленные сообщения вверху страницы."
+
+	"tutorial_master_dialogue_6_5e"										"Правильно! Кроме того, можно найти субканал general-russian и общаться там на русском языке."
+	"tutorial_master_dialogue_6_5f"										"Это завершает урок."
