@@ -612,3 +612,14 @@
 	"tutorial_master_dialogue_6_2k"										"Go and talk to the curator!"
 
 	"tutorial_master_dialogue_6_2l"										"That's it. That completes this lesson."
+
+	"quest_6_challenge_3_desc"											"roshpit.ca has a marketplace at www.roshpit.ca/market that makes trading items easy. Items can be bought and sold for mithril shards or arcane crystals."
+	"quest_6_challenge_3_sub_0_summary"									"Click on cherebi at www.roshpit.ca/market/my_sales."
+
+	"tutorial_master_dialogue_6_3a"										"The website has a marketplace which is very important for acquiring items or mithril."
+	"tutorial_master_dialogue_6_3b"										"You can list items up for sale by choosing an item from your stash at www.roshpit.ca/market/my_sales"
+	"tutorial_master_dialogue_6_3c"										"When an auction is won (buyer) or expires (seller), the owner of the item will receive Market Mail on the my_sales page."
+	"tutorial_master_dialogue_6_3d"										"Click on the mail to put your item into your stash, or collect the proceeds of your sale."
+	"tutorial_master_dialogue_6_3e"										"I want you to visit roshpit.ca/market/my_sales! Go and find Cherebi there."
+
+	"tutorial_master_dialogue_6_3f"										"You got it! Feel free to browse the market some more to get a feel for it."
