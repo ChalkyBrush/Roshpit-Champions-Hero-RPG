@@ -566,3 +566,28 @@
 
 	"quest_5_reward_title"												"100,000 Mithril Shards"       
 	"quest_5_reward_description"										"Gain 100,000 Mithril Shards! A significant sum."
+
+	"quest_6_interface"													"6. External Resources"
+	"quest_6_interface_description"										"This lecture will cover the primary features of the website at www.roshpit.ca."
+
+	"quest_6_challenge_1"												"A. Game Pass"
+	"quest_6_challenge_2"												"B. Website & Curator"
+	"quest_6_challenge_3"												"C. Market"
+	"quest_6_challenge_4"												"D. Web Premium"
+
+	"quest_6_challenge_1_desc"											"You can purchase a game pass that lasts for 30 days on the game's home page. The pass increases maximum hero save slots and stash space. There is a stacking bonus to luck for item drops (50%), XP gain (10%), and Mithril Gain (10%). These bonuses stack with other pass holders who are in your party."
+	"quest_6_challenge_1_sub_0_summary"									"Answer the question about the Custom Game Pass"
+
+	"tutorial_master_dialogue_6_1a"										"Valve had added a mechanism to purchase a game pass within the Dota 2 client. We are truly fortunate."	
+	"tutorial_master_dialogue_6_1b"										"The Game Pass costs $0.99 and lasts for 30 days. The button to purchase one is on the main game page."
+	"tutorial_master_dialogue_6_1c"										"Along with supporting the game's development, the pass offers extra character save slots and extra stash space for its duration."
+	"tutorial_master_dialogue_6_1d"										"The pass also has small bonuses that increase xp gain, mithril gain, and luck with items. These bonuses stack with all party members who also have a pass."
+	"tutorial_master_dialogue_6_1e"										"OK now tell me, how long does the Custom Game Pass last for?"
+
+	"tutorial_quiz_question_18"											"How many days does the Custom Game Pass last?"
+
+	"tutorial_quiz_wrong_6_1_1"											"No, that is not how long a game pass lasts for."
+	"tutorial_quiz_wrong_6_1_2"											"Give me the answer in days, please."
+
+	"tutorial_master_dialogue_6_1f"										"That's right! Now I'm not going to make you buy one to proceed. That wouldn't be very nice!"
+	"tutorial_master_dialogue_6_1g"										"This lesson is complete."
