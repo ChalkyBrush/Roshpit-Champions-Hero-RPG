@@ -623,3 +623,12 @@
 	"tutorial_master_dialogue_6_3e"										"Посети roshpit.ca/market/my_sales! И найди там Череби!"
 
 	"tutorial_master_dialogue_6_3f"										"Идеально! Если нужно, можешь изучить Маркет, чтобы привыкнуть к интерфейсу."
+	
+	"quest_6_challenge_4_desc"											"Веб-сайт также позволяет приобрести 'Web Premium' жетон, который добавит еще 72 слота инвентаря для Потока Вечности на сайте, а также онлайн-перемещение вещей по инвентарю."
+	"quest_6_challenge_4_sub_0_summary"									"Найди Череби на www.roshpit.ca/web-premium."
+
+	"tutorial_master_dialogue_6_4a"										"Roshpit.ca предлагает к покупке Web Premium жетон за $5.00. Это никак не влияет на геймплей, но позволяет поддержать разработчика, и добавляет несколько онлайн-функций."
+	"tutorial_master_dialogue_6_4b"										"Полный набор функций описан на www.roshpit.ca/web-premium."
+	"tutorial_master_dialogue_6_4c"										"Череби найдет тебя там! Нажми на него! На странице описаны функции Web Premium жетона."
+
+	"tutorial_master_dialogue_6_4d"										"Это жетон - дополнительная возможность поддержать разработку. На этом закончим урок."
