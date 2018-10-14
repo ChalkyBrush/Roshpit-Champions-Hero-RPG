@@ -574,6 +574,7 @@
 	"quest_6_challenge_2"												"B. Website & Curator"
 	"quest_6_challenge_3"												"C. Market"
 	"quest_6_challenge_4"												"D. Web Premium"
+	"quest_6_challenge_5"												"E. Discord Chat"
 
 	"quest_6_challenge_1_desc"											"You can purchase a game pass that lasts for 30 days on the game's home page. The pass increases maximum hero save slots and stash space. There is a stacking bonus to luck for item drops (50%), XP gain (10%), and Mithril Gain (10%). These bonuses stack with other pass holders who are in your party."
 	"quest_6_challenge_1_sub_0_summary"									"Answer the question about the Custom Game Pass"
@@ -590,4 +591,24 @@
 	"tutorial_quiz_wrong_6_1_2"											"Give me the answer in days, please."
 
 	"tutorial_master_dialogue_6_1f"										"That's right! Now I'm not going to make you buy one to proceed. That wouldn't be very nice!"
+	"tutorial_master_dialogue_6_1f1"									"That's right! And I see you already have a Game Pass. Thank you for your patronage."
 	"tutorial_master_dialogue_6_1g"										"This lesson is complete."
+
+	"quest_6_challenge_2_desc"											"The official game website is www.roshpit.ca. Here you can find information about the game as well as view players profiles and hero builds. The curator NPC in town updates the collection of knowledge for item rolls on the website."
+	"quest_6_challenge_2_sub_0_summary"									"Login to the website at www.roshpit.ca and click the Cherebi on your profile."
+	"quest_6_challenge_2_sub_1_summary"									"Speak to the Curator"
+
+	"tutorial_master_dialogue_6_2a"										"Roshpit Champions has an official website at www.roshpit.ca"	
+	"tutorial_master_dialogue_6_2b"										"The website contains all of the information about the game's heroes and items. You can also view people's profiles and their heros' builds."
+	"tutorial_master_dialogue_6_2c"										"There is also a marketplace for trading. I want you to go login to the website. Go to www.roshpit.ca and click the Steam icon at the top right."	
+	"tutorial_master_dialogue_6_2d"										"This is Valve's 3rd party authentication system. Roshpit.ca will never see your password."
+	"tutorial_master_dialogue_6_2e"										"When you login you will land on your profile page. When you are there, I want you to click on the cherebi on your profile page!"		
+	"tutorial_master_dialogue_6_2f"										"I'll be waiting! Click the cherebi on your profile page at www.roshpit.ca"
+	"tutorial_master_dialogue_6_2g"										"Still haven't found it?"
+
+	"tutorial_master_dialogue_6_2h"										"Great! Now notice on the website there is a prominent tab labelled 'items.'"
+	"tutorial_master_dialogue_6_2i"										"The data for the possible rolls for each item are collected by the players in a team effort"	
+	"tutorial_master_dialogue_6_2j"										"You can use the Curator NPC to add your item to the collection of knowledge and help everyone!"	
+	"tutorial_master_dialogue_6_2k"										"Go and talk to the curator!"
+
+	"tutorial_master_dialogue_6_2l"										"That's it. That completes this lesson."

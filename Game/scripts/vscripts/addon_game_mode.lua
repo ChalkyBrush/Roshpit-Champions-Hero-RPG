@@ -108,6 +108,7 @@ PrecacheResource("particle", "particles/units/heroes/hero_chaos_knight/chaos_kni
 PrecacheResource("particle", "particles/roshpit/learn_glyph_recipe.vpcf", context)
 PrecacheResource("particle", "particles/roshpit/web/web_premium.vpcf", context)
 PrecacheResource("particle", "particles/econ/items/keeper_of_the_light/kotl_weapon_arcane_staff/keeper_base_attack_arcane_staff.vpcf", context)
+PrecacheResource("particle", "particles/status_fx/status_effect_huskar_lifebreak_blue_2.vpcf", context)
 
 
 PrecacheResource("model", "models/props_teams/banner_radiant.vmdl", context)

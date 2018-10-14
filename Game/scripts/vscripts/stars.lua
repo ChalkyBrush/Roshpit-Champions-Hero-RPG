@@ -154,9 +154,13 @@ function Stars:StarEventSolo(starEventName, hero)
 		local categoryData = starData[heroCount + 1]
 		local starAmount = 0
 		starAmount = 1
-		print("HELLO1")
+		if hero.tutorial.section1.reward == 1 then
+			starAmount = 2
+		end
+		if hero.tutorial.section6.reward == 1 then
+			starAmount = 3
+		end
 		if categoryData.champleague < starAmount then
-			print("HELL02")
 			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = "solo_stars"})
 			Stars:UpdateStarsOnServer("solo_stars", starEventName, starAmount, hero:GetPlayerOwnerID())
 			return true

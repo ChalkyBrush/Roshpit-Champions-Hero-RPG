@@ -403,6 +403,7 @@ function curator(caster, units)
 			local playerId = player:GetPlayerID()	
 			local hero = GameState:GetHeroByPlayerID(playerId)
 			CustomGameEventManager:Send_ServerToPlayer(player, "open_curator", {player=playerId} )
+			Events:TutorialServerEvent(hero, "6_2", 1)
 		end
 	end
 end
