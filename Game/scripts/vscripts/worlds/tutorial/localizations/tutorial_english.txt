@@ -602,14 +602,14 @@
 	"tutorial_master_dialogue_6_2b"										"The website contains all of the information about the game's heroes and items. You can also view people's profiles and their heros' builds."
 	"tutorial_master_dialogue_6_2c"										"There is also a marketplace for trading. I want you to go login to the website. Go to www.roshpit.ca and click the Steam icon at the top right."	
 	"tutorial_master_dialogue_6_2d"										"This is Valve's 3rd party authentication system. Roshpit.ca will never see your password."
-	"tutorial_master_dialogue_6_2e"										"When you login you will land on your profile page. When you are there, I want you to click on the cherebi on your profile page!"		
+	"tutorial_master_dialogue_6_2e"										"When you login you will land on your profile page. When you are there, I want you to click on the Cherebi on your profile page!"		
 	"tutorial_master_dialogue_6_2f"										"I'll be waiting! Click the cherebi on your profile page at www.roshpit.ca"
 	"tutorial_master_dialogue_6_2g"										"Still haven't found it?"
 
 	"tutorial_master_dialogue_6_2h"										"Great! Now notice on the website there is a prominent tab labelled 'items.'"
-	"tutorial_master_dialogue_6_2i"										"The data for the possible rolls for each item are collected by the players in a team effort"	
+	"tutorial_master_dialogue_6_2i"										"The data for the possible rolls for each item are collected by the players in a team effort."	
 	"tutorial_master_dialogue_6_2j"										"You can use the Curator NPC to add your item to the collection of knowledge and help everyone!"	
-	"tutorial_master_dialogue_6_2k"										"Go and talk to the curator!"
+	"tutorial_master_dialogue_6_2k"										"Go and talk to the Curator!"
 
 	"tutorial_master_dialogue_6_2l"										"That's it. That completes this lesson."
 
@@ -623,3 +623,12 @@
 	"tutorial_master_dialogue_6_3e"										"I want you to visit roshpit.ca/market/my_sales! Go and find Cherebi there."
 
 	"tutorial_master_dialogue_6_3f"										"You got it! Feel free to browse the market some more to get a feel for it."
+
+	"quest_6_challenge_4_desc"											"The website offers a 'Web Premium' token which adds 72 stash slots and stash organization while on the web for 30 days. Purchased tokens can be consumed immediately or put into your stash for trading."
+	"quest_6_challenge_4_sub_0_summary"									"Click on cherebi at www.roshpit.ca/web-premium."
+
+	"tutorial_master_dialogue_6_4a"										"Roshpit.ca offers Web Premium for $5.00. It is entirely an optional feature that does not affect gameplay."
+	"tutorial_master_dialogue_6_4b"										"I can not explain it any better than the website, why don't you head over to www.roshpit.ca/web-premium now?"
+	"tutorial_master_dialogue_6_4c"										"Cherebi will greet you there! Click on him! That page will explain all of the features to you."
+
+	"tutorial_master_dialogue_6_4d"										"Good! You are welcome to purchase a token if you want to support development. That concludes this lesson."
