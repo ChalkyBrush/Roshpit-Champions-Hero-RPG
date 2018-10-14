@@ -872,13 +872,13 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	tableData.level = level
 	local baseDamage = 100000
 	local qDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-	tableData.qAmp = (qDamage/baseDamage)*100
+	tableData.qAmp = math.floor((qDamage/baseDamage)*100)
 	local wDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-	tableData.wAmp = (wDamage/baseDamage)*100
+	tableData.wAmp = math.floor((wDamage/baseDamage)*100)
 	local eDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-	tableData.eAmp = (eDamage/baseDamage)*100
+	tableData.eAmp = math.floor((eDamage/baseDamage)*100)
 	local rDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-	tableData.rAmp = (rDamage/baseDamage)*100
+	tableData.rAmp = math.floor((rDamage/baseDamage)*100)
 	CustomGameEventManager:Send_ServerToPlayer(player, "attribute_tooltip", {unit = msg.queryunit, playerID = msg.playerID, extraData = tableData, IsEnemy = IsEnemy} )
 	Events:TutorialServerEvent(unit, "1_3", 0)
 end

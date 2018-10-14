@@ -1701,9 +1701,9 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					local choice = RandomInt(1,4)
 					local baseDamage = 100000
 					local verifier = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, hero, baseDamage, DAMAGE_TYPE_PURE, choice, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-					verifier = (verifier/baseDamage)*100
+					verifier = math.floor((verifier/baseDamage)*100)
 					if choice == 4 then
-						choice = DOTA_ULTIMATE_SLOT
+						choice = DOTA_ULTIMATE_SLOT+1
 					end
 					local sub = "DOTA_Tooltip_Ability_"..hero:GetAbilityByIndex(choice-1):GetAbilityName()
 					CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="2_2", quiz_question=question, sequence=0, verifier = verifier, gsub1 = sub, localize_verifier = 0, challenge_progress = 3} )

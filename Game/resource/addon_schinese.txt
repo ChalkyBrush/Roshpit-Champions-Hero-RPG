@@ -15368,7 +15368,659 @@
 		"fire_temple_skeleton_archer"                                      "骷髅弓箭手"
 
 
+	"rpc_tutorial"														"Roshpit Tutorial"
 
+	"tutorial_base_armor"												"Base Armor"
+
+	"tutorial_star_1"													"Complete the 'Stars' section of the Roshpit Tutorial."
+	"tutorial_star_2"													"Earn your first reward for finishing a lesson category of the Tutorial."
+	"tutorial_star_3"													"Finish the entire tutorial."
+
+	"tutorial_assistant"												"Cherebi"
+	"tutorial_master"													"Loremaster Challen"
+
+	"tutorial_assistant_1"												"You appear to be new brand new here! Follow me so we can show you how to play this game."
+	"tutorial_assistant_2"												"Loremaster Challen is waiting by the waterfall for you. Let's go!"
+	"tutorial_assistant_3"												"He's just over the bridge! Come On!"
+
+	"tutorial_menu_title"												"Roshpit Tutorial"
+
+	"tutorial_master_1"													"I see that my assistant has brought you here. Thank you Cherebi."
+	"tutorial_master_2"													"Hm? It seems you ran ahead of Cherebi, but let's get started anyway."
+	"tutorial_master_3"													"Welcome to Roshpit, Champion."
+	"tutorial_master_4"													"Choose a topic from the list provided to begin your education."
+	"tutorial_master_hello"												"Greetings, Champion."
+
+	"tutorial_challenge_go"												"Begin Lesson"
+
+	"quest_1_interface"													"1. Interface"
+	"quest_1_interface_description"										"In this series, we will cover the essential information found on the user interface."
+
+	"quest_1_challenge_1"												"A. Town Portal"
+	"quest_1_challenge_2"												"B. Respawn Flag"
+	"quest_1_challenge_3"												"C. Custom Attributes"
+	"quest_1_challenge_4"												"D. Stars"
+
+	"quest_1_challenge_1_desc"											"At the bottom right of your screen is a blue scroll icon. Clicking on it will begin a channel that is interrupted when damage is taken. Finishing the channel teleports your hero back to the map's town."
+
+	"quest_1_challenge_1_sub_0_summary"									"Use the Town Portal ability located at the bottom right of your screen."
+
+	"tutorial_master_dialogue_1_1a"										"Look at the bottom right of your screen."
+	"tutorial_master_dialogue_1_1b"										"The blue scroll icon is your town portal ability."
+	"tutorial_master_dialogue_1_1c"										"It will take you back to the map's town if the channel is not interrupted."
+	"tutorial_master_dialogue_1_1d"										"Go ahead and try using the Town Portal!"
+	"tutorial_master_dialogue_1_1e"										"Nice TP, but now you have to walk all the way over here again! Haha!"
+	
+	"quest_1_challenge_2_desc"											"Next to the town portal scroll button is the Respawn Flag. Finishing its channel without being interrupted will place a flag at your location. After dying, you will respawn at the flag's location, and the flag is consumed."
+	"quest_1_challenge_2_sub_0_summary"									"Use the Respawn Flag ability located at the bottom right of your screen."
+	"quest_1_challenge_2_sub_1_summary"									"Respawn at your flag."
+
+	"tutorial_master_dialogue_1_2a"										"Look at the bottom right of your screen again."
+	"tutorial_master_dialogue_1_2b"										"Next to the town portal scroll is the Respawn Flag."
+	"tutorial_master_dialogue_1_2c"										"When you finish the channel without being interrupted, you place the flag at your current position."
+	"tutorial_master_dialogue_1_2d"										"Next time you die, your respawn location will be relocated to the flag's position."
+	"tutorial_master_dialogue_1_2e"										"If you think you won't need this because you plan not to die, then you really don't understand how brutal Roshpit's monsters can get."
+	"tutorial_master_dialogue_1_2f"										"You can experience it for yourself later. For now, go ahead and use the respawn flag!"
+
+	"tutorial_master_dialogue_1_2g"										"In order to fully understand the respawn flag, I'm going to need to zap you."
+	"tutorial_master_dialogue_1_2h"										"You might feel a slight pinch. Just close your eyes!"
+
+	"tutorial_master_dialogue_1_2j"										"Ouch! Don't worry, this is not the last time you will experience death."
+	"tutorial_master_dialogue_1_2k"										"When you respawn, you will appear back where you placed the flag."
+	"tutorial_master_dialogue_1_2l"										"The flag is consumed, so don't forget to place it again after reviving."
+	"tutorial_master_dialogue_1_2m"										"Welcome back. This completes the lesson on Respawn Flag."
+
+
+	"quest_1_challenge_3_desc"											"Hovering over your attributes opens up a detailed breakdown of your hero's capabilities."
+	"quest_1_challenge_3_sub_0_summary"									"Hover over your hero's attributes at the bottom for a detailed stat breakdown."
+
+	"tutorial_master_dialogue_1_3a"										"Next to your hero portrait is a list showing your hero's Attack Power, Armor and Movement Speed. Below that is your hero's attributes: Strength, Agility and Intelligence."
+	"tutorial_master_dialogue_1_3b"										"Hover your mouse over the attributes to view a detailed breakdown of your hero's combat capabilities."
+
+	"tutorial_master_dialogue_1_3c"										"Nice, well I'm not going to explain every piece to you at this time because it will be too much information without any gameplay."
+	"tutorial_master_dialogue_1_3d"										"Just quickly, notice you can see how much value your attributes are adding, for example how much HP and Health Regen you are getting from Strength."
+	"tutorial_master_dialogue_1_3e"										"Feel free to take a look at the other data. But for now, this lesson is complete."
+
+	"quest_1_challenge_4_desc"											"Stars are Roshpit Champion's achievement system. Click the stars menu at the bottom right or press (K) to view your Stars."
+	"quest_1_challenge_4_sub_0_summary"									"Open your stars menu by pressing (K)."
+
+	"tutorial_master_dialogue_1_4a"										"Open your stars menu by pressing the blue button at the button right, or by pressing (K) on your keyboard."
+	"tutorial_master_dialogue_1_4b"										"The stars menu has opened up at the top left. Each portrait opens up a category of stars."
+	"tutorial_master_dialogue_1_4c"										"Stars act as Roshpit's achievement system, tracking your total completion of this game."
+	"tutorial_master_dialogue_1_4d"										"There are over 1000 stars, so don't expect to get them all!"
+
+	"tutorial_master_dialogue_1_4e"										"That wraps up this lesson."
+	"tutorial_master_dialogue_1_4f"										"Well look at that, looks like you got a star! That wraps up this lesson."
+
+	"quest_1_reward_title"												"Activate Teleporter"       
+	"quest_1_reward_description"										"The map's teleporter will always be active when you play the Tutorial Map."
+
+	"quest_reward_available"											"Reward Available"
+	"quest_reward_claim"												"Claim Reward"
+	"quest_reward_claimed"												"Already Claimed"
+
+	"tutorial_section_completed"										"Complete"
+
+	"quest_reward_label"												"REWARD:"
+
+	"quest_2_interface"													"2. Hero"
+	"quest_2_interface_description"										"This lecture will help with understanding the components that make up your hero."
+
+	"quest_2_challenge_1"												"A. Abilities & Runes"
+	"quest_2_challenge_2"												"B. Hero Attributes"
+	"quest_2_challenge_3"												"C. Saving your Hero"
+
+	"quest_2_reward_title"												"Activate Town NPC's"       
+	"quest_2_reward_description"										"Tutorial Map will have its Town NPC's activated permanently; The Oracle, The Blacksmith, Glyph Enchanter, and Curator!"
+
+	"quest_2_challenge_1_desc"											"At the left of the screen is your hero's Ability and Rune summary. If it is closed, open it up with hotkey (L). Runes are passive buffs for your hero and abilties."
+	"quest_2_challenge_1_sub_0_summary"									"Listen to Challen's lecture regarding Runes & Abilities, and answer his question."
+	"quest_2_challenge_1_sub_1_summary"									"Cast a base ability."
+	"quest_2_challenge_1_sub_2_summary"									"Disable a Rune by alt+clicking it."
+
+    "tutorial_master_dialogue_2_1a"										"Look at the left side of your screen."
+    "tutorial_master_dialogue_2_1b"										"This is the summary of your Abilities and Runes. If the window is not open, open it with hotkey (L)"                      
+    "tutorial_master_dialogue_2_1c"										"The top line shows your Base Abilities. If you have skill points, clicking one in this window will increase its level."
+    "tutorial_master_dialogue_2_1d"										"In the bottom section you can view your Runes. Runes are passives that improve your base abilities and your hero."
+    "tutorial_master_dialogue_2_1e"										"Runes can be leveled up to 20, but can reach values beyond that from gear bonuses!"
+    "tutorial_master_dialogue_2_1f"										"Every level your hero receives 2 additional rune points to allocate. Every 5 levels your hero receives 1 ability point to allocate."
+    "tutorial_master_dialogue_2_1g"										"If you have Rune Points available, clicking on a rune will level it up."
+    "tutorial_master_dialogue_2_1h"										"Leveling up your base abilities make more of your runes available for upgrade."
+    
+    "tutorial_master_dialogue_2_1h2"									"Rune points can be re-allocated, so don't worry too much about perfecting your build right now."
+    "tutorial_master_dialogue_2_1h3"									"Now let's see if you've been listening."
+
+    "tutorial_master_dialogue_2_1i"										"Correct! I knew you'd be able to read your rune list effectively."
+    "tutorial_master_dialogue_2_1j"										"Let's try out your abilities now. Go ahead and cast one of your Base Abilities!"
+    "tutorial_master_dialogue_2_1k"										"Great! You will have to use your abilities well in order to defeat your enemies."
+
+    "tutorial_master_dialogue_2_1l"										"There is another handy trick you need to know."
+    "tutorial_master_dialogue_2_1m"										"Alt+Click on a rune disables its effect. You may need this in case your Rune's passives are giving you trouble in a specific environment."
+  	"tutorial_master_dialogue_2_1n"  									"Go ahead and try disabling a rune!"
+    
+    "tutorial_master_dialogue_2_1o"										"Good Job. Don't forget to re-enable that rune now!"
+    "tutorial_master_dialogue_2_1p"										"That completes the lesson on abilities and runes."
+
+    "tutorial_quiz_wrong_2_1_1"											"Sorry, that is not the correct rune name."
+    "tutorial_quiz_wrong_2_1_2"											"That is not the correct rune name, try again."
+
+    "tutorial_quiz_question_1"											"What is the name of your @sub1 rune?"
+
+    "quiz_submit"														"Submit Answer"
+
+    "quest_2_challenge_2_desc"											"Every hero has a Primary Attribute which increases their attack damage. Each attribute provides bonuses whose totals are displayed on the detailed tooltip. The amplification of your Base Q, W, E and R abilities are also displayed on the tooltip."
+    "quest_2_challenge_2_sub_0_summary"									"Answer Challen's question on Attribute Bonuses."
+    "quest_2_challenge_2_sub_1_summary"									"Pass Challen's attack damage quiz."
+    "quest_2_challenge_2_sub_2_summary"									"Answer another one of Challen's questions."
+    "quest_2_challenge_2_sub_3_summary"									"Answer challen's base ability damage question."
+
+	"tutorial_master_dialogue_2_2a"										"As we discussed before, your attributes are shown on your hero portrait. Hover over your attributes to get a detailed tooltip of your hero."
+	"tutorial_master_dialogue_2_2b"										"In the first row, we can see how many stats your hero is gaining from your attributes."
+	"tutorial_master_dialogue_2_2c"										"Let's test your reading comprehension."
+
+	"tutorial_quiz_question_2"											"How much @sub1 are you gaining from @sub2?"
+
+	"tutorial_quiz_wrong_2_2_1"											"I'm sorry, please look at the top row of your attributes tooltip."
+	"tutorial_quiz_wrong_2_2_2"											"Incorrect. Hover over your hero attributes and find the answer on the stats tooltip."
+
+	"tutorial_master_dialogue_2_2d"										"Correct! You are a model student, surely."
+	"tutorial_master_dialogue_2_2e"										"Your hero has a primary attribute. Each point in that primary attribute increases base attack damage."
+	"tutorial_master_dialogue_2_2f"										"Use your math skills and tell me, how much base attack damage does each primary attribute give? Use your tooltip to figure it out!"
+
+	"tutorial_quiz_question_3"											"How much base attack damage does EACH point of your primary attribute add?"
+
+	"tutorial_quiz_wrong_2_2_3"											"Incorrect, please check your stats tooltip and determine how much attack damage you get for each primary attribute."
+	"tutorial_quiz_wrong_2_2_4"											"Wrong, use your division skills and tell me how much attack damage you get from each of your primary attributes."
+
+	"tutorial_master_dialogue_2_2g"										"A very good observation. Your base attack bonus damage is 2x your primary attribute."
+
+	"tutorial_master_dialogue_2_2h"										"Let's try finding some additional information. Look below your attributes on the tooltip."
+	
+	"tutorial_quiz_question_4"											"What is your base @sub1 value?"
+
+	"tutorial_quiz_wrong_2_2_5"											"No that is not right."
+	"tutorial_quiz_wrong_2_2_6"											"Wrong. Please look below your attributes to find the required information."
+
+	"tutorial_master_dialogue_2_2i"										"Alright! Now let's go 1 step deeper into our stats panel."
+	"tutorial_master_dialogue_2_2j"										"As part of your hero's attack capabilities, located on the left side of the tooltip, we can see our hero's Base Ability Damage."
+	"tutorial_master_dialogue_2_2k"										"These percentages state the additional damage amplification of your Q, W, E, and R Base Abilities."
+	"tutorial_master_dialogue_2_2l"										"Now tell me the amplification of your Base Ability!"
+
+	"tutorial_quiz_question_5"											"What is the Base Ability Damage for @sub1?"
+
+	"tutorial_quiz_wrong_2_2_7"											"Try again."
+	"tutorial_quiz_wrong_2_2_8"											"Wrong. Base ability amplifier can be found on the left side of your attributes tooltip, below the Attack heading."
+
+	"tutorial_master_dialogue_2_2m"										"Haha, very good. That concludes our lesson on hero attributes."
+
+	"quest_2_challenge_3_desc"											"Saving your character is an important step toward gaining power in Roshpit. Speak to the Oracle in town to register your character onto his eternal ledger."
+	"quest_2_challenge_3_sub_0_summary"									"Save your hero at the Oracle in town."
+
+	"tutorial_master_dialogue_2_3a"										"Each map's town has an Oracle who can permanently record your hero's progress."
+	"tutorial_master_dialogue_2_3b"										"Your hero is not automatically saved at the end of a game session. It has to be registered with the Oracle."	
+	"tutorial_master_dialogue_2_3c"										"It is important that you save often so you don't accidentally lose your progress."
+	"tutorial_master_dialogue_2_3d"										"Go and save at the Oracle!"
+	"tutorial_master_dialogue_2_3e"										"Well done! Now you can load that character in a future game session."
+	"tutorial_master_dialogue_2_3f"										"When you load your hero, you can only save it to that same slot. You can overwrite an existing slot by creating a new hero and saving over an old one."
+	"tutorial_master_dialogue_2_3g"										"That completes the lesson on saving."
+
+	"quest_3_interface"													"3. Equipment"
+	"quest_3_interface_description"										"Here we will learn all about equipment and other items that strengthen your hero."
+
+	"quest_3_challenge_1"												"A. Equipment Basics"
+	"quest_3_challenge_2"												"B. The Blacksmith"
+	"quest_3_challenge_3"												"C. Weapons"
+	"quest_3_challenge_4"												"D. Glyphs"
+	"quest_3_challenge_5"												"E. Pool of Eternity"
+
+	"quest_3_challenge_1_desc"											"Equipment is the most important contributor to your hero's effectiveness. You can equip an item by activating it from your inventory. Powerful items have the <font color=\'#E4AE33\'>immortal</font> rarity. Beyond that are the ultra rare <font color=\'#ADE55C\'>arcana</font> items."
+	"quest_3_challenge_1_sub_0_summary"									"Equip any piece of gear."
+	"quest_3_challenge_1_sub_1_summary"									"Tell Challen which NPC will unequip your gear."
+	"quest_3_challenge_1_sub_2_summary"									"Answer Challen's question regarding item rarity."
+
+	"tutorial_master_dialogue_3_1a"										"Equipment will be the primary source of your power."
+	"tutorial_master_dialogue_3_1b"										"You can equip an item by activating it from your inventory."
+	"tutorial_master_dialogue_3_1b1"									"Here is some low grade item. Why don't you try equipping it?"
+	"tutorial_master_dialogue_3_1c"										"Equipped! Remember, you can only unequip an item at The Blacksmith."
+	"tutorial_master_dialogue_3_1d"										"Equipping an item while already wearing one will overwrite the existing gear."		
+	"tutorial_master_dialogue_3_1e"										"Were you listening? Can you tell me where you can unequip your gear?"
+
+	"tutorial_quiz_question_6"											"Where can you unequip your gear?"
+	"tutorial_quiz_question_6_answer"									"blacksmith"
+
+	"tutorial_quiz_wrong_3_1_1"											"No that's not right, the answer is one of the NPC's in town."
+	"tutorial_quiz_wrong_3_1_2"											"You know what, maybe you should just restart this tutorial and read what I say next time!"
+
+	"tutorial_master_dialogue_3_1f"										"That's right! Only the blacksmith can remove an item for future use. Equipping a new item to the same slot will overwrite that existing gear."
+
+	"tutorial_master_dialogue_3_1g"										"Look out for items that have a golden halo when they drop on the ground."
+	"tutorial_master_dialogue_3_1h"										"These are immortal items, and every strong hero build involves these types."
+	"tutorial_master_dialogue_3_1i"										"There is a rarity beyond that called Arcana. They replace skills and runes, which changes the combat style of your hero."
+	"tutorial_master_dialogue_3_1j"										"When they drop you will know! A neon green beam reaches out toward the sky and a loud noise is heard in the distance."
+	"tutorial_master_dialogue_3_1l"										"Ok, let's see if you were paying attention."	
+
+	"tutorial_quiz_question_7"											"What is the @sub1 gear rarity type called?"
+	"tutorial_quiz_question_7_sub_answer1"								"2nd most rare"
+	"tutorial_quiz_question_7_sub_answer2"								"rarest"
+
+	"tutorial_quiz_wrong_3_1_5"											"Oh no, that is incorrect. Try again."
+	"tutorial_quiz_wrong_3_1_6"											"If you listened to my lecture, this would not be difficult..."
+
+	"tutorial_master_dialogue_3_1m"										"That's right! I think you understand enough about equipment for now. We will end this lesson here."
+
+	"quest_3_challenge_2_desc"											"The blacksmith is an NPC in town that can remove your gear (called chiselling) and can also reroll your immortal items at the cost of Mithril. The blacksmith will lock up to 2 property slots when rerolling at a higher cost of mithril."
+	"quest_3_challenge_2_sub_0_summary"									"Chisel (remove) a piece of gear at the blacksmith."
+	"quest_3_challenge_2_sub_1_summary"									"Answer the question about rerolling."
+
+	"tutorial_master_dialogue_3_2a"										"The Blacksmith can chisel your equipment off of you, giving you the item back. He charges Mithril Shards for his services."
+	"tutorial_master_dialogue_3_2a1"									"Since you are clearly broke, I will provide you with some mithril so that you can actually afford it."
+	"tutorial_master_dialogue_3_2b"										"I've dropped a piece of gear in case you need something to chisel. Now go to the blacksmith and chisel one of your items!"
+
+	"tutorial_master_dialogue_3_2c"										"Nice! Now don't forget to re-equip that if it's valuable."
+	"tutorial_master_dialogue_3_2d"										"The blacksmith provides another important service, called Rerolling."
+	"tutorial_master_dialogue_3_2e"										"If an item is has immortal rarity and is not a weapon, the blacksmith can reroll an item's properties at the cost of mithril."
+	"tutorial_master_dialogue_3_2f"										"For an additional fee, he will lock up to 2 property slots so that you may preserve your good rolls."
+	"tutorial_master_dialogue_3_2g"										"Since you might not have an immortal, I will not force you to reroll an item for this challenge."
+	"tutorial_master_dialogue_3_2h"										"Instead I want you to tell me, up to how many property slots will the blacksmith lock on a piece of gear?"
+
+	"tutorial_quiz_question_8"											"Up to how many property slots will the blacksmith lock when rerolling your gear?"
+	"tutorial_quiz_wrong_3_2_3"											"Incorrect. You must brush up on your basic reroll knowledge."
+	"tutorial_quiz_wrong_3_2_4"											"No, that is not right."
+
+	"tutorial_master_dialogue_3_2i"										"That's right! Rerolling is a crucial task for acquiring top-tier equipment."
+	"tutorial_master_dialogue_3_2j"										"I will note that not all immortals can be rerolled, but most of them can. Try to understand that there are always exceptions!"
+	"tutorial_master_dialogue_3_2k"										"You now understand the importance of the blacksmith. The lesson is complete."
+
+	"quest_3_challenge_3_desc"											"Weapons are class specific items that have their own power level and earn EXP. When a weapon levels up, the first two properties are increased by 10% (compounding), and the last 2 properties increase by 1 point. Immortal weapons can drop in the hardest dungeons."
+	"quest_3_challenge_3_sub_0_summary"									"Answer a question about your weapon"
+
+	"tutorial_master_dialogue_3_3a"										"Weapons have their own special properties compared to other gear types. For starters, weapons earn exp and have a level. The maximum level it can reach is available in the weapon's tooltip."
+	"tutorial_master_dialogue_3_3b"										"When a weapon levels up, its first two properties are increased by 10% of their current values. The last two properties increase by 1."
+	"tutorial_master_dialogue_3_3c"										"When you're ready to take on the most challenging dungeons, you will come across immortal weapons which provide class specific bonuses."
+	"tutorial_master_dialogue_3_3c1"									"You don't have a weapon equipped? Here, take this one."	
+	"tutorial_master_dialogue_3_3d"										"Now take a look at your weapon tooltip and answer me."
+
+	"tutorial_quiz_question_9"											"What is the maximum level of your currently equipped weapon?"
+	"tutorial_quiz_wrong_3_3_1"											"Please take a closer look at your weapon's tooltip."
+	"tutorial_quiz_wrong_3_3_2"											"You must check your weapon's tooltip to find the answer."
+
+	"tutorial_master_dialogue_3_3e"										"Right! Weapons look different than other gears since they come in red loot boxes. Keep an eye out for them on your journey!"	
+
+	"quest_3_challenge_4_desc"											"Glyphs are magical inscriptions that alter/buff your abilities and runes. Your hero can equip up to 3 glyphs. Neutral glyphs can be equipped by any class. Glyphs can be crafted at the Glyph Enchanter."
+	"quest_3_challenge_4_sub_0_summary"									"Purchase any glyph"
+
+	"tutorial_master_dialogue_3_4a"										"Your hero can equip up to 3 glyphs, which are magical inscriptions that provide special passive effects."
+	"tutorial_master_dialogue_3_4b"										"Neutral glyphs can be equipped by any hero, and you can't equip 2 of the same glyph."
+	"tutorial_master_dialogue_3_4c"										"Glyphs are crafted at the Glyph Enchanter NPC who looks like a Dark Seer."
+	"tutorial_master_dialogue_3_4d"										"Why don't you go to town and try purchasing a glyph?"
+	"tutorial_master_dialogue_3_4d1"									"Why don't you go to town and try purchasing a glyph? Here are some crystals since you can't quite afford it yet."	
+	"tutorial_master_dialogue_3_4d2"									"Get close to the crystals to pick them up!"
+
+	"tutorial_master_dialogue_3_4e"										"Great purchase! You can equip the glyph by dragging it onto your glyph slot at the right side of your screen."	
+	"tutorial_master_dialogue_3_4f"										"That completes the lesson on glyphs."	
+
+	"quest_3_challenge_5_desc"											"The pool of eternity is Roshpit's stash system. You can access your pool at The Oracle. You can deposit up to 12 items, or 60 items if you have a Game Pass."
+	"quest_3_challenge_5_sub_0_summary"									"Deposit any item into the Pool of Eternity"
+	"quest_3_challenge_5_sub_1_summary"									"Withdraw an item from the Pool of Eternity."
+
+	"tutorial_master_dialogue_3_5a"										"Items that you don't have equipped can be saved permanently at your Pool of Eternity."		
+	"tutorial_master_dialogue_3_5b"										"To access your pool, speak the Oracle NPC that you visited before to save your character."
+	"tutorial_master_dialogue_3_5c"										"Why don't you go ahead and try depositing something into your stash?"
+
+	"tutorial_master_dialogue_3_5d"										"Great, now that item is saved across game sessions!"
+	"tutorial_master_dialogue_3_5e"										"Try taking an item out now."
+
+	"tutorial_master_dialogue_3_5f"										"That's it! The Pool of Eternity will certainly be a helpful tool on your journey."
+
+	"quest_3_reward_title"												"3 Low Level Arcanas"       
+	"quest_3_reward_description"										"This Galactic Arcana cache will grant you 3 low level items of the highest rarity."
+
+	"quest_4_interface"													"4. Combat"
+	"quest_4_interface_description"										"In this lesson we will learn the intricacies of Roshpit Champions' combat."
+
+	"quest_4_challenge_1"												"A. Enemies & Attacking"
+	"quest_4_challenge_2"												"B. Damage Types"
+	"quest_4_challenge_3"												"C. Base Damage"
+	"quest_4_challenge_4"												"D. Elemental Damage"
+	"quest_4_challenge_5"												"E. Training Dummy"
+	"quest_4_challenge_6"												"F. Post-Mitigation Damage"
+	"quest_4_challenge_7"												"G. Buffs, Debuffs and Stuns"
+
+	"quest_4_challenge_1_desc"											"Left clicking on an enemy opens its stats panel allowing you to view its abilities. Right clicking on an enemy issues an attack order. Your hero will keep attacking automatically until the target dies or an alternative order is issued."
+	"quest_4_challenge_1_sub_0_summary"									"Inspect the shroomling to find the answer to Challen's question."
+	"quest_4_challenge_1_sub_1_summary"									"Slay the shroomling with auto-attacks"
+
+	"tutorial_master_dialogue_4_1a"										"The monsters of Roshpit Champions have unique abilities. Across all monsters there are hundreds of different passives and active abilities."
+	"tutorial_master_dialogue_4_1b"										"When approaching an enemy for the first time, it is wise to inspect their abilities and be aware of their capabilities." 
+	"tutorial_master_dialogue_4_1c"										"As you gain knowledge of your enemies you will become more cognizant of how to effectively route them."
+	"tutorial_master_dialogue_4_1d"										"Here's a vicious Shroomling. Don't get too close yet! We don't know what his powers are!"		
+	"tutorial_master_dialogue_4_1e"										"Inspect him first! Tell me, what is this Shroomling's ability?"
+
+	"tutorial_quiz_question_10"											"What is the name of the Shroomling's ability?"
+
+	"DOTA_Tooltip_ability_tutorial_shroomling_ability"					"Fermented"
+	"DOTA_Tooltip_ability_tutorial_shroomling_ability_Description"		"This unit can only take damage from regular attacks."
+
+	"tutorial_shroomling"												"Shroomling"
+
+	"tutorial_quiz_wrong_4_1_1"											"Nope, are we even reading from the same ability bar?"
+	"tutorial_quiz_wrong_4_1_2"											"That is not the ability name of your enemy."
+
+	"tutorial_master_dialogue_4_1f"										"Right! And the ability's description stated that this enemy can only take damage from regular attacks."
+	"tutorial_master_dialogue_4_1g"										"Getting close or dealing damage to an enemy will aggro them. Once aggro'd they never calm back down and will continue chase you!"	
+	"tutorial_master_dialogue_4_1h"										"OK, this enemy can only be damaged by regular attacks. Go get him!"
+
+	"tutorial_master_dialogue_4_1i"										"A technical slaying! That concludes the lesson on Enemies & Attacking."
+
+	"quest_4_challenge_2_desc"											"The 3 main damage types are Physical, Magical and Pure. Armor and magic resistance decrease physical and magical damage taken respectively with diminishing returns. Pure damage reduction pierces spell immunity and is more difficult to reduce. "
+	"quest_4_challenge_2_sub_0_summary"									"Answer the question about physical damage reduction."
+	"quest_4_challenge_2_sub_1_summary"									"Answer the question about damage type reduction"
+	"quest_4_challenge_2_sub_2_summary"									"Answer the general question regarding damage types"
+
+	"tutorial_master_dialogue_4_2a"										"There are 3 primary damage types: Physical, Magical and Pure."
+	"tutorial_master_dialogue_4_2b"										"Your regular attacks deal physical damage, as well as some abilities."
+	"tutorial_master_dialogue_4_2c"										"Physical damage taken is reduced by your armor."
+	"tutorial_master_dialogue_4_2d"										"Check your tooltip, how much physical damage is being reduced by your armor?"
+
+	"tutorial_quiz_question_11"											"What is the damage reduction % provided by your armor?"
+
+	"tutorial_quiz_wrong_4_2_1"											"No, check your hero tooltip under the Defense section."
+	"tutorial_quiz_wrong_4_2_2"											"I will accept an answer rounded up or down to the nearest whole number."
+
+	"tutorial_master_dialogue_4_2e"										"Yes that's right! Physical attacks can also be dodged by increasing your evasion stat."
+	"tutorial_master_dialogue_4_2f"										"Magic damage is reduced by the unit's Magic Armor. Each magic armor provides 1% magical damage reduction with diminishing returns."
+	"tutorial_master_dialogue_4_2g"										"Pure damage pierces magic immunity and is difficult to resist. Only some monsters and rare gears can offer pure resistance."	
+	"tutorial_master_dialogue_4_2h"										"Some special bonuses will reduce damage taken from a specific damage type."
+	"tutorial_master_dialogue_4_2i"										"Use your hero tooltip and tell me your damage type reduction."	
+
+	"tutorial_quiz_question_12"											"What is your % damage taken reduction for the @sub1 damage type?"
+
+	"tutorial_quiz_wrong_4_2_3"											"No, look under 'Additional Resistance' on your hero tooltip."
+	"tutorial_quiz_wrong_4_2_4"											"Give me the percentage resistance of this damage type!"
+
+	"tutorial_master_dialogue_4_2j"										"Yes. It is important to note that if two items offer you '50% damage reduction', both of them together equate to a total of 75% reduction."
+	"tutorial_master_dialogue_4_2k"										"Ok, I think you know enough about damage types. Except let's ask one more question."
+
+	"tutorial_quiz_question_13"											"Which damage type @sub1?"
+
+	"tutorial_quiz_wrong_4_2_5"											"Wrong."
+	"tutorial_quiz_wrong_4_2_6"											"You have a 1/3 chance of getting it right..."
+
+	"tutorial_quiz_question_13_sub1"									"is reduced by armor"
+	"tutorial_quiz_question_13_sub2"									"is reduced by 1% with diminishing returns for each resistance point"
+	"tutorial_quiz_question_13_sub3"									"pierces magic immunity and has no attribute that reduces it"
+
+	"tutorial_master_dialogue_4_2l"										"Right! Ok then. You know enough about damage types now."
+
+	"quest_4_challenge_3_desc"											"Your base attack damage is the white damage number next to the sword on your UI. Buffs that increase attack damage by a % are shown in an additional value that is displayed in green. Your main abilities have the 'Base Ability' classification and can be amplified by special bonuses."
+	"quest_4_challenge_3_sub_0_summary"									"Answer the question about attack damage."
+	"quest_4_challenge_3_sub_1_summary"									"Defeat the shroomling army using your abilities."
+
+	"tutorial_master_dialogue_4_3a"										"Your Base Attack Damage is displayed on your hero summary next to the sword icon."
+	"tutorial_master_dialogue_4_3b"										"Any buff that increases attack damage by a percentage will show as a green bonus next to the attack damage."
+	"tutorial_master_dialogue_4_3c"										"Can you tell me what your bonus attack damage is? If you don't see it on your UI, check your hero tooltip."
+
+	"tutorial_quiz_question_14"											"What is your Bonus Attack Damage value?"
+
+	"tutorial_quiz_wrong_4_3_1"											"No, give me the green number next to your attack damage."
+	"tutorial_quiz_wrong_4_3_2"											"That is not your bonus attack value."
+
+	"tutorial_master_dialogue_4_3d"										"Right! Now remember, your abilities also have a 'Base Damage' which can be amplified by special bonuses."
+	"tutorial_master_dialogue_4_3e"										"Your base ability damage amplification total shows in your hero tooltip. I already asked you a question about it before."
+	"tutorial_master_dialogue_4_3f"										"Instead of a quiz, why don't you use your abilities to fight an army of shroomlings?"
+	"tutorial_master_dialogue_4_3g"										"These guys are immune to physical damage, so use your abilities to take them down!"
+
+	"tutorial_master_dialogue_4_3h"										"Good! That concludes the lesson on Base Damage."
+
+	"tutorial_shroomling2"												"Shroomling"
+
+	"DOTA_Tooltip_ability_tutorial_shroomling_ability2"					"Pulpy"
+	"DOTA_Tooltip_ability_tutorial_shroomling_ability2_Description"		"Immune to Physical damage."
+
+	"quest_4_challenge_4_desc"											"Most abilities have an elemental damage type. Elemental damage amplification can be seen on the hero tooltip."
+	"quest_4_challenge_4_sub_0_summary"									"Answer the question about elemental amplification"
+	"quest_4_challenge_4_sub_1_summary"									"Answer the question about your rune's element"
+	"quest_4_challenge_4_sub_2_summary"									"Defeat the Omnicrest Elemental"
+
+	"tutorial_master_dialogue_4_4a"										"Damage dealt by your abilities, runes and items usually have an elemental component."
+	"tutorial_master_dialogue_4_4b"										"Elemental amplification can be increased by several special bonuses."
+	"tutorial_master_dialogue_4_4c"										"Check the bottom part of your hero tooltip."
+
+	"tutorial_quiz_question_14"											"What is your @sub1 amplification value?"
+
+	"tutorial_quiz_wrong_4_4_1"											"That's wrong. Your elemental amplification can be found at the bottom of your hero tooltip."
+	"tutorial_quiz_wrong_4_4_2"											"That's just not right. Sorry."
+
+	"tutorial_master_dialogue_4_4d"										"That's right! Be sure to check your ability's elements so that you can take advantage of them."
+	"tutorial_master_dialogue_4_4e"										"Some abilities have dual elements which allow them to benefit from both types."
+	"tutorial_master_dialogue_4_4f"										"Now let's see if you can read your element names."
+
+	"tutorial_quiz_question_15"											"Name the primary the element of @sub1."
+
+	"tutorial_quiz_wrong_4_4_3"											"That's wrong. Find the ability or rune with that name and tell me its element."
+	"tutorial_quiz_wrong_4_4_4"											"Please read your rune description and tell me which element it has."
+
+	"tutorial_master_dialogue_4_4g"										"Right. That should be enough about elemental damage."
+	"tutorial_master_dialogue_4_4h"										"Except I want to introduce you to this elemental that I know how to summon."
+	"tutorial_master_dialogue_4_4i"										"Don't let him scare you!"
+
+	"tutorial_master_dialogue_4_4j"										"Well ok. This lesson is done now."
+
+	"challens_elemental"												"Omnicrest Elemental"
+
+	"DOTA_Tooltip_ability_tutorial_elemental_ability"					"Omni Elemental"
+	"DOTA_Tooltip_ability_tutorial_elemental_ability_Description"		"Conjured entity of multiple elements."
+
+	"quest_4_challenge_5_desc"											"The training dummy is available near town on most maps. Dealing damage to it will open the Training Dummy window allowing you to view detailed breakdown of your damage."
+	"quest_4_challenge_5_sub_0_summary"									"Open the Training Dummy"
+	"quest_4_challenge_5_sub_1_summary"									"Add a few lines to the Dummy's log"
+	"quest_4_challenge_5_sub_2_summary"									"Change the Dummy's armor"
+	"quest_4_challenge_5_sub_3_summary"									"Give the Dummy Magic Immunity"
+	"quest_4_challenge_5_sub_4_summary"									"Give the Dummy Steadfast"
+
+	"tutorial_master_dialogue_4_5a"										"The Training Dummy is a helpful tool for measuring your hero's combat capability."
+	"tutorial_master_dialogue_4_5b"										"Go over to the training dummy and damage it to open the window!"
+
+	"tutorial_master_dialogue_4_5c"										"Very good. Now as you damage the dummy, precise damage figures will be displayed in the window."
+	"tutorial_master_dialogue_4_5d"										"Give the dummy a few attacks and get some feedback from the log!"
+
+	"tutorial_master_dialogue_4_5e"										"Ok, now let's try some of the configuration options."
+	"tutorial_master_dialogue_4_5f"										"You can change the dummy's armor value in order to test your physical damage. Go ahead and try it."
+
+	"tutorial_master_dialogue_4_5g"										"Yes, you can also give the dummy magic immunity to see how your damage stacks up against such defenses. Try it!"
+
+	"tutorial_master_dialogue_4_5h"										"Just one more thing. Many enemies in our world have an ability called 'Steadfast'"
+	"tutorial_master_dialogue_4_5i"										"Damage taken by enemies with steadfast is capped at a percentage of their max health."
+	"tutorial_master_dialogue_4_5j"										"We can give the Dummy steadfast so that we can test ourselves. Give the dummy steadfast!"
+	"tutorial_master_dialogue_4_5k"										"Great, now you should understand enough about the Training Dummy."
+
+	"dummy_add_magic_immunity"											"Add Magic Immunity"
+	"dummy_remove_magic_immunity"										"Remove Magic Immunity"
+
+	"dummy_attack_inverval"												"Attack Inverval"
+
+	"quest_4_challenge_6_desc"											"There is a common bonus provided by equipment and runes called Post-Mitigation damage. Post-mitigation damage amplifier takes place after all damage reduction effects are calculated (such as armor reduction and steadfast)."
+	"quest_4_challenge_6_sub_0_summary"									"Attack the Training Dummy with Steadfast active."
+	"quest_4_challenge_6_sub_1_summary"									"Attack the Training Dummy again with steadfast active, while carrying Challen's post-mitigation buff."
+
+	"tutorial_master_dialogue_4_6a"										"You will come across an important damage booster referred to as Post-Mitigation damage."
+	"tutorial_master_dialogue_4_6b"										"Post-Mitigation damage increases the damage dealt after all of the enemy's reductions have been calculated."
+	"tutorial_master_dialogue_4_6c"										"To demonstrate, please start off by attacking the training dummy with the Steadfast ability active."
+
+	"tutorial_master_dialogue_4_6d"										"Ok, take note of the damage dealt while recognizing that the training dummy has 1000 Health."
+	"tutorial_master_dialogue_4_6e"										"I have granted you a massive post-mitigation buff, attack the dummy again!"	
+
+	"tutorial_master_dialogue_4_6f"										"Can you see the difference? Your post-mitigation damage buff has applied after Steadfast's reduction!"
+	"tutorial_master_dialogue_4_6g"										"That concludes the lesson on post-mitigation damage."
+
+	"DOTA_Tooltip_challen_postmit_buff"					"Post-Mitigation Buff"
+	"DOTA_Tooltip_challen_postmit_buff_Description"		"Increased post-mitigation damage by 500%."
+
+	"quest_4_challenge_7_desc"											"Buffs and debuffs show above your hero portrait and have either a green border or red border to distinguish between them. Enemies have built in stun immunity for 7 seconds after being stunned for 10 seconds."
+	"quest_4_challenge_7_sub_0_summary"									"Read the name of the buff that was applied to you"
+	"quest_4_challenge_7_sub_1_summary"									"Defeat Challen's angry Shroomling."
+
+	"tutorial_master_dialogue_4_7a"										"Buffs and debuffs are temporary effects that change your hero's capabilities."
+	"tutorial_master_dialogue_4_7b"										"Buffs are positive effects and have a green border on your bar. Debuffs impact your hero negatively and have a red border."
+	"tutorial_master_dialogue_4_7c"										"I've applied a buff on you. Check your buff bar and tell me what the name of it is?"
+
+	"tutorial_quiz_question_16"											"What is the name of the buff that was applied to you?"
+
+	"tutorial_quiz_wrong_4_7_1"											"No, check your buff bar again."
+	"tutorial_quiz_wrong_4_7_2"											"The buff I applied to you has the image of a red treant. Look again."
+
+	"DOTA_Tooltip_modifier_challen_4_7_buff"							"Verdant"
+	"DOTA_Tooltip_modifier_challen_4_7_buff_Description"				"The name of this buff is the answer to Callen's question."	
+
+	"tutorial_master_dialogue_4_7d"										"Right! Now let me explain to you how stuns work."
+	"tutorial_master_dialogue_4_7e"										"Enemies in Roshpit become immune to stuns after being stunned for a total of 10 seconds."	
+	"tutorial_master_dialogue_4_7f"										"After they have not received a stun for 7 seconds, their immunity timer is reset."
+	"tutorial_master_dialogue_4_7g"										"Now, let me prepare a demonstration so that you understand this properly."
+	"tutorial_master_dialogue_4_7h"										"I will stun this shroomling 15 times for 1 second each on 1 second intervals. Watch."
+	"tutorial_master_dialogue_4_7i"										"That's 4 seconds so far."	
+	"tutorial_master_dialogue_4_7j"										"Oh ho, he does not seem to like this."
+	"tutorial_master_dialogue_4_7k"										"Now look! My stuns are no longer affecting him."
+	"tutorial_master_dialogue_4_7l"										"Well, it seems he is not happy with our lesson. Want to take care of this for me?"
+	"tutorial_master_dialogue_4_7m"										"Very good. That concludes this lesson."
+
+	"quest_4_reward_title"												"Training Dummy"       
+	"quest_4_reward_description"										"A Training Dummy will always spawn for you on the Tutorial Map."
+	
+	"quest_5_interface"													"5. Maps & Game"
+	"quest_5_interface_description"										"In this section we will cover miscellaneous game features."
+
+	"quest_5_challenge_1"												"A. Worlds"
+	"quest_5_challenge_2"												"B. Keys"
+	"quest_5_challenge_3"												"C. Bosses & Paragons"
+
+	"quest_5_challenge_1_desc"											"Before loading a Roshpit Champions game, you may select a map from the drop down list. Each map has its own objectives and difficulty system."
+	"quest_5_challenge_1_sub_0_summary"									"Answer the question about Roshpit's worlds"
+
+	"tutorial_master_dialogue_5_1a"										"Each part of the world has different hazards to overcome, and different rewards."
+	"tutorial_master_dialogue_5_1b"										"I recommend Redfall Ridge on Normal difficulty for new heroes. The enemies of the forest there are not terribly threatening."
+	"tutorial_master_dialogue_5_1c"										"Redfall Ridge, Tanari Jungle, and Winterblight Mountain can be set to Normal, Elite, or Legend difficulty by the lobby host."
+	"tutorial_master_dialogue_5_1c1"									"The Battle of Serengaard is a small map with infinite waves. See how far you can make it compared to others!"
+	"tutorial_master_dialogue_5_1d"										"The Arena and faraway Sea Fortress are extremely challenging. Only the toughest heroes should dare set foot in those places!"
+	"tutorial_master_dialogue_5_1e"										"If you manage to gain entry into the Arena's Major League Lounge, bring some friends with you - there might be a secret dungeon entrance..."
+	"tutorial_master_dialogue_5_1f"										"Were you listening, which map did I recommend you should start on?"
+
+	"tutorial_quiz_question_17"											"What is the best map for first time players, on normal difficulty?"
+
+	"tutorial_quiz_wrong_5_1_1"											"No, that is not the map that I recommended you should play."
+	"tutorial_quiz_wrong_5_1_2"											"That's not right, that is not the easiest map."
+
+	"tutorial_master_dialogue_5_1g"										"Yes that's right! When you're ready to get the real game started, head to Redfall Ridge and choose Normal difficulty!"
+	"tutorial_master_dialogue_5_1h"										"That concludes the lesson on worlds."
+
+	"quest_5_challenge_2_desc"											"Most maps have their own set of key items which can be used across game sessions. The oracle has a key bank that allows you to store these items without using up stash space."
+	"quest_5_challenge_2_sub_0_summary"									"Open the Key Bank at The Oracle"
+
+	"tutorial_master_dialogue_5_2a"										"Sometimes you might need a key to proceed to a new area in a map. Keys are usually carried by bosses, or redeemed from the Quest Log on Redfall Ridge."
+	"tutorial_master_dialogue_5_2b"										"Most keys are magically tuned to activate specific portals, built on white stone circles like the portal on this map."
+	"tutorial_master_dialogue_5_2c"										"Spare keys can be stored in your Key Bank for later. The Oracle provides this service so you don't have to use your stash space to store them."				
+	"tutorial_master_dialogue_5_2d"										"Go and try opening the key bank!"	
+
+	"tutorial_master_dialogue_5_2e"										"That's it! This is where you store your keys. That ends the lesson."	
+
+	"quest_5_challenge_3_desc"											"Bosses are major enemies who reward mithril upon defeating them. Any monster has a chance to spawn as a golden Paragon unit with random affixes. Paragon enemies drop arcane crystals when slain."
+	"quest_5_challenge_3_sub_0_summary"									"Defeat the Paragon Shroomling"
+
+	"tutorial_master_dialogue_5_3a"										"Terrifying bosses dominate parts of the world. Defeating one will award Mithril Shards to all heroes in a game session."
+	"tutorial_master_dialogue_5_3b"										"Defeating many bosses on a map's highest difficulty setting might attract the attention of an even more intense foe..."
+	"tutorial_master_dialogue_5_3c"										"Some monsters spawn extra large with a cyan or gold color. These are Paragon monsters; elite leaders of their kind."
+	"tutorial_master_dialogue_5_3d"										"Paragon monsters spawn with a special set of affixes that boost their power. They grant better loot, more XP, and Arcane Crystals when defeated."				
+	"tutorial_master_dialogue_5_3e"										"Here is a shroomling. Watch as I convert him into a paragon creature!"
+
+	"tutorial_master_dialogue_5_3f"										"There it is! Now defeat it and collect the bounty!"
+	"tutorial_master_dialogue_5_3g"										"Down he goes! Collect those purple crystals now! That ends this lesson."
+
+	"quest_5_reward_title"												"100,000 Mithril Shards"       
+	"quest_5_reward_description"										"Gain 100,000 Mithril Shards! A significant sum."
+
+	"quest_6_interface"													"6. External Resources"
+	"quest_6_interface_description"										"This lecture will cover the primary features of the website at www.roshpit.ca."
+
+	"quest_6_challenge_1"												"A. Game Pass"
+	"quest_6_challenge_2"												"B. Website & Curator"
+	"quest_6_challenge_3"												"C. Market"
+	"quest_6_challenge_4"												"D. Web Premium"
+	"quest_6_challenge_5"												"E. Discord Chat"
+
+	"quest_6_challenge_1_desc"											"You can purchase a game pass that lasts for 30 days on the game's home page. The pass increases maximum hero save slots and stash space. There is a stacking bonus to luck for item drops (50%), XP gain (10%), and Mithril Gain (10%). These bonuses stack with other pass holders who are in your party."
+	"quest_6_challenge_1_sub_0_summary"									"Answer the question about the Custom Game Pass"
+
+	"tutorial_master_dialogue_6_1a"										"Valve had added a mechanism to purchase a game pass within the Dota 2 client. We are truly fortunate."	
+	"tutorial_master_dialogue_6_1b"										"The Game Pass costs $0.99 and lasts for 30 days. The button to purchase one is on the main game page."
+	"tutorial_master_dialogue_6_1c"										"Along with supporting the game's development, the pass offers extra character save slots and extra stash space for its duration."
+	"tutorial_master_dialogue_6_1d"										"The pass also has small bonuses that increase xp gain, mithril gain, and luck with items. These bonuses stack with all party members who also have a pass."
+	"tutorial_master_dialogue_6_1e"										"OK now tell me, how long does the Custom Game Pass last for?"
+
+	"tutorial_quiz_question_18"											"How many days does the Custom Game Pass last?"
+
+	"tutorial_quiz_wrong_6_1_1"											"No, that is not how long a game pass lasts for."
+	"tutorial_quiz_wrong_6_1_2"											"Give me the answer in days, please."
+
+	"tutorial_master_dialogue_6_1f"										"That's right! Now I'm not going to make you buy one to proceed. That wouldn't be very nice!"
+	"tutorial_master_dialogue_6_1f1"									"That's right! And I see you already have a Game Pass. Thank you for your patronage."
+	"tutorial_master_dialogue_6_1g"										"This lesson is complete."
+
+	"quest_6_challenge_2_desc"											"The official game website is www.roshpit.ca. Here you can find information about the game as well as view players profiles and hero builds. The curator NPC in town updates the collection of knowledge for item rolls on the website."
+	"quest_6_challenge_2_sub_0_summary"									"Login to the website at www.roshpit.ca and click the Cherebi on your profile."
+	"quest_6_challenge_2_sub_1_summary"									"Speak to the Curator"
+
+	"tutorial_master_dialogue_6_2a"										"Roshpit Champions has an official website at www.roshpit.ca"	
+	"tutorial_master_dialogue_6_2b"										"The website contains all of the information about the game's heroes and items. You can also view people's profiles and their heros' builds."
+	"tutorial_master_dialogue_6_2c"										"There is also a marketplace for trading. I want you to go login to the website. Go to www.roshpit.ca and click the Steam icon at the top right."	
+	"tutorial_master_dialogue_6_2d"										"This is Valve's 3rd party authentication system. Roshpit.ca will never see your password."
+	"tutorial_master_dialogue_6_2e"										"When you login you will land on your profile page. When you are there, I want you to click on the Cherebi on your profile page!"		
+	"tutorial_master_dialogue_6_2f"										"I'll be waiting! Click the cherebi on your profile page at www.roshpit.ca"
+	"tutorial_master_dialogue_6_2g"										"Still haven't found it?"
+
+	"tutorial_master_dialogue_6_2h"										"Great! Now notice on the website there is a prominent tab labelled 'items.'"
+	"tutorial_master_dialogue_6_2i"										"The data for the possible rolls for each item are collected by the players in a team effort."	
+	"tutorial_master_dialogue_6_2j"										"You can use the Curator NPC to add your item to the collection of knowledge and help everyone!"	
+	"tutorial_master_dialogue_6_2k"										"Go and talk to the Curator!"
+
+	"tutorial_master_dialogue_6_2l"										"That's it. That completes this lesson."
+
+	"quest_6_challenge_3_desc"											"roshpit.ca has a marketplace at www.roshpit.ca/market that makes trading items easy. Items can be bought and sold for mithril shards or arcane crystals."
+	"quest_6_challenge_3_sub_0_summary"									"Click on cherebi at www.roshpit.ca/market/my_sales."
+
+	"tutorial_master_dialogue_6_3a"										"The website has a marketplace which is very important for acquiring items or mithril."
+	"tutorial_master_dialogue_6_3b"										"You can list items up for sale by choosing an item from your stash at www.roshpit.ca/market/my_sales"
+	"tutorial_master_dialogue_6_3c"										"When an auction is won (buyer) or expires (seller), the owner of the item will receive Market Mail on the my_sales page."
+	"tutorial_master_dialogue_6_3d"										"Click on the mail to put your item into your stash, or collect the proceeds of your sale."
+	"tutorial_master_dialogue_6_3e"										"I want you to visit roshpit.ca/market/my_sales! Go and find Cherebi there."
+
+	"tutorial_master_dialogue_6_3f"										"You got it! Feel free to browse the market some more to get a feel for it."
+
+	"quest_6_challenge_4_desc"											"The website offers a 'Web Premium' token which adds 72 stash slots and stash organization while on the web for 30 days. Purchased tokens can be consumed immediately or put into your stash for trading."
+	"quest_6_challenge_4_sub_0_summary"									"Click on cherebi at www.roshpit.ca/web-premium."
+
+	"tutorial_master_dialogue_6_4a"										"Roshpit.ca offers Web Premium for $5.00. It is entirely an optional feature that does not affect gameplay."
+	"tutorial_master_dialogue_6_4b"										"I can not explain it any better than the website, why don't you head over to www.roshpit.ca/web-premium now?"
+	"tutorial_master_dialogue_6_4c"										"Cherebi will greet you there! Click on him! That page will explain all of the features to you."
+
+	"tutorial_master_dialogue_6_4d"										"Good! You are welcome to purchase a token if you want to support development. That concludes this lesson."
+
+	"quest_6_challenge_5_desc"											"Roshpit Champions has an active chat channel for discussing the game. The game's developers are present there if you wish to speak to them. The URL is discord.gg/ZUhfMZG"
+	"quest_6_challenge_5_sub_0_summary"									"Go to the Curator's Library channel of the Roshpit Discord. Check the Pinned Messages for the password."
+
+	"tutorial_master_dialogue_6_5a"										"The Roshpit Champions discord chat channel is a great way to meet fellow players and discuss the game."
+	"tutorial_master_dialogue_6_5b"										"You can access the channel at discord.gg/ZUhfMZG. You can click the link in the game description as well."
+	"tutorial_master_dialogue_6_5c"										"I want you to go visit! Go to the discord chat channel."
+	"tutorial_master_dialogue_6_5d"										"To prove you've been there, tell me the password. You can find the password in the 'pinned messages' of the curators-library channel."
+
+	"tutorial_quiz_question_19"											"Go to curators-library sub channel of the Roshpit Champions discord. What is the password found in the 'Pinned Messages'?"
+
+	"tutorial_quiz_wrong_6_5_1"											"Check the pinned messages in curators-library."
+	"tutorial_quiz_wrong_6_5_2"											"That isn't it, go to discord.gg/ZUhfMZG and go to the curators-library sub channel. Check the pinned messages there."
+
+	"tutorial_master_dialogue_6_5e"										"That's right! Now feel free to introduce yourself to the other players if you'd like."
+	"tutorial_master_dialogue_6_5f"										"That ends the lesson."
+
+	"quest_6_reward_title"												"2 Weeks of Web Premium"       
+	"quest_6_reward_description"										"Add 2 weeks of Web Premium to your roshpit.ca account! Claim this when you think you'll get the most value. You can only claim it once."
 
 
 
