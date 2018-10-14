@@ -612,3 +612,14 @@
 	"tutorial_master_dialogue_6_2k"										"Сходи и поговори с Куратором!"
 
 	"tutorial_master_dialogue_6_2l"										"Это заканчивает урок."
+	
+	"quest_6_challenge_3_desc"											"roshpit.ca содержит Маркет www.roshpit.ca/market - внутриигровой рынок, позволяющий обменивать предметы на Мифрил и Кристаллы других игроков, и наоборот."
+	"quest_6_challenge_3_sub_0_summary"									"Нажми на Череби в www.roshpit.ca/market/my_sales."
+
+	"tutorial_master_dialogue_6_3a"										"Веб-сайт имеет рынок, позволяющий обменивать предметы и ресурсы."
+	"tutorial_master_dialogue_6_3b"										"Ты можешь выставить предмет на продажу в вкладке 'My Sales' www.roshpit.ca/market/my_sales"
+	"tutorial_master_dialogue_6_3c"										"Когда предмет продается, либо истекает срок лота, на странице my_sales появляется письмо с предметом или ресурсами."
+	"tutorial_master_dialogue_6_3d"										"Нажми на письмо, и это добавит вырученные ресурсы на аккаунт, либо вернет предмет в свободную ячейку."
+	"tutorial_master_dialogue_6_3e"										"Посети roshpit.ca/market/my_sales! И найди там Череби!"
+
+	"tutorial_master_dialogue_6_3f"										"Идеально! Если нужно, можешь изучить Маркет, чтобы привыкнуть к интерфейсу."
