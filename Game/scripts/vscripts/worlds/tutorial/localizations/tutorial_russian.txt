@@ -229,7 +229,7 @@
 	"tutorial_master_dialogue_3_1j"										"Если такой предмет выпадает с монстра, он даст знать о себе неоновым зеленым свечением, лучом, направленным в небо, и громким звуком, который слышно на расстоянии!"
 	"tutorial_master_dialogue_3_1l"										"Посмотрим насколько ты внимаешь."	
 
-	"tutorial_quiz_question_7"											"Насколько @sub1 тип снаряжения редок?
+	"tutorial_quiz_question_7"											"Насколько @sub1 тип снаряжения редок?"
 	"tutorial_quiz_question_7_sub_answer1"								"Второй по редкости"
 	"tutorial_quiz_question_7_sub_answer2"								"Самый редкий"
 

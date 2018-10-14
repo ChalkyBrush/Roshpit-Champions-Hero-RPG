@@ -1,21 +1,16 @@
 function Tutorial:InitTutorialMap()
   print("Initialize Tutorial")
-      Dungeons.phoenixCollision = true
-      RPCItems.DROP_LOCATION = Vector(-16000,492)
-      Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
-      Events.GameMaster:AddAbility("town_portal"):SetLevel(1)
-      Events.GameMaster:RemoveModifierByName("modifier_portal")
+  Dungeons.phoenixCollision = true
+  RPCItems.DROP_LOCATION = Vector(-16000,492)
+  Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
+  Events.GameMaster:AddAbility("town_portal"):SetLevel(1)
+  Events.GameMaster:RemoveModifierByName("modifier_portal")
 
-
-      Tutorial.ZFLOAT = 0
-    
+  Tutorial.ZFLOAT = 0
   Events.TownPosition = Vector(-2830, -2881)
   Events.isTownActive = true
 
   Dungeons.itemLevel = 1
-  -- Timers:CreateTimer(3, function()
-  -- 	Tutorial:SpawnTrainingDummies()
-  -- end)
   Tutorial:NatureAmbience()
   Tutorial:WaterfallAmbience()
 
@@ -28,18 +23,18 @@ function Tutorial:SpawnOracle()
 end
 
 function Tutorial:Debug()
-	local hero = MAIN_HERO_TABLE[1]
-	local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
-	local question = "tutorial_quiz_question_7"
-	local sub_number = RandomInt(1,2)
-	local gsub1 = "tutorial_quiz_question_7_sub_answer"..sub_number
-	local verifier = "item_rarity_immortal"
-	if sub_number == 2 then
-		verifier = "item_rarity_arcana"
-	end
-	local buttons = {"item_rarity_uncommon", "item_rarity_rare", "item_rarity_mythical", "item_rarity_immortal", "item_rarity_arcana"}
-	CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="3_1", quiz_question=question, sequence=2, verifier = verifier, localize_verifier = 1, challenge_progress = 2, gsub1 = gsub1, buttons = buttons} )
-	CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
+	-- local hero = MAIN_HERO_TABLE[1]
+	-- local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
+	-- local question = "tutorial_quiz_question_7"
+	-- local sub_number = RandomInt(1,2)
+	-- local gsub1 = "tutorial_quiz_question_7_sub_answer"..sub_number
+	-- local verifier = "item_rarity_immortal"
+	-- if sub_number == 2 then
+	-- 	verifier = "item_rarity_arcana"
+	-- end
+	-- local buttons = {"item_rarity_uncommon", "item_rarity_rare", "item_rarity_mythical", "item_rarity_immortal", "item_rarity_arcana"}
+	-- CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="3_1", quiz_question=question, sequence=2, verifier = verifier, localize_verifier = 1, challenge_progress = 2, gsub1 = gsub1, buttons = buttons} )
+	-- CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
 end
 
 function Tutorial:SpawnAllTownNPCs()
