@@ -16549,7 +16549,7 @@
 	"DOTA_Tooltip_challen_postmit_buff"					"Post-Mitigation Buff"
 	"DOTA_Tooltip_challen_postmit_buff_Description"		"Increased post-mitigation damage by 500%."
 
-	"quest_4_challenge_7_desc"											"Buffs and debuffs show above your hero portrait and have either a green border or red border to distinguish between them. S"
+	"quest_4_challenge_7_desc"											"Buffs and debuffs show above your hero portrait and have either a green border or red border to distinguish between them. Enemies have built in stun immunity for 7 seconds after being stunned for 10 seconds."
 	"quest_4_challenge_7_sub_0_summary"									"Read the name of the buff that was applied to you"
 	"quest_4_challenge_7_sub_1_summary"									"Defeat Challen's angry Shroomling."
 
@@ -16575,7 +16575,85 @@
 	"tutorial_master_dialogue_4_7k"										"Now look! My stuns are no longer affecting him."
 	"tutorial_master_dialogue_4_7l"										"Well, it seems he is not happy with our lesson. Want to take care of this for me?"
 	"tutorial_master_dialogue_4_7m"										"Very good. That concludes this lesson."
+
+	"quest_4_reward_title"												"Training Dummy"       
+	"quest_4_reward_description"										"A Training Dummy will always spawn for you on the Tutorial Map."
 	
+	"quest_5_interface"													"5. Maps & Game"
+	"quest_5_interface_description"										"In this section we will cover miscellaneous game features."
+
+	"quest_5_challenge_1"												"A. Worlds"
+	"quest_5_challenge_2"												"B. Keys"
+	"quest_5_challenge_3"												"C. Bosses & Paragons"
+
+	"quest_5_challenge_1_desc"											"Before loading a Roshpit Champions game, you may select a map from the drop down list. Each map has its own objectives and difficulty system."
+	"quest_5_challenge_1_sub_0_summary"									"Answer the question about Roshpit's worlds"
+
+	"tutorial_master_dialogue_5_1a"										"Each part of the world has different hazards to overcome, and different rewards."
+	"tutorial_master_dialogue_5_1b"										"I recommend Redfall Ridge on Normal difficulty for new heroes. The enemies of the forest there are not terribly threatening."
+	"tutorial_master_dialogue_5_1c"										"Redfall Ridge, Tanari Jungle, and Winterblight Mountain can be set to Normal, Elite, or Legend difficulty by the lobby host."
+	"tutorial_master_dialogue_5_1c1"									"The Battle of Serengaard is a small map with infinite waves. See how far you can make it compared to others!"
+	"tutorial_master_dialogue_5_1d"										"The Arena and faraway Sea Fortress are extremely challenging. Only the toughest heroes should dare set foot in those places!"
+	"tutorial_master_dialogue_5_1e"										"If you manage to gain entry into the Arena's Major League Lounge, bring some friends with you - there might be a secret dungeon entrance..."
+	"tutorial_master_dialogue_5_1f"										"Were you listening, which map did I recommend you should start on?"
+
+	"tutorial_quiz_question_17"											"What is the best map for first time players, on normal difficulty?"
+
+	"tutorial_quiz_wrong_5_1_1"											"No, that is not the map that I recommended you should play."
+	"tutorial_quiz_wrong_5_1_2"											"That's not right, that is not the easiest map."
+
+	"tutorial_master_dialogue_5_1g"										"Yes that's right! When you're ready to get the real game started, head to Redfall Ridge and choose Normal difficulty!"
+	"tutorial_master_dialogue_5_1h"										"That concludes the lesson on worlds."
+
+	"quest_5_challenge_2_desc"											"Most maps have their own set of key items which can be used across game sessions. The oracle has a key bank that allows you to store these items without using up stash space."
+	"quest_5_challenge_2_sub_0_summary"									"Open the Key Bank at The Oracle"
+
+	"tutorial_master_dialogue_5_2a"										"Sometimes you might need a key to proceed to a new area in a map. Keys are usually carried by bosses, or redeemed from the Quest Log on Redfall Ridge."
+	"tutorial_master_dialogue_5_2b"										"Most keys are magically tuned to activate specific portals, built on white stone circles like the portal on this map."
+	"tutorial_master_dialogue_5_2c"										"Spare keys can be stored in your Key Bank for later. The Oracle provides this service so you don't have to use your stash space to store them."				
+	"tutorial_master_dialogue_5_2d"										"Go and try opening the key bank!"	
+
+	"tutorial_master_dialogue_5_2e"										"That's it! This is where you store your keys. That ends the lesson."	
+
+	"quest_5_challenge_3_desc"											"Bosses are major enemies who reward mithril upon defeating them. Any monster has a chance to spawn as a golden Paragon unit with random affixes. Paragon enemies drop arcane crystals when slain."
+	"quest_5_challenge_3_sub_0_summary"									"Defeat the Paragon Shroomling"
+
+	"tutorial_master_dialogue_5_3a"										"Terrifying bosses dominate parts of the world. Defeating one will award Mithril Shards to all heroes in a game session."
+	"tutorial_master_dialogue_5_3b"										"Defeating many bosses on a map's highest difficulty setting might attract the attention of an even more intense foe..."
+	"tutorial_master_dialogue_5_3c"										"Some monsters spawn extra large with a cyan or gold color. These are Paragon monsters; elite leaders of their kind."
+	"tutorial_master_dialogue_5_3d"										"Paragon monsters spawn with a special set of affixes that boost their power. They grant better loot, more XP, and Arcane Crystals when defeated."				
+	"tutorial_master_dialogue_5_3e"										"Here is a shroomling. Watch as I convert him into a paragon creature!"
+
+	"tutorial_master_dialogue_5_3f"										"There it is! Now defeat it and collect the bounty!"
+	"tutorial_master_dialogue_5_3g"										"Down he goes! Collect those purple crystals now! That ends this lesson."
+
+	"quest_5_reward_title"												"100,000 Mithril Shards"       
+	"quest_5_reward_description"										"Gain 100,000 Mithril Shards! A significant sum."
+
+	"quest_6_interface"													"6. External Resources"
+	"quest_6_interface_description"										"This lecture will cover the primary features of the website at www.roshpit.ca."
+
+	"quest_6_challenge_1"												"A. Game Pass"
+	"quest_6_challenge_2"												"B. Website & Curator"
+	"quest_6_challenge_3"												"C. Market"
+	"quest_6_challenge_4"												"D. Web Premium"
+
+	"quest_6_challenge_1_desc"											"You can purchase a game pass that lasts for 30 days on the game's home page. The pass increases maximum hero save slots and stash space. There is a stacking bonus to luck for item drops (50%), XP gain (10%), and Mithril Gain (10%). These bonuses stack with other pass holders who are in your party."
+	"quest_6_challenge_1_sub_0_summary"									"Answer the question about the Custom Game Pass"
+
+	"tutorial_master_dialogue_6_1a"										"Valve had added a mechanism to purchase a game pass within the Dota 2 client. We are truly fortunate."	
+	"tutorial_master_dialogue_6_1b"										"The Game Pass costs $0.99 and lasts for 30 days. The button to purchase one is on the main game page."
+	"tutorial_master_dialogue_6_1c"										"Along with supporting the game's development, the pass offers extra character save slots and extra stash space for its duration."
+	"tutorial_master_dialogue_6_1d"										"The pass also has small bonuses that increase xp gain, mithril gain, and luck with items. These bonuses stack with all party members who also have a pass."
+	"tutorial_master_dialogue_6_1e"										"OK now tell me, how long does the Custom Game Pass last for?"
+
+	"tutorial_quiz_question_18"											"How many days does the Custom Game Pass last?"
+
+	"tutorial_quiz_wrong_6_1_1"											"No, that is not how long a game pass lasts for."
+	"tutorial_quiz_wrong_6_1_2"											"Give me the answer in days, please."
+
+	"tutorial_master_dialogue_6_1f"										"That's right! Now I'm not going to make you buy one to proceed. That wouldn't be very nice!"
+	"tutorial_master_dialogue_6_1g"										"This lesson is complete."
 
 		"winterblight_village"											"Winterblight Village"
 		"shrine_of_azalea"												"Shrine of Azalea"

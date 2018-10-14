@@ -1408,6 +1408,7 @@ function SaveLoad:OpenKeyBank(msg)
 			print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			CustomGameEventManager:Send_ServerToPlayer(player, "player_keys_loaded", {result=resultTable, premium=premium} )
+			Events:TutorialServerEvent(hero, "5_2", 0)
 		else
 
 		end
