@@ -514,6 +514,9 @@
 		"ui_runes"				"Runes"
 		"ui_future_patch"		"More Runes in future updates"
 		"ui_loading"			"Loading. Please Wait."
+		"ui_done"				"Done"
+		"ui_loading_items"		"Loading items..."
+		"ui_loading_units"		"Loading units..."
 
 		"ui_equipment"			"Equipment"
 		"ui_skills"				"Skills"
@@ -3402,7 +3405,7 @@
 		"item_rpc_bahamut_glyph_5_1_description" 				"Increases the duration of Solitary Shell by @glyph_property1 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"Glyph of Pride"
-		"item_rpc_bahamut_glyph_6_1_description" 				"Doubles the cooldown of Ascension, and Bahamut Pulse applies a @glyph_property1 second stun every 5th pulse."
+		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] is passive and no longer slows. Also Bahamut Pulse applies a @glyph_property1 second stun every 5th pulse."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"Glyph of Barriers"
 		"item_rpc_bahamut_glyph_7_1_description" 				"Increases the duration of Wall of Impunity by @glyph_property1 seconds."
@@ -4944,6 +4947,9 @@
 		//Abilities
 		"ekkan_corpse"														"Corpse"
 		"ekkan_familiar"													"Gargoyle Sentry"
+		"ekkan_skeleton_mage"												"Skeleton Mage"
+		"ekkan_skeleton_archer"												"Skeleton Archer"
+		"ekkan_supercharged_skeleton"										"Skeleton King"
 		
 		"notification_no_dominion"											"Can not be dominated"
     	"notification_raise_skeleton_fail"									"Must target a corpse"
@@ -8765,7 +8771,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_Description"			"While Ancient Rain is on cooldown, Spirit Warrior has a new spell Waterheart Weapon. Waterheart Weapon is a targetable buff makes attacks deal additional pure damage based on attacker's current health. Additionally all post-mitigation damage is enhanced while the buff is active."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_one"		"Impact Damage"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_suffix"				"% of current health"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_two"		"Post-mitigation Magic Damage Amp"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_two"		"Post-mitigation Damage Amp"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_suffix_two"			"%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_waterheart_weapon"					"Waterheart Weapon"
@@ -9387,9 +9393,9 @@
     	"DOTA_Tooltip_ability_venom_reaper_slice_damage_mult"					"ATTACK POWER DAMAGE MULTIPLIER:"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1"						"[R1] Purgatory"
-    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"The slashes of a Phantasmal Killer sear the souls of their victims, dealing additional damage every 0.5 seconds for 3 seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"The slashes of @Ability4 sear the souls of their victims, dealing additional damage every 0.5 seconds for 3 seconds."
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_property_one"			"Damage Over Time"
-    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% of Phantasmal Killer"
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% of Reaper's Judgement"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1"						"[R2] Pandemic"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"Increases the target acquisition radius of Reaper's Judgement."
@@ -9397,7 +9403,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix"					""
 
   		"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1"						"[R3] Death's Embrace"
-    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"A portion of the damage dealt by a Phantasmal Killer's initial strike heals Venomort. Any overhealing applies a shield that absorbs incoming damage for 30 seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"A portion of the damage dealt by @Ability4's initial strike heals Venomort. Any overhealing applies a shield that absorbs incoming damage for 30 seconds."
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_one"			"Heal Amount"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_suffix"					"% of damage"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_two"			"Maximum Shield Capacity"
@@ -9853,7 +9859,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_3"			"Immortal Zetsabre"
     	"item_property_voltex_immortal_weapon3"								"Paralyzing Static"
-    	"property_voltex_immortal_weapon3_description"						"Enemies hit by @Ability4 are paralyzed for @special_property1 seconds."
+    	"property_voltex_immortal_weapon3_description"						"Enemies hit by sparks of @Ability4 are paralyzed for @special_property1 seconds."
 
 		//Abilities
 		"DOTA_Tooltip_ability_tachyon_shell"								"Tachyon Shell"
@@ -11090,7 +11096,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_basilisk_plague_helm"							"Basilisk Plague Helm"
 		"item_property_basilisk_plague"					"Depth Rot"
-		"property_basilisk_plague_description"				"A cloud of foul rot surrounds you, slowing the movement speed of nearby enemies by <font color='#ccff66'>50</font>% and reducing their attack speed by <font color='#ccff66'>240</font>. Enemies who are exposed to the rot for <font color='#ccff66'>2</font> seconds are petrified for <font color='#ccff66'>2</font> seconds, paralyzing them while granting Spell Immunity and a <font color='#ccff66'>1500</font> post-mitigation weakness to Physical damage."
+		"property_basilisk_plague_description"				"A cloud of foul rot surrounds you, slowing the movement speed of nearby enemies by <font color='#ccff66'>50</font>% and reducing their attack speed by <font color='#ccff66'>240</font>. Enemies who are exposed to the rot for <font color='#ccff66'>2</font> seconds are petrified for <font color='#ccff66'>2</font> seconds, paralyzing them while granting Spell Immunity and a <font color='#ccff66'>1500</font>% post-mitigation weakness to Physical damage."
         "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"Depth Rot Petrify"
 		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"Turned to stone. Spell Immune, vulnerable to Physical damage."
 
@@ -12883,6 +12889,7 @@
 		"DOTA_Tooltip_ability_redfall_mist_assassin_passive_evasion"	"DODGE CHANCE %:"
 
 		"redfall_canyon_boss"										"Crimsyth Corruptor"
+		"redfall_canyon_boss_miniature"								"Crimsith Defiler"
 
 		"DOTA_Tooltip_ability_redfall_ash_tree_aura"				"Ash Aura"
 		"DOTA_Tooltip_ability_redfall_ash_tree_aura_Description"	"Reduces movespeed and vision range of nearby enemies."
@@ -13018,6 +13025,11 @@
 		"redfall_twisted_pumpkin"												"Twisted Pumpkin"
 		"redfall_chibi_bear"													"Chibi Bear"
 		"redfall_crymsith_duelist"												"Crimsyth Duelist"
+		"DOTA_Tooltip_ability_redfall_duelist_leap"								"Sweeping Lunge"
+		"DOTA_Tooltip_ability_redfall_duelist_leap_Description"					"Lunges to a target and strikes them. If the attack hits, a wave of Pure damage will wash over other nearby enemies."
+		"DOTA_Tooltip_ability_redfall_duelist_leap_bonus_pure_damage"			"PURE CLEAVE % OF ATTACK:"
+		"DOTA_Tooltip_ability_redfall_duelist_leap_landing_search_radius"		"RADIUS:"
+		
 		"redfall_crimsyth_bandit"												"Crimsyth Bandit"
 		"redfall_farmlands_crymsith_taskmaster"									"Crimsyth Taskmaster"
 		"redfall_crimsyth_recruiter"											"Crimsyth Recruiter"
@@ -13644,6 +13656,23 @@
 
 		"DOTA_Tooltip_modifier_summon_leech_seed_debuff"				"Redfall Leech Seed"
 		"DOTA_Tooltip_modifier_summon_leech_seed_debuff_Description"	"Taking damage and healing the World Tree."
+		
+		"redfall_lava_room_ice_switch"					"Lava Switch"
+		"redfall_dragonkin"								"Redfall Dragonkin"
+		"redfall_soul_scar"								"Soul Scar"
+		"redfall_exploding_turtle"						"Dynamite Turtle"
+		"redfall_castle_mini_golem"						"Lesser Golem"
+		"redfall_castle_big_golem"						"Greater Golem"
+		"redfall_shipyard_crimsyth_knight_champ"		"Crimsyth Captain"
+		"shipyard_armored_bear_guard"					"Armored Bear"
+		"redfall_shipyard_pirate_gnoll"					"Pirate Gnoll"
+		"redfall_shipyard_basic_skeleton"				"Shipyard Skeleton"
+		"redfall_shipyard_boat_handler"					"Haunted Helmsman"
+		"crimsyth_raging_shaman"						"Raging Shaman"
+		"redfall_crimsyth_castle_boss_illusion"			"Corrupted Reflection"
+		"redfall_castle_avian_purifier"					"Avian Purifier"
+		"redfall_crimsyth_thug"							"Crimsyth Thug"
+		"prince_elthezun"								"Prince Elthezun"
 
 		"rpc_sea_fortress"									"Sea Fortress"
 		"sea_fortress_sea_queen"							"Saltwater Demoness"
@@ -15988,7 +16017,7 @@
 		 "boulderspine_firebat"						"Hellbat"
 
 		 "DOTA_Tooltip_ability_knockback_immunity"				"Knockback Immunity"
-		 "DOTA_Tooltip_ability_knockback_immunity_Description"	"Не может быть отброшен."
+		 "DOTA_Tooltip_ability_knockback_immunity_Description"	"Cannot be knocked back."
 
 		 "DOTA_Tooltip_ability_tanari_slithereen_crush"				"Slithereen Crush"
 		 "DOTA_Tooltip_ability_tanari_slithereen_crush_Description"	"Damages and stuns enemies near to the caster."
@@ -16008,6 +16037,7 @@
 
 		 "redfall_ancient_water_spirit"	"Ancient Water Spirit"
 		 
+		 "terrasic_doomguard"				"Terrasic Doomguard"
 		 "terrasic_volcanic_legion"			"Volcanic Legionnaire"
 		"terrasic_black_drake"				"Ashtongue Drake"
 		"terrasic_black_dragon"				"Ashtongue Broodwarden"
@@ -16031,7 +16061,7 @@
 		 "fire_temple_fireling"										"Fireling"
 		 "fire_temple_skeleton_archer"								"Skeleton Archer"
 
-	"rpc_tutorial"														"Roshpit Tutorial (Coming Soon)"
+	"rpc_tutorial"														"Roshpit Tutorial"
 
 	"tutorial_base_armor"												"Base Armor"
 
@@ -16449,7 +16479,7 @@
 	"tutorial_master_dialogue_4_4b"										"Elemental amplification can be increased by several special bonuses."
 	"tutorial_master_dialogue_4_4c"										"Check the bottom part of your hero tooltip."
 
-	"tutorial_quiz_question_14"											"What is your @sub1 amplification value?"
+	"tutorial_quiz_question_14a"											"What is your @sub1 amplification value?"
 
 	"tutorial_quiz_wrong_4_4_1"											"That's wrong. Your elemental amplification can be found at the bottom of your hero tooltip."
 	"tutorial_quiz_wrong_4_4_2"											"That's just not right. Sorry."
@@ -16518,6 +16548,172 @@
 
 	"DOTA_Tooltip_challen_postmit_buff"					"Post-Mitigation Buff"
 	"DOTA_Tooltip_challen_postmit_buff_Description"		"Increased post-mitigation damage by 500%."
+
+	"quest_4_challenge_7_desc"											"Buffs and debuffs show above your hero portrait and have either a green border or red border to distinguish between them. Enemies have built in stun immunity for 7 seconds after being stunned for 10 seconds."
+	"quest_4_challenge_7_sub_0_summary"									"Read the name of the buff that was applied to you"
+	"quest_4_challenge_7_sub_1_summary"									"Defeat Challen's angry Shroomling."
+
+	"tutorial_master_dialogue_4_7a"										"Buffs and debuffs are temporary effects that change your hero's capabilities."
+	"tutorial_master_dialogue_4_7b"										"Buffs are positive effects and have a green border on your bar. Debuffs impact your hero negatively and have a red border."
+	"tutorial_master_dialogue_4_7c"										"I've applied a buff on you. Check your buff bar and tell me what the name of it is?"
+
+	"tutorial_quiz_question_16"											"What is the name of the buff that was applied to you?"
+
+	"tutorial_quiz_wrong_4_7_1"											"No, check your buff bar again."
+	"tutorial_quiz_wrong_4_7_2"											"The buff I applied to you has the image of a red treant. Look again."
+
+	"DOTA_Tooltip_modifier_challen_4_7_buff"							"Verdant"
+	"DOTA_Tooltip_modifier_challen_4_7_buff_Description"				"The name of this buff is the answer to Callen's question."	
+
+	"tutorial_master_dialogue_4_7d"										"Right! Now let me explain to you how stuns work."
+	"tutorial_master_dialogue_4_7e"										"Enemies in Roshpit become immune to stuns after being stunned for a total of 10 seconds."	
+	"tutorial_master_dialogue_4_7f"										"After they have not received a stun for 7 seconds, their immunity timer is reset."
+	"tutorial_master_dialogue_4_7g"										"Now, let me prepare a demonstration so that you understand this properly."
+	"tutorial_master_dialogue_4_7h"										"I will stun this shroomling 15 times for 1 second each on 1 second intervals. Watch."
+	"tutorial_master_dialogue_4_7i"										"That's 4 seconds so far."	
+	"tutorial_master_dialogue_4_7j"										"Oh ho, he does not seem to like this."
+	"tutorial_master_dialogue_4_7k"										"Now look! My stuns are no longer affecting him."
+	"tutorial_master_dialogue_4_7l"										"Well, it seems he is not happy with our lesson. Want to take care of this for me?"
+	"tutorial_master_dialogue_4_7m"										"Very good. That concludes this lesson."
+
+	"quest_4_reward_title"												"Training Dummy"       
+	"quest_4_reward_description"										"A Training Dummy will always spawn for you on the Tutorial Map."
+	
+	"quest_5_interface"													"5. Maps & Game"
+	"quest_5_interface_description"										"In this section we will cover miscellaneous game features."
+
+	"quest_5_challenge_1"												"A. Worlds"
+	"quest_5_challenge_2"												"B. Keys"
+	"quest_5_challenge_3"												"C. Bosses & Paragons"
+
+	"quest_5_challenge_1_desc"											"Before loading a Roshpit Champions game, you may select a map from the drop down list. Each map has its own objectives and difficulty system."
+	"quest_5_challenge_1_sub_0_summary"									"Answer the question about Roshpit's worlds"
+
+	"tutorial_master_dialogue_5_1a"										"Each part of the world has different hazards to overcome, and different rewards."
+	"tutorial_master_dialogue_5_1b"										"I recommend Redfall Ridge on Normal difficulty for new heroes. The enemies of the forest there are not terribly threatening."
+	"tutorial_master_dialogue_5_1c"										"Redfall Ridge, Tanari Jungle, and Winterblight Mountain can be set to Normal, Elite, or Legend difficulty by the lobby host."
+	"tutorial_master_dialogue_5_1c1"									"The Battle of Serengaard is a small map with infinite waves. See how far you can make it compared to others!"
+	"tutorial_master_dialogue_5_1d"										"The Arena and faraway Sea Fortress are extremely challenging. Only the toughest heroes should dare set foot in those places!"
+	"tutorial_master_dialogue_5_1e"										"If you manage to gain entry into the Arena's Major League Lounge, bring some friends with you - there might be a secret dungeon entrance..."
+	"tutorial_master_dialogue_5_1f"										"Were you listening, which map did I recommend you should start on?"
+
+	"tutorial_quiz_question_17"											"What is the best map for first time players, on normal difficulty?"
+
+	"tutorial_quiz_wrong_5_1_1"											"No, that is not the map that I recommended you should play."
+	"tutorial_quiz_wrong_5_1_2"											"That's not right, that is not the easiest map."
+
+	"tutorial_master_dialogue_5_1g"										"Yes that's right! When you're ready to get the real game started, head to Redfall Ridge and choose Normal difficulty!"
+	"tutorial_master_dialogue_5_1h"										"That concludes the lesson on worlds."
+
+	"quest_5_challenge_2_desc"											"Most maps have their own set of key items which can be used across game sessions. The oracle has a key bank that allows you to store these items without using up stash space."
+	"quest_5_challenge_2_sub_0_summary"									"Open the Key Bank at The Oracle"
+
+	"tutorial_master_dialogue_5_2a"										"Sometimes you might need a key to proceed to a new area in a map. Keys are usually carried by bosses, or redeemed from the Quest Log on Redfall Ridge."
+	"tutorial_master_dialogue_5_2b"										"Most keys are magically tuned to activate specific portals, built on white stone circles like the portal on this map."
+	"tutorial_master_dialogue_5_2c"										"Spare keys can be stored in your Key Bank for later. The Oracle provides this service so you don't have to use your stash space to store them."				
+	"tutorial_master_dialogue_5_2d"										"Go and try opening the key bank!"	
+
+	"tutorial_master_dialogue_5_2e"										"That's it! This is where you store your keys. That ends the lesson."	
+
+	"quest_5_challenge_3_desc"											"Bosses are major enemies who reward mithril upon defeating them. Any monster has a chance to spawn as a golden Paragon unit with random affixes. Paragon enemies drop arcane crystals when slain."
+	"quest_5_challenge_3_sub_0_summary"									"Defeat the Paragon Shroomling"
+
+	"tutorial_master_dialogue_5_3a"										"Terrifying bosses dominate parts of the world. Defeating one will award Mithril Shards to all heroes in a game session."
+	"tutorial_master_dialogue_5_3b"										"Defeating many bosses on a map's highest difficulty setting might attract the attention of an even more intense foe..."
+	"tutorial_master_dialogue_5_3c"										"Some monsters spawn extra large with a cyan or gold color. These are Paragon monsters; elite leaders of their kind."
+	"tutorial_master_dialogue_5_3d"										"Paragon monsters spawn with a special set of affixes that boost their power. They grant better loot, more XP, and Arcane Crystals when defeated."				
+	"tutorial_master_dialogue_5_3e"										"Here is a shroomling. Watch as I convert him into a paragon creature!"
+
+	"tutorial_master_dialogue_5_3f"										"There it is! Now defeat it and collect the bounty!"
+	"tutorial_master_dialogue_5_3g"										"Down he goes! Collect those purple crystals now! That ends this lesson."
+
+	"quest_5_reward_title"												"100,000 Mithril Shards"       
+	"quest_5_reward_description"										"Gain 100,000 Mithril Shards! A significant sum."
+
+	"quest_6_interface"													"6. External Resources"
+	"quest_6_interface_description"										"This lecture will cover the primary features of the website at www.roshpit.ca."
+
+	"quest_6_challenge_1"												"A. Game Pass"
+	"quest_6_challenge_2"												"B. Website & Curator"
+	"quest_6_challenge_3"												"C. Market"
+	"quest_6_challenge_4"												"D. Web Premium"
+	"quest_6_challenge_5"												"E. Discord Chat"
+
+	"quest_6_challenge_1_desc"											"You can purchase a game pass that lasts for 30 days on the game's home page. The pass increases maximum hero save slots and stash space. There is a stacking bonus to luck for item drops (50%), XP gain (10%), and Mithril Gain (10%). These bonuses stack with other pass holders who are in your party."
+	"quest_6_challenge_1_sub_0_summary"									"Answer the question about the Custom Game Pass"
+
+	"tutorial_master_dialogue_6_1a"										"Valve had added a mechanism to purchase a game pass within the Dota 2 client. We are truly fortunate."	
+	"tutorial_master_dialogue_6_1b"										"The Game Pass costs $0.99 and lasts for 30 days. The button to purchase one is on the main game page."
+	"tutorial_master_dialogue_6_1c"										"Along with supporting the game's development, the pass offers extra character save slots and extra stash space for its duration."
+	"tutorial_master_dialogue_6_1d"										"The pass also has small bonuses that increase xp gain, mithril gain, and luck with items. These bonuses stack with all party members who also have a pass."
+	"tutorial_master_dialogue_6_1e"										"OK now tell me, how long does the Custom Game Pass last for?"
+
+	"tutorial_quiz_question_18"											"How many days does the Custom Game Pass last?"
+
+	"tutorial_quiz_wrong_6_1_1"											"No, that is not how long a game pass lasts for."
+	"tutorial_quiz_wrong_6_1_2"											"Give me the answer in days, please."
+
+	"tutorial_master_dialogue_6_1f"										"That's right! Now I'm not going to make you buy one to proceed. That wouldn't be very nice!"
+	"tutorial_master_dialogue_6_1f1"									"That's right! And I see you already have a Game Pass. Thank you for your patronage."
+	"tutorial_master_dialogue_6_1g"										"This lesson is complete."
+
+	"quest_6_challenge_2_desc"											"The official game website is www.roshpit.ca. Here you can find information about the game as well as view players profiles and hero builds. The curator NPC in town updates the collection of knowledge for item rolls on the website."
+	"quest_6_challenge_2_sub_0_summary"									"Login to the website at www.roshpit.ca and click the Cherebi on your profile."
+	"quest_6_challenge_2_sub_1_summary"									"Speak to the Curator"
+
+	"tutorial_master_dialogue_6_2a"										"Roshpit Champions has an official website at www.roshpit.ca"	
+	"tutorial_master_dialogue_6_2b"										"The website contains all of the information about the game's heroes and items. You can also view people's profiles and their heros' builds."
+	"tutorial_master_dialogue_6_2c"										"There is also a marketplace for trading. I want you to go login to the website. Go to www.roshpit.ca and click the Steam icon at the top right."	
+	"tutorial_master_dialogue_6_2d"										"This is Valve's 3rd party authentication system. Roshpit.ca will never see your password."
+	"tutorial_master_dialogue_6_2e"										"When you login you will land on your profile page. When you are there, I want you to click on the Cherebi on your profile page!"		
+	"tutorial_master_dialogue_6_2f"										"I'll be waiting! Click the cherebi on your profile page at www.roshpit.ca"
+	"tutorial_master_dialogue_6_2g"										"Still haven't found it?"
+
+	"tutorial_master_dialogue_6_2h"										"Great! Now notice on the website there is a prominent tab labelled 'items.'"
+	"tutorial_master_dialogue_6_2i"										"The data for the possible rolls for each item are collected by the players in a team effort."	
+	"tutorial_master_dialogue_6_2j"										"You can use the Curator NPC to add your item to the collection of knowledge and help everyone!"	
+	"tutorial_master_dialogue_6_2k"										"Go and talk to the Curator!"
+
+	"tutorial_master_dialogue_6_2l"										"That's it. That completes this lesson."
+
+	"quest_6_challenge_3_desc"											"roshpit.ca has a marketplace at www.roshpit.ca/market that makes trading items easy. Items can be bought and sold for mithril shards or arcane crystals."
+	"quest_6_challenge_3_sub_0_summary"									"Click on cherebi at www.roshpit.ca/market/my_sales."
+
+	"tutorial_master_dialogue_6_3a"										"The website has a marketplace which is very important for acquiring items or mithril."
+	"tutorial_master_dialogue_6_3b"										"You can list items up for sale by choosing an item from your stash at www.roshpit.ca/market/my_sales"
+	"tutorial_master_dialogue_6_3c"										"When an auction is won (buyer) or expires (seller), the owner of the item will receive Market Mail on the my_sales page."
+	"tutorial_master_dialogue_6_3d"										"Click on the mail to put your item into your stash, or collect the proceeds of your sale."
+	"tutorial_master_dialogue_6_3e"										"I want you to visit roshpit.ca/market/my_sales! Go and find Cherebi there."
+
+	"tutorial_master_dialogue_6_3f"										"You got it! Feel free to browse the market some more to get a feel for it."
+
+	"quest_6_challenge_4_desc"											"The website offers a 'Web Premium' token which adds 72 stash slots and stash organization while on the web for 30 days. Purchased tokens can be consumed immediately or put into your stash for trading."
+	"quest_6_challenge_4_sub_0_summary"									"Click on cherebi at www.roshpit.ca/web-premium."
+
+	"tutorial_master_dialogue_6_4a"										"Roshpit.ca offers Web Premium for $5.00. It is entirely an optional feature that does not affect gameplay."
+	"tutorial_master_dialogue_6_4b"										"I can not explain it any better than the website, why don't you head over to www.roshpit.ca/web-premium now?"
+	"tutorial_master_dialogue_6_4c"										"Cherebi will greet you there! Click on him! That page will explain all of the features to you."
+
+	"tutorial_master_dialogue_6_4d"										"Good! You are welcome to purchase a token if you want to support development. That concludes this lesson."
+
+	"quest_6_challenge_5_desc"											"Roshpit Champions has an active chat channel for discussing the game. The game's developers are present there if you wish to speak to them. The URL is discord.gg/ZUhfMZG"
+	"quest_6_challenge_5_sub_0_summary"									"Go to the Curator's Library channel of the Roshpit Discord. Check the Pinned Messages for the password."
+
+	"tutorial_master_dialogue_6_5a"										"The Roshpit Champions discord chat channel is a great way to meet fellow players and discuss the game."
+	"tutorial_master_dialogue_6_5b"										"You can access the channel at discord.gg/ZUhfMZG. You can click the link in the game description as well."
+	"tutorial_master_dialogue_6_5c"										"I want you to go visit! Go to the discord chat channel."
+	"tutorial_master_dialogue_6_5d"										"To prove you've been there, tell me the password. You can find the password in the 'pinned messages' of the curators-library channel."
+
+	"tutorial_quiz_question_19"											"Go to curators-library sub channel of the Roshpit Champions discord. What is the password found in the 'Pinned Messages'?"
+
+	"tutorial_quiz_wrong_6_5_1"											"Check the pinned messages in curators-library."
+	"tutorial_quiz_wrong_6_5_2"											"That isn't it, go to discord.gg/ZUhfMZG and go to the curators-library sub channel. Check the pinned messages there."
+
+	"tutorial_master_dialogue_6_5e"										"That's right! Now feel free to introduce yourself to the other players if you'd like."
+	"tutorial_master_dialogue_6_5f"										"That ends the lesson."
+
+	"quest_6_reward_title"												"2 Weeks of Web Premium"       
+	"quest_6_reward_description"										"Add 2 weeks of Web Premium to your roshpit.ca account! Claim this when you think you'll get the most value. You can only claim it once."
 
 		"winterblight_village"											"Winterblight Village"
 		"shrine_of_azalea"												"Shrine of Azalea"
@@ -16737,7 +16933,7 @@
 		"DOTA_Tooltip_ability_ice_hulk_passive_damage"				"DAMAGE:"	
 
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea"			"Curse of Azalea"
-		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_Description"	"Apply a curse to an enemy for 4 seconds. If that enemy casts a spell, they are affected by a silence."
+		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_Description"	"Apply a curse that deals damage to an enemy for 4 seconds and give immunity to this curse for next 9 seconds. If that enemy casts a spell, they are affected by a silence. If curse can't affect its target, it bounces to new closest target."
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_duration"	"SILENCE DURATION:"
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_damage"		"DAMAGE:"
 
@@ -16808,7 +17004,7 @@
 		"DOTA_Tooltip_ability_azalea_maiden_frostbite_duration"		"DURATION:"
 
 		"DOTA_Tooltip_ability_maiden_magic_shield"				"Azalea's Magic Shield"
-		"DOTA_Tooltip_ability_maiden_magic_shield_Description"	"Reduces magic damage taken by 100%. Each time magic damage is taken, remove a charge."
+		"DOTA_Tooltip_ability_maiden_magic_shield_Description"	"Reduces magic damage taken by 1% per charge, stacks additively. Each time magic damage is taken, remove a charge."
 		"DOTA_Tooltip_ability_maiden_magic_shield_charges"		"CHARGES:"
 
 		"DOTA_Tooltip_modifier_maiden_armor"				"Magic Shield"

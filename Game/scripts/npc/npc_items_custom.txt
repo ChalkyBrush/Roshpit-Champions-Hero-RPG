@@ -39222,6 +39222,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"weapons/legends/seinaru_immortal_weapon_1"
 		"AbilityCastRange"	"900"
@@ -39246,6 +39247,14 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"			"12"
 			}
 		}
 		"Modifiers"
@@ -47457,6 +47466,34 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/leshrac/leshrac_blink.lua"
+						"Function"		"update_bahamut_pulse"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/leshrac/leshrac_blink.lua"
+						"Function"		"update_bahamut_pulse"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/leshrac/leshrac_blink.lua"
+						"Function"		"remove_bahamut_pulse"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"

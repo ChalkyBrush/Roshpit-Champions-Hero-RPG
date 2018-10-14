@@ -21,22 +21,22 @@ function RPCItems:SynthesisItemPlaced(msg)
 end
 
 function RPCItems:GetRealItemLevel(item)
-	local itemLevel = 0
+	local itemLevel = 1
 	if item.minLevel then
 		itemLevel = item.minLevel
 	end
-	if item.property1 and item.property1name and item.property1name == "level_reduce" then
-		itemLevel = itemLevel + item.property1
-	end
-	if item.property2 and item.property2name and item.property2name == "level_reduce" then
-		itemLevel = itemLevel + item.property2
-	end
-	if item.property3 and item.property3name and item.property3name == "level_reduce" then
-		itemLevel = itemLevel + item.property3
-	end
-	if item.property4 and item.property4name and item.property4name == "level_reduce" then
-		itemLevel = itemLevel + item.property4
-	end
+	-- if item.property1 and item.property1name and item.property1name == "level_reduce" then
+	-- 	itemLevel = itemLevel + item.property1
+	-- end
+	-- if item.property2 and item.property2name and item.property2name == "level_reduce" then
+	-- 	itemLevel = itemLevel + item.property2
+	-- end
+	-- if item.property3 and item.property3name and item.property3name == "level_reduce" then
+	-- 	itemLevel = itemLevel + item.property3
+	-- end
+	-- if item.property4 and item.property4name and item.property4name == "level_reduce" then
+	-- 	itemLevel = itemLevel + item.property4
+	-- end
 	-- print("GetRealItemLevel "..itemLevel)		
 	return math.max(itemLevel, 1)--min lvl can not be lower than 1
 end
