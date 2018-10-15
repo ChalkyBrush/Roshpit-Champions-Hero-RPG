@@ -502,6 +502,12 @@
 		"DOTA_Tooltip_ability_arena_temple_explorer_passive"			"Magic Shield"
 		"DOTA_Tooltip_ability_arena_temple_explorer_passive_Description"	"Provides passive Magic Resistance"
 		"DOTA_Tooltip_ability_arena_temple_explorer_passive_magic_resist"	"MAGIC RESIST:"
+		
+		"DOTA_Tooltip_ability_arena_temple_expolorer_poison_nova"							"Poison Nova"
+		"DOTA_Tooltip_ability_arena_temple_expolorer_poison_nova_Description"				"A spreading ring of poison that does damage over time to enemy units around."
+		"DOTA_Tooltip_ability_arena_temple_expolorer_poison_nova_damage"					"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_arena_temple_expolorer_poison_nova_radius"					"RADIUS:"
+		"DOTA_Tooltip_ability_arena_temple_expolorer_poison_nova_duration"					"DURATION:"
 
 		"DOTA_Tooltip_ability_arena_conquest_feedback"				"Feedback"
 		"DOTA_Tooltip_ability_arena_conquest_feedback_Description"	"Whenever nearby enemies' mana are reduced, shock them with pure damage based on the mana lost. Also provides passive magic resistance to the owner."
@@ -516,6 +522,9 @@
 		"arena_conquest_temple_hunter"										"Assassin of Conquest"
 		"arena_conquest_temple_repeller"									"Keeper of Mysteries"
 		"arena_conquest_temple_witch_doctor"								"Faceless Arachnomancer"
+		
+		"DOTA_Tooltip_ability_temple_arachnomancer"							"Summon Spiderlings"
+		"DOTA_Tooltip_ability_temple_arachnomancer_Description"				"Summons temple spiders to fight for him."
 
 		"DOTA_Tooltip_ability_arena_conquest_sapphire_flare"				"Sapphire Flare"
 		"DOTA_Tooltip_ability_arena_conquest_sapphire_flare_Description"	"An explosion of blue fire stuns and damages enemies in the area."
@@ -710,6 +719,8 @@
 		"DOTA_Tooltip_ability_pit_conquest_viper_strike_bonus_attack_speed"		"ATTACK SPEED LOSS:"
 		
 		//ARENA TOOLTIPS
+		
+		 "champion_gladiator"													"Champion Gladiator"
 
 		"DOTA_Tooltip_ability_arena_descent_nemesis_passive"					"Great Cleave"
 		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_Description"				"Attacks damage all enemies in an area"
@@ -748,6 +759,7 @@
 		"DOTA_Tooltip_ability_creature_pure_strike_2_Description"	"Attacks cannot miss and deal an additional 25% pure damage."
 
 		"arena_pit_of_trials_final_boss"						"Pit Lord"
+		"arena_boss_spectre_summon"								"Captured Soul"
 
 		"DOTA_Tooltip_ability_arena_pit_boss_haste"					"Bloodlust"
 		"DOTA_Tooltip_ability_arena_pit_boss_haste_Description"		"Increases attack speed and movespeed, and refreshes Firestorm."
