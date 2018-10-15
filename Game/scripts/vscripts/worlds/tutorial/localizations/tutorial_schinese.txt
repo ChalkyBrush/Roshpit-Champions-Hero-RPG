@@ -6,30 +6,30 @@
 	"tutorial_star_2"													"Earn your first reward for finishing a lesson category of the Tutorial."
 	"tutorial_star_3"													"完成整个新手引导."
 
-	"tutorial_assistant"												"Cherebi"
-	"tutorial_master"													"Loremaster Challen"
+	"tutorial_assistant"												"切雷比"
+	"tutorial_master"													"大贤者 查伦"
 
-	"tutorial_assistant_1"												"You appear to be new brand new here! Follow me so we can show you how to play this game."
-	"tutorial_assistant_2"												"Loremaster Challen is waiting by the waterfall for you. Let's go!"
-	"tutorial_assistant_3"												"He's just over the bridge! Come On!"
+	"tutorial_assistant_1"												"你看起来是新来的勇士！跟着我，我们可以教你怎么玩这个游戏 ."
+	"tutorial_assistant_2"												"大贤者已经在瀑布那儿等你了，跟我一起去吧！"
+	"tutorial_assistant_3"												"他就在桥对面，快来！"
 
-	"tutorial_menu_title"												"Roshpit Tutorial"
+	"tutorial_menu_title"												"肉山谷新手引导"
 
-	"tutorial_master_1"													"I see that my assistant has brought you here. Thank you Cherebi."
-	"tutorial_master_2"													"Hm? It seems you ran ahead of Cherebi, but let's get started anyway."
-	"tutorial_master_3"													"Welcome to Roshpit, Champion."
-	"tutorial_master_4"													"Choose a topic from the list provided to begin your education."
-	"tutorial_master_hello"												"Greetings, Champion."
+	"tutorial_master_1"													"我看见我的助手把你带到这儿来了。谢谢你，切雷比."
+	"tutorial_master_2"													"嗯？看来你跑在切雷比前面了，但是我们还是开始吧."
+	"tutorial_master_3"													"欢迎来到肉山谷英雄传说，勇士"
+	"tutorial_master_4"													"从以下提供的列表中选择一个教程来开始你的学习."
+	"tutorial_master_hello"												"你好，勇士."
 
-	"tutorial_challenge_go"												"Begin Lesson"
+	"tutorial_challenge_go"												"开始教程"
 
-	"quest_1_interface"													"1. Interface"
-	"quest_1_interface_description"										"In this series, we will cover the essential information found on the user interface."
+	"quest_1_interface"													"1. 游戏界面"
+	"quest_1_interface_description"										"在这个分类中，我们将介绍在玩家界面上能找到的重要基本信息。"
 
-	"quest_1_challenge_1"												"A. Town Portal"
-	"quest_1_challenge_2"												"B. Respawn Flag"
-	"quest_1_challenge_3"												"C. Custom Attributes"
-	"quest_1_challenge_4"												"D. Stars"
+	"quest_1_challenge_1"												"A. 回城"
+	"quest_1_challenge_2"												"B. 复活点"
+	"quest_1_challenge_3"												"C. 属性面板"
+	"quest_1_challenge_4"												"D. 成就"
 
 	"quest_1_challenge_1_desc"											"At the bottom right of your screen is a blue scroll icon. Clicking on it will begin a channel that is interrupted when damage is taken. Finishing the channel teleports your hero back to the map's town."
 
