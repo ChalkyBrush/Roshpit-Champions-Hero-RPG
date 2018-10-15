@@ -216,7 +216,7 @@
 		"DOTA_Tooltip_ability_ice_hulk_passive_damage"				"УРОН:"	
 
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea"			"Curse of Azalea"
-		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_Description"	"Проклинает врага на 4 секунды. Если противник произнесет любое заклинание, то он будет обезмолвлен."
+		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_Description"	"Проклинает врага на 4 секунды, но дает иммунитет к этому же проклятью на 9 сек. Если противник произнесет любое заклинание, то он будет обезмолвлен. Если цель невосприимчива к проклятью, оно перескочит на ближайшую доступную цель."
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_duration"	"ДЛИТЕЛЬНОСТЬ БЕЗМОЛВИЯ:"
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_damage"		"УРОН:"
 
@@ -287,7 +287,7 @@
 		"DOTA_Tooltip_ability_azalea_maiden_frostbite_duration"		"ДЛИТЕЛЬНОСТь:"
 
 		"DOTA_Tooltip_ability_maiden_magic_shield"				"Azalea's Magic Shield"
-		"DOTA_Tooltip_ability_maiden_magic_shield_Description"	"Сниает получаемый магический урон на 100%. Каждый раз при получении магического урона, теряется 1 заряд."
+		"DOTA_Tooltip_ability_maiden_magic_shield_Description"	"Снижает получаемый магический урон на 1%, за каждый заряд щита. При получении магического урона теряется 1 заряд."
 		"DOTA_Tooltip_ability_maiden_magic_shield_charges"		"ЗАРЯДОВ:"
 
 		"DOTA_Tooltip_modifier_maiden_armor"				"Magic Shield"

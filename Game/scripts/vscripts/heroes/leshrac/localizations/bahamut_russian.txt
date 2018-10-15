@@ -262,13 +262,13 @@
 		"item_rpc_bahamut_glyph_3_1_description" 				"(W) Judgement действует вокруг героя(вместо атаки впереди) на @glyph_property1% большем радиусе."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"(T4) Глиф вздымающихся волн"
-		"item_rpc_bahamut_glyph_4_1_description" 				"Увеличивает радиус [E3]Bahamut Pulse на @glyph_property1%"
+		"item_rpc_bahamut_glyph_4_1_description" 				"Увеличивает радиус [E3] на @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"(T5) Глиф изоляции"
-		"item_rpc_bahamut_glyph_5_1_description" 				"Увеличивает продолжительность [R4] Solitary Shell на @glyph_property1 сек."
+		"item_rpc_bahamut_glyph_5_1_description" 				"Увеличивает продолжительность R4 Solitary Shell на @glyph_property1 сек."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"(T6) Глиф гордости"
-		"item_rpc_bahamut_glyph_6_1_description" 				"Удваивает время перезарядки (E) Ascension, а [E3] Bahamut Pulse каждый пятый импульс оглушает цели на @glyph_property1 сек."
+		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] становится пассивной, и не замедляет. Каждый пятый импульс оглушает цели на @glyph_property1 сек."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"(T7) Глиф барьера"
 		"item_rpc_bahamut_glyph_7_1_description" 				"Увеличивает время действия (Q) Wall of Impunity на @glyph_property1 сек."

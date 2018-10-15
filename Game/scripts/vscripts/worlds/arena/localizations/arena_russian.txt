@@ -854,3 +854,6 @@
 		"DOTA_Tooltip_ability_arena_pit_boss_dash"				"Furious Charge"
 		"DOTA_Tooltip_ability_arena_pit_boss_dash_Description"	"Pit Lord совершает рывок вперед, сокрушая противников перед собой. Наносит 305000 магического урона."
 		"DOTA_Tooltip_ability_arena_pit_final_boss_ai"			"В забытых подземельях Арены древнее зло ждет своего часа."
+
+		"DOTA_Tooltip_ability_temple_arachnomancer"							"Summon Spiderlings"
+		"DOTA_Tooltip_ability_temple_arachnomancer_Description"				"Призывает пауков на свою сторону."

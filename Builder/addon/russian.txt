@@ -677,6 +677,9 @@
 		"ui_runes"				"Руны"
 		"ui_future_patch"		"Больше рун в следующих обновлениях"
 		"ui_loading"			"Загрузка. Пожалуйста, подождите."
+		"ui_done"				"Готово!"
+		"ui_loading_items"		"Загрузка предметов..."
+		"ui_loading_units"		"Загрузка юнитов..."
 
 		"ui_equipment"			"Снаряжение"
 		"ui_skills"				"Умения"

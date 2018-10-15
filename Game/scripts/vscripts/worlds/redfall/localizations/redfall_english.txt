@@ -242,7 +242,7 @@
 		"DOTA_Tooltip_ability_redfall_mist_assassin_passive_evasion"	"DODGE CHANCE %:"
 
 		"redfall_canyon_boss"										"Crimsyth Corruptor"
-		"redfall_canyon_boss_miniature"								"Crimsith Defiler"
+		"redfall_canyon_boss_miniature"								"Crimsyth Defiler"
 
 		"DOTA_Tooltip_ability_redfall_ash_tree_aura"				"Ash Aura"
 		"DOTA_Tooltip_ability_redfall_ash_tree_aura_Description"	"Reduces movespeed and vision range of nearby enemies."
