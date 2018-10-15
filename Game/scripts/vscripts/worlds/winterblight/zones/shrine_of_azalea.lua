@@ -3764,8 +3764,12 @@ function Winterblight:TriBossPhaser(index)
 	if Winterblight.Stones >= 1 then
 		table.insert(abilityTable, "redfall_mega_steadfast")
 	end
-	local buzukiTable = {"multiplier", "powerup"}
-	local selectedBuzuki = buzukiTable[RandomInt(1, #buzukiTable)]
+	local selectedBuzuki = ""
+	if RandomInt(1, 100) <= 25 then
+		selectedBuzuki = "powerup"
+	else
+		selectedBuzuki = "multiplier"
+	end
 	local spawnTable = {}
 	local positionTable = {Vector(-7217, -12013), Vector(-6406, -12013), Vector(-5596, -12013)}
 	local selectedUnit = unitTable[RandomInt(1, #unitTable)]

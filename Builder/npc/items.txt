@@ -19456,10 +19456,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "100"
-				}
 			}
 			"modifier_burning_spirit_helmet_flamethrower"
 			{
@@ -41412,7 +41408,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -41557,7 +41553,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"40"
 			}
 		}
 	}

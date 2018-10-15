@@ -1,5 +1,6 @@
 require('heroes/moon_ranger/init')
 require('heroes/moon_ranger/astral_arcana_ability')
+require('heroes/moon_ranger/moon_shroud')
 
 local pegasus = require('heroes/moon_ranger/abilities/e/e1_pegasus')
 local astralEmpowerment = require('heroes/moon_ranger/abilities/e/e2_astral_empowerment')
@@ -17,13 +18,18 @@ function cast(event)
     Helper.initializeAbilityRunes(event.caster, 'astral', 'r')
 
     local ability = event.ability
+    if caster:HasModifier("modifier_astral_glyph_4_1") then
+        local cd = ability:GetCooldown(ability:GetLevel())/2
+        ability:EndCooldown()
+        ability:StartCooldown(cd)
+    end
 
     local target = event.target_points[1]
     target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
 
     local delay = E_DELAY
     if caster:HasModifier("modifier_astral_glyph_4_1") then
-        delay = T41_DELAY
+        delay = delay/2
     end
 
     local particleName = E_PARTICLE1
@@ -57,6 +63,8 @@ function cast(event)
                 end)
                 if caster:HasModifier("modifier_astral_arcana_on_platform") then
                     arcana_star_blink_move(caster, ability)
+                elseif caster:HasModifier("modifier_moon_shroud_buff") then
+                    moon_shroud_move(caster, target)
                 end
                 -- dustParticle(caster:GetAbsOrigin(), caster)
         end)

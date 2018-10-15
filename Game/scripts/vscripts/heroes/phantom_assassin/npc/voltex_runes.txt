@@ -1046,7 +1046,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"<% VOLTEX_ARCANA1_E1_DMG_PER_ATT * 100 %>"
 			}
 			"02"
 			{
@@ -1075,7 +1075,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_ARCANA1_E1_DMG_PER_ATT * 100 %>"
+				"property_one"			"<% VOLTEX_ARCANA1_E2_DMG_PER_ATT * 100 %>"
 			}
 			"02"
 			{
