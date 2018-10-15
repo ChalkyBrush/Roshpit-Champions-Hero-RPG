@@ -1,9 +1,7 @@
 require ('heroes/moon_ranger/common')
 function shroud_animation(event)
   local caster = event.caster
-  if not caster:HasModifier("modifier_astral_glyph_5_1") then
-    StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
-  end
+  StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
 end
 
 function begin_moon_shroud(event)
@@ -17,7 +15,6 @@ function begin_moon_shroud(event)
 	create_moon_shroud_dummy(location, caster, duration, ability)
   ability.q_4_level = caster:GetRuneValue("q",4)
   Filters:CastSkillArguments(1, caster)
-  -- particles/units/heroes/hero_slark/slark_dark_pact_pulses_edge_sml.vpcf
   
   if ability.q_4_level > 0 then
     local runeAbility = caster.runeUnit4:FindAbilityByName("astral_rune_q_4")
@@ -79,7 +76,6 @@ end
 function moon_shroud_damage(event)
     local target = event.target
     local caster = event.caster.hero
-    print(caster:GetUnitName())
     local damage = event.damage
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 end

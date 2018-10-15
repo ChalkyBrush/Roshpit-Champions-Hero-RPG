@@ -1042,12 +1042,6 @@
                     "ModifierName"  "modifier_channel_start"
                     "Duration"      "2"
                 }
-
-                "FireSound"
-                {
-                    "EffectName"    "Hero_Luna.LucentBeam.Cast"
-                    "Target"    "CASTER"
-                }
                 "AttachEffect"
                 {
                     "EffectName"    "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_sparkles_tormented.vpcf"

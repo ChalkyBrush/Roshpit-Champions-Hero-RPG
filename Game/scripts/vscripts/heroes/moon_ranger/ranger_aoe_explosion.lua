@@ -19,6 +19,7 @@ function begin_explosion(event)
 		targetPoint = rotatedVector + location*Vector(1,1,0)
 		create_individual_explosion(abilityLevel, caster, targetPoint, location, "dummy_aoe_explosion", 0, damage)
 	end
+  EmitSoundOn("Hero_Leshrac.Split_Earth.Tormented", caster)
 	-- local smashLevel = caster:GetRuneValue("r",2)
 	-- if smashLevel > 0 then
  --    local b_d_damage = smashLevel*R2_DAMAGE
@@ -199,7 +200,6 @@ function starfall_initiate(event)
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_glyph_7_1_evasion_effect", {duration = 2})
   end
   ability.extraTargetsStruck = 0
-  ability.count = 0
   if caster:HasModifier("modifier_astral_glyph_5_1") then
     Timers:CreateTimer(0.03, function()
       caster:InterruptChannel()
@@ -211,7 +211,6 @@ function starfall_think(event)
   local caster = event.caster
   local ability = event.ability
   local maxStars = ability.r_1_level + 20
-  ability.count = ability.count + 1
 
 
   if ability.r_1_level > 0 then

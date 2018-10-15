@@ -10,7 +10,7 @@ local function projectileHit(event)
     	duration = ASTRAL_W1_DURATION
     end
 
-    local runesCount = 100--caster:GetRuneValue("w",1)
+    local runesCount = caster:GetRuneValue("w",1)
 
     if not runesCount or runesCount <= 0 then
         return
