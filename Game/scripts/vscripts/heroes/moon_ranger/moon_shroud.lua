@@ -92,7 +92,7 @@ function moon_shroud_buff_created(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	if target.moon_shroud_dummy and target.moon_shroud_dummy:GetEntityIndex() == caster then
+	if target.moon_shroud_dummy and target.moon_shroud_dummy:GetEntityIndex() == caster:GetEntityIndex() then
     local q_1_level = target:GetRuneValue("q",1)
     local q_3_level = target:GetRuneValue("q",3)
     if q_1_level > 0 then
