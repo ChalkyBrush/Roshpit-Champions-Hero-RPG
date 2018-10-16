@@ -194,3 +194,462 @@
 	"tutorial_master_dialogue_2_3f"										"当你读取了一个英雄时，你只能再次把他保存在相同的保存栏里，你可以创建一个新的英雄并保存在原有英雄的栏位里对旧英雄进行覆盖。"
 	"tutorial_master_dialogue_2_3g"										"保存教学到此结束。"
 
+	"quest_3_interface"													"3. 装备"
+	"quest_3_interface_description"										"在这一环节，我们学习有关装备和一些其他部件来加强你的英雄."
+
+	"quest_3_challenge_1"												"A. 基础装备"
+	"quest_3_challenge_2"												"B. 铁匠（blacksmith）"
+	"quest_3_challenge_3"												"C. 武器"
+	"quest_3_challenge_4"												"D. 雕文"
+	"quest_3_challenge_5"												"E. 永恒幻境"
+
+	"quest_3_challenge_1_desc"											"装备对英雄的加强效果是最显著的. 你可以点击装备栏的装备来对它进行装备. <font color=\'#E4AE33\'>颜色的不朽装备是稀有并且强大的. 而<font color=\'#ADE55C\'>颜色的至宝装备则更加稀有更加强大."
+	"quest_3_challenge_1_sub_0_summary"									"装备任意装备."
+	"quest_3_challenge_1_sub_1_summary"									"告诉查伦，哪名NPC可以卸掉你身上的装备."
+	"quest_3_challenge_1_sub_2_summary"									"回答关于装备稀有性的问题."
+
+	"tutorial_master_dialogue_3_1a"										"装备是使你强大主要来源."
+	"tutorial_master_dialogue_3_1b"										"通过点击装备栏你可以装备任意装备."
+	"tutorial_master_dialogue_3_1b1"									"这里有一些新手装备，为什么不试着穿上呢？"
+	"tutorial_master_dialogue_3_1c"										"记住，只有在铁匠那里你才能脱下装备."
+	"tutorial_master_dialogue_3_1d"										"当某件装备已经穿在身上时，装备同样位置的装备会对之前的装备进行覆盖."		
+	"tutorial_master_dialogue_3_1e"										"你有在听吗？告诉我在哪里能脱下装备？"
+
+	"tutorial_quiz_question_6"											"在哪里可以脱下装备？"
+	"tutorial_quiz_question_6_answer"									"铁匠"
+
+	"tutorial_quiz_wrong_3_1_1"											"错了错了，答案是城镇里的某位NPC哦。"
+	"tutorial_quiz_wrong_3_1_2"											"你知道吗，你真的应该重新学习一遍并好好记住我说的每一句！"
+
+	"tutorial_master_dialogue_3_1f"										"对了！只有铁匠可以帮你卸下装备留以备用，装备同样位置的装备时会对原有装备进行覆盖。"
+
+	"tutorial_master_dialogue_3_1g"										"当装备掉落时留意那些闪着金光的装备。"
+	"tutorial_master_dialogue_3_1h"										"这些是不朽装备，想要构筑一个强大的英雄，离不开它们."
+	"tutorial_master_dialogue_3_1i"										"比不朽装备更稀有的，是至宝装备，它们十分强大可以彻底改变英雄的技能和符文，改变一个英雄的战斗风格。"
+	"tutorial_master_dialogue_3_1j"										"当这些至宝装备掉落时，会有一道冲天的绿光，并且会有全地图的音效."
+	"tutorial_master_dialogue_3_1l"										"来吧，让我看看你有没有好好听."	
+
+	"tutorial_quiz_question_7"											"@sub1 的装备是什么品质的？"
+	"tutorial_quiz_question_7_sub_answer1"								"第二稀有"
+	"tutorial_quiz_question_7_sub_answer2"								"最稀有"
+
+	"tutorial_quiz_wrong_3_1_5"											"错了，再试试."
+	"tutorial_quiz_wrong_3_1_6"											"你要是真的好好听我讲课就不会觉得这题难了。。。"
+
+	"tutorial_master_dialogue_3_1m"										"对了！我想你对装备已经有了足够的了解，我们这堂课就到这里."
+
+	"quest_3_challenge_2_desc"											"铁匠是城镇里的一名NPC，他可以卸下你的装备（装备凿子）同样你也可以通过花费秘银水晶重铸你的装备属性. 铁匠重铸时可以帮你锁定至多2条装备属性，不过要多花一些秘银水晶。"
+	"quest_3_challenge_2_sub_0_summary"									"去铁匠那里卸下一件装备."
+	"quest_3_challenge_2_sub_1_summary"									"回答关于重铸的问题."
+
+	"tutorial_master_dialogue_3_2a"										"铁匠可以卸下你身上的装备，并交给你，然后收取相应的秘银水晶。"
+	"tutorial_master_dialogue_3_2a1"									"穷逼！既然你诚心诚意的发问了，我就大发慈悲的给你点秘银水晶，好让你付得起钱."
+	"tutorial_master_dialogue_3_2b"										"我给了你一件装备，这样你就能换装备了，现在去铁匠那里卸下一件装备!"
+
+	"tutorial_master_dialogue_3_2c"										"很好，现在别忘了重新装备回去有价值的装备。"
+	"tutorial_master_dialogue_3_2d"										"铁匠还提供了另一项重要服务，重铸属性."
+	"tutorial_master_dialogue_3_2e"										"如果一件装备是不朽品质并且不是武器，那么铁匠可以帮你重铸它的属性并且收取相应的秘银水晶."
+	"tutorial_master_dialogue_3_2f"										"铁匠在重铸时可以帮你保留至多2项你认为不错的属性，不过额外服务是要收费的."
+	"tutorial_master_dialogue_3_2g"										"鉴于你可能没有不朽品质的装备，我不会强迫你去重铸."
+	"tutorial_master_dialogue_3_2h"										"但是你要告诉我，铁匠至多可以帮你保留几条装备属性。"
+
+	"tutorial_quiz_question_8"											"当重铸一件装备时，铁匠可以保留最多几条属性？"
+	"tutorial_quiz_wrong_3_2_3"											"错了，你必须好好学习重铸的相关知识."
+	"tutorial_quiz_wrong_3_2_4"											"不对不对不对."
+
+	"tutorial_master_dialogue_3_2i"										"对了！重铸是获取顶级装备的重要环节."
+	"tutorial_master_dialogue_3_2j"										"我说过，不是所有不朽装备都能重铸，大部分可以但总有例外不是吗!"
+	"tutorial_master_dialogue_3_2k"										"现在你知道铁匠有多重要了吧，那么这堂课就到这里了."
+
+	"quest_3_challenge_3_desc"											"武器是一类特殊的装备，它们有自己的技能等级，并且可以获取经验值。当一件武器升级时，前两条属性会提高10%，而后2条符文属性会加1点。 只有最困难的地图（肉山谷竞技场和失落深海要塞）才能获取不朽武器."
+	"quest_3_challenge_3_sub_0_summary"									"回答关于你武器的问题"
+
+	"tutorial_master_dialogue_3_3a"										"武器不同于其他种类的装备，十分特殊。首先武器具有等级并且会吸收经验值。武器的提示信息里写着武器能达到的最高等级."
+	"tutorial_master_dialogue_3_3b"										"当一件武器升级时，前两条属性会提高10%，而后2条符文属性会加1点."
+	"tutorial_master_dialogue_3_3c"										"当你有能力挑战最难的地图时，你就能获得不朽武器，这算是一种特殊的奖励吧."
+	"tutorial_master_dialogue_3_3c1"									"你没有武器装备？来吧，给你这个。"	
+	"tutorial_master_dialogue_3_3d"										"现在，看看你的武器然后回答我."
+
+	"tutorial_quiz_question_9"											"你这件武器的最高等级是多少?"
+	"tutorial_quiz_wrong_3_3_1"											"好好看看你武器的提示信息."
+	"tutorial_quiz_wrong_3_3_2"											"v你必须好好查看武器的提示信息并找到答案."
+
+	"tutorial_master_dialogue_3_3e"										"正确！武器的掉落时是一个红色的盒子形，不同于其他装备，在你的冒险过程中仔细留意他们吧!"	
+
+	"quest_3_challenge_4_desc"											"雕文是可以改变你技能或者符文并且加强它们的神奇道具.你的英雄的最多装备3个雕文. 中立雕文可以被所有英雄装备. 你可以从雕文师那里制作雕文."
+	"quest_3_challenge_4_sub_0_summary"									"购买任意雕文"
+
+	"tutorial_master_dialogue_3_4a"										"你的英雄可以装备最多3个雕文，它们可以提供强大的被动效果或者改变技能或者符文."
+	"tutorial_master_dialogue_3_4b"										"任何英雄都能装备中立雕文，但你不能同时装备2个一样的雕文."
+	"tutorial_master_dialogue_3_4c"										"雕文师是一个长得像黑暗贤者的NPC，你可以从他那里获取雕文。"
+	"tutorial_master_dialogue_3_4d"										"为什么不去城镇里获取一个雕文呢?"
+	"tutorial_master_dialogue_3_4d1"									"为什么不去城镇里获取一个雕文呢，给你一些奥术水晶吧，好让你付得起钱."	
+	"tutorial_master_dialogue_3_4d2"									"接近奥术水晶就能捡起它们!"
+
+	"tutorial_master_dialogue_3_4e"										"很好，你可以通过吧雕文拖动进雕文槽里来装备它们。雕文装备槽在你屏幕的右侧."	
+	"tutorial_master_dialogue_3_4f"										"雕文的课程就到这里了."	
+
+	"quest_3_challenge_5_desc"											"永恒幻境是肉山谷的装备储存系统，你可以通过神谕者找到它，你可以保存最多12件装备，如果你有通行证的话你可以保存60件装备."
+	"quest_3_challenge_5_sub_0_summary"									"向永恒幻境里存放任意一件装备"
+	"quest_3_challenge_5_sub_1_summary"									"从永恒幻境中取出任意一件装备."
+
+	"tutorial_master_dialogue_3_5a"										"你不想穿在身上的装备都可以存到永恒幻境里."		
+	"tutorial_master_dialogue_3_5b"										"通过和神谕者对话，你可以在保存角色之前先好好整理你的装备."
+	"tutorial_master_dialogue_3_5c"										"为什么不试着把你的物品存起来呢?"
+
+        "tutorial_master_dialogue_3_5d"										"Great, now that item is saved across game sessions!"
+	"tutorial_master_dialogue_3_5e"										"Try taking an item out now."
+
+	"tutorial_master_dialogue_3_5f"										"That's it! The Pool of Eternity will certainly be a helpful tool on your journey."
+
+	"quest_3_reward_title"												"3 Low Level Arcanas"       
+	"quest_3_reward_description"										"This Galactic Arcana cache will grant you 3 low level items of the highest rarity."
+
+	"quest_4_interface"													"4. Combat"
+	"quest_4_interface_description"										"In this lesson we will learn the intricacies of Roshpit Champions' combat."
+
+	"quest_4_challenge_1"												"A. Enemies & Attacking"
+	"quest_4_challenge_2"												"B. Damage Types"
+	"quest_4_challenge_3"												"C. Base Damage"
+	"quest_4_challenge_4"												"D. Elemental Damage"
+	"quest_4_challenge_5"												"E. Training Dummy"
+	"quest_4_challenge_6"												"F. Post-Mitigation Damage"
+	"quest_4_challenge_7"												"G. Buffs, Debuffs and Stuns"
+
+	"quest_4_challenge_1_desc"											"Left clicking on an enemy opens its stats panel allowing you to view its abilities. Right clicking on an enemy issues an attack order. Your hero will keep attacking automatically until the target dies or an alternative order is issued."
+	"quest_4_challenge_1_sub_0_summary"									"Inspect the shroomling to find the answer to Challen's question."
+	"quest_4_challenge_1_sub_1_summary"									"Slay the shroomling with auto-attacks"
+
+	"tutorial_master_dialogue_4_1a"										"The monsters of Roshpit Champions have unique abilities. Across all monsters there are hundreds of different passives and active abilities."
+	"tutorial_master_dialogue_4_1b"										"When approaching an enemy for the first time, it is wise to inspect their abilities and be aware of their capabilities." 
+	"tutorial_master_dialogue_4_1c"										"As you gain knowledge of your enemies you will become more cognizant of how to effectively route them."
+	"tutorial_master_dialogue_4_1d"										"Here's a vicious Shroomling. Don't get too close yet! We don't know what his powers are!"		
+	"tutorial_master_dialogue_4_1e"										"Inspect him first! Tell me, what is this Shroomling's ability?"
+
+	"tutorial_quiz_question_10"											"What is the name of the Shroomling's ability?"
+
+	"DOTA_Tooltip_ability_tutorial_shroomling_ability"					"Fermented"
+	"DOTA_Tooltip_ability_tutorial_shroomling_ability_Description"		"This unit can only take damage from regular attacks."
+
+	"tutorial_shroomling"												"Shroomling"
+
+	"tutorial_quiz_wrong_4_1_1"											"Nope, are we even reading from the same ability bar?"
+	"tutorial_quiz_wrong_4_1_2"											"That is not the ability name of your enemy."
+
+	"tutorial_master_dialogue_4_1f"										"Right! And the ability's description stated that this enemy can only take damage from regular attacks."
+	"tutorial_master_dialogue_4_1g"										"Getting close or dealing damage to an enemy will aggro them. Once aggro'd they never calm back down and will continue chase you!"	
+	"tutorial_master_dialogue_4_1h"										"OK, this enemy can only be damaged by regular attacks. Go get him!"
+
+	"tutorial_master_dialogue_4_1i"										"A technical slaying! That concludes the lesson on Enemies & Attacking."
+
+	"quest_4_challenge_2_desc"											"The 3 main damage types are Physical, Magical and Pure. Armor and magic resistance decrease physical and magical damage taken respectively with diminishing returns. Pure damage reduction pierces spell immunity and is more difficult to reduce. "
+	"quest_4_challenge_2_sub_0_summary"									"Answer the question about physical damage reduction."
+	"quest_4_challenge_2_sub_1_summary"									"Answer the question about damage type reduction"
+	"quest_4_challenge_2_sub_2_summary"									"Answer the general question regarding damage types"
+
+	"tutorial_master_dialogue_4_2a"										"There are 3 primary damage types: Physical, Magical and Pure."
+	"tutorial_master_dialogue_4_2b"										"Your regular attacks deal physical damage, as well as some abilities."
+	"tutorial_master_dialogue_4_2c"										"Physical damage taken is reduced by your armor."
+	"tutorial_master_dialogue_4_2d"										"Check your tooltip, how much physical damage is being reduced by your armor?"
+
+	"tutorial_quiz_question_11"											"What is the damage reduction % provided by your armor?"
+
+	"tutorial_quiz_wrong_4_2_1"											"No, check your hero tooltip under the Defense section."
+	"tutorial_quiz_wrong_4_2_2"											"I will accept an answer rounded up or down to the nearest whole number."
+
+	"tutorial_master_dialogue_4_2e"										"Yes that's right! Physical attacks can also be dodged by increasing your evasion stat."
+	"tutorial_master_dialogue_4_2f"										"Magic damage is reduced by the unit's Magic Armor. Each magic armor provides 1% magical damage reduction with diminishing returns."
+	"tutorial_master_dialogue_4_2g"										"Pure damage pierces magic immunity and is difficult to resist. Only some monsters and rare gears can offer pure resistance."	
+	"tutorial_master_dialogue_4_2h"										"Some special bonuses will reduce damage taken from a specific damage type."
+	"tutorial_master_dialogue_4_2i"										"Use your hero tooltip and tell me your damage type reduction."	
+
+	"tutorial_quiz_question_12"											"What is your % damage taken reduction for the @sub1 damage type?"
+
+	"tutorial_quiz_wrong_4_2_3"											"No, look under 'Additional Resistance' on your hero tooltip."
+	"tutorial_quiz_wrong_4_2_4"											"Give me the percentage resistance of this damage type!"
+
+	"tutorial_master_dialogue_4_2j"										"Yes. It is important to note that if two items offer you '50% damage reduction', both of them together equate to a total of 75% reduction."
+	"tutorial_master_dialogue_4_2k"										"Ok, I think you know enough about damage types. Except let's ask one more question."
+
+	"tutorial_quiz_question_13"											"Which damage type @sub1?"
+
+	"tutorial_quiz_wrong_4_2_5"											"Wrong."
+	"tutorial_quiz_wrong_4_2_6"											"You have a 1/3 chance of getting it right..."
+
+	"tutorial_quiz_question_13_sub1"									"is reduced by armor"
+	"tutorial_quiz_question_13_sub2"									"is reduced by 1% with diminishing returns for each resistance point"
+	"tutorial_quiz_question_13_sub3"									"pierces magic immunity and has no attribute that reduces it"
+
+	"tutorial_master_dialogue_4_2l"										"Right! Ok then. You know enough about damage types now."
+
+	"quest_4_challenge_3_desc"											"Your base attack damage is the white damage number next to the sword on your UI. Buffs that increase attack damage by a % are shown in an additional value that is displayed in green. Your main abilities have the 'Base Ability' classification and can be amplified by special bonuses."
+	"quest_4_challenge_3_sub_0_summary"									"Answer the question about attack damage."
+	"quest_4_challenge_3_sub_1_summary"									"Defeat the shroomling army using your abilities."
+
+	"tutorial_master_dialogue_4_3a"										"Your Base Attack Damage is displayed on your hero summary next to the sword icon."
+	"tutorial_master_dialogue_4_3b"										"Any buff that increases attack damage by a percentage will show as a green bonus next to the attack damage."
+	"tutorial_master_dialogue_4_3c"										"Can you tell me what your bonus attack damage is? If you don't see it on your UI, check your hero tooltip."
+
+	"tutorial_quiz_question_14"											"What is your Bonus Attack Damage value?"
+
+	"tutorial_quiz_wrong_4_3_1"											"No, give me the green number next to your attack damage."
+	"tutorial_quiz_wrong_4_3_2"											"That is not your bonus attack value."
+
+	"tutorial_master_dialogue_4_3d"										"Right! Now remember, your abilities also have a 'Base Damage' which can be amplified by special bonuses."
+	"tutorial_master_dialogue_4_3e"										"Your base ability damage amplification total shows in your hero tooltip. I already asked you a question about it before."
+	"tutorial_master_dialogue_4_3f"										"Instead of a quiz, why don't you use your abilities to fight an army of shroomlings?"
+	"tutorial_master_dialogue_4_3g"										"These guys are immune to physical damage, so use your abilities to take them down!"
+
+	"tutorial_master_dialogue_4_3h"										"Good! That concludes the lesson on Base Damage."
+
+	"tutorial_shroomling2"												"Shroomling"
+
+	"DOTA_Tooltip_ability_tutorial_shroomling_ability2"					"Pulpy"
+	"DOTA_Tooltip_ability_tutorial_shroomling_ability2_Description"		"Immune to Physical damage."
+
+	"quest_4_challenge_4_desc"											"Most abilities have an elemental damage type. Elemental damage amplification can be seen on the hero tooltip."
+	"quest_4_challenge_4_sub_0_summary"									"Answer the question about elemental amplification"
+	"quest_4_challenge_4_sub_1_summary"									"Answer the question about your rune's element"
+	"quest_4_challenge_4_sub_2_summary"									"Defeat the Omnicrest Elemental"
+
+	"tutorial_master_dialogue_4_4a"										"Damage dealt by your abilities, runes and items usually have an elemental component."
+	"tutorial_master_dialogue_4_4b"										"Elemental amplification can be increased by several special bonuses."
+	"tutorial_master_dialogue_4_4c"										"Check the bottom part of your hero tooltip."
+
+	"tutorial_quiz_question_14a"											"What is your @sub1 amplification value?"
+
+	"tutorial_quiz_wrong_4_4_1"											"That's wrong. Your elemental amplification can be found at the bottom of your hero tooltip."
+	"tutorial_quiz_wrong_4_4_2"											"That's just not right. Sorry."
+
+	"tutorial_master_dialogue_4_4d"										"That's right! Be sure to check your ability's elements so that you can take advantage of them."
+	"tutorial_master_dialogue_4_4e"										"Some abilities have dual elements which allow them to benefit from both types."
+	"tutorial_master_dialogue_4_4f"										"Now let's see if you can read your element names."
+
+	"tutorial_quiz_question_15"											"Name the primary the element of @sub1."
+
+	"tutorial_quiz_wrong_4_4_3"											"That's wrong. Find the ability or rune with that name and tell me its element."
+	"tutorial_quiz_wrong_4_4_4"											"Please read your rune description and tell me which element it has."
+
+	"tutorial_master_dialogue_4_4g"										"Right. That should be enough about elemental damage."
+	"tutorial_master_dialogue_4_4h"										"Except I want to introduce you to this elemental that I know how to summon."
+	"tutorial_master_dialogue_4_4i"										"Don't let him scare you!"
+
+	"tutorial_master_dialogue_4_4j"										"Well ok. This lesson is done now."
+
+	"challens_elemental"												"Omnicrest Elemental"
+
+	"DOTA_Tooltip_ability_tutorial_elemental_ability"					"Omni Elemental"
+	"DOTA_Tooltip_ability_tutorial_elemental_ability_Description"		"Conjured entity of multiple elements."
+
+	"quest_4_challenge_5_desc"											"The training dummy is available near town on most maps. Dealing damage to it will open the Training Dummy window allowing you to view detailed breakdown of your damage."
+	"quest_4_challenge_5_sub_0_summary"									"Open the Training Dummy"
+	"quest_4_challenge_5_sub_1_summary"									"Add a few lines to the Dummy's log"
+	"quest_4_challenge_5_sub_2_summary"									"Change the Dummy's armor"
+	"quest_4_challenge_5_sub_3_summary"									"Give the Dummy Magic Immunity"
+	"quest_4_challenge_5_sub_4_summary"									"Give the Dummy Steadfast"
+
+	"tutorial_master_dialogue_4_5a"										"The Training Dummy is a helpful tool for measuring your hero's combat capability."
+	"tutorial_master_dialogue_4_5b"										"Go over to the training dummy and damage it to open the window!"
+
+	"tutorial_master_dialogue_4_5c"										"Very good. Now as you damage the dummy, precise damage figures will be displayed in the window."
+	"tutorial_master_dialogue_4_5d"										"Give the dummy a few attacks and get some feedback from the log!"
+
+	"tutorial_master_dialogue_4_5e"										"Ok, now let's try some of the configuration options."
+	"tutorial_master_dialogue_4_5f"										"You can change the dummy's armor value in order to test your physical damage. Go ahead and try it."
+
+	"tutorial_master_dialogue_4_5g"										"Yes, you can also give the dummy magic immunity to see how your damage stacks up against such defenses. Try it!"
+
+	"tutorial_master_dialogue_4_5h"										"Just one more thing. Many enemies in our world have an ability called 'Steadfast'"
+	"tutorial_master_dialogue_4_5i"										"Damage taken by enemies with steadfast is capped at a percentage of their max health."
+	"tutorial_master_dialogue_4_5j"										"We can give the Dummy steadfast so that we can test ourselves. Give the dummy steadfast!"
+	"tutorial_master_dialogue_4_5k"										"Great, now you should understand enough about the Training Dummy."
+
+	"dummy_add_magic_immunity"											"Add Magic Immunity"
+	"dummy_remove_magic_immunity"										"Remove Magic Immunity"
+
+	"dummy_attack_inverval"												"Attack Inverval"
+
+	"quest_4_challenge_6_desc"											"There is a common bonus provided by equipment and runes called Post-Mitigation damage. Post-mitigation damage amplifier takes place after all damage reduction effects are calculated (such as armor reduction and steadfast)."
+	"quest_4_challenge_6_sub_0_summary"									"Attack the Training Dummy with Steadfast active."
+	"quest_4_challenge_6_sub_1_summary"									"Attack the Training Dummy again with steadfast active, while carrying Challen's post-mitigation buff."
+
+	"tutorial_master_dialogue_4_6a"										"You will come across an important damage booster referred to as Post-Mitigation damage."
+	"tutorial_master_dialogue_4_6b"										"Post-Mitigation damage increases the damage dealt after all of the enemy's reductions have been calculated."
+	"tutorial_master_dialogue_4_6c"										"To demonstrate, please start off by attacking the training dummy with the Steadfast ability active."
+
+	"tutorial_master_dialogue_4_6d"										"Ok, take note of the damage dealt while recognizing that the training dummy has 1000 Health."
+	"tutorial_master_dialogue_4_6e"										"I have granted you a massive post-mitigation buff, attack the dummy again!"	
+
+	"tutorial_master_dialogue_4_6f"										"Can you see the difference? Your post-mitigation damage buff has applied after Steadfast's reduction!"
+	"tutorial_master_dialogue_4_6g"										"That concludes the lesson on post-mitigation damage."
+
+	"DOTA_Tooltip_challen_postmit_buff"					"Post-Mitigation Buff"
+	"DOTA_Tooltip_challen_postmit_buff_Description"		"Increased post-mitigation damage by 500%."
+
+	"quest_4_challenge_7_desc"											"Buffs and debuffs show above your hero portrait and have either a green border or red border to distinguish between them. Enemies have built in stun immunity for 7 seconds after being stunned for 10 seconds."
+	"quest_4_challenge_7_sub_0_summary"									"Read the name of the buff that was applied to you"
+	"quest_4_challenge_7_sub_1_summary"									"Defeat Challen's angry Shroomling."
+
+	"tutorial_master_dialogue_4_7a"										"Buffs and debuffs are temporary effects that change your hero's capabilities."
+	"tutorial_master_dialogue_4_7b"										"Buffs are positive effects and have a green border on your bar. Debuffs impact your hero negatively and have a red border."
+	"tutorial_master_dialogue_4_7c"										"I've applied a buff on you. Check your buff bar and tell me what the name of it is?"
+
+	"tutorial_quiz_question_16"											"What is the name of the buff that was applied to you?"
+
+	"tutorial_quiz_wrong_4_7_1"											"No, check your buff bar again."
+	"tutorial_quiz_wrong_4_7_2"											"The buff I applied to you has the image of a red treant. Look again."
+
+	"DOTA_Tooltip_modifier_challen_4_7_buff"							"Verdant"
+	"DOTA_Tooltip_modifier_challen_4_7_buff_Description"				"The name of this buff is the answer to Callen's question."	
+
+	"tutorial_master_dialogue_4_7d"										"Right! Now let me explain to you how stuns work."
+	"tutorial_master_dialogue_4_7e"										"Enemies in Roshpit become immune to stuns after being stunned for a total of 10 seconds."	
+	"tutorial_master_dialogue_4_7f"										"After they have not received a stun for 7 seconds, their immunity timer is reset."
+	"tutorial_master_dialogue_4_7g"										"Now, let me prepare a demonstration so that you understand this properly."
+	"tutorial_master_dialogue_4_7h"										"I will stun this shroomling 15 times for 1 second each on 1 second intervals. Watch."
+	"tutorial_master_dialogue_4_7i"										"That's 4 seconds so far."	
+	"tutorial_master_dialogue_4_7j"										"Oh ho, he does not seem to like this."
+	"tutorial_master_dialogue_4_7k"										"Now look! My stuns are no longer affecting him."
+	"tutorial_master_dialogue_4_7l"										"Well, it seems he is not happy with our lesson. Want to take care of this for me?"
+	"tutorial_master_dialogue_4_7m"										"Very good. That concludes this lesson."
+
+	"quest_4_reward_title"												"Training Dummy"       
+	"quest_4_reward_description"										"A Training Dummy will always spawn for you on the Tutorial Map."
+	
+	"quest_5_interface"													"5. Maps & Game"
+	"quest_5_interface_description"										"In this section we will cover miscellaneous game features."
+
+	"quest_5_challenge_1"												"A. Worlds"
+	"quest_5_challenge_2"												"B. Keys"
+	"quest_5_challenge_3"												"C. Bosses & Paragons"
+
+	"quest_5_challenge_1_desc"											"Before loading a Roshpit Champions game, you may select a map from the drop down list. Each map has its own objectives and difficulty system."
+	"quest_5_challenge_1_sub_0_summary"									"Answer the question about Roshpit's worlds"
+
+	"tutorial_master_dialogue_5_1a"										"Each part of the world has different hazards to overcome, and different rewards."
+	"tutorial_master_dialogue_5_1b"										"I recommend Redfall Ridge on Normal difficulty for new heroes. The enemies of the forest there are not terribly threatening."
+	"tutorial_master_dialogue_5_1c"										"Redfall Ridge, Tanari Jungle, and Winterblight Mountain can be set to Normal, Elite, or Legend difficulty by the lobby host."
+	"tutorial_master_dialogue_5_1c1"									"The Battle of Serengaard is a small map with infinite waves. See how far you can make it compared to others!"
+	"tutorial_master_dialogue_5_1d"										"The Arena and faraway Sea Fortress are extremely challenging. Only the toughest heroes should dare set foot in those places!"
+	"tutorial_master_dialogue_5_1e"										"If you manage to gain entry into the Arena's Major League Lounge, bring some friends with you - there might be a secret dungeon entrance..."
+	"tutorial_master_dialogue_5_1f"										"Were you listening, which map did I recommend you should start on?"
+
+	"tutorial_quiz_question_17"											"What is the best map for first time players, on normal difficulty?"
+
+	"tutorial_quiz_wrong_5_1_1"											"No, that is not the map that I recommended you should play."
+	"tutorial_quiz_wrong_5_1_2"											"That's not right, that is not the easiest map."
+
+	"tutorial_master_dialogue_5_1g"										"Yes that's right! When you're ready to get the real game started, head to Redfall Ridge and choose Normal difficulty!"
+	"tutorial_master_dialogue_5_1h"										"That concludes the lesson on worlds."
+
+	"quest_5_challenge_2_desc"											"Most maps have their own set of key items which can be used across game sessions. The oracle has a key bank that allows you to store these items without using up stash space."
+	"quest_5_challenge_2_sub_0_summary"									"Open the Key Bank at The Oracle"
+
+	"tutorial_master_dialogue_5_2a"										"Sometimes you might need a key to proceed to a new area in a map. Keys are usually carried by bosses, or redeemed from the Quest Log on Redfall Ridge."
+	"tutorial_master_dialogue_5_2b"										"Most keys are magically tuned to activate specific portals, built on white stone circles like the portal on this map."
+	"tutorial_master_dialogue_5_2c"										"Spare keys can be stored in your Key Bank for later. The Oracle provides this service so you don't have to use your stash space to store them."				
+	"tutorial_master_dialogue_5_2d"										"Go and try opening the key bank!"	
+
+	"tutorial_master_dialogue_5_2e"										"That's it! This is where you store your keys. That ends the lesson."	
+
+	"quest_5_challenge_3_desc"											"Bosses are major enemies who reward mithril upon defeating them. Any monster has a chance to spawn as a golden Paragon unit with random affixes. Paragon enemies drop arcane crystals when slain."
+	"quest_5_challenge_3_sub_0_summary"									"Defeat the Paragon Shroomling"
+
+	"tutorial_master_dialogue_5_3a"										"Terrifying bosses dominate parts of the world. Defeating one will award Mithril Shards to all heroes in a game session."
+	"tutorial_master_dialogue_5_3b"										"Defeating many bosses on a map's highest difficulty setting might attract the attention of an even more intense foe..."
+	"tutorial_master_dialogue_5_3c"										"Some monsters spawn extra large with a cyan or gold color. These are Paragon monsters; elite leaders of their kind."
+	"tutorial_master_dialogue_5_3d"										"Paragon monsters spawn with a special set of affixes that boost their power. They grant better loot, more XP, and Arcane Crystals when defeated."				
+	"tutorial_master_dialogue_5_3e"										"Here is a shroomling. Watch as I convert him into a paragon creature!"
+
+	"tutorial_master_dialogue_5_3f"										"There it is! Now defeat it and collect the bounty!"
+	"tutorial_master_dialogue_5_3g"										"Down he goes! Collect those purple crystals now! That ends this lesson."
+
+	"quest_5_reward_title"												"100,000 Mithril Shards"       
+	"quest_5_reward_description"										"Gain 100,000 Mithril Shards! A significant sum."
+
+	"quest_6_interface"													"6. External Resources"
+	"quest_6_interface_description"										"This lecture will cover the primary features of the website at www.roshpit.ca."
+
+	"quest_6_challenge_1"												"A. Game Pass"
+	"quest_6_challenge_2"												"B. Website & Curator"
+	"quest_6_challenge_3"												"C. Market"
+	"quest_6_challenge_4"												"D. Web Premium"
+	"quest_6_challenge_5"												"E. Discord Chat"
+
+	"quest_6_challenge_1_desc"											"You can purchase a game pass that lasts for 30 days on the game's home page. The pass increases maximum hero save slots and stash space. There is a stacking bonus to luck for item drops (50%), XP gain (10%), and Mithril Gain (10%). These bonuses stack with other pass holders who are in your party."
+	"quest_6_challenge_1_sub_0_summary"									"Answer the question about the Custom Game Pass"
+
+	"tutorial_master_dialogue_6_1a"										"Valve had added a mechanism to purchase a game pass within the Dota 2 client. We are truly fortunate."	
+	"tutorial_master_dialogue_6_1b"										"The Game Pass costs $0.99 and lasts for 30 days. The button to purchase one is on the main game page."
+	"tutorial_master_dialogue_6_1c"										"Along with supporting the game's development, the pass offers extra character save slots and extra stash space for its duration."
+	"tutorial_master_dialogue_6_1d"										"The pass also has small bonuses that increase xp gain, mithril gain, and luck with items. These bonuses stack with all party members who also have a pass."
+	"tutorial_master_dialogue_6_1e"										"OK now tell me, how long does the Custom Game Pass last for?"
+
+	"tutorial_quiz_question_18"											"How many days does the Custom Game Pass last?"
+
+	"tutorial_quiz_wrong_6_1_1"											"No, that is not how long a game pass lasts for."
+	"tutorial_quiz_wrong_6_1_2"											"Give me the answer in days, please."
+
+	"tutorial_master_dialogue_6_1f"										"That's right! Now I'm not going to make you buy one to proceed. That wouldn't be very nice!"
+	"tutorial_master_dialogue_6_1f1"									"That's right! And I see you already have a Game Pass. Thank you for your patronage."
+	"tutorial_master_dialogue_6_1g"										"This lesson is complete."
+
+	"quest_6_challenge_2_desc"											"The official game website is www.roshpit.ca. Here you can find information about the game as well as view players profiles and hero builds. The curator NPC in town updates the collection of knowledge for item rolls on the website."
+	"quest_6_challenge_2_sub_0_summary"									"Login to the website at www.roshpit.ca and click the Cherebi on your profile."
+	"quest_6_challenge_2_sub_1_summary"									"Speak to the Curator"
+
+	"tutorial_master_dialogue_6_2a"										"Roshpit Champions has an official website at www.roshpit.ca"	
+	"tutorial_master_dialogue_6_2b"										"The website contains all of the information about the game's heroes and items. You can also view people's profiles and their heros' builds."
+	"tutorial_master_dialogue_6_2c"										"There is also a marketplace for trading. I want you to go login to the website. Go to www.roshpit.ca and click the Steam icon at the top right."	
+	"tutorial_master_dialogue_6_2d"										"This is Valve's 3rd party authentication system. Roshpit.ca will never see your password."
+	"tutorial_master_dialogue_6_2e"										"When you login you will land on your profile page. When you are there, I want you to click on the Cherebi on your profile page!"		
+	"tutorial_master_dialogue_6_2f"										"I'll be waiting! Click the cherebi on your profile page at www.roshpit.ca"
+	"tutorial_master_dialogue_6_2g"										"Still haven't found it?"
+
+	"tutorial_master_dialogue_6_2h"										"Great! Now notice on the website there is a prominent tab labelled 'items.'"
+	"tutorial_master_dialogue_6_2i"										"The data for the possible rolls for each item are collected by the players in a team effort."	
+	"tutorial_master_dialogue_6_2j"										"You can use the Curator NPC to add your item to the collection of knowledge and help everyone!"	
+	"tutorial_master_dialogue_6_2k"										"Go and talk to the Curator!"
+
+	"tutorial_master_dialogue_6_2l"										"That's it. That completes this lesson."
+
+	"quest_6_challenge_3_desc"											"roshpit.ca has a marketplace at www.roshpit.ca/market that makes trading items easy. Items can be bought and sold for mithril shards or arcane crystals."
+	"quest_6_challenge_3_sub_0_summary"									"Click on cherebi at www.roshpit.ca/market/my_sales."
+
+	"tutorial_master_dialogue_6_3a"										"The website has a marketplace which is very important for acquiring items or mithril."
+	"tutorial_master_dialogue_6_3b"										"You can list items up for sale by choosing an item from your stash at www.roshpit.ca/market/my_sales"
+	"tutorial_master_dialogue_6_3c"										"When an auction is won (buyer) or expires (seller), the owner of the item will receive Market Mail on the my_sales page."
+	"tutorial_master_dialogue_6_3d"										"Click on the mail to put your item into your stash, or collect the proceeds of your sale."
+	"tutorial_master_dialogue_6_3e"										"I want you to visit roshpit.ca/market/my_sales! Go and find Cherebi there."
+
+	"tutorial_master_dialogue_6_3f"										"You got it! Feel free to browse the market some more to get a feel for it."
+
+	"quest_6_challenge_4_desc"											"The website offers a 'Web Premium' token which adds 72 stash slots and stash organization while on the web for 30 days. Purchased tokens can be consumed immediately or put into your stash for trading."
+	"quest_6_challenge_4_sub_0_summary"									"Click on cherebi at www.roshpit.ca/web-premium."
+
+	"tutorial_master_dialogue_6_4a"										"Roshpit.ca offers Web Premium for $5.00. It is entirely an optional feature that does not affect gameplay."
+	"tutorial_master_dialogue_6_4b"										"I can not explain it any better than the website, why don't you head over to www.roshpit.ca/web-premium now?"
+	"tutorial_master_dialogue_6_4c"										"Cherebi will greet you there! Click on him! That page will explain all of the features to you."
+
+	"tutorial_master_dialogue_6_4d"										"Good! You are welcome to purchase a token if you want to support development. That concludes this lesson."
+
+	"quest_6_challenge_5_desc"											"Roshpit Champions has an active chat channel for discussing the game. The game's developers are present there if you wish to speak to them. The URL is discord.gg/ZUhfMZG"
+	"quest_6_challenge_5_sub_0_summary"									"Go to the Curator's Library channel of the Roshpit Discord. Check the Pinned Messages for the password."
+
+	"tutorial_master_dialogue_6_5a"										"The Roshpit Champions discord chat channel is a great way to meet fellow players and discuss the game."
+	"tutorial_master_dialogue_6_5b"										"You can access the channel at discord.gg/ZUhfMZG. You can click the link in the game description as well."
+	"tutorial_master_dialogue_6_5c"										"I want you to go visit! Go to the discord chat channel."
+	"tutorial_master_dialogue_6_5d"										"To prove you've been there, tell me the password. You can find the password in the 'pinned messages' of the curators-library channel."
+
+	"tutorial_quiz_question_19"											"Go to curators-library sub channel of the Roshpit Champions discord. What is the password found in the 'Pinned Messages'?"
+
+	"tutorial_quiz_wrong_6_5_1"											"Check the pinned messages in curators-library."
+	"tutorial_quiz_wrong_6_5_2"											"That isn't it, go to discord.gg/ZUhfMZG and go to the curators-library sub channel. Check the pinned messages there."
+
+	"tutorial_master_dialogue_6_5e"										"That's right! Now feel free to introduce yourself to the other players if you'd like."
+	"tutorial_master_dialogue_6_5f"										"That ends the lesson."
+
+	"quest_6_reward_title"												"2 Weeks of Web Premium"       
+	"quest_6_reward_description"										"Add 2 weeks of Web Premium to your roshpit.ca account! Claim this when you think you'll get the most value. You can only claim it once."
+	
+	
