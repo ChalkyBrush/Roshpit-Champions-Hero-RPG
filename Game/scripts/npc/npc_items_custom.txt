@@ -4616,6 +4616,7 @@
 			{
 				"IsBuff"	"1"
 				"IsHidden"	"0"
+				"TextureName"	"itemicons/gloves_of_sweeping_wind"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
