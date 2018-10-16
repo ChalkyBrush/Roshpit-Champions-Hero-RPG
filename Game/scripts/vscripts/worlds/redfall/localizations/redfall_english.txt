@@ -242,7 +242,7 @@
 		"DOTA_Tooltip_ability_redfall_mist_assassin_passive_evasion"	"DODGE CHANCE %:"
 
 		"redfall_canyon_boss"										"Crimsyth Corruptor"
-		"redfall_canyon_boss_miniature"								"Crimsith Defiler"
+		"redfall_canyon_boss_miniature"								"Crimsyth Defiler"
 
 		"DOTA_Tooltip_ability_redfall_ash_tree_aura"				"Ash Aura"
 		"DOTA_Tooltip_ability_redfall_ash_tree_aura_Description"	"Reduces movespeed and vision range of nearby enemies."
@@ -265,8 +265,10 @@
 		"DOTA_Tooltip_ability_crimsith_cult_master_pull_Description"	"Pulls a target unit towards you."
 
 		"DOTA_Tooltip_ability_redfall_autumn_mage_boss_passive"					"Singeing Wake"
-		"DOTA_Tooltip_ability_redfall_autumn_mage_boss_passive_Description"		"Firey explosions encircle the caster."
-
+		"DOTA_Tooltip_ability_redfall_autumn_mage_boss_passive_Description"		"Firey explosions encircle the caster. Decrease Magical Resistance on hit and deal magical damage."
+		"DOTA_Tooltip_ability_redfall_autumn_mage_boss_passive_magic_resist_loss"	"MAGICAL RESIST DECREASE %:"
+		"DOTA_Tooltip_ability_redfall_autumn_mage_boss_passive_damage"				"DAMAGE:"
+		
 		"DOTA_Tooltip_ability_redfall_autumn_mage_blink"				"Autumn Smoke"
 		"DOTA_Tooltip_ability_redfall_autumn_mage_blink_Description"	"Teleport in a random direction after 2 second delay."
 
@@ -299,6 +301,9 @@
 		"DOTA_Tooltip_ability_redfall_bandit_blink_strike"				"Blink Strike"
 		"DOTA_Tooltip_ability_redfall_bandit_blink_strike_Description"	"Teleports behind a unit and deals bonus magic damage."
 		"DOTA_Tooltip_ability_redfall_bandit_blink_strike_bonus_damage"	"BONUS DAMAGE:"
+		
+		"DOTA_Tooltip_ability_redfall_dinosaur_passive"					""
+		"DOTA_Tooltip_ability_redfall_dinosaur_passive_Description"		""
 
 		"redfall_shroomling"											"Redfall Shroomling"
 		"redfall_autumn_gazer"											"Autumn Gazer"
@@ -527,6 +532,8 @@
 		"redfall_shipyard_soul_collector"								"Soul Collector"
 
 		"shipyard_ghost_fish"											"Ghost Fish"
+		
+		"shipyard_zombie_warrior"										"Shipyard Zombie"
 
 		"redfall_shipyard_haunt_knight"									"Shipyard Haunt Knight"
 
@@ -668,6 +675,8 @@
 		"redfall_crimsyth_hawk_soldier"									"Crimsyth Hawk Soldier"
 
 		"redfall_autumn_monster"										"Autumn Monster"
+		
+		"redfall_castle_dweller"										"Castle Dweller"
 
 		"redfall_snarlroot_treant"										"Gnarlroot Treant"
 		"redfall_castle_archer"											"Castle Archer"
@@ -1013,6 +1022,12 @@
 		"redfall_lava_room_ice_switch"					"Lava Switch"
 		"redfall_dragonkin"								"Redfall Dragonkin"
 		"redfall_soul_scar"								"Soul Scar"
+		"DOTA_Tooltip_ability_redfall_fade_bolt"						"Fade Bolt"
+		"DOTA_Tooltip_ability_redfall_fade_bolt_Description"			"Withering charge deals damage and weakens target."
+		"DOTA_Tooltip_ability_redfall_fade_bolt_damage"					"DAMAGE:"
+		"DOTA_Tooltip_ability_redfall_fade_bolt_hero_attack_damage_reduction"	"ATTACK REDUCTION:"
+		"DOTA_Tooltip_ability_redfall_fade_bolt_duration"						"DURATION:"
+		
 		"redfall_exploding_turtle"						"Dynamite Turtle"
 		"redfall_castle_mini_golem"						"Lesser Golem"
 		"redfall_castle_big_golem"						"Greater Golem"

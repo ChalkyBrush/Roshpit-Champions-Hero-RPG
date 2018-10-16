@@ -677,6 +677,9 @@
 		"ui_runes"				"Руны"
 		"ui_future_patch"		"Больше рун в следующих обновлениях"
 		"ui_loading"			"Загрузка. Пожалуйста, подождите."
+		"ui_done"				"Готово!"
+		"ui_loading_items"		"Загрузка предметов..."
+		"ui_loading_units"		"Загрузка юнитов..."
 
 		"ui_equipment"			"Снаряжение"
 		"ui_skills"				"Умения"
@@ -841,8 +844,8 @@
 
 		"property_unit_walking_description"			"Позволяет герою проходить сквозь других юнитов."
 
-		"item_all_runes"							"+ ВСЕ T1-T3 РУНЫ"
-		"item_all_attributes"						"+ ВСЕ АТРИБУТЫ"
+		"item_all_runes"							"+ Все T1-T3 Руны"
+		"item_all_attributes"						"+ Все Атрибуты"
 
 		 "item_property_skulldigger1"						"Wraithfire I"
 		 "property_skulldigger1_description"				"Каждые @special_property1 сек. герой получает заряд этого предмета.<br>При получении героем урона, в сторону атакующего будет выпущен спектральный шар,<br>который при столкновении с целью наносит урон в размере @special_property3x общего урона героя<br>и оглушает её на @special_property4 сек.<br>Максимум зарядов: @special_property2.<br>С каждым успешным попаданием спектрального шара по противнику к свойству предмета добавляется 1 очко. Предмет обновится, когда счетчик свойства достигнет значения 4000."
@@ -1857,10 +1860,10 @@
 		"stars_menu"													"Звёзды"
 		"stars_hero_level_title"										"На новую высоту"		
 		"stars_hero_level_description"									"Прокачайте героя @heroname до @level-го уровня."
-		"star_description_basic"										"@heroname - убейте @boss_name, @mapname на любой сложности."
-		"star_description_basic2"										"@heroname - убейте @boss_name, @mapname, сложность Legend."
-		"star_description_basic3_tanari"								"@heroname - убейте @boss_name, @mapname, сложность Legend в Мире Духов."
-		"star_description_basic3_redfall"								"@heroname - убейте @boss_name, @mapname, сложность Legend с Равноденствием."
+		"star_description_basic"										"@heroname - убейте @boss_name, @map_name на любой сложности."
+		"star_description_basic2"										"@heroname - убейте @boss_name, @map_name, сложность Legend."
+		"star_description_basic3_tanari"								"@heroname - убейте @boss_name, @map_name, сложность Legend в Мире Духов."
+		"star_description_basic3_redfall"								"@heroname - убейте @boss_name, @map_name, сложность Legend с Равноденствием."
 
 
 		"star_description_champions_league"								"@heroname - достигните @rank звания на Арене."
