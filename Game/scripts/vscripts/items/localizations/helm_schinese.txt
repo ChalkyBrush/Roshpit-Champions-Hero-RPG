@@ -101,7 +101,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"穆咖钭面具"
 		"item_property_mugato"						"穆咖钭的诅咒"	
-		"property_mugato_description" 				"增加 @special_property1% 基础技能伤害。魔法值回复速度降低5000点。"
+		"property_mugato_description" 				"施放任意技能沉默自己4秒，每次普通攻击沉默自己0.6秒。当被任意来源沉默时，提高600%税后伤害"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"沼泽女巫帽"

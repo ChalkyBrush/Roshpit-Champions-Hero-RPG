@@ -212,7 +212,7 @@
 		"item_rpc_epoch_glyph_4_1_description" 				"攻击不在消耗 [W3] 智慧穷尽 buff。（智力加成不降低，同时每次攻击都恢复相应的生命值）"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_1"		"时间取代雕文"
-		"item_rpc_epoch_glyph_5_1_description" 				"每当你攻击同一个目标时提高 @glyph_property1% 额外攻击力，最高 @glyph_property2 层。攻击新目标后重置。"
+		"item_rpc_epoch_glyph_5_1_description" 				"普通攻击附带[W2]时光风暴debuff。"
 
 		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect"		"Substituted Time"
 		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect_Description"	"Increasing attack damage while focusing the same target."
