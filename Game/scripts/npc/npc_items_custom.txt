@@ -36605,6 +36605,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"	"itemicons/brazen_kabuto_of_the_desert_realm"
 				"States"
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
