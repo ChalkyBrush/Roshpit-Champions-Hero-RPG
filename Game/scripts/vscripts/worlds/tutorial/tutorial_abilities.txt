@@ -22,6 +22,7 @@
 				{
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
@@ -82,5 +83,173 @@
 					}
 				}
 			}
+			"modifier_tutorial_unit"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+						"Function"		"tutorial_unit_die"
+					}
+				}
+			}
+			"modifier_tutorial_summon_animation"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+						"Function"		"floating_think"
+						"target"        "TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+						"Function"		"floating_think_end"
+						"target"        "TARGET"
+					}
+				}
+			}
+			"modifier_tutorial_summon_drop"
+			{
+				"IsHidden"	"1"	
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+						"Function"		"floating_drop"
+						"target"        "TARGET"
+					}
+				}
+			}
+			"challen_postmit_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+						"EffectAttachType"			"attach_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"200 200 200"
+						"EffectAlphaScale"			"1"
+					}
+				}
+			}
+			"modifier_challen_4_7_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"redfall/autumn_summon"
+			}
+			"modifier_disable_player"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"	
+				}
+			}
 		}
 	}
+
+	"tutorial_shroomling_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tusk_snowball"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_tutorial_enemy_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+				"Function"		"shroomling_die"
+			}
+		}
+	}
+
+
+	"tutorial_shroomling_ability2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tusk_snowball"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_tutorial_enemy_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+				"Function"		"shroomling_2_die"
+			}
+		}
+	}
+
+	"tutorial_elemental_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tusk_snowball"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_rainbow_effect"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/rainbow_buff.vpcf"
+						"EffectAttachType"			"follow_overhead"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"255 255 255"
+						"EffectAlphaScale"			"1"
+					}
+				}
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+				"Function"		"elemental_die"
+			}
+		}
+	}
+

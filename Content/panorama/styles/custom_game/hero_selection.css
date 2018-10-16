@@ -115,6 +115,38 @@
     width:100%;
     height:100%;
 }
+
+.load_lable_class{
+    vertical-align: top;
+    margin-top: 10px;
+    horizontal-align: center;
+    color: white;
+    text-align: center;
+    text-shadow: 1px 1px 2px 3 #00000066;
+    font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    font-size: 25;
+}
+
+.item_load_class{
+    horizontal-align: left;
+    vertical-align: center;
+    width: 200px;
+    height: 100px;
+    margin-left: 500px;
+    margin-top: 60px;
+    flow-children: down;
+}
+
+.unit_load_class{
+    horizontal-align: right;
+    vertical-align: center;
+    width: 200px;
+    height: 100px;
+    margin-right: 500px;
+    margin-top: 60px;
+    flow-children: down;
+}
+
 .new-or-load-container{
     flow-children:down;
     horizontal-align:center;

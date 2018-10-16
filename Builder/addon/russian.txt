@@ -4,6 +4,7 @@
 	"Tokens"
 	{		
 		"addon_game_name"			"Roshpit Champions"
+		"rpc_sea_fortress"			"Sea Fortress"
 		"rpc_tanari_jungle"			"Tanari Jungle"
 		"rpc_redfall_ridge"			"Redfall Ridge"
 		"rpc_battle_of_serengaard"	"Battle of Serengaard"
@@ -676,6 +677,9 @@
 		"ui_runes"				"Руны"
 		"ui_future_patch"		"Больше рун в следующих обновлениях"
 		"ui_loading"			"Загрузка. Пожалуйста, подождите."
+		"ui_done"				"Готово!"
+		"ui_loading_items"		"Загрузка предметов..."
+		"ui_loading_units"		"Загрузка юнитов..."
 
 		"ui_equipment"			"Снаряжение"
 		"ui_skills"				"Умения"
@@ -741,7 +745,7 @@
 		"tooltip_loading_screen_tip1"		"Для новичков: Убедитесь, что выбрали сложность 'Normal'. Иначе ваш герой будет погибать с одного удара и не сможет внести вклад в командную игру!"
 		"tooltip_loading_screen_tip2"		"Свойство 'Доп. урон умений' увеличивает урон ваших четырёх основных способностей."
 		"tooltip_loading_screen_tip3"		"Новичкам рекомендуется начать игру с карты : rpc_redfall_ridge. Карты rpc_sea_fortress и rpc_arena не предназначены для новых игроков!"
-		"tooltip_loading_screen_tip4"		"Каждый герой обладает 16 рунами и 7 уникальными символами. В комбинации с более чем 270 предметами, вы можете создать очень сильного героя!"
+		"tooltip_loading_screen_tip4"		"Каждый герой обладает 16 рунами и 7 уникальными Глифами. В комбинации с более чем 270 предметами, вы можете создать очень сильного героя!"
 		"tooltip_loading_screen_tip5"		"Кузнец в городе поможет вам снять предметы или перековать их в обмен на Мифрильные Осколки."
 		"tooltip_loading_screen_tip6"		"Камень восстановления позволяет сбросить все ваши умения и руны в изначальное состояние, позволяя перераспределить их снова. Он может быть создан у Заклинателя за 30'000 Тёмных Кристаллов или с небольшим шансом может быть выбит из монстров."
 		"tooltip_loading_screen_tip7"		"Некоторые монстры обладают очень сильными способностями! Убедитесь, что внимательно прочитали их описание перед атакой."
@@ -840,8 +844,8 @@
 
 		"property_unit_walking_description"			"Позволяет герою проходить сквозь других юнитов."
 
-		"item_all_runes"							"+ ВСЕ T1-T3 РУНЫ"
-		"item_all_attributes"						"+ ВСЕ АТРИБУТЫ"
+		"item_all_runes"							"+ Все T1-T3 Руны"
+		"item_all_attributes"						"+ Все Атрибуты"
 
 		 "item_property_skulldigger1"						"Wraithfire I"
 		 "property_skulldigger1_description"				"Каждые @special_property1 сек. герой получает заряд этого предмета.<br>При получении героем урона, в сторону атакующего будет выпущен спектральный шар,<br>который при столкновении с целью наносит урон в размере @special_property3x общего урона героя<br>и оглушает её на @special_property4 сек.<br>Максимум зарядов: @special_property2.<br>С каждым успешным попаданием спектрального шара по противнику к свойству предмета добавляется 1 очко. Предмет обновится, когда счетчик свойства достигнет значения 4000."
@@ -918,7 +922,7 @@
 
 		"cache_radiance"									"Излучение"
 
-		"item_row"					"Уровень символа"
+		"item_row"					"Уровень глифа"
 
 	    //------------------------
 		// Save/Load
@@ -992,88 +996,88 @@
 		// GLYPHS // Печати // Символы
 		//------------------------
 
-		"ui_glyphs_title"			"Символы"
-		"tooltip_glyph"				"Символ"
+		"ui_glyphs_title"			"Глифы"
+		"tooltip_glyph"				"Глиф"
 		"tooltip_neutral"			"Нейтральный"
 
 		"tooltip_resources"			"Ресурсы"
 
 		"tooltip_arcane_crystals"	"Темные Кристаллы"
-		"glyph_enchanter_header"	"Заклинатель"
-		"the_glyph_enchanter"		"Заклинатель"
+		"glyph_enchanter_header"	"Зачарователь Глифов"
+		"the_glyph_enchanter"		"Зачарователь Глифов"
 
 		"tooltip_enchanting_tier"	"Уровень зачарования"
-		"tooltip_upgrade_enchanter"	"Улучшить заклинателя"
+		"tooltip_upgrade_enchanter"	"Улучшить Зачарователя"
 		"tooltip_upgrade_cost"		"Цена"
-		"upgrade_enchanter_info_tooltip"	"Улучшение зачарований привязано к вашему Steam аккаунту. Чем выше уровень Заклинателя, тем больше символов можно создать."
+		"upgrade_enchanter_info_tooltip"	"Улучшение зачарований привязано к вашему Steam аккаунту. Чем выше уровень Заклинателя, тем больше Глифов можно создать."
 		"tooltip_tier"				"Уровень"
 
-		"tooltip_shop_glyphs"		"Просмотреть Символы"
+		"tooltip_shop_glyphs"		"Просмотреть Глифы"
 
 		"dialogue_glyph_shop_one"	"Я могу обменять твои Темные Кристаллы на нечто большее..."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_1"	"(T1) Символ малой мощи"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_1"	"(T1) Глиф Малой Силы"
 		"item_rpc_neutral_glyph_1_1_description" 			"Увеличивает Силу на @glyph_property1"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_1"	"(T2) Символ экипировки"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_1"	"(T2) Глиф Снаряжения"
 		"item_rpc_neutral_glyph_2_1_description" 			"Увеличивает урон, напрямую наносимый предметами на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_1"	"(T3) Символ полёта"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_1"	"(T3) Глиф Полёта"
 		"item_rpc_neutral_glyph_3_1_description"			"Максимальная скорость передвижения увеличена до @glyph_property1"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_1"	"(T4) Символ обновления"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_1"	"(T4) Глиф Обновления"
 		"item_rpc_neutral_glyph_4_1_description" 			"Снижает время возрождения на @glyph_property1%, а герой возрождается на месте своей смерти. Если герой повторно умирает в течении @glyph_property2 секунд, местом возрождения станет установленный Флаг возрождения или место на карте по умолчанию."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_1"	"(T5) Символ стены"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_1"	"(T5) Глиф Возведения Стены"
 		"item_rpc_neutral_glyph_5_1_description" 			"Сокращает ВЕСЬ получаемый урон на @glyph_property1% и уменьшает весь наносимый урон на @glyph_property2%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_1"	"(T6) Символ войны"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_1"	"(T6) Глиф Войны"
 		"item_rpc_neutral_glyph_6_1_description" 			"Увеличивает основной урон на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_1"	"(T7) Символ Высшей Силы"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_1"	"(T7) Глиф Высшей Силы"
 		"item_rpc_neutral_glyph_7_1_description" 			"Увеличивает Cилу на @glyph_property2% или на @glyph_property1, в зависимости от того, какое число выше."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"(T1) Символ малого проворства"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"(T1) Глиф Малой Ловкости"
 		"item_rpc_neutral_glyph_1_2_description" 			"Увеличивает Ловкость на @glyph_property1"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_2"	"(T2) Символ способности"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_2"	"(T2) Глиф Способности"
 		"item_rpc_neutral_glyph_2_2_description" 			"Увеличивает базовый урон способностей на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_2"	"(T3) Символ уворота"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_2"	"(T3) Глиф Уворота"
 		"item_rpc_neutral_glyph_3_2_description" 			"Увеличивает уклонение на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_2"	"(T4) Символ убийцы гигантов"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_2"	"(T4) Глиф Убийцы Гигантов"
 		"item_rpc_neutral_glyph_4_2_description" 			"Увеличивает урон против существ со свойством 'Стойкость' и 'Мега стойкость'. Граница для 'Стойкости' снижается до @glyph_property1% от их макс. здоровья (от 3%), граница 'Мега стойкости' снижается до @glyph_property2% (от 0.5%). Все бонусы к пост-резистному урону снижаются против этих врагов до @glyph_property3% от общего значения против 'Стойкость' и @glyph_property4% против 'Мега стойкости'. (Стойкость древних не подвергается этому эффекту.). Дополнительно, весь урон против врагов без стойкости снижается на @glyph_property5%."
 
 		
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_2"	"(T5) Символ берсерка"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_2"	"(T5) Глиф Берсерка"
 		"item_rpc_neutral_glyph_5_2_description" 			"Увеличивает ВЕСЬ получаемый урон на @glyph_property1% и увеличивает весь наносимый урон на @glyph_property2%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_2"	"(T6) Символ выдающегося навыка"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_2"	"(T6) Глиф Предрасположенности"
 		"item_rpc_neutral_glyph_6_2_description" 			"Увеличивает основной урон Нормальной стихии на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_2"	"(T7) Символ Высшей Ловкости"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_2"	"(T7) Глиф Высшей Ловкости"
 		"item_rpc_neutral_glyph_7_2_description" 			"Увеличивает Ловкость на @glyph_property2% или на @glyph_property1, в зависимости от того, какое число выше."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"(T1) Символ малой мудрости"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"(T1) Глиф Малой Мудрости"
 		"item_rpc_neutral_glyph_1_3_description" 			"Увеличивает Интеллект на @glyph_property1"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_3"	"(T2) Символ стихий"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_3"	"(T2) Глиф Стихий"
 		"item_rpc_neutral_glyph_2_3_description" 			"Увеличивает весь стихийный урон на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_3"	"(T3) Символ скорохода"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_3"	"(T3) Глиф Скорохода"
 		"item_rpc_neutral_glyph_3_3_description" 			"Уменьшает время перезарядки (E) @Ability3 на @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"(T4) Символ гурмана"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"(T4) Глиф Гурмана"
 		"item_rpc_neutral_glyph_4_3_description" 			"Эффекты всех зелий при использовании увеличиваются на @glyph_property1%. Дополнительно позволяет герою автоматически подбирать и использовать зелья в радиусе 400 каждые 0.5 секунды."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_3"	"(T5) Символ варварства"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_3"	"(T5) Глиф Варварства"
 		"item_rpc_neutral_glyph_5_3_description" 			"Увеличивает ВЕСЬ наносимый физический урон на @glyph_property1%, но уменьшает весь наносимый магический урон на @glyph_property2%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_3"	"(T6) Символ волшебства"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_3"	"(T6) Глиф Волшебства"
 		"item_rpc_neutral_glyph_6_3_description" 			"Увеличивает весь наносимый магический урон на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"(T7) Символ Высшего Интеллекта"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"(T7) Глиф Высшего Интеллекта"
 		"item_rpc_neutral_glyph_7_3_description" 			"Увеличивает Интеллект на @glyph_property2% или на @glyph_property1, в зависимости от того, какое число выше."
 
 		//FLAMEWAKER
@@ -1856,10 +1860,10 @@
 		"stars_menu"													"Звёзды"
 		"stars_hero_level_title"										"На новую высоту"		
 		"stars_hero_level_description"									"Прокачайте героя @heroname до @level-го уровня."
-		"star_description_basic"										"@heroname - убейте @boss_name, @mapname на любой сложности."
-		"star_description_basic2"										"@heroname - убейте @boss_name, @mapname, сложность Legend."
-		"star_description_basic3_tanari"								"@heroname - убейте @boss_name, @mapname, сложность Legend в Мире Духов."
-		"star_description_basic3_redfall"								"@heroname - убейте @boss_name, @mapname, сложность Legend с Равноденствием."
+		"star_description_basic"										"@heroname - убейте @boss_name, @map_name на любой сложности."
+		"star_description_basic2"										"@heroname - убейте @boss_name, @map_name, сложность Legend."
+		"star_description_basic3_tanari"								"@heroname - убейте @boss_name, @map_name, сложность Legend в Мире Духов."
+		"star_description_basic3_redfall"								"@heroname - убейте @boss_name, @map_name, сложность Legend с Равноденствием."
 
 
 		"star_description_champions_league"								"@heroname - достигните @rank звания на Арене."

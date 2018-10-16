@@ -22,6 +22,7 @@ function start(event)
         StartAnimation(hero, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.1})
     end
 
+    ability:ApplyDataDrivenModifier(hero, hero, "modifier_whirlwind_attack_range",{duration = 1.5})
     ability:ApplyDataDrivenModifier(hero, hero, "modifier_whirlwind", {duration = 1.5})
     ImmortalWeapon2.applyBuff(hero, 1.5)
     ability:ApplyDataDrivenModifier(hero, hero, "modifier_whirlwind_flying_portion", {duration = 4.0})

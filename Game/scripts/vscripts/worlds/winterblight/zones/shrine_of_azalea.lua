@@ -27,7 +27,7 @@ end
 
 function Winterblight:SpawnCup1()
 	Timers:CreateTimer(1, function()
-		if Winterblight.MathPuzzleComplete then
+		if Winterblight.ZefnarDead then
 			if Winterblight:CupSpawnCondition(1) then
 				Winterblight:SpawnAzaleaCup(Vector(15910, -15831), Vector(-1,0), 1)
 			end
@@ -754,43 +754,14 @@ function Winterblight:AzaleaSwitch1()
 					Winterblight.AzaleaMathCounter = 0
 				end
 				Timers:CreateTimer(2, function()
+					print("-----")
+					print(Winterblight.AzaleaMathCounter)
+					print(Winterblight.MathCount)
+					print("-----")
 					if Winterblight.AzaleaMathCounter == Winterblight.MathCount then
 						Winterblight.MathPuzzleComplete = true
-						Timers:CreateTimer(3, function()
-							Winterblight:SpawnCup1()
-						end)
 						EmitSoundOnLocationWithCaster(Vector(15733, -11788, 78+Winterblight.ZFLOAT), "Winterblight.AzaleaCrystal.FinishPuzzle", Winterblight.Master)
-						Winterblight:RemoveBlockers(8.5, "AzaleaBridgeBlocker2", Vector(15104, -12480, 212+Winterblight.ZFLOAT), 5400)
-						for i = 1, 300, 1 do
-							Timers:CreateTimer(0.03*i, function()
-								if i %40 == 0 then
-									EmitSoundOnLocationWithCaster(Vector(15733, -11788, 78+Winterblight.ZFLOAT), "Winterblight.AzaleaBridge.Raise", Events.GameMaster)
-								end
-								Winterblight.AzaleaBridge2:SetAbsOrigin(Winterblight.AzaleaBridge2:GetAbsOrigin()+Vector(0,0,1500/300))
-							end)
-						end
-						Timers:CreateTimer(3, function()
-							local walls = Entities:FindAllByNameWithin("AzaleaWall2", Vector(15109, -12332, -4094+Winterblight.ZFLOAT), 2400)
-						    EmitSoundOnLocationWithCaster(Vector(15109, -12332), "Winterblight.WallOpen", Events.GameMaster)
-						    Winterblight:WallsTicks(false, walls, true, 5, 360, 0.1)
-						    Winterblight:RemoveBlockers(4, "AzaleaWallBlockers2", Vector(15104, -12480, 300+Winterblight.ZFLOAT), 1800)
-						    Winterblight:ShrineSpawn3()
-						end)
-						Timers:CreateTimer(9, function()
-							EmitSoundOnLocationWithCaster(Winterblight.AzaleaBridge2:GetAbsOrigin(), "Winterblight.AzaleaBridge.Finish", Winterblight.Master)
-							Timers:CreateTimer(0.1, function()
-								EmitSoundOnLocationWithCaster(Winterblight.AzaleaBridge2:GetAbsOrigin(), "Winterblight.Azalea.Win", Winterblight.Master)
-							end)
-							local positionTable = {Vector(14976, -12800), Vector(15085, -12800), Vector(15168, -12800), Vector(15226, -12064), Vector(15136, -12064), Vector(15050, -12064)}
-				            for i = 1, #positionTable, 1 do
-				              local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
-				              ParticleManager:SetParticleControl( pfx, 0, GetGroundPosition(positionTable[i], Events.GameMaster ))
-				              ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
-				              Timers:CreateTimer(2, function()
-				                ParticleManager:DestroyParticle(pfx, false)
-				              end)
-				            end
-						end)					
+						Winterblight:MithrilRewardVariable(Vector(15733, -11788), "math", Winterblight.MathCount)				
 					else
 						local spawnCount = RandomInt(math.max(Winterblight.MathCount, 18), 28) - Winterblight.AzaleaMathCounter
 				    	local unitTable = {"winterblight_softwalker", "winterblight_cold_seer", "winterblight_winterbear", "winterblight_azalea_archer", "winterblight_azure_sorceress", "frost_whelpling", "winterblight_frost_avatar", "winterblight_frost_elemental", "winterblight_rider_of_azalea", "winterblight_azalean_priest", "winterblight_mistral_assassin", "winterblight_frost_frigid_hulk", "winterblight_ice_summoner", "winterblight_maiden_of_azalea"}

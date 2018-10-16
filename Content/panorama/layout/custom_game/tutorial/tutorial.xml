@@ -53,7 +53,7 @@
 		<snippet name="tutorial_challenge">
 			<Panel class="tutorial_challenge" hittest="false">
 				<Button id="challenge_button">
-					<Label id="tutorial_challenge_text"/>
+					<Label id="tutorial_challenge_text" html="true"/>
 					<Image id="green_check" class="invisible" src="file://{images}/custom_game/ui/green_check.png"/>
 				</Button>
 			</Panel>
@@ -72,7 +72,7 @@
 		<snippet name="challenge_description_and_go">
 			<Panel class="challenge_description_and_go" hittest="false">
 				<Panel id="descrip_and_go_content" class="animateEaseClass">
-					<Label id="descrip_and_go_description_text"/>
+					<Label id="descrip_and_go_description_text" html="true"/>
 					<Button id="challenge_go_button">
 						<Label id="challenge_go_button_text"/>
 					</Button>					
@@ -99,16 +99,25 @@
 				<Panel class="quiz_box_content">
 					<Label class="quiz_box_question" id="quiz_box_question" html="true"/>
 					<TextEntry id="quiz_box_input" maxchars="255"/>
-
 					<Button id="quiz_submit_button">
 					  <Label text="quiz_submit" class="quiz_submit_label"></Label>
-					</Button>					
+					</Button>			
+					<Panel id="multiple-choice-container" class="invisible">
+					</Panel>		
 				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="quiz_box_multiple_choice_button">
+			<Panel class="quiz_box_multiple_choice_button" hittest="false">
+				<Button id="multiple_choice_submit_button">
+				  <Label text="quiz_submit" class="multiple_choice_button_label" id="multiple_choice_submit_label" html="true"></Label>
+				</Button>	
 			</Panel>
 		</snippet>
 	</snippets>
 
 	<Panel class="tutorial_content" hittest="false">
+<!-- 		<Image id="green_check" class="invisible" src="file://{images}/spellicons/tutorial/reward6.png"/> -->
 		<Panel id="tutorial_container" hittest="false">
 		</Panel>
 		<Panel id="tutorial_challenge_summary_container" hittest="false">

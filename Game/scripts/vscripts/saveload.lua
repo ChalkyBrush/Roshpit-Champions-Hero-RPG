@@ -1135,6 +1135,7 @@ function SaveLoad:DraggedToStash(keys)
 							-- CustomGameEventManager:Send_ServerToPlayer(player, "stash_item_upated", {stashSlot = stashSlot, item = itemIndex} )
 							SaveLoad:StashOpen(keys)
 							Statistics.dispatch('items:oracle:push')
+							Events:TutorialServerEvent(hero, "3_5", 0)
 						else
 							if not Challenges:CheckIfHeroHasItemByItemIndex(hero, itemEntity:GetEntityIndex()) then
 								RPCItems:GiveItemToHeroWithSlotCheck(hero, itemEntity)
@@ -1240,6 +1241,7 @@ function SaveLoad:DraggedFromStash(keys)
 								SaveLoad:StashOpen(keys)
 								UTIL_Remove(itemEntity)
 								Statistics.dispatch('items:oracle:get')
+								Events:TutorialServerEvent(hero, "3_5", 1)
 								-- Weapons:ValidateGear(hero)
 							else
 								if not Challenges:CheckIfHeroHasItemByItemIndex(hero, itemEntity:GetEntityIndex()) then
@@ -1286,6 +1288,7 @@ function SaveLoad:DraggedFromStash(keys)
 							-- CustomGameEventManager:Send_ServerToPlayer(player, "stash_item_upated", {stashSlot = stashSlot, item = itemIndex} )
 							SaveLoad:StashOpen(keys)
 							CustomNetTables:SetTableValue("stash", tostring(playerID).."-"..tostring(stashSlot), {itemIndex = 0} )
+							Events:TutorialServerEvent(hero, "3_5", 1)
 						end
 					end )	
 			end
@@ -1316,17 +1319,20 @@ function SaveLoad:PreviewAbilities(msg)
 	if player.previewHero then
 		UTIL_Remove(player.previewHero)
 	end
-	local previewHero = CreateUnitByName(heroName, RPCItems.DROP_LOCATION, true, nil, nil, DOTA_TEAM_GOODGUYS)
-	previewHero.preview = true
-	previewHero:SetDayTimeVisionRange(0)
-	previewHero:SetNightTimeVisionRange(0)
-	player.previewHero = previewHero
+	PrecacheUnitByNameAsync(heroName, function()
+		local previewHero = CreateUnitByName(heroName, RPCItems.DROP_LOCATION, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		previewHero.preview = true
+		previewHero:SetDayTimeVisionRange(0)
+		previewHero:SetNightTimeVisionRange(0)
+		player.previewHero = previewHero
 
-	previewHero:AddNoDraw()
+		previewHero:AddNoDraw()
 
-	local abilityTable = {previewHero:GetAbilityByIndex(0):GetEntityIndex(), previewHero:GetAbilityByIndex(1):GetEntityIndex(), previewHero:GetAbilityByIndex(2):GetEntityIndex(), previewHero:GetAbilityByIndex(3):GetEntityIndex()}
-	print(EntIndexToHScript(abilityTable[1]):GetAbilityName())
-	CustomGameEventManager:Send_ServerToPlayer(player, "updateSkillPreview", {heroIndex = previewHero:GetEntityIndex()} )
+		local abilityTable = {previewHero:GetAbilityByIndex(0):GetEntityIndex(), previewHero:GetAbilityByIndex(1):GetEntityIndex(), previewHero:GetAbilityByIndex(2):GetEntityIndex(), previewHero:GetAbilityByIndex(3):GetEntityIndex()}
+		print(EntIndexToHScript(abilityTable[1]):GetAbilityName())
+		CustomGameEventManager:Send_ServerToPlayer(player, "updateSkillPreview", {heroIndex = previewHero:GetEntityIndex()} )
+	end)
+
 
 	-- local previewHeroTable = {playerID, previewHero:GetEntityIndex()}
 	-- table.insert(PREVIEW_HERO_TABLE, previewHeroTable)
@@ -1402,6 +1408,7 @@ function SaveLoad:OpenKeyBank(msg)
 			print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			CustomGameEventManager:Send_ServerToPlayer(player, "player_keys_loaded", {result=resultTable, premium=premium} )
+			Events:TutorialServerEvent(hero, "5_2", 0)
 		else
 
 		end

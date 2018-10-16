@@ -102,6 +102,8 @@ function Filters:CleanseStuns(unit)
     unit:RemoveModifierByName("modifier_lina_light_strike_array")
     unit:RemoveModifierByName("modifier_lion_impale")
     unit:RemoveModifierByName("modifier_earthshaker_fissure_stun")
+    unit:RemoveModifierByName("modifier_tidehunter_ravage")
+    unit:RemoveModifierByName("modifier_lightning_stun")
 end
 
 function Filters:CleanseSilences(unit)
@@ -744,7 +746,7 @@ function Filters:CastSkillArguments(slot, caster)
             local healAmount = ally:GetMaxHealth() * ELDER_GRASP_HEAL_PCT
             local shieldAmount = math.max(healAmount + ally:GetHealth() - ally:GetMaxHealth(), 0)
             CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/white_mage_healheal.vpcf", ally, 3)
-            Filters:ApplyHeal(caster, ally, shieldAmount)
+            Filters:ApplyHeal(caster, ally, healAmount)
             if shieldAmount > 0 then
                 caster.handItem:ApplyDataDrivenModifier(caster, ally, "modifier_grasp_of_elder_shield", {})
                 if not ally.elder_grasp_shield then

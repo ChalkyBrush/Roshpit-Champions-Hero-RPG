@@ -252,28 +252,28 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_1_1"		"(T1) Символ умения Shockwaves"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_1_1"		"(T1) Глиф умения Shockwaves"
 		"item_rpc_mountain_protector_glyph_1_1_description" 				"Снижает время перезарядки способности (Q) @Ability1 на 1 секунду."
 
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_2_1"		"(T2) Символ Стража"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_2_1"		"(T2) Глиф Стража"
 		"item_rpc_mountain_protector_glyph_2_1_description" 				"Весь входящий урон дополнительно снижается на @glyph_property1% во время активного умения (W) @Ability2."
 
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_3_1"		"(T3) Символ Катастрофы"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_3_1"		"(T3) Глиф Катастрофы"
 		"item_rpc_mountain_protector_glyph_3_1_description" 				"Увеличивает количество взрывов от умения (R) @Ability4 на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_4_1"		"(T4) Символ силы гор"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_4_1"		"(T4) Глиф силы гор"
 		"item_rpc_mountain_protector_glyph_4_1_description" 				"С шансом в @glyph_property1% с прочтением (Q) @Ability1 герой выпустит две волны."
 
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_5_1"		"(T5) Символ горящего камня"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_5_1"		"(T5) Глиф горящего камня"
 		"item_rpc_mountain_protector_glyph_5_1_description" 				"С шансом в @glyph_property1% время перезарядки умения (E) @Ability3 будет сброшено."
 
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_6_1"		"(T6) Символ вечного раскола"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_6_1"		"(T6) Глиф вечного раскола"
 		"item_rpc_mountain_protector_glyph_6_1_description" 				"Снижает время перезарядки способности (R) @Ability4 на @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_7_1"		"(T7) Символ гнева гор"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_7_1"		"(T7) Глиф гнева гор"
 		"item_rpc_mountain_protector_glyph_7_1_description" 				"Пока активно умение (W) @Ability2 все атакующие героя враги с шансом в @glyph_property1% будут оглушены на 1 секунду."
 
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_5_a"		"(Immortal) Символ горного пика"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_5_a"		"(Immortal) Глиф горного пика"
 		"item_rpc_mountain_protector_glyph_5_a_description" 				"Эпицентр (R) @Ability4 следует за героем. Дополнительно увеличивает силу на @glyph_property1."
 		
 		//Weapons

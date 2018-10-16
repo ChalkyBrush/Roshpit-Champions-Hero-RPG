@@ -199,57 +199,57 @@
 		"DOTA_Tooltip_modifier_duskbringer_arcana_damage_buff_Description"		"Урон героя значительно увеличен"
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_1"		"(T1) Символ дыхания смерти"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_1"		"(T1) Глиф дыхания смерти"
 		"item_rpc_duskbringer_glyph_1_1_description" 				"При обретении предсмертной формы духа, время перезарядки всех способностей сбрасываетс (также действует и на союзных героев)."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_1"		"(T2) Символ жестоких духов"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_1"		"(T2) Глиф жестоких духов"
 		"item_rpc_duskbringer_glyph_2_1_description" 				"Враги, попавшие под действие (W) Ghost Hallow ежесекундно получают 3 заряда [Q1] Duskfire."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_1"		"(T3) Символ продления"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_1"		"(T3) Глиф продления"
 		"item_rpc_duskbringer_glyph_3_1_description" 				"Заряды [E1] пропадают за 2 секунды, вместо 1."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_1"		"(T4) Символ сумерек"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_1"		"(T4) Глиф сумерек"
 		"item_rpc_duskbringer_glyph_4_1_description" 				"Враги, попавшие под действие умения (W) Ghost Hallow, обезоруживаются."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_1"		"(T5) Символ пророчества смерти"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_1"		"(T5) Глиф пророчества смерти"
 		"item_rpc_duskbringer_glyph_5_1_description" 				"Увеличивает количество атак (R)Seven Visions на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_1"		"(T6) Символ порыва"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_1"		"(T6) Глиф порыва"
 		"item_rpc_duskbringer_glyph_6_1_description" 				"Уменьшает время перезарядки (Q) Whirling Flail до @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_1"		"(T7) Символ призраков"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_1"		"(T7) Глиф призраков"
 		"item_rpc_duskbringer_glyph_7_1_description" 				"Заменяет (E) Specter Rush на (E) Manifestation - способность, которая перемещает Duskbringer к точке и применяет на всех рядом стоящих противниках [E3]. Дополнительно увеличивает шанс наложения зарядов [Q1] от руны [E3] в @glyph_property1 раз(а)."
 
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"(T1) Символ безумной тишины"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"(T1) Глиф безумной тишины"
 		"item_rpc_duskbringer_glyph_1_2_description" 				"Во время безмолвия, регенерация здоровья увеличивается на @glyph_property1% от макс. здоровья. Бонус продлится еще @glyph_property2 сек. после окончания безмолвия."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"(T2) Символ сжигания пустоты"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"(T2) Глиф сжигания пустоты"
 		"item_rpc_duskbringer_glyph_2_2_description" 				"При атаке по врагу накладывается @glyph_property1 заряда(ов) [Q1] Duskfire Flail вместо 1."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"(T3) Символ смешивания"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"(T3) Глиф смешивания"
 		"item_rpc_duskbringer_glyph_3_2_description" 				"Сокращает интервал нанесения урона от умения (Q) @Ability1 на @glyph_property1, но также сокращает базовый урон умения на @glyph_property2%"
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"(T4) Символ путешественника"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"(T4) Глиф путешественника"
 		"item_rpc_duskbringer_glyph_4_2_description" 				"При движении герой получает заряды, сокращающие входящий урон на @glyph_property1%. Максимум @glyph_property2 заряда(ов). Длительность действия равна длительности действия зарядов от руны [E1], но за отведенное время теряются все заряды, вместо одного."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_2"		"(T5) Символ разделения судьбы"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_2"		"(T5) Глиф разделения судьбы"
 		"item_rpc_duskbringer_glyph_5_2_description" 				"Враги в радиусе @glyph_property1 от основной атакуемой цели также получают заряды [Q1]."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_2"		"(T6) Символ гнева"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_2"		"(T6) Глиф гнева"
 		"item_rpc_duskbringer_glyph_6_2_description" 				"Снимает с героя все эффекты оглушения и безмолвия каждые 0.3 секунды."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"(T7) Символ пугающих духов"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"(T7) Глиф пугающих духов"
 		"item_rpc_duskbringer_glyph_7_2_description" 				"Весь урон, наносимый предметами напрямую получает вторую стихию - Призрака."
 
 
     	"DOTA_Tooltip_ability_manifestation"						"Manifestation"
     	"DOTA_Tooltip_ability_manifestation_Description"			"Стихия: <font color=\"#9ACCD1\">Призрак</font><br>Duskbringer мгновенно перемещается к указанной точке, атакуя попавшихся врагов с помощью [E3] Entity Clash."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_a"		"(Immortal) Символ второго шанса"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_a"		"(Immortal) Глиф второго шанса"
 		"item_rpc_duskbringer_glyph_5_a_description" 				"Союзники не погибают по окончании действия формы духа. Эта особенность перезаряжается @glyph_property1 сек.."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_book"	"Книга символов Duskbringer"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_book"	"Книга Глифов Duskbringer"
 		
 		
 		

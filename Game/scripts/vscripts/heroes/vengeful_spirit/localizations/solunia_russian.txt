@@ -278,19 +278,19 @@
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_suffix_two"			""
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_1"		"(T1) Символ полумесяца"
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_1"		"(T1) Глиф полумесяца"
 		"item_rpc_solunia_glyph_1_1_description" 				"Увеличивает максимальное количество бросков бумерангов на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_1"		"(T2) Символ гравитации"
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_1"		"(T2) Глиф гравитации"
 		"item_rpc_solunia_glyph_2_1_description" 				"Возвращение бумеранга, задевшего хотя бы одного врага снижает текущее время перезарядки (Q) Napalm на @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_1"		"(T3) Символ гиперновы"
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_1"		"(T3) Глиф гиперновы"
 		"item_rpc_solunia_glyph_3_1_description" 				"Увеличивает время оглушения от (Q) @Ability1 на @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_1"		"(T4) Символ тени"
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_1"		"(T4) Глиф тени"
 		"item_rpc_solunia_glyph_4_1_description" 				"Увеличивает время полёта от (E) Warp Flare на @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"(T5) Символ нейтрино"
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"(T5) Глиф нейтрино"
 		"item_rpc_solunia_glyph_5_1_description" 				"После прочтения @Ability4 дает щит, блокирующий <% SOLUNIA_GLYPH_5_1_STACKS_BASE %> порций урона."
 		
 		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield"		"Neutrino"
@@ -299,16 +299,16 @@
 		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield_arcana"		"Neutrino"
 		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield_arcana_Description"		"Поглощает 1 порцию урона за щит."
 
-		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_6_1"		"(T6) Символ сингулярности"
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_6_1"		"(T6) Глиф сингулярности"
 		"item_rpc_solunia_glyph_6_1_description" 				"После прочтения (R) Supernova или (R) Eclipse, позволяет произнести (Q) @Ability1 без перезарядки и поглощения зарядов."
 
 		"DOTA_Tooltip_modifier_solunia_glyph_6_1_ready"			"Singularity"
 		"DOTA_Tooltip_modifier_solunia_glyph_6_1_ready_Description"	"Следующее прочтение (Q) Napalm не будет перезаряжаться."
 
-		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_1"		"(T7) Символ световых лет"
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_1"		"(T7) Глиф световых лет"
 		"item_rpc_solunia_glyph_7_1_description" 				"Увеличивает максимальное количество возможных прыжков (E) Warp Flares на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_a"		"(Immortal) Символ протозвезды"
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_a"		"(Immortal) Глиф протозвезды"
 		"item_rpc_solunia_glyph_5_a_description" 				"При получении смертельного урона герой поднимается в воздух, при этом сбрасывается время перезарядки (R) Supernova или (R) Eclipse и герой произносит умение (R). Перезаряжается @glyph_property1 сек."
 
 		"DOTA_Tooltip_modifier_solunia_glyph_5_a_cooldown"		"Protostar Cooldown"

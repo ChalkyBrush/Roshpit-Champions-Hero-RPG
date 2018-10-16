@@ -40,7 +40,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
 		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
-		"property_arbor_dragonfly_description"		"Увеличивает длительность всех получаемых положительных усилений от умений, рун и символов на @special_property1%."
+		"property_arbor_dragonfly_description"		"Увеличивает длительность всех получаемых положительных усилений от Умений, Рун и Глифов на @special_property1%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"Gem of Eternal Frost"
@@ -197,8 +197,8 @@
 		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"Fuchsia Ring"
 		"item_property_fuchsia_ring"							"Solidarity"
 		"property_fuchsia_ring_description"					"В то время, пока герой подвержен эффекту оглушения или обезмолвлен, весь входящий урон снижается на @special_property1%, а регенерация здоровья увеличивается на @special_property2% от значения максимального здоровья."
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на %property_one%%, а регенерация здоровья увеличена на %property_two%% от макс. здоровья."
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на %property_one%%, а регенерация здоровья увеличена на %property_two%% от макс. здоровья."
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на 85%, а регенерация здоровья увеличена на 45% от макс. здоровья."
+		
 		 
 		 
 		 

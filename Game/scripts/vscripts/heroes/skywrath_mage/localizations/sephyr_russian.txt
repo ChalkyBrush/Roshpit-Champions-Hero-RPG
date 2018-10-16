@@ -177,31 +177,31 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_1_1"		"(T1) Символ беспокойства"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_1_1"		"(T1) Глиф беспокойства"
 		"item_rpc_sephyr_glyph_1_1_description" 				"Увеличивает максимальное количество одновременно существующих беспокойных духов на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_2_1"		"(T2) Символ уклоняющихся ветров"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_2_1"		"(T2) Глиф уклоняющихся ветров"
 		"item_rpc_sephyr_glyph_2_1_description" 				"Увеличивает уклонение от физических атак на @glyph_property1%."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_3_1"		"(T3) Символ Нефали"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_3_1"		"(T3) Глиф Нефали"
 		"item_rpc_sephyr_glyph_3_1_description" 				"Увеличивает радиус действия благословенного ветра (R) @Ability4 на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_4_1"		"(T4) Символ пробивания"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_4_1"		"(T4) Глиф пробивания"
 		"item_rpc_sephyr_glyph_4_1_description" 				"Увеличивает дальность (W) @Ability2 на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_1"		"(T5) Символ ослепляющего света"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_1"		"(T5) Глиф ослепляющего света"
 		"item_rpc_sephyr_glyph_5_1_description" 				"Умение (Q) @Ability1 замораживает врагов на месте на @glyph_property1 сек., оглушение от умения происходит после заморозки."
 
 		"DOTA_Tooltip_modifier_lightbomb_freeze"				"Blinding Light"
 		"DOTA_Tooltip_modifier_lightbomb_freeze_Description"	"Заморожен"
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_6_1"		"(T6) Символ Богини Ветра"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_6_1"		"(T6) Глиф Богини Ветра"
 		"item_rpc_sephyr_glyph_6_1_description" 				"С @glyph_property1% шансом, герой игнорирует любой входящий урон."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_7_1"		"(T7) Символ воздушного иммунитета"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_7_1"		"(T7) Глиф воздушного иммунитета"
 		"item_rpc_sephyr_glyph_7_1_description" 				"Наделяет героя иммунитетом к магии, пока он находится на отметке @glyph_property1 или выше от земли."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_a"		"(Immortal) Символ Святых Ветров"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_a"		"(Immortal) Глиф Святых Ветров"
 		"item_rpc_sephyr_glyph_5_a_description" 				"Снижаемый урон от (R) @Ability4 увеличивается на @glyph_property1%."
 		
 		//Weapons

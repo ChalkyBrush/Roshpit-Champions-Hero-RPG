@@ -29,6 +29,10 @@ require('worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_
 
 Events.ResourceBonus = 1
 
+STARS_INCREASE_MITHRIL = false
+STARS_INCREASE_MITHRIL_ADDITIVE = false
+MITHRIL_INCREASE_PER_STAR_PCT = 0.08
+
 ROSHPIT_URL = "https://roshpit.herokuapp.com"
 
 
@@ -480,6 +484,10 @@ function GameMode:OnPlayerChat(keys)
         if Beacons.cheats then
           Winterblight:Debug()
         end    
+  elseif string.match(text, "tutorial") then
+        -- if Beacons.cheats then
+          Tutorial:Debug()
+        -- end    
   elseif string.match(text, "ladder") then
     if GameState:IsRedfallRidge() then
         if Beacons.cheats then
@@ -1101,7 +1109,7 @@ function Events:CreateRuneUnits(heroEntity, playerID)
   heroEntity.runeUnit4 = runeUnit4
   CustomNetTables:SetTableValue("skill_tree", tostring(playerID).."rune_unit4", {runeUnit = runeUnit4:GetEntityIndex()})
   -- runeUnit4:AddAbility("town_unit"):SetLevel(1)
-
+  heroEntity.runeUnitTable = {runeUnit, runeUnit2, runeUnit3, runeUnit4}
   local glyphUnit = CreateUnitByName("rune_unit", RPCItems.DROP_LOCATION, true, heroEntity, player, heroEntity:GetTeamNumber())
   heroEntity.glyphUnit = glyphUnit
   glyphUnit.hero = heroEntity
@@ -1186,6 +1194,7 @@ function Events:SetupHeroes(heroEntity)
     Redfall:InitializeHero(heroEntity)
   end
   if GameState:IsTutorial() then
+    print("RG55342")
     Tutorial:GetTutorialFromServer(heroEntity)
   end
   if Events.GameMaster then

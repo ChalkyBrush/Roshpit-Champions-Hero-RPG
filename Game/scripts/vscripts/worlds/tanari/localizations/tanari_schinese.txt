@@ -1044,7 +1044,7 @@
 		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_evasion"                         "闪避:"
 		
 		"DOTA_Tooltip_ability_ancient_god_steadfast"                                        "远古坚定"
-		"DOTA_Tooltip_ability_ancient_god_steadfast_Description"                            "每次伤害不能超过最大生命值的一定百分比"_
+		"DOTA_Tooltip_ability_ancient_god_steadfast_Description"                            "每次伤害不能超过最大生命值的一定百分比"
 		"DOTA_Tooltip_ability_ancient_god_steadfast_max_damage"                             "最大生命值%:"
 		
 		"DOTA_Tooltip_ability_ancient_god_dragon_slave"                                     "火焰浪潮"

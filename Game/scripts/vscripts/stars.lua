@@ -154,9 +154,13 @@ function Stars:StarEventSolo(starEventName, hero)
 		local categoryData = starData[heroCount + 1]
 		local starAmount = 0
 		starAmount = 1
-		print("HELLO1")
+		if hero.tutorial.section1.reward == 1 then
+			starAmount = 2
+		end
+		if hero.tutorial.section6.reward == 1 then
+			starAmount = 3
+		end
 		if categoryData.champleague < starAmount then
-			print("HELL02")
 			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = "solo_stars"})
 			Stars:UpdateStarsOnServer("solo_stars", starEventName, starAmount, hero:GetPlayerOwnerID())
 			return true
@@ -363,12 +367,12 @@ function Stars:UpdateStarsOnServer(heroName, type, starAmount, playerID)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			print( "GET response:\n" )
+			-- print( "GET response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				-- print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
-			print("STARS UPDATED")
+			-- print( "Done." )
+			-- print("STARS UPDATED")
 			local resultTable = JSON:decode(result.Body)
 			Stars:parseHeroData(player, resultTable)
 		end
@@ -398,7 +402,7 @@ function Stars:parseHeroData(player, resultTable)
 	local hero = GameState:GetHeroByPlayerID(player:GetPlayerID())
 	hero.starsData = starsData
 	hero.grandTotalStars = grandTotalStars
-	DeepPrintTable(hero.starsData)
+	-- DeepPrintTable(hero.starsData)
 end
 
 function Stars:GetPlayerStars(playerID)
@@ -414,10 +418,10 @@ function Stars:GetPlayerStars(playerID)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			print( "GET response:\n" )
-			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
-			end
+			-- print( "GET response:\n" )
+			-- for k,v in pairs( result ) do
+			-- 	print( string.format( "%s : %s\n", k, v ) )
+			-- end
 			print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			Stars:parseHeroData(player, resultTable)

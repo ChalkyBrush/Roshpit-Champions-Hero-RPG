@@ -341,7 +341,9 @@ function Glyphs:ValidateGlyph(glyph, hero)
 	end
 end
 
-Glyphs.GLYPH_MODIFIER_TABLE = {}
+if not Glyphs.GLYPH_MODIFIER_TABLE then
+	Glyphs.GLYPH_MODIFIER_TABLE = {}
+end
 
 function Glyphs:CreateGlyphModifierTable()
 	if #Glyphs.GLYPH_MODIFIER_TABLE < 1 then
@@ -567,7 +569,7 @@ function Glyphs:GlyphPurchase(msg)
 			CustomGameEventManager:Send_ServerToPlayer(player, "update_resources", {arcane_crystals= arcaneCrystals, enchanter_tier = enchanterTier, player=playerID} )
 			Glyphs:RollGlyphAll(glyphName, Vector(0, 0), msg.heroIndex)
 			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_glyph_shop", {})
-
+			Events:TutorialServerEvent(hero, "3_4", 0)
 			Statistics.dispatch("crystals:change", {playerID = playerID});
 		end )
 	end

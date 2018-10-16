@@ -73,6 +73,7 @@ function Challenges:ChiselItem(msg)
 			hero:RemoveModifierByName("modifier_cant_equip")
 			Weapons:UnequipItem(hero, item)
 			Statistics.dispatch('items:chisel')
+			Events:TutorialServerEvent(hero, "3_2", 0)
 		end
 	end )		
 end

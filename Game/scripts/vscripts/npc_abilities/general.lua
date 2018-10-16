@@ -148,7 +148,15 @@ function mithril_shard_think(event)
 		if caster.interval%10 == 0 then
 			caster.interval = 0
 			local collectionAmount = 1
-			if caster.reward > 2000 then
+			if caster.reward > 50000 then
+				collectionAmount = 5000
+			elseif caster.reward > 20000 then
+				collectionAmount = 2000
+			elseif caster.reward > 10000 then
+				collectionAmount = 1000
+			elseif caster.reward > 5000 then
+				collectionAmount = 400
+			elseif caster.reward > 2000 then
 				collectionAmount = 200
 			elseif caster.reward > 800 then
 				collectionAmount = 100
@@ -164,14 +172,42 @@ function mithril_shard_think(event)
 			caster.modelScale = newModelScale
 			caster:SetModelScale(newModelScale)
 			for i = 1, #caster.winnerTable, 1 do
+				local save_collectionAmount = collectionAmount
+				if STARS_INCREASE_MITHRIL then
+					local hero = caster.winnerTable[i]
+					Stars:GetPlayerStars(hero:GetPlayerOwnerID())
+					local stars = hero.grandTotalStars
+					local mith_mult = 1
+					if STARS_INCREASE_MITHRIL_ADDITIVE then
+						mith_mult = (1+stars*MITHRIL_INCREASE_PER_STAR_PCT/100)
+					else
+						mith_mult = (1+MITHRIL_INCREASE_PER_STAR_PCT/100)^stars
+					end
+					collectionAmount = math.floor(collectionAmount*mith_mult)
+				end
 				createCollectionBeam(caster:GetAbsOrigin()+Vector(0,0,150), caster.winnerTable[i]:GetAbsOrigin())
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_blue_coreglow02.vpcf", caster.winnerTable[i], 0.5)
 				caster.winnerTable[i].shardsPickedUp = caster.winnerTable[i].shardsPickedUp + collectionAmount
 				CustomGameEventManager:Send_ServerToPlayer(caster.winnerTable[i]:GetPlayerOwner(), "collect_mithril", {gain = caster.winnerTable[i].shardsPickedUp})
 				CustomGameEventManager:Send_ServerToPlayer(caster.winnerTable[i]:GetPlayerOwner(), "update_resources_increment", {increment = caster.winnerTable[i].shardsPickedUp, resource="mithril"})
+				collectionAmount = save_collectionAmount
 			end
 			for i = 1, #caster.rewardsTable, 1 do
+				local save_collectionAmount = collectionAmount
+				if STARS_INCREASE_MITHRIL then
+					local hero = caster.winnerTable[i]
+					Stars:GetPlayerStars(hero:GetPlayerOwnerID())
+					local stars = hero.grandTotalStars
+					local mith_mult = 1
+					if STARS_INCREASE_MITHRIL_ADDITIVE then
+						mith_mult = (1+stars*MITHRIL_INCREASE_PER_STAR_PCT/100)
+					else
+						mith_mult = (1+MITHRIL_INCREASE_PER_STAR_PCT/100)^stars
+					end
+					collectionAmount = math.floor(collectionAmount*mith_mult)
+				end
 				caster.rewardsTable[i][2] = caster.rewardsTable[i][2] + collectionAmount
+				collectionAmount = save_collectionAmount
 			end
 			if collectionAmount == 1 then
 				EmitSoundOn("Resource.MithrilShardCollect", caster)

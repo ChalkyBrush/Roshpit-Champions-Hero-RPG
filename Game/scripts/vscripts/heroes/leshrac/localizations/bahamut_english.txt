@@ -269,7 +269,7 @@
 		"item_rpc_bahamut_glyph_5_1_description" 				"Increases the duration of Solitary Shell by @glyph_property1 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"Glyph of Pride"
-		"item_rpc_bahamut_glyph_6_1_description" 				"Doubles the cooldown of Ascension, and Bahamut Pulse applies a @glyph_property1 second stun every 5th pulse."
+		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] is passive and no longer slows. Also Bahamut Pulse applies a @glyph_property1 second stun every 5th pulse."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"Glyph of Barriers"
 		"item_rpc_bahamut_glyph_7_1_description" 				"Increases the duration of Wall of Impunity by @glyph_property1 seconds."

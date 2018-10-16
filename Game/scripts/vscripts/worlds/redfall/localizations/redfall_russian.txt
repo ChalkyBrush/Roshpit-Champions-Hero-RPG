@@ -999,3 +999,9 @@
 
 		"DOTA_Tooltip_modifier_summon_leech_seed_debuff"				"Redfall Leech Seed"
 		"DOTA_Tooltip_modifier_summon_leech_seed_debuff_Description"	"Получает урон и исцеляет Мировое Древо и всю его армию."
+		
+		"DOTA_Tooltip_ability_redfall_fade_bolt"						"Fade Bolt"
+		"DOTA_Tooltip_ability_redfall_fade_bolt_Description"			"Наносит урон и ослабляет цель."
+		"DOTA_Tooltip_ability_redfall_fade_bolt_damage"					"УРОН:"
+		"DOTA_Tooltip_ability_redfall_fade_bolt_hero_attack_damage_reduction"	"СНИЖЕНИЕ АТАКИ:"
+		"DOTA_Tooltip_ability_redfall_fade_bolt_duration"						"ДЛИТЕЛЬНОСТЬ:"

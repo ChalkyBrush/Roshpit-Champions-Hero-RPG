@@ -1,13 +1,17 @@
 "AddonInfo"
 {
   "TeamCount" "1"
-  "maps"      "rpc_winterblight_mountain rpc_redfall_ridge rpc_tanari_jungle rpc_battle_of_serengaard rpc_roshpit_arena rpc_sea_fortress"
+  "maps"      "rpc_tutorial rpc_redfall_ridge rpc_winterblight_mountain rpc_tanari_jungle rpc_battle_of_serengaard rpc_roshpit_arena rpc_sea_fortress"
   "IsPlayable"  "1"
-  "rpc_winterblight_mountain"
+  "rpc_tutorial"
   {
           "MaxPlayers"                    "4"
   }
   "rpc_redfall_ridge"
+  {
+          "MaxPlayers"                    "4"
+  }
+  "rpc_winterblight_mountain"
   {
           "MaxPlayers"                    "4"
   }

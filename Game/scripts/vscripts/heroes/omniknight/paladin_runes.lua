@@ -1,3 +1,5 @@
+require("heroes/omniknight/paladin_constants")
+
 function rune_q_1_strike(event)
 	local ability = event.ability
 	local target = event.target
@@ -76,47 +78,42 @@ function paladin_die(event)
     end	
 end
 
-function rune_e_1_death(event)
-	local dyingUnit = event.unit
-	local deathLocation = dyingUnit:GetAbsOrigin()
-	print("a_c_death")
-	local a_c_level = Runes:GetTotalRuneLevel(dyingUnit, 1, "e_1", "paladin")
-	if dyingUnit:HasModifier("modifier_paladin_rune_e_1_revivable") then	
-		local caster = event.caster
-		local ability = event.ability
-		--ability.respawnTime = dyingUnit:GetRespawnTime()
-        Timers:CreateTimer(0.5, 
-        function()
+-- function rune_e_1_death(event)
+-- 	local dyingUnit = event.unit
+-- 	local deathLocation = dyingUnit:GetAbsOrigin()
+-- 	print("a_c_death")
+-- 	local a_c_level = Runes:GetTotalRuneLevel(dyingUnit, 1, "e_1", "paladin")
+-- 	if dyingUnit:HasModifier("modifier_paladin_rune_e_1_revivable") then	
+-- 		local caster = event.caster
+-- 		local ability = event.ability
+-- 		--ability.respawnTime = dyingUnit:GetRespawnTime()
+--         Timers:CreateTimer(0.5, 
+--         function()
         	
-				dyingUnit:RemoveModifierByName("modifier_paladin_rune_e_1_revivable")
-				dyingUnit:RespawnHero(false, false)
-			        Timers:CreateTimer(0.1, 
-			        function()
-			        dyingUnit:SetHealth(1000+500*a_c_level)
-			        dyingUnit:SetMana(500+350*a_c_level)
-				      local playerID = dyingUnit:GetPlayerID()
-				      PlayerResource:SetCameraTarget(playerID, dyingUnit)
-				      ability:ApplyDataDrivenModifier(caster, dyingUnit, "modifier_paladin_rune_e_1_reviving", {duration = 4})
-				      Timers:CreateTimer(2,
-				      function()
-				        PlayerResource:SetCameraTarget(playerID, nil)
-				      end)
-			        dyingUnit:SetAbsOrigin(deathLocation)	
-					StartAnimation(dyingUnit, {duration=4, activity=ACT_DOTA_DISABLED, rate=0.7})
-				end)
-        end)
-    end
-end
+-- 				dyingUnit:RemoveModifierByName("modifier_paladin_rune_e_1_revivable")
+-- 				dyingUnit:RespawnHero(false, false)
+-- 			        Timers:CreateTimer(0.1, 
+-- 			        function()
+-- 			        dyingUnit:SetHealth(1000+500*a_c_level)
+-- 			        dyingUnit:SetMana(500+350*a_c_level)
+-- 				      local playerID = dyingUnit:GetPlayerID()
+-- 				      PlayerResource:SetCameraTarget(playerID, dyingUnit)
+-- 				      ability:ApplyDataDrivenModifier(caster, dyingUnit, "modifier_paladin_rune_e_1_reviving", {duration = 4})
+-- 				      Timers:CreateTimer(2,
+-- 				      function()
+-- 				        PlayerResource:SetCameraTarget(playerID, nil)
+-- 				      end)
+-- 			        dyingUnit:SetAbsOrigin(deathLocation)	
+-- 					StartAnimation(dyingUnit, {duration=4, activity=ACT_DOTA_DISABLED, rate=0.7})
+-- 				end)
+--         end)
+--     end
+-- end
 
 function rune_e_1_reviving_end(event)
-	local dyingUnit = event.target
-	local caster = event.caster
-	local ability = event.ability
-	local cooldown = 120
-	if caster:HasModifier("modifier_paladin_glyph_1_1") then
-		cooldown = 80
-	end
-	ability:ApplyDataDrivenModifier(caster, dyingUnit, "modifier_paladin_rune_e_1_revive_cooldown", {duration = cooldown})
+	local target = event.target
+	local e_1_level = target:GetRuneValue("e",1)
+	event.ability:ApplyDataDrivenModifier(target, target, "modifier_paladin_rune_e_1_invulnerable", {duration = PALADIN_E1_INVAL_TIME*e_1_level})
 end
 
 function rune_e_1_revive_cooldown_end(event)

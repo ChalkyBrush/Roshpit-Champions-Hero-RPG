@@ -128,13 +128,16 @@ function a_d_field_thinker_think(event)
 	end
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.03*ability.r_1_level
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), ability.aoePosition, nil, 220, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+    for k,v in pairs(enemies) do
+    	if v.dummy then table.remove(enemies, k) end
+    end
     if #enemies > 0 then
     	local dividedDamage = damage/#enemies
         for _,enemy in pairs(enemies) do
-        	if enemy.dummy then
-        	else
+        	-- if enemy.dummy then
+        	-- else
         		Filters:TakeArgumentsAndApplyDamage(enemy, caster, dividedDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
-        	end
+        	-- end
         end
     end 
 end

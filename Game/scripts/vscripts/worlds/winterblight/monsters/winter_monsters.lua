@@ -1067,7 +1067,6 @@ function blade_jump_think(event)
 	-- end
 	local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
 	if height < math.abs(ability.liftVelocity) then
-		print(height)
 		if not ability.rising then
 			caster:RemoveModifierByName("modifier_machinal_jump")
 		end
@@ -1679,6 +1678,40 @@ function azalea_priest_think(event)
 			caster:MoveToPosition(caster:GetAbsOrigin()+runDirection*380)
 		end
 	end	
+end
+
+function azalea_curse_hit(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	if target:HasModifier("modifier_curse_of_azalea_immune") then
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, ability:GetSpecialValueFor("bounce_range"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+		for k,v in pairs(enemies) do
+			if v == target then table.remove(enemies, k) end
+		end
+		if #enemies>0 then
+			local info = {
+			Target = enemies[1],
+			Source = target,
+			Ability = ability,	
+			EffectName = "particles/roshpit/winterblight/curse_of_azalea_projectile_poison_touch.vpcf",
+		    iMoveSpeed = 1500,
+			vSourceLoc= caster:GetAbsOrigin(),
+			bDrawsOnMinimap = false,
+		    bDodgeable = true,
+		    bIsAttack = false,
+		    bVisibleToEnemies = true,
+		    bReplaceExisting = false,
+			bProvidesVision = false,
+			iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1
+		}
+			ProjectileManager:CreateTrackingProjectile(info)
+			EmitSoundOn("Winterblight.Priest.CurseProjectile", enemies[1])
+		end
+	else
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_curse_of_azalea", {duration = 4})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_curse_of_azalea_immune", {duration = 4+ability:GetSpecialValueFor("immun_duration")})
+	end
 end
 
 function attackable_unit_hit(event)

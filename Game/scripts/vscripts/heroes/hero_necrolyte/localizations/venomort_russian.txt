@@ -236,52 +236,52 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_1"		"(T1) Символ быстрого яда"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_1"		"(T1) Глиф быстрого яда"
 		"item_rpc_venomort_glyph_1_1_description" 				"Уменьшает время перезарядки (Q) @Ability1 до @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_2_1"		"(T2) Символ иммунодефицита"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_2_1"		"(T2) Глиф иммунодефицита"
 		"item_rpc_venomort_glyph_2_1_description" 				"Для каждого эффекта, базирующегося на числе пораженных целей, монстры Парагона считаются за @glyph_property2 юнитов, а боссы - за @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_1"		"(Т3) Символ призрачного облака"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_1"		"(Т3) Глиф призрачного облака"
 		"item_rpc_venomort_glyph_3_1_description" 				"В эффекте невидимости от @Ability3, регенерация здоровья Venomort увеличена на @glyph_property1% от максимального запаса здоровья."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_1"		"(Т4) Символ меланхолии"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_1"		"(Т4) Глиф меланхолии"
 		"item_rpc_venomort_glyph_4_1_description" 				"[E1] дополнительно увеличивает стихии <font color=\"#9ACCD1\">Призрак</font>, <font color=\"#5C776E\">Нежить</font>, и <font color=\"#7F4F84\">Тень</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_1"		"(Т5) Символ безумного вурдалака"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_1"		"(Т5) Глиф безумного вурдалака"
 		"item_rpc_venomort_glyph_5_1_description" 				"Умножает потенциал [W3] на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_1"		"(T6) Символ ослабления"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_1"		"(T6) Глиф ослабления"
 		"item_rpc_venomort_glyph_6_1_description" 				"Враги, страдающие от любого яда Venomort наносят ему @glyph_property1% меньше Магического и Чистого урона."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_1"		"(Т7) Символ заклинателя змей"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_1"		"(Т7) Глиф заклинателя змей"
 		"item_rpc_venomort_glyph_7_1_description" 				"Увеличивает длительность жизни существ, призванных с помощью способностей и рун Venomort (но не из остальных источников) на @glyph_property1 секунд, и увеличивает их скорость атаки на @glyph_property2."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_a"		"(Immortal) Символ коварных токсинов"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_a"		"(Immortal) Глиф коварных токсинов"
 		"item_rpc_venomort_glyph_5_a_description" 				"Все порции урона, нанесенные ядами Venomort разделены на 3 равные порции Физического, Магического и Чистого урона."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_2"		"(T1-2) Символ делирия"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_2"		"(T1-2) Глиф делирия"
 		"item_rpc_venomort_glyph_1_2_description" 				"Увеличивает длительность [W2] на @glyph_property2%. К тому же, противники, задетые @Ability1 имеют @glyph_property1% шанс потерять ориентацию в пространстве."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_2_2"		"(Т2-2) Символ едкого всплеска"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_2_2"		"(Т2-2) Глиф едкого всплеска"
 		"item_rpc_venomort_glyph_2_2_description" 				"[E2] дополнительно поразит цели в радиусе @glyph_property1 от основной цели."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_2"		"(Т3-2) Символ разъедающей крови"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_2"		"(Т3-2) Глиф разъедающей крови"
 		"item_rpc_venomort_glyph_3_2_description" 				"Каждый раз когда здоровье Venomort снижается на любой @glyph_property1% порог от его максимального здоровья, следующий урон от [E2] нанесет @glyph_property2x урон."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_2"		"(Т4-2) Символ заманивания"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_2"		"(Т4-2) Глиф заманивания"
 		"item_rpc_venomort_glyph_4_2_description" 				"Увеличивает длительность зарядов [E4] с 1.5 секунд до @glyph_property1 секунд."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_2"		"(Т5-2) Символ некропотенциала"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_2"		"(Т5-2) Глиф некропотенциала"
 		"item_rpc_venomort_glyph_5_2_description" 				"Максимальная дальность @Ability2 увеличена на @glyph_property1%."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_2"		"(Т6-2) Символ антибиотиков"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_2"		"(Т6-2) Глиф антибиотиков"
 		"item_rpc_venomort_glyph_6_2_description" 				"Все призванные юниты от рун и способностей Venomort (но не из других источников) имеют Стойкость."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_2"		"(Т7-2) Символ внезапной смерти"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_2"		"(Т7-2) Глиф внезапной смерти"
 		"item_rpc_venomort_glyph_7_2_description" 				"Venomort наносит дополнительно @glyph_property2% увеличенный пост-резистный урон по юнитам с уровнем здоровья выше @glyph_property1% от их максимума."
 		
-        "DOTA_Tooltip_ability_item_rpc_venomort_glyph_book"                     "Книга символов Venomort"
+        "DOTA_Tooltip_ability_item_rpc_venomort_glyph_book"                     "Книга Глифов Venomort"
 		
 		//Weapons
 		"venomort_weapon_00"			"Basic Scythe"
@@ -321,7 +321,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_2"				"Scythe of Vyse"
     	"item_property_venomort_immortal_weapon2"								"Contagion"
-    	"property_venomort_immortal_weapon2_description"						"(W) Plague Blaster высвобождает 2 дополнительных призрака, а урон от способности учитывается рунами и символами как периодический урон."
+    	"property_venomort_immortal_weapon2_description"						"(W) Plague Blaster высвобождает 2 дополнительных призрака, а урон от способности учитывается рунами и Глифами как периодический урон."
 
     	"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_3"				"Hook of the Fetid Valley"
     	"item_property_venomort_immortal_weapon3"								"Mantle of Juiblex"
