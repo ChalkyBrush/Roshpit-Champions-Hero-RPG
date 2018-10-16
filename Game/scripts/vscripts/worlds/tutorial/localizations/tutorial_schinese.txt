@@ -603,52 +603,52 @@
 	"tutorial_master_dialogue_6_2d"										"这是V社的第三方认证系统。Roshpit.ca永远看不到你的密码."
 	"tutorial_master_dialogue_6_2e"										"登录时，您将登陆您的个人资料页。当你在那里时，我希望你在你的个人资料页上点击小绿人!"		
 	"tutorial_master_dialogue_6_2f"										"我会等的！点击在你的个人资料页面上的小绿人celebi"
-	"tutorial_master_dialogue_6_2g"										"Still haven't found it?"
+	"tutorial_master_dialogue_6_2g"										"还没找到吗?"
 
-	"tutorial_master_dialogue_6_2h"										"Great! Now notice on the website there is a prominent tab labelled 'items.'"
-	"tutorial_master_dialogue_6_2i"										"The data for the possible rolls for each item are collected by the players in a team effort."	
-	"tutorial_master_dialogue_6_2j"										"You can use the Curator NPC to add your item to the collection of knowledge and help everyone!"	
-	"tutorial_master_dialogue_6_2k"										"Go and talk to the Curator!"
+	"tutorial_master_dialogue_6_2h"										"牛皮！现在在网站上注意有一个突出的标签标有“items”.'"
+	"tutorial_master_dialogue_6_2i"										"每个物品的数据是由玩家在团队努力中收集的."	
+	"tutorial_master_dialogue_6_2j"										"你可以使用鉴宝NPC将你的物品数据添加到知识集合中，并帮助每个人!"	
+	"tutorial_master_dialogue_6_2k"										"去和鉴宝npc对话吧!"
 
-	"tutorial_master_dialogue_6_2l"										"That's it. That completes this lesson."
+	"tutorial_master_dialogue_6_2l"										"就是这样。这一课完成."
 
-	"quest_6_challenge_3_desc"											"roshpit.ca has a marketplace at www.roshpit.ca/market that makes trading items easy. Items can be bought and sold for mithril shards or arcane crystals."
-	"quest_6_challenge_3_sub_0_summary"									"Click on cherebi at www.roshpit.ca/market/my_sales."
+	"quest_6_challenge_3_desc"											"肉山谷官方拥有一个市场www.roshpit.ca 使交易装备更容易。物品可以使用秘银水晶或奥术水晶购买和出售."
+	"quest_6_challenge_3_sub_0_summary"									"点击 www.roshpit.ca/market/my_sales网页中的小绿人切雷比."
 
-	"tutorial_master_dialogue_6_3a"										"The website has a marketplace which is very important for acquiring items or mithril."
-	"tutorial_master_dialogue_6_3b"										"You can list items up for sale by choosing an item from your stash at www.roshpit.ca/market/my_sales"
-	"tutorial_master_dialogue_6_3c"										"When an auction is won (buyer) or expires (seller), the owner of the item will receive Market Mail on the my_sales page."
-	"tutorial_master_dialogue_6_3d"										"Click on the mail to put your item into your stash, or collect the proceeds of your sale."
-	"tutorial_master_dialogue_6_3e"										"I want you to visit roshpit.ca/market/my_sales! Go and find Cherebi there."
+	"tutorial_master_dialogue_6_3a"										"这个网站有一个市场，它对于获取物品或秘银水晶非常重要."
+	"tutorial_master_dialogue_6_3b"										"你可以通过www.roshpit.ca/market/my_sales在你的永恒幻境上选择一个物品来出售"
+	"tutorial_master_dialogue_6_3c"										"当拍卖赢得（买方）或过期（卖方）时，该物品的所有者将在 my_sales页面上接收市场邮件."
+	"tutorial_master_dialogue_6_3d"										"点击邮件将你的物品放入你的永恒幻境，或者领取你的销售收入."
+	"tutorial_master_dialogue_6_3e"										"我想让你参观 roshpit.ca/market/my_sales! 去那里寻找小绿人切雷比."
 
-	"tutorial_master_dialogue_6_3f"										"You got it! Feel free to browse the market some more to get a feel for it."
+	"tutorial_master_dialogue_6_3f"										"你明白了！自由浏览更多的市场来感受它."
 
-	"quest_6_challenge_4_desc"											"The website offers a 'Web Premium' token which adds 72 stash slots and stash organization while on the web for 30 days. Purchased tokens can be consumed immediately or put into your stash for trading."
-	"quest_6_challenge_4_sub_0_summary"									"Click on cherebi at www.roshpit.ca/web-premium."
+	"quest_6_challenge_4_desc"											"该网站提供了一个“Web Premium"令牌(大会员)，在网络上添加72个存储槽和存储组织30天。购买的WEB可以立即使用或放入你的交易中."
+	"quest_6_challenge_4_sub_0_summary"									"点击www.roshpit.ca/web-premium网页上的小绿人."
 
-	"tutorial_master_dialogue_6_4a"										"Roshpit.ca offers Web Premium for $5.00. It is entirely an optional feature that does not affect gameplay."
-	"tutorial_master_dialogue_6_4b"										"I can not explain it any better than the website, why don't you head over to www.roshpit.ca/web-premium now?"
-	"tutorial_master_dialogue_6_4c"										"Cherebi will greet you there! Click on him! That page will explain all of the features to you."
+	"tutorial_master_dialogue_6_4a"										"Roshpit.ca 提供售价$5.00的Web Premium大会员 . 它完全是一个不影响游戏玩法的可选付费项目.."
+	"tutorial_master_dialogue_6_4b"										"我不能解释它比网站更好，你为什么现在不去看看 www.roshpit.ca/web-premium 呢?"
+	"tutorial_master_dialogue_6_4c"										"小绿人切雷比会在那儿迎接你的！点击他！这个页面将向你解释所有的特性."
 
-	"tutorial_master_dialogue_6_4d"										"Good! You are welcome to purchase a token if you want to support development. That concludes this lesson."
+	"tutorial_master_dialogue_6_4d"										"好！如果您想支持开发，欢迎您购买WEB。这一课结束了."
 
-	"quest_6_challenge_5_desc"											"Roshpit Champions has an active chat channel for discussing the game. The game's developers are present there if you wish to speak to them. The URL is discord.gg/ZUhfMZG"
-	"quest_6_challenge_5_sub_0_summary"									"Go to the Curator's Library channel of the Roshpit Discord. Check the Pinned Messages for the password."
+	"quest_6_challenge_5_desc"											"肉山谷英雄传说有一个活跃的聊天频道来讨论游戏。如果你想和他们说话，游戏开发者就在那里。URL是  discord.gg/ZUhfMZG"
+	"quest_6_challenge_5_sub_0_summary"									"去discord 上的cruator频道，查看置顶的密码."
 
-	"tutorial_master_dialogue_6_5a"										"The Roshpit Champions discord chat channel is a great way to meet fellow players and discuss the game."
-	"tutorial_master_dialogue_6_5b"										"You can access the channel at discord.gg/ZUhfMZG. You can click the link in the game description as well."
-	"tutorial_master_dialogue_6_5c"										"I want you to go visit! Go to the discord chat channel."
-	"tutorial_master_dialogue_6_5d"										"To prove you've been there, tell me the password. You can find the password in the 'pinned messages' of the curators-library channel."
+	"tutorial_master_dialogue_6_5a"										"肉山谷的discord频道是一个很好的满足玩家讨论游戏的方式."
+	"tutorial_master_dialogue_6_5b"										"你可以访问discord.gg/ZUhfMZG，也可以点击游戏描述中的链接."
+	"tutorial_master_dialogue_6_5c"										我希望你去参观！去discord聊天频道吧."
+	"tutorial_master_dialogue_6_5d"										"为了证明你去过那里，告诉我密码。您可以在discord的curators-library频道的“pinned messages”中找到密码."
 
-	"tutorial_quiz_question_19"											"Go to curators-library sub channel of the Roshpit Champions discord. What is the password found in the 'Pinned Messages'?"
+	"tutorial_quiz_question_19"											"去肉山谷的discord中的curators-library 频道. 你在 'Pinned Messages'找到的密码是?"
 
-	"tutorial_quiz_wrong_6_5_1"											"Check the pinned messages in curators-library."
-	"tutorial_quiz_wrong_6_5_2"											"That isn't it, go to discord.gg/ZUhfMZG and go to the curators-library sub channel. Check the pinned messages there."
+	"tutorial_quiz_wrong_6_5_1"											"检查 curators-library中Pinned Messages的信息"
+	"tutorial_quiz_wrong_6_5_2"											"不是这个，去 discord.gg/ZUhfMZG 并转到 curators-library sub channel. 检查那儿的 pinned messages 信息."
 
-	"tutorial_master_dialogue_6_5e"										"That's right! Now feel free to introduce yourself to the other players if you'd like."
-	"tutorial_master_dialogue_6_5f"										"That ends the lesson."
+	"tutorial_master_dialogue_6_5e"										"这是正确的！现在，如果你愿意，可以随时向其他玩家介绍你自己."
+	"tutorial_master_dialogue_6_5f"										"这一课结束."
 
-	"quest_6_reward_title"												"2 Weeks of Web Premium"       
-	"quest_6_reward_description"										"Add 2 weeks of Web Premium to your roshpit.ca account! Claim this when you think you'll get the most value. You can only claim it once."
+	"quest_6_reward_title"												"领取为期两周的 Web Premium（大会员）"       
+	"quest_6_reward_description"										"添加两周的 Web Premium 到你的 roshpit.ca 账户中! 只能领取一次."
 	
 	
