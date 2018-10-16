@@ -103,8 +103,10 @@ function bear_charge_thinking(event)
 		caster:SetAbsOrigin(newPos)
 	end
 	for _,pushUnit in pairs(ability.pushTable) do
-		local pushPos = GetGroundPosition(pushUnit:GetAbsOrigin() + ability.fv*movement, caster)
-		pushUnit:SetAbsOrigin(pushPos)
+		if not pushUnit.dummy then
+			local pushPos = GetGroundPosition(pushUnit:GetAbsOrigin() + ability.fv*movement, caster)
+			pushUnit:SetAbsOrigin(pushPos)
+		end
 	end
 	if ability.interval%9==0 then
 		local casterOrigin = caster:GetAbsOrigin()

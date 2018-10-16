@@ -787,12 +787,12 @@
 				"Passive" 			"0"
 				"IsHidden" 			"1"
 				"IsBuff"			"1"
-				"Aura"					"modifier_protector_c_b_zap"
+				"Aura"					"modifier_protector_w_3_zap"
 				"Aura_Radius"			"500"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 			}
-			"modifier_protector_c_b_zap"
+			"modifier_protector_w_3_zap"
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
