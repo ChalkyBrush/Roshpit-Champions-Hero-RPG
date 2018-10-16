@@ -15987,6 +15987,7 @@
 				"EffectName"	"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"IsHidden"	"0"
+				"TextureName"	"itemicons/terrasic_lava_boots"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
@@ -17408,6 +17409,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"TextureName"	"itemicons/gem_of_eternal_frost"
 				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
 				{
@@ -18007,6 +18009,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
+				"TextureName"	"itemicons/tome_of_chaos"
 				"IsDebuff"	"1"
 				"Duration"  "30"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
@@ -18718,6 +18721,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName" 	"itemicons/fenrir_fang"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "60"
