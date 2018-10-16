@@ -260,10 +260,10 @@
     	"DOTA_Tooltip_modifier_crystal_arrow_freecast_Description"				"10 stacks grants a Crystal Arrow cast with no cooldown"
 
     	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3"							"[R4] Frosted Splash"
-    	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_Description"				"Enemies hit by Crystal Arrow are chilled and slowed."
+    	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_Description"				"Enemies standing inside [R1] are slowed. Slow doesn't expire upon leaving the area but lingers."
     	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_property_one"				"Movespeed Loss"
     	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_suffix"					""
-    	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_property_two"				"Slow Duration"
+    	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_property_two"				"Slow Linger Duration"
     	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_suffix_two"				" seconds"
 
     	"DOTA_Tooltip_modifier_crystal_arrow_chilled"							"Chilled"
