@@ -70086,7 +70086,7 @@
 				"Passive"	"1"
 				"IsHidden"	"1"
 				"ThinkInterval"  "1.0"
-				"OnAttackStart"
+				"OnAttack"
 				{
 					"RunScript"
 					{

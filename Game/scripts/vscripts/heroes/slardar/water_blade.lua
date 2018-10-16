@@ -40,14 +40,10 @@ function water_bomb_throw(caster, ability, target, damage, damageAmp)
 	else
 
 	end
-	local zDifferential = target.z - caster:GetAbsOrigin().z
-	local baseFV = (target*Vector(1,1,0)-caster:GetAbsOrigin()*Vector(1,1,0)):Normalized()
-	local forwardVelocity = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())/32 + 1
-	print(caster:GetAttachmentOrigin(2))
 	local startPosition = caster:GetAttachmentOrigin(2)
-	local fvModifier = ((caster:GetAbsOrigin()-startPosition)*Vector(1,1,0)):Normalized()
-	local fvModifierDivisor = 2.8/forwardVelocity
-	local adjustedFV = (baseFV + (fvModifier*fvModifierDivisor)):Normalized()
+	local zDifferential = target.z - startPosition.z
+	local baseFV = (target*Vector(1,1,0)-startPosition*Vector(1,1,0)):Normalized()
+	local forwardVelocity = WallPhysics:GetDistance2d(target, startPosition)/24
 	local randomOffset = 0
 	-- local flareAngle = WallPhysics:rotateVector(baseFV, math.pi*randomOffset/160)
     local flare = CreateUnitByName("selethas_boomerang", startPosition, false, caster, nil, caster:GetTeamNumber())
@@ -55,9 +51,9 @@ function water_bomb_throw(caster, ability, target, damage, damageAmp)
     flare:SetModel(	"models/hydroxis/water_bomb.vmdl")
     flare:SetRenderColor(20, 110, 240)
     flare:SetModelScale(0.05)
-    flare.fv = adjustedFV
+    flare.fv = baseFV
     flare.slow_duration = 5
-    flare.liftVelocity = 40 + zDifferential/20
+    flare.liftVelocity = 40 + zDifferential/25
     flare.forwardVelocity = forwardVelocity
     flare.interval = 0
     flare.damage = damage*damageAmp*manaAmp

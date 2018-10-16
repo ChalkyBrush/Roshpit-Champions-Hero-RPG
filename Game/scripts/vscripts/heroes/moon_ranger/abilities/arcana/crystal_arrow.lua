@@ -1,3 +1,5 @@
+require("heroes/moon_ranger/constants")
+
 function crystal_arrow_channel_start(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -58,6 +60,34 @@ function crystal_arrow_channel_start(event)
 		ParticleManager:SetParticleControl(pfx, 15, Vector(200, 200, 240))
 		ParticleManager:SetParticleControl(pfx, 16, Vector(200, 200, 240))
 		ability.pfx = pfx
+	end
+end
+
+function crystal_arrow_slow_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local r_4_level = caster:GetRuneValue("r",4)
+	if r_4_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_crystal_arrow_chilled", {duration = -1})
+		target:FindModifierByName("modifier_crystal_arrow_chilled"):SetStackCount(r_4_level)
+	end
+end
+
+function crystal_arrow_slow_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local r_4_level = caster:GetRuneValue("r",4)
+	if not target:HasModifier("modifier_cystal_arrow_ad_thinker") then
+		if r_4_level > 0 then
+			local modifier = target:FindModifierByName("modifier_crystal_arrow_chilled")
+			if modifier then
+				modifier:SetDuration(r_4_level*ASTRAL_R4_ARCANA2_SLOW, true)
+			end
+		else
+			target:RemoveModifierByName("modifier_crystal_arrow_chilled")
+		end
 	end
 end
 
@@ -259,14 +289,10 @@ function arrow_explode(caster, ability, position, damage)
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.06})
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-    local slowDuration = 0.3*ability.r_4_level
     if #enemies > 0 then
     	local AOEDamage = damage
         for _,enemy in pairs(enemies) do
         	Filters:TakeArgumentsAndApplyDamage(enemy, caster, AOEDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_ICE, RPC_ELEMENT_COSMOS)
-        	if ability.r_4_level > 0 then
-        		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_crystal_arrow_chilled", {duration = slowDuration})
-        	end
         end
     end 
 end

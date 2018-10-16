@@ -2811,16 +2811,16 @@ function GameState:FilterDamage(filterTable)
     end
 	if victim:HasModifier("modifier_paladin_q4_shield") then
 		local damageAbsorb = math.min(filterTable["damage"], victim.paladin_q4_absorb)
-		victim.paladin_q4_absorb = victim.paladin_q4_absorb - damageAbsorb
-		if damageAbsorb <= 0 then
+		victim.paladin_q4_absorb = math.max(victim.paladin_q4_absorb - damageAbsorb, 0)
+		if victim.paladin_q4_absorb <= 0 then
 			victim:RemoveModifierByName("modifier_paladin_q4_shield")
 		end
 		filterTable["damage"] = filterTable["damage"] - damageAbsorb
 	end
 	if victim:HasModifier("modifier_seinaru_rune_w_3_shield") then
 		local damageAbsorb = math.min(filterTable["damage"], victim.seinaru_c_b_absorb)
-		victim.seinaru_c_b_absorb = victim.seinaru_c_b_absorb - damageAbsorb
-		if damageAbsorb <= 0 then
+		victim.seinaru_c_b_absorb = math.max(victim.seinaru_c_b_absorb - damageAbsorb, 0)
+		if victim.seinaru_c_b_absorb <= 0 then
 			victim:RemoveModifierByName("modifier_seinaru_rune_w_3_shield")
 		end
 		filterTable["damage"] = filterTable["damage"] - damageAbsorb
@@ -3497,7 +3497,13 @@ function GameState:FilterDamage(filterTable)
 	if filterTable["damage"] > 0 then
 		if victim:HasModifier("modifier_golden_shell_passive") then
         	local ability = victim:FindModifierByName("modifier_golden_shell_passive"):GetAbility()
-        	ability:ApplyDataDrivenModifier(victim, victim, "modifier_black_King_bar_immunity", {duration = ability:GetSpecialValueFor("duration")})
+        	if not ability.active then
+        		ability.active = true
+        		Timers:CreateTimer(0.1, function()
+        			ability:ApplyDataDrivenModifier(victim, victim, "modifier_black_King_bar_immunity", {duration = ability:GetSpecialValueFor("duration")})
+        			ability.active = false
+        		end)
+        	end
         end
        if victim:HasModifier("modifier_in_stargazer_area") then
         	if filterTable["entindex_inflictor_const"] then
