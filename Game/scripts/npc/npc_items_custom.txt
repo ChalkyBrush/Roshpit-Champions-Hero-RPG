@@ -11791,6 +11791,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"TextureName"	"itemicons/water_mage_robes"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -12097,6 +12098,7 @@
 			{
 				"IsBuff"	"1"
 				"IsHidden"	"0"
+				"TextureName"	"itemicons/windsteel"
 				"EffectName"		"particles/units/heroes/hero_medusa/windsteel_armor.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"OnDestroy"
@@ -12121,6 +12123,7 @@
 			{
 				"IsDebuff"	"1"
 				"IsHidden"	"0"
+				"TextureName"	"itemicons/windsteel"
 			}
 		}
 		"AbilitySpecial"
@@ -15225,6 +15228,7 @@
             {
             	"IsHidden"	"0"
             	"IsBuff"	"1"
+				"TextureName"	"itemicons/giant_hunter_buff"
             	"EffectName"			"particles/items_fx/black_king_bar_avatar.vpcf"
             	"EffectAttachType"		"attach_hitloc"
             	"StatusEffectName" 		"particles/status_fx/status_effect_mjollnir_shield.vpcf"
@@ -15530,6 +15534,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"TextureName"	"itemicons/boots_of_old_wisdom"
 				"OnCreated"
 				{
 					"RemoveModifier"
@@ -15601,6 +15606,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"TextureName"	"itemicons/falcon_boots"
 				"States"
 				{
 					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -15855,6 +15861,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"TextureName"	"itemicons/water_mage_robes"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
