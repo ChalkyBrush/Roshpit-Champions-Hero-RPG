@@ -627,7 +627,7 @@
 	"quest_6_challenge_4_sub_0_summary"									"点击www.roshpit.ca/web-premium网页上的小绿人."
 
 	"tutorial_master_dialogue_6_4a"										"Roshpit.ca 提供售价$5.00的Web Premium大会员 . 它完全是一个不影响游戏玩法的可选付费项目.."
-	"tutorial_master_dialogue_6_4b"										"我不能解释它比网站更好，你为什么现在不去看看 www.roshpit.ca/web-premium 呢?"
+	"tutorial_master_dialogue_6_4b"										"我无法解释的比网站上更详细啦，不妨直接去这个网站看看 www.roshpit.ca/web-premium ~"
 	"tutorial_master_dialogue_6_4c"										"小绿人切雷比会在那儿迎接你的！点击他！这个页面将向你解释所有的特性."
 
 	"tutorial_master_dialogue_6_4d"										"好！如果您想支持开发，欢迎您购买WEB。这一课结束了."
