@@ -16694,6 +16694,7 @@
 				"IsBuff"				"1"
 				"IsHidden"				"0"
 				"IsPurgable"			"0"
+				"TextureName"			"itemicons/radiant_leather"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "220"
