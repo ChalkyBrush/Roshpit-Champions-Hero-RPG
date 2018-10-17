@@ -7863,6 +7863,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"	"itemicons/white_mage_shield"
 				"EffectName"	"particles/roshpit/items/white_mage_shield.vpcf"
 				"EffectAttachType"	"attach_origin"
 
