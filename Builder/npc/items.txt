@@ -4187,6 +4187,7 @@
 			{
 				"IsDebuff"	"1"
 				"IsHidden"	"0"
+				"TextureName"	"itemicons/midas_freeze"
 				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold.vpcf"
 				"StatusEffectPriority"  "10"
 				"EffectName"			"particles/econ/courier/courier_mechjaw/courier_mechjaw_ambient_gold_twinkle.vpcf"
@@ -18875,6 +18876,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
+				"TextureName" "itemicons/ruinfall_skull_token"
 				"IsDebuff"	"1"
 				"Duration"  "40"
 			}
@@ -19054,6 +19056,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
+				"TextureName"	"phoenix_supernova"
 				"IsBuff"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"States"
@@ -25459,6 +25462,7 @@
 			{
 				"IsHidden"	"0"
 				"OnCreated"
+				"TextureName"	"itemicons/silent_templar"
 				{
 					"AttachEffect"
 					{
@@ -44487,7 +44491,8 @@
 			"modifier_black_King_bar_immunity"
 			{
 				"Passive"	"0"
-				"IsHidden" "0"
+				"IsHidden"		"0"
+				"TextureName"	"itemicons/giant_hunter_buff"
 				"EffectName"	"particles/items_fx/black_king_bar_avatar.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"States"
