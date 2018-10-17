@@ -4616,7 +4616,6 @@
 			{
 				"IsBuff"	"1"
 				"IsHidden"	"0"
-				"TextureName"	"itemicons/gloves_of_sweeping_wind"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
@@ -5112,7 +5111,6 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"  "1"
-				"TextureName"	"itemicons/dark_emissary_cd"
 			}
 			"modifier_dark_emissary_invis"
 			{
@@ -6777,7 +6775,6 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"itemicons/royal_wristguards"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_one"
@@ -8161,7 +8158,6 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"  "1"
-				"TextureName"	"itemicons/centaur_horns"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
@@ -8518,7 +8514,6 @@
 				"IsHidden"	"0"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"ThinkInterval"  "0.5"
-				"TextureName"	"itemicons/iron_colossus"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -9025,7 +9020,6 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
-				"TextureName"	"itemicons/tricksters_mask"
 				"Duration"  "1"
 				"OnCreated"
 				{
@@ -10594,7 +10588,6 @@
 				"IsHidden"	"0"
 				"EffectName"	"particles/roshpit/items/nightmare_rider_debuff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"TextureName"	"itemicons/nightmare_rider_mantle"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40"
@@ -10611,7 +10604,6 @@
 			"modifier_nightmare_rider_stacks"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"itemicons/nightmare_rider_mantle"
 			}
 			"modifier_nightmare_rider_orb_buff"
 			{
@@ -10821,7 +10813,6 @@
 				"Passive"	"0"
 				"IsBuff"	"1"
 				"IsHidden"	"0"
-				"TextureName"	"itemicons/bladestorm_vest"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
@@ -10956,7 +10947,6 @@
 			{
 				"IsBuff"	"1"
 				"IsHidden"	"0"
-				"TextureName"	"itemicons/space_tech"
 				"EffectName"		"particles/units/heroes/hero_faceless_void/faceless_void_dialatedebuf.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
@@ -11134,7 +11124,6 @@
 				"IsBuff"	"1"
 				"Passive"	"0"
 				"IsHidden"	"0"
-				"TextureName"	"itemicons/ogthun"
 				"EffectName"	"particles/econ/items/riki/riki_haze_atrocity/riki_versuta_red_eye_r_parent.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"OnDestroy"
@@ -11261,7 +11250,6 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"itemicons/ocean_tempest_pallium"
 				"OnCreated"
 				{
 					"RunScript"
@@ -11494,7 +11482,6 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"itemicons/feronia_guard"
 				"EffectName"	"particles/roshpit/items/feronia_shield.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 			}
@@ -11616,7 +11603,6 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"itemicons/sacred_trials"
 				"EffectName"	"particles/econ/items/dazzle/dazzle_ti6_gold/dazzle_ti6_shallow_grave_gold_ground_ray.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"OnAttackLanded"
@@ -11791,7 +11777,6 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"TextureName"	"itemicons/water_mage_robes"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -12098,7 +12083,6 @@
 			{
 				"IsBuff"	"1"
 				"IsHidden"	"0"
-				"TextureName"	"itemicons/windsteel"
 				"EffectName"		"particles/units/heroes/hero_medusa/windsteel_armor.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"OnDestroy"
@@ -12123,7 +12107,6 @@
 			{
 				"IsDebuff"	"1"
 				"IsHidden"	"0"
-				"TextureName"	"itemicons/windsteel"
 			}
 		}
 		"AbilitySpecial"
@@ -15228,7 +15211,6 @@
             {
             	"IsHidden"	"0"
             	"IsBuff"	"1"
-				"TextureName"	"itemicons/giant_hunter_buff"
             	"EffectName"			"particles/items_fx/black_king_bar_avatar.vpcf"
             	"EffectAttachType"		"attach_hitloc"
             	"StatusEffectName" 		"particles/status_fx/status_effect_mjollnir_shield.vpcf"
@@ -15534,7 +15516,6 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"TextureName"	"itemicons/boots_of_old_wisdom"
 				"OnCreated"
 				{
 					"RemoveModifier"
@@ -15606,7 +15587,6 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"TextureName"	"itemicons/falcon_boots"
 				"States"
 				{
 					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -15861,7 +15841,6 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"TextureName"	"itemicons/water_mage_robes"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -15987,7 +15966,6 @@
 				"EffectName"	"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"IsHidden"	"0"
-				"TextureName"	"itemicons/terrasic_lava_boots"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
@@ -17409,7 +17387,6 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"TextureName"	"itemicons/gem_of_eternal_frost"
 				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
 				{
@@ -18009,7 +17986,6 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
-				"TextureName"	"itemicons/tome_of_chaos"
 				"IsDebuff"	"1"
 				"Duration"  "30"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
@@ -18721,7 +18697,6 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName" 	"itemicons/fenrir_fang"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "60"
@@ -19481,10 +19456,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "100"
-				}
 			}
 			"modifier_burning_spirit_helmet_flamethrower"
 			{
@@ -36629,7 +36600,6 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"itemicons/brazen_kabuto_of_the_desert_realm"
 				"States"
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -36653,7 +36623,6 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"itemicons/brazen_kabuto_of_the_desert_realm"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -47422,7 +47391,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -47567,7 +47536,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"40"
 			}
 		}
 	}
@@ -53151,7 +53120,6 @@
 			{
 				"IsHidden"	"0"
 				"ThinkInterval"  "0.5"
-				"TextureName"	"itemicons/auriun_shadow_flay"
 				"OnIntervalThink"
 				{
 					"RunScript"

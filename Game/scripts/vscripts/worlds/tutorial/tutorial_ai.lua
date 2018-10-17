@@ -1,6 +1,6 @@
 function tutorial_master_think(event)
 	local caster = event.caster
-	local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 240, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+	local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 180, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
 	if #allies > 0 then
 		for i = 1, #allies, 1 do
 			Tutorial:OpenTutorial(allies[i])

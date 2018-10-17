@@ -2204,7 +2204,7 @@
 
 		//Abilities
 		"DOTA_Tooltip_ability_moon_shroud"								"Moon Shroud"
-		"DOTA_Tooltip_ability_moon_shroud_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font><br>Creates a screen of moon dust in front of the Astral Ranger. Enemies within the dust will miss with their attacks, take damage, and have their movespeed slowed."
+		"DOTA_Tooltip_ability_moon_shroud_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font><br>Creates a screen of moon dust in front of the Astral Ranger. Enemies within the dust will miss with their attacks, take damage, and have their movespeed slowed. Teleporting with Astral Rift while standing in the shroud moves the shroud and adds %add_duration% seconds to the duration."
 		"DOTA_Tooltip_ability_moon_shroud_Lore"							""
 		"DOTA_Tooltip_ability_moon_shroud_duration"						"DURATION:"
 		"DOTA_Tooltip_ability_moon_shroud_damage"						"DAMAGE/SEC"
@@ -2338,12 +2338,12 @@
     	"DOTA_Tooltip_modifier_starfall_a_d_visible"					"Starstorm"
     	"DOTA_Tooltip_modifier_starfall_a_d_visible_Description"		"Each stack reducing <font color=\"#C25DFC\">Cosmic</font> resistance by 10%%."
 		
-		"DOTA_Tooltip_ability_astral_rune_r_2"							"[R2] Star Quake"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_Description"				"When enemies land after a Celestial Burst - another explosion of star fragments stun and damage enemies within its radius. Damage ignores Steadfast."
-    	"DOTA_Tooltip_ability_astral_rune_r_2_property_one"				"Damage"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_suffix"					""
-    	"DOTA_Tooltip_ability_astral_rune_r_2_property_two"				"Stun Duration"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
+		"DOTA_Tooltip_ability_astral_rune_r_2"                          "[R2] Star Quake"
+        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Stars of [R1] create little quakes when thay fall, dealing damage and stunning enemies for 0.03 seconds in an area."
+        "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "Damage of [R1] Starstorm"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "%"
+        "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "Radius"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
     	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summons the Phoenix Constellation on a successful Celestial Burst cast that follows for 10 seconds. Phoenix follows the Ranger and damages all enemies around her based on Astral's attack power."
@@ -2456,7 +2456,7 @@
     	"DOTA_Tooltip_modifier_crystal_arrow_b_d_Description"					"Increased attack damage"	
 
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3"							"[R3] Blessed Quiver"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_Description"				"Every 0.5 seconds gain a crystal arrow stack. If you have 10 stacks or more, Crystal Arrow can be cast with no cooldown, and 10 stacks are consumed."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_Description"				"Every 0.5 seconds gain a crystal arrow stack. If you have 10 stacks or more, Crystal Arrow can be cast with no cooldown, and 10 stacks are consumed. Amount of stacks gained per interval increases by 1 for every 60 levels this rune has."
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_property_one"				"Max Stacks"
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_suffix"					""
 
@@ -2464,18 +2464,18 @@
     	"DOTA_Tooltip_modifier_crystal_arrow_freecast_Description"				"10 stacks grants a Crystal Arrow cast with no cooldown"
 
     	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3"							"[R4] Frosted Splash"
-    	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_Description"				"Enemies hit by Crystal Arrow are chilled and slowed."
+    	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_Description"				"Enemies standing inside [R1] are slowed. Slow doesn't expire upon leaving the area but lingers."
     	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_property_one"				"Movespeed Loss"
     	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_suffix"					""
-    	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_property_two"				"Slow Duration"
+    	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_property_two"				"Slow Linger Duration"
     	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_suffix_two"				" seconds"
 
     	"DOTA_Tooltip_modifier_crystal_arrow_chilled"							"Chilled"
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"		"Glyph of Wings"
-		"item_rpc_astral_glyph_1_1_description" 				"Pegasus travels between the astral impact point and the Ranger's current position 4 times."
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"        "Glyph of Persistent Light"
+        "item_rpc_astral_glyph_1_1_description"                 "Double duration of [W1]"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"Glyph of Aerial Crests"
 		"item_rpc_astral_glyph_2_1_description" 				"Astral Ranger's Phoenix summon has @glyph_property1x increased attack damage and slows movespeed of its targets by @glyph_property2."
@@ -2487,10 +2487,10 @@
 		"item_rpc_astral_glyph_3_1_description" 				"@Ability2 only fires @glyph_property1 arrows and increases their damage by @glyph_property2x. Base Proc chance of Empyral Arrows is increased to 40%."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"Glyph of Spatial Rifts"
-		"item_rpc_astral_glyph_4_1_description" 				"Reduces the teleport delay on @Ability3 by 1 second."
+		"item_rpc_astral_glyph_4_1_description" 				"Half cooldown, delay and @Ability1 duration increase of @Ability3"
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"		"Glyph of Lunar Waves"
-		"item_rpc_astral_glyph_5_1_description" 				"Increases the duration of @Ability1 by @glyph_property1 seconds."
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"        "Glyph of Lunar Channeling"
+        "item_rpc_astral_glyph_5_1_description"                 "Your @Ability4 channels itself."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_6_1"		"Glyph of Splitting Arrows"
 		"item_rpc_astral_glyph_6_1_description" 				"Attacks split on impact and hit up to @glyph_property1 additional targets."
@@ -3230,7 +3230,7 @@
 		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] Purity"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"At the beginning of an Ascension - create a swarm of Avian Aspects that strike enemies in an area in front of you. Enemies who are hit are paralyzed for a short duration. Additionally increases the damage of [E3] by multiplying by lowest attribute and dividing by greatest attribute."
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Max Damage Increase"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					"%"	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"Paralyze Duration"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix_two"				" seconds"	
 
@@ -3398,8 +3398,8 @@
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_3_1"		"Glyph of Separation"
 		"item_rpc_bahamut_glyph_3_1_description" 				"Judgement falls around Bahamut instead of in front and has @glyph_property1% larger radius."
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"Glyph of Surging"
-		"item_rpc_bahamut_glyph_4_1_description" 				"Increases the radius of Bahamut Pulse by @glyph_property1%"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"Glyph of Barriers"
+		"item_rpc_bahamut_glyph_4_1_description" 				"Increases the duration of Wall of Impunity by @glyph_property1 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"Glyph of Isolation"
 		"item_rpc_bahamut_glyph_5_1_description" 				"Increases the duration of Solitary Shell by @glyph_property1 seconds."
@@ -3407,8 +3407,8 @@
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"Glyph of Pride"
 		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] is passive and no longer slows. Also Bahamut Pulse applies a @glyph_property1 second stun every 5th pulse."
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"Glyph of Barriers"
-		"item_rpc_bahamut_glyph_7_1_description" 				"Increases the duration of Wall of Impunity by @glyph_property1 seconds."
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"Glyph of Surging"
+		"item_rpc_bahamut_glyph_7_1_description" 				"Increases the radius of Bahamut Pulse by @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_a"		"Glyph of Multiwall"
 		"item_rpc_bahamut_glyph_5_a_description" 				"Every @glyph_property1 seconds gain a free Wall of Impunity cast."
@@ -4302,6 +4302,11 @@
         "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_3"            "Chaos Orchid"
         "item_property_dinath_immortal_weapon3"                             "Cosmic Origin"
         "property_dinath_immortal_weapon3_description"                      "All instances of <font color=\"#3289C7\">Dragon</font> damage deal an additional instance of <font color=\"#C25DFC\">Cosmic</font> damage."
+
+		"djanghor_q"	"Marks"
+        "djanghor_w"	"Jin'bo, Rend, War Stomp & Aerial Tornado"
+        "djanghor_e"	"Monkey Leap, Feral Sprint, Battle Charge & Soar"
+        "djanghor_r"	"Shapeshift"
 
 		"DOTA_Tooltip_ability_draghor_shapeshift_cat"									"Shapeshift: Wolf"
     	"DOTA_Tooltip_ability_draghor_shapeshift_cat_Description"						"Transform into a wolf with its own ability set after 1.75 second channel."
@@ -13970,7 +13975,7 @@
 		"DOTA_Tooltip_ability_sea_fortress_manta_rider_ability_damage"		"DAMAGE:"
 
 		"DOTA_Tooltip_ability_seafortress_golden_shell"					"Golden Shell"
-		"DOTA_Tooltip_ability_seafortress_golden_shell_Description"		"Gain magic immunity every time damage is taken."
+		"DOTA_Tooltip_ability_seafortress_golden_shell_Description"		"Gain magic immunity every time damage is taken. There is a delay of 0.1 seconds before magic immunity is applied."
 		"DOTA_Tooltip_ability_seafortress_golden_shell_duration"		"DURATION:"
 
 		"DOTA_Tooltip_ability_seafortress_exiler_ability"				"Glint of Exiler"
@@ -16506,7 +16511,7 @@
 	"tutorial_master_dialogue_4_4b"										"Elemental amplification can be increased by several special bonuses."
 	"tutorial_master_dialogue_4_4c"										"Check the bottom part of your hero tooltip."
 
-	"tutorial_quiz_question_14a"											"What is your @sub1 amplification value?"
+	"tutorial_quiz_question_14a"										"What is your @sub1 amplification value?"
 
 	"tutorial_quiz_wrong_4_4_1"											"That's wrong. Your elemental amplification can be found at the bottom of your hero tooltip."
 	"tutorial_quiz_wrong_4_4_2"											"That's just not right. Sorry."
