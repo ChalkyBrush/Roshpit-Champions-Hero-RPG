@@ -9517,6 +9517,7 @@
 			{
 				"IsDebuff"				"1"
 				"IsHidden"				"0"
+				"TextureName"			"itemicons/skyforge"
 				"IsPurgable"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"EffectName"		"particles/items_fx/flurry_aura_ring.vpcf"
