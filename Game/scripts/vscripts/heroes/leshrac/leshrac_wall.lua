@@ -38,7 +38,7 @@ function createWall(event)
 	local particle = "particles/units/heroes/hero_dark_seer/leshrac_wallof_replica.vpcf"
 	local pfx2 = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, caster )
 	local wallDuration = 8
-	if caster:HasModifier("modifier_bahamut_glyph_7_1") then
+	if caster:HasModifier("modifier_bahamut_glyph_4_1") then
 		wallDuration = 10
 	end
 	wallDuration = Filters:GetAdjustedBuffDuration(caster, wallDuration, false)

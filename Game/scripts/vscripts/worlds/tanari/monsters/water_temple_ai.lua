@@ -800,7 +800,8 @@ function water_emperor_think(event)
 				Timers:CreateTimer(0.03*i, function()
 					caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,34))
 				end)
-				Timers:CreateTimer(0.18, function()
+			end
+			Timers:CreateTimer(0.18, function()
 			      particleName = "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash.vpcf"
 			      local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
 			      ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,140) )
@@ -809,8 +810,7 @@ function water_emperor_think(event)
 			      function()
 			        ParticleManager:DestroyParticle( particle1, false )
 			      end)
-				end)
-			end
+			end)
 		end
 	end
 end
@@ -2618,7 +2618,7 @@ function WaterTempleMountainPortal2(trigger)
 end
 
 function slithereen_elite_take_damage(event)
-	local attacker = event.caster
+	local attacker = event.attacker
 	local caster = event.caster
 	local stun_chance = event.stun_chance
 	local luck = RandomInt(1, 100)

@@ -597,78 +597,86 @@ function GameState:OrderFilter(orderTable)
 		if unit:HasModifier("modifier_stargazers_sphere") then
 			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 				local targetVector = Vector(0,0)
+				local isItem = false
 				if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE then
 					targetVector = Vector(orderTable.position_x, orderTable.position_y)
 				elseif orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 					targetVector = Vector(EntIndexToHScript(orderTable.entindex_target):GetAbsOrigin().x, EntIndexToHScript(orderTable.entindex_target):GetAbsOrigin().y)
+					if EntIndexToHScript(orderTable.entindex_target):GetClassname() == "dota_item_drop" then
+						isItem = true
+					end
 				end
-				local sphere = unit.amulet
-				if not sphere.cd then
-					sphere.cd = false
-				end
-				local cdCondition = not sphere.cd
-				if not sphere.sphereTable then
-					sphere.sphereTable = {}
-				end
-				if sphere.sphereTable.pfx and cdCondition then
-					ParticleManager:DestroyParticle(sphere.sphereTable.pfx, false)
-					sphere.sphereTable.pfx = false
-				end
-				if sphere.sphereTable.dummy then
-					print(WallPhysics:GetDistance2d(sphere.sphereTable.dummy:GetAbsOrigin(), targetVector))
-					if WallPhysics:GetDistance2d(sphere.sphereTable.dummy:GetAbsOrigin(), targetVector) < 300 then
-						if sphere.sphereTable.pfx then
-							ParticleManager:DestroyParticle(sphere.sphereTable.pfx, false)
-							sphere.sphereTable.pfx = false
+				if not isItem then
+					local sphere = unit.amulet
+					if not sphere.cd then
+						sphere.cd = false
+					end
+					local cdCondition = not sphere.cd
+					if not sphere.sphereTable then
+						sphere.sphereTable = {}
+					end
+					if sphere.sphereTable.pfx and cdCondition then
+						ParticleManager:DestroyParticle(sphere.sphereTable.pfx, false)
+						sphere.sphereTable.pfx = false
+					end
+					if sphere.sphereTable.dummy then
+						print(WallPhysics:GetDistance2d(sphere.sphereTable.dummy:GetAbsOrigin(), targetVector))
+						if WallPhysics:GetDistance2d(sphere.sphereTable.dummy:GetAbsOrigin(), targetVector) < 300 then
+							if sphere.sphereTable.pfx then
+								ParticleManager:DestroyParticle(sphere.sphereTable.pfx, false)
+								sphere.sphereTable.pfx = false
+							end
+							EmitSoundOn("RPCItems.Stargazer.MeteorStart", sphere.sphereTable.dummy)
+							local faceVector = ((sphere.sphereTable.position - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+							unit:MoveToPosition(unit:GetAbsOrigin()+faceVector*5)
+							Timers:CreateTimer(0.03, function() unit:SetAbsOrigin(unit:GetAbsOrigin()-faceVector*7) end)
+							local pfx = ParticleManager:CreateParticle("particles/roshpit/items/stargazer_comet.vpcf", PATTACH_CUSTOMORIGIN, nil)
+							ParticleManager:SetParticleControl(pfx, 0, sphere.sphereTable.dummy:GetAbsOrigin()+Vector(0,0,700))
+							ParticleManager:SetParticleControl(pfx, 1, sphere.sphereTable.dummy:GetAbsOrigin())
+							ParticleManager:SetParticleControl(pfx, 2, Vector(0.5,0.5,0.5))
+							local meteorPosition = sphere.sphereTable.dummy:GetAbsOrigin()
+							Timers:CreateTimer(0.5, function()
+								EmitSoundOnLocationWithCaster(meteorPosition, "RPCItems.Stargazer.MeteorImpact", unit)
+								local damage = OverflowProtectedGetAverageTrueAttackDamage(unit)*5
+								local enemies = FindUnitsInRadius( unit:GetTeamNumber(), meteorPosition, nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+								if #enemies > 0 then
+									for _,enemy in pairs(enemies) do
+										Filters:ApplyStun(unit, 1.0, enemy)
+										Filters:ApplyItemDamage(enemy,unit,damage,DAMAGE_TYPE_PURE,sphere,RPC_ELEMENT_COSMOS,RPC_ELEMENT_NONE)
+									end
+								end 
+							end)
+							sphere.sphereTable.position = false
+							UTIL_Remove(sphere.sphereTable.dummy)
+							sphere.sphereTable.dummy = false
+							return false
 						end
-						EmitSoundOn("RPCItems.Stargazer.MeteorStart", sphere.sphereTable.dummy)
-						local faceVector = ((sphere.sphereTable.position - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-						unit:MoveToPosition(unit:GetAbsOrigin()+faceVector*5)
-						local pfx = ParticleManager:CreateParticle("particles/roshpit/items/stargazer_comet.vpcf", PATTACH_CUSTOMORIGIN, nil)
-						ParticleManager:SetParticleControl(pfx, 0, sphere.sphereTable.dummy:GetAbsOrigin()+Vector(0,0,700))
-						ParticleManager:SetParticleControl(pfx, 1, sphere.sphereTable.dummy:GetAbsOrigin())
-						ParticleManager:SetParticleControl(pfx, 2, Vector(0.5,0.5,0.5))
-						local meteorPosition = sphere.sphereTable.dummy:GetAbsOrigin()
-						Timers:CreateTimer(0.5, function()
-							EmitSoundOnLocationWithCaster(meteorPosition, "RPCItems.Stargazer.MeteorImpact", unit)
-							local damage = OverflowProtectedGetAverageTrueAttackDamage(unit)*5
-							local enemies = FindUnitsInRadius( unit:GetTeamNumber(), meteorPosition, nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-							if #enemies > 0 then
-								for _,enemy in pairs(enemies) do
-									Filters:ApplyStun(unit, 1.0, enemy)
-									Filters:ApplyItemDamage(enemy,unit,damage,DAMAGE_TYPE_PURE,sphere,RPC_ELEMENT_COSMOS,RPC_ELEMENT_NONE)
-								end
-							end 
-						end)
-						sphere.sphereTable.position = false
-						UTIL_Remove(sphere.sphereTable.dummy)
-						sphere.sphereTable.dummy = false
-						return false
+						if cdCondition then
+							UTIL_Remove(sphere.sphereTable.dummy)
+							sphere.sphereTable.dummy = false
+						end
 					end
 					if cdCondition then
-						UTIL_Remove(sphere.sphereTable.dummy)
-						sphere.sphereTable.dummy = false
+						sphere.sphereTable.position = GetGroundPosition(targetVector, unit) 
+						local pfx = ParticleManager:CreateParticle("particles/roshpit/items/stargazer_ring_ring.vpcf", PATTACH_CUSTOMORIGIN, nil)
+						ParticleManager:SetParticleControl(pfx, 0, sphere.sphereTable.position)
+						sphere.sphereTable.pfx = pfx
+						local dummy = CreateUnitByName("npc_flying_dummy_vision", sphere.sphereTable.position, false, nil, nil, unit:GetTeamNumber())
+						dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+						sphere:ApplyDataDrivenModifier(unit.InventoryUnit, dummy, "modifier_stargazer_dummy_aura", {})
+						EmitSoundOn("RPCItems.Stargazer.Start", dummy)
+						dummy:SetNightTimeVisionRange(300)
+						dummy:SetDayTimeVisionRange(300)
+						sphere.sphereTable.dummy = dummy
+						sphere.cd = true
+						Timers:CreateTimer(1, function()
+							sphere.cd = false
+						end)
+						local faceVector = ((sphere.sphereTable.position - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+						unit:MoveToPosition(unit:GetAbsOrigin()+faceVector*5)
+						Timers:CreateTimer(0.03, function() unit:SetAbsOrigin(unit:GetAbsOrigin()-faceVector*7) end)
+						return false
 					end
-				end
-				if cdCondition then
-					sphere.sphereTable.position = GetGroundPosition(targetVector, unit) 
-					local pfx = ParticleManager:CreateParticle("particles/roshpit/items/stargazer_ring_ring.vpcf", PATTACH_CUSTOMORIGIN, nil)
-					ParticleManager:SetParticleControl(pfx, 0, sphere.sphereTable.position)
-					sphere.sphereTable.pfx = pfx
-					local dummy = CreateUnitByName("npc_flying_dummy_vision", sphere.sphereTable.position, false, nil, nil, unit:GetTeamNumber())
-					dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
-					sphere:ApplyDataDrivenModifier(unit.InventoryUnit, dummy, "modifier_stargazer_dummy_aura", {})
-					EmitSoundOn("RPCItems.Stargazer.Start", dummy)
-					dummy:SetNightTimeVisionRange(300)
-					dummy:SetDayTimeVisionRange(300)
-					sphere.sphereTable.dummy = dummy
-					sphere.cd = true
-					Timers:CreateTimer(2, function()
-						sphere.cd = false
-					end)
-					local faceVector = ((sphere.sphereTable.position - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-					unit:MoveToPosition(unit:GetAbsOrigin()+faceVector*5)
-					return false
 				end
 			end
 		end
@@ -2803,16 +2811,16 @@ function GameState:FilterDamage(filterTable)
     end
 	if victim:HasModifier("modifier_paladin_q4_shield") then
 		local damageAbsorb = math.min(filterTable["damage"], victim.paladin_q4_absorb)
-		victim.paladin_q4_absorb = victim.paladin_q4_absorb - damageAbsorb
-		if damageAbsorb <= 0 then
+		victim.paladin_q4_absorb = math.max(victim.paladin_q4_absorb - damageAbsorb, 0)
+		if victim.paladin_q4_absorb <= 0 then
 			victim:RemoveModifierByName("modifier_paladin_q4_shield")
 		end
 		filterTable["damage"] = filterTable["damage"] - damageAbsorb
 	end
 	if victim:HasModifier("modifier_seinaru_rune_w_3_shield") then
 		local damageAbsorb = math.min(filterTable["damage"], victim.seinaru_c_b_absorb)
-		victim.seinaru_c_b_absorb = victim.seinaru_c_b_absorb - damageAbsorb
-		if damageAbsorb <= 0 then
+		victim.seinaru_c_b_absorb = math.max(victim.seinaru_c_b_absorb - damageAbsorb, 0)
+		if victim.seinaru_c_b_absorb <= 0 then
 			victim:RemoveModifierByName("modifier_seinaru_rune_w_3_shield")
 		end
 		filterTable["damage"] = filterTable["damage"] - damageAbsorb
@@ -3489,20 +3497,26 @@ function GameState:FilterDamage(filterTable)
 	if filterTable["damage"] > 0 then
 		if victim:HasModifier("modifier_golden_shell_passive") then
         	local ability = victim:FindModifierByName("modifier_golden_shell_passive"):GetAbility()
-        	ability:ApplyDataDrivenModifier(victim, victim, "modifier_black_King_bar_immunity", {duration = ability:GetSpecialValueFor("duration")})
+        	if not ability.active then
+        		ability.active = true
+        		Timers:CreateTimer(0.1, function()
+        			ability:ApplyDataDrivenModifier(victim, victim, "modifier_black_King_bar_immunity", {duration = ability:GetSpecialValueFor("duration")})
+        			ability.active = false
+        		end)
+        	end
         end
-        if victim:HasModifier("modifier_in_stargazer_area") then
-        	local allow = true
+       if victim:HasModifier("modifier_in_stargazer_area") then
         	if filterTable["entindex_inflictor_const"] then
-	        	if EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() == "solunia_lunar_alpha_spark" or EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() == "solunia_solar_alpha_spark" then
-	        		allow = false
-	        	end
-	        end
-        	if allow then
-	        	local caster = victim:FindModifierByName("modifier_in_stargazer_area"):GetCaster()
-	        	local ability = victim:FindModifierByName("modifier_in_stargazer_area"):GetAbility()
-	        	CustomAbilities:StargazerSphereTakeDamage(caster,ability,victim,StartingDamage)
-	        end
+	        	local allow = true
+		        if EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() == "solunia_lunar_alpha_spark" or EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() == "solunia_solar_alpha_spark" then
+		        	allow = false
+		        end
+	        	if allow then
+		        	local caster = victim:FindModifierByName("modifier_in_stargazer_area"):GetCaster()
+		        	local ability = victim:FindModifierByName("modifier_in_stargazer_area"):GetAbility()
+		        	CustomAbilities:StargazerSphereTakeDamage(caster,ability,victim,StartingDamage)
+		        end
+		    end
         end
     end
 

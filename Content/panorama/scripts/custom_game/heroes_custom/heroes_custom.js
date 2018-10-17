@@ -296,6 +296,8 @@ function getSkillSlot(heroName, slot){
 		skillName = getZonikSkill(slot)
 	}else if (heroName == "npc_dota_hero_antimage"){
 		skillName = getArkimusSkill(slot)
+	}else if (heroName == "npc_dota_hero_monkey_king"){
+		skillName = getDjanghorSkill(slot)
 	}else if (heroName == "npc_dota_hero_slark"){
 		skillName = getSlipfinnSkill(slot)
 	}else if (heroName == "npc_dota_hero_skywrath_mage"){
@@ -624,6 +626,20 @@ function getArkimusSkill(slot){
 		skillName = "DOTA_Tooltip_ability_ark_jump"
 	}else if(slot == 4){
 		skillName = "DOTA_Tooltip_Ability_arkimus_energy_field"
+	}
+	return skillName	
+}
+
+function getDjanghorSkill(slot){
+	var skillName = ""
+	if (slot == 1){
+		skillName = "djanghor_q"
+	}else if(slot == 2){
+		skillName = "djanghor_w"	
+	}else if(slot == 3){
+		skillName = "djanghor_e"
+	}else if(slot == 4){
+		skillName = "djanghor_r"
 	}
 	return skillName	
 }

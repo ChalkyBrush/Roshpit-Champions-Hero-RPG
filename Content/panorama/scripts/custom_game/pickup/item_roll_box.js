@@ -1,4 +1,10 @@
 var MaxPlayers = 4;
+if (Game.GetMapInfo().map_display_name == "rpc_sea_fortress") {
+	MaxPlayers = 5
+}else{
+	$("#roll_portrait_5").AddClass("invisible")
+	$("#portrait_overlay_5").AddClass("invisible")
+}
 var Root = $.GetContextPanel();
 var item = Root.itemIndex;
 var rollSlot = Root.rollSlot;

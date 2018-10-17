@@ -122,7 +122,11 @@ function arcana_star_blink_move(caster, starAbility)
 	ability.platformPFX = platformPFX	
 	ability.heroZ = caster:GetAbsOrigin().z
 	local modifier = caster:FindModifierByName("modifier_astral_arcana_on_platform")
-	local duration = modifier:GetRemainingTime() + 4
+	local bonus_duration = 4
+	if caster:HasModifier("modifier_astral_glyph_4_1") then
+		bonus_duration = bonus_duration/2
+	end
+	local duration = modifier:GetRemainingTime() + bonus_duration
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_arcana_on_platform", {duration = duration})
 end
 

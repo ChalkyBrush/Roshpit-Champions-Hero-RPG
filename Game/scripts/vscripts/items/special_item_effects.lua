@@ -4814,16 +4814,17 @@ function flamethrower_init(event)
 	local ability = event.ability
 	ability.interval = -4
 	ability.rising = true
-	ability.baseFV = target:GetForwardVector()
 	ability.damage = OverflowProtectedGetAverageTrueAttackDamage(target)*2.00
 	ability.origCaster = target
+	flamethrower_thinking(event)
 end
 
 function flamethrower_thinking(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local rotatedFV = WallPhysics:rotateVector(ability.baseFV, 2*math.pi*ability.interval/40)
+	local fv = target:GetForwardVector()
+	local rotatedFV = WallPhysics:rotateVector(fv, 2*math.pi*ability.interval/40)
 	if ability.rising then
 		ability.interval = ability.interval + 1
 		if ability.interval == 4 then
@@ -4876,7 +4877,7 @@ function flamethrower_impact(event)
 	local ulti = ability.origCaster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
 	local currentCD = ulti:GetCooldownTimeRemaining()
 	ulti:EndCooldown()
-	ulti:StartCooldown(currentCD - 0.4)
+	ulti:StartCooldown(currentCD - 0.5)
 end
 
 function aquasteel_take_damage(event)

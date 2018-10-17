@@ -267,7 +267,7 @@
 		"DOTA_Tooltip_ability_sea_fortress_manta_rider_ability_damage"		"DAMAGE:"
 
 		"DOTA_Tooltip_ability_seafortress_golden_shell"					"Golden Shell"
-		"DOTA_Tooltip_ability_seafortress_golden_shell_Description"		"Gain magic immunity every time damage is taken."
+		"DOTA_Tooltip_ability_seafortress_golden_shell_Description"		"Gain magic immunity every time damage is taken. There is a delay of 0.1 seconds before magic immunity is applied."
 		"DOTA_Tooltip_ability_seafortress_golden_shell_duration"		"DURATION:"
 
 		"DOTA_Tooltip_ability_seafortress_exiler_ability"				"Glint of Exiler"

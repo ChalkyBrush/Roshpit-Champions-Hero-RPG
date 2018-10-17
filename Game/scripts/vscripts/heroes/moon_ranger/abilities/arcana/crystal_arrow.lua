@@ -1,7 +1,13 @@
+require("heroes/moon_ranger/constants")
+
 function crystal_arrow_channel_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_ATTACK, rate=0.75})
+	if not caster:HasModifier("modifier_astral_glyph_5_1") then
+		StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_ATTACK, rate=0.75})
+	else
+		Timers:CreateTimer(0.03, function() caster:InterruptChannel() end)
+	end
 	ability.liftspeed = 7.5
 	ability.anim = true
 	ability.arrow_spawn = true
@@ -57,6 +63,34 @@ function crystal_arrow_channel_start(event)
 	end
 end
 
+function crystal_arrow_slow_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local r_4_level = caster:GetRuneValue("r",4)
+	if r_4_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_crystal_arrow_chilled", {duration = -1})
+		target:FindModifierByName("modifier_crystal_arrow_chilled"):SetStackCount(r_4_level)
+	end
+end
+
+function crystal_arrow_slow_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local r_4_level = caster:GetRuneValue("r",4)
+	if not target:HasModifier("modifier_cystal_arrow_ad_thinker") then
+		if r_4_level > 0 then
+			local modifier = target:FindModifierByName("modifier_crystal_arrow_chilled")
+			if modifier then
+				modifier:SetDuration(r_4_level*ASTRAL_R4_ARCANA2_SLOW, true)
+			end
+		else
+			target:RemoveModifierByName("modifier_crystal_arrow_chilled")
+		end
+	end
+end
+
 function arrow_ad_thinker_end(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -75,7 +109,7 @@ end
 function crystal_arrow_channel_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 600 then
+	if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 600 and not caster:HasModifier("modifier_astral_glyph_5_1") then
 		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,ability.liftspeed))
 	end
 	if GameRules:GetGameTime() - ability:GetChannelStartTime() > 0.5 and ability.arrow_spawn then
@@ -96,7 +130,7 @@ function crystal_arrow_channel_think(event)
 		-- arrow.lifting = true
 		-- table.insert(ability.arrow_table, arrow)
 	end
-	if GameRules:GetGameTime() - ability:GetChannelStartTime() > 1.0 and ability.anim then
+	if GameRules:GetGameTime() - ability:GetChannelStartTime() > 1.0 and ability.anim and not caster:HasModifier("modifier_astral_glyph_5_1") then
 		ability.anim = false
 		ability.liftspeed = 18
 		StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_ATTACK, rate=2.0})
@@ -122,7 +156,11 @@ function crystal_arrow_channel_end(event)
 	ability.fallSpeed = 10
 	ability.anim = true
 	StopSoundEvent("Astral.CrystalArrow.Channel", caster)
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_crystal_arrow_channel_end", {duration = 4})
+	if not caster:HasModifier("modifier_astral_glyph_5_1") then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_crystal_arrow_channel_end", {duration = 4})
+	else
+		fire_crystal_arrow({caster = caster, ability = ability})
+	end
 	caster:RemoveModifierByName("modifier_astral_glyph_7_1_evasion_effect")
 end
 
@@ -146,13 +184,25 @@ function crystal_arrow_channel_end_think(event)
 	caster:RemoveModifierByName("modifier_crystal_arrow_buildup")
 end
 
+function remove_modifier_channel_start(event)
+	local caster = event.caster
+	if not caster:HasModifier("modifier_astral_glyph_5_1") then
+		caster:RemoveModifierByName("modifier_channel_start")
+	end
+end
+
 function fire_crystal_arrow(event)
 	local caster = event.caster
 	local ability = event.ability
 	EmitSoundOn("Astral.CrystalArrow.Fire", caster)
-	if caster:HasModifier("modifier_iron_treads_of_destruction") then
-		print("ATTAKC ANIM")
+	caster:RemoveModifierByName("modifier_channel_start")
+	if caster:HasModifier("modifier_iron_treads_of_destruction") or caster:HasModifier("modifier_astral_glyph_5_1") then
 		StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_ATTACK, rate=4.0})
+		for i = 0,10 do
+			Timers:CreateTimer(i*0.03,function()
+				caster:SetForwardVector((ability.target_point - caster:GetAbsOrigin()):Normalized())
+			end)
+		end
 	end
 	Timers:CreateTimer(0.03, function()
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arrow_thinking", {duration = 3})
@@ -239,14 +289,10 @@ function arrow_explode(caster, ability, position, damage)
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.06})
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-    local slowDuration = 0.3*ability.r_4_level
     if #enemies > 0 then
     	local AOEDamage = damage
         for _,enemy in pairs(enemies) do
         	Filters:TakeArgumentsAndApplyDamage(enemy, caster, AOEDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_ICE, RPC_ELEMENT_COSMOS)
-        	if ability.r_4_level > 0 then
-        		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_crystal_arrow_chilled", {duration = slowDuration})
-        	end
         end
     end 
 end
@@ -256,8 +302,9 @@ function crystal_arrow_passive_think(event)
 	local ability = event.ability
 	local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
 	if c_d_level > 0 then
+		local mult = 1 + math.floor(c_d_level/60)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_crystal_arrow_freecast", {})
-		local newStacks = math.min(caster:GetModifierStackCount("modifier_crystal_arrow_freecast", caster) + 1, c_d_level)
+		local newStacks = math.min(caster:GetModifierStackCount("modifier_crystal_arrow_freecast", caster) + mult, c_d_level)
 		caster:SetModifierStackCount("modifier_crystal_arrow_freecast", caster, newStacks)
 	else
 		caster:RemoveModifierByName("modifier_crystal_arrow_freecast")
