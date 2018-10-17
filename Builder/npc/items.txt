@@ -16843,6 +16843,7 @@
 			{
 				"IsBuff"				"1"
 				"IsHidden"				"0"
+				"TextureName"			"itemicons/arcanys_slipper"
 				"EffectName"			"particles/roshpit/items/arcanys_buff.vpcf"
 				"EffectAttachType"		"attach_origin"
 				"Properties"
