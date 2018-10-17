@@ -94,7 +94,7 @@
 		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] 清洁"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"当巴哈姆特开始施放升华时，召唤一群神鸟攻击前方的敌人。被击中的敌人将被冻结一段时间。此外，增加[E3]巴哈姆特的脉搏的伤害，系数为最低的属性除以最高的属性（乘法）"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"伤害"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					"%"	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"冻结持续时间"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix_two"				" 秒"	
 
