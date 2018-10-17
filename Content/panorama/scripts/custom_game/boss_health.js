@@ -10,7 +10,7 @@ function showBossHealth(msg){
 function updateBossHealth(msg){
 	var currentHealth = msg.current_health
 	var maxHealth = $("#boss_current_health").GetAttributeInt("maxHealth", 1)
-	var healthPercentage = (currentHealth/maxHealth)*100
+	var healthPercentage = Math.floor((currentHealth/maxHealth)*100)
 	$("#boss_current_health").style.width = healthPercentage+"%"
 }
 

@@ -6,6 +6,11 @@ var panel3;
 //KNOWN BUGS
 //DC Players have broken image portrait
 //cant see other players roll colors
+
+if (Game.GetMapInfo().map_display_name == "rpc_sea_fortress") {
+	$.GetContextPanel().style.height = "240px"
+}
+
 function item_roll(msg)
 {
 	var parentPanel = $('#item_roll_container')

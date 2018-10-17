@@ -775,7 +775,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.3"
+				"property_two"			"<% ASTRAL_R4_ARCANA2_SLOW %>"
 			}
 		}
 	}

@@ -50,6 +50,15 @@
 					<Label class="roll-label" id="roll_label_4"></Label>
 				</Panel>
 			</Panel>
+			<Panel class="doubleHeroContainer">
+				<Panel class="player_portrait_container">
+					<DOTAHeroImage class="roll_player_portrait" heroid="5" id="roll_portrait_5"/>
+					<Panel class="portrait_overlay" id="portrait_overlay_5">
+						
+					</Panel>
+					<Label class="roll-label" id="roll_label_5"></Label>
+				</Panel>
+			</Panel>
 			<Panel class="doubleHeroContainer" id="roll-options">
 				<Button class="item_vote_button" id="option-need"
 					onmouseover="RollTooltip('ui_need_roll', 'ui_need_roll_description', '#option-need', '#FFC107')"

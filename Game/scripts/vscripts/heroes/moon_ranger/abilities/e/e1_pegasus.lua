@@ -5,13 +5,7 @@ function createPegasus(caster, ability, startPoint, endPoint, delay)
     if runesCount == nil or runesCount <= 0 then
         return
     end
-    local travelsCount = 0
-
-    if caster:HasModifier("modifier_astral_glyph_1_1") then
-        travelsCount = T11_TRAVELS_COUNT
-    else
-        travelsCount = E1_TRAVELS_COUNT
-    end
+    local travelsCount = E1_TRAVELS_COUNT
 
     ability.runesCount = runesCount
     ability.duration = E1_START_DURATION + runesCount * E1_ADD_DURATION
