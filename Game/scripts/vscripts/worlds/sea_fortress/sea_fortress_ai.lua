@@ -414,10 +414,12 @@ function sea_god_attack_start(event)
 	local ability = event.ability
 	local radius = event.radius
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
-	if #enemies > 0 then
+	if #enemies > 0 and not ability.lock then
+		ability.lock = true
 		for _,enemy in pairs(enemies) do
 			Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
 		end
+		ability.lock = false
 	end 
 end
 
