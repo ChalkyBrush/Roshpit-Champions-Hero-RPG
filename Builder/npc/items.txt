@@ -16469,6 +16469,7 @@
 				"IsDebuff"		"0"
 				"IsHidden"		"0"
 				"IsPurgable"	"0"
+				"TextureName"	"itemicons/sonic_boots"
 				"States"
 				{
 					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
