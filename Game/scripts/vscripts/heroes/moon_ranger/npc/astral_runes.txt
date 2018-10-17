@@ -101,19 +101,14 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1000"
+				"property_two"			"<% ASTRAL_R1_DAMAGE %>"
 			}
 			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"300"
-			}
-			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"base_ability"			"4"
 			}
-			"06"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"8"
@@ -205,19 +200,24 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"52500"
+				"property_one"			"<% ASTRAL_R2_DAMAGE_PCT %>"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% ASTRAL_R2_RADIUS %>"
 			}
 			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two_base"		"<% ASTRAL_R2_BASE_RADIUS %>"
+			}
+			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"base_ability"			"4"
 			}
-			"04"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"8"
