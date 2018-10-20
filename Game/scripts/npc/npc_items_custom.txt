@@ -16418,6 +16418,7 @@
 			"moon_tech_aura"
 			{
 				"IsDebuff"		"1"
+				"TextureName"	"itemicons/moon_tech"
 				"IsPurgable"	"0"
 				"Properties"
 				{
@@ -35989,6 +35990,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"TextureName"		"itemicons/hurrican_vest"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-150"
@@ -36229,7 +36231,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
-
+				"TextureName"	"itemicons/elder_grasp"
 				"OnCreated"
 				{
 					"RunScript"
@@ -36725,6 +36727,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
+				"TextureName"	"itemicons/brazen_kabuto_of_the_desert_realm"
 				"IsBuff"	"1"
 				"States"
 				{
@@ -36748,6 +36751,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
+				"TextureName"	"itemicons/brazen_kabuto_of_the_desert_realm"
 				"IsBuff"	"1"
 				"OnCreated"
 				{

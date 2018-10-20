@@ -12237,7 +12237,7 @@
 		"arena_trial_of_lies"										"Испытание Лжи"
 		"arena_trial_of_descent"									"Испытание Поколений"
 
-		"tooltip_pit_highest_level"										"Highest Level Cleared"
+		"tooltip_pit_highest_level"										"Пройдено"
 		"tooltip_no_lock_out"											"Подземелье открыто"
 		"tooltip_lock_out"												"Подземелье уже было открыто сегодня.<br>Проверьте завтра"
 
@@ -12249,7 +12249,7 @@
 
 		"tooltip_pit_enemy_damage"										"Урон врагов"
 		"tooltip_pit_enemy_resistance"									"Сопротивление врагов"
-		"tooltip_pit_enemy_paragon"										"Частота появления Парагонов"
+		"tooltip_pit_enemy_paragon"										"Частота Парагонов"
 
 		"DOTA_Tooltip_ability_arena_master_duelist_passive"					"Battle Haste"
 		"DOTA_Tooltip_ability_arena_master_duelist_passive_Description"		"С 30% шансом при атаке, существо получит усиление, дающее максимальную скорость атаки на 1 секунду."
