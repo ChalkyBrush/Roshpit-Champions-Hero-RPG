@@ -5142,6 +5142,10 @@ function RPCItems:RollHarvesterBoots(deathLocation)
     end
     local drop = CreateItemOnPositionSync( deathLocation, item )
     local position = deathLocation
+
+    RPCItems:ReduceLevelRequirement(item)
+    item.pickedUp = true    
+    
     RPCItems:DropItem(item, position)
     return item
 end

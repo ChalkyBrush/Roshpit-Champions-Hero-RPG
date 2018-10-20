@@ -1617,7 +1617,7 @@ function RPCItems:GetMaxFactor()
 	local maxFactor = 0
 	if RPCItems.LevelRoll then 
 		maxFactor = math.floor(RPCItems.LevelRoll*3.2)
-		if RPCItems.LevelRoll == 100 then
+		if RPCItems.LevelRoll >= 100 then
 			return 300
 		end
 	else
