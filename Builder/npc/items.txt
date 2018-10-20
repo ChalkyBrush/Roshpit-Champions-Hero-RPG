@@ -25466,8 +25466,8 @@
 			"modifier_helm_of_silent_templar_effect"
 			{
 				"IsHidden"	"0"
-				"OnCreated"
 				"TextureName"	"itemicons/silent_templar"
+				"OnCreated"
 				{
 					"AttachEffect"
 					{

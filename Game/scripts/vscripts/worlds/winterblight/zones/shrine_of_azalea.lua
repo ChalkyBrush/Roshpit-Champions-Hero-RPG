@@ -4118,6 +4118,7 @@ function Winterblight:SpawnFencer(position, fv)
 	if Winterblight.Stones >= 3 then
 		stone:AddAbility("ability_stun_immunity"):SetLevel(GameState:GetDifficultyFactor())
 	end
+	stone.dominion = true
 	stone:AddNewModifier(stone, nil, "modifier_animation", {translate="run"})
 	stone:AddNewModifier(stone, nil, "modifier_animation_translate", {translate="run"})
 	return stone

@@ -47480,7 +47480,7 @@
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
         "ProjectileSpeed"           "1400"
-        "ProjectileModel"           "particles/units/heroes/hero_skywrath_mage/leshrac_rune_e_2_arcane_bolt.vpcf"
+        "ProjectileModel"           "particles/units/heroes/hero_skywrath_mage/leshrac_rune_b_c_arcane_bolt.vpcf"
         "AttackRange"   "470"
         "BountyGoldMin" "5000"
         "BountyGoldMax" "5000"
@@ -91199,10 +91199,6 @@
                 "Wearable4"
                 {
                     "ItemDef"   "617"
-                }
-                "Wearable5"
-                {
-                    "ItemDef"   "666"
                 }
             }
             "States"

@@ -857,7 +857,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 		Timers:CreateTimer(15, function()
 			if speech_phase == hero.tutorial_speech_phase then
 				local crystals = CustomNetTables:GetTableValue("player_stats", tostring(hero:GetPlayerOwnerID()).."-resources").arcane
-				if crystals < 100 then
+				if crystals < 300 then
 					Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
 					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_4d1", 5, false)
 					Glyphs:DropArcaneCrystals(Tutorial.Master:GetAbsOrigin(), 500)
@@ -1163,11 +1163,6 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 			end
 		end)
 		Timers:CreateTimer(15, function()
-			if speech_phase == hero.tutorial_speech_phase then
-				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_5_1c1", 5, false)
-			end
-		end)
-		Timers:CreateTimer(20, function()
 			hero.master_is_talking = false
 			if speech_phase == hero.tutorial_speech_phase then
 				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting1", ACT_DOTA_CAST_ABILITY_1, 0.9, 2.0)
