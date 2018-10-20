@@ -16418,6 +16418,7 @@
 			"moon_tech_aura"
 			{
 				"IsDebuff"		"1"
+				"TextureName"	"itemicons/moon_tech"
 				"IsPurgable"	"0"
 				"Properties"
 				{

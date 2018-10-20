@@ -111,7 +111,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
-
+				"TextureName"	"itemicons/elder_grasp"
 				"OnCreated"
 				{
 					"RunScript"

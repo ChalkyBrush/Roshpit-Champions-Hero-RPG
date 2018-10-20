@@ -405,6 +405,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
+				"TextureName"	"itemicons/brazen_kabuto_of_the_desert_realm"
 				"IsBuff"	"1"
 				"States"
 				{
@@ -428,6 +429,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
+				"TextureName"	"itemicons/brazen_kabuto_of_the_desert_realm"
 				"IsBuff"	"1"
 				"OnCreated"
 				{
