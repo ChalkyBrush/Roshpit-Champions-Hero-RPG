@@ -261,7 +261,7 @@ function fire_buff_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_doom_bringer/doom_infernal_blade_impact_d.vpcf", target, 0.5)
 end
 
@@ -308,7 +308,7 @@ function fire_deity_spell_impact(event)
 	local target = event.target
 	local mult = caster.conjuror:GetAbilityByIndex(1):GetLevel()
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster.conjuror)*mult
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
 function conjuror_arcana2_passive_thinker(event)
