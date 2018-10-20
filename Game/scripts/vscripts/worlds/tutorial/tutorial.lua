@@ -778,6 +778,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				Timers:CreateTimer(delayUntil_b, function()
 					hero.master_is_talking = false
 					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_2b", 5, false)
+					Tutorial:SpawnAllTownNPCs()
 					Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_2, 1.0, 4.0)
 					local luck = RandomInt(200,500)
 					if luck >= 200 and luck < 265 then
