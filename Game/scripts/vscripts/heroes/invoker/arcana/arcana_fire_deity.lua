@@ -156,6 +156,7 @@ function fire_ability_cast_targetted(event)
 	beam.interval = 0
 	beam.active = true
 	table.insert(ability.beamTable, beam)
+	Filters:CastSkillArguments(2, caster)
 	-- StartAnimation(caster, {duration=0.85, activity=ACT_DOTA_ATTACK, rate=1})
 	EmitSoundOn("Conjuror.FireArcana.BeamCast", caster)
 end
