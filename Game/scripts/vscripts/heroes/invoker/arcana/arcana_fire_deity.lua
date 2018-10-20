@@ -62,6 +62,9 @@ function fire_deity(event)
     local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "conjuror")
    	caster.fireAspect.q_4_level = q_4_level
    	glyph_5_a(caster, ability, caster.fireAspect)
+   	Timers:CreateTimer(2, function()
+   		caster.fireAspect:ForceKill(false)
+   	end)
 end
 
 function fire_ability_precast(event)

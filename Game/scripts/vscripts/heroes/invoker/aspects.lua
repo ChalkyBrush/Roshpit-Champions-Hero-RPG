@@ -424,8 +424,9 @@ function aspect_die(event)
 				earth_aspect(earthReviveEvent)
 			end
 		end
-	elseif event.caster:GetUnitName() == "fire_aspect" then
+	elseif event.caster:GetUnitName() == "fire_aspect" or event.caster:GetUnitName() == "fire_deity" then
 		if caster.conjuror:HasAbility("summon_fire_deity") then
+			print("WTF2")
 			local fireAspectSkill = caster.conjuror:FindAbilityByName("summon_fire_deity")
 			local immolationSkill = caster.conjuror:FindAbilityByName("fire_arcana_ability")
 			fireAspectSkill:SetLevel(immolationSkill:GetLevel())

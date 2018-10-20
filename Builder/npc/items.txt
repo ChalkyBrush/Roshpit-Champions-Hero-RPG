@@ -24654,7 +24654,10 @@
 		"precache"
 		{
 			"model" 		"models/items/warlock/golem/ti_8_warlock_darkness_apostate_golem/ti_8_warlock_darkness_apostate_golem.vmdl"
+			"particle"		"particles/econ/items/invoker/invoker_ti7/invoker_ti7_alacrity.vpcf"
 			"soundfile"     "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
+			"particle"		"particles/units/heroes/hero_lina/big_tracking_fireball.vpcf"
+			"particle"		"particles/econ/items/phoenix/phoenix_solar_forge/phoenix_sunray_solar_forge.vpcf"
 		}
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
