@@ -1917,6 +1917,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker.q_4_level then
                 fireMult = fireMult + 0.0015*attacker:GetStrength()/10*attacker.q_4_level
             end
+            if attacker:HasModifier("modifier_conjuror_arcana2") then
+                local w_2_level = attacker:GetRuneValue("w", 2)
+                if w_2_level > 0 then
+                    fireMult = fireMult + (CONJUROR_ARCANA_W2_FLAT_FIRE_AMP/100)*w_2_level
+                end
+            end
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_aeon_fracture") then
                 if attacker.r_4_level then

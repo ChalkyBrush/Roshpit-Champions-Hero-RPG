@@ -113,19 +113,32 @@ function fire_aspect_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
 	local attack_damage = event.attack_damage
+	-- if attacker.fireDeity then
+	-- 	local luck = RandomInt(1, 10)
+	-- 	if luck <= 3 then
+	-- 		if attacker.conjuror:HasModifier("modifier_conjuror_glyph_6_1") then
+	-- 			fire_breath(attacker, event.ability, attacker.conjuror, attack_damage)
+	-- 		end
+	-- 	end
+	-- 	return false
+	-- end
 	print("aspect_attack")
 	local luck = RandomInt(1, 10)
 	if luck <= 3 then
 		local w_3_level = 0
 		if attacker.conjuror then
-			w_3_level = get_w_3_level(attacker.conjuror)
+			w_3_level = attacker.conjuror:GetRuneValue("w", 3)
 		else
-			w_3_level = get_w_3_level(attacker)
+			w_3_level = attacker:GetRuneValue("w", 3)
 		end
 		print("luck passed")
 		if w_3_level > 0 then
 			print("w_3_level is good lets go")
-			local bonusDamage = attack_damage*(w_3_level*0.45+0.1)
+			local critmult = 0.45
+			if attacker.fireDeity then
+				critmult = 0.6
+			end
+			local bonusDamage = attack_damage*(w_3_level*critmult)
 			Filters:TakeArgumentsAndApplyDamage(target, attacker, bonusDamage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			PopupDamage(target, bonusDamage+attack_damage)
 			EmitSoundOn("Hero_Batrider.Flamebreak", target)

@@ -126,6 +126,11 @@ function CDOTA_BaseNPC_Hero:GetBaseStrength()
 		strength = strength - modifier:GetStackCount()
 	end
 
+	modifier = self:FindModifierByName("modifier_w_4_str_decrease")
+	if modifier then
+		strength = strength + modifier:GetStackCount()
+	end
+
 	return strength
 end
 
@@ -173,6 +178,11 @@ function CDOTA_BaseNPC_Hero:GetBaseAgility()
 		agility = agility - modifier:GetStackCount()
 	end
 
+	modifier = self:FindModifierByName("modifier_w_4_agi_increase")
+	if modifier then
+		agility = agility - modifier:GetStackCount()
+	end
+
 	return agility
 end
 
@@ -206,6 +216,11 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 	end
 
 	modifier = self:FindModifierByName('modifier_neutral_glyph_7_3')
+	if modifier then
+		intellect = intellect - modifier:GetStackCount()
+	end
+
+	modifier = self:FindModifierByName("modifier_w_4_int_increase")
 	if modifier then
 		intellect = intellect - modifier:GetStackCount()
 	end
@@ -401,6 +416,11 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", CustomAttributes.VENOMORT_W3_STATS)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", CustomAttributes.VENOMORT_W3_STATS)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", CustomAttributes.VENOMORT_W3_STATS)
+	end
+	if hero:HasModifier("modifier_conjuror_arcana2") then
+		str_bonus = str_bonus - CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_w_4_str_decrease", 1)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_w_4_agi_increase", 1)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_w_4_int_increase", 1)
 	end
 	if heroName == "npc_dota_hero_antimage" then
 		if hero:HasAbility('arkimus_zap_ring') then

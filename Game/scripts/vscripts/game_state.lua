@@ -10,6 +10,7 @@ require('/heroes/nightstalker/chernobog_constants')
 require('/heroes/antimage/arkimus_constants')
 require('/heroes/monkey_king/constants')
 require('/heroes/skywrath_mage/constants')
+require('/heroes/invoker/constants_CONJUROR')
 
 require('/items/constants/boots')
 require('/items/constants/chest')

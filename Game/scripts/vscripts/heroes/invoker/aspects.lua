@@ -183,8 +183,8 @@ function fire_aspect(event)
 		immolationAbility.totalLevel = w_1_level		
 		immolationAbility:ApplyDataDrivenModifier(caster.fireAspect, caster.fireAspect, "modifier_permanent_immolation", {})
 	end
-	local criticalStrikeRune = caster.runeUnit3:FindAbilityByName("conjuror_rune_w_3")
-	criticalStrikeRune:ApplyDataDrivenModifier(caster.runeUnit3, caster, "modifier_conjuror_rune_w_3_effect", {})
+	-- local criticalStrikeRune = caster.runeUnit3:FindAbilityByName("conjuror_rune_w_3")
+	-- criticalStrikeRune:ApplyDataDrivenModifier(caster.runeUnit3, caster, "modifier_conjuror_rune_w_3_effect", {})
 
     local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "conjuror")
    	caster.fireAspect.q_4_level = q_4_level
@@ -296,12 +296,29 @@ function aspect_think(event)
 		local baseAbility = caster.conjuror:FindAbilityByName("summon_earth_aspect")
 		baseAbility:ApplyDataDrivenModifier(caster.conjuror, caster.conjuror, "modifier_earth_guardian", {})
 	end
-	if event.caster:GetUnitName() == "fire_aspect" then
+	if event.caster:GetUnitName() == "fire_aspect" or event.caster:GetUnitName() == "fire_deity" then
 		local position = conjurorPosition + rotateVector(caster.conjuror:GetForwardVector(),-math.pi/2)*300 + RandomVector(RandomInt(0, 80))
 		if getDistance(conjurorPosition, aspectPosition) > 850 then
 			caster:MoveToPosition(position)
 		else
 			caster:MoveToPositionAggressive(position)
+		end
+		if event.caster.fireDeity then
+			local cast_ability = event.caster:FindAbilityByName("fire_deity_fire_ability")
+			if cast_ability:IsFullyCastable() then
+				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), event.caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
+				if #enemies > 0 then
+					local castPoint = enemies[1]:GetAbsOrigin()
+					local newOrder = {
+							UnitIndex = event.caster:entindex(),
+							OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+							AbilityIndex = cast_ability:entindex(),
+							Position = castPoint
+					 	}
+					 
+					ExecuteOrderFromTable(newOrder)			
+				end
+			end
 		end
 	end
 	if event.caster:GetUnitName() == "shadow_aspect" then
@@ -408,14 +425,22 @@ function aspect_die(event)
 			end
 		end
 	elseif event.caster:GetUnitName() == "fire_aspect" then
-		local fireAspectSkill = caster.conjuror:FindAbilityByName("summon_fire_aspect")
-		local immolationSkill = caster.conjuror:FindAbilityByName("immolation")
-		fireAspectSkill:SetLevel(immolationSkill:GetLevel())
-		caster.conjuror:SwapAbilities("summon_fire_aspect", "immolation", true, false)
-		caster.conjuror.fireAspect = false
-		local w_4_level = Runes:GetTotalRuneLevel(caster.conjuror, 4, "w_4", "conjuror")
-		if w_4_level > 0 then
-			fireAspectDie(caster.conjuror, caster, w_4_level)
+		if caster.conjuror:HasAbility("summon_fire_deity") then
+			local fireAspectSkill = caster.conjuror:FindAbilityByName("summon_fire_deity")
+			local immolationSkill = caster.conjuror:FindAbilityByName("fire_arcana_ability")
+			fireAspectSkill:SetLevel(immolationSkill:GetLevel())
+			caster.conjuror:SwapAbilities("summon_fire_deity", "fire_arcana_ability", true, false)
+			caster.conjuror.fireAspect = false
+		else
+			local fireAspectSkill = caster.conjuror:FindAbilityByName("summon_fire_aspect")
+			local immolationSkill = caster.conjuror:FindAbilityByName("immolation")
+			fireAspectSkill:SetLevel(immolationSkill:GetLevel())
+			caster.conjuror:SwapAbilities("summon_fire_aspect", "immolation", true, false)
+			caster.conjuror.fireAspect = false
+			local w_4_level = Runes:GetTotalRuneLevel(caster.conjuror, 4, "w_4", "conjuror")
+			if w_4_level > 0 then
+				fireAspectDie(caster.conjuror, caster, w_4_level)
+			end
 		end
 	elseif event.caster:GetUnitName() == "shadow_aspect" then
 		local shadowAspectSkill = caster.conjuror:FindAbilityByName("summon_shadow_aspect")

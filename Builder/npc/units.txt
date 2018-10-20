@@ -18183,6 +18183,8 @@
         }
     }
 
+    ##CONJUROR_UNITS##
+
     "fire_aspect"
     {
         "BaseClass" "npc_dota_creature"

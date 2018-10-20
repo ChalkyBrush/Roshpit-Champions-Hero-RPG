@@ -714,6 +714,7 @@ function Runes:EquipArcana(hero, index)
 			newRune:SetAbilityIndex(abilityIndex)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_invoker" then
+		print("-----HELLO----")
 		if index == 1 then
 			local origAbility = hero:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
 			local abilityLevel = hero:GetAbilityByIndex(DOTA_ULTIMATE_SLOT):GetLevel()
@@ -743,6 +744,17 @@ function Runes:EquipArcana(hero, index)
 			local newRune = hero.runeUnit4:AddAbility("conjuror_rune_r_4_arcana1")
 			newRune:SetLevel(runeLevel4)
 			newRune:SetAbilityIndex(3)
+		elseif index == 2 then
+			if hero.fireAspect then
+				if IsValidEntity(hero.fireAspect) then
+					hero.fireAspect:SetHealth(10)
+					hero.fireAspect:ForceKill(true)
+				end
+			end
+			if hero:HasAbility("immolation") then
+				hero:RemoveAbility("immolation")
+			end
+			Runes:EasySwapArcanaSkills(hero, 1, "summon_fire_aspect", "summon_fire_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_templar_assassin" then
 		if index == 1 then
@@ -1333,6 +1345,22 @@ function Runes:UnequipArcana(hero, index)
 			if hero.deity then
 				hero.deity:ForceKill(false)
 			end
+		elseif index == 2 then
+			if hero.fireAspect then
+				if IsValidEntity(hero.fireAspect) then
+					hero.forceFireReset = true
+					hero.fireAspect:SetHealth(10)
+					hero.fireAspect:ForceKill(true)
+				end
+			end
+			hero:RemoveModifierByName("modifier_deity_attack_pct_w1")
+			hero:RemoveModifierByName("modifier_w_4_agi_increase")
+			hero:RemoveModifierByName("modifier_w_4_int_increase")
+			hero:RemoveModifierByName("modifier_w_4_str_decrease")
+			if hero:HasAbility("fire_arcana_ability") then
+				hero:RemoveAbility("fire_arcana_ability")
+			end
+			Runes:EasyRevertArcanaSkills(hero, 1,"summon_fire_aspect", "summon_fire_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_templar_assassin" then
 		if index == 1 then
