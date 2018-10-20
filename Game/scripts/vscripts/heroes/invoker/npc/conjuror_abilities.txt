@@ -1589,15 +1589,15 @@
 			}
 			"modifier_w_4_agi_increase"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 			}
 			"modifier_w_4_int_increase"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 			}
 			"modifier_w_4_str_decrease"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 			}
 		}
 
