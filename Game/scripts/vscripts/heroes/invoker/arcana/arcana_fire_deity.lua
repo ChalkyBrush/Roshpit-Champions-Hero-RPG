@@ -168,7 +168,7 @@ function fire_ray_casting_thinker2(event)
 	local damage = event.damage
 	local w_2_level = caster:GetRuneValue("w", 2)
 	if w_2_level > 0 then
-		damage = damage + (CONJUROR_ARCANA_W2_DAMAGE_BONUS_W_PCT/100)*caster:GetAgility()
+		damage = damage + (CONJUROR_ARCANA_W2_DAMAGE_BONUS_W_PCT/100)*caster:GetAgility()*w_2_level
 	end
 	local heal_pct = event.heal_pct
 	for i = 1, #ability.beamTable, 1 do
