@@ -40220,7 +40220,7 @@
 			"modifier_gale_nova_bad"
 			{
 				"IsDebuff"	"0"
-				"TextureName"	"rpc/venomort_d_d"
+				"TextureName"	"venomort/venomort_q_1"
 			}
 			"modifier_gale_nova_attack_slow"
 			{
@@ -40573,7 +40573,7 @@
             {
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"venomort_rune_c_c"
+				"TextureName"	"necrolyte_death_pulse"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
@@ -40922,7 +40922,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/venomort_r_4"
+		"AbilityTextureName"	"venomort/venomort_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		
@@ -63440,7 +63440,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"hydroxis/hydroxis_c_d"
+				"TextureName"	"hydroxis/hydroxis_r_3"
 				"OnDestroy"
 				{
 					"RunScript"
