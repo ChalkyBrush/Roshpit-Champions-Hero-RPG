@@ -260,7 +260,8 @@ function fire_buff_attack_land(event)
 	local ability = event.ability
 	local attacker = event.attacker
 	local target = event.target
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
+	local mult = caster:GetAbilityByIndex(1):GetLevel()
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * mult
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_doom_bringer/doom_infernal_blade_impact_d.vpcf", target, 0.5)
 end
