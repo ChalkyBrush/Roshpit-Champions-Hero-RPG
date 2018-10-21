@@ -2,6 +2,9 @@ function corpse_maker_die(event)
 	local caster = event.caster
 	local ability = event.ability
 	local unit = event.unit
+	if unit:GetUnitName() == "ekkan_corpse" then
+		return false
+	end
 	if not unit:HasModifier("modifier_ekkan_dominion_debuff") then
 		local corpses = 1
 		if unit:HasModifier("modifier_swarm_effect") then
@@ -17,6 +20,7 @@ function corpse_maker_die(event)
 			corpse:SetForwardVector(RandomVector(1))
 			corpse.hp = unit:GetMaxHealth()
 			corpse.attackpower = OverflowProtectedGetAverageTrueAttackDamage(unit)
+			corpse.dummy = true
 		end
 	end
 end

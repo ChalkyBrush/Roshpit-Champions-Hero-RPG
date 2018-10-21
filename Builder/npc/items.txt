@@ -24658,6 +24658,7 @@
 			"soundfile"     "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
 			"particle"		"particles/units/heroes/hero_lina/big_tracking_fireball.vpcf"
 			"particle"		"particles/econ/items/phoenix/phoenix_solar_forge/phoenix_sunray_solar_forge.vpcf"
+			"particle"		"particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire_.vpcf"
 		}
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"

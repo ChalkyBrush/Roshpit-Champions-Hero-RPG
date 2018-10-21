@@ -4343,6 +4343,59 @@
     	"DOTA_Tooltip_modifier_deity_shadow_shield"						"暗影盾"
     	"DOTA_Tooltip_modifier_deity_shadow_shield_Description"			"减伤100%%"
 
+    	"fire_deity"													"Fire Deity"
+
+    	"DOTA_Tooltip_ability_item_rpc_conjuror_arcana2"				"Bindings of the Flameshaper"
+
+       	"item_property_conjuror_arcana2"									"Fire Deity"
+    	"property_conjuror_arcana2_description"								"Replaces @Ability2 and all of its runes with Fire Deity."
+
+		"DOTA_Tooltip_ability_summon_fire_deity" 					"Fire Deity"
+    	"DOTA_Tooltip_ability_summon_fire_deity_Description"			"With the knowledge of the Origin Flame, Conjuror summons a grand Fire Deity to fight alongside him."
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_health"			"HEALTH:"
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_damage"			"DAMAGE:"
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_armor"			"ARMOR:"
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_magic_resist"			"MAGIC RESIST:"
+
+    	"DOTA_Tooltip_ability_fire_arcana_ability"							"Flame Laser"
+    	"DOTA_Tooltip_ability_fire_arcana_ability_Description"				"Element: <font color=\"#EF4126\">Fire</font><br>A blazing superheated laser travels towards the target unit. If the target is an ally, the ally is healed and receives a buff that increases attack speed and deals pure fire damage on attack land. Enemies instead take pure fire damage. Any ally or enemy in the beam's path is also affected, not just the primary target."
+    	"DOTA_Tooltip_ability_fire_arcana_ability_damage"					"DAMAGE:"
+    	"DOTA_Tooltip_ability_fire_arcana_ability_heal_pct"					"% HEAL:"
+    	"DOTA_Tooltip_ability_fire_arcana_ability_attack_speed"				"ATTACK SPEED FROM BUFF:"
+    	"DOTA_Tooltip_ability_fire_arcana_ability_buff_attack_damage"		"BONUS DAMAGE ON ATTACK AS % OF ATTACK POWER:"
+
+    	"DOTA_Tooltip_ability_modifier_fire_ray_buff"						"Flame Laser"
+    	"DOTA_Tooltip_ability_modifier_fire_ray_buff_Description"			"Increased attack speed and dealing extra fire damage on attack."
+
+    	"DOTA_Tooltip_ability_fire_deity_fire_ability"						"Infernal Spiral"
+    	"DOTA_Tooltip_ability_fire_deity_fire_ability_Description"			"A cone of fire damages all enemies in a line."
+
+  		"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2"						"[W1] Burning Insight"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_Description"			"Flame Laser's buff also increases base attack damage. Additionally Conjuror gains % attack damage bonus from intelligence passively."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_property_one"			"Base Attack Damage from Buff"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_suffix"					""	
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_property_two"			"Conjuror Increased Attack Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_suffix_two"				"% for each 10 points of intelligence"	
+
+  		"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2"						"[W2] Origin Flame"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_Description"			"Adds a flat increase to <font color=\"#EF4126\">Fire</font> amplification. Also a portion of Agility is added to Flame Laser's base damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_property_one"		"Fire Amplification"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_suffix"				"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_property_two"		"Agility added to Flame Laser Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_suffix_two"			"%"
+
+		"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2"							"[W3] Deity Critical Strike"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2_Description"				"Gives you and your Fire Deity a 30% chance to deal bonus damage on attack. The crit also releases an immolation that deals AOE damage equal to the attack's damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2_property_one"				"Bonus damage on crit"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2_suffix"						"%"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2"						"[W4] Blistering Knowledge"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_Description"			"Increases Agility and Intelligence by a %. Also decreases strength by a %"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_property_one"		"Agility and Intelligence"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_suffix"				"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_property_two"		"Strength"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_suffix_two"				"%"
+
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"烈火雕文"
 		"item_rpc_conjuror_glyph_1_1_description" 				"你的火元素将提高 @glyph_property1 攻击速度和 @glyph_property2% 额外攻击力。"
