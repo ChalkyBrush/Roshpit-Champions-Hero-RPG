@@ -241,6 +241,110 @@
     	"DOTA_Tooltip_modifier_deity_shadow_shield"						"暗影盾"
     	"DOTA_Tooltip_modifier_deity_shadow_shield_Description"			"减伤100%%"
 
+        "fire_deity"													"永火主宰"
+
+
+
+    	"DOTA_Tooltip_ability_item_rpc_conjuror_arcana2"				"不死鸟之息"
+
+
+
+       	"item_property_conjuror_arcana2"									"永火主宰"
+
+    	"property_conjuror_arcana2_description"								"用永火主宰来替换 @Ability2和它的全部符文."
+
+
+
+		"DOTA_Tooltip_ability_summon_fire_deity" 					"永火主宰"
+
+    	"DOTA_Tooltip_ability_summon_fire_deity_Description"			"参悟了火焰的本源, 魔术师从无尽的烈火中召唤出永火主宰与他并肩作战."
+
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_health"			"生命值:"
+
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_damage"			"攻击力:"
+
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_armor"			"护甲:"
+
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_magic_resist"			"魔法抗性:"
+
+
+
+    	"DOTA_Tooltip_ability_fire_arcana_ability"							"净化光焰"
+
+    	"DOTA_Tooltip_ability_fire_arcana_ability_Description"				"元素: <font color=\"#EF4126\">火</font><br>向目标单位射出炽热的激光。如果目标为盟友，则该盟友被治疗，并获得一个buff，该buff提高攻击速度，同时普通攻击造成额外火属性纯粹伤害。如果目标是敌人，那么他会受到火属性纯粹伤害。光束路径中的任何盟友或敌人都会受到影响."
+
+    	"DOTA_Tooltip_ability_fire_arcana_ability_damage"					"伤害:"
+
+    	"DOTA_Tooltip_ability_fire_arcana_ability_heal_pct"					"% 治疗:"
+
+    	"DOTA_Tooltip_ability_fire_arcana_ability_attack_speed"				"BUFF提高攻击速度:"
+
+    	"DOTA_Tooltip_ability_fire_arcana_ability_buff_attack_damage"		"额外伤害为攻击力的 % :"
+
+
+
+    	"DOTA_Tooltip_ability_modifier_fire_ray_buff"						"净化光焰"
+
+    	"DOTA_Tooltip_ability_modifier_fire_ray_buff_Description"			"增加攻击速度并造成额外的火属性纯粹伤害."
+
+
+
+    	"DOTA_Tooltip_ability_fire_deity_fire_ability"						"地狱业火"
+
+    	"DOTA_Tooltip_ability_fire_deity_fire_ability_Description"			"发射火球伤害一条直线上的敌人."
+
+
+
+  		"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2"						"[W1] 真知灼见"
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_Description"			"净化光焰的buff同时提高基础攻击力. 此外，魔术师根据智力值获得额外攻击力加成."
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_property_one"			"净化光焰提高基础攻击"
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_suffix"					""	
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_property_two"			"额外攻击力加成"
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_suffix_two"				"% 每10点智力值"	
+
+
+
+  		"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2"						"[W2] 原初之火"
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_Description"			"直接增加魔术师的 <font color=\"#EF4126\">火</font> 元素伤害. 同时根据敏捷增加净化光焰的基础伤害."
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_property_one"		"火元素伤害增加"
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_suffix"				"%"
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_property_two"		"净化光焰的基础伤害增加敏捷的"
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_suffix_two"			"%"
+
+
+
+		"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2"							"[W3] 火神之怒"
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2_Description"				"魔术师和他的永火主宰的普通攻击有 30% 机率造成暴击伤害. 暴击的同时造成相当于攻击者攻击力的AOE伤害."
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2_property_one"				"暴击伤害"
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2_suffix"						"%"
+
+
+
+  		"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2"						"[W4] 铄石流金"
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_Description"			"百分比提高敏捷值和智力值， 同时减少力量值"
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_property_one"		"敏捷和智力提高"
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_suffix"				"%"
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_property_two"		"力量减少"
+
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_suffix_two"				"%"
+
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"烈火雕文"
 		"item_rpc_conjuror_glyph_1_1_description" 				"你的火元素将提高 @glyph_property1 攻击速度和 @glyph_property2% 额外攻击力。"
