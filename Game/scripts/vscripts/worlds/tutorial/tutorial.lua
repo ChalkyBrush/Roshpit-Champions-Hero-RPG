@@ -37,6 +37,7 @@ function Tutorial:Debug()
 	-- local buttons = {"item_rarity_uncommon", "item_rarity_rare", "item_rarity_mythical", "item_rarity_immortal", "item_rarity_arcana"}
 	-- CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="3_1", quiz_question=question, sequence=2, verifier = verifier, localize_verifier = 1, challenge_progress = 2, gsub1 = gsub1, buttons = buttons} )
 	-- CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
+	RPCItems:RollResplendantRubberBoots(MAIN_HERO_TABLE[1]:GetAbsOrigin())
 end
 
 function Tutorial:SpawnAllTownNPCs()
@@ -1014,7 +1015,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
 				-- local random_rune = "DOTA_Tooltip_Ability_"..HerosCustom:GetInternalHeroName(hero:GetUnitName())
 				local question = "tutorial_quiz_question_14"
-				local verifier = 0
+				local verifier = (hero:GetAverageTrueAttackDamage(hero) - ((hero:GetBaseDamageMin()+hero:GetBaseDamageMax())/2))
 				CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="4_3", quiz_question=question, sequence=0, verifier = verifier, localize_verifier = 0, challenge_progress = 0} )
 				CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
 			end
@@ -2002,17 +2003,17 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 						if choice == 1 then
 							local reduc = (1 - GameState:IncomingDamageDecreaseWithType(hero, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL))*100000
 							reduc = reduc - (GameState:IncomingDamageIncrease(hero, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL) - 1)*100000
-							verifier = reduc
+							verifier = reduc/1000
 							sub = "DOTA_ToolTip_Damage_Physical"
 						elseif choice == 2 then
 							local reduc = (1 - GameState:IncomingDamageDecreaseWithType(hero, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL))*100000
 							reduc = reduc - (GameState:IncomingDamageIncrease(hero, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL) - 1)*100000
-							verifier = reduc
+							verifier = reduc/1000
 							sub = "DOTA_ToolTip_Damage_Magical"
 						elseif choice == 3 then
 							local reduc = (1 - GameState:IncomingDamageDecreaseWithType(hero, Events.GameMaster, false, DAMAGE_TYPE_PURE))*100000
 							reduc = reduc - (GameState:IncomingDamageIncrease(hero, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1)*100000
-							verifier = reduc
+							verifier = reduc/1000
 							sub = "DOTA_ToolTip_Damage_Pure"
 						end
 						CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="4_2", quiz_question=question, sequence=1, verifier = verifier, gsub1 = sub, localize_verifier = 0, challenge_progress = 1} )
@@ -2774,6 +2775,10 @@ function Tutorial:SubmitQuiz(msg)
 					correct_answer = true
 				end
 			end
+		elseif hero.tutorial.active_challenge == "4_3" then
+				if tonumber(msg.answer) - 100 < tonumber(msg.verifier) and tonumber(msg.answer) + 100 > tonumber(msg.verifier) then
+					correct_answer = true
+				end			
 		end
 		if tonumber(msg.bLocalize) == 1 then
 			correct_answer = msg.verifier == msg.answer
