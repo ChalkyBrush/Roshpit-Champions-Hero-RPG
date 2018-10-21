@@ -3115,7 +3115,6 @@ function mageplate_take_damage(event)
     target:SetModifierStackCount("modifier_infused_mageplate_stack", ability, newStack)
     local manaRestore = damage*0.05
     target:GiveMana(manaRestore)
-    print("MANA RESTORE:"..manaRestore)
     if not ability.particles then
     	ability.particles = 0
     end
@@ -4375,9 +4374,8 @@ function igneous_canine_damage(event)
 	local target = event.target
 	local caster = event.ability.hero
 	local ability = event.ability
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*2
-	Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_FIRE,RPC_ELEMENT_NONE)
-	ability.hero = target
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 2
+	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 function hurricane_vest_create(event)
 
