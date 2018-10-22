@@ -8257,7 +8257,7 @@
 			"modifier_water_bomb_b_b_damage_buff_spillover"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"hydroxis/hydroxis_b_b"
+				"TextureName"	"hydroxis/hydroxis_w_2"
 
 			}
 			"modifier_water_bomb_b_b_damage_buff_spillover_invis"
@@ -8698,7 +8698,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"hydroxis/hydroxis_c_d"
+				"TextureName"	"hydroxis/hydroxis_r_3"
 				"OnDestroy"
 				{
 					"RunScript"
@@ -8760,7 +8760,7 @@
 			"modifier_drowning_pool_actual_effect"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"hydroxis/hydroxis_d_d"
+				"TextureName"	"hydroxis/hydroxis_r_4"
 				"IsBuff"	"1"
 			}
 		}
