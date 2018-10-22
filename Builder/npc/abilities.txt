@@ -11655,6 +11655,7 @@
 			"modifier_betrayer_debuff"
 			{
 				"IsHidden" "0"
+				"TextureName"	"obsidian_destroyer_essence_aura"
 				"IsDebuff"  "1"
 				"OnCreated"
 				{
@@ -15829,6 +15830,7 @@
 			"modifier_recently_teleported_portal"
 			{
 				"IsHidden" "0"
+				"TextureName"	"misc/teleportation"
 				"Duration"	"10"
 				"Properties"
 				{
@@ -72348,6 +72350,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden" "0"
+				"TextureName"	"seafortress/medusa_passive"
 				"IsDebuff"	"1"
 				"ThinkInterval"  "0.5"
 			}
@@ -73114,6 +73117,7 @@
 			"modifier_recently_teleported"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"misc/teleportation"
 				"IsBuff"	"1"
 			}
 		}
