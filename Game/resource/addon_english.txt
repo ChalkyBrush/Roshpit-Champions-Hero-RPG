@@ -4068,6 +4068,8 @@
     	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_property_two"		"Strength"
     	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_suffix_two"				"%"
 
+    	"earth_deity"														"Earth Deity"
+
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"Glyph of Blazing Fire"
 		"item_rpc_conjuror_glyph_1_1_description" 				"Your Fire Aspect has @glyph_property1 extra attack speed and @glyph_property2% increased attack damage."
@@ -4082,7 +4084,7 @@
 		"item_rpc_conjuror_glyph_4_1_description" 				"Increases the Attack Range of your Shadow Aspect by @glyph_property1."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_1"		"Glyph of Trembling Earth"
-		"item_rpc_conjuror_glyph_5_1_description" 				"Earthquake radius is increased by @glyph_property1, and the duration of free-casting is increased by @glyph_property2 seconds."
+		"item_rpc_conjuror_glyph_5_1_description" 				"@Ability1 radius is increased by @glyph_property1, and the duration of free-casting is increased by @glyph_property2 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_6_1"		"Glyph of Flamethrower"
 		"item_rpc_conjuror_glyph_6_1_description" 				"Your Fire Aspect spits a cone of fire every time he lands a critical hit, dealing @glyph_property1x the crit damage to all damaged targets."

@@ -295,10 +295,12 @@ function RPCItems:UseArcanaCache(caster, item)
 				local resultTable = JSON:decode(result.Body)
 				if resultTable.success == 1 then
 					RPCItems.LevelRoll = radiance
+					Events.reroll = true
 					for i = 1, 3, 1 do
 						local item = RPCItems:RollRandomArcana(caster:GetAbsOrigin())
 						item.pickedUp = true
 					end
+					Events.reroll = false
 					RPCItems.LevelRoll = nil
 				end
 				if IsValidEntity(item) then

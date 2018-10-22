@@ -1,3 +1,5 @@
+-- require("heroes/invoker/arcana/arcana_earth_deity.lua")
+
 function begin_cast(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -269,7 +271,7 @@ function aspect_think(event)
 	local caster = event.caster
 	local conjurorPosition = caster.conjuror:GetAbsOrigin()
 	local aspectPosition = caster:GetAbsOrigin()
-	if event.caster:GetUnitName() == "earth_aspect" then
+	if event.caster:GetUnitName() == "earth_aspect" or event.caster:GetUnitName() == "earth_deity" then
 		local position = conjurorPosition + caster.conjuror:GetForwardVector()*300 + RandomVector(RandomInt(0, 80))
 		if getDistance(conjurorPosition, aspectPosition) > 750 then
 			caster:MoveToPosition(position)
@@ -289,12 +291,39 @@ function aspect_think(event)
 							Position = castPoint
 					 	}
 					 
-					ExecuteOrderFromTable(newOrder)			
+					ExecuteOrderFromTable(newOrder)		
+					return false	
 				end
 			end
 		end
-		local baseAbility = caster.conjuror:FindAbilityByName("summon_earth_aspect")
-		baseAbility:ApplyDataDrivenModifier(caster.conjuror, caster.conjuror, "modifier_earth_guardian", {})
+		if caster:HasAbility("earth_deity_sandstorm") then
+			local sandAbility = caster:FindAbilityByName("earth_deity_sandstorm")
+			if sandAbility:IsFullyCastable() then
+				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
+				if #enemies > 5 and caster:GetMana() > 30 then
+					local castPoint = enemies[1]:GetAbsOrigin()
+					local newOrder = {
+							UnitIndex = caster:entindex(),
+							OrderType = DOTA_UNIT_ORDER_CAST_TOGGLE,
+							AbilityIndex = sandAbility:entindex(),
+					 	}
+					 
+					ExecuteOrderFromTable(newOrder)	
+					return false
+				else
+					if caster:HasModifier("modifier_sandstorm_on") then
+						sandAbility:ToggleAbility()
+					end
+				end
+			end
+		end
+		if caster.conjuror:HasAbility("summon_earth_aspect") then
+			local baseAbility = caster.conjuror:FindAbilityByName("summon_earth_aspect")
+			baseAbility:ApplyDataDrivenModifier(caster.conjuror, caster.conjuror, "modifier_earth_guardian", {})
+		elseif caster.conjuror:HasAbility("summon_earth_deity") then
+			local baseAbility = caster.conjuror:FindAbilityByName("summon_earth_deity")
+			baseAbility:ApplyDataDrivenModifier(caster.conjuror, caster.conjuror, "modifier_earth_guardian", {})
+		end
 	end
 	if event.caster:GetUnitName() == "fire_aspect" or event.caster:GetUnitName() == "fire_deity" then
 		local position = conjurorPosition + rotateVector(caster.conjuror:GetForwardVector(),-math.pi/2)*300 + RandomVector(RandomInt(0, 80))
@@ -408,20 +437,34 @@ end
 function aspect_die(event)
 	local caster = event.caster
 	local ability = event.ability
-	if event.caster:GetUnitName() == "earth_aspect" then
-		local earthAspectSkill = caster.conjuror:FindAbilityByName("summon_earth_aspect")
-		local earthquakeSkill = caster.conjuror:FindAbilityByName("earthquake")
-		earthAspectSkill:SetLevel(earthquakeSkill:GetLevel())
-		caster.conjuror:SwapAbilities("summon_earth_aspect", "earthquake", true, false)
+	if event.caster:GetUnitName() == "earth_aspect" or event.caster:GetUnitName() == "earth_deity" then
+		if caster.conjuror:HasAbility("summon_earth_aspect") then
+			local earthAspectSkill = caster.conjuror:FindAbilityByName("summon_earth_aspect")
+			local earthquakeSkill = caster.conjuror:FindAbilityByName("earthquake")
+			earthAspectSkill:SetLevel(earthquakeSkill:GetLevel())
+			caster.conjuror:SwapAbilities("summon_earth_aspect", "earthquake", true, false)
+		elseif caster.conjuror:HasAbility("summon_earth_deity") then
+			local earthAspectSkill = caster.conjuror:FindAbilityByName("summon_earth_deity")
+			local earthquakeSkill = caster.conjuror:FindAbilityByName("arcana_earth_shock")
+			earthAspectSkill:SetLevel(earthquakeSkill:GetLevel())
+			caster.conjuror:SwapAbilities("summon_earth_deity", "arcana_earth_shock", true, false)
+		end
 		caster.conjuror.earthAspect = false
 		caster.conjuror:RemoveModifierByName("modifier_earth_guardian")
 		if caster.conjuror:HasModifier("modifier_conjuror_glyph_7_1") then
 			if caster.conjuror:IsAlive() then
 				local earthReviveEvent = {}
 				earthReviveEvent.caster = caster.conjuror
-				earthReviveEvent.ability = caster.conjuror:FindAbilityByName("summon_earth_aspect")
-				earthReviveEvent.aspect_health = earthReviveEvent.ability:GetSpecialValueFor("aspect_health")
-				earth_aspect(earthReviveEvent)
+				if caster:HasAbility("summon_earth_aspect") then
+					earthReviveEvent.ability = caster.conjuror:FindAbilityByName("summon_earth_aspect")
+					earthReviveEvent.aspect_health = earthReviveEvent.ability:GetSpecialValueFor("aspect_health")
+					earth_aspect(earthReviveEvent)
+				elseif caster:HasAbility("summon_earth_deity") then
+					earthReviveEvent.ability = caster.conjuror:FindAbilityByName("summon_earth_deity")
+					earthReviveEvent.aspect_health = earthReviveEvent.ability:GetSpecialValueFor("aspect_health")
+					earthReviveEvent.aspect_damage = earthReviveEvent.ability:GetSpecialValueFor("aspect_damage")
+					earth_deity(earthReviveEvent)
+				end
 			end
 		end
 	elseif event.caster:GetUnitName() == "fire_aspect" or event.caster:GetUnitName() == "fire_deity" then
@@ -535,12 +578,8 @@ function get_q_2_level(caster)
 end
 
 function get_w_1_level(caster)
-	local runeUnit = caster.runeUnit
-	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_w_1")
-	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_1")
-	local totalLevel = abilityLevel + bonusLevel
-	return totalLevel
+	local level = caster:GetRuneValue("w", 1)
+	return level
 end
 
 function get_a_c_level(caster)

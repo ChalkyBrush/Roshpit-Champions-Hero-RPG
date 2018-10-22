@@ -1,5 +1,5 @@
 LinkLuaModifier("modifier_conjuror_attack_sound_translate", "modifiers/conjuror/modifier_conjuror_attack_sound_translate", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_conjuror_call_of_elements_model_lua", "modifiers/conjuror/modifier_conjuror_call_of_elements_model_lua", LUA_MODIFIER_MOTION_NONE)
 function channel_start(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -99,7 +99,9 @@ function applyCalls(ability, unit, earth, fire, shadow, caster, origScale, growC
 		ability:ApplyDataDrivenModifier(caster, unit, "modifier_call_of_shadow", {duration = buffDuration})
 	end
 	unit.origScale = origScale
-	smoothModelChange(unit, origScale, origScale*1+(0.12*growCount))
+
+	unit:AddNewModifier(caster, ability, "modifier_conjuror_call_of_elements_model_lua", {duration = buffDuration}) 
+	ability.calls = growCount
 end
 
 function smoothModelChange(unit, origScale, newScale)
@@ -116,8 +118,7 @@ end
 function call_end(event)
 	local target = event.target
 	local ability = event.ability
-	target:SetModelScale(target.origScale)
-	smoothModelChange(target, target.origScale*1+(0.12*ability.growCount), target.origScale)
+	target:RemoveModifierByName("modifier_conjuror_call_of_elements_model_lua")
 	if target:HasAbility("earth_aspect_quake_leap") then
 		if target:HasModifier("modfier_earth_aspect_jumping") then
 			target.RemoveLeapAbility = true
@@ -204,5 +205,6 @@ function applyCallsArcana(ability, unit, earth, fire, shadow, caster, origScale,
 		unit:SetModifierStackCount("modifier_call_of_shadow", caster, procs)
 	end
 	unit.origScale = origScale
-	smoothModelChange(unit, origScale, origScale*1+(0.12*growCount))
+	unit:AddNewModifier(caster, ability, "modifier_conjuror_call_of_elements_model_lua", {duration = buffDuration})
+	ability.calls = growCount
 end
