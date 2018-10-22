@@ -458,6 +458,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
+				"TextureName"	"rubick_spell_steal"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
@@ -4261,6 +4262,7 @@
 			{
 				"IsDebuff"	"1"
 				"IsHidden"	"0"
+				"TextureName"	"rpc/leshrac_wall"
 				"EffectName"	"particles/econ/courier/courier_shagbark/wall_of_impunity_weaken.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"Properties"
@@ -4313,6 +4315,7 @@
 			"modifier_bahamut_5_a_cooldown"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"rpc/leshrac_wall"
 				"IsBuff"	"1"
 			}
 			"modifier_bahamut_wall_max_mana_invisible"
@@ -4507,6 +4510,7 @@
 			"modifier_purity_freeze"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"luna_lucent_beam_alt"
 				"IsDebuff"	"1"
 				"EffectName"		"particles/roshpit/bahamut/purity_freeze_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -4517,7 +4521,6 @@
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"TextureName"	"luna_lucent_beam_alt"
 				"OnCreated"
 				{
 					"FireEffect"
@@ -4833,6 +4836,7 @@
 			{
 				"IsBuff" "1"
 				"IsHidden"	"0"
+				"TextureName"	"rpc/megaflare"
 				"IsPurgable"		"0"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
@@ -5106,6 +5110,7 @@
 			{
 			    "IsDebuff"  "1"
 				"IsHidden"	"0"
+				"TextureName"	"abyssal_underlord_pit_of_malice"
 				"OnCreated"
 				{
 					"RunScript"
@@ -5146,6 +5151,7 @@
 			"ghost_hallow_stun"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"abyssal_underlord_pit_of_malice"
 				"IsDebuff"	"1"
 				"States"
 				{
@@ -5307,6 +5313,7 @@
 			"modifier_auriun_glyph_6_1_effect"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"auriun/glyph_auriun_6_1_modifier"
 				"IsBuff"	"1"
 				"Passive"	"0"
 				"States"
@@ -72880,6 +72887,7 @@
 			"modifier_hook_root"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"seafortress/jailer_passive"	
 				"IsDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_oracle/oracle_fortune_purge.vpcf"
 				"EffectAttachType"	"attach_hitloc"
