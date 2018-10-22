@@ -5909,13 +5909,13 @@
 			"modifier_holy_wrath_d_a_buff"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"auriun/auriun_rune_q_4_arcana1"
 				"EffectName"	"particles/roshpit/auriun/arcana_teleport_ability.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "150"
 				}
-				"TextureName"	"auriun/auriun_rune_q_4_arcana1"
 			}
 			"modifier_holy_wrath_d_a_cooldown"
 			{
@@ -5969,6 +5969,7 @@
 			"modifier_auriun_glyph_6_1_effect"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"auriun/glyph_auriun_6_1_modifier"
 				"IsBuff"	"1"
 				"Passive"	"0"
 				"States"
@@ -6086,6 +6087,7 @@
 			"modifier_shadow_trap_passive"
 			{
 				"IsHidden"	"0"
+				"TextureName"	""auriun/auriun_shadow_bind""
 				"IsBuff"	"1"
 				"Passive"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
@@ -35894,6 +35896,7 @@
 			"ApplyModifier"
 			{
 				"ModifierName"	"modifier_stunned"
+				"TextureName"	"misc/stunned"
 				"Target" 		"TARGET"
 				"Duration"		"%stun_duration"
 			}
@@ -50735,6 +50738,7 @@
 			"ApplyModifier"
 			{
 				"ModifierName"	"modifier_stunned"
+				"TextureName"	"misc/stunned"
 				"Target" 		"TARGET"
 				"Duration"		"%stun_duration"
 			}
@@ -71034,6 +71038,7 @@
 			"ApplyModifier"
 			{
 				"ModifierName"	"modifier_stunned"
+				"TextureName"	"misc/stunned"
 				"Target" 		"TARGET"
 				"Duration"		"0.1"
 			}
@@ -74858,6 +74863,7 @@
 					"ApplyModifier"
 					{
 						"ModifierName"	"modifier_stunned"
+						"TextureName"	"misc/stunned"
 						"Target" 		"TARGET"
 						"Duration"		"1.0"
 					}
