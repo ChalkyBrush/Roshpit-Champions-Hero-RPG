@@ -2055,7 +2055,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_earthshock_damage_reduce") then
 		local modifierCaster = attacker:FindModifierByName("modifier_earthshock_damage_reduce"):GetCaster()
 		local stacks = attacker:GetModifierStackCount("modifier_earthshock_damage_reduce", modifierCaster)
-		filterTable["damage"] = filterTable["damage"] - (filterTable["damage"]*(CONJUROR_ARCANA_Q4_DAMAGE_REDUCE_PCT/100)*stacks)
+		filterTable["damage"] = filterTable["damage"] - (filterTable["damage"]*math.min((CONJUROR_ARCANA_Q4_DAMAGE_REDUCE_PCT/100)*stacks, 0.9))
 	end
 	if victim:HasModifier("modifier_swarm_effect") then
 		local multIncrease = victim:GetModifierStackCount("modifier_swarm_effect", victim.umbral)*0.06
