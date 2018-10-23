@@ -240,6 +240,131 @@
 
     	"DOTA_Tooltip_modifier_deity_shadow_shield"						"Shadow Shield"
     	"DOTA_Tooltip_modifier_deity_shadow_shield_Description"			"Весь входящий урон снижен на 100%%"
+		
+		"fire_deity"													"Fire Deity"
+
+    	"DOTA_Tooltip_ability_item_rpc_conjuror_arcana2"				"Bindings of the Flameshaper"
+
+       	"item_property_conjuror_arcana2"									"Fire Deity"
+    	"property_conjuror_arcana2_description"								"Заменяет @Ability2 и все соответствующие руны на Fire Deity."
+
+		"DOTA_Tooltip_ability_summon_fire_deity" 					"Fire Deity"
+    	"DOTA_Tooltip_ability_summon_fire_deity_Description"			"Conjuror призывает Fire Deity на свою сторону, используя дар Первого Пламени."
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_health"			"ЗДОРОВЬЕ DEITY:"
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_damage"			"УРОН:"
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_armor"			"БРОНЯ:"
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_magic_resist"			"МАГИЧЕСКОЕ СОПРОТИВЛЕНИЕ:"
+
+    	"DOTA_Tooltip_ability_fire_arcana_ability"							"Flame Laser"
+    	"DOTA_Tooltip_ability_fire_arcana_ability_Description"				"Элемент: <font color=\"#EF4126\">Огонь</font><br>Раскаленный луч энергии направляется к выбранному юниту. Дружественная цель получит лечение и усиление скорости атаки, а также будет наносить чистый урон <font color=\"#EF4126\">Огня</font> при атаках. Вражеская цель получит урон от луча. Луч оказывает эффект на все цели на своем пути, а не только на конечную цель."
+    	"DOTA_Tooltip_ability_fire_arcana_ability_damage"					"УРОН:"
+    	"DOTA_Tooltip_ability_fire_arcana_ability_heal_pct"					"% ЛЕЧЕНИЕ:"
+    	"DOTA_Tooltip_ability_fire_arcana_ability_attack_speed"				"СКОРОСТЬ АТАКИ ОТ БАФФА:"
+    	"DOTA_Tooltip_ability_fire_arcana_ability_buff_attack_damage"		"ЧИСТЫЙ УРОН В % ОТ АТАКИ:"
+
+    	"DOTA_Tooltip_ability_modifier_fire_ray_buff"						"Flame Laser"
+    	"DOTA_Tooltip_ability_modifier_fire_ray_buff_Description"			"Атаки ускорены и наносят чистый урон дополнительно."
+
+    	"DOTA_Tooltip_ability_fire_deity_fire_ability"						"Infernal Spiral"
+    	"DOTA_Tooltip_ability_fire_deity_fire_ability_Description"			"Конус огненной энергии наносит урон всем противникам на пути."
+
+  		"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2"						"[W1] Burning Insight"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_Description"			"Flame Laser дополнительно усиливает Базовый Урон Атаки. Conjuror получает Бонусный Урон Атаки в % от Интеллекта."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_property_one"			"Базовый Урон Атаки"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_suffix"					""	
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_property_two"			"Бонусный Урон для героя"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_suffix_two"				"% за 10 Интеллекта"	
+
+  		"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2"						"[W2] Origin Flame"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_Description"			"Прибавляет значение к усилению <font color=\"#EF4126\">Огня</font>. Часть Ловкости добавляется к урону луча Flame Laser."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_property_one"		"Усиление Огня"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_suffix"				"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_property_two"		"Ловкость в урон луча"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_suffix_two"			"%"
+
+		"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2"							"[W3] Deity Critical Strike"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2_Description"				"Вы и Fire Deity имеете 30% на крит при атаке. Урон от критического попадания наносится по области магическим уроном."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2_property_one"				"Критический урон"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2_suffix"						"%"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2"						"[W4] Blistering Knowledge"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_Description"			"Увеличивает Ловкость и Интеллект на %, но снижает Силу на %"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_property_one"		"Ловкость и Интеллект"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_suffix"				"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_property_two"		"Сила (снижение)"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_suffix_two"				"%"
+
+    	"earth_deity"														"Earth Deity"
+
+    	"DOTA_Tooltip_ability_item_rpc_conjuror_arcana3"				"Veil of Gaia"
+
+       	"item_property_conjuror_arcana3"									"Earth Deity"
+    	"property_conjuror_arcana3_description"								"Заменяет @Ability1 и все соответствующие руны на Earth Deity."
+
+    	"DOTA_Tooltip_ability_summon_earth_deity"							"Earth Deity"
+    	"DOTA_Tooltip_ability_summon_earth_deity_Description"				"Заклинание призыва для могучего гранитного Earth Deity, который имеет способность Grand Guardian для защиты союзников. 50% от повреждений Conjuror'а получает Earth Deity вместо него."
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_health"				"ЗДОРОВЬЕ:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_damage"				"УРОН АТАКИ:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_armor"				"БРОНЯ:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_magic_resist"		"МАГИЧЕСКОЕ СОПРОТИВЛЕНИЕ:"
+
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm"						"Sandstorm"
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_Description"			"Элемент: <font color=\"#AF843D\">Земля</font><br>Earth Deity останавливается и образует песчаную бурю. Протвники внутри замедлены и могут промахнуться. Earth Deity тратит свою ману на прочтение, и прекратит заклинание если она закончится. Наносит урон каждые 0.25 сек."
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_miss_chance"			"ШАНС ПРОМАХА:"
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_move_slow"				"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_attack_slow"			"ЗАМЕДЛЕНИЕ АТАКИ:"
+
+    	"DOTA_Tooltip_modifier_enemy_in_earth_deity_sandstorm"				"Sandstorm"
+    	"DOTA_Tooltip_modifier_enemy_in_earth_deity_sandstorm_Description"	"Замедлен и промахивается"
+
+    	"DOTA_Tooltip_ability_arcana_earth_shock"							"Earth Shock"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_Description"				"Элемент: <font color=\"#AF843D\">Земля</font>/<font color=\"#5CCDF9\">Молния</font><br>Вызывает облако пыли со статическим зарядом в указанную область. Замедляет передвижение врагов на 1000 на 0.9 секунд. Уменьшает урон противников на 10 секунд."
+    	"DOTA_Tooltip_ability_arcana_earth_shock_damage"					"УРОН:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_radius"					"РАДИУС:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_attack_reduce"				"УМЕНЬШЕНИЕ УРОНА АТАК:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_movespeed_slow"			"ЗАМЕДЛЕНИЕ:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_slow_duration"				"ВРЕМЯ ЗАМЕДЛЕНИЯ:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_attack_reduce_duration"	"ДЛИТЕЛЬНОСТЬ УМЕНЬШЕНИЯ УРОНА:"
+
+    	"DOTA_Tooltip_modifier_earth_shock_slow"							"Замедление от Earth Shock"
+
+    	"DOTA_Tooltip_modifier_earth_shock_attack_reduce"					"Earth Shock"
+    	"DOTA_Tooltip_modifier_earth_shock_attack_reduce_Description"		"Урон атак снижен"
+
+    	"DOTA_Tooltip_ability_earth_deity_grand_guardian"					"Grand Guardian"
+    	"DOTA_Tooltip_ability_earth_deity_grand_guardian_Description"		"Сворачивает цель в шар и притягивает к Earth Deity. Цели получают регенерацию ХП, но способности отключаются. Если Conjuror внутри Deity, Earth Shock не отключается, а имеет большую дистанцию применения и не имеет перезарядки. Deity получает иммунитет к заклинаниям, +100000 Брони, и не может двигаться. Earth Deity может выбросить союзника наружу, и это закончит применение Grand Guardian. Если Conjuror получит смертельное ранение, Earth Deity спасет ему жизнь, если способность не на перезарядке."
+
+    	"DOTA_Tooltip_modifier_deity_grand_guardian"						"Grand Guardian"
+    	"DOTA_Tooltip_modifier_deity_grand_guardian_Description"			"Иммунитет к заклинаниям и регенерация ХП."
+
+    	"DOTA_Tooltip_modifier_earth_deity_bowl"							"Guardian Boulder Roll"
+    	"DOTA_Tooltip_modifier_earth_deity_bowl_Description"				"Выбрасывает союзника к цели с высокой скоростью. Наносит Earth Shock в области применения. Это заканчивает применение Grand Guardian."
+
+  		"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3"						"[Q1] Sandstorm"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_Description"			"The Earth Deity stands in place and whips up a violent sand storm. Enemies in the sandstorm have their movement speed and attack slowed, and have a chance to miss with their attacks. Drains mana and deals damage every 0.25 seconds and toggles off if mana runs out."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_suffix"					"% of Earth Deity's Max Health"	
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_two"			"Radius"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_suffix_two"				""	
+
+  		"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3"						"[Q2] Strength of Gaia"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_Description"			"Increases max health of Conjuror and all of his summons by a flat amount and also by a percentage."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_one"		"Max Health Flat"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix"				""
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_two"		"Max Health Percentage"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix_two"			"%"
+
+		"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3"							"[Q3] Earthen EMP"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_Description"				"Показатель Здоровья увеличивает урон элемента <font color=\"#AF843D\">Земли</font>. Урон атаки добавляется к базе урона Earth Shock."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_one"				"Элемент Земли"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix"						"% за 100 очков ХП"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_two"				"Урон Атаки добавлен к Earth Shock"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix_two"					"%"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3"						"[Q4] Mud Slash"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_Description"			"Противники, поврежденные Earth Shock, наносят сниженный урон."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_property_one"		"Урон противника снижен"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_suffix"				"%"
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"(T1) Глиф сжигающего пламени"
