@@ -344,6 +344,78 @@
     	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_property_two"		"力量减少"
 
     	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_suffix_two"				"%"
+	"earth_deity"											        "大地尊者"
+
+    	"DOTA_Tooltip_ability_item_rpc_conjuror_arcana3"				"盖亚的面纱"
+
+       	"item_property_conjuror_arcana3"									"大地尊者"
+    	"property_conjuror_arcana3_description"								"将 @Ability1 和他的所有符文替换为大地尊者。"
+
+    	"DOTA_Tooltip_ability_summon_earth_deity"							"大地主宰"
+    	"DOTA_Tooltip_ability_summon_earth_deity_Description"				"一句深奥的土之咒语召唤出一个强大的泥土傀儡，泥土傀儡拥有大地守卫技能保护目标友军 ，召唤师受到的50%的伤害将由大地尊者承受。"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_health"				"生命值:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_damage"				"基础攻击力:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_armor"				"护甲:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_magic_resist"		"魔法抗性:"
+
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm"						"沙尘暴"
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_Description"			"元素: <font color=\"#AF843D\">土</font><br>大地尊者所站立的地方产生一阵狂暴的沙尘暴。处于沙尘暴的敌人的攻击速度和移动速度将被降低，并且他们的普通攻击有概率丢失。每0.25秒汲取魔法值并造成伤害并且在魔法耗尽时自动关闭。"
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_miss_chance"			"丢失概率:"
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_move_slow"				"移动速度降低:"
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_attack_slow"			"攻击速度降低:"
+
+    	"DOTA_Tooltip_modifier_enemy_in_earth_deity_sandstorm"				"沙尘暴"
+    	"DOTA_Tooltip_modifier_enemy_in_earth_deity_sandstorm_Description"	"被减速和致盲"
+
+    	"DOTA_Tooltip_ability_arcana_earth_shock"							"大地震颤"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_Description"				"元素: <font color=\"#AF843D\">土</font><br>召唤师很快的向目标地点释放一个土之能量。被影响的敌人将被降低1000的移动速度，持续0.9秒，被影响的敌人同时也被施加一个降低攻击力的debuff，持续10秒。"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_damage"					"伤害:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_radius"					"范围:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_attack_reduce"				"攻击力降低:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_movespeed_slow"			"移动速度降低:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_slow_duration"				"减速持续时间:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_attack_reduce_duration"	"攻击力降低持续时间:"
+
+    	"DOTA_Tooltip_modifier_earth_shock_slow"							"大地震颤减速"
+
+    	"DOTA_Tooltip_modifier_earth_shock_attack_reduce"					"大地震颤"
+    	"DOTA_Tooltip_modifier_earth_shock_attack_reduce_Description"		"攻击力降低"
+
+    	"DOTA_Tooltip_ability_earth_deity_grand_guardian"					"大地守卫"
+    	"DOTA_Tooltip_ability_earth_deity_grand_guardian_Description"		"随机选取一个目标友军进入砾石并且将他拉向大地尊者。在目标友军在大地尊者体内时，获得生命回复速度加成并且所有技能都被禁用。如果召唤师在大地尊者中时，大地震颤不会被禁用并且大地震颤的施法距离增加并且没有冷却时间。大地尊者在大地守卫激活时魔法免疫并且拥有+10000的护甲，但是他不能移动。大地尊者在大地守卫结束时将会重新随机选取保护的友军。如果召唤师受到致命伤害时，这个技能将不会处于冷却时间，大地尊者将立刻将召唤师拉进体内来拯救召唤师的生命。"
+
+    	"DOTA_Tooltip_modifier_deity_grand_guardian"						"大地守卫"
+    	"DOTA_Tooltip_modifier_deity_grand_guardian_Description"			"魔法免疫并且获得护甲"
+
+    	"DOTA_Tooltip_modifier_earth_deity_bowl"							"守卫砾石随机选取"
+    	"DOTA_Tooltip_modifier_earth_deity_bowl_Description"				"快速扔向被保护的目标地点，并且在到达目标地点后释放一个大地震颤。当使用时大地守卫将会结束。"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3"						"[Q1] 沙尘暴"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_Description"			"大地尊者所站立的地方产生一阵狂暴的沙尘暴。处于沙尘暴的敌人的攻击速度和移动速度将被降低，并且他们的普通攻击有概率丢失。每0.25秒汲取魔法值并造成伤害并且在魔法耗尽时自动关闭。"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_one"			"伤害"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_suffix"					"大地尊者的最大生命值% "	
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_two"			"范围"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_suffix_two"				""	
+
+  		"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3"						"[Q2] 盖亚之力"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_Description"			"增加召唤师和他的召唤物的最大生命值。"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_one"		"最大生命值增加（加法）"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix"				""
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_two"		"最大生命值增加（乘法）"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix_two"			"%"
+
+		"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3"							"[Q3] 大地脉冲"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_Description"				"最大生命值增加 <font color=\"#AF843D\">土</font> 元素伤害。 并且攻击力的一定百分比加入到大地震颤的基础伤害之中。"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_one"				"土元素伤害增加"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix"						"%每100点最大生命值增加 "
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_two"				"%攻击力加入到大地震颤伤害"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix_two"					"%"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3"						"[Q4] 泥泞鞭挞 "
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_Description"			"敌人在受到大地震颤的攻击力降低debuff时造成的所有类型伤害将会降低。"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_property_one"		"敌人伤害降低"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_suffix"				"%"
+
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"烈火雕文"
