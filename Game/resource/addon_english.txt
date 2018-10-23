@@ -4095,7 +4095,7 @@
     	"DOTA_Tooltip_ability_arcana_earth_shock_Description"				"Element: <font color=\"#AF843D\">Earth</font><br>Conjures a quick burst of static earthen energy at the target location. Enemies in the radius have their movespeed slowed by 1000 for 0.9 seconds. Enemies in the radius also receive an attack damage debuff for 10 seconds."
     	"DOTA_Tooltip_ability_arcana_earth_shock_damage"					"DAMAGE:"
     	"DOTA_Tooltip_ability_arcana_earth_shock_radius"					"RADIUS:"
-    	"DOTA_Tooltip_ability_arcana_earth_shock_attack_reduce"				"ATTACK DAMGE REDUCE:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_attack_reduce"				"ATTACK DAMAGE REDUCE:"
     	"DOTA_Tooltip_ability_arcana_earth_shock_movespeed_slow"			"MOVESPEED SLOW:"
     	"DOTA_Tooltip_ability_arcana_earth_shock_slow_duration"				"SLOW DURATION:"
     	"DOTA_Tooltip_ability_arcana_earth_shock_attack_reduce_duration"	"ATTACK REDUCE DURATION:"

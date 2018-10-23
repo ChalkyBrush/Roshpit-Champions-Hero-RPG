@@ -6087,7 +6087,7 @@
 			"modifier_shadow_trap_passive"
 			{
 				"IsHidden"	"0"
-				"TextureName"	""auriun/auriun_shadow_bind""
+				"TextureName"	"auriun/auriun_shadow_bind"
 				"IsBuff"	"1"
 				"Passive"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
