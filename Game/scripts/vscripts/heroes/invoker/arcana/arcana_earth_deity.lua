@@ -102,6 +102,7 @@ end
 
 function earth_deity_sandstorm_thinking(event)
 	local caster = event.caster
+	local origCaster = caster.conjuror
 	local ability = event.ability
 	local damage_mult = event.damage_mult
 	local damage = caster:GetMaxHealth()*(CONJUROR_ARCANA_Q1_DMG_PERCENT_MAX_HEALTH/100)*ability.q_1_level
@@ -123,7 +124,7 @@ function earth_deity_sandstorm_thinking(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ability.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, origCaster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
 		end
 	end	
 end
