@@ -12,13 +12,13 @@
 		"arena_training_dummy_sentence_3"							""
 
 		"arena_training_button_1"									"Очистить запись"
-		"arena_training_button_2"									"Запустить 7 секундный таймер"
+		"arena_training_button_2"									"7 сек. таймер"
 		"arena_training_button_3"									"Выход"
 
 		"arena_log_capacity"										"Вместимость лога"
 		"arena_log_dps"												"DPS"
 		"arena_armor_title"											"Физ. броня"
-		"arena_update_dummy"										"Обновить настройки"
+		"arena_update_dummy"										"Обновить"
 
 		"arena_fan_dialogue_one"									"Я пришел сюда, чтобы увидеть моего любимого бойца! Его зовут Чемпион Варафлас!"
 		"arena_fan_dialogue_two"									"Вау! Ты мой самый любимый Чемпион!"

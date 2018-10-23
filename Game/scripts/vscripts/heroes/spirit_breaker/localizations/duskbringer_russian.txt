@@ -3,15 +3,15 @@
 		"DOTA_Tooltip_ability_whirling_flail"							"Whirling Flail"
 		"DOTA_Tooltip_ability_whirling_flail_Description"				"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Duskbringer быстро размахивает своим оружием, отталкивая всех ближайших противников. Может быть сразу использовано при Specter Rush для атаки во время движения."
 		"DOTA_Tooltip_ability_whirling_flail_Lore"						""
-		"DOTA_Tooltip_ability_whirling_flail_damage"					"УРОН, % ОТ УРОНА ГЕРОЯ ЗА ВЗМАХ"
-		"DOTA_Tooltip_ability_whirling_flail_knockback"					"ДАЛЬНОСТЬ ОТТАЛКИВАНИЯ"		
+		"DOTA_Tooltip_ability_whirling_flail_damage"					"УРОН, % ОТ УРОНА ГЕРОЯ ЗА ВЗМАХ:"
+		"DOTA_Tooltip_ability_whirling_flail_knockback"					"ДАЛЬНОСТЬ ОТТАЛКИВАНИЯ:"		
 
 		"DOTA_Tooltip_modifier_whirling_flail"							"Whirling Flail"
 		"DOTA_Tooltip_modifier_whirling_flail_Description"  			"Размахивает оружием"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1"						"[Q1] Duskfire Flail"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"Оружие Duskbringer наделяется дополнительной энергией, высвобождаемой при атаках огненным взрывом, заставляя врагов получать доп. огненный урон. Эффект горения складывается неограниченное количество раз."
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_one"		"УРОН ПРИ УДАРЕ"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_one"		"Базовый урон"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix"				""		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_two"		"Доп. урон от Ловкости"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix_two"			"х"
@@ -35,15 +35,12 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_suffix"				"%"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_property_two"		"Доп. радиус"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_suffix_two"			""
-
-		"DOTA_Tooltip_modifier_duskbringer_rune_q_4"					"Blank Combustion"
-		"DOTA_Tooltip_modifier_duskbringer_rune_q_4_Description"		"[q4]_modifier_description?"
 		
 		"DOTA_Tooltip_ability_ghost_hallow"								"Ghost Hallow"
-		"DOTA_Tooltip_ability_ghost_hallow_Description"				"Образует пугающую пустоту, которая обездвиживает всех попавших в неё врагов."
+		"DOTA_Tooltip_ability_ghost_hallow_Description"					"Образует пугающую пустоту, которая обездвиживает всех попавших в неё врагов."
 		"DOTA_Tooltip_ability_ghost_hallow_Lore"						""
-		"DOTA_Tooltip_ability_ghost_hallow_radius"						"РАДИУС"
-		"DOTA_Tooltip_ability_ghost_hallow_duration"					"ДЛИТЕЛЬНОСТЬ СВЯЗЫВАНИЯ"
+		"DOTA_Tooltip_ability_ghost_hallow_radius"						"РАДИУС:"
+		"DOTA_Tooltip_ability_ghost_hallow_duration"					"ДЛИТЕЛЬНОСТЬ СВЯЗЫВАНИЯ:"
 
 		"DOTA_Tooltip_ghost_hallow_stun"								"Ghost Hallow"
 		"DOTA_Tooltip_ghost_hallow_stun_Description"					"Обездвижен"
