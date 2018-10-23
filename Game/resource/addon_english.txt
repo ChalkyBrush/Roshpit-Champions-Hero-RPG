@@ -4123,10 +4123,10 @@
 
   		"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3"						"[Q2] Strength of Gaia"
     	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_Description"			"Increases max health of Conjuror and all of his summons by a flat amount and also by a percentage."
-    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_one"		"Max Health Percentage"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix"				"%"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_two"		"Max Health Flat"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix_two"			""
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_one"		"Max Health Flat"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix"				""
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_two"		"Max Health Percentage"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix_two"			"%"
 
 		"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3"							"[Q3] Earthen EMP"
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_Description"				"Max Health increases <font color=\"#AF843D\">Earth</font> damage. Attack damage is added to Earth Shock's base damage."
