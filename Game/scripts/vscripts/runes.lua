@@ -758,6 +758,7 @@ function Runes:EquipArcana(hero, index)
 		elseif index == 3 then
 			if hero.earthAspect then
 				if IsValidEntity(hero.earthAspect) then
+					hero.earthAspectResummonForbidden = true
 					hero.earthAspect:SetHealth(10)
 					hero.earthAspect:ForceKill(true)
 				end
@@ -1375,9 +1376,10 @@ function Runes:UnequipArcana(hero, index)
 		elseif index == 3 then
 			if hero.earthAspect then
 				if IsValidEntity(hero.earthAspect) then
+					hero.earthAspectResummonForbidden = true
 					hero.forceFireReset = true
 					hero.earthAspect:SetHealth(10)
-					hero.earthAspect:ForceKill(true)
+					hero.earthAspect:ForceKill(true)					
 				end
 			end
 			hero:RemoveModifierByName("modifier_earth_deity_q_2")

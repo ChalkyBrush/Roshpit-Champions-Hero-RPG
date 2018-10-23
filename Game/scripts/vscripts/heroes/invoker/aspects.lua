@@ -318,7 +318,7 @@ function aspect_think(event)
 			local sandAbility = caster:FindAbilityByName("earth_deity_sandstorm")
 			if sandAbility:IsFullyCastable() then
 				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
-				if #enemies > 5 and caster:GetMana() > 30 then
+				if #enemies > 0 and caster:GetMana() > 30 then
 					local castPoint = enemies[1]:GetAbsOrigin()
 					local newOrder = {
 							UnitIndex = caster:entindex(),
@@ -470,19 +470,22 @@ function aspect_die(event)
 		caster.conjuror.earthAspect = false
 		caster.conjuror:RemoveModifierByName("modifier_earth_guardian")
 		if caster.conjuror:HasModifier("modifier_conjuror_glyph_7_1") then
-			if caster.conjuror:IsAlive() then
+			if caster.conjuror:IsAlive() and not caster.conjuror.earthAspectResummonForbidden then
 				local earthReviveEvent = {}
 				earthReviveEvent.caster = caster.conjuror
-				if caster:HasAbility("summon_earth_aspect") then
-					earthReviveEvent.ability = caster.conjuror:FindAbilityByName("summon_earth_aspect")
+				if earthReviveEvent.caster:HasAbility("summon_earth_aspect") then
+					earthReviveEvent.ability = earthReviveEvent.caster:FindAbilityByName("summon_earth_aspect")
 					earthReviveEvent.aspect_health = earthReviveEvent.ability:GetSpecialValueFor("aspect_health")
 					earth_aspect(earthReviveEvent)
-				elseif caster:HasAbility("summon_earth_deity") then
-					earthReviveEvent.ability = caster.conjuror:FindAbilityByName("summon_earth_deity")
+				elseif earthReviveEvent.caster:HasAbility("summon_earth_deity") then
+					earthReviveEvent.ability = earthReviveEvent.caster:FindAbilityByName("summon_earth_deity")
 					earthReviveEvent.aspect_health = earthReviveEvent.ability:GetSpecialValueFor("aspect_health")
 					earthReviveEvent.aspect_damage = earthReviveEvent.ability:GetSpecialValueFor("aspect_damage")
 					earth_deity(earthReviveEvent)
 				end
+			end
+			if caster.conjuror.earthAspectResummonForbidden then
+				caster.conjuror.earthAspectResummonForbidden = nil
 			end
 		end
 	elseif event.caster:GetUnitName() == "fire_aspect" or event.caster:GetUnitName() == "fire_deity" then
