@@ -245,7 +245,7 @@
 			"modifier_gale_nova_bad"
 			{
 				"IsDebuff"	"0"
-				"TextureName"	"rpc/venomort_d_d"
+				"TextureName"	"venomort/venomort_q_1"
 			}
 			"modifier_gale_nova_attack_slow"
 			{
@@ -598,7 +598,7 @@
             {
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"venomort_rune_c_c"
+				"TextureName"	"necrolyte_death_pulse"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% E3_AURA_DAMAGE_PERCENT %>"
