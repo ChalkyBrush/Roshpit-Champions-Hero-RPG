@@ -53,6 +53,7 @@ function earth_deity(event)
 	-- local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "conjuror")
 	-- aspectHealth = aspectHealth*(1+q_1_level*0.05)
 	Timers:CreateTimer(0.05, function()
+		caster.earthAspect.consideredMaxHealth = aspectHealth
 		caster.earthAspect:SetBaseDamageMax(event.aspect_damage)
 		caster.earthAspect:SetBaseDamageMin(event.aspect_damage)
 		caster.earthAspect:SetMaxHealth(aspectHealth)
@@ -397,4 +398,8 @@ function conjuror_arcana3_passive_thinker(event)
 		caster:RemoveModifierByName("modifier_earth_deity_q_2")
 	end
 	caster.q_3_level = caster:GetRuneValue("q", 3)
+	if caster.earthAspect and caster.earthAspect.consideredMaxHealth and caster.q_2_level ~= q_2_level then
+		caster.q_2_level = q_2_level
+		common_aspect_effects(caster, ability, caster.earthAspect)
+	end
 end
