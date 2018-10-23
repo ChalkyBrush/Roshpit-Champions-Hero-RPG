@@ -65,7 +65,8 @@ function earth_deity(event)
 	glyph_5_a(caster, ability, caster.earthAspect)
 	local q_1_level = caster:GetRuneValue("q", 1)
 	if q_1_level > 0 then
-		caster.earthAspect:AddAbility("earth_deity_sandstorm"):SetLevel(1)
+		local sandstormLevel = ability:GetLevel()
+		caster.earthAspect:AddAbility("earth_deity_sandstorm"):SetLevel(sandstormLevel)
 	end
 	Events:ColorWearablesAndBase(caster.earthAspect, Vector(200,255,120))
 end
