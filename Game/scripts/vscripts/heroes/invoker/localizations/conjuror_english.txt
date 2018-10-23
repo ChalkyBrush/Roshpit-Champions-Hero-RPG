@@ -302,6 +302,76 @@
 
     	"earth_deity"														"Earth Deity"
 
+    	"DOTA_Tooltip_ability_item_rpc_conjuror_arcana3"				"Veil of Gaia"
+
+       	"item_property_conjuror_arcana3"									"Earth Deity"
+    	"property_conjuror_arcana3_description"								"Replaces @Ability1 and all of its runes with Earth Deity."
+
+    	"DOTA_Tooltip_ability_summon_earth_deity"							"Earth Deity"
+    	"DOTA_Tooltip_ability_summon_earth_deity_Description"				"A complex earthen incantation summons a powerful mud golem that has the ability to protect a target ally with Grand Guardian. 50% of damage taken by conjuror is taken by Earth Deity instead."
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_health"				"HEALTH:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_damage"				"ATTACK DAMAGE:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_armor"				"ARMOR:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_magic_resist"		"MAGIC RESIST:"
+
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm"						"Sandstorm"
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_Description"			"Element: <font color=\"#AF843D\">Earth</font><br>The Earth Deity stands in place and whips up a violent sand storm. Enemies in the sandstorm have their movement speed and attack slowed, and have a chance to miss with their attacks. Drains mana and deals damage every 0.25 seconds and toggles off if mana runs out."
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_miss_chance"			"MISS CHANCE:"
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_move_slow"				"MOVE SLOW:"
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_attack_slow"			"ATTACK SLOW:"
+
+    	"DOTA_Tooltip_modifier_enemy_in_earth_deity_sandstorm"				"Sandstorm"
+    	"DOTA_Tooltip_modifier_enemy_in_earth_deity_sandstorm_Description"	"Slowed and blinded"
+
+    	"DOTA_Tooltip_ability_arcana_earth_shock"							"Earth Shock"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_Description"				"Element: <font color=\"#AF843D\">Earth</font><br>Conjures a quick burst of static earthen energy at the target location. Enemies in the radius have their movespeed slowed by 1000 for 0.9 seconds. Enemies in the radius also receive an attack damage debuff for 10 seconds."
+    	"DOTA_Tooltip_ability_arcana_earth_shock_damage"					"DAMAGE:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_radius"					"RADIUS:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_attack_reduce"				"ATTACK DAMGE REDUCE:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_movespeed_slow"			"MOVESPEED SLOW:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_slow_duration"				"SLOW DURATION:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_attack_reduce_duration"	"ATTACK REDUCE DURATION:"
+
+    	"DOTA_Tooltip_modifier_earth_shock_slow"							"Earth Shock Slow"
+
+    	"DOTA_Tooltip_modifier_earth_shock_attack_reduce"					"Earth Shock"
+    	"DOTA_Tooltip_modifier_earth_shock_attack_reduce_Description"		"Reduced Attack Damage"
+
+    	"DOTA_Tooltip_ability_earth_deity_grand_guardian"					"Grand Guardian"
+    	"DOTA_Tooltip_ability_earth_deity_grand_guardian_Description"		"Roll the target ally into a boulder and pull them towards the Earth Deity. While inside the deity, gain increased health regen and all abilities are disabled. If Conjuror is in the Deity, Earth Shock is not disabled and has increased cast range and no cooldown. The deity is immune to magic and has +100000 armor while grand guardian is active, and he cannot move. Earth Deity can roll the guarded ally away which ends Grand Guardian. If Conjuror take lethal damage and this ability is not on cooldown, the Earth Deity grabs conjuror immediately and saves his life."
+
+    	"DOTA_Tooltip_modifier_deity_grand_guardian"						"Grand Guardian"
+    	"DOTA_Tooltip_modifier_deity_grand_guardian_Description"			"Magic Immunity and increased armor."
+
+    	"DOTA_Tooltip_modifier_earth_deity_bowl"							"Guardian Boulder Roll"
+    	"DOTA_Tooltip_modifier_earth_deity_bowl_Description"				"Throws the guarded unit towards the target location at high speed, and unleash an earth shock at the landing point. Grand Guardian ends when this is used."
+
+  		"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3"						"[Q1] Sandstorm"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_Description"			"The Earth Deity stands in place and whips up a violent sand storm. Enemies in the sandstorm have their movement speed and attack slowed, and have a chance to miss with their attacks. Drains mana and deals damage every 0.25 seconds and toggles off if mana runs out."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_suffix"					"% of Earth Deity's Max Health"	
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_two"			"Radius"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_suffix_two"				""	
+
+  		"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3"						"[Q2] Strength of Gaia"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_Description"			"Increases max health of Conjuror and all of his summons by a flat amount and also by a percentage."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_one"		"Max Health Percentage"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix"				"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_two"		"Max Health Flat"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix_two"			""
+
+		"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3"							"[Q3] Earthen EMP"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_Description"				"Max Health increases <font color=\"#AF843D\">Earth</font> damage. Attack damage is added to Earth Shock's base damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_one"				"Earth Amp"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix"						"% for each 100 Max Health"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_two"				"Attack Damage Added to Earth Shock"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix_two"					"%"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3"						"[Q4] Mud Slash"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_Description"			"Enemies effected by Earth Shock's attack damage reduction debuff deal reduced damage of all types."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_property_one"		"Enemy Damage Reduction"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_suffix"				"%"
+
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"Glyph of Blazing Fire"
 		"item_rpc_conjuror_glyph_1_1_description" 				"Your Fire Aspect has @glyph_property1 extra attack speed and @glyph_property2% increased attack damage."

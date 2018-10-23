@@ -16,7 +16,7 @@ function earth_deity(event)
 	if caster.bIsAIonEARTH == true or caster.bIsAIonEARTH == nil then
 		aspectAbility:ToggleAbility()
     end
-	caster.earthAspect:FindAbilityByName("earth_deity_sandstorm"):SetLevel(ability:GetLevel())
+	caster.earthAspect:FindAbilityByName("earth_deity_grand_guardian"):SetLevel(ability:GetLevel())
 	caster.earthAspect.aspect = true
 	caster.earthAspect.earthDeity = true
 	-- aspectAbility:ApplyDataDrivenModifier(caster.earthAspect, caster.earthAspect, "modifier_aspect_main", {})
@@ -60,12 +60,14 @@ function earth_deity(event)
 		caster.earthAspect:SetHealth(aspectHealth)
 		caster.earthAspect:Heal(aspectHealth, caster.earthAspect)
 		StartAnimation(caster.earthAspect, {duration=2.05, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.8})
+		common_aspect_effects(caster, ability, caster.earthAspect)
 	end)
 	glyph_5_a(caster, ability, caster.earthAspect)
 	local q_1_level = caster:GetRuneValue("q", 1)
 	if q_1_level > 0 then
-		caster.earthAspect:AddAbility("earth_deity_grand_guardian"):SetLevel(1)
+		caster.earthAspect:AddAbility("earth_deity_sandstorm"):SetLevel(1)
 	end
+	Events:ColorWearablesAndBase(caster.earthAspect, Vector(200,255,120))
 end
 
 function earth_deity_sandstorm_start(event)
@@ -75,9 +77,11 @@ function earth_deity_sandstorm_start(event)
 	if ability.sandPFX then
 		ParticleManager:DestroyParticle(ability.sandPFX, false)
 	end
+	ability.q_1_level = caster.conjuror:GetRuneValue("q", 1)
+	ability.radius = ability.q_1_level * CONJUROR_ARCANA_Q1_RADIUS_SCALE + CONJUROR_ARCANA_Q1_RADIUS_BASE
 	ability.sandPFX = ParticleManager:CreateParticle(particle_name, PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(ability.sandPFX, 0, caster:GetAbsOrigin())
-	ParticleManager:SetParticleControl(ability.sandPFX, 1, Vector(1000,1000,1000))
+	ParticleManager:SetParticleControl(ability.sandPFX, 1, Vector(ability.radius,ability.radius,ability.radius))
 	EmitSoundOn("Conjuror.EarthDeity.SandstormStart", caster)
 	StartSoundEvent("Conjuror.EarthDeity.SandstormLP", caster)
 	ability.interval = 0
@@ -100,7 +104,7 @@ function earth_deity_sandstorm_thinking(event)
 	local caster = event.caster
 	local ability = event.ability
 	local damage_mult = event.damage_mult
-	local damage = caster:GetMaxHealth()*damage_mult
+	local damage = caster:GetMaxHealth()*(CONJUROR_ARCANA_Q1_DMG_PERCENT_MAX_HEALTH/100)*ability.q_1_level
 	local manaCost = 3
 	if caster:GetMana() < manaCost then
 		ability:ToggleAbility()
@@ -116,7 +120,7 @@ function earth_deity_sandstorm_thinking(event)
 		end
 	end
 	ability.interval = ability.interval + 1
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ability.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
@@ -146,7 +150,9 @@ function earthshock_cast(event)
     duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
     local damage = event.damage
 	if not caster:HasModifier("modifier_free_quake") then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_free_quake", {duration = duration})
+		if not caster:HasModifier("modifier_grand_guardian_in_deity") then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_free_quake", {duration = duration})
+		end
 	end
 	if not ability.procCast then
 		Filters:CastSkillArguments(1, caster)
@@ -166,15 +172,25 @@ function fire_earth_shock(position, caster, radius, ability, damage, slow_durati
 	if radius > 500 then
 		particleName = "particles/roshpit/conjuror/big_earth_shock.vpcf"
 	end
+	local q_3_level = caster:GetRuneValue("q", 3)
+	if q_3_level > 0 then
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*(CONJUROR_ARCANA_Q3_ATTACK_DMG_TO_EARTH_SHOCK_PCT/100)*q_3_level
+	end
+	local q_4_level = caster:GetRuneValue("q", 4)
 	CustomAbilities:QuickParticleAtPoint(particleName, position, 3)
 	EmitSoundOnLocationWithCaster(position, "Conjuror.EarthShockOverlay", caster)
 	EmitSoundOnLocationWithCaster(position, "Conjuror.EarthShock", caster)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local damageReduceDuration = 10
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_EARTH, RPC_ELEMENT_LIGHTNING)
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_earth_shock_slow", {duration = 0.9})
-			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_earth_shock_attack_reduce", {duration = 10})
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_earth_shock_attack_reduce", {duration = damageReduceDuration})
+			if q_4_level > 0 then
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_earthshock_damage_reduce", {duration = damageReduceDuration})
+				enemy:SetModifierStackCount("modifier_earthshock_damage_reduce", caster, q_4_level)
+			end
 		end
 	end	
 end
@@ -189,6 +205,14 @@ function earth_deity_grand_guardian(event)
 	if caster:GetEntityIndex() == target:GetEntityIndex() then
 		ability:EndCooldown()
 		return false
+	end
+	if ability.target then
+		if IsValidEntity(ability.target) then
+			if ability.target:HasModifier("modifier_grand_guardian_in_deity") or ability.target:HasModifier("modifier_deity_guardian_taxi_effect") then
+				reset_target(ability.target)
+				FindClearSpaceForUnit(ability.target, ability.target:GetAbsOrigin(), false)
+			end
+		end
 	end
 	local fv = ((target:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	EmitSoundOn("Conjuror.GrandGuardianStart", caster)
@@ -358,4 +382,17 @@ function bowling_end(event)
 	Timers:CreateTimer(0.03, function()
 		FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
 	end)
+end
+
+function conjuror_arcana3_passive_thinker(event)
+	local caster = event.target
+	local ability = caster:FindAbilityByName("summon_earth_deity")
+	local q_2_level = caster:GetRuneValue("q", 2)
+	if q_2_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_earth_deity_q_2", {})
+		caster:SetModifierStackCount("modifier_earth_deity_q_2", caster, q_2_level)
+	else
+		caster:RemoveModifierByName("modifier_earth_deity_q_2")
+	end
+	caster.q_3_level = caster:GetRuneValue("q", 3)
 end

@@ -791,10 +791,20 @@ function CustomAttributes:GetMaxHealth(hero, strength_health)
 	if hero:HasModifier("modifier_paladin_immortal_weapon_3_health") then
 		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_paladin_immortal_weapon_3_health", CustomAttributes.PALADIN_IMMO_3_HEALTH)
 	end
+	if hero:HasModifier("modifier_earth_deity_q_2") then		
+		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_earth_deity_q_2", CONJUROR_ARCANA_Q2_FLAT_HEALTH)
+		maxHealth = maxHealth + maxHealth*(CONJUROR_ARCANA_Q2_PERCENT_HEALTH/100)*hero:GetModifierStackCount("modifier_earth_deity_q_2", hero)
+	end
 	if hero:HasModifier("modifier_helm_of_the_mountain_giant") then
-		maxHealth = maxHealth + (maxHealth - hero:GetModifierStackCount("modifier_redrock_footwear_health_increase", hero.redrock)*CustomAttributes.REDROCK_HEALTH + 1000) * 2 
+		maxHealth = maxHealth + CustomAttributes:GetBaseMaxHealth(maxHealth, hero) * 2 
 	end
 	return maxHealth
+end
+
+function CustomAttributes:GetBaseMaxHealth(maxHealth, hero)
+	local baseMaxHealth = maxHealth - (hero:GetModifierStackCount("modifier_redrock_footwear_health_increase", hero.redrock)*CustomAttributes.REDROCK_HEALTH + 1000)
+	baseMaxHealth = maxHealth - maxHealth*(CONJUROR_ARCANA_Q2_PERCENT_HEALTH/100)*hero:GetModifierStackCount("modifier_earth_deity_q_2", hero)
+	return baseMaxHealth
 end
 
 function CustomAttributes:ActivateStatsTooltip(msg)

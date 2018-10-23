@@ -1936,6 +1936,10 @@
 				}
 
 			}
+			"modifier_earth_deity_q_2"
+			{
+				"IsHidden"	"1"
+			}
 		}
 
 	}
@@ -1948,7 +1952,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"sand_king_sand_storm"
+		"AbilityTextureName"			"conjuror/earth_deity_sandstorm"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
@@ -1986,11 +1990,6 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"attack_slow"					"-40 -55 -70 -85 -100 -115 -130"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_health_mult"					"5 10 15 20 25 30 35"
 			}
 		}
 
@@ -2078,7 +2077,7 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"brewmaster_thunder_clap"
+		"AbilityTextureName"			"conjuror/arcana_earth_shock"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -2113,6 +2112,21 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"attack_reduce"				"-30 -35 -40 -45 -50 -55 -60"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movespeed_slow"				"-1000"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"				"0.9"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_reduce_duration"				"10"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -2177,6 +2191,11 @@
 				"EffectName"	"particles/roshpit/conjuror/earthshock_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
 			}
+			"modifier_earthshock_damage_reduce"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+			}
 		}
 
 	}
@@ -2190,7 +2209,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"conjuror/fire_beam"
+		"AbilityTextureName"			"conjuror/earth_deity_grand_guardian"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -2272,6 +2291,10 @@
 					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
 				"OnDestroy"
 				{
 					"RunScript"
@@ -2333,7 +2356,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"tiny_toss"
+		"AbilityTextureName"			"conjuror/earth_deity_bowl"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"

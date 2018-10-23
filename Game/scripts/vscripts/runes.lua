@@ -1372,6 +1372,19 @@ function Runes:UnequipArcana(hero, index)
 				hero:RemoveAbility("fire_arcana_ability")
 			end
 			Runes:EasyRevertArcanaSkills(hero, 1,"summon_fire_aspect", "summon_fire_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+		elseif index == 3 then
+			if hero.earthAspect then
+				if IsValidEntity(hero.earthAspect) then
+					hero.forceFireReset = true
+					hero.earthAspect:SetHealth(10)
+					hero.earthAspect:ForceKill(true)
+				end
+			end
+			hero:RemoveModifierByName("modifier_earth_deity_q_2")
+			if hero:HasAbility("arcana_earth_shock") then
+				hero:RemoveAbility("arcana_earth_shock")
+			end
+			Runes:EasyRevertArcanaSkills(hero, 0,"summon_earth_aspect", "summon_earth_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_templar_assassin" then
 		if index == 1 then

@@ -1,3 +1,5 @@
+require('heroes/invoker/aspects')
+
 function begin_deity(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -73,7 +75,7 @@ function begin_deity(event)
 	summon:SetBaseMaxHealth(health)
 	summon:SetHealth(health)
 	summon:Heal(health, summon)
-
+	common_aspect_effects(caster, ability, summon)
 	summon:AddAbility("fire_temple_steadfast"):SetLevel(3)
     Filters:CastSkillArguments(4, caster)
 

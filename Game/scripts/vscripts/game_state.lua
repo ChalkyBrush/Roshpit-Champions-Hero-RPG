@@ -2052,6 +2052,11 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_buzukis_finger_buff") or attacker:HasModifier("challen_postmit_buff") then
 		mult = mult + 5
 	end
+	if attacker:HasModifier("modifier_earthshock_damage_reduce") then
+		local modifierCaster = attacker:FindModifierByName("modifier_earthshock_damage_reduce"):GetCaster()
+		local stacks = attacker:GetModifierStackCount("modifier_earthshock_damage_reduce", modifierCaster)
+		filterTable["damage"] = filterTable["damage"] - (filterTable["damage"]*(CONJUROR_ARCANA_Q4_DAMAGE_REDUCE_PCT/100)*stacks)
+	end
 	if victim:HasModifier("modifier_swarm_effect") then
 		local multIncrease = victim:GetModifierStackCount("modifier_swarm_effect", victim.umbral)*0.06
 		mult = mult + multIncrease
@@ -3345,6 +3350,24 @@ function GameState:FilterDamage(filterTable)
 				filterTable["damage"] = 0
 				Filters:PhoenixEmblem(victim)
 				rezzed = true
+			end
+		end
+		if victim:HasModifier("modifier_conjuror_arcana3") and not rezzed then
+			if victim.earthAspect and victim.earthAspect.earthDeity then
+				if victim.earthAspect:HasAbility("earth_deity_grand_guardian") then
+					local grand_guardian_ability = victim.earthAspect:FindAbilityByName("earth_deity_grand_guardian")
+					if grand_guardian_ability:IsFullyCastable() then
+						filterTable["damage"] = victim:GetHealth() - 1
+						local newOrder = {
+						 		UnitIndex = victim.earthAspect:entindex(), 
+						 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+						 		TargetIndex = victim:entindex(),
+						 		AbilityIndex = grand_guardian_ability:entindex(),
+					 	}
+						ExecuteOrderFromTable(newOrder)							
+						rezzed = true
+					end
+				end
 			end
 		end
 		if victim:HasModifier("modifier_hailstorm_passive") and not rezzed then

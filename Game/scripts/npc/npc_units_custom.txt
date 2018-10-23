@@ -18543,7 +18543,7 @@
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"          "aspect_abilities"
-        "Ability2"          "earth_deity_sandstorm"
+        "Ability2"          "earth_deity_grand_guardian"
         "Creature"
         {   
             "HPGain"                    "5000"

@@ -54,6 +54,7 @@ function fire_deity(event)
 			caster.fireAspect:SetBaseMaxHealth(aspectHealth)
 			caster.fireAspect:SetHealth(aspectHealth)
 			caster.fireAspect:Heal(aspectHealth, caster.fireAspect)
+			common_aspect_effects(caster, ability, caster.fireAspect)
 		end)
   	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
   		caster.fireAspect:AddAbility("fire_temple_steadfast"):SetLevel(1)

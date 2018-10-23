@@ -99,18 +99,34 @@ function earth_aspect(event)
 		local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "conjuror")
 		aspectHealth = aspectHealth*(1+q_1_level*0.05)
 		Timers:CreateTimer(0.05, function()
-			
 			caster.earthAspect:SetMaxHealth(aspectHealth)
 			caster.earthAspect:SetBaseMaxHealth(aspectHealth)
 			caster.earthAspect:SetHealth(aspectHealth)
 			caster.earthAspect:Heal(aspectHealth, caster.earthAspect)
+			common_aspect_effects(caster, ability, caster.earthAspect)
 		end)
 	if has_rune_q_1(ability, caster) then
 		local runeUnit = caster.runeUnit
 		local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_q_1")
 		runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_earth_guardian", {})
 	end
+	
 	glyph_5_a(caster, ability, caster.earthAspect)
+end
+
+function common_aspect_effects(caster, ability, aspect)
+	if caster:HasModifier("modifier_conjuror_arcana3") then
+		local baseMaxHealth = aspect:GetMaxHealth()
+		local q_2_level = caster:GetRuneValue("q", 2)
+		if q_2_level > 0 then
+			local newMaxHealth = baseMaxHealth + CONJUROR_ARCANA_Q2_FLAT_HEALTH*q_2_level
+			newMaxHealth = newMaxHealth + newMaxHealth*(CONJUROR_ARCANA_Q2_PERCENT_HEALTH/100)*q_2_level
+			aspect:SetMaxHealth(newMaxHealth)
+			aspect:SetBaseMaxHealth(newMaxHealth)
+			aspect:SetHealth(newMaxHealth)
+			aspect:Heal(newMaxHealth, aspect)
+		end
+	end
 end
 
 function glyph_5_a(caster, ability, summon)
@@ -176,6 +192,7 @@ function fire_aspect(event)
 			caster.fireAspect:SetBaseMaxHealth(aspectHealth)
 			caster.fireAspect:SetHealth(aspectHealth)
 			caster.fireAspect:Heal(aspectHealth, caster.fireAspect)
+			common_aspect_effects(caster, ability, caster.fireAspect)
 		end)
   	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
   		caster.fireAspect:AddAbility("fire_temple_steadfast"):SetLevel(1)
@@ -249,6 +266,7 @@ function shadow_aspect(event)
 			caster.shadowAspect:SetBaseMaxHealth(aspectHealth)
 			caster.shadowAspect:SetHealth(aspectHealth)
 			caster.shadowAspect:Heal(aspectHealth, caster.shadowAspect)
+			common_aspect_effects(caster, ability, caster.shadowAspect)
 		end)
 	local c_c_level = get_c_c_level(caster)
 	if c_c_level > 0 then

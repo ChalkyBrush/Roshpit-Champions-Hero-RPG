@@ -1989,6 +1989,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker.q_4_level then
                 mult = mult + 0.0015*attacker:GetStrength()/10*attacker.q_4_level
             end
+            if attacker:HasModifier("modifier_conjuror_arcana3") and attacker.q_3_level then
+                mult = mult + 0.0001*(attacker:GetMaxHealth()/100)*attacker.q_3_level
+            end
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_aeon_fracture") then
                 if attacker.r_4_level then

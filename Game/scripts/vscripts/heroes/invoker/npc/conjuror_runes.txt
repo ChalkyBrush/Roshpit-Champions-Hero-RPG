@@ -968,7 +968,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"conjuror/conjuror_rune_w_2_arcana2"
+		"AbilityTextureName"	"conjuror/earth_deity_sandstorm"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -977,12 +977,27 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"<% CONJUROR_ARCANA_Q1_DMG_PERCENT_MAX_HEALTH %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
+				"property_two_base"			"<% CONJUROR_ARCANA_Q1_RADIUS_BASE %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% CONJUROR_ARCANA_Q1_RADIUS_SCALE %>"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"3"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
 			}
 		}
 	}
@@ -994,7 +1009,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"conjuror/conjuror_rune_w_2_arcana2"
+		"AbilityTextureName"	"conjuror/conjuror_rune_q_2_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1003,12 +1018,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"<% CONJUROR_ARCANA_Q2_FLAT_HEALTH %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
+				"property_two"			"<% CONJUROR_ARCANA_Q2_PERCENT_HEALTH %>"
 			}
 		}
 	}
@@ -1020,7 +1035,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"conjuror/conjuror_rune_w_2_arcana2"
+		"AbilityTextureName"	"conjuror/conjuror_rune_q_3_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1028,13 +1043,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% CONJUROR_ARCANA_Q3_EARTH_AMP_FOR_100_MAX_HEALTH %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
+				"property_two"			"<% CONJUROR_ARCANA_Q3_ATTACK_DMG_TO_EARTH_SHOCK_PCT %>"
 			}
 		}
 	}
@@ -1046,7 +1061,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"conjuror/conjuror_rune_w_2_arcana2"
+		"AbilityTextureName"	"conjuror/conjuror_rune_q_4_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1054,13 +1069,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% CONJUROR_ARCANA_Q4_DAMAGE_REDUCE_PCT %>"
 			}
 		}
 	}
