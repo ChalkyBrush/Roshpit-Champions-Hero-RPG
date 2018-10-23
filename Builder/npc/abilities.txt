@@ -55205,6 +55205,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduce_per_hit"
 				}
 				"IsHidden"	"0"
+				"TextureName"	"misc/armor_reduction"
 			}
 			"modifier_crimsyth_recruiter_attack_gain"
 			{
