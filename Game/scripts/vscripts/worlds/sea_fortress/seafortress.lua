@@ -4243,6 +4243,7 @@ function Seafortress:SpawnSiltbreakerBoss(position, fv)
   local queen = Seafortress:SpawnUnitNoParagon("seafortress_boss_siltbreaker", position, 7, 9, nil, fv, true)
 
   queen.reduc = 0.002
+  queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier( queen, nil, 'modifier_movespeed_cap_sonic', {} )
   return queen
@@ -4292,6 +4293,7 @@ function Seafortress:SpawnOceanGiantBoss(position, fv)
   local queen = Seafortress:SpawnUnitNoParagon("seafortress_boss_silver_sea_giant", position, 7, 9, nil, fv, true)
   queen:SetRenderColor(0, 255, 240)
   queen.reduc = 0.001
+  queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier( queen, nil, 'modifier_movespeed_cap_sonic', {} )
   return queen
@@ -4300,6 +4302,7 @@ end
 function Seafortress:SpawnOracleOfSea(position, fv)
   local queen = Seafortress:SpawnUnitNoParagon("seafortress_oracle_of_the_sea", position, 7, 9, nil, fv, true)
   queen.reduc = 0.002
+  queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier( queen, nil, 'modifier_movespeed_cap_sonic', {} )
   return queen
@@ -4414,6 +4417,7 @@ end
 function Seafortress:SpawnFinalBoss()
   local queen = Seafortress:SpawnUnitNoParagon("seafortress_final_boss", Vector(-14272, 13696), 7, 9, nil, Vector(-1,1), false)
   queen.reduc = 0.0005
+  queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false) 
 end
 
@@ -4547,6 +4551,7 @@ end
 function Seafortress:SpawnShadowOfBahamutMonster(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("seafortress_shadow_of_bahamut", position, 3,4, "Seafortress.ShadowOfBahamut.Aggro", fv, false)
   queen.reduc = 0.00001
+  queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:SetRenderColor(0, 0, 0)
   Events:ColorWearables(queen, Vector(45, 45, 45))
@@ -4561,6 +4566,7 @@ function Seafortress:SpawnArchonWizard(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("seafortress_archon_wizard", position, 3,4, "Seafortress.ArchonWizard.Aggro", fv, false)
   queen.reduc = 0.00001
   queen.golemsSpawned = 0
+  queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:SetRenderColor(0, 0, 0)
   Events:ColorWearables(queen, Vector(0, 0, 0))
@@ -4570,6 +4576,7 @@ end
 function Seafortress:SpawnArchonGolem(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("sea_fortress_archon_golem", position, 5,6, "Seafortress.ArchonGolemSpawn", fv, true)
   queen.reduc = 0.00005
+  queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:SetRenderColor(207, 94, 255)
   Seafortress:SetTargetCastArgs(queen, 400, 0, 1, FIND_ANY_ORDER)
@@ -4587,6 +4594,7 @@ end
 function Seafortress:SpawnPaladinGolem(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("sea_fortress_paladin_golem", position, 5,6, "Seafortress.ArchonGolemSpawn", fv, false)
   queen.reduc = 0.00005
+  queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:SetRenderColor(0, 0, 0)
   Seafortress:SetPositionCastArgs(queen, 1800, 0, 1, FIND_ANY_ORDER)
