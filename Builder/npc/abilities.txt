@@ -8228,7 +8228,7 @@
 			"modifier_water_bomb_b_b_damage_buff_visible"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"hydroxis/hydroxis_b_b"
+				"TextureName"	"hydroxis/hydroxis_w_2"
 				"OnCreated"
 				{
 					"RunScript"
