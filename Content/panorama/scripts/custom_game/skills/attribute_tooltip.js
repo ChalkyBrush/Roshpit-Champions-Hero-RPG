@@ -148,7 +148,7 @@ function initializeTooltip(func){
 	$('#post_mit_pure_damage_title').text = $.Localize("#DOTA_ToolTip_Damage_Pure")
 	$('#post_mit_pure_damage_value').text = parseInt(GameUI.StatQueryData.pure_post_mit)/1 + "%"
 
-	$('#item_damage_title').text = "Item"
+	$('#item_damage_title').text = $.Localize("#ui_item")
 	$('#item_damage_value').text = parseInt(GameUI.StatQueryData.item_damage)/1 + "%"
 	//DEFENSE
 
