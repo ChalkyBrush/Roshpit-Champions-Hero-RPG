@@ -133,6 +133,20 @@
 	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
 }
 
+#reward-stars-warning{
+	margin-top:0px;
+	vertical-align: center;
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
+	color:red;
+	font-size:18px;
+	line-height: 20px;	
+	white-space: normal;
+	font-weight:light;
+	margin-top:-115px;	
+	width:100%;
+	text-align: center;
+}
+
 .tutorial_category_header_active{
 	background-color: gradient( linear, 0px 0%, 460px 0%, from( #4b6841 ), to( #a2e08d ) );
 }

@@ -564,8 +564,8 @@
 	"tutorial_master_dialogue_5_3f"										"There it is! Now defeat it and collect the bounty!"
 	"tutorial_master_dialogue_5_3g"										"Down he goes! Collect those purple crystals now! That ends this lesson."
 
-	"quest_5_reward_title"												"100,000 Mithril Shards"       
-	"quest_5_reward_description"										"Gain 100,000 Mithril Shards! A significant sum."
+	"quest_5_reward_title"												"125,000 Mithril Shards"       
+	"quest_5_reward_description"										"Gain 125,000 Mithril Shards! A significant sum."
 
 	"quest_6_interface"													"6. External Resources"
 	"quest_6_interface_description"										"This lecture will cover the primary features of the website at www.roshpit.ca."
@@ -651,3 +651,6 @@
 
 	"quest_6_reward_title"												"2 Weeks of Web Premium"       
 	"quest_6_reward_description"										"Add 2 weeks of Web Premium to your roshpit.ca account! Claim this when you think you'll get the most value. You can only claim it once."
+
+	"tutorial_stars_reward_warning"										"This reward requires @stars stars to collect. Go play and come back to claim this!"
+	"tutorial_button_get_more_stars"									"@stars Stars Required"

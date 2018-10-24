@@ -300,7 +300,8 @@ function Tutorial:TutorialUIActiveForPlayer(hero, sound)
 	local categories = Tutorial:GetFixedTutorialData(hero)
 	local playerID = hero:GetPlayerOwnerID()
 	local player = PlayerResource:GetPlayer(playerID)
-	CustomGameEventManager:Send_ServerToPlayer(player, "open_tutorial", {hero=hero:GetEntityIndex(), tutorial=hero.tutorial, sound=sound, categories=categories} )
+	local stars = hero.grandTotalStars
+	CustomGameEventManager:Send_ServerToPlayer(player, "open_tutorial", {hero=hero:GetEntityIndex(), tutorial=hero.tutorial, sound=sound, categories=categories, stars=stars} )
 	-- Tutorial:ApplyTutorialModifier("modifier_tutorial_open", hero, 15)
 	Tutorial:ApplyTutorialModifier("modifier_tutorial_open", hero, 0)
 	--uncomment this in before release
@@ -2667,6 +2668,13 @@ end
 function Tutorial:ClaimReward(msg)
 	local hero = EntIndexToHScript(msg.hero)
 	local rewards = Tutorial:GetTutorialDataArray(hero, "reward")
+	if msg.category_index == 3 and hero.grandTotalStars < 75 then
+		return false
+	elseif msg.category_index == 5 and hero.grandTotalStars < 100 then
+		return false
+	elseif msg.category_index == 6 and hero.grandTotalStars < 125 then
+		return false
+	end
 	if rewards[msg.category_index] == 0 then
 		Tutorial:UpdateRewardProgressOnWeb(hero, msg.category_index)
 	end
@@ -2706,7 +2714,7 @@ function Tutorial:UpdateRewardProgressOnWeb(hero, section_index)
 			elseif section_index == 4 then
 				Tutorial:SpawnTrainingDummyForHero(hero)
 			elseif section_index == 5 then
-				Tutorial:GetMithrilPrize(Tutorial.Master:GetAbsOrigin(), hero, 100000)
+				Tutorial:GetMithrilPrize(Tutorial.Master:GetAbsOrigin(), hero, 125000)
 			elseif section_index == 6 then
 				local particleName = "particles/roshpit/web/web_premium.vpcf"
 				local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)

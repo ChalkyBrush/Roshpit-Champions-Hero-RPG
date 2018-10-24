@@ -160,7 +160,7 @@
 
 #curator_main_container{
 
-	height:650px;
+	height:750px;
 	width:380px;
 	horizontal-align:center;
 	flow-children:right;
@@ -177,7 +177,7 @@
 
 #curator_content{
 	width:100%;
-	height:480px;
+	height:580px;
 	flow-children:down;
 }
 
