@@ -55159,7 +55159,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"doom_bringer_lvl_death"
+		"AbilityTextureName"	"misc/lvl_death"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
