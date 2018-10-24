@@ -268,9 +268,9 @@
     	"DOTA_Tooltip_ability_fire_arcana_ability_attack_speed"				"ATTACK SPEED FROM BUFF:"
     	"DOTA_Tooltip_ability_fire_arcana_ability_buff_attack_damage"		"BONUS DAMAGE ON ATTACK AS % OF ATTACK POWER:"
 
-    	"DOTA_Tooltip_ability_modifier_fire_ray_buff"						"Flame Laser"
-    	"DOTA_Tooltip_ability_modifier_fire_ray_buff_Description"			"Increased attack speed and dealing extra fire damage on attack."
-
+    	"DOTA_Tooltip_modifier_fire_ray_buff"						"Flame Laser"
+    	"DOTA_Tooltip_modifier_fire_ray_buff_Description"			"Increased attack speed and dealing extra fire damage on attack."
+		
     	"DOTA_Tooltip_ability_fire_deity_fire_ability"						"Infernal Spiral"
     	"DOTA_Tooltip_ability_fire_deity_fire_ability_Description"			"A cone of fire damages all enemies in a line."
 
