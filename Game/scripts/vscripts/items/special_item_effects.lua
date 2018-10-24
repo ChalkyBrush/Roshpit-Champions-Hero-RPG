@@ -6,6 +6,23 @@ require('items/constants/gloves')
 require('items/constants/helm')
 require('items/constants/trinket')
 
+function astral_glyph_4_1_apply(event)
+	local target = event.target
+	local ability = target:GetAbilityByIndex(2)
+	if not ability then return end
+	if not target.saveECastPoint then
+		target.saveECastPoint = ability:GetCastPoint()
+	end
+	ability:SetOverrideCastPoint(0)
+end
+
+function astral_glyph_4_1_remove(event)
+	local target = event.target
+	local ability = target:GetAbilityByIndex(2)
+	if not ability or not target.saveECastPoint then return end
+	ability:SetOverrideCastPoint(target.saveECastPoint)
+end
+
 function paladin_2_1_destroy(event)
 	local caster = event.target
 	local ability = caster:FindAbilityByName("heroic_fury")

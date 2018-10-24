@@ -1637,7 +1637,6 @@ function GameState:FilterDamage(filterTable)
 	if filterTable["entindex_inflictor_const"] then
 		local ability = EntIndexToHScript(filterTable["entindex_inflictor_const"])
 		if ability:GetEntityIndex() == Events.GameMasterAbility:GetEntityIndex() then
-			print("APPLY EFFECTS FALSE!")
 			applyEffects = false
 		end
 		-- if not ability:GetName() == "npc_dota_creature" then
@@ -1819,7 +1818,7 @@ function GameState:FilterDamage(filterTable)
 		end
 		if attacker:HasModifier("modifier_mark_of_the_talon") then
 			local talonAbility = attacker:FindModifierByName("modifier_mark_of_the_talon"):GetAbility()
-			local multIncrease = talonAbility:GetLevelSpecialValueFor("post_mitigation_magic", talonAbility:GetLevel())/100
+			local multIncrease = talonAbility:GetLevelSpecialValueFor("post_mitigation_magic", talonAbility:GetLevel()-1)/100
 			if talonAbility.q_4_level then
 				multIncrease = multIncrease + multIncrease*talonAbility.q_4_level*0.02
 			end
@@ -2902,7 +2901,7 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + 2
 	end
 
-	if victim:HasModifier("modifier_swamp_lady_shield") or victim:HasModifier("modifier_creature_borrowed_time") then
+	if victim:HasModifier("modifier_swamp_lady_shield") or victim:HasModifier("modifier_creature_borrowed_time") and applyEffects then
 		local healAmount = filterTable["damage"]
 		filterTable["damage"] = 0
 		victim:Heal(healAmount, victim)
@@ -3038,12 +3037,12 @@ function GameState:FilterDamage(filterTable)
 				thresholdMult = 10000
 			end
 		end
-		if not attacker:HasModifier("modifier_backstab_jumping") then
-			filterTable["damage"] = CustomAbilities:Steadfast(filterTable["damage"], victim, thresholdMult)
+		if not attacker:HasModifier("modifier_backstab_jumping") and applyEffects then
+			filterTable["damage"] = CustomAbilities:Steadfast(filterTable["damage"], victim, thresholdMult , {filterTable["entindex_inflictor_const"], 1000000000})
 		end
 	end
 	if victim:HasModifier("modifier_ancient_steadfast") then
-		if not attacker:HasModifier("modifier_backstab_jumping") then
+		if not attacker:HasModifier("modifier_backstab_jumping") and applyEffects then
 			filterTable["damage"] = CustomAbilities:AncientSteadfast(filterTable["damage"], victim)
 		end
 	end
@@ -3071,7 +3070,7 @@ function GameState:FilterDamage(filterTable)
 				thresholdMult = 10000
 			end
 		end
-		if not attacker:HasModifier("modifier_backstab_jumping") then
+		if not attacker:HasModifier("modifier_backstab_jumping") and applyEffects then
 			filterTable["damage"] = CustomAbilities:MegaSteadfast(filterTable["damage"], victim, thresholdMult)
 		end
 	end
@@ -3490,7 +3489,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_zefnar_passive") then
 		filterTable["damage"] = Winterblight:ZefnarTakeDamage(victim, filterTable["damage"])
 	end
-	if victim:HasModifier("modifier_dummy_active") then
+	if victim:HasModifier("modifier_dummy_active") and applyEffects then
 		if attacker == Events.GameMaster then
 		else
 			local heroOwner = CustomAbilities:getHeroFromUnit(attacker)
@@ -3518,7 +3517,7 @@ function GameState:FilterDamage(filterTable)
 	if victim.dummy then
 		filterTable["damage"] = 0
 	end
-	if filterTable["damage"] > 0 then
+	if filterTable["damage"] > 0 and applyEffects then
 		if victim:HasModifier("modifier_golden_shell_passive") then
         	local ability = victim:FindModifierByName("modifier_golden_shell_passive"):GetAbility()
         	if not ability.active then
@@ -3547,18 +3546,21 @@ function GameState:FilterDamage(filterTable)
 	local inflictor = filterTable["entindex_inflictor_const"]
 	if not applyEffects then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
+			victim.magical_damage_mult = 100*mult/divisor
 			if StartingDamage > 0 then
 				victim.resist_mag = 1-(filterTable["damage"]/StartingDamage)
 			else
 				victim.resist_mag = 1
 			end
 		elseif damagetype == DAMAGE_TYPE_PHYSICAL then
+			victim.physical_damage_mult = 100*mult/divisor
 			if StartingDamage > 0 then
 				victim.resist_phys = 1-(filterTable["damage"]/StartingDamage)
 			else
 				victim.resist_phys = 1
 			end
 		elseif damagetype == DAMAGE_TYPE_PURE then
+			victim.pure_damage_mult = 100*mult/divisor
 			if StartingDamage > 0 then
 				victim.resist_pure = 1-(filterTable["damage"]/StartingDamage)
 			else

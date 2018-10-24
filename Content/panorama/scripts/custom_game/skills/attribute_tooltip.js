@@ -118,7 +118,7 @@ function initializeTooltip(func){
 	var atkSpd =  parseInt(Entities.GetAttackSpeed( queryUnit )*100)
 	var atkTime = 1/(parseInt(Entities.GetAttacksPerSecond( queryUnit )*100)/100)
 	atkTime = (parseInt(atkTime*100))/100
-	$.Msg(atkTime)
+	// $.Msg(atkTime)
 	var atkSpdValue = Math.min(atkSpd, 890) + " ("+atkTime+"s)"
 	$('#atk_3_right').text = atkSpdValue
 
@@ -138,6 +138,18 @@ function initializeTooltip(func){
 
 	$('#base_ability_title_r').text = "R"
 	$('#base_ability_value_r').text = parseInt(GameUI.StatQueryData.rAmp)/1 + "%"
+
+	$('#post_mit_phys_damage_title').text = $.Localize("#DOTA_ToolTip_Damage_Physical")
+	$('#post_mit_phys_damage_value').text = parseInt(GameUI.StatQueryData.phys_post_mit)/1 + "%"
+
+	$('#post_mit_magic_damage_title').text = $.Localize("#DOTA_ToolTip_Damage_Magical")
+	$('#post_mit_magic_damage_value').text = parseInt(GameUI.StatQueryData.magic_post_mit)/1 + "%"
+
+	$('#post_mit_pure_damage_title').text = $.Localize("#DOTA_ToolTip_Damage_Pure")
+	$('#post_mit_pure_damage_value').text = parseInt(GameUI.StatQueryData.pure_post_mit)/1 + "%"
+
+	$('#item_damage_title').text = "Item"
+	$('#item_damage_value').text = parseInt(GameUI.StatQueryData.item_damage)/1 + "%"
 	//DEFENSE
 
 	$('#attack_defense_title_def').text = $.Localize("#ui_defense").toUpperCase()
@@ -162,25 +174,27 @@ function initializeTooltip(func){
 	var magRes = parseInt(Entities.GetMagicalArmorValue( queryUnit)*10000)/100
 	$('#def_4_right').text = magRes+"%"
 	
-	$.Msg(GameUI.StatQueryData)
+	// $.Msg(GameUI.StatQueryData)
 	$('#attack_defense_subtitle_resist').text = $.Localize('ui_additional_resistance')
 
-	var phys_resist = parseInt(GameUI.StatQueryData.phys)/1000
+	var phys_resist = GameUI.StatQueryData.phys
 	$('#resist_title_phys').text = $.Localize("#DOTA_ToolTip_Damage_Physical")
 	$('#resist_value_phys').text = phys_resist+"%"
 
-	var magic_resist = parseInt(GameUI.StatQueryData.magic)/1000
+	var magic_resist = GameUI.StatQueryData.magic
 	$('#resist_title_magic').text = $.Localize("#DOTA_ToolTip_Damage_Magical")
 	$('#resist_value_magic').text = magic_resist+"%"
 
-	var pure_resist = parseInt(GameUI.StatQueryData.pure)/1000
+	var pure_resist = GameUI.StatQueryData.pure
 	$('#resist_title_pure').text = $.Localize("#DOTA_ToolTip_Damage_Pure")
 	$('#resist_value_pure').text = pure_resist+"%"
 
 	if (Entities.IsHero(queryUnit)){
 		$("#elements_title").text = $.Localize("#ui_elements").toUpperCase()
+		$("#post_mit_and_item_damage_title").text = $.Localize("#ui_most_mit_and_item_global")
 	}else{
 		$("#elements_title").text = $.Localize("#ui_elements_resist").toUpperCase()
+		$("#post_mit_and_item_damage_title").text = $.Localize("#ui_most_mit_and_item_single")
 	}
 	var parent = $('#element_row1')
 	for ( var i = 1; i <= 18; ++i ){
@@ -201,11 +215,14 @@ function initializeTooltip(func){
 		$('#attack_defense_subtitle_base_ability').AddClass('invisible')
 		// $('#elements_container').AddClass('invisible')
 	}
+	$.Schedule(0.3, function(){
+		GameEvents.SendCustomGameEventToServer( "stats_hover", {playerID: Game.GetLocalPlayerID(), queryunit: Players.GetLocalPlayerPortraitUnit()});
+	})
 }
 
 function init(){
 	$.GetContextPanel().style.backgroundColor = "#1A1A1A"
-	$.Msg("INIT")
+	// $.Msg("INIT")
 }
 
 function numberWithCommas(x) {
