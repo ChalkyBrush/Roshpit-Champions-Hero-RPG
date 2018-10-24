@@ -3038,7 +3038,7 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if not attacker:HasModifier("modifier_backstab_jumping") and applyEffects then
-			filterTable["damage"] = CustomAbilities:Steadfast(filterTable["damage"], victim, thresholdMult , {filterTable["entindex_inflictor_const"], 1000000000})
+			filterTable["damage"] = CustomAbilities:Steadfast(filterTable["damage"], victim)
 		end
 	end
 	if victim:HasModifier("modifier_ancient_steadfast") then
