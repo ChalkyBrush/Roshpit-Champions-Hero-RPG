@@ -37,7 +37,7 @@ function initialize_flash_heal(event)
 		local max_distance = Filters:GetAdjustedRange(caster, ability:GetSpecialValueFor("max_distance"))
 		if #allies > 0 and distance <= max_distance then
 			for _,ally in pairs(allies) do
-				Filters:ApplyHeal(caster, ally, healAmount, true)
+				Filters:ApplyHeal(caster, ally, healAmount, true, true)
 				flash_heal_particle(caster, ally)	
 				c_b_effect(caster, ability, ally, healAmount)
 			end
@@ -141,7 +141,7 @@ function c_b_heal_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local healAmount = ability.auriun_c_b_heal
-	Filters:ApplyHeal(caster, target, healAmount, true)
+	Filters:ApplyHeal(caster, target, healAmount, true, true)
 end
 
 function flash_heal_particle(caster,target)

@@ -186,7 +186,7 @@ function apply_e4_stacks(event)
 	local thisStack = {}
 	thisStack.createdAt = GameRules:GetGameTime()
 	thisStack.value = 1
-	if target.mainBoss then
+	if target.mainBoss or target.isBossFFS then
 		thisStack.value = thisStack.value + bossesCountAs - 1
 	end
 	if target.paragon then

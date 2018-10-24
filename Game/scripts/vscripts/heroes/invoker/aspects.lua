@@ -117,6 +117,9 @@ end
 function common_aspect_effects(caster, ability, aspect)
 	if caster:HasModifier("modifier_conjuror_arcana3") then
 		local baseMaxHealth = aspect:GetMaxHealth()
+		if aspect.consideredMaxHealth then
+			baseMaxHealth = aspect.consideredMaxHealth
+		end		
 		local q_2_level = caster:GetRuneValue("q", 2)
 		if q_2_level > 0 then
 			local newMaxHealth = baseMaxHealth + CONJUROR_ARCANA_Q2_FLAT_HEALTH*q_2_level
