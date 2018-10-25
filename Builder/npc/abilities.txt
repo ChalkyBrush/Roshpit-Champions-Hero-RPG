@@ -8228,7 +8228,7 @@
 			"modifier_water_bomb_b_b_damage_buff_visible"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"hydroxis/hydroxis_b_b"
+				"TextureName"	"hydroxis/hydroxis_w_2"
 				"OnCreated"
 				{
 					"RunScript"
@@ -55159,7 +55159,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"doom_bringer_lvl_death"
+		"AbilityTextureName"	"misc/lvl_death"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
