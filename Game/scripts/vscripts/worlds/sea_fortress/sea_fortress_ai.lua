@@ -1523,17 +1523,16 @@ function submerge_think(event)
 				Timers:CreateTimer(0.03*i, function()
 					caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,34))
 				end)
-				Timers:CreateTimer(0.18, function()
-			      particleName = "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash.vpcf"
-			      local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-			      ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,140) )
-			      EmitSoundOn("Tanari.WaterSplash", caster)
-			      Timers:CreateTimer(4, 
-			      function()
-			        ParticleManager:DestroyParticle( particle1, false )
-			      end)
-				end)
 			end
+			Timers:CreateTimer(0.18, function()
+				particleName = "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash.vpcf"
+				local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+				ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,140) )
+				EmitSoundOn("Tanari.WaterSplash", caster)
+				Timers:CreateTimer(4, function()
+				  ParticleManager:DestroyParticle( particle1, false )
+				end)
+			end)
 		end
 	end
 end
@@ -2286,7 +2285,7 @@ function jailer_think(event)
 			if enemies[1]:GetAbsOrigin().z > (caster:GetAbsOrigin().z + 500) then
 				return false
 			end
-			if enemies[1]:HasModifier("modifier_hook_root") then
+			if enemies[1]:HasModifier("modifier_hook_root") or enemies[1]:HasModifier("modifier_jumping") then
 				return false
 			end
 			StartAnimation(caster, {duration=1.1, activity=ACT_DOTA_CAST_ABILITY_ROT, rate=0.9})

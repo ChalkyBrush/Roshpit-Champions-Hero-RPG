@@ -504,7 +504,7 @@ function d_b_prep(caster, boomerang, ability)
 			solarangAbility:ApplyDataDrivenModifier(caster, caster, "modifier_black_widow", {duration = duration})
 
 			solarangAbility:ApplyDataDrivenModifier(caster, caster, "modifier_black_widow_invis_range_debuff", {duration = duration})
-			caster:SetModifierStackCount("modifier_black_widow_invis_range_debuff", caster, (caster.baseAttackRange-100))
+			caster:SetModifierStackCount("modifier_black_widow_invis_range_debuff", caster, (caster.baseAttackRange-180))
 		end
 	end
 end

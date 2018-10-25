@@ -1043,7 +1043,9 @@ function Runes:EquipArcana(hero, index)
 	end
 end
 
-
+local keep_modifiers = {
+	"modifier_draghor_main_passive"
+	}
 
 function Runes:EasySwapArcanaSkills(hero, abilityIndex, oldAbility, newAbility, internalName, rune_suffix)
 	local origAbility = hero:GetAbilityByIndex(abilityIndex)
@@ -1054,7 +1056,7 @@ function Runes:EasySwapArcanaSkills(hero, abilityIndex, oldAbility, newAbility, 
 	end
 	local modifiers = hero:FindAllModifiers()
 	for _,modifier in pairs(modifiers) do
-		if modifier:GetAbility() == origAbility then
+		if modifier:GetAbility() == origAbility and not WallPhysics:DoesTableHaveValue(keep_modifiers, modifier:GetName()) then
 			hero:RemoveModifierByName(modifier:GetName())
 		end
 	end
@@ -1106,7 +1108,7 @@ function Runes:EasyRevertArcanaSkills(hero, abilityIndex, origAbility, arcanaAbi
 	local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(abilitySlot):GetLevel()
 	local modifiers = hero:FindAllModifiers()
 	for _,modifier in pairs(modifiers) do
-		if modifier:GetAbility() == existingAbility then
+		if modifier:GetAbility() == existingAbility and not WallPhysics:DoesTableHaveValue(keep_modifiers, modifier:GetName()) then
 			hero:RemoveModifierByName(modifier:GetName())
 		end
 	end

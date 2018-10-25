@@ -517,6 +517,7 @@
 		"ui_done"				"Done"
 		"ui_loading_items"		"Loading items..."
 		"ui_loading_units"		"Loading units..."
+		"ui_item"				"Item"
 
 		"ui_equipment"			"Equipment"
 		"ui_skills"				"Skills"
@@ -572,6 +573,8 @@
 		"ui_bonus_armor"			"Armor Bonus"
 		"ui_elements"				"Elemental Damage"
 		"ui_elements_resist"				"Elemental Resistance Against Your Hero"
+		"ui_most_mit_and_item_single"		"Item And Post-Mitigation Damage Increase Against Your Hero"
+		"ui_most_mit_and_item_global"		"Item And Post-Mitigation Damage Increase"
 
 		"ui_recalculate_stats_button"	"Recalculate Stats"
 		"ui_recalculate_stats_waiting"	"Recalculating"
