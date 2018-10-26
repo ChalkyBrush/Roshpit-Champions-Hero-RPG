@@ -7,7 +7,9 @@
 	##EKKAN_UNITS##
 
 	##ARKIMUS_UNITS##
-	
+
+	##RED_GENERAL_UNITS##
+
 	"npc_dummy_unit"
 	{
 		"BaseClass"	"npc_dota_base_additive"
