@@ -1,29 +1,32 @@
+require("/heroes/visage/ekkan_helpers")
+require("/heroes/visage/ekkan_constants")
+
 function dominion_bolt_fire(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-    local info = 
-    {
-        Target = target,
-        Source = caster,
-        Ability = ability,  
-        EffectName =  "particles/roshpit/ekkan/dominion_bolt_bolt3.vpcf",
-        StartPosition = "attach_hitloc",
-        bDrawsOnMinimap = false, 
-            bDodgeable = true,
-            bIsAttack = false, 
-            bVisibleToEnemies = true,
-            bReplaceExisting = false,
-            flExpireTime = GameRules:GetGameTime() + 8,
-        bProvidesVision = true,
-        iVisionRadius = 0,
-        iMoveSpeed = 750,
-        iVisionTeamNumber = caster:GetTeamNumber()
-    }
-    caster.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "ekkan")
-    projectile = ProjectileManager:CreateTrackingProjectile(info)
-    EmitSoundOn("Ekkan.Dominion.Launch", caster)
-    Filters:CastSkillArguments(1, caster)
+	local info = 
+	{
+		Target = target,
+		Source = caster,
+		Ability = ability,  
+		EffectName =  "particles/roshpit/ekkan/dominion_bolt_bolt3.vpcf",
+		StartPosition = "attach_hitloc",
+		bDrawsOnMinimap = false, 
+			bDodgeable = true,
+			bIsAttack = false, 
+			bVisibleToEnemies = true,
+			bReplaceExisting = false,
+			flExpireTime = GameRules:GetGameTime() + 8,
+		bProvidesVision = true,
+		iVisionRadius = 0,
+		iMoveSpeed = 750,
+		iVisionTeamNumber = caster:GetTeamNumber()
+	}
+	caster.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "ekkan")
+	projectile = ProjectileManager:CreateTrackingProjectile(info)
+	EmitSoundOn("Ekkan.Dominion.Launch", caster)
+	Filters:CastSkillArguments(1, caster)
 end
 
 function dominion_bolt_impact(event)
@@ -31,7 +34,13 @@ function dominion_bolt_impact(event)
 	local target = event.target
 	local ability = event.ability
 	local debuff_duration = event.duration
-	if target:GetTeamNumber() == caster:GetTeamNumber() then
+	print("ekkan target unit name:"..target:GetUnitName())
+	if dominion_allowed_selfcasted_units(target:GetUnitName()) then
+		-- EmitSoundOn("Ekkan.Dominion.Impact", target)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ekkan_dominion_debuff", {duration = debuff_duration})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ekkan_dominion_overhead_effect", {duration = debuff_duration})
+		target:ForceKill(false)
+	elseif target:GetTeamNumber() == caster:GetTeamNumber() then
 		target:ForceKill(false)
 	else
 		EmitSoundOn("Ekkan.Dominion.Impact", target)
@@ -79,40 +88,37 @@ function dominion_debuff_death(event)
 		local armor = unit:GetPhysicalArmorBaseValue()
 		local movespeed = unit:GetBaseMoveSpeed()
 		local attackDamage = unit:GetAttackDamage()
-		if caster:HasModifier("modifier_ekkan_glyph_5_a") then
-			attackDamage = attackDamage*2
-		end
 		summon:SetMaxHealth(hp)
 		summon:SetHealth(hp)
-   		summon:SetBaseMaxHealth(hp)
+		summon:SetBaseMaxHealth(hp)
 
 		summon:SetPhysicalArmorBaseValue(armor)
 		summon:SetBaseMoveSpeed(movespeed)
-	    summon:SetBaseDamageMin(attackDamage)
-	    summon:SetBaseDamageMax(attackDamage) 
-	    summon.attackDamage = attackDamage
-	    summon.armor = armor
-	    summon.aggro = true
-	    summon.ekkan_unit = true
-	    summon.ekkan_dominion = true
-	    summon:SetDayTimeVisionRange(90)
-	    summon:SetNightTimeVisionRange(90)
-	    summon:SetHullRadius(8)
-	    summon.hero = caster
-	    if caster.q_1_level > 0 then
-	    	summon:AddAbility("ekkan_zombie_strike"):SetLevel(1)
-	    end
-	    table.insert(ability.dominionTable, summon)
-	    local max_summons = event.max_summons
-	    if caster:HasModifier("modifier_ekkan_glyph_5_1") then
-	    	max_summons = max_summons + 2
-	    end
-	    if #ability.dominionTable > max_summons then
-	    	ability.dominionTable[1]:ForceKill(false)
-	    end
-	    EmitSoundOn("Ekkan.Dominion.SummonStart", summon)
-	    reindexDominionTable(ability)
-	    summon:SetAcquisitionRange(1200)
+		summon:SetBaseDamageMin(attackDamage)
+		summon:SetBaseDamageMax(attackDamage) 
+		summon.attackDamage = attackDamage
+		summon.armor = armor
+		summon.aggro = true
+		summon.ekkan_unit = true
+		summon.ekkan_dominion = true
+		summon:SetDayTimeVisionRange(90)
+		summon:SetNightTimeVisionRange(90)
+		summon:SetHullRadius(8)
+		summon.hero = caster
+		if caster.q_1_level > 0 then
+			summon:AddAbility("ekkan_zombie_strike"):SetLevel(1)
+		end
+		table.insert(ability.dominionTable, summon)
+		local max_summons = event.max_summons
+		if caster:HasModifier("modifier_ekkan_glyph_5_1") then
+			max_summons = max_summons + 2
+		end
+		if #ability.dominionTable > max_summons then
+			ability.dominionTable[1]:ForceKill(false)
+		end
+		EmitSoundOn("Ekkan.Dominion.SummonStart", summon)
+		reindexDominionTable(ability)
+		summon:SetAcquisitionRange(1200)
 		summon.targetRadius = 1000
 		summon.minRadius = 0
 		summon.targetAbilityCD = 2
@@ -130,14 +136,24 @@ function dominion_debuff_death(event)
 		summon.stance = "aggressive"
 		summon:AddAbility("ekkan_creep_aggressive"):SetLevel(1)
 		summon:SetOwner(caster)
-	    for i = 0, 6, 1 do
-	      local ability = summon:GetAbilityByIndex(i)
-	      if ability then
-	        ability:SetLevel(GameState:GetDifficultyFactor())
-	      end
-	    end
-	    ability:ApplyDataDrivenModifier(caster, caster, "modifier_dominion_counter", {})
-	    caster:SetModifierStackCount("modifier_dominion_counter", caster, #ability.dominionTable)
+		for i = 0, 6, 1 do
+			local ability = summon:GetAbilityByIndex(i)
+			if ability then
+				ability:SetLevel(GameState:GetDifficultyFactor())
+			end
+		end
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dominion_counter", {})
+		caster:SetModifierStackCount("modifier_dominion_counter", caster, #ability.dominionTable)
+		
+		if caster:HasModifier("modifier_ekkan_glyph_5_a") and dominion_allowed_selfcasted_units(summon:GetUnitName()) then
+			event.attacker = summon
+			for i=1,EKKAN_GLYPH_5_a_STACKS do
+				dominion_unit_kill(event)
+				if event.unit.dominionLock then
+					event.unit.dominionLock = false
+				end
+			end
+		end
 	end
 end
 
@@ -147,8 +163,8 @@ function dominionUnitDie(event)
 	local ability = event.ability
 	reindexDominionTable(ability)
 	if #ability.dominionTable > 0 then
-	    ability:ApplyDataDrivenModifier(caster, caster, "modifier_dominion_counter", {})
-	    caster:SetModifierStackCount("modifier_dominion_counter", caster, #ability.dominionTable)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dominion_counter", {})
+		caster:SetModifierStackCount("modifier_dominion_counter", caster, #ability.dominionTable)
 	else
 		caster:RemoveModifierByName("modifier_dominion_counter")
 	end
@@ -247,15 +263,12 @@ function dominion_unit_kill(event)
 			if q_3_level > 0 then
 				attacker.armor = attacker.armor + q_3_level*4
 				local damageGainMult = 1200
-				if caster:HasModifier("modifier_ekkan_glyph_5_a") then
-					damageGainMult = 2400
-				end
 				attacker.attackDamage = attacker.attackDamage + q_3_level*damageGainMult
 				attacker:SetPhysicalArmorBaseValue(attacker.armor)
-			    attacker:SetBaseDamageMin(attacker.attackDamage)
-			    attacker:SetBaseDamageMax(attacker.attackDamage) 
-			    EmitSoundOn("Ekkan.DarkJourney", attacker)
-			    CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan_super_charge_buff_circle_flash.vpcf", attacker, 2)
+				attacker:SetBaseDamageMin(attacker.attackDamage)
+				attacker:SetBaseDamageMax(attacker.attackDamage) 
+				EmitSoundOn("Ekkan.DarkJourney", attacker)
+				CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan_super_charge_buff_circle_flash.vpcf", attacker, 2)
 				local beamPFX = ParticleManager:CreateParticle("particles/roshpit/ekkan/cast_beams_beams.vpcf", PATTACH_CUSTOMORIGIN, attacker)
 				ParticleManager:SetParticleControl(beamPFX, 0, unit:GetAbsOrigin())
 				ParticleManager:SetParticleControl(beamPFX, 1, attacker:GetAbsOrigin())
@@ -272,39 +285,45 @@ function dominion_unit_kill(event)
 end
 
 function dominion_zombie_strike_attack(event)
-  local attacker = event.attacker
-  local target = event.target
-  local ability = event.ability
-  local luck = RandomInt(1,2)
-  if luck == 1 then
-  		ability.attack_damage = event.attack_damage
+	local attacker = event.attacker
+	local target = event.target
+	local ability = event.ability
+	local luck = RandomInt(1,20)
+	local origCaster = event.caster.hero
+	if Runes:GetTotalRuneLevelGeneric(origCaster, 1, 0) == 0 then--q1
+		return
+	end
+	ability.attack_damage = event.attack_damage
+	if luck == 1 then
 		EmitSoundOn("Ekkan.ZombieStrike", attacker)
 		local fv = ((target:GetAbsOrigin()-attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 		local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), attacker:GetAbsOrigin())
 		local speed = distance*2
 		local info = 
 		{
-		Ability = ability,
-		  EffectName = "particles/units/heroes/hero_vengeful/vengeful_wave_of_terror.vpcf",
-		  vSpawnOrigin = attacker:GetAbsOrigin(),
-		  fDistance = distance + 120,
-		  fStartRadius = 210,
-		  fEndRadius = 210,
-		  Source = attacker,
-		  StartPosition = "attach_origin",
-		  bHasFrontalCone = false,
-		  bReplaceExisting = false,
-		  iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		  iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-		  iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		  iVisionRadius = 500,
-		  fExpireTime = GameRules:GetGameTime() + 5.0,
-		bDeleteOnHit = false,
-		vVelocity = fv * speed,
-		bProvidesVision = true,
+			Ability = ability,
+			EffectName = "particles/units/heroes/hero_vengeful/vengeful_wave_of_terror.vpcf",
+			vSpawnOrigin = attacker:GetAbsOrigin(),
+			fDistance = distance + 120,
+			fStartRadius = 210,
+			fEndRadius = 210,
+			Source = attacker,
+			StartPosition = "attach_origin",
+			bHasFrontalCone = false,
+			bReplaceExisting = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			iVisionRadius = 500,
+			fExpireTime = GameRules:GetGameTime() + 5.0,
+			bDeleteOnHit = false,
+			vVelocity = fv * speed,
+			bProvidesVision = true,
 		}
 		projectile = ProjectileManager:CreateLinearProjectile(info)
-   end
+	else
+		dominion_zombie_strike_hit(event)
+	end
 end
 
 function dominion_zombie_strike_hit(event)
