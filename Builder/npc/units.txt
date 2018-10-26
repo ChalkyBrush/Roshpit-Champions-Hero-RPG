@@ -5,6 +5,8 @@
 {
 	//hero section
 	##EKKAN_UNITS##
+
+	##ARKIMUS_UNITS##
 	
 	"npc_dummy_unit"
 	{
