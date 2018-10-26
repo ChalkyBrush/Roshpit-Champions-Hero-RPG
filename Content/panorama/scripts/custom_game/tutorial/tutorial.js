@@ -154,7 +154,7 @@ function setupChallenge(category, challenge, index, challengeListPanel, challeng
 	}
 }
 
-STARS_REQ = [75, 100, 125]
+STARS_REQ = [20, 30, 75]
 REWARD_STARS_REQ_MAP = [3,5,6]
 
 function reward_activate(category, challengeListPanel, reward, stars){

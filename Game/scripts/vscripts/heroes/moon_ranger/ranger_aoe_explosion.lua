@@ -139,6 +139,7 @@ function rune_r_3(caster, mainAbility)
     EmitSoundOn("phoenix_phoenix_bird_attack", dummy)
     dummy.owner = caster:GetPlayerOwnerID()
     dummy:AddAbility("replica")
+    dummy.dummy = true
     dummy:FindAbilityByName("replica"):SetLevel(1)
     ability:ApplyDataDrivenModifier(runeUnit, dummy, "modifier_rune_r_3_phoenix", {duration = ASTRAL_R3_DURATION})
     dummy:MoveToNPC(caster)

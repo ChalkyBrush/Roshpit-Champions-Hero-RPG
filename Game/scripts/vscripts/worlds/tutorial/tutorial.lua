@@ -1675,7 +1675,7 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 						verifier = tonumber(math.floor(hero:GetPhysicalArmorBaseValue()))
 						sub = "tutorial_base_armor"
 					elseif choice == 2 then
-						verifier = tonumber(math.floor(hero:GetBaseAttackRange()))
+						verifier = tonumber(math.floor(GetAttackRange()))
 						sub = "ui_attack_range"
 					end
 					CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="2_2", quiz_question=question, sequence=0, verifier = verifier, gsub1 = sub, localize_verifier = 0, challenge_progress = 2} )
@@ -2668,11 +2668,11 @@ end
 function Tutorial:ClaimReward(msg)
 	local hero = EntIndexToHScript(msg.hero)
 	local rewards = Tutorial:GetTutorialDataArray(hero, "reward")
-	if msg.category_index == 3 and hero.grandTotalStars < 75 then
+	if msg.category_index == 3 and hero.grandTotalStars < 20 then
 		return false
-	elseif msg.category_index == 5 and hero.grandTotalStars < 100 then
+	elseif msg.category_index == 5 and hero.grandTotalStars < 30 then
 		return false
-	elseif msg.category_index == 6 and hero.grandTotalStars < 125 then
+	elseif msg.category_index == 6 and hero.grandTotalStars < 75 then
 		return false
 	end
 	if rewards[msg.category_index] == 0 then
@@ -2789,7 +2789,7 @@ function Tutorial:SubmitQuiz(msg)
 				end			
 		end
 		if tonumber(msg.bLocalize) == 1 then
-			correct_answer = msg.verifier == msg.answer
+			correct_answer = msg.verifier == string.gsub(msg.answer, "%", "")
 		end
 		print(msg.challenge_index)
 		print(msg.verifier)

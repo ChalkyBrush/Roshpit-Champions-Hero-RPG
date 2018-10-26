@@ -23944,8 +23944,6 @@
 				"TextureName"		"sven/vigil_signet/sven_warcry"
 				"EffectName"		"particles/units/heroes/hero_medusa/divine_aegis.vpcf"
 				"EffectAttachType"	"follow_origin"
-
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_paladin_a_b_damage_growth_visible"
 			{
