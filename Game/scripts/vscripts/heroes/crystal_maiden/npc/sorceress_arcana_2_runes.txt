@@ -1,12 +1,12 @@
 
-	"sorceress_rune_r_1_arcana1"
+	"sorceress_rune_q_1_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sorceress/sorceress_rune_r_1_arcana1"
+		"AbilityTextureName"	"sorceress/sun_lance"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -16,110 +16,127 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"12000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"property_one_base"		"5000"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"600"
+				"base_ability"		"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"		 	"2"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"		 	"9"
+				"property_two"			"100"
 			}
 		}
 	}
 
-	"sorceress_rune_r_2_arcana1"
+	"sorceress_rune_q_2_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sorceress/sorceress_rune_r_2_arcana1"
+		"AbilityTextureName"	"sorceress/sorceress_rune_q_2_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARCANA1_R2_ADD_DURATION %>"
+				"property_one"			"3.5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"<% ARCANA1_R2_START_DURATION %>"
+				"property_two"			"<% Q2_ADD_DURATION %>"
 			}
 			"03"
 			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"		"<% Q2_BASE_DURATION %>"
+			}
+			"04"
+			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ARCANA1_R2_CRIT_DAMAGE %>"
+				"element_one"			"10"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
 			}
 		}
 	}
 
-	"sorceress_rune_r_3_arcana1"
+	"sorceress_rune_q_3_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sorceress/sorceress_rune_r_3_arcana1"
+		"AbilityTextureName"	"sorceress/sorceress_rune_q_3_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
-			}
-		}
-	}
-
-	"sorceress_rune_r_4_arcana1"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sorceress/sorceress_rune_r_4_arcana1"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"7.0"
+				"property_one"			"20"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_two"			"<% Q3_ADD_DURATION %>"
 			}
 			"03"
 			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"		"<% Q3_BASE_DURATION %>"
+			}
+		}
+	}
+
+	"sorceress_rune_q_4_arcana2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sorceress/sorceress_rune_q_4_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_one"			"<% ARCANA2_Q4_INT_TO_DAMAGE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"20"
 			}
 		}
 	}

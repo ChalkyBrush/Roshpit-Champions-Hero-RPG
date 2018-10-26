@@ -1,3 +1,4 @@
+
 	"arcane_explosion"
 	{
 		// General
@@ -261,8 +262,6 @@
 			}
 		}
 	}
-
-
 
 	"blizzard"
 	{
@@ -668,7 +667,6 @@
 		}
 	}
 
-
 	"ice_lance"
 	{
 		// General
@@ -811,7 +809,6 @@
 				}
 			}
 		}
-
 	}
 
 	"fireball"
@@ -941,7 +938,6 @@
 				}
 			}
 		}
-
 	}
 
 	"pyroblast"
@@ -1209,7 +1205,6 @@
 			}
 
 		}
-
 	}
 
 	"arcane_torrent"
@@ -1322,5 +1317,72 @@
 				"mana_drain_per_second"		"1200 2400 6000 13000 17500 20500 26000"
 			}
 		}
-
 	}
+
+	"sorc_elemental_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"morphling_waveform"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_sorc_elemental_ability"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/abilities/e/e2_water_elemental.lua"
+						"Function"		"attack"
+					}
+				}
+			}
+			"modifier_elemental_slow"
+			{
+				"IsHidden" "0"
+				"IsDebuff" "1"
+				"EffectName"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-40"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-25"
+				}
+			}
+			"modifier_elemental_freeze"
+			{
+				"IsHidden" "0"
+				"IsDebuff" "1"
+				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/abilities/e/e2_water_elemental.lua"
+				"Function"		"die"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/abilities/e/e2_water_elemental.lua"
+				"Function"		"attack"
+				"target"		"TARGET"
+			}
+		}
+	}
+
