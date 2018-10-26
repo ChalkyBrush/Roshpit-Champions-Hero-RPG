@@ -10,6 +10,12 @@
 
 	##RED_GENERAL_UNITS##
 
+	##ELEMENTAL_WARLORD_UNITS##
+
+
+
+
+
 	"npc_dummy_unit"
 	{
 		"BaseClass"	"npc_dota_base_additive"
