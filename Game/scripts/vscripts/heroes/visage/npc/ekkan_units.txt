@@ -1,0 +1,338 @@
+
+    "ekkan_skeleton_archer"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/clinkz/clinkz.vmdl"
+        "ModelScale"    "0.8"
+        "Level" "1"
+        "HealthBarOffset"   "160"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"      "Hero_Clinkz"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "25000"
+        "AttackDamageMax"   "45000"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "1500"
+        "AttackRange"   "660"
+        "ProjectileSpeed"   "1000"
+        "ProjectileModel"   "particles/units/heroes/hero_clinkz/clinkz_base_attack.vpcf"
+        "BountyGoldMin" "40"
+        "BountyGoldMax" "60"
+        "BountyXP" "82"
+        "BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
+        "RingRadius"    "50"
+        "CollisionSize" "50"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "290000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "56"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "57"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "61"
+                }
+            }
+        }
+    }
+
+    "ekkan_skeleton_mage"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/pugna/pugna.vmdl"
+        "ModelScale"    "0.9"
+        "Level" "1"
+        "HealthBarOffset"   "160"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"      "Hero_Pugna"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "25000"
+        "AttackDamageMax"   "45000"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "1500"
+        "AttackRange"   "380"
+        "ProjectileSpeed"   "800"
+        "ProjectileModel"   "particles/units/heroes/hero_pugna/pugna_base_attack.vpcf"
+        "BountyGoldMin" "40"
+        "BountyGoldMax" "60"
+        "BountyXP" "82"
+        "BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
+        "RingRadius"    "50"
+        "CollisionSize" "50"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "290000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "ekkan_mage_blast"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "154"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "155"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "157"
+                }
+            }
+        }
+    }
+
+    "ekkan_familiar"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/visage/visage_familiar.vmdl"
+        "ModelScale"    "0.65"
+        "Level" "1"
+        "HealthBarOffset"   "170"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"              "Visage_Familiar"
+        "precache"
+        {
+
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "25"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "40400"
+        "AttackDamageMax"   "50400"
+        "AttackRate"    "0.4"
+        "AttackAnimationPoint"  "0.33"
+        "AttackAcquisitionRange"    "100"
+        "ProjectileSpeed"           "900"
+        "ProjectileModel"           "particles/units/heroes/hero_visage/visage_familiar_base_attack.vpcf"
+        "AttackRange"   "240"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "4050"
+        "BoundsHullName"    "DOTA_HULL_SIZE_REGULAR"
+
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_FLY"
+        "MovementSpeed" "480"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "645000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+
+        "Ability1"  "ekkan_familiar_passive"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
+    "ekkan_supercharged_skeleton"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/wraith_king/wraith_king_prop.vmdl"
+        "ModelScale"    "0.85"
+        "Level" "1"
+        "HealthBarOffset"   "170"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"              "Visage_Familiar"
+        "precache"
+        {
+
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "25"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "40400"
+        "AttackDamageMax"   "50400"
+        "AttackRate"    "0.4"
+        "AttackAnimationPoint"  "0.33"
+        "AttackAcquisitionRange"    "100"
+        "ProjectileSpeed"           "900"
+        "ProjectileModel"           "particles/units/heroes/hero_visage/visage_familiar_base_attack.vpcf"
+        "AttackRange"   "240"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "4050"
+        "BoundsHullName"    "DOTA_HULL_SIZE_REGULAR"
+
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+        "MovementSpeed" "480"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "645000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+
+        "Ability1"  "ekkan_supercharge_skeleton_ability"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
+    "ekkan_corpse"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_troll_skeleton_fx.vmdl"
+        "Level" "1"
+        "ModelScale"        "1.8"
+        "Ability1"  ""
+        "Ability2"  ""
+        "Ability3"  ""
+        "Ability4"  ""
+        "Ability5"  ""
+        "Ability6"  ""
+        "Ability7"  ""
+        "Ability8"  ""
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+        "AttackDamageMin"   "0"
+        "AttackDamageMax"   "0"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "500"
+        "ProjectileModel"   ""
+        "ProjectileSpeed"   "900"
+        "AttributePrimary"  "DOTA_ATTRIBUTE_STRENGTH"
+        "AttributeBaseStrength" "0"
+        "AttributeStrengthGain" "0"
+        "AttributeBaseIntelligence" "0"
+        "AttributeIntelligenceGain" "0"
+        "AttributeBaseAgility"  "0"
+        "AttributeAgilityGain"  "0"
+        "BountyXP"  "0"
+        "BountyGoldMin" "0"
+        "BountyGoldMax" "0"
+        "RingRadius"    "0"
+        "HasInventory"  "0"
+        "CollisionSize" "0"
+        "BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+        "StatusHealth"  "1"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "VisionDaytimeRange"    "0"
+        "VisionNighttimeRange"  "0"
+        "PathfindingSearchDepthScale" "0.2"
+    }
+

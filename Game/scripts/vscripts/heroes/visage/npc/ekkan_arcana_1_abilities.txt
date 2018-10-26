@@ -1,0 +1,426 @@
+
+	"ekkan_arcana_black_dominion"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityTextureName"			"ekkan/ekkan_black_dominion"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_summons"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"debuff_duration"		"12"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"move_slow"				"-20 -25 -30 -35 -40 -45 -50"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"burn_damage"				"50 60 70 80 90 100 110"
+			}
+		}
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1100"
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"9"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/visage/black_dominion.lua"
+				"Function"		"dominion_bolt_fire"
+				"target"		"TARGET"
+				"max_summons"	"%max_summons"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/visage/black_dominion.lua"
+				"Function"		"dominion_bolt_impact"
+				"target"		"TARGET"
+				"duration"		"%debuff_duration"
+				"max_summons"	"%max_summons"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ekkan_dominion_debuff"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_slow"
+				}
+				"EffectName"	"particles/ekkan/dominion_debuff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_ekkan_dominion_overhead_effect"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/black_dominion.lua"
+						"Function"		"dominion_debuff_death"
+						"max_summons"	"%max_summons"
+					}
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/black_dominion.lua"
+						"Function"		"dominion_debuff_think"
+						"target"		"TARGET"
+						"burn_damage"	"%burn_damage"
+					}
+				}
+			}
+			"modifier_ekkan_dominion_overhead_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/roshpit/ekkan/dominion_overhead.vpcf"
+						"EffectAttachType"  "follow_overhead"
+						"Target"            "TARGET"
+					}
+				}
+			}
+			"modifier_dominion_counter"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_ekkan_dominion_unit"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"StatusEffectName" 		"particles/roshpit/ekkan/status_effect_dominion_unit.vpcf"
+				"StatusEffectPriority"  "100"
+				"ThinkInterval"  "2.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/black_dominion.lua"
+						"Function"		"dominion_unit_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/black_dominion.lua"
+						"Function"		"dominionUnitDie"
+					}
+				}
+				"Aura"          	"modifier_black_dominion_aura_effect"
+				"Aura_Radius"   	"1500"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_black_dominion_aura_effect"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/black_dominion.lua"
+						"Function"		"dominion_unit_kill"
+					}
+				}
+			}
+			"modifier_ekkan_dominion_stacks_black"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"ekkan/ekkan_rune_q_3_arcana1"
+			}
+			"modifier_ekkan_d_a_alacrity"
+			{
+				"IsHidden"		"0"
+				"IsBuff"		"1"
+				"TextureName"	"ekkan/ekkan_rune_q_4"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "4"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "4"
+				}
+			}
+			"modifier_black_dominion_d_a_aura"
+			{
+				"IsHidden"	"1"
+				"Aura"          	"modifier_black_dominion_d_a_aura_starter"
+				"Aura_Radius"   	"1200"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "1"
+				"EffectName"	"particles/items_fx/aura_shivas.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"ThinkInterval"  "5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/black_dominion.lua"
+						"Function"		"black_aura_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_black_dominion_d_a_aura_starter"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/black_dominion.lua"
+						"Function"		"aura_starter_start"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/black_dominion.lua"
+						"Function"		"aura_starter_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_black_dominion_d_a_aura_effect"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
+				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "150"
+				}
+				"EffectName"	"particles/items_fx/darkness_aura_ring.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"TextureName"	"ekkan/ekkan_rune_q_4_arcana1"
+			}
+			"modifier_black_dominion_shield"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"	"particles/roshpit/ekkan/black_dominion_shield.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"TextureName"	"ekkan/ekkan_rune_q_4_arcana1"
+			}
+		}
+	}
+
+	"black_dominion_corpse_pickup"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"ekkan/ekkan_rune_q_2_arcana1"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_corpse_pickup_passive"
+			{
+				"Passive"			"1"
+				"Aura"          	"modifier_corpse_pickup_aura"
+				"Aura_Radius"   	"160"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster" "0"
+			}
+			"modifier_corpse_pickup_aura"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/black_dominion.lua"
+						"Function"		"corpse_pickup_aura_start"
+						"target"       	"TARGET"
+					}
+				}
+			}
+			"modifier_corpse_picked_up_visible"
+			{
+				"IsHidden"	"0"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/black_dominion.lua"
+						"Function"		"dominion_corpse_pickup_end"
+						"target"       	"TARGET"
+					}
+				}
+			}
+			"modifier_corpse_picked_up_invisible"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "10000"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"1"
+				}
+			}
+			"modifier_swarm_effect"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/units/heroes/hero_pudge/pudge_rot.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/black_dominion.lua"
+						"Function"		"swarm_poison_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/visage/black_dominion.lua"
+				"Function"		"swarm_hit"
+				"target"		"TARGET"
+			}
+		}
+	}
+
+	"black_dominion_lifesteal"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"ekkan/ekkan_rune_q_1_arcana1"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_blackdominion_lifesteal_ai"
+			{
+				"Passive"	"1"
+				"Aura"          	"modifier_black_dominion_lifesteal"
+				"Aura_Radius"   	"500"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "0"
+				"IsHidden"		"1"
+			}
+			"modifier_black_dominion_lifesteal"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.5"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/black_dominion.lua"
+						"Function"		"black_dominion_lifesteal_think"
+						"target"		"TARGET"
+					}
+				}
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"	"TARGET"
+						"EffectName"	"particles/roshpit/ekkan/black_dominion_lifesteal.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_hitloc"
+							"TARGET"	"attach_hitloc"
+						}
+
+					}
+					"FireSound"
+					{
+						"EffectName"	"Hero_Lion.Attack"
+						"Target" 		"TARGET"
+					}
+
+				}
+			}
+		}
+	}
