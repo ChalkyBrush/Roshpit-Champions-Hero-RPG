@@ -34552,8 +34552,6 @@
     ##HELM##
     ##TRINKET##
     
-    ##RED_GENERAL_WEAPONS##
-
 	"item_rpc_astral_immortal_weapon_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -39136,7 +39134,6 @@
 
 	##VENOMORT_GLYPHS##
 	##VENOMORT_ITEMS##
-    ##RED_GENERAL_GLYPHS##
 
 	//ASTRAL GLYPHS
 	"item_rpc_astral_glyph_1_1"
