@@ -14,7 +14,7 @@ function wolf_howl(event)
 	local caster = event.caster
 	local ability = event.ability
 	local duration = event.duration
-	local q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+	local q_2_level = caster:GetRuneValue("q", 2)
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lycan/lycan_howl_cast.vpcf", caster, 3)
 	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin())
@@ -46,7 +46,7 @@ function wolf_sprint(event)
 	local caster = event.caster
 	local ability = event.ability
 	local duration = event.duration
-	local d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+	local d_c_level = caster:GetRuneValue("e", 4)
 	if d_c_level > 0 then
 		duration = duration + d_c_level*DJANGHOR_E4_DURATION_INCREASE
 	end
@@ -139,7 +139,7 @@ function rend_start(event)
 			enemy:SetModifierStackCount("modifier_wolf_rend_armor_loss", caster, armorLoss*newStacks)
 			if rendStacks == 2 then
 				enemy.rendBleed = event.bleed_damage*damage/100
-				ability.w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+				ability.w_2_level = caster:GetRuneValue("w", 2)
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_bleed", {duration = 12})
 				if not ability.bloodCount then
 					ability.bloodCount = 0

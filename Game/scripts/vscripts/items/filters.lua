@@ -41,7 +41,7 @@ function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element
         end
     end
     if attacker:HasModifier("modifier_solunia_arcana2") then
-        local b_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 3)
+        local b_d_level = attacker:GetRuneValue("r", 2)
         if b_d_level > 0 then
             local modified_damage = Filters:ElementalDamage(victim, attacker, damage, damage_type, nil, element1, element2, true)
             if attacker.sunMoon == "moon" then
@@ -66,7 +66,7 @@ function Filters:ApplyItemDamageBasedOnAbility(victim,attacker,damage,damage_typ
         damage = damage * 0.3
     end
     if attacker:HasModifier("modifier_solunia_arcana2") then
-        local b_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 3)
+        local b_d_level = attacker:GetRuneValue("r", 2)
         if b_d_level > 0 then
             local modified_damage = Filters:ElementalDamage(victim, attacker, damage, damage_type, nil, element1, element2, true)
             if attacker.sunMoon == "moon" then
@@ -155,7 +155,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + 0.001*(caster:GetHealth()/100)
     end
     if caster:HasModifier("modifier_rockfall_passive") then
-        local a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+        local a_c_level = caster:GetRuneValue("e", 1)
         if a_c_level > 0 then
             mult = mult + heroes.mountain_protector.ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT/100*((caster:GetMaxHealth()-caster:GetHealth())/1000)*a_c_level
         end
@@ -495,7 +495,7 @@ function Filters:ApplyStun(caster, duration, target)
         mult = mult*0.5
     end
     if caster:HasModifier("modifier_steelforge_passive") then
-        caster.w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+        caster.w_2_level = caster:GetRuneValue("w", 2)
     end
     if caster:HasModifier("modifier_stormcrack_helm") then
 		if caster:GetTeamNumber() == target:GetTeamNumber() then
@@ -611,7 +611,7 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
     if caster:GetUnitName() == "npc_dota_hero_omniknight" then
         if caster:HasAbility("heroic_fury") then
             local ability = caster:FindAbilityByName("heroic_fury")
-            local q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+            local q_4_level = caster:GetRuneValue("q", 4)
             if q_4_level > 0 then
                 local origHeal = healAmount
                 local actualHeal = math.min(target:GetMaxHealth() - target:GetHealth(), origHeal)
@@ -698,7 +698,7 @@ function Filters:CastSkillArguments(slot, caster)
         caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "warlord")
     end
     if caster:GetUnitName() == "npc_dota_hero_legion_commander" then
-        caster.r_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+        caster.r_4_level = caster:GetRuneValue("r", 4)
     end
     if slot == 1 then
         Filters:ApplyQskills(caster)
@@ -1166,7 +1166,7 @@ function Filters:ApplyRskills(caster)
     if caster:HasModifier("modifier_shadow_trap_passive") then
         local shadowAbility = caster:FindAbilityByName("auriun_shadow_trap")
         if IsValidEntity(shadowAbility) then
-            shadowAbility.q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+            shadowAbility.q_4_level = caster:GetRuneValue("q", 4)
             if shadowAbility.q_4_level > 0 then
                 local duration = Filters:GetAdjustedBuffDuration(caster, 18, false)
                 shadowAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shadow_trap_d_a_buff", {duration = duration})
@@ -1268,7 +1268,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_shapeshift_year_beast") then
             if slot > 0 then
-                local c_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 3)
+                local c_d_level = attacker:GetRuneValue("r", 3)
                 if c_d_level > 0 then
                     local sumAttrs = attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()
                     damage = damage + sumAttrs*0.1*c_d_level
@@ -1276,7 +1276,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         if attacker:HasModifier("modifier_rockfall_passive") then
-            local b_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 2)
+            local b_c_level = attacker:GetRuneValue("e", 2)
             if b_c_level > 0 then
                 damage = damage + attacker:GetStrength()*b_c_level*heroes.mountain_protector.ARCANA3_E2_STR_TO_ABILITIES_DAMAGE
             end
@@ -1303,7 +1303,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     if slot > 0 then
         damageMult = damageMult + heroes.venomort.getBad(attacker)
         if not ignore_effects and attacker:HasModifier("modifier_solunia_arcana1") then
-            local q_2_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
+            local q_2_level = attacker:GetRuneValue("q", 2)
             if q_2_level > 0 then
                 damage = damage + attacker:GetHealth()*0.1*q_2_level
             end
@@ -1430,7 +1430,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_rockfall_passive") then
             if slot > 0 then
-                local a_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 2)
+                local a_c_level = attacker:GetRuneValue("e", 1)
                 if a_c_level > 0 then
                     damageMult = damageMult + heroes.mountain_protector.ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT/100*((attacker:GetMaxHealth()-attacker:GetHealth())/1000)*a_c_level
                 end
@@ -1666,7 +1666,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     if not ignore_effects then
         if slot > 0 then
             if attacker:HasModifier("modifier_mach_punch_passive") then
-                local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                local w_4_level = attacker:GetRuneValue("w", 4)
                 if w_4_level > 0 then
                     if not victim.dummy then
                         local ability = attacker:FindAbilityByName("zonik_mach_punch")
@@ -1801,7 +1801,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + stacks/100
         end
         if attacker:HasAbility("arkimus_archon_form") then
-            local c_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 3)
+            local c_d_level = attacker:GetRuneValue("r", 3)
             if c_d_level > 0 then
                 mult = mult + ARKIMUS_ARCANA2_R3_ELEMENTS_PCT*c_d_level
             end
@@ -1863,7 +1863,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             if attacker:HasModifier("modifier_flamewaker_arcana2_passive") then
                 if victim:IsStunned() or victim:IsFakeStunned() then
-                    local w_1_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
+                    local w_1_level = attacker:GetRuneValue("w", 1)
                     if w_1_level > 0 then
                         fireMult = fireMult + 1.25*w_1_level
                     end
@@ -1900,7 +1900,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 fireMult = fireMult + 0.0002*attacker:GetStrength()/10*attacker.q_4_level
             end
             if attacker:HasModifier("modifier_spirit_warrior_arcana2") then
-                local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                local w_4_level = attacker:GetRuneValue("w", 4)
                 fireMult = fireMult + spirit_warrior_arcana_w4/100*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*w_4_level
             end
         elseif unitName == "npc_dota_hero_beastmaster" then
@@ -1913,7 +1913,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
-                local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                local w_4_level = attacker:GetRuneValue("w", 4)
                 fireMult = fireMult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*w_4_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
@@ -1935,13 +1935,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_axe" then
             -- if attacker:HasModifier("modifier_axe_arcana_passive") then
             --     local ratio = attacker:GetHealth()/attacker:GetMaxHealth()
-            --     local c_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 3)
+            --     local c_d_level = attacker:GetRuneValue("r", 3)
             --     local multIncrease = ratio * 0.5 * c_d_level
             --     mult = mult + multIncrease
             -- end
         elseif unitName == "npc_dota_hero_vengefulspirit" then
             if attacker:HasModifier("modifier_solunia_arcana2") then
-                local d_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
+                local d_d_level = attacker:GetRuneValue("r", 4)
                 fireMult = fireMult + 0.0005*attacker:GetStrength()/10*d_d_level
             end
         end
@@ -2020,7 +2020,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + 10
         end
         if unitName == "npc_dota_hero_phantom_assassin" then
-            local e_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 2)
+            local e_4_level = attacker:GetRuneValue("e", 4)
             local lightningRuneRate = 0.001
             if attacker:HasModifier("modifier_voltex_arcana1_passive") then
                 lightningRuneRate = 0.0015
@@ -2028,7 +2028,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + lightningRuneRate*attacker:GetAgility()/10*e_4_level
             if attacker:HasAbility("overcharge") then
                 if bIsRealDamage then
-                    local q_2_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
+                    local q_2_level = attacker:GetRuneValue("q", 2)
                     if q_2_level > 0 then
                         damage = damage + attacker:GetAgility()*VOLTEX_Q2_BAD_FLAT_PER_AGI*q_2_level
                     end 
@@ -2055,7 +2055,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_POISON or element2 == RPC_ELEMENT_POISON then
         if unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
-                local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                local w_4_level = attacker:GetRuneValue("w", 4)
                 mult = mult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*w_4_level
             end
         end
@@ -2097,12 +2097,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + stacks*ZHONIK_E1_ARCANA_ELEMENT_TEMPORAL/100
             end
             if attacker:HasAbility("zhonik_temporal_field") then
-                local e_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 2)
+                local e_4_level = attacker:GetRuneValue("e", 4)
                 mult = mult + ZHONIK_E4_ARCANA_ELEMENT_TEMPORAL_PER_ATRI/100*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*e_4_level
             end
         elseif unitName == "npc_dota_hero_obsidian_destroyer" then
             -- print("OD HERE")
-            local d_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
+            local d_d_level = attacker:GetRuneValue("r", 4)
             if d_d_level > 0 then
                 -- print("OD HERE2 r4: "..r_4_level)
                 mult = mult + attacker:GetManaRegen()*d_d_level*EPOCH_R4_ELEM_TIME/1000
@@ -2118,7 +2118,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_HOLY or element2 == RPC_ELEMENT_HOLY then
         if unitName == "npc_dota_hero_omniknight" then
             if attacker:HasAbility("heroic_fury") then
-                local q_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
+                local q_4_level = attacker:GetRuneValue("q", 4)
                 mult = mult + 0.0004*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*q_4_level
             end
         elseif unitName == "npc_dota_hero_leshrac" then
@@ -2127,7 +2127,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         elseif unitName == "npc_dota_hero_zuus" then
             if attacker:HasModifier("modifier_holy_wrath_passive") then
-                local q_3_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 0)
+                local q_3_level = attacker:GetRuneValue("q", 3)
                 if q_3_level then
                     mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*q_3_level
                 end         
@@ -2184,14 +2184,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
         if unitName == "npc_dota_hero_vengefulspirit" then
-            local q_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
+            local q_4_level = attacker:GetRuneValue("q", 4)
             local d_a_mult = 0.0008
             if attacker:HasModifier("modifier_solunia_arcana1") then
                 d_a_mult = 0.0016
             end
             cosmosMult = cosmosMult + d_a_mult*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*q_4_level
             if attacker:HasModifier("modifier_solunia_arcana2") then
-                local d_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
+                local d_d_level = attacker:GetRuneValue("r", 4)
                 cosmosMult = cosmosMult + 0.0005*attacker:GetIntellect()/10*d_d_level
             end
         end
@@ -2227,7 +2227,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_crystal_maiden" then
             if attacker:HasAbility("blizzard") then
-                local q_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
+                local q_4_level = attacker:GetRuneValue("q", 4)
                 mult = mult + 0.0002*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*q_4_level
             end
             if attacker:HasModifier("modifier_ice_avatar") then
@@ -2254,7 +2254,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         elseif unitName == "npc_dota_hero_vengefulspirit" then
             if attacker:HasModifier("modifier_solunia_arcana2") then
-                local d_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
+                local d_d_level = attacker:GetRuneValue("r", 4)
                 mult = mult + 0.0005*attacker:GetAgility()/10*d_d_level
             end
         elseif unitName == "npc_dota_hero_winter_wyvern" then
@@ -2302,7 +2302,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if unitName == "npc_dota_hero_antimage" then
             if attacker:HasAbility("arkimus_storm_weapon") then
                 if bIsRealDamage then
-                    local w_1_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
+                    local w_1_level = attacker:GetRuneValue("w", 1)
                     if w_1_level > 0 then
                         local specialDamage = damage*mult
                         local damageBoost = math.min(specialDamage*0.002*w_1_level, w_1_level*50000)
@@ -2314,7 +2314,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
             if attacker:HasAbility("arkimus_energy_field") then
-                local d_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
+                local d_d_level = attacker:GetRuneValue("r", 4)
                 mult = mult + 0.001*attacker:GetAgility()/10*d_d_level
             end
             if attacker:HasModifier("modifier_arkimus_immortal_weapon_2") then
@@ -2336,13 +2336,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_SHADOW or element2 == RPC_ELEMENT_SHADOW then
         if unitName == "npc_dota_hero_zuus" then
             if attacker:HasModifier("modifier_shadow_trap_passive") then
-                local q_3_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 0)
+                local q_3_level = attacker:GetRuneValue("q", 3)
                 if q_3_level then
                     mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*q_3_level
                 end         
             end  
         elseif unitName == "npc_dota_hero_slark" then
-            attacker.q_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
+            attacker.q_4_level = attacker:GetRuneValue("q", 4)
             if attacker.q_4_level then
                 mult = mult + 0.0007*attacker:GetAgility()/10*attacker.q_4_level
             end
@@ -2371,7 +2371,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_WIND or element2 == RPC_ELEMENT_WIND then
         if unitName == "npc_dota_hero_huskar" then
             if attacker:HasModifier("modifier_spirit_warrior_arcana3") then
-                local d_c_arcana_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 2)
+                local d_c_arcana_level = attacker:GetRuneValue("e", 4)
                 if d_c_arcana_level > 0 then
                     mult = mult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_c_arcana_level
                 end
@@ -2393,12 +2393,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         elseif unitName == "npc_dota_hero_skywrath_mage" then
             if attacker:HasModifier("modifier_sephyr_arcana1") then
-                local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                local w_4_level = attacker:GetRuneValue("w", 4)
                 if w_4_level > 0 then
                     mult = mult + 0.0015*(attacker:GetIntellect()+attacker:GetStrength()+attacker:GetAgility())/10*w_4_level
                 end
             else
-                local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                local w_4_level = attacker:GetRuneValue("w", 4)
                 if w_4_level > 0 then
                     mult = mult + 0.0012*attacker:GetIntellect()/10*w_4_level
                 end
@@ -2444,7 +2444,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             if attacker:HasAbility("hydroxis_arcana_ability_1") then
                 if bIsRealDamage then
-                    local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker,4, 1)
+                    local w_4_level = attacker:GetRuneValue("w", 4)
                     if w_4_level > 0 then
                         local duration = 0.5 + w_4_level*0.15
                         local mist_mod = victim:FindModifierByName("modifier_hydroxis_mist_debuff_timered")
@@ -2459,18 +2459,18 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
-                local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                local w_4_level = attacker:GetRuneValue("w", 4)
                 waterMult = waterMult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*w_4_level
             end
         elseif unitName == "npc_dota_hero_huskar" then
             if attacker:HasModifier("modifier_spirit_warrior_arcana1") then
-                local d_d_arcana_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
+                local d_d_arcana_level = attacker:GetRuneValue("r", 4)
                 if d_d_arcana_level > 0 then
                     waterMult = waterMult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_d_arcana_level
                 end
             end
         elseif unitName == "npc_dota_hero_slark" then
-            attacker.q_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
+            attacker.q_4_level = attacker:GetRuneValue("q", 4)
             if attacker.q_4_level then
                 waterMult = waterMult + 0.0007*attacker:GetAgility()/10*attacker.q_4_level
             end
@@ -2533,7 +2533,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_NATURE or element2 == RPC_ELEMENT_NATURE then
         if unitName == "npc_dota_hero_monkey_king" then
-           local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+           local w_4_level = attacker:GetRuneValue("w", 4)
            mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*w_4_level
         end
         if attacker:HasModifier("modifier_trinket_nature") then
@@ -4402,7 +4402,7 @@ function Filters:Bahamut_DB_rune(caster, damage, slot, enemy)
     elseif caster:HasAbility("bahamut_arcana_orb") then
         local ability = caster.runeUnit4:FindAbilityByName("bahamut_rune_w_4_arcana2")
         local property_one = ability:GetSpecialValueFor("property_one")
-        local w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+        local w_4_level = caster:GetRuneValue("w", 4)
         if w_4_level > 0 then
             local bonusDamage = (caster:GetMaxMana()-caster:GetMana())*(property_one/100)*w_4_level
             damage = damage + bonusDamage

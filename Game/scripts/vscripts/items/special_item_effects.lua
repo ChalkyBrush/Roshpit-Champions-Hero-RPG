@@ -4730,10 +4730,10 @@ function wind_orchid_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local runeLevel = Runes:GetTotalRuneLevelGeneric(target, 4, 2)
-	if runeLevel > 0 then
+	local e_4_level = target:GetRuneValue("e", 4)
+	if e_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_wind_orchid_agility_bonus", {})
-		target:SetModifierStackCount("modifier_wind_orchid_agility_bonus", caster, runeLevel)
+		target:SetModifierStackCount("modifier_wind_orchid_agility_bonus", caster, e_4_level)
 	else
 		target:RemoveModifierByName("modifier_wind_orchid_agility_bonus")
 	end
@@ -4743,10 +4743,10 @@ function aqua_lily_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local runeLevel = Runes:GetTotalRuneLevelGeneric(target, 4, 3)
-	if runeLevel > 0 then
+	local r_4_level = target:GetRuneValue("r", 4)
+	if r_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_aqua_lily_intelligence_bonus", {})
-		target:SetModifierStackCount("modifier_aqua_lily_intelligence_bonus", caster, runeLevel)
+		target:SetModifierStackCount("modifier_aqua_lily_intelligence_bonus", caster, r_4_level)
 	else
 		target:RemoveModifierByName("modifier_aqua_lily_intelligence_bonuss")
 	end
@@ -4756,10 +4756,10 @@ function fire_blossom_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local runeLevel = Runes:GetTotalRuneLevelGeneric(target, 4, 1)
-	if runeLevel > 0 then
+	local w_4_level = target:GetRuneValue("w", 4)
+	if w_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_fire_blossom_strength_bonus", {})
-		target:SetModifierStackCount("modifier_fire_blossom_strength_bonus", caster, runeLevel)
+		target:SetModifierStackCount("modifier_fire_blossom_strength_bonus", caster, w_4_level)
 	else
 		target:RemoveModifierByName("modifier_fire_blossom_strength_bonus")
 	end
@@ -5601,13 +5601,25 @@ function captains_vest_think(event)
 	local hero = event.target
 	local caster = event.caster
 	local ability = event.ability
-	local a_d_level = Runes:GetTotalRuneLevelGeneric(hero, 1, 3)
-	local b_d_level = Runes:GetTotalRuneLevelGeneric(hero, 2, 3)
-	local c_d_level = Runes:GetTotalRuneLevelGeneric(hero, 3, 3)
-	local d_d_level = Runes:GetTotalRuneLevelGeneric(hero, 4, 3)
-	local strength = Runes:GetTotalRuneLevelGeneric(hero, 1, 0)*3 + Runes:GetTotalRuneLevelGeneric(hero, 2, 0)*6 + Runes:GetTotalRuneLevelGeneric(hero, 3, 0)*15 + Runes:GetTotalRuneLevelGeneric(hero, 4, 0)*30 + a_d_level*1 + b_d_level*2 + c_d_level*5 + d_d_level*10
-	local agility = Runes:GetTotalRuneLevelGeneric(hero, 1, 2)*3 + Runes:GetTotalRuneLevelGeneric(hero, 2, 2)*6 + Runes:GetTotalRuneLevelGeneric(hero, 3, 2)*15 + Runes:GetTotalRuneLevelGeneric(hero, 4, 2)*30 + a_d_level*1 + b_d_level*2 + c_d_level*5 + d_d_level*10
-	local intelligence = Runes:GetTotalRuneLevelGeneric(hero, 1, 1)*3 + Runes:GetTotalRuneLevelGeneric(hero, 2, 1)*6 + Runes:GetTotalRuneLevelGeneric(hero, 3, 1)*15 + Runes:GetTotalRuneLevelGeneric(hero, 4, 1)*30 + a_d_level*1 + b_d_level*2 + c_d_level*5 + d_d_level*10
+	local q_1_level = hero:GetRuneValue("q", 1)
+	local q_2_level = hero:GetRuneValue("q", 2)
+	local q_3_level = hero:GetRuneValue("q", 3)
+	local q_4_level = hero:GetRuneValue("q", 4)
+	local w_1_level = hero:GetRuneValue("w", 1)
+	local w_2_level = hero:GetRuneValue("w", 2)
+	local w_3_level = hero:GetRuneValue("w", 3)
+	local w_4_level = hero:GetRuneValue("w", 4)
+	local e_1_level = hero:GetRuneValue("e", 1)
+	local e_2_level = hero:GetRuneValue("e", 2)
+	local e_3_level = hero:GetRuneValue("e", 3)
+	local e_4_level = hero:GetRuneValue("e", 4)
+	local r_1_level = hero:GetRuneValue("r", 1)
+	local r_2_level = hero:GetRuneValue("r", 2)
+	local r_3_level = hero:GetRuneValue("r", 3)
+	local r_4_level = hero:GetRuneValue("r", 4)
+	local strength = q_1_level * 3 + q_2_level * 6 + q_3_level * 15 + q_4_level * 30 + r_1_level * 1 + r_2_level * 2 + r_3_level * 5 + r_4_level * 10
+	local agility = e_1_level * 3 + e_2_level * 6 + e_3_level * 15 + e_4_level * 30 + r_1_level * 1 + r_2_level * 2 + r_3_level * 5 + r_4_level * 10
+	local intelligence = w_1_level * 3 + w_2_level * 6 + w_3_level * 15 + w_4_level * 30 + r_1_level * 1 + r_2_level * 2 + r_3_level * 5 + r_4_level * 10
 	if strength > 0 then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_captains_vest_str", {})
 		hero:SetModifierStackCount("modifier_captains_vest_str", caster, strength)

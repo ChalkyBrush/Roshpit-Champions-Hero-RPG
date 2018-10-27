@@ -314,7 +314,7 @@ function elemental_axe_attack_land(event)
 		maxCharges = 25
 	end
 	if caster:HasAbility("enhchant_tomahawk") then
-		local additionalMaxCharges = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+		local additionalMaxCharges = caster:GetRuneValue("r", 4)
 		maxCharges = maxCharges + additionalMaxCharges
 	end
 	if element == "earth" then
@@ -337,7 +337,7 @@ function elemental_axe_attack_land(event)
 
 	elseif element == "fire" then
 		if caster:HasAbility("enhchant_tomahawk") then
-			local additionalMaxCharges = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+			local additionalMaxCharges = caster:GetRuneValue("r", 3)
 			maxCharges = maxCharges + additionalMaxCharges
 		end
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_fire_charge", {})
@@ -352,7 +352,7 @@ function elemental_axe_attack_land(event)
 				caster:SetModifierStackCount("modifier_warlord_rune_r_3_effect", caster.runeUnit3, c_d_stacks)
 			end
 		elseif caster:HasAbility("enhchant_tomahawk") then
-			local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+			local d_d_level = caster:GetRuneValue("r", 4)
 			if d_d_level > 0 then
 				local d_d_stacks = math.ceil(newStacks*1.0*d_d_level)
 				local tomahawk = caster:FindAbilityByName("enhchant_tomahawk")

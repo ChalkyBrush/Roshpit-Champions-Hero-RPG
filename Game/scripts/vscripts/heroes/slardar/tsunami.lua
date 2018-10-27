@@ -10,7 +10,7 @@ function start_channel(event)
 		local b_d_duration = Filters:GetAdjustedBuffDuration(caster, 12, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_b_d", {duration = b_d_duration})
 	end
-	caster.e_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+	caster.e_4_level = caster:GetRuneValue("e", 4)
 
 	if caster:HasModifier("modifier_hydroxis_glyph_6_1") then
 		channel_complete(event)

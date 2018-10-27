@@ -43,7 +43,7 @@ local function cast(caster, ability, runesCount)
 end
 
 local function tryToCast(caster, ability, bInstant)
-    local runesCount = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+    local runesCount = caster:GetRuneValue("q", 2)
     if runesCount == nil or runesCount <= 0 then
         return
     end

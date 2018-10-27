@@ -39,7 +39,7 @@ function hawk_screech(event)
 		bProvidesVision = false,
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
-	local q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	local q_3_level = caster:GetRuneValue("q", 3)
 	if q_3_level > 0 then
 		local modifiers = caster:FindAllModifiers()
 		for i = 1, #modifiers, 1 do
@@ -142,7 +142,7 @@ function tornado_start(event)
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 
-	ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	ability.w_3_level = caster:GetRuneValue("w", 3)
 	Filters:CastSkillArguments(2, caster)
 end
 
@@ -167,7 +167,7 @@ function soar_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local duration = event.duration
-	local d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+	local d_c_level = caster:GetRuneValue("e", 4)
 	if d_c_level > 0 then
 		duration = duration + d_c_level*DJANGHOR_E4_DURATION_INCREASE
 	end

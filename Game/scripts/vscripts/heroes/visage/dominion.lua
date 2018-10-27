@@ -290,7 +290,7 @@ function dominion_zombie_strike_attack(event)
 	local ability = event.ability
 	local luck = RandomInt(1,20)
 	local origCaster = event.caster.hero
-	if Runes:GetTotalRuneLevelGeneric(origCaster, 1, 0) == 0 then--q1
+	if origCaster:GetRuneValue("q", 1) == 0 then --q1
 		return
 	end
 	ability.attack_damage = event.attack_damage

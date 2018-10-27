@@ -91,7 +91,7 @@ function begin_icewind_gale(event)
 	end
 	ability.pushSpeed = 12
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_gale_speed_burst", {duration = 0.8})
-	local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	local w_3_level = caster:GetRuneValue("w", 3)
 	if w_3_level > 0 then
 		local shieldStacks = Runes:Procs(w_3_level, SEPHYR_ARCANA1_W3_SHIELD_CHANCE, 1)
 		if shieldStacks > 0 then
@@ -145,7 +145,7 @@ function ice_gale_hit(event)
 		ability = caster:FindAbilityByName("icewind_gale")
 		crit = true
 	end
-	local w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+	local w_2_level = caster:GetRuneValue("w", 2)
 	if w_2_level > 0 then
 		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*ARCANA1_W2_AD_TO_W_DAMAGE_PERCENT/100*w_2_level
 	end
@@ -160,7 +160,7 @@ end
 function sephyr_passive_think_icegale(event)
 	local ability = event.ability
 	local caster = event.caster
-	local w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+	local w_1_level = caster:GetRuneValue("w", 1)
 	if w_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_icewind_mana_regen", {})
 		caster:SetModifierStackCount("modifier_icewind_mana_regen", caster, w_1_level)

@@ -44,7 +44,7 @@ function energy_shield_create(event)
 	CustomAbilities:QuickAttachParticleWithPointFollow("particles/roshpit/mountain_protector/steelforge_start_teleport_ti7_out.vpcf", caster, 3, "attach_origin")
 	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_TELEPORT_END, rate=1.4})
 
-	local w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+	local w_1_level = caster:GetRuneValue("w", 1)
 	if w_1_level > 0 then
 		local position = caster:GetAbsOrigin()
 		local particleName = "particles/roshpit/mountain_protector/steelforge_explosion.vpcf"
@@ -65,8 +65,8 @@ function energy_shield_create(event)
 			end
 		end 
 	end
-	ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
-	ability.w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	ability.w_3_level = caster:GetRuneValue("w", 3)
+	ability.w_4_level = caster:GetRuneValue("w", 4)
 end
 
 function energy_shield_think(event)

@@ -4,7 +4,7 @@ local constants = require('heroes/hero_necrolyte/constants')
 function frostvenom_grasp_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	local q_4_level = caster:GetRuneValue("q", 4)
 	local explosions = event.explosions + Runes:Procs(q_4_level, 5, 1)
 	local radius = 500
 	local counter = 0

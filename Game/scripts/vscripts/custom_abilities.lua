@@ -761,8 +761,8 @@ function CustomAbilities:SephyrPuck(caster, ability, enemy)
     boomerang:SetDayTimeVisionRange(280)
     boomerang:SetNightTimeVisionRange(200)
     boomerang.target = enemy
-    boomerang.e_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
-    boomerang.e_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+    boomerang.e_1_level = caster:GetRuneValue("e", 1)
+    boomerang.e_2_level = caster:GetRuneValue("e", 2)
     local bounces = Runes:Procs(boomerang.e_1_level, 10, 1) + 1
     boomerang.bounces = bounces
     boomerang.current_bounces = 0

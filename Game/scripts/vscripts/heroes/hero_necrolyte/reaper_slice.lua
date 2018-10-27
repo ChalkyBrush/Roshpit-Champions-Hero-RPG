@@ -4,7 +4,7 @@ function toggle_on(event)
 	local caster = event.caster
 	local ability = event.ability
 	local damage_mult = 12
-	local r4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	local r4_level = caster:GetRuneValue("r", 4)
 	Filters:CastSkillArguments(4, caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_arcana2_movespeed_set", nil)
 	StartSoundEvent("Venomort.ReaperToggle", caster)
@@ -22,9 +22,9 @@ function slice_start(event)
 	local ability = event.ability
 	local damage_mult = event.damage_mult
 	local radius = constants.VENOMORT_ARCANA1_R_RADIUS
-	local r1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	local r2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
-	local r3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	local r1_level = caster:GetRuneValue("r", 1)
+	local r2_level = caster:GetRuneValue("r", 2)
+	local r3_level = caster:GetRuneValue("r", 3)
 	local target
 
 	if r2_level > 0 then

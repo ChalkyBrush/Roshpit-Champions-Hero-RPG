@@ -22,7 +22,7 @@ local module = {
             return
         end
 
-        local q3_level =  Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+        local q3_level =  caster:GetRuneValue("q", 3)
         if q3_level ~= 0 then
             local duration = constants.ARCANA2_Q3_DURATION
             local ability = caster:FindAbilityByName('venomort_frostvenom_grasp')
@@ -37,7 +37,7 @@ local module = {
             end
         end
 
-        local e4_level =  Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+        local e4_level =  caster:GetRuneValue("e", 4)
         if e4_level ~= 0 then
             local duration = constants.VENOMORT_E4_DURATION
 
@@ -75,7 +75,7 @@ local module = {
         local mult = 0
 
 
-        local e1_level =  Runes:GetTotalRuneLevelGeneric(attacker, 1, 2)
+        local e1_level =  attacker:GetRuneValue("e", 1)
         if e1_level ~= 0 then
             local e1_elements = {
                 RPC_ELEMENT_POISON
@@ -100,7 +100,7 @@ local module = {
             return 0
         end
         local mult = 0
-        local w4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+        local w4_level = caster:GetRuneValue("w", 4)
         if w4_level ~= 0 then
             mult = mult + w4_level * constants.W4_POSTMIT_PER_HP_PERCENT/100 * (1 - target:GetHealth()/target:GetMaxHealth()) * 100
         end

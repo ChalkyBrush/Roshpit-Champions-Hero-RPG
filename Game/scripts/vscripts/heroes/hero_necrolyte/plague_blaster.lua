@@ -53,13 +53,13 @@ function cast_necrofusion(event)
         ProjectileManager:CreateLinearProjectile(info)
     end
 
-    local w1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+    local w1_level = caster:GetRuneValue("w", 1)
     if w1_level then
         damage = damage + w1_level * constants.W1_DAMAGE_PER_HP_PERCENT/100 * caster:GetHealth()
     end
     ability.w_damage = damage
 
-    local w3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+    local w3_level = caster:GetRuneValue("w", 3)
     ability.w3_level = w3_level
 
 
@@ -67,7 +67,7 @@ function cast_necrofusion(event)
         ability.w3_level = ability.w3_level * constants.T51_AMPLIFY_W3
     end
 
-    local w2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+    local w2_level = caster:GetRuneValue("w", 2)
     local w2_duration = w2_level * constants.W2_DURATION
 
     local modifier = caster:FindModifierByName("modifier_venomort_glyph_1_2")

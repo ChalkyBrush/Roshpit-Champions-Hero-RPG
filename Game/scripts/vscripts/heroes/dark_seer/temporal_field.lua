@@ -16,10 +16,10 @@ function field_start(event)
 	ability.point = point
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_temporal_field_dashing", {duration = 1})
 
-	ability.e_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
-	ability.e_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
-	ability.e_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
-	ability.e_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+	ability.e_1_level = caster:GetRuneValue("e", 1)
+	ability.e_2_level = caster:GetRuneValue("e", 2)
+	ability.e_3_level = caster:GetRuneValue("e", 3)
+	ability.e_4_level = caster:GetRuneValue("e", 4)
 
 	Filters:CastSkillArguments(3, caster)
 end

@@ -1,5 +1,5 @@
 local function getTremorsCount(caster)
-    local runesCount = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+    local runesCount = caster:GetRuneValue("r", 4)
     if runesCount <= 0 then
         return 1
     else
@@ -8,7 +8,7 @@ local function getTremorsCount(caster)
 end
 
 local function getAdditionalRadius(caster)
-    local runesCount = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+    local runesCount = caster:GetRuneValue("r", 4)
     if runesCount <= 0 then
         return 0
     else
