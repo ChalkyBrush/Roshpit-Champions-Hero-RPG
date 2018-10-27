@@ -1,14 +1,15 @@
-local constants = require('heroes/hero_necrolyte/constants')
+require('/heroes/hero_necrolyte/constants')
+
 local module = {
      getBad = function(caster)
          local mult = 0
         local modifier = caster:FindModifierByName("modifier_gale_nova_bad")
         if modifier then
-            mult = mult + modifier:GetStackCount() * constants.Q1_BAD_PER_ENEMY_PERCENT/100
+            mult = mult + modifier:GetStackCount() * Q1_BAD_PER_ENEMY_PERCENT/100
         end
          modifier = caster:FindModifierByName("modifier_venomort_arcana2_q_4_invisible")
          if modifier then
-             mult = mult + modifier:GetStackCount() * constants.ARCANA2_Q4_BAD_PERCENT/100
+             mult = mult + modifier:GetStackCount() * ARCANA2_Q4_BAD_PERCENT/100
          end
         return mult
     end,
@@ -24,7 +25,7 @@ local module = {
 
         local q3_level =  caster:GetRuneValue("q", 3)
         if q3_level ~= 0 then
-            local duration = constants.ARCANA2_Q3_DURATION
+            local duration = ARCANA2_Q3_DURATION
             local ability = caster:FindAbilityByName('venomort_frostvenom_grasp')
             if ability then
                 ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_frostvenom_graps_dot_amp", {duration = duration})
@@ -32,17 +33,17 @@ local module = {
                 local modifier = target:FindModifierByName("modifier_venomort_frostvenom_graps_dot_amp")
                 local stacks = modifier:GetStackCount()
 
-                stacks = math.min(stacks + q3_level, q3_level * constants.ARCANA2_Q3_MAX_STACKS_COUNT)
+                stacks = math.min(stacks + q3_level, q3_level * ARCANA2_Q3_MAX_STACKS_COUNT)
                 modifier:SetStackCount(stacks)
             end
         end
 
         local e4_level =  caster:GetRuneValue("e", 4)
         if e4_level ~= 0 then
-            local duration = constants.VENOMORT_E4_DURATION
+            local duration = VENOMORT_E4_DURATION
 
             if caster:HasModifier("modifier_venomort_glyph_4_2") then
-                duration = constants.T42_DURATION
+                duration = T42_DURATION
             end
 
             local ability = caster:FindAbilityByName('venomort_ghost_warp')
@@ -54,14 +55,14 @@ local module = {
         local modifier = caster:FindModifierByName("modifier_venomort_glyph_6_1")
         if modifier then
             local glyphAbility = modifier:GetAbility()
-            glyphAbility:ApplyDataDrivenModifier(caster, target, "modifier_venomort_glyph_6_1_damage_reduction", {duration = constants.T61_DURATION})
+            glyphAbility:ApplyDataDrivenModifier(caster, target, "modifier_venomort_glyph_6_1_damage_reduction", {duration = T61_DURATION})
         end
     end,
     getDotAmplify = function(caster, target)
         if IsValidEntity(target) then
             local modifier = target:FindModifierByName("modifier_venomort_frostvenom_graps_dot_amp")
             if modifier then
-                return modifier:GetStackCount() * constants.ARCANA2_Q3_DOT_AMPLIFY_PERCENT/100
+                return modifier:GetStackCount() * ARCANA2_Q3_DOT_AMPLIFY_PERCENT/100
             end
         end
         return 0
@@ -87,7 +88,7 @@ local module = {
             end
             for index, e1_element in ipairs(e1_elements) do
                 if element1 == e1_element or element2 == e1_element then
-                    mult = mult + e1_level * constants.E1_POISON_AMPLIFY_PERCENT/100
+                    mult = mult + e1_level * E1_POISON_AMPLIFY_PERCENT/100
                 end
             end
         end
@@ -102,12 +103,12 @@ local module = {
         local mult = 0
         local w4_level = caster:GetRuneValue("w", 4)
         if w4_level ~= 0 then
-            mult = mult + w4_level * constants.W4_POSTMIT_PER_HP_PERCENT/100 * (1 - target:GetHealth()/target:GetMaxHealth()) * 100
+            mult = mult + w4_level * W4_POSTMIT_PER_HP_PERCENT/100 * (1 - target:GetHealth()/target:GetMaxHealth()) * 100
         end
 
         if caster:HasModifier("modifier_venomort_glyph_7_2") then
-            if target:GetHealth()/target:GetMaxHealth() >= constants.T72_HEALTH_THRESHOLD_PERCENT/100 then
-                mult = mult + constants.T72_POSTMITIGATION_PERCENT/100
+            if target:GetHealth()/target:GetMaxHealth() >= T72_HEALTH_THRESHOLD_PERCENT/100 then
+                mult = mult + T72_POSTMITIGATION_PERCENT/100
             end
         end
         return mult
@@ -117,12 +118,12 @@ local module = {
         if attacker:GetName() == "npc_dota_hero_necrolyte" or victim:GetName() == "npc_dota_hero_necrolyte"  then
             local modifier = attacker:FindModifierByName('modifier_venomort_summon_damage_reduction')
             if modifier then
-                mult = mult * (1 - constants.R3_DAMAGE_REDUCTION_PERCENT/100)^modifier:GetStackCount();
+                mult = mult * (1 - R3_DAMAGE_REDUCTION_PERCENT/100)^modifier:GetStackCount();
             end
             if damagetype == DAMAGE_TYPE_PURE or damagetype == DAMAGE_TYPE_MAGICAL then
                 modifier = attacker:FindModifierByName('modifier_venomort_glyph_6_1_damage_reduction')
                 if modifier then
-                    mult = mult * constants.T61_MAGIC_AND_PURE_REDUCTION_PERCENT/100;
+                    mult = mult * T61_MAGIC_AND_PURE_REDUCTION_PERCENT/100;
                 end
             end
         end

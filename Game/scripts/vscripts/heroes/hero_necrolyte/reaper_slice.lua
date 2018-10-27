@@ -1,4 +1,4 @@
-local constants = require('heroes/hero_necrolyte/constants')
+require('heroes/hero_necrolyte/constants')
 
 function toggle_on(event)
 	local caster = event.caster
@@ -8,7 +8,7 @@ function toggle_on(event)
 	Filters:CastSkillArguments(4, caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_arcana2_movespeed_set", nil)
 	StartSoundEvent("Venomort.ReaperToggle", caster)
-	caster:SetModifierStackCount( "modifier_venomort_arcana2_movespeed_set", ability,constants.ARCANA1_R_BASE_MOVESPEED + r4_level * constants.ARCANA1_R4_BONUS_MOVESPEED)
+	caster:SetModifierStackCount( "modifier_venomort_arcana2_movespeed_set", ability,ARCANA1_R_BASE_MOVESPEED + r4_level * ARCANA1_R4_BONUS_MOVESPEED)
 end
 
 function toggle_off(event)
@@ -21,14 +21,14 @@ function slice_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local damage_mult = event.damage_mult
-	local radius = constants.VENOMORT_ARCANA1_R_RADIUS
+	local radius = VENOMORT_ARCANA1_R_RADIUS
 	local r1_level = caster:GetRuneValue("r", 1)
 	local r2_level = caster:GetRuneValue("r", 2)
 	local r3_level = caster:GetRuneValue("r", 3)
 	local target
 
 	if r2_level > 0 then
-		radius = radius + constants.ARCANA1_R2_RADIUS * r2_level
+		radius = radius + ARCANA1_R2_RADIUS * r2_level
 	end
 
 
@@ -73,7 +73,7 @@ function slice_start(event)
 				end)
 				--DEAL DAMAGE AND SOUND
 				if r1_level > 0 then
-					ability.r1_damage = damage * r1_level * constants.ARCANA1_R1_DAMAGE_PERCENT/100
+					ability.r1_damage = damage * r1_level * ARCANA1_R1_DAMAGE_PERCENT/100
 					if caster:HasModifier('modifier_venomort_immortal_weapon_1') then
 			            if not ability.particleCount then
 			                ability.particleCount = 0
@@ -90,14 +90,14 @@ function slice_start(event)
 								ability.particleCount = ability.particleCount  - 1
 							end)
 						end
-						local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, constants.WEAPON1_AOE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+						local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, WEAPON1_AOE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 						if #enemies > 0 then
 							for _,enemy in pairs(enemies) do
-								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_venomort_arcana2_reaper_dot", {duration = constants.ARCANA1_R1_DURATION})
+								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_venomort_arcana2_reaper_dot", {duration = ARCANA1_R1_DURATION})
 							end
 						end
 					else
-						ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_arcana2_reaper_dot", {duration = constants.ARCANA1_R1_DURATION})
+						ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_arcana2_reaper_dot", {duration = ARCANA1_R1_DURATION})
 					end
 
 				end
@@ -105,10 +105,10 @@ function slice_start(event)
 					local soulRipParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_undying/undying_soul_rip_heal.vpcf", PATTACH_POINT_FOLLOW, caster)
 					ParticleManager:SetParticleControlEnt(soulRipParticle, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 					ParticleManager:SetParticleControlEnt(soulRipParticle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-					local heal = damage * r3_level * constants.ARCANA1_R3_HEAL_PERCENT/100
+					local heal = damage * r3_level * ARCANA1_R3_HEAL_PERCENT/100
 					local healthDefecit = caster:GetMaxHealth() - caster:GetHealth()
 					local overHeal = heal - healthDefecit
-					local maxOverheal = caster:GetMaxHealth() * r3_level * constants.ARCANA1_R3_SHIELD_PERCENT/100
+					local maxOverheal = caster:GetMaxHealth() * r3_level * ARCANA1_R3_SHIELD_PERCENT/100
 					Filters:ApplyHeal(caster, caster, heal, true)
 					if overHeal > 0 then
 						if not caster.scythe_shield_absorb then
