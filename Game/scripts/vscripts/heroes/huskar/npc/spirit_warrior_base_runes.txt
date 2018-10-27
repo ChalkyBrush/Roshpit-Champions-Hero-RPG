@@ -1,3 +1,4 @@
+
 	"spirit_warrior_rune_q_1"
 	{
 		// General
@@ -28,7 +29,6 @@
 				"element_one"			"2"
 			}
 		}
-
 	}
 
 	"spirit_warrior_rune_q_2"
@@ -50,7 +50,6 @@
 				"property_one"			"5"
 			}
 		}
-
 	}
 
 	"spirit_warrior_rune_q_3"
@@ -83,7 +82,6 @@
 				"element_one"			"12"
 			}
 		}
-
 	}
 
 	"spirit_warrior_rune_q_4"
@@ -110,7 +108,6 @@
 				"property_two"			"0.02"
 			}
 		}
-
 	}
 
 	"spirit_warrior_rune_w_1"
@@ -146,7 +143,6 @@
 				}
 			}
 		}
-
 	}
 
 	"spirit_warrior_rune_w_2"
@@ -196,7 +192,6 @@
 				}
 			}
 		}
-
 	}
 
 	"spirit_warrior_rune_w_3"
@@ -218,7 +213,6 @@
 				"property_one"			"0.5"
 			}
 		}
-
 	}
 
 	"spirit_warrior_rune_w_4"
@@ -252,7 +246,6 @@
 				"EffectAttachType"	"follow_overhead"
 			}
 		}
-
 	}
 
 	"spirit_warrior_rune_e_1"
@@ -285,7 +278,6 @@
 				"element_one"			"12"
 			}
 		}
-
 	}
 
 	"spirit_warrior_rune_e_2"
@@ -488,7 +480,6 @@
 				}
 			}
 		}
-
 	}
 
 	"spirit_warrior_rune_e_4"
@@ -531,7 +522,6 @@
 				"property_one"			"0.3"
 			}
 		}
-
 	}
 
 	"spirit_warrior_rune_r_2"
@@ -553,7 +543,6 @@
 				"property_one"			"20"
 			}
 		}
-
 	}
 
 	"spirit_warrior_rune_r_3"
@@ -586,7 +575,6 @@
 				"element_one"			"1"
 			}
 		}
-
 	}
 
 	"spirit_warrior_rune_r_4"
@@ -608,465 +596,5 @@
 				"property_one"			"12"
 			}
 		}
-
 	}
 
-	"spirit_warrior_rune_w_1_arcana2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_w_1_arcana1"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.12"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2000"
-			}
-		}
-	}
-
-	"spirit_warrior_rune_w_2_arcana2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_w_2_arcana1"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-		}
-	}
-
-	"spirit_warrior_rune_w_3_arcana2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_w_3_arcana1"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
-			}
-		}
-	}
-
-	"spirit_warrior_rune_w_4_arcana2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_w_4_arcana1"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% spirit_warrior_arcana_w4 %>"
-			}
-		}
-	}
-
-	"spirit_warrior_rune_r_1_arcana1"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_r_1_arcana1"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
-			}
-		}
-	}
-
-	"spirit_warrior_rune_r_2_arcana1"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"razor_eye_of_the_storm"
-		"MaxLevel"				"20"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"35"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"14"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-		}
-	}
-
-	"spirit_warrior_rune_r_3_arcana1"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/waterheart_weapon"
-		"MaxLevel"				"20"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"14"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-		}
-	}
-
-	"spirit_warrior_rune_r_4_arcana1"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_r_4_arcana1"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
-			}
-		}
-	}
-
-	"spirit_warrior_rune_e_1_arcana3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_e_1_arcana3"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8800"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"12"
-			}
-		}
-
-	}
-
-	"spirit_warrior_rune_e_2_arcana3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_e_2_arcana3"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
-			}
-		}
-
-	}
-
-	"spirit_warrior_rune_e_3_arcana3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_e_3_arcana3"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.12"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"			"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"12"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"4"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_spirit_rune_e_3_aura"
-			{
-				"IsPurgable"			"0"
-				"Passive" 			"1"
-				"IsHidden" 			"1"
-				"IsBuff"			"1"
-				"Aura"					"modifier_spirit_rune_e_3_debuff"
-				"Aura_Radius"			"750"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-			}
-			"modifier_spirit_rune_e_3_debuff"
-			{
-				"IsBuff"				"1"
-				"IsHidden"				"0"
-				"IsPurgable"			"0"
-				"EffectName"			"particles/roshpit/spirit_warrior/earthclench_debuff.vpcf"
-				"EffectAttachType" 		"follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"-4"
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/huskar/ancient_spirit.lua"
-						"Function"		"c_c_start"
-						"target"		"TARGET"
-					}
-				}
-				"ThinkInterval"  "1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/huskar/ancient_spirit.lua"
-						"Function"		"c_c_think"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_spirit_glyph_root"
-			{
-				"IsDebuff"	"1"
-				"IsHidden"	"0"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_lone_druid/lone_druid_bear_entangle.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-						"ControlPointEntities"
-						{
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-						}
-					}
-					"FireSound"
-					{
-						"EffectName"	"SpiritWarrior.Earthbind"
-						"Target" 		"TARGET"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
-
-	}
-
-	"spirit_warrior_rune_e_4_arcana3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_e_4_arcana3"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
-			}
-		}
-	}
-
-	"spirit_warrior_b_c_special_arcana3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_e_2_arcana3"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
-			}
-		}
-	"Modifiers"
-		{
-			"modifier_spirit_rune_e_2_aura"
-			{
-				"EffectName"		"particles/items_fx/spirit_warrior_arcana_3_bc_aura.vpcf"
-				"EffectAttachType" 	"follow_origin"
-				"IsPurgable"			"0"
-				"Passive" 			"1"
-				"IsHidden" 			"1"
-				"IsBuff"			"1"
-				"Aura"					"modifier_spirit_rune_e_2_buff"
-				"Aura_Radius"			"600"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-			}
-			"modifier_spirit_rune_e_2_buff"
-			{
-				"IsBuff"				"1"
-				"IsHidden"				"0"
-				"IsPurgable"			"0"
-				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"EffectName"			"particles/items_fx/spirit_warrior_b_c_aura_ring.vpcf"
-				"EffectAttachType" 		"follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"					"2000"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"10"
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/huskar/ancient_spirit.lua"
-						"Function"		"b_c_start"
-						"target"		"TARGET"
-					}
-				}
-			}
-		}
-	}
