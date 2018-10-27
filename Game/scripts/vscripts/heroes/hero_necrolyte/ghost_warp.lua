@@ -1,4 +1,4 @@
-local constants = require('heroes/hero_necrolyte/constants')
+require('heroes/hero_necrolyte/constants')
 
 
 function ghost_warp_start(event)
@@ -76,20 +76,20 @@ function ghost_warp_take_damage(event)
 	local caster = event.caster
 	local ability = event.ability
 	local attacker = event.attacker
-	local duration = constants.VENONORT_E2_DURATION
+	local duration = VENONORT_E2_DURATION
 	if attacker:GetTeamNumber() == caster:GetTeamNumber() then
 		return false
 	end
 	local has_weapon3 = caster:HasModifier("modifier_venomort_immortal_weapon_3")
 
 	local e2_level = caster:GetRuneValue("e", 2)
-	local e2_damage = e2_level * constants.E2_DAMAGE_PER_LEVEL * caster:GetLevel()
+	local e2_damage = e2_level * E2_DAMAGE_PER_LEVEL * caster:GetLevel()
 
 	if e2_level == 0 then
 		return
 	end
 	if has_weapon3 then
-		e2_damage = e2_damage + e2_level * constants.WEAPON3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT/100 * caster:GetHealth()
+		e2_damage = e2_damage + e2_level * WEAPON3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT/100 * caster:GetHealth()
 	    local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/viper_channel_flare.vpcf", attacker:GetAbsOrigin()+Vector(0,0,attacker:GetBoundingMaxs().z), 1)
 	    ParticleManager:SetParticleControl(pfx, 1, Vector(40,40,40))
 	    ParticleManager:SetParticleControl(pfx, 2, Vector(18,18,18))
@@ -99,8 +99,8 @@ function ghost_warp_take_damage(event)
 	if caster:HasModifier("modifier_venomort_glyph_3_2") then
 		if ability.previous_health then
 			local currentHealth = caster:GetHealth()
-			if math.floor(ability.previous_health * constants.T32_HEALTH_THRESHOLD_PERCENT/caster:GetMaxHealth()) - math.floor(currentHealth * constants.T32_HEALTH_THRESHOLD_PERCENT/caster:GetMaxHealth()) > 0 then
-				e2_damage = e2_damage * constants.VENOMORT_T32_AMPLIFY
+			if math.floor(ability.previous_health * T32_HEALTH_THRESHOLD_PERCENT/caster:GetMaxHealth()) - math.floor(currentHealth * T32_HEALTH_THRESHOLD_PERCENT/caster:GetMaxHealth()) > 0 then
+				e2_damage = e2_damage * VENOMORT_T32_AMPLIFY
 				print('E2 amplify apply')
 			end
 		end
@@ -112,7 +112,7 @@ function ghost_warp_take_damage(event)
 	ability.e2_damage = e2_damage
 
 	if caster:HasModifier("modifier_venomort_glyph_2_2") then
-		local radius = constants.T22_RADIUS
+		local radius = T22_RADIUS
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), attacker:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
@@ -143,8 +143,8 @@ end
 function e3_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local radius = constants.E3_RADIUS
-	local duration = constants.E3_DURATION
+	local radius = E3_RADIUS
+	local duration = E3_DURATION
 	ability.e3_level = caster:GetRuneValue("e", 3)
 
 	if ability.e3_level == 0 then
@@ -164,18 +164,18 @@ function apply_e4_stacks(event)
 	local ability = event.ability
 	local target = event.target
 
-	local bossesCountAs = constants.BOSSES_COUNT_AS_ENEMIES
-	local paragonsCountAs = constants.PARAGONS_COUNT_AS_ENEMIES
+	local bossesCountAs = BOSSES_COUNT_AS_ENEMIES
+	local paragonsCountAs = PARAGONS_COUNT_AS_ENEMIES
 	if caster:HasModifier("modifier_venomort_glyph_2_1") then
-		bossesCountAs = constants.T21_BOSSES_COUNT_AS_ENEMIES
-		paragonsCountAs = constants.T21_PARAGONS_COUNT_AS_ENEMIES
+		bossesCountAs = T21_BOSSES_COUNT_AS_ENEMIES
+		paragonsCountAs = T21_PARAGONS_COUNT_AS_ENEMIES
 	end
 
 
-	local duration = constants.VENOMORT_E4_DURATION + constants.E4_DELAY
+	local duration = VENOMORT_E4_DURATION + E4_DELAY
 
 	if caster:HasModifier("modifier_venomort_glyph_4_2") then
-		duration = constants.T42_DURATION + constants.E4_DELAY
+		duration = T42_DURATION + E4_DELAY
 	end
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_e4_hero_bonus_visible", nil)
@@ -212,10 +212,10 @@ function recalculate_e4_stacks(event)
 		ability.e4_use_previous_stacks = false
 	end
 
-	local duration = constants.VENOMORT_E4_DURATION
+	local duration = VENOMORT_E4_DURATION
 
 	if caster:HasModifier("modifier_venomort_glyph_4_2") then
-		duration = constants.T42_DURATION
+		duration = T42_DURATION
 	end
 
 

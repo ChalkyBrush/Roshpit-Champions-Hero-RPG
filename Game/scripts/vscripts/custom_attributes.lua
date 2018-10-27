@@ -3,13 +3,13 @@ if CustomAttributes == nil then
 end
 
 local hero_values = {
-	venomort = require('/heroes/hero_necrolyte/constants'),
 	mountain_protector = require('/heroes/legion_commander/constants'),
 }
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/antimage/arkimus_constants')
 require('/heroes/juggernaut/seinaru_constants')
 require('/heroes/dark_seer/zhonik_constants')
+require('/heroes/hero_necrolyte/constants')
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -45,7 +45,6 @@ CustomAttributes.SORCERESS_ARCANE_INT = 50
 CustomAttributes.TRAPPER_R4_AGI = 500
 CustomAttributes.SEPHYR_Q1_INT = 125
 CustomAttributes.SEPHYR_R4_AGI_INT = 500
-CustomAttributes.VENOMORT_W3_STATS = hero_values.venomort.W3_BONUS_ATTRIBUTES
 
 CustomAttributes.RING_OF_NOBILITY = 30
 CustomAttributes.RING_OF_NOBILITY2 = 60
@@ -413,9 +412,9 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_nefali_d_d", CustomAttributes.SEPHYR_R4_AGI_INT)
 	end
 	if hero:HasModifier("modifier_venomort_bonus_stats") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", CustomAttributes.VENOMORT_W3_STATS)
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", CustomAttributes.VENOMORT_W3_STATS)
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", CustomAttributes.VENOMORT_W3_STATS)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", W3_BONUS_ATTRIBUTES)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", W3_BONUS_ATTRIBUTES)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", W3_BONUS_ATTRIBUTES)
 	end
 	if hero:HasModifier("modifier_conjuror_arcana2") then
 		str_bonus = str_bonus - CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_w_4_str_decrease", 1)
@@ -764,8 +763,8 @@ function CustomAttributes:GetMaxHealth(hero, strength_health)
 	if hero:HasModifier("modifier_trinket_max_health") then
 		maxHealth = maxHealth + hero:GetModifierStackCount("modifier_trinket_max_health", hero.InventoryUnit)
 	end
-	if hero:HasModifier("modifier_venomort_rune_e_4_invisible") then
-		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_rune_e_4_invisible", 300)
+	if hero:HasModifier("modifier_venomort_e4_hero_bonus_invisible") then
+		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_e4_hero_bonus_invisible", E4_HP_PER_ENEMY)
 	end
 	if hero:HasModifier("modifier_solunia_rune_e_4_effect") then
 		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_rune_e_4_effect", CustomAttributes.SOLUNIA_E4_MAX_HEALTH)

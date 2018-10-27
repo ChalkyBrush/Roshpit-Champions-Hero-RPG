@@ -1,5 +1,5 @@
 require('heroes/hero_necrolyte/plague_blaster')
-local constants = require('heroes/hero_necrolyte/constants')
+require('heroes/hero_necrolyte/constants')
 
 function frostvenom_grasp_start(event)
 	local caster = event.caster
@@ -19,7 +19,7 @@ function frostvenom_grasp_start(event)
 	end
 	if caster:HasModifier("modifier_venomort_glyph_1_1") then
 		ability:EndCooldown()
-		ability:StartCooldown(constants.T11_COOLDOWN)
+		ability:StartCooldown(T11_COOLDOWN)
 	end
 	local damage = event.damage*event.amp
 	EmitSoundOn("Venomort.FrostVenomGrasp.Cast", caster)
@@ -27,8 +27,8 @@ function frostvenom_grasp_start(event)
 	ability.q_1_level = q_1_level
 	local q_2_level = caster:GetRuneValue("q", 2)
 	if q_2_level > 0 then
-		radius = radius + q_2_level*constants.ARCANA2_Q2_SEARCH_RADIUS
-		ability.slideSpeed = constants.ARCANA2_Q2_SPEED_BURST_BASE + q_2_level*constants.ARCANA2_Q2_SPEED_BURST
+		radius = radius + q_2_level*ARCANA2_Q2_SEARCH_RADIUS
+		ability.slideSpeed = ARCANA2_Q2_SPEED_BURST_BASE + q_2_level*ARCANA2_Q2_SPEED_BURST
 		ability.fv = caster:GetForwardVector()
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_icevenom_slide", {duration = 5})
 	end
@@ -41,7 +41,7 @@ function frostvenom_grasp_start(event)
 		local w2_level = caster:GetRuneValue("w", 2)
 		if w2_level > 0 then
 			apply_demoralize = true
-			demoralize_duration =  w2_level * constants.W2_DURATION * (1 + constants.T12_DURATION_INCREASE_PERCENT/100)
+			demoralize_duration =  w2_level * W2_DURATION * (1 + T12_DURATION_INCREASE_PERCENT/100)
 		end
 	end
 	for i = 1, explosions, 1 do
@@ -70,7 +70,7 @@ function frostvenom_grasp_start(event)
 
 					if apply_demoralize then
 						local luck = RandomInt(1,100)
-						if luck < constants.W2_CHANCE then
+						if luck < W2_CHANCE then
 							demoralize(caster, w_ability, enemy, demoralize_duration)
 						end
 
@@ -87,7 +87,7 @@ function frostvenom_chill_think(event)
 	local ability = event.ability
 	local target = event.target
 	if ability.q_1_level > 0 then
-		local damage = (ability.q_1_level * constants.ARCANA2_Q1_DAMAGE + constants.ARCANA2_Q1_DAMAGE_BASE)*target:GetModifierStackCount("modifier_chilled_stacking", caster)
+		local damage = (ability.q_1_level * ARCANA2_Q1_DAMAGE + ARCANA2_Q1_DAMAGE_BASE)*target:GetModifierStackCount("modifier_chilled_stacking", caster)
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_POISON, RPC_ELEMENT_ICE)
 	end
 end
