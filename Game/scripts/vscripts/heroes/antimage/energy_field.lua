@@ -6,7 +6,7 @@ function start_channel(event)
 	EmitSoundOn("Akrimus.Channel.VO", caster)
 	StartSoundEvent("Arkimus.EnergyField.Channel", caster)
 
-	local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	local c_d_level = caster:GetRuneValue("r", 3)
 	if c_d_level > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(caster, ARKIMUS_R3_DURATION * c_d_level, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_energy_field_c_d_shield", {duration = duration})
@@ -30,8 +30,8 @@ function channel_complete(event)
 	StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_4, rate=1})
 	EmitSoundOn("Arkimus.EnergyField.VO", caster)
 
-	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	ability.r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	ability.r_1_level = caster:GetRuneValue("r", 1)
+	ability.r_2_level = caster:GetRuneValue("r", 2)
 	local count = event.spirits
 	if caster:HasModifier("modifier_arkimus_glyph_3_1") then
 		count = count + 2

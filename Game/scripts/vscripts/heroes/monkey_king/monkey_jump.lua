@@ -33,7 +33,7 @@ function monkey_jump_start(event)
 
 	ability.interval = 0
 
-	local c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	local c_c_level = caster:GetRuneValue("e", 3)
 	if c_c_level > 0 then
 		local procs = Runes:Procs(c_c_level, 5, 1)
 		if procs > 0 then
@@ -111,7 +111,7 @@ function jump_end(event)
 		StartAnimation(caster, {duration=1, activity=ACT_DOTA_MK_SPRING_END, rate=1})
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 	end)
-	ability.e_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+	ability.e_1_level = caster:GetRuneValue("e", 1)
 	if ability.e_1_level > 0 then
 		ability:ApplyDataDrivenThinker(caster, caster:GetAbsOrigin(), "modifier_monkey_a_c_thinker", {duration = 20})
 	end

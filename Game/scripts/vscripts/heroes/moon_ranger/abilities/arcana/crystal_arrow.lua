@@ -46,7 +46,7 @@ function crystal_arrow_channel_start(event)
 	-- 	ParticleManager:ReleaseParticleIndex(ability.pfx)
 	-- 	ability.pfx = false
 	-- end
-	local a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	local a_d_level = caster:GetRuneValue("r", 1)
 	ability.r_1_level = a_d_level
 	if a_d_level > 0 then
 		ability.r1_dummy = CreateUnitByName("npc_dummy_unit", ability.target_point, false, nil, nil, caster:GetTeamNumber())
@@ -226,13 +226,13 @@ function fire_crystal_arrow(event)
 		arrow.fv = (ability.target_point - arrow.position):Normalized()
 		table.insert(ability.arrow_table, arrow)
 	end
-	local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	local b_d_level = caster:GetRuneValue("r", 2)
 	ability.r_2_level = b_d_level
 	if b_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_crystal_arrow_b_d", {duration = 7})
 		caster:SetModifierStackCount("modifier_crystal_arrow_b_d", caster, b_d_level)
 	end
-	ability.r_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	ability.r_4_level = caster:GetRuneValue("r", 4)
 	Filters:CastSkillArguments(4, caster)
 end
 
@@ -300,7 +300,7 @@ end
 function crystal_arrow_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	local c_d_level = caster:GetRuneValue("r", 3)
 	if c_d_level > 0 then
 		local mult = 1 + math.floor(c_d_level/60)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_crystal_arrow_freecast", {})

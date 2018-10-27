@@ -21,8 +21,8 @@ function begin_arcana_ult(event)
 		max = 0
 		divisor = 1
 	end
-	local a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	local a_d_level = caster:GetRuneValue("r", 1)
+	local c_d_level = caster:GetRuneValue("r", 3)
 	if c_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_c_d_attack_percent", {})
 		caster:SetModifierStackCount("modifier_axe_c_d_attack_percent", caster, c_d_level)
@@ -44,7 +44,7 @@ function begin_arcana_ult(event)
 			end
 		end 
 		EmitSoundOnLocationWithCaster(startPoint, "RedGeneral.ArcanaSunder.Start", caster)
-		local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+		local d_d_level = caster:GetRuneValue("r", 4)
 		local procs = Runes:Procs(d_d_level, 10, 1)
 		for j = 0, procs, 1 do
 			Timers:CreateTimer(j*0.5, function()
@@ -100,7 +100,7 @@ function axe_arcana_take_damage(event)
 	local damage = event.damage
 	local ability = event.ability
 	print(damage)
-	local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	local b_d_level = caster:GetRuneValue("r", 2)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_arcana_b_d_attack_power", {duration = 4})
 	local currentStacks = caster:GetModifierStackCount("modifier_axe_arcana_b_d_attack_power", caster)
 	local additionalStacks = damage*0.05*b_d_level

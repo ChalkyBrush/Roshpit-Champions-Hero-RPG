@@ -109,9 +109,9 @@ function boomerang_think(event)
 	    		if boomerang.e_2_level > 0 then
 	    			damage = damage + boomerang.e_2_level*0.15*OverflowProtectedGetAverageTrueAttackDamage(boomerang.caster)
 	    		end
-	    		local c_c_level = Runes:GetTotalRuneLevelGeneric(boomerang.caster, 3, 2)
-	    		if c_c_level > 0 then
-	    			damage = damage + boomerang.caster:GetAgility()*E3_AGILITY_ADDED_TO_DAMAGE*c_c_level
+	    		local e_3_level = boomerang.caster:GetRuneValue("e", 3)
+	    		if e_3_level > 0 then
+	    			damage = damage + boomerang.caster:GetAgility() * E3_AGILITY_ADDED_TO_DAMAGE * e_3_level
 	    		end
 	    		Filters:TakeArgumentsAndApplyDamage(boomerang.target, boomerang.caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 	    		ability:ApplyDataDrivenModifier(boomerang, boomerang.target, "modifier_boomerang_disarm", {duration = 0.5})
@@ -199,10 +199,10 @@ end
 function strafe_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
-	if c_c_level > 0 then
+	local e_3_level = caster:GetRuneValue("e", 3)
+	if e_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_strafe_attack_damage", {})
-		local bonusAttack = caster:GetAgility()*0.2*c_c_level
+		local bonusAttack = caster:GetAgility() * 0.2 * e_3_level
 		caster:SetModifierStackCount("modifier_strafe_attack_damage", caster, bonusAttack)
 	else
 		caster:RemoveModifierByName("modifier_strafe_attack_damage")

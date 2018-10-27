@@ -136,7 +136,7 @@ function slipfinn_main_thinker(event)
 	ability.interval = ability.interval + 1
 	if ability.interval == 10 then
 		ability.interval = 0
-		ability.e_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+		ability.e_2_level = caster:GetRuneValue("e", 2)
 		if ability.e_2_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_b_c_health_regen", {})
 			local healthRegenMult = 1
@@ -162,10 +162,10 @@ function slipfinn_jump_start(event)
 
 	local movespeed = caster:GetBaseMoveSpeed()
 	local actualMS = caster:GetMoveSpeedModifier(movespeed)
-	ability.w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
-	ability.w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
-	ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
-	ability.w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	ability.w_1_level = caster:GetRuneValue("w", 1)
+	ability.w_2_level = caster:GetRuneValue("w", 2)
+	ability.w_3_level = caster:GetRuneValue("w", 3)
+	ability.w_4_level = caster:GetRuneValue("w", 4)
 	if ((caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster)) < 30) or event.guarantee then
 		caster:RemoveModifierByName("modifier_slipfinn_agitated_visible")
 		caster:RemoveModifierByName("modifier_slipfinn_agitated_invisible")

@@ -34,14 +34,14 @@ function cast(event)
     local damage = event.damage
     Filters:CastSkillArguments(4, caster)
 
-    local r4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+    local r4_level = caster:GetRuneValue("r", 4)
 
     if r4_level > 0 then
         health = health + r4_level * constants.R4_ADD_HP
         damage = damage + r4_level * constants.R4_ADD_DAMAGE
     end
 
-    local r2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+    local r2_level = caster:GetRuneValue("r", 2)
     local multiplier = 1;
     if r2_level > 0 then
         multiplier = multiplier + r2_level * constants.R2_VIPER_SCALE_PERCENT/100
@@ -107,7 +107,7 @@ function attack_land(event)
     local ability = event.ability
     local creator = caster.creator
 
-    local r1_level = Runes:GetTotalRuneLevelGeneric(creator, 1, 3)
+    local r1_level = creator:GetRuneValue("r", 1)
     if r1_level > 0 then
         local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * r1_level * constants.R1_VIPER_DAMAGE_PERCENT/100
         local summonAbility = caster.summonAbility
@@ -139,7 +139,7 @@ function attack_land(event)
 
     end
 
-    local r3_level = Runes:GetTotalRuneLevelGeneric(creator, 3, 3)
+    local r3_level = creator:GetRuneValue("r", 3)
     if r3_level > 0 then
         local max_stacks = r3_level * constants.R3_STACKS
         local duration = constants.R3_DURATION

@@ -28,7 +28,7 @@ function ShowCaster( event )
 end
 
 function rune_e_1(caster, ability)
-  local totalLevel = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+  local totalLevel = caster:GetRuneValue("e", 1)
   if totalLevel > 0 then
     local current_stack = caster:GetModifierStackCount( "modifier_flicker_charges", ability )
     if current_stack >= 10 then
@@ -80,7 +80,7 @@ end
 
 
 function rune_e_3(caster, ability)
-  local totalLevel = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+  local totalLevel = caster:GetRuneValue("e", 3)
   if totalLevel > 0 then
     local lucky = RandomInt(1, 2)
     if lucky == 1 then

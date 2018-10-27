@@ -82,7 +82,7 @@ function ghost_warp_take_damage(event)
 	end
 	local has_weapon3 = caster:HasModifier("modifier_venomort_immortal_weapon_3")
 
-	local e2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+	local e2_level = caster:GetRuneValue("e", 2)
 	local e2_damage = e2_level * constants.E2_DAMAGE_PER_LEVEL * caster:GetLevel()
 
 	if e2_level == 0 then
@@ -145,7 +145,7 @@ function e3_think(event)
 	local ability = event.ability
 	local radius = constants.E3_RADIUS
 	local duration = constants.E3_DURATION
-	ability.e3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	ability.e3_level = caster:GetRuneValue("e", 3)
 
 	if ability.e3_level == 0 then
 		return
@@ -198,7 +198,7 @@ end
 function recalculate_e4_stacks(event)
 	local caster = event.caster
 	local ability = event.ability
-	local runesCount = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+	local runesCount = caster:GetRuneValue("e", 4)
 
 	if not runesCount then
 		return

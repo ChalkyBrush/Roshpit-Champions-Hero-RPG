@@ -368,7 +368,7 @@ function swap_sun_moon(currentType, caster)
 end
 
 function arcana2runes(caster, ability)
-	local a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	local a_d_level = caster:GetRuneValue("r", 1)
 	if a_d_level > 0 then
 		local healthStacks = RandomInt(1*a_d_level,1000*a_d_level)
 		local healAmount = healthStacks*10

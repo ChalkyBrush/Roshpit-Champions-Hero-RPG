@@ -10,7 +10,7 @@ function begin_fireball(event)
 	local fireBallStartPosition = caster:GetAbsOrigin()
 	if caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
 		caster = caster.origCaster
-		ability.rune_r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+		ability.rune_r_1_level = caster:GetRuneValue("q", 3)
 	end
 	launchFireBall(caster, ability, fv, "particles/units/heroes/hero_jakiro/fireball.vpcf", 140, fireBallStartPosition)
 	if bArcane then
@@ -138,7 +138,7 @@ function fireball_hit(event)
 
 	local damage = 0
 	if not ability.rune_r_1_level then
-		ability.rune_r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+		ability.rune_r_1_level = caster:GetRuneValue("q", 3)
 	end
 	local damage = ability.rune_r_1_level*R1_ADD_DAMAGE + R1_BASE_DAMAGE
 
@@ -150,7 +150,7 @@ function fireball_hit(event)
     -- damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*d_d_level*damage
 	local radius = 360
 	local pyroblast = caster:FindAbilityByName("pyroblast")
-	local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	local b_d_level = caster:GetRuneValue("r", 2)
 	if not pyroblast.rune_r_2_level then
 		pyroblast.rune_r_2_level = b_d_level
 	end

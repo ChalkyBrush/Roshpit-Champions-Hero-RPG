@@ -9,7 +9,7 @@ function begin_arcana_comet(event)
 	local damage = event.damage
 
 	ability.q_2_level = q_2_level
-	ability.q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	ability.q_3_level = caster:GetRuneValue("q", 3)
 	if ability.q_3_level > 0 then
 		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.02*ability.q_3_level
 	end
@@ -122,7 +122,7 @@ end
 function deal_damage_with_arcana_equipped(event)
 	local attacker = event.attacker
 	local ability = event.ability
-	local q_1_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 0)
+	local q_1_level = attacker:GetRuneValue("q", 1)
 	if q_1_level > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(attacker, 0.5, false)
 		ability:ApplyDataDrivenModifier(attacker, attacker, "modifier_solunia_ultraviolet", {duration = duration})
@@ -139,7 +139,7 @@ function arcana_passive_think(event)
 	ability.interval = ability.interval + 1
 
 	if ability.interval == 10 then
-		local q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+		local q_1_level = caster:GetRuneValue("q", 1)
 		if q_1_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_ultraviolet_damage", {duration = 5})
 			caster:SetModifierStackCount("modifier_solunia_ultraviolet_damage", caster, q_1_level)
@@ -147,10 +147,10 @@ function arcana_passive_think(event)
 	end
 	if ability.interval >= 20 then
 		ability.interval = 0
-		ability.q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+		ability.q_2_level = caster:GetRuneValue("q", 2)
 	end
 	if not ability.q_2_level then
-		ability.q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+		ability.q_2_level = caster:GetRuneValue("q", 2)
 	end
 	if ability.q_2_level > 0 then
 		if not caster:HasModifier("modifier_polythea_damage") then

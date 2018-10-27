@@ -38,7 +38,7 @@ function shadow_warp_start(event)
 		ParticleManager:SetParticleControl(pfx2, 1, casterOrigin)
 		shadow_SizeChange(caster, 0.1, ability.shadowScale, 6)
 	end)
-	local c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	local c_c_level = caster:GetRuneValue("e", 3)
 	local c_c_duration = Filters:GetAdjustedBuffDuration(caster, c_c_level*SLIPFINN_E3_DURATION, false)
 	if c_c_level > 0 then
 		local shadowRush = caster:FindAbilityByName("slipfinn_shadow_rush")

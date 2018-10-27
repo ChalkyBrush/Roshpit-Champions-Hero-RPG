@@ -22,7 +22,7 @@ function begin_lightning_dash(event)
 
 	ability.pfx = pfx
 
-	ability.e_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+	ability.e_1_level = caster:GetRuneValue("e", 1)
 	ability.interval = 0
 	if not ability.particles then
 		ability.particles = 0
@@ -112,7 +112,7 @@ function dash_end(event)
 	end)
 	ParticleManager:DestroyParticle(ability.pfx, false)
 	ability.pfx = false
-	local b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+	local b_c_level = caster:GetRuneValue("e", 2)
 	if b_c_level > 0 then
 		local particleName = "particles/roshpit/voltex/lightning_dash_end.vpcf"
 		local pfxB = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
@@ -137,7 +137,7 @@ function arcana_take_damage(event)
 	local caster = event.caster
 	local ability = event.ability
 	local damage = event.damage
-	-- local c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	-- local c_c_level = caster:GetRuneValue("e", 3)
 	-- if c_c_level > 0 then
 	-- 	if not ability.regen then
 	-- 		ability.regen = 0

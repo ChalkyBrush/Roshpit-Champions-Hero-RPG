@@ -11,7 +11,7 @@ function penance_start(event)
 		source = caster
 	end
 	if ability:GetAbilityName() == "paladin_penance" then
-		ability.w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+		ability.w_4_level = caster:GetRuneValue("w", 4)
 		dummyAbility = caster.InventoryUnit:AddAbility("paladin_penance_dummy")
 		dummyAbility.creationTime = GameRules:GetGameTime()
 		print("---------")
@@ -60,9 +60,9 @@ function penance_start(event)
 	projectile = ProjectileManager:CreateTrackingProjectile(info)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin()+RandomVector(RandomInt(1,400)), "Paladin.PenanceLaunch", caster)
 	print(ability.projectileCount)
-	ability.w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
-	ability.w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
-	ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	ability.w_1_level = caster:GetRuneValue("w", 1)
+	ability.w_2_level = caster:GetRuneValue("w", 2)
+	ability.w_3_level = caster:GetRuneValue("w", 3)
 	
 	if ability.w_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_a_b_damage_growth_visible", {duration = 4})
@@ -82,7 +82,7 @@ function passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	ability.w_3_level = caster:GetRuneValue("w", 3)
 	if ability.w_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_c_b_armor", {})
 		caster:SetModifierStackCount("modifier_paladin_c_b_armor", caster, ability.w_3_level)
@@ -90,7 +90,7 @@ function passive_think(event)
 		caster:RemoveModifierByName("modifier_paladin_c_b_armor")
 	end
 	if not ability.w_4_level then
-		ability.w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+		ability.w_4_level = caster:GetRuneValue("w", 4)
 	end
 	if ability.w_4_level > 0 then
 		local stacks = caster:GetPhysicalArmorValue()*ability.w_4_level*1.0

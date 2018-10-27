@@ -5,7 +5,7 @@ LinkLuaModifier("modifier_zonik_lightspeed_cap", "modifiers/zonik/modifier_zonik
 function lightspeed_precast(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.e_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+	ability.e_4_level = caster:GetRuneValue("e", 4)
 end
 
 function lightspeed_cast(event)
@@ -21,7 +21,7 @@ function lightspeed_cast(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonik_lightspeed_flying_portion", {duration = duration})
 	caster:AddNewModifier( caster, ability, "modifier_zonik_lightspeed_cap", {duration = duration} )
 
-	local e_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+	local e_1_level = caster:GetRuneValue("e", 1)
 	local zonik_glyph_5_1_speed = 0
 	if caster:HasModifier("modifier_zonik_glyph_5_1") then
 		zonik_glyph_5_1_speed = ZHONIK_GLYPH_5_1_LIGHTSPEED_ADDITIONAL_MS 
@@ -30,7 +30,7 @@ function lightspeed_cast(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_lightspeed_a_c", {duration = duration})
 		caster:SetModifierStackCount("modifier_lightspeed_a_c", caster, e_1_level*ZHONIK_E1_MS + zonik_glyph_5_1_speed)
 	end
-	ability.e_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	ability.e_3_level = caster:GetRuneValue("e", 3)
 	Filters:CastSkillArguments(3, caster)
 
 	if caster:HasModifier("modifier_zonik_glyph_5_a") then
@@ -106,7 +106,7 @@ function lightspeed_think(event)
 			end
 			if ability.remnantPrep >= remnantReady then
 				ability.remnantPrep = ability.remnantPrep - remnantReady
-				local e_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+				local e_2_level = caster:GetRuneValue("e", 2)
 				if e_2_level > 0 then
 					if not ability.remnantTable then
 						ability.remnantTable = {}
@@ -156,7 +156,7 @@ function remnant_explode(event)
 	local ability = event.ability
 	local remnant = event.caster
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), remnant:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	local e_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+	local e_2_level = caster:GetRuneValue("e", 2)
 	local damage = caster:GetMana()*e_2_level*ZHONIK_E2_DMG_PER_MANA
 	if caster:HasModifier("modifier_zonik_glyph_6_1") and caster:HasModifier("modifier_zonik_speedball") then
 		damage = damage + damage*ZHONIK_GLYPH_6_1_MULTI/100

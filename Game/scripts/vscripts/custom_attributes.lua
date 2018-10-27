@@ -821,10 +821,10 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	tableData.pure = tableData.pure - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1)*100
 	local level = unit:GetLevel()
 	if unit:IsHero() then
-		unit.q_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 0)
-		unit.w_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 1)
-		unit.e_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 2)
-		unit.r_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 3)
+		unit.q_4_level = unit:GetRuneValue("q", 4)
+		unit.w_4_level = unit:GetRuneValue("w", 4)
+		unit.e_4_level = unit:GetRuneValue("e", 4)
+		unit.r_4_level = unit:GetRuneValue("r", 4)
 	else
 		if unit.itemLevel then
 			level = math.ceil(unit.itemLevel/4)

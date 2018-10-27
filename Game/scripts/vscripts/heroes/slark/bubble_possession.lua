@@ -17,7 +17,7 @@ function start_channel(event)
 	ability.fv = caster:GetForwardVector()
 	StartSoundEvent("Slipfinn.Possess.Channel.LP", caster)
 	EmitSoundOn("Slipfinn.PossessStartChannel.VO", caster)
-	ability.r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	ability.r_2_level = caster:GetRuneValue("r", 2)
 	if caster:HasModifier("modifier_slipfinn_glyph_6_1") then
 		ability:ApplyDataDrivenModifier(caster, ability.target, "modifier_bubble_possess_6_1_glyph", {duration = 3.0})
 	end
@@ -106,7 +106,7 @@ function possession_moving_towards_think(event)
 			ability:ApplyDataDrivenModifier(caster, ability.target, "modifier_possession_enemy_lock", {duration = duration})
 			ability.target:AddNewModifier( caster, ability, "slipfinn_possessed_lua", {duration = duration} )
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_enemy_locked", {duration = duration})
-			local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+			local d_d_level = caster:GetRuneValue("r", 4)
 			if d_d_level > 0 then
 				local attackPowerGain = ability.lockedTarget:GetAttackDamage()*SLIPFINN_R4_ATTACK_POWER_STEAL*d_d_level
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_possession_attack_power", {})

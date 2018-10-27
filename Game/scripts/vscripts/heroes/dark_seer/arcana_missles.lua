@@ -142,7 +142,7 @@ function passive_think(event)
 							
 							Filters:TakeArgumentsAndApplyDamage(missle.lockEnemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 							Filters:ApplyStun(caster, 0.1, missle.lockEnemy)
-							local r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+							local r_1_level = caster:GetRuneValue("r", 1)
 							if r_1_level > 0 then
 								CustomAbilities:QuickAttachParticle("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_land_force.vpcf", missle.lockEnemy, 3)
 								local enemies = FindUnitsInRadius( caster:GetTeamNumber(), missle.lockEnemy:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
@@ -153,7 +153,7 @@ function passive_think(event)
 							        end
 							    end
 							end
-							local r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+							local r_2_level = caster:GetRuneValue("r", 2)
 							if r_2_level > 0 then
 								local eventTable = {}
 								eventTable.caster = caster
@@ -169,7 +169,7 @@ function passive_think(event)
 								eventTable.stun_duration = eventTable.ability:GetLevelSpecialValueFor("stun_duration", eventTable.ability:GetLevel())
 								mach_punch_cast(eventTable)
 							end
-							local r_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+							local r_3_level = caster:GetRuneValue("r", 3)
 							if r_3_level > 0 then
 								ability:ApplyDataDrivenModifier(caster, missle.lockEnemy, "modifier_tempo_flux_visible", {duration = 14})
 								local newStacks = missle.lockEnemy:GetModifierStackCount("modifier_tempo_flux_visible", caster) + 1
@@ -200,7 +200,7 @@ function passive_think(event)
 	end
 	if ability.r_4_interval > 20 then
 		ability.r_4_interval = 0
-		local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+		local d_d_level = caster:GetRuneValue("r", 4)
 		if d_d_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_arcana_missles_d_d_agility", {})
 			caster:SetModifierStackCount("modifier_arcana_missles_d_d_agility", caster, d_d_level)

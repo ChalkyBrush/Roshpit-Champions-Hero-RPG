@@ -26,7 +26,7 @@ function turn_toggle_on(event)
 		end)
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dragonflame_shield_waiter", {duration = 1.5})
-	ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	ability.w_3_level = caster:GetRuneValue("w", 3)
 end
 
 function turn_toggle_off(event)
@@ -67,7 +67,7 @@ function shield_waiter_end(event)
 		EmitSoundOn("Flamewaker.Dragonfire.ShieldApply", caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dragonflame_shield", {})
 
-        local w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+        local w_2_level = caster:GetRuneValue("w", 2)
         if w_2_level > 0 then
             ability:ApplyDataDrivenModifier(caster, caster, "modifier_b_b_shimmer", {})
             caster:SetModifierStackCount("modifier_b_b_shimmer", caster, w_2_level)
@@ -166,7 +166,7 @@ function dragon_attack(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-    local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+    local w_3_level = caster:GetRuneValue("w", 3)
     local speed = -30
     if ability.movespeed then
     	speed = ability.movespeed - 30
@@ -181,7 +181,7 @@ end
 function dragonfire_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	local w_4_level = caster:GetRuneValue("w", 4)
 	if w_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_d_b_attack_power", {})
 		local atkPowerBonus = caster:GetAgility()*0.6*w_4_level

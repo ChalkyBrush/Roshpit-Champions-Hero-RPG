@@ -31,7 +31,7 @@ function start_channel(event)
 				enemyAura = "modifier_nefali_aura_enemy_glyphed"
 			end
 			ability:ApplyDataDrivenModifier(caster, caster, allyAura, {duration = 8})
-			local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+			local b_d_level = caster:GetRuneValue("r", 2)
 			if b_d_level > 0 then
 				ability:ApplyDataDrivenModifier(caster, caster, enemyAura, {duration = 8})
 			end
@@ -76,7 +76,7 @@ function nefali_aura_start_ally(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	local a_d_level = caster:GetRuneValue("r", 1)
 	if a_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_nefali_aura_health_regen", {})
 		target:SetModifierStackCount("modifier_nefali_aura_health_regen", caster, a_d_level*caster:GetLevel())
@@ -94,7 +94,7 @@ function nefali_aura_start_enemy(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	local b_d_level = caster:GetRuneValue("r", 2)
 	target:SetModifierStackCount("modifier_nefali_aura_effect_enemy", caster, b_d_level)
 end
 
@@ -102,7 +102,7 @@ function two_seconds_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	local c_d_level = caster:GetRuneValue("r", 3)
 	if c_d_level > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(caster, 10, false)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_nefali_c_d_speed", {duration = duration})
@@ -113,7 +113,7 @@ end
 function nefali_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	local d_d_level = caster:GetRuneValue("r", 4)
 	if d_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_nefali_d_d", {})
 		caster:SetModifierStackCount("modifier_nefali_d_d", caster, d_d_level)
