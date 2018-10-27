@@ -18,6 +18,8 @@
 
 	##FLAMEWAKER_UNITS##
 
+	##VENOMORT_UNITS##
+
 
 
 
@@ -7583,7 +7585,6 @@
         "PathfindingSearchDepthScale" "0.2"
     }
 
-    ##VENOMORT_UNITS##
 
     "phoenix_summon"
     {
