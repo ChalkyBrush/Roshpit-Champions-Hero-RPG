@@ -14,7 +14,7 @@ function knights_disciple_cast(event)
 	else
 		summonAbility:ApplyDataDrivenModifier(summon, summon, "modifier_disciple_unselectable", {})
 	end
-	local discipleDuration = Filters:GetAdjustedBuffDuration(caster, 30, false)
+	local discipleDuration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
 	summonAbility:ApplyDataDrivenModifier(summon, summon, "modifier_disciple_duration", {duration = discipleDuration})
 	local healAbility = summon:FindAbilityByName("knights_disciple_heal")
 	healAbility:SetLevel(ability:GetLevel())
@@ -27,8 +27,8 @@ function knights_disciple_cast(event)
 	Timers:CreateTimer(4, function() 
 	  ParticleManager:DestroyParticle( pfx, false )
 	end) 	
-	healAbility.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "paladin")
-	ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "paladin")
+	healAbility.r_2_level = caster:GetRuneValue("r", 2)
+	ability.r_1_level = caster:GetRuneValue("r", 1)
 	if ability.r_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, summon, "modifier_paladin_a_d_aura", {})
 	end
@@ -37,15 +37,14 @@ function knights_disciple_cast(event)
 		EmitSoundOn("Paladin.DiscipleSummon", summon)
 		EmitSoundOnLocationWithCaster(summon:GetAbsOrigin(), "Paladin.DiscipleLeaveSound", summon)
 	end)
-	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "paladin")
-	if c_d_level > 0 then
+	local r_3_level = caster:GetRuneValue("r", 3)
+	if r_3_level > 0 then
 		summon:FindAbilityByName("knights_disciple_bolt"):SetLevel(1)
 	else
 		summon:FindAbilityByName("knights_disciple_bolt"):SetHidden(true)
 	end
-	caster.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "paladin")
-	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "paladin")
-	if d_d_level > 0 then
+	local r_4_level = caster:GetRuneValue("r", 4)
+	if r_4_level > 0 then
 		summon:FindAbilityByName("knights_disciple_purifying_spark"):SetLevel(1)
 	else
 		summon:FindAbilityByName("knights_disciple_purifying_spark"):SetHidden(true)
@@ -58,8 +57,10 @@ end
 
 function disciple_think(event)
 	local summon = event.caster
-	print(summon:HasModifier("modifier_disciple_bonus_movespeed"))
 	local paladin = summon.paladin
+	if paladin == summon then
+		return
+	end
 	local distance = WallPhysics:GetDistance(paladin:GetAbsOrigin()*Vector(1,1,0), summon:GetAbsOrigin()*Vector(1,1,0))
 	local ability = paladin:FindAbilityByName("knights_disciple")
 	if summon.casting then
@@ -93,7 +94,7 @@ function disciple_think(event)
 	end
 	if summon:HasAbility("knights_disciple_purifying_spark") then
 		local boltAbility = summon:FindAbilityByName("knights_disciple_purifying_spark")
-		if boltAbility:IsFullyCastable() then
+		if boltAbility:IsHidden() == false and boltAbility:IsFullyCastable() then
 			local target_teams = DOTA_UNIT_TARGET_TEAM_ENEMY
 			local target_types = DOTA_UNIT_TARGET_ALL
 			local target_flags = DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS
@@ -115,9 +116,9 @@ function disciple_think(event)
 			end		
 		end		
 	end
-	if summon:HasAbility("knights_disciple_bolt") then
+	if paladin:GetRuneValue("r", 3) > 0 and summon:HasAbility("knights_disciple_bolt") then
 		local boltAbility = summon:FindAbilityByName("knights_disciple_bolt")
-		if boltAbility:IsFullyCastable() then
+		if boltAbility:IsHidden() == false and boltAbility:IsFullyCastable() then
 			local target_teams = DOTA_UNIT_TARGET_TEAM_ENEMY
 			local target_types = DOTA_UNIT_TARGET_ALL
 			local target_flags = DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS
@@ -158,10 +159,13 @@ function disciple_think(event)
 					end
 				end
 			end
-
+			local healDurationTreshold = PALADIN_R_HEAL_CD + 1
+			if paladin:HasModifier("modifier_disciple_cooldown_reduction") then
+				healDurationTreshold = PALADIN_R_HEAL_CD * (1 - PALADIN_IMMO2_CD_RED) + 1
+			end
 			local buff = paladin:FindModifierByName("modifier_knights_disciple_heal")
 			if buff then
-				if buff:GetRemainingTime() < 7 then
+				if buff:GetRemainingTime() < healDurationTreshold then
 					if paladin:IsAlive() then
 						ally = paladin
 					end
@@ -237,7 +241,7 @@ function disciple_heal_start(event)
 	event.ability:ApplyDataDrivenModifier(attacker, victim, "modifier_paladin_rune_r_2_hidden_block", {duration = 16})
 	if attacker:HasModifier("modifier_disciple_cooldown_reduction") then
 		local cd = ability:GetCooldownTimeRemaining()
-		local newCD = cd*0.75
+		local newCD = cd * (1 - PALADIN_IMMO2_CD_RED)
 		ability:EndCooldown()
 		ability:StartCooldown(newCD)
 	end
@@ -251,9 +255,9 @@ function disciple_heal_think(event)
 	else
 		caster = event.caster.paladin
 		local healDuration = Filters:GetAdjustedBuffDuration(caster, 16, false)
-		local b_d_level = ability.r_2_level
+		local r_2_level = ability.r_2_level
 		local target = event.target
-		if b_d_level > 0 then
+		if r_2_level > 0 then
 			if not target:HasModifier("modifier_paladin_rune_r_2_effect_visible") then
 				ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_r_2_effect_visible", {duration = healDuration})
 			end
@@ -263,7 +267,7 @@ function disciple_heal_think(event)
 			if not target:HasModifier("modifier_paladin_rune_r_2_invisible") then
 				ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_r_2_invisible", {duration = healDuration})
 			end
-			target:SetModifierStackCount("modifier_paladin_rune_r_2_invisible", caster, newStacks*b_d_level)
+			target:SetModifierStackCount("modifier_paladin_rune_r_2_invisible", caster, newStacks * r_2_level)
 		end
 	end
 
@@ -278,8 +282,8 @@ function armor_aura_create(event)
 	local ability = event.ability
 	local target = event.target
 	if ability.r_1_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_a_d_aura_armor_stacks", {})
-		target:SetModifierStackCount("modifier_paladin_a_d_aura_armor_stacks", caster, ability.r_1_level)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_r_1_aura_armor_stacks", {})
+		target:SetModifierStackCount("modifier_paladin_r_1_aura_armor_stacks", caster, ability.r_1_level)
 	end
 end
 
@@ -288,8 +292,8 @@ function disciple_bolt_start(event)
 	local ability = event.ability
 	local paladin = caster.paladin
 	local target = event.target
-	local c_d_level = Runes:GetTotalRuneLevel(paladin, 3, "r_3", "paladin")
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(paladin)*8*c_d_level
+	local r_3_level = paladin:GetRuneValue("r", 3)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(paladin) * PALADIN_R3_DMG_PER_ATT * r_3_level
 	EmitSoundOn("Paladin.HolyBolt", target)
 	Filters:TakeArgumentsAndApplyDamage(target, paladin, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	Filters:ApplyStun(paladin, 0.1, target)
@@ -316,7 +320,7 @@ function disciple_bolt_start(event)
 	end
 	if caster:HasModifier("modifier_disciple_cooldown_reduction") then
 		local cd = ability:GetCooldownTimeRemaining()
-		local newCD = cd*0.75
+		local newCD = cd * 0.75
 		ability:EndCooldown()
 		ability:StartCooldown(newCD)
 	end
@@ -351,7 +355,7 @@ function purifying_spark_start(event)
 	projectile = ProjectileManager:CreateTrackingProjectile(info)
 	if caster:HasModifier("modifier_disciple_cooldown_reduction") then
 		local cd = ability:GetCooldownTimeRemaining()
-		local newCD = cd*0.75
+		local newCD = cd * 0.75
 		ability:EndCooldown()
 		ability:StartCooldown(newCD)
 	end
@@ -402,8 +406,8 @@ function purifying_spark_hit(event)
 			end
 		end
 	end
-	local d_d_level = Runes:GetTotalRuneLevel(paladin, 4, "r_4", "paladin")
-	local duration = d_d_level*0.1 + 0.5
+	local r_4_level = paladin:GetRuneValue("r", 4)
+	local duration = r_4_level * PALADIN_R4_DUR + PALADIN_R4_BASE_DUR
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_disciple_purifying_spark", {duration = duration})
 	ability.split = false
 end

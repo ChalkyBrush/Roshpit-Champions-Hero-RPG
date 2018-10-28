@@ -509,7 +509,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"<% PALADIN_IMMO2_CD_RED * 100 %>"
 			}
 		}
 	}
