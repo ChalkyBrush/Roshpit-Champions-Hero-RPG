@@ -458,6 +458,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"	"legion_commander_duel"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%property_one"

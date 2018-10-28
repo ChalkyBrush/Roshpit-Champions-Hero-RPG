@@ -5044,7 +5044,7 @@
 			"modifier_duskbringer_think2"
 			{
 				"Passive"			"1"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"ThinkInterval"  "2"

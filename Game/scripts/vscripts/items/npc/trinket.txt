@@ -96,6 +96,7 @@
 			{
 				"IsBuff"		"1"
 				"IsPurgable"	"0"
+				"TextureName"   "itemicons/giant_hunter_buff"
 				"EffectName"	"particles/test_particle/damage_immunity.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"States"
