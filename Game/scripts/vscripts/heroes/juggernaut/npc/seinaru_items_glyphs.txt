@@ -1,3 +1,4 @@
+
 	"item_rpc_seinaru_glyph_1_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -305,3 +306,4 @@
 			}
 		}
 	}
+

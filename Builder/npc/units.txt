@@ -24,6 +24,7 @@
 
 	##CONJUROR_UNITS##
 
+	##SEINARU_UNITS##
 
 
 

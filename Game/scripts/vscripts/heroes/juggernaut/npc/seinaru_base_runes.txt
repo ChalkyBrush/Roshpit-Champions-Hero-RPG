@@ -1,3 +1,4 @@
+
 	"seinaru_rune_q_1"
 	{
 		// General
@@ -22,7 +23,6 @@
 				"property_two"			"<% SEINARU_Q1_ATT_SPD_PER_STACK %>"
 			}
 		}
-
 	}
 
 	"seinaru_rune_q_2"
@@ -49,7 +49,6 @@
 				"property_two"			"<% SEINARU_Q2_MOV_SLOW %>"
 			}
 		}
-
 	}
 
 	"seinaru_rune_q_3"
@@ -94,7 +93,6 @@
 				"property_one"			"<% SEINARU_Q4_ADD_DMG_PER_ATT * 100 %>"
 			}
 		}
-
 	}
 
 	"seinaru_rune_w_1"
@@ -117,7 +115,6 @@
 				"property_one"			"<% SEINARU_W1_POSTMIT_PER_STACK_PER_LVL * 100 %>"
 			}
 		}
-
 	}
 	
 	"seinaru_rune_w_2"
@@ -154,7 +151,6 @@
 		{
 
 		}
-
 	}
 	
 	"seinaru_rune_w_3"
@@ -181,7 +177,6 @@
 		{
 
 		}
-
 	}
 	
 	"seinaru_rune_w_4"
@@ -209,7 +204,6 @@
 				"property_two"			"<% SEINARU_W4_ADD_HEAL_PCT_PER_AGI * 100 * 10 %>"
 			}
 		}
-
 	}
 
 	"seinaru_rune_e_1"
@@ -248,7 +242,6 @@
 				"element_one"			"1"
 			}
 		}
-
 	}
 	
 	"seinaru_rune_e_2"
@@ -271,7 +264,6 @@
 				"property_one"			"<% SEINARU_E2_CHANCE %>"
 			}
 		}
-
 	}
 	
 
@@ -295,7 +287,6 @@
 				"property_one"			"<% SEINARU_E3_THRESHOLD * 100 %>"
 			}
 		}
-
 	}
 	
 	"seinaru_rune_e_4"
@@ -323,7 +314,6 @@
 				"property_two"			"<% SEINARU_E4_HOLY_PCT_PER_NEG_ARMOR * 100 * 10 %>"
 			}
 		}
-
 	}
 
 	"seinaru_rune_r_1"
@@ -346,7 +336,6 @@
 				"property_one"			"<% SEINARU_R1_ARMOR_RED %>"
 			}
 		}
-
 	}
 
 	"seinaru_rune_r_2"
@@ -443,5 +432,5 @@
 				"property_one"			"<% SEINARU_R4_POSTMIT_MULT * 100 %>"
 			}
 		}
-
 	}
+
