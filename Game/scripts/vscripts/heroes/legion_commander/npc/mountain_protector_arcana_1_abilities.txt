@@ -1,0 +1,200 @@
+
+	"mountain_protector_steelforge_stance"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"mountain_protector/steelforge_stance"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1.1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"armor"						"30 100 200 400 1000 3000 5000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_resist"				"45 49 54 60 67 75 84"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"regen_percent"		    "5 9 13 17 21 25 35"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"mana_drain_per_second"		"80 120 200 600 1200 1600 2400"
+			}
+		}
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_steelforge_stance"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_steelforge_stance"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+
+			"modifier_protector_steelforge_regen"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "1"
+				}
+			}
+			"modifier_steelforge_stance"
+			{
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/legion_commander/steelforge_stance.lua"
+						"Function"		"energy_shield_think"
+						"mana_drain"	"%mana_drain_per_second"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/legion_commander/steelforge_stance.lua"
+						"Function"		"energy_shield_create"
+				        "regen_percent" "%regen_percent"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/legion_commander/steelforge_stance.lua"
+						"Function"		"energy_shield_end"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_energy_channel_animating"
+						"Target" 		"TARGET"
+					}
+				}
+				"IsHidden"	"0"
+				"IsDebuff"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"StatusEffectName" 		"particles/roshpit/mountain_protector/status_steel.vpcf"
+				"StatusEffectPriority"  "50"
+			}
+			"modifier_steelforge_stone"
+			{
+				"IsHidden"	"1"
+				"StatusEffectName" 		"particles/roshpit/mountain_protector/status_steel.vpcf"
+				"StatusEffectPriority"  "100"
+			}
+			"modifier_energy_channel_no_cast_filter"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_energy_channel_animating"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_protector_rune_c_b_aura"
+			{
+				"EffectName"		"particles/roshpit/mystic_assassin/mountain_protector_c_b_shield.vpcf"
+				"EffectAttachType" 	"follow_origin"
+				"IsPurgable"			"0"
+				"Passive" 			"0"
+				"IsHidden" 			"1"
+				"IsBuff"			"1"
+				"Aura"					"modifier_protector_w_3_zap"
+				"Aura_Radius"			"500"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+			}
+			"modifier_protector_w_3_zap"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.8"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
+						"Function"		"protector_c_b_zap"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_steelforge_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/legion_commander/steelforge_stance.lua"
+						"Function"		"steelforge_take_damage"
+					}
+				}
+
+			}
+			"modifier_protector_rune_w4_bonus_damage"
+			{
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+		}
+	}
+
