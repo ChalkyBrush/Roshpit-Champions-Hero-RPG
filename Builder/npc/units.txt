@@ -26,6 +26,9 @@
 
 	##SEINARU_UNITS##
 
+	##TRAPPER_UNITS##
+
+
 
 
 
@@ -8842,7 +8845,6 @@
         }
     }
 
-    ##TRAPPER_UNITS##
 
     "doomguard_a"
     {
