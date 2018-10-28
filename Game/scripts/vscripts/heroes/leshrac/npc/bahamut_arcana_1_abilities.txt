@@ -1,0 +1,183 @@
+
+	"bahamut_arcana_ulti"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"bahamut/bahamut_arcana_ulti"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"18 16 14 12 10 8 6"
+		"AbilityChannelTime"	"2"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+
+
+		}
+
+		"AbilityManaCost"	"0"
+		"SideShop"	"1"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+				"Duration"		"2"
+			}
+
+			"FireSound"
+			{
+				"EffectName"	"leshrac_lesh_pain_04"
+				"Target"	"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/leshrac/bahamut_arcana_ult.lua"
+				"Function"		"start_channel"
+			}
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_light_charging"
+				"Target" 		"CASTER"
+				"Duration"		"0.9"
+			}
+			"FireSound"
+			{
+				"EffectName"	"leshrac_lesh_happy_04"
+				"Target"	"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/leshrac/bahamut_arcana_ult.lua"
+				"Function"		"begin_bahamut_arcana_ult"
+				"duration"		"%duration"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/leshrac/bahamut_arcana_ult.lua"
+				"Function"		"break_channel"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_channel_start"
+			{
+				"IsHidden"	"1"
+				"OverrideAnimation"     "ACT_DOTA_VICTORY"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+						"EffectAttachType"			"attach_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"40 120 255"
+						"EffectAlphaScale"			"0.7"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+				}
+			}
+			"modifier_leshrac_arcana_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/leshrac/bahamut_arcana_ult.lua"
+						"Function"		"leshrac_arcana_ult_effect_think"
+						"damage"		"%damage"
+					}
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+						"EffectAttachType"			"attach_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"20 120 255"
+						"EffectAlphaScale"			"0.6"
+					}
+				}
+			}
+			"modifier_leshrac_arcana_slow"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-65"
+				}
+			}
+			"modifier_leshrac_arcana_b_d_effect"
+			{
+				"IsHidden"	"1"
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"16"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"600 1200 3000 7400 24700 44800 84000"
+			}
+		}
+
+	}
+
