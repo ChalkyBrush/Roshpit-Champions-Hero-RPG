@@ -64,6 +64,15 @@
 	##SPIRIT_WARRIOR_BASE_ABILITIES##
 	##SPIRIT_WARRIOR_BASE_RUNES##
 
+	##CONJUROR_ARCANA_1_ABILITIES##
+	##CONJUROR_ARCANA_1_RUNES##
+	##CONJUROR_ARCANA_2_ABILITIES##
+	##CONJUROR_ARCANA_2_RUNES##
+	##CONJUROR_ARCANA_3_ABILITIES##
+	##CONJUROR_ARCANA_3_RUNES##
+	##CONJUROR_BASE_ABILITIES##
+	##CONJUROR_BASE_RUNES##
+
 
 
 
@@ -81,8 +90,6 @@
 
 	##CHERNOBOG_ABILITIES##
 
-	##CONJUROR_ABILITIES##
-	##CONJUROR_RUNES##
 
 	##DINATH_ABILITIES##
 
@@ -61446,142 +61453,6 @@
 			{
 				"var_type"						"FIELD_FLOAT"
 				"light_strike_array_stun_duration"	"1.5 1.5 1.5 1.5"
-			}
-		}
-	}
-
-	"conjuror_deity_a_d"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"conjuror/invoker_arcana_r_1"
-		"MaxLevel"	"3"
-
-		"Modifiers"
-		{
-			"modifier_conjuror_deity_a_d"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"OnAttackStart"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Conjuror.Deity.PreAttack"
-						"Target" 		"CASTER"
-					}
-				}
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/invoker/elemental_deity"
-						"Function"		"deity_a_d_attack_land"
-						"attack_damage"	"%attack_damage"
-					}
-				}
-			}
-		}
-	}
-
-	"conjuror_deity_terra_blast"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"conjuror/invoker_arcana_r_2"
-		"RequiredLevel"          		"0"
-		"LevelsBetweenUpgrades"  		"0"
-		"MaxLevel"				 		"3"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityCastRange"				"1200"
-		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		"AOERadius"						"200"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"4.5"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/invoker/elemental_deity"
-				"Function"		"terra_blast_start"
-				"target"		"POINT"
-			}
-		}
-	}
-
-	"conjuror_deity_shadow_shield"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"conjuror/invoker_arcana_r_4"
-		"RequiredLevel"          		"0"
-		"LevelsBetweenUpgrades"  		"0"
-		"MaxLevel"				 		"3"
-		"AbilityCastRange"				"1500"
-		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/invoker/elemental_deity"
-				"Function"		"shadow_shield_start"
-				"target"		"POINT"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_deity_shadow_shield"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"EffectName"		"particles/roshpit/conjuror/deity_shadow_shield.vpcf"
-				"EffectAttachType"	"follow_origin"
 			}
 		}
 	}
