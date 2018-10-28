@@ -317,7 +317,7 @@
 				"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
 				"Function"		"knights_disciple_cast"
 				"vision_radius"	"%radius"
-				"duration"		"%duration"
+				"duration"		"%summon_duration"
 			}
 
 		}
@@ -495,7 +495,7 @@
 			}
 			"modifier_paladin_a_d_aura"
 			{
-				"Aura"          	"modifier_paladin_a_d_aura_effect"
+				"Aura"          	"modifier_paladin_r_1_aura_effect"
 				"Aura_Radius"   	"1000"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -504,7 +504,7 @@
 				"EffectName"		"particles/roshpit/paladin/paladin_a_d_aura.vpcf"
 				"EffectAttachType"	"attach_origin"
 			}
-			"modifier_paladin_a_d_aura_effect"
+			"modifier_paladin_r_1_aura_effect"
 			{
 				"IsHidden"	"1"
 				"EffectName"	"particles/roshpit/paladin/paladin_a_d_aura_ring.vpcf"
@@ -522,19 +522,19 @@
 				{
 					"RemoveModifier"
 					{
-						"ModifierName"	"modifier_paladin_a_d_aura_armor_stacks"
+						"ModifierName"	"modifier_paladin_r_1_aura_armor_stacks"
 						"Target" 		"TARGET"
 					}
 				}
 			}
-			"modifier_paladin_a_d_aura_armor_stacks"
+			"modifier_paladin_r_1_aura_armor_stacks"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"TextureName"	"rpc/paladin_a_d"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "45"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% PALADIN_R1_ARMOR %>"
 				}
 			}
 		}
@@ -731,8 +731,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/omniknight/paladin_runes.lua"
-				"Function"		"paladin_die"
+				"ScriptFile"	"heroes/omniknight/paladin_3_e.lua"
+				"Function"		"paladin_rune_e_1_die"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -1013,8 +1013,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/omniknight/paladin_runes.lua"
-				"Function"		"paladin_die"
+				"ScriptFile"	"heroes/omniknight/paladin_3_e.lua"
+				"Function"		"paladin_rune_e_1_die"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -1082,461 +1082,7 @@
 
 	}
 
-	"paladin_penance"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityTextureName"			"paladin/paladin_penance"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 5000 25000 80000 150000 250000 500000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal_percentage"				"10"
-			}
-		}
-		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-
-		}
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1100"
-		"AbilityCastPoint"				"0.3"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 240 360 500 700 1200 2000"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/omniknight/paladin_2_w_arcana.lua"
-				"Function"		"penance_start"
-				"target"		"TARGET"
-			}
-		}
-		"OnProjectileHit_ExtraData"
-		{
-			"DeleteOnHit"	"1"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/omniknight/paladin_2_w_arcana.lua"
-				"Function"		"penance_impact"
-				"target"		"TARGET"
-				"damage"		"%damage"
-				"heal_percentage"	"%heal_percentage"
-				"projectile"	"PROJECTILE"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_paladin_arcana_glove_passive"
-			{
-				"IsHidden"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Passive"	"1"
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_paladin_c_b_armor"
-						"Target" 		"TARGET"
-					}
-				}
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_2_w_arcana.lua"
-						"Function"		"passive_think"
-					}
-				}
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_2_w.lua"
-						"Function"		"paladin_attack_land"
-					}
-				}
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_2_w_arcana.lua"
-						"Function"		"penance_die"
-					}
-				}
-			}
-			"modifier_paladin_arcana_armor"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
-				}
-			}
-			"modifier_paladin_rune_q_3_shield"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"TextureName"		"sven/vigil_signet/sven_warcry"
-				"EffectName"		"particles/units/heroes/hero_medusa/divine_aegis.vpcf"
-				"EffectAttachType"	"follow_origin"
-			}
-			"modifier_paladin_a_b_damage_growth_visible"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"paladin/paladin_rune_w_1_arcana1"
-			}
-			"modifier_paladin_a_b_damage_growth_invisible"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
-				}
-			}
-			"modifier_paladin_c_b_disarm"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"TextureName"	"phantom_lancer_sunwarrior_phantom_edge"
-				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
-				"StatusEffectPriority"  "10"
-				"States"
-				{
-					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifeir_paladin_c_b_disarm_immunity"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_paladin_c_b_armor"
-			{
-				"IsHidden"	"0"
-				"TextureName"	"paladin/paladin_rune_w_3_arcana1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100"
-				}
-			}
-			"modifier_penance_projectiles"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-			}
-		}
-	}
-
-	"paladin_penance_dummy"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityTextureName"			"paladin/paladin_penance"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 5000 25000 80000 150000 250000 500000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal_percentage"				"10"
-			}
-		}
-		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-
-		}
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"99999"
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/omniknight/paladin_2_w_arcana.lua"
-				"Function"		"penance_start"
-				"target"		"TARGET"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"1"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/omniknight/paladin_2_w_arcana.lua"
-				"Function"		"penance_impact"
-				"target"		"TARGET"
-				"damage"		"%damage"
-				"heal_percentage"	"%heal_percentage"
-				"projectile"	"PROJECTILE"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-	
-	"paladin_crusader_comet"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"paladin/wings_of_sanctity"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AOERadius"						"240"
-		"AbilityCastRange"				"1250 1375 1500 1625 1750 1875 2000"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-	    "precache"
-	    {
-
-	    }
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"3.2"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"	"1250 1375 1500 1625 1750 1875 2000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"	"3000 12000 35000 80000 160000 350000 600000"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_from_str"	"20 40 80 160 240 320 400"
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/omniknight/paladin_3_e_arcana.lua"
-				"Function"		"begin_crusader_comet"
-				"Target"		"POINT"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_paladin_arcana2_passive"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_paladin_b_c_attackpower"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_paladin_d_c_postmit"
-						"Target" 		"TARGET"
-					}
-				}
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_3_e_arcana.lua"
-						"Function"		"calculate_and_apply_b_c_attack_power"
-					}
-				}
-			}
-			"modifier_paladin_heal_on_lethal_cooldown"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-			}
-			"modifier_comet_jumping"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_1"
-				"EffectName"	"particles/roshpit/paladin/comet_charge.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-				"ThinkInterval"  "0.03"
-				"IsHidden"		"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_3_e_arcana.lua"
-						"Function"		"jumping_think"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_comet_storming"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"EffectName"	"particles/roshpit/paladin/comet_charge.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-				"ThinkInterval"  "0.03"
-				"IsHidden"		"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_3_e_arcana.lua"
-						"Function"		"comet_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_3_e_arcana.lua"
-						"Function"		"comet_storm_end"
-						"damage"		"%base_damage"
-						"str_mult"		"%damage_from_str"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_paladin_b_c_attackpower"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
-				}
-			}
-			"modifier_black_King_bar_immunity"
-			{
-				"Passive"	"0"
-				"IsHidden" "0"
-				"ThinkInterval"  "4.0"
-				"TextureName"	"paladin/paladin_rune_e_3_arcana2"
-				"EffectName"	"particles/items_fx/black_king_bar_avatar.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnCreated"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Item.GiantHunterImmunity"
-						"Target" 		"TARGET"
-					}
-				}
-
-			}
-			"modifier_paladin_d_c_postmit"
-			{
-				"IsHidden"	"1"
-			}
-		}
-
-	}
-
-		"paladin_disciple_ability"
+	"paladin_disciple_ability"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
@@ -1638,7 +1184,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"4"
+		"AbilityCooldown"				"<% PALADIN_R_HEAL_CD %>"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
@@ -1659,11 +1205,11 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"duration"			"6.0"
+				"duration"			"<% PALADIN_R_HEAL_DUR %>"
 			}
 			"03"
 			{
-				"var_type"			"FIELD_FLOAT"
+				"var_type"					"FIELD_FLOAT"
 				"summon_duration"			"30 31 32 33 34 35 36"
 			}
 		}

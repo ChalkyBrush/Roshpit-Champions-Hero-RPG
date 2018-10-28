@@ -13,12 +13,12 @@ function begin_crusader_comet(event)
 	EmitSoundOn("Paladin.CometLift.VO", caster)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_antimage/holy_blinkend.vpcf", caster, 1.7)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Paladin.CometFlying", caster)
-	local c_c_level = caster:GetRuneValue("e", 3)
+	local e_3_level = caster:GetRuneValue("e", 3)
 	caster:RemoveModifierByName("modifier_comet_storming")
-	if c_c_level > 0 then
-		local c_c_duration = PALADIN_ARCANA2_E3_BKB_DUR_BASE + PALADIN_ARCANA2_E3_BKB_DUR*c_c_level
-		c_c_duration = Filters:GetAdjustedBuffDuration(caster, c_c_duration, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_black_King_bar_immunity", {duration = c_c_duration})
+	if e_3_level > 0 then
+		local e_3_duration = PALADIN_ARCANA_E3_BASE_DUR + PALADIN_ARCANA_E3_DUR * e_3_level
+		e_3_duration = Filters:GetAdjustedBuffDuration(caster, e_3_duration, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_black_King_bar_immunity", {duration = e_3_duration})
 	end
 	Filters:CastSkillArguments(3, caster)
 end
@@ -88,7 +88,7 @@ function comet_storm_end(event)
 	EmitSoundOn("Paladin.CometLandGround", caster)
 
 	local str_mult = event.str_mult
-	local damage = event.damage + caster:GetStrength()*str_mult
+	local damage = event.damage + caster:GetStrength() * str_mult
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), landPoint, nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then
         for _,enemy in pairs(enemies) do
@@ -101,28 +101,27 @@ function comet_storm_end(event)
     end)
 end
 
-function calculate_and_apply_b_c_attack_power(event)
+function paladin_e_arcana2_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
-	local b_c_level = caster:GetRuneValue("e", 2)
-	if b_c_level > 0 then
+	local e_2_level = caster:GetRuneValue("e", 2)
+	if e_2_level > 0 then
 		local damageDealt = 1000
-		local damageHOLY = Filters:ElementalDamage(Events.GameMaster, caster, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
-		local amp = damageHOLY/damageDealt
+		local damageHOLY = Filters:ElementalDamage(Events.GameMaster, caster, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
+		local holyAmp = damageHOLY/damageDealt
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_b_c_attackpower", {})
-		caster:SetModifierStackCount("modifier_paladin_b_c_attackpower", caster, amp*b_c_level*1)
+		caster:SetModifierStackCount("modifier_paladin_b_c_attackpower", caster, holyAmp * e_2_level * PALADIN_ARCANA_E2_ATT_PER_HOLY)
 	else
 		caster:RemoveModifierByName("modifier_paladin_b_c_attackpower")
 	end
-	local d_c_level = caster:GetRuneValue("e", 4)
-	if d_c_level > 0 then
+	local e_4_level = caster:GetRuneValue("e", 4)
+	if e_4_level > 0 then
 		local damageDealt = 1000
-		local damageHOLY = Filters:ElementalDamage(Events.GameMaster, caster, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
-		local amp = damageHOLY/damageDealt
+		local damageHOLY = Filters:ElementalDamage(Events.GameMaster, caster, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
+		local holyAmp = damageHOLY/damageDealt
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_d_c_postmit", {})
-		caster:SetModifierStackCount("modifier_paladin_d_c_postmit", caster, amp*PALADIN_ARCANA2_E4_AMPLIFY*d_c_level/100)
+		caster:SetModifierStackCount("modifier_paladin_d_c_postmit", caster, holyAmp * PALADIN_ARCANA_E4_POSTMIT_PER_HOLY * e_4_level)
 	else
 		caster:RemoveModifierByName("modifier_paladin_d_c_postmit")
 	end	
-	
 end

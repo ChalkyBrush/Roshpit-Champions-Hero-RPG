@@ -32,7 +32,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"80"
+				"property_one"			"<% PALADIN_GLYPH_1_1_E1_CD %>"
 			}
 		}
 	}

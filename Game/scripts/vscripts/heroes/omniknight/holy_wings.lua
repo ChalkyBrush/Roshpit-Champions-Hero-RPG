@@ -1,3 +1,5 @@
+require('heroes/omniknight/paladin_constants')
+
 function cast_wings(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -100,8 +102,8 @@ function wing_attack( keys )
     local radius = keys.radius
     local damage = keys.damage
 
-    local a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "paladin")
-    damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.15*a_a_level
+    local q_1_level = caster:GetRuneValue("q", 1)
+    damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * PALADIN_Q1_ADD_DMG_PER_ATT * q_1_level
 
     local knockback_duration = 1.6
     local heal_percent = keys.heal_percent/100

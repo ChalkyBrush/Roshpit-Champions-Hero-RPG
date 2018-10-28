@@ -132,10 +132,10 @@
     	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Taking increased damage from Paladin"
 
 		"DOTA_Tooltip_ability_knights_disciple"								"Knight's Disciple"
-		"DOTA_Tooltip_ability_knights_disciple_Description"					"Summons a Disciple of Heaven to fight with you. The Disciple has a healing spell that will target the lowest HP nearby ally. The healing spell reduces damage taken by 20%."
+		"DOTA_Tooltip_ability_knights_disciple_Description"					"Summons a Disciple of Heaven to fight with you. The Disciple has a healing spell that will target the lowest HP nearby ally and heal it for a % of his max life. The healing spell reduces damage taken by 20%."
 		"DOTA_Tooltip_ability_knights_disciple_Lore"							""
     	"DOTA_Tooltip_ability_knights_disciple_summon_duration"						"SUMMON DURATION:"
-    	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"HEAL/TICK:"
+    	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"%% of max life/0.2s:"
 
 		"DOTA_Tooltip_modifier_holy_ult_aura" 							"Holy Sanctuary"
 		"DOTA_Tooltip_modifier_holy_ult_aura_description" 				"Immune to physical damage, restoring HP and 200 bonus Moovespeed."
@@ -148,8 +148,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_r_1_property_one"			"Armor Aura"
     	"DOTA_Tooltip_ability_paladin_rune_r_1_suffix"					""
 
-    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks"				"Guardian of Heaven"
-    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks_Description"	"Increased Armor"	
+    	"DOTA_Tooltip_modifier_paladin_r_1_aura_armor_stacks"				"Guardian of Heaven"
+    	"DOTA_Tooltip_modifier_paladin_r_1_aura_armor_stacks_Description"	"Increased Armor"	
 
     	"DOTA_Tooltip_ability_paladin_rune_r_2"							"[R2] Empowering Light"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"Allies who are healed by Knight's Disciple gain attack damage and armor with each heal tick. The buff lasts 16 seconds."
