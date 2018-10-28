@@ -11645,6 +11645,9 @@
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"
 		"item_property_saytaru"						"Last Hope"
 		"property_saytaru_description"				"Когда здоровье опускается ниже <font color='#ccff66'>50</font>% дарует иммунитет к магии, увеличивает сопротивление Чистому урону на <font color='#ccff66'>70</font>%, но уменьшает Магический и Чистый исходящий урон на <font color='#ccff66'>50</font>%."
+		
+		"DOTA_Tooltip_modifier_hope_of_saytaru_effect"				"Last Hope"
+		"DOTA_Tooltip_modifier_hope_of_saytaru_effect_Description"	"Иммунитет к магии. Входящий Чистый урон снижен, исходящие Чистый и Магический урон тоже снижены."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"Sapphire Lotus"

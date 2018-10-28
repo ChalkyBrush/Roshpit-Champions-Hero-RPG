@@ -4809,8 +4809,8 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_two"		"Bonus Damage from Agility"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix_two"			"x"
 		
-		"DOTA_Tooltip_modifier_modifier_dusk_fire_flail"				"Duskfire Flail"
-		"DOTA_Tooltip_modifier_modifier_dusk_fire_flail_Description"	"Taking ghastly burn damage"
+		"DOTA_Tooltip_modifier_dusk_fire_flail"				"Duskfire Flail"
+		"DOTA_Tooltip_modifier_dusk_fire_flail_Description"	"Taking ghastly burn damage"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_2"						"[Q2] Polterbite"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_2_Description"			"Increases damage dealt directly by items"
@@ -4891,8 +4891,8 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_e_2_property_one"		"Duration"
 		"DOTA_Tooltip_ability_duskbringer_rune_e_2_suffix"				" seconds"		
 
-		"DOTA_Tooltip_modifier_duskbringer_rune_e_2_effect"				"Ghost Armor" 
-		"DOTA_Tooltip_modifier_duskbringer_rune_e_2_effect_Description"	"%property_one physical block and %property_two magic block."
+		"DOTA_Tooltip_modifier_duskbringer_ghost_armor"					"Ghost Armor" 
+		"DOTA_Tooltip_modifier_duskbringer_ghost_armor_Description"		"Fully blocks an instance of damage."
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_e_3"						"[E3] Entity Clash"
     	"DOTA_Tooltip_ability_duskbringer_rune_e_3_Description"			"Enemies who come into contact with Duskbringer during @Ability3 have a chance of receiving Duskfire stacks. A chance greater than 100% means multiple stacks may be applied"
@@ -4916,6 +4916,10 @@
 		"DOTA_Tooltip_ability_seven_visions_attacks"					"ATTACKS"
 		"DOTA_Tooltip_ability_seven_visions_bonus_damage"				"BONUS ATTACK DAMAGE"
 		"DOTA_Tooltip_ability_seven_visions_stun_duration"				"STUN DURATION"
+		
+		"DOTA_Tooltip_modifier_seven_visions_striking"					"Seven Visions"
+		"DOTA_Tooltip_modifier_seven_visions_striking_Description"		"Silenced, Magical and Physical immunity. Ready to strike a target."
+		
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_1"						"[R1] Permeating Assault"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_1_Description"			"Each attack during Seven Visions also unleashes a 700-radius blast, based on the total pre-mitigation damage dealt by the Seven Visions strike."
@@ -5016,6 +5020,9 @@
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"Glyph of Eerie Silence"
 		"item_rpc_duskbringer_glyph_1_2_description" 				"Health regeneration is increased by @glyph_property1% of maximum health while silenced, and for @glyph_property2 seconds afterward."
+		
+		"DOTA_Tooltip_modifier_duskbringet_t12_heal_regen"				"Eerie Silence"
+		"DOTA_Tooltip_modifier_duskbringet_t12_heal_regen_Description"	"Regenerates 10% of Max HP per second."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"Glyph of Blank Combustion"
 		"item_rpc_duskbringer_glyph_2_2_description" 				"Attacking applies @glyph_property1 stacks of Duskfire to enemies, instead of just 1."
@@ -5025,6 +5032,9 @@
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"Glyph of the Journey"
 		"item_rpc_duskbringer_glyph_4_2_description" 				"While moving, gain stacks of @glyph_property1% damage reduction, to a maximum of @glyph_property2 stacks. These stacks last as long as your Phantom Pace stacks, but all stacks are lost at once instead of one at a time."
+		
+		"DOTA_Tooltip_modifier_duskbringer_t42_visible"					"Glyph of Journey"
+		"DOTA_Tooltip_modifier_duskbringer_t42_visible_Description"		"Damage reduction, 30 stacks at max."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_2"		"Glyph of Shared Fate"
 		"item_rpc_duskbringer_glyph_5_2_description" 				"Enemies within @glyph_property1 range of the primary target of your attacks will also gain stacks of Duskfire."
@@ -5069,6 +5079,9 @@
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_2"            "Warden's Bone Mace"
         "item_property_duskbringer_immortal_weapon2"                             "Fear"
         "property_duskbringer_immortal_weapon2_description"                      "Enemies damaged in any way by @Ability2 are stunned for @special_property1 seconds."
+		
+		"DOTA_Tooltip_ghost_hallow_stun"				"Fear"
+		"DOTA_Tooltip_ghost_hallow_stun_Description"	"Stunned by Warden's Bone Mace"
 
         "DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_3"            "Cranium Basher"
         "item_property_duskbringer_immortal_weapon3"                             "Skull Bash"
@@ -11611,6 +11624,9 @@
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"
 		"item_property_saytaru"						"Last Hope"
 		"property_saytaru_description"				"Gain Spell Immunity while below <font color='#ccff66'>50</font>% health. While active, this increases your resistance to Pure damage by <font color='#ccff66'>70</font>%, but decreases your outgoing Magic and Pure damage by <font color='#ccff66'>50</font>%."
+		
+		"DOTA_Tooltip_modifier_hope_of_saytaru_effect"				"Last Hope"
+		"DOTA_Tooltip_modifier_hope_of_saytaru_effect_Description"	"Spell Immune, reduced PURE damage taken, and also decreased outgoing Magic and Pure damage."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"Sapphire Lotus"
