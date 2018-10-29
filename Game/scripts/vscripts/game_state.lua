@@ -1837,7 +1837,7 @@ function GameState:FilterDamage(filterTable)
 		-- 	end
 		-- end
 		if attacker:HasModifier("modifier_energy_channel") then
-			filterTable["damage"] = filterTable["damage"]*attacker.mountainGuardianMagic
+			mult = mult + attacker.mountainGuardianMagic - 1
 		end
 		if victim:HasModifier("modifier_carbuncles_helm_of_reflection_effect") then
 			if not attacker:HasModifier("modifier_carbuncles_helm_of_reflection_effect") then
