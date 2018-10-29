@@ -64,8 +64,8 @@ function channel_complete(event)
 					Filters:ApplyStun(caster, stunDuration, enemy)
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ocean_quake_slowed", {duration = slow_duration})
 					if r_1_level > 0 then
-						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_hydroxis_a_d", {duration = slow_duration})
-						enemy:SetModifierStackCount("modifier_hydroxis_a_d", caster, r_1_level)
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_hydroxis_r_1", {duration = slow_duration})
+						enemy:SetModifierStackCount("modifier_hydroxis_r_1", caster, r_1_level)
 					end
 				end
 			end 

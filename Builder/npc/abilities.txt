@@ -8651,7 +8651,7 @@
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%move_slow"
 				}
 			}
-			"modifier_hydroxis_a_d"
+			"modifier_hydroxis_r_1"
 			{
 				"TextureName"		"slardar_amplify_damage"
 				"Passive"			"0"
