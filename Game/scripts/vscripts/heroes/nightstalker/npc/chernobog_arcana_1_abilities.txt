@@ -1,0 +1,247 @@
+
+	"chernobog_demon_morph"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"chernobog/chernobog_demon_supremacy"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"50"
+		"AbilityChannelTime"	"1.0"
+		"AbilityCastAnimation"	"ACT_DOTA_VICTORY"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"0"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_channel_animation"
+				"Target" 		"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/nightstalker/demon_morph.lua"
+				"Function"		"start_channel"
+				"target"		"POINT"
+				"duration"		"%duration"
+			}
+
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/nightstalker/demon_morph.lua"
+				"Function"		"begin_demon_morph"
+				"duration"		"%duration"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_channel_animation"
+				"Target" 		"TARGET"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/nightstalker/demon_morph.lua"
+				"Function"		"channel_fail"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_channel_start"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Chernobog.NightsProcessionChannelling"
+						"Target" 		"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+					"AttachEffect"
+					{
+						"EffectName"		"particles/roshpit/chernobog/channel_procession_ult.vpcf"
+						"EffectAttachType"	"attach_hitloc"
+						"Target"			"TARGET"
+
+						"ControlPoints"
+						{
+							"01"	"350 0 0"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+				}
+
+			}
+			"modifier_demon_form_dont_split"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_chernobog_demon_form"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/demon_morph.lua"
+						"Function"		"demon_form_start"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/demon_morph.lua"
+						"Function"		"demon_form_end"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_damage_percent"
+				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/demon_morph.lua"
+						"Function"		"demon_form_attack_start"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/demon_morph.lua"
+						"Function"		"demon_form_attack_land"
+						"attack_damage"	"%attack_damage"
+					}
+				}
+			}
+			"modifier_chernobog_transitioning"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_chernobog_demon_form_aura"
+			{
+				"IsHidden"	"1"
+				"Aura"          	"modifier_chernobog_demon_form_aura_effect"
+				"Aura_Radius"   	"600"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"EffectName"		"particles/roshpit/chernobog/demon_form_slow_aura_spell_bloodbath_bubbles_.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Aura_ApplyToCaster" "0"
+			}
+			"modifier_chernobog_demon_form_aura_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"chernobog/chernobog_rune_r_2_arcana1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/demon_morph.lua"
+						"Function"		"demon_aura_start"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_chernobog_demon_form_aura_stacks"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_chernobog_demon_form_aura_stacks"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-2"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" 	"-4"
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"duration"	"23 25 27 29 31 33 35"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"attack_damage_percent"	"30 50 70 90 110 130 150"
+			}
+		}
+	}
+

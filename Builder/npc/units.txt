@@ -36,6 +36,33 @@
 
 	##ASTRAL_UNITS##
 
+	##CHERNOBOG_UNITS##
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
