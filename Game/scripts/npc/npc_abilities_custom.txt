@@ -5287,6 +5287,7 @@
 			}
 			"modifier_earth_aspect_a_a_effect"
 			{
+				"IsHidden"	"1"
 				"IsBuff"			"1"
 				"EffectName"		"particles/items_fx/earth_guardian.vpcf"
 				"EffectAttachType" 	"follow_origin"
@@ -63685,7 +63686,7 @@
 			"modifier_water_bomb_w_2_damage_buff_visible"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"hydroxis/hydroxis_b_b"
+				"TextureName"	"hydroxis/hydroxis_w_2"
 				"OnCreated"
 				{
 					"RunScript"
