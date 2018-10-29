@@ -330,11 +330,11 @@
 
     	//-----------------------CHERNOBOG/Night Stalker
 
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_active"				"Inner Beast (Активно)"
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_active_Description"				"Базовый урон увеличен"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_active"				"Inner Beast (Активно)"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_active_Description"				"Базовый урон увеличен"
 
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_inactive"				"Inner Beast (Не активно)"
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_inactive_Description"				"Значение брони увеличено"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive"				"Inner Beast (Не активно)"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive_Description"				"Значение брони увеличено"
 
     	//b_d: Splash damage when striking a target in Night's Procession
 

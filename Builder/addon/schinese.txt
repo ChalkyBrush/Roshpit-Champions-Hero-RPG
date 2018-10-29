@@ -415,11 +415,11 @@
 		//暗夜魔王
 		//--------------------
 
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_active"				"野兽之怒（开启时）"
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_active_Description"				"增加基础攻击力"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_active"				"野兽之怒（开启时）"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_active_Description"				"增加基础攻击力"
 
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_inactive"				"野兽之怒（关闭时）"
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_inactive_Description"				"增加护甲"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive"				"野兽之怒（关闭时）"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive_Description"				"增加护甲"
 
     	//b_d: Splash damage when striking a target in Night's Procession
 
