@@ -32,6 +32,8 @@
 
 	##BAHAMUT_UNITS##
 
+	##DJANGHOR_UNITS##
+
 
 
 
