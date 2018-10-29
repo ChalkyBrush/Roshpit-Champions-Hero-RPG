@@ -8,7 +8,7 @@ function start_channel(event)
 	ability.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "hydroxis")
 	if ability.r_2_level > 0 then
 		local b_d_duration = Filters:GetAdjustedBuffDuration(caster, 12, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_b_d", {duration = b_d_duration})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_r_2", {duration = b_d_duration})
 	end
 	caster.e_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
 
