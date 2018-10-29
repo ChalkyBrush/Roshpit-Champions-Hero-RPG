@@ -351,11 +351,11 @@
 
     	//HYDROXIS - Slardar
 
-    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_visible"			"Liquid Essence"
-    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_visible_Description"	"Урон героя увеличен"
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_visible"			"Liquid Essence"
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_visible_Description"	"Урон героя увеличен"
 
-    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_spillover"		"Liquid Essence Spillover"
-    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_spillover_Description"	"Урон героя увеличен"
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_spillover"		"Liquid Essence Spillover"
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_spillover_Description"	"Урон героя увеличен"
 
     	//If attack target == gush target, source the tracking projectile from the hero, otherwise source it from the target
     	//SET RENDER COLOR (130, 130, 255)
