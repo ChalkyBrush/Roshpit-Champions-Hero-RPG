@@ -114,8 +114,8 @@
         "DOTA_Tooltip_ability_conjuror_rune_e_1_property_two"               "每层敏捷值提高"
         "DOTA_Tooltip_ability_conjuror_rune_e_1_suffix_two"                 ""      
 
-        "DOTA_Tooltip_modifier_conjuror_a_c_buff_visible"                   "黑暗分裂"
-        "DOTA_Tooltip_modifier_conjuror_a_c_buff_visible_Description"       "攻击力和敏捷值提高"
+        "DOTA_Tooltip_modifier_conjuror_e_1_buff_visible"                   "黑暗分裂"
+        "DOTA_Tooltip_modifier_conjuror_e_1_buff_visible_Description"       "攻击力和敏捷值提高"
         
         "DOTA_Tooltip_ability_conjuror_rune_e_2"                            "[E2] 暗影枪"
         "DOTA_Tooltip_ability_conjuror_rune_e_2_Description"                "当你施放暗影之门时，同时向目标点释放一支暗影枪。"

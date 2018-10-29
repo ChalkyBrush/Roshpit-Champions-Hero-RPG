@@ -3785,6 +3785,9 @@
 		"DOTA_Tooltip_ability_earthquake_damage"							"DAMAGE:"
 		"DOTA_Tooltip_ability_earthquake_stun_duration"						"STUN DURATION:"
 		"DOTA_Tooltip_ability_earthquake_radius"							"RADIUS:"
+		
+		"DOTA_Tooltip_earth_aspect_a_a_ability"								"Earth Guardian"
+		"DOTA_Tooltip_earth_aspect_a_a_ability_Description"					"Earth Aspect absorbs 50% of all damage taken by the caster. Each Q1 rune makes Earth Aspect provide armor to itself and all nearby friendly units."
 
 		"DOTA_Tooltip_modifier_free_quake"									"Quaking"
 		"DOTA_Tooltip_modifier_free_quake_description"						"Earthquake can be casted freely until this buff wears off."
@@ -3817,6 +3820,9 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_Description"				"Whenever your Earth Aspect takes damage, increase Conjuror's Health Regen for 1.5 seconds."
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_property_one"				"Health Regen"
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_suffix"						""
+		
+		"DOTA_Tooltip_modifier_aspect_earth_well"							"Earth Well"
+		"DOTA_Tooltip_modifier_aspect_earth_well_Description"				"Health Regen increased."	
 		
 		"DOTA_Tooltip_ability_conjuror_rune_q_4"							"[Q4] Earth and Fire"
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_Description"				"Conjuror's Strength increases <font color=\"#AF843D\">Earth</font> damage and <font color=\"#EF4126\">Fire</font> damage."
@@ -3888,8 +3894,8 @@
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_property_two"				"Agility Bonus Per Stack"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_suffix_two"					""		
 
-    	"DOTA_Tooltip_modifier_conjuror_a_c_buff_visible"					"Soul of Shadow"
-    	"DOTA_Tooltip_modifier_conjuror_a_c_buff_visible_Description"		"Increased Attack Power and Agility"
+    	"DOTA_Tooltip_modifier_conjuror_e_1_buff_visible"					"Soul of Shadow"
+    	"DOTA_Tooltip_modifier_conjuror_e_1_buff_visible_Description"		"Increased Attack Power and Agility"
 		
 		"DOTA_Tooltip_ability_conjuror_rune_e_2"							"[E2] Shadow Lance"
     	"DOTA_Tooltip_ability_conjuror_rune_e_2_Description"				"When you cast Shadow Gate - also release a dark projectile towards the targeted location."

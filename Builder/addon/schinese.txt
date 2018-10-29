@@ -291,8 +291,8 @@
 		"DOTA_Tooltip_ability_earth_aspect_a_a_ability"						"大地守护者"
 		"DOTA_Tooltip_ability_earth_aspect_a_a_ability_Description"			"为周围友军提供额外护甲值"
 
-		"DOTA_Tooltip_modifier_conjuror_a_a_buff"								"大地守护者"
-		"DOTA_Tooltip_modifier_conjuror_a_a_buff_Description"					"护甲值提高"
+		"DOTA_Tooltip_modifier_conjuror_conjuror_q_1_buff"								"大地守护者"
+		"DOTA_Tooltip_modifier_conjuror_conjuror_q_1_buff_Description"					"护甲值提高"
 
 		//--------------------
 		//神圣剑客

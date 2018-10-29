@@ -510,12 +510,12 @@
 					}
 				}
 			}
-			"modifier_conjuror_a_c_buff_visible"
+			"modifier_conjuror_e_1_buff_visible"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 			}
-			"modifier_conjuror_a_c_buff_invisible"
+			"modifier_conjuror_e_1_buff_invisible"
 			{
 				"IsHidden"	"1"
 				"IsBuff"	"1"
@@ -620,7 +620,7 @@
 					}
 				}
 			}
-			"modifier_conjuror_a_a_buff"
+			"modifier_conjuror_q_1_buff"
 			{
 				"EffectName"	"particles/items_fx/earth_guardian_ring.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -633,6 +633,7 @@
 			}
 			"modifier_earth_aspect_a_a_effect"
 			{
+				"IsHidden"	"1"
 				"IsBuff"			"1"
 				"EffectName"		"particles/items_fx/earth_guardian.vpcf"
 				"EffectAttachType" 	"follow_origin"
