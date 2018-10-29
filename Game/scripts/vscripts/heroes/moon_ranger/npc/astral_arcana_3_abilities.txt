@@ -1,0 +1,291 @@
+
+	"crystal_arrow"
+    {
+        "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+        "BaseClass" "ability_datadriven"
+        "AOERadius" "550"
+        "AbilityTextureName"    "astral_ranger/crystal_arrow"
+        "AbilityCastRange"  "1800"
+        "AbilityCastPoint"  "0.0"
+        "AbilityCooldown"   "10.0"
+        "AbilityChannelTime"    "1.5"
+        "AbilityUnitDamageType" "DAMAGE_TYPE_PURE"
+        "AbilityCastAnimation"  "ACT_DOTA_TAUNT"
+        "AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+        "RequiredLevel"                 "-5"
+        "LevelsBetweenUpgrades"         "10"
+        "MaxLevel"                      "7"
+        "precache"
+        {
+
+        }
+
+        "AbilityManaCost"   "0"
+        "SideShop"  "1"
+        "OnSpellStart"
+        {
+            "ApplyModifier"
+            {
+                "Target"    "CASTER"
+                "ModifierName"  "modifier_channel_start"
+                "Duration"      "1.5"
+            }
+
+            "FireSound"
+            {
+                "EffectName"    "Hero_Luna.LucentBeam.Cast"
+                "Target"    "CASTER"
+            }
+            "AttachEffect"
+            {
+                "EffectName"    "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_sparkles_tormented.vpcf"
+                "EffectAttachType"  "follow_origin"
+                "EffectRadius"  "200"
+                "EffectDurationScale"   "1.5"
+                "EffectLifeDurationScale"   "1"
+                "EffectColorA"  "200 200 0"
+                "EffectColorB"  "200 200 0"
+                "Target"    "CASTER"
+            }
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                "Function"      "crystal_arrow_channel_start"
+                "target"        "POINT"
+            }
+        }
+
+        "OnChannelSucceeded"
+        {
+            "RemoveModifier"
+            {
+                "Target"    "CASTER"
+                "ModifierName"  "modifier_channel_start"
+            }
+
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                "Function"      "fire_crystal_arrow"
+                "target"        "POINT"
+            }
+
+        }
+
+        "OnChannelFinish"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                "Function"      "remove_modifier_channel_start"
+            }
+
+        }
+
+        "OnChannelInterrupted"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                "Function"      "remove_modifier_channel_start"
+            }
+
+        }
+
+        "Modifiers"
+        {
+            "modifier_crystal_arrow_passive"
+            {
+                "IsHidden"  "1"
+                "Passive"   "1"
+                "ThinkInterval"  "0.5"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                        "Function"      "crystal_arrow_passive_think"
+                    }
+                }
+            }
+            "modifier_crystal_arrow_freecast"
+            {
+                "IsHidden"  "0"
+                "IsBuff"    "1"
+            }
+            "modifier_arrow_thinking"
+            {
+                "IsHidden"  "1"
+                "ThinkInterval"  "0.03"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                        "Function"      "arrows_thinking"
+                        "damage"        "%damage"
+                    }
+                }
+            }
+            "modifier_channel_start"
+            {
+                "IsHidden"  "1"
+                "OnCreated"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/util/channeling.lua"
+                        "Function"      "beginChannel"
+                    }
+                }
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/util/channeling.lua"
+                        "Function"      "endChannel"
+                    }
+                    "RemoveModifier"
+                    {
+                        "ModifierName"  "modifier_astral_glyph_7_1_evasion_effect"
+                        "Target"        "TARGET"
+                    }
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                        "Function"      "crystal_arrow_channel_end"
+                    }
+                }
+                "ThinkInterval"  "0.03"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                        "Function"      "crystal_arrow_channel_think"
+                    }
+                }
+            }
+            "modifier_astral_glyph_7_1_evasion_effect"
+            {
+                "IsBuff"    "1"
+                "IsHidden"  "0"
+                "Passive"   "0"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
+                }
+            }
+            "modifier_crystal_arrow_buildup"
+            {
+                "IsHidden"  "1"
+                "EffectName"    "particles/roshpit/astral/crystal_arrow_buildup.vpcf"
+                "EffectAttachType"  "attach_attack1"
+            }
+            "modifier_crystal_arrow_channel_end"
+            {
+                "IsHidden"  "1"
+                "ThinkInterval"  "0.03"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                        "Function"      "crystal_arrow_channel_end_think"
+                    }
+                }
+                "States"
+                {
+                    "MODIFIER_STATE_ROOTED"     "MODIFIER_STATE_VALUE_ENABLED"
+                }
+            }
+            "modifier_backstab_jumping"
+            {
+                "IsHidden"  "1"
+            }
+            "modifier_cystal_arrow_ad_thinker"
+            {
+                "Aura"                  "crystal_arrow_ad_aura"
+                "Aura_Radius"           "450"
+                "Aura_Teams"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Aura_Types"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+                "Aura_Flags"            "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                        "Function"      "arrow_ad_thinker_end"
+                        "target"        "TARGET"
+                    }
+                }
+            }
+            "crystal_arrow_ad_aura"
+            {
+                "IsDebuff"  "1"
+                "IsHidden"  "0"
+                "TextureName"           "astral_ranger/astral_rune_r_1_arcana3"
+                "OnCreated"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                        "Function"      "crystal_arrow_slow_start"
+                        "target"        "TARGET"
+                    }
+                }
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                        "Function"      "crystal_arrow_slow_end"
+                        "target"        "TARGET"
+                    }
+                }
+            }
+            "modifier_crystal_arrow_b_d"
+            {
+                "IsHidden"  "0"
+                "IsBuff"    "1"
+                "TextureName"           "astral_ranger/astral_rune_r_2_arcana3"
+                "EffectName"    "particles/roshpit/sorceress/ice_lance_cast.vpcf"
+                "EffectAttachType" "follow_origin"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"   "8"
+                }
+            }
+            "modifier_crystal_arrow_chilled"
+            {
+                "IsDebuff"  "1"
+                "StatusEffectName"      "particles/status_fx/status_effect_frost_lich.vpcf"
+                "StatusEffectPriority"  "20"
+                "TextureName"           "astral_ranger/astral_rune_r_4_arcana3"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-10"
+                }
+            }
+            "modifier_astral_glyph_7_1_evasion_effect"
+            {
+                "IsBuff"    "1"
+                "IsHidden"  "0"
+                "Passive"   "0"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
+                }
+            }
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "5000 25000 60000 120000 255000 400000 1000000"
+            }
+        }
+    }
+
