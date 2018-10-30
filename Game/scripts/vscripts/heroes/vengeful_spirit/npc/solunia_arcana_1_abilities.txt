@@ -1,0 +1,287 @@
+
+	"solunia_arcana_solar_comet"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"solunia/solunia_solar_comet"
+		"RequiredLevel"          		"0"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityCastRange"				"1400"
+		"AOERadius"						"240"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"9200 24000 80000 120000 180000 320000 550000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_charges"		"6 7 8 9 10 11 12"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"0.3"
+			}
+		}
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
+				"Function"		"arcana_comet_phase"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
+				"Function"		"begin_arcana_comet"
+				"target"		"POINT"
+				"damage"		"%damage"
+				"projectiles"	"%projectiles"
+				"stun_duration"	"%stun_duration"
+				"sun_moon"			"sun"
+			}
+
+		}
+		"Modifiers"
+		{
+			"modifier_solar_comet_free_cast"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_solar_comet_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnDealDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
+						"Function"		"deal_damage_with_arcana_equipped"
+					}
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
+						"Function"		"arcana_passive_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
+						"Function"		"apply_arcana_comet_stacks"
+						"max_charges"	"%max_charges"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_polythea_damage"
+						"Target" 		"CASTER"
+					}
+				}
+			}
+			"modifier_polythea_damage"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+			"modifier_solunia_ultraviolet_damage"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
+				}
+			}			
+			"modifier_solunia_ultraviolet"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"	"particles/roshpit/solunia/ultraviolet.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"TextureName"	"solunia/solunia_rune_q_1_arcana1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "3000"
+				}
+			}
+			"modifier_solar_compression_visible"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/roshpit/solunia/solunia_compression_solar_heal.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"TextureName"	"solunia/solunia_rune_q_3_arcana1"
+			}
+			"modifier_solar_compression_invisible"
+			{
+				"IsHidden"	"1"
+			}
+		}
+	}
+
+	"solunia_arcana_lunar_comet"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"solunia/solunia_lunar_comet"
+		"RequiredLevel"          		"0"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityCastRange"				"1400"
+		"AOERadius"						"240"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"8000 18000 60000 90000 130000 240000 440000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_charges"		"6 7 8 9 10 11 12"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"0.3"
+			}
+		}
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
+				"Function"		"arcana_comet_phase"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
+				"Function"		"begin_arcana_comet"
+				"target"		"POINT"
+				"damage"		"%damage"
+				"projectiles"	"%projectiles"
+				"stun_duration"	"%stun_duration"
+				"sun_moon"			"moon"
+			}
+
+		}
+		"Modifiers"
+		{
+			"modifier_lunar_comet_free_cast"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_solunia_ultraviolet"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"	"particles/roshpit/solunia/ultraviolet.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"TextureName"	"solunia/solunia_rune_q_1_arcana1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "3000"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
+				}
+			}
+			"modifier_lunar_compression_visible"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/roshpit/solunia/solunia_compression_lunar_heal.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"TextureName"	"solunia/solunia_rune_q_3_arcana1"
+			}
+			"modifier_lunar_compression_invisible"
+			{
+				"IsHidden"	"1"
+			}
+		}
+	}
+

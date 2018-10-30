@@ -1,0 +1,582 @@
+
+	"summon_earth_deity"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"conjuror/earth_deity"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 250 400 600 800 1000 1400"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_health"				"20000 60000 100000 200000 500000 1000000 2500000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_damage"				"1500 5000 20000 40000 70000 200000 1000000"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_armor"				"100 300 600 1200 2000 5000 10000"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_magic_resist"		"75"
+			}
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"model" "models/items/warlock/golem/ti_8_warlock_darkness_apostate_golem/ti_8_warlock_darkness_apostate_golem.vmdl"
+		}
+
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/aspects.lua"
+				"Function"		"begin_cast"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+				"Function"		"earth_deity"
+				"aspect_health"	"%aspect_health"
+				"aspect_damage"	"%aspect_damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_earth_aspect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%aspect_damage"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
+				}
+
+			}
+			"modifier_earth_guardian"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
+			"modifier_conjuror_glyph_5_a_summon"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_aspect_invulnerable"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"dazzle_shadow_wave"
+				"StatusEffectName" 		"particles/status_fx/status_effect_blademail.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_earth_aspect_health"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
+				}
+
+			}
+			"modifier_earth_deity_q_2"
+			{
+				"IsHidden"	"1"
+			}
+		}
+	}
+
+	"earth_deity_sandstorm"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"conjuror/earth_deity_sandstorm"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"10"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"miss_chance"					"20 25 30 35 40 45 50"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"move_slow"					"-30 -50 -70 -90 -110 -130 -150"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_slow"					"-40 -55 -70 -85 -100 -115 -130"
+			}
+		}
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_sandstorm_on"
+				"Target" 		"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+				"Function"		"earth_deity_sandstorm_start"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_sandstorm_on"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_sandstorm_on"
+			{
+				"IsHidden" "1"
+				"ThinkInterval"  "0.25"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+						"Function"		"earth_deity_sandstorm_thinking"
+						"damage_mult"	"%damage_health_mult"
+					}
+				}
+				"Aura"          	"modifier_enemy_in_earth_deity_sandstorm"
+				"Aura_Radius"   	"1000"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+						"Function"		"earth_deity_sandstorm_end"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-300"
+				}
+			}
+			"modifier_enemy_in_earth_deity_sandstorm"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "%miss_chance"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%move_slow" 
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_slow" 
+				}
+			}
+		}
+	}
+
+	"arcana_earth_shock"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"conjuror/arcana_earth_shock"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ALACRITY"
+
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.35"
+		"AOERadius"						"%radius"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityCooldown"				"0"
+		"AbilityDuration"				"%duration"
+
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"580 2800 6000 12000 25000 50000 125000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"280"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_reduce"				"-30 -35 -40 -45 -50 -55 -60"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movespeed_slow"				"-1000"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"				"0.9"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_reduce_duration"				"10"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+				"Function"		"earthshock_precast"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+				"Function"		"earthshock_cast"
+				"Target"		"POINT"
+				"radius"		"%radius"
+				"damage"		"%damage"
+			}
+			"DestroyTrees"
+	        {
+	        	"Target"	"POINT"
+	        	"Radius"	"%radius"
+	        }
+		}
+		"Modifiers"
+		{
+			"modifier_free_quake"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/earthquake.lua"
+						"Function"		"free_quake_expire"
+					}
+				}
+			}
+			"modifier_earth_shock_slow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1000"
+				}
+			}
+			"modifier_earth_shock_attack_reduce"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_reduce"
+				}
+				"EffectName"	"particles/roshpit/conjuror/earthshock_debuff.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_earthshock_damage_reduce"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+			}
+		}
+	}
+
+	"earth_deity_grand_guardian"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"conjuror/earth_deity_grand_guardian"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"AbilityCastRange"				"100000"
+		"AbilityCastPoint"				"0"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityCooldown"				"28"
+
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+				"Function"		"earth_deity_grand_guardian"
+				"Target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_deity_grand_guardian"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+						"Function"		"earth_deity_main_thinker"
+						"target"		"TARGET"
+					}
+				}
+				"StatusEffectName" 		"particles/status_fx/status_effect_earth_spirit_petrify.vpcf"	   
+				"StatusEffectPriority"  "300"
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100000"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+						"Function"		"grand_guardian_deity_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_grand_guardian_regen"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "8"
+				}
+			}
+			"modifier_deity_guardian_taxi_effect"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+						"Function"		"taxi_effect_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_grand_guardian_in_deity"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_deity_guardian_taxi_bowling"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+						"Function"		"bowling_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+						"Function"		"bowling_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"earth_deity_bowl"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"conjuror/earth_deity_bowl"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"1500"
+		"AOERadius"						"240"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"3"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+				"Function"		"earth_deity_bowl"
+				"Target"		"POINT"
+			}
+		}
+	}
+

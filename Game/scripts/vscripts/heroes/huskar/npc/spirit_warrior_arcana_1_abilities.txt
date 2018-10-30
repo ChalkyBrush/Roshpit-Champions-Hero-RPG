@@ -1,0 +1,294 @@
+
+	"spirit_warrior_ancient_rain"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"spirit_warrior/ancient_rain"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"20"
+		"AbilityChannelTime"	"3.0"
+		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"0"
+		"SideShop"	"1"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/huskar/spirit_arcanas.lua"
+				"Function"		"start_channel"
+			}
+
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/huskar/spirit_arcanas.lua"
+				"Function"		"ancient_rain_start"
+				"duration"		"%duration"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/huskar/spirit_arcanas.lua"
+				"Function"		"channel_interrupt"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_channel_start"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"	"particles/econ/events/ti7/bottle_ti7.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+						}
+
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+				}
+
+			}
+			"modifier_ancient_rain"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+
+				"EffectName"		"particles/units/heroes/hero_razor/razor_rain_storm.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attackspeed"
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/huskar/spirit_arcanas.lua"
+						"Function"		"ancient_rain_think"
+						"armor_per_missing_health"	"%armor_per_missing_health"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_ancient_rain_armor"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_ancient_rain_armor"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
+				}
+			}
+			"modifier_ancient_rain_regen"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/econ/events/ti7/fountain_regen_ti7_lvl3.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/huskar/spirit_arcanas.lua"
+						"Function"		"ancient_rain_regen_think"
+					}
+				}
+			}
+			"modifier_rain_hidden_waterheart_thinker"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.5"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/huskar/spirit_arcanas.lua"
+						"Function"		"hidden_water_heart_thinker"
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"24"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage_reduction_percent"	"40 45 50 55 60 65 70"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"attackspeed"	"130 160 190 220 250 280 310"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"armor_per_missing_health"	"0.15 0.20 0.25 0.3 0.35 0.4 0.45"
+			}
+		}
+	}
+
+	"spirit_warrior_waterheart_weapon"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"FightRecapLevel"				"1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityTextureName"			"spirit_warrior/waterheart_weapon"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"12"
+			}
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1100 1100 1100 1100 1100 1100 1100"
+		"AbilityCastPoint"				"0.7"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"14"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/huskar/waterheart.lua"
+				"Function"		"waterheart_phase_start"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/huskar/waterheart.lua"
+				"Function"		"waterheart_start"
+				"target"		"TARGET"
+				"duration"		"%duration"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_waterheart_weapon"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+
+				"EffectName"		"particles/units/heroes/hero_ogre_magi/waterheart_weapon_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attackspeed"
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/huskar/waterheart.lua"
+						"Function"		"waterheart_attack_land"
+						"mult"			"1"
+					}
+				}
+			}
+		}
+	}
+

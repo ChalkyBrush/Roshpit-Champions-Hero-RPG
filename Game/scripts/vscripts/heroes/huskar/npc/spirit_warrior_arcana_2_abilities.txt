@@ -1,0 +1,138 @@
+
+	"spirit_warrior_blazing_javelin"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"spirit_warrior/blazing_javelin"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.30"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0"
+		"AbilityCastRange"				"600 800 1000 1200 1400 1600 1800"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"160 300 700 1300 1800 2600 3800"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"3000 12000 48000 96000 144000 225000 500000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"cast_range"				"1200 1300 1400 1500 1600 1700 1800"
+			}
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/huskar/spirit_arcanas.lua"
+				"Function"		"blazing_javelin_precast"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/huskar/spirit_arcanas.lua"
+				"Function"		"blazing_javelin_cast"
+				"target"		"POINT"
+				"damage"		"%damage"
+				"cast_range"	"%cast_range"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_spirit_warrior_arcana2_passive"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "0.2"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/huskar/spirit_arcanas.lua"
+						"Function"		"blazing_javelin_passive_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_spirit_warrior_arcana2_health"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_spirit_warrior_arcana2_health"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_spirit_warrior_arcana2_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+			"modifier_spirit_warrior_arcana2_health"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "2000"
+				}
+			}
+			"modifier_javelin_root"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/huskar/spirit_arcanas.lua"
+				"Function"		"javelin_hit"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+	}
+

@@ -1,0 +1,161 @@
+
+	"voltex_lightning_dash"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"voltex/voltex_storm_rush"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"1000 1125 1250 1375 1500 1625 1750"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+	    "precache"
+	    {
+
+	    }
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_reduction_percent"	"45 50 55 60 65 70 75"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"	"1000 1125 1250 1375 1500 1625 1750"
+			}
+
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
+				"Function"		"begin_lightning_dash"
+				"Target"		"POINT"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_lightning_dash"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"OverrideAnimation"     "ACT_DOTA_VERSUS"
+				"EffectName"	"particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"ThinkInterval"  "0.03"
+				"IsHidden"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
+						"Function"		"dash_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
+						"Function"		"dash_end"
+					}
+				}
+			}
+			"modifier_voltex_arcana1_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
+						"Function"		"arcana_take_damage"
+						"damage"		"%attack_damage"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_lightning_dash_freecast"
+						"Target" 		"TARGET"
+					}
+				}
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
+						"Function"		"add_free_casts"
+					}
+				}
+			}
+			"modifier_lightning_dash_freecast"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_voltex_lightning_dash_regen"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"ThinkInterval"  "0.1"
+				"TextureName"	"voltex/voltex_rune_e_3_arcana1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
+						"Function"		"regen_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
+						"Function"		"regen_end"
+					}
+				}
+			}
+			"modifier_voltex_lightning_dash_regen_hidden"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1"
+				}
+			}
+		}
+	}
+

@@ -1,0 +1,119 @@
+
+	"epoch_arcana_ability"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"epoch/epoch_temporal_grip"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AOERadius"						"500"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"root_duration"			"1.5 1.8 2.1 2.4 2.7 3.0 3.3"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/obsidian_destroyer/epoch_1_q_arcana.lua"
+				"Function"		"epoch_arcana_q_start"
+				"target"		"POINT"
+				"root_duration"	"%root_duration"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_epoch_arcana_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_1_q_arcana.lua"
+						"Function"		"epoch_arcana_q_3_damage_think"
+					}
+				}
+			}
+			"modifier_epoch_arcana_root"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/roshpit/epoch/arcana_root.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+			}
+			"modifier_epoch_arcana_q_1_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"epoch/epoch_rune_q_1_arcana1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_1_q_arcana.lua"
+						"Function"		"epoch_arcana_q_1_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_backstab_jumping"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_epoch_arcana_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+			"modifier_epoch_q_3_lock"
+			{
+				"IsHidden"	"1"
+			}
+		}
+	}
+

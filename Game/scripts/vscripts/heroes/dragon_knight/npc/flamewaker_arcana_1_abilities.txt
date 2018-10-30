@@ -1,0 +1,193 @@
+
+	"flamewaker_arcana_ability"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"flamewaker/flamewaker_arcana_ability"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"1200"
+		"AOERadius"						"360"
+		"precache"
+		{
+
+		}
+
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"3.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"1.2"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"strength_mult"	"50 90 120 200 300 440 600"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"		"3000 8000 30000 80000 160000 280000 600000"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"max_distance" "400"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
+				"Function"		"PhaseStartArcanaAbility"
+				"target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
+        		"Function"		"start_arcana_ability"
+        		"Target"			"POINT"
+        		"range"			"%range"
+        		"damage"		"%damage"
+        		"strength_mult"	"%strength_mult"
+			}
+		}
+        "Modifiers"
+        {
+        	"modifier_flamewaker_arcana_passive"
+        	{
+        		"IsHidden"	"1"
+        		"Passive"	"1"
+        		"ThinkInterval"  "0.3"
+        		"OnIntervalThink"
+        		{
+					"RunScript"
+					{
+		        		"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
+		        		"Function"		"arcana_ability_think"
+					}
+        		}
+        		"OnDestroy"
+        		{
+        			"RemoveModifier"
+        			{
+        				"ModifierName"	"modifier_flamewaker_arcana_a_a_effect"
+        				"Target" 		"TARGET"
+        			}
+        			"RemoveModifier"
+        			{
+        				"ModifierName"	"modifier_flamewaker_arcana_d_a_effect"
+        				"Target" 		"TARGET"
+        			}
+        			"RemoveModifier"
+        			{
+        				"ModifierName"	"modifier_flamewaker_arcana_b_a_effect"
+        				"Target" 		"TARGET"
+        			}
+        		}
+        	}
+        	"modifier_flamewaker_arcana_q_free_cast"
+        	{
+        		"IsHidden"	"0"
+        	}
+        	"modifier_flamewaker_arcana_a_a_effect"
+        	{
+        		"IsHidden"	"1"
+        		"Properties"
+        		{
+        			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% FLAMEWAKER_ARCANA_Q1_ARMOR_PER_STACK %>"
+        		    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "<% FLAMEWAKER_ARCANA_Q1_MANAREGEN_PER_STACK %>"
+        		}
+        	}
+        	"modifier_flamewaker_arcana_b_a_effect"
+        	{
+        		"IsHidden"	"0"
+        		"TextureName"	"flamewaker/flamewaker_b_a_arcana1"
+        		"Properties"
+        		{
+        			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "4"
+        		}
+        	}
+        	"modifier_flamewaker_arcana_b_a_effect_stacking_visible"
+        	{
+        		"IsHidden" "0"
+        		"IsDebuff" "1"
+        		"TextureName"	"flamewaker/flamewaker_b_a_arcana1"
+        	}
+        	"modifier_flamewaker_arcana_b_a_effect_stacking_invisible"
+        	{
+        		"IsHidden"	"1"
+        	}
+        	"modifier_flamewaker_arcana_d_a_effect"
+        	{
+        		"IsHidden"	"1"
+        		"OnCreated"
+        		{
+        			"AttachEffect"
+					{
+						"EffectName"        "particles/roshpit/flamewaker/flamewaker_arcana_d_arope_arcana.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+						}
+					}
+        		}
+        		"Aura"          	"modifier_flamewaker_arcana_d_a_aura"
+        		"Aura_Radius"   	"280"
+        		"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        		"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        		"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+        	}
+        	"modifier_flamewaker_arcana_d_a_aura"
+        	{
+        		"IsHidden"	"0"
+        		"IsDebuff"	"1"
+        		"TextureName"	"flamewaker/flamewaker_d_a_arcana1"
+        		"OnCreated"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
+        				"Function"		"d_a_stun"
+        				"target"		"TARGET"
+        			}
+        		}
+        	}
+        	"modifier_flamewaker_arcana_d_a_immune"
+        	{
+        		"IsHidden"	"1"
+        	}
+        }
+	}
+

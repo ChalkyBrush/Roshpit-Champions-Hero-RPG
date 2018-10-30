@@ -1,3 +1,5 @@
+require("/heroes/visage/ekkan_constants")
+
 function corpse_maker_die(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -84,6 +86,8 @@ function cast_raise_skeleton(event)
 				    skeleton.ekkan_unit = true
 				    skeleton.hero = caster
 				    skeleton.w_3_level = w_3_level
+				    skeleton.ekkan_dominion = true
+				    skeleton.dominion = true
 					table.insert(ability.skeleTable, skeleton)
 					local max_skeletons = event.max_skeletons
 					if caster:HasModifier("modifier_ekkan_glyph_1_1") then
@@ -195,6 +199,9 @@ function mage_blast_target_point(event)
 	local preParticle = ParticleManager:CreateParticle("particles/roshpit/ekkan/mage_preblast.vpcf", PATTACH_CUSTOMORIGIN, hero)
 	ParticleManager:SetParticleControl(preParticle, 0, point)
 	ParticleManager:SetParticleControl(preParticle, 1, Vector(radius, delay, radius))
+	if not caster.w_3_level then
+		caster.w_3_level = Runes:GetTotalRuneLevel(caster.hero, 3, "w_3", "ekkan")
+	end
 	local damage = caster.w_3_level*0.4*OverflowProtectedGetAverageTrueAttackDamage(caster)
 	EmitSoundOnLocationWithCaster(point, "Ekkan.SkeletonMage.PreBlast", caster)
 	Timers:CreateTimer(delay, function()

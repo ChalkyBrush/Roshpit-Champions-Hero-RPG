@@ -1,0 +1,168 @@
+
+    "epoch_summon"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/obsidian_destroyer/obsidian_destroyer.vmdl"
+        "Level" "1"
+        "ModelScale"    "0.9"
+        "UnitLabel" "healing_ward"
+        "Ability1"  ""
+        "Ability2"  ""
+        "Ability3"  ""
+        "Ability4"  ""
+        "Ability5"  ""
+        "Ability6"  ""
+        "Ability7"  ""
+        "Ability8"  ""
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+        "AttackDamageMin"   "50"
+        "AttackDamageMax"   "50"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackRate"    "1.5"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange"    "1000"
+        "AttackRange"   "300"
+        "AttributePrimary"  "DOTA_ATTRIBUTE_STRENGTH"
+        "AttributeBaseStrength" "0"
+        "AttributeStrengthGain" "0"
+        "AttributeBaseIntelligence" "0"
+        "AttributeIntelligenceGain" "0"
+        "AttributeBaseAgility"  "0"
+        "AttributeAgilityGain"  "0"
+        "BountyXP"  "0"
+        "BountyGoldMin" "0"
+        "BountyGoldMax" "0"
+        "RingRadius"    "0"
+        "HasInventory"  "0"
+        "CollisionSize" "0"
+        "BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+        "StatusHealth"  "50000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+        "VisionDaytimeRange"    "500"
+        "VisionNighttimeRange"  "500"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "187"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "188"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "189"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "190"
+                }
+
+                "Wearable5"
+                {
+                    "ItemDef"   "226"
+                }
+            }
+
+        }
+    }
+
+    "epoch_summon_two"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/obsidian_destroyer/obsidian_destroyer.vmdl"
+        "Level" "1"
+        "ModelScale"    "0.9"
+        "UnitLabel" "healing_ward"
+        "Ability1"  ""
+        "Ability2"  ""
+        "Ability3"  ""
+        "Ability4"  ""
+        "Ability5"  ""
+        "Ability6"  ""
+        "Ability7"  ""
+        "Ability8"  ""
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+        "AttackDamageMin"   "50"
+        "AttackDamageMax"   "50"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackRate"    "1.5"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange"    "1000"
+        "AttackRange"   "300"
+        "AttributePrimary"  "DOTA_ATTRIBUTE_STRENGTH"
+        "AttributeBaseStrength" "0"
+        "AttributeStrengthGain" "0"
+        "AttributeBaseIntelligence" "0"
+        "AttributeIntelligenceGain" "0"
+        "AttributeBaseAgility"  "0"
+        "AttributeAgilityGain"  "0"
+        "BountyXP"  "0"
+        "BountyGoldMin" "0"
+        "BountyGoldMax" "0"
+        "RingRadius"    "0"
+        "HasInventory"  "0"
+        "CollisionSize" "0"
+        "BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_FLY"
+        "ShouldDoFlyHeightVisual"   "1"
+        "MovementSpeed"         "400"
+        "StatusHealth"  "50000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+        "VisionDaytimeRange"    "500"
+        "VisionNighttimeRange"  "500"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "187"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "188"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "189"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "190"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "226"
+                }
+            }
+
+        }
+    }
+
