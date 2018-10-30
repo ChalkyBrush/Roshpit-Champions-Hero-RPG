@@ -243,8 +243,8 @@
 		"DOTA_Tooltip_ability_earth_aspect_a_a_ability"						"Earth Guardian"
 		"DOTA_Tooltip_ability_earth_aspect_a_a_ability_Description"			"Распространяет ауру, дающую дополнительную броню всем союзным существам неподалёку."
 
-		"DOTA_Tooltip_modifier_conjuror_q_1_buff"								"Earth Guardian"
-		"DOTA_Tooltip_modifier_conjuror_conjuror_q_1_buff_Description"					"Увеличение брони."
+		"DOTA_Tooltip_modifier_conjuror_a_a_buff"								"Earth Guardian"
+		"DOTA_Tooltip_modifier_conjuror_a_a_buff_Description"					"Увеличение брони."
 		
     	//--------------------Seinaru/Juggernaut
 
@@ -330,11 +330,11 @@
 
     	//-----------------------CHERNOBOG/Night Stalker
 
-    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_active"				"Inner Beast (Активно)"
-    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_active_Description"				"Базовый урон увеличен"
+    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_active"				"Inner Beast (Активно)"
+    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_active_Description"				"Базовый урон увеличен"
 
-    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive"				"Inner Beast (Не активно)"
-    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive_Description"				"Значение брони увеличено"
+    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_inactive"				"Inner Beast (Не активно)"
+    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_inactive_Description"				"Значение брони увеличено"
 
     	//b_d: Splash damage when striking a target in Night's Procession
 
@@ -351,11 +351,11 @@
 
     	//HYDROXIS - Slardar
 
-    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_visible"			"Liquid Essence"
-    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_visible_Description"	"Урон героя увеличен"
+    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_visible"			"Liquid Essence"
+    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_visible_Description"	"Урон героя увеличен"
 
-    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_spillover"		"Liquid Essence Spillover"
-    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_spillover_Description"	"Урон героя увеличен"
+    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_spillover"		"Liquid Essence Spillover"
+    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_spillover_Description"	"Урон героя увеличен"
 
     	//If attack target == gush target, source the tracking projectile from the hero, otherwise source it from the target
     	//SET RENDER COLOR (130, 130, 255)
@@ -3892,9 +3892,6 @@
 		"DOTA_Tooltip_ability_earthquake_damage"							"УРОН:"
 		"DOTA_Tooltip_ability_earthquake_stun_duration"						"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 		"DOTA_Tooltip_ability_earthquake_radius"							"РАДИУС:"
-		
-		"DOTA_Tooltip_earth_aspect_a_a_ability"								"Earth Guardian"
-		"DOTA_Tooltip_earth_aspect_a_a_ability_Description"					"Earth Aspect поглощает 50% вместо призывателя. Каждая руна Q1 увеличивает здоровье и броню себе и всем ближайшим дружественным юнитам."
 
 		"DOTA_Tooltip_modifier_free_quake"									"Quaking"
 		"DOTA_Tooltip_modifier_free_quake_description"						"Свободное создание Earthquake, пока этот эффект активен."
@@ -3922,9 +3919,6 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_property_one"				"Доп. реген. здоровья"
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_suffix"						""
 		
-		"DOTA_Tooltip_modifier_aspect_earth_well"							"Earth Well"
-		"DOTA_Tooltip_modifier_aspect_earth_well_Description"				"Регенерация здоровья увеличена."	
-		
 		"DOTA_Tooltip_ability_conjuror_rune_q_4"							"[Q4] Earth and Fire"
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_Description"				"Показатель Силы Conjuror увеличивает урон стихии <font color=\"#AF843D\">Земли</font> и <font color=\"#EF4126\">Огня</font>."
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_property_one"				"Увеличение урона на "
@@ -3948,10 +3942,7 @@
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_suffix"						""
 		
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation"				"Permanent Immolation"
-		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font><br>Обжигает находящихся рядом врагов."
-		
-		"DOTA_Tooltip_modifier_permanent_immolation"						"Immolation"
-		"DOTA_Tooltip_modifier_permanent_immolation_Description"			"Обжигает врагов поблизости"
+		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font><br>Обжигает находящихся рядом врагов"
 
 		"DOTA_Tooltip_ability_conjuror_rune_w_2"							"[W2] Soul Sear"
     	"DOTA_Tooltip_ability_conjuror_rune_w_2_Description"				"Каждое произнесение Immolation увеличивает ваш урон на 12 секунд. Каждая задетая цель также теряет броню. Оба эффекта могут быть сложены до 3 раз."
@@ -3998,8 +3989,8 @@
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_property_two"				"Герой получает"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_suffix_two"					" Ловкости за заряд"		
 
-    	"DOTA_Tooltip_modifier_conjuror_e_1_buff_visible"					"Soul of Shadow"
-    	"DOTA_Tooltip_modifier_conjuror_e_1_buff_visible_Description"		"Урон и Ловкость увеличены"
+    	"DOTA_Tooltip_modifier_conjuror_a_c_buff_visible"					"Soul of Shadow"
+    	"DOTA_Tooltip_modifier_conjuror_a_c_buff_visible_Description"		"Урон и Ловкость увеличены"
 		
 		"DOTA_Tooltip_ability_conjuror_rune_e_2"							"[E2] Shadow Lance"
     	"DOTA_Tooltip_ability_conjuror_rune_e_2_Description"				"При использовании Shadow Gate вперёд вылетят несколько стрел тьмы."
@@ -6534,16 +6525,10 @@
         "DOTA_Tooltip_ability_hydroxis_rune_r_1_property_two"               "Усиление урона (R) Ocean Quake"
         "DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix_two"                 "% за каждые 10 очков брони"
 		
-		"DOTA_Tooltip_modifier_hydroxis_r_1"								"Wave Drench"
-		"DOTA_Tooltip_modifier_hydroxis_r_1_Description"					"Броня снижена, получает увеличенный урон от Ocean Quake и её рун."
-		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_2"							"[R2] Tsunami"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_Description"				"С прочтением @Ability4 Hydroxis начинает выпускает волны в течение 12 секунд, которые двигаются из-за спины в сторону, куда смотрит герой, наносят урон и замедляют всех задетых врагов."
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_property_one"				"Урон"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_suffix"						""
-		
-		"DOTA_Tooltip_modifier_hydroxis_r_2"								"Tsunami"
-		"DOTA_Tooltip_modifier_hydroxis_r_2_Description"					"Вызывает волны позади Hydroxis."
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_3"							"[R3] Poseidon's Fury"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_Description"				"После прочтения @Ability4, получает бафф Poseidon's Fury, длящийся 10 секунд. Под действием усиления герой способен выпускать потоки воды во врагов, находящихся в полукруге позади основной атакуемой цели."

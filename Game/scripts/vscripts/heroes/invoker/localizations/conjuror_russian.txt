@@ -17,9 +17,6 @@
 		"DOTA_Tooltip_ability_earthquake_damage"							"УРОН:"
 		"DOTA_Tooltip_ability_earthquake_stun_duration"						"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 		"DOTA_Tooltip_ability_earthquake_radius"							"РАДИУС:"
-		
-		"DOTA_Tooltip_earth_aspect_a_a_ability"								"Earth Guardian"
-		"DOTA_Tooltip_earth_aspect_a_a_ability_Description"					"Earth Aspect поглощает 50% вместо призывателя. Каждая руна Q1 увеличивает здоровье и броню себе и всем ближайшим дружественным юнитам."
 
 		"DOTA_Tooltip_modifier_free_quake"									"Quaking"
 		"DOTA_Tooltip_modifier_free_quake_description"						"Свободное создание Earthquake, пока этот эффект активен."
@@ -47,9 +44,6 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_property_one"				"Доп. реген. здоровья"
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_suffix"						""
 		
-		"DOTA_Tooltip_modifier_aspect_earth_well"							"Earth Well"
-		"DOTA_Tooltip_modifier_aspect_earth_well_Description"				"Регенерация здоровья увеличена."	
-		
 		"DOTA_Tooltip_ability_conjuror_rune_q_4"							"[Q4] Earth and Fire"
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_Description"				"Показатель Силы Conjuror увеличивает урон стихии <font color=\"#AF843D\">Земли</font> и <font color=\"#EF4126\">Огня</font>."
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_property_one"				"Увеличение урона на "
@@ -73,10 +67,7 @@
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_suffix"						""
 		
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation"				"Permanent Immolation"
-		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font><br>Обжигает находящихся рядом врагов."
-		
-		"DOTA_Tooltip_modifier_permanent_immolation"						"Immolation"
-		"DOTA_Tooltip_modifier_permanent_immolation_Description"			"Обжигает врагов поблизости"
+		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font><br>Обжигает находящихся рядом врагов"
 
 		"DOTA_Tooltip_ability_conjuror_rune_w_2"							"[W2] Soul Sear"
     	"DOTA_Tooltip_ability_conjuror_rune_w_2_Description"				"Каждое произнесение Immolation увеличивает ваш урон на 12 секунд. Каждая задетая цель также теряет броню. Оба эффекта могут быть сложены до 3 раз."
@@ -123,8 +114,8 @@
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_property_two"				"Герой получает"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_suffix_two"					" Ловкости за заряд"		
 
-    	"DOTA_Tooltip_modifier_conjuror_e_1_buff_visible"					"Soul of Shadow"
-    	"DOTA_Tooltip_modifier_conjuror_e_1_buff_visible_Description"		"Урон и Ловкость увеличены"
+    	"DOTA_Tooltip_modifier_conjuror_a_c_buff_visible"					"Soul of Shadow"
+    	"DOTA_Tooltip_modifier_conjuror_a_c_buff_visible_Description"		"Урон и Ловкость увеличены"
 		
 		"DOTA_Tooltip_ability_conjuror_rune_e_2"							"[E2] Shadow Lance"
     	"DOTA_Tooltip_ability_conjuror_rune_e_2_Description"				"При использовании Shadow Gate вперёд вылетят несколько стрел тьмы."

@@ -115,16 +115,10 @@
         "DOTA_Tooltip_ability_hydroxis_rune_r_1_property_two"               "Усиление урона (R) Ocean Quake"
         "DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix_two"                 "% за каждые 10 очков брони"
 		
-		"DOTA_Tooltip_modifier_hydroxis_r_1"								"Wave Drench"
-		"DOTA_Tooltip_modifier_hydroxis_r_1_Description"					"Броня снижена, получает увеличенный урон от Ocean Quake и её рун."
-		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_2"							"[R2] Tsunami"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_Description"				"С прочтением @Ability4 Hydroxis начинает выпускает волны в течение 12 секунд, которые двигаются из-за спины в сторону, куда смотрит герой, наносят урон и замедляют всех задетых врагов."
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_property_one"				"Урон"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_suffix"						""
-		
-		"DOTA_Tooltip_modifier_hydroxis_r_2"								"Tsunami"
-		"DOTA_Tooltip_modifier_hydroxis_r_2_Description"					"Вызывает волны позади Hydroxis."
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_3"							"[R3] Poseidon's Fury"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_Description"				"После прочтения @Ability4, получает бафф Poseidon's Fury, длящийся 10 секунд. Под действием усиления герой способен выпускать потоки воды во врагов, находящихся в полукруге позади основной атакуемой цели."

@@ -3420,7 +3420,7 @@
 					}
 				}
 			}
-			"modifier_demon_hunter_w_2_inner_beast_active"
+			"modifier_demon_hunter_b_b_inner_beast_active"
 			{
 				"IsHidden"	"0"
 				"TextureName"	"chernobog/chernobog_rune_w_2"
@@ -3430,7 +3430,7 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "3600"
 				}
 			}
-			"modifier_demon_hunter_w_2_inner_beast_inactive"
+			"modifier_demon_hunter_b_b_inner_beast_inactive"
 			{
 				"IsHidden"	"0"
 				"TextureName"	"chernobog/chernobog_rune_w_2"
@@ -5164,12 +5164,12 @@
 					}
 				}
 			}
-			"modifier_conjuror_e_1_buff_visible"
+			"modifier_conjuror_a_c_buff_visible"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 			}
-			"modifier_conjuror_e_1_buff_invisible"
+			"modifier_conjuror_a_c_buff_invisible"
 			{
 				"IsHidden"	"1"
 				"IsBuff"	"1"
@@ -5274,7 +5274,7 @@
 					}
 				}
 			}
-			"modifier_conjuror_q_1_buff"
+			"modifier_conjuror_a_a_buff"
 			{
 				"EffectName"	"particles/items_fx/earth_guardian_ring.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -5287,7 +5287,6 @@
 			}
 			"modifier_earth_aspect_a_a_effect"
 			{
-				"IsHidden"	"1"
 				"IsBuff"			"1"
 				"EffectName"		"particles/items_fx/earth_guardian.vpcf"
 				"EffectAttachType" 	"follow_origin"
@@ -63683,7 +63682,7 @@
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%slow_movespeed"
 				}
 			}
-			"modifier_water_bomb_w_2_damage_buff_visible"
+			"modifier_water_bomb_b_b_damage_buff_visible"
 			{
 				"IsHidden"	"0"
 				"TextureName"	"hydroxis/hydroxis_w_2"
@@ -63704,7 +63703,7 @@
 					}
 				}
 			}
-			"modifier_water_bomb_w_2_damage_buff_invisible"
+			"modifier_water_bomb_b_b_damage_buff_invisible"
 			{
 				"IsHidden"	"1"
 				"Properties"
@@ -63712,13 +63711,13 @@
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "4"
 				}
 			}
-			"modifier_water_bomb_w_2_damage_buff_spillover"
+			"modifier_water_bomb_b_b_damage_buff_spillover"
 			{
 				"IsHidden"	"0"
 				"TextureName"	"hydroxis/hydroxis_w_2"
 
 			}
-			"modifier_water_bomb_w_2_damage_buff_spillover_invis"
+			"modifier_water_bomb_b_b_damage_buff_spillover_invis"
 			{
 				"IsHidden"	"1"
 				"Properties"
@@ -64109,7 +64108,7 @@
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%move_slow"
 				}
 			}
-			"modifier_hydroxis_r_1"
+			"modifier_hydroxis_a_d"
 			{
 				"TextureName"		"slardar_amplify_damage"
 				"Passive"			"0"
@@ -64137,7 +64136,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-100"
 				}
 			}
-			"modifier_hydroxis_r_2"
+			"modifier_hydroxis_b_d"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
