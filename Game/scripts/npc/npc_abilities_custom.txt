@@ -59613,27 +59613,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	"justice_overwhelming"
 	{
 		// General
@@ -59953,7 +59932,7 @@
 				"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
 				"Function"		"knights_disciple_cast"
 				"vision_radius"	"%radius"
-				"duration"		"%duration"
+				"duration"		"%summon_duration"
 			}
 
 		}
@@ -60131,7 +60110,7 @@
 			}
 			"modifier_paladin_a_d_aura"
 			{
-				"Aura"          	"modifier_paladin_a_d_aura_effect"
+				"Aura"          	"modifier_paladin_r_1_aura_effect"
 				"Aura_Radius"   	"1000"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -60140,7 +60119,7 @@
 				"EffectName"		"particles/roshpit/paladin/paladin_a_d_aura.vpcf"
 				"EffectAttachType"	"attach_origin"
 			}
-			"modifier_paladin_a_d_aura_effect"
+			"modifier_paladin_r_1_aura_effect"
 			{
 				"IsHidden"	"1"
 				"EffectName"	"particles/roshpit/paladin/paladin_a_d_aura_ring.vpcf"
@@ -60158,12 +60137,12 @@
 				{
 					"RemoveModifier"
 					{
-						"ModifierName"	"modifier_paladin_a_d_aura_armor_stacks"
+						"ModifierName"	"modifier_paladin_r_1_aura_armor_stacks"
 						"Target" 		"TARGET"
 					}
 				}
 			}
-			"modifier_paladin_a_d_aura_armor_stacks"
+			"modifier_paladin_r_1_aura_armor_stacks"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
@@ -60367,8 +60346,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/omniknight/paladin_runes.lua"
-				"Function"		"paladin_die"
+				"ScriptFile"	"heroes/omniknight/paladin_3_e.lua"
+				"Function"		"paladin_rune_e_1_die"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -60649,8 +60628,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/omniknight/paladin_runes.lua"
-				"Function"		"paladin_die"
+				"ScriptFile"	"heroes/omniknight/paladin_3_e.lua"
+				"Function"		"paladin_rune_e_1_die"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -60717,6 +60696,928 @@
 		}
 
 	}
+
+	"paladin_disciple_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"abyssal_underlord_pit_of_malice"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_disciple_ai"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_l2_radiant.vpcf"
+				"StatusEffectPriority"  "10"
+				"EffectName"			"particles/roshpit/paladin/knights_disciple_channel.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
+						"Function"		"disciple_think"
+					}
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/generic_buff_1.vpcf"
+						"EffectAttachType"			"attach_hitloc"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"210 210 210"
+						"EffectAlphaScale"			"0.7"
+					}
+				}
+			}
+			"modifier_disciple_duration"
+			{
+				"IsHidden"	"1"
+				"IsPurgable"	"0"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
+						"Function"		"disciple_duration_end"
+					}
+				}
+			}
+			"modifier_disciple_unselectable"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_disple_leaving"
+			{
+				"IsHidden"	"1"
+				"OverrideAnimation"     "ACT_DOTA_TELEPORT"
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"knights_disciple_heal"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rpc/knights_disciple"
+		"MaxLevel"						"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"heal_per_tick_percent"			"1.0 1.2 1.4 1.6 1.8 2.0 2.2"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"12"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"summon_duration"			"30 31 32 33 34 35 36"
+			}
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_knights_disciple_heal"
+				"Target" 		"TARGET"
+				"Duration"		"%duration"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
+				"Function"		"disciple_heal_start"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_knights_disciple_heal"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"EffectName"		"particles/roshpit/paladin/knights_disciple_channel.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
+						"Function"		"disciple_heal_think"
+						"target"		"TARGET"
+						"heal_pct"		"%heal_per_tick_percent"
+					}
+				}
+			}
+			"modifier_paladin_rune_r_2_effect_visible"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"rpc/paladin_b_d"
+			}
+			"modifier_paladin_rune_r_2_invisible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "2"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.4"
+				}
+			}
+			"modifier_paladin_rune_r_2_hidden_block"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+			}
+		}
+
+	}
+
+	"knights_disciple_bolt"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rpc/flash_heal"
+		"MaxLevel"						"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
+				"Function"		"disciple_bolt_start"
+				"target"		"TARGET"
+			}
+		}
+
+	}
+
+	"knights_disciple_purifying_spark"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rpc/paladin_r_4"
+		"MaxLevel"						"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
+				"Function"		"purifying_spark_start"
+				"target"		"TARGET"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
+				"Function"		"purifying_spark_hit"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_disciple_purifying_spark"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+
+				"EffectName"		"particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_force_debuff_gold.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"FireEffect"
+					{
+						"EffectName"        "particles/roshpit/paladin/purifying_spark_chakra_magic.vpcf"
+						"EffectAttachType"  "start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"CASTER"	"follow_origin"
+							"TARGET"	"follow_origin"
+						}
+					}
+				}
+			}
+		}
+	}
+
+	"paladin_rune_q_1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sven_storm_bolt"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"15"
+			}
+		}
+	}
+	
+	"paladin_rune_q_2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"storm_spirit_overload"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"80"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_ability"			"1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
+			}
+		}
+	}
+
+
+
+	"paladin_rune_q_3"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sven/vigil_signet/sven_warcry"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"		"0.8"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"5"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_paladin_rune_q_3"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+
+				"EffectName"		"particles/units/heroes/hero_medusa/divine_aegis.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+
+				"OnTakeDamage"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Puck.ProjectileImpact"
+						"Target" 		"UNIT"
+					}
+
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/paladin_1_q.lua"
+						"Function"		"paladin_rune_q_3_hit"
+						"Damage"		"%attack_damage"
+					}
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Chen.TestOfFaith.Cast"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/paladin_1_q.lua"
+						"Function"		"rune_q_3_shield_break"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_paladin_rune_q_3_cooling_down"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/paladin_1_q.lua"
+						"Function"		"rune_q_3_reapply_shield"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"paladin_rune_q_4"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/paladin_q_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.04"
+			}
+		}
+	}
+
+	"paladin_rune_w_1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"earthshaker_aftershock"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"5000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one_base"		"150"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"		"1"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_ability"		"2"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"		"7"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"		"2"
+			}
+		}
+	}
+	
+	"paladin_rune_w_2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"omniknight_purification"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"4"
+			}
+		}
+	}
+	
+	"paladin_rune_w_3"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"phantom_lancer_sunwarrior_phantom_edge"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_ability"			"2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
+			}
+		}
+	}
+	
+	"paladin_rune_w_4"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/paladin_w_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1"
+			}
+			"02"
+			{
+			    "var_type"              "FIELD_INTEGER"
+			    "property_one_base"     "1"
+			}
+		}
+	}
+	
+	"paladin_rune_e_1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.05"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_paladin_rune_e_1_revivable"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_paladin_rune_e_1_reviving"
+			{
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"StatusEffectName" 		"particles\status_fx\status_effect_ghost.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/paladin_3_e.lua"
+						"Function"		"paladin_rune_e_1_reviving_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_paladin_rune_e_1_invulnerable"
+			{
+				"IsHidden" "0"
+				"IsDebuff"	"0"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_paladin_rune_e_1_revive_cooldown"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnDestroy"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_paladin_rune_e_1_revivable"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+		}
+	}
+	
+	"paladin_rune_e_2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"skywrath_mage_mystic_flare_alt"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"200"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two_base"		"100"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"		"7"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_paladin_rune_e_2"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Duration"			"99999"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
+
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/paladin_3_e.lua"
+						"Function"		"paladin_rune_e_2_attacked"
+						"attack_damage"	"%attack_damage"
+					}
+				}
+			}
+			"modifier_paladin_rune_e_2_thorn"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"EffectName"		"particles/items2_fx/shivas_guard_impact.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+		}
+	}
+	
+	"paladin_rune_e_3"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/paladin_e_3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"25"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one_base"		"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
+			}
+		}
+	}
+	
+	"paladin_rune_e_4"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/paladin_e_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"25"
+			}
+		}
+	}
+
+	"paladin_rune_r_1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/paladin_r_1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"45"
+			}
+		}
+	}
+
+	"paladin_rune_r_2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/paladin_r_2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"2"
+			}
+		}
+	}
+	
+	"paladin_rune_r_3"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/flash_heal"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"800"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
+			}
+		}
+	}
+	
+	"paladin_rune_r_4"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/paladin_r_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"0.5"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_paladin_rune_r_4_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "-100"
+				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-0.5"
+				}
+			}
+		}
+	}
+
+
 
 	"paladin_penance"
 	{
@@ -60980,6 +61881,108 @@
 		}
 	}
 	
+
+
+	"paladin_rune_w_1_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"paladin/paladin_rune_w_1_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+		}
+	}
+
+	"paladin_rune_w_2_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"paladin/paladin_rune_w_2_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"30"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_ability"			"2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
+			}
+		}
+	}
+
+	"paladin_rune_w_3_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"paladin/paladin_rune_w_3_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"100"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"6"
+			}
+		}
+	}
+
+	"paladin_rune_w_4_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"paladin/paladin_rune_w_4_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"1"
+			}
+		}
+	}
+
+
+
 	"paladin_crusader_comet"
 	{
 		// General
@@ -61070,7 +62073,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/omniknight/paladin_3_e_arcana.lua"
-						"Function"		"calculate_and_apply_b_c_attack_power"
+						"Function"		"paladin_e_arcana2_thinker"
 					}
 				}
 			}
@@ -61172,1044 +62175,8 @@
 
 	}
 
-		"paladin_disciple_ability"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"abyssal_underlord_pit_of_malice"
-		"MaxLevel"	"3"
-		"Modifiers"
-		{
-			"modifier_disciple_ai"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_l2_radiant.vpcf"
-				"StatusEffectPriority"  "10"
-				"EffectName"			"particles/roshpit/paladin/knights_disciple_channel.vpcf"
-				"EffectAttachType"		"follow_origin"
-				"States"
-				{
-					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
-						"Function"		"disciple_think"
-					}
-				}
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/generic_buff_1.vpcf"
-						"EffectAttachType"			"attach_hitloc"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"210 210 210"
-						"EffectAlphaScale"			"0.7"
-					}
-				}
-			}
-			"modifier_disciple_duration"
-			{
-				"IsHidden"	"1"
-				"IsPurgable"	"0"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
-						"Function"		"disciple_duration_end"
-					}
-				}
-			}
-			"modifier_disciple_unselectable"
-			{
-				"IsHidden"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_disple_leaving"
-			{
-				"IsHidden"	"1"
-				"OverrideAnimation"     "ACT_DOTA_TELEPORT"
-				"States"
-				{
-					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
-	}
 
-	"knights_disciple_heal"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"rpc/knights_disciple"
-		"MaxLevel"						"7"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"4"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"heal_per_tick_percent"			"1.0 1.2 1.4 1.6 1.8 2.0 2.2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"6.0"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"summon_duration"			"30 31 32 33 34 35 36"
-			}
-		}
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_knights_disciple_heal"
-				"Target" 		"TARGET"
-				"Duration"		"%duration"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
-				"Function"		"disciple_heal_start"
-				"target"		"TARGET"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_knights_disciple_heal"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"EffectName"		"particles/roshpit/paladin/knights_disciple_channel.vpcf"
-				"EffectAttachType"	"follow_origin"
-
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
-						"Function"		"disciple_heal_think"
-						"target"		"TARGET"
-						"heal_pct"		"%heal_per_tick_percent"
-					}
-				}
-			}
-			"modifier_paladin_rune_r_2_effect_visible"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"rpc/paladin_b_d"
-			}
-			"modifier_paladin_rune_r_2_invisible"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "2"
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.4"
-				}
-			}
-			"modifier_paladin_rune_r_2_hidden_block"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"1"
-			}
-		}
-
-	}
-
-	"knights_disciple_bolt"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"rpc/flash_heal"
-		"MaxLevel"						"7"
-		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
-				"Function"		"disciple_bolt_start"
-				"target"		"TARGET"
-			}
-		}
-
-	}
-
-	"knights_disciple_purifying_spark"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"rpc/paladin_r_4"
-		"MaxLevel"						"7"
-		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
-				"Function"		"purifying_spark_start"
-				"target"		"TARGET"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"1"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
-				"Function"		"purifying_spark_hit"
-				"target"		"TARGET"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_disciple_purifying_spark"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-
-				"EffectName"		"particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_force_debuff_gold.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
-				"StatusEffectPriority"  "10"
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"        "particles/roshpit/paladin/purifying_spark_chakra_magic.vpcf"
-						"EffectAttachType"  "start_at_customorigin"
-						"ControlPointEntities"
-						{
-							"CASTER"	"follow_origin"
-							"TARGET"	"follow_origin"
-						}
-					}
-				}
-			}
-		}
-	}
-
-	"paladin_rune_q_1"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sven_storm_bolt"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_paladin_rune_q_1"
-			{
-				"Passive"	"0"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_runes.lua"
-						"Function"		"rune_q_1_strike"
-						"Target"	    "TARGET"
-					}
-				}
-			}
-		}
-	}
-
-	"paladin_rune_w_1"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"earthshaker_aftershock"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"150"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"1.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_ability"		"2"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"		"7"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"		"2"
-			}
-		}
-	}
-
-	"paladin_rune_e_1"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_paladin_rune_e_1_revivable"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_paladin_rune_e_1_reviving"
-			{
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"StatusEffectName" 		"particles\status_fx\status_effect_ghost.vpcf"
-				"StatusEffectPriority"  "10"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE" "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_runes.lua"
-						"Function"		"rune_e_1_reviving_end"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_paladin_rune_e_1_invulnerable"
-			{
-				"IsHidden" "0"
-				"IsDebuff"	"0"
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_paladin_rune_e_1_revive_cooldown"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnDestroy"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_paladin_rune_e_1_revivable"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-		}
-	}
-
-	"paladin_rune_r_1"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/paladin_r_1"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"45"
-			}
-		}
-	}
-
-
-	"paladin_rune_q_2"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"storm_spirit_overload"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"80.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_ability"			"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"		"7"
-			}
-		}
-	}
-
-
-	"paladin_rune_w_2"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"omniknight_purification"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-		}
-	}
-
-
-	"paladin_rune_e_2"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"skywrath_mage_mystic_flare_alt"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"100"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"		"7"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_paladin_rune_e_2"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"Duration"			"99999"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_runes.lua"
-						"Function"		"rune_e_2_attacked"
-						"attack_damage"	"%attack_damage"
-					}
-				}
-			}
-			"modifier_paladin_rune_e_2_thorn"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"EffectName"		"particles/items2_fx/shivas_guard_impact.vpcf"
-				"EffectAttachType"	"follow_origin"
-			}
-		}
-	}
-
-
-	"paladin_rune_r_2"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/paladin_r_2"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.4"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2"
-			}
-		}
-	}
-
-	"paladin_rune_q_3"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sven/vigil_signet/sven_warcry"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"0.8"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_paladin_rune_q_3"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"EffectName"		"particles/units/heroes/hero_medusa/divine_aegis.vpcf"
-				"EffectAttachType"	"follow_origin"
-
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"OnTakeDamage"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Hero_Puck.ProjectileImpact"
-						"Target" 		"UNIT"
-					}
-
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_1_q.lua"
-						"Function"		"paladin_rune_q_3_hit"
-						"Damage"		"%attack_damage"
-					}
-				}
-				"OnCreated"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Hero_Chen.TestOfFaith.Cast"
-						"Target" 		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_1_q.lua"
-						"Function"		"rune_q_3_shield_break"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_paladin_rune_q_3_cooling_down"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_1_q.lua"
-						"Function"		"rune_q_3_reapply_shield"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-		}
-	}
-
-	"paladin_rune_w_3"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"phantom_lancer_sunwarrior_phantom_edge"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_ability"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
-			}
-		}
-	}
-
-	"paladin_rune_e_3"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/paladin_e_3"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"10"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
-			}
-		}
-	}
-
-	"paladin_rune_r_3"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/flash_heal"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"800"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
-			}
-		}
-	}
-
-	"paladin_rune_q_4"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/paladin_q_4"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
-			}
-		}
-	}
-
-	"paladin_rune_w_4"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/paladin_w_4"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-			    "var_type"              "FIELD_INTEGER"
-			    "property_one_base"     "1"
-			}
-		}
-	}
-
-	"paladin_rune_e_4"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/paladin_e_4"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
-			}
-		}
-	}
-
-	"paladin_rune_r_4"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/paladin_r_4"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"0.5"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_paladin_rune_r_4_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "-100"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-0.5"
-				}
-			}
-		}
-	}
-
-		"paladin_rune_w_1_arcana1"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"paladin/paladin_rune_w_1_arcana1"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
-			}
-		}
-	}
-
-	"paladin_rune_w_2_arcana1"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"paladin/paladin_rune_w_2_arcana1"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_ability"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
-			}
-		}
-	}
-
-	"paladin_rune_w_3_arcana1"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"paladin/paladin_rune_w_3_arcana1"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"6"
-			}
-		}
-	}
-
-	"paladin_rune_w_4_arcana1"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"paladin/paladin_rune_w_4_arcana1"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1.0"
-			}
-		}
-	}
-
-		"paladin_rune_e_1_arcana2"
+	"paladin_rune_e_1_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -62223,11 +62190,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"5000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1000"
 			}
 		}
 	}
@@ -62290,11 +62252,6 @@
 			}
 		}
 	}
-
-
-
-
-
 
 
 	"winterblight_master_ability"

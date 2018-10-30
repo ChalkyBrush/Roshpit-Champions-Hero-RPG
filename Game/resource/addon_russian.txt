@@ -7148,8 +7148,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_r_1_property_one"			"Доп. броня"
     	"DOTA_Tooltip_ability_paladin_rune_r_1_suffix"					""
 
-    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks"				"Guardian of Heaven"
-    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks_Description"	"Значение брони увеличено"	
+    	"DOTA_Tooltip_modifier_paladin_r_1_aura_armor_stacks"				"Guardian of Heaven"
+    	"DOTA_Tooltip_modifier_paladin_r_1_aura_armor_stacks_Description"	"Значение брони увеличено"	
 
     	"DOTA_Tooltip_ability_paladin_rune_r_2"							"[R2] Empowering Light"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"Союзники, ставшие целью исцеляющей способности (R) Knight's Disciple наделяются баффом, повышающим урон и броню за каждый тик исцеления. Усиление длится 16 секунд."
