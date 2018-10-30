@@ -242,7 +242,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"							"远古护符"
 		"item_property_ankh_of_ancients"						"不朽之灵"
-		 "property_ankh_of_ancients_description"				"当受到致命伤害时，获得一个护盾，护盾持续时间 @special_property1 秒。护盾将吸收 100% 的伤害，并且使拥有者免疫眩晕。护盾技能有 @special_property2 秒冷却时间。"
+		 "property_ankh_of_ancients_description"				"当受到致命伤害时，获得一个护盾，护盾持续时间 @special_property1 秒。护盾将吸收 100% 的伤害，并且使拥有者免疫眩晕。护盾技能有六倍持续时间的冷却时间。"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield"		"不朽之灵"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"	"免疫伤害和眩晕"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"		"远古护符冷却中"

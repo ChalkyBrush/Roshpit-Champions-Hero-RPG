@@ -517,6 +517,7 @@
 		"ui_done"				"Done"
 		"ui_loading_items"		"Loading items..."
 		"ui_loading_units"		"Loading units..."
+		"ui_item"				"Item"
 
 		"ui_equipment"			"Equipment"
 		"ui_skills"				"Skills"
@@ -572,6 +573,8 @@
 		"ui_bonus_armor"			"Armor Bonus"
 		"ui_elements"				"Elemental Damage"
 		"ui_elements_resist"				"Elemental Resistance Against Your Hero"
+		"ui_most_mit_and_item_single"		"Item And Post-Mitigation Damage Increase Against Your Hero"
+		"ui_most_mit_and_item_global"		"Item And Post-Mitigation Damage Increase"
 
 		"ui_recalculate_stats_button"	"Recalculate Stats"
 		"ui_recalculate_stats_waiting"	"Recalculating"
@@ -4045,9 +4048,9 @@
     	"DOTA_Tooltip_ability_fire_arcana_ability_attack_speed"				"ATTACK SPEED FROM BUFF:"
     	"DOTA_Tooltip_ability_fire_arcana_ability_buff_attack_damage"		"BONUS DAMAGE ON ATTACK AS % OF ATTACK POWER:"
 
-    	"DOTA_Tooltip_ability_modifier_fire_ray_buff"						"Flame Laser"
-    	"DOTA_Tooltip_ability_modifier_fire_ray_buff_Description"			"Increased attack speed and dealing extra fire damage on attack."
-
+    	"DOTA_Tooltip_modifier_fire_ray_buff"						"Flame Laser"
+    	"DOTA_Tooltip_modifier_fire_ray_buff_Description"			"Increased attack speed and dealing extra fire damage on attack."
+		
     	"DOTA_Tooltip_ability_fire_deity_fire_ability"						"Infernal Spiral"
     	"DOTA_Tooltip_ability_fire_deity_fire_ability_Description"			"A cone of fire damages all enemies in a line."
 
@@ -4152,6 +4155,8 @@
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"Glyph of Blazing Fire"
 		"item_rpc_conjuror_glyph_1_1_description" 				"Your Fire Aspect has @glyph_property1 extra attack speed and @glyph_property2% increased attack damage."
+		"DOTA_Tooltip_modifier_conjuror_glyph_1_1_effect"				"Glyph of Blazing Fire"
+		"DOTA_Tooltip_modifier_conjuror_glyph_1_1_effect_Description"	"Attack speed and bonus attack damage increased."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_2_1"		"Glyph of Conjuring"
 		"item_rpc_conjuror_glyph_2_1_description" 				"Increases the Max Health of all Aspects by @glyph_property1%"
@@ -4161,6 +4166,8 @@
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_4_1"		"Glyph of Distant Shadows"
 		"item_rpc_conjuror_glyph_4_1_description" 				"Increases the Attack Range of your Shadow Aspect by @glyph_property1."
+		"DOTA_Tooltip_modifier_conjuror_glyph_4_1_effect"		"Glyph of Distant Shadows"
+		"DOTA_Tooltip_modifier_conjuror_glyph_4_1_effect_Description"	"Attack range insreased."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_1"		"Glyph of Trembling Earth"
 		"item_rpc_conjuror_glyph_5_1_description" 				"@Ability1 radius is increased by @glyph_property1, and the duration of free-casting is increased by @glyph_property2 seconds."
@@ -11737,7 +11744,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol2"										"Raven Idol LV2"
 		"item_property_raven_idol2"					"Black Soul II"		
-		"property_raven_idol_description2"			"Reduce damage taken from all sources by 50%. Your health can not go above 50% of your max. Each 100 points of missing health increases damage dealt directly by items by 0.01%."
+		"property_raven_idol_description2"			"Reduce damage taken from all sources by 50%. Your health can not go above 50% of your max. Each 100 points of missing health increases damage dealt directly by items by 0.1%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"Phoenix Emblem"
@@ -14784,9 +14791,9 @@
 		"DOTA_Tooltip_ability_item_tanari_fire_temple_key_elite"				"Fire Temple Key"
 		"DOTA_Tooltip_ability_item_tanari_fire_temple_key_legend"			"Fire Temple Key"
 
-		"item_tanari_fire_temple_key_normal_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle on normal difficulty. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
-		"item_tanari_fire_temple_key_elite_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle on elite difficulty. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
-		"item_tanari_fire_temple_key_legend_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle on legend difficulty. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+		"item_tanari_fire_temple_key_normal_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+		"item_tanari_fire_temple_key_elite_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+		"item_tanari_fire_temple_key_legend_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
 
 		"DOTA_Tooltip_ability_item_tanari_essence_of_wind_normal"			"Essence of Wind"
 		"DOTA_Tooltip_ability_item_tanari_essence_of_wind_elite"				"Essence of Wind"

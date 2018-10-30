@@ -129,24 +129,36 @@ function register_roll(keys){
 				label.text = roll
 			}
 		}
-		if (rollType == "need"){
-			overlay.AddClass('yellow-overlay')
-		}else if (rollType == "greed"){
-			overlay.AddClass('green-overlay')
-		}else if (rollType == "pass"){
-			overlay.AddClass('red-overlay')
+		if (!(overlay==null)){
+			if (rollType == "need"){
+				overlay.AddClass('yellow-overlay')
+			}else if (rollType == "greed"){
+				overlay.AddClass('green-overlay')
+			}else if (rollType == "pass"){
+				overlay.AddClass('red-overlay')
+			}
+		}else{
+			$.Msg("================")
+			$.Msg("Overlay is null!")
+			$.Msg("================")
+			$.Msg("Players:",Game.GetAllPlayerIDs())
+			$.Msg("================")
 		}
-
 	}
 }
 
 function getPortraitOverlay(playerID)
 {
+	$.Msg("================")
+	$.Msg("Players:",Game.GetAllPlayerIDs())
+	$.Msg("================")
 	var allIds = Game.GetAllPlayerIDs();
 	for (var i = 1; i <= allIds.length; i++)
 	{
-		if ($('#portrait_overlay_'+i).GetAttributeInt("playerID", -1) == playerID){
-			return $('#portrait_overlay_'+i)
+		if (!($('#portrait_overlay_'+i)==null)){
+			if ($('#portrait_overlay_'+i).GetAttributeInt("playerID", -1) == playerID){
+				return $('#portrait_overlay_'+i)
+			}
 		}
 	}
 }

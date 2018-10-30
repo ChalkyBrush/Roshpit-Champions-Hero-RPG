@@ -7056,7 +7056,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"tiny_craggy_exterior"
+		"AbilityTextureName"	"conjuror/conjuror_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -62614,7 +62614,7 @@
 			}
 			"modifier_solunia_warp_core_thinker"
 			{
-				"Aura"					"modifier_solunia_warp_core_aura_lunar"
+				"Aura"					"modifier_solunia_warp_core_aura_solar"
 				"Aura_Radius"			"300"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
@@ -102021,11 +102021,10 @@
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
 
 		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.5"
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
 
-		"AbilityChannelTime"			"4"
+		"AbilityChannelTime"			"3"
 		"OnSpellStart"
 		{
 			"ApplyModifier"
@@ -116200,7 +116199,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"doom_bringer_lvl_death"
+		"AbilityTextureName"	"misc/lvl_death"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -121289,6 +121288,7 @@
 		"MaxLevel"	"3"
 		"AbilityCastPoint"				"0.1"
 		"AbilityCooldown"				"10"
+		"AbilityCastPoint"				"0.5"
 		"AbilitySpecial"
 		{
 			"02"
