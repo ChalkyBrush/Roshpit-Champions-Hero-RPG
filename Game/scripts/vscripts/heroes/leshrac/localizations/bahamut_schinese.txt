@@ -94,7 +94,7 @@
 		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] 清洁"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"当巴哈姆特开始施放升华时，召唤一群神鸟攻击前方的敌人。被击中的敌人将被冻结一段时间。此外，增加[E3]巴哈姆特的脉搏的伤害，系数为最低的属性除以最高的属性（乘法）"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"伤害"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					"%"	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"冻结持续时间"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix_two"				" 秒"	
 
@@ -261,8 +261,8 @@
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_3_1"		"隔离雕文"
 		"item_rpc_bahamut_glyph_3_1_description" 				"审判将落在巴哈姆特的周围而不是在其前方，同时提高 @glyph_property1% 范围。"
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"冲击雕文"
-		"item_rpc_bahamut_glyph_4_1_description" 				"提高巴哈姆特的脉搏的范围 @glyph_property1%"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"围墙雕文"
+		"item_rpc_bahamut_glyph_4_1_description" 				"提高宽恕之墙的持续时间 @glyph_property1 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"孤立雕文"
 		"item_rpc_bahamut_glyph_5_1_description" 				"提高孤独之盾的持续时间 @glyph_property1 秒。"
@@ -270,8 +270,8 @@
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"傲慢雕文"
 		"item_rpc_bahamut_glyph_6_1_description" 				"升华的冷却时间变为2倍，巴哈姆特的脉搏每5次造成1次 @glyph_property1 秒眩晕。"
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"围墙雕文"
-		"item_rpc_bahamut_glyph_7_1_description" 				"提高宽恕之墙的持续时间 @glyph_property1 秒。"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"冲击雕文"
+		"item_rpc_bahamut_glyph_7_1_description" 				"提高巴哈姆特的脉搏的范围 @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_a"		"多重之墙雕文"
 		"item_rpc_bahamut_glyph_5_a_description" 				"每 @glyph_property1 秒增加免费的墙."
