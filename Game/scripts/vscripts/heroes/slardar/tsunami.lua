@@ -8,7 +8,7 @@ function start_channel(event)
 	ability.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "hydroxis")
 	if ability.r_2_level > 0 then
 		local b_d_duration = Filters:GetAdjustedBuffDuration(caster, 12, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_b_d", {duration = b_d_duration})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_r_2", {duration = b_d_duration})
 	end
 	caster.e_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
 
@@ -64,8 +64,8 @@ function channel_complete(event)
 					Filters:ApplyStun(caster, stunDuration, enemy)
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ocean_quake_slowed", {duration = slow_duration})
 					if r_1_level > 0 then
-						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_hydroxis_a_d", {duration = slow_duration})
-						enemy:SetModifierStackCount("modifier_hydroxis_a_d", caster, r_1_level)
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_hydroxis_r_1", {duration = slow_duration})
+						enemy:SetModifierStackCount("modifier_hydroxis_r_1", caster, r_1_level)
 					end
 				end
 			end 

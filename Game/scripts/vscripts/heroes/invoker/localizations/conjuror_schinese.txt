@@ -202,6 +202,7 @@
     	"DOTA_Tooltip_ability_conjuror_elemental_deity_armor_mult"			"护甲值 X:"
     	"DOTA_Tooltip_ability_conjuror_elemental_deity_health_mult"			"最大生命值 X:"
 
+
     	"conjuror_elemental_deity_summon"									"元素尊者"
 
        	"item_property_conjuror_arcana1"									"元素尊者"

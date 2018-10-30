@@ -8225,7 +8225,7 @@
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%slow_movespeed"
 				}
 			}
-			"modifier_water_bomb_b_b_damage_buff_visible"
+			"modifier_water_bomb_w_2_damage_buff_visible"
 			{
 				"IsHidden"	"0"
 				"TextureName"	"hydroxis/hydroxis_w_2"
@@ -8246,7 +8246,7 @@
 					}
 				}
 			}
-			"modifier_water_bomb_b_b_damage_buff_invisible"
+			"modifier_water_bomb_w_2_damage_buff_invisible"
 			{
 				"IsHidden"	"1"
 				"Properties"
@@ -8254,13 +8254,13 @@
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "4"
 				}
 			}
-			"modifier_water_bomb_b_b_damage_buff_spillover"
+			"modifier_water_bomb_w_2_damage_buff_spillover"
 			{
 				"IsHidden"	"0"
 				"TextureName"	"hydroxis/hydroxis_w_2"
 
 			}
-			"modifier_water_bomb_b_b_damage_buff_spillover_invis"
+			"modifier_water_bomb_w_2_damage_buff_spillover_invis"
 			{
 				"IsHidden"	"1"
 				"Properties"
@@ -8651,7 +8651,7 @@
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%move_slow"
 				}
 			}
-			"modifier_hydroxis_a_d"
+			"modifier_hydroxis_r_1"
 			{
 				"TextureName"		"slardar_amplify_damage"
 				"Passive"			"0"
@@ -8679,7 +8679,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-100"
 				}
 			}
-			"modifier_hydroxis_b_d"
+			"modifier_hydroxis_r_2"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
