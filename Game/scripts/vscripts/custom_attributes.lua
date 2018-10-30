@@ -275,8 +275,8 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_epoch_rune_w_3_invisible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_w_3_invisible", EPOCH_W3_INT)
 	end
-	if hero:HasModifier("modifier_conjuror_e_1_buff_invisible") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_conjuror_e_1_buff_invisible", CustomAttributes.CONJUROR_E1_AGI)
+	if hero:HasModifier("modifier_conjuror_a_c_buff_invisible") then
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_conjuror_a_c_buff_invisible", CustomAttributes.CONJUROR_E1_AGI)
 	end
 	if hero:HasModifier("modifier_warlord_rune_w_2") then
 		local stacks = hero:GetModifierStackCount("modifier_warlord_rune_w_2", hero)

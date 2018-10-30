@@ -3788,9 +3788,6 @@
 		"DOTA_Tooltip_ability_earthquake_damage"							"DAMAGE:"
 		"DOTA_Tooltip_ability_earthquake_stun_duration"						"STUN DURATION:"
 		"DOTA_Tooltip_ability_earthquake_radius"							"RADIUS:"
-		
-		"DOTA_Tooltip_earth_aspect_a_a_ability"								"Earth Guardian"
-		"DOTA_Tooltip_earth_aspect_a_a_ability_Description"					"Earth Aspect absorbs 50% of all damage taken by the caster. Each Q1 rune makes Earth Aspect provide armor to itself and all nearby friendly units."
 
 		"DOTA_Tooltip_modifier_free_quake"									"Quaking"
 		"DOTA_Tooltip_modifier_free_quake_description"						"Earthquake can be casted freely until this buff wears off."
@@ -3824,9 +3821,6 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_property_one"				"Health Regen"
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_suffix"						""
 		
-		"DOTA_Tooltip_modifier_aspect_earth_well"							"Earth Well"
-		"DOTA_Tooltip_modifier_aspect_earth_well_Description"				"Health Regen increased."	
-		
 		"DOTA_Tooltip_ability_conjuror_rune_q_4"							"[Q4] Earth and Fire"
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_Description"				"Conjuror's Strength increases <font color=\"#AF843D\">Earth</font> damage and <font color=\"#EF4126\">Fire</font> damage."
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_property_one"				"Damage Increase"
@@ -3850,11 +3844,8 @@
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_suffix"						""
 		
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation"				"Permanent Immolation"
-		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Burns and deals damage to nearby enemies."
-		
-		"DOTA_Tooltip_modifier_permanent_immolation"						"Immolation"
-		"DOTA_Tooltip_modifier_permanent_immolation_Description"			"Burns and deals damage to nearby enemies"
-		
+		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Burns and deals damage to nearby enemies"
+
 		"DOTA_Tooltip_ability_conjuror_rune_w_2"							"[W2] Soul Sear"
     	"DOTA_Tooltip_ability_conjuror_rune_w_2_Description"				"Each cast of immolation increases your attack damage for 12 seconds. Each target struck by immolation also loses armor. Both effects can stack up to 3 times per target."
     	"DOTA_Tooltip_ability_conjuror_rune_w_2_property_one"				"Damage Increase per Stack"
@@ -3900,8 +3891,8 @@
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_property_two"				"Agility Bonus Per Stack"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_suffix_two"					""		
 
-    	"DOTA_Tooltip_modifier_conjuror_e_1_buff_visible"					"Soul of Shadow"
-    	"DOTA_Tooltip_modifier_conjuror_e_1_buff_visible_Description"		"Increased Attack Power and Agility"
+    	"DOTA_Tooltip_modifier_conjuror_a_c_buff_visible"					"Soul of Shadow"
+    	"DOTA_Tooltip_modifier_conjuror_a_c_buff_visible_Description"		"Increased Attack Power and Agility"
 		
 		"DOTA_Tooltip_ability_conjuror_rune_e_2"							"[E2] Shadow Lance"
     	"DOTA_Tooltip_ability_conjuror_rune_e_2_Description"				"When you cast Shadow Gate - also release a dark projectile towards the targeted location."
@@ -6469,16 +6460,10 @@
         "DOTA_Tooltip_ability_hydroxis_rune_r_1_property_two"               "Damage increase"
         "DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix_two"                 "% per 10 armor"
 		
-		"DOTA_Tooltip_modifier_hydroxis_r_1"								"Wave Drench"
-		"DOTA_Tooltip_modifier_hydroxis_r_1_Description"					"Armor reduced, damage from Ocean Quake and its runes amplified."
-		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_2"							"[R2] Tsunami"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_Description"				"When you begin channeling @Ability4, gain a 12 second buff that generates waves behind Hydroxis that travel forward, damaging and slowing enemies they hit."
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_property_one"				"Damage"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_suffix"						""
-		
-		"DOTA_Tooltip_modifier_hydroxis_r_2"								"Tsunami"
-		"DOTA_Tooltip_modifier_hydroxis_r_2_Description"					"Generates waves behind Hydroxis."
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_3"							"[R3] Poseidon's Fury"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_Description"				"After casting @Ability3, gain a [R3] buff for 10 seconds where attacks shoot gushes of water towards enemies in a semi-circle behind the target."

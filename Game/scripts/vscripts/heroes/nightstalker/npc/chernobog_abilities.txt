@@ -457,7 +457,7 @@
 					}
 				}
 			}
-			"modifier_demon_hunter_w_2_inner_beast_active"
+			"modifier_demon_hunter_b_b_inner_beast_active"
 			{
 				"IsHidden"	"0"
 				"TextureName"	"chernobog/chernobog_rune_w_2"
@@ -467,7 +467,7 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "3600"
 				}
 			}
-			"modifier_demon_hunter_w_2_inner_beast_inactive"
+			"modifier_demon_hunter_b_b_inner_beast_inactive"
 			{
 				"IsHidden"	"0"
 				"TextureName"	"chernobog/chernobog_rune_w_2"

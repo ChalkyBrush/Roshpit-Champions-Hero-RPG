@@ -655,12 +655,12 @@ function shadow_aspect_attack(event)
 		for i = 1, #unitsToBuffTable, 1 do
 			local unit = unitsToBuffTable[i]
 			local duration = Filters:GetAdjustedBuffDuration(conjuror, 16, false)
-			ability:ApplyDataDrivenModifier(attacker, unit, "modifier_conjuror_e_1_buff_visible", {duration = duration})
-			ability:ApplyDataDrivenModifier(attacker, unit, "modifier_conjuror_e_1_buff_invisible", {duration = duration})
-			local currentStacks = unit:GetModifierStackCount("modifier_conjuror_e_1_buff_visible", attacker)
+			ability:ApplyDataDrivenModifier(attacker, unit, "modifier_conjuror_a_c_buff_visible", {duration = duration})
+			ability:ApplyDataDrivenModifier(attacker, unit, "modifier_conjuror_a_c_buff_invisible", {duration = duration})
+			local currentStacks = unit:GetModifierStackCount("modifier_conjuror_a_c_buff_visible", attacker)
 			local newStacks = math.min(currentStacks + 1, 20)
-			unit:SetModifierStackCount("modifier_conjuror_e_1_buff_visible", attacker, newStacks)
-			unit:SetModifierStackCount("modifier_conjuror_e_1_buff_invisible", attacker, newStacks*a_c_level)
+			unit:SetModifierStackCount("modifier_conjuror_a_c_buff_visible", attacker, newStacks)
+			unit:SetModifierStackCount("modifier_conjuror_a_c_buff_invisible", attacker, newStacks*a_c_level)
 			CustomAbilities:QuickAttachParticle("particles/roshpit/shadow_aspect_soul_of_shadow.vpcf", unit, 1)
 		end
 	end
@@ -737,8 +737,8 @@ function earth_aspect_a_a_think(event)
 	  	local allies = FindUnitsInRadius( caster.conjuror:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	  	if #allies > 0 then
 		    for _,ally in pairs(allies) do
-		    	ability:ApplyDataDrivenModifier(caster, ally, "modifier_conjuror_q_1_buff", {duration = a_a_duration}) 
-		    	ally:SetModifierStackCount( "modifier_conjuror_q_1_buff", ability, ability.q_1_ability_level )
+		    	ability:ApplyDataDrivenModifier(caster, ally, "modifier_conjuror_a_a_buff", {duration = a_a_duration}) 
+		    	ally:SetModifierStackCount( "modifier_conjuror_a_a_buff", ability, ability.q_1_ability_level )
 		    end 
 	    end 	
 	    ability:ApplyDataDrivenModifier(caster, caster, "modifier_earth_aspect_a_a_effect", {duration = a_a_duration})
