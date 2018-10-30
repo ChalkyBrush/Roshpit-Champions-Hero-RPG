@@ -19,7 +19,7 @@ function begin_alpha_spark(event)
 	else
 		begin_supernova(event)
 	end
-	local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	local c_d_level = caster:GetRuneValue("r", 3)
 	if c_d_level > 0 then
 		local buffDuration = Filters:GetAdjustedBuffDuration(caster, c_d_level*0.25, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_c_d_arcana_shell", {duration = buffDuration})
@@ -29,7 +29,7 @@ end
 function alpha_spark_think(event)
 	local caster = event.caster.hero
 	local ability = event.ability
-	local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	local d_d_level = caster:GetRuneValue("r", 4)
 	if d_d_level > 0 then
 		ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_solunia_d_d_stats", {})
 		caster:SetModifierStackCount("modifier_solunia_d_d_stats", event.caster, d_d_level)

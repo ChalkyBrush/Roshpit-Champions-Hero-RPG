@@ -142,8 +142,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_r_1_property_one"			"护甲提升光环"
     	"DOTA_Tooltip_ability_paladin_rune_r_1_suffix"					""
 
-    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks"				"天堂守护者"
-    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks_Description"	"增加护甲"	
+    	"DOTA_Tooltip_modifier_paladin_r_1_aura_armor_stacks"				"天堂守护者"
+    	"DOTA_Tooltip_modifier_paladin_r_1_aura_armor_stacks_Description"	"增加护甲"	
 
     	"DOTA_Tooltip_ability_paladin_rune_r_2"							"[R2] 授权之光"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"友军每一次被骑士的门徒治疗，都将提高一定的攻击力和护甲。持续时间16秒。"

@@ -48,7 +48,7 @@ function mach_punch_cast(event)
 	print("MACH PUNCH GO!")
 	if caster:HasModifier("modifier_temporal_discharge") then
 		local stacks = caster:GetModifierStackCount("modifier_temporal_discharge", caster)
-		local w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+		local w_2_level = caster:GetRuneValue("w", 2)
 		damage = damage + damage*stacks*w_2_level*ZHONIK_W2_MUCH_PUNCH_AMP_PCT/100
 		caster:RemoveModifierByName("modifier_temporal_discharge")
 	end
@@ -56,7 +56,7 @@ function mach_punch_cast(event)
 		damage = damage*event.arcana_missle_amp
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_TIME)
-	local w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+	local w_1_level = caster:GetRuneValue("w", 1)
 	if w_1_level > 0 then
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/zonik/sonic_boom_fallback_mid_egset.vpcf", PATTACH_CUSTOMORIGIN, caster )
 		ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin())
@@ -119,7 +119,7 @@ function mach_punch_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+	local w_2_level = caster:GetRuneValue("w", 2)
 	if w_2_level > 0 then
 		if not ability.distanceMoved then
 			ability.distanceMoved = 0
@@ -140,7 +140,7 @@ function mach_punch_think(event)
 		end
 	end
 	if caster:IsRooted() or caster:IsStunned() or caster:HasModifier("modifier_knockback") then
-		local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+		local w_3_level = caster:GetRuneValue("w", 3)
 		if w_3_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_mach_punch_whiplash", {})
 			local newStacks = caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster) + 1
@@ -148,7 +148,7 @@ function mach_punch_think(event)
 		end
 	else
 		if caster:HasModifier("modifier_mach_punch_whiplash") then
-			local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+			local w_3_level = caster:GetRuneValue("w", 3)
 
 			local pfx = ParticleManager:CreateParticle("particles/roshpit/zonik/whiplash_choslam_start.vpcf", PATTACH_CUSTOMORIGIN, caster )
 			ParticleManager:SetParticleControl(pfx, 0,caster:GetAbsOrigin())
@@ -181,7 +181,7 @@ function mach_punch_attack_land(event)
 	local target = event.target
 	local ability = event.ability
 	local attack_damage = event.attack_damage
-	local w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	local w_4_level = caster:GetRuneValue("w", 4)
 	if w_4_level > 0 then
 		if not target.dummy then
 			ability:ApplyDataDrivenModifier(attacker, target, "modifier_zonik_echo", {duration = 4})

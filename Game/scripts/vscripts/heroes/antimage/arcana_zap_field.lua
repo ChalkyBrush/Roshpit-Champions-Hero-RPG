@@ -16,8 +16,8 @@ function arcana_zap_field_start(event)
 		local avatarDuration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_zap_field", {duration = avatarDuration})
 	end)
-	ability.q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
-	local q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	ability.q_2_level = caster:GetRuneValue("q", 2)
+	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_arcana1_q4", {duration = avatarDuration})
 		caster:SetModifierStackCount("modifier_arkimus_arcana1_q4", caster, q_4_level)
@@ -100,7 +100,7 @@ function damage_taken(event)
 		ability.pfxCount = 0
 	end
 
-	local q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	local q_3_level = caster:GetRuneValue("q", 3)
 	if q_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_arcana1_q3", {duration = ARKIMUS_ARCANA1_Q3_DUR_BASE})
 		local newStacks = math.min(caster:GetModifierStackCount("modifier_arkimus_arcana1_q3", caster) + 1, q_3_level * ARKIMUS_ARCANA1_Q3_STACKS)

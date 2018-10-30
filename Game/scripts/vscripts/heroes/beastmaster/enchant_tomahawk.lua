@@ -73,7 +73,7 @@ function tomahawk_attack_land(event)
 		caster:RemoveModifierByName("modifier_enchant_tomahawk_buff")
 	end
 
-	local a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	local a_d_level = caster:GetRuneValue("r", 1)
 	if a_d_level > 0 then
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.3*a_d_level
 	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 220, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
@@ -92,7 +92,7 @@ function tomahawk_attack_land(event)
 	        ParticleManager:DestroyParticle(pfx, false)
 	    end)   		
 	end
-	local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	local b_d_level = caster:GetRuneValue("r", 2)
 	if b_d_level > 0 then
 		ability.r_2_level = b_d_level
 		if not target:HasModifier("modifier_tomahawk_ice_effect") then
@@ -101,7 +101,7 @@ function tomahawk_attack_land(event)
 		end
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_tomahawk_ice_effect", {duration = 6})
 	end
-	local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	local c_d_level = caster:GetRuneValue("r", 3)
 	if c_d_level > 0 then
 		ability.r_3_level = c_d_level
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_tomahawk_tectonic_pressure", {duration = 15})

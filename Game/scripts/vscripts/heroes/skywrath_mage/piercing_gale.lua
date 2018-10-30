@@ -24,7 +24,7 @@ function begin_piercing_gale(event)
 	local critParticle = "particles/roshpit/sephyr/gale/crit.vpcf"
 	local range = 800
 	local speed = 2500
-	local w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+	local w_2_level = caster:GetRuneValue("w", 2)
 	local castAbility = ability
 	ability.w_2_level = w_2_level
 	if caster:HasModifier("modifier_sephyr_glyph_4_1") then
@@ -162,7 +162,7 @@ function gale_hit(event)
 		ability = caster:FindAbilityByName("piercing_gale")
 		crit = true
 	end
-	local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	local w_3_level = caster:GetRuneValue("w", 3)
 	if w_3_level > 0 then
 		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*W3_AD_TO_W_DAMAGE_PERCENT/100*w_3_level
 	end
@@ -176,7 +176,7 @@ end
 function sephyr_passive_think_gale(event)
 	local ability = event.ability
 	local caster = event.caster
-	local w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+	local w_1_level = caster:GetRuneValue("w", 1)
 	if w_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sephyr_mana_regen", {})
 		local manaRegen = caster:GetIntellect()*0.025*w_1_level

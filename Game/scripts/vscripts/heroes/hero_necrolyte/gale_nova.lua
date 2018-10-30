@@ -1,27 +1,27 @@
 require('heroes/hero_necrolyte/plague_blaster')
-local constants = require('heroes/hero_necrolyte/constants')
+require('heroes/hero_necrolyte/constants')
 
 function cast(event)
 	local caster = event.caster
 	local ability = event.ability
 	local damage = event.damage
-	local radius = constants.Q_RANGE
-	local duration = constants.Q_DEBUFF_DURATION
+	local radius = Q_RANGE
+	local duration = Q_DEBUFF_DURATION
 
 	StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.3})
 	Filters:CastSkillArguments(1, caster)
 
 	if caster:HasModifier("modifier_venomort_glyph_1_1") then
 		ability:EndCooldown()
-		ability:StartCooldown(constants.T11_COOLDOWN)
+		ability:StartCooldown(T11_COOLDOWN)
 	end
 
 	local q1_level = caster:GetRuneValue("q", 1)
-	local q1_duration = constants.Q1_DURATION
+	local q1_duration = Q1_DURATION
 
 	local q2_level = caster:GetRuneValue("q", 2)
 	if q2_level > 0 then
-		damage = damage + constants.Q2_DAMAGE_PER_INT * q2_level * caster:GetIntellect()
+		damage = damage + Q2_DAMAGE_PER_INT * q2_level * caster:GetIntellect()
 	end
 	ability.dot_damage = damage
 
@@ -29,7 +29,7 @@ function cast(event)
 
 	local q4_level =  caster:GetRuneValue("q", 4)
 	if q4_level > 0 then
-		radius = radius + q4_level * constants.Q4_RANGE
+		radius = radius + q4_level * Q4_RANGE
 	end
 	
 
@@ -50,11 +50,11 @@ function cast(event)
 
 	local bossesCount = 0
 	local paragonsCount = 0
-	local bossesCountAs = constants.BOSSES_COUNT_AS_ENEMIES
-	local paragonsCountAs = constants.PARAGONS_COUNT_AS_ENEMIES
+	local bossesCountAs = BOSSES_COUNT_AS_ENEMIES
+	local paragonsCountAs = PARAGONS_COUNT_AS_ENEMIES
 	if caster:HasModifier("modifier_venomort_glyph_2_1") then
-		bossesCountAs = constants.T21_BOSSES_COUNT_AS_ENEMIES
-		paragonsCountAs = constants.T21_PARAGONS_COUNT_AS_ENEMIES
+		bossesCountAs = T21_BOSSES_COUNT_AS_ENEMIES
+		paragonsCountAs = T21_PARAGONS_COUNT_AS_ENEMIES
 	end
 
 
@@ -66,7 +66,7 @@ function cast(event)
 		local w2_level = caster:GetRuneValue("w", 2)
 		if w2_level > 0 then
 			apply_demoralize = true
-			demoralize_duration =  w2_level * constants.W2_DURATION * (1 + constants.T12_DURATION_INCREASE_PERCENT/100)
+			demoralize_duration =  w2_level * W2_DURATION * (1 + T12_DURATION_INCREASE_PERCENT/100)
 		end
 	end
 
@@ -88,7 +88,7 @@ function cast(event)
 			end
 			if apply_demoralize then
 				local luck = RandomInt(1,100)
-				if luck < constants.W2_CHANCE then
+				if luck < W2_CHANCE then
 					demoralize(caster, w_ability, enemy, demoralize_duration)
 				end
 

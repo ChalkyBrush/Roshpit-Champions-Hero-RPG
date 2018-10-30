@@ -37,7 +37,7 @@ function channel_complete(event)
 	caster:SetRangedProjectileName("particles/base_attacks/arkimus_archon_form.vpcf")
 	Events:ColorWearablesAndBase(caster, Vector(0,0,0))
 	caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
-	ability.r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	ability.r_2_level = caster:GetRuneValue("r", 2)
 	if ability.r_2_level > 0 then
 		local stats = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()
 		local manaRegen = stats*0.01*ability.r_2_level
@@ -45,7 +45,7 @@ function channel_complete(event)
 		caster:SetModifierStackCount("modifier_archone_b_d_mana_regen", caster, manaRegen)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_archone_b_d_attack_power", {duration = duration})
 	end
-	ability.r_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	ability.r_4_level = caster:GetRuneValue("r", 4)
 	EmitSoundOn("Arkimus.ArchonForm.Start", caster)
 	Filters:CastSkillArguments(4, caster)
 
@@ -82,7 +82,7 @@ function archon_attack_land(event)
 		ability.pushFV = pushFV
 		ability.pushVelocity = 20
 	end
-	local a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	local a_d_level = caster:GetRuneValue("r", 1)
 	ability.r_1_level = a_d_level
 	if caster:GetUnitName() == "seafortress_archon_wizard" then
 		ability.r_1_level = 10

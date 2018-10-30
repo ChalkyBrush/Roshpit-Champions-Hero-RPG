@@ -106,6 +106,9 @@ function Weapons:RollLegendWeapon1(deathLocation, class, strictMaxItemLevel, dis
 	end
 	if strictMaxItemLevel then
 		maxLevel = strictMaxItemLevel
+		if strictMaxItemLevel == 50 then
+			Arena.PitLevel = 7
+		end
 	end
 	local propertyTable, baseValueTable, propensityTable, tooltipTable, colorTable = HerosCustom:GetAvailableRunes(whichHero)
 	local specialProperty1 = RandomInt(1, #propensityTable)

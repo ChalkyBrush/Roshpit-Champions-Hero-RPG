@@ -3,7 +3,7 @@ function heavens_shield_cast(event)
 	local ability = event.ability
 	local target = event.target
 	local shieldStacks = event.stacks
-	local q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+	local q_2_level = caster:GetRuneValue("q", 2)
 	ability.q_2_level = q_2_level
 	local duration = 9
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
@@ -15,7 +15,7 @@ function heavens_shield_cast(event)
 	target:SetModifierStackCount( "modifier_heavens_shield", ability, shieldStacks)
 	target.heavensShieldSource = ability
 
-	ability.q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	ability.q_1_level = caster:GetRuneValue("q", 1)
 
 	local particleName = "particles/units/heroes/hero_oracle/white_mage_healheal_core.vpcf"
 	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )

@@ -31,10 +31,10 @@ function spark_start(event)
 	local casterOrigin = caster:GetAbsOrigin()
 
 	local damage = event.damage
-	ability.q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-	ability.q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
-	ability.q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
-	ability.q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	ability.q_1_level = caster:GetRuneValue("q", 1)
+	ability.q_2_level = caster:GetRuneValue("q", 2)
+	ability.q_3_level = caster:GetRuneValue("q", 3)
+	ability.q_4_level = caster:GetRuneValue("q", 4)
 	local duration = 7 + ability.q_4_level*0.15
 	local loops = math.floor(duration*10)
 	Timers:CreateTimer(0.1, function()

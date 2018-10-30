@@ -32,7 +32,7 @@ function shadow_rush_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_shadow_rush", {duration = duration})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_shadow_rush_flying_portion", {duration = duration})
 	GridNav:DestroyTreesAroundPoint(caster:GetAbsOrigin(), 240, false)
-	local c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	local c_c_level = caster:GetRuneValue("e", 3)
 	local c_c_duration = Filters:GetAdjustedBuffDuration(caster, c_c_level*SLIPFINN_E3_DURATION, false)
 	if c_c_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_shadow_cloak", {duration = c_c_duration})
@@ -83,7 +83,7 @@ function slipfinn_attack_land(event)
 	if target.dummy then
 		return false
 	end
-	local a_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 2)
+	local a_c_level = attacker:GetRuneValue("e", 1)
 	if a_c_level > 0 then
 		local damage = event.damage*SLIPFINN_E1_MULT*a_c_level
 		-- Timers:CreateTimer(0.05, function()

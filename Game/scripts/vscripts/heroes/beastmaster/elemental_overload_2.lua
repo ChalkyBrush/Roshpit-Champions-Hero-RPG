@@ -130,7 +130,7 @@ function overload_start(event)
 				end
 			end
 		elseif caster:HasAbility("enhchant_tomahawk") then
-			local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+			local d_d_level = caster:GetRuneValue("r", 4)
 			if d_d_level > 0 then
 				local d_d_stacks = math.ceil(newStacks*1.0*d_d_level)
 				local tomahawk = caster:FindAbilityByName("enhchant_tomahawk")

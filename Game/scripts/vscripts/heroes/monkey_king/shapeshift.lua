@@ -95,7 +95,7 @@ function shapeshift_start_cat(event)
 	end
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_jin_bo", "draghor_wolf_rend", 1)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_leap", "djanghor_feral_sprint", 2)
-	local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	local d_d_level = caster:GetRuneValue("r", 4)
 	if d_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_cat_d_d", {})
 		caster:SetModifierStackCount("modifier_shapeshift_cat_d_d", caster, d_d_level)
@@ -141,13 +141,13 @@ function shapeshift_start_bear(event)
 	end
 	CustomAbilities:AddAndOrSwapSkill(caster,"draghor_jin_bo", "djanghor_bear_war_stomp", 1)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_leap", "djanghor_bear_charge", 2)
-	local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	local b_d_level = caster:GetRuneValue("r", 2)
 	if b_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_b_d", {})
 		caster:SetModifierStackCount("modifier_bear_b_d", caster, b_d_level)
 		caster:FindModifierByName("modifier_bear_b_d"):SetDuration(-1, true)
 	end
-	local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	local d_d_level = caster:GetRuneValue("r", 4)
 	if d_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_bear_d_d", {})
 		caster:SetModifierStackCount("modifier_shapeshift_bear_d_d", caster, d_d_level)
@@ -190,13 +190,13 @@ function shapeshift_start_crow(event)
 	end
 	CustomAbilities:AddAndOrSwapSkill(caster,"draghor_jin_bo", "draghor_hawk_tornado", 1)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_leap", "djanghor_hawk_soar", 2)
-	local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	local c_d_level = caster:GetRuneValue("r", 3)
 	if c_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_hawk_c_d", {})
 		caster:SetModifierStackCount("modifier_hawk_c_d", caster, c_d_level)
 		caster:FindModifierByName("modifier_hawk_c_d"):SetDuration(-1, true)
 	end
-	local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	local d_d_level = caster:GetRuneValue("r", 4)
 	if d_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_crow_d_d", {})
 		caster:SetModifierStackCount("modifier_shapeshift_crow_d_d", caster, d_d_level)
@@ -400,7 +400,7 @@ end
 function general_shapeshift_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	local a_d_level = caster:GetRuneValue("r", 1)
 	if a_d_level > 0 then
 		if not caster:HasModifier("modifier_shapeshift_attack_power_a_d") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_attack_power_a_d", {})
@@ -417,7 +417,7 @@ function general_shapeshift_think(event)
 		end
 		local attackBonus = attribute*a_d_level*DJANGHOR_R1_ATTACK_POWER_PER_STAT
 		if caster:HasModifier("modifier_shapeshift_year_beast") then
-			local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+			local b_d_level = caster:GetRuneValue("r", 2)
 			attackBonus = attribute*a_d_level*DJANGHOR_R1_ARCANA_ATTACK_POWER
 			local healthBonus = attribute*DJANGHOR_R2_ARCANA_HEALTH_PER_ATTRIBUTE*b_d_level
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_year_beast_b_d_health", {})
@@ -517,7 +517,7 @@ function shapeshift_start_year_beast(event)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_leap", "djanghor_year_beast_charge", 2)
 	end
 
-	local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	local d_d_level = caster:GetRuneValue("r", 4)
 	if d_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_yearbeast_d_d", {})
 		caster:SetModifierStackCount("modifier_shapeshift_yearbeast_d_d", caster, d_d_level)

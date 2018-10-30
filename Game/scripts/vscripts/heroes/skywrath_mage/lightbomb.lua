@@ -137,7 +137,7 @@ function lightbomb_cast(event)
 
 	local damage = event.base_damage + event.int_damage*caster:GetIntellect()
 	local stun_duration = event.stun_duration
-	local q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+	local q_2_level = caster:GetRuneValue("q", 2)
 	Timers:CreateTimer(distance/ability.speed-0.03, function()
 		EmitSoundOnLocationWithCaster(bombPos, "Sephyr.Lightbomb.ImpactFlare", caster)
 		ParticleManager:DestroyParticle(destPFX, false)
@@ -170,13 +170,13 @@ function lightbomb_cast(event)
 		end 
 	end)
 
-	local q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	local q_1_level = caster:GetRuneValue("q", 1)
 	if q_1_level > 0 then
 		local buffDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_lightbomb_a_a", {duration = buffDuration})
 		caster:SetModifierStackCount("modifier_lightbomb_a_a", caster, q_1_level)
 	end
-	local q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	local q_3_level = caster:GetRuneValue("q", 3)
 	if q_3_level > 0 then
 		local freeStacks = caster:GetModifierStackCount("modifier_lightbomb_freecast", caster)
 		if freeStacks >= 10 then
@@ -193,7 +193,7 @@ end
 function sephyr_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sephyr_holy_amp", {})
 		caster:SetModifierStackCount("modifier_sephyr_holy_amp", caster, q_4_level)

@@ -5,9 +5,9 @@ function tachyon_shield_cast(event)
 	local target = event.target
 	local ability = event.ability
 
-	ability.q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-	ability.q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
-	ability.q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	ability.q_1_level = caster:GetRuneValue("q", 1)
+	ability.q_3_level = caster:GetRuneValue("q", 3)
+	ability.q_4_level = caster:GetRuneValue("q", 4)
 
 	local modifierDuration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_tachyon_shell", {duration = modifierDuration})
@@ -105,7 +105,7 @@ function die_under_tachyon(event)
 	local target = event.unit
 	local ability = event.ability
 
-	local q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+	local q_2_level = caster:GetRuneValue("q", 2)
 	if q_2_level > 0 then
 		local radius = ZHONIK_Q2_BASE_SEARCH_RADIUS + q_2_level*ZHONIK_Q2_SEARCH_RADIUS
 		local duration = ZHONIK_Q2_BASE_DURATION + q_2_level*ZHONIK_Q2_DURATION

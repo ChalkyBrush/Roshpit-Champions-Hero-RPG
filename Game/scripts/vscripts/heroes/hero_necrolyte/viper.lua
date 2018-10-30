@@ -1,4 +1,4 @@
-local constants = require('heroes/hero_necrolyte/constants')
+require('heroes/hero_necrolyte/constants')
 
 function begin_channel(event)
     local caster = event.caster
@@ -34,26 +34,26 @@ function cast(event)
     local damage = event.damage
     Filters:CastSkillArguments(4, caster)
 
-    local r4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+    local r4_level = caster:GetRuneValue("r", 4)
 
     if r4_level > 0 then
-        health = health + r4_level * constants.R4_ADD_HP
-        damage = damage + r4_level * constants.R4_ADD_DAMAGE
+        health = health + r4_level * R4_ADD_HP
+        damage = damage + r4_level * R4_ADD_DAMAGE
     end
 
-    local r2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+    local r2_level = caster:GetRuneValue("r", 2)
     local multiplier = 1;
     if r2_level > 0 then
-        multiplier = multiplier + r2_level * constants.R2_VIPER_SCALE_PERCENT/100
+        multiplier = multiplier + r2_level * R2_VIPER_SCALE_PERCENT/100
     end
 
     local armor = caster:GetPhysicalArmorValue()
-    local lifetime = constants.R_DURATION
+    local lifetime = R_DURATION
     local attackspeed = 100
 
     if caster:HasModifier('modifier_venomort_glyph_7_1') then
-        attackspeed = attackspeed + constants.T71_ADDITIONAL_ATTACK_SPEED
-        lifetime = lifetime + constants.T71_ADDITIONAL_LIFETIME
+        attackspeed = attackspeed + T71_ADDITIONAL_ATTACK_SPEED
+        lifetime = lifetime + T71_ADDITIONAL_LIFETIME
     end
     EmitSoundOn("Venomort.Viper.CastVO", caster)
     local viper = CreateUnitByName("venomort_viper_summon", caster:GetAbsOrigin() + caster:GetForwardVector()*120, true, caster, caster, caster:GetTeamNumber())
@@ -107,9 +107,9 @@ function attack_land(event)
     local ability = event.ability
     local creator = caster.creator
 
-    local r1_level = Runes:GetTotalRuneLevelGeneric(creator, 1, 3)
+    local r1_level = creator:GetRuneValue("r", 1)
     if r1_level > 0 then
-        local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * r1_level * constants.R1_VIPER_DAMAGE_PERCENT/100
+        local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * r1_level * R1_VIPER_DAMAGE_PERCENT/100
         local summonAbility = caster.summonAbility
         if creator:HasModifier('modifier_venomort_immortal_weapon_1') then
             if not summonAbility.particleCount then
@@ -127,7 +127,7 @@ function attack_land(event)
                     summonAbility.particleCount = summonAbility.particleCount - 1
                 end)
             end
-            local enemies = FindUnitsInRadius( creator:GetTeamNumber(), target:GetAbsOrigin(), nil, constants.WEAPON1_AOE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
+            local enemies = FindUnitsInRadius( creator:GetTeamNumber(), target:GetAbsOrigin(), nil, WEAPON1_AOE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
             if #enemies > 0 then
                 for _,enemy in pairs(enemies) do
                     Filters:ApplyDotDamage(creator, ability, enemy, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
@@ -139,10 +139,10 @@ function attack_land(event)
 
     end
 
-    local r3_level = Runes:GetTotalRuneLevelGeneric(creator, 3, 3)
+    local r3_level = creator:GetRuneValue("r", 3)
     if r3_level > 0 then
-        local max_stacks = r3_level * constants.R3_STACKS
-        local duration = constants.R3_DURATION
+        local max_stacks = r3_level * R3_STACKS
+        local duration = R3_DURATION
         ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_summon_damage_reduction", {duration = duration})
         local modifier = target:FindModifierByName("modifier_venomort_summon_damage_reduction")
         modifier:SetStackCount(min(modifier:GetStackCount() + 1, max_stacks))

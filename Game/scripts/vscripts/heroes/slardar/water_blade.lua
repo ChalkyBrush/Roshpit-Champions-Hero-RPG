@@ -169,7 +169,7 @@ function hydroxis_attack_land(event)
 	local ability = event.ability
 	local target = event.target
 	local caster = attacker
-	local w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+	local w_1_level = caster:GetRuneValue("w", 1)
 	if w_1_level > 0 then
 		local crit = false
 		if caster:HasModifier("modifier_hydroxis_glyph_5_1") then

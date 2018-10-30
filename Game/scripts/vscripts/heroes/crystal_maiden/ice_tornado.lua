@@ -5,10 +5,10 @@ function start_channel(event)
 	local ability = event.ability
 	EmitSoundOn("Sorceress.Tornado.VO", caster)
 
-	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	ability.r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
-	ability.r_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
-	ability.r_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	ability.r_1_level = caster:GetRuneValue("r", 1)
+	ability.r_2_level = caster:GetRuneValue("r", 2)
+	ability.r_3_level = caster:GetRuneValue("r", 3)
+	ability.r_4_level = caster:GetRuneValue("r", 4)
 
 	if caster:HasModifier("modifier_clear_cast") then
 		event.noSound = true
@@ -35,10 +35,10 @@ function channel_complete(event)
 	local ability = event.ability
 	local baseFV = caster:GetForwardVector()
 
-	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	caster.r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
-	ability.r_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
-	ability.r_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	ability.r_1_level = caster:GetRuneValue("r", 1)
+	caster.r_2_level = caster:GetRuneValue("r", 2)
+	ability.r_3_level = caster:GetRuneValue("r", 3)
+	ability.r_4_level = caster:GetRuneValue("r", 4)
 
 	if not ability.tornadoTable then
 		ability.tornadoTable = {}
@@ -92,7 +92,7 @@ function channel_complete(event)
 		ParticleManager:SetParticleControlEnt(pfx, 1, dummy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", dummy:GetAbsOrigin(), true)
 		if caster:HasModifier("modifier_clear_cast") then
 			ability.clearcast = true
-			dummy.e_3_amp = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+			dummy.e_3_amp = caster:GetRuneValue("e", 3)
 		else
 			ability.clearcast = false
 		end

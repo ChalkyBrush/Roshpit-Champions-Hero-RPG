@@ -764,7 +764,7 @@ function GameState:OrderFilter(orderTable)
 					local strafe = unit:FindAbilityByName("sephyr_strafe")
 					local movementPosition = Vector(orderTable.position_x, orderTable.position_y)
 					if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
-						if Runes:GetTotalRuneLevelGeneric(unit, 1, 2) > 0 then
+						if unit:GetRuneValue("e", 1) > 0 then
 							local targetEnemy = EntIndexToHScript(orderTable.entindex_target)
 							if targetEnemy:GetClassname() == "dota_item_drop" then
 								return false
@@ -797,7 +797,7 @@ function GameState:OrderFilter(orderTable)
 					if distance > 120 then
 						local abilityDistance = math.min(distance, strafe:GetLevelSpecialValueFor("max_distance", strafe:GetLevel()))
 						print(abilityDistance)
-						local e_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 2)
+						local e_4_level = unit:GetRuneValue("e", 4)
 						if e_4_level > 0 then
 							abilityDistance = abilityDistance + e_4_level*6
 						end
@@ -921,9 +921,9 @@ function GameState:OrderFilter(orderTable)
 			if orderTable.entindex_target then
 				if not unit:IsRooted() and not unit:IsStunned() then
 					local ability = unit:FindAbilityByName("arkimus_storm_weapon")
-					local c_b_level = Runes:GetTotalRuneLevelGeneric(unit, 3, 1)
+					local w_3_level = unit:GetRuneValue("w", 3)
 
-					if c_b_level > 0 and unit:HasModifier("modifier_arkimus_storm_weapon") then
+					if w_3_level > 0 and unit:HasModifier("modifier_arkimus_storm_weapon") then
 						local enemy = EntIndexToHScript(orderTable.entindex_target)
 						if IsValidEntity(enemy) then
 							if orderTable.entindex_target == 0 then
@@ -935,7 +935,7 @@ function GameState:OrderFilter(orderTable)
 									elseif enemy:GetClassname() == "dota_item_drop" then
 									elseif enemy:GetTeamNumber() == unit:GetTeamNumber() then
 									else
-										CustomAbilities:ArkimusSpeedDash(unit, enemy, ability, c_b_level)
+										CustomAbilities:ArkimusSpeedDash(unit, enemy, ability, w_3_level)
 									end
 								end
 							end
@@ -1097,8 +1097,8 @@ function GameState:OrderFilter(orderTable)
 						DeepPrintTable(orderTable)
 						unit.corpseExplosionIndex = 0
 						if orderTable.entindex_target > 0 then
-							local a_c_level = unit:GetRuneValue("e", 1)
-							if a_c_level < 1 then
+							local e_1_level = unit:GetRuneValue("e", 1)
+							if e_1_level < 1 then
 								unit:Stop()
 								Notifications:Top(unit:GetPlayerOwnerID(), {text="notification_river_no_explosion", duration=5, style={color="#FF1111"}, continue=true})
 								return false
@@ -1131,15 +1131,15 @@ function GameState:OrderFilter(orderTable)
 								end
 							else
 								if ally:GetUnitName() == "ekkan_corpse" then
-									local c_d_level = unit:GetRuneValue("r", 3)
-									if c_d_level < 1 then
+									local r_3_level = unit:GetRuneValue("r", 3)
+									if r_3_level < 1 then
 										unit:Stop()
 										Notifications:Top(unit:GetPlayerOwnerID(), {text="notification_supercharge_no_corpse_charge", duration=5, style={color="#FF1111"}, continue=true})
 										return false
 									end
 								else
-									local b_d_level = unit:GetRuneValue("r", 2)
-									if b_d_level < 1 then
+									local r_2_level = unit:GetRuneValue("r", 2)
+									if r_2_level < 1 then
 										unit:Stop()
 										Notifications:Top(unit:GetPlayerOwnerID(), {text="notification_supercharge_no_swarm", duration=5, style={color="#FF1111"}, continue=true})
 										return false
@@ -1682,8 +1682,8 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_epoch_arcana_root") then
 		local modifier = victim:FindModifierByName("modifier_epoch_arcana_root")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local a_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 0)
-			if a_a_level > 0 then
+			local q_1_level = attacker:GetRuneValue("q", 1)
+			if q_1_level > 0 then
 				if attacker:HasAbility("epoch_arcana_ability") then
 					local affectedByQ1 = victim:FindModifierByName("modifier_epoch_arcana_q_1_effect")
 					if not affectedByQ1 then
@@ -1714,23 +1714,23 @@ function GameState:FilterDamage(filterTable)
 				if attacker:HasModifier("modifier_slipfinn_immortal_weapon_3") then
 					element1 = RPC_ELEMENT_SHADOW
 				end
-				local a_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 3)
-				damage = damage + damage*a_d_level*0.15
+				local r_1_level = attacker:GetRuneValue("r", 1)
+				damage = damage + damage * r_1_level*0.15
 				Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damagetype, 4, element1, RPC_ELEMENT_NONE)
 				return false
 			end
 		end
 		if WallPhysics:DoesTableHaveValue(attacker.possessedTable, victim:GetUnitName()) then
-			local c_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 3)
-			if c_d_level > 0 then
-				mult = mult + 0.2*c_d_level
+			local r_3_level = attacker:GetRuneValue("r", 3)
+			if r_3_level > 0 then
+				mult = mult + 0.2*r_3_level
 			end
 		end
 	end
 	if filterTable["entindex_inflictor_const"] then
 		if EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() == "axe_arcana_smash" then
-			local a_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 3)
-			mult = mult + 0.1*a_d_level
+			local r_1_level = attacker:GetRuneValue("r", 1)
+			mult = mult + 0.1 * r_1_level
 		end
 	end
 	if damagetype == DAMAGE_TYPE_PHYSICAL then
@@ -1897,10 +1897,9 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if attacker:HasModifier("modifier_bahamut_arcana_passive") then
-			local w_1_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
-			print("LESHRAC ABLEVEL!!")
+			local w_1_level = attacker:GetRuneValue("w", 1)
 			if w_1_level > 0 then
-				local healAmount = math.ceil(filterTable["damage"]*0.001/100*w_1_level)
+				local healAmount = math.ceil(filterTable["damage"] * 0.001 / 100 * w_1_level)
 				if healAmount > attacker:GetMaxHealth() - attacker:GetHealth() then
 					local allyHealAmount = healAmount - (attacker:GetMaxHealth() - attacker:GetHealth())
 					local arcanaAbility = attacker:FindAbilityByName("bahamut_arcana_orb")
@@ -1919,19 +1918,19 @@ function GameState:FilterDamage(filterTable)
     end
     if damagetype == DAMAGE_TYPE_PHYSICAL or damagetype == DAMAGE_TYPE_MAGICAL then
 		if victim:HasModifier("modifier_zonik_lightspeed") then
-			local c_c_level = victim:FindAbilityByName("zonik_lightspeed").e_3_level
-			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility")*c_c_level*ZHONIK_E3_PHYS_BLOCK_FLAT, 0)
+			local e_3_level = victim:FindAbilityByName("zonik_lightspeed").e_3_level
+			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility") * e_3_level * ZHONIK_E3_PHYS_BLOCK_FLAT, 0)
 		end
 	end
 	if victim:HasModifier("modifier_voltex_arcana1_passive") then
 		local dash = victim:FindAbilityByName("voltex_lightning_dash")
 		local damage = filterTable["damage"]
-		local c_c_level = Runes:GetTotalRuneLevelGeneric(victim, 3, 2)
-		if c_c_level > 0 then
+		local e_3_level = victim:GetRuneValue("e", 3)
+		if e_3_level > 0 then
 			if not dash.regen then
 				dash.regen = 0
 			end
-			local addedRegen = math.ceil(damage*0.025*c_c_level)
+			local addedRegen = math.ceil(damage * 0.025 * e_3_level)
 			dash.regen = dash.regen + addedRegen
 			dash:ApplyDataDrivenModifier(victim, victim, "modifier_voltex_lightning_dash_regen", {duration = 3})
 			dash:ApplyDataDrivenModifier(victim, victim, "modifier_voltex_lightning_dash_regen_hidden", {duration = 3})
@@ -1988,11 +1987,9 @@ function GameState:FilterDamage(filterTable)
 		if victim:GetPhysicalArmorValue() < 0 then
 			if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 				modifier = victim:FindModifierByName("modifier_epoch_rune_w_2_visible")
-				if Runes:GetTotalRuneLevelGeneric(attacker, 2, 1) > 0 then
-					local multIncrease = Runes:GetTotalRuneLevelGeneric(attacker, 2, 1)*EPOCH_W2_POST_MITI_PCT*math.abs(victim:GetPhysicalArmorValue())/10
-					-- print("test runes b_b: "..Runes:GetTotalRuneLevelGeneric(attacker, 2, 1))
-					-- print("test multIncrease: "..multIncrease)
-					mult = mult + multIncrease/100
+				if attacker:GetRuneValue("w", 2) > 0 then
+					local multIncrease = attacker:GetRuneValue("w", 2) * EPOCH_W2_POST_MITI_PCT * math.abs(victim:GetPhysicalArmorValue())/10
+					mult = mult + multIncrease / 100
 				end
 			end
 		end
@@ -2296,11 +2293,11 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if attacker:HasModifier("modifier_epoch_arcana_passive") then
-		local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
-		local championArmor = math.max(attacker:GetPhysicalArmorValue(),0)
-		if b_a_level > 0 then
-			local multIncrease = (victim:GetPhysicalArmorBaseValue()+championArmor)*b_a_level*EPOCH_ARCANA_Q2_POST_MITI_PCT
-			mult = mult + multIncrease/100000--per 1000 armor, %
+		local q_2_level = attacker:GetRuneValue("q", 2)
+		local championArmor = math.max(attacker:GetPhysicalArmorBaseValue(), 0)
+		if q_2_level > 0 then
+			local multIncrease = (victim:GetPhysicalArmorBaseValue() + championArmor) * q_2_level * EPOCH_ARCANA_Q2_POST_MITI_PCT
+			mult = mult + multIncrease / 100000 --per 1000 armor, %
 		end
 	end
 	if attacker:HasModifier("modifier_zhonic_arcana_c_c_invisible") then
@@ -2799,9 +2796,9 @@ function GameState:FilterDamage(filterTable)
     		modifier = victim:FindModifierByName("modifier_hydroxis_mist_debuff_timered")
     	end
     	if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-    		local c_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 1)
-    		if c_b_level > 0 then
-    			mult = mult + 0.06*c_b_level
+    		local w_3_level = attacker:GetRuneValue("w", 3)
+    		if w_3_level > 0 then
+    			mult = mult + 0.06 * w_3_level
     		end
     	end
 	end
@@ -2971,7 +2968,7 @@ function GameState:FilterDamage(filterTable)
 	modifier = attacker:FindModifierByName("modifier_trapper_d_c_post_amp")
 	if modifier then
 		local stacks = modifier:GetStackCount()
-		mult = mult + stacks*0.1
+		mult = mult + stacks * 0.1
 	end
 
 	modifier = victim:FindModifierByName("modifier_poison_whip")
@@ -2979,11 +2976,11 @@ function GameState:FilterDamage(filterTable)
 		local stacks = modifier:GetStackCount()
 		local ability = modifier:GetAbility()
 		local w_1_level = ability.w_1_level
-		mult = mult + 0.01*w_1_level*stacks
+		mult = mult + 0.01 * w_1_level * stacks
 	end
 
 	if attacker:HasModifier("modifier_torrent_trap_immunity") and victim:HasModifier("modifier_trapper_glyph_3_2") then
-		filterTable["damage"] = filterTable["damage"]*0.05
+		filterTable["damage"] = filterTable["damage"] * 0.05
 	end
 
 
@@ -3031,9 +3028,9 @@ function GameState:FilterDamage(filterTable)
 			thresholdMult = 1 + attacker:GetRuneValue("e", 4) * heroes.mountain_protector.ARCANA3_E4_THRESHOLD_INCREASE_PERCENT/100
 		end
 		if attacker:HasModifier("modifier_slipfinn_passive") then
-			local d_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 2)
+			local e_4_level = attacker:GetRuneValue("e", 4)
 			local luck = RandomInt(1, 1000)
-			if luck < 5*d_c_level then
+			if luck < 5 * e_4_level then
 				thresholdMult = 10000
 			end
 		end
@@ -3064,9 +3061,9 @@ function GameState:FilterDamage(filterTable)
 			thresholdMult = 1 + attacker:GetRuneValue("e", 4) * heroes.mountain_protector.ARCANA3_E4_THRESHOLD_INCREASE_PERCENT/100
 		end
 		if attacker:HasModifier("modifier_slipfinn_passive") then
-			local d_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 2)
+			local e_4_level = attacker:GetRuneValue("e", 4)
 			local luck = RandomInt(1, 1000)
-			if luck < 5*d_c_level then
+			if luck < 5*e_4_level then
 				thresholdMult = 10000
 			end
 		end
@@ -3372,8 +3369,8 @@ function GameState:FilterDamage(filterTable)
 		if victim:HasModifier("modifier_hailstorm_passive") and not rezzed then
 			if not victim:HasModifier("modifier_hailstorm_ice_case_cooldown") then
 				local hailstormAbility = victim:FindAbilityByName("mountain_protector_hailstorm")
-				local b_d_level = Runes:GetTotalRuneLevelGeneric(victim, 2, 3)
-				if b_d_level > 0 then
+				local r_2_level = victim:GetRuneValue("r", 2)
+				if r_2_level > 0 then
 					hailstormAbility:ApplyDataDrivenModifier(victim, victim, "modifier_frozen_stand", nil)
 					rezzed = true
 				end
@@ -3395,13 +3392,13 @@ function GameState:FilterDamage(filterTable)
 			end	
 		end
 		if victim:HasModifier("modifier_paladin_arcana2_passive") and not rezzed then
-			local a_c_level = Runes:GetTotalRuneLevelGeneric(victim, 1, 2)
-			if a_c_level > 0 then
+			local e_1_level = victim:GetRuneValue("e", 1)
+			if e_1_level > 0 then
 				if not victim:HasModifier("modifier_paladin_heal_on_lethal_cooldown") then
 					local arcanaAbility = victim:FindAbilityByName("paladin_crusader_comet")
 					arcanaAbility:ApplyDataDrivenModifier(victim, victim, "modifier_paladin_heal_on_lethal_cooldown", {duration = 5})
-					local healAmount = a_c_level * 5000
-					local manaRestore = a_c_level * 1000
+					local healAmount = e_1_level * 5000
+					local manaRestore = e_1_level * 1000
 					EmitSoundOn("Paladin.ArcanaACHeal", victim)
 					Filters:ApplyHeal(victim, victim, healAmount, true)
 					victim:GiveMana(manaRestore)

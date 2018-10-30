@@ -28,7 +28,7 @@ function bear_roar(event)
 	end)
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_armor_buff", {duration = duration})
-	ability.q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	ability.q_1_level = caster:GetRuneValue("q", 1)
 	if ability.q_1_level > 0 then
 		caster:RemoveModifierByName("modifier_bear_regen")
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_regen", {duration = 12})
@@ -50,7 +50,7 @@ function bear_warstomp(event)
 	local ability = event.ability
 	local stun_duration = event.stun_duration
 	local damage = event.damage
-	local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	local w_3_level = caster:GetRuneValue("w", 3)
 	if w_3_level > 0 then
 		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*w_3_level
 	end
