@@ -6,38 +6,38 @@ function begin_explosion(event)
 	local abilityLevel = ability:GetLevel()
 	local location = caster:GetOrigin()
 	local forwardVector = caster:GetForwardVector()
-  local damage = event.damage
+  local damage = ability:GetSpecialValueFor("damage")
     caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "astral")
     caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "astral")
 
   if caster:HasModifier("modifier_astral_glyph_7_1") then
     damage = damage*10
   end 
-  print("DAMAGE!: "..damage)
 
 	for i=-3, 3, 1 do 
 		rotatedVector = rotateVector(forwardVector, i*2*math.pi/7)*Vector(200, 200, 0)
 		targetPoint = rotatedVector + location*Vector(1,1,0)
 		create_individual_explosion(abilityLevel, caster, targetPoint, location, "dummy_aoe_explosion", 0, damage)
 	end
-	local smashLevel = rune_r_2(caster, ability)
-	if smashLevel > 0 then
-    local b_d_damage = smashLevel*R2_DAMAGE
-    -- b_d_damage = b_d_damage + 0.002*caster:GetStrength()/10*d_d_level*b_d_damage
-    if caster:HasModifier("modifier_astral_glyph_7_1") then
-      b_d_damage = b_d_damage*10
-    end 
-		local duration = event.duration
-		  Timers:CreateTimer(duration + 0.2,
-		  function()
-		  	EmitSoundOn("Hero_Leshrac.Split_Earth", caster)
-				for i=-3, 3, 1 do 
-					rotatedVector = rotateVector(forwardVector, i*2*math.pi/7)*Vector(200, 200, 0)
-					targetPoint = rotatedVector + location*Vector(1,1,0)
-					create_individual_explosion(abilityLevel, caster, targetPoint, location, "dummy_aoe_explosion_rune_r_2", smashLevel, b_d_damage)
-				end
-		  end)
-	end
+  EmitSoundOn("Hero_Leshrac.Split_Earth.Tormented", caster)
+	-- local smashLevel = caster:GetRuneValue("r",2)
+	-- if smashLevel > 0 then
+ --    local b_d_damage = smashLevel*R2_DAMAGE
+ --    -- b_d_damage = b_d_damage + 0.002*caster:GetStrength()/10*d_d_level*b_d_damage
+ --    if caster:HasModifier("modifier_astral_glyph_7_1") then
+ --      b_d_damage = b_d_damage*10
+ --    end 
+	-- 	local duration = ability:GetSpecialValueFor("duration")
+	-- 	  Timers:CreateTimer(duration + 0.2,
+	-- 	  function()
+	-- 	  	EmitSoundOn("Hero_Leshrac.Split_Earth", caster)
+	-- 			for i=-3, 3, 1 do 
+	-- 				rotatedVector = rotateVector(forwardVector, i*2*math.pi/7)*Vector(200, 200, 0)
+	-- 				targetPoint = rotatedVector + location*Vector(1,1,0)
+	-- 				create_individual_explosion(abilityLevel, caster, targetPoint, location, "dummy_aoe_explosion_rune_r_2", smashLevel, b_d_damage)
+	-- 			end
+	-- 	  end)
+	-- end
 	rune_r_3(caster, ability)
   Filters:CastSkillArguments(4, caster)
 end
@@ -48,15 +48,6 @@ function ranger_aoe_explosion_damage(event)
     local damage = ability.damage
     local caster = ability.origCaster
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
-end
-
-function rune_r_2(caster, ability)
-  local runeUnit = caster.runeUnit2
-  local runeAbility = runeUnit:FindAbilityByName("astral_rune_r_2")
-  local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_2")
-  local totalLevel = abilityLevel + bonusLevel
-  return totalLevel
 end
 
 function rune_r_2_strike(event)
@@ -104,34 +95,6 @@ function rune_r_1_start(caster, level, ability)
     -- end 	
 end
 
-function dropStar(enemy, caster, damage, ability, targetsPerInterval)
-        -- ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall", {duration = 2})
-      damage = damage * targetsPerInterval
-      local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
-      local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
-      ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
-      Timers:CreateTimer(0.6, function() 
-        ParticleManager:DestroyParticle( pfx, false )
-      end)  
-          Timers:CreateTimer(0.45, -- Start this timer 10 game-time seconds later
-          function()
-            if enemy:IsAlive() then
-              Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
-              EmitSoundOn("Ability.StarfallImpact", enemy)
-              if ability.r_1_level > 0 then
-                ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall_a_d_visible", {duration = 7})
-                local newStacks = enemy:GetModifierStackCount("modifier_starfall_a_d_visible", caster) + targetsPerInterval
-                enemy:SetModifierStackCount("modifier_starfall_a_d_visible", caster, newStacks)
-
-                -- ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall_a_d_invisible", {duration = 7})
-                -- enemy:SetModifierStackCount("modifier_starfall_a_d_invisible", caster, newStacks*ability.r_1_level)
-              end
-            end
-          end)
-end
-
-
-
 function create_individual_explosion(abilityLevel, caster, targetPoint, casterOrigin, abilityName, smashLevel, damage)
   	local dummy = CreateUnitByName("npc_dummy_unit", casterOrigin, true, caster, caster, caster:GetTeamNumber())
   	dummy.owner = caster:GetPlayerOwnerID()
@@ -165,9 +128,7 @@ end
 function rune_r_3(caster, mainAbility)
   local runeUnit = caster.runeUnit3
   local ability = runeUnit:FindAbilityByName("astral_rune_r_3")
-  local abilityLevel = ability:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_3")
-  local totalLevel = abilityLevel + bonusLevel
+  local totalLevel = caster:GetRuneValue("r",3)
   ability.astral = caster
   ability.totalLevel = totalLevel
   if totalLevel > 0 then
@@ -203,24 +164,47 @@ function rotateVector(vector, radians)
    
 end
 
+function end_channel(event)
+  local caster = event.caster
+  if caster:HasModifier("modifier_astral_glyph_5_1") then
+    begin_explosion({caster = caster, ability = event.ability})
+  end
+end
+
+function channel_interrupt(event)
+  local caster = event.caster
+  if not caster:HasModifier("modifier_astral_glyph_5_1") then
+    caster:RemoveModifierByName("modifier_channel_start")
+  end
+  EndAnimation(caster)
+end
+
 function starfall_initiate(event)
   local ability = event.ability
   local caster = event.caster
+  if not caster:HasModifier("modifier_astral_glyph_5_1") then
+    StartAnimation(caster, {duration=2, activity=ACT_DOTA_IDLE_RARE, rate=1})
+  end
   if not caster.r_4_level then
     caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "astral")
     caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "astral")
   end
-  ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "astral")
+  ability.r_1_level = caster:GetRuneValue("r",1)
   ability.maxStars = ability.r_1_level + 20
-  ability.targetsPerInterval = math.floor(ability.maxStars/20)
-  ability.remainingStars = ability.maxStars%20
+  ability.hit_mult = math.floor(ability.maxStars/40)
+  ability.remainingStars = ability.maxStars%40
   ability.star_damage = ability.r_1_level*ASTRAL_R1_DAMAGE
+
   if caster:HasModifier("modifier_astral_glyph_7_1") then
     ability.star_damage = ability.star_damage*10
-    local glyphDuration = Filters:GetAdjustedBuffDuration(caster, 2.5, false)
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_glyph_7_1_evasion_effect", {duration = glyphDuration})
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_glyph_7_1_evasion_effect", {duration = 2})
   end
   ability.extraTargetsStruck = 0
+  if caster:HasModifier("modifier_astral_glyph_5_1") then
+    Timers:CreateTimer(0.03, function()
+      caster:InterruptChannel()
+    end)
+  end
 end
 
 function starfall_think(event)
@@ -228,20 +212,80 @@ function starfall_think(event)
   local ability = event.ability
   local maxStars = ability.r_1_level + 20
 
+
   if ability.r_1_level > 0 then
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then
-      local targetsPerInterval = ability.targetsPerInterval
-      local remainingStars = ability.remainingStars
-
-      dropStar(enemies[RandomInt(1, #enemies)], caster, ability.star_damage, ability, targetsPerInterval)
-
-      if ability.extraTargetsStruck < ability.remainingStars then
-        Timers:CreateTimer(0.05, function()
-          dropStar(enemies[RandomInt(1, #enemies)], caster, ability.star_damage, ability, 1)
-          ability.extraTargetsStruck = ability.extraTargetsStruck + 1
-        end)
+      local hit_mult = ability.hit_mult
+      if ability.remainingStars > 0 then
+        hit_mult = hit_mult+1
+        ability.remainingStars = ability.remainingStars-1
       end
+      if hit_mult > 0 then
+        dropStar(enemies[RandomInt(1, #enemies)], caster, ability.star_damage, ability, hit_mult)
+      end
+
+        -- if ability.extraTargetsStruck < ability.remainingStars then
+        --   Timers:CreateTimer(0.05, function()
+        --     dropStar(enemies[RandomInt(1, #enemies)], caster, ability.star_damage, ability, 1)
+        --     ability.extraTargetsStruck = ability.extraTargetsStruck + 1
+        --   end)
+        -- end
     end
   end
+end
+
+function dropStar(enemy, caster, damage, ability, hit_mult)
+  print("hit_mult",hit_mult)
+        -- ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall", {duration = 2})
+      local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
+      local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
+      ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_OVERHEAD_FOLLOW, "attach_hitlock", enemy:GetAbsOrigin(), true)
+      Timers:CreateTimer(0.6, function() 
+        ParticleManager:DestroyParticle( pfx, false )
+      end)  
+      Timers:CreateTimer(0.6, function()
+        for i = 1, hit_mult do
+          if enemy:IsAlive() then
+            if ability.r_1_level > 0 then
+                ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall_a_d_visible", {duration = 7})
+                local newStacks = enemy:GetModifierStackCount("modifier_starfall_a_d_visible", caster)
+                enemy:SetModifierStackCount("modifier_starfall_a_d_visible", caster, newStacks+1)
+            end
+            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+            if caster:GetRuneValue("r",2)>0 then
+              r_2_quake(damage, ability, caster, caster:GetRuneValue("r",2), enemy)
+            end
+            -- ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall_a_d_invisible", {duration = 7})
+            -- enemy:SetModifierStackCount("modifier_starfall_a_d_invisible", caster, newStacks*ability.r_1_level)
+          end
+        end
+        EmitSoundOn("Ability.StarfallImpact", enemy)
+      end)
+end
+
+function r_2_quake(damage, ability, caster, r_2_level, target)
+  local radius = ASTRAL_R2_BASE_RADIUS + ASTRAL_R2_RADIUS*r_2_level
+  damage = damage*ASTRAL_R2_DAMAGE_PCT/100*r_2_level
+  local particles_names = {
+  "particles/units/heroes/hero_brewmaster/brewmaster_dispel_magic_embers.vpcf",
+  "particles/units/heroes/hero_winter_wyvern/wyvern_splinter_blast_explosion_trail.vpcf",
+  "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
+}
+  if not target.r_2_quake_particle_lock then
+    target.r_2_quake_particle_lock = true
+    for i, name in pairs(particles_names) do
+      local pfx = ParticleManager:CreateParticle(name, PATTACH_CUSTOMORIGIN, nil)
+      ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin())
+      ParticleManager:SetParticleControl(pfx, 1, Vector(radius,radius,0))
+      ParticleManager:SetParticleControl(pfx, 2, Vector(radius,radius,0))
+      Timers:CreateTimer(4, function()
+        ParticleManager:DestroyParticle(pfx, true)
+      end)
+    end
+    EmitSoundOn("Astral.CelesialBurst.R2", target)
+    Timers:CreateTimer(0.1, function() target.r_2_quake_particle_lock = false end)
+  end
+  Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+  Filters:ApplyStun(caster, ASTRAL_R2_STUN_DURATION, target)
 end

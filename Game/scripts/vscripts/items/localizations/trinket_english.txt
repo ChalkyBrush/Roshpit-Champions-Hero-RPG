@@ -118,7 +118,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol2"										"Raven Idol LV2"
 		"item_property_raven_idol2"					"Black Soul II"		
-		"property_raven_idol_description2"			"Reduce damage taken from all sources by 50%. Your health can not go above 50% of your max. Each 100 points of missing health increases damage dealt directly by items by 0.01%."
+		"property_raven_idol_description2"			"Reduce damage taken from all sources by 50%. Your health can not go above 50% of your max. Each 100 points of missing health increases damage dealt directly by items by 0.1%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"Phoenix Emblem"

@@ -280,9 +280,14 @@
 	height:40px;
 }
 
+#resistance_container{
+	flow-children: down;
+	height: 110px;
+}
+
 .resistance_item_container{
-	width:60px;
-	height:100%;
+	width:250px;
+	height:33%;
 	background-color: #1F1F1F;
 	border-radius:4px;
 	margin-left:4px;

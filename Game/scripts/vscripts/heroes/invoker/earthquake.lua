@@ -73,7 +73,11 @@ function free_quake_expire(event)
 	local ability = event.ability
 	local caster = event.caster
 	ability.procCast = false
-	Filters:ReduceCooldownAll(caster, ability, 12)
+	local cooldown = 12
+	if caster:HasModifier("modifier_grand_guardian_in_deity") then
+		cooldown = 0
+	end
+	Filters:ReduceCooldownAll(caster, ability, cooldown)
 end
 
 function get_q_3_level(caster, ability)

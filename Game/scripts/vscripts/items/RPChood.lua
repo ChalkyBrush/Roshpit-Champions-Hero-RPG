@@ -202,6 +202,11 @@ function RPCItems:HoodLegendary(itemVariant, deathLocation, isShop)
             RPCItems:RollGlintOfOnu(deathLocation, isShop)
             return true
         elseif luck == 9 then
+            local arcanaLuck = RandomInt(1, 960)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+                RPCItems:RollConjurorArcana3(deathLocation)
+                return true
+            end
             RPCItems:RollRoknarEmperor(deathLocation, isShop)
             return true
         elseif luck == 10 then
@@ -222,6 +227,8 @@ function RPCItems:HoodLegendary(itemVariant, deathLocation, isShop)
     end
     return false
 end
+
+
 
 SUFFIX_HOOD_STRENGTH_TABLE = {"of the Bear", "of the Warrior", "of the Mountain", "of the Behemoth", "of Titans"}
 SUFFIX_HOOD_AGILITY_TABLE = {"of the Rabbit", "of the Swift", "of the Cheetah", "of the Wind", "of the Ninja"}

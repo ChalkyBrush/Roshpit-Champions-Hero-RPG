@@ -6,7 +6,7 @@ function begin_pulse(event)
 	local damage = ability.e_3_damage
 	local point = caster:GetAbsOrigin()
 	local radius = 500
-	if caster:HasModifier("modifier_bahamut_glyph_4_1") then
+	if caster:HasModifier("modifier_bahamut_glyph_7_1") then
 		radius = radius*1.4
 	end
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
@@ -45,11 +45,12 @@ function begin_pulse(event)
 				Filters:ApplyStun(caster, 1.5, enemy)
 			end
 		end
-	end 
-	local current_stack = caster:GetModifierStackCount( "modifier_pulse_slow", ability )
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_pulse_slow", {})
-    caster:SetModifierStackCount( "modifier_pulse_slow", ability, current_stack+1 )
-
+	end
+	if not caster:HasModifier("modifier_bahamut_glyph_6_1") then
+		local current_stack = caster:GetModifierStackCount( "modifier_pulse_slow", ability )
+	    ability:ApplyDataDrivenModifier(caster, caster, "modifier_pulse_slow", {})
+	    caster:SetModifierStackCount( "modifier_pulse_slow", ability, current_stack+1 )
+	end
 end
 
 function pulse_passive_think(event)

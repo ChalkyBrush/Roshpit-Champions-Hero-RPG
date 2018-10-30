@@ -6,19 +6,20 @@ function trap_start(event)
 	local point = event.target_points[1]
 	EmitSoundOn("Trapper.FulminatingPlacement", caster)
 	Filters:CastSkillArguments(1, caster)
-		if ability.total_traps == nil then
-			ability.total_traps = 0
+		if ability.current_traps == nil then
+			ability.current_traps = 0
 			ability.traps = {}
 		end
 		local max_traps = 1
 		if caster:HasModifier("modifier_trapper_glyph_7_1") then
 			max_traps = 2
 		end
-		if ability.total_traps >= max_traps then
+		if ability.current_traps >= max_traps then
 			ability.traps[1]:RemoveModifierByName("lanaya_fulimating_passive")
 			ability.traps = reindexTraps(ability)
 		end
 		local trap = CreateUnitByName("lanaya_trap", point, true, caster, nil, caster:GetTeam())
+		trap.origAbility = ability
 		trap.damage = event.damage/2
 	    local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
 	    trap.damage = trap.damage + 0.0025*caster:GetIntellect()/10*q_4_level*trap.damage
@@ -28,7 +29,7 @@ function trap_start(event)
 		trap.origCaster = caster
 
 
-		ability.total_traps = ability.total_traps + 1
+		ability.current_traps = ability.current_traps + 1
 		table.insert(ability.traps, trap)
 
 		ability:ApplyDataDrivenModifier(caster, trap, "modifier_psionic_trap_datadriven", {})
@@ -87,19 +88,20 @@ function trap_start_poison(event)
 	Timers:CreateTimer(3, function()
 		StopSoundEvent("Trapper.PoisonTrapPlacement", caster)
 	end)
-		if ability.total_traps == nil then
-			ability.total_traps = 0
+		if ability.current_traps == nil then
+			ability.current_traps = 0
 			ability.traps = {}
 		end
 		local max_traps = 1
 		if caster:HasModifier("modifier_trapper_glyph_7_1") then
 			max_traps = 2
 		end
-		if ability.total_traps >= max_traps then
+		if ability.current_traps >= max_traps then
 			ability.traps[1]:RemoveModifierByName("lanaya_poison_trap_passive")
 			ability.traps = reindexTraps(ability)
 		end
 		local trap = CreateUnitByName("lanaya_trap", point, true, caster, nil, caster:GetTeam())
+		trap.origAbility = ability
 		trap.origCaster = caster
 
 		trap.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "trapper")
@@ -107,7 +109,7 @@ function trap_start_poison(event)
             trap.q_3_level = trap.q_3_level * T12_AMPLIFY
         end
 		-- Places the trap in the list and increments the total
-		ability.total_traps = ability.total_traps + 1
+		ability.current_traps = ability.current_traps + 1
 		table.insert(ability.traps, trap)
 		-- Applies the modifier to the trap
 		ability:ApplyDataDrivenModifier(caster, trap, "modifier_psionic_trap_datadriven", {})
@@ -187,6 +189,7 @@ end
 
 function trap_destroy(event)
 	local trap = event.caster
+	trap.origAbility.current_traps = trap.origAbility.current_traps - 1
 	ParticleManager:DestroyParticle(trap.particle, false)
 	UTIL_Remove(trap)
 end
@@ -196,16 +199,17 @@ function trap_start_net(event)
 	local ability = event.ability
 	local point = event.target_points[1]
 	EmitSoundOn("Trapper.NetTrapPlacement", caster)
-		if ability.total_traps == nil then
-			ability.total_traps = 0
+		if ability.current_traps == nil then
+			ability.current_traps = 0
 			ability.traps = {}
 		end
 		local max_traps = 1
-		if ability.total_traps >= max_traps then
+		if ability.current_traps >= max_traps then
 			ability.traps[1]:RemoveModifierByName("lanaya_net_passive")
 			ability.traps = reindexTraps(ability)
 		end
 		local trap = CreateUnitByName("lanaya_trap", point, true, caster, nil, caster:GetTeam())
+		trap.origAbility = ability
 		trap.origCaster = caster
 
 		trap.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "trapper")
@@ -214,7 +218,7 @@ function trap_start_net(event)
         end
 		Filters:CastSkillArguments(1, caster)
 		-- Places the trap in the list and increments the total
-		ability.total_traps = ability.total_traps + 1
+		ability.current_traps = ability.current_traps + 1
 		table.insert(ability.traps, trap)
 		-- Applies the modifier to the trap
 		ability:ApplyDataDrivenModifier(caster, trap, "modifier_psionic_trap_datadriven", {})
@@ -346,16 +350,17 @@ function trap_start_torrent(event)
 		StopSoundEvent("Trapper.TorrentTrapPlacement", caster)
 	end)
 	trap_cast(caster)
-		if ability.total_traps == nil then
-			ability.total_traps = 0
+		if ability.current_traps == nil then
+			ability.current_traps = 0
 			ability.traps = {}
 		end
 		local max_traps = 1
-		if ability.total_traps >= max_traps then
+		if ability.current_traps >= max_traps then
 			ability.traps[1]:RemoveModifierByName("lanaya_torrent_passive")
 			ability.traps = reindexTraps(ability)
 		end
 		local trap = CreateUnitByName("lanaya_trap", point, true, caster, nil, caster:GetTeam())
+		trap.origAbility = ability
 		trap.origCaster = caster
 
 		trap.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "trapper")
@@ -363,7 +368,7 @@ function trap_start_torrent(event)
             trap.q_3_level = trap.q_3_level * T12_AMPLIFY
         end
 		-- Places the trap in the list and increments the total
-		ability.total_traps = ability.total_traps + 1
+		ability.current_traps = ability.current_traps + 1
 		table.insert(ability.traps, trap)
 		-- Applies the modifier to the trap
 		ability:ApplyDataDrivenModifier(caster, trap, "modifier_psionic_trap_datadriven", {})

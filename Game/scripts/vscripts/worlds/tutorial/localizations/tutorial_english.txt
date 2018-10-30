@@ -100,8 +100,8 @@
 	"quest_2_challenge_2"												"B. Hero Attributes"
 	"quest_2_challenge_3"												"C. Saving your Hero"
 
-	"quest_2_reward_title"												"Activate Town NPC's"       
-	"quest_2_reward_description"										"Tutorial Map will have its Town NPC's activated permanently; The Oracle, The Blacksmith, Glyph Enchanter, and Curator!"
+	"quest_2_reward_title"												"Activate Town NPCs"       
+	"quest_2_reward_description"										"Tutorial Map will have its Town NPCs activated permanently; The Oracle, The Blacksmith, Glyph Enchanter, and Curator!"
 
 	"quest_2_challenge_1_desc"											"At the left of the screen is your hero's Ability and Rune summary. If it is closed, open it up with hotkey (L). Runes are passive buffs for your hero and abilties."
 	"quest_2_challenge_1_sub_0_summary"									"Listen to Challen's lecture regarding Runes & Abilities, and answer his question."
@@ -342,14 +342,14 @@
 
 	"tutorial_master_dialogue_4_1i"										"A technical slaying! That concludes the lesson on Enemies & Attacking."
 
-	"quest_4_challenge_2_desc"											"The 3 main damage types are Physical, Magical and Pure. Armor and magic resistance decrease physical and magical damage taken respectively with diminishing returns. Pure damage reduction pierces spell immunity and is more difficult to reduce. "
+	"quest_4_challenge_2_desc"											"The 3 most common types of damage are Physical, Magical, and Pure. Armor reduces Physical damage taken, while Magic Resistance reduces Magic damage taken. Pure damage is rare and dangerous - it can harm units even through Spell Immunity! Each individual source of Magic and Pure resistance stacks multiplicatively (diminishing returns)."
 	"quest_4_challenge_2_sub_0_summary"									"Answer the question about physical damage reduction."
 	"quest_4_challenge_2_sub_1_summary"									"Answer the question about damage type reduction"
 	"quest_4_challenge_2_sub_2_summary"									"Answer the general question regarding damage types"
 
 	"tutorial_master_dialogue_4_2a"										"There are 3 primary damage types: Physical, Magical and Pure."
 	"tutorial_master_dialogue_4_2b"										"Your regular attacks deal physical damage, as well as some abilities."
-	"tutorial_master_dialogue_4_2c"										"Physical damage taken is reduced by your armor."
+	"tutorial_master_dialogue_4_2c"										"Physical damage taken is reduced by a unit's armor."
 	"tutorial_master_dialogue_4_2d"										"Check your tooltip, how much physical damage is being reduced by your armor?"
 
 	"tutorial_quiz_question_11"											"What is the damage reduction % provided by your armor?"
@@ -378,7 +378,7 @@
 
 	"tutorial_quiz_question_13_sub1"									"is reduced by armor"
 	"tutorial_quiz_question_13_sub2"									"is reduced by 1% with diminishing returns for each resistance point"
-	"tutorial_quiz_question_13_sub3"									"pierces magic immunity and has no attribute that reduces it"
+	"tutorial_quiz_question_13_sub3"									"What damage type pierces Spell Immunity and is not mitigated by Armor or Magic Resistance?"
 
 	"tutorial_master_dialogue_4_2l"										"Right! Ok then. You know enough about damage types now."
 
@@ -395,8 +395,8 @@
 	"tutorial_quiz_wrong_4_3_1"											"No, give me the green number next to your attack damage."
 	"tutorial_quiz_wrong_4_3_2"											"That is not your bonus attack value."
 
-	"tutorial_master_dialogue_4_3d"										"Right! Now remember, your abilities also have a 'Base Damage' which can be amplified by special bonuses."
-	"tutorial_master_dialogue_4_3e"										"Your base ability damage amplification total shows in your hero tooltip. I already asked you a question about it before."
+	"tutorial_master_dialogue_4_3d"										"Right! Now remember, your abilities also have a 'Base Damage' which can be increased by special bonuses."
+	"tutorial_master_dialogue_4_3e"										"Your base ability damage bonus total shows in your hero tooltip. I already asked you a question about it before."
 	"tutorial_master_dialogue_4_3f"										"Instead of a quiz, why don't you use your abilities to fight an army of shroomlings?"
 	"tutorial_master_dialogue_4_3g"										"These guys are immune to physical damage, so use your abilities to take them down!"
 
@@ -416,7 +416,7 @@
 	"tutorial_master_dialogue_4_4b"										"Elemental amplification can be increased by several special bonuses."
 	"tutorial_master_dialogue_4_4c"										"Check the bottom part of your hero tooltip."
 
-	"tutorial_quiz_question_14a"											"What is your @sub1 amplification value?"
+	"tutorial_quiz_question_14a"										"What is your @sub1 amplification value?"
 
 	"tutorial_quiz_wrong_4_4_1"											"That's wrong. Your elemental amplification can be found at the bottom of your hero tooltip."
 	"tutorial_quiz_wrong_4_4_2"											"That's just not right. Sorry."
@@ -441,7 +441,7 @@
 	"DOTA_Tooltip_ability_tutorial_elemental_ability"					"Omni Elemental"
 	"DOTA_Tooltip_ability_tutorial_elemental_ability_Description"		"Conjured entity of multiple elements."
 
-	"quest_4_challenge_5_desc"											"The training dummy is available near town on most maps. Dealing damage to it will open the Training Dummy window allowing you to view detailed breakdown of your damage."
+	"quest_4_challenge_5_desc"											"The training dummy is available near town on most maps. Dealing damage to it will open the Training Dummy window allowing you to view a detailed breakdown of your damage."
 	"quest_4_challenge_5_sub_0_summary"									"Open the Training Dummy"
 	"quest_4_challenge_5_sub_1_summary"									"Add a few lines to the Dummy's log"
 	"quest_4_challenge_5_sub_2_summary"									"Change the Dummy's armor"
@@ -469,16 +469,16 @@
 
 	"dummy_attack_inverval"												"Attack Inverval"
 
-	"quest_4_challenge_6_desc"											"There is a common bonus provided by equipment and runes called Post-Mitigation damage. Post-mitigation damage amplifier takes place after all damage reduction effects are calculated (such as armor reduction and steadfast)."
+	"quest_4_challenge_6_desc"											"Many runes and items grant Post-Mitigation Damage Amplification, increasing the final damage dealt to a target. In the damage calculation sequence, this bonus is applied after your damage is reduced by properties like Magic Resistance or Steadfast."
 	"quest_4_challenge_6_sub_0_summary"									"Attack the Training Dummy with Steadfast active."
 	"quest_4_challenge_6_sub_1_summary"									"Attack the Training Dummy again with steadfast active, while carrying Challen's post-mitigation buff."
 
 	"tutorial_master_dialogue_4_6a"										"You will come across an important damage booster referred to as Post-Mitigation damage."
-	"tutorial_master_dialogue_4_6b"										"Post-Mitigation damage increases the damage dealt after all of the enemy's reductions have been calculated."
+	"tutorial_master_dialogue_4_6b"										"Post-Mitigation damage amplification increases the damage dealt after all of the enemy's reductions have been calculated."
 	"tutorial_master_dialogue_4_6c"										"To demonstrate, please start off by attacking the training dummy with the Steadfast ability active."
 
 	"tutorial_master_dialogue_4_6d"										"Ok, take note of the damage dealt while recognizing that the training dummy has 1000 Health."
-	"tutorial_master_dialogue_4_6e"										"I have granted you a massive post-mitigation buff, attack the dummy again!"	
+	"tutorial_master_dialogue_4_6e"										"I have granted you a massive post-mitigation amp buff, attack the dummy again!"	
 
 	"tutorial_master_dialogue_4_6f"										"Can you see the difference? Your post-mitigation damage buff has applied after Steadfast's reduction!"
 	"tutorial_master_dialogue_4_6g"										"That concludes the lesson on post-mitigation damage."
@@ -564,8 +564,8 @@
 	"tutorial_master_dialogue_5_3f"										"There it is! Now defeat it and collect the bounty!"
 	"tutorial_master_dialogue_5_3g"										"Down he goes! Collect those purple crystals now! That ends this lesson."
 
-	"quest_5_reward_title"												"100,000 Mithril Shards"       
-	"quest_5_reward_description"										"Gain 100,000 Mithril Shards! A significant sum."
+	"quest_5_reward_title"												"125,000 Mithril Shards"       
+	"quest_5_reward_description"										"Gain 125,000 Mithril Shards! A significant sum."
 
 	"quest_6_interface"													"6. External Resources"
 	"quest_6_interface_description"										"This lecture will cover the primary features of the website at www.roshpit.ca."
@@ -576,7 +576,7 @@
 	"quest_6_challenge_4"												"D. Web Premium"
 	"quest_6_challenge_5"												"E. Discord Chat"
 
-	"quest_6_challenge_1_desc"											"You can purchase a game pass that lasts for 30 days on the game's home page. The pass increases maximum hero save slots and stash space. There is a stacking bonus to luck for item drops (50%), XP gain (10%), and Mithril Gain (10%). These bonuses stack with other pass holders who are in your party."
+	"quest_6_challenge_1_desc"											"You can purchase a special Pass for Roshpit Champions, which increases your stash space and hero save slots while active. Passes last for 30 days from the date of purchase and are available from the game's page in the Dota 2 Arcade. Each Pass user in your game also grants every player a stacking +10% bonus to EXP and mithril shard rewards, and a +50% better chance of finding more powerful items!"
 	"quest_6_challenge_1_sub_0_summary"									"Answer the question about the Custom Game Pass"
 
 	"tutorial_master_dialogue_6_1a"										"Valve had added a mechanism to purchase a game pass within the Dota 2 client. We are truly fortunate."	
@@ -599,7 +599,7 @@
 	"quest_6_challenge_2_sub_1_summary"									"Speak to the Curator"
 
 	"tutorial_master_dialogue_6_2a"										"Roshpit Champions has an official website at www.roshpit.ca"	
-	"tutorial_master_dialogue_6_2b"										"The website contains all of the information about the game's heroes and items. You can also view people's profiles and their heros' builds."
+	"tutorial_master_dialogue_6_2b"										"The website contains all of the information about the game's heroes and items. You can also view peoples' profiles and their heros' builds."
 	"tutorial_master_dialogue_6_2c"										"There is also a marketplace for trading. I want you to go login to the website. Go to www.roshpit.ca and click the Steam icon at the top right."	
 	"tutorial_master_dialogue_6_2d"										"This is Valve's 3rd party authentication system. Roshpit.ca will never see your password."
 	"tutorial_master_dialogue_6_2e"										"When you login you will land on your profile page. When you are there, I want you to click on the Cherebi on your profile page!"		
@@ -624,7 +624,7 @@
 
 	"tutorial_master_dialogue_6_3f"										"You got it! Feel free to browse the market some more to get a feel for it."
 
-	"quest_6_challenge_4_desc"											"The website offers a 'Web Premium' token which adds 72 stash slots and stash organization while on the web for 30 days. Purchased tokens can be consumed immediately or put into your stash for trading."
+	"quest_6_challenge_4_desc"											"The game's website offers a Web Premium feature, which adds 72 additional stash slots which can be managed through a convenient drag-and-drop interface on your profile! These features are activated by purchasing a consumable token, and last for 30 days after using it. The token itself can be sold on the game's Market just like any other item."
 	"quest_6_challenge_4_sub_0_summary"									"Click on cherebi at www.roshpit.ca/web-premium."
 
 	"tutorial_master_dialogue_6_4a"										"Roshpit.ca offers Web Premium for $5.00. It is entirely an optional feature that does not affect gameplay."
@@ -636,12 +636,12 @@
 	"quest_6_challenge_5_desc"											"Roshpit Champions has an active chat channel for discussing the game. The game's developers are present there if you wish to speak to them. The URL is discord.gg/ZUhfMZG"
 	"quest_6_challenge_5_sub_0_summary"									"Go to the Curator's Library channel of the Roshpit Discord. Check the Pinned Messages for the password."
 
-	"tutorial_master_dialogue_6_5a"										"The Roshpit Champions discord chat channel is a great way to meet fellow players and discuss the game."
+	"tutorial_master_dialogue_6_5a"										"The Roshpit Champions Discord chat channel is a great way to meet fellow players and discuss the game."
 	"tutorial_master_dialogue_6_5b"										"You can access the channel at discord.gg/ZUhfMZG. You can click the link in the game description as well."
-	"tutorial_master_dialogue_6_5c"										"I want you to go visit! Go to the discord chat channel."
+	"tutorial_master_dialogue_6_5c"										"I want you to go visit! Go to the Discord chat channel."
 	"tutorial_master_dialogue_6_5d"										"To prove you've been there, tell me the password. You can find the password in the 'pinned messages' of the curators-library channel."
 
-	"tutorial_quiz_question_19"											"Go to curators-library sub channel of the Roshpit Champions discord. What is the password found in the 'Pinned Messages'?"
+	"tutorial_quiz_question_19"											"Go to curators-library sub channel of the Roshpit Champions Discord. What is the password found in the 'Pinned Messages'?"
 
 	"tutorial_quiz_wrong_6_5_1"											"Check the pinned messages in curators-library."
 	"tutorial_quiz_wrong_6_5_2"											"That isn't it, go to discord.gg/ZUhfMZG and go to the curators-library sub channel. Check the pinned messages there."
@@ -651,3 +651,6 @@
 
 	"quest_6_reward_title"												"2 Weeks of Web Premium"       
 	"quest_6_reward_description"										"Add 2 weeks of Web Premium to your roshpit.ca account! Claim this when you think you'll get the most value. You can only claim it once."
+
+	"tutorial_stars_reward_warning"										"This reward requires @stars stars to collect. Go play and come back to claim this!"
+	"tutorial_button_get_more_stars"									"@stars Stars Required"

@@ -87,6 +87,11 @@ function RPCItems:HandLegendary(itemVariant, deathLocation)
             RPCItems:RollGreensandCopperGauntlets(deathLocation)
             return true
         elseif luck == 11 then
+            local arcanaLuck = RandomInt(1, 900)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+                RPCItems:RollConjurorArcana2(deathLocation)
+                return true
+            end
             RPCItems:RollShadowflameFist(deathLocation)
             return true
         end

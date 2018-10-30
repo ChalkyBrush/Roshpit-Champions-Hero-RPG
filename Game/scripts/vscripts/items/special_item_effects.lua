@@ -6,6 +6,23 @@ require('items/constants/gloves')
 require('items/constants/helm')
 require('items/constants/trinket')
 
+function astral_glyph_4_1_apply(event)
+	local target = event.target
+	local ability = target:GetAbilityByIndex(2)
+	if not ability then return end
+	if not target.saveECastPoint then
+		target.saveECastPoint = ability:GetCastPoint()
+	end
+	ability:SetOverrideCastPoint(0)
+end
+
+function astral_glyph_4_1_remove(event)
+	local target = event.target
+	local ability = target:GetAbilityByIndex(2)
+	if not ability or not target.saveECastPoint then return end
+	ability:SetOverrideCastPoint(target.saveECastPoint)
+end
+
 function paladin_2_1_destroy(event)
 	local caster = event.target
 	local ability = caster:FindAbilityByName("heroic_fury")
@@ -3115,7 +3132,6 @@ function mageplate_take_damage(event)
     target:SetModifierStackCount("modifier_infused_mageplate_stack", ability, newStack)
     local manaRestore = damage*0.05
     target:GiveMana(manaRestore)
-    print("MANA RESTORE:"..manaRestore)
     if not ability.particles then
     	ability.particles = 0
     end
@@ -4375,9 +4391,8 @@ function igneous_canine_damage(event)
 	local target = event.target
 	local caster = event.ability.hero
 	local ability = event.ability
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*2
-	Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_FIRE,RPC_ELEMENT_NONE)
-	ability.hero = target
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 2
+	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 function hurricane_vest_create(event)
 
@@ -4814,16 +4829,17 @@ function flamethrower_init(event)
 	local ability = event.ability
 	ability.interval = -4
 	ability.rising = true
-	ability.baseFV = target:GetForwardVector()
 	ability.damage = OverflowProtectedGetAverageTrueAttackDamage(target)*2.00
 	ability.origCaster = target
+	flamethrower_thinking(event)
 end
 
 function flamethrower_thinking(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local rotatedFV = WallPhysics:rotateVector(ability.baseFV, 2*math.pi*ability.interval/40)
+	local fv = target:GetForwardVector()
+	local rotatedFV = WallPhysics:rotateVector(fv, 2*math.pi*ability.interval/40)
 	if ability.rising then
 		ability.interval = ability.interval + 1
 		if ability.interval == 4 then
@@ -4876,7 +4892,7 @@ function flamethrower_impact(event)
 	local ulti = ability.origCaster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
 	local currentCD = ulti:GetCooldownTimeRemaining()
 	ulti:EndCooldown()
-	ulti:StartCooldown(currentCD - 0.4)
+	ulti:StartCooldown(currentCD - 0.5)
 end
 
 function aquasteel_take_damage(event)

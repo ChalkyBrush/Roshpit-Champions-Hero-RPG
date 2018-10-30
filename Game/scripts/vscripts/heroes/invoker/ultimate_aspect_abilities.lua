@@ -1,4 +1,5 @@
 require('heroes/invoker/earthquake')
+require('heroes/invoker/arcana/arcana_earth_deity')
 
 function begin_ultimate_jump(event)
 	local caster = event.caster
@@ -22,6 +23,12 @@ function begin_ultimate_jump(event)
     Timers:CreateTimer(0.3, function()
     	ability.lifting = false
     end)
+    if caster.earthDeity then
+    	local rate = math.max((1/distance)*1000, 2)
+    	rate = math.min(rate, 4)
+    	StartAnimation(caster, {duration=1.25, activity=ACT_DOTA_CAST_ABILITY_3, rate=rate})
+    	EmitSoundOn("Conjuror.EarthDeity.LiftOff.VO", caster)
+    end
 end
 
 function earth_aspect_jumping_think(event)
@@ -46,12 +53,20 @@ function drop_end(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local location = caster:GetAbsOrigin()
-	local a_d_level = Runes:GetTotalRuneLevel(caster.conjuror, 1, "r_1", "conjuror")
+	local r_1_level = caster.conjuror:GetRuneValue("r", 1)
 	FindClearSpaceForUnit(caster, location, false)
-	if a_d_level > 0 then
-		local quakeAbility = caster.conjuror:FindAbilityByName("earthquake")
-		local damage = quakeAbility:GetSpecialValueFor("damage")
-		fireQuake(location, caster.conjuror, 600, a_d_level*0.1, damage, true, quakeAbility, 1 + 0.3*a_d_level)
+	if r_1_level > 0 then
+		if caster.conjuror:HasAbility("earthquake") then
+			local quakeAbility = caster.conjuror:FindAbilityByName("earthquake")
+			local damage = quakeAbility:GetSpecialValueFor("damage")
+			fireQuake(location, caster.conjuror, 600, r_1_level*0.1, damage, true, quakeAbility, 1 + 0.3*r_1_level)
+		elseif caster.conjuror:HasAbility("arcana_earth_shock") then
+			local shockAbility = caster.conjuror:FindAbilityByName("arcana_earth_shock")
+			local damage = shockAbility:GetSpecialValueFor("damage")
+			damage = damage*(1 + 0.3*r_1_level)
+			fire_earth_shock(location, caster.conjuror, 600, shockAbility, damage, 0.1*r_1_level)
+			-- fireQuake(location, caster.conjuror, 600, r_1_level*0.1, damage, true, shockAbility, 1 + 0.3*r_1_level)
+		end
 	end
 	if caster.RemoveLeapAbility then
 		caster.RemoveLeapAbility = false

@@ -94,7 +94,7 @@
 		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] Purity"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"At the beginning of an Ascension - create a swarm of Avian Aspects that strike enemies in an area in front of you. Enemies who are hit are paralyzed for a short duration. Additionally increases the damage of [E3] by multiplying by lowest attribute and dividing by greatest attribute."
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Max Damage Increase"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					"%"	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"Paralyze Duration"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix_two"				" seconds"	
 
@@ -262,8 +262,8 @@
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_3_1"		"Glyph of Separation"
 		"item_rpc_bahamut_glyph_3_1_description" 				"Judgement falls around Bahamut instead of in front and has @glyph_property1% larger radius."
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"Glyph of Surging"
-		"item_rpc_bahamut_glyph_4_1_description" 				"Increases the radius of Bahamut Pulse by @glyph_property1%"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"Glyph of Barriers"
+		"item_rpc_bahamut_glyph_4_1_description" 				"Increases the duration of Wall of Impunity by @glyph_property1 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"Glyph of Isolation"
 		"item_rpc_bahamut_glyph_5_1_description" 				"Increases the duration of Solitary Shell by @glyph_property1 seconds."
@@ -271,8 +271,8 @@
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"Glyph of Pride"
 		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] is passive and no longer slows. Also Bahamut Pulse applies a @glyph_property1 second stun every 5th pulse."
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"Glyph of Barriers"
-		"item_rpc_bahamut_glyph_7_1_description" 				"Increases the duration of Wall of Impunity by @glyph_property1 seconds."
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"Glyph of Surging"
+		"item_rpc_bahamut_glyph_7_1_description" 				"Increases the radius of Bahamut Pulse by @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_a"		"Glyph of Multiwall"
 		"item_rpc_bahamut_glyph_5_a_description" 				"Every @glyph_property1 seconds gain a free Wall of Impunity cast."

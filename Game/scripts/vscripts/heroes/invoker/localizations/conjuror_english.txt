@@ -247,9 +247,136 @@
     	"DOTA_Tooltip_modifier_deity_shadow_shield"						"Shadow Shield"
     	"DOTA_Tooltip_modifier_deity_shadow_shield_Description"			"Damage Reduced by 100%%"
 
+    	"fire_deity"													"Fire Deity"
+
+    	"DOTA_Tooltip_ability_item_rpc_conjuror_arcana2"				"Bindings of the Flameshaper"
+
+       	"item_property_conjuror_arcana2"									"Fire Deity"
+    	"property_conjuror_arcana2_description"								"Replaces @Ability2 and all of its runes with Fire Deity."
+
+		"DOTA_Tooltip_ability_summon_fire_deity" 					"Fire Deity"
+    	"DOTA_Tooltip_ability_summon_fire_deity_Description"			"With the knowledge of the Origin Flame, Conjuror summons a grand Fire Deity to fight alongside him."
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_health"			"HEALTH:"
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_damage"			"DAMAGE:"
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_armor"			"ARMOR:"
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_magic_resist"			"MAGIC RESIST:"
+
+    	"DOTA_Tooltip_ability_fire_arcana_ability"							"Flame Laser"
+    	"DOTA_Tooltip_ability_fire_arcana_ability_Description"				"Element: <font color=\"#EF4126\">Fire</font><br>A blazing superheated laser travels towards the target unit. If the target is an ally, the ally is healed and receives a buff that increases attack speed and deals pure fire damage on attack land. Enemies instead take pure fire damage. Any ally or enemy in the beam's path is also affected, not just the primary target."
+    	"DOTA_Tooltip_ability_fire_arcana_ability_damage"					"DAMAGE:"
+    	"DOTA_Tooltip_ability_fire_arcana_ability_heal_pct"					"% HEAL:"
+    	"DOTA_Tooltip_ability_fire_arcana_ability_attack_speed"				"ATTACK SPEED FROM BUFF:"
+    	"DOTA_Tooltip_ability_fire_arcana_ability_buff_attack_damage"		"BONUS DAMAGE ON ATTACK AS % OF ATTACK POWER:"
+
+    	"DOTA_Tooltip_modifier_fire_ray_buff"						"Flame Laser"
+    	"DOTA_Tooltip_modifier_fire_ray_buff_Description"			"Increased attack speed and dealing extra fire damage on attack."
+		
+    	"DOTA_Tooltip_ability_fire_deity_fire_ability"						"Infernal Spiral"
+    	"DOTA_Tooltip_ability_fire_deity_fire_ability_Description"			"A cone of fire damages all enemies in a line."
+
+  		"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2"						"[W1] Burning Insight"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_Description"			"Flame Laser's buff also increases base attack damage. Additionally Conjuror gains % attack damage bonus from intelligence passively."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_property_one"			"Base Attack Damage from Buff"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_suffix"					""	
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_property_two"			"Conjuror Increased Attack Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_suffix_two"				"% for each 10 points of intelligence"	
+
+  		"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2"						"[W2] Origin Flame"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_Description"			"Adds a flat increase to <font color=\"#EF4126\">Fire</font> amplification. Also a portion of Agility is added to Flame Laser's base damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_property_one"		"Fire Amplification"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_suffix"				"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_property_two"		"Agility added to Flame Laser Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_suffix_two"			"%"
+
+		"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2"							"[W3] Deity Critical Strike"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2_Description"				"Gives you and your Fire Deity a 30% chance to deal bonus damage on attack. The crit also releases an immolation that deals AOE damage equal to the attack's damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2_property_one"				"Bonus damage on crit"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2_suffix"						"%"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2"						"[W4] Blistering Knowledge"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_Description"			"Increases Agility and Intelligence by a %. Also decreases strength by a %"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_property_one"		"Agility and Intelligence"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_suffix"				"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_property_two"		"Strength"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_suffix_two"				"%"
+
+    	"earth_deity"														"Earth Deity"
+
+    	"DOTA_Tooltip_ability_item_rpc_conjuror_arcana3"				"Veil of Gaia"
+
+       	"item_property_conjuror_arcana3"									"Earth Deity"
+    	"property_conjuror_arcana3_description"								"Replaces @Ability1 and all of its runes with Earth Deity."
+
+    	"DOTA_Tooltip_ability_summon_earth_deity"							"Earth Deity"
+    	"DOTA_Tooltip_ability_summon_earth_deity_Description"				"A complex earthen incantation summons a powerful mud golem that has the ability to protect a target ally with Grand Guardian. 50% of damage taken by conjuror is taken by Earth Deity instead."
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_health"				"HEALTH:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_damage"				"ATTACK DAMAGE:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_armor"				"ARMOR:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_magic_resist"		"MAGIC RESIST:"
+
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm"						"Sandstorm"
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_Description"			"Element: <font color=\"#AF843D\">Earth</font><br>The Earth Deity stands in place and whips up a violent sand storm. Enemies in the sandstorm have their movement speed and attack slowed, and have a chance to miss with their attacks. Drains mana and deals damage every 0.25 seconds and toggles off if mana runs out."
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_miss_chance"			"MISS CHANCE:"
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_move_slow"				"MOVE SLOW:"
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_attack_slow"			"ATTACK SLOW:"
+
+    	"DOTA_Tooltip_modifier_enemy_in_earth_deity_sandstorm"				"Sandstorm"
+    	"DOTA_Tooltip_modifier_enemy_in_earth_deity_sandstorm_Description"	"Slowed and blinded"
+
+    	"DOTA_Tooltip_ability_arcana_earth_shock"							"Earth Shock"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_Description"				"Element: <font color=\"#AF843D\">Earth</font><br>Conjures a quick burst of static earthen energy at the target location. Enemies in the radius have their movespeed slowed by 1000 for 0.9 seconds. Enemies in the radius also receive an attack damage debuff for 10 seconds."
+    	"DOTA_Tooltip_ability_arcana_earth_shock_damage"					"DAMAGE:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_radius"					"RADIUS:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_attack_reduce"				"ATTACK DAMAGE REDUCE:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_movespeed_slow"			"MOVESPEED SLOW:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_slow_duration"				"SLOW DURATION:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_attack_reduce_duration"	"ATTACK REDUCE DURATION:"
+
+    	"DOTA_Tooltip_modifier_earth_shock_slow"							"Earth Shock Slow"
+
+    	"DOTA_Tooltip_modifier_earth_shock_attack_reduce"					"Earth Shock"
+    	"DOTA_Tooltip_modifier_earth_shock_attack_reduce_Description"		"Reduced Attack Damage"
+
+    	"DOTA_Tooltip_ability_earth_deity_grand_guardian"					"Grand Guardian"
+    	"DOTA_Tooltip_ability_earth_deity_grand_guardian_Description"		"Roll the target ally into a boulder and pull them towards the Earth Deity. While inside the deity, gain increased health regen and all abilities are disabled. If Conjuror is in the Deity, Earth Shock is not disabled and has increased cast range and no cooldown. The deity is immune to magic and has +100000 armor while grand guardian is active, and he cannot move. Earth Deity can roll the guarded ally away which ends Grand Guardian. If Conjuror take lethal damage and this ability is not on cooldown, the Earth Deity grabs conjuror immediately and saves his life."
+
+    	"DOTA_Tooltip_modifier_deity_grand_guardian"						"Grand Guardian"
+    	"DOTA_Tooltip_modifier_deity_grand_guardian_Description"			"Magic Immunity and increased armor."
+
+    	"DOTA_Tooltip_modifier_earth_deity_bowl"							"Guardian Boulder Roll"
+    	"DOTA_Tooltip_modifier_earth_deity_bowl_Description"				"Throws the guarded unit towards the target location at high speed, and unleash an earth shock at the landing point. Grand Guardian ends when this is used."
+
+  		"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3"						"[Q1] Sandstorm"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_Description"			"The Earth Deity stands in place and whips up a violent sand storm. Enemies in the sandstorm have their movement speed and attack slowed, and have a chance to miss with their attacks. Drains mana and deals damage every 0.25 seconds and toggles off if mana runs out."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_suffix"					"% of Earth Deity's Max Health"	
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_two"			"Radius"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_suffix_two"				""	
+
+  		"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3"						"[Q2] Strength of Gaia"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_Description"			"Increases max health of Conjuror and all of his summons by a flat amount and also by a percentage."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_one"		"Max Health Flat"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix"				""
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_two"		"Max Health Percentage"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix_two"			"%"
+
+		"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3"							"[Q3] Earthen EMP"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_Description"				"Max Health increases <font color=\"#AF843D\">Earth</font> damage. Attack damage is added to Earth Shock's base damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_one"				"Earth Amp"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix"						"% for each 100 Max Health"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_two"				"Attack Damage Added to Earth Shock"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix_two"					"%"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3"						"[Q4] Mud Slash"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_Description"			"Enemies effected by Earth Shock's attack damage reduction debuff deal reduced damage of all types."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_property_one"		"Enemy Damage Reduction"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_suffix"				"%"
+
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"Glyph of Blazing Fire"
 		"item_rpc_conjuror_glyph_1_1_description" 				"Your Fire Aspect has @glyph_property1 extra attack speed and @glyph_property2% increased attack damage."
+		"DOTA_Tooltip_modifier_conjuror_glyph_1_1_effect"				"Glyph of Blazing Fire"
+		"DOTA_Tooltip_modifier_conjuror_glyph_1_1_effect_Description"	"Attack speed and bonus attack damage increased."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_2_1"		"Glyph of Conjuring"
 		"item_rpc_conjuror_glyph_2_1_description" 				"Increases the Max Health of all Aspects by @glyph_property1%"
@@ -259,9 +386,11 @@
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_4_1"		"Glyph of Distant Shadows"
 		"item_rpc_conjuror_glyph_4_1_description" 				"Increases the Attack Range of your Shadow Aspect by @glyph_property1."
+		"DOTA_Tooltip_modifier_conjuror_glyph_4_1_effect"		"Glyph of Distant Shadows"
+		"DOTA_Tooltip_modifier_conjuror_glyph_4_1_effect_Description"	"Attack range insreased."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_1"		"Glyph of Trembling Earth"
-		"item_rpc_conjuror_glyph_5_1_description" 				"Earthquake radius is increased by @glyph_property1, and the duration of free-casting is increased by @glyph_property2 seconds."
+		"item_rpc_conjuror_glyph_5_1_description" 				"@Ability1 radius is increased by @glyph_property1, and the duration of free-casting is increased by @glyph_property2 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_6_1"		"Glyph of Flamethrower"
 		"item_rpc_conjuror_glyph_6_1_description" 				"Your Fire Aspect spits a cone of fire every time he lands a critical hit, dealing @glyph_property1x the crit damage to all damaged targets."

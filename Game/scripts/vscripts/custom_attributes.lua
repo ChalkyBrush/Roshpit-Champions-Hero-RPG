@@ -126,6 +126,11 @@ function CDOTA_BaseNPC_Hero:GetBaseStrength()
 		strength = strength - modifier:GetStackCount()
 	end
 
+	modifier = self:FindModifierByName("modifier_w_4_str_decrease")
+	if modifier then
+		strength = strength + modifier:GetStackCount()
+	end
+
 	return strength
 end
 
@@ -173,6 +178,11 @@ function CDOTA_BaseNPC_Hero:GetBaseAgility()
 		agility = agility - modifier:GetStackCount()
 	end
 
+	modifier = self:FindModifierByName("modifier_w_4_agi_increase")
+	if modifier then
+		agility = agility - modifier:GetStackCount()
+	end
+
 	return agility
 end
 
@@ -206,6 +216,11 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 	end
 
 	modifier = self:FindModifierByName('modifier_neutral_glyph_7_3')
+	if modifier then
+		intellect = intellect - modifier:GetStackCount()
+	end
+
+	modifier = self:FindModifierByName("modifier_w_4_int_increase")
 	if modifier then
 		intellect = intellect - modifier:GetStackCount()
 	end
@@ -401,6 +416,11 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", CustomAttributes.VENOMORT_W3_STATS)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", CustomAttributes.VENOMORT_W3_STATS)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", CustomAttributes.VENOMORT_W3_STATS)
+	end
+	if hero:HasModifier("modifier_conjuror_arcana2") then
+		str_bonus = str_bonus - CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_w_4_str_decrease", 1)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_w_4_agi_increase", 1)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_w_4_int_increase", 1)
 	end
 	if heroName == "npc_dota_hero_antimage" then
 		if hero:HasAbility('arkimus_zap_ring') then
@@ -771,24 +791,34 @@ function CustomAttributes:GetMaxHealth(hero, strength_health)
 	if hero:HasModifier("modifier_paladin_immortal_weapon_3_health") then
 		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_paladin_immortal_weapon_3_health", CustomAttributes.PALADIN_IMMO_3_HEALTH)
 	end
+	if hero:HasModifier("modifier_earth_deity_q_2") then		
+		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_earth_deity_q_2", CONJUROR_ARCANA_Q2_FLAT_HEALTH)
+		maxHealth = maxHealth + maxHealth*(CONJUROR_ARCANA_Q2_PERCENT_HEALTH/100)*hero:GetModifierStackCount("modifier_earth_deity_q_2", hero)
+	end
 	if hero:HasModifier("modifier_helm_of_the_mountain_giant") then
-		maxHealth = maxHealth + (maxHealth - hero:GetModifierStackCount("modifier_redrock_footwear_health_increase", hero.redrock)*CustomAttributes.REDROCK_HEALTH + 1000) * 2 
+		maxHealth = maxHealth + CustomAttributes:GetBaseMaxHealth(maxHealth, hero) * 2 
 	end
 	return maxHealth
 end
 
+function CustomAttributes:GetBaseMaxHealth(maxHealth, hero)
+	local baseMaxHealth = maxHealth - (hero:GetModifierStackCount("modifier_redrock_footwear_health_increase", hero.redrock)*CustomAttributes.REDROCK_HEALTH + 1000)
+	baseMaxHealth = maxHealth - maxHealth*(CONJUROR_ARCANA_Q2_PERCENT_HEALTH/100)*hero:GetModifierStackCount("modifier_earth_deity_q_2", hero)
+	return baseMaxHealth
+end
+
 function CustomAttributes:ActivateStatsTooltip(msg)
+	if GameRules:State_Get() < DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then return end
 	local unit = EntIndexToHScript(msg.queryunit)
 	local player = PlayerResource:GetPlayer(msg.playerID)
 	local tableData = {}
-	tableData.phys = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL))*100000
-	print(GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL))
-	tableData.magic = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL))*100000
-	tableData.pure = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE))*100000
+	tableData.phys = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL))*100
+	tableData.magic = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL))*100
+	tableData.pure = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE))*100
 
-	tableData.phys = tableData.phys - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL) - 1)*100000
-	tableData.magic = tableData.magic - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL) - 1)*100000
-	tableData.pure = tableData.pure - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1)*100000
+	tableData.phys = tableData.phys - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL) - 1)*100
+	tableData.magic = tableData.magic - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL) - 1)*100
+	tableData.pure = tableData.pure - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1)*100
 	local level = unit:GetLevel()
 	if unit:IsHero() then
 		unit.q_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 0)
@@ -803,12 +833,12 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 		end
 		level = math.min(level + (GameState:GetDifficultyFactor()-1)*35, 120)
 		if unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
-			ApplyDamage({ victim = unit, attacker = Events.GameMaster, damage = 10000000, damage_type = DAMAGE_TYPE_PHYSICAL, ability = Events.GameMasterAbility })
-			ApplyDamage({ victim = unit, attacker = Events.GameMaster, damage = 10000000, damage_type = DAMAGE_TYPE_MAGICAL, ability = Events.GameMasterAbility })
-			ApplyDamage({ victim = unit, attacker = Events.GameMaster, damage = 10000000, damage_type = DAMAGE_TYPE_PURE, ability = Events.GameMasterAbility })
-			tableData.phys = unit.resist_phys*100000
-			tableData.magic = unit.resist_mag*100000
-			tableData.pure = unit.resist_pure*100000
+			ApplyDamage({ victim = unit, attacker = Events.GameMaster, damage = 10000000000, damage_type = DAMAGE_TYPE_PHYSICAL, ability = Events.GameMasterAbility })
+			ApplyDamage({ victim = unit, attacker = Events.GameMaster, damage = 10000000000, damage_type = DAMAGE_TYPE_MAGICAL, ability = Events.GameMasterAbility })
+			ApplyDamage({ victim = unit, attacker = Events.GameMaster, damage = 10000000000, damage_type = DAMAGE_TYPE_PURE, ability = Events.GameMasterAbility })
+			tableData.phys = tostring(unit.resist_phys*100)
+			tableData.magic = tostring(unit.resist_mag*100)
+			tableData.pure = tostring(unit.resist_pure*100)
 		end
 	end
 	local victim = unit
@@ -863,6 +893,25 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 			tableData.elements[k] = -(v-100)
 		end
 	end
+	GameState:FilterDamage({ entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_PHYSICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex() })
+	GameState:FilterDamage({ entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_MAGICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex() })
+	GameState:FilterDamage({ entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_PURE, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex() })
+	if victim.physical_damage_mult then
+		tableData.phys_post_mit = victim.physical_damage_mult
+	else
+		tableData.phys_post_mit = 100
+	end
+	if victim.magical_damage_mult then
+		tableData.magic_post_mit = victim.magical_damage_mult
+	else
+		tableData.magic_post_mit = 100
+	end
+	if victim.pure_damage_mult then
+		tableData.pure_post_mit = victim.pure_damage_mult
+	else
+		tableData.pure_post_mit = 100
+	end
+	tableData.item_damage = Filters:AdjustItemDamage(attacker, 1000000000, victim)/10000000
 	if unit:HasModifier("modifier_halcyon_soul_glove") then
 		tableData.halcyon = 1
 	end

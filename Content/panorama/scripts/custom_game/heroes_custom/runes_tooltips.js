@@ -135,6 +135,16 @@ function initializeTooltip(func){
 		$('#current_level_text_2').AddClass('invisible')
 		$('#next_level_text_2').AddClass('invisible')
 	}
+	if (total_level<1){
+		$("#current").AddClass("invisible")
+		$("#current_level_text_1").AddClass("invisible")
+		$("#current_level_text_2").AddClass("invisible")
+		$("#rune_seperator").AddClass("invisible")
+	}else{
+		$("#current").RemoveClass("invisible")
+		$("#current_level_text_1").RemoveClass("invisible")
+		$("#rune_seperator").RemoveClass("invisible")
+	}
 }
 
 function replaceConstantsInTooltip(ability, tooltip)

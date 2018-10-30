@@ -516,7 +516,7 @@
 	"quest_4_reward_description"										"一个训练假人总是会在教程地图上为你创造."
 	
 	"quest_5_interface"													"5. 地图 & 游戏"
-	"quest_5_interface_description"										"在这一节中，我们将涵盖各种游戏特征
+	"quest_5_interface_description"										"在这一节中，我们将涵盖各种游戏特征"
 
 	"quest_5_challenge_1"												"A. 地图"
 	"quest_5_challenge_2"												"B. 钥匙"
@@ -623,7 +623,7 @@
 
 	"tutorial_master_dialogue_6_3f"										"你明白了！自由浏览更多的市场来感受它."
 
-	"quest_6_challenge_4_desc"											"该网站提供了一个“Web Premium"令牌(大会员)，在网络上添加72个存储槽和存储组织30天。购买的WEB可以立即使用或放入你的交易中."
+	"quest_6_challenge_4_desc"											"该网站提供了一个“Web Premium“令牌(大会员)，在网络上添加72个存储槽和存储组织30天。购买的WEB可以立即使用或放入你的交易中."
 	"quest_6_challenge_4_sub_0_summary"									"点击www.roshpit.ca/web-premium网页上的小绿人."
 
 	"tutorial_master_dialogue_6_4a"										"Roshpit.ca 提供售价$5.00的Web Premium大会员 . 它完全是一个不影响游戏玩法的可选付费项目.."
@@ -637,7 +637,7 @@
 
 	"tutorial_master_dialogue_6_5a"										"肉山谷的discord频道是一个很好的满足玩家讨论游戏的方式."
 	"tutorial_master_dialogue_6_5b"										"你可以访问discord.gg/ZUhfMZG，也可以点击游戏描述中的链接."
-	"tutorial_master_dialogue_6_5c"										我希望你去参观！去discord聊天频道吧."
+	"tutorial_master_dialogue_6_5c"										"我希望你去参观！去discord聊天频道吧."
 	"tutorial_master_dialogue_6_5d"										"为了证明你去过那里，告诉我密码。您可以在discord的curators-library频道的“pinned messages”中找到密码."
 
 	"tutorial_quiz_question_19"											"去肉山谷的discord中的curators-library 频道. 你在 'Pinned Messages'找到的密码是?"

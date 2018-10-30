@@ -414,10 +414,12 @@ function sea_god_attack_start(event)
 	local ability = event.ability
 	local radius = event.radius
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
-	if #enemies > 0 then
+	if #enemies > 0 and not ability.lock then
+		ability.lock = true
 		for _,enemy in pairs(enemies) do
 			Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
 		end
+		ability.lock = false
 	end 
 end
 
@@ -1521,17 +1523,16 @@ function submerge_think(event)
 				Timers:CreateTimer(0.03*i, function()
 					caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,34))
 				end)
-				Timers:CreateTimer(0.18, function()
-			      particleName = "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash.vpcf"
-			      local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-			      ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,140) )
-			      EmitSoundOn("Tanari.WaterSplash", caster)
-			      Timers:CreateTimer(4, 
-			      function()
-			        ParticleManager:DestroyParticle( particle1, false )
-			      end)
-				end)
 			end
+			Timers:CreateTimer(0.18, function()
+				particleName = "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash.vpcf"
+				local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+				ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,140) )
+				EmitSoundOn("Tanari.WaterSplash", caster)
+				Timers:CreateTimer(4, function()
+				  ParticleManager:DestroyParticle( particle1, false )
+				end)
+			end)
 		end
 	end
 end
@@ -2284,7 +2285,7 @@ function jailer_think(event)
 			if enemies[1]:GetAbsOrigin().z > (caster:GetAbsOrigin().z + 500) then
 				return false
 			end
-			if enemies[1]:HasModifier("modifier_hook_root") then
+			if enemies[1]:HasModifier("modifier_hook_root") or enemies[1]:HasModifier("modifier_jumping") then
 				return false
 			end
 			StartAnimation(caster, {duration=1.1, activity=ACT_DOTA_CAST_ABILITY_ROT, rate=0.9})
@@ -4017,7 +4018,7 @@ function ghost_zombie_think(event)
 	local caster = event.caster
 
 	if caster.state == 1 then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		
 		if #enemies > 0 then
 			caster:Stop()

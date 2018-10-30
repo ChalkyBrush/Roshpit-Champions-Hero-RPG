@@ -112,7 +112,7 @@ function category_panel_click_setup(categoryPanel, index, category, msg){
 	var progress = msg.tutorial[key]["progress"]
 	for (var i = 0; i < challengeCount; i++) {
 		if (progress >= i){
-			setupChallenge(category, category.challenges[i+1], i, challengeListPanel, challengeCount)
+			setupChallenge(category, category.challenges[i+1], i, challengeListPanel, challengeCount, msg.stars)
 		}
 	}
 	Game.EmitSound("Tutorial.UI.CategoryClick")
@@ -123,7 +123,7 @@ function category_panel_click_setup(categoryPanel, index, category, msg){
 	})
 }
 
-function setupChallenge(category, challenge, index, challengeListPanel, challengeCount){
+function setupChallenge(category, challenge, index, challengeListPanel, challengeCount, stars){
 	challenge_list_adder_panel = challengeListPanel.FindChildTraverse('challenge_list_items')
 	if (category["progress"] >= index){
 		var challengePanel = $.CreatePanel("Panel", challenge_list_adder_panel, "challenge"+index)
@@ -147,23 +147,40 @@ function setupChallenge(category, challenge, index, challengeListPanel, challeng
 					challengePanel.FindChildTraverse('green_check').RemoveClass('invisible')
 				}
 				challengePanel.FindChildTraverse('challenge_button').SetPanelEvent('onactivate', function Activate() {
-					reward_activate(category, challengeListPanel, category["reward"])
+					reward_activate(category, challengeListPanel, category["reward"], stars)
 				});
 			}
 		}
 	}
 }
 
-function reward_activate(category, challengeListPanel, reward){
+STARS_REQ = [75, 100, 125]
+REWARD_STARS_REQ_MAP = [3,5,6]
+
+function reward_activate(category, challengeListPanel, reward, stars){
 	var descrip_and_go_container = challengeListPanel.FindChildTraverse('total_challenge_list')
 	var descripAndGoPanel = $.CreatePanel("Panel", descrip_and_go_container, "descrip_and_go")
 	Game.EmitSound("Tutorial.UI.ChallengeClick")
 	descripAndGoPanel.BLoadLayoutSnippet('reward_and_go')
 	$.Msg("OOOOO IMPORTANT OOOO")
 	$.Msg(category["index"])
+	$.Msg(stars)
+	var starsMap = REWARD_STARS_REQ_MAP.indexOf(category["index"])
+	var starReq = false
+	if (starsMap > -1){
+		starReq = STARS_REQ[starsMap]
+	}
+	$.Msg("------")
 	descripAndGoPanel.FindChildTraverse('reward_and_go_description_text').text = $.Localize("quest_"+category["index"]+"_reward_description")
 	descripAndGoPanel.FindChildTraverse('reward_image').SetImage("file://{images}/spellicons/tutorial/reward"+category["index"]+".png")
-	if (reward == 0){
+	if ((reward == 0) && (starReq) && (stars < starReq)){
+		descripAndGoPanel.FindChildTraverse('reward-stars-warning').RemoveClass('invisible')
+		descripAndGoPanel.FindChildTraverse('reward-stars-warning').text = $.Localize('tutorial_stars_reward_warning').replace('@stars', starReq)
+		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("tutorial_button_get_more_stars").replace('@stars', starReq)
+		descripAndGoPanel.FindChildTraverse('reward_go_button').AddClass('reward_claimed')
+		descripAndGoPanel.FindChildTraverse('reward_go_button').RemoveClass('reward_unclaimed')
+		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').style.color = '#777777'
+	}else if (reward == 0){
 		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("quest_reward_claim")
 		descripAndGoPanel.FindChildTraverse('reward_go_button').SetPanelEvent('onactivate', function Activate() {
 				Game.EmitSound("Tutorial.Win")

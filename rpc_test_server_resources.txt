@@ -169,6 +169,8 @@ function ChatDropItems(keys)
     Timers:CreateTimer(timer, function() RPCItems:RollBahamutArcana1(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollDuskbringerArcana1(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana1(vector) end) timer = timer + 1
+    Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana2(vector) end) timer = timer + 1
+    Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana3(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollTrapperArcana1(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollSpiritWarriorArcana1(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollSpiritWarriorArcana2(vector) end) timer = timer + 1
@@ -507,34 +509,33 @@ function ChatDropItems(keys)
   end
   
   local wepClass
-
-  wepClass = "conjuror" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "flamewaker" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "voltex" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "venomort" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "axe" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "astral" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "epoch" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "paladin" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "sorceress" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "seinaru" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "warlord" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "bahamut" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "auriun" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "duskbringer" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "trapper" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "spirit_warrior" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "mountain_protector" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "chernobog" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "solunia" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "hydroxis" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "ekkan" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "zonik" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "arkimus" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "djanghor" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "slipfinn" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "sephyr" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
-  wepClass = "dinath" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
+  wepClass = "conjuror" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "flamewaker" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "voltex" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "venomort" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "axe" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "astral" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "epoch" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "paladin" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "sorceress" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "seinaru" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "warlord" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "bahamut" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "auriun" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "duskbringer" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "trapper" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "spirit_warrior" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "mountain_protector" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "chernobog" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "solunia" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "hydroxis" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "ekkan" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "zonik" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "arkimus" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "djanghor" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "slipfinn" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "sephyr" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "dinath" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
 
 end
 
@@ -588,14 +589,55 @@ function LoadCharacterDev(playerID, slot, steamID)
   end )
 end
 
-function ChatDropWep(str, vector)
-  Weapons:RollLegendWeapon1(vector, str, 50)
-  Weapons:RollLegendWeapon2(vector, str, 50)
-  Weapons:RollLegendWeapon3(vector, str, 50)
+function ChatDropWep(str, vector, text)
+    if text and string.match(text, "@") then
+        local classAndAmount = StringSplit(text, "@")
+        if classAndAmount[1] and classAndAmount[2] then
+            local class = string.gsub(classAndAmount[1], "%D", "")
+            class = tonumber(class)
+            local numberOfWepsToDrop = string.gsub(classAndAmount[2], "%D", "")
+            numberOfWepsToDrop = tonumber(numberOfWepsToDrop)
+            print(type(class))
+            print(type(numberOfWepsToDrop))
+            --    -conjuror 2@1
+            if class == 1 then
+                for i=1,numberOfWepsToDrop do
+                    Weapons:RollLegendWeapon1(vector, str, 50)
+                end         
+            elseif class == 2 then
+                for i=1,numberOfWepsToDrop do
+                    Weapons:RollLegendWeapon2(vector, str, 50)
+                end     
+            elseif class == 3 then
+                for i=1,numberOfWepsToDrop do
+                    Weapons:RollLegendWeapon3(vector, str, 50)
+                end     
+            end
+        end
+    else
+        Weapons:RollLegendWeapon1(vector, str, 50)
+        Weapons:RollLegendWeapon2(vector, str, 50)
+        Weapons:RollLegendWeapon3(vector, str, 50)
+    end
 end
 
 function GameMode:OnPlayerChat(keys)
   local text = string.lower(keys.text)
+  if string.match(text, "dbg") then
+    local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+    for i=1,10 do
+        RPCItems:RollConjurorArcana3(vector)
+    end
+  end  
+  if string.match(text, "-kill ") then---kill earth_deity
+    local direUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS,Vector(0, 0, 0),nil,FIND_UNITS_EVERYWHERE,DOTA_UNIT_TARGET_TEAM_FRIENDLY,DOTA_UNIT_TARGET_ALL,DOTA_UNIT_TARGET_FLAG_NONE,FIND_ANY_ORDER,false)
+    strKill = string.gsub(text, "-kill ", "")
+    for i=1,#direUnits do
+        if direUnits[i]:GetUnitName() == strKill then
+            direUnits[i]:ForceKill(false)
+        end
+    end
+  end
   if string.match(text, "-load") then--example "-load 1@111481062"
     str = string.gsub(text, "-load ", "")
     strn = StringSplit(str, "@")

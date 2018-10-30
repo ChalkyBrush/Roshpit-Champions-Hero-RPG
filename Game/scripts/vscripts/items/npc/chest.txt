@@ -44,6 +44,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"TextureName"		"itemicons/hurrican_vest"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% HURRICANE_VEST_MSP_REDUCE %>"

@@ -9,29 +9,38 @@ require('/worlds/arena/pit_of_trials/pit_of_trials')
 
 function Arena:Debug()
     if MAIN_HERO_TABLE[1] then
-      MAIN_HERO_TABLE[1]:SetBaseStrength(40000)
-      MAIN_HERO_TABLE[1]:SetBaseAgility(25000)
-      MAIN_HERO_TABLE[1]:SetBaseIntellect(25000)
-      MAIN_HERO_TABLE[1]:SetBaseDamageMax(1500000)
-      MAIN_HERO_TABLE[1]:SetBaseDamageMin(1500000)
-      MAIN_HERO_TABLE[1]:CalculateStatBonus()
-      local hero = MAIN_HERO_TABLE[1]
-		hero.runeUnit2.amulet.e_2 = hero.runeUnit2.amulet.e_2 + 1500
-		Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.e_2, "rune_e_2", hero)
-		hero.runeUnit3.amulet.w_3 = hero.runeUnit3.amulet.w_3 + 500
-		Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.w_3, "rune_w_3", hero)
-		hero.runeUnit2.amulet.q_2 = hero.runeUnit2.amulet.q_2 + 500
-		Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.q_2, "rune_q_2", hero)
-		hero.runeUnit.amulet.q_1 = hero.runeUnit.amulet.q_1 + 500
-		Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.q_1, "rune_q_1", hero)
+ --      MAIN_HERO_TABLE[1]:SetBaseStrength(40000)
+ --      MAIN_HERO_TABLE[1]:SetBaseAgility(25000)
+ --      MAIN_HERO_TABLE[1]:SetBaseIntellect(25000)
+ --      MAIN_HERO_TABLE[1]:SetBaseDamageMax(1500000)
+ --      MAIN_HERO_TABLE[1]:SetBaseDamageMin(1500000)
+ --      MAIN_HERO_TABLE[1]:CalculateStatBonus()
+ --      local hero = MAIN_HERO_TABLE[1]
+	-- 	hero.runeUnit2.amulet.e_2 = hero.runeUnit2.amulet.e_2 + 1500
+	-- 	Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.e_2, "rune_e_2", hero)
+	-- 	hero.runeUnit3.amulet.w_3 = hero.runeUnit3.amulet.w_3 + 500
+	-- 	Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.w_3, "rune_w_3", hero)
+	-- 	hero.runeUnit2.amulet.q_2 = hero.runeUnit2.amulet.q_2 + 500
+	-- 	Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.q_2, "rune_q_2", hero)
+	-- 	hero.runeUnit.amulet.q_1 = hero.runeUnit.amulet.q_1 + 500
+	-- 	Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.q_1, "rune_q_1", hero)
     end
-	-- Arena:BeginBattle(MAIN_HERO_TABLE[1])
-    local item = CreateItem("item_debug_blink", nil, nil)
-    local drop = CreateItemOnPositionSync( Vector(-3136, -11200), item )
-    local position = Vector(-3136, -11200)
-    RPCItems:DropItem(item, Vector(-3136, -11200))
-    MAIN_HERO_TABLE[1].ChampionsLeague = {}
-    MAIN_HERO_TABLE[1].ChampionsLeague.rank = 14
+	-- -- Arena:BeginBattle(MAIN_HERO_TABLE[1])
+ --    local item = CreateItem("item_debug_blink", nil, nil)
+ --    local drop = CreateItemOnPositionSync( Vector(-3136, -11200), item )
+ --    local position = Vector(-3136, -11200)
+ --    RPCItems:DropItem(item, Vector(-3136, -11200))
+ --    MAIN_HERO_TABLE[1].ChampionsLeague = {}
+ --    MAIN_HERO_TABLE[1].ChampionsLeague.rank = 14
+
+			local lockoutStatus = os:ServerTimeToTable()
+			local hero = MAIN_HERO_TABLE[1]
+			hero.pit = {}
+			hero.pit.pit_level = 7
+			if Arena.PitActive or Arena.PitLocked then
+				lockoutStatus = 2
+			end
+			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "pit_terminal", {pitData=hero.pit, heroName=hero:GetUnitName(), lockoutStatus = lockoutStatus})
 
     -- Arena.ChampionsLeague = {}
     -- Arena.ChampionsLeague.state = 14

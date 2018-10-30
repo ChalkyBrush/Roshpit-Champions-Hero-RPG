@@ -5,6 +5,8 @@ function think(event)
 
     local runesCount = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
     if runesCount <= 0 then
+        caster:RemoveModifierByName("modifier_axe_rune_r_4_visible")
+        caster:RemoveModifierByName("modifier_axe_rune_r_4_invisible")
         return
     end
 

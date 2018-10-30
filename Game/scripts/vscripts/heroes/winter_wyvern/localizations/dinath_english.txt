@@ -134,7 +134,7 @@
     	"property_dinath_arcana1_description"								"Replaces @Ability2 and all of its runes with Spire Breath."
 
     	"DOTA_Tooltip_ability_dinath_dragon_fire"						"Spire Breath"
-    	"DOTA_Tooltip_ability_dinath_dragon_fire_Description"			"Element: <font color=\"#3289C7\">Dragon</font> / <font color=\"#87D9FF\">Ice</font><br>Passively adds pure damage to Dinath's attacks. While toggled on, attacks have extra range and can split and hit additional targets. Each attack drains the mana cost and mana is drained every second while toggled on."
+    	"DOTA_Tooltip_ability_dinath_dragon_fire_Description"			"Element: <font color=\"#3289C7\">Dragon</font> / <font color=\"#87D9FF\">Ice</font><br>Passively adds pure damage to Dinath's attacks. While toggled on, attacks have extra range and can split and hit additional targets. Each attack drains the mana cost and mana is drained every second while toggled on. Attack radius searches around the main attack target."
     	"DOTA_Tooltip_ability_dinath_dragon_fire_damage_mult"				"% DAMAGE BASED ON ATTACK POWER:"
     	"DOTA_Tooltip_ability_dinath_dragon_fire_mana_cost"				"MANA COST:"
     	"DOTA_Tooltip_ability_dinath_dragon_fire_extra_range"				"EXTRA RANGE:"

@@ -3318,8 +3318,10 @@ end
 function GhostTeleport(trigger)
 	local hero = trigger.activator
 	if Redfall.Castle.GhostPortalActive then
-		local portToVector = Vector(-6912, 4864)
-		Events:TeleportUnit(hero, portToVector, Events.GameMaster.portal, Events.GameMaster, 1.2)
+		if not hero:HasModifier("modifier_recently_teleported_portal") then
+			local portToVector = Vector(-6912, 4864)
+			Events:TeleportUnit(hero, portToVector, Events.GameMaster.portal, Events.GameMaster, 1.2)
+		end
 	end
 end
 
@@ -3481,9 +3483,11 @@ end
 
 function GhostTeleportOut(trigger)
 	local hero = trigger.activator
-	if Redfall.Castle.PerditionDie and not hero:HasModifier("modifier_recently_teleported_portal") then
-		local portToVector = Vector(-6144, 7488)
-		Events:TeleportUnit(hero, portToVector, Events.GameMaster.portal, Events.GameMaster, 1.2)
+	if Redfall.Castle.PerditionDie then
+		if not hero:HasModifier("modifier_recently_teleported_portal") then
+			local portToVector = Vector(-6144, 7488)
+			Events:TeleportUnit(hero, portToVector, Events.GameMaster.portal, Events.GameMaster, 1.2)
+		end
 	end
 end
 

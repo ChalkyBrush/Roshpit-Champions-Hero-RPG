@@ -33,7 +33,7 @@ function Tanari:Debug()
     --  for i = 1, 5, 1 do
     --     RPCItems:RollWinterblightSkullRing(Vector(-4928, 2048))
     -- end
-    -- Dungeons.itemLevel = 500
+    Dungeons.itemLevel = 500
     -- Glyphs:DropArcaneCrystals(Vector(-4928, 2048), 2.0)
     -- -- RPCItems:RollArcaneCharm(Vector(-3928, 2048))
     -- Tanari:DefeatDungeonBoss("fire", Vector(-4928, 2048))
@@ -41,7 +41,8 @@ function Tanari:Debug()
     local drop = CreateItemOnPositionSync( Vector(-4928, 2048), item )
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
-
+    RPCItems:RollConjurorArcana3(Vector(-4928, 2048))
+    -- RPCItems:RollConjurorArcana2(Vector(-4928, 2048))
     -- RPCItems:RollBaronsStormArmor(Vector(-4928, 2048))
     -- RPCItems:RollCaptainsVest(Vector(-4928, 2048))
     -- RPCItems:RollHydroxisArcana2(Vector(-4928, 2048))
@@ -56,7 +57,7 @@ function Tanari:Debug()
     
     -- RPCItems:RollDirewolfBulkwark(Vector(-4928, 2048))
     -- RPCItems:RollDjanghorArcana1(Vector(-4928, 2048))
-    -- RPCItems:RollHoodOfLords(Vector(-4928, 2048), true)
+    RPCItems:RollHoodOfLords(Vector(-4928, 2048), true)
     -- RPCItems:RollAnkhOfAncients(Vector(-4928, 2048))
     -- RPCItems:RollChernobogArcana1(Vector(-4928, 2048))
     -- RPCItems:RollChernobogArcana2(Vector(-4928, 2048))

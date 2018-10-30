@@ -714,6 +714,7 @@ function Runes:EquipArcana(hero, index)
 			newRune:SetAbilityIndex(abilityIndex)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_invoker" then
+		print("-----HELLO----")
 		if index == 1 then
 			local origAbility = hero:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
 			local abilityLevel = hero:GetAbilityByIndex(DOTA_ULTIMATE_SLOT):GetLevel()
@@ -743,6 +744,29 @@ function Runes:EquipArcana(hero, index)
 			local newRune = hero.runeUnit4:AddAbility("conjuror_rune_r_4_arcana1")
 			newRune:SetLevel(runeLevel4)
 			newRune:SetAbilityIndex(3)
+		elseif index == 2 then
+			if hero.fireAspect then
+				if IsValidEntity(hero.fireAspect) then
+					hero.fireAspect:SetHealth(10)
+					hero.fireAspect:ForceKill(true)
+				end
+			end
+			if hero:HasAbility("immolation") then
+				hero:RemoveAbility("immolation")
+			end
+			Runes:EasySwapArcanaSkills(hero, 1, "summon_fire_aspect", "summon_fire_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+		elseif index == 3 then
+			if hero.earthAspect then
+				if IsValidEntity(hero.earthAspect) then
+					hero.earthAspectResummonForbidden = true
+					hero.earthAspect:SetHealth(10)
+					hero.earthAspect:ForceKill(true)
+				end
+			end
+			if hero:HasAbility("earthquake") then
+				hero:RemoveAbility("earthquake")
+			end
+			Runes:EasySwapArcanaSkills(hero, 0, "summon_earth_aspect", "summon_earth_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_templar_assassin" then
 		if index == 1 then
@@ -1019,7 +1043,9 @@ function Runes:EquipArcana(hero, index)
 	end
 end
 
-
+local keep_modifiers = {
+	"modifier_draghor_main_passive"
+	}
 
 function Runes:EasySwapArcanaSkills(hero, abilityIndex, oldAbility, newAbility, internalName, rune_suffix)
 	local origAbility = hero:GetAbilityByIndex(abilityIndex)
@@ -1030,7 +1056,7 @@ function Runes:EasySwapArcanaSkills(hero, abilityIndex, oldAbility, newAbility, 
 	end
 	local modifiers = hero:FindAllModifiers()
 	for _,modifier in pairs(modifiers) do
-		if modifier:GetAbility() == origAbility then
+		if modifier:GetAbility() == origAbility and not WallPhysics:DoesTableHaveValue(keep_modifiers, modifier:GetName()) then
 			hero:RemoveModifierByName(modifier:GetName())
 		end
 	end
@@ -1082,7 +1108,7 @@ function Runes:EasyRevertArcanaSkills(hero, abilityIndex, origAbility, arcanaAbi
 	local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(abilitySlot):GetLevel()
 	local modifiers = hero:FindAllModifiers()
 	for _,modifier in pairs(modifiers) do
-		if modifier:GetAbility() == existingAbility then
+		if modifier:GetAbility() == existingAbility and not WallPhysics:DoesTableHaveValue(keep_modifiers, modifier:GetName()) then
 			hero:RemoveModifierByName(modifier:GetName())
 		end
 	end
@@ -1333,6 +1359,36 @@ function Runes:UnequipArcana(hero, index)
 			if hero.deity then
 				hero.deity:ForceKill(false)
 			end
+		elseif index == 2 then
+			if hero.fireAspect then
+				if IsValidEntity(hero.fireAspect) then
+					hero.forceFireReset = true
+					hero.fireAspect:SetHealth(10)
+					hero.fireAspect:ForceKill(true)
+				end
+			end
+			hero:RemoveModifierByName("modifier_deity_attack_pct_w1")
+			hero:RemoveModifierByName("modifier_w_4_agi_increase")
+			hero:RemoveModifierByName("modifier_w_4_int_increase")
+			hero:RemoveModifierByName("modifier_w_4_str_decrease")
+			if hero:HasAbility("fire_arcana_ability") then
+				hero:RemoveAbility("fire_arcana_ability")
+			end
+			Runes:EasyRevertArcanaSkills(hero, 1,"summon_fire_aspect", "summon_fire_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+		elseif index == 3 then
+			if hero.earthAspect then
+				if IsValidEntity(hero.earthAspect) then
+					hero.earthAspectResummonForbidden = true
+					hero.forceFireReset = true
+					hero.earthAspect:SetHealth(10)
+					hero.earthAspect:ForceKill(true)					
+				end
+			end
+			hero:RemoveModifierByName("modifier_earth_deity_q_2")
+			if hero:HasAbility("arcana_earth_shock") then
+				hero:RemoveAbility("arcana_earth_shock")
+			end
+			Runes:EasyRevertArcanaSkills(hero, 0,"summon_earth_aspect", "summon_earth_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_templar_assassin" then
 		if index == 1 then

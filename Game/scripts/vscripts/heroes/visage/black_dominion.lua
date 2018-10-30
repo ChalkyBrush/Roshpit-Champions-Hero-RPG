@@ -1,5 +1,8 @@
 LinkLuaModifier("modifier_ekkan_black_dominion_summon", "modifiers/ekkan/modifier_ekkan_black_dominion_summon", LUA_MODIFIER_MOTION_NONE)
 
+require("/heroes/visage/ekkan_helpers")
+require("/heroes/visage/ekkan_constants")
+
 function dominion_bolt_fire(event)
 	local caster = event.caster
 	local target = event.target
@@ -35,7 +38,11 @@ function dominion_bolt_impact(event)
 	local target = event.target
 	local ability = event.ability
 	local debuff_duration = event.duration
-	if target:GetTeamNumber() == caster:GetTeamNumber() then
+	if dominion_allowed_selfcasted_units(target:GetUnitName()) then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ekkan_dominion_debuff", {duration = debuff_duration})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ekkan_dominion_overhead_effect", {duration = debuff_duration})
+		target:ForceKill(false)
+	elseif target:GetTeamNumber() == caster:GetTeamNumber() then
 		target:ForceKill(false)
 	else
 		EmitSoundOn("Ekkan.Dominion.Impact", target)
@@ -145,6 +152,16 @@ function dominion_debuff_death(event)
 	    end
 	    ability:ApplyDataDrivenModifier(caster, caster, "modifier_dominion_counter", {})
 	    caster:SetModifierStackCount("modifier_dominion_counter", caster, #ability.dominionTable)
+
+		if caster:HasModifier("modifier_ekkan_glyph_5_a") and dominion_allowed_selfcasted_units(summon:GetUnitName()) then
+			event.attacker = summon
+			for i=1,EKKAN_GLYPH_5_a_STACKS do
+				dominion_unit_kill(event)
+				if event.unit.dominionLock then
+					event.unit.dominionLock = false
+				end
+			end
+		end
 	end
 end
 
@@ -339,7 +356,11 @@ function black_dominion_lifesteal_think(event)
 	local ability = event.ability
 	local origCaster = caster.hero
 	local target = event.target
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.07*origCaster.q_1_level
+	local q_1_level = Runes:GetTotalRuneLevelGeneric(origCaster, 1, 0)
+	if q_1_level == 0 then
+		return
+	end
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.07*q_1_level
 	Filters:TakeArgumentsAndApplyDamage(target, origCaster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 	local heal = math.min(damage*0.1, caster:GetMaxHealth()-caster:GetHealth())
 	if heal > 0 then
@@ -380,12 +401,19 @@ function dominion_corpse_pickup_end(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	-- caster.immortalSouls = caster.immortalSouls - 1
+	local origCaster = caster.hero
+	local q_2_level = Runes:GetTotalRuneLevelGeneric(origCaster, 2, 0)
+	print(q_2_level)
+	if q_2_level == 0 then
+		caster.immortalSouls = 0
+		dominion_corpse_remove_modifier(caster)
+		return
+	end
 	local startingSouls = caster.immortalSouls*2
 	caster.immortalSouls = 0
 	for i = 1, 6, 1 do
 		if caster.immortalSouls >= i then
-			ParticleManager:SetParticleControl(caster.immortalSoulsPFX, i, Vector(caster.immortalSouls, caster.immortalSouls, caster.immortalSouls))
+			ParticleManager:SetParticleControl(caster.immortalSoulsPFX, i, Vector(caster.immortalSouls, caster.immortalSouls, caster.immortalSouls))--?
 		else
 			ParticleManager:SetParticleControl(caster.immortalSoulsPFX, i, Vector(0, 0, 0))
 		end
@@ -418,11 +446,15 @@ function dominion_corpse_pickup_end(event)
 		projectile = ProjectileManager:CreateLinearProjectile(info)		
 	end
 	if caster.immortalSouls == 0 then
-		caster:RemoveModifierByName("modifier_corpse_picked_up_visible")
-		caster:RemoveModifierByName("modifier_corpse_picked_up_invisible")
-		ParticleManager:DestroyParticle(caster.immortalSoulsPFX, true)
-		caster.immortalSoulsPFX = false
+		dominion_corpse_remove_modifier(caster)
 	end
+end
+
+function dominion_corpse_remove_modifier(caster)
+	caster:RemoveModifierByName("modifier_corpse_picked_up_visible")
+	caster:RemoveModifierByName("modifier_corpse_picked_up_invisible")
+	ParticleManager:DestroyParticle(caster.immortalSoulsPFX, true)
+	caster.immortalSoulsPFX = false
 end
 
 function swarm_hit(event)

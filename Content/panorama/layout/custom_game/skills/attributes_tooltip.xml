@@ -135,6 +135,27 @@
 							<Label class="resistance_value" id="base_ability_value_r"/>
 						</Panel>
 					</Panel>
+					<Panel class="class-splitter-thin-full">
+					</Panel>
+					<Label class="attack_defense_subtitle" id="post_mit_and_item_damage_title" text="Sample"/>
+					<Panel class="resistance_container" id="post_mit_and_item_damage_container">
+						<Panel class="base_ability_item_container">
+							<Label class="resistance_title" id="post_mit_phys_damage_title" html="true"/>
+							<Label class="resistance_value" id="post_mit_phys_damage_value"/>
+						</Panel>
+						<Panel class="base_ability_item_container">
+							<Label class="resistance_title" id="post_mit_magic_damage_title" html="true"/>
+							<Label class="resistance_value" id="post_mit_magic_damage_value"/>
+						</Panel>
+						<Panel class="base_ability_item_container">
+							<Label class="resistance_title" id="post_mit_pure_damage_title" html="true"/>
+							<Label class="resistance_value" id="post_mit_pure_damage_value"/>
+						</Panel>
+						<Panel class="base_ability_item_container">
+							<Label class="resistance_title" id="item_damage_title" html="true"/>
+							<Label class="resistance_value" id="item_damage_value"/>
+						</Panel>
+					</Panel>
 				</Panel>
 				<Panel class="attack_defense_panel panel_right">
 					<Label class="attack_defense_title" id="attack_defense_title_def"/>

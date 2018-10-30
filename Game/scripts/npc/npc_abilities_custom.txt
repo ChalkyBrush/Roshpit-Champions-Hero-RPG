@@ -1430,505 +1430,466 @@
     	}
 
     	"moon_shroud"
-    	{
-    		// General
-    		//-------------------------------------------------------------------------------------------------------------
-    		"BaseClass"						"ability_datadriven"
-    		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    		"FightRecapLevel"				"1"
-    		"AbilityTextureName"			"riki_smoke_screen"
-    		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-    		"RequiredLevel"          		"-5"
-    		"LevelsBetweenUpgrades"  		"10"
-    		"MaxLevel"				 		"7"
+        {
+            // General
+            //-------------------------------------------------------------------------------------------------------------
+            "BaseClass"                     "ability_datadriven"
+            "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+            "FightRecapLevel"               "1"
+            "AbilityTextureName"            "riki_smoke_screen"
+            "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+            "RequiredLevel"                 "-5"
+            "LevelsBetweenUpgrades"         "10"
+            "MaxLevel"                      "7"
 
-    		// Precache
-    		//-------------------------------------------------------------------------------------------------------------
-    		"precache"
-    		{
-    			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
-    			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
-    			"particle"			"particles/econ/courier/courier_drodo/courier_drodo_ambient_death_b.vpcf"
-    			"particle"			"particles/units/heroes/hero_riki/astral_smoke.vpcf"
-    			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
-    			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
-    			"particle"			"particles/units/heroes/hero_spectre/spectre_dispersion.vpcf"
-    			"particle"			"particles/status_fx/status_effect_ghost.vpcf"
-    			"particle"			"particles/units/heroes/hero_drow/astral_c_a_particle_attackfrost_arrow.vpcf"
-    			"soundfile"			"soundevents/game_sounds_astral.vsndevts"
-    			"particle"			"particles/roshpit/astral_ranger/arcana_ability_platform.vpcf"
-    			"particle"			"particles/roshpit/astral_ranger/arcana_q_cast.vpcf"
-    		}
+            // Precache
+            //-------------------------------------------------------------------------------------------------------------
+            "precache"
+            {
+                "soundfile"         "soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
+                "soundfile"         "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+                "particle"          "particles/econ/courier/courier_drodo/courier_drodo_ambient_death_b.vpcf"
+                "particle"          "particles/units/heroes/hero_riki/astral_smoke.vpcf"
+                "soundfile"         "soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+                "soundfile"         "soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
+                "particle"          "particles/units/heroes/hero_spectre/spectre_dispersion.vpcf"
+                "particle"          "particles/status_fx/status_effect_ghost.vpcf"
+                "particle"          "particles/units/heroes/hero_drow/astral_c_a_particle_attackfrost_arrow.vpcf"
+                "soundfile"         "soundevents/game_sounds_astral.vsndevts"
+                "particle"          "particles/roshpit/astral_ranger/arcana_ability_platform.vpcf"
+                "particle"          "particles/roshpit/astral_ranger/arcana_q_cast.vpcf"
+            }
 
-    		// Casting
-    		//-------------------------------------------------------------------------------------------------------------
-    		"AbilityCastPoint"				"0.2 0.2 0.2 0.2 0.2 0.2"
+            // Casting
+            //-------------------------------------------------------------------------------------------------------------
+            "AbilityCastPoint"              "0.2 0.2 0.2 0.2 0.2 0.2"
 
-    		// Time
-    		//-------------------------------------------------------------------------------------------------------------
-    		"AbilityCooldown"				"13"
+            // Time
+            //-------------------------------------------------------------------------------------------------------------
+            "AbilityCooldown"               "13"
 
-    		// Cost
-    		//-------------------------------------------------------------------------------------------------------------
-    		"AbilityManaCost"				"0"
+            // Cost
+            //-------------------------------------------------------------------------------------------------------------
+            "AbilityManaCost"               "0"
 
-    		// Special
-    		//-------------------------------------------------------------------------------------------------------------
-    		"AbilitySpecial"
-    		{
-    			"01"
-    			{
-    				"var_type"				"FIELD_INTEGER"
-    				"radius"				"400"
-    			}
-    			"02"
-    			{
-    				"var_type"				"FIELD_FLOAT"
-    				"duration"				"4.0 4.5 5.0 5.5 6.0 6.5 7.0"
-    			}
-    			"03"
-    			{
-    				"var_type"				"FIELD_INTEGER"
-    				"damage"				"100 180 300 800 2000 4000 8000"
-    			}
-    			"04"
-    			{
-    				"var_type"				"FIELD_INTEGER"
-    				"movespeed_loss"		"-40 -60 -80 -100 -120 -140 -160"
-    			}
-    			"05"
-    			{
-    				"var_type"				"FIELD_INTEGER"
-    				"miss_chance"			"25 30 35 40 45 50 55"
-    			}
-    			"06"
-    			{
-    				"var_type"				"FIELD_FLOAT"
-    				"tick_rate"				"0.5"
-    			}
-    		}
-    		"OnAbilityPhaseStart"
-    		{
-    			"RunScript"
-    			{
-    				"ScriptFile"	"heroes/moon_ranger/moon_shroud.lua"
-    				"Function"		"shroud_animation"
-    			}
-    		}
+            // Special
+            //-------------------------------------------------------------------------------------------------------------
+            "AbilitySpecial"
+            {
+                "01"
+                {
+                    "var_type"              "FIELD_INTEGER"
+                    "radius"                "400"
+                }
+                "02"
+                {
+                    "var_type"              "FIELD_FLOAT"
+                    "duration"              "4.0 4.5 5.0 5.5 6.0 6.5 7.0"
+                }
+                "03"
+                {
+                    "var_type"              "FIELD_INTEGER"
+                    "damage"                "100 180 300 800 2000 4000 8000"
+                }
+                "04"
+                {
+                    "var_type"              "FIELD_INTEGER"
+                    "movespeed_loss"        "-40 -60 -80 -100 -120 -140 -160"
+                }
+                "05"
+                {
+                    "var_type"              "FIELD_INTEGER"
+                    "miss_chance"           "25 30 35 40 45 50 55"
+                }
+                "06"
+                {
+                    "var_type"              "FIELD_FLOAT"
+                    "tick_rate"             "0.5"
+                }
+                "07"
+                {
+                    "var_type"              "FIELD_INTEGER"
+                    "add_duration"          "4"
+                }
+            }
+            "OnAbilityPhaseStart"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/moon_ranger/moon_shroud.lua"
+                    "Function"      "shroud_animation"
+                }
+            }
 
-    		"OnSpellStart"
-    		{
-    			"FireSound"
-    			{
-    				"EffectName"	"Hero_Riki.Smoke_Screen"
-    				"Target"		"CASTER"
-    			}
+            "OnSpellStart"
+            {
+                "FireSound"
+                {
+                    "EffectName"    "Hero_Riki.Smoke_Screen"
+                    "Target"        "CASTER"
+                }
 
-    			"FireEffect"
-    			{
-    				"EffectName"	"particles/econ/courier/courier_drodo/courier_drodo_ambient_death_b.vpcf"
-    				"EffectAttachType"	"follow_origin"
-    				"Target"		"CASTER"
-    			}
-    			"RunScript"
-    			{
-    				"ScriptFile"	"heroes/moon_ranger/moon_shroud.lua"
-    				"Function"		"begin_moon_shroud"
-    				"duration"		"%duration"
-    			}
-    		}
-    		"Modifiers"
-    		{
-    			"modifier_moon_shroud_passive"
-    			{
-    				"Passive"	"1"
-    				"IsHidden"	"1"
-    				"OnAttackLanded"
-    				// "%attack_damage" is set to the damage value before mitigation
-    				{
-    					"RunScript"
-    					{
-    						"ScriptFile"	"heroes/moon_ranger/abilities/q/q2_biting_star.lua"
-    						"Function"		"attackLand"
-    						"attack_damage" "%attack_damage"
-    					}
-    				}
-    			}
-    			"modifier_astral_b_a_armor_loss"
-    			{
-    				"IsHidden"	"0"
-    				"Passive"	"0"
-    				"IsDebuff"	"1"
-    				"Properties"
-    				{
-    					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-65"
-    				}
-    			}
-    			"modifier_rune_q_2"
-    			{
-    				"Passive"	"0"
-    				"StatusEffectName" 		"particles/status_fx/status_effect_ghost.vpcf"
-    				"StatusEffectPriority"  "10"
+                "FireEffect"
+                {
+                    "EffectName"    "particles/econ/courier/courier_drodo/courier_drodo_ambient_death_b.vpcf"
+                    "EffectAttachType"  "follow_origin"
+                    "Target"        "CASTER"
+                }
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/moon_ranger/moon_shroud.lua"
+                    "Function"      "begin_moon_shroud"
+                    "duration"      "%duration"
+                }
+            }
+            "Modifiers"
+            {
+                "modifier_moon_shroud_passive"
+                {
+                    "Passive"   "1"
+                    "IsHidden"  "1"
+                    "OnAttackLanded"
+                    // "%attack_damage" is set to the damage value before mitigation
+                    {
+                        "RunScript"
+                        {
+                            "ScriptFile"    "heroes/moon_ranger/abilities/q/q2_biting_star.lua"
+                            "Function"      "attackLand"
+                            "attack_damage" "%attack_damage"
+                        }
+                    }
+                }
+                "modifier_astral_b_a_armor_loss"
+                {
+                    "IsHidden"  "0"
+                    "Passive"   "0"
+                    "IsDebuff"  "1"
+                    "Properties"
+                    {
+                        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-65"
+                    }
+                }
+                "modifier_moon_shroud_thinker"
+                {
+                    "Aura"                  "modifier_moon_shroud"
+                    "Aura_Radius"           "%radius"
+                    "Aura_Teams"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                    "Aura_Types"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+                    "Aura_Flags"            "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+                    "OnDestroy"
+                    {
+                        "RunScript"
+                        {
+                            "ScriptFile"    "heroes/moon_ranger/moon_shroud.lua"
+                            "Function"      "moon_shroud_end"
+                        }
+                    }
+                }
 
-    				"Properties"
-    				{
-    				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "50"
-    				}
-    				"OnAttackLanded"
-    				{
-    					"FireSound"
-    					{
-    						"Target"			"TARGET"
-    						"EffectName"		"Hero_Kunkka.Tidebringer.Attack"
-    					}
+                "modifier_moon_shroud"
+                {
+                    "IsDebuff"      "1"
+                    "ThinkInterval" "%tick_rate"
+                    "Properties"
+                    {
+                        "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"    "%movespeed_loss"
+                        "MODIFIER_PROPERTY_MISS_PERCENTAGE"             "%miss_chance"
+                    }
+                    "OnIntervalThink"
+                    {
+                        "RunScript"
+                        {
+                            "ScriptFile"    "heroes/moon_ranger/moon_shroud.lua"
+                            "Function"      "moon_shroud_damage"
+                            "damage"        "%damage"
+                            "target"        "TARGET"
+                        }
+                    }
+                    "OnCreated"
+                    {
+                        "RunScript"
+                        {
+                            "ScriptFile"    "heroes/moon_ranger/moon_shroud.lua"
+                            "Function"      "moon_shroud_debuff_apply"
+                            "target"        "TARGET"
+                        }
+                    }
+                    "OnDestroy"
+                    {
+                        "RunScript"
+                        {
+                            "ScriptFile"    "heroes/moon_ranger/moon_shroud.lua"
+                            "Function"      "moon_shroud_debuff_end"
+                            "target"        "TARGET"
+                        }
+                    }
+                }
+                "friendly_moon_shroud_thinker"
+                {
+                    "Aura"                  "modifier_moon_shroud_buff"
+                    "Aura_Radius"           "%radius"
+                    "Aura_Teams"            "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+                    "Aura_Types"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+                    "Aura_Flags"            "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+                }
 
-    					"ActOnTargets"
-    					{
-    						"Target"
-    						{
-    							"Center"		"TARGET"
-    							"Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-    						}
+                "modifier_moon_shroud_buff"
+                {
+                    "IsHidden"      "0"
+                    "IsDebuff"      "0"
+                    "OnCreated"
+                    {
+                        "RunScript"
+                        {
+                            "ScriptFile"    "heroes/moon_ranger/moon_shroud.lua"
+                            "Function"      "moon_shroud_buff_created"
+                            "target"        "TARGET"
+                        }
+                    }
+                    "OnDestroy"
+                    {
+                        "RunScript"
+                        {
+                            "ScriptFile"    "heroes/moon_ranger/moon_shroud.lua"
+                            "Function"      "moon_shroud_buff_end"
+                            "target"        "TARGET"
+                        }
+                    }
+                }
 
-    						"Action"
-    						{
-    							"FireSound"
-    							{
-    								"Target"			"TARGET"
-    								"EffectName"		"Hero_Sven.GodsStrength.Attack"
-    							}
+                "modifier_astral_rune_q_1"
+                {
+                    "Passive"           "0"
+                    "IsHidden"          "1"
+                    "IsDebuff"          "0"
+                    "Properties"
+                    {
+                        "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "12"
+                    }
+                }
 
-    							"CleaveAttack"
-    							{
-    								"CleavePercent"		"80"
-    								"CleaveRadius"		"300"
-    								"CleaveEffect"		"particles/units/heroes/hero_spectre/spectre_dispersion.vpcf"
-    							}
+                "modifier_astral_rune_q_3"
+                {
+                    "Passive"           "0"
+                    "IsHidden"          "1"
+                    "IsDebuff"          "0"
+                    "TextureName"       "drow_ranger/dragons_touch_ability_icons/drow_ranger_frost_arrows"
+                    "Properties"
+                    {
+                        "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "30"
+                    }
+                    "OnCreated"
+                    {
+                        "RunScript"
+                        {
+                            "ScriptFile"    "heroes/moon_ranger/moon_shroud.lua"
+                            "Function"      "c_a_projectile_add"
+                            "Target"        "TARGET"
+                        }
+                    }
+                    "OnDestroy"
+                    {
+                        "RunScript"
+                        {
+                            "ScriptFile"    "heroes/moon_ranger/moon_shroud.lua"
+                            "Function"      "c_a_projectile_remove"
+                            "Target"        "TARGET"
+                        }
+                    }
+                }
 
-    							"Knockback"
-    							{
-    								"Target"
-    								{
-    									"Center"	"TARGET"
-    									"Radius"	"300"
-    									"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-    								}
-    								"Center" 	        "TARGET"
-    								"Distance"	        "200"
-    								"Duration"	        "0.5"
-    								"Height"	        "120"
-    								"IsFixedDistance"	"0"
-    								"ShouldStun"        "0"
-    							}
-    						}
-    					}
-    				}
-    			}
-    			"modifier_moon_shroud_thinker"
-    			{
-    				"Aura"					"modifier_moon_shroud"
-    				"Aura_Radius"			"%radius"
-    				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-    				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    			}
+            }
 
-    			"modifier_moon_shroud"
-    			{
-    				"IsDebuff"		"1"
-    				"ThinkInterval"	"%tick_rate"
-    				"Properties"
-    				{
-    					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed_loss"
-    					"MODIFIER_PROPERTY_MISS_PERCENTAGE"				"%miss_chance"
-    				}
-    				"OnIntervalThink"
-    				{
-    					"RunScript"
-    					{
-    						"ScriptFile"	"heroes/moon_ranger/moon_shroud.lua"
-    						"Function"		"moon_shroud_damage"
-    						"damage"		"%damage"
-    						"target"		"TARGET"
-    					}
-    				}
-    				"OnCreated"
-    				{
-    					"RunScript"
-    					{
-    						"ScriptFile"	"heroes/moon_ranger/moon_shroud.lua"
-    						"Function"		"moon_shroud_debuff_apply"
-    						"target"		"TARGET"
-    					}
-    				}
-    				"OnDestroy"
-    				{
-    					"RunScript"
-    					{
-    						"ScriptFile"	"heroes/moon_ranger/moon_shroud.lua"
-    						"Function"		"moon_shroud_debuff_end"
-    						"target"		"TARGET"
-    					}
-    				}
-    			}
-    			"friendly_moon_shroud_thinker"
-    			{
-    				"Aura"					"modifier_rune_q_1_thinker"
-    				"Aura_Radius"			"%radius"
-    				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    			}
-
-    			"modifier_rune_q_1_thinker"
-    			{
-    				"IsHidden"		"0"
-    				"IsDebuff"		"0"
-    				"ThinkInterval"	"0.1"
-    				"OnIntervalThink"
-    				{
-    					"RunScript"
-    					{
-    						"ScriptFile"	"heroes/moon_ranger/moon_shroud.lua"
-    						"Function"		"moon_shroud_think"
-    					}
-    				}
-    			}
-
-    			"modifier_rune_q_1"
-    			{
-    				"Passive"			"0"
-    				"IsHidden"			"1"
-    				"IsDebuff"			"0"
-
-    				"Properties"
-    				{
-    					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "12"
-    				}
-    			}
-
-    			"modifier_astral_rune_q_3"
-    			{
-    				"Passive"			"0"
-    				"IsHidden"			"1"
-    				"IsDebuff"			"0"
-    				"TextureName"		"drow_ranger/dragons_touch_ability_icons/drow_ranger_frost_arrows"
-    				"Properties"
-    				{
-    					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "30"
-    				}
-    				"OnCreated"
-    				{
-    					"RunScript"
-    					{
-    						"ScriptFile"	"heroes/moon_ranger/moon_shroud.lua"
-    						"Function"		"c_a_projectile_add"
-    						"Target"		"TARGET"
-    					}
-    				}
-    				"OnDestroy"
-    				{
-    					"RunScript"
-    					{
-    						"ScriptFile"	"heroes/moon_ranger/moon_shroud.lua"
-    						"Function"		"c_a_projectile_remove"
-    						"Target"		"TARGET"
-    					}
-    				}
-    			}
-
-    		}
-
-    	}
+        }
 
 	"split_shot"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"drow_ranger_marksmanship"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_datadriven"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+        "FightRecapLevel"               "1"
+        "AbilityTextureName"            "drow_ranger_marksmanship"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "RequiredLevel"                 "-5"
+        "LevelsBetweenUpgrades"         "10"
+        "MaxLevel"                      "7"
 
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"particle" 	"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_damage.vpcf"
-			"particle"	"particles/units/heroes/hero_drow/drow_base_attack.vpcf"
-			"particle"	"particles/frostivus_herofx/drow_linear_arrow.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
-			"particle"	"particles/frostivus_gameplay/astral_rune_w_3_linear_frost_arrow.vpcf"
-			"particle"	"particles/units/heroes/hero_drow/drow_dust_hit.vpcf"
-			"particle"	"particles/roshpit/astral_ranger/astral_d_b2.vpcf"
-		}
+        // Precache
+        //-------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"  "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_damage.vpcf"
+            "particle"  "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
+            "particle"  "particles/frostivus_herofx/drow_linear_arrow.vpcf"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
+            "particle"  "particles/frostivus_gameplay/astral_rune_w_3_linear_frost_arrow.vpcf"
+            "particle"  "particles/units/heroes/hero_drow/drow_dust_hit.vpcf"
+            "particle"  "particles/roshpit/astral_ranger/astral_d_b2.vpcf"
+        }
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"              "0"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.8"
-		"AbilityChannelTime"			"0.8"
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "0.8"
+        "AbilityChannelTime"            "0.8"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 180 280 400 700 1200 2400"
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "120 180 280 400 700 1200 2400"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"range"						"1300 1400 1500 1600 1700 1800 1800"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"4000 8000 16000 54000 92000 192000 360000"
-			}
-		}
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "range"                     "1300 1400 1500 1600 1700 1800 1800"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "4000 8000 16000 54000 92000 192000 360000"
+            }
+        }
 
-		"OnSpellStart"
-		{
-			"FireSound"
-			{
-				"EffectName"	"Ability.PowershotPull"
-				"Target"		"CASTER"
-			}
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
+        "OnSpellStart"
+        {
+            "FireSound"
+            {
+                "EffectName"    "Ability.PowershotPull"
+                "Target"        "CASTER"
+            }
+            "ApplyModifier"
+            {
+                "Target"    "CASTER"
+                "ModifierName"  "modifier_split_shot_channel_start"
+            }
 
-			"FireEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_damage.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Target"		"CASTER"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/moon_ranger/abilities/w/w_split_shot.lua"
-				"Function"		"beginChannel"
-			}
+            "FireEffect"
+            {
+                "EffectName"    "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_damage.vpcf"
+                "EffectAttachType"  "follow_origin"
+                "Target"        "CASTER"
+            }
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/moon_ranger/abilities/w/w_split_shot.lua"
+                "Function"      "beginChannel"
+            }
 
-		}
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/moon_ranger/abilities/w/w_split_shot.lua"
-				"Function"		"beginCast"
-				"damage"		"%damage"
-				"range"			"%range"
-			}
-		}
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
+        }
+        "OnChannelSucceeded"
+        {
+            "RemoveModifier"
+            {
+                "Target"    "CASTER"
+                "ModifierName"  "modifier_split_shot_channel_start"
+            }
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/moon_ranger/abilities/w/w_split_shot.lua"
+                "Function"      "beginCast"
+                "damage"        "%damage"
+                "range"         "%range"
+            }
+        }
+        "OnChannelInterrupted"
+        {
+            "RemoveModifier"
+            {
+                "Target"    "CASTER"
+                "ModifierName"  "modifier_split_shot_channel_start"
+            }
 
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
+        }
+        "OnProjectileHitUnit"
+        {
+            "DeleteOnHit"   "0"
 
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/moon_ranger/abilities/w/w_split_shot.lua"
-				"Function"		"projectileHit"
-				"Target"		"TARGET"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_channel_start"
-			{
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"IsHidden"	"1"
-						"EffectName"	"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_damage.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"	"CASTER"
-						"EffectRadius"	"%radius"
-						"EffectColorA"	"255 0 0"
-						"EffectColorB"	"255 0 0"
-						"ControlPoints"
-						{
-							"00"	"50 100 5"
-						}
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/moon_ranger/abilities/w/w_split_shot.lua"
+                "Function"      "projectileHit"
+                "Target"        "TARGET"
+            }
+        }
+        "Modifiers"
+        {
+            "modifier_split_shot_channel_start"
+            {
+                "OnCreated"
+                {
+                    "AttachEffect"
+                    {
+                        "IsHidden"  "1"
+                        "EffectName"    "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_damage.vpcf"
+                        "EffectAttachType"  "follow_origin"
+                        "Target"    "CASTER"
+                        "EffectRadius"  "%radius"
+                        "EffectColorA"  "255 0 0"
+                        "EffectColorB"  "255 0 0"
+                        "ControlPoints"
+                        {
+                            "00"    "50 100 5"
+                        }
 
-					}
+                    }
 
-				}
+                }
 
-			}
-			"modifier_arrow_knockback_immune"
-			{
-				"Passive"	"0"
-				"Duration"  "2.1"
-			}
+            }
+            "modifier_arrow_knockback_immune"
+            {
+                "Passive"   "0"
+                "Duration"  "2.1"
+            }
 
-			"modifier_astral_a_b_visible"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-		        "TextureName"	"medusa/blueice_abilityicons/medusa_split_shot"
-			}
-			"modifier_astral_a_b_invisible"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			}
-			"modifier_astral_d_b_visible"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"TextureName"		"rpc/astral_d_b"
+            "modifier_astral_a_b_visible"
+            {
+                "Passive"           "0"
+                "IsHidden"          "0"
+                "IsDebuff"          "0"
+                "TextureName"   "medusa/blueice_abilityicons/medusa_split_shot"
+            }
+            "modifier_astral_a_b_invisible"
+            {
+                "Passive"           "0"
+                "IsHidden"          "1"
+                "IsDebuff"          "0"
+            }
+            "modifier_astral_d_b_visible"
+            {
+                "Passive"           "0"
+                "IsHidden"          "0"
+                "IsDebuff"          "1"
+                "TextureName"       "rpc/astral_d_b"
 
-            	"OnCreated"
-            	{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/roshpit/astral_ranger/astral_d_b2.vpcf"
-						"EffectAttachType"			"follow_origin"
-						"EffectLifeDurationScale"	"1"
-						"EffectAlphaScale"			"1"
-					}
-            	}
-			}
-			"modifier_astral_d_b_invisible"
-			{
-				"IsHidden"	"1"
+                "OnCreated"
+                {
+                    "AttachEffect"
+                    {
+                        "Target"                    "TARGET"
+                        "EffectName"                "particles/roshpit/astral_ranger/astral_d_b2.vpcf"
+                        "EffectAttachType"          "follow_origin"
+                        "EffectLifeDurationScale"   "1"
+                        "EffectAlphaScale"          "1"
+                    }
+                }
+            }
+            "modifier_astral_d_b_invisible"
+            {
+                "IsHidden"  "1"
 
-			}
-		}
+            }
+        }
 
-	}
+    }
 
 "astral_arcana_ability"
     {
@@ -2153,246 +2114,249 @@
         }
     }
 	"ranger_aoe_explosion"
-    	{
-    		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    		"BaseClass"	"ability_datadriven"
-    		"AbilityTextureName"	"astral_ranger/celestial_burst"
-    		"AbilityCastRange"	"1000"
-    		"AbilityCastPoint"	"0.0"
-    		"AbilityCooldown"	"14.0"
-    		"AbilityChannelTime"	"2.0"
-    		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-    		"AbilityCastAnimation"	"ACT_DOTA_TAUNT"
-    		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-    		"RequiredLevel"          		"-5"
-    		"LevelsBetweenUpgrades"  		"10"
-    		"MaxLevel"				 		"7"
-    		"precache"
-    		{
-    			"particle"	"particles/units/heroes/hero_brewmaster/brewmaster_dispel_magic_embers.vpcf"
-    			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
-    			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
-    			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
-    			"particle"	"particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
-    			"particle"	"particles/units/heroes/hero_winter_wyvern/wyvern_splinter_blast_explosion_trail.vpcf"
-    			"particle"	"particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_b_tormented.vpcf"
-    			"particle"	"particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_sparkles_tormented.vpcf"
-    			"particle"	"particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf"
-    			"particle"	"particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
-    			"particle"	"particles/status_fx/status_effect_huskar_lifebreak.vpcf"
-    			"particle"	"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_l2_radiant.vpcf"
-    			"model"		"models/heroes/phoenix/phoenix_bird.vmdl"
-    			"soundfile"	"soundevents/voscripts/game_sounds_vo_phoenix.vsndevts"
-    			"particle"	"particles/base_attacks/astral_glyph_2_1_projectile.vpcf"
-    		}
+        {
+            "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+            "BaseClass" "ability_datadriven"
+            "AbilityTextureName"    "astral_ranger/celestial_burst"
+            "AbilityCastRange"  "1000"
+            "AbilityCastPoint"  "0.0"
+            "AbilityCooldown"   "14.0"
+            "AbilityChannelTime"    "2.0"
+            "AbilityUnitDamageType" "DAMAGE_TYPE_PURE"
+            "AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+            "RequiredLevel"                 "-5"
+            "LevelsBetweenUpgrades"         "10"
+            "MaxLevel"                      "7"
+            "precache"
+            {
+                "particle"  "particles/units/heroes/hero_brewmaster/brewmaster_dispel_magic_embers.vpcf"
+                "soundfile" "soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
+                "soundfile" "soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
+                "soundfile" "soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
+                "particle"  "particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
+                "particle"  "particles/units/heroes/hero_winter_wyvern/wyvern_splinter_blast_explosion_trail.vpcf"
+                "particle"  "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_b_tormented.vpcf"
+                "particle"  "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_sparkles_tormented.vpcf"
+                "particle"  "particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf"
+                "particle"  "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
+                "particle"  "particles/status_fx/status_effect_huskar_lifebreak.vpcf"
+                "particle"  "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_l2_radiant.vpcf"
+                "model"     "models/heroes/phoenix/phoenix_bird.vmdl"
+                "soundfile" "soundevents/voscripts/game_sounds_vo_phoenix.vsndevts"
+                "particle"  "particles/base_attacks/astral_glyph_2_1_projectile.vpcf"
+            }
 
-    		"AbilityManaCost"	"0"
-    		"SideShop"	"1"
-    		"OnSpellStart"
-    		{
-    			"ApplyModifier"
-    			{
-    				"Target"	"CASTER"
-    				"ModifierName"	"modifier_channel_start"
-    				"Duration"		"2"
-    			}
+            "AbilityManaCost"   "0"
+            "SideShop"  "1"
+            "OnSpellStart"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
+                    "Function"      "starfall_initiate"
+                }
+                "ApplyModifier"
+                {
+                    "Target"    "CASTER"
+                    "ModifierName"  "modifier_channel_start"
+                    "Duration"      "2"
+                }
+                "AttachEffect"
+                {
+                    "EffectName"    "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_sparkles_tormented.vpcf"
+                    "EffectAttachType"  "follow_origin"
+                    "EffectRadius"  "%radius"
+                    "EffectDurationScale"   "1.5"
+                    "EffectLifeDurationScale"   "1"
+                    "EffectColorA"  "200 200 0"
+                    "EffectColorB"  "200 200 0"
+                    "Target"    "CASTER"
+                }
+            }
 
-    			"FireSound"
-    			{
-    				"EffectName"	"Hero_Luna.LucentBeam.Cast"
-    				"Target"	"CASTER"
-    			}
-    			"AttachEffect"
-    			{
-    				"EffectName"	"particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_sparkles_tormented.vpcf"
-    				"EffectAttachType"	"follow_origin"
-    				"EffectRadius"	"%radius"
-    				"EffectDurationScale"	"1.5"
-    				"EffectLifeDurationScale"	"1"
-    				"EffectColorA"	"200 200 0"
-    				"EffectColorB"	"200 200 0"
-    				"Target"	"CASTER"
-    			}
-    		}
+            "OnChannelSucceeded"
+            {
+                "RemoveModifier"
+                {
+                    "Target"    "CASTER"
+                    "ModifierName"  "modifier_channel_start"
+                }
 
-    		"OnChannelSucceeded"
-    		{
-    			"RemoveModifier"
-    			{
-    				"Target"	"CASTER"
-    				"ModifierName"	"modifier_channel_start"
-    			}
-
-    			"AttachEffect"
-    			{
-    				"EffectName"	"particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
-    				"EffectAttachType"	"follow_origin"
-    				"EffectRadius"	"%radius"
-    				"EffectDurationScale"	"1"
-    				"EffectLifeDurationScale"	"1"
-    				"EffectColorA"	"200 200 0"
-    				"EffectColorB"	"200 200 0"
-    				"Target"	"CASTER"
-    			}
+                "AttachEffect"
+                {
+                    "EffectName"    "particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
+                    "EffectAttachType"  "follow_origin"
+                    "EffectRadius"  "%radius"
+                    "EffectDurationScale"   "1"
+                    "EffectLifeDurationScale"   "1"
+                    "EffectColorA"  "200 200 0"
+                    "EffectColorB"  "200 200 0"
+                    "Target"    "CASTER"
+                }
 
 
-    			"FireSound"
-    			{
-    				"EffectName"	"Hero_Leshrac.Split_Earth.Tormented"
-    				"Target"	"CASTER"
-    			}
+                "FireSound"
+                {
+                    "EffectName"    "Hero_Leshrac.Split_Earth.Tormented"
+                    "Target"    "CASTER"
+                }
 
-    			"RunScript"
-    			{
-    				"ScriptFile"	"scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
-    				"Function"		"begin_explosion"
-    				"radius"		"%radius"
-    				"targets"       "%targets"
-    				"duration"		"%duration"
-    				"damage"		"%damage"
-    			}
+                "RunScript"
+                {
+                    "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
+                    "Function"      "begin_explosion"
+                    "radius"        "%radius"
+                    "targets"       "%targets"
+                    "duration"      "%duration"
+                }
 
-    		}
+            }
 
-    		"OnChannelFinish"
-    		{
-    			"RemoveModifier"
-    			{
-    				"Target"	"CASTER"
-    				"ModifierName"	"modifier_channel_start"
-    			}
+            "OnChannelFinish"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
+                    "Function"      "channel_interrupt"
+                }
 
-    		}
+            }
 
-    		"OnChannelInterrupted"
-    		{
-    			"RemoveModifier"
-    			{
-    				"Target"	"CASTER"
-    				"ModifierName"	"modifier_channel_start"
-    			}
+            "OnChannelInterrupted"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
+                    "Function"      "channel_interrupt"
+                }
 
-    		}
+            }
 
-    		"Modifiers"
-    		{
-    			"modifier_channel_start"
-    			{
-    				"IsHidden"	"1"
-    				"ThinkInterval"  "0.09"
-    				"OnIntervalThink"
-    				{
-    					"RunScript"
-    					{
-    						"ScriptFile"	"scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
-    						"Function"		"starfall_think"
-    					}
-    				}
-    				"OverrideAnimation"     "ACT_DOTA_IDLE_RARE"
-    				"OnCreated"
-    				{
-    					"AttachEffect"
-    					{
-    						"IsHidden"	"1"
-    						"EffectName"	"particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf"
-    						"EffectAttachType"	"follow_origin"
-    						"Target"	"CASTER"
-    						"EffectRadius"	"%radius"
-    						"EffectColorA"	"255 0 0"
-    						"EffectColorB"	"255 0 0"
-    						"ControlPoints"
-    						{
-    							"00"	"50 100 5"
-    						}
+            "Modifiers"
+            {
+                "modifier_channel_start"
+                {
+                    "IsHidden"  "1"
+                    "ThinkInterval"  "0.05"
+                    "OnIntervalThink"
+                    {
+                        "RunScript"
+                        {
+                            "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
+                            "Function"      "starfall_think"
+                        }
+                    }
+                    "OnCreated"
+                    {
+                        "AttachEffect"
+                        {
+                            "IsHidden"  "1"
+                            "EffectName"    "particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf"
+                            "EffectAttachType"  "follow_origin"
+                            "Target"    "CASTER"
+                            "EffectRadius"  "%radius"
+                            "EffectColorA"  "255 0 0"
+                            "EffectColorB"  "255 0 0"
+                            "ControlPoints"
+                            {
+                                "00"    "50 100 5"
+                            }
 
-    					}
-    					"RunScript"
-    					{
-    						"ScriptFile"	"scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
-    						"Function"		"starfall_initiate"
-    					}
-    					"RunScript"
-    					{
-    						"ScriptFile"	"heroes/util/channeling.lua"
-    						"Function"		"beginChannel"
-    					}
-    				}
-    				"OnDestroy"
-    				{
-    					"RunScript"
-    					{
-    						"ScriptFile"	"heroes/util/channeling.lua"
-    						"Function"		"endChannel"
-    					}
-    					"RemoveModifier"
-    					{
-    						"ModifierName"	"modifier_astral_glyph_7_1_evasion_effect"
-    						"Target" 		"TARGET"
-    					}
-    				}
-    			}
-    			"modifier_astral_glyph_7_1_evasion_effect"
-    			{
-    				"IsBuff"	"1"
-    				"IsHidden"	"0"
-    				"Passive"	"0"
-    				"Properties"
-    				{
-    					"MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
-    				}
-    			}
-    			"modifier_starfall_a_d_visible"
-    			{
-    				"IsHidden"	"0"
-    				"IsDebuff"	"1"
-    				"TextureName"	"mirana_starfall"
-    			}
-    			"modifier_backstab_jumping"
-    			{
-    				"IsHidden"	"1"
-    			}
-    			"modifier_starfall_a_d_invisible"
-    			{
-    				"IsHidden"	"1"
-    				"IsDebuff"	"1"
-    			}
-    			"modifier_starfall"
-    			{
-    				"IsHidden"	"1"
-    				"OnCreated"
-    				{
-    	            	"FireEffect"
-    	            	{
-    	            		"EffectName"	"particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
-    	            		"EffectAttachType"	"follow_origin"
-    	            		"Target"		"TARGET"
-    	            	}
-    				}
-    			}
+                        }
+                        "RunScript"
+                        {
+                            "ScriptFile"    "heroes/util/channeling.lua"
+                            "Function"      "beginChannel"
+                        }
+                        "RunScript"
+                        {
+                            "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
+                            "Function"      "starfall_think"
+                        }
+
+                    }
+                    "OnDestroy"
+                    {
+                        "RunScript"
+                        {
+                            "ScriptFile"    "heroes/util/channeling.lua"
+                            "Function"      "endChannel"
+                        }
+                        "RemoveModifier"
+                        {
+                            "ModifierName"  "modifier_astral_glyph_7_1_evasion_effect"
+                            "Target"        "TARGET"
+                        }
+                        "RunScript"
+                        {
+                            "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
+                            "Function"      "end_channel"
+                        }
+
+                    }
+                }
+                "modifier_astral_glyph_7_1_evasion_effect"
+                {
+                    "IsBuff"    "1"
+                    "IsHidden"  "0"
+                    "Passive"   "0"
+                    "Properties"
+                    {
+                        "MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
+                    }
+                }
+                "modifier_starfall_a_d_visible"
+                {
+                    "IsHidden"  "0"
+                    "IsDebuff"  "1"
+                    "TextureName"   "mirana_starfall"
+                }
+                "modifier_backstab_jumping"
+                {
+                    "IsHidden"  "1"
+                }
+                "modifier_starfall_a_d_invisible"
+                {
+                    "IsHidden"  "1"
+                    "IsDebuff"  "1"
+                }
+                "modifier_starfall"
+                {
+                    "IsHidden"  "1"
+                    "OnCreated"
+                    {
+                        "FireEffect"
+                        {
+                            "EffectName"    "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
+                            "EffectAttachType"  "follow_origin"
+                            "Target"        "TARGET"
+                        }
+                    }
+                }
 
 
-    		}
+            }
 
-    		"AbilitySpecial"
-    		{
-    			"01"
-    			{
-    				"var_type"					"FIELD_INTEGER"
-    				"explosion_aoe"					"300"
-    			}
-    			"02"
-    			{
-    				"var_type"						"FIELD_FLOAT"
-    				"duration"						"1.4 1.6 1.8 2.0 2.2 2.4 2.6"
-    			}
-    			"03"
-    			{
-    				"var_type"						"FIELD_FLOAT"
-    				"damage"						"240 700 4500 15000 45000 100000 200000"
-    			}
-    		}
+            "AbilitySpecial"
+            {
+                "01"
+                {
+                    "var_type"                  "FIELD_INTEGER"
+                    "explosion_aoe"                 "300"
+                }
+                "02"
+                {
+                    "var_type"                      "FIELD_FLOAT"
+                    "duration"                      "1.4 1.6 1.8 2.0 2.2 2.4 2.6"
+                }
+                "03"
+                {
+                    "var_type"                      "FIELD_FLOAT"
+                    "damage"                        "240 700 4500 15000 45000 100000 200000"
+                }
+            }
 
-    	}
+        }
 
 	"shot_of_apollo"
 	{
@@ -2442,277 +2406,295 @@
 	}
 
 	"crystal_arrow"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
-		"BaseClass"	"ability_datadriven"
-		"AOERadius"	"550"
-		"AbilityTextureName"	"astral_ranger/crystal_arrow"
-		"AbilityCastRange"	"1800"
-		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"10.0"
-		"AbilityChannelTime"	"1.5"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilityCastAnimation"	"ACT_DOTA_TAUNT"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"precache"
-		{
+    {
+        "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+        "BaseClass" "ability_datadriven"
+        "AOERadius" "550"
+        "AbilityTextureName"    "astral_ranger/crystal_arrow"
+        "AbilityCastRange"  "1800"
+        "AbilityCastPoint"  "0.0"
+        "AbilityCooldown"   "10.0"
+        "AbilityChannelTime"    "1.5"
+        "AbilityUnitDamageType" "DAMAGE_TYPE_PURE"
+        "AbilityCastAnimation"  "ACT_DOTA_TAUNT"
+        "AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+        "RequiredLevel"                 "-5"
+        "LevelsBetweenUpgrades"         "10"
+        "MaxLevel"                      "7"
+        "precache"
+        {
 
-		}
+        }
 
-		"AbilityManaCost"	"0"
-		"SideShop"	"1"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-				"Duration"		"2"
-			}
+        "AbilityManaCost"   "0"
+        "SideShop"  "1"
+        "OnSpellStart"
+        {
+            "ApplyModifier"
+            {
+                "Target"    "CASTER"
+                "ModifierName"  "modifier_channel_start"
+                "Duration"      "1.5"
+            }
 
-			"FireSound"
-			{
-				"EffectName"	"Hero_Luna.LucentBeam.Cast"
-				"Target"	"CASTER"
-			}
-			"AttachEffect"
-			{
-				"EffectName"	"particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_sparkles_tormented.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"EffectRadius"	"200"
-				"EffectDurationScale"	"1.5"
-				"EffectLifeDurationScale"	"1"
-				"EffectColorA"	"200 200 0"
-				"EffectColorB"	"200 200 0"
-				"Target"	"CASTER"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
-				"Function"		"crystal_arrow_channel_start"
-				"target"		"POINT"
-			}
-		}
+            "FireSound"
+            {
+                "EffectName"    "Hero_Luna.LucentBeam.Cast"
+                "Target"    "CASTER"
+            }
+            "AttachEffect"
+            {
+                "EffectName"    "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_sparkles_tormented.vpcf"
+                "EffectAttachType"  "follow_origin"
+                "EffectRadius"  "200"
+                "EffectDurationScale"   "1.5"
+                "EffectLifeDurationScale"   "1"
+                "EffectColorA"  "200 200 0"
+                "EffectColorB"  "200 200 0"
+                "Target"    "CASTER"
+            }
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                "Function"      "crystal_arrow_channel_start"
+                "target"        "POINT"
+            }
+        }
 
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
+        "OnChannelSucceeded"
+        {
+            "RemoveModifier"
+            {
+                "Target"    "CASTER"
+                "ModifierName"  "modifier_channel_start"
+            }
 
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
-				"Function"		"fire_crystal_arrow"
-				"target"		"POINT"
-			}
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                "Function"      "fire_crystal_arrow"
+                "target"        "POINT"
+            }
 
-		}
+        }
 
-		"OnChannelFinish"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
+        "OnChannelFinish"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                "Function"      "remove_modifier_channel_start"
+            }
 
-		}
+        }
 
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
+        "OnChannelInterrupted"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                "Function"      "remove_modifier_channel_start"
+            }
 
-		}
+        }
 
-		"Modifiers"
-		{
-			"modifier_crystal_arrow_passive"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
-						"Function"		"crystal_arrow_passive_think"
-					}
-				}
-			}
-			"modifier_crystal_arrow_freecast"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-			}
-			"modifier_arrow_thinking"
-			{
-				"IsHidden"	"1"
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
-						"Function"		"arrows_thinking"
-						"damage"		"%damage"
-					}
-				}
-			}
-			"modifier_channel_start"
-			{
-				"IsHidden"	"1"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"beginChannel"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"endChannel"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_astral_glyph_7_1_evasion_effect"
-						"Target" 		"TARGET"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
-						"Function"		"crystal_arrow_channel_end"
-					}
-				}
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
-						"Function"		"crystal_arrow_channel_think"
-					}
-				}
-			}
-			"modifier_astral_glyph_7_1_evasion_effect"
-			{
-				"IsBuff"	"1"
-				"IsHidden"	"0"
-				"Passive"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
-				}
-			}
-			"modifier_crystal_arrow_buildup"
-			{
-				"IsHidden"	"1"
-				"EffectName"	"particles/roshpit/astral/crystal_arrow_buildup.vpcf"
-				"EffectAttachType"	"attach_attack1"
-			}
-			"modifier_crystal_arrow_channel_end"
-			{
-				"IsHidden"	"1"
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
-						"Function"		"crystal_arrow_channel_end_think"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_backstab_jumping"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_cystal_arrow_ad_thinker"
-			{
-				"Aura"					"crystal_arrow_ad_aura"
-				"Aura_Radius"			"450"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
-						"Function"		"arrow_ad_thinker_end"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"crystal_arrow_ad_aura"
-			{
-			    "IsDebuff"  "1"
-				"IsHidden"	"0"
-				"TextureName"			"astral_ranger/astral_rune_r_1_arcana3"
-			}
-			"modifier_crystal_arrow_b_d"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"			"astral_ranger/astral_rune_r_2_arcana3"
-				"EffectName"	"particles/roshpit/sorceress/ice_lance_cast.vpcf"
-				"EffectAttachType" "follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"8"
-				}
-			}
-			"modifier_crystal_arrow_chilled"
-			{
-				"IsDebuff"	"1"
-				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
-				"StatusEffectPriority"  "20"
-				"TextureName"			"astral_ranger/astral_rune_r_4_arcana3"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-10"
-				}
-			}
-			"modifier_astral_glyph_7_1_evasion_effect"
-			{
-				"IsBuff"	"1"
-				"IsHidden"	"0"
-				"Passive"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
-				}
-			}
-		}
+        "Modifiers"
+        {
+            "modifier_crystal_arrow_passive"
+            {
+                "IsHidden"  "1"
+                "Passive"   "1"
+                "ThinkInterval"  "0.5"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                        "Function"      "crystal_arrow_passive_think"
+                    }
+                }
+            }
+            "modifier_crystal_arrow_freecast"
+            {
+                "IsHidden"  "0"
+                "IsBuff"    "1"
+            }
+            "modifier_arrow_thinking"
+            {
+                "IsHidden"  "1"
+                "ThinkInterval"  "0.03"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                        "Function"      "arrows_thinking"
+                        "damage"        "%damage"
+                    }
+                }
+            }
+            "modifier_channel_start"
+            {
+                "IsHidden"  "1"
+                "OnCreated"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/util/channeling.lua"
+                        "Function"      "beginChannel"
+                    }
+                }
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/util/channeling.lua"
+                        "Function"      "endChannel"
+                    }
+                    "RemoveModifier"
+                    {
+                        "ModifierName"  "modifier_astral_glyph_7_1_evasion_effect"
+                        "Target"        "TARGET"
+                    }
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                        "Function"      "crystal_arrow_channel_end"
+                    }
+                }
+                "ThinkInterval"  "0.03"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                        "Function"      "crystal_arrow_channel_think"
+                    }
+                }
+            }
+            "modifier_astral_glyph_7_1_evasion_effect"
+            {
+                "IsBuff"    "1"
+                "IsHidden"  "0"
+                "Passive"   "0"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
+                }
+            }
+            "modifier_crystal_arrow_buildup"
+            {
+                "IsHidden"  "1"
+                "EffectName"    "particles/roshpit/astral/crystal_arrow_buildup.vpcf"
+                "EffectAttachType"  "attach_attack1"
+            }
+            "modifier_crystal_arrow_channel_end"
+            {
+                "IsHidden"  "1"
+                "ThinkInterval"  "0.03"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                        "Function"      "crystal_arrow_channel_end_think"
+                    }
+                }
+                "States"
+                {
+                    "MODIFIER_STATE_ROOTED"     "MODIFIER_STATE_VALUE_ENABLED"
+                }
+            }
+            "modifier_backstab_jumping"
+            {
+                "IsHidden"  "1"
+            }
+            "modifier_cystal_arrow_ad_thinker"
+            {
+                "Aura"                  "crystal_arrow_ad_aura"
+                "Aura_Radius"           "450"
+                "Aura_Teams"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Aura_Types"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+                "Aura_Flags"            "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                        "Function"      "arrow_ad_thinker_end"
+                        "target"        "TARGET"
+                    }
+                }
+            }
+            "crystal_arrow_ad_aura"
+            {
+                "IsDebuff"  "1"
+                "IsHidden"  "0"
+                "TextureName"           "astral_ranger/astral_rune_r_1_arcana3"
+                "OnCreated"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                        "Function"      "crystal_arrow_slow_start"
+                        "target"        "TARGET"
+                    }
+                }
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+                        "Function"      "crystal_arrow_slow_end"
+                        "target"        "TARGET"
+                    }
+                }
+            }
+            "modifier_crystal_arrow_b_d"
+            {
+                "IsHidden"  "0"
+                "IsBuff"    "1"
+                "TextureName"           "astral_ranger/astral_rune_r_2_arcana3"
+                "EffectName"    "particles/roshpit/sorceress/ice_lance_cast.vpcf"
+                "EffectAttachType" "follow_origin"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"   "8"
+                }
+            }
+            "modifier_crystal_arrow_chilled"
+            {
+                "IsDebuff"  "1"
+                "StatusEffectName"      "particles/status_fx/status_effect_frost_lich.vpcf"
+                "StatusEffectPriority"  "20"
+                "TextureName"           "astral_ranger/astral_rune_r_4_arcana3"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-10"
+                }
+            }
+            "modifier_astral_glyph_7_1_evasion_effect"
+            {
+                "IsBuff"    "1"
+                "IsHidden"  "0"
+                "Passive"   "0"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
+                }
+            }
+        }
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"5000 25000 60000 120000 255000 400000 1000000"
-			}
-		}
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "5000 25000 60000 120000 255000 400000 1000000"
+            }
+        }
 
-	}
+    }
 
 
 	"bahamut_arcana_orb"
@@ -6106,6 +6088,966 @@
 
 	}
 
+	"summon_fire_deity"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"conjuror/fire_deity"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 250 400 600 800 1000 1400"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_health"				"7000 17000 40000 80000 140000 300000 1000000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_damage"				"1500 5000 20000 40000 70000 200000 1000000"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_armor"				"50 100 300 600 1200 2000 5000"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_magic_resist"		"90"
+			}
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"model" "models/items/warlock/golem/ti_8_warlock_darkness_apostate_golem/ti_8_warlock_darkness_apostate_golem.vmdl"
+		}
+
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/aspects.lua"
+				"Function"		"begin_cast"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_fire_deity.lua"
+				"Function"		"fire_deity"
+				"aspect_health"	"%aspect_health"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_fire_aspect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%aspect_damage"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
+				}
+
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/immolation.lua"
+						"Function"		"fire_aspect_attack_land"
+						"attack_damage"	"%attack_damage"
+					}
+				}
+			}
+			"modifier_conjuror_glyph_1_1_effect"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "140"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "200"
+				}
+			}
+			"modifier_conjuror_glyph_5_a_summon"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_aspect_invulnerable"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"dazzle_shadow_wave"
+				"StatusEffectName" 		"particles/status_fx/status_effect_blademail.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_deity_attack_pct_w1"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}
+			}
+			"modifier_conjuror_rune_w_3_effect"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/immolation.lua"
+						"Function"		"fire_aspect_attack_land"
+						"attack_damage"	"%attack_damage"
+					}
+				}
+			}
+			"modifier_w_4_agi_increase"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_w_4_int_increase"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_w_4_str_decrease"
+			{
+				"IsHidden"	"1"
+			}
+		}
+
+	}
+
+	"fire_arcana_ability"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"conjuror/fire_beam"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ALACRITY"
+
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.1"
+		"AOERadius"						"%radius"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityCooldown"				"0"
+		"AbilityDuration"				"%duration"
+
+		"AbilityManaCost"				"200 340 500 700 1000 1400 2000"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"3000 10000 30000 80000 200000 400000 650000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"heal_pct"				"5.0 5.5 6.0 6.5 7.0 7.5 8.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed"				"80 100 120 140 160 180 200"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"buff_attack_damage"				"100 200 300 400 500 600 700"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_fire_deity.lua"
+				"Function"		"fire_ability_precast"
+				"Target"		"POINT"
+			}
+		}
+		"OnToggleOn"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_fire_deity.lua"
+				"Function"		"fire_ability_cast"
+				"Target"		"POINT"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_fire_deity.lua"
+				"Function"		"fire_ability_off"
+				"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_fire_deity.lua"
+				"Function"		"fire_ability_cast_targetted"
+				"Target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_fire_ray_casting2"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_fire_deity.lua"
+						"Function"		"fire_ray_casting_thinker2"
+						"damage"		"%damage"
+						"heal_pct"		"%heal_pct"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_fire_deity.lua"
+						"Function"		"fire_ray_casting_end2"
+					}
+				}				
+			}
+			"modifier_fire_ray_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"	"particles/econ/items/invoker/invoker_ti7/invoker_ti7_alacrity.vpcf"
+				"EffectAttachType" "follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_fire_deity.lua"
+						"Function"		"fire_buff_attack_land"
+					}
+				}
+
+			}
+			"modifier_w1_attack_buff"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "10000"
+				}
+			}
+
+		}
+
+	}
+
+	"fire_deity_fire_ability"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"conjuror/infernal_spiral"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"1050"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_fire_deity.lua"
+				"Function"		"fire_deity_spellcast"
+				"Target"		"POINT"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_fire_deity.lua"
+				"Function"		"fire_deity_spell_impact"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"summon_earth_deity"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"conjuror/earth_deity"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 250 400 600 800 1000 1400"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_health"				"20000 60000 100000 200000 500000 1000000 2500000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_damage"				"1500 5000 20000 40000 70000 200000 1000000"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_armor"				"100 300 600 1200 2000 5000 10000"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_magic_resist"		"75"
+			}
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"model" "models/items/warlock/golem/ti_8_warlock_darkness_apostate_golem/ti_8_warlock_darkness_apostate_golem.vmdl"
+		}
+
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/aspects.lua"
+				"Function"		"begin_cast"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+				"Function"		"earth_deity"
+				"aspect_health"	"%aspect_health"
+				"aspect_damage"	"%aspect_damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_earth_aspect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%aspect_damage"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
+				}
+
+			}
+			"modifier_earth_guardian"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
+			"modifier_conjuror_glyph_5_a_summon"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_aspect_invulnerable"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"dazzle_shadow_wave"
+				"StatusEffectName" 		"particles/status_fx/status_effect_blademail.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_earth_aspect_health"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
+				}
+
+			}
+			"modifier_earth_deity_q_2"
+			{
+				"IsHidden"	"1"
+			}
+		}
+
+	}
+
+
+	"earth_deity_sandstorm"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"conjuror/earth_deity_sandstorm"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"10"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"miss_chance"					"20 25 30 35 40 45 50"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"move_slow"					"-30 -50 -70 -90 -110 -130 -150"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_slow"					"-40 -55 -70 -85 -100 -115 -130"
+			}
+		}
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_sandstorm_on"
+				"Target" 		"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+				"Function"		"earth_deity_sandstorm_start"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_sandstorm_on"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_sandstorm_on"
+			{
+				"IsHidden" "1"
+				"ThinkInterval"  "0.25"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+						"Function"		"earth_deity_sandstorm_thinking"
+						"damage_mult"	"%damage_health_mult"
+					}
+				}
+				"Aura"          	"modifier_enemy_in_earth_deity_sandstorm"
+				"Aura_Radius"   	"1000"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+						"Function"		"earth_deity_sandstorm_end"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-300"
+				}
+			}
+			"modifier_enemy_in_earth_deity_sandstorm"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "%miss_chance"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%move_slow" 
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_slow" 
+				}
+			}
+		}
+	}
+
+	"arcana_earth_shock"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"conjuror/arcana_earth_shock"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ALACRITY"
+
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.35"
+		"AOERadius"						"%radius"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityCooldown"				"0"
+		"AbilityDuration"				"%duration"
+
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"580 2800 6000 12000 25000 50000 125000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"280"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_reduce"				"-30 -35 -40 -45 -50 -55 -60"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movespeed_slow"				"-1000"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"				"0.9"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_reduce_duration"				"10"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+				"Function"		"earthshock_precast"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+				"Function"		"earthshock_cast"
+				"Target"		"POINT"
+				"radius"		"%radius"
+				"damage"		"%damage"
+			}
+			"DestroyTrees"
+	        {
+	        	"Target"	"POINT"
+	        	"Radius"	"%radius"
+	        }
+		}
+		"Modifiers"
+		{
+			"modifier_free_quake"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/earthquake.lua"
+						"Function"		"free_quake_expire"
+					}
+				}
+			}
+			"modifier_earth_shock_slow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1000"
+				}
+			}
+			"modifier_earth_shock_attack_reduce"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_reduce"
+				}
+				"EffectName"	"particles/roshpit/conjuror/earthshock_debuff.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_earthshock_damage_reduce"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+			}
+		}
+
+	}
+
+	"earth_deity_grand_guardian"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"conjuror/earth_deity_grand_guardian"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"AbilityCastRange"				"100000"
+		"AbilityCastPoint"				"0"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityCooldown"				"28"
+
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+				"Function"		"earth_deity_grand_guardian"
+				"Target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_deity_grand_guardian"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+						"Function"		"earth_deity_main_thinker"
+						"target"		"TARGET"
+					}
+				}
+				"StatusEffectName" 		"particles/status_fx/status_effect_earth_spirit_petrify.vpcf"	   
+				"StatusEffectPriority"  "300"
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100000"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+						"Function"		"grand_guardian_deity_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_grand_guardian_regen"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "8"
+				}
+			}
+			"modifier_deity_guardian_taxi_effect"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+						"Function"		"taxi_effect_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_grand_guardian_in_deity"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_deity_guardian_taxi_bowling"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+						"Function"		"bowling_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+						"Function"		"bowling_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+
+	}
+
+	"earth_deity_bowl"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"conjuror/earth_deity_bowl"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"1500"
+		"AOERadius"						"240"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"3"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+				"Function"		"earth_deity_bowl"
+				"Target"		"POINT"
+			}
+		}
+
+	}
+
+
 	"conjuror_rune_q_1"
 	{
 		// General
@@ -6113,7 +7055,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"tiny_craggy_exterior"
+		"AbilityTextureName"	"conjuror/conjuror_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -6557,15 +7499,10 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"1"
-			}
-			"03"
-			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"2"
 			}
-			"04"
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"2"
@@ -6955,6 +7892,240 @@
 						"Target" 		"TARGET"
 					}
 				}
+			}
+		}
+	}
+
+	"conjuror_rune_w_1_arcana2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"conjuror/conjuror_rune_w_1_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.2"
+			}
+		}
+	}
+
+	"conjuror_rune_w_2_arcana2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"conjuror/conjuror_rune_w_2_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"100"
+			}
+		}
+	}
+
+	"conjuror_rune_w_3_arcana2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"conjuror/conjuror_rune_w_3_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"60"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+
+	"conjuror_rune_w_4_arcana2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"conjuror/conjuror_rune_w_4_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"-1.5"
+			}
+		}
+	}
+
+	"conjuror_rune_q_1_arcana3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"conjuror/earth_deity_sandstorm"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two_base"			"500"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"5"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"3"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+		}
+	}
+
+	"conjuror_rune_q_2_arcana3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"conjuror/conjuror_rune_q_2_arcana3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"2400"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"8"
+			}
+		}
+	}
+
+	"conjuror_rune_q_3_arcana3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"conjuror/conjuror_rune_q_3_arcana3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.01"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"12"
+			}
+		}
+	}
+
+	"conjuror_rune_q_4_arcana3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"conjuror/conjuror_rune_q_4_arcana3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"1.2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_max"		"90"
 			}
 		}
 	}
@@ -11825,7 +12996,7 @@
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AOERadius"						"500"
+		"AOERadius"						"300"
 		"AbilityCastRange"				"0"
 		"precache"
 		{
@@ -39755,7 +40926,7 @@
 			"modifier_gale_nova_bad"
 			{
 				"IsDebuff"	"0"
-				"TextureName"	"rpc/venomort_d_d"
+				"TextureName"	"venomort/venomort_q_1"
 			}
 			"modifier_gale_nova_attack_slow"
 			{
@@ -40108,7 +41279,7 @@
             {
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"venomort_rune_c_c"
+				"TextureName"	"necrolyte_death_pulse"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
@@ -51671,7 +52842,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/ice_blood"
+		"AbilityTextureName"	"winterblight/iceblood"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -54744,6 +55915,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
+				"TextureName"	"rubick_spell_steal"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
@@ -58547,6 +59719,7 @@
 			{
 				"IsDebuff"	"1"
 				"IsHidden"	"0"
+				"TextureName"	"rpc/leshrac_wall"
 				"EffectName"	"particles/econ/courier/courier_shagbark/wall_of_impunity_weaken.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"Properties"
@@ -58599,6 +59772,7 @@
 			"modifier_bahamut_5_a_cooldown"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"rpc/leshrac_wall"
 				"IsBuff"	"1"
 			}
 			"modifier_bahamut_wall_max_mana_invisible"
@@ -58793,6 +59967,7 @@
 			"modifier_purity_freeze"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"luna_lucent_beam_alt"
 				"IsDebuff"	"1"
 				"EffectName"		"particles/roshpit/bahamut/purity_freeze_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -58803,7 +59978,6 @@
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"TextureName"	"luna_lucent_beam_alt"
 				"OnCreated"
 				{
 					"FireEffect"
@@ -59119,6 +60293,7 @@
 			{
 				"IsBuff" "1"
 				"IsHidden"	"0"
+				"TextureName"	"rpc/megaflare"
 				"IsPurgable"		"0"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
@@ -59392,6 +60567,7 @@
 			{
 			    "IsDebuff"  "1"
 				"IsHidden"	"0"
+				"TextureName"	"abyssal_underlord_pit_of_malice"
 				"OnCreated"
 				{
 					"RunScript"
@@ -59432,6 +60608,7 @@
 			"ghost_hallow_stun"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"abyssal_underlord_pit_of_malice"
 				"IsDebuff"	"1"
 				"States"
 				{
@@ -59593,6 +60770,7 @@
 			"modifier_auriun_glyph_6_1_effect"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"auriun/glyph_auriun_6_1_modifier"
 				"IsBuff"	"1"
 				"Passive"	"0"
 				"States"
@@ -60188,13 +61366,13 @@
 			"modifier_holy_wrath_d_a_buff"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"auriun/auriun_rune_q_4_arcana1"
 				"EffectName"	"particles/roshpit/auriun/arcana_teleport_ability.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "150"
 				}
-				"TextureName"	"auriun/auriun_rune_q_4_arcana1"
 			}
 			"modifier_holy_wrath_d_a_cooldown"
 			{
@@ -60248,6 +61426,7 @@
 			"modifier_auriun_glyph_6_1_effect"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"auriun/glyph_auriun_6_1_modifier"
 				"IsBuff"	"1"
 				"Passive"	"0"
 				"States"
@@ -60365,6 +61544,7 @@
 			"modifier_shadow_trap_passive"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"auriun/auriun_shadow_bind"
 				"IsBuff"	"1"
 				"Passive"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
@@ -61433,7 +62613,7 @@
 			}
 			"modifier_solunia_warp_core_thinker"
 			{
-				"Aura"					"modifier_solunia_warp_core_aura_lunar"
+				"Aura"					"modifier_solunia_warp_core_aura_solar"
 				"Aura_Radius"			"300"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
@@ -62505,7 +63685,7 @@
 			"modifier_water_bomb_b_b_damage_buff_visible"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"hydroxis/hydroxis_b_b"
+				"TextureName"	"hydroxis/hydroxis_w_2"
 				"OnCreated"
 				{
 					"RunScript"
@@ -62534,7 +63714,7 @@
 			"modifier_water_bomb_b_b_damage_buff_spillover"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"hydroxis/hydroxis_b_b"
+				"TextureName"	"hydroxis/hydroxis_w_2"
 
 			}
 			"modifier_water_bomb_b_b_damage_buff_spillover_invis"
@@ -62975,7 +64155,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"hydroxis/hydroxis_c_d"
+				"TextureName"	"hydroxis/hydroxis_r_3"
 				"OnDestroy"
 				{
 					"RunScript"
@@ -63037,7 +64217,7 @@
 			"modifier_drowning_pool_actual_effect"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"hydroxis/hydroxis_d_d"
+				"TextureName"	"hydroxis/hydroxis_r_4"
 				"IsBuff"	"1"
 			}
 		}
@@ -65941,6 +67121,7 @@
 			"modifier_betrayer_debuff"
 			{
 				"IsHidden" "0"
+				"TextureName"	"obsidian_destroyer_essence_aura"
 				"IsDebuff"  "1"
 				"OnCreated"
 				{
@@ -70115,6 +71296,7 @@
 			"modifier_recently_teleported_portal"
 			{
 				"IsHidden" "0"
+				"TextureName"	"misc/teleportation"
 				"Duration"	"10"
 				"Properties"
 				{
@@ -73927,7 +75109,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"60"
 			}
 			"02"
 			{
@@ -74206,19 +75388,14 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1000"
+				"property_two"			"10000"
 			}
 			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"300"
-			}
-			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"base_ability"			"4"
 			}
-			"06"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"8"
@@ -74310,19 +75487,24 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"52500"
+				"property_one"			"30"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"2"
 			}
 			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two_base"		"50"
+			}
+			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"base_ability"			"4"
 			}
-			"04"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"8"
@@ -74880,7 +76062,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.3"
+				"property_two"			"0.15"
 			}
 		}
 	}
@@ -95754,6 +96936,7 @@
 			"ApplyModifier"
 			{
 				"ModifierName"	"modifier_stunned"
+				"TextureName"	"misc/stunned"
 				"Target" 		"TARGET"
 				"Duration"		"%stun_duration"
 			}
@@ -100837,11 +102020,10 @@
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
 
 		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.5"
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
 
-		"AbilityChannelTime"			"4"
+		"AbilityChannelTime"			"3"
 		"OnSpellStart"
 		{
 			"ApplyModifier"
@@ -110595,6 +111777,7 @@
 			"ApplyModifier"
 			{
 				"ModifierName"	"modifier_stunned"
+				"TextureName"	"misc/stunned"
 				"Target" 		"TARGET"
 				"Duration"		"%stun_duration"
 			}
@@ -115015,7 +116198,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"doom_bringer_lvl_death"
+		"AbilityTextureName"	"misc/lvl_death"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -115061,6 +116244,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduce_per_hit"
 				}
 				"IsHidden"	"0"
+				"TextureName"	"misc/armor_reduction"
 			}
 			"modifier_crimsyth_recruiter_attack_gain"
 			{
@@ -120103,6 +121287,7 @@
 		"MaxLevel"	"3"
 		"AbilityCastPoint"				"0.1"
 		"AbilityCooldown"				"10"
+		"AbilityCastPoint"				"0.5"
 		"AbilitySpecial"
 		{
 			"02"
@@ -130894,6 +132079,7 @@
 			"ApplyModifier"
 			{
 				"ModifierName"	"modifier_stunned"
+				"TextureName"	"misc/stunned"
 				"Target" 		"TARGET"
 				"Duration"		"0.1"
 			}
@@ -132217,6 +133403,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden" "0"
+				"TextureName"	"seafortress/medusa_passive"
 				"IsDebuff"	"1"
 				"ThinkInterval"  "0.5"
 			}
@@ -132746,6 +133933,7 @@
 			"modifier_hook_root"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"seafortress/jailer_passive"	
 				"IsDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_oracle/oracle_fortune_purge.vpcf"
 				"EffectAttachType"	"attach_hitloc"
@@ -132983,6 +134171,7 @@
 			"modifier_recently_teleported"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"misc/teleportation"
 				"IsBuff"	"1"
 			}
 		}
@@ -134715,6 +135904,7 @@
 					"ApplyModifier"
 					{
 						"ModifierName"	"modifier_stunned"
+						"TextureName"	"misc/stunned"
 						"Target" 		"TARGET"
 						"Duration"		"1.0"
 					}
@@ -136084,6 +137274,7 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"Properties"
 				{

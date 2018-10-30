@@ -458,6 +458,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
+				"TextureName"	"rubick_spell_steal"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
@@ -4261,6 +4262,7 @@
 			{
 				"IsDebuff"	"1"
 				"IsHidden"	"0"
+				"TextureName"	"rpc/leshrac_wall"
 				"EffectName"	"particles/econ/courier/courier_shagbark/wall_of_impunity_weaken.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"Properties"
@@ -4313,6 +4315,7 @@
 			"modifier_bahamut_5_a_cooldown"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"rpc/leshrac_wall"
 				"IsBuff"	"1"
 			}
 			"modifier_bahamut_wall_max_mana_invisible"
@@ -4507,6 +4510,7 @@
 			"modifier_purity_freeze"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"luna_lucent_beam_alt"
 				"IsDebuff"	"1"
 				"EffectName"		"particles/roshpit/bahamut/purity_freeze_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -4517,7 +4521,6 @@
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"TextureName"	"luna_lucent_beam_alt"
 				"OnCreated"
 				{
 					"FireEffect"
@@ -4833,6 +4836,7 @@
 			{
 				"IsBuff" "1"
 				"IsHidden"	"0"
+				"TextureName"	"rpc/megaflare"
 				"IsPurgable"		"0"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
@@ -5106,6 +5110,7 @@
 			{
 			    "IsDebuff"  "1"
 				"IsHidden"	"0"
+				"TextureName"	"abyssal_underlord_pit_of_malice"
 				"OnCreated"
 				{
 					"RunScript"
@@ -5146,6 +5151,7 @@
 			"ghost_hallow_stun"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"abyssal_underlord_pit_of_malice"
 				"IsDebuff"	"1"
 				"States"
 				{
@@ -5307,6 +5313,7 @@
 			"modifier_auriun_glyph_6_1_effect"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"auriun/glyph_auriun_6_1_modifier"
 				"IsBuff"	"1"
 				"Passive"	"0"
 				"States"
@@ -5902,13 +5909,13 @@
 			"modifier_holy_wrath_d_a_buff"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"auriun/auriun_rune_q_4_arcana1"
 				"EffectName"	"particles/roshpit/auriun/arcana_teleport_ability.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "150"
 				}
-				"TextureName"	"auriun/auriun_rune_q_4_arcana1"
 			}
 			"modifier_holy_wrath_d_a_cooldown"
 			{
@@ -5962,6 +5969,7 @@
 			"modifier_auriun_glyph_6_1_effect"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"auriun/glyph_auriun_6_1_modifier"
 				"IsBuff"	"1"
 				"Passive"	"0"
 				"States"
@@ -6079,6 +6087,7 @@
 			"modifier_shadow_trap_passive"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"auriun/auriun_shadow_bind"
 				"IsBuff"	"1"
 				"Passive"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
@@ -7147,7 +7156,7 @@
 			}
 			"modifier_solunia_warp_core_thinker"
 			{
-				"Aura"					"modifier_solunia_warp_core_aura_lunar"
+				"Aura"					"modifier_solunia_warp_core_aura_solar"
 				"Aura_Radius"			"300"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
@@ -8219,7 +8228,7 @@
 			"modifier_water_bomb_b_b_damage_buff_visible"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"hydroxis/hydroxis_b_b"
+				"TextureName"	"hydroxis/hydroxis_w_2"
 				"OnCreated"
 				{
 					"RunScript"
@@ -8248,7 +8257,7 @@
 			"modifier_water_bomb_b_b_damage_buff_spillover"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"hydroxis/hydroxis_b_b"
+				"TextureName"	"hydroxis/hydroxis_w_2"
 
 			}
 			"modifier_water_bomb_b_b_damage_buff_spillover_invis"
@@ -8689,7 +8698,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"hydroxis/hydroxis_c_d"
+				"TextureName"	"hydroxis/hydroxis_r_3"
 				"OnDestroy"
 				{
 					"RunScript"
@@ -8751,7 +8760,7 @@
 			"modifier_drowning_pool_actual_effect"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"hydroxis/hydroxis_d_d"
+				"TextureName"	"hydroxis/hydroxis_r_4"
 				"IsBuff"	"1"
 			}
 		}
@@ -9273,7 +9282,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
 		"RequiredLevel"          		"-5"
@@ -11655,6 +11664,7 @@
 			"modifier_betrayer_debuff"
 			{
 				"IsHidden" "0"
+				"TextureName"	"obsidian_destroyer_essence_aura"
 				"IsDebuff"  "1"
 				"OnCreated"
 				{
@@ -15829,6 +15839,7 @@
 			"modifier_recently_teleported_portal"
 			{
 				"IsHidden" "0"
+				"TextureName"	"misc/teleportation"
 				"Duration"	"10"
 				"Properties"
 				{
@@ -35885,6 +35896,7 @@
 			"ApplyModifier"
 			{
 				"ModifierName"	"modifier_stunned"
+				"TextureName"	"misc/stunned"
 				"Target" 		"TARGET"
 				"Duration"		"%stun_duration"
 			}
@@ -40968,11 +40980,10 @@
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
 
 		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.5"
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
 
-		"AbilityChannelTime"			"4"
+		"AbilityChannelTime"			"3"
 		"OnSpellStart"
 		{
 			"ApplyModifier"
@@ -50726,6 +50737,7 @@
 			"ApplyModifier"
 			{
 				"ModifierName"	"modifier_stunned"
+				"TextureName"	"misc/stunned"
 				"Target" 		"TARGET"
 				"Duration"		"%stun_duration"
 			}
@@ -55146,7 +55158,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"doom_bringer_lvl_death"
+		"AbilityTextureName"	"misc/lvl_death"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -55192,6 +55204,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduce_per_hit"
 				}
 				"IsHidden"	"0"
+				"TextureName"	"misc/armor_reduction"
 			}
 			"modifier_crimsyth_recruiter_attack_gain"
 			{
@@ -60234,6 +60247,7 @@
 		"MaxLevel"	"3"
 		"AbilityCastPoint"				"0.1"
 		"AbilityCooldown"				"10"
+		"AbilityCastPoint"				"0.5"
 		"AbilitySpecial"
 		{
 			"02"
@@ -71025,6 +71039,7 @@
 			"ApplyModifier"
 			{
 				"ModifierName"	"modifier_stunned"
+				"TextureName"	"misc/stunned"
 				"Target" 		"TARGET"
 				"Duration"		"0.1"
 			}
@@ -72348,6 +72363,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden" "0"
+				"TextureName"	"seafortress/medusa_passive"
 				"IsDebuff"	"1"
 				"ThinkInterval"  "0.5"
 			}
@@ -72877,6 +72893,7 @@
 			"modifier_hook_root"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"seafortress/jailer_passive"	
 				"IsDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_oracle/oracle_fortune_purge.vpcf"
 				"EffectAttachType"	"attach_hitloc"
@@ -73114,6 +73131,7 @@
 			"modifier_recently_teleported"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"misc/teleportation"
 				"IsBuff"	"1"
 			}
 		}
@@ -74846,6 +74864,7 @@
 					"ApplyModifier"
 					{
 						"ModifierName"	"modifier_stunned"
+						"TextureName"	"misc/stunned"
 						"Target" 		"TARGET"
 						"Duration"		"1.0"
 					}
@@ -76215,6 +76234,7 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"Properties"
 				{

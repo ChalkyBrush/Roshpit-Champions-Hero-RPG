@@ -517,6 +517,7 @@
 		"ui_done"				"Done"
 		"ui_loading_items"		"Loading items..."
 		"ui_loading_units"		"Loading units..."
+		"ui_item"				"Item"
 
 		"ui_equipment"			"Equipment"
 		"ui_skills"				"Skills"
@@ -572,6 +573,8 @@
 		"ui_bonus_armor"			"Armor Bonus"
 		"ui_elements"				"Elemental Damage"
 		"ui_elements_resist"				"Elemental Resistance Against Your Hero"
+		"ui_most_mit_and_item_single"		"Item And Post-Mitigation Damage Increase Against Your Hero"
+		"ui_most_mit_and_item_global"		"Item And Post-Mitigation Damage Increase"
 
 		"ui_recalculate_stats_button"	"Recalculate Stats"
 		"ui_recalculate_stats_waiting"	"Recalculating"
@@ -2204,7 +2207,7 @@
 
 		//Abilities
 		"DOTA_Tooltip_ability_moon_shroud"								"Moon Shroud"
-		"DOTA_Tooltip_ability_moon_shroud_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font><br>Creates a screen of moon dust in front of the Astral Ranger. Enemies within the dust will miss with their attacks, take damage, and have their movespeed slowed."
+		"DOTA_Tooltip_ability_moon_shroud_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font><br>Creates a screen of moon dust in front of the Astral Ranger. Enemies within the dust will miss with their attacks, take damage, and have their movespeed slowed. Teleporting with Astral Rift while standing in the shroud moves the shroud and adds %add_duration% seconds to the duration."
 		"DOTA_Tooltip_ability_moon_shroud_Lore"							""
 		"DOTA_Tooltip_ability_moon_shroud_duration"						"DURATION:"
 		"DOTA_Tooltip_ability_moon_shroud_damage"						"DAMAGE/SEC"
@@ -2338,12 +2341,12 @@
     	"DOTA_Tooltip_modifier_starfall_a_d_visible"					"Starstorm"
     	"DOTA_Tooltip_modifier_starfall_a_d_visible_Description"		"Each stack reducing <font color=\"#C25DFC\">Cosmic</font> resistance by 10%%."
 		
-		"DOTA_Tooltip_ability_astral_rune_r_2"							"[R2] Star Quake"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_Description"				"When enemies land after a Celestial Burst - another explosion of star fragments stun and damage enemies within its radius. Damage ignores Steadfast."
-    	"DOTA_Tooltip_ability_astral_rune_r_2_property_one"				"Damage"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_suffix"					""
-    	"DOTA_Tooltip_ability_astral_rune_r_2_property_two"				"Stun Duration"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
+		"DOTA_Tooltip_ability_astral_rune_r_2"                          "[R2] Star Quake"
+        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Stars of [R1] create little quakes when thay fall, dealing damage and stunning enemies for 0.03 seconds in an area."
+        "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "Damage of [R1] Starstorm"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "%"
+        "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "Radius"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
     	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summons the Phoenix Constellation on a successful Celestial Burst cast that follows for 10 seconds. Phoenix follows the Ranger and damages all enemies around her based on Astral's attack power."
@@ -2456,7 +2459,7 @@
     	"DOTA_Tooltip_modifier_crystal_arrow_b_d_Description"					"Increased attack damage"	
 
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3"							"[R3] Blessed Quiver"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_Description"				"Every 0.5 seconds gain a crystal arrow stack. If you have 10 stacks or more, Crystal Arrow can be cast with no cooldown, and 10 stacks are consumed."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_Description"				"Every 0.5 seconds gain a crystal arrow stack. If you have 10 stacks or more, Crystal Arrow can be cast with no cooldown, and 10 stacks are consumed. Amount of stacks gained per interval increases by 1 for every 60 levels this rune has."
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_property_one"				"Max Stacks"
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_suffix"					""
 
@@ -2464,18 +2467,18 @@
     	"DOTA_Tooltip_modifier_crystal_arrow_freecast_Description"				"10 stacks grants a Crystal Arrow cast with no cooldown"
 
     	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3"							"[R4] Frosted Splash"
-    	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_Description"				"Enemies hit by Crystal Arrow are chilled and slowed."
+    	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_Description"				"Enemies standing inside [R1] are slowed. Slow doesn't expire upon leaving the area but lingers."
     	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_property_one"				"Movespeed Loss"
     	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_suffix"					""
-    	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_property_two"				"Slow Duration"
+    	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_property_two"				"Slow Linger Duration"
     	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_suffix_two"				" seconds"
 
     	"DOTA_Tooltip_modifier_crystal_arrow_chilled"							"Chilled"
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"		"Glyph of Wings"
-		"item_rpc_astral_glyph_1_1_description" 				"Pegasus travels between the astral impact point and the Ranger's current position 4 times."
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"        "Glyph of Persistent Light"
+        "item_rpc_astral_glyph_1_1_description"                 "Double duration of [W1]"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"Glyph of Aerial Crests"
 		"item_rpc_astral_glyph_2_1_description" 				"Astral Ranger's Phoenix summon has @glyph_property1x increased attack damage and slows movespeed of its targets by @glyph_property2."
@@ -2487,10 +2490,10 @@
 		"item_rpc_astral_glyph_3_1_description" 				"@Ability2 only fires @glyph_property1 arrows and increases their damage by @glyph_property2x. Base Proc chance of Empyral Arrows is increased to 40%."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"Glyph of Spatial Rifts"
-		"item_rpc_astral_glyph_4_1_description" 				"Reduces the teleport delay on @Ability3 by 1 second."
+		"item_rpc_astral_glyph_4_1_description" 				"Half cooldown, delay and @Ability1 duration increase of @Ability3"
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"		"Glyph of Lunar Waves"
-		"item_rpc_astral_glyph_5_1_description" 				"Increases the duration of @Ability1 by @glyph_property1 seconds."
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"        "Glyph of Lunar Channeling"
+        "item_rpc_astral_glyph_5_1_description"                 "Your @Ability4 channels itself."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_6_1"		"Glyph of Splitting Arrows"
 		"item_rpc_astral_glyph_6_1_description" 				"Attacks split on impact and hit up to @glyph_property1 additional targets."
@@ -3230,7 +3233,7 @@
 		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] Purity"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"At the beginning of an Ascension - create a swarm of Avian Aspects that strike enemies in an area in front of you. Enemies who are hit are paralyzed for a short duration. Additionally increases the damage of [E3] by multiplying by lowest attribute and dividing by greatest attribute."
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Max Damage Increase"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					"%"	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"Paralyze Duration"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix_two"				" seconds"	
 
@@ -3398,8 +3401,8 @@
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_3_1"		"Glyph of Separation"
 		"item_rpc_bahamut_glyph_3_1_description" 				"Judgement falls around Bahamut instead of in front and has @glyph_property1% larger radius."
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"Glyph of Surging"
-		"item_rpc_bahamut_glyph_4_1_description" 				"Increases the radius of Bahamut Pulse by @glyph_property1%"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"Glyph of Barriers"
+		"item_rpc_bahamut_glyph_4_1_description" 				"Increases the duration of Wall of Impunity by @glyph_property1 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"Glyph of Isolation"
 		"item_rpc_bahamut_glyph_5_1_description" 				"Increases the duration of Solitary Shell by @glyph_property1 seconds."
@@ -3407,8 +3410,8 @@
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"Glyph of Pride"
 		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] is passive and no longer slows. Also Bahamut Pulse applies a @glyph_property1 second stun every 5th pulse."
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"Glyph of Barriers"
-		"item_rpc_bahamut_glyph_7_1_description" 				"Increases the duration of Wall of Impunity by @glyph_property1 seconds."
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"Glyph of Surging"
+		"item_rpc_bahamut_glyph_7_1_description" 				"Increases the radius of Bahamut Pulse by @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_a"		"Glyph of Multiwall"
 		"item_rpc_bahamut_glyph_5_a_description" 				"Every @glyph_property1 seconds gain a free Wall of Impunity cast."
@@ -4015,9 +4018,136 @@
     	"DOTA_Tooltip_modifier_deity_shadow_shield"						"Shadow Shield"
     	"DOTA_Tooltip_modifier_deity_shadow_shield_Description"			"Damage Reduced by 100%%"
 
+    	"fire_deity"													"Fire Deity"
+
+    	"DOTA_Tooltip_ability_item_rpc_conjuror_arcana2"				"Bindings of the Flameshaper"
+
+       	"item_property_conjuror_arcana2"									"Fire Deity"
+    	"property_conjuror_arcana2_description"								"Replaces @Ability2 and all of its runes with Fire Deity."
+
+		"DOTA_Tooltip_ability_summon_fire_deity" 					"Fire Deity"
+    	"DOTA_Tooltip_ability_summon_fire_deity_Description"			"With the knowledge of the Origin Flame, Conjuror summons a grand Fire Deity to fight alongside him."
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_health"			"HEALTH:"
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_damage"			"DAMAGE:"
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_armor"			"ARMOR:"
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_magic_resist"			"MAGIC RESIST:"
+
+    	"DOTA_Tooltip_ability_fire_arcana_ability"							"Flame Laser"
+    	"DOTA_Tooltip_ability_fire_arcana_ability_Description"				"Element: <font color=\"#EF4126\">Fire</font><br>A blazing superheated laser travels towards the target unit. If the target is an ally, the ally is healed and receives a buff that increases attack speed and deals pure fire damage on attack land. Enemies instead take pure fire damage. Any ally or enemy in the beam's path is also affected, not just the primary target."
+    	"DOTA_Tooltip_ability_fire_arcana_ability_damage"					"DAMAGE:"
+    	"DOTA_Tooltip_ability_fire_arcana_ability_heal_pct"					"% HEAL:"
+    	"DOTA_Tooltip_ability_fire_arcana_ability_attack_speed"				"ATTACK SPEED FROM BUFF:"
+    	"DOTA_Tooltip_ability_fire_arcana_ability_buff_attack_damage"		"BONUS DAMAGE ON ATTACK AS % OF ATTACK POWER:"
+
+    	"DOTA_Tooltip_modifier_fire_ray_buff"						"Flame Laser"
+    	"DOTA_Tooltip_modifier_fire_ray_buff_Description"			"Increased attack speed and dealing extra fire damage on attack."
+		
+    	"DOTA_Tooltip_ability_fire_deity_fire_ability"						"Infernal Spiral"
+    	"DOTA_Tooltip_ability_fire_deity_fire_ability_Description"			"A cone of fire damages all enemies in a line."
+
+  		"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2"						"[W1] Burning Insight"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_Description"			"Flame Laser's buff also increases base attack damage. Additionally Conjuror gains % attack damage bonus from intelligence passively."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_property_one"			"Base Attack Damage from Buff"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_suffix"					""	
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_property_two"			"Conjuror Increased Attack Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_suffix_two"				"% for each 10 points of intelligence"	
+
+  		"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2"						"[W2] Origin Flame"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_Description"			"Adds a flat increase to <font color=\"#EF4126\">Fire</font> amplification. Also a portion of Agility is added to Flame Laser's base damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_property_one"		"Fire Amplification"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_suffix"				"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_property_two"		"Agility added to Flame Laser Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_suffix_two"			"%"
+
+		"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2"							"[W3] Deity Critical Strike"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2_Description"				"Gives you and your Fire Deity a 30% chance to deal bonus damage on attack. The crit also releases an immolation that deals AOE damage equal to the attack's damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2_property_one"				"Bonus damage on crit"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_arcana2_suffix"						"%"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2"						"[W4] Blistering Knowledge"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_Description"			"Increases Agility and Intelligence by a %. Also decreases strength by a %"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_property_one"		"Agility and Intelligence"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_suffix"				"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_property_two"		"Strength"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_arcana2_suffix_two"				"%"
+
+    	"earth_deity"														"Earth Deity"
+
+    	"DOTA_Tooltip_ability_item_rpc_conjuror_arcana3"				"Veil of Gaia"
+
+       	"item_property_conjuror_arcana3"									"Earth Deity"
+    	"property_conjuror_arcana3_description"								"Replaces @Ability1 and all of its runes with Earth Deity."
+
+    	"DOTA_Tooltip_ability_summon_earth_deity"							"Earth Deity"
+    	"DOTA_Tooltip_ability_summon_earth_deity_Description"				"A complex earthen incantation summons a powerful mud golem that has the ability to protect a target ally with Grand Guardian. 50% of damage taken by conjuror is taken by Earth Deity instead."
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_health"				"HEALTH:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_damage"				"ATTACK DAMAGE:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_armor"				"ARMOR:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_magic_resist"		"MAGIC RESIST:"
+
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm"						"Sandstorm"
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_Description"			"Element: <font color=\"#AF843D\">Earth</font><br>The Earth Deity stands in place and whips up a violent sand storm. Enemies in the sandstorm have their movement speed and attack slowed, and have a chance to miss with their attacks. Drains mana and deals damage every 0.25 seconds and toggles off if mana runs out."
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_miss_chance"			"MISS CHANCE:"
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_move_slow"				"MOVE SLOW:"
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_attack_slow"			"ATTACK SLOW:"
+
+    	"DOTA_Tooltip_modifier_enemy_in_earth_deity_sandstorm"				"Sandstorm"
+    	"DOTA_Tooltip_modifier_enemy_in_earth_deity_sandstorm_Description"	"Slowed and blinded"
+
+    	"DOTA_Tooltip_ability_arcana_earth_shock"							"Earth Shock"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_Description"				"Element: <font color=\"#AF843D\">Earth</font><br>Conjures a quick burst of static earthen energy at the target location. Enemies in the radius have their movespeed slowed by 1000 for 0.9 seconds. Enemies in the radius also receive an attack damage debuff for 10 seconds."
+    	"DOTA_Tooltip_ability_arcana_earth_shock_damage"					"DAMAGE:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_radius"					"RADIUS:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_attack_reduce"				"ATTACK DAMAGE REDUCE:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_movespeed_slow"			"MOVESPEED SLOW:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_slow_duration"				"SLOW DURATION:"
+    	"DOTA_Tooltip_ability_arcana_earth_shock_attack_reduce_duration"	"ATTACK REDUCE DURATION:"
+
+    	"DOTA_Tooltip_modifier_earth_shock_slow"							"Earth Shock Slow"
+
+    	"DOTA_Tooltip_modifier_earth_shock_attack_reduce"					"Earth Shock"
+    	"DOTA_Tooltip_modifier_earth_shock_attack_reduce_Description"		"Reduced Attack Damage"
+
+    	"DOTA_Tooltip_ability_earth_deity_grand_guardian"					"Grand Guardian"
+    	"DOTA_Tooltip_ability_earth_deity_grand_guardian_Description"		"Roll the target ally into a boulder and pull them towards the Earth Deity. While inside the deity, gain increased health regen and all abilities are disabled. If Conjuror is in the Deity, Earth Shock is not disabled and has increased cast range and no cooldown. The deity is immune to magic and has +100000 armor while grand guardian is active, and he cannot move. Earth Deity can roll the guarded ally away which ends Grand Guardian. If Conjuror take lethal damage and this ability is not on cooldown, the Earth Deity grabs conjuror immediately and saves his life."
+
+    	"DOTA_Tooltip_modifier_deity_grand_guardian"						"Grand Guardian"
+    	"DOTA_Tooltip_modifier_deity_grand_guardian_Description"			"Magic Immunity and increased armor."
+
+    	"DOTA_Tooltip_modifier_earth_deity_bowl"							"Guardian Boulder Roll"
+    	"DOTA_Tooltip_modifier_earth_deity_bowl_Description"				"Throws the guarded unit towards the target location at high speed, and unleash an earth shock at the landing point. Grand Guardian ends when this is used."
+
+  		"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3"						"[Q1] Sandstorm"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_Description"			"The Earth Deity stands in place and whips up a violent sand storm. Enemies in the sandstorm have their movement speed and attack slowed, and have a chance to miss with their attacks. Drains mana and deals damage every 0.25 seconds and toggles off if mana runs out."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_suffix"					"% of Earth Deity's Max Health"	
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_two"			"Radius"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_suffix_two"				""	
+
+  		"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3"						"[Q2] Strength of Gaia"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_Description"			"Increases max health of Conjuror and all of his summons by a flat amount and also by a percentage."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_one"		"Max Health Flat"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix"				""
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_two"		"Max Health Percentage"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix_two"			"%"
+
+		"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3"							"[Q3] Earthen EMP"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_Description"				"Max Health increases <font color=\"#AF843D\">Earth</font> damage. Attack damage is added to Earth Shock's base damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_one"				"Earth Amp"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix"						"% for each 100 Max Health"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_two"				"Attack Damage Added to Earth Shock"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix_two"					"%"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3"						"[Q4] Mud Slash"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_Description"			"Enemies effected by Earth Shock's attack damage reduction debuff deal reduced damage of all types."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_property_one"		"Enemy Damage Reduction"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_suffix"				"%"
+
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"Glyph of Blazing Fire"
 		"item_rpc_conjuror_glyph_1_1_description" 				"Your Fire Aspect has @glyph_property1 extra attack speed and @glyph_property2% increased attack damage."
+		"DOTA_Tooltip_modifier_conjuror_glyph_1_1_effect"				"Glyph of Blazing Fire"
+		"DOTA_Tooltip_modifier_conjuror_glyph_1_1_effect_Description"	"Attack speed and bonus attack damage increased."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_2_1"		"Glyph of Conjuring"
 		"item_rpc_conjuror_glyph_2_1_description" 				"Increases the Max Health of all Aspects by @glyph_property1%"
@@ -4027,9 +4157,11 @@
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_4_1"		"Glyph of Distant Shadows"
 		"item_rpc_conjuror_glyph_4_1_description" 				"Increases the Attack Range of your Shadow Aspect by @glyph_property1."
+		"DOTA_Tooltip_modifier_conjuror_glyph_4_1_effect"		"Glyph of Distant Shadows"
+		"DOTA_Tooltip_modifier_conjuror_glyph_4_1_effect_Description"	"Attack range insreased."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_1"		"Glyph of Trembling Earth"
-		"item_rpc_conjuror_glyph_5_1_description" 				"Earthquake radius is increased by @glyph_property1, and the duration of free-casting is increased by @glyph_property2 seconds."
+		"item_rpc_conjuror_glyph_5_1_description" 				"@Ability1 radius is increased by @glyph_property1, and the duration of free-casting is increased by @glyph_property2 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_6_1"		"Glyph of Flamethrower"
 		"item_rpc_conjuror_glyph_6_1_description" 				"Your Fire Aspect spits a cone of fire every time he lands a critical hit, dealing @glyph_property1x the crit damage to all damaged targets."
@@ -4214,7 +4346,7 @@
     	"property_dinath_arcana1_description"								"Replaces @Ability2 and all of its runes with Spire Breath."
 
     	"DOTA_Tooltip_ability_dinath_dragon_fire"						"Spire Breath"
-    	"DOTA_Tooltip_ability_dinath_dragon_fire_Description"			"Element: <font color=\"#3289C7\">Dragon</font> / <font color=\"#87D9FF\">Ice</font><br>Passively adds pure damage to Dinath's attacks. While toggled on, attacks have extra range and can split and hit additional targets. Each attack drains the mana cost and mana is drained every second while toggled on."
+    	"DOTA_Tooltip_ability_dinath_dragon_fire_Description"			"Element: <font color=\"#3289C7\">Dragon</font> / <font color=\"#87D9FF\">Ice</font><br>Passively adds pure damage to Dinath's attacks. While toggled on, attacks have extra range and can split and hit additional targets. Each attack drains the mana cost and mana is drained every second while toggled on. Attack radius searches around the main attack target."
     	"DOTA_Tooltip_ability_dinath_dragon_fire_damage_mult"				"% DAMAGE BASED ON ATTACK POWER:"
     	"DOTA_Tooltip_ability_dinath_dragon_fire_mana_cost"				"MANA COST:"
     	"DOTA_Tooltip_ability_dinath_dragon_fire_extra_range"				"EXTRA RANGE:"
@@ -4302,6 +4434,11 @@
         "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_3"            "Chaos Orchid"
         "item_property_dinath_immortal_weapon3"                             "Cosmic Origin"
         "property_dinath_immortal_weapon3_description"                      "All instances of <font color=\"#3289C7\">Dragon</font> damage deal an additional instance of <font color=\"#C25DFC\">Cosmic</font> damage."
+
+		"djanghor_q"	"Marks"
+        "djanghor_w"	"Jin'bo, Rend, War Stomp & Aerial Tornado"
+        "djanghor_e"	"Monkey Leap, Feral Sprint, Battle Charge & Soar"
+        "djanghor_r"	"Shapeshift"
 
 		"DOTA_Tooltip_ability_draghor_shapeshift_cat"									"Shapeshift: Wolf"
     	"DOTA_Tooltip_ability_draghor_shapeshift_cat_Description"						"Transform into a wolf with its own ability set after 1.75 second channel."
@@ -11592,7 +11729,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol2"										"Raven Idol LV2"
 		"item_property_raven_idol2"					"Black Soul II"		
-		"property_raven_idol_description2"			"Reduce damage taken from all sources by 50%. Your health can not go above 50% of your max. Each 100 points of missing health increases damage dealt directly by items by 0.01%."
+		"property_raven_idol_description2"			"Reduce damage taken from all sources by 50%. Your health can not go above 50% of your max. Each 100 points of missing health increases damage dealt directly by items by 0.1%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"Phoenix Emblem"
@@ -13970,7 +14107,7 @@
 		"DOTA_Tooltip_ability_sea_fortress_manta_rider_ability_damage"		"DAMAGE:"
 
 		"DOTA_Tooltip_ability_seafortress_golden_shell"					"Golden Shell"
-		"DOTA_Tooltip_ability_seafortress_golden_shell_Description"		"Gain magic immunity every time damage is taken."
+		"DOTA_Tooltip_ability_seafortress_golden_shell_Description"		"Gain magic immunity every time damage is taken. There is a delay of 0.1 seconds before magic immunity is applied."
 		"DOTA_Tooltip_ability_seafortress_golden_shell_duration"		"DURATION:"
 
 		"DOTA_Tooltip_ability_seafortress_exiler_ability"				"Glint of Exiler"
@@ -14639,9 +14776,9 @@
 		"DOTA_Tooltip_ability_item_tanari_fire_temple_key_elite"				"Fire Temple Key"
 		"DOTA_Tooltip_ability_item_tanari_fire_temple_key_legend"			"Fire Temple Key"
 
-		"item_tanari_fire_temple_key_normal_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle on normal difficulty. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
-		"item_tanari_fire_temple_key_elite_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle on elite difficulty. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
-		"item_tanari_fire_temple_key_legend_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle on legend difficulty. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+		"item_tanari_fire_temple_key_normal_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+		"item_tanari_fire_temple_key_elite_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+		"item_tanari_fire_temple_key_legend_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
 
 		"DOTA_Tooltip_ability_item_tanari_essence_of_wind_normal"			"Essence of Wind"
 		"DOTA_Tooltip_ability_item_tanari_essence_of_wind_elite"				"Essence of Wind"
@@ -16190,8 +16327,8 @@
 	"quest_2_challenge_2"												"B. Hero Attributes"
 	"quest_2_challenge_3"												"C. Saving your Hero"
 
-	"quest_2_reward_title"												"Activate Town NPC's"       
-	"quest_2_reward_description"										"Tutorial Map will have its Town NPC's activated permanently; The Oracle, The Blacksmith, Glyph Enchanter, and Curator!"
+	"quest_2_reward_title"												"Activate Town NPCs"       
+	"quest_2_reward_description"										"Tutorial Map will have its Town NPCs activated permanently; The Oracle, The Blacksmith, Glyph Enchanter, and Curator!"
 
 	"quest_2_challenge_1_desc"											"At the left of the screen is your hero's Ability and Rune summary. If it is closed, open it up with hotkey (L). Runes are passive buffs for your hero and abilties."
 	"quest_2_challenge_1_sub_0_summary"									"Listen to Challen's lecture regarding Runes & Abilities, and answer his question."
@@ -16432,14 +16569,14 @@
 
 	"tutorial_master_dialogue_4_1i"										"A technical slaying! That concludes the lesson on Enemies & Attacking."
 
-	"quest_4_challenge_2_desc"											"The 3 main damage types are Physical, Magical and Pure. Armor and magic resistance decrease physical and magical damage taken respectively with diminishing returns. Pure damage reduction pierces spell immunity and is more difficult to reduce. "
+	"quest_4_challenge_2_desc"											"The 3 most common types of damage are Physical, Magical, and Pure. Armor reduces Physical damage taken, while Magic Resistance reduces Magic damage taken. Pure damage is rare and dangerous - it can harm units even through Spell Immunity! Each individual source of Magic and Pure resistance stacks multiplicatively (diminishing returns)."
 	"quest_4_challenge_2_sub_0_summary"									"Answer the question about physical damage reduction."
 	"quest_4_challenge_2_sub_1_summary"									"Answer the question about damage type reduction"
 	"quest_4_challenge_2_sub_2_summary"									"Answer the general question regarding damage types"
 
 	"tutorial_master_dialogue_4_2a"										"There are 3 primary damage types: Physical, Magical and Pure."
 	"tutorial_master_dialogue_4_2b"										"Your regular attacks deal physical damage, as well as some abilities."
-	"tutorial_master_dialogue_4_2c"										"Physical damage taken is reduced by your armor."
+	"tutorial_master_dialogue_4_2c"										"Physical damage taken is reduced by a unit's armor."
 	"tutorial_master_dialogue_4_2d"										"Check your tooltip, how much physical damage is being reduced by your armor?"
 
 	"tutorial_quiz_question_11"											"What is the damage reduction % provided by your armor?"
@@ -16468,7 +16605,7 @@
 
 	"tutorial_quiz_question_13_sub1"									"is reduced by armor"
 	"tutorial_quiz_question_13_sub2"									"is reduced by 1% with diminishing returns for each resistance point"
-	"tutorial_quiz_question_13_sub3"									"pierces magic immunity and has no attribute that reduces it"
+	"tutorial_quiz_question_13_sub3"									"What damage type pierces Spell Immunity and is not mitigated by Armor or Magic Resistance?"
 
 	"tutorial_master_dialogue_4_2l"										"Right! Ok then. You know enough about damage types now."
 
@@ -16485,8 +16622,8 @@
 	"tutorial_quiz_wrong_4_3_1"											"No, give me the green number next to your attack damage."
 	"tutorial_quiz_wrong_4_3_2"											"That is not your bonus attack value."
 
-	"tutorial_master_dialogue_4_3d"										"Right! Now remember, your abilities also have a 'Base Damage' which can be amplified by special bonuses."
-	"tutorial_master_dialogue_4_3e"										"Your base ability damage amplification total shows in your hero tooltip. I already asked you a question about it before."
+	"tutorial_master_dialogue_4_3d"										"Right! Now remember, your abilities also have a 'Base Damage' which can be increased by special bonuses."
+	"tutorial_master_dialogue_4_3e"										"Your base ability damage bonus total shows in your hero tooltip. I already asked you a question about it before."
 	"tutorial_master_dialogue_4_3f"										"Instead of a quiz, why don't you use your abilities to fight an army of shroomlings?"
 	"tutorial_master_dialogue_4_3g"										"These guys are immune to physical damage, so use your abilities to take them down!"
 
@@ -16506,7 +16643,7 @@
 	"tutorial_master_dialogue_4_4b"										"Elemental amplification can be increased by several special bonuses."
 	"tutorial_master_dialogue_4_4c"										"Check the bottom part of your hero tooltip."
 
-	"tutorial_quiz_question_14a"											"What is your @sub1 amplification value?"
+	"tutorial_quiz_question_14a"										"What is your @sub1 amplification value?"
 
 	"tutorial_quiz_wrong_4_4_1"											"That's wrong. Your elemental amplification can be found at the bottom of your hero tooltip."
 	"tutorial_quiz_wrong_4_4_2"											"That's just not right. Sorry."
@@ -16531,7 +16668,7 @@
 	"DOTA_Tooltip_ability_tutorial_elemental_ability"					"Omni Elemental"
 	"DOTA_Tooltip_ability_tutorial_elemental_ability_Description"		"Conjured entity of multiple elements."
 
-	"quest_4_challenge_5_desc"											"The training dummy is available near town on most maps. Dealing damage to it will open the Training Dummy window allowing you to view detailed breakdown of your damage."
+	"quest_4_challenge_5_desc"											"The training dummy is available near town on most maps. Dealing damage to it will open the Training Dummy window allowing you to view a detailed breakdown of your damage."
 	"quest_4_challenge_5_sub_0_summary"									"Open the Training Dummy"
 	"quest_4_challenge_5_sub_1_summary"									"Add a few lines to the Dummy's log"
 	"quest_4_challenge_5_sub_2_summary"									"Change the Dummy's armor"
@@ -16559,16 +16696,16 @@
 
 	"dummy_attack_inverval"												"Attack Inverval"
 
-	"quest_4_challenge_6_desc"											"There is a common bonus provided by equipment and runes called Post-Mitigation damage. Post-mitigation damage amplifier takes place after all damage reduction effects are calculated (such as armor reduction and steadfast)."
+	"quest_4_challenge_6_desc"											"Many runes and items grant Post-Mitigation Damage Amplification, increasing the final damage dealt to a target. In the damage calculation sequence, this bonus is applied after your damage is reduced by properties like Magic Resistance or Steadfast."
 	"quest_4_challenge_6_sub_0_summary"									"Attack the Training Dummy with Steadfast active."
 	"quest_4_challenge_6_sub_1_summary"									"Attack the Training Dummy again with steadfast active, while carrying Challen's post-mitigation buff."
 
 	"tutorial_master_dialogue_4_6a"										"You will come across an important damage booster referred to as Post-Mitigation damage."
-	"tutorial_master_dialogue_4_6b"										"Post-Mitigation damage increases the damage dealt after all of the enemy's reductions have been calculated."
+	"tutorial_master_dialogue_4_6b"										"Post-Mitigation damage amplification increases the damage dealt after all of the enemy's reductions have been calculated."
 	"tutorial_master_dialogue_4_6c"										"To demonstrate, please start off by attacking the training dummy with the Steadfast ability active."
 
 	"tutorial_master_dialogue_4_6d"										"Ok, take note of the damage dealt while recognizing that the training dummy has 1000 Health."
-	"tutorial_master_dialogue_4_6e"										"I have granted you a massive post-mitigation buff, attack the dummy again!"	
+	"tutorial_master_dialogue_4_6e"										"I have granted you a massive post-mitigation amp buff, attack the dummy again!"	
 
 	"tutorial_master_dialogue_4_6f"										"Can you see the difference? Your post-mitigation damage buff has applied after Steadfast's reduction!"
 	"tutorial_master_dialogue_4_6g"										"That concludes the lesson on post-mitigation damage."
@@ -16654,8 +16791,8 @@
 	"tutorial_master_dialogue_5_3f"										"There it is! Now defeat it and collect the bounty!"
 	"tutorial_master_dialogue_5_3g"										"Down he goes! Collect those purple crystals now! That ends this lesson."
 
-	"quest_5_reward_title"												"100,000 Mithril Shards"       
-	"quest_5_reward_description"										"Gain 100,000 Mithril Shards! A significant sum."
+	"quest_5_reward_title"												"125,000 Mithril Shards"       
+	"quest_5_reward_description"										"Gain 125,000 Mithril Shards! A significant sum."
 
 	"quest_6_interface"													"6. External Resources"
 	"quest_6_interface_description"										"This lecture will cover the primary features of the website at www.roshpit.ca."
@@ -16666,7 +16803,7 @@
 	"quest_6_challenge_4"												"D. Web Premium"
 	"quest_6_challenge_5"												"E. Discord Chat"
 
-	"quest_6_challenge_1_desc"											"You can purchase a game pass that lasts for 30 days on the game's home page. The pass increases maximum hero save slots and stash space. There is a stacking bonus to luck for item drops (50%), XP gain (10%), and Mithril Gain (10%). These bonuses stack with other pass holders who are in your party."
+	"quest_6_challenge_1_desc"											"You can purchase a special Pass for Roshpit Champions, which increases your stash space and hero save slots while active. Passes last for 30 days from the date of purchase and are available from the game's page in the Dota 2 Arcade. Each Pass user in your game also grants every player a stacking +10% bonus to EXP and mithril shard rewards, and a +50% better chance of finding more powerful items!"
 	"quest_6_challenge_1_sub_0_summary"									"Answer the question about the Custom Game Pass"
 
 	"tutorial_master_dialogue_6_1a"										"Valve had added a mechanism to purchase a game pass within the Dota 2 client. We are truly fortunate."	
@@ -16689,7 +16826,7 @@
 	"quest_6_challenge_2_sub_1_summary"									"Speak to the Curator"
 
 	"tutorial_master_dialogue_6_2a"										"Roshpit Champions has an official website at www.roshpit.ca"	
-	"tutorial_master_dialogue_6_2b"										"The website contains all of the information about the game's heroes and items. You can also view people's profiles and their heros' builds."
+	"tutorial_master_dialogue_6_2b"										"The website contains all of the information about the game's heroes and items. You can also view peoples' profiles and their heros' builds."
 	"tutorial_master_dialogue_6_2c"										"There is also a marketplace for trading. I want you to go login to the website. Go to www.roshpit.ca and click the Steam icon at the top right."	
 	"tutorial_master_dialogue_6_2d"										"This is Valve's 3rd party authentication system. Roshpit.ca will never see your password."
 	"tutorial_master_dialogue_6_2e"										"When you login you will land on your profile page. When you are there, I want you to click on the Cherebi on your profile page!"		
@@ -16714,7 +16851,7 @@
 
 	"tutorial_master_dialogue_6_3f"										"You got it! Feel free to browse the market some more to get a feel for it."
 
-	"quest_6_challenge_4_desc"											"The website offers a 'Web Premium' token which adds 72 stash slots and stash organization while on the web for 30 days. Purchased tokens can be consumed immediately or put into your stash for trading."
+	"quest_6_challenge_4_desc"											"The game's website offers a Web Premium feature, which adds 72 additional stash slots which can be managed through a convenient drag-and-drop interface on your profile! These features are activated by purchasing a consumable token, and last for 30 days after using it. The token itself can be sold on the game's Market just like any other item."
 	"quest_6_challenge_4_sub_0_summary"									"Click on cherebi at www.roshpit.ca/web-premium."
 
 	"tutorial_master_dialogue_6_4a"										"Roshpit.ca offers Web Premium for $5.00. It is entirely an optional feature that does not affect gameplay."
@@ -16726,12 +16863,12 @@
 	"quest_6_challenge_5_desc"											"Roshpit Champions has an active chat channel for discussing the game. The game's developers are present there if you wish to speak to them. The URL is discord.gg/ZUhfMZG"
 	"quest_6_challenge_5_sub_0_summary"									"Go to the Curator's Library channel of the Roshpit Discord. Check the Pinned Messages for the password."
 
-	"tutorial_master_dialogue_6_5a"										"The Roshpit Champions discord chat channel is a great way to meet fellow players and discuss the game."
+	"tutorial_master_dialogue_6_5a"										"The Roshpit Champions Discord chat channel is a great way to meet fellow players and discuss the game."
 	"tutorial_master_dialogue_6_5b"										"You can access the channel at discord.gg/ZUhfMZG. You can click the link in the game description as well."
-	"tutorial_master_dialogue_6_5c"										"I want you to go visit! Go to the discord chat channel."
+	"tutorial_master_dialogue_6_5c"										"I want you to go visit! Go to the Discord chat channel."
 	"tutorial_master_dialogue_6_5d"										"To prove you've been there, tell me the password. You can find the password in the 'pinned messages' of the curators-library channel."
 
-	"tutorial_quiz_question_19"											"Go to curators-library sub channel of the Roshpit Champions discord. What is the password found in the 'Pinned Messages'?"
+	"tutorial_quiz_question_19"											"Go to curators-library sub channel of the Roshpit Champions Discord. What is the password found in the 'Pinned Messages'?"
 
 	"tutorial_quiz_wrong_6_5_1"											"Check the pinned messages in curators-library."
 	"tutorial_quiz_wrong_6_5_2"											"That isn't it, go to discord.gg/ZUhfMZG and go to the curators-library sub channel. Check the pinned messages there."
@@ -16741,6 +16878,9 @@
 
 	"quest_6_reward_title"												"2 Weeks of Web Premium"       
 	"quest_6_reward_description"										"Add 2 weeks of Web Premium to your roshpit.ca account! Claim this when you think you'll get the most value. You can only claim it once."
+
+	"tutorial_stars_reward_warning"										"This reward requires @stars stars to collect. Go play and come back to claim this!"
+	"tutorial_button_get_more_stars"									"@stars Stars Required"
 
 		"winterblight_village"											"Winterblight Village"
 		"shrine_of_azalea"												"Shrine of Azalea"

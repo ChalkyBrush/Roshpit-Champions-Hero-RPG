@@ -6,6 +6,7 @@ function class:DeclareFunctions()
 	MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 	MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
 }
+	return funcs
 end
 
 function class:IsDebuff()

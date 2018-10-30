@@ -1,3 +1,8 @@
+		"djanghor_q"	"Marks"
+        "djanghor_w"	"Jin'bo, Rend, War Stomp & Aerial Tornado"
+        "djanghor_e"	"Monkey Leap, Feral Sprint, Battle Charge & Soar"
+        "djanghor_r"	"Shapeshift"
+
 		"DOTA_Tooltip_ability_draghor_shapeshift_cat"									"Shapeshift: Wolf"
     	"DOTA_Tooltip_ability_draghor_shapeshift_cat_Description"						"Transform into a wolf with its own ability set after 1.75 second channel."
     	"DOTA_Tooltip_ability_draghor_shapeshift_cat_agility_bonus"						"AGILITY BONUS IN WOLF FORM:"

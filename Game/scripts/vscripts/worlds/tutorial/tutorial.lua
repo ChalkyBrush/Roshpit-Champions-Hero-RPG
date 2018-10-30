@@ -37,6 +37,7 @@ function Tutorial:Debug()
 	-- local buttons = {"item_rarity_uncommon", "item_rarity_rare", "item_rarity_mythical", "item_rarity_immortal", "item_rarity_arcana"}
 	-- CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="3_1", quiz_question=question, sequence=2, verifier = verifier, localize_verifier = 1, challenge_progress = 2, gsub1 = gsub1, buttons = buttons} )
 	-- CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
+	RPCItems:RollResplendantRubberBoots(MAIN_HERO_TABLE[1]:GetAbsOrigin())
 end
 
 function Tutorial:SpawnAllTownNPCs()
@@ -299,7 +300,8 @@ function Tutorial:TutorialUIActiveForPlayer(hero, sound)
 	local categories = Tutorial:GetFixedTutorialData(hero)
 	local playerID = hero:GetPlayerOwnerID()
 	local player = PlayerResource:GetPlayer(playerID)
-	CustomGameEventManager:Send_ServerToPlayer(player, "open_tutorial", {hero=hero:GetEntityIndex(), tutorial=hero.tutorial, sound=sound, categories=categories} )
+	local stars = hero.grandTotalStars
+	CustomGameEventManager:Send_ServerToPlayer(player, "open_tutorial", {hero=hero:GetEntityIndex(), tutorial=hero.tutorial, sound=sound, categories=categories, stars=stars} )
 	-- Tutorial:ApplyTutorialModifier("modifier_tutorial_open", hero, 15)
 	Tutorial:ApplyTutorialModifier("modifier_tutorial_open", hero, 0)
 	--uncomment this in before release
@@ -778,6 +780,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				Timers:CreateTimer(delayUntil_b, function()
 					hero.master_is_talking = false
 					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_2b", 5, false)
+					Tutorial:SpawnAllTownNPCs()
 					Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_2, 1.0, 4.0)
 					local luck = RandomInt(200,500)
 					if luck >= 200 and luck < 265 then
@@ -857,7 +860,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 		Timers:CreateTimer(15, function()
 			if speech_phase == hero.tutorial_speech_phase then
 				local crystals = CustomNetTables:GetTableValue("player_stats", tostring(hero:GetPlayerOwnerID()).."-resources").arcane
-				if crystals < 100 then
+				if crystals < 300 then
 					Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
 					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_4d1", 5, false)
 					Glyphs:DropArcaneCrystals(Tutorial.Master:GetAbsOrigin(), 500)
@@ -1013,7 +1016,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
 				-- local random_rune = "DOTA_Tooltip_Ability_"..HerosCustom:GetInternalHeroName(hero:GetUnitName())
 				local question = "tutorial_quiz_question_14"
-				local verifier = 0
+				local verifier = (hero:GetAverageTrueAttackDamage(hero) - ((hero:GetBaseDamageMin()+hero:GetBaseDamageMax())/2))
 				CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="4_3", quiz_question=question, sequence=0, verifier = verifier, localize_verifier = 0, challenge_progress = 0} )
 				CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
 			end
@@ -1163,11 +1166,6 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 			end
 		end)
 		Timers:CreateTimer(15, function()
-			if speech_phase == hero.tutorial_speech_phase then
-				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_5_1c1", 5, false)
-			end
-		end)
-		Timers:CreateTimer(20, function()
 			hero.master_is_talking = false
 			if speech_phase == hero.tutorial_speech_phase then
 				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting1", ACT_DOTA_CAST_ABILITY_1, 0.9, 2.0)
@@ -2006,17 +2004,17 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 						if choice == 1 then
 							local reduc = (1 - GameState:IncomingDamageDecreaseWithType(hero, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL))*100000
 							reduc = reduc - (GameState:IncomingDamageIncrease(hero, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL) - 1)*100000
-							verifier = reduc
+							verifier = reduc/1000
 							sub = "DOTA_ToolTip_Damage_Physical"
 						elseif choice == 2 then
 							local reduc = (1 - GameState:IncomingDamageDecreaseWithType(hero, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL))*100000
 							reduc = reduc - (GameState:IncomingDamageIncrease(hero, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL) - 1)*100000
-							verifier = reduc
+							verifier = reduc/1000
 							sub = "DOTA_ToolTip_Damage_Magical"
 						elseif choice == 3 then
 							local reduc = (1 - GameState:IncomingDamageDecreaseWithType(hero, Events.GameMaster, false, DAMAGE_TYPE_PURE))*100000
 							reduc = reduc - (GameState:IncomingDamageIncrease(hero, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1)*100000
-							verifier = reduc
+							verifier = reduc/1000
 							sub = "DOTA_ToolTip_Damage_Pure"
 						end
 						CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="4_2", quiz_question=question, sequence=1, verifier = verifier, gsub1 = sub, localize_verifier = 0, challenge_progress = 1} )
@@ -2670,6 +2668,13 @@ end
 function Tutorial:ClaimReward(msg)
 	local hero = EntIndexToHScript(msg.hero)
 	local rewards = Tutorial:GetTutorialDataArray(hero, "reward")
+	if msg.category_index == 3 and hero.grandTotalStars < 75 then
+		return false
+	elseif msg.category_index == 5 and hero.grandTotalStars < 100 then
+		return false
+	elseif msg.category_index == 6 and hero.grandTotalStars < 125 then
+		return false
+	end
 	if rewards[msg.category_index] == 0 then
 		Tutorial:UpdateRewardProgressOnWeb(hero, msg.category_index)
 	end
@@ -2709,7 +2714,7 @@ function Tutorial:UpdateRewardProgressOnWeb(hero, section_index)
 			elseif section_index == 4 then
 				Tutorial:SpawnTrainingDummyForHero(hero)
 			elseif section_index == 5 then
-				Tutorial:GetMithrilPrize(Tutorial.Master:GetAbsOrigin(), hero, 100000)
+				Tutorial:GetMithrilPrize(Tutorial.Master:GetAbsOrigin(), hero, 125000)
 			elseif section_index == 6 then
 				local particleName = "particles/roshpit/web/web_premium.vpcf"
 				local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
@@ -2778,6 +2783,10 @@ function Tutorial:SubmitQuiz(msg)
 					correct_answer = true
 				end
 			end
+		elseif hero.tutorial.active_challenge == "4_3" then
+				if tonumber(msg.answer) - 100 < tonumber(msg.verifier) and tonumber(msg.answer) + 100 > tonumber(msg.verifier) then
+					correct_answer = true
+				end			
 		end
 		if tonumber(msg.bLocalize) == 1 then
 			correct_answer = msg.verifier == msg.answer

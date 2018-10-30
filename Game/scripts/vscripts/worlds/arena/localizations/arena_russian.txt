@@ -12,13 +12,13 @@
 		"arena_training_dummy_sentence_3"							""
 
 		"arena_training_button_1"									"Очистить запись"
-		"arena_training_button_2"									"Запустить 7 секундный таймер"
+		"arena_training_button_2"									"7 сек. таймер"
 		"arena_training_button_3"									"Выход"
 
 		"arena_log_capacity"										"Вместимость лога"
 		"arena_log_dps"												"DPS"
 		"arena_armor_title"											"Физ. броня"
-		"arena_update_dummy"										"Обновить настройки"
+		"arena_update_dummy"										"Обновить"
 
 		"arena_fan_dialogue_one"									"Я пришел сюда, чтобы увидеть моего любимого бойца! Его зовут Чемпион Варафлас!"
 		"arena_fan_dialogue_two"									"Вау! Ты мой самый любимый Чемпион!"
@@ -412,7 +412,7 @@
 		"arena_trial_of_lies"										"Испытание Лжи"
 		"arena_trial_of_descent"									"Испытание Поколений"
 
-		"tooltip_pit_highest_level"										"Highest Level Cleared"
+		"tooltip_pit_highest_level"										"Пройдено"
 		"tooltip_no_lock_out"											"Подземелье открыто"
 		"tooltip_lock_out"												"Подземелье уже было открыто сегодня.<br>Проверьте завтра"
 
@@ -424,7 +424,7 @@
 
 		"tooltip_pit_enemy_damage"										"Урон врагов"
 		"tooltip_pit_enemy_resistance"									"Сопротивление врагов"
-		"tooltip_pit_enemy_paragon"										"Частота появления Парагонов"
+		"tooltip_pit_enemy_paragon"										"Частота Парагонов"
 
 		"DOTA_Tooltip_ability_arena_master_duelist_passive"					"Battle Haste"
 		"DOTA_Tooltip_ability_arena_master_duelist_passive_Description"		"С 30% шансом при атаке, существо получит усиление, дающее максимальную скорость атаки на 1 секунду."

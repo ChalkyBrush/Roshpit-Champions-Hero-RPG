@@ -65,7 +65,8 @@
 					<Label id="reward_and_go_description_text"/>
 					<Button id="reward_go_button" class="reward_unclaimed">
 						<Label id="challenge_go_button_text"/>
-					</Button>					
+					</Button>		
+					<Label id="reward-stars-warning" class="invisible"/>			
 				</Panel>
 			</Panel>
 		</snippet>

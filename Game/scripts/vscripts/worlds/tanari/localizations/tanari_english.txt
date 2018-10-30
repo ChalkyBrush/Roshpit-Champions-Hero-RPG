@@ -22,9 +22,9 @@
 		"DOTA_Tooltip_ability_item_tanari_fire_temple_key_elite"				"Fire Temple Key"
 		"DOTA_Tooltip_ability_item_tanari_fire_temple_key_legend"			"Fire Temple Key"
 
-		"item_tanari_fire_temple_key_normal_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle on normal difficulty. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
-		"item_tanari_fire_temple_key_elite_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle on elite difficulty. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
-		"item_tanari_fire_temple_key_legend_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle on legend difficulty. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+		"item_tanari_fire_temple_key_normal_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+		"item_tanari_fire_temple_key_elite_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+		"item_tanari_fire_temple_key_legend_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
 
 		"DOTA_Tooltip_ability_item_tanari_essence_of_wind_normal"			"Essence of Wind"
 		"DOTA_Tooltip_ability_item_tanari_essence_of_wind_elite"				"Essence of Wind"
