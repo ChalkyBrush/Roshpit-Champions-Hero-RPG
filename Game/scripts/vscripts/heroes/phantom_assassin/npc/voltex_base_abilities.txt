@@ -1,3 +1,4 @@
+
 	"overcharge"
 	{
 		// General
@@ -389,8 +390,6 @@
 				"EffectAttachType"	"follow_origin"
 			}
 		}
-
-
 	}
 
 	"electric_jump"
@@ -705,9 +704,7 @@
 				}
 			}
 		}
-
 	}
-
 
 	"heavens_charge"
 	{
@@ -785,7 +782,6 @@
 			}
 		}
 	}
-
 
 	"static_field"
 	{
@@ -1007,327 +1003,251 @@
 		}
 	}
 
-	"voltex_lightning_dash"
+	"thunder_strike"//unused
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"voltex/voltex_storm_rush"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityCastRange"				"1000 1125 1250 1375 1500 1625 1750"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-	    "precache"
-	    {
-
-	    }
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"4"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"razor_plasma_field"
+		"AbilityCastRange"	"1000"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"14.0"
+		"AbilityChannelTime"	"2.0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityDamage"	"%damage"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          "1"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "6"
+		"precache"
 		{
-			"01"
+			"particle"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
+			"particle"  "particles/units/heroes/hero_rhasta/forked_lightning_old.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
+			"particle" "particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf"
+			"particle"	"particles/test_particle/damage_immunity.vpcf"
+		}
+
+		"AbilityManaCost"	"0"
+		"SideShop"	"1"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_reduction_percent"	"45 50 55 60 65 70 75"
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
 			}
-			"02"
+
+			"FireSound"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"	"1000 1125 1250 1375 1500 1625 1750"
+				"EffectName"	"Hero_Razor.Storm.Cast"
+				"Target"	"CASTER"
+			}
+			"AttachEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"EffectRadius"	"%radius"
+				"EffectDurationScale"	"1"
+				"EffectLifeDurationScale"	"1"
+				"EffectColorA"	"200 200 0"
+				"EffectColorB"	"200 200 0"
+				"Target"	"CASTER"
+			}
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+			"AttachEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"EffectRadius"	"%radius"
+				"EffectDurationScale"	"1"
+				"EffectLifeDurationScale"	"1"
+				"EffectColorA"	"200 200 0"
+				"EffectColorB"	"200 200 0"
+				"Target"	"CASTER"
+			}
+
+			"Knockback"
+			{
+				"Center"	"CASTER"
+				"Target"
+				{
+					"Center"	"CASTER"
+					"Radius"	"%radius"
+					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				}
+
+				"Duration"	"%duration"
+				"Distance"	"%distance/2"
+				"Height"	"%height"
+			}
+
+			"Knockback"
+			{
+				"Center"	"CASTER"
+				"Target"
+				{
+					"Center"	"CASTER"
+					"Radius"	"%radius/2"
+					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				}
+
+				"Duration"	"%duration"
+				"Distance"	"%distance"
+				"Height"	"%height"
+			}
+
+			"FireSound"
+			{
+				"EffectName"	"Hero_Razor.Storm.Cast"
+				"Target"	"CASTER"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/phantom_assassin/thunder_strike.lua"
+				"Function"		"begin_strike"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/phantom_assassin/voltex_runes"
+				"Function"		"r_1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/phantom_assassin/voltex_runes"
+				"Function"		"r_2"
 			}
 
 		}
 
-		"OnSpellStart"
+		"OnChannelFinish"
 		{
-			"RunScript"
+			"RemoveModifier"
 			{
-				"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
-				"Function"		"begin_lightning_dash"
-				"Target"		"POINT"
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
 			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
 		}
 
 		"Modifiers"
 		{
-			"modifier_lightning_dash"
+			"modifier_channel_start"
 			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"OverrideAnimation"     "ACT_DOTA_VERSUS"
-				"EffectName"	"particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-				"ThinkInterval"  "0.03"
-				"IsHidden"		"1"
-				"OnIntervalThink"
+				"OnCreated"
 				{
-					"RunScript"
+					"AttachEffect"
 					{
-						"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
-						"Function"		"dash_think"
+						"IsHidden"	"1"
+						"EffectName"	"particles/units/heroes/hero_rhasta/forked_lightning_old.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"CASTER"
+						"EffectRadius"	"%radius"
+						"EffectColorA"	"255 0 0"
+						"EffectColorB"	"255 0 0"
+						"ControlPoints"
+						{
+							"00"	"50 100 5"
+						}
+
 					}
+
 				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
-						"Function"		"dash_end"
-					}
-				}
+
 			}
-			"modifier_voltex_arcana1_passive"
+			"modifier_thunder_clap"
 			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnTakeDamage"
-				// "%attack_damage" is set to the damage value after mitigation
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+
+				"EffectName"		"particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"StatusEffectName" 		"particles/status_fx/status_effect_brewmaster_thunder_clap.vpcf"
+				"StatusEffectPriority"  "10"
+
+				"Properties"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
-						"Function"		"arcana_take_damage"
-						"damage"		"%attack_damage"
-					}
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-50"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
 				}
-				"OnDestroy"
+
+				"OnCreated"
 				{
-					"RemoveModifier"
+					"FireSound"
 					{
-						"ModifierName"	"modifier_lightning_dash_freecast"
+						"EffectName"	"Hero_Brewmaster.ThunderClap.Target"
 						"Target" 		"TARGET"
 					}
 				}
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
-						"Function"		"add_free_casts"
-					}
-				}
 			}
-			"modifier_lightning_dash_freecast"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-			}
-			"modifier_voltex_lightning_dash_regen"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"ThinkInterval"  "0.1"
-				"TextureName"	"voltex/voltex_rune_e_3_arcana1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
-						"Function"		"regen_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
-						"Function"		"regen_end"
-					}
-				}
-			}
-			"modifier_voltex_lightning_dash_regen_hidden"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1"
-				}
-			}
+
 		}
 
-	}
-
-	"voltex_magnet"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityTextureName"			"voltex/thermion_magnet"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.15"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"4.5"
-		"AbilityCastRange"				"1000 1100 1200 1300 1400 1500 1600"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"freeze_duration"					"0.1 0.2 0.3 0.4 0.5 0.6 0.7"
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"0.5"
 			}
+
 			"02"
 			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"600 800 1000 1200"
+			}
+
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"550 525 550 600"
+			}
+
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"distance"	"400 500 600 700"
+			}
+
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"height"	"100 125 150 175"
+			}
+			"06"
+			{
 				"var_type"					"FIELD_INTEGER"
-				"cast_range"				"1000 1100 1200 1300 1400 1500 1600"
+				"ring_damage"				"160 250 330 440 500 610"
 			}
-		}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"no_of_rings"				"3 4 5 6 7 8"
+			}
 
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-
-		}
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/phantom_assassin/arcana/magnet"
-				"Function"		"blazing_magnet_precast"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/phantom_assassin/arcana/magnet"
-				"Function"		"blazing_magnet_cast"
-				"target"		"POINT"
-				"damage"		"%damage"
-				"cast_range"	"%cast_range"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_voltex_magnet"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			
-				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
-				"StatusEffectPriority"	"10"
-			
-				"ThinkInterval"  "0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/arcana/magnet"
-						"Function"		"magnet_thinker"
-					}
-				}
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/arcana/magnet"
-						"Function"		"magnet_attack_land"
-					}
-				}
-			}
-			"modifier_disable_player"
-			{
-				"IsHidden"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_magnet_freeze"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
-				"StatusEffectPriority"	"20"
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_magnet_travelling"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_magnet_d_d"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"voltex/voltex_rune_q_4_arcana2"
-			}
-			"modifier_arcana2_dash"
-			{
-				"IsHidden"	"1"
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/arcana/magnet"
-						"Function"		"magnet_slide_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/arcana/magnet"
-						"Function"		"magnet_slide_end"
-					}
-				}
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/phantom_assassin/arcana/magnet"
-				"Function"		"magnet_hit"
-				"target"		"TARGET"
-				"damage"		"%damage"
-				"freeze_duration"	"%freeze_duration"
-			}
 		}
 	}
+

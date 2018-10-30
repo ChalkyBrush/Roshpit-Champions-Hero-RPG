@@ -127,6 +127,12 @@
 	##EPOCH_BASE_ABILITIES##
 	##EPOCH_BASE_RUNES##
 
+	##VOLTEX_ARCANA_1_ABILITIES##
+	##VOLTEX_ARCANA_1_RUNES##
+	##VOLTEX_ARCANA_2_ABILITIES##
+	##VOLTEX_ARCANA_2_RUNES##
+	##VOLTEX_BASE_ABILITIES##
+	##VOLTEX_BASE_RUNES##
 
 
 
@@ -167,7 +173,6 @@
 	##SOLUNIA_ABILITIES##
 
 
-	##VOLTEX_ABILITIES##
 
 	##WINTERBLIGHT_ABILITIES##
 
@@ -1651,255 +1656,6 @@
 				"damage"					"100 200 400 700 1200"
 			}
 		}
-	}
-
-	"thunder_strike"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"razor_plasma_field"
-		"AbilityCastRange"	"1000"
-		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"14.0"
-		"AbilityChannelTime"	"2.0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
-		"AbilityDamage"	"%damage"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		"RequiredLevel"          "1"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "6"
-		"precache"
-		{
-			"particle"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
-			"particle"  "particles/units/heroes/hero_rhasta/forked_lightning_old.vpcf"
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
-			"particle" "particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf"
-			"particle"	"particles/test_particle/damage_immunity.vpcf"
-		}
-
-		"AbilityManaCost"	"0"
-		"SideShop"	"1"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-			"FireSound"
-			{
-				"EffectName"	"Hero_Razor.Storm.Cast"
-				"Target"	"CASTER"
-			}
-			"AttachEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"EffectRadius"	"%radius"
-				"EffectDurationScale"	"1"
-				"EffectLifeDurationScale"	"1"
-				"EffectColorA"	"200 200 0"
-				"EffectColorB"	"200 200 0"
-				"Target"	"CASTER"
-			}
-		}
-
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-			"AttachEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"EffectRadius"	"%radius"
-				"EffectDurationScale"	"1"
-				"EffectLifeDurationScale"	"1"
-				"EffectColorA"	"200 200 0"
-				"EffectColorB"	"200 200 0"
-				"Target"	"CASTER"
-			}
-
-			"Knockback"
-			{
-				"Center"	"CASTER"
-				"Target"
-				{
-					"Center"	"CASTER"
-					"Radius"	"%radius"
-					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				}
-
-				"Duration"	"%duration"
-				"Distance"	"%distance/2"
-				"Height"	"%height"
-			}
-
-			"Knockback"
-			{
-				"Center"	"CASTER"
-				"Target"
-				{
-					"Center"	"CASTER"
-					"Radius"	"%radius/2"
-					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				}
-
-				"Duration"	"%duration"
-				"Distance"	"%distance"
-				"Height"	"%height"
-			}
-
-			"FireSound"
-			{
-				"EffectName"	"Hero_Razor.Storm.Cast"
-				"Target"	"CASTER"
-			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"scripts/vscripts/heroes/phantom_assassin/thunder_strike.lua"
-				"Function"		"begin_strike"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/phantom_assassin/voltex_runes"
-				"Function"		"r_1"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/phantom_assassin/voltex_runes"
-				"Function"		"r_2"
-			}
-
-		}
-
-		"OnChannelFinish"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"Modifiers"
-		{
-			"modifier_channel_start"
-			{
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"IsHidden"	"1"
-						"EffectName"	"particles/units/heroes/hero_rhasta/forked_lightning_old.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"	"CASTER"
-						"EffectRadius"	"%radius"
-						"EffectColorA"	"255 0 0"
-						"EffectColorB"	"255 0 0"
-						"ControlPoints"
-						{
-							"00"	"50 100 5"
-						}
-
-					}
-
-				}
-
-			}
-			"modifier_thunder_clap"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-
-				"EffectName"		"particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap_debuff.vpcf"
-				"EffectAttachType"	"follow_origin"
-
-				"StatusEffectName" 		"particles/status_fx/status_effect_brewmaster_thunder_clap.vpcf"
-				"StatusEffectPriority"  "10"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-50"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
-				}
-
-				"OnCreated"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Hero_Brewmaster.ThunderClap.Target"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-
-		}
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"duration"	"0.5"
-			}
-
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"600 800 1000 1200"
-			}
-
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"radius"	"550 525 550 600"
-			}
-
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"distance"	"400 500 600 700"
-			}
-
-			"05"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"height"	"100 125 150 175"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"ring_damage"				"160 250 330 440 500 610"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"no_of_rings"				"3 4 5 6 7 8"
-			}
-
-		}
-
 	}
 
 	"strike_rings"
@@ -15122,7 +14878,6 @@
 	}
 
 
-	##VOLTEX_RUNES##
 	"experimental_chronosphere"
 	{
 		// General
@@ -74238,6 +73993,110 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"speed"						"350"
+			}
+		}
+	}
+
+	"voltex_rune_q_2_chain_lightning"//this seems unit's spell, not champion's
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"BaseClass"						"zuus_arc_lightning"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"850"
+		"AbilityCastPoint"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"25 50 75 100 125 150 175 200 225 250 275 300 325 350 375 400 425 450 475 500"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"700"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"jump_count"			"5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"jump_delay"			"0.25 0.25 0.25 0.25"
+			}
+		}
+	}
+
+	"voltex_rune_q_2_chain_lightning_two"//this seems unit's spell, not champion's
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"BaseClass"						"zuus_arc_lightning"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"850"
+		"AbilityCastPoint"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"525 550 575 600 625 650 675 700 725 750 775 800 825 850 875 900 925 950 975 1000"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"700"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"jump_count"			"25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"jump_delay"			"0.25 0.25 0.25 0.25"
 			}
 		}
 	}
