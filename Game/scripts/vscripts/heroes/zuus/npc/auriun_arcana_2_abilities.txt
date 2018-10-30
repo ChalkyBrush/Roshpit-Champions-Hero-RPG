@@ -1,0 +1,186 @@
+
+	"auriun_shadow_trap"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityTextureName"			"auriun/auriun_shadow_bind"
+		"AOERadius"						"220"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"			"220 230 240 250 260 270 280"
+			}
+		}
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000 1075 1150 1225 1300 1375"
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15 14 13 12 11 10 9"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/zuus/zuus_crown_arcana.lua"
+				"Function"		"start_shadow_arcana"
+				"target"		"POINT"
+				"radius"		"%radius"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_shadow_trap_passive"
+			{
+				"IsHidden"	"0"
+				"TextureName"	"auriun/auriun_shadow_bind"
+				"IsBuff"	"1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_shadow_trap_d_a_buff"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/roshpit/auriun/shadow_form.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"TextureName"	"auriun/auriun_rune_q_4_arcana2"
+				"StatusEffectName" 		"particles/econ/items/enigma/enigma_world_chasm/status_effect_enigma_blackhole_tgt_ti5.vpcf"
+				"StatusEffectPriority"  "30"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "150"
+				}
+			}
+			"shadow_trap"
+			{
+				"Aura"					"shadow_trap_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/roshpit/auriun/shadow_trap.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"Duration"			"6"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%radius 1 %radius"
+							"02" "6 6 6"
+							"15" "25 150 25"
+							"16" "1 0 0"
+						}
+					}
+				}
+			}
+			"shadow_trap_aura"
+			{
+				"IsHidden"	"0"
+				"EffectName"		"particles/roshpit/items/violet_guard_2.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.6"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/zuus/zuus_crown_arcana.lua"
+						"Function"		"shadow_trap_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_heavens_shield"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+
+				"EffectName"		"particles/roshpit/auriun/heavens_shield_shadow.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/zuus/zuus_crown_arcana.lua"
+						"Function"		"heavens_shield_take_damage"
+						"damage"		"%attack_damage"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/zuus/heavens_shield.lua"
+						"Function"		"heavens_shield_end"
+						"target"		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_auriun_rune_q_4_effect"
+						"Target" 		"TARGET"
+					}
+				}
+				"ThinkInterval"  "0.05"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/zuus/heavens_shield.lua"
+						"Function"		"heavens_shield_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_auriun_glyph_6_1_effect"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Passive"	"0"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+

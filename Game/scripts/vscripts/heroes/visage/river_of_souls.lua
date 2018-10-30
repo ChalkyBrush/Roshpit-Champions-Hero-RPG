@@ -1,3 +1,5 @@
+require("/heroes/visage/ekkan_constants")
+
 function river_of_souls_start(event)
 	local caster = event.caster
 	local ability = event.ability

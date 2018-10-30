@@ -1,0 +1,125 @@
+
+	"duskbringer_arcana_ability"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"duskbringer/duskbringer_arcana_ability1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AOERadius"						"300"
+		"AbilityCastRange"				"0"
+		"precache"
+		{
+
+		}
+
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"140 280 400 900 1600 2400 3200"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"5400 10000 40000 100000 240000 560000 900000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.06 0.09 0.12 0.15 0.18 0.21 0.24"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/spirit_breaker/arcana_ability.lua"
+        		"Function"		"arcana_ability_start"
+        		"damage"		"%damage"
+        		"Target"		"POINT"
+			}
+		}
+        "Modifiers"
+        {
+        	"modifier_hidden_ghost_hallow_smashing"
+        	{
+        		"Passive"	"0"
+        		"IsHidden"	"1"
+        		"States"
+        		{
+        			"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+        		"ThinkInterval"  "0.03"
+        		"OnIntervalThink"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/spirit_breaker/arcana_ability.lua"
+        				"Function"		"smashing_think"
+        			}
+        		}
+        		"OnDestroy"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/spirit_breaker/arcana_ability.lua"
+        				"Function"		"smashing_end"
+        				"damage"		"%damage"
+        				"stun_duration"	"%stun_duration"
+        			}
+        		}
+        	}
+        	"modifier_duskbringer_arcana_armor"
+        	{
+        		"IsHidden"	"0"
+        		"IsBuff"	"1"
+        		"TextureName"	"duskbringer/duskbringer_rune_w_2_arcana"
+        		"Properties"
+        		{
+        			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "120"
+        		}
+        	}
+        	"modifier_duskbringer_arcana_damage_buff"
+        	{
+        		"Passive"			"0"
+        		"IsHidden"			"0"
+        		"IsDebuff"			"0"
+        		"TextureName"		"duskbringer/duskbringer_rune_w_4_arcana"
+
+        		"EffectName"		"particles/econ/courier/courier_roshan_darkmoon/courier_roshan_darkmoon.vpcf"
+        		"EffectAttachType"	"follow_origin"
+
+        		"Properties"
+        		{
+        			"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "20000"
+        		    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "30"
+        		}
+        	}
+        	"modifer_duskbringer_d_b_charging_up"
+        	{
+        		"IsHidden"	"1"
+        		"States"
+        		{
+        			"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+        			"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+        			"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+        	}
+        }
+	}
+

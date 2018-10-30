@@ -1,0 +1,1253 @@
+
+	"overcharge"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rpc/voltex_overcharge"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_disruptor.vsndevts"
+			"particle"			"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
+			"particle"			"particles/status_fx/status_effect_electrical.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
+			"particle"			"particles/items_fx/chain_lightning.vpcf"
+			"particle"			"particles/roshpit/voltex/overcharge_lightning_attack.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.15 0.15 0.15"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"14"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_speed"		"60 90 120 150 180 210 240"
+			}
+
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"proc_targets"				"9 12 15 18 21 24 27"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"proc_damage"				"880 2880 8220 16680 24420 42680 82440"
+			}
+			"04"
+			{
+				"var_type" "FIELD_INTEGER"
+				"duration" "5"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"search_radius"	"520 530 540 550 560 570 580"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Disruptor.KineticField"
+				"Target"		"CASTER"
+			}
+
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Target"		"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/phantom_assassin/voltex_runes.lua"
+				"Function"		"voltex_q_1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/phantom_assassin/voltex_runes.lua"
+				"Function"		"voltex_q_3"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/phantom_assassin/lightning_attack.lua"
+				"Function"		"lightning_attack_start"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_gods_strength_datadriven"
+			{
+				"IsBuff"		"1"
+				"IsPurgable"	"0"
+
+				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
+				"StatusEffectPriority"	"10"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed"
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/lightning_attack.lua"
+						"Function"		"LightningAttack"
+						"Target"	"TARGET"
+						"damage"	"%proc_damage"
+						"shock_limit"	"%proc_targets"
+						"search_radius"	"%search_radius"
+					}
+				}
+			}
+			"modifier_overcharge_invis_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/voltex_runes"
+						"Function"		"apply_b_a_think"
+					}
+				}
+			}
+			"modifier_voltex_rune_q_2"
+			{
+				"Passive"	"0"
+				"TextureName"	"zuus_lightning_bolt_immortal"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/voltex_runes"
+						"Function"		"voltex_q_2"
+						"Target"		"TARGET"
+					}
+				}
+			}
+			"modifier_voltex_glyph_1_1_effect"
+			{
+				"Passive"	"0"
+				"IsBuff"	"1"
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "80"
+				}
+			}
+			"modifier_voltex_glyph_2_1_effect_visible"
+			{
+				"Passive"	"0"
+				"IsBuff"	"1"
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "200"
+				}
+			}
+			"modifier_voltex_glyph_2_1_effect_invisible"
+			{
+				"Passive"	"0"
+				"IsBuff"	"1"
+				"IsHidden"	"1"
+			}
+		}
+	}
+
+	"ability_zap"
+	{
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+	    "AbilityTextureName"	"zuus_arc_lightning"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AOERadius"				"%radius"
+
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityDamage" 	"%damage"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"120 300 500 900 1600 3400 5000"
+
+	    // Special
+	    //-------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type" "FIELD_INTEGER"
+	            "radius" "380 390 400 410 420 430 440"
+	        }
+	        "02"
+	        {
+	        	"var_type" "FIELD_INTEGER"
+	        	"damage" "240 700 2000 8000 20000 35000 75000"
+	        }
+	    }
+
+	    "precache"
+	    {
+	        "particle" 			"particles/units/heroes/hero_stormspirit/storm_spirit_new_loadout.vpcf"
+	        "particle" 			"particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning_trail_base_elec.vpcf"
+	        "soundfile"			"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
+			"particle"			"particles/generic_gameplay/generic_stunned.vpcf"
+			"particle"			"particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_fallback_low_egset.vpcf"
+			"particle"			"particles/neutral_fx/roshan_slam_debris_small.vpcf"
+			"particle"			"particles/units/heroes/hero_disruptor/disruptor_thunder_strike_bolt.vpcf"
+			"particle"			"particles/units/heroes/hero_sandking/sandking_sandstorm_start.vpcf"
+			"particle"			"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_impact.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_disruptor.vsndevts"
+			"particle"			"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_child.vpcf"
+			"particle"			"particles/units/heroes/hero_skeletonking/wraith_king_ghosts_ambient.vpcf"
+			"particle"			"particles/roshpit/voltex_shell_zap.vpcf"
+			"particle"			"particles/roshpit/voltex/ion_shell.vpcf"
+			"particle"			"particles/roshpit/voltex/voltex_d_b_debuff.vpcf"
+	    }
+
+
+	    // Data Driven
+	    //-------------------------------------------------------------------------------------
+	    "OnSpellStart"
+	    {
+	    	"RunScript"
+	    	{
+	    		"ScriptFile"	"heroes/phantom_assassin/ability_zap.lua"
+	    		"Function"		"begin_zap"
+	    		"radius"		"%radius"
+	    	}
+  		   "AttachEffect"
+	        {
+	          "EffectName"  "particles/units/heroes/hero_stormspirit/storm_spirit_new_loadout.vpcf"
+	          "EffectAttachType"  "follow_origin"
+	          "EffectDurationScale" "1"
+	          "EffectLifeDurationScale" "1"
+	          "EffectColorA"  "255 0 0"
+	          "EffectColorB"  "255 0 0"
+	          "Target"  "CASTER"
+	        }
+			"FireSound"
+			{
+				"EffectName"	"Voltex.ZapSound"
+				"Target"	"CASTER"
+			}
+	        "ActOnTargets"
+	        {
+	            "Target"
+	            {
+	                "Center" "CASTER"
+	                "Radius" "%radius"
+	                "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                "Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+	            }
+	            "Action"
+	            {
+	                "TrackingProjectile"
+	                {
+	                    "Target" "TARGET"
+	                    "EffectName" "particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning_trail_base_elec.vpcf"
+	                    "Dodgeable" "1"
+	                    "ProvidesVision" "1"
+	                    "VisionRadius" "300"
+	                    "MoveSpeed" "1000"
+	                    "SourceAttachment" "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+	                }
+	        		"RunScript"
+	        		{
+			    		"ScriptFile"	"heroes/phantom_assassin/ability_zap.lua"
+			    		"Function"		"zap_damage"
+			    		"target"		"TARGET"
+			    		"damage"		"%damage"
+	        		}
+
+	            }
+	        }
+	    }
+		"Modifiers"
+		{
+			"modifier_voltex_rune_w_3_shield"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"TextureName"		"rpc/voltex_rune_w_3"
+				"EffectName"		"particles/roshpit/voltex/ion_shell.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_electrified"
+			{
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"IsHidden"	"1"
+						"EffectName"	"particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning_trail_base_elec.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"CASTER"
+						"EffectRadius"	"%radius"
+						"EffectColorA"	"255 0 0"
+						"EffectColorB"	"255 0 0"
+						"ControlPoints"
+						{
+							"00"	"50 100 5"
+						}
+
+					}
+
+				}
+
+			}
+			"modifier_zapped"
+			{
+				"IsHidden"	"1"
+				"Passive"	"0"
+				"EffectName"	"particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning_trail_base_elec.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+			}
+			"modifier_voltex_rune_w_2_ally"
+			{
+				"Passive"	"0"
+				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
+				"StatusEffectPriority"	"10"
+				"EffectName"		"particles/roshpit/voltex/proton_switch_ghosts_ambient.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"TextureName"			"chen_test_of_faith"
+				"Duration"	"2"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"10"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_child.vpcf"
+						"EffectAttachType"  "start_at_customorigin"
+						"Target"            "CASTER"
+					}
+				}
+			}
+			"modifier_voltex_rune_w_2_self"
+			{
+				"Passive"	"0"
+				"Duration"	"2"
+				"TextureName"			"chen_test_of_faith"
+				"EffectName"		"particles/roshpit/voltex/proton_switch_ghosts_ambient.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"45"
+				}
+			}
+			"modifier_voltex_d_b_debuff"
+			{
+				"TextureName"	"nyx_assassin_mana_burn"
+				"IsDebuff"		"1"
+				"IsHidden"		"0"
+				"EffectName"	"particles/roshpit/voltex/voltex_d_b_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+		}
+	}
+
+	"electric_jump"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"storm_spirit_ball_lightning"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"1000 1050 1100 1150 1200 1250 1300"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+	    "precache"
+	    {
+	        "particle" 			"particles/units/heroes/hero_zuus/zeus_loadout.vpcf"
+			"particle"			"particles/generic_gameplay/generic_stunned.vpcf"
+			"particle"			"particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_fallback_low_egset.vpcf"
+			"particle"			"particles/neutral_fx/roshan_slam_debris_small.vpcf"
+			"particle"			"particles/units/heroes/hero_disruptor/disruptor_thunder_strike_buff.vpcf"
+			"particle"			"particles/units/heroes/hero_arc_warden/arc_warden_ambient.vpcf"
+			"particle"			"particles/units/heroes/hero_lina/lina_spell_laguna_blade_impact_sparks.vpcf"
+			"particle"			"particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_attack_crit.vpcf"
+	    }
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"9.0 8.7 8.4 8.1 7.8 7.5 7.2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"land_stun_duration"	"1.3 1.5 1.7 1.9 2.1 2.3 2.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"land_radius"			"270 280 290 300 310 320 330"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"land_damage"			"1000 5000 14000 40000 80000 200000 500000"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
+				"Function"		"begin_electric_jump"
+				"Target"		"POINT"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modfier_voltex_jumping"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
+				}
+				"EffectName"	"particles/units/heroes/hero_arc_warden/arc_warden_ambient.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
+						"Function"		"new_jumping_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
+						"Function"		"drop_end"
+					}
+					"FireSound"
+					{
+						"EffectName"	"Hero_Zuus.GodsWrath.Target"
+						"Target"		"CASTER"
+					}
+					"FireEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_disruptor/disruptor_thunder_strike_bolt.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "CASTER"
+
+						"ControlPoints"
+			            {
+			            	"00"	"CASTER"
+			            	"01"	"%land_radius 0 0"
+			            	"03"	"0 0 0"
+			            }
+					}
+
+					"DestroyTrees"
+			        {
+			        	"Center"	"CASTER"
+			        	"Radius"	"%land_radius"
+			        }
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"  	"TARGET"
+							"Radius" 	"%land_radius"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+						}
+
+						"Action"
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
+								"Function"		"target_effect"
+								"stun_duration"	"%land_stun_duration"
+								"land_damage"	"%land_damage"
+								"target"		"TARGET"
+							}
+						}
+					}
+				}
+			}
+			"modifier_electric_jump_lift"
+			{
+				"Duration"		"0.5"
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"OverrideAnimation"	"ACT_DOTA_IDLE"
+				"ThinkInterval"  "0.03"
+				"EffectName"	"particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
+						"Function"		"jump_think"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
+						"Function"		"begin_drop"
+					}
+				}
+
+			}
+			"modifier_electric_jump_fall"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"Duration"	"5"
+				"OverrideAnimation"	"ACT_DOTA_IDLE"
+				"ThinkInterval"  "0.03"
+				"EffectName"	"particles/units/heroes/hero_batrider/batrider_flaming_lasso_electric_cloud.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"OnCreated"
+				{
+					"FireEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_zuus/zeus_loadout.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "CASTER"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
+						"Function"		"falling_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
+						"Function"		"drop_end"
+					}
+					"FireSound"
+					{
+						"EffectName"	"Hero_Zuus.GodsWrath.Target"
+						"Target"		"CASTER"
+					}
+					"FireEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_disruptor/disruptor_thunder_strike_bolt.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "CASTER"
+
+						"ControlPoints"
+			            {
+			            	"00"	"CASTER"
+			            	"01"	"%land_radius 0 0"
+			            	"03"	"0 0 0"
+			            }
+					}
+
+					"DestroyTrees"
+			        {
+			        	"Center"	"CASTER"
+			        	"Radius"	"%land_radius"
+			        }
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"  	"TARGET"
+							"Radius" 	"%land_radius"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+						}
+
+						"Action"
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
+								"Function"		"target_effect"
+								"stun_duration"	"%land_stun_duration"
+								"land_damage"	"%land_damage"
+								"target"		"TARGET"
+							}
+						}
+					}
+				}
+			}
+			"modifier_voltex_rune_e_2"
+			{
+				"Passive"	"0"
+				"EffectName"		"particles/units/heroes/hero_phantom_assassin/phantom_assassin_blur.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"TextureName"		"wisp_relocate"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "300"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/voltex_runes"
+						"Function"		"b_c_think"
+						"Target"		"CASTER"
+					}
+				}
+			}
+			"modifier_voltex_rune_e_2_slow_glyphed"
+			{
+				"EffectName"		"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_debuff_b.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"TextureName"	"wisp_relocate"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
+				}
+			}
+		}
+	}
+
+	"heavens_charge"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"razor_eye_of_the_storm"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastRange"				"3000"
+		"AOERadius"						"400"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.25"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"300"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/phantom_assassin/heavens_charge"
+        		"Function"		"heaven_charge_start"
+        		"Target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_heavens_charge_falling"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+						"EffectAttachType"			"follow_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"140 140 255"
+						"EffectAlphaScale"			"1"
+					}
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/heavens_charge"
+						"Function"		"heaven_charge_fall_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"static_field"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"disruptor_static_storm"
+		"AbilityCastRange"	"1000"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"14.0"
+		"AbilityChannelTime"	"2.0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityDamage"	"%damage"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
+			"particle"  "particles/units/heroes/hero_rhasta/forked_lightning_old.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
+
+			"particle" "particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf"
+			"particle"	"particles/test_particle/damage_immunity.vpcf"
+			"soundfile"	 "soundevents/voscripts/game_sounds_vo_lina.vsndevts"
+			"particle"	"particles/econ/items/zeus/lightning_weapon_fx/voltex_ultimmortal_lightning.vpcf"
+			"particle"	"particles/units/heroes/hero_arc_warden/arc_warden_tempest_buff.vpcf"
+			"particle"	"particles/units/heroes/hero_arc_warden/arc_warden_base_attack.vpcf"
+			"particle"	"particles/units/heroes/hero_arc_warden/arc_warden_flux_cast.vpcf"
+			"particle"	"particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf"
+			"particle"	"particles/roshpit/voltex/voltex_bolt_lightning_bolt.vpcf"
+			"soundfile"	"soundevents/game_sounds_voltex.vsndevts"
+
+		}
+
+		"AbilityManaCost"	"0"
+		"SideShop"	"1"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+			"FireSound"
+			{
+				"EffectName"	"phantom_assassin_phass_happy_04"
+				"Target"	"CASTER"
+			}
+			"AttachEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"EffectRadius"	"%radius"
+				"EffectDurationScale"	"1"
+				"EffectLifeDurationScale"	"1"
+				"EffectColorA"	"200 200 0"
+				"EffectColorB"	"200 200 0"
+				"Target"	"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/phantom_assassin/static_field.lua"
+				"Function"		"begin_static_channel"
+			}
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+			"AttachEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"EffectRadius"	"%radius"
+				"EffectDurationScale"	"1"
+				"EffectLifeDurationScale"	"1"
+				"EffectColorA"	"200 200 0"
+				"EffectColorB"	"200 200 0"
+				"Target"	"CASTER"
+			}
+
+			"FireSound"
+			{
+				"EffectName"	"Ability.PlasmaField"
+				"Target"	"CASTER"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/phantom_assassin/static_field.lua"
+				"Function"		"begin_static_field"
+				"num_sparks"	"%num_sparks"
+			}
+
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/phantom_assassin/static_field.lua"
+				"Function"		"spark_hit"
+				"Target"		"TARGET"
+				"damage"		"%damage"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Zuus.ArcLightning.Target"
+				"Target" 		"TARGET"
+			}
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_disruptor/disruptor_thunder_strike_bolt.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"Target"		"TARGET"
+
+				"ControlPoints"
+	            {
+	            	"01"	"60 0 0"
+	            	"03"	"60 0 0"
+	            }
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_channel_start"
+			{
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"IsHidden"	"1"
+						"EffectName"	"particles/units/heroes/hero_rhasta/forked_lightning_old.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"CASTER"
+						"EffectRadius"	"%radius"
+						"EffectColorA"	"255 0 0"
+						"EffectColorB"	"255 0 0"
+						"ControlPoints"
+						{
+							"00"	"50 100 5"
+						}
+
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+				}
+
+			}
+			"voltex_b_d_stun_stacks"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+			}
+			"voltex_b_d_stun_immunity"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"430 1020 2080 5200 15400 45200 85800"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"num_sparks" "9 11 13 15 17 19 21"
+			}
+
+		}
+	}
+
+	"thunder_strike"//unused
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"razor_plasma_field"
+		"AbilityCastRange"	"1000"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"14.0"
+		"AbilityChannelTime"	"2.0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityDamage"	"%damage"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          "1"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "6"
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
+			"particle"  "particles/units/heroes/hero_rhasta/forked_lightning_old.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
+			"particle" "particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf"
+			"particle"	"particles/test_particle/damage_immunity.vpcf"
+		}
+
+		"AbilityManaCost"	"0"
+		"SideShop"	"1"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+			"FireSound"
+			{
+				"EffectName"	"Hero_Razor.Storm.Cast"
+				"Target"	"CASTER"
+			}
+			"AttachEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"EffectRadius"	"%radius"
+				"EffectDurationScale"	"1"
+				"EffectLifeDurationScale"	"1"
+				"EffectColorA"	"200 200 0"
+				"EffectColorB"	"200 200 0"
+				"Target"	"CASTER"
+			}
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+			"AttachEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"EffectRadius"	"%radius"
+				"EffectDurationScale"	"1"
+				"EffectLifeDurationScale"	"1"
+				"EffectColorA"	"200 200 0"
+				"EffectColorB"	"200 200 0"
+				"Target"	"CASTER"
+			}
+
+			"Knockback"
+			{
+				"Center"	"CASTER"
+				"Target"
+				{
+					"Center"	"CASTER"
+					"Radius"	"%radius"
+					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				}
+
+				"Duration"	"%duration"
+				"Distance"	"%distance/2"
+				"Height"	"%height"
+			}
+
+			"Knockback"
+			{
+				"Center"	"CASTER"
+				"Target"
+				{
+					"Center"	"CASTER"
+					"Radius"	"%radius/2"
+					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				}
+
+				"Duration"	"%duration"
+				"Distance"	"%distance"
+				"Height"	"%height"
+			}
+
+			"FireSound"
+			{
+				"EffectName"	"Hero_Razor.Storm.Cast"
+				"Target"	"CASTER"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/phantom_assassin/thunder_strike.lua"
+				"Function"		"begin_strike"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/phantom_assassin/voltex_runes"
+				"Function"		"r_1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/phantom_assassin/voltex_runes"
+				"Function"		"r_2"
+			}
+
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"Modifiers"
+		{
+			"modifier_channel_start"
+			{
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"IsHidden"	"1"
+						"EffectName"	"particles/units/heroes/hero_rhasta/forked_lightning_old.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"CASTER"
+						"EffectRadius"	"%radius"
+						"EffectColorA"	"255 0 0"
+						"EffectColorB"	"255 0 0"
+						"ControlPoints"
+						{
+							"00"	"50 100 5"
+						}
+
+					}
+
+				}
+
+			}
+			"modifier_thunder_clap"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+
+				"EffectName"		"particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"StatusEffectName" 		"particles/status_fx/status_effect_brewmaster_thunder_clap.vpcf"
+				"StatusEffectPriority"  "10"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-50"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
+				}
+
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Brewmaster.ThunderClap.Target"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"0.5"
+			}
+
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"600 800 1000 1200"
+			}
+
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"550 525 550 600"
+			}
+
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"distance"	"400 500 600 700"
+			}
+
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"height"	"100 125 150 175"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"ring_damage"				"160 250 330 440 500 610"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"no_of_rings"				"3 4 5 6 7 8"
+			}
+
+		}
+	}
+

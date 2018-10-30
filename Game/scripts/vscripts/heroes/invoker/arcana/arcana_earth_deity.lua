@@ -149,6 +149,7 @@ function earthshock_cast(event)
 	local duration = 3.0
     if caster:HasModifier("modifier_conjuror_glyph_5_1") then
     	duration = duration + 1.5
+    	radius = radius + 80
     end
     duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
     local damage = event.damage

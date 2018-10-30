@@ -1,0 +1,360 @@
+
+	"item_rpc_voltex_glyph_1_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/glyph_voltex_1_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_voltex_glyph_1_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"80"
+			}
+		}
+	}
+
+	"item_rpc_voltex_glyph_2_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/glyph_voltex_2_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_voltex_glyph_2_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"200"
+			}
+		}
+	}
+
+	"item_rpc_voltex_glyph_3_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/glyph_voltex_3_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_voltex_glyph_3_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"0"
+			}
+		}
+	}
+
+	"item_rpc_voltex_glyph_4_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/glyph_voltex_4_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_voltex_glyph_4_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/glyph_abilities.lua"
+						"Function"		"voltex_glyph_4_1_trigger"
+					}
+				}
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"items/glyph_abilities.lua"
+				"Function"		"voltex_glyph_4_1_strike"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"9"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"2"
+			}
+		}
+	}
+
+	"item_rpc_voltex_glyph_5_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/glyph_voltex_5_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_voltex_glyph_5_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"12"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"50"
+			}
+		}
+	}
+
+	"item_rpc_voltex_glyph_6_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/glyph_voltex_6_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_voltex_glyph_6_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"30"
+			}
+		}
+	}
+
+	"item_rpc_voltex_glyph_7_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/glyph_voltex_7_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_voltex_glyph_7_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"200"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"2.5"
+			}
+		}
+	}
+
+	"item_rpc_voltex_glyph_5_a"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/glyph_voltex_5_a"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_voltex_glyph_5_a"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"4"
+			}
+		}
+	}
+

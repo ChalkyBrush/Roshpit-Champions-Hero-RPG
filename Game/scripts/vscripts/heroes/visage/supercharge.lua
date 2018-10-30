@@ -1,3 +1,5 @@
+require("/heroes/visage/ekkan_constants")
+
 function start_channel(event)
 	local caster = event.caster
 	StartSoundEvent("Ekkan.SuperCharge.ChannelLP", caster)

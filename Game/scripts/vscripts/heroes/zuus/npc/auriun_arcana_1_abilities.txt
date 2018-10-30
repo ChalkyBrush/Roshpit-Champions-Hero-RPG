@@ -1,0 +1,201 @@
+
+	"auriun_aoe_shield"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityTextureName"			"auriun/auriun_aoe_shield"
+		"AOERadius"						"280"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stacks"				"2 3 4 5 6 7 8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aoe_radius"				"280"
+			}
+		}
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000 1075 1150 1225 1300 1375"
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/zuus/zuus_crown_arcana.lua"
+				"Function"		"start_holy_arcana"
+				"target"		"POINT"
+				"stacks"		"%stacks"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/zuus/zuus_crown_arcana.lua"
+				"Function"		"heavens_shield_spark_hit"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_holy_wrath_passive"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_holy_wrath_d_a_buff"
+			{
+				"IsHidden"	"0"
+				"TextureName"	"auriun/auriun_rune_q_4_arcana1"
+				"EffectName"	"particles/roshpit/auriun/arcana_teleport_ability.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "150"
+				}
+			}
+			"modifier_holy_wrath_d_a_cooldown"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"auriun/auriun_rune_q_4_arcana1"
+			}
+			"modifier_heavens_shield"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+
+				"EffectName"		"particles/units/heroes/hero_medusa/heavens_shield.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/zuus/zuus_crown_arcana.lua"
+						"Function"		"heavens_shield_take_damage"
+						"damage"		"%attack_damage"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/zuus/heavens_shield.lua"
+						"Function"		"heavens_shield_end"
+						"target"		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_auriun_rune_q_4_effect"
+						"Target" 		"TARGET"
+					}
+				}
+				"ThinkInterval"  "0.05"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/zuus/heavens_shield.lua"
+						"Function"		"heavens_shield_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_auriun_glyph_6_1_effect"
+			{
+				"IsHidden"	"0"
+				"TextureName"	"auriun/glyph_auriun_6_1_modifier"
+				"IsBuff"	"1"
+				"Passive"	"0"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_auriun_rune_q_3_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"TextureName"		"silencer_global_silence"
+				"EffectName"		"particles/units/heroes/hero_medusa/auriun_c_a.vpcf"
+				"EffectAttachType"	"attach_origin"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
+				}
+			}
+			"modifier_auriun_rune_q_3_thinker"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/zuus/heavens_shield.lua"
+						"Function"		"rune_q_3_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_auriun_c_a_attack_power"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+			"modifier_auriun_rune_q_4_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"TextureName"		"rpc/auriun_d_a"
+			}
+		}
+	}
+

@@ -1,0 +1,212 @@
+
+	"seinaru_blade_dash"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"FightRecapLevel"				"1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityTextureName"			"seinaru/seinaru_arcana_ability"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_percent_of_atk"		"140 220 300 380 460 540 620"
+			}
+		}
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"  				"particles/units/heroes/hero_ogre_magi/flametongue_buff.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"900 975 1050 1125 1200 1275 1350"
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5.7 5.4 5.1 4.8 4.5 4.2 3.9"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/juggernaut/seinaru_1_q_arcana.lua"
+				"Function"		"blade_dash_start"
+				"target"		"POINT"
+				"targetUnit"	"TARGET"
+				"duration"		"4"
+				"damage_attack"	"%damage_percent_of_atk"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_seinaru_ignore_cast_angle"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"1000"
+					"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "100"
+				}
+			}
+			"modifier_seinaru_arcana_dashing"
+			{
+				"OverrideAnimation"     "ACT_DOTA_OVERRIDE_ABILITY_1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/juggernaut/seinaru_1_q_arcana.lua"
+						"Function"		"arcana_dashing_think"
+
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_TURNING"	"1"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_seinaru_dashing_stun"
+			{
+				"OverrideAnimation"     "ACT_DOTA_FLAIL"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_seinaru_arcana_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"OnAttack"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/juggernaut/seinaru_1_q_arcana.lua"
+						"Function"		"arcana_attack_start"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/juggernaut/seinaru_1_q_arcana.lua"
+						"Function"		"arcana_attack_land"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/juggernaut/seinaru_1_q_arcana.lua"
+						"Function"		"arcana_passive_remove"
+					}
+				}
+			}
+			"modifier_seinaru_a_a_crit"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+			}
+			"modifier_seinaru_flying_sword_modifier"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/juggernaut/seinaru_1_q_arcana.lua"
+						"Function"		"flying_sword_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_flying_sword_destroy_stacks"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_seinaru_flying_sword_buff_visible"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"seinaru/seinaru_q_2_arcana1"
+			}
+			"modifier_seinaru_flying_sword_buff_invisible"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% SEINARU_ARCANA_Q2_ATT_PCT_PER_STACK %>"
+				}
+			}
+			"modifier_seinaru_arcana_agility_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"seinaru/seinaru_q_3_arcana1"
+			}
+			"modifier_seinaru_arcana_evasion_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"seinaru/seinaru_q_4_arcana1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_brewmaster/brewmaster_drunkenbrawler_evade.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+						"ControlPoints"
+						{
+							"01"	"255 255 255"
+						}
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "<% SEINARU_ARCANA_Q4_EVA_BASE %>"
+				}
+			}
+		}
+	}
+

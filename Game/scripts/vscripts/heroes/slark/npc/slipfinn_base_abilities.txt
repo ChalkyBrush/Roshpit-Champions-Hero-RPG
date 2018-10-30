@@ -1,0 +1,820 @@
+
+	"slipfinn_jump"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"slipfinn/puddle_jump"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"		"particles/econ/items/lion/fish_stick/fish_stick_splash.vpcf"
+			"particle"		"particles/roshpit/slipfinn/dark_bog_fallback_mid_egset.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"20 50 80 120 180 260 360"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"height_immune"			"330 310 290 270 250 230 210"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/slark/jump.lua"
+				"Function"		"slipfinn_jump_start"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_slipfinn_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/jump.lua"
+						"Function"		"slipfinn_main_thinker"
+						"height_immune"	"%height_immune"
+					}
+				}
+				"OnAbilityStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/bubble_possession.lua"
+						"Function"		"spell_precast"
+					}
+				}
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/bubble_possession.lua"
+						"Function"		"spell_cast"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/shadow_rush.lua"
+						"Function"		"slipfinn_attack_land"
+						"damage"		"%attack_damage"
+					}
+				}
+			}
+			"modifier_slipfinn_basic_jump"
+			{
+				"IsHidden" "1"
+				"ThinkInterval"  "0.03"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-300"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/jump.lua"
+						"Function"		"slipfinn_jump_think"
+					}
+				}
+			}
+			"modifier_slipfinn_jump_phase"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/jump.lua"
+						"Function"		"jump_phase_reset"
+					}
+				}
+			}
+			"modifier_jump_not_attackable"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_slipfinn_gloomshade_visible"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"slipfinn/slipfinn_rune_w_2"
+			}
+			"modifier_slipfinn_gloomshade_invisible"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+			}
+			"modifier_slipfinn_agitated_visible"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"0"
+				"TextureName"	"slipfinn/slipfinn_rune_w_3"
+			}
+			"modifier_slipfinn_agitated_invisible"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
+				}
+			}
+			"modifier_slipfinn_b_c_health"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "1"
+				}
+			}
+			"modifier_slipfinn_b_c_health_regen"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1" 
+				}
+			}
+		}
+	}
+
+	"slipfinn_prone"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"slipfinn/prone"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"	"particles/roshpit/slipfinn_pound.vpcf"
+			"particle"	"particles/status_fx/prone_effect.vpcf"
+			"soundfile"	"soundevents/game_sounds_slipfinn.vsndevts"
+			"particle"	"particles/units/heroes/slipfinn/slipfinn_b_a_buff.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.1"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"1000 8000 25000 100000 250000 500000 1000000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"magic_pure_resist"			"70 75 80 85 90 95 100"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/slark/prone.lua"
+				"Function"		"prone_start"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_slipfinn_prone"
+			{
+				"IsHidden"	"0"
+				"Passive"	"0"
+				"OverrideAnimation"     "ACT_DOTA_VERSUS"
+				"StatusEffectName" 		"particles/status_fx/prone_effect.vpcf"	   
+				"StatusEffectPriority"  "100"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"	
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/prone.lua"
+						"Function"		"prone_end"
+					}
+				}
+			}
+			"modifier_slipfinn_buttstomp"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/prone.lua"
+						"Function"		"buttstomp_think"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_shimmer_cape"
+			{
+				"IsHidden"	"0"
+				"TextureName"	"slipfinn/slipfinn_rune_q_2"
+				"EffectName"	"particles/units/heroes/slipfinn/slipfinn_b_a_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100"
+				}
+			}
+		}
+	}
+
+	"slipfinn_shadow_rush"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"slipfinn/slippery_sprint"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AOERadius"				 "800"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/roshpit/slipfinn/shadow_rush_buff.vpcf"
+			"particle"					"particles/roshpit/slipfinn/shadow_shank.vpcf"
+			"particle"					"particles/units/heroes/hero_slark/slark_dark_pact_pulses.vpcf"
+			"particle"					"particles/units/heroes/hero_slark/slark_loadout.vpcf"
+			"particle"					"particles/units/heroes/hero_slark/slark_shadow_dance.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"1.0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_bonus_and_max"		"700 800 900 1000 1100 1200 1300"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"3"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_slipfinn_shadow_rush"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+
+				"EffectName"		"particles/roshpit/slipfinn/shadow_rush_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/shadow_rush"
+						"Function"		"shadow_rush_think"
+					}
+				}
+			}
+			"modifier_slipfinn_shadow_rush_flying_portion"
+			{
+				"TextureName"	"slark_pounce"
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/shadow_rush"
+						"Function"		"flying_portion_think"
+					}
+				}
+			}
+			"modifier_slipfinn_shadow_cloak"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName" "slipfinn/slipfinn_rune_e_3"
+				"EffectName"	"particles/units/heroes/hero_slark/slark_shadow_dance.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"ControlPointEntities"
+				{
+					"CASTER"	"attach_hitloc"
+					"CASTER"	"attach_hitloc"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/slark/shadow_rush"
+				"Function"		"shadow_rush_pre"
+			}
+		}
+		"OnAbilityPhaseInterrupted"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/slark/shadow_rush"
+				"Function"		"shadow_rush_pre_cancel"
+			}			
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/slark/shadow_rush"
+				"Function"		"shadow_rush_start"
+				"duration"		"%duration"
+			}
+		}
+	}
+
+	"slipfinn_shadow_warp"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"slipfinn/shady_smoke"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastRange"				"400 420 440 460 480 500 520"
+
+		// Precache
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_slark/slark_shadow_dance.vpcf"
+		}
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"3.4 3.3 3.2 3.1 3.0 2.9 2.8"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"		"400 420 440 460 480 500 520"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/slark/shadow_warp"
+        		"Function"		"shadow_warp_start"
+        		"Target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_slipfinn_shadow_warping"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"slipfinn_bubble_possession"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"slipfinn/possessive_bubble"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"20 18 16 14 12 10 8"
+		"AbilityChannelTime"	"1.5"
+		"AbilityCastRange"				"1600"
+		"AbilityCastAnimation"	"ACT_DOTA_LOADOUT_RARE"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+			"particle"					"particles/roshpit/tanari/status_effect_spirit_blue.vpcf"
+			"particle"					"particles/roshpit/slipfinn/possession_start_choslam_start.vpcf"
+			"particle"					"particles/roshpit/slipfinn/possession_bubble_debuff.vpcf"
+			"particle"					"particles/roshpit/slipfinn/possession_movement.vpcf"
+			"particle"					"particles/roshpit/possession_begin_flight_tart.vpcf"
+			"particle"					"particles/roshpit/slipfinn/possession_release_choslam_start.vpcf"
+			"particle"					"particles/roshpit/slipfinn/glyph_6_1_link_electric_vortex.vpcf"
+		}		
+
+		"AbilityManaCost"	"0"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/slark/bubble_possession.lua"
+				"Function"		"start_channel"
+			}
+
+		}
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/slark/bubble_possession.lua"
+				"Function"		"bubble_possess_start"
+				"target"		"TARGET"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/slark/bubble_possession.lua"
+				"Function"		"channel_interrupt"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_channel_start"
+			{
+				"IsHidden"	"1"
+				"OverrideAnimation"     "ACT_DOTA_FLAIL"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+						"EffectAttachType"			"follow_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"40 200 250"
+						"EffectAlphaScale"			"0.7"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/bubble_possession.lua"
+						"Function"		"bubble_possession_channel_thinking"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_slipfinn_enemy_locked"
+			{
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/bubble_possession.lua"
+						"Function"		"enemy_locked_end"
+					}
+				}
+			}
+			"modifier_possession_moving_toward_target"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"EffectName"	"particles/roshpit/slipfinn/possession_movement.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/bubble_possession.lua"
+						"Function"		"possession_moving_towards_think"
+						"duration"		"%duration"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_possession_enemy_lock"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.02"
+				"OverrideAnimation"     "ACT_DOTA_DISABLED"
+				"StatusEffectName" 		"particles/roshpit/tanari/status_effect_spirit_blue.vpcf"	   
+				"StatusEffectPriority"  "100"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/bubble_possession.lua"
+						"Function"		"enemy_lock_think"
+						"target"		"TARGET"
+					}
+				}
+				"EffectName"	"particles/roshpit/slipfinn/possession_bubble_debuff.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_release_falling"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/bubble_possession.lua"
+						"Function"		"release_falling_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/bubble_possession.lua"
+						"Function"		"release_fall_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_possession_attack_power"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+			"modifier_bubble_possess_6_1_glyph"
+			{
+				"IsHidden"	"1"
+				"OverrideAnimation"	"ACT_DOTA_FLAIL"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/bubble_possession.lua"
+						"Function"		"enemy_6_1_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/bubble_possession.lua"
+						"Function"		"enemy_6_1_start"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/bubble_possession.lua"
+						"Function"		"enemy_6_1_end"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"duration"	"32 36 40 44 48 52 56"
+			}
+		}
+	}
+
+	"slipfinn_release_possess"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"slipfinn/release"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.1"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/slark/bubble_possession.lua"
+				"Function"		"release"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+

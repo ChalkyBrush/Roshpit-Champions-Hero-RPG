@@ -1,0 +1,395 @@
+
+	"item_rpc_dinath_glyph_1_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/dinath/glyph_dinath_1_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_dinath_glyph_1_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"1.5"
+			}
+		}
+	}
+
+	"item_rpc_dinath_glyph_2_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/dinath/glyph_dinath_2_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_dinath_glyph_2_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"35"
+			}
+		}
+	}
+
+	"item_rpc_dinath_glyph_3_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/dinath/glyph_dinath_3_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_dinath_glyph_3_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"2"
+			}
+		}
+	}
+
+	"item_rpc_dinath_glyph_4_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/dinath/glyph_dinath_4_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_dinath_glyph_4_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "7"
+				"OnIntervalThink"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_drake_dive_freecast"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_drake_dive_freecast"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_drake_dive_freecast"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"7"
+			}
+		}
+	}
+
+	"item_rpc_dinath_glyph_5_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/dinath/glyph_dinath_5_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_dinath_glyph_5_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/winter_wyvern/drake_ring"
+						"Function"		"glyph_5_attack_land"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.05"
+			}
+		}
+	}
+
+	"item_rpc_dinath_glyph_6_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/dinath/glyph_dinath_6_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_dinath_glyph_6_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1000"
+			}
+		}
+	}
+
+	"item_rpc_dinath_glyph_7_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/dinath/glyph_dinath_7_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_dinath_glyph_7_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"1"
+			}
+		}
+	}
+
+	"item_rpc_dinath_glyph_5_a"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/dinath/glyph_dinath_5_a"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_dinath_glyph_5_a"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/winter_wyvern/hyper_beam"
+						"Function"		"dinath_glyph_5_a_init"
+						"target"        "TARGET"
+					}
+				}	
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_black_King_bar_immunity"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_black_King_bar_immunity"
+			{
+				"Passive"	"0"
+				"IsHidden" "0"
+				"EffectName"	"particles/items_fx/black_king_bar_avatar.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Dinath.MagicImmune"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_golden_scale_immunity"
+			{
+				"IsHidden"	"1"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"5"
+			}
+		}
+	}
+

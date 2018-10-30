@@ -1,0 +1,85 @@
+
+	"mountain_protector_rune_e_1_arcana3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_rune_e_1_arcana3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT %>"
+			}
+		}
+	}
+
+	"mountain_protector_rune_e_2_arcana3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_rune_e_2_arcana3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% ARCANA3_E2_STR_TO_ABILITIES_DAMAGE %>"
+			}
+		}
+	}
+
+	"mountain_protector_rune_e_3_arcana3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_rune_e_3_arcana3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"7"
+			}
+		}
+	}
+
+	"mountain_protector_rune_e_4_arcana3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_rune_e_4_arcana3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% ARCANA3_E4_THRESHOLD_INCREASE_PERCENT %>"
+			}
+		}
+	}
+

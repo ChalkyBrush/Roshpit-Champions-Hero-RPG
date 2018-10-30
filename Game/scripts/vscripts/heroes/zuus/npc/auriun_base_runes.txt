@@ -1,0 +1,619 @@
+
+	"auriun_rune_q_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/auriun_rune_q_1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"15"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one_base"		"100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
+			}
+		}
+	}
+
+	"auriun_rune_q_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"keeper_of_the_light_spirit_form_illuminate"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"8"
+			}
+		}
+	}
+
+	"auriun_rune_q_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"silencer_global_silence"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.4"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_auriun_rune_q_3_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+
+				"EffectName"		"particles/units/heroes/hero_medusa/auriun_c_a.vpcf"
+				"EffectAttachType"	"attach_origin"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
+				}
+			}
+		}
+	}
+
+	"auriun_rune_q_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/auriun_q_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"7"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_auriun_rune_q_4_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
+		}
+	}
+
+	"auriun_rune_w_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/auriun_rune_w_1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1920"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one_base"		"400"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"11"
+			}
+		}
+	}
+
+	"auriun_rune_w_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"invoker_quas"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.06"
+			}
+		}
+	}
+
+	"auriun_rune_w_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/auriun_rune_w_3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.5"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_auriun_rune_w_3_visible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
+			"modifier_auriun_rune_w_3_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+		}
+	}
+
+	"auriun_rune_w_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/auriun_w_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"-1"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_auriun_rune_w_4_effect_visible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/auriun_d_b.vpcf"
+						"EffectAttachType"			"follow_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectAlphaScale"			"1"
+					}
+				}
+
+			}
+			"modifier_auriun_rune_w_4_effect_invisible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "0.6"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1"
+				}
+			}
+		}
+	}
+
+	"auriun_rune_e_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"storm_spirit_overload"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"2.0"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_auriun_rune_e_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/zuus/seraph_surge.lua"
+						"Function"		"a_c_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"auriun_rune_e_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"zuus_static_field"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"120"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_auriun_rune_e_2"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+						"EffectAttachType"			"follow_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"120 120 255"
+						"EffectAlphaScale"			"1"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/zuus/seraph_surge"
+						"Function"		"auriun_b_c_end"
+					}
+				}
+			}
+		}
+	}
+
+	"auriun_rune_e_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"chen_penitence"
+
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"40"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_auriun_rune_e_3_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  	"2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/zuus/seraph_surge.lua"
+						"Function"		"rune_unit_3_think"
+					}
+				}
+			}
+			"modifier_auriun_rune_e_3_effect"
+			{
+				"IsBuff"	"1"
+				"IsHidden"	"0"
+			}
+		}
+	}
+
+	"auriun_rune_e_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/auriun_e_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"		"0.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"800"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_auriun_rune_e_4_stun_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
+		}
+	}
+
+	"auriun_rune_r_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"invoker_cold_snap"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"5"
+			}
+		}
+	}
+
+	"auriun_rune_r_2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"zuus_thundergods_wrath"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.5"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_auriun_rune_r_2_visible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/items2_fx/rod_of_atos_debuff.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
+				}
+			}
+			"modifier_auriun_rune_r_2_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
+				}
+			}
+		}
+	}
+
+	"auriun_rune_r_3"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/auriun_rune_r_3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.15"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_auriun_rune_r_3_visible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_chen/chen_penitence_debuff.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
+				}
+			}
+			"modifier_auriun_rune_r_3_effect_agility"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+			}
+			"modifier_auriun_rune_r_3_effect_strength"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+			}
+		}
+	}
+
+	"auriun_rune_r_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/auriun_r_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"25"
+			}
+		}
+	}
+

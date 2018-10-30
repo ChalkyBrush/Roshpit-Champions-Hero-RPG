@@ -1,4 +1,7 @@
--- require("heroes/invoker/arcana/arcana_earth_deity.lua")
+function conjuror_summon_arcana_earth_deity(event)
+	require('heroes/invoker/arcana/arcana_earth_deity')
+	return earth_deity(event)
+end
 
 function begin_cast(event)
 	local caster = event.caster
@@ -484,7 +487,7 @@ function aspect_die(event)
 					earthReviveEvent.ability = earthReviveEvent.caster:FindAbilityByName("summon_earth_deity")
 					earthReviveEvent.aspect_health = earthReviveEvent.ability:GetSpecialValueFor("aspect_health")
 					earthReviveEvent.aspect_damage = earthReviveEvent.ability:GetSpecialValueFor("aspect_damage")
-					earth_deity(earthReviveEvent)
+					conjuror_summon_arcana_earth_deity(earthReviveEvent)
 				end
 			end
 			if caster.conjuror.earthAspectResummonForbidden then

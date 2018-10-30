@@ -1,0 +1,1298 @@
+
+	"summon_earth_aspect"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"tiny_grow"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 250 400 600 800 1000 1400"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_health"				"3000 10000 20000 50000 100000 150000 200000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_armor"				"5 20 60 250 500 1500 2500"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_magic_resist"		"90"
+			}
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"model" "models/items/courier/vaal_the_animated_constructdire/vaal_the_animated_constructdire.vmdl"
+			"particle"	"particles/units/heroes/hero_earth_spirit/espirit_bouldersmash_caster.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
+			"particle"			"particles/roshpit/conjuror/earthquake.vpcf"
+			"particle"			"particles/items_fx/brown_lightning.vpcf"
+			"particle" 	"particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap.vpcf"
+			"particle"  "particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap_debuff.vpcf"
+			"particle"  "particles/status_fx/status_effect_brewmaster_thunder_clap.vpcf"
+			"particle"	"particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf"
+			"particle"	"particles/items_fx/earth_guardian.vpcf"
+			"soundfile"	"soundevents/game_sounds_conjuror.vsndevts"
+
+			"particle"	"particles/roshpit/conjuror/earth_well.vpcf"
+			"particle"	"particles/status_fx/status_effect_blademail.vpcf"
+		}
+
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/aspects.lua"
+				"Function"		"begin_cast"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/aspects.lua"
+				"Function"		"earth_aspect"
+				"aspect_health"	"%aspect_health"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_earth_aspect_health"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
+				}
+
+			}
+			"modifier_earth_guardian"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
+			"modifier_aspect_earth_well"
+			{
+				"TextureName"	"elder_titan_earth_splitter"
+				"IsHidden"	"0"
+				"IsBuff"		"1"
+				"EffectName"        "particles/roshpit/conjuror/earth_well.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1500"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/roshpit/conjuror/earth_well.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
+				}
+			}
+			"modifier_conjuror_glyph_5_a_summon"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_aspect_invulnerable"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"dazzle_shadow_wave"
+				"StatusEffectName" 		"particles/status_fx/status_effect_blademail.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"earth_aspect_quake_leap"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"tiny_toss"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"1050"
+		"AOERadius"						"600"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/ultimate_aspect_abilities.lua"
+				"Function"		"begin_ultimate_jump"
+				"Target"		"POINT"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modfier_earth_aspect_jumping"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
+				}
+				"EffectName"	"particles/units/heroes/hero_brewmaster/brewmaster_primal_split_fire_trail.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/ultimate_aspect_abilities.lua"
+						"Function"		"earth_aspect_jumping_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/ultimate_aspect_abilities.lua"
+						"Function"		"drop_end"
+					}
+				}
+			}
+		}
+	}
+
+	"summon_fire_aspect"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"nevermore_dark_lord_demon"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 250 400 600 800 1000 1400"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_health"				"1500 3000 7000 17000 40000 80000 140000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_damage"				"200 400 1500 5000 20000 40000 70000"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_armor"				"5 50 100 300 600 1200 2000"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_magic_resist"		"80"
+			}
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"model" "models/items/invoker/forge_spirit/infernus/infernus.vmdl"
+
+			"particle"	"particles/econ/items/brewmaster/brewmaster_offhand_elixir/brewmaster_thunder_clap_fire_elixir.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
+			"particle"	"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+			"particle"	"particles/units/heroes/hero_phantom_lancer/immolation_phantomlancer_spiritlance_projectile.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts"
+			"particle"	"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+			"particle"	"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+			"particle"	"particles/econ/items/axe/axe_helm_shoutmask/axe_beserkers_call_buff_shout_mask.vpcf"
+
+			"model"	"models/items/invoker/forge_spirit/grievous_ingots/grievous_ingots.vmdl"
+			"particle"	"particles/econ/items/invoker/glorious_inspiration/invoker_forge_spirit_ambient_esl.vpcf"
+			"particle"	"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+		}
+
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/aspects.lua"
+				"Function"		"begin_cast"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/aspects.lua"
+				"Function"		"fire_aspect"
+				"aspect_health"	"%aspect_health"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_fire_aspect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%aspect_damage"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
+				}
+
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/immolation.lua"
+						"Function"		"fire_aspect_attack_land"
+						"attack_damage"	"%attack_damage"
+					}
+				}
+			}
+			"modifier_conjuror_glyph_1_1_effect"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "140"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "200"
+				}
+			}
+			"modifier_conjuror_glyph_5_a_summon"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_aspect_invulnerable"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"dazzle_shadow_wave"
+				"StatusEffectName" 		"particles/status_fx/status_effect_blademail.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_conjuror_rune_w_3_effect"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/immolation.lua"
+						"Function"		"fire_aspect_attack_land"
+						"attack_damage"	"%attack_damage"
+					}
+				}
+			}
+		}
+	}
+
+	"summon_shadow_aspect"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"enigma_malefice"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 250 400 600 800 1000 1400"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_health"				"1200 2500 5000 12000 30000 60000 100000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_damage"				"90 200 600 2400 5500 20000 40000"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_armor"				"5 50 100 300 600 1200 2000"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_magic_resist"		"80"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_attack_splits"		"4 5 6 7 8 9 10"
+			}
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"model"	"models/heroes/enigma/eidelon.vmdl"
+			"particle"	 "particles/econ/items/enigma/enigma_geodesic/enigma_base_attack_eidolon_geodesic.vpcf"
+			"particle"	"particles/units/heroes/hero_enigma/enigma_ambient_eyes.vpcf"
+			"particle"	"particles/units/heroes/hero_enigma/enigma_ambient_body.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_shadow_demon.vsndevts"
+			"particle"	"particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf"
+			"particle"	"particles/units/heroes/hero_phantom_lancer/shadow_flare_phantomlancer_spiritlance_projectile.vpcf"
+			"particle"	"particles/econ/items/enigma/enigma_geodesic/conjuror_d_c_aspect_eidolon_geodesic.vpcf"
+			"particle"	"particles/units/heroes/hero_phantom_lancer/conjuror_d_c_phantomlancer_spiritlance_projectile.vpcf"
+			"particle"	"particles/roshpit/shadow_aspect_soul_of_shadow.vpcf"
+		}
+
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/aspects.lua"
+				"Function"		"begin_cast"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/aspects.lua"
+				"Function"		"shadow_aspect"
+				"aspect_health"	"%aspect_health"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/aspects.lua"
+				"Function"		"shadow_attack_strike"
+				"Target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_shadow_aspect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%aspect_damage"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/aspects.lua"
+						"Function"		"shadow_aspect_attack"
+						"aspect_attack_splits"	"%aspect_attack_splits"
+					}
+				}
+			}
+			"modifier_conjuror_a_c_buff_visible"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_conjuror_a_c_buff_invisible"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"  "1"
+				}
+			}
+			"modifier_conjuror_c_c_damage"
+			{
+				"IsHidden"	"1"
+				"IsBuff"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+			"modifier_conjuror_glyph_4_1_effect"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "420"
+				}
+			}
+			"modifier_conjuror_rune_e_3_range"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "12"
+				}
+			}
+			"modifier_conjuror_c_d_slow_effect"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/units/heroes/hero_enigma/enigma_ambient_body.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-8"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-8"
+				}
+			}
+			"modifier_conjuror_glyph_5_a_summon"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_aspect_invulnerable"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"dazzle_shadow_wave"
+				"StatusEffectName" 		"particles/status_fx/status_effect_blademail.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"earth_aspect_a_a_ability"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"tiny_craggy_exterior"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"2"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_earth_aspect_a_a_ability"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/aspects.lua"
+						"Function"		"earth_aspect_a_a_think"
+					}
+				}
+			}
+			"modifier_conjuror_a_a_buff"
+			{
+				"EffectName"	"particles/items_fx/earth_guardian_ring.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "15"
+				}
+			}
+			"modifier_earth_aspect_a_a_effect"
+			{
+				"IsBuff"			"1"
+				"EffectName"		"particles/items_fx/earth_guardian.vpcf"
+				"EffectAttachType" 	"follow_origin"
+			}
+		}
+	}
+
+	"aspect_abilities"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"granite_golem_bash"
+		"MaxLevel"	"1"
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/aspects.lua"
+				"Function"		"aspect_die"
+			}
+		}
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_aspect_main"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_aspect_main"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_aspect_global_think"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "2.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/aspects.lua"
+						"Function"		"aspect_global_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_aspect_main"
+			{
+				"IsHidden" 	"1"
+				"Passive"	"0"
+				"ThinkInterval"  "1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/aspects.lua"
+						"Function"		"aspect_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"hero_summon_on"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"hero_summon_off"
+					}
+				}
+			}
+
+		}
+	}
+	
+	"call_of_elements"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"invoker_deafening_blast"
+		"AbilityCastRange"	"1000"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"28"
+		"AbilityChannelTime"	"2.5"
+		"AbilityCastAnimation"	 "ACT_DOTA_DIE"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient.vpcf"
+			"particle"		"particles/units/heroes/hero_brewmaster/brewmaster_fire_ambient.vpcf"
+			"particle"		"particles/units/heroes/hero_huskar/call_of_shadow.vpcf"
+			"particle"		"particles/status_fx/status_effect_earth_spirit_petrify.vpcf"
+			"particle"		"particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+
+			"soundfile" 	"soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
+			"model"			"models/items/warlock/golem/hellsworn_golem/hellsworn_golem.vmdl"
+			"particle"		"particles/addons_gameplay/pit_lava_blast.vpcf"
+			"particle"		"particle/roshpit/conjuror/deity_a_d.vpcf"
+			"particle"		"particles/roshpit/conjuror/deity_terra_blast.vpcf"
+			"particle"		"particles/roshpit/conjuror/deity_shadow_shield.vpcf"
+		}
+
+		"AbilityManaCost"	"0"
+		"SideShop"	"1"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/invoker/call_of_elements.lua"
+				"Function"		"channel_start"
+			}
+
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+			"FireSound"
+			{
+				"EffectName"	"DOTA_Item.Satanic.Activate"
+				"Target"	"CASTER"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/invoker/call_of_elements.lua"
+				"Function"		"begin_call"
+			}
+
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"Modifiers"
+		{
+			"modifier_channel_start"
+			{
+				"EffectName"		"particles/items2_fx/veil_of_discord_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+				}
+			}
+			"modifier_call_of_earth"
+			{
+				"IsBuff"			"1"
+				"IsHidden"			"0"
+				//"EffectName"		"particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient.vpcf"
+				//"EffectAttachType"	"follow_origin"
+				"StatusEffectName" 		"particles/status_fx/status_effect_earth_spirit_petrify.vpcf"
+				"StatusEffectPriority"  "10"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%health_regen"
+				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
+				}
+			}
+			"modifier_call_of_fire"
+			{
+				"IsBuff"			"1"
+				"IsHidden"			"0"
+				"EffectName"		"particles/units/heroes/hero_brewmaster/brewmaster_fire_ambient.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%bonus_damage"
+				}
+			}
+			"modifier_call_of_shadow"
+			{
+				"IsBuff"			"1"
+				"IsHidden"			"0"
+				"EffectName"		"particles/units/heroes/hero_huskar/call_of_shadow.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed"
+				}
+			}
+			"modifier_call_of_elements"
+			{
+				"IsBuff"			"1"
+				"IsHidden"			"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/invoker/call_of_elements.lua"
+						"Function"		"call_end"
+					}
+				}
+			}
+			"modifier_conjuror_rune_r_3"
+			{
+				"IsBuff"		"1"
+				"IsHidden"		"0"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/invoker/call_of_elements.lua"
+						"Function"		"c_d_attack_land"
+						"attack_damage"	"%attack_damage"
+					}
+				}
+			}
+			"modifier_conjuror_rune_r_3_lifesteal_effect"
+			{
+				"IsHidden"		"1"
+				"IsDebuff"		"0"
+				"Passive"		"0"
+				"OnCreated"
+				{
+					"FireEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
+				}
+			}
+			"modifier_fire_aspect_b_d_effect"
+			{
+				"TextureName"	"ember_spirit_sleight_of_fist"
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
+				}
+			}
+			"modifier_fire_aspect_b_d_range"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/econ/items/invoker/glorious_inspiration/invoker_forge_spirit_ambient_esl.vpcf"
+				"EffectAttachType"	"origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "500"
+				}
+			}
+			"modifier_fire_aspect_b_d_armor_shred"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/econ/items/invoker/glorious_inspiration/invoker_forge_spirit_ambient_esl.vpcf"
+				"EffectAttachType"	"origin"
+				"TextureName"	"ember_spirit_sleight_of_fist"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1000"
+				}
+			}
+			"modifier_shadow_aspect_c_d_slow_attack"
+			{
+				"IsHidden"	"1"
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_regen"			"100 200 400 800 2000 3000 4000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resist"			"33 37 41 45 49 53 57"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed"			"70 100 130 160 190 220 250"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movespeed"				"100 120 140 160 180 200 220"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"260 900 4000 10000 20000 35000 55000"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"20"
+			}
+		}
+	}
+
+	"earthquake"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"brewmaster_thunder_clap"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ALACRITY"
+
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.45"
+		"AOERadius"						"%radius"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityCooldown"				"0"
+		"AbilityDuration"				"%duration"
+
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"580 2800 6000 12000 25000 50000 125000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"1.3 1.5 1.7 1.9 2.1 2.3 2.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"160 165 170 175 180 185 190 195"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/earthquake.lua"
+				"Function"		"earthquake_cast"
+				"Target"		"POINT"
+				"radius"		"%radius"
+				"stun_duration"		"%stun_duration"
+				"damage"		"%damage"
+			}
+			"DestroyTrees"
+	        {
+	        	"Target"	"POINT"
+	        	"Radius"	"%radius"
+	        }
+		}
+		"Modifiers"
+		{
+			"modifier_free_quake"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/earthquake.lua"
+						"Function"		"free_quake_expire"
+					}
+				}
+			}
+
+		}
+	}
+
+	"immolation"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"lina_light_strike_array"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ALACRITY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.35"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 300 600 1100 2000 4500 7500"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"280 290 300 310 320 330"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"340 800 2000 5000 12000 30000 65000"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"mana_cost"					"120 300 600 1000 1500 2500 4500"
+			}
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/immolation.lua"
+				"Function"		"begin_immolation"
+				"radius"		"%radius"
+				"damage"		"%damage"
+				"mana_cost"		"%mana_cost"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/immolation.lua"
+				"Function"		"arc_hit"
+				"Target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+	}
+
+	"shadow_gate"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"enigma_midnight_pulse"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ALACRITY"
+
+		"AbilityCastRange"				"800 860 920 980 1040 1100 1160"
+		"AbilityCastPoint"				"0.2"
+		"AOERadius"						"%radius"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityCooldown"				"10"
+
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"250 2000 4000 15000 35000 70000 105000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"5.0 5.5 6.0 6.5 7.0 7.5 8.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"310 335 360 385 410 435 460"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"800 860 920 980 1040 1100 1160"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/shadow_gate.lua"
+				"Function"		"shadow_gate_cast"
+				"Target"		"POINT"
+				"radius"		"%radius"
+			}
+			"DestroyTrees"
+	        {
+	        	"Target"	"POINT"
+	        	"Radius"	"%radius"
+	        }
+			"CreateThinker"
+			{
+				"ModifierName"		"shadow_gate_thinker"
+				"Target"
+				{
+					"Center" 	"POINT"
+				}
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/shadow_gate.lua"
+				"Function"		"arc_hit"
+				"Target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"shadow_gate_thinker"
+			{
+				"Aura"					"shadow_gate_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%radius 1 1"
+							"15" "255 255 255"
+							"16" "1 0 0"
+						}
+					}
+				}
+			}
+
+			"shadow_gate_aura"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"IsHidden"		"1"
+				"ThinkInterval"	"0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/shadow_gate.lua"
+						"Function"		"shadow_gate_damage"
+						"target"		"TARGET"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_shadow_gate_b_d_effect"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"0"
+				"Passive"	"0"
+				"Duration"	"0.5"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"
+				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-2"
+				}
+			}
+		}
+	}
+

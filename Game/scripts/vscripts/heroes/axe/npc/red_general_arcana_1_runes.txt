@@ -1,0 +1,78 @@
+
+	"axe_rune_r_1_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"axe/axe_rune_r_1_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% ARCANA1_R1_AMPLIFY_PERCENT %>"
+			}
+		}
+	}
+
+	"axe_rune_r_2_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"axe/axe_rune_r_2_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% ARCANA1_R2_BONUS_DAMAGE %>"
+			}
+		}
+	}
+
+	"axe_rune_r_3_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"axe/axe_rune_r_3_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% ARCANA1_R3_RESIST_REDUCE_PERCENT %>"
+			}
+		}
+	}
+
+	"axe_rune_r_4_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"axe/axe_rune_r_4_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% ARCANA1_R4_ADD_TREMOR_CHANCE %>"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% ARCANA1_R4_INCREASE_RADIUS %>"
+			}
+		}
+	}
+
