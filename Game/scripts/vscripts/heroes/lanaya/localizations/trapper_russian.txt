@@ -240,25 +240,25 @@
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_a"       "(Immortal) Глиф смертельных ловушек"
         "item_rpc_trapper_glyph_5_a_description"                "Все наносящие урон ловушки усилены в @glyph_property1 раз."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "(T1) Глиф огненного лорда"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "(T1-2) Глиф огненного лорда"
         "item_rpc_trapper_glyph_1_2_description"                "Эффект от руны [Q3] удваивается."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "(T2) Глиф когтей"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "(T2-2) Глиф когтей"
         "item_rpc_trapper_glyph_2_2_description"                "Урон от Psi Blades наносится и основной цели."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "(T3) Глиф прибоя"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "(T3-2) Глиф прибоя"
         "item_rpc_trapper_glyph_3_2_description"                "Враги, поражённые потоком воды от Torrent Trap теряют @glyph_property1% своего исходящего урона на 1 секунду."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_2"       "(T4) Глиф орхидеи"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_2"       "(T4-2) Глиф орхидеи"
         "item_rpc_trapper_glyph_4_2_description"                "Враги, на которых действует эффект (Q) Net Trap в дополнение к обездвиживанию получают безмолвие."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_2"       "(T5) Глиф засады"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_2"       "(T5-2) Глиф засады"
         "item_rpc_trapper_glyph_5_2_description"                "Увеличивает максимальное количество зарядов [R2] на @glyph_property1."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_2"       "(T6) Глиф вспыльчивости"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_2"       "(T6-2) Глиф вспыльчивости"
         "item_rpc_trapper_glyph_6_2_description"                "Иллюзия от руны Decoy уничтожается с @glyph_property1 удара(ов), но наносит на @glyph_property2% больше урона."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "(T7) Глиф инстинктивного убийцы"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "(T7-2) Глиф инстинктивного убийцы"
         "item_rpc_trapper_glyph_7_2_description"                "[R3] становится пассивной способностью в невидимости."
 
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_book"		"Книга Глифов Trapper"
