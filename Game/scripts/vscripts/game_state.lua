@@ -1922,7 +1922,8 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility") * e_3_level * ZHONIK_E3_PHYS_BLOCK_FLAT, 0)
 		end
 	end
-	if victim:HasModifier("modifier_voltex_arcana1_passive") then
+	--chrolonus boss also uses the passive, have to check for ability
+	if victim:HasModifier("modifier_voltex_arcana1_passive") and victim:HasAbility("voltex_lightning_dash") then
 		local dash = victim:FindAbilityByName("voltex_lightning_dash")
 		local damage = filterTable["damage"]
 		local e_3_level = victim:GetRuneValue("e", 3)
