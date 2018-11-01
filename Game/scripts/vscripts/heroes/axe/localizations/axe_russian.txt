@@ -226,28 +226,28 @@
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_1"       "(T7) Глиф героического сражения"
         "item_rpc_axe_glyph_7_1_description"                "Убирает бонус к урону от (Q) @Ability1, но сокращает время перезарядки умения до 1.5 секунды."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_1_2"       "(T1) Глиф Heel Stomp"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_1_2"       "(T1-2) Глиф Heel Stomp"
         "item_rpc_axe_glyph_1_2_description"                "Враги, задетые умением (W) @Ability2 будут кратковременно оглушены на 0.08 секунды."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "(T2) Глиф ржавой стали"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "(T2-2) Глиф ржавой стали"
         "item_rpc_axe_glyph_2_2_description"                "Руна [Q4] дополнительно снижает вражескую броню на -@glyph_property1 за заряд."
 
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"Ruptured Steel"
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"Снижена броня"	
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "(T3) Глиф неистового гнева"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "(T3-2) Глиф неистового гнева"
         "item_rpc_axe_glyph_3_2_description"                "Руна [Q2] даёт герою @glyph_property1 заряда(ов) вместо 1, если целью атаки является босс."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "(T4) Глиф красного циклона"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "(T4-2) Глиф красного циклона"
         "item_rpc_axe_glyph_4_2_description"                "Во время действия умения (E) @Ability3, весь входящий урон снижается на @glyph_property1%."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "(T5) Глиф натиска"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "(T5-2) Глиф натиска"
         "item_rpc_axe_glyph_5_2_description"                "После успешного прочтения (R) @Ability4, в последующие @glyph_property1 секунд урон умения (W) @Ability2 будет увеличен на @glyph_property2%"
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "(T6) Глиф сокращения"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "(T6-2) Глиф сокращения"
         "item_rpc_axe_glyph_6_2_description"                "Увеличивает сопротивление щитов от руны [E4] до @glyph_property1%, но снижает шанс получения щита до @glyph_property2% за каждое очко руны, вместо 150%."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "(T7) Глиф ярости"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "(T7-2) Глиф ярости"
         "item_rpc_axe_glyph_7_2_description"                "Пока активно умение (Q) @Ability1, максимальное количество зарядов руны [Q2] Berserker Rage увеличено до @glyph_property1, а количество получаемых зарядов увеличено на @glyph_property2. Половина зарядов активна постоянно."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "(Immortal) Glyph of the Marshall"
