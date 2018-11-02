@@ -283,7 +283,7 @@ function shadow_aspect(event)
 		ability:ApplyDataDrivenModifier(caster, caster.shadowAspect, "modifier_conjuror_rune_e_3_range", {})
 		caster.shadowAspect:SetModifierStackCount("modifier_conjuror_rune_e_3_range", ability, c_c_level )
 	end
-	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "conjuror")
+	local d_c_level = caster:GetRuneValue("e", 4)
 	caster.shadowAspect.e_4_level = d_c_level
 	if d_c_level > 0 then
 		caster.shadowAspect:SetRangedProjectileName("particles/econ/items/enigma/enigma_geodesic/conjuror_d_c_aspect_eidolon_geodesic.vpcf")
@@ -723,11 +723,7 @@ function shadow_aspect_kill(event)
 end
 
 function get_c_c_level(caster)
-	local runeUnit = caster.runeUnit3
-	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_e_3")
-	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_3")
-	local totalLevel = abilityLevel + bonusLevel
+	local totalLevel = caster:GetRuneValue("e", 3)
 	return totalLevel
 end
 

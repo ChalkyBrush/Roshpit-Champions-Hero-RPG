@@ -533,6 +533,10 @@
 						"target"		"TARGET"
 					}
 				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
 			}
 		}
 	}

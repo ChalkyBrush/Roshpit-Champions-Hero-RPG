@@ -3176,28 +3176,28 @@
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_1"       "(T7) Глиф героического сражения"
         "item_rpc_axe_glyph_7_1_description"                "Убирает бонус к урону от (Q) @Ability1, но сокращает время перезарядки умения до 1.5 секунды."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_1_2"       "(T1) Глиф Heel Stomp"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_1_2"       "(T1-2) Глиф Heel Stomp"
         "item_rpc_axe_glyph_1_2_description"                "Враги, задетые умением (W) @Ability2 будут кратковременно оглушены на 0.08 секунды."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "(T2) Глиф ржавой стали"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "(T2-2) Глиф ржавой стали"
         "item_rpc_axe_glyph_2_2_description"                "Руна [Q4] дополнительно снижает вражескую броню на -@glyph_property1 за заряд."
 
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"Ruptured Steel"
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"Снижена броня"	
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "(T3) Глиф неистового гнева"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "(T3-2) Глиф неистового гнева"
         "item_rpc_axe_glyph_3_2_description"                "Руна [Q2] даёт герою @glyph_property1 заряда(ов) вместо 1, если целью атаки является босс."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "(T4) Глиф красного циклона"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "(T4-2) Глиф красного циклона"
         "item_rpc_axe_glyph_4_2_description"                "Во время действия умения (E) @Ability3, весь входящий урон снижается на @glyph_property1%."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "(T5) Глиф натиска"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "(T5-2) Глиф натиска"
         "item_rpc_axe_glyph_5_2_description"                "После успешного прочтения (R) @Ability4, в последующие @glyph_property1 секунд урон умения (W) @Ability2 будет увеличен на @glyph_property2%"
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "(T6) Глиф сокращения"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "(T6-2) Глиф сокращения"
         "item_rpc_axe_glyph_6_2_description"                "Увеличивает сопротивление щитов от руны [E4] до @glyph_property1%, но снижает шанс получения щита до @glyph_property2% за каждое очко руны, вместо 150%."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "(T7) Глиф ярости"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "(T7-2) Глиф ярости"
         "item_rpc_axe_glyph_7_2_description"                "Пока активно умение (Q) @Ability1, максимальное количество зарядов руны [Q2] Berserker Rage увеличено до @glyph_property1, а количество получаемых зарядов увеличено на @glyph_property2. Половина зарядов активна постоянно."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "(Immortal) Glyph of the Marshall"
@@ -5104,25 +5104,25 @@
 		"item_rpc_duskbringer_glyph_7_1_description" 				"Заменяет (E) Specter Rush на (E) Manifestation - способность, которая перемещает Duskbringer к точке и применяет на всех рядом стоящих противниках [E3]. Дополнительно увеличивает шанс наложения зарядов [Q1] от руны [E3] в @glyph_property1 раз(а)."
 
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"(T1) Глиф безумной тишины"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"(T1-2) Глиф безумной тишины"
 		"item_rpc_duskbringer_glyph_1_2_description" 				"Во время безмолвия, регенерация здоровья увеличивается на @glyph_property1% от макс. здоровья. Бонус продлится еще @glyph_property2 сек. после окончания безмолвия."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"(T2) Глиф сжигания пустоты"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"(T2-2) Глиф обжигающей пустоты"
 		"item_rpc_duskbringer_glyph_2_2_description" 				"При атаке по врагу накладывается @glyph_property1 заряда(ов) [Q1] Duskfire Flail вместо 1."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"(T3) Глиф смешивания"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"(T3-2) Глиф смешивания"
 		"item_rpc_duskbringer_glyph_3_2_description" 				"Сокращает интервал нанесения урона от умения (Q) @Ability1 на @glyph_property1, но также сокращает базовый урон умения на @glyph_property2%"
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"(T4) Глиф путешественника"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"(T4-2) Глиф путешественника"
 		"item_rpc_duskbringer_glyph_4_2_description" 				"При движении герой получает заряды, сокращающие входящий урон на @glyph_property1%. Максимум @glyph_property2 заряда(ов). Длительность действия равна длительности действия зарядов от руны [E1], но за отведенное время теряются все заряды, вместо одного."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_2"		"(T5) Глиф разделения судьбы"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_2"		"(T5-2) Глиф разделения судьбы"
 		"item_rpc_duskbringer_glyph_5_2_description" 				"Враги в радиусе @glyph_property1 от основной атакуемой цели также получают заряды [Q1]."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_2"		"(T6) Глиф гнева"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_2"		"(T6-2) Глиф гнева"
 		"item_rpc_duskbringer_glyph_6_2_description" 				"Снимает с героя все эффекты оглушения и безмолвия каждые 0.3 секунды."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"(T7) Глиф пугающих духов"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"(T7-2) Глиф пугающих духов"
 		"item_rpc_duskbringer_glyph_7_2_description" 				"Весь урон, наносимый предметами напрямую получает вторую стихию - Призрака."
 
 
@@ -8716,25 +8716,25 @@
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_a"		"(Immortal) Глиф заморозки"
 		"item_rpc_sorceress_glyph_5_a_description" 				"Множитель урона, наносимого [Q1] по замороженным врагам увеличен до @glyph_property1x."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_2"		"Глиф кристаллизации"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_2"		"(T1-2)Глиф кристаллизации"
 		"item_rpc_sorceress_glyph_1_2_description" 				"Элементаль воды с @glyph_property1% шансом заморозит атакуемую цель на @glyph_property2 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_2"		"Глиф острого льда"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_2"		"(T2-2)Глиф острого льда"
 		"item_rpc_sorceress_glyph_2_2_description" 				"Шанс взрыва ледяного копья увеличен до @glyph_property1%, базовый урон увеличен на @glyph_property2%."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_2"		"Глиф просвещенной магии"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_2"		"(T3-2)Глиф просвещенной магии"
 		"item_rpc_sorceress_glyph_3_2_description" 				"Бонус регенерации маны и интеллекта от руны [W3] увеличен в @glyph_property1 раз(а)."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_2"		"Глиф тайной вибрации"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_2"		"(T4-2)Глиф тайной вибрации"
 		"item_rpc_sorceress_glyph_4_2_description" 				"(E) @Ability3 тратит только @glyph_property1 зарядов Flicker."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_2"		"Глиф смягчения"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_2"		"(T5-2)Глиф смягчения"
 		"item_rpc_sorceress_glyph_5_2_description" 				"Sorceress добавляет на @glyph_property1% меньше времени к иммунитету врагов к оглушению."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_2"		"Глиф выжигания"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_2"		"(T6-2)Глиф выжигания"
 		"item_rpc_sorceress_glyph_6_2_description" 				"Снижение сопротивления к стихии Огня от руны [R3] сильнее на @glyph_property1%."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_2"		"Глиф тайного прочтения"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_2"		"(T7-2)Глиф тайного прочтения"
 		"item_rpc_sorceress_glyph_7_2_description" 				"Увеличивает урон от (W) @Ability2 на @glyph_property1%, а к его текущей стоимости добавляется @glyph_property2% от макс. маны."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_book"	"Книга Глифов Sorceress"
@@ -9336,25 +9336,25 @@
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_a"       "(Immortal) Глиф смертельных ловушек"
         "item_rpc_trapper_glyph_5_a_description"                "Все наносящие урон ловушки усилены в @glyph_property1 раз."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "(T1) Глиф огненного лорда"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "(T1-2) Глиф огненного лорда"
         "item_rpc_trapper_glyph_1_2_description"                "Эффект от руны [Q3] удваивается."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "(T2) Глиф когтей"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "(T2-2) Глиф когтей"
         "item_rpc_trapper_glyph_2_2_description"                "Урон от Psi Blades наносится и основной цели."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "(T3) Глиф прибоя"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "(T3-2) Глиф прибоя"
         "item_rpc_trapper_glyph_3_2_description"                "Враги, поражённые потоком воды от Torrent Trap теряют @glyph_property1% своего исходящего урона на 1 секунду."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_2"       "(T4) Глиф орхидеи"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_2"       "(T4-2) Глиф орхидеи"
         "item_rpc_trapper_glyph_4_2_description"                "Враги, на которых действует эффект (Q) Net Trap в дополнение к обездвиживанию получают безмолвие."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_2"       "(T5) Глиф засады"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_2"       "(T5-2) Глиф засады"
         "item_rpc_trapper_glyph_5_2_description"                "Увеличивает максимальное количество зарядов [R2] на @glyph_property1."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_2"       "(T6) Глиф вспыльчивости"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_2"       "(T6-2) Глиф вспыльчивости"
         "item_rpc_trapper_glyph_6_2_description"                "Иллюзия от руны Decoy уничтожается с @glyph_property1 удара(ов), но наносит на @glyph_property2% больше урона."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "(T7) Глиф инстинктивного убийцы"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "(T7-2) Глиф инстинктивного убийцы"
         "item_rpc_trapper_glyph_7_2_description"                "[R3] становится пассивной способностью в невидимости."
 
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_book"		"Книга Глифов Trapper"

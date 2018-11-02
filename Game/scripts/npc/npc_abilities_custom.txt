@@ -22189,6 +22189,10 @@
 						"target"		"TARGET"
 					}
 				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
 			}
 		}
 	}
@@ -22359,6 +22363,309 @@
 	}
 
 
+
+	"summon_shadow_deity"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"enigma_malefice"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 250 400 600 800 1000 1400"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_health"				"1200 2500 5000 12000 30000 60000 100000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_damage"				"90 200 600 2400 5500 20000 40000"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_armor"				"5 50 100 300 600 1200 2000"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_magic_resist"		"80"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_attack_splits"		"4 5 6 7 8 9 10"
+			}
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/aspects.lua"
+				"Function"		"begin_cast"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_shadow_deity.lua"
+				"Function"		"shadow_deity"
+				"aspect_health"	"%aspect_health"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_shadow_aspect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%aspect_damage"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/aspects.lua"
+						"Function"		"shadow_aspect_attack"
+						"aspect_attack_splits"	"%aspect_attack_splits"
+					}
+				}
+			}
+			"modifier_conjuror_a_c_buff_visible"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_conjuror_a_c_buff_invisible"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"  "1"
+				}
+			}
+			"modifier_conjuror_c_c_damage"
+			{
+				"IsHidden"	"1"
+				"IsBuff"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+			"modifier_conjuror_glyph_4_1_effect"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "420"
+				}
+			}
+			"modifier_conjuror_rune_e_3_range"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "12"
+				}
+			}
+			"modifier_conjuror_c_d_slow_effect"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/units/heroes/hero_enigma/enigma_ambient_body.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-8"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-8"
+				}
+			}
+			"modifier_conjuror_glyph_5_a_summon"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_aspect_invulnerable"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"dazzle_shadow_wave"
+				"StatusEffectName" 		"particles/status_fx/status_effect_blademail.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"conjuror_rune_e_1_arcana4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"enigma_demonic_conversion_alt"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"25"
+			}
+		}
+	}
+
+	"conjuror_rune_e_2_arcana4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"abaddon_death_coil_alliance"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one_base"		"1000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"11"
+			}
+		}
+	}
+
+	"conjuror_rune_e_3_arcana4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"abaddon/mistral_fiend_icons/abaddon_death_coil"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"15"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"12"
+			}
+		}
+	}
+
+	"conjuror_rune_e_4_arcana4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rpc/conjuror_e_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"12"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"15"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"11"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+		}
+	}
 
 
 	"summon_earth_aspect"
