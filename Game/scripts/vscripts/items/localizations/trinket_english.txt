@@ -8,6 +8,8 @@
 		"item_property_saytaru"						"Last Hope"
 		"property_saytaru_description"				"Gain Spell Immunity while below <% SAYTARU_HP_THRESHOLD_PCT * 100 %>% health. While active, this increases your resistance to Pure damage by <% SAYTARU_PURE_DMG_RESISTANCE * 100 %>%, but decreases your outgoing Magic and Pure damage by <% SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE * 100 %>%."
 
+		"DOTA_Tooltip_modifier_hope_of_saytaru_effect"				"Last Hope"
+		"DOTA_Tooltip_modifier_hope_of_saytaru_effect_Description"	"Spell Immune, reduced PURE damage taken, and also decreased outgoing Magic and Pure damage."
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"Sapphire Lotus"
 		"item_property_sapphire_lotus"				"Sapphire Soul"

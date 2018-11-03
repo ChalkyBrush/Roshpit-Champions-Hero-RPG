@@ -75,7 +75,7 @@
 			"modifier_duskbringer_think2"
 			{
 				"Passive"			"1"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"ThinkInterval"  "2"
@@ -322,7 +322,7 @@
 			"modifier_duskbringer_think1"
 			{
 				"Passive"			"1"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"ThinkInterval"  "2"
@@ -937,7 +937,7 @@
         			}
         		}
             }
-			"modifier_duskbringer_ghost_armor"
+			"modifier_duskbringer_rune_e_2_effect"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -951,7 +951,7 @@
 			"modifier_duskbringer_think3"
 			{
 				"Passive"			"1"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"ThinkInterval"  "2"

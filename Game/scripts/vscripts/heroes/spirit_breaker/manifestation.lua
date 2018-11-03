@@ -16,8 +16,8 @@ function begin_manifestation(event)
 		local specterAbility = caster:FindAbilityByName("specter_rush_two")
 		local b_c_duration = 0.7 + 0.2*b_c_level
 		b_c_duration = Filters:GetAdjustedBuffDuration(caster, b_c_duration, false)
-		specterAbility:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_ghost_armor", {duration = b_c_duration})
-		caster:SetModifierStackCount("modifier_duskbringer_ghost_armor", caster, 6)
+		specterAbility:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_rune_e_2_effect", {duration = b_c_duration})
+		caster:SetModifierStackCount("modifier_duskbringer_rune_e_2_effect", caster, 6)
 	end
     local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "duskbringer")
     local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "duskbringer")
