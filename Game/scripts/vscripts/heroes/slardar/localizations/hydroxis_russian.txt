@@ -58,6 +58,12 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_w_2_property_one"				"Доп. урон за каждую задетую цель"
     	"DOTA_Tooltip_ability_hydroxis_rune_w_2_suffix"						"%"
 		
+		"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_visible"			"Liquid Essence"
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_visible_Description"	"Урон героя увеличен"
+
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_spillover"		"Liquid Essence Spillover"
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_spillover_Description"	"Урон героя увеличен"
+		
 		"DOTA_Tooltip_ability_hydroxis_rune_w_3"							"[W3] Deluge"
     	"DOTA_Tooltip_ability_hydroxis_rune_w_3_Description"				"Добавляет урон Hydroxis к базовому урону @Ability2."
     	"DOTA_Tooltip_ability_hydroxis_rune_w_3_property_one"				"Доп. урон (W) Water Bomb"

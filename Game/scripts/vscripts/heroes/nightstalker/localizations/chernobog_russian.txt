@@ -65,6 +65,12 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_2_property_two"					"(Активно) Доп. базовый урон"
     	"DOTA_Tooltip_ability_chernobog_rune_w_2_suffix_two"					""
 		
+		"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_active"				"Inner Beast (Активно)"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_active_Description"				"Базовый урон увеличен"
+
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive"				"Inner Beast (Не активно)"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive_Description"				"Значение брони увеличено"
+		
 		"DOTA_Tooltip_ability_chernobog_rune_w_3"								"[W3] Fervor"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_Description"					"Пока умение @Ability2 не активно, Chernobog снижает броню врагов с каждой атакой. Активное умение @Ability2 увеличивает урон героя с каждой атакой. Значение этой руны сбрасывается в случае смены цели."
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_one"					"(Не активно) Снижение брони за атаку"

@@ -31,6 +31,9 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_1_property_two"				"Броня"
     	"DOTA_Tooltip_ability_conjuror_rune_q_1_suffix_two"					""
 		
+		"DOTA_Tooltip_modifier_conjuror_q_1_buff"								"Earth Guardian"
+		"DOTA_Tooltip_modifier_conjuror_conjuror_q_1_buff_Description"					"Увеличение брони."
+		
 		"DOTA_Tooltip_ability_conjuror_rune_q_2"							"[Q2] Thunder Clap"
     	"DOTA_Tooltip_ability_conjuror_rune_q_2_Description"				"При получении элементалем Земли урона, он с 15% шансом применяет умение [Q2] Thunder Clap, нанося большой урон по области, в зависимости от его текущего здоровья и замедляя всех задетых врагов. Прочтение (Q) Earthquake также провоцирует применение этой способности."
     	"DOTA_Tooltip_ability_conjuror_rune_q_2_property_one"				"Урон"

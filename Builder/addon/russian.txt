@@ -330,11 +330,7 @@
 
     	//-----------------------CHERNOBOG/Night Stalker
 
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_active"				"Inner Beast (Активно)"
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_active_Description"				"Базовый урон увеличен"
-
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_inactive"				"Inner Beast (Не активно)"
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_inactive_Description"				"Значение брони увеличено"
+    	
 
     	//b_d: Splash damage when striking a target in Night's Procession
 
@@ -351,11 +347,7 @@
 
     	//HYDROXIS - Slardar
 
-    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_visible"			"Liquid Essence"
-    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_visible_Description"	"Урон героя увеличен"
-
-    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_spillover"		"Liquid Essence Spillover"
-    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_spillover_Description"	"Урон героя увеличен"
+    	
 
     	//If attack target == gush target, source the tracking projectile from the hero, otherwise source it from the target
     	//SET RENDER COLOR (130, 130, 255)
