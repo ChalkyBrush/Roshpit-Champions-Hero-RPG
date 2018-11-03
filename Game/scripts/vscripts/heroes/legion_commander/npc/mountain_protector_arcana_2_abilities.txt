@@ -230,7 +230,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"mountain_protector/mountain_protector_rune_b_d_arcana2"
+				"TextureName"	"mountain_protector/mountain_protector_rune_r_2_arcana2"
 				"Passive"	"0"
 				"EffectName"	"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -265,7 +265,7 @@
 			}
 			"modifier_hailstorm_ice_case_cooldown"
 			{
-				"TextureName"	"mountain_protector/mountain_protector_rune_b_d_arcana2"
+				"TextureName"	"mountain_protector/mountain_protector_rune_r_2_arcana2"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
 			}
