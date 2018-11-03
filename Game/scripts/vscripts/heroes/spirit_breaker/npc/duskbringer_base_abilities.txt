@@ -981,6 +981,7 @@
 			"modifier_duskbringer_ghost_form_immune"
 			{
 			    "IsHidden"  "0"
+				"TextureName"	"duskbringer/specter_rush_ghost_form"
 			}
         }
 	}
@@ -1177,6 +1178,7 @@
 			"modifier_seven_visions_striking"
 			{
 				"IsBuff"	"1"
+				"IsHidden"	"0"
 				"IsPurgable"	"0"
 				"Properties"
 				{
