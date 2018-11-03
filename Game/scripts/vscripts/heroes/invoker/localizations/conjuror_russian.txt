@@ -20,6 +20,9 @@
 
 		"DOTA_Tooltip_modifier_free_quake"									"Quaking"
 		"DOTA_Tooltip_modifier_free_quake_description"						"Свободное создание Earthquake, пока этот эффект активен."
+		
+		"DOTA_Tooltip_earth_aspect_a_a_ability"								"Earth Guardian"
+		"DOTA_Tooltip_earth_aspect_a_a_ability_Description"					"Earth Aspect absorbs 50% of all damage taken by the caster. Each Q1 rune makes Earth Aspect provide armor to itself and all nearby friendly units."
 
 		"DOTA_Tooltip_modifier_earth_guardian"								"Earth Aspect"
 		"DOTA_Tooltip_modifier_earth_guardian_Description"					"50%% полученного урона получит элементаль земли"
@@ -74,6 +77,9 @@
 		
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation"				"Permanent Immolation"
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font><br>Обжигает находящихся рядом врагов"
+		
+		"DOTA_Tooltip_modifier_permanent_immolation"						"Immolation"
+		"DOTA_Tooltip_modifier_permanent_immolation_Description"			"Обжигает врагов поблизости"
 
 		"DOTA_Tooltip_ability_conjuror_rune_w_2"							"[W2] Soul Sear"
     	"DOTA_Tooltip_ability_conjuror_rune_w_2_Description"				"Каждое произнесение Immolation увеличивает ваш урон на 12 секунд. Каждая задетая цель также теряет броню. Оба эффекта могут быть сложены до 3 раз."

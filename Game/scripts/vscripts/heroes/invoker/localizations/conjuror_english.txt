@@ -24,6 +24,9 @@
 		"DOTA_Tooltip_modifier_earth_guardian"								"Earth Aspect"
 		"DOTA_Tooltip_modifier_earth_guardian_Description"					"Earth Aspect absorbing 50%% of damage taken"
 		
+		"DOTA_Tooltip_earth_aspect_a_a_ability"								"Earth Guardian"
+		"DOTA_Tooltip_earth_aspect_a_a_ability_Description"					"Earth Aspect поглощает 50% вместо призывателя. Каждая руна Q1 увеличивает здоровье и броню себе и всем ближайшим дружественным юнитам."
+		
 		"DOTA_Tooltip_ability_conjuror_rune_q_1"							"[Q1] Earth Guardian"
     	"DOTA_Tooltip_ability_conjuror_rune_q_1_Description"				"Your Earth Aspect provides armor to itself and all nearby friendly units. Additionally this rune passively increases your Aspect's Max HP"
     	"DOTA_Tooltip_ability_conjuror_rune_q_1_property_one"				"Aspect Max Health"
@@ -77,6 +80,9 @@
 		
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation"				"Permanent Immolation"
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Burns and deals damage to nearby enemies"
+		
+		"DOTA_Tooltip_modifier_permanent_immolation"						"Immolation"
+		"DOTA_Tooltip_modifier_permanent_immolation_Description"			"Burns and deals damage to nearby enemies"
 
 		"DOTA_Tooltip_ability_conjuror_rune_w_2"							"[W2] Soul Sear"
     	"DOTA_Tooltip_ability_conjuror_rune_w_2_Description"				"Each cast of immolation increases your attack damage for 12 seconds. Each target struck by immolation also loses armor. Both effects can stack up to 3 times per target."
