@@ -243,8 +243,8 @@
 		"DOTA_Tooltip_ability_earth_aspect_a_a_ability"						"Earth Guardian"
 		"DOTA_Tooltip_ability_earth_aspect_a_a_ability_Description"			"Распространяет ауру, дающую дополнительную броню всем союзным существам неподалёку."
 
-		"DOTA_Tooltip_modifier_conjuror_a_a_buff"								"Earth Guardian"
-		"DOTA_Tooltip_modifier_conjuror_a_a_buff_Description"					"Увеличение брони."
+		"DOTA_Tooltip_modifier_conjuror_q_1_buff"								"Earth Guardian"
+		"DOTA_Tooltip_modifier_conjuror_q_1_buff_Description"					"Увеличение брони."
 		
     	//--------------------Seinaru/Juggernaut
 

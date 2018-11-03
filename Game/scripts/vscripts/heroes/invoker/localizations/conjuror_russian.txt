@@ -47,6 +47,9 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_property_one"				"Доп. реген. здоровья"
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_suffix"						""
 		
+		"DOTA_Tooltip_modifier_aspect_earth_well"							"Earth Well"
+		"DOTA_Tooltip_modifier_aspect_earth_well_Description"				"Регенерация здоровья увеличена."
+		
 		"DOTA_Tooltip_ability_conjuror_rune_q_4"							"[Q4] Earth and Fire"
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_Description"				"Показатель Силы Conjuror увеличивает урон стихии <font color=\"#AF843D\">Земли</font> и <font color=\"#EF4126\">Огня</font>."
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_property_one"				"Увеличение урона на "

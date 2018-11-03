@@ -50,6 +50,9 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_property_one"				"Health Regen"
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_suffix"						""
 		
+		"DOTA_Tooltip_modifier_aspect_earth_well"							"Earth Well"
+		"DOTA_Tooltip_modifier_aspect_earth_well_Description"				"Health Regen increased."
+		
 		"DOTA_Tooltip_ability_conjuror_rune_q_4"							"[Q4] Earth and Fire"
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_Description"				"Conjuror's Strength increases <font color=\"#AF843D\">Earth</font> damage and <font color=\"#EF4126\">Fire</font> damage."
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_property_one"				"Damage Increase"
