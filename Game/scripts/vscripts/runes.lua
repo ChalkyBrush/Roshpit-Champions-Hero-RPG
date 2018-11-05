@@ -1403,13 +1403,13 @@ function Runes:UnequipArcana(hero, index)
 		elseif index == 4 then
 			if hero.shadowAspect then
 				if IsValidEntity(hero.shadowAspect) then
-					hero.forceFireReset = true
+					hero.forceShadowReset = true
 					hero.shadowAspect:SetHealth(10)
 					hero.shadowAspect:ForceKill(true)
 				end
 			end
-			if hero:HasAbility("shadow_ability") then
-				hero:RemoveAbility("shadow_ability")
+			if hero:HasAbility("dark_horizon") then
+				hero:RemoveAbility("dark_horizon")
 			end
 			Runes:EasyRevertArcanaSkills(hero, 2,"summon_shadow_aspect", "summon_shadow_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana4")
 		end

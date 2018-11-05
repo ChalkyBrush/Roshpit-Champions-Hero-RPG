@@ -22305,7 +22305,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"6"
+				"property_two"			"4"
 			}
 		}
 	}
@@ -22331,7 +22331,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"12"
+				"property_two"			"30"
 			}
 		}
 	}
@@ -22716,6 +22716,30 @@
 						"ScriptFile"	"heroes/invoker/arcana/arcana_shadow_deity.lua"
 						"Function"		"black_razor_end"
 					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_black_razor_attack_power"
+						"Target" 		"TARGET"
+					}
+				}
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_shadow_deity.lua"
+						"Function"		"black_razor_think"
+						"radius"		"%radius"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_black_razor_attack_power"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
 				}
 			}
 		}
@@ -22822,7 +22846,8 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"enigma_demonic_conversion_alt"
+		"AbilityTextureName"	"timbersaw_whirling_death"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -22831,12 +22856,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"10"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"25"
+				"property_two"			"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"11"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
 			}
 		}
 	}
@@ -23813,7 +23848,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
 				}
 			}
 			"modifier_call_of_elements"

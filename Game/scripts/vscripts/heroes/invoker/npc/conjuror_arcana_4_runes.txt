@@ -5,7 +5,8 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"enigma_demonic_conversion_alt"
+		"AbilityTextureName"	"timbersaw_whirling_death"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -14,12 +15,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% CONJUROR_ARCANA_E1_ATTACK_POWER_BLACK_RAZOR %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"25"
+				"property_two"			"<% CONJUROR_ARCANA_E1_ATTACK_POWER_BONUS_PCT %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"11"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
 			}
 		}
 	}

@@ -70,8 +70,12 @@ function shadow_deity(event)
 	local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", caster.shadowAspect, 3)
 	ParticleManager:SetParticleControl(pfx, 1, Vector(200, 200, 200))
 	caster.shadowAspect:SetRenderColor(200, 60, 200)
-
-	caster.shadowAspect:AddAbility("shadow_deity_black_razor"):SetLevel(1)
+	local e_1_level = caster:GetRuneValue("e", 1)
+	if e_1_level > 0 then
+		caster.shadowAspect:AddAbility("shadow_deity_black_razor"):SetLevel(1)
+		local black_razor = caster.shadowAspect:FindAbilityByName("shadow_deity_black_razor")
+		black_razor:ToggleAutoCast()
+	end
 end
 
 function cloak_of_shadows_cast(event)
@@ -115,14 +119,28 @@ function black_razor_cast(event)
 	table.insert(allies, caster.conjuror.shadowAspect)
 	table.insert(allies, caster.conjuror)
 	table.insert(allies, caster.conjuror.deity)
+	ability.e_1_level = caster.conjuror:GetRuneValue("e", 1)
 	for i = 1, #allies, 1 do
 		local ally = allies[i]
 		if IsValidEntity(ally) then
 			if ally:IsAlive() then
 				ability:ApplyDataDrivenModifier(caster, ally, "modifier_black_razor", {duration = duration})
+				ability:ApplyDataDrivenModifier(caster, ally, "modifier_black_razor_attack_power", {duration = duration})
 				EmitSoundOn("Conjuror.BlackRazor.Start", ally)
 			end
 		end
+	end
+end
+
+function black_razor_think(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	local conjuror = caster.conjuror
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, event.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*(CONJUROR_ARCANA_E1_ATTACK_POWER_BLACK_RAZOR/100)*ability.e_1_level
+	for _,enemy in pairs(enemies) do
+		Filters:TakeArgumentsAndApplyDamage(enemy, conjuror, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 	end
 end
 
@@ -150,6 +168,7 @@ function dark_horizon_start(event)
 	table.insert(allies, caster.deity)
 	point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
 	EmitSoundOn("Conjuror.DarkHorizon.Start", caster)
+	Filters:CastSkillArguments(3, caster)
 	for i = 1, #allies, 1 do
 		local ally = allies[i]
 		if IsValidEntity(ally) then

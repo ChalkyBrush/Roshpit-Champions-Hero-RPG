@@ -374,12 +374,39 @@ function aspect_think(event)
 			end
 		end
 	end
-	if event.caster:GetUnitName() == "shadow_aspect" then
+	if event.caster:GetUnitName() == "shadow_aspect" or event.caster:GetUnitName() == "shadow_deity" then
 		local position = conjurorPosition + rotateVector(caster.conjuror:GetForwardVector(),math.pi/2)*300 + RandomVector(RandomInt(0, 80))
 		if getDistance(conjurorPosition, aspectPosition) > 850 then
 			caster:MoveToPosition(position)
 		else
 			caster:MoveToPositionAggressive(position)
+		end
+		if caster:HasAbility("shadow_deity_cloak_of_shadows") then
+			local cast_ability = event.caster:FindAbilityByName("shadow_deity_cloak_of_shadows")
+			if cast_ability:IsFullyCastable() then
+				local castPoint = caster.conjuror:GetAbsOrigin()
+				local newOrder = {
+						UnitIndex = event.caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+						AbilityIndex = cast_ability:entindex(),
+						Position = castPoint
+				 	}
+				 
+				ExecuteOrderFromTable(newOrder)
+				return false			
+			end
+		end
+		if caster:HasAbility("shadow_deity_black_razor") then
+			local black_razor = caster:FindAbilityByName("shadow_deity_black_razor")
+			if black_razor:IsFullyCastable() then
+				local newOrder = {
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+						AbilityIndex = black_razor:entindex(),
+				 	}
+				 
+				ExecuteOrderFromTable(newOrder)	
+			end
 		end
 	end
 	if event.caster:GetUnitName() == "conjuror_elemental_deity_summon" then
@@ -513,12 +540,20 @@ function aspect_die(event)
 				fireAspectDie(caster.conjuror, caster, w_4_level)
 			end
 		end
-	elseif event.caster:GetUnitName() == "shadow_aspect" then
-		local shadowAspectSkill = caster.conjuror:FindAbilityByName("summon_shadow_aspect")
-		local shadowGateSkill = caster.conjuror:FindAbilityByName("shadow_gate")
-		shadowAspectSkill:SetLevel(shadowGateSkill:GetLevel())
-		caster.conjuror:SwapAbilities("summon_shadow_aspect", "shadow_gate", true, false)
-		caster.conjuror.shadowAspect = false
+	elseif event.caster:GetUnitName() == "shadow_aspect" or event.caster:GetUnitName() == "shadow_deity" then
+		if caster.conjuror:HasAbility("summon_shadow_deity") then
+			local shadowAspectSkill = caster.conjuror:FindAbilityByName("summon_shadow_deity")
+			local shadowGateSkill = caster.conjuror:FindAbilityByName("dark_horizon")
+			shadowAspectSkill:SetLevel(shadowGateSkill:GetLevel())
+			caster.conjuror:SwapAbilities("summon_shadow_deity", "dark_horizon", true, false)
+			caster.conjuror.shadowAspect = false
+		else
+			local shadowAspectSkill = caster.conjuror:FindAbilityByName("summon_shadow_aspect")
+			local shadowGateSkill = caster.conjuror:FindAbilityByName("shadow_gate")
+			shadowAspectSkill:SetLevel(shadowGateSkill:GetLevel())
+			caster.conjuror:SwapAbilities("summon_shadow_aspect", "shadow_gate", true, false)
+			caster.conjuror.shadowAspect = false
+		end
 	elseif event.caster:GetUnitName() == "conjuror_elemental_deity_summon" then
 		caster.conjuror.deity = false
 	end

@@ -350,6 +350,30 @@
 						"ScriptFile"	"heroes/invoker/arcana/arcana_shadow_deity.lua"
 						"Function"		"black_razor_end"
 					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_black_razor_attack_power"
+						"Target" 		"TARGET"
+					}
+				}
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_shadow_deity.lua"
+						"Function"		"black_razor_think"
+						"radius"		"%radius"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_black_razor_attack_power"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% CONJUROR_ARCANA_E1_ATTACK_POWER_BONUS_PCT %>"
 				}
 			}
 		}

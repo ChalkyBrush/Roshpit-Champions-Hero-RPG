@@ -865,7 +865,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
 				}
 			}
 			"modifier_call_of_elements"

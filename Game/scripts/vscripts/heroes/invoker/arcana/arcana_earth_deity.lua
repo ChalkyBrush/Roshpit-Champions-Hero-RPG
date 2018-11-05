@@ -282,6 +282,13 @@ function earth_deity_main_thinker(event)
 				ability.pfx = false
 			end
 		end
+	elseif ability.phase == 1 then
+		if not target:HasModifier("modifier_deity_guardian_taxi_bowling") then
+			local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), caster:GetAbsOrigin()+Vector(0,0,240))
+			if distance > 120 then
+				target:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,240))
+			end
+		end
 	end
 end
 
