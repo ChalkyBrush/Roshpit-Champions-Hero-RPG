@@ -227,6 +227,7 @@ function earth_deity_grand_guardian(event)
 	ability.pfx = pfx
 	StartAnimation(caster, {duration=1.05, activity=ACT_DOTA_CAST_ABILITY_3, rate=0.8})
 	ability.target = target
+	ability:ApplyDataDrivenModifier(caster, ability.target, "modifier_deity_guardian_taxi_effect", {duration = 6})
 	Timers:CreateTimer(0.3, function()
 		caster:SetForwardVector(fv)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_deity_grand_guardian", {duration = 12})

@@ -1879,7 +1879,7 @@ function RPCItems:RollConjurorArcana3(deathLocation)
 end
 
 function RPCItems:RollConjurorArcana4(deathLocation)
-    local item = RPCItems:CreateVariantArcana("item_rpc_conjuror_arcana4", "arcana", "Conjuror Arcana 4", "foot", true, "Slot: Feet", "npc_dota_hero_invoker", 0)
+    local item = RPCItems:CreateVariantArcana("item_rpc_conjuror_arcana4", "arcana", "Conjuror Arcana 4", "feet", true, "Slot: Feet", "npc_dota_hero_invoker", 0)
     local maxFactor = RPCItems:GetMaxFactor()
     item.property1 = 1
     item.property1name = "!arcana!_conjuror_arcana4"

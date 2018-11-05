@@ -1,4 +1,5 @@
 require('heroes/invoker/aspects')
+LinkLuaModifier("modifier_conjuror_dark_horizon_lua", "modifiers/conjuror/modifier_conjuror_dark_horizon_lua", LUA_MODIFIER_MOTION_NONE)
 
 function shadow_deity(event)
 	local caster = event.caster
@@ -27,20 +28,21 @@ function shadow_deity(event)
 	Timers:CreateTimer(1.5, function()
 		ParticleManager:DestroyParticle( pfx, false )
 	end)
-	EmitSoundOn("Hero_ShadowDemon.Soul_Catcher.Cast", caster.shadowAspect)
+	EmitSoundOn("Conjuror.SummonShadowDeity", caster.shadowAspect)
   	if caster:HasModifier("modifier_conjuror_glyph_4_1") then
   		ability:ApplyDataDrivenModifier(caster, caster.shadowAspect, "modifier_conjuror_glyph_4_1_effect", {})
   	end
-  	local shadowGate = caster:FindAbilityByName("shadow_gate")
+  	local shadowGate = caster:FindAbilityByName("dark_horizon")
   	if not shadowGate then
-  		shadowGate = caster:AddAbility("shadow_gate")
+  		shadowGate = caster:AddAbility("dark_horizon")
   		shadowGate:SetAbilityIndex(2)
   	end
   	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
   		caster.shadowAspect:AddAbility("fire_temple_steadfast"):SetLevel(1)
   	end
+  	caster.shadowAspect:FindAbilityByName("shadow_deity_cloak_of_shadows"):SetLevel(ability:GetLevel())
   	shadowGate:SetLevel(ability:GetLevel())
-	caster:SwapAbilities("summon_shadow_deity", "shadow_gate", false, true)
+	caster:SwapAbilities("summon_shadow_deity", "dark_horizon", false, true)
 	ability:ApplyDataDrivenModifier(caster, caster.shadowAspect, "modifier_shadow_aspect", {})
 	local aspectHealth = event.aspect_health
 	if caster.aspectHealthAbility then
@@ -64,4 +66,121 @@ function shadow_deity(event)
 		caster.shadowAspect:SetRangedProjectileName("particles/econ/items/enigma/enigma_geodesic/conjuror_d_c_aspect_eidolon_geodesic.vpcf")
 	end
 	glyph_5_a(caster, ability, caster.shadowAspect)
+	caster.shadowAspect.shadowDeity = true
+	local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", caster.shadowAspect, 3)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(200, 200, 200))
+	caster.shadowAspect:SetRenderColor(200, 60, 200)
+
+	caster.shadowAspect:AddAbility("shadow_deity_black_razor"):SetLevel(1)
+end
+
+function cloak_of_shadows_cast(event)
+	local caster = event.caster
+	local ability = event.ability
+	local point = event.target_points[1]
+	local radius = event.radius
+	local duration = Filters:GetAdjustedBuffDuration(caster.conjuror, event.duration, false)
+
+	local pfx = ParticleManager:CreateParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, point)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))
+	Timers:CreateTimer(4, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	local targets = {}
+	local allies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )
+	for i = 1, #allies, 1 do
+		if allies[i]:GetUnitName() == "npc_dota_hero_invoker" or allies[i].aspect or allies[i].elemental_deity then
+			table.insert(targets, allies[i])
+		end
+	end
+	for i = 1, #targets, 1 do
+		local target = targets[i]
+		local pfx2 = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", target, 3)
+		ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_invisibility_datadriven", {duration = duration})
+		target:AddNewModifier(caster, ability, "modifier_persistent_invisibility", {duration = duration})
+	end
+	EmitSoundOnLocationWithCaster(point, "Conjuror.CloakOfShadows", caster)
+end
+
+function black_razor_cast(event)
+	local caster = event.caster
+	local ability = event.ability
+	local radius = event.radius
+	local duration = Filters:GetAdjustedBuffDuration(caster.conjuror, event.duration, false)
+	local allies = {}
+	table.insert(allies, caster.conjuror.earthAspect)
+	table.insert(allies, caster.conjuror.fireAspect)
+	table.insert(allies, caster.conjuror.shadowAspect)
+	table.insert(allies, caster.conjuror)
+	table.insert(allies, caster.conjuror.deity)
+	for i = 1, #allies, 1 do
+		local ally = allies[i]
+		if IsValidEntity(ally) then
+			if ally:IsAlive() then
+				ability:ApplyDataDrivenModifier(caster, ally, "modifier_black_razor", {duration = duration})
+				EmitSoundOn("Conjuror.BlackRazor.Start", ally)
+			end
+		end
+	end
+end
+
+function black_razor_start(event)
+	local target = event.target
+	StartSoundEvent("Conjuror.BlackRazor.LP", target)
+end
+
+function black_razor_end(event)
+	local target = event.target
+	StopSoundEvent("Conjuror.BlackRazor.LP", target)
+	EmitSoundOn("Conjuror.BlackRazor.End", target)
+end
+
+function dark_horizon_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local radius = event.radius
+	local point = event.target_points[1]
+	local allies = {}
+	table.insert(allies, caster.earthAspect)
+	table.insert(allies, caster.fireAspect)
+	table.insert(allies, caster.shadowAspect)
+	table.insert(allies, caster)
+	table.insert(allies, caster.deity)
+	point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
+	EmitSoundOn("Conjuror.DarkHorizon.Start", caster)
+	for i = 1, #allies, 1 do
+		local ally = allies[i]
+		if IsValidEntity(ally) then
+			if ally:IsAlive() then
+				local pfx = ParticleManager:CreateParticle("particles/roshpit/conjuror/dark_horizon.vpcf", PATTACH_CUSTOMORIGIN, nil)
+				local startPoint = ally:GetAbsOrigin()+Vector(0,0,100)
+				ParticleManager:SetParticleControl(pfx, 1, point)
+				ParticleManager:SetParticleControl(pfx, 0, startPoint)
+				ability:ApplyDataDrivenModifier(caster, ally, "modifier_dark_horizon_transport", {duration = 1.5})
+				ally:AddNewModifier(caster, ability, "modifier_conjuror_dark_horizon_lua", {duration = 1.5})
+				Timers:CreateTimer(1.5, function()
+					ParticleManager:DestroyParticle(pfx, false)
+					FindClearSpaceForUnit(ally, point, false)
+					local pfx2 = ParticleManager:CreateParticle("particles/roshpit/conjuror/dark_horizon.vpcf", PATTACH_CUSTOMORIGIN, nil)
+					local startPoint = ally:GetAbsOrigin()+Vector(0,0,100)
+					ParticleManager:SetParticleControl(pfx2, 1, ally:GetAbsOrigin())
+					ParticleManager:SetParticleControl(pfx2, 0, ally:GetAbsOrigin())
+					Timers:CreateTimer(0.5, function()
+						ParticleManager:DestroyParticle(pfx2, false)
+					end)
+					EmitSoundOn("Conjuror.DarkHorizon.End", caster)
+				end)
+			end
+		end
+	end
+end
+
+function dark_horizon_transporting_think(event)
+	local target = event.target
+	if target:HasModifier("modifier_black_razor") then
+		local modifier = target:FindModifierByName("modifier_black_razor")
+		modifier:SetDuration(modifier:GetRemainingTime()+0.1, true)
+	end
 end

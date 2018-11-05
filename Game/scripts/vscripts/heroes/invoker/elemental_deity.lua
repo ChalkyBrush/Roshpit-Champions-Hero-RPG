@@ -68,7 +68,7 @@ function begin_deity(event)
 
 	local dmg = OverflowProtectedGetAverageTrueAttackDamage(caster)*attack_mult
 	Filters:SetAttackDamage(summon, dmg)
-
+	summon.elemental_deity = true
 	summon:SetPhysicalArmorBaseValue(caster:GetPhysicalArmorValue()*armor_mult)
 	local health = math.floor(caster:GetMaxHealth()*health_mult)
 	summon:SetMaxHealth(health)

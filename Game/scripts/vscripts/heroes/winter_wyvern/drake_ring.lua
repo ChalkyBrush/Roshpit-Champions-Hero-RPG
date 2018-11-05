@@ -36,7 +36,7 @@ function drake_ring_cast(event)
 		local drake_ring = CreateUnitByName("npc_dummy_unit", point, false, nil, nil, caster:GetTeamNumber())
 		local radius = event.radius
 		local w_4_level = caster:GetRuneValue("w", 4)
-		radius = radius + w_4_level*2
+		radius = radius + w_4_level*4
 		local ring_duration = 30
 		drake_ring:SetDayTimeVisionRange(radius)
 		drake_ring:SetNightTimeVisionRange(radius)

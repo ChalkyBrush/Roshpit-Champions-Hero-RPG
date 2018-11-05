@@ -841,3 +841,227 @@
         }
     }
 }
+
+"Conjuror.SummonShadowDeity"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/conjuror/summon_shadow_deity.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.40000"  }
+                    "pitch_rand_min"    {   "value"     "-0.04000"  }
+                    "pitch_rand_max"    {   "value"     "0.040000"  }
+                    "pitch"             {   "value"     "0.9712000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Conjuror.CloakOfShadows"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/conjuror/cloak_of_shadows.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.35000"  }
+                    "pitch_rand_min"    {   "value"     "-0.07000"  }
+                    "pitch_rand_max"    {   "value"     "0.070000"  }
+                    "pitch"             {   "value"     "0.9712000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Conjuror.BlackRazor.LP"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/ambient/soundscapes/deathmaze_lp02.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.10000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.0712000"  }
+                    "soundlevel"        {   "value"     "84.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Conjuror.BlackRazor.Start"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/conjuror/black_razor_start.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.90000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.1712000"  }
+                    "soundlevel"        {   "value"     "88.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Conjuror.BlackRazor.End"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/conjuror/black_razor_start.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.50000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.6712000"  }
+                    "soundlevel"        {   "value"     "85.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Conjuror.DarkHorizon.Start"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/lich/dark_ritual.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.60000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.912000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Conjuror.DarkHorizon.End"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/crit1.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.20000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.812000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}

@@ -169,3 +169,282 @@
 			}
 		}
 	}
+
+	"shadow_deity_cloak_of_shadows"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"conjuror/arcana_earth_shock"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.35"
+		"AOERadius"						"%radius"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityCooldown"				"10"
+		"AbilityDuration"				"%duration"
+
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"800"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4.0 4.5 5.0 5.5 6.0 6.5 7.0"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_shadow_deity.lua"
+				"Function"		"shadowshock_precast"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_shadow_deity.lua"
+				"Function"		"cloak_of_shadows_cast"
+				"Target"		"POINT"
+				"radius"		"%radius"
+				"duration"		"%duration"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_invisibility_datadriven"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+				"OnDestroy"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_TemplarAssassin.Meld.Move"
+						"Target"		"CASTER"
+					}
+
+					"RemoveModifier"
+					{
+						"Target"
+						{
+							"Center"	"CASTER"
+							"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+						}
+						"ModifierName"	"modifier_persistent_invisibility"
+					}
+				}
+			}
+		}
+	}
+
+	"shadow_deity_black_razor"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"tidehunter_gush"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK2"
+
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0"
+		"AOERadius"						"%radius"
+
+		// Precache
+		"precache"
+		{
+			"particle"  "particles/roshpit/conjuror/black_razor.vpcf"
+		}
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityCooldown"				"5"
+
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"240"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"2.4"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_shadow_deity.lua"
+				"Function"		"black_razor_cast"
+				"radius"		"%radius"
+				"duration"		"%duration"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_black_razor"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/roshpit/conjuror/black_razor.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Target"	"CASTER"
+				"EffectRadius"	"%radius"
+				"ControlPoints"
+				{
+					"05"	"%radius %radius %radius"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_shadow_deity.lua"
+						"Function"		"black_razor_start"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_shadow_deity.lua"
+						"Function"		"black_razor_end"
+					}
+				}
+			}
+		}
+	}
+
+	"dark_horizon"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"enigma_blackhole"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ALACRITY"
+
+		"AbilityCastRange"				"800 860 920 980 1040 1100 1160"
+		"AbilityCastPoint"				"0.2"
+		"AOERadius"						"%radius"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityCooldown"				"10"
+
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"250 2000 4000 15000 35000 70000 105000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"5.0 5.5 6.0 6.5 7.0 7.5 8.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"310 335 360 385 410 435 460"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"800 860 920 980 1040 1100 1160"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_shadow_deity.lua"
+				"Function"		"dark_horizon_start"
+				"Target"		"POINT"
+				"radius"		"%radius"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_dark_horizon_transport"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/arcana/arcana_shadow_deity.lua"
+						"Function"		"dark_horizon_transporting_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}

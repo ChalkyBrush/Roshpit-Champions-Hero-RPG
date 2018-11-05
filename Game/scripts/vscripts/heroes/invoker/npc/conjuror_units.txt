@@ -346,7 +346,7 @@
     {
         "BaseClass" "npc_dota_creature"
         "Model" "models/items/enigma/eidolon/tentacular_conqueror_tentacular_conqueror_eidolons/tentacular_conqueror_tentacular_conqueror_eidolons.vmdl"
-        "ModelScale"    "1.55"
+        "ModelScale"    "1.5"
         "SoundSet"                  "Hero_Enigma"
         "Level" "1"
         "HealthBarOffset"   "150"
@@ -384,7 +384,7 @@
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"          "aspect_abilities"
-        "Ability2"          "fire_deity_fire_ability"
+        "Ability2"          "shadow_deity_cloak_of_shadows"
         "Creature"
         {   
             "HPGain"                    "5000"

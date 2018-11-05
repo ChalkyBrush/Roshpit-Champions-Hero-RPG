@@ -63,7 +63,11 @@ function begin_call(event)
 	    	end
 	    end
 	    local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "conjuror")
-	    caster:FindAbilityByName("summon_shadow_aspect").r_3_level = c_d_level
+	    if caster:HasAbility("summon_shadow_aspect") then
+	    	caster:FindAbilityByName("summon_shadow_aspect").r_3_level = c_d_level
+	    elseif caster:HasAbility("summon_shadow_deity") then
+	    	caster:FindAbilityByName("summon_shadow_deity").r_3_level = c_d_level
+	    end
 	    if caster.shadowAspect then
 	    	applyCalls(ability, caster.shadowAspect, earth, fire, shadow, caster, 1.1, growCount)
 	    	if c_d_level > 0 then

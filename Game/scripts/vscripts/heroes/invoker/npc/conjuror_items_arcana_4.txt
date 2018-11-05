@@ -9,6 +9,9 @@
 		"precache"
 		{
 			"model" 		"models/items/enigma/eidolon/tentacular_conqueror_tentacular_conqueror_eidolons/tentacular_conqueror_tentacular_conqueror_eidolons.vmdl"
+			"particle"		"particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf"
+			"particle"		"particles/roshpit/conjuror/black_razor.vpcf"
+			"particle"		"particles/roshpit/conjuror/dark_horizon.vpcf"
 		}
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -23,10 +26,6 @@
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"ItemKillable" "0"
-		"precache"
-		{
-
-		}
 		"OnSpellStart"
 		{
 			"RunScript"
