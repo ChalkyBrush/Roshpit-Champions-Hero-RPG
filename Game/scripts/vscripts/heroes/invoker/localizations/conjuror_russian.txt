@@ -321,7 +321,7 @@
     	"DOTA_Tooltip_ability_summon_earth_deity_aspect_magic_resist"		"МАГИЧЕСКОЕ СОПРОТИВЛЕНИЕ:"
 
     	"DOTA_Tooltip_ability_earth_deity_sandstorm"						"Sandstorm"
-    	"DOTA_Tooltip_ability_earth_deity_sandstorm_Description"			"Элемент: <font color=\"#AF843D\">Земля</font><br>Earth Deity останавливается и образует песчаную бурю. Протвники внутри замедлены и могут промахнуться. Earth Deity тратит свою ману на прочтение, и прекратит заклинание если она закончится. Наносит урон каждые 0.25 сек."
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_Description"			"Элемент: <font color=\"#AF843D\">Земля</font><br>Earth Deity останавливается и образует песчаную бурю. Противники внутри замедлены и могут промахнуться. Earth Deity тратит свою ману на прочтение, и прекратит заклинание если она закончится. Наносит урон каждые 0.25 сек."
     	"DOTA_Tooltip_ability_earth_deity_sandstorm_miss_chance"			"ШАНС ПРОМАХА:"
     	"DOTA_Tooltip_ability_earth_deity_sandstorm_move_slow"				"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
     	"DOTA_Tooltip_ability_earth_deity_sandstorm_attack_slow"			"ЗАМЕДЛЕНИЕ АТАКИ:"
@@ -353,17 +353,17 @@
     	"DOTA_Tooltip_modifier_earth_deity_bowl_Description"				"Выбрасывает союзника к цели с высокой скоростью. Наносит Earth Shock в области применения. Это заканчивает применение Grand Guardian."
 
   		"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3"						"[Q1] Sandstorm"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_Description"			"The Earth Deity stands in place and whips up a violent sand storm. Enemies in the sandstorm have their movement speed and attack slowed, and have a chance to miss with their attacks. Drains mana and deals damage every 0.25 seconds and toggles off if mana runs out."
-    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_one"			"Damage"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_suffix"					"% of Earth Deity's Max Health"	
-    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_two"			"Radius"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_Description"			"Earth Deity останавливается и образует песчаную бурю. Противники внутри замедлены и могут промахнуться. Earth Deity тратит свою ману на прочтение, и прекратит заклинание если она закончится. Наносит урон каждые 0.25 сек."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_one"			"Урон"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_suffix"					"% от Макс. ХП Earth Deity"	
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_two"			"Радиус"
     	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_suffix_two"				""	
 
   		"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3"						"[Q2] Strength of Gaia"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_Description"			"Increases max health of Conjuror and all of his summons by a flat amount and also by a percentage."
-    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_one"		"Max Health Flat"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_Description"			"Увеличивает здоровье Conjuror и всех аспектов, и базовый показатель, и на дополнительный процент от общего показателя."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_one"		"Доп. здоровье"
     	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix"				""
-    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_two"		"Max Health Percentage"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_two"		"Доп. здоровье (%)"
     	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix_two"			"%"
 
 		"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3"							"[Q3] Earthen EMP"
