@@ -142,7 +142,7 @@
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"После успешного применения @Ability4, Astral Ranger призывает божественного Феникса, который будет следовать за героем и атаковать ближайших врагов последующие 10 секунд."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"После успешного применения @Ability4, Astral Ranger призывает божественного Феникса, который будет следовать за героем и атаковать ближайших врагов последующие 20 секунд."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Урон феникса"
     	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% от урона героя"
 		

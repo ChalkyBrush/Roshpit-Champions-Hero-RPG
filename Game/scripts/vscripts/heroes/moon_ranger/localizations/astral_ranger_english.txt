@@ -142,7 +142,7 @@
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summons the Phoenix Constellation on a successful Celestial Burst cast that follows for 10 seconds. Phoenix follows the Ranger and damages all enemies around her based on Astral's attack power."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summons the Phoenix Constellation on a successful Celestial Burst cast that follows for 20 seconds. Phoenix follows the Ranger and damages all enemies around her based on Astral's attack power."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Phoenix Damage"
     	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% of attack power"
 		
