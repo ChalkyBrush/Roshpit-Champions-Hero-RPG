@@ -134,12 +134,12 @@
     	"DOTA_Tooltip_modifier_starfall_a_d_visible"					"Starstorm"
     	"DOTA_Tooltip_modifier_starfall_a_d_visible_Description"		"Каждый заряд снижает сопротивление цели стихии <font color=\"#C25DFC\">Космоса</font> на 10%%."
 		
-		"DOTA_Tooltip_ability_astral_rune_r_2"							"[R2] Star Quake"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_Description"				"Когда враги приземлятся после @Ability4, произойдет еще один взрыв, наносящий урон и оглушающий их в области действия. Урон от этой руны игнорирует свойство монстров 'Стойкость'."
-    	"DOTA_Tooltip_ability_astral_rune_r_2_property_one"				"Урон"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_suffix"					""
-    	"DOTA_Tooltip_ability_astral_rune_r_2_property_two"				"Длительность оглушения"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
+		"DOTA_Tooltip_ability_astral_rune_r_2"                          "[R2] Star Quake"
+        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Звезды от [R1] создают кристальный взрыв при приземлении, нанося урон и оглушая цели (0.03 секунды) в небольшой области."
+        "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "Множитель урона [R1]"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "%"
+        "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "Радиус"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
     	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"После успешного применения @Ability4, Astral Ranger призывает божественного Феникса, который будет следовать за героем и атаковать ближайших врагов последующие 10 секунд."
