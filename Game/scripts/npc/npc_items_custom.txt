@@ -23664,6 +23664,7 @@
 			{
 			    "Passive"   "0"
 			    "IsHidden"  "0"
+				"TextureName"	"duskbringer/t_1_2"
 
                 "Properties"
                 {
@@ -23811,6 +23812,7 @@
 			{
 			    "Passive"   "0"
 			    "IsHidden"  "0"
+				"TextureName" "duskbringer/t_4_2"
 			}
 		}
 		"AbilitySpecial"
@@ -51973,6 +51975,7 @@
 			{
 				"IsBuff"		"1"
 				"IsPurgable"	"0"
+				"TextureName"   "itemicons/giant_hunter_buff"
 				"EffectName"	"particles/test_particle/damage_immunity.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"States"

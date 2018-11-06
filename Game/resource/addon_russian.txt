@@ -330,11 +330,7 @@
 
     	//-----------------------CHERNOBOG/Night Stalker
 
-    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_active"				"Inner Beast (Активно)"
-    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_active_Description"				"Базовый урон увеличен"
-
-    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive"				"Inner Beast (Не активно)"
-    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive_Description"				"Значение брони увеличено"
+    	
 
     	//b_d: Splash damage when striking a target in Night's Procession
 
@@ -351,11 +347,7 @@
 
     	//HYDROXIS - Slardar
 
-    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_visible"			"Liquid Essence"
-    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_visible_Description"	"Урон героя увеличен"
-
-    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_spillover"		"Liquid Essence Spillover"
-    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_spillover_Description"	"Урон героя увеличен"
+    	
 
     	//If attack target == gush target, source the tracking projectile from the hero, otherwise source it from the target
     	//SET RENDER COLOR (130, 130, 255)
@@ -3636,6 +3628,12 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_2_property_two"					"(Активно) Доп. базовый урон"
     	"DOTA_Tooltip_ability_chernobog_rune_w_2_suffix_two"					""
 		
+		"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_active"				"Inner Beast (Активно)"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_active_Description"				"Базовый урон увеличен"
+
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive"				"Inner Beast (Не активно)"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive_Description"				"Значение брони увеличено"
+		
 		"DOTA_Tooltip_ability_chernobog_rune_w_3"								"[W3] Fervor"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_Description"					"Пока умение @Ability2 не активно, Chernobog снижает броню врагов с каждой атакой. Активное умение @Ability2 увеличивает урон героя с каждой атакой. Значение этой руны сбрасывается в случае смены цели."
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_one"					"(Не активно) Снижение брони за атаку"
@@ -3895,6 +3893,9 @@
 
 		"DOTA_Tooltip_modifier_free_quake"									"Quaking"
 		"DOTA_Tooltip_modifier_free_quake_description"						"Свободное создание Earthquake, пока этот эффект активен."
+		
+		"DOTA_Tooltip_earth_aspect_a_a_ability"								"Earth Guardian"
+		"DOTA_Tooltip_earth_aspect_a_a_ability_Description"					"Earth Aspect absorbs 50% of all damage taken by the caster. Each Q1 rune makes Earth Aspect provide armor to itself and all nearby friendly units."
 
 		"DOTA_Tooltip_modifier_earth_guardian"								"Earth Aspect"
 		"DOTA_Tooltip_modifier_earth_guardian_Description"					"50%% полученного урона получит элементаль земли"
@@ -3905,6 +3906,9 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_1_suffix"						"%"
     	"DOTA_Tooltip_ability_conjuror_rune_q_1_property_two"				"Броня"
     	"DOTA_Tooltip_ability_conjuror_rune_q_1_suffix_two"					""
+		
+		"DOTA_Tooltip_modifier_conjuror_q_1_buff"								"Earth Guardian"
+		"DOTA_Tooltip_modifier_conjuror_conjuror_q_1_buff_Description"					"Увеличение брони."
 		
 		"DOTA_Tooltip_ability_conjuror_rune_q_2"							"[Q2] Thunder Clap"
     	"DOTA_Tooltip_ability_conjuror_rune_q_2_Description"				"При получении элементалем Земли урона, он с 15% шансом применяет умение [Q2] Thunder Clap, нанося большой урон по области, в зависимости от его текущего здоровья и замедляя всех задетых врагов. Прочтение (Q) Earthquake также провоцирует применение этой способности."
@@ -3918,6 +3922,9 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_Description"				"Когда элементаль Земли получает урон, герой на 1.5 секунды увеличивает реген. здоровья."
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_property_one"				"Доп. реген. здоровья"
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_suffix"						""
+		
+		"DOTA_Tooltip_modifier_aspect_earth_well"							"Earth Well"
+		"DOTA_Tooltip_modifier_aspect_earth_well_Description"				"Регенерация здоровья увеличена."
 		
 		"DOTA_Tooltip_ability_conjuror_rune_q_4"							"[Q4] Earth and Fire"
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_Description"				"Показатель Силы Conjuror увеличивает урон стихии <font color=\"#AF843D\">Земли</font> и <font color=\"#EF4126\">Огня</font>."
@@ -3943,6 +3950,9 @@
 		
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation"				"Permanent Immolation"
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font><br>Обжигает находящихся рядом врагов"
+		
+		"DOTA_Tooltip_modifier_permanent_immolation"						"Immolation"
+		"DOTA_Tooltip_modifier_permanent_immolation_Description"			"Обжигает врагов поблизости"
 
 		"DOTA_Tooltip_ability_conjuror_rune_w_2"							"[W2] Soul Sear"
     	"DOTA_Tooltip_ability_conjuror_rune_w_2_Description"				"Каждое произнесение Immolation увеличивает ваш урон на 12 секунд. Каждая задетая цель также теряет броню. Оба эффекта могут быть сложены до 3 раз."
@@ -4184,7 +4194,7 @@
     	"DOTA_Tooltip_ability_summon_earth_deity_aspect_magic_resist"		"МАГИЧЕСКОЕ СОПРОТИВЛЕНИЕ:"
 
     	"DOTA_Tooltip_ability_earth_deity_sandstorm"						"Sandstorm"
-    	"DOTA_Tooltip_ability_earth_deity_sandstorm_Description"			"Элемент: <font color=\"#AF843D\">Земля</font><br>Earth Deity останавливается и образует песчаную бурю. Протвники внутри замедлены и могут промахнуться. Earth Deity тратит свою ману на прочтение, и прекратит заклинание если она закончится. Наносит урон каждые 0.25 сек."
+    	"DOTA_Tooltip_ability_earth_deity_sandstorm_Description"			"Элемент: <font color=\"#AF843D\">Земля</font><br>Earth Deity останавливается и образует песчаную бурю. Противники внутри замедлены и могут промахнуться. Earth Deity тратит свою ману на прочтение, и прекратит заклинание если она закончится. Наносит урон каждые 0.25 сек."
     	"DOTA_Tooltip_ability_earth_deity_sandstorm_miss_chance"			"ШАНС ПРОМАХА:"
     	"DOTA_Tooltip_ability_earth_deity_sandstorm_move_slow"				"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
     	"DOTA_Tooltip_ability_earth_deity_sandstorm_attack_slow"			"ЗАМЕДЛЕНИЕ АТАКИ:"
@@ -4216,17 +4226,17 @@
     	"DOTA_Tooltip_modifier_earth_deity_bowl_Description"				"Выбрасывает союзника к цели с высокой скоростью. Наносит Earth Shock в области применения. Это заканчивает применение Grand Guardian."
 
   		"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3"						"[Q1] Sandstorm"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_Description"			"The Earth Deity stands in place and whips up a violent sand storm. Enemies in the sandstorm have their movement speed and attack slowed, and have a chance to miss with their attacks. Drains mana and deals damage every 0.25 seconds and toggles off if mana runs out."
-    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_one"			"Damage"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_suffix"					"% of Earth Deity's Max Health"	
-    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_two"			"Radius"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_Description"			"Earth Deity останавливается и образует песчаную бурю. Противники внутри замедлены и могут промахнуться. Earth Deity тратит свою ману на прочтение, и прекратит заклинание если она закончится. Наносит урон каждые 0.25 сек."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_one"			"Урон"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_suffix"					"% от Макс. ХП Earth Deity"	
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_property_two"			"Радиус"
     	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_suffix_two"				""	
 
   		"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3"						"[Q2] Strength of Gaia"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_Description"			"Increases max health of Conjuror and all of his summons by a flat amount and also by a percentage."
-    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_one"		"Max Health Flat"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_Description"			"Увеличивает здоровье Conjuror и всех аспектов, и базовый показатель, и на дополнительный процент от общего показателя."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_one"		"Доп. здоровье"
     	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix"				""
-    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_two"		"Max Health Percentage"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_property_two"		"Доп. здоровье (%)"
     	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix_two"			"%"
 
 		"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3"							"[Q3] Earthen EMP"
@@ -6468,6 +6478,12 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_w_2_property_one"				"Доп. урон за каждую задетую цель"
     	"DOTA_Tooltip_ability_hydroxis_rune_w_2_suffix"						"%"
 		
+		"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_visible"			"Liquid Essence"
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_visible_Description"	"Урон героя увеличен"
+
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_spillover"		"Liquid Essence Spillover"
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_spillover_Description"	"Урон героя увеличен"
+		
 		"DOTA_Tooltip_ability_hydroxis_rune_w_3"							"[W3] Deluge"
     	"DOTA_Tooltip_ability_hydroxis_rune_w_3_Description"				"Добавляет урон Hydroxis к базовому урону @Ability2."
     	"DOTA_Tooltip_ability_hydroxis_rune_w_3_property_one"				"Доп. урон (W) Water Bomb"
@@ -6525,10 +6541,16 @@
         "DOTA_Tooltip_ability_hydroxis_rune_r_1_property_two"               "Усиление урона (R) Ocean Quake"
         "DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix_two"                 "% за каждые 10 очков брони"
 		
+		"DOTA_Tooltip_modifier_hydroxis_r_1"								"Wave Drench"
+		"DOTA_Tooltip_modifier_hydroxis_r_1_Description"					"Броня снижена, получает увеличенный урон от Ocean Quake и её рун."
+		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_2"							"[R2] Tsunami"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_Description"				"С прочтением @Ability4 Hydroxis начинает выпускает волны в течение 12 секунд, которые двигаются из-за спины в сторону, куда смотрит герой, наносят урон и замедляют всех задетых врагов."
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_property_one"				"Урон"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_suffix"						""
+		
+		"DOTA_Tooltip_modifier_hydroxis_r_2"								"Tsunami"
+		"DOTA_Tooltip_modifier_hydroxis_r_2_Description"					"Вызывает волны позади Hydroxis."
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_3"							"[R3] Poseidon's Fury"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_Description"				"После прочтения @Ability4, получает бафф Poseidon's Fury, длящийся 10 секунд. Под действием усиления герой способен выпускать потоки воды во врагов, находящихся в полукруге позади основной атакуемой цели."
@@ -11645,6 +11667,9 @@
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"
 		"item_property_saytaru"						"Last Hope"
 		"property_saytaru_description"				"Когда здоровье опускается ниже <font color='#ccff66'>50</font>% дарует иммунитет к магии, увеличивает сопротивление Чистому урону на <font color='#ccff66'>70</font>%, но уменьшает Магический и Чистый исходящий урон на <font color='#ccff66'>50</font>%."
+		
+		"DOTA_Tooltip_modifier_hope_of_saytaru_effect"				"Last Hope"
+		"DOTA_Tooltip_modifier_hope_of_saytaru_effect_Description"	"Иммунитет к магии. Входящий Чистый урон снижен, исходящие Чистый и Магический урон тоже снижены."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"Sapphire Lotus"

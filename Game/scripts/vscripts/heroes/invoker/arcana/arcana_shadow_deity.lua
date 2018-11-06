@@ -120,11 +120,19 @@ function black_razor_cast(event)
 	local radius = event.radius
 	local duration = Filters:GetAdjustedBuffDuration(caster.conjuror, event.duration, false)
 	local allies = {}
-	table.insert(allies, caster.conjuror.earthAspect)
-	table.insert(allies, caster.conjuror.fireAspect)
-	table.insert(allies, caster.conjuror.shadowAspect)
+	if caster.conjuror.earthAspect then
+		table.insert(allies, caster.conjuror.earthAspect)
+	end
+	if caster.conjuror.fireAspect then
+		table.insert(allies, caster.conjuror.fireAspect)
+	end
+	if caster.conjuror.shadowAspect then
+		table.insert(allies, caster.conjuror.shadowAspect)
+	end
 	table.insert(allies, caster.conjuror)
-	table.insert(allies, caster.conjuror.deity)
+	if caster.conjuror.deity then
+		table.insert(allies, caster.conjuror.deity)
+	end
 	ability.e_1_level = caster.conjuror:GetRuneValue("e", 1)
 	for i = 1, #allies, 1 do
 		local ally = allies[i]
@@ -168,11 +176,19 @@ function dark_horizon_start(event)
 	local radius = event.radius
 	local point = event.target_points[1]
 	local allies = {}
-	table.insert(allies, caster.earthAspect)
-	table.insert(allies, caster.fireAspect)
-	table.insert(allies, caster.shadowAspect)
-	table.insert(allies, caster)
-	table.insert(allies, caster.deity)
+	if caster.conjuror.earthAspect then
+		table.insert(allies, caster.conjuror.earthAspect)
+	end
+	if caster.conjuror.fireAspect then
+		table.insert(allies, caster.conjuror.fireAspect)
+	end
+	if caster.conjuror.shadowAspect then
+		table.insert(allies, caster.conjuror.shadowAspect)
+	end
+	table.insert(allies, caster.conjuror)
+	if caster.conjuror.deity then
+		table.insert(allies, caster.conjuror.deity)
+	end
 	point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
 	EmitSoundOn("Conjuror.DarkHorizon.Start", caster)
 	Filters:CastSkillArguments(3, caster)
