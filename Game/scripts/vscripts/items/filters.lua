@@ -1801,9 +1801,22 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + stacks/100
         end
         if attacker:HasAbility("arkimus_archon_form") then
-            local c_d_level = attacker:GetRuneValue("r", 3)
-            if c_d_level > 0 then
-                mult = mult + ARKIMUS_ARCANA2_R3_ELEMENTS_PCT*c_d_level
+            local r_3_level = attacker:GetRuneValue("r", 3)
+            if r_3_level > 0 then
+                mult = mult + ARKIMUS_ARCANA2_R3_ELEMENTS_PCT*r_3_level
+            end
+        end
+        if attacker:GetUnitName() == "npc_dota_hero_invoker" then
+            if attacker:HasAbility("summon_shadow_deity") then
+                if not element1 == RPC_ELEMENT_SHADOW then
+                    if not element2 == RPC_ELEMENT_SHADOW then
+                        local e_2_level = attacker:GetRuneValue("e", 2)
+                        if e_2_level > 0 and bIsRealDamage then
+                            local e_2_damage = damage*(CONJUROR_ARCANA_E2_SHADOW_INSTANCE/100)*e_2_level
+                            Filters:TakeArgumentsAndApplyDamage(victim, attacker, e_2_damage, damage_type, slot, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+                        end
+                    end
+                end
             end
         end
     end
@@ -2344,7 +2357,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_slark" then
             attacker.q_4_level = attacker:GetRuneValue("q", 4)
             if attacker.q_4_level then
-                mult = mult + 0.0007*attacker:GetAgility()/10*attacker.q_4_level
+                mult = mult + (0.0007*attacker:GetAgility()/10)*attacker.q_4_level
+            end
+        elseif unitName == "npc_dota_hero_invoker" then
+            local e_3_level = attacker:GetRuneValue("e", 3)
+            if e_3_level > 0 then
+                mult = mult + ((CONJUROR_ARCANA_E3_SHADOW_AMP/100)*attacker:GetAgility()/10)*e_3_level
             end
         end
         if attacker:HasModifier("modifier_helm_shadow") then

@@ -1054,6 +1054,18 @@ function GameState:OrderFilter(orderTable)
 					end
 				end
 			end
+			if unit:GetUnitName() == "shadow_deity" then
+				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
+				if IsValidEntity(orderAbility) then
+					if orderAbility:GetAbilityName() == "shadow_deity_shadow_essence" then
+						local target = EntIndexToHScript(orderTable.entindex_target)
+						if target == unit.conjuror then
+						else
+							return false
+						end
+					end
+				end
+			end
 			if unit:GetUnitName() == "npc_dota_hero_visage" then
 				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
 				if IsValidEntity(orderAbility) then

@@ -12,6 +12,9 @@
 			"particle"		"particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf"
 			"particle"		"particles/roshpit/conjuror/black_razor.vpcf"
 			"particle"		"particles/roshpit/conjuror/dark_horizon.vpcf"
+			"particle"		"particles/roshpit/conjuror/shadow_essence.vpcf"
+			"particle"		"particles/roshpit/conjuror/shadow_essence_base_attack.vpcf"
+			"particle"		"particles/roshpit/conjuror/shadow_essence_start.vpcf"
 		}
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"

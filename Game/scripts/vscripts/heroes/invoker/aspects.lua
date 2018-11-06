@@ -381,6 +381,20 @@ function aspect_think(event)
 		else
 			caster:MoveToPositionAggressive(position)
 		end
+		if caster:HasAbility("shadow_deity_shadow_essence") then
+			local shadow_essence = caster:FindAbilityByName("shadow_deity_shadow_essence")
+			if shadow_essence:IsFullyCastable() then
+				local newOrder = {
+				 		UnitIndex = caster:entindex(), 
+				 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+				 		TargetIndex = caster.conjuror:entindex(),
+				 		AbilityIndex = shadow_essence:entindex(),
+			 	}
+				 
+				ExecuteOrderFromTable(newOrder)		
+				return false
+			end
+		end
 		if caster:HasAbility("shadow_deity_cloak_of_shadows") then
 			local cast_ability = event.caster:FindAbilityByName("shadow_deity_cloak_of_shadows")
 			if cast_ability:IsFullyCastable() then

@@ -1411,6 +1411,8 @@ function Runes:UnequipArcana(hero, index)
 			if hero:HasAbility("dark_horizon") then
 				hero:RemoveAbility("dark_horizon")
 			end
+			hero:RemoveModifierByName("shadow_deity_passive")
+			hero:RemoveModifierByName("shadow_deity_agility_from_gear")
 			Runes:EasyRevertArcanaSkills(hero, 2,"summon_shadow_aspect", "summon_shadow_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana4")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_templar_assassin" then

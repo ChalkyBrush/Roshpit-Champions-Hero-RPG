@@ -33,7 +33,7 @@ function Tanari:Debug()
     --  for i = 1, 5, 1 do
     --     RPCItems:RollWinterblightSkullRing(Vector(-4928, 2048))
     -- end
-    -- Dungeons.itemLevel = 500
+    Dungeons.itemLevel = 500
     -- Glyphs:DropArcaneCrystals(Vector(-4928, 2048), 2.0)
     -- -- RPCItems:RollArcaneCharm(Vector(-3928, 2048))
     -- Tanari:DefeatDungeonBoss("fire", Vector(-4928, 2048))

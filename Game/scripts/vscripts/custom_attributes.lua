@@ -404,6 +404,9 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_trapper_rune_r_4_bonus_agi") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_trapper_rune_r_4_bonus_agi", CustomAttributes.TRAPPER_R4_AGI)
 	end
+	if hero:HasModifier("shadow_deity_agility_from_gear") then
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "shadow_deity_agility_from_gear", 1)
+	end
 	if hero:HasModifier("modifier_lightbomb_a_a") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_lightbomb_a_a", CustomAttributes.SEPHYR_Q1_INT)
 	end

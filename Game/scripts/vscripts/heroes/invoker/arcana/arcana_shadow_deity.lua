@@ -76,6 +76,12 @@ function shadow_deity(event)
 		local black_razor = caster.shadowAspect:FindAbilityByName("shadow_deity_black_razor")
 		black_razor:ToggleAutoCast()
 	end
+	local e_4_level = caster:GetRuneValue("e", 4)
+	if e_4_level > 0 then
+		caster.shadowAspect:AddAbility("shadow_deity_shadow_essence"):SetLevel(1)
+		local shadow_essence = caster.shadowAspect:FindAbilityByName("shadow_deity_shadow_essence")
+		shadow_essence:ToggleAutoCast()
+	end
 end
 
 function cloak_of_shadows_cast(event)
@@ -126,6 +132,7 @@ function black_razor_cast(event)
 			if ally:IsAlive() then
 				ability:ApplyDataDrivenModifier(caster, ally, "modifier_black_razor", {duration = duration})
 				ability:ApplyDataDrivenModifier(caster, ally, "modifier_black_razor_attack_power", {duration = duration})
+				ally:SetModifierStackCount("modifier_black_razor_attack_power", caster, ability.e_1_level)
 				EmitSoundOn("Conjuror.BlackRazor.Start", ally)
 			end
 		end
@@ -201,5 +208,75 @@ function dark_horizon_transporting_think(event)
 	if target:HasModifier("modifier_black_razor") then
 		local modifier = target:FindModifierByName("modifier_black_razor")
 		modifier:SetDuration(modifier:GetRemainingTime()+0.1, true)
+	end
+end
+
+function shadow_deity_passive_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:HasModifier("modifier_recently_respawned") then
+		return false
+	end
+	if caster:IsAlive() then
+		local e_3_level = caster:GetRuneValue("e", 3)
+		local agility_from_gear = caster:GetModifierStackCount("modifier_trinket_agility", caster.InventoryUnit) + caster:GetModifierStackCount("modifier_body_agility", caster.InventoryUnit) + caster:GetModifierStackCount("modifier_hand_agility", caster.InventoryUnit) + caster:GetModifierStackCount("modifier_helm_agility", caster.InventoryUnit) + caster:GetModifierStackCount("modifier_weapon_agility", caster.InventoryUnit) + caster:GetModifierStackCount("modifier_hand_agility", caster.InventoryUnit) + caster:GetModifierStackCount("modifier_foot_agility", caster.InventoryUnit)
+		local bonus_agility = agility_from_gear*(CONJUROR_ARCANA_E3_AGILITY_GEAR_AMP/100)*e_3_level
+		if bonus_agility > 0 then
+			ability:ApplyDataDrivenModifier(caster, caster, "shadow_deity_agility_from_gear", {})
+			caster:SetModifierStackCount("shadow_deity_agility_from_gear", caster, bonus_agility)
+		else
+			caster:RemoveModifierByName("shadow_deity_agility_from_gear")
+		end
+	end
+end
+
+function shadow_essence_cast(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local duration = Filters:GetAdjustedBuffDuration(caster.conjuror, event.duration, false)
+
+	local pfx = ParticleManager:CreateParticle("particles/roshpit/conjuror/shadow_essence_start.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,100))
+	ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin()+Vector(0,0,100))
+	ParticleManager:SetParticleControl(pfx, 15, Vector(90,0,160))
+	local pfx2 = ParticleManager:CreateParticle("particles/roshpit/conjuror/shadow_essence_start.vpcf", PATTACH_CUSTOMORIGIN, target)
+	ParticleManager:SetParticleControl(pfx2, 1, caster:GetAbsOrigin()+Vector(0,0,100))
+	ParticleManager:SetParticleControl(pfx2, 0, target:GetAbsOrigin()+Vector(0,0,100))
+	ParticleManager:SetParticleControl(pfx2, 15, Vector(90,0,160))
+	Timers:CreateTimer(4, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		ParticleManager:DestroyParticle(pfx2, false)
+	end)
+	EmitSoundOn("Conjuror.ShadowEssence.Start", caster)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shadow_essence_split_attack", {duration = duration})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_shadow_essence_split_attack", {duration = duration})
+	ability.e_4_level = caster.conjuror:GetRuneValue("e", 4)
+end
+
+function shadow_essence_attack_start(event)
+	local caster = event.caster
+	local attacker = event.attacker
+	local target = event.target
+	local ability = event.ability
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 580, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	local procs = Runes:Procs(ability.e_4_level, CONJUROR_ARCANA_E4_SPLIT_CHANCE, 1)
+	local shots = 0
+	if not attacker.shadowEssenceLock then
+		attacker.shadowEssenceLock = true
+		for _,enemy in pairs(enemies) do
+			if shots < procs then
+	        	if enemy:GetEntityIndex() == target:GetEntityIndex() or enemy.dummy then
+	        	else
+	        		if shots < procs then
+	        			Filters:PerformAttackSpecial(attacker, enemy, true, true, true, false, true, false, false)
+	        			shots = shots + 1
+	        		end
+	        	end
+			end
+		end
+		Timers:CreateTimer(0.1, function()
+			attacker.shadowEssenceLock = false
+		end)
 	end
 end

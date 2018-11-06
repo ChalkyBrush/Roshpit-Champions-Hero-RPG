@@ -4143,6 +4143,70 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_property_one"		"Enemy Damage Reduction"
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_suffix"				"%"
 
+    	"shadow_deity"														"Shadow Deity"
+
+    	"DOTA_Tooltip_ability_item_rpc_conjuror_arcana4"				"Dark Wanderer's Footwraps"
+
+       	"item_property_conjuror_arcana4"									"Shadow Deity"
+    	"property_conjuror_arcana4_description"								"Replaces @Ability3 and all of its runes with Shadow Deity."
+
+
+    	"DOTA_Tooltip_ability_summon_shadow_deity"							"Shadow Deity"
+    	"DOTA_Tooltip_ability_summon_shadow_deity_Description"				"A powerful black magic summons a shadow deity. The shadow deity has an AOE ability that makes conjuror and his aspects gain temporary unbreakable invisibility. While the deity is alive, the ability is replaced with Dark Horizon, a mobility spell."
+    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_health"				"HEALTH:"
+    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_damage"				"ATTACK DAMAGE:"
+    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_armor"				"ARMOR:"
+    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_magic_resist"		"MAGIC RESIST:"
+
+    	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows"				"Cloak of Shadows"
+    	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_Description"	"An umbral wave cloaks the shadow aspect and his allies, giving them unbreakable invisibility."
+    	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_radius"			"RADIUS:"
+    	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_duration"		"DURATION:"
+
+    	"DOTA_Tooltip_ability_shadow_deity_black_razor"						"Black Razor"
+    	"DOTA_Tooltip_ability_shadow_deity_black_razor_Description"			"Element: <font color=\"#7F4F84\">Shadow</font><br>A twisted wretch of shadow blades is activated upon Conjuror and all of his summons. Affected allies gain bonus attack damage and nearby enemies take damage every 0.3 seconds."	
+    	"DOTA_Tooltip_ability_shadow_deity_black_razor_radius"				"RADIUS:"
+    	"DOTA_Tooltip_ability_shadow_deity_black_razor_duration"			"DURATION:"
+
+    	"DOTA_Tooltip_modifier_black_razor"									"Black Razor"
+    	"DOTA_Tooltip_modifier_black_razor_Description"						"Increased attack damage and damaging nearby enemies."
+
+    	"DOTA_Tooltip_ability_shadow_deity_shadow_essence"					"Shadow Essence"
+    	"DOTA_Tooltip_ability_shadow_deity_shadow_essence_Description"		"Shadow Deity binds itself and Conjuror between the dark rifts, granting them both a buff that causes their attacks to split and hit additional targets."
+    	"DOTA_Tooltip_ability_shadow_deity_shadow_essence_duration"			"DURATION:"
+
+    	"DOTA_Tooltip_modifier_shadow_essence_split_attack"					"Shadow Essence"
+    	"DOTA_Tooltip_modifier_shadow_essence_split_attack_Description"		"Attacks split and hit additional targets."	
+
+    	"DOTA_Tooltip_ability_dark_horizon"									"Dark Horizon"
+    	"DOTA_Tooltip_ability_dark_horizon_Description"						"Conjuror's dark whispers transport him and his aspects through the void, appearing at the target location after a 1.2 second delay."
+    	"DOTA_Tooltip_ability_dark_horizon_range"							"CAST RANGE:"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4"						"[E1] Black Razor"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_Description"			"A twisted wretch of shadow blades is activated upon Conjuror and all of his summons. Affected allies gain bonus attack damage and nearby enemies take damage every 0.3 seconds."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix"					"% of attack power every 0.3 seconds"	
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_property_two"			"Attack Power Bonus"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix_two"				"%"	
+
+  		"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4"						"[E2] Echoes of Darkness"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"			"All elemental damage that is not shadow deals an additional instance of shadow damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_property_one"		"Additional Shadow Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"% of base damage instance"
+
+		"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4"							"[E3] Prismatic Void"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_Description"				"<font color=\"#7F4F84\">Shadow</font> damage is increased by Agility. All agility from rolls on Gear is enhanced."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_property_one"				"Shadow Amplification"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_suffix"						"% for each 10 points of Agility"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_property_two"				"Agility Enhanced from Gear Rolls"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_suffix_two"					"%"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_e_4_arcana4"						"[E4] Shadow Essence"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_arcana4_Description"			"Shadow Deity binds itself and Conjuror between the dark rifts, granting them both a buff that causes their attacks to split and hit additional targets. Greater than 100% means attacks can split multiple times."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_arcana4_property_one"		"Chance for attacks to split"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_arcana4_suffix"				"%"
+
+
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"Glyph of Blazing Fire"
 		"item_rpc_conjuror_glyph_1_1_description" 				"Your Fire Aspect has @glyph_property1 extra attack speed and @glyph_property2% increased attack damage."
