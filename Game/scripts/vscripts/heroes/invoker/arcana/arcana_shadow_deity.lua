@@ -176,18 +176,18 @@ function dark_horizon_start(event)
 	local radius = event.radius
 	local point = event.target_points[1]
 	local allies = {}
-	if caster.conjuror.earthAspect then
-		table.insert(allies, caster.conjuror.earthAspect)
+	if caster.earthAspect then
+		table.insert(allies, caster.earthAspect)
 	end
-	if caster.conjuror.fireAspect then
-		table.insert(allies, caster.conjuror.fireAspect)
+	if caster.fireAspect then
+		table.insert(allies, caster.fireAspect)
 	end
-	if caster.conjuror.shadowAspect then
-		table.insert(allies, caster.conjuror.shadowAspect)
+	if caster.shadowAspect then
+		table.insert(allies, caster.shadowAspect)
 	end
-	table.insert(allies, caster.conjuror)
-	if caster.conjuror.deity then
-		table.insert(allies, caster.conjuror.deity)
+	table.insert(allies, caster)
+	if caster.deity then
+		table.insert(allies, caster.deity)
 	end
 	point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
 	EmitSoundOn("Conjuror.DarkHorizon.Start", caster)
