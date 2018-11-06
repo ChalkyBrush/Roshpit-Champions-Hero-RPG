@@ -618,7 +618,7 @@
 					}
 				}
 			}
-			"modifier_conjuror_a_a_buff"
+			"modifier_conjuror_q_1_buff"
 			{
 				"EffectName"	"particles/items_fx/earth_guardian_ring.vpcf"
 				"EffectAttachType"	"follow_origin"

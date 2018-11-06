@@ -621,6 +621,8 @@
 
 		"redfall_shipyard_crimsyth_knight"								"Crimsyth Knight"
 		
+		"redfall_shipyard_cargo_watcher"								"Cargo Watcher"
+		
 		//Crimsyth Castle
 
 		"redfall_crimsyth_castle_intro"									"The Blighted Promenade"

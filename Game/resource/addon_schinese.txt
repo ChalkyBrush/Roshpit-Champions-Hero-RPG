@@ -291,8 +291,8 @@
 		"DOTA_Tooltip_ability_earth_aspect_a_a_ability"						"大地守护者"
 		"DOTA_Tooltip_ability_earth_aspect_a_a_ability_Description"			"为周围友军提供额外护甲值"
 
-		"DOTA_Tooltip_modifier_conjuror_a_a_buff"								"大地守护者"
-		"DOTA_Tooltip_modifier_conjuror_a_a_buff_Description"					"护甲值提高"
+		"DOTA_Tooltip_modifier_conjuror_q_1_buff"								"大地守护者"
+		"DOTA_Tooltip_modifier_conjuror_q_1_buff_Description"					"护甲值提高"
 
 		//--------------------
 		//神圣剑客
@@ -415,11 +415,11 @@
 		//暗夜魔王
 		//--------------------
 
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_active"				"野兽之怒（开启时）"
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_active_Description"				"增加基础攻击力"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_active"				"野兽之怒（开启时）"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_active_Description"				"增加基础攻击力"
 
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_inactive"				"野兽之怒（关闭时）"
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_inactive_Description"				"增加护甲"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive"				"野兽之怒（关闭时）"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive_Description"				"增加护甲"
 
     	//b_d: Splash damage when striking a target in Night's Procession
 
@@ -441,11 +441,11 @@
 		//胖头鱼
 		//--------------------
 
-    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_visible"			"液体精华"
-    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_visible_Description"	"攻击力提高"
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_visible"			"液体精华"
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_visible_Description"	"攻击力提高"
 
-    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_spillover"		"液体精华溢出"
-    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_spillover_Description"	"攻击力提高"
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_spillover"		"液体精华溢出"
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_spillover_Description"	"攻击力提高"
 
     	//If attack target == gush target, source the tracking projectile from the hero, otherwise source it from the target
     	//SET RENDER COLOR (130, 130, 255)

@@ -297,7 +297,7 @@
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%slow_movespeed"
 				}
 			}
-			"modifier_water_bomb_b_b_damage_buff_visible"
+			"modifier_water_bomb_w_2_damage_buff_visible"
 			{
 				"IsHidden"	"0"
 				"TextureName"	"hydroxis/hydroxis_w_2"
@@ -318,7 +318,7 @@
 					}
 				}
 			}
-			"modifier_water_bomb_b_b_damage_buff_invisible"
+			"modifier_water_bomb_w_2_damage_buff_invisible"
 			{
 				"IsHidden"	"1"
 				"Properties"
@@ -326,13 +326,13 @@
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "4"
 				}
 			}
-			"modifier_water_bomb_b_b_damage_buff_spillover"
+			"modifier_water_bomb_w_2_damage_buff_spillover"
 			{
 				"IsHidden"	"0"
 				"TextureName"	"hydroxis/hydroxis_w_2"
 
 			}
-			"modifier_water_bomb_b_b_damage_buff_spillover_invis"
+			"modifier_water_bomb_w_2_damage_buff_spillover_invis"
 			{
 				"IsHidden"	"1"
 				"Properties"

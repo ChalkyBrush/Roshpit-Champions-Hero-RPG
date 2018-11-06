@@ -243,8 +243,8 @@
 		"DOTA_Tooltip_ability_earth_aspect_a_a_ability"						"Earth Guardian"
 		"DOTA_Tooltip_ability_earth_aspect_a_a_ability_Description"			"Распространяет ауру, дающую дополнительную броню всем союзным существам неподалёку."
 
-		"DOTA_Tooltip_modifier_conjuror_a_a_buff"								"Earth Guardian"
-		"DOTA_Tooltip_modifier_conjuror_a_a_buff_Description"					"Увеличение брони."
+		"DOTA_Tooltip_modifier_conjuror_q_1_buff"								"Earth Guardian"
+		"DOTA_Tooltip_modifier_conjuror_q_1_buff_Description"					"Увеличение брони."
 		
     	//--------------------Seinaru/Juggernaut
 
@@ -330,11 +330,11 @@
 
     	//-----------------------CHERNOBOG/Night Stalker
 
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_active"				"Inner Beast (Активно)"
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_active_Description"				"Базовый урон увеличен"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_active"				"Inner Beast (Активно)"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_active_Description"				"Базовый урон увеличен"
 
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_inactive"				"Inner Beast (Не активно)"
-    	"DOTA_Tooltip_modifier_demon_hunter_b_b_inner_beast_inactive_Description"				"Значение брони увеличено"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive"				"Inner Beast (Не активно)"
+    	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive_Description"				"Значение брони увеличено"
 
     	//b_d: Splash damage when striking a target in Night's Procession
 
@@ -351,11 +351,11 @@
 
     	//HYDROXIS - Slardar
 
-    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_visible"			"Liquid Essence"
-    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_visible_Description"	"Урон героя увеличен"
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_visible"			"Liquid Essence"
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_visible_Description"	"Урон героя увеличен"
 
-    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_spillover"		"Liquid Essence Spillover"
-    	"DOTA_Tooltip_modifier_water_bomb_b_b_damage_buff_spillover_Description"	"Урон героя увеличен"
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_spillover"		"Liquid Essence Spillover"
+    	"DOTA_Tooltip_modifier_water_bomb_w_2_damage_buff_spillover_Description"	"Урон героя увеличен"
 
     	//If attack target == gush target, source the tracking projectile from the hero, otherwise source it from the target
     	//SET RENDER COLOR (130, 130, 255)

@@ -3577,7 +3577,7 @@ function Filters:SpellShieldHit(victim, damage)
 end
 
 function Filters:HasDamageBlockShield(victim)
-    if victim:HasModifier("modifier_secret_temple_refraction") or victim:HasModifier("modifier_windsteel_effect") or victim:HasModifier("modifier_heavens_shield") or victim:HasModifier("modifier_shipyard_veil_shield") or victim:HasModifier("modifier_arcane_shell") or victim:HasModifier("modifier_duskbringer_ghost_armor") or victim:HasModifier("modifier_paladin_q3_shield") or victim:HasModifier("modifier_voltex_rune_w_3_shield") or victim:HasModifier("modifier_light_seer_shield") or victim:HasModifier("modifier_black_dominion_shield") then
+    if victim:HasModifier("modifier_secret_temple_refraction") or victim:HasModifier("modifier_windsteel_effect") or victim:HasModifier("modifier_heavens_shield") or victim:HasModifier("modifier_shipyard_veil_shield") or victim:HasModifier("modifier_arcane_shell") or victim:HasModifier("modifier_duskbringer_rune_e_2_effect") or victim:HasModifier("modifier_paladin_q3_shield") or victim:HasModifier("modifier_voltex_rune_w_3_shield") or victim:HasModifier("modifier_light_seer_shield") or victim:HasModifier("modifier_black_dominion_shield") then
         return true
     else
         return false
@@ -3880,11 +3880,11 @@ function Filters:HitAxeCCShield(victim, attacker)
 end
 
 function Filters:GhostArmor(victim, attacker)
-    local currentStacks = victim:GetModifierStackCount("modifier_duskbringer_ghost_armor", victim)
+    local currentStacks = victim:GetModifierStackCount("modifier_duskbringer_rune_e_2_effect", victim)
     if currentStacks > 1 then
-        victim:SetModifierStackCount("modifier_duskbringer_ghost_armor", victim, currentStacks-1)
+        victim:SetModifierStackCount("modifier_duskbringer_rune_e_2_effect", victim, currentStacks-1)
     else
-        victim:RemoveModifierByName("modifier_duskbringer_ghost_armor")
+        victim:RemoveModifierByName("modifier_duskbringer_rune_e_2_effect")
     end
     
     EmitSoundOn("Duskbringer.GhostArmor.Impact", attacker)

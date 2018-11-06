@@ -14,11 +14,11 @@ function demon_hunter_start(event)
 	local rune_w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "chernobog")
 	local rune_w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "chernobog")
 	if rune_w_2_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_demon_hunter_b_b_inner_beast_active", {})
-		caster:SetModifierStackCount("modifier_demon_hunter_b_b_inner_beast_active", caster, rune_w_2_level)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_demon_hunter_w_2_inner_beast_active", {})
+		caster:SetModifierStackCount("modifier_demon_hunter_w_2_inner_beast_active", caster, rune_w_2_level)
 
 		if not caster:HasModifier("modifier_chernobog_glyph_5_a") then
-			caster:RemoveModifierByName("modifier_demon_hunter_b_b_inner_beast_inactive")
+			caster:RemoveModifierByName("modifier_demon_hunter_w_2_inner_beast_inactive")
 		end
 	end
 	if rune_w_4_level > 0 then
@@ -45,11 +45,11 @@ function demon_hunter_end(event)
 	local rune_w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "chernobog")
 	local rune_w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "chernobog")
 	if rune_w_2_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_demon_hunter_b_b_inner_beast_inactive", {})
-		caster:SetModifierStackCount("modifier_demon_hunter_b_b_inner_beast_inactive", caster, rune_w_2_level)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_demon_hunter_w_2_inner_beast_inactive", {})
+		caster:SetModifierStackCount("modifier_demon_hunter_w_2_inner_beast_inactive", caster, rune_w_2_level)
 
 		if not caster:HasModifier("modifier_chernobog_glyph_5_a") then
-			caster:RemoveModifierByName("modifier_demon_hunter_b_b_inner_beast_active")
+			caster:RemoveModifierByName("modifier_demon_hunter_w_2_inner_beast_active")
 		end
 
 	end
