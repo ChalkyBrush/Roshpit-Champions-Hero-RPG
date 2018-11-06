@@ -1808,8 +1808,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if attacker:GetUnitName() == "npc_dota_hero_invoker" then
             if attacker:HasAbility("summon_shadow_deity") then
-                if not element1 == RPC_ELEMENT_SHADOW then
-                    if not element2 == RPC_ELEMENT_SHADOW then
+                if element1 ~= RPC_ELEMENT_SHADOW then
+                    if element2 ~= RPC_ELEMENT_SHADOW then
                         local e_2_level = attacker:GetRuneValue("e", 2)
                         if e_2_level > 0 and bIsRealDamage then
                             local e_2_damage = damage*(CONJUROR_ARCANA_E2_SHADOW_INSTANCE/100)*e_2_level
