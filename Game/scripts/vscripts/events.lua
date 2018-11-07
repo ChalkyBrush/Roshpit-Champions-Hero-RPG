@@ -14,6 +14,8 @@ require('glyphs')
 require('paragon')
 require('elements')
 
+Beacons.cheats = true
+
 
 if Events == nil then
   Events = class({})
@@ -84,7 +86,11 @@ function GameMode:OnGameRulesStateChange(keys)
 
   GameMode.VoteSystem = {}
   GameMode.VoteSystem.junk_loot_disabled = false  
-  GameMode.VoteSystem.crystal_loot_disabled = false  
+  GameMode.VoteSystem.crystal_loot_disabled = false
+  Timers:CreateTimer(0,function()
+    SendToConsole("dota_hud_healthbars 1")
+    return 2
+    end)
   -- This internal handling is used to set up main barebones functions
   GameMode:_OnGameRulesStateChange(keys)
 
@@ -1557,7 +1563,9 @@ end
 
 function Events:beginQuests()
   -- print("BEGINQUESTS IS HAPPENING")
-   -- Beacons:DEBUG()
+  if Beacons.cheats then
+    Beacons:DEBUG()
+  end
 end
 
 function Events:InitGameEntities()
