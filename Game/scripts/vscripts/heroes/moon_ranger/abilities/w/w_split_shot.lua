@@ -71,7 +71,7 @@ end
 function makeShot(caster, ability, w3ability, manaCost, range, minArrow, maxArrow,empyralArrowsProcChance, playSound, angleMult)
     Filters:CastSkillArguments(2, caster)
     for arrowNumber = minArrow, maxArrow, 1 do
-        local arrowOrigin = caster:GetOrigin() + caster:GetForwardVector()*Vector(25,25,0)
+        local arrowOrigin = caster:GetOrigin() + caster:GetForwardVector()*Vector(20,20,0)
         local rotatedVector = rotateVector(caster:GetForwardVector(), math.pi/40*angleMult*arrowNumber)
 
         local luck = RandomInt(1, 100)
@@ -91,7 +91,7 @@ function makeShot(caster, ability, w3ability, manaCost, range, minArrow, maxArro
     else
         -- StartAnimation(caster, {duration=W_DELAY-0.06, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.8, translate="ti6"})
     end
-    -- caster:ReduceMana(manaCost)
+    caster:ReduceMana(manaCost)
     local event = {}
     event.ability = caster.body
     event.event_ability = ability
