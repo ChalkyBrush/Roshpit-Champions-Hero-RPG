@@ -215,11 +215,10 @@ function starfall_initiate(event)
     caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "astral")
   end
   ability.r_1_level = caster:GetRuneValue("r",1)
-  ability.maxStars = 400--ability.r_1_level + 20
+  ability.maxStars = ability.r_1_level + 20
   ability.hit_mult = math.floor(ability.maxStars/40)
   ability.remainingStars = ability.maxStars%40
   ability.star_damage = ability.r_1_level*ASTRAL_R1_DAMAGE
-  ability.count = 0
   if caster:HasModifier("modifier_astral_glyph_7_1") then
     ability.star_damage = ability.star_damage*10
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_glyph_7_1_evasion_effect", {duration = ability:GetChannelTime()})
@@ -235,8 +234,7 @@ end
 function starfall_think(event)
   local caster = event.caster
   local ability = event.ability
-  local maxStars = 400--ability.r_1_level + 20
-  print(ability.remainingStars)
+  local maxStars = ability.r_1_level + 20
 
 
   if ability.r_1_level > 0 then
@@ -262,8 +260,6 @@ function starfall_think(event)
 end
 
 function dropStar(enemy, caster, damage, ability, hit_mult)
-  print("hit_mult",hit_mult,ability.maxStars)
-  ability.count = ability.count + 1
         -- ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall", {duration = 2})
       local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
       local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
