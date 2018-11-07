@@ -282,7 +282,7 @@ function GameMode:_InitGameMode()
   SendToServerConsole("sv_timeout_when_fully_connected 60")
   SendToServerConsole("sv_timeout_when_fully_connected_tournament 60")
   SendToServerConsole("dota_surrender_on_disconnect 0")
-  SendToServerConsole("dota_auto_surrender_all_disconnected_timeout 10000")
+  SendToServerConsole("dota_auto_surrender_all_disconnected_timeout 1800")
   if not Beacons.cheats then
     SendToServerConsole("sv_cheats 0")
   end
