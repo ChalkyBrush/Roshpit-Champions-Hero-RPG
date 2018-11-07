@@ -4192,7 +4192,7 @@
     	"DOTA_Tooltip_ability_dark_horizon_range"							"CAST RANGE:"
 
   		"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4"						"[E1] Black Razor"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_Description"			"A twisted wretch of shadow blades is activated upon Conjuror and all of his summons. Affected allies gain bonus attack damage and nearby enemies take damage every 0.3 seconds."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_Description"			"A twisted spiral of shadow blades is activated upon Conjuror and all of his summons. Affected allies gain bonus attack damage and nearby enemies take damage every 0.3 seconds."
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_property_one"			"Damage"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix"					"% of attack power every 0.3 seconds"	
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_property_two"			"Attack Power Bonus"
