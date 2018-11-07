@@ -142,7 +142,7 @@
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"После успешного применения @Ability4, Astral Ranger призывает божественного Феникса, который будет следовать за героем и атаковать ближайших врагов последующие 10 секунд."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"После успешного применения @Ability4, Astral Ranger призывает божественного Феникса, который будет следовать за героем и атаковать ближайших врагов последующие 20 секунд."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Урон феникса"
     	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% от урона героя"
 		
@@ -271,10 +271,10 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"		"(T1) Глиф крыльев"
-		"item_rpc_astral_glyph_1_1_description" 				"[E1] Pegasus перемещается между указанной точкой и текущей позицией героя 4 раза."
+		"item_rpc_astral_glyph_1_1_description" 				"Удваивает длительность [W1]."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"(T2) Глиф воздушного креста"
-		"item_rpc_astral_glyph_2_1_description" 				"Урон призванного [R3] увеличен в @glyph_property1 раз(а), а все задетые им враги замедляются на @glyph_property2."
+		"item_rpc_astral_glyph_2_1_description" 				"Урон призванного Феникса увеличен в @glyph_property1 раз(а), а все задетые им враги замедляются на @glyph_property2."
 
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow"			"Phoenix Slow"
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow_Description"	"Замедлен"
@@ -283,10 +283,10 @@
 		"item_rpc_astral_glyph_3_1_description" 				"(W) @Ability2 выпускает только @glyph_property1 стрел, но они наносят увеличенный в @glyph_property2 раз(а) урон. Шанс появления зачарованной стрелы увеличен на 30%."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"(T4) Глиф пространственных искажений"
-		"item_rpc_astral_glyph_4_1_description" 				"Сокращает задержку перемещения от (E) @Ability3 на 1 секунду."
+		"item_rpc_astral_glyph_4_1_description" 				"Перезарядка, задержка применения, и  увеличение длительносити @Ability1 от способности @Ability3 уменьшаются вдвое."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"		"(T5) Глиф лунных волн"
-		"item_rpc_astral_glyph_5_1_description" 				"Увеличивает длительность (Q) @Ability1 на @glyph_property1 сек."
+		"item_rpc_astral_glyph_5_1_description" 				"@Ability4 само себя заряжает при касте."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_6_1"		"(T6) Глиф разделяющихся стрел"
 		"item_rpc_astral_glyph_6_1_description" 				"Стрелы от обычных атак разделяются при попадании и могут поразить до @glyph_property1 дополнительных целей."
