@@ -17713,7 +17713,7 @@
 				"IsHidden"	"0"
 				"TextureName"	"mirana_starfall"
 				"IsDebuff"	"1"
-
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 			}
 			"modifier_stargazer_immunity"
 			{

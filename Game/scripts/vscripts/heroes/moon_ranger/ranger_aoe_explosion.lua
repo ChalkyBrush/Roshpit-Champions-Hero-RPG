@@ -139,7 +139,6 @@ function rune_r_3(caster, mainAbility)
     EmitSoundOn("phoenix_phoenix_bird_attack", dummy)
     dummy.owner = caster:GetPlayerOwnerID()
     dummy:AddAbility("replica")
-    dummy.dummy = true
     dummy:FindAbilityByName("replica"):SetLevel(1)
     ability:ApplyDataDrivenModifier(runeUnit, dummy, "modifier_rune_r_3_phoenix", {duration = ASTRAL_R3_DURATION})
     dummy:MoveToNPC(caster)
@@ -165,17 +164,24 @@ function rotateVector(vector, radians)
    
 end
 
-function end_channel(event)
-  local caster = event.caster
-  if caster:HasModifier("modifier_astral_glyph_5_1") then
-    begin_explosion({caster = caster, ability = event.ability})
-  end
-end
+-- function end_channel(event)
+--   local caster = event.caster
+--   if caster:HasModifier("modifier_astral_glyph_5_1") then
+--     begin_explosion({caster = caster, ability = event.ability})
+--   end
+-- end
+
 
 function channel_interrupt(event)
   local caster = event.caster
+  local ability = event.ability
   if not caster:HasModifier("modifier_astral_glyph_5_1") then
     caster:RemoveModifierByName("modifier_channel_start")
+    caster:RemoveModifierByName("modifier_astral_glyph_7_1_evasion_effect")
+    if caster.r_timer then
+      Timers:RemoveTimer(caster.r_timer)
+      caster.r_timer = nil
+    end
   end
   EndAnimation(caster)
 end
@@ -183,8 +189,26 @@ end
 function starfall_initiate(event)
   local ability = event.ability
   local caster = event.caster
+  local delay = ability:GetChannelTime()
+  caster:RemoveModifierByName("modifier_channel_start")
+  if caster:HasModifier("modifier_iron_treads_of_destruction") then
+    begin_explosion({caster = caster, ability = ability})
+  else
+    if caster.r_timer then
+      Timers:ResetTimer(caster.r_timer)
+    else
+      caster.r_timer = Timers:CreateTimer(ability:GetChannelTime(), function()
+        begin_explosion({caster = caster, ability = ability})
+        caster.r_timer = nil
+      end)
+    end
+  end
   if not caster:HasModifier("modifier_astral_glyph_5_1") then
     StartAnimation(caster, {duration=2, activity=ACT_DOTA_IDLE_RARE, rate=1})
+  else
+    local cd = ability:GetCooldown(ability:GetLevel()-1)-ASTRAL_T51_CD_REDUCE
+    ability:EndCooldown()
+    ability:StartCooldown(0)
   end
   if not caster.r_4_level then
     caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "astral")
@@ -198,7 +222,7 @@ function starfall_initiate(event)
 
   if caster:HasModifier("modifier_astral_glyph_7_1") then
     ability.star_damage = ability.star_damage*10
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_glyph_7_1_evasion_effect", {duration = 2})
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_glyph_7_1_evasion_effect", {duration = ability:GetChannelTime()})
   end
   ability.extraTargetsStruck = 0
   if caster:HasModifier("modifier_astral_glyph_5_1") then
@@ -287,6 +311,9 @@ function r_2_quake(damage, ability, caster, r_2_level, target)
     EmitSoundOn("Astral.CelesialBurst.R2", target)
     Timers:CreateTimer(0.1, function() target.r_2_quake_particle_lock = false end)
   end
-  Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
-  Filters:ApplyStun(caster, ASTRAL_R2_STUN_DURATION, target)
+  local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+  for enemy in pairs(enemies) do
+    Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+    Filters:ApplyStun(caster, ASTRAL_R2_STUN_DURATION, target)
+  end
 end
