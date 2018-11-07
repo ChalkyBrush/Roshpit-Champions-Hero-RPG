@@ -2118,6 +2118,8 @@ function RPCItems:RollArcanaByName(arcana_name, position)
         arcana = RPCItems:RollConjurorArcana2(position)
     elseif arcana_name == "item_rpc_conjuror_arcana3" then
         arcana = RPCItems:RollConjurorArcana3(position)
+    elseif arcana_name == "item_rpc_conjuror_arcana4" then
+        arcana = RPCItems:RollConjurorArcana4(position)
     end
     return arcana
 end
