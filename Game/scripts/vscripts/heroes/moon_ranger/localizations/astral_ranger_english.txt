@@ -16,7 +16,7 @@
 		"DOTA_Tooltip_modifier_rune_q_1_thinker_description" 			"Astral Ranger gains attack range in her Moon Shroud."
 		
 		"DOTA_Tooltip_ability_astral_rune_q_2"							"[Q2] Biting Stars"
-    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"Your attacks have a 20% chance to drop a star on the enemy that deals Pure damage based on attack power, and lowers the target's armor. Can trigger from Split Attacks."
+    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"Your attacks have a 20% chance to drop a star on the enemy that deals Pure damage based on attack power, and lowers the target's armor. Can trigger from Split Attacks. Steadfast threshold is multiplied by 5 against this rune."
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_one"				"Star Impact Damage"
     	"DOTA_Tooltip_ability_astral_rune_q_2_suffix"					"% of attack power"
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_two"				"Armor Loss"
@@ -167,7 +167,7 @@
     	"DOTA_Tooltip_ability_astral_rune_q_1_arcana1_suffix"				""  	
 
     	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1"							"[Q2] Crushing Stars"
-    	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1_Description"				"Your attacks have a 20% chance to drop a star on the enemy that deals Pure damage based on attack power, and lowers the target's armor. Can trigger from Split Attacks."
+    	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1_Description"				"Your attacks have a 20% chance to drop a star on the enemy that deals Pure damage based on attack power, and lowers the target's armor. Can trigger from Split Attacks. Steadfast threshold is multiplied by 5 against this rune."
     	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1_property_one"				"Star Impact Damage"
     	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1_suffix"					"% of attack power"
     	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1_property_two"				"Armor Loss"
@@ -272,7 +272,7 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"        "Glyph of Persistent Light"
-        "item_rpc_astral_glyph_1_1_description"                 "Double duration of [W1]"
+        "item_rpc_astral_glyph_1_1_description"                 "@Ability2 no longer deals damage, but amount of arrows is multiplyed by 4, and arrows are shoot in all directions rather than in the direction your character is facing. Also double duration of [W1]."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"Glyph of Aerial Crests"
 		"item_rpc_astral_glyph_2_1_description" 				"Astral Ranger's Phoenix summon has @glyph_property1x increased attack damage and slows movespeed of its targets by @glyph_property2."
@@ -284,10 +284,10 @@
 		"item_rpc_astral_glyph_3_1_description" 				"@Ability2 only fires @glyph_property1 arrows and increases their damage by @glyph_property2x. Base Proc chance of Empyral Arrows is increased to 40%."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"Glyph of Spatial Rifts"
-		"item_rpc_astral_glyph_4_1_description" 				"Half cooldown, delay and @Ability1 duration increase of @Ability3"
+		"item_rpc_astral_glyph_4_1_description" 				"Half cooldown and delay of @Ability3, but reduce duration of all buffs applied by @Ability3 and duration increase for @Ability1 by <% ASTRAL_T41_DURATION_REDUCTION_PCT %>%. Also remove castpoint of @Ability3."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"        "Glyph of Lunar Channeling"
-        "item_rpc_astral_glyph_5_1_description"                 "Your @Ability4 channels itself."
+        "item_rpc_astral_glyph_5_1_description"                 "Your @Ability4 channels itself and it's cooldown is reduced by <% ASTRAL_T51_CD_REDUCE %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_6_1"		"Glyph of Splitting Arrows"
 		"item_rpc_astral_glyph_6_1_description" 				"Attacks split on impact and hit up to @glyph_property1 additional targets."
