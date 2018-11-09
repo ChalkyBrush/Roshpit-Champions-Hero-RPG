@@ -2360,9 +2360,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + (0.0007*attacker:GetAgility()/10)*attacker.q_4_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
-            local e_3_level = attacker:GetRuneValue("e", 3)
-            if e_3_level > 0 then
-                mult = mult + ((CONJUROR_ARCANA_E3_SHADOW_AMP/100)*attacker:GetAgility()/10)*e_3_level
+            if attacker:HasAbility("summon_shadow_deity") then
+                local e_3_level = attacker:GetRuneValue("e", 3)
+                if e_3_level > 0 then
+                    mult = mult + ((CONJUROR_ARCANA_E3_SHADOW_AMP/100)*attacker:GetAgility()/10)*e_3_level
+                end
             end
         end
         if attacker:HasModifier("modifier_helm_shadow") then

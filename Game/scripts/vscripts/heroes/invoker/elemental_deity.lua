@@ -67,7 +67,13 @@ function begin_deity(event)
 	local health_mult = event.health_mult
 
 	local dmg = OverflowProtectedGetAverageTrueAttackDamage(caster)*attack_mult
-	Filters:SetAttackDamage(summon, dmg)
+	dmg = math.max(1, dmg)
+	dmg = math.min(dmg, 2000000000)
+
+	ability:ApplyDataDrivenModifier(caster, summon, "modifier_deity_green_damage", {duration = -1})
+	summon:SetModifierStackCount("modifier_deity_green_damage", ability, dmg)
+
+	Filters:SetAttackDamage(summon, 1)
 	summon.elemental_deity = true
 	summon:SetPhysicalArmorBaseValue(caster:GetPhysicalArmorValue()*armor_mult)
 	local health = math.floor(caster:GetMaxHealth()*health_mult)
@@ -78,8 +84,6 @@ function begin_deity(event)
 	common_aspect_effects(caster, ability, summon)
 	summon:AddAbility("fire_temple_steadfast"):SetLevel(3)
     Filters:CastSkillArguments(4, caster)
-
-
 end
 
 function deity_a_d_attack_land(event)
@@ -87,12 +91,10 @@ function deity_a_d_attack_land(event)
 	local target = event.target
 	local damage = event.attack_damage
 	local caster = event.caster
-	print(damage)
 	EmitSoundOn("Conjuror.Deity.Attack", attacker)
 
 	local fv = ((target:GetAbsOrigin()-attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	local damage = damage*0.08*attacker.r_1_level
-	print(damage)
 	-- CustomAbilities:QuickAttachParticle("particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_weapon/kunkka_spell_tidebringer_fxset.vpcf", attacker, 2)
 	local pfx = ParticleManager:CreateParticle( "particle/roshpit/conjuror/deity_a_d.vpcf", PATTACH_CUSTOMORIGIN, caster )
 	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin()+fv*200, true)

@@ -812,6 +812,7 @@
 		{
 			"modifier_channel_start"
 			{
+				"IsHidden"         "1"
 				"EffectName"		"particles/items2_fx/veil_of_discord_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"OnCreated"
