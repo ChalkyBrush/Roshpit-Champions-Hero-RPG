@@ -3109,7 +3109,9 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	--APPLY MULT
-	filterTable["damage"] = filterTable["damage"]*mult/divisor
+	if applyEffects then
+		filterTable["damage"] = filterTable["damage"]*mult/divisor
+	end
 	--AFTER POSTMITIGATION MULTIPLIERS
 
 	if attacker:HasModifier("modifier_trapper_immortal_weapon_2") then

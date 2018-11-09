@@ -87,10 +87,6 @@ function GameMode:OnGameRulesStateChange(keys)
   GameMode.VoteSystem = {}
   GameMode.VoteSystem.junk_loot_disabled = false  
   GameMode.VoteSystem.crystal_loot_disabled = false
-  Timers:CreateTimer(0,function()
-    SendToConsole("dota_hud_healthbars 1")
-    return 2
-    end)
   -- This internal handling is used to set up main barebones functions
   GameMode:_OnGameRulesStateChange(keys)
 
@@ -1156,6 +1152,7 @@ function Events:SetupHeroes(heroEntity)
 
 
     CustomNetTables:SetTableValue("hero_index", tostring(heroEntity:GetEntityIndex()), {playerOwner = tostring(heroEntity:GetPlayerID())} )
+    AddNewModifier(nil, nil, "modifier_client_setting", {})
     heroEntity:SetAbilityPoints(0)
     ownerID = heroEntity:GetPlayerOwnerID()
     heroEntity.owner = ownerID
