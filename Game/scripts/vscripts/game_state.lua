@@ -3566,15 +3566,17 @@ function GameState:FilterDamage(filterTable)
         if victim:HasModifier("modifier_in_stargazer_area") then
 	        if filterTable["entindex_inflictor_const"] then
 				local modifiers = victim:FindAllModifiersByName("modifier_in_stargazer_area")
+				local ability_name = EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName()
 				for _,mod in pairs(modifiers) do
-				    if EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() == "solunia_lunar_alpha_spark"
-				    or EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() == "solunia_solar_alpha_spark"
+				    if ability_name == "solunia_lunar_alpha_spark"
+				    or ability_name == "solunia_solar_alpha_spark"
+				    or ability_name == "item_rpc_stargazers_sphere"
 				    or mod:GetCaster().hero:GetEntityIndex() ~= filterTable.entindex_attacker_const
 				    then
 					else
-				        local caster = victim:FindModifierByName("modifier_in_stargazer_area"):GetCaster()
-				        local ability = victim:FindModifierByName("modifier_in_stargazer_area"):GetAbility()
-				        CustomAbilities:StargazerSphereTakeDamage(caster, ability, victim, StartingDamage)
+				        local inventory_unit = mod:GetCaster()
+				        local item = mod:GetAbility()
+				        CustomAbilities:StargazerSphereTakeDamage(inventory_unit, item, victim, StartingDamage)
 				    end
 				end
 			end

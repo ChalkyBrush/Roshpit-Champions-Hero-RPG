@@ -57,7 +57,7 @@ function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element
     end
     damage = damage*mult
 
-    Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, 0, element1, element2)
+    Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, 0, element1, element2, false, item)
     -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = item })
 end
 
@@ -1244,7 +1244,7 @@ function Filters:ApplyDamageBasic(victim,attacker,damage,damage_type)
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 0)
 end
 
-function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects)
+function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects, ability)
     -- if damage_type == DAMAGE_TYPE_PHYSICAL then
     --     damage = damage/(1+((attacker:GetIntellect()/16)/100))
     -- end
@@ -1698,7 +1698,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     end
     if slot == 0 then
         if not Is_solunia_b_d then
-            Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 0)
+            Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, ability or 0)
         else
             Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, DOTA_ULTIMATE_SLOT)
         end
@@ -1751,10 +1751,16 @@ function Filters:ApplyRdamage(victim, attacker, damage, damage_type)
 end
 
 function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slot)
-    ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(slot) })
+    local ability = nil
+    if type(slot) == "number" then
+        ability = attacker:GetAbilityByIndex(slot)
+    else
+        ability = slot
+    end
+    ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability })
     if attacker:HasModifier("modifier_heavy_echo_gauntlet") then
-        ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(slot) })
-        ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(slot) })
+        ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability })
+        ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability })
     end
 end
 
