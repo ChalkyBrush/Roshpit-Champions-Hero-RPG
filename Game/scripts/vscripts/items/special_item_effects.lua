@@ -698,8 +698,10 @@ function iron_colossus_attack(event)
 	local target = event.target
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * IRON_COLOSSUS_DMG_PER_ATT
 	local ability = event.ability
-	Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
-	Filters:ApplyStun(attacker, 0.5, target)
+	if not target.dummy then
+		Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+		Filters:ApplyStun(attacker, 0.5, target)
+	end
 end
 
 function witch_hat_strike(event)

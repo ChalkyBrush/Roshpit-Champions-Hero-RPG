@@ -36,6 +36,8 @@
 		
 		"DOTA_Tooltip_modifier_conjuror_q_1_buff"								"Earth Guardian"
 		"DOTA_Tooltip_modifier_conjuror_conjuror_q_1_buff_Description"					"Увеличение брони."
+		"DOTA_Tooltip_ability_earth_aspect_q_1_ability"						"Earth Guardian"
+		"DOTA_Tooltip_ability_earth_aspect_q_1_ability_Description"			"Повышает броню ближайшим союзникам"															   
 		
 		"DOTA_Tooltip_ability_conjuror_rune_q_2"							"[Q2] Thunder Clap"
     	"DOTA_Tooltip_ability_conjuror_rune_q_2_Description"				"При получении элементалем Земли урона, он с 15% шансом применяет умение [Q2] Thunder Clap, нанося большой урон по области, в зависимости от его текущего здоровья и замедляя всех задетых врагов. Прочтение (Q) Earthquake также провоцирует применение этой способности."
@@ -377,6 +379,69 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_Description"			"Противники, поврежденные Earth Shock, наносят сниженный урон."
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_property_one"		"Урон противника снижен"
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_suffix"				"%"
+		
+		"shadow_deity"														"Shadow Deity"
+
+    	"DOTA_Tooltip_ability_item_rpc_conjuror_arcana4"				"Dark Wanderer's Footwraps"
+
+       	"item_property_conjuror_arcana4"									"Shadow Deity"
+    	"property_conjuror_arcana4_description"								"Заменяет @Ability3 и соответствующие руны на Shadow Deity."
+
+
+    	"DOTA_Tooltip_ability_summon_shadow_deity"							"Shadow Deity"
+    	"DOTA_Tooltip_ability_summon_shadow_deity_Description"				"При помощи темной магии вызывается теневое божество. Shadow Deity имеет способность обращать Conjuror и всех аспектов в невидимость. Пока теневое божество живо, способность заменяется на Dark Horizon, заклинание передвижения."
+    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_health"				"ЗДОРОВЬЕ:"
+    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_damage"				"ПОКАЗАТЕЛЬ АТАКИ:"
+    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_armor"				"БРОНЯ:"
+    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_magic_resist"		"МАГ. СОПРОТИВЛЕНИЕ:"
+
+    	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows"				"Cloak of Shadows"
+    	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_Description"	"Покрывает призывателя и аспектов тенью, обращая в невидимость."
+    	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_radius"			"РАДИУС:"
+    	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_duration"		"ДЛИТЕЛЬНОСТЬ:"
+
+    	"DOTA_Tooltip_ability_shadow_deity_black_razor"						"Black Razor"
+    	"DOTA_Tooltip_ability_shadow_deity_black_razor_Description"			"Элемент: <font color=\"#7F4F84\">Тень</font><br>Теневые лезвия возникают вокруг Conjuror'a и его аспектов. Их урон атаки повышается, а так же лезвия наноят урон каждые 0.3 секунды."	
+    	"DOTA_Tooltip_ability_shadow_deity_black_razor_radius"				"РАДИУС:"
+    	"DOTA_Tooltip_ability_shadow_deity_black_razor_duration"			"ДЛИТЕЛЬНОСТЬ:"
+
+    	"DOTA_Tooltip_modifier_black_razor"									"Black Razor"
+    	"DOTA_Tooltip_modifier_black_razor_Description"						"Урон атак увеличен, наносится урон ближайшим противникам."
+
+    	"DOTA_Tooltip_ability_shadow_deity_shadow_essence"					"Shadow Essence"
+    	"DOTA_Tooltip_ability_shadow_deity_shadow_essence_Description"		"Shadow Deity расщепляет свои собственные атаки и атаки призывателя, позволяя атаковать несколько целей."
+    	"DOTA_Tooltip_ability_shadow_deity_shadow_essence_duration"			"Длительность:"
+
+    	"DOTA_Tooltip_modifier_shadow_essence_split_attack"					"Shadow Essence"
+    	"DOTA_Tooltip_modifier_shadow_essence_split_attack_Description"		"Атаки расщепляются и поражают несколько целей."	
+
+    	"DOTA_Tooltip_ability_dark_horizon"									"Dark Horizon"
+    	"DOTA_Tooltip_ability_dark_horizon_Description"						"Conjuror проходит сквозь ткань реальности, появляясь в точке назначения через 1.2 секунды."
+    	"DOTA_Tooltip_ability_dark_horizon_range"							"ДАЛЬНОСТЬ КАСТА:"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4"						"[E1] Black Razor"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_Description"			"Теневые лезвия возникают вокруг Conjuror'a и его аспектов. Их урон атаки повышается, а так же лезвия наноят урон каждые 0.3 секунды."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_property_one"			"Урон"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix"					"% от общей атаки каждые 0.3 секунды"	
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_property_two"			"Бонус атаки"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix_two"				"%"	
+
+  		"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4"						"[E2] Echoes of Darkness"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"			"Весь элементальный урон, кроме Тени, наносит дополнительную порцию урона с элементом Тени."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_property_one"		"Дополнительный урон Тени"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"% от изначального значения"
+
+		"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4"							"[E3] Prismatic Void"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_Description"				"<font color=\"#7F4F84\">Теневой</font> урон увеличивается Ловкостью. Вся Ловкость от снаряжения дополнительно увеличивается."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_property_one"				"Урон Тени"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_suffix"						"% за 10 очков Ловкости"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_property_two"				"Бонус к Ловкости от значений на снаряжении"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_suffix_two"					"%"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_e_4_arcana4"						"[E4] Shadow Essence"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_arcana4_Description"			"Shadow Deity расщепляет свои собственные атаки и атаки призывателя, позволяя атаковать несколько целей. Значение выше 100% означает многократное расщепление."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_arcana4_property_one"		"Шанс на расщепление атаки"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_arcana4_suffix"				"%"
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"(T1) Глиф сжигающего пламени"

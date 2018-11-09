@@ -39353,6 +39353,10 @@
 					}
 				}
 			}
+			"modifier_disable_player"
+			{
+				"IsHidden"	"1"
+			}
 		}
 	}
 

@@ -21559,7 +21559,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.2"
+				"property_two"			"0.1"
 			}
 		}
 	}
@@ -22252,6 +22252,7 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"conjuror/earth_deity_sandstorm"
 		"MaxLevel"				"20"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades" "0"
 
 		"AbilitySpecial"
@@ -22950,7 +22951,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"8"
 			}
 		}
 	}
@@ -22971,7 +22972,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.08"
 			}
 			"01"
 			{
@@ -52236,7 +52237,7 @@
 		"precache"
 		{
 			"particle"		"particles/units/heroes/heroes_underlord/underlord_pitofmalice.vpcf"
-			"particle"		"particles/roshpit/duskbringer/duskbringer_rune_w_1.vpcf"
+			"particle"		"particles/roshpit/duskbringer/duskbringer_rune_a_b.vpcf"
 			"particle"		"particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
 			"particle"		"particles/units/heroes/hero_slardar/duskbringer_d_d_amp_damage.vpcf"
 			"particle"		"particles/roshpit/duskbringer/ghostfire_blast.vpcf"
@@ -111835,6 +111836,10 @@
 						"Function"		"generic_castle_unit_die"
 					}
 				}
+			}
+			"modifier_disable_player"
+			{
+				"IsHidden"	"1"
 			}
 		}
 	}

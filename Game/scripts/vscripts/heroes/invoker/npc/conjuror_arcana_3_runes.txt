@@ -8,6 +8,7 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"conjuror/earth_deity_sandstorm"
 		"MaxLevel"				"20"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades" "0"
 
 		"AbilitySpecial"

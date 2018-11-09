@@ -2302,8 +2302,9 @@
     	"DOTA_Tooltip_ability_astral_rune_e_2_property_two"				"Damage Buff"
     	"DOTA_Tooltip_ability_astral_rune_e_2_suffix_two"				""
 
-		"DOTA_Tooltip_modifier_astral_rune_e_2"							"Astral Empowerment"
-		"DOTA_Tooltip_modifier_astral_rune_e_2_description" 			"Increased Attack Speed and Damage."
+		"DOTA_Tooltip_modifier_astral_rune_e_2_visible"							"Astral Empowerment"
+		"DOTA_Tooltip_modifier_astral_rune_e_2_visible_description" 			"Increased Attack Speed and Damage."
+		
 		
 		"DOTA_Tooltip_ability_astral_rune_e_3"							"[E3] Astral Shroud"
     	"DOTA_Tooltip_ability_astral_rune_e_3_Description"				"After casting Astral Rift - cloak yourself in a shroud that reduces all damage taken by 75%, magic resistance by 95%, and cleanse stuns/silences every 0.5 seconds."
@@ -2349,7 +2350,7 @@
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summons the Phoenix Constellation on a successful Celestial Burst cast that follows for 10 seconds. Phoenix follows the Ranger and damages all enemies around her based on Astral's attack power."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summons the Phoenix Constellation on a successful Celestial Burst cast that follows for 20 seconds. Phoenix follows the Ranger and damages all enemies around her based on Astral's attack power."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Phoenix Damage"
     	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% of attack power"
 		
@@ -3796,7 +3797,7 @@
 		"DOTA_Tooltip_modifier_earth_guardian_Description"					"Earth Aspect absorbing 50%% of damage taken"
 		
 		"DOTA_Tooltip_earth_aspect_a_a_ability"								"Earth Guardian"
-		"DOTA_Tooltip_earth_aspect_a_a_ability_Description"					"Earth Aspect поглощает 50% вместо призывателя. Каждая руна Q1 увеличивает здоровье и броню себе и всем ближайшим дружественным юнитам."
+		"DOTA_Tooltip_earth_aspect_a_a_ability_Description"					"Earth Aspect absorbing 50%% of damage taken. Each Q1 rune increases armor of allied units under aura effect.."
 		
 		"DOTA_Tooltip_ability_conjuror_rune_q_1"							"[Q1] Earth Guardian"
     	"DOTA_Tooltip_ability_conjuror_rune_q_1_Description"				"Your Earth Aspect provides armor to itself and all nearby friendly units. Additionally this rune passively increases your Aspect's Max HP"
@@ -4173,7 +4174,7 @@
     	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_duration"		"DURATION:"
 
     	"DOTA_Tooltip_ability_shadow_deity_black_razor"						"Black Razor"
-    	"DOTA_Tooltip_ability_shadow_deity_black_razor_Description"			"Element: <font color=\"#7F4F84\">Shadow</font><br>A twisted wretch of shadow blades is activated upon Conjuror and all of his summons. Affected allies gain bonus attack damage and nearby enemies take damage every 0.3 seconds."	
+    	"DOTA_Tooltip_ability_shadow_deity_black_razor_Description"			"Element: <font color=\"#7F4F84\">Shadow</font><br>A twisted wretch of shadow blades is activated upon Conjuror and all of his summons for a short duration. Affected allies gain bonus attack damage and nearby enemies take damage every 0.3 seconds."	
     	"DOTA_Tooltip_ability_shadow_deity_black_razor_radius"				"RADIUS:"
     	"DOTA_Tooltip_ability_shadow_deity_black_razor_duration"			"DURATION:"
 
@@ -4192,19 +4193,19 @@
     	"DOTA_Tooltip_ability_dark_horizon_range"							"CAST RANGE:"
 
   		"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4"						"[E1] Black Razor"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_Description"			"A twisted wretch of shadow blades is activated upon Conjuror and all of his summons. Affected allies gain bonus attack damage and nearby enemies take damage every 0.3 seconds."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_Description"			"A twisted spiral of shadow blades is activated upon Conjuror and all of his summons for a short duration. Affected allies gain bonus attack damage and nearby enemies take damage every 0.3 seconds."
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_property_one"			"Damage"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix"					"% of attack power every 0.3 seconds"	
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_property_two"			"Attack Power Bonus"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix_two"				"%"	
 
   		"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4"						"[E2] Echoes of Darkness"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"			"All elemental damage that is not shadow deals an additional instance of shadow damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"			"All elemental damage that is not <font color=\"#7F4F84\">Shadow</font> deals an additional instance of <font color=\"#7F4F84\">Shadow</font> damage."
     	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_property_one"		"Additional Shadow Damage"
     	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"% of base damage instance"
 
 		"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4"							"[E3] Prismatic Void"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_Description"				"<font color=\"#7F4F84\">Shadow</font> damage is increased by Agility. All agility from rolls on Gear is enhanced."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_Description"				"<font color=\"#7F4F84\">Shadow</font> damage is increased by agility. All agility from rolls on Gear is enhanced."
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_property_one"				"Shadow Amplification"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_suffix"						"% for each 10 points of Agility"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_property_two"				"Agility Enhanced from Gear Rolls"
@@ -11420,7 +11421,7 @@
 		"item_property_iron_colossus"				"Iron Colossus"	
 		"property_iron_colossus_description"		"Each point of strength increases your damage by <font color='#ccff66'>10</font> and armor by <font color='#ccff66'>0.5</font> and you grow by 15%. Your attack speed is forced at <font color='#ccff66'>120</font> and your attack range is forced at <font color='#ccff66'>180</font>. Attacks stun for 0.5 seconds, and deal an additional <font color='#ccff66'>50</font>x physical damage. @Ability2 costs 1000 extra mana."
 		"DOTA_Tooltip_modifier_iron_colossus"					"Iron Colossus"
-		"DOTA_Tooltip_modifier_iron_colossus_description"		"Attacks deal 50x physical damage, stun enemies for 0.5s and size increased. Attack speed locked at 100. Gain bonus damage and armor from strength."
+		"DOTA_Tooltip_modifier_iron_colossus_description"		"Attacks deal 50x physical damage, stun enemies for 0.5s and size increased. Attack speed locked at 120. Gain bonus damage and armor from strength."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"

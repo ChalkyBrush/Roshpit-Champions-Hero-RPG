@@ -793,7 +793,7 @@ function Redfall:SpawnBossRoom()
 	Redfall.Shipyard.boss = boss
 	boss:SetForwardVector(Vector(0,-1))
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(14848, 11634), 1000, 1200, false)
-
+	Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, boss, "modifier_disable_player", {}) 
 	local archerTable = {Vector(14592, 11456), Vector(15104, 11456), Vector(14336, 10880), Vector(14336, 10624), Vector(14336, 10368), Vector(15296, 10880), Vector(15296, 10624), Vector(15296, 10368)}
 	local archerFVTable = {Vector(0,-1), Vector(0,-1), Vector(1,-1), Vector(1,-1), Vector(1,-1), Vector(-1, -1), Vector(-1, -1), Vector(-1, -1)}
 	Redfall.Shipyard.CrimsythTable = {}
@@ -1220,6 +1220,7 @@ function Redfall:ShipyardBossReadyForBattle()
 	local boss = Redfall.Shipyard.boss
 
 	Timers:CreateTimer(1, function()
+		boss:RemoveModifierByName("modifier_disable_player")
 		boss:RemoveModifierByName("modifier_shipyard_boss_battle_pose")
 		boss:RemoveModifierByName("modifier_command_restric_player")
 		local bossAbility = boss:FindAbilityByName("shipyard_boss_ai")

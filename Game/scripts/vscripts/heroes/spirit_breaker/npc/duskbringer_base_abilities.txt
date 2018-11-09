@@ -16,7 +16,7 @@
 		"precache"
 		{
 			"particle"		"particles/units/heroes/heroes_underlord/underlord_pitofmalice.vpcf"
-			"particle"		"particles/roshpit/duskbringer/duskbringer_rune_w_1.vpcf"
+			"particle"		"particles/roshpit/duskbringer/duskbringer_rune_a_b.vpcf"
 			"particle"		"particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
 			"particle"		"particles/units/heroes/hero_slardar/duskbringer_d_d_amp_damage.vpcf"
 			"particle"		"particles/roshpit/duskbringer/ghostfire_blast.vpcf"

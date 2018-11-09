@@ -95,8 +95,9 @@
     	"DOTA_Tooltip_ability_astral_rune_e_2_property_two"				"Damage Buff"
     	"DOTA_Tooltip_ability_astral_rune_e_2_suffix_two"				""
 
-		"DOTA_Tooltip_modifier_astral_rune_e_2"							"Astral Empowerment"
-		"DOTA_Tooltip_modifier_astral_rune_e_2_description" 			"Increased Attack Speed and Damage."
+		"DOTA_Tooltip_modifier_astral_rune_e_2_visible"							"Astral Empowerment"
+		"DOTA_Tooltip_modifier_astral_rune_e_2_visible_description" 			"Increased Attack Speed and Damage."
+		
 		
 		"DOTA_Tooltip_ability_astral_rune_e_3"							"[E3] Astral Shroud"
     	"DOTA_Tooltip_ability_astral_rune_e_3_Description"				"After casting Astral Rift - cloak yourself in a shroud that reduces all damage taken by 75%, magic resistance by 95%, and cleanse stuns/silences every 0.5 seconds."
@@ -142,7 +143,7 @@
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summons the Phoenix Constellation on a successful Celestial Burst cast that follows for 10 seconds. Phoenix follows the Ranger and damages all enemies around her based on Astral's attack power."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summons the Phoenix Constellation on a successful Celestial Burst cast that follows for 20 seconds. Phoenix follows the Ranger and damages all enemies around her based on Astral's attack power."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Phoenix Damage"
     	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% of attack power"
 		

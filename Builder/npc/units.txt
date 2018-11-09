@@ -59485,6 +59485,10 @@
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.25"
         "AttackAcquisitionRange"    "0"
+        "precache"  
+        {
+            "particle"   "particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_shadowraze.vpcf"
+        }
         "AttackRange"   "450"
         "ProjectileModel"   "particles/units/heroes/hero_nevermore/nevermore_base_attack.vpcf"
         "ProjectileSpeed"   "1600"

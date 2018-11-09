@@ -1210,6 +1210,9 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			reduction = (100-reduction)/100
 			damage = damage*reduction
 		end
+		if victim:HasModifier("modifier_hope_of_saytaru_effect") then
+			filterTable["damage"] = (1 - SAYTARU_PURE_DMG_RESISTANCE) * filterTable["damage"]
+		end
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_lightning_dash") then
@@ -1880,9 +1883,7 @@ function GameState:FilterDamage(filterTable)
 			modifier = victim:FindModifierByName("modifier_solunia_warp_core_aura_lunar")
 			mult = mult + modifier:GetAbility().e_3_level*0.05
 		end
-		if victim:HasModifier("modifier_hope_of_saytaru_effect") then
-			filterTable["damage"] = (1 - SAYTARU_PURE_DMG_RESISTANCE) * filterTable["damage"]
-		end
+
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_emerald_nullification_ring") then
