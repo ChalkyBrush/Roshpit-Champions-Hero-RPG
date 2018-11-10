@@ -117,6 +117,7 @@
     	"DOTA_Tooltip_ability_astral_rune_e_4_suffix_two"				"% за каждые 10 очков атрибутов"
 		
 		"DOTA_Tooltip_modifier_astral_d_c_visible"						"Shooting Star"
+		"DOTA_Tooltip_modifier_astral_d_c_visible_Description"			"Бонус урона Космоса и дополнительные Атрибуты."
 		
 		"DOTA_Tooltip_modifier_astral_rune_e_4_visible"					"Shooting Star"
     	"DOTA_Tooltip_modifier_astral_rune_e_4_visible_Description"		"Дополнительные очки атрибутов, урон Космоса увеличен"

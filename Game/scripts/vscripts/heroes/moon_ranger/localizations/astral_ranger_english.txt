@@ -118,6 +118,7 @@
     	"DOTA_Tooltip_ability_astral_rune_e_4_suffix_two"				"% for each 10 points of Attributes"
 		
 		"DOTA_Tooltip_modifier_astral_d_c_visible"						"Shooting Star"
+		"DOTA_Tooltip_modifier_astral_d_c_visible_Description"			"Bonus Cosmic damage amplification from All Attributes, and attributes increased."
 		
 		"DOTA_Tooltip_modifier_astral_rune_e_4_visible"					"Shooting Star"
     	"DOTA_Tooltip_modifier_astral_rune_e_4_visible_Description"		"Extra Stats and increased cosmic damage."
