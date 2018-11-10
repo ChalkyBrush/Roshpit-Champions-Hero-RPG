@@ -824,6 +824,9 @@
 
 		 //SPIRIT WATER
 		 //SPIRIT FIRE
+		 "DOTA_Tooltip_modifier_lava_flailing"					"Lava Burn"
+		 "DOTA_Tooltip_modifier_lava_flailing_Description"		"Taking 3/4/5 percents of max HP over time."
+		 
 		 "fire_temple_flame_shaman"									"Flame Shaman"
 		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai"			"Flameburst"
 		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai_Description"	"Periodically launches a set of fireballs in every direction."

@@ -11944,6 +11944,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
+				"TextureName"		"misc/lava"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
 			}
 			"modifier_whirlpool_flailing"
