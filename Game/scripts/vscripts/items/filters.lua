@@ -1495,9 +1495,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             if attacker:HasModifier("modifier_demon_mask") and Filters:DemonMask(attacker, victim, damage) then
                 indirectProcQ = true
             end
-            if attacker:HasModifier("shadow_deity_passive") then
-                indirectProcQ = Filters:Conjuror_arcana_e2(victim, attacker, damage, element1, element2, damage_type)
-            end
             if not indirectProcQ then 
                 Filters:ApplyQdamage(victim, attacker, damage, damage_type)
             end
@@ -1574,9 +1571,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             if attacker:HasModifier("modifier_frostburn_gauntlets") and Filters:FrostburnGauntlet(attacker, victim, damage) then
                 indirectProcW = true
             end
-            if attacker:HasModifier("shadow_deity_passive") then
-                indirectProcW = Filters:Conjuror_arcana_e2(victim, attacker, damage, element1, element2, damage_type)
-            end
             if not indirectProcW then
                 Filters:ApplyWdamage(victim, attacker, damage, damage_type)
             end
@@ -1626,13 +1620,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         --     end
         -- end
         if not ignore_effects then
-            local indirectProcE = false
-            if attacker:HasModifier("shadow_deity_passive") then
-                indirectProcE = Filters:Conjuror_arcana_e2(victim, attacker, damage, element1, element2, damage_type)
-            end
-            if not indirectProcE then
-                Filters:ApplyEdamage(victim, attacker, damage, damage_type)
-            end
+            Filters:ApplyEdamage(victim, attacker, damage, damage_type)
         end
     elseif slot == 4 then
         if attacker:HasModifier("modifier_master_gloves") then
@@ -1669,9 +1657,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 end
                 Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
                 attacker.headItem:ApplyDataDrivenModifier(attacker.headItem, victim, "modifier_water_deity_crown_slow", {duration = 6})
-            end
-            if attacker:HasModifier("shadow_deity_passive") then
-                indirectProcR = Filters:Conjuror_arcana_e2(victim, attacker, damage, element1, element2, damage_type)
             end
             if not indirectProcR then
                 Filters:ApplyRdamage(victim, attacker, damage, damage_type)
@@ -1821,19 +1806,16 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + ARKIMUS_ARCANA2_R3_ELEMENTS_PCT*r_3_level
             end
         end
-        -- if attacker:GetUnitName() == "npc_dota_hero_invoker" then
-        --     if attacker:HasAbility("summon_shadow_deity") then
-        --         if element1 ~= RPC_ELEMENT_SHADOW then
-        --             if element2 ~= RPC_ELEMENT_SHADOW then
-        --                 local e_2_level = attacker:GetRuneValue("e", 2)
-        --                 if e_2_level > 0 and bIsRealDamage then
-        --                     local e_2_damage = damage*(CONJUROR_ARCANA_E2_SHADOW_INSTANCE/100)*e_2_level
-        --                     Filters:TakeArgumentsAndApplyDamage(victim, attacker, e_2_damage, damage_type, slot, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
-        --                 end
-        --             end
-        --         end
-        --     end
-        -- end
+        if attacker:HasModifier("shadow_deity_passive") then
+            if bIsRealDamage then
+                if element1 == RPC_ELEMENT_NORMAL or element1 == RPC_ELEMENT_NONE  then
+                    element1 = RPC_ELEMENT_SHADOW
+                end
+                if (element2 == RPC_ELEMENT_NORMAL or element2 == RPC_ELEMENT_NONE) and element1 ~= RPC_ELEMENT_SHADOW then
+                    element2 = RPC_ELEMENT_SHADOW
+                end
+            end
+        end
     end
     if element1 == RPC_ELEMENT_NORMAL then
         if bIsRealDamage then
@@ -2987,18 +2969,6 @@ function Filters:FrostburnGauntlet(attacker, victim, damage)--attacker, victim, 
             end
         end
         return true
-    end
-end
-
-function Filters:Conjuror_arcana_e2(victim, attacker, damage, element1, element2, damage_type)
-    if element1 ~= RPC_ELEMENT_SHADOW and element2 ~= RPC_ELEMENT_SHADOW then
-        local e_2_damage = 0
-        local e_2_level = attacker:GetRuneValue("e", 2)
-        if e_2_level > 0 then
-            local e_2_damage = damage*(CONJUROR_ARCANA_E2_SHADOW_INSTANCE/100)*e_2_level
-            Filters:ApplyItemDamageBasedOnAbility(victim, attacker, e_2_damage, damage_type, nil, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
-            return true
-        end
     end
 end
 
