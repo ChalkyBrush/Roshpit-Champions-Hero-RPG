@@ -239,7 +239,7 @@
         "item_rpc_trapper_glyph_1_2_description"                "法力陷阱的效果变为双倍。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "鹰爪雕文"
-        "item_rpc_trapper_glyph_2_2_description"                "灵能之刃伤害将作用于主目标，但是对主目标的伤害不视作 @Ability3 的基础技能伤害。"
+        "item_rpc_trapper_glyph_2_2_description"                "灵能之刃伤害将作用于主目标。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "暗潮雕文"
         "item_rpc_trapper_glyph_3_2_description"                "被洪流陷阱伤害的敌人伤害输出将降低 @glyph_property1%，持续 1秒。"
@@ -254,7 +254,7 @@
         "item_rpc_trapper_glyph_6_2_description"                "傀儡受到 @glyph_property1 次攻击就将爆炸，并且造成伤害提高 @glyph_property2%。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "暗杀本能雕文"
-        "item_rpc_trapper_glyph_7_2_description"                "忍锋的持续时间变为双倍。"
+        "item_rpc_trapper_glyph_7_2_description"                "R3在隐匿状态下变为被动。"
 
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_book"		"猎人雕文书"
 		
