@@ -51,7 +51,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_ARCANA_E2_SHADOW_INSTANCE %>"
+				"property_one"			"<% CONJUROR_ARCANA_E2_SHADOW_DAMAGE_INSTANCES %>"
 			}
 		}
 	}

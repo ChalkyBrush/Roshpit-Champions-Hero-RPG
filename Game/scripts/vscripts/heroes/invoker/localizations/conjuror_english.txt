@@ -428,9 +428,9 @@
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix_two"				"%"	
 
   		"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4"						"[E2] Echoes of Darkness"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"			"All elemental damage that is not <font color=\"#7F4F84\">Shadow</font> deals an additional instance of <font color=\"#7F4F84\">Shadow</font> damage."
-    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_property_one"		"Additional Shadow Damage"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"% of base damage instance"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"			"All Elemental damage has its secondary element converted into <font color=\"#7F4F84\">Shadow</font>. All damage instances have chance to be repeated. A chance greater than 100% means multiple echoes can proc."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_property_one"		"Echo Chance"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"%"
 
 		"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4"							"[E3] Prismatic Void"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_Description"				"<font color=\"#7F4F84\">Shadow</font> damage is increased by agility. All agility from rolls on Gear is enhanced."
