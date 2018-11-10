@@ -9,11 +9,11 @@
 		"DOTA_Tooltip_ability_heroic_fury_attack_damage_bonus"			"ATTACK DAMAGE INCREASE %:"
 		"DOTA_Tooltip_ability_heroic_fury_movespeed"						"MOVESPEED:"
 
-		"DOTA_Tooltip_modifier_heroic_fury_slow"						"Heroic Fury"	
-		"DOTA_Tooltip_modifier_heroic_fury_slow_Description"			"Move and Attack Slow"				
+		"DOTA_Tooltip_modifier_q_slow"						"Heroic Fury"	
+		"DOTA_Tooltip_modifier_q_slow_Description"			"Move and Attack Slow"				
 
-		"DOTA_Tooltip_modifier_heroic_fury" 								"Heroic Fury"
-		"DOTA_Tooltip_modifier_heroic_fury_description" 					"Enemies take damage and are slowed in an area on attack. Attacks also heal the Paladin."
+		"DOTA_Tooltip_modifier_paladin_q" 								"Heroic Fury"
+		"DOTA_Tooltip_modifier_paladin_q_description" 					"Enemies take damage and are slowed in an area on attack. Attacks also heal the Paladin."
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_1"							"[Q1] Purification"
     	"DOTA_Tooltip_ability_paladin_rune_q_1_Description"				"Your attack damage gets added to Heroic Fury damage."
@@ -61,7 +61,7 @@
     	"DOTA_Tooltip_ability_paladin_rune_w_1_suffix_two"				""
 
 		"DOTA_Tooltip_modifier_paladin_rune_w_1"						"Holy Fire"
-		"DOTA_Tooltip_modifier_paladin_rune_w_1_description" 			"Taking Holy Damage."
+		"DOTA_Tooltip_modifier_paladin_rune_w_1_description" 			"Taking Holy/Fire magical damage over time."
 		
 		"DOTA_Tooltip_ability_paladin_rune_w_2"							"[W2] Healing Command"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_Description"				"Justice Overwhelming also heals yourself and allies that it hits for a % of its base damage."
@@ -158,8 +158,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_r_2_property_two"			"Armor / tick"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_suffix_two"				""
 
-		"DOTA_Tooltip_modifier_paladin_rune_r_2"						"Empowering Sanctuary"
-		"DOTA_Tooltip_modifier_paladin_rune_r_2_description" 			"Increased damage and armor."
+		"DOTA_Tooltip_modifier_paladin_rune_r_2_effect_visible"						"Empowering Light"
+		"DDOTA_Tooltip_modifier_paladin_rune_r_2_effect_visible_description" 			"Increased damage and armor."
 
     	"DOTA_Tooltip_ability_paladin_rune_r_3"							"[R3] Holy Bolt"
     	"DOTA_Tooltip_ability_paladin_rune_r_3_Description"				"Knight's Disciple gains the ability to smite a target dealing pure damage based on Paladin's attack power and applies a 0.1 second stun. 5 second cooldown."
