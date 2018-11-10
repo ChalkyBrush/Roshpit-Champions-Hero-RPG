@@ -129,8 +129,8 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_property_one"				"Урон"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_suffix"						""
 		
-		"DOTA_Tooltip_modifier_hydroxis_r_2"								"Tsunami"
-		"DOTA_Tooltip_modifier_hydroxis_r_2_Description"					"Вызывает волны позади Hydroxis."
+		"DOTA_Tooltip_modifier_hydroxis_b_d"								"Tsunami"
+		"DOTA_Tooltip_modifier_hydroxis_b_d_Description"					"Вызывает волны позади Hydroxis."
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_3"							"[R3] Poseidon's Fury"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_Description"				"После прочтения @Ability4, получает бафф Poseidon's Fury, длящийся 10 секунд. Под действием усиления герой способен выпускать потоки воды во врагов, находящихся в полукруге позади основной атакуемой цели."
