@@ -139,6 +139,7 @@
 		"item_property_super_ascendency"			"Super Ascension"
 		"property_super_ascendency_description"		"После прочтения способности (R) @Ability4 атаки получат дополнительную дальность 500 юнитов, урон увеличен на 100%, скорость атаки увеличивается на 240, а скорость передвижения увеличивается на 100. Атаки могут одновременно поразить до 3 целей, а каждое успешное попадание по врагу снижает время перезарядки (R) @Ability4 на 0.05 секунды. Эффект длится 12 секунд."
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Descrtiption"	"500 бонусной дальности атаки, 100%% бонусного урона атаки, 240 скорости атаки и 100 скорости передвижения. Мультишот по 2 дополнительным целям. Каждая атаки немного снижает оставшийся кулдаун способности R."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"

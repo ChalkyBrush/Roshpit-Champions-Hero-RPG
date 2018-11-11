@@ -176,11 +176,12 @@ function Timers:CreateTimer(name, args)
     return
   end
 
-
   local now = GameRules:GetGameTime()
   if args.useGameTime ~= nil and args.useGameTime == false then
     now = Time()
   end
+
+  args.baseDelay = args.endTime
 
   if args.endTime == nil then
     args.endTime = now
@@ -209,6 +210,23 @@ function Timers:RemoveTimers(killAll)
   end
 
   Timers.timers = timers
+end
+
+function Timers:ResetTimer(newTime ,name)
+  local timer = nil
+  if type(newTime) == "number" then
+    timer = Timers.timers[name]
+  else
+    timer = Timers.timers[newTime]
+  end
+  if not timer then return false end
+  if type(newTime) ~= "number" then newTime = timer.baseDelay end
+  if timer.bUseGameTime ~= nil and timer.bUseGameTime == false then
+    timer.endTime = Time() + newTime
+  else
+    timer.endTime = GameRules:GetGameTime() + newTime
+  end
+  return true
 end
 
 Timers:start()

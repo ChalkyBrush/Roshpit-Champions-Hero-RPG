@@ -207,7 +207,7 @@
 		"item_property_windsteel_armor"				"Fluttering Guard"
 		"property_windsteel_armor_description"		"Прочтение способности (W) @Ability2 наделит героя щитом, поглощающим любой получаемый урон. Количество зарядов щита равно уровню способности героя. Пока щит активен, уклонение выше на 50%, скорость передвижения увеличена на 100. Длится @special_property1 сек. Перезаряжается @special_property2 сек."
 		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
-		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Поглощает любой полученный урон за каждый заряд щита. Уклонение повышено на 35%. Скорость передвижения увеличена на 100."
+		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Поглощает любой полученный урон за каждый заряд щита. Уклонение повышено на 50%. Скорость передвижения увеличена на 100."
 		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Перезарядка Fluttering Guard"
 		
 		

@@ -57,7 +57,7 @@ function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element
     end
     damage = damage*mult
 
-    Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, 0, element1, element2)
+    Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, 0, element1, element2, false, item)
     -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = item })
 end
 
@@ -498,43 +498,43 @@ function Filters:ApplyStun(caster, duration, target)
         caster.w_2_level = caster:GetRuneValue("w", 2)
     end
     if caster:HasModifier("modifier_stormcrack_helm") then
-		if caster:GetTeamNumber() == target:GetTeamNumber() then
-		else
-			if not caster.headItem.stormCrackParticles then
-				caster.headItem.stormCrackParticles = 0
-			end
-			if caster.headItem.stormCrackParticles < 8 then
-				caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles + 1
-				-- CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
-				CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
-				Timers:CreateTimer(1.5, function()
-					caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles - 1
-				end)
-			end
-			
-			local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*10 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*100
-			Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
-			Filters:stormcrack_upgrade(caster, caster.headItem, target)
-		end
+        if caster:GetTeamNumber() == target:GetTeamNumber() then
+        else
+            if not caster.headItem.stormCrackParticles then
+                caster.headItem.stormCrackParticles = 0
+            end
+            if caster.headItem.stormCrackParticles < 8 then
+                caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles + 1
+                -- CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
+                CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
+                Timers:CreateTimer(1.5, function()
+                    caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles - 1
+                end)
+            end
+            
+            local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*STORMCRACK_ATTACK_DAMAGE_MULT + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*STORMCRACK_ATTR_DAMAGE_MULT
+            Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
+            Filters:stormcrack_upgrade(caster, caster.headItem, target)
+        end
     elseif caster:HasModifier("modifier_stormcrack_helm2") then
-		if caster:GetTeamNumber() == target:GetTeamNumber() then
-		else
-			if not caster.headItem.stormCrackParticles then
-				caster.headItem.stormCrackParticles = 0
-			end
-			if caster.headItem.stormCrackParticles < 9 then
-				caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles + 1
-				-- CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
-				CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
-				Timers:CreateTimer(1.5, function()
-					caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles - 1
-				end)
-			end
-			
-			local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*20 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*200
-			Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
-			mult = mult+0.35      
-		end
+        if caster:GetTeamNumber() == target:GetTeamNumber() then
+        else
+            if not caster.headItem.stormCrackParticles then
+                caster.headItem.stormCrackParticles = 0
+            end
+            if caster.headItem.stormCrackParticles < 9 then
+                caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles + 1
+                -- CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
+                CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
+                Timers:CreateTimer(1.5, function()
+                    caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles - 1
+                end)
+            end
+            
+            local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*STORMCRACK_ATTACK_DAMAGE_MULT*2 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*STORMCRACK_ATTR_DAMAGE_MULT*2
+            Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
+            mult = mult+0.35      
+        end
     end
 
     duration = duration*mult
@@ -1244,7 +1244,7 @@ function Filters:ApplyDamageBasic(victim,attacker,damage,damage_type)
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 0)
 end
 
-function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects)
+function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects, ability)
     -- if damage_type == DAMAGE_TYPE_PHYSICAL then
     --     damage = damage/(1+((attacker:GetIntellect()/16)/100))
     -- end
@@ -1560,6 +1560,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_hood_of_defiler") then
             Filters:DefilerHit(attacker, victim)
         end
+        if attacker:HasModifier("modifier_astral_glyph_1_1") then
+            damage = 0
+        end
         damage = damage*(1+damageMult)
         if attacker:HasModifier('modifier_chernobog_glyph_5_1') then
             damage = damage*CHERNOBOG_GLYPH51_BAD_MULT_EXCEPT_E
@@ -1696,7 +1699,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     end
     if slot == 0 then
         if not Is_solunia_b_d then
-            Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 0)
+            Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, ability or 0)
         else
             Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, DOTA_ULTIMATE_SLOT)
         end
@@ -1749,6 +1752,12 @@ function Filters:ApplyRdamage(victim, attacker, damage, damage_type)
 end
 
 function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slot)
+    local ability = nil
+    if type(slot) == "number" then
+        ability = attacker:GetAbilityByIndex(slot)
+    else
+        ability = slot
+    end
     local instances = 1
     if attacker:HasModifier("modifier_heavy_echo_gauntlet") then
         instances = instances + 2

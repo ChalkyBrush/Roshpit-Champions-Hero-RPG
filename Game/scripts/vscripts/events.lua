@@ -14,6 +14,8 @@ require('glyphs')
 require('paragon')
 require('elements')
 
+Beacons.cheats = false
+
 
 if Events == nil then
   Events = class({})
@@ -84,7 +86,7 @@ function GameMode:OnGameRulesStateChange(keys)
 
   GameMode.VoteSystem = {}
   GameMode.VoteSystem.junk_loot_disabled = false  
-  GameMode.VoteSystem.crystal_loot_disabled = false  
+  GameMode.VoteSystem.crystal_loot_disabled = false
   -- This internal handling is used to set up main barebones functions
   GameMode:_OnGameRulesStateChange(keys)
 
@@ -1150,6 +1152,7 @@ function Events:SetupHeroes(heroEntity)
 
 
     CustomNetTables:SetTableValue("hero_index", tostring(heroEntity:GetEntityIndex()), {playerOwner = tostring(heroEntity:GetPlayerID())} )
+    AddNewModifier(nil, nil, "modifier_client_setting", {})
     heroEntity:SetAbilityPoints(0)
     ownerID = heroEntity:GetPlayerOwnerID()
     heroEntity.owner = ownerID
@@ -1557,7 +1560,9 @@ end
 
 function Events:beginQuests()
   -- print("BEGINQUESTS IS HAPPENING")
-   -- Beacons:DEBUG()
+  if Beacons.cheats then
+    Beacons:DEBUG()
+  end
 end
 
 function Events:InitGameEntities()
