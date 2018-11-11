@@ -1560,9 +1560,7 @@ end
 
 function Events:beginQuests()
   -- print("BEGINQUESTS IS HAPPENING")
-  if Beacons.cheats then
-    Beacons:DEBUG()
-  end
+    -- Beacons:DEBUG()
 end
 
 function Events:InitGameEntities()
