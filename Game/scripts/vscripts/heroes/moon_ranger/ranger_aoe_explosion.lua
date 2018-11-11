@@ -209,7 +209,7 @@ function starfall_initiate(event)
   else
     local cd = ability:GetCooldown(ability:GetLevel()-1)-ASTRAL_T51_CD_REDUCE
     ability:EndCooldown()
-    ability:StartCooldown(0)
+    ability:StartCooldown(cd)
   end
   if not caster.r_4_level then
     caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "astral")
