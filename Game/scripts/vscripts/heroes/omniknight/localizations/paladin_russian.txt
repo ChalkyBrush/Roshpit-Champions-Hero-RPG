@@ -9,11 +9,11 @@
 		"DOTA_Tooltip_ability_heroic_fury_attack_damage_bonus"			"БОНУС К УРОНУ, %:"
 		"DOTA_Tooltip_ability_heroic_fury_movespeed"						"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
 
-		"DOTA_Tooltip_modifier_heroic_fury_slow"						"Heroic Fury"	
-		"DOTA_Tooltip_modifier_heroic_fury_slow_Description"			"Скорость передвижения и атаки снижена"				
+		"DOTA_Tooltip_modifier_q_slow"						"Heroic Fury"	
+		"DOTA_Tooltip_modifier_q_slow_Description"			"Скорость передвижения и атаки снижена"				
 
-		"DOTA_Tooltip_modifier_heroic_fury" 								"Heroic Fury"
-		"DOTA_Tooltip_modifier_heroic_fury_description" 					"Замедляет врагов в зоне поражения. Атаки дополнительно исцеляют Paladin"
+		"DOTA_Tooltip_modifier_paladin_q" 								"Heroic Fury"
+		"DOTA_Tooltip_modifier_paladin_q_description" 					"Замедляет врагов в зоне поражения. Атаки дополнительно исцеляют Paladin"
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_1"							"[Q1] Purification"
     	"DOTA_Tooltip_ability_paladin_rune_q_1_Description"				"Добавляет часть основного урона к умению Heroic Fury."
@@ -29,7 +29,7 @@
     	"DOTA_Tooltip_ability_paladin_rune_q_2_suffix"					" % от базового"
 
     	"DOTA_Tooltip_modifier_paladin_q_2_radiance"					"Radiance"
-    	"DOTA_Tooltip_modifier_paladin_q_2_radiance_Description"		"Ближайшие враги получают урон"
+    	"DOTA_Tooltip_modifier_paladin_q_2_radiance_Description"		"Ближайшие враги получают урон."
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_3"							"[Q3] Divine Aegis"
     	"DOTA_Tooltip_ability_paladin_rune_q_3_Description"				"Каждый раз, атакуя цель, Паладин получает щит, полностью поглощающий любой урон один раз. Противник, разрушивший щит получит урон, основанный на значении Силы героя."
@@ -158,8 +158,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_r_2_property_two"			"Доп. броня за тик"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_suffix_two"				""
 
-		"DOTA_Tooltip_modifier_paladin_rune_r_2"						"Empowering Light"
-		"DOTA_Tooltip_modifier_paladin_rune_r_2_description" 			"Increased damage and armor."
+		"DOTA_Tooltip_modifier_paladin_rune_r_2_effect_visible"						"Empowering Light"
+		"DOTA_Tooltip_modifier_paladin_rune_r_2_effect_visible_description" 			"Increased damage and armor."
 
     	"DOTA_Tooltip_ability_paladin_rune_r_3"							"[R3] Holy Bolt"
     	"DOTA_Tooltip_ability_paladin_rune_r_3_Description"				"(R) Knight's Disciple наделяется способностью ударить врага, нанося чистый урон на основании общего урона Паладина и оглушая цель на 0.1 секунды. Перезаряжается 5 секунд."

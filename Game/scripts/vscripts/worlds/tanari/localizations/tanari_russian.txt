@@ -822,6 +822,9 @@
 
 		 //SPIRIT WATER
 		 //SPIRIT FIRE
+		 "DOTA_Tooltip_modifier_lava_flailing"					"Lava Burn"
+		 "DOTA_Tooltip_modifier_lava_flailing_Description"		"Получает 3/4/5 процентов от максимального здоровья магическим уроном в секунду."
+		 
 		 "fire_temple_flame_shaman"									"Пламенный шаман"
 		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai"			"Flameburst"
 		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai_Description"	"Периодически выпускает несколько огненных шаров во всех направлениях."

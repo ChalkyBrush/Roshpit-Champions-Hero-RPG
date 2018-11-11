@@ -7,6 +7,9 @@
 		"DOTA_Tooltip_ability_moon_shroud_movespeed_loss"				"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
 		"DOTA_Tooltip_ability_moon_shroud_miss_chance"					"ШАНС УКЛОНЕНИЯ"
 		
+		"DOTA_Tooltip_modifier_moon_shroud_buff"						"Moon Shroud"
+		"DOTA_Tooltip_modifier_moon_shroud_buff_Description"			"Astral Ranger получает бонусы от [Q3]."
+		
 		"DOTA_Tooltip_ability_astral_rune_q_1"							"[Q1] Infinity Lift"
     	"DOTA_Tooltip_ability_astral_rune_q_1_Description"				"Находясь в облаке дальность атаки Astral Ranger увеличивается."
     	"DOTA_Tooltip_ability_astral_rune_q_1_property_one"				"Доп. дальность атаки"
@@ -114,6 +117,7 @@
     	"DOTA_Tooltip_ability_astral_rune_e_4_suffix_two"				"% за каждые 10 очков атрибутов"
 		
 		"DOTA_Tooltip_modifier_astral_d_c_visible"						"Shooting Star"
+		"DOTA_Tooltip_modifier_astral_d_c_visible_Description"			"Бонус урона Космоса и дополнительные Атрибуты."
 		
 		"DOTA_Tooltip_modifier_astral_rune_e_4_visible"					"Shooting Star"
     	"DOTA_Tooltip_modifier_astral_rune_e_4_visible_Description"		"Дополнительные очки атрибутов, урон Космоса увеличен"
@@ -156,9 +160,13 @@
 		"DOTA_Tooltip_ability_astral_arcana_ability"						"Astral Cloud"
     	"DOTA_Tooltip_ability_astral_arcana_ability_Description"			"Astral Ranger поднимается в воздух и приземляется на облако из звёздной материи, с которого она может безопасно для себя расстреливать врагов. Враги не могут атаковать Astral Ranger регулярными атаками (но не заклинаниями), пока та находится на облаке, а любое движение приведет к падению. Прочтение (E) Astral Rift позволит переместиться на новое облако, добавив к времени существования облака еще 4 секунды."
     	"DOTA_Tooltip_ability_astral_arcana_ability_duration"				"ДЛИТЕЛЬНОСТЬ:"
+		
+		"DOTA_Tooltip_modifier_astral_arcana_on_platform"					"Astral Cloud"
+		"DOTA_Tooltip_modifier_astral_arcana_on_platform_Description"		"Нахождение на облаке дает бонус от руны [Q3]."
 
     	"item_property_astral_arcana1"										"Astral Cloud"
     	"property_astral_arcana1_description"								"Заменяет (Q) @Ability1 и все соответствующие руны на (Q) Astral Cloud."
+		
 
     	"DOTA_Tooltip_ability_astral_rune_q_1_arcana1"						"[Q1] Infinity Lift II"
     	"DOTA_Tooltip_ability_astral_rune_q_1_arcana1_Description"			"Пока герой стоит на звёздном облаке, дальность атаки увеличена."

@@ -402,7 +402,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-
+				"TextureName"		"rpc/paladin_r_2"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "10"
@@ -531,7 +531,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"rpc/paladin_a_d"
+				"TextureName"	"rpc/paladin_r_1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% PALADIN_R1_ARMOR %>"
@@ -1067,7 +1067,7 @@
 			}
 			"modifier_paladin_d_c"
 			{
-				"TextureName"	"rpc/paladin_d_c"
+				"TextureName"	"rpc/paladin_e_4"
 				"IsDebuff"		"1"
 				"IsHidden"		"0"
 				"EffectName"	"particles/roshpit/paladin/paladin_d_c_debuff.vpcf"
@@ -1254,7 +1254,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"rpc/paladin_b_d"
+				"TextureName"	"rpc/paladin_r_2"
 			}
 			"modifier_paladin_rune_r_2_invisible"
 			{

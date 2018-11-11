@@ -562,6 +562,14 @@
 
 		"DOTA_Tooltip_ability_shipyard_boss_ai"							"Meat Eater"
 		"DOTA_Tooltip_ability_shipyard_boss_ai_Description"				"Instances of damage cannot exceed 1% of max health."
+		"DOTA_Tooltip_ability_shipyard_boss_chemical_rage"			"Chemical Rage"
+		"DOTA_Tooltip_ability_shipyard_boss_chemical_rage_Description"	"Thadelus becomes furious, which gives him decreased attack time and faster movement."
+		"DOTA_Tooltip_ability_shipyard_boss_acid_spray"					"Acid Spray"
+		"DOTA_Tooltip_ability_shipyard_boss_acid_spray_Description"		"Sprays high-pressure acid across a target area. Enemy units who step across the contaminated terrain take physical damage per second and have their armor significantly reduced."
+		"DOTA_Tooltip_ability_shipyard_boss_acid_spray_radius"	"RADIUS:"
+		"DOTA_Tooltip_ability_shipyard_boss_acid_spray_duration" "DURATION:"
+		"DOTA_Tooltip_ability_shipyard_boss_acid_spray_damage"		"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_shipyard_boss_acid_spray_armor_reduction" "ARMOR REDUCTION:"
 
 		"redfall_dialogue_farmer_2_shredder_1"							"My harvester has returned to me!"
 		"redfall_dialogue_farmer_2_shredder_1a"							"I have a secret lab in the back that I hide from the Crimsyth. It's where I research new harvesting technologies."

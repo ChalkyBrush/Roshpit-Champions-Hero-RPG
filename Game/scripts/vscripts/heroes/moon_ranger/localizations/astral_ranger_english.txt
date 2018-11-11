@@ -7,6 +7,9 @@
 		"DOTA_Tooltip_ability_moon_shroud_movespeed_loss"				"MOVESPEED REDUCTION:"
 		"DOTA_Tooltip_ability_moon_shroud_miss_chance"					"MISS CHANCE"
 		
+		"DOTA_Tooltip_modifier_moon_shroud_buff"						"Moon Shroud"
+		"DOTA_Tooltip_modifier_moon_shroud_buff_Description"			"Astral Ranger receive [Q3] bonuses."
+		
 		"DOTA_Tooltip_ability_astral_rune_q_1"							"[Q1] Infinity Lift"
     	"DOTA_Tooltip_ability_astral_rune_q_1_Description"				"Astral Ranger gains attack range when standing in her Moon Shroud."
     	"DOTA_Tooltip_ability_astral_rune_q_1_property_one"				"Range Bonus"
@@ -115,6 +118,7 @@
     	"DOTA_Tooltip_ability_astral_rune_e_4_suffix_two"				"% for each 10 points of Attributes"
 		
 		"DOTA_Tooltip_modifier_astral_d_c_visible"						"Shooting Star"
+		"DOTA_Tooltip_modifier_astral_d_c_visible_Description"			"Bonus Cosmic damage amplification from All Attributes, and attributes increased."
 		
 		"DOTA_Tooltip_modifier_astral_rune_e_4_visible"					"Shooting Star"
     	"DOTA_Tooltip_modifier_astral_rune_e_4_visible_Description"		"Extra Stats and increased cosmic damage."
@@ -157,6 +161,9 @@
 		"DOTA_Tooltip_ability_astral_arcana_ability"						"Astral Cloud"
     	"DOTA_Tooltip_ability_astral_arcana_ability_Description"			"Astral Ranger lifts into the air and lands on a pad of space matter, allowing her to snipe enemies from a safe distance. Enemies cannot attack her while she is on the cloud, and moving at all makes her fall. Using astral rift while on a cloud moves the cloud and adds 4 seconds to the duration."
     	"DOTA_Tooltip_ability_astral_arcana_ability_duration"				"DURATION:"
+		
+		"DOTA_Tooltip_modifier_astral_arcana_on_platform"					"Astral Cloud"
+		"DOTA_Tooltip_modifier_astral_arcana_on_platform_Description"		"Standing on cloud gives bonus from [Q3] rune."
 
     	"item_property_astral_arcana1"										"Astral Cloud"
     	"property_astral_arcana1_description"								"Replaces @Ability1 and all of its runes with Astral Cloud."
@@ -177,7 +184,7 @@
     	"DOTA_Tooltip_modifier_astral_b_a_arcana_armor_loss_Description"	"Reduced Armor"
 
     	"DOTA_Tooltip_ability_astral_rune_q_3_arcana1"							"[Q3] Lunar Empowerment II"
-    	"DOTA_Tooltip_ability_astral_rune_q_3_arcana1_Description"				"Astral Ranger gains increased attack damage while standing on a Celestial Cloud."
+    	"DOTA_Tooltip_ability_astral_rune_q_3_arcana1_Description"				"Astral Ranger gains increased attack damage while standing on a Astral Cloud."
     	"DOTA_Tooltip_ability_astral_rune_q_3_arcana1_property_one"				"Damage Bonus"
     	"DOTA_Tooltip_ability_astral_rune_q_3_arcana1_suffix"					"%"
 
