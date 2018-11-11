@@ -204,6 +204,14 @@
 				"Target" 		"CASTER"
 			}
 		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/arcana/arcana_earth_deity.lua"
+				"Function"		"earth_deity_sandstorm_end"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_sandstorm_on"

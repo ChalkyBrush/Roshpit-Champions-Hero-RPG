@@ -2214,6 +2214,9 @@
 		"DOTA_Tooltip_ability_moon_shroud_movespeed_loss"				"MOVESPEED REDUCTION:"
 		"DOTA_Tooltip_ability_moon_shroud_miss_chance"					"MISS CHANCE"
 		
+		"DOTA_Tooltip_modifier_moon_shroud_buff"						"Moon Shroud"
+		"DOTA_Tooltip_modifier_moon_shroud_buff_Description"			"Astral Ranger receive [Q3] bonuses."
+		
 		"DOTA_Tooltip_ability_astral_rune_q_1"							"[Q1] Infinity Lift"
     	"DOTA_Tooltip_ability_astral_rune_q_1_Description"				"Astral Ranger gains attack range when standing in her Moon Shroud."
     	"DOTA_Tooltip_ability_astral_rune_q_1_property_one"				"Range Bonus"
@@ -2223,7 +2226,7 @@
 		"DOTA_Tooltip_modifier_rune_q_1_thinker_description" 			"Astral Ranger gains attack range in her Moon Shroud."
 		
 		"DOTA_Tooltip_ability_astral_rune_q_2"							"[Q2] Biting Stars"
-    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"Your attacks have a 20% chance to drop a star on the enemy that deals Pure damage based on attack power, and lowers the target's armor. Can trigger from Split Attacks."
+    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"Your attacks have a 20% chance to drop a star on the enemy that deals Pure damage based on attack power, and lowers the target's armor. Can trigger from Split Attacks. Steadfast threshold is multiplied by 5 against this rune."
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_one"				"Star Impact Damage"
     	"DOTA_Tooltip_ability_astral_rune_q_2_suffix"					"% of attack power"
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_two"				"Armor Loss"
@@ -2322,6 +2325,7 @@
     	"DOTA_Tooltip_ability_astral_rune_e_4_suffix_two"				"% for each 10 points of Attributes"
 		
 		"DOTA_Tooltip_modifier_astral_d_c_visible"						"Shooting Star"
+		"DOTA_Tooltip_modifier_astral_d_c_visible_Description"			"Bonus Cosmic damage amplification from All Attributes, and attributes increased."
 		
 		"DOTA_Tooltip_modifier_astral_rune_e_4_visible"					"Shooting Star"
     	"DOTA_Tooltip_modifier_astral_rune_e_4_visible_Description"		"Extra Stats and increased cosmic damage."
@@ -2364,6 +2368,9 @@
 		"DOTA_Tooltip_ability_astral_arcana_ability"						"Astral Cloud"
     	"DOTA_Tooltip_ability_astral_arcana_ability_Description"			"Astral Ranger lifts into the air and lands on a pad of space matter, allowing her to snipe enemies from a safe distance. Enemies cannot attack her while she is on the cloud, and moving at all makes her fall. Using astral rift while on a cloud moves the cloud and adds 4 seconds to the duration."
     	"DOTA_Tooltip_ability_astral_arcana_ability_duration"				"DURATION:"
+		
+		"DOTA_Tooltip_modifier_astral_arcana_on_platform"					"Astral Cloud"
+		"DOTA_Tooltip_modifier_astral_arcana_on_platform_Description"		"Standing on cloud gives bonus from [Q3] rune."
 
     	"item_property_astral_arcana1"										"Astral Cloud"
     	"property_astral_arcana1_description"								"Replaces @Ability1 and all of its runes with Astral Cloud."
@@ -2374,7 +2381,7 @@
     	"DOTA_Tooltip_ability_astral_rune_q_1_arcana1_suffix"				""  	
 
     	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1"							"[Q2] Crushing Stars"
-    	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1_Description"				"Your attacks have a 20% chance to drop a star on the enemy that deals Pure damage based on attack power, and lowers the target's armor. Can trigger from Split Attacks."
+    	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1_Description"				"Your attacks have a 20% chance to drop a star on the enemy that deals Pure damage based on attack power, and lowers the target's armor. Can trigger from Split Attacks. Steadfast threshold is multiplied by 5 against this rune."
     	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1_property_one"				"Star Impact Damage"
     	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1_suffix"					"% of attack power"
     	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1_property_two"				"Armor Loss"
@@ -2384,7 +2391,7 @@
     	"DOTA_Tooltip_modifier_astral_b_a_arcana_armor_loss_Description"	"Reduced Armor"
 
     	"DOTA_Tooltip_ability_astral_rune_q_3_arcana1"							"[Q3] Lunar Empowerment II"
-    	"DOTA_Tooltip_ability_astral_rune_q_3_arcana1_Description"				"Astral Ranger gains increased attack damage while standing on a Celestial Cloud."
+    	"DOTA_Tooltip_ability_astral_rune_q_3_arcana1_Description"				"Astral Ranger gains increased attack damage while standing on a Astral Cloud."
     	"DOTA_Tooltip_ability_astral_rune_q_3_arcana1_property_one"				"Damage Bonus"
     	"DOTA_Tooltip_ability_astral_rune_q_3_arcana1_suffix"					"%"
 
@@ -2479,7 +2486,7 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"        "Glyph of Persistent Light"
-        "item_rpc_astral_glyph_1_1_description"                 "Double duration of [W1]"
+        "item_rpc_astral_glyph_1_1_description"                 "@Ability2 no longer deals damage, but amount of arrows is multiplyed by 4, and arrows are shoot in all directions rather than in the direction your character is facing. Also double duration of [W1]."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"Glyph of Aerial Crests"
 		"item_rpc_astral_glyph_2_1_description" 				"Astral Ranger's Phoenix summon has @glyph_property1x increased attack damage and slows movespeed of its targets by @glyph_property2."
@@ -2491,10 +2498,10 @@
 		"item_rpc_astral_glyph_3_1_description" 				"@Ability2 only fires @glyph_property1 arrows and increases their damage by @glyph_property2x. Base Proc chance of Empyral Arrows is increased to 40%."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"Glyph of Spatial Rifts"
-		"item_rpc_astral_glyph_4_1_description" 				"Half cooldown, delay and @Ability1 duration increase of @Ability3"
+		"item_rpc_astral_glyph_4_1_description" 				"Half cooldown and delay of @Ability3, but reduce duration of all buffs applied by @Ability3 and duration increase for @Ability1 by <font color='#ccff66'>25</font>%. Also remove castpoint of @Ability3."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"        "Glyph of Lunar Channeling"
-        "item_rpc_astral_glyph_5_1_description"                 "Your @Ability4 channels itself."
+        "item_rpc_astral_glyph_5_1_description"                 "Your @Ability4 channels itself and it's cooldown is reduced by <font color='#ccff66'>5</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_6_1"		"Glyph of Splitting Arrows"
 		"item_rpc_astral_glyph_6_1_description" 				"Attacks split on impact and hit up to @glyph_property1 additional targets."
@@ -4200,9 +4207,9 @@
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix_two"				"%"	
 
   		"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4"						"[E2] Echoes of Darkness"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"			"All elemental damage that is not <font color=\"#7F4F84\">Shadow</font> deals an additional instance of <font color=\"#7F4F84\">Shadow</font> damage."
-    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_property_one"		"Additional Shadow Damage"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"% of base damage instance"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"			"All Elemental damage has its secondary element converted into <font color=\"#7F4F84\">Shadow</font>. All damage instances have chance to be repeated. A chance greater than 100% means multiple echoes can proc."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_property_one"		"Echo Chance"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"%"
 
 		"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4"							"[E3] Prismatic Void"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_Description"				"<font color=\"#7F4F84\">Shadow</font> damage is increased by agility. All agility from rolls on Gear is enhanced."
@@ -6551,8 +6558,8 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_property_one"				"Damage"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_suffix"						""
 		
-		"DOTA_Tooltip_modifier_hydroxis_r_2"								"Tsunami"
-		"DOTA_Tooltip_modifier_hydroxis_r_2_Description"					"Generates waves behind Hydroxis."
+		"DOTA_Tooltip_modifier_hydroxis_b_d"								"Tsunami"
+		"DOTA_Tooltip_modifier_hydroxis_b_d_Description"					"Generates waves behind Hydroxis."
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_3"							"[R3] Poseidon's Fury"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_Description"				"After casting @Ability3, gain a [R3] buff for 10 seconds where attacks shoot gushes of water towards enemies in a semi-circle behind the target."
@@ -7042,11 +7049,11 @@
 		"DOTA_Tooltip_ability_heroic_fury_attack_damage_bonus"			"ATTACK DAMAGE INCREASE %:"
 		"DOTA_Tooltip_ability_heroic_fury_movespeed"						"MOVESPEED:"
 
-		"DOTA_Tooltip_modifier_heroic_fury_slow"						"Heroic Fury"	
-		"DOTA_Tooltip_modifier_heroic_fury_slow_Description"			"Move and Attack Slow"				
+		"DOTA_Tooltip_modifier_q_slow"						"Heroic Fury"	
+		"DOTA_Tooltip_modifier_q_slow_Description"			"Move and Attack Slow"				
 
-		"DOTA_Tooltip_modifier_heroic_fury" 								"Heroic Fury"
-		"DOTA_Tooltip_modifier_heroic_fury_description" 					"Enemies take damage and are slowed in an area on attack. Attacks also heal the Paladin."
+		"DOTA_Tooltip_modifier_paladin_q" 								"Heroic Fury"
+		"DOTA_Tooltip_modifier_paladin_q_description" 					"Enemies take damage and are slowed in an area on attack. Attacks also heal the Paladin."
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_1"							"[Q1] Purification"
     	"DOTA_Tooltip_ability_paladin_rune_q_1_Description"				"Your attack damage gets added to Heroic Fury damage."
@@ -7094,7 +7101,7 @@
     	"DOTA_Tooltip_ability_paladin_rune_w_1_suffix_two"				""
 
 		"DOTA_Tooltip_modifier_paladin_rune_w_1"						"Holy Fire"
-		"DOTA_Tooltip_modifier_paladin_rune_w_1_description" 			"Taking Holy Damage."
+		"DOTA_Tooltip_modifier_paladin_rune_w_1_description" 			"Taking Holy/Fire magical damage over time."
 		
 		"DOTA_Tooltip_ability_paladin_rune_w_2"							"[W2] Healing Command"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_Description"				"Justice Overwhelming also heals yourself and allies that it hits for a % of its base damage."
@@ -7191,8 +7198,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_r_2_property_two"			"Armor / tick"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_suffix_two"				""
 
-		"DOTA_Tooltip_modifier_paladin_rune_r_2"						"Empowering Sanctuary"
-		"DOTA_Tooltip_modifier_paladin_rune_r_2_description" 			"Increased damage and armor."
+		"DOTA_Tooltip_modifier_paladin_rune_r_2_effect_visible"						"Empowering Light"
+		"DDOTA_Tooltip_modifier_paladin_rune_r_2_effect_visible_description" 			"Increased damage and armor."
 
     	"DOTA_Tooltip_ability_paladin_rune_r_3"							"[R3] Holy Bolt"
     	"DOTA_Tooltip_ability_paladin_rune_r_3_Description"				"Knight's Disciple gains the ability to smite a target dealing pure damage based on Paladin's attack power and applies a 0.1 second stun. 5 second cooldown."
@@ -10845,7 +10852,7 @@
 		"item_property_windsteel_armor"				"Fluttering Guard"
 		"property_windsteel_armor_description"		"Casting @Ability2 applies a shield that absorbs a number of damage instances equal to the Ability's level, increases evasion by 50% and increases movespeed by 100. Lasts @special_property1 seconds. @special_property2 second cooldown."
 		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
-		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack. Also gaining 35% evasion and 100 movespeed."
+		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack. Also gaining 50% evasion and 100 movespeed."
 		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"
 		
 		
@@ -11460,6 +11467,7 @@
 		"item_property_super_ascendency"			"Super Ascension"
 		"property_super_ascendency_description"		"After casting @Ability4 - attacks gain 500 attack range - 100% attack damage - 240 attack speed and gain 100 movespeed. Attacks can hit 3 targets at once and each attack that hits reduces cooldown of @Ability4 by 0.05 seconds. Lasts 12 seconds."
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Descrtiption"	"500 bonus attack range, 100%% bonus attack damage, 240 bonus attack speed and 100 movespeed. Multishot for 2 additional targets. Each attack hit on enemy reduces R remaining cooldown."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
@@ -11570,12 +11578,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"									"Stormcrack Helm LV1"
 		"item_property_stormcrack"							"Stormcrack"
-		"property_stormcrack_description"					"When you stun an enemy, deal 1x your attack power plus 10x the sum of your attributes as magic damage. Each time it deals damage, this property counts up by 1.<br>Upgrades at 4000."
+		"property_stormcrack_description"					"When you stun an enemy, deal <font color='#ccff66'>20</font>x your attack power plus <font color='#ccff66'>200</font>x the sum of your attributes as magic damage. Each time it deals damage, this property counts up by 1.<br>Upgrades at 4000."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm2"								"Stormcrack Helm LV2"
 		 "item_property_stormcrack2"						"Stormcrack II"
-		 "property_stormcrack2_description"					"When you stun an enemy, deal @special_property1x your attack power plus @special_property2x the sum of your attributes as magic damage. Increases the duration of all stuns by 35%."
+		 "property_stormcrack2_description"					"When you stun an enemy, deal <font color='#ccff66'>40</font>x your attack power plus <font color='#ccff66'>400</font>x the sum of your attributes as magic damage. Increases the duration of all stuns by 35%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"
@@ -13449,6 +13457,14 @@
 
 		"DOTA_Tooltip_ability_shipyard_boss_ai"							"Meat Eater"
 		"DOTA_Tooltip_ability_shipyard_boss_ai_Description"				"Instances of damage cannot exceed 1% of max health."
+		"DOTA_Tooltip_ability_shipyard_boss_chemical_rage"			"Chemical Rage"
+		"DOTA_Tooltip_ability_shipyard_boss_chemical_rage_Description"	"Thadelus becomes furious, which gives him decreased attack time and faster movement."
+		"DOTA_Tooltip_ability_shipyard_boss_acid_spray"					"Acid Spray"
+		"DOTA_Tooltip_ability_shipyard_boss_acid_spray_Description"		"Sprays high-pressure acid across a target area. Enemy units who step across the contaminated terrain take physical damage per second and have their armor significantly reduced."
+		"DOTA_Tooltip_ability_shipyard_boss_acid_spray_radius"	"RADIUS:"
+		"DOTA_Tooltip_ability_shipyard_boss_acid_spray_duration" "DURATION:"
+		"DOTA_Tooltip_ability_shipyard_boss_acid_spray_damage"		"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_shipyard_boss_acid_spray_armor_reduction" "ARMOR REDUCTION:"
 
 		"redfall_dialogue_farmer_2_shredder_1"							"My harvester has returned to me!"
 		"redfall_dialogue_farmer_2_shredder_1a"							"I have a secret lab in the back that I hide from the Crimsyth. It's where I research new harvesting technologies."
@@ -15671,6 +15687,9 @@
 
 		 //SPIRIT WATER
 		 //SPIRIT FIRE
+		 "DOTA_Tooltip_modifier_lava_flailing"					"Lava Burn"
+		 "DOTA_Tooltip_modifier_lava_flailing_Description"		"Taking 3/4/5 percents of max HP in magical damage over time."
+		 
 		 "fire_temple_flame_shaman"									"Flame Shaman"
 		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai"			"Flameburst"
 		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai_Description"	"Periodically launches a set of fireballs in every direction."

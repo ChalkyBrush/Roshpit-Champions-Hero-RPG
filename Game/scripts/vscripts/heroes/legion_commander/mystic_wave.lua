@@ -120,8 +120,8 @@ function mystic_wave_impact(event)
 				if caster:HasModifier("modifier_mountain_protector_immortal_weapon_1") then
 					stunDuration = stunDuration + 0.35
 				end
-				if target:HasModifier("modifier_mountain_protector_b_a_invisible") then
-					local stacks = target:GetModifierStackCount("modifier_mountain_protector_b_a_invisible", caster)
+				if target:HasModifier("modifier_mountain_protector_q_2_invisible") then
+					local stacks = target:GetModifierStackCount("modifier_mountain_protector_q_2_invisible", caster)
 					-- print("---ORIG DAMAGE:---")
 					-- print(damage)
 					damage = damage + damage*0.06*stacks
@@ -146,17 +146,17 @@ function mystic_wave_impact(event)
 				EmitSoundOn("MysticAssasin.MysticWave.Impact", target)
 				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_NORMAL, RPC_ELEMENT_EARTH)
 				if ability.q_2_level > 0 then
-					local b_a_duration = Filters:GetAdjustedBuffDuration(caster, 15, false)
-					ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_b_a_visible", {duration = b_a_duration})
-					local currentStacks = target:GetModifierStackCount("modifier_mountain_protector_b_a_visible", caster)
+					local q_2_duration = Filters:GetAdjustedBuffDuration(caster, 15, false)
+					ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_q_2_visible", {duration = q_2_duration})
+					local currentStacks = target:GetModifierStackCount("modifier_mountain_protector_q_2_visible", caster)
 					local newStacks = currentStacks + 1
-					target:SetModifierStackCount("modifier_mountain_protector_b_a_visible", caster, newStacks)
-					ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_b_a_invisible", {duration = b_a_duration})
-					target:SetModifierStackCount("modifier_mountain_protector_b_a_invisible", caster, newStacks*ability.q_2_level)
+					target:SetModifierStackCount("modifier_mountain_protector_q_2_visible", caster, newStacks)
+					ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_q_2_invisible", {duration = q_2_duration})
+					target:SetModifierStackCount("modifier_mountain_protector_q_2_invisible", caster, newStacks*ability.q_2_level)
 				end
 				if ability.q_1_level > 0 then
-					ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_c_a_daze", {duration = 5})
-					target:SetModifierStackCount("modifier_mountain_protector_c_a_daze", caster, ability.q_3_level)
+					ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_q_3_daze", {duration = 5})
+					target:SetModifierStackCount("modifier_mountain_protector_q_3_daze", caster, ability.q_3_level)
 				end
 			end
 		end)

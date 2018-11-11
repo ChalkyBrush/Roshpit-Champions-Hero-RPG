@@ -4517,6 +4517,66 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_Description"			"敌人在受到大地震颤的攻击力降低debuff时造成的所有类型伤害将会降低。"
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_property_one"		"敌人伤害降低"
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_suffix"				"%"
+"shadow_deity" "幽冥尊者"
+
+                 "DOTA_tooltip_ability_item_rpc_conjuror_arcana4"   "暗黑徜徉者足踏"
+                "item_property_conjuror_arcana4"									"幽冥尊者"
+    	"property_conjuror_arcana4_description"								"用幽冥尊者来替换 @Ability3 和它的全部符文."
+
+    	"DOTA_Tooltip_ability_summon_shadow_deity"							"幽冥尊者"
+    	"DOTA_Tooltip_ability_summon_shadow_deity_Description"				"魔术师使用强大的黑魔法召唤幽冥尊者。幽冥尊者有一个AOE能力，使魔术师和他的其他位面获得暂时牢不可破的隐形。当幽冥尊者存在时，技能将被黑暗界限取代，一个位移技能."
+    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_health"				"生命值:"
+    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_damage"				"攻击力:"
+    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_armor"				"护甲:"
+    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_magic_resist"		"魔抗:"
+
+    	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows"				"魔影斗篷"
+    	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_Description"	"使用暗影波动掩盖幽冥尊者和他的盟友，给他们牢不可破的隐形."
+    	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_radius"			"范围:"
+    	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_duration"		"持续时间:"
+
+    	"DOTA_Tooltip_ability_shadow_deity_black_razor"						"暗影风暴"
+    	"DOTA_Tooltip_ability_shadow_deity_black_razor_Description"			"元素: <font color=\"#7F4F84\">Shadow</font><br>使魔术师和他的所有位面周围一个爆发出一阵扭曲的暗影旋风，受影响的盟军获得额外的攻击力，附近的敌人每0.3秒受到伤害."	
+    	"DOTA_Tooltip_ability_shadow_deity_black_razor_radius"				"RADIUS:"
+    	"DOTA_Tooltip_ability_shadow_deity_black_razor_duration"			"DURATION:"
+
+    	"DOTA_Tooltip_modifier_black_razor"									"暗影风暴"
+    	"DOTA_Tooltip_modifier_black_razor_Description"						"提高攻击力并对周围敌人造成伤害."
+
+    	"DOTA_Tooltip_ability_shadow_deity_shadow_essence"					"暗影本源"
+    	"DOTA_Tooltip_ability_shadow_deity_shadow_essence_Description"		"幽冥尊者将自己和魔术师绑定在黑暗裂缝之间，给予双方一个攻击分裂并击中其他目标的buff."
+    	"DOTA_Tooltip_ability_shadow_deity_shadow_essence_duration"			"持续时间:"
+
+    	"DOTA_Tooltip_modifier_shadow_essence_split_attack"					"暗影本源"
+    	"DOTA_Tooltip_modifier_shadow_essence_split_attack_Description"		"攻击分裂并攻击额外的目标."	
+
+    	"DOTA_Tooltip_ability_dark_horizon"									"黑暗界限"
+    	"DOTA_Tooltip_ability_dark_horizon_Description"						"魔术师的黑暗耳语将他和他的位面通过虚空传送，在1.2秒的延迟之后出现在目标位置。 ."
+    	"DOTA_Tooltip_ability_dark_horizon_range"							"施法范围:"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4"						"[E1] 暗影风暴"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_Description"			"使魔术师和他的所有位面周围一个爆发出一阵扭曲的暗影旋风，受影响的盟军获得额外的攻击力，附近的敌人每0.3秒受到伤害."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_property_one"			"伤害"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix"					"每0.3秒造成一次 % 攻击力的伤害"	
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_property_two"			"额外攻击力"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix_two"				"%"	
+
+  		"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4"						"[E2] 阴暗回响"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"			"所有不是 暗 的元素伤害都会造成额外的暗元素伤害."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_property_one"		"额外暗元素伤害"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"% 基础伤害"
+
+		"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4"							"[E3] 万华虚空"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_Description"				"敏捷值提高<font color=\"#7F4F84\">暗</font> 元素伤害. 所有从装备上获得的敏捷值提高."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_property_one"				"暗元素伤害提高"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_suffix"						"% 每10点敏捷"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_property_two"				"从装备上获得的敏捷值提高"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_suffix_two"					"%"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_e_4_arcana4"						"[E4] 暗影本源"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_arcana4_Description"			"幽冥尊者将自己和魔术师绑定在黑暗裂缝之间，给予双方一个攻击分裂并击中其他目标的buff。高于100%的概率意味着可以多次分裂."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_arcana4_property_one"		"攻击分裂几率"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_arcana4_suffix"				"%"
 
 
 		//Glyphs
@@ -9479,7 +9539,7 @@
         "item_rpc_trapper_glyph_1_2_description"                "法力陷阱的效果变为双倍。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "鹰爪雕文"
-        "item_rpc_trapper_glyph_2_2_description"                "灵能之刃伤害将作用于主目标，但是对主目标的伤害不视作 @Ability3 的基础技能伤害。"
+        "item_rpc_trapper_glyph_2_2_description"                "灵能之刃伤害将作用于主目标。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "暗潮雕文"
         "item_rpc_trapper_glyph_3_2_description"                "被洪流陷阱伤害的敌人伤害输出将降低 @glyph_property1%，持续 1秒。"
@@ -9494,7 +9554,7 @@
         "item_rpc_trapper_glyph_6_2_description"                "傀儡受到 @glyph_property1 次攻击就将爆炸，并且造成伤害提高 @glyph_property2%。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "暗杀本能雕文"
-        "item_rpc_trapper_glyph_7_2_description"                "忍锋的持续时间变为双倍。"
+        "item_rpc_trapper_glyph_7_2_description"                "R3在隐匿状态下变为被动。"
 
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_book"		"猎人雕文书"
 		
@@ -9509,6 +9569,7 @@
         "DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_3"            "七彩碎片"
         "item_property_trapper_immortal_weapon3"                             "暗杀距离"
         "property_trapper_immortal_weapon3_description"                      "提高所有技能的施法距离 @special_property1"
+
 
 		//Abilities
 		"DOTA_Tooltip_ability_gale_nova"										"瘟疫散播"
@@ -11928,7 +11989,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"							"远古护符"
 		"item_property_ankh_of_ancients"						"不朽之灵"
-		 "property_ankh_of_ancients_description"				"当受到致命伤害时，获得一个护盾，护盾持续时间 @special_property1 秒。护盾将吸收 100% 的伤害，并且使拥有者免疫眩晕。护盾技能有六倍持续时间的冷却时间。"
+		 "property_ankh_of_ancients_description"				"当受到致命伤害时，获得一个护盾，护盾持续时间 @special_property1 秒。护盾将吸收 100% 的伤害，并且使拥有者免疫眩晕。冷却时间为6倍护盾持续时间。"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield"		"不朽之灵"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"	"免疫伤害和眩晕"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"		"远古护符冷却中"
