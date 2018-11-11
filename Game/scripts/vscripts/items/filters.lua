@@ -1291,16 +1291,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         -- end
     end
 
-    if attacker:HasModifier("shadow_deity_passive") then
-        if not ignore_effects and slot ~= 0 then
-            if element1 == RPC_ELEMENT_NORMAL or element1 == RPC_ELEMENT_NONE  then
-                element1 = RPC_ELEMENT_SHADOW
-            end
-            if (element2 == RPC_ELEMENT_NORMAL or element2 == RPC_ELEMENT_NONE) and element1 ~= RPC_ELEMENT_SHADOW then
-                element2 = RPC_ELEMENT_SHADOW
-            end
-        end
-    end
 
     damage, element1, element2 = Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, not ignore_effects)
     attacker.element1 = element1
@@ -1825,6 +1815,16 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local r_3_level = attacker:GetRuneValue("r", 3)
             if r_3_level > 0 then
                 mult = mult + ARKIMUS_ARCANA2_R3_ELEMENTS_PCT*r_3_level
+            end
+        end
+        if attacker:HasModifier("shadow_deity_passive") then
+            if bIsRealDamage and slot ~= 0 then
+                if element1 == RPC_ELEMENT_NORMAL or element1 == RPC_ELEMENT_NONE  then
+                    element1 = RPC_ELEMENT_SHADOW
+                end
+                if (element2 == RPC_ELEMENT_NORMAL or element2 == RPC_ELEMENT_NONE) and element1 ~= RPC_ELEMENT_SHADOW then
+                    element2 = RPC_ELEMENT_SHADOW
+                end
             end
         end
     end
