@@ -1152,7 +1152,7 @@ function Events:SetupHeroes(heroEntity)
 
 
     CustomNetTables:SetTableValue("hero_index", tostring(heroEntity:GetEntityIndex()), {playerOwner = tostring(heroEntity:GetPlayerID())} )
-    AddNewModifier(nil, nil, "modifier_client_setting", {})
+    heroEntity:AddNewModifier(nil, nil, "modifier_client_setting", {})
     heroEntity:SetAbilityPoints(0)
     ownerID = heroEntity:GetPlayerOwnerID()
     heroEntity.owner = ownerID
