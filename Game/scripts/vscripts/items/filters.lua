@@ -1291,6 +1291,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         -- end
     end
 
+
     damage, element1, element2 = Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, not ignore_effects)
     attacker.element1 = element1
     attacker.element2 = element2
@@ -1757,10 +1758,20 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
     else
         ability = slot
     end
-    ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability })
+    local instances = 1
     if attacker:HasModifier("modifier_heavy_echo_gauntlet") then
-        ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability })
-        ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability })
+        instances = instances + 2
+    end
+    if attacker:HasModifier("shadow_deity_passive") then
+        local e_2_level = attacker:GetRuneValue("e", 2)
+        if e_2_level > 0 then
+            local procs = Runes:Procs(e_2_level, CONJUROR_ARCANA_E2_SHADOW_DAMAGE_INSTANCES, 1)
+            instances = instances + procs
+        end
+    end
+
+    for i=1,instances do
+        ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(slot) })
     end
 end
 
@@ -1815,16 +1826,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + ARKIMUS_ARCANA2_R3_ELEMENTS_PCT*r_3_level
             end
         end
-        if attacker:GetUnitName() == "npc_dota_hero_invoker" then
-            if attacker:HasAbility("summon_shadow_deity") then
-                if element1 ~= RPC_ELEMENT_SHADOW then
-                    if element2 ~= RPC_ELEMENT_SHADOW then
-                        local e_2_level = attacker:GetRuneValue("e", 2)
-                        if e_2_level > 0 and bIsRealDamage then
-                            local e_2_damage = damage*(CONJUROR_ARCANA_E2_SHADOW_INSTANCE/100)*e_2_level
-                            Filters:TakeArgumentsAndApplyDamage(victim, attacker, e_2_damage, damage_type, slot, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
-                        end
-                    end
+        if attacker:HasModifier("shadow_deity_passive") then
+            if bIsRealDamage and slot ~= 0 then
+                if element1 == RPC_ELEMENT_NORMAL or element1 == RPC_ELEMENT_NONE  then
+                    element1 = RPC_ELEMENT_SHADOW
+                end
+                if (element2 == RPC_ELEMENT_NORMAL or element2 == RPC_ELEMENT_NONE) and element1 ~= RPC_ELEMENT_SHADOW then
+                    element2 = RPC_ELEMENT_SHADOW
                 end
             end
         end
@@ -2369,9 +2377,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + (0.0007*attacker:GetAgility()/10)*attacker.q_4_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
-            local e_3_level = attacker:GetRuneValue("e", 3)
-            if e_3_level > 0 then
-                mult = mult + ((CONJUROR_ARCANA_E3_SHADOW_AMP/100)*attacker:GetAgility()/10)*e_3_level
+            if attacker:HasAbility("summon_shadow_deity") then
+                local e_3_level = attacker:GetRuneValue("e", 3)
+                if e_3_level > 0 then
+                    mult = mult + ((CONJUROR_ARCANA_E3_SHADOW_AMP/100)*attacker:GetAgility()/10)*e_3_level
+                end
             end
         end
         if attacker:HasModifier("modifier_helm_shadow") then

@@ -9,7 +9,11 @@ function channel_start(event)
 		EmitSoundOn("Conjuror.ElementalDeity.Cast", caster)
 		StartAnimation(caster, {duration=2.5, activity=ACT_DOTA_FLAIL, rate=2.0})
 	end
-	caster.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "conjuror")
+	if caster.q_4_level then
+		caster.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "conjuror")
+	else
+		--Arcana R deity cast, seems we dont need it.
+	end
 end
 
 function begin_call(event)

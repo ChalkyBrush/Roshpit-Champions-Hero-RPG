@@ -107,6 +107,14 @@
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_deity_green_damage"
+			{
+				"IsHidden"	"1"		
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "1"
+				}
+			}			
 		}
 
 		"AbilitySpecial"
