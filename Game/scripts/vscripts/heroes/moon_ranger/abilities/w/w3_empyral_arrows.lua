@@ -18,5 +18,5 @@ function projectileHit(event)
 
     local damage = ability.damage * (1 + runesCount * W3_MULTIPLY_PERCENT)
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NORMAL)
-    PopupDamage(target, damage)
+    -- PopupDamage(target, damage)
 end

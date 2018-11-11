@@ -16,16 +16,17 @@ function CustomAbilities:AstralArcanaCloudMove(event)
 	ability.fallVelocity = 6
 end
 
-function CustomAbilities:StargazerSphereTakeDamage(caster,ability,unit,damage)
-	-- local caster = event.caster
+function CustomAbilities:StargazerSphereTakeDamage(caster, ability, unit, damage)
 	local hero = caster.hero
-	-- local ability = event.ability
 	local target = unit
-	-- local damage = event.damage
-	if target:HasModifier("modifier_stargazer_immunity") then
+	if target["stargazer_immune"..ability:GetEntityIndex()] then
 		return false
 	end
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_stargazer_immunity", {duration = 0.5})
+	target["stargazer_immune"..ability:GetEntityIndex()] = true
+	Timers:CreateTimer(0.5 ,function()
+		target["stargazer_immune"..ability:GetEntityIndex()] = false
+	end)
+	-- ability:ApplyDataDrivenModifier(caster, target, "modifier_stargazer_immunity", {duration = 0.5})
       local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
       local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
       ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)

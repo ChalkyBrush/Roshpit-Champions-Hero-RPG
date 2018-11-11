@@ -818,9 +818,9 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	tableData.magic = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL))*100
 	tableData.pure = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE))*100
 
-	tableData.phys = tableData.phys - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL) - 1)*100
-	tableData.magic = tableData.magic - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL) - 1)*100
-	tableData.pure = tableData.pure - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1)*100
+	tableData.phys = tostring(tableData.phys - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL) - 1)*100)
+	tableData.magic = tostring(tableData.magic - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL) - 1)*100)
+	tableData.pure = tostring(tableData.pure - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1)*100)
 	local level = unit:GetLevel()
 	if unit:IsHero() then
 		unit.q_4_level = unit:GetRuneValue("q", 4)
@@ -835,9 +835,9 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 		end
 		level = math.min(level + (GameState:GetDifficultyFactor()-1)*35, 120)
 		if unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
-			ApplyDamage({ victim = unit, attacker = Events.GameMaster, damage = 10000000000, damage_type = DAMAGE_TYPE_PHYSICAL, ability = Events.GameMasterAbility })
-			ApplyDamage({ victim = unit, attacker = Events.GameMaster, damage = 10000000000, damage_type = DAMAGE_TYPE_MAGICAL, ability = Events.GameMasterAbility })
-			ApplyDamage({ victim = unit, attacker = Events.GameMaster, damage = 10000000000, damage_type = DAMAGE_TYPE_PURE, ability = Events.GameMasterAbility })
+			GameState:FilterDamage({ entindex_victim_const = unit:GetEntityIndex(), entindex_attacker_const = Events.GameMaster:GetEntityIndex(), damage = 10000000000, damagetype_const = DAMAGE_TYPE_PHYSICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex() })
+			GameState:FilterDamage({ entindex_victim_const = unit:GetEntityIndex(), entindex_attacker_const = Events.GameMaster:GetEntityIndex(), damage = 10000000000, damagetype_const = DAMAGE_TYPE_MAGICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex() })
+			GameState:FilterDamage({ entindex_victim_const = unit:GetEntityIndex(), entindex_attacker_const = Events.GameMaster:GetEntityIndex(), damage = 10000000000, damagetype_const = DAMAGE_TYPE_PURE, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex() })
 			tableData.phys = tostring(unit.resist_phys*100)
 			tableData.magic = tostring(unit.resist_mag*100)
 			tableData.pure = tostring(unit.resist_pure*100)

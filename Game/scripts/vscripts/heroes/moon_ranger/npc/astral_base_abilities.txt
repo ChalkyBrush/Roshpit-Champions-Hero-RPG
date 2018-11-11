@@ -966,248 +966,223 @@
 	}
 
 	"ranger_aoe_explosion"
-    {
-        "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-        "BaseClass" "ability_datadriven"
-        "AbilityTextureName"    "astral_ranger/celestial_burst"
-        "AbilityCastRange"  "1000"
-        "AbilityCastPoint"  "0.0"
-        "AbilityCooldown"   "14.0"
-        "AbilityChannelTime"    "2.0"
-        "AbilityUnitDamageType" "DAMAGE_TYPE_PURE"
-        "AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-        "RequiredLevel"                 "-5"
-        "LevelsBetweenUpgrades"         "10"
-        "MaxLevel"                      "7"
-        "precache"
         {
-            "particle"  "particles/units/heroes/hero_brewmaster/brewmaster_dispel_magic_embers.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
-            "particle"  "particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
-            "particle"  "particles/units/heroes/hero_winter_wyvern/wyvern_splinter_blast_explosion_trail.vpcf"
-            "particle"  "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_b_tormented.vpcf"
-            "particle"  "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_sparkles_tormented.vpcf"
-            "particle"  "particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf"
-            "particle"  "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
-            "particle"  "particles/status_fx/status_effect_huskar_lifebreak.vpcf"
-            "particle"  "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_l2_radiant.vpcf"
-            "model"     "models/heroes/phoenix/phoenix_bird.vmdl"
-            "soundfile" "soundevents/voscripts/game_sounds_vo_phoenix.vsndevts"
-            "particle"  "particles/base_attacks/astral_glyph_2_1_projectile.vpcf"
-        }
-
-        "AbilityManaCost"   "0"
-        "SideShop"  "1"
-        "OnSpellStart"
-        {
-            "RunScript"
+            "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+            "BaseClass" "ability_datadriven"
+            "AbilityTextureName"    "astral_ranger/celestial_burst"
+            "AbilityCastRange"  "1000"
+            "AbilityCastPoint"  "0.0"
+            "AbilityCooldown"   "14.0"
+            "AbilityChannelTime"    "2.0"
+            "AbilityUnitDamageType" "DAMAGE_TYPE_PURE"
+            "AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+            "RequiredLevel"                 "-5"
+            "LevelsBetweenUpgrades"         "10"
+            "MaxLevel"                      "7"
+            "precache"
             {
-                "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
-                "Function"      "starfall_initiate"
-            }
-            "ApplyModifier"
-            {
-                "Target"    "CASTER"
-                "ModifierName"  "modifier_channel_start"
-                "Duration"      "2"
-            }
-            "AttachEffect"
-            {
-                "EffectName"    "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_sparkles_tormented.vpcf"
-                "EffectAttachType"  "follow_origin"
-                "EffectRadius"  "%radius"
-                "EffectDurationScale"   "1.5"
-                "EffectLifeDurationScale"   "1"
-                "EffectColorA"  "200 200 0"
-                "EffectColorB"  "200 200 0"
-                "Target"    "CASTER"
-            }
-        }
-
-        "OnChannelSucceeded"
-        {
-            "RemoveModifier"
-            {
-                "Target"    "CASTER"
-                "ModifierName"  "modifier_channel_start"
+                "particle"  "particles/units/heroes/hero_brewmaster/brewmaster_dispel_magic_embers.vpcf"
+                "soundfile" "soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
+                "soundfile" "soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
+                "soundfile" "soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
+                "particle"  "particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
+                "particle"  "particles/units/heroes/hero_winter_wyvern/wyvern_splinter_blast_explosion_trail.vpcf"
+                "particle"  "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_b_tormented.vpcf"
+                "particle"  "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_sparkles_tormented.vpcf"
+                "particle"  "particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf"
+                "particle"  "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
+                "particle"  "particles/status_fx/status_effect_huskar_lifebreak.vpcf"
+                "particle"  "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_l2_radiant.vpcf"
+                "model"     "models/heroes/phoenix/phoenix_bird.vmdl"
+                "soundfile" "soundevents/voscripts/game_sounds_vo_phoenix.vsndevts"
+                "particle"  "particles/base_attacks/astral_glyph_2_1_projectile.vpcf"
             }
 
-            "AttachEffect"
+            "AbilityManaCost"   "0"
+            "SideShop"  "1"
+            "OnSpellStart"
             {
-                "EffectName"    "particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
-                "EffectAttachType"  "follow_origin"
-                "EffectRadius"  "%radius"
-                "EffectDurationScale"   "1"
-                "EffectLifeDurationScale"   "1"
-                "EffectColorA"  "200 200 0"
-                "EffectColorB"  "200 200 0"
-                "Target"    "CASTER"
-            }
-
-
-            "FireSound"
-            {
-                "EffectName"    "Hero_Leshrac.Split_Earth.Tormented"
-                "Target"    "CASTER"
-            }
-
-            "RunScript"
-            {
-                "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
-                "Function"      "begin_explosion"
-                "radius"        "%radius"
-                "targets"       "%targets"
-                "duration"      "%duration"
-            }
-
-        }
-
-        "OnChannelFinish"
-        {
-            "RunScript"
-            {
-                "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
-                "Function"      "channel_interrupt"
-            }
-
-        }
-
-        "OnChannelInterrupted"
-        {
-            "RunScript"
-            {
-                "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
-                "Function"      "channel_interrupt"
-            }
-
-        }
-
-        "Modifiers"
-        {
-            "modifier_channel_start"
-            {
-                "IsHidden"  "1"
-                "ThinkInterval"  "0.05"
-                "OnIntervalThink"
+                "RunScript"
                 {
-                    "RunScript"
-                    {
-                        "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
-                        "Function"      "starfall_think"
-                    }
+                    "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
+                    "Function"      "starfall_initiate"
                 }
-                "OnCreated"
+                "ApplyModifier"
                 {
-                    "AttachEffect"
+                    "Target"    "CASTER"
+                    "ModifierName"  "modifier_channel_start"
+                    "Duration"      "2"
+                }
+                "AttachEffect"
+                {
+                    "EffectName"    "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_sparkles_tormented.vpcf"
+                    "EffectAttachType"  "follow_origin"
+                    "EffectRadius"  "%radius"
+                    "EffectDurationScale"   "1.5"
+                    "EffectLifeDurationScale"   "1"
+                    "EffectColorA"  "200 200 0"
+                    "EffectColorB"  "200 200 0"
+                    "Target"    "CASTER"
+                }
+            }
+
+            "OnChannelSucceeded"
+            {
+                "RemoveModifier"
+                {
+                    "Target"    "CASTER"
+                    "ModifierName"  "modifier_channel_start"
+                }
+
+                "AttachEffect"
+                {
+                    "EffectName"    "particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
+                    "EffectAttachType"  "follow_origin"
+                    "EffectRadius"  "%radius"
+                    "EffectDurationScale"   "1"
+                    "EffectLifeDurationScale"   "1"
+                    "EffectColorA"  "200 200 0"
+                    "EffectColorB"  "200 200 0"
+                    "Target"    "CASTER"
+                }
+
+
+                "FireSound"
+                {
+                    "EffectName"    "Hero_Leshrac.Split_Earth.Tormented"
+                    "Target"    "CASTER"
+                }
+
+            }
+
+            "OnChannelFinish"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
+                    "Function"      "channel_interrupt"
+                }
+
+            }
+
+            "OnChannelInterrupted"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
+                    "Function"      "channel_interrupt"
+                }
+
+            }
+
+            "Modifiers"
+            {
+                "modifier_channel_start"
+                {
+                    "IsHidden"  "1"
+                    "ThinkInterval"  "0.05"
+                    "OnIntervalThink"
                     {
-                        "IsHidden"  "1"
-                        "EffectName"    "particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf"
-                        "EffectAttachType"  "follow_origin"
-                        "Target"    "CASTER"
-                        "EffectRadius"  "%radius"
-                        "EffectColorA"  "255 0 0"
-                        "EffectColorB"  "255 0 0"
-                        "ControlPoints"
+                        "RunScript"
                         {
-                            "00"    "50 100 5"
+                            "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
+                            "Function"      "starfall_think"
                         }
-
                     }
-                    "RunScript"
+                    "OnCreated"
                     {
-                        "ScriptFile"    "heroes/util/channeling.lua"
-                        "Function"      "beginChannel"
-                    }
-                    "RunScript"
-                    {
-                        "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
-                        "Function"      "starfall_think"
-                    }
+                        "AttachEffect"
+                        {
+                            "IsHidden"  "1"
+                            "EffectName"    "particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf"
+                            "EffectAttachType"  "follow_origin"
+                            "Target"    "CASTER"
+                            "EffectRadius"  "%radius"
+                            "EffectColorA"  "255 0 0"
+                            "EffectColorB"  "255 0 0"
+                            "ControlPoints"
+                            {
+                                "00"    "50 100 5"
+                            }
 
+                        }
+                        "RunScript"
+                        {
+                            "ScriptFile"    "heroes/util/channeling.lua"
+                            "Function"      "beginChannel"
+                        }
+                    }
+                    "OnDestroy"
+                    {
+                        "RunScript"
+                        {
+                            "ScriptFile"    "heroes/util/channeling.lua"
+                            "Function"      "endChannel"
+                        }
+                    }
                 }
-                "OnDestroy"
+                "modifier_astral_glyph_7_1_evasion_effect"
                 {
-                    "RunScript"
+                    "IsBuff"    "1"
+                    "IsHidden"  "0"
+                    "Passive"   "0"
+                    "Properties"
                     {
-                        "ScriptFile"    "heroes/util/channeling.lua"
-                        "Function"      "endChannel"
+                        "MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
                     }
-                    "RemoveModifier"
+                }
+                "modifier_starfall_a_d_visible"
+                {
+                    "IsHidden"  "0"
+                    "IsDebuff"  "1"
+                    "TextureName"   "mirana_starfall"
+                }
+                "modifier_backstab_jumping"
+                {
+                    "IsHidden"  "1"
+                }
+                "modifier_starfall_a_d_invisible"
+                {
+                    "IsHidden"  "1"
+                    "IsDebuff"  "1"
+                }
+                "modifier_starfall"
+                {
+                    "IsHidden"  "1"
+                    "OnCreated"
                     {
-                        "ModifierName"  "modifier_astral_glyph_7_1_evasion_effect"
-                        "Target"        "TARGET"
+                        "FireEffect"
+                        {
+                            "EffectName"    "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
+                            "EffectAttachType"  "follow_origin"
+                            "Target"        "TARGET"
+                        }
                     }
-                    "RunScript"
-                    {
-                        "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
-                        "Function"      "end_channel"
-                    }
+                }
 
-                }
-            }
-            "modifier_astral_glyph_7_1_evasion_effect"
-            {
-                "IsBuff"    "1"
-                "IsHidden"  "0"
-                "Passive"   "0"
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
-                }
-            }
-            "modifier_starfall_a_d_visible"
-            {
-                "IsHidden"  "0"
-                "IsDebuff"  "1"
-                "TextureName"   "mirana_starfall"
-            }
-            "modifier_backstab_jumping"
-            {
-                "IsHidden"  "1"
-            }
-            "modifier_starfall_a_d_invisible"
-            {
-                "IsHidden"  "1"
-                "IsDebuff"  "1"
-            }
-            "modifier_starfall"
-            {
-                "IsHidden"  "1"
-                "OnCreated"
-                {
-                    "FireEffect"
-                    {
-                        "EffectName"    "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
-                        "EffectAttachType"  "follow_origin"
-                        "Target"        "TARGET"
-                    }
-                }
+
             }
 
+            "AbilitySpecial"
+            {
+                "01"
+                {
+                    "var_type"                  "FIELD_INTEGER"
+                    "explosion_aoe"                 "300"
+                }
+                "02"
+                {
+                    "var_type"                      "FIELD_FLOAT"
+                    "duration"                      "1.4 1.6 1.8 2.0 2.2 2.4 2.6"
+                }
+                "03"
+                {
+                    "var_type"                      "FIELD_FLOAT"
+                    "damage"                        "240 700 4500 15000 45000 100000 200000"
+                }
+            }
 
         }
-
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "explosion_aoe"                 "300"
-            }
-            "02"
-            {
-                "var_type"                      "FIELD_FLOAT"
-                "duration"                      "1.4 1.6 1.8 2.0 2.2 2.4 2.6"
-            }
-            "03"
-            {
-                "var_type"                      "FIELD_FLOAT"
-                "damage"                        "240 700 4500 15000 45000 100000 200000"
-            }
-        }
-    }
 
     "dummy_aoe_explosion"
     {

@@ -9,6 +9,9 @@ function createPegasus(caster, ability, startPoint, endPoint, delay)
 
     ability.runesCount = runesCount
     ability.duration = E1_START_DURATION + runesCount * E1_ADD_DURATION
+    if caster:HasModifier("modifier_astral_glyph_4_1") then
+        ability.duration = ability.duration*(1-ASTRAL_T41_DURATION_REDUCTION_PCT/100)
+    end
 
     for travelIndex = 1, travelsCount, 1 do
         local projectileDelay = delay * (travelIndex - 1)
@@ -76,7 +79,6 @@ function projectileHit(event)
     local runesCount = ability.runesCount
 
     local duration = ability.duration
-    print(duration)
     ability:ApplyDataDrivenModifier(caster, target, "modifier_star_blink_root", {duration = duration})
     if duration > 0 then
         Helper.updateStackModifier(target, caster, ability, 'astral_rune_e_1', duration, E1_MAX_STACKS_COUNT, runesCount)

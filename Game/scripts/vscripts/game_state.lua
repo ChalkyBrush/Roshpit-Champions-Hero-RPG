@@ -11,6 +11,7 @@ require('/heroes/antimage/arkimus_constants')
 require('/heroes/monkey_king/constants')
 require('/heroes/skywrath_mage/constants')
 require('/heroes/invoker/constants_CONJUROR')
+require("/heroes/moon_ranger/constants")
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -3012,7 +3013,7 @@ function GameState:FilterDamage(filterTable)
 		local attacker_movespeed = attacker:GetMoveSpeedModifier(attacker:GetBaseMoveSpeed())
 		local victim_movespeed = victim:GetMoveSpeedModifier(victim:GetBaseMoveSpeed())
 		local movespeed_difference = math.max(attacker_movespeed - victim_movespeed, 0)
-		mult = mult + movespeed_difference * SEINARU_Q3_POSTMIT_PER_MOVESPEED_DIF
+		mult = mult + movespeed_difference * SEINARU_Q3_POSTMIT_PER_MOVESPEED_DIF * modifier:GetStackCount()
 	end
 
 	if victim:HasModifier("modifier_sephyr_glyph_6_1") then
@@ -3025,11 +3026,22 @@ function GameState:FilterDamage(filterTable)
 
 
 	if victim:HasModifier("modifier_steadfast") then
+		local threshold_abil = {
+		moon_shroud = ASTRAL_Q2_STEADFAST_THRESHOLD,
+		astral_arcana_ability = ASTRAL_Q2_STEADFAST_THRESHOLD
+	}
 		local thresholdMult = 1
 		if attacker:HasModifier("modifier_neutral_glyph_4_2") then
 			thresholdMult = 10
 			mult = mult + thresholdMult - 1
 			divisor = divisor + thresholdMult - 1
+		end
+		if filterTable.entindex_inflictor_const then
+			for ability_name, thresh in pairs(threshold_abil) do
+				if EntIndexToHScript(filterTable.entindex_inflictor_const):GetName() == ability_name then
+					thresholdMult = thresholdMult + thresh - 1
+				end
+			end
 		end
 		if attacker:GetName() == 'npc_dota_hero_juggernaut' and attacker:FindAbilityByName('seinaru_odachi_leap') then
 			if mult == 1 then
@@ -3058,11 +3070,22 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_mega_steadfast") then
+		local threshold_abil = {
+		moon_shroud = ASTRAL_Q2_STEADFAST_THRESHOLD,
+		astral_arcana_ability = ASTRAL_Q2_STEADFAST_THRESHOLD
+	}
 		local thresholdMult = 1
 		if attacker:HasModifier("modifier_neutral_glyph_4_2") then
 			thresholdMult = 30
 			mult = mult + thresholdMult - 1
 			divisor = divisor + thresholdMult - 1
+		end
+		if filterTable.entindex_inflictor_const then
+			for ability_name, thresh in pairs(threshold_abil) do
+				if EntIndexToHScript(filterTable.entindex_inflictor_const):GetName() == ability_name then
+					thresholdMult = thresholdMult + thresh - 1
+				end
+			end
 		end
 		if attacker:GetName() == 'npc_dota_hero_juggernaut' and attacker:FindAbilityByName('seinaru_odachi_leap') then
 			if mult == 1 then
@@ -3087,7 +3110,9 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	--APPLY MULT
-	filterTable["damage"] = filterTable["damage"]*mult/divisor
+	if applyEffects then
+		filterTable["damage"] = filterTable["damage"]*mult/divisor
+	end
 	--AFTER POSTMITIGATION MULTIPLIERS
 
 	if attacker:HasModifier("modifier_trapper_immortal_weapon_2") then
@@ -3539,18 +3564,23 @@ function GameState:FilterDamage(filterTable)
         		end)
         	end
         end
-       if victim:HasModifier("modifier_in_stargazer_area") then
-        	if filterTable["entindex_inflictor_const"] then
-	        	local allow = true
-		        if EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() == "solunia_lunar_alpha_spark" or EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() == "solunia_solar_alpha_spark" then
-		        	allow = false
-		        end
-	        	if allow then
-		        	local caster = victim:FindModifierByName("modifier_in_stargazer_area"):GetCaster()
-		        	local ability = victim:FindModifierByName("modifier_in_stargazer_area"):GetAbility()
-		        	CustomAbilities:StargazerSphereTakeDamage(caster,ability,victim,StartingDamage)
-		        end
-		    end
+        if victim:HasModifier("modifier_in_stargazer_area") then
+	        if filterTable["entindex_inflictor_const"] then
+				local modifiers = victim:FindAllModifiersByName("modifier_in_stargazer_area")
+				local ability_name = EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName()
+				for _,mod in pairs(modifiers) do
+				    if ability_name == "solunia_lunar_alpha_spark"
+				    or ability_name == "solunia_solar_alpha_spark"
+				    or ability_name == "item_rpc_stargazers_sphere"
+				    or mod:GetCaster().hero:GetEntityIndex() ~= filterTable.entindex_attacker_const
+				    then
+					else
+				        local inventory_unit = mod:GetCaster()
+				        local item = mod:GetAbility()
+				        CustomAbilities:StargazerSphereTakeDamage(inventory_unit, item, victim, StartingDamage)
+				    end
+				end
+			end
         end
     end
 

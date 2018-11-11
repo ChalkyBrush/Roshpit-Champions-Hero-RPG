@@ -16,7 +16,7 @@ function cast(event)
     Helper.initializeAbilityRunes(event.caster, 'astral', 'w')
     Helper.initializeAbilityRunes(event.caster, 'astral', 'e')
     Helper.initializeAbilityRunes(event.caster, 'astral', 'r')
-
+    
     local ability = event.ability
     if caster:HasModifier("modifier_astral_glyph_4_1") then
         local cd = ability:GetCooldown(ability:GetLevel())/2
