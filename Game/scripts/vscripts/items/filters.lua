@@ -1771,7 +1771,7 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
     end
 
     for i=1,instances do
-        ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(slot) })
+        ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability })
     end
 end
 
