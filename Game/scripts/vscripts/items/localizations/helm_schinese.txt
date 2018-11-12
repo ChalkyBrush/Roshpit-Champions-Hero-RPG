@@ -250,7 +250,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm2"								"风暴裂痕之头 等级2"
 		 "item_property_stormcrack2"						"风暴裂痕 II"
-		 "property_stormcrack2_description"					"当你眩晕敌人时，造成20倍的攻击力+@special_property2x总属性的魔法伤害。<br>增加玩家对敌人的的所有眩晕持续时间 35%。"
+		 "property_stormcrack2_description"					"当你眩晕敌人时，造成 @special_property1x攻击力+@special_property2x总属性的魔法伤害。<br>增加玩家对敌人的的所有眩晕持续时间 35%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"黑魔法兜帽"
