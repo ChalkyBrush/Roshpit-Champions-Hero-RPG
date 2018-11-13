@@ -226,6 +226,8 @@
     	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_Description"			"Каждый раз когда противник получает урон от любого из ядов Venomort, он также начинает получать увеличенный урон от всех периодических эффектов Venomort. Данный дебафф стакается 15 раз, длительность 10 секунд."
     	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_property_one"			"Увеличение урона"
     	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_suffix"					"% за стак"
+		"DOTA_Tooltip_modifier_venomort_frostvenom_graps_dot_amp"				"Fangs of Ozubu"
+		"DOTA_Tooltip_modifier_venomort_frostvenom_graps_dot_amp_Description"	"Увеличенный урон от всех ядов."
 
   		"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2"						"[Q4] Pulse Nova"
     	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_Description"			"@Ability1 имеет шанс создать дополнительные взрывы за каждый каст, и каждый удар от способности усилит Базовый Урон Способностей на 12 секунд. Эффект стакается до 50 раз."
