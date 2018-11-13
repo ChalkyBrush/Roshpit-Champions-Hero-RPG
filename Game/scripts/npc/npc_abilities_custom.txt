@@ -17043,7 +17043,9 @@
 
 			"modifier_venomort_frostvenom_graps_dot_amp"
 			{
-				"IsDebuff"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"venomort/venomort_rune_q_3_arcana2"
 			}
 		}
 	}
@@ -39036,16 +39038,6 @@
                 {
                     "EffectName"    "Hero_Leshrac.Split_Earth.Tormented"
                     "Target"    "CASTER"
-                }
-
-            }
-
-            "OnChannelFinish"
-            {
-                "RunScript"
-                {
-                    "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
-                    "Function"      "channel_interrupt"
                 }
 
             }
