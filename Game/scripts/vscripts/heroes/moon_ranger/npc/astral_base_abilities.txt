@@ -1055,16 +1055,6 @@
 
             }
 
-            "OnChannelFinish"
-            {
-                "RunScript"
-                {
-                    "ScriptFile"    "scripts/vscripts/heroes/moon_ranger/ranger_aoe_explosion.lua"
-                    "Function"      "channel_interrupt"
-                }
-
-            }
-
             "OnChannelInterrupted"
             {
                 "RunScript"

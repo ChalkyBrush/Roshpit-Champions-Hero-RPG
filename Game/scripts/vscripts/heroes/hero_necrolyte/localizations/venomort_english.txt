@@ -249,6 +249,8 @@
     	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_Description"			"Every time an enemy unit takes an instance of damage from any of Venomort's various poisons, it gains a stacking debuff which increases damage received from all of Venomort's damage-over-time effects. Max 15 stacks, lasts 10 seconds."
     	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_property_one"			"Damage Boost"
     	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_suffix"					"% per stack"
+		"DOTA_Tooltip_modifier_venomort_frostvenom_graps_dot_amp"				"Fangs of Ozubu"
+		"DOTA_Tooltip_modifier_venomort_frostvenom_graps_dot_amp_Description"	"Increased damage received from all of Venomort's damage-over-time effects."
 
   		"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2"						"[Q4] Pulse Nova"
     	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_Description"			"Adds a chance for Frostvenom Grasp to produce additional explosions with each cast, and causes each strike to increase Base Ability Damage for 12 seconds, up to 50 stacks. Greater than 100% chance means it can proc multiple times."
@@ -256,6 +258,8 @@
     	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_suffix"					"%"
     	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_property_two"			"Base Ability Damage"
     	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_suffix_two"				"% per stack"
+		"DOTA_Tooltip_modifier_venomort_arcana2_q_4_visible"				"Pulse Nova"
+		"DOTA_Tooltip_modifier_venomort_arcana2_q_4_visible_Description"	"Base Ability Damage increased"
 		
 		//Glyphs
 		

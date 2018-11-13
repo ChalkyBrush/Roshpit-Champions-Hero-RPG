@@ -1212,7 +1212,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			damage = damage*reduction
 		end
 		if victim:HasModifier("modifier_hope_of_saytaru_effect") then
-			filterTable["damage"] = (1 - SAYTARU_PURE_DMG_RESISTANCE) * filterTable["damage"]
+			damage = (1 - SAYTARU_PURE_DMG_RESISTANCE) * damage
 		end
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
@@ -1455,7 +1455,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 
 	if victim:HasModifier("modifier_chitinous_skin_stack") then
 		local stacks = victim:GetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit)
-		local reduction = 1 - stacks*0.01
+		local reduction = 1 - stacks * CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK
 		damage = damage*reduction
 		if shouldConsumeShields then
 			local newStacks = stacks - 1
