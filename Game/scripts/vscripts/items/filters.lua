@@ -14,6 +14,7 @@ require('items/special_item_effects')
 require('/heroes/omniknight/paladin_constants')
 require('/heroes/phantom_assassin/voltex_constants')
 require('/heroes/juggernaut/seinaru_constants')
+require('/heroes/lanaya/trapper_constants')
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -1857,8 +1858,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             normalMult = normalMult + 0.5
         end
         if attacker:HasModifier("modifier_trapper_arcana1") then
-            local w_2_level = Runes:GetTotalRuneLevel(attacker, 2, "b_b_arcana1", "trapper")
-            normalMult = normalMult + w_2_level*0.05
+            local w_2_level = attacker:GetRuneValue("w", 2)
+            normalMult = normalMult + w_2_level * TRAPPER_ARCANA_W2_NORMAL_PCT
         end
         if unitName == "npc_dota_hero_axe" then
             if victim:HasModifier("modifier_axe_rune_q_4_invisible") then
