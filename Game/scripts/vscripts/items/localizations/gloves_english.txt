@@ -277,9 +277,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chitinous_lobster_claw"					"Chitinous Lobster Claw"	
 		"property_lobster_claw"												"Chitinous Skin"
-		"property_lobster_claw_Description"									"Every 0.5 seconds, gain a stack of Chitinous Skin. Each stack reduces incoming damage taken by @special_property1%. Max @special_property2 stacks."
+		"property_lobster_claw_Description"									"Every <% CHITINOUS_LOBSTER_CLAW_STACK_RATE %> seconds, gain a stack of Chitinous Skin. Each stack reduces incoming damage taken by <% CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%. Each instance of damage taken will remove 1 stack. Max <% CHITINOUS_LOBSTER_CLAW_MAX_STACKS %> stacks."
 		"DOTA_Tooltip_modifier_chitinous_skin_stack"						"Chitinous Skin"
-		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"Each stack reduces damage taken by 3%%"
+		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"Each stack reduces damage taken by <% CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	
