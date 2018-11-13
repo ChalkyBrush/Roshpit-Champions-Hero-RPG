@@ -3572,7 +3572,7 @@ function GameState:FilterDamage(filterTable)
 				    if ability_name == "solunia_lunar_alpha_spark"
 				    or ability_name == "solunia_solar_alpha_spark"
 				    or ability_name == "item_rpc_stargazers_sphere"
-				    or mod:GetCaster().hero:GetEntityIndex() ~= filterTable.entindex_attacker_const
+				    -- or mod:GetCaster().hero:GetEntityIndex() ~= filterTable.entindex_attacker_const
 				    then
 					else
 				        local inventory_unit = mod:GetCaster()
