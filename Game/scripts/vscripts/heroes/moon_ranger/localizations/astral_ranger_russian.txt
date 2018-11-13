@@ -19,7 +19,7 @@
 		"DOTA_Tooltip_modifier_rune_q_1_thinker_description" 			"Находясь в облаке дальность атаки Astral Ranger увеличивается."
 		
 		"DOTA_Tooltip_ability_astral_rune_q_2"							"[Q2] Biting Stars"
-    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"С 20% шансом при атаке на противника упадёт звезда, наносящая чистый урон в размере % от общего урона героя, дополнительно снижая броню цели. Может срабатывать у разделённых атак от руны [W1]."
+    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"С 20% шансом при атаке на противника упадёт звезда, наносящая чистый урон в размере % от общего урона героя, дополнительно снижая броню цели. Может срабатывать у разделённых атак от руны [W1]. Порог Стойкости у мобов повышен в 5 раз относительно этой руны."
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_one"				"Урон звезды"
     	"DOTA_Tooltip_ability_astral_rune_q_2_suffix"					"% от общего урона героя"
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_two"				"Снижение брони"
@@ -43,7 +43,7 @@
     	"DOTA_Tooltip_modifier_astral_rune_q_4_visible_Description"		"Урон увеличен"
 		
 		"DOTA_Tooltip_ability_split_shot"								"Split Shot"
-		"DOTA_Tooltip_ability_split_shot_Description"					"Стихия: <font color=\"#DDDDDD\">Космос</font><br>Astral Ranger натягивает тетиву в течение 0.8 сек, после чего выпускает 15 стрел веером прямо перед собой."
+		"DOTA_Tooltip_ability_split_shot_Description"					"Стихия: <font color=\"#DDDDDD\">Космос</font><br>Astral Ranger натягивает тетиву в течение 0.8 сек, после чего выпускает 15 стрел веером прямо перед собой. Действует на цели с иммунитетом к магии, но не наносит урона."
 		"DOTA_Tooltip_ability_split_shot_Lore"							""
 		"DOTA_Tooltip_ability_split_shot_damage"						"УРОН КАЖДОЙ СТРЕЛОЙ:"
     	"DOTA_Tooltip_ability_split_shot_range"							"РАДИУС:"
@@ -278,8 +278,8 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"		"(T1) Глиф крыльев"
-		"item_rpc_astral_glyph_1_1_description" 				"Удваивает длительность [W1]."
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"		"(T1) Глиф пронизывающего света"
+		"item_rpc_astral_glyph_1_1_description" 				"@Ability2 больше не наносит урона, но количество стрел учетверено, угол покрытия сильно увеличен. Длительность баффа от руны [W1] удвоена."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"(T2) Глиф воздушного креста"
 		"item_rpc_astral_glyph_2_1_description" 				"Урон призванного Феникса увеличен в @glyph_property1 раз(а), а все задетые им враги замедляются на @glyph_property2."
@@ -288,13 +288,13 @@
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow_Description"	"Замедлен"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_3_1"		"(T3) Глиф сфокусированного залпа"
-		"item_rpc_astral_glyph_3_1_description" 				"(W) @Ability2 выпускает только @glyph_property1 стрел, но они наносят увеличенный в @glyph_property2 раз(а) урон. Шанс появления зачарованной стрелы увеличен на 30%."
+		"item_rpc_astral_glyph_3_1_description" 				"(W) @Ability2 выпускает только @glyph_property1 стрел, но они наносят увеличенный в @glyph_property2 раз(а) урон. Шанс появления зачарованной стрелы увеличен на 40%."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"(T4) Глиф пространственных искажений"
-		"item_rpc_astral_glyph_4_1_description" 				"Перезарядка, задержка применения, и  увеличение длительносити @Ability1 от способности @Ability3 уменьшаются вдвое."
+		"item_rpc_astral_glyph_4_1_description" 				"Перезарядка и задержка @Ability3 равны всего половине времени, но все баффы от рун @Ability3 и продление @Ability1 снижены на <% ASTRAL_T41_DURATION_REDUCTION_PCT %>%. Убирает время каста @Ability3."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"		"(T5) Глиф лунных волн"
-		"item_rpc_astral_glyph_5_1_description" 				"@Ability4 само себя заряжает при касте."
+		"item_rpc_astral_glyph_5_1_description" 				"@Ability4 само себя заряжает при касте, а перезарядка снижена на <% ASTRAL_T51_CD_REDUCE %> секунд."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_6_1"		"(T6) Глиф разделяющихся стрел"
 		"item_rpc_astral_glyph_6_1_description" 				"Стрелы от обычных атак разделяются при попадании и могут поразить до @glyph_property1 дополнительных целей."
@@ -306,7 +306,7 @@
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect_Description"	"100%% уклонение"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"(Immortal) Глиф преломляющихся стрел"
-		"item_rpc_astral_glyph_5_a_description" 				"Увеличивает базовый урон на @glyph_property1."
+		"item_rpc_astral_glyph_5_a_description" 				"Увеличивает Базовый Урон атаки на @glyph_property1."
 		
 		//Weapons
 		"astral_weapon_01"			"Mithril String Bow"
