@@ -2485,26 +2485,25 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"        "Glyph of Persistent Light"
-        "item_rpc_astral_glyph_1_1_description"                 "@Ability2 no longer deals damage, but amount of arrows is multiplyed by 4, and arrows are shoot in all directions rather than in the direction your character is facing. Also double duration of [W1]."
-
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"               "Glyph of Headless Arrows"
+        "item_rpc_astral_glyph_1_1_description"                 "@Ability2 no longer deals damage, but fires 4 times the arrows per volley and in all directions instead of a cone. Also doubles the duration of [W1]."
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"Glyph of Aerial Crests"
 		"item_rpc_astral_glyph_2_1_description" 				"Astral Ranger's Phoenix summon has @glyph_property1x increased attack damage and slows movespeed of its targets by @glyph_property2."
 
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow"			"Phoenix Slow"
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow_Description"	"Losing Movespeed"
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_3_1"		"Glyph of Focus Fire"
-		"item_rpc_astral_glyph_3_1_description" 				"@Ability2 only fires @glyph_property1 arrows and increases their damage by @glyph_property2x. Base Proc chance of Empyral Arrows is increased to 40%."
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_3_1"        "Glyph of Focus Fire"
+        "item_rpc_astral_glyph_3_1_description"                 "@Ability2 only fires @glyph_property1 arrows but increases their damage by @glyph_property2x. Base proc chance of Empyral Arrows is increased to 40%."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"Glyph of Spatial Rifts"
-		"item_rpc_astral_glyph_4_1_description" 				"Half cooldown and delay of @Ability3, but reduce duration of all buffs applied by @Ability3 and duration increase for @Ability1 by <font color='#ccff66'>25</font>%. Also remove castpoint of @Ability3."
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"        "Glyph of Flickering Lights"
+        "item_rpc_astral_glyph_4_1_description"                 "The cooldown and teleport delay of @Ability3 are halved, and its cast point is removed. The duration of all buffs applied by @Ability3 and its runes, along with any bonus to @Ability1's duration, are reduced by <font color='#ccff66'>25</font>%."
+        
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"        "Glyph of Lunar Channeling"
+        "item_rpc_astral_glyph_5_1_description"                 "@Ability4 channels itself, unable to be interrupted by stuns, and its cooldown is reduced by <font color='#ccff66'>5</font> seconds."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"        "Glyph of Lunar Channeling"
-        "item_rpc_astral_glyph_5_1_description"                 "Your @Ability4 channels itself and it's cooldown is reduced by <font color='#ccff66'>5</font> seconds."
-
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_6_1"		"Glyph of Splitting Arrows"
-		"item_rpc_astral_glyph_6_1_description" 				"Attacks split on impact and hit up to @glyph_property1 additional targets."
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_6_1"        "Glyph of Splitting Arrows"
+        "item_rpc_astral_glyph_6_1_description"                 "Attacks split on impact and hit up to @glyph_property1 additional targets. These extra arrows can apply [Q2] but not any other on-hit effects."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_7_1"		"Glyph of Silver Stars"
 		"item_rpc_astral_glyph_7_1_description" 				"Gain 100% evasion while channeling @Ability4. @Ability4, Starfall, and Starquakes deal @glyph_property1x damage."
@@ -4180,8 +4179,8 @@
     	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_radius"			"RADIUS:"
     	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_duration"		"DURATION:"
 
-    	"DOTA_Tooltip_ability_shadow_deity_black_razor"						"Black Razor"
-    	"DOTA_Tooltip_ability_shadow_deity_black_razor_Description"			"Element: <font color=\"#7F4F84\">Shadow</font><br>A twisted wretch of shadow blades is activated upon Conjuror and all of his summons for a short duration. Affected allies gain bonus attack damage and nearby enemies take damage every 0.3 seconds."	
+		"DOTA_Tooltip_ability_shadow_deity_black_razor"                        "Black Razor"
+        "DOTA_Tooltip_ability_shadow_deity_black_razor_Description"            "Element: <font color=\"#7F4F84\">Shadow</font><br>Calls forth a twisted wreath of shadow blades upon Conjuror and all of his summons for a short duration. Affected allies gain bonus attack damage and nearby enemies take damage every 0.3 seconds."
     	"DOTA_Tooltip_ability_shadow_deity_black_razor_radius"				"RADIUS:"
     	"DOTA_Tooltip_ability_shadow_deity_black_razor_duration"			"DURATION:"
 
@@ -4199,15 +4198,15 @@
     	"DOTA_Tooltip_ability_dark_horizon_Description"						"Conjuror's dark whispers transport him and his aspects through the void, appearing at the target location after a 1.2 second delay."
     	"DOTA_Tooltip_ability_dark_horizon_range"							"CAST RANGE:"
 
-  		"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4"						"[E1] Black Razor"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_Description"			"A twisted spiral of shadow blades is activated upon Conjuror and all of his summons for a short duration. Affected allies gain bonus attack damage and nearby enemies take damage every 0.3 seconds."
+ 		"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4"                        "[E1] Black Razor"
+        "DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_Description"            "The shadow deity gains a spell, which calls forth a twisted wreath of shadow blades upon Conjuror and all of his summons for a short duration. Affected allies gain bonus attack damage and nearby enemies take damage every 0.3 seconds."
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_property_one"			"Damage"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix"					"% of attack power every 0.3 seconds"	
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_property_two"			"Attack Power Bonus"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix_two"				"%"	
 
-  		"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4"						"[E2] Echoes of Darkness"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"			"All Elemental damage has its secondary element converted into <font color=\"#7F4F84\">Shadow</font>. All damage instances have chance to be repeated. A chance greater than 100% means multiple echoes can proc."
+		"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4"                        "[E2] Echoes of Darkness"
+        "DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"            "All Elemental damage has its secondary element converted into <font color=\"#7F4F84\">Shadow</font>. Additionally, all damage instances have chance to be repeated. A chance greater than 100% means multiple echoes can proc in succession."
     	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_property_one"		"Echo Chance"
     	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"%"
 
@@ -11994,9 +11993,10 @@
 		"DOTA_Tooltip_modifier_frozen_heart_regen"			"Iceblood Regen"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"			"Stargazer's Sphere"
-		"item_property_stargazer"									"Eye of the Stargazer"
-		"property_stargazer_description"							"Issuing an attack move order at any range creates an area with @special_property1 vision radius. Enemies inside the radius that take damage are hit by a star that deals pure damage equal to @special_property3% of the damage instance. Enemies can only be hit by a star once every 0.5 seconds. Issuing an attack move order within a circle destroys it and drops a meteor that does @special_property4% of attack damage in the area and stuns for 1 second. Stargazer Ring creation has a @special_property2 second internal cooldown."
+		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"            "Stargazer's Sphere"
+        "item_property_stargazer"                                    "Eye of the Stargazer"
+        "property_stargazer_description"                            "Issuing an attack-move order at any range creates a cosmic aperture with @special_property1 vision radius. Enemies inside the aperture who take damage will be struck by a star that deals Pure damage equal to @special_property3% of the damage instance which triggered it. Enemies can only be hit by a star once every 0.5 seconds. Issuing an attack-move order within a circle instantly collapses it, forming a meteor that does @special_property4% of attack damage in the area and stuns enemies for 1 second. Stargazer aperture creation has a @special_property2 second internal cooldown."
+
 		"DOTA_Tooltip_modifier_in_stargazer_area"					"Stargazer's Sphere"
 		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"Hit by stars when taking damage"
 		

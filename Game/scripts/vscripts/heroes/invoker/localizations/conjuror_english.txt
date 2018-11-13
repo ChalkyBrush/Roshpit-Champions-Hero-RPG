@@ -401,8 +401,8 @@
     	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_radius"			"RADIUS:"
     	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_duration"		"DURATION:"
 
-    	"DOTA_Tooltip_ability_shadow_deity_black_razor"						"Black Razor"
-    	"DOTA_Tooltip_ability_shadow_deity_black_razor_Description"			"Element: <font color=\"#7F4F84\">Shadow</font><br>A twisted wretch of shadow blades is activated upon Conjuror and all of his summons for a short duration. Affected allies gain bonus attack damage and nearby enemies take damage every 0.3 seconds."	
+		"DOTA_Tooltip_ability_shadow_deity_black_razor"                        "Black Razor"
+        "DOTA_Tooltip_ability_shadow_deity_black_razor_Description"            "Element: <font color=\"#7F4F84\">Shadow</font><br>Calls forth a twisted wreath of shadow blades upon Conjuror and all of his summons for a short duration. Affected allies gain bonus attack damage and nearby enemies take damage every 0.3 seconds."
     	"DOTA_Tooltip_ability_shadow_deity_black_razor_radius"				"RADIUS:"
     	"DOTA_Tooltip_ability_shadow_deity_black_razor_duration"			"DURATION:"
 
@@ -420,15 +420,15 @@
     	"DOTA_Tooltip_ability_dark_horizon_Description"						"Conjuror's dark whispers transport him and his aspects through the void, appearing at the target location after a 1.2 second delay."
     	"DOTA_Tooltip_ability_dark_horizon_range"							"CAST RANGE:"
 
-  		"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4"						"[E1] Black Razor"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_Description"			"A twisted spiral of shadow blades is activated upon Conjuror and all of his summons for a short duration. Affected allies gain bonus attack damage and nearby enemies take damage every 0.3 seconds."
+ 		"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4"                        "[E1] Black Razor"
+        "DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_Description"            "The shadow deity gains a spell, which calls forth a twisted wreath of shadow blades upon Conjuror and all of his summons for a short duration. Affected allies gain bonus attack damage and nearby enemies take damage every 0.3 seconds."
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_property_one"			"Damage"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix"					"% of attack power every 0.3 seconds"	
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_property_two"			"Attack Power Bonus"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix_two"				"%"	
 
-  		"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4"						"[E2] Echoes of Darkness"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"			"All Elemental damage has its secondary element converted into <font color=\"#7F4F84\">Shadow</font>. All damage instances have chance to be repeated. A chance greater than 100% means multiple echoes can proc."
+		"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4"                        "[E2] Echoes of Darkness"
+        "DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"            "All Elemental damage has its secondary element converted into <font color=\"#7F4F84\">Shadow</font>. Additionally, all damage instances have chance to be repeated. A chance greater than 100% means multiple echoes can proc in succession."
     	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_property_one"		"Echo Chance"
     	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"%"
 
