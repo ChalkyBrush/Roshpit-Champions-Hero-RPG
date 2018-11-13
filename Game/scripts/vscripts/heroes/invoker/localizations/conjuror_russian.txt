@@ -427,9 +427,9 @@
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix_two"				"%"	
 
   		"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4"						"[E2] Echoes of Darkness"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"			"Весь элементальный урон, кроме Тени, наносит дополнительную порцию урона с элементом Тени."
-    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_property_one"		"Дополнительный урон Тени"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"% от изначального значения"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"			"Весь Элементальный урон получает второй элемент или заменяет текущий на <font color=\"#7F4F84\">Тень</font>. Порции урона получают шанс повториться. Шанс больше 100% гарантирует несколько повторений."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_property_one"		"Шанс на повторный урон"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"%"
 
 		"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4"							"[E3] Prismatic Void"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_Description"				"<font color=\"#7F4F84\">Теневой</font> урон увеличивается Ловкостью. Вся Ловкость от снаряжения дополнительно увеличивается."

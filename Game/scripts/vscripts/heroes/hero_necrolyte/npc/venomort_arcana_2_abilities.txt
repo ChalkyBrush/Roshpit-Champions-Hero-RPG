@@ -129,7 +129,9 @@
 
 			"modifier_venomort_frostvenom_graps_dot_amp"
 			{
-				"IsDebuff"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"venomort/venomort_rune_q_3_arcana2"
 			}
 		}
 	}
