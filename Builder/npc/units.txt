@@ -1727,7 +1727,7 @@
 
         // Bounty
         //----------------------------------------------------------------
-        "BountyXP"                  "12"    // Experience earn.
+        "BountyXP"                  "300"    // Experience earn.
         "BountyGoldMin"             "10"     // Gold earned min.
         "BountyGoldMax"             "16"     // Gold earned max.
 
@@ -1840,7 +1840,7 @@
 
         // Bounty
         //----------------------------------------------------------------
-        "BountyXP"                  "26"   
+        "BountyXP"                  "260"   
         "BountyGoldMin"             "11"     
         "BountyGoldMax"             "14"    
 
@@ -63898,7 +63898,7 @@
         "AttackRange"   "90"
         "BountyGoldMin" "6"
         "BountyGoldMax" "8"
-        "BountyXP" "40"
+        "BountyXP" "140"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -64635,7 +64635,7 @@
         "ProjectileSpeed"   "400"
         "BountyGoldMin" "30"
         "BountyGoldMax" "40"
-        "BountyXP"                  "120" 
+        "BountyXP"                  "620" 
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "70"
 
@@ -64733,7 +64733,7 @@
         "AttackRange"   "100"
         "BountyGoldMin" "16"
         "BountyGoldMax" "19"
-        "BountyXP" "180"
+        "BountyXP" "780"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -64833,7 +64833,7 @@
         "AttackRange"   "120"
         "BountyGoldMin" "18"
         "BountyGoldMax" "24"
-        "BountyXP" "200"
+        "BountyXP" "700"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "320"
@@ -64931,7 +64931,7 @@
         "AttackRange"   "90"
         "BountyGoldMin" "22"
         "BountyGoldMax" "27"
-        "BountyXP" "180"
+        "BountyXP" "780"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "32"
@@ -65024,7 +65024,7 @@
         "ProjectileSpeed"   "900"
         "BountyGoldMin" "60"
         "BountyGoldMax" "80"
-        "BountyXP"  "140"
+        "BountyXP"  "540"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "70"
 
@@ -65235,7 +65235,7 @@
 
         // Bounty
         //----------------------------------------------------------------
-        "BountyXP"                  "150"       // Experience earn.
+        "BountyXP"                  "1000"       // Experience earn.
         "BountyGoldMin"             "26"       // Gold earned min.
         "BountyGoldMax"             "28"       // Gold earned max.
 
@@ -65456,7 +65456,7 @@
         "AttackRange"   "100"
         "BountyGoldMin" "20"
         "BountyGoldMax" "24"
-        "BountyXP" "200"
+        "BountyXP" "300"
         "BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
         "RingRadius"    "50"
         "CollisionSize" "50"
@@ -65530,7 +65530,7 @@
         "ProjectileSpeed"   "2000"
         "BountyGoldMin" "1500"
         "BountyGoldMax" "2000"
-        "BountyXP"  "7000"
+        "BountyXP"  "12000"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "40"
         "CollisionSize" "100"
