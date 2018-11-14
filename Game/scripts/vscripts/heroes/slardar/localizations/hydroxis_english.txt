@@ -135,7 +135,7 @@
 		"DOTA_Tooltip_modifier_hydroxis_b_d_Description"					"Generates waves behind Hydroxis."
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_3"							"[R3] Poseidon's Fury"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_Description"				"After casting @Ability3, gain a [R3] buff for 10 seconds where attacks shoot gushes of water towards enemies in a semi-circle behind the target."
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_Description"				"After casting @Ability4, gain a [R3] buff for 10 seconds where attacks shoot gushes of water towards enemies in a semi-circle behind the target."
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_property_one"				"Damage"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_suffix"						"% of Attack Damage"
 
