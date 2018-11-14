@@ -208,6 +208,9 @@
     	"DOTA_Tooltip_ability_paladin_rune_w_3_arcana1_suffix"				""
     	"DOTA_Tooltip_ability_paladin_rune_w_3_arcana1_property_two"		"Penance Damage Bonus"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_arcana1_suffix_two"			"x Armor"
+		"DOTA_Tooltip_modifier_paladin_c_b_armor"				"Iron Will"
+		"DOTA_Tooltip_modifier_paladin_c_b_armor_Description"	"Armor value increased"
+		
 
   		"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1"						"[W4] Wrath of the Righteous"
     	"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1_Description"			"Adds a chance on impact for Penance to bounce to a nearby enemy or ally. Greater than 100% chance means it can bounce multiple times.<br>Additionally passively gain attack power from armor. Maximum 10 concurrent lances bouncing."
