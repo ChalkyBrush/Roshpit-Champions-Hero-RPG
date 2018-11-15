@@ -264,6 +264,7 @@ function updateLineWarFoodCap(){
 
 DPS_TIMER_TIME = 7;
 magic_immune = false
+scientific_display = false
 steadfast = 0
 function InitDummmy(){
 	var parent = $('#pvp_container')
@@ -272,7 +273,7 @@ function InitDummmy(){
     board.AddClass('animateFromBottom')
     $.GetContextPanel().dpsText = ""
     $.GetContextPanel().lineCount = 0
-    board.FindChildTraverse('capacity_text').text = $.Localize('arena_log_capacity')+": 0/25"
+    board.FindChildTraverse('capacity_text').text = $.Localize('arena_log_capacity')+": 0/30"
     
 
     board.FindChildTraverse('target-dummy-button-clear').SetPanelEvent('onactivate', function ClearLog() {
@@ -280,12 +281,13 @@ function InitDummmy(){
 	    $.GetContextPanel().lineCount = 0
 	    var dpsBox = $.GetContextPanel().FindChildTraverse("target_dummy_contents").FindChildTraverse('dps_text')
 	    dpsBox.text = ""
-	    $.GetContextPanel().FindChildTraverse('capacity_text').text = $.Localize('arena_log_capacity')+": 0/25"
+	    $.GetContextPanel().FindChildTraverse('capacity_text').text = $.Localize('arena_log_capacity')+": 0/30"
 	});
 
     board.FindChildTraverse('target-dummy-button-exit').SetPanelEvent('onactivate', function ExitDummy() {
     	GameEvents.SendCustomGameEventToServer( "arena_dialogue", {dummy: 1, exit: 1, playerID: Players.GetLocalPlayer()} );
-    	$('#pvp_container').RemoveAndDeleteChildren();
+        $('#pvp_container').RemoveAndDeleteChildren();
+        scientific_display = false;
 	});
     var timerButton = board.FindChildTraverse('target-dummy-button-timer')
     var timerText = board.FindChildTraverse('timer_button_label')
@@ -303,7 +305,11 @@ function InitDummmy(){
 	
     board.FindChildTraverse("target-dummy-button-magic-immunity").SetPanelEvent('onactivate', function DummyModMagicImmune() {
     	magic_immunity_button(board)
-	});	
+    });	
+
+    board.FindChildTraverse("target-dummy-button-toggle-dps-display").SetPanelEvent('onactivate', function DummyModToggleDpsDisplay() {
+        toggle_dps_display_button(board)
+    });	
 
     board.FindChildTraverse("target-dummy-steadfast1").SetPanelEvent('onactivate', function Steadfast() {
     	steadfast_button(1, board)
@@ -348,6 +354,16 @@ function magic_immunity_button(board)
 	}	
 }
 
+function toggle_dps_display_button(board) {
+    if (!scientific_display) {
+        board.FindChildTraverse("dps-display-label").text = $.Localize("dummy_toggle_dps_scientific").toUpperCase();
+        scientific_display = true;
+    } else {
+        board.FindChildTraverse("dps-display-label").text = $.Localize("dummy_toggle_dps_normal").toUpperCase();
+        scientific_display = false;
+    }
+}
+
 function timerfunction(timerButton, bigTimer)
 {
 	timerButton.timer = DPS_TIMER_TIME
@@ -370,7 +386,7 @@ function timerfunction(timerButton, bigTimer)
 
 function updateDPSLabel(msg){
 	var dps = msg.dps
-	dps = numberWithCommas(dps)
+	dps = formatDamageNumbers(dps);
 	$.GetContextPanel().FindChildTraverse('dps-value').text = dps
 }
 
@@ -380,13 +396,13 @@ function updateTargetDummy(msg){
 	if (panel === null){
 		InitDummmy()
 	}else{
-		if ($.GetContextPanel().lineCount == 25){
+		if ($.GetContextPanel().lineCount == 30){
 			return false;
 		}
 		var playerID = Players.GetLocalPlayer()
 		if (msg.dmg){
 			var dpsBox = panel.FindChildTraverse('dps_text')
-			var dmg = numberWithCommas(msg.dmg)
+			var dmg = formatDamageNumbers(msg.dmg);
 			var heroName = Entities.GetUnitName( msg.attacker )
 			var victimName = Entities.GetUnitName( msg.victim )
 			var damageTypeText = getDamageTypeText(msg.damagetype)
@@ -410,13 +426,17 @@ function updateTargetDummy(msg){
 			$.GetContextPanel().dpsText = $.GetContextPanel().dpsText + "<font color='#CCFF66'>"+ $.Localize(heroName)  + "</font> " + $.Localize('arena_training_dummy_sentence_1') + " " + $.Localize('arena_training_dummy_sentence_2') + " <font color='#f99459'>" + dmg + "</font> " + damageTypeText + " " + elementText + " " + $.Localize('arena_training_dummy_sentence_3') + "<br>"
 			dpsBox.text = $.GetContextPanel().dpsText
 			$.GetContextPanel().lineCount = $.GetContextPanel().lineCount + 1
-			panel.FindChildTraverse('capacity_text').text = $.Localize('arena_log_capacity')+": "+$.GetContextPanel().lineCount+"/25"
+			panel.FindChildTraverse('capacity_text').text = $.Localize('arena_log_capacity')+": "+$.GetContextPanel().lineCount+"/30"
 		}
 	}	
 }
 
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+function formatDamageNumbers(x) {
+    if (scientific_display) {
+        return x.toExponential(3);
+    } else {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 }
 
 function GetElementColor(element_index){

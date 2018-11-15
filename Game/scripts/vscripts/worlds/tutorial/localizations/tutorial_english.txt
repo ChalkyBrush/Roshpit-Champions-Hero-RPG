@@ -654,3 +654,6 @@
 
 	"tutorial_stars_reward_warning"										"This reward requires @stars stars to collect. Go play and come back to claim this!"
 	"tutorial_button_get_more_stars"									"@stars Stars Required"
+	
+	"dummy_toggle_dps_normal"											"Normal"
+	"dummy_toggle_dps_scientific"										"Scientific"
