@@ -1,10 +1,10 @@
 function TerrasicGuardTrigger(trigger)
 	if not Tanari.TerrasicGuardStart then
-		if trigger.activator:GetLevel() >= GameState:GetDifficultyFactor()*30 then
+		if trigger.activator:GetLevel() >= GameState:GetDifficultyFactor()*25 then
 			Tanari.TerrasicGuardStart = true
 			Tanari:TerrasicGuardSpawn()
 		else
-			local lvlReq = GameState:GetDifficultyFactor()*30
+			local lvlReq = GameState:GetDifficultyFactor()*25
 			Notifications:Top(trigger.activator:GetPlayerOwnerID(), {text="Level "..lvlReq.." Required", duration=3, style={color="red"}, continue=true})
 		end
 	end
