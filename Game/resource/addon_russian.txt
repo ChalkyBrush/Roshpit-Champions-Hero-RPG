@@ -7303,6 +7303,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_w_3_arcana1_suffix"				""
     	"DOTA_Tooltip_ability_paladin_rune_w_3_arcana1_property_two"		"Доп. базовый урон (W) Penance"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_arcana1_suffix_two"			"x Брони"
+		"DOTA_Tooltip_modifier_paladin_c_b_armor"				"Iron Will"
+		"DOTA_Tooltip_modifier_paladin_c_b_armor_Description"	"Броня увеличена"
 
   		"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1"						"[W4] Wrath of the Righteous"
     	"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1_Description"			"Дарует шанс на отскок копья в другую враждебную или союзную цель при попадании. Значение шанса выше 100% гарантирует многократное срабатывание эффекта. Дополнительно увеличивается урон героя в зависимости от значения брони. Максимум 10 отскоков."
