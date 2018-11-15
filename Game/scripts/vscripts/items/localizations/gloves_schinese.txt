@@ -166,7 +166,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"食尸鬼王臂章"
 		"item_property_mordiggus"							"血气灾星"
-		"property_mordiggus_description"					"提高所有造成的伤害 100%。每次施放技能汲取你 20% 最大生命值，每次攻击汲取你 7% 最大生命值。汲取生命不会致死。"
+		"property_mordiggus_description"					"每点丢失生命值%提高所有造成的伤害 @special_property1%。每次施放技能汲取你 20% 最大生命值，每次攻击汲取你 7% 最大生命值。汲取生命不会致死。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"钢铁手套"
