@@ -369,7 +369,7 @@
 					}
 				}
 			}
-			"modifier_arkimus_d_b_shield"
+			"modifier_arkimus_w_4_shield"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"

@@ -1335,14 +1335,14 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local reduction = (1-ARKIMUS_ARCANA1_Q3_DMG_RED_PER_STACK_EXP_BASE)^stacks
 		damage = damage*reduction
 	end
-	if victim:HasModifier("modifier_arkimus_d_b_shield") then
+	if victim:HasModifier("modifier_arkimus_w_4_shield") then
 		damage = 0
 		if shouldConsumeShields then
-			local newStacks = victim:GetModifierStackCount("modifier_arkimus_d_b_shield", caster) - 1
+			local newStacks = victim:GetModifierStackCount("modifier_arkimus_w_4_shield", caster) - 1
 			if newStacks == 0 then
-				victim:RemoveModifierByName("modifier_arkimus_d_b_shield")
+				victim:RemoveModifierByName("modifier_arkimus_w_4_shield")
 			else
-				victim:SetModifierStackCount("modifier_arkimus_d_b_shield", caster, newStacks)
+				victim:SetModifierStackCount("modifier_arkimus_w_4_shield", caster, newStacks)
 			end
 		end
 	end

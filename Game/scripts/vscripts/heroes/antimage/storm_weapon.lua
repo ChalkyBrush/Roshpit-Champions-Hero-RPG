@@ -82,8 +82,8 @@ function storm_weapon_strike(event)
 	local procs = Runes:Procs(w_4_level, ARKIMUS_W4_SHIELD_CHANCE, 1)
 	if procs > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(caster, 7, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_d_b_shield", {duration = duration})
-		caster:SetModifierStackCount("modifier_arkimus_d_b_shield", caster, procs)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_w_4_shield", {duration = duration})
+		caster:SetModifierStackCount("modifier_arkimus_w_4_shield", caster, procs)
 	end
   --   local currentStacks = caster:GetModifierStackCount("modifier_arkimus_storm_weapon", caster)
   --   if currentStacks > 1 then
