@@ -75,8 +75,8 @@
     	"DOTA_Tooltip_ability_arkimus_rune_w_4_property_one"					"Shield Stack Chance"
     	"DOTA_Tooltip_ability_arkimus_rune_w_4_suffix"							"%"
 
-    	"DOTA_Tooltip_modifier_arkimus_d_b_shield"								"Source Relay"
-    	"DOTA_Tooltip_modifier_arkimus_d_b_shield_Description"					"Shield negates damage"	
+    	"DOTA_Tooltip_modifier_arkimus_w_4_shield"								"Source Relay"
+    	"DOTA_Tooltip_modifier_arkimus_w_4_shield_Description"					"Shield negates damage"	
 
     	"DOTA_Tooltip_ability_ark_jump"											"Orbital Leap"
     	"DOTA_Tooltip_ability_ark_jump_Description"								"Acrobatically jump to the target location. Every 6 seconds, gain a stack allowing Arkimus to cast this without activating the cooldown, up to a maximum of 2 stacks."
