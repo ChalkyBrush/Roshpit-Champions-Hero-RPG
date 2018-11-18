@@ -798,7 +798,7 @@ function CustomAttributes:GetMaxHealth(hero, strength_health)
 		maxHealth = maxHealth + maxHealth*(CONJUROR_ARCANA_Q2_PERCENT_HEALTH/100)*hero:GetModifierStackCount("modifier_earth_deity_q_2", hero)
 	end
 	if hero:HasModifier("modifier_helm_of_the_mountain_giant") then
-		maxHealth = maxHealth + CustomAttributes:GetBaseMaxHealth(maxHealth, hero) * 2 
+		maxHealth = CustomAttributes:GetBaseMaxHealth(maxHealth, hero) * 2 
 	end
 	return maxHealth
 end

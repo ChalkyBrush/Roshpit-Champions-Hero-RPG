@@ -2116,8 +2116,8 @@
     	"DOTA_Tooltip_ability_arkimus_rune_w_4_property_one"					"Шанс на дополнительный заряд (W) Flash Soruce"
     	"DOTA_Tooltip_ability_arkimus_rune_w_4_suffix"							"%"
 
-    	"DOTA_Tooltip_modifier_arkimus_d_b_shield"								"[W4]Source Relay"
-    	"DOTA_Tooltip_modifier_arkimus_d_b_shield_Description"					"Щит, способный поглотить любой входящий урон"	
+    	"DOTA_Tooltip_modifier_arkimus_w_4_shield"								"[W4]Source Relay"
+    	"DOTA_Tooltip_modifier_arkimus_w_4_shield_Description"					"Щит, способный поглотить любой входящий урон"	
 
     	"DOTA_Tooltip_ability_ark_jump"											"Orbital Leap"
     	"DOTA_Tooltip_ability_ark_jump_Description"								"Arkimus совершает акробатический прыжок в указанную точку. Каждые 6 секунд герою даётся заряд этого умения, который позволяет использовать Orbital Leap без перезарядки. Максимум 2 заряда."
