@@ -623,7 +623,7 @@ end
 function thorcrux_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local radius = caster:GetAttackRange()
+	local radius = caster:Script_GetAttackRange()
 	if caster:IsAlive() and caster.aggro then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
@@ -3528,7 +3528,7 @@ function azalea_spinning_think(event)
 			EmitSoundOn("Winterblight.AzaleaBoss.AttackStart", caster)
 		end
 		CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_e_cowlofice.vpcf", caster, 5)
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, caster:GetAttackRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, caster:Script_GetAttackRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
@@ -3612,7 +3612,7 @@ end
 function orthok_attack_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local radius = caster:GetAttackRange()
+	local radius = caster:Script_GetAttackRange()
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
@@ -3624,7 +3624,7 @@ end
 function orthok_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local radius = caster:GetAttackRange()
+	local radius = caster:Script_GetAttackRange()
 	if not caster.initialized then
 		radius = 500
 	end

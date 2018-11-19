@@ -65,7 +65,7 @@ function shot_of_apollo:GetBehavior()
 end
 
 function shot_of_apollo:GetCastRange(vector, target)
-	return math.max(2000, self:GetCaster():GetAttackRange())
+	return math.max(2000, self:GetCaster():Script_GetAttackRange())
 end
 
 function shot_of_apollo:OnChannelFinish(bInterrupted)

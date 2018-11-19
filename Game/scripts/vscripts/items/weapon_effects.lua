@@ -277,7 +277,7 @@ function spirit_warrior_immo3_attack_start(event)
 		local attackTime = attacker:GetAttackAnimationPoint()
 		event.ability:ApplyDataDrivenModifier(event.caster, attacker, "modifier_attack_split_lock", {duration = attackTime})
 		Timers:CreateTimer(attackTime, function()
-			local radius = attacker:GetAttackRange()
+			local radius = attacker:Script_GetAttackRange()
 			local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 			local max = 2
 			local counter = 0

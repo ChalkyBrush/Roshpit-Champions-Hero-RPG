@@ -76,7 +76,7 @@ function archon_attack_land(event)
 	if not ability.aoePosition then
 		ability.aoePosition = Vector(0,0)
 	end
-	if WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin()) <= caster:GetAttackRange()/2 then
+	if WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin()) <= caster:Script_GetAttackRange()/2 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_archon_pushback", {duration = 1})
 		local pushFV = ((caster:GetAbsOrigin()-target:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 		ability.pushFV = pushFV

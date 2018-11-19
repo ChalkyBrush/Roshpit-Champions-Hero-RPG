@@ -5149,7 +5149,7 @@ function sea_oracle_attack_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local radius = caster:GetAttackRange()
+	local radius = caster:Script_GetAttackRange()
 	local attackTime = caster:GetAttackAnimationPoint()
 	Timers:CreateTimer(attackTime, function()
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )

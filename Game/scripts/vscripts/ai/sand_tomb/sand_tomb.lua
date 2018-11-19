@@ -369,7 +369,7 @@ function sand_tomb_boss_ward_die(event)
 end
 
 function bigPoison(caster, ability)
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, caster:GetAttackRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, caster:Script_GetAttackRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 	if #enemies == 0 then
 		enemies = MAIN_HERO_TABLE
 		for _,enemy in pairs(enemies) do

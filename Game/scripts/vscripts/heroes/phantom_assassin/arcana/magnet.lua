@@ -108,7 +108,7 @@ function magnet_thinker(event)
 			if IsValidEntity(target) and target:IsAlive() then
 				local ogPosition = caster:GetAbsOrigin()
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {duration = 0.12})
-				local tpRange = math.min(caster:GetAttackRange(), 320)
+				local tpRange = math.min(caster:Script_GetAttackRange(), 320)
 				local targetPosition = target:GetAbsOrigin()+RandomVector(1)*tpRange
 				caster:SetAbsOrigin(GetGroundPosition(targetPosition, caster))
 				local fv = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()

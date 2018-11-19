@@ -71,7 +71,7 @@ function drake_ring_thinker(event)
 	drake_ring.interval = drake_ring.interval + 1
 	local modulos = math.ceil((1/caster:GetAttacksPerSecond())/0.03)
 	if drake_ring.interval%modulos == 0 then
-		if WallPhysics:GetDistance2d(caster:GetAbsOrigin(), drake_ring:GetAbsOrigin()) <= (caster:GetAttackRange() + drake_ring.radius/2) then
+		if WallPhysics:GetDistance2d(caster:GetAbsOrigin(), drake_ring:GetAbsOrigin()) <= (caster:Script_GetAttackRange() + drake_ring.radius/2) then
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), drake_ring:GetAbsOrigin(), nil, drake_ring.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES+DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				EmitSoundOn("Dinath.DrakeRing.AutoAttack", caster)

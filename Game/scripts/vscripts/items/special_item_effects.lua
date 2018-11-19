@@ -651,7 +651,7 @@ function iron_colossus_think(event)
 	local attackRangeGainIron = ability.attackRangeGainStacks 
 	local attackRangeLossIron = ability.attackRangeLossStacks
 	local attackSpeed = WallPhysics:round(target:GetAttackSpeed()*100, 0) - attackSpeedGainIron + attackSpeedLossIron
-	local attackRange = target:GetAttackRange() - attackRangeGainIron + attackRangeLossIron
+	local attackRange = target:Script_GetAttackRange() - attackRangeGainIron + attackRangeLossIron
 	
 	if attackRange < IRON_COLOSSUS_ATT_RNG then
 		if not target:HasModifier("modifier_colossus_attack_range_gain") then
