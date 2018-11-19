@@ -8,7 +8,7 @@ function general_hero_think(event)
 	local primaryAttribute = target:GetPrimaryAttribute()
 	local healthRegen = target:GetHealthRegen()
 	local manaRegen = (target:GetBaseManaRegen() + target:GetBonusManaRegen())
-	magaRegen = manaRegen + (manaRegen*target:GetManaRegenMultiplier())/100
+	-- magaRegen = manaRegen + (manaRegen*target:GetManaRegenMultiplier())/100
 
 
 	local movespeedBase = target:GetBaseMoveSpeed()
