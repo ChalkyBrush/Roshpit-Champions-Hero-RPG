@@ -337,7 +337,7 @@ function conjuror_arcana2_passive_thinker(event)
 		caster:SetModifierStackCount("modifier_w_4_str_decrease", caster, str_stacks)
 	else
 		caster:RemoveModifierByName("modifier_w_4_agi_increase")
-		caster:RemoveModifierByName("modifier_w_4_str_increase")
+		caster:RemoveModifierByName("modifier_w_4_int_increase")
 		caster:RemoveModifierByName("modifier_w_4_str_decrease")
 	end
 end
