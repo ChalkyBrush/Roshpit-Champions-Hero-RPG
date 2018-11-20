@@ -2,14 +2,14 @@ modifier_movespeed_cap_glyph = class({})
 
 function modifier_movespeed_cap_glyph:DeclareFunctions()
     local funcs = {
-        MODIFIER_PROPERTY_MOVESPEED_MAX,
+        MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
     }
 
     return funcs
 end
 
-function modifier_movespeed_cap_glyph:GetModifierMoveSpeed_Max( params )
+function modifier_movespeed_cap_glyph:GetModifierMoveSpeed_AbsoluteMax( params )
     return 620
 end
 

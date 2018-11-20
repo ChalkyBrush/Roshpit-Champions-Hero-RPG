@@ -3,7 +3,7 @@ local class = modifier_disciple_bonus_movespeed
 
 function class:DeclareFunctions()
 	local funcs = {MODIFIER_PROPERTY_MOVESPEED_LIMIT,
-	MODIFIER_PROPERTY_MOVESPEED_MAX,
+	MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX,
 	MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
 }
 	return funcs
@@ -18,7 +18,7 @@ function class:GetModifierMoveSpeed_Limit()
 	return self.movespeed
 end
 
-function class:GetModifierMoveSpeed_Max()
+function class:GetModifierMoveSpeed_AbsoluteMax()
 	return self.movespeed
 end
 

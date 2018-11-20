@@ -2,14 +2,14 @@ modifier_movespeed_cap_shadow_walk_a = class({})
 
 function modifier_movespeed_cap_shadow_walk_1:DeclareFunctions()
     local funcs = {
-        MODIFIER_PROPERTY_MOVESPEED_MAX,
+        MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
     }
 
     return funcs
 end
 
-function modifier_movespeed_cap_shadow_walk_1:GetModifierMoveSpeed_Max( params )
+function modifier_movespeed_cap_shadow_walk_1:GetModifierMoveSpeed_AbsoluteMax( params )
     return 640
 end
 

@@ -2,7 +2,7 @@ slipfinn_shadow_rush_lua = class({})
 
 function slipfinn_shadow_rush_lua:DeclareFunctions()
     local funcs = {
-        MODIFIER_PROPERTY_MOVESPEED_MAX,
+        MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
         MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
         MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE
@@ -18,7 +18,7 @@ function slipfinn_shadow_rush_lua:GetModifierTurnRate_Percentage( params )
     return cap
 end
 
-function slipfinn_shadow_rush_lua:GetModifierMoveSpeed_Max( params )
+function slipfinn_shadow_rush_lua:GetModifierMoveSpeed_AbsoluteMax( params )
 	local modifier = self
 	local decay = modifier:GetRemainingTime()/self:GetParent().baseShadowRushDuration
 	local msBonus = modifier:GetParent():FindAbilityByName("slipfinn_shadow_rush"):GetLevelSpecialValueFor("ms_bonus_and_max", modifier:GetAbility():GetLevel())

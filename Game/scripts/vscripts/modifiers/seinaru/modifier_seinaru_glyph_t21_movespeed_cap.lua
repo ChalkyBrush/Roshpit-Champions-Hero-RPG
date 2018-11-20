@@ -3,7 +3,7 @@ modifier_seinaru_glyph_t21_movespeed_cap = class({})
 
 function modifier_seinaru_glyph_t21_movespeed_cap:DeclareFunctions()
     local funcs = {
-        MODIFIER_PROPERTY_MOVESPEED_MAX,
+        MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
     }
 
@@ -17,7 +17,7 @@ function modifier_seinaru_glyph_t21_movespeed_cap:OnIntervalThink()
     self:ForceRefresh()
 end
 
-function modifier_seinaru_glyph_t21_movespeed_cap:GetModifierMoveSpeed_Max( params )
+function modifier_seinaru_glyph_t21_movespeed_cap:GetModifierMoveSpeed_AbsoluteMax( params )
     local caster = self:GetCaster()
     local q2_level = caster:GetRuneValue("q", 2)
     return 550 + q2_level * SEINARU_GLYPH2_MOVESPEED_CAP_PER_Q2

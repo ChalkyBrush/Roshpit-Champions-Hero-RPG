@@ -2,14 +2,14 @@ modifier_arkimus_speed_dash = class({})
 
 function modifier_arkimus_speed_dash:DeclareFunctions()
     local funcs = {
-        MODIFIER_PROPERTY_MOVESPEED_MAX,
+        MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
     }
 
     return funcs
 end
 
-function modifier_arkimus_speed_dash:GetModifierMoveSpeed_Max( params )
+function modifier_arkimus_speed_dash:GetModifierMoveSpeed_AbsoluteMax( params )
 	local cap = 1300
     return cap
 end

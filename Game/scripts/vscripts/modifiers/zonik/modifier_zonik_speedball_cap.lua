@@ -4,14 +4,14 @@ require('/heroes/dark_seer/zhonik_constants')
 
 function modifier_zonik_speedball_cap:DeclareFunctions()
     local funcs = {
-        MODIFIER_PROPERTY_MOVESPEED_MAX,
+        MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
     }
 
     return funcs
 end
 
-function modifier_zonik_speedball_cap:GetModifierMoveSpeed_Max( params )
+function modifier_zonik_speedball_cap:GetModifierMoveSpeed_AbsoluteMax( params )
 	local cap = 550 + self:GetAbility():GetSpecialValueFor("movespeed_cap")
     if self:GetCaster():HasModifier("modifier_zonik_lightspeed") then
         cap = cap + self:GetCaster():FindAbilityByName("zonik_lightspeed"):GetSpecialValueFor("movespeed_cap")-550

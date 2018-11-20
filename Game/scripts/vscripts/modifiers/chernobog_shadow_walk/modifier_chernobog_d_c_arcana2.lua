@@ -2,7 +2,7 @@ modifier_chernobog_d_c_arcana2 = class({})
 
 function modifier_chernobog_d_c_arcana2:DeclareFunctions()
     local funcs = {
-        MODIFIER_PROPERTY_MOVESPEED_MAX,
+        MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
         MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
     }
@@ -10,7 +10,7 @@ function modifier_chernobog_d_c_arcana2:DeclareFunctions()
     return funcs
 end
 
-function modifier_chernobog_d_c_arcana2:GetModifierMoveSpeed_Max( params )
+function modifier_chernobog_d_c_arcana2:GetModifierMoveSpeed_AbsoluteMax( params )
     local cap = 550
     if self:GetAbility().e_4_level then
     	cap = cap + self:GetAbility().e_4_level*3
