@@ -117,7 +117,6 @@
         		"IsHidden"	"1"
         		"Properties"
         		{
-        			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% FLAMEWAKER_ARCANA_Q1_ARMOR_PER_STACK %>"
         		    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "<% FLAMEWAKER_ARCANA_Q1_MANAREGEN_PER_STACK %>"
         		}
         	}

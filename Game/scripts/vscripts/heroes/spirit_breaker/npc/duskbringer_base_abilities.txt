@@ -498,10 +498,6 @@
 	        	"IsHidden"			"0"
 	            "IsBuff"			"0"
 	            "Duration"			"3.5"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"100"
-				}
 			}
 
 		}

@@ -1636,7 +1636,12 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = filterTable["damage"]*(0.4+0.02*attacker.e_1_level)
 	end
 	local damagetype = filterTable["damagetype_const"]
-
+	if damagetype == DAMAGE_TYPE_PHYSICAL then
+		local armor = victim:GetPhysicalArmorValue()
+		print(victim:GetPhysicalArmorValue())
+		local damageMult = 1 - (0.05*armor/(1 + (0.05 * math.abs(armor))))
+		filterTable["damage"] = filterTable["damage"]*damageMult
+	end
 	local mult = 1
 	local divisor = 1
 	local modifier = nil

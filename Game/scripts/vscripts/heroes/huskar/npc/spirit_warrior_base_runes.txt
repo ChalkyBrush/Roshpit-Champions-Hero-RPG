@@ -344,10 +344,6 @@
 				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"EffectName"			"particles/items_fx/spirit_warrior_b_c_aura_ring.vpcf"
 				"EffectAttachType" 		"follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"12"
-				}
 				"OnCreated"
 				{
 					"RunScript"

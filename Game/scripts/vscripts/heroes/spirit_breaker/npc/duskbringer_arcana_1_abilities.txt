@@ -89,10 +89,6 @@
         		"IsHidden"	"0"
         		"IsBuff"	"1"
         		"TextureName"	"duskbringer/duskbringer_rune_w_2_arcana"
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "120"
-        		}
         	}
         	"modifier_duskbringer_arcana_damage_buff"
         	{

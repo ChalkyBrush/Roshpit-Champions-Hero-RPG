@@ -406,7 +406,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "10"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0.5"
 				}
 			}
 
@@ -532,10 +531,6 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"TextureName"	"rpc/paladin_r_1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% PALADIN_R1_ARMOR %>"
-				}
 			}
 		}
 
@@ -1264,7 +1259,6 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "2"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.4"
 				}
 			}

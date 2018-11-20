@@ -476,7 +476,6 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "15"
 				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "3"
 				}
 
@@ -933,10 +932,6 @@
 						"ScriptFile"	"heroes/juggernaut/seinaru_4_r.lua"
 						"Function"		"EndAmplifyDamageParticle"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
 				}
 			}
 		}

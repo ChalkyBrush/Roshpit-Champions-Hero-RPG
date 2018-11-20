@@ -258,7 +258,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "150"
 				}
 				"EffectName"	"particles/items_fx/darkness_aura_ring.vpcf"
 				"EffectAttachType"	"attach_origin"

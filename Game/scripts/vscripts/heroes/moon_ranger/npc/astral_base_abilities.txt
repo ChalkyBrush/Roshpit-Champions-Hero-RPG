@@ -134,10 +134,6 @@
                 "IsHidden"  "0"
                 "Passive"   "0"
                 "IsDebuff"  "1"
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-65"
-                }
             }
             "modifier_moon_shroud_thinker"
             {

@@ -194,10 +194,6 @@
                 "IsHidden"  "0"
                 "Passive"   "0"
                 "IsDebuff"  "1"
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-130"
-                }
             }
             "modifier_astral_rune_q_3"
             {

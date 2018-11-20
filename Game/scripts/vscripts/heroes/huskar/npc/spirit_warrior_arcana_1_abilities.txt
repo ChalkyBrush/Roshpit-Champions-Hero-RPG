@@ -144,10 +144,6 @@
 			"modifier_ancient_rain_armor"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-				}
 			}
 			"modifier_ancient_rain_regen"
 			{

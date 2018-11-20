@@ -683,10 +683,6 @@
 						"Function"		"EndAmplifyDamageParticle"
 					}
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-100"
-				}
 			}
 		}
 	}

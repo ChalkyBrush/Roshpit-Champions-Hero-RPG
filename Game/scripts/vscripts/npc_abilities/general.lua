@@ -2,6 +2,7 @@ function general_hero_think(event)
 	local target = event.target
 	CustomAttributes:SetAttributes(target)
 	CustomAttributes:ApplyStatBonusesToHero(target)
+	target:SetPhysicalArmorBaseValue(12)
 	local strength = math.floor(target:GetStrength())
 	local agility = math.floor(target:GetAgility())
 	local intelligence = math.floor(target:GetIntellect())
@@ -10,10 +11,12 @@ function general_hero_think(event)
 	local manaRegen = (target:GetBaseManaRegen() + target:GetBonusManaRegen())
 	-- magaRegen = manaRegen + (manaRegen*target:GetManaRegenMultiplier())/100
 
-
+	target:CalculateTotalArmor()
+	local armor_base = target:GetPhysicalArmorBaseValue()
+	local armor_bonus = target:GetPhysicalArmorBonusValue()
 	local movespeedBase = target:GetBaseMoveSpeed()
 	local movespeed = target:GetMoveSpeedModifier(movespeedBase)
-	CustomNetTables:SetTableValue("hero_index", tostring(target:GetEntityIndex().."_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), primaryAttribute = tostring(primaryAttribute), healthRegen = tostring(healthRegen), manaRegen = tostring(manaRegen), movespeed = tostring(movespeed)} )
+	CustomNetTables:SetTableValue("hero_index", tostring(target:GetEntityIndex().."_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), primaryAttribute = tostring(primaryAttribute), healthRegen = tostring(healthRegen), manaRegen = tostring(manaRegen), movespeed = tostring(movespeed), armor_base = tostring(armor_base), armor_bonus = tostring(armor_bonus)} )
 	for i = 0, 5, 1 do
 		local playerID = target:GetPlayerOwnerID()
 		local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..tostring(i))
@@ -36,6 +39,14 @@ function general_hero_think(event)
 	if GridNav:IsTraversable(target:GetAbsOrigin()) then
 		target.safePos = target:GetAbsOrigin()
 	end
+end
+
+function unit_armor_think(event)
+	local target = event.target
+	target:CalculateTotalArmor()
+	local armor_base = target:GetPhysicalArmorBaseValue()
+	local armor_bonus = target:GetPhysicalArmorBonusValue()
+	CustomNetTables:SetTableValue("portal_keys", tostring(target:GetEntityIndex().."_data"), {armor_base = tostring(armor_base), armor_bonus = tostring(armor_bonus)} )
 end
 
 function hero_aura_apply(event)

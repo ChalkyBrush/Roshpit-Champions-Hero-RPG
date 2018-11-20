@@ -1153,10 +1153,6 @@
 						"Function"		"EndAmplifyDamageParticle"
 					}
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-50"
-				}
 			}
 			"modifier_epoch_rune_w_3_visible"
 			{

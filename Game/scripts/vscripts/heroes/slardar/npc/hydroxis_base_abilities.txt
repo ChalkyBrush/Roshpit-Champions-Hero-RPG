@@ -176,11 +176,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "12"
-				}
 			}
 			"modifier_hydroxis_c_a_magic_resist_lost"
 			{
@@ -745,10 +740,6 @@
 						"ScriptFile"	"heroes/slardar/tsunami.lua"
 						"Function"		"EndAmplifyDamageParticle"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-100"
 				}
 			}
 			"modifier_hydroxis_b_d"

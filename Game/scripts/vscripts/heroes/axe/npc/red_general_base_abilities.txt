@@ -423,7 +423,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS"	"<% R3_BONUS_HEALTH %>"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% R3_BONUS_ARMOR %>"
 				}
 			}
 

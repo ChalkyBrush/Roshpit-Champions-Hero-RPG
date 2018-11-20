@@ -283,10 +283,6 @@
 				"TextureName"	"slipfinn/slipfinn_rune_q_2"
 				"EffectName"	"particles/units/heroes/slipfinn/slipfinn_b_a_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100"
-				}
 			}
 		}
 	}

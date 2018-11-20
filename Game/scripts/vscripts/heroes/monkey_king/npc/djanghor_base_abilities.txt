@@ -866,7 +866,6 @@
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%health_regen"
 				}
 			}
@@ -877,7 +876,6 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus_rune"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%health_regen_rune"
 				}
 			}
@@ -1504,10 +1502,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
-				}
 			}
 			"modifier_wolf_rend_bleed"
 			{
@@ -1596,10 +1590,6 @@
 				"IsBuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
-				}
 			}
 			"modifier_bear_regen"
 			{

@@ -161,11 +161,6 @@
 				"TextureName"		"silencer_global_silence"
 				"EffectName"		"particles/units/heroes/hero_medusa/auriun_c_a.vpcf"
 				"EffectAttachType"	"attach_origin"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
-				}
 			}
 			"modifier_auriun_rune_q_3_thinker"
 			{

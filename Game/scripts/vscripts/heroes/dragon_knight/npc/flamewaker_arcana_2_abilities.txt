@@ -181,7 +181,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "3000"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "90"
 				}
 			}
 			"modifier_d_b_attack_power"

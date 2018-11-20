@@ -584,7 +584,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "-100"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-0.5"
 				}
 			}
 		}

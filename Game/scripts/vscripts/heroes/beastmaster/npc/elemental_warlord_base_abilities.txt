@@ -820,7 +820,6 @@
             	"IsHidden"	"1"
             	"Properties"
             	{
-            		"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "25"
             	    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "4"
             	}
             }
@@ -976,11 +975,6 @@
             	"Passive"			"0"
             	"IsHidden"			"1"
             	"IsDebuff"			"0"
-
-            	"Properties"
-            	{
-            		"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-            	}
             }
 
 		}
@@ -1234,11 +1228,6 @@
 
 				"EffectName" "particles/units/heroes/hero_phoenix/phoenix_sunray_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
-				}
 			}
             "modifier_elemental_axe_fire"
             {

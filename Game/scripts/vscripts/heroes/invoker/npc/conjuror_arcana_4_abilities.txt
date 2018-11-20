@@ -98,7 +98,6 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%aspect_damage"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
 				}
 			}

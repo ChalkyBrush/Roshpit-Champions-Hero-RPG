@@ -229,7 +229,6 @@
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
 				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
 				}
 				"States"
@@ -311,10 +310,6 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "150"
-				}
 			}
 			"modifier_protector_w1_regen"
 			{

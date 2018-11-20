@@ -2409,10 +2409,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
                  "TextureName"            "rpc/axe_d_d"
-                 "Properties"
-                 {
-                     "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-250"
-                 }
                  "OnCreated"
                  {
                       "RunScript"
@@ -14323,7 +14319,6 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_two"
 				}
 			}
@@ -33115,10 +33110,6 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
-				}
 			}
 			"modifier_sea_oracle_particle_lock"
 			{
@@ -34540,10 +34531,6 @@
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
 				"TextureName"	"bloodseeker_rupture"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
-				}
 			}
 			"modifier_bladeforge_bleed"
 			{
@@ -35142,10 +35129,6 @@
 			"modifier_violet_guard_armor_loss_invisible"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
-				}
 			}
 		}
 	}
@@ -35960,7 +35943,6 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
 				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "20"
 				}
 			}
@@ -36261,7 +36243,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "10"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"0.5"
 				}
 			}
 		}
@@ -37404,7 +37385,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
 				}
 			}
 		}
@@ -37486,7 +37466,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
 				}
 			}
 		}
@@ -37568,7 +37547,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
 				}
 			}
 		}
@@ -38276,10 +38254,6 @@
 			"modifier_nightmare_rider_invisible"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
-				}
 			}
 			"modifier_nightmare_rider_stacks"
 			{
@@ -38882,7 +38856,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "2"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "2"
 				}
 			}
 		}
@@ -39057,10 +39030,6 @@
 				"Passive"	"0"
 				"IsBuff"	"1"
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -39235,10 +39204,6 @@
 			"modifier_mystic_mana_wall_armor"
 			{
 				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-				}
 			}
 		}
 	}
@@ -41861,10 +41826,6 @@
 				"TextureName"	"itemicons/crimsyth_elite_greaves_buff"
 				"EffectName"	"particles/roshpit/items/crimsyth_elite_armor.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
-				}
 			}
 			"modifier_crimsyth_elite_greaves_magic_shield"
 			{
@@ -41979,10 +41940,6 @@
 				"TextureName"	"itemicons/crimsyth_elite_greaves_buff"
 				"EffectName"	"particles/roshpit/items/crimsyth_elite_armor.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
-				}
 			}
 			"modifier_crimsyth_elite_greaves_magic_shield"
 			{
@@ -42092,10 +42049,6 @@
 				"TextureName"	"itemicons/crimsyth_elite_greaves_buff"
 				"EffectName"	"particles/roshpit/items/crimsyth_elite_armor.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
-				}
 			}
 			"modifier_crimsyth_elite_greaves_magic_shield"
 			{
@@ -43379,10 +43332,6 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 				"Duration"			"4"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-				}
 			}
 		}
 	}
@@ -44429,10 +44378,6 @@
 				"IsBuff"				"1"
 				"IsHidden"				"1"
 				"IsPurgable"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"1"
-				}
 			}
 		}
 	}
@@ -44669,10 +44614,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"IsDebuff"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-				}
 			}
 		}
 	}
@@ -47021,10 +46962,6 @@
 			{
 				"IsDebuff"	"1"
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
-				}
 			}
 			"modifier_umbral_sentinel_magic_amp"
 			{
@@ -49884,10 +49821,6 @@
 			{
 				"IsDebuff"	"1"
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
-				}
 			}
 			"modifier_hood_of_defiler_buff"
 			{

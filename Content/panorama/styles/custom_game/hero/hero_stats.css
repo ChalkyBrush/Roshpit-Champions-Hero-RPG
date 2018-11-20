@@ -90,3 +90,11 @@
 .invisible{
   visibility: collapse;
 }
+
+.armor_bonus_positive{
+	color: #44a349;
+}
+
+.armor_bonus_negative{
+	color: #a02420;
+}

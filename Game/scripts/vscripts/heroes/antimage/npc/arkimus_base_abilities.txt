@@ -138,10 +138,6 @@
 						"Function"		"EndAmplifyDamageParticle"
 					}
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-35"
-				}
 			}
 			"modifier_zonis_c_a_magic_resist"
 			{

@@ -461,7 +461,6 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "25"
 				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "4"
 				}
 			}

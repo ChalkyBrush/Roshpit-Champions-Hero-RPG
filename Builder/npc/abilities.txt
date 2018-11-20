@@ -1303,11 +1303,6 @@
 						"Target"	"TARGET"
 					}
 				}
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
-				}
 			}
 
 			"acid_spray_fx"
@@ -1489,11 +1484,6 @@
 						"Damage"	"%damage"
 						"Target"	"TARGET"
 					}
-				}
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
 				}
 			}
 
@@ -3273,7 +3263,6 @@
 	            }
 	            "Properties"
 	            {
-	            	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "500"
 	                "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "90"
 	            }
 	            "OnIntervalThink"
@@ -4283,7 +4272,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "100000"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"2000"
 				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "100"
 				}
 			}
@@ -5803,7 +5791,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"150"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"25"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"80"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"80"
 				}
@@ -6638,10 +6625,6 @@
 				"IsDebuff"	"1"
 				"Duration"  "99999"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-100"
-				}
 			}
 			"modifier_avernus_magic_resist"
 			{
@@ -7019,10 +7002,6 @@
 			"modifier_grove_ancestral_bear_armor_break"
 			{
 				"IsDebuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss"
-				}
 			}
 
 		}
@@ -8816,10 +8795,6 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Passive"			"0"
 				"IsHidden"			"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-				}
 			}
 			"modifier_int_mana"
 			{
@@ -8888,10 +8863,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"1"
-				}
 			}
 			"modifier_helm_health_regen"
 			{
@@ -9213,10 +9184,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"1"
-				}
 			}
 			"modifier_hand_health_regen"
 			{
@@ -9458,7 +9425,6 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
 				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"100"
 				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"100"
@@ -9620,10 +9586,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"1"
-				}
 			}
 			"modifier_foot_health_regen"
 			{
@@ -9800,10 +9762,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"1"
-				}
 			}
 			"modifier_body_health_regen"
 			{
@@ -9956,7 +9914,6 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "40"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "100"
 				}
 			}
@@ -10118,10 +10075,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"1"
-				}
 			}
 			"modifier_trinket_attack_damage"
 			{
@@ -10648,7 +10601,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"200.0"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%warcry_armor"
 				}
 			}
 			"modifier_howling"
@@ -11234,7 +11186,6 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
 				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attackspeed"
 				}
@@ -11612,6 +11563,40 @@
 		"MaxLevel"	"1"
 		"Modifiers"
 		{
+			"modifier_physical_armor"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_physical_armor_bonus"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_physical_armor_bonus_negative"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_armor_calculate"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "3.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"unit_armor_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_armor_test"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
+				}
+			}
 			"modifier_hero_thinker"
 			{
 				"IsHidden"	"1"
@@ -12889,7 +12874,6 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"4"
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"4"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"40"
 				}
@@ -12935,10 +12919,6 @@
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_break"
-				}
 
 			}
 		}
@@ -12970,20 +12950,16 @@
 				{
 					"ApplyModifier"
 					{
-						"ModifierName"	"modifier_armor_break_custom"
+						"ModifierName"	"modifier_armor_break_ultra"
 						"Target" 		"TARGET"
 						"Duration"		"6"
 					}
 				}
 			}
-			"modifier_armor_break_custom"
+			"modifier_armor_break_ultra"
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_break"
-				}
 
 			}
 		}
@@ -14146,11 +14122,6 @@
 						"Damage"	"500"
 						"Target"	"TARGET"
 					}
-				}
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-10"
 				}
 			}
 		}
@@ -16528,7 +16499,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-90"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor"
 				}
 			}
 		}
@@ -18941,10 +18911,6 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "10"
-				}
 				"OnCreated"
 				{
 					"RunScript"
@@ -21686,7 +21652,6 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"-10"
 				}
 			}
@@ -23948,10 +23913,6 @@
 				"IsDebuff"	"0"
 				"EffectName"	"particles/units/heroes/hero_legion_commander/cheiftain_buff_buff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_gain"
-				}
 			}
 		}
 	}
@@ -26419,11 +26380,6 @@
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
-				}
-
 			}
 		}
 	}
@@ -27000,10 +26956,6 @@
 				"Passive"	"0"
 				"IsBuff"	"1"
 				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_per_stack"
-				}
 				"OnDestroy"
 				{
 					"RunScript"
@@ -27102,10 +27054,6 @@
 				"States"
 				{
 					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
 				}
 			}
 
@@ -27472,10 +27420,6 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_per_stack"
-				}
 			}
 
 		}
@@ -27647,7 +27591,6 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen"
 				}
 			}
@@ -29346,7 +29289,6 @@
 				"IsBuff"			"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed_bonus"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_power_bonus_percent"
 				}
@@ -31822,11 +31764,6 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss_per_stack"
-				}
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -33948,10 +33885,6 @@
 			{
 				"IsBuff"	"1"
 				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
-				}
 			}
 		}
 	}
@@ -36355,7 +36288,6 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
 				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_percent"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%armor_bonus"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"			"%health_regen_percent"
 				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"95"
 				}
@@ -36406,7 +36338,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_bonus"		"1400"
+				"armor_bonus"		"1500"
 			}
 		}
 		"OnOwnerDied"
@@ -36426,7 +36358,6 @@
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_percent"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%armor_bonus"
 				}
 				"ThinkInterval"  "4.0"
 				"OnIntervalThink"
@@ -37408,10 +37339,6 @@
 				"IsBuff"		"1"
 				"EffectName"	"particles/units/heroes/hero_undying/undying_tombstone_ambient.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "3000"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -38624,7 +38551,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-140"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-5000"
 				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-75"
 				}
 			}
@@ -38653,7 +38579,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "140"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "5000"
 				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"75"
 				}
 			}
@@ -38780,10 +38705,6 @@
 				"IsBuff"		"1"
 				"EffectName"	"particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon_offhand/bloodseeker_eztzhok_offhand_ambient_arc_glow.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -39697,7 +39618,6 @@
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attackspeed"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"	"%health_regen_percent"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_percentage"
 				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"80"
@@ -39877,10 +39797,6 @@
 					}
 				}
 
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduce"
-				}
 				"OnIntervalThink"
 				{
 					"Damage"
@@ -41098,7 +41014,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%damage_per_instance"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_per_instance"
 				}
 			}
 
@@ -42801,11 +42716,6 @@
 
 				"EffectName"		"particles/units/heroes/hero_keeper_of_the_light/fire_temple_doombringer_debuff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_break"
-				}
 			}
 		}
 	}
@@ -43491,17 +43401,13 @@
 		}
 		"Modifiers"
 		{
-			"modifier_autumn_spawner_passive"
+			"modifier_farmland_spawner_passive"
 			{
 				"IsPurgable"	"0"
 				"Passive" 		"1"
 				"IsHidden"		"1"
 				"IsBuff"		"1"
 				"OverrideAnimation"     "ACT_DOTA_IDLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -44417,10 +44323,6 @@
 			{
 				"EffectName"	"particles/roshpit/redfall/crimsyth_recruiter_buff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduce_per_hit"
-				}
 				"IsHidden"	"0"
 				"TextureName"	"misc/armor_reduction"
 			}
@@ -45130,10 +45032,6 @@
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "30000"
-				}
 			}
 		}
 	}
@@ -45309,10 +45207,6 @@
 				"Passive" 		"1"
 				"IsHidden"		"1"
 				"IsBuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "1"
 				"OnIntervalThink"
 				{
@@ -47257,10 +47151,6 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gods_strength.vpcf"
 				"StatusEffectPriority"  "10"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
 				{
@@ -50510,10 +50400,6 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gods_strength.vpcf"
 				"StatusEffectPriority"  "10"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 			}
 		}
 	}
@@ -50873,10 +50759,6 @@
 				"IsDebuff"	"1"
 				"EffectName"	"particles/roshpit/redfall/crimsyth_recruiter_buff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduce_per_hit"
-				}
 				"IsHidden"	"0"
 			}
 			"modifier_crimsyth_recruiter_attack_gain"
@@ -52927,7 +52809,6 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-20"
 				}
 			}
@@ -53116,16 +52997,12 @@
 		}
 		"Modifiers"
 		{
-			"modifier_autumn_spawner_passive"
+			"modifier_clam_spawner_passive"
 			{
 				"IsPurgable"	"0"
 				"Passive" 		"1"
 				"IsHidden"		"1"
 				"IsBuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -55739,7 +55616,6 @@
 					"MODIFIER_PROPERTY_BONUS_DAY_VISION" "-70"
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION" "-70"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-1"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-100"
 				}
 			}
 			"modifier_ancient_tree_round_2"
@@ -56896,7 +56772,6 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%bonus_attack_damage"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
 				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resist"
 				}
 				"EffectName"	"particles/roshpit/tanari/fire_buff_owner.vpcf"
@@ -57033,10 +56908,6 @@
 				"IsBuff"		"1"
 				"EffectName"	"particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon_offhand/bloodseeker_eztzhok_offhand_ambient_arc_glow.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -57846,10 +57717,6 @@
 				"Passive" 		"1"
 				"IsHidden"		"1"
 				"IsBuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
 				{
@@ -58475,7 +58342,6 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%powered_up_as"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%powered_up_ms" 
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%powered_up_atk"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%powered_up_armor"
 				}
 			}
 			"modifier_triboss_in_battle"
@@ -60033,17 +59899,13 @@
 		}
 		"Modifiers"
 		{
-			"modifier_shipyard_spawner_passive"
+			"modifier_tormented_staff_passive"
 			{
 				"IsPurgable"	"0"
 				"Passive" 		"1"
 				"IsHidden"		"1"
 				"IsBuff"		"1"
 				"OverrideAnimation"     "ACT_DOTA_IDLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "0.2"
 				"OnIntervalThink"
 				{
@@ -61043,7 +60905,6 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
 				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "75"
 				}
 				"OnDeath"
@@ -63278,10 +63139,6 @@
 				"IsDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_vengeful/vengeful_wave_of_terror_recipient.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss"
-				}
 			}
 		}
 
@@ -64133,7 +63990,6 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
 				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resistance"
 				}
 			}
@@ -64416,7 +64272,6 @@
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-5"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"-1000"
 				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-20"
 				}
 			}
@@ -65463,7 +65318,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"5000"
 				}
 			}
 			"modifier_stalacorr_flail"

@@ -92,7 +92,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
 				}
 
@@ -322,7 +321,6 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%aspect_damage"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
 				}
 
@@ -495,7 +493,6 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%aspect_damage"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
 				}
 				"OnAttackLanded"
@@ -624,10 +621,6 @@
 				"EffectAttachType"	"follow_origin"
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "15"
-				}
 			}
 			"modifier_earth_aspect_a_a_effect"
 			{
@@ -937,10 +930,6 @@
 				"EffectName"	"particles/econ/items/invoker/glorious_inspiration/invoker_forge_spirit_ambient_esl.vpcf"
 				"EffectAttachType"	"origin"
 				"TextureName"	"ember_spirit_sleight_of_fist"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1000"
-				}
 			}
 			"modifier_shadow_aspect_c_d_slow_attack"
 			{
@@ -1290,7 +1279,6 @@
 				"Duration"	"0.5"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"
 				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-2"
 				}
 			}

@@ -395,10 +395,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
                  "TextureName"            "rpc/axe_d_d"
-                 "Properties"
-                 {
-                     "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% T22_ARMOR_DECREASE %>"
-                 }
                  "OnCreated"
                  {
                       "RunScript"

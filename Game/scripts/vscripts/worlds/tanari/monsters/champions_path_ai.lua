@@ -923,6 +923,9 @@ function clam_spawner_think(event)
 		bAggro = true
 	end
 	for i = 1, loops, 1 do
+		if not caster.summonCenter then
+			caster.summonCenter = caster:GetAbsOrigin()
+		end
 		local position = caster.summonCenter + RandomVector(RandomInt(1, 240))
 		local zombie = nil
 		if caster.special then

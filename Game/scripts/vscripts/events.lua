@@ -157,6 +157,10 @@ function GameMode:OnNPCSpawned(keys)
       npc.intellect_custom = 20
     end
     CustomAttributes:SetAttributes(npc)
+  else
+    if Events.GameMaster then
+      Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, npc, "modifier_armor_calculate", {})
+    end
   end
   if npc:IsRealHero() and Events.gameLoaded then
     GameMode:CorrectRespawn(npc)

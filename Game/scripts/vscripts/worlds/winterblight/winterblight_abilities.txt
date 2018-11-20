@@ -285,10 +285,6 @@
 				"EffectAttachType"	"attach_origin"
 				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
 				"StatusEffectPriority"  "100"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -2279,7 +2275,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"250"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed"
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "200"
 				}
@@ -6109,10 +6104,6 @@
 			{
 				"IsDebuff"		"1"
 				"IsHidden"		"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss_per_stack"
-				}
 				"OnCreated"
 				{
 					"RunScript"
@@ -6643,7 +6634,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_outgoing"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
 				}
 			}
 		}
@@ -9414,7 +9404,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"8000"
 				}
 			}
 			"modifier_stalacorr_flail"

@@ -849,10 +849,6 @@
 				"TextureName"		"abaddon_death_coil"
 				"EffectName"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-5"
-				}
 			}
 			"modifier_flamewaker_glyph_4_1_effect"
 			{

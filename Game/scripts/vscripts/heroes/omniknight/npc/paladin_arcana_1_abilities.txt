@@ -168,10 +168,6 @@
 				"IsHidden"	"0"
 				"TextureName"	"paladin/paladin_rune_w_3_arcana1"
 				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100"
-				}
 			}
 			"modifier_penance_projectiles"
 			{

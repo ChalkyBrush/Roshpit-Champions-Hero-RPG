@@ -153,10 +153,18 @@ function initializeTooltip(func){
 	//DEFENSE
 
 	$('#attack_defense_title_def').text = $.Localize("#ui_defense").toUpperCase()
+	var physArmor = 0
+	var bonusArmor = 0
+	if (Entities.IsHero( queryUnit )){
+		physArmor = parseInt(heroAttributes.armor_base)
+		bonusArmor = parseInt(heroAttributes.armor_bonus)
+	}else{
+		var unitAttributes = CustomNetTables.GetTableValue( "portal_keys", queryUnit.toString()+"_data" );
+		physArmor = parseInt(unitAttributes.armor_base)
+		bonusArmor = parseInt(unitAttributes.armor_bonus)
+	}
 	$('#def_1_left').text = $.Localize("#item_armor")
-    var physArmor = parseInt(Entities.GetPhysicalArmorValue(queryUnit)) - parseInt(Entities.GetBonusPhysicalArmor(queryUnit))
 	$('#def_1_right').text = numberWithCommas(physArmor)
-	var bonusArmor = parseInt(Entities.GetBonusPhysicalArmor(queryUnit))
 	$('#def_2_left').text = $.Localize("#ui_bonus_armor")
 	if (bonusArmor >= 0){
 		$('#def_2_right').text = "<font color='#68ff23'>+"+numberWithCommas(bonusArmor)+"</font>"
