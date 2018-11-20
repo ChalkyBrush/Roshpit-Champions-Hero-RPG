@@ -193,7 +193,7 @@ end
 
 function Seinaru_Apply_E4(attacker, target, ability)
 		local currentStacks = target:GetModifierStackCount("modifier_gorudo_rune_r_1", attacker)
-		local currentArmor = target:GetPhysicalArmorValue() + currentStacks
+		local currentArmor = target:RoshpitGetPhysicalArmorValue() + currentStacks
 		local ArmorRed = 0
 		local r_1_level = attacker:GetRuneValue("r", 1)
 		local e_4_level = attacker:GetRuneValue("e", 4)

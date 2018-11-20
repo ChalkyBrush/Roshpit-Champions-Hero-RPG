@@ -334,13 +334,13 @@ function Dungeons:PhoenixScale(unit)
     unit:SetBaseDamageMin(minDamage+damageAdjustment)
     unit:SetBaseDamageMax(maxDamage+damageAdjustment) 
 
-    -- local newArmor = unit:GetPhysicalArmorValue()*difficulty*difficulty+30*(difficulty-1)
+    -- local newArmor = unit:RoshpitGetPhysicalArmorValue()*difficulty*difficulty+30*(difficulty-1)
     -- if difficulty > 2 then
-    --   newArmor = newArmor+90 + unit:GetPhysicalArmorValue()*4
+    --   newArmor = newArmor+90 + unit:RoshpitGetPhysicalArmorValue()*4
     -- end
-    local newArmor = unit:GetPhysicalArmorBaseValue()*difficulty + 10*(difficulty-1)
+    local newArmor = unit:RoshpitGetPhysicalArmorBaseValue()*difficulty + 10*(difficulty-1)
     newArmor = newArmor + Dungeons.phoenixWave*difficulty
-    unit:SetPhysicalArmorBaseValue(newArmor)
+    unit:RoshpitSetPhysicalArmorBaseValue(newArmor)
 
 
     local newHealth = unit:GetMaxHealth()*difficulty + (difficulty-1)*unit:GetMaxHealth() + 82000*(difficulty-1)
@@ -390,7 +390,7 @@ function Dungeons:IncrementPhoenixWave()
 	    Dungeons.phoenixEgg:SetBaseMaxHealth(newHealth)
 	    Dungeons.phoenixEgg:Heal(Dungeons.phoenixEgg:GetMaxHealth()*0.01, unit)
 	    local armor = 100 + GameState:GetDifficultyFactor()*40
-	    Dungeons.phoenixEgg:SetPhysicalArmorBaseValue(armor)
+	    Dungeons.phoenixEgg:RoshpitSetPhysicalArmorBaseValue(armor)
 		if Dungeons.phoenixWave == 11 then
 			local hatchAbility = Dungeons.phoenixEgg:FindAbilityByName("phoenix_hatch")
 			Notifications:TopToAll({text="The Phoenix is ready to Hatch!", duration=8.0})
@@ -730,7 +730,7 @@ function Dungeons:begin_phoenix_boss_sequence()
 		Dungeons:PhoenixScale(boss)
 		Events:AdjustBossPower(boss, Dungeons.phoenixWave, Dungeons.phoenixWave, false)
 		local armorBonus = 100 + (GameState:GetDifficultyFactor()-1)*35*Dungeons.phoenixWave
-		boss:SetPhysicalArmorBaseValue(boss:GetPhysicalArmorBaseValue()+armorBonus)
+		boss:RoshpitSetPhysicalArmorBaseValue(boss:RoshpitGetPhysicalArmorBaseValue()+armorBonus)
 		boss.jumpEnd = "doom_boss"
 		WallPhysics:Jump(boss, Vector(0,0), 0, 30, 1, 0.7)
 		local bossAbil = boss:FindAbilityByName("phoenix_boss_ai")

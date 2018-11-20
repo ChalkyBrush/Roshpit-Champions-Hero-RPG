@@ -232,8 +232,8 @@ illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = durat
 	illusion:SetBaseMaxHealth(newHealth)
 	illusion:SetHealth(newHealth)
 	illusion:Heal(newHealth, illusion)
-	local newArmor = caster:GetPhysicalArmorValue()*5
-	illusion:SetPhysicalArmorBaseValue(newArmor)
+	local newArmor = caster:RoshpitGetPhysicalArmorValue()*5
+	illusion:RoshpitSetPhysicalArmorBaseValue(newArmor)
 	local newDamage = OverflowProtectedGetAverageTrueAttackDamage(caster)*5
     Filters:SetAttackDamage(illusion, newDamage)
 

@@ -846,7 +846,7 @@ function Arena:DummyFromClient(playerID, hero, msg)
 		print("UPDATE ARMOR")
 		print(msg.armor)
 		local dummy = hero.targetDummy
-		dummy:SetPhysicalArmorBaseValue(tonumber(msg.armor))
+		dummy:RoshpitSetPhysicalArmorBaseValue(tonumber(msg.armor))
 	end
 end
 

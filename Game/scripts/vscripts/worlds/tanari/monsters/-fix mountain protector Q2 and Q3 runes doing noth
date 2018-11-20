@@ -1,0 +1,26 @@
+-fix mountain protector Q2 and Q3 runes doing nothing (been like this for over a month)
+-fix Seinaru Q3 not scaling with level
+-fix stat panel triggering OnTakeDamage event
+-Red General E3 buff 10x
+-Stormcrack helm buff 2x
+-likely fix items stuck in roll box
+
+Astral Changes:
+-Q2: steadfast threshold multiplied by 5 against this rune (means steadfast is weaker)
+-Glyph 4-1: reduces duration increase for Moon Shroud and duration of all buffs applied by Astral Rift by 25% rather than only duration increase for Moon Shroud
+-W works thorough bkb, but damage is still magical
+-Glyph 1-1: W shoots all directions, but doesn't deal damage
+-W: distance between Astral and arrows' starting point reduced from 50 to 20
+-Glyph 5-1: -5 cd for Celestial Burst, fix recast
+
+Stargazer's sphere:
+-procs only from damage of it's owner
+-fix multiple stargazer fields on the same target
+-can proc neither from itself nor from other copies
+
+-attempt to disable separators in health bar (so hero health bars will be green instead of black, also reduce lags at high HP.. if it works on dedicated servers...)
+-MAYBE hopefully increase time for players to reconnect to 30 min in case you crash you can come back
+
+-elemental deity -> green damage (2kkk cap)
+-shadow deity arcana e2 -> swap secondary element to shadow and chance to deal additional damage instances (this is a nerf)
+-shadow deity arcana e3 shadow amp reduced by 75% (more nerf :( )

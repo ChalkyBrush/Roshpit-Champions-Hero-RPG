@@ -1225,7 +1225,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 		end
 		if victim:HasModifier("modifier_duskbringer_arcana_armor") then
 			local stackCount = victim:GetModifierStackCount("modifier_duskbringer_arcana_armor", victim)
-			local consideredArmor = victim:GetPhysicalArmorValue()*0.01*stackCount
+			local consideredArmor = victim:RoshpitGetPhysicalArmorValue()*0.01*stackCount
 			damage = GameState:GetPostReductionPhysicalDamage(damage, consideredArmor)
 		end
 	    if victim:HasModifier("modifier_pure_resist") then
@@ -1574,7 +1574,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_armor_softening") then
 		local passive = victim:FindAbilityByName("winterblight_armor_softening")
-		local armor = victim:GetPhysicalArmorValue()
+		local armor = victim:RoshpitGetPhysicalArmorValue()
 		if armor > 0 then
 			local reduction = passive:GetLevelSpecialValueFor("damage_reduc", passive:GetLevel())
 			reduction = (100-reduction)/100
@@ -1637,8 +1637,8 @@ function GameState:FilterDamage(filterTable)
 	end
 	local damagetype = filterTable["damagetype_const"]
 	if damagetype == DAMAGE_TYPE_PHYSICAL then
-		local armor = victim:GetPhysicalArmorValue()
-		print(victim:GetPhysicalArmorValue())
+		local armor = victim:RoshpitGetPhysicalArmorValue()
+		print(victim:RoshpitGetPhysicalArmorValue())
 		local damageMult = 1 - (0.05*armor/(1 + (0.05 * math.abs(armor))))
 		filterTable["damage"] = filterTable["damage"]*damageMult
 	end
@@ -1781,8 +1781,8 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + multIncrease
 		end
 		if attacker:HasModifier("modifier_hand_marauder") then
-			if victim:GetPhysicalArmorValue() > 0 then
-				local armor = victim:GetPhysicalArmorValue()
+			if victim:RoshpitGetPhysicalArmorValue() > 0 then
+				local armor = victim:RoshpitGetPhysicalArmorValue()
 				local damageMult = 1 - (0.05*armor/(1 + (0.05 * math.abs(armor))))
 				filterTable["damage"] = filterTable["damage"]/damageMult
 			end
@@ -2004,11 +2004,11 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + 6
 	end
 	if victim:HasModifier("modifier_epoch_rune_w_2_visible") then
-		if victim:GetPhysicalArmorValue() < 0 then
+		if victim:RoshpitGetPhysicalArmorValue() < 0 then
 			if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 				modifier = victim:FindModifierByName("modifier_epoch_rune_w_2_visible")
 				if attacker:GetRuneValue("w", 2) > 0 then
-					local multIncrease = attacker:GetRuneValue("w", 2) * EPOCH_W2_POST_MITI_PCT * math.abs(victim:GetPhysicalArmorValue())/10
+					local multIncrease = attacker:GetRuneValue("w", 2) * EPOCH_W2_POST_MITI_PCT * math.abs(victim:RoshpitGetPhysicalArmorValue())/10
 					mult = mult + multIncrease / 100
 				end
 			end
@@ -2314,9 +2314,9 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_epoch_arcana_passive") then
 		local q_2_level = attacker:GetRuneValue("q", 2)
-		local championArmor = math.max(attacker:GetPhysicalArmorBaseValue(), 0)
+		local championArmor = math.max(attacker:RoshpitGetPhysicalArmorBaseValue(), 0)
 		if q_2_level > 0 then
-			local multIncrease = (victim:GetPhysicalArmorBaseValue() + championArmor) * q_2_level * EPOCH_ARCANA_Q2_POST_MITI_PCT
+			local multIncrease = (victim:RoshpitGetPhysicalArmorBaseValue() + championArmor) * q_2_level * EPOCH_ARCANA_Q2_POST_MITI_PCT
 			mult = mult + multIncrease / 100000 --per 1000 armor, %
 		end
 	end

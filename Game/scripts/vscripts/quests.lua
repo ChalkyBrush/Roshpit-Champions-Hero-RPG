@@ -304,7 +304,7 @@ function Quests:DummyFromClient(msg)
 	elseif msg.armor or msg.attack then
 		local dummy = hero.targetDummy
 		if tonumber(msg.armor) then
-			dummy:SetPhysicalArmorBaseValue(tonumber(msg.armor))
+			dummy:RoshpitSetPhysicalArmorBaseValue(tonumber(msg.armor))
 			Events:TutorialServerEvent(hero, "4_5", 2)
 		end
 		if tonumber(msg.attack) then

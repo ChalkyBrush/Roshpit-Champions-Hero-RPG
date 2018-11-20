@@ -2213,12 +2213,13 @@ function Events:AdjustDeathXP(unit)
     unit:SetBaseDamageMin(minDamage+damageAdjustment)
     unit:SetBaseDamageMax(maxDamage+damageAdjustment) 
 
-    -- local newArmor = unit:GetPhysicalArmorValue()*difficulty*difficulty+30*(difficulty-1)
+    -- local newArmor = unit:RoshpitGetPhysicalArmorValue()*difficulty*difficulty+30*(difficulty-1)
     -- if difficulty > 2 then
-    --   newArmor = newArmor+90 + unit:GetPhysicalArmorValue()*4
+    --   newArmor = newArmor+90 + unit:RoshpitGetPhysicalArmorValue()*4
     -- end
     local newArmor = unit:GetPhysicalArmorBaseValue()*difficulty + 10*(difficulty-1)
-    unit:SetPhysicalArmorBaseValue(newArmor)
+    unit:SetPhysicalArmorBaseValue(0)
+    unit:RoshpitSetPhysicalArmorBaseValue(newArmor)
 
 
     local newHealth = unit:GetMaxHealth()*difficulty + (difficulty-1)*unit:GetMaxHealth() + 82000*(difficulty-1)
@@ -2255,9 +2256,9 @@ function Events:AdjustBossPower(unit, damageFactor, healthFactor, bHealthbar)
   local healthAdjustment = healthFactor*800000*(difficulty-1)
   if difficulty > 2 then
     healthAdjustment = healthAdjustment + healthFactor*1600000
-    local armor = unit:GetPhysicalArmorValue()
-    unit:SetPhysicalArmorBaseValue(armor+40*healthFactor)
-    unit:SetPhysicalArmorBaseValue(unit:GetPhysicalArmorBaseValue()*difficulty+(healthFactor*(difficulty-1)*3))
+    local armor = unit:RoshpitGetPhysicalArmorValue()
+    unit:RoshpitSetPhysicalArmorBaseValue(armor+40*healthFactor)
+    unit:RoshpitSetPhysicalArmorBaseValue(unit:RoshpitGetPhysicalArmorBaseValue()*difficulty+(healthFactor*(difficulty-1)*3))
   end
   local newHealth = unit:GetMaxHealth() + healthAdjustment
     newHealth = math.min(newHealth, (2^30)-10)

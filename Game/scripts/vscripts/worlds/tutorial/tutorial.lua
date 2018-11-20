@@ -993,9 +993,9 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_2d", 5, false)
 				local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
 				local question = "tutorial_quiz_question_11"
-				local armor = math.floor(hero:GetPhysicalArmorValue())
+				local armor = math.floor(hero:RoshpitGetPhysicalArmorValue())
 				local verifier = (1 - GameState:GetPostReductionPhysicalDamage(10000, armor)/10000)*100
-				-- local resist = (0.05*hero:GetPhysicalArmorValue()/(1 + (0.05 * math.abs(hero:GetPhysicalArmorValue()))))
+				-- local resist = (0.05*hero:RoshpitGetPhysicalArmorValue()/(1 + (0.05 * math.abs(hero:RoshpitGetPhysicalArmorValue()))))
 				-- resist = (resist*100000)/1000
 				-- verifier = resist
 				CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="4_2", quiz_question=question, sequence=0, verifier = verifier, localize_verifier = 0, challenge_progress = 0} )
@@ -1672,7 +1672,7 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					local verifier = nil
 					local sub = nil
 					if choice == 1 then
-						verifier = tonumber(math.floor(hero:GetPhysicalArmorBaseValue()))
+						verifier = tonumber(math.floor(hero:RoshpitGetPhysicalArmorBaseValue()))
 						sub = "tutorial_base_armor"
 					elseif choice == 2 then
 						verifier = tonumber(math.floor(GetAttackRange()))

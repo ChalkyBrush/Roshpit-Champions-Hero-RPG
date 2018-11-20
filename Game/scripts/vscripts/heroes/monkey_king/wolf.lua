@@ -134,7 +134,7 @@ function rend_start(event)
 			local newStacks = math.min(2, rendStacks+1)
 			enemy:SetModifierStackCount("modifier_wolf_rend_stack", caster, newStacks)
 
-			local armorLoss = (enemy:GetPhysicalArmorValue()+enemy:GetModifierStackCount("modifier_wolf_rend_armor_loss", caster))*0.5
+			local armorLoss = (enemy:RoshpitGetPhysicalArmorValue()+enemy:GetModifierStackCount("modifier_wolf_rend_armor_loss", caster))*0.5
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_armor_loss", {duration = 8})
 			enemy:SetModifierStackCount("modifier_wolf_rend_armor_loss", caster, armorLoss*newStacks)
 			if rendStacks == 2 then

@@ -108,7 +108,7 @@ function genesis_orb_impact(event)
 	if w_2_level > 0 then
 		local finalStacksCount = w_2_level
 		local currentStacks = 0
-		local currentTargetArmor = target:GetPhysicalArmorValue()
+		local currentTargetArmor = target:RoshpitGetPhysicalArmorValue()
 		if target:HasModifier("modifier_epoch_rune_w_2_visible") then
 			currentStacks = target:GetModifierStackCount("modifier_epoch_rune_w_2_visible", caster)
 			currentTargetArmor = currentTargetArmor + (currentStacks * EPOCH_W2_ARMOR_REDUCTION)

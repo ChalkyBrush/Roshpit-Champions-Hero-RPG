@@ -45,7 +45,7 @@ local function summon(caster, ability, origin)
         ability:ApplyDataDrivenModifier(caster, caster.waterElemental, "modifier_water_elemental_4_1_enchancement", {})
     end
 
-    local armor = E2_ARMOR_AMPLIFY * caster:GetPhysicalArmorValue()
+    local armor = E2_ARMOR_AMPLIFY * caster:RoshpitGetPhysicalArmorValue()
 
     Timers:CreateTimer(0.05, function()
         caster.waterElemental:SetMaxHealth(health)
@@ -54,7 +54,7 @@ local function summon(caster, ability, origin)
         caster.waterElemental:Heal(health, caster.waterElemental)
         caster.waterElemental:SetBaseDamageMin(baseDamage)
         caster.waterElemental:SetBaseDamageMax(baseDamage)
-        caster.waterElemental:SetPhysicalArmorBaseValue(armor)
+        caster.waterElemental:RoshpitSetPhysicalArmorBaseValue(armor)
     end)
 
 end

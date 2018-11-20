@@ -734,7 +734,7 @@ function conquest_switch_attack(event)
 					    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Arena.ForestGuide)
 					    ParticleManager:SetParticleControl(pfx,0,Arena.ForestGuide:GetAbsOrigin()+Vector(0,0,100))   
 					    EmitSoundOn("Arena.ForestSwitchLand", Arena.ForestGuide)
-					    Arena.ForestGuide:SetPhysicalArmorBaseValue(500)
+					    Arena.ForestGuide:RoshpitSetPhysicalArmorBaseValue(500)
 					    Arena.ForestGuide.aiState = 0
 					    local passiveAbility = Arena.ForestGuide:FindAbilityByName("arena_conquest_forest_guide_passive")
 					    passiveAbility:ApplyDataDrivenModifier(Arena.ForestGuide, Arena.ForestGuide, "modifier_forest_guide_effect_passive", {})

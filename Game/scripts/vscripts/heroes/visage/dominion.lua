@@ -85,14 +85,14 @@ function dominion_debuff_death(event)
 			hp = hp + hp*0.06*q_2_level
 			hp = math.min(hp, 2000000000)
 		end
-		local armor = unit:GetPhysicalArmorBaseValue()
+		local armor = unit:RoshpitGetPhysicalArmorBaseValue()
 		local movespeed = unit:GetBaseMoveSpeed()
 		local attackDamage = unit:GetAttackDamage()
 		summon:SetMaxHealth(hp)
 		summon:SetHealth(hp)
 		summon:SetBaseMaxHealth(hp)
 
-		summon:SetPhysicalArmorBaseValue(armor)
+		summon:RoshpitSetPhysicalArmorBaseValue(armor)
 		summon:SetBaseMoveSpeed(movespeed)
 		summon:SetBaseDamageMin(attackDamage)
 		summon:SetBaseDamageMax(attackDamage) 
@@ -264,7 +264,7 @@ function dominion_unit_kill(event)
 				attacker.armor = attacker.armor + q_3_level*4
 				local damageGainMult = 1200
 				attacker.attackDamage = attacker.attackDamage + q_3_level*damageGainMult
-				attacker:SetPhysicalArmorBaseValue(attacker.armor)
+				attacker:RoshpitSetPhysicalArmorBaseValue(attacker.armor)
 				attacker:SetBaseDamageMin(attacker.attackDamage)
 				attacker:SetBaseDamageMax(attacker.attackDamage) 
 				EmitSoundOn("Ekkan.DarkJourney", attacker)

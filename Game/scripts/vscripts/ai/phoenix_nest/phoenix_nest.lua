@@ -834,7 +834,7 @@ function bringBossFromPentagram(bossName, location, index, rootDuration, forward
 	local bossScale = math.floor(Dungeons.phoenixWave/3)
 	Events:AdjustBossPower(subboss, bossScale, bossScale, false)
 	local armorBonus = 100 + (GameState:GetDifficultyFactor()-1)*100*Dungeons.phoenixWave
-	subboss:SetPhysicalArmorBaseValue(subboss:GetPhysicalArmorBaseValue()+armorBonus)
+	subboss:RoshpitSetPhysicalArmorBaseValue(subboss:RoshpitGetPhysicalArmorBaseValue()+armorBonus)
 	EmitGlobalSound("InspectorCam.Activate")
 end
 

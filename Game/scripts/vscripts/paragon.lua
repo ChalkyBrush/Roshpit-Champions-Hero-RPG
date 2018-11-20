@@ -91,9 +91,9 @@ function Paragon:AdjustParagonPower(unit)
     elseif difficulty == 3 then
     	armorMult = 3
     end
-    local newArmor = unit:GetPhysicalArmorValue()*armorMult
+    local newArmor = unit:RoshpitGetPhysicalArmorValue()*armorMult
 
-    unit:SetPhysicalArmorBaseValue(newArmor)
+    unit:RoshpitSetPhysicalArmorBaseValue(newArmor)
 
     local healthMult = 15
     if difficulty == 1 then
@@ -177,9 +177,9 @@ function Paragon:AdjustParagonPowerSolo(unit)
     elseif difficulty == 3 then
     	armorMult = 3
     end
-    local newArmor = unit:GetPhysicalArmorValue()*armorMult
+    local newArmor = unit:RoshpitGetPhysicalArmorValue()*armorMult
 
-    unit:SetPhysicalArmorBaseValue(newArmor)
+    unit:RoshpitSetPhysicalArmorBaseValue(newArmor)
 
 
     local healthMult = 30

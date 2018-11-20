@@ -2,7 +2,7 @@ function general_hero_think(event)
 	local target = event.target
 	CustomAttributes:SetAttributes(target)
 	CustomAttributes:ApplyStatBonusesToHero(target)
-	target:SetPhysicalArmorBaseValue(12)
+	target:RoshpitSetPhysicalArmorBaseValue(12)
 	local strength = math.floor(target:GetStrength())
 	local agility = math.floor(target:GetAgility())
 	local intelligence = math.floor(target:GetIntellect())
@@ -12,8 +12,8 @@ function general_hero_think(event)
 	-- magaRegen = manaRegen + (manaRegen*target:GetManaRegenMultiplier())/100
 
 	target:CalculateTotalArmor()
-	local armor_base = target:GetPhysicalArmorBaseValue()
-	local armor_bonus = target:GetPhysicalArmorBonusValue()
+	local armor_base = target:RoshpitGetPhysicalArmorBaseValue()
+	local armor_bonus = target:RoshpitGetPhysicalArmorBonusValue()
 	local movespeedBase = target:GetBaseMoveSpeed()
 	local movespeed = target:GetMoveSpeedModifier(movespeedBase)
 	CustomNetTables:SetTableValue("hero_index", tostring(target:GetEntityIndex().."_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), primaryAttribute = tostring(primaryAttribute), healthRegen = tostring(healthRegen), manaRegen = tostring(manaRegen), movespeed = tostring(movespeed), armor_base = tostring(armor_base), armor_bonus = tostring(armor_bonus)} )
@@ -44,8 +44,8 @@ end
 function unit_armor_think(event)
 	local target = event.target
 	target:CalculateTotalArmor()
-	local armor_base = target:GetPhysicalArmorBaseValue()
-	local armor_bonus = target:GetPhysicalArmorBonusValue()
+	local armor_base = target:RoshpitGetPhysicalArmorBaseValue()
+	local armor_bonus = target:RoshpitGetPhysicalArmorBonusValue()
 	CustomNetTables:SetTableValue("portal_keys", tostring(target:GetEntityIndex().."_data"), {armor_base = tostring(armor_base), armor_bonus = tostring(armor_bonus)} )
 end
 

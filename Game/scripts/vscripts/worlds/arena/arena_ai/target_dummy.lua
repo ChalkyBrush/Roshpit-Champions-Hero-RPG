@@ -148,5 +148,5 @@ function endTargetDummy(event)
 	caster:SetAngles(0, caster.angle, 0)
 	caster.attackerIndex = -1
 	caster:RemoveModifierByName("modifier_dummy_timer")
-	caster:SetPhysicalArmorBaseValue(0)
+	caster:RoshpitSetPhysicalArmorBaseValue(0)
 end

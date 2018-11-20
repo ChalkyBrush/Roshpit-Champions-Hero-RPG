@@ -230,27 +230,51 @@ table.insert(HERO_ABILITY_ARMORS, {"modifier_auriun_rune_r_2_effect", 1})
 
 
 
-function CDOTA_BaseNPC:GetPhysicalArmorValue()
-	return self:GetModifierStackCount("modifier_physical_armor", Events.GameMaster) + self:GetModifierStackCount("modifier_physical_armor_bonus", Events.GameMaster) - self:GetModifierStackCount("modifier_physical_armor_bonus_negative", Events.GameMaster)
+function CDOTA_BaseNPC:RoshpitGetPhysicalArmorValue()
+	if self:GetPhysicalArmorValue() > 0 then
+		local armor = self:GetPhysicalArmorBaseValue()
+		self:SetPhysicalArmorBaseValue(0)
+		return armor
+	else
+		return self:GetModifierStackCount("modifier_physical_armor", Events.GameMaster) + self:GetModifierStackCount("modifier_physical_armor_bonus", Events.GameMaster) - self:GetModifierStackCount("modifier_physical_armor_bonus_negative", Events.GameMaster)
+	end
 end
 
-function CDOTA_BaseNPC_Hero:GetPhysicalArmorValue()
-	return self:GetModifierStackCount("modifier_physical_armor", Events.GameMaster) + self:GetModifierStackCount("modifier_physical_armor_bonus", Events.GameMaster) - self:GetModifierStackCount("modifier_physical_armor_bonus_negative", Events.GameMaster)
+function CDOTA_BaseNPC_Hero:RoshpitGetPhysicalArmorValue()
+	if self:GetPhysicalArmorValue() > 0 then
+		local armor = self:GetPhysicalArmorBaseValue()
+		self:SetPhysicalArmorBaseValue(0)
+		return armor
+	else
+		return self:GetModifierStackCount("modifier_physical_armor", Events.GameMaster) + self:GetModifierStackCount("modifier_physical_armor_bonus", Events.GameMaster) - self:GetModifierStackCount("modifier_physical_armor_bonus_negative", Events.GameMaster)
+	end
 end
 
-function CDOTA_BaseNPC:GetPhysicalArmorBaseValue()
-	return self:GetModifierStackCount("modifier_physical_armor", Events.GameMaster)
+function CDOTA_BaseNPC:RoshpitGetPhysicalArmorBaseValue()
+	if self:GetPhysicalArmorValue() > 0 then
+		local armor = self:GetPhysicalArmorBaseValue()
+		self:SetPhysicalArmorBaseValue(0)
+		return armor
+	else
+		return self:GetModifierStackCount("modifier_physical_armor", Events.GameMaster)
+	end
 end
 
-function CDOTA_BaseNPC_Hero:GetPhysicalArmorBaseValue()
-	return self:GetModifierStackCount("modifier_physical_armor", Events.GameMaster)
+function CDOTA_BaseNPC_Hero:RoshpitGetPhysicalArmorBaseValue()
+	if self:GetPhysicalArmorValue() > 0 then
+		local armor = self:GetPhysicalArmorBaseValue()
+		self:SetPhysicalArmorBaseValue(0)
+		return armor
+	else
+		return self:GetModifierStackCount("modifier_physical_armor", Events.GameMaster)
+	end
 end
 
-function CDOTA_BaseNPC:GetPhysicalArmorBonusValue()
+function CDOTA_BaseNPC:RoshpitGetPhysicalArmorBonusValue()
 	return self:GetModifierStackCount("modifier_physical_armor_bonus", Events.GameMaster) - self:GetModifierStackCount("modifier_physical_armor_bonus_negative", Events.GameMaster)
 end
 
-function CDOTA_BaseNPC:SetPhysicalArmorBaseValue(base_armor)
+function CDOTA_BaseNPC:RoshpitSetPhysicalArmorBaseValue(base_armor)
 	self.base_armor = base_armor
 	if not self:IsRealHero() then
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, self, "modifier_physical_armor", {})
@@ -979,8 +1003,12 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	-- 	ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_armor", {})
 	-- end
 	-- hero:SetModifierStackCount("modifier_agility_armor", caster, agility*CustomAttributes.ARMOR_PER_AGI)
-	local armor = agility*CustomAttributes.ARMOR_PER_AGI*halcyon + 10
-	hero:SetPhysicalArmorBaseValue(armor)
+	local armor = agility*CustomAttributes.ARMOR_PER_AGI
+
+	if not hero:HasModifier("modifier_agility_armor") then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_armor", {})
+	end
+	hero:SetModifierStackCount("modifier_agility_armor", caster, agility*CustomAttributes.ARMOR_PER_AGI*halcyon)
 
 	if not hero:HasModifier("modifier_int_mana") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_int_mana", {})

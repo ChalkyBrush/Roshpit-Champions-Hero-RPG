@@ -2169,9 +2169,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + stacks*1
             end
 		elseif unitName == "npc_dota_hero_juggernaut" and attacker:HasAbility("seinaru_odachi_leap") then
-            if victim:GetPhysicalArmorValue() < 0 then
+            if victim:RoshpitGetPhysicalArmorValue() < 0 then
                 if attacker.e_4_level and attacker.e_4_level > 0 then
-                    local multIncrease = attacker.e_4_level * SEINARU_E4_HOLY_PCT_PER_NEG_ARMOR * math.abs(victim:GetPhysicalArmorValue())
+                    local multIncrease = attacker.e_4_level * SEINARU_E4_HOLY_PCT_PER_NEG_ARMOR * math.abs(victim:RoshpitGetPhysicalArmorValue())
                     mult = mult + multIncrease
                 end
             end
@@ -2665,7 +2665,7 @@ function Filters:FloodRobe(caster)
     elemental:SetBaseMaxHealth(skeleHealth)
     elemental:SetHealth(skeleHealth)
 
-    elemental:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, 100, nil))
+    elemental:RoshpitSetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, 100, nil))
 
     Filters:SetAttackDamage(elemental, eleDamage)
 end
@@ -2795,7 +2795,7 @@ function Filters:RubyDragon(caster)
     -- dragon:SetBaseMaxHealth(skeleHealth)
     -- dragon:SetHealth(skeleHealth)
 
-    -- dragon:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, 100))
+    -- dragon:RoshpitSetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, 100))
     -- local summonAbil = dragon:AddAbility("ability_summoned_unit")
     -- summonAbil:SetLevel(1)
     -- dragon.burnDamage = caster:GetStrength()*12
@@ -3226,7 +3226,7 @@ function Filters:ScourgeKnight(caster)
         local skeleDamage = Filters:AdjustItemDamage(caster, caster:GetAttackDamage()/10, nil)
         archer:SetModifierStackCount( "modifier_summoned_unit_damage_increase", summonAbil, skeleDamage)    
         archer:SetForwardVector(fv)
-        archer:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, 80, nil))
+        archer:RoshpitSetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, 80, nil))
         local skeleHealth = math.floor(caster:GetMaxHealth()*0.15)
         skeleHealth = Filters:AdjustItemDamage(caster, skeleHealth, nil)
         archer:SetMaxHealth(skeleHealth)
@@ -3235,7 +3235,7 @@ function Filters:ScourgeKnight(caster)
         archer:Heal(skeleHealth, archer)
         archer:SetMoveCapability(DOTA_UNIT_CAP_MOVE_NONE)
         archer:SetModelScale(0.7)
-        archer:SetPhysicalArmorBaseValue(10)
+        archer:RoshpitSetPhysicalArmorBaseValue(10)
     end
 end
 
@@ -3248,7 +3248,7 @@ function Filters:GetBaseBaseArmor(unit)
         livingGauntArmor = unit:GetModifierStackCount("modifier_living_gauntlet_effect_armor", unit.InventoryUnit)
         warlord_b_a_armor = unit:GetModifierStackCount("modifier_warlord_rune_q_2_invisible", unit)
     end
-    local baseBaseArmor = unit:GetPhysicalArmorValue() - rootedArmor - livingGauntArmor - warlord_b_a_armor
+    local baseBaseArmor = unit:RoshpitGetPhysicalArmorValue() - rootedArmor - livingGauntArmor - warlord_b_a_armor
     return baseBaseArmor
 end
 
@@ -3260,7 +3260,7 @@ function Filters:SetupSummonUnit(caster, position, damageMult, healthMult, lifeD
     local dmg = OverflowProtectedGetAverageTrueAttackDamage(caster)*damageMult
     dmg = Filters:AdjustItemDamage(caster, dmg, nil)
     Filters:SetAttackDamage(unit, dmg)
-    unit:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue()*armorMult, nil))
+    unit:RoshpitSetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:RoshpitGetPhysicalArmorValue()*armorMult, nil))
     local wolfHealth = math.floor(caster:GetMaxHealth()*healthMult)
     wolfHealth = Filters:AdjustItemDamage(caster, wolfHealth, nil)
     unit:SetMaxHealth(wolfHealth)
@@ -3384,7 +3384,7 @@ function Filters:TomeOfChaos(caster)
                 infernal:Heal(minionHealth, infernal)
                 infernal:SetModelScale(0.9)
                 infernal:SetRenderColor(140, 255, 140)
-                infernal:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue()/2, nil))
+                infernal:RoshpitSetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:RoshpitGetPhysicalArmorValue()/2, nil))
                 infernal:AddAbility("sven_great_cleave"):SetLevel(1)
                 infernal:SetAcquisitionRange(2800)
                 caster.tome_of_chaos:ApplyDataDrivenModifier(caster.InventoryUnit, infernal, "modifier_infernal_effect", {duration = 30})
@@ -3451,7 +3451,7 @@ function Filters:ReanimateThorok(caster)
     thorok:Heal(minionHealth, thorok)
     thorok:RemoveAbility("thorok_reborn_ai")
     thorok:RemoveModifierByName("modifier_thorok_reborn_ai")
-    thorok:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue(), nil))
+    thorok:RoshpitSetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:RoshpitGetPhysicalArmorValue(), nil))
     thorok:SetAcquisitionRange(2900)
     if caster:GetHealth() < caster:GetMaxHealth()*0.4 then
         EmitSoundOn("Hero_LifeStealer.Rage", thorok)
@@ -3521,7 +3521,7 @@ function Filters:DefilerHit(attacker, victim)
     local origStacks = victim:GetModifierStackCount( "modifier_hood_of_defiler_effect_visible", ability )
 
     local currentArmorLoss = victim:GetModifierStackCount( "modifier_hood_of_defiler_armor_loss", ability )
-    local additionalArmorLoss = math.ceil(victim:GetPhysicalArmorValue()*0.15)
+    local additionalArmorLoss = math.ceil(victim:RoshpitGetPhysicalArmorValue()*0.15)
     if origStacks < 5 then
         additionalArmorLoss = 0
     end
@@ -3989,7 +3989,7 @@ function Filters:NightmareRider(caster)
         for _,enemy in pairs(enemies) do
             enemy:RemoveModifierByName("modifier_nightmare_rider_invisible")
             ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_nightmare_rider_effect_visible", {duration = 10})
-            local armorLossStacks = enemy:GetPhysicalArmorValue()*0.8
+            local armorLossStacks = enemy:RoshpitGetPhysicalArmorValue()*0.8
             ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_nightmare_rider_invisible", {duration = 10})
             enemy:SetModifierStackCount("modifier_nightmare_rider_invisible", caster.InventoryUnit, armorLossStacks)
         end
@@ -4267,7 +4267,7 @@ end
 
 function Filters:VioletGuard2Hit(victim, attacker, damage)
     attacker.body:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_violet_guard_armor_loss_visible", {duration = 6})
-    local armorLoss = math.min(math.ceil(damage*0.001), victim:GetPhysicalArmorValue())
+    local armorLoss = math.min(math.ceil(damage*0.001), victim:RoshpitGetPhysicalArmorValue())
     armorLoss = math.max(1, armorLoss)
     local oldModifier = victim:FindModifierByName("modifier_violet_guard_armor_loss_invisible")
     if oldModifier then

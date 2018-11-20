@@ -135,7 +135,7 @@ function barracks_spawn(event)
 		FindClearSpaceForUnit(knight, knight:GetAbsOrigin(), false)
 		table.insert(caster.knightTable, knight)
 		if Serengaard.wave then
-			local armor = math.floor(knight:GetPhysicalArmorBaseValue()*(1.05^Serengaard.wave))
+			local armor = math.floor(knight:RoshpitGetPhysicalArmorBaseValue()*(1.05^Serengaard.wave))
 			local attackDamage = math.floor(knight:GetAttackDamage()*(1.08^Serengaard.wave))
 			attackDamage = attackDamage + 600*(1.2^Serengaard.wave)
 			local hp = math.floor(knight:GetMaxHealth()*(1.05^Serengaard.wave))
@@ -144,7 +144,7 @@ function barracks_spawn(event)
 			knight:SetHealth(hp)
 	   		knight:SetBaseMaxHealth(hp)
 
-			knight:SetPhysicalArmorBaseValue(armor)
+			knight:RoshpitSetPhysicalArmorBaseValue(armor)
 		    knight:SetBaseDamageMin(attackDamage)
 		    knight:SetBaseDamageMax(attackDamage) 
 		end
@@ -162,7 +162,7 @@ function friendly_ranger_die(event)
 	-- Timers:CreateTimer(420, function()
 	-- 	local ranger = Serengaard:SpawnRanger(position)
 	-- 	if Serengaard.wave then
-	-- 		local armor = math.floor(ranger:GetPhysicalArmorBaseValue()*(1.05^Serengaard.wave))
+	-- 		local armor = math.floor(ranger:RoshpitGetPhysicalArmorBaseValue()*(1.05^Serengaard.wave))
 			
 	-- 		local attackDamage = math.floor(ranger:GetAttackDamage()*(1.07^Serengaard.wave))
 	-- 		attackDamage = attackDamage + 300*(Serengaard.wave)*(1.05^Serengaard.wave)
@@ -171,7 +171,7 @@ function friendly_ranger_die(event)
 	-- 		ranger:SetHealth(hp)
 	--    		ranger:SetBaseMaxHealth(hp)
 
-	-- 		ranger:SetPhysicalArmorBaseValue(armor)
+	-- 		ranger:RoshpitSetPhysicalArmorBaseValue(armor)
 	-- 	    ranger:SetBaseDamageMin(attackDamage)
 	-- 	    ranger:SetBaseDamageMax(attackDamage) 
 	-- 	end

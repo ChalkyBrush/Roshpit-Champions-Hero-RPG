@@ -57,7 +57,7 @@ function Attributes:ModifyBonuses(hero)
         if hero:HasModifier("modifier_halcyon_soul_glove") then
            armor = armor + agility*Attributes.v.ARMOR_PER_AGI*0.5
         end
-        hero:SetPhysicalArmorBaseValue(armor)
+        hero:RoshpitSetPhysicalArmorBaseValue(armor)
 
         -- STR
         if strength ~= hero.strength then

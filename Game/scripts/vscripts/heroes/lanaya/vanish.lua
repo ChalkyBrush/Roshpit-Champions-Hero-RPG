@@ -146,7 +146,7 @@ function decoy(caster, runesCount)
     decoy:SetBaseMaxHealth(minionHealth)
     decoy:SetHealth(minionHealth)
     decoy:Heal(minionHealth, decoy)
-    decoy:SetPhysicalArmorBaseValue(0)
+    decoy:RoshpitSetPhysicalArmorBaseValue(0)
 
     local runeAbility = caster.runeUnit2:FindAbilityByName("trapper_rune_r_2")
     local decoyDuration = Filters:GetAdjustedBuffDuration(caster, 15, false)

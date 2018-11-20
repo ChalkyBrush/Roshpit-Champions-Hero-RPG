@@ -93,7 +93,7 @@ function passive_think(event)
 		ability.w_4_level = caster:GetRuneValue("w", 4)
 	end
 	if ability.w_4_level > 0 then
-		local stacks = caster:GetPhysicalArmorValue()*ability.w_4_level*1.0
+		local stacks = caster:RoshpitGetPhysicalArmorValue()*ability.w_4_level*1.0
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_arcana_armor", {})
 		caster:SetModifierStackCount("modifier_paladin_arcana_armor", caster, stacks)
 	else
@@ -169,7 +169,7 @@ function penance_impact(event)
 	end)	
 	local damage = event.damage
 	if ability.w_3_level > 0 then
-		damage = damage + caster:GetPhysicalArmorValue()*6*ability.w_3_level
+		damage = damage + caster:RoshpitGetPhysicalArmorValue()*6*ability.w_3_level
 	end
 	local heal_percent = event.heal_percentage
 	if target:GetTeamNumber() == caster:GetTeamNumber() then

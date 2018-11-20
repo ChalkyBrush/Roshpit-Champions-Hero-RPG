@@ -115,7 +115,7 @@ function rune_q_3_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if IsValidEntity(ability) then
-		local armor = target:GetPhysicalArmorValue()
+		local armor = target:RoshpitGetPhysicalArmorValue()
 		local attackPowerStacks = 0.4*ability.q_3_level*armor
 		if attackPowerStacks + target:GetAttackDamage() - target:GetModifierStackCount("modifier_auriun_c_a_attack_power", caster) > 2^31 then
 			attackPowerStacks = 2^31 - target:GetAttackDamage()

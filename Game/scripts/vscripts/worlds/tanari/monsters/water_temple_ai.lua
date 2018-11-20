@@ -1331,7 +1331,7 @@ function water_temple_boss_think(event)
 				local elemental = CreateUnitByName("water_elemental_flood_2", caster:GetAbsOrigin()+RandomVector(380), false, nil, nil, caster:GetTeamNumber())
 				elemental:AddAbility("water_flood_nuke"):SetLevel(1)
 				Events:AdjustDeathXP(elemental)
-				elemental:SetPhysicalArmorBaseValue(7000)
+				elemental:RoshpitSetPhysicalArmorBaseValue(7000)
 				local luck = RandomInt(1,10)
 				if luck == 1 then
 					Paragon:AddParagonUnit(elemental)

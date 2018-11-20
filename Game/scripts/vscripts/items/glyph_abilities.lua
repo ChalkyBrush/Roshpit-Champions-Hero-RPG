@@ -331,7 +331,7 @@ function warlord_glyph_7_1_attack(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	damage = GameState:GetPostReductionPhysicalDamage(damage, target:GetPhysicalArmorValue())
+	damage = GameState:GetPostReductionPhysicalDamage(damage, target:RoshpitGetPhysicalArmorValue())
 
 	local radius = 320
 	      local particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
