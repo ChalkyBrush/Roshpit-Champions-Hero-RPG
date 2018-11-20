@@ -577,7 +577,7 @@ function Arena:SpawnConquestPart2()
 	Timers:CreateTimer(20, function()
 		local luck = RandomInt(1,(8-Arena.PitLevel))
 		if luck == 1 then
-			local guardianVecTable = {Vector(-13184, 15424), Vector(-13440, 15552), Vector(13376, 15360), Vector(-13504, 15232), Vector(-13440, 15040), Vector(-13504, 14912), Vector(-13376, 14848), Vector(-13504, 14720)}
+			local guardianVecTable = {Vector(-13184, 15424), Vector(-13440, 15552), Vector(-13376, 15360), Vector(-13504, 15232), Vector(-13440, 15040), Vector(-13504, 14912), Vector(-13376, 14848), Vector(-13504, 14720)}
 			for i = 1, #guardianVecTable, 1 do
 				Arena:SpawnRuinsGuardian(guardianVecTable[i], (Vector(-12804, 15000)-guardianVecTable[i]):Normalized())
 			end
