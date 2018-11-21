@@ -73,160 +73,148 @@ CustomAttributes.HYDROXIS_ARC2_R4_INT = 500
 
 
 
--- ARMOR
-ENEMY_ARMOR_EFFECTS = {}
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_armor_break_custom", {-40, -350, -1000}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_armor_break_ultra", {-100, -500, -3500}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"shredder_max_thinker_aura", -10})
+-- BASE ARMOR
+BASE_ARMOR = {modifier_agility_armor = 1,
+modifier_helm_armor = 1,
+modifier_hand_armor = 1,
+modifier_foot_armor = 1,
+modifier_body_armor = 1,
+modifier_trinket_armor = 1}
 
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_grizzled_tank_debuff", {-10, -500, -3000}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_paragon_great_wall", 10})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_wind_boss_slow", {-10, -50, -250}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_executioner_buff", {25, 520, 1500}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_armor_melt_custom", {-40, -400, -2000}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_terrasic_fire_key_holder_steam_physical", {5, 20, 70}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_blackguard_cripple", {-30, -300, -2000}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"fire_temple_armor_gain_on_attack", {10, 40, 150}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_fire_temple_red_dragon_blood_effect", {100, 700, 2000}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"fire_temple_protector_death_ability", {10, 80, 250}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_drill_spike_enemy", -250})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_champion_gladiator_passive_stacking", 50})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_supreme_ogre_passive", 3000})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_lies_arbiter_passive", 1500})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_descent_tombstone_passive", 3000})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_arena_grave_chill_target", -5000})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_arena_grave_chill_caster", 5000})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_autumn_spawner_passive", {4, 100, 1500}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_forest_roar_buff", {5, 500, 10000}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_forest_ranger_bleed", {-10, -600, -3500}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_canyon_predator_effect", {1, 10, 100}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_fire_god_armor_break", -6000})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_farmland_spawner_passive", {10, 150, 2000}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_crimsyth_recruiter_armor_loss", {-3, -25, -100}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_shipyard_gatekeeper_casting", 30000})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_warflayer_passive", {100, 800, 2000}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"shredder_max_thinker_aura", {-10, -300, -3000}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_clam_spawner_passive", {4, 100, 1500}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_ancient_tree_vision", -100})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_fire_spirit_enraged", {100, 1000, 10000}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_siege_hulker_passive", {150, 3000, 15000}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_triboss_powered_up_multiple", {0.1, 0.3, 1}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_tormented_staff_passive", {10, 150, 2000}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_sea_terror_armor_loss", {-100, -1000, -6000}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_fire_god_armor_break", 6000})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_stormshield_cloak", "armor"})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_chitinous_skin_stacks", {30, 300, 1000}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_sea_prophet_whirlpool_within", -1000})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_mountain_giant_ai", 5000})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_tomb_healing_shield",  {500, 5000, 50000}})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_grove_ancestral_bear_armor_break", {-70, -250, -500}})
-
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_chieftain_buff", "armor"})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_cruxal_armor_loss", "armor_loss_per_stack"})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_bladewielder_force", "armor"})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_chieftain_buff", "armor"})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_chieftain_buff", "armor"})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_chieftain_buff", "armor"})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_chieftain_buff", "armor"})
-table.insert(ENEMY_ARMOR_EFFECTS, {"modifier_chieftain_buff", "armor"})
-
-
--- GEAR ARMOR
-AGILITY_ARMOR = {{"modifier_agility_armor", 1}}
-GEAR_ARMOR = {}
-table.insert(GEAR_ARMOR, {"modifier_helm_armor", 1})
-table.insert(GEAR_ARMOR, {"modifier_hand_armor", 1})
-table.insert(GEAR_ARMOR, {"modifier_foot_armor", 1})
-table.insert(GEAR_ARMOR, {"modifier_body_armor", 1})
-table.insert(GEAR_ARMOR, {"modifier_trinket_armor", 1})
-
---ITEM EFFECTS
-ITEM_EFFECT_ARMOR = {}
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_hand_pride_effect", 50})
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_sea_oracle_armor_loss", -1})
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_bladeforge_debuff", -100})
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_violet_guard_armor_loss_invisible", -1})
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_direwolf_bulwark_effect", 1})
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_iron_colossus_attack_damage_increase", IRON_COLOSSUS_AMR_PER_STR})
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_sapphire_dragon_scale_effect", 0.4})
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_ruby_dragon_scale_effect", 0.4})
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_topaz_dragon_scale_effect", 0.4})
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_nightmare_rider_invisible", 1})
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_energizing_quest_gear_buff", 2})
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_mageplate_armor", 1})
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_crimsyth_elite_greaves_armor", 30})
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_devotion_aura_buff", 1})
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_rooted_feet_armor_portion", 1})
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_crest_of_the_umbral_sentinel_effect_invisible", -1})
-table.insert(ITEM_EFFECT_ARMOR, {"modifier_hood_of_defiler_armor_loss", -1})
--- ABILITIES
-HERO_ABILITY_ARMORS = {}
-
-table.insert(HERO_ABILITY_ARMORS, {"modifier_zonis_a_a_armor_loss", -35})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_axe_rune_r_3_visible", R3_BONUS_ARMOR})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_axe_glyph_2_2_visible", T22_ARMOR_DECREASE})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_warlord_rune_e_2", 25})
-
-table.insert(HERO_ABILITY_ARMORS, {"modifier_warlord_rune_e_1_effect", 1})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_fire_armor_sear", {-10, -50, -200, -500, -1000, -2000, -4000}})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_warlord_rune_q_2_invisible", 1})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_warlord_rune_q_3_invisible", -10})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_ice_block", 25})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_flamewaker_arcana_a_a_effect", FLAMEWAKER_ARCANA_Q1_ARMOR_PER_STACK})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_b_b_shimmer", 90})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_searing_heat", -5})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_flamewaker_rune_q_1", 40})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_flamewaker_rune_e_4", -35})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_ancient_rain_armor", 1})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_spirit_rune_e_2_buff", 10})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_flametongue_b_a_rune_invisible", -5})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_spirit_rune_e_2_buff", 12})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_fire_aspect", "aspect_armor"})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_earth_aspect", "aspect_armor"})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_shadow_aspect", "aspect_armor"})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_deity_grand_guardian", 100000})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_earth_aspect_health", "aspect_armor"})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_conjuror_q_1_buff", 15})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_fire_aspect_b_d_armor_shred", -1000})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_shadow_gate_b_d_effect", -15})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_soul_sear_debuff_effect", -20})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_rune_e_3", 15})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_gorudo_rune_r_1", -1})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_steelforge_stance", "armor"})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_energy_channel", "armor"})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_protector_d_b_armor_aura_effect", 150})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_immortal_weapon_2_stacks", "property_one"})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_bear_armor_buff", "armor_bonus"})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_wolf_rend_armor_loss", -1})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_mark_of_the_claw", "armor_bonus"})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_mark_of_the_claw_rune", "armor_bonus_rune"})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_wolf_rend_armor_loss", -1})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_astral_b_a_arcana_armor_loss", -130})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_astral_b_a_armor_loss", -65})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_charons_claw_glyph_4", -40})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_demon_hunter_w_2_inner_beast_inactive", 200})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_chernobog_rune_w_3_fervor_enemy_invisible", -15})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_chernobog_rune_e_2", 50})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_epoch_rune_w_2_visible", -50})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_paladin_c_b_armor", 100})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_paladin_rune_r_2", 0.5})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_paladin_r_1_aura_armor_stacks", PALADIN_R1_ARMOR})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_paladin_rune_r_2_invisible", 2})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_paladin_rune_r_4_effect", -0.5})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_voltex_rune_q_1_buff", "property_one"})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_voltex_rune_q_3", -2.5})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_voltex_rune_r_2_armor_loss", "property_two"})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_hydroxis_b_a_shield_invisible", 12})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_hydroxis_a_d", -100})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_shimmer_cape", 100})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_duskbringer_arcana_armor", 120})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_whirling_flail_imbue_shade_armor", 100})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_duskbringer_rune_w_4_invisible", -120})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_duskbringer_rune_e_1_effect", "property_two"})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_black_dominion_d_a_aura_effect", 150})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_familiar_armor_break", -100})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_auriun_rune_q_3_effect", 50})
-table.insert(HERO_ABILITY_ARMORS, {"modifier_auriun_rune_r_2_effect", 1})
+--ARMOR MODIFIER EFFECTS
+ARMOR_MODIFIER_EFFECTS = {modifier_armor_break_custom = {-40, -350, -1000},
+modifier_armor_break_ultra = {-100, -500, -3500},
+shredder_max_thinker_aura = -10,
+modifier_grizzled_tank_debuff = {-10, -500, -3000},
+modifier_paragon_great_wall = 10,
+modifier_wind_boss_slow = {-10, -50, -250},
+modifier_executioner_buff = {25, 520, 1500},
+modifier_armor_melt_custom = {-40, -400, -2000},
+modifier_terrasic_fire_key_holder_steam_physical = {5, 20, 70},
+modifier_blackguard_cripple = {-30, -300, -2000},
+fire_temple_armor_gain_on_attack = {10, 40, 150},
+modifier_fire_temple_red_dragon_blood_effect = {100, 700, 2000},
+fire_temple_protector_death_ability = {10, 80, 250},
+modifier_drill_spike_enemy = -250,
+modifier_champion_gladiator_passive_stacking = 50,
+modifier_supreme_ogre_passive = 3000,
+modifier_lies_arbiter_passive = 1500,
+modifier_descent_tombstone_passive = 3000,
+modifier_arena_grave_chill_target = -5000,
+modifier_arena_grave_chill_caster = 5000,
+modifier_autumn_spawner_passive = {4, 100, 1500},
+modifier_forest_roar_buff = {5, 500, 10000},
+modifier_forest_ranger_bleed = {-10, -600, -3500},
+modifier_canyon_predator_effect = {1, 10, 100},
+modifier_fire_god_armor_break = -6000,
+modifier_farmland_spawner_passive = {10, 150, 2000},
+modifier_crimsyth_recruiter_armor_loss = {-3, -25, -100},
+modifier_shipyard_gatekeeper_casting = 30000,
+modifier_warflayer_passive = {100, 800, 2000},
+shredder_max_thinker_aura = {-10, -300, -3000},
+modifier_clam_spawner_passive = {4, 100, 1500},
+modifier_ancient_tree_vision = -100,
+modifier_fire_spirit_enraged = {100, 1000, 10000},
+modifier_siege_hulker_passive = {150, 3000, 15000},
+modifier_triboss_powered_up_multiple = {0.1, 0.3, 1},
+modifier_tormented_staff_passive = {10, 150, 2000},
+modifier_sea_terror_armor_loss = {-100, -1000, -6000},
+modifier_fire_god_armor_break = 6000,
+modifier_stormshield_cloak = "armor",
+modifier_chitinous_skin_stacks = {30, 300, 1000},
+modifier_sea_prophet_whirlpool_within = -1000,
+modifier_mountain_giant_ai = 5000,
+modifier_tomb_healing_shield =  {500, 5000, 50000},
+modifier_grove_ancestral_bear_armor_break = {-70, -250, -500},
+modifier_chieftain_buff = "armor",
+modifier_cruxal_armor_loss = "armor_loss_per_stack",
+modifier_bladewielder_force = "armor",
+modifier_chieftain_buff = "armor",
+modifier_chieftain_buff = "armor",
+modifier_chieftain_buff = "armor",
+modifier_chieftain_buff = "armor",
+modifier_chieftain_buff = "armor",
+modifier_hand_pride_effect = 50,
+modifier_sea_oracle_armor_loss = -1,
+modifier_bladeforge_debuff = -100,
+modifier_violet_guard_armor_loss_invisible = -1,
+modifier_direwolf_bulwark_effect = 1,
+modifier_iron_colossus_attack_damage_increase = IRON_COLOSSUS_AMR_PER_STR,
+modifier_sapphire_dragon_scale_effect = 0.4,
+modifier_ruby_dragon_scale_effect = 0.4,
+modifier_topaz_dragon_scale_effect = 0.4,
+modifier_nightmare_rider_invisible = 1,
+modifier_energizing_quest_gear_buff = 2,
+modifier_mageplate_armor = 1,
+modifier_crimsyth_elite_greaves_armor = 30,
+modifier_devotion_aura_buff = 1,
+modifier_rooted_feet_armor_portion = 1,
+modifier_crest_of_the_umbral_sentinel_effect_invisible = -1,
+modifier_hood_of_defiler_armor_loss = -1,
+modifier_zonis_a_a_armor_loss = -35,
+modifier_axe_rune_r_3_visible = R3_BONUS_ARMOR,
+modifier_axe_glyph_2_2_visible = T22_ARMOR_DECREASE,
+modifier_warlord_rune_e_2 = 25,
+modifier_warlord_rune_e_1_effect= 1,
+modifier_fire_armor_sear= {-10, -50, -200, -500, -1000, -2000, -4000},
+modifier_warlord_rune_q_2_invisible = 1,
+modifier_warlord_rune_q_3_invisible = -10,
+modifier_ice_block = 25,
+modifier_flamewaker_arcana_a_a_effect = FLAMEWAKER_ARCANA_Q1_ARMOR_PER_STACK,
+modifier_b_b_shimmer = 90,
+modifier_searing_heat = -5,
+modifier_flamewaker_rune_q_1 = 40,
+modifier_flamewaker_rune_e_4 = -35,
+modifier_ancient_rain_armor = 1,
+modifier_spirit_rune_e_2_buff = 10,
+modifier_flametongue_b_a_rune_invisible = -5,
+modifier_spirit_rune_e_2_buff = 12,
+modifier_fire_aspect = "aspect_armor",
+modifier_earth_aspect = "aspect_armor",
+modifier_shadow_aspect = "aspect_armor",
+modifier_deity_grand_guardian = 100000,
+modifier_earth_aspect_health = "aspect_armor",
+modifier_conjuror_q_1_buff = 15,
+modifier_fire_aspect_b_d_armor_shred = -1000,
+modifier_shadow_gate_b_d_effect = -15,
+modifier_soul_sear_debuff_effect = -20,
+modifier_rune_e_3 = 15,
+modifier_gorudo_rune_r_1 = -1,
+modifier_steelforge_stance = "armor",
+modifier_energy_channel = "armor",
+modifier_protector_d_b_armor_aura_effect = 150,
+modifier_immortal_weapon_2_stacks = "property_one",
+modifier_bear_armor_buff = "armor_bonus",
+modifier_wolf_rend_armor_loss = -1,
+modifier_mark_of_the_claw = "armor_bonus",
+modifier_mark_of_the_claw_rune = "armor_bonus_rune",
+modifier_wolf_rend_armor_loss = -1,
+modifier_astral_b_a_arcana_armor_loss = -130,
+modifier_astral_b_a_armor_loss = -65,
+modifier_charons_claw_glyph_4 = -40,
+modifier_demon_hunter_w_2_inner_beast_inactive = 200,
+modifier_chernobog_rune_w_3_fervor_enemy_invisible = -15,
+modifier_chernobog_rune_e_2 = 50,
+modifier_epoch_rune_w_2_visible = -50,
+modifier_paladin_c_b_armor = 100,
+modifier_paladin_rune_r_2 = 0.5,
+modifier_paladin_r_1_aura_armor_stacks = PALADIN_R1_ARMOR,
+modifier_paladin_rune_r_2_invisible = 2,
+modifier_paladin_rune_r_4_effect = -0.5,
+modifier_voltex_rune_q_1_buff = "property_one",
+modifier_voltex_rune_q_3 = -2.5,
+modifier_voltex_rune_r_2_armor_loss = "property_two",
+modifier_hydroxis_b_a_shield_invisible = 12,
+modifier_hydroxis_a_d = -100,
+modifier_shimmer_cape = 100,
+modifier_duskbringer_arcana_armor = 120,
+modifier_whirling_flail_imbue_shade_armor = 100,
+modifier_duskbringer_rune_w_4_invisible = -120,
+modifier_duskbringer_rune_e_1_effect = "property_two",
+modifier_black_dominion_d_a_aura_effect = 150,
+modifier_familiar_armor_break = -100,
+modifier_auriun_rune_q_3_effect = 50,
+modifier_auriun_rune_r_2_effect = 1}
 
 
 
@@ -285,43 +273,45 @@ function CDOTA_BaseNPC:RoshpitSetPhysicalArmorBaseValue(base_armor)
 end
 
 function CDOTA_BaseNPC:CalculateTotalArmor()
-	local tables = {ENEMY_ARMOR_EFFECTS, ITEM_EFFECT_ARMOR, HERO_ABILITY_ARMORS}
-	local armor_bonus = 0
-	for t = 1, #tables, 1 do
-		local table = tables[t]
-		for i = 1, #table, 1 do
-			local value = table[i]
-			if self:HasModifier(value[1]) then
-				local modifier = self:FindModifierByName(value[1])
-				local stacks = math.max(self:GetModifierStackCount(value[1], modifier:GetCaster()), 1)
-				if type(value[2]) == "table" then
-					if modifier:GetAbility():GetLevel() > 0 then
-						armor_bonus = armor_bonus + value[2][modifier:GetAbility():GetLevel()]
-					end
-				elseif type(value[2]) == "string" then
-					armor_bonus = armor_bonus + modifier:GetAbility():GetLevelSpecialValueFor(value[2], modifier:GetAbility():GetLevel())
-				else
-					armor_bonus = armor_bonus + stacks*value[2]
-				end
-			end
-		end
-	end
 	local base_armor = self.base_armor
 	if not base_armor then
 		base_armor = 0
 	end
-	local tables = {AGILITY_ARMOR, GEAR_ARMOR}
-	for t = 1, #tables, 1 do
-		local table = tables[t]
-		for i = 1, #table, 1 do
-			local value = table[i]
-			if self:HasModifier(value[1]) then
-				local modifier = self:FindModifierByName(value[1])
-				local stacks = math.max(self:GetModifierStackCount(value[1], modifier:GetCaster()), 1)
-				base_armor = base_armor + stacks*value[2]
+	local armor_bonus = 0
+	local modifiers = self:FindAllModifiers()
+	for i = 1, #modifiers, 1 do
+		local modifier = modifiers[i]
+		local armor_value = ARMOR_MODIFIER_EFFECTS[modifier:GetName()]
+		if armor_value ~= nil then
+			local stacks = math.max(modifier:GetStackCount(), 1)
+			if type(armor_value) == "table" then
+				if modifier:GetAbility():GetLevel() > 0 then
+					armor_bonus = armor_bonus + armor_value[modifier:GetAbility():GetLevel()]
+				end
+			elseif type(armor_value) == "string" then
+				armor_bonus = armor_bonus + modifier:GetAbility():GetLevelSpecialValueFor(armor_value, modifier:GetAbility():GetLevel())
+			else
+				armor_bonus = armor_bonus + stacks*armor_value
+			end
+		end
+
+		local armor_value = BASE_ARMOR[modifier:GetName()]
+		if armor_value ~= nil then
+			local stacks = math.max(modifier:GetStackCount(), 1)
+			if type(armor_value) == "table" then
+				if modifier:GetAbility():GetLevel() > 0 then
+					base_armor = base_armor + armor_value[modifier:GetAbility():GetLevel()]
+				end
+			elseif type(armor_value) == "string" then
+				base_armor = base_armor + modifier:GetAbility():GetLevelSpecialValueFor(armor_value, modifier:GetAbility():GetLevel())
+			else
+				base_armor = base_armor + stacks*armor_value
 			end
 		end
 	end
+
+
+
 	if armor_bonus > 0 then
 		self:RemoveModifierByName("modifier_physical_armor_bonus_negative")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, self, "modifier_physical_armor_bonus", {})

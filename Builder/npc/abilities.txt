@@ -11578,7 +11578,7 @@
 			"modifier_armor_calculate"
 			{
 				"IsHidden"	"1"
-				"ThinkInterval"  "3.0"
+				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
 					"RunScript"
