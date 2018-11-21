@@ -4,6 +4,7 @@ function modifier_chernobog_d_c_arcana2:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+        MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT
         MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
     }
 
@@ -32,6 +33,10 @@ function modifier_chernobog_d_c_arcana2:GetModifierMoveSpeedBonus_Constant( para
     	bonus = bonus + self:GetAbility().e_4_level*3
     end
     return bonus
+end
+
+function modifier_chernobog_d_c_arcana2:GetModifierIgnoreMovespeedLimit()
+    return 1
 end
 
 function modifier_chernobog_d_c_arcana2:IsHidden()

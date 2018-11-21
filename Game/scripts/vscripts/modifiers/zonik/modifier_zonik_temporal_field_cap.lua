@@ -6,6 +6,7 @@ function modifier_zonik_temporal_field_cap:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+        MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT
     }
 
     return funcs
@@ -23,6 +24,10 @@ function modifier_zonik_temporal_field_cap:GetModifierMoveSpeed_AbsoluteMax( par
     return cap
 end
 
+function modifier_zonik_temporal_field_cap:GetModifierIgnoreMovespeedLimit()
+    return 1
+end
+
 function modifier_zonik_temporal_field_cap:GetModifierMoveSpeed_Limit( params )
 	-- local cap = self:GetAbility():GetSpecialValueFor("movespeed_cap") + self:GetAbility().e_4_level*10
  --    if self:GetAbility():GetOwner():HasModifier("modifier_zonik_speedball") then
@@ -38,4 +43,8 @@ end
 
 function modifier_zonik_temporal_field_cap:IsHidden()
     return true
+end
+
+function modifier_zonik_temporal_field_cap:GetModifierIgnoreMovespeedLimit()
+    return 1
 end

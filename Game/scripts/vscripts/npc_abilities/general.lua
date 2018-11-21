@@ -39,6 +39,7 @@ function general_hero_think(event)
 	if GridNav:IsTraversable(target:GetAbsOrigin()) then
 		target.safePos = target:GetAbsOrigin()
 	end
+	target.idealSpeed = target:GetIdealSpeed()
 end
 
 function unit_armor_think(event)

@@ -4,6 +4,7 @@ function modifier_draghor_feral_sprint:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+        MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT
     }
 
     return funcs
@@ -21,4 +22,8 @@ end
 
 function modifier_draghor_feral_sprint:IsHidden()
     return true
+end
+
+function modifier_draghor_feral_sprint:GetModifierIgnoreMovespeedLimit()
+    return 1
 end

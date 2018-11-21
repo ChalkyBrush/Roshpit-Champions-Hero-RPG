@@ -4,6 +4,7 @@ function slipfinn_shadow_rush_lua:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+        MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
         MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
         MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE
     }
@@ -44,4 +45,8 @@ function slipfinn_shadow_rush_lua:GetModifierMoveSpeedBonus_Constant( params )
 	local decay = modifier:GetRemainingTime()/self:GetParent().baseShadowRushDuration
     local bonus = math.max(msBonus*decay, 0)
 	return bonus
+end
+
+function slipfinn_shadow_rush_lua:GetModifierIgnoreMovespeedLimit()
+    return 1
 end

@@ -3,8 +3,9 @@ local class = modifier_disciple_bonus_movespeed
 
 function class:DeclareFunctions()
 	local funcs = {MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+	MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
 	MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX,
-	MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+	MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
 }
 	return funcs
 end
@@ -32,4 +33,8 @@ end
 
 function class:IsHidden()
 	return true
+end
+
+function class:GetModifierIgnoreMovespeedLimit()
+    return 1
 end
