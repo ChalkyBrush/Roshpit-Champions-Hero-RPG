@@ -104,6 +104,9 @@
 
 		"DOTA_Tooltip_modifier_paladin_rune_e_1_revivable"				"Second Coming"
 		"DOTA_Tooltip_modifier_paladin_rune_e_1_revivable_description" 	"Вы вернетесь через 4 секунды после смерти."
+		
+		"DOTA_Tooltip_modifier_paladin_rune_e_1_invulnerable"				"Second Coming"
+		"DOTA_Tooltip_modifier_paladin_rune_e_1_invulnerable_Description"	"Неуязвим."
 
 		"DOTA_Tooltip_modifier_paladin_rune_e_1_revive_cooldown"				"Resurrected"
 		"DOTA_Tooltip_modifier_paladin_rune_e_1_revive_cooldown_description" 	"Second Coming перезаряжается."

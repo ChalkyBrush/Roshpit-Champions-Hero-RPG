@@ -104,6 +104,9 @@
 
 		"DOTA_Tooltip_modifier_paladin_rune_e_1_revivable"				"Second Coming"
 		"DOTA_Tooltip_modifier_paladin_rune_e_1_revivable_description" 	"Will revive on death after 4 seconds."
+		
+		"DOTA_Tooltip_modifier_paladin_rune_e_1_invulnerable"				"Second Coming"
+		"DOTA_Tooltip_modifier_paladin_rune_e_1_invulnerable_Description"	"Immune to any damage."
 
 		"DOTA_Tooltip_modifier_paladin_rune_e_1_revive_cooldown"				"Resurrected"
 		"DOTA_Tooltip_modifier_paladin_rune_e_1_revive_cooldown_description" 	"Second Coming is cooling down."
