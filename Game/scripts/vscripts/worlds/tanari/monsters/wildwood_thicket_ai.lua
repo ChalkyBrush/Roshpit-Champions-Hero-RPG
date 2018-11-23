@@ -169,7 +169,7 @@ function friend_bat_attack(event)
 	local target = event.target
 	local hero = attacker.hero
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*20
-	ApplyDamage({ victim = target, attacker = hero, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
+	ApplyDamage({ victim = target, attacker = hero, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
 end
 
 function growth_detected_enemy(event)
@@ -200,7 +200,7 @@ function watcher_enemy_attack(event)
 			local stun_duration = event.stun_duration
 			local damage = event.damage
 			EmitSoundOn("Tanari.ThicketWatcher.Bash", target)
-			ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability})
+			ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
 			Filters:ApplyStun(attacker, stun_duration, target)
 			ability:StartCooldown(4.0)
 		end

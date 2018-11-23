@@ -1853,7 +1853,7 @@ function stormshield_main_think(event)
 			EmitSoundOn("ui.inv_equip_metalblade", caster.shieldTable[3])
 		end
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR })	
 		end
 	end 
 end

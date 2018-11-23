@@ -56,7 +56,7 @@ function slam(event)
 			local damage = Events:GetAdjustedAbilityDamage(3500, 300000, 500000)
 			for _,enemy in pairs(enemies) do
 
-				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
+				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR })
 				enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = 0.8})
 			end
 		end
