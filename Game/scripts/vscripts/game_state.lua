@@ -1622,9 +1622,19 @@ function GameState:FilterDamage(filterTable)
 	if not victim_index or not attacker_index then
 		return true
 	end
+	if not filterTable.entindex_inflictor_const then return false end
+	if EntIndexToHScript(filterTable.entindex_inflictor_const):GetName() == "auto_attack_damage_ability" then
+		filterTable.entindex_inflictor_const = nil
+	end
 	local difficultyDamageReduce = 1
 	local victim = EntIndexToHScript( victim_index )
 	local attacker = EntIndexToHScript( attacker_index )
+	
+	local abs = math.abs
+	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
+		local armor = victim:GetPhysicalArmorValue()
+		filterTable.damage = filterTable.damage * (1 - ((0.05 * armor) / (1 + 0.05 * abs(armor))))
+	end
 
 	if attacker:HasModifier("modifier_arkimus_archon_form") then
 		filterTable["damagetype_const"] = DAMAGE_TYPE_PURE

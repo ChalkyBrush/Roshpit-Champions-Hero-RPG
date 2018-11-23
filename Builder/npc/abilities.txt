@@ -68211,7 +68211,36 @@
 			}
 		}
 	}
+	
+	"auto_attack_damage_ability"
+	{
+		// General  
+		// ----------------------------------------------------------------------------------------
+		"BaseClass"              "ability_datadriven"
+		"AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"     "rubick_empty1"
 
+		"MaxLevel"               "1"
+		"RequiredLevel"          "-10"
+		"LevelsBetweenUpgrades"  "1"
+		"AbilityCastPoint"       "0.0"
+		"Modifiers"
+		{
+			"modifier_attack_land_basic"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"apply_attack_damage_basic"
+					}
+				}
+			}
+		}
+	}
 	
 	
 	

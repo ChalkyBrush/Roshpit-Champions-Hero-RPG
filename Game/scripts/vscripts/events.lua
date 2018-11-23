@@ -150,6 +150,9 @@ function GameMode:OnNPCSpawned(keys)
   -- This internal handling is used to set up main barebones functions
   GameMode:_OnNPCSpawned(keys)
   local npc = EntIndexToHScript(keys.entindex)
+  if npc:GetClassname() ~= "npc_dota_base_additive" and npc:GetUnitName() ~= "rune_unit" then
+    npc:AddNewModifier(nil, nil, "modifier_attack_land_basic", {})
+  end
   if npc:IsRealHero() then
     if not npc.strength_custom then
       npc.strength_custom = 20
@@ -1673,6 +1676,8 @@ function Events:SpawnGamemaster(position)
       Events.GameMaster:RemoveModifierByName("modifier_portal")
       Events.GameMaster.portal = Events.GameMaster:FindAbilityByName("town_portal")
       Events.GameMasterAbility = abil
+      Events.GameMasterAttackAbility = Events.GameMaster:AddAbility("auto_attack_damage_ability")
+      Events.GameMasterAttackAbility:SetLevel(1)
       return Events.GameMaster
 end
 
