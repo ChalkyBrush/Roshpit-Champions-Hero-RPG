@@ -1242,7 +1242,7 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_synthesis_vessel"	"合成圣器"
-		"synthesis_vessel_desc"								"使用: 将两件相同品质的物品（仅限不朽装备与至宝，不朽武器不能合成）合成一件全新的物品，若合成失败会返还素材。（物品1+物品2=物品1或者物品2）"
+		"synthesis_vessel_desc"								"使用: 将两件相同品质的物品（不朽装备，至宝装备，不朽武器）合成一件全新的物品，若合成失败会返还素材。（物品1+物品2=物品1或者物品2）"
 		"synthesize_button"									"SSR！"
 
 		"DOTA_Tooltip_ability_item_rpc_galactic_arcana_cache_piece_1"	"银河秘宝Ⅰ"

@@ -1242,7 +1242,7 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_synthesis_vessel"	"合成圣器"
-		"synthesis_vessel_desc"								"使用: 将两件相同品质的物品（仅限不朽装备与至宝，不朽武器不能合成）合成一件全新的物品，若合成失败会返还素材。（物品1+物品2=物品1或者物品2）"
+		"synthesis_vessel_desc"								"使用: 将两件相同品质的物品（不朽装备，至宝装备，不朽武器）合成一件全新的物品，若合成失败会返还素材。（物品1+物品2=物品1或者物品2）"
 		"synthesize_button"									"SSR！"
 
 		"DOTA_Tooltip_ability_item_rpc_galactic_arcana_cache_piece_1"	"银河秘宝Ⅰ"
@@ -3401,7 +3401,7 @@
         "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_suffix"              "%"
 
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1"                     "[R4] 地壳余震"
-        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_Description"         "大招有几率额外造成一道地裂，几率超过 100% 可以撕裂多道。并且额外提高每条地裂的撕裂距离。"
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_Description"         "大招有几率额外造成一道地裂，几率超过 100% 可以撕裂多道。并且额外提高每条地裂的撕裂距离。英勇飞跃释放的大招只享受一半的加成。"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_one"        "额外的地裂概率"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_suffix"              "%"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_two"        "额外距离"
@@ -3756,7 +3756,7 @@
 		"item_rpc_bahamut_glyph_5_1_description" 				"提高孤独之盾的持续时间 @glyph_property1 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"傲慢雕文"
-		"item_rpc_bahamut_glyph_6_1_description" 				"升华的冷却时间变为2倍，巴哈姆特的脉搏每5次造成1次 @glyph_property1 秒眩晕。"
+		"item_rpc_bahamut_glyph_6_1_description" 				"[E3]被动生效且不再降低移动速度。此外巴哈姆特的脉搏每5次造成1次 @glyph_property1 秒眩晕。"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"冲击雕文"
 		"item_rpc_bahamut_glyph_7_1_description" 				"提高巴哈姆特的脉搏的范围 @glyph_property1%"
