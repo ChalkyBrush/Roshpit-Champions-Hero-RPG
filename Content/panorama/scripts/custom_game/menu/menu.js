@@ -177,6 +177,7 @@ function CorrectDotaUI(){
 	parent.FindChildTraverse("HUDSkinPortrait").style.visibility = 'collapse';
 	parent.FindChildTraverse("SharedUnitControl").style.visibility = 'collapse';
 	parent.FindChildTraverse("SharedUnitsButton").style.visibility = 'collapse';
+	parent.FindChildTraverse("inventory_tpscroll_container").style.visibility = 'collapse';
 	// parent.FindChildTraverse("HUDSkinPortrait").style.marginLeft = '0px';
 	// parent.FindChildTraverse("center_with_stats").style.marginRight = '80px';
 

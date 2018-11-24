@@ -59,7 +59,7 @@ function final_land(event)
 		if #enemies > 0 then
 			local damage = Events:GetAdjustedAbilityDamage(2000, 50000, 0)
 			for _,enemy in pairs(enemies) do
-				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
+				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR })
 				enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = 0.4})
 			end
 		end

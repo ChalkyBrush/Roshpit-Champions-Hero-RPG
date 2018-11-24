@@ -34372,18 +34372,54 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shock_speed"				"1050"
+				"shock_speed"				"900"
 			}
-
+			
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shock_width"				"150"
+				"shock_width"				"200"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shock_damage"				"5000 45000 240000"
+				"shock_damage"				"2000 30000 300000"
+				"LinkedSpecialBonus"	"special_bonus_unique_magnus_4"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"pull_duration"				"0.2"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_slow"				"60"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_duration"				"2"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"scepter_distance"		"1725"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"scepter_speed"		"1200"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"pull_distance"		"100"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"basic_slow_duration"		"0.75"
 			}
 		}
 	}
@@ -68211,7 +68247,20 @@
 			}
 		}
 	}
+	
+	"auto_attack_damage_ability"
+	{
+		// General  
+		// ----------------------------------------------------------------------------------------
+		"BaseClass"              "ability_datadriven"
+		"AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"     "rubick_empty1"
 
+		"MaxLevel"               "1"
+		"RequiredLevel"          "-10"
+		"LevelsBetweenUpgrades"  "1"
+		"AbilityCastPoint"       "0.0"
+	}
 	
 	
 	

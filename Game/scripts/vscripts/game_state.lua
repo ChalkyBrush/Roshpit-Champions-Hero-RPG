@@ -1622,9 +1622,22 @@ function GameState:FilterDamage(filterTable)
 	if not victim_index or not attacker_index then
 		return true
 	end
+	if not filterTable.entindex_inflictor_const then return false end
+	if EntIndexToHScript(filterTable.entindex_inflictor_const):GetName() == "auto_attack_damage_ability" then
+		filterTable.entindex_inflictor_const = nil
+	end
 	local difficultyDamageReduce = 1
 	local victim = EntIndexToHScript( victim_index )
 	local attacker = EntIndexToHScript( attacker_index )
+	
+	local abs = math.abs
+	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
+		local armor = victim:GetPhysicalArmorValue()
+		if attacker:HasModifier("modifier_hand_marauder") and armor >= 0 then
+			armor = 0
+		end
+		filterTable.damage = filterTable.damage * (1 - ((0.05 * armor) / (1 + 0.05 * abs(armor))))
+	end
 
 	if attacker:HasModifier("modifier_arkimus_archon_form") then
 		filterTable["damagetype_const"] = DAMAGE_TYPE_PURE
@@ -1774,13 +1787,6 @@ function GameState:FilterDamage(filterTable)
 		if victim:HasModifier("modifier_hood_of_defiler_effect_visible") then
 			local multIncrease = victim:GetModifierStackCount("modifier_hood_of_defiler_effect_visible", victim.defiler)*0.25
 			mult = mult + multIncrease
-		end
-		if attacker:HasModifier("modifier_hand_marauder") then
-			if victim:GetPhysicalArmorValue() > 0 then
-				local armor = victim:GetPhysicalArmorValue()
-				local damageMult = 1 - (0.05*armor/(1 + (0.05 * math.abs(armor))))
-				filterTable["damage"] = filterTable["damage"]/damageMult
-			end
 		end
 		if victim:HasModifier('modifier_basilisk_plague_petrify') then
 			mult = mult + BASILISK_PLAGUE_PHYSICAL_POSTMIT

@@ -685,7 +685,7 @@ function Filters:ApplyDotDamage(caster, ability, target, damage, damage_type, sl
         if slot == -1 then
             Filters:ApplyItemDamage(target,caster,damage,dot_damage_type,ability, element1, element2)
         elseif slot == 0 then
-            ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = dot_damage_type })
+            ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = dot_damage_type, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR  })
         elseif slot == -2 then
             Filters:TakeArgumentsAndApplyDamage(target, caster, damage, dot_damage_type, -2, element1, element2)
         else
@@ -1772,7 +1772,7 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
     end
 
     for i=1,instances do
-        ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability })
+        ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR })
     end
 end
 
@@ -2861,7 +2861,7 @@ end
 function Filters:OdinCrit(attacker, victim, damage, damage_type)
     local proc = Filters:GetProc(attacker, 5)    
     if proc then
-        ApplyDamage({ victim = victim, attacker = attacker, damage = damage*20, damage_type = damage_type })
+        ApplyDamage({ victim = victim, attacker = attacker, damage = damage*20, damage_type = damage_type, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR })
         PopupDamage(victim, damage*20)
     end
 end
