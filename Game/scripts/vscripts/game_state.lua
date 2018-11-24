@@ -1627,8 +1627,10 @@ function GameState:FilterDamage(filterTable)
 			return false 
 		end
 	end
-	if EntIndexToHScript(filterTable.entindex_inflictor_const):GetName() == "auto_attack_damage_ability" then
-		filterTable.entindex_inflictor_const = nil
+	if filterTable.entindex_inflictor_const then
+		if EntIndexToHScript(filterTable.entindex_inflictor_const):GetName() == "auto_attack_damage_ability" then
+			filterTable.entindex_inflictor_const = nil
+		end
 	end
 	local difficultyDamageReduce = 1
 	local victim = EntIndexToHScript( victim_index )

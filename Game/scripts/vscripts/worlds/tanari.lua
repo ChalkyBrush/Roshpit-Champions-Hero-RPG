@@ -69,9 +69,9 @@ function Tanari:Debug()
     -- RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
     -- RPCItems:RollMountainProtectorArcana3(Vector(-4928, 2048))
     -- RPCItems:RollDunetreadBoots(Vector(-4928, 2048))
-    Arena = {}
-    Arena.PitLevel = 7
-    Weapons:RollLegendWeapon1(Vector(-4928, 2048), "bahamut")
+    -- Arena = {}
+    -- Arena.PitLevel = 7
+    -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "bahamut")
     -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "venomort")
     -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "venomort")
     -- RPCItems:RollSunCrystal(Vector(-4928, 2048), 100)
