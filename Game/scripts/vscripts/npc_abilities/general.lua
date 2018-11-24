@@ -36,6 +36,12 @@ function general_hero_think(event)
 	if GridNav:IsTraversable(target:GetAbsOrigin()) then
 		target.safePos = target:GetAbsOrigin()
 	end
+	if not target:HasModifier("modifier_ms_thinker") then
+		if Events.GameMaster then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, target, "modifier_ms_thinker", {})
+		end
+	end
+	-- CustomAttributes:CalcMovespeed(target)
 end
 
 function hero_aura_apply(event)
@@ -509,4 +515,20 @@ function recently_respawn_end(event)
 	local target = event.target
 	target:SetHealth(target:GetMaxHealth())
 	target:SetMana(target:GetMaxMana())
+end
+
+function ms_thinker(event)
+	local unit = event.target
+	unit:RemoveModifierByName("modifier_master_movespeed")
+	local baseSpeed = unit:GetBaseMoveSpeed()
+	local modifier = unit:GetMoveSpeedModifier(baseSpeed)
+	local modifier2 =unit:GetMoveSpeedModifier(0)
+	local ideal = unit:GetIdealSpeed()
+	if modifier2 > 100 then
+		unit.master_move_speed = modifier2 + baseSpeed
+		unit:AddNewModifier(unit, nil, "modifier_master_movespeed", {})
+	else
+		unit.master_move_speed = nil
+		unit:RemoveModifierByName("modifier_master_movespeed")
+	end
 end

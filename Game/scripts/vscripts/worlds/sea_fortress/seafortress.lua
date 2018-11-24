@@ -3189,6 +3189,7 @@ function Seafortress:SpawnBloodDrinker(position, fv)
   queen.reduc = 0.25
   Seafortress:SetTargetCastArgs(queen, 700, 0, 1, FIND_ANY_ORDER)
   queen:AddNewModifier( queen, nil, "modifier_movespeed_cap_super", {} )
+  Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, queen, "modifier_ms_thinker", {})
   return queen
 end
 
@@ -3834,6 +3835,7 @@ function Seafortress:SpawnBarnacleColossus(position, fv)
   queen.reduc = 0.005
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier( queen, nil, "modifier_movespeed_cap_super", {} )
+  Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, queen, "modifier_ms_thinker", {})
   Seafortress:SetTargetCastArgs(queen, 400, 0, 1, FIND_ANY_ORDER)
   return queen
 end
@@ -4002,6 +4004,7 @@ function Seafortress:SpawnDarkReefGuard(position, fv)
   queen.reduc = 0.2
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier( queen, nil, 'modifier_movespeed_cap_sonic', {} )
+  Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, queen, "modifier_ms_thinker", {})
   return queen
 end
 
@@ -4049,6 +4052,7 @@ function Seafortress:SpawnDarkReefElite(position, fv)
   queen:AddNewModifier( queen, nil, 'modifier_movespeed_cap_sonic', {} )
   queen.castAnimation = ACT_DOTA_CAST_ABILITY_4
   Seafortress:SetTargetCastArgs(queen, 900, 0, 6, FIND_FARTHEST)
+  Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, queen, "modifier_ms_thinker", {})
   return queen
 end
 
@@ -4059,6 +4063,7 @@ function Seafortress:SpawnFeatherGuard(position, fv)
   queen.reduc = 0.3
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier( queen, nil, 'modifier_movespeed_cap_sonic', {} )
+  Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, queen, "modifier_ms_thinker", {})
   return queen
 end
 
@@ -4070,6 +4075,7 @@ function Seafortress:SpawnSkultoth(position, fv)
   queen:SetRenderColor(0, 0, 255)
   Seafortress:smoothSizeChange(queen, 0.3, 3.5, 45)
   queen:AddNewModifier( queen, nil, 'modifier_movespeed_cap_sonic', {} )
+  Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, queen, "modifier_ms_thinker", {})
   EmitSoundOnLocationWithCaster(queen:GetAbsOrigin(), "Seafortress.Colossus.Shake", Events.GameMaster)
     local pfx = ParticleManager:CreateParticle( "particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
     ParticleManager:SetParticleControl(pfx, 0, queen:GetAbsOrigin())
@@ -4246,6 +4252,7 @@ function Seafortress:SpawnSiltbreakerBoss(position, fv)
   queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier( queen, nil, 'modifier_movespeed_cap_sonic', {} )
+  Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, queen, "modifier_ms_thinker", {})
   return queen
 end
 
@@ -4275,6 +4282,7 @@ function Seafortress:SpawnOceanCentaur(position, fv)
   Events:AdjustBossPower(queen, 8, 8, false)
   Seafortress:SetTargetCastArgs(queen, 900, 0, 2, FIND_ANY_ORDER)
   queen:AddNewModifier( queen, nil, 'modifier_movespeed_cap_sonic', {} )
+  Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, queen, "modifier_ms_thinker", {})
   return queen
 end
 
@@ -4285,6 +4293,7 @@ function Seafortress:SpawnOceanCentaurMaster(position, fv)
   Events:AdjustBossPower(queen, 8, 8, false)
   Seafortress:SetTargetCastArgs(queen, 900, 0, 2, FIND_ANY_ORDER)
   queen:AddNewModifier( queen, nil, 'modifier_movespeed_cap_sonic', {} )
+  Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, queen, "modifier_ms_thinker", {})
   return queen
 end
 
@@ -4296,6 +4305,7 @@ function Seafortress:SpawnOceanGiantBoss(position, fv)
   queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier( queen, nil, 'modifier_movespeed_cap_sonic', {} )
+  Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, queen, "modifier_ms_thinker", {})
   return queen
 end
 
@@ -4305,6 +4315,7 @@ function Seafortress:SpawnOracleOfSea(position, fv)
   queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier( queen, nil, 'modifier_movespeed_cap_sonic', {} )
+  Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, queen, "modifier_ms_thinker", {})
   return queen
 end
 
@@ -4514,6 +4525,7 @@ function Seafortress:SpawnAhnQhir(position, fv)
   queen.reduc = 0.05
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier( queen, nil, 'modifier_movespeed_cap_sonic', {} )
+  Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, queen, "modifier_ms_thinker", {})
   return queen
 end
 

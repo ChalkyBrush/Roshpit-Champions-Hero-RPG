@@ -84114,6 +84114,20 @@
 					}
 				}
 			}
+			"modifier_ms_thinker"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"ms_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
 			"modifier_rare_ghost_thinker"
 			{
 				"Passive"	"0"

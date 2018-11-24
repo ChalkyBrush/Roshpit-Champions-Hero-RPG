@@ -2680,6 +2680,7 @@ function fire_spirit_boss_think(event)
 		if caster:GetHealth() < caster:GetMaxHealth()*0.5 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_spirit_boss_enrage", {})
 			caster:AddNewModifier( caster, nil, 'modifier_movespeed_cap_sonic', {} )
+			Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_ms_thinker", {})
 			EmitSoundOn("Tanari.FireSpiritBoss.Enrage", caster)
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Tanari.FireSpiritBoss.EnrageBlast", caster)
 			StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_3, rate=1})

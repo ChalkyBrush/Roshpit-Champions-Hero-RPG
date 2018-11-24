@@ -682,6 +682,24 @@ CustomAttributes.MANA_REGEN_PER_INT = 0.1
 
 CustomAttributes.ATK_DMG_PER_PRIMARY = 2
 
+function CustomAttributes:CalcMovespeed(unit)
+	Timers:CreateTimer(0, function()
+		unit:RemoveModifierByName("modifier_master_movespeed")
+		local baseSpeed = unit:GetBaseMoveSpeed()
+		local modifier = unit:GetMoveSpeedModifier(baseSpeed)
+		local modifier2 =unit:GetMoveSpeedModifier(0)
+		local ideal = unit:GetIdealSpeed()
+		if modifier2 > 100 then
+			unit.master_move_speed = modifier2 + baseSpeed
+			unit:AddNewModifier(unit, nil, "modifier_master_movespeed", {})
+			return 0.1
+		else
+			unit.master_move_speed = nil
+			unit:RemoveModifierByName("modifier_master_movespeed")
+		end
+	end)
+end
+
 function CustomAttributes:ApplyStatBonusesToHero(hero)
 	local caster = hero.InventoryUnit
 	local ability = hero.InventoryUnit:FindAbilityByName("attribute_bonuses")

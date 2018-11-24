@@ -17,6 +17,15 @@ function modifier_movespeed_cap_super:GetModifierMoveSpeed_Limit( params )
     return 5200
 end
 
+function modifier_movespeed_cap_super:OnCreated( params)
+	local parent = self:GetParent()
+	if parent then
+		if Events.GameMaster then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, parent, "modifier_ms_thinker", {})
+		end
+	end
+end
+
 function modifier_movespeed_cap_super:IsHidden()
     return true
 end

@@ -874,6 +874,7 @@ end
 function dryad_speed_start(event)
 	local caster = event.caster
 	caster:AddNewModifier( caster, nil, 'modifier_movespeed_cap_sonic', {} )
+	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_ms_thinker", {})
 end
 
 function sea_exploder_go(event)
@@ -5409,6 +5410,7 @@ function sea_fortress_final_boss_think(event)
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_sven/sven_loadout.vpcf", caster, 3)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_final_boss_gods_strength", {})
 			caster:AddNewModifier( caster, caster, "modifier_movespeed_cap_super", {} )
+			Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_ms_thinker", {})
 		end
 	end
 	if not caster.flood then

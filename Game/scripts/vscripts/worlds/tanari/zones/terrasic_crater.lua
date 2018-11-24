@@ -354,6 +354,7 @@ function Tanari:TriggerTerrasicBeacon(startingAngle, desiredAngle, beaconStartLo
 				visionTracer:SetAbsOrigin(visionTracer:GetAbsOrigin()+Vector(0,0,120))
 				visionTracer:FindAbilityByName("dummy_unit"):SetLevel(1)
 				visionTracer:AddNewModifier( visionTracer, nil, 'modifier_movespeed_cap', nil )
+				Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, visionTracer, "modifier_ms_thinker", {})
 				Dungeons:LockCameraToUnitForPlayers(visionTracer, 9, units)
 					Timers:CreateTimer(0.1, function()
 						visionTracer:MoveToPosition(Vector(-2273, -4352))

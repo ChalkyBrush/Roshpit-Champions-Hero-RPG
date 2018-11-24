@@ -58,6 +58,8 @@ function Tanari:Debug()
     -- RPCItems:RollDirewolfBulkwark(Vector(-4928, 2048))
     -- RPCItems:RollDjanghorArcana1(Vector(-4928, 2048))
     RPCItems:RollHoodOfLords(Vector(-4928, 2048), true)
+
+    Tanari:SpawnVaultMaster(Vector(-4928, 2048), RandomVector(1))
     -- RPCItems:RollAnkhOfAncients(Vector(-4928, 2048))
     -- RPCItems:RollChernobogArcana1(Vector(-4928, 2048))
     -- RPCItems:RollChernobogArcana2(Vector(-4928, 2048))
