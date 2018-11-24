@@ -1622,7 +1622,11 @@ function GameState:FilterDamage(filterTable)
 	if not victim_index or not attacker_index then
 		return true
 	end
-	if not filterTable.entindex_inflictor_const then return false end
+	if not filterTable.entindex_inflictor_const then 
+		if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
+			return false 
+		end
+	end
 	if EntIndexToHScript(filterTable.entindex_inflictor_const):GetName() == "auto_attack_damage_ability" then
 		filterTable.entindex_inflictor_const = nil
 	end
