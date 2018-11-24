@@ -491,9 +491,9 @@ function GameMode:OnPlayerChat(keys)
           Winterblight:Debug()
         end    
   elseif string.match(text, "tutorial") then
-        -- if Beacons.cheats then
+        if Beacons.cheats then
           Tutorial:Debug()
-        -- end    
+        end    
   elseif string.match(text, "ladder") then
     if GameState:IsRedfallRidge() then
         if Beacons.cheats then
