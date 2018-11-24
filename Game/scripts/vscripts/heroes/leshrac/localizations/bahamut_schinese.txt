@@ -242,7 +242,7 @@
 		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"             "额外伤害"
 		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"                   "丢失魔法值%"		        			
         "DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"             "增加伤害"	  						
-        "DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix_two"               "移动速度%" 		  
+        "DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix_two"               "飞行速度%" 		  
 		 
         "DOTA_Tooltip_modifier_bahamut_arcana_w4_amp"                             "逆效力"
 		"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_Description"                 "基于神之领域的飞行速度增加伤害"
