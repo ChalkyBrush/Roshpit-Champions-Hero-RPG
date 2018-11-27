@@ -524,11 +524,13 @@ function ms_thinker(event)
 	local modifier = unit:GetMoveSpeedModifier(baseSpeed)
 	local modifier2 =unit:GetMoveSpeedModifier(0)
 	local ideal = unit:GetIdealSpeed()
-	if modifier2 > 100 then
-		unit.master_move_speed = modifier2 + baseSpeed
+	local max_ms = CustomAttributes:MSCap(unit)
+	if modifier2 > 100 and max_ms > 550 then
+		unit.master_move_speed = math.min(modifier2 + baseSpeed, max_ms)
 		unit:AddNewModifier(unit, nil, "modifier_master_movespeed", {})
 	else
 		unit.master_move_speed = nil
 		unit:RemoveModifierByName("modifier_master_movespeed")
 	end
 end
+

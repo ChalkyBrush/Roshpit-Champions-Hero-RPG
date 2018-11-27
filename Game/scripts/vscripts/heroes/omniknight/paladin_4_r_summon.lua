@@ -24,6 +24,7 @@ function knights_disciple_cast(event)
 	ParticleManager:SetParticleControl(pfx, 1, Vector(300,1,300))
 	ParticleManager:SetParticleControl(pfx, 2, summon:GetForwardVector())
 	summon.paladin = caster
+	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, summon, "modifier_ms_thinker", {})
 	Timers:CreateTimer(4, function() 
 	  ParticleManager:DestroyParticle( pfx, false )
 	end) 	
