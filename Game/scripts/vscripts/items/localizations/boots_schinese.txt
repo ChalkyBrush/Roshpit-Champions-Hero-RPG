@@ -166,7 +166,7 @@
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Ashara的鞋子"
 		 "item_property_boots_of_ashara"						"秋叶魅力"
-		 "property_boots_of_ashara_description"					"受到的伤害如果低于10%你的最大生命时，那么此次伤害减少90%。"
+		 "property_boots_of_ashara_description"					"当你的当前生命值低于或等于最大生命值的@special_property2%时，@Ability3的基础技能伤害增加 @special_property1X"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"砂流之鞋"

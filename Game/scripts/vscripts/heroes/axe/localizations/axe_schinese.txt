@@ -198,6 +198,7 @@
 
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1"                     "[R4] 地壳余震"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_Description"         "大招有几率额外造成一道地裂，几率超过 100% 可以撕裂多道。并且额外提高每条地裂的撕裂距离。英勇飞跃释放的大招只享受一半的加成。"
+
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_one"        "额外的地裂概率"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_suffix"              "%"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_two"        "额外距离"
