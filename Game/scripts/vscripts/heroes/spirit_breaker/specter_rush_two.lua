@@ -21,8 +21,8 @@ function begin_specter_rush_two(event)
 	if b_c_level > 0 then
 		local b_c_duration = 0.7 + 0.2*b_c_level
 		b_c_duration = Filters:GetAdjustedBuffDuration(caster, b_c_duration, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_ghost_armor", {duration = b_c_duration})
-		caster:SetModifierStackCount("modifier_duskbringer_ghost_armor", caster, 6)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_rune_e_2_effect", {duration = b_c_duration})
+		caster:SetModifierStackCount("modifier_duskbringer_rune_e_2_effect", caster, 6)
 	end
 
 	caster:RemoveModifierByName("modifier_duskbringer_rune_e_4_visible")
@@ -149,8 +149,8 @@ function immortal3_attack_land(event)
 		local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "duskbringer")
 		local b_c_duration = 0.7 + 0.2*b_c_level
 		b_c_duration = Filters:GetAdjustedBuffDuration(caster, b_c_duration, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_ghost_armor", {duration = b_c_duration})
-		caster:SetModifierStackCount("modifier_duskbringer_ghost_armor", caster, 5)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_rune_e_2_effect", {duration = b_c_duration})
+		caster:SetModifierStackCount("modifier_duskbringer_rune_e_2_effect", caster, 5)
 
 	end
 end

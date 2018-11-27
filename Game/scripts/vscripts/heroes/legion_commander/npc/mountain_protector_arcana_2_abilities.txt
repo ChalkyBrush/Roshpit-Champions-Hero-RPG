@@ -1,0 +1,303 @@
+
+	"mountain_protector_hailstorm"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"mountain_protector/hailstorm"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"20.0"
+		"AbilityChannelTime"	"2.0"
+		"AbilityCastRange"				"600"
+		"AOERadius"						"780"
+		"AbilityCastAnimation"	"ACT_DOTA_VICTORY"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityDamage"				"1400 6400 18000 45000 110000 240000 540000"
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"0"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
+				"Function"		"start_channel"
+			}
+
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
+				"Function"		"channel_complete"
+				"Target"			"POINT"
+				"radius"		"%AOERadius"
+				"damage"		"%AbilityDamage"
+				"numExplosions"	"%explosions"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
+				"Function"		"channel_interrupt"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_channel_start"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+						"EffectAttachType"			"follow_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"100 140 255"
+						"EffectAlphaScale"			"1"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+				}
+
+			}
+			"modifier_hailstorm_thinker"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
+						"Function"		"hailstorm_thinker_think"
+						"target"		"TARGET"
+						"stun_duration"	"%stun_duration"
+						"damage"		"%damage"
+						"damage_from_strength"		"%damage_from_strength"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
+						"Function"		"thinker_end"
+						"target"		"TARGET"
+					}
+				}
+
+			}
+			"modifier_hailstorm_aura_friendly"
+			{
+				"Aura"          	"modifier_hailstorm_aura_effect"
+				"Aura_Radius"   	"800"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "1"
+			}
+			"modifier_hailstorm_thinker_enemy"
+			{
+				"IsHidden"	"1"
+				"Aura"          	"modifier_hailstorm_aura_enemy"
+				"Aura_Radius"   	"800"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+			}
+			"modifier_hailstorm_aura_enemy"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_slow"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_slow_percent"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
+						"Function"		"hailstorm_enemy_aura_start"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_hailstorm_enemy_amp"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_hailstorm_enemy_amp"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+			}
+			"modifier_hailstorm_aura_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
+						"Function"		"hailstorm_aura_apply"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_hailstorm_strength"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_hailstorm_strength"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"mountain_protector/mountain_protector_rune_r_1_arcana2"
+			}
+			"modifier_hailstorm_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+			}
+			"modifier_frozen_stand"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"mountain_protector/mountain_protector_rune_r_2_arcana2"
+				"Passive"	"0"
+				"EffectName"	"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-200"
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "100"
+				    "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "100"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
+						"Function"		"frozen_stand_start"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
+						"Function"		"frozen_stand_end"
+					}
+				}
+			}
+			"modifier_hailstorm_ice_case_cooldown"
+			{
+				"TextureName"	"mountain_protector/mountain_protector_rune_r_2_arcana2"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"1.5"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"5400 18000 45000 110000 240000 540000 900000"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage_from_strength"	"100 150 200 250 300 350 400"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"move_slow_percent"	"-24 -26 -28 -30 -32 -34 -36"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"attack_slow"	"-40 -50 -60 -70 -80 -90 -100"
+			}
+		}
+	}
+

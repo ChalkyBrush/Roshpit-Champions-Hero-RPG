@@ -414,7 +414,7 @@ function WallPhysics:UnitLand(unit)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
-					ApplyDamage({ victim = enemy, attacker = caster, damage = 3000, damage_type = DAMAGE_TYPE_PHYSICAL })
+					ApplyDamage({ victim = enemy, attacker = caster, damage = 3000, damage_type = DAMAGE_TYPE_PHYSICAL, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR })
 					enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = 0.4})
 				end
 			end

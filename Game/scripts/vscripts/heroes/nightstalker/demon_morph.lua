@@ -22,10 +22,10 @@ end
 function begin_demon_morph(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	ability.r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
-	ability.r_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
-	ability.r_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	ability.r_1_level = caster:GetRuneValue("r", 1)
+	ability.r_2_level = caster:GetRuneValue("r", 2)
+	ability.r_3_level = caster:GetRuneValue("r", 3)
+	ability.r_4_level = caster:GetRuneValue("r", 4)
 	local particleName = "particles/roshpit/chernobog/demon_form_transition.vpcf"
 	if caster:HasModifier("modifier_demon_hunter") then
 		particleName = "particles/units/heroes/hero_shadow_demon/shadow_demon_disruption.vpcf"

@@ -927,7 +927,7 @@ function castleBossAttack(boss)
 		for _,enemy in pairs(enemies) do
 			EmitSoundOn("Hero_Abaddon.Attack", enemy)
 			local damage = Events:GetAdjustedAbilityDamage(280000, 500000, 5000000)
-			ApplyDamage({ victim = enemy, attacker = boss, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
+			ApplyDamage({ victim = enemy, attacker = boss, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR })
 			PopupDamage(enemy, damage)
 			local target = enemy
 			local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"

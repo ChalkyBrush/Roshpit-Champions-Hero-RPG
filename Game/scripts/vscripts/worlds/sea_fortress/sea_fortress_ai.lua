@@ -874,6 +874,7 @@ end
 function dryad_speed_start(event)
 	local caster = event.caster
 	caster:AddNewModifier( caster, nil, 'modifier_movespeed_cap_sonic', {} )
+	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_ms_thinker", {})
 end
 
 function sea_exploder_go(event)
@@ -1703,7 +1704,7 @@ function ursan_attack_land(event)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/ursa/ursa_swift_claw/ursa_swift_claw_left.vpcf", target, 1)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lycan/lycan_summon_wolves_cast.vpcf", target, 3)
 	local damage = 1000000000
-	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability })
+	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR })
 end
 
 function stormshield_cloak_shield_think(event)
@@ -4534,7 +4535,7 @@ function naga_summoner_think(event)
 					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 530, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 					if #enemies > 0 then
 						for _,enemy in pairs(enemies) do
-							ApplyDamage({ victim = enemy, attacker = caster, damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*5, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability })
+							ApplyDamage({ victim = enemy, attacker = caster, damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*5, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR })
 							if enemy:HasModifier("modifier_stun_immune") or enemy:HasModifier("modifier_recently_respawned") then
 							else
 								enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = 1})
@@ -5149,7 +5150,7 @@ function sea_oracle_attack_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local radius = caster:GetAttackRange()
+	local radius = caster:Script_GetAttackRange()
 	local attackTime = caster:GetAttackAnimationPoint()
 	Timers:CreateTimer(attackTime, function()
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
@@ -5409,6 +5410,7 @@ function sea_fortress_final_boss_think(event)
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_sven/sven_loadout.vpcf", caster, 3)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_final_boss_gods_strength", {})
 			caster:AddNewModifier( caster, caster, "modifier_movespeed_cap_super", {} )
+			Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_ms_thinker", {})
 		end
 	end
 	if not caster.flood then

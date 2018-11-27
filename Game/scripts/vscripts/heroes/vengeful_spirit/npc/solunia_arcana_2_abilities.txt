@@ -1,0 +1,303 @@
+
+	"solunia_solar_alpha_spark"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"solunia/solunia_solar_alpha_spark"
+		"AbilityCastPoint"	"0.1"
+		"AbilityCooldown"	"21"
+		"AbilityCastRange"				"800 900 1000 1100 1200 1300 1400"
+		"AOERadius"						"450"
+		"AbilityCastAnimation"	"ACT_DOTA_CHANNEL_START_ABILITY_4"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"0"
+		"OnAbilityPhaseStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Solunia.Arcana2.Warp"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/vengeful_spirit/alpha_spark.lua"
+				"Function"		"begin_alpha_spark"
+				"radius"		"%AOERadius"
+				"damage"		"%damage"
+				"stun_duration"	"%stun_duration"
+				"target"		"POINT"
+				"type"			"sun"
+			}
+
+		}
+
+
+		"Modifiers"
+		{
+
+			"modifier_solunia_solar_burn"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.5"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType" 	"attach_origin"
+				"TextureName"	"solunia/solunia_rune_r_2_arcana2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/supernova.lua"
+						"Function"		"supernova_burn_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/supernova.lua"
+						"Function"		"supernova_burn_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_solunia_glyph_6_1_ready"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_solunia_arcana_a_d_health_visible"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"solunia/solunia_rune_r_1_arcana2"
+			}
+			"modifier_solunia_arcana_a_d_health_invisible"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "10"
+				}
+			}
+			"modifier_solunia_c_d_arcana_shell"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"solunia/solunia_rune_r_3_arcana2"
+				"StatusEffectName" 		"particles/roshpit/solunia/status_arcana_shell.vpcf" 	   
+				"StatusEffectPriority"  "240"
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "100" 
+				}
+			}
+			"modifier_solunia_warp_flare_falling"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/warp_flare.lua"
+						"Function"		"after_flare_falling"
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"3000 10000 35000 105000 250000 500000 800000"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"1.6 1.8 2.0 2.2 2.4 2.6 2.8"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"cast_range"	"800 900 1000 1100 1200 1300 1400"
+			}
+		}
+	}
+
+	"solunia_lunar_alpha_spark"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"solunia/solunia_lunar_alpha_spark"
+		"AbilityCastPoint"	"0.1"
+		"AbilityCooldown"	"21"
+		"AbilityCastRange"				"800 900 1000 1100 1200 1300 1400"
+		"AOERadius"						"450"
+		"AbilityCastAnimation"	"ACT_DOTA_CHANNEL_START_ABILITY_4"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"0"
+		"OnAbilityPhaseStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Solunia.Arcana2.Warp"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/vengeful_spirit/alpha_spark.lua"
+				"Function"		"begin_alpha_spark"
+				"radius"		"%AOERadius"
+				"damage"		"%damage"
+				"stun_duration"	"%stun_duration"
+				"target"		"POINT"
+				"type"			"moon"
+			}
+
+		}
+
+
+		"Modifiers"
+		{
+
+			"modifier_solunia_lunar_burn"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.5"
+				"EffectName"		"particles/roshpit/solunia/lunarang_ambient.vpcf"
+				"EffectAttachType" 	"attach_origin"
+				"TextureName"	"solunia/solunia_rune_r_2_arcana2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/supernova.lua"
+						"Function"		"supernova_burn_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/supernova.lua"
+						"Function"		"supernova_burn_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_solunia_glyph_6_1_ready"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_solunia_arcana_a_d_health_visible"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"solunia/solunia_rune_r_1_arcana2"
+			}
+			"modifier_solunia_arcana_a_d_health_invisible"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "10"
+				}
+			}
+			"modifier_solunia_c_d_arcana_shell"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"solunia/solunia_rune_r_3_arcana2"
+				"StatusEffectName" 		"particles/roshpit/solunia/status_arcana_shell.vpcf" 	   
+				"StatusEffectPriority"  "240"
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "100" 
+				}
+			}
+			"modifier_solunia_warp_flare_falling"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/warp_flare.lua"
+						"Function"		"after_flare_falling"
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"3000 10000 35000 105000 250000 500000 800000"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"1.6 1.8 2.0 2.2 2.4 2.6 2.8"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"cast_range"	"800 900 1000 1100 1200 1300 1400"
+			}
+		}
+	}
+

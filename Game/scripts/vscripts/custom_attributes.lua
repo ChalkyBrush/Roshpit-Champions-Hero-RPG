@@ -3,13 +3,13 @@ if CustomAttributes == nil then
 end
 
 local hero_values = {
-	venomort = require('/heroes/hero_necrolyte/constants'),
 	mountain_protector = require('/heroes/legion_commander/constants'),
 }
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/antimage/arkimus_constants')
 require('/heroes/juggernaut/seinaru_constants')
 require('/heroes/dark_seer/zhonik_constants')
+require('/heroes/hero_necrolyte/constants')
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -45,7 +45,6 @@ CustomAttributes.SORCERESS_ARCANE_INT = 50
 CustomAttributes.TRAPPER_R4_AGI = 500
 CustomAttributes.SEPHYR_Q1_INT = 125
 CustomAttributes.SEPHYR_R4_AGI_INT = 500
-CustomAttributes.VENOMORT_W3_STATS = hero_values.venomort.W3_BONUS_ATTRIBUTES
 
 CustomAttributes.RING_OF_NOBILITY = 30
 CustomAttributes.RING_OF_NOBILITY2 = 60
@@ -405,6 +404,9 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_trapper_rune_r_4_bonus_agi") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_trapper_rune_r_4_bonus_agi", CustomAttributes.TRAPPER_R4_AGI)
 	end
+	if hero:HasModifier("shadow_deity_agility_from_gear") then
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "shadow_deity_agility_from_gear", 1)
+	end
 	if hero:HasModifier("modifier_lightbomb_a_a") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_lightbomb_a_a", CustomAttributes.SEPHYR_Q1_INT)
 	end
@@ -413,9 +415,9 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_nefali_d_d", CustomAttributes.SEPHYR_R4_AGI_INT)
 	end
 	if hero:HasModifier("modifier_venomort_bonus_stats") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", CustomAttributes.VENOMORT_W3_STATS)
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", CustomAttributes.VENOMORT_W3_STATS)
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", CustomAttributes.VENOMORT_W3_STATS)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", W3_BONUS_ATTRIBUTES)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", W3_BONUS_ATTRIBUTES)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", W3_BONUS_ATTRIBUTES)
 	end
 	if hero:HasModifier("modifier_conjuror_arcana2") then
 		str_bonus = str_bonus - CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_w_4_str_decrease", 1)
@@ -680,6 +682,24 @@ CustomAttributes.MANA_REGEN_PER_INT = 0.1
 
 CustomAttributes.ATK_DMG_PER_PRIMARY = 2
 
+function CustomAttributes:CalcMovespeed(unit)
+	Timers:CreateTimer(0, function()
+		unit:RemoveModifierByName("modifier_master_movespeed")
+		local baseSpeed = unit:GetBaseMoveSpeed()
+		local modifier = unit:GetMoveSpeedModifier(baseSpeed)
+		local modifier2 =unit:GetMoveSpeedModifier(0)
+		local ideal = unit:GetIdealSpeed()
+		if modifier2 > 100 then
+			unit.master_move_speed = modifier2 + baseSpeed
+			unit:AddNewModifier(unit, nil, "modifier_master_movespeed", {})
+			return 0.1
+		else
+			unit.master_move_speed = nil
+			unit:RemoveModifierByName("modifier_master_movespeed")
+		end
+	end)
+end
+
 function CustomAttributes:ApplyStatBonusesToHero(hero)
 	local caster = hero.InventoryUnit
 	local ability = hero.InventoryUnit:FindAbilityByName("attribute_bonuses")
@@ -764,8 +784,8 @@ function CustomAttributes:GetMaxHealth(hero, strength_health)
 	if hero:HasModifier("modifier_trinket_max_health") then
 		maxHealth = maxHealth + hero:GetModifierStackCount("modifier_trinket_max_health", hero.InventoryUnit)
 	end
-	if hero:HasModifier("modifier_venomort_rune_e_4_invisible") then
-		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_rune_e_4_invisible", 300)
+	if hero:HasModifier("modifier_venomort_e4_hero_bonus_invisible") then
+		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_e4_hero_bonus_invisible", E4_HP_PER_ENEMY)
 	end
 	if hero:HasModifier("modifier_solunia_rune_e_4_effect") then
 		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_rune_e_4_effect", CustomAttributes.SOLUNIA_E4_MAX_HEALTH)
@@ -796,7 +816,7 @@ function CustomAttributes:GetMaxHealth(hero, strength_health)
 		maxHealth = maxHealth + maxHealth*(CONJUROR_ARCANA_Q2_PERCENT_HEALTH/100)*hero:GetModifierStackCount("modifier_earth_deity_q_2", hero)
 	end
 	if hero:HasModifier("modifier_helm_of_the_mountain_giant") then
-		maxHealth = maxHealth + CustomAttributes:GetBaseMaxHealth(maxHealth, hero) * 2 
+		maxHealth = CustomAttributes:GetBaseMaxHealth(maxHealth, hero) * 2 
 	end
 	return maxHealth
 end
@@ -816,15 +836,15 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	tableData.magic = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL))*100
 	tableData.pure = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE))*100
 
-	tableData.phys = tableData.phys - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL) - 1)*100
-	tableData.magic = tableData.magic - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL) - 1)*100
-	tableData.pure = tableData.pure - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1)*100
+	tableData.phys = tostring(tableData.phys - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL) - 1)*100)
+	tableData.magic = tostring(tableData.magic - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL) - 1)*100)
+	tableData.pure = tostring(tableData.pure - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1)*100)
 	local level = unit:GetLevel()
 	if unit:IsHero() then
-		unit.q_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 0)
-		unit.w_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 1)
-		unit.e_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 2)
-		unit.r_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 3)
+		unit.q_4_level = unit:GetRuneValue("q", 4)
+		unit.w_4_level = unit:GetRuneValue("w", 4)
+		unit.e_4_level = unit:GetRuneValue("e", 4)
+		unit.r_4_level = unit:GetRuneValue("r", 4)
 	else
 		if unit.itemLevel then
 			level = math.ceil(unit.itemLevel/4)
@@ -833,9 +853,9 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 		end
 		level = math.min(level + (GameState:GetDifficultyFactor()-1)*35, 120)
 		if unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
-			ApplyDamage({ victim = unit, attacker = Events.GameMaster, damage = 10000000000, damage_type = DAMAGE_TYPE_PHYSICAL, ability = Events.GameMasterAbility })
-			ApplyDamage({ victim = unit, attacker = Events.GameMaster, damage = 10000000000, damage_type = DAMAGE_TYPE_MAGICAL, ability = Events.GameMasterAbility })
-			ApplyDamage({ victim = unit, attacker = Events.GameMaster, damage = 10000000000, damage_type = DAMAGE_TYPE_PURE, ability = Events.GameMasterAbility })
+			GameState:FilterDamage({ entindex_victim_const = unit:GetEntityIndex(), entindex_attacker_const = Events.GameMaster:GetEntityIndex(), damage = 10000000000, damagetype_const = DAMAGE_TYPE_PHYSICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex() })
+			GameState:FilterDamage({ entindex_victim_const = unit:GetEntityIndex(), entindex_attacker_const = Events.GameMaster:GetEntityIndex(), damage = 10000000000, damagetype_const = DAMAGE_TYPE_MAGICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex() })
+			GameState:FilterDamage({ entindex_victim_const = unit:GetEntityIndex(), entindex_attacker_const = Events.GameMaster:GetEntityIndex(), damage = 10000000000, damagetype_const = DAMAGE_TYPE_PURE, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex() })
 			tableData.phys = tostring(unit.resist_phys*100)
 			tableData.magic = tostring(unit.resist_mag*100)
 			tableData.pure = tostring(unit.resist_pure*100)
@@ -930,4 +950,85 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	tableData.rAmp = math.floor((rDamage/baseDamage)*100)
 	CustomGameEventManager:Send_ServerToPlayer(player, "attribute_tooltip", {unit = msg.queryunit, playerID = msg.playerID, extraData = tableData, IsEnemy = IsEnemy} )
 	Events:TutorialServerEvent(unit, "1_3", 0)
+end
+
+CustomAttributes.MS_CAP_MODIFIERS = {modifier_arkimus_speed_dash = 1300,
+modifier_axe_immortal_weapon_2_cap = 820,
+modifier_chernobog_d_c_arcana2 = "modifier_chernobog_d_c_arcana2",
+modifier_movespeed_cap_shadow_walk_1 = 550,
+modifier_movespeed_cap_shadow_walk_2 = 575,
+modifier_movespeed_cap_shadow_walk_3 = 600,
+modifier_movespeed_cap_shadow_walk_4 = 625,
+modifier_movespeed_cap_shadow_walk_5 = 650,
+modifier_movespeed_cap_shadow_walk_6 = 675,
+modifier_movespeed_cap_shadow_walk_7 = 700,
+modifier_dinath_passive_ms_cap = "modifier_dinath_passive_ms_cap",
+modifier_draghor_feral_sprint = "modifier_draghor_feral_sprint",
+modifier_movespeed_cap = 1400,
+modifier_movespeed_cap_glyph = 620,
+modifier_movespeed_cap_heat_wave = 640,
+modifier_movespeed_cap_sonic = 750,
+modifier_movespeed_cap_super = 5200,
+modifier_movespeed_cap_shadow_walk_1 = 640,
+modifier_disciple_bonus_movespeed = 800,
+modifier_seinaru_glyph_t21_movespeed_cap = "modifier_seinaru_glyph_t21_movespeed_cap",
+slipfinn_shadow_rush_lua = "slipfinn_shadow_rush_lua",
+modifier_zonik_lightspeed_cap = "modifier_zonik_lightspeed_cap",
+modifier_zonik_speedball_cap = "modifier_zonik_speedball_cap",
+modifier_zonik_temporal_field_cap = "modifier_zonik_temporal_field_cap"
+} 
+
+function CustomAttributes:MSCap(unit)
+	local buffs = unit:FindAllModifiers()
+	local max_ms = 550
+	for i = 1, #buffs, 1 do
+		local modifier = buffs[i]
+		local ms_cap_modifier = CustomAttributes.MS_CAP_MODIFIERS[modifier:GetName()]
+		if ms_cap_modifier then
+			if type(ms_cap_modifier) == "number" then
+				max_ms = math.max(max_ms, ms_cap_modifier)
+			elseif type(ms_cap_modifier) == "string" then
+				local modifier_ability = modifier:GetAbility()
+				if ms_cap_modifier == "modifier_chernobog_d_c_arcana2" then
+					max_ms = math.max(max_ms, modifier_ability.e_4_level*3)
+				elseif ms_cap_modifier == "modifier_dinath_passive_ms_cap" then
+					max_ms = math.max(max_ms, modifier_ability.w_3_level*5)
+				elseif ms_cap_modifier == "modifier_draghor_feral_sprint" then
+					max_ms = math.max(max_ms, modifier_ability:GetSpecialValueFor("movespeed_cap"))
+				elseif ms_cap_modifier == "modifier_seinaru_glyph_t21_movespeed_cap" then
+			    	local q2_level = unit:GetRuneValue("q", 2)
+			    	max_ms = math.max(max_ms, 550 + q2_level * SEINARU_GLYPH2_MOVESPEED_CAP_PER_Q2	)
+			    elseif ms_cap_modifier == "slipfinn_shadow_rush_lua" then
+					local decay = modifier:GetRemainingTime()/unit.baseShadowRushDuration
+					local msBonus = unit:FindAbilityByName("slipfinn_shadow_rush"):GetLevelSpecialValueFor("ms_bonus_and_max", modifier:GetAbility():GetLevel())
+				    max_ms = math.max(msBonus*decay, max_ms)
+				elseif ms_cap_modifier == "modifier_zonik_lightspeed_cap" then
+				    local cap = 600
+			    	cap = modifier:GetAbility():GetSpecialValueFor("movespeed_cap") + modifier_ability.e_4_level*ZHONIK_E4_MS_CAP_INCREASE
+			        if unit:HasModifier("modifier_zonik_speedball") then
+			            cap = cap + 600
+			        end
+			        if unit:HasModifier("modifier_zonik_glyph_5_1") then
+			            cap = cap + 200
+			        end	
+			        max_ms = math.max(cap, max_ms)
+			    elseif ms_cap_modifier == "modifier_zonik_speedball_cap" then
+					local cap = 550 + modifier_ability:GetSpecialValueFor("movespeed_cap")
+				    if unit:HasModifier("modifier_zonik_lightspeed") then
+				        cap = cap + unit:FindAbilityByName("zonik_lightspeed"):GetSpecialValueFor("movespeed_cap")-550
+				    end
+				    if unit:FindAbilityByName("zonik_lightspeed") and unit:FindAbilityByName("zonik_lightspeed").e_4_level and unit:HasModifier("modifier_zonik_lightspeed") then
+				        cap = cap + ZHONIK_E4_MS_CAP_INCREASE*unit:FindAbilityByName("zonik_lightspeed").e_4_level
+				    end
+				    if unit:HasModifier("modifier_zonik_lightspeed") and unit:HasModifier("modifier_zonik_glyph_5_1") then
+				        cap = cap + 200
+				    end	
+				    max_ms = math.max(cap, max_ms)	
+				elseif ms_cap_modifier == "modifier_zonik_temporal_field_cap" then
+					max_ms = math.max(modifier_ability:GetSpecialValueFor("movespeed_cap"), max_ms)	    			
+				end
+			end
+		end
+	end
+	return max_ms
 end

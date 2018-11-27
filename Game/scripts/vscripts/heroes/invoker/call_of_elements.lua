@@ -9,7 +9,11 @@ function channel_start(event)
 		EmitSoundOn("Conjuror.ElementalDeity.Cast", caster)
 		StartAnimation(caster, {duration=2.5, activity=ACT_DOTA_FLAIL, rate=2.0})
 	end
-	caster.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "conjuror")
+	if caster.q_4_level then
+		caster.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "conjuror")
+	else
+		--Arcana R deity cast, seems we dont need it.
+	end
 end
 
 function begin_call(event)
@@ -63,7 +67,11 @@ function begin_call(event)
 	    	end
 	    end
 	    local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "conjuror")
-	    caster:FindAbilityByName("summon_shadow_aspect").r_3_level = c_d_level
+	    if caster:HasAbility("summon_shadow_aspect") then
+	    	caster:FindAbilityByName("summon_shadow_aspect").r_3_level = c_d_level
+	    elseif caster:HasAbility("summon_shadow_deity") then
+	    	caster:FindAbilityByName("summon_shadow_deity").r_3_level = c_d_level
+	    end
 	    if caster.shadowAspect then
 	    	applyCalls(ability, caster.shadowAspect, earth, fire, shadow, caster, 1.1, growCount)
 	    	if c_d_level > 0 then

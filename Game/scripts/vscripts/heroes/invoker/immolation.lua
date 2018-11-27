@@ -139,7 +139,7 @@ function fire_aspect_attack_land(event)
 				critmult = 0.6
 			end
 			local bonusDamage = attack_damage*(w_3_level*critmult)
-			Filters:TakeArgumentsAndApplyDamage(target, attacker, bonusDamage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			-- Filters:TakeArgumentsAndApplyDamage(target, attacker, bonusDamage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)--obsolete
 			PopupDamage(target, bonusDamage+attack_damage)
 			EmitSoundOn("Hero_Batrider.Flamebreak", target)
 			if attacker.conjuror then

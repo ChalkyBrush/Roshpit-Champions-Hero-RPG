@@ -21,7 +21,7 @@ function flood_basin_start(event)
 	if not ability.basin_table then
 		ability.basin_table = {}
 	end
-	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	ability.r_1_level = caster:GetRuneValue("r", 1)
 	local castLoops = 0
     if caster:HasModifier("modifier_hydroxis_glyph_1_1") then
       castLoops = 1
@@ -29,7 +29,7 @@ function flood_basin_start(event)
     if event.alt_particle then
     	castLoops = 0
     end
-    ability.r_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+    ability.r_3_level = caster:GetRuneValue("r", 3)
     for i = 0, castLoops, 1 do
     	Timers:CreateTimer(i*2, function()
     		local target_position = event.target_position
@@ -51,7 +51,7 @@ function flood_basin_start(event)
 			basin_dummy:SetNightTimeVisionRange(event.radius + 100)
 			basin_dummy:SetDayTimeVisionRange(event.radius + 100)
 			local baseDuration = 15
-			local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+			local b_d_level = caster:GetRuneValue("r", 2)
 			local basin_duration = baseDuration + b_d_level*0.25
 			if event.alt_particle then
 				ability:ApplyDataDrivenModifier(caster, basin_dummy, "modifier_flood_basin_aura_small", {duration = basin_duration})
@@ -188,7 +188,7 @@ end
 function basin_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	local d_d_level = caster:GetRuneValue("r", 4)
 	if d_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_basin_d_d", {})
 		caster:SetModifierStackCount("modifier_hydroxis_basin_d_d", caster, d_d_level)

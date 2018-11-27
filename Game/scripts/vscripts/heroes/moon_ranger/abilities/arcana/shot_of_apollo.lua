@@ -32,9 +32,9 @@ function beginChannel(event)
 	end
 	ability.pfx = pfx
 	StartSoundEvent("Astral.ApolloStart", caster)
-	ability.w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
-	ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
-	ability.w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	ability.w_1_level = caster:GetRuneValue("w", 1)
+	ability.w_3_level = caster:GetRuneValue("w", 3)
+	ability.w_4_level = caster:GetRuneValue("w", 4)
 end
 
 function channel_interrupt(event)
@@ -60,7 +60,7 @@ function beginCast(event)
 	if caster:HasModifier("modifier_astral_glyph_3_1") then
 		shots = 9
 	end
-	local w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+	local w_2_level = caster:GetRuneValue("w", 2)
 	shots = shots + Runes:Procs(w_2_level, 2*ability:GetLevel(), 1)
 	ability.shots = shots
 	if ability.pfx then

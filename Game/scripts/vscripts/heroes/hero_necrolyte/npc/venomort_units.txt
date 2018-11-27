@@ -1,4 +1,5 @@
-"venomort_viper_summon"
+
+    "venomort_viper_summon"
     {
         "BaseClass" "npc_dota_creature"
         "Model" "models/heroes/viper/viper.vmdl"

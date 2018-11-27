@@ -14,6 +14,8 @@ require('glyphs')
 require('paragon')
 require('elements')
 
+Beacons.cheats = false
+
 
 if Events == nil then
   Events = class({})
@@ -34,6 +36,7 @@ STARS_INCREASE_MITHRIL_ADDITIVE = false
 MITHRIL_INCREASE_PER_STAR_PCT = 0.08
 
 ROSHPIT_URL = "https://roshpit.herokuapp.com"
+ROSHPIT_VERSION = '3.8A'
 
 
 SPAWN_POINT_OPEN_1 = Vector(-7232, -6464)
@@ -84,7 +87,7 @@ function GameMode:OnGameRulesStateChange(keys)
 
   GameMode.VoteSystem = {}
   GameMode.VoteSystem.junk_loot_disabled = false  
-  GameMode.VoteSystem.crystal_loot_disabled = false  
+  GameMode.VoteSystem.crystal_loot_disabled = false
   -- This internal handling is used to set up main barebones functions
   GameMode:_OnGameRulesStateChange(keys)
 
@@ -147,6 +150,9 @@ function GameMode:OnNPCSpawned(keys)
   -- This internal handling is used to set up main barebones functions
   GameMode:_OnNPCSpawned(keys)
   local npc = EntIndexToHScript(keys.entindex)
+  if npc:GetClassname() ~= "npc_dota_base_additive" and npc:GetUnitName() ~= "rune_unit" then
+    npc:AddNewModifier(nil, nil, "modifier_attack_land_basic", {})
+  end
   if npc:IsRealHero() then
     if not npc.strength_custom then
       npc.strength_custom = 20
@@ -485,9 +491,9 @@ function GameMode:OnPlayerChat(keys)
           Winterblight:Debug()
         end    
   elseif string.match(text, "tutorial") then
-        -- if Beacons.cheats then
+        if Beacons.cheats then
           Tutorial:Debug()
-        -- end    
+        end    
   elseif string.match(text, "ladder") then
     if GameState:IsRedfallRidge() then
         if Beacons.cheats then
@@ -1150,6 +1156,7 @@ function Events:SetupHeroes(heroEntity)
 
 
     CustomNetTables:SetTableValue("hero_index", tostring(heroEntity:GetEntityIndex()), {playerOwner = tostring(heroEntity:GetPlayerID())} )
+    heroEntity:AddNewModifier(nil, nil, "modifier_client_setting", {})
     heroEntity:SetAbilityPoints(0)
     ownerID = heroEntity:GetPlayerOwnerID()
     heroEntity.owner = ownerID
@@ -1557,7 +1564,7 @@ end
 
 function Events:beginQuests()
   -- print("BEGINQUESTS IS HAPPENING")
-   -- Beacons:DEBUG()
+    -- Beacons:DEBUG()
 end
 
 function Events:InitGameEntities()
@@ -1669,6 +1676,8 @@ function Events:SpawnGamemaster(position)
       Events.GameMaster:RemoveModifierByName("modifier_portal")
       Events.GameMaster.portal = Events.GameMaster:FindAbilityByName("town_portal")
       Events.GameMasterAbility = abil
+      Events.GameMasterAttackAbility = Events.GameMaster:AddAbility("auto_attack_damage_ability")
+      Events.GameMasterAttackAbility:SetLevel(1)
       return Events.GameMaster
 end
 

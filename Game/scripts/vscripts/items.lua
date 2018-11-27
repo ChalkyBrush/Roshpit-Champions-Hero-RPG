@@ -243,6 +243,7 @@ function RPCItems:RollBasicPotion(xpBounty, deathLocation, rarity, unitLevel)
     end
 
     RPCItems:SetTableValues(item, itemName, true, "Can be consumed for bonuses.", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
+    RPCItems:ClearRollTableFromIndex(item)
     RPCItems:DropItem(item, position)
 end
 
@@ -825,6 +826,18 @@ function RPCItems:GetMinLevel()
 	end
 	minLevel = math.min(minLevel, 100)
 	return minLevel
+end
+
+function RPCItems:RemovePropertyValues(item)
+	for i = 2,4 do
+		CustomNetTables:SetTableValue( "item_properties", tostring(item:GetEntityIndex()).."-"..tostring(i), {})
+	end
+end
+
+function RPCItems:ClearRollTableFromIndex(item)
+	if RPCItems.indexesRolled then
+		RPCItems.indexesRolled[item:GetEntityIndex()] = nil
+	end
 end
 
 function RPCItems:SetPropertyValues(item, propertyValue, propertyName, propertyColor, propertyNumber)

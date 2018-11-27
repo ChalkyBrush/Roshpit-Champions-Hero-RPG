@@ -1,0 +1,81 @@
+
+    "paladin_disciple"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/dragon_knight/dragon_knight.vmdl"
+        "ModelScale"    "0.82"
+        "Level" "1"
+        "HealthBarOffset"   "240"
+        "HasInventory"  "0"
+        "SelectionGroup"    "doomguard"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"       "Hero_DragonKnight"
+        "precache"
+        {
+
+        }
+        "ArmorPhysical" "100"
+        "MagicalResistance" "10"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "0"
+        "AttackDamageMax"   "0"
+        "AttackRate"    "1.1"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "160"
+        "BountyGoldMin" "300"
+        "BountyGoldMax" "400"
+        "BountyXP" "10000"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "460"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "9200000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"          "knights_disciple_heal"
+        "Ability2"          "knights_disciple_bolt"
+        "Ability3"          "knights_disciple_purifying_spark"
+        "Ability4"          "paladin_disciple_ability"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "6099"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "6788"
+                }   
+                "Wearable3"
+                {
+                    "ItemDef"   "7417"
+                }   
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "600.0"
+                }
+            }
+        }
+    }

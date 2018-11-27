@@ -8,7 +8,7 @@ function general_hero_think(event)
 	local primaryAttribute = target:GetPrimaryAttribute()
 	local healthRegen = target:GetHealthRegen()
 	local manaRegen = (target:GetBaseManaRegen() + target:GetBonusManaRegen())
-	magaRegen = manaRegen + (manaRegen*target:GetManaRegenMultiplier())/100
+	-- magaRegen = manaRegen + (manaRegen*target:GetManaRegenMultiplier())/100
 
 
 	local movespeedBase = target:GetBaseMoveSpeed()
@@ -36,6 +36,12 @@ function general_hero_think(event)
 	if GridNav:IsTraversable(target:GetAbsOrigin()) then
 		target.safePos = target:GetAbsOrigin()
 	end
+	if not target:HasModifier("modifier_ms_thinker") then
+		if Events.GameMaster then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, target, "modifier_ms_thinker", {})
+		end
+	end
+	-- CustomAttributes:CalcMovespeed(target)
 end
 
 function hero_aura_apply(event)
@@ -510,3 +516,21 @@ function recently_respawn_end(event)
 	target:SetHealth(target:GetMaxHealth())
 	target:SetMana(target:GetMaxMana())
 end
+
+function ms_thinker(event)
+	local unit = event.target
+	unit:RemoveModifierByName("modifier_master_movespeed")
+	local baseSpeed = unit:GetBaseMoveSpeed()
+	local modifier = unit:GetMoveSpeedModifier(baseSpeed)
+	local modifier2 =unit:GetMoveSpeedModifier(0)
+	local ideal = unit:GetIdealSpeed()
+	local max_ms = CustomAttributes:MSCap(unit)
+	if modifier2 > 100 and max_ms > 550 then
+		unit.master_move_speed = math.min(modifier2 + baseSpeed, max_ms)
+		unit:AddNewModifier(unit, nil, "modifier_master_movespeed", {})
+	else
+		unit.master_move_speed = nil
+		unit:RemoveModifierByName("modifier_master_movespeed")
+	end
+end
+

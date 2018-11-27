@@ -7,6 +7,9 @@
 		"DOTA_Tooltip_ability_moon_shroud_movespeed_loss"				"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
 		"DOTA_Tooltip_ability_moon_shroud_miss_chance"					"ШАНС УКЛОНЕНИЯ"
 		
+		"DOTA_Tooltip_modifier_moon_shroud_buff"						"Moon Shroud"
+		"DOTA_Tooltip_modifier_moon_shroud_buff_Description"			"Astral Ranger получает бонусы от [Q3]."
+		
 		"DOTA_Tooltip_ability_astral_rune_q_1"							"[Q1] Infinity Lift"
     	"DOTA_Tooltip_ability_astral_rune_q_1_Description"				"Находясь в облаке дальность атаки Astral Ranger увеличивается."
     	"DOTA_Tooltip_ability_astral_rune_q_1_property_one"				"Доп. дальность атаки"
@@ -16,7 +19,7 @@
 		"DOTA_Tooltip_modifier_rune_q_1_thinker_description" 			"Находясь в облаке дальность атаки Astral Ranger увеличивается."
 		
 		"DOTA_Tooltip_ability_astral_rune_q_2"							"[Q2] Biting Stars"
-    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"С 20% шансом при атаке на противника упадёт звезда, наносящая чистый урон в размере % от общего урона героя, дополнительно снижая броню цели. Может срабатывать у разделённых атак от руны [W1]."
+    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"С 20% шансом при атаке на противника упадёт звезда, наносящая чистый урон в размере % от общего урона героя, дополнительно снижая броню цели. Может срабатывать у разделённых атак от руны [W1]. Порог Стойкости у мобов повышен в 5 раз относительно этой руны."
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_one"				"Урон звезды"
     	"DOTA_Tooltip_ability_astral_rune_q_2_suffix"					"% от общего урона героя"
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_two"				"Снижение брони"
@@ -40,7 +43,7 @@
     	"DOTA_Tooltip_modifier_astral_rune_q_4_visible_Description"		"Урон увеличен"
 		
 		"DOTA_Tooltip_ability_split_shot"								"Split Shot"
-		"DOTA_Tooltip_ability_split_shot_Description"					"Стихия: <font color=\"#DDDDDD\">Космос</font><br>Astral Ranger натягивает тетиву в течение 0.8 сек, после чего выпускает 15 стрел веером прямо перед собой."
+		"DOTA_Tooltip_ability_split_shot_Description"					"Стихия: <font color=\"#DDDDDD\">Космос</font><br>Astral Ranger натягивает тетиву в течение 0.8 сек, после чего выпускает 15 стрел веером прямо перед собой. Действует на цели с иммунитетом к магии, но не наносит урона."
 		"DOTA_Tooltip_ability_split_shot_Lore"							""
 		"DOTA_Tooltip_ability_split_shot_damage"						"УРОН КАЖДОЙ СТРЕЛОЙ:"
     	"DOTA_Tooltip_ability_split_shot_range"							"РАДИУС:"
@@ -114,6 +117,7 @@
     	"DOTA_Tooltip_ability_astral_rune_e_4_suffix_two"				"% за каждые 10 очков атрибутов"
 		
 		"DOTA_Tooltip_modifier_astral_d_c_visible"						"Shooting Star"
+		"DOTA_Tooltip_modifier_astral_d_c_visible_Description"			"Бонус урона Космоса и дополнительные Атрибуты."
 		
 		"DOTA_Tooltip_modifier_astral_rune_e_4_visible"					"Shooting Star"
     	"DOTA_Tooltip_modifier_astral_rune_e_4_visible_Description"		"Дополнительные очки атрибутов, урон Космоса увеличен"
@@ -134,15 +138,15 @@
     	"DOTA_Tooltip_modifier_starfall_a_d_visible"					"Starstorm"
     	"DOTA_Tooltip_modifier_starfall_a_d_visible_Description"		"Каждый заряд снижает сопротивление цели стихии <font color=\"#C25DFC\">Космоса</font> на 10%%."
 		
-		"DOTA_Tooltip_ability_astral_rune_r_2"							"[R2] Star Quake"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_Description"				"Когда враги приземлятся после @Ability4, произойдет еще один взрыв, наносящий урон и оглушающий их в области действия. Урон от этой руны игнорирует свойство монстров 'Стойкость'."
-    	"DOTA_Tooltip_ability_astral_rune_r_2_property_one"				"Урон"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_suffix"					""
-    	"DOTA_Tooltip_ability_astral_rune_r_2_property_two"				"Длительность оглушения"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
+		"DOTA_Tooltip_ability_astral_rune_r_2"                          "[R2] Star Quake"
+        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Звезды от [R1] создают кристальный взрыв при приземлении, нанося урон и оглушая цели (0.03 секунды) в небольшой области."
+        "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "Множитель урона [R1]"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "%"
+        "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "Радиус"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"После успешного применения @Ability4, Astral Ranger призывает божественного Феникса, который будет следовать за героем и атаковать ближайших врагов последующие 10 секунд."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"После успешного применения @Ability4, Astral Ranger призывает божественного Феникса, который будет следовать за героем и атаковать ближайших врагов последующие 20 секунд."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Урон феникса"
     	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% от урона героя"
 		
@@ -156,9 +160,13 @@
 		"DOTA_Tooltip_ability_astral_arcana_ability"						"Astral Cloud"
     	"DOTA_Tooltip_ability_astral_arcana_ability_Description"			"Astral Ranger поднимается в воздух и приземляется на облако из звёздной материи, с которого она может безопасно для себя расстреливать врагов. Враги не могут атаковать Astral Ranger регулярными атаками (но не заклинаниями), пока та находится на облаке, а любое движение приведет к падению. Прочтение (E) Astral Rift позволит переместиться на новое облако, добавив к времени существования облака еще 4 секунды."
     	"DOTA_Tooltip_ability_astral_arcana_ability_duration"				"ДЛИТЕЛЬНОСТЬ:"
+		
+		"DOTA_Tooltip_modifier_astral_arcana_on_platform"					"Astral Cloud"
+		"DOTA_Tooltip_modifier_astral_arcana_on_platform_Description"		"Нахождение на облаке дает бонус от руны [Q3]."
 
     	"item_property_astral_arcana1"										"Astral Cloud"
     	"property_astral_arcana1_description"								"Заменяет (Q) @Ability1 и все соответствующие руны на (Q) Astral Cloud."
+		
 
     	"DOTA_Tooltip_ability_astral_rune_q_1_arcana1"						"[Q1] Infinity Lift II"
     	"DOTA_Tooltip_ability_astral_rune_q_1_arcana1_Description"			"Пока герой стоит на звёздном облаке, дальность атаки увеличена."
@@ -270,23 +278,23 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"		"(T1) Глиф крыльев"
-		"item_rpc_astral_glyph_1_1_description" 				"[E1] Pegasus перемещается между указанной точкой и текущей позицией героя 4 раза."
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"		"(T1) Глиф пронизывающего света"
+		"item_rpc_astral_glyph_1_1_description" 				"@Ability2 больше не наносит урона, но количество стрел учетверено, угол покрытия сильно увеличен. Длительность баффа от руны [W1] удвоена."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"(T2) Глиф воздушного креста"
-		"item_rpc_astral_glyph_2_1_description" 				"Урон призванного [R3] увеличен в @glyph_property1 раз(а), а все задетые им враги замедляются на @glyph_property2."
+		"item_rpc_astral_glyph_2_1_description" 				"Урон призванного Феникса увеличен в @glyph_property1 раз(а), а все задетые им враги замедляются на @glyph_property2."
 
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow"			"Phoenix Slow"
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow_Description"	"Замедлен"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_3_1"		"(T3) Глиф сфокусированного залпа"
-		"item_rpc_astral_glyph_3_1_description" 				"(W) @Ability2 выпускает только @glyph_property1 стрел, но они наносят увеличенный в @glyph_property2 раз(а) урон. Шанс появления зачарованной стрелы увеличен на 30%."
+		"item_rpc_astral_glyph_3_1_description" 				"(W) @Ability2 выпускает только @glyph_property1 стрел, но они наносят увеличенный в @glyph_property2 раз(а) урон. Шанс появления зачарованной стрелы увеличен на 40%."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"(T4) Глиф пространственных искажений"
-		"item_rpc_astral_glyph_4_1_description" 				"Сокращает задержку перемещения от (E) @Ability3 на 1 секунду."
+		"item_rpc_astral_glyph_4_1_description" 				"Перезарядка и задержка @Ability3 равны всего половине времени, но все баффы от рун @Ability3 и продление @Ability1 снижены на <% ASTRAL_T41_DURATION_REDUCTION_PCT %>%. Убирает время каста @Ability3."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"		"(T5) Глиф лунных волн"
-		"item_rpc_astral_glyph_5_1_description" 				"Увеличивает длительность (Q) @Ability1 на @glyph_property1 сек."
+		"item_rpc_astral_glyph_5_1_description" 				"@Ability4 само себя заряжает при касте, а перезарядка снижена на <% ASTRAL_T51_CD_REDUCE %> секунд."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_6_1"		"(T6) Глиф разделяющихся стрел"
 		"item_rpc_astral_glyph_6_1_description" 				"Стрелы от обычных атак разделяются при попадании и могут поразить до @glyph_property1 дополнительных целей."
@@ -298,7 +306,7 @@
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect_Description"	"100%% уклонение"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"(Immortal) Глиф преломляющихся стрел"
-		"item_rpc_astral_glyph_5_a_description" 				"Увеличивает базовый урон на @glyph_property1."
+		"item_rpc_astral_glyph_5_a_description" 				"Увеличивает Базовый Урон атаки на @glyph_property1."
 		
 		//Weapons
 		"astral_weapon_01"			"Mithril String Bow"

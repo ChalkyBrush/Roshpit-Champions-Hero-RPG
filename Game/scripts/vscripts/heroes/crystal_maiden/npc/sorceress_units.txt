@@ -1,0 +1,83 @@
+
+	"sorceress_clone"
+	{
+		"BaseClass" "npc_dota_creature"
+		"Model" "models/heroes/crystal_maiden/crystal_maiden.vmdl"
+		"Level" "1"
+		"ModelScale"    "0.82"
+		"UnitLabel" "healing_ward"
+		"HealthBarOffset"   "220"
+		"Ability1"  ""
+		"Ability2"  ""
+		"Ability3"  ""
+		"Ability4"  ""
+		"Ability5"  ""
+		"Ability6"  ""
+		"Ability7"  ""
+		"Ability8"  ""
+		"ArmorPhysical" "0"
+		"MagicalResistance" "0"
+		"AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"   "50"
+		"AttackDamageMax"   "50"
+		"AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"    "1.0"
+		"AttackAnimationPoint"  "0.3"
+		"AttackAcquisitionRange"    "1000"
+		"AttackRange"   "700"
+		"AttributePrimary"  "DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength" "0"
+		"AttributeStrengthGain" "0"
+		"AttributeBaseIntelligence" "0"
+		"AttributeIntelligenceGain" "0"
+		"AttributeBaseAgility"  "0"
+		"AttributeAgilityGain"  "0"
+		"ProjectileSpeed"           "1100"
+		"ProjectileModel"           "particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"
+		"BountyXP"  "0"
+		"BountyGoldMin" "0"
+		"BountyGoldMax" "0"
+		"RingRadius"    "0"
+		"HasInventory"  "0"
+		"CollisionSize" "0"
+		"BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
+		"MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+		"StatusHealth"  "50000"
+		"StatusHealthRegen" "0"
+		"MovementSpeed" "440"
+		"MovementTurnRate"  "0.4"
+		"StatusMana"    "20000"
+		"StatusManaRegen"   "10000"
+		"CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		"VisionDaytimeRange"    "500"
+		"VisionNighttimeRange"  "500"
+		"PathfindingSearchDepthScale" "0.2"
+		"Creature"
+		{
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"   "38"
+				}
+
+				"Wearable2"
+				{
+					"ItemDef"   "39"
+				}
+
+				"Wearable3"
+				{
+					"ItemDef"   "40"
+				}
+
+				"Wearable4"
+				{
+					"ItemDef"   "41"
+				}
+			}
+		}
+	}
+

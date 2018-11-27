@@ -19,8 +19,8 @@ function start_channel(event)
 		rune_r_1(caster, ability)
 	end
 	ability.rune_r_2_level = rune_r_2(caster, ability)
-	caster.r_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
- 	local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	caster.r_4_level = caster:GetRuneValue("r", 4)
+ 	local c_d_level = caster:GetRuneValue("r", 3)
  	local point = event.target_points[1]
 	if c_d_level > 0 then
 		ability.r_3_particle = ParticleManager:CreateParticle("particles/roshpit/sorceress/flamestrike_indicator_portrait.vpcf", PATTACH_WORLDORIGIN, caster)
@@ -142,7 +142,7 @@ end
 
 
 function rune_r_2(caster, ability)
-  local totalLevel = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+  local totalLevel = caster:GetRuneValue("r", 2)
   return totalLevel
 end
 

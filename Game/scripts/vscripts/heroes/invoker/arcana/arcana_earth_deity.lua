@@ -149,6 +149,7 @@ function earthshock_cast(event)
 	local duration = 3.0
     if caster:HasModifier("modifier_conjuror_glyph_5_1") then
     	duration = duration + 1.5
+    	radius = radius + 80
     end
     duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
     local damage = event.damage
@@ -226,6 +227,7 @@ function earth_deity_grand_guardian(event)
 	ability.pfx = pfx
 	StartAnimation(caster, {duration=1.05, activity=ACT_DOTA_CAST_ABILITY_3, rate=0.8})
 	ability.target = target
+	ability:ApplyDataDrivenModifier(caster, ability.target, "modifier_deity_guardian_taxi_effect", {duration = 6})
 	Timers:CreateTimer(0.3, function()
 		caster:SetForwardVector(fv)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_deity_grand_guardian", {duration = 12})
@@ -278,6 +280,13 @@ function earth_deity_main_thinker(event)
 			if ability.pfx then
 				ParticleManager:DestroyParticle(ability.pfx, false)
 				ability.pfx = false
+			end
+		end
+	elseif ability.phase == 1 then
+		if not target:HasModifier("modifier_deity_guardian_taxi_bowling") then
+			local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), caster:GetAbsOrigin()+Vector(0,0,240))
+			if distance > 120 then
+				target:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,240))
 			end
 		end
 	end

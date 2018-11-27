@@ -104,7 +104,7 @@ function ghost_trap_enter(event)
 		ghost_trap_a_b_thinker(event)
 		if ability.w_1_level > 0 then
 			if not target.duskABparticle then
-				target.duskABparticle = CustomAbilities:QuickAttachParticle("particles/roshpit/duskbringer/duskbringer_rune_w_1_2.vpcf", target, 10)
+				target.duskABparticle = CustomAbilities:QuickAttachParticle("particles/roshpit/duskbringer/duskbringer_rune_a_b.vpcf", target, 10)
 				ParticleManager:SetParticleControl(target.duskABparticle, 1, target:GetForwardVector()*150)
 			end
 		end

@@ -64,6 +64,91 @@ function paladin_e_dash_end(event)
 	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 end
 
+function paladin_rune_e_1_die(event)
+	local caster = event.caster
+	local deathLocation = caster:GetAbsOrigin()
+	print("a_c_death")
+	local e_1_level = caster:GetRuneValue("e", 1)
+	local runeUnit = caster.runeUnit
+	local runeAbility = runeUnit:FindAbilityByName("paladin_rune_e_1")
+	local reviveCooldown = PALADIN_E1_CD
+	if caster:HasModifier("modifier_paladin_glyph_1_1") then
+		reviveCooldown = PALADIN_GLYPH_1_1_E1_CD
+	end
+	if e_1_level > 0 and not caster:HasModifier("modifier_paladin_rune_e_1_revive_cooldown") then	
+		caster:RemoveModifierByName("modifier_paladin_rune_e_1_revivable")
+		local ability = event.ability
+        Timers:CreateTimer(0.5, 
+        function()
+			        local dashAbility = caster:FindAbilityByName("crusader_dash")
+			        dashAbility:ApplyDataDrivenModifier(caster, caster, "modifier_crusader_a_c_extension", {})
+			        caster:SetModifierStackCount("modifier_crusader_a_c_extension", caster, e_1_level)
+        		caster.revive = true
+				caster:RespawnHero(false, false)
+			        Timers:CreateTimer(0.1, 
+			        function()
+				      local playerID = caster:GetPlayerID()
+				      PlayerResource:SetCameraTarget(playerID, caster)
+				      runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_paladin_rune_e_1_reviving", { duration = PALADIN_E1_REVIVE_TIME })
+				      runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_paladin_rune_e_1_revive_cooldown", {duration = reviveCooldown})
+				      Timers:CreateTimer(2,
+				      function()
+				        PlayerResource:SetCameraTarget(playerID, nil)
+				      end)
+			        caster:SetAbsOrigin(deathLocation)	
+					StartAnimation(caster, {duration=4, activity=ACT_DOTA_DISABLED, rate=0.7})
+				end)
+        end)
+    end	
+end
+
+function paladin_rune_e_1_reviving_end(event)
+	local target = event.target
+	local e_1_level = target:GetRuneValue("e", 1)
+	event.ability:ApplyDataDrivenModifier(target, target, "modifier_paladin_rune_e_1_invulnerable", {duration = PALADIN_E1_INVUL_TIME * e_1_level})
+end
+
+function paladin_rune_e_1_revive_cooldown_end(event)
+	local unit = event.target
+	local caster = event.caster
+	local ability = event.ability
+	ability:ApplyDataDrivenModifier(caster, unit, "modifier_paladin_rune_e_1_revivable", {})
+end
+
+function paladin_rune_e_2_attacked(event)
+	local caster = event.caster
+	local ability = event.ability
+	local attacker = event.attacker
+	local unit = event.unit
+	if not unit:HasModifier("modifier_secret_temple_refraction") and not unit:HasModifier("modifier_windsteel_effect") and not unit:HasModifier("modifier_heavens_shield") then
+		if attacker:GetEntityIndex() == unit:GetEntityIndex() then
+			return false
+		end
+		local e_2_level = unit:GetRuneValue("e", 2)
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(unit) * PALADIN_E2_DMG_PER_ATT * e_2_level + PALADIN_E2_BASE_DMG + PALADIN_E2_DMG * e_2_level
+		local origin = attacker:GetAbsOrigin()
+		if not unit.retributions then
+			unit.retributions = 0
+		end
+		Filters:TakeArgumentsAndApplyDamage(attacker, unit, damage, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+		if unit.retributions < 10 then
+			if attacker:GetMaxHealth()>200 then
+				unit.retributions = unit.retributions + 1
+				local particleName = "particles/items_fx/chain_lightning.vpcf"
+				local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, unit)
+				ParticleManager:SetParticleControl(lightningBolt,0,Vector(unit:GetAbsOrigin().x,unit:GetAbsOrigin().y,unit:GetAbsOrigin().z + 100 ))	
+				ParticleManager:SetParticleControl(lightningBolt,1,Vector(origin.x,origin.y,origin.z + attacker:GetBoundingMaxs().z ))
+				Timers:CreateTimer(1, function()
+					ParticleManager:DestroyParticle(lightningBolt, false)
+				end)
+				Timers:CreateTimer(0.1, function()
+					unit.retributions = unit.retributions - 1
+				end)
+			end
+		end
+	end
+end
+
 function paladin_rune_e_3_falcon_hit(event)
 	local target = event.target
 	local caster = event.caster

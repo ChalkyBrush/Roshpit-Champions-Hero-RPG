@@ -174,7 +174,7 @@ function fire_ray_casting_thinker2(event)
 	local heal_pct = event.heal_pct
 	for i = 1, #ability.beamTable, 1 do
 		local beam = ability.beamTable[i]
-		if beam then
+		if beam and beam.target then
 			local moveDirection = ((beam.target:GetAbsOrigin()-beam.position)*Vector(1,1,0)):Normalized()
 			beam.position = beam.position + moveDirection*100
 
@@ -337,7 +337,7 @@ function conjuror_arcana2_passive_thinker(event)
 		caster:SetModifierStackCount("modifier_w_4_str_decrease", caster, str_stacks)
 	else
 		caster:RemoveModifierByName("modifier_w_4_agi_increase")
-		caster:RemoveModifierByName("modifier_w_4_str_increase")
+		caster:RemoveModifierByName("modifier_w_4_int_increase")
 		caster:RemoveModifierByName("modifier_w_4_str_decrease")
 	end
 end

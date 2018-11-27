@@ -35,8 +35,8 @@ function storm_weapon_cast(event)
 		end
 	end
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Akrimus.StormWeapon", caster)
-	ability.w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
-	-- local w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	ability.w_2_level = caster:GetRuneValue("w", 2)
+	-- local w_4_level = caster:GetRuneValue("w", 4)
 	-- local procs = Runes:Procs(w_4_level, 6, 1)
 	-- procs = 1 + procs
 	-- caster:SetModifierStackCount("modifier_arkimus_storm_weapon", caster, procs)
@@ -78,12 +78,12 @@ function storm_weapon_strike(event)
         	end
         end
     end 
-	local w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	local w_4_level = caster:GetRuneValue("w", 4)
 	local procs = Runes:Procs(w_4_level, ARKIMUS_W4_SHIELD_CHANCE, 1)
 	if procs > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(caster, 7, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_d_b_shield", {duration = duration})
-		caster:SetModifierStackCount("modifier_arkimus_d_b_shield", caster, procs)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_w_4_shield", {duration = duration})
+		caster:SetModifierStackCount("modifier_arkimus_w_4_shield", caster, procs)
 	end
   --   local currentStacks = caster:GetModifierStackCount("modifier_arkimus_storm_weapon", caster)
   --   if currentStacks > 1 then

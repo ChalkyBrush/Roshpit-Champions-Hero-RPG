@@ -8,6 +8,7 @@ require('/worlds/arena/arena_nightmare')
 require('/worlds/arena/pit_of_trials/pit_of_trials')
 
 function Arena:Debug()
+	Arena:SpawnCragnataur(MAIN_HERO_TABLE[1]:GetAbsOrigin(), Vector(1,0))
     if MAIN_HERO_TABLE[1] then
  --      MAIN_HERO_TABLE[1]:SetBaseStrength(40000)
  --      MAIN_HERO_TABLE[1]:SetBaseAgility(25000)
@@ -33,14 +34,14 @@ function Arena:Debug()
  --    MAIN_HERO_TABLE[1].ChampionsLeague = {}
  --    MAIN_HERO_TABLE[1].ChampionsLeague.rank = 14
 
-			local lockoutStatus = os:ServerTimeToTable()
-			local hero = MAIN_HERO_TABLE[1]
-			hero.pit = {}
-			hero.pit.pit_level = 7
-			if Arena.PitActive or Arena.PitLocked then
-				lockoutStatus = 2
-			end
-			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "pit_terminal", {pitData=hero.pit, heroName=hero:GetUnitName(), lockoutStatus = lockoutStatus})
+			-- local lockoutStatus = os:ServerTimeToTable()
+			-- local hero = MAIN_HERO_TABLE[1]
+			-- hero.pit = {}
+			-- hero.pit.pit_level = 7
+			-- if Arena.PitActive or Arena.PitLocked then
+			-- 	lockoutStatus = 2
+			-- end
+			-- CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "pit_terminal", {pitData=hero.pit, heroName=hero:GetUnitName(), lockoutStatus = lockoutStatus})
 
     -- Arena.ChampionsLeague = {}
     -- Arena.ChampionsLeague.state = 14

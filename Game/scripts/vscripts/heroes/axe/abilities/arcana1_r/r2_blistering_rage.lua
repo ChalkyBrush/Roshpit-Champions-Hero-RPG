@@ -1,5 +1,5 @@
 local function applyBuff(caster, ability)
-    local runesCount = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+    local runesCount = caster:GetRuneValue("r", 2)
 
     if runesCount <= 0 then
         return

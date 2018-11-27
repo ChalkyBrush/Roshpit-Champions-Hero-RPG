@@ -12,7 +12,7 @@ function firestorm_precast(event)
     Helper.initializeAbilityRunes(caster, 'sorceress', 'w')
     Helper.initializeAbilityRunes(caster, 'sorceress', 'e')
     Helper.initializeAbilityRunes(caster, 'sorceress', 'r')
-    caster.q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+    caster.q_3_level = caster:GetRuneValue("q", 3)
     EmitSoundOn("Sorceress.FirestormPrecast.VO", caster)
 end
 
@@ -47,14 +47,14 @@ function begin_firestorm(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sorceress_firestorm_channel", {duration = 4.5})
 	end
 	Filters:CastSkillArguments(1, caster)
-	local q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	local q_1_level = caster:GetRuneValue("q", 1)
 	if q_1_level > 0 then
 		if ability:GetCooldownTimeRemaining() > 0 then
 			caster.sunlance = true
 			CustomAbilities:AddAndOrSwapSkill(caster, "sorceress_fire_arcana_q", "sorceress_sun_lance", 0)
 		end
 	end
-	ability.q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	ability.q_4_level = caster:GetRuneValue("q", 4)
 	if ability.q_4_level > 0 then
 		local avatarDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fire_avatar", {duration = avatarDuration})
@@ -221,5 +221,5 @@ end
 
 function passive_think(event)
 	local caster = event.caster
-	caster.q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+	caster.q_2_level = caster:GetRuneValue("q", 2)
 end

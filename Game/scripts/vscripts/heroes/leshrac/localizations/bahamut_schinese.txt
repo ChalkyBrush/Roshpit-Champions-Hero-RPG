@@ -268,7 +268,7 @@
 		"item_rpc_bahamut_glyph_5_1_description" 				"提高孤独之盾的持续时间 @glyph_property1 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"傲慢雕文"
-		"item_rpc_bahamut_glyph_6_1_description" 				"升华的冷却时间变为2倍，巴哈姆特的脉搏每5次造成1次 @glyph_property1 秒眩晕。"
+		"item_rpc_bahamut_glyph_6_1_description" 				"[E3]被动生效且不再降低移动速度。此外巴哈姆特的脉搏每5次造成1次 @glyph_property1 秒眩晕。"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"冲击雕文"
 		"item_rpc_bahamut_glyph_7_1_description" 				"提高巴哈姆特的脉搏的范围 @glyph_property1%"

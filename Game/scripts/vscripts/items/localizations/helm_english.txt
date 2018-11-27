@@ -100,7 +100,7 @@
 		"item_property_iron_colossus"				"Iron Colossus"	
 		"property_iron_colossus_description"		"Each point of strength increases your damage by <% IRON_COLOSSUS_ATT_PER_STR %> and armor by <% IRON_COLOSSUS_AMR_PER_STR %> and you grow by 15%. Your attack speed is forced at <% IRON_COLOSSUS_ATT_SPD %> and your attack range is forced at <% IRON_COLOSSUS_ATT_RNG %>. Attacks stun for 0.5 seconds, and deal an additional <% IRON_COLOSSUS_DMG_PER_ATT %>x physical damage. @Ability2 costs 1000 extra mana."
 		"DOTA_Tooltip_modifier_iron_colossus"					"Iron Colossus"
-		"DOTA_Tooltip_modifier_iron_colossus_description"		"Attacks deal 50x physical damage, stun enemies for 0.5s and size increased. Attack speed locked at 100. Gain bonus damage and armor from strength."
+		"DOTA_Tooltip_modifier_iron_colossus_description"		"Attacks deal 50x physical damage, stun enemies for 0.5s and size increased. Attack speed locked at 120. Gain bonus damage and armor from strength."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
@@ -139,6 +139,7 @@
 		"item_property_super_ascendency"			"Super Ascension"
 		"property_super_ascendency_description"		"After casting @Ability4 - attacks gain 500 attack range - 100% attack damage - 240 attack speed and gain 100 movespeed. Attacks can hit 3 targets at once and each attack that hits reduces cooldown of @Ability4 by 0.05 seconds. Lasts 12 seconds."
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Descrtiption"	"500 bonus attack range, 100%% bonus attack damage, 240 bonus attack speed and 100 movespeed. Multishot for 2 additional targets. Each attack hit on enemy reduces R remaining cooldown."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
@@ -249,12 +250,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"									"Stormcrack Helm LV1"
 		"item_property_stormcrack"							"Stormcrack"
-		"property_stormcrack_description"					"When you stun an enemy, deal 1x your attack power plus 10x the sum of your attributes as magic damage. Each time it deals damage, this property counts up by 1.<br>Upgrades at 4000."
+		"property_stormcrack_description"					"When you stun an enemy, deal <% STORMCRACK_ATTACK_DAMAGE_MULT %>x your attack power plus <% STORMCRACK_ATTR_DAMAGE_MULT %>x the sum of your attributes as magic damage. Each time it deals damage, this property counts up by 1.<br>Upgrades at 4000."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm2"								"Stormcrack Helm LV2"
 		 "item_property_stormcrack2"						"Stormcrack II"
-		 "property_stormcrack2_description"					"When you stun an enemy, deal @special_property1x your attack power plus @special_property2x the sum of your attributes as magic damage. Increases the duration of all stuns by 35%."
+		 "property_stormcrack2_description"					"When you stun an enemy, deal <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>x your attack power plus <% STORMCRACK_ATTR_DAMAGE_MULT * 2 %>x the sum of your attributes as magic damage. Increases the duration of all stuns by 35%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"

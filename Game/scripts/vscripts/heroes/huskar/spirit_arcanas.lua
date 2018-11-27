@@ -10,7 +10,7 @@ function start_channel(event)
 	local soundTable = {"SpiritWarrior.SpiritYell1", "SpiritWarrior.SpiritYell2", "SpiritWarrior.SpiritYell3"}
 	EmitSoundOn(soundTable[RandomInt(1,3)], caster)
 	StartSoundEvent("SpiritWarrior.AncientVigorChannel", caster)
-	local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	local c_d_level = caster:GetRuneValue("r", 3)
 	if c_d_level > 0 then
 		local waterheart = caster:FindAbilityByName("spirit_warrior_waterheart_weapon")
 		if not waterheart then
@@ -59,8 +59,8 @@ function ancient_rain_start(event)
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "SpiritWarrior.AncientVigorStart2", caster)
 	end)
 	StartAnimation(caster, {duration=1, activity=ACT_DOTA_TELEPORT_END, rate=1})
-	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	ability.r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	ability.r_1_level = caster:GetRuneValue("r", 1)
+	ability.r_2_level = caster:GetRuneValue("r", 2)
 	if ability.r_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_rain_regen", {duration = duration})
 	end
@@ -124,7 +124,7 @@ function blazing_javelin_cast(event)
 	local spellStartPoint = caster:GetAbsOrigin()+Vector(0,0,120) + perpVector*80
 	local fv = ((point-spellStartPoint)*Vector(1,1,0)):Normalized()
 	local solidFV = fv
-	local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	local w_3_level = caster:GetRuneValue("w", 3)
 	local procs = Runes:Procs(w_3_level, 10, 1)
 	ability:SetActivated(false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_javelin_root", {duration = 0.15*procs})
@@ -174,7 +174,7 @@ function blazing_javelin_cast(event)
 			projectile = ProjectileManager:CreateLinearProjectile(info)
 		end)
 	end
-	ability.w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+	ability.w_2_level = caster:GetRuneValue("w", 2)
 end
 
 function javelin_hit(event)
@@ -249,7 +249,7 @@ end
 function blazing_javelin_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+	local w_1_level = caster:GetRuneValue("w", 1)
 	local damageBonus = (caster:GetMaxHealth() - caster:GetHealth())*0.12*w_1_level
 	if damageBonus > 1 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_spirit_warrior_arcana2_attack_damage", {})
@@ -368,7 +368,7 @@ function create_spirit_elite(caster, ability, target)
 
 		table.insert(ability.spiritTable, spirit)
 
-		local b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+		local b_c_level = caster:GetRuneValue("e", 2)
 		if b_c_level > 0 then
 			local spiritAbility = spirit:AddAbility("spirit_warrior_b_c_special_arcana3")
 			spiritAbility.level = b_c_level
@@ -422,7 +422,7 @@ function reachSpirit(caster, ability, spiritPosition)
 		runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_spirit_warrior_d_b", {duration = duration})
 		runeAbility.level = w_4_level
 	end
-	local a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+	local a_c_level = caster:GetRuneValue("e", 1)
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "spirit_warrior")
 	if a_c_level > 0 then
 		local loops = 1
@@ -451,7 +451,7 @@ function reachSpirit(caster, ability, spiritPosition)
 			end)
 		end
 	end
-	local c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	local c_c_level = caster:GetRuneValue("e", 3)
 	if c_c_level > 0 then
 		EmitSoundOnLocationWithCaster(spiritPosition, "SpiritWarrior.TempestHaze", caster)
 		local duration = 3 + c_c_level*0.12

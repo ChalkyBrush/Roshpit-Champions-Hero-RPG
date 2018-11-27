@@ -191,7 +191,7 @@ function arcana_attack_land(event)
 	local target = event.target
 	if caster:HasModifier("modifier_seinaru_a_a_crit") then
 		local critDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * SEINARU_ARCANA_Q1_CRIT_DMG * ability.q_1_level
-		ApplyDamage({ victim = target, attacker = caster, damage = critDamage, damage_type = DAMAGE_TYPE_PHYSICAL })
+		ApplyDamage({ victim = target, attacker = caster, damage = critDamage, damage_type = DAMAGE_TYPE_PHYSICAL, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR })
 		PopupDamage(target, critDamage)
 		Timers:CreateTimer(0.03, function()
 			caster:RemoveModifierByName("modifier_seinaru_a_a_crit")

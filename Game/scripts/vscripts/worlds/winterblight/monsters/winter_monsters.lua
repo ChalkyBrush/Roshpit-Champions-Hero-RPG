@@ -1500,7 +1500,7 @@ function azalea_sorc_think(event)
 	local ability = event.ability
 	local casterOrigin = caster:GetAbsOrigin()
 	if luck == 1 then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, caster:GetAttackRange()+300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, caster:Script_GetAttackRange()+300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		if #enemies > 0 and not caster:HasModifier("modifier_jumping") and not caster:IsStunned() and not caster:IsRooted() then
 			local sumVector = Vector(0,0,0)
 			for i = 1, #enemies, 1 do

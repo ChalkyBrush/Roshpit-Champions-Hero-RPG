@@ -1,0 +1,262 @@
+
+	"zhonik_temporal_field"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"zonik/zonik_temporal_field"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastRange"				"800 850 900 950 1000 1050 1100"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AOERadius"						"550"
+
+		// Precache
+		"precache"
+		{
+			"particle"  "particles/arkimus/zonis_start.vpcf"
+		}
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"3.2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed_cap"		"880 910 940 970 1000 1030 1060"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed_bonus"		"420 450 480 510 540 570 600"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"10"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"cast_range"					"800 850 900 950 1000 1050 1100"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"enemy_move_slow"				"-50"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_resistance"				"80"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"lose_rate"					"3"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/dark_seer/temporal_field"
+        		"Function"		"field_phase_start"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/dark_seer/temporal_field"
+        		"Function"		"field_start"
+        		"Target"		"POINT"
+        		"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_temporal_field_dashing"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+				"EffectName"		"particles/roshpit/zhonik/dash_fade.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"OverrideAnimation"     "ACT_DOTA_VERSUS"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dark_seer/temporal_field"
+						"Function"		"zhonik_dashing"
+					}
+				}
+			}
+			"modifier_temporal_field_sliding"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dark_seer/temporal_field"
+						"Function"		"zhonik_sliding"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dark_seer/temporal_field"
+						"Function"		"sliding_end"
+					}
+				}
+			}
+			"modifier_temporal_dummy_aura"
+			{
+				"IsHidden"	"1"
+				"Aura"          	"modifier_temporal_dummy_aura_effect"
+				"Aura_Radius"   	"550"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dark_seer/temporal_field"
+						"Function"		"field_end"
+					}
+				}
+			}
+			"modifier_temporal_dummy_aura_effect"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dark_seer/temporal_field"
+						"Function"		"temporal_field_enter"
+						"target"		"TARGET"
+						"create"		"1"
+					}
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dark_seer/temporal_field"
+						"Function"		"temporal_field_enter"
+						"target"		"TARGET"
+						"create"		"0"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dark_seer/temporal_field"
+						"Function"		"temporal_field_leave"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_dummy_aura1_effect_zhonik"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"		"particles/roshpit/zhonik/dash_fade.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_bonus"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dark_seer/temporal_field"
+						"Function"		"zhonik_aura_thinker"
+					}
+				}
+			}
+			"modifier_dummy_aura_effect_enemy"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%enemy_move_slow"
+				}
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dark_seer/temporal_field"
+						"Function"		"enemy_in_field_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_dummy_aura_effect_enemy_a_c_visible"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"zonik/zonik_rune_e_1_arcana1"
+			}
+			"modifier_dummy_aura_effect_enemy_a_c_invisible"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+			}
+			"modifier_zhonic_arcana_c_c_invisible"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"0"
+			}
+			"modifier_zhonic_arcana_c_c_visible"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"0"
+				"TextureName"	"zonik/zonik_rune_e_3_arcana1"
+				"ThinkInterval" "0.03"
+
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile" "heroes/dark_seer/temporal_field"
+						"Function"   "c_c_think"
+					}
+				}
+
+			}
+		}
+	}
+

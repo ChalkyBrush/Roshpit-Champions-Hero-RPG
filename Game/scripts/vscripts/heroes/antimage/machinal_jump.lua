@@ -37,8 +37,8 @@ function arkimus_jump_start(event)
 			end
 		end
 	end
-	ability.e_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
-	ability.e_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	ability.e_1_level = caster:GetRuneValue("e", 1)
+	ability.e_3_level = caster:GetRuneValue("e", 3)
 end
 
 function arkimus_jump_think(event)

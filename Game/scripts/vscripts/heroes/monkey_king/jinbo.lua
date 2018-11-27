@@ -57,7 +57,7 @@ function jinbo_start(event)
 		local position = caster:GetAbsOrigin()
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*2*(event.damage_mult/100)
 		if caster:HasModifier("modifier_monkey_jump") then
-			local b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+			local b_c_level = caster:GetRuneValue("e", 2)
 			if b_c_level > 0 then
 				damage = damage + damage*DJANGHOR_E2_JINBO_BOOST_IN_LEAP*b_c_level
 			end

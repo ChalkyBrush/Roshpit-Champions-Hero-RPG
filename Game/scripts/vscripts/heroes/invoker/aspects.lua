@@ -1,4 +1,7 @@
--- require("heroes/invoker/arcana/arcana_earth_deity.lua")
+function conjuror_summon_arcana_earth_deity(event)
+	require('heroes/invoker/arcana/arcana_earth_deity')
+	return earth_deity(event)
+end
 
 function begin_cast(event)
 	local caster = event.caster
@@ -280,7 +283,7 @@ function shadow_aspect(event)
 		ability:ApplyDataDrivenModifier(caster, caster.shadowAspect, "modifier_conjuror_rune_e_3_range", {})
 		caster.shadowAspect:SetModifierStackCount("modifier_conjuror_rune_e_3_range", ability, c_c_level )
 	end
-	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "conjuror")
+	local d_c_level = caster:GetRuneValue("e", 4)
 	caster.shadowAspect.e_4_level = d_c_level
 	if d_c_level > 0 then
 		caster.shadowAspect:SetRangedProjectileName("particles/econ/items/enigma/enigma_geodesic/conjuror_d_c_aspect_eidolon_geodesic.vpcf")
@@ -371,12 +374,53 @@ function aspect_think(event)
 			end
 		end
 	end
-	if event.caster:GetUnitName() == "shadow_aspect" then
+	if event.caster:GetUnitName() == "shadow_aspect" or event.caster:GetUnitName() == "shadow_deity" then
 		local position = conjurorPosition + rotateVector(caster.conjuror:GetForwardVector(),math.pi/2)*300 + RandomVector(RandomInt(0, 80))
 		if getDistance(conjurorPosition, aspectPosition) > 850 then
 			caster:MoveToPosition(position)
 		else
 			caster:MoveToPositionAggressive(position)
+		end
+		if caster:HasAbility("shadow_deity_shadow_essence") then
+			local shadow_essence = caster:FindAbilityByName("shadow_deity_shadow_essence")
+			if shadow_essence:IsFullyCastable() then
+				local newOrder = {
+				 		UnitIndex = caster:entindex(), 
+				 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+				 		TargetIndex = caster.conjuror:entindex(),
+				 		AbilityIndex = shadow_essence:entindex(),
+			 	}
+				 
+				ExecuteOrderFromTable(newOrder)		
+				return false
+			end
+		end
+		if caster:HasAbility("shadow_deity_cloak_of_shadows") then
+			local cast_ability = event.caster:FindAbilityByName("shadow_deity_cloak_of_shadows")
+			if cast_ability:IsFullyCastable() then
+				local castPoint = caster.conjuror:GetAbsOrigin()
+				local newOrder = {
+						UnitIndex = event.caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+						AbilityIndex = cast_ability:entindex(),
+						Position = castPoint
+				 	}
+				 
+				ExecuteOrderFromTable(newOrder)
+				return false			
+			end
+		end
+		if caster:HasAbility("shadow_deity_black_razor") then
+			local black_razor = caster:FindAbilityByName("shadow_deity_black_razor")
+			if black_razor:IsFullyCastable() then
+				local newOrder = {
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+						AbilityIndex = black_razor:entindex(),
+				 	}
+				 
+				ExecuteOrderFromTable(newOrder)	
+			end
 		end
 	end
 	if event.caster:GetUnitName() == "conjuror_elemental_deity_summon" then
@@ -484,7 +528,7 @@ function aspect_die(event)
 					earthReviveEvent.ability = earthReviveEvent.caster:FindAbilityByName("summon_earth_deity")
 					earthReviveEvent.aspect_health = earthReviveEvent.ability:GetSpecialValueFor("aspect_health")
 					earthReviveEvent.aspect_damage = earthReviveEvent.ability:GetSpecialValueFor("aspect_damage")
-					earth_deity(earthReviveEvent)
+					conjuror_summon_arcana_earth_deity(earthReviveEvent)
 				end
 			end
 			if caster.conjuror.earthAspectResummonForbidden then
@@ -510,12 +554,20 @@ function aspect_die(event)
 				fireAspectDie(caster.conjuror, caster, w_4_level)
 			end
 		end
-	elseif event.caster:GetUnitName() == "shadow_aspect" then
-		local shadowAspectSkill = caster.conjuror:FindAbilityByName("summon_shadow_aspect")
-		local shadowGateSkill = caster.conjuror:FindAbilityByName("shadow_gate")
-		shadowAspectSkill:SetLevel(shadowGateSkill:GetLevel())
-		caster.conjuror:SwapAbilities("summon_shadow_aspect", "shadow_gate", true, false)
-		caster.conjuror.shadowAspect = false
+	elseif event.caster:GetUnitName() == "shadow_aspect" or event.caster:GetUnitName() == "shadow_deity" then
+		if caster.conjuror:HasAbility("summon_shadow_deity") then
+			local shadowAspectSkill = caster.conjuror:FindAbilityByName("summon_shadow_deity")
+			local shadowGateSkill = caster.conjuror:FindAbilityByName("dark_horizon")
+			shadowAspectSkill:SetLevel(shadowGateSkill:GetLevel())
+			caster.conjuror:SwapAbilities("summon_shadow_deity", "dark_horizon", true, false)
+			caster.conjuror.shadowAspect = false
+		else
+			local shadowAspectSkill = caster.conjuror:FindAbilityByName("summon_shadow_aspect")
+			local shadowGateSkill = caster.conjuror:FindAbilityByName("shadow_gate")
+			shadowAspectSkill:SetLevel(shadowGateSkill:GetLevel())
+			caster.conjuror:SwapAbilities("summon_shadow_aspect", "shadow_gate", true, false)
+			caster.conjuror.shadowAspect = false
+		end
 	elseif event.caster:GetUnitName() == "conjuror_elemental_deity_summon" then
 		caster.conjuror.deity = false
 	end
@@ -720,11 +772,7 @@ function shadow_aspect_kill(event)
 end
 
 function get_c_c_level(caster)
-	local runeUnit = caster.runeUnit3
-	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_e_3")
-	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_3")
-	local totalLevel = abilityLevel + bonusLevel
+	local totalLevel = caster:GetRuneValue("e", 3)
 	return totalLevel
 end
 
@@ -737,8 +785,8 @@ function earth_aspect_a_a_think(event)
 	  	local allies = FindUnitsInRadius( caster.conjuror:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	  	if #allies > 0 then
 		    for _,ally in pairs(allies) do
-		    	ability:ApplyDataDrivenModifier(caster, ally, "modifier_conjuror_a_a_buff", {duration = a_a_duration}) 
-		    	ally:SetModifierStackCount( "modifier_conjuror_a_a_buff", ability, ability.q_1_ability_level )
+		    	ability:ApplyDataDrivenModifier(caster, ally, "modifier_conjuror_q_1_buff", {duration = a_a_duration}) 
+		    	ally:SetModifierStackCount( "modifier_conjuror_q_1_buff", ability, ability.q_1_ability_level )
 		    end 
 	    end 	
 	    ability:ApplyDataDrivenModifier(caster, caster, "modifier_earth_aspect_a_a_effect", {duration = a_a_duration})

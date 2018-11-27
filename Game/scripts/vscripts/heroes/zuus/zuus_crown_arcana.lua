@@ -32,7 +32,7 @@ function start_holy_arcana(event)
 	end)
 	EmitSoundOn("Auriun.HolyWrath", caster)
 	Filters:CastSkillArguments(1, caster)
-	local q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	local q_4_level = caster:GetRuneValue("q", 4)
 	ability.q_4_level = q_4_level
 	if q_4_level > 0 then
 		local duration = 5
@@ -114,9 +114,9 @@ function start_shadow_arcana(event)
 
 	EmitSoundOnLocationWithCaster(point, "Auriun.ShadowTrap", caster)
 
-	ability.q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	ability.q_1_level = caster:GetRuneValue("q", 1)
 
-	local q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+	local q_2_level = caster:GetRuneValue("q", 2)
 	if q_2_level > 0 then
 		local eventTable = {}
 		eventTable.caster = caster

@@ -1,0 +1,138 @@
+
+	"venomort_frostvenom_grasp"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"venomort/venomort_frostvenom_grasp"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2.5"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"explosions"		"2 2 2 3 3 3 4"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"		"600 2000 6000 25000 80000 180000 480000"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_attack_speed"		"-40 -60 -80 -100 -120 -140 -160"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_movement_speed"		"-80 -110 -140 -170 -200 -230 -260"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_necrolyte/frostvenom_grasp.lua"
+				"Function"		"frostvenom_grasp_start"
+				"explosions"	"%explosions"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_chilled"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_movement_speed"
+				}
+			}
+			"modifier_chilled_stacking"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/frostvenom_grasp.lua"
+						"Function"		"frostvenom_chill_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_icevenom_slide"
+			{
+				"IsHidden"	"1"
+				"OverrideAnimation"     "ACT_DOTA_RUN"
+				"ThinkInterval"  "0.03"
+				"EffectName"	"particles/econ/events/winter_major_2016/radiant_fountain_regen_wm_lvl3_a.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-700"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-80"
+				}
+				"OnIntervalThink"
+				{
+				"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/frostvenom_grasp.lua"
+						"Function"		"icevenom_slide_think"
+					}
+				}
+			}
+			"modifier_venomort_arcana2_q_4_visible"
+			{
+				"IsHidden"	"0"
+				"TextureName"	"venomort/venomort_rune_q_4_arcana2"
+				"IsBuff"	"1"
+			}
+			"modifier_venomort_arcana2_q_4_invisible"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+			}
+
+			"modifier_venomort_frostvenom_graps_dot_amp"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"venomort/venomort_rune_q_3_arcana2"
+			}
+		}
+	}
+

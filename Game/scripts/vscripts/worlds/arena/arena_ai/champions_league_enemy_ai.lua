@@ -552,6 +552,7 @@ function challenger_2_sword_dash(event)
 	ability.targetPosition = targetPosition
 	caster.attacked = false
 	caster:AddNewModifier( caster, nil, 'modifier_movespeed_cap', nil )
+	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_ms_thinker", {})
 end
 
 function challenger_sword_dash_think(event)

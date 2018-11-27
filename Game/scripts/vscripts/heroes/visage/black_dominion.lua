@@ -25,9 +25,9 @@ function dominion_bolt_fire(event)
         iMoveSpeed = 750,
         iVisionTeamNumber = caster:GetTeamNumber()
     }
-    caster.q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-    caster.q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
-    caster.q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+    caster.q_1_level = caster:GetRuneValue("q", 1)
+    caster.q_2_level = caster:GetRuneValue("q", 2)
+    caster.q_4_level = caster:GetRuneValue("q", 4)
     projectile = ProjectileManager:CreateTrackingProjectile(info)
     EmitSoundOn("Ekkan.Dominion.Launch", caster)
     Filters:CastSkillArguments(1, caster)
@@ -271,7 +271,7 @@ function dominion_unit_kill(event)
 	local ability = event.ability
 	if not unit.dominionLock then
 		unit.dominionLock = true
-		local q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+		local q_3_level = caster:GetRuneValue("q", 3)
 		if unit:GetDeathXP() > 10 then
 			if q_3_level > 0 then
 				attacker.armor = attacker.armor + q_3_level*10
@@ -356,7 +356,7 @@ function black_dominion_lifesteal_think(event)
 	local ability = event.ability
 	local origCaster = caster.hero
 	local target = event.target
-	local q_1_level = Runes:GetTotalRuneLevelGeneric(origCaster, 1, 0)
+	local q_1_level = origCaster:GetRuneValue("q", 1)
 	if q_1_level == 0 then
 		return
 	end
@@ -402,7 +402,7 @@ function dominion_corpse_pickup_end(event)
 	local target = event.target
 	local ability = event.ability
 	local origCaster = caster.hero
-	local q_2_level = Runes:GetTotalRuneLevelGeneric(origCaster, 2, 0)
+	local q_2_level = origCaster:GetRuneValue("q", 2)
 	print(q_2_level)
 	if q_2_level == 0 then
 		caster.immortalSouls = 0
@@ -462,7 +462,7 @@ function swarm_hit(event)
 	local caster = event.caster
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_swarm_effect", {duration = 12})
-	local q_2_level = Runes:GetTotalRuneLevelGeneric(caster.hero, 2, 0)
+	local q_2_level = caster.hero:GetRuneValue("q", 2)
 	target:SetModifierStackCount("modifier_swarm_effect", caster, q_2_level)
 end
 
@@ -480,7 +480,7 @@ function aura_starter_start(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then
 		if target.ekkan_unit or (target:GetEntityIndex() == caster:GetEntityIndex()) then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_black_dominion_d_a_aura_effect", {})

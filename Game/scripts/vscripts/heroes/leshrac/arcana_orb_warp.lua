@@ -23,8 +23,8 @@ function begin_lightning_dash(event)
 
 	ability.pfx = pfx
 	if caster:GetUnitName() == "npc_dota_hero_leshrac" then
-		ability.w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
-		ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+		ability.w_2_level = caster:GetRuneValue("w", 2)
+		ability.w_3_level = caster:GetRuneValue("w", 3)
 	elseif caster:GetUnitName() == "seafortress_shadow_of_bahamut" then
 		ability.w_2_level = 0
 		ability.w_3_level = 0

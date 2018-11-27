@@ -10,8 +10,8 @@ function start_channel(event)
 		ability:StartCooldown(newCD)
 	end
 
-	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	ability.r_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	ability.r_1_level = caster:GetRuneValue("r", 1)
+	ability.r_3_level = caster:GetRuneValue("r", 3)
 end
 
 function channel_interrupt(event)

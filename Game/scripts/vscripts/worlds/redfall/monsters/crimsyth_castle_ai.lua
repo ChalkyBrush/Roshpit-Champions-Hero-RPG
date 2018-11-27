@@ -4661,7 +4661,7 @@ function castle_boss_split_attack_hit(event)
 	local target = event.target
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
 	local ability = event.ability
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability })
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR })
 end
 
 function castle_final_boss_death(caster, ability)

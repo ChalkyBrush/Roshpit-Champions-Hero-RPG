@@ -1,3 +1,4 @@
+
 	"zonik_rune_q_1"
 	{
 		"BaseClass"				"ability_datadriven"
@@ -374,3 +375,4 @@
 			}
 		}
 	}
+

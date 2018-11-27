@@ -767,6 +767,17 @@ function Runes:EquipArcana(hero, index)
 				hero:RemoveAbility("earthquake")
 			end
 			Runes:EasySwapArcanaSkills(hero, 0, "summon_earth_aspect", "summon_earth_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
+		elseif index == 4 then
+			if hero.shadowAspect then
+				if IsValidEntity(hero.shadowAspect) then
+					hero.shadowAspect:SetHealth(10)
+					hero.shadowAspect:ForceKill(true)
+				end
+			end
+			if hero:HasAbility("shadow_gate") then
+				hero:RemoveAbility("shadow_gate")
+			end
+			Runes:EasySwapArcanaSkills(hero, 2, "summon_shadow_aspect", "summon_shadow_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana4")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_templar_assassin" then
 		if index == 1 then
@@ -1389,6 +1400,20 @@ function Runes:UnequipArcana(hero, index)
 				hero:RemoveAbility("arcana_earth_shock")
 			end
 			Runes:EasyRevertArcanaSkills(hero, 0,"summon_earth_aspect", "summon_earth_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
+		elseif index == 4 then
+			if hero.shadowAspect then
+				if IsValidEntity(hero.shadowAspect) then
+					hero.forceShadowReset = true
+					hero.shadowAspect:SetHealth(10)
+					hero.shadowAspect:ForceKill(true)
+				end
+			end
+			if hero:HasAbility("dark_horizon") then
+				hero:RemoveAbility("dark_horizon")
+			end
+			hero:RemoveModifierByName("shadow_deity_passive")
+			hero:RemoveModifierByName("shadow_deity_agility_from_gear")
+			Runes:EasyRevertArcanaSkills(hero, 2,"summon_shadow_aspect", "summon_shadow_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana4")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_templar_assassin" then
 		if index == 1 then

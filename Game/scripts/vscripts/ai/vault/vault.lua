@@ -215,7 +215,7 @@ function arrowImpact(event)
 	local caster = Dungeons.DungeonMaster
 	EmitSoundOn("Hero_Mirana.ProjectileImpact", target)
 	local damage = Events:GetAdjustedAbilityDamage(30000, 50000, 0)
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR })
 	PopupDamage(target, damage)
 end
 

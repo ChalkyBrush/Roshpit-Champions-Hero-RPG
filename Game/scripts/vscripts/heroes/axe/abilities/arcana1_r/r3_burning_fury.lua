@@ -1,5 +1,5 @@
 local function applyDebuff(caster, target, ability)
-    local runesCount = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+    local runesCount = caster:GetRuneValue("r", 3)
     if runesCount <= 0 then
         return
     end

@@ -394,7 +394,7 @@
 
 .target_dummy_container{
 	width:650px;
-	height:700px;
+	height:740px;
 	border-radius:8px;
 	box-shadow: 1px 1px 3px #000000;
 	vertical-align: bottom;
@@ -428,7 +428,7 @@
 }
 
 #target_dummy_center_box{
-	height:560px;
+	height:600px;
 	width:100%;
 	padding-left:20px;
 }
@@ -460,6 +460,31 @@
 	color:white;
 	padding:20px;
 	font-weight:lighter;
+}
+
+.toggle_dps_display_button {
+    width: 100%;
+    horizontal-align: center;
+    height: 25px;
+    background-color: gradient( linear, 0px 0%, 260px 0%, from( #1C4FA0 ), to( #0d326d ) );
+    border-radius: 4px;
+    border: 1px solid #131313;
+}
+
+.toggle_dps_display_button_text {
+    width: 100%;
+    text-align: center;
+    text-shadow: 1px 1px 2px 3 #00000066;
+    text-transform: uppercase;
+    font-family: Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    color: white;
+    font-size: 14px;
+    height: 100%;
+    margin-top: 3px;
+}
+
+.toggle_dps_display_button:hover{
+	background-color: gradient( linear, 0px 0%, 260px 0%, from( #3f6eba ), to( #1C4FA0 ) );
 }
 
 #target-dummy-button-box{

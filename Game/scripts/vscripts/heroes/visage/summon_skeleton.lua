@@ -1,3 +1,5 @@
+require("/heroes/visage/ekkan_constants")
+
 function corpse_maker_die(event)
 	local caster = event.caster
 	local ability = event.ability

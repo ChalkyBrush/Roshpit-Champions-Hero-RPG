@@ -298,6 +298,7 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_gravelfoot_treads")
 	hero:RemoveModifierByName("modifier_ice_floe_slippers")
 	hero:RemoveModifierByName("modifier_iron_treads_of_destruction")
+	hero:RemoveModifierByName("modifier_conjuror_arcana4")
 	hero.arcanys = nil
 	hero.redrock = nil
 

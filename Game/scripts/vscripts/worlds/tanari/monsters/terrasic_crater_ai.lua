@@ -1,10 +1,10 @@
 function TerrasicGuardTrigger(trigger)
 	if not Tanari.TerrasicGuardStart then
-		if trigger.activator:GetLevel() >= GameState:GetDifficultyFactor()*30 then
+		if trigger.activator:GetLevel() >= GameState:GetDifficultyFactor()*25 then
 			Tanari.TerrasicGuardStart = true
 			Tanari:TerrasicGuardSpawn()
 		else
-			local lvlReq = GameState:GetDifficultyFactor()*30
+			local lvlReq = GameState:GetDifficultyFactor()*25
 			Notifications:Top(trigger.activator:GetPlayerOwnerID(), {text="Level "..lvlReq.." Required", duration=3, style={color="red"}, continue=true})
 		end
 	end
@@ -751,7 +751,7 @@ function mega_helix_take_damage(event)
 		if #enemies1 > 0 then
 			for i = 1, #enemies1, 1 do
 				table.insert(helixIndexTable, enemies1[i]:GetEntityIndex())
-				ApplyDamage({ victim = enemies1[i], attacker = caster, damage = helixDamage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability})
+				ApplyDamage({ victim = enemies1[i], attacker = caster, damage = helixDamage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
 			end
 		end
 		local enemies2 = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )

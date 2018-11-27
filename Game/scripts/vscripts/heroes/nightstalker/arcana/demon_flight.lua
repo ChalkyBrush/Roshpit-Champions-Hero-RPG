@@ -33,7 +33,7 @@ function demon_flight_start(event)
 end
 
 function swap_to_demon_warp(caster, ability, base_name)
-	local a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+	local a_c_level = caster:GetRuneValue("e", 1)
 	if a_c_level > 0 then
 		CustomAbilities:AddAndOrSwapSkill(caster, base_name, "chernobog_demon_warp", 2)
 		local procs = Runes:Procs(a_c_level, 5, 1)
@@ -170,7 +170,7 @@ function demon_warp_start(event)
     local target = event.target_points[1]
     local casterOrigin = caster:GetAbsOrigin()
     local heightStacks = caster:GetModifierStackCount("modifier_demonflight_z", caster)
-    local a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+    local a_c_level = caster:GetRuneValue("e", 1)
     CustomAbilities:QuickParticleAtPoint("particles/items_fx/blink_dagger_start.vpcf", caster:GetAbsOrigin()+Vector(0,0,heightStacks), 3)
     CustomAbilities:QuickAttachParticle("particles/econ/items/spectre/spectre_transversant_soul/spectre_transversant_spectral_dagger_path_owner_impact.vpcf", caster, 3)
     target = WallPhysics:WallSearch(casterOrigin, target, caster)
@@ -211,7 +211,7 @@ end
 function passive_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
-	local b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+	local b_c_level = caster:GetRuneValue("e", 2)
 	if b_c_level > 0 then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
@@ -227,7 +227,7 @@ function passive_thinker(event)
 		caster:RemoveModifierByName("modifier_demonflight_b_c_visible")
 		caster:RemoveModifierByName("modifier_demonflight_b_c_invisible")
 	end
-	local c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	local c_c_level = caster:GetRuneValue("e", 3)
 	if c_c_level > 0 then
 		local damageDealt = 10000
 		local damageDEMON = Filters:ElementalDamage(Events.GameMaster, caster, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, false)
@@ -238,7 +238,7 @@ function passive_thinker(event)
 	else
 		caster:RemoveModifierByName("modifier_demonflight_c_c_attack")
 	end
-	local d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+	local d_c_level = caster:GetRuneValue("e", 4)
 	ability.e_4_level = d_c_level
 	if d_c_level > 0 then
 		caster:AddNewModifier( caster, ability, "modifier_chernobog_d_c_arcana2", {} )

@@ -34,6 +34,9 @@ function beginCast(event)
         empyralArrowsProcChance = getProcChance(caster, W3_PROC_CHANCE)
         arrowCount = W_ARROWS_COUNT
     end
+    if caster:HasModifier("modifier_astral_glyph_1_1") then
+        arrowCount = arrowCount*4
+    end
     ability.damage = damage
     local empyralArrowsRunesCount = Runes:GetTotalRuneLevel(caster, 3, "w_3", "astral")
 
@@ -43,6 +46,10 @@ function beginCast(event)
 
     local maxArrow = math.floor(arrowCount/2)
     local minArrow = -maxArrow
+    local angleMult = 1
+    if caster:HasModifier("modifier_astral_glyph_1_1") then
+        angleMult = 1.31
+    end
 
     local w3ability = caster.runeUnit3:FindAbilityByName("astral_rune_w_3")
     w3ability.damage = damage
@@ -53,7 +60,7 @@ function beginCast(event)
 
     for shotIndex = 0, shotsCount, 1 do
         Timers:CreateTimer(shotIndex * W_DELAY, function()
-            makeShot(caster, ability, w3ability, manaCost, range, minArrow, maxArrow,empyralArrowsProcChance, shotIndex ~= 0)
+            makeShot(caster, ability, w3ability, manaCost, range, minArrow, maxArrow,empyralArrowsProcChance, shotIndex ~= 0, angleMult)
             if (shotIndex == shotsCount) then
                 ability:SetActivated(true)
             end
@@ -61,11 +68,11 @@ function beginCast(event)
     end
 end
 
-function makeShot(caster, ability, w3ability, manaCost, range, minArrow, maxArrow,empyralArrowsProcChance, playSound)
+function makeShot(caster, ability, w3ability, manaCost, range, minArrow, maxArrow,empyralArrowsProcChance, playSound, angleMult)
     Filters:CastSkillArguments(2, caster)
     for arrowNumber = minArrow, maxArrow, 1 do
-        local arrowOrigin = caster:GetOrigin() + caster:GetForwardVector()*Vector(50,50,0)
-        local rotatedVector = rotateVector(caster:GetForwardVector(), math.pi/40*arrowNumber)
+        local arrowOrigin = caster:GetOrigin() + caster:GetForwardVector()*Vector(20,20,0)
+        local rotatedVector = rotateVector(caster:GetForwardVector(), math.pi/40*angleMult*arrowNumber)
 
         local luck = RandomInt(1, 100)
 
@@ -108,7 +115,7 @@ function createArrow(caster, ability, particle, range,  arrowOrigin, rotatedVect
         bHasFrontalCone = true,
         bReplaceExisting = false,
         iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
         iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
         fExpireTime = GameRules:GetGameTime() + 5.0,
         bDeleteOnHit = false,

@@ -267,7 +267,7 @@ function paladin_glyph_7_1_attack(event)
 		local luck = RandomInt(1,10)
 		if luck <= 4 then
 			StartAnimation(attacker, {duration=0.2, activity=ACT_DOTA_ATTACK, rate=2.5})
-			local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), attacker:GetAbsOrigin(), nil, attacker:GetAttackRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), attacker:GetAbsOrigin(), nil, attacker:Script_GetAttackRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				local newTarget = enemies[RandomInt(1,#enemies)]
 				attacker:SetForwardVector((newTarget:GetAbsOrigin()*Vector(1,1,0) - caster:GetAbsOrigin()):Normalized())
@@ -276,7 +276,7 @@ function paladin_glyph_7_1_attack(event)
 				Timers:CreateTimer(0.1, function()
 					if newTarget:IsAlive() then
 						local bProjectile = false
-						if attacker:GetAttackRange() > 300 then
+						if attacker:Script_GetAttackRange() > 300 then
 							bProjectile = true
 						end
 						Filters:PerformAttackSpecial(attacker, newTarget, true, true, true, false, bProjectile, false, false)

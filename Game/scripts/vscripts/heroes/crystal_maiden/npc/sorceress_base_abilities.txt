@@ -1,0 +1,1388 @@
+
+	"arcane_explosion"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"faceless_void_chronosphere"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+			"particle"		"particles/roshpit/sorceress_arcane_shield_blast.vpcf"
+			"particle"		"particles/roshpit/sorceress/arcane_shell.vpcf"
+			"particle"		"particles/roshpit/sorceress/shield_shatter.vpcf"
+			"particle"		"particles/units/heroes/hero_templar_assassin/templar_assassin_psi_blade.vpcf"
+			"particle"		"particles/items2_fx/veil_of_discord_debuff.vpcf"
+			"particle"		"particles/units/heroes/hero_lone_druid/arcane_intellect.vpcf"
+			"particle"		"particles/units/heroes/hero_huskar/arcane_torrent_channel.vpcf"
+			"particle"		"particles/units/heroes/hero_leshrac/leshrac_base_attack.vpcf"
+			"soundfile"		"soundevents/game_sounds_sorceress.vsndevts"
+			"particle"		"particles/roshpit/sorceress/arcane_enchantment.vpcf"
+			"particle"		"particles/roshpit/sorceress/arcane_enchant_buff.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"130 230 560 1040 2080 4400 7000"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"340 360 380 400 420 440 460"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"				"100 200 400 800 1200 1600 2000"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_SkywrathMage.ArcaneBolt.Impact"
+				"Target"		"CASTER"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/abilities/w/w_arcane_explosion.lua"
+				"Function"		"cast"
+				"damage"		"%damage"
+				"radius"		"%radius"
+			}
+
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Center"  	"CASTER"
+					"Radius" 	"%radius"
+					"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				}
+
+				"Action"
+				{
+					"FireEffect"
+					{
+						"Target"				"TARGET"
+						"EffectName"			"particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+						"EffectAttachType"		"follow_origin"
+						"EffectRadius"			"100"
+						"EffectDurationScale"	"0.7"
+						"EffectLifeDurationScale" "0.7"
+						"EffectColorA"			"255 90 255"
+						"EffectColorB"			"255 90 255"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/abilities/w/w_arcane_explosion.lua"
+						"Function"		"projectileHit"
+						"damage"		"%damage"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/arcane_explosion.lua"
+				"Function"		"missleStrike"
+				"Target"		"TARGET"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_frost_nova"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_frost_nova_immune"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
+			}
+			"modifier_frost_nova_immune_stacks"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsBuff"			"1"
+				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
+			}
+            "modifier_frost_nova_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
+			}
+			"modifier_frost_nova_ready"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
+			}
+			"modifier_frost_nova_down"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
+			}
+			"modifier_ring_of_fire_ready"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
+			}
+			"modifier_ring_of_fire_down"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"TextureName"		"sorceress/sorceress_rune_q_2_arcana2"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
+			}
+			"modifier_ring_of_fire_burn"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"TextureName"		"sorceress/sorceress_rune_q_2_arcana2"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/sun_lance"
+						"Function"		"ring_of_fire_burn"
+						"target"        "TARGET"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-140"
+				}
+			}
+			"modifier_sorceress_rune_w_2_visible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"TextureName"		"silencer/bts_silencer_ability/silencer_last_word"
+				"EffectName"		"particles/items2_fx/veil_of_discord_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+			"modifier_sorceress_rune_w_2_invisible"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+			}
+			"modifier_ring_of_fire_ignite"
+			{
+	        	"IsHidden"			"1"
+	            "IsBuff"			"0"
+	            "Duration"			"4"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType" 	"attach_origin"
+				"ThinkInterval"  	"1"
+				"OnIntervalThink"
+				{
+	            	"RunScript"
+	            	{
+						"ScriptFile"	"heroes/crystal_maiden/arcane_explosion.lua"
+						"Function"		"ring_of_fire_think"
+	            	}
+				}
+			}
+			"modifier_arcane_enchantment"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"antimage_spell_shield"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/roshpit/sorceress/arcane_enchant_buff.vpcf"
+						"EffectAttachType"  "follow_hitloc"
+						"Target"            "TARGET"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_staff_tip"
+							"CASTER"	"attach_staff_tip"
+						}
+					}
+				}
+			}
+		}
+	}
+
+	"blizzard"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityTextureName"			"crystal_maiden_freezing_field"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"15.0"
+		"AbilityManaCost"				"0"
+
+		"AOERadius"     				"%radius"
+		"AbilityChannelTime"			"4.5"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"400"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"wave_duration"			"8.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"wave_count"			"9"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"wave_damage"			"1500 9000 28000 70000 130000 240000 480000"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"wave_interval"			"1.0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"1.2"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_slow"			"-100 -130 -160 -190 -220 -250 -280"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ice_resist_loss"			"50 100 150 200 250 300 350"
+			}
+		}
+
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_snow.vpcf"
+			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_explosion.vpcf"
+			"particle"	"particles/generic_gameplay/generic_slowed_cold.vpcf"
+			"particle"	"particles/status_fx/status_effect_frost_lich.vpcf"
+			"particle"	"particles/econ/items/mirana/mirana_crescent_arrow/sorceress_ice_lance.vpcf"
+			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+			"particle"	"particles/units/heroes/hero_lich/lich_frost_nova.vpcf"
+			"particle"	"particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_explode_ti5.vpcf"
+			"particle"	"particles/econ/items/warlock/warlock_staff_hellborn/sorceress_blizzard.vpcf"
+			"particle"	"particles/roshpit/sorceress/ice_lance_fracture.vpcf"
+			"particle"	"particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+			"particle"	"particles/roshpit/sorceress/ice_lance_cast.vpcf"
+			"particle"	"particles/units/heroes/hero_winter_wyvern/winter_wyvern_base_attack_explosion.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/blizzard.lua"
+				"Function"		"BlizzardStart"
+				"Target"		"POINT"
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/abilities/q/q1_ice_Lance.lua"
+				"Function"		"projectileHit"
+				"mult"			"1"
+			}
+		}
+
+		"OnChannelFinish"
+	    {
+	    	"RunScript"
+	    	{
+	    		"ScriptFile"	"heroes/crystal_maiden/blizzard.lua"
+	    		"Function"		"channel_finish"
+	    	}
+	    	"RemoveModifier"
+			{
+				"ModifierName"	"modifier_blizzard_channelling"
+				"Target" 		"CASTER"
+			}
+	    }
+
+		"Modifiers"
+	    {
+	        "modifier_blizzard_channelling"
+	        {
+	        	"IsHidden"			"1"
+	            "ThinkInterval"		"1.0"
+				"EffectName"	"particles/roshpit/sorceress/ice_lance_cast.vpcf"
+				"EffectAttachType" "follow_origin"
+				"OnDestroy"
+				{
+			    	"RunScript"
+			    	{
+			    		"ScriptFile"	"heroes/crystal_maiden/blizzard.lua"
+						"Function"		"BlizzardEnd"
+			    	}
+				}
+			}
+
+	        "modifier_blizzard_cooldown"
+	        {
+	        	"IsHidden"			"0"
+	            "IsBuff"			"1"
+
+	            "OnDestroy"
+	            {
+	            	"RunScript"
+	            	{
+						"ScriptFile"	"heroes/crystal_maiden/blizzard.lua"
+						"Function"		"cooldownEnd"
+	            	}
+	            }
+
+			}
+
+			"modifier_blizzard_thinker"
+			{
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/blizzard.lua"
+						"Function"		"BlizzardWave"
+						"radius"		"%radius"
+						"damage"		"%wave_damage"
+						"slow_duration" "%slow_duration"
+						"ice_resist_loss"	"%ice_resist_loss"
+					}
+				}
+			}
+			"modifier_blizzard_ice_resist_loss"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
+			"modifier_blizzard_slow"
+			{
+				"IsDebuff" "1"
+				"IsHidden" "1"
+				"EffectName"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
+				"StatusEffectName"		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"	"10"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movement_slow"
+				}
+			}
+			"modifier_ice_block"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "25"
+				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "4"
+				}
+			}
+			"modifier_sorceress_glyph_1_1_effect"
+			{
+				"IsDebuff" "1"
+				"IsHidden" "0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-100"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-100"
+				}
+			}
+			"modifier_sorceress_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/blizzard.lua"
+						"Function"		"sorceress_passive_think"
+					}
+				}
+			}
+			"modifier_sorceress_spell_damage_amp"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+			}
+
+		}
+	}
+
+	"sorceress_blink"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityTextureName"			"disruptor_glimpse"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastRange"				"%range"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0 0 0 0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8.5 8.2 7.9 7.6 7.3 7.0 6.7"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0 0 0 0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"range"						"800 875 900 975 1050 1125 1200"
+			}
+			"02"
+            {
+            	"var_type"					"FIELD_FLOAT"
+            	"amp"					    "40 60 100 150 200 250 300"
+            }
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
+			"particle"					"particles/econ/items/meepo/meepo_colossal_crystal_chorus/sorceress_blink.vpcf"
+			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_scythe_mist.vpcf"
+			"soundfile"					"items/hotd.wav"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_sorceress_blink_datadriven"
+				"Target"		"CASTER"
+			}
+
+			"FireEffect"
+			{
+				"EffectName"	"particles/econ/items/meepo/meepo_colossal_crystal_chorus/sorceress_blink.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Target"		"CASTER"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Antimage.Blink_out"
+				"Target" 		"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/crystal_maiden/abilities/e/e_blink.lua"
+				"Function"			"startCast"
+				"range"				"%range"
+				"amp"               "%amp"
+				"Target"			"POINT"
+			}
+
+		}
+
+		"Modifiers"
+		{
+			"modifier_sorceress_blink_datadriven"
+			{
+				"Duration"		"%duration"
+
+				"EffectName"		"particles/units/heroes/hero_necrolyte/necrolyte_scythe_mist.vpcf"
+				"EffectAttachType"	"attach_origin"
+
+				"OnDestroy"
+				{
+
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/crystal_maiden/abilities/e/e_blink.lua"
+						"Function"			"endCast"
+					}
+					"FireEffect"
+					{
+						"EffectName"	"particles/econ/items/meepo/meepo_colossal_crystal_chorus/sorceress_blink.vpcf"
+						"EffectAttachType"	"attach_origin"
+						"Target"		"CASTER"
+					}
+				}
+
+				"States"
+				{
+
+					"MODIFIER_STATE_ATTACK_IMMUNE"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_water_elemental"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+			}
+			"modifier_flicker_charges"
+			{
+				"TextureName"		"medusa/blueice_abilityicons/medusa_mana_shield"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
+			"modifier_water_elemental_4_1_enchancement"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "500"
+				}
+			}
+			"modifier_clear_cast"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Duration"			"3.1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/generic_buff_1.vpcf"
+						"EffectAttachType"			"follow_overhead"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"170 100 255"
+						"EffectAlphaScale"			"1"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/abilities/e/e_blink.lua"
+						"Function"		"clearCastEnd"
+					}
+				}
+			}
+		}
+	}
+
+	"ice_lance"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"winter_wyvern_splinter_blast"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastRange"				"2000"
+
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"45 100 200 300 400 600 800 1000"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"range"						"800 900 1000 1100 1200 1300 1400"
+			}
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
+			"particle"					"particles/econ/items/meepo/meepo_colossal_crystal_chorus/sorceress_blink.vpcf"
+		}
+		"OnAbilityPhaseStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Sorceress.IceLancePhase"
+				"Target" 		"CASTER"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_ice_lance_start_cast"
+				"Target" 		"CASTER"
+				"Duration"		"0.4"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/abilities/q/q1_ice_Lance.lua"
+				"Function"		"cast"
+				"Target"			"POINT"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/abilities/q/q1_ice_Lance.lua"
+				"Function"		"projectileHit"
+				"mult"			"1.0"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ice_lance_cold"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+
+				"EffectName"		"particles/generic_gameplay/generic_slowed_cold.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-10"
+				}
+			}
+			"modifier_ice_lance_frozen"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"TextureName"		"rpc/sorceress_q_3_2"
+
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_ice_lance_immune"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+			}
+			"modifier_ice_lance_immune_stacks"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+			}
+			"modifier_ice_lance_start_cast"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/sorceress/ice_lance_cast.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_ice_lance_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/abilities/q/q1_ice_Lance.lua"
+						"Function"		"think"
+					}
+				}
+			}
+		}
+	}
+
+	"fireball"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"ogre_magi_fireblast"
+		"AbilityType"           		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5.0"
+		"AbilityCastRange"				"2000"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 240 500 800 1200 3000 6000"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"range"						"900 1000 1100 1200 1300 1400"
+			}
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+		"OnAbilityPhaseStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_fireball_precast"
+				"Target" 		"CASTER"
+				"Duration"		"0.5"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/fireball.lua"
+				"Function"		"begin_fireball"
+				"Target"			"POINT"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/fireball.lua"
+				"Function"		"fireball_hit"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_fireball_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/fireball.lua"
+						"Function"		"fireball_think"
+					}
+				}
+			}
+			"modifier_fireball_precast"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff_e.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+			"modifier_fireball_multishot"
+			{
+				"IsHidden"	"1"
+				"Passive"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-1500"
+				}
+			}
+			"modifier_fireball_stacks"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_fireball_attackspeed"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "10"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "10"
+				}
+			}
+			"modifier_fireball_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+		}
+	}
+
+	"pyroblast"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED "
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"invoker_exort"
+		"AbilityCastRange"	"2000"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"17.0"
+		"AbilityChannelTime"	"2.0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT_STATUE"
+		"AbilityDamage"	"%damage"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_warlock/warlock_rain_of_chaos.vpcf"
+			"particle"	"particles/econ/items/puck/puck_alliance_set/pyroblast_aproset.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+			"particle"	"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+			"particle"	"particles/units/heroes/hero_jakiro/fireball.vpcf"
+			"particle"	"particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
+			"particle"	"particles/units/heroes/hero_elder_titan/ring_of_fire.vpcf"
+			"particle"	"particles/econ/items/puck/puck_alliance_set/chaos_blast_aproset.vpcf"
+			"particle"	"particles/units/heroes/hero_warlock/chaos_blast_impact.vpcf"
+			"particle"	"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff_e.vpcf"
+			"particle"	"particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray.vpcf"
+			"particle"	"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+			"particle"	"particles/roshpit/sorceress/flamestrike_indicator_portrait.vpcf"
+		}
+
+		"AbilityManaCost"	"0"
+		"SideShop"	"1"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/pyroblast.lua"
+				"Function"		"start_channel"
+				"range"			"%range"
+				"Target"			"POINT"
+			}
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/pyroblast.lua"
+				"Function"		"begin_pyro"
+				"range"			"%range"
+				"Target"			"POINT"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Jakiro.LiquidFire"
+				"Target" 		"CASTER"
+			}
+
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/pyroblast.lua"
+				"Function"		"pyroblast_impact_main"
+				"target"		"TARGET"
+			}
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Center"	"TARGET"
+					"Radius"	"%radius"
+					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				}
+
+				"Action"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/pyroblast.lua"
+						"Function"		"pyroblast_impact"
+						"target"		"TARGET"
+						"radius"		"%radius"
+						"damage"		"%damage"
+						"target"		"TARGET"
+						"stun_duration"	"%stun_duration"
+					}
+				}
+
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"Modifiers"
+		{
+			"modifier_channel_start"
+			{
+				"EffectName"	"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType" "attach_staff_tip"
+				"OverrideAnimation"     "ACT_DOTA_TELEPORT_STATUE"
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_phoenix/phoenix_icarus_dive_char_glow.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"CASTER"
+						"EffectRadius"	"%radius"
+						"EffectColorA"	"255 0 0"
+						"EffectColorB"	"255 0 0"
+						"ControlPoints"
+						{
+							"00"	"50 100 5"
+						}
+
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/pyroblast.lua"
+						"Function"		"channel_end"
+					}
+				}
+
+			}
+			"modifier_pyroblast_stun"
+			{
+				"IsDebuff"	"1"
+				"OverrideAnimation"	"ACT_DOTA_DISABLED"
+
+				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"	"follow_overhead"
+
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+	        "modifier_pyro_cooldown"
+	        {
+	        	"IsHidden"			"0"
+	            "IsBuff"			"1"
+	            "OnDestroy"
+	            {
+	            	"RunScript"
+	            	{
+						"ScriptFile"	"heroes/crystal_maiden/pyroblast.lua"
+						"Function"		"cooldownEnd"
+	            	}
+	            }
+			}
+			"modifier_pyroblast_ignite"
+			{
+	        	"IsHidden"			"0"
+	            "IsBuff"			"0"
+	            "Duration"			"6"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType" 	"attach_origin"
+				"ThinkInterval"  "0.15"
+				"OnIntervalThink"
+				{
+	            	"RunScript"
+	            	{
+						"ScriptFile"	"heroes/crystal_maiden/pyroblast.lua"
+						"Function"		"ignite_think"
+	            	}
+				}
+			}
+			"modifier_sorceress_rune_r_3"
+			{
+				"IsHidden"	        "0"
+				"IsDebuff"			"1"
+				"TextureName"		"lina_light_strike_array"
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"0.1"
+			}
+
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"1000 4000 9000 20000 54000 95000 165000"
+			}
+
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"600"
+			}
+
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"2.1 2.3 2.5 2.7 2.9 3.1 3.3"
+			}
+
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"range"		"1600 1725 1850 1975 2100 2225 2350"
+			}
+
+		}
+	}
+
+	"arcane_torrent"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+        "BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"templar_assassin_psi_blades"
+		"AbilityCastRange"	"1400"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"2"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT_STATUE"
+		"AbilityDamage"	"%damage"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+		}
+
+		"AbilityManaCost"	"0"
+
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_arcane_torrent_enable"
+				"Target" 		"CASTER"
+			}
+			"RunScript"
+            {
+            	"ScriptFile"	"heroes/crystal_maiden/abilities/w/w_arcane_torrent.lua"
+            	"Function"		"calculateDamage"
+				"mana_drain"	"%mana_drain_per_second"
+            }
+            "RunScript"
+            {
+            	"ScriptFile"	"heroes/crystal_maiden/abilities/w/w_arcane_torrent.lua"
+            	"Function"		"toggle_on"
+            }
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_arcane_torrent_enable"
+				"Target" 		"CASTER"
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/abilities/w/w_arcane_torrent.lua"
+				"Function"		"projectileHit"
+				"target"		"TARGET"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Sorceress.ArcaneTorrentHit"
+				"Target" 		"TARGET"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_arcane_torrent_enable"
+			{
+				"EffectName"	"particles/units/heroes/hero_huskar/arcane_torrent_channel.vpcf"
+				"EffectAttachType" "attach_staff_tip"
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/abilities/w/w_arcane_torrent.lua"
+						"Function"		"think"
+					}
+				}
+			}
+			"modifier_sorceress_rune_w_2_visible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"TextureName"		"silencer/bts_silencer_ability/silencer_last_word"
+				"EffectName"		"particles/items2_fx/veil_of_discord_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+			"modifier_sorceress_rune_w_2_invisible"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"range"						"<% T51_RADIUS %>"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"mana_drain_per_second"		"1200 2400 6000 13000 17500 20500 26000"
+			}
+		}
+	}
+
+	"sorc_elemental_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"morphling_waveform"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_sorc_elemental_ability"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/abilities/e/e2_water_elemental.lua"
+						"Function"		"attack"
+					}
+				}
+			}
+			"modifier_elemental_slow"
+			{
+				"IsHidden" "0"
+				"IsDebuff" "1"
+				"EffectName"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-40"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-25"
+				}
+			}
+			"modifier_elemental_freeze"
+			{
+				"IsHidden" "0"
+				"IsDebuff" "1"
+				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/abilities/e/e2_water_elemental.lua"
+				"Function"		"die"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/abilities/e/e2_water_elemental.lua"
+				"Function"		"attack"
+				"target"		"TARGET"
+			}
+		}
+	}
+

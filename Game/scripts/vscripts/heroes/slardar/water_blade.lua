@@ -140,24 +140,24 @@ function bombImpact(caster, ability)
 		end
 		if caster.w_2_level > 0 then
 			local b_b_duration = Filters:GetAdjustedBuffDuration(caster, 15, false)
-			if not caster.origCaster:HasModifier("modifier_water_bomb_b_b_damage_buff_spillover") then 
-				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_b_b_damage_buff_visible", {duration = b_b_duration})
+			if not caster.origCaster:HasModifier("modifier_water_bomb_w_2_damage_buff_spillover") then 
+				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_w_2_damage_buff_visible", {duration = b_b_duration})
 			else
-				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_b_b_damage_buff_spillover",{duration = b_b_duration})
-				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_b_b_damage_buff_spillover_invis",{duration = b_b_duration})
-				caster.origCaster:SetModifierStackCount("modifier_water_bomb_b_b_damage_buff_spillover_invis", caster.origCaster, caster.w_2_level)
+				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_w_2_damage_buff_spillover",{duration = b_b_duration})
+				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_w_2_damage_buff_spillover_invis",{duration = b_b_duration})
+				caster.origCaster:SetModifierStackCount("modifier_water_bomb_w_2_damage_buff_spillover_invis", caster.origCaster, caster.w_2_level)
 			end
-			local newStacks = caster.origCaster:GetModifierStackCount("modifier_water_bomb_b_b_damage_buff_visible", caster.origCaster) + #enemies
+			local newStacks = caster.origCaster:GetModifierStackCount("modifier_water_bomb_w_2_damage_buff_visible", caster.origCaster) + #enemies
 			if newStacks >= 20 then
-				caster.origCaster:RemoveModifierByName("modifier_water_bomb_b_b_damage_buff_visible")
-				caster.origCaster:RemoveModifierByName("modifier_water_bomb_b_b_damage_buff_invisible")
-				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_b_b_damage_buff_spillover",{duration = b_b_duration})
-				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_b_b_damage_buff_spillover_invis",{duration = b_b_duration})
-				caster.origCaster:SetModifierStackCount("modifier_water_bomb_b_b_damage_buff_spillover_invis", caster.origCaster, caster.w_2_level)
+				caster.origCaster:RemoveModifierByName("modifier_water_bomb_w_2_damage_buff_visible")
+				caster.origCaster:RemoveModifierByName("modifier_water_bomb_w_2_damage_buff_invisible")
+				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_w_2_damage_buff_spillover",{duration = b_b_duration})
+				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_w_2_damage_buff_spillover_invis",{duration = b_b_duration})
+				caster.origCaster:SetModifierStackCount("modifier_water_bomb_w_2_damage_buff_spillover_invis", caster.origCaster, caster.w_2_level)
 			else
-				caster.origCaster:SetModifierStackCount("modifier_water_bomb_b_b_damage_buff_visible", caster.origCaster, newStacks)
-				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_b_b_damage_buff_invisible", {duration = b_b_duration})
-				caster.origCaster:SetModifierStackCount("modifier_water_bomb_b_b_damage_buff_invisible", caster.origCaster, newStacks*caster.w_2_level)
+				caster.origCaster:SetModifierStackCount("modifier_water_bomb_w_2_damage_buff_visible", caster.origCaster, newStacks)
+				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_w_2_damage_buff_invisible", {duration = b_b_duration})
+				caster.origCaster:SetModifierStackCount("modifier_water_bomb_w_2_damage_buff_invisible", caster.origCaster, newStacks*caster.w_2_level)
 			end
 		end
 	end 
@@ -169,7 +169,7 @@ function hydroxis_attack_land(event)
 	local ability = event.ability
 	local target = event.target
 	local caster = attacker
-	local w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+	local w_1_level = caster:GetRuneValue("w", 1)
 	if w_1_level > 0 then
 		local crit = false
 		if caster:HasModifier("modifier_hydroxis_glyph_5_1") then

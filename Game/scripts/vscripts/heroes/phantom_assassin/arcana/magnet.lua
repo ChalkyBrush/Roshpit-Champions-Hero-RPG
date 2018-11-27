@@ -14,7 +14,7 @@ function blazing_magnet_cast(event)
 	local solidFV = fv
 
 	local range = event.cast_range
-	local q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	local q_3_level = caster:GetRuneValue("q", 3)
 	local procs = Runes:Procs(q_3_level, 10, 1) + 1
 	EmitSoundOn("Voltex.MagnetWindUp", caster)
 	local delay = 0
@@ -108,7 +108,7 @@ function magnet_thinker(event)
 			if IsValidEntity(target) and target:IsAlive() then
 				local ogPosition = caster:GetAbsOrigin()
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {duration = 0.12})
-				local tpRange = math.min(caster:GetAttackRange(), 320)
+				local tpRange = math.min(caster:Script_GetAttackRange(), 320)
 				local targetPosition = target:GetAbsOrigin()+RandomVector(1)*tpRange
 				caster:SetAbsOrigin(GetGroundPosition(targetPosition, caster))
 				local fv = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
@@ -123,7 +123,7 @@ function magnet_thinker(event)
 					end
 				end)
 			end
-			local q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+			local q_2_level = caster:GetRuneValue("q", 2)
 			local procs = Runes:Procs(q_2_level, 0.5, 1)
 			if procs > 0 then
 				Filters:CleanseStuns(caster)
@@ -138,7 +138,7 @@ function magnet_thinker(event)
 		if not caster:HasModifier("modifier_magnet_travelling") then
 			caster:RemoveModifierByName("modifier_voltex_magnet")
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-			local q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+			local q_4_level = caster:GetRuneValue("q", 4)
 			local d_a_duration = Filters:GetAdjustedBuffDuration(caster, q_4_level*0.1, false)
 			if q_4_level > 0 then
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_magnet_d_d", {duration = d_a_duration})
@@ -152,7 +152,7 @@ function magnet_attack_land(event)
 	local ability = event.ability
 	local target = event.target
 	local attacker = event.attacker
-	local q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	local q_1_level = caster:GetRuneValue("q", 1)
 	if not ability.particleCount then
 		ability.particleCount = 0
 	end

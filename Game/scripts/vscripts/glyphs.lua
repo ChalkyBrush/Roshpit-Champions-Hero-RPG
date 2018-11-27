@@ -257,6 +257,8 @@ function Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText,
     	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = false, itemDescription = description, qualityColor = RPCItems:GetRarityColor(item.rarity), itemDescription = slotText, qualityName = rarityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = RPCItems:GetRarityFactor(item.rarity), stackedConsumable = true, minLevel = minLevel, useDescription = useDescription, requiredHero = requiredHero, glyph = 1 } )
     end
     CustomNetTables:SetTableValue("weapons", "item"..tostring(item:GetEntityIndex()), {} )
+    RPCItems:RemovePropertyValues(item)
+    RPCItems:ClearRollTableFromIndex(item)
     if dropIndex == 0 then
 	    local drop = CreateItemOnPositionSync( deathLocation, item )
 	    local position = deathLocation

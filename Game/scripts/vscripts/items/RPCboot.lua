@@ -84,6 +84,11 @@ function RPCItems:FootLegendary(itemVariant, deathLocation)
             RPCItems:RollDunetreadBoots(deathLocation)
             return true
         elseif luck == 2 then
+            local arcanaLuck = RandomInt(1, 960)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+                RPCItems:RollConjurorArcana4(deathLocation)
+                return true
+            end
             RPCItems:RollVioletTreads(deathLocation)
             return true
         elseif luck == 3 then

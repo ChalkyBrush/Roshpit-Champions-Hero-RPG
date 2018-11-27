@@ -60,7 +60,7 @@ function begin_rockfall(event)
 	Filters:CastSkillArguments(3, caster)
 	CustomAbilities:AddAndOrSwapSkill(caster, "mountain_protector_rockfall", "mountain_protector_volcanic_glissade", 2)
 	local glissadeAbility = caster:FindAbilityByName("mountain_protector_volcanic_glissade")
-	local c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	local c_c_level = caster:GetRuneValue("e", 3)
 	if c_c_level > 0 then
 		local procs = Runes:Procs(c_c_level, 7, 1)
 		if procs > 0 then

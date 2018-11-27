@@ -9,11 +9,11 @@
 		"DOTA_Tooltip_ability_heroic_fury_attack_damage_bonus"			"ATTACK DAMAGE INCREASE %:"
 		"DOTA_Tooltip_ability_heroic_fury_movespeed"						"MOVESPEED:"
 
-		"DOTA_Tooltip_modifier_heroic_fury_slow"						"Heroic Fury"	
-		"DOTA_Tooltip_modifier_heroic_fury_slow_Description"			"Move and Attack Slow"				
+		"DOTA_Tooltip_modifier_q_slow"						"Heroic Fury"	
+		"DOTA_Tooltip_modifier_q_slow_Description"			"Move and Attack Slow"				
 
-		"DOTA_Tooltip_modifier_heroic_fury" 								"Heroic Fury"
-		"DOTA_Tooltip_modifier_heroic_fury_description" 					"Enemies take damage and are slowed in an area on attack. Attacks also heal the Paladin."
+		"DOTA_Tooltip_modifier_paladin_q" 								"Heroic Fury"
+		"DOTA_Tooltip_modifier_paladin_q_description" 					"Enemies take damage and are slowed in an area on attack. Attacks also heal the Paladin."
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_1"							"[Q1] Purification"
     	"DOTA_Tooltip_ability_paladin_rune_q_1_Description"				"Your attack damage gets added to Heroic Fury damage."
@@ -61,7 +61,7 @@
     	"DOTA_Tooltip_ability_paladin_rune_w_1_suffix_two"				""
 
 		"DOTA_Tooltip_modifier_paladin_rune_w_1"						"Holy Fire"
-		"DOTA_Tooltip_modifier_paladin_rune_w_1_description" 			"Taking Holy Damage."
+		"DOTA_Tooltip_modifier_paladin_rune_w_1_description" 			"Taking Holy/Fire magical damage over time."
 		
 		"DOTA_Tooltip_ability_paladin_rune_w_2"							"[W2] Healing Command"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_Description"				"Justice Overwhelming also heals yourself and allies that it hits for a % of its base damage."
@@ -132,10 +132,10 @@
     	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Taking increased damage from Paladin"
 
 		"DOTA_Tooltip_ability_knights_disciple"								"Knight's Disciple"
-		"DOTA_Tooltip_ability_knights_disciple_Description"					"Summons a Disciple of Heaven to fight with you. The Disciple has a healing spell that will target the lowest HP nearby ally. The healing spell reduces damage taken by 20%."
+		"DOTA_Tooltip_ability_knights_disciple_Description"					"Summons a Disciple of Heaven to fight with you. The Disciple has a healing spell that will target the lowest HP nearby ally and heal it for a % of his max life. The healing spell reduces damage taken by 20%."
 		"DOTA_Tooltip_ability_knights_disciple_Lore"							""
     	"DOTA_Tooltip_ability_knights_disciple_summon_duration"						"SUMMON DURATION:"
-    	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"HEAL/TICK:"
+    	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"%% of max life/0.2s:"
 
 		"DOTA_Tooltip_modifier_holy_ult_aura" 							"Holy Sanctuary"
 		"DOTA_Tooltip_modifier_holy_ult_aura_description" 				"Immune to physical damage, restoring HP and 200 bonus Moovespeed."
@@ -148,8 +148,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_r_1_property_one"			"Armor Aura"
     	"DOTA_Tooltip_ability_paladin_rune_r_1_suffix"					""
 
-    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks"				"Guardian of Heaven"
-    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks_Description"	"Increased Armor"	
+    	"DOTA_Tooltip_modifier_paladin_r_1_aura_armor_stacks"				"Guardian of Heaven"
+    	"DOTA_Tooltip_modifier_paladin_r_1_aura_armor_stacks_Description"	"Increased Armor"	
 
     	"DOTA_Tooltip_ability_paladin_rune_r_2"							"[R2] Empowering Light"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"Allies who are healed by Knight's Disciple gain attack damage and armor with each heal tick. The buff lasts 16 seconds."
@@ -158,8 +158,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_r_2_property_two"			"Armor / tick"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_suffix_two"				""
 
-		"DOTA_Tooltip_modifier_paladin_rune_r_2"						"Empowering Sanctuary"
-		"DOTA_Tooltip_modifier_paladin_rune_r_2_description" 			"Increased damage and armor."
+		"DOTA_Tooltip_modifier_paladin_rune_r_2_effect_visible"						"Empowering Light"
+		"DDOTA_Tooltip_modifier_paladin_rune_r_2_effect_visible_description" 			"Increased damage and armor."
 
     	"DOTA_Tooltip_ability_paladin_rune_r_3"							"[R3] Holy Bolt"
     	"DOTA_Tooltip_ability_paladin_rune_r_3_Description"				"Knight's Disciple gains the ability to smite a target dealing pure damage based on Paladin's attack power and applies a 0.1 second stun. 5 second cooldown."
@@ -208,6 +208,9 @@
     	"DOTA_Tooltip_ability_paladin_rune_w_3_arcana1_suffix"				""
     	"DOTA_Tooltip_ability_paladin_rune_w_3_arcana1_property_two"		"Penance Damage Bonus"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_arcana1_suffix_two"			"x Armor"
+		"DOTA_Tooltip_modifier_paladin_c_b_armor"				"Iron Will"
+		"DOTA_Tooltip_modifier_paladin_c_b_armor_Description"	"Armor value increased"
+		
 
   		"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1"						"[W4] Wrath of the Righteous"
     	"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1_Description"			"Adds a chance on impact for Penance to bounce to a nearby enemy or ally. Greater than 100% chance means it can bounce multiple times.<br>Additionally passively gain attack power from armor. Maximum 10 concurrent lances bouncing."

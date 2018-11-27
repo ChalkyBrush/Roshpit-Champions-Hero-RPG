@@ -1,0 +1,207 @@
+
+	"flamewaker_dragonflame"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"flamewaker/fireborne"
+		"AbilityCastAnimation"			"ACT_DOTA_RUN"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"40 80 120 180 300 440 700"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"base_damage"				"80 240 400 800 3000 9000 20000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_dmg_bonus"				"20 25 30 35 40 45 50"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"mana_drain"				"40 60 80 120 200 320 500"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_reduce"				"95"
+			}
+		}
+		"OnToggleOn"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/dragon_knight/arcana/dragonfire"
+				"Function"		"turn_toggle_on"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/dragon_knight/arcana/dragonfire"
+				"Function"		"turn_toggle_off"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/dragon_knight/arcana/dragonfire"
+				"Function"		"flame_proj_hit"
+				"base_damage"	"%base_damage"
+				"attack_dmg_bonus"	"%attack_dmg_bonus"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_flamewaker_arcana2_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dragon_knight/arcana/dragonfire"
+						"Function"		"dragon_attack"
+					}
+				}
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dragon_knight/arcana/dragonfire"
+						"Function"		"dragonfire_passive_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_d_b_attack_power"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_dragonflame_freeze_effect"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_flamewaker_dragonflame"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dragon_knight/arcana/dragonfire"
+						"Function"		"dragonflame_think"
+						"mana_drain"	"%mana_drain"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_dragonflame_shield"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/roshpit/flamewaker/dragon_shield.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_b_b_shimmer"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_dragonflame_shield_waiter"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dragon_knight/arcana/dragonfire"
+						"Function"		"shield_waiter_end"
+					}
+				}
+
+			}
+			"modifier_b_b_shimmer"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/flamewaker/fireborne_shimmer_heal.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "3000"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "90"
+				}
+			}
+			"modifier_d_b_attack_power"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "10"
+				}
+			}
+			"modifier_flamewaker_glyph_4_1_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-120"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-120"
+				}
+			}
+		}
+	}
+

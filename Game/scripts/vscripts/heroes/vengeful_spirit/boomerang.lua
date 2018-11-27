@@ -12,7 +12,7 @@ function init_solunia(event)
 		      break
 		    end 
 		  end 
-		  caster.baseAttackRange = caster:GetAttackRange()
+		  caster.baseAttackRange = caster:Script_GetAttackRange()
 		  caster.initiated = true
 	else
 		caster:FindAbilityByName("solunia_solar_glow"):SetActivated(true)

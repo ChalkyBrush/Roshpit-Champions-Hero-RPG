@@ -158,6 +158,13 @@ function ChatDropItems(keys)
   local text = string.lower(keys.text)
   Dungeons.itemLevel = 3000
   local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+  if string.match(text, "-championsgear") then
+    RPCItems:RollChampionsGearHelm(vector)
+    RPCItems:RollChampionsGearGauntlet(vector)
+    RPCItems:RollChampionsGearMail(vector)
+    RPCItems:RollChampionsGearBoots(vector)
+  end
+
 
   if string.match(text, "-arcanas") then    
     local timer = 1
@@ -171,6 +178,7 @@ function ChatDropItems(keys)
     Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana1(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana2(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana3(vector) end) timer = timer + 1
+    Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana4(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollTrapperArcana1(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollSpiritWarriorArcana1(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollSpiritWarriorArcana2(vector) end) timer = timer + 1

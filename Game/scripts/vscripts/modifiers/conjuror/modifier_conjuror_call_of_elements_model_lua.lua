@@ -11,10 +11,16 @@ end
 function modifier_conjuror_call_of_elements_model_lua:GetModifierModelScale( params )
 	local size = 20
 	local ability = self:GetAbility()
-	if ability.calls == 2 then
-		size = 30
-	elseif ability.calls == 3 then
-		size = 40
+	if ability then
+		if ability.calls == 2 then
+			size = 30
+		elseif ability.calls == 3 then
+			size = 40
+		end
 	end
 	return size
+end
+
+function modifier_conjuror_call_of_elements_model_lua:IsHidden()
+    return true
 end

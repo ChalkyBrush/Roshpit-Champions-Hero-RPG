@@ -18,7 +18,7 @@ end
 function zonik_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	local r_2_level = caster:GetRuneValue("r", 2)
 	if r_2_level > 0 then
 		if caster:IsRooted() or caster:IsStunned() then
 			caster:RemoveModifierByName("modifier_speedball_b_d_regen")
@@ -36,7 +36,7 @@ function zonik_passive_think(event)
 		caster:RemoveModifierByName("modifier_speedball_b_d_regen")
 		caster:RemoveModifierByName("modifier_speedball_b_d_mana_regen")
 	end
-	local r_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	local r_4_level = caster:GetRuneValue("r", 4)
 	if r_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_d_d_strength", {})
 		caster:SetModifierStackCount("modifier_speedball_d_d_strength", caster, r_4_level)
@@ -63,7 +63,7 @@ function speedball_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonik_speedball", {duration = duration})
 	caster:AddNewModifier( caster, ability, "modifier_zonik_speedball_cap", {duration = duration} )
 
-	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	ability.r_1_level = caster:GetRuneValue("r", 1)
 
 	caster:RemoveModifierByName("modifier_speedball_a_d_visible")
 	caster:RemoveModifierByName("modifier_speedball_a_d_invisible")
@@ -185,7 +185,7 @@ function speedball_explode(caster, ability, damage, stun_duration)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_a_d_visible", {duration = 8})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_a_d_invisible", {duration = 8})
 	end
-	local r_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	local r_3_level = caster:GetRuneValue("r", 3)
 	if r_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_c_d_mach_ready", {duration = 4})
 	end
@@ -197,7 +197,7 @@ function mach_ready_thinking(event)
 	if caster:IsStunned() or caster:IsRooted() then
 	else
 		caster:RemoveModifierByName("modifier_speedball_c_d_mach_ready")
-		local r_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+		local r_3_level = caster:GetRuneValue("r", 3)
 		local procs = Runes:Procs(r_3_level, ZHONIK_R3_MACH_PUNCH_CHANCE, 1)
 		if procs > 0 then
 			for i = 0, procs-1, 1 do
