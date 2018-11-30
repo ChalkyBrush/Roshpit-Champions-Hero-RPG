@@ -132,11 +132,12 @@
     	"DOTA_Tooltip_modifier_starfall_a_d_visible_Description"		"每层减少 <font color=\"#C25DFC\">宇宙</font> 元素伤害抗性 10%%"
 		
 		"DOTA_Tooltip_ability_astral_rune_r_2"							"[R2] 星辰震颤"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_Description"				"被天体爆发抛入空中的敌人落地后，另一个星辰碎片继续对其造成伤害和眩晕。伤害无视敌人的坚定技能。"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_property_one"				"伤害"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_suffix"					""
-    	"DOTA_Tooltip_ability_astral_rune_r_2_property_two"				"眩晕时间"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
+    	"DOTA_Tooltip_ability_astral_rune_r_2_Description"				"在[R1]的流星落下后将会造成一系列震动，对被击中的敌人造成伤害并且产生0.03秒的眩晕。"
+	 "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "基于[R1] 流星雨的伤害"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "%"
+        "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "范围"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
+
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] 凤凰"
     	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"成功施放天体爆发后召唤凤凰。凤凰将跟随星际游侠并攻击附近的敌人，凤凰的伤害基于星际游侠的攻击力。"
