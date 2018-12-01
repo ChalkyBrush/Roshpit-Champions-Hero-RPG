@@ -278,34 +278,34 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"		"(T1) Глиф пронизывающего света"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"		"(T1) Глиф Безопасных Стрел"
 		"item_rpc_astral_glyph_1_1_description" 				"@Ability2 больше не наносит урона, но количество стрел учетверено, угол покрытия сильно увеличен. Длительность баффа от руны [W1] удвоена."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"(T2) Глиф воздушного креста"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"(T2) Глиф Воздушного Гребня"
 		"item_rpc_astral_glyph_2_1_description" 				"Урон призванного Феникса увеличен в @glyph_property1 раз(а), а все задетые им враги замедляются на @glyph_property2."
 
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow"			"Phoenix Slow"
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow_Description"	"Замедлен"
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_3_1"		"(T3) Глиф сфокусированного залпа"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_3_1"		"(T3) Глиф Сфокусированного Залпа"
 		"item_rpc_astral_glyph_3_1_description" 				"(W) @Ability2 выпускает только @glyph_property1 стрел, но они наносят увеличенный в @glyph_property2 раз(а) урон. Шанс появления зачарованной стрелы увеличен на 40%."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"(T4) Глиф пространственных искажений"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"(T4) Глиф Мерцающих Огней"
 		"item_rpc_astral_glyph_4_1_description" 				"Перезарядка и задержка @Ability3 равны всего половине времени, но все баффы от рун @Ability3 и продление @Ability1 снижены на <% ASTRAL_T41_DURATION_REDUCTION_PCT %>%. Убирает время каста @Ability3."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"		"(T5) Глиф лунных волн"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"		"(T5) Глиф Лунного Заряда"
 		"item_rpc_astral_glyph_5_1_description" 				"@Ability4 само себя заряжает при касте, а перезарядка снижена на <% ASTRAL_T51_CD_REDUCE %> секунд."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_6_1"		"(T6) Глиф разделяющихся стрел"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_6_1"		"(T6) Глиф Разделяющихся Стрел"
 		"item_rpc_astral_glyph_6_1_description" 				"Стрелы от обычных атак разделяются при попадании и могут поразить до @glyph_property1 дополнительных целей."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_7_1"		"(T7) Глиф серебряных звёзд"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_7_1"		"(T7) Глиф Серебряных Звёзд"
 		"item_rpc_astral_glyph_7_1_description" 				"Во время произнесения (R) @Ability4, герой уворачивается от 100% атак. (R) @Ability4, [R1], и [R2] наносят @glyph_property1 кратный урон."
 
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect"	"Silver Stars"
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect_Description"	"100%% уклонение"
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"(Immortal) Глиф преломляющихся стрел"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"(Immortal) Глиф Параллакса"
 		"item_rpc_astral_glyph_5_a_description" 				"Увеличивает Базовый Урон атаки на @glyph_property1."
 		
 		//Weapons

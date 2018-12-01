@@ -648,3 +648,12 @@
 
 	"tutorial_master_dialogue_6_5e"										"Правильно! Кроме того, можно найти субканал general-russian и общаться там на русском языке."
 	"tutorial_master_dialogue_6_5f"										"Это завершает урок."
+	
+	"quest_6_reward_title"												"2 Недели Web Premium'a"       
+	"quest_6_reward_description"										"Бесплатные 2 недели Web Premium бонусов на roshpit.ca. Нажимай 'Забрать', когда посчитаешь это наиболее необходимым и полезным."
+
+	"tutorial_stars_reward_warning"										"Для этой награды нужно набрать как минимум @stars звезд-достижений. Набери их и возвращайся!"
+	"tutorial_button_get_more_stars"									"Необходимо @stars Звёзд"
+	
+	"dummy_toggle_dps_normal"											"Стандарт"
+	"dummy_toggle_dps_scientific"										"Экспоненциально"

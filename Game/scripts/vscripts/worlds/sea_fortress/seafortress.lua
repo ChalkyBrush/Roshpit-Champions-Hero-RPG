@@ -2150,7 +2150,7 @@ function Seafortress:InitAPortalRoom(roomIndex)
       local positionTable = {Vector(11328, -3840), Vector(11328, -3392), Vector(11840, -3597), Vector(12057, -3919), Vector(12058, -3264), Vector(12224, -3597), Vector(12736, -3411), Vector(12736, -3776)}
       local luck = RandomInt(1, 3)
       if luck == 1 then
-        positionTable = {Vector(11465, -3370), Vector(11465, -3712), Vector(11913, -3369), Vector(1193, -3712), Vector(12361, -3369), Vector(12361, -3712), Vector(12809, -3369), Vector(12809, -3712)}
+        positionTable = {Vector(11465, -3370), Vector(11465, -3712), Vector(11913, -3369), Vector(11913, -3712), Vector(12361, -3369), Vector(12361, -3712), Vector(12809, -3369), Vector(12809, -3712)}
       elseif luck == 2 then
         positionTable = {Vector(11364, -3490), Vector(11673, -3712), Vector(11876, -3490), Vector(12096, -3490), Vector(12185, -3712), Vector(12405, -3712), Vector(12608, -3489), Vector(12917, -3712)}
       end
