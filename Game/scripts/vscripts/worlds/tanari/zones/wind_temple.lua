@@ -954,7 +954,7 @@ function Tanari:SpiritWindTempleBossRoom()
 	Tanari:SpawnWindBear(Vector(12928, 2688), Vector(-1,0))
 	Tanari:SpawnWindBear(Vector(12928, 2432), Vector(-1,0))
 	Tanari:SpawnWindBear(Vector(12928, 2176), Vector(-1,0))
-	Tanari:SpawnWindSpark(Vector(12032, 288), RandomVector(1))
+	Tanari:SpawnWindSpark(Vector(12032,1925), RandomVector(1))
 	Timers:CreateTimer(3, function()
 		local positionTable = {Vector(12032, 2496), Vector(12370, 2496), Vector(12715, 2626), Vector(12715, 2187), Vector(13087, 2360), Vector(13443, 2361), Vector(13782, 2368), Vector(13662, 2112), Vector(13983, 1984), Vector(14099, 2304), Vector(14514, 2688), Vector(14491, 2058), Vector(14784, 2058)}
 		for i = 1, #positionTable, 1 do
