@@ -48,9 +48,9 @@
 		"redfall_quest_3_objective"								"Отару призвал морских гулей, убейте их."
 
 		"redfall_otaru"											"Отару"
-		"redfall_otaru_dialogue_one"							"Я посвятил свою жизнь защите этих лесов. Скоро я пройду ритуал очищения."	
+		"redfall_otaru_dialogue_one"							"Я посвятил свою жизнь защите этих лесов. Скоро я проведу ритуал очищения."	
 
-		"redfall_otaru_dialogue_option1"						"Я помогу тебе пройти его"
+		"redfall_otaru_dialogue_option1"						"Я помогу тебе провести его"
 		"redfall_otaru_dialogue_option2"						"В другой раз"
 
 		"redfall_otaru_dialogue_2"								"Пойдём. Ты узришь искусство очищения земли."
@@ -74,8 +74,8 @@
 
 		"quest_immortal_head_gear"								"Immortal Шлем"
 
-		"redfall_quest_5_title"									"Поиск Ашара"
-		"redfall_quest_5_objective"								"Используйте сияющие осенние листья в святилище Ашары в Каньоне Осеннего Тумана."		
+		"redfall_quest_5_title"									"Поиск Ашары"
+		"redfall_quest_5_objective"								"Используйте Светящийся Осенний Лист в святилище Ашары в Каньоне Осеннего Тумана."		
 
 		"redfall_quest_mithril_reward"							"Мифрильные Осколки"
 		"redfall_quest_5_reward"								"Награда: 35/70/210 Мифрильных Осколков"
@@ -88,13 +88,13 @@
 		"redfall_quest_5_objective_4"								"Встретьте Ашару"
 
 		"DOTA_Tooltip_modifier_blessing_of_ashara"			"Blessing of Ashara"
-		"DOTA_Tooltip_modifier_blessing_of_ashara_Description"	"Позволяет активировать статую ворона в Осеннем Лесу."	
+		"DOTA_Tooltip_modifier_blessing_of_ashara_Description"	"Позволяет активировать статую ворона в Осеннем Лесу (Расположен в восточной части леса)."	
 
 		"redfall_quest_6_title"									"Тень Фенрира"
-		"redfall_quest_6_objective"								"Найдите и убейте волка Фенрира, разгуливающего в Осеннем Лесу."
+		"redfall_quest_6_objective"								"Найдите и убейте волка Фенрира, охотящегося в Осеннем Лесу."
 
 		"redfall_quest_6_reward"								"Клык Фенрира"
-		"redfall_quest_6_reward_Description"					"Immortal украшение"
+		"redfall_quest_6_reward_Description"					"Immortal амулет"
 
 		//REDFALL DIALOGUE
 
@@ -118,12 +118,12 @@
 		"redfall_autumn_spawner"								"Зачарованная Ветка"
 
 		"DOTA_Tooltip_ability_autumn_summoner_ability"					"Сила Сезонов"
-		"DOTA_Tooltip_ability_autumn_summoner_ability_Description"		"Призывает трентов-воинов, которые сражаютсян а стороне призвавшего."
+		"DOTA_Tooltip_ability_autumn_summoner_ability_Description"		"Призывает трентов-воинов, которые сражаются на стороне призвавшего."
 
 		"redfall_aqua_lily"										"Осенняя Водяная Лилия"
 
 		"DOTA_Tooltip_ability_wozxak_fury_swipes"				"Fury Swipes"
-		"DOTA_Tooltip_ability_wozxak_fury_swipes_Description"	"Каждая успешнаяатака увеличивает урон."
+		"DOTA_Tooltip_ability_wozxak_fury_swipes_Description"	"Каждая успешная атака увеличивает урон."
 		"DOTA_Tooltip_ability_wozxak_fury_swipes_damage_per_stack"	"ДОП. УРОН ЗА ЗАРЯД:"
 
 		"DOTA_Tooltip_ability_redfall_poison_sting"				"Poison Sting"
@@ -229,7 +229,7 @@
 		"DOTA_Tooltip_ability_redfall_ghost_mace_health_regen_percent"	"СНИЖЕНИЕ РЕГЕНЕРАЦИИ ЗДОРОВЬЯ, %:"
 
 		"DOTA_Tooltip_modifier_ghost_mace_debuff"				"Ghost Mace"
-		"DOTA_Tooltip_modifier_ghost_mace_debuff_Description"	"Исцеление заблокировано, реген. здоровья сокращён."
+		"DOTA_Tooltip_modifier_ghost_mace_debuff_Description"	"Исцеление заблокировано, реген. здоровья сокращена."
 
 		"DOTA_Tooltip_ability_redfall_barbarian_passive"				"Tenacity"
 		"DOTA_Tooltip_ability_redfall_barbarian_passive_Description"	"Невосприимчив к оглушению."
@@ -255,7 +255,7 @@
 		"DOTA_Tooltip_ability_canyon_boss_time_walk_Description"	"Способен быстро перемещаться."
 
 		"DOTA_Tooltip_ability_canyon_boss_ai"						"Inner Corruption"
-		"DOTA_Tooltip_ability_canyon_boss_ai_Description"			"Что-то кроется внутри"
+		"DOTA_Tooltip_ability_canyon_boss_ai_Description"			"Что-то кроется внутри..."
 
 		"DOTA_Tooltip_ability_crimsith_cult_master_pull"				"Soul Grab"
 		"DOTA_Tooltip_ability_crimsith_cult_master_pull_Description"	"Толкает цель к вам."
@@ -434,7 +434,7 @@
 
 		"redfall_dialogue_farmer_3_a"											"На помощь!"
 		"redfall_dialogue_farmer_3_b"											"ПОМОГИТЕ!"
-		"redfall_dialogue_farmer_3_c"											"Извини..."
+		"redfall_dialogue_farmer_3_c"											"Извини, меня заставили..."
 
 		"redfall_dialogue_farmer_3_d"											"Твоя награда за помощь здесь. Следуй за мной."
 
@@ -530,14 +530,14 @@
 		"shipyard_boss_dialogue_3"										"Они никогда не опаздывали."
 		"shipyard_boss_dialogue_4_1"									"А теперь еще какая-то вонючая свинья стоит перед входом в мою комнату."
 		"shipyard_boss_dialogue_4_2"									"А теперь еще какая-то пара мерзких обезьян стоит перед входом в мою комнату."
-		"shipyard_boss_dialogue_4_3"									"А теперь еще три мартышки стоят перед входом в мою комнату."
+		"shipyard_boss_dialogue_4_3"									"А теперь еще три барана стоят перед входом в мою комнату."
 		"shipyard_boss_dialogue_4_4"									"А теперь еще группа гнилых крыс стоит перед входом в мою комнату."
 
 		"shipyard_boss_dialogue_5"										"Ну что, друзья, давайте узнаем, сколько наши гости продержатся в игре ЖИЗНИ и СМЕРТИ!"
 		"shipyard_boss_dialogue_6"										"Поехали!"
 
 		"shipyard_boss_dialogue_7"										"Еще! Давай еще раз!"
-		"shipyard_boss_dialogue_8"										"Повышаем ставки, братья!"
+		"shipyard_boss_dialogue_8"										"Повышаем ставки, господа!"
 
 		"shipyard_boss_dialogue_9"										"Покончим с этим!"
 

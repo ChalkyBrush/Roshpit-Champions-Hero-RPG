@@ -221,7 +221,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_skyforge_flurry_plate"							"Skyforge Flurry Plate"
 		"item_property_skyforge"							"Flurry Aura"
-		"property_skyforge_description"						"Снижает основной урон всех ближайших врагов на 30%"
+		"property_skyforge_description"						"Снижает весь исходящий урон всех ближайших врагов на 30%"
 		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"Flurry Aura"
 		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"Урон снижен на 30%%"
 		
