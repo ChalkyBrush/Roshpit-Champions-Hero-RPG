@@ -386,10 +386,10 @@
 		"DOTA_Tooltip_modifier_arena_challenger_5_passive"				"Dragon's Mind"
 	
 		"DOTA_Tooltip_ability_arena_challenger_4_passive"				"Greatness of Oplexus"
-		"DOTA_Tooltip_ability_arena_challenger_4_passive"				"Oplexus pursues target with numerous jumps."
+		"DOTA_Tooltip_ability_arena_challenger_4_passive_Description"				"Oplexus pursues target with numerous jumps."
 		"DOTA_Tooltip_modifier_arena_challenger_4_passive"				"Greatness of Oplexus"
 		"DOTA_Tooltip_ability_arena_challenger_4_shield"				"Shine of Oplexus"
-		"DOTA_Tooltip_ability_arena_challenger_4_shield"				"Deals 5000 magical damage to nearby units per hit and bashes them."
+		"DOTA_Tooltip_ability_arena_challenger_4_shield_Description"				"Deals 5000 magical damage to nearby units per hit and bashes them."
 		"DOTA_Tooltip_modifier_challenger_4_shield_effect"				"Shine of Oplexus"
 	
 		"DOTA_Tooltip_ability_arena_challenger_1_illuminate"				"Holy Illumination"

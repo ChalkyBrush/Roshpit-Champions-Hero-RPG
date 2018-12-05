@@ -386,10 +386,10 @@
 		"DOTA_Tooltip_modifier_arena_challenger_5_passive"				"Dragon's Mind"
 	
 		"DOTA_Tooltip_ability_arena_challenger_4_passive"				"Оплексус преследует свою цель бесчисленными прыжками."
-		"DOTA_Tooltip_ability_arena_challenger_4_passive"				"Оплексус преследует свою цель бесчисленными прыжками."
+		"DOTA_Tooltip_ability_arena_challenger_4_passive_Description"				"Оплексус преследует свою цель бесчисленными прыжками."
 		"DOTA_Tooltip_modifier_arena_challenger_4_passive"				"Greatness of Oplexus"
 		"DOTA_Tooltip_ability_arena_challenger_4_shield"				"Наносит 5000 магического урона ближайшей цели и оглушает её."
-		"DOTA_Tooltip_ability_arena_challenger_4_shield"				"Наносит 5000 магического урона ближайшей цели и оглушает её."
+		"DOTA_Tooltip_ability_arena_challenger_4_shield_Description"				"Наносит 5000 магического урона ближайшей цели и оглушает её."
 		"DOTA_Tooltip_modifier_challenger_4_shield_effect"				"Shine of Oplexus"
 	
 		"DOTA_Tooltip_ability_arena_challenger_1_illuminate"				"Holy Illumination"
