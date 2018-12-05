@@ -2619,7 +2619,7 @@
 		"DOTA_Tooltip_modifier_rune_q_1_thinker_description" 			"攻击距离增加"
 		
 		"DOTA_Tooltip_ability_astral_rune_q_2"							"[Q2] 炎阳之怒"
-    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"你的普通攻击有20% 几率向目标释放一道炎阳，造成与攻击伤害相关的纯粹伤害并降低目标的护甲值。攻击分裂雕纹也会触发。"
+    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"你的普通攻击有20% 几率向目标释放一道炎阳，造成与攻击伤害相关的纯粹伤害并降低目标的护甲值。攻击分裂雕纹也会触发。坚定对该符文的阈值百分比增加5倍。"
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_one"				"炎阳伤害"
     	"DOTA_Tooltip_ability_astral_rune_q_2_suffix"					"% 攻击伤害"
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_two"				"护甲值降低"
@@ -2870,8 +2870,8 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"		"飞翔雕文"
-		"item_rpc_astral_glyph_1_1_description" 				"飞马将在目标点和游侠当前位置之间飞行4次。"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"		"永恒之光雕文"
+		"item_rpc_astral_glyph_1_1_description" 				"@Ability2不再造成伤害，但是向周围放出大量的箭。并且 [W1]的持续时间X2。"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"天空雕文"
 		"item_rpc_astral_glyph_2_1_description" 				"凤凰的基础攻击力提高 @glyph_property1x ，并降低其目标的移动速度 @glyph_property2"
@@ -2882,11 +2882,11 @@
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_3_1"		"新月雕文"
 		"item_rpc_astral_glyph_3_1_description" 				"@Ability2 只发射 @glyph_property1 支箭，并且伤害提高 @glyph_property2x。天使之箭的基础触发概率提高至 40%（R4计算在40%之后）"
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"空间裂隙雕文"
-		"item_rpc_astral_glyph_4_1_description" 				"降低星际裂隙的传送延迟1秒。"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"闪烁之光雕文"
+		"item_rpc_astral_glyph_4_1_description" 				" @Ability3的冷却时间和传送延迟减半，并且施法点移除。所有来自@Ability3以及他的符文所提供的buff以及释放后对@Ability1的持续时间的延长效果减少<font color='#ccff66'>25</font>%。"
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"		"月光雕文"
-		"item_rpc_astral_glyph_5_1_description" 				"提高星际尘埃的持续时间 @glyph_property1 秒。"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"		"银月雕文"
+		"item_rpc_astral_glyph_5_1_description" 				"@Ability4将会自己进行持续施法，不会被打断，并且他的冷却时间减少<font color='#ccff66'>5</font>秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_6_1"		"分裂箭雕文"
 		"item_rpc_astral_glyph_6_1_description" 				"攻击时攻击分裂，最多可以攻击 @glyph_property1 个额外的单位。"
@@ -2924,6 +2924,7 @@
     	"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_3"			"达纳苏斯月神弓"
     	"item_property_astral_immortal_weapon3"								"月之庇护"
     	"property_astral_immortal_weapon3_description"						"获得 @special_property1 高空视野和 @special_property2 的额外攻击、视野距离。"
+
 
 		//Abilities
 		"DOTA_Tooltip_ability_heavens_shield"							"天堂之盾"
@@ -3402,6 +3403,7 @@
 
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1"                     "[R4] 地壳余震"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_Description"         "大招有几率额外造成一道地裂，几率超过 100% 可以撕裂多道。并且额外提高每条地裂的撕裂距离。英勇飞跃释放的大招只享受一半的加成。"
+
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_one"        "额外的地裂概率"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_suffix"              "%"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_two"        "额外距离"
@@ -3730,7 +3732,7 @@
 		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"             "额外伤害"
 		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"                   "丢失魔法值%"		        			
         "DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"             "增加伤害"	  						
-        "DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix_two"               "移动速度%" 		  
+        "DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix_two"               "飞行速度%" 		  
 		 
         "DOTA_Tooltip_modifier_bahamut_arcana_w4_amp"                             "逆效力"
 		"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_Description"                 "基于神之领域的飞行速度增加伤害"
@@ -10598,7 +10600,7 @@
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Ashara的鞋子"
 		 "item_property_boots_of_ashara"						"秋叶魅力"
-		 "property_boots_of_ashara_description"					"受到的伤害如果低于10%你的最大生命时，那么此次伤害减少90%。"
+		 "property_boots_of_ashara_description"					"当你的当前生命值低于或等于最大生命值的@special_property2%时，@Ability3的基础技能伤害增加 @special_property1X"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"砂流之鞋"
@@ -11234,7 +11236,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"食尸鬼王臂章"
 		"item_property_mordiggus"							"血气灾星"
-		"property_mordiggus_description"					"提高所有造成的伤害 100%。每次施放技能汲取你 20% 最大生命值，每次攻击汲取你 7% 最大生命值。汲取生命不会致死。"
+		"property_mordiggus_description"					"每点丢失生命值%提高所有造成的伤害 @special_property1%。每次施放技能汲取你 20% 最大生命值，每次攻击汲取你 7% 最大生命值。汲取生命不会致死。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"钢铁手套"
@@ -11621,7 +11623,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm2"								"风暴裂痕之头 等级2"
 		 "item_property_stormcrack2"						"风暴裂痕 II"
-		 "property_stormcrack2_description"					"当你眩晕敌人时，造成20倍的攻击力+@special_property2x总属性的魔法伤害。<br>增加玩家对敌人的的所有眩晕持续时间 35%。"
+		 "property_stormcrack2_description"					"当你眩晕敌人时，造成 @special_property1x攻击力+@special_property2x总属性的魔法伤害。<br>增加玩家对敌人的的所有眩晕持续时间 35%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"黑魔法兜帽"

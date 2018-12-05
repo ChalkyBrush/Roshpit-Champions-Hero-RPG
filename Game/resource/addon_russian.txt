@@ -2590,34 +2590,34 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"		"(T1) Глиф пронизывающего света"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"		"(T1) Глиф Безопасных Стрел"
 		"item_rpc_astral_glyph_1_1_description" 				"@Ability2 больше не наносит урона, но количество стрел учетверено, угол покрытия сильно увеличен. Длительность баффа от руны [W1] удвоена."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"(T2) Глиф воздушного креста"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"(T2) Глиф Воздушного Гребня"
 		"item_rpc_astral_glyph_2_1_description" 				"Урон призванного Феникса увеличен в @glyph_property1 раз(а), а все задетые им враги замедляются на @glyph_property2."
 
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow"			"Phoenix Slow"
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow_Description"	"Замедлен"
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_3_1"		"(T3) Глиф сфокусированного залпа"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_3_1"		"(T3) Глиф Сфокусированного Залпа"
 		"item_rpc_astral_glyph_3_1_description" 				"(W) @Ability2 выпускает только @glyph_property1 стрел, но они наносят увеличенный в @glyph_property2 раз(а) урон. Шанс появления зачарованной стрелы увеличен на 40%."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"(T4) Глиф пространственных искажений"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"(T4) Глиф Мерцающих Огней"
 		"item_rpc_astral_glyph_4_1_description" 				"Перезарядка и задержка @Ability3 равны всего половине времени, но все баффы от рун @Ability3 и продление @Ability1 снижены на <font color='#ccff66'>25</font>%. Убирает время каста @Ability3."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"		"(T5) Глиф лунных волн"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"		"(T5) Глиф Лунного Заряда"
 		"item_rpc_astral_glyph_5_1_description" 				"@Ability4 само себя заряжает при касте, а перезарядка снижена на <font color='#ccff66'>5</font> секунд."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_6_1"		"(T6) Глиф разделяющихся стрел"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_6_1"		"(T6) Глиф Разделяющихся Стрел"
 		"item_rpc_astral_glyph_6_1_description" 				"Стрелы от обычных атак разделяются при попадании и могут поразить до @glyph_property1 дополнительных целей."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_7_1"		"(T7) Глиф серебряных звёзд"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_7_1"		"(T7) Глиф Серебряных Звёзд"
 		"item_rpc_astral_glyph_7_1_description" 				"Во время произнесения (R) @Ability4, герой уворачивается от 100% атак. (R) @Ability4, [R1], и [R2] наносят @glyph_property1 кратный урон."
 
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect"	"Silver Stars"
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect_Description"	"100%% уклонение"
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"(Immortal) Глиф преломляющихся стрел"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"(Immortal) Глиф Параллакса"
 		"item_rpc_astral_glyph_5_a_description" 				"Увеличивает Базовый Урон атаки на @glyph_property1."
 		
 		//Weapons
@@ -7199,6 +7199,9 @@
 
 		"DOTA_Tooltip_modifier_paladin_rune_e_1_revivable"				"Second Coming"
 		"DOTA_Tooltip_modifier_paladin_rune_e_1_revivable_description" 	"Вы вернетесь через 4 секунды после смерти."
+		
+		"DOTA_Tooltip_modifier_paladin_rune_e_1_invulnerable"				"Second Coming"
+		"DOTA_Tooltip_modifier_paladin_rune_e_1_invulnerable_Description"	"Неуязвим."
 
 		"DOTA_Tooltip_modifier_paladin_rune_e_1_revive_cooldown"				"Resurrected"
 		"DOTA_Tooltip_modifier_paladin_rune_e_1_revive_cooldown_description" 	"Second Coming перезаряжается."
@@ -10898,7 +10901,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_skyforge_flurry_plate"							"Skyforge Flurry Plate"
 		"item_property_skyforge"							"Flurry Aura"
-		"property_skyforge_description"						"Снижает основной урон всех ближайших врагов на 30%"
+		"property_skyforge_description"						"Снижает весь исходящий урон всех ближайших врагов на 30%"
 		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"Flurry Aura"
 		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"Урон снижен на 30%%"
 		
@@ -11327,9 +11330,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chitinous_lobster_claw"					"Chitinous Lobster Claw"	
 		"property_lobster_claw"												"Chitinous Skin"
-		"property_lobster_claw_Description"									"Каждые 0.5 секунды герой получает заряд щита. Каждый заряд снижает входящий урон на @special_property1%. Максимум зарядов: @special_property2 stacks."
+		"property_lobster_claw_Description"									"Каждые <font color='#ccff66'>0.2</font> секунды герой получает заряд щита. Каждый заряд снижает входящий урон на <font color='#ccff66'>1</font>%. Максимум зарядов: <font color='#ccff66'>92</font>."
 		"DOTA_Tooltip_modifier_chitinous_skin_stack"						"Chitinous Skin"
-		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"Каждый заряд снижает входящий урон на 1%%"
+		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"Каждый заряд снижает входящий урон на <font color='#ccff66'>1</font>%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	
@@ -12438,10 +12441,10 @@
 		"DOTA_Tooltip_modifier_arena_challenger_5_passive"				"Dragon's Mind"
 	
 		"DOTA_Tooltip_ability_arena_challenger_4_passive"				"Оплексус преследует свою цель бесчисленными прыжками."
-		"DOTA_Tooltip_ability_arena_challenger_4_passive"				"Оплексус преследует свою цель бесчисленными прыжками."
+		"DOTA_Tooltip_ability_arena_challenger_4_passive_Description"				"Оплексус преследует свою цель бесчисленными прыжками."
 		"DOTA_Tooltip_modifier_arena_challenger_4_passive"				"Greatness of Oplexus"
 		"DOTA_Tooltip_ability_arena_challenger_4_shield"				"Наносит 5000 магического урона ближайшей цели и оглушает её."
-		"DOTA_Tooltip_ability_arena_challenger_4_shield"				"Наносит 5000 магического урона ближайшей цели и оглушает её."
+		"DOTA_Tooltip_ability_arena_challenger_4_shield_Description"				"Наносит 5000 магического урона ближайшей цели и оглушает её."
 		"DOTA_Tooltip_modifier_challenger_4_shield_effect"				"Shine of Oplexus"
 	
 		"DOTA_Tooltip_ability_arena_challenger_1_illuminate"				"Holy Illumination"
@@ -12960,9 +12963,9 @@
 		"redfall_quest_3_objective"								"Отару призвал морских гулей, убейте их."
 
 		"redfall_otaru"											"Отару"
-		"redfall_otaru_dialogue_one"							"Я посвятил свою жизнь защите этих лесов. Скоро я пройду ритуал очищения."	
+		"redfall_otaru_dialogue_one"							"Я посвятил свою жизнь защите этих лесов. Скоро я проведу ритуал очищения."	
 
-		"redfall_otaru_dialogue_option1"						"Я помогу тебе пройти его"
+		"redfall_otaru_dialogue_option1"						"Я помогу тебе провести его"
 		"redfall_otaru_dialogue_option2"						"В другой раз"
 
 		"redfall_otaru_dialogue_2"								"Пойдём. Ты узришь искусство очищения земли."
@@ -12986,8 +12989,8 @@
 
 		"quest_immortal_head_gear"								"Immortal Шлем"
 
-		"redfall_quest_5_title"									"Поиск Ашара"
-		"redfall_quest_5_objective"								"Используйте сияющие осенние листья в святилище Ашары в Каньоне Осеннего Тумана."		
+		"redfall_quest_5_title"									"Поиск Ашары"
+		"redfall_quest_5_objective"								"Используйте Светящийся Осенний Лист в святилище Ашары в Каньоне Осеннего Тумана."		
 
 		"redfall_quest_mithril_reward"							"Мифрильные Осколки"
 		"redfall_quest_5_reward"								"Награда: 35/70/210 Мифрильных Осколков"
@@ -13000,13 +13003,13 @@
 		"redfall_quest_5_objective_4"								"Встретьте Ашару"
 
 		"DOTA_Tooltip_modifier_blessing_of_ashara"			"Blessing of Ashara"
-		"DOTA_Tooltip_modifier_blessing_of_ashara_Description"	"Позволяет активировать статую ворона в Осеннем Лесу."	
+		"DOTA_Tooltip_modifier_blessing_of_ashara_Description"	"Позволяет активировать статую ворона в Осеннем Лесу (Расположен в восточной части леса)."	
 
 		"redfall_quest_6_title"									"Тень Фенрира"
-		"redfall_quest_6_objective"								"Найдите и убейте волка Фенрира, разгуливающего в Осеннем Лесу."
+		"redfall_quest_6_objective"								"Найдите и убейте волка Фенрира, охотящегося в Осеннем Лесу."
 
 		"redfall_quest_6_reward"								"Клык Фенрира"
-		"redfall_quest_6_reward_Description"					"Immortal украшение"
+		"redfall_quest_6_reward_Description"					"Immortal амулет"
 
 		//REDFALL DIALOGUE
 
@@ -13030,12 +13033,12 @@
 		"redfall_autumn_spawner"								"Зачарованная Ветка"
 
 		"DOTA_Tooltip_ability_autumn_summoner_ability"					"Сила Сезонов"
-		"DOTA_Tooltip_ability_autumn_summoner_ability_Description"		"Призывает трентов-воинов, которые сражаютсян а стороне призвавшего."
+		"DOTA_Tooltip_ability_autumn_summoner_ability_Description"		"Призывает трентов-воинов, которые сражаются на стороне призвавшего."
 
 		"redfall_aqua_lily"										"Осенняя Водяная Лилия"
 
 		"DOTA_Tooltip_ability_wozxak_fury_swipes"				"Fury Swipes"
-		"DOTA_Tooltip_ability_wozxak_fury_swipes_Description"	"Каждая успешнаяатака увеличивает урон."
+		"DOTA_Tooltip_ability_wozxak_fury_swipes_Description"	"Каждая успешная атака увеличивает урон."
 		"DOTA_Tooltip_ability_wozxak_fury_swipes_damage_per_stack"	"ДОП. УРОН ЗА ЗАРЯД:"
 
 		"DOTA_Tooltip_ability_redfall_poison_sting"				"Poison Sting"
@@ -13141,7 +13144,7 @@
 		"DOTA_Tooltip_ability_redfall_ghost_mace_health_regen_percent"	"СНИЖЕНИЕ РЕГЕНЕРАЦИИ ЗДОРОВЬЯ, %:"
 
 		"DOTA_Tooltip_modifier_ghost_mace_debuff"				"Ghost Mace"
-		"DOTA_Tooltip_modifier_ghost_mace_debuff_Description"	"Исцеление заблокировано, реген. здоровья сокращён."
+		"DOTA_Tooltip_modifier_ghost_mace_debuff_Description"	"Исцеление заблокировано, реген. здоровья сокращена."
 
 		"DOTA_Tooltip_ability_redfall_barbarian_passive"				"Tenacity"
 		"DOTA_Tooltip_ability_redfall_barbarian_passive_Description"	"Невосприимчив к оглушению."
@@ -13167,7 +13170,7 @@
 		"DOTA_Tooltip_ability_canyon_boss_time_walk_Description"	"Способен быстро перемещаться."
 
 		"DOTA_Tooltip_ability_canyon_boss_ai"						"Inner Corruption"
-		"DOTA_Tooltip_ability_canyon_boss_ai_Description"			"Что-то кроется внутри"
+		"DOTA_Tooltip_ability_canyon_boss_ai_Description"			"Что-то кроется внутри..."
 
 		"DOTA_Tooltip_ability_crimsith_cult_master_pull"				"Soul Grab"
 		"DOTA_Tooltip_ability_crimsith_cult_master_pull_Description"	"Толкает цель к вам."
@@ -13346,7 +13349,7 @@
 
 		"redfall_dialogue_farmer_3_a"											"На помощь!"
 		"redfall_dialogue_farmer_3_b"											"ПОМОГИТЕ!"
-		"redfall_dialogue_farmer_3_c"											"Извини..."
+		"redfall_dialogue_farmer_3_c"											"Извини, меня заставили..."
 
 		"redfall_dialogue_farmer_3_d"											"Твоя награда за помощь здесь. Следуй за мной."
 
@@ -13442,14 +13445,14 @@
 		"shipyard_boss_dialogue_3"										"Они никогда не опаздывали."
 		"shipyard_boss_dialogue_4_1"									"А теперь еще какая-то вонючая свинья стоит перед входом в мою комнату."
 		"shipyard_boss_dialogue_4_2"									"А теперь еще какая-то пара мерзких обезьян стоит перед входом в мою комнату."
-		"shipyard_boss_dialogue_4_3"									"А теперь еще три мартышки стоят перед входом в мою комнату."
+		"shipyard_boss_dialogue_4_3"									"А теперь еще три барана стоят перед входом в мою комнату."
 		"shipyard_boss_dialogue_4_4"									"А теперь еще группа гнилых крыс стоит перед входом в мою комнату."
 
 		"shipyard_boss_dialogue_5"										"Ну что, друзья, давайте узнаем, сколько наши гости продержатся в игре ЖИЗНИ и СМЕРТИ!"
 		"shipyard_boss_dialogue_6"										"Поехали!"
 
 		"shipyard_boss_dialogue_7"										"Еще! Давай еще раз!"
-		"shipyard_boss_dialogue_8"										"Повышаем ставки, братья!"
+		"shipyard_boss_dialogue_8"										"Повышаем ставки, господа!"
 
 		"shipyard_boss_dialogue_9"										"Покончим с этим!"
 
@@ -16963,6 +16966,15 @@
 
 	"tutorial_master_dialogue_6_5e"										"Правильно! Кроме того, можно найти субканал general-russian и общаться там на русском языке."
 	"tutorial_master_dialogue_6_5f"										"Это завершает урок."
+	
+	"quest_6_reward_title"												"2 Недели Web Premium'a"       
+	"quest_6_reward_description"										"Бесплатные 2 недели Web Premium бонусов на roshpit.ca. Нажимай 'Забрать', когда посчитаешь это наиболее необходимым и полезным."
+
+	"tutorial_stars_reward_warning"										"Для этой награды нужно набрать как минимум @stars звезд-достижений. Набери их и возвращайся!"
+	"tutorial_button_get_more_stars"									"Необходимо @stars Звёзд"
+	
+	"dummy_toggle_dps_normal"											"Стандарт"
+	"dummy_toggle_dps_scientific"										"Экспоненциально"
 
 		"winterblight_village"											"Деревня Winterblight"
 		"shrine_of_azalea"												"Святилище Азалии"
