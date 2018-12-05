@@ -6190,20 +6190,29 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_w_4_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_heat_wave"										"Heat Wave"
-		"DOTA_Tooltip_ability_heat_wave_Description"							"Element: <font color=\"#EF4126\">Fire</font><br>Flamewaker activates an intense heat energy, gaining movespeed, attack damage, cliff walking, and increased max movespeed."
+		"DOTA_Tooltip_ability_heat_wave_Description"							"Element: <font color=\"#EF4126\">Fire</font><br>Flamewaker activates an intense heat energy, gaining movespeed, attack damage, cliff walking, and increased max movespeed. Enemies close to flamewaker during heatwave have reduced armor."
 		"DOTA_Tooltip_ability_heat_wave_Lore"									""
     	"DOTA_Tooltip_ability_heat_wave_max_ms"									"MOVESPEED CAP:"
     	"DOTA_Tooltip_ability_heat_wave_base_dmg"								"ATTACK DAMAGE:"
     	"DOTA_Tooltip_ability_heat_wave_movespeed"								"MOVESPEED:"
     	"DOTA_Tooltip_ability_heat_wave_duration"								"DURATION:"
+        "DOTA_Tooltip_ability_heat_wave_armor_shred"                            "ARMOR SHRED:"
+
+        "DOTA_Tooltip_modifier_heat_wave_armor_shred"                           "Heat Wave Armor Shred"
+        "DOTA_Tooltip_modifier_heat_wave_armor_shred_Description"               "Reduced armor"
 
     	"DOTA_Tooltip_modifier_heatwave_phase_one"								"Heat Wave"
     	"DOTA_Tooltip_modifier_heatwave_phase_one_Description"					"Increased movespeed and max movespeed."
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_1"								"[E1] Blazing Trail"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker leaves a trail of smoldering embers on the ground while surging with Heat Wave"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker leaves a trail of smoldering embers on the ground while surging with Heat Wave. Enemies standing on the fire take increased pre-mitigation physical damage based on negative armor."
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_one"					"Damage/sec"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix"						""
+        "DOTA_Tooltip_ability_flamewaker_rune_e_1_property_two"                 "Premitigation damage increase"
+        "DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix_two"                      "% for every point of negative armor"
+
+        "DOTA_Tooltip_heatwave_fire_damage"                                     "Blazing Trail"
+        "DOTA_Tooltip_heatwave_fire_damage_Description"                         "Taking increased physical damage from negative armor"
 
     	"DOTA_Tooltip_ability_flamewaker_rune_e_2"								"[E2] Dragon Rage"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_2_Description"					"Casting Heat Wave applies an immolation for 6 seconds that burns nearby enemies. Damage is enhanced by Agility."
@@ -6229,7 +6238,7 @@
     	"DOTA_Tooltip_modifier_searing_heat_Description"						"Losing Armor"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_4"								"[E4] Splitting Flame"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"Enemies struck by Blazing Trail ignite - losing armor and taking damage over time based on Blazing Trail's damage."
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"Enemies struck by Blazing Trail ignite - losing armor and taking damage over time for 5 seconds based on Blazing Trail's damage."
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_one"					"Damage Per Second"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix"						"% of Blazing Trail Damage"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_two"					"Armor Reduction"

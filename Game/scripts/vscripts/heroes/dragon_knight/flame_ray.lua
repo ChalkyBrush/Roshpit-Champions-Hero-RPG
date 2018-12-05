@@ -203,7 +203,7 @@ function rune_e_1_damage(event)
             runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_flamewaker_rune_e_4", {duration = 4})
             target:SetModifierStackCount( "modifier_flamewaker_rune_e_4", runeAbility, e_4_level )
         end
-        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, 3, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
     end
 
 end

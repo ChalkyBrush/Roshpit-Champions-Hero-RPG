@@ -266,7 +266,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-5"
+				"property_one"			"<% FLAMEWAKER_W3_ARMOR_SHRED %>"
 			}
 		}
 	}
@@ -321,7 +321,7 @@
 		"AbilityTextureName"	"phoenix_launch_fire_spirit"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
 		"AbilitySpecial"
 		{
@@ -329,6 +329,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"600"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.01"
 			}
 			"02"
 			{
@@ -494,7 +499,7 @@
 		"AbilityTextureName"	"batrider_firefly"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySpecial"
 		{
 			"01"
@@ -505,7 +510,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-35"
+				"property_two"			"-120"
 			}
 			"03"
 			{

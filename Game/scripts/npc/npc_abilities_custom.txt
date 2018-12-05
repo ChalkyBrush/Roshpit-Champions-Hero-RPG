@@ -14626,7 +14626,7 @@
 			}
 			"fire_thinker"
 			{
-				"Aura"					"fire_damage"
+				"Aura"					"heatwave_fire_damage"
 				"Aura_Radius"			"225"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
@@ -14651,7 +14651,7 @@
 				}
 			}
 
-			"fire_damage"
+			"heatwave_fire_damage"
 			{
 				"IsDebuff"		"1"
 				"IsPurgable"	"0"
@@ -15133,7 +15133,7 @@
 				"EffectAttachType" 	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-5"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-8"
 				}
 			}
 			"modifier_flamewaker_glyph_4_1_effect"
@@ -15264,6 +15264,11 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"max_ms"			"640"
+			}
+			"14"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"armor_shred"			"-100 -300 -600 -1000 -2000 -5000 -10000"
 			}
 		}
 
@@ -15432,6 +15437,12 @@
 			            	}
 			            }
 					}
+					"Aura"          	"modifier_heat_wave_armor_shred"
+					"Aura_Radius"   	"260"
+					"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+					"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+					"Aura_ApplyToCaster" "0"
 				}
 				"OnDestroy"
 				{
@@ -15458,7 +15469,15 @@
 					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-
+			"modifier_heat_wave_armor_shred"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_shred"
+				}
+			}
 
 			"modifier_sun_ray_thinker_datadriven"
 			{
@@ -15491,7 +15510,7 @@
 
 			"fire_thinker"
 			{
-				"Aura"					"fire_damage"
+				"Aura"					"heatwave_fire_damage"
 				"Aura_Radius"			"225"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
@@ -15516,7 +15535,7 @@
 				}
 			}
 
-			"fire_damage"
+			"heatwave_fire_damage"
 			{
 				"IsDebuff"		"1"
 				"IsPurgable"	"0"
@@ -16134,7 +16153,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-5"
+				"property_one"			"-8"
 			}
 		}
 	}
@@ -16189,7 +16208,7 @@
 		"AbilityTextureName"	"phoenix_launch_fire_spirit"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
 		"AbilitySpecial"
 		{
@@ -16197,6 +16216,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"600"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.01"
 			}
 			"02"
 			{
@@ -16362,7 +16386,7 @@
 		"AbilityTextureName"	"batrider_firefly"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySpecial"
 		{
 			"01"
@@ -16373,7 +16397,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-35"
+				"property_two"			"-120"
 			}
 			"03"
 			{
