@@ -218,9 +218,9 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"% за каждые 10 очков атрибутов."
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2"							"[Q4] Shadow Form"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"После прочтения ультимативной способности герой укрывается тенями на 18 секунд. В этом состоянии весь пост-резистный урон увеличен, регенерация маны увеличена."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"После прочтения ультимативной способности герой входит в Теневую Форму на 18 секунд. В этом состоянии магический пост-резистный урон увеличен, регенерация маны увеличена."
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_one"				"Усиление магического урона"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix"					""  	
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix"					"%"  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_two"				"Доп. реген. маны"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix_two"				""
 
