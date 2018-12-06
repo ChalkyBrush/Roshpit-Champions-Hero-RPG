@@ -1323,6 +1323,15 @@ function GameMode:OnEntityKilled( keys )
 
       -- Events:SpecialDeath(killedUnit, killerEntity)
       killedUnit:ClearParticles()
+    for i = 0, 10, 1 do
+      local abilityOfKilledUnit = killedUnit:GetAbilityByIndex(i)
+      if abilityOfKilledUnit and IsValidEntity(abilityOfKilledUnit) and not abilityOfKilledUnit:IsNull() then
+        print(killedUnit:GetUnitName().."  abilityOfKilledUnit")
+        Timers:CreateTimer(1, function()
+          UTIL_Remove(abilityOfKilledUnit)
+        end)
+      end
+    end
 	  --if i doing it inside timer, i get c++ warning, not sure why tho
 	  local wearable = killedUnit:FirstMoveChild()
 	  local wearableP = nil
