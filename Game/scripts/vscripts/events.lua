@@ -1323,29 +1323,25 @@ function GameMode:OnEntityKilled( keys )
 
       -- Events:SpecialDeath(killedUnit, killerEntity)
       killedUnit:ClearParticles()
-    for i = 0, 10, 1 do
-      local abilityOfKilledUnit = killedUnit:GetAbilityByIndex(i)
-      if abilityOfKilledUnit and IsValidEntity(abilityOfKilledUnit) and not abilityOfKilledUnit:IsNull() then
-        print(killedUnit:GetUnitName().."  abilityOfKilledUnit")
-        Timers:CreateTimer(1, function()
-          UTIL_Remove(abilityOfKilledUnit)
-        end)
-      end
-    end
-	  --if i doing it inside timer, i get c++ warning, not sure why tho
-	  local wearable = killedUnit:FirstMoveChild()
-	  local wearableP = nil
-	  if wearable ~= nil and wearable:GetClassname() == "dota_item_wearable" then
-		wearableP = wearable
-	  end
-      Timers:CreateTimer(8,
-        function()
-			if wearableP then
-				UTIL_Remove(wearableP)
-			end
-              UTIL_Remove(killedUnit)
+      Timers:CreateTimer(1, function()
+        --ABILITIES: 10 slots of 24 max
+        for i = 0, 9, 1 do
+          local abilityOfKilledUnit = killedUnit:GetAbilityByIndex(i)
+          if abilityOfKilledUnit and IsValidEntity(abilityOfKilledUnit) and not abilityOfKilledUnit:IsNull() then
+            UTIL_Remove(abilityOfKilledUnit)
+          end
+        end
 
-        end)
+        --COSMETICS
+        local wearable = killedUnit:FirstMoveChild()
+        if wearable ~= nil and wearable:GetClassname() == "dota_item_wearable" and not wearable:IsNull() then
+          UTIL_Remove(wearable)
+        end
+      end)
+
+      Timers:CreateTimer(8, function()
+        UTIL_Remove(killedUnit)
+      end)
   
     end
     if killedUnit.dummy then
