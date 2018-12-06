@@ -79,6 +79,10 @@ function spark_hit(event)
 	if caster:HasModifier("modifier_voltex_glyph_6_1") then
 		damage = damage*10
 	end
+	ability:ApplyDataDrivenModifier(caster,target, "modifier_static_field_post_mitigation", {duration = 10})
+	local stacks = target:GetModifierStackCount("modifier_static_field_post_mitigation", caster)
+	local newStacks = math.min(stacks + 1, 50)
+	target:SetModifierStackCount("modifier_static_field_post_mitigation", caster, newStacks)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 	if caster:HasModifier("modifier_voltex_immortal_weapon_3") then
 		caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_voltex_immortal_paralysis", {duration = 4.5})

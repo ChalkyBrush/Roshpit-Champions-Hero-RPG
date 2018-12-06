@@ -1646,7 +1646,7 @@ function GameState:FilterDamage(filterTable)
 		
 		if victim:HasModifier("heatwave_fire_damage") then
 			local armor = victim:GetPhysicalArmorValue()
-			if armor < 0 and 
+			if armor < 0 then
 				local heatwave_ability = victim:FindModifierByName("heatwave_fire_damage"):GetAbility()
 				if heatwave_ability.rune_e_1 then
 					filterTable.damage = filterTable.damage + filterTable.damage*0.001*heatwave_ability.rune_e_1*math.abs(armor)
@@ -2032,10 +2032,19 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_astral_rune_e_1_visible") then
-		modifier = victim:FindModifierByName("modifier_astral_rune_e_1_invisible")
+		local modifier = victim:FindModifierByName("modifier_astral_rune_e_1_invisible")
 		local stacks = modifier:GetStackCount()
 		local multIncrease = 0.006*stacks
 		mult = mult + multIncrease
+	end
+	if victim:HasModifier("modifier_static_field_post_mitigation") then
+		local modifier = victim:FindModifierByName("modifier_static_field_post_mitigation")
+		if modifier:GetCaster() == attacker then
+			local stack_value = modifier:GetAbility():GetSpecialValueFor("post_mitigation_per_spark")
+			local stacks = modifier:GetStackCount()
+			local multIncrease = (stack_value/100)*stacks
+			mult = mult + multIncrease
+		end
 	end
 	if victim:HasModifier("crystal_arrow_ad_aura") then
 		local modifier = victim:FindModifierByName("crystal_arrow_ad_aura")

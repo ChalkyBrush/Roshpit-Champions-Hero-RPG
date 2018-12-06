@@ -160,15 +160,10 @@ function electricLeap_rune_e_3(hero, ability)
     -- runeAbility.e_3_level = totalLevel
     -- ability.e_3_level = totalLevel
     if caster:IsAlive() then
-	  	local heavens_charge = caster:FindAbilityByName("heavens_charge")
-	  	if not heavens_charge then
-	  		heavens_charge = caster:AddAbility("heavens_charge")
-	  	end
-	  	heavens_charge:SetLevel(ability:GetLevel())
-	  	heavens_charge:SetAbilityIndex(2)
-	  	heavens_charge.rune_e_3_level = totalLevel
-	  	caster:SwapAbilities("electric_jump", "heavens_charge", false, true)
+    	CustomAbilities:AddAndOrSwapSkill(caster, "electric_jump", "heavens_charge", 2)
 	  	caster.chargeActive = true
+	  	local heavens_charge = caster:FindAbilityByName("heavens_charge")
+	  	heavens_charge.rune_e_3_level = totalLevel
 	end
   end
 end

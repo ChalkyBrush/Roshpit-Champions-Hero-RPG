@@ -18034,7 +18034,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"100"
 			}
 		}
 	}
@@ -45058,7 +45058,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"15"
 			}
 			"02"
 			{
@@ -45889,6 +45889,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
+				"OverrideAnimation"     "ACT_DOTA_VERSUS"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -46121,6 +46122,11 @@
 				"IsDebuff"			"0"
 				"IsPurgable"		"0"
 			}
+			"modifier_static_field_post_mitigation"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
 		}
 
 		"AbilitySpecial"
@@ -46135,7 +46141,11 @@
 				"var_type"	"FIELD_INTEGER"
 				"num_sparks" "9 11 13 15 17 19 21"
 			}
-
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"post_mitigation_per_spark"	"11 13 15 17 19 21 23"
+			}
 		}
 	}
 
@@ -46460,7 +46470,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.5"
+				"property_one"			"4.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"				"4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
 			}
 		}
 		"Modifiers"
@@ -46476,7 +46501,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-2.5"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-4.0"
 				}
 			}
 		}

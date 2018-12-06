@@ -99,6 +99,12 @@ function LightningAttack( keys )
                         stacks = 2000
                     end
                     unit:SetModifierStackCount( "modifier_voltex_rune_q_3", caster.q_3_ability, stacks ) 
+                    local luck = RandomInt(1, 10)
+                    if luck <= 3 then
+                        local q3damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*0.5*caster.q_3_level
+
+                        Filters:TakeArgumentsAndApplyDamage(unit, caster, q3damage, DAMAGE_TYPE_PHYSICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+                    end
                 end
             end
         else

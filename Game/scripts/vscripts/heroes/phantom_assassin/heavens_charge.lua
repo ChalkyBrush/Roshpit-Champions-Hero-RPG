@@ -56,6 +56,9 @@ function heaven_charge_fall_think(event)
 	      function()
 	        ParticleManager:DestroyParticle( particle1, false )
 	      end)
+	      Timers:CreateTimer(0.03, function()
+	      	StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.8})
+	      end)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			local damage = ability.rune_e_3_level * 6000
 			local stun_duration = 1.5
@@ -66,13 +69,10 @@ function heaven_charge_fall_think(event)
 				end				
 			end 
 			if caster:IsAlive() then
-			  	local azure_leap = caster:FindAbilityByName("electric_jump")
-			  	azure_leap:SetLevel(ability:GetLevel())
-			  	caster:SwapAbilities("heavens_charge", "electric_jump", false, true)
-			  	azure_leap:SetAbilityIndex(2)
+			  	CustomAbilities:AddAndOrSwapSkill(caster, "heavens_charge", "electric_jump", 2)
 			  	caster.chargeActive = false
 			end
 	else
-		caster:SetAbsOrigin(currentPosition + Vector(0,0,-160))
+		caster:SetAbsOrigin(currentPosition + Vector(0,0,-150))
 	end
 end
