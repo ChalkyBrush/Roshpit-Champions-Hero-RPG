@@ -1323,8 +1323,17 @@ function GameMode:OnEntityKilled( keys )
 
       -- Events:SpecialDeath(killedUnit, killerEntity)
       killedUnit:ClearParticles()
+	  --if i doing it inside timer, i get c++ warning, not sure why tho
+	  local wearable = killedUnit:FirstMoveChild()
+	  local wearableP = nil
+	  if wearable ~= nil and wearable:GetClassname() == "dota_item_wearable" then
+		wearableP = wearable
+	  end
       Timers:CreateTimer(8,
         function()
+			if wearableP then
+				UTIL_Remove(wearableP)
+			end
               UTIL_Remove(killedUnit)
 
         end)
