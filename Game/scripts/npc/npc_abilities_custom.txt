@@ -113117,7 +113117,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"lich_dark_ritual"
+		"AbilityTextureName"	"redfall/lich_dark_ritual"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -114239,7 +114239,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"lich_dark_ritual"
+		"AbilityTextureName"			"redfall/lich_dark_ritual"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -120166,7 +120166,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"lich_dark_ritual"
+		"AbilityTextureName"	"redfall/lich_dark_ritual"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"OnOwnerDied"
@@ -120608,7 +120608,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"lich_dark_ritual"
+		"AbilityTextureName"	"redfall/lich_dark_ritual"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"OnOwnerDied"
@@ -120838,7 +120838,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"lich_dark_ritual"
+		"AbilityTextureName"	"redfall/lich_dark_ritual"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"Modifiers"
@@ -120955,7 +120955,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"lich_dark_ritual"
+		"AbilityTextureName"	"redfall/lich_dark_ritual"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"Modifiers"
