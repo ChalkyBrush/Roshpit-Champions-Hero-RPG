@@ -1643,16 +1643,18 @@ function GameState:FilterDamage(filterTable)
 			armor = 0
 		end
 		filterTable.damage = filterTable.damage * (1 - ((0.05 * armor) / (1 + 0.05 * abs(armor))))
-	end
-	if victim:HasModifier("heatwave_fire_damage") then
-		local armor = victim:GetPhysicalArmorValue()
-		if armor < 0
-			local heatwave_ability = victim:FindModifierByName("heatwave_fire_damage"):GetAbility()
-			if heatwave_ability.rune_e_1 then
-				filterTable.damage = filterTable.damage + filterTable.damage*0.001*heatwave_ability.rune_e_1*math.abs(armor)
+		
+		if victim:HasModifier("heatwave_fire_damage") then
+			local armor = victim:GetPhysicalArmorValue()
+			if armor < 0 and 
+				local heatwave_ability = victim:FindModifierByName("heatwave_fire_damage"):GetAbility()
+				if heatwave_ability.rune_e_1 then
+					filterTable.damage = filterTable.damage + filterTable.damage*0.001*heatwave_ability.rune_e_1*math.abs(armor)
+				end
 			end
 		end
 	end
+
 	if attacker:HasModifier("modifier_arkimus_archon_form") then
 		filterTable["damagetype_const"] = DAMAGE_TYPE_PURE
 	end

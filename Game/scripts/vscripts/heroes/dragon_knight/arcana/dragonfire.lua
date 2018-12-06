@@ -159,6 +159,7 @@ function flame_proj_hit(event)
 		damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*5 + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.2)*ability:GetLevel()
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flamewaker_glyph_4_1_effect", {duration = 3})
 	end
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_dragonflame_armor_shred", {duration = 0.5})
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 

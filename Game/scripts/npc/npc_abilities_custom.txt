@@ -13976,6 +13976,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_RUN"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -14019,6 +14020,11 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"damage_reduce"				"95"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"armor_shred"				"-100 -200 -500 -1000 -2000 -4000 -7000"
 			}
 		}
 		"OnToggleOn"
@@ -14080,6 +14086,14 @@
 						"ModifierName"	"modifier_d_b_attack_power"
 						"Target" 		"TARGET"
 					}
+				}
+			}
+			"modifier_dragonflame_armor_shred"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_shred"
 				}
 			}
 			"modifier_dragonflame_freeze_effect"

@@ -206,11 +206,12 @@
     	"DOTA_Tooltip_modifier_flamewaker_arcana_d_a_aura_Description"			"Taking magic damage and dealing reduced damage to Flamewaker"
 
     	"DOTA_Tooltip_ability_flamewaker_dragonflame"						"Fireborne"
-    	"DOTA_Tooltip_ability_flamewaker_dragonflame_Description"			"Element: <font color=\"#EF4126\">Fire</font><br>Flamewaker locks into position and billows a steady stream of hot dragon fire, dealing damage to enemies in the cone area every 0.1 seconds. After 1.5 seconds of being active, gain a shield that reduces all damage taken. Ability is not stopped by stuns or silences. Drains 10% of its mana cost every 0.1 seconds, and deactivates if mana reaches 0."
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_Description"			"Element: <font color=\"#EF4126\">Fire</font><br>Flamewaker locks into position and billows a steady stream of hot dragon fire, dealing damage to enemies in the cone area every 0.1 seconds. After 1.5 seconds of being active, gain a shield that reduces all damage taken. Ability is not stopped by stuns or silences. Drains 10% of its mana cost every 0.1 seconds, and deactivates if mana reaches 0. Enemies standing in the fire have reduced armor."
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_base_damage"			"DAMAGE:"
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_attack_dmg_bonus"			"% ATTACK DAMAGE ADDED TO FIRE:"
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_mana_drain"			"MANA DRAIN PER SECOND:"
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_damage_reduce"			"% SHIELD DAMAGE REDUCTION:"
+        "DOTA_Tooltip_ability_flamewaker_dragonflame_armor_shred"           "ARMOR SHRED:"
 
     	"DOTA_Tooltip_modifier_dragonflame_shield"								"Fireborne Shield"
     	"DOTA_Tooltip_modifier_dragonflame_shield_Description"					"Taking Reduced Damage"
