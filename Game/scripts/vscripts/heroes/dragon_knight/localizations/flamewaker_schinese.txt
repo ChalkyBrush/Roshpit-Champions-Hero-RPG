@@ -172,7 +172,7 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix_two"			" 每损失200点生命"
 
   		"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1"						"[Q2] 火焰浪涌"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"			"施放龙王吐息后增加移动速度并且加深敌人所受到的伤害"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"			"施放 @Ability1 后增加移动速度并且加深敌人所受到的伤害。敌人被该技能击中后会被施加一个可叠加的debuff，这个debuff会使加深他们受到的来自烈焰行者的伤害，但是每一层debuff的伤害加深数值是该符文面板显示的数值的1/6。这些效果是独立计算的，只有加成更高的会生效。这个效果持续6秒。"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_one"			"移动速度提高"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix"				""
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_two"			"敌人所受到的伤害提高（计算在敌人减伤之后）"
