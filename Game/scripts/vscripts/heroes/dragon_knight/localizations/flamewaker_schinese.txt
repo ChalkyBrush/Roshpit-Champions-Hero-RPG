@@ -156,7 +156,7 @@
 		
 		//Arcanas
 		"DOTA_Tooltip_ability_flamewaker_arcana_ability"						"龙王吐息"
-    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_Description"			"元素： <font color=\"#EF4126\">火</font><br>迅速喷发的火焰眩晕并伤害范围内的敌人。力量值会提高火焰的伤害。"
+    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_Description"			"元素： <font color=\"#EF4126\">火</font><br>迅速喷发的火焰眩晕并伤害范围内的敌人。这个技能能够在进入冷却时间前的<% FLAMEWAKER_ARCANA_Q_FREE_CAST_DURATION %> 秒内能够再次释放一次。 <br>默认会对一个点的周围放出火焰,但是如果后一个释放点在离前一个释放点至少<% FLAMEWAKER_ARCANA_Q_MIN_DISTANCE %>码距离 (但是不超过 <% FLAMEWAKER_ARCANA_Q_MAX_DISTANCE %> 码), 将会产生很多额外的火焰喷发出现在两个施法点连线周围的区域。<br>力量值会提高火焰的伤害。"
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_damage"					"伤害："
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_strength_mult"			"额外伤害为力量值的倍数："
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_stun_duration"			"眩晕持续时间："
