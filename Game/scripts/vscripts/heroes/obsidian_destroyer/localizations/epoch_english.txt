@@ -12,17 +12,21 @@
 		"DOTA_Tooltip_modifier_time_bound_description" 							"Decreased movement speed and taking double damage from Distortion Orb and [E2] Distortion Rift."
 		
     	"DOTA_Tooltip_ability_epoch_rune_q_1"									"[Q1] Space Link"
-    	"DOTA_Tooltip_ability_epoch_rune_q_1_Description"						"@Ability1 also entangles up to 15 nearby enemy units in a [Q1], which functions as a duplicate of @Ability1 itself. @Ability3 and [E2] deal double damage to enemies affected by [Q1]."
+    	"DOTA_Tooltip_ability_epoch_rune_q_1_Description"						"@Ability1 also entangles nearby enemy units in a [Q1], which functions as a duplicate of @Ability1 itself. @Ability3 and [E2] deal double damage to enemies affected by [Q1]. Makes 3 links as a base, but can be increased with rune levels."
     	"DOTA_Tooltip_ability_epoch_rune_q_1_property_one"						"Base Damage"
     	"DOTA_Tooltip_ability_epoch_rune_q_1_suffix"							"% of Time Binder"
+        "DOTA_Tooltip_ability_epoch_rune_q_1_property_two"                      "Chance for additional links"
+        "DOTA_Tooltip_ability_epoch_rune_q_1_suffix_two"                        "%"
 
     	"DOTA_Tooltip_modifier_space_link"										"Time Bind"
     	"DOTA_Tooltip_modifier_space_link_description"							"Time Binder damage over time effect."
 
     	"DOTA_Tooltip_ability_epoch_rune_q_2"									"[Q2] Eon Channel"
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_Description"						"The initial target struck by @Ability1 has their attack damage stolen and added to Epoch Guardian for 7 seconds."
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_Description"						"The initial target struck by @Ability1 has their attack damage stolen and added to Epoch Guardian for 7 seconds. All enemies linked by @Ability1 share damage with other linked enemies. All enemies linked by [Q1] share damage amongst themselves as well."
     	"DOTA_Tooltip_ability_epoch_rune_q_2_property_one"						"Damage Stolen"
     	"DOTA_Tooltip_ability_epoch_rune_q_2_suffix"							""
+        "DOTA_Tooltip_ability_epoch_rune_q_2_property_two"                      "Damage Share"
+        "DOTA_Tooltip_ability_epoch_rune_q_2_suffix_two"                        "%"
 
     	"DOTA_Tooltip_modifier_eon_channel_friendly"							"Eon Channel"
     	"DOTA_Tooltip_modifier_eon_channel_friendly_Description"				"Stealing attack damage"

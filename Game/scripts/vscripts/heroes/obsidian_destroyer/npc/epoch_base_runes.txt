@@ -25,6 +25,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"6"
 			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% EPOCH_Q1_ADDITIONAL_LINKS_CHANCE %>"
+			}
 		}
 	}
 
@@ -36,12 +41,23 @@
 		"AbilityTextureName"	"ember_spirit_searing_chains"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% EPOCH_Q2_FLAT_DMG %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% EPOCH_Q2_DAMAGE_SHARE %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
 			}
 		}
 	}

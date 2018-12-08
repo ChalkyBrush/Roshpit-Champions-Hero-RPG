@@ -49,6 +49,7 @@ function projectile_hit(event)
 	-- end
   	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target_location, nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
   	local i = 2
+  	ability.linked_enemies_base = {}
 	for _,enemy in pairs(enemies) do
 		if i <= #enemies then
 				-- if i > number_of_targets then
@@ -78,6 +79,7 @@ function projectile_hit(event)
 				enemy.time_pfx = pfx
 				--i = i + 1
 		end
+		table.insert(ability.linked_enemies_base, enemies[i])
 	end
 	if #enemies > 0 then
 		EmitSoundOn("Hero_Spirit_Breaker.EmpoweringHaste.Cast", enemies[1])
@@ -125,29 +127,37 @@ function projectile_hit(event)
 end
 
 function a_a_search(caster, target, ability)
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	ability.linked_enemies_q1 = {}
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local links = 3 + Runes:Procs(ability.q_1_level, EPOCH_Q1_ADDITIONAL_LINKS_CHANCE, 1)
 	for _,enemy in pairs(enemies) do
-		if ability.jump_count >= 15 then
+		print("A A SEARCH")
+		if ability.jump_count >= links then
 			break
 		-- apply dmg overtime debuff even if only one target
-		elseif (enemy:GetEntityIndex() == target:GetEntityIndex()) then
-			if not enemy:HasModifier("modifier_space_link") then
-				local stacks = enemy:GetModifierStackCount( "modifier_space_link", ability )
-				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_space_link", {duration = 7})
-				ability:ApplyDataDrivenModifier(caster, target, "modifier_space_link", {duration = 7})
-				local particleName = "particles/units/heroes/hero_wisp/wisp_tether.vpcf"
-				local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
-				ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_CUSTOMORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,90), true)
-				ParticleManager:SetParticleControlEnt(pfx, 1, enemy, PATTACH_CUSTOMORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin()+Vector(0,0,90), true)
-				target.space_pfx = pfx
-				EmitSoundOn("Hero_Spirit_Breaker.EmpoweringHaste.Cast", target)
-				Timers:CreateTimer(0.2, function()
-					a_a_search(caster, enemy, ability)
-				end)
-				ability.jump_count = ability.jump_count + 1
-				break				
+		else 
+			if enemy:GetEntityIndex() == target:GetEntityIndex() then
+			else
+				if not enemy:HasModifier("modifier_space_link") then
+					print("DO A LINK")
+					local stacks = enemy:GetModifierStackCount( "modifier_space_link", ability )
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_space_link", {duration = 7})
+					ability:ApplyDataDrivenModifier(caster, target, "modifier_space_link", {duration = 7})
+					local particleName = "particles/units/heroes/hero_wisp/wisp_tether.vpcf"
+					local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
+					ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_CUSTOMORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,90), true)
+					ParticleManager:SetParticleControlEnt(pfx, 1, enemy, PATTACH_CUSTOMORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin()+Vector(0,0,90), true)
+					target.space_pfx = pfx
+					EmitSoundOn("Hero_Spirit_Breaker.EmpoweringHaste.Cast", target)
+					Timers:CreateTimer(0.2, function()
+						a_a_search(caster, enemy, ability)
+					end)
+					ability.jump_count = ability.jump_count + 1
+					break				
+				end
 			end
 		end
+		table.insert(ability.linked_enemies_q1, enemies[i])
 	end
 end
 
@@ -170,6 +180,7 @@ end
 
 function space_link_end(event)
 	local target = event.target
+	local ability = event.ability
 	if target.space_pfx then
 		ParticleManager:DestroyParticle(target.space_pfx, false)
 	end
@@ -179,6 +190,7 @@ end
 
 function time_bind_end(event)
 	local target = event.target
+	local ability = event.ability
 	if target.time_pfx then
 		ParticleManager:DestroyParticle(target.time_pfx, false)
 	end

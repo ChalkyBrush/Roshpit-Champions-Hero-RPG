@@ -15,6 +15,7 @@ require('/heroes/omniknight/paladin_constants')
 require('/heroes/phantom_assassin/voltex_constants')
 require('/heroes/juggernaut/seinaru_constants')
 require('/heroes/lanaya/trapper_constants')
+require('/heroes/obsidian_destroyer/epoch_constants')
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -2612,9 +2613,41 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
     end
-
+    if bIsRealDamage then
+        Filters:PostElementalDamage(victim, attacker, damage*mult, damage_type, slot, element1, element2, bIsRealDamage)
+    end
     damage = damage*mult
     return damage, element1, element2
+end
+
+function Filters:PostElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, bIsRealDamage)
+    if attacker:GetUnitName() == "npc_dota_hero_obsidian_destroyer" then
+        if element1 == RPC_ELEMENT_TIME or element2 == RPC_ELEMENT_TIME then
+            if attacker:HasAbility("epoch_time_binder") then
+                local time_binder = attacker:FindAbilityByName("epoch_time_binder")
+                local q_2_level = attacker:GetRuneValue("q", 2)
+                if q_2_level > 0 then
+                    local q_2_damage = damage*(EPOCH_Q2_DAMAGE_SHARE/100)
+                    if time_binder.linked_enemies_base then
+                        for i = 1, #time_binder.linked_enemies_base, 1 do
+                            local enemy = time_binder.linked_enemies_base[i]
+                            if enemy and IsValidEntity(enemy) and enemy:HasModifier("modifier_time_bound") and enemy:IsAlive() then
+                                Filters:TakeArgumentsAndApplyDamage(enemy, attacker, q_2_damage, DAMAGE_TYPE_PURE, slot, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+                            end
+                        end
+                    end
+                    if time_binder.linked_enemies_q1 then
+                        for i = 1, #time_binder.linked_enemies_q1, 1 do
+                            local enemy = time_binder.linked_enemies_q1[i]
+                            if enemy and IsValidEntity(enemy) and enemy:HasModifier("modifier_space_link") and enemy:IsAlive() then
+                                Filters:TakeArgumentsAndApplyDamage(enemy, attacker, q_2_damage, DAMAGE_TYPE_PURE, slot, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
 end
 
 
