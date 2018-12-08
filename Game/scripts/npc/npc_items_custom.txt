@@ -16516,6 +16516,7 @@
 			"particle"	"particles/roshpit/astral/crystal_arrow_explosion_magical.vpcf"
 			"particle"	"particles/units/heroes/hero_drow/drow_frost_arrow.vpcf"
 			"particle"	"particles/roshpit/astral/crystal_arrow_a_d_area.vpcf"
+			"particle"	"particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
 		}
 		"OnSpellStart"
 		{

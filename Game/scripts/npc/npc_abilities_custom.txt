@@ -37530,8 +37530,8 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"2.0"
-		"AbilityChannelTime"			"2.0"
+		"AbilityCooldown"				"1.0"
+		"AbilityChannelTime"			"1.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -37762,6 +37762,7 @@
             {
                 "IsHidden"  "1"
                 "ThinkInterval"  "0.03"
+                "Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT"
                 "OnIntervalThink"
                 {
                     "RunScript"

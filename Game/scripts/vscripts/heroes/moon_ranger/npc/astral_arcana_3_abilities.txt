@@ -117,6 +117,7 @@
             {
                 "IsHidden"  "1"
                 "ThinkInterval"  "0.03"
+                "Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT"
                 "OnIntervalThink"
                 {
                     "RunScript"

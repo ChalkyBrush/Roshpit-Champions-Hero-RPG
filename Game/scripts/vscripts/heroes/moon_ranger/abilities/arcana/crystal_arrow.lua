@@ -168,13 +168,27 @@ function crystal_arrow_channel_end_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	ability.fallSpeed = ability.fallSpeed + 0.5
-	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,ability.fallSpeed))
-	if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 150 and ability.anim then
-		ability.anim = false
-		if ability.fallSpeed > 12 then
-			StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_TELEPORT_END, rate=0.8})
-		end
+	-- caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,ability.fallSpeed))
+	local landPoint = GetGroundPosition(caster:GetAbsOrigin(), caster)
+	if landPoint.z + 150 < caster:GetAbsOrigin().z then
+		local landEffect = ParticleManager:CreateParticle("particles/units/heroes/hero_luna/luna_lucent_beam.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(landEffect, 0, landPoint)
+		ParticleManager:SetParticleControl(landEffect, 1, caster:GetAbsOrigin())
+		ParticleManager:SetParticleControl(landEffect, 2, landPoint)
+		EmitSoundOn("Astral.CrystalArrow.Land", caster)
+		StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_TELEPORT_END, rate=0.8})
+		Timers:CreateTimer(3, function()
+			ParticleManager:DestroyParticle(landEffect, false)
+		end)
 	end
+	caster:SetAbsOrigin(landPoint)
+	
+	-- if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 150 and ability.anim then
+	-- 	ability.anim = false
+	-- 	if ability.fallSpeed > 12 then
+	-- 		StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_TELEPORT_END, rate=0.8})
+	-- 	end
+	-- end
 	if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 10 then
 		caster:RemoveModifierByName("modifier_crystal_arrow_channel_end")
 		Timers:CreateTimer(0.03, function()

@@ -1493,6 +1493,7 @@ function GameMode:OnConnectFull(keys)
   
   -- The Player ID of the joining player
   local playerID = ply:GetPlayerID()
+  PlayerResource:SetCustomTeamAssignment(playerID, DOTA_TEAM_GOODGUYS)
 end
 
 -- This function is called whenever illusions are created and tells you which was/is the original entity
