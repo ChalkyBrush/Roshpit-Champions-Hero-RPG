@@ -281,7 +281,7 @@
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1"									"[R3] Jade Voice"
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"Часть всех атрибутов героя добавляется к урону всех способностей."
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Доп. базовый урон умений"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Бонус к базе урона умений"
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"% от атрибутов"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1"									"[R4] Diamond Claws"

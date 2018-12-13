@@ -236,8 +236,8 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_suffix"				"% за каждые 1000 недостающего здоровья"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3"						"[E2] Batholith"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_Description"			"Прибавляет к базовому урону умений множитель от Силы."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"Доп. базовый урон умений"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_Description"			"Прибавляет к базе урона умений значение, основанное на текущей Силе."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"Бонус к базе урона умений"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix"				"x Силы"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3"						"[E3] Lava Flow"

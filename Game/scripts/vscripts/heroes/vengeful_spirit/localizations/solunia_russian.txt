@@ -206,11 +206,11 @@
     	"DOTA_Tooltip_modifier_solunia_ultraviolet_Description"				"Получает бонус к регенерации здорвоья и урону"	
 
     	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1"							"[Q2] Polythea"
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_Description"				"Пассивно увеличивает базовый урон, зависящий от значения текущего здоровья героя. Дополнительно увеличивает базовый урон способностей на % от текущего уровня здоровья."
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_Description"				"Пассивно увеличивает базовый урон, зависящий от значения текущего здоровья героя. Дополнительно, показатель базы урона всех способностей увеличен на % от текущего уровня здоровья."
     	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_one"			"Доп. базовый урон за текущее здоровье"
     	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix"					""
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_two"			"Бонус к базовому урону умений, % от здоровья"
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix_two"				"%"
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_two"			"Бонус к базе урона умений" 
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix_two"				"% от здоровья""
 
 
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1"							"[Q3] Compression"
