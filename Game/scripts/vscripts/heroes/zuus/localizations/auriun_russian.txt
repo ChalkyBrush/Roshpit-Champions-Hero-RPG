@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_heavens_shield"							"Heaven's Shield"
-    	"DOTA_Tooltip_ability_heavens_shield_Description"				"Auriun накладывает божественный щит на себя или союзную цель, поглощающий любой входящий урон."
+    	"DOTA_Tooltip_ability_heavens_shield_Description"				"Auriun накладывает божественный щит на себя или союзную цель, поглощающий любой входящий урон. Длительность эффекта 9 секунд."
     	"DOTA_Tooltip_ability_heavens_shield_Lore"						""
     	"DOTA_Tooltip_ability_heavens_shield_stacks"					"ПОГЛОЩАЕТ АТАК"
 
@@ -155,7 +155,7 @@
 		//Arcanas
 		
 		"DOTA_Tooltip_ability_auriun_aoe_shield"						"Heaven's Coalescence"
-    	"DOTA_Tooltip_ability_auriun_aoe_shield_Description"			"Дарует всем союзным героям бафф @Ability1, попавшим в радиус указанной области действия. Каждый заряд щита позволяет полностью поглотить входящий урон."
+    	"DOTA_Tooltip_ability_auriun_aoe_shield_Description"			"Дарует всем союзным героям бафф @Ability1, попавшим в радиус указанной области действия. Каждый заряд щита позволяет полностью поглотить входящий урон. Длительность эффекта 9 секунд."
     	"DOTA_Tooltip_ability_auriun_aoe_shield_stacks"					"ЗАРЯДОВ ЩИТА:"
     	"DOTA_Tooltip_ability_auriun_aoe_shield_aoe_radius"				"РАДИУС ДЕЙСТВИЯ:"
 
@@ -208,7 +208,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_suffix"				""  	
 
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2"							"[Q2] Enhanced Protection"
-    	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_Description"				"Добавляет шанс, что при прочтении @Ability1 герой получит заряды Heaven's shield. Каждый заряд полностью поглощает входящий урон. Значение шанса выше 100% гарантирует получение множества зарядов."
+    	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_Description"				"Добавляет шанс, что при прочтении @Ability1 герой получит заряды Heaven's Shield. Каждый заряд полностью поглощает входящий урон. Значение шанса выше 100% гарантирует получение множества зарядов. Длительность щита 9 секунд."
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_property_one"				"Шанс на получение щита"
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_suffix"					"%"
 
