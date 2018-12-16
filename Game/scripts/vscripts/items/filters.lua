@@ -1904,7 +1904,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_crystal_maiden" then
             if attacker.r_4_level then
-                fireMult = fireMult + 0.0001*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.r_4_level
+                fireMult = fireMult + 0.0002*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.r_4_level
             end
             if attacker:HasModifier("modifier_fire_avatar") then
                 local stacks = attacker:GetModifierStackCount("modifier_fire_avatar", attacker)
@@ -2260,7 +2260,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if unitName == "npc_dota_hero_crystal_maiden" then
             if attacker:HasAbility("blizzard") then
                 local q_4_level = attacker:GetRuneValue("q", 4)
-                mult = mult + 0.0002*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*q_4_level
+                mult = mult + 0.0004*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*q_4_level
             end
             if attacker:HasModifier("modifier_ice_avatar") then
                 local stacks = attacker:GetModifierStackCount("modifier_ice_avatar", attacker)

@@ -11170,7 +11170,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.04"
 			}
 		}
 	}
@@ -11632,7 +11632,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.01"
+				"property_one"			"0.02"
 			}
 		}
 	}
