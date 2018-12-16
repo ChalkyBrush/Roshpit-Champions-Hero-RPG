@@ -1564,6 +1564,7 @@ function Redfall:SpawnPerditionTorch(position)
     torch.jumpLock = true
     torch:AddAbility("dummy_unit_can_be_attacked_cant_die"):SetLevel(1)
     torch:AddAbility("redfall_perdition_torch_ability"):SetLevel(1)
+    Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, torch, "modifier_disable_player", {}) 
     torch:RemoveAbility("dummy_unit")
     torch:RemoveModifierByName("dummy_unit")
     torch.basePos = torch:GetAbsOrigin()

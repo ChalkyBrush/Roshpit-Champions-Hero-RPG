@@ -42,8 +42,8 @@ function Tanari:Debug()
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
 
-    RPCItems:RollAstralArcana2(Vector(-4928, 2048))
-    RPCItems:RollAstralArcana3(Vector(-4928, 2048))
+    -- RPCItems:RollAstralArcana2(Vector(-4928, 2048))
+    -- RPCItems:RollAstralArcana3(Vector(-4928, 2048))
     -- RPCItems:RollConjurorArcana4(Vector(-4928, 2048))
     -- RPCItems:RollConjurorArcana2(Vector(-4928, 2048))
     -- RPCItems:RollBaronsStormArmor(Vector(-4928, 2048))
@@ -109,9 +109,9 @@ function Tanari:Debug()
     -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- Glyphs:DebugRollHeroGlyphs("djanghor", Vector(-4928, 2048))
-    -- for i = 1, 7, 1 do
-    --     Glyphs:RollGlyphAll("item_rpc_axe_glyph_"..tostring(i).."_2", Vector(-4928, 2048), 0)
-    -- end
+    for i = 1, 7, 1 do
+        Glyphs:RollGlyphAll("item_rpc_paladin_glyph_"..tostring(i).."_2", Vector(-4928, 2048), 0)
+    end
     -- Glyphs:RollGlyphAll("item_rpc_neutral_glyph_7_2", Vector(-4928, 2048), 0)
     -- RPCItems:RollPhantomSorcererMask(Vector(-4928, 2048), false)
    -- RPCItems:RollSorceressArcana1(Vector(-4928, 2048))

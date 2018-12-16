@@ -10,7 +10,7 @@
         "SelectionGroup"    "doomguard"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "SoundSet"       "Hero_DragonKnight"
+
         "precache"
         {
 
@@ -23,7 +23,9 @@
         "AttackDamageMax"   "0"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.5"
-        "AttackAcquisitionRange"    "0"
+        "AttackAcquisitionRange"    "1000"
+        "ProjectileSpeed"   "800"
+        "ProjectileModel"   "particles/neutral_fx/thunderlizard_base_attack.vpcf"
         "AttackRange"   "160"
         "BountyGoldMin" "300"
         "BountyGoldMax" "400"

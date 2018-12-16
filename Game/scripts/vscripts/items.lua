@@ -1806,3 +1806,56 @@ function RPCItems:CreateBasicConsumable(position, itemName, fullName, rarity, bD
     end
     return item
 end
+
+function RPCItems:GetEquippedItemsBelowRarity(hero, rarity)
+	local count = 0
+	if hero.body and IsValidEntity(hero.body) then
+		if RPCItems:GetRarityFactor(hero.body.rarity) < rarity then
+			count = count + 1
+		end
+	else
+		count = count + 1
+	end
+
+	if hero.amulet and IsValidEntity(hero.amulet) then
+		if RPCItems:GetRarityFactor(hero.amulet.rarity) < rarity then
+			count = count + 1
+		end
+	else
+		count = count + 1
+	end
+
+	if hero.foot and IsValidEntity(hero.foot) then
+		if RPCItems:GetRarityFactor(hero.foot.rarity) < rarity then
+			count = count + 1
+		end
+	else
+		count = count + 1
+	end
+
+	if hero.handItem and IsValidEntity(hero.handItem) then
+		if RPCItems:GetRarityFactor(hero.handItem.rarity) < rarity then
+			count = count + 1
+		end
+	else
+		count = count + 1
+	end
+
+	if hero.headItem and IsValidEntity(hero.headItem) then
+		if RPCItems:GetRarityFactor(hero.headItem.rarity) < rarity then
+			count = count + 1
+		end
+	else
+		count = count + 1
+	end
+
+	if hero.weapon and IsValidEntity(hero.weapon) then
+		if RPCItems:GetRarityFactor(hero.weapon.rarity) < rarity then
+			count = count + 1
+		end
+	else
+		count = count + 1
+	end
+
+	return count
+end

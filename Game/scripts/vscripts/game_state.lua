@@ -1352,6 +1352,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage*0.5
 		end
 	end
+	if victim:HasModifier("modifier_paladin_glyph_7_2") then
+		damage = damage*0.01
+	end
 	if victim:HasModifier("modifier_nefali_aura_effect") then
 		if victim:GetTeamNumber() == victim:FindModifierByName("modifier_nefali_aura_effect"):GetCaster():GetTeamNumber() then
 			local nefaliCaster = victim:FindModifierByName("modifier_nefali_aura_effect"):GetCaster()
@@ -1642,6 +1645,10 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_hand_marauder") and armor >= 0 then
 			armor = 0
 		end
+		if attacker:GetUnitName() == "paladin_disciple" then
+			Filters:TakeArgumentsAndApplyDamage(victim, attacker.paladin, Filters:OverflowProtectedGetAverageTrueAttackDamage(attacker.paladin)*10, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+			return false
+		end
 		filterTable.damage = filterTable.damage * (1 - ((0.05 * armor) / (1 + 0.05 * abs(armor))))
 		
 		if victim:HasModifier("heatwave_fire_damage") then
@@ -1658,7 +1665,9 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_arkimus_archon_form") then
 		filterTable["damagetype_const"] = DAMAGE_TYPE_PURE
 	end
-	
+	if attacker:HasModifier("modifier_paladin_glyph_7_2") then
+		filterTable["damage"] = filterTable["damage"]*0.001
+	end
 	if attacker:GetUnitName() == "zap_assassin_clone" then
 		filterTable["entindex_attacker_const"] = attacker.hero:GetEntityIndex()
 		attacker = EntIndexToHScript(filterTable["entindex_attacker_const"])
@@ -2178,6 +2187,10 @@ function GameState:FilterDamage(filterTable)
 		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
 			mult = mult + heroes.mountain_protector.ARCANA1_W2_POSTMITIGATION_PERCENT/100 * attacker.w_2_level
 		end
+	end
+	if attacker:HasModifier("modifier_paladin_glyph_6_2") then
+		local immortalOrArcanaCount = RPCItems:GetEquippedItemsBelowRarity(attacker, 5)
+		mult = mult + immortalOrArcanaCount*2.4
 	end
 	if attacker:HasModifier("modifier_waterheart_weapon") then
 		local waterheart = attacker:FindModifierByName("modifier_waterheart_weapon"):GetAbility()

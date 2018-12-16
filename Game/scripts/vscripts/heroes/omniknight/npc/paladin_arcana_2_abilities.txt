@@ -187,6 +187,19 @@
 			{
 				"IsHidden"	"1"
 			}
+			"modifier_glyph_4_2_push"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/paladin_2_w.lua"
+						"Function"		"knockback_interval"
+					}
+				}
+			}
 		}
 
 	}

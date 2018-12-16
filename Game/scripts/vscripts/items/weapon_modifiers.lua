@@ -46,11 +46,18 @@ end
 
 
 function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_unit, weapon_ability, item)
+	local propertyBoost = 1
 	if hero:HasModifier("modifier_blacksmiths_tablet") then
 		if propertyValue > 1 then
-			propertyValue = propertyValue*(1 + BLACKSMITH_TABLE_ADD_STATS_PCT)
+			propertyBoost = propertyBoost + BLACKSMITH_TABLE_ADD_STATS_PCT
 		end
 	end
+	if hero:HasModifier("modifier_paladin_glyph_2_2") then
+		if propertyValue > 1 then
+			propertyBoost = propertyBoost + PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT/100
+		end
+	end
+	propertyValue = propertyValue*propertyBoost
 	if propertyName == "strength" then
 		weapon_ability.strength = weapon_ability.strength + propertyValue
 		Weaponmodifiers:addBasicModifier(weapon_ability.strength, hero, inventory_unit, "modifier_weapon_strength", weapon_ability)

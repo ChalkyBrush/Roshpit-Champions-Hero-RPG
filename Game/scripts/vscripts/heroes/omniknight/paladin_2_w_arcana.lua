@@ -76,6 +76,11 @@ function penance_start(event)
 			Filters:CastSkillArguments(2, caster)
 		end
 	end
+    if caster:HasModifier("modifier_paladin_glyph_4_2") then
+	    Timers:CreateTimer(0.03, function()
+	    	ability:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_4_2_push", {duration = 0.5})
+	    end)
+	end
 end
 
 function passive_think(event)
@@ -205,6 +210,7 @@ function penance_impact(event)
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_GHOST)
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_paladin_glyph_1_2_effect", {duration = 8})
 		end
 	end 
 	if ability.w_2_level > 0 then

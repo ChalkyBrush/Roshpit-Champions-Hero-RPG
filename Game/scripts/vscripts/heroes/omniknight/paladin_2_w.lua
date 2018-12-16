@@ -112,6 +112,9 @@ function knockback_interval(keys)
     -- 	caster.cone_velocity = -1
     -- end
 	local newPosition = origin-(fv*caster.cone_velocity)
+	if caster:HasModifier("modifier_paladin_glyph_4_2") then
+		newPosition = origin+(fv*caster.cone_velocity*0.5)
+	end
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition*Vector(1,1,0), caster)
 	caster.cone_velocity = math.max(caster.cone_velocity - 4, 0)
 	local groundPosition = GetGroundPosition( newPosition, caster )
@@ -144,6 +147,7 @@ function cone_impact(event)
 			Filters:ApplyHeal(caster, target, amount, false)
 		end
 	else
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_glyph_1_2_effect", {duration = 8})
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		paladin_w_1_apply(caster, target, ability)
 	end
@@ -246,4 +250,35 @@ function rune_w_3(caster, ability)
 			end
 		end  
   end
+end
+
+function paladin_glyph_4_2_equip(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local pointAbility = target:GetAbilityByIndex(1)
+	if pointAbility then
+		if pointAbility.cast_point_og then
+		else
+			pointAbility.cast_point_og = pointAbility:GetCastPoint()
+			pointAbility:SetOverrideCastPoint(0.05)
+		end
+	end
+end
+
+function paladin_glyph_4_2_off(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local index = event.index
+	local pointAbility = target:GetAbilityByIndex(1)
+	if pointAbility then
+		if pointAbility.cast_point_og then
+			pointAbility:SetOverrideCastPoint(pointAbility.cast_point_og)
+			pointAbility.cast_point_og = nil
+		else
+		end
+	end
 end

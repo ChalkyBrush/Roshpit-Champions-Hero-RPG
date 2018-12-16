@@ -60558,6 +60558,14 @@
 					}
 				}
 			}
+			"modifier_paladin_glyph_1_2_effect"
+			{
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-160"
+				}
+			}
 		}
 	}
 
@@ -62508,6 +62516,14 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 			}
+			"modifier_paladin_glyph_1_2_effect"
+			{
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-160"
+				}
+			}
 		}
 	}
 
@@ -62880,6 +62896,19 @@
 			"modifier_paladin_d_c_postmit"
 			{
 				"IsHidden"	"1"
+			}
+			"modifier_glyph_4_2_push"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/paladin_2_w.lua"
+						"Function"		"knockback_interval"
+					}
+				}
 			}
 		}
 

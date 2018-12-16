@@ -281,6 +281,32 @@
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_1"		"Glyph of Zeal"
 		"item_rpc_paladin_glyph_7_1_description" 				"When landing an attack, @glyph_property1% chance to immediately attack another target within range with no cooldown."
 
+        //Column2Glyphs
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_2"       "Glyph of Repentance"
+        "item_rpc_paladin_glyph_1_2_description"                "Enemies hit by @Ability2 have their attack speed slowed by @glyph_property1 for 8 seconds."
+
+        "DOTA_Tooltip_modifier_paladin_glyph_1_2_effect"        "Repentance"
+        "DOTA_Tooltip_modifier_paladin_glyph_1_2_effect_Description"    "Attack speed reduced" 
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_2"       "Glyph of Blessed Hammer"
+        "item_rpc_paladin_glyph_2_2_description"                "Bonuses from your equipped weapon are increased by @glyph_property1%. Bonus only updated on weapon equip."
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_2"       "Glyph of Gold Sparkle"
+        "item_rpc_paladin_glyph_3_2_description"                "Rune [Q2] has a @glyph_property1% lifesteal."
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "Glyph of Hyper Justice"
+        "item_rpc_paladin_glyph_4_2_description"                "@Ability2 has a 0.05 second cast point, and pushes forward."
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "Glyph of Penitence"
+        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 have attack capability and deal <font color=\"#F6FFB5\">Holy</font> pure damage equal to @glyph_property1x Paladin's attack damage."
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "Glyph of Vestigial Value"
+        "item_rpc_paladin_glyph_6_2_description"                "Each piece of gear that is mythical rarity or below that is equipped increases post-mitigation damage output by @glyph_property1%."
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_2"       "Glyph of Heaven's Sentinel"
+        "item_rpc_paladin_glyph_7_2_description"                "Decreases damage taken by @glyph_property1%, and decreases damage dealt by @glyph_property2%."
+
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"Glyph of Holy Wrath"
 		"item_rpc_paladin_glyph_5_a_description" 				"Knight's Disciple's Holy Bolt hits enemies in a @glyph_property1 AOE and hits the primary target twice."
 		

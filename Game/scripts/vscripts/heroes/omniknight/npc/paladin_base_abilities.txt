@@ -233,6 +233,14 @@
 					}
 				}
 			}
+			"modifier_paladin_glyph_1_2_effect"
+			{
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-160"
+				}
+			}
 		}
 	}
 

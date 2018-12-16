@@ -53,6 +53,9 @@ function knights_disciple_cast(event)
 	if caster:HasModifier("modifier_paladin_immortal_weapon_2") then
 		caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, summon, "modifier_disciple_cooldown_reduction", {})
 	end
+	if caster:HasModifier("modifier_paladin_glyph_5_2") then
+		summon:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
+	end
 	Filters:CastSkillArguments(4, caster)
 end
 
