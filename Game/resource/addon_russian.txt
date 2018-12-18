@@ -7623,12 +7623,12 @@
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix_two"				""
 
   		"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2"						"[E2] Lightsworn"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_Description"			"Сразу после прочтения @Ability3, получает <font color='#ccff66'>85</font>% бонус к сопротивлению Чистому урону."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_Description"			"Сразу после прочтения @Ability3, получает <font color='#ccff66'>90</font>% бонус к сопротивлению Чистому урону."
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_property_one"			"Длительность"
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_suffix"					" сек."
 
     	"DOTA_Tooltip_modifier_sunstrider_lightsworn"						"Lightsworn"
-		"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"<font color='#ccff66'>85</font>% дополнительного сопротивления Чистому урону."
+		"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"<font color='#ccff66'>90</font>% дополнительного сопротивления Чистому урону."
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2"						"[E3] Sunwarrior's Vengeance"
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"Внутри @Ability3, Seinaru наносит больше пост-резистного урона."

@@ -7770,12 +7770,12 @@
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix_two"				""
 
   		"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2"						"[E2] 光之庇佑"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_Description"			"施放炎阳冲锋后，将获得 <font color='#ccff66'>85</font>%  纯粹伤害减免，持续一段时间。"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_Description"			"施放炎阳冲锋后，将获得 <font color='#ccff66'>90</font>%  纯粹伤害减免，持续一段时间。"
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_property_one"			"持续时间"
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_suffix"					" 秒"
 
     	"DOTA_Tooltip_modifier_sunstrider_lightsworn"						"光之庇佑"
-    	"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"提高 <font color='#ccff66'>85</font>%  纯粹伤害减免"
+    	"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"提高 <font color='#ccff66'>90</font>%  纯粹伤害减免"
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2"						"[E3] 光之斩"
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"施放E技能时，提高E技能税后伤害."

@@ -29,7 +29,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"att_to_dmg"			"6 10 14 18 22 26 30"
+				"att_to_dmg"			"20 30 40 50 60 70 80"
 			}
 		}
 		// Precache
