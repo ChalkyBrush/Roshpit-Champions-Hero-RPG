@@ -74,9 +74,11 @@
 		"DOTA_Tooltip_ability_immolation_radius"							"EXPLOSION RADIUS:"
 
 		"DOTA_Tooltip_ability_conjuror_rune_w_1"							"[W1] Permanent Immolation"
-    	"DOTA_Tooltip_ability_conjuror_rune_w_1_Description"				"Your flame aspect deals constant damage to all nearby enemies."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_Description"				"Your flame aspect deals constant damage to all nearby enemies. Damage dealt by the aspect's immolation permanently increases his max health. Max 200 million health."
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_property_one"				"DPS"
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_suffix"						""
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_property_two"				"Max Health Gained"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_suffix_two"					"% of permanent immolation's damage"
 		
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation"				"Permanent Immolation"
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Burns and deals damage to nearby enemies"
@@ -102,9 +104,14 @@
     	"DOTA_Tooltip_ability_conjuror_rune_w_3_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_conjuror_rune_w_4"							"[W4] Detonate"
-    	"DOTA_Tooltip_ability_conjuror_rune_w_4_Description"				"The Fire Aspect creates a firey explosion on death that deals damage based on his max health and stuns for 1 second."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_Description"				"The Fire Aspect creates a firey explosion on death that deals damage over 7 seconds based on his max health and stuns for 2 seconds. While burning, enemies take increased <font color=\"#EF4126\">Fire</font> damage from conjuror."
     	"DOTA_Tooltip_ability_conjuror_rune_w_4_property_one"				"Explosion Damage"
     	"DOTA_Tooltip_ability_conjuror_rune_w_4_suffix"						"% of Fire Aspect's Max Health"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_property_two"				"Fire damage Amp"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_suffix_two"					"% while enemy burns"
+
+    	"DOTA_Tooltip_ability_fire_aspect_detonate"							"Detonate"
+    	"DOTA_Tooltip_ability_fire_aspect_detonate_Description"				"Element: <font color=\"#EF4126\">Fire</font><br>Kills the fire aspect and triggers detonate."	
 		
 		"DOTA_Tooltip_ability_summon_shadow_aspect"							"Shadow Aspect"
 		"DOTA_Tooltip_ability_summon_shadow_aspect_Description"				"Summons a Shadow Aspect from the Deep Void. The Shadow Aspect is a ranged fighter whose attacks split on impact. While the Shadow Aspect is alive, you are able to cast Shadow Gate."

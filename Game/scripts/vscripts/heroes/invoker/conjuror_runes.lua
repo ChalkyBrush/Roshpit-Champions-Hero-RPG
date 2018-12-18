@@ -117,13 +117,18 @@ function immolation_think(event)
 	local ability = event.ability
 	local radius = 300
 	local damage = ability.totalLevel*2510 + 600
+	local healthGain = 0
 	local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			ability:ApplyDataDrivenModifier(target, enemy, "modifier_immolation_burn", {})
+			healthGain = healthGain + damage*(CONJUROR_W1_HEALTH_GAIN_PCT/100)
 		end
-	end 	
+	end
+	local newHealth = math.min(target:GetMaxHealth() + healthGain, 200000000)
+	target:SetBaseMaxHealth(newHealth)
+	target:SetMaxHealth(newHealth) 	
 end
 
 function immolation_global_think(event)

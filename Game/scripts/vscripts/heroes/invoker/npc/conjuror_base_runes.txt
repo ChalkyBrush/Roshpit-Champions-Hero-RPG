@@ -255,10 +255,15 @@
 			}
 			"03"
 			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% CONJUROR_W1_HEALTH_GAIN_PCT %>"
+			}
+			"04"
+			{
 				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"2"
 			}
-			"04"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"2"
@@ -484,14 +489,19 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"150"
+				"property_one"			"<% CONJUROR_W4_HEALTH_DAMAGE_PER_TICK %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
+				"property_two"			"<% CONJUROR_W4_AMP_ON_FIRE %>"
 			}
 			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
+			}
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"2"

@@ -23442,6 +23442,23 @@
 					}
 				}
 			}
+			"modifier_conjuror_w_4_burn"
+			{
+				"IsHidden"	"0"
+				"IsDebuff" "1"
+				"EffectName"	"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType"	"attach_orign"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/aspects.lua"
+						"Function"		"conjuror_w_4_burn"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 
@@ -24148,7 +24165,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.35"
+		"AbilityCastPoint"				"0.2"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -24358,6 +24375,57 @@
 		}
 	}
 
+	"fire_aspect_detonate"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"techies_suicide"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK2"
+
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0"
+		"AOERadius"						"440"
+
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityCooldown"				"5"
+
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"240"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"2.4"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/invoker/aspects.lua"
+				"Function"		"fire_aspect_detonate"
+			}
+		}
+	}
 
 
 
@@ -24617,10 +24685,15 @@
 			}
 			"03"
 			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.12"
+			}
+			"04"
+			{
 				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"2"
 			}
-			"04"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"2"
@@ -24846,14 +24919,19 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"150"
+				"property_one"			"100"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
+				"property_two"			"150"
 			}
 			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
+			}
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"2"

@@ -213,6 +213,12 @@ function fire_aspect(event)
 
     local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "conjuror")
    	caster.fireAspect.q_4_level = q_4_level
+   	local w_4_level = caster:GetRuneValue("w", 4)
+   	if w_4_level > 0 then
+   		local detonate = caster.fireAspect:AddAbility("fire_aspect_detonate")
+   		detonate:SetLevel(1)
+   		detonate:StartCooldown(4)
+   	end
    	glyph_5_a(caster, ability, caster.fireAspect)
 end
 
@@ -592,15 +598,25 @@ function fireAspectDie(caster, fireAspect, w_4_level)
 	Timers:CreateTimer(1, function() 
 	  ParticleManager:DestroyParticle( particle1, false )
 	end)  
-	
-	local damage = fireAspect:GetMaxHealth()*1.5*w_4_level
+	local aspect_ability = caster:FindAbilityByName("summon_fire_aspect")
+	caster.w_4_level = w_4_level
+	local damage = fireAspect:GetMaxHealth()*(CONJUROR_W4_HEALTH_DAMAGE_PER_TICK/100)*w_4_level
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 440, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-			Filters:ApplyStun(caster, 1, enemy)
+			-- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			Filters:ApplyStun(caster, 2, enemy)
+			aspect_ability:ApplyDataDrivenModifier(caster, enemy, "modifier_conjuror_w_4_burn", {duration = 7})
+			enemy.conjuror_w_4_burn_damage = damage
 		end
 	end	
+end
+
+function conjuror_w_4_burn(event)
+	local caster = event.caster
+	local target = event.target
+	local damage = target.conjuror_w_4_burn_damage
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
 function rotateVector(vector, radians)
@@ -791,4 +807,10 @@ function earth_aspect_a_a_think(event)
 	    end 	
 	    ability:ApplyDataDrivenModifier(caster, caster, "modifier_earth_aspect_a_a_effect", {duration = a_a_duration})
   	end	
+end
+
+function fire_aspect_detonate(event)
+	local caster = event.caster
+	caster:SetHealth(10)
+	caster:ForceKill(true)	
 end

@@ -1952,6 +1952,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker.q_4_level then
                 fireMult = fireMult + 0.0015*attacker:GetStrength()/10*attacker.q_4_level
             end
+            if victim:HasModifier("modifier_conjuror_w_4_burn") then
+                if attacker:HasAbility("summon_fire_aspect") then
+                    if attacker.w_4_level then
+                        fireMult = fireMult + attacker.w_4_level*(CONJUROR_W4_AMP_ON_FIRE/100)
+                    end
+                end
+            end
             if attacker:HasModifier("modifier_conjuror_arcana2") then
                 local w_2_level = attacker:GetRuneValue("w", 2)
                 if w_2_level > 0 then

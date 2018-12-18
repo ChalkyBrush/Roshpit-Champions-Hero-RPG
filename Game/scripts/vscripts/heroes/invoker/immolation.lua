@@ -17,7 +17,8 @@ function begin_immolation(event)
 	arc_piece(casterOrigin+WallPhysics:rotateVector(fv, math.pi/2)*100-fv*100, fv, ability, caster)
 	arc_piece(casterOrigin+WallPhysics:rotateVector(fv, -math.pi/2)*100-fv*100, fv, ability, caster)
 
-
+	StartAnimation(caster, {duration=0.18, activity=ACT_DOTA_CAST_ALACRITY, rate=2.4})
+	
 	Filters:CastSkillArguments(2, caster)
 	local runeUnit = caster.runeUnit2
 	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_w_2")
