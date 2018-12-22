@@ -9,6 +9,7 @@ function begin_pulse(event)
 	if caster:HasModifier("modifier_bahamut_glyph_7_1") then
 		radius = radius*1.4
 	end
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_leshrac/bahamut_nova.vpcf", caster, 0.3)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	EmitSoundOnLocationWithCaster(point, "Hero_Leshrac.Diabolic_Edict", caster)
 	local bStun = false

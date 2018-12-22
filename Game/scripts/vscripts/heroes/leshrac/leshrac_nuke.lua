@@ -31,6 +31,7 @@ function blast(caster, point, radius, damage, ability)
 	local pfx10 = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, caster )
 	ParticleManager:SetParticleControl( pfx10, 0, point )
 	ParticleManager:SetParticleControl( pfx10, 4, Vector(radius, 0, 0))
+	local w_3_level = caster:GetRuneValue("w", 3)
 	for i = 5, 12, 1 do
 		ParticleManager:SetParticleControl( pfx10, i, point+Vector(0,0,280))
 	end
@@ -44,7 +45,8 @@ function blast(caster, point, radius, damage, ability)
 		if #enemies > 0 then
 			Timers:CreateTimer(0.1,function()
 				for _,enemy in pairs(enemies) do
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+					local damage_with_w_3 = damage + OverflowProtectedGetAverageTrueAttackDamage(enemy)*0.2*w_3_level
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage_with_w_3, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_leshrac_nuke_judged", {duration = 5}) 
 
@@ -122,6 +124,9 @@ function c_b_strike(event)
 	local ability = event.ability
 	local caster = ability.origCaster
 	local damage = 5000 + ability.totalLevel*3020
+
+	local w_3_level = caster:GetRuneValue("w", 3)
+	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(target)*0.2*w_3_level
 	damage = damage*ability.damageAmp
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 

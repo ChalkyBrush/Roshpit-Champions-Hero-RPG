@@ -3213,9 +3213,11 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_3"							"[W3] Orb of Judgement"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_3_Description"				"Judgement throws an orb in front of Bahamut. Hitting an enemy with a basic attack also throws an orb towards the enemy. Enemies struck by the Orb receive the Judged debuff."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_Description"				"Judgement throws an orb in front of Bahamut. Hitting an enemy with a basic attack also throws an orb towards the enemy. Enemies struck by the Orb receive the Judged debuff. Judement and its orb do additional damage based on target's attack power"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_property_one"			"Damage"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_suffix"					""
+        "DOTA_Tooltip_ability_bahamut_rune_w_3_property_two"            "Judgement and Orb Base Damage Increase"
+        "DOTA_Tooltip_ability_bahamut_rune_w_3_suffix_two"              "% of target's attack power"
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] Potency"
@@ -5658,7 +5660,7 @@
     	"DOTA_Tooltip_ability_warlord_rune_e_1_suffix_two"				""
 
 		"DOTA_Tooltip_ability_warlord_rune_e_2"							"[E2] Ice Floe"
-    	"DOTA_Tooltip_ability_warlord_rune_e_2_Description"				"Warlord restores mana every 0.1 seconds during Arctic Sprint. Axes thrown during Arctice Sprint have increased Base Damage."
+    	"DOTA_Tooltip_ability_warlord_rune_e_2_Description"				"Warlord restores mana every 0.1 seconds during Arctic Sprint. Axes thrown during Arctic Sprint have increased Base Damage."
     	"DOTA_Tooltip_ability_warlord_rune_e_2_property_one"			"Mana Restore"
     	"DOTA_Tooltip_ability_warlord_rune_e_2_suffix"					" every 0.1 seconds"
         "DOTA_Tooltip_ability_warlord_rune_e_2_property_two"            "Additional Axe Throw Damage"

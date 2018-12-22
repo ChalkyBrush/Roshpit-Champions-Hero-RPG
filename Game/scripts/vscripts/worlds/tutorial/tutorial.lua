@@ -37,7 +37,9 @@ function Tutorial:Debug()
 	-- local buttons = {"item_rarity_uncommon", "item_rarity_rare", "item_rarity_mythical", "item_rarity_immortal", "item_rarity_arcana"}
 	-- CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="3_1", quiz_question=question, sequence=2, verifier = verifier, localize_verifier = 1, challenge_progress = 2, gsub1 = gsub1, buttons = buttons} )
 	-- CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
-	RPCItems:RollResplendantRubberBoots(MAIN_HERO_TABLE[1]:GetAbsOrigin())
+    -- Weapons:RollLegendWeapon1(Vector(-2842, -1943), "warlord")
+    -- Weapons:RollLegendWeapon2(Vector(-2842, -1943), "warlord")
+    -- Weapons:RollLegendWeapon3(Vector(-2842, -1943), "warlord")
 end
 
 function Tutorial:SpawnAllTownNPCs()

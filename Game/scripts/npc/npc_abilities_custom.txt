@@ -33003,12 +33003,7 @@
 		"OnSpellStart"
 		{
 
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_pulse_effect"
-				"Target" 		"CASTER"
-				"Duration"		"0.3"
-			}
+
 
 		}
 		"OnToggleOn"
@@ -33035,42 +33030,10 @@
 				"ThinkInterval"  "0.25"
 				"OnIntervalThink"
 				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_pulse_effect"
-						"Target" 		"TARGET"
-					}
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_pulse_effect"
-						"Target" 		"TARGET"
-					}
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/leshrac/bahamut_pulse.lua"
 						"Function"		"begin_pulse"
-					}
-				}
-			}
-			"modifier_pulse_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Duration"			"0.3"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"	"particles/units/heroes/hero_leshrac/bahamut_nova.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"		"CASTER"
-
-						"ControlPoints"
-						{
-							"00"	"0 0 0"
-							"01"	"500 0 0"
-						}
 					}
 				}
 			}
@@ -33619,9 +33582,14 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
+				"property_two"			"20"
 			}
 			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
+			}
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"7"

@@ -225,9 +225,14 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
+				"property_two"			"20"
 			}
 			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
+			}
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"7"
