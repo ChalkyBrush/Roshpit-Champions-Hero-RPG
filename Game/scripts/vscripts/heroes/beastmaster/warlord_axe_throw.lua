@@ -1,5 +1,22 @@
 require('heroes/beastmaster/elemental_axes')
 
+function prepareAxeLaunchPhaseStart(event)
+	local caster = event.caster
+	local ability = event.ability
+	local fv = caster:GetForwardVector()
+	local targetDirection = ((event.target_ponts[1] - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	if caster:HasModifier("modifier_warlord_ice_sprint") or caster:HasModifier("modifier_warlord_jumping") or caster:HasModifier("modifier_warlord_jumping_fire") then
+		caster:SetForwardVector(targetDirection)
+		local axeThrow = caster:GetAbilityByIndex(1)
+		axeThrow.castPoint = axeThrow:GetCastPoint()
+		axeThrow:SetOverrideCastPoint(0.01)
+		Timers:CreateTimer(0.03, function()
+			caster:SetForwardVector(fv)
+			axeThrow:SetOverrideCastPoint(axeThrow.castPoint)
+		end)
+	end
+end
+
 function prepareAxeLaunch(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -11,15 +28,18 @@ function prepareAxeLaunch(event)
 
 	ability.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "warlord")
 	if element == "earth" then
-		launchAxe(ability, caster, "particles/units/heroes/hero_troll_warlord/warlord_range_axe_earth.vpcf", fv, casterOrigin, true)
+		launchAxe(ability, caster, "particles/units/heroes/hero_troll_warlord/warlord_range_axe_earth.vpcf", fv, casterOrigin, true, element)
 	elseif element == "ice" then
-		launchAxe(ability, caster, "particles/units/heroes/elemental_warlord/warlord_range_axe_ice.vpcf", fv, casterOrigin, true)
+		launchAxe(ability, caster, "particles/units/heroes/elemental_warlord/warlord_range_axe_ice.vpcf", fv, casterOrigin, true, element)
 	elseif element == "fire" then
-		launchAxe(ability, caster, "particles/_2units/heroes/hero_troll_warlord/warlord_range_axe_fire.vpcf", fv, casterOrigin, true)
+		launchAxe(ability, caster, "particles/_2units/heroes/hero_troll_warlord/warlord_range_axe_fire.vpcf", fv, casterOrigin, true, element)
 	end
 	Filters:CastSkillArguments(2, caster)
 	if not event.bNoCast then
-		swapSkills(element, caster, ability)
+		if caster:HasModifier("modifier_warlord_ice_sprint") or caster:HasModifier("modifier_warlord_jumping") or caster:HasModifier("modifier_warlord_jumping_fire") then
+		else
+			swapSkills(element, caster, ability)
+		end
 
 		if caster:HasModifier("modifier_warlord_immortal_weapon_2") then
 			if not caster:HasAbility("axe_throw_fire") then
@@ -103,42 +123,131 @@ function rune_w_2(caster)
     -- return totalLevel
 end
 
-function launchAxe(ability, caster, particle, fv, startPoint, bSplit)
+function launchAxe(ability, caster, particle, fv, startPoint, bSplit, element)
 	local start_radius = 120
 	local end_radius = 120
 	local range = 1500
 	local speed = 900
+	if not ability.axe_table then
+		ability.axe_table = {}
+	end
+	EmitSoundOn("Hero_TrollWarlord.PreAttack", caster)
+	local position = caster:GetAbsOrigin() + Vector(0,0,100)
+	local axe = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, caster:GetTeamNumber())
+	axe:SetAbsOrigin(position)
+	axe.pfx = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, nil)
+	local velocity = fv*speed
+	ability:ApplyDataDrivenModifier(caster, axe, "modifier_warlord_axe_motion", {})
+	ParticleManager:SetParticleControl(axe.pfx, 0, position)
+	ParticleManager:SetParticleControl(axe.pfx, 1, velocity)
+	axe:FindAbilityByName("dummy_unit"):SetLevel(1)
+	table.insert(ability.axe_table, axe)
+	axe.velocity = velocity
+	axe.element = element
+	axe.original_position = position
+	axe.max_range = range
+	if axe:GetAbsOrigin().z - GetGroundHeight(axe:GetAbsOrigin(), axe) > 20 then
+		axe.downShot = true
+	end
+	if element == "ice" and caster:HasModifier("modifier_warlord_ice_sprint") then
+		axe.e_2_amp = true
+	end
+		-- local casterOrigin = caster:GetAbsOrigin()
 
-		EmitSoundOn("Hero_TrollWarlord.PreAttack", caster)
-		
-		local casterOrigin = caster:GetAbsOrigin()
+		-- local info = 
+		-- {
+		-- 		Ability = ability,
+	 --        	EffectName = particle,
+	 --        	vSpawnOrigin = startPoint+Vector(0,0,120),
+	 --        	fDistance = range,
+	 --        	fStartRadius = start_radius,
+	 --        	fEndRadius = end_radius,
+	 --        	Source = caster,
+	 --        	StartPosition = "attach_attack1",
+	 --        	bHasFrontalCone = true,
+	 --        	bReplaceExisting = false,
+	 --        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+	 --        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+	 --        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+	 --        	fExpireTime = GameRules:GetGameTime() + 5.0,
+		-- 	bDeleteOnHit = false,
+		-- 	vVelocity = fv*Vector(1,1,0) * speed,
+		-- 	bProvidesVision = false,
+		-- }
+		-- projectile = ProjectileManager:CreateLinearProjectile(info)
+		-- if bSplit then
+		-- 	ability.split = true
+		-- else
+		-- 	ability.split = false
+		-- end
+	if caster:HasModifier("modifier_warlord_ice_sprint") or caster:HasModifier("modifier_warlord_jumping") or caster:HasModifier("modifier_warlord_jumping_fire") then
+		ability:EndCooldown()
+	end
+end
 
-		local info = 
-		{
-				Ability = ability,
-	        	EffectName = particle,
-	        	vSpawnOrigin = startPoint+Vector(0,0,120),
-	        	fDistance = range,
-	        	fStartRadius = start_radius,
-	        	fEndRadius = end_radius,
-	        	Source = caster,
-	        	StartPosition = "attach_attack1",
-	        	bHasFrontalCone = true,
-	        	bReplaceExisting = false,
-	        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-	        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-	        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-	        	fExpireTime = GameRules:GetGameTime() + 5.0,
-			bDeleteOnHit = false,
-			vVelocity = fv*Vector(1,1,0) * speed,
-			bProvidesVision = false,
-		}
-		projectile = ProjectileManager:CreateLinearProjectile(info)
-		if bSplit then
-			ability.split = true
-		else
-			ability.split = false
+function axe_moving_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local distance = WallPhysics:GetDistance(target.original_position, target:GetAbsOrigin())
+	print("AXE THROWING: ")
+	print(target:GetAbsOrigin())
+	-- if target.downShot then
+		if target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target) < 20 then
+			event.target = target
+			if target.element == "earth" then
+				earthAxeStrike(event)
+			elseif target.element == "fire" then
+				fireAxeStrike(event)
+			elseif target.element == "ice" then
+				event.axe = target
+				iceAxeStrike(event)
+			end
+			target:RemoveModifierByName("modifier_warlord_axe_motion")
+			ParticleManager:DestroyParticle(target.pfx, false)
+			ParticleManager:ReleaseParticleIndex(target.pfx)
+			return false
 		end
+	-- end
+	if distance > target.max_range then
+		target:RemoveModifierByName("modifier_warlord_axe_motion")
+		ParticleManager:DestroyParticle(target.pfx, false)
+		ParticleManager:ReleaseParticleIndex(target.pfx)
+	else
+		target:SetAbsOrigin(target:GetAbsOrigin()+target.velocity*FrameTime())
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 120, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
+		if #enemies > 0 then	
+			event.target = enemies[1]
+			if target.element == "earth" then
+				earthAxeStrike(event)
+			elseif target.element == "fire" then
+				fireAxeStrike(event)
+			elseif target.element == "ice" then
+				event.axe = target
+				iceAxeStrike(event)
+			end
+			target:RemoveModifierByName("modifier_warlord_axe_motion")
+			ParticleManager:DestroyParticle(target.pfx, false)
+			ParticleManager:ReleaseParticleIndex(target.pfx)
+		end	
+	end
+end
+
+function axe_motion_end(event)
+	local target = event.target
+	local ability = event.ability
+	ParticleManager:DestroyParticle(target.pfx, false)
+	ParticleManager:ReleaseParticleIndex(target.pfx)
+	Timers:CreateTimer(0.03, function()
+		UTIL_Remove(target)
+		local newTable = {}
+		for i = 1, #ability.axe_table, 1 do
+			if IsValidEntity(ability.axe_table[i]) then
+				table.insert(newTable, ability.axe_table[i])
+			end
+		end
+		ability.axe_table = newTable
+	end)
 end
 
 function earthAxeStrike(event)
@@ -151,7 +260,7 @@ function earthAxeStrike(event)
 	local pureDamage = 0
 	if ability.w_4_level > 0 then
 		
-		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.02*ability.w_4_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.2*ability.w_4_level
 		pureDamage = damage*0.025*ability.w_4_level
 	end
 
@@ -254,7 +363,12 @@ function iceAxeStrike(event)
 	local damage = event.damage
 	local ability = event.ability
 
-
+	local e_2_level = caster:GetRuneValue("e", 2)
+	if e_2_level > 0 and event.axe then
+		if event.axe.e_2_amp then
+			damage = damage + damage*1*e_2_level
+		end
+	end
 	local pureDamage = 0
 	if ability.w_4_level > 0 then
 		
@@ -323,7 +437,7 @@ function fireAxeStrike(event)
 	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "warlord")
 	if w_3_level > 0 then
 		radius = radius + w_3_level*5
-		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.06*w_3_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.4*w_3_level
 	end
 	if ability.w_4_level > 0 then
 		

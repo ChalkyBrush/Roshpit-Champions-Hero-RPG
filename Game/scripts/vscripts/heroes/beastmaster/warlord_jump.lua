@@ -1,6 +1,8 @@
 require('heroes/beastmaster/elemental_axes')
 require('heroes/beastmaster/warlord_axe_throw')
 
+LinkLuaModifier("modifier_ignore_cast_angle", "modifiers/warlord/modifier_ignore_cast_angle", LUA_MODIFIER_MOTION_NONE)
+
 function jumpStart(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -49,6 +51,7 @@ function jumpStart(event)
 		bProvidesVision = false,
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
+	-- caster:AddNewModifier(caster, ability, "modifier_ignore_cast_angle", {})
     
 end
 
@@ -78,7 +81,7 @@ function fireJumpStart(event)
     Timers:CreateTimer(0.3, function()
     	ability.lifting = false
     end)
-    
+    -- caster:AddNewModifier(caster, ability, "modifier_ignore_cast_angle", {})
 end
 
 function new_jumping_think(event)
@@ -96,6 +99,7 @@ function new_jumping_think(event)
 	print(ability.jumpFV)
 	if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 10 and not ability.lifting then
 		caster:RemoveModifierByName("modifier_warlord_jumping")
+		-- caster:RemoveModifierByName("modifier_ignore_cast_angle")
 	end
 end
 
@@ -254,6 +258,7 @@ function warlordLandFire(event)
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)	
 		end
 	end 
+	-- caster:RemoveModifierByName("modifier_ignore_cast_angle")
 end
 
 function iceSprintStart(event)
@@ -273,7 +278,10 @@ function iceSprintStart(event)
 	-- ability.e_2_damage = ability.e_2_level*120 + 300
 	ability.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "warlord")
 	-- ability.e_2_damage = ability.e_2_damage + 0.0007*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.e_4_level*ability.e_2_damage
-    
+    -- caster:AddNewModifier(caster, ability, "modifier_ignore_cast_angle", {})
+    local iceAxeThrow = caster:FindAbilityByName("axe_throw_ice")
+    iceAxeThrow.castPoint = iceAxeThrow:GetCastPoint()
+    iceAxeThrow:SetOverrideCastPoint(0)
 end
 
 
@@ -294,8 +302,8 @@ function iceSprintThink(event)
   	iceSprintBlast(caster, newPosition, event.radius, baseDamage, ability)
   end
   if ability.interval%3 == 0 and ability.e_2_level > 0 then
-  	caster:GiveMana(ability.e_2_level*100)
-  	PopupMana(caster, ability.e_2_level*100)
+  	caster:GiveMana(ability.e_2_level*150)
+  	PopupMana(caster, ability.e_2_level*150)
   	CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 1)
   end
   if not blockUnit then
@@ -311,6 +319,9 @@ function iceSprintEnd(event)
 		caster:Stop()
 	end
 	WallPhysics:ClearSpaceForUnit(caster, position)
+	-- caster:RemoveModifierByName("modifier_ignore_cast_angle")
+    local iceAxeThrow = caster:FindAbilityByName("axe_throw_ice")
+    iceAxeThrow:SetOverrideCastPoint(iceAxeThrow.castPoint)
 end
 
 function iceSprintBlast(caster, position, radius, damage, ability)

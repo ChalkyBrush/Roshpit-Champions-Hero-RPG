@@ -5658,10 +5658,12 @@
     	"DOTA_Tooltip_ability_warlord_rune_e_1_suffix_two"				""
 
 		"DOTA_Tooltip_ability_warlord_rune_e_2"							"[E2] Ice Floe"
-    	"DOTA_Tooltip_ability_warlord_rune_e_2_Description"				"Warlord restores mana every 0.1 seconds during Arctic Sprint."
+    	"DOTA_Tooltip_ability_warlord_rune_e_2_Description"				"Warlord restores mana every 0.1 seconds during Arctic Sprint. Axes thrown during Arctice Sprint have increased Base Damage."
     	"DOTA_Tooltip_ability_warlord_rune_e_2_property_one"			"Mana Restore"
     	"DOTA_Tooltip_ability_warlord_rune_e_2_suffix"					" every 0.1 seconds"
-		
+        "DOTA_Tooltip_ability_warlord_rune_e_2_property_two"            "Additional Axe Throw Damage"
+        "DOTA_Tooltip_ability_warlord_rune_e_2_suffix_two"               "% during Arctic Sprint"
+
 		"DOTA_Tooltip_ability_warlord_rune_e_3"							"[E3] Unstable Flames"
     	"DOTA_Tooltip_ability_warlord_rune_e_3_Description"				"At the peak of the initial Firedrop jump - launch fireballs at nearby enemies."
     	"DOTA_Tooltip_ability_warlord_rune_e_3_property_one"			"Damage"
@@ -7605,8 +7607,7 @@
     	"DOTA_Tooltip_modifier_sunstrider_in_air"						"Sunstrider"
 
   		"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2"						"[E1] Sunblade"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"Increases attack damage during @Ability3, and allows the spell to strike more targets. Attack damage bon
-        us sticks for 3 seconds after ability ends."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"Increases attack damage during @Ability3, and allows the spell to strike more targets. Attack damage bonus sticks for 3 seconds after ability ends."
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_one"			"Attack Power Bonus"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_two"			"Additional Targets"

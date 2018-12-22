@@ -505,6 +505,10 @@
             			"stun_duration"	"%stun_duration"
             		}
             	}
+            	"Properties"
+            	{
+            		"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "100"
+            	}
             }
         }
 	}
@@ -621,6 +625,7 @@
             	"Properties"
             	{
             		"MODIFIER_PROPERTY_DISABLE_TURNING" "1"
+            		"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "100"
             	}
             	"States"
             	{
@@ -795,6 +800,7 @@
             	{
             		"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-700"
             		"MODIFIER_PROPERTY_EVASION_CONSTANT"	"100"
+            		"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "100"
             	}
             	"States"
             	{
@@ -877,7 +883,7 @@
 				"var_type"				"FIELD_INTEGER"
 				"damage"				"8600 14400 24200 48000 96000 190000 340000"
 			}
-			"02"
+		"02"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"stun_duration"			"0.5"
@@ -981,6 +987,32 @@
             	{
             		"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
             	}
+            }
+            "modifier_warlord_axe_motion"
+            {
+            	"Passive"		"0"
+            	"IsHidden"		"1"
+            	"ThinkInterval"  "0.03"
+        		"OnIntervalThink"
+        		{
+	            	"RunScript"
+	            	{
+	            		"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
+	            		"Function"		"axe_moving_think"
+	            		"target"		"TARGET"
+	            		"damage"		"%damage"
+	            		"stun_duration"	"%stun_duration"
+	            	}
+	            	"OnDestroy"
+	            	{
+	            		"RunScript"
+	            		{
+	            			"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
+	            			"Function"		"axe_motion_end"
+	            			"target"		"TARGET"
+	            		}
+	            	}
+	            }
             }
 
 		}
@@ -1133,6 +1165,33 @@
 			{
 				"IsHidden"	"1"
 			}
+            "modifier_warlord_axe_motion"
+            {
+            	"Passive"		"0"
+            	"IsHidden"		"1"
+            	"ThinkInterval"  "0.03"
+        		"OnIntervalThink"
+        		{
+	            	"RunScript"
+	            	{
+	            		"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
+	            		"Function"		"axe_moving_think"
+	            		"target"		"TARGET"
+	            		"damage"		"%damage"
+						"duration"		"%slow_duration"
+						"radius"		"%radius"
+	            	}
+	            	"OnDestroy"
+	            	{
+	            		"RunScript"
+	            		{
+	            			"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
+	            			"Function"		"axe_motion_end"
+	            			"target"		"TARGET"
+	            		}
+	            	}
+	            }
+            }
 		}
 	}
 
@@ -1286,6 +1345,33 @@
             	{
             		"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
             	}
+            }
+            "modifier_warlord_axe_motion"
+            {
+            	"Passive"		"0"
+            	"IsHidden"		"1"
+            	"ThinkInterval"  "0.03"
+        		"OnIntervalThink"
+	        	{
+	            	"RunScript"
+	            	{
+	            		"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
+	            		"Function"		"axe_moving_think"
+	            		"target"		"TARGET"				
+	            		"damage"		"%damage"
+						"duration"		"%duration"
+						"radius"		"%radius"
+	            	}
+	            	"OnDestroy"
+	            	{
+	            		"RunScript"
+	            		{
+	            			"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
+	            			"Function"		"axe_motion_end"
+	            			"target"		"TARGET"
+	            		}
+	            	}
+	            }
             }
 		}
 	}

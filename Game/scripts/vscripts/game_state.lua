@@ -1046,6 +1046,25 @@ function GameState:OrderFilter(orderTable)
 					end
 				end
 			end
+			if unit:GetUnitName() == "npc_dota_hero_beastmaster" then
+				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
+				if IsValidEntity(orderAbility) then
+					if orderAbility:GetAbilityName() == "axe_throw_earth" or orderAbility:GetAbilityName() == "axe_throw_ice" or orderAbility:GetAbilityName() == "axe_throw_fire" then
+						if unit:HasModifier("modifier_warlord_ice_sprint") or unit:HasModifier("modifier_warlord_jumping") or unit:HasModifier("modifier_warlord_jumping_fire") then
+							local fv = unit:GetForwardVector()
+							local targetDirection = ((Vector(orderTable.position_x, orderTable.position_y) - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+							unit:SetForwardVector(targetDirection)
+							local axeThrow = orderAbility
+							axeThrow.castPoint = axeThrow:GetCastPoint()
+							axeThrow:SetOverrideCastPoint(0)
+							Timers:CreateTimer(0.03, function()
+								unit:SetForwardVector(fv)
+								axeThrow:SetOverrideCastPoint(axeThrow.castPoint)
+							end)
+						end
+					end
+				end
+			end
 			if unit:GetUnitName() == "npc_dota_hero_juggernaut" then
 				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
 				if IsValidEntity(orderAbility) then

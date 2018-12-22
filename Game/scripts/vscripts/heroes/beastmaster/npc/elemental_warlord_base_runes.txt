@@ -93,7 +93,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-10"
+				"property_one"			"-15"
 			}
 		}
 
@@ -150,7 +150,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"750"
+				"property_one"			"900"
 			}
 		}
 		"Modifiers"
@@ -260,7 +260,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"6"
+				"property_two"			"40"
 			}
 		}
 	}
@@ -286,7 +286,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2"
+				"property_two"			"20"
 			}
 		}
 	}
@@ -333,7 +333,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"150"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"100"
 			}
 		}
 	}
