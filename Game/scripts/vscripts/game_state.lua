@@ -3030,7 +3030,7 @@ function GameState:FilterDamage(filterTable)
 	modifier = victim:FindModifierByName("modifier_duskbringer_b_d_invisible")
 	if modifier then
 		local stacks = modifier:GetStackCount()
-		mult = mult + stacks*0.01
+		mult = mult + stacks*0.012
 	end
 
 	if victim:HasModifier("modifier_channeling_water_torrent") then

@@ -459,7 +459,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"<% DUSK_R3_ATK_POWER %>"
 			}
 		}
 		"Modifiers"

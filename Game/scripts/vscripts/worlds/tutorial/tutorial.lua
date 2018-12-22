@@ -40,6 +40,7 @@ function Tutorial:Debug()
     -- Weapons:RollLegendWeapon1(Vector(-2842, -1943), "warlord")
     -- Weapons:RollLegendWeapon2(Vector(-2842, -1943), "warlord")
     -- Weapons:RollLegendWeapon3(Vector(-2842, -1943), "warlord")
+    RPCItems:RollWitchHat(Vector(-3242, -2143), false)
 end
 
 function Tutorial:SpawnAllTownNPCs()

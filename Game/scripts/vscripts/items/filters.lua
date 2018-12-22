@@ -192,7 +192,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
 
     if casterName == "npc_dota_hero_spirit_breaker" then
         if caster.q_2_level then
-            mult = mult + 0.1 * caster.q_2_level
+            mult = mult + 0.2 * caster.q_2_level
         end
     end
 

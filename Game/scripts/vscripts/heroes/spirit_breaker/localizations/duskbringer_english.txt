@@ -30,7 +30,7 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_q_3_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4"						"[Q4] Ghastly Reach"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_4_Description"			"Increases the damage and radius of Whirling Flail."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_Description"			"Increases the damage and radius of Whirling Flail. Damage bonus also applies to Duskfire."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_property_one"		"Damage Bonus"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_suffix"				"%"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_property_two"		"Radius Increase"

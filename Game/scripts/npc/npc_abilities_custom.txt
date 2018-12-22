@@ -53790,7 +53790,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -53832,7 +53832,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"5"
 			}
 			"02"
 			{
@@ -54131,7 +54131,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"4"
 			}
 			"02"
 			{
@@ -54162,7 +54162,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.7"
+				"property_one"			"1.2"
 			}
 		}
 		"Modifiers"
@@ -54192,7 +54192,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"10"
 			}
 		}
 		"Modifiers"
