@@ -11,6 +11,15 @@ function warp_flare_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target_points[1]
+	local range = event.range
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target)
+	if distance > range then
+		local fv = WallPhysics:normalized_2d_vector(caster:GetAbsOrigin(), target)
+		target = caster:GetAbsOrigin() + fv*range
+	end
+	distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target)
+	ability.total_distance_to_travel = distance
+	ability.distance_travelled = 0
 	caster:RemoveModifierByName("modifier_solunia_flare_flying")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_flare_flying", {duration = 3.0})
 	caster:RemoveModifierByName("modifier_solunia_in_between_flare")
@@ -81,7 +90,7 @@ function warp_flare_flying_think(event)
 		end_warp_phase(caster, ability)
 		return
 	end
-	
+	ability.distance_travelled = ability.distance_travelled + forwardSpeed
 	caster:SetAbsOrigin(caster:GetAbsOrigin()+ability.fv*forwardSpeed)
 	local groundHeight = GetGroundHeight(caster:GetAbsOrigin(), caster)
 	local liftVector = Vector(0,0,0)
@@ -93,7 +102,7 @@ function warp_flare_flying_think(event)
 		ParticleManager:SetParticleControl(ability.bandTable[ability.currentBand], 1, caster:GetAbsOrigin()+Vector(0,0,30)+ability.fv*60)
 	end
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.targetPoint)
-	if distance < 85 then
+	if distance < 85 or ability.distance_travelled > ability.total_distance_to_travel then
 		if not ability.lock then
 			end_warp_phase(caster, ability)
 		end

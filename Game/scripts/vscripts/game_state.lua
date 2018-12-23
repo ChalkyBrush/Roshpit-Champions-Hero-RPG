@@ -1065,6 +1065,24 @@ function GameState:OrderFilter(orderTable)
 					end
 				end
 			end
+			if unit:GetUnitName() == "npc_dota_hero_vengeful_spirit" then
+				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
+				if IsValidEntity(orderAbility) then
+					if orderAbility:GetAbilityName() == "solunia_warp_flare" or orderAbility:GetAbilityName() == "solunia_lunar_warp_flare" then
+						if unit:HasModifier("modifier_solunia_flare_flying") or unit:HasModifier("modifier_solunia_in_between_flare") then
+							local fv = unit:GetForwardVector()
+							local targetDirection = ((Vector(orderTable.position_x, orderTable.position_y) - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+							unit:SetForwardVector(targetDirection)
+							local warp_flare = orderAbility
+							warp_flare.castPoint = warp_flare:GetCastPoint()
+							warp_flare:SetOverrideCastPoint(0)
+							Timers:CreateTimer(0.03, function()
+								warp_flare:SetOverrideCastPoint(warp_flare.castPoint)
+							end)
+						end
+					end
+				end
+			end
 			if unit:GetUnitName() == "npc_dota_hero_juggernaut" then
 				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
 				if IsValidEntity(orderAbility) then

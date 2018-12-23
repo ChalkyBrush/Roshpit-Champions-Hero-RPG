@@ -55938,7 +55938,7 @@
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"AbilityCastRange"				"700 800 900 1000 1100 1200 1300"
+		"AbilityCastRange"				"100000"
 
 
 		// Precache
@@ -55991,7 +55991,7 @@
 				"ScriptFile"	"heroes/vengeful_spirit/warp_flare.lua"
 				"Function"		"warp_flare_start"
 				"target"		"POINT"
-				"range"			"%range"
+				"range"			"%cast_range"
 			}
 
 		}
@@ -56166,7 +56166,7 @@
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"AbilityCastRange"				"700 800 900 1000 1100 1200 1300"
+		"AbilityCastRange"				"100000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -56213,7 +56213,7 @@
 				"ScriptFile"	"heroes/vengeful_spirit/warp_flare.lua"
 				"Function"		"warp_flare_start"
 				"target"		"POINT"
-				"range"			"%range"
+				"range"			"%cast_range"
 			}
 
 		}
