@@ -2362,7 +2362,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             if attacker:HasAbility("arkimus_energy_field") then
                 local d_d_level = attacker:GetRuneValue("r", 4)
-                mult = mult + 0.001*attacker:GetAgility()/10*d_d_level
+                mult = mult + 0.0012*attacker:GetAgility()/10*d_d_level
             end
             if attacker:HasModifier("modifier_arkimus_immortal_weapon_2") then
                 if bIsRealDamage then
