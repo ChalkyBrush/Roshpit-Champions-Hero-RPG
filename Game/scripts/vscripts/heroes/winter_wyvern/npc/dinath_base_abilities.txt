@@ -662,7 +662,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"dinath/dinath_rune_q_3"
 		"RequiredLevel"          		"0"
@@ -746,6 +746,11 @@
 						"Function"		"burning_charge_sliding"
 					}
 				}
+			}
+			"modifier_scorch_charge_cooldown"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"0"
 			}
 		}
 	}

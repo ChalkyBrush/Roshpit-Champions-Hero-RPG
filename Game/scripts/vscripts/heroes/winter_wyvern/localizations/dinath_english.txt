@@ -24,9 +24,11 @@
     	"DOTA_Tooltip_ability_dinath_rune_q_2_suffix"							" seconds"
 
     	"DOTA_Tooltip_ability_dinath_rune_q_3"									"[Q3] Updraft"
-    	"DOTA_Tooltip_ability_dinath_rune_q_3_Description"						"While Wyvern Fire is on cooldown, the skill is replaced with Updraft. The ability allows Dinath to quickly fly to the target location while maintaining her height. A trail of Wyvern Fire covers the travel distance."
+    	"DOTA_Tooltip_ability_dinath_rune_q_3_Description"						"Every 3 seconds, Dinath's move orders allow her to quickly fly to the target location while maintaining her height. A trail of Wyvern Fire covers the travel distance."
     	"DOTA_Tooltip_ability_dinath_rune_q_3_property_one"						"Maximum Cast Range"
     	"DOTA_Tooltip_ability_dinath_rune_q_3_suffix"							""
+
+        "DOTA_Tooltip_modifier_scorch_charge_cooldown"                          "Updraft Cooldown"
 
     	"DOTA_Tooltip_ability_dinath_rune_q_4"									"[Q4] Conflagration"
     	"DOTA_Tooltip_ability_dinath_rune_q_4_Description"						"Enemies standing in Wyvern Fire have reduced cast rate."

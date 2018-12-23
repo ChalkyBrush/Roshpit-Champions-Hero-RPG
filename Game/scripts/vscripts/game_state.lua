@@ -539,6 +539,30 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
+		if unit:GetUnitName() == "npc_dota_hero_winter_wyvern" then
+			unit.lastOrder = orderTable.order_type
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+				require('heroes/winter_wyvern/burning_charge')
+				if unit:HasAbility("dinath_scorch_charge") then
+					local scorch_charge_ability = unit:FindAbilityByName("dinath_scorch_charge")
+					if scorch_charge_ability:IsCooldownReady() then
+						if unit:IsStunned() or unit:IsRooted() or unit:IsFrozen() then
+						else
+							local eventTable = {}
+							eventTable.caster = unit
+							eventTable.ability = scorch_charge_ability
+							eventTable.target_points = {}
+							eventTable.target_points[1] = Vector(orderTable.position_x, orderTable.position_y)
+							unit:SetForwardVector(WallPhysics:normalized_2d_vector(unit:GetAbsOrigin(), eventTable.target_points[1]))
+							burning_charge_start(eventTable)
+							scorch_charge_ability:StartCooldown(scorch_charge_ability:GetCooldown(scorch_charge_ability:GetLevel()))
+							scorch_charge_ability:ApplyDataDrivenModifier(unit, unit, "modifier_scorch_charge_cooldown", {duration = scorch_charge_ability:GetCooldown(scorch_charge_ability:GetLevel())})
+							return false
+						end
+					end
+				end
+			end
+		end
 		if unit:HasModifier("modifier_astral_arcana_on_platform") then
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET then
 				if unit:FindAbilityByName("astral_arcana_ability") then
