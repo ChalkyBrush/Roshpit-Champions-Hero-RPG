@@ -587,7 +587,7 @@
 		 "DOTA_Tooltip_modifier_whirlpool_effect_Description"		"Within the King's Reach"
 
 		 "DOTA_Tooltip_ability_water_temple_boss_whirlpool"			"Rip Current"
-		 "DOTA_Tooltip_ability_water_temple_boss_whirlpool_Description"	"The King channels a aqeuous storm that pulls in all nearby enemies. It is always followed up with a World Crush."	
+		 "DOTA_Tooltip_ability_water_temple_boss_whirlpool_Description"	"The King channels an aqueous storm that pulls in all nearby enemies. It is always followed up with a World Crush."	
 
 		//WIND SPIRIT
 		"tanari_clam_spawner"											"Tanari Clam"

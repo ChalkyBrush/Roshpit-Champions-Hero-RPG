@@ -293,8 +293,8 @@
     	"DOTA_Tooltip_modifier_year_beast_b_d_health_Description"								"Increased Health"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1"									"[R3] Jade Voice"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"A % of all attributes is added to all Base Ability damage (flat bonus)."
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Base Ability Damage Bonus"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"The base damage value of all abilities is increased by a flat amount, equal to a multiple of all attributes."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Base Damage Bonus"
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"% of attributes"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1"									"[R4] Diamond Claws"

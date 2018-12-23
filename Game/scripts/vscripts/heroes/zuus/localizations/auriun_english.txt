@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_heavens_shield"							"Heaven's Shield"
-    	"DOTA_Tooltip_ability_heavens_shield_Description"				"Auriun applies a divine barrier to his target, allowing them to absorb incoming damage instances."
+    	"DOTA_Tooltip_ability_heavens_shield_Description"				"Auriun applies a divine barrier to his target, allowing them to absorb incoming damage instances. Shield's base duration is 9 seconds."
     	"DOTA_Tooltip_ability_heavens_shield_Lore"						""
     	"DOTA_Tooltip_ability_heavens_shield_stacks"					"ATTACKS ABSORBED"
 
@@ -157,7 +157,7 @@
 		//Arcanas
 		
 		"DOTA_Tooltip_ability_auriun_aoe_shield"						"Heaven's Coalescence"
-    	"DOTA_Tooltip_ability_auriun_aoe_shield_Description"			"Target an area and apply Heaven's Shield buff to all allied heroes within. The divine barrier absorbs incoming damage instances."
+    	"DOTA_Tooltip_ability_auriun_aoe_shield_Description"			"Target an area and apply Heaven's Shield buff to all allied heroes within. The divine barrier absorbs incoming damage instances. Shield's base duration is 9 seconds."
     	"DOTA_Tooltip_ability_auriun_aoe_shield_stacks"					"SHIELD STACKS:"
     	"DOTA_Tooltip_ability_auriun_aoe_shield_aoe_radius"				"TARGET RADIUS:"
 
@@ -210,7 +210,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_suffix"				""  	
 
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2"							"[Q2] Enhanced Protection"
-    	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_Description"				"Casting Shadow Bind has a chance to apply stacks of Heaven's Shield. Heaven's Shield stacks block instances of damage. Greater than 100% means you get multiple stacks."
+    	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_Description"				"Casting Shadow Bind has a chance to apply stacks of Heaven's Shield. Heaven's Shield stacks block instances of damage. Greater than 100% means you get multiple stacks. Shield's base duration is 9 seconds."
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_property_one"				"Stack Chance"
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_suffix"					"%"
 

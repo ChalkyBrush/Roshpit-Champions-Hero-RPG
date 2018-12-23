@@ -209,11 +209,11 @@
     	"DOTA_Tooltip_modifier_solunia_ultraviolet_Description"				"Gaining health regen and attack damage %%"	
 
     	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1"							"[Q2] Polythea"
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_Description"				"Passively adds base attack damage based on Solunia's current health. Additionally a percentage of current health is added to all Base Ability damage."
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_one"			"Base Attack Damage Per Current Health"
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix"					""
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_two"			"Health added to Base Ability damage"
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix_two"				"%"
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_Description"				"Increases base attack damage by a multiple of current health. Additionally, the base damage value of all abilities is increased by a flat amount, equal to a multiple of Solunia's current health."
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_one"			"Base Attack Damage"
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix"					" per current HP"
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_two"			"Base Damage Bonus"
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix_two"				"% of current HP"
 
 
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1"							"[Q3] Compression"

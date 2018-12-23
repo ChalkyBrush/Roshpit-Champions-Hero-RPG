@@ -27756,7 +27756,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-				"TextureName"		"lich_dark_ritual"
+				"TextureName"		"redfall/lich_dark_ritual"
 				"OnCreated"
 				{
 					"AttachEffect"

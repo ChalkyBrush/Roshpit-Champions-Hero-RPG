@@ -817,15 +817,15 @@
 		"item_health_restore"		"Восстанавливает здоровья"
 		"item_mana_restore"			"Восстанавливает маны"
 		"item_bonus_exp"			"Доп. ОПЫТ"
-		"item_perm_strength"		"Доп. Сила (на текущую сессию)"
-		"item_perm_agility"			"Доп. Ловкость  (на текущую сессию)"
-		"item_perm_intelligence"	"Доп. Интеллект (на текущую сессию)"
+		"item_perm_strength"		"Сила (на текущую сессию)"
+		"item_perm_agility"			"Ловкость  (на текущую сессию)"
+		"item_perm_intelligence"	"Интеллект (на текущую сессию)"
 
 		"item_critical_strike"		"Критический удар"
 		"item_splash_damage"		"Удар по области, %"	
 		"item_aspect_health"		"Доп. здоровье элементалей"
 
-		"item_lifesteal"		    "Вампиризм %"
+		"item_lifesteal"		    "Вампиризм, %"
 
 		"item_evasion"				"Шанс уклонения"
 

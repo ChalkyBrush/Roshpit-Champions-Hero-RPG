@@ -140,7 +140,7 @@
     	"DOTA_Tooltip_modifier_starfall_a_d_visible_Description"		"Each stack reducing <font color=\"#C25DFC\">Cosmic</font> resistance by 10%%."
 		
 		"DOTA_Tooltip_ability_astral_rune_r_2"                          "[R2] Star Quake"
-        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Stars of [R1] create little quakes when thay fall, dealing damage and stunning enemies for 0.03 seconds in an area."
+        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Stars of [R1] create little quakes when they fall, dealing damage and stunning enemies for 0.03 seconds in an area."
         "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "Damage of [R1] Starstorm"
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "%"
         "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "Radius"

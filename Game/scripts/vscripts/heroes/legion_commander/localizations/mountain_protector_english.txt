@@ -249,8 +249,8 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_suffix"				"% for every 1000 missing health"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3"						"[E2] Batholith"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_Description"			"A multiple of strength is added to all Base Ability damage."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"Base Ability Bonus Damage"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_Description"			"The base damage value of all abilities is increased by a flat amount, equal to a multiple of Mountain Protector's Strength attribute."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"Base Damage Bonus"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix"				"x Strength"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3"						"[E3] Lava Flow"

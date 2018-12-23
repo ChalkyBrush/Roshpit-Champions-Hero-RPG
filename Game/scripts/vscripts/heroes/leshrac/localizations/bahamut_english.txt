@@ -75,8 +75,8 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] Potency"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"All Base Ability and Item damage is enhanced by Bahamut's current mana pool against enemies with the Judged debuff. Each instance of amped damage drains a small percentage of Bahamut's current mana. Damage boost is 10x greater for Judgement base skill."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_one"			"Extra Base Ability Damage"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"The base damage value of all abilities, and all damage dealt directly by items, is increased by a flat amount equal to a multiple of Bahamut's current mana. This bonus only applies against targets with the Judged debuff, and the total bonus is multiplied by 10 when applied to the damage of @Ability2 itself (not any of its runes)."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_one"			"Base Damage Bonus"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix"					"% of current mana"		
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_two"			"Mana Drained per Amplification"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix_two"				"% of max mana"
@@ -241,8 +241,8 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"Frozen"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Ether Breach"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"All Base Ability and Item damage is enhanced by Bahamut's missing mana while outside of the @Ability2 (flat amount). Your abilities deal increased damage while inside the @Ability2 based on its speed. Casting Megaflare while in the @Ability2 multiplies the speed of the @Ability2 by <% BAHAMUT_ARCANA_W4_R_SPEED_MULT %>x and makes this rune treat you as if you are inside the @Ability2 for next 5 seconds. Damage increase from speed is multiplied by @Ability2's level."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Extra Damage"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"While outside the @Ability2, the base damage value of all abilities, and all damage dealt directly by items, is increased by a flat amount equal to a multiple of Bahamut's missing mana. While inside the @Ability2 instead, all ability damage is increased based on a multiple of the Sphere's current travel speed. Casting Megaflare while inside the Sphere will multiply its travel speed by <% BAHAMUT_ARCANA_W4_R_SPEED_MULT %>, and this rune will treat you as if you are inside the Sphere for the next 5 seconds. The damage bonus based on the Sphere's travel speed is further multiplied by the level of @Ability2."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Base Damage Bonus"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% of missing mana"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"			"Damage Increase"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix_two"					"% of speed"		
