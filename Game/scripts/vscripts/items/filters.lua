@@ -2571,7 +2571,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local demonMult = 0
             local q_4_level = Runes:GetTotalRuneLevel(attacker, 4, "q_4", "chernobog")
             if q_4_level > 0 then
-                local demonMult = 0.001*(attacker:GetAgility())/10*q_4_level
+                demonMult = 0.001*(attacker:GetAgility())/10*q_4_level
             end
             if victim:HasModifier("modifier_charons_claw_enemy") then
                 local q_2_level = attacker:GetRuneValue("q", 2)
