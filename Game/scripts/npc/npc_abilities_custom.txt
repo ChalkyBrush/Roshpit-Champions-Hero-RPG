@@ -48771,7 +48771,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -48792,6 +48792,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"10"
 			}
 		}
 	}
@@ -52146,7 +52151,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"12"
 			}
 		}
 	}
@@ -58286,7 +58291,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"dinath/dinath_rune_q_3"
 		"RequiredLevel"          		"0"
@@ -58370,6 +58375,11 @@
 						"Function"		"burning_charge_sliding"
 					}
 				}
+			}
+			"modifier_scorch_charge_cooldown"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"0"
 			}
 		}
 	}

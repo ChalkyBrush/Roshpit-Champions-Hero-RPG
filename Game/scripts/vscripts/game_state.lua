@@ -556,7 +556,6 @@ function GameState:OrderFilter(orderTable)
 							unit:SetForwardVector(WallPhysics:normalized_2d_vector(unit:GetAbsOrigin(), eventTable.target_points[1]))
 							burning_charge_start(eventTable)
 							scorch_charge_ability:StartCooldown(scorch_charge_ability:GetCooldown(scorch_charge_ability:GetLevel()))
-							scorch_charge_ability:ApplyDataDrivenModifier(unit, unit, "modifier_scorch_charge_cooldown", {duration = scorch_charge_ability:GetCooldown(scorch_charge_ability:GetLevel())})
 							return false
 						end
 					end
