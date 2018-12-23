@@ -197,6 +197,7 @@ function ChatDropItems(keys)
     Timers:CreateTimer(timer, function() RPCItems:RollSorceressArcana1(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollEpochArcana1(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollAxeArcana1(vector) end) timer = timer + 1
+    Timers:CreateTimer(timer, function() RPCItems:RollAxeArcana2(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollWarlordArcana1(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollEkkanArcana1(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollSoluniaArcana1(vector) end) timer = timer + 1
