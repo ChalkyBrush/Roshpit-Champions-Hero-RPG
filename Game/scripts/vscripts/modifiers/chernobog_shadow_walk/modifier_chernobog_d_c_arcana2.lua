@@ -27,7 +27,10 @@ function modifier_chernobog_d_c_arcana2:GetModifierMoveSpeed_Limit( params )
 end
 
 function modifier_chernobog_d_c_arcana2:GetModifierMoveSpeedBonus_Constant( params )
-    local bonus = 6
+    local bonus = 0
+    if self:GetAbility().e_4_level then
+        bonus = self:GetAbility().e_4_level*6
+    end
     return bonus
 end
 

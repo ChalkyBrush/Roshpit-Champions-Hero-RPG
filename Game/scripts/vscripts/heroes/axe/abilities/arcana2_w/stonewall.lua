@@ -136,8 +136,3 @@ function stonewall_passive_attacked(event)
 		end
 	end
 end
--- BASE SKILL - dmg reduction % inside walls
--- W1 - post mitigation against enemies within stone wall
--- W2 - armor and strength while inside stone wall
--- W3 - counter helix - when attacked, 15% chance to deal pure damage % of attack power to nearby enemies
--- W4 - taunt (scale AOE)
