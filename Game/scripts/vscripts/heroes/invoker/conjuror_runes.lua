@@ -123,9 +123,11 @@ function immolation_think(event)
 		for _,enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			ability:ApplyDataDrivenModifier(target, enemy, "modifier_immolation_burn", {})
-			healthGain = healthGain + damage*(CONJUROR_W1_HEALTH_GAIN_PCT/100)
+			healthGain = healthGain + damage
 		end
 	end
+	local w_1_level = caster:GetRuneValue("w", 1)
+	healthGain = healthGain*w_1_level*(CONJUROR_W1_HEALTH_GAIN_PCT/100)
 	local newHealth = math.min(target:GetMaxHealth() + healthGain, 200000000)
 	target:SetBaseMaxHealth(newHealth)
 	target:SetMaxHealth(newHealth) 	
