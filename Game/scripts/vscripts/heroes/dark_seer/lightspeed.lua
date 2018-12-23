@@ -33,17 +33,17 @@ function lightspeed_cast(event)
 	ability.e_3_level = caster:GetRuneValue("e", 3)
 	Filters:CastSkillArguments(3, caster)
 
-	if caster:HasModifier("modifier_zonik_glyph_5_a") then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ZHONIK_GLYPH_5_a_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-		if #enemies > 0 then
-			for _,enemy in pairs(enemies) do
-				AddFOWViewer(caster:GetTeamNumber(), enemy:GetAbsOrigin(), 300, 5, false)
-				-- ability:ApplyDataDrivenModifier(caster, enemy, "modifier_sages_eyes", {})
-			end
-		end 
-		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lone_druid/lone_druid_savage_roar.vpcf", caster, 2)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sages_eyes", {duration = 5})
-	end
+	-- if caster:HasModifier("modifier_zonik_glyph_5_a") then
+	-- 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ZHONIK_GLYPH_5_a_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	-- 	if #enemies > 0 then
+	-- 		for _,enemy in pairs(enemies) do
+	-- 			AddFOWViewer(caster:GetTeamNumber(), enemy:GetAbsOrigin(), 300, 5, false)
+	-- 			-- ability:ApplyDataDrivenModifier(caster, enemy, "modifier_sages_eyes", {})
+	-- 		end
+	-- 	end 
+	-- 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lone_druid/lone_druid_savage_roar.vpcf", caster, 2)
+	-- 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_sages_eyes", {duration = 5})
+	-- end
 end
 
 function lightspeed_start(event)

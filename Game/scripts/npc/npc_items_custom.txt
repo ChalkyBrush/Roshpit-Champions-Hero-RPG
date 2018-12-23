@@ -5952,15 +5952,21 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  	"0.4"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dark_seer/speedball.lua"
+						"Function"		"immortal_glyph_thinker"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8000"
-			}
+
 		}
 	}
 

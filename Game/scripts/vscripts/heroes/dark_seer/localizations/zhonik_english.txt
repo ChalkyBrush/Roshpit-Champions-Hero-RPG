@@ -244,8 +244,8 @@
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_1"		"Glyph of Sonar Crack"
 		"item_rpc_zonik_glyph_7_1_description" 				"Temporal Discharge stacks increase all <font color=\"#B5FFB7\">Temporal</font> damage by @glyph_property1%. When <font color=\"#B5FFB7\">Temporal</font> damage is dealt, 1 stack is consumed."
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"Glyph of Sage's Eyes"
-		"item_rpc_zonik_glyph_5_a_description" 				"Upon casting Lightspeed, reveal all enemies in a 8000 radius for 5 seconds."
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"Glyph of Flurry Punches"
+		"item_rpc_zonik_glyph_5_a_description" 				"Immediately cast @Ability2 on a random nearby enemy every 0.4 seconds."
 
 		"DOTA_Tooltip_modifier_sages_eyes"					"Sage's Eyes"
 		
