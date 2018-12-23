@@ -1579,7 +1579,9 @@ end
 
 function Events:beginQuests()
   -- print("BEGINQUESTS IS HAPPENING")
+  if Beacons.cheats then
     Beacons:DEBUG()
+  end
 end
 
 function Events:InitGameEntities()
@@ -3878,5 +3880,3 @@ function Events:TutorialServerEvent(hero, code1, code2)
     Tutorial:TutorialServerEvent(hero, code1, code2)
   end
 end
-
-require('worlds/tutorial/tutorial')

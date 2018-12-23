@@ -1396,6 +1396,10 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage*reduction
 		end
 	end
+	if victim:HasModifier("modifier_stonewall_aura_friendly_effect") then
+    	local reduction = victim:FindModifierByName("modifier_stonewall_aura_friendly_effect"):GetAbility():GetSpecialValueFor("damage_reduction")
+    	damage = damage * (1-(reduction/100))
+    end
 	if victim:HasModifier("modifier_arkimus_arcana1_q3") then
 		local stacks = victim:GetModifierStackCount("modifier_arkimus_arcana1_q3", victim)
 		local reduction = (1-ARKIMUS_ARCANA1_Q3_DMG_RED_PER_STACK_EXP_BASE)^stacks
@@ -2485,6 +2489,13 @@ function GameState:FilterDamage(filterTable)
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
 			mult = mult + SEPHYR_Q2_POSTMIT*stacks
+		end
+	end
+	if victim:HasModifier("modifier_stonewall_aura_enemy_effect") then
+		modifier = victim:FindModifierByName("modifier_stonewall_aura_enemy_effect")
+		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
+			local stacks = modifier:GetCaster():GetRuneValue("w", 1)
+			mult = mult + 0.025*stacks
 		end
 	end
 	if victim:HasModifier("modifier_hyperbeam_postmit") then

@@ -24,6 +24,7 @@ function Tanari:Debug()
       MAIN_HERO_TABLE[1]:CalculateStatBonus()
       -- Runes:EquipArcana(MAIN_HERO_TABLE[1], 2)
     end
+    -- RPCItems:RollAxeArcana2(Vector(-4928, 2048))
     -- RPCItems:RollHarvesterBoots(Vector(-4928, 2048))
     -- RPCItems:RollSkulldiggerGloves(Vector(-4928, 2048))
     -- Events:SpawnAertega(Vector(-4928, 2048))
@@ -109,9 +110,9 @@ function Tanari:Debug()
     -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- Glyphs:DebugRollHeroGlyphs("djanghor", Vector(-4928, 2048))
-    for i = 1, 7, 1 do
-        Glyphs:RollGlyphAll("item_rpc_paladin_glyph_"..tostring(i).."_2", Vector(-4928, 2048), 0)
-    end
+    -- for i = 1, 7, 1 do
+    --     Glyphs:RollGlyphAll("item_rpc_paladin_glyph_"..tostring(i).."_2", Vector(-4928, 2048), 0)
+    -- end
     -- Glyphs:RollGlyphAll("item_rpc_neutral_glyph_7_2", Vector(-4928, 2048), 0)
     -- RPCItems:RollPhantomSorcererMask(Vector(-4928, 2048), false)
    -- RPCItems:RollSorceressArcana1(Vector(-4928, 2048))
@@ -242,7 +243,7 @@ function Tanari:Debug()
             ---------MAX CURATION----------
     -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
     -- Curator:CurateAllGlyphsForHero("neutral")
-    -- Curator:CurateALLHeroes()
+    Curator:CurateALLHeroes()
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 
     -- Timers:CreateTimer(10, function()

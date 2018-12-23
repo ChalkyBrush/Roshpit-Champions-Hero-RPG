@@ -507,7 +507,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_attack_power"	"60 75 90 105 120 135 150"
+				"damage_attack_power"	"90 110 130 150 170 190 210"
 			}
 		}
 	}

@@ -1,0 +1,134 @@
+	"axe_stonewall_ability"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"axe/stonewall"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle" 	"particles/econ/items/magnataur/shock_of_the_anvil/magnataur_shockanvil.vpcf"
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200 300 600 1000 1500 2400 3600"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_reduction"				"77 80 83 86 89 92 95"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration"				"7"
+			}
+		}
+
+		"OnSpellStart"
+		{
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/axe/abilities/arcana2_w/stonewall"
+				"Function"		"stonewall_start"
+				"duration"		"%duration"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_stonewall_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttacked"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/axe/abilities/arcana2_w/stonewall"
+						"Function"		"stonewall_passive_attacked"
+					}
+				}
+			}
+			"modifier_stonewall_aura_friendly"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Aura"          	"modifier_stonewall_aura_friendly_effect"
+				"Aura_Radius"   	"300"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+			}
+			"modifier_stonewall_aura_friendly_effect"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/axe/abilities/arcana2_w/stonewall"
+						"Function"		"stonewall_friendly_aura_create"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_stonewall_aura_axe_armor_strength"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_stonewall_aura_axe_armor_strength"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% AXE_ARCANA2_W2_ARMOR %>"
+				}
+			}
+			"modifier_stonewall_aura_enemy"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Aura"          	"modifier_stonewall_aura_enemy_effect"
+				"Aura_Radius"   	"300"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+			}
+			"modifier_stonewall_aura_enemy_effect"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+			}
+		}
+	}

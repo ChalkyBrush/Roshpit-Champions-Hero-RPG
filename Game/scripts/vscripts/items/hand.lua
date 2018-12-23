@@ -398,6 +398,7 @@ function Hand:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_sephyr_arcana1")
 	hero:RemoveModifierByName("modifier_dinath_arcana1")
 	hero:RemoveModifierByName("modifier_conjuror_arcana2")
+	hero:RemoveModifierByName("modifier_axe_arcana2")
 	hero.stormcloth = false
 	Hand:remove_rune_bonuses(hero)
 end

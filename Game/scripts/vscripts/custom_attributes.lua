@@ -41,6 +41,7 @@ CustomAttributes.MOUNTAIN_PROTECTOR_E2_STR = 180
 CustomAttributes.MOUNTAIN_PROTECTOR_R2_STR = hero_values.mountain_protector.R2_STRENGTH_PER_STACK
 CustomAttributes.SOLUNIA_R4_STATS = 200
 CustomAttributes.AXE_E1_STATS = 10
+CustomAttributes.AXE_ARCANA2_W2_STRENGTH = 100
 CustomAttributes.SORCERESS_ARCANE_INT = 50
 CustomAttributes.TRAPPER_R4_AGI = 1000
 CustomAttributes.SEPHYR_Q1_INT = 125
@@ -479,6 +480,9 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_secret_keeper_agi_loss") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_secret_keeper_agi_loss", -1)
+	end
+	if hero:HasModifier("modifier_stonewall_aura_axe_armor_strength") then
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_stonewall_aura_axe_armor_strength", CustomAttributes.AXE_ARCANA2_W2_STRENGTH)
 	end
 
 	-- BASIC ITEMS STATS --

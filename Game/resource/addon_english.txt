@@ -3052,12 +3052,47 @@
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_two"        "Extra Radius"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_suffix_two"          ""
 
+        "DOTA_Tooltip_ability_item_rpc_axe_arcana2"                     "Stonewall Gauntlets"
+
+        "item_property_axe_arcana2"                                     "Stonewall"
+        "property_axe_arcana2_description"                              "Replaces @Ability2 and all of its runes with Stonewall."
+ 
+        "DOTA_Tooltip_ability_axe_stonewall_ability"                         "Stonewall"
+        "DOTA_Tooltip_ability_axe_stonewall_ability_Description"             "Create a circular wall of stone around The General. Any ally standing within the wall's boundaries takes reduced damage."
+        "DOTA_Tooltip_ability_axe_stonewall_ability_damage_reduction"   "DAMAGE REDUCTION %:"
+        "DOTA_Tooltip_ability_axe_stonewall_ability_duration"           "DURATION:"
+
+        "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect"          "Stonewall"
+        "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect_Description" "Reduces incoming damage"
+ 
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2"                     "[W1] Walled Ambuscade"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_Description"         "Enemies within Stonewalls take increased post-mitigation damage from The Red General."
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_property_one"        "Post-Mitigation Damage"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_suffix"              "%"
+ 
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2"                     "[W2] Barrier"
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_Description"         "While standing within Stonewalls, the general has increased armor and strength."
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_property_one"        "Armor"
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_suffix"              ""
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_property_two"        "Strength"
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_suffix_two"          ""
+ 
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2"                     "[W3] Counter Helix"
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_Description"         "15% chance when attacked to deal damage in a small area around the general based on his attack power."
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_property_one"        "Damage"
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_suffix"              "% of attack power"
+
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2"                     "[W4] Enforcer"
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_Description"         "When Stonewall is cast, enemies within the radius are forced to issue an attack order on the Red General."
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_property_one"        "Taunt Radius"
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_suffix"              ""
+
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "Glyph of Combat"
         "item_rpc_axe_glyph_1_1_description"                "Reduces all damage taken by @glyph_property1%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_1"       "Glyph of Shock Expansion"
-        "item_rpc_axe_glyph_2_1_description"                "@Ability2 fires 9 shockwaves in all directions."
+        "item_rpc_axe_glyph_2_1_description"                "Spur Shock fires 9 shockwaves in all directions."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_1"       "Glyph of the Dervish"
         "item_rpc_axe_glyph_3_1_description"                "The interval between @Ability3's strikes is reduced by 50%, occurring every 0.09 seconds."
