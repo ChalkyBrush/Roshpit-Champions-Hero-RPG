@@ -45,8 +45,8 @@ function cast_raise_skeleton(event)
 					local luck = RandomInt(1, 10)
 					local applyTexture = true
 					local w_3_level = 0
+					local w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "ekkan")
 					if luck <= 3 then
-						local w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "ekkan")
 						if w_1_level > 0 then
 							unitName = "ekkan_skeleton_archer"
 							attackDamage = OverflowProtectedGetAverageTrueAttackDamage(caster)*w_1_level*0.5
@@ -73,7 +73,7 @@ function cast_raise_skeleton(event)
 					ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_skeleton_summon_unit", {duration = skeletonDuration})
 					local skeleArmor = caster:GetPhysicalArmorValue()*event.armor_mult
 					skeleton:SetPhysicalArmorBaseValue(skeleArmor)
-					
+					skeleton.w_1_level = w_1_level
 					skeleton:SetBaseDamageMin(attackDamage)
 					skeleton:SetBaseDamageMax(attackDamage)
 					if not ability.skeleTable then

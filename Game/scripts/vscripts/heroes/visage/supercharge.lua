@@ -58,7 +58,7 @@ function supercharge_start(event)
 				EmitSoundOn("Ekkan.SuperCharge.BuffTarget", target)
 				local superSkeleton = CreateUnitByName("ekkan_supercharged_skeleton", target:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 				superSkeleton.hero = caster
-				superSkeleton.damage = target.attackpower*0.08*c_d_level
+				superSkeleton.damage = target.attackpower*0.25*c_d_level
 				superSkeleton.numTargets = 1
 			    if caster:HasModifier("modifier_ekkan_glyph_7_1") then
 			    	superSkeleton.numTargets = 3
@@ -187,7 +187,8 @@ function supercharge_enemy(caster, target, ability)
 	EmitSoundOn("Ekkan.SuperCharge.VO", caster)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Ekkan.Dominion.Launch", caster)
 	Timers:CreateTimer(0.2, function()
-		local finalSwarmDamage = swarmDamage*0.01*b_d_level
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.03})
+		local finalSwarmDamage = swarmDamage*0.02*b_d_level
 		Filters:TakeArgumentsAndApplyDamage(target, caster, finalSwarmDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_DEMON)
 		EmitSoundOn("Ekkan.ScourgeSwarm", target)
 		CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan/scourge_swarm.vpcf", target, 5)

@@ -880,6 +880,7 @@
 			"particle"	"particles/roshpit/ekkan/mage_blast.vpcf"
 			"particle"	"particles/roshpit/ekkan/mage_preblast.vpcf"
 			"particle"	"particles/units/heroes/hero_visage/visage_soul_overhead.vpcf"
+			"particle"	"particles/roshpit/ekkan/archer_crit.vpcf"
 		}
 
 		// Casting
@@ -1839,6 +1840,10 @@
 					}
 				}
 			}
+			"modifier_backstab_jumping"
+			{
+				"IsHidden"	"1"
+			}
 		}
 
 		"AbilitySpecial"
@@ -1968,12 +1973,33 @@
 		"AbilityTextureName"	"ekkan/ekkan_rune_w_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two_base"	    "100"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"	    	"17"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"	    	"2"
 			}
 		}
 	}
@@ -1992,6 +2018,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"0.75"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"8"
 			}
 		}
 	}
@@ -2184,7 +2215,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -2218,7 +2249,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"25"
 			}
 			"02"
 			{

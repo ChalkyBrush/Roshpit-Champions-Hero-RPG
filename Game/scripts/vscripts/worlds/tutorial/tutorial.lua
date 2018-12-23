@@ -41,7 +41,8 @@ function Tutorial:Debug()
     -- Weapons:RollLegendWeapon1(Vector(-2842, -1943), "warlord")
     -- Weapons:RollLegendWeapon2(Vector(-2842, -1943), "warlord")
     -- Weapons:RollLegendWeapon3(Vector(-2842, -1943), "warlord")
-    RPCItems:RollChernobogArcana2(deathLocation)
+    -- RPCItems:RollChernobogArcana2(deathLocation)
+    Glyphs:RollGlyphAll("item_rpc_ekkan_glyph_2_1", deathLocation, 0)
 end
 
 function Tutorial:SpawnAllTownNPCs()

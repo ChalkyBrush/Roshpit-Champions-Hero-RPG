@@ -1692,6 +1692,19 @@ function GameState:FilterDamage(filterTable)
 			Filters:TakeArgumentsAndApplyDamage(victim, attacker.paladin, Filters:OverflowProtectedGetAverageTrueAttackDamage(attacker.paladin)*10, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 			return false
 		end
+		if attacker:GetUnitName() == "ekkan_skeleton_archer" then
+			local luck = RandomInt(1, 10)
+			if luck <= 3 then
+				filterTable.damage = filterTable.damage*(1 + attacker.w_1_level*0.1)
+				local damage = Filters:TakeArgumentsAndApplyDamage(victim, attacker.hero, filterTable.damage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE, true, nil)
+				filterTable["damage"] = damage
+				armor = 0
+				PopupDamage(victim, damage)
+				CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan/archer_crit.vpcf", victim, 0.6)
+				attacker.element1 = RPC_ELEMENT_UNDEAD
+				filterTable["entindex_inflictor_const"] = attacker.hero:FindAbilityByName("ekkan_summon_skeleton"):GetEntityIndex()
+			end
+		end
 		filterTable.damage = filterTable.damage * (1 - ((0.05 * armor) / (1 + 0.05 * abs(armor))))
 		
 		if victim:HasModifier("heatwave_fire_damage") then

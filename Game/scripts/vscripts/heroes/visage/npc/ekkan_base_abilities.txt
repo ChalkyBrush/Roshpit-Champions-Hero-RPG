@@ -329,6 +329,7 @@
 			"particle"	"particles/roshpit/ekkan/mage_blast.vpcf"
 			"particle"	"particles/roshpit/ekkan/mage_preblast.vpcf"
 			"particle"	"particles/units/heroes/hero_visage/visage_soul_overhead.vpcf"
+			"particle"	"particles/roshpit/ekkan/archer_crit.vpcf"
 		}
 
 		// Casting
@@ -1287,6 +1288,10 @@
 						}
 					}
 				}
+			}
+			"modifier_backstab_jumping"
+			{
+				"IsHidden"	"1"
 			}
 		}
 

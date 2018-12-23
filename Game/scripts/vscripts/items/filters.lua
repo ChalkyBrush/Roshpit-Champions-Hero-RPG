@@ -2624,6 +2624,15 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_trinket_undead", attacker.InventoryUnit)
             mult = mult + stacks/100
         end
+        if attacker:GetUnitName() == "npc_dota_hero_visage" then
+            if attacker:HasAbility("ekkan_summon_skeleton") then
+                local w_2_level = attacker:GetRuneValue("w", 2)
+                local raise_skeletons = attacker:FindAbilityByName("ekkan_summon_skeleton")
+                if raise_skeletons.skeleTable then
+                    mult = mult + #raise_skeletons.skeleTable*w_2_level*0.08
+                end
+            end
+        end
     end
     if element1 == RPC_ELEMENT_DRAGON or element2 == RPC_ELEMENT_DRAGON then
         if unitName == "npc_dota_hero_winter_wyvern" then
