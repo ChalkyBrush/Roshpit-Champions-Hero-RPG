@@ -21,7 +21,7 @@ CustomAttributes.FLAMEWAKER_R3_STRENGTH = 260
 CustomAttributes.CONJUROR_E1_AGI = 25
 CustomAttributes.WARLORD_W2_STATS = 60
 CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH = 250
-CustomAttributes.CHERNOBOG_W4_STR_OR_AGI = 300
+CustomAttributes.CHERNOBOG_W4_STR_OR_AGI = 600
 CustomAttributes.HYDROXIS_E4_AGI_INT = 350
 
 CustomAttributes.ZHONIK_R4_STR = ZHONIK_R4_BONUS_STR
@@ -975,7 +975,8 @@ modifier_seinaru_glyph_t21_movespeed_cap = "modifier_seinaru_glyph_t21_movespeed
 slipfinn_shadow_rush_lua = "slipfinn_shadow_rush_lua",
 modifier_zonik_lightspeed_cap = "modifier_zonik_lightspeed_cap",
 modifier_zonik_speedball_cap = "modifier_zonik_speedball_cap",
-modifier_zonik_temporal_field_cap = "modifier_zonik_temporal_field_cap"
+modifier_zonik_temporal_field_cap = "modifier_zonik_temporal_field_cap",
+modifier_chernobog_d_c_arcana2 = 6
 } 
 
 function CustomAttributes:MSCap(unit)
@@ -1025,7 +1026,9 @@ function CustomAttributes:MSCap(unit)
 				    end	
 				    max_ms = math.max(cap, max_ms)	
 				elseif ms_cap_modifier == "modifier_zonik_temporal_field_cap" then
-					max_ms = math.max(modifier_ability:GetSpecialValueFor("movespeed_cap"), max_ms)	    			
+					max_ms = math.max(modifier_ability:GetSpecialValueFor("movespeed_cap"), max_ms)	  
+				elseif ms_cap_modifier == "modifier_chernobog_d_c_arcana2" then
+					max_ms = math.max(modifier:GetStackCount()*6, max_ms)	    			
 				end
 			end
 		end

@@ -25,6 +25,7 @@ function Tutorial:SpawnOracle()
 end
 
 function Tutorial:Debug()
+	local deathLocation = Vector(-3242, -2143)
 	-- local hero = MAIN_HERO_TABLE[1]
 	-- local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
 	-- local question = "tutorial_quiz_question_7"
@@ -40,7 +41,7 @@ function Tutorial:Debug()
     -- Weapons:RollLegendWeapon1(Vector(-2842, -1943), "warlord")
     -- Weapons:RollLegendWeapon2(Vector(-2842, -1943), "warlord")
     -- Weapons:RollLegendWeapon3(Vector(-2842, -1943), "warlord")
-    RPCItems:RollWitchHat(Vector(-3242, -2143), false)
+    RPCItems:RollChernobogArcana2(deathLocation)
 end
 
 function Tutorial:SpawnAllTownNPCs()

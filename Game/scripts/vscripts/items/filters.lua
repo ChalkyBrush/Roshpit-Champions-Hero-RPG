@@ -2563,10 +2563,18 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_DEMON or element2 == RPC_ELEMENT_DEMON then
         if unitName == "npc_dota_hero_night_stalker" then
+            local demonMult = 0
             local q_4_level = Runes:GetTotalRuneLevel(attacker, 4, "q_4", "chernobog")
             if q_4_level > 0 then
-                mult = mult + 0.001*(attacker:GetAgility())/10*q_4_level
+                local demonMult = 0.001*(attacker:GetAgility())/10*q_4_level
             end
+            if victim:HasModifier("modifier_charons_claw_enemy") then
+                local q_2_level = attacker:GetRuneValue("q", 2)
+                if q_2_level > 0 then
+                    demonMult = demonMult*0.1*q_2_level
+                end
+            end
+            mult = mult + demonMult
         end
         if attacker:HasModifier("modifier_hand_demon") then
             local stacks = attacker:GetModifierStackCount("modifier_hand_demon", attacker.InventoryUnit)

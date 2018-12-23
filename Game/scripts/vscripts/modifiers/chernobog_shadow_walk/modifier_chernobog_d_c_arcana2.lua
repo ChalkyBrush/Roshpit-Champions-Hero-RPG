@@ -13,7 +13,7 @@ end
 function modifier_chernobog_d_c_arcana2:GetModifierMoveSpeed_Max( params )
     local cap = 550
     if self:GetAbility().e_4_level then
-    	cap = cap + self:GetAbility().e_4_level*3
+    	cap = cap + self:GetAbility().e_4_level*6
     end
     return cap
 end
@@ -21,16 +21,13 @@ end
 function modifier_chernobog_d_c_arcana2:GetModifierMoveSpeed_Limit( params )
     local cap = 550
     if self:GetAbility().e_4_level then
-    	cap = cap + self:GetAbility().e_4_level*3
+    	cap = cap + self:GetAbility().e_4_level*6
     end
     return cap
 end
 
 function modifier_chernobog_d_c_arcana2:GetModifierMoveSpeedBonus_Constant( params )
-    local bonus = 0
-    if self:GetAbility().e_4_level then
-    	bonus = bonus + self:GetAbility().e_4_level*3
-    end
+    local bonus = 6
     return bonus
 end
 

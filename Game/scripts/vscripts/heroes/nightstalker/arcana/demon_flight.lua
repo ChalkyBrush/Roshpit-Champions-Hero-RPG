@@ -242,6 +242,7 @@ function passive_thinker(event)
 	ability.e_4_level = d_c_level
 	if d_c_level > 0 then
 		caster:AddNewModifier( caster, ability, "modifier_chernobog_d_c_arcana2", {} )
+		caster:SetModifierStackCount("modifier_chernobog_d_c_arcana2", caster, d_c_level)
 	else
 		caster:RemoveModifierByName("modifier_chernobog_d_c_arcana2")
 	end

@@ -41017,7 +41017,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"4"
 			}
 		}
 	}
@@ -41035,12 +41035,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"6"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"property_two"			"6"
 			}
 		}
 	}
@@ -41577,11 +41577,12 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"night_stalker_hunter_in_the_night"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
+		"AOERadius"				"300"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -41688,6 +41689,21 @@
 						"target"		"TARGET"
 						"drain_per_second"	"%drain_per_second"
 					}
+				}
+				"Aura"          	"modifier_shadow_walk_aura"
+				"Aura_Radius"   	"300"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "0"
+			}
+			"modifier_shadow_walk_aura"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
 				}
 			}
 			"modifier_chernobog_rune_e_1"
@@ -42121,14 +42137,19 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"property_two"			"10"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"15"
+				"base_ability"			"1"
 			}
 			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"15"
+			}
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_two"			"11"
@@ -42270,12 +42291,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"300"
+				"property_one"			"600"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"300"
+				"property_two"			"600"
 			}
 		}
 	}
