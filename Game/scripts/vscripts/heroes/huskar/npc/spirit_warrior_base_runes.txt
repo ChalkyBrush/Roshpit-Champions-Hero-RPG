@@ -26,6 +26,11 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
+				"property_two"			"-15"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"element_one"			"2"
 			}
 		}
@@ -46,8 +51,23 @@
 		{
 			"01"
 			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"65"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
+			}
+			"03"
+			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one_max"			"95"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.8"
 			}
 		}
 	}
@@ -69,7 +89,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"12"
 			}
 			"02"
 			{
@@ -100,12 +120,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.03"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.02"
+				"property_two"			"0.03"
 			}
 		}
 	}
@@ -212,6 +232,11 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"0.5"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"1"
+			}
 		}
 	}
 
@@ -231,7 +256,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"105"
+				"property_one"			"200"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.1"
 			}
 		}
 		"Modifiers"
@@ -266,6 +296,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"4400"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"3"
 			}
 			"02"
 			{
@@ -573,6 +608,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"12"
 			}
 		}
 	}

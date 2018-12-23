@@ -36,13 +36,13 @@ CustomAttributes.WARLORD_Q4_STATS = 900
 CustomAttributes.BAHAMUT_Q4_INT = 365
 CustomAttributes.BAHAMUT_R4_STATS = 7
 CustomAttributes.AURIUN_E2_INT = 120
-CustomAttributes.AURIUN_E3_STATS = 40
-CustomAttributes.MOUNTAIN_PROTECTOR_E2_STR = 120
+CustomAttributes.AURIUN_E3_STATS = 60
+CustomAttributes.MOUNTAIN_PROTECTOR_E2_STR = 180
 CustomAttributes.MOUNTAIN_PROTECTOR_R2_STR = hero_values.mountain_protector.R2_STRENGTH_PER_STACK
 CustomAttributes.SOLUNIA_R4_STATS = 200
 CustomAttributes.AXE_E1_STATS = 10
 CustomAttributes.SORCERESS_ARCANE_INT = 50
-CustomAttributes.TRAPPER_R4_AGI = 500
+CustomAttributes.TRAPPER_R4_AGI = 1000
 CustomAttributes.SEPHYR_Q1_INT = 125
 CustomAttributes.SEPHYR_R4_AGI_INT = 500
 

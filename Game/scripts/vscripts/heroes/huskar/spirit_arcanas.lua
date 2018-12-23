@@ -175,6 +175,27 @@ function blazing_javelin_cast(event)
 		end)
 	end
 	ability.w_2_level = caster:GetRuneValue("w", 2)
+	if caster:HasAbility("spirit_warrior_ancient_spirit") then
+		local ancient_spirit_ability = caster:FindAbilityByName("spirit_warrior_ancient_spirit")
+		if not ancient_spirit_ability.nextMoveIndex then
+			ancient_spirit_ability.nextMoveIndex = 1
+		end
+		if ancient_spirit_ability.spiritTable then
+			if #ancient_spirit_ability.spiritTable > 0 then
+				if ancient_spirit_ability.nextMoveIndex > #ancient_spirit_ability.spiritTable then
+					ancient_spirit_ability.nextMoveIndex = 1
+				end
+				local spirit = ancient_spirit_ability.spiritTable[ancient_spirit_ability.nextMoveIndex]
+				ancient_spirit_ability.nextMoveIndex = ancient_spirit_ability.nextMoveIndex + 1
+				Timers:CreateTimer(0.05, function()
+					StartAnimation(spirit, {duration=60, activity=ACT_DOTA_RUN, rate=1.4, translate="haste"}) 
+				end)
+				spirit.targetPoint = caster:GetAbsOrigin()+RandomVector(RandomInt(100, 300))
+				spirit:SetForwardVector(WallPhysics:normalized_2d_vector(spirit:GetAbsOrigin(), spirit.targetPoint))
+				ancient_spirit_ability:ApplyDataDrivenModifier(caster, spirit, "modifier_spirit_moving_out", {})				
+			end
+		end
+	end
 end
 
 function javelin_hit(event)

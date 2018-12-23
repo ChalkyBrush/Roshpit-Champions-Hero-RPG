@@ -75,56 +75,61 @@ end
 
 function switchIntoStealth(caster)
 if caster:IsAlive() then
-    local net_trap = caster:FindAbilityByName("net_trap")
-  	if not net_trap then
-  		net_trap = caster:AddAbility("net_trap")
-  	end
-  	local torrent_trap = caster:FindAbilityByName("torrent_trap")
+   --  local net_trap = caster:FindAbilityByName("net_trap")
+  	-- if not net_trap then
+  	-- 	net_trap = caster:AddAbility("net_trap")
+  	-- end
+  	-- local torrent_trap = caster:FindAbilityByName("torrent_trap")
   	if caster.poison then
   		if caster.torrent then
-		  	local poison_trap = caster:FindAbilityByName("poison_trap")
-		  	torrent_trap:SetLevel(poison_trap:GetLevel())
+		  	-- local poison_trap = caster:FindAbilityByName("poison_trap")
+		  	-- torrent_trap:SetLevel(poison_trap:GetLevel())
 		  	
-		  	poison_trap:SetAbilityIndex(0)
-		  	torrent_trap:SetAbilityIndex(0)
-		  	caster:SwapAbilities("poison_trap", "torrent_trap", false, true)
+		  	-- poison_trap:SetAbilityIndex(0)
+		  	-- torrent_trap:SetAbilityIndex(0)
+		  	-- caster:SwapAbilities("poison_trap", "torrent_trap", false, true)
+		  	CustomAbilities:AddAndOrSwapSkill(caster, "poison_trap", "torrent_trap", 0)
   		else
-		  	local poison_trap = caster:FindAbilityByName("poison_trap")
-		  	net_trap:SetLevel(poison_trap:GetLevel())
+		  	-- local poison_trap = caster:FindAbilityByName("poison_trap")
+		  	-- net_trap:SetLevel(poison_trap:GetLevel())
 		  	
-		  	poison_trap:SetAbilityIndex(0)
-		  	net_trap:SetAbilityIndex(0)
-		  	caster:SwapAbilities("poison_trap", "net_trap", false, true)
+		  	-- poison_trap:SetAbilityIndex(0)
+		  	-- net_trap:SetAbilityIndex(0)
+		  	-- caster:SwapAbilities("poison_trap", "net_trap", false, true)
+		  	CustomAbilities:AddAndOrSwapSkill(caster, "poison_trap", "net_trap", 0)
 		end
   	else
   		if caster.torrent then
-		  	local fulminating_trap = caster:FindAbilityByName("fulminating_trap")
-		  	torrent_trap:SetLevel(fulminating_trap:GetLevel())
+		  	-- local fulminating_trap = caster:FindAbilityByName("fulminating_trap")
+		  	-- torrent_trap:SetLevel(fulminating_trap:GetLevel())
 		  	
-		  	fulminating_trap:SetAbilityIndex(0)
-		  	torrent_trap:SetAbilityIndex(0)
-		  	caster:SwapAbilities("fulminating_trap", "torrent_trap", false, true)
+		  	-- fulminating_trap:SetAbilityIndex(0)
+		  	-- torrent_trap:SetAbilityIndex(0)
+		  	-- caster:SwapAbilities("fulminating_trap", "torrent_trap", false, true)
+		  	CustomAbilities:AddAndOrSwapSkill(caster, "fulminating_trap", "torrent_trap", 0)
   		else
-		  	local fulminating_trap = caster:FindAbilityByName("fulminating_trap")
-		  	net_trap:SetLevel(fulminating_trap:GetLevel())
+		  	-- local fulminating_trap = caster:FindAbilityByName("fulminating_trap")
+		  	-- net_trap:SetLevel(fulminating_trap:GetLevel())
 		  	
-		  	fulminating_trap:SetAbilityIndex(0)
-		  	net_trap:SetAbilityIndex(0)
-		  	caster:SwapAbilities("fulminating_trap", "net_trap", false, true)
+		  	-- fulminating_trap:SetAbilityIndex(0)
+		  	-- net_trap:SetAbilityIndex(0)
+		  	-- caster:SwapAbilities("fulminating_trap", "net_trap", false, true)
+		  	CustomAbilities:AddAndOrSwapSkill(caster, "fulminating_trap", "net_trap", 0)
 		end
   	end
 
 
   	if caster:HasModifier("modifier_trapper_arcana1") then
-	    local lasso = caster:FindAbilityByName("trapper_arcana_lasso")
-	  	if not lasso then
-	  		lasso = caster:AddAbility("trapper_arcana_lasso")
-	  	end
-	  	local venom_whip = caster:FindAbilityByName("trapper_arcana_venom_whip")
-	  	lasso:SetLevel(venom_whip:GetLevel())
-	  	lasso:SetAbilityIndex(1)
-	  	venom_whip:SetAbilityIndex(1)
-	  	caster:SwapAbilities("trapper_arcana_venom_whip", "trapper_arcana_lasso", false, true)
+	   --  local lasso = caster:FindAbilityByName("trapper_arcana_lasso")
+	  	-- if not lasso then
+	  	-- 	lasso = caster:AddAbility("trapper_arcana_lasso")
+	  	-- end
+	  	-- local venom_whip = caster:FindAbilityByName("trapper_arcana_venom_whip")
+	  	-- lasso:SetLevel(venom_whip:GetLevel())
+	  	-- lasso:SetAbilityIndex(1)
+	  	-- venom_whip:SetAbilityIndex(1)
+	  	-- caster:SwapAbilities("trapper_arcana_venom_whip", "trapper_arcana_lasso", false, true)
+	  	CustomAbilities:AddAndOrSwapSkill(caster, "trapper_arcana_venom_whip", "trapper_arcana_lasso", 1)
   	else
 	    local smoke_bomb = caster:FindAbilityByName("smoke_bomb")
 	  	if not smoke_bomb then
@@ -132,39 +137,43 @@ if caster:IsAlive() then
 	  	end
 	  	local flash_grenade = caster:FindAbilityByName("flash_grenade")
 	  	if caster.flash then
-		  	local explosive_bomb = caster:FindAbilityByName("explosive_bomb")
-		  	flash_grenade:SetLevel(explosive_bomb:GetLevel())
-		  	flash_grenade:SetAbilityIndex(1)
-		  	explosive_bomb:SetAbilityIndex(1)
-		  	caster:SwapAbilities("explosive_bomb", "flash_grenade", false, true)
+		  	-- local explosive_bomb = caster:FindAbilityByName("explosive_bomb")
+		  	-- flash_grenade:SetLevel(explosive_bomb:GetLevel())
+		  	-- flash_grenade:SetAbilityIndex(1)
+		  	-- explosive_bomb:SetAbilityIndex(1)
+		  	-- caster:SwapAbilities("explosive_bomb", "flash_grenade", false, true)
+		  	CustomAbilities:AddAndOrSwapSkill(caster, "explosive_bomb", "flash_grenade", 1)
 	  	else
-		  	local explosive_bomb = caster:FindAbilityByName("explosive_bomb")
-		  	smoke_bomb:SetLevel(explosive_bomb:GetLevel())
-		  	smoke_bomb:SetAbilityIndex(1)
-		  	explosive_bomb:SetAbilityIndex(1)
-		  	caster:SwapAbilities("explosive_bomb", "smoke_bomb", false, true)
+		  	-- local explosive_bomb = caster:FindAbilityByName("explosive_bomb")
+		  	-- smoke_bomb:SetLevel(explosive_bomb:GetLevel())
+		  	-- smoke_bomb:SetAbilityIndex(1)
+		  	-- explosive_bomb:SetAbilityIndex(1)
+		  	-- caster:SwapAbilities("explosive_bomb", "smoke_bomb", false, true)
+		  	CustomAbilities:AddAndOrSwapSkill(caster, "explosive_bomb", "smoke_bomb", 1)
 		end
 	end
 
-    local action_leap = caster:FindAbilityByName("trapper_action_leap")
-  	if not action_leap then
-  		action_leap = caster:AddAbility("trapper_action_leap")
-  	end
-  	local vanish = caster:FindAbilityByName("trapper_vanish")
-  	action_leap:SetLevel(vanish:GetLevel())
-  	action_leap:SetAbilityIndex(2)
-  	vanish:SetAbilityIndex(2)
-  	caster:SwapAbilities("trapper_vanish", "trapper_action_leap", false, true)
+   --  local action_leap = caster:FindAbilityByName("trapper_action_leap")
+  	-- if not action_leap then
+  	-- 	action_leap = caster:AddAbility("trapper_action_leap")
+  	-- end
+  	-- local vanish = caster:FindAbilityByName("trapper_vanish")
+  	-- action_leap:SetLevel(vanish:GetLevel())
+  	-- action_leap:SetAbilityIndex(2)
+  	-- vanish:SetAbilityIndex(2)
+  	-- caster:SwapAbilities("trapper_vanish", "trapper_action_leap", false, true)
+  	CustomAbilities:AddAndOrSwapSkill(caster, "trapper_vanish", "trapper_action_leap", 2)
 
-  	local backstab = caster:FindAbilityByName("trapper_backstab")
-  	if not backstab then
-  		backstab = caster:AddAbility("trapper_backstab")
-  	end
-  	local stealth = caster:FindAbilityByName("trapper_stealth")
-  	backstab:SetLevel(stealth:GetLevel())
-  	backstab:SetAbilityIndex(DOTA_ULTIMATE_SLOT)
-  	stealth:SetAbilityIndex(DOTA_ULTIMATE_SLOT) 
-  	caster:SwapAbilities("trapper_stealth", "trapper_backstab", false, true)
+  	-- local backstab = caster:FindAbilityByName("trapper_backstab")
+  	-- if not backstab then
+  	-- 	backstab = caster:AddAbility("trapper_backstab")
+  	-- end
+  	-- local stealth = caster:FindAbilityByName("trapper_stealth")
+  	-- backstab:SetLevel(stealth:GetLevel())
+  	-- backstab:SetAbilityIndex(DOTA_ULTIMATE_SLOT)
+  	-- stealth:SetAbilityIndex(DOTA_ULTIMATE_SLOT) 
+  	-- caster:SwapAbilities("trapper_stealth", "trapper_backstab", false, true)
+  	CustomAbilities:AddAndOrSwapSkill(caster, "trapper_stealth", "trapper_backstab", DOTA_ULTIMATE_SLOT)
 
     if caster:HasModifier("modifier_trapper_arcana1") then
     	caster.w_4_arcana_level = caster:GetRuneValue("w", 4)
@@ -176,63 +185,72 @@ function switchOutOfStealth(caster)
 
 	if caster.poison then
 		if caster.torrent then
-			local level = caster:FindAbilityByName("torrent_trap"):GetLevel()
-		  	caster:FindAbilityByName("poison_trap"):SetLevel(level)
-		  	caster:FindAbilityByName("poison_trap"):SetAbilityIndex(0)
-		  	caster:SwapAbilities("poison_trap", "torrent_trap", true, false)
+			-- local level = caster:FindAbilityByName("torrent_trap"):GetLevel()
+		 --  	caster:FindAbilityByName("poison_trap"):SetLevel(level)
+		 --  	caster:FindAbilityByName("poison_trap"):SetAbilityIndex(0)
+		 --  	caster:SwapAbilities("poison_trap", "torrent_trap", true, false)
+		 	CustomAbilities:AddAndOrSwapSkill(caster, "torrent_trap", "poison_trap", 0)
 		else
-			local level = caster:FindAbilityByName("net_trap"):GetLevel()
-		  	caster:FindAbilityByName("poison_trap"):SetLevel(level)
-		  	caster:FindAbilityByName("poison_trap"):SetAbilityIndex(0)
-		  	caster:SwapAbilities("poison_trap", "net_trap", true, false)
+			-- local level = caster:FindAbilityByName("net_trap"):GetLevel()
+		 --  	caster:FindAbilityByName("poison_trap"):SetLevel(level)
+		 --  	caster:FindAbilityByName("poison_trap"):SetAbilityIndex(0)
+		 --  	caster:SwapAbilities("poison_trap", "net_trap", true, false)
+		 	CustomAbilities:AddAndOrSwapSkill(caster, "net_trap", "poison_trap", 0)
 		end
 	else
 		if caster.torrent then
-			local level = caster:FindAbilityByName("torrent_trap"):GetLevel()
-		  	caster:FindAbilityByName("fulminating_trap"):SetLevel(level)
-		  	caster:FindAbilityByName("fulminating_trap"):SetAbilityIndex(0)
-		  	caster:SwapAbilities("fulminating_trap", "torrent_trap", true, false)
+			-- local level = caster:FindAbilityByName("torrent_trap"):GetLevel()
+		 --  	caster:FindAbilityByName("fulminating_trap"):SetLevel(level)
+		 --  	caster:FindAbilityByName("fulminating_trap"):SetAbilityIndex(0)
+		 --  	caster:SwapAbilities("fulminating_trap", "torrent_trap", true, false)
+		 	CustomAbilities:AddAndOrSwapSkill(caster, "torrent_trap", "fulminating_trap", 0)
 		else
-			local level = caster:FindAbilityByName("net_trap"):GetLevel()
-		  	caster:FindAbilityByName("fulminating_trap"):SetLevel(level)
-		  	caster:FindAbilityByName("fulminating_trap"):SetAbilityIndex(0)
-		  	caster:SwapAbilities("fulminating_trap", "net_trap", true, false)
+			-- local level = caster:FindAbilityByName("net_trap"):GetLevel()
+		 --  	caster:FindAbilityByName("fulminating_trap"):SetLevel(level)
+		 --  	caster:FindAbilityByName("fulminating_trap"):SetAbilityIndex(0)
+		 --  	caster:SwapAbilities("fulminating_trap", "net_trap", true, false)
+		 	CustomAbilities:AddAndOrSwapSkill(caster, "net_trap", "fulminating_trap", 0)
 	  	end
 	end
   	if caster:HasModifier("modifier_trapper_arcana1") then
-		local level = caster:FindAbilityByName("trapper_arcana_lasso"):GetLevel()
-		local venom_whip = caster:FindAbilityByName("trapper_arcana_venom_whip")
-	  	if not venom_whip then
-	  		venom_whip = caster:AddAbility("trapper_arcana_venom_whip")
-	  	end
-	  	caster:FindAbilityByName("trapper_arcana_venom_whip"):SetLevel(level)
-	  	caster:FindAbilityByName("trapper_arcana_venom_whip"):SetAbilityIndex(1)
-	  	caster:SwapAbilities("trapper_arcana_venom_whip", "trapper_arcana_lasso", true, false)
+		-- local level = caster:FindAbilityByName("trapper_arcana_lasso"):GetLevel()
+		-- local venom_whip = caster:FindAbilityByName("trapper_arcana_venom_whip")
+	 --  	if not venom_whip then
+	 --  		venom_whip = caster:AddAbility("trapper_arcana_venom_whip")
+	 --  	end
+	 --  	caster:FindAbilityByName("trapper_arcana_venom_whip"):SetLevel(level)
+	 --  	caster:FindAbilityByName("trapper_arcana_venom_whip"):SetAbilityIndex(1)
+	 --  	caster:SwapAbilities("trapper_arcana_venom_whip", "trapper_arcana_lasso", true, false)
+	 	CustomAbilities:AddAndOrSwapSkill(caster, "trapper_arcana_lasso", "trapper_arcana_venom_whip", 1)
 	else
 		if caster.flash then
-			local level = caster:FindAbilityByName("flash_grenade"):GetLevel()
-		  	caster:FindAbilityByName("explosive_bomb"):SetLevel(level)
-		  	caster:FindAbilityByName("explosive_bomb"):SetAbilityIndex(1)
-		  	caster:SwapAbilities("explosive_bomb", "flash_grenade", true, false)
+			-- local level = caster:FindAbilityByName("flash_grenade"):GetLevel()
+		 --  	caster:FindAbilityByName("explosive_bomb"):SetLevel(level)
+		 --  	caster:FindAbilityByName("explosive_bomb"):SetAbilityIndex(1)
+		 --  	caster:SwapAbilities("explosive_bomb", "flash_grenade", true, false)
+		 	CustomAbilities:AddAndOrSwapSkill(caster, "flash_grenade", "explosive_bomb", 1)
 		else
 			if caster:HasAbility("smoke_bomb") then
-				local level = caster:FindAbilityByName("smoke_bomb"):GetLevel()
-			  	caster:FindAbilityByName("explosive_bomb"):SetLevel(level)
-			  	caster:FindAbilityByName("explosive_bomb"):SetAbilityIndex(1)
-			  	caster:SwapAbilities("explosive_bomb", "smoke_bomb", true, false)
+				-- local level = caster:FindAbilityByName("smoke_bomb"):GetLevel()
+			 --  	caster:FindAbilityByName("explosive_bomb"):SetLevel(level)
+			 --  	caster:FindAbilityByName("explosive_bomb"):SetAbilityIndex(1)
+			 --  	caster:SwapAbilities("explosive_bomb", "smoke_bomb", true, false)
+			 CustomAbilities:AddAndOrSwapSkill(caster, "smoke_bomb", "explosive_bomb", 1)
 			end
 		end
 	end
 
-	local level = caster:FindAbilityByName("trapper_action_leap"):GetLevel()
-  	caster:FindAbilityByName("trapper_vanish"):SetLevel(level)
-  	caster:FindAbilityByName("trapper_vanish"):SetAbilityIndex(2)
-  	caster:SwapAbilities("trapper_vanish", "trapper_action_leap", true, false)
+	-- local level = caster:FindAbilityByName("trapper_action_leap"):GetLevel()
+ --  	caster:FindAbilityByName("trapper_vanish"):SetLevel(level)
+ --  	caster:FindAbilityByName("trapper_vanish"):SetAbilityIndex(2)
+ --  	caster:SwapAbilities("trapper_vanish", "trapper_action_leap", true, false)
+	CustomAbilities:AddAndOrSwapSkill(caster, "trapper_action_leap", "trapper_vanish", 2)
 
-	local level = caster:FindAbilityByName("trapper_backstab"):GetLevel()
-  	caster:FindAbilityByName("trapper_stealth"):SetLevel(level)
-  	caster:FindAbilityByName("trapper_stealth"):SetAbilityIndex(DOTA_ULTIMATE_SLOT)
-  	caster:SwapAbilities("trapper_stealth", "trapper_backstab", true, false)
+	-- local level = caster:FindAbilityByName("trapper_backstab"):GetLevel()
+ --  	caster:FindAbilityByName("trapper_stealth"):SetLevel(level)
+ --  	caster:FindAbilityByName("trapper_stealth"):SetAbilityIndex(DOTA_ULTIMATE_SLOT)
+ --  	caster:SwapAbilities("trapper_stealth", "trapper_backstab", true, false)
+ 	CustomAbilities:AddAndOrSwapSkill(caster, "trapper_backstab", "trapper_stealth", DOTA_ULTIMATE_SLOT)
   	CustomGameEventManager:Send_ServerToPlayer(caster:GetPlayerOwner(), "ability_tree_upgrade", {})
 
     if caster:HasModifier("modifier_trapper_arcana1") then

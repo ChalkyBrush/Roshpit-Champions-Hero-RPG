@@ -1,3 +1,5 @@
+require('heroes/huskar/windstrike')
+
 function cast_ancient_spirit(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -216,6 +218,16 @@ function reachSpirit(caster, ability, spiritPosition)
 			    	local damage = 4400*a_c_level
 			        for _,enemy in pairs(enemies) do
 			        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+			            if caster:HasModifier("modifier_windstrike_weapon") then
+			            	if a_c_level > 0 then
+			            		local windstrikeEvent = {}
+			            		windstrikeEvent.attacker = caster
+			            		windstrikeEvent.target = enemy
+			            		windstrikeEvent.ability = caster:FindAbilityByName("spirit_warrior_windstrike_weapon")
+			            		windstrikeEvent.mult = 0.03*a_c_level
+			            		windstrike_attack_land(windstrikeEvent)          		
+			            	end
+			            end			        	
 			        end
 			    end 
 			end)
@@ -261,7 +273,7 @@ function ancient_spirit_attack_hit(event)
 	local target = event.target
 	local origCaster = attacker.origCaster
 	local damage = attacker.r_3_level*0.5*OverflowProtectedGetAverageTrueAttackDamage(origCaster)
-	Filters:TakeArgumentsAndApplyDamage(target, origCaster, damage, DAMAGE_TYPE_PHYSICAL, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, origCaster, damage, DAMAGE_TYPE_PHYSICAL, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_WIND)
 end
 
 function ancient_attacking_end(event)

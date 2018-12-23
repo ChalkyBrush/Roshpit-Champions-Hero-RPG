@@ -22,7 +22,7 @@ function trap_start(event)
 		trap.origAbility = ability
 		trap.damage = event.damage/2
 	    local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
-	    trap.damage = trap.damage + 0.0025*caster:GetIntellect()/10*q_4_level*trap.damage
+	    trap.damage = trap.damage + 0.004*caster:GetIntellect()/10*q_4_level*trap.damage
 	    if caster:HasModifier("modifier_trapper_glyph_5_a") then
 	    	trap.damage = trap.damage * T5A_DAMAGE_AMPLIFY
 	    end
@@ -129,7 +129,7 @@ function trap_start_poison(event)
 		local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "trapper")
 		trapAbility.poisonDamage = q_1_level*TRAPPER_Q1_DAMAGE
 	    local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
-	    trapAbility.poisonDamage = trapAbility.poisonDamage + 0.0025*caster:GetIntellect()/10*q_4_level*trapAbility.poisonDamage
+	    trapAbility.poisonDamage = trapAbility.poisonDamage + 0.004*caster:GetIntellect()/10*q_4_level*trapAbility.poisonDamage
 		print("poison damage " .. trapAbility.poisonDamage)
 		if caster:HasModifier("modifier_trapper_glyph_5_a") then
 	    	trapAbility.poisonDamage = trapAbility.poisonDamage * T5A_DAMAGE_AMPLIFY
@@ -389,7 +389,7 @@ function trap_start_torrent(event)
 		trapAbility.q_2_level = q_2_level
 		trapAbility.q_2_damage = q_2_level*Q2_DAMAGE
 	    local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
-	    trapAbility.q_2_damage = trapAbility.q_2_damage + 0.0025*caster:GetIntellect()/10*q_4_level*trapAbility.q_2_damage
+	    trapAbility.q_2_damage = trapAbility.q_2_damage + 0.004*caster:GetIntellect()/10*q_4_level*trapAbility.q_2_damage
 	    if caster:HasModifier("modifier_trapper_glyph_5_a") then
 	    	trapAbility.q_2_damage = trapAbility.q_2_damage * T5A_DAMAGE_AMPLIFY
 	    end

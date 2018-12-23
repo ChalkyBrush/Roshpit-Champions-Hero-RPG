@@ -1920,6 +1920,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
         end
+        if attacker:HasModifier("modifier_flametongue") then
+            local flametongue = attacker:FindModifierByName("modifier_flametongue"):GetAbility()
+            fireMult = fireMult + flametongue:GetLevelSpecialValueFor("fire_damage_amp", flametongue:GetLevel())/100
+        end
         if victim:HasModifier("modifier_sorceress_rune_r_3") then
             local runesCount = victim:GetModifierStackCount("modifier_sorceress_rune_r_3", attacker)
             if attacker:HasModifier("modifier_sorceress_glyph_6_2") then
@@ -1929,7 +1933,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_huskar" then
             if attacker.q_4_level then
-                fireMult = fireMult + 0.0002*attacker:GetStrength()/10*attacker.q_4_level
+                fireMult = fireMult + 0.0003*attacker:GetStrength()/10*attacker.q_4_level
             end
             if attacker:HasModifier("modifier_spirit_warrior_arcana2") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
@@ -2005,7 +2009,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
             local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
-            local multIncrease = modifier:GetStackCount()*0.1
+            local multIncrease = modifier:GetStackCount()*0.15
             fireMult = fireMult + multIncrease
         end
         if fireMult > 50 and attacker:HasModifier("modifier_fire_deity_crown") then
@@ -2108,7 +2112,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
             local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
-            local multIncrease = modifier:GetStackCount()*0.1
+            local multIncrease = modifier:GetStackCount()*0.15
             mult = mult + multIncrease
         end
     end
@@ -2427,7 +2431,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
             if attacker.q_4_level then
-                mult = mult + 0.0002*attacker:GetAgility()/10*attacker.e_4_level
+                mult = mult + 0.0003*attacker:GetAgility()/10*attacker.e_4_level
             end
         elseif unitName == "npc_dota_hero_juggernaut" then
             if attacker.w_4_level then
@@ -2539,7 +2543,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
             local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
-            local multIncrease = modifier:GetStackCount()*0.1
+            local multIncrease = modifier:GetStackCount()*0.15
             waterMult = waterMult + multIncrease
         end
         if victim:HasModifier("modifier_flood_basin_enemy_inside_water_stacks") then

@@ -110,7 +110,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.25"
+				"property_one"			"0.4"
 			}
 		}
 	}
@@ -131,7 +131,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"<% TRAPPER_W1_AMP_PERCENT %>"
 			}
 		}
 	}
@@ -185,7 +185,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
+				"property_one"			"<% TRAPPER_W3_CLUSTER_GROWTH %>"
 			}
 			"02"
 			{

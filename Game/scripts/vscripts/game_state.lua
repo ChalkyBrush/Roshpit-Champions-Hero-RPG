@@ -1349,6 +1349,12 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_gravelfoot_buff") then
 		damage = damage*0.005
 	end
+	if victim:HasModifier("modifier_flametongue_w_2_fire_shield") then
+		if victim.q_2_level and victim.q_2_level > 0 then
+			local reduction = 1 - math.min((0.6 + 0.001*victim.q_2_level), 0.95)
+			damage = damage*reduction
+		end
+	end
 	if victim:HasModifier("modifier_arkimus_arcana1_q3") then
 		local stacks = victim:GetModifierStackCount("modifier_arkimus_arcana1_q3", victim)
 		local reduction = (1-ARKIMUS_ARCANA1_Q3_DMG_RED_PER_STACK_EXP_BASE)^stacks
@@ -3046,7 +3052,7 @@ function GameState:FilterDamage(filterTable)
 	modifier = attacker:FindModifierByName("modifier_trapper_d_c_post_amp")
 	if modifier then
 		local stacks = modifier:GetStackCount()
-		mult = mult + stacks * 0.1
+		mult = mult + stacks * 0.15
 	end
 
 	modifier = victim:FindModifierByName("modifier_poison_whip")

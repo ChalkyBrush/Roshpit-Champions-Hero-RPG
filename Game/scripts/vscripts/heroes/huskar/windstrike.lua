@@ -38,6 +38,12 @@ function windstrike_start(event)
 	flametongue:SetLevel(ability:GetLevel())
 	flametongue:SetAbilityIndex(0)
 	caster:SwapAbilities("spirit_warrior_flametongue", "spirit_warrior_windstrike_weapon", true, false)
+	local q_2_level = caster:GetRuneValue("q", 2)
+	if q_2_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_windstrike_evasion", {duration = duration})
+		caster:SetModifierStackCount("modifier_windstrike_evasion", caster, q_2_level)
+		CustomAbilities:QuickAttachParticle("particles/roshpit/heroes/spirit_warrior/windstrike_wind_shield.vpcf", caster, 2)
+	end
 end
 
 function windstrike_attack_land(event)
@@ -48,5 +54,8 @@ function windstrike_attack_land(event)
 	local mult = event.mult
 	CustomAbilities:QuickAttachParticle("particles/econ/items/elder_titan/elder_titan_fissured_soul/elder_titan_fissured_soul_spirit_buff_endcap.vpcf", target, 1)
 	local damage = ability.q_3_level*spirit_warrior_q3_dmg_pct*OverflowProtectedGetAverageTrueAttackDamage(attacker)*mult
+	if target:GetPhysicalArmorValue() > 0 then
+		damage = damage + damage*0.01*target:GetPhysicalArmorValue()
+	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 end

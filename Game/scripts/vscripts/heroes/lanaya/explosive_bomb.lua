@@ -173,7 +173,7 @@ function bomb_explode(unit)
                     if w_1_level > 0 then
                         local distance = WallPhysics:GetDistance(enemy:GetAbsOrigin(), position)
                         local damageBonusMult = 1 - (distance/explosionRadius)
-                        a_b_damage = damage + damage*damageBonusMult*w_1_level*W1_AMP_PERCENT/100
+                        a_b_damage = damage + damage*damageBonusMult*w_1_level*TRAPPER_W1_AMP_PERCENT/100
                     end
                     Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_b_damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NORMAL)
                     Filters:ApplyStun(caster, stun_duration, enemy)
@@ -181,7 +181,7 @@ function bomb_explode(unit)
             end
             if w_3_level > 0 then
                 for i = 1, 3, 1 do
-                    shrapnel_bomb(caster, ability, stun_duration/2, damage*(w_3_level*0.015+0.1), unit:GetAbsOrigin())
+                    shrapnel_bomb(caster, ability, stun_duration/2, damage*(w_3_level*(TRAPPER_W3_CLUSTER_GROWTH/100)+0.1), unit:GetAbsOrigin())
                 end
             end
     end)
@@ -307,7 +307,7 @@ function smoke_bomb_think(event)
                  if w_1_level > 0 then
                      local distance = WallPhysics:GetDistance(enemy:GetAbsOrigin(), position)
                      local damageBonusMult = 1 - (distance/radius)
-                     damage = b_b_damage + b_b_damage*damageBonusMult*w_1_level*W1_AMP_PERCENT/100
+                     damage = b_b_damage + b_b_damage*damageBonusMult*w_1_level*TRAPPER_W1_AMP_PERCENT/100
                  end
                 Filters:ApplyDotDamage(origCaster, ability, enemy, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_POISON)
              end

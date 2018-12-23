@@ -2679,9 +2679,11 @@
     	"DOTA_Tooltip_modifier_auriun_ult_effect_Description"			"Massive HP regen and increased movement speed."
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_1"						"[R1] Sage Strikes"
-    	"DOTA_Tooltip_ability_auriun_rune_r_1_Description"			"Auriun's attack damage is increased further by his intelligence."
+    	"DOTA_Tooltip_ability_auriun_rune_r_1_Description"			"Auriun's attacks deal addition pure damage, and his attack damage is increased further by his intelligence."
     	"DOTA_Tooltip_ability_auriun_rune_r_1_property_one"			"Intelligence added to Damage"
     	"DOTA_Tooltip_ability_auriun_rune_r_1_suffix"				"%"
+        "DOTA_Tooltip_ability_auriun_rune_r_1_property_two"         "Additional Damage Dealt"
+        "DOTA_Tooltip_ability_auriun_rune_r_1_suffix_two"           "% of attack power"
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_2"						"[R2] Infusion of Light"
     	"DOTA_Tooltip_ability_auriun_rune_r_2_Description"			"Values from gear other than rune bonuses are enhanced. Bonus is only calculated on gear equip and on respawn."
@@ -8880,23 +8882,25 @@
 		
 
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue"			"Flameblood Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Applies a fire buff to a target ally that increases attack damage and adds a flat burst of magic damage on attack land."
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Applies a fire buff to a target ally that increases attack damage and adds a flat burst of magic damage on attack land. While flameblood weapon is active, the carrier has increased <font color=\"#EF4126\">Fire</font> damage. Enemies take additional damage from Flameblood while their armor is negative."
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage_increase"	"ATTACK DAMAGE BONUS %"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_duration"			"BUFF DURATION:"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_flat_pure_damage"	"EXTRA MAGIC DAMAGE ON ATTACK:"
+        "DOTA_Tooltip_ability_spirit_warrior_flametongue_fire_damage_amp"   "FIRE DAMAGE AMP: %"
+        "DOTA_Tooltip_ability_spirit_warrior_flametongue_negative_armor_amp"            "EXTRA FLAMEBLOOD DAMAGE PER NEGATIVE ARMOR: %"
 
     	"DOTA_Tooltip_modifier_flametongue"							"Flameblood Weapon"
     	"DOTA_Tooltip_modifier_flametongue_Description"				"Increased attack damage and a flat magic damage bonus on attack"
 
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust"			"Soul Thrust"
-    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#7AE2A7\">Wind</font><br>The Spirit Warrior slams his spear into the ground in front of him, creating a damaging soul explosion. Damage is enhanced by Flameblood Weapon. Enemies hit by Soul Thrust deal 50% reduced damage to Spirit Warrior for 7 seconds."	
+    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#7AE2A7\">Wind</font><br>The Spirit Warrior slams his spear into the ground in front of him, creating a damaging soul explosion. Damage is enhanced by Flameblood Weapon. Enemies hit by Soul Thrust deal 50% reduced damage to Spirit Warrior for 7 seconds. Cast"	
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_damage"		"DAMAGE:"
 
     	"DOTA_Tooltip_modifier_soul_thrust_effect"					"Soul Thrust"
     	"DOTA_Tooltip_modifier_soul_thrust_effect_Description"		"Dealing 50%% reduced damage to Spirit Warrior."
 
     	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit"		"Ancient Spirit"
-    	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_Description"	"Creates an ancient spirit that runs to the target location. Casting this ability near an existing ancient spirit allows the caster to leap to the target location. Cooldown only applies to spirit summoning, not leaping."
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_Description"	"Creates an ancient spirit that runs to the target location. Casting this ability near an existing ancient spirit allows the caster to leap to the target location. Cooldown only applies to spirit summoning, not leaping. Casting [W] ability makes 1 of your active spirits run towards Spirit Warrior."
     	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_cooldown"		"SPIRIT COOLDOWN:"
     	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_cast_range"		"CAST RANGE:"
 
@@ -8910,28 +8914,32 @@
     	"DOTA_Tooltip_modifier_ancient_vigor_Description"			"Increased attack speed and damage."
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1"				"[Q1] Burning Flameblood"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Flameblood attacks additionally apply a stacking burn debuff for 5 seconds. Max 50 burn stacks."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Damage per second per stack"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Flameblood attacks additionally apply a stacking burn debuff and for 5 seconds and a stacking armor debuff for 10 seconds. Max 50 burn stacks but no limit on armor loss stacks. The burn damage is amplified by negative armor the same as its base skill Flameblood."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Damage per second per burn stack"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix"	""
+        "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_two" "Armor loss per stack"   
+        "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix_two"   ""
 
     	"DOTA_Tooltip_modifier_flametongue_q_1_rune"				"Burning Flameblood"
     	"DOTA_Tooltip_modifier_flametongue_q_1_rune_Description"	"Taking burn damage with each stack"
 
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2"				"[Q2] Armor Melt"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_Description"	"Flameblood attacks apply a stacking armor reduction debuff for 5 seconds. Max 50 stacks."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_one"	"Armor Loss Per Stack"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix"		""
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2"				"[Q2] Fire and Wind Shield"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_Description"	"Casting flameblood or windstrike weapon applies fire or wind shield to Spirit Warrior. Fire shield reduces all damage taken, and wind shield adds evasion."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_one"	"Fire Shield Damage Reduction"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix"		"%"
+        "DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_two" "Wind Shield Evasion"
+        "DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix_two"   "%"
 
     	"DOTA_Tooltip_modifier_flametongue_b_a_rune_visible"		"Flameblood Armor Melt"
     	"DOTA_Tooltip_modifier_flametongue_b_a_rune_visible_Description"	"Reduced physical armor"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3"				"[Q3] Windstrike Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_Description"	"Adds the Windstrike Weapon ability after a flametongue cast. Windstrike attacks deal additional pure damage based on recipient's attack power. Windstrike and Flameblood cannot be active at the same time on the same target."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_Description"	"Adds the Windstrike Weapon ability after a flametongue cast. Windstrike attacks deal additional pure damage based on recipient's attack power. Windstrike has an additional 1% damage amplication for each point of armor that the target has. Windstrike and Flameblood cannot be active at the same time on the same target."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_property_one"	"Additional Pure Damage"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_suffix"		"% of attack damage"
 
       	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon"			"Windstrike Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_Description"	"Element: <font color=\"#7AE2A7\">Wind</font><br>Applies a wind buff to a target ally that makes attacks deal additional pure damage based on the attacker's attack power. Windstrike and Flameblood cannot be active at the same time on the same target."
+    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_Description"	"Element: <font color=\"#7AE2A7\">Wind</font><br>Applies a wind buff to a target ally that makes attacks deal additional pure damage based on the attacker's attack power. Windstrike has an additional 1% damage amplication for each point of armor that the target has. Windstrike and Flameblood cannot be active at the same time on the same target."
     	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_attackspeed"	"ATTACKSPEED BONUS"
     	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_duration"			"BUFF DURATION:"
 
@@ -8962,22 +8970,28 @@
     	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_2_visible_Description"	"Increased attack damage"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3"				"[W3] Vital Impact"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "A % of your attack damage gets added to Soul Thrust damage. The stated bonus is multiplied by the ability's level."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "A % of your attack damage gets added to Soul Thrust damage. If Flameblood or Windstrike is active, sould thrust additionally strikes the target with a percentage Flameblood or Windstrike. The stated bonus is multiplied by the ability's level."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_one"	"Added Damage"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix"		"% of attack damage"
+        "DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_two" "Flameblood and Windstrike hit"  
+        "DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix_two"       "%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4"				"[W4] Spirit Fuse"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_Description"  "After leaping to an Ancient Spirit, gain a buff where the next Soul Thrust deals increased damage."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_Description"  "After leaping to an Ancient Spirit, gain a buff where the next Soul Thrust deals increased damage and stuns. The damage increase also applies to [W3] flameblood and windstrike hits."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_property_one"	"Damage Increase"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_suffix"		"%"
+        "DOTA_Tooltip_ability_spirit_warrior_rune_w_4_property_two" "Stun Duration"   
+        "DOTA_Tooltip_ability_spirit_warrior_rune_w_4_suffix_two"   " seconds"
 
     	"DOTA_Tooltip_modifier_spirit_warrior_d_b"					"Spirit Fuse"
     	"DOTA_Tooltip_modifier_spirit_warrior_d_b_Description"		"The next Soul Thrust deals increased damage."
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1"				"[E1] Wind Edict"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_Description"  "Leaping to a spirit creates a gale explosion at the landing point."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_Description"  "Leaping to a spirit creates a gale explosion at the landing point. If Windstrike Weapon is active, Wind Edict also applies a windstrike hit."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_property_one"	"Damage"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_suffix"		""	
+        "DOTA_Tooltip_ability_spirit_warrior_rune_e_2_property_two" "Bonus Windstrike"    
+        "DOTA_Tooltip_ability_spirit_warrior_rune_e_2_suffix_two"   "%"  
 
     	"spirit_warrior_q_ability"									"Flameblood and Windstrike Weapon"
     	"spirit_warrior_e_ability"									"Ancient Spirit and Wind Edict"
@@ -9161,8 +9175,8 @@
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_6_1"		"Glyph of Ancient Enhancement"
 		"item_rpc_spirit_warrior_glyph_6_1_description" 				"Flameblood and Windstrike Weapon can both be active on Spirit Warrior at the same time."
 
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_7_1"		"Glyph of the Soul Titan"
-		"item_rpc_spirit_warrior_glyph_7_1_description" 				"Increases the duration of @Ability4 by @glyph_property1 seconds."
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_7_1"		"Glyph of Soul Weapons"
+		"item_rpc_spirit_warrior_glyph_7_1_description" 				"Casting @Ability4 immediately casts flameblood, windstrike, and waterheart weapons if available on Spirit Warrior and all of his Ancient Spirits. Also increases the duration of @Ability4 by @glyph_property1 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_a"		"Glyph of Storm Helix"
 		"item_rpc_spirit_warrior_glyph_5_a_description" 				"Standing within Tempest Haze adds a stack of Storm Helix every 0.5 seconds which increases attack speed by @glyph_property1, attack damage by @glyph_property2% and attack range by @glyph_property3."

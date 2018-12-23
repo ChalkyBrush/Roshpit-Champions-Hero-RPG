@@ -164,3 +164,13 @@ function d_d_apply_shield(caster, ability, target, shieldStacks)
 		
 	end
 end
+
+function auriun_ult_attack_land(event)
+	local attacker = event.attacker
+	local target = event.target
+	local r_1_level = attacker:GetRuneValue("r", 1)
+	if r_1_level > 0 then
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*0.04*r_1_level
+		Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
+	end
+end

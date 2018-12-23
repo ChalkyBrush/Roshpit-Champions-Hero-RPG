@@ -344,7 +344,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"120"
+				"property_one"			"180"
 			}
 		}
 		"Modifiers"
@@ -396,7 +396,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"60"
 			}
 		}
 		"Modifiers"
@@ -486,13 +486,33 @@
 		"AbilityTextureName"	"invoker_cold_snap"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"1"
 			}
 		}
 	}

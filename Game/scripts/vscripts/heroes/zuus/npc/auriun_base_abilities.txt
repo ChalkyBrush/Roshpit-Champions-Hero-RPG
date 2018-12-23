@@ -540,6 +540,20 @@
 				}
 
 			}
+			"modifier_auriun_ult_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/zuus/auriun_ult.lua"
+						"Function"		"auriun_ult_attack_land"
+					}
+				}
+			}
 			"modifier_auriun_ult_effect"
 			{
 				"Passive"			"0"

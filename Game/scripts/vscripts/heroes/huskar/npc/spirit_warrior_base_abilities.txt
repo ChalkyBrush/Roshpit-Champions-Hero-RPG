@@ -30,6 +30,16 @@
 				"var_type"				"FIELD_FLOAT"
 				"flat_pure_damage"				"1000 4800 7500 12000 22000 34000 56000"
 			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fire_damage_amp"		"50 100 200 500 1000 3000 5000"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"negative_armor_amp"	"3.0 4.5 6.0 7.5 9.0 10.5 12"
+			}
 		}
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -40,6 +50,8 @@
 			"particle"					"particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_c.vpcf"
 			"particle"					"particles/econ/items/elder_titan/elder_titan_fissured_soul/elder_titan_fissured_soul_spirit_buff_endcap.vpcf"
 			"particle"					"particles/units/heroes/hero_ogre_magi/windstrike_weapon_buff.vpcf"
+			"particle"					"particles/roshpit/heroes/spirit_warrior/flameblood_fire_shield.vpcf"
+			"particle"					"particles/roshpit/heroes/spirit_warrior/windstrike_wind_shield.vpcf"
 		}
 
 		// Casting
@@ -101,6 +113,7 @@
 						"Function"		"flametongue_attack_land"
 						"pure_damage"	"%flat_pure_damage"
 						"mult"			"1"
+						"negative_armor_amp"	"%negative_armor_amp"
 					}
 				}
 			}
@@ -119,6 +132,7 @@
 						"ScriptFile"	"heroes/huskar/flametongue.lua"
 						"Function"		"a_a_damage"
 						"target"		"TARGET"
+						"negative_armor_amp"	"%negative_armor_amp"
 					}
 				}
 			}
@@ -134,8 +148,12 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-5"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"
 				}
+			}
+			"modifier_flametongue_w_2_fire_shield"
+			{
+				"IsHidden"	"1"
 			}
 		}
 	}
@@ -226,6 +244,15 @@
 						"Function"		"windstrike_attack_land"
 						"mult"			"1"
 					}
+				}
+			}
+			"modifier_windstrike_evasion"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "0.8"
 				}
 			}
 		}

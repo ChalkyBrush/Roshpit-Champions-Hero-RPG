@@ -125,9 +125,11 @@
     	"DOTA_Tooltip_modifier_auriun_ult_effect_Description"			"Massive HP regen and increased movement speed."
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_1"						"[R1] Sage Strikes"
-    	"DOTA_Tooltip_ability_auriun_rune_r_1_Description"			"Auriun's attack damage is increased further by his intelligence."
+    	"DOTA_Tooltip_ability_auriun_rune_r_1_Description"			"Auriun's attacks deal addition pure damage, and his attack damage is increased further by his intelligence."
     	"DOTA_Tooltip_ability_auriun_rune_r_1_property_one"			"Intelligence added to Damage"
     	"DOTA_Tooltip_ability_auriun_rune_r_1_suffix"				"%"
+        "DOTA_Tooltip_ability_auriun_rune_r_1_property_two"         "Additional Damage Dealt"
+        "DOTA_Tooltip_ability_auriun_rune_r_1_suffix_two"           "% of attack power"
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_2"						"[R2] Infusion of Light"
     	"DOTA_Tooltip_ability_auriun_rune_r_2_Description"			"Values from gear other than rune bonuses are enhanced. Bonus is only calculated on gear equip and on respawn."
