@@ -2347,7 +2347,7 @@
     	"DOTA_Tooltip_modifier_starfall_a_d_visible_Description"		"Each stack reducing <font color=\"#C25DFC\">Cosmic</font> resistance by 10%%."
 		
 		"DOTA_Tooltip_ability_astral_rune_r_2"                          "[R2] Star Quake"
-        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Stars of [R1] create little quakes when thay fall, dealing damage and stunning enemies for 0.03 seconds in an area."
+        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Stars of [R1] create little quakes when they fall, dealing damage and stunning enemies for 0.03 seconds in an area."
         "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "Damage of [R1] Starstorm"
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "%"
         "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "Radius"
@@ -2554,7 +2554,7 @@
 
 		//Abilities
 		"DOTA_Tooltip_ability_heavens_shield"							"Heaven's Shield"
-    	"DOTA_Tooltip_ability_heavens_shield_Description"				"Auriun applies a divine barrier to his target, allowing them to absorb incoming damage instances."
+    	"DOTA_Tooltip_ability_heavens_shield_Description"				"Auriun applies a divine barrier to his target, allowing them to absorb incoming damage instances. Shield's base duration is 9 seconds."
     	"DOTA_Tooltip_ability_heavens_shield_Lore"						""
     	"DOTA_Tooltip_ability_heavens_shield_stacks"					"ATTACKS ABSORBED"
 
@@ -2711,7 +2711,7 @@
 		//Arcanas
 		
 		"DOTA_Tooltip_ability_auriun_aoe_shield"						"Heaven's Coalescence"
-    	"DOTA_Tooltip_ability_auriun_aoe_shield_Description"			"Target an area and apply Heaven's Shield buff to all allied heroes within. The divine barrier absorbs incoming damage instances."
+    	"DOTA_Tooltip_ability_auriun_aoe_shield_Description"			"Target an area and apply Heaven's Shield buff to all allied heroes within. The divine barrier absorbs incoming damage instances. Shield's base duration is 9 seconds."
     	"DOTA_Tooltip_ability_auriun_aoe_shield_stacks"					"SHIELD STACKS:"
     	"DOTA_Tooltip_ability_auriun_aoe_shield_aoe_radius"				"TARGET RADIUS:"
 
@@ -2764,7 +2764,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_suffix"				""  	
 
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2"							"[Q2] Enhanced Protection"
-    	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_Description"				"Casting Shadow Bind has a chance to apply stacks of Heaven's Shield. Heaven's Shield stacks block instances of damage. Greater than 100% means you get multiple stacks."
+    	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_Description"				"Casting Shadow Bind has a chance to apply stacks of Heaven's Shield. Heaven's Shield stacks block instances of damage. Greater than 100% means you get multiple stacks. Shield's base duration is 9 seconds."
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_property_one"				"Stack Chance"
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_suffix"					"%"
 
@@ -3258,8 +3258,8 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] Potency"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"All Base Ability and Item damage is enhanced by Bahamut's current mana pool against enemies with the Judged debuff. Each instance of amped damage drains a small percentage of Bahamut's current mana. Damage boost is 10x greater for Judgement base skill."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_one"			"Extra Base Ability Damage"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"The base damage value of all abilities, and all damage dealt directly by items, is increased by a flat amount equal to a multiple of Bahamut's current mana. This bonus only applies against targets with the Judged debuff, and the total bonus is multiplied by 10 when applied to the damage of @Ability2 itself (not any of its runes)."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_one"			"Base Damage Bonus"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix"					"% of current mana"		
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_two"			"Mana Drained per Amplification"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix_two"				"% of max mana"
@@ -3424,8 +3424,8 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"Frozen"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Ether Breach"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"All Base Ability and Item damage is enhanced by Bahamut's missing mana while outside of the @Ability2 (flat amount). Your abilities deal increased damage while inside the @Ability2 based on its speed. Casting Megaflare while in the @Ability2 multiplies the speed of the @Ability2 by <font color='#ccff66'>2.2</font>x and makes this rune treat you as if you are inside the @Ability2 for next 5 seconds. Damage increase from speed is multiplied by @Ability2's level."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Extra Damage"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"While outside the @Ability2, the base damage value of all abilities, and all damage dealt directly by items, is increased by a flat amount equal to a multiple of Bahamut's missing mana. While inside the @Ability2 instead, all ability damage is increased based on a multiple of the Sphere's current travel speed. Casting Megaflare while inside the Sphere will multiply its travel speed by <font color='#ccff66'>2.2</font>, and this rune will treat you as if you are inside the Sphere for the next 5 seconds. The damage bonus based on the Sphere's travel speed is further multiplied by the level of @Ability2."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Base Damage Bonus"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% of missing mana"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"			"Damage Increase"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix_two"					"% of speed"		
@@ -4863,8 +4863,8 @@
     	"DOTA_Tooltip_modifier_year_beast_b_d_health_Description"								"Increased Health"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1"									"[R3] Jade Voice"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"A % of all attributes is added to all Base Ability damage (flat bonus)."
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Base Ability Damage Bonus"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"The base damage value of all abilities is increased by a flat amount, equal to a multiple of all attributes."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Base Damage Bonus"
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"% of attributes"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1"									"[R4] Diamond Claws"
@@ -7052,8 +7052,8 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_suffix"				"% for every 1000 missing health"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3"						"[E2] Batholith"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_Description"			"A multiple of strength is added to all Base Ability damage."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"Base Ability Bonus Damage"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_Description"			"The base damage value of all abilities is increased by a flat amount, equal to a multiple of Mountain Protector's Strength attribute."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"Base Damage Bonus"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix"				"x Strength"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3"						"[E3] Lava Flow"
@@ -8408,11 +8408,11 @@
     	"DOTA_Tooltip_modifier_solunia_ultraviolet_Description"				"Gaining health regen and attack damage %%"	
 
     	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1"							"[Q2] Polythea"
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_Description"				"Passively adds base attack damage based on Solunia's current health. Additionally a percentage of current health is added to all Base Ability damage."
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_one"			"Base Attack Damage Per Current Health"
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix"					""
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_two"			"Health added to Base Ability damage"
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix_two"				"%"
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_Description"				"Increases base attack damage by a multiple of current health. Additionally, the base damage value of all abilities is increased by a flat amount, equal to a multiple of Solunia's current health."
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_one"			"Base Attack Damage"
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix"					" per current HP"
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_two"			"Base Damage Bonus"
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix_two"				"% of current HP"
 
 
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1"							"[Q3] Compression"
@@ -15593,7 +15593,7 @@
 		 "DOTA_Tooltip_modifier_whirlpool_effect_Description"		"Within the King's Reach"
 
 		 "DOTA_Tooltip_ability_water_temple_boss_whirlpool"			"Rip Current"
-		 "DOTA_Tooltip_ability_water_temple_boss_whirlpool_Description"	"The King channels a aqeuous storm that pulls in all nearby enemies. It is always followed up with a World Crush."	
+		 "DOTA_Tooltip_ability_water_temple_boss_whirlpool_Description"	"The King channels an aqueous storm that pulls in all nearby enemies. It is always followed up with a World Crush."	
 
 		//WIND SPIRIT
 		"tanari_clam_spawner"											"Tanari Clam"

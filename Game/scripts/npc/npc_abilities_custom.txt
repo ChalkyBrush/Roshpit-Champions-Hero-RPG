@@ -4480,7 +4480,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
+				"property_one"			"35"
 			}
 			"01"
 			{
@@ -59374,7 +59374,7 @@
 		{
 			"modifier_shadow_trap_passive"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"TextureName"	"auriun/auriun_shadow_bind"
 				"IsBuff"	"1"
 				"Passive"	"1"

@@ -210,7 +210,7 @@
     	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_one"			"Доп. базовый урон за текущее здоровье"
     	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_two"			"Бонус к базе урона умений" 
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix_two"				"% от здоровья""
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix_two"				"% от здоровья"
 
 
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1"							"[Q3] Compression"

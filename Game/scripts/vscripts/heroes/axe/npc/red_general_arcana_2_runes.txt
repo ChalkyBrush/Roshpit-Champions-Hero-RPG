@@ -82,7 +82,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% AXE_ARCAnA2_W3_RADIUS_GROWTH %>"
+				"property_one"			"<% AXE_ARCANA2_W3_RADIUS_GROWTH %>"
 			}
 			"01"
 			{

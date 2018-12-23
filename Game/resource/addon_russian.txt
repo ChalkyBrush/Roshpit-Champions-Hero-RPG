@@ -817,15 +817,15 @@
 		"item_health_restore"		"Восстанавливает здоровья"
 		"item_mana_restore"			"Восстанавливает маны"
 		"item_bonus_exp"			"Доп. ОПЫТ"
-		"item_perm_strength"		"Доп. Сила (на текущую сессию)"
-		"item_perm_agility"			"Доп. Ловкость  (на текущую сессию)"
-		"item_perm_intelligence"	"Доп. Интеллект (на текущую сессию)"
+		"item_perm_strength"		"Сила (на текущую сессию)"
+		"item_perm_agility"			"Ловкость  (на текущую сессию)"
+		"item_perm_intelligence"	"Интеллект (на текущую сессию)"
 
 		"item_critical_strike"		"Критический удар"
 		"item_splash_damage"		"Удар по области, %"	
 		"item_aspect_health"		"Доп. здоровье элементалей"
 
-		"item_lifesteal"		    "Вампиризм %"
+		"item_lifesteal"		    "Вампиризм, %"
 
 		"item_evasion"				"Шанс уклонения"
 
@@ -2660,7 +2660,7 @@
 
 		//Abilities
 		"DOTA_Tooltip_ability_heavens_shield"							"Heaven's Shield"
-    	"DOTA_Tooltip_ability_heavens_shield_Description"				"Auriun накладывает божественный щит на себя или союзную цель, поглощающий любой входящий урон."
+    	"DOTA_Tooltip_ability_heavens_shield_Description"				"Auriun накладывает божественный щит на себя или союзную цель, поглощающий любой входящий урон. Длительность эффекта 9 секунд."
     	"DOTA_Tooltip_ability_heavens_shield_Lore"						""
     	"DOTA_Tooltip_ability_heavens_shield_stacks"					"ПОГЛОЩАЕТ АТАК"
 
@@ -2815,7 +2815,7 @@
 		//Arcanas
 		
 		"DOTA_Tooltip_ability_auriun_aoe_shield"						"Heaven's Coalescence"
-    	"DOTA_Tooltip_ability_auriun_aoe_shield_Description"			"Дарует всем союзным героям бафф @Ability1, попавшим в радиус указанной области действия. Каждый заряд щита позволяет полностью поглотить входящий урон."
+    	"DOTA_Tooltip_ability_auriun_aoe_shield_Description"			"Дарует всем союзным героям бафф @Ability1, попавшим в радиус указанной области действия. Каждый заряд щита позволяет полностью поглотить входящий урон. Длительность эффекта 9 секунд."
     	"DOTA_Tooltip_ability_auriun_aoe_shield_stacks"					"ЗАРЯДОВ ЩИТА:"
     	"DOTA_Tooltip_ability_auriun_aoe_shield_aoe_radius"				"РАДИУС ДЕЙСТВИЯ:"
 
@@ -2868,7 +2868,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_suffix"				""  	
 
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2"							"[Q2] Enhanced Protection"
-    	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_Description"				"Добавляет шанс, что при прочтении @Ability1 герой получит заряды Heaven's shield. Каждый заряд полностью поглощает входящий урон. Значение шанса выше 100% гарантирует получение множества зарядов."
+    	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_Description"				"Добавляет шанс, что при прочтении @Ability1 герой получит заряды Heaven's Shield. Каждый заряд полностью поглощает входящий урон. Значение шанса выше 100% гарантирует получение множества зарядов. Длительность щита 9 секунд."
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_property_one"				"Шанс на получение щита"
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_suffix"					"%"
 
@@ -2878,9 +2878,9 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"% за каждые 10 очков атрибутов."
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2"							"[Q4] Shadow Form"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"После прочтения ультимативной способности герой укрывается тенями на 18 секунд. В этом состоянии весь пост-резистный урон увеличен, регенерация маны увеличена."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"После прочтения ультимативной способности герой входит в Теневую Форму на 18 секунд. В этом состоянии магический пост-резистный урон увеличен, регенерация маны увеличена."
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_one"				"Усиление магического урона"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix"					""  	
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix"					"%"  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_two"				"Доп. реген. маны"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix_two"				""
 
@@ -3323,8 +3323,8 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] Potency"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"К урону предметов и способностей добавляется значение на основе текущей маны Bahamut, если противник имеет эффект Judged от руны [W2]. Такое усиленный урон дополнительно тратит немного маны. Урон умения @Ability2 усиливается в 10 раз."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_one"			"Доп. урон способностей"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"К базе урона Предметов и всех Способностей добавляется значение, основанное на текущей мане героя, если противник поражен руной [W2]. Этот бонус затратит дополнительную ману при срабатывании. Добавка к базе урона непосредственно для @Ability2 в 10 раз больше указанного."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_one"			"Бонус к базе урона предметов и умений"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix"					"% от текущей маны"		
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_two"			"Затраты маны на усиление"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix_two"				"% от макс. маны"
@@ -3489,9 +3489,9 @@
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Ether Breach"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"К урону Способностей и Предметов добавляется показатель зависящий от отсутствующей маны героя. Увеличивает урон Способностей в зависимости от скорости Сферы. Прочтение @Ability4 во время полета в Сфере умножает скорость @Ability2 на <font color='#ccff66'>2.2</font> и сохраняет бонус вне Сферы в течение 5 секунд. Указанный урон от скорости умножается на уровень способности @Ability2."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Добавленный урон"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Бонус к базе урона умений и предметов"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% от недостающей маны"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"			"Увеличене урона"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"			"Увеличение урона"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix_two"					"% от скорости Сферы"		
 
     	"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp"						"Ether Breach"
@@ -4895,7 +4895,7 @@
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1"									"[R3] Jade Voice"
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"Часть всех атрибутов героя добавляется к урону всех способностей."
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Доп. базовый урон умений"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Бонус к базе урона умений"
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"% от атрибутов"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1"									"[R4] Diamond Claws"
@@ -7024,8 +7024,8 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_suffix"				"% за каждые 1000 недостающего здоровья"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3"						"[E2] Batholith"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_Description"			"Прибавляет к базовому урону умений множитель от Силы."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"Доп. базовый урон умений"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_Description"			"Прибавляет к базе урона умений значение, основанное на текущей Силе."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"Бонус к базе урона умений"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix"				"x Силы"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3"						"[E3] Lava Flow"
@@ -8345,11 +8345,11 @@
     	"DOTA_Tooltip_modifier_solunia_ultraviolet_Description"				"Получает бонус к регенерации здорвоья и урону"	
 
     	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1"							"[Q2] Polythea"
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_Description"				"Пассивно увеличивает базовый урон, зависящий от значения текущего здоровья героя. Дополнительно увеличивает базовый урон способностей на % от текущего уровня здоровья."
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_Description"				"Пассивно увеличивает базовый урон, зависящий от значения текущего здоровья героя. Дополнительно, показатель базы урона всех способностей увеличен на % от текущего уровня здоровья."
     	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_one"			"Доп. базовый урон за текущее здоровье"
     	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix"					""
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_two"			"Бонус к базовому урону умений, % от здоровья"
-    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix_two"				"%"
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_two"			"Бонус к базе урона умений" 
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix_two"				"% от здоровья"
 
 
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1"							"[Q3] Compression"
@@ -16349,7 +16349,7 @@
 	"quest_1_challenge_3"												"C. Атрибуты"
 	"quest_1_challenge_4"												"D. Звёзды"
 
-	"quest_1_challenge_1_desc"											"В правом нижем углу экрана находится синяя кнопка со свитком. При нажатии на нее начнется прочтение заклинания телепортации, а при успешном завершении каста Чемпион переместится в город на текущей карте. Берегись, любой урон от вражеских юнитов прервет заклинание!"
+	"quest_1_challenge_1_desc"											"В правом нижнем углу экрана находится синяя кнопка со свитком. При нажатии на нее начнется прочтение заклинания телепортации, а при успешном завершении каста Чемпион переместится в город на текущей карте. Берегись, любой урон от вражеских юнитов прервет заклинание!"
 
 	"quest_1_challenge_1_sub_0_summary"									"Использовать заклинание Свитка Телепорта в правом нижнем углу экрана."
 
