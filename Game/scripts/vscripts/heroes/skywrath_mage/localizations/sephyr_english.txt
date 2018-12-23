@@ -23,9 +23,11 @@
     	"DOTA_Tooltip_modifier_lightbomb_postmit_Description"					"Taking increased post-mitigation damage from Sephyr"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] Clearfire"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"Casting lightbomb adds stacks of Clearfire. 10 stacks of Clearfire allow lightbomb to be cast without triggering its cooldown. Lightbombs that do not start cooldown do not add stacks."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"Casting lightbomb adds stacks of Clearfire. 10 stacks of Clearfire allow lightbomb to be cast without triggering its cooldown. Lightbombs that do not start cooldown do not add stacks. Each stack of clearfire increases <font color=\"#F6FFB5\">Holy</font> damage."
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_property_one"						"Clearfire Stacks"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_suffix"							""
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_property_two"                     "Holy Damage Amp"
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_suffix_two"                           "%"
 
     	"DOTA_Tooltip_modifier_lightbomb_freecast"								"Clearfire"
     	"DOTA_Tooltip_modifier_lightbomb_freecast_Description"					"10 stacks remove the cooldown of Lightbomb"

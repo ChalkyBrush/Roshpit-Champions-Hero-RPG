@@ -2184,6 +2184,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 local stacks = attacker:GetModifierStackCount("modifier_sephyr_holy_amp", caster)
                 mult = mult + stacks*1
             end
+            if attacker:HasModifier("modifier_lightbomb_freecast") then
+                local stacks = attacker:GetModifierStackCount("modifier_lightbomb_freecast", caster)
+                local q_3_level = attacker:GetRuneValue("q", 3)
+                mult = mult + stacks*0.1*q_3_level
+            end
 		elseif unitName == "npc_dota_hero_juggernaut" and attacker:HasAbility("seinaru_odachi_leap") then
             if victim:GetPhysicalArmorValue() < 0 then
                 if attacker.e_4_level and attacker.e_4_level > 0 then
