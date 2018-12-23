@@ -91,11 +91,12 @@ function stonewall_start(event)
 	    if #enemies > 0 then
 	        for _,enemy in pairs(enemies) do
 	            enemy:MoveToTargetToAttack(caster)
+			    if caster:HasModifier("modifier_axe_glyph_1_2") then
+			        Filters:ApplyStun(caster, T12_STUN_DURATION*ability:GetLevel(), enemy)
+			    end	     	            
 	        end
 	    end 
-	    if caster:HasModifier("modifier_axe_glyph_1_2") then
-	        Filters:ApplyStun(caster, T12_STUN_DURATION*ability:GetLevel(), enemy)
-	    end
+
 	    -- Timers:CreateTimer(2, function()
 	    -- 	ParticleManager:DestroyParticle(pfx, false)
 	    -- end)
