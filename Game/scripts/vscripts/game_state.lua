@@ -2475,7 +2475,7 @@ function GameState:FilterDamage(filterTable)
 		modifier = victim:FindModifierByName("modifier_slipfinn_gloomshade_invisible")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			mult = mult + 0.01*stacks
+			mult = mult + 0.015*stacks
 		end
 	end
 	if attacker:HasModifier("modifier_paladin_d_c_postmit") then

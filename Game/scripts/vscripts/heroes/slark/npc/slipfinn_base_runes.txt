@@ -135,7 +135,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"property_one"			"1.5"
 			}
 		}
 	}
@@ -155,7 +155,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"12"
 			}
 		}
 	}
