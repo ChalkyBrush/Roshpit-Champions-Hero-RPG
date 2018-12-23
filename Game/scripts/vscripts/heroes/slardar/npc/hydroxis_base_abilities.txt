@@ -608,6 +608,7 @@
 			"particle"			"particles/units/heroes/hero_tidehunter/tidehunter_gush_upgrade.vpcf"
 			"model"				"models/hydroxis/hydroxis_water_pool.vmdl"
 			"model"				"models/hydroxis/hydroxis_water_pool_glyphed.vmdl"
+			"particle"			"particles/roshpit/hydroxis/hydroxis_r_3_projectile.vpcf"
 		}
 
 		"AbilityManaCost"	"0"
