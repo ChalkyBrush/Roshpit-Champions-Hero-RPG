@@ -192,9 +192,14 @@
     	"DOTA_Tooltip_modifier_monkey_a_c_effect_Description"						"Reduced Nature Resistance"
 
     	"DOTA_Tooltip_ability_djanghor_rune_e_2"									"[E2] Juniper Whip"
-    	"DOTA_Tooltip_ability_djanghor_rune_e_2_Description"						"Jin'bo has amplified base damage during Monkey Leap."
+    	"DOTA_Tooltip_ability_djanghor_rune_e_2_Description"						"Jin'bo has amplified base damage during Monkey Leap. If the 3rd strike of Jin'bo hits at least 1 enemy, there is a chance Djanghor will receive a free cast of shapeshift that removes the channel time. If chance is greater than 100%, Djanghor can get multiple stacks of freecast."
     	"DOTA_Tooltip_ability_djanghor_rune_e_2_property_one"						"Jin'bo Damage Amp"
     	"DOTA_Tooltip_ability_djanghor_rune_e_2_suffix"								"%"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_2_property_two"						"Chance for free Shapeshift Stack"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_2_suffix_two"							"%"
+
+    	"DOTA_Tooltip_modifier_shapeshift_freecast"									"Shapeshift Freecast"
+    	"DOTA_Tooltip_modifier_shapeshift_freecast_Description"						"Shapeshift has no channel time"
 
     	"DOTA_Tooltip_ability_djanghor_rune_e_3"									"[E3] Panacea"
     	"DOTA_Tooltip_ability_djanghor_rune_e_3_Description"						"Casting Monkey Leap grants a chance to cleanse 1 negative debuff. Greater than 100% means multiple debuffs can be cleansed."

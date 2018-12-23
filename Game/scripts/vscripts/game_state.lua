@@ -1933,7 +1933,7 @@ function GameState:FilterDamage(filterTable)
 			local talonAbility = attacker:FindModifierByName("modifier_mark_of_the_talon"):GetAbility()
 			local multIncrease = talonAbility:GetLevelSpecialValueFor("post_mitigation_magic", talonAbility:GetLevel()-1)/100
 			if talonAbility.q_4_level then
-				multIncrease = multIncrease + multIncrease*talonAbility.q_4_level*0.02
+				multIncrease = multIncrease + multIncrease*talonAbility.q_4_level*0.05
 			end
 			mult = mult + multIncrease
 		end

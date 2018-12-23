@@ -35746,12 +35746,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_speed_rune"			"1.2 1.6 2.0 2.4 2.8 3.2 3.6"
+				"attack_speed_rune"			"3 3.75 4.5 5.25 6.0 7.25 8.5"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_base_rune"			"6 20 100 400 800 1600 3200"
+				"attack_damage_base_rune"			"15 50 250 800 2000 4000 8000"
 			}
 		}
 		"Modifiers"
@@ -35839,12 +35839,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"armor_bonus_rune"			"0.6 1.2 4.0 8.0 14.0 20.0 28.0"
+				"armor_bonus_rune"			"1.5 3.0 10 20 35 50 70"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"health_regen_rune"			"0.6 1.6 3.0 5.0 10.0 20.0 30.0"
+				"health_regen_rune"			"1.5 4.0 7.5 12.5 25 50 75"
 			}
 		}
 		"Modifiers"
@@ -35932,7 +35932,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"mana_regen_rune"			"0.6 1.2 2.0 3.0 4.8 8.0 14.0"
+				"mana_regen_rune"			"1.5 3 5 7.5 12 20 35"
 			}
 		}
 		"Modifiers"
@@ -36072,6 +36072,12 @@
 						"target"		"TARGET"
 					}
 				}
+			}
+			"modifier_shapeshift_freecast"
+			{
+				"TextureName"	"djanghor/monkey_form"
+				"IsHidden"	"0"
+				"IsBuff"	"1"
 			}
 		}
 	}
@@ -37208,7 +37214,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -37322,7 +37328,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"25"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"2.5"
 			}
 		}
 	}

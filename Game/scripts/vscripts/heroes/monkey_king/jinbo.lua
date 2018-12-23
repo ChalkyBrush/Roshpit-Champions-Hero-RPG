@@ -73,6 +73,15 @@ function jinbo_start(event)
 			if caster:HasModifier("modifier_djanghor_glyph_1_1") then
 				caster:GetAbilityByIndex(2):EndCooldown()
 			end
+			local e_2_level = caster:GetRuneValue("e", 2)
+			if e_2_level > 0 then
+				local procs = Runes:Procs(e_2_level, 2.5, 1)
+				if procs > 0 then
+					caster:RemoveModifierByName("modifier_shapeshift_freecast")
+					ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_freecast", {duration = 60})
+					caster:SetModifierStackCount("modifier_shapeshift_freecast", caster, procs)
+				end
+			end
 		end 
 		local colorVector = Vector(180, 180, 180)
 		if caster:HasModifier("modifier_mark_of_the_fang") then

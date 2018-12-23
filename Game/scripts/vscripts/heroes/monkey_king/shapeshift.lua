@@ -36,6 +36,7 @@ function start_channel(event)
 	EmitSoundOn("Draghor.ShapeshiftCat.VO", caster)
 	CustomAbilities:QuickParticleAtPoint(springParticle, caster:GetAbsOrigin(), 4)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.Shapeshifting.Start", caster)
+	freecast(caster, ability)
 end
 
 function channel_end(event)
@@ -46,6 +47,21 @@ function channel_end(event)
 		ability.pfx = false
 	end
 	caster:RemoveModifierByName("modifier_draghor_shapeshift_shrink")
+end
+
+function freecast(caster, ability)
+	if caster:HasModifier("modifier_shapeshift_freecast") then
+		local stacks = caster:GetModifierStackCount("modifier_shapeshift_freecast", caster)
+		local new_stacks = stacks - 1
+		if new_stacks > 0 then
+			caster:SetModifierStackCount("modifier_shapeshift_freecast", caster, new_stacks)
+		else
+			caster:RemoveModifierByName("modifier_shapeshift_freecast")
+		end
+        Timers:CreateTimer(0.03, function()
+            ability:EndChannel(false)
+        end)
+	end
 end
 
 function crow_end(event)
