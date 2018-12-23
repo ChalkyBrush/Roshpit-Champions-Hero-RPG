@@ -2076,6 +2076,11 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"1.5"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"15"
+			}
 		}
 	}
 

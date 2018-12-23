@@ -113,9 +113,11 @@
     	"DOTA_Tooltip_modifier_mage_blast_slow_Description"					"Movespeed slowed"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_4"								"[W4] Cloak of Shadows"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_4_Description"					"All skeleton summons and Ekkan gain permanent bonus magic resistance."
+    	"DOTA_Tooltip_ability_ekkan_rune_w_4_Description"					"All skeleton summons and Ekkan gain permanent bonus magic resistance. Summoned Skeletons have increased post-mitigation damage."
     	"DOTA_Tooltip_ability_ekkan_rune_w_4_property_one"					"Magic Resistance"
     	"DOTA_Tooltip_ability_ekkan_rune_w_4_suffix"						""
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_property_two"                  "Skeleton Post Mitigation Damage"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_suffix_two"                    "%"
 		
 		"DOTA_Tooltip_ability_ekkan_river_of_souls"							"Acheron's Portal"
 		"DOTA_Tooltip_ability_ekkan_river_of_souls_Description"				"Creates a portal at the target location. Stepping in a portal teleports you and your entire army to the other portal after a 1.5 second delay. Any hero can use Ekkan's portal."	

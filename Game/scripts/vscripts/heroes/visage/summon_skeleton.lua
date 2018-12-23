@@ -46,6 +46,7 @@ function cast_raise_skeleton(event)
 					local applyTexture = true
 					local w_3_level = 0
 					local w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "ekkan")
+					local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "ekkan")
 					if luck <= 3 then
 						if w_1_level > 0 then
 							unitName = "ekkan_skeleton_archer"
@@ -88,6 +89,11 @@ function cast_raise_skeleton(event)
 				    skeleton.w_3_level = w_3_level
 				    skeleton.ekkan_dominion = true
 				    skeleton.dominion = true
+				    if w_4_level > 0 then
+				    	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, skeleton, "modifier_general_postmitigation", {})
+				    	skeleton:SetModifierStackCount("modifier_general_postmitigation", Events.GameMaster, w_4_level*15)
+				    end
+
 					table.insert(ability.skeleTable, skeleton)
 					local max_skeletons = event.max_skeletons
 					if caster:HasModifier("modifier_ekkan_glyph_1_1") then
@@ -106,7 +112,7 @@ function cast_raise_skeleton(event)
 					ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_skeleton_spawning", {duration = 0.5})
 					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", skeleton, 3)
 					EmitSoundOn("Ekkan.SkeletonSpawn", skeleton)
-					local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "ekkan")
+					
 					if w_4_level > 0 then
 						ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_ekkan_d_b_magic_resist", {})
 						skeleton:SetModifierStackCount("modifier_ekkan_d_b_magic_resist", caster, w_4_level)
@@ -212,7 +218,8 @@ function mage_blast_target_point(event)
 		local enemies = FindUnitsInRadius( hero:GetTeamNumber(), point, nil, radius+20, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
+				-- Filters:TakeArgumentsAndApplyDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
+				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR, ability = ability  })
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_mage_blast_slow", {duration = 5})
 				enemy:SetModifierStackCount("modifier_mage_blast_slow", caster, caster.w_3_level)
 			end
