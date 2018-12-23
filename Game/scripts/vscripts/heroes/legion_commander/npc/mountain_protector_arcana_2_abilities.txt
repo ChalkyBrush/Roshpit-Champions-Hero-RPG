@@ -128,6 +128,7 @@
 						"stun_duration"	"%stun_duration"
 						"damage"		"%damage"
 						"damage_from_strength"		"%damage_from_strength"
+						"refresh_chance"	"%refresh_chance"
 					}
 				}
 				"OnDestroy"
@@ -297,6 +298,11 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"attack_slow"	"-40 -50 -60 -70 -80 -90 -100"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"refresh_chance"	"1.0 2.5 4.0 5.5 7.0 8.5 10.0"
 			}
 		}
 	}

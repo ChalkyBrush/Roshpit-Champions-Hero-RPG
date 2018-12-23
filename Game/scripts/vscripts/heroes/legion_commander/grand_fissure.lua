@@ -139,6 +139,11 @@ function aeon_fracture_explosion(caster, position, damage, amp, explosionAOE, ab
 					end
 				end
 			end
+			local refreshChance = ability:GetSpecialValueFor("refresh_chance")
+			local luck = RandomInt(1, 100)
+			if luck <= refresh_chance then
+				caster:GetAbilityByIndex(2):EndCooldown()
+			end
 		end 
 		if a_c_stun_duration > 0 then
 			local pfx = ParticleManager:CreateParticle( "particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf", PATTACH_CUSTOMORIGIN, caster)

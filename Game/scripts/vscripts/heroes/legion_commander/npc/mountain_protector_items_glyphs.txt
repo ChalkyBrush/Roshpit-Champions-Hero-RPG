@@ -27,6 +27,15 @@
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_mountain_protector_glyph_1_1_cant_heal"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
+				}
+			}
 		}
 		"AbilitySpecial"
 		{

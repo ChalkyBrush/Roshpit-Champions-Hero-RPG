@@ -22,6 +22,7 @@ function begin_mystic_wave(event)
 		if q_4_level > 0 then
 			range = range + 20*q_4_level
 		end
+		ability.q_4_level = q_4_level
 		ability.e_3_amp = 0
 		if caster:HasModifier("modifier_emberstone_wave") then
 			local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "mountain_protector")
@@ -117,6 +118,13 @@ function mystic_wave_impact(event)
 		Timers:CreateTimer(i*0.2, function()
 			local damage = baseDamage
 			if target:IsAlive() then
+				local q_4_level = ability.q_4_level
+				if q_4_level > 0 then
+					local luck = RandomInt(1, 100)
+					if luck <= q_4_level then
+						Filters:MagicImmuneBreak(caster, target)
+					end
+				end
 				if caster:HasModifier("modifier_mountain_protector_immortal_weapon_1") then
 					stunDuration = stunDuration + 0.35
 				end
@@ -124,7 +132,7 @@ function mystic_wave_impact(event)
 					local stacks = target:GetModifierStackCount("modifier_mountain_protector_q_2_invisible", caster)
 					-- print("---ORIG DAMAGE:---")
 					-- print(damage)
-					damage = damage + damage*0.06*stacks
+					damage = damage + damage*0.1*stacks
 					-- print("STACKS:")
 					-- print(stacks)
 					-- print("NEW DAMAGE:")

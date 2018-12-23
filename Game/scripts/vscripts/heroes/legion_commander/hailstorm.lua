@@ -117,6 +117,11 @@ function hailstorm_explosion(caster, position, damage, amp, explosionAOE, abilit
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, 4, RPC_ELEMENT_EARTH, RPC_ELEMENT_ICE)
 				Filters:ApplyStun(caster, stun_duration+a_c_stun_duration, enemy)
 			end
+			local refreshChance = ability:GetSpecialValueFor("refresh_chance")
+			local luck = RandomInt(1, 100)
+			if luck <= refresh_chance then
+				caster:GetAbilityByIndex(2):EndCooldown()
+			end
 		end 
 		if a_c_stun_duration > 0 then
 			local pfx = ParticleManager:CreateParticle( "particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf", PATTACH_CUSTOMORIGIN, caster)

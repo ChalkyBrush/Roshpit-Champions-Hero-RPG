@@ -41,7 +41,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -84,6 +84,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"1"
 			}
 		}
 	}

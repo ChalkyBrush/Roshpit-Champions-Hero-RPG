@@ -30,9 +30,11 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_3_suffix"		"%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_q_4"				"[Q4] Mountain's Reach"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_q_4_Description"	"Increases the travel distance of Shockwave."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_q_4_Description"	"Increases the travel distance of Shockwave and gives Shockwave a chance to break impacted enemies' magic immunity."
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_4_property_one"	"Distance"
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_4_suffix"		""
+        "DOTA_Tooltip_ability_mountain_protector_rune_q_4_property_two" "Magic Immunity Break Chance"
+        "DOTA_Tooltip_ability_mountain_protector_rune_q_4_suffix_two"   "%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_mountain_guardian"					"Mountain Guardian"
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_Description"		"Harnesses the protection of the mountains to defend against aggressors. Shockwave consumes 1% of max mana per ability level while in Mountain Guardian stance."
@@ -104,9 +106,10 @@
     	"DOTA_Tooltip_modifier_mountain_rune_e_4_effect_Description"	"Increased attack damage and base ability damage"
 		
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture"					"Aeon Fracture"
-    	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_Description"		"Element: <font color=\"#AF843D\">Earth</font> / <font color=\"#EF4126\">Fire</font><br>Core flares shatter the earth for 10 seconds within the area of effect."
+    	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_Description"		"Element: <font color=\"#AF843D\">Earth</font> / <font color=\"#EF4126\">Fire</font><br>Core flares shatter the earth for 10 seconds within the area of effect. Each explosion that hits at least 1 enemy has a chance to refresh [E] ability."
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_stun_duration"	"STUN DURATION:"
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_explosions"		"EXPLOSIONS:"
+        "DOTA_Tooltip_ability_mountain_protector_aeon_fracture_refresh_chance"  "E REFRESH CHANCE: %"
 
 		"DOTA_Tooltip_ability_mountain_protector_rune_r_1"				"[R1] Storm Rift"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_1_Description"	"Enemies struck by Aeon Fracture are blasted by sparks, taking a % of Mountain Protector's attack damage."
@@ -177,13 +180,14 @@
     	"property_mountain_protector_arcana2_description"								"Replaces @Ability4 and all of its runes with Hailstorm."
 
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm"								"Hailstorm"
-    	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Description"					"Element: <font color=\"#AF843D\">Earth</font> / <font color=\"#87D9FF\">Ice</font><br>Calls upon the Northern Mountains to generate a devastating snow storm in the target area. Enemies in the area have their attack and movespeed slowed and can also be hit by icy fissures."
+    	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Description"					"Element: <font color=\"#AF843D\">Earth</font> / <font color=\"#87D9FF\">Ice</font><br>Calls upon the Northern Mountains to generate a devastating snow storm in the target area. Enemies in the area have their attack and movespeed slowed and can also be hit by icy fissures. Each explosion that hits at least 1 enemy has a chance to refresh [E] ability."
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Lore"						""
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_stun_duration"				"STUN DURATION:"
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_damage_from_strength"		"ADDTIONAL DAMAGE X STRENGTH:"
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_move_slow_percent"			"MOVE SLOW %:"
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_attack_slow"					"ATTACK SLOW:"
+        "DOTA_Tooltip_ability_mountain_protector_hailstorm_refresh_chance"              "E REFRESH CHANCE: %"
 
 
     	"DOTA_Tooltip_modifier_hailstorm_aura_enemy"									"Hailstorm Slow"
@@ -261,8 +265,11 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_1_1"		"Glyph of Shockwaves"
-		"item_rpc_mountain_protector_glyph_1_1_description" 				"Reduces the cooldown of @Ability1 by 1 second."
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_1_1"		"Glyph of Rattling"
+		"item_rpc_mountain_protector_glyph_1_1_description" 				"Enemies stunned by Mountain Protector cannot heal."
+
+        "DOTA_Tooltip_modifier_mountain_protector_glyph_1_1_cant_heal"      "Glyph of Rattling"
+        "DOTA_Tooltip_modifier_mountain_protector_glyph_1_1_cant_heal_Description"  "Can't heal while stunned by Mountain Protector."
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_2_1"		"Glyph of Guardians"
 		"item_rpc_mountain_protector_glyph_2_1_description" 				"All damage taken is reduced by another @glyph_property1% while in @Ability2."
