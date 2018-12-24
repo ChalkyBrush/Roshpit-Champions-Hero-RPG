@@ -243,8 +243,8 @@
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_1"		"声呐雕文"
 		"item_rpc_zonik_glyph_7_1_description" 				"每层时间能量充能都将提高所有 <font color=\"#B5FFB7\">时</font> 元素伤害 @glyph_property1%。每制造一次 <font color=\"#B5FFB7\">时</font> 元素伤害，消耗一层充能。"
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"圣人之瞳雕文"
-		"item_rpc_zonik_glyph_5_a_description" 				"施放光速移动时，获得8000码内全部敌人的视野，持续5秒。"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"慌乱拳击雕文"
+		"item_rpc_zonik_glyph_5_a_description" 				"每0.4秒向周围随机一个敌人释放一次 @Ability2 。"
 
 		"DOTA_Tooltip_modifier_sages_eyes"					"圣人之瞳"
 		
