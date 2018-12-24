@@ -71,7 +71,7 @@
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_property_one"			"审判之球伤害"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_suffix"					""
 	"DOTA_Tooltip_ability_bahamut_rune_w_3_property_two"            "审判和审判之球的基础伤害增加"
-        "DOTA_Tooltip_ability_bahamut_rune_w_3_suffix_two"              "目标攻击力% "
+        "DOTA_Tooltip_ability_bahamut_rune_w_3_suffix_two"              "% 目标攻击力"
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] 潜能"
