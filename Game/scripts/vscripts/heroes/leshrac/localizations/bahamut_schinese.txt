@@ -67,9 +67,11 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_3"							"[W3] 审判之球"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_3_Description"				"施放审判时将同时向前方发射一个审判之球。普通攻击时也将向目标发射一个审判之球。被审判之球击中的敌人也将带上审判之印。"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_Description"				"施放审判时将同时向前方发射一个审判之球。普通攻击时也将向目标发射一个审判之球。被审判之球击中的敌人也将带上审判之印。审判和审判之球对目标造成额外伤害，额外伤害基于目标的总攻击力。"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_property_one"			"审判之球伤害"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_suffix"					""
+	"DOTA_Tooltip_ability_bahamut_rune_w_3_property_two"            "审判和审判之球的基础伤害增加"
+        "DOTA_Tooltip_ability_bahamut_rune_w_3_suffix_two"              "目标攻击力% "
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] 潜能"
