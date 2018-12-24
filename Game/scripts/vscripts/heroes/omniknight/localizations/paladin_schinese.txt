@@ -257,7 +257,7 @@
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"坚定正义雕文"
 		"item_rpc_paladin_glyph_4_1_description" 				"正义之手不再将自己击退，并且使正义之手每次释放施加的神圣之火的debuff层数X5（计算在庇护雕文之后）。"
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"神圣威严雕文"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"神威雕文"
 		"item_rpc_paladin_glyph_5_1_description" 				"增加正义之手和神圣之火200%的伤害，并且当正义之手击中敌人时额外施加9层神圣之火的debuff。"
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"崇高雕文"
@@ -269,8 +269,33 @@
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_1"		"热忱雕文"
 		"item_rpc_paladin_glyph_7_1_description" 				"每当某次攻击击中目标时,有 @glyph_property1% 几率立即对范围内另一目标进行一次攻击，无冷却时间。"
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"圣洁愤怒雕文"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"圣怒雕文"
 		"item_rpc_paladin_glyph_5_a_description" 				"骑士的门徒拥有 @glyph_property1 的AOE攻击效果并且攻击主要目标两次。"
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_2"       "忏悔雕文"
+        "item_rpc_paladin_glyph_1_2_description"                "被 @Ability2 击中的敌人的攻击速度将会被降低h @glyph_property1 ，持续8秒。"
+
+        "DOTA_Tooltip_modifier_paladin_glyph_1_2_effect"        "忏悔"
+        "DOTA_Tooltip_modifier_paladin_glyph_1_2_effect_Description"    "攻击速度降低" 
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_2"       "神祝之锤雕文"
+        "item_rpc_paladin_glyph_2_2_description"                "武器上的加成将会增加 @glyph_property1%。该加成只有在装备武器的同时更新。"
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_2"       "金耀雕文"
+        "item_rpc_paladin_glyph_3_2_description"                " [Q2] 符文获得 @glyph_property1% 的吸血。"
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "崇高正义雕文"
+        "item_rpc_paladin_glyph_4_2_description"                "@Ability2 有 0.05 秒的施法点，并且将你向前推进。"
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "赎罪雕文"
+        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 将会攻击，并且造成纯粹 <font color=\"#F6FFB5\">圣</font>伤害，数值为 @glyph_property1x 全能骑士的攻击力。"
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "残值雕文"
+        "item_rpc_paladin_glyph_6_2_description"                "每一件神话及以下稀有度的物品将会增加税后伤害 @glyph_property1%。"
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_2"       "天堂守卫雕文"
+        "item_rpc_paladin_glyph_7_2_description"                "降低承受伤害 @glyph_property1%，并且降低输出  @glyph_property2%。"
+		
 		
 		//Weapons
 		"paladin_weapon_01"			"威武巨锤"
