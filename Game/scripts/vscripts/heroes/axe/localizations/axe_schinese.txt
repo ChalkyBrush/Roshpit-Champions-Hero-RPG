@@ -203,6 +203,42 @@
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_suffix"              "%"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_two"        "额外距离"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_suffix_two"          ""
+	
+	"DOTA_Tooltip_ability_item_rpc_axe_arcana2"                     "不破石墙之握"
+
+        "item_property_axe_arcana2"                                     "石墙"
+        "property_axe_arcana2_description"                              "将 @Ability2 以及他的所有符文替换为石墙"
+ 
+        "DOTA_Tooltip_ability_axe_stonewall_ability"                         "石墙"
+        "DOTA_Tooltip_ability_axe_stonewall_ability_Description"             "在赤色上将周围产生一圈石墙。任何站在石墙范围中的友军受到的伤害将会降低。"
+        "DOTA_Tooltip_ability_axe_stonewall_ability_damage_reduction"   "受到伤害降低 %:"
+        "DOTA_Tooltip_ability_axe_stonewall_ability_duration"           "持续时间:"
+
+        "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect"          "石墙"
+        "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect_Description" "降低受到的伤害"
+ 
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2"                     "[W1] 筑墙伏击"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_Description"         "提高赤色上将对站在石墙范围中的敌人造成的税后伤害。"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_property_one"        "税后伤害增加"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_suffix"              "%"
+ 
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2"                     "[W2] 盾墙"
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_Description"         "当赤色上将站在石墙中时，他的力量值和护甲值将会提高。"
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_property_one"        "护甲值"
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_suffix"              ""
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_property_two"        "力量值"
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_suffix_two"          ""
+ 
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2"                     "[W3] 反击螺旋"
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_Description"         "赤色上将在受到攻击时有15%的概率产生反击螺旋，对小范围内的敌人造成伤害，伤害数值基于赤色上将的攻击力。"
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_property_one"        "伤害"
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_suffix"              "%攻击力"
+
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2"                     "[W4] 强制执行者"
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_Description"         "当赤色上将释放石墙时，敌人将会被嘲讽，对赤色上将发动攻击。"
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_property_one"        "嘲讽范围"
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_suffix"              ""
+
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "格斗雕文"

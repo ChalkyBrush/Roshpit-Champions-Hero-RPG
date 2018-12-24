@@ -1,11 +1,14 @@
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue"			"炽血武器"
-    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"元素： <font color=\"#EF4126\">火</font><br>给友方单位施加火焰buff，提高其攻击力并使其在攻击时造成额外魔法伤害。"
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"元素： <font color=\"#EF4126\">火</font><br>给友方单位施加火焰buff，提高其攻击力并使其在攻击时造成额外魔法伤害。当炽血武器存在时，拥有者造成的  <font color=\"#EF4126\">火</font> 元素伤害增加。当敌人护甲为负值时，他们将会受到炽血的伤害将会提高。"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage_increase"	"额外攻击力 %"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_duration"			"buff持续时间："
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_flat_pure_damage"	"攻击时额外魔法伤害："
+        "DOTA_Tooltip_ability_spirit_warrior_flametongue_fire_damage_amp"   "火元素伤害增加: %"
+        "DOTA_Tooltip_ability_spirit_warrior_flametongue_negative_armor_amp"            "每点目标负值护甲增加的炽血武器的伤害: %"
 
     	"DOTA_Tooltip_modifier_flametongue"							"炽血武器"
-    	"DOTA_Tooltip_modifier_flametongue_Description"				"提高攻击力并在攻击时造成额外魔法伤害"
+    	"DOTA_Tooltip_modifier_flametongue_Description"				"攻击力增加，并且在攻击时造成额外魔法伤害"
+
 
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust"			"灵魂之刺"
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"元素： <font color=\"#EF4126\">火</font> / <font color=\"#7AE2A7\">风</font><br>灵魂守卫将他的长矛刺向前方的地面，造成毁灭性的灵魂爆炸。炽血武器可提高该技能伤害。被灵魂之刺击中的敌人在7秒内，对灵魂守卫造成的伤害将减少 50%。"	
@@ -15,7 +18,7 @@
     	"DOTA_Tooltip_modifier_soul_thrust_effect_Description"		"对灵魂守卫造成的伤害将减少 50%% "
 
     	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit"		"远古灵魂"
-    	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_Description"	"召唤一个远古灵魂冲向目标点，在已有的远古灵魂旁边施放该技能将使你跳向目标点。只有召唤会使技能进入冷却，而跳跃不会。"
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_Description"	"召唤一个远古灵魂冲向目标点，在已有的远古灵魂旁边施放该技能将使你跳向目标点。只有召唤会使技能进入冷却，而跳跃不会。释放 [W] 技能时将会使一个存在的远古灵魂跑向灵魂守卫。"
     	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_cooldown"		"灵魂冷却时间："
     	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_cast_range"		"施法距离："
 
@@ -29,25 +32,32 @@
     	"DOTA_Tooltip_modifier_ancient_vigor_Description"			"攻击力和攻击速度提高"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1"				"[Q1] 热血沸腾"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "炽血武器攻击时同时施加一个燃烧debuff，持续5秒。最高50层。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "炽血武器攻击时同时施加一个持续5秒的燃烧debuff和一个持续10秒的减甲debuff。最高50层燃烧debuff但是减甲debuff的叠加层数没有上限。燃烧debuff的伤害也会和基础技能炽血一样会增加对负甲目标的伤害。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"每层每秒伤害"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix"	""
+        "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_two" "每层护甲降低"   
+        "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix_two"   ""
 
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2"				"[Q2] 装甲熔化"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_Description"	"炽血武器攻击时同时施加一个减甲debuff，持续5秒。最高50层。"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_one"	"每层护甲值降低"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix"		""
+    	"DOTA_Tooltip_modifier_flametongue_q_1_rune"				"热血沸腾"
+    	"DOTA_Tooltip_modifier_flametongue_q_1_rune_Description"	"每层debuff将会造成燃烧伤害"
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2"				"[Q2] 风火之盾"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_Description"	"释放炽血武器或者风怒武器将会对灵魂守卫施加一层火神之盾或者风神之盾。火神之盾将会减少你承受的伤害而风神之盾将会给你提供闪避。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_one"	"火神之盾伤害降低"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix"		"%"
+        "DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_two" "风神之盾闪避数值"
+        "DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix_two"   "%"
 
     	"DOTA_Tooltip_modifier_flametongue_b_a_rune_visible"		"装甲熔化"
     	"DOTA_Tooltip_modifier_flametongue_b_a_rune_visible_Description"	"护甲值降低"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3"				"[Q3] 风怒武器"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_Description"	"施放炽血武器后获得新技能：风怒武器。风怒武器攻击时根据攻击力造成额外纯粹伤害。同一单位不能同时拥有炽血武器和风怒武器buff。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_Description"	"施放炽血武器后获得新技能：风怒武器。风怒武器攻击时根据攻击力造成额外纯粹伤害。每点目标的护甲将会额外增加风怒武器伤害1%。同一单位不能同时拥有炽血武器和风怒武器buff。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_property_one"	"额外纯粹伤害"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_suffix"		"% 攻击力"
 
       	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon"			"风怒武器"
-    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_Description"	"元素： <font color=\"#7AE2A7\">风</font><br>给友方单位施加风怒武器buff，使其攻击时根据攻击力造成额外纯粹伤害。同一单位不能同时拥有炽血武器和风怒武器buff。"
+    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_Description"	"元素： <font color=\"#7AE2A7\">风</font><br>给友方单位施加风怒武器buff，使其攻击时根据攻击力造成额外纯粹伤害。每点目标的护甲将会额外增加风怒武器伤害1%。同一单位不能同时拥有炽血武器和风怒武器buff。"
     	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_attackspeed"	"攻击速度提高："
     	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_duration"			"持续时间："
 
@@ -78,22 +88,28 @@
     	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_2_visible_Description"	"攻击力提高"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3"				"[W3] 生死攸关"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "按攻击力的一定百分比提高灵魂之刺的伤害。buff效果随灵魂之刺的等级提升而提升（乘法）。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "按攻击力的一定百分比提高灵魂之刺的伤害。 如果炽血武器或者风怒武器存在时，灵魂之刺也会对目标造成额外伤害，伤害为炽血或者风怒的伤害的一定百分比。（对衣服的[R3]水神之矛也会生效）buff效果随灵魂之刺的等级提升而提升（乘法）。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_one"	"灵魂之刺伤害提高"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix"		"% 攻击力"
+	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_two"     "炽血和风怒的冲击"  
+        "DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix_two"       "%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4"				"[W4] 灵魂融合"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_Description"  "跳跃至一个远古灵魂后获得一个buff，提高下一个灵魂之刺的伤害。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_Description"  "跳跃至一个远古灵魂后获得一个buff，提高下一个灵魂之刺的伤害并且眩晕敌人。同时该符文的收益也对[W3]生死攸关的炽血和风怒冲击的伤害生效。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_property_one"	"伤害提高"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_suffix"		"%"
+	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_property_two" "眩晕持续时间"   
+        "DOTA_Tooltip_ability_spirit_warrior_rune_w_4_suffix_two"   " 秒"
 
     	"DOTA_Tooltip_modifier_spirit_warrior_d_b"					"灵魂融合"
     	"DOTA_Tooltip_modifier_spirit_warrior_d_b_Description"		"下一个灵魂之刺的伤害提高"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1"				"[E1] 风之敕令"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_Description"  "跳跃至一个远古灵魂时将在落地点造成爆炸。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_Description"  "跳跃至一个远古灵魂时将在落地点造成爆炸。如果风怒武器存在，风之敕令也会对目标产生风怒攻击。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_property_one"	"伤害"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_suffix"		""	
+	"DOTA_Tooltip_ability_spirit_warrior_rune_e_2_property_two" "额外的风怒武器伤害"    
+        "DOTA_Tooltip_ability_spirit_warrior_rune_e_2_suffix_two"   "%"  
 
     	"spirit_warrior_q_ability"									"炽血武器和风怒武器"
     	"spirit_warrior_e_ability"									"远古灵魂和风之敕令"

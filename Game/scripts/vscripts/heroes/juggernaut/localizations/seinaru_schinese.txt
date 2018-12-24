@@ -202,7 +202,7 @@
     	"DOTA_Tooltip_modifier_sunstrider_in_air"						"炎阳冲锋"
 
   		"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2"						"[E1] 炎阳剑"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"增加E技能额外打击伤害, 同时使E技能可以打击多个目标."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"增加E技能额外打击伤害, 同时使E技能可以打击多个目标。这个攻击力加成在技能结束后仍然会存在3秒。"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_one"			"攻击力提高"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_two"			"最多目标"

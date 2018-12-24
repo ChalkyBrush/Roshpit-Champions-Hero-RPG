@@ -12,9 +12,11 @@
 		"DOTA_Tooltip_modifier_time_bound_description" 							"减速并受到时空球2倍伤害"
 		
     	"DOTA_Tooltip_ability_epoch_rune_q_1"									"[Q1] 空间连接"
-    	"DOTA_Tooltip_ability_epoch_rune_q_1_Description"						"时空锁会同时制造一个空间链接，链接附近的敌人。空间链接和时空锁的链接具有相同的效果。空间链接最多15个单位。时空球对空间链接中的目标造成2倍伤害。"
+    	"DOTA_Tooltip_ability_epoch_rune_q_1_Description"						" @Ability1会同时制造一个[Q1]，链接附近的敌人，@Ability1和[Q1]的链接具有相同的效果。@Ability3 和 [E2] 对被 [Q1] 影响的敌人造成的伤害增加2倍。起始3个链接, 但是会随符文等级提高而提高。"
     	"DOTA_Tooltip_ability_epoch_rune_q_1_property_one"						"伤害"
     	"DOTA_Tooltip_ability_epoch_rune_q_1_suffix"							"% 时空锁（持续伤害）"
+        "DOTA_Tooltip_ability_epoch_rune_q_1_property_two"                      "额外链接的概率"
+        "DOTA_Tooltip_ability_epoch_rune_q_1_suffix_two"                        "%"
 
     	"DOTA_Tooltip_ability_epoch_rune_q_2"									"[Q2] 永恒通道"
     	"DOTA_Tooltip_ability_epoch_rune_q_2_Description"						"时光守卫将偷取时空锁初始目标的攻击力，持续7秒。"

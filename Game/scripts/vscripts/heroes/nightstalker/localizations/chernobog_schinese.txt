@@ -17,9 +17,11 @@
     	"DOTA_Tooltip_ability_chernobog_rune_q_1_suffix"						"%"
 
     	"DOTA_Tooltip_ability_chernobog_rune_q_2"								"[Q2] 暗夜之爪"
-    	"DOTA_Tooltip_ability_chernobog_rune_q_2_Description"					"被卡戎之爪影响的敌人每0.5秒受到一次伤害。"
+    	"DOTA_Tooltip_ability_chernobog_rune_q_2_Description"					"被卡戎之爪影响的敌人每0.5秒受到一次伤害。并且受到的 <font color=\"#5B648C\">恶魔</font> 元素增加，增加值为他们对恶魔元素抗性虚弱的一定百分比。"
     	"DOTA_Tooltip_ability_chernobog_rune_q_2_property_one"					"伤害"
     	"DOTA_Tooltip_ability_chernobog_rune_q_2_suffix"						""
+        "DOTA_Tooltip_ability_chernobog_rune_q_2_property_two"                  "恶魔元素伤害增加"
+        "DOTA_Tooltip_ability_chernobog_rune_q_2_suffix_two"                    "%"
 
      	"DOTA_Tooltip_ability_chernobog_rune_q_3"								"[Q3] 冥河苍凉"
     	"DOTA_Tooltip_ability_chernobog_rune_q_3_Description"					"在卡戎之爪内增加额外的攻击力"
@@ -86,10 +88,12 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_suffix_two"					""
 		
 		"DOTA_Tooltip_ability_chernobog_shadow_walk"							"暗影追捕"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_Description"				"暗夜魔王突破空虚并且使自己的移动速度达到最高状态。当开启暗影追捕时，暗夜魔王每秒丢失魔法和生命值。"
+    	"DOTA_Tooltip_ability_chernobog_shadow_walk_Description"				"暗夜魔王突破空虚并且使自己的移动速度达到最高状态。当开启暗影追捕时，暗夜魔王每秒丢失魔法和生命值。同时在暗影追捕开启时在暗夜魔王周围300码内的敌人将被禁止治疗。"
     	"DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_cap"				"移动速度上限："
     	"DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_bonus"			"移动速度提高:"
     	"DOTA_Tooltip_ability_chernobog_shadow_walk_drain_per_second"			"每秒汲取 % 最大生命值和最大魔法值："
+	"DOTA_Tooltip_modifier_shadow_walk_aura"                                "魔王降临"
+        "DOTA_Tooltip_modifier_shadow_walk_aura_Description"                    "治疗被禁止"
 		
 		"DOTA_Tooltip_ability_chernobog_rune_e_1"								"[E1] 黑暗耳语"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_Description"					"开启暗影追捕增加攻击力。关闭时增益效果移除。"

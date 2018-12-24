@@ -76,20 +76,27 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_w_4_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_heat_wave"										"炙热冲锋"
-		"DOTA_Tooltip_ability_heat_wave_Description"							"元素： <font color=\"#EF4126\">火</font><br>烈焰行者激活一股热能，提高移动速度和攻击力，移动无视地形，同时提高移动速度上限。"
+		"DOTA_Tooltip_ability_heat_wave_Description"							"元素： <font color=\"#EF4126\">火</font><br>烈焰行者激活一股热能，提高移动速度和攻击力，移动无视地形，同时提高移动速度上限。在炙热冲锋过程中接近烈焰行者的敌人的护甲将会被降低。"
 		"DOTA_Tooltip_ability_heat_wave_Lore"									""
     	"DOTA_Tooltip_ability_heat_wave_max_ms"									"移动速度上限："
     	"DOTA_Tooltip_ability_heat_wave_base_dmg"								"攻击力："
     	"DOTA_Tooltip_ability_heat_wave_movespeed"								"移动速度："
     	"DOTA_Tooltip_ability_heat_wave_duration"								"持续时间："
+	"DOTA_Tooltip_ability_heat_wave_armor_shred"                                                            "护甲降低:"
 
     	"DOTA_Tooltip_modifier_heatwave_phase_one"								"炙热冲锋"
     	"DOTA_Tooltip_modifier_heatwave_phase_one_Description"					"移动速度和移动速度上限提高"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_1"								"[E1] 余烬"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"烈焰行者炙热冲锋后将在地上留下余烬，灼烧碰到余烬的敌人。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"烈焰行者炙热冲锋后将在地上留下余烬，灼烧碰到余烬的敌人受到的物理伤害（税前）提高，提高数值基于敌人负甲的数值。"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_one"					"每秒伤害"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix"						""
+	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_two"                 "税前伤害增加"
+        "DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix_two"                      "% 每一点负值护甲"
+
+        "DOTA_Tooltip_heatwave_fire_damage"                                     "余烬"
+        "DOTA_Tooltip_heatwave_fire_damage_Description"                         "负值护甲增加税前物理伤害"
+
 
     	"DOTA_Tooltip_ability_flamewaker_rune_e_2"								"[E2] 龙之怒"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_2_Description"					"施放炙热冲锋后，开始自焚对附近敌人造成伤害，持续6秒。敏捷值可提高伤害。"
@@ -115,7 +122,7 @@
     	"DOTA_Tooltip_modifier_searing_heat_Description"						"护甲值降低"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_4"								"[E4] 烈焰炙烤"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"受到余烬影响的敌人将被点燃 - 丢失护甲并受到基于余烬伤害的持续伤害。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"受到余烬影响的敌人将被点燃 - 丢失护甲并受到基于余烬伤害的持续伤害，持续5秒。"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_one"					"每秒伤害"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix"						"% 余烬伤害"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_two"					"护甲值降低"
@@ -156,7 +163,7 @@
 		
 		//Arcanas
 		"DOTA_Tooltip_ability_flamewaker_arcana_ability"						"龙王吐息"
-    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_Description"			"元素： <font color=\"#EF4126\">火</font><br>迅速喷发的火焰眩晕并伤害范围内的敌人。力量值会提高火焰的伤害。"
+    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_Description"			"元素： <font color=\"#EF4126\">火</font><br>迅速喷发的火焰眩晕并伤害范围内的敌人。这个技能能够在进入冷却时间前的<% FLAMEWAKER_ARCANA_Q_FREE_CAST_DURATION %> 秒内能够再次释放一次。 <br>默认会对一个点的周围放出火焰,但是如果后一个释放点在离前一个释放点至少<% FLAMEWAKER_ARCANA_Q_MIN_DISTANCE %>码距离 (但是不超过 <% FLAMEWAKER_ARCANA_Q_MAX_DISTANCE %> 码), 将会产生很多额外的火焰喷发出现在两个施法点连线周围的区域。<br>力量值会提高火焰的伤害。"
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_damage"					"伤害："
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_strength_mult"			"额外伤害为力量值的倍数："
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_stun_duration"			"眩晕持续时间："
@@ -172,7 +179,7 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix_two"			" 每损失200点生命"
 
   		"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1"						"[Q2] 火焰浪涌"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"			"施放龙王吐息后增加移动速度并且加深敌人所受到的伤害"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"			"施放 @Ability1 后增加移动速度并且加深敌人所受到的伤害。敌人被该技能击中后会被施加一个可叠加的debuff，这个debuff会使加深他们受到的来自烈焰行者的伤害，但是每一层debuff的伤害加深数值是该符文面板显示的数值的1/6。这些效果是独立计算的，只有加成更高的会生效。这个效果持续6秒。"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_one"			"移动速度提高"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix"				""
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_two"			"敌人所受到的伤害提高（计算在敌人减伤之后）"
@@ -197,12 +204,13 @@
     	"DOTA_Tooltip_modifier_flamewaker_arcana_d_a_aura_Description"			"受到魔法伤害并且对烈焰行者伤害降低"
 
     	"DOTA_Tooltip_ability_flamewaker_dragonflame"						"焰之起源式"
-    	"DOTA_Tooltip_ability_flamewaker_dragonflame_Description"			"元素： <font color=\"#EF4126\">火</font><br>烈焰行者停止移动，向周围连续喷射出炽热的火焰，每 0.1s 对前方锥形区域内的敌人造成伤害。技能激活 1.5秒后，获得一层护盾，伤害减免。技能不被眩晕和沉默打断。每 0.1s 汲取 10% 的最大魔法值，当魔法值为 0 时，技能停止。"
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_Description"			"元素： <font color=\"#EF4126\">火</font><br>烈焰行者停止移动，向周围连续喷射出炽热的火焰，每 0.1s 对前方锥形区域内的敌人造成伤害。技能激活 1.5秒后，获得一层护盾，伤害减免。技能不被眩晕和沉默打断。每 0.1s 汲取 10% 的最大魔法值，当魔法值为 0 时，技能停止。站在火焰中的敌人的护甲将会被降低。"
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_base_damage"			"伤害："
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_attack_dmg_bonus"			"% 攻击力加入到火焰伤害中："
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_mana_drain"			"每秒魔法值汲取："
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_damage_reduce"			"% 护盾伤害减免："
-
+	"DOTA_Tooltip_ability_flamewaker_dragonflame_armor_shred"           "护甲降低:"
+	
     	"DOTA_Tooltip_modifier_dragonflame_shield"								"焰之起源式护盾"
     	"DOTA_Tooltip_modifier_dragonflame_shield_Description"					"伤害减免"
 

@@ -30,7 +30,7 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_q_3_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4"						"[Q4] 灵魂之触"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_4_Description"			"提高 螺旋枷 的伤害和作用范围。"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_Description"			"提高@Ability1的伤害和作用范围。这个伤害加成也会对[Q1]冥火枷生效。"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_property_one"		"伤害提高"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_suffix"				"%"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_property_two"		"范围提升"

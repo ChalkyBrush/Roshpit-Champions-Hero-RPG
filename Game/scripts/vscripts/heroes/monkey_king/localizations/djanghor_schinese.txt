@@ -187,7 +187,7 @@
     	"DOTA_Tooltip_modifier_monkey_a_c_effect_Description"						"自然元素伤害抗性减少"
 
     	"DOTA_Tooltip_ability_djanghor_rune_e_2"									"[E2] 杜松藤"
-    	"DOTA_Tooltip_ability_djanghor_rune_e_2_Description"						"在施放筋斗云过程中，金箍棒的伤害将提高。"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_2_Description"						"在施放筋斗云过程中，金箍棒的伤害将提高。如果金箍棒的第三次打击击中至少1个敌人，齐天大圣将会有概率能够自由释放@Ability4 ，自由释放不需要进行施法时间（读条）。 如果概率大于100%，齐天大圣将会获得多次自由释放的机会。"
     	"DOTA_Tooltip_ability_djanghor_rune_e_2_property_one"						"金箍棒伤害提高"
     	"DOTA_Tooltip_ability_djanghor_rune_e_2_suffix"								"%"
 

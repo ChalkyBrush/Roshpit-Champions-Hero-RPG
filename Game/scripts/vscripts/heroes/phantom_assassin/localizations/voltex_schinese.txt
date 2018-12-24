@@ -15,7 +15,7 @@
 		"DOTA_Tooltip_modifier_voltex_rune_q_1_buff" 						"磁场"
 		"DOTA_Tooltip_modifier_voltex_rune_q_1_buff_description" 			"护甲值提高"
 
-    	"DOTA_Tooltip_ability_voltex_rune_q_2"								"[Q2] 闪电链"
+    	"DOTA_Tooltip_ability_voltex_rune_q_2"								"[Q2] 电流浪涌"
     	"DOTA_Tooltip_ability_voltex_rune_q_2_Description"					"电光使者所造成的一切 <font color=\"#5CCDF9\">电</font> 元素伤害都将附带额外伤害。额外的伤害为敏捷值的一部分。"
     	"DOTA_Tooltip_ability_voltex_rune_q_2_property_one"					"额外伤害"
     	"DOTA_Tooltip_ability_voltex_rune_q_2_suffix"						"% 敏捷值"
@@ -24,9 +24,11 @@
 		"DOTA_Tooltip_modifier_voltex_rune_q_2_description" 				"你的攻击有15%几率释放一道闪电链"
 		
 		"DOTA_Tooltip_ability_voltex_rune_q_3"								"[Q3] 电源中断"
-    	"DOTA_Tooltip_ability_voltex_rune_q_3_Description"					"每次被过载击中，敌人的护甲值降低，持续6秒，可叠加。"
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_Description"					"每次被过载击中，敌人的护甲值降低，持续6秒，可叠加。每次过载击中敌人后有30%的概率产生一道额外的闪电，造成物理伤害。"
     	"DOTA_Tooltip_ability_voltex_rune_q_3_property_one"					"每层护甲降低"
     	"DOTA_Tooltip_ability_voltex_rune_q_3_suffix"						""
+        "DOTA_Tooltip_ability_voltex_rune_q_3_property_two"                 "触发时的物理伤害"
+        "DOTA_Tooltip_ability_voltex_rune_q_3_suffix_two"                   "%攻击力"
 
     	"DOTA_Tooltip_modifier_voltex_rune_q_3"								"电源中断"
     	"DOTA_Tooltip_modifier_voltex_rune_q_3_Description"					"护甲值降低"
@@ -120,10 +122,15 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_4_suffix"						"% 每10点敏捷值"
 		
 		"DOTA_Tooltip_ability_static_field"									"静电场"
-		"DOTA_Tooltip_ability_static_field_Description"						"元素： <font color=\"#5CCDF9\">电</font><br>电光使者充电后驱散离子，向前方锥形区域发射电球造成伤害。"
+		"DOTA_Tooltip_ability_static_field_Description"						"元素： <font color=\"#5CCDF9\">电</font><br>电光使者充电后驱散离子，向前方锥形区域发射电球造成伤害。每当敌人被一个闪电球击中后受到的税后伤害将会提高，可以叠加，叠加没有上限，debuff持续12秒。"
+       
 		"DOTA_Tooltip_ability_static_field_Lore"							""
 		"DOTA_Tooltip_ability_static_field_damage"							"每个电球伤害："
     	"DOTA_Tooltip_ability_static_field_num_shocks"						"电球数："
+	"DOTA_Tooltip_ability_static_field_post_mitigation_per_spark"       "每层增加的税后伤害%:"
+
+        "DOTA_Tooltip_modifier_static_field_post_mitigation"                "静电场"
+        "DOTA_Tooltip_modifier_static_field_post_mitigation_Description"    "每一层增加受到的税后伤害"
 		
 		"DOTA_Tooltip_ability_voltex_rune_r_1"								"[R1] 雷霆风暴"
     	"DOTA_Tooltip_ability_voltex_rune_r_1_Description"					"当电光使者引导完静电场时，致命闪电从天而降，对周围单位造成伤害。"
