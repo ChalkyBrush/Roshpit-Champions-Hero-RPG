@@ -82,14 +82,18 @@
 		"DOTA_Tooltip_modifier_skeleton_summon_unit"						"被召唤的骷髅"
 		
 		"DOTA_Tooltip_ability_ekkan_rune_w_1"								"[W1] 骷髅射手"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_1_Description"					"30%几率召唤出一个骷髅射手，骷髅射手远程攻击并且攻击力为死灵飞龙的倍数。"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_1_Description"					"几率召唤出一个骷髅射手，骷髅射手远程攻击并且攻击力为死灵飞龙的倍数。骷髅射手有30%的概率造成致命一击并且穿透护甲，并且该致命一击拥有<font color=\"#5C776E\">不死</font> 元素。"
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_property_one"					"攻击力为死灵飞龙的 % ："
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_suffix"						"%"
+	"DOTA_Tooltip_ability_ekkan_rune_w_1_property_two"                  "暴击伤害"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_two"                    "%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_2"								"[W2] 扩展恢复"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_2_Description"					"增加召唤骷髅的持续时间。"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_2_Description"					"增加召唤骷髅的持续时间。 每一个存在的骷髅增加死灵飞龙的 <font color=\"#5C776E\">不死</font> 伤害。"
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_property_one"					"召唤持续时间增加"
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_suffix"						" 秒"
+	"DOTA_Tooltip_ability_ekkan_rune_w_2_property_two"                  "不死元素伤害增加"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_suffix_two"                        "每一个存在的骷髅"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_3"								"[W3] 骷髅法师"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_Description"					"30%几率召唤骷髅法师，对敌人进行aoe魔法攻击，伤害并减速敌人。"
@@ -105,7 +109,7 @@
     	"DOTA_Tooltip_modifier_mage_blast_slow_Description"					"移动速度降低"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_4"								"[W4] 阴影斗篷"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_4_Description"					"所有被召唤的骷髅和死灵飞龙自身，都将获得额外的魔法抗性。"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_4_Description"					"所有被召唤的骷髅和死灵飞龙自身，都将获得额外的魔法抗性。被召唤的骷髅拥有税后伤害加成。"
     	"DOTA_Tooltip_ability_ekkan_rune_w_4_property_one"					"魔法抗性提高"
     	"DOTA_Tooltip_ability_ekkan_rune_w_4_suffix"						""
 		
@@ -161,7 +165,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_r_1_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_r_2"								"[R2] 灾难群"
-    	"DOTA_Tooltip_ability_ekkan_rune_r_2_Description"					"灵魂充能可以对单个敌人施放。对这个敌人造成全体召唤物 % 总攻击力的纯粹伤害。"
+    	"DOTA_Tooltip_ability_ekkan_rune_r_2_Description"					"灵魂充能可以对单个敌人施放。对这个敌人造成全体召唤物 % 总攻击力的纯粹伤害。这个伤害无视坚定。"
     	"DOTA_Tooltip_ability_ekkan_rune_r_2_property_one"					"伤害"
     	"DOTA_Tooltip_ability_ekkan_rune_r_2_suffix"						"% 全体召唤物的总攻击力"
 
