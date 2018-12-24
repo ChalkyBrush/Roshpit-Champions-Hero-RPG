@@ -28,7 +28,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_q_3_property_one"					"每层护甲降低"
     	"DOTA_Tooltip_ability_voltex_rune_q_3_suffix"						""
         "DOTA_Tooltip_ability_voltex_rune_q_3_property_two"                 "触发时的物理伤害"
-        "DOTA_Tooltip_ability_voltex_rune_q_3_suffix_two"                   "攻击力%"
+        "DOTA_Tooltip_ability_voltex_rune_q_3_suffix_two"                   "%攻击力"
 
     	"DOTA_Tooltip_modifier_voltex_rune_q_3"								"电源中断"
     	"DOTA_Tooltip_modifier_voltex_rune_q_3_Description"					"护甲值降低"
