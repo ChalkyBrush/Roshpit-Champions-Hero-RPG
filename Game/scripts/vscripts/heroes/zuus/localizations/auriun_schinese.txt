@@ -136,18 +136,18 @@
     	"DOTA_Tooltip_ability_auriun_rune_r_2_property_one"			"装备数值提高"
     	"DOTA_Tooltip_ability_auriun_rune_r_2_suffix"				"%"		
 
-    	//"DOTA_Tooltip_modifier_auriun_rune_r_2_visible"				"Beacon of Life"
-    	//"DOTA_Tooltip_modifier_auriun_rune_r_2_visible_Description"	"Increased Armor Based on Max Life"	
+    	//"DOTA_Tooltip_modifier_auriun_rune_r_2_visible"				"生命的灯塔"
+    	//"DOTA_Tooltip_modifier_auriun_rune_r_2_visible_Description"	"基于最大生命值增加护甲"	
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_3"						"[R3] 灵魂链接"
     	"DOTA_Tooltip_ability_auriun_rune_r_3_Description"			"俄瑞恩技能或符文制造出的一切增益buff，其持续时间都会被提高。"
     	"DOTA_Tooltip_ability_auriun_rune_r_3_property_one"			"持续时间增加"
     	"DOTA_Tooltip_ability_auriun_rune_r_3_suffix"				" 秒"	
-    	//"DOTA_Tooltip_ability_auriun_rune_r_3_property_two"			"Agility Bonus"
+    	//"DOTA_Tooltip_ability_auriun_rune_r_3_property_two"			"额外敏捷"
     	//"DOTA_Tooltip_ability_auriun_rune_r_3_suffix_two"			"%"			
 
-    	//"DOTA_Tooltip_modifier_auriun_rune_r_3_visible"				"Binding Souls"
-    	//"DOTA_Tooltip_modifier_auriun_rune_r_3_visible_Description"	"Increased Agility and Strength from Auriun"
+    	//"DOTA_Tooltip_modifier_auriun_rune_r_3_visible"				"灵魂链接"
+    	//"DOTA_Tooltip_modifier_auriun_rune_r_3_visible_Description"	"增加俄瑞恩的敏捷值和力量值。"
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_4"						"[R4] 不朽之守护"
     	"DOTA_Tooltip_ability_auriun_rune_r_4_Description"			"受到生命赐福影响的友军有几率获得天堂之盾。超过100% 几率时每个受影响的友军将获得多重的天堂之盾。"
