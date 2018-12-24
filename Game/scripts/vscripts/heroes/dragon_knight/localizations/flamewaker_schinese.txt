@@ -204,12 +204,13 @@
     	"DOTA_Tooltip_modifier_flamewaker_arcana_d_a_aura_Description"			"受到魔法伤害并且对烈焰行者伤害降低"
 
     	"DOTA_Tooltip_ability_flamewaker_dragonflame"						"焰之起源式"
-    	"DOTA_Tooltip_ability_flamewaker_dragonflame_Description"			"元素： <font color=\"#EF4126\">火</font><br>烈焰行者停止移动，向周围连续喷射出炽热的火焰，每 0.1s 对前方锥形区域内的敌人造成伤害。技能激活 1.5秒后，获得一层护盾，伤害减免。技能不被眩晕和沉默打断。每 0.1s 汲取 10% 的最大魔法值，当魔法值为 0 时，技能停止。"
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_Description"			"元素： <font color=\"#EF4126\">火</font><br>烈焰行者停止移动，向周围连续喷射出炽热的火焰，每 0.1s 对前方锥形区域内的敌人造成伤害。技能激活 1.5秒后，获得一层护盾，伤害减免。技能不被眩晕和沉默打断。每 0.1s 汲取 10% 的最大魔法值，当魔法值为 0 时，技能停止。站在火焰中的敌人的护甲将会被降低。"
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_base_damage"			"伤害："
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_attack_dmg_bonus"			"% 攻击力加入到火焰伤害中："
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_mana_drain"			"每秒魔法值汲取："
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_damage_reduce"			"% 护盾伤害减免："
-
+	"DOTA_Tooltip_ability_flamewaker_dragonflame_armor_shred"           "护甲降低:"
+	
     	"DOTA_Tooltip_modifier_dragonflame_shield"								"焰之起源式护盾"
     	"DOTA_Tooltip_modifier_dragonflame_shield_Description"					"伤害减免"
 
