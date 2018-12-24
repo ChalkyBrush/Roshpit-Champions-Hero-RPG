@@ -232,7 +232,7 @@
         "DOTA_Tooltip_ability_axe_rune_w_3_arcana2"                     "[W3] 反击螺旋"
         "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_Description"         "赤色上将在受到攻击时有15%的概率产生反击螺旋，对小范围内的敌人造成伤害，伤害数值基于赤色上将的攻击力。"
         "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_property_one"        "伤害"
-        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_suffix"              "攻击力%"
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_suffix"              "%攻击力"
 
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2"                     "[W4] 强制执行者"
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_Description"         "当赤色上将释放石墙时，敌人将会被嘲讽，对赤色上将发动攻击。"
