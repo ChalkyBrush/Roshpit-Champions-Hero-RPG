@@ -71,7 +71,7 @@
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"Marauder Gloves"
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves_Description"						"Slot: Hands"
 		"item_property_marauder"					"Hand of Marauder"
-		"property_marauder_description"				"Your physical damage ignores enemy armor."
+		"property_marauder_description"				"Your physical damage ignores enemies' armor. Doesn't ignore negative armor."
 		"DOTA_Tooltip_modifier_hand_marauder_effect" "Marauder"
 		"DOTA_Tooltip_modifier_hand_marauder_effect_description" "Gaining Max Life and Health Regen"
 		
