@@ -85,7 +85,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_Description"					"几率召唤出一个骷髅射手，骷髅射手远程攻击并且攻击力为死灵飞龙的倍数。骷髅射手有30%的概率造成致命一击并且穿透护甲，并且该致命一击拥有<font color=\"#5C776E\">不死</font> 元素。"
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_property_one"					"攻击力为死灵飞龙的 % ："
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_suffix"						"%"
-	"DOTA_Tooltip_ability_ekkan_rune_w_1_property_two"                  "暴击伤害"
+	"DOTA_Tooltip_ability_ekkan_rune_w_1_property_two"                  "致命一击伤害"
         "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_two"                    "%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_2"								"[W2] 扩展恢复"
@@ -112,6 +112,8 @@
     	"DOTA_Tooltip_ability_ekkan_rune_w_4_Description"					"所有被召唤的骷髅和死灵飞龙自身，都将获得额外的魔法抗性。被召唤的骷髅拥有税后伤害加成。"
     	"DOTA_Tooltip_ability_ekkan_rune_w_4_property_one"					"魔法抗性提高"
     	"DOTA_Tooltip_ability_ekkan_rune_w_4_suffix"						""
+	"DOTA_Tooltip_ability_ekkan_rune_w_4_property_two"                  "骷髅的税后伤害增加"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_suffix_two"                    "%"
 		
 		"DOTA_Tooltip_ability_ekkan_river_of_souls"							"地狱之门"
 		"DOTA_Tooltip_ability_ekkan_river_of_souls_Description"				"在目标地点创造一个地狱之门，可以与另一个地狱之门联通，踏入地狱之门在1.5秒之后将被传送至另一个地狱之门处。死灵飞龙所有的控制单位都可以被传送，并且友军也可以使用地狱之门。"	
@@ -161,7 +163,7 @@
 		
 		"DOTA_Tooltip_ability_ekkan_rune_r_1"								"[R1] 吸血"
     	"DOTA_Tooltip_ability_ekkan_rune_r_1_Description"					"灵魂充能强化的单位获得攻击吸血能力。攻击的吸血同时也会治疗死灵飞龙。"
-    	"DOTA_Tooltip_ability_ekkan_rune_r_1_property_one"					"Lifesteal"
+    	"DOTA_Tooltip_ability_ekkan_rune_r_1_property_one"					"吸血"
     	"DOTA_Tooltip_ability_ekkan_rune_r_1_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_r_2"								"[R2] 灾难群"
