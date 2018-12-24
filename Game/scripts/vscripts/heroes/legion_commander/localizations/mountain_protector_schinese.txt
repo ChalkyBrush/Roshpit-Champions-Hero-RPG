@@ -27,9 +27,11 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_3_suffix"		"%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_q_4"				"[Q4] 山丘伸延"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_q_4_Description"	"增加冲击波的距离。"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_q_4_Description"	"增加冲击波的距离并且使得冲击波有概率能够打破被击中敌人的魔法免疫状态。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_4_property_one"	"距离提高"
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_4_suffix"		""
+	"DOTA_Tooltip_ability_mountain_protector_rune_q_4_property_two" "破魔概率"
+        "DOTA_Tooltip_ability_mountain_protector_rune_q_4_suffix_two"   "%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_mountain_guardian"					"山丘守卫"
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_Description"		"山丘之力保护山丘守卫者，被保护状态下山丘守护者不能移动。处于山丘守卫状态下，冲击波将汲取 1% x 冲击波等级 的最大魔法值。"
@@ -101,9 +103,10 @@
     	"DOTA_Tooltip_modifier_mountain_rune_e_4_effect_Description"	"增加基础攻击力和基础技能伤害"
 		
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture"					"永世断裂"
-    	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_Description"		"元素： <font color=\"#AF843D\">土</font> / <font color=\"#EF4126\">火</font><br>对附近范围造成10秒破坏性的地震，不断制造爆炸伤害并眩晕击中的敌人。"
+    	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_Description"		"元素： <font color=\"#AF843D\">土</font> / <font color=\"#EF4126\">火</font><br>对附近范围造成10秒破坏性的地震，不断制造爆炸伤害并眩晕击中的敌人。每一次爆炸在击中至少一个敌人后都有概率刷新[E] 技能的冷却时间。"
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_stun_duration"	"眩晕持续时间"
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_explosions"		"爆炸伤害"
+	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_refresh_chance"  "E 刷新的概率: %"
 
 		"DOTA_Tooltip_ability_mountain_protector_rune_r_1"				"[R1] 风暴裂谷"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_1_Description"	"被永世断裂击中的敌人被火花炸开，同时受到山丘守护者 % 攻击力的伤害。"
@@ -174,13 +177,14 @@
     	"property_mountain_protector_arcana2_description"								"用霜雪风暴替换 @Ability4 及其所有符文。"
 
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm"								"霜雪风暴"
-    	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Description"					"元素： <font color=\"#AF843D\">土</font> / <font color=\"#87D9FF\">冰</font><br>召唤极北冰川的严寒风暴对目标地区进行毁灭性的打击。区域内敌人攻击速度和移动速度降低，同时会受到冰冷沟壑的打击。"
+    	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Description"					"元素： <font color=\"#AF843D\">土</font> / <font color=\"#87D9FF\">冰</font><br>召唤极北冰川的严寒风暴对目标地区进行毁灭性的打击。区域内敌人攻击速度和移动速度降低，同时会受到冰冷沟壑的打击。每一次打击在击中至少一个敌人后都有概率刷新[E] 技能的冷却时间"
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Lore"						""
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_stun_duration"				"眩晕时间："
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_damage"						"伤害："
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_damage_from_strength"		"额外伤害为力量值的倍数："
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_move_slow_percent"			"移动速度降低 %："
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_attack_slow"					"攻击速度降低："
+	"DOTA_Tooltip_ability_mountain_protector_hailstorm_refresh_chance"              "E 刷新的概率: %"
 
 
     	"DOTA_Tooltip_modifier_hailstorm_aura_enemy"									"霜雪风暴造成减速"
@@ -240,12 +244,12 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"额外基础技能伤害（加法）"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix"				"x 力量值"
 
-  		"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3"						"[E3] 岩浆"
+  		"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3"						"[E3] 岩浆流"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_Description"			"释放完 陨石后，将有概率获得 火山岩 技能的自由释放层数，概率超过 100% ，将获得多层。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_property_one"			"自由释放层数概率"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_suffix"				"%"
 
-      	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3"						"[E4] 炽峰"
+      	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3"						"[E4] 泰坦毁灭者"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_Description"			"增加坚定技能的拦截伤害阈值。（类似日天）"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_property_one"			"坚定拦截阈值增加"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_suffix"				"%"
@@ -253,7 +257,7 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_1_1"		"冲击波雕文"
-		"item_rpc_mountain_protector_glyph_1_1_description" 				"减少冲击波的1秒冷却时间。"
+		"item_rpc_mountain_protector_glyph_1_1_description" 				"被山丘守护者眩晕的敌人被禁止治疗。"
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_2_1"		"守护者雕文"
 		"item_rpc_mountain_protector_glyph_2_1_description" 				"当使用山丘守护时所有伤害减少 @glyph_property1%。"
