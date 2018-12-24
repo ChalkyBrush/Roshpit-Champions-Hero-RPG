@@ -24,7 +24,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_q_2_suffix"							" 秒"
 
     	"DOTA_Tooltip_ability_dinath_rune_q_3"									"[Q3] 火焰切割"
-    	"DOTA_Tooltip_ability_dinath_rune_q_3_Description"						"当霜龙怒火进入冷却时，改技能替换为火焰切割。在空中飞行时，直接向目标地点冲刺，身下留下一道霜龙怒火的轨迹。"
+    	"DOTA_Tooltip_ability_dinath_rune_q_3_Description"						"每过3秒，帝纳斯的移动指令将会使她迅速飞到目标地点并且保持她的当前高度。并且留下一道霜龙怒火覆盖冲刺经过的路径。 "
     	"DOTA_Tooltip_ability_dinath_rune_q_3_property_one"						"最远施法距离"
     	"DOTA_Tooltip_ability_dinath_rune_q_3_suffix"							""
 
