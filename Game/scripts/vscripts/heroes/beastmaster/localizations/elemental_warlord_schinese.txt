@@ -179,9 +179,11 @@
     	"DOTA_Tooltip_ability_warlord_rune_e_1_suffix_two"				""
 
 		"DOTA_Tooltip_ability_warlord_rune_e_2"							"[E2] 浮冰"
-    	"DOTA_Tooltip_ability_warlord_rune_e_2_Description"				"在北极冲刺过程中，元素督军每0.1秒都回复一定的魔法值。"
+    	"DOTA_Tooltip_ability_warlord_rune_e_2_Description"				"在北极冲刺过程中，元素督军每0.1秒都回复一定的魔法值。在北极冲刺中使用投掷斧头时，将会增加他的基础伤害。"
     	"DOTA_Tooltip_ability_warlord_rune_e_2_property_one"			"魔法值回复"
     	"DOTA_Tooltip_ability_warlord_rune_e_2_suffix"					" 每0.1秒"
+	"DOTA_Tooltip_ability_warlord_rune_e_2_property_two"            "额外投掷斧头伤害"
+        "DOTA_Tooltip_ability_warlord_rune_e_2_suffix_two"               "% 在北极冲刺过程中"
 		
 		"DOTA_Tooltip_ability_warlord_rune_e_3"							"[E3] 不稳定火焰"
     	"DOTA_Tooltip_ability_warlord_rune_e_3_Description"				"元素督军施放火光降落，当到达最高点时，向附近敌人发射火球。"
