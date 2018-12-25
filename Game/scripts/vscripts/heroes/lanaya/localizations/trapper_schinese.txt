@@ -259,7 +259,19 @@
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_book"		"猎人雕文书"
 		
 		//Weapons
-		
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_00"   "刺客之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_01"   "战斗之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_02"   "忍者之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_03"   "狡诈之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_11"   "猎人的灵能之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_12"   "猎人大师之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_13"   "邪恶之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_14"   "野蛮之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_21"   "伏击大师之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_22"   "猎人的诡计"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_23"   "爆破专家的残忍之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_24"   "虚伪之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_25"   "隐匿之刃"
 		"DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_1"		"崛起的太阳"
 		
 		"DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_2"            "黑色玛瑙莲花"
