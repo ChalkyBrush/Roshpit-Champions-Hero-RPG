@@ -64,7 +64,7 @@
     	"DOTA_Tooltip_modifier_windstrike_weapon"						"风怒武器"
     	"DOTA_Tooltip_modifier_windstrike_weapon_Description"			"攻击时根据攻击力造成额外纯粹伤害"	
 
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4"				"[Q4] 内焰"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4"				"[Q4] 心炎"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_Description"	"炽血武器buff拥有者的力量值将提高所有 <font color=\"#EF4126\">火</font> 元素的伤害，敏捷值将提高所有 <font color=\"#7AE2A7\">风</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_one"	"火元素伤害提高"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix"		"% 每10点力量值"
@@ -303,6 +303,19 @@
 		"DOTA_Tooltip_modifier_spirit_warrior_glyph_5_a_effect_Description"	"攻击力和攻击速度提高"
 		
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_00"   "长矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_01"   "战士之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_02"   "风之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_03"   "上古之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_11"   "燃烧之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_12"   "伟大精灵之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_13"   "先祖之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_14"   "灵魂之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_21"   "失落丛林的远古之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_22"   "远古先祖之刃"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_23"   "宏伟之力长矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_24"   "远古神灵之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_25"   "狂野之矛"
 		
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_1"		"风之矛"
 		"item_property_spirit_warrior_immortal_weapon"								"风之矛"
