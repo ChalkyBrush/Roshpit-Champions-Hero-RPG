@@ -1032,7 +1032,7 @@
 		"DOTA_Tooltip_ability_ancient_god_wind_blink_ability_Description"            "没有限制的位移技能。"
 		
 		"DOTA_Tooltip_ability_ancient_god_wind_dodge_ability"                        "狂风急速"
-		"DOTA_Tooltip_ability_ancient_god_wind_dodge_ability"                        "强机动性"
+		"DOTA_Tooltip_ability_ancient_god_wind_dodge_ability_Description"	     "如同狂风骤雨般迅速的机动性."
 		
 		"DOTA_Tooltip_ability_ancient_god_water_vortex"                              "漩涡"
 		"DOTA_Tooltip_ability_ancient_god_water_vortex_Description"                  "将范围内的所有敌人拉向上古之神。"
