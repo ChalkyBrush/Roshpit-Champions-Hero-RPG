@@ -95,9 +95,10 @@
     	"DOTA_Tooltip_modifier_mountain_rune_e_4_effect_Description"	"Основной урон атаки и урон умений увеличены"
 		
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture"					"Aeon Fracture"
-    	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_Description"		"Стихия: <font color=\"#AF843D\">Земля</font> / <font color=\"#EF4126\">Огонь</font><br>Призывает серию подземных взрывов на 10 секунд в указанную область. Поражённые взрывом враги оглушаются и получают урон."
+    	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_Description"		"Стихия: <font color=\"#AF843D\">Земля</font> / <font color=\"#EF4126\">Огонь</font><br>Призывает серию подземных взрывов на 10 секунд в указанную область. Поражённые взрывом враги оглушаются и получают урон. Каждый взрыв имеет шанс сбросить перезарядку с Emberstone, если задел хотя бы одного противника."
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_explosions"		"ВЗРЫВОВ:"
+		"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_refresh_chance"  "ШАНС ПЕРЕЗАРЯДИТЬ 'E': %"
 
 		"DOTA_Tooltip_ability_mountain_protector_rune_r_1"				"[R1] Storm Rift"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_1_Description"	"На врагов, попавшие под действие @Ability4 обрушится поток искр, наносящих урон в размере % от урона героя."
@@ -168,13 +169,14 @@
     	"property_mountain_protector_arcana2_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Hailstorm."
 
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm"								"Hailstorm"
-    	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Description"					"Стихия: <font color=\"#AF843D\">Земля</font> / <font color=\"#87D9FF\">Лёд</font><br>Взывает к мощи северных гор чтобы создать в указанной области разрушительную снежную бурю. Враги, попавшие в область действия теряют скорость атаки и передвижения, также могут быть задеты ледяными разломами."
+    	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Description"					"Стихия: <font color=\"#AF843D\">Земля</font> / <font color=\"#87D9FF\">Лёд</font><br>Взывает к мощи северных гор чтобы создать в указанной области разрушительную снежную бурю. Враги, попавшие в область действия теряют скорость атаки и передвижения, также могут быть задеты ледяными взрывами. Каждый взрыв имеет шанс сбросить перезарядку с Emberstone, если задел хотя бы одного противника."
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Lore"						""
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_damage"						"УРОН:"
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_damage_from_strength"		"ДОП. УРОН, Х ОТ СИЛЫ:"
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_move_slow_percent"			"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ, %:"
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_attack_slow"					"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_mountain_protector_hailstorm_refresh_chance"              "ШАНС ПЕРЕЗАРЯДИТЬ 'E': %"
 
 
     	"DOTA_Tooltip_modifier_hailstorm_aura_enemy"									"Замедление от Hailstorm"
