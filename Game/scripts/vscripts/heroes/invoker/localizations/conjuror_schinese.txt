@@ -62,7 +62,7 @@
 		"DOTA_Tooltip_ability_immolation_radius"							"火之位面火焰范围："
 
 		"DOTA_Tooltip_ability_conjuror_rune_w_1"							"[W1] 永久献祭"
-    	"DOTA_Tooltip_ability_conjuror_rune_w_1_Description"				"你的火之位面将持续对周围所有敌人造成伤害。"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_Description"				"你的火之位面将持续对周围所有敌人造成伤害。由火之位面造成的献祭伤害将会永久增加他的最大生命值。最多2亿最大生命值。"
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_property_one"				"每秒伤害"
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_suffix"						""
 		
@@ -87,9 +87,11 @@
     	"DOTA_Tooltip_ability_conjuror_rune_w_3_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_conjuror_rune_w_4"							"[W4] 自爆"
-    	"DOTA_Tooltip_ability_conjuror_rune_w_4_Description"				"火之位面死亡时将爆炸，造成基于其最大生命值的伤害，同时造成1秒眩晕。"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_Description"				"火之位面死亡时将爆炸，造成基于其最大生命值的持续伤害，持续7秒，同时造成2秒眩晕。在燃烧时，敌人受到的来自召唤师的<font color=\"#EF4126\">元素</font> 伤害提高。"
     	"DOTA_Tooltip_ability_conjuror_rune_w_4_property_one"				"爆炸伤害"
     	"DOTA_Tooltip_ability_conjuror_rune_w_4_suffix"						"% 火之位面的最大生命值"
+	"DOTA_Tooltip_ability_conjuror_rune_w_4_property_two"				"火元素伤害增加"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_suffix_two"					"% 当敌人燃烧时"
 		
 		"DOTA_Tooltip_ability_summon_shadow_aspect"							"暗影位面"
 		"DOTA_Tooltip_ability_summon_shadow_aspect_Description"				"从深渊虚空召唤一个远程攻击、并且分裂攻击的暗影位面。暗影位面可提高你的机动性，当其存在时，你可以施放暗影之门。"
@@ -516,7 +518,7 @@
 		"conjuror_weapon_24"			"暗影精华"
 		"conjuror_weapon_25"			"星辰精华"
 		
-		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_1"		"Azerath的启迪法球"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_1"		"艾泽拉斯的启迪法球"
 		
 		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_2"            "三位一体"
         "item_property_conjuror_immortal_weapon2"                             "宇宙平衡"

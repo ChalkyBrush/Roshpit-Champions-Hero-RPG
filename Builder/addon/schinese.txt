@@ -787,6 +787,10 @@
 		"ui_runes"				"符文"
 		"ui_future_patch"		"后续版本将会有更多符文"
 		"ui_loading"			"正在载入，请稍候。。。"
+		"ui_done"				"完成"
+		"ui_loading_items"		"载入物品中..."
+		"ui_loading_units"		"载入单位中..."
+		"ui_item"				"物品"
 
 		"ui_equipment"			"装备"
 		"ui_skills"				"技能"
@@ -831,7 +835,26 @@
 		"ui_recalculate_stats_button"	"重置装备属性"
 		"ui_recalculate_stats_waiting"	"重置中"
 		"ui_recalculate_stats_tooltip"	"当你觉得某件装备的属性没有正确添加到英雄身上时，可以使用该按钮。请不要在战斗时使用。"
+		
+		"ui_regen"				"生命回复"
+		"ui_attack_damage"		"基础攻击力"
+		"ui_attack"				"攻击力"
+		"ui_defense"			"防御"
+		"ui_time_between_attacks"	"攻击间隔"
+		"ui_attack_damage_full"	"基础攻击力"
+		"ui_attack_speed"		"攻击速度"
+		"ui_attack_range"		"攻击距离"
+		"ui_physical_reduction"	"护甲提供的物理抗性"
+		"ui_additional_resistance"			"额外抗性"
+		"ui_base_ability_damage"	"基础技能伤害"
+		"ui_bonus_attack_damage"	"额外攻击力"
+		"ui_bonus_armor"			"额外护甲"
+		"ui_elements"				"元素伤害"
+		"ui_elements_resist"				"对你英雄的元素抗性"
+		"ui_most_mit_and_item_single"		"对你的英雄的物品和税后伤害增加"
+		"ui_most_mit_and_item_global"		"物品和税后伤害增加"
 
+		
 		"tooltip_loading_screen_tip_title"	"提示！"
 		"tooltip_loading_screen_tip_click"	"点击换到下一个提示"
 		"tooltip_loading_screen_tip"		"对新手的建议：请确保你选择了'普通'难度的地图，否则你将在这个世界里寸步难行。"
@@ -2181,7 +2204,21 @@
 		"star_serengaard_infinite_title"								"无尽模式"
 		"star_serengaard_infinite_description"							"在无尽模式下，使用 @heroname 在防守地图中防守至 @wave_number 波。"
 
+		"star_valdun_title"											"失落深海要塞"
+		"star_valdun_title_solo"									"失落深海要塞"
+		"star_valdun_description"									"使用 @heroname 击败  @mapname 的 @bossname。"
+		"star_valdun_description2"									"单人使用 @heroname 击败  @mapname 的 @bossname。"
+		"star_valdun_description3"									"在60分钟内单人使用 @heroname 击败  @mapname 的 @bossname。"
+		"star_valdun_description1solo"									"单独击败 @mapname  的 @bossname。"
+		"star_valdun_description2solo"									"在45分钟内单独击败 @mapname  的 @bossname。"
+		"star_valdun_description3solo"									"在30分钟内单独击败 @mapname  的 @bossname。"
 
+		"star_azalea_title"											"阿塞莉娅的圣地"
+		"star_azalea_title_solo"									"阿塞莉娅的圣地"
+		"star_azalea_description"									"在普通难度下使用@heroname击败 @mapname的@bossname。"
+		"star_azalea_description2"									"在传说难度下使用@heroname击败 @mapname的@bossname。"
+		"star_azalea_description3"									"在传说难度下使用3个凛冬冰川后以@heroname击败 @mapname的@bossname。"
+		
 		//SERENGAARD
 
 		//ELEMENTS

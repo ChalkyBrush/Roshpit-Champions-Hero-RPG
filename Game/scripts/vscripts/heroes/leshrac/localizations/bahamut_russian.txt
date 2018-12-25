@@ -67,10 +67,11 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_3"							"[W3] Orb of Judgement"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_3_Description"				"Применение @Ability2 дополнительно выпускает перед героем сферу, наносящую урон противникам. Попадание по врагу обычными атаками также выпустит в его сторону сферу. Враги, задетые сферой получат эффект руны [W2]."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_Description"				"Применение @Ability2 дополнительно выпускает перед героем сферу, наносящую урон противникам. Попадание по врагу обычными атаками также выпустит в его сторону сферу. Враги, задетые сферой получат эффект руны [W2]. Сфера и @Ability2 получают прибавку к базе урона в зависимости от силы атаки пораженной цели."
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_property_one"			"Урон"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_suffix"					""
-		
+		"DOTA_Tooltip_ability_bahamut_rune_w_3_property_two"            "Бонус к базе урона W3 и Judgement"
+        "DOTA_Tooltip_ability_bahamut_rune_w_3_suffix_two"              "% от силы атаки цели"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] Potency"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"К базе урона Предметов и всех Способностей добавляется значение, основанное на текущей мане героя, если противник поражен руной [W2]. Этот бонус затратит дополнительную ману при срабатывании. Добавка к базе урона непосредственно для @Ability2 в 10 раз больше указанного."

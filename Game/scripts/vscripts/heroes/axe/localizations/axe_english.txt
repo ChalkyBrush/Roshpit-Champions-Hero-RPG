@@ -52,7 +52,7 @@
 		
 		
 		"DOTA_Tooltip_ability_backshock"                                "Spur Shock"
-        "DOTA_Tooltip_ability_backshock_Description"                    "Element: <font color=\"#DDDDDD\">Normal</font><br>Emits 3 shockwaves behind the General."
+        "DOTA_Tooltip_ability_backshock_Description"                    "Element: <font color=\"#DDDDDD\">Normal</font><br>Emits 3 shockwaves behind The Red General."
         "DOTA_Tooltip_ability_backshock_Lore"                           ""
         "DOTA_Tooltip_ability_backshock_main_damage"                    "DAMAGE PER WAVE:"
         "DOTA_Tooltip_ability_backshock_speed"                          "WAVE SPEED:"
@@ -73,7 +73,7 @@
         "DOTA_Tooltip_modifier_axe_rune_w_2_visible_Description"		"Reduced Magic Armor"
 		
 		"DOTA_Tooltip_ability_axe_rune_w_3"                             "[W3] Fury"
-        "DOTA_Tooltip_ability_axe_rune_w_3_Description"                 "Casting Spur Shock heals the General. The healing value is multiplied by Spur Shock's spell level."
+        "DOTA_Tooltip_ability_axe_rune_w_3_Description"                 "Casting Spur Shock heals The Red General. The healing value is multiplied by Spur Shock's spell level."
         "DOTA_Tooltip_ability_axe_rune_w_3_property_one"                "Heal"
         "DOTA_Tooltip_ability_axe_rune_w_3_suffix"                      "x Spur Shock level"
         "DOTA_Tooltip_ability_axe_rune_w_3_property_two"                "Heal"
@@ -87,7 +87,7 @@
 		
 		
 		"DOTA_Tooltip_ability_whirlwind"                                "Redmist Cyclone"
-        "DOTA_Tooltip_ability_whirlwind_Description"                    "The Red General spins wildly, hooking all nearby units and dragging them along with him as he advances forward (except bosses). Enemies are dragged every 0.18 seconds, and at each of these intervals, the General is cleansed of stun effects and restores health for each affected enemy unit."
+        "DOTA_Tooltip_ability_whirlwind_Description"                    "The Red General spins wildly, hooking all nearby units and dragging them along with him as he advances forward (except bosses). Enemies are dragged every 0.18 seconds, and at each of these intervals, The Red General is cleansed of stun effects and restores health for each affected enemy unit."
         "DOTA_Tooltip_ability_whirlwind_Lore"                           ""
         "DOTA_Tooltip_ability_whirlwind_heal"                           "HEAL PER ENEMY HIT PER TICK:"
         "DOTA_Tooltip_ability_whirlwind_radius"                         "RADIUS:"
@@ -101,7 +101,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_1_visible_Description"        "Gaining bonus to all attributes based on missing health"
 		
 		"DOTA_Tooltip_ability_axe_rune_e_2"                             "[E2] Cyclone Storm"
-        "DOTA_Tooltip_ability_axe_rune_e_2_Description"                 "The cyclical force of the General's Redmist Cyclone briefly adds speed to his attacks. This effect lasts 5 seconds, and is refreshed when casting Skull Basher."
+        "DOTA_Tooltip_ability_axe_rune_e_2_Description"                 "The cyclical force of The Red General's Redmist Cyclone briefly adds speed to his attacks. This effect lasts 5 seconds, and is refreshed when casting Skull Basher."
         "DOTA_Tooltip_ability_axe_rune_e_2_property_one"                "Attack Damage Bonus"
         "DOTA_Tooltip_ability_axe_rune_e_2_suffix"                      "%"
  
@@ -109,7 +109,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_2_tornado_Description"        "Increased attack power %%"
 		
 		"DOTA_Tooltip_ability_axe_rune_e_3"                             "[E3] Whirlwind"
-        "DOTA_Tooltip_ability_axe_rune_e_3_Description"                 "Enemies dragged by Redmist Cyclone are slashed for an instance of Pure damage based on the General's total attack damage."
+        "DOTA_Tooltip_ability_axe_rune_e_3_Description"                 "Enemies dragged by Redmist Cyclone are slashed for an instance of Pure damage based on The Red General's total attack damage."
         "DOTA_Tooltip_ability_axe_rune_e_3_property_one"                "Damage"
         "DOTA_Tooltip_ability_axe_rune_e_3_suffix"                      "% of attack damage"
 		
@@ -128,7 +128,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_4_furnace_Description"        "Casting Spur Shock unleashes charges."
  
         "DOTA_Tooltip_ability_sunder"                                   "Sunder"
-        "DOTA_Tooltip_ability_sunder_Description"                       "Element: <font color=\"#DDDDDD\">Normal</font><br>The Red General winds up his weapon for 2 seconds and then smashes the ground in front of him. Damage dealt is based on a multiple of the General's Current Health."
+        "DOTA_Tooltip_ability_sunder_Description"                       "Element: <font color=\"#DDDDDD\">Normal</font><br>The Red General winds up his weapon for 2 seconds and then smashes the ground in front of him. Damage dealt is based on a multiple of The Red General's Current Health."
         "DOTA_Tooltip_ability_sunder_Lore"                              ""
         "DOTA_Tooltip_ability_sunder_main_damage"                       "DAMAGE AS % OF CURRENT HP:"
 		
@@ -174,7 +174,7 @@
         "property_axe_arcana1_description"                              "Replaces @Ability4 and all of its runes with Terraforming."
  
         "DOTA_Tooltip_ability_axe_arcana_smash"                         "Terraforming"
-        "DOTA_Tooltip_ability_axe_arcana_smash_Description"             "Element: <font color=\"#DDDDDD\">Normal</font><br>The General threatens to shatter the surface of the planet. A rupture begins to form, and after 2 seconds it will explode, stunning and damaging all enemy units caught inside the faultline."
+        "DOTA_Tooltip_ability_axe_arcana_smash_Description"             "Element: <font color=\"#DDDDDD\">Normal</font><br>The Red General threatens to shatter the surface of the planet. A rupture begins to form, and after 2 seconds it will explode, stunning and damaging all enemy units caught inside the faultline."
         "DOTA_Tooltip_ability_axe_arcana_smash_attack_power_mult_percent"   "DAMAGE AS % OF ATTACK POWER:"
         "DOTA_Tooltip_ability_axe_arcana_smash_stun_duration"           "STUN DURATION:"
  
@@ -184,7 +184,7 @@
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_suffix"              "%"
  
         "DOTA_Tooltip_ability_axe_rune_r_2_arcana1"                     "[R2] Aftermath"
-        "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_Description"         "Every enemy unit damaged by Terraforming gives the General base attack damage for 12 seconds, to a maximum of 5 stacks. These stacks are gained before Terraforming deals its damage."
+        "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_Description"         "Every enemy unit damaged by Terraforming gives The Red General base attack damage for 12 seconds, to a maximum of 5 stacks. These stacks are gained before Terraforming deals its damage."
         "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_property_one"        "Base Damage Increase"
         "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_suffix"              ""
  
@@ -212,7 +212,7 @@
         "property_axe_arcana2_description"                              "Replaces @Ability2 and all of its runes with Stonewall."
  
         "DOTA_Tooltip_ability_axe_stonewall_ability"                         "Stonewall"
-        "DOTA_Tooltip_ability_axe_stonewall_ability_Description"             "Create a circular wall of stone around The General. Any ally standing within the wall's boundaries takes reduced damage."
+        "DOTA_Tooltip_ability_axe_stonewall_ability_Description"             "Create a circular wall of stone around The Red General. Any ally standing within the wall's boundaries takes reduced damage."
         "DOTA_Tooltip_ability_axe_stonewall_ability_damage_reduction"   "DAMAGE REDUCTION %:"
         "DOTA_Tooltip_ability_axe_stonewall_ability_duration"           "DURATION:"
 
@@ -225,19 +225,19 @@
         "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_suffix"              "%"
  
         "DOTA_Tooltip_ability_axe_rune_w_2_arcana2"                     "[W2] Barrier"
-        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_Description"         "While standing within Stonewalls, the general has increased armor and strength."
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_Description"         "While standing within Stonewalls, The Red General has increased armor and strength."
         "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_property_one"        "Armor"
         "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_suffix"              ""
         "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_property_two"        "Strength"
         "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_suffix_two"          ""
  
         "DOTA_Tooltip_ability_axe_rune_w_3_arcana2"                     "[W3] Counter Helix"
-        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_Description"         "15% chance when attacked to deal damage in a small area around the general based on his attack power."
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_Description"         "15% chance when attacked to deal damage in a small area around The Red General based on his attack power."
         "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_property_one"        "Damage"
         "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_suffix"              "% of attack power"
 
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2"                     "[W4] Enforcer"
-        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_Description"         "When Stonewall is cast, enemies within the radius are forced to issue an attack order on the Red General."
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_Description"         "When Stonewall is cast, enemies within the radius are forced to issue an attack order on The Red General."
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_property_one"        "Taunt Radius"
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_suffix"              ""
 
@@ -252,7 +252,7 @@
         "item_rpc_axe_glyph_3_1_description"                "The interval between @Ability3's strikes is reduced by 50%, occurring every 0.09 seconds."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "Glyph of the Helix"
-        "item_rpc_axe_glyph_4_1_description"                "The General also performs a Helix Attack when casting @Ability2, dealing 60% of his attack damage as Physical to all surrounding enemies. Damage is further multiplied by @Ability2's spell level."
+        "item_rpc_axe_glyph_4_1_description"                "The Red General also performs a Helix Attack when casting @Ability2, dealing 60% of his attack damage as Physical to all surrounding enemies. Damage is further multiplied by @Ability2's spell level."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "Glyph of Impact" // lower pitch base sound high pitch strike sound
         "item_rpc_axe_glyph_5_1_description"                "@Ability1's stun becomes a 0.03 second ministun but gains @glyph_property1x increased damage."
@@ -328,7 +328,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "Red Battlefury"
         "item_property_axe_immortal_weapon2"                            "Frenzied Berserker"
-        "property_axe_immortal_weapon2_description"                        "While @Ability3 is active, the General's movespeed and movespeed cap are both increased by @special_property1. Additionally increases the damage of Whirlwind against Paragons and bosses by @special_property2%."
+        "property_axe_immortal_weapon2_description"                        "While @Ability3 is active, The Red General's movespeed and movespeed cap are both increased by @special_property1. Additionally increases the damage of Whirlwind against Paragons and bosses by @special_property2%."
 
         "DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_3"            "Ragnar's Thunderax"
         "item_property_axe_immortal_weapon3"                            "Overpower"

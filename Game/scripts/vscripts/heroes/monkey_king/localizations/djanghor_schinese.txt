@@ -187,7 +187,7 @@
     	"DOTA_Tooltip_modifier_monkey_a_c_effect_Description"						"自然元素伤害抗性减少"
 
     	"DOTA_Tooltip_ability_djanghor_rune_e_2"									"[E2] 杜松藤"
-    	"DOTA_Tooltip_ability_djanghor_rune_e_2_Description"						"在施放筋斗云过程中，金箍棒的伤害将提高。"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_2_Description"						"在施放筋斗云过程中，金箍棒的伤害将提高。如果金箍棒的第三次打击击中至少1个敌人，齐天大圣将会有概率能够自由释放@Ability4 ，自由释放不需要进行施法时间（读条）。 如果概率大于100%，齐天大圣将会获得多次自由释放的机会。"
     	"DOTA_Tooltip_ability_djanghor_rune_e_2_property_one"						"金箍棒伤害提高"
     	"DOTA_Tooltip_ability_djanghor_rune_e_2_suffix"								"%"
 
@@ -325,19 +325,19 @@
 		
 	
 		//Weapons
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_00"		"Staff"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_01"		"Iron Staff"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_02"		"Forest Staff"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_03"		"Primitive Staff"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_11"		"Animal Daibo"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_12"		"Landscaper Daibo"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_13"		"Shapeshifter Daibo"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_14"		"Natural Daibo"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_21"		"Versatile Nature Daibo"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_22"		"Mountain Daibo"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_23"		"Gaia Staff"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_24"		"Pristine Summer Daibo"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_25"		"Uprooted Earth Daibo"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_00"		"棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_01"		"钢铁之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_02"		"丛林之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_03"		"原始之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_11"		"动物之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_12"		"大师之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_13"		"千变万化之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_14"		"自然之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_21"		"万象自然之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_22"		"群山之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_23"		"盖亚之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_24"		"远古召唤者之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_25"		"根除之棍"
 		
 		"DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_1"            "狼牙棒"
         "item_property_djanghor_immortal_weapon"                             "金刚狼"

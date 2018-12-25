@@ -36,7 +36,7 @@
 		"DOTA_Tooltip_modifier_torturok_aura_effect"				"霜寒光环"
 		"DOTA_Tooltip_modifier_torturok_aura_effect_Description"	"在移动时受到伤害"
 
-		"DOTA_Tooltip_ability_ozubu_passive"						"Exonova"
+		"DOTA_Tooltip_ability_ozubu_passive"						"极致新星"
 		"DOTA_Tooltip_ability_ozubu_passive_Description"			"施法者周围不断发生冰冻爆炸."
 		"DOTA_Tooltip_ability_ozubu_passive_damage"					"伤害:"
 		"DOTA_Tooltip_ability_ozubu_passive_ms_loss"				"移动速度降低:"
@@ -75,6 +75,9 @@
 		"villager_dialogue_3"										"在这里之外是另一条蜿蜒上山的路线。然而，这座桥和这座山似乎在黑暗中消失了..."
 	
 		"winterblight_tuskar_villager"								"村民"
+		
+		"DOTA_Tooltip_ability_item_rpc_boreal_granite_chunk"				"北地花岗岩石块"
+		"item_rpc_boreal_granite_chunk_desc"						"在合成圣器中，用此物品和任意不朽品质的衣服装备合成来获得北地花岗岩胸甲。"
 
 		//雪图技能和BUFF
 

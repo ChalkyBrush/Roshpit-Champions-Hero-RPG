@@ -787,6 +787,10 @@
 		"ui_runes"				"符文"
 		"ui_future_patch"		"后续版本将会有更多符文"
 		"ui_loading"			"正在载入，请稍候。。。"
+		"ui_done"				"完成"
+		"ui_loading_items"		"载入物品中..."
+		"ui_loading_units"		"载入单位中..."
+		"ui_item"				"物品"
 
 		"ui_equipment"			"装备"
 		"ui_skills"				"技能"
@@ -831,7 +835,26 @@
 		"ui_recalculate_stats_button"	"重置装备属性"
 		"ui_recalculate_stats_waiting"	"重置中"
 		"ui_recalculate_stats_tooltip"	"当你觉得某件装备的属性没有正确添加到英雄身上时，可以使用该按钮。请不要在战斗时使用。"
+		
+		"ui_regen"				"生命回复"
+		"ui_attack_damage"		"基础攻击力"
+		"ui_attack"				"攻击力"
+		"ui_defense"			"防御"
+		"ui_time_between_attacks"	"攻击间隔"
+		"ui_attack_damage_full"	"基础攻击力"
+		"ui_attack_speed"		"攻击速度"
+		"ui_attack_range"		"攻击距离"
+		"ui_physical_reduction"	"护甲提供的物理抗性"
+		"ui_additional_resistance"			"额外抗性"
+		"ui_base_ability_damage"	"基础技能伤害"
+		"ui_bonus_attack_damage"	"额外攻击力"
+		"ui_bonus_armor"			"额外护甲"
+		"ui_elements"				"元素伤害"
+		"ui_elements_resist"				"对你英雄的元素抗性"
+		"ui_most_mit_and_item_single"		"对你的英雄的物品和税后伤害增加"
+		"ui_most_mit_and_item_global"		"物品和税后伤害增加"
 
+		
 		"tooltip_loading_screen_tip_title"	"提示！"
 		"tooltip_loading_screen_tip_click"	"点击换到下一个提示"
 		"tooltip_loading_screen_tip"		"对新手的建议：请确保你选择了'普通'难度的地图，否则你将在这个世界里寸步难行。"
@@ -2181,7 +2204,21 @@
 		"star_serengaard_infinite_title"								"无尽模式"
 		"star_serengaard_infinite_description"							"在无尽模式下，使用 @heroname 在防守地图中防守至 @wave_number 波。"
 
+		"star_valdun_title"											"失落深海要塞"
+		"star_valdun_title_solo"									"失落深海要塞"
+		"star_valdun_description"									"使用 @heroname 击败  @mapname 的 @bossname。"
+		"star_valdun_description2"									"单人使用 @heroname 击败  @mapname 的 @bossname。"
+		"star_valdun_description3"									"在60分钟内单人使用 @heroname 击败  @mapname 的 @bossname。"
+		"star_valdun_description1solo"									"单独击败 @mapname  的 @bossname。"
+		"star_valdun_description2solo"									"在45分钟内单独击败 @mapname  的 @bossname。"
+		"star_valdun_description3solo"									"在30分钟内单独击败 @mapname  的 @bossname。"
 
+		"star_azalea_title"											"阿塞莉娅的圣地"
+		"star_azalea_title_solo"									"阿塞莉娅的圣地"
+		"star_azalea_description"									"在普通难度下使用@heroname击败 @mapname的@bossname。"
+		"star_azalea_description2"									"在传说难度下使用@heroname击败 @mapname的@bossname。"
+		"star_azalea_description3"									"在传说难度下使用3个凛冬冰川后以@heroname击败 @mapname的@bossname。"
+		
 		//SERENGAARD
 
 		//ELEMENTS
@@ -2575,19 +2612,19 @@
 
 
 		//Weapons
-		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_00"		"Hand Blades"
-		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_01"		"Arcane Blades"
-		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_02"		"Energy Blades"
-		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_03"		"Plasma Blades"
-		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_11"		"Zonal Spark Blades"
-		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_12"		"Photon Blades"
-		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_13"		"Space Blades"
-		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_14"		"Plasma Warp Blades"
-		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_21"		"Arcane Energy Blades"
-		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_22"		"Flash Force Blades"
-		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_23"		"Orbital Combat Blades"
-		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_24"		"Photonic Warp Blades"
-		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_25"		"Archon Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_00"		"刃"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_01"		"奥术之刃"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_02"		"能量之刃"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_03"		"等离子之刃"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_11"		"带状火花之刃"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_12"		"光子之刃"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_13"		"空间之刃"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_14"		"等离子跃进之刃"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_21"		"奥术能量之刃"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_22"		"闪光之刃"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_23"		"轨道战争之刃"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_24"		"光子跃进之刃"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_25"		"奥法之刃"
 		
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_1"			"奥法风刃"
 		"item_property_arkimus_immortal_weapon"								"双源"
@@ -2735,11 +2772,12 @@
     	"DOTA_Tooltip_modifier_starfall_a_d_visible_Description"		"每层减少 <font color=\"#C25DFC\">宇宙</font> 元素伤害抗性 10%%"
 		
 		"DOTA_Tooltip_ability_astral_rune_r_2"							"[R2] 星辰震颤"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_Description"				"被天体爆发抛入空中的敌人落地后，另一个星辰碎片继续对其造成伤害和眩晕。伤害无视敌人的坚定技能。"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_property_one"				"伤害"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_suffix"					""
-    	"DOTA_Tooltip_ability_astral_rune_r_2_property_two"				"眩晕时间"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
+    	"DOTA_Tooltip_ability_astral_rune_r_2_Description"				"在[R1]的流星落下后将会造成一系列震动，对被击中的敌人造成伤害并且产生0.03秒的眩晕。"
+	 "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "基于[R1] 流星雨的伤害"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "%"
+        "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "范围"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
+
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] 凤凰"
     	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"成功施放天体爆发后召唤凤凰。凤凰将跟随星际游侠并攻击附近的敌人，凤凰的伤害基于星际游侠的攻击力。"
@@ -2789,7 +2827,7 @@
     	"property_astral_arcana2_description"								"用阿波罗神弓来替换 @Ability2 和它的全部符文。"
 
     	"DOTA_Tooltip_ability_shot_of_apollo"						"阿波罗神弓"
-    	"DOTA_Tooltip_ability_shot_of_apollo_Description"			"星界游侠用超乎神奇地技艺将她的弓弦拉伸的超越了极限，在两秒后，瞬间向目标发射出海量的箭矢。"
+    	"DOTA_Tooltip_ability_shot_of_apollo_Description"			"星界游侠用超乎神奇地技艺将她的弓弦拉伸的超越了极限，在1秒后，瞬间向目标发射出海量的箭矢。"
     	"DOTA_Tooltip_ability_shot_of_apollo_shots"				"箭矢数量:"
 
     	"DOTA_Tooltip_modifier_apollo_strikes"					"阿波罗神弓"
@@ -2988,8 +3026,8 @@
     	"DOTA_Tooltip_modifier_auriun_c_b_heal"						"圣光"		
     	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"每0.2秒治疗一次"
 
-    	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible"				"Energizing Light"
-    	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible_Description"	"Gaining attack damage. Max 5 stacks."
+    	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible"				"圣光"
+    	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible_Description"	"获得攻击力，最大5层。"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_4"						"[W4] 致盲阴影"
     	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"敌人每次被暗影火炬击中，获得一层debuff提高攻击丢失几率并降低移动速度，持续7秒。最高可叠加至5层。"
@@ -3017,8 +3055,8 @@
     	"DOTA_Tooltip_ability_auriun_rune_e_1_property_one"			"魔法伤害加深"
     	"DOTA_Tooltip_ability_auriun_rune_e_1_suffix"				"%"		
 
-    	//"DOTA_Tooltip_modifier_auriun_rune_e_1"						"Vitalize"
-    	//"DOTA_Tooltip_modifier_auriun_rune_e_1_Description"			"Gaining mana each second."
+    	//"DOTA_Tooltip_modifier_auriun_rune_e_1"						"天使之翼"
+    	//"DOTA_Tooltip_modifier_auriun_rune_e_1_Description"			"每秒获得魔法值。"
 		
 		"DOTA_Tooltip_ability_auriun_rune_e_2"						"[E2] 光辉"
     	"DOTA_Tooltip_ability_auriun_rune_e_2_Description"			"天使形态可以提高俄瑞恩的智力值，持续8秒。"
@@ -3053,27 +3091,29 @@
     	"DOTA_Tooltip_modifier_auriun_ult_effect_Description"			"回复大量生命值并提高移动速度"
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_1"						"[R1] 先哲"
-    	"DOTA_Tooltip_ability_auriun_rune_r_1_Description"			"俄瑞恩的智力将提高其攻击力。"
+    	"DOTA_Tooltip_ability_auriun_rune_r_1_Description"			"俄瑞恩的智力将提高其攻击力并且在他的普通攻击时附带额外的纯粹伤害。"
     	"DOTA_Tooltip_ability_auriun_rune_r_1_property_one"			"攻击力提高"
     	"DOTA_Tooltip_ability_auriun_rune_r_1_suffix"				"% 智力值"
+	"DOTA_Tooltip_ability_auriun_rune_r_1_property_two"         "造成的额外伤害"
+        "DOTA_Tooltip_ability_auriun_rune_r_1_suffix_two"           "攻击力%"
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_2"						"[R2] 生命灯塔"
     	"DOTA_Tooltip_ability_auriun_rune_r_2_Description"			"俄瑞恩加强身上的装备。装备上的所有数值提高（除符文数值以外）。只在新装备物品和重生的时候重新做计算。装备效果并不会被加强。"
     	"DOTA_Tooltip_ability_auriun_rune_r_2_property_one"			"装备数值提高"
     	"DOTA_Tooltip_ability_auriun_rune_r_2_suffix"				"%"		
 
-    	//"DOTA_Tooltip_modifier_auriun_rune_r_2_visible"				"Beacon of Life"
-    	//"DOTA_Tooltip_modifier_auriun_rune_r_2_visible_Description"	"Increased Armor Based on Max Life"	
+    	//"DOTA_Tooltip_modifier_auriun_rune_r_2_visible"				"生命的灯塔"
+    	//"DOTA_Tooltip_modifier_auriun_rune_r_2_visible_Description"	"基于最大生命值增加护甲"	
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_3"						"[R3] 灵魂链接"
     	"DOTA_Tooltip_ability_auriun_rune_r_3_Description"			"俄瑞恩技能或符文制造出的一切增益buff，其持续时间都会被提高。"
     	"DOTA_Tooltip_ability_auriun_rune_r_3_property_one"			"持续时间增加"
     	"DOTA_Tooltip_ability_auriun_rune_r_3_suffix"				" 秒"	
-    	//"DOTA_Tooltip_ability_auriun_rune_r_3_property_two"			"Agility Bonus"
+    	//"DOTA_Tooltip_ability_auriun_rune_r_3_property_two"			"额外敏捷"
     	//"DOTA_Tooltip_ability_auriun_rune_r_3_suffix_two"			"%"			
 
-    	//"DOTA_Tooltip_modifier_auriun_rune_r_3_visible"				"Binding Souls"
-    	//"DOTA_Tooltip_modifier_auriun_rune_r_3_visible_Description"	"Increased Agility and Strength from Auriun"
+    	//"DOTA_Tooltip_modifier_auriun_rune_r_3_visible"				"灵魂链接"
+    	//"DOTA_Tooltip_modifier_auriun_rune_r_3_visible_Description"	"增加俄瑞恩的敏捷值和力量值。"
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_4"						"[R4] 不朽之守护"
     	"DOTA_Tooltip_ability_auriun_rune_r_4_Description"			"受到生命赐福影响的友军有几率获得天堂之盾。超过100% 几率时每个受影响的友军将获得多重的天堂之盾。"
@@ -3184,6 +3224,19 @@
 		"item_rpc_auriun_glyph_5_a_description" 				"持续用二技能打击周围所有敌人，每秒造成 @glyph_property1x 宙斯智力值的伤害并且减速 @glyph_property2%. 1% 造成的伤害治疗宙斯."
 		
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_00"   "卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_01"   "诅咒卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_02"   "盛怒卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_03"   "知识卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_11"   "黑暗卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_12"   "光与影的卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_13"   "圣述卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_14"   "奥秘卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_21"   "深渊领主的诅咒之书"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_22"   "圣识卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_23"   "伟大法师的精神卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_24"   "救世主的神圣之书"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_25"   "鬼魂启蒙之书"
 		
 		"DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_1"		"预言"
 		"item_property_auriun_immortal_weapon"								"天堂的引导"
@@ -3202,6 +3255,7 @@
 
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect"				"诡诈"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"魔法免疫并降低生命回复速度"
+
 
 		"DOTA_Tooltip_ability_stun_attack"                              "骷髅锤"
         "DOTA_Tooltip_ability_stun_attack_Description"                  "元素： <font color=\"#DDDDDD\">普通</font><br>跳跃至目标地点，获得骷髅锤buff。buff持续时间内每次攻击都可眩晕范围内敌人，造成溅射伤害，并提高攻击速度。<br>飞跃时骷髅锤、复原、狂暴之怒的持续时间将刷新并暂停。最远飞跃距离：1200。"
@@ -3408,6 +3462,42 @@
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_suffix"              "%"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_two"        "额外距离"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_suffix_two"          ""
+	
+	"DOTA_Tooltip_ability_item_rpc_axe_arcana2"                     "不破石墙之握"
+
+        "item_property_axe_arcana2"                                     "石墙"
+        "property_axe_arcana2_description"                              "将 @Ability2 以及他的所有符文替换为石墙"
+ 
+        "DOTA_Tooltip_ability_axe_stonewall_ability"                         "石墙"
+        "DOTA_Tooltip_ability_axe_stonewall_ability_Description"             "在赤色上将周围产生一圈石墙。任何站在石墙范围中的友军受到的伤害将会降低。"
+        "DOTA_Tooltip_ability_axe_stonewall_ability_damage_reduction"   "受到伤害降低 %:"
+        "DOTA_Tooltip_ability_axe_stonewall_ability_duration"           "持续时间:"
+
+        "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect"          "石墙"
+        "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect_Description" "降低受到的伤害"
+ 
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2"                     "[W1] 筑墙伏击"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_Description"         "提高赤色上将对站在石墙范围中的敌人造成的税后伤害。"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_property_one"        "税后伤害增加"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_suffix"              "%"
+ 
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2"                     "[W2] 盾墙"
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_Description"         "当赤色上将站在石墙中时，他的力量值和护甲值将会提高。"
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_property_one"        "护甲值"
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_suffix"              ""
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_property_two"        "力量值"
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_suffix_two"          ""
+ 
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2"                     "[W3] 反击螺旋"
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_Description"         "赤色上将在受到攻击时有15%的概率产生反击螺旋，对小范围内的敌人造成伤害，伤害数值基于赤色上将的攻击力。"
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_property_one"        "伤害"
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_suffix"              "%攻击力"
+
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2"                     "[W4] 强制执行者"
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_Description"         "当赤色上将释放石墙时，敌人将会被嘲讽，对赤色上将发动攻击。"
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_property_one"        "嘲讽范围"
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_suffix"              ""
+
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "格斗雕文"
@@ -3557,9 +3647,11 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_3"							"[W3] 审判之球"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_3_Description"				"施放审判时将同时向前方发射一个审判之球。普通攻击时也将向目标发射一个审判之球。被审判之球击中的敌人也将带上审判之印。"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_Description"				"施放审判时将同时向前方发射一个审判之球。普通攻击时也将向目标发射一个审判之球。被审判之球击中的敌人也将带上审判之印。审判和审判之球对目标造成额外伤害，额外伤害基于目标的总攻击力。"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_property_one"			"审判之球伤害"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_suffix"					""
+	"DOTA_Tooltip_ability_bahamut_rune_w_3_property_two"            "审判和审判之球的基础伤害增加"
+        "DOTA_Tooltip_ability_bahamut_rune_w_3_suffix_two"              "% 目标攻击力"
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] 潜能"
@@ -3816,9 +3908,11 @@
     	"DOTA_Tooltip_ability_chernobog_rune_q_1_suffix"						"%"
 
     	"DOTA_Tooltip_ability_chernobog_rune_q_2"								"[Q2] 暗夜之爪"
-    	"DOTA_Tooltip_ability_chernobog_rune_q_2_Description"					"被卡戎之爪影响的敌人每0.5秒受到一次伤害。"
+    	"DOTA_Tooltip_ability_chernobog_rune_q_2_Description"					"被卡戎之爪影响的敌人每0.5秒受到一次伤害。并且受到的 <font color=\"#5B648C\">恶魔</font> 元素增加，增加值为他们对恶魔元素抗性虚弱的一定百分比。"
     	"DOTA_Tooltip_ability_chernobog_rune_q_2_property_one"					"伤害"
     	"DOTA_Tooltip_ability_chernobog_rune_q_2_suffix"						""
+        "DOTA_Tooltip_ability_chernobog_rune_q_2_property_two"                  "恶魔元素伤害增加"
+        "DOTA_Tooltip_ability_chernobog_rune_q_2_suffix_two"                    "%"
 
      	"DOTA_Tooltip_ability_chernobog_rune_q_3"								"[Q3] 冥河苍凉"
     	"DOTA_Tooltip_ability_chernobog_rune_q_3_Description"					"在卡戎之爪内增加额外的攻击力"
@@ -3885,10 +3979,12 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_suffix_two"					""
 		
 		"DOTA_Tooltip_ability_chernobog_shadow_walk"							"暗影追捕"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_Description"				"暗夜魔王突破空虚并且使自己的移动速度达到最高状态。当开启暗影追捕时，暗夜魔王每秒丢失魔法和生命值。"
+    	"DOTA_Tooltip_ability_chernobog_shadow_walk_Description"				"暗夜魔王突破空虚并且使自己的移动速度达到最高状态。当开启暗影追捕时，暗夜魔王每秒丢失魔法和生命值。同时在暗影追捕开启时在暗夜魔王周围300码内的敌人将被禁止治疗。"
     	"DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_cap"				"移动速度上限："
     	"DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_bonus"			"移动速度提高:"
     	"DOTA_Tooltip_ability_chernobog_shadow_walk_drain_per_second"			"每秒汲取 % 最大生命值和最大魔法值："
+	"DOTA_Tooltip_modifier_shadow_walk_aura"                                "魔王降临"
+        "DOTA_Tooltip_modifier_shadow_walk_aura_Description"                    "治疗被禁止"
 		
 		"DOTA_Tooltip_ability_chernobog_rune_e_1"								"[E1] 黑暗耳语"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_Description"					"开启暗影追捕增加攻击力。关闭时增益效果移除。"
@@ -4075,19 +4171,19 @@
 		"item_rpc_chernobog_glyph_5_a_description" 				"暗夜魔王享受 @Ability2 的所有符文的所有加成效果无论 W 技能开启或是关闭。但是 @Ability2 开启时，仍然禁止治疗。"
 		
 		//Weapons
-		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_00"		"Claws"
-		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_01"		"Night's Claw"
-		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_02"		"Hunter's Claw"
-		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_03"		"Shadow Claw"
-		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_11"		"Black Claw"
-		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_12"		"Claws of Veles"
-		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_13"		"Zorica's Bane"
-		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_14"		"Pantheon Claw"
-		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_21"		"Dark Claw of Chronicius"
-		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_22"		"Cvarog Touch Claw"
-		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_23"		"Black Claw of Veles"
-		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_24"		"Perun's Thunder Claw"
-		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_25"		"Night Stalker's Hunting Claw"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_00"		"利爪"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_01"		"暗夜之爪"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_02"		"猎人之爪"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_03"		"暗影之爪"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_11"		"黑暗之爪"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_12"		"维勒斯之爪"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_13"		"卓利卡的梦魇"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_14"		"众神之爪"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_21"		"久远的黑暗之爪"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_22"		"卡瓦罗格的触摸"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_23"		"维勒斯的黑暗之爪"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_24"		"裴纶的雷霆之爪"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_25"		"暗夜魔王的狩猎之爪"
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_1"		"斯瓦罗格的神圣之爪"
 		"item_property_chernobog_immortal_weapon"						"恶魔之魂"
@@ -4166,7 +4262,7 @@
 		"DOTA_Tooltip_ability_immolation_radius"							"火之位面火焰范围："
 
 		"DOTA_Tooltip_ability_conjuror_rune_w_1"							"[W1] 永久献祭"
-    	"DOTA_Tooltip_ability_conjuror_rune_w_1_Description"				"你的火之位面将持续对周围所有敌人造成伤害。"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_Description"				"你的火之位面将持续对周围所有敌人造成伤害。由火之位面造成的献祭伤害将会永久增加他的最大生命值。最多2亿最大生命值。"
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_property_one"				"每秒伤害"
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_suffix"						""
 		
@@ -4191,9 +4287,11 @@
     	"DOTA_Tooltip_ability_conjuror_rune_w_3_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_conjuror_rune_w_4"							"[W4] 自爆"
-    	"DOTA_Tooltip_ability_conjuror_rune_w_4_Description"				"火之位面死亡时将爆炸，造成基于其最大生命值的伤害，同时造成1秒眩晕。"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_Description"				"火之位面死亡时将爆炸，造成基于其最大生命值的持续伤害，持续7秒，同时造成2秒眩晕。在燃烧时，敌人受到的来自召唤师的<font color=\"#EF4126\">元素</font> 伤害提高。"
     	"DOTA_Tooltip_ability_conjuror_rune_w_4_property_one"				"爆炸伤害"
     	"DOTA_Tooltip_ability_conjuror_rune_w_4_suffix"						"% 火之位面的最大生命值"
+	"DOTA_Tooltip_ability_conjuror_rune_w_4_property_two"				"火元素伤害增加"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_suffix_two"					"% 当敌人燃烧时"
 		
 		"DOTA_Tooltip_ability_summon_shadow_aspect"							"暗影位面"
 		"DOTA_Tooltip_ability_summon_shadow_aspect_Description"				"从深渊虚空召唤一个远程攻击、并且分裂攻击的暗影位面。暗影位面可提高你的机动性，当其存在时，你可以施放暗影之门。"
@@ -4620,7 +4718,7 @@
 		"conjuror_weapon_24"			"暗影精华"
 		"conjuror_weapon_25"			"星辰精华"
 		
-		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_1"		"Azerath的启迪法球"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_1"		"艾泽拉斯的启迪法球"
 		
 		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_2"            "三位一体"
         "item_property_conjuror_immortal_weapon2"                             "宇宙平衡"
@@ -4658,7 +4756,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_q_2_suffix"							" 秒"
 
     	"DOTA_Tooltip_ability_dinath_rune_q_3"									"[Q3] 火焰切割"
-    	"DOTA_Tooltip_ability_dinath_rune_q_3_Description"						"当霜龙怒火进入冷却时，改技能替换为火焰切割。在空中飞行时，直接向目标地点冲刺，身下留下一道霜龙怒火的轨迹。"
+    	"DOTA_Tooltip_ability_dinath_rune_q_3_Description"						"每过3秒，帝纳斯的移动指令将会使她迅速飞到目标地点并且保持她的当前高度。并且留下一道霜龙怒火覆盖冲刺经过的路径。 "
     	"DOTA_Tooltip_ability_dinath_rune_q_3_property_one"						"最远施法距离"
     	"DOTA_Tooltip_ability_dinath_rune_q_3_suffix"							""
 
@@ -4828,19 +4926,19 @@
 		"item_rpc_dinath_glyph_5_a_description" 				"每当受到一次纯粹或魔法伤害的时候，就立刻进入魔法免疫的状态 @glyph_property1 秒。 冷却时间 @glyph_property2 秒。"
 		
 		//Weapons
-		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_00"		"Spike"
-		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_01"		"Dragon Spike"
-		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_02"		"Winter Spike"
-		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_03"		"Blue Spike"
-		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_11"		"Glacial Shard"
-		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_12"		"Winterblight Spike"
-		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_13"		"Razor Spike"
-		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_14"		"Blackened Spike"
-		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_21"		"Breath of the North"
-		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_22"		"Razortip Striker"
-		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_23"		"Barb of the Northern Drake"
-		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_24"		"Blue Dragon Spike"
-		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_25"		"Basilisk Claw"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_00"		"长戟"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_01"		"龙之戟"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_02"		"寒冬之戟"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_03"		"蔚蓝之戟"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_11"		"冰川碎片"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_12"		"凛冬霜枯之戟"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_13"		"剃刀之戟"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_14"		"暗戟"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_21"		"北极的呼吸"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_22"		"剃刀冲击者"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_23"		"极北之龙的倒钩"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_24"		"蓝龙长戟"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_25"		"蜥蜴之爪"
 		
 		"DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_1"           "统御者的龍爪"
         "item_property_dinath_immortal_weapon"                             "超负荷"
@@ -4856,6 +4954,7 @@
         "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_3"            "混沌初开之花"
         "item_property_dinath_immortal_weapon3"                             "宇宙起源"
         "property_dinath_immortal_weapon3_description"                      "所有<font color=\"#3289C7\">Dragon</font> 元素的伤害，将同时基于其技能的基础伤害造成一次额外的<font color=\"#C25DFC\">宇宙</font> 元素伤害（不与龙元素伤害叠乘）。"
+
 
 		"DOTA_Tooltip_ability_draghor_shapeshift_cat"									"七十二变：狼"
     	"DOTA_Tooltip_ability_draghor_shapeshift_cat_Description"						"变身成为狼，狼形态拥有独立一套技能。1.75秒变身时间。"
@@ -5046,7 +5145,7 @@
     	"DOTA_Tooltip_modifier_monkey_a_c_effect_Description"						"自然元素伤害抗性减少"
 
     	"DOTA_Tooltip_ability_djanghor_rune_e_2"									"[E2] 杜松藤"
-    	"DOTA_Tooltip_ability_djanghor_rune_e_2_Description"						"在施放筋斗云过程中，金箍棒的伤害将提高。"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_2_Description"						"在施放筋斗云过程中，金箍棒的伤害将提高。如果金箍棒的第三次打击击中至少1个敌人，齐天大圣将会有概率能够自由释放@Ability4 ，自由释放不需要进行施法时间（读条）。 如果概率大于100%，齐天大圣将会获得多次自由释放的机会。"
     	"DOTA_Tooltip_ability_djanghor_rune_e_2_property_one"						"金箍棒伤害提高"
     	"DOTA_Tooltip_ability_djanghor_rune_e_2_suffix"								"%"
 
@@ -5184,19 +5283,19 @@
 		
 	
 		//Weapons
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_00"		"Staff"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_01"		"Iron Staff"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_02"		"Forest Staff"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_03"		"Primitive Staff"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_11"		"Animal Daibo"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_12"		"Landscaper Daibo"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_13"		"Shapeshifter Daibo"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_14"		"Natural Daibo"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_21"		"Versatile Nature Daibo"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_22"		"Mountain Daibo"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_23"		"Gaia Staff"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_24"		"Pristine Summer Daibo"
-		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_25"		"Uprooted Earth Daibo"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_00"		"棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_01"		"钢铁之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_02"		"丛林之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_03"		"原始之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_11"		"动物之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_12"		"大师之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_13"		"千变万化之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_14"		"自然之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_21"		"万象自然之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_22"		"群山之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_23"		"盖亚之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_24"		"远古召唤者之棍"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_25"		"根除之棍"
 		
 		"DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_1"            "狼牙棒"
         "item_property_djanghor_immortal_weapon"                             "金刚狼"
@@ -5243,7 +5342,7 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_q_3_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4"						"[Q4] 灵魂之触"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_4_Description"			"提高 螺旋枷 的伤害和作用范围。"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_Description"			"提高@Ability1的伤害和作用范围。这个伤害加成也会对[Q1]冥火枷生效。"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_property_one"		"伤害提高"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_suffix"				"%"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_property_two"		"范围提升"
@@ -5464,7 +5563,19 @@
 		
 		
 		//Weapons
-		
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_00"   "连枷"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_01"   "黄昏连枷"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_02"   "灵魂联结者"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_03"   "恶魔权杖"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_11"   "冥火枷"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_12"   "裂脊者"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_13"   "归来者的空间"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_14"   "幽魂连枷"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_21"   "铜石战枷"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_22"   "四重之力连枷"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_23"   "徘徊者的银色连枷"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_24"   "钢铁之魂的暗影连枷"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_25"   "幻影之魂审判者"
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_1"		"鬼火"
 		"item_property_duskbringer_immortal_weapon"								"鬼火"
 		"property_duskbringer_immortal_weapon_description"						"冥火伽叠加速度增加2倍."
@@ -5476,6 +5587,7 @@
         "DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_3"            "碎颅锤"
         "item_property_duskbringer_immortal_weapon3"                             "骷髅锤"
         "property_duskbringer_immortal_weapon3_description"                      "攻击有 @special_property1% 的概率眩晕敌人 @special_property2 秒，并且获得 @special_property3 层鬼灵护甲。"
+
 
 		//Abilities
 		"ekkan_corpse"														"尸体"
@@ -5561,14 +5673,18 @@
 		"DOTA_Tooltip_modifier_skeleton_summon_unit"						"被召唤的骷髅"
 		
 		"DOTA_Tooltip_ability_ekkan_rune_w_1"								"[W1] 骷髅射手"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_1_Description"					"30%几率召唤出一个骷髅射手，骷髅射手远程攻击并且攻击力为死灵飞龙的倍数。"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_1_Description"					"几率召唤出一个骷髅射手，骷髅射手远程攻击并且攻击力为死灵飞龙的倍数。骷髅射手有30%的概率造成致命一击并且穿透护甲，并且该致命一击拥有<font color=\"#5C776E\">不死</font> 元素。"
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_property_one"					"攻击力为死灵飞龙的 % ："
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_suffix"						"%"
+	"DOTA_Tooltip_ability_ekkan_rune_w_1_property_two"                  "致命一击伤害"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_two"                    "%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_2"								"[W2] 扩展恢复"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_2_Description"					"增加召唤骷髅的持续时间。"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_2_Description"					"增加召唤骷髅的持续时间。 每一个存在的骷髅增加死灵飞龙的 <font color=\"#5C776E\">不死</font> 伤害。"
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_property_one"					"召唤持续时间增加"
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_suffix"						" 秒"
+	"DOTA_Tooltip_ability_ekkan_rune_w_2_property_two"                  "不死元素伤害增加"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_suffix_two"                        "每一个存在的骷髅"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_3"								"[W3] 骷髅法师"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_Description"					"30%几率召唤骷髅法师，对敌人进行aoe魔法攻击，伤害并减速敌人。"
@@ -5584,9 +5700,11 @@
     	"DOTA_Tooltip_modifier_mage_blast_slow_Description"					"移动速度降低"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_4"								"[W4] 阴影斗篷"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_4_Description"					"所有被召唤的骷髅和死灵飞龙自身，都将获得额外的魔法抗性。"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_4_Description"					"所有被召唤的骷髅和死灵飞龙自身，都将获得额外的魔法抗性。被召唤的骷髅拥有税后伤害加成。"
     	"DOTA_Tooltip_ability_ekkan_rune_w_4_property_one"					"魔法抗性提高"
     	"DOTA_Tooltip_ability_ekkan_rune_w_4_suffix"						""
+	"DOTA_Tooltip_ability_ekkan_rune_w_4_property_two"                  "骷髅的税后伤害增加"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_suffix_two"                    "%"
 		
 		"DOTA_Tooltip_ability_ekkan_river_of_souls"							"地狱之门"
 		"DOTA_Tooltip_ability_ekkan_river_of_souls_Description"				"在目标地点创造一个地狱之门，可以与另一个地狱之门联通，踏入地狱之门在1.5秒之后将被传送至另一个地狱之门处。死灵飞龙所有的控制单位都可以被传送，并且友军也可以使用地狱之门。"	
@@ -5636,11 +5754,11 @@
 		
 		"DOTA_Tooltip_ability_ekkan_rune_r_1"								"[R1] 吸血"
     	"DOTA_Tooltip_ability_ekkan_rune_r_1_Description"					"灵魂充能强化的单位获得攻击吸血能力。攻击的吸血同时也会治疗死灵飞龙。"
-    	"DOTA_Tooltip_ability_ekkan_rune_r_1_property_one"					"Lifesteal"
+    	"DOTA_Tooltip_ability_ekkan_rune_r_1_property_one"					"吸血"
     	"DOTA_Tooltip_ability_ekkan_rune_r_1_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_r_2"								"[R2] 灾难群"
-    	"DOTA_Tooltip_ability_ekkan_rune_r_2_Description"					"灵魂充能可以对单个敌人施放。对这个敌人造成全体召唤物 % 总攻击力的纯粹伤害。"
+    	"DOTA_Tooltip_ability_ekkan_rune_r_2_Description"					"灵魂充能可以对单个敌人施放。对这个敌人造成全体召唤物 % 总攻击力的纯粹伤害。这个伤害无视坚定。"
     	"DOTA_Tooltip_ability_ekkan_rune_r_2_property_one"					"伤害"
     	"DOTA_Tooltip_ability_ekkan_rune_r_2_suffix"						"% 全体召唤物的总攻击力"
 
@@ -5743,19 +5861,19 @@
 		
 		//Weapons
 		
-		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_00"		"Trapped Souls"
-		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_01"		"Empty Souls"
-		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_02"		"Void Souls"
-		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_03"		"Dark Souls"
-		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_11"		"Trapped Souls of the Dominated"
-		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_12"		"Souls of Cronus"
-		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_13"		"Souls of Hades"
-		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_14"		"Souls of Dominion"
-		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_21"		"Eternal Souls of Dominion"
-		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_22"		"Eternal Souls of Persephone"
-		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_23"		"Eternal Souls of Macaria"
-		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_24"		"Souls of Thanatos"
-		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_25"		"Five Rivers Souls of the Underworld"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_00"		"束缚之魂"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_01"		"空虚之魂"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_02"		"虚无之魂"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_03"		"黑暗之魂"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_11"		"支配的束缚之魂"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_12"		"克罗诺斯之魂"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_13"		"哈迪斯之魂"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_14"		"统治之魂"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_21"		"永恒统治之魂"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_22"		"珀尔塞福涅的永恒之魂"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_23"		"玛卡里亚的永恒之魂"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_24"		"死神之魂"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_25"		"黄泉五河的游魂"
 		
 		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_1"			"灵魂收割者"
 		"item_property_ekkan_immortal_weapon"							"灵魂收割者"
@@ -5768,6 +5886,7 @@
         "DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_3"            "灵魂冲击"
         "item_property_ekkan_immortal_weapon3"                             "僵尸王"
         "property_ekkan_immortal_weapon3_description"                      "由召唤物基础技能所造成的魔法或纯粹伤害提高 @special_property1x。"
+
 
 		"tooltip_warlord_q_abilities"									"石像形态，寒冰护盾和烈火奔腾"
 
@@ -5950,9 +6069,11 @@
     	"DOTA_Tooltip_ability_warlord_rune_e_1_suffix_two"				""
 
 		"DOTA_Tooltip_ability_warlord_rune_e_2"							"[E2] 浮冰"
-    	"DOTA_Tooltip_ability_warlord_rune_e_2_Description"				"在北极冲刺过程中，元素督军每0.1秒都回复一定的魔法值。"
+    	"DOTA_Tooltip_ability_warlord_rune_e_2_Description"				"在北极冲刺过程中，元素督军每0.1秒都回复一定的魔法值。在北极冲刺中使用投掷斧头时，将会增加他的基础伤害。"
     	"DOTA_Tooltip_ability_warlord_rune_e_2_property_one"			"魔法值回复"
     	"DOTA_Tooltip_ability_warlord_rune_e_2_suffix"					" 每0.1秒"
+	"DOTA_Tooltip_ability_warlord_rune_e_2_property_two"            "额外投掷斧头伤害"
+        "DOTA_Tooltip_ability_warlord_rune_e_2_suffix_two"               "% 在北极冲刺过程中"
 		
 		"DOTA_Tooltip_ability_warlord_rune_e_3"							"[E3] 不稳定火焰"
     	"DOTA_Tooltip_ability_warlord_rune_e_3_Description"				"元素督军施放火光降落，当到达最高点时，向附近敌人发射火球。"
@@ -6118,6 +6239,7 @@
         "item_property_warlord_immortal_weapon3"                             "原始起义"
         "property_warlord_immortal_weapon3_description"                      "每 @special_property1 秒获得一层 大地、火焰、寒冰充能。"   
 
+
 		"DOTA_Tooltip_ability_epoch_time_binder"								"时空锁"
 		"DOTA_Tooltip_ability_epoch_time_binder_Description"					"元素： <font color=\"#B5FFB7\">时</font><br>向目标方向投掷时空锁，击中敌人后发生爆炸，造成范围伤害，并链接其周围所有敌人，减速并造成持续伤害。"
 		"DOTA_Tooltip_ability_epoch_time_binder_Lore"							""
@@ -6132,9 +6254,11 @@
 		"DOTA_Tooltip_modifier_time_bound_description" 							"减速并受到时空球2倍伤害"
 		
     	"DOTA_Tooltip_ability_epoch_rune_q_1"									"[Q1] 空间连接"
-    	"DOTA_Tooltip_ability_epoch_rune_q_1_Description"						"时空锁会同时制造一个空间链接，链接附近的敌人。空间链接和时空锁的链接具有相同的效果。空间链接最多15个单位。时空球对空间链接中的目标造成2倍伤害。"
+    	"DOTA_Tooltip_ability_epoch_rune_q_1_Description"						" @Ability1会同时制造一个[Q1]，链接附近的敌人，@Ability1和[Q1]的链接具有相同的效果。@Ability3 和 [E2] 对被 [Q1] 影响的敌人造成的伤害增加2倍。起始3个链接, 但是会随符文等级提高而提高。"
     	"DOTA_Tooltip_ability_epoch_rune_q_1_property_one"						"伤害"
     	"DOTA_Tooltip_ability_epoch_rune_q_1_suffix"							"% 时空锁（持续伤害）"
+        "DOTA_Tooltip_ability_epoch_rune_q_1_property_two"                      "额外链接的概率"
+        "DOTA_Tooltip_ability_epoch_rune_q_1_suffix_two"                        "%"
 
     	"DOTA_Tooltip_ability_epoch_rune_q_2"									"[Q2] 永恒通道"
     	"DOTA_Tooltip_ability_epoch_rune_q_2_Description"						"时光守卫将偷取时空锁初始目标的攻击力，持续7秒。"
@@ -6456,20 +6580,27 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_w_4_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_heat_wave"										"炙热冲锋"
-		"DOTA_Tooltip_ability_heat_wave_Description"							"元素： <font color=\"#EF4126\">火</font><br>烈焰行者激活一股热能，提高移动速度和攻击力，移动无视地形，同时提高移动速度上限。"
+		"DOTA_Tooltip_ability_heat_wave_Description"							"元素： <font color=\"#EF4126\">火</font><br>烈焰行者激活一股热能，提高移动速度和攻击力，移动无视地形，同时提高移动速度上限。在炙热冲锋过程中接近烈焰行者的敌人的护甲将会被降低。"
 		"DOTA_Tooltip_ability_heat_wave_Lore"									""
     	"DOTA_Tooltip_ability_heat_wave_max_ms"									"移动速度上限："
     	"DOTA_Tooltip_ability_heat_wave_base_dmg"								"攻击力："
     	"DOTA_Tooltip_ability_heat_wave_movespeed"								"移动速度："
     	"DOTA_Tooltip_ability_heat_wave_duration"								"持续时间："
+	"DOTA_Tooltip_ability_heat_wave_armor_shred"                                                            "护甲降低:"
 
     	"DOTA_Tooltip_modifier_heatwave_phase_one"								"炙热冲锋"
     	"DOTA_Tooltip_modifier_heatwave_phase_one_Description"					"移动速度和移动速度上限提高"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_1"								"[E1] 余烬"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"烈焰行者炙热冲锋后将在地上留下余烬，灼烧碰到余烬的敌人。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"烈焰行者炙热冲锋后将在地上留下余烬，灼烧碰到余烬的敌人受到的物理伤害（税前）提高，提高数值基于敌人负甲的数值。"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_one"					"每秒伤害"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix"						""
+	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_two"                 "税前伤害增加"
+        "DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix_two"                      "% 每一点负值护甲"
+
+        "DOTA_Tooltip_heatwave_fire_damage"                                     "余烬"
+        "DOTA_Tooltip_heatwave_fire_damage_Description"                         "负值护甲增加税前物理伤害"
+
 
     	"DOTA_Tooltip_ability_flamewaker_rune_e_2"								"[E2] 龙之怒"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_2_Description"					"施放炙热冲锋后，开始自焚对附近敌人造成伤害，持续6秒。敏捷值可提高伤害。"
@@ -6495,7 +6626,7 @@
     	"DOTA_Tooltip_modifier_searing_heat_Description"						"护甲值降低"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_4"								"[E4] 烈焰炙烤"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"受到余烬影响的敌人将被点燃 - 丢失护甲并受到基于余烬伤害的持续伤害。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"受到余烬影响的敌人将被点燃 - 丢失护甲并受到基于余烬伤害的持续伤害，持续5秒。"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_one"					"每秒伤害"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix"						"% 余烬伤害"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_two"					"护甲值降低"
@@ -6536,7 +6667,7 @@
 		
 		//Arcanas
 		"DOTA_Tooltip_ability_flamewaker_arcana_ability"						"龙王吐息"
-    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_Description"			"元素： <font color=\"#EF4126\">火</font><br>迅速喷发的火焰眩晕并伤害范围内的敌人。力量值会提高火焰的伤害。"
+    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_Description"			"元素： <font color=\"#EF4126\">火</font><br>迅速喷发的火焰眩晕并伤害范围内的敌人。这个技能能够在进入冷却时间前的<font color='#ccff66'>0.5</font> 秒内能够再次释放一次。 <br>默认会对一个点的周围放出火焰,但是如果后一个释放点在离前一个释放点至少<font color='#ccff66'>200</font>码距离 (但是不超过 <font color='#ccff66'>1200</font> 码), 将会产生很多额外的火焰喷发出现在两个施法点连线周围的区域。<br>力量值会提高火焰的伤害。"
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_damage"					"伤害："
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_strength_mult"			"额外伤害为力量值的倍数："
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_stun_duration"			"眩晕持续时间："
@@ -6552,7 +6683,7 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix_two"			" 每损失200点生命"
 
   		"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1"						"[Q2] 火焰浪涌"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"			"施放龙王吐息后增加移动速度并且加深敌人所受到的伤害"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"			"施放 @Ability1 后增加移动速度并且加深敌人所受到的伤害。敌人被该技能击中后会被施加一个可叠加的debuff，这个debuff会使加深他们受到的来自烈焰行者的伤害，但是每一层debuff的伤害加深数值是该符文面板显示的数值的1/6。这些效果是独立计算的，只有加成更高的会生效。这个效果持续6秒。"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_one"			"移动速度提高"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix"				""
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_two"			"敌人所受到的伤害提高（计算在敌人减伤之后）"
@@ -6577,12 +6708,13 @@
     	"DOTA_Tooltip_modifier_flamewaker_arcana_d_a_aura_Description"			"受到魔法伤害并且对烈焰行者伤害降低"
 
     	"DOTA_Tooltip_ability_flamewaker_dragonflame"						"焰之起源式"
-    	"DOTA_Tooltip_ability_flamewaker_dragonflame_Description"			"元素： <font color=\"#EF4126\">火</font><br>烈焰行者停止移动，向周围连续喷射出炽热的火焰，每 0.1s 对前方锥形区域内的敌人造成伤害。技能激活 1.5秒后，获得一层护盾，伤害减免。技能不被眩晕和沉默打断。每 0.1s 汲取 10% 的最大魔法值，当魔法值为 0 时，技能停止。"
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_Description"			"元素： <font color=\"#EF4126\">火</font><br>烈焰行者停止移动，向周围连续喷射出炽热的火焰，每 0.1s 对前方锥形区域内的敌人造成伤害。技能激活 1.5秒后，获得一层护盾，伤害减免。技能不被眩晕和沉默打断。每 0.1s 汲取 10% 的最大魔法值，当魔法值为 0 时，技能停止。站在火焰中的敌人的护甲将会被降低。"
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_base_damage"			"伤害："
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_attack_dmg_bonus"			"% 攻击力加入到火焰伤害中："
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_mana_drain"			"每秒魔法值汲取："
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_damage_reduce"			"% 护盾伤害减免："
-
+	"DOTA_Tooltip_ability_flamewaker_dragonflame_armor_shred"           "护甲降低:"
+	
     	"DOTA_Tooltip_modifier_dragonflame_shield"								"焰之起源式护盾"
     	"DOTA_Tooltip_modifier_dragonflame_shield_Description"					"伤害减免"
 
@@ -6646,6 +6778,33 @@
 		"item_rpc_flamewaker_glyph_5_a_description" 			"受到的伤害上限不会超过 @glyph_property1% 的最大生命值. 如果低于50% 血量, 受到的伤害上限在 @glyph_property2%."
 
 		//Weapons
+		"flamewaker_weapon_00"			"战刃"
+		"flamewaker_weapon_01"			"土龙之刃"
+		"flamewaker_weapon_02"			"风龙之刃"
+		"flamewaker_weapon_03"			"火龙之刃"
+		"flamewaker_weapon_11"			"巨人之剑"
+		"flamewaker_weapon_12"			"炎舌之刃"
+		"flamewaker_weapon_13"			"飞龙之刃e"
+		"flamewaker_weapon_14"			"贤龙之刃"
+		"flamewaker_weapon_21"			"群山之龙的刀刃"
+		"flamewaker_weapon_22"			"龙王之刃"
+		"flamewaker_weapon_23"			"龙舞之刃"
+		"flamewaker_weapon_24"			"龙吟之刃"
+		"flamewaker_weapon_25"			"古龙之刃"
+		"DOTA_Tooltip_ability_item_rpc_basic_sword"  	       "战刃"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_00"   "战刃"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_01"   "土龙之刃"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_02"   "风龙之刃"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_03"   "火龙之刃"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_11"   "巨人之剑"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_12"   "炎舌之刃"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_13"   "飞龙之刃"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_14"   "贤龙之刃"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_21"   "群山之龙的刀刃"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_22"   "龙王之刃"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_23"   "龙舞之刃"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_24"   "龙吟之刃"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_25"   "古龙之刃"
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_1"	"诸神之黄昏"
 		"item_property_flamewaker_immortal_weapon"							"火山盾"
@@ -6922,19 +7081,19 @@
 		"item_rpc_hydroxis_glyph_5_a_description" 				"神秘水盾消耗1层叠加数量吸收一次魔法和纯碎伤害。"
 		
 		//Weapons
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_00"		"Basher"
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_01"		"Deep Basher"
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_02"		"Kelp Basher"
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_03"		"Aqua Mace"
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_11"		"Sea Smasher"
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_12"		"Aquatic Basher"
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_13"		"Drift Mace"
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_14"		"Tidal Smasher"
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_21"		"Ocean Blue Mace"
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_22"		"Undertow Water Mace"
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_23"		"Blue Mace of the Depths"
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_24"		"Mace of the Granite Crustacean"
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_25"		"Deep Reef Smasher"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_00"		"重击之锤"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_01"		"深海重击之锤"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_02"		"巨藻之锤"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_03"		"水之权杖"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_11"		"深海粉碎者"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_12"		"水之锤"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_13"		"漂移权杖"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_14"		"巨浪粉碎者"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_21"		"深蓝之海的权杖"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_22"		"深水权杖"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_23"		"深海的蓝色权杖"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_24"		"岩甲权杖"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_25"		"黑礁粉碎者"
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_1"		"蓝宝石三叉戟"
 		"item_property_hydroxis_immortal_weapon"							"波塞冬的唤醒"
@@ -6978,9 +7137,11 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_3_suffix"		"%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_q_4"				"[Q4] 山丘伸延"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_q_4_Description"	"增加冲击波的距离。"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_q_4_Description"	"增加冲击波的距离并且使得冲击波有概率能够打破被击中敌人的魔法免疫状态。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_4_property_one"	"距离提高"
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_4_suffix"		""
+	"DOTA_Tooltip_ability_mountain_protector_rune_q_4_property_two" "破魔概率"
+        "DOTA_Tooltip_ability_mountain_protector_rune_q_4_suffix_two"   "%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_mountain_guardian"					"山丘守卫"
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_Description"		"山丘之力保护山丘守卫者，被保护状态下山丘守护者不能移动。处于山丘守卫状态下，冲击波将汲取 1% x 冲击波等级 的最大魔法值。"
@@ -7052,9 +7213,10 @@
     	"DOTA_Tooltip_modifier_mountain_rune_e_4_effect_Description"	"增加基础攻击力和基础技能伤害"
 		
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture"					"永世断裂"
-    	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_Description"		"元素： <font color=\"#AF843D\">土</font> / <font color=\"#EF4126\">火</font><br>对附近范围造成10秒破坏性的地震，不断制造爆炸伤害并眩晕击中的敌人。"
+    	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_Description"		"元素： <font color=\"#AF843D\">土</font> / <font color=\"#EF4126\">火</font><br>对附近范围造成10秒破坏性的地震，不断制造爆炸伤害并眩晕击中的敌人。每一次爆炸在击中至少一个敌人后都有概率刷新[E] 技能的冷却时间。"
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_stun_duration"	"眩晕持续时间"
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_explosions"		"爆炸伤害"
+	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_refresh_chance"  "E 刷新的概率: %"
 
 		"DOTA_Tooltip_ability_mountain_protector_rune_r_1"				"[R1] 风暴裂谷"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_1_Description"	"被永世断裂击中的敌人被火花炸开，同时受到山丘守护者 % 攻击力的伤害。"
@@ -7125,13 +7287,14 @@
     	"property_mountain_protector_arcana2_description"								"用霜雪风暴替换 @Ability4 及其所有符文。"
 
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm"								"霜雪风暴"
-    	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Description"					"元素： <font color=\"#AF843D\">土</font> / <font color=\"#87D9FF\">冰</font><br>召唤极北冰川的严寒风暴对目标地区进行毁灭性的打击。区域内敌人攻击速度和移动速度降低，同时会受到冰冷沟壑的打击。"
+    	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Description"					"元素： <font color=\"#AF843D\">土</font> / <font color=\"#87D9FF\">冰</font><br>召唤极北冰川的严寒风暴对目标地区进行毁灭性的打击。区域内敌人攻击速度和移动速度降低，同时会受到冰冷沟壑的打击。每一次打击在击中至少一个敌人后都有概率刷新[E] 技能的冷却时间"
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Lore"						""
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_stun_duration"				"眩晕时间："
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_damage"						"伤害："
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_damage_from_strength"		"额外伤害为力量值的倍数："
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_move_slow_percent"			"移动速度降低 %："
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_attack_slow"					"攻击速度降低："
+	"DOTA_Tooltip_ability_mountain_protector_hailstorm_refresh_chance"              "E 刷新的概率: %"
 
 
     	"DOTA_Tooltip_modifier_hailstorm_aura_enemy"									"霜雪风暴造成减速"
@@ -7191,12 +7354,12 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"额外基础技能伤害（加法）"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix"				"x 力量值"
 
-  		"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3"						"[E3] 岩浆"
+  		"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3"						"[E3] 岩浆流"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_Description"			"释放完 陨石后，将有概率获得 火山岩 技能的自由释放层数，概率超过 100% ，将获得多层。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_property_one"			"自由释放层数概率"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_suffix"				"%"
 
-      	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3"						"[E4] 炽峰"
+      	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3"						"[E4] 泰坦毁灭者"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_Description"			"增加坚定技能的拦截伤害阈值。（类似日天）"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_property_one"			"坚定拦截阈值增加"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_suffix"				"%"
@@ -7204,7 +7367,7 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_1_1"		"冲击波雕文"
-		"item_rpc_mountain_protector_glyph_1_1_description" 				"减少冲击波的1秒冷却时间。"
+		"item_rpc_mountain_protector_glyph_1_1_description" 				"被山丘守护者眩晕的敌人被禁止治疗。"
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_2_1"		"守护者雕文"
 		"item_rpc_mountain_protector_glyph_2_1_description" 				"当使用山丘守护时所有伤害减少 @glyph_property1%。"
@@ -7228,21 +7391,21 @@
 		"item_rpc_mountain_protector_glyph_5_a_description" 				"大招跟随山丘守卫移动，同时增加力量值 @glyph_property1。"
 		
 		//Weapons
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_00"	"Blade"
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_01"	"Sturdy Blade"
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_02"	"Quick Blade"
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_03"	"Wisdom Blade"
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_11"	"Blade of V'Noth"
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_12"	"Blade of Trials"
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_13"	"Mountain Blade"
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_14"	"Gravelstone Blade"
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_21"	"Copperforged Mountain Blade"
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_22"	"Steelrock Mountain Blade"
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_23"	"Runed Blade of the Mountain Peak"
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_24"	"Ridgefire Blade"
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_25"	"Ironrock Blade of the Black Mesa"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_00"	"剑"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_01"	"坚定之剑"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_02"	"迅捷之剑"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_03"	"智慧之剑"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_11"	"维诺斯之剑"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_12"	"试炼之剑"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_13"	"群山之刃"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_14"	"砾石之剑"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_21"	"群山的铜剑"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_22"	"钢铁群山之剑"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_23"	"峰顶的符文剑"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_24"	"炎脊之剑"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_25"	"黑暗群山的钢铁之剑"
 		
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_1"	"V'noth的符文剑"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_1"	"维诺斯的符文剑"
 		"item_property_mountain_protector_immortal_weapon"						"符文冲击"
 		"property_mountain_protector_immortal_weapon_description"				"冲击波的眩晕时间增加0.35秒."
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_2"            "史空恩的脊骨"
@@ -7516,7 +7679,7 @@
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"坚定正义雕文"
 		"item_rpc_paladin_glyph_4_1_description" 				"正义之手不再将自己击退，并且使正义之手每次释放施加的神圣之火的debuff层数X5（计算在庇护雕文之后）。"
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"神圣威严雕文"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"神威雕文"
 		"item_rpc_paladin_glyph_5_1_description" 				"增加正义之手和神圣之火200%的伤害，并且当正义之手击中敌人时额外施加9层神圣之火的debuff。"
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"崇高雕文"
@@ -7528,8 +7691,33 @@
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_1"		"热忱雕文"
 		"item_rpc_paladin_glyph_7_1_description" 				"每当某次攻击击中目标时,有 @glyph_property1% 几率立即对范围内另一目标进行一次攻击，无冷却时间。"
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"圣洁愤怒雕文"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"圣怒雕文"
 		"item_rpc_paladin_glyph_5_a_description" 				"骑士的门徒拥有 @glyph_property1 的AOE攻击效果并且攻击主要目标两次。"
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_2"       "忏悔雕文"
+        "item_rpc_paladin_glyph_1_2_description"                "被 @Ability2 击中的敌人的攻击速度将会被降低h @glyph_property1 ，持续8秒。"
+
+        "DOTA_Tooltip_modifier_paladin_glyph_1_2_effect"        "忏悔"
+        "DOTA_Tooltip_modifier_paladin_glyph_1_2_effect_Description"    "攻击速度降低" 
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_2"       "神祝之锤雕文"
+        "item_rpc_paladin_glyph_2_2_description"                "武器上的加成将会增加 @glyph_property1%。该加成只有在装备武器的同时更新。"
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_2"       "金耀雕文"
+        "item_rpc_paladin_glyph_3_2_description"                " [Q2] 符文获得 @glyph_property1% 的吸血。"
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "崇高正义雕文"
+        "item_rpc_paladin_glyph_4_2_description"                "@Ability2 有 0.05 秒的施法点，并且将你向前推进。"
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "赎罪雕文"
+        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 将会攻击，并且造成纯粹 <font color=\"#F6FFB5\">圣</font>伤害，数值为 @glyph_property1x 全能骑士的攻击力。"
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "残值雕文"
+        "item_rpc_paladin_glyph_6_2_description"                "每一件神话及以下稀有度的物品将会增加税后伤害 @glyph_property1%。"
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_2"       "天堂守卫雕文"
+        "item_rpc_paladin_glyph_7_2_description"                "降低承受伤害 @glyph_property1%，并且降低输出  @glyph_property2%。"
+		
 		
 		//Weapons
 		"paladin_weapon_01"			"威武巨锤"
@@ -7763,7 +7951,7 @@
     	"DOTA_Tooltip_modifier_sunstrider_in_air"						"炎阳冲锋"
 
   		"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2"						"[E1] 炎阳剑"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"增加E技能额外打击伤害, 同时使E技能可以打击多个目标."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"增加E技能额外打击伤害, 同时使E技能可以打击多个目标。这个攻击力加成在技能结束后仍然会存在3秒。"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_one"			"攻击力提高"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_two"			"最多目标"
@@ -7827,25 +8015,25 @@
 		"seinaru_weapon_12"			"符文剑 "
 		"seinaru_weapon_13"			"烈火旋风剑"
 		"seinaru_weapon_14"			"信仰之剑"
-		"seinaru_weapon_21"			"七试炼之剑"
+		"seinaru_weapon_21"			"七重试炼之剑"
 		"seinaru_weapon_22"			"生命之剑"
 		"seinaru_weapon_23"			"龙之剑"
 		"seinaru_weapon_24"			"锐克之剑"
 		"seinaru_weapon_25"			"长者圣剑"
 		
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_00"	"Basic Sword"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_01"   "Samurai Sword"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_02"   "Katana"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_03"   "Ninja Blade"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_11"   "Storm Cleaver"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_12"   "Runeblade"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_13"   "Tornadofire Blade"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_14"   "Sword of Faith"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_21"   "Blade of Seven Trials"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_22"   "Sword of Seikatsu"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_23"   "Blade of Ryu"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_24"   "Hariken Blade"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_25"   "Daikatana"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_00"   "剑"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_01"   "武士剑"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_02"   "武士刀"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_03"   "忍者之刃"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_11"   "风暴利刃"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_12"   "符文剑"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_13"   "烈火旋风剑"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_14"   "信仰之剑"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_21"   "七重试炼之剑"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_22"   "生命之剑"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_23"   "龙之剑"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_24"   "锐克之剑"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_25"   "长者圣剑"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_1"		"鬼丸"
@@ -7884,7 +8072,7 @@
     	"DOTA_Tooltip_modifier_lightbomb_postmit_Description"					"加深所受到的来自希芙尔的伤害"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] 明澈之火"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"每次施放神圣之光后都将获得多层 明澈之火 的buff。拥有超过 10 层 明澈之火 buff后，神圣之光可以自由释放而不触发冷却，自由释放的神圣之光每次将消耗 10 层 明澈之火 buff，并且不增加新的明澈之火层数。"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"每次施放神圣之光后都将获得多层 明澈之火 的buff。拥有超过 10 层 明澈之火 buff后，神圣之光可以自由释放而不触发冷却，自由释放的神圣之光每次将消耗 10 层 明澈之火 buff，并且不增加新的明澈之火层数。每一层明澈之火增加 <font color=\"#F6FFB5\">圣</font> 伤害。"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_property_one"						"每次获得明澈之火层数"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_suffix"							""
 
@@ -8069,19 +8257,19 @@
 		"item_rpc_sephyr_glyph_5_a_description" 				"@Ability4 中的伤害减免提高至 @glyph_property1%。"
 		
 		//Weapons
-		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_00"		"Staff"
-		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_01"		"Sky Staff"
-		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_02"		"Cloud Staff"
-		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_03"		"Wind Staff"
-		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_11"		"Gale Staff"
-		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_12"		"Aero Staff"
-		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_13"		"Blessed Wind Staff"
-		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_14"		"Blessed Sky Staff"
-		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_21"		"Emerald Tide Staff"
-		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_22"		"Staff of the Prevailing Winds"
-		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_23"		"Sky Mage Staff"
-		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_24"		"Heaven's Priest Staff"
-		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_25"		"Galestorm Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_00"		"法杖"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_01"		"天之法杖"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_02"		"云之法杖"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_03"		"风之法杖"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_11"		"疾风法杖"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_12"		"长空法杖"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_13"		"神祝之风的法杖"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_14"		"神祝长空的法杖"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_21"		"翡翠之浪法杖"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_22"		"优势之风的法杖"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_23"		"天空法师的法杖"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_24"		"天堂祭祀的法杖"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_25"		"风暴法杖"
 		
 		"DOTA_Tooltip_ability_item_rpc_sephyr_immortal_weapon_1"           "翠玉风法杖"
         "item_property_sephyr_immortal_weapon"                             "玉之风"
@@ -8095,6 +8283,7 @@
         "item_property_sephyr_immortal_weapon3"                             "崇高风域"
         "property_sephyr_immortal_weapon3_description"                      "提高所有 T4 符文 @special_property1。"
 		
+
 
 		//Abilities
 		
@@ -8259,19 +8448,19 @@
 		"item_rpc_slipfinn_glyph_5_a_description" 				"跳跃至敌人头顶的判定范围提高 @glyph_property1%。"
 		
 		//Weapons
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_00"		"Dagger"
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_01"		"Murkwood Dagger"
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_02"		"Crooked Shank"
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_03"		"Swamp Dagger"
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_11"		"Umbral Dagger"
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_12"		"Soggy Swamp Blade"
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_13"		"Jumper's Shank"
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_14"		"Purple Meadow Shank"
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_21"		"Shank of Versatile Hunter"
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_22"		"Deepwood Swamp Dagger"
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_23"		"Liquid Mind Cutter"
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_24"		"Pristine Bayou Blade"
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_25"		"Fenway Marsh Cutter"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_00"		"短匕"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_01"		"幽暗短匕"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_02"		"扭曲剃刀"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_03"		"沼泽短匕"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_11"		"阴霾短匕"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_12"		"潮湿沼泽之刃"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_13"		"跳跃者的剃刀"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_14"		"暗紫剃刀"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_21"		"千变猎人的剃刀"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_22"		"幽深沼泽短匕"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_23"		"流动斩神者"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_24"		"太古之刃"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_25"		"沼泽切割者"
 		
 		 "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_1"           "春潮湿雨刀"
         "item_property_slipfinn_immortal_weapon"                             "涅槃"
@@ -8284,6 +8473,7 @@
         "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_3"            "黑礁手里剑"
         "item_property_slipfinn_immortal_weapon3"                             "暗黑之心"
         "property_slipfinn_immortal_weapon3_description"                      "所有 @Ability4 复制的技能都将拥有<font color=\"#7F4F84\">暗</font> 元素。"
+
 
 		//Abilities
 		"solunia_q"															"日月之石"
@@ -8593,19 +8783,19 @@
 		"DOTA_Tooltip_modifier_solunia_glyph_5_a_cooldown"		"原恆星冷却时间"
 		
 		//Weapons
-		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_00"		"Razor"
-		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_01"		"Crescent Razor"
-		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_02"		"Moon Razor"
-		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_03"		"Sun Razor"
-		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_11"		"Mercury Razor"
-		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_12"		"Jupiter Razor"
-		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_13"		"Saturn Razor"
-		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_14"		"Neptune Razor"
-		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_21"		"Periheleon Razor"
-		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_22"		"Event Horizon Razor"
-		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_23"		"Ellipsis Razor"
-		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_24"		"Extragalactic Razor"
-		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_25"		"Earthbound Meteor Razor"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_00"		"剃刀"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_01"		"新月剃刀"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_02"		"月之刃"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_03"		"日之刃"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_11"		"水星剃刀"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_12"		"木星剃刀"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_13"		"土星剃刀"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_14"		"涅普顿的剃刀"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_21"		"近日剃刀"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_22"		"地平线剃刀"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_23"		"月蚀剃刀"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_24"		"星外剃刀"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_25"		"陨石之刃"
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_1"		"流星"
 		"item_property_solunia_immortal_weapon"							"新星裂口"
@@ -9000,13 +9190,16 @@
 		
 
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue"			"炽血武器"
-    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"元素： <font color=\"#EF4126\">火</font><br>给友方单位施加火焰buff，提高其攻击力并使其在攻击时造成额外魔法伤害。"
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"元素： <font color=\"#EF4126\">火</font><br>给友方单位施加火焰buff，提高其攻击力并使其在攻击时造成额外魔法伤害。当炽血武器存在时，拥有者造成的  <font color=\"#EF4126\">火</font> 元素伤害增加。当敌人护甲为负值时，他们将会受到炽血的伤害将会提高。"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage_increase"	"额外攻击力 %"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_duration"			"buff持续时间："
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_flat_pure_damage"	"攻击时额外魔法伤害："
+        "DOTA_Tooltip_ability_spirit_warrior_flametongue_fire_damage_amp"   "火元素伤害增加: %"
+        "DOTA_Tooltip_ability_spirit_warrior_flametongue_negative_armor_amp"            "每点目标负值护甲增加的炽血武器的伤害: %"
 
     	"DOTA_Tooltip_modifier_flametongue"							"炽血武器"
-    	"DOTA_Tooltip_modifier_flametongue_Description"				"提高攻击力并在攻击时造成额外魔法伤害"
+    	"DOTA_Tooltip_modifier_flametongue_Description"				"攻击力增加，并且在攻击时造成额外魔法伤害"
+
 
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust"			"灵魂之刺"
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"元素： <font color=\"#EF4126\">火</font> / <font color=\"#7AE2A7\">风</font><br>灵魂守卫将他的长矛刺向前方的地面，造成毁灭性的灵魂爆炸。炽血武器可提高该技能伤害。被灵魂之刺击中的敌人在7秒内，对灵魂守卫造成的伤害将减少 50%。"	
@@ -9016,7 +9209,7 @@
     	"DOTA_Tooltip_modifier_soul_thrust_effect_Description"		"对灵魂守卫造成的伤害将减少 50%% "
 
     	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit"		"远古灵魂"
-    	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_Description"	"召唤一个远古灵魂冲向目标点，在已有的远古灵魂旁边施放该技能将使你跳向目标点。只有召唤会使技能进入冷却，而跳跃不会。"
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_Description"	"召唤一个远古灵魂冲向目标点，在已有的远古灵魂旁边施放该技能将使你跳向目标点。只有召唤会使技能进入冷却，而跳跃不会。释放 [W] 技能时将会使一个存在的远古灵魂跑向灵魂守卫。"
     	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_cooldown"		"灵魂冷却时间："
     	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_cast_range"		"施法距离："
 
@@ -9030,32 +9223,39 @@
     	"DOTA_Tooltip_modifier_ancient_vigor_Description"			"攻击力和攻击速度提高"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1"				"[Q1] 热血沸腾"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "炽血武器攻击时同时施加一个燃烧debuff，持续5秒。最高50层。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "炽血武器攻击时同时施加一个持续5秒的燃烧debuff和一个持续10秒的减甲debuff。最高50层燃烧debuff但是减甲debuff的叠加层数没有上限。燃烧debuff的伤害也会和基础技能炽血一样会增加对负甲目标的伤害。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"每层每秒伤害"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix"	""
+        "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_two" "每层护甲降低"   
+        "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix_two"   ""
 
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2"				"[Q2] 装甲熔化"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_Description"	"炽血武器攻击时同时施加一个减甲debuff，持续5秒。最高50层。"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_one"	"每层护甲值降低"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix"		""
+    	"DOTA_Tooltip_modifier_flametongue_q_1_rune"				"热血沸腾"
+    	"DOTA_Tooltip_modifier_flametongue_q_1_rune_Description"	"每层debuff将会造成燃烧伤害"
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2"				"[Q2] 风火之盾"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_Description"	"释放炽血武器或者风怒武器将会对灵魂守卫施加一层火神之盾或者风神之盾。火神之盾将会减少你承受的伤害而风神之盾将会给你提供闪避。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_one"	"火神之盾伤害降低"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix"		"%"
+        "DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_two" "风神之盾闪避数值"
+        "DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix_two"   "%"
 
     	"DOTA_Tooltip_modifier_flametongue_b_a_rune_visible"		"装甲熔化"
     	"DOTA_Tooltip_modifier_flametongue_b_a_rune_visible_Description"	"护甲值降低"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3"				"[Q3] 风怒武器"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_Description"	"施放炽血武器后获得新技能：风怒武器。风怒武器攻击时根据攻击力造成额外纯粹伤害。同一单位不能同时拥有炽血武器和风怒武器buff。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_Description"	"施放炽血武器后获得新技能：风怒武器。风怒武器攻击时根据攻击力造成额外纯粹伤害。每点目标的护甲将会额外增加风怒武器伤害1%。同一单位不能同时拥有炽血武器和风怒武器buff。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_property_one"	"额外纯粹伤害"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_suffix"		"% 攻击力"
 
       	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon"			"风怒武器"
-    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_Description"	"元素： <font color=\"#7AE2A7\">风</font><br>给友方单位施加风怒武器buff，使其攻击时根据攻击力造成额外纯粹伤害。同一单位不能同时拥有炽血武器和风怒武器buff。"
+    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_Description"	"元素： <font color=\"#7AE2A7\">风</font><br>给友方单位施加风怒武器buff，使其攻击时根据攻击力造成额外纯粹伤害。每点目标的护甲将会额外增加风怒武器伤害1%。同一单位不能同时拥有炽血武器和风怒武器buff。"
     	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_attackspeed"	"攻击速度提高："
     	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_duration"			"持续时间："
 
     	"DOTA_Tooltip_modifier_windstrike_weapon"						"风怒武器"
     	"DOTA_Tooltip_modifier_windstrike_weapon_Description"			"攻击时根据攻击力造成额外纯粹伤害"	
 
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4"				"[Q4] 内焰"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4"				"[Q4] 心炎"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_Description"	"炽血武器buff拥有者的力量值将提高所有 <font color=\"#EF4126\">火</font> 元素的伤害，敏捷值将提高所有 <font color=\"#7AE2A7\">风</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_one"	"火元素伤害提高"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix"		"% 每10点力量值"
@@ -9079,22 +9279,28 @@
     	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_2_visible_Description"	"攻击力提高"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3"				"[W3] 生死攸关"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "按攻击力的一定百分比提高灵魂之刺的伤害。buff效果随灵魂之刺的等级提升而提升（乘法）。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "按攻击力的一定百分比提高灵魂之刺的伤害。 如果炽血武器或者风怒武器存在时，灵魂之刺也会对目标造成额外伤害，伤害为炽血或者风怒的伤害的一定百分比。（对衣服的[R3]水神之矛也会生效）buff效果随灵魂之刺的等级提升而提升（乘法）。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_one"	"灵魂之刺伤害提高"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix"		"% 攻击力"
+	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_two"     "炽血和风怒的冲击"  
+        "DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix_two"       "%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4"				"[W4] 灵魂融合"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_Description"  "跳跃至一个远古灵魂后获得一个buff，提高下一个灵魂之刺的伤害。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_Description"  "跳跃至一个远古灵魂后获得一个buff，提高下一个灵魂之刺的伤害并且眩晕敌人。同时该符文的收益也对[W3]生死攸关的炽血和风怒冲击的伤害生效。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_property_one"	"伤害提高"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_suffix"		"%"
+	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_property_two" "眩晕持续时间"   
+        "DOTA_Tooltip_ability_spirit_warrior_rune_w_4_suffix_two"   " 秒"
 
     	"DOTA_Tooltip_modifier_spirit_warrior_d_b"					"灵魂融合"
     	"DOTA_Tooltip_modifier_spirit_warrior_d_b_Description"		"下一个灵魂之刺的伤害提高"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1"				"[E1] 风之敕令"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_Description"  "跳跃至一个远古灵魂时将在落地点造成爆炸。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_Description"  "跳跃至一个远古灵魂时将在落地点造成爆炸。如果风怒武器存在，风之敕令也会对目标产生风怒攻击。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_property_one"	"伤害"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_suffix"		""	
+	"DOTA_Tooltip_ability_spirit_warrior_rune_e_2_property_two" "额外的风怒武器伤害"    
+        "DOTA_Tooltip_ability_spirit_warrior_rune_e_2_suffix_two"   "%"  
 
     	"spirit_warrior_q_ability"									"炽血武器和风怒武器"
     	"spirit_warrior_e_ability"									"远古灵魂和风之敕令"
@@ -9288,6 +9494,19 @@
 		"DOTA_Tooltip_modifier_spirit_warrior_glyph_5_a_effect_Description"	"攻击力和攻击速度提高"
 		
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_00"   "长矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_01"   "战士之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_02"   "风之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_03"   "上古之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_11"   "燃烧之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_12"   "伟大精灵之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_13"   "先祖之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_14"   "灵魂之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_21"   "失落丛林的远古之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_22"   "远古先祖之刃"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_23"   "宏伟之力长矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_24"   "远古神灵之矛"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_25"   "狂野之矛"
 		
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_1"		"风之矛"
 		"item_property_spirit_warrior_immortal_weapon"								"风之矛"
@@ -9561,7 +9780,19 @@
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_book"		"猎人雕文书"
 		
 		//Weapons
-		
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_00"   "刺客之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_01"   "战斗之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_02"   "忍者之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_03"   "狡诈之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_11"   "猎人的灵能之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_12"   "猎人大师之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_13"   "邪恶之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_14"   "野蛮之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_21"   "伏击大师之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_22"   "猎人的诡计"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_23"   "爆破专家的残忍之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_24"   "虚伪之刃"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_25"   "隐匿之刃"
 		"DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_1"		"崛起的太阳"
 		
 		"DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_2"            "黑色玛瑙莲花"
@@ -9739,6 +9970,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_one"			"移速提高"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix"					""
 
+	"DOTA_Tooltip_ability_item_rpc_venomort_arcana2"				"寒霜剧毒面具"
     	"item_property_venomort_arcana2"									"寒霜剧毒之触"
     	"property_venomort_arcana2_description"								"用 寒霜剧毒之触 替换 @Ability1 及其全部符文。"
 
@@ -9825,19 +10057,33 @@
 		//Weapons
 		"venomort_weapon_01"			"符文镰刀"
 		"venomort_weapon_02"			"收割镰刀"
-		"venomort_weapon_03"			"来世镰刀"
-		"venomort_weapon_11"			"剧毒收割"
+		"venomort_weapon_03"			"彼世镰刀"
+		"venomort_weapon_11"			"剧毒收割者的镰刀"
 		"venomort_weapon_12"			"幽魂镰刀"
 		"venomort_weapon_13"			"命运鸩毒"
 		"venomort_weapon_14"			"灵魂收集之镰"
 		"venomort_weapon_21"			"毒蛇镰刀"
 		"venomort_weapon_22"			"光之终点"
 		"venomort_weapon_23"			"死神剃刀"
-		"venomort_weapon_24"			"黑暗死灵法之镰"
+		"venomort_weapon_24"			"黑暗死灵法师之镰"
 		"venomort_weapon_25"			"法力虚空之镰"
+				
+		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_00"   "镰刀"
+		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_01"   "符文镰刀"
+		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_02"   "收割镰刀"
+		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_03"   "彼世镰刀e"
+		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_11"   "剧毒收割者的镰刀"
+		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_12"   "幽魂镰刀"
+		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_13"   "命运鸩毒"
+		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_14"   "灵魂收集之镰"
+		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_21"   "毒蛇镰刀"
+		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_22"   "光之终点"
+		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_23"   "死神剃刀"
+		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_24"   "黑暗死灵法师之镰"
+		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_25"   "法力虚空之镰"
 		
-		"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_1"		"毒液之光"
-		"item_property_venomort_immortal_weapon"						"毒液之光"
+		"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_1"		"毒液之蚀"
+		"item_property_venomort_immortal_weapon"						"毒液之蚀"
 		"property_venomort_immortal_weapon_description"					"[R1]造成的伤害会影响 @special_property1范围内的其他敌方单位。此外，它的伤害将算作持续性伤害享受剧毒巫师的各种增益。"
 		
 		"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_2"				"邪恶镰刀"
@@ -9847,6 +10093,7 @@
     	"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_3"				"污秽镰刀"
     	"item_property_venomort_immortal_weapon3"								"无面之王的披风"
     	"property_venomort_immortal_weapon3_description"						"E2将瞬间造成一次伤害，而不再造成持续伤害，但仍然算作持续伤害享受剧毒巫师的各种持续性伤害的增益。同时每级E2会把剧毒巫师的 @special_property1% 最大生命值加入到E2的基础伤害中。"
+
 
 		//Abilities
 		"DOTA_Tooltip_ability_overcharge"								"过载"
@@ -9865,7 +10112,7 @@
 		"DOTA_Tooltip_modifier_voltex_rune_q_1_buff" 						"磁场"
 		"DOTA_Tooltip_modifier_voltex_rune_q_1_buff_description" 			"护甲值提高"
 
-    	"DOTA_Tooltip_ability_voltex_rune_q_2"								"[Q2] 闪电链"
+    	"DOTA_Tooltip_ability_voltex_rune_q_2"								"[Q2] 电流浪涌"
     	"DOTA_Tooltip_ability_voltex_rune_q_2_Description"					"电光使者所造成的一切 <font color=\"#5CCDF9\">电</font> 元素伤害都将附带额外伤害。额外的伤害为敏捷值的一部分。"
     	"DOTA_Tooltip_ability_voltex_rune_q_2_property_one"					"额外伤害"
     	"DOTA_Tooltip_ability_voltex_rune_q_2_suffix"						"% 敏捷值"
@@ -9874,9 +10121,11 @@
 		"DOTA_Tooltip_modifier_voltex_rune_q_2_description" 				"你的攻击有15%几率释放一道闪电链"
 		
 		"DOTA_Tooltip_ability_voltex_rune_q_3"								"[Q3] 电源中断"
-    	"DOTA_Tooltip_ability_voltex_rune_q_3_Description"					"每次被过载击中，敌人的护甲值降低，持续6秒，可叠加。"
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_Description"					"每次被过载击中，敌人的护甲值降低，持续6秒，可叠加。每次过载击中敌人后有30%的概率产生一道额外的闪电，造成物理伤害。"
     	"DOTA_Tooltip_ability_voltex_rune_q_3_property_one"					"每层护甲降低"
     	"DOTA_Tooltip_ability_voltex_rune_q_3_suffix"						""
+        "DOTA_Tooltip_ability_voltex_rune_q_3_property_two"                 "触发时的物理伤害"
+        "DOTA_Tooltip_ability_voltex_rune_q_3_suffix_two"                   "%攻击力"
 
     	"DOTA_Tooltip_modifier_voltex_rune_q_3"								"电源中断"
     	"DOTA_Tooltip_modifier_voltex_rune_q_3_Description"					"护甲值降低"
@@ -9970,10 +10219,15 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_4_suffix"						"% 每10点敏捷值"
 		
 		"DOTA_Tooltip_ability_static_field"									"静电场"
-		"DOTA_Tooltip_ability_static_field_Description"						"元素： <font color=\"#5CCDF9\">电</font><br>电光使者充电后驱散离子，向前方锥形区域发射电球造成伤害。"
+		"DOTA_Tooltip_ability_static_field_Description"						"元素： <font color=\"#5CCDF9\">电</font><br>电光使者充电后驱散离子，向前方锥形区域发射电球造成伤害。每当敌人被一个闪电球击中后受到的税后伤害将会提高，可以叠加，叠加没有上限，debuff持续12秒。"
+       
 		"DOTA_Tooltip_ability_static_field_Lore"							""
 		"DOTA_Tooltip_ability_static_field_damage"							"每个电球伤害："
     	"DOTA_Tooltip_ability_static_field_num_shocks"						"电球数："
+	"DOTA_Tooltip_ability_static_field_post_mitigation_per_spark"       "每层增加的税后伤害%:"
+
+        "DOTA_Tooltip_modifier_static_field_post_mitigation"                "静电场"
+        "DOTA_Tooltip_modifier_static_field_post_mitigation_Description"    "每一层增加受到的税后伤害"
 		
 		"DOTA_Tooltip_ability_voltex_rune_r_1"								"[R1] 雷霆风暴"
     	"DOTA_Tooltip_ability_voltex_rune_r_1_Description"					"当电光使者引导完静电场时，致命闪电从天而降，对周围单位造成伤害。"
@@ -10146,6 +10400,7 @@
     	"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_3"			"不朽之神"
     	"item_property_voltex_immortal_weapon3"								"静电麻痹"
     	"property_voltex_immortal_weapon3_description"						"被 @Ability4 击中的敌人将被麻痹，瘫痪持续 @special_property1 秒。"
+
 
 		//Abilities
 		"DOTA_Tooltip_ability_tachyon_shell"								"超光速粒子盾"
@@ -10392,25 +10647,25 @@
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_1"		"声呐雕文"
 		"item_rpc_zonik_glyph_7_1_description" 				"每层时间能量充能都将提高所有 <font color=\"#B5FFB7\">时</font> 元素伤害 @glyph_property1%。每制造一次 <font color=\"#B5FFB7\">时</font> 元素伤害，消耗一层充能。"
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"圣人之瞳雕文"
-		"item_rpc_zonik_glyph_5_a_description" 				"施放光速移动时，获得8000码内全部敌人的视野，持续5秒。"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"慌乱拳击雕文"
+		"item_rpc_zonik_glyph_5_a_description" 				"每0.4秒向周围随机一个敌人释放一次 @Ability2 。"
 
 		"DOTA_Tooltip_modifier_sages_eyes"					"圣人之瞳"
 		
 		//Weapons
-		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_00"		"Punch Glove"
-		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_01"		"Brawler Glove"
-		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_02"		"Temporal Gauntlet"
-		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_03"		"Echo Fist"
-		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_11"		"Timewarp Glove"
-		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_12"		"Sonic Gauntlet"
-		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_13"		"Surge Puncher"
-		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_14"		"Sonar Fist"
-		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_21"		"Sonic Blaster"
-		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_22"		"Temporal Echo Gauntlet"
-		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_23"		"Dimension Fist"
-		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_24"		"Space Shifter Gauntlet"
-		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_25"		"Multiplex Gauntlet"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_00"		"拳击手套"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_01"		"野蛮手套"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_02"		"时间护腕"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_03"		"回音之拳"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_11"		"时光飞跃手套"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_12"		"音速手套"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_13"		"波浪拳击手套"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_14"		"炎阳之拳"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_21"		"音速爆发者"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_22"		"时间回声手套"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_23"		"维度之拳"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_24"		"空间转移手套"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_25"		"多重拳击"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_zonik_immortal_weapon_1"			"声呐作风"
@@ -15490,7 +15745,7 @@
 		"DOTA_Tooltip_ability_ancient_god_wind_blink_ability_Description"            "没有限制的位移技能。"
 		
 		"DOTA_Tooltip_ability_ancient_god_wind_dodge_ability"                        "狂风急速"
-		"DOTA_Tooltip_ability_ancient_god_wind_dodge_ability"                        "强机动性。"
+		"DOTA_Tooltip_ability_ancient_god_wind_dodge_ability_Description"	     "如同狂风骤雨般迅速的机动性."
 		
 		"DOTA_Tooltip_ability_ancient_god_water_vortex"                              "漩涡"
 		"DOTA_Tooltip_ability_ancient_god_water_vortex_Description"                  "将范围内的所有敌人拉向上古之神。"
@@ -16303,7 +16558,7 @@
 		"DOTA_Tooltip_modifier_torturok_aura_effect"				"霜寒光环"
 		"DOTA_Tooltip_modifier_torturok_aura_effect_Description"	"在移动时受到伤害"
 
-		"DOTA_Tooltip_ability_ozubu_passive"						"Exonova"
+		"DOTA_Tooltip_ability_ozubu_passive"						"极致新星"
 		"DOTA_Tooltip_ability_ozubu_passive_Description"			"施法者周围不断发生冰冻爆炸."
 		"DOTA_Tooltip_ability_ozubu_passive_damage"					"伤害:"
 		"DOTA_Tooltip_ability_ozubu_passive_ms_loss"				"移动速度降低:"
@@ -16342,6 +16597,9 @@
 		"villager_dialogue_3"										"在这里之外是另一条蜿蜒上山的路线。然而，这座桥和这座山似乎在黑暗中消失了..."
 	
 		"winterblight_tuskar_villager"								"村民"
+		
+		"DOTA_Tooltip_ability_item_rpc_boreal_granite_chunk"				"北地花岗岩石块"
+		"item_rpc_boreal_granite_chunk_desc"						"在合成圣器中，用此物品和任意不朽品质的衣服装备合成来获得北地花岗岩胸甲。"
 
 		//雪图技能和BUFF
 

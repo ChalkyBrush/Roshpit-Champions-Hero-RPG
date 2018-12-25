@@ -60,8 +60,8 @@
     	"DOTA_Tooltip_modifier_auriun_c_b_heal"						"圣光"		
     	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"每0.2秒治疗一次"
 
-    	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible"				"Energizing Light"
-    	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible_Description"	"Gaining attack damage. Max 5 stacks."
+    	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible"				"圣光"
+    	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible_Description"	"获得攻击力，最大5层。"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_4"						"[W4] 致盲阴影"
     	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"敌人每次被暗影火炬击中，获得一层debuff提高攻击丢失几率并降低移动速度，持续7秒。最高可叠加至5层。"
@@ -89,8 +89,8 @@
     	"DOTA_Tooltip_ability_auriun_rune_e_1_property_one"			"魔法伤害加深"
     	"DOTA_Tooltip_ability_auriun_rune_e_1_suffix"				"%"		
 
-    	//"DOTA_Tooltip_modifier_auriun_rune_e_1"						"Vitalize"
-    	//"DOTA_Tooltip_modifier_auriun_rune_e_1_Description"			"Gaining mana each second."
+    	//"DOTA_Tooltip_modifier_auriun_rune_e_1"						"天使之翼"
+    	//"DOTA_Tooltip_modifier_auriun_rune_e_1_Description"			"每秒获得魔法值。"
 		
 		"DOTA_Tooltip_ability_auriun_rune_e_2"						"[E2] 光辉"
     	"DOTA_Tooltip_ability_auriun_rune_e_2_Description"			"天使形态可以提高俄瑞恩的智力值，持续8秒。"
@@ -125,27 +125,29 @@
     	"DOTA_Tooltip_modifier_auriun_ult_effect_Description"			"回复大量生命值并提高移动速度"
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_1"						"[R1] 先哲"
-    	"DOTA_Tooltip_ability_auriun_rune_r_1_Description"			"俄瑞恩的智力将提高其攻击力。"
+    	"DOTA_Tooltip_ability_auriun_rune_r_1_Description"			"俄瑞恩的智力将提高其攻击力并且在他的普通攻击时附带额外的纯粹伤害。"
     	"DOTA_Tooltip_ability_auriun_rune_r_1_property_one"			"攻击力提高"
     	"DOTA_Tooltip_ability_auriun_rune_r_1_suffix"				"% 智力值"
+	"DOTA_Tooltip_ability_auriun_rune_r_1_property_two"         "造成的额外伤害"
+        "DOTA_Tooltip_ability_auriun_rune_r_1_suffix_two"           "攻击力%"
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_2"						"[R2] 生命灯塔"
     	"DOTA_Tooltip_ability_auriun_rune_r_2_Description"			"俄瑞恩加强身上的装备。装备上的所有数值提高（除符文数值以外）。只在新装备物品和重生的时候重新做计算。装备效果并不会被加强。"
     	"DOTA_Tooltip_ability_auriun_rune_r_2_property_one"			"装备数值提高"
     	"DOTA_Tooltip_ability_auriun_rune_r_2_suffix"				"%"		
 
-    	//"DOTA_Tooltip_modifier_auriun_rune_r_2_visible"				"Beacon of Life"
-    	//"DOTA_Tooltip_modifier_auriun_rune_r_2_visible_Description"	"Increased Armor Based on Max Life"	
+    	//"DOTA_Tooltip_modifier_auriun_rune_r_2_visible"				"生命的灯塔"
+    	//"DOTA_Tooltip_modifier_auriun_rune_r_2_visible_Description"	"基于最大生命值增加护甲"	
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_3"						"[R3] 灵魂链接"
     	"DOTA_Tooltip_ability_auriun_rune_r_3_Description"			"俄瑞恩技能或符文制造出的一切增益buff，其持续时间都会被提高。"
     	"DOTA_Tooltip_ability_auriun_rune_r_3_property_one"			"持续时间增加"
     	"DOTA_Tooltip_ability_auriun_rune_r_3_suffix"				" 秒"	
-    	//"DOTA_Tooltip_ability_auriun_rune_r_3_property_two"			"Agility Bonus"
+    	//"DOTA_Tooltip_ability_auriun_rune_r_3_property_two"			"额外敏捷"
     	//"DOTA_Tooltip_ability_auriun_rune_r_3_suffix_two"			"%"			
 
-    	//"DOTA_Tooltip_modifier_auriun_rune_r_3_visible"				"Binding Souls"
-    	//"DOTA_Tooltip_modifier_auriun_rune_r_3_visible_Description"	"Increased Agility and Strength from Auriun"
+    	//"DOTA_Tooltip_modifier_auriun_rune_r_3_visible"				"灵魂链接"
+    	//"DOTA_Tooltip_modifier_auriun_rune_r_3_visible_Description"	"增加俄瑞恩的敏捷值和力量值。"
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_4"						"[R4] 不朽之守护"
     	"DOTA_Tooltip_ability_auriun_rune_r_4_Description"			"受到生命赐福影响的友军有几率获得天堂之盾。超过100% 几率时每个受影响的友军将获得多重的天堂之盾。"
@@ -256,6 +258,19 @@
 		"item_rpc_auriun_glyph_5_a_description" 				"持续用二技能打击周围所有敌人，每秒造成 @glyph_property1x 宙斯智力值的伤害并且减速 @glyph_property2%. 1% 造成的伤害治疗宙斯."
 		
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_00"   "卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_01"   "诅咒卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_02"   "盛怒卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_03"   "知识卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_11"   "黑暗卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_12"   "光与影的卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_13"   "圣述卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_14"   "奥秘卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_21"   "深渊领主的诅咒之书"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_22"   "圣识卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_23"   "伟大法师的精神卷轴"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_24"   "救世主的神圣之书"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_25"   "鬼魂启蒙之书"
 		
 		"DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_1"		"预言"
 		"item_property_auriun_immortal_weapon"								"天堂的引导"

@@ -14382,7 +14382,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"armor_shred"				"-100 -200 -500 -1000 -2000 -4000 -7000"
+				"armor_shred"				"-50 -100 -250 -500 -1000 -2000 -3500"
 			}
 		}
 		"OnToggleOn"
@@ -42415,7 +42415,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"5"
 			}
 			"03"
 			{
@@ -42569,12 +42569,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"600"
+				"property_one"			"450"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"600"
+				"property_two"			"450"
 			}
 		}
 	}

@@ -30,7 +30,7 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_q_3_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4"						"[Q4] 灵魂之触"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_4_Description"			"提高 螺旋枷 的伤害和作用范围。"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_Description"			"提高@Ability1的伤害和作用范围。这个伤害加成也会对[Q1]冥火枷生效。"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_property_one"		"伤害提高"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_suffix"				"%"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_property_two"		"范围提升"
@@ -251,7 +251,19 @@
 		
 		
 		//Weapons
-		
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_00"   "连枷"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_01"   "黄昏连枷"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_02"   "灵魂联结者"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_03"   "恶魔权杖"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_11"   "冥火枷"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_12"   "裂脊者"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_13"   "归来者的空间"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_14"   "幽魂连枷"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_21"   "铜石战枷"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_22"   "四重之力连枷"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_23"   "徘徊者的银色连枷"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_24"   "钢铁之魂的暗影连枷"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_25"   "幻影之魂审判者"
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_1"		"鬼火"
 		"item_property_duskbringer_immortal_weapon"								"鬼火"
 		"property_duskbringer_immortal_weapon_description"						"冥火伽叠加速度增加2倍."
