@@ -6,8 +6,8 @@ function begin_sunder(keys)
   local abilityLevel = ability:GetLevel()
   local procs = rune_r_1(caster)
   local damage = keys.damage
-  ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "axe")
-  ability.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "axe")
+  ability.r_4_level = caster:GetRuneValue("r", 4)
+  ability.r_2_level = caster:GetRuneValue("r", 2)
   if caster:HasModifier("modifier_axe_glyph_3_1") then
     sunderLoop(caster, ability, damage*procs*0.75, "particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_egset.vpcf")
   else
@@ -91,20 +91,6 @@ function b_d_damage(event)
   shockStrikeTable.ability.damage = shockStrikeTable.ability:GetSpecialValueFor("main_damage")
   shockStrikeTable.amp = 0.3*ability.r_2_level
   shock_strike(shockStrikeTable)
- --  if not ability.r_4_level then
- --    ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "axe")
- --  end
- --  if ability.r_4_level > 0 then
- --    local runeAbility = caster.runeUnit4:FindAbilityByName("axe_rune_r_4")
- --    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_axe_rune_r_4_visible", {duration = 7})
- --    local current_stacks = target:GetModifierStackCount( "modifier_axe_rune_r_4_visible", runeAbility )
- --    newStacks = current_stacks + math.ceil(damage/100)
- --    target:SetModifierStackCount( "modifier_axe_rune_r_4_visible", runeAbility, newStacks )
-
- --    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_axe_rune_r_4_invisible", {duration = 7})
- --    target:SetModifierStackCount( "modifier_axe_rune_r_4_invisible", runeAbility, newStacks*ability.r_4_level )
- --  end
-	-- Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4) 
 end
 
 function rotateVector(vector, radians)

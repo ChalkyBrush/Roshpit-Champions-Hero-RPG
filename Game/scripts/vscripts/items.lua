@@ -1819,7 +1819,7 @@ end
 
 function RPCItems:AdjustAttributeValue(hero, value)
 	if hero:GetUnitName() == "npc_dota_hero_zuus" then
-		local b_d_level = Runes:GetTotalRuneLevel(hero, 2, "r_2", "auriun")
+		local b_d_level = hero:GetRuneValue("r", 2)
 		value = value + value*0.005*b_d_level
 	end
 	return value

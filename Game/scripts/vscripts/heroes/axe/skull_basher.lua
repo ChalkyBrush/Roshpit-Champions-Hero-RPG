@@ -36,7 +36,7 @@ function skull_basher_start(event)
     Timers:CreateTimer(0.3, function()
     	ability.lifting = false
     end)
-    ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "axe")
+    ability.q_3_level = caster:GetRuneValue("q", 3)
 end
 
 function new_jumping_think(event)
@@ -130,7 +130,7 @@ function StunAttack( keys )
     local position = targetUnit:GetAbsOrigin()
     local stun_duration = keys.duration
     local aoe_damage = keys.aoe_damage
-    local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "axe")
+    local q_4_level = caster:GetRuneValue("q", 4)
     if q_4_level > 0 then
         aoe_damage = aoe_damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.06*q_4_level
     end
@@ -165,7 +165,7 @@ function skull_basher_attack_land(event)
 	local attacker = event.attacker
 	local caster = event.caster
 	local ability = event.ability
-	local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "axe")
+	local q_2_level = caster:GetRuneValue("q", 2)
 	if q_2_level > 0 then
         local b_a_duration = Filters:GetAdjustedBuffDuration(caster, 10, false)
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_q_2_visible", {duration = b_a_duration})
@@ -182,12 +182,12 @@ function general_take_damage(event)
 	local attacker = event.attacker
 	local caster = event.caster
 	local ability = event.ability
-	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "axe")
-	if d_c_level > 0 then
+	local e_4_level = caster:GetRuneValue("e", 4)
+	if e_4_level > 0 then
 		local whirlwind = caster:FindAbilityByName("whirlwind")
         whirlwind:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_e_4_furnace", {})
         local current_stack = caster:GetModifierStackCount("modifier_axe_rune_e_4_furnace", caster)
-        local newStack = math.min(current_stack + 1, d_c_level)
+        local newStack = math.min(current_stack + 1, e_4_level)
         caster:SetModifierStackCount( "modifier_axe_rune_e_4_furnace", whirlwind, newStack)
 	end
 end

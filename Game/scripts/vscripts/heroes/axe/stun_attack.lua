@@ -30,7 +30,7 @@ function StunAttack( keys )
     local position = targetUnit:GetAbsOrigin()
     local stun_duration = keys.duration
     local aoe_damage = keys.aoe_damage
-    local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "axe")
+    local q_4_level = caster:GetRuneValue("q", 4)
     if q_4_level > 0 then
         aoe_damage = aoe_damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.06*q_4_level
     end
