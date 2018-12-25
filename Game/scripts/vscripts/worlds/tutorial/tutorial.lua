@@ -1681,7 +1681,7 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 						verifier = tonumber(math.floor(hero:GetPhysicalArmorBaseValue()))
 						sub = "tutorial_base_armor"
 					elseif choice == 2 then
-						verifier = tonumber(math.floor(GetAttackRange()))
+						verifier = tonumber(math.floor(hero:Script_GetAttackRange()))
 						sub = "ui_attack_range"
 					end
 					CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="2_2", quiz_question=question, sequence=0, verifier = verifier, gsub1 = sub, localize_verifier = 0, challenge_progress = 2} )

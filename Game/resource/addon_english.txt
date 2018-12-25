@@ -3250,7 +3250,7 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_3"							"[W3] Orb of Judgement"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_3_Description"				"Judgement throws an orb in front of Bahamut. Hitting an enemy with a basic attack also throws an orb towards the enemy. Enemies struck by the Orb receive the Judged debuff. Judement and its orb do additional damage based on target's attack power"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_Description"				"Judgement throws an orb in front of Bahamut. Hitting an enemy with a basic attack also throws an orb towards the enemy. Enemies struck by the Orb receive the Judged debuff. Judgement and its orb do additional damage based on target's attack power"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_property_one"			"Damage"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_suffix"					""
         "DOTA_Tooltip_ability_bahamut_rune_w_3_property_two"            "Judgement and Orb Base Damage Increase"
@@ -3524,7 +3524,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_q_1_suffix"						"%"
 
     	"DOTA_Tooltip_ability_chernobog_rune_q_2"								"[Q2] Coals of Carceri"
-    	"DOTA_Tooltip_ability_chernobog_rune_q_2_Description"					"Enemies affected by Charon's Claw take damage every 0.5 seconds and have additional <font color=\"#5B648C\">Demon</font> weakness that is equal to a percentage of their total demon weakness."
+    	"DOTA_Tooltip_ability_chernobog_rune_q_2_Description"					"@Ability1 burns enemies walking through it every 0.5 seconds. The coals also increase <font color=\"#5B648C\">Demon</font> damage dealt to these targets, by multiplying any of an attacker's existing Demon damage bonuses against them."
     	"DOTA_Tooltip_ability_chernobog_rune_q_2_property_one"					"Damage"
     	"DOTA_Tooltip_ability_chernobog_rune_q_2_suffix"						""
         "DOTA_Tooltip_ability_chernobog_rune_q_2_property_two"                  "Demon Amp Multiplier"
@@ -3625,7 +3625,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_suffix_two"					""
 
      	"DOTA_Tooltip_ability_chernobog_rune_e_3"								"[E3] Sudden Strike"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"When issuing an attack order on an enemy in Shadow Hunt, Chernobog teleports behind them and attacks. The enemy takes increased postmitigation for <font color='#ccff66'>1</font>s. <font color='#ccff66'>0.4</font> second cooldown."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"When issuing an attack order on an enemy in Shadow Hunt, Chernobog teleports behind them and attacks. The enemy takes increased post-mitigation for <font color='#ccff66'>1</font>s. <font color='#ccff66'>0.4</font> second cooldown."
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"					"Max Range"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"						""
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"					"Post-Mitigation Amp"
@@ -5327,7 +5327,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_property_one"					"Life Duration Increase"
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_suffix"						" seconds"
         "DOTA_Tooltip_ability_ekkan_rune_w_2_property_two"                  "Undead Amplification"
-        "DOTA_Tooltip_ability_ekkan_rune_w_2_suffix_two"                        " per active skeleton"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_suffix_two"                        "% per active skeleton"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_3"								"[W3] Skeleton Mages"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_Description"					"30% of summoned skeletons spawn as a skeleton mage that casts an AOE magic attack that also slows enemies."
@@ -5402,7 +5402,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_r_1_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_r_2"								"[R2] Scourge Swarm"
-    	"DOTA_Tooltip_ability_ekkan_rune_r_2_Description"					"Soul Charge can be targeted on a single enemy. The enemy takes pure damage based on the attack power of Ekkan's entire army combined. This damage ignore Steadfast."
+    	"DOTA_Tooltip_ability_ekkan_rune_r_2_Description"					"Soul Charge can be targeted on a single enemy. The enemy takes pure damage based on the attack power of Ekkan's entire army combined. Damage dealt by this rune ignores steadfast."
     	"DOTA_Tooltip_ability_ekkan_rune_r_2_property_one"					"Damage"
     	"DOTA_Tooltip_ability_ekkan_rune_r_2_suffix"						"% of all summon's attack power."
 
@@ -5682,7 +5682,7 @@
 		"Tooltip_jump_abilities"										"Firedrop - Earth Slam & Arctic Sprint"
 
 		"DOTA_Tooltip_ability_warlord_jump_earth"							"Earth Slam"
-		"DOTA_Tooltip_ability_warlord_jump_earth_Description"				"Element: <font color=\"#AF843D\">Earth</font><br>The Warlord jumps towards the target location and creates an earthquake upon landing."
+		"DOTA_Tooltip_ability_warlord_jump_earth_Description"				"Element: <font color=\"#AF843D\">Earth</font><br>The Warlord jumps towards the target location and creates an earthquake upon landing. Axes may be thrown during Earth Slam with no cast angle requirement or cooldown."
 		"DOTA_Tooltip_ability_warlord_jump_earth_Lore"						""
 		"DOTA_Tooltip_ability_warlord_jump_earth_damage"					"DAMAGE:"
 		"DOTA_Tooltip_ability_warlord_jump_earth_radius"					"RADIUS:"  
@@ -5690,13 +5690,13 @@
 		"DOTA_Tooltip_ability_warlord_jump_earth_cast_range"				"MAX JUMP RANGE:"
 
  		"DOTA_Tooltip_ability_warlord_jump_fire"							"Firedrop"
-		"DOTA_Tooltip_ability_warlord_jump_fire_Description"				"Element: <font color=\"#EF4126\">Fire</font><br>The Warlord leaps into the air and then dashes forward in a blaze, dealing AOE damage on impact."
+		"DOTA_Tooltip_ability_warlord_jump_fire_Description"				"Element: <font color=\"#EF4126\">Fire</font><br>The Warlord leaps into the air and then dashes forward in a blaze, dealing AOE damage on impact. Axes may be thrown during Firedrop with no cast angle requirement or cooldown."
 		"DOTA_Tooltip_ability_warlord_jump_fire_Lore"						""
 		"DOTA_Tooltip_ability_warlord_jump_fire_damage"						"DAMAGE:"
 		"DOTA_Tooltip_ability_warlord_jump_fire_radius"						"RADIUS:"  
 		
 		"DOTA_Tooltip_ability_warlord_jump_ice"								"Arctic Sprint"
-		"DOTA_Tooltip_ability_warlord_jump_ice_Description"					"Element: <font color=\"#87D9FF\">Ice</font><br>The Warlord dashes forward, leaving an icy trail behind him. The kicked up snow causes all incoming attacks to miss and disjoint."
+		"DOTA_Tooltip_ability_warlord_jump_ice_Description"					"Element: <font color=\"#87D9FF\">Ice</font><br>The Warlord dashes forward, leaving an icy trail behind him. The kicked up snow causes all incoming attacks to miss and disjoint. Axes may be thrown during Arctic Sprint with no cast angle requirement or cooldown."
 		"DOTA_Tooltip_ability_warlord_jump_ice_Lore"						""
 		"DOTA_Tooltip_ability_warlord_jump_ice_damage"						"DAMAGE:"
 		"DOTA_Tooltip_ability_warlord_jump_ice_radius"						"RADIUS:"
@@ -7418,14 +7418,14 @@
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_2"       "Glyph of Blessed Hammer"
         "item_rpc_paladin_glyph_2_2_description"                "Bonuses from your equipped weapon are increased by @glyph_property1%. Bonus only updated on weapon equip."
 
-        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_2"       "Glyph of Gold Sparkle"
-        "item_rpc_paladin_glyph_3_2_description"                "Rune [Q2] has a @glyph_property1% lifesteal."
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_2"       "Glyph of Conviction"
+        "item_rpc_paladin_glyph_3_2_description"                "Rune [Q2] heals Paladin for @glyph_property1% of damage dealt."
 
-        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "Glyph of Hyper Justice"
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "Glyph of Fanaticism"
         "item_rpc_paladin_glyph_4_2_description"                "@Ability2 has a 0.05 second cast point, and pushes forward."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "Glyph of Penitence"
-        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 have attack capability and deal <font color=\"#F6FFB5\">Holy</font> pure damage equal to @glyph_property1x Paladin's attack damage."
+        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 may now attack, dealing Pure <font color=\"#F6FFB5\">Holy</font> damage equal to 10x Paladin's attack power."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "Glyph of Vestigial Value"
         "item_rpc_paladin_glyph_6_2_description"                "Each piece of gear that is mythical rarity or below that is equipped increases post-mitigation damage output by @glyph_property1%."
@@ -7778,7 +7778,7 @@
     	"DOTA_Tooltip_ability_sephyr_lightbomb_stun_duration"						"STUN DURATION:"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_1"									"[Q1] Illumination"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_1_Description"						"Gain bonus intelligence for 12 seconds after casting lightbomb."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_1_Description"						"Gain bonus intelligence for 12 seconds after casting Lightbomb."
     	"DOTA_Tooltip_ability_sephyr_rune_q_1_property_one"						"Intelligence Bonus"
     	"DOTA_Tooltip_ability_sephyr_rune_q_1_suffix"							""
 
@@ -7786,7 +7786,7 @@
     	"DOTA_Tooltip_modifier_lightbomb_q_1_Description"						"Increased Intelligence"	
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_2"									"[Q2] Amplifier"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_2_Description"						"Enemies hit by lightbomb take increased post-mitigation damage from Sephyr."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_Description"						"Enemies hit by Lightbomb take increased post-mitigation damage from Sephyr."
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_property_one"						"Post-Mitigation Amp"
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_suffix"							"%"
 
@@ -7794,7 +7794,7 @@
     	"DOTA_Tooltip_modifier_lightbomb_postmit_Description"					"Taking increased post-mitigation damage from Sephyr"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] Clearfire"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"Casting lightbomb adds stacks of Clearfire. 10 stacks of Clearfire allow lightbomb to be cast without triggering its cooldown. Lightbombs that do not start cooldown do not add stacks. Each stack of clearfire increases <font color=\"#F6FFB5\">Holy</font> damage."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"Casting Lightbomb adds stacks of Clearfire. 10 stacks of Clearfire allow Lightbomb to be cast without triggering its cooldown. Lightbombs that do not start cooldown do not add stacks. Each stack of Clearfire increases <font color=\"#F6FFB5\">Holy</font> damage."
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_property_one"						"Clearfire Stacks"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_suffix"							""
         "DOTA_Tooltip_ability_sephyr_rune_q_3_property_two"                     "Holy Damage Amp"
@@ -8955,7 +8955,7 @@
     	"DOTA_Tooltip_modifier_flametongue_Description"				"Increased attack damage and a flat magic damage bonus on attack"
 
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust"			"Soul Thrust"
-    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#7AE2A7\">Wind</font><br>The Spirit Warrior slams his spear into the ground in front of him, creating a damaging soul explosion. Damage is enhanced by Flameblood Weapon. Enemies hit by Soul Thrust deal 50% reduced damage to Spirit Warrior for 7 seconds. Cast"	
+    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#7AE2A7\">Wind</font><br>The Spirit Warrior slams his spear into the ground in front of him, creating a damaging soul explosion. Damage is enhanced by Flameblood Weapon. Enemies hit by Soul Thrust deal 50% reduced damage to Spirit Warrior for 7 seconds. Casting this ability causes one of Spirit Warrior's active ancient spirits to run towards his position."	
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_damage"		"DAMAGE:"
 
     	"DOTA_Tooltip_modifier_soul_thrust_effect"					"Soul Thrust"
@@ -8986,7 +8986,7 @@
     	"DOTA_Tooltip_modifier_flametongue_q_1_rune_Description"	"Taking burn damage with each stack"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2"				"[Q2] Fire and Wind Shield"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_Description"	"Casting flameblood or windstrike weapon applies fire or wind shield to Spirit Warrior. Fire shield reduces all damage taken, and wind shield adds evasion."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_Description"	"Casting Flameblood or Windstrike Weapon applies Fire or Wind Shield to Spirit Warrior. Fire Shield reduces all damage taken, and Wind Shield adds evasion."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_one"	"Fire Shield Damage Reduction"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix"		"%"
         "DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_two" "Wind Shield Evasion"
@@ -8996,7 +8996,7 @@
     	"DOTA_Tooltip_modifier_flametongue_b_a_rune_visible_Description"	"Reduced physical armor"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3"				"[Q3] Windstrike Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_Description"	"Adds the Windstrike Weapon ability after a flametongue cast. Windstrike attacks deal additional pure damage based on recipient's attack power. Windstrike has an additional 1% damage amplication for each point of armor that the target has. Windstrike and Flameblood cannot be active at the same time on the same target."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_Description"	"Adds the Windstrike Weapon ability after a flameblood cast. Windstrike attacks deal additional pure damage based on recipient's attack power. Windstrike has an additional 1% damage amplication for each point of armor that the target has. Windstrike and Flameblood cannot be active at the same time on the same target."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_property_one"	"Additional Pure Damage"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_suffix"		"% of attack damage"
 
@@ -9032,11 +9032,11 @@
     	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_2_visible_Description"	"Increased attack damage"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3"				"[W3] Vital Impact"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "A % of your attack damage gets added to Soul Thrust damage. If Flameblood or Windstrike is active, sould thrust additionally strikes the target with a percentage Flameblood or Windstrike. The stated bonus is multiplied by the ability's level."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "A % of your attack damage gets added to Soul Thrust damage. If Flameblood or Windstrike is active, Soul Thrust additionally strikes the target with a percentage Flameblood or Windstrike. The stated bonus is multiplied by the ability's level."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_one"	"Added Damage"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix"		"% of attack damage"
         "DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_two" "Flameblood and Windstrike hit"  
-        "DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix_two"       "%"
+        "DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix_two"       "% Weapon Strike Bonus"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4"				"[W4] Spirit Fuse"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_Description"  "After leaping to an Ancient Spirit, gain a buff where the next Soul Thrust deals increased damage and stuns. The damage increase also applies to [W3] flameblood and windstrike hits."
@@ -9052,8 +9052,8 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_Description"  "Leaping to a spirit creates a gale explosion at the landing point. If Windstrike Weapon is active, Wind Edict also applies a windstrike hit."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_property_one"	"Damage"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_suffix"		""	
-        "DOTA_Tooltip_ability_spirit_warrior_rune_e_2_property_two" "Bonus Windstrike"    
-        "DOTA_Tooltip_ability_spirit_warrior_rune_e_2_suffix_two"   "%"  
+        "DOTA_Tooltip_ability_spirit_warrior_rune_e_1_property_two" "Bonus Windstrike"    
+        "DOTA_Tooltip_ability_spirit_warrior_rune_e_1_suffix_two"   "%"  
 
     	"spirit_warrior_q_ability"									"Flameblood and Windstrike Weapon"
     	"spirit_warrior_e_ability"									"Ancient Spirit and Wind Edict"

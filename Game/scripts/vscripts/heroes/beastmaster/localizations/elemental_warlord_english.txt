@@ -149,7 +149,7 @@
 		"Tooltip_jump_abilities"										"Firedrop - Earth Slam & Arctic Sprint"
 
 		"DOTA_Tooltip_ability_warlord_jump_earth"							"Earth Slam"
-		"DOTA_Tooltip_ability_warlord_jump_earth_Description"				"Element: <font color=\"#AF843D\">Earth</font><br>The Warlord jumps towards the target location and creates an earthquake upon landing."
+		"DOTA_Tooltip_ability_warlord_jump_earth_Description"				"Element: <font color=\"#AF843D\">Earth</font><br>The Warlord jumps towards the target location and creates an earthquake upon landing. Axes may be thrown during Earth Slam with no cast angle requirement or cooldown."
 		"DOTA_Tooltip_ability_warlord_jump_earth_Lore"						""
 		"DOTA_Tooltip_ability_warlord_jump_earth_damage"					"DAMAGE:"
 		"DOTA_Tooltip_ability_warlord_jump_earth_radius"					"RADIUS:"  
@@ -157,13 +157,13 @@
 		"DOTA_Tooltip_ability_warlord_jump_earth_cast_range"				"MAX JUMP RANGE:"
 
  		"DOTA_Tooltip_ability_warlord_jump_fire"							"Firedrop"
-		"DOTA_Tooltip_ability_warlord_jump_fire_Description"				"Element: <font color=\"#EF4126\">Fire</font><br>The Warlord leaps into the air and then dashes forward in a blaze, dealing AOE damage on impact."
+		"DOTA_Tooltip_ability_warlord_jump_fire_Description"				"Element: <font color=\"#EF4126\">Fire</font><br>The Warlord leaps into the air and then dashes forward in a blaze, dealing AOE damage on impact. Axes may be thrown during Firedrop with no cast angle requirement or cooldown."
 		"DOTA_Tooltip_ability_warlord_jump_fire_Lore"						""
 		"DOTA_Tooltip_ability_warlord_jump_fire_damage"						"DAMAGE:"
 		"DOTA_Tooltip_ability_warlord_jump_fire_radius"						"RADIUS:"  
 		
 		"DOTA_Tooltip_ability_warlord_jump_ice"								"Arctic Sprint"
-		"DOTA_Tooltip_ability_warlord_jump_ice_Description"					"Element: <font color=\"#87D9FF\">Ice</font><br>The Warlord dashes forward, leaving an icy trail behind him. The kicked up snow causes all incoming attacks to miss and disjoint."
+		"DOTA_Tooltip_ability_warlord_jump_ice_Description"					"Element: <font color=\"#87D9FF\">Ice</font><br>The Warlord dashes forward, leaving an icy trail behind him. The kicked up snow causes all incoming attacks to miss and disjoint. Axes may be thrown during Arctic Sprint with no cast angle requirement or cooldown."
 		"DOTA_Tooltip_ability_warlord_jump_ice_Lore"						""
 		"DOTA_Tooltip_ability_warlord_jump_ice_damage"						"DAMAGE:"
 		"DOTA_Tooltip_ability_warlord_jump_ice_radius"						"RADIUS:"

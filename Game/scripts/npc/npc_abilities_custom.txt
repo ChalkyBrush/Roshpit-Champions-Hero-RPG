@@ -11459,7 +11459,6 @@
 		"AbilityTextureName"	"crystal_maiden_crystal_nova_icecowl"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{

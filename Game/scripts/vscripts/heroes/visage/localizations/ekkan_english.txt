@@ -97,7 +97,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_property_one"					"Life Duration Increase"
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_suffix"						" seconds"
         "DOTA_Tooltip_ability_ekkan_rune_w_2_property_two"                  "Undead Amplification"
-        "DOTA_Tooltip_ability_ekkan_rune_w_2_suffix_two"                        " per active skeleton"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_suffix_two"                        "% per active skeleton"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_3"								"[W3] Skeleton Mages"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_Description"					"30% of summoned skeletons spawn as a skeleton mage that casts an AOE magic attack that also slows enemies."
@@ -172,7 +172,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_r_1_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_r_2"								"[R2] Scourge Swarm"
-    	"DOTA_Tooltip_ability_ekkan_rune_r_2_Description"					"Soul Charge can be targeted on a single enemy. The enemy takes pure damage based on the attack power of Ekkan's entire army combined. This damage ignore Steadfast."
+    	"DOTA_Tooltip_ability_ekkan_rune_r_2_Description"					"Soul Charge can be targeted on a single enemy. The enemy takes pure damage based on the attack power of Ekkan's entire army combined. Damage dealt by this rune ignores steadfast."
     	"DOTA_Tooltip_ability_ekkan_rune_r_2_property_one"					"Damage"
     	"DOTA_Tooltip_ability_ekkan_rune_r_2_suffix"						"% of all summon's attack power."
 

@@ -17,7 +17,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_q_1_suffix"						"%"
 
     	"DOTA_Tooltip_ability_chernobog_rune_q_2"								"[Q2] Coals of Carceri"
-    	"DOTA_Tooltip_ability_chernobog_rune_q_2_Description"					"Enemies affected by Charon's Claw take damage every 0.5 seconds and have additional <font color=\"#5B648C\">Demon</font> weakness that is equal to a percentage of their total demon weakness."
+    	"DOTA_Tooltip_ability_chernobog_rune_q_2_Description"					"@Ability1 burns enemies walking through it every 0.5 seconds. The coals also increase <font color=\"#5B648C\">Demon</font> damage dealt to these targets, by multiplying any of an attacker's existing Demon damage bonuses against them."
     	"DOTA_Tooltip_ability_chernobog_rune_q_2_property_one"					"Damage"
     	"DOTA_Tooltip_ability_chernobog_rune_q_2_suffix"						""
         "DOTA_Tooltip_ability_chernobog_rune_q_2_property_two"                  "Demon Amp Multiplier"
@@ -118,7 +118,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_suffix_two"					""
 
      	"DOTA_Tooltip_ability_chernobog_rune_e_3"								"[E3] Sudden Strike"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"When issuing an attack order on an enemy in Shadow Hunt, Chernobog teleports behind them and attacks. The enemy takes increased postmitigation for <% CHERNOBOG_E3_POSTMIT_DUR_BASE %>s. <% CHERNOBOG_E3_CD_BASE %> second cooldown."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"When issuing an attack order on an enemy in Shadow Hunt, Chernobog teleports behind them and attacks. The enemy takes increased post-mitigation for <% CHERNOBOG_E3_POSTMIT_DUR_BASE %>s. <% CHERNOBOG_E3_CD_BASE %> second cooldown."
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"					"Max Range"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"						""
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"					"Post-Mitigation Amp"
