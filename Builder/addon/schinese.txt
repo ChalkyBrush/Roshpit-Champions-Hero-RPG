@@ -2204,7 +2204,21 @@
 		"star_serengaard_infinite_title"								"无尽模式"
 		"star_serengaard_infinite_description"							"在无尽模式下，使用 @heroname 在防守地图中防守至 @wave_number 波。"
 
+		"star_valdun_title"											"失落深海要塞"
+		"star_valdun_title_solo"									"失落深海要塞"
+		"star_valdun_description"									"使用 @heroname 击败  @mapname 的 @bossname。"
+		"star_valdun_description2"									"单人使用 @heroname 击败  @mapname 的 @bossname。"
+		"star_valdun_description3"									"在60分钟内单人使用 @heroname 击败  @mapname 的 @bossname。"
+		"star_valdun_description1solo"									"单独击败 @mapname  的 @bossname。"
+		"star_valdun_description2solo"									"在45分钟内单独击败 @mapname  的 @bossname。"
+		"star_valdun_description3solo"									"在30分钟内单独击败 @mapname  的 @bossname。"
 
+		"star_azalea_title"											"阿塞莉娅的圣地"
+		"star_azalea_title_solo"									"阿塞莉娅的圣地"
+		"star_azalea_description"									"在普通难度下使用@heroname击败 @mapname的@bossname。"
+		"star_azalea_description2"									"在传说难度下使用@heroname击败 @mapname的@bossname。"
+		"star_azalea_description3"									"在传说难度下使用3个凛冬冰川后以@heroname击败 @mapname的@bossname。"
+		
 		//SERENGAARD
 
 		//ELEMENTS
