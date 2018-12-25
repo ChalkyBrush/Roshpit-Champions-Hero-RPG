@@ -58,7 +58,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"armor_shred"				"-100 -200 -500 -1000 -2000 -4000 -7000"
+				"armor_shred"				"-50 -100 -250 -500 -1000 -2000 -3500"
 			}
 		}
 		"OnToggleOn"

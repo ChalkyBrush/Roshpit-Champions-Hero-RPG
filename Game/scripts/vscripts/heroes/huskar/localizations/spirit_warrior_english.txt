@@ -293,7 +293,7 @@
 		"item_rpc_spirit_warrior_glyph_6_1_description" 				"Flameblood and Windstrike Weapon can both be active on Spirit Warrior at the same time."
 
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_7_1"		"Glyph of Soul Weapons"
-		"item_rpc_spirit_warrior_glyph_7_1_description" 				"Casting @Ability4 immediately casts flameblood, windstrike, and waterheart weapons if available on Spirit Warrior and all of his Ancient Spirits. Also increases the duration of @Ability4 by @glyph_property1 seconds."
+		"item_rpc_spirit_warrior_glyph_7_1_description" 				"Increases the duration of @Ability4 by @glyph_property1 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_a"		"Glyph of Storm Helix"
 		"item_rpc_spirit_warrior_glyph_5_a_description" 				"Standing within Tempest Haze adds a stack of Storm Helix every 0.5 seconds which increases attack speed by @glyph_property1, attack damage by @glyph_property2% and attack range by @glyph_property3."

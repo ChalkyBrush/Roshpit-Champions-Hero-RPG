@@ -36,7 +36,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"5"
 			}
 			"03"
 			{
@@ -190,12 +190,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"600"
+				"property_one"			"450"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"600"
+				"property_two"			"450"
 			}
 		}
 	}

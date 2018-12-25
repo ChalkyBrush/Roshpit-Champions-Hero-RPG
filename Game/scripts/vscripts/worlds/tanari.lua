@@ -94,7 +94,7 @@ function Tanari:Debug()
     -- RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
 
     -- RPCItems:RollBahamutArcana2(Vector(-4928, 2048))
-    -- Glyphs:RollGlyphAll("item_rpc_flamewaker_glyph_4_1", Vector(-4928, 2048), 0)
+    Glyphs:RollGlyphAll("item_rpc_spirit_warrior_glyph_7_1", Vector(-4928, 2048), 0)
 
     -- Curator:CurateArcanaAbilities(MAIN_HERO_TABLE[1])
     -- Curator:CurateAllGlyphsForHeroWithTiers("neutral", 3)

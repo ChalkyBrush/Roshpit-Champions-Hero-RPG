@@ -195,6 +195,9 @@ function flail_a_a_hit(event)
 	if not ability.q_1_level then
 		ability.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "duskbringer")
 	end
+	ability.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "duskbringer")
+	ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "duskbringer")
+	ability.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "duskbringer")
 	if ability.q_1_level > 0 then
 
 		if caster:HasModifier("modifier_duskbringer_glyph_5_2") then

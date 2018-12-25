@@ -160,6 +160,8 @@ function flame_proj_hit(event)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flamewaker_glyph_4_1_effect", {duration = 3})
 	end
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_dragonflame_armor_shred", {duration = 0.5})
+	local stacks = target:GetModifierStackCount("modifier_dragonflame_armor_shred", caster)
+	target:SetModifierStackCount("modifier_dragonflame_armor_shred", caster, stacks + 1)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 

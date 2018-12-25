@@ -2576,7 +2576,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if victim:HasModifier("modifier_charons_claw_enemy") then
                 local q_2_level = attacker:GetRuneValue("q", 2)
                 if q_2_level > 0 then
-                    demonMult = demonMult*0.1*q_2_level
+                    demonMult = demonMult*0.05*q_2_level
                 end
             end
             mult = mult + demonMult
