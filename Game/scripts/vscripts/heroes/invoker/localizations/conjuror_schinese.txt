@@ -518,7 +518,7 @@
 		"conjuror_weapon_24"			"暗影精华"
 		"conjuror_weapon_25"			"星辰精华"
 		
-		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_1"		"Azerath的启迪法球"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_1"		"艾泽拉斯的启迪法球"
 		
 		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_2"            "三位一体"
         "item_property_conjuror_immortal_weapon2"                             "宇宙平衡"

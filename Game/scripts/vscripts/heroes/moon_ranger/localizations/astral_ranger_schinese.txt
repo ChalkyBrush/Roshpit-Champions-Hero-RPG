@@ -187,7 +187,7 @@
     	"property_astral_arcana2_description"								"用阿波罗神弓来替换 @Ability2 和它的全部符文。"
 
     	"DOTA_Tooltip_ability_shot_of_apollo"						"阿波罗神弓"
-    	"DOTA_Tooltip_ability_shot_of_apollo_Description"			"星界游侠用超乎神奇地技艺将她的弓弦拉伸的超越了极限，在两秒后，瞬间向目标发射出海量的箭矢。"
+    	"DOTA_Tooltip_ability_shot_of_apollo_Description"			"星界游侠用超乎神奇地技艺将她的弓弦拉伸的超越了极限，在1秒后，瞬间向目标发射出海量的箭矢。"
     	"DOTA_Tooltip_ability_shot_of_apollo_shots"				"箭矢数量:"
 
     	"DOTA_Tooltip_modifier_apollo_strikes"					"阿波罗神弓"
