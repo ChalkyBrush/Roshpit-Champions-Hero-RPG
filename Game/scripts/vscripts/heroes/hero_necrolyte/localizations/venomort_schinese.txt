@@ -164,6 +164,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_one"			"移速提高"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix"					""
 
+	"DOTA_Tooltip_ability_item_rpc_venomort_arcana2"				"寒霜剧毒面具"
     	"item_property_venomort_arcana2"									"寒霜剧毒之触"
     	"property_venomort_arcana2_description"								"用 寒霜剧毒之触 替换 @Ability1 及其全部符文。"
 
