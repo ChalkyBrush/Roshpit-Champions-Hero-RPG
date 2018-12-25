@@ -223,31 +223,29 @@
 
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_1_1"		"(T1) Глиф Альбедо"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_1_1"		"(T1) Glyph of Albedo"
 		"item_rpc_zonik_glyph_1_1_description" 				"Если (Q) Tachyon Shell применён на Zhonik, то радиус его действия будет увеличен на @glyph_property1%."
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_1"		"(T2) Глиф Транзистора"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_1"		"(T2) Glyph of the Transistor"
 		"item_rpc_zonik_glyph_2_1_description" 				"Враги, на которых применён щит (Q) Tachyon Shell также получают от него усиленный на @glyph_property1% урон."
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_1"		"(T3) Глиф Северной Звезды"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_1"		"(T3) Glyph of the North Star"
 		"item_rpc_zonik_glyph_3_1_description" 				"С @glyph_property1% шансом герой дважды применит (W) Mach Punch."
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_4_1"		"(T4) Глиф Настоящего Взрыва"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_4_1"		"(T4) Glyph of Auric Blast"
 		"item_rpc_zonik_glyph_4_1_description" 				"Увеличивает радиус [W1] на @glyph_property1%."
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_1"		"(T5) Глиф Ускорения"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_1"		"(T5) Glyph of Acceleration"
 		"item_rpc_zonik_glyph_5_1_description" 				"На время действия (E) Lightspeed скорость передвижения и максимальная скорость передвижения дополнительно увеличиваются на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_6_1"		"(T6) Глиф Алмазной Пыли"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_6_1"		"(T6) Glyph of Diamond Dust"
 		"item_rpc_zonik_glyph_6_1_description" 				"Во время рывка (R) Speedball, руна Green Streak создаёт энергетические копии на @glyph_property1% чаще, копии взрываются мгновенно и наносят на @glyph_property2% больше урона."
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_1"		"(T7) Глиф Звукового Барьера"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_1"		"(T7) Glyph of Sonar Crack"
 		"item_rpc_zonik_glyph_7_1_description" 				"Заряды [W2] увеличивают весь стихийный урон <font color=\"#B5FFB7\">Времени</font> на @glyph_property1%. Когда стихия <font color=\"#B5FFB7\">Времени</font> наносит урон, тратится 1 заряд."
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"(Immortal) Глиф Мудрого Взгляда"
-		"item_rpc_zonik_glyph_5_a_description" 				"С прочтением (E) Lightspeed, раскрывает местоположение всех врагов в радиусе 8000 на 5 секунд."
-
-		"DOTA_Tooltip_modifier_sages_eyes"					"Мудрый Взгляд"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"(Immortal) Glyph of Flurry Punches"
+		"item_rpc_zonik_glyph_5_a_description" 				"Автоматически применяет @Ability2 на случайного противника поблизости каждые 0.4 секунды."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_00"		"Punch Glove"

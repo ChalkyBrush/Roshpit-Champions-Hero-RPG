@@ -283,6 +283,32 @@
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"(Immortal) Глиф святого гнева"
 		"item_rpc_paladin_glyph_5_a_description" 				"Удар молнии от [R4] Knight's Disciple's поражает врагов в радиусе @glyph_property1, а основная цель будет атакована дважды."
 		
+		//Column2Glyphs
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_2"       "Glyph of Repentance"
+        "item_rpc_paladin_glyph_1_2_description"                "Враги, пораженные @Ability2 имеют замедленную атаку на @glyph_property1 в течение 8 секунд."
+
+        "DOTA_Tooltip_modifier_paladin_glyph_1_2_effect"        "Repentance"
+        "DOTA_Tooltip_modifier_paladin_glyph_1_2_effect_Description"    "Скорость атаки снижена." 
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_2"       "Glyph of Blessed Hammer"
+        "item_rpc_paladin_glyph_2_2_description"                "Все цифровые значения на оружии увеличены на @glyph_property1%. Бонус рассчитывается только при надевании или загрузке оружия."
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_2"       "Glyph of Gold Sparkle"
+        "item_rpc_paladin_glyph_3_2_description"                "Руна [Q2] дает @glyph_property1% вампиризм."
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "Glyph of Hyper Justice"
+        "item_rpc_paladin_glyph_4_2_description"                "@Ability2 имеет 0.05 точку каста и толкает вперед."
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "Glyph of Penitence"
+        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 могут атаковать, нанося при ударах чистый урон с элементом <font color=\"#F6FFB5\">Света</font> в размере @glyph_property1x от атаки Паладина."
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "Glyph of Vestigial Value"
+        "item_rpc_paladin_glyph_6_2_description"                "Каждая часть снаряжения мифической редкости или ниже усиливает пост-резистный исходящий урон на @glyph_property1%."
+
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_2"       "Glyph of Heaven's Sentinel"
+        "item_rpc_paladin_glyph_7_2_description"                "Снижает получаемый урон на @glyph_property1%, но снижает и исходящий урон на @glyph_property2%."
+
 		//Weapons
 		"paladin_weapon_01"			"Hammer of Might"
 		"paladin_weapon_02"			"Silver Hammer"

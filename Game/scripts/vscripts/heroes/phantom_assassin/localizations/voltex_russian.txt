@@ -24,9 +24,11 @@
 		"DOTA_Tooltip_modifier_voltex_rune_q_2_description" 				"Ваши атаки имеют 15%% шанс выпустить Цепную молнию."
 		
 		"DOTA_Tooltip_ability_voltex_rune_q_3"								"[Q3] Power Break"
-    	"DOTA_Tooltip_ability_voltex_rune_q_3_Description"					"На врагов, попавших под действие @Ability1 будет наложен складывающийся эффект понижения брони. Эффект длится 6 секунд."
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_Description"					"На врагов, попавших под действие @Ability1 будет наложен складывающийся эффект понижения брони. Эффект длится 6 секунд. Каждый удар @Ability1 с 30% нанесет еще одну порцию Физическим уроном."
     	"DOTA_Tooltip_ability_voltex_rune_q_3_property_one"					"Потеря брони за заряд"
     	"DOTA_Tooltip_ability_voltex_rune_q_3_suffix"						""
+		"DOTA_Tooltip_ability_voltex_rune_q_3_property_two"                 "Физический урон"
+        "DOTA_Tooltip_ability_voltex_rune_q_3_suffix_two"                   "% от атаки"
 
     	"DOTA_Tooltip_modifier_voltex_rune_q_3"								"Power Break"
     	"DOTA_Tooltip_modifier_voltex_rune_q_3_Description"					"Показатель брони понижен"
@@ -120,10 +122,11 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_4_suffix"						"% за каждые 10 очков Ловкости"
 		
 		"DOTA_Tooltip_ability_static_field"									"Static Field"
-		"DOTA_Tooltip_ability_static_field_Description"						"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Voltex заряжается окружающей энергией, после чего выпускает впереди себя несколько наносящих урон заряженных сфер"
+		"DOTA_Tooltip_ability_static_field_Description"						"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Voltex заряжается окружающей энергией, после чего выпускает впереди себя несколько наносящих урон заряженных сфер. Каждый контакт противника со сферами увеличит входящий урон по нему, складывается бесконечно."
 		"DOTA_Tooltip_ability_static_field_Lore"							""
 		"DOTA_Tooltip_ability_static_field_damage"							"УРОН ЗА СФЕРУ:"
     	"DOTA_Tooltip_ability_static_field_num_shocks"						"ЗАРЯЖЕННЫХ СФЕР:"
+		"DOTA_Tooltip_ability_static_field_post_mitigation_per_spark"       "ПОСТ-РЕЗИСТНЫЙ УРОН ЗА СФЕРУ:"
 		
 		"DOTA_Tooltip_ability_voltex_rune_r_1"								"[R1] Thunder Storm"
     	"DOTA_Tooltip_ability_voltex_rune_r_1_Description"					"Когда Voltex завершает прочтение @Ability4, с небес на землю обрушивается серия смертоносных ударов молний."

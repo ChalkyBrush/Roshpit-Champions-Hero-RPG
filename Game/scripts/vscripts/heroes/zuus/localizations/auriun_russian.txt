@@ -125,9 +125,11 @@
     	"DOTA_Tooltip_modifier_auriun_ult_effect_Description"			"Большое восстановление здоровья и увеличенная скорость передвижения."
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_1"						"[R1] Sage Strikes"
-    	"DOTA_Tooltip_ability_auriun_rune_r_1_Description"			"Урон Auriun увеличен на % от его Интеллекта."
+    	"DOTA_Tooltip_ability_auriun_rune_r_1_Description"			"Урон Auriun увеличен на % от его Интеллекта. Атаки наносят чистый урон."
     	"DOTA_Tooltip_ability_auriun_rune_r_1_property_one"			"Доп. урон"
     	"DOTA_Tooltip_ability_auriun_rune_r_1_suffix"				"% от значения Интеллекта"
+		"DOTA_Tooltip_ability_auriun_rune_r_1_property_two"         "Чистый урон при атаке"
+        "DOTA_Tooltip_ability_auriun_rune_r_1_suffix_two"           "% от атаки"
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_2"						"[R2] Infusion of Light"
     	"DOTA_Tooltip_ability_auriun_rune_r_2_Description"			"Увеличивает получаемые бонусы от предметов, кроме значения рун. Перерасчёт происходит только при надевании предмета и при возрождении."
