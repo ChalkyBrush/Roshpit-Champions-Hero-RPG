@@ -176,7 +176,7 @@
     	"property_arkimus_arcana2_description"								"用奥法审判者替换 @Ability4 及其所有符文"
 
     	"DOTA_Tooltip_ability_arkimus_archon_form"									"奥法审判者"
-    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"施法吟唱 2 秒后，变身成为奥法审判者形态，提高 +400 攻击速度，提高攻击距离，并且减伤。攻击 1/2 攻击半径内的敌人时，阿基莫斯将自动向后推进，远离敌人。"
+    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"施法吟唱 2 秒后，变身成为奥法审判者形态，提高 +400 攻击速度，提高攻击距离，并且减伤。在奥法审判者形态下时，你的所有伤害都将造成纯粹伤害。攻击 1/2 攻击半径内的敌人时，阿基莫斯将自动向后推进，远离敌人。"
     	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"攻击力提高："
     	"DOTA_Tooltip_ability_arkimus_archon_form_duration"								"变身持续时间："
     	"DOTA_Tooltip_ability_arkimus_archon_form_damage_resist"						"伤害减免 %："
