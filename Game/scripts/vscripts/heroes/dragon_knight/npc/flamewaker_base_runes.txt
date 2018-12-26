@@ -328,12 +328,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"600"
+				"property_one"			"<% FLAMEWAKER_E1_DMG %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"property_two"			"<% FLAMEWAKER_E1_PREMIT * 100 %>"
 			}
 			"02"
 			{

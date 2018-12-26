@@ -1,3 +1,5 @@
+require("/heroes/dragon_knight/flamewaker_constants")
+
 function CastSunRay( event )
     
     local caster    = event.caster
@@ -193,7 +195,7 @@ function rune_e_1_damage(event)
     if ability.rune_e_1 then
         local runeAbility = caster.runeUnit4:FindAbilityByName("flamewaker_rune_e_4")
         local e_4_level = caster:GetRuneValue("e", 4)
-        local damage = ability.rune_e_1*500
+        local damage = ability.rune_e_1 * FLAMEWAKER_E1_DMG
         if ability.glyphed then
             damage = damage*2
         end
