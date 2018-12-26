@@ -75,7 +75,7 @@ function jinbo_start(event)
 			end
 			local e_2_level = caster:GetRuneValue("e", 2)
 			if e_2_level > 0 then
-				local procs = Runes:Procs(e_2_level, 2.5, 1)
+				local procs = Runes:Procs(e_2_level, 5, 1)
 				if procs > 0 then
 					caster:RemoveModifierByName("modifier_shapeshift_freecast")
 					ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_freecast", {duration = 60})

@@ -37485,7 +37485,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"2.5"
+				"property_two"			"5"
 			}
 		}
 	}
