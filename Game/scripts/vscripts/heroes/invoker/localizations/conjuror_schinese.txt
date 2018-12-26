@@ -87,7 +87,7 @@
     	"DOTA_Tooltip_ability_conjuror_rune_w_3_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_conjuror_rune_w_4"							"[W4] 自爆"
-    	"DOTA_Tooltip_ability_conjuror_rune_w_4_Description"				"火之位面死亡时将爆炸，造成基于其最大生命值的持续伤害，持续7秒，同时造成2秒眩晕。在燃烧时，敌人受到的来自召唤师的<font color=\"#EF4126\">元素</font> 伤害提高。"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_Description"				"火之位面死亡时将爆炸，造成基于其最大生命值的持续伤害，持续7秒，同时造成2秒眩晕。在燃烧时，敌人受到的来自召唤师的<font color=\"#EF4126\">火</font> 伤害提高。"
     	"DOTA_Tooltip_ability_conjuror_rune_w_4_property_one"				"爆炸伤害"
     	"DOTA_Tooltip_ability_conjuror_rune_w_4_suffix"						"% 火之位面的最大生命值"
 	"DOTA_Tooltip_ability_conjuror_rune_w_4_property_two"				"火元素伤害增加"
