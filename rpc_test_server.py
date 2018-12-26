@@ -7,7 +7,9 @@ filesToCheck = [
   "Game\\scripts\\vscripts\\challenges.lua", 
   "Game\\scripts\\vscripts\\events.lua", 
   "Game\\scripts\\vscripts\\items.lua", 
-  "Game\\scripts\\vscripts\\glyphs.lua", 
+  "Game\\scripts\\vscripts\\glyphs.lua",
+  "Game\\scripts\\vscripts\\game_state.lua",
+  "Game\\scripts\\vscripts\\stars.lua",
   "Game\\scripts\\vscripts\\items\\RPCamulet.lua", 
   "Game\\scripts\\vscripts\\items\\legendaries.lua", 
   "Game\\scripts\\vscripts\\items\\weapons.lua", 
@@ -101,4 +103,4 @@ print()
 if has_errors:
 	input("Err, check log.")
 else:
-	input("Press enter to exit.")
+	input("! OK ! Press enter to exit.")
