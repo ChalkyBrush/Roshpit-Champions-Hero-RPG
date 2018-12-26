@@ -11,6 +11,7 @@
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------

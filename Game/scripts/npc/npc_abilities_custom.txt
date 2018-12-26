@@ -14334,6 +14334,7 @@
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -15662,20 +15663,12 @@
 
 		"OnSpellStart"
 		{
-
 			"RunScript"
 			{
 				"ScriptFile"		"heroes/dragon_knight/flame_ray.lua"
 				"Function"			"CastNewHeatwave"
 				"duration"		"%AbilityDuration"
 			}
-
-			//"RunScript"
-			//{
-			//	"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-			//	"Function"		"rune_e_3"
-			//	"path_length"				"%beam_range"
-			//}
 		}
 
 		"OnProjectileHitUnit"
@@ -15690,11 +15683,6 @@
 		}
 		"OnOwnerDied"
 		{
-			"RemoveModifier"
-			{
-				"ModifierName"	"modifier_heatwave_phase_two"
-				"Target" 		"CASTER"
-			}
 			"RunScript"
 			{
 				"ScriptFile"		"heroes/dragon_knight/flame_ray.lua"
@@ -15757,6 +15745,12 @@
 						"phase"			"0"
 					}
 				}
+				"Aura"          	"modifier_heat_wave_armor_shred"
+				"Aura_Radius"   	"260"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster" "0"
 
 			}
 			"modifier_heatwave_flying_portion"
@@ -15767,78 +15761,6 @@
 					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"				"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"IsHidden"	"1"
-			}
-			"modifier_heatwave_phase_two"
-			{
-				"IsBuff"		"1"
-				"ThinkInterval"		"0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-						"Function"		"heatwave_phase_think"
-						"phase"			"1"
-					}
-					"ActOnTargets"
-					{
-						"Target"
-			            {
-			                "Center" "CASTER"
-			                "Radius" "%radius"
-			                "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-			                "Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-			            }
-
-			            "Action"
-			            {
-			            	"RunScript"
-			            	{
-			            		"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-			            		"Function"		"flame_ray_damage"
-			            		"target"		"TARGET"
-			            		"damage"		"%base_dmg"
-			            	}
-
-			            	"FireEffect"
-			            	{
-			            		"EffectName"        "particles/units/heroes/hero_phoenix/phoenix_sunray_beam_enemy.vpcf"
-			            		"EffectAttachType"  "follow_origin"
-			            		"Target"            "TARGET"
-			            	}
-			            }
-					}
-					"Aura"          	"modifier_heat_wave_armor_shred"
-					"Aura_Radius"   	"260"
-					"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-					"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-					"Aura_ApplyToCaster" "0"
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"heroes/dragon_knight/flame_ray.lua"
-						"Function"			"StopSound"
-						"sound_name"		"Hero_Phoenix.SunRay.Loop"
-					}
-
-					"FireSound"
-					{
-						"EffectName"		"Hero_Phoenix.SunRay.Stop"
-						"Target"			"CASTER"
-					}
-					"RunScript"
-					{
-						"ScriptFile"		"heroes/dragon_knight/flame_ray.lua"
-						"Function"			"EndSunRay"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
 			}
 			"modifier_heat_wave_armor_shred"
 			{
@@ -16591,7 +16513,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"property_two"			"0.1"
 			}
 			"02"
 			{
