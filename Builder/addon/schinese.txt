@@ -838,7 +838,7 @@
 		
 		"ui_regen"				"生命回复"
 		"ui_attack_damage"		"基础攻击力"
-		"ui_attack"				"攻击力"
+		"ui_attack"				"攻击"
 		"ui_defense"			"防御"
 		"ui_time_between_attacks"	"攻击间隔"
 		"ui_attack_damage_full"	"基础攻击力"
