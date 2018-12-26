@@ -17,9 +17,11 @@
     	"DOTA_Tooltip_ability_chernobog_rune_q_1_suffix"						"%"
 
     	"DOTA_Tooltip_ability_chernobog_rune_q_2"								"[Q2] Coals of Carceri"
-    	"DOTA_Tooltip_ability_chernobog_rune_q_2_Description"					"Враги, попавшие под действие @Ability1 получают урон каждые 0.5 секунды."
+    	"DOTA_Tooltip_ability_chernobog_rune_q_2_Description"					"Враги, попавшие под действие @Ability1 получают урон каждые 0.5 секунды и получаемый урон элемента<font color=\"#5B648C\">Демон</font> увеличивается на некоторый процент."
     	"DOTA_Tooltip_ability_chernobog_rune_q_2_property_one"					"Урон"
     	"DOTA_Tooltip_ability_chernobog_rune_q_2_suffix"						""
+		"DOTA_Tooltip_ability_chernobog_rune_q_2_property_two"                  "Урон элемента Демон"
+        "DOTA_Tooltip_ability_chernobog_rune_q_2_suffix_two"                    "% усиление"
 
      	"DOTA_Tooltip_ability_chernobog_rune_q_3"								"[Q3] Stygian Desolation"
     	"DOTA_Tooltip_ability_chernobog_rune_q_3_Description"					"Дарует герою дополнительный урон, пока на него действует эффект от умения (Q) Charon's Claw."
@@ -92,7 +94,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_suffix_two"					""
 		
 		"DOTA_Tooltip_ability_chernobog_shadow_walk"							"Shadow Hunt"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_Description"				"Chernobog пробивается через пустоту, открывая для себя некоторые возможности. Пока активно это умение, герой ежесекундно теряет % от максимальных значений здоровья и маны."
+    	"DOTA_Tooltip_ability_chernobog_shadow_walk_Description"				"Chernobog пробивается через пустоту, открывая для себя некоторые возможности. Пока активно это умение, герой ежесекундно теряет % от максимальных значений здоровья и маны, а противники в радиусе 300 не могут восполнять здоровье."
     	"DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_cap"				"ГРАНИЦА СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
     	"DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_bonus"			"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
     	"DOTA_Tooltip_ability_chernobog_shadow_walk_drain_per_second"			"ЗАТРАТЫ ЗДОРОВЬЯ И МАНЫ В СЕКУНДУ, %:"

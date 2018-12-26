@@ -195,7 +195,7 @@
     	"DOTA_Tooltip_modifier_sunstrider_in_air"						"Sunstrider"
 
   		"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2"						"[E1] Sunblade"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"Увеличивает бонус урона во время @Ability3 и позволяет атаковать больше целей за раз."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"Увеличивает бонус урона во время @Ability3 и на 3 секунды после каста, и позволяет атаковать больше целей за раз."
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_one"			"Доп. урон"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_two"			"Дополнительные цели"

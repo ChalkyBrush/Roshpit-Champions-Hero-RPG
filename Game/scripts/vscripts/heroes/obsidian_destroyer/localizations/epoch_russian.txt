@@ -12,17 +12,21 @@
 		"DOTA_Tooltip_modifier_time_bound_description" 							"Замедление и получение двойного урона от Distortion Orb."
 		
     	"DOTA_Tooltip_ability_epoch_rune_q_1"									"[Q1] Space Link"
-    	"DOTA_Tooltip_ability_epoch_rune_q_1_Description"						"@Ability1 также связывает до 15 врагов неподалеку. [Q1] имеет тот же эффект, что и @Ability1. Максимум 15 связей. [E2] нанесёт двойной урон всем связанным юнитам."
+    	"DOTA_Tooltip_ability_epoch_rune_q_1_Description"						"@Ability1 дополнительно связывает ближайших пораженных противников.@Ability3 и [E2] наносят удвоенный урон по таким противникам. Базовое число связей - 3, растет с количеством вложенных рун."
     	"DOTA_Tooltip_ability_epoch_rune_q_1_property_one"						"Урон"
     	"DOTA_Tooltip_ability_epoch_rune_q_1_suffix"							"% от Связи времени"
+		"DOTA_Tooltip_ability_epoch_rune_q_1_property_two"                      "Шанс на доп. связи"
+        "DOTA_Tooltip_ability_epoch_rune_q_1_suffix_two"                        "%"
 
     	"DOTA_Tooltip_modifier_space_link"										"Time Bind"
     	"DOTA_Tooltip_modifier_space_link_description"							"Time Binder эффект дополнительного урона со временем."
 
     	"DOTA_Tooltip_ability_epoch_rune_q_2"									"[Q2] Eon Channel"
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_Description"						"Связь времени украдет у первой цели урон и передаст его Epoch Guardian на 7 секунд."
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_Description"						"Связь времени украдет у первой цели урон и передаст его Epoch Guardian на 7 секунд. Противники под действием связей @Ability1 и [Q1] делят полученный урон между собой."
     	"DOTA_Tooltip_ability_epoch_rune_q_2_property_one"						"Украдено урона"
     	"DOTA_Tooltip_ability_epoch_rune_q_2_suffix"							""
+		"DOTA_Tooltip_ability_epoch_rune_q_2_property_two"                      "Разделенный урон"
+        "DOTA_Tooltip_ability_epoch_rune_q_2_suffix_two"                        "%"
 
     	"DOTA_Tooltip_modifier_eon_channel_friendly"							"Eon Channel"
     	"DOTA_Tooltip_modifier_eon_channel_friendly_Description"				"Украденный урон передан Epoch Guardian на 7 сек."

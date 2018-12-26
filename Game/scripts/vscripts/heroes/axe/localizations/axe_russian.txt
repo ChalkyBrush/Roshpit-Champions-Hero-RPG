@@ -203,6 +203,41 @@
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_suffix"              "%"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_two"        "Доп. радиус разлома"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_suffix_two"          ""
+		
+		"DOTA_Tooltip_ability_item_rpc_axe_arcana2"                     "Stonewall Gauntlets"
+
+        "item_property_axe_arcana2"                                     "Stonewall"
+        "property_axe_arcana2_description"                              "Заменяет @Ability2 и все соответствующие руны на Stonewall."
+ 
+        "DOTA_Tooltip_ability_axe_stonewall_ability"                         "Stonewall"
+        "DOTA_Tooltip_ability_axe_stonewall_ability_Description"             "Создает арену из каменных стен вокруг героя. Союзники внутри арены получают сниженный урон от противников."
+        "DOTA_Tooltip_ability_axe_stonewall_ability_damage_reduction"   "ПОНИЖЕНИЕ УРОНА %:"
+        "DOTA_Tooltip_ability_axe_stonewall_ability_duration"           "ДЛИТЕЛЬНОСТЬ:"
+
+        "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect"          "Stonewall"
+        "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect_Description" "Входящий рон снижен"
+ 
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2"                     "[W1] Walled Ambuscade"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_Description"         "Противники внутри арены получают увеличенный пост-резистный урон от The Red General."
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_property_one"        "Пост-резистный урон"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_suffix"              "%"
+ 
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2"                     "[W2] Barrier"
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_Description"         "The Red General получает бонусную броню и силу внутри арены."
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_property_one"        "Броня"
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_suffix"              ""
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_property_two"        "Сила"
+        "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_suffix_two"          ""
+ 
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2"                     "[W3] Counter Helix"
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_Description"         "15% шанс нанести круговой удар по врагам, когда героя атакуют."
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_property_one"        "Урон"
+        "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_suffix"              "% от атаки"
+
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2"                     "[W4] Enforcer"
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_Description"         "При прочтении @Ability2 заставляет всех ближайших врагов атаковать The Red General."
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_property_one"        "Радиус"
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_suffix"              ""
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "(T1) Глиф битвы"

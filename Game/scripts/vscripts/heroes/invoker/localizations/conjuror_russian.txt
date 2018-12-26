@@ -73,9 +73,11 @@
 		"DOTA_Tooltip_ability_immolation_radius"							"РАДИУС ВЗРЫВА:"
 
 		"DOTA_Tooltip_ability_conjuror_rune_w_1"							"[W1] Permanent Immolation"
-    	"DOTA_Tooltip_ability_conjuror_rune_w_1_Description"				"Ваш Элементаль Огня наносит периодический урон от огня по области всем ближайшим врагам."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_Description"				"Ваш Элементаль Огня наносит периодический урон от огня по области всем ближайшим врагам. Этот урон увеличивает максимальное здоровье элементаля, максимально - 200 миллионов ХП."
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_property_one"				"Урон/Сек"
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_suffix"						""
+		"DOTA_Tooltip_ability_conjuror_rune_w_1_property_two"				"Дополнительное здоровье"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_suffix_two"					"% от урона [W1]"
 		
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation"				"Permanent Immolation"
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font><br>Обжигает находящихся рядом врагов"
@@ -101,9 +103,11 @@
     	"DOTA_Tooltip_ability_conjuror_rune_w_3_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_conjuror_rune_w_4"							"[W4] Detonate"
-    	"DOTA_Tooltip_ability_conjuror_rune_w_4_Description"				"В момент гибели элементаля огня происходит мощный взрыв, который наносит урон в зависимости от его макс. здоровья и оглушает ближайших врагов на 1 секунду."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_Description"				"В момент гибели элементаля огня происходит мощный взрыв, который наносит урон в зависимости от его макс. здоровья, поджигает противников на 7 секунд и оглушает ближайших врагов на 2 секунды. Горящие противники получают увеличенный урон <font color=\"#EF4126\">Огня</font> от Conjuror."
     	"DOTA_Tooltip_ability_conjuror_rune_w_4_property_one"				"Урон взрыва"
     	"DOTA_Tooltip_ability_conjuror_rune_w_4_suffix"						"% от макс. здоровья элементаля"
+		"DOTA_Tooltip_ability_conjuror_rune_w_4_property_two"				"Усиление урона огня"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_suffix_two"					"% во время горения"
 		
 		"DOTA_Tooltip_ability_summon_shadow_aspect"							"Shadow Aspect"
 		"DOTA_Tooltip_ability_summon_shadow_aspect_Description"				"Призывает элементаля Пустоты. Он является существом дальнего боя, а его атаки разделяются при попадании. <br><font color='#70EA72'>Пока элементаль тени жив, вы можете использовать способность </font><font color='#6cbfe2'>(E) Shadow Gate</font><font color='#70EA72'>.</font>"

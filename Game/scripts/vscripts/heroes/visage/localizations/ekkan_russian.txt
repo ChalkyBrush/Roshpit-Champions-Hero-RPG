@@ -1,5 +1,9 @@
 		//Abilities
 		"ekkan_corpse"														"Труп"
+		"ekkan_familiar"													"Гаргулья-Страж"
+		"ekkan_skeleton_mage"												"Скелет-Маг"
+		"ekkan_skeleton_archer"												"Скелет-Лучник"
+		"ekkan_supercharged_skeleton"										"Скелет-Король"
 		
 		"notification_no_dominion"											"Невозможно подчинить"
     	"notification_raise_skeleton_fail"									"Выберите труп"
@@ -63,7 +67,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_property_two"					"Доп. скорость атаки"
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_suffix_two"					""
 
-    	"DOTA_Tooltip_modifier_ekkan_d_a_alacrity"							"[Q4] Grim Alacrity"
+    	"DOTA_Tooltip_modifier_ekkan_d_a_alacrity"							"Grim Alacrity"
     	"DOTA_Tooltip_modifier_ekkan_d_a_alacrity_Description"				"Скорость атаки и передвижения увеличены."
 		
 		"DOTA_Tooltip_ability_ekkan_summon_skeleton"						"Summon Skeleton"
@@ -82,17 +86,21 @@
 		"DOTA_Tooltip_modifier_skeleton_summon_unit"						"Призванный скелет"
 		
 		"DOTA_Tooltip_ability_ekkan_rune_w_1"								"[W1] Skeleton Archers"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_1_Description"					"С 30% шансом вместо скелета - воина будет призван скелет - стрелок."
+    	"DOTA_Tooltip_ability_ekkan_rune_w_1_Description"					"С 30% шансом вместо скелета - воина будет призван скелет - лучник. Имеют множитель от урона персонажа и 30% шанс нанести критический урон с элементом <font color=\"#5C776E\">Нежити</font>."
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_property_one"					"Множитель урона от урона Ekkan"
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_suffix"						"%"
+		"DOTA_Tooltip_ability_ekkan_rune_w_1_property_two"                  "Критический Урон"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_two"                    "%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_2"								"[W2] Extended Reanimation"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_2_Description"					"Увеличивает время жизни призванных скелетов."
+    	"DOTA_Tooltip_ability_ekkan_rune_w_2_Description"					"Увеличивает время жизни призванных скелетов. Каждый вызванный скелет увеличивает элемент <font color=\"#5C776E\">Нежити</font>."
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_property_one"					"Доп. время жизни скелетов"
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_suffix"						" сек."
+		"DOTA_Tooltip_ability_ekkan_rune_w_2_property_two"                  "Усиление элемента Нежить"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_suffix_two"                        " за каждого активного скелета"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_3"								"[W3] Skeleton Mages"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_3_Description"					"С 30% шансом вместо скелета - воина будет призван скелет - маг, который наносит магический урон по области и замедляет задетых врагов."
+    	"DOTA_Tooltip_ability_ekkan_rune_w_3_Description"					"С 30% шансом вместо скелета - воина будет призван скелет - маг, который наносит магический урон по области и замедляет задетых врагов. Урон принадлежит скелету, но усиливается элементами и силой способностей героя."
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_property_one"					"Магический урон по области"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_suffix"						"% от урона"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_property_two"					"Замедление"
@@ -105,9 +113,11 @@
     	"DOTA_Tooltip_modifier_mage_blast_slow_Description"					"Замедлен"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_4"								"[W4] Cloak of Shadows"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_4_Description"					"Ekkan и все призванные скелеты получают дополнительное сопротивление к магии."
+    	"DOTA_Tooltip_ability_ekkan_rune_w_4_Description"					"Ekkan и все призванные скелеты получают дополнительное сопротивление к магии. Скелеты получают усиленный пост-резистный урон."
     	"DOTA_Tooltip_ability_ekkan_rune_w_4_property_one"					"Доп. сопротивление к магии"
     	"DOTA_Tooltip_ability_ekkan_rune_w_4_suffix"						""
+		"DOTA_Tooltip_ability_ekkan_rune_w_4_property_two"                  "Усиление пост-резистного урона скелетов"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_suffix_two"                    "%"
 		
 		"DOTA_Tooltip_ability_ekkan_river_of_souls"							"Acheron's Portal"
 		"DOTA_Tooltip_ability_ekkan_river_of_souls_Description"				"Создаёт портал в указанной точке. Попадая в портал, вы и вся ваша армия перемещается к другому такому же порталу с <font color='#70EA72'>1.5</font> секундной задержкой.<br><font color='#70EA72'>Любой герой может воспользоваться порталом</font>."	
@@ -162,7 +172,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_r_1_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_r_2"								"[R2] Scourge Swarm"
-    	"DOTA_Tooltip_ability_ekkan_rune_r_2_Description"					"@Ability4 можно применить на врага. Враг получает чистый урон, основанный на сумме урона всей подчинённой армии."
+    	"DOTA_Tooltip_ability_ekkan_rune_r_2_Description"					"@Ability4 можно применить на врага. Враг получает чистый урон, основанный на сумме урона всей подчинённой армии. Этот урон игнорирует 'Стойкость'."
     	"DOTA_Tooltip_ability_ekkan_rune_r_2_property_one"					"Урон"
     	"DOTA_Tooltip_ability_ekkan_rune_r_2_suffix"						"% от общего урона всех подчинённых юнитов."
 

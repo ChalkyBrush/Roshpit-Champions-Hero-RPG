@@ -187,9 +187,11 @@
     	"DOTA_Tooltip_modifier_monkey_a_c_effect_Description"						"Снижает сопротивление Природы"
 
     	"DOTA_Tooltip_ability_djanghor_rune_e_2"									"[E2] Juniper Whip"
-    	"DOTA_Tooltip_ability_djanghor_rune_e_2_Description"						"Во время (E) Monkey Leap, базовый урон (W) Jin'bo увеличен."
+    	"DOTA_Tooltip_ability_djanghor_rune_e_2_Description"						"Во время (E) Monkey Leap, базовый урон (W) Jin'bo увеличен, а третий удар этой способности имеет шанс зарядить способность (R) Shapeshift на мнгновенное прочтение, вероятность выше 100% гарантирует несколько зарядов."
     	"DOTA_Tooltip_ability_djanghor_rune_e_2_property_one"						"Усиление базового урона (W) Jin'bo"
     	"DOTA_Tooltip_ability_djanghor_rune_e_2_suffix"								"%"
+		"DOTA_Tooltip_ability_djanghor_rune_e_2_property_two"						"Шанс на заряд для Shapeshift"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_2_suffix_two"							"%"
 
     	"DOTA_Tooltip_ability_djanghor_rune_e_3"									"[E3] Panacea"
     	"DOTA_Tooltip_ability_djanghor_rune_e_3_Description"						"После прочтения (E) Monkey Leap есть шанс, что герой развеет с себя 1 случайный негативный эффект. Значение шанса выше 100% означает, что может быть снято несколько негативных эффектов."

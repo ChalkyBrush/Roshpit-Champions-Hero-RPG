@@ -1,14 +1,16 @@
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue"			"Flameblood Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font><br>Накладывает на себя или выбранную союзную цель огненные чары, которые увеличивают урон и добавляют к атакам бонус магического урона."
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font><br>Накладывает на себя или выбранную союзную цель огненные чары, которые увеличивают урон и добавляют к атакам бонус магического урона. Пока активно, носитель получает увеличение <font color=\"#EF4126\">Огненного</font> урона. Противники получают дополнительный урон от Flameblood Weapon, если их броня отрицательная."
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage_increase"	"ДОП.УРОН, %"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_duration"			"ДЛИТЕЛЬНОСТЬ УСИЛЕНИЯ:"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_flat_pure_damage"	"ДОП.МАГИЧЕСКИЙ УРОН:"
+		"DOTA_Tooltip_ability_spirit_warrior_flametongue_fire_damage_amp"   "УСИЛЕНИЕ ОГНЕННОГО УРОНА: %"
+        "DOTA_Tooltip_ability_spirit_warrior_flametongue_negative_armor_amp"            "ДОПОЛНИТЕЛЬНЫЙ УРОН ОТ СПОСОБНОСТИ ЗА ОТРИЦАТЕЛЬНУЮ БРОНЮ: %"
 
     	"DOTA_Tooltip_modifier_flametongue"							"Flameblood Weapon"
-    	"DOTA_Tooltip_modifier_flametongue_Description"				"Увеличение урона и бонусная надбавка магического урона"
+    	"DOTA_Tooltip_modifier_flametongue_Description"				"Увеличение урона и бонусная надбавка магического урона, усиление Огненного урона"
 
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust"			"Soul Thrust"
-    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font> / <font color=\"#7AE2A7\">Ветер</font><br>Spirit Warrior вонзает своё копьё в землю перед собой, создавая взрыв, ранящий души. Урон может быть усилен за счет умения (Q) Flameblood weapon. Враги, задетые этим умением наносят на 50% меньше урона герою."	
+    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font> / <font color=\"#7AE2A7\">Ветер</font><br>Spirit Warrior вонзает своё копьё в землю перед собой, создавая взрыв, ранящий души. Урон может быть усилен за счет умения (Q) Flameblood weapon. Враги, задетые этим умением наносят на 50% меньше урона герою. Каст перемещает одного из духов на место героя."	
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_damage"		"УРОН:"
 
     	"DOTA_Tooltip_modifier_soul_thrust_effect"					"Soul Thrust"
@@ -29,14 +31,18 @@
     	"DOTA_Tooltip_modifier_ancient_vigor_Description"			"Урон и скорость атаки увеличены."
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1"				"[Q1] Burning Flameblood"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Атаки под действием (Q) Flameblood дополнительно поджигают врагов на 5 секунд. Эффект может быть сложен до 50 раз."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Урон в секунду за заряд"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Атаки под действием (Q) Flameblood дополнительно поджигают врагов на 5 секунд и снижают их броню. Эффект может быть сложен до 50 раз. Эффект снижения брони складывается бесконечно. Горение усиливается при отрицательной броне, так же как и @Ability1."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Урон в секунду за стак"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix"	""
+		"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_two" "Снижение брони за стак"   
+        "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix_two"   ""
 
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2"				"[Q2] Armor Melt"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_Description"	"Атаки под действием (Q) Flameblood дополнительно снижают показатель брони врагов на 5 секунд. Эффект может быть сложен до 50 раз."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_one"	"Снижение брони за заряд"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix"		""
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2"				"[Q2] Fire and Wind Shield"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_Description"	"Прочтение @Ability1 накладывает щит из огня или ветра на Spirit Warrior. Щит огня снижает получаемый урон, а щит ветра добавляет уклонение."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_one"	"Снижение урона от щита огня"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix"		"%"
+        "DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_two" "Уклонение от щита ветра"
+        "DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix_two"   "%"
 
     	"DOTA_Tooltip_modifier_flametongue_b_a_rune_visible"		"Flameblood Armor Melt"
     	"DOTA_Tooltip_modifier_flametongue_b_a_rune_visible_Description"	"Снижен показатель брони"
@@ -78,9 +84,11 @@
     	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_2_visible_Description"	"Урон увеличен"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3"				"[W3] Vital Impact"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "Урон способности @Ability2 увеличивается на % от атаки героя. Указанный бонус умножается на уровень прокачки основного умения."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "Урон способности @Ability2 увеличивается на % от атаки героя. Если активно копье от @Ability1, то противники получат дополнительно урон и от нее. Указанный бонус умножается на уровень прокачки основного умения."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_one"	"Доп. урон способности"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix"		"% от урона героя"
+		"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_two" "урон от Flameblood & Windstrike"  
+        "DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix_two"       "%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4"				"[W4] Spirit Fuse"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_Description"  "После прыжка к @Ability3 герой получает бафф, который усилит следующее применение @Ability2."

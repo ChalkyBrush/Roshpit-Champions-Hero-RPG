@@ -76,20 +76,23 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_w_4_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_heat_wave"										"Heat Wave"
-		"DOTA_Tooltip_ability_heat_wave_Description"							"Стихия: <font color=\"#EF4126\">Огонь</font><br>Flamewaker высвобождает энергию огня, увеличивая свой урон, скорость передвижения и получая возможность ходить сквозь препятствия, дополнительно увеличивая максимальную скорость передвижения."
+		"DOTA_Tooltip_ability_heat_wave_Description"							"Стихия: <font color=\"#EF4126\">Огонь</font><br>Flamewaker высвобождает энергию огня, увеличивая свой урон, скорость передвижения и получая возможность ходить сквозь препятствия, дополнительно увеличивая максимальную скорость передвижения. У ближайших противников снижена броня."
 		"DOTA_Tooltip_ability_heat_wave_Lore"									""
     	"DOTA_Tooltip_ability_heat_wave_max_ms"									"МАКС.СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
     	"DOTA_Tooltip_ability_heat_wave_base_dmg"								"ДОП.УРОН:"
     	"DOTA_Tooltip_ability_heat_wave_movespeed"								"СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
     	"DOTA_Tooltip_ability_heat_wave_duration"								"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_heat_wave_armor_shred"                            "СНИЖЕНИЕ БРОНИ:"
 
     	"DOTA_Tooltip_modifier_heatwave_phase_one"								"Heat Wave"
     	"DOTA_Tooltip_modifier_heatwave_phase_one_Description"					"Скорость передвижения и максимальная скорость передвижения увеличены."
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_1"								"[E1] Blazing Trail"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker оставляет след тлеющих угольков во время передвижения при активном умении @Ability3"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker оставляет след тлеющих угольков во время передвижения при активном умении @Ability3. Противники на углях получают дополнительный урон (пре-резистный) за каждую единицу отрицательной брони."
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_one"					"Урон/сек"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix"						""
+		"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_two"                 "Увеличение урона"
+        "DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix_two"                      "% за ед. отрицательной брони"
 
     	"DOTA_Tooltip_ability_flamewaker_rune_e_2"								"[E2] Dragon Rage"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_2_Description"					"После активации умения @Ability3, в течении 6 секунд все ближайшие враги получат ожоги. Урон руны усиливается за счёт показателя Ловкости."
@@ -115,7 +118,7 @@
     	"DOTA_Tooltip_modifier_searing_heat_Description"						"Понижает броню"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_4"								"[E4] Splitting Flame"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"Враги, задетые [E1] загораются, из-за чего теряют броню и получают ежесекундный урон, основанный на показателе урона от [E1]."
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"Враги, задетые [E1] загораются, из-за чего теряют броню и получают ежесекундный урон 5 секунд, основанный на показателе урона от [E1]."
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_one"					"Урона в секунду"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix"						"% от урона Blazing Trail"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_two"					"Понижение брони"
@@ -197,11 +200,12 @@
     	"DOTA_Tooltip_modifier_flamewaker_arcana_d_a_aura_Description"			"Получает магический урон и наносит меньше урона герою Flamewaker"
 
     	"DOTA_Tooltip_ability_flamewaker_dragonflame"						"Fireborne"
-    	"DOTA_Tooltip_ability_flamewaker_dragonflame_Description"			"Стихия: <font color=\"#EF4126\">Огонь</font><br>Flamewaker останавливается на месте и начинает извергать поток драконьего пламени, нанося урон врагам в конусе перед собой с интервалом в 0.1 секунды. Когда продолжительность применения заклинания превышает 1.5 секунды, герой получает щит, поглощающий весь входящий урон. Применение этой способности нельзя прервать оглушением или безмолвием. Каждую десятую часть секунды тратится 10% маны от стоимости умения. Действие способности прекратится, когда у героя закончится запас маны."
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_Description"			"Стихия: <font color=\"#EF4126\">Огонь</font><br>Flamewaker останавливается на месте и начинает извергать поток драконьего пламени, нанося урон врагам и снижая их броню в конусе перед собой с интервалом в 0.1 секунды. Когда продолжительность применения заклинания превышает 1.5 секунды, герой получает щит, поглощающий весь входящий урон. Применение этой способности нельзя прервать оглушением или безмолвием. Каждую десятую часть секунды тратится 10% маны от стоимости умения. Действие способности прекратится, когда у героя закончится запас маны."
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_base_damage"			"УРОН:"
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_attack_dmg_bonus"			"ДОП. УРОН ОГНЯ, % ОТ УРОНА ГЕРОЯ:"
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_mana_drain"			"ЗАТРАТЫ МАНЫ В СЕКУНДУ:"
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_damage_reduce"			"ПОГЛОЩЕНИЕ УРОНА У ЩИТА, %:"
+		"DOTA_Tooltip_ability_flamewaker_dragonflame_armor_shred"           "CНИЖЕНИЕ БРОНИ:"
 
     	"DOTA_Tooltip_modifier_dragonflame_shield"								"Fireborne Shield"
     	"DOTA_Tooltip_modifier_dragonflame_shield_Description"					"Входящий урон сокращен"

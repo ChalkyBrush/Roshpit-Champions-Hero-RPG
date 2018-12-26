@@ -24,7 +24,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_q_2_suffix"							" секунд(ы)"
 
     	"DOTA_Tooltip_ability_dinath_rune_q_3"									"[Q3] Updraft"
-    	"DOTA_Tooltip_ability_dinath_rune_q_3_Description"						"Пока Wyvern Fire находится в кулдауне, способность заменяется на Updraft. Эта способность позволяет Dinath быстро перелетать напрямую к указанной точке, при этом набирая высоту. За Dinath остается дорожка огня во время перелета."
+    	"DOTA_Tooltip_ability_dinath_rune_q_3_Description"						"Каждые 3 секунды герой получает заряд способности Updraft. Эта способность позволяет Dinath быстро перелетать напрямую к указанной точке, при этом набирая высоту. За Dinath остается дорожка огня во время перелета. Активируется любым приказом перемещения."
     	"DOTA_Tooltip_ability_dinath_rune_q_3_property_one"						"Дальность применения"
     	"DOTA_Tooltip_ability_dinath_rune_q_3_suffix"							""
 
