@@ -118,13 +118,14 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_2_property_one"					"伤害提高"
     	"DOTA_Tooltip_ability_arkimus_rune_r_2_suffix"							"% 攻击力"
 
-    	"DOTA_Tooltip_ability_arkimus_rune_r_3"									"[R3] 力场"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"当开始吟唱能量场时，阿基莫斯获得一个临时的护盾，伤害减免 95% 。"
+	"DOTA_Tooltip_ability_arkimus_rune_r_3"									"[R3] 力场"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"当开始吟唱能量场时，阿基莫斯获得一个临时护盾，护盾减少受到伤害 <% ARKIMUS_R3_DMG_RED * 100 %>%。"
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_property_one"					"持续时间"
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_suffix"							" 秒"
 
     	"DOTA_Tooltip_modifier_energy_field_c_d_shield"							"力场"
-    	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"伤害减免 95%"
+    	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"所有受到伤害减少<% ARKIMUS_R3_DMG_RED * 100 %>%"
+	
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4"									"[R4] 螺旋魔术"
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_Description"						"阿基莫斯的敏捷值将提高所有 <font color=\"#E1A2E8\">奥术</font> 元素的伤害。"
@@ -154,12 +155,12 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_suffix"							"%"
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1"									"[Q3] 磁感"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"受到伤害时将获得一层磁感buff。每层buff减免阿基莫斯的伤害 1%。每层伤害减免互为独立（收益递减）"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"受到伤害时将获得一层磁感buff。每层buff减免阿基莫斯的伤害<% ARKIMUS_ARCANA1_Q3_DMG_RED_PER_STACK_EXP_BASE * 100 %>%。每层伤害减免互为独立（收益递减）。持续 <% ARKIMUS_ARCANA1_Q3_DUR_BASE %> 秒，并且在死后依然存在。"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_property_one"					"buff 层数上限"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
 
     	"DOTA_Tooltip_modifier_arkimus_arcana1_q3"										"磁感"
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"每层独立，每层伤害减免 1%%"	
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"每层独立，每层伤害减免 <% ARKIMUS_ARCANA1_Q3_DMG_RED_PER_STACK_EXP_BASE * 100 %>%"	
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1"									"[Q4] 奥法吟唱"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"在电磁流激活状态下，阿基莫斯将获得额外的敏捷值。同时，阿基莫斯的敏捷值将提高所有 <font color=\"#5CCDF9\">电</font> 元素伤害。"
@@ -175,7 +176,7 @@
     	"property_arkimus_arcana2_description"								"用奥法审判者替换 @Ability4 及其所有符文"
 
     	"DOTA_Tooltip_ability_arkimus_archon_form"									"奥法审判者"
-    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"施法吟唱 2 秒后，变身成为奥法审判者形态，提高 +400 攻击速度，提高攻击距离，并且减伤。攻击 1/2 攻击半径内的敌人时，阿基莫斯将自动向后推进，远离敌人。"
+    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"施法吟唱 2 秒后，变身成为奥法审判者形态，提高 +400 攻击速度，提高攻击距离，并且减伤。在奥法审判者形态下时，你的所有伤害都将造成纯粹伤害。攻击 1/2 攻击半径内的敌人时，阿基莫斯将自动向后推进，远离敌人。"
     	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"攻击力提高："
     	"DOTA_Tooltip_ability_arkimus_archon_form_duration"								"变身持续时间："
     	"DOTA_Tooltip_ability_arkimus_archon_form_damage_resist"						"伤害减免 %："

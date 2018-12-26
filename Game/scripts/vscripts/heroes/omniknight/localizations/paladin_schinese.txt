@@ -284,7 +284,7 @@
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_2"       "金耀雕文"
         "item_rpc_paladin_glyph_3_2_description"                " [Q2] 符文获得 @glyph_property1% 的吸血。"
 
-        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "崇高正义雕文"
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "冲鸭雕文"
         "item_rpc_paladin_glyph_4_2_description"                "@Ability2 有 0.05 秒的施法点，并且将你向前推进。"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "赎罪雕文"
