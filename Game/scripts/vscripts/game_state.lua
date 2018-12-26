@@ -12,6 +12,7 @@ require('/heroes/monkey_king/constants')
 require('/heroes/skywrath_mage/constants')
 require('/heroes/invoker/constants_CONJUROR')
 require("/heroes/moon_ranger/constants")
+require("/heroes/dragon_knight/flamewaker_constants")
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -1739,7 +1740,7 @@ function GameState:FilterDamage(filterTable)
 			if armor < 0 then
 				local heatwave_ability = victim:FindModifierByName("heatwave_fire_damage"):GetAbility()
 				if heatwave_ability.rune_e_1 then
-					filterTable.damage = filterTable.damage + filterTable.damage*0.001*heatwave_ability.rune_e_1*math.abs(armor)
+					filterTable.damage = filterTable.damage + filterTable.damage * FLAMEWAKER_E1_PREMIT * heatwave_ability.rune_e_1*math.abs(armor)
 				end
 			end
 		end
