@@ -631,6 +631,11 @@
 				"var_type"	"FIELD_INTEGER"
 				"regen_percent"	"15 17 19 21 23 25 27"
 			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"movespeed"	"100"
+			}
 		}
 	}
 
