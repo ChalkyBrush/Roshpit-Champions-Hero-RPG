@@ -1,0 +1,38 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+		<include src="file://{resources}/styles/custom_game/units_special.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/units_special.js" />
+		<include src="file://{resources}/scripts/custom_game/elements/elements.js" />
+	</scripts>
+	<snippets>
+		<snippet name="onibi_ability_bar">
+			<Panel class="onibi_ability_bar" hittest="false">
+
+			</Panel>
+		</snippet>
+		<snippet name="onibi_element_summary">
+			<Panel class="onibi_element_status" hittest="false">
+				<Panel id="onibi_element_status_bg" hittest="false"></Panel>
+				<Panel id="onibi_element_status_contents" hittest="false">
+					<Image id="onibi_element_icon"  hittest="false" />
+					<Label id="onibi_element_title" hittest="false"/>
+					<Label id="onibi_element_level" hittest="false"/>
+					<Label id="onibi_element_points" hittest="false"/>
+					<Panel id="onibi_element_progress_outer" hittest="false">
+						<Panel id="onibi_element_progress_inner" hittest="false"/>
+						<Label id="onibi_element_progress_text" hittest="false"/>
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="units_special_container" hittest="false">
+		<Panel id="units_special_attach_point" class="invisible" hittest="false">
+
+		</Panel>	
+	</Panel>
+
+</root>

@@ -1,0 +1,572 @@
+	"jex_essence_ability"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Modifiers"
+		{
+			"modifier_jex_essence"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"jex_essence_lightning"	
+			{
+				"IsHidden"	"1"
+				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
+				"StatusEffectPriority"	"100"
+				"EffectName"		"particles/roshpit/jex/thunder_flow_ambient.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"jex_essence_nature"
+			{
+				"IsHidden"	"1"
+				"EffectName"		"particles/roshpit/jex/nature_bush_ambient.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"jex_essence_cosmic"
+			{
+				"IsHidden"	"1"
+				"EffectName"		"particles/roshpit/jex/cosmic_shroom_ambient.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"StatusEffectName" 		"particles/status_fx/status_effect_terrorblade_reflection.vpcf"
+				"StatusEffectPriority"  "10"
+			}
+			"jex_essence_spawning"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/essence_harvest"
+						"Function"		"jex_essence_spawning"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_jex_essence_despawn"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/essence_harvest"
+						"Function"		"jex_essence_remove_unit"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+	
+	"onibi_nature_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"arkimus/arkimus_magnetic_flux"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_essence"
+				"essence"		"nature"
+				"index"			"1"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"onibi_lightning_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"invoker_wex"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_essence"
+				"essence"		"lightning"
+				"index"			"1"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"onibi_cosmic_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"invoker_quas"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_essence"
+				"essence"		"cosmic"
+				"index"			"1"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"onibi_nature_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"arkimus/arkimus_magnetic_flux"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_essence"
+				"essence"		"nature"
+				"index"			"2"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"onibi_lightning_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"invoker_wex"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_essence"
+				"essence"		"lightning"
+				"index"			"2"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"onibi_cosmic_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"invoker_quas"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_essence"
+				"essence"		"cosmic"
+				"index"			"2"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+
+	"jex_essence_harvest"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"axe/axe_tectonic_sunder"
+		"AbilityCastRange"	"400"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"2"
+		"AbilityChannelTime"	"2.5"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AOERadius"						"800 900 1000 1100 1200 1300 1400"
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_jex.vsndevts"
+		}
+
+		"AbilityManaCost"	"0"
+		"SideShop"	"1"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/essence_harvest"
+				"Function"		"start_channel"
+				"target"		"POINT"
+				"radius"		"%aoe_radius"
+			}
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/essence_harvest"
+				"Function"		"successfullCast"
+				"target"		"POINT"
+				"forks"			"3"
+				"amp"			"1"
+			}
+
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/essence_harvest"
+				"Function"		"interruptCast"
+				"target"		"POINT"
+			}
+
+		}
+		"Modifiers"
+		{
+			"modifier_jex_main_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/essence_harvest"
+						"Function"		"jex_main_thinker"
+					}
+				}
+				"Aura"          	"modifier_jex_essence_aura"
+				"Aura_Radius"   	"1800"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_jex_essence_aura"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/essence_harvest"
+						"Function"		"essence_aura_unit_die"
+					}
+				}
+			}
+			"modifier_jex_onibi_thinker"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/onibi"
+						"Function"		"onibi_main_think"
+						"target"		"TARGET"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+			}
+			"modifier_channel_start"
+			{
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"IsHidden"	"1"
+						"EffectName"	"particles/roshpit/jex/harvest_channelprogressive.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"CASTER"
+						"EffectRadius"	"%radius"
+						"EffectColorA"	"255 0 0"
+						"EffectColorB"	"255 0 0"
+						"ControlPoints"
+						{
+							"00"	"50 100 5"
+						}
+
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/essence_harvest"
+						"Function"		"essence_harvest_channel_end"
+					}
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/essence_harvest"
+						"Function"		"harvest_channel_thinking"
+					}
+					"AttachEffect"
+					{
+						"IsHidden"	"1"
+						"EffectName"	"particles/roshpit/jex/harvest_channelprogressive.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"CASTER"
+						"EffectRadius"	"%radius"
+						"EffectColorA"	"255 0 0"
+						"EffectColorB"	"255 0 0"
+						"ControlPoints"
+						{
+							"00"	"50 100 5"
+						}
+
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aoe_radius"			"800 900 1000 1100 1200 1300 1400"
+			}
+		}
+	}
+

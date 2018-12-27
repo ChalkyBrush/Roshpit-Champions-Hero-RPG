@@ -305,7 +305,7 @@ function HerosCustom:GetInternalNameTable()
 end
 
 function HerosCustom:GetAvailableHerosTable()
-	return {"npc_dota_hero_dragon_knight", "npc_dota_hero_phantom_assassin", "npc_dota_hero_necrolyte", "npc_dota_hero_axe", "npc_dota_hero_drow_ranger", "npc_dota_hero_obsidian_destroyer", "npc_dota_hero_omniknight", "npc_dota_hero_crystal_maiden", "npc_dota_hero_invoker", "npc_dota_hero_juggernaut", "npc_dota_hero_beastmaster", "npc_dota_hero_leshrac", "npc_dota_hero_spirit_breaker", "npc_dota_hero_zuus", "npc_dota_hero_templar_assassin", "npc_dota_hero_huskar", "npc_dota_hero_legion_commander", "npc_dota_hero_night_stalker", "npc_dota_hero_vengefulspirit", "npc_dota_hero_slardar", "npc_dota_hero_visage", "npc_dota_hero_dark_seer", "npc_dota_hero_antimage", "npc_dota_hero_monkey_king", "npc_dota_hero_slark", "npc_dota_hero_skywrath_mage", "npc_dota_hero_winter_wyvern"}
+	return {"npc_dota_hero_dragon_knight", "npc_dota_hero_phantom_assassin", "npc_dota_hero_necrolyte", "npc_dota_hero_axe", "npc_dota_hero_drow_ranger", "npc_dota_hero_obsidian_destroyer", "npc_dota_hero_omniknight", "npc_dota_hero_crystal_maiden", "npc_dota_hero_invoker", "npc_dota_hero_juggernaut", "npc_dota_hero_beastmaster", "npc_dota_hero_leshrac", "npc_dota_hero_spirit_breaker", "npc_dota_hero_zuus", "npc_dota_hero_templar_assassin", "npc_dota_hero_huskar", "npc_dota_hero_legion_commander", "npc_dota_hero_night_stalker", "npc_dota_hero_vengefulspirit", "npc_dota_hero_slardar", "npc_dota_hero_visage", "npc_dota_hero_dark_seer", "npc_dota_hero_antimage", "npc_dota_hero_monkey_king", "npc_dota_hero_slark", "npc_dota_hero_skywrath_mage", "npc_dota_hero_winter_wyvern", "npc_dota_hero_arc_warden"}
 end
 
 function HerosCustom:GetAvailableRunes(heroName)
