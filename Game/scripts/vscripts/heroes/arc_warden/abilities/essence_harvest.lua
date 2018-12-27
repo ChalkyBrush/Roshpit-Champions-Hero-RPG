@@ -288,8 +288,17 @@ function add_resources_to_onibi(caster, type, amount)
 	amount = math.floor(amount)
 	if amount > 0 then
 		print("ONIBI GETS "..amount.." of "..type)
+		local player = caster:GetPlayerOwner()
+		local level = get_level_by_sum_exp(caster.onibi.stats_table[type]["exp"])
 		caster.onibi.stats_table[type]["exp"] = caster.onibi.stats_table[type]["exp"] + amount
 		calculate_onibi_element_levels(caster.onibi)
+		local new_level = get_level_by_sum_exp(caster.onibi.stats_table[type]["exp"])
+		local bLevelUp = 0
+		if new_level > level then
+			bLevelUp = 1
+			onibi_level_up(caster.onibi)
+		end
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_onibi", {bLevelUp = bLevelUp})
 	end
 end
 

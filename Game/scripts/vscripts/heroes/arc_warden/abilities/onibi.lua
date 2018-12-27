@@ -91,7 +91,7 @@ function get_onibi_exp_table()
 	local starting_requirement = 20
 	for i = 1, ONIBI_ELEMENT_MAX_LEVEL, 1 do
 		local exp_value = starting_requirement + differential
-		differential = differential + 50
+		differential = differential + 20*i
 		table[i] = exp_value
 	end
 	return table
@@ -114,12 +114,20 @@ function get_level_by_sum_exp(exp)
 	local level = 0
 	for i = 0, ONIBI_ELEMENT_MAX_LEVEL-1, 1 do
 		sum = sum + xp_table[i+1]
-		if i == 100 or (sum >= exp) then
+		if i == 100 or (sum > exp) then
 			level = i
 			break
 		end
 	end	
 	return level
+end
+
+function onibi_level_up(onibi)
+	EmitSoundOn("Jex.OnibiLevelUp", onibi)
+	Timers:CreateTimer(0.5, function()
+		StartAnimation(onibi, {duration=3, activity=ACT_DOTA_RUN, rate=1.5, translate="haste"})
+		CustomAbilities:QuickAttachParticle("particles/roshpit/jex/jex_levelup_vine_glow_trail.vpcf", onibi, 4)
+	end)
 end
 
 function get_onibi_element_level_from_points(points)

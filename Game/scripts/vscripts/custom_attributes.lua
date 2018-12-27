@@ -1032,7 +1032,7 @@ function CustomAttributes:MSCap(unit)
 				elseif ms_cap_modifier == "modifier_zonik_temporal_field_cap" then
 					max_ms = math.max(modifier_ability:GetSpecialValueFor("movespeed_cap"), max_ms)	  
 				elseif ms_cap_modifier == "modifier_chernobog_d_c_arcana2" then
-					max_ms = math.max(modifier:GetStackCount()*6, max_ms)	    			
+					max_ms = math.max(550 + modifier:GetStackCount()*6, max_ms)	    			
 				end
 			end
 		end
