@@ -472,9 +472,9 @@
 		"DOTA_Tooltip_ability_seafortress_temple_assassin_ai_Description"	"Время от времени телепортируется к врагам."
 
 		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability"	"Giga Ocean Elemental Passive"
-		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_Description"	"РЕГЕНЕРАЦИЯ ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_Description"	"Атаки наносят дополнительный магический урон, отталкивают цели. Дает пассивную регенерацию здоровья."
 		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_damage"		"ДОП. МАГИЧЕСКИЙ УРОН:"
-		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_Description"	"РЕГЕНЕРАЦИЯ ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_health_regen"	"РЕГЕНЕРАЦИЯ ЗДОРОВЬЯ:"
 
 		"DOTA_Tooltip_ability_seafortress_temple_desolator_ai"			"Desolate Refraction"
 		"DOTA_Tooltip_ability_seafortress_temple_desolator_ai_Description"	"Каждый заряд преломления тратится на полное поглощение урона. Пассивно имеет уклонение."
