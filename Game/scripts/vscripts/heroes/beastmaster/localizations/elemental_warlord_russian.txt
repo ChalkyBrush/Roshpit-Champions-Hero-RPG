@@ -355,7 +355,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_2"            "Qio'jin's Sapphire Relic Axe"
 		"item_property_warlord_immortal_weapon2"                             "Axe Prism"
-        "property_warlord_immortal_weapon2_description"                      "С прочтением (W) @Ability2 герой последовательно бросает еще 2 топора."
+        "property_warlord_immortal_weapon2_description"                      "С прочтением (W) @Ability2 герой последовательно бросает еще 2 топора других стихий."
 
         "DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_3"            "Qio'jin's Ruby Relic Axe"
         "item_property_warlord_immortal_weapon3"                             "Primordial Insurgence"
