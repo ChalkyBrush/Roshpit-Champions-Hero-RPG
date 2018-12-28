@@ -253,13 +253,13 @@
 		"item_rpc_flamewaker_glyph_2_1_description" 			"降低地震爆发的冷却时间至 @glyph_property1 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"剧变雕文"
-		"item_rpc_flamewaker_glyph_3_1_description" 			"烈焰行者跳跃至地震爆发的中心，引发一场大地震并造成 @glyph_property1x 力量值的伤害。"
+		"item_rpc_flamewaker_glyph_3_1_description" 			"[W1]造成伤害的同时会对目标附加[W3]A."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"蓝焰雕文"
 		"item_rpc_flamewaker_glyph_4_1_description" 			"第二脉搏造成额外伤害，额外伤害为 @glyph_property2% 的总属性值加 @glyph_property3% 的攻击力。所造成的额外伤害还将乘以第二脉搏的等级数。同时减少敌人攻击和移动速度 @glyph_property1。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"灼热之心雕文"
-		"item_rpc_flamewaker_glyph_5_1_description" 			"增加[R2]的持续时间1.5倍。"
+		"item_rpc_flamewaker_glyph_5_1_description" 			"增加[R2]的持续时间<% FLAMEWAKER_T51_R2_DUR_MULTIPLY%>倍。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"山脉之核雕文"
 		"item_rpc_flamewaker_glyph_6_1_description" 			"施放大灾变后提高额外攻击力 @glyph_property1% ，持续时间 @glyph_property2 秒。"
