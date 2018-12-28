@@ -708,7 +708,7 @@
 		"DOTA_Tooltip_ability_seafortress_ahn_khir_dash_Description"	"向目标位置旋转获得魔法免疫并对附近敌人造成伤害."
 		"DOTA_Tooltip_ability_seafortress_ahn_khir_dash_damage"			"伤害:"
 
-		"DOTA_Tooltip_ability_ability_stun_immunity"					"魔法免疫"
+		"DOTA_Tooltip_ability_ability_stun_immunity"					"眩晕免疫"
 		"DOTA_Tooltip_ability_ability_stun_immunity_Description"		""
 
 		"seafortress_shadow_of_bahamut"									"暗黑执政官-巴哈姆特"
