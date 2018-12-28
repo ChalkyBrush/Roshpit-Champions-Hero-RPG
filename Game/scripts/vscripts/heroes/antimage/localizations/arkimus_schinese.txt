@@ -124,7 +124,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_suffix"							" 秒"
 
     	"DOTA_Tooltip_modifier_energy_field_c_d_shield"							"力场"
-    	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"所有受到伤害减少<% ARKIMUS_R3_DMG_RED * 100 %>%"
+    	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"所有受到伤害减少<% ARKIMUS_R3_DMG_RED * 100 %>%%"
 	
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4"									"[R4] 螺旋魔术"
