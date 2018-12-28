@@ -88,7 +88,7 @@
     	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_2_visible_Description"	"攻击力提高"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3"				"[W3] 生死攸关"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "按攻击力的一定百分比提高灵魂之刺的伤害。 如果炽血武器或者风怒武器存在时，灵魂之刺也会对目标造成额外伤害，伤害为炽血或者风怒的伤害的一定百分比。（对衣服的[R3]水神之矛也会生效）buff效果随灵魂之刺的等级提升而提升（乘法）。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "按攻击力的一定百分比提高灵魂之刺的伤害。 如果炽血武器或者风怒武器存在时，灵魂之刺也会对目标造成额外伤害，伤害为炽血或者风怒的伤害的一定百分比。（对衣服的[R3]也会生效）buff效果随灵魂之刺的等级提升而提升（乘法）。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_one"	"灵魂之刺伤害提高"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix"		"% 攻击力"
 	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_two"     "炽血和风怒的冲击"  
