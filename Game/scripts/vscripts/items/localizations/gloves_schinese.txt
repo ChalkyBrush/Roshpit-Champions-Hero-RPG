@@ -269,7 +269,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chitinous_lobster_claw"					"龙虾钳"	
 		"property_lobster_claw"												"壳质硬皮"
-		"property_lobster_claw_Description"									"每 0.5 秒，获得一层壳质硬皮buff，每层buff伤害减免 @special_property1%。最大 @special_property2 层。"
+		"property_lobster_claw_Description"									"每 <% CHITINOUS_LOBSTER_CLAW_STACK_RATE %>秒，获得一层壳质硬皮buff，每层buff伤害减免<% CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%%。最大 <% CHITINOUS_LOBSTER_CLAW_MAX_STACKS %> 层。"
 		"DOTA_Tooltip_modifier_chitinous_skin_stack"						"壳质硬皮"
 		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"每层提供伤害减免 1%%"
 		
