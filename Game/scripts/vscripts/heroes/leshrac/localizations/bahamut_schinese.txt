@@ -217,6 +217,8 @@
     	"DOTA_Tooltip_ability_bahamut_arcana_orb"								"神之领域"
     	"DOTA_Tooltip_ability_bahamut_arcana_orb_Description"					"巴哈姆特幻化成一团光球，魔法免疫并且无法被攻击，穿梭向目标点。飞行的过程中汲取魔法值。"
     	"DOTA_Tooltip_ability_bahamut_arcana_orb_mana_drain_per_second"			"汲取 % 最大魔法值 / 秒："
+	"DOTA_Tooltip_ability_bahamut_arcana_orb_speed"					"距离 / 秒："
+
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_1_arcana2"						"[W1] 法术吸血"
     	"DOTA_Tooltip_ability_bahamut_rune_w_1_arcana2_Description"			"巴哈姆特所造成的魔法和纯粹伤害将吸血。10% 的过度治疗量将治疗 所有友军。"
@@ -240,7 +242,7 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"被冻结"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] 逆效力"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"当巴哈姆特在@Ability2之外时，所有基础技能伤害和装备伤害都将被巴哈姆特所损失的魔法量提高（加法）。当巴哈姆特在@Ability2中时，巴哈姆特造成的伤害将会提高，提高系数基于@Ability2的飞行速度。此外，在@Ability2中释放神圣之耀时，增加@Ability2的飞行速度2.2倍，并且在接下去的5秒中这个符文将会把你判定为在@Ability2之中。基于移动速度增加伤害的效果会被@Ability2等级提高。"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"当巴哈姆特在@Ability2之外时，所有基础技能伤害和装备伤害都将被巴哈姆特所损失的魔法量提高（加法）。当巴哈姆特在@Ability2中时，巴哈姆特造成的伤害将会提高，提高系数基于@Ability2的飞行速度。此外，在@Ability2中释放神圣之耀时，增加@Ability2的飞行速度<% BAHAMUT_ARCANA_W4_R_SPEED_MULT %>倍，并且在接下去的5秒中这个符文将会把你判定为在@Ability2之中。基于移动速度增加伤害的效果会被@Ability2等级提高。"
 		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"             "额外伤害"
 		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"                   "丢失魔法值%"		        			
         "DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"             "增加伤害"	  						
