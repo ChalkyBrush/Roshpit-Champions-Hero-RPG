@@ -381,7 +381,7 @@
 		"DOTA_Tooltip_ability_source_revenant_passive"			"能量始源"
 		"DOTA_Tooltip_ability_source_revenant_passive_Description"	"普通攻击后回复魔法值。每点当前魔法值增加攻击力。"
 		"DOTA_Tooltip_ability_source_revenant_passive_damage_per_mana"	"每点当前魔法值给予攻击力:"
-		"DOTA_Tooltip_ability_source_revenant_passive_mana_restore_on_attack"	"魔法回复%"
+		"DOTA_Tooltip_ability_source_revenant_passive_mana_restore_on_attack"	"魔法回复%:"
 
 		"DOTA_Tooltip_modifier_source_revenant_attack_power"	"能量始源"
 		"DOTA_Tooltip_modifier_source_revenant_attack_power_Description"	"魔法值增加攻击力"
