@@ -81,6 +81,24 @@ function GameMode:OnDisconnect(keys)
   Statistics.dispatch("player:disconnect");
 end
 -- The overall game state has changed
+
+function GameMode:CustomVisionThink()
+  -- print("CustomVisionThink")
+  local obstructedVision = GameMode.CustomVisionThinker.CustomVisionThinkerObstructed
+  local heroesCount = #MAIN_HERO_TABLE
+  if heroesCount > 0 then
+    for i=1,heroesCount do
+      AddFOWViewer(DOTA_TEAM_GOODGUYS, MAIN_HERO_TABLE[i]:GetAbsOrigin(), 1800, 0.5, obstructedVision)
+      -- print(obstructedVision)
+    end
+  end
+  return 0.5
+end
+
+function GameMode:CustomVisionThinkerInit()
+  GameRules:GetGameModeEntity():SetThink("CustomVisionThink", self, 1)
+end
+
 function GameMode:OnGameRulesStateChange(keys)
   DebugPrint("[BAREBONES] GameRules State Changed")
   DebugPrintTable(keys)
@@ -88,6 +106,11 @@ function GameMode:OnGameRulesStateChange(keys)
   GameMode.VoteSystem = {}
   GameMode.VoteSystem.junk_loot_disabled = false  
   GameMode.VoteSystem.crystal_loot_disabled = false
+  if not GameMode.CustomVisionThinker then 
+    GameMode.CustomVisionThinker = {}
+    GameMode.CustomVisionThinker.CustomVisionThinkerObstructed = true
+    GameMode:CustomVisionThinkerInit()
+  end
   -- This internal handling is used to set up main barebones functions
   GameMode:_OnGameRulesStateChange(keys)
 
@@ -400,6 +423,14 @@ function GameMode:OnPlayerChat(keys)
     -- local hero = player:GetAssignedHero()
     -- hero:ForceKill(false)
 
+  end
+  if string.match(text, "-vision") then
+    if not GameMode.CustomVisionThinker then
+      GameMode.CustomVisionThinker = {}
+    end
+    if GameMode.CustomVisionThinker and GameMode.CustomVisionThinker.CustomVisionThinkerObstructed then
+      GameMode.CustomVisionThinker.CustomVisionThinkerObstructed = false
+    end
   end
   -- if string.match(text, "superdebug11") then
   --   Redfall:Debug()
