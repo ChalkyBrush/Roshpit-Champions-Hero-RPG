@@ -101,6 +101,7 @@ function essence_aura_unit_die(event)
 		if essence_unit.itemLevel then
 			essence_unit.essence_value = essence_unit.essence_value + essence_unit.itemLevel*2
 		end
+		essence_unit.essence_value = math.min(essence_unit.essence_value, caster:GetLevel()*10)
 		essence_unit.essence_unit = true
 		essence_unit.essence = actual_essence
 		essence_unit.resource_proportion_to_extract = 4
@@ -284,21 +285,24 @@ function transfer_to_onibi(caster, ability)
 	end
 end
 
-function add_resources_to_onibi(caster, type, amount)
+function add_resources_to_onibi(caster, element, amount)
 	amount = math.floor(amount)
 	if amount > 0 then
-		print("ONIBI GETS "..amount.." of "..type)
+		print("ONIBI GETS "..amount.." of "..element)
 		local player = caster:GetPlayerOwner()
-		local level = get_level_by_sum_exp(caster.onibi.stats_table[type]["exp"])
-		caster.onibi.stats_table[type]["exp"] = caster.onibi.stats_table[type]["exp"] + amount
+		DeepPrintTable(caster.onibi.stats_table[element])
+		local level = get_level_by_sum_exp(caster.onibi.stats_table[element]["exp"])
+		if level < 100 then
+			caster.onibi.stats_table[element]["exp"] = caster.onibi.stats_table[element]["exp"] + amount
+		end
 		calculate_onibi_element_levels(caster.onibi)
-		local new_level = get_level_by_sum_exp(caster.onibi.stats_table[type]["exp"])
+		local new_level = get_level_by_sum_exp(caster.onibi.stats_table[element]["exp"])
 		local bLevelUp = 0
 		if new_level > level then
 			bLevelUp = 1
 			onibi_level_up(caster.onibi)
 		end
-		CustomGameEventManager:Send_ServerToPlayer(player, "update_onibi", {bLevelUp = bLevelUp})
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_onibi", {bLevelUp = bLevelUp, levelup_element = element})
 	end
 end
 

@@ -11,59 +11,48 @@ function load_onibi_data(caster, onibi_data)
 	caster.onibi:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
 	caster.onibi:GetAbilityByIndex(0):SetLevel(1)
 	caster.onibi:GetAbilityByIndex(1):SetLevel(1)
+	caster.onibi:GetAbilityByIndex(2):SetLevel(1)
+	caster.onibi:GetAbilityByIndex(3):SetLevel(1)
 	caster.onibi.stats_table = {}
-	caster.onibi.stats_table["nature"] = {}
-	caster.onibi.stats_table["lightning"] = {}
-	caster.onibi.stats_table["cosmic"] = {}
+	local elements_table = get_onibi_elements_name_table(caster.onibi)
+	local ability_keys = {"Q", "W", "E"}
+	for i = 1, #elements_table, 1 do
+		local element1 = elements_table[i]
+		caster.onibi.stats_table[element1] = {}
+		for j = 1, #elements_table, 1 do
+			local element2 = elements_table[j]
+			caster.onibi.stats_table[element1][element2] = {}
+			for k = 1, #ability_keys, 1 do
+				local ability_key = ability_keys[k]
+				caster.onibi.stats_table[element1][element2][ability_key] = {}
+			end
+		end
+	end
 
 	caster.onibi.stats_table["nature"]["exp"] = onibi_data.nature_exp
-	caster.onibi.stats_table["nature"]["points"] = onibi_data.nature_points
 	caster.onibi.stats_table["lightning"]["exp"] = onibi_data.lightning_exp
-	caster.onibi.stats_table["lightning"]["points"] = onibi_data.lightning_points
 	caster.onibi.stats_table["cosmic"]["exp"] = onibi_data.cosmic_exp
-	caster.onibi.stats_table["cosmic"]["points"] = onibi_data.cosmic_points
-	
-	caster.onibi.stats_table["nature"]["nature"] = {}
 
-	caster.onibi.stats_table["nature"]["nature"]["q"] = onibi_data.nature_nature_q
-	caster.onibi.stats_table["nature"]["nature"]["w"] = onibi_data.nature_nature_w
-	caster.onibi.stats_table["nature"]["nature"]["e"] = onibi_data.nature_nature_e
+	onibi_initial_set_abilities_data(caster.onibi, onibi_data)
 
-	caster.onibi.stats_table["lightning"]["lightning"] = {}
-
-	caster.onibi.stats_table["lightning"]["lightning"]["q"] = onibi_data.lightning_lightning_q
-	caster.onibi.stats_table["lightning"]["lightning"]["w"] = onibi_data.lightning_lightning_w
-	caster.onibi.stats_table["lightning"]["lightning"]["e"] = onibi_data.lightning_lightning_e
-
-	caster.onibi.stats_table["cosmic"]["cosmic"] = {}
-
-	caster.onibi.stats_table["cosmic"]["cosmic"]["q"] = onibi_data.cosmic_cosmic_q
-	caster.onibi.stats_table["cosmic"]["cosmic"]["w"] = onibi_data.cosmic_cosmic_w
-	caster.onibi.stats_table["cosmic"]["cosmic"]["e"] = onibi_data.cosmic_cosmic_e
-
-	caster.onibi.stats_table["nature"]["lightning"] = {}
-
-	caster.onibi.stats_table["nature"]["lightning"]["q"] = onibi_data.nature_lightning_q
-	caster.onibi.stats_table["nature"]["lightning"]["w"] = onibi_data.nature_lightning_w
-	caster.onibi.stats_table["nature"]["lightning"]["e"] = onibi_data.nature_lightning_e
-
-	caster.onibi.stats_table["nature"]["cosmic"] = {}
-
-	caster.onibi.stats_table["nature"]["cosmic"]["q"] = onibi_data.nature_cosmic_q
-	caster.onibi.stats_table["nature"]["cosmic"]["w"] = onibi_data.nature_cosmic_w
-	caster.onibi.stats_table["nature"]["cosmic"]["e"] = onibi_data.nature_cosmic_e
-
-	caster.onibi.stats_table["lightning"]["cosmic"] = {}
-
-	caster.onibi.stats_table["lightning"]["cosmic"]["q"] = onibi_data.lightning_cosmic_q
-	caster.onibi.stats_table["lightning"]["cosmic"]["w"] = onibi_data.lightning_cosmic_w
-	caster.onibi.stats_table["lightning"]["cosmic"]["e"] = onibi_data.lightning_cosmic_e
 
 	calculate_onibi_element_levels(caster.onibi)
 end
 
 function get_onibi_elements_name_table(onibi)
 	return {"nature", "lightning", "cosmic"}
+end
+
+function get_other_elements(onibi, element)
+	local elements_table = get_onibi_elements_name_table(onibi)
+	local other_elements = {}
+	for i = 1, #elements_table, 1 do
+		if elements_table[i] == element then
+		else
+			table.insert(other_elements, elements_table[i])
+		end
+	end
+	return other_elements
 end
 
 function calculate_onibi_element_levels(onibi)
@@ -78,11 +67,102 @@ function calculate_onibi_element_levels(onibi)
 		print(onibi.stats_table[element_name]["current"])
 		onibi.stats_table[element_name]["required"] = get_onibi_sum_exp_table(level+1) - get_onibi_sum_exp_table(level)
 	end
+	onibi_calculate_all_tech_points(onibi)
 	write_onibi_to_nettable(onibi)
 end
 
 function write_onibi_to_nettable(onibi)
 	CustomNetTables:SetTableValue("hero_index", "onibi-"..tostring(onibi:GetEntityIndex()), onibi.stats_table)
+end
+
+function onibi_initial_set_abilities_data(onibi, data_from_server)
+	if not onibi.stats_table.abilities then
+		onibi.stats_table.abilities = {}
+	end
+	local elements_table = get_onibi_elements_name_table(onibi)
+	local ability_keys = {"Q", "W", "E"}
+	for i = 1, #elements_table, 1 do
+		local element_tech_used
+		local element1 = elements_table[i]
+		-- local other_elements = get_other_elements(onibi, element1)
+		local tech_points_spent = 0
+		for k = 1, #elements_table, 1 do
+			for j = 1, #ability_keys, 1 do
+				local ability_key = ability_keys[j]
+				local element2 = elements_table[k]
+				local level = 0
+				onibi.stats_table[element1][element2][ability_key]["name"] = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
+				onibi.stats_table[element2][element1][ability_key]["name"] = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
+				onibi.stats_table[element1][element2][ability_key]["level"] = level
+				onibi.stats_table[element2][element1][ability_key]["level"] = level
+				tech_points_spent = tech_points_spent + total_tech_used_on_ability(element1, element2, ability_key, level)
+			end
+		end
+		print(onibi.stats_table[element1]["exp"])
+		local element_level = get_level_by_sum_exp(onibi.stats_table[element1]["exp"])
+		tech_points_spent = tech_points_spent/2
+		local tech_available = tech_points_earned_for_element(element1, element_level) - tech_points_spent
+		onibi.stats_table[element1]["tech"] = tech_available
+	end
+end
+
+function tech_points_earned_for_element(element, level)
+	return level*3
+end
+
+function tech_points_available_for_element(element, level)
+end
+
+function total_tech_used_on_ability(element1, element2, ability_key, level)
+	local mult = 1
+	if element1 == element2 then
+		mult = 2
+	end
+	return (level*(level + 1))*mult
+end
+
+function get_ability_tech_up_cost(ability_level, mult)
+	return (ability_level + 1)*mult
+end
+
+function onibi_calculate_all_tech_points(onibi)
+	local elements_table = get_onibi_elements_name_table(onibi)
+	local ability_keys = {"Q", "W", "E"}
+	for i = 1, #elements_table, 1 do
+		local element_tech_used
+		local element1 = elements_table[i]
+		-- local other_elements = get_other_elements(onibi, element1)
+		local tech_points_spent = 0
+		for k = 1, #elements_table, 1 do
+			for j = 1, #ability_keys, 1 do
+				local ability_key = ability_keys[j]
+				local element2 = elements_table[k]
+				local level = onibi.stats_table[element1][element2][ability_key]["level"]
+				print(element1.." : "..element2)
+				tech_points_spent = tech_points_spent + total_tech_used_on_ability(element1, element2, ability_key, level)
+			end
+		end
+		local element_level = get_level_by_sum_exp(onibi.stats_table[element1]["exp"])
+		tech_points_spent = tech_points_spent/2
+		local tech_available = tech_points_earned_for_element(element1, element_level) - tech_points_spent
+		onibi.stats_table[element1]["tech"] = tech_available
+	end
+end
+
+function get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
+	local ability_name = "ABILITY NAME"
+	if ability_key == "Q" then
+		if element1 == "nature" and element2 == "nature" then
+		elseif (element1 == "nature" and element2 == "lightning") or (element1 == "lightning" and element2 == "nature") then
+		elseif (element1 == "nature" and element2 == "cosmic") or (element1 == "cosmic" and element2 == "nature") then
+		elseif element1 == "lightning" and element2 == "lightning" then
+		elseif (element1 == "lightning" and element2 == "cosmic") or (element1 == "cosmic" and element2 == "lightning") then
+		elseif element1 == "cosmic" and element2 == "cosmic" then
+		end
+	elseif ability_key == "W" then
+	elseif ability_key == "E" then
+	end
+	return ability_name
 end
 
 function get_onibi_exp_table()
@@ -91,7 +171,7 @@ function get_onibi_exp_table()
 	local starting_requirement = 20
 	for i = 1, ONIBI_ELEMENT_MAX_LEVEL, 1 do
 		local exp_value = starting_requirement + differential
-		differential = differential + 20*i
+		differential = differential + 80*i
 		table[i] = exp_value
 	end
 	return table
@@ -100,6 +180,7 @@ end
 function get_onibi_sum_exp_table(level)
 	local xp_table = get_onibi_exp_table()
 	local sum = 0
+	level = math.min(level, ONIBI_ELEMENT_MAX_LEVEL)
 	for i = 0, level, 1 do
 		if i > 0 then
 			sum = sum + xp_table[i]
@@ -114,7 +195,10 @@ function get_level_by_sum_exp(exp)
 	local level = 0
 	for i = 0, ONIBI_ELEMENT_MAX_LEVEL-1, 1 do
 		sum = sum + xp_table[i+1]
-		if i == 100 or (sum > exp) then
+		if ((i == ONIBI_ELEMENT_MAX_LEVEL-1) and (exp >= sum)) then
+			level = 100
+			break
+		elseif (sum > exp) then
 			level = i
 			break
 		end
@@ -128,6 +212,7 @@ function onibi_level_up(onibi)
 		StartAnimation(onibi, {duration=3, activity=ACT_DOTA_RUN, rate=1.5, translate="haste"})
 		CustomAbilities:QuickAttachParticle("particles/roshpit/jex/jex_levelup_vine_glow_trail.vpcf", onibi, 4)
 	end)
+
 end
 
 function get_onibi_element_level_from_points(points)
@@ -164,5 +249,50 @@ function onibi_activate_essence(event)
 		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_lightning_"..index, "onibi_cosmic_"..index, index-1)
 	elseif essence == "cosmic" then
 		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_cosmic_"..index, "onibi_nature_"..index, index-1)
+	end
+end
+
+function onibi_activate_ability_key(event)
+	local caster = event.caster
+	local ability = event.ability
+	local ability_key = event.ability_key
+	if ability_key == "q" then
+		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_q", "onibi_w", 2)
+	elseif ability_key == "w" then
+		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_w", "onibi_e", 2)
+	elseif ability_key == "e" then
+		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_e", "onibi_q", 2)
+	end
+end
+
+function onibi_invoke(event)
+	local caster = event.caster
+	local ability = event.ability
+end
+
+function upgrade_onibi_ability(msg)
+	local onibi = EntIndexToHScript(msg.onibi)
+	local element1 = msg.element1
+	local element2 = msg.element2
+	local ability_key = msg.ability_key
+	onibi_calculate_all_tech_points(onibi)
+	local mult = 1
+	if element1 == element2 then
+		mult = 2
+	end
+	local cost = get_ability_tech_up_cost(onibi.stats_table[element1][element2][ability_key]["level"], mult)
+	print("--")
+	print("COST: "..cost)
+	print(element1)
+	print(element2)
+	print(onibi.stats_table[element1]["tech"])
+	print(onibi.stats_table[element2]["tech"])
+	local player = PlayerResource:GetPlayer(onibi.caster:GetPlayerOwnerID())
+	if onibi.stats_table[element1]["tech"] >= cost and onibi.stats_table[element2]["tech"] >= cost then
+		onibi.stats_table[element1][element2][ability_key]["level"] = onibi.stats_table[element1][element2][ability_key]["level"] + 1
+		onibi.stats_table[element2][element1][ability_key]["level"] = onibi.stats_table[element1][element2][ability_key]["level"]
+		onibi_calculate_all_tech_points(onibi)
+		write_onibi_to_nettable(onibi)
+		CustomGameEventManager:Send_ServerToPlayer(player, "reset_onibi", {reset = true})
 	end
 end

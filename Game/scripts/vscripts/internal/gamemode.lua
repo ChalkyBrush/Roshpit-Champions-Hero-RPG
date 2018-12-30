@@ -243,6 +243,8 @@ function GameMode:_InitGameMode()
   CustomGameEventManager:RegisterListener( "close_altar", Dynamic_Wrap(Quests, "CloseAltarOfIce"))
   CustomGameEventManager:RegisterListener( "ice_crystal_placed", Dynamic_Wrap(Quests, "PlaceIceCrystal"))
 
+  CustomGameEventManager:RegisterListener( "units_special", Dynamic_Wrap(CustomAbilities, "UnitsSpecial"))
+
   -- GameMode:SetTrackingProjectileFilter( Dynamic_Wrap( Attacks, "FilterProjectile" ), self )
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)
 

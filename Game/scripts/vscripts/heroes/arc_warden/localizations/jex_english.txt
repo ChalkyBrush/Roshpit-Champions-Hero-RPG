@@ -1,1 +1,2 @@
 "upgrade_cost"		"Upgrade:"
+"tech_points"	"Tech Points"

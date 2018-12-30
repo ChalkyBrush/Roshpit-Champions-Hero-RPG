@@ -6802,6 +6802,7 @@
         "property_hydroxis_immortal_weapon3_description"                      "Hydro Pumps travel outward with @special_property1% reduced delay."
 
 "upgrade_cost"		"Upgrade:"
+"tech_points"	"Tech Points"
 
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"Shockwave"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#AF843D\">Earth</font><br>Unearths a cascade of force that damage and stuns everyone in its path."

@@ -932,3 +932,10 @@ function CustomAbilities:AuriunFlashHeal(unit, orderTable)
 		ability.pos = Vector(orderTable.position_x,orderTable.position_y)
 	end
 end
+
+function CustomAbilities:UnitsSpecial(msg)
+	if msg.onibi then
+		require('heroes/arc_warden/abilities/onibi')
+		upgrade_onibi_ability(msg)
+	end
+end

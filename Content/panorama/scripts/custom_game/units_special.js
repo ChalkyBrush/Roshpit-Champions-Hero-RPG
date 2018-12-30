@@ -25,6 +25,10 @@ function units_special_check(msg){
 	var playerIndex = Players.GetLocalPlayer();
 	var unitName = Entities.GetUnitName( queryUnit )
 	var unit_container = $.GetContextPanel().FindChildTraverse('units_special_attach_point')
+	if (msg.reset){
+		unit_container.RemoveClass("active")
+		unit_container.RemoveAndDeleteChildren(0)
+	}
 	if (unitName ==	"jex_onibi"){
 		if (!(unit_container.BHasClass("active" ))){
 			unit_container.RemoveClass("invisible")
@@ -51,17 +55,22 @@ function units_special_check(msg){
 				onibi_element.FindChildTraverse('onibi_element_title').style.color = color
 				var element_data = onibi_data[elements[i]]
 				onibi_element.FindChildTraverse('onibi_element_level').text = $.Localize("weapon_current_level") + ": "+element_data["level"]
-				if (element_data["points"] > 0){
-					onibi_element.FindChildTraverse('onibi_element_points').text = "Points Available" + ": "+element_data["points"]
+				if (element_data["tech"] > 0){
+					onibi_element.FindChildTraverse('onibi_element_points').text = $.Localize("tech_points") + ": "+element_data["tech"]
 				}
 				var percentage_exp = 0
 				if (element_data["required"] > 0){
 					percentage_exp = parseInt((element_data["current"]/element_data["required"])*100)
 				}
+				if (element_data["level"] >= 100){
+					percentage_exp = 100
+					onibi_element.FindChildTraverse('onibi_element_progress_text').text = $.Localize("weapon_max_level")
+				}else{
+					onibi_element.FindChildTraverse('onibi_element_progress_text').text = element_data["current"] + " / " + element_data["required"] 
+				}
 				onibi_element.FindChildTraverse('onibi_element_progress_inner').style.width = percentage_exp+"%"
-				onibi_element.FindChildTraverse('onibi_element_progress_text').text = element_data["current"] + " / " + element_data["required"] 
-				set_onibi_element_click(onibi_element.FindChildTraverse('onibi_element_status_bg'), unit_container, i, element_data, elements[i])
-
+				
+				set_onibi_element_click(onibi_element.FindChildTraverse('onibi_element_status_bg'), unit_container, i, element_data, elements[i], queryUnit, onibi_data)
 			}
 		}
 	}else{
@@ -74,13 +83,13 @@ function units_special_check(msg){
 	}
 }
 
-function set_onibi_element_click(event_panel, onibi_element, i, element_data, element){
+function set_onibi_element_click(event_panel, onibi_element, i, element_data, element, queryUnit, onibi_data){
 	event_panel.SetPanelEvent('onactivate', function Open() {
-		onibi_element_click(onibi_element, i, element_data, element)
+		onibi_element_click(onibi_element, i, element_data, element, queryUnit, onibi_data)
 	})
 }
 
-function onibi_element_click(element_panel, index, element_data, element)
+function onibi_element_click(element_panel, index, element_data, element, queryUnit, onibi_data)
 {
 	if (!(open_ability_panel == false)){
 		$.Msg("DELETE")
@@ -107,7 +116,9 @@ function onibi_element_click(element_panel, index, element_data, element)
 	var abilities_attach_panel = ability_element_panel.FindChildTraverse('onibi_element_abilities_parent_container')
 	var elements = get_onibi_active_elements()
 	var other_elements = get_onibi_other_elements(element)
+	$.Msg(onibi_data)
 	for (var i = 0; i <= 2; i++) {
+		var ability_key = abilities[i]
 		var ability_slot_panel = $.CreatePanel("Panel", abilities_attach_panel, "onibi_ability_"+abilities[i])
 		ability_slot_panel.BLoadLayoutSnippet("onibi_abilities_by_slot")
 		ability_slot_panel.FindChildTraverse('onibi_abilities_by_slot_header_label').text = abilities[i]
@@ -119,26 +130,78 @@ function onibi_element_click(element_panel, index, element_data, element)
 			}else{
 				secondaryElement = other_elements[j-1]
 			}
+
+			var ability_level = onibi_data[element][secondaryElement][ability_key]["level"]
+
 			var secondaryElementNumber = convertElementNameToNumber(secondaryElement)
 			onibi_ability_panel.FindChildTraverse('onibi_ability_element_icon1').SetImage("file://{images}/custom_game/ui/elements/element"+elementNumber+".png")
 			onibi_ability_panel.FindChildTraverse('onibi_ability_element_icon2').SetImage("file://{images}/custom_game/ui/elements/element"+secondaryElementNumber+".png")
-			onibi_ability_panel.FindChildTraverse('onibi_ability_name').text = "ABILITY NAME"
-			onibi_ability_panel.FindChildTraverse('onibi_ability_level').text = "Lv. 0"
+			onibi_ability_panel.FindChildTraverse('onibi_ability_name').text = $.Localize(onibi_data[element][secondaryElement][ability_key]["name"])
+			onibi_ability_panel.FindChildTraverse('onibi_ability_level').text = "Lv. "+ability_level
 
+			var tech_cost = calculate_ability_tech_cost(element, secondaryElement, ability_level)
 			onibi_ability_panel.FindChildTraverse('onibi_ability_cost1_image').SetImage("file://{images}/custom_game/ui/elements/element"+elementNumber+".png")
-			onibi_ability_panel.FindChildTraverse('onibi_ability_cost1_value').text = "1"
-			
+			onibi_ability_panel.FindChildTraverse('onibi_ability_cost1_value').text = tech_cost
+			// units_special (event)
+			$.Msg("----")
+			$.Msg(tech_cost)
 			if (!(secondaryElement == element)){
 				onibi_ability_panel.FindChildTraverse('onibi_ability_cost2_image').SetImage("file://{images}/custom_game/ui/elements/element"+secondaryElementNumber+".png")
-				onibi_ability_panel.FindChildTraverse('onibi_ability_cost2_value').text = "1"
+				onibi_ability_panel.FindChildTraverse('onibi_ability_cost2_value').text = tech_cost
 			}
+			var can_upgrade = can_afford_upgrade(onibi_data, element, secondaryElement, ability_level)
+			if ((Entities.GetPlayerOwnerID( queryUnit ) == Players.GetLocalPlayer()) && can_upgrade){
+				set_onibi_upgrade_event(queryUnit, element, secondaryElement, ability_key)
+			}else{
+				onibi_ability_panel.FindChildTraverse('onibi_ability_upgrade_button').AddClass("invisible")
+			}
+
 		}
 	}
+}
+
+function set_onibi_upgrade_event(queryUnit, element, secondaryElement, ability_key)
+{
+	onibi_ability_panel.FindChildTraverse('onibi_ability_upgrade_button').SetPanelEvent('onactivate', function UpgradeOnibi() {
+		Game.EmitSound("Jex.UpgradeAbility")
+		SendOnibiUpgradeToServer(queryUnit, element, secondaryElement, ability_key);
+	})
+}
+
+function can_afford_upgrade(onibi_data, element1, element2, level)
+{
+	var cost = calculate_ability_tech_cost(element1, element2, level)
+	if ((onibi_data[element1].tech >= cost) && (onibi_data[element2].tech >= cost))
+	{
+		return true
+	}else{
+		return false
+	}
+}
+
+function get_tech_cost(ability_level)
+{
+	return ability_level + 1
+}
+
+function calculate_ability_tech_cost(element, secondaryElement, level){
+	var bDoubleMult = 1
+	if (secondaryElement == element){
+		bDoubleMult = 2
+	}
+	var cost = get_tech_cost(level)
+	cost = cost*bDoubleMult
+	return cost
+}
+
+function SendOnibiUpgradeToServer(queryUnit, element1, element2, ability_key){
+	GameEvents.SendCustomGameEventToServer( "units_special", {onibi: queryUnit, element1: element1, element2: element2, ability_key: ability_key} );
 }
 
 function update_onibi(msg){
 	var queryUnit = Players.GetLocalPlayerPortraitUnit();
 	var unitName = Entities.GetUnitName( queryUnit )
+
 	if (unitName ==	"jex_onibi"){
 		var onibi_data = CustomNetTables.GetTableValue( "hero_index", "onibi-"+queryUnit.toString() );
 		var elements = get_onibi_active_elements()
@@ -157,23 +220,35 @@ function update_onibi(msg){
 			}else{
 				onibi_element.FindChildTraverse('onibi_element_level').text = $.Localize("weapon_current_level") + ": "+element_data["level"]
 			}
-			if (element_data["points"] > 0){
-				onibi_element.FindChildTraverse('onibi_element_points').text = "Points Available" + ": "+element_data["points"]
+			if (element_data["tech"] > 0){
+				onibi_element.FindChildTraverse('onibi_element_points').text = $.Localize("tech_points") + ": "+element_data["tech"]
+			}else{
+				onibi_element.FindChildTraverse('onibi_element_points').text = ""
 			}
 			var percentage_exp = 0
 			if (element_data["required"] > 0){
 				percentage_exp = parseInt((element_data["current"]/element_data["required"])*100)
 			}
+			if (element_data["level"] >= 100){
+				percentage_exp = 100
+				onibi_element.FindChildTraverse('onibi_element_progress_text').text = $.Localize("weapon_max_level")
+			}else{
+				onibi_element.FindChildTraverse('onibi_element_progress_text').text = element_data["current"] + " / " + element_data["required"] 
+			}
 			onibi_element.FindChildTraverse('onibi_element_progress_inner').style.width = percentage_exp+"%"
-			onibi_element.FindChildTraverse('onibi_element_progress_text').text = element_data["current"] + " / " + element_data["required"] 
+			
 		}
 	}
 }
+
+
 
 (function()
 {
 	GameEvents.Subscribe( "dota_player_update_selected_unit", units_special_check );
 	GameEvents.Subscribe( "dota_player_update_query_unit", units_special_check );
+	GameEvents.Subscribe( "reset_onibi", units_special_check)
 	GameEvents.Subscribe( "update_onibi", update_onibi );
 })();
+
 

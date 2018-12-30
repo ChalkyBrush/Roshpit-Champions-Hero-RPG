@@ -1317,9 +1317,9 @@
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_arc_warden"
-		"Ability1"	"dinath_arctic_burn"
-		"Ability2"	"dinath_drake_ring"
-		"Ability3"	"dinath_dragon_dive"
+		"Ability1"	"jex_base_cannon_nature"
+		"Ability2"	"jex_base_cannon_lightning"
+		"Ability3"	"jex_base_cannon_cosmic"
 		"Ability4"	"generic_hidden"
 		"Ability5"	"generic_hidden"
 		"Ability6"	"jex_essence_harvest"
