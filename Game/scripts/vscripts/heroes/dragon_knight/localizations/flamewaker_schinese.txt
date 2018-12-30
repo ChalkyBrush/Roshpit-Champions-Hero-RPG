@@ -88,7 +88,7 @@
     	"DOTA_Tooltip_modifier_heatwave_phase_one_Description"					"移动速度和移动速度上限提高"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_1"								"[E1] 余烬"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"烈焰行者炙热冲锋后将在地上留下余烬，灼烧碰到余烬的敌人受到的物理伤害（税前）提高，提高数值基于敌人负甲的数值。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"烈焰行者炙热冲锋后将在地上留下余烬，灼烧碰到余烬的敌人,并且加深敌人受到的物理伤害（税前），提高数值基于敌人负甲的数值。"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_one"					"每秒伤害"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix"						""
 	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_two"                 "税前伤害增加"
