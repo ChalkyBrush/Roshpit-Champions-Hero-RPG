@@ -141,11 +141,11 @@
     	"property_mountain_protector_arcana1_description"								"用AT立场替换 @Ability2 及其所有符文。"
 
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance"					"AT立场"
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Description"			"山丘守卫者化作钢铁之躯展开AT立场，提高护甲值和生命回复并且屏蔽所有敌人打击伤害的一部分。余烬之石也转化为钢铁，提高投掷速度。"
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Description"			"山丘守卫者化作钢铁之躯展开AT立场，提高护甲值和生命回复并且降低受到的伤害。余烬之石也转化为钢铁，提高投掷速度。"
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Lore"				""
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_armor"				"护甲值提高："
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_damage_resist"		"伤害屏蔽："
-	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_regen_percent"               "生命回复%"
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_damage_resist"		"伤害抗性："
+	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_regen_percent"               "生命回复%："
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_mana_drain_per_second"		"每秒消耗魔法值："
 
     	"DOTA_Tooltip_modifier_steelforge_stance"									"AT立场"
