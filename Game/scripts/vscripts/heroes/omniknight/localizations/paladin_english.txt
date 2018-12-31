@@ -186,6 +186,7 @@
     	"DOTA_Tooltip_ability_paladin_penance_Description"					"Element: <font color=\"#F6FFB5\">Holy</font> / <font color=\"#9ACCD1\">Ghost</font><br>Paladin impels a holy spirit lance that can target allies or enemies. Enemies around the initial target are also damaged. Allies who are hit by Penance are healed for 10% of the base ability damage."
     	"DOTA_Tooltip_ability_paladin_penance_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_paladin_penance_heal_percentage"				"HEAL PERCENTAGE:"
+		"DOTA_Tooltip_ability_paladin_penance_cast_range"					"CAST RANGE:"
 
     	"DOTA_Tooltip_modifier_penance_projectiles"							"Penance Lances"
     	"DOTA_Tooltip_modifier_penance_projectiles_Description"				"Paladin can have up to 10 lances active at a time"	

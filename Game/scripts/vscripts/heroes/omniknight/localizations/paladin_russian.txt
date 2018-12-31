@@ -186,6 +186,7 @@
     	"DOTA_Tooltip_ability_paladin_penance_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font> / <font color=\"#9ACCD1\">Призрак</font><br>Paladin создаёт копьё, состоящее из чистого света, которое он может направить на врагов или союзников. Очищающий свет наносит урон изначальной вражеской цели и всем противникам рядом с ней. Союзные герои исцеляются на 10% от базового урона (W) Penance."
     	"DOTA_Tooltip_ability_paladin_penance_damage"						"УРОН:"
     	"DOTA_Tooltip_ability_paladin_penance_heal_percentage"				"ЛЕЧЕНИЕ, %:"
+		"DOTA_Tooltip_ability_paladin_penance_cast_range"					"ДАЛЬНОСТЬ КАСТА:"
 
     	"DOTA_Tooltip_modifier_penance_projectiles"							"Penance Lances"
     	"DOTA_Tooltip_modifier_penance_projectiles_Description"				"Одновременно может существовать не более 10 копий"	
