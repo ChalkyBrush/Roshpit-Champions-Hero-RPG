@@ -69,7 +69,7 @@
     	"DOTA_Tooltip_ability_paladin_rune_w_2_suffix"					"% от базового урона способности"
 		
 		"DOTA_Tooltip_ability_paladin_rune_w_3"							"[W3] Holy Nova"
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"При получении урона есть 15% шанс высвободить вспышку света, наносящую урон врагам и исцеляющую союзников в небольшом радиусе в зависимости от показателя Интеллекта Паладина. Враги, задетые вспышкой, обезоружены на 1 секунду."
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"При получении урона есть 15% шанс высвободить вспышку света, наносящую урон врагам и исцеляющую союзников в небольшом радиусе в зависимости от показателя Интеллекта Паладина. Враги, задетые вспышкой, обезоружены на 1 секунду. [W3] имеет радиус 550."
     	"DOTA_Tooltip_ability_paladin_rune_w_3_property_one"			"Урон"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix"					"x Интеллекта"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_property_two"			"Лечение"
@@ -200,7 +200,7 @@
     	"DOTA_Tooltip_modifier_paladin_a_b_damage_growth_visible_Description"	"Получает бонус к урону"
 
   		"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1"						"[W2] Grand Holy Nova"
-    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_Description"			"Когда копьё света попадает по противнику, Paladin излучает вспышку яркого света. Враги, задетые вспышкой получают урон, зависящий от Интеллекта героя и его урона, а также теряют возможность атаковать на 1 секунду. Противники получают иммунитет к обезоруживанию на 0.5 секунды после срабатывания эффекта."
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_Description"			"Когда копьё света попадает по противнику, Paladin излучает вспышку яркого света. Враги, задетые вспышкой получают урон, зависящий от Интеллекта героя и его урона, а также теряют возможность атаковать на 1 секунду. Противники получают иммунитет к обезоруживанию на 0.5 секунды после срабатывания эффекта. [W2] имеет радиус 550."
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_property_one"		"Урон"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_suffix"				"x Интеллекта"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_property_two"		"Бонус к урону"

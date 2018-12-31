@@ -69,7 +69,7 @@
     	"DOTA_Tooltip_ability_paladin_rune_w_2_suffix"					"% of Ability Damage"
 		
 		"DOTA_Tooltip_ability_paladin_rune_w_3"							"[W3] Holy Nova"
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"Adds a 15% chance when attacked to emanate a Holy Nova - dealing damage to enemies and healing allies nearby. Enemies hit by Holy Nova are disarmed for 1 second."
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"Adds a 15% chance when attacked to emanate a Holy Nova - dealing damage to enemies and healing allies nearby. Enemies hit by Holy Nova are disarmed for 1 second. [W3] has 550 radius of effect."
     	"DOTA_Tooltip_ability_paladin_rune_w_3_property_one"			"Damage"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix"					"x Intelligence"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_property_two"			"Healing"
@@ -200,7 +200,7 @@
     	"DOTA_Tooltip_modifier_paladin_a_b_damage_growth_visible_Description"	"Increased attack power"
 
   		"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1"						"[W2] Grand Holy Nova"
-    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_Description"			"When a Penance projectile hits an enemy, a Holy Nova is emitted from the Paladin. Enemies who are hit take damage based on intellect and attack power, and are also disarmed for 1 second. Enemies receive a 0.5 second disarm immunity upon disarming."
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_Description"			"When a Penance projectile hits an enemy, a Holy Nova is emitted from the Paladin. Enemies who are hit take damage based on intellect and attack power, and are also disarmed for 1 second. Enemies receive a 0.5 second disarm immunity upon disarming. [W2] has 550 radius of effect."
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_property_one"		"Damage"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_suffix"				"x Intelligence"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_property_two"		"Bonus Damage"
