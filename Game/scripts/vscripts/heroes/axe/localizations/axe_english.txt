@@ -43,7 +43,7 @@
 		
 		
         "DOTA_Tooltip_ability_axe_rune_q_4"                             "[Q4] Brutal Expansion"
-        "DOTA_Tooltip_ability_axe_rune_q_4_Description"                 "Enemy units damaged by Skull Basher will receive increased Normal damage from The Red General. This effect stacks up to 20 times."
+        "DOTA_Tooltip_ability_axe_rune_q_4_Description"                 "Enemy units damaged by Skull Basher will receive increased Normal damage from The Red General. This effect stacks up to 20 times. 10 seconds duration."
         "DOTA_Tooltip_ability_axe_rune_q_4_property_one"                "Normal damage increase"
         "DOTA_Tooltip_ability_axe_rune_q_4_suffix"                      "%"
 
@@ -146,7 +146,7 @@
         "DOTA_Tooltip_ability_axe_rune_r_2_suffix"                      "% of Sunder"
 		
 		"DOTA_Tooltip_ability_axe_rune_r_3"                             "[R3] Adrenaline"
-        "DOTA_Tooltip_ability_axe_rune_r_3_Description"                 "When The Red General starts to channel Sunder, he immediately gains increased armor and maximum health."
+        "DOTA_Tooltip_ability_axe_rune_r_3_Description"                 "When The Red General starts to channel Sunder, he immediately gains increased armor and maximum health. 12 seconds duration."
         "DOTA_Tooltip_ability_axe_rune_r_3_property_one"                "Bonus Health"
         "DOTA_Tooltip_ability_axe_rune_r_3_suffix"                      ""
         "DOTA_Tooltip_ability_axe_rune_r_3_property_two"                "Bonus Armor"
