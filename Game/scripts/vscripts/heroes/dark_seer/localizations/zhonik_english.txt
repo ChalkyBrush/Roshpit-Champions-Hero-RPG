@@ -88,7 +88,7 @@
 
     	"DOTA_Tooltip_ability_zonik_rune_e_3"								"[E3] Blur"
     	"DOTA_Tooltip_ability_zonik_rune_e_3_Description"					"During Lightspeed, Zhonik reduces all physical and magical damage taken by a flat amount based on his agility."
-    	"DOTA_Tooltip_ability_zonik_rune_e_3_property_one"					"Physical Damage Block"
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_property_one"					"Physical and Magical Damage Block"
     	"DOTA_Tooltip_ability_zonik_rune_e_3_suffix"						" per Agility"
 
     	"DOTA_Tooltip_ability_zonik_rune_e_4"								"[E4] Sonic Rush"
