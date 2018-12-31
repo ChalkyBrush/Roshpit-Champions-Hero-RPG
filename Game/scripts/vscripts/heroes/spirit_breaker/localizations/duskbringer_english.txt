@@ -10,7 +10,7 @@
 		"DOTA_Tooltip_modifier_whirling_flail_Description"  			"Swinging Rapidly"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1"						"[Q1] Duskfire Flail"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"Duskbringer's weapon has an additional energy that explodes on enemies and leaves a burning DPS debuff. The burn effect stacks with no limit."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"Duskbringer's weapon has an additional energy that explodes on enemies and leaves a burning DPS debuff. The burn effect stacks with no limit. Duration 5 seconds."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_one"		"DPS"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix"				""		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_two"		"Bonus Damage from Agility"
@@ -84,7 +84,7 @@
 		"DOTA_Tooltip_modifier_charging_Description"					"Charging forward with no collision"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_e_1"						"[E1] Phantom Pace"
-    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_Description"			"Duskbringer gains stacks of attack damage and armor as long as he remains in motion. Stacks won't time out while you channel spells."
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_Description"			"Duskbringer gains stacks of attack damage and armor as long as he remains in motion. Stacks won't time out while you channel spells. Effect lingers for 1 second."
     	"DOTA_Tooltip_ability_duskbringer_rune_e_1_property_one"		"Damage"
     	"DOTA_Tooltip_ability_duskbringer_rune_e_1_suffix"				""		
     	"DOTA_Tooltip_ability_duskbringer_rune_e_1_property_two"		"Armor"
