@@ -289,7 +289,6 @@
 		"AbilityTextureName"	"antimage_spell_shield"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
@@ -520,7 +519,6 @@
 		"AbilityTextureName"	"lina_light_strike_array"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
