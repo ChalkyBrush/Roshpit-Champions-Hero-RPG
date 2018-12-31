@@ -37,9 +37,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"								"火焰护腕"
 		"item_property_scorched_gauntlet"			"焦土"
-		"property_scorched_gauntlet_description"	"攻击时有20%几率产生一片焦土，每秒对范围内所有敌人造成 @special_property1% 攻击力+ @special_property2x 护甲值的持续伤害。达到4000时升级。"
+		"property_scorched_gauntlet_description"	"攻击时有20%几率产生一片焦土，每秒对范围内所有敌人造成 @special_property1% 攻击力+ @special_property2x 护甲值的持续伤害。达到4000时升级。升级后无法重铸。"
 		"item_property_scorched_gauntlet_2"			"炎狱"
-		"property_scorched_gauntlet_description_2"	"攻击时有20%几率产生一片焦土，每秒对范围内所有敌人造成 @special_property1% 攻击力+ @special_property2x 护甲值的持续伤害。同时在目标周围随机方位产生一团火焰<br>在范围内造成 @special_property3% 攻击力的伤害、 <br>眩晕敌人 @special_property4 秒并且留下一片新的焦土。"
+		"property_scorched_gauntlet_description_2"	"攻击时有20%几率产生一片焦土，每秒对范围内所有敌人造成 @special_property1% 攻击力+ @special_property2x 护甲值的持续伤害。同时在目标周围随机方位产生一团火焰<br>在范围内造成 @special_property3% 攻击力的伤害、 <br>眩晕敌人 @special_property4 秒并且留下一片新的焦土。该装备无法重铸。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"荣耀护手"
@@ -238,7 +238,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"火法术手套"	
 		 "item_property_spellfire"								"法术"
-		 "property_spellfire_description"						"施法速率提高 @special_property1%。"
+		 "property_spellfire_description"						"施法速率提高 @special_property1%。该装备符文重铸有上限，上限为21 。"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"暗影拳套"
@@ -269,7 +269,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chitinous_lobster_claw"					"龙虾钳"	
 		"property_lobster_claw"												"壳质硬皮"
-		"property_lobster_claw_Description"									"每 0.5 秒，获得一层壳质硬皮buff，每层buff伤害减免 @special_property1%。最大 @special_property2 层。"
+		"property_lobster_claw_Description"									"每 <% CHITINOUS_LOBSTER_CLAW_STACK_RATE %>秒，获得一层壳质硬皮buff，每层buff伤害减免<% CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%%。最大 <% CHITINOUS_LOBSTER_CLAW_MAX_STACKS %> 层。"
 		"DOTA_Tooltip_modifier_chitinous_skin_stack"						"壳质硬皮"
 		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"每层提供伤害减免 1%%"
 		

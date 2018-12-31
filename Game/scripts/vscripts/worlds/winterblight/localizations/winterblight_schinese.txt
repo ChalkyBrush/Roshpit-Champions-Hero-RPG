@@ -381,7 +381,7 @@
 		"DOTA_Tooltip_ability_source_revenant_passive"			"能量始源"
 		"DOTA_Tooltip_ability_source_revenant_passive_Description"	"普通攻击后回复魔法值。每点当前魔法值增加攻击力。"
 		"DOTA_Tooltip_ability_source_revenant_passive_damage_per_mana"	"每点当前魔法值给予攻击力:"
-		"DOTA_Tooltip_ability_source_revenant_passive_mana_restore_on_attack"	"魔法回复%"
+		"DOTA_Tooltip_ability_source_revenant_passive_mana_restore_on_attack"	"魔法回复%:"
 
 		"DOTA_Tooltip_modifier_source_revenant_attack_power"	"能量始源"
 		"DOTA_Tooltip_modifier_source_revenant_attack_power_Description"	"魔法值增加攻击力"
@@ -526,7 +526,7 @@
 		"DOTA_Tooltip_ability_winterblight_ensnare_Description"		"将敌人困在一个网中，使他们不能移动。"
 		"DOTA_Tooltip_ability_winterblight_ensnare_duration"		"缠绕持续时间:"
 
-		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive"	"巨大穿透"
+		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive"	"超级穿透"
 		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_Description"	"被动增加税后伤害"
 		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_postmitigation"	"税后伤害%:"
 
@@ -680,7 +680,7 @@
 		"DOTA_Tooltip_ability_stalacorr_ice_blast_Description"	"对周围造成巨大的振动。"
 		"DOTA_Tooltip_ability_stalacorr_ice_blast_damage"		"伤害:"
 
-		"DOTA_Tooltip_modifier_triboss_powered_up_multiple"	"力量提升！"
+		"DOTA_Tooltip_modifier_triboss_powered_up_multiple"	"为所欲为！"
 
 		
 		//雪图怪物名称
@@ -783,5 +783,5 @@
 		"winterblight_azheran_iceblood"							"寒冰之血阿兹赫伦"
 		"winterblight_orthok_the_damned"						"该死的奥拉斯科"
 		"winterblight_captain_reynar_ghost"						"瑞纳船长"
-		"winterblight_grand_stalacorr"							"大型凛冬斯塔洛克"
+		"winterblight_grand_stalacorr"							"大型凛冬岩石巨人"
 		

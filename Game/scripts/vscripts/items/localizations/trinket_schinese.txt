@@ -113,12 +113,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"乌鸦玩偶 LV1"
 		"item_property_raven_idol"					"黑暗灵魂"		
-		"property_raven_idol_description"			"减少受到的所有伤害40%。生命值将不会超过最大生命值的50%。每次受到伤害此数值增加1，数值达到12000时，乌鸦玩偶升级。"
+		"property_raven_idol_description"			"减少受到的所有伤害40%。生命值将不会超过最大生命值的50%。每次受到伤害此数值增加1，数值达到12000时，乌鸦玩偶升级。升级后无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol2"										"乌鸦玩偶 LV2"
 		"item_property_raven_idol2"					"黑暗灵魂 II"		
-		"property_raven_idol_description2"			"减少受到的所有伤害50%。生命值将不会超过最大生命值的50%。 每100点缺失的血量提高装备伤害 0.01% 。"
+		"property_raven_idol_description2"			"减少受到的所有伤害50%。生命值将不会超过最大生命值的50%。 每100点缺失的血量提高装备伤害 0.01% 。该装备无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"凤凰徽章"
@@ -144,12 +144,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"崇高戒指"
 		"item_property_nobility"							"崇高之路"
-		"property_nobility_description"						"提高全属性 30x 你的等级。当你杀死一个敌人时，该属性值提升。提升至10000时此戒指升级。"
+		"property_nobility_description"						"提高全属性 30x 你的等级。当你杀死一个敌人时，该属性值提升。提升至10000时此戒指升级。升级后无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"						"强力崇高戒指"
 		"item_property_nobility_augmented"					"崇高步伐"
-		"property_nobility_augmented_description"			"提高全属性 60x 你的等级。"
+		"property_nobility_augmented_description"			"提高全属性 60x 你的等级。该装备无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"							"启示树枝"

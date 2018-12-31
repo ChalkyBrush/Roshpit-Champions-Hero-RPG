@@ -131,7 +131,7 @@
 		"DOTA_Tooltip_modifier_wind_temple_keyholder_slow_Description"	"移动和攻击速度降低"
 
 		"DOTA_Tooltip_ability_creature_pure_strike"			"纯粹打击"
-		"DOTA_Tooltip_ability_creature_pure_strike_Description"	"攻击必定命中，并且15%的伤害为纯粹伤害."
+		"DOTA_Tooltip_ability_creature_pure_strike_Description"	"攻击必定命中，并且3%的伤害为纯粹伤害."
 
 		"DOTA_Tooltip_ability_tanari_ritual_healing"		"治愈祭礼"
 		"DOTA_Tooltip_ability_tanari_ritual_healing_Description"	"为附近的盟友回复少量生命值，这个技能拥有很短的冷却时间."		

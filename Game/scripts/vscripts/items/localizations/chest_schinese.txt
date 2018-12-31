@@ -21,37 +21,37 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"洪水法袍 等级1"
 		"item_property_flooding"					"水元素 1"
-		"property_flooding_description"				"当你引导完 @Ability4 后，召唤一个水元素，持续12秒。水元素每次攻击将为你回复5%的最大魔法值。攻击造成25x你的智力值的AOE伤害。<br>当水人击杀数量达到5000，衣服会升级。"
+		"property_flooding_description"				"当你引导完 @Ability4 后，召唤一个水元素，持续12秒。水元素每次攻击将为你回复5%的最大魔法值。攻击造成25x你的智力值的AOE伤害。<br>当水人击杀数量达到5000，衣服会升级。升级后无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding_2"								"洪水法袍 等级2"
 		"item_property_flooding_2"					"水元素 2"
-		"property_flooding_description_2"			"当你引导完 @Ability4 后，召唤一个水元素，持续12秒。水元素每次攻击将为你回复5%的最大魔法值。攻击造成30x你的智力值的AOE伤害。<br>水元素攻击同时产生一道波浪，波浪对碰撞到的敌人造成玩家一倍攻击力的魔法伤害。"
+		"property_flooding_description_2"			"当你引导完 @Ability4 后，召唤一个水元素，持续12秒。水元素每次攻击将为你回复5%的最大魔法值。攻击造成30x你的智力值的AOE伤害。<br>水元素攻击同时产生一道波浪，波浪对碰撞到的敌人造成玩家一倍攻击力的魔法伤害。该装备无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding_3"								"洪水法袍 等级3"
 		"item_property_flooding_3"					"水元素 3"
-		"property_flooding_description_3"			"当你引导完 @Ability4 后，召唤一个水元素，持续12秒。水元素每次攻击将为你回复5%的最大魔法值。攻击造成35x你的智力值的AOE伤害。<br>水元素攻击同时产生一道波浪，波浪对碰撞到的敌人造成玩家一倍攻击力的魔法伤害。<br>所有水元素所造成的伤害都计算为 @Ability4 的基础技能伤害。"
+		"property_flooding_description_3"			"当你引导完 @Ability4 后，召唤一个水元素，持续12秒。水元素每次攻击将为你回复5%的最大魔法值。攻击造成35x你的智力值的AOE伤害。<br>水元素攻击同时产生一道波浪，波浪对碰撞到的敌人造成玩家一倍攻击力的魔法伤害。<br>所有水元素所造成的伤害都计算为 @Ability4 的基础技能伤害。该装备无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"									"崩裂板甲 等级1"
 		"item_property_avalanche"					"山崩"
-		"property_avalanche_description"			"释放 @Ability4 技能后将在400码范围内引发一场地震，每0.2秒造成 @special_property1x 力量的伤害并晕眩敌人0.1秒。<br>每10点力量提高装备伤害 @special_property3%。每击中一个怪物增1点经验加，达到1500经验时衣服升级。"
+		"property_avalanche_description"			"释放 @Ability4 技能后将在400码范围内引发一场地震，每0.2秒造成 @special_property1x 力量的伤害并晕眩敌人0.1秒。<br>每10点力量提高装备伤害 @special_property3%。每击中一个怪物增1点经验加，达到1500经验时衣服升级。升级后无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate_2"								"崩裂板甲 等级2"
 		"item_property_avalanche_2"					"山裂"
-		"property_avalanche_description_2"			"释放 @Ability4 技能后将在400码范围内引发一场地震，每0.2秒造成 @special_property1x 力量的伤害并晕眩敌人0.1秒。当每个敌人被击中20次时，将在600码范围内引发一场更大的地震，<br>造成 @special_property2x 力量的伤害并且眩晕敌人1.6秒。<br>每10点力量提高装备伤害 @special_property3%。"
+		"property_avalanche_description_2"			"释放 @Ability4 技能后将在400码范围内引发一场地震，每0.2秒造成 @special_property1x 力量的伤害并晕眩敌人0.1秒。当每个敌人被击中20次时，将在600码范围内引发一场更大的地震，<br>造成 @special_property2x 力量的伤害并且眩晕敌人1.6秒。<br>每10点力量提高装备伤害 @special_property3%。该装备无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"紫罗兰卫士之甲 等级1"
 		"item_property_violet_guard_armor"			"紫罗兰十字军"
-		"property_violet_guard_armor_description"	"提高 @Ability1 伤害300%。每次 @Ability1 击中一个敌人，增加1点经验，经验达到20000时，衣服升级。"
+		"property_violet_guard_armor_description"	"提高 @Ability1 伤害300%。每次 @Ability1 击中一个敌人，增加1点经验，经验达到20000时，衣服升级。升级后无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard2"							"紫罗兰卫士之甲 等级2"
 		"item_property_violet_guard_armor2"			"紫罗兰征服者"
-		"property_violet_guard_armor_description2"	"提高 @Ability1 伤害350%。每0.1%点的 @Ability1 基础技能伤害降低所击中敌人的护甲值1点，持续6秒。不能将敌人的护甲值降低至0点以下。"
+		"property_violet_guard_armor_description2"	"提高 @Ability1 伤害350%。每0.1%点的 @Ability1 基础技能伤害降低所击中敌人的护甲值1点，持续6秒。不能将敌人的护甲值降低至0点以下。该装备无法重铸。"
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"紫罗兰征服"
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"护甲值降低"
 		
@@ -327,7 +327,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"刻尔伯罗斯的垒甲"
 		"item_property_direwolf"						"地狱看门犬"
-		"property_direwolf_description"					"每 10 点主属性提高基础攻击力 @special_property1，护甲值 @special_property2，基础技能伤害 @special_property3%。"
+		"property_direwolf_description"					"每 10 点主属性提高基础攻击力 @special_property1，护甲值 @special_property2，基础技能伤害 @special_property3%。该装备无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"亚特兰帝斯之甲"	

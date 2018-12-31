@@ -522,7 +522,7 @@
 
 		"DOTA_Tooltip_ability_arena_lies_boss_illusion_ability"			"诱骗"
 		"DOTA_Tooltip_ability_arena_lies_boss_illusion_ability_Description"	"创造一个可以使用所有技能的分身."
-		"DOTA_Tooltip_ability_arena_lies_boss_illusion_ability_outgoing_damage"	"分身造成的伤害DAMAGE:"
+		"DOTA_Tooltip_ability_arena_lies_boss_illusion_ability_outgoing_damage"	"分身造成的伤害伤害:"
 
 		"DOTA_Tooltip_ability_arena_descent_impervious"					"坚定"
 		"DOTA_Tooltip_ability_arena_descent_Description"				"大量减少受到的伤害"
@@ -530,7 +530,7 @@
 
 		"arena_descent_grieving_widow"									"悲伤的寡妇"
 		"arena_descent_sorrow_wraith"									"悲伤的怨灵"
-		"arena_descent_horror_construct"								"恐怖的建筑"
+		"arena_descent_horror_construct"								"恐怖之形"
 		"arena_descent_death_seeker"									"死亡探索者"
 
 		"DOTA_Tooltip_ability_arena_descent_grieving_widow_ability"		"墓碑吸取"		
