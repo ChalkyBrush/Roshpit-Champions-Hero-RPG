@@ -24,7 +24,7 @@
 		"DOTA_Tooltip_modifier_paladin_rune_q_1_description" 			"Ваши атаки выпускают святые искры, поражая врагов."
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_2"							"[Q2] Radiance"
-    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"Пока активно умение (Q) Heroic Fury, все ближайшие противники получают урон, основанный на базовом уроне героя."
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"Пока активно умение (Q) Heroic Fury, все противники в радиусе 900 получают урон, основанный на базовом уроне героя."
     	"DOTA_Tooltip_ability_paladin_rune_q_2_property_one"			"Урон в сек."
     	"DOTA_Tooltip_ability_paladin_rune_q_2_suffix"					" % от базового"
 

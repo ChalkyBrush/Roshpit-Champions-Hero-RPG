@@ -24,7 +24,7 @@
 		"DOTA_Tooltip_modifier_paladin_rune_q_1_description" 			"Attacks emit holy sparks on nearby enemies."
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_2"							"[Q2] Radiance"
-    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"While Heroic Fury is active, nearby enemies take damage based on Paladin's Attack Power."
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"While Heroic Fury is active, enemies within a radius of 900 in take damage based on Paladin's Attack Power."
     	"DOTA_Tooltip_ability_paladin_rune_q_2_property_one"			"Damage Per Second"
     	"DOTA_Tooltip_ability_paladin_rune_q_2_suffix"					"% of Attack Damage"
 
