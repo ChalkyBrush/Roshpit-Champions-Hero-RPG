@@ -2,7 +2,7 @@
 		"DOTA_Tooltip_ability_heavens_shield"							"Heaven's Shield"
     	"DOTA_Tooltip_ability_heavens_shield_Description"				"Auriun накладывает божественный щит на себя или союзную цель, поглощающий любой входящий урон. Длительность эффекта 9 секунд."
     	"DOTA_Tooltip_ability_heavens_shield_Lore"						""
-    	"DOTA_Tooltip_ability_heavens_shield_stacks"					"ПОГЛОЩАЕТ АТАК"
+    	"DOTA_Tooltip_ability_heavens_shield_stacks"					"ПОГЛОЩАЕТ АТАК:"
 
     	"DOTA_Tooltip_modifier_heavens_shield"							"Heaven's Shield"
     	"DOTA_Tooltip_modifier_heavens_shield_Description"  			"100%% поглощение урона"
@@ -39,8 +39,8 @@
 		"DOTA_Tooltip_ability_flash_heal"								"Flash Heal"
     	"DOTA_Tooltip_ability_flash_heal_Description"					"Мгновенно исцеляет себя или цель под курсором вспышкой света."
     	"DOTA_Tooltip_ability_flash_heal_Lore"							""
-    	"DOTA_Tooltip_ability_flash_heal_heal"							"ЛЕЧЕНИЕ"
-    	"DOTA_Tooltip_ability_flash_heal_max_distance"					"МАКС. ДАЛЬНОСТЬ"
+    	"DOTA_Tooltip_ability_flash_heal_heal"							"ЛЕЧЕНИЕ:"
+    	"DOTA_Tooltip_ability_flash_heal_max_distance"					"МАКС. ДАЛЬНОСТЬ:"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_1"						"[W1] Shadow Flare"
     	"DOTA_Tooltip_ability_auriun_rune_w_1_Description"			"Если ваш курсор не направлен на союзника или Auriun, умение Flash Heal создаёт вспышку разрушительной энергии, наносящей урон."
@@ -76,7 +76,7 @@
 		"DOTA_Tooltip_ability_seraph_surge"								"Seraph Surge"
     	"DOTA_Tooltip_ability_seraph_surge_Description"					"Мгновенно переходит в ангельское состояние, которое позволяет проходить сквозь препятствия и существ. Враги не видят героя в этом состоянии, а сам Auriun не может атаковать."
     	"DOTA_Tooltip_ability_flash_heal_Lore"							""
-    	"DOTA_Tooltip_ability_seraph_surge_duration"					"ДЛИТЕЛЬНОСТЬ"
+    	"DOTA_Tooltip_ability_seraph_surge_duration"					"ДЛИТЕЛЬНОСТЬ:"
 
     	"DOTA_Tooltip_modifier_seraph_surge"							"Seraph Surge"
     	"DOTA_Tooltip_modifier_seraph_surge_Description"				"Прохождение сквозь препятствия и существ. Атака невозможна."
@@ -118,8 +118,9 @@
 		"DOTA_Tooltip_ability_auriun_ult"								"Blessing of Life"
     	"DOTA_Tooltip_ability_auriun_ult_Description"					"Auriun наполняет ближайших союзников светом небес, увеличивая их скорость передвижения и регенерацию здоровья. Дополнительно воскрешает павших союзников."
     	"DOTA_Tooltip_ability_auriun_ult_Lore"							""
-    	"DOTA_Tooltip_ability_auriun_ult_regen_percent"					"РЕГЕН.ЗДОРОВЬЯ % "
-    	"DOTA_Tooltip_ability_auriun_ult_radius"						"РАДИУС"
+		"DOTA_Tooltip_ability_auriun_ult_movespeed"						"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+    	"DOTA_Tooltip_ability_auriun_ult_regen_percent"					"РЕГЕН.ЗДОРОВЬЯ %:"
+    	"DOTA_Tooltip_ability_auriun_ult_radius"						"РАДИУС:"
 
     	"DOTA_Tooltip_modifier_auriun_ult_effect"						"Blessing of Life"
     	"DOTA_Tooltip_modifier_auriun_ult_effect_Description"			"Большое восстановление здоровья и увеличенная скорость передвижения."

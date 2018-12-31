@@ -2,7 +2,7 @@
 		"DOTA_Tooltip_ability_heavens_shield"							"Heaven's Shield"
     	"DOTA_Tooltip_ability_heavens_shield_Description"				"Auriun applies a divine barrier to his target, allowing them to absorb incoming damage instances. Shield's base duration is 9 seconds."
     	"DOTA_Tooltip_ability_heavens_shield_Lore"						""
-    	"DOTA_Tooltip_ability_heavens_shield_stacks"					"ATTACKS ABSORBED"
+    	"DOTA_Tooltip_ability_heavens_shield_stacks"					"ATTACKS ABSORBED:"
 
     	"DOTA_Tooltip_modifier_heavens_shield"							"Heaven's Shield"
     	"DOTA_Tooltip_modifier_heavens_shield_Description"  			"100%% damage absorption"
@@ -39,8 +39,8 @@
 		"DOTA_Tooltip_ability_flash_heal"								"Flash Heal"
     	"DOTA_Tooltip_ability_flash_heal_Description"					"Quickly heal a target with a blessing of light. Flash heal targets a friendly unit that is underneath your cursor."
     	"DOTA_Tooltip_ability_flash_heal_Lore"							""
-    	"DOTA_Tooltip_ability_flash_heal_heal"							"HEAL"
-    	"DOTA_Tooltip_ability_flash_heal_max_distance"					"MAX RANGE"
+    	"DOTA_Tooltip_ability_flash_heal_heal"							"HEAL:"
+    	"DOTA_Tooltip_ability_flash_heal_max_distance"					"MAX RANGE:"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_1"						"[W1] Shadow Flare"
     	"DOTA_Tooltip_ability_auriun_rune_w_1_Description"			"If your cursor isn't over an ally or Auriun, Flash Heal creates a blaze of aphotic energy that deals damage at your cursor's location."
@@ -76,7 +76,7 @@
 		"DOTA_Tooltip_ability_seraph_surge"								"Seraph Surge"
     	"DOTA_Tooltip_ability_seraph_surge_Description"					"Instantly enter an angelic state with cliff and unit walking. Enemies can not see Auriun under his holy guise, and Auriun cannot use regular attacks."
     	"DOTA_Tooltip_ability_flash_heal_Lore"							""
-    	"DOTA_Tooltip_ability_seraph_surge_duration"					"DURATION"
+    	"DOTA_Tooltip_ability_seraph_surge_duration"					"DURATION:"
 
     	"DOTA_Tooltip_modifier_seraph_surge"							"Seraph Surge"
     	"DOTA_Tooltip_modifier_seraph_surge_Description"				"No collision and invisible to enemies."
@@ -117,9 +117,10 @@
 		
 		"DOTA_Tooltip_ability_auriun_ult"								"Blessing of Life"
     	"DOTA_Tooltip_ability_auriun_ult_Description"					"Auriun infuses nearby allies with the light of heavens, giving them increased movement speed and HP regen. Additionally revives all fallen allies."
-    	"DOTA_Tooltip_ability_auriun_ult_Lore"							""
-    	"DOTA_Tooltip_ability_auriun_ult_regen_percent"					"HP REGEN % "
-    	"DOTA_Tooltip_ability_auriun_ult_radius"						"RADIUS"
+    	"DOTA_Tooltip_ability_auriun_ult_Lore"				""
+		"DOTA_Tooltip_ability_auriun_ult_movespeed"						"MOVEMENT SPEED BUFF:"
+    	"DOTA_Tooltip_ability_auriun_ult_regen_percent"					"HP REGEN %:"
+    	"DOTA_Tooltip_ability_auriun_ult_radius"						"RADIUS:"
 
     	"DOTA_Tooltip_modifier_auriun_ult_effect"						"Blessing of Life"
     	"DOTA_Tooltip_modifier_auriun_ult_effect_Description"			"Massive HP regen and increased movement speed."

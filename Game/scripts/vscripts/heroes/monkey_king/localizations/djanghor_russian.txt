@@ -138,7 +138,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_q_1"									"[Q1] Wild Regeneration"
     	"DOTA_Tooltip_ability_djanghor_rune_q_1_Description"						"Прочтение (Q) Roar в форме медведя дарует герою восстановление здоровья на 12 секунд. Эффект продолжит действовать после трансформации."
     	"DOTA_Tooltip_ability_djanghor_rune_q_1_property_one"						"Восстановление здоровья"
-    	"DOTA_Tooltip_ability_djanghor_rune_q_1_suffix"								" кажыде 0.1 секунды"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_1_suffix"								" каждые 0.1 секунды"
 
     	"DOTA_Tooltip_modifier_bear_regen"											"Wild Regeneration"
     	"DOTA_Tooltip_modifier_bear_regen_Description"								"Восстанавливает здоровье каждые 0.1 секунды"
