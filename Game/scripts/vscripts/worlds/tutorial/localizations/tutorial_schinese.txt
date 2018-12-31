@@ -640,7 +640,7 @@
 	"tutorial_master_dialogue_6_5c"										"我希望你去参观！去discord聊天频道吧."
 	"tutorial_master_dialogue_6_5d"										"为了证明你去过那里，告诉我密码。您可以在discord的curators-library频道的“pinned messages”中找到密码."
 
-	"tutorial_quiz_question_19"											"去肉山谷的discord中的curators-library 频道. 你在 'Pinned Messages'找到的密码是？（密码为krjua5）"
+	"tutorial_quiz_question_19"											"去肉山谷的discord中的curators-library 频道. 你在 'Pinned Messages'找到的密码是？（密码为krjua5）。"
 
 	"tutorial_quiz_wrong_6_5_1"											"检查 curators-library中Pinned Messages的信息"
 	"tutorial_quiz_wrong_6_5_2"											"不是这个，去 discord.gg/ZUhfMZG 并转到 curators-library sub channel. 检查那儿的 pinned messages 信息。"
