@@ -67,8 +67,10 @@
 
     	"DOTA_Tooltip_ability_seinaru_rune_w_4"							"[W4] 智慧之光"
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_Description"				"神圣剑客的敏捷值将提高圣光之手的治疗量，并且提高所有 <font color=\"#7AE2A7\">风</font> 元素伤害。"
-    	"DOTA_Tooltip_ability_seinaru_rune_w_4_property_one"			"治疗量和伤害提高"
-    	"DOTA_Tooltip_ability_seinaru_rune_w_4_suffix"					"% 每10点敏捷值"
+	"DOTA_Tooltip_ability_seinaru_rune_w_4_property_one"			"风元素伤害提高"
+    	"DOTA_Tooltip_ability_seinaru_rune_w_4_suffix"				"% 每10点敏捷值"
+    	"DOTA_Tooltip_ability_seinaru_rune_w_4_property_two"			"治疗加成"
+    	"DOTA_Tooltip_ability_seinaru_rune_w_4_suffix_two"				"% 每10点敏捷"
 
 
 		"DOTA_Tooltip_ability_seinaru_odachi_leap"						"太刀飞跃"
