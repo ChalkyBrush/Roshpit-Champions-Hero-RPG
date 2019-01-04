@@ -1,2 +1,14 @@
 "upgrade_cost"		"Upgrade:"
 "tech_points"	"Tech Points"
+
+"DOTA_Tooltip_ability_jex_cosmic_nature_q"				"Cosmic Barrier"
+"DOTA_Tooltip_ability_jex_cosmic_nature_q_Description"	"Jex gains magic immunity for the duration of the ability"	
+"DOTA_Tooltip_ability_jex_cosmic_nature_q_duration_per_tech"	"DURATION PER TECH LEVEL:"
+"DOTA_Tooltip_ability_jex_cosmic_nature_q_duration_base"		"DURATION BASE:"
+
+"DOTA_Tooltip_ability_jex_cosmic_cosmic_q"					"Galaxy Laser"
+"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_Description"		""
+
+
+"DOTA_Tooltip_ability_jex_thunder_thunder_q"				"Wrath of Lightning"
+"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	""

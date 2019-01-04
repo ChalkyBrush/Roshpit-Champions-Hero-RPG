@@ -279,7 +279,7 @@ function Filters:PerformAttackSpecial(caster, target, b1, b2, b3, b4, b5, b6, b7
 end
 
 function Filters:MagicImmuneBreak(attacker, target)
-    local magic_immunity_buffs = {"modifier_hope_of_saytaru_effect", "modifier_monk_ulti_gorudo", "modifier_black_widow", "modifier_warlord_stone_form", "modifier_gilded_soul_immunity", "modifier_auriun_immortal_weapon_3_effect", "modifier_black_King_bar_immunity"}
+    local magic_immunity_buffs = {"modifier_hope_of_saytaru_effect", "modifier_monk_ulti_gorudo", "modifier_black_widow", "modifier_warlord_stone_form", "modifier_gilded_soul_immunity", "modifier_auriun_immortal_weapon_3_effect", "modifier_black_King_bar_immunity", "modifier_jex_magic_immunity"}
     local immuneBreak = false
     for i = 1, #magic_immunity_buffs, 1 do
         if target:HasModifier(magic_immunity_buffs[i]) then
@@ -287,15 +287,9 @@ function Filters:MagicImmuneBreak(attacker, target)
         end
     end
     if immuneBreak then
-        target:RemoveModifierByName("modifier_hope_of_saytaru_effect")
-        target:RemoveModifierByName("modifier_monk_ulti_gorudo")
-        target:RemoveModifierByName("modifier_black_widow_invisible_damage_buff")
-        target:RemoveModifierByName("modifier_black_widow")
-        target:RemoveModifierByName("modifier_black_widow_invis_range_debuff")
-        target:RemoveModifierByName("modifier_warlord_stone_form")
-        target:RemoveModifierByName("modifier_warlord_stone_form_slow_portion")
-        target:RemoveModifierByName("modifier_warlord_rune_q_1")
-        target:RemoveModifierByName("modifier_gilded_soul_immunity")
+        for i = 1, #magic_immunity_buffs, 1 do
+            target:RemoveModifierByName(magic_immunity_buffs[i])
+        end
         EmitSoundOn("RPC.MagicImmuneBreakAttacker", attacker)
         EmitSoundOn("RPC.MagicImmuneBreakTarget", target)
         local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, attacker )

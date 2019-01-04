@@ -49,6 +49,7 @@
 		"npc_dota_hero_slark"						"Slipfinn"
 		"npc_dota_hero_skywrath_mage"				"Sephyr"
 		"npc_dota_hero_winter_wyvern"				"Dinath"
+		"npc_dota_hero_arc_warden"					"Jex"
 
 		//--------------------
 		//Hero Lore

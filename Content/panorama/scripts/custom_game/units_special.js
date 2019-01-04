@@ -136,7 +136,7 @@ function onibi_element_click(element_panel, index, element_data, element, queryU
 			var secondaryElementNumber = convertElementNameToNumber(secondaryElement)
 			onibi_ability_panel.FindChildTraverse('onibi_ability_element_icon1').SetImage("file://{images}/custom_game/ui/elements/element"+elementNumber+".png")
 			onibi_ability_panel.FindChildTraverse('onibi_ability_element_icon2').SetImage("file://{images}/custom_game/ui/elements/element"+secondaryElementNumber+".png")
-			onibi_ability_panel.FindChildTraverse('onibi_ability_name').text = $.Localize(onibi_data[element][secondaryElement][ability_key]["name"])
+			onibi_ability_panel.FindChildTraverse('onibi_ability_name').text = $.Localize("DOTA_Tooltip_ability_"+onibi_data[element][secondaryElement][ability_key]["name"])
 			onibi_ability_panel.FindChildTraverse('onibi_ability_level').text = "Lv. "+ability_level
 
 			var tech_cost = calculate_ability_tech_cost(element, secondaryElement, ability_level)

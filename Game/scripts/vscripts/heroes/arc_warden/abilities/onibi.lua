@@ -150,14 +150,17 @@ function onibi_calculate_all_tech_points(onibi)
 end
 
 function get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
-	local ability_name = "ABILITY NAME"
+	local ability_name = "abilname"
 	if ability_key == "Q" then
 		if element1 == "nature" and element2 == "nature" then
 		elseif (element1 == "nature" and element2 == "lightning") or (element1 == "lightning" and element2 == "nature") then
 		elseif (element1 == "nature" and element2 == "cosmic") or (element1 == "cosmic" and element2 == "nature") then
+			ability_name = "jex_cosmic_nature_q"
 		elseif element1 == "lightning" and element2 == "lightning" then
+			ability_name = "jex_thunder_thunder_q"
 		elseif (element1 == "lightning" and element2 == "cosmic") or (element1 == "cosmic" and element2 == "lightning") then
 		elseif element1 == "cosmic" and element2 == "cosmic" then
+			ability_name = "jex_cosmic_cosmic_q"
 		end
 	elseif ability_key == "W" then
 	elseif ability_key == "E" then
@@ -268,6 +271,48 @@ end
 function onibi_invoke(event)
 	local caster = event.caster
 	local ability = event.ability
+	local onibi = caster
+	local element1 = string.gsub(caster:GetAbilityByIndex(0):GetAbilityName(), "onibi_", "")
+	element1 = string.gsub(element1, '_1', "")
+	local element2 = string.gsub(caster:GetAbilityByIndex(1):GetAbilityName(), "onibi_", "")
+	element2 = string.gsub(element2, '_2', "")
+	local ability_key = string.gsub(caster:GetAbilityByIndex(2):GetAbilityName(), "onibi_", "")
+	ability_key = string.upper(ability_key)
+	print(element1)
+	print(element2)
+	print(ability_key)
+	local ability_level = caster.stats_table[element1][element2][ability_key]["level"]
+	if ability_level > 0 then
+		EmitSoundOn("Jex.Invoke", caster)
+		local ability_name = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
+		local ability_index = convert_ability_key_into_ability_index(ability_key)
+		local old_ability_name = caster.caster:GetAbilityByIndex(ability_index):GetAbilityName()
+		CustomAbilities:AddAndOrSwapSkill(caster.caster, old_ability_name, ability_name, ability_index)
+
+		local invokePFX = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_invoker/invoker_death_end.vpcf", onibi.caster, 4)
+		ParticleManager:SetParticleControl(invokePFX, 1, Vector(120, 180, 255))
+		local invokePFX2 = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_invoker/invoker_death_end.vpcf", onibi, 4)
+		ParticleManager:SetParticleControl(invokePFX2, 1, Vector(120, 180, 255))
+		local pfx = ParticleManager:CreateParticle("particles/roshpit/jex/essence_harvest.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControlEnt(pfx, 1, caster.caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster.caster:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
+		Timers:CreateTimer(0.15, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
+	else
+		EmitSoundOn("Jex.InvokeFail", caster)
+	end
+	
+end
+
+function convert_ability_key_into_ability_index(ability_key)
+	if ability_key == "Q" then
+		return 0
+	elseif ability_key == "W" then
+		return 1
+	elseif ability_key == "E" then
+		return 2
+	end
 end
 
 function upgrade_onibi_ability(msg)
