@@ -255,7 +255,7 @@
 		"item_rpc_paladin_glyph_3_1_description" 				"使你能完全控制门徒并且门徒的移动速度增加至800，右键该技能可以让门徒变为ai控制。"
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"坚定正义雕文"
-		"item_rpc_paladin_glyph_4_1_description" 				"正义之手不再将自己击退，并且使正义之手每次释放施加的神圣之火的debuff层数X5（计算在庇护雕文之后）。"
+		"item_rpc_paladin_glyph_4_1_description" 				"正义之手不再将自己击退，并且使正义之手每次释放施加的神圣之火的debuff层数X5。"
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"神威雕文"
 		"item_rpc_paladin_glyph_5_1_description" 				"增加正义之手和神圣之火200%的伤害，并且当正义之手击中敌人时额外施加9层神圣之火的debuff。"
