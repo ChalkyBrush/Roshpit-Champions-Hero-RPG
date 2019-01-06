@@ -131,7 +131,7 @@ function jex_cosmic_cosmic_w_explode(event)
 			if not enemy.dummy then
 				local towardCenter = ((caster.explosionPoint - enemy:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 				local distance = WallPhysics:GetDistance2d(caster.explosionPoint, enemy:GetAbsOrigin())
-				local newPos = enemy:GetAbsOrigin() + towardCenter*distance*0.65
+				local newPos = enemy:GetAbsOrigin() + towardCenter*distance*0.5
 				FindClearSpaceForUnit(enemy, newPos, false)
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, caster.damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 			end

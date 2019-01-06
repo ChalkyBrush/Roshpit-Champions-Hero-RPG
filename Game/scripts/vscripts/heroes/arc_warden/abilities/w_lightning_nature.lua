@@ -16,8 +16,6 @@ function jex_thunderleaf_throw(event)
 	local paralyze_duration_per_tech = event.paralyze_duration_per_tech
 
 	local tech_level = caster.onibi.stats_table["lightning"]["nature"]["W"]["level"]
-	local tech_level = 10
-	local leaf_count = 5
 	local base_damage = event.base_damage
 	ability.damage =  base_damage + agility_added_to_damage*caster:GetAgility()+(damage_attack_power_per_tech/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*tech_level
 	ability.paralyze_duration = paralyze_duration_per_tech*tech_level
@@ -59,7 +57,7 @@ function jex_thunderleaf_throw(event)
 		projectile = ProjectileManager:CreateLinearProjectile(info)	
 	end
 
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(2, caster)
 end
 
 function thunderleaf_impact(event)

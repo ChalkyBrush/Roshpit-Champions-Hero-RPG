@@ -34,5 +34,8 @@
 "DOTA_Tooltip_ability_jex_lightning_lightning_w"			"Vortex Weapon"
 "DOTA_Tooltip_ability_jex_lightning_lightning_w_Description"	""
 
-"DOTA_Tooltip_ability_jex_lightning_nature_w"				"Thunderleaf"
+"DOTA_Tooltip_ability_jex_lightning_nature_w"				"Thunderleaf Petals"
 "DOTA_Tooltip_ability_jex_lightning_nature_w_Description"	""
+
+"DOTA_Tooltip_ability_jex_lightning_cosmic_w"				"Ion Cannon"
+"DOTA_Tooltip_ability_jex_lightning_cosmic_w_Description"	""

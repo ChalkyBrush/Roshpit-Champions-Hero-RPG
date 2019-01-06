@@ -1952,3 +1952,117 @@
 			}
 		}
 	}
+
+	"jex_lightning_cosmic_w"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"treant_living_armor"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"1000 1050 1100 1150 1200 1250 1300"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 240 500 1000 2000 3200 4800"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"			"1000 1050 1100 1150 1200 1250 1300"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_attack_power_per_tech"			"40"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"strength_added_to_damage"			"10 30 60 100 200 400 1000"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"split_chance_per_tech"			"30"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"base_damage"			"500 1500 4000 10000 35000 100000 210000"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_cosmic.lua"
+				"Function"		"jex_ion_cannon_phase"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_cosmic.lua"
+				"Function"		"jex_ion_cannon_throw"
+				"damage_attack_power_per_tech"	"%damage_attack_power_per_tech"
+				"strength_added_to_damage"	"%strength_added_to_damage"
+				"split_chance_per_tech"			"%split_chance_per_tech"
+				"base_damage"			"%base_damage"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_cosmic.lua"
+				"Function"		"ion_cannon_impact"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_lightning_cosmic_w_main_thinker"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_cosmic.lua"
+						"Function"		"ion_cannon_main_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
