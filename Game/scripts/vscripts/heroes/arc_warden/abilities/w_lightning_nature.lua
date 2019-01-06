@@ -1,6 +1,7 @@
 function jex_thunderleaf_phase(event)
 	local caster = event.caster
 	StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.8})
+	EmitSoundOn("Jex.Thunderleaf.Throw", caster)
 end
 
 function jex_thunderleaf_throw(event)
@@ -15,11 +16,13 @@ function jex_thunderleaf_throw(event)
 	local paralyze_duration_per_tech = event.paralyze_duration_per_tech
 
 	local tech_level = caster.onibi.stats_table["lightning"]["nature"]["W"]["level"]
+	local tech_level = 10
+	local leaf_count = 5
 	local base_damage = event.base_damage
 	ability.damage =  base_damage + agility_added_to_damage*caster:GetAgility()+(damage_attack_power_per_tech/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*tech_level
 	ability.paralyze_duration = paralyze_duration_per_tech*tech_level
 	local particle = "particles/roshpit/jex/thunderleaf_concoction_projectile_linear.vpcf"
-	local range = 1500
+	local range = range_base + range_per_tech*tech_level
 	local divisor = 15
 	if leaf_count == 3 then
 		divisor = 17
@@ -28,6 +31,7 @@ function jex_thunderleaf_throw(event)
 	elseif leaf_count == 5 then
 		divisor = 22
 	end
+	EmitSoundOn("Jex.Thunderleaf.ThrowZap", caster)
 	for i = 1, leaf_count, 1 do
 		local rotation_adjustment = leaf_count/2
 		local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*(i-rotation_adjustment)/divisor)
@@ -54,6 +58,7 @@ function jex_thunderleaf_throw(event)
 		}
 		projectile = ProjectileManager:CreateLinearProjectile(info)	
 	end
+
 	Filters:CastSkillArguments(1, caster)
 end
 
