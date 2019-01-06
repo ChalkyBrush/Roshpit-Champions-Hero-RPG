@@ -1,9 +1,11 @@
 "upgrade_cost"		"Upgrade:"
 "tech_points"	"Tech Points"
 
+"jex_onibi"		"Jex Onibi"
+
 "DOTA_Tooltip_ability_jex_cosmic_nature_q"				"Cosmic Barrier"
 "DOTA_Tooltip_ability_jex_cosmic_nature_q_Description"	"Jex gains magic immunity for the duration of the ability"	
-"DOTA_Tooltip_ability_jex_cosmic_nature_q_duration_per_tech"	"DURATION PER TECH LEVEL:"
+"DOTA_Tooltip_ability_jex_cosmic_nature_q_duration_per_tech"	"<font color=\"#f4b942\">DURATION PER TECH LEVEL</font>:"
 "DOTA_Tooltip_ability_jex_cosmic_nature_q_duration_base"		"DURATION BASE:"
 
 "DOTA_Tooltip_ability_jex_cosmic_cosmic_q"					"Galaxy Laser"
@@ -11,4 +13,26 @@
 
 
 "DOTA_Tooltip_ability_jex_thunder_thunder_q"				"Wrath of Lightning"
-"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	""
+"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font><br>"
+
+"DOTA_Tooltip_ability_jex_lightning_cosmic_q"				"Electron Shield"
+"DOTA_Tooltip_ability_jex_lightning_cosmic_q_Description"	"Quantum electric particles form a barrier around Jex that makes his health unable to drop below a minimum value. Each time the shield is hit, 1 stack is removed."
+"DOTA_Tooltip_ability_jex_lightning_cosmic_q_stacks_per_tech"	"<font color=\"#f4b942\">STACKS PER TECH LEVEL</font>:"
+"DOTA_Tooltip_ability_jex_lightning_cosmic_q_min_health"		"MINIMUM HEALTH:"
+"DOTA_Tooltip_ability_jex_lightning_cosmic_q_duration"			"DURATION:"
+
+"DOTA_Tooltip_ability_jex_lightning_nature_q"				"Charged Mushroom"
+"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"An electrified mushroom warrior is summoned to fight for Jex. The minion inherits armor and attack damage from their summoner, and their attacks have a 30% chance to trigger a chain lightning effect that deals magic damage based on attack power."
+
+
+"DOTA_Tooltip_ability_jex_nature_nature_q"					"Oak Infusion"
+"DOTA_Tooltip_ability_jex_nature_nature_q_Description"		"Jex binds his body with ancient oak particles, increasing his armor and health regen. Enemies who damage Jex while the shield is active are stunned for a short duration."
+
+"DOTA_Tooltip_ability_jex_cosmic_cosmic_w"					"Nebula Bomb"
+"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_Description"		"Launches a bomb into the sky that vacuums and damages enemies at the impact point."
+
+"DOTA_Tooltip_ability_jex_lightning_lightning_w"			"Vortex Weapon"
+"DOTA_Tooltip_ability_jex_lightning_lightning_w_Description"	""
+
+"DOTA_Tooltip_ability_jex_lightning_nature_w"				"Thunderleaf"
+"DOTA_Tooltip_ability_jex_lightning_nature_w_Description"	""

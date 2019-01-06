@@ -156,19 +156,10 @@ function jex_q_cosmic_cosmic_casting_thinker2(event)
 		end
 	end
 	reindex_beam_table(caster, ability)
-	-- caster:SetAbsOrigin(caster:GetAbsOrigin()+caster:GetForwardVector()*4)
 end
 
 -- function ally_beam_hit(heal_pct, caster, ability, ally)
--- 	local healAmount = ally:GetMaxHealth()*(heal_pct/100)
--- 	Filters:ApplyHeal(caster, ally, healAmount, true)
--- 	local buffDuration = Filters:GetAdjustedBuffDuration(caster, 7, false)
--- 	ability:ApplyDataDrivenModifier(caster, ally, "modifier_jex_q_cosmic_cosmic_buff", {duration = buffDuration})	
--- 	local w_1_level = caster:GetRuneValue("w", 1)
--- 	if w_1_level > 0 then
--- 		ability:ApplyDataDrivenModifier(caster, ally, "modifier_w1_attack_buff", {duration = buffDuration})
--- 		ally:SetModifierStackCount("modifier_w1_attack_buff", caster, w_1_level)
--- 	end
+
 -- end
 
 function reindex_beam_table(caster, ability)
@@ -190,12 +181,5 @@ function reindex_beam_table(caster, ability)
 end
 
 -- function jex_q_cosmic_cosmic_casting_end2(event)
--- 	local caster = event.caster
--- 	local ability = event.ability
--- 	Timers:CreateTimer(0.03, function()
--- 		-- if ability.pfx then
--- 		-- 	ParticleManager:DestroyParticle(ability.pfx, false)
--- 		-- 	ability.pfx = false
--- 		-- end
--- 	end)	
+
 -- end

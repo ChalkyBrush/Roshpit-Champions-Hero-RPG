@@ -3,7 +3,7 @@ ONIBI_ELEMENT_MAX_LEVEL = 100
 function load_onibi_data(caster, onibi_data)
 	local jex_ability = caster:FindAbilityByName("jex_essence_harvest")
 	local spawnPoint = caster:GetAbsOrigin() - caster:GetForwardVector()*100
-	caster.onibi = CreateUnitByName("jex_onibi", spawnPoint, false, caster, caster, DOTA_TEAM_GOODGUYS)
+	caster.onibi = CreateUnitByName("jex_onibi", spawnPoint, false, caster, caster, caster:GetTeamNumber())
 
 	jex_ability:ApplyDataDrivenModifier(caster, caster.onibi, "modifier_jex_onibi_thinker", {})
 	caster.onibi.caster = caster
@@ -153,16 +153,32 @@ function get_ability_name_by_element_combination_and_key(element1, element2, abi
 	local ability_name = "abilname"
 	if ability_key == "Q" then
 		if element1 == "nature" and element2 == "nature" then
+			ability_name = "jex_nature_nature_q"
 		elseif (element1 == "nature" and element2 == "lightning") or (element1 == "lightning" and element2 == "nature") then
+			ability_name = "jex_lightning_nature_q"
 		elseif (element1 == "nature" and element2 == "cosmic") or (element1 == "cosmic" and element2 == "nature") then
 			ability_name = "jex_cosmic_nature_q"
 		elseif element1 == "lightning" and element2 == "lightning" then
 			ability_name = "jex_thunder_thunder_q"
 		elseif (element1 == "lightning" and element2 == "cosmic") or (element1 == "cosmic" and element2 == "lightning") then
+			ability_name = "jex_lightning_cosmic_q"
 		elseif element1 == "cosmic" and element2 == "cosmic" then
 			ability_name = "jex_cosmic_cosmic_q"
 		end
 	elseif ability_key == "W" then
+		if element1 == "nature" and element2 == "nature" then
+			ability_name = ""
+		elseif (element1 == "nature" and element2 == "lightning") or (element1 == "lightning" and element2 == "nature") then
+			ability_name = "jex_lightning_nature_w"
+		elseif (element1 == "nature" and element2 == "cosmic") or (element1 == "cosmic" and element2 == "nature") then
+			ability_name = ""
+		elseif element1 == "lightning" and element2 == "lightning" then
+			ability_name = "jex_lightning_lightning_w"
+		elseif (element1 == "lightning" and element2 == "cosmic") or (element1 == "cosmic" and element2 == "lightning") then
+			ability_name = ""
+		elseif element1 == "cosmic" and element2 == "cosmic" then
+			ability_name = "jex_cosmic_cosmic_w"
+		end
 	elseif ability_key == "E" then
 	end
 	return ability_name
@@ -282,6 +298,7 @@ function onibi_invoke(event)
 	print(element2)
 	print(ability_key)
 	local ability_level = caster.stats_table[element1][element2][ability_key]["level"]
+	ability_level = 1
 	if ability_level > 0 then
 		EmitSoundOn("Jex.Invoke", caster)
 		local ability_name = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)

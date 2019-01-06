@@ -1066,7 +1066,7 @@
 
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ALACRITY"
 
-		"AbilityCastRange"				"1000 1100 1200 1300 1400 1500 1600"
+		"AbilityCastRange"				"1300 1400 1500 1600 1700 1800 1900"
 		"AbilityCastPoint"				"0.6"
 		"AOERadius"						"%radius"
 
@@ -1088,7 +1088,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range"				"1000 1100 1200 1300 1400 1500 1600"
+				"cast_range"				"1300 1400 1500 1600 1700 1800 1900"
 			}
 			"03"
 			{
@@ -1248,6 +1248,707 @@
 						"Function"		"jex_lightning_lightning_thinker"
 					}
 				}
+			}
+		}
+	}
+
+	"jex_lightning_cosmic_q"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/invoke_w"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stacks_per_tech"				"1"
+			}			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"min_health"				"500 1500 4000 8000 25000 50000 100000"
+			}	
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"10.0 10.5 11.0 11.5 12.0 12.5 13.0"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/q_lightning_cosmic.lua"
+				"Function"		"jex_activate_q_lightning_cosmic"
+				"stacks_per_tech"	"%stacks_per_tech"
+				"duration"			"%duration"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_lightning_cosmic_shield"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"EffectName"	"particles/roshpit/jex/lightning_cosmic_shield.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "%min_health"
+				}
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/q_lightning_cosmic.lua"
+						"Function"		"jex_lightning_cosmic_shield_hit"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"jex_lightning_nature_q"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/invoke_e"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chain_lightning_max_targets_per_tech"				"1"
+			}			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_mult"				"2 4 6 8 10 12 14"
+			}	
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"32 34 36 38 40 42 44"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_mult_per_tech"				"1"
+			}	
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_mult_per_tech"				"1"
+			}	
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/q_lightning_nature.lua"
+				"Function"		"jex_activate_charged_mushroom"
+				"target"		"POINT"
+				"chain_target_count"	"%chain_lightning_max_targets_per_tech"
+				"duration"			"%duration"
+				"health_mult"			"%health_mult"
+				"armor_mult_per_tech"			"%armor_mult_per_tech"
+				"attack_mult_per_tech"			"%attack_mult_per_tech"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_charged_mushroom"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
+				"StatusEffectPriority"	"110"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/q_lightning_nature.lua"
+						"Function"		"jex_thundershroom_attack_land"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_jex_charged_mushroom_spawning"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/q_lightning_nature.lua"
+						"Function"		"jex_charged_mushroom_spawning"
+						"target"		"TARGET"
+					}
+				}
+
+			}
+		}
+	}
+
+	"jex_nature_nature_q"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"enchantress_impetus"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_regen_per_tech"				"100 200 300 400 500 600 700"
+			}			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor"				"200 400 1000 2000 4000 9000"
+			}	
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_duration"				"15"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration_per_tech_level"				"2.5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_per_tech"				"0.05"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/q_nature_nature.lua"
+				"Function"		"jex_activate_q_nature_nature"
+				"duration"			"%base_duration"
+				"duration_per_tech_level"			"%duration_per_tech_level"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_nature_nature_shield_visible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"       "particles/units/heroes/hero_treant/treant_livingarmor.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+						}
+					}
+				}
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/q_nature_nature.lua"
+						"Function"		"enemy_damage_jex_nature_nature_shield"
+						"stun_per_tech"	"%stun_per_tech"
+					}
+				}
+			}
+			"modifier_jex_nature_nature_shield_invisible"
+			{	
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN" "%health_regen_per_tech"
+				}
+			}
+		}
+	}
+
+	"jex_cosmic_cosmic_w"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"techies_land_mines"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT_END"
+		"AbilityCastRange"				"1500"
+		"AOERadius"						"90"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.15"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1.4"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"180 400 800 1400 2000 4800 9000"
+
+		"precache"
+		{
+			"model"						"models/heroes/techies/fx_techiesfx_mine.vmdl"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_base"				"2400 8400 48000 130000 255000 500000 5000000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"aoe_base"			"450"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"aoe_per_tech_level"			"50"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_power_added_per_tech"			"50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"intelligence_added_to_damage"			"10 30 60 100 200 400 1000"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/arc_warden/abilities/w_cosmic_cosmic.lua"
+        		"Function"		"jex_grenade_throw_start"
+        		"Target"		"POINT"
+        		"damage"		"%damage"
+        		"aoe_base"		"%aoe_base"
+        		"aoe_per_tech_level"	"%aoe_per_tech_level"
+        		"attack_power_added_per_tech"	"%attack_power_added_per_tech"
+        		"intelligence_added_to_damage"	"%intelligence_added_to_damage"
+			}
+		}
+	}
+
+	"jex_grenade_subability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rubick_empty1"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"jex_grenade_passive"
+			{
+				"Passive"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OverrideAnimation"     "ACT_DOTA_RUN"
+			}
+			"modifier_bomb_motion"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_TURNING" "1"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/w_cosmic_cosmic.lua"
+						"Function"		"jex_grenade_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/w_cosmic_cosmic.lua"
+						"Function"		"jex_cosmic_cosmic_w_explode"
+					}
+				}
+			}
+		}
+	}
+
+	"jex_lightning_lightning_w"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"arkimus/arkimus_flash_source"
+		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50 120 300 500 1000 2000 3200"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_mult"			"140 180 240 340 520 800 1200"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"mana_cost"			"50 120 300 500 1000 2000 3200"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"jumps_per_tech"			"1"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_speed"			"200 230 260 290 320 350 380"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attacK_dmg_pct_per_tech"			"70"
+			}
+		}
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_jex_vortex_w"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_jex_vortex_w"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_vortex_w"
+			{
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
+				}
+				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
+				"StatusEffectPriority"	"100"
+				"EffectName"		"particles/roshpit/jex/thunder_flow_ambient.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_lightning.lua"
+						"Function"		"jex_lightning_lightning_attack_land"
+						"drain_mana"	"%mana_cost"
+						"damage_mult"	"%damage_mult"
+						"jumps_per_tech"	"%jumps_per_tech"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_lightning.lua"
+						"Function"		"jex_lightning_lightning_toggled_on"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_lightning.lua"
+						"Function"		"jex_lightning_lightning_toggled_off"
+					}
+				}
+			}
+			"modifier_jex_vortex_w_attack_dmg"
+			{
+				"IsHidden" "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attacK_dmg_pct_per_tech"
+				}
+			}
+		}
+	}
+
+	"jex_lightning_nature_w"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"treant_living_armor"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 240 500 1000 2000 3200 4800"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leaf_count"			"2 2 3 3 4 4 5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_attack_power_per_tech"			"50"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"agility_added_to_damage"			"10 30 60 100 200 400 1000"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range_base"			"700"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range_per_tech"			"100"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"paralyze_duration_per_tech"			"0.1"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"base_damage"			"300 1000 3000 8000 25000 75000 165000"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_nature.lua"
+				"Function"		"jex_thunderleaf_phase"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_nature.lua"
+				"Function"		"jex_thunderleaf_throw"
+				"leaf_count"	"%leaf_count"
+				"damage_attack_power_per_tech"	"%damage_attack_power_per_tech"
+				"agility_added_to_damage"	"%agility_added_to_damage"
+				"range_base"			"%range_base"
+				"range_per_tech"		"%range_per_tech"
+				"paralyze_duration_per_tech"	"%paralyze_duration_per_tech"
+				"base_damage"			"%base_damage"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_nature.lua"
+				"Function"		"thunderleaf_impact"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_thunderleaf_paralyze"
+			{
+				"IsHidden"	"0"
+				"States"
+				{
+					"ACT_DOTA_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
+				"StatusEffectPriority"	"120"
 			}
 		}
 	}
