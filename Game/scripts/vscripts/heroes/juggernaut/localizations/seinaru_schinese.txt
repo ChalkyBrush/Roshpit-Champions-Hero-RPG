@@ -233,6 +233,8 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"当炎阳冲锋进入冷却时间时，神圣剑客有概率额外地获得一格充能，使炎阳冲锋可以自由施放一次而不进入冷却时间。概率超过 100% 可以获得多格充能。"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_one"			"自由施放概率"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix"					"%"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"圣元素伤害增加："
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"%"
 
     	"DOTA_Tooltip_modifier_sunstrider_freecast"							"炎阳冲锋自由施放充能"
 
