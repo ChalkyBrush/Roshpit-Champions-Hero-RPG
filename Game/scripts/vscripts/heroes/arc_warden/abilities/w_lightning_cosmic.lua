@@ -12,8 +12,7 @@ function jex_ion_cannon_throw(event)
 	end
 	local target = event.target
 	ability.tech_level = caster.onibi.stats_table["lightning"]["cosmic"]["W"]["level"]
-	ability.tech_level = 15
-	ability.damage = event.base_damage + (event.damage_attack_power_per_tech/100)*ability.tech_level*OverflowProtectedGetAverageTrueAttackDamage(caster)
+	ability.damage = event.base_damage + (event.damage_attack_power_per_tech/100)*ability.tech_level*OverflowProtectedGetAverageTrueAttackDamage(caster) + event.strength_added_to_damage*caster:GetStrength()
 	local splits = Runes:Procs(ability.tech_level, event.split_chance_per_tech, 1)
 	new_ion_cannon_projectile(caster, ability, caster, target, splits)
 
@@ -63,6 +62,8 @@ function ion_cannon_main_think(event)
 				local distance = WallPhysics:GetDistance2d(projectile.target_position, projectile.position)
 				if distance < projectile.speed*FrameTime()*1.5 then
 					ion_cannon_impact(caster, ability, projectile, projectile.target)
+				elseif distance > 4000 then
+					disable_projectile(caster, ability, projectile)
 				end
 			else
 				disable_projectile(caster, ability, projectile)

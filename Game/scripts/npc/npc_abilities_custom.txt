@@ -560,7 +560,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AOERadius"						"800 900 1000 1100 1200 1300 1400"
+		"AOERadius"						"%aoe_radius"
 		"precache"
 		{
 			"soundfile"					"soundevents/game_sounds_jex.vsndevts"
@@ -1991,7 +1991,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0"
+		"AbilityCooldown"				"0.2"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100 240 500 1000 2000 3200 4800"
@@ -2076,6 +2076,261 @@
 		}
 	}
 
+	"jex_nature_nature_w"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"techies_land_mines"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AbilityCastRange"				"1500"
+		"AOERadius"						"400 425 450 475 500 525 550"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.15"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1.4"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"180 400 800 1400 2000 4800 9000"
+
+		"precache"
+		{
+			"model"						"models/heroes/techies/fx_techiesfx_mine.vmdl"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"400 425 450 475 500 525 550"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_root_duration"			"2.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"root_per_tech_level"			"0.5"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"all_attributes_added_to_damage"			"5 15 30 50 100 200 500"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_tick"			"400 1000 2000 8000 30000 80000 200000"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_power_added_to_tick_per_tech"			"30"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range_reduction"			"-200 -240 -280 -320 -360 -400 -440"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/arc_warden/abilities/w_nature_nature.lua"
+        		"Function"		"jex_root_weave_start"
+        		"Target"		"POINT"
+        		"radius"		"%radius"
+        		"base_root_duration"	"%base_root_duration"
+        		"root_per_tech_level"	"%root_per_tech_level"
+        		"all_attributes_added_to_damage" "%all_attributes_added_to_damage"
+        		"damage_per_tick"	"%damage_per_tick"
+        		"attack_power_added_to_tick_per_tech"	"%attack_power_added_to_tick_per_tech"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_root_weave_debuff"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+		
+				"EffectName"		"particles/roshpit/jex/jex_root.vpcf"
+				"EffectAttachType"	"follow_origin"
+		
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%range_reduction"
+				}
+			}
+			"modifier_jex_root_immunity"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/w_nature_nature.lua"
+						"Function"		"jex_root_damage_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"jex_nature_cosmic_w"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"arkimus/arkimus_flash_source"
+		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 300 800 2000 4000 8000 15000"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_damage"			"600 2000 6000 25000 75000 140000 225000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"mana_cost_per_cast"			"100 300 800 2000 4000 8000 15000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"post_mitigation_magic_per_tech"			"3 5 7 10 15 20 30"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movespeed_bonus_per_tech"			"15"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"mana_drain_per_second"			"10 20 40 80 140 220 400"
+			}
+		}
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_jex_nature_cosmic_w"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_jex_nature_cosmic_w"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_nature_cosmic_w"
+			{
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%attack_damage"
+				}
+				"EffectName"		"particles/roshpit/jex/equilibrium_shift_heal.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/w_nature_cosmic.lua"
+						"Function"		"jex_nature_cosmic_toggled_on"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/w_nature_cosmic.lua"
+						"Function"		"jex_lightning_lightning_toggled_off"
+					}
+				}
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/w_nature_cosmic.lua"
+						"Function"		"nature_cosmic_w_think"
+						"mana_drain_per_second"	"%mana_drain_per_second"
+					}
+				}
+			}
+			"modifier_jex_nature_cosmic_movespeed"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_bonus_per_tech"
+				}
+			}
+		}
+	}
 
 
 

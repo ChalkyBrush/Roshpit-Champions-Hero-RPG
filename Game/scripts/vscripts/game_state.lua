@@ -1942,6 +1942,14 @@ function GameState:FilterDamage(filterTable)
 				mult = mult + 0.02*attacker.e_1_level
 			end
 		end
+		if attacker:HasModifier("modifier_jex_nature_cosmic_w") then
+			local ability = attacker:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
+			if not ability.tech_level then
+				ability.tech_level = attacker.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
+			end
+			local postmit = (ability:GetSpecialValueFor("post_mitigation_magic_per_tech")*ability.tech_level)/100
+			mult = mult + postmit
+		end
 		if attacker:HasModifier("modifier_sorcerers_regalia") then
 			mult = mult+0.4
 		end
