@@ -95,9 +95,11 @@ function think(event)
 --        hero:SetOrigin(newPosition)
         if #ability.enemies > 0 then
             for _,enemy in pairs(ability.enemies) do
-                if not enemy.pushLock and not enemy.jumpLock then
-                    local enemyPosition = enemy:GetAbsOrigin() + hero:GetAbsOrigin() - hero.oldEposition
-                    enemy:SetAbsOrigin(enemyPosition)
+                if IsValidEntity(enemy) then
+                    if not enemy.pushLock and not enemy.jumpLock then
+                        local enemyPosition = enemy:GetAbsOrigin() + hero:GetAbsOrigin() - hero.oldEposition
+                        enemy:SetAbsOrigin(enemyPosition)
+                    end
                 end
             end
         end
