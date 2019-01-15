@@ -45,3 +45,6 @@
 
 "DOTA_Tooltip_ability_jex_nature_cosmic_w"					"Equilibrium Shifter"
 "DOTA_Tooltip_ability_jex_nature_cosmic_w_Descritpion"		""
+
+"DOTA_Tooltip_ability_jex_cosmic_cosmic_e"					"Xenon Warp"
+"DOTA_Tooltip_ability_jex_cosmic_cosmic_e_Description"		""

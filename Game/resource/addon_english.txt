@@ -6851,6 +6851,9 @@
 "DOTA_Tooltip_ability_jex_nature_cosmic_w"					"Equilibrium Shifter"
 "DOTA_Tooltip_ability_jex_nature_cosmic_w_Descritpion"		""
 
+"DOTA_Tooltip_ability_jex_cosmic_cosmic_e"					"Xenon Warp"
+"DOTA_Tooltip_ability_jex_cosmic_cosmic_e_Description"		""
+
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"Shockwave"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#AF843D\">Earth</font><br>Unearths a cascade of force that damage and stuns everyone in its path."
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_stun_duration"	"STUN DURATION:"

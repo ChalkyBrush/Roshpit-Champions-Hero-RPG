@@ -2332,6 +2332,78 @@
 		}
 	}
 
+	"jex_cosmic_cosmic_e"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"techies_land_mines"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AbilityCastRange"				"800 900 1000 1100 1200 1300 1400"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6.5 6.25 6.0 5.75 5.5 5.25 5.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"				"800 900 1000 1100 1200 1300 1400"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"freecast_per_tech"				"1"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/e_cosmic_cosmic.lua"
+				"Function"		"jex_cosmic_cosmic_e_phase_start"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/arc_warden/abilities/e_cosmic_cosmic.lua"
+        		"Function"		"jex_cosmic_port_start"
+        		"Target"		"POINT"
+        	}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_warp_freecast"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
+		}
+	}
+
+
 
 
 	"ekkan_arcana_black_dominion"
