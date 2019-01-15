@@ -2737,7 +2737,8 @@ function pit_descent_boss_think(event)
 	local gasPosition = Vector(casterLoc.x, casterLoc.y, 250) + RandomVector(RandomInt(900, 1600))
 	if not caster:HasModifier("modifier_descent_boss_entering") then
 		local extraDuration = 4 - (caster:GetHealth()/caster:GetMaxHealth())*4
-		ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_descent_poison_thinker", {duration = 6+extraDuration})
+		--ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_descent_poison_thinker", {duration = 6+extraDuration})
+		CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_descent_poison_thinker", {duration = 6+extraDuration})
 	end
 	if ravageAbility:IsFullyCastable() and not caster.ravage and not caster:HasModifier("modifier_descent_boss_casting") and not caster:IsStunned() then
 		caster.ravage = true

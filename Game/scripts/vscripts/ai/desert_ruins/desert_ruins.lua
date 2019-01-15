@@ -493,7 +493,8 @@ function fungal_overlord_think(event)
 		local ability = event.ability
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			local position = MAIN_HERO_TABLE[i]:GetAbsOrigin() + RandomVector(310)
-			ability:ApplyDataDrivenThinker(caster, position, "modifier_poison_cloud_thinker", {})
+			--ability:ApplyDataDrivenThinker(caster, position, "modifier_poison_cloud_thinker", {})
+			CustomAbilities:QuickAttachThinker(ability, caster, position, "modifier_poison_cloud_thinker", {})
 		end
 	end
 end

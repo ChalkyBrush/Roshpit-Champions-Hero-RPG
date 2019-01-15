@@ -901,7 +901,8 @@ function castle_boss_think(event)
 	  		local modCheck = 40/boss.slowPools
 	  		if boss.interval % modCheck == 0 then
 	  			local position = Dungeons.castleCenter+RandomInt(80,Dungeons.castleRadius)*RandomVector(1)
-	  			ability:ApplyDataDrivenThinker(boss, position, "castle_boss_slow_pool", {duration = 5})
+	  			--ability:ApplyDataDrivenThinker(boss, position, "castle_boss_slow_pool", {duration = 5})
+				CustomAbilities:QuickAttachThinker(ability, boss, position, "castle_boss_slow_pool", {duration = 5})
 	  		end
 
 	  	end

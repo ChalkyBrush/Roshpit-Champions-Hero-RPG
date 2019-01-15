@@ -718,7 +718,8 @@ function fire_chakram(caster, ability, fv)
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 	Timers:CreateTimer(2, function()
 		local groundPosition = GetGroundPosition(spellOrigin+fv*1400, caster)
-		ability:ApplyDataDrivenThinker(caster, groundPosition, "shredder_max_thinker", {duration = 6})
+		--ability:ApplyDataDrivenThinker(caster, groundPosition, "shredder_max_thinker", {duration = 6})
+		CustomAbilities:QuickAttachThinker(ability, caster, groundPosition, "shredder_max_thinker", {duration = 6})
 	end)
 end
 

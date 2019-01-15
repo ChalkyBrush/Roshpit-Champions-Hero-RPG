@@ -94,7 +94,8 @@ function rune_q_3_eruption(ability, caster, point, radius)
     local totalLevel = abilityLevel + bonusLevel
     if totalLevel > 0 then
         ability.q_3_damage = caster:GetStrength()*totalLevel*0.5 + totalLevel*800
-        ability:ApplyDataDrivenThinker(caster, point, "modifier_eruption_thinker", {})
+        --ability:ApplyDataDrivenThinker(caster, point, "modifier_eruption_thinker", {})
+		CustomAbilities:QuickAttachThinker(ability, caster, point, "modifier_eruption_thinker", {})
     else
         return 0
     end

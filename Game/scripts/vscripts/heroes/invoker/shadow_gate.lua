@@ -50,7 +50,8 @@ function shadow_gate_cast(event)
     	-- local healAmount = caster.deity:GetMaxHealth()
     	-- Filters:ApplyHeal(caster, caster.shadowAspect, healAmount, true)
     end
-    ability:ApplyDataDrivenThinker(caster, target, "shadow_gate_thinker", {})
+    --ability:ApplyDataDrivenThinker(caster, target, "shadow_gate_thinker", {})
+	CustomAbilities:QuickAttachThinker(ability, caster, target, "shadow_gate_thinker", {})
     if caster:HasModifier("modifier_call_of_shadow") and caster:HasModifier("modifier_conjuror_glyph_3_1") then
 		ability:EndCooldown()
 		ability:StartCooldown(4)

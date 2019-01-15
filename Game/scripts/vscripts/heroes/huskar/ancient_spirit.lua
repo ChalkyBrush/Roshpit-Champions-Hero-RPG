@@ -241,8 +241,10 @@ function reachSpirit(caster, ability, spiritPosition)
 		ParticleManager:SetParticleControl(stormParticle, 0, spiritPosition)
 		ParticleManager:SetParticleControl(stormParticle, 1, Vector(800, 2, 2))
 		ParticleManager:SetParticleControl(stormParticle, 2, Vector(duration, duration, duration))
-		ability:ApplyDataDrivenThinker(caster, spiritPosition, "modifier_tempest_haze_aura_thinker_enemy", {duration = duration})
-		ability:ApplyDataDrivenThinker(caster, spiritPosition, "modifier_tempest_haze_aura_thinker_friendly", {duration = duration})
+		--ability:ApplyDataDrivenThinker(caster, spiritPosition, "modifier_tempest_haze_aura_thinker_enemy", {duration = duration})
+		CustomAbilities:QuickAttachThinker(ability, caster, spiritPosition, "modifier_tempest_haze_aura_thinker_enemy", {duration = duration})
+		--ability:ApplyDataDrivenThinker(caster, spiritPosition, "modifier_tempest_haze_aura_thinker_friendly", {duration = duration})
+		CustomAbilities:QuickAttachThinker(ability, caster, spiritPosition, "modifier_tempest_haze_aura_thinker_friendly", {duration = duration})
 		
 		ability.e_3_damage_tick = 6000*c_c_level*0.5
 	end

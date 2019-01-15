@@ -67,8 +67,10 @@ function createWall(event)
 	for i = loopCount, -loopCount-reduceLoop, 1 do
 		local obstructionPoint = point+ninetyDegrees*i*100
 		-- local obstruction = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = obstructionPoint, Name ="wallObstruction"})
-		ability:ApplyDataDrivenThinker(caster, obstructionPoint, "modifier_leshrac_wall_thinker", {duration = wallDuration+0.03})
-		local wallHandle = ability:ApplyDataDrivenThinker(caster, obstructionPoint, "modifier_leshrac_self_finder", {duration = wallDuration+0.03})
+		--ability:ApplyDataDrivenThinker(caster, obstructionPoint, "modifier_leshrac_wall_thinker", {duration = wallDuration+0.03})
+		CustomAbilities:QuickAttachThinker(ability, caster, obstructionPoint, "modifier_leshrac_wall_thinker", {duration = wallDuration+0.03})
+		--local wallHandle = ability:ApplyDataDrivenThinker(caster, obstructionPoint, "modifier_leshrac_self_finder", {duration = wallDuration+0.03})
+		local wallHandle = CustomAbilities:QuickAttachThinker(ability, caster, obstructionPoint, "modifier_leshrac_self_finder", {duration = wallDuration+0.03})
 		wallHandle.position = point
 		wallHandle.index = intervalForFunction
 		wallHandle.ninetyDeg = ninetyDegrees

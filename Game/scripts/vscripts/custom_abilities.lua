@@ -239,6 +239,23 @@ function CustomAbilities:Flamewaker_3_1_glyph(caster)
 	end 
 end
 
+function CustomAbilities:QuickAttachThinker(ability, caster, position, thinkerName, hModifierTable)
+	local thinkerDuration = {duration = 100}
+	if hModifierTable and hModifierTable.duration and hModifierTable.duration > 0 then
+		thinkerDuration = hModifierTable
+	end
+	if ability and caster and position and thinkerName then
+		local thinker = ability:ApplyDataDrivenThinker(caster, position, thinkerName, thinkerDuration)
+		Timers:CreateTimer(thinkerDuration.duration, function()
+			UTIL_Remove(thinker)
+		end)
+		return thinker
+	else
+		print("Err CustomAbilities:QuickAttachThinker")	
+		print(thinkerName)	
+	end
+end
+
 function CustomAbilities:QuickAttachParticle(particleName, target, destroyTime)
 	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)

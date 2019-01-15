@@ -129,7 +129,8 @@ function fire_chakram(caster, ability, fv)
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 	Timers:CreateTimer(2, function()
-		ability:ApplyDataDrivenThinker(caster, spellOrigin+fv*1400, "shredder_max_thinker", {duration = 6})
+		--ability:ApplyDataDrivenThinker(caster, spellOrigin+fv*1400, "shredder_max_thinker", {duration = 6})
+		CustomAbilities:QuickAttachThinker(ability, caster, spellOrigin+fv*1400, "shredder_max_thinker", {duration = 6})
 	end)
 end
 

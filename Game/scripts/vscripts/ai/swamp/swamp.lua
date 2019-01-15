@@ -54,7 +54,8 @@ function bog_monster_think(event)
 	if caster.interval%5 == 0 then
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			local position = MAIN_HERO_TABLE[i]:GetAbsOrigin() + RandomVector(110)
-			ability:ApplyDataDrivenThinker(caster, position, "modifier_poison_cloud_thinker", {})
+			--ability:ApplyDataDrivenThinker(caster, position, "modifier_poison_cloud_thinker", {})
+			CustomAbilities:QuickAttachThinker(ability, caster, position, "modifier_poison_cloud_thinker", {})
 		end
 	end
 	if caster.interval >= 11 then
@@ -75,7 +76,8 @@ function bog_monster_think(event)
       		local fv = caster:GetForwardVector()
       		local rotatedFv = WallPhysics:rotateVector(fv, math.pi*2/gasCount*i)
       		local gasPosition = caster:GetAbsOrigin()+rotatedFv*distance
-      		ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
+      		--ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
+			CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {})
       	end
       	Timers:CreateTimer(0.5, function()
       		distance = distance + 200
@@ -84,7 +86,8 @@ function bog_monster_think(event)
 	      		local fv = caster:GetForwardVector()
 	      		local rotatedFv = WallPhysics:rotateVector(fv, math.pi*2/gasCount*i)
 	      		local gasPosition = caster:GetAbsOrigin()+rotatedFv*distance
-	      		ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
+	      		--ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
+				CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {})
 	      	end
 	      	Timers:CreateTimer(0.5, function()
 	      		distance = distance + 200
@@ -93,7 +96,8 @@ function bog_monster_think(event)
 		      		local fv = caster:GetForwardVector()
 		      		local rotatedFv = WallPhysics:rotateVector(fv, math.pi*2/gasCount*i)
 		      		local gasPosition = caster:GetAbsOrigin()+rotatedFv*distance
-		      		ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
+		      		--ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
+					CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {})
 		      	end
 	      	end)
       	end)
