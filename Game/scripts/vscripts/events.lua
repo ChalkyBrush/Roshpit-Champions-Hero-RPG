@@ -1341,6 +1341,10 @@ function GameMode:OnEntityKilled( keys )
           end
         end
 
+        local unitModifiersTable = killedUnit:FindAllModifiers()
+        for i=1,#unitModifiersTable do
+          UTIL_Remove(unitModifiersTable[i])
+        end
         --COSMETICS
         local wearable = killedUnit:FirstMoveChild()
         if wearable ~= nil and wearable:GetClassname() == "dota_item_wearable" and not wearable:IsNull() then
