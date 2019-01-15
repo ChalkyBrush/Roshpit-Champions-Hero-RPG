@@ -33,7 +33,7 @@ function RPCItems:LaunchLoot(item, height, duration, destinationPosition, origPo
 	local deltaY = destinationPosition.y - origPosition.y
 
 	--aka animation smoothness
-	local flyingSteps = 15
+	local flyingSteps = 24
 
 	--z coord doing sinusoidal motion, max height in the middle
 	local angleCoeff = math.ceil(flyingSteps/2)/(3.14/2)
