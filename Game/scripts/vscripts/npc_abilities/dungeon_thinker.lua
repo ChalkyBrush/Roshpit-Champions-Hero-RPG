@@ -1111,7 +1111,8 @@ function dispenseWards(caster, position)
 		    local drop = CreateItemOnPositionSync( position, item )
 		    item.cantStash = true
 		    dropPosition = position+Vector(-1,-1)*150
-		    item:LaunchLoot(false, 240, 0.75, dropPosition)
+		    --item:LaunchLoot(false, 240, 0.75, dropPosition)
+			RPCItems:LaunchLoot(item, 240, 0.5, dropPosition, dropPosition)
 		    Timers:CreateTimer(12, function()
 		    	caster.stopDispense = false
 		    end)
