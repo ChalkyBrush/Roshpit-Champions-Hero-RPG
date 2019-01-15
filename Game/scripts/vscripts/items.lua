@@ -28,6 +28,30 @@ require('items/arcanas')
 require('items/synthesis')
 require('curator')
 
+function RPCItems:LaunchLoot(item, height, duration, destinationPosition, origPosition)
+	local deltaX = destinationPosition.x - origPosition.x
+	local deltaY = destinationPosition.y - origPosition.y
+
+	--aka animation smoothness
+	local flyingSteps = 24
+
+	--z coord doing sinusoidal motion, max height in the middle
+	local angleCoeff = math.ceil(flyingSteps/2)/(3.14/2)
+
+	for i=1,flyingSteps do
+		Timers:CreateTimer(i*duration/flyingSteps, function()
+			if item and IsValidEntity(item) and IsValidEntity(item:GetContainer()) then
+				local position = Vector(origPosition.x + deltaX*i/flyingSteps, origPosition.y + deltaY*i/flyingSteps, origPosition.z + math.sin(i/angleCoeff)*height)
+				if i == flyingSteps then
+					position = destinationPosition
+				end
+				item:SetAbsOrigin(position)
+				item:GetContainer():SetAbsOrigin(position)
+			end
+		end)
+	end
+end
+
 function RPCItems:RollDrops(unit, killer)
 	local deathLocation = unit:GetAbsOrigin()
 	local xpBounty = unit:GetDeathXP()
@@ -580,9 +604,11 @@ function RPCItems:DropGold(item, position)
 	 table.insert(GLOBAL_ITEM_TABLE, item)
 	 
 	 if Dungeons.lootLaunch then
-	 	item:LaunchLoot(true, RandomInt(100,300), 0.75, position)
+	 	--item:LaunchLoot(true, RandomInt(100,300), 0.75, position)
+		RPCItems:LaunchLoot(item, RandomInt(100,300), 0.5, position, position)
 	 else
-	 	item:LaunchLoot(true, RandomInt(100,600), 0.75, position)
+	 	--item:LaunchLoot(true, RandomInt(100,600), 0.75, position)
+		RPCItems:LaunchLoot(item, RandomInt(100,600), 0.5, position, position)
 	 end
 
 end
@@ -614,6 +640,7 @@ end
 
 
 function RPCItems:DropItem(item, position)
+	local origPosition = position
     local basePosition = position
 	if Dungeons.lootLaunch then
 		position = GetGroundPosition(Dungeons.lootLaunch + RandomVector(RandomInt(10, 120)), nil)
@@ -662,9 +689,11 @@ function RPCItems:DropItem(item, position)
 		 table.insert(GLOBAL_ITEM_TABLE, item)
 		 
 		 if Dungeons.lootLaunch then
-		 	item:LaunchLoot(false, RandomInt(100,300), 0.75, position)
+		 	--item:LaunchLoot(false, RandomInt(100,300), 0.75, position)
+			RPCItems:LaunchLoot(item, RandomInt(100,300), 0.5, position, origPosition)
 		 else
-		 	item:LaunchLoot(false, RandomInt(100,600), 0.75, position)
+		 	--item:LaunchLoot(false, RandomInt(100,600), 0.75, position)
+			RPCItems:LaunchLoot(item, RandomInt(100,600), 0.5, position, origPosition)
 		 end
 	else
 		UTIL_Remove(item:GetContainer())

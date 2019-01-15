@@ -401,10 +401,15 @@ function GameMode:OnPlayerChat(keys)
     -- hero:ForceKill(false)
 
   end
-  if string.match(text, "npc_dota_thinker") then
-    local thinkers = Entities:FindAllByClassname("npc_dota_thinker")
-    print("npc_dota_thinker: "..#thinkers)
-  end
+  if string.match(text, "debug_entities") then
+    local entityesToLog = { "dota_item_wearable", "ability_datadriven", "npc_dota_creature", "npc_dota_thinker", "item_datadriven", "dota_item_drop" }
+    local textNotif = ""
+    for i=1,#entityesToLog do
+      local ent = Entities:FindAllByClassname(entityesToLog[i])
+      textNotif = textNotif.."["..entityesToLog[i]..": "..#ent.."]"
+    end
+    Notifications:Bottom(keys.playerid, {text=textNotif, duration=15.0})
+  end    
   -- if string.match(text, "superdebug11") then
   --   Redfall:Debug()
   -- end
@@ -1336,6 +1341,10 @@ function GameMode:OnEntityKilled( keys )
           end
         end
 
+        local unitModifiersTable = killedUnit:FindAllModifiers()
+        for i=1,#unitModifiersTable do
+          UTIL_Remove(unitModifiersTable[i])
+        end
         --COSMETICS
         local wearable = killedUnit:FirstMoveChild()
         if wearable ~= nil and wearable:GetClassname() == "dota_item_wearable" and not wearable:IsNull() then

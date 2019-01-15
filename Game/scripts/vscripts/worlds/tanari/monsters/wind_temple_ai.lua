@@ -2319,7 +2319,8 @@ function wind_temple_spirit_boss_die_begin(event)
 	  	local itemName = "item_tanari_spirit_stones_"..Tanari:ConvertDifficultyNumberToName(GameState:GetDifficultyFactor())
 	    local stones = RPCItems:CreateConsumable(itemName, "immortal", "tanari_spirit_stones", "consumable", false, "Consumable", itemName.."_desc")
 	    CreateItemOnPositionSync(bossOrigin, stones)
-	    stones:LaunchLoot(false, RandomInt(100,600), 0.75, bossOrigin)
+	    --stones:LaunchLoot(false, RandomInt(100,600), 0.75, bossOrigin)
+		RPCItems:LaunchLoot(stones, RandomInt(100,600), 0.5, bossOrigin, bossOrigin)
 
 	    local luck = RandomInt(1,2)
 	    if luck == 1 then
