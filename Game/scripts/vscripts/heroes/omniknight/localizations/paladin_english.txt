@@ -24,7 +24,7 @@
 		"DOTA_Tooltip_modifier_paladin_rune_q_1_description" 			"Attacks emit holy sparks on nearby enemies."
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_2"							"[Q2] Radiance"
-    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"While Heroic Fury is active, nearby enemies take damage based on Paladin's Attack Power."
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"While Heroic Fury is active, enemies within a radius of 900 in take damage based on Paladin's Attack Power."
     	"DOTA_Tooltip_ability_paladin_rune_q_2_property_one"			"Damage Per Second"
     	"DOTA_Tooltip_ability_paladin_rune_q_2_suffix"					"% of Attack Damage"
 
@@ -69,7 +69,7 @@
     	"DOTA_Tooltip_ability_paladin_rune_w_2_suffix"					"% of Ability Damage"
 		
 		"DOTA_Tooltip_ability_paladin_rune_w_3"							"[W3] Holy Nova"
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"Adds a 15% chance when attacked to emanate a Holy Nova - dealing damage to enemies and healing allies nearby. Enemies hit by Holy Nova are disarmed for 1 second."
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"Adds a 15% chance when attacked to emanate a Holy Nova - dealing damage to enemies and healing allies nearby. Enemies hit by Holy Nova are disarmed for 1 second. [W3] has 550 radius of effect."
     	"DOTA_Tooltip_ability_paladin_rune_w_3_property_one"			"Damage"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix"					"x Intelligence"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_property_two"			"Healing"
@@ -155,7 +155,7 @@
     	"DOTA_Tooltip_modifier_paladin_r_1_aura_armor_stacks_Description"	"Increased Armor"	
 
     	"DOTA_Tooltip_ability_paladin_rune_r_2"							"[R2] Empowering Light"
-    	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"Allies who are healed by Knight's Disciple gain attack damage and armor with each heal tick. The buff lasts 16 seconds."
+    	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"Allies who are healed by Knight's Disciple gain attack damage and armor with each heal tick. The buff lasts 16 seconds, max number of stacks is 30."
     	"DOTA_Tooltip_ability_paladin_rune_r_2_property_one"			"Attack Bonus / tick"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_suffix"					"%"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_property_two"			"Armor / tick"
@@ -186,6 +186,7 @@
     	"DOTA_Tooltip_ability_paladin_penance_Description"					"Element: <font color=\"#F6FFB5\">Holy</font> / <font color=\"#9ACCD1\">Ghost</font><br>Paladin impels a holy spirit lance that can target allies or enemies. Enemies around the initial target are also damaged. Allies who are hit by Penance are healed for 10% of the base ability damage."
     	"DOTA_Tooltip_ability_paladin_penance_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_paladin_penance_heal_percentage"				"HEAL PERCENTAGE:"
+		"DOTA_Tooltip_ability_paladin_penance_cast_range"					"CAST RANGE:"
 
     	"DOTA_Tooltip_modifier_penance_projectiles"							"Penance Lances"
     	"DOTA_Tooltip_modifier_penance_projectiles_Description"				"Paladin can have up to 10 lances active at a time"	
@@ -199,7 +200,7 @@
     	"DOTA_Tooltip_modifier_paladin_a_b_damage_growth_visible_Description"	"Increased attack power"
 
   		"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1"						"[W2] Grand Holy Nova"
-    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_Description"			"When a Penance projectile hits an enemy, a Holy Nova is emitted from the Paladin. Enemies who are hit take damage based on intellect and attack power, and are also disarmed for 1 second. Enemies receive a 0.5 second disarm immunity upon disarming."
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_Description"			"When a Penance projectile hits an enemy, a Holy Nova is emitted from the Paladin. Enemies who are hit take damage based on intellect and attack power, and are also disarmed for 1 second. Enemies receive a 0.5 second disarm immunity upon disarming. [W2] has 550 radius of effect."
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_property_one"		"Damage"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_suffix"				"x Intelligence"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_property_two"		"Bonus Damage"

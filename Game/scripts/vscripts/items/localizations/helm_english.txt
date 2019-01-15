@@ -149,7 +149,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
 		"item_property_arcane_cascade"				"Arcane Cascade"
-		"property_arcane_cascade_description"		"Drains @special_property1% of your max mana every @special_property2 seconds. All surrounding enemies take up to @special_property3x the mana drained as Magic Damage and also receive a -@special_property4 magic resistance debuff. Damage is reduced when hero is below max level."
+		"property_arcane_cascade_description"		"Drains @special_property1% of your max mana every @special_property2 seconds. All surrounding enemies in 750 radius take up to @special_property3x the mana drained as Magic Damage and also receive a -@special_property4 magic resistance debuff. Damage is reduced when hero is below max level."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"

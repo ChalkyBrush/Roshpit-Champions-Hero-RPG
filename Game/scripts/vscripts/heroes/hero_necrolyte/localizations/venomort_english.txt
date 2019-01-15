@@ -116,7 +116,7 @@
     	"DOTA_Tooltip_modifier_venomort_bonus_attack_damage_ally_Description"	"Increased attack power %"
 		
 		"DOTA_Tooltip_ability_venomort_rune_e_4"							"[E4] Sadism"
-    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"Each enemy unit currently suffering from any of Venomort's various poisons grants him a stack of increased health and evasion. Paragon enemies count as 5 units, while bosses count as 20."
+    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"Each enemy unit currently suffering from any of Venomort's various poisons grants him a stack of increased health and evasion. Paragon enemies count as 5 units, while bosses count as 20. Base duration - 1.5 seconds."
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_one"				"Bonus Health"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_suffix"						" per enemy"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_two"				"Bonus Evasion"

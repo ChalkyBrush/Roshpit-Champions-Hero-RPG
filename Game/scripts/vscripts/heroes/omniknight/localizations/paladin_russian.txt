@@ -24,7 +24,7 @@
 		"DOTA_Tooltip_modifier_paladin_rune_q_1_description" 			"Ваши атаки выпускают святые искры, поражая врагов."
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_2"							"[Q2] Radiance"
-    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"Пока активно умение (Q) Heroic Fury, все ближайшие противники получают урон, основанный на базовом уроне героя."
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"Пока активно умение (Q) Heroic Fury, все противники в радиусе 900 получают урон, основанный на базовом уроне героя."
     	"DOTA_Tooltip_ability_paladin_rune_q_2_property_one"			"Урон в сек."
     	"DOTA_Tooltip_ability_paladin_rune_q_2_suffix"					" % от базового"
 
@@ -69,7 +69,7 @@
     	"DOTA_Tooltip_ability_paladin_rune_w_2_suffix"					"% от базового урона способности"
 		
 		"DOTA_Tooltip_ability_paladin_rune_w_3"							"[W3] Holy Nova"
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"При получении урона есть 15% шанс высвободить вспышку света, наносящую урон врагам и исцеляющую союзников в небольшом радиусе в зависимости от показателя Интеллекта Паладина. Враги, задетые вспышкой, обезоружены на 1 секунду."
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"При получении урона есть 15% шанс высвободить вспышку света, наносящую урон врагам и исцеляющую союзников в небольшом радиусе в зависимости от показателя Интеллекта Паладина. Враги, задетые вспышкой, обезоружены на 1 секунду. [W3] имеет радиус 550."
     	"DOTA_Tooltip_ability_paladin_rune_w_3_property_one"			"Урон"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix"					"x Интеллекта"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_property_two"			"Лечение"
@@ -155,7 +155,7 @@
     	"DOTA_Tooltip_modifier_paladin_r_1_aura_armor_stacks_Description"	"Значение брони увеличено"	
 
     	"DOTA_Tooltip_ability_paladin_rune_r_2"							"[R2] Empowering Light"
-    	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"Союзники, ставшие целью исцеляющей способности (R) Knight's Disciple наделяются баффом, повышающим урон и броню за каждый тик исцеления. Усиление длится 16 секунд."
+    	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"Союзники, ставшие целью исцеляющей способности (R) Knight's Disciple наделяются баффом, повышающим урон и броню за каждый тик исцеления. Усиление длится 16 секунд, максимальное количество зарядов - 30."
     	"DOTA_Tooltip_ability_paladin_rune_r_2_property_one"			"Доп. урон за тик"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_suffix"					"%"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_property_two"			"Доп. броня за тик"
@@ -186,6 +186,7 @@
     	"DOTA_Tooltip_ability_paladin_penance_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font> / <font color=\"#9ACCD1\">Призрак</font><br>Paladin создаёт копьё, состоящее из чистого света, которое он может направить на врагов или союзников. Очищающий свет наносит урон изначальной вражеской цели и всем противникам рядом с ней. Союзные герои исцеляются на 10% от базового урона (W) Penance."
     	"DOTA_Tooltip_ability_paladin_penance_damage"						"УРОН:"
     	"DOTA_Tooltip_ability_paladin_penance_heal_percentage"				"ЛЕЧЕНИЕ, %:"
+		"DOTA_Tooltip_ability_paladin_penance_cast_range"					"ДАЛЬНОСТЬ КАСТА:"
 
     	"DOTA_Tooltip_modifier_penance_projectiles"							"Penance Lances"
     	"DOTA_Tooltip_modifier_penance_projectiles_Description"				"Одновременно может существовать не более 10 копий"	
@@ -199,7 +200,7 @@
     	"DOTA_Tooltip_modifier_paladin_a_b_damage_growth_visible_Description"	"Получает бонус к урону"
 
   		"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1"						"[W2] Grand Holy Nova"
-    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_Description"			"Когда копьё света попадает по противнику, Paladin излучает вспышку яркого света. Враги, задетые вспышкой получают урон, зависящий от Интеллекта героя и его урона, а также теряют возможность атаковать на 1 секунду. Противники получают иммунитет к обезоруживанию на 0.5 секунды после срабатывания эффекта."
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_Description"			"Когда копьё света попадает по противнику, Paladin излучает вспышку яркого света. Враги, задетые вспышкой получают урон, зависящий от Интеллекта героя и его урона, а также теряют возможность атаковать на 1 секунду. Противники получают иммунитет к обезоруживанию на 0.5 секунды после срабатывания эффекта. [W2] имеет радиус 550."
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_property_one"		"Урон"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_suffix"				"x Интеллекта"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_property_two"		"Бонус к урону"

@@ -10,7 +10,7 @@
 		"DOTA_Tooltip_modifier_whirling_flail_Description"  			"Размахивает оружием"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1"						"[Q1] Duskfire Flail"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"Оружие Duskbringer наделяется дополнительной энергией, высвобождаемой при атаках огненным взрывом, заставляя врагов получать доп. огненный урон. Эффект горения складывается неограниченное количество раз."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"Оружие Duskbringer наделяется дополнительной энергией, высвобождаемой при атаках огненным взрывом, заставляя врагов получать доп. огненный урон. Эффект горения складывается неограниченное количество раз. Эффект длится 5 секунж."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_one"		"Базовый урон"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix"				""		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_two"		"Доп. урон от Ловкости"
@@ -81,7 +81,7 @@
 		"DOTA_Tooltip_modifier_charging_Description"					"Бежит вперёд, игнорируя препятствия"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_e_1"						"[E1] Phantom Pace"
-    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_Description"			"Пока Duskbringer находится в движении, он получает заряды, дающие ему бонус к урону и броне. Отсчет времени действия зарядов приостанавливается, пока герой произносит заклинания."
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_Description"			"Пока Duskbringer находится в движении, он получает заряды, дающие ему бонус к урону и броне. Отсчет времени действия зарядов приостанавливается, пока герой произносит заклинания. Эффект держится одну секунду."
     	"DOTA_Tooltip_ability_duskbringer_rune_e_1_property_one"		"Доп. урон"
     	"DOTA_Tooltip_ability_duskbringer_rune_e_1_suffix"				""		
     	"DOTA_Tooltip_ability_duskbringer_rune_e_1_property_two"		"Доп. броня"

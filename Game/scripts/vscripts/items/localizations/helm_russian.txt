@@ -149,7 +149,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
 		"item_property_arcane_cascade"				"Arcane Cascade"
-		"property_arcane_cascade_description"		"Каждые @special_property2 секунды сжигается @special_property1% макс. маны. Все враги, попавшие под эффект получат магический урон в размере @special_property3х от выжженой маны и потеряют @special_property4% магического сопротивления."
+		"property_arcane_cascade_description"		"Каждые @special_property2 секунды сжигается @special_property1% макс. маны. Все враги в радиусе 750, попавшие под эффект, получат магический урон в размере @special_property3х от выжженой маны и потеряют @special_property4% магического сопротивления."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"

@@ -62,7 +62,7 @@
     	"DOTA_Tooltip_modifier_warlord_rune_q_2_visible_Description"	"Increased armor"
 		
 		"DOTA_Tooltip_ability_warlord_rune_q_3"							"[Q3] Wrath of Fire"
-    	"DOTA_Tooltip_ability_warlord_rune_q_3_Description"				"Attacks during Flame Rush leave a stacking armor loss debuff on the target."
+    	"DOTA_Tooltip_ability_warlord_rune_q_3_Description"				"Attacks during Flame Rush leave a stacking armor loss debuff on the target, 8 seconds duration."
     	"DOTA_Tooltip_ability_warlord_rune_q_3_property_one"			"Armor Loss"
     	"DOTA_Tooltip_ability_warlord_rune_q_3_suffix"					" per stack"
 
