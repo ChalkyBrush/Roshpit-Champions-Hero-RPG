@@ -763,7 +763,8 @@ function conquest_switch_attack(event)
 				    local drop = CreateItemOnPositionSync( position, item )
 				    item.cantStash = true
 				    local dropPosition = position+caster:GetForwardVector()*150
-				    item:LaunchLoot(false, 240, 0.75, dropPosition)
+				    --item:LaunchLoot(false, 240, 0.75, dropPosition)
+					RPCItems:LaunchLoot(item, 240, 0.5, dropPosition, dropPosition)
 				    table.insert(Arena.DustTable, item)
 				end)
 				Timers:CreateTimer(4.44, function()
