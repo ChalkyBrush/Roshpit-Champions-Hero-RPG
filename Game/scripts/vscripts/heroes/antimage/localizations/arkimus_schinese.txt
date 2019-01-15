@@ -124,7 +124,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_suffix"							" 秒"
 
     	"DOTA_Tooltip_modifier_energy_field_c_d_shield"							"力场"
-    	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"所有受到伤害减少<% ARKIMUS_R3_DMG_RED * 100 %>%"
+    	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"所有受到伤害减少<% ARKIMUS_R3_DMG_RED * 100 %>%%"
 	
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4"									"[R4] 螺旋魔术"
@@ -160,7 +160,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
 
     	"DOTA_Tooltip_modifier_arkimus_arcana1_q3"										"磁感"
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"每层独立，每层伤害减免 <% ARKIMUS_ARCANA1_Q3_DMG_RED_PER_STACK_EXP_BASE * 100 %>%"	
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"每层独立，每层伤害减免 <% ARKIMUS_ARCANA1_Q3_DMG_RED_PER_STACK_EXP_BASE * 100 %>%%"	
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1"									"[Q4] 奥法吟唱"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"在电磁流激活状态下，阿基莫斯将获得额外的敏捷值。同时，阿基莫斯的敏捷值将提高所有 <font color=\"#5CCDF9\">电</font> 元素伤害。"

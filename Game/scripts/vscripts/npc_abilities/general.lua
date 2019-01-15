@@ -52,7 +52,7 @@ function hero_aura_apply(event)
 		if #allies > 0 then
 			pickUpPlayer = allies[1]
 			if #allies > 1 then
-				for i = 2, allies, 1 do
+				for i = 2, #allies, 1 do
 					if pickUpPlayer.crystalsPickedUp then
 						if pickUpPlayer.crystalsPickedUp > pickUpPlayer.maxCrystals*Events.ResourceBonus then
 							pickUpPlayer = allies[i]

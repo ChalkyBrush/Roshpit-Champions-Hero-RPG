@@ -13,17 +13,17 @@
 
     	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"船厂面纱 等级1"
 		 "item_property_shipyard_veil_1"					"灵魂支盾 I"
-		 "property_shipyard_veil_1_description"				"@Ability1 每击中一个敌人为玩家增加一层护盾，每层护盾可吸收一次伤害，最高 @special_property1 层。同时每层存在的护盾增加 @Ability1 伤害 @special_property2%。当护盾吸收伤害后，<br>此属性增加1. 当属性值达到 @special_property3 后升级。"
+		 "property_shipyard_veil_1_description"				"@Ability1 每击中一个敌人为玩家增加一层护盾，每层护盾可吸收一次伤害，最高 @special_property1 层。同时每层存在的护盾增加 @Ability1 伤害 @special_property2%。当护盾吸收伤害后，<br>此属性增加1. 当属性值达到 @special_property3 后升级。升级后无法重铸。"
 
 		 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv2"								"船厂面纱 等级2"
 		 "item_property_shipyard_veil_2"					"灵魂支盾 II"
-		 "property_shipyard_veil_2_description"				"@Ability1 每击中一个敌人为玩家增加一层护盾，每层护盾可吸收一次伤害，最高 @special_property1 层。同时每层存在的护盾增加 @Ability1 伤害 @special_property2%。当护盾吸收伤害后，<br>此属性增加1. 当属性值达到 @special_property3 后升级。"
+		 "property_shipyard_veil_2_description"				"@Ability1 每击中一个敌人为玩家增加一层护盾，每层护盾可吸收一次伤害，最高 @special_property1 层。同时每层存在的护盾增加 @Ability1 伤害 @special_property2%。当护盾吸收伤害后，<br>此属性增加1. 当属性值达到 @special_property3 后升级。该装备无法重铸。"
 
 		 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv3"								"船厂面纱 等级3"
 		 "item_property_shipyard_veil_3"					"灵魂支盾 III"
-		 "property_shipyard_veil_3_description"				"@Ability1 每击中一个敌人为玩家增加一层护盾，每层护盾可吸收一次伤害，最高 @special_property1 层。同时每层存在的护盾增加 @Ability1 伤害 @special_property2%。护盾被打破，玩家将会对攻击者施放骷颅攻击。<br>骷颅造成 @special_property3x 你的主属性的魔法伤害。"
+		 "property_shipyard_veil_3_description"				"@Ability1 每击中一个敌人为玩家增加一层护盾，每层护盾可吸收一次伤害，最高 @special_property1 层。同时每层存在的护盾增加 @Ability1 伤害 @special_property2%。护盾被打破，玩家将会对攻击者施放骷颅攻击。<br>骷颅造成 @special_property3x 你的主属性的魔法伤害。该装备无法重铸。"
 
 		 
 		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"灵魂之盾"
@@ -37,24 +37,24 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_white_mage_hat"									"白色魔法帽 等级1"
 		"item_property_white_mage_hat"				"关怀"
-		"property_white_mage_hat_description"		"施放 @Ability2 技能将为你和附近友军回复 @special_property1x 倍数智力的生命值。当治疗你自己或者友军时，此属性增加1。属性到达5000后升级."
+		"property_white_mage_hat_description"		"施放 @Ability2 技能将为你和附近友军回复 @special_property1x 倍数智力的生命值。当治疗你自己或者友军时，此属性增加1。属性到达5000后升级。升级后无法重铸。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat_2"								"白色魔法帽 等级2"
 		"item_property_white_mage_hat_2"			"关怀庇护"
-		"property_white_mage_hat_2_description"		"施放 @Ability2 技能将为你和附近友军回复 @special_property1x 倍数智力的生命值。所有的过量治疗（治疗量减目标缺失的生命值）都会创造一层护盾吸收等量的伤害，护盾最大伤害吸收量为 100% 护盾拥有者的最大生命值。同时每10点智力值提高基础技能伤害 @special_property2% 。"
+		"property_white_mage_hat_2_description"		"施放 @Ability2 技能将为你和附近友军回复 @special_property1x 倍数智力的生命值。所有的过量治疗（治疗量减目标缺失的生命值）都会创造一层护盾吸收等量的伤害，护盾最大伤害吸收量为 100% 护盾拥有者的最大生命值。同时每10点智力值提高基础技能伤害 @special_property2% 。该装备无法重铸。"
 		"DOTA_Tooltip_modifier_white_mage_shield"	"白魔法护盾"
 		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"吸收伤害"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"										"长沿帽 等级1"
 		"item_property_hyper_visor"					"超级闪电"
-		"property_hyper_visor_description"			"攻击时有 @special_property1% 几率向目标施放一道闪电，造成施法者 @special_property2x 倍数攻击力的AOE魔法伤害。每触发一次此属性增加，属性值达到 @special_property3 后升级。"
+		"property_hyper_visor_description"			"攻击时有 @special_property1% 几率向目标施放一道闪电，造成施法者 @special_property2x 倍数攻击力的AOE魔法伤害。每触发一次此属性增加，属性值达到 @special_property3 后升级。升级后无法重铸。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor2"									"长沿帽 等级2"
 		"item_property_hyper_visor2"					"超级闪电 II"
-		"property_hyper_visor2_description"			"攻击时有 @special_property1% 几率向目标施放一道闪电，造成施法者 @special_property2x 倍数攻击力的AOE魔法伤害。减少第一次攻击抬手 @special_property3 秒。<br>每10点敏捷值提高 @special_property4% 的装备伤害。"
+		"property_hyper_visor2_description"			"攻击时有 @special_property1% 几率向目标施放一道闪电，造成施法者 @special_property2x 倍数攻击力的AOE魔法伤害。减少第一次攻击抬手 @special_property3 秒。<br>每10点敏捷值提高 @special_property4% 的装备伤害。该装备无法重铸。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"红宝石龙冠"	
@@ -245,12 +245,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"									"风暴裂痕之头 等级1"
 		"item_property_stormcrack"							"风暴裂痕"
-		"property_stormcrack_description"					"当你眩晕敌人时，造成1倍的攻击力+10倍总属性的魔法伤害。每次伤害1各单位增加1点计数。<br>计数达到4000时升级。"
+		"property_stormcrack_description"					"当你眩晕敌人时，造成1倍的攻击力+10倍总属性的魔法伤害。每次伤害1各单位增加1点计数。<br>计数达到4000时升级。升级后无法重铸。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm2"								"风暴裂痕之头 等级2"
 		 "item_property_stormcrack2"						"风暴裂痕 II"
-		 "property_stormcrack2_description"					"当你眩晕敌人时，造成 @special_property1x攻击力+@special_property2x总属性的魔法伤害。<br>增加玩家对敌人的的所有眩晕持续时间 35%。"
+		 "property_stormcrack2_description"					"当你眩晕敌人时，造成 @special_property1x攻击力+@special_property2x总属性的魔法伤害。<br>增加玩家对敌人的的所有眩晕持续时间 35%。该装备无法重铸。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"黑魔法兜帽"
@@ -280,21 +280,21 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"风神的王冠"
 		"item_property_wind_deity"							"风神谴"
-		 "property_wind_deity_description"						"每个被 @Ability3 击中的敌人都会立即受到一次额外的普通攻击。该次普通攻击继承全部的攻击特效，并且不影响英雄正常的普通攻击。额外的攻击对每个敌方单位，每秒最多触发10次。额外的攻击每击中敌人一次为玩家提高 2% 的攻击力，持续30秒。再次施放 @Ability3 会重置攻击力加成效果。"
+		 "property_wind_deity_description"						"每个被 @Ability3 击中的敌人都会立即受到一次额外的普通攻击。该次普通攻击继承全部的攻击特效，并且不影响英雄正常的普通攻击。额外的攻击对每个敌方单位，每秒最多触发10次。额外的攻击每击中敌人一次为玩家提高 2% 的攻击力，持续30秒。再次施放 @Ability3 会重置攻击力加成效果。该装备的符文有重铸上限，重铸上限为38/20（E3/E4）。"
 		 "DOTA_Tooltip_modifier_wind_deity_damage_buff"					"风神"
 		 "DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"增加攻击力"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"水神的王冠"
 		 "item_property_water_deity"							"水神谴"
-		 "property_water_deity_description"						"被 @Ability4 击中的敌人受到额外100%的纯粹伤害并且减少60%的移动速度，持续6秒。秒。此装备不享受任何装备伤害加成。所有 <font color=\"#3894FF\">水</font> 元素伤害加成，上限设定为 @special_property2%。"
+		 "property_water_deity_description"						"被 @Ability4 击中的敌人受到额外100%的纯粹伤害并且减少60%的移动速度，持续6秒。秒。此装备不享受任何装备伤害加成。所有 <font color=\"#3894FF\">水</font> 元素伤害加成，上限设定为 @special_property2%。该装备的符文有重铸上限，重铸上限为38/20（R3/R4）。"
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"水神"
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"降低移动速度"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"火神的王冠"
 		"item_property_fire_deity"							"火神谴"
-		 "property_fire_deity_description"					"被 @Ability2 击中的敌人有 @special_property1% 的几率造成小范围爆炸，造成额外 @special_property2% 魔法伤害并且眩晕范围内敌人 @special_property3 秒。此装备不享受任何装备伤害加成。所有 <font color=\"#EF4126\">火</font> 元素伤害加成，上限设定为 @special_property4%。"
+		 "property_fire_deity_description"					"被 @Ability2 击中的敌人有 @special_property1% 的几率造成小范围爆炸，造成额外 @special_property2% 魔法伤害并且眩晕范围内敌人 @special_property3 秒。此装备不享受任何装备伤害加成。所有 <font color=\"#EF4126\">火</font> 元素伤害加成，上限设定为 @special_property4%。该装备的符文有重铸上限，重铸上限为38/20（W3/W4）。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"绯红色头骨帽"
@@ -304,7 +304,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"城主的兜帽"
 		"item_property_lords"									"命令视域"
-		 "property_lords_description"							"技能冷却时间减少 @special_property1 秒并且拥有 @special_property2 码额外的施法距离。施法时甚至不需要完全面对施法方向就可以开始引导技能。"
+		 "property_lords_description"							"技能冷却时间减少 @special_property1 秒并且拥有 @special_property2 码额外的施法距离。施法时甚至不需要完全面对施法方向就可以开始引导技能。该装备的符文有重铸上限，重铸上限为24 。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"烈焰犬头盔"
@@ -338,12 +338,12 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"瓦尔顿深海之盔"	
-		"property_all_elements"												"提高所有元素伤害 %"
+		"property_all_elements"												"提高所有元素伤害 %（重铸获取750%）"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_hood_of_the_sea_oracle"					"海神域的兜帽"	
 		"property_sea_oracle"												"原始打击"
-		"property_sea_oracle_Description"									"每次攻击将对敌人施加debuff，降低敌人的基础攻击力和护甲值 @special_property1%。debuff最大叠加层数 @special_property2。当敌人的debuff达到上限时，玩家对敌人所造成的伤害将加深 @special_property3%。（伤害加深计算在敌人减伤之后）"
+		"property_sea_oracle_Description"									"每次攻击将对敌人施加debuff，降低敌人的基础攻击力和护甲值 @special_property1%。debuff最大叠加层数 @special_property2。当敌人的debuff达到上限时，玩家对敌人所造成的伤害将加深 @special_property3%。（伤害加深计算在敌人减伤之后）。"
 		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"原始打击层数"
 		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"每层debuff减少基础攻击力和护甲值。如果到达15层，受到来自debuff施加者的伤害将被加深。"
 		

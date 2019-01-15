@@ -251,7 +251,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_1"			"Arcanys Wing-Blade"
 		"item_property_arkimus_immortal_weapon"								"Dual Source"
-		"property_arkimus_immortal_weapon_description"						"(W) Flash Source наносит на 100% больше урона. Количество зарядов [W2] Arcane Splice удвоено."
+		"property_arkimus_immortal_weapon_description"						"(W) Flash Source наносит на 100% больше урона. Количество зарядов [W2] удвоено."
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_2"            "Arclight Blade"
         "item_property_arkimus_immortal_weapon2"                             "Magnetize"
         "property_arkimus_immortal_weapon2_description"                      "@special_property1% от всего урона <font color=\"#E1A2E8\">Тайны</font> исцеляет героя."

@@ -144,7 +144,8 @@ function scorch_attack_land(event)
 	if proc then
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "RPCItem.HighFlameStart", attacker)
 		ability.attacker = attacker
-		ability:ApplyDataDrivenThinker(caster, target:GetAbsOrigin(), "modifier_hand_scorched_earth_thinker", {})
+		--ability:ApplyDataDrivenThinker(caster, target:GetAbsOrigin(), "modifier_hand_scorched_earth_thinker", {})
+		CustomAbilities:QuickAttachThinker(ability, caster, target:GetAbsOrigin(), "modifier_hand_scorched_earth_thinker", {})
 		if ability:GetAbilityName() == "item_rpc_scorched_gauntlets_2" then
 			HighFlameThrow(attacker, ability, target)
 		end
@@ -255,7 +256,8 @@ function highFlameImpact(caster, ability, position, damage)
 		function()
 		ParticleManager:DestroyParticle( particle2, false )
 	end)
-	caster.origAbility:ApplyDataDrivenThinker(caster.origCaster.InventoryUnit, position, "modifier_hand_scorched_earth_thinker", {})
+	--caster.origAbility:ApplyDataDrivenThinker(caster.origCaster.InventoryUnit, position, "modifier_hand_scorched_earth_thinker", {})
+	CustomAbilities:QuickAttachThinker(caster.origAbility, caster.origCaster.InventoryUnit, position, "modifier_hand_scorched_earth_thinker", {})
 
 	local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
 	local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
@@ -1286,7 +1288,8 @@ function fire_walkers_think(event)
 	local ability = event.ability
 	ability.hero = event.target
 	ability.damage = ability.hero:GetIntellect() + ability.hero:GetAgility() + ability.hero:GetStrength()
-	ability:ApplyDataDrivenThinker(caster, ability.hero:GetAbsOrigin(), "modifier_fire_walker_thinker", {})
+	--ability:ApplyDataDrivenThinker(caster, ability.hero:GetAbsOrigin(), "modifier_fire_walker_thinker", {})
+	CustomAbilities:QuickAttachThinker(ability, caster, ability.hero:GetAbsOrigin(), "modifier_fire_walker_thinker", {})
 end
 
 function fire_walker_damage(event)
@@ -1304,7 +1307,8 @@ function moon_tech_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	ability:ApplyDataDrivenThinker(caster, target:GetAbsOrigin(), "modifier_moon_tech_thinker", {})
+	--ability:ApplyDataDrivenThinker(caster, target:GetAbsOrigin(), "modifier_moon_tech_thinker", {})
+	CustomAbilities:QuickAttachThinker(ability, caster, target:GetAbsOrigin(), "modifier_moon_tech_thinker", {})
 end
 
 function falcon_boot_impact(event)

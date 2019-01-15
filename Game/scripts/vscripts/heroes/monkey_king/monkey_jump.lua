@@ -113,7 +113,8 @@ function jump_end(event)
 	end)
 	ability.e_1_level = caster:GetRuneValue("e", 1)
 	if ability.e_1_level > 0 then
-		ability:ApplyDataDrivenThinker(caster, caster:GetAbsOrigin(), "modifier_monkey_a_c_thinker", {duration = 20})
+		--ability:ApplyDataDrivenThinker(caster, caster:GetAbsOrigin(), "modifier_monkey_a_c_thinker", {duration = 20})
+		CustomAbilities:QuickAttachThinker(ability, caster, caster:GetAbsOrigin(), "modifier_monkey_a_c_thinker", {duration = 20})
 	end
 end
 

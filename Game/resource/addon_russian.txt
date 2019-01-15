@@ -2301,7 +2301,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_1"			"Arcanys Wing-Blade"
 		"item_property_arkimus_immortal_weapon"								"Dual Source"
-		"property_arkimus_immortal_weapon_description"						"(W) Flash Source наносит на 100% больше урона. Количество зарядов [W2] Arcane Splice удвоено."
+		"property_arkimus_immortal_weapon_description"						"(W) Flash Source наносит на 100% больше урона. Количество зарядов [W2] удвоено."
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_2"            "Arclight Blade"
         "item_property_arkimus_immortal_weapon2"                             "Magnetize"
         "property_arkimus_immortal_weapon2_description"                      "@special_property1% от всего урона <font color=\"#E1A2E8\">Тайны</font> исцеляет героя."
@@ -2662,7 +2662,7 @@
 		"DOTA_Tooltip_ability_heavens_shield"							"Heaven's Shield"
     	"DOTA_Tooltip_ability_heavens_shield_Description"				"Auriun накладывает божественный щит на себя или союзную цель, поглощающий любой входящий урон. Длительность эффекта 9 секунд."
     	"DOTA_Tooltip_ability_heavens_shield_Lore"						""
-    	"DOTA_Tooltip_ability_heavens_shield_stacks"					"ПОГЛОЩАЕТ АТАК"
+    	"DOTA_Tooltip_ability_heavens_shield_stacks"					"ПОГЛОЩАЕТ АТАК:"
 
     	"DOTA_Tooltip_modifier_heavens_shield"							"Heaven's Shield"
     	"DOTA_Tooltip_modifier_heavens_shield_Description"  			"100%% поглощение урона"
@@ -2699,8 +2699,8 @@
 		"DOTA_Tooltip_ability_flash_heal"								"Flash Heal"
     	"DOTA_Tooltip_ability_flash_heal_Description"					"Мгновенно исцеляет себя или цель под курсором вспышкой света."
     	"DOTA_Tooltip_ability_flash_heal_Lore"							""
-    	"DOTA_Tooltip_ability_flash_heal_heal"							"ЛЕЧЕНИЕ"
-    	"DOTA_Tooltip_ability_flash_heal_max_distance"					"МАКС. ДАЛЬНОСТЬ"
+    	"DOTA_Tooltip_ability_flash_heal_heal"							"ЛЕЧЕНИЕ:"
+    	"DOTA_Tooltip_ability_flash_heal_max_distance"					"МАКС. ДАЛЬНОСТЬ:"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_1"						"[W1] Shadow Flare"
     	"DOTA_Tooltip_ability_auriun_rune_w_1_Description"			"Если ваш курсор не направлен на союзника или Auriun, умение Flash Heal создаёт вспышку разрушительной энергии, наносящей урон."
@@ -2736,7 +2736,7 @@
 		"DOTA_Tooltip_ability_seraph_surge"								"Seraph Surge"
     	"DOTA_Tooltip_ability_seraph_surge_Description"					"Мгновенно переходит в ангельское состояние, которое позволяет проходить сквозь препятствия и существ. Враги не видят героя в этом состоянии, а сам Auriun не может атаковать."
     	"DOTA_Tooltip_ability_flash_heal_Lore"							""
-    	"DOTA_Tooltip_ability_seraph_surge_duration"					"ДЛИТЕЛЬНОСТЬ"
+    	"DOTA_Tooltip_ability_seraph_surge_duration"					"ДЛИТЕЛЬНОСТЬ:"
 
     	"DOTA_Tooltip_modifier_seraph_surge"							"Seraph Surge"
     	"DOTA_Tooltip_modifier_seraph_surge_Description"				"Прохождение сквозь препятствия и существ. Атака невозможна."
@@ -2778,8 +2778,9 @@
 		"DOTA_Tooltip_ability_auriun_ult"								"Blessing of Life"
     	"DOTA_Tooltip_ability_auriun_ult_Description"					"Auriun наполняет ближайших союзников светом небес, увеличивая их скорость передвижения и регенерацию здоровья. Дополнительно воскрешает павших союзников."
     	"DOTA_Tooltip_ability_auriun_ult_Lore"							""
-    	"DOTA_Tooltip_ability_auriun_ult_regen_percent"					"РЕГЕН.ЗДОРОВЬЯ % "
-    	"DOTA_Tooltip_ability_auriun_ult_radius"						"РАДИУС"
+		"DOTA_Tooltip_ability_auriun_ult_movespeed"						"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+    	"DOTA_Tooltip_ability_auriun_ult_regen_percent"					"РЕГЕН.ЗДОРОВЬЯ %:"
+    	"DOTA_Tooltip_ability_auriun_ult_radius"						"РАДИУС:"
 
     	"DOTA_Tooltip_modifier_auriun_ult_effect"						"Blessing of Life"
     	"DOTA_Tooltip_modifier_auriun_ult_effect_Description"			"Большое восстановление здоровья и увеличенная скорость передвижения."
@@ -2995,7 +2996,7 @@
 		
 		
         "DOTA_Tooltip_ability_axe_rune_q_4"                             "[Q4] Brutal Expansion"
-        "DOTA_Tooltip_ability_axe_rune_q_4_Description"                 "Задетые умением @Ability1 враги будут получать увеличенный <font color=\"#DDDDDD\">Нормальный</font> урон. Эффект складывается до 20 раз."
+        "DOTA_Tooltip_ability_axe_rune_q_4_Description"                 "Задетые умением @Ability1 враги будут получать увеличенный <font color=\"#DDDDDD\">Нормальный</font> урон. Эффект складывается до 20 раз. Длительность эффекта 10 секунд."
         "DOTA_Tooltip_ability_axe_rune_q_4_property_one"                "Усиление Нормального урона"
         "DOTA_Tooltip_ability_axe_rune_q_4_suffix"                      "%"
 
@@ -3099,7 +3100,7 @@
         "DOTA_Tooltip_ability_axe_rune_r_2_suffix"                      "% от урона Sunder"
 		
 		"DOTA_Tooltip_ability_axe_rune_r_3"                             "[R3] Adrenaline"
-        "DOTA_Tooltip_ability_axe_rune_r_3_Description"                 "С началом прочтения @Ability4, герой получает бонус к макс. здоровью и броне."
+        "DOTA_Tooltip_ability_axe_rune_r_3_Description"                 "С началом прочтения @Ability4, герой получает бонус к макс. здоровью и броне. Длительность 12 секунд."
         "DOTA_Tooltip_ability_axe_rune_r_3_property_one"                "Доп. макс. здоровье"
         "DOTA_Tooltip_ability_axe_rune_r_3_suffix"                      ""
         "DOTA_Tooltip_ability_axe_rune_r_3_property_two"                "Доп. броня"
@@ -4473,7 +4474,7 @@
     	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"% ЧИСТОГО УРОНА ОТ АТАКИ:"
 		
 		"DOTA_Tooltip_ability_dinath_rune_w_1"									"[W1] Crystal Breeze"
-    	"DOTA_Tooltip_ability_dinath_rune_w_1_Description"						"Через 3 секунды после размещения @Ability2 Dinath получает процентный бонус к урону атаки. Повторное применение способности убирает бафф до тех пор, пока не пройдет следующие 3 секунды."
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_Description"						"Через 3 секунды после размещения @Ability2 Dinath получает процентный бонус к урону атаки на 27 секунд. Повторное применение способности убирает бафф до тех пор, пока не пройдет следующие 3 секунды."
     	"DOTA_Tooltip_ability_dinath_rune_w_1_property_one"						"Бонус урона"
     	"DOTA_Tooltip_ability_dinath_rune_w_1_suffix"								"%"
 
@@ -4796,7 +4797,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_q_1"									"[Q1] Wild Regeneration"
     	"DOTA_Tooltip_ability_djanghor_rune_q_1_Description"						"Прочтение (Q) Roar в форме медведя дарует герою восстановление здоровья на 12 секунд. Эффект продолжит действовать после трансформации."
     	"DOTA_Tooltip_ability_djanghor_rune_q_1_property_one"						"Восстановление здоровья"
-    	"DOTA_Tooltip_ability_djanghor_rune_q_1_suffix"								" кажыде 0.1 секунды"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_1_suffix"								" каждые 0.1 секунды"
 
     	"DOTA_Tooltip_modifier_bear_regen"											"Wild Regeneration"
     	"DOTA_Tooltip_modifier_bear_regen_Description"								"Восстанавливает здоровье каждые 0.1 секунды"
@@ -5025,7 +5026,7 @@
 		"DOTA_Tooltip_modifier_whirling_flail_Description"  			"Размахивает оружием"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1"						"[Q1] Duskfire Flail"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"Оружие Duskbringer наделяется дополнительной энергией, высвобождаемой при атаках огненным взрывом, заставляя врагов получать доп. огненный урон. Эффект горения складывается неограниченное количество раз."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"Оружие Duskbringer наделяется дополнительной энергией, высвобождаемой при атаках огненным взрывом, заставляя врагов получать доп. огненный урон. Эффект горения складывается неограниченное количество раз. Эффект длится 5 секунж."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_one"		"Базовый урон"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix"				""		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_two"		"Доп. урон от Ловкости"
@@ -5096,7 +5097,7 @@
 		"DOTA_Tooltip_modifier_charging_Description"					"Бежит вперёд, игнорируя препятствия"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_e_1"						"[E1] Phantom Pace"
-    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_Description"			"Пока Duskbringer находится в движении, он получает заряды, дающие ему бонус к урону и броне. Отсчет времени действия зарядов приостанавливается, пока герой произносит заклинания."
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_Description"			"Пока Duskbringer находится в движении, он получает заряды, дающие ему бонус к урону и броне. Отсчет времени действия зарядов приостанавливается, пока герой произносит заклинания. Эффект держится одну секунду."
     	"DOTA_Tooltip_ability_duskbringer_rune_e_1_property_one"		"Доп. урон"
     	"DOTA_Tooltip_ability_duskbringer_rune_e_1_suffix"				""		
     	"DOTA_Tooltip_ability_duskbringer_rune_e_1_property_two"		"Доп. броня"
@@ -5660,7 +5661,7 @@
     	"DOTA_Tooltip_modifier_warlord_rune_q_2_visible_Description"	"Броня увеличена"
 		
 		"DOTA_Tooltip_ability_warlord_rune_q_3"							"[Q3] Wrath of Fire"
-    	"DOTA_Tooltip_ability_warlord_rune_q_3_Description"				"Атаки во время (Q) Flame Rush дополнительно накладывают на врагов складывающийся дебафф, который снижает броню цели."
+    	"DOTA_Tooltip_ability_warlord_rune_q_3_Description"				"Атаки во время (Q) Flame Rush дополнительно накладывают на врагов складывающийся дебафф, который снижает броню цели. Длительность - 8 секунд."
     	"DOTA_Tooltip_ability_warlord_rune_q_3_property_one"			"Снижение брони"
     	"DOTA_Tooltip_ability_warlord_rune_q_3_suffix"					" за заряд"
 
@@ -5953,7 +5954,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_2"            "Qio'jin's Sapphire Relic Axe"
 		"item_property_warlord_immortal_weapon2"                             "Axe Prism"
-        "property_warlord_immortal_weapon2_description"                      "С прочтением (W) @Ability2 герой последовательно бросает еще 2 топора."
+        "property_warlord_immortal_weapon2_description"                      "С прочтением (W) @Ability2 герой последовательно бросает еще 2 топора других стихий."
 
         "DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_3"            "Qio'jin's Ruby Relic Axe"
         "item_property_warlord_immortal_weapon3"                             "Primordial Insurgence"
@@ -7192,7 +7193,7 @@
 		"DOTA_Tooltip_modifier_paladin_rune_q_1_description" 			"Ваши атаки выпускают святые искры, поражая врагов."
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_2"							"[Q2] Radiance"
-    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"Пока активно умение (Q) Heroic Fury, все ближайшие противники получают урон, основанный на базовом уроне героя."
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"Пока активно умение (Q) Heroic Fury, все противники в радиусе 900 получают урон, основанный на базовом уроне героя."
     	"DOTA_Tooltip_ability_paladin_rune_q_2_property_one"			"Урон в сек."
     	"DOTA_Tooltip_ability_paladin_rune_q_2_suffix"					" % от базового"
 
@@ -7237,7 +7238,7 @@
     	"DOTA_Tooltip_ability_paladin_rune_w_2_suffix"					"% от базового урона способности"
 		
 		"DOTA_Tooltip_ability_paladin_rune_w_3"							"[W3] Holy Nova"
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"При получении урона есть 15% шанс высвободить вспышку света, наносящую урон врагам и исцеляющую союзников в небольшом радиусе в зависимости от показателя Интеллекта Паладина. Враги, задетые вспышкой, обезоружены на 1 секунду."
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"При получении урона есть 15% шанс высвободить вспышку света, наносящую урон врагам и исцеляющую союзников в небольшом радиусе в зависимости от показателя Интеллекта Паладина. Враги, задетые вспышкой, обезоружены на 1 секунду. [W3] имеет радиус 550."
     	"DOTA_Tooltip_ability_paladin_rune_w_3_property_one"			"Урон"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix"					"x Интеллекта"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_property_two"			"Лечение"
@@ -7323,7 +7324,7 @@
     	"DOTA_Tooltip_modifier_paladin_r_1_aura_armor_stacks_Description"	"Значение брони увеличено"	
 
     	"DOTA_Tooltip_ability_paladin_rune_r_2"							"[R2] Empowering Light"
-    	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"Союзники, ставшие целью исцеляющей способности (R) Knight's Disciple наделяются баффом, повышающим урон и броню за каждый тик исцеления. Усиление длится 16 секунд."
+    	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"Союзники, ставшие целью исцеляющей способности (R) Knight's Disciple наделяются баффом, повышающим урон и броню за каждый тик исцеления. Усиление длится 16 секунд, максимальное количество зарядов - 30."
     	"DOTA_Tooltip_ability_paladin_rune_r_2_property_one"			"Доп. урон за тик"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_suffix"					"%"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_property_two"			"Доп. броня за тик"
@@ -7354,6 +7355,7 @@
     	"DOTA_Tooltip_ability_paladin_penance_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font> / <font color=\"#9ACCD1\">Призрак</font><br>Paladin создаёт копьё, состоящее из чистого света, которое он может направить на врагов или союзников. Очищающий свет наносит урон изначальной вражеской цели и всем противникам рядом с ней. Союзные герои исцеляются на 10% от базового урона (W) Penance."
     	"DOTA_Tooltip_ability_paladin_penance_damage"						"УРОН:"
     	"DOTA_Tooltip_ability_paladin_penance_heal_percentage"				"ЛЕЧЕНИЕ, %:"
+		"DOTA_Tooltip_ability_paladin_penance_cast_range"					"ДАЛЬНОСТЬ КАСТА:"
 
     	"DOTA_Tooltip_modifier_penance_projectiles"							"Penance Lances"
     	"DOTA_Tooltip_modifier_penance_projectiles_Description"				"Одновременно может существовать не более 10 копий"	
@@ -7367,7 +7369,7 @@
     	"DOTA_Tooltip_modifier_paladin_a_b_damage_growth_visible_Description"	"Получает бонус к урону"
 
   		"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1"						"[W2] Grand Holy Nova"
-    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_Description"			"Когда копьё света попадает по противнику, Paladin излучает вспышку яркого света. Враги, задетые вспышкой получают урон, зависящий от Интеллекта героя и его урона, а также теряют возможность атаковать на 1 секунду. Противники получают иммунитет к обезоруживанию на 0.5 секунды после срабатывания эффекта."
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_Description"			"Когда копьё света попадает по противнику, Paladin излучает вспышку яркого света. Враги, задетые вспышкой получают урон, зависящий от Интеллекта героя и его урона, а также теряют возможность атаковать на 1 секунду. Противники получают иммунитет к обезоруживанию на 0.5 секунды после срабатывания эффекта. [W2] имеет радиус 550."
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_property_one"		"Урон"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_suffix"				"x Интеллекта"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_property_two"		"Бонус к урону"
@@ -7828,7 +7830,7 @@
     	"DOTA_Tooltip_ability_sephyr_rune_q_1_suffix"							""
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_2"									"[Q2] Amplifier"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_2_Description"						"Враги, задетые @Ability1 получают увеличенный пост-резистный урон от Sephyr."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_Description"						"Враги, задетые @Ability1 получают увеличенный пост-резистный урон от Sephyr. Длительность - 7 секунд."
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_property_one"						"Доп. пост-рез. урон"
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_suffix"							"%"
 
@@ -7851,7 +7853,7 @@
     	"DOTA_Tooltip_ability_sephyr_rune_q_4_suffix_two"						"%"
 		
 		"DOTA_Tooltip_ability_piercing_gale"										"Piercing Gale"
-    	"DOTA_Tooltip_ability_piercing_gale_Description"							"Стихия: <font color=\"#7AE2A7\">Ветер</font><br>Sephyr создаёт перед собой рассекающий порыв ветра."
+    	"DOTA_Tooltip_ability_piercing_gale_Description"							"Стихия: <font color=\"#7AE2A7\">Ветер</font><br>Sephyr создаёт перед собой рассекающий порыв ветра и слегка движется вперед."
     	"DOTA_Tooltip_ability_piercing_gale_damage"									"УРОН:"
 		
 		"DOTA_Tooltip_ability_sephyr_rune_w_1"									"[W1] Bright Eyes"
@@ -9524,7 +9526,7 @@
         "item_rpc_trapper_glyph_2_1_description"                "Пока герой находится в облаке после прочтения (E) Vanish, каждые 0.1 секунды восстанавливается @glyph_property1% здоровья от максимума."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "(T3) Глиф парализующей пыли"
-        "item_rpc_trapper_glyph_3_1_description"                "Прочтение (E) @Ability3 парализует ближайших врагов на @glyph_property1 сек., запрещая совершать любые действия."
+        "item_rpc_trapper_glyph_3_1_description"                "Прочтение (E) Vanish парализует ближайших врагов на @glyph_property1 сек., запрещая совершать любые действия."
 
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1"				"Crippling Poison"
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1_Description"	"Базовый урон снижен"
@@ -9693,7 +9695,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_e_3_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_venomort_rune_e_4"							"[E4] Sadism"
-    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"Каждый противник под действием любого яда Venomort увеличивает запас его здоровья и шанс уклонения. Длительность увеличения - 1.5 секунды. Монстры Парагона считаются за 5 юнитов, боссы считаются за 20."
+    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"Каждый противник под действием любого яда Venomort увеличивает запас его здоровья и шанс уклонения. Длительность увеличения - 1.5 секунды. Монстры Парагона считаются за 5 юнитов, боссы считаются за 20. Базовая длительность - 1.5 секунды."
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_one"				"Бонус здоровья"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_suffix"						" за противника"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_two"				"Шанс уклонения"
@@ -11621,7 +11623,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
 		"item_property_arcane_cascade"				"Arcane Cascade"
-		"property_arcane_cascade_description"		"Каждые @special_property2 секунды сжигается @special_property1% макс. маны. Все враги, попавшие под эффект получат магический урон в размере @special_property3х от выжженой маны и потеряют @special_property4% магического сопротивления."
+		"property_arcane_cascade_description"		"Каждые @special_property2 секунды сжигается @special_property1% макс. маны. Все враги в радиусе 750, попавшие под эффект, получат магический урон в размере @special_property3х от выжженой маны и потеряют @special_property4% магического сопротивления."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
@@ -11963,7 +11965,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"Omega Ruby"
 		"item_property_omega_ruby"					"Omega Flare"
-		"property_omega_ruby"						"Вместе с обычными атаками происходит взрыв, наносящий магический урон в небольшой области в размере @special_property1% от нанесённого урона. Сочетается со всеми любыми видами урона по области."
+		"property_omega_ruby"						"Вместе с обычными атаками происходит взрыв, наносящий магический урон в области 360 единиц в размере @special_property1% от нанесённого урона. Сочетается со всеми любыми видами урона по области."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol LV1"
@@ -13994,13 +13996,13 @@
 		"item_redfall_crimsyth_demon_relic_legend_desc"						"Открывает портал в замок Кримсит, расположенный рядом со входом в фермы."
 
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_normal"			"Рубин Осеннего Духа"
-		"item_redfall_spirit_ruby_normal_desc"							"Использование: Активирует Равноденствие на карте Осенний Хребет. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки утроены, получаемые Темные Кристаллы удвоены."
+		"item_redfall_spirit_ruby_normal_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки утроены, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."
 
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_elite"			"Рубин Осеннего Духа"
-		"item_redfall_spirit_ruby_elite_desc"							"Использование: Активирует Равноденствие на карте Осенний Хребет. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки утроены, получаемые Темные Кристаллы удвоены."
+		"item_redfall_spirit_ruby_elite_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки утроены, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."
 		
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_legend"			"Рубин Осеннего Духа"
-		"item_redfall_spirit_ruby_legend_desc"							"Использование: Активирует Равноденствие на карте Осенний Хребет. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки утроены, получаемые Темные Кристаллы удвоены."
+		"item_redfall_spirit_ruby_legend_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки утроены, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."
 		
 		"redfall_equinox"												"Равноденствие"
 
@@ -14512,9 +14514,9 @@
 		"DOTA_Tooltip_ability_seafortress_temple_assassin_ai_Description"	"Время от времени телепортируется к врагам."
 
 		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability"	"Giga Ocean Elemental Passive"
-		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_Description"	"РЕГЕНЕРАЦИЯ ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_Description"	"Атаки наносят дополнительный магический урон, отталкивают цели. Дает пассивную регенерацию здоровья."
 		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_damage"		"ДОП. МАГИЧЕСКИЙ УРОН:"
-		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_Description"	"РЕГЕНЕРАЦИЯ ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_health_regen"	"РЕГЕНЕРАЦИЯ ЗДОРОВЬЯ:"
 
 		"DOTA_Tooltip_ability_seafortress_temple_desolator_ai"			"Desolate Refraction"
 		"DOTA_Tooltip_ability_seafortress_temple_desolator_ai_Description"	"Каждый заряд преломления тратится на полное поглощение урона. Пассивно имеет уклонение."
@@ -17068,13 +17070,13 @@
 	"tutorial_master_dialogue_6_5c"										"Я хочу чтобы ты ее посетил."
 	"tutorial_master_dialogue_6_5d"										"А чтобы доказать, что ты там был, в канале curators-library будет прикреплен пароль."
 
-	"tutorial_quiz_question_19"											"Найди канал Curator's Library в Дискорде Roshpit. Найди там пароль в Прикрепленных сообщениях и скажи мне его."
+	"tutorial_quiz_question_19"											"Найди канал Curator's Library в Дискорде Roshpit. Найди там пароль в Прикрепленных сообщениях и скажи мне его, или набери ?pinned в канале."
 
-	"tutorial_quiz_wrong_6_5_1"											"Проверь прикрепленные сообщения в канале curators-library."
+	"tutorial_quiz_wrong_6_5_1"											"Проверь прикрепленные сообщения в канале curators-library, в самом низу."
 	"tutorial_quiz_wrong_6_5_2"											"Нет. Зайди в discord.gg/ZUhfMZG, найди канал curators-library, проверь прикрепленные сообщения вверху страницы."
 
 	"tutorial_master_dialogue_6_5e"										"Правильно! Кроме того, можно найти субканал general-russian и общаться там на русском языке."
-	"tutorial_master_dialogue_6_5f"										"Это завершает урок."
+	"tutorial_master_dialogue_6_5f"										"Это завершает урок и обучение. Теперь можешь выйти из карты и запустить Redfall Ridge."
 	
 	"quest_6_reward_title"												"2 Недели Web Premium'a"       
 	"quest_6_reward_description"										"Бесплатные 2 недели Web Premium бонусов на roshpit.ca. Нажимай 'Забрать', когда посчитаешь это наиболее необходимым и полезным."

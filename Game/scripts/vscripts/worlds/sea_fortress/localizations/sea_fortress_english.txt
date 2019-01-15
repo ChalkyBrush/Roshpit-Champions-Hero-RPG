@@ -475,7 +475,7 @@
 		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability"	"Giga Ocean Elemental Passive"
 		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_Description"	"Massive attacks deal bonus magic damage and push enemies away. Additionally provides passive health regen."
 		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_damage"		"DAMAGE:"
-		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_Description"	"HEALTH REGEN:"
+		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_health_regen"	"HEALTH REGEN:"
 
 		"DOTA_Tooltip_ability_seafortress_temple_desolator_ai"			"Desolate Refraction"
 		"DOTA_Tooltip_ability_seafortress_temple_desolator_ai_Description"	"Each refraction stack absorbs an instance of damage. Also passively adds Evasion."

@@ -220,7 +220,7 @@
         "item_rpc_trapper_glyph_2_1_description"                "While vanished, restore @glyph_property1% of your max health every 0.1 seconds."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "Glyph of Paralyzing Dust"
-        "item_rpc_trapper_glyph_3_1_description"                "Casting @Ability3 paralyzes nearby enemies for @glyph_property1 seconds, preventing them from acting"
+        "item_rpc_trapper_glyph_3_1_description"                "Casting Vanish paralyzes nearby enemies for @glyph_property1 seconds, preventing them from acting"
 
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1"				"Crippling Poison"
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1_Description"	"Losing Attack Damage"

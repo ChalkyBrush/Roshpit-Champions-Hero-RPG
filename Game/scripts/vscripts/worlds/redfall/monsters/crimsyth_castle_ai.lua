@@ -646,6 +646,9 @@ function outside_castle_wave_unit_die(event)
 	if not Redfall.CastleWaveUnitsSlain then
 		Redfall.CastleWaveUnitsSlain = 0
 	end
+	if not IsValidEntity(Redfall.CastleSorceress) then
+		return false
+	end
 	local sorcAbility = Redfall.CastleSorceress:FindAbilityByName("redfall_crimsyth_sorceress_ai")
 	local spawnPoint1 = Vector(2791, 14616, 272)
 	local spawnPoint2 = Vector(5440, 14616, 272)
@@ -1588,6 +1591,13 @@ function barrel_explode(event)
 	local caster = barrel
 	local enemies = FindUnitsInRadius( caster.origCaster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	local damage = caster.damage
+	if not IsValidEntity(caster.origCaster) then
+		barrel:RemoveModifierByName("modifier_for_the_barrel")
+		Timers:CreateTimer(0.09, function()
+			UTIL_Remove(barrel)
+		end)
+		return false
+	end
 	flareParticle(barrel:GetAbsOrigin())
 	StopSoundEvent("Redfall.TongeyKong.BarrellThrow.Barrel", barrel)
 	StopSoundEvent("Redfall.TongeyKong.BarrellThrow.Barrel2", barrel)
@@ -2265,6 +2275,9 @@ function moloth_sphere_take_damage(event)
 	local caster = event.caster
 	local ability = event.ability
 	EmitSoundOn("Redfall.Molok.Sphere.Change", caster)
+	if not IsValidEntity(event.attacker) then
+		return false
+	end
 	if not event.attacker:IsHero() then
 		return false
 	end

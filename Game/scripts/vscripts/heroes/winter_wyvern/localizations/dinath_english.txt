@@ -42,7 +42,7 @@
     	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"% PURE DAMAGE BASED ON ATTACK POWER:"
 		
 		"DOTA_Tooltip_ability_dinath_rune_w_1"									"[W1] Crystal Breeze"
-    	"DOTA_Tooltip_ability_dinath_rune_w_1_Description"						"3 seconds after placing an Eye of the Drake, gain % bonus attack damage. Casting the ability while active removes the buff until 3 seconds elapses again."
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_Description"						"3 seconds after placing an Eye of the Drake, gain % bonus attack damage for next 27 seconds. Casting the ability while active removes the buff until 3 seconds elapses again."
     	"DOTA_Tooltip_ability_dinath_rune_w_1_property_one"						"Attack Damage"
     	"DOTA_Tooltip_ability_dinath_rune_w_1_suffix"								"%"
 

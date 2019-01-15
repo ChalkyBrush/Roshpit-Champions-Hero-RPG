@@ -289,7 +289,6 @@
 		"AbilityTextureName"	"antimage_spell_shield"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
@@ -419,6 +418,7 @@
 		"AbilityTextureName"	"morphling_waveform"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
@@ -432,6 +432,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_two"			"1"
 			}
+			"03"
+            {
+                "var_type"                "FIELD_INTEGER"
+                "element_one"             "9"
+            }
 		}
 	}
 
@@ -514,7 +519,6 @@
 		"AbilityTextureName"	"lina_light_strike_array"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{

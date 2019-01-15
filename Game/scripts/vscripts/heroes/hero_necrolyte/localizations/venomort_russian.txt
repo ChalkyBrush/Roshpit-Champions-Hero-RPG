@@ -99,7 +99,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_e_3_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_venomort_rune_e_4"							"[E4] Sadism"
-    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"Каждый противник под действием любого яда Venomort увеличивает запас его здоровья и шанс уклонения. Длительность увеличения - 1.5 секунды. Монстры Парагона считаются за 5 юнитов, боссы считаются за 20."
+    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"Каждый противник под действием любого яда Venomort увеличивает запас его здоровья и шанс уклонения. Длительность увеличения - 1.5 секунды. Монстры Парагона считаются за 5 юнитов, боссы считаются за 20. Базовая длительность - 1.5 секунды."
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_one"				"Бонус здоровья"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_suffix"						" за противника"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_two"				"Шанс уклонения"

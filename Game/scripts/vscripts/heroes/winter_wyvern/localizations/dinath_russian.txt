@@ -40,7 +40,7 @@
     	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"% ЧИСТОГО УРОНА ОТ АТАКИ:"
 		
 		"DOTA_Tooltip_ability_dinath_rune_w_1"									"[W1] Crystal Breeze"
-    	"DOTA_Tooltip_ability_dinath_rune_w_1_Description"						"Через 3 секунды после размещения @Ability2 Dinath получает процентный бонус к урону атаки. Повторное применение способности убирает бафф до тех пор, пока не пройдет следующие 3 секунды."
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_Description"						"Через 3 секунды после размещения @Ability2 Dinath получает процентный бонус к урону атаки на 27 секунд. Повторное применение способности убирает бафф до тех пор, пока не пройдет следующие 3 секунды."
     	"DOTA_Tooltip_ability_dinath_rune_w_1_property_one"						"Бонус урона"
     	"DOTA_Tooltip_ability_dinath_rune_w_1_suffix"								"%"
 

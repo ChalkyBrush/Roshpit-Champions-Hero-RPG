@@ -12,7 +12,7 @@
     	"DOTA_Tooltip_ability_sephyr_rune_q_1_suffix"							""
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_2"									"[Q2] Amplifier"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_2_Description"						"Враги, задетые @Ability1 получают увеличенный пост-резистный урон от Sephyr."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_Description"						"Враги, задетые @Ability1 получают увеличенный пост-резистный урон от Sephyr. Длительность - 7 секунд."
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_property_one"						"Доп. пост-рез. урон"
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_suffix"							"%"
 
@@ -35,7 +35,7 @@
     	"DOTA_Tooltip_ability_sephyr_rune_q_4_suffix_two"						"%"
 		
 		"DOTA_Tooltip_ability_piercing_gale"										"Piercing Gale"
-    	"DOTA_Tooltip_ability_piercing_gale_Description"							"Стихия: <font color=\"#7AE2A7\">Ветер</font><br>Sephyr создаёт перед собой рассекающий порыв ветра."
+    	"DOTA_Tooltip_ability_piercing_gale_Description"							"Стихия: <font color=\"#7AE2A7\">Ветер</font><br>Sephyr создаёт перед собой рассекающий порыв ветра и слегка движется вперед."
     	"DOTA_Tooltip_ability_piercing_gale_damage"									"УРОН:"
 		
 		"DOTA_Tooltip_ability_sephyr_rune_w_1"									"[W1] Bright Eyes"

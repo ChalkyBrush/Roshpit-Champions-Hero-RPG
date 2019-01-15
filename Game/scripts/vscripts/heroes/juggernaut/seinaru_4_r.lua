@@ -192,6 +192,7 @@ end
 
 
 function Seinaru_Apply_E4(attacker, target, ability)
+	if IsValidEntity(target) then
 		local currentStacks = target:GetModifierStackCount("modifier_gorudo_rune_r_1", attacker)
 		local currentArmor = target:GetPhysicalArmorValue() + currentStacks
 		local ArmorRed = 0
@@ -206,7 +207,7 @@ function Seinaru_Apply_E4(attacker, target, ability)
 			ability:ApplyDataDrivenModifier(attacker, target, "modifier_gorudo_rune_r_1", {duration = 8})
 			target:SetModifierStackCount("modifier_gorudo_rune_r_1", attacker, ArmorRed)
 		end
-		
+	end
 end
 
 function gorudo_passive_think(event)

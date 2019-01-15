@@ -110,7 +110,8 @@ function start_shadow_arcana(event)
 	local ability = event.ability
 	local point = event.target_points[1]
 	Filters:CastSkillArguments(1, caster)
-	ability:ApplyDataDrivenThinker(caster, GetGroundPosition(point, caster), "shadow_trap", {duration = 7})
+	--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(point, caster), "shadow_trap", {duration = 7})
+	CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(point, caster), "shadow_trap", {duration = 7})
 
 	EmitSoundOnLocationWithCaster(point, "Auriun.ShadowTrap", caster)
 

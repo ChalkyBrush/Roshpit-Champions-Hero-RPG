@@ -633,17 +633,19 @@ end
 function taskmaster_think(event)
 	local caster = event.caster
 	local castAbility = caster:FindAbilityByName("redfall_bloodlust")
-	if castAbility:IsFullyCastable() then
-		local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
-		if #allies > 0 then
-			local newOrder = {
-			 		UnitIndex = caster:entindex(), 
-			 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-			 		TargetIndex = allies[1]:entindex(),
-			 		AbilityIndex = castAbility:entindex(),
-		 	}
-		 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Redfall.AutumnTaskmaster.Cast", caster)
-			ExecuteOrderFromTable(newOrder)		
+	if IsValidEntity(castAbility) then
+		if castAbility:IsFullyCastable() then
+			local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
+			if #allies > 0 then
+				local newOrder = {
+				 		UnitIndex = caster:entindex(), 
+				 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+				 		TargetIndex = allies[1]:entindex(),
+				 		AbilityIndex = castAbility:entindex(),
+			 	}
+			 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Redfall.AutumnTaskmaster.Cast", caster)
+				ExecuteOrderFromTable(newOrder)		
+			end
 		end
 	end
 end

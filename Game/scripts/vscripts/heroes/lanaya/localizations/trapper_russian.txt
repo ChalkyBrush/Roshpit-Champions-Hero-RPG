@@ -220,7 +220,7 @@
         "item_rpc_trapper_glyph_2_1_description"                "Пока герой находится в облаке после прочтения (E) Vanish, каждые 0.1 секунды восстанавливается @glyph_property1% здоровья от максимума."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "(T3) Глиф парализующей пыли"
-        "item_rpc_trapper_glyph_3_1_description"                "Прочтение (E) @Ability3 парализует ближайших врагов на @glyph_property1 сек., запрещая совершать любые действия."
+        "item_rpc_trapper_glyph_3_1_description"                "Прочтение (E) Vanish парализует ближайших врагов на @glyph_property1 сек., запрещая совершать любые действия."
 
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1"				"Crippling Poison"
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1_Description"	"Базовый урон снижен"

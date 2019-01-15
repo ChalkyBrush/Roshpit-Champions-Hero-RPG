@@ -111,7 +111,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"Omega Ruby"
 		"item_property_omega_ruby"					"Omega Flare"
-		"property_omega_ruby"						"Вместе с обычными атаками происходит взрыв, наносящий магический урон в небольшой области в размере @special_property1% от нанесённого урона. Сочетается со всеми любыми видами урона по области."
+		"property_omega_ruby"						"Вместе с обычными атаками происходит взрыв, наносящий магический урон в области 360 единиц в размере @special_property1% от нанесённого урона. Сочетается со всеми любыми видами урона по области."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol LV1"

@@ -131,7 +131,7 @@
 		"DOTA_Tooltip_modifier_wind_temple_keyholder_slow_Description"	"移动和攻击速度降低"
 
 		"DOTA_Tooltip_ability_creature_pure_strike"			"纯粹打击"
-		"DOTA_Tooltip_ability_creature_pure_strike_Description"	"攻击必定命中，并且15%的伤害为纯粹伤害."
+		"DOTA_Tooltip_ability_creature_pure_strike_Description"	"攻击必定命中，并且3%的伤害为纯粹伤害."
 
 		"DOTA_Tooltip_ability_tanari_ritual_healing"		"治愈祭礼"
 		"DOTA_Tooltip_ability_tanari_ritual_healing_Description"	"为附近的盟友回复少量生命值，这个技能拥有很短的冷却时间."		
@@ -579,58 +579,376 @@
 		 "DOTA_Tooltip_ability_water_temple_boss_whirlpool"			"歼灭水流"
 		 "DOTA_Tooltip_ability_water_temple_boss_whirlpool_Description"	"大王释放一个水流风暴，牵引附近的敌人. 牵引后大王会释放碎界之击."	
 
-		//WIND SPIRIT
+				//WIND SPIRIT
+		"tanari_clam_spawner"								"塔纳利之蚌"
+		"DOTA_Tooltip_ability_tanari_clam_spawner_ability"				"生产"
+		"DOTA_Tooltip_ability_tanari_clam_spawner_ability_Description"	"每10秒产生小鱼。"
+		"DOTA_Tooltip_ability_tanari_clam_spawner_ability_armor"		"额外护甲："
 
-		"DOTA_Tooltip_modifier_gust_wave_slow"							"秋风"
-		"DOTA_Tooltip_modifier_gust_wave_slow_Description"				"减速"
+		"tanari_clam_fish"							"小鱼"
+
+		"tanari_voodoo_shaman"							"巫毒萨满"
+
+		"DOTA_Tooltip_ability_tanari_maledict"							"诅咒"
+		"DOTA_Tooltip_ability_tanari_maledict_Description"				"诅咒一个敌人，使他们受到的伤害加深。"
+
+		"tanari_alchemist"								"塔纳利炼金术士"
+
+		"DOTA_Tooltip_ability_tanari_paralyzing_cask"					"麻痹药剂"
+		"DOTA_Tooltip_ability_tanari_paralyzing_cask_Description"		"一个会弹跳的药剂将会在敌人之间弹跳并且眩晕敌人。"
+		"DOTA_Tooltip_ability_tanari_paralyzing_cask_hero_duration"		"眩晕持续时间："
+		"DOTA_Tooltip_ability_tanari_paralyzing_cask_hero_damage"		"伤害："
+		"DOTA_Tooltip_ability_tanari_paralyzing_cask_bounces"			"弹跳次数："
+
+		"thicket_watcher"							"灌木守望者"
+
+		"DOTA_Tooltip_ability_thicket_growth_ability"				"灌木生长"
+		"DOTA_Tooltip_ability_thicket_growth_ability_Description"		"在灌木间隐藏，并且灌木守望者的攻击将会造成额外伤害和眩晕。"
+		"DOTA_Tooltip_ability_thicket_growth_ability_damage"			"额外伤害："
+		"DOTA_Tooltip_ability_thicket_growth_ability_stun_duration"		"眩晕持续时间："
+
+		"DOTA_Tooltip_ability_tanari_wind_spirit_passive"			"飓风"
+		"DOTA_Tooltip_ability_tanari_wind_spirit_passive_Description"		"无限的狂风。"
+
+		"wind_temple_avian_warder_elite"					"猎鹰守卫精英"
+
+		"tanari_wind_bear"							"风熊"
+
+		"DOTA_Tooltip_ability_tanari_wind_bear_passive"				"狂风"
+		"DOTA_Tooltip_ability_tanari_wind_bear_passive_Description"		"一股狂风将会跟随在风熊身后。"	
+		"tanari_jade_water_elemental"						"碧玉水元素"
+		"DOTA_Tooltip_ability_tanari_jade_elemental_hydrosis"			"粘液"
+		"DOTA_Tooltip_ability_tanari_jade_elemental_hydrosis_Description"	"神秘的碧玉之水有着神秘的属性。"
+
+		"tanari_wind_crusher"							"狂风粉碎者"
+
+		"DOTA_Tooltip_ability_wind_crusher_gust"				"风鞭"
+		"DOTA_Tooltip_ability_wind_crusher_gust_Description"			"一股迅猛的狂风对一直线上的敌人造成伤害和减速。"
+		"DOTA_Tooltip_ability_wind_crusher_gust_damage"				"伤害："
+		"DOTA_Tooltip_ability_wind_crusher_gust_move_slow"			"移动速度降低："
+		"DOTA_Tooltip_ability_wind_crusher_gust_attack_slow"			"攻击速度降低："
+
+		"DOTA_Tooltip_ability_wind_crusher_defense"				"硬化"
+		"DOTA_Tooltip_ability_wind_crusher_defense_Description"			"当受到伤害时将会转化为石像，并且受到的伤害将会降低至0 。 "	
+		"DOTA_Tooltip_ability_wind_crusher_defense_duration"			"硬化持续时间："
+
+		"DOTA_Tooltip_modifier_wind_temple_key_stone_form"			"硬化"
+
+		"DOTA_Tooltip_modifier_gust_wave_slow"					"风鞭"
+		"DOTA_Tooltip_modifier_gust_wave_slow_Description"			"被减速"
+
+		"tanari_wind_temple_viper"						"风之神殿毒蛇"
+
+		"tanari_wind_temple_lizard"						"风之神殿蜥蜴"
+
+		"tanari_wind_sprite"							"风之精灵"	
+		"DOTA_Tooltip_ability_wind_sprite_passive"				"飓风攻击"
+		"DOTA_Tooltip_ability_wind_sprite_passive_Description"			"攻击将会释放出击退敌人的狂风。 "
+
+		"tanari_wind_spark"							"风灵之球"
+
+		"DOTA_Tooltip_ability_tanari_wind_spark_ai"				"暴风雨的迷雾"
+		"DOTA_Tooltip_ability_tanari_wind_spark_ai_Description"			"大幅降低敌人的速度"
+		"DOTA_Tooltip_ability_tanari_wind_spark_ai_movespeed_slow"		"移动速度降低："
+		"DOTA_Tooltip_ability_tanari_wind_spark_ai_attack_speed_reduction"	"攻击速度降低"
+
+		"DOTA_Tooltip_modifier_tanari_wind_spark_debuff"			"暴风雨的迷雾"
+		"DOTA_Tooltip_modifier_tanari_wind_spark_debuff_Description"		"被减速"
+
+		"tanari_wind_crystal_tree"						"风之水晶树"
+		"DOTA_Tooltip_ability_wind_temple_leech_seed"				"吸血种子"
+		"DOTA_Tooltip_ability_wind_temple_leech_seed_Description"		"在敌人身上种植一个寄生种子，对敌人造成伤害并且治疗施法者。"
+		"DOTA_Tooltip_ability_wind_temple_leech_seed_damage"			"伤害："
+		"DOTA_Tooltip_ability_wind_temple_leech_seed_movement_slow"		"移动速度降低："
+
+		"DOTA_Tooltip_ability_wind_crystal_tree_passive"			"钻石皮肤"
+		"DOTA_Tooltip_ability_wind_crystal_tree_passive_Description"		"在受到伤害时对敌人造成伤害。"
+		"DOTA_Tooltip_ability_wind_crystal_tree_passive_damage"			"伤害"
+
+		"DOTA_Tooltip_modifier_wind_crystal_tree_passive"			"钻石皮肤"
+
+		"tanari_wind_apparation"						"风之幽灵"
+
+		"DOTA_Tooltip_ability_tanari_wind_apparition_passive"			"飓风"
+		"DOTA_Tooltip_ability_tanari_wind_apparition_passive_Description"	"一股强风将会推开周围的敌人。"
+
+		"tanari_wind_demon"							"风之恶魔"
+		"DOTA_Tooltip_ability_wind_demon_static_storm"				"静电风暴"
+		"DOTA_Tooltip_ability_wind_demon_static_storm_Description"		"在这股风暴中的敌人将会受到伤害并且被沉默。"
+		"DOTA_Tooltip_ability_wind_demon_static_storm_damage_max"		"最大伤害："
+
+		"DOTA_Tooltip_ability_tanari_wind_demon_passive"			"飓风"
+
+		"wind_temple_spirit_ninja"						"风魂忍者"
+
+		"DOTA_Tooltip_ability_spirit_ninja_passive"				"反射"
+		"DOTA_Tooltip_ability_spirit_ninja_passive_Description"			"大幅增加闪避能力。"
+		"DOTA_Tooltip_ability_spirit_ninja_passive_evasion"			"闪避概率："		
+
+		"wind_valley_guardian"							"风之谷的守卫"
+
+		"DOTA_Tooltip_ability_wind_valley_guardian"				"山谷守卫"
+		"DOTA_Tooltip_ability_wind_valley_guardian_Description"			"永久地守望着风之谷的精灵。"	
+
+		"DOTA_Tooltip_ability_wind_valley_protector_quake"			"地震"
+		"DOTA_Tooltip_ability_wind_valley_protector_quake_Description"		"对范围内敌人造成伤害和眩晕。"
+
+		"DOTA_Tooltip_ability_wind_spirit_main_boss_ability"			"鹰击"
+		"DOTA_Tooltip_ability_wind_spirit_main_boss_ability_Description"	"风之魂从施法者放出猎鹰攻击敌人。"
+
+		"DOTA_Tooltip_ability_wind_spirit_tornado"				"龙卷风"
+		"DOTA_Tooltip_ability_wind_spirit_tornado_Description"			"一阵狂野的龙卷风将敌人吹起，并且在他们落地时造成伤害。"
+		"DOTA_Tooltip_ability_wind_spirit_tornado_base_damage"			"伤害："
+
+		"wind_temple_spirit_boss"						"塔纳利风之魂"
 
 		 //WIND SPIRIT
 
 		 //SPIRIT WATER
 
-		 "water_shadow_hunter"										"深海甲虫"
+		 "tanari_water_spirit_boss"						"塔纳利水之魂"
+
+		 "DOTA_Tooltip_ability_tanari_water_spirit_passive"			"波浪武器"
+		 "DOTA_Tooltip_ability_tanari_water_spirit_passive_Description"		"普通攻击时向敌人放出波浪并且对其造成伤害。"	
+		 "DOTA_Tooltip_ability_tanari_water_spirit_passive_damage"		"伤害："
+
+		 "tanari_ancient_wind_spirit"						"风之魂引导"
+		 "tanari_ancient_water_spirit"						"水之魂引导"
+		 "tanari_ancient_fire_spirit"						"火之魂引导"
+
+		 "water_temple_spirit_jailer"						"灵魂狱卒"
+
+		 "DOTA_Tooltip_ability_tanari_water_jailer_passive"			"灵魂格挡"
+		 "DOTA_Tooltip_ability_tanari_water_jailer_passive_Description"		"降低所有受到的伤害。"	
+		 "DOTA_Tooltip_ability_tanari_water_jailer_passive_damage_block"	"伤害减免 %："	
+
+		 "DOTA_Tooltip_tanari_water_bomb_hero"					"深水炸弹"
+		 "DOTA_Tooltip_tanari_water_bomb_hero_Description"			"使用 W (二技能) 来投掷炸弹。"
+
+		 "water_temple_vault_king"						"墓穴之王"
+
+		 "DOTA_Tooltip_ability_vault_king_hydro_mark"				"水之标记"
+		 "DOTA_Tooltip_ability_vault_king_hydro_mark_Description"		"标记目标地点。在短暂延迟后，一道水波出现，对范围内的敌人造成伤害和眩晕。"
+		 "DOTA_Tooltip_ability_vault_king_hydro_mark_Description"		"伤害："
+
+		 "caged_water_wraith"							"牢笼中的水之幽灵"
+
+		 "water_shadow_hunter"							"水之猎手甲虫"
+
+		 "slithereen_prison_guard"						"鱼人监狱守卫者"
+
+		 "DOTA_Tooltip_ability_prison_guard_water_chanel"			"水之舞"
+		 "DOTA_Tooltip_ability_prison_guard_water_chanel_Description"		"在引导过程中，附近的敌人将会被水波击中。在范围内的敌人将会被立即减速。"
+		 "DOTA_Tooltip_ability_prison_guard_water_chanel_damage_per_hit"	"每次伤害："
+		 "DOTA_Tooltip_ability_prison_guard_water_chanel_bonus_attack_speed"	"攻击速度降低："
+		 "DOTA_Tooltip_ability_prison_guard_water_chanel_bonus_movement_speed"	"移动速度降低："
+
+		 "DOTA_Tooltip_modifier_water_channel_in_area"				"水之舞"
+		 "DOTA_Tooltip_modifier_water_channel_in_area_Description"		"被减速"
+
+		 "water_temple_meta_prisoner"						"狱卒"
+
+		 "DOTA_Tooltip_ability_tanari_meta_slark_passive"			"高级监狱剃刀"
+		 "DOTA_Tooltip_ability_tanari_meta_slark_passive_Description"		"普通攻击降低目标的全属性。"
+		 "DOTA_Tooltip_ability_tanari_meta_slark_passive_attribute_loss"	"属性降低："
+
+		 "water_temple_serpent_huntress"					"水蛇猎人"
+
+		 "DOTA_Tooltip_ability_tanari_soul_arrows"				"灵魂冲击"
+		 "DOTA_Tooltip_ability_tanari_soul_arrows_Description"			"普通攻击将会造成伤害基于目标丢失生命值的纯粹伤害。"
+		 "DOTA_Tooltip_ability_tanari_soul_arrows_damage_per_miss_health_hero"	"每点丢失生命值造成的伤害（英雄）："
+		 "DOTA_Tooltip_ability_tanari_soul_arrows_damage_per_miss_health_creep"	"每点丢失生命值造成的伤害（非英雄）："
+
+		 "water_manifestation"							"水之谜团"
+
+		 "DOTA_Tooltip_ability_water_manifestation_passive"			"渗透"
+		 "DOTA_Tooltip_ability_water_manifestation_passive_Description"		"在没有受到任何伤害1.5秒后，会的生命回复加成。"
+		 "DOTA_Tooltip_ability_water_manifestation_passive_health_regen"	"生命回复 %："
+
+		 "water_temple_stone_fish"						"石鱼"
+
+		 "DOTA_Tooltip_ability_rock_fish_rip_tide"				"撕裂潮汐"
+
+		 "water_temple_stone_priestess"						"鱼人公主"
+
+		 "water_temple_duke_korlazeen"						"克拉欣公爵"
+
+		 "DOTA_Tooltip_ability_tanari_korlazeen_shield"				"海妖之盾"
+		 "DOTA_Tooltip_ability_tanari_korlazeen_shield_Description"		"在受到伤害时，眩晕敌人并且对敌人造成数值为他们最大生命值1%的纯粹伤害。"	
+
+		 "caged_underworld_tear"						"牢笼中的水之幽灵"	
+
+		 "DOTA_Tooltip_ability_water_temple_drowned_sorrrow_ability"		"多重攻击"
+
+		 "tanari_drowned_sorrow"						"淹没悲伤"
+		 "DOTA_Tooltip_ability_water_temple_water_nuke"				"波浪冲击"
+		 "DOTA_Tooltip_ability_water_temple_water_nuke_Description"		"向目标地点放出水波并对敌人造成伤害。"	
+		 "DOTA_Tooltip_ability_water_temple_water_nuke_damage"			"伤害："
+
+		 "water_archer_spirit"							"水之魂的弓箭手"
+		 "DOTA_Tooltip_ability_big_water_archer_passive"			"霜冻箭矢"
+		 "DOTA_Tooltip_ability_big_water_archer_passive_Description"		"寒冰附于箭矢上，减速敌人并且造成纯粹伤害。"
+		 "DOTA_Tooltip_ability_big_water_archer_passive_pure_damage"		"纯粹伤害："
+		 "DOTA_Tooltip_ability_big_water_archer_passive_attackspeed_loss"	"攻击速度降低："
+		 "DOTA_Tooltip_ability_big_water_archer_passive_movespeed_loss"		"移动速度降低："
+
+		 "DOTA_Tooltip_modifier_water_archer_slow"				"霜冻箭矢"
+		 "DOTA_Tooltip_modifier_water_archer_slow_Description"			"被减速"
+
+		 "water_temple_aqualeen_defector"					"水之逃犯"
+
+		 "ice_queen_alarana"							"冰之女王安拉罗娜"
+
+		 "DOTA_Tooltip_ability_tanari_ice_queen_passive"			"永冻光环"
+		 "DOTA_Tooltip_ability_tanari_ice_queen_passive_Description"		"逐渐减速附近的敌人。如果他们的移动速度低于一定阈值时，他们会被缠绕。"
+
+		 "slithereen_elite_warrior"						"鱼人精英"
+
+		 "DOTA_Tooltip_ability_tanari_slithereen_elite_ability"			"重鳞"
+		 "DOTA_Tooltip_ability_tanari_slithereen_elite_ability_Description"	"在受到伤害时有概率对敌人造成眩晕。"
+		 "DOTA_Tooltip_ability_tanari_slithereen_elite_ability_stun_chance"	"眩晕概率："
+
+		 "DOTA_Tooltip_ability_water_spirit_main_boss_ability"			"水神末世"
+		 "DOTA_Tooltip_ability_water_spirit_main_boss_ability_Description"	"水之魂造成的狂怒的海洋风暴。"
+
+		 //SPIRIT WATER
+		 //SPIRIT FIRE
+		 "DOTA_Tooltip_modifier_lava_flailing"					"熔岩灼烧"
+		 "DOTA_Tooltip_modifier_lava_flailing_Description"			"受到最大生命值 3/4/5 %的持续魔法伤害。"
+		 
+		 "fire_temple_flame_shaman"						"火焰萨满"
+		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai"			"火焰爆发"
+		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai_Description"		"周期性的向周围放出火球。"
+		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai_burn_damage"		"灼烧伤害："
+		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai_impact_damage"	"初始伤害："
+
+		 "tanari_fire_temple_spawner"						"黑曜建筑"
+		 
+		 "DOTA_Tooltip_ability_fire_temple_spawner_ability"			"黑曜生产者"
+		 "DOTA_Tooltip_ability_fire_temple_spawner_ability_Description"		"每10秒产生火灵。"
+		 "DOTA_Tooltip_ability_fire_temple_spawner_ability_armor"		"护甲："	
+
+		 "tanari_lava_spectre"							"熔岩幽魂"
+		 "DOTA_Tooltip_ability_lava_specter_ability"				"熔化灵魂"
+		 "DOTA_Tooltip_ability_lava_specter_ability_Description"		"周期性的在幽魂脚下留下熔岩路径。此外，该技能能使幽魂有50%的概率完全无视一次伤害。"
+		 "DOTA_Tooltip_ability_lava_specter_ability_burn_damage"		"灼烧伤害："
+
+		 "flamerider_gorthos"							"格瑟斯 火焰骑士"
+
+		 "DOTA_Tooltip_ability_gorthos_passive"					"火焰能源"
+		 "DOTA_Tooltip_ability_gorthos_passive_Description"			"持续地向周围所有敌人放出火球。"
+		 "DOTA_Tooltip_ability_gorthos_passive_impact_damage"			"初始伤害："
+		 "DOTA_Tooltip_ability_gorthos_passive_burn_damage"			"灼烧伤害："
+
+		 "tanari_flame_beast"							"炎兽"
+		 "DOTA_Tooltip_ability_tanari_flame_charge"				"火焰冲刺"
+		 "DOTA_Tooltip_ability_tanari_flame_charge_Description"			"冲向敌人，对敌人造成伤害并且留下一滩火焰。"
+		 "DOTA_Tooltip_ability_tanari_flame_charge_damage"			"初始伤害："
+		 "DOTA_Tooltip_ability_tanari_flame_charge_burn_damage"			"灼烧伤害："
+
+		 "fire_temple_ogre"							"火山食人魔"
+
+		 "DOTA_Tooltip_ability_fire_temple_ogre_magi_ignite"			"引燃"
+		 "DOTA_Tooltip_ability_fire_temple_ogre_magi_ignite_Description"	"向敌人投掷一个火球，减速和伤害目标地点周围的敌人。"
+		 "DOTA_Tooltip_ability_fire_temple_ogre_magi_ignite_burn_damage"	"灼烧伤害："
+		 "DOTA_Tooltip_ability_fire_temple_ogre_magi_ignite_slow_movement_speed_pct"	"移动速度降低%："
+
+		 "tanari_lava_bully"							"熔岩暴徒"
+		 "tanari_lava_bully_big"						"大型熔岩暴徒"
+
+		 "DOTA_Tooltip_ability_tanari_lava_bully_ai"				"熔岩挑战者"
+
+		 "tanari_inferno_demon"							"地狱恶魔"
+
+		 "DOTA_Tooltip_ability_fire_temple_inferno"				"炼狱"
+		 "DOTA_Tooltip_ability_fire_temple_inferno_Description"			"产生一道巨大的火焰路径，灼烧站在其中的敌人。"
+		 "DOTA_Tooltip_ability_fire_temple_inferno_damage"			"伤害："
+
+		 "DOTA_Tooltip_ability_fire_temple_inferno2"				"炼狱"
+		 "DOTA_Tooltip_ability_fire_temple_inferno2_Description"		"产生一道巨大的火焰路径，灼烧站在其中的敌人。"
+		 "DOTA_Tooltip_ability_fire_temple_inferno2_damage"			"伤害："
+
+		 "tanari_fire_crab_beast"						"火蟹野兽"
+
+		 "DOTA_Tooltip_ability_fire_temple_lava_skin"				"熔岩皮肤"
+		 "DOTA_Tooltip_ability_fire_temple_lava_skin_Description"		"在被攻击时，向攻击者发射火球。"
+		 "DOTA_Tooltip_ability_fire_temple_lava_skin_impact_damage"		"初始伤害："
+		 "DOTA_Tooltip_ability_fire_temple_lava_skin_burn_damage"		"灼烧伤害："
+
+		 "fire_temple_siege_hulker"						"攻城巨人"
+		 "DOTA_Tooltip_ability_fire_temple_siege_hulker_passive"		"攻城巨人"
+		 "DOTA_Tooltip_ability_fire_temple_siege_hulker_passive_Description"	"攻击时点燃敌人。"
+		 "DOTA_Tooltip_ability_fire_temple_siege_hulker_passive_burn_damage"	"灼烧伤害："
+
+		 "fire_temple_demon_watcher"						"火之神殿的火焰恶魔守望者"
+
+		 "DOTA_Tooltip_ability_fire_temple_demon_watcher_passive"		"地狱爆发"
+		 "DOTA_Tooltip_ability_fire_temple_demon_watcher_passive_Description"	"持续的向周围释放出环状火焰。"
+		 "DOTA_Tooltip_ability_fire_temple_demon_watcher_passive_burn_damage"	"灼烧伤害："
+		 "DOTA_Tooltip_ability_fire_temple_demon_watcher_passive_impact_damage"	"初始伤害"
+
+		 "DOTA_Tooltip_ability_fire_spirit_main_boss_ability"			"熔岩鳞甲"
+		 "DOTA_Tooltip_ability_fire_spirit_main_boss_ability_Description"	"在受到伤害时，对敌人施加一个可叠加的灼烧debuff。"
+		 "DOTA_Tooltip_ability_fire_spirit_main_boss_ability_burn_damage" 	"每层debuff的灼烧伤害："
+
+		 "DOTA_Tooltip_ability_modifier_spirit_boss_burn"			"燃烧吧！"
+
+		 "DOTA_Tooltip_ability_fire_spirit_breath"				"火焰吐息"
+		 "DOTA_Tooltip_ability_fire_spirit_breath_Description"			"释放一道火焰。"
+		 "DOTA_Tooltip_ability_fire_spirit_breath_damage"			"伤害"
+
+		 "tanari_fire_spirit_boss"						"塔纳利火之魂"
+
+		"DOTA_Tooltip_modifier_gust_wave_slow"					"秋风"
+		"DOTA_Tooltip_modifier_gust_wave_slow_Description"			"减速"
+
+		 //WIND SPIRIT
+
+		 //SPIRIT WATER
+
+		 "water_shadow_hunter"							"深海甲虫"
 
 		 //SPIRIT WATER
 		 //SPIRIT FIRE
 		 //SPIRIT FIRE
 		 "DOTA_Tooltip_ability_red_mist_berserkers_call"			"狂战士之吼"			
-		 "DOTA_Tooltip_ability_red_mist_berserkers_call_Description"	"嘲讽附近敌人强制他们攻击你. 持续时间内获得额外护甲."	
-		 "DOTA_Tooltip_ability_red_mist_berserkers_call_bonus_armor"	"护甲提升:"
+		 "DOTA_Tooltip_ability_red_mist_berserkers_call_Description"		"嘲讽附近敌人强制他们攻击你. 持续时间内获得额外护甲."	
+		 "DOTA_Tooltip_ability_red_mist_berserkers_call_bonus_armor"		"护甲提升:"
 
 		 "DOTA_Tooltip_ability_red_mist_counter_helix"				"反击螺旋"
-		 "DOTA_Tooltip_ability_red_mist_counter_helix_Description"	"20% 几率在受到攻击时用斧头旋转反击，对附近的敌人造成伤害."	
+		 "DOTA_Tooltip_ability_red_mist_counter_helix_Description"		"20% 几率在受到攻击时用斧头旋转反击，对附近的敌人造成伤害."	
 
 		 "DOTA_Tooltip_ability_terrasic_guard_ability"				"烈焰之拳"
-		 "DOTA_Tooltip_ability_terrasic_guard_ability_Description"	"对被攻击的目标施加燃烧效果."	
-		 "DOTA_Tooltip_ability_terrasic_guard_ability_burn_dps"		"每秒燃烧伤害:"
+		 "DOTA_Tooltip_ability_terrasic_guard_ability_Description"		"对被攻击的目标施加燃烧效果."	
+		 "DOTA_Tooltip_ability_terrasic_guard_ability_burn_dps"			"每秒燃烧伤害:"
 
 		 "DOTA_Tooltip_modifier_terrasic_guard_on_fire"				"烈焰之拳"
-		 "DOTA_Tooltip_modifier_terrasic_guard_on_fire_Description"	"受到燃烧伤害."
+		 "DOTA_Tooltip_modifier_terrasic_guard_on_fire_Description"		"受到燃烧伤害."
 
-		 "terrasic_flame_orchid"									"烈焰芽孢"	
+		 "terrasic_flame_orchid"						"烈焰芽孢"	
 
-		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai"				"烈焰吐息"
-		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai_Description"	"周期性地对芽孢前方喷射3个火球，对被击中者造成伤害和燃烧效果"
+		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai"			"烈焰吐息"
+		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai_Description"		"周期性地对芽孢前方喷射3个火球，对被击中者造成伤害和燃烧效果"
 		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai_burn_damage"		"每秒燃烧伤害:"
 		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai_impact_damage"		"爆炸伤害:"
 
-		 "terrasic_boulderspine"								"脊岩"
+		 "terrasic_boulderspine"						"脊岩"
 
-		 "terrasic_lava_beast"									"熔岩兽"
-
-		 "terrasic_awakened_stone"								"熔岩巨人"
+		 "terrasic_lava_beast"							"熔岩兽"
+		 
+		 "terrasic_awakened_stone"						"熔岩巨人"
 
 		 "DOTA_Tooltip_ability_terrasic_flame_spit"				"烈焰放射"
-		 "DOTA_Tooltip_ability_terrasic_flame_spit_Description"	"引导烈焰放射时, 血喉会对周围敌人喷射火球并附带燃烧效果. 引导期间魔法抗性提升."	
-		 "DOTA_Tooltip_ability_terrasic_flame_spit_magic_resist" "魔法抗性:"
-		 "DOTA_Tooltip_ability_terrasic_flame_spit_burn_dps"	"每秒燃烧伤害:"
+		 "DOTA_Tooltip_ability_terrasic_flame_spit_Description"			"引导烈焰放射时, 血喉会对周围敌人喷射火球并附带燃烧效果. 引导期间魔法抗性提升."	
+		 "DOTA_Tooltip_ability_terrasic_flame_spit_magic_resist" 		"魔法抗性:"
+		 "DOTA_Tooltip_ability_terrasic_flame_spit_burn_dps"			"每秒燃烧伤害:"
 
 		"DOTA_Tooltip_modifier_flamespit_burning"				"烈焰放射：燃烧"
-		"DOTA_Tooltip_modifier_flamespit_burning_Description"	"每秒受到燃烧伤害."
+		"DOTA_Tooltip_modifier_flamespit_burning_Description"			"每秒受到燃烧伤害."
 
-		"terrasic_goremaw_flame_splitter"						"血喉喷火者"
+		"terrasic_goremaw_flame_splitter"					"血喉喷火者"
 
-		"terrasic_volcano_beetle"								"火山甲虫"
+		"terrasic_volcano_beetle"						"火山甲虫"
 
 		"DOTA_Tooltip_ability_terrasic_steam_shell"				"火焰外壳"
 		"DOTA_Tooltip_ability_terrasic_steam_shell_Description"	"对攻击者反弹一个灼烧的火球."	

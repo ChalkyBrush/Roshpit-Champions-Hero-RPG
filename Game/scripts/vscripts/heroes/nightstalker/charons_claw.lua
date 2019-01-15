@@ -56,7 +56,8 @@ function charons_claw_cast(event)
 			print(blockUnit)
 			print("-------")
 			if not blockUnit then
-				ability:ApplyDataDrivenThinker(caster, thinkerPos, "modifier_charons_claw_path", {duration = pathDuration})
+				--ability:ApplyDataDrivenThinker(caster, thinkerPos, "modifier_charons_claw_path", {duration = pathDuration})
+				CustomAbilities:QuickAttachThinker(ability, caster, thinkerPos, "modifier_charons_claw_path", {duration = pathDuration})
 			end
 			if i == (thinkers - 2) then
 				AddFOWViewer(caster:GetTeamNumber(), thinkerPos + fv*200, 400, 3, false)
@@ -91,7 +92,8 @@ function charon_impacted_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	local duration = Filters:GetAdjustedBuffDuration(caster, 12, false)
-	ability:ApplyDataDrivenThinker(caster, target:GetAbsOrigin(), "modifier_charons_claw_path", {duration = duration})
+	--ability:ApplyDataDrivenThinker(caster, target:GetAbsOrigin(), "modifier_charons_claw_path", {duration = duration})
+	CustomAbilities:QuickAttachThinker(ability, caster, target:GetAbsOrigin(), "modifier_charons_claw_path", {duration = duration})
 end
 
 function claw_path_apply(event)

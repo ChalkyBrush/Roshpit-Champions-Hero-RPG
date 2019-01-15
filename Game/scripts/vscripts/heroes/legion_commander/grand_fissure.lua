@@ -68,11 +68,13 @@ function channel_complete(event)
 			for i = 1, explosionCount, 1 do
 				Timers:CreateTimer(i*0.3, function()
 					print("SHORT BURN")
-					ability:ApplyDataDrivenThinker(caster, GetGroundPosition(caster:GetAbsOrigin()+ability.cast_difference, caster)+Vector(0,0,50), "modifier_protector_c_d_scorched_earth", {duration = 1.5})
+					--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(caster:GetAbsOrigin()+ability.cast_difference, caster)+Vector(0,0,50), "modifier_protector_c_d_scorched_earth", {duration = 1.5})
+					CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(caster:GetAbsOrigin()+ability.cast_difference, caster)+Vector(0,0,50), "modifier_protector_c_d_scorched_earth", {duration = 1.5})
 				end)
 			end
 		else
-			ability:ApplyDataDrivenThinker(caster, GetGroundPosition(target, caster)+Vector(0,0,50), "modifier_protector_c_d_scorched_earth", {duration = 0.3*explosionCount})
+			--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(target, caster)+Vector(0,0,50), "modifier_protector_c_d_scorched_earth", {duration = 0.3*explosionCount})
+			CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(target, caster)+Vector(0,0,50), "modifier_protector_c_d_scorched_earth", {duration = 0.3*explosionCount})
 		end
 	end
 

@@ -2688,7 +2688,8 @@ end
 function Filters:MoonTechRunners(caster)
     local ability = caster.foot
     print("MOOON TECH!")
-    ability:ApplyDataDrivenThinker(caster, caster:GetAbsOrigin(), "modifier_moon_tech_thinker", {})
+    --ability:ApplyDataDrivenThinker(caster, caster:GetAbsOrigin(), "modifier_moon_tech_thinker", {})
+	CustomAbilities:QuickAttachThinker(ability, caster, caster:GetAbsOrigin(), "modifier_moon_tech_thinker", {})
 end
 
 
@@ -4234,7 +4235,8 @@ function Filters:IgneousCanine(caster)
     end
     if ability.firePools < 4 then
         ability.firePools = ability.firePools + 1
-        ability:ApplyDataDrivenThinker(caster, caster:GetAbsOrigin(), "modifier_igneous_canine_thinker", {})
+        --ability:ApplyDataDrivenThinker(caster, caster:GetAbsOrigin(), "modifier_igneous_canine_thinker", {})
+		CustomAbilities:QuickAttachThinker(ability, caster, caster:GetAbsOrigin(), "modifier_igneous_canine_thinker", {})
         Timers:CreateTimer(6, function()
             ability.firePools = ability.firePools - 1
         end)

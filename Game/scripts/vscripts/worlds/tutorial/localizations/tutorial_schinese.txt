@@ -640,15 +640,20 @@
 	"tutorial_master_dialogue_6_5c"										"我希望你去参观！去discord聊天频道吧."
 	"tutorial_master_dialogue_6_5d"										"为了证明你去过那里，告诉我密码。您可以在discord的curators-library频道的“pinned messages”中找到密码."
 
-	"tutorial_quiz_question_19"											"去肉山谷的discord中的curators-library 频道. 你在 'Pinned Messages'找到的密码是?"
+	"tutorial_quiz_question_19"											"去肉山谷的discord中的curators-library 频道. 你在 'Pinned Messages'找到的密码是？（密码为krjua5）。"
 
 	"tutorial_quiz_wrong_6_5_1"											"检查 curators-library中Pinned Messages的信息"
-	"tutorial_quiz_wrong_6_5_2"											"不是这个，去 discord.gg/ZUhfMZG 并转到 curators-library sub channel. 检查那儿的 pinned messages 信息."
+	"tutorial_quiz_wrong_6_5_2"											"不是这个，去 discord.gg/ZUhfMZG 并转到 curators-library sub channel. 检查那儿的 pinned messages 信息。"
 
 	"tutorial_master_dialogue_6_5e"										"这是正确的！现在，如果你愿意，可以随时向其他玩家介绍你自己."
 	"tutorial_master_dialogue_6_5f"										"这一课结束."
 
 	"quest_6_reward_title"												"领取为期两周的 Web Premium（大会员）"       
-	"quest_6_reward_description"										"添加两周的 Web Premium 到你的 roshpit.ca 账户中! 只能领取一次."
+	"quest_6_reward_description"										"添加两周的 Web Premium 到你的 roshpit.ca 账户中! 只能领取一次。"
 	
+	"tutorial_stars_reward_warning"										"这个需要你达成 @stars 成就数后才能领取，去其他地图游玩完成成就后再回来领取这个奖励！"
+	"tutorial_button_get_more_stars"									"需要@stars 成就数"
+	
+	"dummy_toggle_dps_normal"									"普通"
+	"dummy_toggle_dps_scientific"									"科学计数法"
 	
