@@ -109,7 +109,7 @@ function channel_complete(event)
 		prop:SetModel(modelName)
 		local poolDuration = 9
 		--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(caster:GetAbsOrigin(), caster), thinkerName, {duration = poolDuration})
-		CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(caster:GetAbsOrigin(), thinkerName, {duration = poolDuration})
+		CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(caster:GetAbsOrigin(), caster), thinkerName, {duration = poolDuration})
 		Timers:CreateTimer(poolDuration, function()
 			for j = 1, 20, 1 do
 				Timers:CreateTimer(j*0.03, function()
