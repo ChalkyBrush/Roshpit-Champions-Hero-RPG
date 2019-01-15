@@ -2556,7 +2556,7 @@
 		"DOTA_Tooltip_ability_heavens_shield"							"Heaven's Shield"
     	"DOTA_Tooltip_ability_heavens_shield_Description"				"Auriun applies a divine barrier to his target, allowing them to absorb incoming damage instances. Shield's base duration is 9 seconds."
     	"DOTA_Tooltip_ability_heavens_shield_Lore"						""
-    	"DOTA_Tooltip_ability_heavens_shield_stacks"					"ATTACKS ABSORBED"
+    	"DOTA_Tooltip_ability_heavens_shield_stacks"					"ATTACKS ABSORBED:"
 
     	"DOTA_Tooltip_modifier_heavens_shield"							"Heaven's Shield"
     	"DOTA_Tooltip_modifier_heavens_shield_Description"  			"100%% damage absorption"
@@ -2593,8 +2593,8 @@
 		"DOTA_Tooltip_ability_flash_heal"								"Flash Heal"
     	"DOTA_Tooltip_ability_flash_heal_Description"					"Quickly heal a target with a blessing of light. Flash heal targets a friendly unit that is underneath your cursor."
     	"DOTA_Tooltip_ability_flash_heal_Lore"							""
-    	"DOTA_Tooltip_ability_flash_heal_heal"							"HEAL"
-    	"DOTA_Tooltip_ability_flash_heal_max_distance"					"MAX RANGE"
+    	"DOTA_Tooltip_ability_flash_heal_heal"							"HEAL:"
+    	"DOTA_Tooltip_ability_flash_heal_max_distance"					"MAX RANGE:"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_1"						"[W1] Shadow Flare"
     	"DOTA_Tooltip_ability_auriun_rune_w_1_Description"			"If your cursor isn't over an ally or Auriun, Flash Heal creates a blaze of aphotic energy that deals damage at your cursor's location."
@@ -2630,7 +2630,7 @@
 		"DOTA_Tooltip_ability_seraph_surge"								"Seraph Surge"
     	"DOTA_Tooltip_ability_seraph_surge_Description"					"Instantly enter an angelic state with cliff and unit walking. Enemies can not see Auriun under his holy guise, and Auriun cannot use regular attacks."
     	"DOTA_Tooltip_ability_flash_heal_Lore"							""
-    	"DOTA_Tooltip_ability_seraph_surge_duration"					"DURATION"
+    	"DOTA_Tooltip_ability_seraph_surge_duration"					"DURATION:"
 
     	"DOTA_Tooltip_modifier_seraph_surge"							"Seraph Surge"
     	"DOTA_Tooltip_modifier_seraph_surge_Description"				"No collision and invisible to enemies."
@@ -2671,9 +2671,10 @@
 		
 		"DOTA_Tooltip_ability_auriun_ult"								"Blessing of Life"
     	"DOTA_Tooltip_ability_auriun_ult_Description"					"Auriun infuses nearby allies with the light of heavens, giving them increased movement speed and HP regen. Additionally revives all fallen allies."
-    	"DOTA_Tooltip_ability_auriun_ult_Lore"							""
-    	"DOTA_Tooltip_ability_auriun_ult_regen_percent"					"HP REGEN % "
-    	"DOTA_Tooltip_ability_auriun_ult_radius"						"RADIUS"
+    	"DOTA_Tooltip_ability_auriun_ult_Lore"				""
+		"DOTA_Tooltip_ability_auriun_ult_movespeed"						"MOVEMENT SPEED BUFF:"
+    	"DOTA_Tooltip_ability_auriun_ult_regen_percent"					"HP REGEN %:"
+    	"DOTA_Tooltip_ability_auriun_ult_radius"						"RADIUS:"
 
     	"DOTA_Tooltip_modifier_auriun_ult_effect"						"Blessing of Life"
     	"DOTA_Tooltip_modifier_auriun_ult_effect_Description"			"Massive HP regen and increased movement speed."
@@ -2889,7 +2890,7 @@
 		
 		
         "DOTA_Tooltip_ability_axe_rune_q_4"                             "[Q4] Brutal Expansion"
-        "DOTA_Tooltip_ability_axe_rune_q_4_Description"                 "Enemy units damaged by Skull Basher will receive increased Normal damage from The Red General. This effect stacks up to 20 times."
+        "DOTA_Tooltip_ability_axe_rune_q_4_Description"                 "Enemy units damaged by Skull Basher will receive increased Normal damage from The Red General. This effect stacks up to 20 times. 10 seconds duration."
         "DOTA_Tooltip_ability_axe_rune_q_4_property_one"                "Normal damage increase"
         "DOTA_Tooltip_ability_axe_rune_q_4_suffix"                      "%"
 
@@ -2992,7 +2993,7 @@
         "DOTA_Tooltip_ability_axe_rune_r_2_suffix"                      "% of Sunder"
 		
 		"DOTA_Tooltip_ability_axe_rune_r_3"                             "[R3] Adrenaline"
-        "DOTA_Tooltip_ability_axe_rune_r_3_Description"                 "When The Red General starts to channel Sunder, he immediately gains increased armor and maximum health."
+        "DOTA_Tooltip_ability_axe_rune_r_3_Description"                 "When The Red General starts to channel Sunder, he immediately gains increased armor and maximum health. 12 seconds duration."
         "DOTA_Tooltip_ability_axe_rune_r_3_property_one"                "Bonus Health"
         "DOTA_Tooltip_ability_axe_rune_r_3_suffix"                      ""
         "DOTA_Tooltip_ability_axe_rune_r_3_property_two"                "Bonus Armor"
@@ -4385,7 +4386,7 @@
     	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"% PURE DAMAGE BASED ON ATTACK POWER:"
 		
 		"DOTA_Tooltip_ability_dinath_rune_w_1"									"[W1] Crystal Breeze"
-    	"DOTA_Tooltip_ability_dinath_rune_w_1_Description"						"3 seconds after placing an Eye of the Drake, gain % bonus attack damage. Casting the ability while active removes the buff until 3 seconds elapses again."
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_Description"						"3 seconds after placing an Eye of the Drake, gain % bonus attack damage for next 27 seconds. Casting the ability while active removes the buff until 3 seconds elapses again."
     	"DOTA_Tooltip_ability_dinath_rune_w_1_property_one"						"Attack Damage"
     	"DOTA_Tooltip_ability_dinath_rune_w_1_suffix"								"%"
 
@@ -4948,7 +4949,7 @@
 		"DOTA_Tooltip_modifier_whirling_flail_Description"  			"Swinging Rapidly"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1"						"[Q1] Duskfire Flail"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"Duskbringer's weapon has an additional energy that explodes on enemies and leaves a burning DPS debuff. The burn effect stacks with no limit."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"Duskbringer's weapon has an additional energy that explodes on enemies and leaves a burning DPS debuff. The burn effect stacks with no limit. Duration 5 seconds."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_one"		"DPS"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix"				""		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_two"		"Bonus Damage from Agility"
@@ -5022,7 +5023,7 @@
 		"DOTA_Tooltip_modifier_charging_Description"					"Charging forward with no collision"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_e_1"						"[E1] Phantom Pace"
-    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_Description"			"Duskbringer gains stacks of attack damage and armor as long as he remains in motion. Stacks won't time out while you channel spells."
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_Description"			"Duskbringer gains stacks of attack damage and armor as long as he remains in motion. Stacks won't time out while you channel spells. Effect lingers for 1 second."
     	"DOTA_Tooltip_ability_duskbringer_rune_e_1_property_one"		"Damage"
     	"DOTA_Tooltip_ability_duskbringer_rune_e_1_suffix"				""		
     	"DOTA_Tooltip_ability_duskbringer_rune_e_1_property_two"		"Armor"
@@ -5595,7 +5596,7 @@
     	"DOTA_Tooltip_modifier_warlord_rune_q_2_visible_Description"	"Increased armor"
 		
 		"DOTA_Tooltip_ability_warlord_rune_q_3"							"[Q3] Wrath of Fire"
-    	"DOTA_Tooltip_ability_warlord_rune_q_3_Description"				"Attacks during Flame Rush leave a stacking armor loss debuff on the target."
+    	"DOTA_Tooltip_ability_warlord_rune_q_3_Description"				"Attacks during Flame Rush leave a stacking armor loss debuff on the target, 8 seconds duration."
     	"DOTA_Tooltip_ability_warlord_rune_q_3_property_one"			"Armor Loss"
     	"DOTA_Tooltip_ability_warlord_rune_q_3_suffix"					" per stack"
 
@@ -7150,7 +7151,7 @@
 		"DOTA_Tooltip_modifier_paladin_rune_q_1_description" 			"Attacks emit holy sparks on nearby enemies."
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_2"							"[Q2] Radiance"
-    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"While Heroic Fury is active, nearby enemies take damage based on Paladin's Attack Power."
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"While Heroic Fury is active, enemies within a radius of 900 in take damage based on Paladin's Attack Power."
     	"DOTA_Tooltip_ability_paladin_rune_q_2_property_one"			"Damage Per Second"
     	"DOTA_Tooltip_ability_paladin_rune_q_2_suffix"					"% of Attack Damage"
 
@@ -7195,7 +7196,7 @@
     	"DOTA_Tooltip_ability_paladin_rune_w_2_suffix"					"% of Ability Damage"
 		
 		"DOTA_Tooltip_ability_paladin_rune_w_3"							"[W3] Holy Nova"
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"Adds a 15% chance when attacked to emanate a Holy Nova - dealing damage to enemies and healing allies nearby. Enemies hit by Holy Nova are disarmed for 1 second."
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"Adds a 15% chance when attacked to emanate a Holy Nova - dealing damage to enemies and healing allies nearby. Enemies hit by Holy Nova are disarmed for 1 second. [W3] has 550 radius of effect."
     	"DOTA_Tooltip_ability_paladin_rune_w_3_property_one"			"Damage"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix"					"x Intelligence"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_property_two"			"Healing"
@@ -7281,7 +7282,7 @@
     	"DOTA_Tooltip_modifier_paladin_r_1_aura_armor_stacks_Description"	"Increased Armor"	
 
     	"DOTA_Tooltip_ability_paladin_rune_r_2"							"[R2] Empowering Light"
-    	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"Allies who are healed by Knight's Disciple gain attack damage and armor with each heal tick. The buff lasts 16 seconds."
+    	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"Allies who are healed by Knight's Disciple gain attack damage and armor with each heal tick. The buff lasts 16 seconds, max number of stacks is 30."
     	"DOTA_Tooltip_ability_paladin_rune_r_2_property_one"			"Attack Bonus / tick"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_suffix"					"%"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_property_two"			"Armor / tick"
@@ -7312,6 +7313,7 @@
     	"DOTA_Tooltip_ability_paladin_penance_Description"					"Element: <font color=\"#F6FFB5\">Holy</font> / <font color=\"#9ACCD1\">Ghost</font><br>Paladin impels a holy spirit lance that can target allies or enemies. Enemies around the initial target are also damaged. Allies who are hit by Penance are healed for 10% of the base ability damage."
     	"DOTA_Tooltip_ability_paladin_penance_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_paladin_penance_heal_percentage"				"HEAL PERCENTAGE:"
+		"DOTA_Tooltip_ability_paladin_penance_cast_range"					"CAST RANGE:"
 
     	"DOTA_Tooltip_modifier_penance_projectiles"							"Penance Lances"
     	"DOTA_Tooltip_modifier_penance_projectiles_Description"				"Paladin can have up to 10 lances active at a time"	
@@ -7325,7 +7327,7 @@
     	"DOTA_Tooltip_modifier_paladin_a_b_damage_growth_visible_Description"	"Increased attack power"
 
   		"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1"						"[W2] Grand Holy Nova"
-    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_Description"			"When a Penance projectile hits an enemy, a Holy Nova is emitted from the Paladin. Enemies who are hit take damage based on intellect and attack power, and are also disarmed for 1 second. Enemies receive a 0.5 second disarm immunity upon disarming."
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_Description"			"When a Penance projectile hits an enemy, a Holy Nova is emitted from the Paladin. Enemies who are hit take damage based on intellect and attack power, and are also disarmed for 1 second. Enemies receive a 0.5 second disarm immunity upon disarming. [W2] has 550 radius of effect."
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_property_one"		"Damage"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_suffix"				"x Intelligence"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_property_two"		"Bonus Damage"
@@ -7786,7 +7788,7 @@
     	"DOTA_Tooltip_modifier_lightbomb_q_1_Description"						"Increased Intelligence"	
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_2"									"[Q2] Amplifier"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_2_Description"						"Enemies hit by Lightbomb take increased post-mitigation damage from Sephyr."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_Description"						"Enemies hit by Lightbomb take increased post-mitigation damage from Sephyr. 7 seconds duration."
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_property_one"						"Post-Mitigation Amp"
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_suffix"							"%"
 
@@ -9494,7 +9496,7 @@
         "item_rpc_trapper_glyph_2_1_description"                "While vanished, restore @glyph_property1% of your max health every 0.1 seconds."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "Glyph of Paralyzing Dust"
-        "item_rpc_trapper_glyph_3_1_description"                "Casting @Ability3 paralyzes nearby enemies for @glyph_property1 seconds, preventing them from acting"
+        "item_rpc_trapper_glyph_3_1_description"                "Casting Vanish paralyzes nearby enemies for @glyph_property1 seconds, preventing them from acting"
 
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1"				"Crippling Poison"
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1_Description"	"Losing Attack Damage"
@@ -9680,7 +9682,7 @@
     	"DOTA_Tooltip_modifier_venomort_bonus_attack_damage_ally_Description"	"Increased attack power %"
 		
 		"DOTA_Tooltip_ability_venomort_rune_e_4"							"[E4] Sadism"
-    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"Each enemy unit currently suffering from any of Venomort's various poisons grants him a stack of increased health and evasion. Paragon enemies count as 5 units, while bosses count as 20."
+    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"Each enemy unit currently suffering from any of Venomort's various poisons grants him a stack of increased health and evasion. Paragon enemies count as 5 units, while bosses count as 20. Base duration - 1.5 seconds."
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_one"				"Bonus Health"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_suffix"						" per enemy"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_two"				"Bonus Evasion"
@@ -10326,7 +10328,7 @@
 
     	"DOTA_Tooltip_ability_zonik_rune_e_3"								"[E3] Blur"
     	"DOTA_Tooltip_ability_zonik_rune_e_3_Description"					"During Lightspeed, Zhonik reduces all physical and magical damage taken by a flat amount based on his agility."
-    	"DOTA_Tooltip_ability_zonik_rune_e_3_property_one"					"Physical Damage Block"
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_property_one"					"Physical and Magical Damage Block"
     	"DOTA_Tooltip_ability_zonik_rune_e_3_suffix"						" per Agility"
 
     	"DOTA_Tooltip_ability_zonik_rune_e_4"								"[E4] Sonic Rush"
@@ -11620,7 +11622,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
 		"item_property_arcane_cascade"				"Arcane Cascade"
-		"property_arcane_cascade_description"		"Drains @special_property1% of your max mana every @special_property2 seconds. All surrounding enemies take up to @special_property3x the mana drained as Magic Damage and also receive a -@special_property4 magic resistance debuff. Damage is reduced when hero is below max level."
+		"property_arcane_cascade_description"		"Drains @special_property1% of your max mana every @special_property2 seconds. All surrounding enemies in 750 radius take up to @special_property3x the mana drained as Magic Damage and also receive a -@special_property4 magic resistance debuff. Damage is reduced when hero is below max level."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
@@ -11961,7 +11963,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"Omega Ruby"
 		"item_property_omega_ruby"					"Omega Flare"
-		"property_omega_ruby"						"Your basic attacks have an explosive @special_property1% magic damage AOE. Stacks with other forms of cleave."
+		"property_omega_ruby"						"Your basic attacks have an explosive @special_property1% magic damage in 360 AOE. Stacks with other forms of cleave."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol LV1"
@@ -14568,7 +14570,7 @@
 		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability"	"Giga Ocean Elemental Passive"
 		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_Description"	"Massive attacks deal bonus magic damage and push enemies away. Additionally provides passive health regen."
 		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_damage"		"DAMAGE:"
-		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_Description"	"HEALTH REGEN:"
+		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_health_regen"	"HEALTH REGEN:"
 
 		"DOTA_Tooltip_ability_seafortress_temple_desolator_ai"			"Desolate Refraction"
 		"DOTA_Tooltip_ability_seafortress_temple_desolator_ai_Description"	"Each refraction stack absorbs an instance of damage. Also passively adds Evasion."

@@ -29,6 +29,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"cast_range"			"1100"
+			}
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
 		// Precache
@@ -267,9 +268,4 @@
 				"projectile"	"PROJECTILE"
 			}
 		}
-		"Modifiers"
-		{
-
-		}
 	}
-	

@@ -783,7 +783,7 @@
 		 "tanari_drowned_sorrow"						"淹没悲伤"
 		 "DOTA_Tooltip_ability_water_temple_water_nuke"				"波浪冲击"
 		 "DOTA_Tooltip_ability_water_temple_water_nuke_Description"		"向目标地点放出水波并对敌人造成伤害。"	
-		 "DOTA_Tooltip_ability_water_temple_water_nuke_damage"			伤害："
+		 "DOTA_Tooltip_ability_water_temple_water_nuke_damage"			"伤害："
 
 		 "water_archer_spirit"							"水之魂的弓箭手"
 		 "DOTA_Tooltip_ability_big_water_archer_passive"			"霜冻箭矢"
