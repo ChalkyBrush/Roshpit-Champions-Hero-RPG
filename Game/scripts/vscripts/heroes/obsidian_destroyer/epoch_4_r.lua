@@ -238,7 +238,8 @@ function eternity_flood_script(event)
   local radius = event.radius
 
   EmitSoundOn("Epoch.UltiStart", caster)
-  ability:ApplyDataDrivenThinker(caster, point, "modifier_eternity_flood_vacuum_thinker_datadriven", {})
+  --ability:ApplyDataDrivenThinker(caster, point, "modifier_eternity_flood_vacuum_thinker_datadriven", {})
+  CustomAbilities:QuickAttachThinker(ability, caster, point, "modifier_eternity_flood_vacuum_thinker_datadriven", {})
   Timers:CreateTimer(4.0, function()
     epoch_r_1(caster, point, 3, ability)
   end)

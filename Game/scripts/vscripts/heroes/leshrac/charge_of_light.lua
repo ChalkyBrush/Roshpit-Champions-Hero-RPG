@@ -306,8 +306,10 @@ function createWall(caster, wallLength, ability)
 	for i = loopCount, -loopCount-reduceLoop, 1 do
 		local obstructionPoint = point+ninetyDegrees*i*100
 		-- local obstruction = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = obstructionPoint, Name ="wallObstruction"})
-		wallAbility:ApplyDataDrivenThinker(caster, obstructionPoint, "modifier_leshrac_wall_thinker", {})
-		wallAbility:ApplyDataDrivenThinker(caster, obstructionPoint, "modifier_leshrac_self_finder", {})
+		--wallAbility:ApplyDataDrivenThinker(caster, obstructionPoint, "modifier_leshrac_wall_thinker", {})
+		CustomAbilities:QuickAttachThinker(wallAbility, caster, obstructionPoint, "modifier_leshrac_wall_thinker", {duration = 8})
+		--wallAbility:ApplyDataDrivenThinker(caster, obstructionPoint, "modifier_leshrac_self_finder", {})
+		CustomAbilities:QuickAttachThinker(wallAbility, caster, obstructionPoint, "modifier_leshrac_self_finder", {duration = 8})
 		-- table.insert(obstructionTable, obstruction)
 		AddFOWViewer(caster:GetTeamNumber(), obstructionPoint, 250, 8, false)
 	end

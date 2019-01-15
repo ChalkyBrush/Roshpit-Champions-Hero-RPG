@@ -150,7 +150,8 @@ function CastSunRay( event )
             caster:SetAbsOrigin( casterOrigin )
             if ability.rune_e_1 > 0 then
                 if ability.deltaTime%6 == 0 then
-                    ability:ApplyDataDrivenThinker(caster, casterOrigin, "fire_thinker", {duration = 4})
+                    --ability:ApplyDataDrivenThinker(caster, casterOrigin, "fire_thinker", {duration = 4})
+					CustomAbilities:QuickAttachThinker(ability, caster, casterOrigin, "fire_thinker", {duration = 4})
                 end
             end
             ability.deltaTime = ability.deltaTime + deltaTime*100
@@ -496,13 +497,16 @@ function heatwave_phase_think(event)
     end
     if ability.rune_e_1 > 0 then
         if ability.interval%2 == 0 then
-            ability:ApplyDataDrivenThinker(caster, casterOrigin, "fire_thinker", {duration = 4})
+			CustomAbilities:QuickAttachThinker(ability, caster, casterOrigin, "fire_thinker", {duration = 4})
+            --ability:ApplyDataDrivenThinker(caster, casterOrigin, "fire_thinker", {duration = 4})
             if ability.glyphed then
                 ability.pv = WallPhysics:rotateVector(ability.forward, math.pi/2)
                 local point = casterOrigin+ability.pv*100
-                ability:ApplyDataDrivenThinker(caster, point, "fire_thinker", {duration = 4})
+				CustomAbilities:QuickAttachThinker(ability, caster, casterOrigin, "fire_thinker", {duration = 4})
+                --ability:ApplyDataDrivenThinker(caster, point, "fire_thinker", {duration = 4})
                 point = casterOrigin-ability.pv*100
-                ability:ApplyDataDrivenThinker(caster, point, "fire_thinker", {duration = 4})
+				CustomAbilities:QuickAttachThinker(ability, caster, casterOrigin, "fire_thinker", {duration = 4})
+                --ability:ApplyDataDrivenThinker(caster, point, "fire_thinker", {duration = 4})
             end
         end
     end

@@ -691,7 +691,8 @@ function fungal_overlord_think(event)
 			local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), MAIN_HERO_TABLE[i]:GetAbsOrigin())
 			if distance < 3000 then
 				local position = MAIN_HERO_TABLE[i]:GetAbsOrigin() + RandomVector(110)
-				ability:ApplyDataDrivenThinker(caster, position, "modifier_poison_cloud_thinker", {})
+				--ability:ApplyDataDrivenThinker(caster, position, "modifier_poison_cloud_thinker", {})
+				CustomAbilities:QuickAttachThinker(ability, caster, position, "modifier_poison_cloud_thinker", {})
 			end
 		end
 	end
@@ -712,7 +713,8 @@ function fungal_overlord_think(event)
       		local fv = caster:GetForwardVector()
       		local rotatedFv = WallPhysics:rotateVector(fv, math.pi*2/gasCount*i)
       		local gasPosition = caster:GetAbsOrigin()+rotatedFv*distance
-      		ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
+      		--ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
+			CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {})
       	end
       	Timers:CreateTimer(0.5, function()
       		distance = distance + 200
@@ -721,7 +723,8 @@ function fungal_overlord_think(event)
 	      		local fv = caster:GetForwardVector()
 	      		local rotatedFv = WallPhysics:rotateVector(fv, math.pi*2/gasCount*i)
 	      		local gasPosition = caster:GetAbsOrigin()+rotatedFv*distance
-	      		ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
+	      		--ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
+				CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {})
 	      	end
 	      	Timers:CreateTimer(0.5, function()
 	      		distance = distance + 200
@@ -730,7 +733,8 @@ function fungal_overlord_think(event)
 		      		local fv = caster:GetForwardVector()
 		      		local rotatedFv = WallPhysics:rotateVector(fv, math.pi*2/gasCount*i)
 		      		local gasPosition = caster:GetAbsOrigin()+rotatedFv*distance
-		      		ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
+		      		--ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
+					CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {})
 		      	end
 	      	end)
       	end)
@@ -4737,12 +4741,15 @@ function silt_whirlpool_create(event)
 	local ability = event.ability
 	local point = event.target_points[1]
 	EmitSoundOn("Seafortress.Skultoth.SummonAmbient", caster)
-	ability:ApplyDataDrivenThinker(caster, point, "modifier_whirlpool_thinker", {})
+	--ability:ApplyDataDrivenThinker(caster, point, "modifier_whirlpool_thinker", {})
+	CustomAbilities:QuickAttachThinker(ability, caster, point, "modifier_whirlpool_thinker", {})
 	if caster:GetHealth() < caster:GetMaxHealth()*0.66 then
-		ability:ApplyDataDrivenThinker(caster, point+RandomVector(300), "modifier_whirlpool_thinker", {})
+		--ability:ApplyDataDrivenThinker(caster, point+RandomVector(300), "modifier_whirlpool_thinker", {})
+		CustomAbilities:QuickAttachThinker(ability, caster, point+RandomVector(300), "modifier_whirlpool_thinker", {})
 	end
 	if caster:GetHealth() < caster:GetMaxHealth()*0.33 then
-		ability:ApplyDataDrivenThinker(caster, point+RandomVector(600), "modifier_whirlpool_thinker", {})
+		--ability:ApplyDataDrivenThinker(caster, point+RandomVector(600), "modifier_whirlpool_thinker", {})
+		CustomAbilities:QuickAttachThinker(ability, caster, point+RandomVector(600), "modifier_whirlpool_thinker", {})
 	end	
 end
 

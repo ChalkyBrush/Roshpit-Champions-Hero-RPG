@@ -303,7 +303,8 @@ function c_c_pit(caster, ability, targetPoint)
 		local duration = 1 + 0.3*c_c_level
 		local modifierName = "modifier_solunia_warp_core_thinker"
 		duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
-		ability:ApplyDataDrivenThinker(caster, GetGroundPosition(targetPoint, caster), modifierName, {duration = duration})
+		--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(targetPoint, caster), modifierName, {duration = duration})
+		CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(targetPoint, caster), modifierName, {duration = duration})
 	end
 end
 
