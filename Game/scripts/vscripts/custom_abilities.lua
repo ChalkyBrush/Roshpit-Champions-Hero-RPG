@@ -249,8 +249,10 @@ function CustomAbilities:QuickAttachThinker(ability, caster, position, thinkerNa
 		Timers:CreateTimer(thinkerDuration.duration, function()
 			UTIL_Remove(thinker)
 		end)
+		return thinker
 	else
 		print("Err CustomAbilities:QuickAttachThinker")	
+		print(thinkerName)	
 	end
 end
 

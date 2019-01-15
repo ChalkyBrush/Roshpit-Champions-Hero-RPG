@@ -17,14 +17,14 @@ function river_of_souls_start(event)
 		ParticleManager:SetParticleControl(portalPFX, 1, Vector(5,5,5))
 		if #ability.portalTable == 0 then
 			--ability.portalTable[1] = ability:ApplyDataDrivenThinker(caster, point, "modifier_river_of_souls_thinker", {})
-			CustomAbilities:QuickAttachThinker(ability, caster, point, "modifier_river_of_souls_thinker", {})
+			ability.portalTable[1] = CustomAbilities:QuickAttachThinker(ability, caster, point, "modifier_river_of_souls_thinker", {duration = 18000})
 			ability.portalTable[1].pfx = portalPFX
 			ability.portalTable[1].position = portalPosition
 			ability.portalTable[1].visionDummy = CreateUnitByName("npc_flying_dummy_vision", portalPosition, false, nil, nil, caster:GetTeamNumber())
 			ability.portalTable[1].visionDummy:FindAbilityByName("dummy_unit"):SetLevel(1)
 		elseif #ability.portalTable == 1 then
 			--ability.portalTable[2] = ability:ApplyDataDrivenThinker(caster, point, "modifier_river_of_souls_thinker", {})
-			CustomAbilities:QuickAttachThinker(ability, caster, point, "modifier_river_of_souls_thinker", {})
+			ability.portalTable[2] = CustomAbilities:QuickAttachThinker(ability, caster, point, "modifier_river_of_souls_thinker", {duration = 18000})
 			ability.portalTable[2].pfx = portalPFX
 			ability.portalTable[2].position = portalPosition
 			ability.portalTable[2].visionDummy = CreateUnitByName("npc_flying_dummy_vision", portalPosition, false, nil, nil, caster:GetTeamNumber())
@@ -36,7 +36,7 @@ function river_of_souls_start(event)
 			local newPortalTable = {}
 			newPortalTable[1] = ability.portalTable[2]
 			--newPortalTable[2] = ability:ApplyDataDrivenThinker(caster, point, "modifier_river_of_souls_thinker", {})
-			CustomAbilities:QuickAttachThinker(ability, caster, point, "modifier_river_of_souls_thinker", {})
+			newPortalTable[2] = CustomAbilities:QuickAttachThinker(ability, caster, point, "modifier_river_of_souls_thinker", {duration = 18000})
 			newPortalTable[2].pfx = portalPFX
 			newPortalTable[2].position = portalPosition
 			newPortalTable[2].visionDummy = CreateUnitByName("npc_flying_dummy_vision", portalPosition, false, nil, nil, caster:GetTeamNumber())
