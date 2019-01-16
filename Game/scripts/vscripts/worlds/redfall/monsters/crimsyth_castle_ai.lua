@@ -1020,6 +1020,9 @@ function hawk_knight_lock_think(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
+	if not ability then
+		return
+	end
 	ability.lockCount = ability.lockCount + 1
 	local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), target:GetAbsOrigin())
 	local moveVector = ((target:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
@@ -4278,7 +4281,7 @@ end
 function demon_follower_think(event)
 	local caster = event.caster
 	local castAbility = caster:FindAbilityByName("redfall_demon_follower_finger")
-	if castAbility:IsFullyCastable() then
+	if castAbility and castAbility:IsFullyCastable() then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false )	
 		if #enemies > 0 then
 			local castPoint = enemies[1]:GetAbsOrigin()

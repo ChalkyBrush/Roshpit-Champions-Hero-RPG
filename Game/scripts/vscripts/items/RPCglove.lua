@@ -15,6 +15,7 @@ function RPCItems:RollHand(xpBounty, deathLocation, rarity, isShop, type, hero, 
     local rarityValue = RPCItems:GetRarityFactor(rarity)
     if rarityValue == 5 then
         if RPCItems:HandLegendary(itemVariant, deathLocation) then
+			UTIL_Remove(item)
             return nil
         end
     end

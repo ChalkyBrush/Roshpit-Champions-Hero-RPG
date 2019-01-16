@@ -18,7 +18,8 @@ function generic_pit_enemy_die(event)
 	local premiumCount = GameState:GetPlayerPremiumStatusCount()
 	local luck = RandomInt(1,7000-(1000*premiumCount))
 	if luck == 1 then
-		Arena:RollPitPrizebox(event.unit:GetAbsOrigin())
+		--no difinition for *hero*
+		--Arena:RollPitPrizebox(event.unit:GetAbsOrigin())
 	end
 	local luck2 = RandomInt(1, 3000-(500*premiumCount))
 	if luck2 == 1 then
@@ -202,6 +203,9 @@ end
 function gladiator_take_damage(event)
 	local caster = event.caster
 	local ability = event.ability
+	if not Arena then
+		return
+	end
 	if not Arena.spawnGhouls then
 		Arena.spawnGhouls = true
 		Arena:SpawnGhouls()
@@ -213,7 +217,7 @@ end
 
 function gladiator_die(event)
 	local unit = event.unit
-	if unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+	if Arena and unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 		Arena:SpawnRoom2()
 	end
 end
@@ -2278,6 +2282,13 @@ function pit_tombstone_think(event)
 		caster.totalSummons = 0
 	end
 	if #caster.summonTable > 9 then
+		local newTable = {}
+		for i = 1, #caster.summonTable, 1 do
+			if IsValidEntity(caster.summonTable[i]) then
+				table.insert(newTable, caster.summonTable[i])
+			end
+		end
+		caster.summonTable = newTable	
 		return
 	end
 	caster.totalSummons = caster.totalSummons + 1

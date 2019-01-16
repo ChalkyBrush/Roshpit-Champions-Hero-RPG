@@ -45,6 +45,9 @@ function angry_fish_die(event)
 	if not caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 		return false
 	end
+	if not Tanari then
+		return
+	end
 	Tanari.unibi.angryFishCount = Tanari.unibi.angryFishCount + 1
 end
 
