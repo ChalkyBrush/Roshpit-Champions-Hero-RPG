@@ -69299,7 +69299,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"specter_desolate"
+		"AbilityTextureName"	"winterblight/spectre_desolate"
 		"AOERadius"			"600"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -69875,7 +69875,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"specter_desolate"
+		"AbilityTextureName"	"winterblight/spectre_desolate"
 		"AOERadius"			"600"
 		"MaxLevel"	"3"
 		"Modifiers"
@@ -69945,7 +69945,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"specter_desolate"
+		"AbilityTextureName"	"winterblight/spectre_desolate"
 		"AOERadius"			"600"
 		"MaxLevel"	"3"
 		"Modifiers"
