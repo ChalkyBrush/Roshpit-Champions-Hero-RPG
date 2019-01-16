@@ -29,6 +29,7 @@ require('items/synthesis')
 require('curator')
 
 function RPCItems:LaunchLoot(item, height, duration, destinationPosition, origPosition)
+	destinationPosition = GetGroundPosition(destinationPosition, Events.GameMaster)
 	local deltaX = destinationPosition.x - origPosition.x
 	local deltaY = destinationPosition.y - origPosition.y
 
