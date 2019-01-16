@@ -29,7 +29,7 @@ require('items/synthesis')
 require('curator')
 
 function RPCItems:LaunchLoot(item, height, duration, destinationPosition, origPosition)
-	destinationPosition = GetGroundPosition(destinationPosition, Events.GameMaster)
+	destinationPosition = GetGroundPosition(destinationPosition, item)
 	local deltaX = destinationPosition.x - origPosition.x
 	local deltaY = destinationPosition.y - origPosition.y
 
@@ -51,6 +51,13 @@ function RPCItems:LaunchLoot(item, height, duration, destinationPosition, origPo
 			end
 		end)
 	end
+	Timers:CreateTimer(duration+0.1, function()
+		if item and IsValidEntity(item) and IsValidEntity(item:GetContainer()) then
+			local position = Vector(destinationPosition.x, destinationPosition.y, GetGroundHeight(item:GetContainer():GetAbsOrigin(), item:GetContainer()))
+			item:SetAbsOrigin(position)
+			item:GetContainer():SetAbsOrigin(position)
+		end
+	end)
 end
 
 function RPCItems:RollDrops(unit, killer)
