@@ -294,6 +294,7 @@
 			"modifier_corpse_pickup_passive"
 			{
 				"Passive"			"1"
+				"IsHidden"	"1"
 				"Aura"          	"modifier_corpse_pickup_aura"
 				"Aura_Radius"   	"160"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
