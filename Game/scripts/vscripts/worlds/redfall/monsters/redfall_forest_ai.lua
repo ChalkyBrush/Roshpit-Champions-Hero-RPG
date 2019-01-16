@@ -672,7 +672,7 @@ function forest_ranger_think(event)
 		end
 		local ability = event.ability
 		local castAbility = caster:FindAbilityByName("redfall_dodge_ability")
-		if castAbility:IsFullyCastable() then
+		if castAbility and castAbility:IsFullyCastable() then
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, jumpDetectRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
 			if #enemies > 0 then
 				local castPoint = enemies[1]:GetAbsOrigin()
@@ -712,6 +712,9 @@ function forest_ranger_die(event)
 	local caster = event.caster
 	if not caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 		return false
+	end
+	if not Redfall then
+		return
 	end
 	if not Redfall.ForestRangersDied then
 		Redfall.ForestRangersDied = 0
@@ -1075,6 +1078,9 @@ function crimsyth_cultist_die(event)
 		return false
 	end
 	local treeDummy = caster.treeDummy
+	if not treeDummy then
+		return
+	end
 	treeDummy.cultistsSlain = treeDummy.cultistsSlain + 1
 	if treeDummy.boss then
 		if treeDummy.cultistsSlain == 20 then

@@ -203,6 +203,9 @@ end
 function gladiator_take_damage(event)
 	local caster = event.caster
 	local ability = event.ability
+	if not Arena then
+		return
+	end
 	if not Arena.spawnGhouls then
 		Arena.spawnGhouls = true
 		Arena:SpawnGhouls()
@@ -214,7 +217,7 @@ end
 
 function gladiator_die(event)
 	local unit = event.unit
-	if unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+	if Arena and unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 		Arena:SpawnRoom2()
 	end
 end

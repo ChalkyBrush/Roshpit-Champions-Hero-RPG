@@ -392,6 +392,9 @@ function temple_activator_activated(event)
 end
 
 function desert_ruins_mob_death(event)
+	if not Dungeons or not Dungeons.ruinsKills then
+		return
+	end
 	Dungeons.ruinsKills = Dungeons.ruinsKills + 1
 	local caster = event.caster
 	if Dungeons.ruinsKills >= Dungeons.ruinsKillsThreshold and Dungeons.ruinsRoomEnabled then

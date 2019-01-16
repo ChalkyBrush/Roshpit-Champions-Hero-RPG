@@ -92,11 +92,17 @@ end
 function activate_lightning_enchant(event)
 	local caster = event.caster
 	local ability = event.ability
+	if not ability then
+		return
+	end
 	caster:AddAbility("paragon_electrified_ability"):SetLevel(1)
 end
 
 function lightning_enchant_think(event)
 	local ability = event.ability
+	if not ability then
+		return
+	end
 	ability.lightnings = 0
 end
 
