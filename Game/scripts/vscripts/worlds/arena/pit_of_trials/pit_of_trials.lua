@@ -2037,6 +2037,11 @@ function Arena:RollPitPrizebox(deathLocation)
 	local baseLevel = 0
 	local rarity = "mythical"
 	local prizeLevel = RPCItems:GetLogarithmicVarianceValue(140+Arena.PitLevel*10, 0, 0, 0, 0)
+	
+	--no difinition for *hero*
+	if not hero then
+		return
+	end
 	if GameState:GetPlayerPremiumStatus(hero:GetPlayerOwnerID()) then
 		prizeLevel = math.ceil(prizeLevel*(1+(0.3*GameState:GetPlayerPremiumStatusCount())))
 	end

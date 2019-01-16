@@ -226,7 +226,9 @@ function frost_nova_activate(event)
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
-			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_paragon_frostbitten_effect", {duration = freezeDuration})
+			if ability then
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_paragon_frostbitten_effect", {duration = freezeDuration})
+			end
 		end
 	end 
 end
@@ -267,7 +269,7 @@ function light_infused_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local flashHeal = caster:FindAbilityByName("grizzly_healer_flash_heal")
-	if flashHeal:IsFullyCastable() then
+	if flashHeal and flashHeal:IsFullyCastable() then
 		local target_teams = DOTA_UNIT_TARGET_TEAM_FRIENDLY
 		local target_types = DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC
 		local target_flags = DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS

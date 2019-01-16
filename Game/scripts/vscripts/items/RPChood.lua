@@ -19,6 +19,7 @@ function RPCItems:RollHood(xpBounty, deathLocation, rarity, isShop, type, hero, 
 
     if rarityValue == 5 then
         if RPCItems:HoodLegendary(itemVariant, deathLocation, isShop) then
+			UTIL_Remove(item)
             return nil
         end
     end
