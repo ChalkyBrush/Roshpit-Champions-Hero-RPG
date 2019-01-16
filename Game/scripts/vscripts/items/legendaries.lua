@@ -6990,7 +6990,7 @@ function RPCItems:RollPhoenixEmblem(deathLocation)
     item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_phoenix_emblem", "#C98920",  1, "#property_phoenix_emblem")
 
-    local value, prefixLevel = RPCItems:RollAttribute(100, 5, 10, 0, 0, item.rarity, false, maxFactor*30)
+    local value, prefixLevel = RPCItems:RollAttribute(100, 5, 23, 0, 0, item.rarity, false, maxFactor*30)
     item.property2 = value
     item.property2name = "health_regen"
     RPCItems:SetPropertyValues(item, item.property2, "#item_health_regen", "#6AA364",  2)  
