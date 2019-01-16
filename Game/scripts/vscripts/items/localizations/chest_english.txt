@@ -4,6 +4,8 @@
 		"property_hurricane_description"			"When you cast @Ability4, a hurricane of <% HURRICANE_VEST_HURRICANE_COUNT %> whirlwinds travel outward from you in all directions, slowing enemies' attack speed by <% HURRICANE_VEST_ATT_SPD_REDUCE %> and movespeed by <% HURRICANE_VEST_MSP_REDUCE %> for <% HURRICANE_VEST_SLOW_DUR %> seconds. Each whirlwind also deals damage equal to <% HURRICANE_VEST_DMG_AMP %> * (Hero Level / 120) * (<% HURRICANE_VEST_MAX_DISTANCE %> - distance between caster and target))^<% HURRICANE_VEST_DMG_EXP_SCALE %>; the winds lose strength as they travel."
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"Hurricane"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"Buffeted by strong winds"
+		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow"			"Hurricane slow"
+		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow_Description"	"Slowed"
 
 
 		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
