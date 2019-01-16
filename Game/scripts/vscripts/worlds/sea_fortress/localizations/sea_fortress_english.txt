@@ -349,6 +349,7 @@
 		"DOTA_Tooltip_ability_seafortress_jailer_passive"			"Sea Fortress Jailer"
 		"DOTA_Tooltip_ability_seafortress_jailer_passive_Description"	"Seeking to keep all beings in prison where they belong."
 		"DOTA_Tooltip_ability_seafortress_jailer_passive_bleed_damage"	"BLEED DAMAGE:"
+		"DOTA_Tooltip_modifier_hook_root"			"Hook root"
 
 		"DOTA_Tooltip_ability_ability_magic_immune_break"			"Magic Immune Break"
 		"DOTA_Tooltip_ability_ability_magic_immune_break_Description"	"Successful attacks remove magic immunity from the target."
