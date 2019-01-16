@@ -183,7 +183,7 @@ function get_ability_name_by_element_combination_and_key(element1, element2, abi
 		if element1 == "nature" and element2 == "nature" then
 			ability_name = ""
 		elseif (element1 == "nature" and element2 == "lightning") or (element1 == "lightning" and element2 == "nature") then
-			ability_name = ""
+			ability_name = "jex_lightning_nature_e"
 		elseif (element1 == "nature" and element2 == "cosmic") or (element1 == "cosmic" and element2 == "nature") then
 			ability_name = ""
 		elseif element1 == "lightning" and element2 == "lightning" then

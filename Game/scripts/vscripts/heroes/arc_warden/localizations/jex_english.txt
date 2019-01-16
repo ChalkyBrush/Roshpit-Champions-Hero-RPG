@@ -48,3 +48,6 @@
 
 "DOTA_Tooltip_ability_jex_cosmic_cosmic_e"					"Xenon Warp"
 "DOTA_Tooltip_ability_jex_cosmic_cosmic_e_Description"		""
+
+"DOTA_Tooltip_ability_jex_lightning_nature_e"				"Thunder Blossom"
+"DOTA_Tooltip_ability_jex_lightning_nature_e_Description"	""
