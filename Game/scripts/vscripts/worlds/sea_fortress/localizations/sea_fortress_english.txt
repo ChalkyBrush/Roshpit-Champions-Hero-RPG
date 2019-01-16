@@ -724,3 +724,6 @@
 		"seafortress_archon_wizard"										"Archon Wizard"
 		
 		"seafortress_wandering_pirate"									"Wandering Pirate"
+		
+		"DOTA_Tooltip_modifier_mega_haste_passive"						"Mega Haste"
+		"DOTA_Tooltip_modifier_mega_haste_passive_Description"			"Movespeed and movespeed cap increased by 500."
