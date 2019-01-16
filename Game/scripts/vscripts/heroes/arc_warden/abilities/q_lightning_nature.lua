@@ -4,6 +4,7 @@ function jex_activate_charged_mushroom(event)
 	local point = event.target_points[1]
 
 	local tech_level = caster.onibi.stats_table["lightning"]["nature"]["Q"]["level"]
+	ability.tech_level = tech_level
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf", point, 3)
 
 	local shroom = CreateUnitByName("jex_charged_mushroom", point, false, caster, caster, caster:GetTeamNumber())
@@ -41,7 +42,8 @@ function jex_charged_mushroom_spawning(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	target:SetModelScale(target:GetModelScale()+0.05)
+	local increase = 0.05+(ability.tech_level/1200)
+	target:SetModelScale(target:GetModelScale()+increase)
 end
 
 function jex_thundershroom_attack_land(event)

@@ -1346,6 +1346,7 @@
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AbilityCastRange"				"1000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -2405,6 +2406,7 @@
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AbilityCastRange"				"900 1000 1100 1200 1300 1400 1500"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -2449,6 +2451,21 @@
 				"var_type"				"FIELD_INTEGER"
 				"attack_mult_per_tech"				"1"
 			}	
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_range_base"				"375"
+			}	
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_range_per_tech"				"125"
+			}	
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"				"900 1000 1100 1200 1300 1400 1500"
+			}			
 		}
 		"OnSpellStart"
 		{
@@ -2458,7 +2475,7 @@
 				"Function"		"jex_activate_thunder_blossom"
 				"target"		"POINT"
 				"chain_target_count"	"%chain_lightning_max_targets_per_tech"
-				"duration"			"%duration"
+				"duration_per_tech"			"%duration_per_tech"
 				"health_mult"			"%health_mult"
 				"armor_mult_per_tech"			"%armor_mult_per_tech"
 				"attack_mult_per_tech"			"%attack_mult_per_tech"
@@ -2474,6 +2491,12 @@
 				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
 				"StatusEffectPriority"	"110"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"EffectName"		"particles/roshpit/jex/thunder_flow_ambient.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
 				{
@@ -2516,6 +2539,9 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"jex/onibi_lightning"
+		"AbilityCastRange"				"99999"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 
@@ -2550,9 +2576,31 @@
 		}
 		"Modifiers"
 		{
+			"modifier_blossom_glow_effect"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"EffectName"		"particles/roshpit/jex/nature_bush_ambient.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
 			"modifier_thunder_blossom_teleporting"
 			{
 				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/e_lightning_nature.lua"
+						"Function"		"thunder_blossom_teleporting_think"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 	}
