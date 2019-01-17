@@ -173,8 +173,8 @@ function lightbomb_cast(event)
 	local q_1_level = caster:GetRuneValue("q", 1)
 	if q_1_level > 0 then
 		local buffDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_lightbomb_a_a", {duration = buffDuration})
-		caster:SetModifierStackCount("modifier_lightbomb_a_a", caster, q_1_level)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_lightbomb_q_1", {duration = buffDuration})
+		caster:SetModifierStackCount("modifier_lightbomb_q_1", caster, q_1_level)
 	end
 	local q_3_level = caster:GetRuneValue("q", 3)
 	if q_3_level > 0 then

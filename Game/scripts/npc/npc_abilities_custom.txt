@@ -48763,7 +48763,7 @@
 					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"modifier_lightbomb_a_a"
+			"modifier_lightbomb_q_1"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
