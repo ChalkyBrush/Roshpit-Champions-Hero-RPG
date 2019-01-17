@@ -15166,12 +15166,6 @@
 				"Target" 		"POINT"
 			}
 
-			"CreateThinker"
-			{
-				"ModifierName"	"modifier_vacuum_thinker_datadriven"
-				"Target" 		"POINT"
-			}
-
 			"DelayedAction"
 			{
 				"Delay"		"%light_strike_array_delay_time"
@@ -24645,14 +24639,6 @@
 	        	"Target"	"POINT"
 	        	"Radius"	"%radius"
 	        }
-			"CreateThinker"
-			{
-				"ModifierName"		"shadow_gate_thinker"
-				"Target"
-				{
-					"Center" 	"POINT"
-				}
-			}
 		}
 		"OnProjectileHitUnit"
 		{
@@ -38779,20 +38765,16 @@
                 "tick_rate"             "0.5"
             }
         }
-
-        "OnSpellStart"
-        {
-            "CreateThinker"
-            {
-                "ModifierName"  "modifier_moon_shroud_thinker"
-                "Target"        "POINT"
-            }
-            "CreateThinker"
-            {
-                "ModifierName"  "friendly_moon_shroud_thinker"
-                "Target"        "POINT"
-            }
-        }
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/moon_ranger/moon_shroud.lua"
+				"Function"		"moon_shroud_start_thinkers"
+				"Target"		"POINT"
+			}
+		}
 
         "Modifiers"
         {
@@ -44217,7 +44199,8 @@
 			"RunScript"
 			{
 				"ScriptFile"	"heroes/obsidian_destroyer/epoch_4_r.lua"
-				"Function"		"channel_end"
+				"Function"		"channel_succeeded"
+				"Target"		"POINT"
 			}
 			"FireSound"
 			{
@@ -44245,12 +44228,6 @@
 	            	}
 	            }
 
-			}
-
-			"CreateThinker"
-			{
-				"ModifierName"	"modifier_eternity_flood_vacuum_thinker_datadriven"
-				"Target" 		"POINT"
 			}
 
 		}
@@ -74294,14 +74271,11 @@
 
 		"OnOwnerDied"
 		{
-			"CreateThinker"
+			"RunScript"
 			{
-				"ModifierName"			"creature_acid_spray_thinker"
-				"Target"
-				{
-					"Center" 	"CASTER"
-					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
-				}
+				"ScriptFile"	"ai/generic_npc_logic.lua"
+				"Function"		"creature_acid_spray_thinker"
+				"Target"		"CASTER"
 			}
 
 			"FireEffect"
@@ -74481,14 +74455,11 @@
 
 		"OnOwnerDied"
 		{
-			"CreateThinker"
+			"RunScript"
 			{
-				"ModifierName"			"creature_acid_spray_thinker"
-				"Target"
-				{
-					"Center" 	"CASTER"
-					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
-				}
+				"ScriptFile"	"ai/generic_npc_logic.lua"
+				"Function"		"creature_acid_spray_thinker"
+				"Target"		"CASTER"
 			}
 
 			"FireEffect"
@@ -78086,10 +78057,11 @@
 				"ThinkInterval"  "0.9"
 				"OnIntervalThink"
 				{
-					"CreateThinker"
+					"RunScript"
 					{
-						"ModifierName"	"modifier_henchman_ground_fire"
-						"Target" 		"CASTER"
+						"ScriptFile"	"ai/generic_npc_logic.lua"
+						"Function"		"modifier_henchman_ground_fire_thinker"
+						"Target"		"CASTER"
 					}
 				}
         	}
@@ -130244,10 +130216,11 @@
 				"ThinkInterval"  "0.9"
 				"OnIntervalThink"
 				{
-					"CreateThinker"
+					"RunScript"
 					{
-						"ModifierName"	"modifier_henchman_ground_fire"
-						"Target" 		"CASTER"
+						"ScriptFile"	"ai/generic_npc_logic.lua"
+						"Function"		"modifier_henchman_ground_fire_thinker"
+						"Target"		"CASTER"
 					}
 				}
         	}
@@ -130543,10 +130516,11 @@
 				"ThinkInterval"  "0.2"
 				"OnIntervalThink"
 				{
-					"CreateThinker"
+					"RunScript"
 					{
-						"ModifierName"	"modifier_henchman_ground_fire"
-						"Target" 		"CASTER"
+						"ScriptFile"	"ai/generic_npc_logic.lua"
+						"Function"		"modifier_henchman_ground_fire_thinker"
+						"Target"		"CASTER"
 					}
 				}
         	}
@@ -133589,10 +133563,11 @@
 		}
 		"OnSpellStart"
 		{
-			"CreateThinker"
+			"RunScript"
 			{
-				"ModifierName"	"modifier_shadow_cloud_thinker"
-				"Target" 		"CASTER"
+				"ScriptFile"	"ai/generic_npc_logic.lua"
+				"Function"		"modifier_shadow_cloud_thinker"
+				"Target"		"CASTER"
 			}
 		}
 		"Modifiers"

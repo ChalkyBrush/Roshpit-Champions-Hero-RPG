@@ -1226,14 +1226,11 @@
 
 		"OnOwnerDied"
 		{
-			"CreateThinker"
+			"RunScript"
 			{
-				"ModifierName"			"creature_acid_spray_thinker"
-				"Target"
-				{
-					"Center" 	"CASTER"
-					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
-				}
+				"ScriptFile"	"ai/generic_npc_logic.lua"
+				"Function"		"creature_acid_spray_thinker"
+				"Target"		"CASTER"
 			}
 
 			"FireEffect"
@@ -1413,14 +1410,11 @@
 
 		"OnOwnerDied"
 		{
-			"CreateThinker"
+			"RunScript"
 			{
-				"ModifierName"			"creature_acid_spray_thinker"
-				"Target"
-				{
-					"Center" 	"CASTER"
-					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
-				}
+				"ScriptFile"	"ai/generic_npc_logic.lua"
+				"Function"		"creature_acid_spray_thinker"
+				"Target"		"CASTER"
 			}
 
 			"FireEffect"
@@ -5018,10 +5012,11 @@
 				"ThinkInterval"  "0.9"
 				"OnIntervalThink"
 				{
-					"CreateThinker"
+					"RunScript"
 					{
-						"ModifierName"	"modifier_henchman_ground_fire"
-						"Target" 		"CASTER"
+						"ScriptFile"	"ai/generic_npc_logic.lua"
+						"Function"		"modifier_henchman_ground_fire_thinker"
+						"Target"		"CASTER"
 					}
 				}
         	}
@@ -57176,10 +57171,11 @@
 				"ThinkInterval"  "0.9"
 				"OnIntervalThink"
 				{
-					"CreateThinker"
+					"RunScript"
 					{
-						"ModifierName"	"modifier_henchman_ground_fire"
-						"Target" 		"CASTER"
+						"ScriptFile"	"ai/generic_npc_logic.lua"
+						"Function"		"modifier_henchman_ground_fire_thinker"
+						"Target"		"CASTER"
 					}
 				}
         	}
@@ -57475,10 +57471,11 @@
 				"ThinkInterval"  "0.2"
 				"OnIntervalThink"
 				{
-					"CreateThinker"
+					"RunScript"
 					{
-						"ModifierName"	"modifier_henchman_ground_fire"
-						"Target" 		"CASTER"
+						"ScriptFile"	"ai/generic_npc_logic.lua"
+						"Function"		"modifier_henchman_ground_fire_thinker"
+						"Target"		"CASTER"
 					}
 				}
         	}
@@ -60521,10 +60518,11 @@
 		}
 		"OnSpellStart"
 		{
-			"CreateThinker"
+			"RunScript"
 			{
-				"ModifierName"	"modifier_shadow_cloud_thinker"
-				"Target" 		"CASTER"
+				"ScriptFile"	"ai/generic_npc_logic.lua"
+				"Function"		"modifier_shadow_cloud_thinker"
+				"Target"		"CASTER"
 			}
 		}
 		"Modifiers"
