@@ -692,7 +692,7 @@ function fungal_overlord_think(event)
 			if distance < 3000 then
 				local position = MAIN_HERO_TABLE[i]:GetAbsOrigin() + RandomVector(110)
 				--ability:ApplyDataDrivenThinker(caster, position, "modifier_poison_cloud_thinker", {})
-				CustomAbilities:QuickAttachThinker(ability, caster, position, "modifier_poison_cloud_thinker", {})
+				CustomAbilities:QuickAttachThinker(ability, caster, position, "modifier_poison_cloud_thinker", {duration = 5})
 			end
 		end
 	end
@@ -714,7 +714,7 @@ function fungal_overlord_think(event)
       		local rotatedFv = WallPhysics:rotateVector(fv, math.pi*2/gasCount*i)
       		local gasPosition = caster:GetAbsOrigin()+rotatedFv*distance
       		--ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
-			CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {})
+			CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {duration = 5})
       	end
       	Timers:CreateTimer(0.5, function()
       		distance = distance + 200
@@ -724,7 +724,7 @@ function fungal_overlord_think(event)
 	      		local rotatedFv = WallPhysics:rotateVector(fv, math.pi*2/gasCount*i)
 	      		local gasPosition = caster:GetAbsOrigin()+rotatedFv*distance
 	      		--ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
-				CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {})
+				CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {duration = 5})
 	      	end
 	      	Timers:CreateTimer(0.5, function()
 	      		distance = distance + 200
@@ -734,7 +734,7 @@ function fungal_overlord_think(event)
 		      		local rotatedFv = WallPhysics:rotateVector(fv, math.pi*2/gasCount*i)
 		      		local gasPosition = caster:GetAbsOrigin()+rotatedFv*distance
 		      		--ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
-					CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {})
+					CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {duration = 5})
 		      	end
 	      	end)
       	end)
