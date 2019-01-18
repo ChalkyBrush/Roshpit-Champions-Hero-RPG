@@ -337,7 +337,7 @@ function RPCItems:RollTrapperArcana1(deathLocation)
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
 
-    local value, prefixLevel = RPCItems:RollAttribute(100, 10, 200, 0, 0, item.rarity, false, maxFactor*500)
+    local value, prefixLevel = RPCItems:RollAttribute(100, 100, 380, 0, 0, item.rarity, false, maxFactor*500)
     item.property3 = value
     item.property3name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property3, "#item_bonus_attack_damage", "#343EC9",  3) 
@@ -611,7 +611,7 @@ function RPCItems:RollVenomortArcana1(deathLocation)
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
 
-    local value, prefixLevel = RPCItems:RollAttribute(100, 10, 200, 0, 0, item.rarity, false, maxFactor*800)
+    local value, prefixLevel = RPCItems:RollAttribute(100, 150, 600, 0, 0, item.rarity, false, maxFactor*800)
     item.property3 = value
     item.property3name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property3, "#item_bonus_attack_damage", "#343EC9",  3) 
@@ -1789,7 +1789,7 @@ function RPCItems:RollDinathArcana1(deathLocation)
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
 
-    local value, prefixLevel = RPCItems:RollAttribute(100, 10, 150, 0, 0, item.rarity, false, maxFactor*400)
+    local value, prefixLevel = RPCItems:RollAttribute(100, 100, 310, 0, 0, item.rarity, false, maxFactor*400)
     item.property3 = value
     item.property3name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property3, "#item_bonus_attack_damage", "#343EC9",  3) 
