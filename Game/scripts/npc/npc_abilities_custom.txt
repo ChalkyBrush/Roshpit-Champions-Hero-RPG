@@ -294,6 +294,7 @@
 			"modifier_corpse_pickup_passive"
 			{
 				"Passive"			"1"
+				"IsHidden"	"1"
 				"Aura"          	"modifier_corpse_pickup_aura"
 				"Aura_Radius"   	"160"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -48762,7 +48763,7 @@
 					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"modifier_lightbomb_a_a"
+			"modifier_lightbomb_q_1"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
@@ -69298,7 +69299,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"specter_desolate"
+		"AbilityTextureName"	"winterblight/spectre_desolate"
 		"AOERadius"			"600"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -69874,7 +69875,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"specter_desolate"
+		"AbilityTextureName"	"winterblight/spectre_desolate"
 		"AOERadius"			"600"
 		"MaxLevel"	"3"
 		"Modifiers"
@@ -69944,7 +69945,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"specter_desolate"
+		"AbilityTextureName"	"winterblight/spectre_desolate"
 		"AOERadius"			"600"
 		"MaxLevel"	"3"
 		"Modifiers"

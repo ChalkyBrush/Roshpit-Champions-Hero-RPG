@@ -93,9 +93,9 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] Purity"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"В начале Ascension создаёт рой крылатых сущностей, которые будут атаковать врагов впереди. Задетые враги ненадолго парализуются. Дополнительно увеличивает урон [E3], умножая на соотношение (наимешьший атрибут/наибольший атрибут)."
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Урон"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"В начале Ascension создаёт рой крылатых сущностей, которые парализуют ближайших врагов. Дополнительно увеличивает урон [E3] в зависимости от того, насколько сбалансированны атрибуты героя. Максимальный бонус, указанный ниже, достигается при равенстве всех атрибутов героя. При разнице в атрибутах дается часть этого бонуса, определяемая соотношением (Наименьший атрибут):(Наибольший атрибут)."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Максимальный Бонус"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					"%"	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"Длительность паралича"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix_two"				" сек."	
 

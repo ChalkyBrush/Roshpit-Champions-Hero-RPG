@@ -94,7 +94,7 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] Purity"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"At the beginning of an Ascension - create a swarm of Avian Aspects that strike enemies in an area in front of you. Enemies who are hit are paralyzed for a short duration. Additionally increases the damage of [E3] by multiplying by lowest attribute and dividing by greatest attribute."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"When entering the @Ability3 state, a holy sprite is summoned against each enemy in an area in front of Bahamut. The sprite paralyzes its target on contact.<br>Additionally, the damage of [E3] is increased based on how balanced Bahamut's attributes are. The maximum percentile bonus indicated below is only achieved if his attributes are all equal; if they aren't, then a fraction of the bonus is given, determined by dividing the lowest attribute by the highest attribute."
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Max Damage Increase"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					"%"	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"Paralyze Duration"

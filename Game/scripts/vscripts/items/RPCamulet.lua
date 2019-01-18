@@ -711,21 +711,21 @@ function RPCItems:RollAmuletProperty1(item, xpBounty, randomHelm)
         local prefix = ""
         if luck < 34 then
         	local bonus = RPCItems:GetHeadBonusRoll(randomHelm, 3, 4)
-            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 3+bonus, 0, 0, item.rarity, false, maxFactor*10)
+            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 4+bonus, 0, 0, item.rarity, false, maxFactor*10)
             item.property1 = value
             item.property1name = "strength"
             suffix = SUFFIX_HOOD_STRENGTH_TABLE[suffixLevel]
             RPCItems:SetPropertyValues(item, item.property1, "#item_strength", "#CC0000",  1)
         elseif luck >= 34 and luck < 67 then
         	local bonus = RPCItems:GetHeadBonusRoll(randomHelm, 2, 4)
-            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 3+bonus, 0, 0, item.rarity, false, maxFactor*10)
+            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 4+bonus, 0, 0, item.rarity, false, maxFactor*10)
             item.property1 = value
             item.property1name = "agility"
             suffix = SUFFIX_HOOD_AGILITY_TABLE[suffixLevel]
             RPCItems:SetPropertyValues(item, item.property1, "#item_agility", "#2EB82E",  1)
         elseif luck >= 67 then
         	local bonus = RPCItems:GetHeadBonusRoll(randomHelm, 1, 4)
-            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 3+bonus, 0, 0, item.rarity, false, maxFactor*10)
+            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 4+bonus, 0, 0, item.rarity, false, maxFactor*10)
             item.property1 = value
             item.property1name = "intelligence"
             suffix = SUFFIX_HOOD_INTELLIGENCE_TABLE[suffixLevel]
@@ -747,21 +747,21 @@ function RPCItems:RollAmuletProperty2(item, xpBounty, randomHelm)
         local prefix = ""
         if luck < 34 then
             local bonus = 2
-            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 3+bonus, 0, 0, item.rarity, false, maxFactor*10)
+            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 6+bonus, 0, 0, item.rarity, false, maxFactor*10)
             item.property2 = value
             item.property2name = "strength"
             prefix = PREFIX_HOOD_STRENGTH_TABLE[prefixLevel]
             RPCItems:SetPropertyValues(item, item.property2, "#item_strength", "#CC0000",  2)
         elseif luck >= 34 and luck < 67 then
             local bonus = 2
-            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 3+bonus, 0, 0, item.rarity, false, maxFactor*10)
+            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 6+bonus, 0, 0, item.rarity, false, maxFactor*10)
             item.property2 = value
             item.property2name = "agility"
             prefix = PREFIX_HOOD_AGILITY_TABLE[prefixLevel]
             RPCItems:SetPropertyValues(item, item.property2, "#item_agility", "#2EB82E",  2)
         elseif luck >= 67 and luck < 100 then
             local bonus = 2
-            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 3+bonus, 0, 0, item.rarity, false, maxFactor*10)
+            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 6+bonus, 0, 0, item.rarity, false, maxFactor*10)
             item.property2 = value
             item.property2name = "intelligence"
             prefix = PREFIX_HOOD_INTELLIGENCE_TABLE[prefixLevel]

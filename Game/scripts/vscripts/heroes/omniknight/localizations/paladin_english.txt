@@ -283,6 +283,7 @@
 		"item_rpc_paladin_glyph_7_1_description" 				"When landing an attack, @glyph_property1% chance to immediately attack another target within range with no cooldown."
 
         //Column2Glyphs
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_book" 		"Paladin Glyph Book"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_2"       "Glyph of Repentance"
         "item_rpc_paladin_glyph_1_2_description"                "Enemies hit by @Ability2 have their attack speed slowed by @glyph_property1 for 8 seconds."

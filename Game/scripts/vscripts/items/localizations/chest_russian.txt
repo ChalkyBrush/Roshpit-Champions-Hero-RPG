@@ -4,6 +4,8 @@
 		"property_hurricane_description"			"При прочтении @Ability4, буря из <% HURRICANE_VEST_HURRICANE_COUNT %> ураганов распространяется во все стороны от героя, замедляя скорость атаки врагов на <% HURRICANE_VEST_ATT_SPD_REDUCE %> и скорость передвижения на <% HURRICANE_VEST_MSP_REDUCE %> в течение <% HURRICANE_VEST_SLOW_DUR %> секунд. Урон, наносимый каждым ураганом равен <% HURRICANE_VEST_DMG_AMP %> * (Уровень Героя / 120) * (<% HURRICANE_VEST_MAX_DISTANCE %> - расстояние между героем и целью))^<% HURRICANE_VEST_DMG_EXP_SCALE %>; сила ветра снижается по мере удаления от центра."
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"Hurricane"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"Преследуется сильными ветрами"
+		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow"			"Hurricane slow"
+		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow_Description"	"Замедлен"
 
 
 		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
@@ -300,6 +302,8 @@
 		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"Guard of Feronia"
 		"item_property_guard_of_feronia"						"Shield of Dawn"
 		"property_guard_of_feronia_description"				"Прочтение (E) @Ability3 или (R) @Ability4 наделяет героя особым щитом на 1.5 или 3.5 секунды соответственно, который поглощает весь входящий урон на 95%"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description"	"Снижает входящий урон на 95%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"
