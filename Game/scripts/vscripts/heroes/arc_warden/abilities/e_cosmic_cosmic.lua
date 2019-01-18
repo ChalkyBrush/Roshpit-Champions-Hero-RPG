@@ -29,7 +29,6 @@ function jex_cosmic_port_start(event)
     	ability:EndCooldown()
     else
     	local tech_level = caster.onibi.stats_table["cosmic"]["cosmic"]["E"]["level"]
-    	tech_level = 5
     	ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_warp_freecast", {})
     	caster:SetModifierStackCount("modifier_jex_warp_freecast", caster, tech_level)
     end

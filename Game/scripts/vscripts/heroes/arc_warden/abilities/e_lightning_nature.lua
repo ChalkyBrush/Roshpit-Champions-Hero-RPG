@@ -23,6 +23,11 @@ function jex_activate_thunder_blossom(event)
 	local hp = caster:GetMaxHealth()*event.health_mult
 	local life_duration = math.max((event.duration_per_tech)*tech_level, 20)
 	local max_chain_targets = event.chain_target_count*tech_level
+
+	if tech_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_thunder_blossom_attack_range", {})
+		shroom:SetModifierStackCount("modifier_jex_thunder_blossom_attack_range", caster, tech_level)
+	end
 	shroom:SetBaseMaxHealth(hp)
 	shroom:SetMaxHealth(hp)
 	shroom:SetHealth(hp)
@@ -108,43 +113,30 @@ function thunder_blossom_teleporting_think(event)
 	end
 end
 
-function jex_thundershroom_attack_land(event)
+function jex_thunderblossom_attack_land(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
 	local attacker = event.attacker
 
-	if not ability.chain_lightning_table then
-		ability.chain_lightning_table = {}
-	end
-	local max_targets = ability.max_chain_targets
+
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*(event.damage_pct_atk_power/100)
 	local luck = RandomInt(1, 10)
-	local chain = {}
-	chain.index_hit = 0
-	chain.enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
-	local targets_to_hit = math.min(#chain.enemies, max_targets)
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
-	print("HELLO?")
 	if luck <= 3 then
-		for i = 1, targets_to_hit, 1 do
-			Timers:CreateTimer((i-1)*0.15, function()
-				local enemy = chain.enemies[i]
-				if IsValidEntity(enemy) and enemy:IsAlive() then
-					EmitSoundOn("Jex.Thundershroom.Lightning", enemy)
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NATURE)
-					local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
-					local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_CUSTOMORIGIN, nil)
-					local attach_unit_1 = attacker
-					if i > 1 then
-						attach_unit_1 = chain.enemies[i-1]
-					end
-					ParticleManager:SetParticleControl(pfx, 0, attach_unit_1:GetAbsOrigin()+Vector(0,0,attach_unit_1:GetBoundingMaxs().z+80))
-					ParticleManager:SetParticleControl(pfx, 1, enemy:GetAbsOrigin()+Vector(0,0,enemy:GetBoundingMaxs().z+100))
-					Timers:CreateTimer(0.3, function()
-						ParticleManager:DestroyParticle(pfx, false)
-					end)
-				end
-			end)
-		end
+		Timers:CreateTimer(0.1, function()
+			local enemy = target
+			if IsValidEntity(enemy) and enemy:IsAlive() then
+				EmitSoundOn("Jex.LightningWrathGO", enemy)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NATURE)
+				local pfx = ParticleManager:CreateParticle( "particles/econ/items/sven/sven_warcry_ti5/hyper_visor.vpcf", PATTACH_CUSTOMORIGIN, enemy )
+				ParticleManager:SetParticleControl( pfx, 0, enemy:GetAbsOrigin())
+				ParticleManager:SetParticleControl( pfx, 1, Vector(100, 0, 0) )		
+				ParticleManager:SetParticleControl( pfx, 3, Vector(0, 0, 0) )	
+				Timers:CreateTimer(1.5, function()
+					ParticleManager:DestroyParticle(pfx, false)
+				end)
+			end
+		end)
+
 	end
 end

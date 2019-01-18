@@ -790,7 +790,7 @@
 		"precache"
 		{
 
-
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
 		}
 
 		// Casting
@@ -2474,7 +2474,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"cast_range"				"900 1000 1100 1200 1300 1400 1500"
-			}			
+			}		
 		}
 		"OnSpellStart"
 		{
@@ -2488,6 +2488,8 @@
 				"health_mult"			"%health_mult"
 				"armor_mult_per_tech"			"%armor_mult_per_tech"
 				"attack_mult_per_tech"			"%attack_mult_per_tech"
+				"attack_range_base"				"%attack_range_base"
+				"attack_range_per_tech"			"%attack_range_per_tech"
 			}
 		}
 		"Modifiers"
@@ -2512,8 +2514,9 @@
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/arc_warden/abilities/e_lightning_nature.lua"
-						"Function"		"jex_thundershroom_attack_land"
+						"Function"		"jex_thunderblossom_attack_land"
 						"target"		"TARGET"
+						"damage_pct_atk_power"	"%damage_pct_atk_power"
 					}
 				}
 			}
@@ -2536,6 +2539,14 @@
 					}
 				}
 
+			}
+			"modifier_jex_thunder_blossom_attack_range"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%attack_range_per_tech"
+				}
 			}
 		}
 	}
@@ -2563,7 +2574,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"4"
+		"AbilityCooldown"				"6"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
