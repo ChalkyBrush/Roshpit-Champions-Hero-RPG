@@ -339,7 +339,7 @@
 		"item_rpc_sorceress_glyph_3_2_description" 				"Arcane Intellect grants @glyph_property1x mana regen and intelligence."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_2"		"Glyph of Arcane Vibration"
-		"item_rpc_sorceress_glyph_4_2_description" 				"@Ability3 only consumes @glyph_property1 Flicker stacks."
+		"item_rpc_sorceress_glyph_4_2_description" 				"@Ability3 only consumes @glyph_property1 Flicker stacks and clearcast has 100% activation chance."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_2"		"Glyph of Softening"
 		"item_rpc_sorceress_glyph_5_2_description" 				"Stun durations are considered @glyph_property1% shorter when added to creature stun immunity counter."
