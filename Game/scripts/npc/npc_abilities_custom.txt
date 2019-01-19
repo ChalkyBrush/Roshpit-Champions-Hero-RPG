@@ -2788,7 +2788,7 @@
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
-		"AbilityCastRange"				"700 800 900 1000 1100 1200 1300"
+		"AbilityCastRange"				"800 900 1000 1100 1200 1300 1400"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -2798,7 +2798,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6.5 6.25 6.0 5.75 5.5 5.25 5.0"
+		"AbilityCooldown"				"6.0 5.75 5.5 5.25 5.0 4.75 4.5"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -2811,7 +2811,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range"				"700 800 900 1000 1100 1200 1300"
+				"cast_range"				"800 900 1000 1100 1200 1300 1400"
 			}
 			"02"
 			{
@@ -2885,6 +2885,10 @@
 						"duration"		"%duration"
 					}
 				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 			}
 			"modifier_jex_lightning_lightning_e_buff"
 			{
@@ -2895,6 +2899,92 @@
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_per_tech"
 				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%attack_damage_per_tech" 
+				}
+			}
+		}
+	}
+
+	"jex_lightning_cosmic_e"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/invoke_q"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15.0 14.5 14.0 13.5 13 12.5 12"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration_per_tech"				"2"
+			}			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration_base"				"15"
+			}	
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movespeed_min_base"				"400"
+			}	
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movespeed_min_per_tech"				"25"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/e_lightning_cosmic.lua"
+				"Function"		"jex_active_cosmic_surge"
+				"duration_base" 	"%duration_base"
+				"duration_per_tech"	"%duration_per_tech"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_cosmic_surge"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"EffectName"		"particles/roshpit/jex/cosmic_surge_buff.vpcf"
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/e_lightning_cosmic.lua"
+						"Function"		"cosmic_surge_end"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}

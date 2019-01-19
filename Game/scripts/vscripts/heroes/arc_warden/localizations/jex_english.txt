@@ -57,3 +57,6 @@
 
 "DOTA_Tooltip_ability_jex_lightning_lightning_e"		"Jolt"
 "DOTA_Tooltip_ability_jex_lightning_lightning_e_Description"	""
+
+"DOTA_Tooltip_ability_jex_lightning_cosmic_e"		"Cosmic Surge"
+"DOTA_Tooltip_ability_jex_lightning_cosmic_e_Description"	""

@@ -12,7 +12,7 @@ function jex_lightning_lightning_attack_land(event)
 	end
 	caster:ReduceMana(drain_mana)
 	local max_targets = ability.tech_level*jumps_per_tech
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
 	local targets_to_hit = math.min(#enemies, max_targets)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*(damage_mult/100)
 	for i = 1, targets_to_hit, 1 do
