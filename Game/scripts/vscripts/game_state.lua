@@ -557,6 +557,31 @@ function GameState:OrderFilter(orderTable)
 						end
 					end
 				end
+			elseif orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+				if unit:HasModifier("modifier_jex_portal_aura_inside") then
+					if not unit:HasModifier("modifier_jex_portal_teleporting") then
+						print("RDG")
+						local ability = unit:FindAbilityByName("jex_nature_cosmic_e")
+						local movementPosition = Vector(orderTable.position_x, orderTable.position_y)
+						local portal = false
+						for i = 1, #ability.portalTable, 1 do
+							local distance = WallPhysics:GetDistance2d(ability.portalTable[i].position, movementPosition)
+							local self_distance = WallPhysics:GetDistance2d(ability.portalTable[i].position, unit:GetAbsOrigin())
+							if distance <= 300 and self_distance > 500 then
+								portal = ability.portalTable[i]
+								break
+							end
+						end
+						if portal then
+							ability:ApplyDataDrivenModifier(unit, unit, "modifier_jex_portal_teleporting", {duration = 1.2})
+							ability.teleporting_to = movementPosition
+							EmitSoundOn("Jex.EarthsGate.Portal", unit)
+							unit:Stop()
+							unit:AddNewModifier( unit, nil, "modifier_black_portal_shrink", {duration = 1.3} )
+							return false
+						end
+					end
+				end
 			end
 		end
 		if unit:GetUnitName() == "npc_dota_hero_winter_wyvern" then

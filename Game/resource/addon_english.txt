@@ -3279,7 +3279,7 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] Purity"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"At the beginning of an Ascension - create a swarm of Avian Aspects that strike enemies in an area in front of you. Enemies who are hit are paralyzed for a short duration. Additionally increases the damage of [E3] by multiplying by lowest attribute and dividing by greatest attribute."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"When entering the @Ability3 state, a holy sprite is summoned against each enemy in an area in front of Bahamut. The sprite paralyzes its target on contact.<br>Additionally, the damage of [E3] is increased based on how balanced Bahamut's attributes are. The maximum percentile bonus indicated below is only achieved if his attributes are all equal; if they aren't, then a fraction of the bonus is given, determined by dividing the lowest attribute by the highest attribute."
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Max Damage Increase"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					"%"	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"Paralyze Duration"
@@ -6857,6 +6857,11 @@
 "DOTA_Tooltip_ability_jex_lightning_nature_e"				"Thunder Blossom"
 "DOTA_Tooltip_ability_jex_lightning_nature_e_Description"	""
 
+"DOTA_Tooltip_ability_jex_nature_cosmic_e"				"Earth's Gate"
+"DOTA_Tooltip_ability_jex_nature_cosmic_e_Description"	""
+
+
+
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"Shockwave"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#AF843D\">Earth</font><br>Unearths a cascade of force that damage and stuns everyone in its path."
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_stun_duration"	"STUN DURATION:"
@@ -7465,6 +7470,7 @@
 		"item_rpc_paladin_glyph_7_1_description" 				"When landing an attack, @glyph_property1% chance to immediately attack another target within range with no cooldown."
 
         //Column2Glyphs
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_book" 		"Paladin Glyph Book"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_2"       "Glyph of Repentance"
         "item_rpc_paladin_glyph_1_2_description"                "Enemies hit by @Ability2 have their attack speed slowed by @glyph_property1 for 8 seconds."
@@ -7841,7 +7847,7 @@
 
     	"DOTA_Tooltip_modifier_lightbomb_q_1"									"Illumination"
     	"DOTA_Tooltip_modifier_lightbomb_q_1_Description"						"Increased Intelligence"	
-
+		
     	"DOTA_Tooltip_ability_sephyr_rune_q_2"									"[Q2] Amplifier"
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_Description"						"Enemies hit by Lightbomb take increased post-mitigation damage from Sephyr. 7 seconds duration."
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_property_one"						"Post-Mitigation Amp"
@@ -10540,7 +10546,7 @@
 		"item_rpc_zonik_glyph_7_1_description" 				"Temporal Discharge stacks increase all <font color=\"#B5FFB7\">Temporal</font> damage by @glyph_property1%. When <font color=\"#B5FFB7\">Temporal</font> damage is dealt, 1 stack is consumed."
 
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"Glyph of Flurry Punches"
-		"item_rpc_zonik_glyph_5_a_description" 				"Immediately cast @Ability2 on a random nearby enemy every 0.4 seconds."
+		"item_rpc_zonik_glyph_5_a_description" 				"Immediately cast @Ability2 on a random nearby enemy every 0.8 seconds."
 
 		"DOTA_Tooltip_modifier_sages_eyes"					"Sage's Eyes"
 		
@@ -10848,6 +10854,8 @@
 		"property_hurricane_description"			"When you cast @Ability4, a hurricane of <font color='#ccff66'>16</font> whirlwinds travel outward from you in all directions, slowing enemies' attack speed by <font color='#ccff66'>150</font> and movespeed by <font color='#ccff66'>150</font> for <font color='#ccff66'>5</font> seconds. Each whirlwind also deals damage equal to <font color='#ccff66'>10</font> * (Hero Level / 120) * (<font color='#ccff66'>1800</font> - distance between caster and target))^<font color='#ccff66'>3</font>; the winds lose strength as they travel."
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"Hurricane"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"Buffeted by strong winds"
+		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow"			"Hurricane slow"
+		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow_Description"	"Slowed"
 
 
 		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
@@ -11144,6 +11152,8 @@
 		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"Guard of Feronia"
 		"item_property_guard_of_feronia"						"Shield of Dawn"
 		"property_guard_of_feronia_description"				"Applies a Shield for 1.5 seconds when casting @Ability3 and 3.5 seconds when casting @Ability4 that reduces all damage taken by 95%"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by 95%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"
@@ -14499,6 +14509,7 @@
 		"DOTA_Tooltip_ability_seafortress_jailer_passive"			"Sea Fortress Jailer"
 		"DOTA_Tooltip_ability_seafortress_jailer_passive_Description"	"Seeking to keep all beings in prison where they belong."
 		"DOTA_Tooltip_ability_seafortress_jailer_passive_bleed_damage"	"BLEED DAMAGE:"
+		"DOTA_Tooltip_modifier_hook_root"			"Hook root"
 
 		"DOTA_Tooltip_ability_ability_magic_immune_break"			"Magic Immune Break"
 		"DOTA_Tooltip_ability_ability_magic_immune_break_Description"	"Successful attacks remove magic immunity from the target."
@@ -14873,6 +14884,9 @@
 		"seafortress_archon_wizard"										"Archon Wizard"
 		
 		"seafortress_wandering_pirate"									"Wandering Pirate"
+		
+		"DOTA_Tooltip_modifier_mega_haste_passive"						"Mega Haste"
+		"DOTA_Tooltip_modifier_mega_haste_passive_Description"			"Movespeed and movespeed cap increased by 500."
 
 		"serengaard_vote_skip_wave"										"Vote Skip"
 		
@@ -15055,9 +15069,24 @@
         "serengaard_mini_enigma"  				  "Creeping Shade"
         "serengaard_engima_raider"  			  "Enigma Raider"
         "serengaard_snowball_thrower"   		 "Snowball Thrower"
+		"DOTA_Tooltip_ability_serengaard_snowball_toss"		"Snowball Toss"
+		"DOTA_Tooltip_ability_serengaard_snowball_toss_Description"	"Throws giant growing snowball to the target location. Deals damage on impact and stuns."
+		"DOTA_Tooltip_ability_serengaard_snowball_toss_damage"	"DAMAGE:"
+		"DOTA_Tooltip_ability_serengaard_snowball_toss_stun_duration"	"STUN DURATION:"
         "serengaard_ice_shard_thrower"  		  "Hailstone Thrower"
+		"DOTA_Tooltip_ability_serengaard_ice_shards"				"Ice Shards"
+		"DOTA_Tooltip_ability_serengaard_ice_shards_Description"		"Creates a barrier of ice near target, deals damage on hit."
+		"DOTA_Tooltip_ability_serengaard_ice_shards_shard_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_serengaard_ice_shards_cast_range_tooltip"		"RANGE:"
         "serengaard_gazbin_mercenary"  			 "Mongrelman"
-        "serengaard_shredder_max"   			 "Shredder"
+        "serengaard_shredder_max"   			 "Shredder"	
+		"DOTA_Tooltip_ability_serengaard_shredder_madness"		"Shredder Madness"
+		"DOTA_Tooltip_ability_serengaard_shredder_madness_Description"		"Fires three saw blades at the target location where they will spin in place, dealing damage in an area around it. Deals massive damage on hit, and decreases armor of the victim."
+		"DOTA_Tooltip_ability_serengaard_shredder_madness_damage" 	"DAMAGE:"
+		"DOTA_Tooltip_ability_serengaard_shredder_madness_armor_loss"	"ARMOR LOSS:"
+		"DOTA_Tooltip_ability_creep_jump"		"Jump"
+		"DOTA_Tooltip_ability_creep_jump_Description"	"Jumps forward."
+			
         "serengaard_nightmare_raider" 		   "Nightmare Raider"
         "serengaard_night_invader"   			 "Nightscape Invader"
         "phoenix_siege_dragon"  				  "Siege Drake"
