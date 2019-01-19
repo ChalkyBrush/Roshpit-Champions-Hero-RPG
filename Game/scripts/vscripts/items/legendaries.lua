@@ -2164,7 +2164,7 @@ function RPCItems:RollBladestormVest(deathLocation)
     item.property1name = "bladestorm"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_bladestorm_vest", "#DE2644",  1, "#property_bladestorm_vest_description")
 
-    local value = RandomInt(maxFactor*12, maxFactor*30)
+    local value = RandomInt(maxFactor*12, maxFactor*360)
     item.property2 = value
     item.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property2, "#item_bonus_attack_damage", "#343EC9",  2)   
@@ -2184,7 +2184,7 @@ function RPCItems:RollSacredTrialsArmor(deathLocation)
     item.property1name = "sacred_trials"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sacred_trials", "#EDC02D",  1, "#property_sacred_trials_description")
 
-    local value = RandomInt(maxFactor*12, maxFactor*30)
+    local value = RandomInt(maxFactor*12, maxFactor*360)
     item.property2 = value
     item.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property2, "#item_bonus_attack_damage", "#343EC9",  2)   
@@ -2204,7 +2204,7 @@ function RPCItems:RollHermitSpikeShell(deathLocation)
     item.property1name = "spike_shell"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_hermit_spike_shell", "#CDD17B",  1, "#property_hermit_spike_shell_description")
 
-    local value = RandomInt(maxFactor*12, maxFactor*30)
+    local value = RandomInt(maxFactor*12, maxFactor*360)
     item.property2 = value
     item.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property2, "#item_bonus_attack_damage", "#343EC9",  2)   
@@ -2551,7 +2551,7 @@ function RPCItems:RollSavagePlateOfOgthun(deathLocation)
     item.property1name = "ogthun"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ogthun", "#B32224",  1, "#property_ogthun_description")
 
-    local value = RandomInt(maxFactor*22, maxFactor*60)
+    local value = RandomInt(maxFactor*22, maxFactor*360)
     item.property2 = value
     item.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property2, "#item_bonus_attack_damage", "#343EC9",  2)   
@@ -4393,7 +4393,7 @@ function RPCItems:RollSuperAscendency(deathLocation, isShop)
 
 
 
-    local value = RandomInt(maxFactor*15, maxFactor*36)
+    local value = RandomInt(maxFactor*15, maxFactor*360)
     item.property3 = value
     item.property3name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property3, "#item_bonus_attack_damage", "#343EC9",  3)   
@@ -4535,7 +4535,7 @@ function RPCItems:RollScourgeKnightHelm(deathLocation, isShop)
     RPCItems:SetPropertyValues(item, item.property2, "#item_lifesteal", "#B1E3B9",  2)
 
  
-    local value = RandomInt(maxFactor*15, maxFactor*36)
+    local value = RandomInt(maxFactor*15, maxFactor*360)
     item.property3 = value
     item.property3name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property3, "#item_bonus_attack_damage", "#343EC9",  3)  
@@ -6924,7 +6924,7 @@ function RPCItems:RollOmegaRuby(deathLocation)
     item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_omega_ruby", "#C40404",  1, "#property_omega_ruby")
 
-    local value = RandomInt(maxFactor*12, maxFactor*30)
+    local value = RandomInt(maxFactor*12, maxFactor*200)
     item.property2 = value
     item.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property2, "#item_bonus_attack_damage", "#343EC9",  2)    
@@ -6957,7 +6957,7 @@ function RPCItems:RollFenrirFang(deathLocation)
     item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fenrir_fang", "#EB7B6A",  1, "#property_fenrir_fang")
 
-    local value = RandomInt(maxFactor*12, maxFactor*30)
+    local value = RandomInt(maxFactor*12, maxFactor*360)
     item.property2 = value
     item.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property2, "#item_bonus_attack_damage", "#343EC9",  2)    
