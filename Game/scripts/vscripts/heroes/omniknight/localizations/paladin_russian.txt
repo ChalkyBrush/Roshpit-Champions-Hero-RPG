@@ -285,6 +285,7 @@
 		"item_rpc_paladin_glyph_5_a_description" 				"Удар молнии от [R4] Knight's Disciple's поражает врагов в радиусе @glyph_property1, а основная цель будет атакована дважды."
 		
 		//Column2Glyphs
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_book" 		"Книга Глифов Paladin"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_2"       "(T2-1) Glyph of Repentance"
         "item_rpc_paladin_glyph_1_2_description"                "Враги, пораженные @Ability2 имеют замедленную атаку на @glyph_property1 в течение 8 секунд."

@@ -722,3 +722,6 @@
 		"seafortress_archon_wizard"										"Верховный маг"
 		
 		"seafortress_wandering_pirate"									"Wandering Pirate"
+		
+		"DOTA_Tooltip_modifier_mega_haste_passive"						"Mega Haste"
+		"DOTA_Tooltip_modifier_mega_haste_passive_Description"			"Скорость передвижения и ее порог увеличены на 500."
