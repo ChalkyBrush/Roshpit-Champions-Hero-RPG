@@ -73,10 +73,12 @@ function initializeTooltip(func){
 			$.Msg(itemProperty1)
 			if (!(itemProperty1===undefined)){
 				var property1text = AddAffixToItem("", itemProperty1, queryUnit, "", 5, itemName)
-				$('#properties_name1').text = property1text[0]
-				$('#properties_value1').text = property1text[1]
-				$('#properties_name1').RemoveClass('invisible')
-				$('#properties_value1').RemoveClass('invisible')				
+				if (property1text[0] !== undefined && property1text[1] !== undefined){
+					$('#properties_name1').text = property1text[0]
+					$('#properties_value1').text = property1text[1]
+					$('#properties_name1').RemoveClass('invisible')
+					$('#properties_value1').RemoveClass('invisible')				
+				}				
 			}
 		}else{
 			$('#consumable-text').AddClass('invisible')
@@ -280,6 +282,9 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 		return tooltip
 	}
 	var OGpropertyName = itemProperty.propertyName
+	if (OGpropertyName === undefined){
+		return tooltip
+	}
 	var propertyName = $.Localize(itemProperty.propertyName)
 	// itemProperty = itemPropertyCheck(itemProperty)
     $.Msg("OGpropertyName: " + OGpropertyName)
