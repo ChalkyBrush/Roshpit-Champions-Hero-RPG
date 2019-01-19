@@ -6924,7 +6924,7 @@ function RPCItems:RollOmegaRuby(deathLocation)
     item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_omega_ruby", "#C40404",  1, "#property_omega_ruby")
 
-    local value = RandomInt(maxFactor*12, maxFactor*200)
+    local value = RandomInt(maxFactor*12, maxFactor*360)
     item.property2 = value
     item.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property2, "#item_bonus_attack_damage", "#343EC9",  2)    
