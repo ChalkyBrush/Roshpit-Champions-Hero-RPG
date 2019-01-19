@@ -33,21 +33,21 @@ function jex_q_cosmic_cosmic_cast(event)
 end
 
 function q_cosomic_cosmic_casting_thinker(event)
-	local caster = event.caster
-	local ability = event.ability
-	local beamLength = 1000
-	if ability.pfx then
-		local pfx = ability.pfx
-		local particleVector = caster:GetAbsOrigin()+Vector(0,0,90) + (caster:GetForwardVector() * beamLength)
-		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,90))
-		ParticleManager:SetParticleControl(pfx, 1, particleVector)
-		ParticleManager:SetParticleControl(pfx, 3, particleVector)
-		ParticleManager:SetParticleControl(pfx, 4, particleVector)		
-	end
-	ability.interval = ability.interval + 1
-	if ability.interval%30 == 0 then
-		StartAnimation(caster, {duration=0.85, activity=ACT_DOTA_ATTACK, rate=1})
-	end
+	-- local caster = event.caster
+	-- local ability = event.ability
+	-- local beamLength = 1000
+	-- if ability.pfx then
+	-- 	local pfx = ability.pfx
+	-- 	local particleVector = caster:GetAbsOrigin()+Vector(0,0,90) + (caster:GetForwardVector() * beamLength)
+	-- 	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,90))
+	-- 	ParticleManager:SetParticleControl(pfx, 1, particleVector)
+	-- 	ParticleManager:SetParticleControl(pfx, 3, particleVector)
+	-- 	ParticleManager:SetParticleControl(pfx, 4, particleVector)		
+	-- end
+	-- ability.interval = ability.interval + 1
+	-- if ability.interval%30 == 0 then
+	-- 	StartAnimation(caster, {duration=0.85, activity=ACT_DOTA_ATTACK, rate=1})
+	-- end
 	-- caster:SetAbsOrigin(caster:GetAbsOrigin()+caster:GetForwardVector()*4)
 end
 
@@ -91,6 +91,7 @@ function jex_q_cosmic_cosmic_cast_targetted(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_q_cosmic_cosmic_casting2", {})
 	beam.interval = 0
 	beam.active = true
+	beam.length = WallPhysics:GetDistance2d(beam.position, beam.target)
 	beam.startPoint = caster:GetAbsOrigin()
 	table.insert(ability.beamTable, beam)
 	Filters:CastSkillArguments(1, caster)
@@ -111,8 +112,12 @@ function jex_q_cosmic_cosmic_casting_thinker2(event)
 	for i = 1, #ability.beamTable, 1 do
 		local beam = ability.beamTable[i]
 		if beam and beam.target then
+			if not beam.distance_moved then
+				beam.distance_moved = 0
+			end
 			local moveDirection = ((beam.target-beam.position)*Vector(1,1,0)):Normalized()
-			beam.position = beam.position + moveDirection*100
+			beam.distance_moved = beam.distance_moved + 100
+			beam.position = caster:GetAbsOrigin() + beam.distance_moved*caster:GetForwardVector()
 
 			if beam.pfx then
 				local pfx = beam.pfx
@@ -124,7 +129,7 @@ function jex_q_cosmic_cosmic_casting_thinker2(event)
 			end
 			if beam.interval%1 == 0 then
 				-- local enemies = FindUnitsInRadius( caster:GetTeamNumber(), beam.position, nil, 80, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-				local vStartPos = beam.startPoint
+				local vStartPos = caster:GetAbsOrigin()
 				local vEndPos = beam.position
 
 				local width = 120
@@ -147,9 +152,9 @@ function jex_q_cosmic_cosmic_casting_thinker2(event)
 				-- 	end
 				-- end	
 			end
-			local distance = WallPhysics:GetDistance2d(beam.position, beam.target)
-			if distance <= 100 then
-				beam.position = beam.target
+			local distance = WallPhysics:GetDistance2d(beam.position, caster:GetAbsOrigin())
+			if beam.distance_moved >= beam.length then
+				-- beam.position = beam.target
 				beam.active = false
 			end
 			beam.interval = beam.interval + 1

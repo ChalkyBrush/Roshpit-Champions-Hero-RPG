@@ -597,7 +597,7 @@
                               "value0"        "sounds/jex/cosmic_laser.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.75000"  }
+                    "volume"            {   "value"     "0.58000"  }
                     "pitch_rand_min"    {   "value"     "-0.03000"  }
                     "pitch_rand_max"    {   "value"     "0.030000"  }
                     "pitch"             {   "value"     "0.900000"  }
@@ -629,7 +629,7 @@
                               "value0"        "sounds/jex/cosmic_laser_charge.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.00000"  }
+                    "volume"            {   "value"     "0.50000"  }
                     "pitch_rand_min"    {   "value"     "-0.03000"  }
                     "pitch_rand_max"    {   "value"     "0.030000"  }
                     "pitch"             {   "value"     "0.900000"  }
@@ -1539,6 +1539,75 @@
                     "pitch"             {   "value"     "0.8500000"  }
                     "soundlevel"        {   "value"     "91.00000" }
                     "distance_max"      {   "value"     "3500.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Jex.Jolt.Start"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/items/item_mael_lightning_chain.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.80000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.200000"  }
+                    "soundlevel"        {   "value"     "91.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+
+"Jex.Jolt.End"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/items/item_mael_lightning_01.vsnd"
+                              "value1"        "sounds/items/item_mael_lightning_02.vsnd"
+                              "value2"        "sounds/items/item_mael_lightning_03.vsnd"
+                              "value3"        "sounds/items/item_mael_lightning_04.vsnd"
+                              "value4"        "sounds/items/item_mael_lightning_05.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.80000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.200000"  }
+                    "soundlevel"        {   "value"     "91.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
             }

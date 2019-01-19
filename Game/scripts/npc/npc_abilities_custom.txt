@@ -1493,7 +1493,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health_regen_per_tech"				"100 200 300 400 500 600 700"
+				"health_regen_per_tech"				"100 200 400 700 1100 2000 5000"
 			}			
 			"02"
 			{
@@ -1508,7 +1508,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration_per_tech_level"				"2.5"
+				"duration_per_tech_level"				"5"
 			}
 			"05"
 			{
@@ -2346,7 +2346,7 @@
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
-		"AbilityCastRange"				"800 900 1000 1100 1200 1300 1400"
+		"AbilityCastRange"				"99999"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -2376,6 +2376,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"freecast_per_tech"				"1"
 			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"additional_cast_range_per_tech"				"60"
+			}
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -2392,6 +2397,8 @@
         		"ScriptFile"	"heroes/arc_warden/abilities/e_cosmic_cosmic.lua"
         		"Function"		"jex_cosmic_port_start"
         		"Target"		"POINT"
+        		"additional_cast_range_per_tech"	"%additional_cast_range_per_tech"
+        		"cast_range"			"%cast_range"
         	}
 		}
 		"Modifiers"
@@ -2765,6 +2772,130 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+			}
+		}
+	}
+
+	"jex_lightning_lightning_e"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"zuus_thundergods_wrath"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AbilityCastRange"				"700 800 900 1000 1100 1200 1300"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6.5 6.25 6.0 5.75 5.5 5.25 5.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"				"700 800 900 1000 1100 1200 1300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"travel_speed_base"				"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"travel_speed_per_tech"				"5"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"20"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_damage_per_tech"				"100 500 1000 3000 10000 30000 100000"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed_per_tech"				"50"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/e_lightning_lightning.lua"
+				"Function"		"jex_lightning_lightning_e_phase"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/arc_warden/abilities/e_lightning_lightning.lua"
+        		"Function"		"jex_lightning_lightning_e_start"
+        		"Target"		"POINT"
+        		"travel_speed_base"	"%travel_speed_base"
+        		"travel_speed_per_tech"			"%travel_speed_per_tech"
+        	}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_lightning_lightning_e_movement"
+			{
+				"IsHidden"	"1"
+				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
+				"StatusEffectPriority"	"100"
+				"EffectName"		"particles/roshpit/jex/thunder_flow_ambient.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/e_lightning_lightning.lua"
+						"Function"		"jex_lightning_lightning_e_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/e_lightning_lightning.lua"
+						"Function"		"jex_lightning_lightning_e_end"
+						"duration"		"%duration"
+					}
+				}
+			}
+			"modifier_jex_lightning_lightning_e_buff"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/roshpit/jex/jolt_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_per_tech"
+				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%attack_damage_per_tech" 
+				}
 			}
 		}
 	}

@@ -10,8 +10,15 @@ function jex_cosmic_port_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target_points[1]
-	
 
+    local tech_level = caster.onibi.stats_table["cosmic"]["cosmic"]["E"]["level"]
+
+	local range = event.additional_cast_range_per_tech*tech_level + event.cast_range
+    local distance = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())
+    if distance > range then
+        local targetVector = ((target - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+        target = caster:GetAbsOrigin() + targetVector*range
+    end
     local casterOrigin = caster:GetAbsOrigin()
     target = WallPhysics:WallSearch(casterOrigin, target, caster)
     local newPosition = target
@@ -28,7 +35,6 @@ function jex_cosmic_port_start(event)
     	end
     	ability:EndCooldown()
     else
-    	local tech_level = caster.onibi.stats_table["cosmic"]["cosmic"]["E"]["level"]
     	ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_warp_freecast", {})
     	caster:SetModifierStackCount("modifier_jex_warp_freecast", caster, tech_level)
     end
