@@ -1395,6 +1395,7 @@ function RPCItems:LegendaryPickup(itemEntity, heroEntity)
 		RPCItems.indexesRolled = {}
 	end
 	if RPCItems:GetConnectedPlayerCount() > 1 then
+	if #MAIN_HERO_TABLE > 1 then
 		if heroEntity then
 			heroEntity:TakeItem(itemEntity)
 			if IsValidEntity(itemEntity:GetContainer()) then
@@ -1554,40 +1555,35 @@ end
 
 function ProcessRollEnd(rollTable)
 	rollTable.winningRoll = 0
-	rollTable.passCount = 0
 	rollTable.highestType = "pass"
-	rollTable.winningPlayerID = 0
-	print("are we doing this shit")
-	for i = 1, #rollTable, 1 do
+	rollTable.winningRoll = 0
+
+	--there is no "need" option anymore, sorting, first maximum - out
 		local vote = rollTable[i]
-		if vote[2] == "need" then
-			if vote[3] > rollTable.winningRoll then
-				rollTable.winningRoll = vote[3]
-				rollTable.highestType = "need"
+		if vote[2] == "greed" and vote[3] > rollTable.winningRoll then
+			local hero = GameState:GetHeroByPlayerID(vote[1])
+			local continueFlag = false
+			if not hero or hero == -1 then
+				print("ProcessRollEnd Wrong hero ID?")
+				continueFlag = true
+			end
+			if hero and PlayerResource:GetConnectionState(hero:GetPlayerOwnerID()) == 1 or PlayerResource:GetConnectionState(hero:GetPlayerOwnerID()) == 3 then
+				print("ProcessRollEnd Player dc?")
+				continueFlag = true
+			end
+			if not continueFlag then
 				rollTable.winningPlayerID = vote[1]
-			end
-			if rollTable.highestType == "greed" or rollTable.highestType == "pass" then
+				rollTable.highestType = vote[2]
 				rollTable.winningRoll = vote[3]
-				rollTable.highestType = "need"
-				rollTable.winningPlayerID = vote[1]
+				everyonePassedOrNoWinner = false
 			end
-		elseif vote[2] == "greed" then
-			if vote[3] > rollTable.winningRoll then
-				if rollTable.highestType == "greed" or rollTable.highestType == "pass" then
-					rollTable.winningRoll = vote[3]
-					rollTable.highestType = "greed"
-					rollTable.winningPlayerID = vote[1]
-				end
-			end
-		elseif vote[2] == "pass" then
-			rollTable.passCount = rollTable.passCount + 1
 		end
 	end
-	if rollTable.passCount == RPCItems:GetConnectedPlayerCount() then
+
+	if everyonePassedOrNoWinner then
 		return false, false, rollTable.highestType
-	else
-		return rollTable.winningRoll, rollTable.winningPlayerID, rollTable.highestType
 	end
+	return rollTable.winningRoll, rollTable.winningPlayerID, rollTable.highestType
 end
 
 function RPCItems:ItemVote(keys)
@@ -1610,19 +1606,19 @@ function RPCItems:ItemVote(keys)
 	end
 	if index == 1 then
 		table.insert(RPCItems.item_roll_1, vote)
-		if #RPCItems.item_roll_1 == RPCItems:GetConnectedPlayerCount() then
+		if #RPCItems.item_roll_1 >= RPCItems:GetConnectedPlayerCount() then
 			print("END ROLL")
 			RPCItems:EndRoll(1, itemIndex)
 		end
 	elseif index == 2 then
 		table.insert(RPCItems.item_roll_2, vote)
-		if #RPCItems.item_roll_2 == RPCItems:GetConnectedPlayerCount() then
+		if #RPCItems.item_roll_2 >= RPCItems:GetConnectedPlayerCount() then
 			print("END ROLL")
 			RPCItems:EndRoll(2, itemIndex)
 		end
 	elseif index == 3 then
 		table.insert(RPCItems.item_roll_3, vote)
-		if #RPCItems.item_roll_3 == RPCItems:GetConnectedPlayerCount() then
+		if #RPCItems.item_roll_3 >= RPCItems:GetConnectedPlayerCount() then
 			print("END ROLL")
 			RPCItems:EndRoll(3, itemIndex)
 		end
