@@ -1394,7 +1394,6 @@ function RPCItems:LegendaryPickup(itemEntity, heroEntity)
 		RPCItems.item_roll_3 = false
 		RPCItems.indexesRolled = {}
 	end
-	if RPCItems:GetConnectedPlayerCount() > 1 then
 	if #MAIN_HERO_TABLE > 1 then
 		if heroEntity then
 			heroEntity:TakeItem(itemEntity)
@@ -1554,11 +1553,13 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 end
 
 function ProcessRollEnd(rollTable)
-	rollTable.winningRoll = 0
+	rollTable.winningPlayerID = nil
 	rollTable.highestType = "pass"
 	rollTable.winningRoll = 0
 
 	--there is no "need" option anymore, sorting, first maximum - out
+	local everyonePassedOrNoWinner = true
+	for i=1,#rollTable do
 		local vote = rollTable[i]
 		if vote[2] == "greed" and vote[3] > rollTable.winningRoll then
 			local hero = GameState:GetHeroByPlayerID(vote[1])
