@@ -6807,6 +6807,54 @@
 "tech_points"	"Tech Points"
 
 "jex_onibi"		"Jex Onibi"
+"jex_charged_mushroom"			"Charged Mushroom"
+"jex_thunder_blossom"			"Thunder Blossom"
+
+"DOTA_Tooltip_ability_onibi_nature_1"		"Nature Module"
+"DOTA_Tooltip_ability_onibi_nature_1_Description"		"Enables the activation of Nature abilities. Enemies who die near Jex will leave behind shrubs for harvesting."
+
+"DOTA_Tooltip_ability_onibi_nature_2"		"Nature Module"
+"DOTA_Tooltip_ability_onibi_nature_2_Description"		"Enables the activation of Nature abilities. Enemies who die near Jex will leave behind shrubs for harvesting."
+
+"DOTA_Tooltip_ability_onibi_lightning_1"		"Lightning Module"
+"DOTA_Tooltip_ability_onibi_lightning_1_Description"		"Enables the activation of Lightning abilities. Enemies who die near Jex will leave behind thunderflowers for harvesting."
+
+"DOTA_Tooltip_ability_onibi_lightning_2"		"Lightning Module"
+"DOTA_Tooltip_ability_onibi_lightning_2_Description"		"Enables the activation of Lightning abilities. Enemies who die near Jex will leave behind thunderflowers for harvesting."
+
+"DOTA_Tooltip_ability_onibi_cosmic_1"		"Cosmic Module"
+"DOTA_Tooltip_ability_onibi_cosmic_1_Description"		"Enables the activation of Cosmic abilities. Enemies who die near Jex will leave behind galaxy mushroom for harvesting."
+
+"DOTA_Tooltip_ability_onibi_cosmic_2"		"Cosmic Module"
+"DOTA_Tooltip_ability_onibi_cosmic_2_Description"		"Enables the activation of Cosmic abilities. Enemies who die near Jex will leave behind galaxy mushroom for harvesting."
+
+"DOTA_Tooltip_ability_onibi_q"				"Q Activator"
+"DOTA_Tooltip_ability_onibi_q_Description"	"Module Activation will apply to Jex's Q ability."
+
+"DOTA_Tooltip_ability_onibi_w"				"W Activator"
+"DOTA_Tooltip_ability_onibi_w_Description"	"Module Activation will apply to Jex's W ability."
+
+"DOTA_Tooltip_ability_onibi_e"				"E Activator"
+"DOTA_Tooltip_ability_onibi_e_Description"	"Module Activation will apply to Jex's E ability."
+
+"DOTA_Tooltip_ability_onibi_invoke"			"Module Activation"
+"DOTA_Tooltip_ability_onibi_invoke_Description"	"Onibi activates his elemental modules and grants a new ability for Jex."
+
+"DOTA_Tooltip_ability_jex_base_cannon_nature"	"Base Cannon: Nature"
+"DOTA_Tooltip_ability_jex_base_cannon_nature_Description"	"Element: <font color=\"#69BC71\">Nature</font><br>Target an enemy and deal damage."
+"DOTA_Tooltip_ability_jex_base_cannon_nature_damage"		"DAMAGE:"
+
+"DOTA_Tooltip_ability_jex_base_cannon_lightning"	"Base Cannon: Lightning"
+"DOTA_Tooltip_ability_jex_base_cannon_lightning_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font><br>Target an enemy and deal damage."
+"DOTA_Tooltip_ability_jex_base_cannon_lightning_damage"		"DAMAGE:"
+
+"DOTA_Tooltip_ability_jex_base_cannon_cosmic"	"Base Cannon: Cosmic"
+"DOTA_Tooltip_ability_jex_base_cannon_cosmic_Description"	"Element: <font color=\"#C25DFC\">Cosmic</font><br>Target an enemy and deal damage."
+"DOTA_Tooltip_ability_jex_base_cannon_cosmic_damage"		"DAMAGE:"
+
+"DOTA_Tooltip_ability_jex_essence_harvest"	"Essence Harvest"
+"DOTA_Tooltip_ability_jex_essence_harvest_Description"	"Jex selects an area and harvests the biological matter within. The resulting harvest is transferred to Onibi in order to grant him permanent upgrades. Onibi's tech allocation persists through game sessions after saving. Use the website to reset Onibi to level 1."
+"DOTA_Tooltip_ability_jex_essence_harvest_aoe_radius"	"HARVEST RADIUS:"
 
 "DOTA_Tooltip_ability_jex_cosmic_nature_q"				"Cosmic Barrier"
 "DOTA_Tooltip_ability_jex_cosmic_nature_q_Description"	"Jex forms a spatial barrier that provides magic immunity for the duration."	
@@ -6814,8 +6862,6 @@
 "DOTA_Tooltip_ability_jex_cosmic_nature_q_duration_base"		"DURATION BASE:"
 "DOTA_Tooltip_ability_jex_cosmic_nature_q_q_4_damage_reduction_pct"	"%<font color=\"#7DFF12\">[Q4] Damage reduction while Cosmic Barrier is active</font>:"
 "DOTA_Tooltip_ability_jex_cosmic_nature_q_e_4_chance_to_add_time"	"%<font color=\"#7DFF12\">[E4] Taking damage with Cosmic Barrier active has chance to add 0.5 seconds to barrier's remaining duration</font>:"
-
-
 
 "DOTA_Tooltip_modifier_jex_magic_immunity"				"Cosmic Barrier"
 "DOTA_Tooltip_modifier_jex_magic_immunity_Description"	"Magic Immune"	
@@ -6895,8 +6941,7 @@
 "DOTA_Tooltip_ability_jex_lightning_lightning_w_w_4_agility_added_to_lightning_damage"	"<font color=\"#7DFF12\">[E4] Agility added to chain lightning base damage</font>:"
 
 "DOTA_Tooltip_ability_jex_lightning_nature_w"				"Thunderleaf Petals"
-"DOTA_Tooltip_ability_jex_lightning_nature_w_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>Unleashes a quick spray 
-of electrified Thunderleaf Petals directly in front of jex. Enemies hit by the leaves are paralyzed for a short duration. Enemies who have been paralyzed 5 times in a row become immune for 4 seconds."
+"DOTA_Tooltip_ability_jex_lightning_nature_w_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>Unleashes a quick spray of electrified Thunderleaf Petals directly in front of jex. Enemies hit by the leaves are paralyzed for a short duration. Enemies who have been paralyzed 5 times in a row become immune for 4 seconds."
 "DOTA_Tooltip_ability_jex_lightning_nature_w_range_per_tech"	"<font color=\"#f4b942\">BONUS LEAF RANGE PER TECH</font>:"
 "DOTA_Tooltip_ability_jex_lightning_nature_w_paralyze_duration_per_tech"	"<font color=\"#f4b942\">PARALYZE DURATION PER TECH</font>:"
 "DOTA_Tooltip_ability_jex_lightning_nature_w_damage_attack_power_per_tech"	"%<font color=\"#f4b942\">BONUS LEAF DAMAGE AS % OF ATTACK POWER PER TECH</font>:"
@@ -6909,8 +6954,7 @@ of electrified Thunderleaf Petals directly in front of jex. Enemies hit by the l
 
 "DOTA_Tooltip_ability_jex_lightning_cosmic_w"				"Ion Cannon"
 "DOTA_Tooltip_ability_jex_lightning_cosmic_w_Description"	"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#5CCDF9\">Lightning</font><br>Jex tosses an electron deficient mass of energy toward the target enemy. When an enemy is hit, the Ion Cannon splits and hits multiple nearby enemies. Greater than 100% split chance means it splits multiple times."
-"DOTA_Tooltip_ability_jex_lightning_cosmic_w_damage_attack_power_per_tech"	"%<font color=\"#f4b942\">BONUS CANNON DAMAGE AS A % OF ATTACK POWER PER 
-TECH</font>:"
+"DOTA_Tooltip_ability_jex_lightning_cosmic_w_damage_attack_power_per_tech"	"%<font color=\"#f4b942\">BONUS CANNON DAMAGE AS A % OF ATTACK POWER PER TECH</font>:"
 "DOTA_Tooltip_ability_jex_lightning_cosmic_w_split_chance_per_tech"			"%<font color=\"#f4b942\">SPLIT CHANCE PER TECH</font>:"
 "DOTA_Tooltip_ability_jex_lightning_cosmic_w_cast_range"					"CAST RANGE:"
 "DOTA_Tooltip_ability_jex_lightning_cosmic_w_strength_added_to_damage"		"STRENGTH MULTIPLE ADDED TO BASE DAMAGE:"
