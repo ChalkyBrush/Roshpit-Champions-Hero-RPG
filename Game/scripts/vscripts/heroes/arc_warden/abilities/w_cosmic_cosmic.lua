@@ -52,10 +52,12 @@ function jex_grenade_throw_start(event)
     bomb.particle = 2
 
     local tech_level = caster.onibi.stats_table["cosmic"]["cosmic"]["W"]["level"]
+    ability.tech_level = tech_level
     local damage = event.damage + (event.attack_power_added_per_tech/100)*tech_level*OverflowProtectedGetAverageTrueAttackDamage(caster) + event.intelligence_added_to_damage*caster:GetIntellect()
     local aoe = event.aoe_base + tech_level*event.aoe_per_tech_level
     bomb.aoe = aoe
     bomb.damage = damage
+    bomb.tech_level = tech_level
 end
 
         		-- "damage"		"%damage"
@@ -124,7 +126,7 @@ function jex_cosmic_cosmic_w_explode(event)
   -- function()
   --   ParticleManager:DestroyParticle( particle1, false )
   -- end)
-
+    local root_duration = event.root_per_tech_level*caster.tech_level
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, explosionRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
@@ -134,6 +136,10 @@ function jex_cosmic_cosmic_w_explode(event)
 				local newPos = enemy:GetAbsOrigin() + towardCenter*distance*0.5
 				FindClearSpaceForUnit(enemy, newPos, false)
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, caster.damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+                if not enemy:HasModifier("jex_grenade_root_immunity") then
+                    ability:ApplyDataDrivenModifier(caster, enemy, "jex_grenade_root", {duration = root_duration})
+                    ability:ApplyDataDrivenModifier(caster, enemy, "jex_grenade_root_immunity", {duration = root_duration+1})
+                end
 			end
 			-- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 		end

@@ -109,6 +109,10 @@ function jex_q_cosmic_cosmic_casting_thinker2(event)
 	if tech_level > 0 then
 		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.postmitigation_per_tech/100)*tech_level
 	end
+	local e_4_level = caster:GetRuneValue("e", 4)
+	if e_4_level > 0 then
+		damage = damage + damage*(event.e_4_damage_increase_pct/100)*e_4_level
+	end
 	for i = 1, #ability.beamTable, 1 do
 		local beam = ability.beamTable[i]
 		if beam and beam.target then
@@ -127,7 +131,7 @@ function jex_q_cosmic_cosmic_casting_thinker2(event)
 				ParticleManager:SetParticleControl(pfx, 3, particleVector+Vector(0,0,90))
 				ParticleManager:SetParticleControl(pfx, 4, particleVector+Vector(0,0,90))		
 			end
-			if beam.interval%1 == 0 then
+			if beam.interval%3 == 0 then
 				-- local enemies = FindUnitsInRadius( caster:GetTeamNumber(), beam.position, nil, 80, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 				local vStartPos = caster:GetAbsOrigin()
 				local vEndPos = beam.position

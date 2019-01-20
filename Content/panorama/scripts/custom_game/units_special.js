@@ -139,6 +139,8 @@ function onibi_element_click(element_panel, index, element_data, element, queryU
 			onibi_ability_panel.FindChildTraverse('onibi_ability_name').text = $.Localize("DOTA_Tooltip_ability_"+onibi_data[element][secondaryElement][ability_key]["name"])
 			onibi_ability_panel.FindChildTraverse('onibi_ability_level').text = "Lv. "+ability_level
 
+			set_onibi_ability_hover_event(onibi_data[element][secondaryElement][ability_key]["name"], onibi_ability_panel)
+
 			var tech_cost = calculate_ability_tech_cost(element, secondaryElement, ability_level)
 			onibi_ability_panel.FindChildTraverse('onibi_ability_cost1_image').SetImage("file://{images}/custom_game/ui/elements/element"+elementNumber+".png")
 			onibi_ability_panel.FindChildTraverse('onibi_ability_cost1_value').text = tech_cost
@@ -158,6 +160,21 @@ function onibi_element_click(element_panel, index, element_data, element, queryU
 
 		}
 	}
+}
+
+function set_onibi_ability_hover_event(ability_name, onibi_ability_panel)
+{
+	onibi_ability_panel.FindChildTraverse('onibi_ability_name').SetPanelEvent('onmouseover', function UpgradeOnibi() {
+		var panel = onibi_ability_panel.FindChildTraverse('onibi_ability_name')
+		var title = "<font color='white'>"+$.Localize("DOTA_Tooltip_ability_"+ability_name)
+		var tooltip = $.Localize("DOTA_Tooltip_ability_"+ability_name+"_description")
+		$.DispatchEvent("DOTAShowTitleTextTooltip", panel, title, tooltip);
+	})
+	onibi_ability_panel.FindChildTraverse('onibi_ability_name').SetPanelEvent('onmouseout', function UpgradeOnibi() {
+		var panel = onibi_ability_panel.FindChildTraverse('onibi_ability_name')
+		$.DispatchEvent( "DOTAHideTitleTextTooltip", panel );
+	})
+	
 }
 
 function set_onibi_upgrade_event(queryUnit, element, secondaryElement, ability_key)

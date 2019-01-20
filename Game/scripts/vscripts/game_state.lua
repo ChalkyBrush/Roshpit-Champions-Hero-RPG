@@ -1441,8 +1441,20 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage*reduction
 		end
 	end
+	if victim:HasModifier("modifier_jex_magic_immunity") then
+		local barrier_ability = victim:FindModifierByName("modifier_jex_magic_immunity"):GetAbility()
+		local reduce_pct = barrier_ability:GetSpecialValueFor("q_4_damage_reduction_pct")
+		if barrier_ability.q_4_level then
+			local reduction = reduce_pct*barrier_ability.q_4_level
+			damage = damage * (1-(reduction/100))
+		end
+	end
 	if victim:HasModifier("modifier_stonewall_aura_friendly_effect") then
     	local reduction = victim:FindModifierByName("modifier_stonewall_aura_friendly_effect"):GetAbility():GetSpecialValueFor("damage_reduction")
+    	damage = damage * (1-(reduction/100))
+    end
+    if victim:HasModifier("modifier_natures_path_master_buff") then
+    	local reduction = victim:FindModifierByName("modifier_natures_path_master_buff"):GetAbility():GetSpecialValueFor("damage_reduction")
     	damage = damage * (1-(reduction/100))
     end
 	if victim:HasModifier("modifier_arkimus_arcana1_q3") then
