@@ -21,6 +21,14 @@ function jex_active_cosmic_surge(event)
 	Events:ColorWearablesAndBase(caster, Vector(20, 0, 70))
 
 	Filters:CastSkillArguments(3, caster)
+
+	local w_4_level = caster:GetRuneValue("w", 4)
+	if w_4_level > 0 then
+		local cd = ability:GetCooldownTimeRemaining()
+		local new_cd = cd - event.w_4_cooldown_reduce*w_4_level
+		ability:EndCooldown()
+		ability:StartCooldown(new_cd)
+	end
 end
 
 function cosmic_surge_end(event)

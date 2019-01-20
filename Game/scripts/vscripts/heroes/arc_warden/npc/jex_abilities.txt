@@ -3059,12 +3059,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range"				"800 900 1000 1100 1200 1300 1400"
+				"attack_damage_per_tech"				"100 500 1000 3000 10000 30000 100000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"travel_speed_base"				"50"
+				"attack_speed_per_tech"				"50"
 			}
 			"03"
 			{
@@ -3074,17 +3074,22 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"				"20"
+				"cast_range"				"800 900 1000 1100 1200 1300 1400"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_damage_per_tech"				"100 500 1000 3000 10000 30000 100000"
+				"travel_speed_base"				"50"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_speed_per_tech"				"50"
+				"duration"				"10"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"w_4_duration_increase"				"0.4"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -3131,6 +3136,7 @@
 						"ScriptFile"	"heroes/arc_warden/abilities/e_lightning_lightning.lua"
 						"Function"		"jex_lightning_lightning_e_end"
 						"duration"		"%duration"
+						"w_4_duration_increase"	"%w_4_duration_increase"
 					}
 				}
 				"States"
@@ -3185,22 +3191,32 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration_per_tech"				"2"
-			}			
+				"movespeed_min_per_tech"				"25"
+			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration_base"				"15"
-			}	
+				"duration_per_tech"				"2"
+			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"movespeed_min_base"				"400"
-			}	
+			}			
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movespeed_min_per_tech"				"25"
+				"duration_base"				"15"
+			}	
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"w_4_cooldown_reduce"				"0.1"
+			}	
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"e_4_cosmic_damage_increase"				"50"
 			}
 		}
 		"OnSpellStart"
@@ -3211,6 +3227,7 @@
 				"Function"		"jex_active_cosmic_surge"
 				"duration_base" 	"%duration_base"
 				"duration_per_tech"	"%duration_per_tech"
+				"w_4_cooldown_reduce"	"%w_4_cooldown_reduce"
 			}
 		}
 		"Modifiers"
@@ -3259,7 +3276,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8"
+		"AbilityCooldown"				"14"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -3272,22 +3289,28 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"health_regen_per_tech"				"20 50 100 300 600 1000 3000"
-			}			
+			}	
 			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius_per_tech"				"40"
+			}		
+			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"damage_reduction"				"30 35 40 45 50 55 60"
 			}	
-			"03"
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"radius_base"				"400"
 			}	
-			"04"
+
+			"05"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"radius_per_tech"				"40"
-			}
+				"var_type"				"FIELD_FLOAT"
+				"q_4_cooldown_reduce"				"0.2"
+			}	
 		}
 		"OnSpellStart"
 		{
@@ -3297,6 +3320,7 @@
 				"Function"		"jex_activate_nature_e"
 				"radius_base" 	"%radius_base"
 				"radius_per_tech"	"%radius_per_tech"
+				"q_4_cooldown_reduce"	"%q_4_cooldown_reduce"
 			}
 		}
 		"Modifiers"

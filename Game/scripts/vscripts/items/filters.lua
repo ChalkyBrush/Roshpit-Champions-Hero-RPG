@@ -2264,6 +2264,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = victim:GetModifierStackCount("modifier_starfall_a_d_visible", attacker)
             cosmosMult = cosmosMult + stacks*0.1
         end
+        if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
+            if attacker:HasModifier("modifier_jex_cosmic_surge") then
+                local e_4_level = attacker:GetRuneValue("e", 4)
+                cosmosMult = cosmosMult + e_4_level*0.5
+            end
+        end
+
         if cosmosMult > 50 and attacker:HasModifier("modifier_luma_guard") then
             cosmosMult = 50
         end

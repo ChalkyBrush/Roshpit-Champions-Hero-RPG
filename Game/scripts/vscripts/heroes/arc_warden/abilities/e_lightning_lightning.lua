@@ -86,7 +86,9 @@ function jex_lightning_lightning_e_end(event)
 			ability.pfx = false
 		end
 	end)
-	local duration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
+	local w_4_level = caster:GetRuneValue("w", 4)
+	local total_duration = event.duration+(event.w_4_duration_increase*w_4_level)
+	local duration = Filters:GetAdjustedBuffDuration(caster, total_duration, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_lightning_lightning_e_buff", {duration = duration})
 	caster:SetModifierStackCount("modifier_jex_lightning_lightning_e_buff", caster, ability.tech_level)
 end
