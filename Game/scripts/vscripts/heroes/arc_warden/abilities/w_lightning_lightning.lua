@@ -15,6 +15,10 @@ function jex_lightning_lightning_attack_land(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
 	local targets_to_hit = math.min(#enemies, max_targets)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*(damage_mult/100)
+	local w_4_level = caster:GetRuneValue("w", 4)
+	if w_4_level > 0 then
+		damage = damage + caster:GetAgility()*event.w_4_agility_added_to_lightning_damage
+	end
 	for i = 1, targets_to_hit, 1 do
 		Timers:CreateTimer((i-1)*0.15, function()
 			local enemy = enemies[i]

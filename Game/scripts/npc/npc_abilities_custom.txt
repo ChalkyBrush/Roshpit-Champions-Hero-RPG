@@ -1232,26 +1232,31 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"attack_damage_per_tech"				"20"
-			}			
+			}	
 			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius_per_tech"		"30"
+			}		
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"base_damage"				"1000 4000 10000 32000 84000 176000 298000"
 			}	
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"700"
-			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius_per_tech"		"30"
+				"radius"				"700"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"agility_added_to_base_damage"		"20 40 60 80 100 120 140"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"q_4_damage_increase_pct"		"10"
 			}
 		}
 		"OnSpellStart"
@@ -1265,6 +1270,7 @@
 				"radius_per_tech"	"%radius_per_tech"
 				"base_damage"		"%base_damage"
 				"agility_added_to_base_damage"	"%agility_added_to_base_damage"
+				"q_4_damage_increase_pct"		"%q_4_damage_increase_pct"
 			}
 		}
 		"Modifiers"
@@ -1332,6 +1338,16 @@
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"10.0 10.5 11.0 11.5 12.0 12.5 13.0"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"w_4_bonus_attack_damage_while_shield_active"				"10000"
+			}	
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"e_4_mana_regen_while_shield_active"				"200"
+			}	
 		}
 		"OnSpellStart"
 		{
@@ -1365,6 +1381,35 @@
 						"Function"		"jex_lightning_cosmic_shield_hit"
 						"target"		"TARGET"
 					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_cosmic_shield_w_4"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_cosmic_shield_e_4"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_cosmic_shield_w_4"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%w_4_bonus_attack_damage_while_shield_active"
+				}
+			}
+			"modifier_cosmic_shield_e_4"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%e_4_mana_regen_while_shield_active" 
 				}
 			}
 		}
@@ -1405,26 +1450,37 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"chain_lightning_max_targets_per_tech"				"1"
-			}			
+			}		
 			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_mult"				"2 4 6 8 10 12 14"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"32 34 36 38 40 42 44"
-			}
-			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"armor_mult_per_tech"				"1"
 			}	
-			"05"
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"attack_mult_per_tech"				"1"
+			}		
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_mult"				"2 4 6 8 10 12 14"
+			}	
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"32 34 36 38 40 42 44"
+			}
+
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"q_4_additional_duration"				"0.5"
+			}	
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"e_4_lightning_damage_increase"				"6"
 			}	
 		}
 		"OnSpellStart"
@@ -1439,6 +1495,7 @@
 				"health_mult"			"%health_mult"
 				"armor_mult_per_tech"			"%armor_mult_per_tech"
 				"attack_mult_per_tech"			"%attack_mult_per_tech"
+				"q_4_additional_duration"		"%q_4_additional_duration"
 			}
 		}
 		"Modifiers"
@@ -1459,6 +1516,7 @@
 						"ScriptFile"	"heroes/arc_warden/abilities/q_lightning_nature.lua"
 						"Function"		"jex_thundershroom_attack_land"
 						"target"		"TARGET"
+						"e_4_lightning_damage_increase"	"%e_4_lightning_damage_increase"
 					}
 				}
 			}
@@ -1519,27 +1577,32 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"health_regen_per_tech"				"100 200 400 700 1100 2000 5000"
-			}			
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor"				"200 400 1000 2000 4000 9000"
 			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_duration"				"15"
-			}
-			"04"
+			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"duration_per_tech_level"				"5"
 			}
-			"05"
+			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"stun_per_tech"				"0.05"
+			}		
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor"				"200 400 1000 2000 4000 9000"
+			}	
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_duration"				"15"
 			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"q_4_strength_while_shield_active"				"330"
+			}	
 		}
 		"OnSpellStart"
 		{
@@ -1590,6 +1653,19 @@
 						"stun_per_tech"	"%stun_per_tech"
 					}
 				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_jex_oak_infusion_strength"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_jex_nature_nature_shield_invisible"
+						"Target" 		"TARGET"
+					}
+				}
 			}
 			"modifier_jex_nature_nature_shield_invisible"
 			{	
@@ -1598,6 +1674,10 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%health_regen_per_tech"
 				}
+			}
+			"modifier_jex_oak_infusion_strength"
+			{
+				"IsHidden"	"1"
 			}
 		}
 	}
@@ -1643,33 +1723,40 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_base"				"2400 8400 48000 130000 255000 500000 5000000"
+				"var_type"				"FIELD_FLOAT"
+				"root_duration_per_tech"			"0.3"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"aoe_base"			"450"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"aoe_per_tech_level"			"50"
 			}
-			"04"
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"attack_power_added_per_tech"			"50"
 			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_base"				"2400 8400 48000 130000 255000 500000 5000000"
+			}
 			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"aoe_base"			"450"
+			}
+
+			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"intelligence_added_to_damage"			"10 30 60 100 200 400 1000"
 			}
-			"06"
+
+			"07"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"root_duration_per_tech"			"0.3"
+				"var_type"				"FIELD_INTEGER"
+				"e_4_damage_increase_pct"			"15"
 			}
 		}
 
@@ -1685,6 +1772,7 @@
         		"aoe_per_tech_level"	"%aoe_per_tech_level"
         		"attack_power_added_per_tech"	"%attack_power_added_per_tech"
         		"intelligence_added_to_damage"	"%intelligence_added_to_damage"
+        		"e_4_damage_increase_pct"		"%e_4_damage_increase_pct"
 			}
 		}
 		"Modifiers"
@@ -1802,27 +1890,32 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"140 180 240 340 520 800 1200"
+				"jumps_per_tech"			"1"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"mana_cost"			"50 120 300 500 1000 2000 3200"
+				"attack_dmg_pct_per_tech"			"70"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"jumps_per_tech"			"1"
+				"damage_mult"			"140 180 240 340 520 800 1200"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_speed"			"200 230 260 290 320 350 380"
+				"mana_cost"			"50 120 300 500 1000 2000 3200"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attacK_dmg_pct_per_tech"			"70"
+				"attack_speed"			"200 230 260 290 320 350 380"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"w_4_agility_added_to_lightning_damage"			"8"
 			}
 		}
 		"OnToggleOn"
@@ -1864,6 +1957,7 @@
 						"drain_mana"	"%mana_cost"
 						"damage_mult"	"%damage_mult"
 						"jumps_per_tech"	"%jumps_per_tech"
+						"w_4_agility_added_to_lightning_damage"	"%w_4_agility_added_to_lightning_damage"
 					}
 				}
 				"OnCreated"
@@ -1888,7 +1982,7 @@
 				"IsHidden" "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attacK_dmg_pct_per_tech"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_dmg_pct_per_tech"
 				}
 			}
 		}
@@ -1932,37 +2026,47 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"leaf_count"			"2 2 3 3 4 4 5"
+				"range_per_tech"			"75"
 			}
 			"02"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_attack_power_per_tech"			"50"
+				"var_type"			"FIELD_FLOAT"
+				"paralyze_duration_per_tech"			"0.08"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"agility_added_to_damage"			"10 30 60 100 200 400 1000"
+				"damage_attack_power_per_tech"			"50"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"range_base"			"700"
+				"leaf_count"			"2 2 3 3 4 4 5"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"range_per_tech"			"100"
+				"agility_added_to_damage"			"10 30 60 100 200 400 1000"
 			}
 			"06"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"paralyze_duration_per_tech"			"0.1"
+				"var_type"			"FIELD_INTEGER"
+				"range_base"			"700"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"base_damage"			"300 1000 3000 8000 25000 75000 165000"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"q_4_immunity_duration_reduce"			"0.04"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"w_4_damage_increase_pct"			"10"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -1986,6 +2090,7 @@
 				"range_per_tech"		"%range_per_tech"
 				"paralyze_duration_per_tech"	"%paralyze_duration_per_tech"
 				"base_damage"			"%base_damage"
+				"w_4_damage_increase_pct"		"%w_4_damage_increase_pct"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -1996,6 +2101,7 @@
 				"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_nature.lua"
 				"Function"		"thunderleaf_impact"
 				"target"		"TARGET"
+				"q_4_immunity_duration_reduce"	"%q_4_immunity_duration_reduce"
 			}
 		}
 		"Modifiers"
@@ -2009,6 +2115,10 @@
 				}
 				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
 				"StatusEffectPriority"	"120"
+			}
+			"modifier_thunderleaf_paralyze_immunity"
+			{
+				"IsHidden"	"1"
 			}
 		}
 	}
@@ -2054,27 +2164,37 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"1000 1050 1100 1150 1200 1250 1300"
+				"damage_attack_power_per_tech"			"40"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_attack_power_per_tech"			"40"
+				"split_chance_per_tech"			"30"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"strength_added_to_damage"			"10 30 60 100 200 400 1000"
+				"cast_range"			"1000 1050 1100 1150 1200 1250 1300"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"split_chance_per_tech"			"30"
+				"strength_added_to_damage"			"10 30 60 100 200 400 1000"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"base_damage"			"500 1500 4000 10000 35000 100000 210000"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"w_4_damage_increase_pct"			"10"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"e_4_split_search_radius"			"6"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -2095,6 +2215,7 @@
 				"strength_added_to_damage"	"%strength_added_to_damage"
 				"split_chance_per_tech"			"%split_chance_per_tech"
 				"base_damage"			"%base_damage"
+				"w_4_damage_increase_pct"	"%w_4_damage_increase_pct"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -2105,6 +2226,7 @@
 				"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_cosmic.lua"
 				"Function"		"ion_cannon_impact"
 				"target"		"TARGET"
+				"e_4_split_search_radius"	"%e_4_split_search_radius"
 			}
 		}
 		"Modifiers"
@@ -2168,38 +2290,43 @@
 		{
 			"01"
 			{
+				"var_type"				"FIELD_FLOAT"
+				"root_per_tech_level"			"0.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_power_added_to_tick_per_tech"			"30"
+			}
+			"03"
+			{
 				"var_type"				"FIELD_INTEGER"
 				"radius"				"400 425 450 475 500 525 550"
 			}
-			"02"
+			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"base_root_duration"			"2.0"
 			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"root_per_tech_level"			"0.5"
-			}
-			"04"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"all_attributes_added_to_damage"			"5 15 30 50 100 200 500"
 			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_tick"			"400 1000 2000 8000 30000 80000 200000"
-			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_power_added_to_tick_per_tech"			"30"
+				"damage_per_tick"			"400 1000 2000 8000 30000 80000 200000"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"range_reduction"			"-200 -240 -280 -320 -360 -400 -440"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"q_4_damage_increase_pct"			"10"
 			}
 		}
 
@@ -2216,6 +2343,7 @@
         		"all_attributes_added_to_damage" "%all_attributes_added_to_damage"
         		"damage_per_tick"	"%damage_per_tick"
         		"attack_power_added_to_tick_per_tech"	"%attack_power_added_to_tick_per_tech"
+        		"q_4_damage_increase_pct"			"%q_4_damage_increase_pct"
 			}
 		}
 		"Modifiers"
@@ -2295,27 +2423,37 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage"			"600 2000 6000 25000 75000 140000 225000"
+				"post_mitigation_magic_per_tech"			"3 5 7 10 15 20 30"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"mana_cost_per_cast"			"100 300 800 2000 4000 8000 15000"
+				"movespeed_bonus_per_tech"			"15"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"post_mitigation_magic_per_tech"			"3 5 7 10 15 20 30"
+				"attack_damage"			"600 2000 6000 25000 75000 140000 225000"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"movespeed_bonus_per_tech"			"15"
+				"mana_cost_per_cast"			"100 300 800 2000 4000 8000 15000"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"mana_drain_per_second"			"10 20 40 80 140 220 400"
+				"mana_drain_per_second"			"40 80 140 220 400 800 1500"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"q_4_max_mana_while_toggled_on"			"800"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"e_4_mana_drain_per_second_reduction"			"10"
 			}
 		}
 		"OnToggleOn"
@@ -2369,6 +2507,7 @@
 						"ScriptFile"	"heroes/arc_warden/abilities/w_nature_cosmic.lua"
 						"Function"		"nature_cosmic_w_think"
 						"mana_drain_per_second"	"%mana_drain_per_second"
+						"e_4_mana_drain_per_second_reduction"	"%e_4_mana_drain_per_second_reduction"
 					}
 				}
 			}
@@ -2378,6 +2517,14 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_bonus_per_tech"
+				}
+			}
+			"modifier_jex_nature_cosmic_w_max_mana"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS" "%q_4_max_mana_while_toggled_on"
 				}
 			}
 		}
@@ -2418,17 +2565,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range"				"800 900 1000 1100 1200 1300 1400"
+				"freecast_per_tech"				"1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"freecast_per_tech"				"1"
+				"additional_cast_range_per_tech"				"60"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"additional_cast_range_per_tech"				"60"
+				"cast_range"				"800 900 1000 1100 1200 1300 1400"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"e_4_additional_cast_range"				"6"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -2448,6 +2600,7 @@
         		"Target"		"POINT"
         		"additional_cast_range_per_tech"	"%additional_cast_range_per_tech"
         		"cast_range"			"%cast_range"
+        		"e_4_additional_cast_range"	"%e_4_additional_cast_range"
         	}
 		}
 		"Modifiers"

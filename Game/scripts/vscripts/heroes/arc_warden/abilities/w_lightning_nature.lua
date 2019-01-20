@@ -18,6 +18,11 @@ function jex_thunderleaf_throw(event)
 	local tech_level = caster.onibi.stats_table["lightning"]["nature"]["W"]["level"]
 	local base_damage = event.base_damage
 	ability.damage =  base_damage + agility_added_to_damage*caster:GetAgility()+(damage_attack_power_per_tech/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*tech_level
+	local w_4_level = caster:GetRuneValue("w", 4)
+	if w_4_level > 0 then
+		ability.damage = ability.damage + damage*(event.w_4_damage_increase_pct/100)*w_4_level
+	end
+	ability.q_4_level = caster:GetRuneValue("q", 4)
 	ability.paralyze_duration = paralyze_duration_per_tech*tech_level
 	local particle = "particles/roshpit/jex/thunderleaf_concoction_projectile_linear.vpcf"
 	local range = range_base + range_per_tech*tech_level
@@ -65,7 +70,15 @@ function thunderleaf_impact(event)
 	local ability = event.ability
 	local target = event.target
 	local paralyze_duration = ability.paralyze_duration
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_thunderleaf_paralyze", {duration = paralyze_duration})
+
+	
+	local current_stacks = target:GetModifierStackCount("modifier_thunderleaf_paralyze_immunity", target)
+	local paralyze_immunity = 4 - (event.q_4_immunity_duration_reduce*ability.q_4_level)
+	if current_stacks <= 5 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_thunderleaf_paralyze_immunity", {duration = paralyze_immunity})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_thunderleaf_paralyze", {duration = paralyze_duration})
+		target:SetModifierStackCount("modifier_thunderleaf_paralyze_immunity", caster, current_stacks + 1)
+	end
 	StartAnimation(target, {duration=paralyze_duration, activity=ACT_DOTA_FLAIL, rate=2.2})
 	EmitSoundOn("Jex.Thundershroom.Lightning", target)
 	local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"

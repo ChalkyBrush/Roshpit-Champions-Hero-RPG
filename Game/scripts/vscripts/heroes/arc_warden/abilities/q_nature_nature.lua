@@ -20,6 +20,12 @@ function jex_activate_q_nature_nature(event)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_enchantress/enchantress_enchant.vpcf", caster, 4)
 
 	caster:SetModifierStackCount("modifier_jex_nature_nature_shield_invisible", caster, tech_level)
+
+	local q_4_level = caster:GetRuneValue("q", 4)
+	if q_4_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_oak_infusion_strength", {duration = duration})
+		caster:SetModifierStackCount("modifier_jex_oak_infusion_strength", caster, q_4_level)
+	end
 	Filters:CastSkillArguments(1, caster)
 end
 

@@ -46,6 +46,7 @@ CustomAttributes.SORCERESS_ARCANE_INT = 50
 CustomAttributes.TRAPPER_R4_AGI = 1000
 CustomAttributes.SEPHYR_Q1_INT = 125
 CustomAttributes.SEPHYR_R4_AGI_INT = 500
+CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH = 330
 
 CustomAttributes.RING_OF_NOBILITY = 30
 CustomAttributes.RING_OF_NOBILITY2 = 60
@@ -431,7 +432,9 @@ function CustomAttributes:SetAttributes(hero)
 			int_bonus = int_bonus + q1_level * ARKIMUS_ARCANA1_Q1_INT
 		end
 	end
-
+	if hero:HasModifier("modifier_jex_oak_infusion_strength") then
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_jex_oak_infusion_strength", CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH)
+	end
 	-- ENEMIES --
 
 	if hero:HasModifier("modifier_warden_of_death_debuff") then

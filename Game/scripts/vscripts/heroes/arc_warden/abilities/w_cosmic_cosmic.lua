@@ -54,6 +54,10 @@ function jex_grenade_throw_start(event)
     local tech_level = caster.onibi.stats_table["cosmic"]["cosmic"]["W"]["level"]
     ability.tech_level = tech_level
     local damage = event.damage + (event.attack_power_added_per_tech/100)*tech_level*OverflowProtectedGetAverageTrueAttackDamage(caster) + event.intelligence_added_to_damage*caster:GetIntellect()
+    local e_4_level = caster:GetRuneValue("e", 4)
+    if e_4_level > 0 then
+        damage = damage + damage*(event.e_4_damage_increase_pct/100)*e_4_level
+    end
     local aoe = event.aoe_base + tech_level*event.aoe_per_tech_level
     bomb.aoe = aoe
     bomb.damage = damage

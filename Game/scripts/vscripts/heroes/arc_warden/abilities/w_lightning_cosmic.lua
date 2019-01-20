@@ -13,6 +13,11 @@ function jex_ion_cannon_throw(event)
 	local target = event.target
 	ability.tech_level = caster.onibi.stats_table["lightning"]["cosmic"]["W"]["level"]
 	ability.damage = event.base_damage + (event.damage_attack_power_per_tech/100)*ability.tech_level*OverflowProtectedGetAverageTrueAttackDamage(caster) + event.strength_added_to_damage*caster:GetStrength()
+	local w_4_level = caster:GetRuneValue("w", 4)
+	if w_4_level > 0 then
+		ability.damage = ability.damage + ability.damage*(event.w_4_damage_increase_pct/100)*w_4_level
+	end
+	ability.e_4_level = caster:GetRuneValue("e", 4)
 	local splits = Runes:Procs(ability.tech_level, event.split_chance_per_tech, 1)
 	new_ion_cannon_projectile(caster, ability, caster, target, splits)
 
@@ -90,7 +95,10 @@ function reindex_cannon_table(ability)
 end
 
 function ion_cannon_impact(caster, ability, projectile, target)
-	local search_radius = 700
+	local search_radius = 600
+	if ability.e_4_level then
+		search_radius = search_radius + ability.e_4_level*event.e_4_split_search_radius
+	end
 	if projectile.splits > 0 then
 		projectile.splits = projectile.splits - 1
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )

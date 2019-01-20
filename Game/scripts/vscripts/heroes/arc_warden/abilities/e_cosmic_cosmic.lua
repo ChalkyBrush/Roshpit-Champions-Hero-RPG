@@ -14,6 +14,8 @@ function jex_cosmic_port_start(event)
     local tech_level = caster.onibi.stats_table["cosmic"]["cosmic"]["E"]["level"]
 
 	local range = event.additional_cast_range_per_tech*tech_level + event.cast_range
+    local e_4_level = caster:GetRuneValue("e", 4)
+    range = range + event.e_4_additional_cast_range*e_4_level
     local distance = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())
     if distance > range then
         local targetVector = ((target - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()

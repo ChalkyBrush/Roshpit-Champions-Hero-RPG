@@ -7,6 +7,8 @@ function jex_activate_charged_mushroom(event)
 	ability.tech_level = tech_level
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf", point, 3)
 
+	ability.w_4_level = caster:GetRuneValue("w", 4)
+
 	local shroom = CreateUnitByName("jex_charged_mushroom", point, false, caster, caster, caster:GetTeamNumber())
 	shroom:FindAbilityByName("hero_summon_ai"):SetLevel(1)
 	shroom:FindAbilityByName("hero_summon_ai"):ToggleAbility()
@@ -18,6 +20,8 @@ function jex_activate_charged_mushroom(event)
 	local armor = caster:GetPhysicalArmorValue()*event.armor_mult_per_tech*tech_level
 	local hp = caster:GetMaxHealth()*event.health_mult
 	local life_duration = event.duration
+	local q_4_level = caster:GetRuneValue("q", 4)
+	life_duration = life_duration + event.q_4_additional_duration*q_4_level
 	local max_chain_targets = event.chain_target_count*tech_level
 	shroom:SetBaseMaxHealth(hp)
 	shroom:SetMaxHealth(hp)
@@ -62,6 +66,9 @@ function jex_thundershroom_attack_land(event)
 	chain.enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
 	local targets_to_hit = math.min(#chain.enemies, max_targets)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
+	if ability.w_4_level then
+		damage = damage + damage*(e_4_lightning_damage_increase/100)*ability.w_4_level
+	end
 	print("HELLO?")
 	if luck <= 3 then
 		for i = 1, targets_to_hit, 1 do

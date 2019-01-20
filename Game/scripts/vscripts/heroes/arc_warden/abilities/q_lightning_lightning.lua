@@ -11,6 +11,11 @@ function jex_activate_q_lightning_lightning(event)
 	local tech_level = caster.onibi.stats_table["lightning"]["lightning"]["Q"]["level"]
 	local total_radius = radius + radius_per_tech*tech_level
 	local damage = base_damage + agility_added_to_base_damage*caster:GetAgility() + (attack_damage_per_tech/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
+
+	local q_4_level = caster:GetRuneValue("q", 4)
+	if q_4_level > 0 then
+		damage = damage + damage*(event.q_4_damage_increase_pct/100)*q_4_level
+	end
 	ability.damage = damage
 
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, total_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
