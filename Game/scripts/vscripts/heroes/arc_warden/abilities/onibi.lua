@@ -373,3 +373,48 @@ function upgrade_onibi_ability(msg)
 		CustomGameEventManager:Send_ServerToPlayer(player, "reset_onibi", {reset = true})
 	end
 end
+
+function onibi_master_rune_thinker(event)
+	local caster = event.caster.caster
+	local onibi = event.caster
+	local ability = event.ability
+
+	local total_attack_damage_stacks = 0
+	local q_1_level = caster:GetRuneValue("q", 1)
+	local w_1_level = caster:GetRuneValue("w", 1)
+	local e_1_level = caster:GetRuneValue("e", 1)
+
+	total_attack_damage_stacks = total_attack_damage_stacks + onibi.stats_table["nature"]["level"]*q_1_level
+	total_attack_damage_stacks = total_attack_damage_stacks + onibi.stats_table["lightning"]["level"]*w_1_level
+	total_attack_damage_stacks = total_attack_damage_stacks + onibi.stats_table["cosmic"]["level"]*e_1_level
+	if total_attack_damage_stacks > 0 then
+		ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_onibi_base_attack_damage", {})
+		caster:SetModifierStackCount("modifier_onibi_base_attack_damage", onibi, total_attack_damage_stacks)
+	else
+		caster:RemoveModifierByName("modifier_onibi_base_attack_damage")
+	end
+
+	local total_attributes_stacks = 0
+	local q_3_level = caster:GetRuneValue("q", 3)
+	local w_3_level = caster:GetRuneValue("w", 3)
+	local e_3_level = caster:GetRuneValue("e", 3)
+
+	total_attributes_stacks = total_attributes_stacks + onibi.stats_table["nature"]["level"]*q_3_level
+	total_attributes_stacks = total_attributes_stacks + onibi.stats_table["lightning"]["level"]*w_3_level
+	total_attributes_stacks = total_attributes_stacks + onibi.stats_table["cosmic"]["level"]*e_3_level
+	if total_attributes_stacks > 0 then
+		ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_onibi_all_attributes", {})
+		caster:SetModifierStackCount("modifier_onibi_all_attributes", onibi, total_attributes_stacks)
+	else
+		caster:RemoveModifierByName("modifier_onibi_all_attributes")
+	end
+
+	caster.q_2_level = caster:GetRuneValue("q", 2)
+	caster.w_2_level = caster:GetRuneValue("w", 2)
+	caster.e_2_level = caster:GetRuneValue("e", 2)
+
+	caster.r_1_level = caster:GetRuneValue("r", 1)
+	caster.r_2_level = caster:GetRuneValue("r", 2)
+	caster.r_3_level = caster:GetRuneValue("r", 3)
+	caster.r_4_level = caster:GetRuneValue("r", 4)
+end

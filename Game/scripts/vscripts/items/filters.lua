@@ -1440,6 +1440,21 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 end
             end
         end
+        if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
+            if slot == 3 then
+                if attacker.r_1_level then
+                    damageMult = damageMult + attacker.r_1_level*0.08
+                end
+            elseif slot == 1 then
+                if attacker.r_2_level then
+                    damageMult = damageMult + attacker.r_2_level*0.08
+                end
+            elseif slot == 2 then
+                if attacker.r_3_level then
+                    damageMult = damageMult + attacker.r_3_level*0.08
+                end
+            end
+        end
     end
 
     if slot == 1 then
@@ -2095,6 +2110,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_hand_lightning", attacker.InventoryUnit)
             mult = mult + stacks/100
         end
+        if unitName == "npc_dota_hero_arc_warden" then
+            if attacker.w_2_level then
+                mult = mult + attacker.w_2_level*1
+            end
+        end
     end
     if element1 == RPC_ELEMENT_POISON or element2 == RPC_ELEMENT_POISON then
         if unitName == "npc_dota_hero_templar_assassin" then
@@ -2265,6 +2285,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             cosmosMult = cosmosMult + stacks*0.1
         end
         if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
+            if attacker.e_2_level then
+                cosmosMult = cosmosMult + attacker.e_2_level*1
+            end
             if attacker:HasModifier("modifier_jex_cosmic_surge") then
                 local e_4_level = attacker:GetRuneValue("e", 4)
                 cosmosMult = cosmosMult + e_4_level*0.5
@@ -2614,6 +2637,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if victim:HasModifier("modifier_monkey_a_c_effect") then
             local monkeyAbility = victim:FindModifierByName("modifier_monkey_a_c_effect"):GetAbility()
             mult = mult + 0.15*monkeyAbility.e_1_level
+        end
+        if unitName == "npc_dota_hero_arc_warden" then
+            if attacker.q_2_level then
+                mult = mult + attacker.q_2_level*1
+            end
         end
     end
     if element1 == RPC_ELEMENT_UNDEAD or element2 == RPC_ELEMENT_UNDEAD then

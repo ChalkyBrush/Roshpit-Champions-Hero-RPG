@@ -12,7 +12,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_Q1_DMG_PCT %>"
+				"property_one"			"<% JEX_RUNE_ROW_1_VALUE %>"
 			}
 		}
 	}
@@ -22,7 +22,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"zonik/jex_rune_q_2"
+		"AbilityTextureName"	"zonik/jex_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -30,22 +30,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"			"<% ZHONIK_Q2_BASE_DURATION %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ZHONIK_Q2_DURATION %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"			"<% ZHONIK_Q2_BASE_SEARCH_RADIUS %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ZHONIK_Q2_SEARCH_RADIUS %>"
+				"property_one"			"<% JEX_RUNE_ROW_2_VALUE %>"
 			}
 		}
 	}
@@ -55,7 +40,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"zonik/jex_rune_q_3"
+		"AbilityTextureName"	"zonik/jex_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -63,7 +48,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_Q3_POST_MITI_AMP_PCT %>"
+				"property_one"			"<% JEX_RUNE_ROW_3_VALUE %>"
 			}
 		}
 	}
@@ -73,20 +58,15 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"zonik/jex_rune_q_4"
+		"AbilityTextureName"	"zonik/jex_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ZHONIK_Q4_DMG_TAKEN_REDUCTION_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_max"		"<% ZHONIK_Q4_DMG_TAKEN_REDUCTION_MAX_PCT %>"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -96,8 +76,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"zonik/jex_rune_w_1"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"	"zonik/jex_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -105,22 +84,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_W1_MUCH_PUNCH_SHOCKWAVE_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"6"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
+				"property_one"			"<% JEX_RUNE_ROW_1_VALUE %>"
 			}
 		}
 	}
@@ -130,15 +94,15 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"zonik/jex_rune_w_2"
+		"AbilityTextureName"	"zonik/jex_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ZHONIK_W2_MUCH_PUNCH_AMP_PCT %>"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% JEX_RUNE_ROW_2_VALUE %>"
 			}
 		}
 	}
@@ -148,8 +112,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"zonik/jex_rune_w_3"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"	"zonik/jex_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -157,22 +120,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_W3_DMG_PER_WHIPLASH %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.005"
+				"property_one"			"<% JEX_RUNE_ROW_3_VALUE %>"
 			}
 		}
 	}
@@ -182,31 +130,24 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"zonik/jex_rune_w_4"
+		"AbilityTextureName"	"zonik/jex_rune_q_1"
 		"MaxLevel"				"20"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ZHONIK_W4_ECHO_DMG_PCT %>"
-			}
-			"02"
-			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
+				"property_one"			"1"
 			}
 		}
 	}
-
 	"jex_rune_e_1"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"zonik/jex_rune_e_1"
+		"AbilityTextureName"	"zonik/jex_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -214,7 +155,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_E1_MS %>"
+				"property_one"			"<% JEX_RUNE_ROW_1_VALUE %>"
 			}
 		}
 	}
@@ -224,26 +165,15 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"zonik/jex_rune_e_2"
+		"AbilityTextureName"	"zonik/jex_rune_q_1"
 		"MaxLevel"				"20"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_E2_DMG_PER_MANA %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
+				"property_one"			"<% JEX_RUNE_ROW_2_VALUE %>"
 			}
 		}
 	}
@@ -253,7 +183,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"zonik/jex_rune_e_3"
+		"AbilityTextureName"	"zonik/jex_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -261,7 +191,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_E3_PHYS_BLOCK_FLAT %>"
+				"property_one"			"<% JEX_RUNE_ROW_3_VALUE %>"
 			}
 		}
 	}
@@ -271,7 +201,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"zonik/jex_rune_e_4"
+		"AbilityTextureName"	"zonik/jex_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -279,7 +209,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_E4_MS_CAP_INCREASE %>"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -297,17 +227,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ZHONIK_R1_ATTC_DMG_INCR_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ZHONIK_R1_EXTRA_STUN_DURATION %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"<% ZHONIK_R1_BASE_STUN_DURATION %>"
+				"property_one"			"<% JEX_RUNE_BASE_ABILITY %>"
 			}
 		}
 	}
@@ -317,20 +237,15 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"zonik/jex_rune_r_2"
+		"AbilityTextureName"	"zonik/jex_rune_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_R2_HEALTH_REGEN_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ZHONIK_R2_MANA_REGEN_PCT %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% JEX_RUNE_BASE_ABILITY %>"
 			}
 		}
 	}
@@ -340,15 +255,15 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"zonik/jex_rune_r_3"
+		"AbilityTextureName"	"zonik/jex_rune_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_R3_MACH_PUNCH_CHANCE %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% JEX_RUNE_BASE_ABILITY %>"
 			}
 		}
 	}
@@ -358,21 +273,15 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"zonik/jex_rune_r_4"
+		"AbilityTextureName"	"zonik/jex_rune_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_R4_BONUS_STR %>"
-			}
-			"02"
-			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ZHONIK_R4_ATTC_DMG_PER_STR %>"
+				"property_one"			"<% JEX_RUNE_R4_POSTMIT %>"
 			}
 		}
 	}
-

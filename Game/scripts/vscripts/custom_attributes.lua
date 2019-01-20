@@ -426,6 +426,11 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_w_4_agi_increase", 1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_w_4_int_increase", 1)
 	end
+	if hero:HasModifier("modifier_onibi_all_attributes") then
+		str_bonus = str_bonus - CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_onibi_all_attributes", 2)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_onibi_all_attributes", 2)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_onibi_all_attributes", 2)
+	end
 	if heroName == "npc_dota_hero_antimage" then
 		if hero:HasAbility('arkimus_zap_ring') then
 			local q1_level = hero:GetRuneValue('q', 1)
