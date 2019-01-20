@@ -2649,42 +2649,52 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"duration_per_tech"				"20"
-			}			
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_mult"				"2 4 6 8 10 12 14"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_pct_atk_power"				"100 200 300 400 500 600 700"
 			}
-			"04"
+			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"armor_mult_per_tech"				"1"
 			}	
-			"05"
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"attack_mult_per_tech"				"1"
+			}		
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_range_per_tech"				"75"
+			}		
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_mult"				"2 4 6 8 10 12 14"
 			}	
 			"06"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_range_base"				"375"
-			}	
+				"var_type"				"FIELD_FLOAT"
+				"damage_pct_atk_power"				"100 200 300 400 500 600 700"
+			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_range_per_tech"				"125"
+				"attack_range_base"				"375"
 			}	
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"cast_range"				"900 1000 1100 1200 1300 1400 1500"
-			}		
+			}	
+			"09"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"q_4_blossom_magic_resistance"			"2"
+			}
+			"10"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"w_4_damage_increase_pct"			"10"
+			}	
 		}
 		"OnSpellStart"
 		{
@@ -2727,6 +2737,7 @@
 						"Function"		"jex_thunderblossom_attack_land"
 						"target"		"TARGET"
 						"damage_pct_atk_power"	"%damage_pct_atk_power"
+						"w_4_damage_increase_pct"	"%w_4_damage_increase_pct"
 					}
 				}
 			}
@@ -2749,6 +2760,14 @@
 					}
 				}
 
+			}
+			"modifier_thunder_blossom_magic_resistance"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%q_4_blossom_magic_resistance"
+				}
 			}
 			"modifier_jex_thunder_blossom_attack_range"
 			{
@@ -2869,8 +2888,8 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"300"
-			}			
+				"max_portals_per_tech"				"1"
+			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -2879,18 +2898,28 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+			}			
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"cast_range"				"900 1000 1100 1200 1300 1400 1500"
 			}		
-			"04"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"max_portals_base"				"1"
 			}	
-			"05"
+			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"max_portals_per_tech"				"1"
-			}
+				"q_4_armor"				"100"
+			}	
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"e_4_mana_regen"				"100"
+			}	
 		}
 		"OnSpellStart"
 		{
@@ -2939,6 +2968,16 @@
 						"ModifierName"	"modifier_jex_portal_inside_health_regen"
 						"Target" 		"TARGET"
 					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_jex_portal_armor"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_jex_portal_mana_regen"
+						"Target" 		"TARGET"
+					}
 				}
 			}
 			"modifier_jex_portal_inside_health_regen"
@@ -2947,6 +2986,22 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%health_regen_per_tech"
+				}
+			}
+			"modifier_jex_portal_armor"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%q_4_armor"
+				}
+			}
+			"modifier_jex_portal_mana_regen"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%e_4_mana_regen"
 				}
 			}
 			"modifier_jex_portal_teleporting"

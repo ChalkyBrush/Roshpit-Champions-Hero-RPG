@@ -28,6 +28,11 @@ function jex_activate_thunder_blossom(event)
 		ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_thunder_blossom_attack_range", {})
 		shroom:SetModifierStackCount("modifier_jex_thunder_blossom_attack_range", caster, tech_level)
 	end
+	local q_4_level = caster:GetRuneValue("q", 4)
+	if q_4_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, shroom, "modifier_thunder_blossom_magic_resistance", {})
+		shroom:SetModifierStackCount("modifier_thunder_blossom_magic_resistance", caster, q_4_level)
+	end
 	shroom:SetBaseMaxHealth(hp)
 	shroom:SetMaxHealth(hp)
 	shroom:SetHealth(hp)
@@ -123,6 +128,10 @@ function jex_thunderblossom_attack_land(event)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*(event.damage_pct_atk_power/100)
 	local luck = RandomInt(1, 10)
 	if luck <= 3 then
+		local w_4_level = caster:GetRuneValue("w", 4)
+		if w_4_level > 0 then
+			damage = damage + damage*(event.w_4_damage_increase_pct/100)*w_4_level
+		end
 		Timers:CreateTimer(0.1, function()
 			local enemy = target
 			if IsValidEntity(enemy) and enemy:IsAlive() then

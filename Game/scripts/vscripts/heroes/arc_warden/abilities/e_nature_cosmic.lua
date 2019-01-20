@@ -45,6 +45,8 @@ function jex_cast_portal(event)
 		end
 		ability.portalTable = new_table
 	end
+	ability.q_4_level = caster:GetRuneValue("q", 4)
+	ability.e_4_level = caster:GetRuneValue("e", 4)
 	Filters:CastSkillArguments(3, caster)
 
 end
@@ -54,9 +56,18 @@ function jex_portal_inside(event)
 	local ability = event.ability
 	local caster = event.caster
 	if ability.tech_level > 0 then
-		print(target:GetUnitName())
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_jex_portal_inside_health_regen", {})
 		target:SetModifierStackCount("modifier_jex_portal_inside_health_regen", caster, ability.tech_level)
+	end
+	if target:GetEntityIndex() == caster:GetEntityIndex() then
+		if ability.q_4_level > 0 then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_jex_portal_armor", {})
+			target:SetModifierStackCount("modifier_jex_portal_armor", caster, ability.q_4_level)
+		end
+		if ability.e_4_level > 0 then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_jex_portal_mana_regen", {})
+			target:SetModifierStackCount("modifier_jex_portal_mana_regen", caster, ability.e_4_level)
+		end
 	end
 end
 
