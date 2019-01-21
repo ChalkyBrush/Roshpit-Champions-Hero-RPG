@@ -1,9 +1,11 @@
+require('heroes/arc_warden/abilities/onibi')
+
 function jex_activate_thunder_blossom(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
 	point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
-	local tech_level = caster.onibi.stats_table["lightning"]["nature"]["E"]["level"]
+	local tech_level = onibi_get_total_tech_level(caster, "lightning", "nature", "E")
 	ability.tech_level = tech_level
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf", point, 3)
 

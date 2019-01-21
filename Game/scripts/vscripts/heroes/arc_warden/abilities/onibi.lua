@@ -95,6 +95,8 @@ function onibi_initial_set_abilities_data(onibi, data_from_server)
 				onibi.stats_table[element2][element1][ability_key]["name"] = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
 				onibi.stats_table[element1][element2][ability_key]["level"] = level
 				onibi.stats_table[element2][element1][ability_key]["level"] = level
+				onibi.stats_table[element1][element2][ability_key]["bonus_level"] = 0
+				onibi.stats_table[element2][element1][ability_key]["bonus_level"] = 0
 				tech_points_spent = tech_points_spent + total_tech_used_on_ability(element1, element2, ability_key, level)
 			end
 		end
@@ -104,6 +106,10 @@ function onibi_initial_set_abilities_data(onibi, data_from_server)
 		local tech_available = tech_points_earned_for_element(element1, element_level) - tech_points_spent
 		onibi.stats_table[element1]["tech"] = tech_available
 	end
+	
+	local immortal_weapon_equip_table = {}
+	immortal_weapon_equip_table.target = onibi.caster
+	jex_equip_immortal_weapon(immortal_weapon_equip_table)
 end
 
 function tech_points_earned_for_element(element, level)
@@ -417,4 +423,43 @@ function onibi_master_rune_thinker(event)
 	caster.r_2_level = caster:GetRuneValue("r", 2)
 	caster.r_3_level = caster:GetRuneValue("r", 3)
 	caster.r_4_level = caster:GetRuneValue("r", 4)
+end
+
+function jex_equip_immortal_weapon(event)
+	local caster = event.target
+	local elements_table = get_onibi_elements_name_table(onibi)
+	local ability_keys = {"Q", "W", "E"}
+	for i = 1, #elements_table, 1 do
+		local element_tech_used
+		local element1 = elements_table[i]
+		-- local other_elements = get_other_elements(onibi, element1)
+		local tech_points_spent = 0
+		for k = 1, #elements_table, 1 do
+			for j = 1, #ability_keys, 1 do
+				local ability_key = ability_keys[j]
+				local element2 = elements_table[k]
+				local bonus = 0
+				if (element1 == "nature" or element2 == "nature") and caster:HasModifier("modifier_jex_immortal_weapon_1") then
+					bonus = 1
+				end
+				if (element1 == "lightning" or element2 == "lightning") and caster:HasModifier("modifier_jex_immortal_weapon_2") then
+					bonus = 1
+				end
+				if (element1 == "cosmic" or element2 == "cosmic") and caster:HasModifier("modifier_jex_immortal_weapon_3") then
+					bonus = 1
+				end
+				if element1 == element2 then
+					bonus = bonus*2
+				end
+				onibi.stats_table[element1][element2][ability_key]["bonus_level"] = bonus
+				onibi.stats_table[element2][element1][ability_key]["bonus_level"] = bonus
+			end
+		end
+	end
+end
+
+function onibi_get_total_tech_level(caster, element1, element2, ability_key)
+	local base_level = caster.onibi.stats_table[element1][element2][ability_key]["level"]
+	local bonus_level = caster.onibi.stats_table[element1][element2][ability_key]["bonus_level"]
+	return level + bonus_level
 end

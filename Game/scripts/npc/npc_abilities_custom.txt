@@ -579,7 +579,6 @@
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"2"
 		"AbilityChannelTime"	"2.5"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
 		"RequiredLevel"          		"-5"
@@ -1452,6 +1451,7 @@
 		"MaxLevel"				 "7"
 		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
 		"AbilityCastRange"				"1000"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -1496,13 +1496,17 @@
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"32 34 36 38 40 42 44"
 			}
-
 			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chain_lightning_damage_pct_attack_power"				"100"
+			}
+			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"q_4_additional_duration"				"0.5"
 			}	
-			"07"
+			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"e_4_lightning_damage_increase"				"6"

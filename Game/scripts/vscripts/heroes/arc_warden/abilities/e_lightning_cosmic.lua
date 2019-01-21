@@ -1,5 +1,5 @@
 LinkLuaModifier("modifier_jex_cosmic_surge_lua", "modifiers/jex/modifier_jex_cosmic_surge_lua", LUA_MODIFIER_MOTION_NONE)
-
+require('heroes/arc_warden/abilities/onibi')
 function jex_active_cosmic_surge(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -7,7 +7,7 @@ function jex_active_cosmic_surge(event)
 	local duration_base = event.duration_base
 	local duration_per_tech = event.duration_per_tech
 
-	local tech_level = caster.onibi.stats_table["lightning"]["cosmic"]["E"]["level"]
+	local tech_level = onibi_get_total_tech_level(caster, "lightning", "cosmic", "E")
 	ability.tech_level = tech_level
 	local duration = Filters:GetAdjustedBuffDuration(caster, duration_base + duration_per_tech*tech_level, false)
 

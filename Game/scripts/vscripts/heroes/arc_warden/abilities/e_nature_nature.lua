@@ -1,8 +1,10 @@
+require('heroes/arc_warden/abilities/onibi')
+
 function jex_activate_nature_e(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	local tech_level = caster.onibi.stats_table["nature"]["nature"]["E"]["level"]
+	local tech_level = onibi_get_total_tech_level(caster, "nature", "nature", "E")
 	ability.tech_level = tech_level
 
 	local radius = event.radius_base + event.radius_per_tech*tech_level

@@ -1,3 +1,5 @@
+require('heroes/arc_warden/abilities/onibi')
+
 function jex_lightning_lightning_attack_land(event)
 	local caster = event.caster
 	local attacker = event.attacker
@@ -45,7 +47,7 @@ end
 function jex_lightning_lightning_toggled_on(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.tech_level = caster.onibi.stats_table["lightning"]["lightning"]["W"]["level"]
+	ability.tech_level = onibi_get_total_tech_level(caster, "lightning", "lightning", "W")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_vortex_w_attack_dmg", {})
 	caster:SetModifierStackCount("modifier_jex_vortex_w_attack_dmg", caster, ability.tech_level)
 	EmitSoundOn("Jex.VortexWeaponActivate", caster)

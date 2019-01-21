@@ -1,3 +1,5 @@
+require('heroes/arc_warden/abilities/onibi')
+
 function jex_grenade_throw_start(event)
 	local caster = event.caster
 	local ability = event.ability

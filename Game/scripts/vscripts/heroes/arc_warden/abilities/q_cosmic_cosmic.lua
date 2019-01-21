@@ -1,3 +1,5 @@
+require('heroes/arc_warden/abilities/onibi')
+
 function jex_q_cosmic_cosmic_precast(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -105,7 +107,7 @@ function jex_q_cosmic_cosmic_casting_thinker2(event)
 	local beamLength = 1000
 	local damage = event.damage
 
-	local tech_level = caster.onibi.stats_table["cosmic"]["cosmic"]["Q"]["level"]
+	local tech_level = onibi_get_total_tech_level(caster, "cosmic", "cosmic", "Q")
 	if tech_level > 0 then
 		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.postmitigation_per_tech/100)*tech_level
 	end

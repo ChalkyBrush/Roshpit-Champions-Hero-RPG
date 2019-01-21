@@ -1,3 +1,5 @@
+require('heroes/arc_warden/abilities/onibi')
+
 function jex_root_weave_start(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -9,7 +11,7 @@ function jex_root_weave_start(event)
     local all_attributes_added_to_damage = event.all_attributes_added_to_damage
     local damage_per_tick = event.damage_per_tick
     local attack_power_added_to_tick_per_tech = event.attack_power_added_to_tick_per_tech
-    local tech_level = caster.onibi.stats_table["nature"]["nature"]["W"]["level"]
+    local tech_level = onibi_get_total_tech_level(caster, "nature", "nature", "W")
     
     ability.tick_damage = damage_per_tick + all_attributes_added_to_damage*(caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) + OverflowProtectedGetAverageTrueAttackDamage(caster)*(attack_power_added_to_tick_per_tech/100)*tech_level
 	local q_4_level = caster:GetRuneValue("q", 4)

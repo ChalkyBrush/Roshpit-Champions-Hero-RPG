@@ -1,3 +1,5 @@
+require('heroes/arc_warden/abilities/onibi')
+
 function jex_activate_q_lightning_lightning(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -8,7 +10,7 @@ function jex_activate_q_lightning_lightning(event)
 	local base_damage = event.base_damage
 	local agility_added_to_base_damage = event.agility_added_to_base_damage
 
-	local tech_level = caster.onibi.stats_table["lightning"]["lightning"]["Q"]["level"]
+	local tech_level = onibi_get_total_tech_level(caster, "lightning", "lightning", "Q")
 	local total_radius = radius + radius_per_tech*tech_level
 	local damage = base_damage + agility_added_to_base_damage*caster:GetAgility() + (attack_damage_per_tech/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
 

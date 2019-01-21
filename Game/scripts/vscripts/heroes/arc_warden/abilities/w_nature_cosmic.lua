@@ -1,7 +1,9 @@
+require('heroes/arc_warden/abilities/onibi')
+
 function jex_nature_cosmic_toggled_on(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.tech_level = caster.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
+	ability.tech_level = onibi_get_total_tech_level(caster, "nature", "cosmic", "W")
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_nature_cosmic_movespeed", {})
 	caster:SetModifierStackCount("modifier_jex_nature_cosmic_movespeed", caster, ability.tech_level)

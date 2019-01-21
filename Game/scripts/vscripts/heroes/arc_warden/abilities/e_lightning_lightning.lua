@@ -1,9 +1,11 @@
+require('heroes/arc_warden/abilities/onibi')
+
 function jex_lightning_lightning_e_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
 
-	local tech_level = caster.onibi.stats_table["lightning"]["lightning"]["E"]["level"]
+	local tech_level = onibi_get_total_tech_level(caster, "lightning", "lightning", "E")
 	ability.tech_level = tech_level
 
 	EmitSoundOn("Winterblight.AzaleanZealot.Strafe", caster)

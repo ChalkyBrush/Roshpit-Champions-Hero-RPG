@@ -1,3 +1,5 @@
+require('heroes/arc_warden/abilities/onibi')
+
 function jex_cosmic_cosmic_e_phase_start(event)
 	local caster = event.caster
 	CustomAbilities:QuickAttachParticle("particles/econ/items/faceless_void/faceless_void_jewel_of_aeons/fv_time_walk_jewel.vpcf", caster, 1.5)
@@ -11,7 +13,7 @@ function jex_cosmic_port_start(event)
 	local ability = event.ability
 	local target = event.target_points[1]
 
-    local tech_level = caster.onibi.stats_table["cosmic"]["cosmic"]["E"]["level"]
+    local tech_level = onibi_get_total_tech_level(caster, "cosmic", "cosmic", "E")
 
 	local range = event.additional_cast_range_per_tech*tech_level + event.cast_range
     local e_4_level = caster:GetRuneValue("e", 4)

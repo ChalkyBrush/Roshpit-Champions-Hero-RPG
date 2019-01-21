@@ -1,9 +1,11 @@
+require('heroes/arc_warden/abilities/onibi')
+
 function jex_cast_portal(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
 
-	local tech_level = caster.onibi.stats_table["nature"]["cosmic"]["E"]["level"]
+	local tech_level = onibi_get_total_tech_level(caster, "nature", "cosmic", "E")
 	ability.tech_level = tech_level
 
 	point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)

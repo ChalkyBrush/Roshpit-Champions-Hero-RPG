@@ -1,3 +1,5 @@
+require('heroes/arc_warden/abilities/onibi')
+
 function jex_ion_cannon_phase(event)
 	local caster = event.caster
 	StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.8})
@@ -11,7 +13,7 @@ function jex_ion_cannon_throw(event)
 		ability.projectiles_table = {}
 	end
 	local target = event.target
-	ability.tech_level = caster.onibi.stats_table["lightning"]["cosmic"]["W"]["level"]
+	ability.tech_level = onibi_get_total_tech_level(caster, "lightning", "cosmic", "W")
 	ability.damage = event.base_damage + (event.damage_attack_power_per_tech/100)*ability.tech_level*OverflowProtectedGetAverageTrueAttackDamage(caster) + event.strength_added_to_damage*caster:GetStrength()
 	local w_4_level = caster:GetRuneValue("w", 4)
 	if w_4_level > 0 then

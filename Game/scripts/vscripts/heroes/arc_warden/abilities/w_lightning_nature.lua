@@ -1,3 +1,5 @@
+require('heroes/arc_warden/abilities/onibi')
+
 function jex_thunderleaf_phase(event)
 	local caster = event.caster
 	StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.8})
@@ -15,7 +17,7 @@ function jex_thunderleaf_throw(event)
 	local range_per_tech = event.range_per_tech
 	local paralyze_duration_per_tech = event.paralyze_duration_per_tech
 
-	local tech_level = caster.onibi.stats_table["lightning"]["nature"]["W"]["level"]
+	local tech_level = onibi_get_total_tech_level(caster, "lightning", "nature", "W")
 	local base_damage = event.base_damage
 	ability.damage =  base_damage + agility_added_to_damage*caster:GetAgility()+(damage_attack_power_per_tech/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*tech_level
 	local w_4_level = caster:GetRuneValue("w", 4)
