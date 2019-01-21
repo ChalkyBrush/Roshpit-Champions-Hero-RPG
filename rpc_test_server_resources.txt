@@ -846,6 +846,35 @@ function GameMode:OnPlayerChat(keys)
     local steamID = PlayerResource:GetSteamAccountID(playerid)
     LoadCharacterDev(playerid, strn[1], strn[2])
   end
+
+  if string.match(text, "map_keys") and GameState:IsRedfallRidge() then
+    local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+    local item = CreateItem("item_debug_blink", nil, nil)
+    local drop = CreateItemOnPositionSync( vector, item )
+    local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+    if GameState:IsRedfallRidge() then
+      Redfall:GiveSpiritRuby(hero, vector)
+      Redfall:GiveVermillionBundle(hero, vector)
+      Redfall:GiveShipyardKey(hero, vector)
+      Redfall:GiveDemonRelic(hero, vector)
+    elseif GameState:IsWinterblight() then
+      for i=1,3 do
+        Winterblight:DropGlacierStone(vector)
+      end
+    elseif GameState:IsSerengaard() then
+      Serengaard:GiveSunstone(hero, Serengaard.mainAncient:GetAbsOrigin())
+    end
+  end
+  if string.match(text, "rpc_redfall_ridge") and GameState:IsRedfallRidge() then
+    Timers:CreateTimer(1, function()
+      Redfall:InitiateCrimsythCastle()
+      local blockers = Entities:FindAllByNameWithin("drawbridge_blocker", Vector(5376, 11520, 128+Redfall.ZFLOAT), 4000)
+      for i = 1, #blockers, 1 do
+        UTIL_Remove(blockers[i])
+      end
+    end)    
+  end
+
   if GetMapName() == "rpc_sea_fortress" then
     if string.match(text, "-sea swen") then
       Seafortress:SpawnFinalBoss()
