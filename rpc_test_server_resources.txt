@@ -847,7 +847,7 @@ function GameMode:OnPlayerChat(keys)
     LoadCharacterDev(playerid, strn[1], strn[2])
   end
 
-  if string.match(text, "map_keys") and GameState:IsRedfallRidge() then
+  if string.match(text, "map_keys") then
     local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
     local item = CreateItem("item_debug_blink", nil, nil)
     local drop = CreateItemOnPositionSync( vector, item )
