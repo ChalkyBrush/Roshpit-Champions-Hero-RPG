@@ -1,4 +1,5 @@
 require('heroes/arc_warden/abilities/onibi')
+require('heroes/arc_warden/jex_constants')
 
 function jex_activate_q_lightning_lightning(event)
 	local caster = event.caster
@@ -64,6 +65,9 @@ function jex_lightning_lightning_thinker(event)
 			
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, ability.damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 			hit = true
+			if caster:HasModifier("modifier_jex_glyph_3_1") then
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_jex_thunder_wrath_glyph_slow", {duration = JEX_GLYPH_3_DURATION})
+			end
 		end
 	end
 	if hit then

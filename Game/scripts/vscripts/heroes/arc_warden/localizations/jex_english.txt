@@ -371,8 +371,11 @@
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_2_1"		"Glyph of Transmission"
 	"item_rpc_jex_glyph_2_1_description" 				"Allies can use Earth's Gate."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_3_1"		"Glyph of the North Star"
-	"item_rpc_jex_glyph_3_1_description" 				"@glyph_property1% chance to punch twice when casting Mach Punch."
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_3_1"		"Glyph of Mega Shock"
+	"item_rpc_jex_glyph_3_1_description" 				"Enemies hit by Wrath of Lightning are slowed by @glyph_property1 for @glyph_property2 seconds."
+
+	"DOTA_Tooltip_modifier_jex_thunder_wrath_glyph_slow"	"Wrath of Lightning"
+	"DOTA_Tooltip_modifier_jex_thunder_wrath_glyph_slow_Description"	"Slowed"
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_4_1"		"Glyph of Auric Blast"
 	"item_rpc_jex_glyph_4_1_description" 				"Increases the radius of Sonic Boom by @glyph_property1%."

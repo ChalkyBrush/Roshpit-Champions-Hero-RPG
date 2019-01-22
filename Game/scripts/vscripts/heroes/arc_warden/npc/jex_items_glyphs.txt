@@ -84,7 +84,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_GLYPH_2_1_DAMAGE %>"
+				"property_one"			"0"
 			}
 		}
 	}
@@ -123,7 +123,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_GLYPH_3_1_CHANCE_TO_PUNCH_TWICE %>"
+				"property_one"			"<% JEX_GLYPH_3_SLOW %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% JEX_GLYPH_3_DURATION %>"
 			}
 		}
 	}

@@ -1349,6 +1349,17 @@
 					}
 				}
 			}
+			"modifier_jex_thunder_wrath_glyph_slow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
+				"StatusEffectPriority"	"110"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-400" 
+				}
+			}
 		}
 	}
 
