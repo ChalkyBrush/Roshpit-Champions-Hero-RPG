@@ -31,7 +31,9 @@ function jex_activate_charged_mushroom(event)
 	shroom:SetPhysicalArmorBaseValue(armor)
 	shroom:SetBaseDamageMin(attack_damage)
 	shroom:SetBaseDamageMax(attack_damage)
-
+	if caster:HasModifier("modifier_jex_glyph_4_1") then
+		ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_glyph_4_1_as", {})
+	end
     shroom.summoner = caster
     shroom:SetOwner(caster)
     shroom:SetControllableByPlayer(caster:GetPlayerID(), true)

@@ -1615,6 +1615,14 @@
 				}
 
 			}
+			"modifier_jex_glyph_4_1_as"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "160"
+				}
+			}
 		}
 	}
 
@@ -2851,6 +2859,14 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%attack_range_per_tech"
+				}
+			}
+			"modifier_jex_glyph_4_1_as"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "160"
 				}
 			}
 		}

@@ -35,6 +35,9 @@ function jex_activate_thunder_blossom(event)
 		ability:ApplyDataDrivenModifier(caster, shroom, "modifier_thunder_blossom_magic_resistance", {})
 		shroom:SetModifierStackCount("modifier_thunder_blossom_magic_resistance", caster, q_4_level)
 	end
+	if caster:HasModifier("modifier_jex_glyph_4_1") then
+		ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_glyph_4_1_as", {})
+	end
 	shroom:SetBaseMaxHealth(hp)
 	shroom:SetMaxHealth(hp)
 	shroom:SetHealth(hp)

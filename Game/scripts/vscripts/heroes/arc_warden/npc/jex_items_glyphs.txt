@@ -167,7 +167,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_GLYPH_4_1_SONIC_RADIUS %>"
+				"property_one"			"<% JEX_GLYPH_4_ATTACKSPEED %>"
 			}
 		}
 	}
