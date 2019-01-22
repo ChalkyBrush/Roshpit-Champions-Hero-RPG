@@ -133,6 +133,7 @@ function start_channel(event)
 	ability.radius = radius
 	StartSoundEvent("Jex.Harvest", caster)
 	ability.harvested = 0
+	print("ESSENCE HARVEST ANIMATION")
 	StartAnimation(caster, {duration=3, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.4})
 	-- local allies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	-- local flowers = {}
@@ -200,13 +201,26 @@ function harvest_channel_thinking(event)
 end
 
 function essence_harvest_channel_end(event)
-	local caster = event.caster
-	local ability = event.ability
-	local point = ability.point
-	local radius = ability.radius
+	local caster = nil
+	local ability = nil
+	local point = nil
+	local radius = nil
+	if event.glyph then
+		caster = event.target
+		ability = caster:FindAbilityByName("jex_essence_harvest")
+		point = caster:GetAbsOrigin()
+		radius = event.radius
+	else
+		caster = event.caster
+		ability = event.ability
+		point = ability.point
+		radius = ability.radius
+	end
 	local allies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
 	local flowers = {}
-	EndAnimation(caster)
+	if not event.glyph then
+		EndAnimation(caster)
+	end
 	for i = 1, #allies, 1 do
 		local unit = allies[i]
 		if unit.essence_unit then
@@ -216,10 +230,31 @@ function essence_harvest_channel_end(event)
 	allies = nil
 	for i = 1, #flowers, 1 do
 		local flower = flowers[i]
-		if flower.extraction_pfx then
-			ParticleManager:DestroyParticle(flower.extraction_pfx, false)
-			ParticleManager:ReleaseParticleIndex(flower.extraction_pfx)
-			flower.extraction_pfx = nil
+		if event.glyph then
+			if not flower.extraction_pfx then
+				print("Make pfx")
+				local pfx = ParticleManager:CreateParticle("particles/roshpit/jex/essence_harvest.vpcf", PATTACH_CUSTOMORIGIN, nil)
+				ParticleManager:SetParticleControlEnt(pfx, 0, flower, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", flower:GetAbsOrigin(), true)
+				ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
+				flower.extraction_pfx = pfx
+				Timers:CreateTimer(1, function()
+					if flower.extraction_pfx then
+						ParticleManager:DestroyParticle(flower.extraction_pfx, false)
+						ParticleManager:ReleaseParticleIndex(flower.extraction_pfx)
+						flower.extraction_pfx = nil
+					end
+				end)
+			end
+		else
+			if flower.extraction_pfx then
+				ParticleManager:DestroyParticle(flower.extraction_pfx, false)
+				ParticleManager:ReleaseParticleIndex(flower.extraction_pfx)
+				flower.extraction_pfx = nil
+			end
+		end
+		if event.glyph then
+			flower.resource_proportion_to_extract = 1
+			add_resources_to_hero(caster, flower.essence, flower.essence_value/2)
 		end
 		if flower.resource_proportion_to_extract <= 1 then
 			flower:FindAbilityByName("jex_essence_ability"):ApplyDataDrivenModifier(flower, flower, "jex_essence_spawning", {duration = 0.42})
@@ -228,9 +263,11 @@ function essence_harvest_channel_end(event)
 			flower:RemoveModifierByName("jex_essence_lightning")
 			flower:RemoveModifierByName("jex_essence_cosmic")
 			if flower.extraction_pfx then
-				ParticleManager:DestroyParticle(flower.extraction_pfx, false)
-				ParticleManager:ReleaseParticleIndex(flower.extraction_pfx)
-				flower.extraction_pfx = nil
+				if not event.glyph then
+					ParticleManager:DestroyParticle(flower.extraction_pfx, false)
+					ParticleManager:ReleaseParticleIndex(flower.extraction_pfx)
+					flower.extraction_pfx = nil
+				end
 			end
 			Timers:CreateTimer(0.5, function()
 				if IsValidEntity(flower) then
@@ -239,7 +276,33 @@ function essence_harvest_channel_end(event)
 			end)
 		end
 	end
-	transfer_to_onibi(caster, ability)
+	if event.glyph then
+		if #flowers == 0 then
+			if not ability.glyph_harvest_counter then
+				ability.glyph_harvest_counter = 0
+			end
+			ability.glyph_harvest_counter = ability.glyph_harvest_counter + 1
+			if ability.glyph_harvest_counter == 3 then
+				ability.harvested = 0
+				if caster.jex_resources then
+					local total_collected = 0
+					for k, v in pairs(caster.jex_resources) do
+						total_collected = total_collected + caster.jex_resources[k]
+					end
+					if total_collected > 0 then
+						transfer_to_onibi(caster, ability)
+						ability.harvested = 0
+						ability.glyph_harvest_counter = 0
+					end
+				end
+			end
+		else
+			ability.harvested = ability.harvested + #flowers
+			ability.glyph_harvest_counter = 0
+		end
+	else
+		transfer_to_onibi(caster, ability)
+	end
 
 	-- StopSoundEvent("Jex.Harvest", caster)
 end

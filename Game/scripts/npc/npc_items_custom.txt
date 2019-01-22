@@ -30,6 +30,18 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/essence_harvest"
+						"Function"		"essence_harvest_channel_end"
+						"glyph"         "1"
+						"radius"        "%property_one"
+						"target"		"TARGET"
+					}
+				}	
 			}
 		}
 		"AbilitySpecial"

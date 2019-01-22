@@ -457,7 +457,6 @@ function jex_equip_immortal_weapon(event)
 				end
 				onibi.stats_table[element1][element2][ability_key]["bonus_level"] = bonus
 				onibi.stats_table[element2][element1][ability_key]["bonus_level"] = bonus
-				DeepPrintTable(onibi.stats_table)
 			end
 		end
 	end
