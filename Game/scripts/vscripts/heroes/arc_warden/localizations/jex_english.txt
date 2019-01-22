@@ -5,6 +5,10 @@
 	"jex_charged_mushroom"			"Charged Sproutling"
 	"jex_thunder_blossom"			"Thunder Blossom"
 
+	"tooltip_jex_q"					"[Q] Ability"
+	"tooltip_jex_w"					"[W] Ability"
+	"tooltip_jex_e"					"[E] Ability"
+
 	"DOTA_Tooltip_ability_onibi_nature_1"		"Nature Module"
 	"DOTA_Tooltip_ability_onibi_nature_1_Description"		"Enables the activation of Nature abilities. Enemies who die near Jex will leave behind shrubs for harvesting."
 

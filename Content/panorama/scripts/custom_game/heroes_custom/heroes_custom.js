@@ -304,6 +304,8 @@ function getSkillSlot(heroName, slot){
 		skillName = getSephyrSkill(slot)
 	}else if (heroName == "npc_dota_hero_winter_wyvern"){
 		skillName = getDinathSkill(slot)
+	}else if (heroName == "npc_dota_hero_arc_warden"){
+		skillName = getJexSkill(slot)
 	}
 	return skillName
 }
@@ -686,6 +688,20 @@ function getDinathSkill(slot){
 	return skillName	
 }
 
+function getJexSkill(slot){
+	var skillName = ""
+	if (slot == 1){
+		skillName = "tooltip_jex_q"
+	}else if(slot == 2){
+		skillName = "tooltip_jex_w"
+	}else if(slot == 3){
+		skillName = "tooltip_jex_e"
+	}else if(slot == 4){
+		skillName = "DOTA_Tooltip_ability_jex_essence_harvest"
+	}
+	return skillName
+}
+
 function testing(){
 	$.Msg("did we load?")
 }
@@ -782,6 +798,8 @@ function convertFullHeroNameToRPC(heroName){
 		rpcName = "sephyr"
 	}else if (heroName == "npc_dota_hero_winter_wyvern"){
 		rpcName = "dinath"
+	}else if (heroName == "npc_dota_hero_arc_warden"){
+		rpcName = "jex"
 	}else if (heroName == "tooltip_neutral"){
 		rpcName = "neutral"
 	}
