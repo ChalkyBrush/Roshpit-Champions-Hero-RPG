@@ -435,7 +435,6 @@ function jex_equip_immortal_weapon(event)
 	local ability_keys = {"Q", "W", "E"}
 	local onibi = caster.onibi
 	for i = 1, #elements_table, 1 do
-		local element_tech_used
 		local element1 = elements_table[i]
 		-- local other_elements = get_other_elements(onibi, element1)
 		local tech_points_spent = 0
@@ -458,9 +457,11 @@ function jex_equip_immortal_weapon(event)
 				end
 				onibi.stats_table[element1][element2][ability_key]["bonus_level"] = bonus
 				onibi.stats_table[element2][element1][ability_key]["bonus_level"] = bonus
+				DeepPrintTable(onibi.stats_table)
 			end
 		end
 	end
+	write_onibi_to_nettable(onibi)
 end
 
 function onibi_get_total_tech_level(caster, element1, element2, ability_key)

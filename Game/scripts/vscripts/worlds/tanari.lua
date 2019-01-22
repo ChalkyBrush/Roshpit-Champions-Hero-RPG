@@ -75,16 +75,16 @@ function Tanari:Debug()
     -- RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
     -- RPCItems:RollMountainProtectorArcana3(Vector(-4928, 2048))
     -- RPCItems:RollDunetreadBoots(Vector(-4928, 2048))
-    -- Arena = {}
-    -- Arena.PitLevel = 7
-    -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "bahamut")
-    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "venomort")
-    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "venomort")
+    Arena = {}
+    Arena.PitLevel = 7
+    Weapons:RollLegendWeapon1(Vector(-4928, 2048), "jex")
+    Weapons:RollLegendWeapon2(Vector(-4928, 2048), "jex")
+    Weapons:RollLegendWeapon3(Vector(-4928, 2048), "jex")
     -- RPCItems:RollSunCrystal(Vector(-4928, 2048), 100)
     -- RPCItems:RollWaterMageRobes(Vector(-4928, 2048))
     -- RPCItems:RollAlaranaIceBoot(Vector(-4928, 2048))
     -- RPCItems:RollDruidsSpiritHelm(Vector(-4928, 2048), false)
-    -- Glyphs:DebugRollHeroGlyphs("paladin", Vector(-4928, 2048))
+    Glyphs:DebugRollHeroGlyphs("jex", Vector(-4928, 2048))
     -- RPCItems:RollMonkeyPaw(Vector(-4928, 2048))
     -- RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
     -- RPCItems:RollPaladinArcana2(Vector(-4928, 2048))
@@ -94,7 +94,7 @@ function Tanari:Debug()
     -- RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
 
     -- RPCItems:RollBahamutArcana2(Vector(-4928, 2048))
-    Glyphs:RollGlyphAll("item_rpc_spirit_warrior_glyph_7_1", Vector(-4928, 2048), 0)
+    -- Glyphs:RollGlyphAll("item_rpc_spirit_warrior_glyph_7_1", Vector(-4928, 2048), 0)
 
     -- Curator:CurateArcanaAbilities(MAIN_HERO_TABLE[1])
     -- Curator:CurateAllGlyphsForHeroWithTiers("neutral", 3)

@@ -134,8 +134,11 @@ function onibi_element_click(element_panel, index, element_data, element, queryU
 			var ability_level = onibi_data[element][secondaryElement][ability_key]["level"]
 			var bonus_level = onibi_data[element][secondaryElement][ability_key]["bonus_level"]
 			var ability_level_text = ability_level 
+			$.Msg(onibi_data)
+			$.Msg(onibi_data[element][secondaryElement])
+			$.Msg("BONUS LEVEL:"+bonus_level)
 			if (bonus_level > 0){
-				ability_level_text="<font color='#C25DFC'>"+ability_level+bonus_level+"</font>"
+				ability_level_text="<font color='#f4b942'>"+parseInt(parseInt(ability_level)+parseInt(bonus_level))+"</font>"
 			}
 
 			var secondaryElementNumber = convertElementNameToNumber(secondaryElement)

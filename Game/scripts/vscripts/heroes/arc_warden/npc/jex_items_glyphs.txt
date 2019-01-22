@@ -33,7 +33,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_GLYPH_1_1_TACHYON_SHELL_RADIUS %>"
+				"property_one"			"<% JEX_GLYPH_1_HARVEST_RADIUS %>"
 			}
 		}
 	}

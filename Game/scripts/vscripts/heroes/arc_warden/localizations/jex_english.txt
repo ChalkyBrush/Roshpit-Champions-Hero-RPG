@@ -360,13 +360,13 @@
     "item_property_jex_immortal_weapon2"                             "Lightning Enhancement"
     "property_jex_immortal_weapon2_description"                      "All tech abilities with <font color=\"#5CCDF9\">Lightning</font> element receive @special_property1 Tech Level. Double <font color=\"#5CCDF9\">Lightning</font> abilities gain @special_property2 bonus Tech Levels."
 
-    "DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_3"            "Exodius Plasma"
+    "DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_3"            "Exodius Plasma Cannon"
     "item_property_jex_immortal_weapon3"                             "Cosmic Enhancement"
     "property_jex_immortal_weapon3_description"                      "All tech abilities with <font color=\"#C25DFC\">Cosmic</font> element receive @special_property1 Tech Level. Double <font color=\"#C25DFC\">Cosmic</font> abilities gain @special_property2 bonus Tech Levels."
 
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_1_1"		"Glyph of Biosynthesis"
-	"item_rpc_jex_glyph_1_1_description" 				"Tachyon Shell when carried by jex has its radius increased by @glyph_property1%."
+	"item_rpc_jex_glyph_1_1_description" 				"Plants are automatically harvested in a @glyph_property1 radius around Jex."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_2_1"		"Glyph of the Transistor"
 	"item_rpc_jex_glyph_2_1_description" 				"Enemies who carry Tachyon Shell also take the damage at an enhanced rate of @glyph_property1%."
