@@ -7021,7 +7021,7 @@
 	"DOTA_Tooltip_ability_thunder_blossom_teleport_Description"	"Grabs Jex and pulls him toward the Thunder Blossom. Jex can right click on a thunder blossom to activate this ability automatically."
 
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e"				"Earth's Gate"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_e_Description"	"Jex creates a dimensional portal at the target location. While standing in a portal, Jex gain health regen and he can issue a move order to any other portal and teleport to it immediately. Only Jex may use the portals."
+	"DOTA_Tooltip_ability_jex_nature_cosmic_e_Description"	"Jex creates a dimensional portal at the target location. While standing in a portal, Jex gain health regen and he can issue a move order to any other portal and teleport to it after a 0.5 second delay. Only Jex may use the portals."
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_max_portals_per_tech"	"<font color=\"#f4b942\">MAX PORTALS PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_health_regen_per_tech"	"<font color=\"#f4b942\">HEALTH REGEN PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_radius"				"RADIUS:"
@@ -7174,8 +7174,8 @@
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_1_1"		"Glyph of Biosynthesis"
 	"item_rpc_jex_glyph_1_1_description" 				"Plants are automatically harvested in a @glyph_property1 radius around Jex."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_2_1"		"Glyph of the Transistor"
-	"item_rpc_jex_glyph_2_1_description" 				"Enemies who carry Tachyon Shell also take the damage at an enhanced rate of @glyph_property1%."
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_2_1"		"Glyph of Transmission"
+	"item_rpc_jex_glyph_2_1_description" 				"Allies can use Earth's Gate."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_3_1"		"Glyph of the North Star"
 	"item_rpc_jex_glyph_3_1_description" 				"@glyph_property1% chance to punch twice when casting Mach Punch."

@@ -557,11 +557,15 @@ function GameState:OrderFilter(orderTable)
 						end
 					end
 				end
-			elseif orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
-				if unit:HasModifier("modifier_jex_portal_aura_inside") then
-					if not unit:HasModifier("modifier_jex_portal_teleporting") then
-						print("RDG")
-						local ability = unit:FindAbilityByName("jex_nature_cosmic_e")
+			end
+		end
+		if unit:HasModifier("modifier_jex_portal_aura_inside") then
+			if unit:HasModifier("modifier_jex_portal_aura_inside") then
+				if not unit:HasModifier("modifier_jex_portal_teleporting") then
+					print("RDG")
+					local portal_caster = unit:FindModifierByName("modifier_jex_portal_aura_inside"):GetAbility():GetCaster()
+					local ability = portal_caster:FindAbilityByName("jex_nature_cosmic_e")
+					if portal_caster:HasModifier("modifier_jex_glyph_2_1") or portal_caster:GetEntityIndex() == unit:GetEntityIndex() then
 						local movementPosition = Vector(orderTable.position_x, orderTable.position_y)
 						local portal = false
 						for i = 1, #ability.portalTable, 1 do

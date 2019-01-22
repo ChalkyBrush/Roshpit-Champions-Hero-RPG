@@ -6,6 +6,7 @@ function jex_cast_portal(event)
 	local point = event.target_points[1]
 
 	local tech_level = onibi_get_total_tech_level(caster, "nature", "cosmic", "E")
+	tech_level = 20
 	ability.tech_level = tech_level
 
 	point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
