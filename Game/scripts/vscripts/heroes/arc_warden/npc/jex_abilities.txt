@@ -807,6 +807,20 @@
 
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
 			"particle"	"particles/units/heroes/hero_keeper_of_the_light/grove_staff_glow_of_the_light_recall.vpcf"
+			"particle"	"particles/roshpit/jex/portal_cast_beams_beams.vpcf"
+			"particle"	"particles/roshpit/jex/root_weave.vpcf"
+			"model"		"maps/journey_assets/props/foliage/bush_journey_00.vmdl"
+			"model"		"maps/journey_assets/props/foliage/bush_journey_01.vmdl"
+			"model"		"maps/summer_assets/bushes/bush_dire_summer_01.vmdl" 
+			"model"		"maps/summer_assets/bushes/bush_dire_summer_02.vmdl"
+			"model"		"models/props_nature/bush_spring_01.vmdl"
+			"particle"	"particles/units/heroes/hero_enchantress/enchantress_enchant.vpcf"
+            "particle"	"particles/items_fx/black_king_bar_avatar.vpcf"
+			"particle" 	"particles/status_fx/status_effect_charge_of_darkness.vpcf"
+			"particle"	"particles/units/heroes/hero_treant/treant_livingarmor.vpcf"
+			"particle"	"particles/roshpit/jex/nature_bush_ambient.vpcf"
+			"particle"	"particles/roshpit/jex/jex_root.vpcf"
+			"particle"	"particles/units/heroes/hero_keeper_of_the_light/grove_staff_glow_of_the_light_recall.vpcf"
 		}
 
 		// Casting
@@ -877,8 +891,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-
-
+			"particle"		"particles/units/heroes/hero_zeus/zeus_cloud.vpcf"
+			"particle"		"particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf"
+			"particle"		"particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf"
+			"model"			"models/items/furion/treant/defender_of_the_jungle_lakad_coconut/defender_of_the_jungle_lakad_coconut.vmdl"
+			"model"			"models/items/furion/treant/primeval_treant/primeval_treant.vmdl"
+			"particle"		"particles/econ/items/zeus/lightning_weapon_fx/zuus_base_attack_immortal_lightning.vpcf"
+			"particle"		"particles/econ/items/sven/sven_warcry_ti5/hyper_visor.vpcf"
+			"particle"		"particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
+			"particle"		"particles/roshpit/jex/thunderleaf_concoction_projectile_linear.vpcf"
+			"particle"		"particles/roshpit/jex/lightning_cosmic_shield.vpcf"
+			"particle"		"particles/roshpit/jex/thunder_flow_ambient.vpcf"
+			"particle"		"particles/roshpit/jex/jolt_buff.vpcf"
 		}
 
 		// Casting
@@ -956,7 +980,17 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-
+			"particle"		"particles/econ/items/faceless_void/faceless_void_jewel_of_aeons/fv_time_walk_jewel.vpcf"
+			"particle"		"particles/units/heroes/hero_invoker/invoker_death_end.vpcf"
+			"particle"		"particles/roshpit/jex/galaxy_laser.vpcf"
+			"particle"		"modifier_jex_lightning_cosmic_shield"
+			"model"			"models/items/enigma/eidolon/geodesic/geodesic.vmdl"
+			"particle"		"particles/items3_fx/glimmer_cape_initial_flash.vpcf"
+			"particle"		"particles/roshpit/jex/equilibrium_shift_heal.vpcf"
+			"particle"		"particles/roshpit/jex/cosmic_shroom_ambient.vpcf"
+			"particle"		"particles/status_fx/status_effect_terrorblade_reflection.vpcf"
+			"particle"		"particles/roshpit/jex/cosmic_surge_buff.vpcf"
+			"particle"		"particles/roshpit/jex/earths_gate.vpcf"
 
 		}
 

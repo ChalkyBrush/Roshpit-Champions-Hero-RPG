@@ -49,7 +49,7 @@
 					<Image id="onibi_ability_element_icon1" class="onibi_ability_element_image" hittest="false" />
 					<Image id="onibi_ability_element_icon2" class="onibi_ability_element_image" hittest="false" />
 					<Label id="onibi_ability_name"/>
-					<Label id="onibi_ability_level"/>
+					<Label id="onibi_ability_level" html="true"/>
 				</Panel>
 				<Panel id="onibi_element_bottom_data">
 					<Label id="onibi_ability_cost_label" text="upgrade_cost"/>

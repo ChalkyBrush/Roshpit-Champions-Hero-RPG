@@ -7,8 +7,7 @@ function jex_grenade_throw_start(event)
     Filters:CastSkillArguments(2, caster)
     local fv = (target*Vector(1,1,0)-caster:GetAbsOrigin()*Vector(1,1,0)):Normalized()
     local bomb = CreateUnitByName("lanaya_explosive_bomb", caster:GetAbsOrigin(), false, caster, nil, caster:GetTeamNumber())
-    local modelName = "models/items/lanaya/epitaphicbonds_rocks/epitaphicbonds_psionic_trap_rock_0"..RandomInt(1, 3)..".vmdl"
-    modelName = "models/items/enigma/eidolon/geodesic/geodesic.vmdl"
+    local modelName = "models/items/enigma/eidolon/geodesic/geodesic.vmdl"
 
     bomb:SetModel(modelName)
     bomb:SetOriginalModel(modelName)
@@ -53,7 +52,7 @@ function jex_grenade_throw_start(event)
     bomb:SetForwardVector(fv)
     bomb.particle = 2
 
-    local tech_level = caster.onibi.stats_table["cosmic"]["cosmic"]["W"]["level"]
+    local tech_level = onibi_get_total_tech_level(caster, "cosmic", "cosmic", "W")
     ability.tech_level = tech_level
     local damage = event.damage + (event.attack_power_added_per_tech/100)*tech_level*OverflowProtectedGetAverageTrueAttackDamage(caster) + event.intelligence_added_to_damage*caster:GetIntellect()
     local e_4_level = caster:GetRuneValue("e", 4)

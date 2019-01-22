@@ -373,6 +373,15 @@ function Weapons:RollLegendWeapon1(deathLocation, class, strictMaxItemLevel, dis
 	    weapon.property2 = value
 	    weapon.property2name = "strength"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_strength", "#CC0000",  2)
+	elseif internalName == "jex" then
+	    weapon.property1 = 1
+	    weapon.property1name = "!immortal_weapon!"
+		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_jex_immortal_weapon", "#69BC71",  1, "#property_jex_immortal_weapon_description")
+
+		local value = Weapons:GetDeviation(25+RandomInt(1,Arena.PitLevel*3), rarityFactor)
+	    weapon.property2 = value
+	    weapon.property2name = "strength"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_strength", "#CC0000",  2)
 	end
 	-- if mainAttrRoll == 1 then
 	-- 	local value = Weapons:GetDeviation(15, rarityFactor)

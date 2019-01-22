@@ -19,7 +19,7 @@ function jex_cast_portal(event)
 	-- ParticleManager:SetParticleControl(portalPFX, 1, Vector(5,5,5))
 	local max_portals = event.max_portals_base + event.max_portals_per_tech*tech_level
 	local portal = {}
-	portal = CustomAbilities:QuickAttachThinker(ability, caster, point, "modifier_river_of_souls_thinker", {duration = 18000})
+	-- portal = CustomAbilities:QuickAttachThinker(ability, caster, point, "modifier_river_of_souls_thinker", {duration = 18000})
 	portal.pfx = portalPFX
 	portal.position = portalPosition
 	portal.active = true

@@ -403,6 +403,19 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"1"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"			"2"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_jex_immortal_weapon_1"
@@ -460,6 +473,19 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"1"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"			"2"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_jex_immortal_weapon_2"
@@ -515,6 +541,19 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"1"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"			"2"
 			}
 		}
 		"Modifiers"
