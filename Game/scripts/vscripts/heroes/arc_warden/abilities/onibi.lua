@@ -106,7 +106,7 @@ function onibi_initial_set_abilities_data(onibi, data_from_server)
 		local tech_available = tech_points_earned_for_element(element1, element_level) - tech_points_spent
 		onibi.stats_table[element1]["tech"] = tech_available
 	end
-	
+
 	local immortal_weapon_equip_table = {}
 	immortal_weapon_equip_table.target = onibi.caster
 	jex_equip_immortal_weapon(immortal_weapon_equip_table)
@@ -390,9 +390,13 @@ function onibi_master_rune_thinker(event)
 	local w_1_level = caster:GetRuneValue("w", 1)
 	local e_1_level = caster:GetRuneValue("e", 1)
 
-	total_attack_damage_stacks = total_attack_damage_stacks + onibi.stats_table["nature"]["level"]*q_1_level
-	total_attack_damage_stacks = total_attack_damage_stacks + onibi.stats_table["lightning"]["level"]*w_1_level
-	total_attack_damage_stacks = total_attack_damage_stacks + onibi.stats_table["cosmic"]["level"]*e_1_level
+	local lightning_level = get_level_by_sum_exp(onibi.stats_table["lightning"]["exp"])
+	local nature_level = get_level_by_sum_exp(onibi.stats_table["nature"]["exp"])
+	local cosmic_level = get_level_by_sum_exp(onibi.stats_table["cosmic"]["exp"])
+
+	total_attack_damage_stacks = total_attack_damage_stacks + nature_level*q_1_level
+	total_attack_damage_stacks = total_attack_damage_stacks + lightning_level*w_1_level
+	total_attack_damage_stacks = total_attack_damage_stacks + cosmic_level*e_1_level
 	if total_attack_damage_stacks > 0 then
 		ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_onibi_base_attack_damage", {})
 		caster:SetModifierStackCount("modifier_onibi_base_attack_damage", onibi, total_attack_damage_stacks)
@@ -405,9 +409,9 @@ function onibi_master_rune_thinker(event)
 	local w_3_level = caster:GetRuneValue("w", 3)
 	local e_3_level = caster:GetRuneValue("e", 3)
 
-	total_attributes_stacks = total_attributes_stacks + onibi.stats_table["nature"]["level"]*q_3_level
-	total_attributes_stacks = total_attributes_stacks + onibi.stats_table["lightning"]["level"]*w_3_level
-	total_attributes_stacks = total_attributes_stacks + onibi.stats_table["cosmic"]["level"]*e_3_level
+	total_attributes_stacks = total_attributes_stacks + nature_level*q_3_level
+	total_attributes_stacks = total_attributes_stacks + lightning_level*w_3_level
+	total_attributes_stacks = total_attributes_stacks + cosmic_level*e_3_level
 	if total_attributes_stacks > 0 then
 		ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_onibi_all_attributes", {})
 		caster:SetModifierStackCount("modifier_onibi_all_attributes", onibi, total_attributes_stacks)
@@ -429,6 +433,7 @@ function jex_equip_immortal_weapon(event)
 	local caster = event.target
 	local elements_table = get_onibi_elements_name_table(onibi)
 	local ability_keys = {"Q", "W", "E"}
+	local onibi = caster.onibi
 	for i = 1, #elements_table, 1 do
 		local element_tech_used
 		local element1 = elements_table[i]
@@ -461,5 +466,5 @@ end
 function onibi_get_total_tech_level(caster, element1, element2, ability_key)
 	local base_level = caster.onibi.stats_table[element1][element2][ability_key]["level"]
 	local bonus_level = caster.onibi.stats_table[element1][element2][ability_key]["bonus_level"]
-	return level + bonus_level
+	return base_level + bonus_level
 end

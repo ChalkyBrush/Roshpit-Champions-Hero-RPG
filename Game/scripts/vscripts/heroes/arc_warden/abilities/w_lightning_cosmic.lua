@@ -68,7 +68,7 @@ function ion_cannon_main_think(event)
 				projectile.position = projectile.position + movement_vector
 				local distance = WallPhysics:GetDistance2d(projectile.target_position, projectile.position)
 				if distance < projectile.speed*FrameTime()*1.5 then
-					ion_cannon_impact(caster, ability, projectile, projectile.target)
+					ion_cannon_impact(caster, ability, projectile, projectile.target, event.e_4_split_search_radius)
 				elseif distance > 4000 then
 					disable_projectile(caster, ability, projectile)
 				end
@@ -96,10 +96,10 @@ function reindex_cannon_table(ability)
 	ability.projectiles_table = new_projectiles_table
 end
 
-function ion_cannon_impact(caster, ability, projectile, target)
+function ion_cannon_impact(caster, ability, projectile, target, e_4_split_search_radius)
 	local search_radius = 600
 	if ability.e_4_level then
-		search_radius = search_radius + ability.e_4_level*event.e_4_split_search_radius
+		search_radius = search_radius + ability.e_4_level*e_4_split_search_radius
 	end
 	if projectile.splits > 0 then
 		projectile.splits = projectile.splits - 1

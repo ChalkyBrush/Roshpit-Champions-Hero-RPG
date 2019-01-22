@@ -510,7 +510,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1"
+		"AbilityCooldown"				"0.1"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -535,7 +535,7 @@
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
-				"ThinkInterval"  "0.5"
+				"ThinkInterval"  "1"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -2298,6 +2298,7 @@
 						"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_cosmic.lua"
 						"Function"		"ion_cannon_main_think"
 						"target"		"TARGET"
+						"e_4_split_search_radius"	"%e_4_split_search_radius"
 					}
 				}
 			}
