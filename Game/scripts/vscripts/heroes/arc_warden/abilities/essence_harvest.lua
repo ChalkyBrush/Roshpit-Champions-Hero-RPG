@@ -331,7 +331,7 @@ function transfer_to_onibi(caster, ability)
 		if ability.harvested > 60 then
 			intensity = 4
 		end
-		if ability.harvested > 100 then
+		if ability.harvested > 110 then
 			intensity = 5
 		end
 		EmitSoundOn("Jex.HarvestEnd"..intensity, caster)
