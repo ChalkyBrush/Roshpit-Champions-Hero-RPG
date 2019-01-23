@@ -7183,8 +7183,8 @@
 	"DOTA_Tooltip_modifier_jex_thunder_wrath_glyph_slow"	"Wrath of Lightning"
 	"DOTA_Tooltip_modifier_jex_thunder_wrath_glyph_slow_Description"	"Slowed"
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_4_1"		"Glyph of Auric Blast"
-	"item_rpc_jex_glyph_4_1_description" 				"Increases the radius of Sonic Boom by @glyph_property1%."
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_4_1"		"Glyph of Voltaic Flora"
+	"item_rpc_jex_glyph_4_1_description" 				"Increases attack speed of Charged Sproutlings and Thunderblossoms by @glyph_property1."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_1"		"Glyph of Acceleration"
 	"item_rpc_jex_glyph_5_1_description" 				"Gain @glyph_property1 movespeed and movespeed cap when Lightspeed is active."

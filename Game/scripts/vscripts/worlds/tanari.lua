@@ -75,16 +75,19 @@ function Tanari:Debug()
     -- RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
     -- RPCItems:RollMountainProtectorArcana3(Vector(-4928, 2048))
     -- RPCItems:RollDunetreadBoots(Vector(-4928, 2048))
-    Arena = {}
-    Arena.PitLevel = 7
-    Weapons:RollLegendWeapon1(Vector(-4928, 2048), "jex")
-    Weapons:RollLegendWeapon2(Vector(-4928, 2048), "jex")
-    Weapons:RollLegendWeapon3(Vector(-4928, 2048), "jex")
+    -- Arena = {}
+    -- Arena.PitLevel = 7
+    -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "jex")
+    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "jex")
+    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "jex")
+        require('heroes/arc_warden/abilities/essence_harvest')
+        get_onibi(MAIN_HERO_TABLE[1])
+
     -- RPCItems:RollSunCrystal(Vector(-4928, 2048), 100)
     -- RPCItems:RollWaterMageRobes(Vector(-4928, 2048))
     -- RPCItems:RollAlaranaIceBoot(Vector(-4928, 2048))
     -- RPCItems:RollDruidsSpiritHelm(Vector(-4928, 2048), false)
-    Glyphs:DebugRollHeroGlyphs("jex", Vector(-4928, 2048))
+    -- Glyphs:DebugRollHeroGlyphs("jex", Vector(-4928, 2048))
     -- RPCItems:RollMonkeyPaw(Vector(-4928, 2048))
     -- RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
     -- RPCItems:RollPaladinArcana2(Vector(-4928, 2048))

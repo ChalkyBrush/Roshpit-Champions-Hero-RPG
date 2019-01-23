@@ -13,9 +13,14 @@ end
 
 function get_onibi(caster)
 	caster.onibi_searching = true
+	local roshpit_id = 0
+	if caster.roshpitID then
+		roshpit_id = caster.roshpitID
+	end
 	local playerID = caster:GetPlayerOwnerID()
 	local url = ROSHPIT_URL.."/champions/getUnibi?"
 	url = url.."&steam_id="..PlayerResource:GetSteamAccountID(playerID)
+	url = url.."&championcharacter_id="..roshpit_id
 	CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
@@ -27,6 +32,11 @@ function get_onibi(caster)
 			local resultTable = JSON:decode(result.Body)
 			load_onibi_data(caster, resultTable)
 		else
+			local resultTable = {}
+			print( "GET response:\n" )
+			for k,v in pairs( result ) do
+				print( string.format( "%s : %s\n", k, v ) )
+			end
 			caster.onibi_searching = false
 		end
 	end )

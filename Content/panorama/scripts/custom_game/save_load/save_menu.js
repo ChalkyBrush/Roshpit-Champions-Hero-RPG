@@ -64,6 +64,7 @@ function SaveCharactersLoaded(msg){
 		$('#oracle_content_label').text = $.Localize('#saveload_save_successful')
 		$('#save_extras_label').text = $.Localize('#saveload_save_successful')
 		Game.EmitSound("ui.trophy_new")
+		return true
 	}else{
 		if (msg.heroSlot > 0){
 			$('#save_extras_label').text = $.Localize('#saveload_slot_bound')+" "+msg.heroSlot

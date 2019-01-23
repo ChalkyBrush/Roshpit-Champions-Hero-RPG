@@ -29,9 +29,23 @@ function load_onibi_data(caster, onibi_data)
 		end
 	end
 
-	caster.onibi.stats_table["nature"]["exp"] = onibi_data.nature_exp
-	caster.onibi.stats_table["lightning"]["exp"] = onibi_data.lightning_exp
-	caster.onibi.stats_table["cosmic"]["exp"] = onibi_data.cosmic_exp
+	DeepPrintTable(onibi_data)
+	if onibi_data["modules"]["nature"] then
+		caster.onibi.stats_table["nature"]["exp"] = onibi_data["modules"]["nature"]["exp"]
+	else
+		caster.onibi.stats_table["nature"]["exp"] = 0
+	end
+	if onibi_data["modules"]["lightning"] then
+		caster.onibi.stats_table["lightning"]["exp"] = onibi_data["modules"]["lightning"]["exp"]
+	else
+		caster.onibi.stats_table["lightning"]["exp"] = 0
+	end
+	if onibi_data["modules"]["cosmic"] then
+		caster.onibi.stats_table["cosmic"]["exp"] = onibi_data["modules"]["cosmic"]["exp"]
+	else
+		caster.onibi.stats_table["cosmic"]["exp"] = 0
+	end
+
 
 	onibi_initial_set_abilities_data(caster.onibi, onibi_data)
 
@@ -91,6 +105,23 @@ function onibi_initial_set_abilities_data(onibi, data_from_server)
 				local ability_key = ability_keys[j]
 				local element2 = elements_table[k]
 				local level = 0
+				local tech_data = nil
+				if #data_from_server > 0 then
+					for i = 1, #data_from_server["techs"], 1 do
+						local tech_from_server = data_from_server["techs"][i]
+						if (tech_from_server["element1"] == element1 and tech_from_server["element2"] == element2) or (tech_from_server["element1"] == element2 and tech_from_server["element2"] == element1) then
+							tech_data = tech_from_server
+							break
+						end
+					end
+					if ability_key == "Q" then
+						level = tech_data["q_level"]
+					elseif ability_key == "W" then
+						level = tech_data["w_level"]
+					elseif ability_key == "E" then
+						level = tech_data["e_level"]
+					end
+				end
 				onibi.stats_table[element1][element2][ability_key]["name"] = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
 				onibi.stats_table[element2][element1][ability_key]["name"] = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
 				onibi.stats_table[element1][element2][ability_key]["level"] = level

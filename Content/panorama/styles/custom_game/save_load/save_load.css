@@ -236,10 +236,10 @@
 
 #save_extras_label{
 	width:380px;
-	color:white;
-	font-size:18px;
+	font-size:30px;
 	text-align:center;
-	color:red;
+	color:#88ff7f;
+	margin-top:20px;
 }
 
 #slot_overlay{
