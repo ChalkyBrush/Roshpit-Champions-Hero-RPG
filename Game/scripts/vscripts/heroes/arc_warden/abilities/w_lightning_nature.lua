@@ -73,7 +73,9 @@ function thunderleaf_impact(event)
 	local target = event.target
 	local paralyze_duration = ability.paralyze_duration
 
-	
+	if not ability.q_4_level then
+		ability.q_4_level = caster:GetRuneValue("q", 4)
+	end
 	local current_stacks = target:GetModifierStackCount("modifier_thunderleaf_paralyze_immunity", target)
 	local paralyze_immunity = 4 - (event.q_4_immunity_duration_reduce*ability.q_4_level)
 	if current_stacks <= 5 then
