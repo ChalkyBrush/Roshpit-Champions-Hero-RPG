@@ -1234,14 +1234,6 @@
 	        	"Target"	"POINT"
 	        	"Radius"	"%radius"
 	        }
-			"CreateThinker"
-			{
-				"ModifierName"		"shadow_gate_thinker"
-				"Target"
-				{
-					"Center" 	"POINT"
-				}
-			}
 		}
 		"OnProjectileHitUnit"
 		{

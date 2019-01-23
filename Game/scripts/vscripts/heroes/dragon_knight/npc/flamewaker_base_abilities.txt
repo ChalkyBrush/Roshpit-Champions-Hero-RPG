@@ -508,12 +508,6 @@
 				"Target" 		"POINT"
 			}
 
-			"CreateThinker"
-			{
-				"ModifierName"	"modifier_vacuum_thinker_datadriven"
-				"Target" 		"POINT"
-			}
-
 			"DelayedAction"
 			{
 				"Delay"		"%light_strike_array_delay_time"

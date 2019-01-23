@@ -1283,7 +1283,8 @@
 			"RunScript"
 			{
 				"ScriptFile"	"heroes/obsidian_destroyer/epoch_4_r.lua"
-				"Function"		"channel_end"
+				"Function"		"channel_succeeded"
+				"Target"		"POINT"
 			}
 			"FireSound"
 			{
@@ -1311,12 +1312,6 @@
 	            	}
 	            }
 
-			}
-
-			"CreateThinker"
-			{
-				"ModifierName"	"modifier_eternity_flood_vacuum_thinker_datadriven"
-				"Target" 		"POINT"
 			}
 
 		}

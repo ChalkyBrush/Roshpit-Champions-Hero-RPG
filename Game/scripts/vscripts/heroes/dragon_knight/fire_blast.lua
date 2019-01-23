@@ -58,7 +58,11 @@ function cast_fire_blast(event)
     local target_location = event.target_points[1]
     local ability_level = ability:GetLevel()
     local radius = ability:GetLevelSpecialValueFor("light_strike_array_aoe", ability_level)
-    Filters:CastSkillArguments(1, caster)
+	local thinkerDuration = ability:GetLevelSpecialValueFor("light_strike_array_delay_time", 1)
+	if thinkerDuration and thinkerDuration > 0 then
+		CustomAbilities:QuickAttachThinker(ability, caster, target_location, "modifier_vacuum_thinker_datadriven", {duration = thinkerDuration})
+    end
+	Filters:CastSkillArguments(1, caster)
     if caster:HasModifier("modifier_flamewaker_glyph_2_1") then
         ability:EndCooldown()
         ability:StartCooldown(5)

@@ -692,7 +692,7 @@ function fungal_overlord_think(event)
 			if distance < 3000 then
 				local position = MAIN_HERO_TABLE[i]:GetAbsOrigin() + RandomVector(110)
 				--ability:ApplyDataDrivenThinker(caster, position, "modifier_poison_cloud_thinker", {})
-				CustomAbilities:QuickAttachThinker(ability, caster, position, "modifier_poison_cloud_thinker", {})
+				CustomAbilities:QuickAttachThinker(ability, caster, position, "modifier_poison_cloud_thinker", {duration = 5})
 			end
 		end
 	end
@@ -714,7 +714,7 @@ function fungal_overlord_think(event)
       		local rotatedFv = WallPhysics:rotateVector(fv, math.pi*2/gasCount*i)
       		local gasPosition = caster:GetAbsOrigin()+rotatedFv*distance
       		--ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
-			CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {})
+			CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {duration = 5})
       	end
       	Timers:CreateTimer(0.5, function()
       		distance = distance + 200
@@ -724,7 +724,7 @@ function fungal_overlord_think(event)
 	      		local rotatedFv = WallPhysics:rotateVector(fv, math.pi*2/gasCount*i)
 	      		local gasPosition = caster:GetAbsOrigin()+rotatedFv*distance
 	      		--ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
-				CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {})
+				CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {duration = 5})
 	      	end
 	      	Timers:CreateTimer(0.5, function()
 	      		distance = distance + 200
@@ -734,7 +734,7 @@ function fungal_overlord_think(event)
 		      		local rotatedFv = WallPhysics:rotateVector(fv, math.pi*2/gasCount*i)
 		      		local gasPosition = caster:GetAbsOrigin()+rotatedFv*distance
 		      		--ability:ApplyDataDrivenThinker(caster, gasPosition, "modifier_poison_cloud_thinker", {})
-					CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {})
+					CustomAbilities:QuickAttachThinker(ability, caster, gasPosition, "modifier_poison_cloud_thinker", {duration = 5})
 		      	end
 	      	end)
       	end)
@@ -6027,8 +6027,8 @@ function shadow_of_bahamut_think(event)
 
 			end	
 			for j = 1, #ability.blastTable, 1 do
-				CustomAbilities:QuickParticleAtPoint("particles/roshpit/seafortress/shadow_of_bahamut_indicator_portrait.vpcf", GetGroundPosition(ability.blastTable[j], caster) + Vector(0,0,10), 1.2)
-				Timers:CreateTimer(1.1, function()
+				CustomAbilities:QuickParticleAtPoint("particles/roshpit/seafortress/shadow_of_bahamut_indicator_portrait.vpcf", GetGroundPosition(ability.blastTable[j], caster) + Vector(0,0,10), 2.2)
+				Timers:CreateTimer(2.1, function()
 					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), ability.blastTable[j], nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 					for i = 1, #enemies, 1 do
 						enemies[i]:ForceKill(false)

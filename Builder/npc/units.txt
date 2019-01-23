@@ -4,6 +4,8 @@
 "DOTAUnits"
 {
 	//hero section
+    ##JEX_UNITS##
+
 	##EKKAN_UNITS##
 
 	##ARKIMUS_UNITS##

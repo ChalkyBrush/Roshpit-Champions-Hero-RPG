@@ -327,8 +327,13 @@ function ChatDropItems(keys)
     RPCItems:RollChampionsGearMail(vector)
     RPCItems:RollChampionsGearBoots(vector)
   end
-
-
+  if string.match(text, "weapon_lvl") then
+    for i=1,50 do
+      Timers:CreateTimer(i/10, function()
+        Weapons:UpdateWeaponXP(2000000000)
+      end)
+    end
+  end
   if string.match(text, "-arcanas") then    
     local timer = 1
     Timers:CreateTimer(timer, function() RPCItems:RollFlamewakerArcana1(vector) end) timer = timer + 1
@@ -841,6 +846,35 @@ function GameMode:OnPlayerChat(keys)
     local steamID = PlayerResource:GetSteamAccountID(playerid)
     LoadCharacterDev(playerid, strn[1], strn[2])
   end
+
+  if string.match(text, "map_keys") then
+    local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+    local item = CreateItem("item_debug_blink", nil, nil)
+    local drop = CreateItemOnPositionSync( vector, item )
+    local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+    if GameState:IsRedfallRidge() then
+      Redfall:GiveSpiritRuby(hero, vector)
+      Redfall:GiveVermillionBundle(hero, vector)
+      Redfall:GiveShipyardKey(hero, vector)
+      Redfall:GiveDemonRelic(hero, vector)
+    elseif GameState:IsWinterblight() then
+      for i=1,3 do
+        Winterblight:DropGlacierStone(vector)
+      end
+    elseif GameState:IsSerengaard() then
+      Serengaard:GiveSunstone(hero, Serengaard.mainAncient:GetAbsOrigin())
+    end
+  end
+  if string.match(text, "rpc_redfall_ridge") and GameState:IsRedfallRidge() then
+    Timers:CreateTimer(1, function()
+      Redfall:InitiateCrimsythCastle()
+      local blockers = Entities:FindAllByNameWithin("drawbridge_blocker", Vector(5376, 11520, 128+Redfall.ZFLOAT), 4000)
+      for i = 1, #blockers, 1 do
+        UTIL_Remove(blockers[i])
+      end
+    end)    
+  end
+
   if GetMapName() == "rpc_sea_fortress" then
     if string.match(text, "-sea swen") then
       Seafortress:SpawnFinalBoss()
@@ -1361,47 +1395,6 @@ function RPCItems:RollHarvesterBoots(deathLocation)
     local position = deathLocation
     RPCItems:DropItem(item, position)
     return item
-end
-
-function Weapons:UpdateWeaponXP(xpBounty)
-	for i = 1, #MAIN_HERO_TABLE, 1 do
-		if MAIN_HERO_TABLE[i]:IsAlive() then
-			local showLevelup = false
-			local hero = MAIN_HERO_TABLE[i]
-			local weapon = hero.weapon
-			if not IsValidEntity(weapon) then
-				return false
-			end
-			local newBounty = xpBounty
-			if hero:HasModifier("modifier_blacksmiths_tablet") then
-				newBounty = math.floor(newBounty*1.2)
-			end
-			if weapon.rarity == "immortal" then
-				newBounty = math.ceil(newBounty*500)
-			end
-			if weapon.level < weapon.maxLevel then
-				weapon.xp = weapon.xp + newBounty
-			end
-
-			if weapon.xp >= Weapons.XP_PER_LEVEL_TABLE[weapon.level] and weapon.level < weapon.maxLevel then
-				weapon.xp = newBounty - (Weapons.XP_PER_LEVEL_TABLE[weapon.level]-weapon.xp)
-
-				weapon.level = weapon.level + 1
-				if weapon.xp > Weapons.XP_PER_LEVEL_TABLE[weapon.level] then
-					weapon.xp = 0
-				end
-				showLevelup = true
-				if weapon.level == 5 or weapon.level == 10 or weapon.level == 20 then
-					weapon.upgradeStatus = 1
-				end
-				-- CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "WeaponLvlup", {})
-				Weapons:LevelUpWeapon(hero, weapon)
-			end
-			Weapons:SetWeaponTable(weapon)
-			CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), {xp = weapon.xp, level = weapon.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[weapon.level], maxLevel = weapon.maxLevel, requiredHero = weapon.requiredHero} )
-		end
-	end
-	CustomGameEventManager:Send_ServerToAllClients("xp_earned", {} )
 end
 
 function nobility_kill(event)

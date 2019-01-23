@@ -41,7 +41,7 @@ end
 
 function clearCast(caster, ability)
     local lucky = RandomInt(1, 2)
-    if lucky ~= 1 then
+    if lucky ~= 1 and not caster:HasModifier('modifier_sorceress_glyph_4_2') then
         return
     end
 

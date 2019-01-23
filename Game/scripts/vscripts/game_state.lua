@@ -540,6 +540,54 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
+		if unit:GetUnitName() == "npc_dota_hero_arc_warden" then
+			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
+				if orderTable.entindex_target then
+					local target = EntIndexToHScript(orderTable.entindex_target)
+					if target:GetUnitName() == "jex_thunder_blossom" then
+						local teleport_ability = target:FindAbilityByName("thunder_blossom_teleport")
+						if teleport_ability:IsFullyCastable() then
+							local order = {
+							 		UnitIndex = target:entindex(), 
+							 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+							 		TargetIndex = unit:entindex(),
+							 		AbilityIndex = teleport_ability:entindex(),
+						 	}
+							ExecuteOrderFromTable(order)
+						end
+					end
+				end
+			end
+		end
+		if unit:HasModifier("modifier_jex_portal_aura_inside") then
+			if unit:HasModifier("modifier_jex_portal_aura_inside") then
+				if not unit:HasModifier("modifier_jex_portal_teleporting") then
+					print("RDG")
+					local portal_caster = unit:FindModifierByName("modifier_jex_portal_aura_inside"):GetAbility():GetCaster()
+					local ability = portal_caster:FindAbilityByName("jex_nature_cosmic_e")
+					if portal_caster:HasModifier("modifier_jex_glyph_2_1") or portal_caster:GetEntityIndex() == unit:GetEntityIndex() then
+						local movementPosition = Vector(orderTable.position_x, orderTable.position_y)
+						local portal = false
+						for i = 1, #ability.portalTable, 1 do
+							local distance = WallPhysics:GetDistance2d(ability.portalTable[i].position, movementPosition)
+							local self_distance = WallPhysics:GetDistance2d(ability.portalTable[i].position, unit:GetAbsOrigin())
+							if distance <= 300 and self_distance > 500 then
+								portal = ability.portalTable[i]
+								break
+							end
+						end
+						if portal then
+							ability:ApplyDataDrivenModifier(unit, unit, "modifier_jex_portal_teleporting", {duration = 1.2})
+							ability.teleporting_to = movementPosition
+							EmitSoundOn("Jex.EarthsGate.Portal", unit)
+							unit:Stop()
+							unit:AddNewModifier( unit, nil, "modifier_black_portal_shrink", {duration = 1.3} )
+							return false
+						end
+					end
+				end
+			end
+		end
 		if unit:GetUnitName() == "npc_dota_hero_winter_wyvern" then
 			unit.lastOrder = orderTable.order_type
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
@@ -1397,8 +1445,20 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage*reduction
 		end
 	end
+	if victim:HasModifier("modifier_jex_magic_immunity") then
+		local barrier_ability = victim:FindModifierByName("modifier_jex_magic_immunity"):GetAbility()
+		local reduce_pct = barrier_ability:GetSpecialValueFor("q_4_damage_reduction_pct")
+		if barrier_ability.q_4_level then
+			local reduction = reduce_pct*barrier_ability.q_4_level
+			damage = damage * (1-(reduction/100))
+		end
+	end
 	if victim:HasModifier("modifier_stonewall_aura_friendly_effect") then
     	local reduction = victim:FindModifierByName("modifier_stonewall_aura_friendly_effect"):GetAbility():GetSpecialValueFor("damage_reduction")
+    	damage = damage * (1-(reduction/100))
+    end
+    if victim:HasModifier("modifier_natures_path_master_buff") then
+    	local reduction = victim:FindModifierByName("modifier_natures_path_master_buff"):GetAbility():GetSpecialValueFor("damage_reduction")
     	damage = damage * (1-(reduction/100))
     end
 	if victim:HasModifier("modifier_arkimus_arcana1_q3") then
@@ -1942,6 +2002,14 @@ function GameState:FilterDamage(filterTable)
 				mult = mult + 0.02*attacker.e_1_level
 			end
 		end
+		if attacker:HasModifier("modifier_jex_nature_cosmic_w") then
+			local ability = attacker:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
+			if not ability.tech_level then
+				ability.tech_level = attacker.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
+			end
+			local postmit = (ability:GetSpecialValueFor("post_mitigation_magic_per_tech")*ability.tech_level)/100
+			mult = mult + postmit
+		end
 		if attacker:HasModifier("modifier_sorcerers_regalia") then
 			mult = mult+0.4
 		end
@@ -2296,6 +2364,15 @@ function GameState:FilterDamage(filterTable)
 		local stacks = attacker:GetModifierStackCount("modifier_bahamut_charge_of_light_postmitigation", attacker)
 		mult = mult + 0.15*stacks
 	end
+	if attacker:HasModifier("modifier_jex_q_cosmic_cosmic_postmitigation") then
+		local stacks = attacker:GetModifierStackCount("modifier_jex_q_cosmic_cosmic_postmitigation", attacker)
+		mult = mult + 0.3*stacks
+	end
+	if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
+		if attacker.r_4_level then
+			mult = mult + 0.04*attacker.r_4_level
+		end
+	end
 	if attacker:HasModifier("modifier_hydroxis_basin_d_d") then
 		local stacks = attacker:GetModifierStackCount("modifier_hydroxis_basin_d_d", attacker)
 		mult = mult + 0.1*stacks
@@ -2306,6 +2383,11 @@ function GameState:FilterDamage(filterTable)
 				local stacks = attacker:GetModifierStackCount("modifier_apollo_post_mit_invisible", attacker)
 				mult = mult + 0.007*stacks
 			end
+		end
+	end
+	if attacker:HasModifier("modifier_jex_root_weave_debuff") then
+		if attacker:FindModifierByName("modifier_jex_root_weave_debuff"):GetCaster():HasModifier("modifier_jex_glyph_5_1") then
+			filterTable["damage"] = filterTable["damage"]*0.5
 		end
 	end
 	if victim:HasModifier("tanari_mountain_specter_ai") then

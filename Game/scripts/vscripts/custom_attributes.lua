@@ -46,6 +46,7 @@ CustomAttributes.SORCERESS_ARCANE_INT = 50
 CustomAttributes.TRAPPER_R4_AGI = 1000
 CustomAttributes.SEPHYR_Q1_INT = 125
 CustomAttributes.SEPHYR_R4_AGI_INT = 500
+CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH = 330
 
 CustomAttributes.RING_OF_NOBILITY = 30
 CustomAttributes.RING_OF_NOBILITY2 = 60
@@ -425,13 +426,20 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_w_4_agi_increase", 1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_w_4_int_increase", 1)
 	end
+	if hero:HasModifier("modifier_onibi_all_attributes") then
+		str_bonus = str_bonus - CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_onibi_all_attributes", 2)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_onibi_all_attributes", 2)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_onibi_all_attributes", 2)
+	end
 	if heroName == "npc_dota_hero_antimage" then
 		if hero:HasAbility('arkimus_zap_ring') then
 			local q1_level = hero:GetRuneValue('q', 1)
 			int_bonus = int_bonus + q1_level * ARKIMUS_ARCANA1_Q1_INT
 		end
 	end
-
+	if hero:HasModifier("modifier_jex_oak_infusion_strength") then
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_jex_oak_infusion_strength", CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH)
+	end
 	-- ENEMIES --
 
 	if hero:HasModifier("modifier_warden_of_death_debuff") then
@@ -1032,7 +1040,7 @@ function CustomAttributes:MSCap(unit)
 				elseif ms_cap_modifier == "modifier_zonik_temporal_field_cap" then
 					max_ms = math.max(modifier_ability:GetSpecialValueFor("movespeed_cap"), max_ms)	  
 				elseif ms_cap_modifier == "modifier_chernobog_d_c_arcana2" then
-					max_ms = math.max(modifier:GetStackCount()*6, max_ms)	    			
+					max_ms = math.max(550 + modifier:GetStackCount()*6, max_ms)	    			
 				end
 			end
 		end

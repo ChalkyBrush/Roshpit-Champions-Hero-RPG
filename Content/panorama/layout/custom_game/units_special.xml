@@ -1,0 +1,73 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+		<include src="file://{resources}/styles/custom_game/units_special.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/units_special.js" />
+		<include src="file://{resources}/scripts/custom_game/elements/elements.js" />
+	</scripts>
+	<snippets>
+		<snippet name="onibi_ability_bar">
+			<Panel class="onibi_ability_bar" hittest="false">
+
+			</Panel>
+		</snippet>
+		<snippet name="onibi_element_summary">
+			<Panel class="onibi_element_status" hittest="false">
+				<Panel id="onibi_element_status_bg" hittest="true"></Panel>
+				<Panel id="onibi_element_status_contents" hittest="false">
+					<Image id="onibi_element_icon"  hittest="false" />
+					<Label id="onibi_element_title" hittest="false"/>
+					<Label id="onibi_element_level" hittest="false"/>
+					<Label id="onibi_element_points" hittest="false"/>
+					<Panel id="onibi_element_progress_outer" hittest="false">
+						<Panel id="onibi_element_progress_inner" hittest="false"/>
+						<Label id="onibi_element_progress_text" hittest="false"/>
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="onibi_element_abilities">
+			<Panel class="onibi_element_abilities_parent" hittest="false">
+				<Panel id="onibi_element_abilities_parent_bg"/>
+				<Panel id="onibi_element_abilities_parent_container">
+					<Label id="onibi_element_abilities_meta_header"/>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="onibi_abilities_by_slot">
+			<Panel class="onibi_abilities_by_slot_parent" hittest="false">
+				<Panel id="onibi_abilities_by_slot_header">
+					<Label id="onibi_abilities_by_slot_header_label"/>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="onibi_element_ability">
+			<Panel class="onibi_element_ability_parent" hittest="false">
+				<Panel id="onibi_element_top_data">
+					<Image id="onibi_ability_element_icon1" class="onibi_ability_element_image" hittest="false" />
+					<Image id="onibi_ability_element_icon2" class="onibi_ability_element_image" hittest="false" />
+					<Label id="onibi_ability_name"/>
+					<Label id="onibi_ability_level" html="true"/>
+				</Panel>
+				<Panel id="onibi_element_bottom_data">
+					<Label id="onibi_ability_cost_label" text="upgrade_cost"/>
+					<Image id="onibi_ability_cost1_image" class="onibi_ability_element_image_small" hittest="false" />
+					<Label id="onibi_ability_cost1_value" class="onibi_ability_element_cost_label"/>
+					<Image id="onibi_ability_cost2_image" class="onibi_ability_element_image_small" hittest="false" />
+					<Label id="onibi_ability_cost2_value" class="onibi_ability_element_cost_label"/>
+					<Button id="onibi_ability_upgrade_button" hittest="true">
+						<Label id="onibi_ability_upgrade_button_label" text="+"/>
+					</Button>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="units_special_container" hittest="false">
+		<Panel id="units_special_attach_point" class="invisible" hittest="false">
+
+		</Panel>	
+	</Panel>
+
+</root>

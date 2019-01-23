@@ -141,6 +141,18 @@ function moon_shroud_debuff_end(event)
   target:Stop()
 end
 
+function moon_shroud_start_thinkers(event)
+  local target = event.target_points[1]
+  local caster = event.caster
+  local ability = event.ability
+  local ability_level = ability:GetLevel()
+  local thinkerDuration = ability:GetLevelSpecialValueFor("duration", ability_level)
+  if target and caster and ability and thinkerDuration then
+    CustomAbilities:QuickAttachThinker(ability, caster, target, "modifier_moon_shroud_thinker", {duration = thinkerDuration})
+    CustomAbilities:QuickAttachThinker(ability, caster, target, "friendly_moon_shroud_thinker", {duration = thinkerDuration})
+  end
+end
+
 -- function rune_q_2(caster, ability, origin, duration)
 --   local q_2_level = caster:GetRuneValue("q", 2)
 --   	create_andromeda(caster, ability, q_2_level, origin, duration)

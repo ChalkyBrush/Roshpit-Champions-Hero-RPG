@@ -217,7 +217,7 @@ function SaveLoad:SaveCharacter(msg)
 			print( "Done." )
 			SaveLoad:NewKey()
 			local resultTable = JSON:decode(result.Body)
-			SaveLoad:GetCharacterDataFromJSON(resultTable)
+			-- SaveLoad:GetCharacterDataFromJSON(resultTable)
 			CustomGameEventManager:Send_ServerToPlayer(player, "recentlySaved", {} )
 			local premium = 0
 			if GameState:GetPlayerPremiumStatus(playerID) then
@@ -227,6 +227,10 @@ function SaveLoad:SaveCharacter(msg)
 			CustomGameEventManager:Send_ServerToPlayer(player, "save_characters_loaded", {result=resultTable, message="save_success", heroSlot=hero.saveSlot, premium=premium} )
 			Events:TutorialServerEvent(hero, "2_3", 0)
 			Statistics.dispatch('hero:oracle:save')
+			hero.roshpitID = resultTable.id
+			if hero:GetUnitName() == "npc_dota_hero_arc_warden" then
+				SaveLoad:SaveJex(hero)
+			end
 		end )
 	end	
 end
@@ -1547,5 +1551,53 @@ function SaveLoad:WithdrawKeyFinal(hero, keyIndex)
 	    key.stashable = true
 	    key.consumable = true
 	    RPCItems:GiveItemToHeroWithSlotCheck(hero, key)
+	end
+end
+
+function SaveLoad:SaveJex(hero)
+	require('heroes/arc_warden/abilities.onibi')
+	local onibi = hero.onibi
+	local elements_table = get_onibi_elements_name_table(onibi)
+	local ability_keys = {"Q", "W", "E"}
+
+	local playerID = hero:GetPlayerOwnerID()
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	local player = PlayerResource:GetPlayer(playerID)
+
+	local url = ROSHPIT_URL.."/champions/save_onibi?"
+	url = url.."steam_id="..steamID
+	url = url.."&championcharacter_id="..hero.roshpitID
+	
+	for i = 1, #elements_table, 1 do
+		local element1 = elements_table[i]
+		-- local other_elements = get_other_elements(onibi, element1)
+		for k = 1, #elements_table, 1 do
+			for j = 1, #ability_keys, 1 do
+				local ability_key = ability_keys[j]
+				local element2 = elements_table[k]
+				url = url.."&tech_"..element1.."-"..element2.."_"..ability_key.."="..onibi.stats_table[element1][element2][ability_key]["level"]
+			end
+		end
+		url = url.."&"..element1.."_exp="..onibi.stats_table[element1]["exp"]
+	end
+	print(url)
+	if SaveLoad:GetAllowSaving() then
+		CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
+			if result.StatusCode == 200 then
+				local resultTable = {}
+				print( "GET response:\n" )
+				for k,v in pairs( result ) do
+					print( string.format( "%s : %s\n", k, v ) )
+				end
+				print( "Done." )
+				local resultTable = JSON:decode(result.Body)
+			else
+				print( "GET response:\n" )
+				for k,v in pairs( result ) do
+					print( string.format( "%s : %s\n", k, v ) )
+				end
+				print( "Done." )
+			end
+		end )
 	end
 end

@@ -95,6 +95,8 @@ function Weapons:weaponRedirect(hero)
 		Weapons:InitialWeapon(hero, "item_rpc_sephyr_weapon_00", "Staff")
 	elseif heroName == "npc_dota_hero_winter_wyvern" then
 		Weapons:InitialWeapon(hero, "item_rpc_dinath_weapon_00", "Spike")
+	elseif heroName == "npc_dota_hero_arc_warden" then
+		Weapons:InitialWeapon(hero, "item_rpc_jex_weapon_00", "Gun")
 	end
 end
 
@@ -245,6 +247,20 @@ function Weapons:UpdateWeaponXP(xpBounty)
 			local showLevelup = false
 			local hero = MAIN_HERO_TABLE[i]
 			local weapon = hero.weapon
+			local item_basics = CustomNetTables:GetTableValue("item_basics", tostring(weapon:GetEntityIndex()))
+			if not item_basics.itemDescription then
+				print("[UpdateWeaponXP] no itemDescription")
+				return false
+			else
+				if not Events:TableContainsValue(BASE_AMULET_NAME_TABLE, item_basics.itemName) then
+					print("[UpdateWeaponXP] alright its a weapon")
+				else
+					print("[UpdateWeaponXP] it is not a weapon")
+					Weapons:weaponRedirect(hero)
+					return false
+				end
+			end
+
 			if not IsValidEntity(weapon) then
 				return false
 			end

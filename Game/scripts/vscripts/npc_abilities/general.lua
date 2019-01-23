@@ -324,7 +324,16 @@ function ability_1_no_target_ai(event)
 		return false
 	end
 	local radius = caster.targetRadius
+	if not radius or type(radius) ~= "float" then
+		radius = 450
+	end
 	local castAbility = caster:GetAbilityByIndex(0)
+	if not caster.autoAbilityCD then
+		caster.aggro = true
+		caster.autoAbilityCD = 1
+		print("ability_1_no_target_ai caster.autoAbilityCD")
+		return
+	end	
 	local cooldown = caster.autoAbilityCD*2
 	if caster.interval%cooldown == 0 and caster.aggro then
 		if castAbility:IsFullyCastable() then
@@ -362,7 +371,16 @@ function ability_1_position_think_generic(event)
 	local castAbility = caster:GetAbilityByIndex(0)
 	
 	local radius = caster.targetRadius
+	if not radius or type(radius) ~= "float" then
+		radius = 450
+	end	
 	local minRadius = caster.minRadius
+	if not caster.targetAbilityCD then
+		caster.aggro = true
+		caster.targetAbilityCD = 1
+		print("ability_1_position_think_generic caster.targetAbilityCD")
+		return
+	end
 	local cooldown = caster.targetAbilityCD*2
 	local targetFindOrder = caster.targetFindOrder
 	if caster.interval%cooldown == 0 and caster.aggro then
@@ -397,6 +415,8 @@ function hero_summon_think(event)
 	local caster = event.caster
 	if caster:GetUnitName() == "sorc_water_elemental" then
 		SorcWaterElementalThink(caster)
+	elseif caster:GetUnitName() == "jex_charged_mushroom" then
+		jex_thundershroom_think(caster)
 	end
 end
 
@@ -404,6 +424,17 @@ function SorcWaterElementalThink(caster)
   local sorcPosition = caster.creator:GetAbsOrigin()
   local aspectPosition = caster:GetAbsOrigin()
   local position = sorcPosition + caster.creator:GetForwardVector()*300 + RandomVector(RandomInt(0, 80))
+  if WallPhysics:GetDistance(sorcPosition, aspectPosition) > 650 then
+    caster:MoveToPosition(position)
+  else
+    caster:MoveToPositionAggressive(position)
+  end
+end
+
+function jex_thundershroom_think(caster)
+  local sorcPosition = caster.summoner:GetAbsOrigin()
+  local aspectPosition = caster:GetAbsOrigin()
+  local position = sorcPosition + caster.summoner:GetForwardVector()*300 + RandomVector(RandomInt(0, 80))
   if WallPhysics:GetDistance(sorcPosition, aspectPosition) > 650 then
     caster:MoveToPosition(position)
   else
