@@ -279,7 +279,7 @@ function Filters:PerformAttackSpecial(caster, target, b1, b2, b3, b4, b5, b6, b7
 end
 
 function Filters:MagicImmuneBreak(attacker, target)
-    local magic_immunity_buffs = {"modifier_hope_of_saytaru_effect", "modifier_monk_ulti_gorudo", "modifier_black_widow", "modifier_warlord_stone_form", "modifier_gilded_soul_immunity", "modifier_auriun_immortal_weapon_3_effect", "modifier_black_King_bar_immunity"}
+    local magic_immunity_buffs = {"modifier_hope_of_saytaru_effect", "modifier_monk_ulti_gorudo", "modifier_black_widow", "modifier_warlord_stone_form", "modifier_gilded_soul_immunity", "modifier_auriun_immortal_weapon_3_effect", "modifier_black_King_bar_immunity", "modifier_jex_magic_immunity"}
     local immuneBreak = false
     for i = 1, #magic_immunity_buffs, 1 do
         if target:HasModifier(magic_immunity_buffs[i]) then
@@ -287,15 +287,9 @@ function Filters:MagicImmuneBreak(attacker, target)
         end
     end
     if immuneBreak then
-        target:RemoveModifierByName("modifier_hope_of_saytaru_effect")
-        target:RemoveModifierByName("modifier_monk_ulti_gorudo")
-        target:RemoveModifierByName("modifier_black_widow_invisible_damage_buff")
-        target:RemoveModifierByName("modifier_black_widow")
-        target:RemoveModifierByName("modifier_black_widow_invis_range_debuff")
-        target:RemoveModifierByName("modifier_warlord_stone_form")
-        target:RemoveModifierByName("modifier_warlord_stone_form_slow_portion")
-        target:RemoveModifierByName("modifier_warlord_rune_q_1")
-        target:RemoveModifierByName("modifier_gilded_soul_immunity")
+        for i = 1, #magic_immunity_buffs, 1 do
+            target:RemoveModifierByName(magic_immunity_buffs[i])
+        end
         EmitSoundOn("RPC.MagicImmuneBreakAttacker", attacker)
         EmitSoundOn("RPC.MagicImmuneBreakTarget", target)
         local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, attacker )
@@ -776,6 +770,9 @@ function Filters:CastSkillArguments(slot, caster)
         elseif slot == 4 then
             Filters:OrthokStack(caster,12)
         end
+    end
+    if caster:HasModifier("modifier_jex_nature_cosmic_w") then
+        Filters:JexNatureCostmicW(caster)
     end
     if caster:HasModifier("modifier_mugato") then
         caster:AddNewModifier(caster, nil, "modifier_silence", {duration = 4})
@@ -1443,6 +1440,21 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 end
             end
         end
+        if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
+            if slot == 3 then
+                if attacker.r_1_level then
+                    damageMult = damageMult + attacker.r_1_level*0.08
+                end
+            elseif slot == 1 then
+                if attacker.r_2_level then
+                    damageMult = damageMult + attacker.r_2_level*0.08
+                end
+            elseif slot == 2 then
+                if attacker.r_3_level then
+                    damageMult = damageMult + attacker.r_3_level*0.08
+                end
+            end
+        end
     end
 
     if slot == 1 then
@@ -2098,6 +2110,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_hand_lightning", attacker.InventoryUnit)
             mult = mult + stacks/100
         end
+        if unitName == "npc_dota_hero_arc_warden" then
+            if attacker.w_2_level then
+                mult = mult + attacker.w_2_level*1
+            end
+        end
     end
     if element1 == RPC_ELEMENT_POISON or element2 == RPC_ELEMENT_POISON then
         if unitName == "npc_dota_hero_templar_assassin" then
@@ -2267,6 +2284,16 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = victim:GetModifierStackCount("modifier_starfall_a_d_visible", attacker)
             cosmosMult = cosmosMult + stacks*0.1
         end
+        if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
+            if attacker.e_2_level then
+                cosmosMult = cosmosMult + attacker.e_2_level*1
+            end
+            if attacker:HasModifier("modifier_jex_cosmic_surge") then
+                local e_4_level = attacker:GetRuneValue("e", 4)
+                cosmosMult = cosmosMult + e_4_level*0.5
+            end
+        end
+
         if cosmosMult > 50 and attacker:HasModifier("modifier_luma_guard") then
             cosmosMult = 50
         end
@@ -2610,6 +2637,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if victim:HasModifier("modifier_monkey_a_c_effect") then
             local monkeyAbility = victim:FindModifierByName("modifier_monkey_a_c_effect"):GetAbility()
             mult = mult + 0.15*monkeyAbility.e_1_level
+        end
+        if unitName == "npc_dota_hero_arc_warden" then
+            if attacker.q_2_level then
+                mult = mult + attacker.q_2_level*1
+            end
         end
     end
     if element1 == RPC_ELEMENT_UNDEAD or element2 == RPC_ELEMENT_UNDEAD then
@@ -4596,4 +4628,13 @@ function Filters:UpdateOrthokPFX(hero, totalStacks, chains)
             chains.pfx2 = false
         end
     end
+end
+
+function Filters:JexNatureCostmicW(caster)
+    local ability = caster:FindAbilityByName("jex_nature_cosmic_w")
+    local mana_usage = ability:GetSpecialValueFor("mana_cost_per_cast")
+    if mana_usage > caster:GetMana() then
+        ability:ToggleAbility()
+    end
+    caster:ReduceMana(mana_usage)
 end

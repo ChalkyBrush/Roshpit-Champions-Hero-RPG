@@ -373,6 +373,15 @@ function Weapons:RollLegendWeapon1(deathLocation, class, strictMaxItemLevel, dis
 	    weapon.property2 = value
 	    weapon.property2name = "strength"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_strength", "#CC0000",  2)
+	elseif internalName == "jex" then
+	    weapon.property1 = 1
+	    weapon.property1name = "!immortal_weapon!"
+		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_jex_immortal_weapon", "#69BC71",  1, "#property_jex_immortal_weapon_description")
+
+		local value = Weapons:GetDeviation(300+RandomInt(1,Arena.PitLevel*100), 0)
+	    weapon.property2 = value
+	    weapon.property2name = "attack_damage"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_bonus_attack_damage", "#343EC9",  2) 
 	end
 	-- if mainAttrRoll == 1 then
 	-- 	local value = Weapons:GetDeviation(15, rarityFactor)
@@ -776,6 +785,15 @@ function Weapons:RollLegendWeapon2(deathLocation, class, strictMaxItemLevel, dis
 	    weapon.property2 = value
 	    weapon.property2name = "attack_damage"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_bonus_attack_damage", "#343EC9",  2)
+	elseif internalName == "jex" then
+	    weapon.property1 = 1
+	    weapon.property1name = "!immortal_weapon!"
+		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_jex_immortal_weapon2", "#5CCDF9",  1, "#property_jex_immortal_weapon2_description")
+
+		local value = Weapons:GetDeviation(100+RandomInt(1,450), 0)
+	    weapon.property2 = value
+	    weapon.property2name = "attack_damage"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_bonus_attack_damage", "#343EC9",  2) 
 	end
 
 	print("----------")
@@ -1082,7 +1100,16 @@ function Weapons:RollLegendWeapon3(deathLocation, class, strictMaxItemLevel, dis
 		local name, color = Elements:GetElementNameAndColorByCode(RPC_ELEMENT_COSMOS)
 	    weapon.property2 = value
 	    weapon.property2name = name
-	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#rpc_item_element"..RPC_ELEMENT_COSMOS, color,  2) 	
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#rpc_item_element"..RPC_ELEMENT_COSMOS, color,  2) 
+	elseif internalName == "jex" then
+	    weapon.property1 = 1
+	    weapon.property1name = "!immortal_weapon!"
+		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_jex_immortal_weapon3", "#C25DFC",  1, "#property_jex_immortal_weapon3_description")
+
+		local value = Weapons:GetDeviation(100+RandomInt(1,450), 0)
+	    weapon.property2 = value
+	    weapon.property2name = "attack_damage"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_bonus_attack_damage", "#343EC9",  2) 	
 	end
 
 	print("----------")

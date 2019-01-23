@@ -397,6 +397,8 @@ function hero_summon_think(event)
 	local caster = event.caster
 	if caster:GetUnitName() == "sorc_water_elemental" then
 		SorcWaterElementalThink(caster)
+	elseif caster:GetUnitName() == "jex_charged_mushroom" then
+		jex_thundershroom_think(caster)
 	end
 end
 
@@ -404,6 +406,17 @@ function SorcWaterElementalThink(caster)
   local sorcPosition = caster.creator:GetAbsOrigin()
   local aspectPosition = caster:GetAbsOrigin()
   local position = sorcPosition + caster.creator:GetForwardVector()*300 + RandomVector(RandomInt(0, 80))
+  if WallPhysics:GetDistance(sorcPosition, aspectPosition) > 650 then
+    caster:MoveToPosition(position)
+  else
+    caster:MoveToPositionAggressive(position)
+  end
+end
+
+function jex_thundershroom_think(caster)
+  local sorcPosition = caster.summoner:GetAbsOrigin()
+  local aspectPosition = caster:GetAbsOrigin()
+  local position = sorcPosition + caster.summoner:GetForwardVector()*300 + RandomVector(RandomInt(0, 80))
   if WallPhysics:GetDistance(sorcPosition, aspectPosition) > 650 then
     caster:MoveToPosition(position)
   else

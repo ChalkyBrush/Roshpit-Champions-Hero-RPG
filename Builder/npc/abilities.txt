@@ -5,6 +5,10 @@
 "DOTAAbilities"
 {
 	//hero section
+
+	##JEX_ABILITIES##
+	##JEX_RUNES##
+
 	##EKKAN_ARCANA_1_ABILITIES##
 	##EKKAN_ARCANA_1_RUNES##
 	##EKKAN_BASE_ABILITIES##

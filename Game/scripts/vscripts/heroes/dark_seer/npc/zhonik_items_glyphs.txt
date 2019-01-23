@@ -304,7 +304,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  	"0.4"
+				"ThinkInterval"  	"0.8"
 				"OnIntervalThink"
 				{
 					"RunScript"

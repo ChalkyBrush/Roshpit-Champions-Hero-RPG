@@ -304,6 +304,8 @@ function getSkillSlot(heroName, slot){
 		skillName = getSephyrSkill(slot)
 	}else if (heroName == "npc_dota_hero_winter_wyvern"){
 		skillName = getDinathSkill(slot)
+	}else if (heroName == "npc_dota_hero_arc_warden"){
+		skillName = getJexSkill(slot)
 	}
 	return skillName
 }
@@ -686,6 +688,20 @@ function getDinathSkill(slot){
 	return skillName	
 }
 
+function getJexSkill(slot){
+	var skillName = ""
+	if (slot == 1){
+		skillName = "tooltip_jex_q"
+	}else if(slot == 2){
+		skillName = "tooltip_jex_w"
+	}else if(slot == 3){
+		skillName = "tooltip_jex_e"
+	}else if(slot == 4){
+		skillName = "DOTA_Tooltip_ability_jex_essence_harvest"
+	}
+	return skillName
+}
+
 function testing(){
 	$.Msg("did we load?")
 }
@@ -695,7 +711,7 @@ function getHeroList(){
 	"npc_dota_hero_drow_ranger", "npc_dota_hero_obsidian_destroyer", "npc_dota_hero_omniknight", "npc_dota_hero_crystal_maiden", "npc_dota_hero_invoker",
 	"npc_dota_hero_juggernaut", "npc_dota_hero_beastmaster", "npc_dota_hero_leshrac", "npc_dota_hero_spirit_breaker", "npc_dota_hero_zuus", "npc_dota_hero_templar_assassin", 
 	"npc_dota_hero_huskar", "npc_dota_hero_legion_commander", "npc_dota_hero_night_stalker", "npc_dota_hero_vengefulspirit", "npc_dota_hero_slardar", "npc_dota_hero_visage", 
-	"npc_dota_hero_dark_seer", "npc_dota_hero_antimage", "npc_dota_hero_monkey_king", "npc_dota_hero_slark", "npc_dota_hero_skywrath_mage", "npc_dota_hero_winter_wyvern"]
+	"npc_dota_hero_dark_seer", "npc_dota_hero_antimage", "npc_dota_hero_monkey_king", "npc_dota_hero_slark", "npc_dota_hero_skywrath_mage", "npc_dota_hero_winter_wyvern", "npc_dota_hero_arc_warden"]
 	return heroList
 }
 
@@ -782,6 +798,8 @@ function convertFullHeroNameToRPC(heroName){
 		rpcName = "sephyr"
 	}else if (heroName == "npc_dota_hero_winter_wyvern"){
 		rpcName = "dinath"
+	}else if (heroName == "npc_dota_hero_arc_warden"){
+		rpcName = "jex"
 	}else if (heroName == "tooltip_neutral"){
 		rpcName = "neutral"
 	}

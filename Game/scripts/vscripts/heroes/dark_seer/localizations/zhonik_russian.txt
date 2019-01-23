@@ -245,7 +245,7 @@
 		"item_rpc_zonik_glyph_7_1_description" 				"Заряды [W2] увеличивают весь стихийный урон <font color=\"#B5FFB7\">Времени</font> на @glyph_property1%. Когда стихия <font color=\"#B5FFB7\">Времени</font> наносит урон, тратится 1 заряд."
 
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"(Immortal) Glyph of Flurry Punches"
-		"item_rpc_zonik_glyph_5_a_description" 				"Автоматически применяет @Ability2 на случайного противника поблизости каждые 0.4 секунды."
+		"item_rpc_zonik_glyph_5_a_description" 				"Автоматически применяет @Ability2 на случайного противника поблизости каждые 0.8 секунды."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_00"		"Punch Glove"

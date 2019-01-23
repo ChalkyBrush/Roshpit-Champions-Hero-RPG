@@ -3381,9 +3381,9 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] Purity"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"В начале Ascension создаёт рой крылатых сущностей, которые будут атаковать врагов впереди. Задетые враги ненадолго парализуются. Дополнительно увеличивает урон [E3], умножая на соотношение (наимешьший атрибут/наибольший атрибут)."
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Урон"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"В начале Ascension создаёт рой крылатых сущностей, которые парализуют ближайших врагов. Дополнительно увеличивает урон [E3] в зависимости от того, насколько сбалансированны атрибуты героя. Максимальный бонус, указанный ниже, достигается при равенстве всех атрибутов героя. При разнице в атрибутах дается часть этого бонуса, определяемая соотношением (Наименьший атрибут):(Наибольший атрибут)."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Максимальный Бонус"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					"%"	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"Длительность паралича"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix_two"				" сек."	
 
@@ -7454,6 +7454,7 @@
 		"item_rpc_paladin_glyph_5_a_description" 				"Удар молнии от [R4] Knight's Disciple's поражает врагов в радиусе @glyph_property1, а основная цель будет атакована дважды."
 		
 		//Column2Glyphs
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_book" 		"Книга Глифов Paladin"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_2"       "(T2-1) Glyph of Repentance"
         "item_rpc_paladin_glyph_1_2_description"                "Враги, пораженные @Ability2 имеют замедленную атаку на @glyph_property1 в течение 8 секунд."
@@ -7828,6 +7829,9 @@
     	"DOTA_Tooltip_ability_sephyr_rune_q_1_Description"						"После прочтения @Ability1, герой получает дополнительные очки Интеллекта на 12 секунд."
     	"DOTA_Tooltip_ability_sephyr_rune_q_1_property_one"						"Доп. Интеллекта"
     	"DOTA_Tooltip_ability_sephyr_rune_q_1_suffix"							""
+		
+		"DOTA_Tooltip_modifier_lightbomb_q_1"									"Illumination"
+    	"DOTA_Tooltip_modifier_lightbomb_q_1_Description"						"Интеллект увеличен"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_2"									"[Q2] Amplifier"
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_Description"						"Враги, задетые @Ability1 получают увеличенный пост-резистный урон от Sephyr. Длительность - 7 секунд."
@@ -7843,7 +7847,7 @@
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_suffix"							""
 
     	"DOTA_Tooltip_modifier_lightbomb_freecast"								"Clearfire"
-    	"DOTA_Tooltip_modifier_lightbomb_freecast_Description"					"10 зарядов снимает время перезарядки у следующего прочтения (Q) Lightbomb"
+    	"DOTA_Tooltip_modifier_lightbomb_freecast_Description"					"10 зарядов снимают время перезарядки у следующего прочтения (Q) Lightbomb"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_4"									"[Q4] Sunny Disposition"
     	"DOTA_Tooltip_ability_sephyr_rune_q_4_Description"						"Пассивно увеличивает урон стихии <font color=\"#F6FFB5\">Света</font>. Чась от стихийного усиления <font color=\"#F6FFB5\">Света</font> дополнительно увеличивает бонусный урон атаки героя."
@@ -10489,7 +10493,7 @@
 		"item_rpc_zonik_glyph_7_1_description" 				"Заряды [W2] увеличивают весь стихийный урон <font color=\"#B5FFB7\">Времени</font> на @glyph_property1%. Когда стихия <font color=\"#B5FFB7\">Времени</font> наносит урон, тратится 1 заряд."
 
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"(Immortal) Glyph of Flurry Punches"
-		"item_rpc_zonik_glyph_5_a_description" 				"Автоматически применяет @Ability2 на случайного противника поблизости каждые 0.4 секунды."
+		"item_rpc_zonik_glyph_5_a_description" 				"Автоматически применяет @Ability2 на случайного противника поблизости каждые 0.8 секунды."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_00"		"Punch Glove"
@@ -10795,6 +10799,8 @@
 		"property_hurricane_description"			"При прочтении @Ability4, буря из <font color='#ccff66'>16</font> ураганов распространяется во все стороны от героя, замедляя скорость атаки врагов на <font color='#ccff66'>150</font> и скорость передвижения на <font color='#ccff66'>150</font> в течение <font color='#ccff66'>5</font> секунд. Урон, наносимый каждым ураганом равен <font color='#ccff66'>10</font> * (Уровень Героя / 120) * (<font color='#ccff66'>1800</font> - расстояние между героем и целью))^<font color='#ccff66'>3</font>; сила ветра снижается по мере удаления от центра."
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"Hurricane"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"Преследуется сильными ветрами"
+		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow"			"Hurricane slow"
+		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow_Description"	"Замедлен"
 
 
 		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
@@ -11091,6 +11097,8 @@
 		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"Guard of Feronia"
 		"item_property_guard_of_feronia"						"Shield of Dawn"
 		"property_guard_of_feronia_description"				"Прочтение (E) @Ability3 или (R) @Ability4 наделяет героя особым щитом на 1.5 или 3.5 секунды соответственно, который поглощает весь входящий урон на 95%"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description"	"Снижает входящий урон на 95%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"
@@ -14764,6 +14772,9 @@
 		"seafortress_archon_wizard"										"Верховный маг"
 		
 		"seafortress_wandering_pirate"									"Wandering Pirate"
+		
+		"DOTA_Tooltip_modifier_mega_haste_passive"						"Mega Haste"
+		"DOTA_Tooltip_modifier_mega_haste_passive_Description"			"Скорость передвижения и ее порог увеличены на 500."
 
 		"serengaard_vote_skip_wave"										"Пропустить ожидание"
 		
@@ -14946,9 +14957,24 @@
         "serengaard_mini_enigma"  				  "Creeping Shade"
         "serengaard_engima_raider"  			  "Enigma Raider"
         "serengaard_snowball_thrower"   		 "Snowball Thrower"
+		"DOTA_Tooltip_ability_serengaard_snowball_toss"		"Snowball Toss"
+		"DOTA_Tooltip_ability_serengaard_snowball_toss_Description"	"Бросает гигантский снежный ком в сторону цели. Наносит урон при попадании и оглушает. Можно разбить."
+		"DOTA_Tooltip_ability_serengaard_snowball_toss_damage"	"УРОН:"
+		"DOTA_Tooltip_ability_serengaard_snowball_toss_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
         "serengaard_ice_shard_thrower"  		  "Hailstone Thrower"
+		"DOTA_Tooltip_ability_serengaard_ice_shards"				"Ice Shards"
+		"DOTA_Tooltip_ability_serengaard_ice_shards_Description"		"Окружает противника полукольцом из льда, наносит урон. "
+		"DOTA_Tooltip_ability_serengaard_ice_shards_shard_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_serengaard_ice_shards_cast_range_tooltip"		"ДАЛЬНОСТЬ КАСТА:"
         "serengaard_gazbin_mercenary"  			 "Mongrelman"
         "serengaard_shredder_max"   			 "Shredder"
+		"DOTA_Tooltip_ability_serengaard_shredder_madness"		"Shredder Madness"
+		"DOTA_Tooltip_ability_serengaard_shredder_madness_Description"		"Выбрасывает 3 пилы в сторону противника, которые наносят массивный урон при попадании и снижают броню цели."
+		"DOTA_Tooltip_ability_serengaard_shredder_madness_damage" 	"УРОН:"
+		"DOTA_Tooltip_ability_serengaard_shredder_madness_armor_loss"	"СНИЖЕНИЕ БРОНИ:"
+		"DOTA_Tooltip_ability_creep_jump"		"Jump"
+		"DOTA_Tooltip_ability_creep_jump_Description"	"Прыгает вперед."
+		
         "serengaard_nightmare_raider" 		   "Nightmare Raider"
         "serengaard_night_invader"   			 "Nightscape Invader"
         "phoenix_siege_dragon"  				  "Siege Drake"
