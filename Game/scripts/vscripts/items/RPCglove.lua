@@ -437,7 +437,7 @@ function RPCItems:RollHandProperty3(item, xpBounty)
         item.property3name = "attack_speed"
         RPCItems:SetPropertyValues(item, item.property3, "#item_attack_speed", "#B02020",  3)
     elseif luck >= 60 and luck < 70 then
-        value, nameLevel = RPCItems:RollAttribute(xpBounty, 10, 150, 0, 0, item.rarity, false, maxFactor*300)
+        value, nameLevel = RPCItems:RollAttribute(xpBounty, 10, 225, 0, 0, item.rarity, false, maxFactor*300)
         item.property3 = value
         item.property3name = "attack_damage"
         RPCItems:SetPropertyValues(item, item.property3, "#item_bonus_attack_damage", "#343EC9",  3)   
@@ -505,7 +505,7 @@ function RPCItems:RollHandProperty4(item, xpBounty)
         item.property4name = "attack_speed"
         RPCItems:SetPropertyValues(item, item.property4, "#item_attack_speed", "#B02020", 4)
     elseif luck >= 60 and luck < 70 then
-        value, nameLevel = RPCItems:RollAttribute(xpBounty, 10, 300, 0, 0, item.rarity, false, maxFactor*500)
+        value, nameLevel = RPCItems:RollAttribute(xpBounty, 10, 375, 0, 0, item.rarity, false, maxFactor*500)
         item.property4 = value
         item.property4name = "attack_damage"
         RPCItems:SetPropertyValues(item, item.property4, "#item_bonus_attack_damage", "#343EC9", 4)   
