@@ -374,7 +374,6 @@ function onibi_invoke(event)
 	print(element2)
 	print(ability_key)
 	local ability_level = caster.stats_table[element1][element2][ability_key]["level"]
-	ability_level = 1
 	if ability_level > 0 then
 		EmitSoundOn("Jex.Invoke", caster)
 		local ability_name = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
