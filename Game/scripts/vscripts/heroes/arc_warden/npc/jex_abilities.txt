@@ -1306,7 +1306,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"q_4_damage_increase_pct"		"10"
+				"w_4_damage_increase_pct"		"10"
 			}
 		}
 		"OnSpellStart"
@@ -1320,7 +1320,7 @@
 				"radius_per_tech"	"%radius_per_tech"
 				"base_damage"		"%base_damage"
 				"agility_added_to_base_damage"	"%agility_added_to_base_damage"
-				"q_4_damage_increase_pct"		"%q_4_damage_increase_pct"
+				"w_4_damage_increase_pct"		"%w_4_damage_increase_pct"
 			}
 		}
 		"Modifiers"
@@ -1546,7 +1546,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"e_4_lightning_damage_increase"				"6"
+				"w_4_lightning_damage_increase"				"6"
 			}	
 		}
 		"OnSpellStart"
@@ -1582,7 +1582,7 @@
 						"ScriptFile"	"heroes/arc_warden/abilities/q_lightning_nature.lua"
 						"Function"		"jex_thundershroom_attack_land"
 						"target"		"TARGET"
-						"e_4_lightning_damage_increase"	"%e_4_lightning_damage_increase"
+						"w_4_lightning_damage_increase"	"%w_4_lightning_damage_increase"
 					}
 				}
 			}

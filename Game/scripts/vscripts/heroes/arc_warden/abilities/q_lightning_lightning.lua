@@ -15,9 +15,9 @@ function jex_activate_q_lightning_lightning(event)
 	local total_radius = radius + radius_per_tech*tech_level
 	local damage = base_damage + agility_added_to_base_damage*caster:GetAgility() + (attack_damage_per_tech/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
 
-	local q_4_level = caster:GetRuneValue("q", 4)
-	if q_4_level > 0 then
-		damage = damage + damage*(event.q_4_damage_increase_pct/100)*q_4_level
+	local w_4_level = caster:GetRuneValue("w", 4)
+	if w_4_level > 0 then
+		damage = damage + damage*(event.w_4_damage_increase_pct/100)*w_4_level
 	end
 	ability.damage = damage
 

@@ -71,7 +71,7 @@ function jex_thundershroom_attack_land(event)
 	local targets_to_hit = math.min(#chain.enemies, max_targets)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
 	if ability.w_4_level then
-		damage = damage + damage*(event.e_4_lightning_damage_increase/100)*ability.w_4_level
+		damage = damage + damage*(event.w_4_lightning_damage_increase/100)*ability.w_4_level
 	end
 	print("HELLO?")
 	if luck <= 3 then

@@ -85,7 +85,7 @@
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_base_damage"			"BASE DAMAGE:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"BASE RADIUS"		
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_agility_added_to_base_damage"	"AGILITY MULTIPLIER ADDED TO BASE DAMAGE:"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_q_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[Q4] Lightning base damage increase</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_q_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Lightning base damage increase</font>:"
 
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q"				"Electron Shield"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_Description"	"Quantum electric particles form a barrier around Jex that makes his health unable to drop below a minimum value. Each time the shield is hit, 1 stack is removed."
@@ -107,7 +107,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_duration"					"SPROUTLING DURATION"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_damage_pct_attack_power" "% CHAIN LIGHTNING DAMAGE % OF ATTACK POWER:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_q_4_additional_duration"	"<font color=\"#7DFF12\">[Q4] Additional sproutling life duration in seconds</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_e_4_lightning_damage_increase"	"%<font color=\"#7DFF12\">[E4] Additional sproutling chain lightning damage</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_e_4_lightning_damage_increase"	"%<font color=\"#7DFF12\">[W4] Additional sproutling chain lightning damage</font>:"
 
 	"DOTA_Tooltip_ability_jex_nature_nature_q"					"Oak Infusion"
 	"DOTA_Tooltip_ability_jex_nature_nature_q_Description"		"Jex binds his body with ancient oak particles, increasing his armor and health regen. Enemies who damage Jex while the shield is active are stunned for a short duration."
@@ -138,7 +138,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_damage_mult"				"LIGHTNING DAMAGE AS % OF ATTACK POWER:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_mana_cost"					"MANA COST:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_attack_speed"				"BONUS ATTACK SPEED:"
-	"DOTA_Tooltip_ability_jex_lightning_lightning_w_w_4_agility_added_to_lightning_damage"	"<font color=\"#7DFF12\">[E4] Agility added to chain lightning base damage</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_lightning_w_w_4_agility_added_to_lightning_damage"	"<font color=\"#7DFF12\">[W4] Agility added to chain lightning base damage</font>:"
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_w"				"Thunderleaf Petals"
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>Unleashes a quick spray of electrified Thunderleaf Petals directly in front of jex. Enemies hit by the leaves are paralyzed for a short duration. Enemies who have been paralyzed 5 times in a row become immune for 4 seconds."
@@ -209,7 +209,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_range_base"		"BASE ATTACK RANGE:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_cast_range"			"CAST RANGE:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_q_4_blossom_magic_resistance"	"<font color=\"#7DFF12\">[Q4] Blossom Magic Resistance</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[E4] Lightning bolt damage increase</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Lightning bolt damage increase</font>:"
 
 	"DOTA_Tooltip_ability_thunder_blossom_teleport"				"Lightning Tract"
 	"DOTA_Tooltip_ability_thunder_blossom_teleport_Description"	"Grabs Jex and pulls him toward the Thunder Blossom. Jex can right click on a thunder blossom to activate this ability automatically."

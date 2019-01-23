@@ -6,11 +6,15 @@ function jex_main_thinker(event)
 	if not ability.interval then
 		ability.interval = 0
 	end
-	if ability.interval < 6 then
+	if ability.interval < 4 then
 		ability.interval = ability.interval + 1
 		return false
 	end
 	if caster.loading then
+		return false
+	end
+	local player = caster:GetPlayerOwner()
+	if player.hero_loading then
 		return false
 	end
 	if not caster.onibi then

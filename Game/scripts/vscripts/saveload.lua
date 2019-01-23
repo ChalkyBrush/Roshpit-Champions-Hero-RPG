@@ -517,6 +517,7 @@ function SaveLoad:LoadCharacter(msg)
 		Timers:CreateTimer(5, function()
 			Statistics.dispatch('hero:oracle:load')
 		end)
+		player.hero_loading = false
 		hero.loading = false
 	end )
 end
@@ -1389,6 +1390,7 @@ function SaveLoad:LoadHeroNewSelect(msg)
 	local playerID = msg.playerID
 	local player = PlayerResource:GetPlayer(playerID)
 	SaveLoad:CreateNewHero(msg)
+	player.hero_loading = true
 	Timers:CreateTimer(3.0, function()
 		if not player.heroLoaded then
 			player.heroLoaded = true
