@@ -16,7 +16,6 @@ require('elements')
 
 Beacons.cheats = false
 
-
 if Events == nil then
   Events = class({})
 end

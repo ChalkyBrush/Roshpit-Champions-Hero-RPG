@@ -1567,7 +1567,7 @@ function SaveLoad:SaveJex(hero)
 	local url = ROSHPIT_URL.."/champions/save_onibi?"
 	url = url.."steam_id="..steamID
 	url = url.."&championcharacter_id="..hero.roshpitID
-	
+	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
 	for i = 1, #elements_table, 1 do
 		local element1 = elements_table[i]
 		-- local other_elements = get_other_elements(onibi, element1)
