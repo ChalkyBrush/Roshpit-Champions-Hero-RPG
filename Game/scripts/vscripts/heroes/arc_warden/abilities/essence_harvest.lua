@@ -311,6 +311,7 @@ function essence_harvest_channel_end(event)
 			ability.glyph_harvest_counter = 0
 		end
 	else
+
 		transfer_to_onibi(caster, ability)
 	end
 
@@ -319,6 +320,7 @@ end
 
 function transfer_to_onibi(caster, ability)
 	if ability.harvested > 0 then
+		Filters:CastSkillArguments(4, caster)
 		local intensity = 1
 		if ability.harvested > 10 then
 			intensity = 2
