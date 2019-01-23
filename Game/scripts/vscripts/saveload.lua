@@ -484,6 +484,7 @@ function SaveLoad:LoadCharacter(msg)
 	local player = PlayerResource:GetPlayer(playerID)
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	hero.loadEnabled = 0
+	hero.loading = true
 	local slot = msg.slot
 	local url = ROSHPIT_URL.."/champions/loadCharacter?"
 	url = url.."steam_id="..steamID
@@ -516,6 +517,7 @@ function SaveLoad:LoadCharacter(msg)
 		Timers:CreateTimer(5, function()
 			Statistics.dispatch('hero:oracle:load')
 		end)
+		hero.loading = false
 	end )
 end
 

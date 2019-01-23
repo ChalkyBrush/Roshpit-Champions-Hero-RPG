@@ -6886,7 +6886,7 @@
 
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q"				"Wrath of Lightning"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font><br>A ring of electricity flashes around Jex. All enemies inside the area are struck by a bolt of lightning."
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_attack_damage_per_tech"	"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO BASE DAMGAGE PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_attack_damage_per_tech"	"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO BASE DAMAGE PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius_per_tech"		"%<font color=\"#f4b942\">RADIUS PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_base_damage"			"BASE DAMAGE:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"BASE RADIUS"		
@@ -6898,11 +6898,11 @@
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_stacks_per_tech"	"<font color=\"#f4b942\">STACKS PER TECH LEVEL</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_min_health"		"MINIMUM HEALTH:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_duration"			"DURATION:"
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_w_4_bonus_attack_damage_while_shield_active"		"%<font color=\"#7DFF12\">[W4] Increased Base Attack Damage while Electron Shield is active</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_w_4_bonus_attack_damage_while_shield_active"		"<font color=\"#7DFF12\">[W4] Increased Base Attack Damage while Electron Shield is active</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_e_4_mana_regen_while_shield_active"			"<font color=\"#7DFF12\">[E4] Increased Mana Regen while Electron Shield is active</font>:"
 
 	"DOTA_Tooltip_modifier_jex_lightning_cosmic_shield"							"Electron Shield"
-	"DOTA_Tooltip_modifier_jex_lightning_cosmic_shield_Description"				"Health can't fall below %min_health"
+	"DOTA_Tooltip_modifier_jex_lightning_cosmic_shield_Description"				"Health can't fall below %%min_health"
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_q"				"Charged Sproutling"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>An electrified sproutling warrior is summoned to fight for Jex. The minion inherits armor and attack damage from their summoner, and their attacks have a 30% chance to trigger a chain lightning effect that deals magic damage based on attack power."
@@ -6971,7 +6971,7 @@
 	"DOTA_Tooltip_ability_jex_nature_nature_w"					"Root Weaver"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_Description"		"Element: <font color=\"#69BC71\">Nature</font><br>Creates a small area of enhanced fertility that causes roots to grow on enemies who enter on a 0.5 second delay. Rooted enemies have reduced attack range and take damage every 0.5 seconds."
 	"DOTA_Tooltip_ability_jex_nature_nature_w_root_per_tech_level"	"<font color=\"#f4b942\">ROOT DURATION PER TECH LEVEL</font>:"
-	"DOTA_Tooltip_ability_jex_nature_nature_w_attack_power_added_to_tick_per_tech"	"<font color=\"#f4b942\">ATTACK POWER ADDED TO DAMAGE PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_nature_nature_w_attack_power_added_to_tick_per_tech"	"%<font color=\"#f4b942\">ATTACK POWER ADDED TO DAMAGE PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_radius"							"RADIUS:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_base_root_duration"				"BASE ROOT DURATION:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_all_attributes_added_to_damage"	"ALL ATTRIBUTES MULTIPLE ADDED TO ROOT DAMAGE:"
@@ -7050,7 +7050,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_movespeed_min_base"			"MINIMUM MOVESPEED BASE:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_duration_base"					"SURGE DURATION BASE:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_w_4_cooldown_reduce"			"<font color=\"#7DFF12\">[W4] Cooldown Reduction</font>:"	
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_e_4_cosmic_damage_increase"	"<font color=\"#7DFF12\">[E4] Cosmic Damage bonus while Cosmic Surge Active</font>:"	
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_e_4_cosmic_damage_increase"	"%<font color=\"#7DFF12\">[E4] Cosmic Damage bonus while Cosmic Surge Active</font>:"	
 
 	"DOTA_Tooltip_modifier_jex_cosmic_surge"			"Cosmic Surge"
 	"DOTA_Tooltip_modifier_jex_cosmic_surge_Description"	"Enforced Minimum Movespeed"

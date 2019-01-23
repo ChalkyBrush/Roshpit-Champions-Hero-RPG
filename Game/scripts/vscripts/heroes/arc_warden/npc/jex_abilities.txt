@@ -797,7 +797,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 5000 25000 75000 150000 2500000 500000"
+				"damage"				"1000 5000 25000 75000 150000 250000 500000"
 			}
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_ATTACK2"
@@ -884,7 +884,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 5000 25000 75000 150000 2500000 500000"
+				"damage"				"1000 5000 25000 75000 150000 250000 500000"
 			}
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_ATTACK2"
@@ -973,7 +973,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 5000 25000 75000 150000 2500000 500000"
+				"damage"				"1000 5000 25000 75000 150000 250000 500000"
 			}
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_ATTACK2"
@@ -1665,7 +1665,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor"				"200 400 1000 2000 4000 9000"
+				"armor"				"200 400 1000 2000 3000 6000 9000"
 			}	
 			"05"
 			{

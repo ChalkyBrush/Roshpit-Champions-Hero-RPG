@@ -3,6 +3,16 @@ require('heroes/arc_warden/abilities/onibi')
 function jex_main_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
+	if not ability.interval then
+		ability.interval = 0
+	end
+	if ability.interval < 6 then
+		ability.interval = ability.interval + 1
+		return false
+	end
+	if caster.loading then
+		return false
+	end
 	if not caster.onibi then
 		if not caster.onibi_searching then
 			get_onibi(caster)
@@ -21,6 +31,7 @@ function get_onibi(caster)
 	local url = ROSHPIT_URL.."/champions/getUnibi?"
 	url = url.."&steam_id="..PlayerResource:GetSteamAccountID(playerID)
 	url = url.."&championcharacter_id="..roshpit_id
+	print(url)
 	CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
