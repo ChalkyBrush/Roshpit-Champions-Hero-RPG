@@ -2404,6 +2404,7 @@
         ##VENOMORT_SCHINESE##
         ##VOLTEX_SCHINESE##
         ##ZHONIK_SCHINESE##
+        ##JEX_SCHINESE##
 
     	##BOOTS_SCHINESE##
     	##CHEST_SCHINESE##

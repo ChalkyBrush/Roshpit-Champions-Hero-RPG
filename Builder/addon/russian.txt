@@ -2074,6 +2074,7 @@
         ##VENOMORT_RUSSIAN##
         ##VOLTEX_RUSSIAN##
         ##ZHONIK_RUSSIAN##
+        ##JEX_RUSSIAN##
 
     	##BOOTS_RUSSIAN##
     	##CHEST_RUSSIAN##
