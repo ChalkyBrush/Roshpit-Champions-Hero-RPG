@@ -1,5 +1,5 @@
 ONIBI_ELEMENT_MAX_LEVEL = 100
-
+require('heroes/arc_warden/jex_constants')
 function load_onibi_data(caster, onibi_data)
 	local jex_ability = caster:FindAbilityByName("jex_essence_harvest")
 	local spawnPoint = caster:GetAbsOrigin() - caster:GetForwardVector()*100
@@ -29,7 +29,6 @@ function load_onibi_data(caster, onibi_data)
 		end
 	end
 
-	DeepPrintTable(onibi_data)
 	if onibi_data["modules"]["nature"] then
 		caster.onibi.stats_table["nature"]["exp"] = onibi_data["modules"]["nature"]["exp"]
 	else
@@ -41,11 +40,13 @@ function load_onibi_data(caster, onibi_data)
 		caster.onibi.stats_table["lightning"]["exp"] = 0
 	end
 	if onibi_data["modules"]["cosmic"] then
+		print("SEt COSMIC")
+		print(onibi_data["modules"]["cosmic"]["exp"])
 		caster.onibi.stats_table["cosmic"]["exp"] = onibi_data["modules"]["cosmic"]["exp"]
 	else
 		caster.onibi.stats_table["cosmic"]["exp"] = 0
 	end
-
+	caster.onibi.current_model_index = 0
 
 	onibi_initial_set_abilities_data(caster.onibi, onibi_data)
 
@@ -76,17 +77,40 @@ function calculate_onibi_element_levels(onibi)
 		local level = get_level_by_sum_exp(onibi.stats_table[element_name]["exp"])
 		onibi.stats_table[element_name]["level"] = level
 		onibi.stats_table[element_name]["current"] = onibi.stats_table[element_name]["exp"] - get_onibi_sum_exp_table(level)
-		print("-----")
-		print(onibi.stats_table[element_name]["exp"])
-		print(onibi.stats_table[element_name]["current"])
 		onibi.stats_table[element_name]["required"] = get_onibi_sum_exp_table(level+1) - get_onibi_sum_exp_table(level)
 	end
 	onibi_calculate_all_tech_points(onibi)
 	write_onibi_to_nettable(onibi)
+	set_onibi_model(onibi)
 end
 
 function write_onibi_to_nettable(onibi)
 	CustomNetTables:SetTableValue("hero_index", "onibi-"..tostring(onibi:GetEntityIndex()), onibi.stats_table)
+end
+
+function set_onibi_model(onibi)
+	local elements_table = get_onibi_elements_name_table(onibi)
+	local available_models = {"00", "01", "02", "03", "05", "06", "07", "09", "10", "11", "12", "13", "15", "16", "19", "20"}
+	-- 16 models
+	local sum_level = 0
+	for i = 1, #elements_table, 1 do
+		sum_level = sum_level + onibi.stats_table[elements_table[i]]["level"]
+	end
+	local model_index = math.ceil(sum_level/18.75)
+	local model_string = available_models[model_index]
+	if onibi.current_model_index == model_index then
+	else
+		onibi.current_model_index = model_index
+		local modelName = "models/items/courier/onibi_lvl_"..model_string.."/onibi_lvl_"..model_string.."_flying.vmdl"
+		print(modelName)
+		PrecacheModel(modelName, {})
+		Timers:CreateTimer(1, function()
+			onibi:SetOriginalModel(modelName)
+			onibi:SetModel(modelName)
+			local invokePFX = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_invoker/invoker_death_end.vpcf", onibi, 4)
+			ParticleManager:SetParticleControl(invokePFX, 1, Vector(10, 10, 100))
+		end)
+	end
 end
 
 function onibi_initial_set_abilities_data(onibi, data_from_server)
@@ -106,7 +130,7 @@ function onibi_initial_set_abilities_data(onibi, data_from_server)
 				local element2 = elements_table[k]
 				local level = 0
 				local tech_data = nil
-				if #data_from_server > 0 then
+				if #data_from_server["techs"] > 0 then
 					for i = 1, #data_from_server["techs"], 1 do
 						local tech_from_server = data_from_server["techs"][i]
 						if (tech_from_server["element1"] == element1 and tech_from_server["element2"] == element2) or (tech_from_server["element1"] == element2 and tech_from_server["element2"] == element1) then
@@ -485,6 +509,9 @@ function jex_equip_immortal_weapon(event)
 				end
 				if element1 == element2 then
 					bonus = bonus*2
+				end
+				if caster:HasModifier("modifier_jex_glyph_5_a") then
+					bonus = bonus + 1
 				end
 				onibi.stats_table[element1][element2][ability_key]["bonus_level"] = bonus
 				onibi.stats_table[element2][element1][ability_key]["bonus_level"] = bonus

@@ -206,7 +206,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_GLYPH_5_1_LIGHTSPEED_ADDITIONAL_MS %>"
+				"property_one"			"<% JEX_GLYPH_5_DAMAGE_DEALT_PERCENT %>"
 			}
 		}
 	}
@@ -242,16 +242,7 @@
 		}
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ZHONIK_GLYPH_6_1_MULTI %>"
-			}
+
 		}
 	}
 
@@ -274,6 +265,7 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
 		"Modifiers"
 		{
 			"modifier_jex_glyph_7_1"
@@ -289,7 +281,27 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_GLYPH_7_1_ELEMENT_TEMPORAL %>"
+				"property_one"			"<% JEX_GLYPH_7_DAMAGE_PCT %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% JEX_GLYPH_7_RADIUS %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"8"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"4"
 			}
 		}
 	}
@@ -321,13 +333,21 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  	"0.8"
-				"OnIntervalThink"
+				"OnCreated"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/dark_seer/speedball.lua"
-						"Function"		"immortal_glyph_thinker"
+						"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+						"Function"		"jex_equip_immortal_weapon"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+						"Function"		"jex_equip_immortal_weapon"
 						"target"		"TARGET"
 					}
 				}
@@ -335,7 +355,11 @@
 		}
 		"AbilitySpecial"
 		{
-
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% JEX_GLYPH_5_A_TECH %>"
+			}
 		}
 	}
 

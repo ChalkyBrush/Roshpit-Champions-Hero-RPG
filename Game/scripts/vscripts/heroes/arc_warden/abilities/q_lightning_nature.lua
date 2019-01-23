@@ -67,11 +67,11 @@ function jex_thundershroom_attack_land(event)
 	local luck = RandomInt(1, 10)
 	local chain = {}
 	chain.index_hit = 0
-	chain.enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
+	chain.enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
 	local targets_to_hit = math.min(#chain.enemies, max_targets)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
 	if ability.w_4_level then
-		damage = damage + damage*(e_4_lightning_damage_increase/100)*ability.w_4_level
+		damage = damage + damage*(event.e_4_lightning_damage_increase/100)*ability.w_4_level
 	end
 	print("HELLO?")
 	if luck <= 3 then

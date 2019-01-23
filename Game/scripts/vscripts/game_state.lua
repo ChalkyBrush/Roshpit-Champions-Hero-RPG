@@ -2385,6 +2385,11 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
+	if attacker:HasModifier("modifier_jex_root_weave_debuff") then
+		if attacker:FindModifierByName("modifier_jex_root_weave_debuff"):GetCaster():HasModifier("modifier_jex_glyph_5_1") then
+			filterTable["damage"] = filterTable["damage"]*0.5
+		end
+	end
 	if victim:HasModifier("tanari_mountain_specter_ai") then
 		local reduc = 0.1
 		if GameState:GetDifficultyFactor() == 2 then

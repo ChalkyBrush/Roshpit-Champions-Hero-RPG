@@ -6906,7 +6906,7 @@
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_q"				"Charged Sproutling"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>An electrified sproutling warrior is summoned to fight for Jex. The minion inherits armor and attack damage from their summoner, and their attacks have a 30% chance to trigger a chain lightning effect that deals magic damage based on attack power."
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_max_targets_per_tech"	"%<font color=\"#f4b942\">SPROUTLING CHAIN LIGHTNING MAX TARGETS PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_max_targets_per_tech"	"<font color=\"#f4b942\">SPROUTLING CHAIN LIGHTNING MAX TARGETS PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_armor_mult_per_tech"		"%<font color=\"#f4b942\">SPROUTLING ARMOR AS A MULTIPLE OF JEX'S PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_attack_mult_per_tech"		"%<font color=\"#f4b942\">SPROUTLING ATTACK DAMAGE AS A MULTIPLE OF JEX'S PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_health_mult"				"SPROUTLING HEALTH AS A MULTIPLE OF JEX'S:"
@@ -7186,17 +7186,17 @@
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_4_1"		"Glyph of Voltaic Flora"
 	"item_rpc_jex_glyph_4_1_description" 				"Increases attack speed of Charged Sproutlings and Thunderblossoms by @glyph_property1."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_1"		"Glyph of Acceleration"
-	"item_rpc_jex_glyph_5_1_description" 				"Gain @glyph_property1 movespeed and movespeed cap when Lightspeed is active."
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_1"		"Glyph of Binding Roots"
+	"item_rpc_jex_glyph_5_1_description" 				"Enemies rooted by Rootweaver deal @glyph_property1% reduced damage."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_6_1"		"Glyph of Diamond Dust"
-	"item_rpc_jex_glyph_6_1_description" 				"During a Speedball Charge, Green Streak remnants drop @glyph_property1% faster, explode immediately and deal @glyph_property2% increased damage."
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_6_1"		"Glyph of Pulsar"
+	"item_rpc_jex_glyph_6_1_description" 				"Galaxy Laser breaks magic immunity."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_7_1"		"Glyph of Sonar Crack"
-	"item_rpc_jex_glyph_7_1_description" 				"Temporal Discharge stacks increase all <font color=\"#B5FFB7\">Temporal</font> damage by @glyph_property1%. When <font color=\"#B5FFB7\">Temporal</font> damage is dealt, 1 stack is consumed."
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_7_1"		"Glyph of Entropy"
+	"item_rpc_jex_glyph_7_1_description" 				"While cosmic surge is active, deal @glyph_property1% of attack power as pure damage to enemies in @glyph_property2 radius every 0.8 seconds."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"Glyph of Flurry Punches"
-	"item_rpc_jex_glyph_5_a_description" 				"Immediately cast @Ability2 on a random nearby enemy every 0.8 seconds."
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"Glyph of Techno Supremacy"
+	"item_rpc_jex_glyph_5_a_description" 				"Increases the tech level of all of Jex's abilities by @glyph_property1."
 
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"Shockwave"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#AF843D\">Earth</font><br>Unearths a cascade of force that damage and stuns everyone in its path."

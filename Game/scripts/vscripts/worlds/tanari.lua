@@ -80,8 +80,6 @@ function Tanari:Debug()
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "jex")
     -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "jex")
     -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "jex")
-        require('heroes/arc_warden/abilities/essence_harvest')
-        get_onibi(MAIN_HERO_TABLE[1])
 
     -- RPCItems:RollSunCrystal(Vector(-4928, 2048), 100)
     -- RPCItems:RollWaterMageRobes(Vector(-4928, 2048))

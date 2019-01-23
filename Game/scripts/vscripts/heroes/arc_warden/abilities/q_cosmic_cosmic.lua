@@ -148,7 +148,9 @@ function jex_q_cosmic_cosmic_casting_thinker2(event)
 						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_jex_q_cosmic_cosmic_postmitigation", {duration = event.debuff_duration})
 						enemy:SetModifierStackCount("modifier_jex_q_cosmic_cosmic_postmitigation", caster, tech_level)
-
+						if caster:HasModifier("modifier_jex_glyph_6_1") then
+							Filters:MagicImmuneBreak(caster, enemy)
+						end
 					end
 				end	
 				-- local allies = FindUnitsInRadius( caster:GetTeamNumber(), beam.position, nil, 80, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )

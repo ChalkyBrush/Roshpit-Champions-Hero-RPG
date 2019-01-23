@@ -1001,7 +1001,7 @@
 			"particle"		"particles/status_fx/status_effect_terrorblade_reflection.vpcf"
 			"particle"		"particles/roshpit/jex/cosmic_surge_buff.vpcf"
 			"particle"		"particles/roshpit/jex/earths_gate.vpcf"
-
+			"particle"		"particles/roshpit/jex/glyph_7_lightning.vpcf"
 		}
 
 		// Casting
@@ -1620,7 +1620,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "160"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "140"
 				}
 			}
 		}
@@ -2866,7 +2866,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "160"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "140"
 				}
 			}
 		}
@@ -3349,6 +3349,16 @@
 					{
 						"ScriptFile"	"heroes/arc_warden/abilities/e_lightning_cosmic.lua"
 						"Function"		"cosmic_surge_end"
+						"target"		"TARGET"
+					}
+				}
+				"ThinkInterval"  "0.8"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/e_lightning_cosmic.lua"
+						"Function"		"cosmic_surge_thinking"
 						"target"		"TARGET"
 					}
 				}
