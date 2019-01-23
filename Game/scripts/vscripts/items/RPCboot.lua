@@ -360,7 +360,7 @@ function RPCItems:RollFootProperty3(item, xpBounty)
         item.property3name = "magic_resist"
         RPCItems:SetPropertyValues(item, item.property3, "#item_magic_resist", "#AC47DE",  3)
     elseif luck >= 40 and luck < 50 then
-        value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 4, 0, 0, item.rarity, false, maxFactor*3)
+        value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 4, 0, 0, item.rarity, false, maxFactor*4)
         item.property3 = value
         item.property3name = "armor"
         RPCItems:SetPropertyValues(item, item.property3, "#item_armor", "#D1D1D1",  3)
@@ -425,7 +425,7 @@ function RPCItems:RollFootProperty4(item, xpBounty)
         item.property4name = "magic_resist"
         RPCItems:SetPropertyValues(item, item.property4, "#item_magic_resist", "#AC47DE",  4)
     elseif luck >= 40 and luck < 50 then
-        value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 5, 0, 0, item.rarity, false, maxFactor*4)
+        value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 5, 0, 0, item.rarity, false, maxFactor*6)
         item.property4 = value
         item.property4name = "armor"
         RPCItems:SetPropertyValues(item, item.property4, "#item_armor", "#D1D1D1",  4)
