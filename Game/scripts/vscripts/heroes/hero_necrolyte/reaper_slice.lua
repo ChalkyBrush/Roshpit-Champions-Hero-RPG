@@ -64,7 +64,7 @@ function slice_start(event)
 				target.venomort_reaper_active = false
 				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_POISON, RPC_ELEMENT_UNDEAD)
 				Timers:CreateTimer(0.25, function()
-					if not ability.target:IsAlive() then
+					if ability.target and not ability.target:IsAlive() then
 						local enemies = FindUnitsInRadius( caster:GetTeamNumber(), ability.target:GetAbsOrigin(), nil, 750, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
 						if #enemies > 0 then
 							ability.target = enemies[1]

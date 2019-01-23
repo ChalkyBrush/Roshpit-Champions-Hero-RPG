@@ -1919,7 +1919,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
         if unitName == "npc_dota_hero_crystal_maiden" then
-            if attacker.r_4_level then
+            if attacker.r_4_level and not attacker:HasModifier("modifier_sorceress_arcana1") then
                 fireMult = fireMult + 0.0002*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.r_4_level
             end
             if attacker:HasModifier("modifier_fire_avatar") then

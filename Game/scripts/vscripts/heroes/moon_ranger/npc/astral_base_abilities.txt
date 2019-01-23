@@ -331,20 +331,16 @@
                 "tick_rate"             "0.5"
             }
         }
-
-        "OnSpellStart"
-        {
-            "CreateThinker"
-            {
-                "ModifierName"  "modifier_moon_shroud_thinker"
-                "Target"        "POINT"
-            }
-            "CreateThinker"
-            {
-                "ModifierName"  "friendly_moon_shroud_thinker"
-                "Target"        "POINT"
-            }
-        }
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/moon_ranger/moon_shroud.lua"
+				"Function"		"moon_shroud_start_thinkers"
+				"Target"		"POINT"
+			}
+		}
 
         "Modifiers"
         {

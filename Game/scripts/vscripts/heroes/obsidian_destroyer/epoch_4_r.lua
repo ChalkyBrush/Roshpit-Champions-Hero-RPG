@@ -239,7 +239,7 @@ function eternity_flood_script(event)
 
   EmitSoundOn("Epoch.UltiStart", caster)
   --ability:ApplyDataDrivenThinker(caster, point, "modifier_eternity_flood_vacuum_thinker_datadriven", {})
-  CustomAbilities:QuickAttachThinker(ability, caster, point, "modifier_eternity_flood_vacuum_thinker_datadriven", {})
+  CustomAbilities:QuickAttachThinker(ability, caster, point, "modifier_eternity_flood_vacuum_thinker_datadriven", {duration = event.duration})
   Timers:CreateTimer(4.0, function()
     epoch_r_1(caster, point, 3, ability)
   end)
@@ -289,5 +289,16 @@ function epoch_rune_r_2_think(event)
     caster:SetModifierStackCount( "modifier_epoch_r_2_buff", runeAbility, r_2_level )
   else
     caster:RemoveModifierByName("modifier_epoch_r_2_buff")
+  end
+end
+
+function channel_succeeded(event)
+  local target = event.target_points[1]
+  local caster = event.caster
+  local ability = event.ability
+  local ability_level = ability:GetLevel()
+  local thinkerDuration = ability:GetLevelSpecialValueFor("duration", ability_level)
+  if target and caster and ability and thinkerDuration then
+    CustomAbilities:QuickAttachThinker(ability, caster, target, "modifier_eternity_flood_vacuum_thinker_datadriven", {duration = thinkerDuration})
   end
 end
