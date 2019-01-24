@@ -57,7 +57,7 @@
 
 	"DOTA_Tooltip_ability_jex_cosmic_nature_q"				"Cosmic Barrier"
 	"DOTA_Tooltip_ability_jex_cosmic_nature_q_Description"	"Jex формирует пространственный барьер вокруг себя, получая иммунитет к заклинаниям."	
-	"DOTA_Tooltip_ability_jex_cosmic_nature_q_duration_per_tech"	"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ, ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_q_duration_per_tech"	"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ, ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_cosmic_nature_q_duration_base"		"БАЗОВАЯ ДЛИТЕЛЬНОСТЬ:"
 	"DOTA_Tooltip_ability_jex_cosmic_nature_q_q_4_damage_reduction_pct"	"%<font color=\"#7DFF12\">[Q4] Снижение урона во время действия барьера</font>:"
 	"DOTA_Tooltip_ability_jex_cosmic_nature_q_e_4_chance_to_add_time"	"%<font color=\"#7DFF12\">[E4] Получение урона во время действия барьера может прибавить 0.5 секунды к длительности с небольшим шансом</font>:"
@@ -68,8 +68,8 @@
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q"					"Galaxy Laser"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_Description"		"Элемент: <font color=\"#C25DFC\">Космос</font><br>Jex заряжает и выстреливает галактическим лазером в указанное место. Противники, стоящие ближе к источнику выстрела могут получить несколько порций урона. Противники, получившие урон от лазера будут также получать больше пост-резистного урона из всех источников."
 
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_attack_damage_added_per_tech"		"%<font color=\"#f4b942\">ПРИБАВКА К УРОНУ ЛАЗЕРА ОТ АТАКИ, ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_postmitigation_per_tech"			"%<font color=\"#f4b942\">ПОСТ-РЕЗИСТНЫЙ УРОН, ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_attack_damage_added_per_tech"		"%<font color=\"#f4b942\">ПРИБАВКА К УРОНУ ЛАЗЕРА ОТ АТАКИ, ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_postmitigation_per_tech"			"%<font color=\"#f4b942\">ПОСТ-РЕЗИСТНЫЙ УРОН, ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_damage"							"БАЗОВЫЙ УРОН:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_cast_range"						"ДАЛЬНОСТЬ КАСТА:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_debuff_duration"					"ДЛИТЕЛЬНОСТЬ ДЕБАФФА:"
@@ -80,8 +80,8 @@
 
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q"				"Wrath of Lightning"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"Элемент: <font color=\"#C25DFC\">Молния</font><br>Электрическое кольцо вспыхивает вокруг Jex. Все противники внутри поражаются ударом молнии."
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_attack_damage_per_tech"	"%<font color=\"#f4b942\">ПРИБАВКА К УРОНУ ОТ АТАКИ, ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius_per_tech"		"%<font color=\"#f4b942\">РАДИУС ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_attack_damage_per_tech"	"%<font color=\"#f4b942\">ПРИБАВКА К УРОНУ ОТ АТАКИ, ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius_per_tech"		"%<font color=\"#f4b942\">РАДИУС ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_base_damage"			"УРОН:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"РАДИУС"		
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_agility_added_to_base_damage"	"МНОЖИТЕЛЬ ЛОВКОСТИ К БАЗЕ УРОНА:"
@@ -89,7 +89,7 @@
 
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q"				"Electron Shield"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_Description"	"Барьер из квантовых частиц вокруг Jex не позволяет его здоровью упасть ниже определенного предела. Получаемый урон снимает слои щита."
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_stacks_per_tech"	"<font color=\"#f4b942\">СЛОЕВ ЩИТКА ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_stacks_per_tech"	"<font color=\"#f4b942\">СЛОЕВ ЩИТКА ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_min_health"		"МИНИМУМ ХП:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_duration"			"ДЛИТЕЛЬНОСТЬ:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_w_4_bonus_attack_damage_while_shield_active"		"%<font color=\"#7DFF12\">[W4] Усиление Базовой атаки, пока активен щит</font>:"
@@ -100,9 +100,9 @@
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_q"				"Charged Sproutling"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"Элемент: <font color=\"#C25DFC\">Молния</font> / <font color=\"#69BC71\">Природа</font><br>Наэлектризованный воин из живого дерева вызывается на помощь Jex. Воин наследует броню и силу атаки призывателя, а его атаки с 30% шансом запустят магическую цепную молнию."
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_max_targets_per_tech"	"<font color=\"#f4b942\">ЦЕЛИ ЦЕПНОЙ МОЛНИИ, ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_armor_mult_per_tech"		"%<font color=\"#f4b942\">БРОНЯ ВОИНА, МНОЖИТЕЛЬ ОТ ПРИЗЫВАТЕЛЯ, ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_attack_mult_per_tech"		"%<font color=\"#f4b942\">АТАКА ВОИНА, МНОЖИТЕЛЬ ОТ ПРИЗЫВАТЕЛЯ, ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_max_targets_per_tech"	"<font color=\"#f4b942\">ЦЕЛИ ЦЕПНОЙ МОЛНИИ, ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_armor_mult_per_tech"		"%<font color=\"#f4b942\">БРОНЯ ВОИНА, МНОЖИТЕЛЬ ОТ ПРИЗЫВАТЕЛЯ, ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_attack_mult_per_tech"		"%<font color=\"#f4b942\">АТАКА ВОИНА, МНОЖИТЕЛЬ ОТ ПРИЗЫВАТЕЛЯ, ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_health_mult"				"ЗДОРОВЬЕ ВОИНА, МНОЖИТЕЛЬ ОТ ЗДОРОВЬЯ ПРИЗЫВАТЕЛЯ:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_duration"					"ДЛИТЕЛЬНОСТЬ:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_damage_pct_attack_power" "УРОН МОЛНИИ В % ОТ СИЛЫ АТАКИ:"
@@ -111,9 +111,9 @@
 
 	"DOTA_Tooltip_ability_jex_nature_nature_q"					"Oak Infusion"
 	"DOTA_Tooltip_ability_jex_nature_nature_q_Description"		"Jex покрывает свое тело корой древнего дуба, регенереция здоровья и броня увеличиваются. Противники, атакующие Jex будут оглушены в ответ, пока щит активен."
-	"DOTA_Tooltip_ability_jex_nature_nature_q_health_regen_per_tech"		"<font color=\"#f4b942\">РЕГЕНЕРАЦИЯ ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_nature_nature_q_duration_per_tech_level"		"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_nature_nature_q_stun_per_tech"				"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_nature_nature_q_health_regen_per_tech"		"<font color=\"#f4b942\">РЕГЕНЕРАЦИЯ ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_nature_nature_q_duration_per_tech_level"		"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_nature_nature_q_stun_per_tech"				"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_nature_nature_q_armor"						"БРОНЯ:"
 	"DOTA_Tooltip_ability_jex_nature_nature_q_base_duration"				"БАЗОВАЯ ДЛИТЕЛЬНОСТЬ:"
 	"DOTA_Tooltip_ability_jex_nature_nature_q_q_4_strength_while_shield_active"	"<font color=\"#7DFF12\">[Q4] Дополнительная Сила, пока активен щит</font>:"
@@ -123,9 +123,9 @@
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w"					"Nebula Bomb"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_Description"		"Элемент: <font color=\"#C25DFC\">Космос</font><br>Бросает бомбу в указанное место, при взрыве стягивает, обездвиживает и наносит урон."
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_root_duration_per_tech"		"<font color=\"#f4b942\">ВРЕМЯ ОБЕЗДВИЖИВАНИЯ ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_aoe_per_tech_level"			"<font color=\"#f4b942\">РАДИУС ВЗРЫВА ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_attack_power_added_per_tech"	"%<font color=\"#f4b942\">ПРИБАВКА АТАКИ В УРОН СПОСОБНОСТИ ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_root_duration_per_tech"		"<font color=\"#f4b942\">ВРЕМЯ ОБЕЗДВИЖИВАНИЯ ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_aoe_per_tech_level"			"<font color=\"#f4b942\">РАДИУС ВЗРЫВА ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_attack_power_added_per_tech"	"%<font color=\"#f4b942\">ПРИБАВКА АТАКИ В УРОН СПОСОБНОСТИ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_damage_base"					"УРОН:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_aoe_base"						"БАЗОВЫЙ РАДИУС ВЗРЫВА:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_intelligence_added_to_damage"	"ПРИБАВКА МНОЖИТЕЛЯ ИНТЕЛЛЕКТА:"
@@ -133,8 +133,8 @@
 
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w"			"Vortex Weapon"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_Description"	"Элемент: <font color=\"#C25DFC\">Молния</font><br>Jex активирует модуль Молнии, позволяет ему вызывать цепные молнии при атаках. Увеличивает базовый урон атаки, каждая атака будет поглощать ману. Если маны слишком мало, Vortex Weapon отключается."
-	"DOTA_Tooltip_ability_jex_lightning_lightning_w_jumps_per_tech"	"<font color=\"#f4b942\">ПРЫЖКИ МОЛНИЙ ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_lightning_w_attack_dmg_pct_per_tech"	"%<font color=\"#f4b942\">УРОН АТАКИ ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_lightning_w_jumps_per_tech"	"<font color=\"#f4b942\">ПРЫЖКИ МОЛНИЙ ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_lightning_w_attack_dmg_pct_per_tech"	"%<font color=\"#f4b942\">УРОН АТАКИ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_damage_mult"				"УРОН СПОСОБНОСТИ ОТ СИЛЫ АТАКИ:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_mana_cost"					"МАНЫ ЗА УДАР:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_attack_speed"				"БОНУС СКОРОСТИ АТАКИ:"
@@ -142,8 +142,8 @@
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_w"				"Thunderleaf Petals"
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_Description"	"Элемент: <font color=\"#C25DFC\">Молния</font> / <font color=\"#69BC71\">Природа</font><br>Выпускает потоки из электрических листьев перед Jex. Противники ненадолго парализуются при попадании, те, кто попадает под действие 5 раз подряд, получают 4 секунды иммунитета к параличу."
-	"DOTA_Tooltip_ability_jex_lightning_nature_w_range_per_tech"	"<font color=\"#f4b942\">ДАЛЬНОСТЬ ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_w_paralyze_duration_per_tech"	"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ ПАРАЛИЧА ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_w_range_per_tech"	"<font color=\"#f4b942\">ДАЛЬНОСТЬ ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_w_paralyze_duration_per_tech"	"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ ПАРАЛИЧА ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_damage_attack_power_per_tech"	"%<font color=\"#f4b942\">БОНУС К УРОНУ ЛИСТЬЕВ, % ОТ СИЛЫ АТАКИ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_leaf_count"					"КОЛИЧЕСТВО ПОТОКОВ:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_agility_added_to_damage"		"ПРИБАВКА МНОЖИТЕЛЯ ЛОВКОСТИ:"
@@ -154,8 +154,8 @@
 
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w"				"Ion Cannon"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_Description"	"Element: <font color=\"#C25DFC\">Космос</font> / <font color=\"#C25DFC\">Молния</font><br>Jex выстреливает пучком ионизированных частиц в цель. При попадании разделяется и поражает дополнительные цели. Шанс выше 100% означает многократное расщепление."
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_damage_attack_power_per_tech"	"%<font color=\"#f4b942\">ПРИБАВКА К УРОНУ ОТ СИЛЫ АТАКИ, ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_split_chance_per_tech"			"%<font color=\"#f4b942\">ШАНС РАСЩЕПЛЕНИЯ ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_damage_attack_power_per_tech"	"%<font color=\"#f4b942\">ПРИБАВКА К УРОНУ ОТ СИЛЫ АТАКИ, ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_split_chance_per_tech"			"%<font color=\"#f4b942\">ШАНС РАСЩЕПЛЕНИЯ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_cast_range"					"ДАЛЬНОСТЬ КАСТА:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_strength_added_to_damage"		"ПРИБАВКА МНОЖИТЕЛЯ СИЛЫ:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_base_damage"					"БАЗОВЫЙ УРОН:"
@@ -164,7 +164,7 @@
 
 	"DOTA_Tooltip_ability_jex_nature_nature_w"					"Root Weaver"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_Description"		"Элемент: <font color=\"#69BC71\">Природа</font><br>Создает небольшую зону с повышенным ростом растений, любой противник в этой зоне будет опутан корнями, задержка 0.5 секунды. Опутанные противники имеют меньшую дальность атаки и получают урон каждые 0.5 секунды."
-	"DOTA_Tooltip_ability_jex_nature_nature_w_root_per_tech_level"	"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_nature_nature_w_root_per_tech_level"	"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_attack_power_added_to_tick_per_tech"	"<font color=\"#f4b942\">ПРИБАВКА АТАКИ К УРОНУ</font>:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_radius"							"РАДИУС:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_base_root_duration"				"БАЗОВАЯ ДЛИТЕЛЬНОСТЬ КОРНЕЙ:"
@@ -178,8 +178,8 @@
 
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w"					"Equilibrium Shifter"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_Description"		"Jex нарушает естественный баланс природы при помощи своих модулей и усиливает весь исходящий магический урон (пост-резистный). Пока усиление активно, базовая атака увеличена, скорость перемещения увеличена и каждую секунду отбирается мана. Мана дополнительно тратится и при касте любой из способностей. Если показатель маны падает слишком низко, способность отключается. Переключение модулей на другую способность сохранит эффект в действии."
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_post_mitigation_magic_per_tech"	"%<font color=\"#f4b942\">ПОСТ-РЕЗИСТНЫЙ МАГ. УРОН ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_movespeed_bonus_per_tech"			"<font color=\"#f4b942\">СКОРОСТЬ ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_nature_cosmic_w_post_mitigation_magic_per_tech"	"%<font color=\"#f4b942\">ПОСТ-РЕЗИСТНЫЙ МАГ. УРОН ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_nature_cosmic_w_movespeed_bonus_per_tech"			"<font color=\"#f4b942\">СКОРОСТЬ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_attack_damage"					"УВЕЛИЧЕНИЕ БАЗОВОЙ АТАКИ:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_mana_cost_per_cast"				"СТОИМОСТЬ МАНЫ ЗА КАСТ:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_mana_drain_per_second"			"СНИЖЕНИЕ МАНЫ В СЕКУНДУ:"
@@ -191,8 +191,8 @@
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e"					"Xenon Warp"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e_Description"		"Jex прорывается сквозь пространство и перемещается в выбранную точку. Может иметь касты без перезарядки."
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e_freecast_per_tech"	"<font color=\"#f4b942\">ДОП. КАСТЫ ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e_additional_cast_range_per_tech"	"<font color=\"#f4b942\">ДОПОЛНИТЕЛЬНАЯ ДИСТАНЦИЯ ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e_freecast_per_tech"	"<font color=\"#f4b942\">ДОП. КАСТЫ ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e_additional_cast_range_per_tech"	"<font color=\"#f4b942\">ДОПОЛНИТЕЛЬНАЯ ДИСТАНЦИЯ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e_cast_range"				"ДИСТАНЦИЯ:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e_e_4_additional_cast_range"	"<font color=\"#7DFF12\">[E4] Дополнительная дистанция прыжка</font>:"
 
@@ -200,10 +200,10 @@
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_e"				"Thunder Blossom"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_Description"	"Элемент: <font color=\"#C25DFC\">Молния</font> / <font color=\"#69BC71\">Природа</font><br>Призывает неподвижное громовое растение. Может атаковать врагов, с 30% шансом вызовет удар молнии по ним. Jex может при помощи приказа перемещения телепортироваться к этим цветкам, либо использовать способность растения."
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_duration_per_tech"	"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ ЖИЗНИ ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_armor_mult_per_tech"	"<font color=\"#f4b942\">БРОНЯ ОТ ПОКАЗАТЕЛЯ JEX ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_mult_per_tech"	"<font color=\"#f4b942\">АТАКА ОТ ПОКАЗАТЕЛЯ JEX ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_range_per_tech"	"<font color=\"#f4b942\">ДАЛЬНОСТЬ АТАКИ ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_duration_per_tech"	"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ ЖИЗНИ ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_armor_mult_per_tech"	"<font color=\"#f4b942\">БРОНЯ ОТ ПОКАЗАТЕЛЯ JEX ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_mult_per_tech"	"<font color=\"#f4b942\">АТАКА ОТ ПОКАЗАТЕЛЯ JEX ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_range_per_tech"	"<font color=\"#f4b942\">ДАЛЬНОСТЬ АТАКИ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_health_mult"			"ЗДОРОВЬЕ ОТ ПОКАЗАТЕЛЯ JEX:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_damage_pct_atk_power"	"УРОН УДАРА МОЛНИИ ОТ УРОНА РАСТЕНИЯ:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_range_base"		"БАЗОВЫЙ РАДИУС АТАКИ:"
@@ -216,8 +216,8 @@
 
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e"				"Earth's Gate"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_Description"	"Jex создает пространственный портал. Находясь в портале Jex получает дополнительную регенерацию ХП и он может перемещаться в любой другой подобный портал приказом перемещения. Порталы стандартно может использовать только Jex."
-	"DOTA_Tooltip_ability_jex_nature_cosmic_e_max_portals_per_tech"	"<font color=\"#f4b942\">КОЛИЧЕСТВО ПОРТАЛОВ ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_e_health_regen_per_tech"	"<font color=\"#f4b942\">РЕГЕНЕРАЦИЯ ХП ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_nature_cosmic_e_max_portals_per_tech"	"<font color=\"#f4b942\">КОЛИЧЕСТВО ПОРТАЛОВ ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_nature_cosmic_e_health_regen_per_tech"	"<font color=\"#f4b942\">РЕГЕНЕРАЦИЯ ХП ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_radius"				"РАДИУС:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_cast_range"			"ДАЛЬНОСТЬ КАСТА:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_max_portals_base"		"БАЗОВОЕ ЧИСЛО ПОРТАЛОВ:"
@@ -229,9 +229,9 @@
 
 	"DOTA_Tooltip_ability_jex_lightning_lightning_e"		"Jolt"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_e_Description"	"Jex совершает рывок к указанной точке. При приземлении получает увеличенную скорость атаки и базовую атаку на небольшое время."
-	"DOTA_Tooltip_ability_jex_lightning_lightning_e_attack_damage_per_tech"		"<font color=\"#f4b942\">БАЗОВАЯ АТАКА ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_lightning_e_attack_speed_per_tech"		"<font color=\"#f4b942\">СКОРОСТЬ АТАКИ ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_lightning_e_travel_speed_per_tech"		"<font color=\"#f4b942\">СКОРОСТЬ ПРЫЖКА ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_lightning_e_attack_damage_per_tech"		"<font color=\"#f4b942\">БАЗОВАЯ АТАКА ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_lightning_e_attack_speed_per_tech"		"<font color=\"#f4b942\">СКОРОСТЬ АТАКИ ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_lightning_e_travel_speed_per_tech"		"<font color=\"#f4b942\">СКОРОСТЬ ПРЫЖКА ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_e_cast_range"					"ДАЛЬНОСТЬ КАСТА:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_e_travel_speed_base"			"БАЗОВАЯ СКОРОСТЬ ПРЫЖКА:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_e_duration"					"ДЛИТЕЛЬНОСТЬ:"
@@ -239,8 +239,8 @@
 
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_e"		"Cosmic Surge"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_Description"	"Jex заряжается энергией космоса и не может быть замедлен ниже порогового значения."
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_movespeed_min_per_tech"		"<font color=\"#f4b942\">ПОРОГ МИНИМАЛЬНОЙ СКОРОСТИ ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_duration_per_tech"				"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_movespeed_min_per_tech"		"<font color=\"#f4b942\">ПОРОГ МИНИМАЛЬНОЙ СКОРОСТИ ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_duration_per_tech"				"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_movespeed_min_base"			"МИНИМАЛЬНАЯ СКОРОСТЬ ПЕРЕДВИЖЕНИЯ, БАЗОВО:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_duration_base"					"БАЗОВАЯ ДЛИТЕЛЬНОСТЬ:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_w_4_cooldown_reduce"			"<font color=\"#7DFF12\">[W4] Снижение перезарядки</font>:"	
@@ -251,8 +251,8 @@
 
 	"DOTA_Tooltip_ability_jex_nature_nature_e"		"Nature's Path"
 	"DOTA_Tooltip_ability_jex_nature_nature_e_Description"	"Создает область из органической ткани, которая позволяет проходить через ландшафт и деревья, дает регенерацию ХП и снижает входящий урон, пока герой находится в ней. Только 1 область может существовать одновременно."
-	"DOTA_Tooltip_ability_jex_nature_nature_e_health_regen_per_tech"	"<font color=\"#f4b942\">РЕГЕНЕРАЦИЯ ХП ЗА ТЕХНОЛОГИЮ</font>:"
-	"DOTA_Tooltip_ability_jex_nature_nature_e_radius_per_tech"			"<font color=\"#f4b942\">РАДИУС ЗА ТЕХНОЛОГИЮ</font>:"
+	"DOTA_Tooltip_ability_jex_nature_nature_e_health_regen_per_tech"	"<font color=\"#f4b942\">РЕГЕНЕРАЦИЯ ХП ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_nature_nature_e_radius_per_tech"			"<font color=\"#f4b942\">РАДИУС ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_nature_nature_e_damage_reduction"			"% СНИЖЕНИЕ ВХОДЯЩЕГО УРОНА:"
 	"DOTA_Tooltip_ability_jex_nature_nature_e_radius_base"				"БАЗОВЫЙ РАДИУС:"
 	"DOTA_Tooltip_ability_jex_nature_nature_e_q_4_cooldown_reduce"		"<font color=\"#7DFF12\">[Q4] Снижение перезарядки</font>:"	
@@ -354,15 +354,15 @@
 
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_1"           "Biosynthesizer"
 	"item_property_jex_immortal_weapon"                             "Nature Enhancement"
-	"property_jex_immortal_weapon_description"                      "Все способности с элементом <font color=\"#69BC71\">Природа</font> получают @special_property1 дополнительный уровень Технологии. Способности с двойным элементом <font color=\"#69BC71\">Природа</font> получают @special_property2 дополнительных уровня Технологии."
+	"property_jex_immortal_weapon_description"                      "Все способности с элементом <font color=\"#69BC71\">Природа</font> получают @special_property1 дополнительный Технологических уровня. Способности с двойным элементом <font color=\"#69BC71\">Природа</font> получают @special_property2 дополнительных Технологических уровня."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_2"            "Venus Atomizer"
 	"item_property_jex_immortal_weapon2"                             "Lightning Enhancement"
-	"property_jex_immortal_weapon2_description"                      "Все способности с элементом <font color=\"#C25DFC\">Молния</font> получают @special_property1 дополнительный уровень Технологии. Способности с двойным элементом <font color=\"#C25DFC\">Молния</font> получают @special_property2 дополнительных уровня Технологии."
+	"property_jex_immortal_weapon2_description"                      "Все способности с элементом <font color=\"#C25DFC\">Молния</font> получают @special_property1 дополнительный Технологических уровня. Способности с двойным элементом <font color=\"#C25DFC\">Молния</font> получают @special_property2 дополнительных Технологических уровня."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_3"            "Exodius Plasma Cannon"
 	"item_property_jex_immortal_weapon3"                             "Cosmic Enhancement"
-	"property_jex_immortal_weapon3_description"                      "Все способности с элементом <font color=\"#C25DFC\">Космос</font> получают @special_property1 дополнительный уровень Технологии. Способности с двойным элементом <font color=\"#C25DFC\">Космос</font> получают @special_property2 дополнительных уровня Технологии."
+	"property_jex_immortal_weapon3_description"                      "Все способности с элементом <font color=\"#C25DFC\">Космос</font> получают @special_property1 дополнительный Технологических уровня. Способности с двойным элементом <font color=\"#C25DFC\">Космос</font> получают @special_property2 дополнительных Технологических уровня."
 
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_1_1"		"Glyph of Biosynthesis"
@@ -390,4 +390,4 @@
 	"item_rpc_jex_glyph_7_1_description" 				"Пока работает Cosmic Surge, противникам поблизости в радиусе @glyph_property2 наносится урон в @glyph_property1% от силы атаки чистым типом урона каждые 0.8 секунды. Урон считается уроном спобобности @Ability3, и имеет элементы <font color=\"#C25DFC\">Космос</font> / <font color=\"#C25DFC\">Молния</font>."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"Glyph of Techno Supremacy"
-	"item_rpc_jex_glyph_5_a_description" 				"Увеличивает показатель технологий на всех способностях Jex на @glyph_property1."
+	"item_rpc_jex_glyph_5_a_description" 				"Увеличивает показатель Технологических уровней на всех способностях Jex на @glyph_property1."
