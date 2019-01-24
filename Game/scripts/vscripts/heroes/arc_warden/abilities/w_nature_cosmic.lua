@@ -18,6 +18,9 @@ function jex_nature_cosmic_toggled_on(event)
 	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=1.5})
 	
 	ability.e_4_level = caster:GetRuneValue("e", 4)
+	local attack_damage_buff = ability:GetSpecialValueFor("attack_damage")
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_nature_cosmic_attack_damage", {})
+	caster:SetModifierStackCount("modifier_jex_nature_cosmic_attack_damage", caster, attack_damage_buff)
 end
 
 function jex_nature_cosmic_toggled_off(event)
@@ -25,6 +28,7 @@ function jex_nature_cosmic_toggled_off(event)
 	local ability = event.ability
 	caster:RemoveModifierByName("modifier_jex_nature_cosmic_movespeed")
 	caster:RemoveModifierByName("modifier_jex_nature_cosmic_w_max_mana")
+	caster:RemoveModifierByName("modifier_jex_nature_cosmic_attack_damage")
 end
 
 function nature_cosmic_w_think(event)
