@@ -14,7 +14,7 @@ function jex_main_thinker(event)
 		return false
 	end
 	local player = caster:GetPlayerOwner()
-	if player.hero_loading then
+	if not player or player.hero_loading then
 		return false
 	end
 	if not caster.onibi then
