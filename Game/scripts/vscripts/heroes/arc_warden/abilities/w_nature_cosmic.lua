@@ -35,7 +35,7 @@ function nature_cosmic_w_think(event)
 	local caster = event.caster
     local ability = event.ability
     local mana_usage = event.mana_drain_per_second
-    mana_usage = mana_usage - event.e_4_mana_drain_per_second_reduction*ability.e_4_level
+    mana_usage = math.max(mana_usage - event.e_4_mana_drain_per_second_reduction*ability.e_4_level, 0)
     if mana_usage > caster:GetMana() then
         ability:ToggleAbility()
     end
