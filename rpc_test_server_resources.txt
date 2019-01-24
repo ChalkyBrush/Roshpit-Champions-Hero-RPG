@@ -713,6 +713,7 @@ function ChatDropItems(keys)
   wepClass = "slipfinn" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
   wepClass = "sephyr" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
   wepClass = "dinath" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "jex" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
 
 end
 
@@ -846,6 +847,19 @@ function GameMode:OnPlayerChat(keys)
     local steamID = PlayerResource:GetSteamAccountID(playerid)
     LoadCharacterDev(playerid, strn[1], strn[2])
   end
+
+  if string.match(text, "jex_add_resources_to_onibi") then
+    for i=1,#MAIN_HERO_TABLE do
+      if MAIN_HERO_TABLE[i]:GetUnitName() == "npc_dota_hero_arc_warden" then
+        if MAIN_HERO_TABLE[i].jex_resources then
+          local res = require('heroes/arc_warden/abilities/essence_harvest')
+          add_resources_to_onibi(MAIN_HERO_TABLE[i], "nature", 500000000)
+          add_resources_to_onibi(MAIN_HERO_TABLE[i], "lightning", 500000000)
+          add_resources_to_onibi(MAIN_HERO_TABLE[i], "cosmic", 500000000)
+        end
+      end
+    end
+  end  
 
   if string.match(text, "map_keys") then
     local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
