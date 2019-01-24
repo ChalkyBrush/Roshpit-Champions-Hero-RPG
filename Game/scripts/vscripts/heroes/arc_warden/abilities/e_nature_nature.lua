@@ -78,8 +78,8 @@ function nature_path_think(event)
 	for i = 1, #allies, 1 do
 		if allies[i]:GetEntityIndex() == caster:GetEntityIndex() then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_natures_path_base_flying_buff", {})
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_natures_path_master_buff", {})
 		end
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_natures_path_master_buff", {})
 	end
 end
 
