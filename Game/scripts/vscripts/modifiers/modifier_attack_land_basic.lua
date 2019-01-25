@@ -12,7 +12,7 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 	if event.attacker == parent then
 		ApplyDamage({ victim = event.target,
 		attacker = parent,
-		--unlike GetAverageTrueAttackDamage(), event.damage isnt limited by 2^31
+		--unlike GetAverageTrueAttackDamage(), event.damage isnt limited by 2^31 for some reason
 		damage = event.damage,
 		damage_type = DAMAGE_TYPE_PHYSICAL,
 		ability = Events.GameMasterAttackAbility,
