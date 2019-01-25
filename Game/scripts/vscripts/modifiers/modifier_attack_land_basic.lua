@@ -12,7 +12,8 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 	if event.attacker == parent then
 		ApplyDamage({ victim = event.target,
 		attacker = parent,
-		damage = OverflowProtectedGetAverageTrueAttackDamage(parent),
+		--unlike GetAverageTrueAttackDamage(), event.damage isnt limited by 2^31
+		damage = event.damage,
 		damage_type = DAMAGE_TYPE_PHYSICAL,
 		ability = Events.GameMasterAttackAbility,
 		damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR + DOTA_DAMAGE_FLAG_HPLOSS
