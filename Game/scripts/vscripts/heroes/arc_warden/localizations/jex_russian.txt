@@ -81,7 +81,7 @@
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q"				"Wrath of Lightning"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"Элемент: <font color=\"#C25DFC\">Молния</font><br>Электрическое кольцо вспыхивает вокруг Jex. Все противники внутри поражаются ударом молнии."
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_attack_damage_per_tech"	"%<font color=\"#f4b942\">ПРИБАВКА К УРОНУ ОТ АТАКИ, ЗА ТЕХ. УРОВЕНЬ</font>:"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius_per_tech"		"%<font color=\"#f4b942\">РАДИУС ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius_per_tech"		"<font color=\"#f4b942\">РАДИУС ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_base_damage"			"УРОН:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"РАДИУС"		
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_agility_added_to_base_damage"	"МНОЖИТЕЛЬ ЛОВКОСТИ К БАЗЕ УРОНА:"

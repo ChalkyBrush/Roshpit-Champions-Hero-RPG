@@ -105,7 +105,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
 		"item_property_mugato"						"Curse of Mugato"	
-		"property_mugato_description" 				"Casting any spell silences you for @special_property1s seconds, and attacking silences you for @special_property2 seconds. While silenced from any source, your post-mitigation damage is increased by @special_property3%."
+		"property_mugato_description" 				"Casting any spell silences you for @special_property1 seconds, and attacking silences you for @special_property2 seconds. While silenced from any source, your post-mitigation damage is increased by @special_property3%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"

@@ -6887,7 +6887,7 @@
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q"				"Wrath of Lightning"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font><br>A ring of electricity flashes around Jex. All enemies inside the area are struck by a bolt of lightning."
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_attack_damage_per_tech"	"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO BASE DAMAGE PER TECH</font>:"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius_per_tech"		"%<font color=\"#f4b942\">RADIUS PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius_per_tech"		"<font color=\"#f4b942\">RADIUS PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_base_damage"			"BASE DAMAGE:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"BASE RADIUS"		
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_agility_added_to_base_damage"	"AGILITY MULTIPLIER ADDED TO BASE DAMAGE:"
@@ -11979,7 +11979,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
 		"item_property_mugato"						"Curse of Mugato"	
-		"property_mugato_description" 				"Casting any spell silences you for @special_property1s seconds, and attacking silences you for @special_property2 seconds. While silenced from any source, your post-mitigation damage is increased by @special_property3%."
+		"property_mugato_description" 				"Casting any spell silences you for @special_property1 seconds, and attacking silences you for @special_property2 seconds. While silenced from any source, your post-mitigation damage is increased by @special_property3%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"
