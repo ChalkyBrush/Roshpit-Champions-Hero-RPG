@@ -2580,7 +2580,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/arc_warden/abilities/w_nature_cosmic.lua"
-						"Function"		"jex_lightning_lightning_toggled_off"
+						"Function"		"jex_nature_cosmic_toggled_off"
 					}
 				}
 				"ThinkInterval"  "1.0"
@@ -2609,6 +2609,14 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_BONUS" "%q_4_max_mana_while_toggled_on"
+				}
+			}
+			"modifier_jex_nature_cosmic_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
 			}
 		}
