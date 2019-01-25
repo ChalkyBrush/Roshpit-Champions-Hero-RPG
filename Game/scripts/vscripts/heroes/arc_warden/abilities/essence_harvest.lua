@@ -60,7 +60,7 @@ end
 function get_onibi_essences(caster, onibi)
 	local essences = {}
 	for i = 1, 2, 1 do
-		local ability = onibi:GetAbilityByIndex(i-1)
+		local ability = onibi:GetAbilityByIndex(i+2)
 		if ability:GetAbilityName() == "onibi_nature_"..i then
 			essences[i] = "nature"
 		elseif ability:GetAbilityName() == "onibi_lightning_"..i then
