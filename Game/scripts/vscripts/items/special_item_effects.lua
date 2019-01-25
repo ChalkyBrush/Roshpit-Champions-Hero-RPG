@@ -5660,7 +5660,7 @@ function gravelfoot_think(event)
 		local modifierMaker = modifier:GetCaster()
 		if WallPhysics:DoesTableHaveValue(Filters:GetUnpurgableDebuffNames(), modifier:GetName()) then
 		else
-			if modifierMaker.regularEnemy then
+			if modifierMaker and modifierMaker.regularEnemy then
 				hero:RemoveModifierByName(modifier:GetName())
 				procced = true
 				break
