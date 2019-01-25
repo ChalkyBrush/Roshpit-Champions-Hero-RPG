@@ -6834,13 +6834,13 @@
 	"DOTA_Tooltip_ability_onibi_cosmic_2_Description"		"Enables the activation of Cosmic abilities. Enemies who die near Jex will leave behind galaxy mushroom for harvesting."
 
 	"DOTA_Tooltip_ability_onibi_q"				"Q Activator"
-	"DOTA_Tooltip_ability_onibi_q_Description"	"Module Activation will apply to Jex's Q ability."
+	"DOTA_Tooltip_ability_onibi_q_Description"	"Onibi synthesizes his elemental modules and grants a new [Q] ability for Jex."
 
 	"DOTA_Tooltip_ability_onibi_w"				"W Activator"
-	"DOTA_Tooltip_ability_onibi_w_Description"	"Module Activation will apply to Jex's W ability."
+	"DOTA_Tooltip_ability_onibi_w_Description"	"Onibi synthesizes his elemental modules and grants a new [W] ability for Jex."
 
 	"DOTA_Tooltip_ability_onibi_e"				"E Activator"
-	"DOTA_Tooltip_ability_onibi_e_Description"	"Module Activation will apply to Jex's E ability."
+	"DOTA_Tooltip_ability_onibi_e_Description"	"Onibi synthesizes his elemental modules and grants a new [E] ability for Jex."
 
 	"DOTA_Tooltip_ability_onibi_invoke"			"Module Activation"
 	"DOTA_Tooltip_ability_onibi_invoke_Description"	"Onibi synthesizes his elemental modules and grants a new ability for Jex."
@@ -7005,7 +7005,7 @@
 	"DOTA_Tooltip_modifier_jex_warp_freecast"					"Xenon Warp freecast"
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_e"				"Thunder Blossom"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>Summons an immobile Thunder Blossom at the target location. Blossoms can attack enemies and their attacks have a 30% chance to strike the enemy with a lightning bolt. Jex can right-click on a ThunderBlossom to teleport to it on a 0.3 second delay."
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>Summons an immobile Thunder Blossom at the target location. Blossoms can attack enemies and their attacks have a 30% chance to strike the enemy with a lightning bolt. Jex can be ordered to attack a ThunderBlossom to teleport to it on a 0.3 second delay."
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_duration_per_tech"	"<font color=\"#f4b942\">LIFE DURATION PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_armor_mult_per_tech"	"<font color=\"#f4b942\">ARMOR AS MULTIPLE OF JEX'S PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_mult_per_tech"	"<font color=\"#f4b942\">ATTACK DAMAGE AS MULTIPLE OF JEX'S PER TECH</font>:"

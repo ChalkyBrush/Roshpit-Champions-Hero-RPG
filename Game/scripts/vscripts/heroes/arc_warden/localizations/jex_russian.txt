@@ -28,13 +28,13 @@
 	"DOTA_Tooltip_ability_onibi_cosmic_2_Description"		"Позволяет активировать способности Природы. Противники, умирающие рядом будут оставлять после смерти звёздные для сбора. Собирать их необходимо используя Essence Harvest."
 
 	"DOTA_Tooltip_ability_onibi_q"				"Q Активатор"
-	"DOTA_Tooltip_ability_onibi_q_Description"	"Активированный модуль будет применен к способности Q героя."
+	"DOTA_Tooltip_ability_onibi_q_Description"	"Ониби синтезирует новый модуль из элементов и замещает способность Jex. Активированный модуль будет применен к способности Q героя."
 
 	"DOTA_Tooltip_ability_onibi_w"				"W Активатор"
-	"DOTA_Tooltip_ability_onibi_w_Description"	"Активированный модуль будет применен к способности W героя."
+	"DOTA_Tooltip_ability_onibi_w_Description"	"Ониби синтезирует новый модуль из элементов и замещает способность Jex. Активированный модуль будет применен к способности W героя."
 
 	"DOTA_Tooltip_ability_onibi_e"				"E Активатор"
-	"DOTA_Tooltip_ability_onibi_e_Description"	"Активированный модуль будет применен к способности E героя."
+	"DOTA_Tooltip_ability_onibi_e_Description"	"Ониби синтезирует новый модуль из элементов и замещает способность Jex. Активированный модуль будет применен к способности E героя."
 
 	"DOTA_Tooltip_ability_onibi_invoke"			"Активация модуля"
 	"DOTA_Tooltip_ability_onibi_invoke_Description"	"Ониби синтезирует новый модуль из элементов и замещает способность Jex."

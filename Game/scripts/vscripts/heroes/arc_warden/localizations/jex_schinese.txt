@@ -28,13 +28,13 @@
 	"DOTA_Tooltip_ability_onibi_cosmic_2_Description"		"激活宇宙技能。敌人在杰克斯附近死亡会留下用于收割的银河蘑菇。"
 
 	"DOTA_Tooltip_ability_onibi_q"				"Q 激活器"
-	"DOTA_Tooltip_ability_onibi_q_Description"	"模块的激活会应用于杰克斯的Q技能。 "
+	"DOTA_Tooltip_ability_onibi_q_Description"	"鬼火将他的元素模块们结合并且给杰克斯提供一个新的技能。模块的激活会应用于杰克斯的Q技能。 "
 
 	"DOTA_Tooltip_ability_onibi_w"				"W 激活器"
-	"DOTA_Tooltip_ability_onibi_w_Description"	"模块的激活会应用于杰克斯的W技能。"
+	"DOTA_Tooltip_ability_onibi_w_Description"	"鬼火将他的元素模块们结合并且给杰克斯提供一个新的技能。模块的激活会应用于杰克斯的W技能。"
 
 	"DOTA_Tooltip_ability_onibi_e"				"E 激活器"
-	"DOTA_Tooltip_ability_onibi_e_Description"	"模块的激活会应用于杰克斯的E技能。"
+	"DOTA_Tooltip_ability_onibi_e_Description"	"鬼火将他的元素模块们结合并且给杰克斯提供一个新的技能。模块的激活会应用于杰克斯的E技能。"
 
 	"DOTA_Tooltip_ability_onibi_invoke"			"模块激活器"
 	"DOTA_Tooltip_ability_onibi_invoke_Description"	"鬼火将他的元素模块们结合并且给杰克斯提供一个新的技能。"
