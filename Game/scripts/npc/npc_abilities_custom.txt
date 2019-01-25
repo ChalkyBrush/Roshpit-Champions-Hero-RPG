@@ -403,7 +403,32 @@
 		}
 		"Modifiers"
 		{
-
+			"modifier_onibi_master_thinker"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+						"Function"		"onibi_master_rune_thinker"
+					}
+				}
+			}
+			"modifier_onibi_all_attributes"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_onibi_base_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "150"
+				}
+			}
 		}
 	}
 
@@ -540,32 +565,6 @@
 		}
 		"Modifiers"
 		{
-			"modifier_onibi_master_thinker"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"ThinkInterval"  "1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-						"Function"		"onibi_master_rune_thinker"
-					}
-				}
-			}
-			"modifier_onibi_all_attributes"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_onibi_base_attack_damage"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "150"
-				}
-			}
 		}
 	}
 
