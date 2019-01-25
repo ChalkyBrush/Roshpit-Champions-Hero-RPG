@@ -170,9 +170,11 @@
 		"DOTA_Tooltip_ability_ability_mega_haste_Description"		"Скорость передвижения и максимальная скорость передвижения значительно увеличены."	
 		"DOTA_Tooltip_ability_ability_mega_haste_movespeed_bonus"	"БОНУС К СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
 		"DOTA_Tooltip_ability_ability_mega_haste_movespeed_cap"		"БОНУС К МАКСИМАЛЬНОЙ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_modifier_mega_haste_passive"								"Mega Haste"
+		"DOTA_Tooltip_modifier_mega_haste_passive_Description"					"Скорость перемещения и верхний порог скорости увеличены."
 
-		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability"	"Warden"
-		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability_Description"	"Тихо наблюдает с горы."
+		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability"	"Страж"
+		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability_Description"	"Безмолвно ожидает на вершине горы."
 
 		"DOTA_Tooltip_ability_sea_fortress_exploder_passive"	"Sparkling Bloom"
 		"DOTA_Tooltip_ability_sea_fortress_exploder_passive_Description"	"После смерти взрывается и замораживает всех ближайших врагов."
