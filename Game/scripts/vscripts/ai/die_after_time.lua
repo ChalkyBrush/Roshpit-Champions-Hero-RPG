@@ -1,12 +1,11 @@
 function die_after_time(event)
 	local caster = event.target
-	print("die time")
-	print(caster.dieTime)
 	if caster.dieTime then
+		caster:AddNewModifier(caster, nil, "modifier_kill", {duration = caster.dieTime+0.1})
 		Timers:CreateTimer(caster.dieTime, function()
 			if not caster:IsNull() then
 				if caster:IsAlive() then
-					-- caster:ForceKill(false)
+					caster:RemoveModifierByName("modifier_kill")
 					ApplyDamage({ victim = caster, attacker = caster, damage = caster:GetMaxHealth()*1000000000, damage_type = DAMAGE_TYPE_PURE })
 				end
 			end
