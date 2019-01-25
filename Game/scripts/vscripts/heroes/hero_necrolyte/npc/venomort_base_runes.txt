@@ -15,7 +15,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAt"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% Q1_BAD_PER_ENEMY_PERCENT %>"
 			}
 		}

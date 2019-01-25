@@ -9192,7 +9192,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0.6"
+				"property_two"			"0"
 			}
 		}
 	}
@@ -24443,7 +24443,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"3"
 			}
 		}
 	}
@@ -24698,13 +24698,13 @@
                 {
                    	"RunScript"
                   	{
-                   		"ScriptFile"	"heroes/spirit_breaker/glyphs.lua"
-                	    "Function"		"t12_think"
+                   		"ScriptFile"	"heroes/spirit_breaker/duskbringer_glyphs.lua"
+                	    "Function"		"duskbringer_glyph_1_2_think"
                 	    "target"		"TARGET"
                 	}
                 }
 			}
-			"modifier_duskbringet_t12_heal_regen"
+			"modifier_duskbringer_glyph_1_2_effect"
 			{
 			    "Passive"   "0"
 			    "IsHidden"  "0"
@@ -24840,19 +24840,19 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"ThinkInterval"     "1"
+				"ThinkInterval"     "0.03"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
                 "OnIntervalThink"
                 {
                    	"RunScript"
                   	{
-                   		"ScriptFile"	"heroes/spirit_breaker/glyphs.lua"
-                	    "Function"		"t42_think"
+                   		"ScriptFile"	"heroes/spirit_breaker/duskbringer_glyphs.lua"
+                	    "Function"		"duskbringer_glyph_4_2_think"
                 	    "target"		"TARGET"
                 	}
                 }
 			}
-			"modifier_duskbringer_t42_visible"
+			"modifier_duskbringer_glyph_4_2_visible"
 			{
 			    "Passive"   "0"
 			    "IsHidden"  "0"
@@ -24945,7 +24945,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/spirit_breaker/glyphs.lua"
+						"ScriptFile"	"heroes/spirit_breaker/duskbringer_glyphs.lua"
 						"Function"		"t62_think"
 					}
 				}

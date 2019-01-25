@@ -14,7 +14,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% W1_ARCANA1_AMP_PERCENT %>"
+				"property_one"			"<% DUSKBRINGER_ARCANA_W1_ADD_DMG_PER_ATT_PER_LEVEL * 100 %>"
 			}
 		}
 	}
@@ -34,12 +34,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"120"
+				"property_one"			"<% DUSKBRINGER_ARCANA_W2_ARMOR %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1.0"
+				"property_two"			"<% DUSKBRINGER_ARCANA_W2_MAGIC_PURE_RES_PER_ARMOR * 100 %>"
 			}
 		}
 	}
@@ -59,7 +59,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% W3_ARCANA1_PROC_CHANCE %>"
+				"property_one"			"<% DUSKBRINGER_ARCANA_W3_PROC_CHANCE %>"
 			}
 		}
 	}
@@ -79,12 +79,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20000"
+				"property_one"			"<% DUSKBRINGER_ARCANA_W4_ATT_FLAT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"30"
+				"property_two"			"<% DUSKBRINGER_ARCANA_W4_ATT_PCT %>"
 			}
 		}
 	}

@@ -4679,7 +4679,7 @@ function baron_storm_arc(target, caster, ability, damage, targetNumber, maxTarge
 			end
 			if newTarget then
 				ability:ApplyDataDrivenModifier(caster, newTarget, "modifier_baron_storm_link", {duration = BARON_STORM_DUR})
-				Filters:TakeArgumentsAndApplyDamage(newTarget, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_WIND)
+				Filters:ApplyItemDamage(newTarget, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_WIND)
 				EmitSoundOn("Hero_Zuus.ArcLightning.Target", target)
 				local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
 				local targetPos = target:GetAbsOrigin()

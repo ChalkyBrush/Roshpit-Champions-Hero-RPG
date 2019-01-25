@@ -1591,7 +1591,7 @@ end
 
 function Events:beginQuests()
   -- print("BEGINQUESTS IS HAPPENING")
-  if Beacons.cheats then
+  if Beacons.cheats or Convars:GetBool("developer") then
     Beacons:DEBUG()
   end
 end
