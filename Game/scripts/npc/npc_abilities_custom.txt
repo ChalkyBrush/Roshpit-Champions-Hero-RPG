@@ -130014,6 +130014,12 @@
 				"var_type"						"FIELD_FLOAT"
 				"light_strike_array_stun_duration"	"1.5 1.5 1.5 1.5"
 			}
+			
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage"						"5000 50000 360000"
+			}
 		}
 	}
 
