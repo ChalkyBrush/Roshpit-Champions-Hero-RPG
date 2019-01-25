@@ -82,6 +82,11 @@ function InitializeRollBox(){
 				currentRollInterval = currentRollInterval + 1
 				if (currentRollInterval%4==0){
 					$('#countdown-timer').text = rollTime - currentRollInterval/4
+					//$.Msg(rollTime - currentRollInterval/4)
+					if (rollTime - currentRollInterval/4 == 0){
+						$('#roll-options').AddClass("invisible")
+						$.Msg("roll-options -> invisible")
+					}
 				}
 				$('#countdown-progress').style.width = (100-((25/rollTime)*currentRollInterval))+"%";
 			}

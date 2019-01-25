@@ -1406,7 +1406,7 @@ function RPCItems:LegendaryPickup(itemEntity, heroEntity)
 			table.insert(RPCItems.item_roll_queue, itemEntity)
 		else
 			CustomGameEventManager:Send_ServerToAllClients("item_roll", {item=itemEntity:GetEntityIndex(), rollSlot=rollSlot, minLevel = itemEntity.minLevel} )
-			Timers:CreateTimer(30, function()
+			Timers:CreateTimer(33, function()
 				RPCItems:EndRoll(rollSlot, itemIndex)
 			end)
 		end
@@ -1592,6 +1592,11 @@ function RPCItems:ItemVote(keys)
 	local rollType = keys.type
 	local playerID = keys.playerID
 	local itemIndex = keys.itemIndex
+
+	if not itemIndex or not EntIndexToHScript(itemIndex) or not IsValidEntity(EntIndexToHScript(itemIndex)) then
+		print("Maybe item is not valid anymore?")
+		return
+	end
 	local vote = {}
 	if rollType == "pass" then
 		table.insert(vote, playerID)
