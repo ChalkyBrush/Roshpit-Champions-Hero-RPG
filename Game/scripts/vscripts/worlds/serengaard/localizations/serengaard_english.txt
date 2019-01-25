@@ -16,19 +16,26 @@
 		"wave_spawning"													"Wave Spawning"
 
 		"rpc_serengaard_tower"											"Dragon Tower"
+		"DOTA_Tooltip_ability_serengaard_tower_ability"					"Serengaard Tower"
+		"DOTA_Tooltip_ability_serengaard_tower_ability_Description"		"Towers are magical sentinels that attack one enemy target at a time."
+		
 		"serengaard_ancient_guardian"									"Sun Guardian"
 
 		"rpc_serengaard_barracks"										"Sun Barracks"
+		"DOTA_Tooltip_ability_serengaard_barracks_ability"				"Serengaard Barracks"
+		"DOTA_Tooltip_ability_serengaard_barracks_ability_Description"	"These barracks generate durable guardians that bravely advance down their lane."
 
 		"serengaard_ranger"												"Sun Ranger"
+		"DOTA_Tooltip_ability_serengaard_ranger_ability"				"Sun Ranger"
+		"DOTA_Tooltip_ability_serengaard_ranger_ability"				"Shieldmaidens aggravate the advancing monsters by throwing moon glaives."
 
 		"rpc_serengaard_teleporter"										"Serengaard Teleporter"
 
 		"serengaard_knight"												"Serengaard Knight"
 
 		"rpc_serengaard_ancient"										"Serengaard Ancient"
-		"DOTA_Tooltip_ability_serengaard_ancient_ability"				""
-		"DOTA_Tooltip_ability_serengaard_ancient_ability_Description"				""
+		"DOTA_Tooltip_ability_serengaard_ancient_ability"				"Serengaard Ancient"
+		"DOTA_Tooltip_ability_serengaard_ancient_ability_Description"				"This monument controls the Battle of Serengaard combat test, summoning waves of ever more powerful monsters. When it falls, the test is concluded. The Serengaard Ancient takes only Physical and Pure damage and cannot be healed."
 
 		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability"			"Sun Guardian"
 		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability_Description"		"Provides passive health regen."
@@ -214,3 +221,5 @@
         "serengaard_nightmare_raider" 		   "Nightmare Raider"
         "serengaard_night_invader"   			 "Nightscape Invader"
         "phoenix_siege_dragon"  				  "Siege Drake"
+		
+		"DOTA_Tooltip_modifier_high_jump_ai_passive" "High Jump"
