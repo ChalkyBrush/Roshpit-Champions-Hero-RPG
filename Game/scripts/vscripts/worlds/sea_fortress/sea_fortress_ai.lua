@@ -5581,7 +5581,7 @@ function lightning_ball_think(event)
 	if not IsValidEntity(caster) then
 		return false
 	end
-	if caster.origCaster.dying then
+	if caster.origCaster and caster.origCaster.dying then
 		UTIL_Remove(caster)
 	end
 	if not caster.interval then
