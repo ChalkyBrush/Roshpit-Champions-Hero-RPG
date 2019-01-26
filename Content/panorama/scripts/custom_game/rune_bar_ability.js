@@ -502,13 +502,23 @@ function ActivateRune()
 		}else{
 			if (GameUI.IsAltDown()) {
 				GameEvents.SendCustomGameEventToServer( "change_rune_state", {ability: r_Ability, playerID: localPlayer, unit: Players.GetLocalPlayerPortraitUnit()} );
-			}else{
-				var playerID = localPlayer;
-				GameEvents.SendCustomGameEventToServer( "level_up_rune", {ability: r_Ability, playerID: playerID, unit: Players.GetLocalPlayerPortraitUnit()} );
-				AbilityHideTooltip()
-				$.Schedule(0.05, function(){
-					AbilityShowTooltip()
-				});
+            } else {
+                if (GameUI.IsShiftDown()) {
+                    var playerID = localPlayer;
+                    GameEvents.SendCustomGameEventToServer("level_up_rune_max", { ability: r_Ability, playerID: playerID, unit: Players.GetLocalPlayerPortraitUnit() });
+                    AbilityHideTooltip()
+                    $.Schedule(0.05, function () {
+                        AbilityShowTooltip()
+                    });
+                }
+                else {
+                    var playerID = localPlayer;
+                    GameEvents.SendCustomGameEventToServer("level_up_rune", { ability: r_Ability, playerID: playerID, unit: Players.GetLocalPlayerPortraitUnit() });
+                    AbilityHideTooltip()
+                    $.Schedule(0.05, function () {
+                        AbilityShowTooltip()
+                    });
+                }
 			}
 		}
 		UpdateRune();
