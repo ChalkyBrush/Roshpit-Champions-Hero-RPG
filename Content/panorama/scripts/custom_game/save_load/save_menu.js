@@ -60,6 +60,7 @@ function SaveCharactersLoaded(msg){
 	$('#save_container_premium4').RemoveAndDeleteChildren();
 	$('#save_container_premium5').RemoveAndDeleteChildren();
 	$('#save_container_premium6').RemoveAndDeleteChildren();
+	$('#save_container_premium7').RemoveAndDeleteChildren();
 	if (msg.message=="save_success"){
 		$('#oracle_content_label').text = $.Localize('#saveload_save_successful')
 		$('#save_extras_label').text = $.Localize('#saveload_save_successful')
