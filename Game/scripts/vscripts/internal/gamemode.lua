@@ -144,6 +144,7 @@ function GameMode:_InitGameMode()
 
   CustomGameEventManager:RegisterListener( "level_up_ability", Dynamic_Wrap(Events, "LevelUpAbility"))
   CustomGameEventManager:RegisterListener( "level_up_rune", Dynamic_Wrap(Events, "LevelUpRune"))
+  CustomGameEventManager:RegisterListener( "level_up_rune_max", Dynamic_Wrap(Events, "LevelUpRuneMax"))
   CustomGameEventManager:RegisterListener( "change_rune_state", Dynamic_Wrap(Events, "ChangeRuneState"))
   
   CustomGameEventManager:RegisterListener( "DungeonsvoteYesJS", Dynamic_Wrap(Dungeons, "voteYesLua"))
