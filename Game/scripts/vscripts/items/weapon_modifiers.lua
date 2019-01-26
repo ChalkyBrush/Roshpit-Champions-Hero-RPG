@@ -179,7 +179,7 @@ end
 function Weaponmodifiers:runeProperty(propertyName, propertyValue, hero)
 	if hero:HasModifier("modifier_blacksmiths_tablet") then
 		if propertyValue > 1 then
-			propertyValue = propertyValue * (1 + BLACKSMITH_TABLE_ADD_STATS_PCT)
+			propertyValue = math.ceil(propertyValue * (1 + BLACKSMITH_TABLE_ADD_STATS_PCT))
 		end
 	end
 	if propertyName == "rune_q_1" then

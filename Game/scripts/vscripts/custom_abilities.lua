@@ -93,14 +93,14 @@ function CustomAbilities:AxeSunder(caster, ability, damage, damageAmp, particleN
         ParticleManager:DestroyParticle( particle1, false )
       end)
 
-    local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "axe")
+    local r_4_level = caster:GetRuneValue("r", 4)
 
 
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), slamPoint, nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage*damageAmp, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
-			if d_d_level > 0 then
+			if r_4_level > 0 then
 				local runeAbility = caster.runeUnit4:FindAbilityByName("axe_rune_r_4")
 				runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_axe_rune_r_4_visible", {duration = 7})
 				local current_stacks = enemy:GetModifierStackCount( "modifier_axe_rune_r_4_visible", runeAbility )
@@ -109,7 +109,7 @@ function CustomAbilities:AxeSunder(caster, ability, damage, damageAmp, particleN
 				enemy:SetModifierStackCount( "modifier_axe_rune_r_4_visible", runeAbility, newStacks )
 
 				runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_axe_rune_r_4_invisible", {duration = 7})
-				enemy:SetModifierStackCount( "modifier_axe_rune_r_4_invisible", runeAbility, newStacks*d_d_level )
+				enemy:SetModifierStackCount( "modifier_axe_rune_r_4_invisible", runeAbility, newStacks * r_4_level )
 			end
 		end
 	end       
@@ -826,130 +826,6 @@ function CustomAbilities:JumpEnd(caster)
 		ScreenShake(caster:GetAbsOrigin(), 300, 0.5, 0.5, 9000, 0, true)
 	end
 end
-
-function CustomAbilities:AuriunFlashHeal(unit, orderTable)
-	local caster = unit
-	local ability = EntIndexToHScript(orderTable.entindex_ability) 
-	--SHIELD SOUND: "Auriun.HeavensShield"
-	--RUNE 1: SHADOW BOMB. MAKE SMALL AOE AT CURSOR POSITION
-	--"Auriun.ShadowFlare"
-	ability.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "auriun")
-	ability.w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "auriun")
-	ability.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "auriun")
-	ability.w_4_ability = caster.runeUnit4:FindAbilityByName("auriun_rune_w_4")
-
-	local distance =  WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y))
-
-	local healAmount = ability:GetSpecialValueFor("heal")
-	if ability.w_2_level > 0 then
-		healAmount = healAmount*(1+(caster:GetIntellect()/10)*0.0006*ability.w_2_level)
-	end
-
-	local max_dis = ability:GetSpecialValueFor("max_distance")
-	max_dis = Filters:GetAdjustedRange(caster,max_dis)
-	if distance <= max_dis then
-		ability.too_far_away = false
-		if ability.casted == true or ability.casted == nil then
-			ability.casted = false
-			EmitSoundOn("Hero_Zuus.Attack", caster)
-			local particleName = "particles/units/heroes/hero_oracle/holy_heal_heal_core.vpcf"
-			local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-			ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-
-			Timers:CreateTimer(0.5, function() 
-			  ParticleManager:DestroyParticle( pfx, false )
-			end)
-
-			local cursorPos = Vector(orderTable.position_x, orderTable.position_y)
-			local allies = FindUnitsInRadius( caster:GetTeamNumber(), cursorPos, nil, 140, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-			if not ability.lastCast then
-				ability.lastCast = -1
-			end
-			local bSound = true
-			if ability.lastCast > GameRules:GetGameTime()-0.8 then
-				bSound = false
-			end
-			if bSound then
-				ability.lastCast = GameRules:GetGameTime()
-			end
-			local function flash_heal_particle(caster,target)
-				local particleName = "particles/units/heroes/hero_oracle/flash_healheal.vpcf"
-				local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
-				ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-				Timers:CreateTimer(0.7, function() 
-				  ParticleManager:DestroyParticle( pfx, false )
-				end)
-			end
-			local function c_b_effect(caster, ability, target, healAmount)
-				local runeUnit = caster.runeUnit3
-				local runeAbility = runeUnit:FindAbilityByName("auriun_rune_w_3")
-				local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "auriun")
-				if w_3_level > 0 then 
-					ability.auriun_c_b_heal = w_3_level*0.005*healAmount
-					local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
-					ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_c_b_heal", {duration = duration})
-				end
-			end
-			if #allies > 0 then
-				for _,ally in pairs(allies) do
-					Filters:ApplyHeal(caster, ally, healAmount, true)
-					flash_heal_particle(caster, ally)	
-					c_b_effect(caster, ability, ally, healAmount)
-				end
-				if bSound then
-					EmitSoundOnLocationWithCaster(cursorPos, "Grizzly.AllyHeal", caster)
-				end
-			else
-				if ability.w_1_level > 0 then
-				  local function d_b_apply(caster, enemy, w_4_level, d_b_ability)
-						if w_4_level > 0 then
-						    d_b_ability:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_auriun_rune_w_4_effect_visible", {duration = 7})
-						    local current_stacks = enemy:GetModifierStackCount( "modifier_auriun_rune_w_4_effect_visible", d_b_ability )
-						    local new_stacks = math.min(current_stacks + 1, 5)
-						    enemy:SetModifierStackCount( "modifier_auriun_rune_w_4_effect_visible", d_b_ability, new_stacks )
-
-						    d_b_ability:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_auriun_rune_w_4_effect_invisible", {duration = 7})
-						    enemy:SetModifierStackCount( "modifier_auriun_rune_w_4_effect_invisible", d_b_ability, new_stacks*w_4_level )
-						end
-					end
-			      particleName = "particles/units/heroes/hero_nevermore/shadow_flare.vpcf"
-			      local shadowFlarePos = GetGroundPosition(cursorPos, caster)
-			      local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_WORLDORIGIN, caster )
-			      ParticleManager:SetParticleControl( particle1, 0, shadowFlarePos )
-			      Timers:CreateTimer(2, 
-			      function()
-			        ParticleManager:DestroyParticle( particle1, false )
-			        ParticleManager:ReleaseParticleIndex(particle1)
-			      end)
-					if bSound then	
-						EmitSoundOnLocationWithCaster(cursorPos, "Auriun.ShadowFlare", caster)
-					end
-					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), cursorPos, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-					local damage = ability.w_1_level*1920 + 400
-					if ability.w_2_level > 0 then
-						damage = damage*(1+(caster:GetIntellect()/10)*0.0006*ability.w_2_level)
-					end
-					for _,enemy in pairs(enemies) do
-						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
-						d_b_apply(caster, enemy, ability.w_4_level, ability.w_4_ability)
-					end			
-				else
-					Filters:ApplyHeal(caster, caster, healAmount, true)
-					flash_heal_particle(caster, caster)
-					c_b_effect(caster, ability, caster, healAmount)
-					if bSound then	
-						EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Grizzly.AllyHeal", caster)
-					end
-				end
-			end 	
-			Filters:CastSkillArguments(2, caster)
-		end
-	else
-		ability.too_far_away = true
-		ability.pos = Vector(orderTable.position_x,orderTable.position_y)
-	end
-end
-
 function CustomAbilities:UnitsSpecial(msg)
 	if msg.onibi then
 		require('heroes/arc_warden/abilities/onibi')

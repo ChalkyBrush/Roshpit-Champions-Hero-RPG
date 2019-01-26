@@ -137,7 +137,7 @@ function heel_stomp(caster, ability, totalLevel)
       	end
       	local radius = 300
       	local damage = totalLevel*350
-	    local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "axe")
+	    local w_4_level = caster:GetRuneValue("w", 4)
 	    damage = damage + 0.0003*caster:GetStrength()/10*w_4_level*damage
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
@@ -236,7 +236,7 @@ function shock_strike(event)
 	if event.amp then
 		damage = damage*event.amp
 	end
-    local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "axe")
+    local w_4_level = caster:GetRuneValue("w", 4)
     damage = damage + 0.0003*caster:GetStrength()/10*w_4_level*damage
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 

@@ -5032,8 +5032,8 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_two"		"Доп. урон от Ловкости"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix_two"			"х"
 		
-		"DOTA_Tooltip_modifier_modifier_dusk_fire_flail"				"Duskfire Flail"
-		"DOTA_Tooltip_modifier_modifier_dusk_fire_flail_Description"	"Получает чудовищные ожоги"
+		"DOTA_Tooltip_modifier_modifier_duskbringer_rune_q_1"				"Duskfire Flail"
+		"DOTA_Tooltip_modifier_modifier_duskbringer_rune_q_1_Description"	"Получает чудовищные ожоги"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_2"						"[Q2] Polterbite"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_2_Description"			"Увеличивает урон, наносимый предметами напрямую."
@@ -5147,8 +5147,8 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2_property_one"		"Доп. пост-резистный урон"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2_suffix"				"%"
 
-		"DOTA_Tooltip_modifier_duskbringer_b_d_visible"					"Doom"
-		"DOTA_Tooltip_modifier_duskbringer_b_d_visible_Description"		"Получает увеличенный пост-резистный урон за каждый заряд."
+		"DOTA_Tooltip_modifier_duskbringer_rune_r_2"					"Doom"
+		"DOTA_Tooltip_modifier_duskbringer_rune_r_2_Description"		"Получает увеличенный пост-резистный урон за каждый заряд."
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_3"						"[R3] Spirit Plunder"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_3_Description"			"Duskbringer увеличит свой урон на 6 секунд за каждого врага, попавшего под @Ability4."
@@ -5193,8 +5193,8 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_property_two"		"Сокращение входящего магического или чистого урона"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_suffix_two"			"% от брони героя"
 
-		"DOTA_Tooltip_modifier_duskbringer_arcana_armor"						"Ethereal Void"
-		"DOTA_Tooltip_modifier_duskbringer_arcana_armor_Description"			"Броня увеличена. Дополнительно сокращается входящий магический и чистый урон за счёт брони."
+		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_2"						"Ethereal Void"
+		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_2_Description"			"Броня увеличена. Дополнительно сокращается входящий магический и чистый урон за счёт брони."
 
 		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1"						"[W3] Shadowflame"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1_Description"			"Враги, попавшие под действие @Ability2 могут получить заряды [Q1]. Значение шанса выше 100% означает, что враг может получить больше зарядов."
@@ -5208,8 +5208,8 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_property_two"		"Доп. бонус к урону"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_suffix_two"			"%"
 
-		"DOTA_Tooltip_modifier_duskbringer_arcana_damage_buff"					"Rise of the Phantom Lord"
-		"DOTA_Tooltip_modifier_duskbringer_arcana_damage_buff_Description"		"Урон героя значительно увеличен"
+		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_4"					"Rise of the Phantom Lord"
+		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_4_Description"		"Урон героя значительно увеличен"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_1"		"(T1) Глиф дыхания смерти"

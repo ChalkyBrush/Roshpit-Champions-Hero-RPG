@@ -556,7 +556,7 @@ function WallPhysics:UnitLand(unit)
 			caster.jumpEnd = false
 			local ability = caster:FindAbilityByName("sunder")
 			local damage = ability:GetSpecialValueFor("main_damage")
-			local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "axe")
+			local q_3_level = caster:GetRuneValue("q", 3)
 			local damageAmp = 0.5 + q_3_level*0.1
 			CustomAbilities:AxeSunder(caster, ability, damage, damageAmp, "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start.vpcf")		
 		elseif caster.flamewaker_d_b_target then

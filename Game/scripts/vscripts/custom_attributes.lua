@@ -229,18 +229,44 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 	return intellect
 end
 
-function CDOTA_BaseNPC_Hero:GetRuneValue(letter, index)
-	local coversion = 1
+function CDOTA_BaseNPC_Hero:GetRuneValue(letter, tier)
+	local index = 0
 	if letter == "q" then
-		conversion = 1
+		index = 0
 	elseif letter == "w" then
-		conversion = 2
+		index = 1
 	elseif letter == "e" then
-		conversion = 3
+		index = 2
 	elseif letter == "r" then
-		conversion = 4
+		index = 3
 	end
-	local rune_level = Runes:GetTotalRuneLevelGeneric(self, index, conversion-1)
+	local runeUnit = ""
+	if self:HasModifier("modifier_sorceress_immortal_ice_avatar") or self:HasModifier("modifier_sorceress_immortal_fire_avatar") then
+		self = self.origCaster
+	end
+	if tier == 1 then
+		runeUnit = self.runeUnit
+	elseif tier == 2 then
+		runeUnit = self.runeUnit2
+	elseif tier == 3 then
+		runeUnit = self.runeUnit3
+	elseif tier == 4 then
+		runeUnit = self.runeUnit4
+	end
+
+	local rune_level = 0
+	local runeID = Runes:ConvertTierAndIndexToRune(tier, index)
+	if runeUnit then
+		local runeAbility = runeUnit:GetAbilityByIndex(index)
+		if runeAbility then
+			if runeAbility:IsActivated() then
+				local abilityLevel = runeAbility:GetLevel()
+				local bonusLevel = Runes:GetTotalBonus(runeUnit, runeID)
+				local totalLevel = abilityLevel + bonusLevel
+				rune_level = totalLevel
+			end
+		end
+	end
 	return rune_level
 end
 

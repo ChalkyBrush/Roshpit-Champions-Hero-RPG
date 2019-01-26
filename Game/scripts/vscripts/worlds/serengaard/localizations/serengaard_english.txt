@@ -16,17 +16,26 @@
 		"wave_spawning"													"Wave Spawning"
 
 		"rpc_serengaard_tower"											"Dragon Tower"
+		"DOTA_Tooltip_ability_serengaard_tower_ability"					"Serengaard Tower"
+		"DOTA_Tooltip_ability_serengaard_tower_ability_Description"		"Towers are magical sentinels that attack one enemy target at a time."
+		
 		"serengaard_ancient_guardian"									"Sun Guardian"
 
 		"rpc_serengaard_barracks"										"Sun Barracks"
+		"DOTA_Tooltip_ability_serengaard_barracks_ability"				"Serengaard Barracks"
+		"DOTA_Tooltip_ability_serengaard_barracks_ability_Description"	"These barracks generate durable guardians that bravely advance down their lane."
 
 		"serengaard_ranger"												"Sun Ranger"
+		"DOTA_Tooltip_ability_serengaard_ranger_ability"				"Sun Ranger"
+		"DOTA_Tooltip_ability_serengaard_ranger_ability"				"Shieldmaidens aggravate the advancing monsters by throwing moon glaives."
 
 		"rpc_serengaard_teleporter"										"Serengaard Teleporter"
 
 		"serengaard_knight"												"Serengaard Knight"
 
 		"rpc_serengaard_ancient"										"Serengaard Ancient"
+		"DOTA_Tooltip_ability_serengaard_ancient_ability"				"Serengaard Ancient"
+		"DOTA_Tooltip_ability_serengaard_ancient_ability_Description"				"This monument controls the Battle of Serengaard combat test, summoning waves of ever more powerful monsters. When it falls, the test is concluded. The Serengaard Ancient takes only Physical and Pure damage and cannot be healed."
 
 		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability"			"Sun Guardian"
 		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability_Description"		"Provides passive health regen."
@@ -159,6 +168,18 @@
 		"DOTA_Tooltip_ability_mines_boss_passive_Description"			"Attacks slow for 0.4 seconds."
 
 		"DOTA_Tooltip_ability_mines_boss_illusions"						"Lightning Replicate"
+		
+		"serengaard_final_boss" 	"Cadophersus"
+		"DOTA_Tooltip_ability_serengaard_final_boss_ability"			"Cadophersus' Presence"
+		"DOTA_Tooltip_ability_serengaard_final_boss_ability_Description"	"Demonic aura burns health of nearby heroes and erupts strikes of demonic fire. 1800 radius aura."
+		"DOTA_Tooltip_ability_serengaard_final_boss_ability_strike_dmg"		"STRIKE DAMAGE:"
+		"DOTA_Tooltip_ability_serengaard_final_boss_ability_health_regen_loss_pct"	"HP REGENERATION DECREASED:"
+		"DOTA_Tooltip_ability_serengaard_final_boss_ability_pure_dmg_sec"	"PURE DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_serengaard_boss_light_strike_array"			"Wraith of a Demon"
+		"DOTA_Tooltip_ability_serengaard_boss_light_strike_array_Description"	"Summons a column of flames that damages and stuns enemies. Has 10000 cast range. "
+		"DOTA_Tooltip_ability_serengaard_boss_light_strike_array_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_serengaard_boss_light_strike_array_light_strike_array_stun_duration"	"STUN DURATION:"
+		
 
 		"serengaard_normal_complete"									"Normal Mode Clear! Use Oracle to save character"
 		"serengaard_elite_complete"										"Elite Mode Clear! Use Oracle to save character"
@@ -200,3 +221,5 @@
         "serengaard_nightmare_raider" 		   "Nightmare Raider"
         "serengaard_night_invader"   			 "Nightscape Invader"
         "phoenix_siege_dragon"  				  "Siege Drake"
+		
+		"DOTA_Tooltip_modifier_high_jump_ai_passive" "High Jump"

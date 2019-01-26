@@ -107,6 +107,8 @@
     	"DOTA_Tooltip_modifier_trapper_rune_e_2_effect_Description"	"Repairing Wounds"
 		
 		"lanaya_decoy"												"Decoy"
+		"DOTA_Tooltip_ability_lanaya_decoy_passive"					"Decoy"
+		"DOTA_Tooltip_ability_lanaya_decoy_passive_Description"		"Distracts enemies."
 		
 		"DOTA_Tooltip_ability_trapper_rune_e_3"						"[E3] Psi Blades"
     	"DOTA_Tooltip_ability_trapper_rune_e_3_Description"			"Trapper's attacks travel through targets and hit enemies directly behind. Also increases attack range."
