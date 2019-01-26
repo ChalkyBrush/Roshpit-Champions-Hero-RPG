@@ -9192,7 +9192,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0"
+				"property_two"			"10"
 			}
 		}
 	}

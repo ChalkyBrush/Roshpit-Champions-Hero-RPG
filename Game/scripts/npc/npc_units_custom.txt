@@ -3453,7 +3453,7 @@
         // Movement
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
-        "MovementSpeed"             "150"        // Speed
+        "MovementSpeed"             "85"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
@@ -3676,7 +3676,7 @@
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"    
         "ShouldDoFlyHeightVisual"   "1"
-        "MovementSpeed"             "300"        // Speed
+        "MovementSpeed"             "220"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
@@ -11342,7 +11342,7 @@
         // Movement
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
-        "MovementSpeed"             "135"        // Speed
+        "MovementSpeed"             "200"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
@@ -49920,7 +49920,7 @@
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"    
         "ShouldDoFlyHeightVisual"   "1"
-        "MovementSpeed"             "300"        // Speed
+        "MovementSpeed"             "120"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status

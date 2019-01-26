@@ -160,7 +160,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_strength_added_to_damage"		"ПРИБАВКА МНОЖИТЕЛЯ СИЛЫ:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_base_damage"					"БАЗОВЫЙ УРОН:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Урон Ion Cannon увеличивается</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_e_4_split_search_radius"		"%<font color=\"#7DFF12\">[E4] Радиус поиска дополнительных целей</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_e_4_split_search_radius"		"<font color=\"#7DFF12\">[E4] Радиус поиска дополнительных целей</font>:"
 
 	"DOTA_Tooltip_ability_jex_nature_nature_w"					"Root Weaver"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_Description"		"Элемент: <font color=\"#69BC71\">Природа</font><br>Создает небольшую зону с повышенным ростом растений, любой противник в этой зоне будет опутан корнями, задержка 0.5 секунды. Опутанные противники имеют меньшую дальность атаки и получают урон каждые 0.5 секунды."

@@ -33260,7 +33260,6 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	        "ability_datadriven"
-		"AbilityTextureName"	"decoy"
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -72987,7 +72986,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"specter_desolate"
+		"AbilityTextureName"	"winterblight/spectre_desolate"
 		"AOERadius"			"600"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -73563,7 +73562,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"specter_desolate"
+		"AbilityTextureName"	"winterblight/spectre_desolate"
 		"AOERadius"			"600"
 		"MaxLevel"	"3"
 		"Modifiers"
@@ -73633,7 +73632,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"specter_desolate"
+		"AbilityTextureName"	"winterblight/spectre_desolate"
 		"AOERadius"			"600"
 		"MaxLevel"	"3"
 		"Modifiers"
@@ -78208,7 +78207,7 @@
 				"Target"
 				{
 					"Center"	"CASTER"
-					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_NONE"
 					"Radius"	"%radius"
 				}
 				"Center"	"CASTER"
@@ -79542,7 +79541,7 @@
 				"Target"
 				{
 					"Center"	"CASTER"
-					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_NONE"
 					"Radius"	"%radius + 20"
 				}
 				"Center"	"CASTER"
@@ -90041,7 +90040,7 @@
 						"Target"
 						{
 							"Center"	"CASTER"
-							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_NONE"
 							"Radius"	"300"
 						}
 						"Center"	"CASTER"
@@ -90105,7 +90104,7 @@
 						"Target"
 						{
 							"Center"	"CASTER"
-							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_NONE"
 							"Radius"	"300"
 						}
 						"Center"	"CASTER"
@@ -90168,7 +90167,7 @@
 						"Target"
 						{
 							"Center"	"CASTER"
-							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_NONE"
 							"Radius"	"300"
 						}
 						"Center"	"CASTER"
@@ -91625,7 +91624,7 @@
 				"Target"
 				{
 					"Center"	"TARGET"
-					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_NONE"
 					"Radius"	"250"
 				}
 				"Center"	"CASTER"
@@ -91690,7 +91689,7 @@
 						"Target"
 						{
 							"Center"	"TARGET"
-							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_NONE"
 							"Radius"	"250"
 						}
 						"Center"	"CASTER"
@@ -112581,8 +112580,7 @@
 			}
 			"modifier_forest_guide_pull"
 			{
-				"IsDebuff"			"0"
-				"IsHidden"	"1"
+				"IsDebuff"			"1"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
 				"OnCreated"
 				{
@@ -129921,12 +129919,6 @@
 				"var_type"						"FIELD_FLOAT"
 				"light_strike_array_stun_duration"	"1.5 1.5 1.5 1.5"
 			}
-			
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage"						"5000 50000 360000"
-			}
 		}
 	}
 
@@ -132710,7 +132702,7 @@
 		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"leshrac_split_earth"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 
 		// Precache
@@ -139246,7 +139238,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_hero"		"10000 100000 2000000"
+				"damage_per_hero"		"10000 1000000 10000000"
 			}
 			"04"
 			{
