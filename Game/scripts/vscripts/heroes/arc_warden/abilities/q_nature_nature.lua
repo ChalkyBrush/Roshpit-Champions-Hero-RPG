@@ -38,5 +38,7 @@ function enemy_damage_jex_nature_nature_shield(event)
 
 	local stun_per_tech = event.stun_per_tech
 	local stun_duration = stun_per_tech*ability.tech_level
-	Filters:ApplyStun(caster, stun_duration, attacker)
+	if caster:GetTeamNumber() ~= attacker:GetTeamNumber() then
+		Filters:ApplyStun(caster, stun_duration, attacker)
+	end
 end
