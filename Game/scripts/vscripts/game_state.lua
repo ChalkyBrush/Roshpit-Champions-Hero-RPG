@@ -580,6 +580,7 @@ function GameState:OrderFilter(orderTable)
 							ability:ApplyDataDrivenModifier(unit, unit, "modifier_jex_portal_teleporting", {duration = 1.2})
 							ability.teleporting_to = movementPosition
 							EmitSoundOn("Jex.EarthsGate.Portal", unit)
+							EmitSoundOnLocationWithCaster(ability.teleporting_to, "Jex.EarthsGate.Portal", caster)
 							unit:Stop()
 							unit:AddNewModifier( unit, nil, "modifier_black_portal_shrink", {duration = 1.3} )
 							return false
