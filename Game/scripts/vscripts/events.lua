@@ -1594,6 +1594,15 @@ function Events:beginQuests()
   if Beacons.cheats then
     Beacons:DEBUG()
   end
+
+  Timers:CreateTimer(2, function()
+    if MAIN_HERO_TABLE and #MAIN_HERO_TABLE>0 then
+      for _,hero in pairs(MAIN_HERO_TABLE) do
+        hero:AddNewModifier(hero, nil, "modifier_client_setting", {})
+      end
+    end
+    return 2
+  end)
 end
 
 function Events:InitGameEntities()

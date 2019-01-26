@@ -1,6 +1,7 @@
 "use strict";
 var root= $.GetContextPanel()
 var m_difficulty = GetDifficultyFactor();
+var range_particle
 
 
 
@@ -221,12 +222,24 @@ function CorrectDotaUI(){
 	var stats_tooltip_panel = parent.FindChildTraverse('stats_tooltip_region')
 	GameUI.StatsTooltipAttachment = stats_tooltip_panel
 	stats_tooltip_panel.SetPanelEvent('onmouseover', function StatsToolTip() {
-		$.Msg("NEW TOOLTIP?")
+		if (!range_particle){
+			var unit = Players.GetLocalPlayerPortraitUnit()
+			range_particle = Particles.CreateParticle("particles/ui_mouseactions/range_finder_ward_aoe_ring.vpcf", ParticleAttachment_t.PATTACH_ABSORIGIN_FOLLOW, unit)
+			Particles.SetParticleControlEnt(range_particle, 2, unit, ParticleAttachment_t.PATTACH_ABSORIGIN_FOLLOW, "follow_origin", Entities.GetAbsOrigin(unit), true)
+			Particles.SetParticleControl(range_particle, 3, [Entities.GetAttackRange(unit), 1, 1])
+		}
+
 		GameUI.ShouldAttributeTooltip = true
 		GameEvents.SendCustomGameEventToServer( "stats_hover", {playerID: Game.GetLocalPlayerID(), queryunit: Players.GetLocalPlayerPortraitUnit()});
 		// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", stats_tooltip_panel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
 	});
 	stats_tooltip_panel.SetPanelEvent('onmouseout', function StatsToolTip() {
+		if (range_particle){
+			Particles.DestroyParticleEffect(range_particle, true)
+			Particles.ReleaseParticleIndex(range_particle)
+			range_particle = null;
+		}
+
 		GameUI.ShouldAttributeTooltip = false
 		$.DispatchEvent("UIHideCustomLayoutTooltip", "AttributesTooltip");
 	});
