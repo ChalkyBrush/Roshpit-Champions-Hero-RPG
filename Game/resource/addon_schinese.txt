@@ -10857,7 +10857,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_strength_added_to_damage"		"倍数力量增加基础伤害："
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_base_damage"					"基础伤害："
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] 增加离子加农伤害</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_e_4_split_search_radius"		"%<font color=\"#7DFF12\">[E4] 增加分裂搜索范围</font>："
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_e_4_split_search_radius"		"<font color=\"#7DFF12\">[E4] 增加分裂搜索范围</font>："
 
 	"DOTA_Tooltip_ability_jex_nature_nature_w"					"缠绕编织者"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_Description"		"元素： <font color=\"#69BC71\">自然</font><br>在小范围内创造一片肥沃的土壤，使得进入该区域的敌人0.5秒后被缠绕。被缠绕的敌人的攻击距离将会被降低并且每0.5秒受到一次伤害。"
