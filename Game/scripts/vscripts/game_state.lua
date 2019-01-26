@@ -2147,7 +2147,10 @@ function GameState:FilterDamage(filterTable)
 			victim:SetModifierStackCount("modifier_voltex_lightning_dash_regen_hidden", victim, dash.regen)
 		end
 	end
-
+	if victim:HasModifier("modifier_jex_q_cosmic_cosmic_postmitigation") then
+		local stacks = victim:GetModifierStackCount("modifier_jex_q_cosmic_cosmic_postmitigation", attacker)
+		mult = mult + 0.3*stacks
+	end
 	if attacker:HasModifier("modifier_trickster_mask") then
 		local minBoost = 0
 		if attacker:HasModifier("modifier_boots_of_great_fortune") then
@@ -2366,10 +2369,7 @@ function GameState:FilterDamage(filterTable)
 		local stacks = attacker:GetModifierStackCount("modifier_bahamut_charge_of_light_postmitigation", attacker)
 		mult = mult + 0.15*stacks
 	end
-	if victim:HasModifier("modifier_jex_q_cosmic_cosmic_postmitigation") then
-		local stacks = victim:GetModifierStackCount("modifier_jex_q_cosmic_cosmic_postmitigation", attacker)
-		mult = mult + 0.3*stacks
-	end
+
 	if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
 		if attacker.r_4_level then
 			mult = mult + 0.04*attacker.r_4_level
