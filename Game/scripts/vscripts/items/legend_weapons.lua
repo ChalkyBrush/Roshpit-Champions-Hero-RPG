@@ -790,7 +790,7 @@ function Weapons:RollLegendWeapon2(deathLocation, class, strictMaxItemLevel, dis
 	    weapon.property1name = "!immortal_weapon!"
 		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_jex_immortal_weapon2", "#5CCDF9",  1, "#property_jex_immortal_weapon2_description")
 
-		local value = Weapons:GetDeviation(100+RandomInt(1,450), 0)
+		local value = Weapons:GetDeviation(300+RandomInt(1,700), 0)
 	    weapon.property2 = value
 	    weapon.property2name = "attack_damage"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_bonus_attack_damage", "#343EC9",  2) 
@@ -1106,7 +1106,7 @@ function Weapons:RollLegendWeapon3(deathLocation, class, strictMaxItemLevel, dis
 	    weapon.property1name = "!immortal_weapon!"
 		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_jex_immortal_weapon3", "#C25DFC",  1, "#property_jex_immortal_weapon3_description")
 
-		local value = Weapons:GetDeviation(100+RandomInt(1,450), 0)
+		local value = Weapons:GetDeviation(300+RandomInt(1,700), 0)
 	    weapon.property2 = value
 	    weapon.property2name = "attack_damage"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_bonus_attack_damage", "#343EC9",  2) 	

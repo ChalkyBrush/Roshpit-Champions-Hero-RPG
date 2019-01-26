@@ -171,6 +171,8 @@
 		"DOTA_Tooltip_ability_ability_mega_haste_Description"		"Greatly increases movespeed and movespeed cap."	
 		"DOTA_Tooltip_ability_ability_mega_haste_movespeed_bonus"	"MOVESPEED BONUS:"
 		"DOTA_Tooltip_ability_ability_mega_haste_movespeed_cap"		"MOVESPEED CAP INCREASE:"
+		"DOTA_Tooltip_modifier_mega_haste_passive"								"Mega Haste"
+		"DOTA_Tooltip_modifier_mega_haste_passive_Description"					"Movespeed and movespeed cap increased."
 
 		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability"	"Warden"
 		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability_Description"	"Waiting silently upon the mountains."
