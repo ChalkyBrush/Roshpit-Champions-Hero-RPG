@@ -58,6 +58,11 @@
 			<Panel id="save_container_premium6" hittest="false">
 
 			</Panel>
+			<Panel class="line_break">
+			</Panel>
+			<Panel id="save_container_premium7" class="save_container_premium_class" hittest="false">
+
+			</Panel>
 		</Panel>
 		<Panel id="save_extras" hittest="false">
 			<Label class="save_extras_label" id="save_extras_label" text="">

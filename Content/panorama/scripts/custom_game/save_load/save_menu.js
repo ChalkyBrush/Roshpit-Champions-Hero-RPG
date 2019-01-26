@@ -179,6 +179,19 @@ function SaveCharactersLoaded(msg){
 		var playerID = Game.GetLocalPlayerID();
 		
 	}
+	var parentPanel7 = $('#save_container_premium7')
+	for (var i = 33; i <= 36; i++) {
+		var newChildPanel = $.CreatePanel( "Panel", parentPanel7, "saved_character"+i );
+		newChildPanel.unlocked = premium
+		newChildPanel.currentLevel = msg.currentLevel
+		newChildPanel.heroName = result.characters[i].heroName;
+		newChildPanel.slot = i
+		newChildPanel.heroLevel = result.characters[i].level
+		newChildPanel.heroSlot = msg.heroSlot
+		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/save_load/save_slot.xml", false, false );	
+		var playerID = Game.GetLocalPlayerID();
+		
+	}
 }
 
 (function()

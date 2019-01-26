@@ -116,7 +116,7 @@ end
 
 function SaveLoad:GetCharacterDataFromJSON(resultTable)
 	local characters = {}
-	local MAX_SAVE_SLOTS = 32
+	local MAX_SAVE_SLOTS = 36
 	for i = 1, MAX_SAVE_SLOTS, 1 do
 		characters[i] = {}
 	end
