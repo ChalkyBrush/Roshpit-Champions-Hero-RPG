@@ -53,7 +53,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard2"							"Armor of the Violet Guard LV2"
 		"item_property_violet_guard_armor2"			"Violet Conqueror"
-		"property_violet_guard_armor_description2"	"Increases the damage of @Ability1 by 350%. 0.1% of The base ability damage of @Ability1 reduces the target's armor by 1 for 6 seconds. Cannot reduce a target's armor below 0."
+		"property_violet_guard_armor_description2"	"Increases the damage of @Ability1 by 350%. 0.1% of the base ability damage of @Ability1 reduces the target's armor by 1 for 6 seconds. Cannot reduce a target's armor below 0."
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Reduced armor."
 		
