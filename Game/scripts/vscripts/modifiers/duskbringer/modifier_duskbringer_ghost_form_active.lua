@@ -20,7 +20,7 @@ function modifier_duskbringer_ghost_form_active:OnDestroy( params )
         end
     else
         local ability = self:GetAbility()
-        ability:ApplyDataDrivenModifier(caster, target, "modifier_duskbringer_ghost_form_immune", {duration = 22})
+        ability:ApplyDataDrivenModifier(caster, target, "modifier_duskbringer_ghost_form_immune", {duration = DUSKBRINGER_GLYPH_5_a_CD})
 
     end
 end

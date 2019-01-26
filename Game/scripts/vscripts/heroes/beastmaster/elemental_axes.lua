@@ -10,7 +10,7 @@ function swingEarth(event)
 	local animationDuration = 0.36
 	local swingCooldown = 0.4
 	local swingDuration = 0.3
-	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "warlord")
+	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then
 		damageDelay = damageDelay - math.min(q_4_level*0.005, 0.06)
 		animationRate = animationRate + math.min(q_4_level*0.12, 0.6)
@@ -87,11 +87,6 @@ function swapSkillsToIce(caster, swingAbility, swingCooldown)
   	iceThrow:SetLevel(throwAbility:GetLevel())
 	caster:SwapAbilities("axe_throw_earth", "axe_throw_ice", false, true)
 	iceThrow:ApplyDataDrivenModifier(caster, caster, "modifier_elemental_axe_ice", {})
-	-- local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "warlord")
-	-- if w_2_level > 0 then
-	-- 	iceThrow:ApplyDataDrivenModifier(caster, caster,  "modifier_warlord_rune_w_2", {})
-	-- 	caster:SetModifierStackCount("modifier_warlord_rune_w_2", caster, w_2_level)
-	-- end
 	caster:RemoveModifierByName("modifier_warlord_rune_w_3_effect")
 	caster:RemoveModifierByName("modifier_warlord_rune_w_1_effect")
 end
@@ -125,11 +120,6 @@ function swapSkillsToFire(caster, swingAbility, swingCooldown)
 	caster:SwapAbilities("axe_throw_ice", "axe_throw_fire", false, true)
 	fireThrow:ApplyDataDrivenModifier(caster, caster, "modifier_elemental_axe_fire", {})
 
-	-- local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "warlord")
-	-- if w_3_level > 0 then
-	-- 	fireThrow:ApplyDataDrivenModifier(caster, caster,  "modifier_warlord_rune_w_3_effect", {})
-	-- 	caster:SetModifierStackCount("modifier_warlord_rune_w_3_effect", caster, w_3_level)
-	-- end
 	caster:RemoveModifierByName("modifier_warlord_rune_w_2")
 	caster:RemoveModifierByName("modifier_warlord_rune_w_1_effect")	
 	Timers:CreateTimer(0.05, function()

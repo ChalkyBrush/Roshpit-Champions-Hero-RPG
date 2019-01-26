@@ -48,8 +48,8 @@
 		{
 			"RunScript"
 			{
-        		"ScriptFile"	"heroes/spirit_breaker/arcana_ability.lua"
-        		"Function"		"arcana_ability_start"
+        		"ScriptFile"	"heroes/spirit_breaker/duskbringer_2_w_arcana.lua"
+        		"Function"		"shadow_slam_start"
         		"damage"		"%damage"
         		"Target"		"POINT"
 			}
@@ -69,32 +69,32 @@
         		{
         			"RunScript"
         			{
-        				"ScriptFile"	"heroes/spirit_breaker/arcana_ability.lua"
-        				"Function"		"smashing_think"
+        				"ScriptFile"	"heroes/spirit_breaker/duskbringer_2_w_arcana.lua"
+        				"Function"		"shadow_slam_think"
         			}
         		}
         		"OnDestroy"
         		{
         			"RunScript"
         			{
-        				"ScriptFile"	"heroes/spirit_breaker/arcana_ability.lua"
-        				"Function"		"smashing_end"
+        				"ScriptFile"	"heroes/spirit_breaker/duskbringer_2_w_arcana.lua"
+        				"Function"		"shadow_slam_end"
         				"damage"		"%damage"
         				"stun_duration"	"%stun_duration"
         			}
         		}
         	}
-        	"modifier_duskbringer_arcana_armor"
+        	"modifier_duskbringer_arcana_rune_w_2"
         	{
         		"IsHidden"	"0"
         		"IsBuff"	"1"
         		"TextureName"	"duskbringer/duskbringer_rune_w_2_arcana"
         		"Properties"
         		{
-        			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "120"
+        			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% DUSKBRINGER_ARCANA_W2_ARMOR %>"
         		}
         	}
-        	"modifier_duskbringer_arcana_damage_buff"
+        	"modifier_duskbringer_arcana_rune_w_4"
         	{
         		"Passive"			"0"
         		"IsHidden"			"0"
@@ -106,8 +106,8 @@
 
         		"Properties"
         		{
-        			"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "20000"
-        		    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "30"
+        			"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% DUSKBRINGER_ARCANA_W4_ATT_FLAT %>"
+        		    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% DUSKBRINGER_ARCANA_W4_ATT_PCT %>"
         		}
         	}
         	"modifer_duskbringer_d_b_charging_up"

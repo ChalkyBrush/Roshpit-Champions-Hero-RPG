@@ -476,7 +476,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% T32_AMPLIFY %>"
+				"property_two"			"<% VENOMORT_T32_AMPLIFY %>"
 			}
 		}
 	}

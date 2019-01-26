@@ -16,8 +16,8 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_two"		"额外伤害为敏捷值的倍数："
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix_two"			"x"
 		
-		"DOTA_Tooltip_modifier_modifier_dusk_fire_flail"				"冥火枷"
-		"DOTA_Tooltip_modifier_modifier_dusk_fire_flail_Description"	"受到灼烧伤害"
+		"DOTA_Tooltip_modifier_modifier_duskbringer_rune_q_1"				"冥火枷"
+		"DOTA_Tooltip_modifier_modifier_duskbringer_rune_q_1_Description"	"受到灼烧伤害"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_2"						"[Q2] 阴风阵阵"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_2_Description"			"提高直接物品伤害。（基于基础技能的物品伤害将不会受到提高）"
@@ -131,8 +131,8 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2_property_one"		"减伤后伤害加深"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2_suffix"				"%"
 
-		"DOTA_Tooltip_modifier_duskbringer_b_d_visible"					"末日"
-		"DOTA_Tooltip_modifier_duskbringer_b_d_visible_Description"		"减伤后伤害加深，层层叠加"
+		"DOTA_Tooltip_modifier_duskbringer_rune_r_2"					"末日"
+		"DOTA_Tooltip_modifier_duskbringer_rune_r_2_Description"		"减伤后伤害加深，层层叠加"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_3"						"[R3] 灵魂掠夺"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_3_Description"			"七重梦境每击中一个敌人，夜幕使者都会提高攻击力，持续6秒。"
@@ -177,8 +177,8 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_property_two"		"魔法和纯粹伤害格挡"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_suffix_two"			"% 护甲值"
 
-		"DOTA_Tooltip_modifier_duskbringer_arcana_armor"						"虚无缥缈"
-		"DOTA_Tooltip_modifier_duskbringer_arcana_armor_Description"			"提高护甲并且护甲可以格挡魔法和纯粹伤害"
+		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_2"						"虚无缥缈"
+		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_2_Description"			"提高护甲并且护甲可以格挡魔法和纯粹伤害"
 
 		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1"						"[W3] 暗影烈焰"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1_Description"			"被暗影突袭击中的敌人会增加其受到的冥火枷debuff层数。"
@@ -192,8 +192,8 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_property_two"		"总攻击力提升"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_suffix_two"			"%"
 
-		"DOTA_Tooltip_modifier_duskbringer_arcana_damage_buff"					"灵王之王"
-		"DOTA_Tooltip_modifier_duskbringer_arcana_damage_buff_Description"		"大幅提高攻击力"
+		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_4"					"灵王之王"
+		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_4_Description"		"大幅提高攻击力"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_1"		"幽灵雕文"
