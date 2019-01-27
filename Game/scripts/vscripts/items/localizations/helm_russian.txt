@@ -69,6 +69,8 @@
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
 		"item_property_centaur_horns"				"Rigidity"
 		"property_centaur_horns_description"		"Все получаемые оглушения длятся не более 0.03 секунды. Любой получаемый урон не отнимет более @special_property1% здоровья от максимума. Получение урона из любых источников, кроме самого шлема, отключает возможность восстанавливать здоровье на @special_property2 секунды. Герой получает 1 ед. чистого урона каждые 0.03 секунды."
+		"DOTA_Tooltip_modifier_centaur_horns_debuff"				"Rigidity"
+		"DOTA_Tooltip_modifier_centaur_horns_debuff_Description"	"Невозможно восстановить здоровье"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"Hood of the Chosen"	
