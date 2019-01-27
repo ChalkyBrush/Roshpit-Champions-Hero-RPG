@@ -21,9 +21,14 @@ function jex_activate_q_lightning_lightning(event)
 	end
 	ability.damage = damage
 
+	local minimum_bolts = event.minimum_bolts_base + event.minimum_bolts_per_tech*tech_level
+
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, total_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-    if #enemies > 0 then
-        
+    local enemies_cache = enemies
+    if #enemies < minimum_bolts and #enemies > 0 then
+        for i = #enemies, minimum_bolts, 1 do
+        	table.insert(enemies, enemies_cache[RandomInt(1, #enemies_cache)])
+        end
     end 
     ability.enemies = enemies
     ability.enemy_index = 1

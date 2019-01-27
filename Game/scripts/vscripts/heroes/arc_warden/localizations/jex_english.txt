@@ -79,9 +79,11 @@
 	"DOTA_Tooltip_modifier_jex_q_cosmic_cosmic_postmitigation_Description"	"Taking increased post-mitigation damage"
 
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q"				"Wrath of Lightning"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font><br>A ring of electricity flashes around Jex. All enemies inside the area are struck by a bolt of lightning."
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font><br>A ring of electricity flashes around Jex. All enemies inside the area are struck by a bolt of lightning. If there are fewer enemies than the ability's minimum bolts, some enemies will get hit multiple times."
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_attack_damage_per_tech"	"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO BASE DAMAGE PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius_per_tech"		"<font color=\"#f4b942\">RADIUS PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_minimum_bolts_per_tech"	"<font color=\"#f4b942\">MINIMUM BOLTS PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_minimum_bolts_base"		"MINIMUM BOLTS BASE:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_base_damage"			"BASE DAMAGE:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"BASE RADIUS"		
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_agility_added_to_base_damage"	"AGILITY MULTIPLIER ADDED TO BASE DAMAGE:"

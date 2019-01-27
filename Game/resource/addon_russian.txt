@@ -6168,37 +6168,34 @@
     	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1_suffix_two"				""
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"(T1) Глиф разрушительных связей"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"(T1) Glyph of Crumbling Bonds"
 		"item_rpc_epoch_glyph_1_1_description" 				"Враги, находящиеся под действием (Q) Time Binder и [Q1] получат на @glyph_property1% больше урона из всех источников."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect"		"Crumbling Bonds"
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect_Description"	"Получаемый урон из ВСЕХ источников увеличен"
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"(T2) Глиф искаженного времени"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"(T2) Glyph of Distorted Time"
 		"item_rpc_epoch_glyph_2_1_description" 				"(E) Distortion Orb пролетает на @glyph_property1% дальше и движется на @glyph_property2% быстрее. Дополнительно, время связки врагов от (Q) Time Binder удваивается."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"(T3) Глиф разлома"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"(T3) Glyph of Cracking"
 		"item_rpc_epoch_glyph_3_1_description" 				"(W) Genesis Orb наносит увеличенный урон в размере @glyph_property1% от значения текущей маны героя, умноженного на уровень основного умения."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"(T4) Глиф вечности"
-		"item_rpc_epoch_glyph_4_1_description" 				"Атаки больше не поглощают заряды (W3) Ages of Wisdom (Бонус к интеллекту не пропадает, тогда как восстановление здоровья происходит в полной мере как раньше)."
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"(T4) Glyph of Ages"
+		"item_rpc_epoch_glyph_4_1_description" 				"Атаки больше не поглощают заряды [W3] (Бонус к интеллекту не пропадает, тогда как восстановление здоровья происходит в полной мере как раньше)."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_1"		"(T5) Глиф подмены времени"
-		"item_rpc_epoch_glyph_5_1_description" 				"С каждой базовой атакой по одной цели, урон будет возрастать на @glyph_property1%. Максимум @glyph_property2 стаков. Бонус сбрасывается, если была атакована новая цель."
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_1"		"(T5) Glyph of Substituted Time"
+		"item_rpc_epoch_glyph_5_1_description" 				"Атаки накладывают Origination на противника."
 
-		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect"		"Substituted Time"
-		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect_Description"	"Increasing attack damage while focusing the same target."
-
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"(T6) Глиф неясного течения"
-		"item_rpc_epoch_glyph_6_1_description" 				"Враги, находящиеся под действием (Q) Time Binds и [Q1] теряют @glyph_property1% своего основного урона. Дополнительно, эффекты от (Q2) Eon Channel усиливаются в 10 раз."
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"(T6) Glyph of Tangled Flow"
+		"item_rpc_epoch_glyph_6_1_description" 				"Враги, находящиеся под действием (Q) Time Binder и [Q1] теряют @glyph_property1% своего основного урона. Дополнительно, эффекты от [Q2] усиливаются в 10 раз."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect"		"Tangled Flow"
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect_Description"	"Базовый урон уменьшен"
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_1"		"(T7) Глиф измерений"
-		"item_rpc_epoch_glyph_7_1_description" 				"Пока летит (E) Distortion Orb, герой покидает это измерение, не позволяя ему ничего делать и уклоняясь от летящих заклинаний и атак."
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_1"		"(T7) Glyph of Shifting Dimensions"
+		"item_rpc_epoch_glyph_7_1_description" 				"Пока летит @Ability3, герой покидает это измерение и уклоняется от летящих заклинаний и атак."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"(Immortal) Глиф путешествия во времени"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"(Immortal) Glyph of Time Travel"
 		"item_rpc_epoch_glyph_5_a_description" 				"Позволяет герою выжить при получении смертельного урона, восстанавливая здоровье, ману и способности. Перезаряжается @glyph_property1 сек."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_cooldown"	"Time Travel Cooldown"
@@ -6240,7 +6237,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_3"				"Aion Eternus"
     	"item_property_epoch_immortal_weapon3"								"Spatial Distortion"
-    	"property_epoch_immortal_weapon3_description"						"Пока летит сфера от умения (E) @Ability3, весь входящий урон снижается на 100%. Если сфера пролетает сквозь врагов, связанных умением (Q) @Ability1, то они оглушаются на @special_property1 сек."
+    	"property_epoch_immortal_weapon3_description"						"Пока летит сфера от умения (E) @Ability3, весь входящий урон снижается на 100%. Если сфера пролетает сквозь врагов, связанных умением (Q) @Ability1, то они оглушаются на @special_property1 сек."	
 
 		//Abilities
 		"DOTA_Tooltip_ability_seismic_flare"										"Seismic Flare"
@@ -10610,7 +10607,7 @@
 	"DOTA_Tooltip_modifier_jex_q_cosmic_cosmic_postmitigation_Description"	"Получает больше пост-резистного урона"
 
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q"				"Wrath of Lightning"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"Элемент: <font color=\"#C25DFC\">Молния</font><br>Электрическое кольцо вспыхивает вокруг Jex. Все противники внутри поражаются ударом молнии."
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"Элемент: <font color=\"#5CCDF9\">Молния</font><br>Электрическое кольцо вспыхивает вокруг Jex. Все противники внутри поражаются ударом молнии."
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_attack_damage_per_tech"	"%<font color=\"#f4b942\">ПРИБАВКА К УРОНУ ОТ АТАКИ, ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius_per_tech"		"<font color=\"#f4b942\">РАДИУС ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_base_damage"			"УРОН:"
@@ -10630,7 +10627,7 @@
 	"DOTA_Tooltip_modifier_jex_lightning_cosmic_shield_Description"				"Показатель здоровья не может упасть ниже определенного способностью уровня."
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_q"				"Charged Sproutling"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"Элемент: <font color=\"#C25DFC\">Молния</font> / <font color=\"#69BC71\">Природа</font><br>Наэлектризованный воин из живого дерева вызывается на помощь Jex. Воин наследует броню и силу атаки призывателя, а его атаки с 30% шансом запустят магическую цепную молнию."
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"Элемент: <font color=\"#5CCDF9\">Молния</font> / <font color=\"#69BC71\">Природа</font><br>Наэлектризованный воин из живого дерева вызывается на помощь Jex. Воин наследует броню и силу атаки призывателя, а его атаки с 30% шансом запустят магическую цепную молнию."
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_max_targets_per_tech"	"<font color=\"#f4b942\">ЦЕЛИ ЦЕПНОЙ МОЛНИИ, ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_armor_mult_per_tech"		"%<font color=\"#f4b942\">БРОНЯ ВОИНА, МНОЖИТЕЛЬ ОТ ПРИЗЫВАТЕЛЯ, ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_attack_mult_per_tech"		"%<font color=\"#f4b942\">АТАКА ВОИНА, МНОЖИТЕЛЬ ОТ ПРИЗЫВАТЕЛЯ, ЗА ТЕХ. УРОВЕНЬ</font>:"
@@ -10663,7 +10660,7 @@
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_e_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[E4]Увеличение базового урона Nebula Bomb</font>:"	
 
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w"			"Vortex Weapon"
-	"DOTA_Tooltip_ability_jex_lightning_lightning_w_Description"	"Элемент: <font color=\"#C25DFC\">Молния</font><br>Jex активирует модуль Молнии, позволяет ему вызывать цепные молнии при атаках. Увеличивает базовый урон атаки, каждая атака будет поглощать ману. Если маны слишком мало, Vortex Weapon отключается."
+	"DOTA_Tooltip_ability_jex_lightning_lightning_w_Description"	"Элемент: <font color=\"#5CCDF9\">Молния</font><br>Jex активирует модуль Молнии, позволяет ему вызывать цепные молнии при атаках. Увеличивает базовый урон атаки, каждая атака будет поглощать ману. Если маны слишком мало, Vortex Weapon отключается."
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_jumps_per_tech"	"<font color=\"#f4b942\">ПРЫЖКИ МОЛНИЙ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_attack_dmg_pct_per_tech"	"%<font color=\"#f4b942\">УРОН АТАКИ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_damage_mult"				"УРОН СПОСОБНОСТИ ОТ СИЛЫ АТАКИ:"
@@ -10672,7 +10669,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_w_4_agility_added_to_lightning_damage"	"<font color=\"#7DFF12\">[W4] Ловкость добавляется к базовому урону способности</font>:"
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_w"				"Thunderleaf Petals"
-	"DOTA_Tooltip_ability_jex_lightning_nature_w_Description"	"Элемент: <font color=\"#C25DFC\">Молния</font> / <font color=\"#69BC71\">Природа</font><br>Выпускает потоки из электрических листьев перед Jex. Противники ненадолго парализуются при попадании, те, кто попадает под действие 5 раз подряд, получают 4 секунды иммунитета к параличу."
+	"DOTA_Tooltip_ability_jex_lightning_nature_w_Description"	"Элемент: <font color=\"#5CCDF9\">Молния</font> / <font color=\"#69BC71\">Природа</font><br>Выпускает потоки из электрических листьев перед Jex. Противники ненадолго парализуются при попадании, те, кто попадает под действие 5 раз подряд, получают 4 секунды иммунитета к параличу."
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_range_per_tech"	"<font color=\"#f4b942\">ДАЛЬНОСТЬ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_paralyze_duration_per_tech"	"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ ПАРАЛИЧА ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_damage_attack_power_per_tech"	"%<font color=\"#f4b942\">БОНУС К УРОНУ ЛИСТЬЕВ, % ОТ СИЛЫ АТАКИ</font>:"
@@ -10684,7 +10681,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Усиление Thunderleaf</font>:"
 
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w"				"Ion Cannon"
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_Description"	"Element: <font color=\"#C25DFC\">Космос</font> / <font color=\"#C25DFC\">Молния</font><br>Jex выстреливает пучком ионизированных частиц в цель. При попадании разделяется и поражает дополнительные цели. Шанс выше 100% означает многократное расщепление."
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_Description"	"Element: <font color=\"#C25DFC\">Космос</font> / <font color=\"#5CCDF9\">Молния</font><br>Jex выстреливает пучком ионизированных частиц в цель. При попадании разделяется и поражает дополнительные цели. Шанс выше 100% означает многократное расщепление."
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_damage_attack_power_per_tech"	"%<font color=\"#f4b942\">ПРИБАВКА К УРОНУ ОТ СИЛЫ АТАКИ, ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_split_chance_per_tech"			"%<font color=\"#f4b942\">ШАНС РАСЩЕПЛЕНИЯ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_cast_range"					"ДАЛЬНОСТЬ КАСТА:"
@@ -10730,7 +10727,7 @@
 	"DOTA_Tooltip_modifier_jex_warp_freecast"					"Xenon Warp freecast"
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_e"				"Thunder Blossom"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_Description"	"Элемент: <font color=\"#C25DFC\">Молния</font> / <font color=\"#69BC71\">Природа</font><br>Призывает неподвижное громовое растение. Может атаковать врагов, с 30% шансом вызовет удар молнии по ним. Jex может при помощи приказа перемещения телепортироваться к этим цветкам, либо использовать способность растения."
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_Description"	"Элемент: <font color=\"#5CCDF9\">Молния</font> / <font color=\"#69BC71\">Природа</font><br>Призывает неподвижное громовое растение. Может атаковать врагов, с 30% шансом вызовет удар молнии по ним. Jex может при помощи приказа перемещения телепортироваться к этим цветкам, либо использовать способность растения."
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_duration_per_tech"	"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ ЖИЗНИ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_armor_mult_per_tech"	"<font color=\"#f4b942\">БРОНЯ ОТ ПОКАЗАТЕЛЯ JEX ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_mult_per_tech"	"<font color=\"#f4b942\">АТАКА ОТ ПОКАЗАТЕЛЯ JEX ЗА ТЕХ. УРОВЕНЬ</font>:"
@@ -10824,7 +10821,7 @@
 	"DOTA_Tooltip_ability_jex_rune_w_3_suffix"						"x Уровень Модуля Onibi"
 
 	"DOTA_Tooltip_ability_jex_rune_w_4"								"[W4] Lightning Module IV"
-	"DOTA_Tooltip_ability_jex_rune_w_4_Description"					"Способности с элементом <font color=\"#C25DFC\">Молния</font> получают специальный бонус. Он указан внизу описания способности зеленым текстом."
+	"DOTA_Tooltip_ability_jex_rune_w_4_Description"					"Способности с элементом <font color=\"#5CCDF9\">Молния</font> получают специальный бонус. Он указан внизу описания способности зеленым текстом."
 	"DOTA_Tooltip_ability_jex_rune_w_4_property_one"				"Множитель перков"
 	"DOTA_Tooltip_ability_jex_rune_w_4_suffix"						""
 
@@ -10889,7 +10886,7 @@
 
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_2"            "Venus Atomizer"
 	"item_property_jex_immortal_weapon2"                             "Lightning Enhancement"
-	"property_jex_immortal_weapon2_description"                      "Все способности с элементом <font color=\"#C25DFC\">Молния</font> получают @special_property1 дополнительный Технологических уровня. Способности с двойным элементом <font color=\"#C25DFC\">Молния</font> получают @special_property2 дополнительных Технологических уровня."
+	"property_jex_immortal_weapon2_description"                      "Все способности с элементом <font color=\"#5CCDF9\">Молния</font> получают @special_property1 дополнительный Технологических уровня. Способности с двойным элементом <font color=\"#5CCDF9\">Молния</font> получают @special_property2 дополнительных Технологических уровня."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_3"            "Exodius Plasma Cannon"
 	"item_property_jex_immortal_weapon3"                             "Cosmic Enhancement"
@@ -10918,7 +10915,7 @@
 	"item_rpc_jex_glyph_6_1_description" 				"Galaxy Laser разрушает неуязвимость к магии, с некоторыми исключениями."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_7_1"		"Glyph of Entropy"
-	"item_rpc_jex_glyph_7_1_description" 				"Пока работает Cosmic Surge, противникам поблизости в радиусе @glyph_property2 наносится урон в @glyph_property1% от силы атаки чистым типом урона каждые 0.8 секунды. Урон считается уроном спобобности @Ability3, и имеет элементы <font color=\"#C25DFC\">Космос</font> / <font color=\"#C25DFC\">Молния</font>."
+	"item_rpc_jex_glyph_7_1_description" 				"Пока работает Cosmic Surge, противникам поблизости в радиусе @glyph_property2 наносится урон в @glyph_property1% от силы атаки чистым типом урона каждые 0.8 секунды. Урон считается уроном спобобности @Ability3, и имеет элементы <font color=\"#C25DFC\">Космос</font> / <font color=\"#5CCDF9\">Молния</font>."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"Glyph of Techno Supremacy"
 	"item_rpc_jex_glyph_5_a_description" 				"Увеличивает показатель Технологических уровней на всех способностях Jex на @glyph_property1."
@@ -11945,6 +11942,8 @@
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
 		"item_property_centaur_horns"				"Rigidity"
 		"property_centaur_horns_description"		"Все получаемые оглушения длятся не более 0.03 секунды. Любой получаемый урон не отнимет более @special_property1% здоровья от максимума. Получение урона из любых источников, кроме самого шлема, отключает возможность восстанавливать здоровье на @special_property2 секунды. Герой получает 1 ед. чистого урона каждые 0.03 секунды."
+		"DOTA_Tooltip_modifier_centaur_horns_debuff"				"Rigidity"
+		"DOTA_Tooltip_modifier_centaur_horns_debuff_Description"	"Невозможно восстановить здоровье"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"Hood of the Chosen"	

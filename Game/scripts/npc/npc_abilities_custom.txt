@@ -1295,23 +1295,33 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"radius_per_tech"		"30"
-			}		
+			}	
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_damage"				"1000 4000 10000 32000 84000 176000 298000"
+				"minimum_bolts_per_tech"		"2"
 			}	
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
+				"minimum_bolts_base"				"2"
+			}		
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"				"1000 4000 10000 32000 84000 176000 298000"
+			}	
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"radius"				"700"
 			}
-			"05"
+			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"agility_added_to_base_damage"		"20 40 60 80 100 120 140"
 			}
-			"06"
+			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"w_4_damage_increase_pct"		"10"
@@ -1329,6 +1339,9 @@
 				"base_damage"		"%base_damage"
 				"agility_added_to_base_damage"	"%agility_added_to_base_damage"
 				"w_4_damage_increase_pct"		"%w_4_damage_increase_pct"
+				"minimum_bolts_base"			"%minimum_bolts_base"
+				"minimum_bolts_per_tech"		"%minimum_bolts_per_tech"
+
 			}
 		}
 		"Modifiers"
@@ -91689,7 +91702,7 @@
 						"Target"
 						{
 							"Center"	"TARGET"
-							"Teams"		"DOTA_UNIT_TARGET_TEAM_NONE"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 							"Radius"	"250"
 						}
 						"Center"	"CASTER"
