@@ -213,6 +213,7 @@ function axe_moving_think(event)
 		target:RemoveModifierByName("modifier_warlord_axe_motion")
 		ParticleManager:DestroyParticle(target.pfx, false)
 		ParticleManager:ReleaseParticleIndex(target.pfx)
+		axe_motion_end(event)
 	else
 		target:SetAbsOrigin(target:GetAbsOrigin()+target.velocity*FrameTime())
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 120, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
@@ -229,6 +230,7 @@ function axe_moving_think(event)
 			target:RemoveModifierByName("modifier_warlord_axe_motion")
 			ParticleManager:DestroyParticle(target.pfx, false)
 			ParticleManager:ReleaseParticleIndex(target.pfx)
+			axe_motion_end(event)
 		end	
 	end
 end
