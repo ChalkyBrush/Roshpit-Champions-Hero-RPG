@@ -461,7 +461,7 @@ end
 function mountain_spirit_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	if #enemies> 0 then
 		for i = 1, #enemies, 1 do
 			if not enemies[i]:HasModifier("modifier_mountain_spirit_transfer") and not enemies[i]:HasModifier("modifier_mountain_spirit_transfer_immunity") then
