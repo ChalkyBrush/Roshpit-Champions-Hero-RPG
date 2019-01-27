@@ -69,6 +69,8 @@
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
 		"item_property_centaur_horns"				"Rigidity"
 		"property_centaur_horns_description"		"Knockback and Stuns received are capped at 0.03 seconds. Damage instances taken are capped at @special_property1% of max health. Taking damage from any source other than Centaur Horns disables all healing for @special_property2 seconds. Take 1 pure damage every 0.03 seconds."
+		"DOTA_Tooltip_modifier_centaur_horns_debuff"				"Rigidity"
+		"DOTA_Tooltip_modifier_centaur_horns_debuff_Description"	"Healing disabled"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"Hood of the Chosen"	
