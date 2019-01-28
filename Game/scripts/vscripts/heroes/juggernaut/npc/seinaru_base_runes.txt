@@ -216,7 +216,6 @@
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
 		"AbilitySpecial"
 		{
@@ -235,11 +234,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_two"			"<% SEINARU_E1_TARGETS %>"
 			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"1"
-			}
 		}
 	}
 	
@@ -253,7 +247,6 @@
 		"AbilityTextureName"	"rpc/seinaru_e_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
 		"AbilitySpecial"
 		{
