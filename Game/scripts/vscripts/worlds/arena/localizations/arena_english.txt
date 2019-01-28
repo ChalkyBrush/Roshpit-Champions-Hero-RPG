@@ -265,6 +265,9 @@
 		"DOTA_Tooltip_modifier_drill_spike_self_Description"			"Taking 100%% increased damage per stack."
 
 		"champion_league_challenger_13"								"Ursa Major"
+		"champion_league_challenger_13_a"							"Ursa Minor"
+		"champion_league_challenger_13_b"							"Ursa Minor"
+		"champion_league_challenger_13_c"							"Ursa Minor"
 		"DOTA_Tooltip_ability_arena_ursa_thunder_clap"					"Thunder Clap"
 		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_Description"		"Ursa Major claps the ground, dealing damage and slows nearby enemies."
 		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_shock_radius"		"RADIUS:"

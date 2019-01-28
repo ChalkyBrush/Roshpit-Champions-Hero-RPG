@@ -265,8 +265,11 @@
 		"DOTA_Tooltip_modifier_drill_spike_self_Description"			"Получает на 100%% больше урона за каждый заряд."
 
 		"champion_league_challenger_13"								"Большая Медведица"
+		"champion_league_challenger_13_a"							"Малая Медведица"
+		"champion_league_challenger_13_b"							"Малая Медведица"
+		"champion_league_challenger_13_c"							"Малая Медведица"
 		"DOTA_Tooltip_ability_arena_ursa_thunder_clap"					"Thunder Clap"
-		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_Description"		"Медведица бьет по земле и земедляет противников."
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_Description"		"Медведица бьет по земле и замедляет противников."
 		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_shock_radius"		"РАДИУС:"
 		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_movement_slow"	"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
 
