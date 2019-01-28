@@ -95,7 +95,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_min_health"		"生命值最小值："
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_duration"			"持续时间："
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_w_4_bonus_attack_damage_while_shield_active"		"%<font color=\"#7DFF12\">[W4] 在电子盾存在时增加杰克斯的基础攻击力</font>："
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_e_4_mana_regen_while_shield_active"			"<font color=\"#7DFF12\">[E4] 在电子盾存在时增加魔法恢复。</font>"
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_e_4_mana_regen_while_shield_active"			"<font color=\"#7DFF12\">[E4] 在电子盾存在时增加魔法恢复</font>"
 
 	"DOTA_Tooltip_modifier_jex_lightning_cosmic_shield"							"电子盾"
 	"DOTA_Tooltip_modifier_jex_lightning_cosmic_shield_Description"				"生命值不能低于 %min_health"
