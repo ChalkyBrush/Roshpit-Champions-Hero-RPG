@@ -359,8 +359,8 @@
     	"DOTA_Tooltip_modifier_deity_grand_guardian"						"Grand Guardian"
     	"DOTA_Tooltip_modifier_deity_grand_guardian_Description"			"Magic Immunity and increased armor."
 
-    	"DOTA_Tooltip_modifier_earth_deity_bowl"							"Guardian Boulder Roll"
-    	"DOTA_Tooltip_modifier_earth_deity_bowl_Description"				"Throws the guarded unit towards the target location at high speed, and unleash an earth shock at the landing point. Grand Guardian ends when this is used."
+    	"DOTA_Tooltip_ability_earth_deity_bowl"							"Guardian Boulder Roll"
+    	"DOTA_Tooltip_ability_earth_deity_bowl_Description"				"Throws the guarded unit towards the target location at high speed, and unleash an earth shock at the landing point. Grand Guardian ends when this is used."
 
   		"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3"						"[Q1] Sandstorm"
     	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_Description"			"The Earth Deity stands in place and whips up a violent sand storm. Enemies in the sandstorm have their movement speed and attack slowed, and have a chance to miss with their attacks. Drains mana and deals damage every 0.25 seconds and toggles off if mana runs out."

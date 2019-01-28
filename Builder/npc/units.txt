@@ -1633,7 +1633,7 @@
         // Movement
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
-        "MovementSpeed"             "85"        // Speed
+        "MovementSpeed"             "240"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
@@ -1742,7 +1742,7 @@
         // Movement
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
-        "MovementSpeed"             "135"        // Speed
+        "MovementSpeed"             "240"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
@@ -1856,7 +1856,7 @@
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"    
         "ShouldDoFlyHeightVisual"   "1"
-        "MovementSpeed"             "220"        // Speed
+        "MovementSpeed"             "300"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
@@ -2197,7 +2197,7 @@
         "FoodCost"  "3"
         "BuildTime" "26"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
-        "MovementSpeed" "290"
+        "MovementSpeed" "350"
         "MovementTurnRate"  "0.6"
         "StatusHealth"  "12000"
         "StatusHealthRegen" "0.25"
@@ -9522,7 +9522,7 @@
         // Movement
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
-        "MovementSpeed"             "200"        // Speed
+        "MovementSpeed"             "240"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
@@ -44684,7 +44684,7 @@
         "FoodCost"  "3"
         "BuildTime" "26"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
-        "MovementSpeed" "340"
+        "MovementSpeed" "420"
         "MovementTurnRate"  "0.4"
         "StatusHealth"  "1065000"
         "StatusHealthRegen" "0.25"
@@ -48100,7 +48100,7 @@
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"    
         "ShouldDoFlyHeightVisual"   "1"
-        "MovementSpeed"             "120"        // Speed
+        "MovementSpeed"             "300"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
