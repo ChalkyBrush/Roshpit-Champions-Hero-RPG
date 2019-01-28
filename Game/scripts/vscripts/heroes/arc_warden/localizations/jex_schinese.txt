@@ -81,7 +81,7 @@
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q"				"雷霆之怒"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"元素：<font color=\"#5CCDF9\">电</font><br>产生一个闪电环围绕在杰克斯身边。所有在区域内的敌人将会被一道闪电打击。 如果周围敌人的数量少于该技能的最低闪电数时，一些敌人将会被打击多次。"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_attack_damage_per_tech"	"%<font color=\"#f4b942\">每点科技点提供的基于攻击力的闪电伤害</font>："
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius_per_tech"		"%<font color=\"#f4b942\">每点科技点提供的范围</font>："
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius_per_tech"		"<font color=\"#f4b942\">每点科技点提供的范围</font>："
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_minimum_bolts_per_tech"	"<font color=\"#f4b942\">每点科技点提供的最低闪电数MINIMUM BOLTS PER TECH</font>："
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_minimum_bolts_base"		"基础最低闪电数："
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_base_damage"			"基础伤害："
