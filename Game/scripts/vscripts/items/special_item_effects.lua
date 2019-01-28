@@ -5664,6 +5664,10 @@ function gravelfoot_think(event)
 				hero:RemoveModifierByName(modifier:GetName())
 				procced = true
 				break
+			elseif not modifierMaker then
+				hero:RemoveModifierByName(modifier:GetName())
+				procced = true
+				break
 			end
 		end
 	end				
