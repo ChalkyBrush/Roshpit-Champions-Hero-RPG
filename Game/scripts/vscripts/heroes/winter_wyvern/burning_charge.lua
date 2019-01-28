@@ -34,6 +34,9 @@ function burning_charge_start(event)
 	ability.current_fire_thinker = fireThinker
 	arctic_burn:ApplyDataDrivenModifier(caster, fireThinker, "modifier_arctic_burn_fire_thinker", {duration = fireDuration})
 	ability.fireDuration = fireDuration
+	Timers:CreateTimer(fireDuration, function()
+			UTIL_Remove(fireThinker)
+	end)
 end
 
 function burning_charge_think(event)

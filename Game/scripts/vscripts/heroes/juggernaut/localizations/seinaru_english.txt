@@ -79,7 +79,7 @@
 		"DOTA_Tooltip_ability_seinaru_odachi_leap_damage"				"DAMAGE/SLICE:"
 
     	"DOTA_Tooltip_ability_seinaru_rune_e_1"						"[E1] Eagle Strike"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_1_Description"			"Enemies hit by @Ability3 are marked for Eagle Strike. Upon landing, Seinaru storms on his targets with a flurry of rapid blade attacks. During Eagle Strike, Seinaru is invincible."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_Description"			"Enemies hit by @Ability3 are marked for Eagle Strike. Upon landing, Seinaru storms on his targets with a flurry of rapid attacks. During Eagle Strike, Seinaru is invincible."
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_property_one"			"Increased Attack Damage"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_property_two"			"Max Targets"

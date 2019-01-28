@@ -198,17 +198,19 @@ function arctic_burn_thinker(event)
 	else
 		enemies = FindUnitsInRadius( caster:GetTeamNumber(), fire_thinker:GetAbsOrigin(), nil, fire_thinker.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	end
+	local q_1_level = caster:GetRuneValue("q", 1)
+	local q_4_level = caster:GetRuneValue("q", 4)
 	if #enemies > 0 then	
 		for i = 1, #enemies, 1 do
 			local enemy = enemies[i]
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_DRAGON, RPC_ELEMENT_FIRE)
-			if ability.q_1_level > 0 then
+			if q_1_level > 0 then
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_arctic_burn_slow", {duration = 0.5})
-				enemy:SetModifierStackCount("modifier_arctic_burn_slow", caster, ability.q_1_level)
+				enemy:SetModifierStackCount("modifier_arctic_burn_slow", caster, q_1_level)
 			end
-			if ability.q_4_level > 0 then
+			if q_4_level > 0 then
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_arctic_burn_casttime", {duration = 0.5})
-				enemy:SetModifierStackCount("modifier_arctic_burn_casttime", caster, ability.q_1_level)
+				enemy:SetModifierStackCount("modifier_arctic_burn_casttime", caster, q_4_level)
 			end
 		end
 	end
