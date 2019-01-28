@@ -60,6 +60,7 @@ function SaveCharactersLoaded(msg){
 	$('#save_container_premium4').RemoveAndDeleteChildren();
 	$('#save_container_premium5').RemoveAndDeleteChildren();
 	$('#save_container_premium6').RemoveAndDeleteChildren();
+	$('#save_container_premium7').RemoveAndDeleteChildren();
 	if (msg.message=="save_success"){
 		$('#oracle_content_label').text = $.Localize('#saveload_save_successful')
 		$('#save_extras_label').text = $.Localize('#saveload_save_successful')
@@ -169,6 +170,19 @@ function SaveCharactersLoaded(msg){
 	var parentPanel6 = $('#save_container_premium6')
 	for (var i = 29; i <= 32; i++) {
 		var newChildPanel = $.CreatePanel( "Panel", parentPanel6, "saved_character"+i );
+		newChildPanel.unlocked = premium
+		newChildPanel.currentLevel = msg.currentLevel
+		newChildPanel.heroName = result.characters[i].heroName;
+		newChildPanel.slot = i
+		newChildPanel.heroLevel = result.characters[i].level
+		newChildPanel.heroSlot = msg.heroSlot
+		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/save_load/save_slot.xml", false, false );	
+		var playerID = Game.GetLocalPlayerID();
+		
+	}
+	var parentPanel7 = $('#save_container_premium7')
+	for (var i = 33; i <= 36; i++) {
+		var newChildPanel = $.CreatePanel( "Panel", parentPanel7, "saved_character"+i );
 		newChildPanel.unlocked = premium
 		newChildPanel.currentLevel = msg.currentLevel
 		newChildPanel.heroName = result.characters[i].heroName;

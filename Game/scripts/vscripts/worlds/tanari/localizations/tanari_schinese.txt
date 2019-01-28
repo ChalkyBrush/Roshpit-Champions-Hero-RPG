@@ -767,7 +767,7 @@
 
 		 "water_temple_stone_fish"						"石鱼"
 
-		 "DOTA_Tooltip_ability_rock_fish_rip_tide"				"撕裂潮汐"
+		 "DOTA_Tooltip_ability_rock_fish_rip_tide"				"激流"
 
 		 "water_temple_stone_priestess"						"鱼人公主"
 

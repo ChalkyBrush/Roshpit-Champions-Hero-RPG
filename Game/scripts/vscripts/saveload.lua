@@ -116,7 +116,7 @@ end
 
 function SaveLoad:GetCharacterDataFromJSON(resultTable)
 	local characters = {}
-	local MAX_SAVE_SLOTS = 32
+	local MAX_SAVE_SLOTS = 36
 	for i = 1, MAX_SAVE_SLOTS, 1 do
 		characters[i] = {}
 	end
@@ -484,6 +484,7 @@ function SaveLoad:LoadCharacter(msg)
 	local player = PlayerResource:GetPlayer(playerID)
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	hero.loadEnabled = 0
+	hero.loading = true
 	local slot = msg.slot
 	local url = ROSHPIT_URL.."/champions/loadCharacter?"
 	url = url.."steam_id="..steamID
@@ -516,6 +517,8 @@ function SaveLoad:LoadCharacter(msg)
 		Timers:CreateTimer(5, function()
 			Statistics.dispatch('hero:oracle:load')
 		end)
+		player.hero_loading = false
+		hero.loading = false
 	end )
 end
 
@@ -1387,6 +1390,7 @@ function SaveLoad:LoadHeroNewSelect(msg)
 	local playerID = msg.playerID
 	local player = PlayerResource:GetPlayer(playerID)
 	SaveLoad:CreateNewHero(msg)
+	player.hero_loading = true
 	Timers:CreateTimer(3.0, function()
 		if not player.heroLoaded then
 			player.heroLoaded = true
@@ -1568,6 +1572,7 @@ function SaveLoad:SaveJex(hero)
 	url = url.."steam_id="..steamID
 	url = url.."&championcharacter_id="..hero.roshpitID
 	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+	url = url.."&tony_key="..GetDedicatedServerKey("tony")
 	for i = 1, #elements_table, 1 do
 		local element1 = elements_table[i]
 		-- local other_elements = get_other_elements(onibi, element1)

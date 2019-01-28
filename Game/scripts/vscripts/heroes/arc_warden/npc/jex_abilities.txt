@@ -372,7 +372,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1"
+		"AbilityCooldown"				"0.1"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -394,7 +394,32 @@
 		}
 		"Modifiers"
 		{
-
+			"modifier_onibi_master_thinker"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+						"Function"		"onibi_master_rune_thinker"
+					}
+				}
+			}
+			"modifier_onibi_all_attributes"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_onibi_base_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "150"
+				}
+			}
 		}
 	}
 
@@ -531,32 +556,6 @@
 		}
 		"Modifiers"
 		{
-			"modifier_onibi_master_thinker"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"ThinkInterval"  "1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-						"Function"		"onibi_master_rune_thinker"
-					}
-				}
-			}
-			"modifier_onibi_all_attributes"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_onibi_base_attack_damage"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% JEX_RUNE_ROW_1_VALUE %>"
-				}
-			}
 		}
 	}
 
@@ -797,7 +796,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 5000 25000 75000 150000 2500000 500000"
+				"damage"				"1000 5000 25000 75000 150000 250000 500000"
 			}
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_ATTACK2"
@@ -884,7 +883,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 5000 25000 75000 150000 2500000 500000"
+				"damage"				"1000 5000 25000 75000 150000 250000 500000"
 			}
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_ATTACK2"
@@ -973,7 +972,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 5000 25000 75000 150000 2500000 500000"
+				"damage"				"1000 5000 25000 75000 150000 250000 500000"
 			}
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_ATTACK2"
@@ -1287,26 +1286,36 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"radius_per_tech"		"30"
-			}		
+			}	
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_damage"				"1000 4000 10000 32000 84000 176000 298000"
+				"minimum_bolts_per_tech"		"2"
 			}	
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
+				"minimum_bolts_base"				"2"
+			}		
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"				"1000 4000 10000 32000 84000 176000 298000"
+			}	
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"radius"				"700"
 			}
-			"05"
+			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"agility_added_to_base_damage"		"20 40 60 80 100 120 140"
 			}
-			"06"
+			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"q_4_damage_increase_pct"		"10"
+				"w_4_damage_increase_pct"		"10"
 			}
 		}
 		"OnSpellStart"
@@ -1320,7 +1329,10 @@
 				"radius_per_tech"	"%radius_per_tech"
 				"base_damage"		"%base_damage"
 				"agility_added_to_base_damage"	"%agility_added_to_base_damage"
-				"q_4_damage_increase_pct"		"%q_4_damage_increase_pct"
+				"w_4_damage_increase_pct"		"%w_4_damage_increase_pct"
+				"minimum_bolts_base"			"%minimum_bolts_base"
+				"minimum_bolts_per_tech"		"%minimum_bolts_per_tech"
+
 			}
 		}
 		"Modifiers"
@@ -1546,7 +1558,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"e_4_lightning_damage_increase"				"6"
+				"w_4_lightning_damage_increase"				"6"
 			}	
 		}
 		"OnSpellStart"
@@ -1582,7 +1594,7 @@
 						"ScriptFile"	"heroes/arc_warden/abilities/q_lightning_nature.lua"
 						"Function"		"jex_thundershroom_attack_land"
 						"target"		"TARGET"
-						"e_4_lightning_damage_increase"	"%e_4_lightning_damage_increase"
+						"w_4_lightning_damage_increase"	"%w_4_lightning_damage_increase"
 					}
 				}
 			}
@@ -1665,7 +1677,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor"				"200 400 1000 2000 4000 9000"
+				"armor"				"200 400 1000 2000 3000 6000 9000"
 			}	
 			"05"
 			{
@@ -2571,7 +2583,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/arc_warden/abilities/w_nature_cosmic.lua"
-						"Function"		"jex_lightning_lightning_toggled_off"
+						"Function"		"jex_nature_cosmic_toggled_off"
 					}
 				}
 				"ThinkInterval"  "1.0"
@@ -2600,6 +2612,14 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_BONUS" "%q_4_max_mana_while_toggled_on"
+				}
+			}
+			"modifier_jex_nature_cosmic_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
 			}
 		}

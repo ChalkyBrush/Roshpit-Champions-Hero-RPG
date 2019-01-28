@@ -28,7 +28,6 @@ function jex_cosmic_nature_take_damage(event)
 	if e_4_level > 0 then
 		local bonus_duration = 5
 		local luck = RandomInt(1, 200)
-		luck = -2
 		if luck < e_4_level then
 			local already_modifier = caster:FindModifierByName("modifier_jex_magic_immunity")
 			local new_duration = already_modifier:GetDuration() + 0.5

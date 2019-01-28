@@ -4942,7 +4942,7 @@
 "tooltip_duskbringer_Q"											"Whirling Flail and Duskfire"
 
 		"DOTA_Tooltip_ability_whirling_flail"							"Whirling Flail"
-		"DOTA_Tooltip_ability_whirling_flail_Description"				"Element: <font color=\"#DDDDDD\">Normal</font><br>Duskbringer rapidly swings his weapon in circles, knocking back all nearby enemies. Can be used immediately after using Specter Rush to attack while moving."
+		"DOTA_Tooltip_ability_whirling_flail_Description"				"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#9ACCD1\">Ghost</font><br>Duskbringer rapidly swings his weapon in circles, knocking back all nearby enemies. Can be used immediately after using Specter Rush to attack while moving."
 		"DOTA_Tooltip_ability_whirling_flail_Lore"						""
 		"DOTA_Tooltip_ability_whirling_flail_damage"					"DAMAGE % OF ATTACK DAMAGE/SWING"
 		"DOTA_Tooltip_ability_whirling_flail_knockback"					"KNOCKBACK DISTANCE"		
@@ -4957,8 +4957,8 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_two"		"Bonus Damage from Agility"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix_two"			"x"
 		
-		"DOTA_Tooltip_modifier_dusk_fire_flail"				"Duskfire Flail"
-		"DOTA_Tooltip_modifier_dusk_fire_flail_Description"	"Taking ghastly burn damage"
+		"DOTA_Tooltip_modifier_duskbringer_rune_q_1"				"Duskfire Flail"
+		"DOTA_Tooltip_modifier_duskbringer_rune_q_1_Description"	"Taking ghastly burn damage"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_2"						"[Q2] Polterbite"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_2_Description"			"Increases damage dealt directly by items"
@@ -5025,14 +5025,14 @@
 		"DOTA_Tooltip_modifier_charging_Description"					"Charging forward with no collision"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_e_1"						"[E1] Phantom Pace"
-    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_Description"			"Duskbringer gains stacks of attack damage and armor as long as he remains in motion. Stacks won't time out while you channel spells. Effect lingers for 1 second."
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_Description"			"Duskbringer gains stacks of attack damage and armor as long as he remains in motion. Stacks won't time out while you channel spells. Effect lingers for <font color='#ccff66'>1</font> second."
     	"DOTA_Tooltip_ability_duskbringer_rune_e_1_property_one"		"Damage"
     	"DOTA_Tooltip_ability_duskbringer_rune_e_1_suffix"				""		
     	"DOTA_Tooltip_ability_duskbringer_rune_e_1_property_two"		"Armor"
     	"DOTA_Tooltip_ability_duskbringer_rune_e_1_suffix_two"			"" 
 
 		"DOTA_Tooltip_modifier_duskbringer_rune_e_1_effect"							"Phantom Pace"
-		"DOTA_Tooltip_modifier_duskbringer_rune_e_1_effect_Description"				"Movement increases Duskbringer's damage and armor. Stacks are lost when movement ceases for 4 seconds."
+		"DOTA_Tooltip_modifier_duskbringer_rune_e_1_effect_Description"				"Movement increases Duskbringer's damage and armor. Stacks are lost when movement ceases for <font color='#ccff66'>1</font> seconds."
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_e_2"						"[E2] Ghost Armor"
 		"DOTA_Tooltip_ability_duskbringer_rune_e_2_Description"			"Casting specter rush applies a shield that absorbs up to 6 instances of damage."
@@ -5059,7 +5059,7 @@
 		"DOTA_Tooltip_modifier_duskbringer_rune_e_4_visible_Description"	"Increased Attack Damage"
 		
 		"DOTA_Tooltip_ability_seven_visions"							"Seven Visions"
-		"DOTA_Tooltip_ability_seven_visions_Description"				"Element: <font color=\"#9ACCD1\">Ghost</font> / <font color=\"#DDDDDD\">Normal</font><br>Duskbringer teleports to his enemies and attacks them from any angle, dealing bonus damage and stunning them. Caster has magic and physical immunity for the duration."
+		"DOTA_Tooltip_ability_seven_visions_Description"				"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#9ACCD1\">Ghost</font><br>Duskbringer teleports to his enemies and attacks them from any angle, dealing bonus damage and stunning them. Caster has magic and physical immunity for the duration."
 		"DOTA_Tooltip_ability_seven_visions_Lore"						""
 		"DOTA_Tooltip_ability_seven_visions_attacks"					"ATTACKS"
 		"DOTA_Tooltip_ability_seven_visions_bonus_damage"				"BONUS ATTACK DAMAGE"
@@ -5069,20 +5069,20 @@
 		"DOTA_Tooltip_modifier_seven_visions_striking_Description"		"Silenced, Magical and Physical immunity. Ready to strike a target."
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_1"						"[R1] Permeating Assault"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_1_Description"			"Each attack during Seven Visions also unleashes a 700-radius blast, based on the total pre-mitigation damage dealt by the Seven Visions strike."
+		"DOTA_Tooltip_ability_duskbringer_rune_r_1_Description"			"Each attack during Seven Visions also unleashes a <font color='#ccff66'>700</font>-radius blast, based on the total pre-mitigation damage dealt by the Seven Visions strike."
 		"DOTA_Tooltip_ability_duskbringer_rune_r_1_property_one"		"Damage from Seven Visions"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_1_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2"						"[R2] Doom"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_2_Description"			"Enemies struck by Seven Visions receive a debuff that increases all post-mitigation damage taken. This debuff stacks if a target is hit multiple times, and lasts 5 seconds. Max 20 stacks."
+		"DOTA_Tooltip_ability_duskbringer_rune_r_2_Description"			"Enemies struck by Seven Visions receive a debuff that increases all post-mitigation damage taken. This debuff stacks if a target is hit multiple times, and lasts <font color='#ccff66'>5</font> seconds. Max <font color='#ccff66'>20</font> stacks."
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2_property_one"		"Post-mitigation damage bonus"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2_suffix"				"%"
 
-		"DOTA_Tooltip_modifier_duskbringer_b_d_visible"					"Doom"
-		"DOTA_Tooltip_modifier_duskbringer_b_d_visible_Description"		"Taking increased post-mitigation damage from each stack."
+		"DOTA_Tooltip_modifier_duskbringer_rune_r_2_visible"					"Doom"
+		"DOTA_Tooltip_modifier_duskbringer_rune_r_2_visible_Description"		"Taking increased post-mitigation damage from each stack."
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_3"						"[R3] Spirit Plunder"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_3_Description"			"Each enemy struck by Seven Visions increases Duskbringer's attack damage for 6 seconds."
+		"DOTA_Tooltip_ability_duskbringer_rune_r_3_Description"			"Each enemy struck by Seven Visions increases Duskbringer's attack damage for <font color='#ccff66'>6</font> seconds."
 		"DOTA_Tooltip_ability_duskbringer_rune_r_3_property_one"		"Damage increase per strike"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_3_suffix"				"%"
 		
@@ -5118,14 +5118,14 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1_suffix"				"% of attack power"
 
 		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1"						"[W2] Ethereal Void"
-		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_Description"			"For 6 seconds after landing from a Shadow Slam, Duskbringer gains bonus armor, and a portion of his armor value will also grant resistance to Magical and Pure damage"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_Description"			"For <font color='#ccff66'>6</font> seconds after landing from a Shadow Slam, Duskbringer gains bonus armor, and a portion of his armor value will also grant resistance to Magical and Pure damage"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_property_one"		"Armor Bonus"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_suffix"				""
 		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_property_two"		"Armor Considered for Magic and Pure damage"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_suffix_two"			"%"
 
-		"DOTA_Tooltip_modifier_duskbringer_arcana_armor"						"Ethereal Void"
-		"DOTA_Tooltip_modifier_duskbringer_arcana_armor_Description"			"Increased armor, and armor is considered for magic and pure damage."
+		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_2"						"Ethereal Void"
+		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_2_Description"			"Increased armor, and armor is considered for magic and pure damage."
 
 		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1"						"[W3] Shadowflame"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1_Description"			"Enemies hit by Shadow Slam may gain stacks of Duskfire. A chance greater than 100% means multiple stacks can be applied."
@@ -5133,21 +5133,21 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1_suffix"				"%"
 
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1"						"[W4] Rise of the Phantom Lord"
-		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_Description"			"After landing from a Shadow Slam, Duskbringer works himself into a rage, charging up for 0.8 seconds to gain massive base and bonus attack damage for 18 seconds. This only occurs if the buff isn't already active."
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_Description"			"After landing from a Shadow Slam, Duskbringer works himself into a rage, charging up for 0.8 seconds to gain massive base and bonus attack damage for <font color='#ccff66'>18</font> seconds. This only occurs if the buff isn't already active."
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_property_one"		"Base Attack Damage"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_suffix"				""
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_property_two"		"Attack Damage Increase"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_suffix_two"			"%"
 
-		"DOTA_Tooltip_modifier_duskbringer_arcana_damage_buff"					"Rise of the Phantom Lord"
-		"DOTA_Tooltip_modifier_duskbringer_arcana_damage_buff_Description"		"Greatly increased attack power"
+		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_4"					"Rise of the Phantom Lord"
+		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_4_Description"		"Greatly increased attack power"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_1"		"Glyph of Dying Breath"
 		"item_rpc_duskbringer_glyph_1_1_description" 				"When entering Wraith Form, the cooldowns of all abilities are refreshed. (This also affects allies.)"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_1"		"Glyph of Scathing Phantoms"
-		"item_rpc_duskbringer_glyph_2_1_description" 				"Enemies trapped by Ghost Hallow gain 3 Duskfire stacks each second."
+		"item_rpc_duskbringer_glyph_2_1_description" 				"Enemies trapped by Ghost Hallow gain @glyph_property1 Duskfire stacks each second."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_1"		"Glyph of Lingering"
 		"item_rpc_duskbringer_glyph_3_1_description" 				"Phantom Pace stacks time out in 2 seconds instead of 1 second."
@@ -5168,20 +5168,20 @@
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"Glyph of Eerie Silence"
 		"item_rpc_duskbringer_glyph_1_2_description" 				"Health regeneration is increased by @glyph_property1% of maximum health while silenced, and for @glyph_property2 seconds afterward."
 
-		"DOTA_Tooltip_modifier_duskbringet_t12_heal_regen"				"Eerie Silence"
-		"DOTA_Tooltip_modifier_duskbringet_t12_heal_regen_Description"	"Regenerates 10% of Max HP per second."
+		"DOTA_Tooltip_modifier_duskbringer_glyph_1_2_effect"				"Eerie Silence"
+		"DOTA_Tooltip_modifier_duskbringer_glyph_1_2_effect_Description"	"Regenerates 10% of Max HP per second."
 		
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"Glyph of Blank Combustion"
 		"item_rpc_duskbringer_glyph_2_2_description" 				"Attacking applies @glyph_property1 stacks of Duskfire to enemies, instead of just 1."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"Glyph of Churning"
-		"item_rpc_duskbringer_glyph_3_2_description" 				"Decreases the interval between @Ability1 damage instances by @glyph_property1, but also decreases its base damage by @glyph_property2%"
+		"item_rpc_duskbringer_glyph_3_2_description" 				"Decreases the interval between @Ability1 damage instances by @glyph_property1%, but also decreases its base damage by @glyph_property2%"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"Glyph of the Journey"
 		"item_rpc_duskbringer_glyph_4_2_description" 				"While moving, gain stacks of @glyph_property1% damage reduction, to a maximum of @glyph_property2 stacks. These stacks last as long as your Phantom Pace stacks, but all stacks are lost at once instead of one at a time."
 		
-		"DOTA_Tooltip_modifier_duskbringer_t42_visible"					"Glyph of Journey"
-		"DOTA_Tooltip_modifier_duskbringer_t42_visible_Description"		"Damage reduction, 30 stacks at max."
+		"DOTA_Tooltip_modifier_duskbringer_glyph_4_2_visible"					"Glyph of Journey"
+		"DOTA_Tooltip_modifier_duskbringer_glyph_4_2_visible_Description"		"Damage reduction, 30 stacks at max."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_2"		"Glyph of Shared Fate"
 		"item_rpc_duskbringer_glyph_5_2_description" 				"Enemies within @glyph_property1 range of the primary target of your attacks will also gain stacks of Duskfire."
@@ -6834,13 +6834,13 @@
 	"DOTA_Tooltip_ability_onibi_cosmic_2_Description"		"Enables the activation of Cosmic abilities. Enemies who die near Jex will leave behind galaxy mushroom for harvesting."
 
 	"DOTA_Tooltip_ability_onibi_q"				"Q Activator"
-	"DOTA_Tooltip_ability_onibi_q_Description"	"Module Activation will apply to Jex's Q ability."
+	"DOTA_Tooltip_ability_onibi_q_Description"	"Onibi synthesizes his elemental modules and grants a new [Q] ability for Jex."
 
 	"DOTA_Tooltip_ability_onibi_w"				"W Activator"
-	"DOTA_Tooltip_ability_onibi_w_Description"	"Module Activation will apply to Jex's W ability."
+	"DOTA_Tooltip_ability_onibi_w_Description"	"Onibi synthesizes his elemental modules and grants a new [W] ability for Jex."
 
 	"DOTA_Tooltip_ability_onibi_e"				"E Activator"
-	"DOTA_Tooltip_ability_onibi_e_Description"	"Module Activation will apply to Jex's E ability."
+	"DOTA_Tooltip_ability_onibi_e_Description"	"Onibi synthesizes his elemental modules and grants a new [E] ability for Jex."
 
 	"DOTA_Tooltip_ability_onibi_invoke"			"Module Activation"
 	"DOTA_Tooltip_ability_onibi_invoke_Description"	"Onibi synthesizes his elemental modules and grants a new ability for Jex."
@@ -6885,24 +6885,26 @@
 	"DOTA_Tooltip_modifier_jex_q_cosmic_cosmic_postmitigation_Description"	"Taking increased post-mitigation damage"
 
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q"				"Wrath of Lightning"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font><br>A ring of electricity flashes around Jex. All enemies inside the area are struck by a bolt of lightning."
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_attack_damage_per_tech"	"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO BASE DAMGAGE PER TECH</font>:"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius_per_tech"		"%<font color=\"#f4b942\">RADIUS PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font><br>A ring of electricity flashes around Jex. All enemies inside the area are struck by a bolt of lightning. If there are fewer enemies than the ability's minimum bolts, some enemies will get hit multiple times."
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_attack_damage_per_tech"	"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO BASE DAMAGE PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius_per_tech"		"<font color=\"#f4b942\">RADIUS PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_minimum_bolts_per_tech"	"<font color=\"#f4b942\">MINIMUM BOLTS PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_minimum_bolts_base"		"MINIMUM BOLTS BASE:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_base_damage"			"BASE DAMAGE:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"BASE RADIUS"		
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_agility_added_to_base_damage"	"AGILITY MULTIPLIER ADDED TO BASE DAMAGE:"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_q_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[Q4] Lightning base damage increase</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_q_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Lightning base damage increase</font>:"
 
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q"				"Electron Shield"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_Description"	"Quantum electric particles form a barrier around Jex that makes his health unable to drop below a minimum value. Each time the shield is hit, 1 stack is removed."
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_stacks_per_tech"	"<font color=\"#f4b942\">STACKS PER TECH LEVEL</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_min_health"		"MINIMUM HEALTH:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_duration"			"DURATION:"
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_w_4_bonus_attack_damage_while_shield_active"		"%<font color=\"#7DFF12\">[W4] Increased Base Attack Damage while Electron Shield is active</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_w_4_bonus_attack_damage_while_shield_active"		"<font color=\"#7DFF12\">[W4] Increased Base Attack Damage while Electron Shield is active</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_e_4_mana_regen_while_shield_active"			"<font color=\"#7DFF12\">[E4] Increased Mana Regen while Electron Shield is active</font>:"
 
 	"DOTA_Tooltip_modifier_jex_lightning_cosmic_shield"							"Electron Shield"
-	"DOTA_Tooltip_modifier_jex_lightning_cosmic_shield_Description"				"Health can't fall below %min_health"
+	"DOTA_Tooltip_modifier_jex_lightning_cosmic_shield_Description"				"Health can't fall below %%min_health"
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_q"				"Charged Sproutling"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>An electrified sproutling warrior is summoned to fight for Jex. The minion inherits armor and attack damage from their summoner, and their attacks have a 30% chance to trigger a chain lightning effect that deals magic damage based on attack power."
@@ -6913,7 +6915,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_duration"					"SPROUTLING DURATION"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_damage_pct_attack_power" "% CHAIN LIGHTNING DAMAGE % OF ATTACK POWER:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_q_4_additional_duration"	"<font color=\"#7DFF12\">[Q4] Additional sproutling life duration in seconds</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_e_4_lightning_damage_increase"	"%<font color=\"#7DFF12\">[E4] Additional sproutling chain lightning damage</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_e_4_lightning_damage_increase"	"%<font color=\"#7DFF12\">[W4] Additional sproutling chain lightning damage</font>:"
 
 	"DOTA_Tooltip_ability_jex_nature_nature_q"					"Oak Infusion"
 	"DOTA_Tooltip_ability_jex_nature_nature_q_Description"		"Jex binds his body with ancient oak particles, increasing his armor and health regen. Enemies who damage Jex while the shield is active are stunned for a short duration."
@@ -6944,7 +6946,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_damage_mult"				"LIGHTNING DAMAGE AS % OF ATTACK POWER:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_mana_cost"					"MANA COST:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_attack_speed"				"BONUS ATTACK SPEED:"
-	"DOTA_Tooltip_ability_jex_lightning_lightning_w_w_4_agility_added_to_lightning_damage"	"<font color=\"#7DFF12\">[E4] Agility added to chain lightning base damage</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_lightning_w_w_4_agility_added_to_lightning_damage"	"<font color=\"#7DFF12\">[W4] Agility added to chain lightning base damage</font>:"
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_w"				"Thunderleaf Petals"
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>Unleashes a quick spray of electrified Thunderleaf Petals directly in front of jex. Enemies hit by the leaves are paralyzed for a short duration. Enemies who have been paralyzed 5 times in a row become immune for 4 seconds."
@@ -6966,12 +6968,12 @@
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_strength_added_to_damage"		"STRENGTH MULTIPLE ADDED TO BASE DAMAGE:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_base_damage"					"BASE DAMAGE:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Ion Cannon damage increase</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_e_4_split_search_radius"		"%<font color=\"#7DFF12\">[E4] Split target search radius increase</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_e_4_split_search_radius"		"<font color=\"#7DFF12\">[E4] Split target search radius increase</font>:"
 
 	"DOTA_Tooltip_ability_jex_nature_nature_w"					"Root Weaver"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_Description"		"Element: <font color=\"#69BC71\">Nature</font><br>Creates a small area of enhanced fertility that causes roots to grow on enemies who enter on a 0.5 second delay. Rooted enemies have reduced attack range and take damage every 0.5 seconds."
 	"DOTA_Tooltip_ability_jex_nature_nature_w_root_per_tech_level"	"<font color=\"#f4b942\">ROOT DURATION PER TECH LEVEL</font>:"
-	"DOTA_Tooltip_ability_jex_nature_nature_w_attack_power_added_to_tick_per_tech"	"<font color=\"#f4b942\">ATTACK POWER ADDED TO DAMAGE PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_nature_nature_w_attack_power_added_to_tick_per_tech"	"%<font color=\"#f4b942\">ATTACK POWER ADDED TO DAMAGE PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_radius"							"RADIUS:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_base_root_duration"				"BASE ROOT DURATION:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_all_attributes_added_to_damage"	"ALL ATTRIBUTES MULTIPLE ADDED TO ROOT DAMAGE:"
@@ -7005,7 +7007,7 @@
 	"DOTA_Tooltip_modifier_jex_warp_freecast"					"Xenon Warp freecast"
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_e"				"Thunder Blossom"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>Summons an immobile Thunder Blossom at the target location. Blossoms can attack enemies and their attacks have a 30% chance to strike the enemy with a lightning bolt. Jex can right-click on a ThunderBlossom to teleport to it on a 0.3 second delay."
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>Summons an immobile Thunder Blossom at the target location. Blossoms can attack enemies and their attacks have a 30% chance to strike the enemy with a lightning bolt. Jex can be ordered to attack a ThunderBlossom to teleport to it on a 0.3 second delay."
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_duration_per_tech"	"<font color=\"#f4b942\">LIFE DURATION PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_armor_mult_per_tech"	"<font color=\"#f4b942\">ARMOR AS MULTIPLE OF JEX'S PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_mult_per_tech"	"<font color=\"#f4b942\">ATTACK DAMAGE AS MULTIPLE OF JEX'S PER TECH</font>:"
@@ -7015,7 +7017,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_range_base"		"BASE ATTACK RANGE:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_cast_range"			"CAST RANGE:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_q_4_blossom_magic_resistance"	"<font color=\"#7DFF12\">[Q4] Blossom Magic Resistance</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[E4] Lightning bolt damage increase</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Lightning bolt damage increase</font>:"
 
 	"DOTA_Tooltip_ability_thunder_blossom_teleport"				"Lightning Tract"
 	"DOTA_Tooltip_ability_thunder_blossom_teleport_Description"	"Grabs Jex and pulls him toward the Thunder Blossom. Jex can right click on a thunder blossom to activate this ability automatically."
@@ -7050,7 +7052,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_movespeed_min_base"			"MINIMUM MOVESPEED BASE:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_duration_base"					"SURGE DURATION BASE:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_w_4_cooldown_reduce"			"<font color=\"#7DFF12\">[W4] Cooldown Reduction</font>:"	
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_e_4_cosmic_damage_increase"	"<font color=\"#7DFF12\">[E4] Cosmic Damage bonus while Cosmic Surge Active</font>:"	
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_e_e_4_cosmic_damage_increase"	"%<font color=\"#7DFF12\">[E4] Cosmic Damage bonus while Cosmic Surge Active</font>:"	
 
 	"DOTA_Tooltip_modifier_jex_cosmic_surge"			"Cosmic Surge"
 	"DOTA_Tooltip_modifier_jex_cosmic_surge_Description"	"Enforced Minimum Movespeed"
@@ -9780,6 +9782,8 @@
     	"DOTA_Tooltip_modifier_trapper_rune_e_2_effect_Description"	"Repairing Wounds"
 		
 		"lanaya_decoy"												"Decoy"
+		"DOTA_Tooltip_ability_lanaya_decoy_passive"					"Decoy"
+		"DOTA_Tooltip_ability_lanaya_decoy_passive_Description"		"Distracts enemies."
 		
 		"DOTA_Tooltip_ability_trapper_rune_e_3"						"[E3] Psi Blades"
     	"DOTA_Tooltip_ability_trapper_rune_e_3_Description"			"Trapper's attacks travel through targets and hit enemies directly behind. Also increases attack range."
@@ -11239,7 +11243,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard2"							"Armor of the Violet Guard LV2"
 		"item_property_violet_guard_armor2"			"Violet Conqueror"
-		"property_violet_guard_armor_description2"	"Increases the damage of @Ability1 by 350%. 0.1% of The base ability damage of @Ability1 reduces the target's armor by 1 for 6 seconds. Cannot reduce a target's armor below 0."
+		"property_violet_guard_armor_description2"	"Increases the damage of @Ability1 by 350%. 0.1% of the base ability damage of @Ability1 reduces the target's armor by 1 for 6 seconds. Cannot reduce a target's armor below 0."
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Reduced armor."
 		
@@ -11943,6 +11947,8 @@
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
 		"item_property_centaur_horns"				"Rigidity"
 		"property_centaur_horns_description"		"Knockback and Stuns received are capped at 0.03 seconds. Damage instances taken are capped at @special_property1% of max health. Taking damage from any source other than Centaur Horns disables all healing for @special_property2 seconds. Take 1 pure damage every 0.03 seconds."
+		"DOTA_Tooltip_modifier_centaur_horns_debuff"				"Rigidity"
+		"DOTA_Tooltip_modifier_centaur_horns_debuff_Description"	"Healing disabled"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"Hood of the Chosen"	
@@ -11979,7 +11985,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
 		"item_property_mugato"						"Curse of Mugato"	
-		"property_mugato_description" 				"Casting any spell silences you for @special_property1s seconds, and attacking silences you for @special_property2 seconds. While silenced from any source, your post-mitigation damage is increased by @special_property3%."
+		"property_mugato_description" 				"Casting any spell silences you for @special_property1 seconds, and attacking silences you for @special_property2 seconds. While silenced from any source, your post-mitigation damage is increased by @special_property3%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"
@@ -14667,6 +14673,8 @@
 		"DOTA_Tooltip_ability_ability_mega_haste_Description"		"Greatly increases movespeed and movespeed cap."	
 		"DOTA_Tooltip_ability_ability_mega_haste_movespeed_bonus"	"MOVESPEED BONUS:"
 		"DOTA_Tooltip_ability_ability_mega_haste_movespeed_cap"		"MOVESPEED CAP INCREASE:"
+		"DOTA_Tooltip_modifier_mega_haste_passive"								"Mega Haste"
+		"DOTA_Tooltip_modifier_mega_haste_passive_Description"					"Movespeed and movespeed cap increased."
 
 		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability"	"Warden"
 		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability_Description"	"Waiting silently upon the mountains."
@@ -15242,17 +15250,26 @@
 		"wave_spawning"													"Wave Spawning"
 
 		"rpc_serengaard_tower"											"Dragon Tower"
+		"DOTA_Tooltip_ability_serengaard_tower_ability"					"Serengaard Tower"
+		"DOTA_Tooltip_ability_serengaard_tower_ability_Description"		"Towers are magical sentinels that attack one enemy target at a time."
+		
 		"serengaard_ancient_guardian"									"Sun Guardian"
 
 		"rpc_serengaard_barracks"										"Sun Barracks"
+		"DOTA_Tooltip_ability_serengaard_barracks_ability"				"Serengaard Barracks"
+		"DOTA_Tooltip_ability_serengaard_barracks_ability_Description"	"These barracks generate durable guardians that bravely advance down their lane."
 
 		"serengaard_ranger"												"Sun Ranger"
+		"DOTA_Tooltip_ability_serengaard_ranger_ability"				"Sun Ranger"
+		"DOTA_Tooltip_ability_serengaard_ranger_ability"				"Shieldmaidens aggravate the advancing monsters by throwing moon glaives."
 
 		"rpc_serengaard_teleporter"										"Serengaard Teleporter"
 
 		"serengaard_knight"												"Serengaard Knight"
 
 		"rpc_serengaard_ancient"										"Serengaard Ancient"
+		"DOTA_Tooltip_ability_serengaard_ancient_ability"				"Serengaard Ancient"
+		"DOTA_Tooltip_ability_serengaard_ancient_ability_Description"				"This monument controls the Battle of Serengaard combat test, summoning waves of ever more powerful monsters. When it falls, the test is concluded. The Serengaard Ancient takes only Physical and Pure damage and cannot be healed."
 
 		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability"			"Sun Guardian"
 		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability_Description"		"Provides passive health regen."
@@ -15385,6 +15402,18 @@
 		"DOTA_Tooltip_ability_mines_boss_passive_Description"			"Attacks slow for 0.4 seconds."
 
 		"DOTA_Tooltip_ability_mines_boss_illusions"						"Lightning Replicate"
+		
+		"serengaard_final_boss" 	"Cadophersus"
+		"DOTA_Tooltip_ability_serengaard_final_boss_ability"			"Cadophersus' Presence"
+		"DOTA_Tooltip_ability_serengaard_final_boss_ability_Description"	"Demonic aura burns health of nearby heroes and erupts strikes of demonic fire. 1800 radius aura."
+		"DOTA_Tooltip_ability_serengaard_final_boss_ability_strike_dmg"		"STRIKE DAMAGE:"
+		"DOTA_Tooltip_ability_serengaard_final_boss_ability_health_regen_loss_pct"	"HP REGENERATION DECREASED:"
+		"DOTA_Tooltip_ability_serengaard_final_boss_ability_pure_dmg_sec"	"PURE DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_serengaard_boss_light_strike_array"			"Wraith of a Demon"
+		"DOTA_Tooltip_ability_serengaard_boss_light_strike_array_Description"	"Summons a column of flames that damages and stuns enemies. Has 10000 cast range. "
+		"DOTA_Tooltip_ability_serengaard_boss_light_strike_array_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_serengaard_boss_light_strike_array_light_strike_array_stun_duration"	"STUN DURATION:"
+		
 
 		"serengaard_normal_complete"									"Normal Mode Clear! Use Oracle to save character"
 		"serengaard_elite_complete"										"Elite Mode Clear! Use Oracle to save character"
@@ -15426,6 +15455,8 @@
         "serengaard_nightmare_raider" 		   "Nightmare Raider"
         "serengaard_night_invader"   			 "Nightscape Invader"
         "phoenix_siege_dragon"  				  "Siege Drake"
+		
+		"DOTA_Tooltip_modifier_high_jump_ai_passive" "High Jump"
 
 		//---------------------------
 		// Tanari Jungle

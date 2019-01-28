@@ -18,7 +18,7 @@ function jex_activate_charged_mushroom(event)
 	ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_charged_mushroom", {})
 	ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_charged_mushroom_spawning", {duration = 0.3})
 
-	local attack_damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*event.attack_mult_per_tech
+	local attack_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * event.attack_mult_per_tech * tech_level
 	local armor = caster:GetPhysicalArmorValue()*event.armor_mult_per_tech*tech_level
 	local hp = caster:GetMaxHealth()*event.health_mult
 	local life_duration = event.duration
@@ -71,7 +71,7 @@ function jex_thundershroom_attack_land(event)
 	local targets_to_hit = math.min(#chain.enemies, max_targets)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
 	if ability.w_4_level then
-		damage = damage + damage*(event.e_4_lightning_damage_increase/100)*ability.w_4_level
+		damage = damage + damage*(event.w_4_lightning_damage_increase/100)*ability.w_4_level
 	end
 	print("HELLO?")
 	if luck <= 3 then

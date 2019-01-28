@@ -8,7 +8,7 @@ function cleanse(event)
 		local modifier = modifiers[j]
 		local modifierMaker = modifier:GetCaster()
 		if not WallPhysics:DoesTableHaveValue(Filters:GetUnpurgableDebuffNames(), modifier:GetName()) then
-			if modifierMaker.regularEnemy then
+			if modifierMaker and modifierMaker.regularEnemy then
 				caster:RemoveModifierByName(modifier:GetName())
 				particle = true
 				break

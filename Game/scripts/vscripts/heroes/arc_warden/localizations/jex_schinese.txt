@@ -28,13 +28,13 @@
 	"DOTA_Tooltip_ability_onibi_cosmic_2_Description"		"激活宇宙技能。敌人在杰克斯附近死亡会留下用于收割的银河蘑菇。"
 
 	"DOTA_Tooltip_ability_onibi_q"				"Q 激活器"
-	"DOTA_Tooltip_ability_onibi_q_Description"	"模块的激活会应用于杰克斯的Q技能。 "
+	"DOTA_Tooltip_ability_onibi_q_Description"	"鬼火将他的元素模块们结合并且给杰克斯提供一个新的技能。模块的激活会应用于杰克斯的Q技能。 "
 
 	"DOTA_Tooltip_ability_onibi_w"				"W 激活器"
-	"DOTA_Tooltip_ability_onibi_w_Description"	"模块的激活会应用于杰克斯的W技能。"
+	"DOTA_Tooltip_ability_onibi_w_Description"	"鬼火将他的元素模块们结合并且给杰克斯提供一个新的技能。模块的激活会应用于杰克斯的W技能。"
 
 	"DOTA_Tooltip_ability_onibi_e"				"E 激活器"
-	"DOTA_Tooltip_ability_onibi_e_Description"	"模块的激活会应用于杰克斯的E技能。"
+	"DOTA_Tooltip_ability_onibi_e_Description"	"鬼火将他的元素模块们结合并且给杰克斯提供一个新的技能。模块的激活会应用于杰克斯的E技能。"
 
 	"DOTA_Tooltip_ability_onibi_invoke"			"模块激活器"
 	"DOTA_Tooltip_ability_onibi_invoke_Description"	"鬼火将他的元素模块们结合并且给杰克斯提供一个新的技能。"
@@ -162,7 +162,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_strength_added_to_damage"		"倍数力量增加基础伤害："
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_base_damage"					"基础伤害："
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] 增加离子加农伤害</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_e_4_split_search_radius"		"%<font color=\"#7DFF12\">[E4] 增加分裂搜索范围</font>："
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_e_4_split_search_radius"		"<font color=\"#7DFF12\">[E4] 增加分裂搜索范围</font>："
 
 	"DOTA_Tooltip_ability_jex_nature_nature_w"					"缠绕编织者"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_Description"		"元素： <font color=\"#69BC71\">自然</font><br>在小范围内创造一片肥沃的土壤，使得进入该区域的敌人0.5秒后被缠绕。被缠绕的敌人的攻击距离将会被降低并且每0.5秒受到一次伤害。"
@@ -185,7 +185,7 @@
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_attack_damage"					"增加基础攻击力："
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_mana_cost_per_cast"				"每次释放技能时消耗的魔法值："
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_mana_drain_per_second"			"每秒消耗的魔法值："
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_q_4_max_mana_while_toggled_on"	"<font color=\"#7DFF12\">[Q4] 增加最大魔法值</font>：
+	"DOTA_Tooltip_ability_jex_nature_cosmic_w_q_4_max_mana_while_toggled_on"	"<font color=\"#7DFF12\">[Q4] 增加最大魔法值</font>："
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_e_4_mana_drain_per_second_reduction"	"<font color=\"#7DFF12\">[E4] 降低每秒消耗魔法值</font>："
 
 	"DOTA_Tooltip_modifier_jex_nature_cosmic_w"					"衡势转换"		

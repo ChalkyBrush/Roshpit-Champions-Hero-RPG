@@ -22,7 +22,7 @@ function jex_thunderleaf_throw(event)
 	ability.damage =  base_damage + agility_added_to_damage*caster:GetAgility()+(damage_attack_power_per_tech/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*tech_level
 	local w_4_level = caster:GetRuneValue("w", 4)
 	if w_4_level > 0 then
-		ability.damage = ability.damage + damage*(event.w_4_damage_increase_pct/100)*w_4_level
+		ability.damage = ability.damage + ability.damage*(event.w_4_damage_increase_pct/100)*w_4_level
 	end
 	ability.q_4_level = caster:GetRuneValue("q", 4)
 	ability.paralyze_duration = paralyze_duration_per_tech*tech_level

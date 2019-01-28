@@ -16,6 +16,7 @@ require('/heroes/phantom_assassin/voltex_constants')
 require('/heroes/juggernaut/seinaru_constants')
 require('/heroes/lanaya/trapper_constants')
 require('/heroes/obsidian_destroyer/epoch_constants')
+require('/heroes/spirit_breaker/duskbringer_constants')
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -25,7 +26,7 @@ require('/items/constants/trinket')
 
 LinkLuaModifier("modifier_buzuki_finger_lua", "modifiers/modifier_buzuki_finger_lua", LUA_MODIFIER_MOTION_NONE)
 
-function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element1,element2)
+function Filters:ApplyItemDamage(victim, attacker, damage, damage_type, item, element1, element2)
     damage = Filters:AdjustItemDamage(attacker, damage, victim)
     local mult = 1
     if attacker:HasModifier("modifier_trapper_glyph_6_1") then
@@ -191,9 +192,8 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     end
 
     if casterName == "npc_dota_hero_spirit_breaker" then
-        if caster.q_2_level then
-            mult = mult + 0.2 * caster.q_2_level
-        end
+		local q_2_level = caster:GetRuneValue("q", 2)
+        mult = mult + DUSKBRINGER_Q2_ITEM_PCT * q_2_level
     end
 
     if caster:HasModifier("modifier_hood_of_the_black_mage") then
@@ -2509,9 +2509,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_GHOST or element2 == RPC_ELEMENT_GHOST then
         if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" then
-            if attacker.r_4_level then
-                mult = mult + 0.0008*attacker:GetStrength()/10*attacker.r_4_level
-            end
+			local r_4_level = attacker:GetRuneValue("r", 4)
+            mult = mult + DUSKBRINGER_R4_GHOST_PCT_PER_STR * attacker:GetStrength() * r_4_level
         end
         if attacker:HasModifier("modifier_hand_ghost") then
             local stacks = attacker:GetModifierStackCount("modifier_hand_ghost", attacker.InventoryUnit)

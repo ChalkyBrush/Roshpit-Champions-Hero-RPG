@@ -13,6 +13,7 @@ function load_onibi_data(caster, onibi_data)
 	caster.onibi:GetAbilityByIndex(1):SetLevel(1)
 	caster.onibi:GetAbilityByIndex(2):SetLevel(1)
 	caster.onibi:GetAbilityByIndex(3):SetLevel(1)
+	caster.onibi:GetAbilityByIndex(4):SetLevel(1)
 	caster.onibi.stats_table = {}
 	local elements_table = get_onibi_elements_name_table(caster.onibi)
 	local ability_keys = {"Q", "W", "E"}
@@ -350,29 +351,12 @@ end
 function onibi_activate_ability_key(event)
 	local caster = event.caster
 	local ability = event.ability
-	local ability_key = event.ability_key
-	if ability_key == "q" then
-		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_q", "onibi_w", 2)
-	elseif ability_key == "w" then
-		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_w", "onibi_e", 2)
-	elseif ability_key == "e" then
-		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_e", "onibi_q", 2)
-	end
-end
-
-function onibi_invoke(event)
-	local caster = event.caster
-	local ability = event.ability
 	local onibi = caster
-	local element1 = string.gsub(caster:GetAbilityByIndex(0):GetAbilityName(), "onibi_", "")
+	local element1 = string.gsub(caster:GetAbilityByIndex(3):GetAbilityName(), "onibi_", "")
 	element1 = string.gsub(element1, '_1', "")
-	local element2 = string.gsub(caster:GetAbilityByIndex(1):GetAbilityName(), "onibi_", "")
+	local element2 = string.gsub(caster:GetAbilityByIndex(4):GetAbilityName(), "onibi_", "")
 	element2 = string.gsub(element2, '_2', "")
-	local ability_key = string.gsub(caster:GetAbilityByIndex(2):GetAbilityName(), "onibi_", "")
-	ability_key = string.upper(ability_key)
-	print(element1)
-	print(element2)
-	print(ability_key)
+	local ability_key = string.upper(event.ability_key)
 	local ability_level = caster.stats_table[element1][element2][ability_key]["level"]
 	if ability_level > 0 then
 		EmitSoundOn("Jex.Invoke", caster)
@@ -394,6 +378,42 @@ function onibi_invoke(event)
 	else
 		EmitSoundOn("Jex.InvokeFail", caster)
 	end
+end
+
+function onibi_invoke(event)
+	-- local caster = event.caster
+	-- local ability = event.ability
+	-- local onibi = caster
+	-- local element1 = string.gsub(caster:GetAbilityByIndex(0):GetAbilityName(), "onibi_", "")
+	-- element1 = string.gsub(element1, '_1', "")
+	-- local element2 = string.gsub(caster:GetAbilityByIndex(1):GetAbilityName(), "onibi_", "")
+	-- element2 = string.gsub(element2, '_2', "")
+	-- local ability_key = string.gsub(caster:GetAbilityByIndex(2):GetAbilityName(), "onibi_", "")
+	-- ability_key = string.upper(ability_key)
+	-- print(element1)
+	-- print(element2)
+	-- print(ability_key)
+	-- local ability_level = caster.stats_table[element1][element2][ability_key]["level"]
+	-- if ability_level > 0 then
+	-- 	EmitSoundOn("Jex.Invoke", caster)
+	-- 	local ability_name = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
+	-- 	local ability_index = convert_ability_key_into_ability_index(ability_key)
+	-- 	local old_ability_name = caster.caster:GetAbilityByIndex(ability_index):GetAbilityName()
+	-- 	CustomAbilities:AddAndOrSwapSkill(caster.caster, old_ability_name, ability_name, ability_index)
+
+	-- 	local invokePFX = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_invoker/invoker_death_end.vpcf", onibi.caster, 4)
+	-- 	ParticleManager:SetParticleControl(invokePFX, 1, Vector(120, 180, 255))
+	-- 	local invokePFX2 = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_invoker/invoker_death_end.vpcf", onibi, 4)
+	-- 	ParticleManager:SetParticleControl(invokePFX2, 1, Vector(120, 180, 255))
+	-- 	local pfx = ParticleManager:CreateParticle("particles/roshpit/jex/essence_harvest.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	-- 	ParticleManager:SetParticleControlEnt(pfx, 1, caster.caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster.caster:GetAbsOrigin(), true)
+	-- 	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
+	-- 	Timers:CreateTimer(0.15, function()
+	-- 		ParticleManager:DestroyParticle(pfx, false)
+	-- 	end)
+	-- else
+	-- 	EmitSoundOn("Jex.InvokeFail", caster)
+	-- end
 	
 end
 
@@ -462,7 +482,7 @@ function onibi_master_rune_thinker(event)
 	local q_3_level = caster:GetRuneValue("q", 3)
 	local w_3_level = caster:GetRuneValue("w", 3)
 	local e_3_level = caster:GetRuneValue("e", 3)
-
+	
 	total_attributes_stacks = total_attributes_stacks + nature_level*q_3_level
 	total_attributes_stacks = total_attributes_stacks + lightning_level*w_3_level
 	total_attributes_stacks = total_attributes_stacks + cosmic_level*e_3_level

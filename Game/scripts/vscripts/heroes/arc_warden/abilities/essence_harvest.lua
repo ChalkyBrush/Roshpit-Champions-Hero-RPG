@@ -3,6 +3,20 @@ require('heroes/arc_warden/abilities/onibi')
 function jex_main_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
+	if not ability.interval then
+		ability.interval = 0
+	end
+	if ability.interval < 4 then
+		ability.interval = ability.interval + 1
+		return false
+	end
+	if caster.loading then
+		return false
+	end
+	local player = caster:GetPlayerOwner()
+	if not player or player.hero_loading then
+		return false
+	end
 	if not caster.onibi then
 		if not caster.onibi_searching then
 			get_onibi(caster)
@@ -21,6 +35,7 @@ function get_onibi(caster)
 	local url = ROSHPIT_URL.."/champions/getUnibi?"
 	url = url.."&steam_id="..PlayerResource:GetSteamAccountID(playerID)
 	url = url.."&championcharacter_id="..roshpit_id
+	print(url)
 	CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
@@ -45,7 +60,7 @@ end
 function get_onibi_essences(caster, onibi)
 	local essences = {}
 	for i = 1, 2, 1 do
-		local ability = onibi:GetAbilityByIndex(i-1)
+		local ability = onibi:GetAbilityByIndex(i+2)
 		if ability:GetAbilityName() == "onibi_nature_"..i then
 			essences[i] = "nature"
 		elseif ability:GetAbilityName() == "onibi_lightning_"..i then
@@ -331,7 +346,7 @@ function transfer_to_onibi(caster, ability)
 		if ability.harvested > 60 then
 			intensity = 4
 		end
-		if ability.harvested > 100 then
+		if ability.harvested > 110 then
 			intensity = 5
 		end
 		EmitSoundOn("Jex.HarvestEnd"..intensity, caster)
