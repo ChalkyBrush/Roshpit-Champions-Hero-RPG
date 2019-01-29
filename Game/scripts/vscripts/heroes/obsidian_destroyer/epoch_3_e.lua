@@ -133,7 +133,6 @@ function startCooldown(event)
 	local caster = event.caster
 	Filters:ReduceECooldown(caster, ability, 7, true)
 	caster:RemoveModifierByName("modifier_time_warp_7_1_phased")
-	caster:RemoveModifierByName("modifier_no_damage")
 end
 
 function getProjectilePosition(event)

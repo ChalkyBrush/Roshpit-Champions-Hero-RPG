@@ -121,6 +121,7 @@
 		"DOTA_Tooltip_ability_auriun_ult_movespeed"						"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
     	"DOTA_Tooltip_ability_auriun_ult_regen_percent"					"РЕГЕН.ЗДОРОВЬЯ %:"
     	"DOTA_Tooltip_ability_auriun_ult_radius"						"РАДИУС:"
+		"DOTA_Tooltip_ability_auriun_ult_movespeed"						"БОНУС СКОРОСТИ:"
 
     	"DOTA_Tooltip_modifier_auriun_ult_effect"						"Blessing of Life"
     	"DOTA_Tooltip_modifier_auriun_ult_effect_Description"			"Большое восстановление здоровья и увеличенная скорость передвижения."

@@ -55,7 +55,7 @@ end
 
 function TeleportUnit(unit, position, ability, caster, delay)
         StartSoundEvent("Hero_Chen.TeleportLoop", unit)
-        ability:ApplyDataDrivenModifier(caster, unit, "modifier_recently_teleported_portal", {duration = 10})
+        ability:ApplyDataDrivenModifier(caster, unit, "modifier_recently_teleported_portal", {duration = 7})
         ability:ApplyDataDrivenModifier(caster, unit, "modifier_teleporting", {})
         Timers:CreateTimer(delay,
         function()

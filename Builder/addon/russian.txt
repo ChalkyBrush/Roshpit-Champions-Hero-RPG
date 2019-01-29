@@ -1437,7 +1437,7 @@
 		"haunted_tree"								"Дерево с привидениями"
 		"groundskeeper"								"Садовник Уилфрид"
 		"wraithguard_elite"							"Элитный Рыцарь Ярости"
-		"animated_arms"								"Ожившие Руки"
+		"animated_arms"								"Ожившие Доспехи"
 		"castle_ghost"								"Баньши"
 		"castle_skeleton_archer"					"Скелет стрелок"
 		"castle_chef"								"Шеф-повар Реднис"

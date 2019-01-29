@@ -330,7 +330,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_1"		"Shooting Star"
 		"item_property_solunia_immortal_weapon"							"Nova Rift"
-		"property_solunia_immortal_weapon_description"					"Во время полёта от (E) Warp Flare, наделяется щитом, дарующим иммунитет к атакам и магии."
+		"property_solunia_immortal_weapon_description"					"Во время парения над (E) Warp Flare, наделяется щитом, дающий иммунитет к атакам и магии. Не работает во время перелета между ними."
 
 		"DOTA_Tooltip_ability_modifier_solunia_warp_flare_immortal_weapon_effect"	"Nova Rift"
 		"DOTA_Tooltip_ability_modifier_solunia_warp_flare_immortal_weapon_effect_Description"	"Герой невосприимчив к атакам и магии"

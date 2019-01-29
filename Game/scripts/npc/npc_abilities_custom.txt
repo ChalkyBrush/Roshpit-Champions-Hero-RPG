@@ -47624,6 +47624,7 @@
 			}
 			"modifier_no_damage"
 			{
+				"Duration"		"%duration"
 				"IsHidden"	"1"
 			}
 			"modifier_time_warp_7_1_phased"
@@ -84822,7 +84823,7 @@
 			{
 				"IsHidden" "0"
 				"TextureName"	"misc/teleportation"
-				"Duration"	"10"
+				"Duration"	"7"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "1"

@@ -389,7 +389,7 @@
 	"item_rpc_jex_glyph_6_1_description" 				"Galaxy Laser breaks magic immunity."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_7_1"		"Glyph of Entropy"
-	"item_rpc_jex_glyph_7_1_description" 				"While cosmic surge is active, deal @glyph_property1% of attack power as pure damage to enemies in @glyph_property2 radius every 0.8 seconds."
+	"item_rpc_jex_glyph_7_1_description" 				"While Cosmic Surge is active, deal @glyph_property1% of attack power as pure damage to enemies in @glyph_property2 radius every 0.8 seconds."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"Glyph of Techno Supremacy"
 	"item_rpc_jex_glyph_5_a_description" 				"Increases the tech level of all of Jex's abilities by @glyph_property1."

@@ -1374,9 +1374,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local current_stack = attacker:GetModifierStackCount( "modifier_auriun_rune_q_4_effect", attacker.auriun_d_a_ability )
             damageMult = damageMult + 0.07*current_stack
         end
-
-        if attacker:HasModifier("modifier_venomort_glyph_4_1") then
-            damageMult = damageMult + 2
+		
         end
         if attacker:HasModifier("modifier_mountain_rune_e_4_effect") and not attacker:HasModifier("modifier_rockfall_passive") then
             local current_stack = attacker:GetModifierStackCount( "modifier_mountain_rune_e_4_effect", attacker.runeUnit4 )
