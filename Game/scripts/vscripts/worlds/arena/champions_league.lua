@@ -813,7 +813,7 @@ function Arena:WinChampionsLeague(hero)
   	 print(hero.ChampionsLeague.rank)
   	 print(Arena.ChampionsLeague.currentBattleRank)
   	 Timers:CreateTimer(0.7, function()
-  	 	 FindClearSpaceForUnit(hero, Vector(-2752, -8960), false)
+  	 	 FindClearSpaceForUnit(hero, Vector(-7680, -2732), false)
 	  	 if hero.ChampionsLeague.rank == 21 and Arena.ChampionsLeague.currentBattleRank == 20 then
 	  	 	Arena.ChampionsLeague.state = 15
 	  	 	hero.ChampionsLeague.rank = 20
