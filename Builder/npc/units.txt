@@ -38800,7 +38800,7 @@
         "FoodCost"  "3"
         "BuildTime" "26"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
-        "MovementSpeed" "330"
+        "MovementSpeed" "400"
         "MovementTurnRate"  "0.6"
         "StatusHealth"  "1340000"
         "StatusHealthRegen" "10"
