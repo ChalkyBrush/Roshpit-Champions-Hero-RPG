@@ -140,7 +140,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_damage_mult"				"连环闪电伤害为攻击力%："
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_mana_cost"					"魔法消耗："
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_attack_speed"				"额外攻击速度："
-	"DOTA_Tooltip_ability_jex_lightning_lightning_w_w_4_agility_added_to_lightning_damage"	"<font color=\"#7DFF12\">[E4] 敏捷的一定倍数加入到连环闪电的基础伤害中</font>："
+	"DOTA_Tooltip_ability_jex_lightning_lightning_w_w_4_agility_added_to_lightning_damage"	"<font color=\"#7DFF12\">[W4] 敏捷的一定倍数加入到连环闪电的基础伤害中</font>："
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_w"				"雷霆之叶"
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_Description"	"元素： <font color=\"#5CCDF9\">电</font> / <font color=\"#69BC71\">自然</font><br>向杰克斯的前方释放一道雷霆之叶。被击中的敌人将会被短暂麻痹。敌人在被麻痹5次后将会对麻痹免疫4秒。"
