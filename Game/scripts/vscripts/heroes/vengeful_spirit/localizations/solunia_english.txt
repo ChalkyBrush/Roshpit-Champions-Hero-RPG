@@ -333,7 +333,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_1"		"Shooting Star"
 		"item_property_solunia_immortal_weapon"							"Nova Rift"
-		"property_solunia_immortal_weapon_description"					"While floating over Warp Flares, gain a shield that has magic and attack immunity."
+		"property_solunia_immortal_weapon_description"					"While floating during Warp Flares, gain a shield that has magic and attack immunity."
 
 		"DOTA_Tooltip_ability_modifier_solunia_warp_flare_immortal_weapon_effect"	"Nova Rift"
 		"DOTA_Tooltip_ability_modifier_solunia_warp_flare_immortal_weapon_effect_Description"	"Magic and Attack Immune"
