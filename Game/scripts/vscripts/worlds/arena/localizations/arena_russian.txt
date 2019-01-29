@@ -322,7 +322,14 @@
 		"champion_league_challenger_7_dialogue"						"Солнце и звезды диктуют результаты битвы. Я - бесконечная нить между ними."
 		"DOTA_Tooltip_ability_arena_freezing_field"					"Freezing Field"
 
-		"champion_league_challenger_6"								"Атропос"			
+		"champion_league_challenger_6"								"Атропос"
+		"arena_nightmare_spectre"									"Призрак из Кошмара"
+		"arena_nightmare_guard"										"Страж из Кошмара"
+		"arena_nightmare_cerberus"									"Цербер"
+		"arena_nightmare_zombie"									"Зомби из Кошмара"
+		"arena_nightmare_ghastly_airwarden"							"Призрак"
+		"arena_nightmare_fiend"										"Пожиратель из Кошмара"
+		"arena_nightmare_boss""arena_nightmare_boss"				"Сердце Кошмара"		
 
 		"DOTA_Tooltip_ability_arena_ghastly_air_warden_passive"		"Blightwing"
 		"DOTA_Tooltip_ability_arena_ghastly_air_warden_passive_Description"	"Получаемый магический урон сокращён на 99%"
