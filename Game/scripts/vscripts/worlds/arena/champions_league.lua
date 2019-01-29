@@ -1162,7 +1162,7 @@ function Arena:GrandVictorySequence(hero)
 	  	 	ParticleManager:DestroyParticle(particleTable[i], false)
 	  	 end
 	  	 Timers:CreateTimer(1, function()
-	  	 	PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(), nil)
+	  	 	PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(), hero)
 	  	 	UTIL_Remove(crystal)
 	  	 end)
 
