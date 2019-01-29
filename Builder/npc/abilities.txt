@@ -30722,7 +30722,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-10"
 				}
 			}
 			"modifier_walking_fast"
@@ -30730,7 +30730,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-25"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "10"
 				}
 			}
 			"modifier_arena_show_combatant"
