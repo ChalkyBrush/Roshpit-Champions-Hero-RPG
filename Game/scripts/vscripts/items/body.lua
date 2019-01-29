@@ -21,6 +21,7 @@ function Body:add_modifiers(hero, inventory_unit, item)
 	body_ability.max_health = 0
 	body_ability.attack_damage = 0
 	body_ability.base_ability = 0
+	body_ability.movespeed = 0
 	local property1 = RPCItems:AdjustAttributeValue(hero, item.property1)
 	Body:action(item.property1name, property1, hero, inventory_unit, body_ability, item)
 	Body:runeProperty(item.property1name, item.property1, hero)
@@ -95,6 +96,9 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 	elseif propertyName == "base_ability" then
 		body_ability.base_ability = body_ability.base_ability + propertyValue
 		Body:addBasicModifier(body_ability.base_ability, hero, inventory_unit, "modifier_body_base_ability_damage", body_ability)
+	elseif propertyName == "movespeed" then
+		body_ability.movespeed = body_ability.movespeed + propertyValue
+		Body:addBasicModifier(body_ability.movespeed, hero, inventory_unit, "modifier_body_movespeed", body_ability)
 	elseif propertyName == "steelbark" then
 		Body:addBasicModifier(1, hero, inventory_unit, "modifier_body_steelbark", body_ability)
 	elseif propertyName == "hurricane" then
@@ -379,6 +383,7 @@ function Body:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_body_max_mana")
 	hero:RemoveModifierByName("modifier_body_max_health")
 	hero:RemoveModifierByName("modifier_body_attack_damage")
+	hero:RemoveModifierByName("modifier_body_movespeed")
 	hero:RemoveModifierByName("modifier_body_respawn")
 	hero:RemoveModifierByName("modifier_body_steelbark")
 	hero:RemoveModifierByName("modifier_hurricane_vest")
