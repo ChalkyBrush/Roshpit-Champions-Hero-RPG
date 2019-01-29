@@ -817,7 +817,7 @@ function Arena:WinChampionsLeague(hero)
 	  	 if hero.ChampionsLeague.rank == 21 and Arena.ChampionsLeague.currentBattleRank == 20 then
 	  	 	Arena.ChampionsLeague.state = 15
 	  	 	hero.ChampionsLeague.rank = 20
-	  	 	FindClearSpaceForUnit(Arena.Coach, Vector(-2524, -8576), false)
+	  	 	FindClearSpaceForUnit(Arena.Coach, Vector(-7680, -2432), false)
 	  	 	local fv = ((hero:GetAbsOrigin() - Arena.Coach:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	  	 	Arena.Coach:SetForwardVector(fv)
 	  	 	Timers:CreateTimer(2, function()
@@ -832,7 +832,7 @@ function Arena:WinChampionsLeague(hero)
 	  	 elseif hero.ChampionsLeague.rank == 20 and Arena.ChampionsLeague.currentBattleRank == 19 then
 	   	 	Arena.ChampionsLeague.state = 15
 	  	 	hero.ChampionsLeague.rank = 19
-	  	 	FindClearSpaceForUnit(Arena.Coach, Vector(-2524, -8576), false)
+	  	 	FindClearSpaceForUnit(Arena.Coach, Vector(-7680, -2432), false)
 	  	 	local fv = ((hero:GetAbsOrigin() - Arena.Coach:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	  	 	Arena.Coach:SetForwardVector(fv)
 	  	 	Timers:CreateTimer(2, function()
@@ -850,7 +850,7 @@ function Arena:WinChampionsLeague(hero)
 	  	 elseif hero.ChampionsLeague.rank == 18 and Arena.ChampionsLeague.currentBattleRank == 17 then
 	  	 	hero.ChampionsLeague.rank = 17
 	  	 	Arena.ChampionsLeague.state = 15
-	  	 	FindClearSpaceForUnit(Arena.Coach, Vector(-2524, -8576), false)
+	  	 	FindClearSpaceForUnit(Arena.Coach, Vector(-7680, -2432), false)
 	  	 	local fv = ((hero:GetAbsOrigin() - Arena.Coach:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	  	 	Arena.Coach:SetForwardVector(fv)
 	  	 	Timers:CreateTimer(2, function()
@@ -863,7 +863,7 @@ function Arena:WinChampionsLeague(hero)
 	  	 elseif hero.ChampionsLeague.rank == 16 and Arena.ChampionsLeague.currentBattleRank == 15 then
 	  	 	Arena.ChampionsLeague.state = 17
 	  	 	hero.ChampionsLeague.rank = 15
-	  	 	FindClearSpaceForUnit(Arena.Coach, Vector(-2524, -8576), false)
+	  	 	FindClearSpaceForUnit(Arena.Coach, Vector(-7680, -2432), false)
 	  	 	local fv = ((hero:GetAbsOrigin() - Arena.Coach:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	  	 	Arena.Coach:SetForwardVector(fv)
 	  	 	Timers:CreateTimer(2, function()
@@ -885,7 +885,7 @@ function Arena:WinChampionsLeague(hero)
 	  	 elseif hero.ChampionsLeague.rank == 12 and Arena.ChampionsLeague.currentBattleRank == 11 then
 	  	 	hero.ChampionsLeague.rank = 11
 	  	 	Arena.ChampionsLeague.state = 19
-	  	 	FindClearSpaceForUnit(Arena.Coach, Vector(-2524, -8576), false)
+	  	 	FindClearSpaceForUnit(Arena.Coach, Vector(-7680, -2432), false)
 	  	 	local fv = ((hero:GetAbsOrigin() - Arena.Coach:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	  	 	Arena.Coach:SetForwardVector(fv)
 	  	 	Timers:CreateTimer(2, function()
@@ -929,7 +929,7 @@ function Arena:WinChampionsLeague(hero)
 	  	 elseif hero.ChampionsLeague.rank == 7 and Arena.ChampionsLeague.currentBattleRank == 6 then
 	  	 	hero.ChampionsLeague.rank = 6
 	  	 	Arena.ChampionsLeague.state = 19
-	  	 	FindClearSpaceForUnit(Arena.Coach, Vector(-2524, -8576), false)
+	  	 	FindClearSpaceForUnit(Arena.Coach, Vector(-7680, -2432), false)
 	  	 	local fv = ((hero:GetAbsOrigin() - Arena.Coach:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	  	 	Arena.Coach:SetForwardVector(fv)
 	  	 	Timers:CreateTimer(2, function()
@@ -959,7 +959,7 @@ function Arena:WinChampionsLeague(hero)
 	  	 elseif hero.ChampionsLeague.rank == 4 and Arena.ChampionsLeague.currentBattleRank == 3 then
 	  	 	hero.ChampionsLeague.rank = 3
 	  	 	Arena.ChampionsLeague.state = 17
-	  	 	FindClearSpaceForUnit(Arena.Coach, Vector(-2524, -8576), false)
+	  	 	FindClearSpaceForUnit(Arena.Coach, Vector(-7680, -2432), false)
 	  	 	local fv = ((hero:GetAbsOrigin() - Arena.Coach:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	  	 	Arena.Coach:SetForwardVector(fv)
 	  	 	Timers:CreateTimer(2, function()
@@ -972,7 +972,7 @@ function Arena:WinChampionsLeague(hero)
 	  	 elseif hero.ChampionsLeague.rank == 3 and Arena.ChampionsLeague.currentBattleRank == 2 then
 	  	 	hero.ChampionsLeague.rank = 2
 	  	 	Arena.ChampionsLeague.state = 17
-	  	 	FindClearSpaceForUnit(Arena.Coach, Vector(-2524, -8576), false)
+	  	 	FindClearSpaceForUnit(Arena.Coach, Vector(-7680, -2432), false)
 	  	 	local fv = ((hero:GetAbsOrigin() - Arena.Coach:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	  	 	Arena.Coach:SetForwardVector(fv)
 	  	 	Timers:CreateTimer(2, function()
