@@ -43931,6 +43931,8 @@
         "SoundSet"              "Hero_Morphling"
         "precache"
         {
+			"model" "models/heroes/chen/chen.vmdl"
+			"model" "models/heroes/chen/mount.vmdl"
             "particle"      "particles/roshpit/arena/challenger6_shield.vpcf"
         }
         "ArmorPhysical" "25"
