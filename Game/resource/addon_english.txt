@@ -2677,6 +2677,7 @@
 		"DOTA_Tooltip_ability_auriun_ult_movespeed"						"MOVEMENT SPEED BUFF:"
     	"DOTA_Tooltip_ability_auriun_ult_regen_percent"					"HP REGEN %:"
     	"DOTA_Tooltip_ability_auriun_ult_radius"						"RADIUS:"
+		"DOTA_Tooltip_ability_auriun_ult_movespeed"						"BONUS MOVESPEED:"
 
     	"DOTA_Tooltip_modifier_auriun_ult_effect"						"Blessing of Life"
     	"DOTA_Tooltip_modifier_auriun_ult_effect_Description"			"Massive HP regen and increased movement speed."
@@ -4184,8 +4185,8 @@
     	"DOTA_Tooltip_modifier_deity_grand_guardian"						"Grand Guardian"
     	"DOTA_Tooltip_modifier_deity_grand_guardian_Description"			"Magic Immunity and increased armor."
 
-    	"DOTA_Tooltip_modifier_earth_deity_bowl"							"Guardian Boulder Roll"
-    	"DOTA_Tooltip_modifier_earth_deity_bowl_Description"				"Throws the guarded unit towards the target location at high speed, and unleash an earth shock at the landing point. Grand Guardian ends when this is used."
+    	"DOTA_Tooltip_ability_earth_deity_bowl"							"Guardian Boulder Roll"
+    	"DOTA_Tooltip_ability_earth_deity_bowl_Description"				"Throws the guarded unit towards the target location at high speed, and unleash an earth shock at the landing point. Grand Guardian ends when this is used."
 
   		"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3"						"[Q1] Sandstorm"
     	"DOTA_Tooltip_ability_conjuror_rune_q_1_arcana3_Description"			"The Earth Deity stands in place and whips up a violent sand storm. Enemies in the sandstorm have their movement speed and attack slowed, and have a chance to miss with their attacks. Drains mana and deals damage every 0.25 seconds and toggles off if mana runs out."
@@ -7195,7 +7196,7 @@
 	"item_rpc_jex_glyph_6_1_description" 				"Galaxy Laser breaks magic immunity."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_7_1"		"Glyph of Entropy"
-	"item_rpc_jex_glyph_7_1_description" 				"While cosmic surge is active, deal @glyph_property1% of attack power as pure damage to enemies in @glyph_property2 radius every 0.8 seconds."
+	"item_rpc_jex_glyph_7_1_description" 				"While Cosmic Surge is active, deal @glyph_property1% of attack power as pure damage to enemies in @glyph_property2 radius every 0.8 seconds."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"Glyph of Techno Supremacy"
 	"item_rpc_jex_glyph_5_a_description" 				"Increases the tech level of all of Jex's abilities by @glyph_property1."
@@ -8933,7 +8934,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_1"		"Shooting Star"
 		"item_property_solunia_immortal_weapon"							"Nova Rift"
-		"property_solunia_immortal_weapon_description"					"While floating in between Warp Flares, gain a shield that has magic and attack immunity."
+		"property_solunia_immortal_weapon_description"					"While floating during Warp Flares, gain a shield that has magic and attack immunity."
 
 		"DOTA_Tooltip_ability_modifier_solunia_warp_flare_immortal_weapon_effect"	"Nova Rift"
 		"DOTA_Tooltip_ability_modifier_solunia_warp_flare_immortal_weapon_effect_Description"	"Magic and Attack Immune"
@@ -12837,6 +12838,9 @@
 		"DOTA_Tooltip_modifier_drill_spike_self_Description"			"Taking 100%% increased damage per stack."
 
 		"champion_league_challenger_13"								"Ursa Major"
+		"champion_league_challenger_13_a"							"Ursa Minor"
+		"champion_league_challenger_13_b"							"Ursa Minor"
+		"champion_league_challenger_13_c"							"Ursa Minor"
 		"DOTA_Tooltip_ability_arena_ursa_thunder_clap"					"Thunder Clap"
 		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_Description"		"Ursa Major claps the ground, dealing damage and slows nearby enemies."
 		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_shock_radius"		"RADIUS:"
@@ -12891,8 +12895,15 @@
 		"champion_league_challenger_7_dialogue"						"The Sun and Stars dictate the outcomes of battle. I am the thread between them."
 		"DOTA_Tooltip_ability_arena_freezing_field"					"Freezing Field"
 
-		"champion_league_challenger_6"								"Atropos"			
-
+		"champion_league_challenger_6"								"Atropos"		
+		"arena_nightmare_spectre"									"Nightmare Spectre"
+		"arena_nightmare_guard"										"Nightmare Guard"
+		"arena_nightmare_cerberus"									"Nightmare Cerberus"
+		"arena_nightmare_zombie"									"Nightmare Zombie"
+		"arena_nightmare_ghastly_airwarden"							"Ghastly Airwarden"
+		"arena_nightmare_fiend"										"Nightmare Fiend"
+		"arena_nightmare_boss"										"Heart of the Nightmare"
+		
 		"DOTA_Tooltip_ability_arena_ghastly_air_warden_passive"		"Blightwing"
 		"DOTA_Tooltip_ability_arena_ghastly_air_warden_passive_Description"	"Magic damage taken is reduced by 99%"
 

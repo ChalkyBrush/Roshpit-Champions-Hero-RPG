@@ -329,7 +329,7 @@
 		"arena_nightmare_zombie"									"Nightmare Zombie"
 		"arena_nightmare_ghastly_airwarden"							"Ghastly Airwarden"
 		"arena_nightmare_fiend"										"Nightmare Fiend"
-		"arena_nightmare_boss""arena_nightmare_boss"				"Heart of the Nightmare"
+		"arena_nightmare_boss"										"Heart of the Nightmare"
 		
 		"DOTA_Tooltip_ability_arena_ghastly_air_warden_passive"		"Blightwing"
 		"DOTA_Tooltip_ability_arena_ghastly_air_warden_passive_Description"	"Magic damage taken is reduced by 99%"

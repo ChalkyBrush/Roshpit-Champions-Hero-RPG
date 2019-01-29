@@ -329,7 +329,7 @@
 		"arena_nightmare_zombie"									"Зомби из Кошмара"
 		"arena_nightmare_ghastly_airwarden"							"Призрак"
 		"arena_nightmare_fiend"										"Пожиратель из Кошмара"
-		"arena_nightmare_boss""arena_nightmare_boss"				"Сердце Кошмара"		
+		"arena_nightmare_boss"										"Сердце Кошмара"		
 
 		"DOTA_Tooltip_ability_arena_ghastly_air_warden_passive"		"Blightwing"
 		"DOTA_Tooltip_ability_arena_ghastly_air_warden_passive_Description"	"Получаемый магический урон сокращён на 99%"

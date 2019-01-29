@@ -106887,7 +106887,7 @@
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
 
 		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"0"
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
 
@@ -107481,7 +107481,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-10"
 				}
 			}
 			"modifier_walking_fast"
@@ -107489,7 +107489,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-25"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "10"
 				}
 			}
 			"modifier_arena_show_combatant"
@@ -122598,7 +122598,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
+		"AbilityCastPoint"				"3"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
