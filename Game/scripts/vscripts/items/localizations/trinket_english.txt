@@ -47,12 +47,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"Gem of Eternal Frost"
 		"item_property_eternal_frost"				"Frost Nova"
-		"property_eternal_frost_description"		"Nearby enemies are slowed by 12 movespeed every 0.1 seconds. When their movespeed drops below 150 they are rooted for 4.5 seconds. When you cast @Ability3 - root all enemies in a 500 radius<br>in a case of ice for 2.5 seconds and deal damage equal to @special_property1x your intelligence.<br>All damage dealt directly by items is enhanced by @special_property2% for each 10 points of intelligence."
+		"property_eternal_frost_description"		"Nearby enemies are slowed by 12 movespeed every 0.1 seconds. When their movespeed drops below 150 they are rooted for 4.5 seconds. When you cast @Ability3 - root all enemies in a 500 radius<br>in a case of ice for 2.5 seconds and deal damage equal to @special_property1x your Intelligence.<br>All damage dealt directly by items is enhanced by @special_property2% for each 10 points of Intelligence."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_lifesource_vessel"								"Lifesource Vessel"
 		"item_property_lifesource_vessel"			"Lifesource"
-		"property_lifesource_vessel_description"	"Each point of strength increases your health regen by 0.3"
+		"property_lifesource_vessel_description"	"Each point of Strength increases your health regen by 0.3"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_galaxy_orb"										"Galaxy Orb"
@@ -66,11 +66,11 @@
 		"item_property_azure_empire_silver"				"Silver Skies"
 		"property_azure_empire_silver_description"	"Each active hawk increases Base Ability damage by @special_property2%"
 		"item_property_azure_empire_green"				"Jade Skies"
-		"property_azure_empire_green_description"	"Each active hawk increases agility by @special_property3x your hero's level."
+		"property_azure_empire_green_description"	"Each active hawk increases Agility by @special_property3x your hero's level."
 		"item_property_azure_empire_red"				"Crimson Skies"
-		"property_azure_empire_red_description"	"Each active hawk increases strength by @special_property3x your hero's level."
+		"property_azure_empire_red_description"	"Each active hawk increases Strength by @special_property3x your hero's level."
 		"item_property_azure_empire_blue"				"Cerulean Skies"
-		"property_azure_empire_blue_description"	"Each active hawk increases intelligence by @special_property3x your hero's level."
+		"property_azure_empire_blue_description"	"Each active hawk increases Intelligence by @special_property3x your hero's level."
 		"DOTA_Tooltip_modifier_azure_empire_visible"	"Azure Empire"
 		"DOTA_Tooltip_modifier_azure_empire_visible_Description"	"Hawks absorbing magic and pure damage."
 		
@@ -96,7 +96,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_torch_of_gengar"									"Torch of Gengar"
 		"item_property_gengar"						"Shadow Walk"
-		"property_gengar"							"15% chance on taking damage to gain 75% evasion, unit walking and 300% increased Base Abilities damage for 6 seconds."
+		"property_gengar"                            "15% chance on taking damage to gain 75% evasion, unit walking and 300% increased Base Ability damage for 6 seconds."
 		"DOTA_Tooltip_modifier_torch_of_gengar_effect"	"Shadow Walk"
 		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"75%% evasion, unit walking and 300%% increased ability damage."
 		
@@ -115,12 +115,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol LV1"
 		"item_property_raven_idol"					"Black Soul"		
-		"property_raven_idol_description"			"Reduce damage taken from all sources by 40%. Your health can not go above 50% of your max. Each time you take damage, this property increases by 1. Upgrades at 12000, cannot be reforged after upgrade."
+		"property_raven_idol_description"            "Reduce damage taken from all sources by 40%. Your health can not go above 50% of your max. Each time you take damage, this property increases by 1. Upgrades at 12000. After upgrading, the Blacksmith cannot reforge this item."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol2"										"Raven Idol LV2"
 		"item_property_raven_idol2"					"Black Soul II"		
-		"property_raven_idol_description2"			"Reduce damage taken from all sources by 50%. Your health can not go above 50% of your max. Each 100 points of missing health increases damage dealt directly by items by 0.1%."
+		"property_raven_idol_description2"			"Reduce damage taken from all sources by 50%. Your health can not go above 50% of your max. Each 100 points of missing health increases damage dealt directly by items by 0.1%. This item cannot be reforged by the Blacksmith."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"Phoenix Emblem"
@@ -146,12 +146,13 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"Ring of Nobility"
 		"item_property_nobility"							"Path of Nobility"
-		"property_nobility_description"						"Increases all attributes by @special_property1x your level. When an enemy is slain, this property counts up, and when it reaches 10,000 this ring upgrades. Upgraded item cannot be reforged."
+		"property_nobility_description"                        "Increases all attributes by @special_property1x your level. When an enemy is slain, this property counts up, and when it reaches 10,000 this ring upgrades. After upgrading, the Blacksmith can no longer reforge this item."
+
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"						"Augmented Ring of Nobility"
 		"item_property_nobility_augmented"					"Strides of Nobility"
-		"property_nobility_augmented_description"			"Increases all attributes by @special_property1x your level."
+		"property_nobility_augmented_description"			"Increases all attributes by @special_property1x your level. This item cannot be reforged by the Blacksmith."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"							"Twig of the Enlightened"
@@ -176,7 +177,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_firelock_pendant"								"Firelock Pendant"
 		"item_property_firelock"							"Steady Flame"		
-		"property_firelock_description"					"Increases Post-Mitigation physical damage by @special_property1% for every 10 points of strength."
+		"property_firelock_description"					"Increases Post-Mitigation physical damage by @special_property1% for every 10 points of Strength."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"Antique Mana Relic"
@@ -216,12 +217,12 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"Emerald Nullification Ring"
 		"item_property_emerald_null"							"Emerald Nullification"
-		 "property_emerald_null_description"					"Instances of Pure or Magic damage taken are reduced by @special_property1x your agility after magic resist and before other reductions."
+		 "property_emerald_null_description"					"Instances of Pure or Magic damage taken are reduced by @special_property1x your Agility after magic resist and before other reductions."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"Garnet Warfare Ring"
 		"item_property_garnet_warfare"							"Garnet Warfare"
-		 "property_garnet_warfare_description"					"Increases Base Abilities damage by @special_property1% for every 10 points of Strength."
+		"property_garnet_warfare_description"                    "Increases Base Ability damage by @special_property1% for every 10 points of Strength."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"							"Serengaard Sun Crystal"

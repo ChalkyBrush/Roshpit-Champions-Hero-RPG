@@ -1,7 +1,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_property_hurricane"					"Hurricane"
-		"property_hurricane_description"			"When you cast @Ability4, a hurricane of <% HURRICANE_VEST_HURRICANE_COUNT %> whirlwinds travel outward from you in all directions, slowing enemies' attack speed by <% HURRICANE_VEST_ATT_SPD_REDUCE %> and movespeed by <% HURRICANE_VEST_MSP_REDUCE %> for <% HURRICANE_VEST_SLOW_DUR %> seconds. Each whirlwind also deals damage equal to <% HURRICANE_VEST_DMG_AMP %> * (Hero Level / 120) * (<% HURRICANE_VEST_MAX_DISTANCE %> - distance between caster and target))^<% HURRICANE_VEST_DMG_EXP_SCALE %>; the winds lose strength as they travel."
+		"property_hurricane_description"			"When you cast @Ability4, a hurricane of <% HURRICANE_VEST_HURRICANE_COUNT %> whirlwinds travel outward from you in all directions, slowing enemies' attack speed by <% HURRICANE_VEST_ATT_SPD_REDUCE %> and movespeed by <% HURRICANE_VEST_MSP_REDUCE %> for <% HURRICANE_VEST_SLOW_DUR %> seconds. Each whirlwind also deals damage equal to <% HURRICANE_VEST_DMG_AMP %> * (Hero Level / 120) * (<% HURRICANE_VEST_MAX_DISTANCE %> - distance between caster and target))^<% HURRICANE_VEST_DMG_EXP_SCALE %>; the winds lose Strength as they travel."
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"Hurricane"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"Buffeted by strong winds"
 		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow"			"Hurricane slow"
@@ -23,27 +23,27 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"Robe of Flooding LV1"
 		"item_property_flooding"					"Water Elemental 1"
-		"property_flooding_description"				"When you finish casting @Ability4 - summon a Water Elemental that restores 5% of your max mana on attack for 12 seconds. Attacks deal AOE magic damage equal to 25x your intelligence.<br>When the elemental gets 5000 kills, the robe upgrades."
+		"property_flooding_description"				"When you finish casting @Ability4 - summon a Water Elemental that restores 5% of your max mana on attack for 12 seconds. Attacks deal AOE magic damage equal to 25x your Intelligence.<br>When the elemental gets 5000 kills, the robe upgrades."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding_2"								"Robe of Flooding LV2"
 		"item_property_flooding_2"					"Water Elemental 2"
-		"property_flooding_description_2"			"When you finish casting @Ability4 - summon a Water Elemental that restores 5% of your max mana on attack for 12 seconds. Attacks deal AOE magic damage equal to 30x your intelligence.<br>Also has a wave projectile that deals your attack power as magic damage."
+		"property_flooding_description_2"			"When you finish casting @Ability4 - summon a Water Elemental that restores 5% of your max mana on attack for 12 seconds. Attacks deal AOE magic damage equal to 30x your Intelligence.<br>Also has a wave projectile that deals your attack power as magic damage."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding_3"								"Robe of Flooding LV3"
 		"item_property_flooding_3"					"Water Elemental 3"
-		"property_flooding_description_3"			"When you finish casting @Ability4 - summon a Water Elemental that restores 5% of your max mana on attack for 12 seconds. Attacks deal AOE magic damage equal to 35x your intelligence.<br>Also has a wave projectile that deals your attack power as magic damage.<br>All damage dealt is considered Base Ability damage for @Ability4."
+		"property_flooding_description_3"			"When you finish casting @Ability4 - summon a Water Elemental that restores 5% of your max mana on attack for 12 seconds. Attacks deal AOE magic damage equal to 35x your Intelligence.<br>Also has a wave projectile that deals your attack power as magic damage.<br>All damage dealt is considered Base Ability damage for @Ability4."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"									"Avalanche Plate LV1"
 		"item_property_avalanche"					"Avalanche"
-		"property_avalanche_description"			"When you finish casting @Ability4 - summon an avalanche that deals @special_property1x your strength every 0.2 seconds and stuns for 0.1 seconds in a 400 radius. All damage dealt directly by items is enhanced by @special_property3%<br>for each 10 points of strength. Each avalanche tick that hits an enemy increases this property by one.<br>Upgrades at 1500."
+		"property_avalanche_description"			"When you finish casting @Ability4 - summon an avalanche that deals @special_property1x your Strength every 0.2 seconds and stuns for 0.1 seconds in a 400 radius. All damage dealt directly by items is enhanced by @special_property3%<br>for each 10 points of Strength. Each avalanche tick that hits an enemy increases this property by one.<br>Upgrades at 1500."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate_2"								"Avalanche Plate LV2"
 		"item_property_avalanche_2"					"Mountain Quake"
-		"property_avalanche_description_2"			"When you finish casting @Ability4 - summon an avalanche that deals @special_property1x your strength every 0.2 seconds and stuns for 0.1 seconds in a 400 radius. Each enemy hit counts up to 20, at which point you create a massive earthquake that deals<br>@special_property2x strength to enemies in a 600 radius and stuns for 1.6 seconds.<br>All damage dealt directly by items is enhanced by @special_property3% for each 10 points of strength."
+		"property_avalanche_description_2"			"When you finish casting @Ability4 - summon an avalanche that deals @special_property1x your Strength every 0.2 seconds and stuns for 0.1 seconds in a 400 radius. Each enemy hit counts up to 20, at which point you create a massive earthquake that deals<br>@special_property2x Strength to enemies in a 600 radius and stuns for 1.6 seconds.<br>All damage dealt directly by items is enhanced by @special_property3% for each 10 points of Strength."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard LV1"
@@ -76,7 +76,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_sorcerers_regalia"								"Sorcerer's Regalia"
 		"item_property_sorcerers_regalia"			"Spellbinder"
-		"property_sorcerers_regalia_description"	"Post-mitigation magic damage output increased by 40%."
+		"property_sorcerers_regalia_description"	"Post-Mitigation magic damage output increased by 40%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"Spellslinger's Coat"
@@ -114,7 +114,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_secret_temple"							"Armor of the Secret Temple"
 		"item_property_secret_temple"				"Refraction"
-		"property_secret_temple_description"		"After casting @Ability4 - gain a 7 charge refraction which blocks 7 instances of damage. While refraction is active - your Base Attack damage is multiplied by 2."
+		"property_secret_temple_description"		"After casting @Ability4, a temporary refraction shield envelops you, which will completely negate the next 7 instances of damage you receive. While the shield remains active, your Base Attack damage is multiplied by 2."
 		"DOTA_Tooltip_modifier_secret_temple_refraction"				"Refraction"
 		"DOTA_Tooltip_modifier_secret_temple_refraction_description"	"Blocking damage instances. Base attack damage doubled."
 		
@@ -145,7 +145,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_space_tech_vest"									"Space Tech Vest"
 		"item_property_space_tech"					"Gravity Bend"
-		"property_space_tech_description"			"While channeling @Ability4 - all surrounding enemies have their attack speed slowed by 160 and movespeed slowed by 50%. Slow effect sticks for 7 seconds. Additionally gain 35% bonus attack damage each 0.3 seconds."
+		"property_space_tech_description"			"While channeling @Ability4, a gravitic field disrupts the space around you. All surrounding enemies have their attack speed slowed by 160, and movespeed slowed by 50%. The slow effects stick for 7 seconds after leaving the disruption field. Additionally, while channeling @Ability4, gain 35% Bonus Attack damage every 0.3 seconds. These stacks are lost when beginning to channel the spell again."
 		"DOTA_Tooltip_modifier_space_tech_buff"					"Gravity Bend"
 		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Increased attack damage."
 		
@@ -216,7 +216,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_savage_plate_of_ogthun"							"Savage Plate of Og'Thun"
 		"item_property_ogthun"						"Savagery"
-		"property_ogthun_description"				"Slaying an enemy increases your max health by 40% of your strength and Base Ability damage by 2%. Stacks up to 100 times. Each stack lasts 9 seconds."
+		"property_ogthun_description"				"Slaying an enemy increases your max health by 40% of your Strength and Base Ability damage by 2%. Stacks up to 100 times. Each stack lasts 9 seconds."
 		"DOTA_Tooltip_modifier_ogthun_visible" 				"Savagery"
 		"DOTA_Tooltip_modifier_ogthun_visible_Description"	"Increased Max Health and Base Ability Damage"
 		
@@ -239,12 +239,12 @@
 		"item_property_mageplate"								"Armored Magus"
 		"property_mageplate_description"						"Each 10 points of Intelligence increases Armor by 1. 5% of damage taken restores mana. Taking damage adds a stack of 5% Base Ability damage and @special_property1x your hero level of Intelligence for 15 seconds, up to a maximum of 100 stacks."
 		"DOTA_Tooltip_modifier_infused_mageplate_stack"			"Armored Magus"
-		"DOTA_Tooltip_modifier_infused_mageplate_stack_Description"	"Gaining ability damage and intelligence when taking damage."
+		"DOTA_Tooltip_modifier_infused_mageplate_stack_Description"	"Gaining ability damage and Intelligence when taking damage."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_depth_crest_armor"								"Depth Crest Armor"
 		"item_property_depth_crest"						"Crush"
-		 "property_depth_crest_description"					"@special_property1% chance when attacked to stun all nearby enemies for @special_property5 seconds and deal @special_property2x your strength + @special_property3x your armor. All damage dealt directly by items is enhanced by @special_property4% for each 10 points of strength while enemies are stunned."
+		 "property_depth_crest_description"					"@special_property1% chance when attacked to stun all nearby enemies for @special_property5 seconds and deal @special_property2x your Strength + @special_property3x your armor. All damage dealt directly by items is enhanced by @special_property4% for each 10 points of Strength while enemies are stunned."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"Terrasic Stone Plate"
@@ -254,7 +254,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"Water Mage Robes"
 		"item_property_watermage"							"Wave Burst"
-		"property_watermage_description"					"While channeling @Ability4, fire massive waves in all directions, dealing the sum of 7x your attack damage and 30x your intelligence as magic damage per wave. Additionally slows movespeed by 50%. Enemies who are slowed take 100% increased Post-Mitigation damage from the caster."
+		"property_watermage_description"					"While channeling @Ability4, tidal energies throw violent waves of water in all directions around you, dealing the sum of 7x your attack damage and 30x your Intelligence as magic damage per wave. Enemies struck have their movespeed slowed by 50%, and while slowed they take 100% increased Post-Mitigation damage from the caster."
 		"DOTA_Tooltip_modifier_water_mage_slow"			"Wave Burst Slow"
 		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Reduced Movementspeed"
 		 
@@ -333,7 +333,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"Direwolf Bulwark"
 		"item_property_direwolf"						"Cerberus Core"
-		"property_direwolf_description"					"Each 10 points of your primary attribute increases base attack damage by @special_property1, armor by @special_property2, and base ability damage by @special_property3%. Cannot be reforged."
+		"property_direwolf_description"					""Each 10 points of your primary attribute increases Base Attack damage by @special_property1, Armor by @special_property2, and Base Ability damage by @special_property3%. This item cannot be reforged by the Blacksmith."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"Armor of Atlantis"	

@@ -41,12 +41,12 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_white_mage_hat"									"White Mage Hat LV1"
 		"item_property_white_mage_hat"				"Cura"
-		"property_white_mage_hat_description"		"@Ability2 also restores HP for you and nearby allies, based on @special_property1x your intelligence. Whenever you heal yourself or an ally, this property increases by 1. Upgrades at 5000."
+		"property_white_mage_hat_description"		"@Ability2 also restores HP for you and nearby allies, based on @special_property1x your Intelligence. Whenever you heal yourself or an ally, this property increases by 1. Upgrades at 5000."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat_2"								"White Mage Hat LV2"
 		"item_property_white_mage_hat_2"			"Curaga"
-		"property_white_mage_hat_2_description"		"@Ability2 also restores HP for you and nearby allies, based on @special_property1x your intelligence. Any over heal applies a shield that absorbs equivalent damage, up to 100% of target's max health. Base Ability damage is increased by @special_property2% for each 10 points of intelligence."
+		"property_white_mage_hat_2_description"		"@Ability2 also restores HP for you and nearby allies, based on @special_property1x your Intelligence. Any over heal applies a shield that absorbs equivalent damage, up to 100% of target's max health. Base Ability damage is increased by @special_property2% for each 10 points of Intelligence."
 		"DOTA_Tooltip_modifier_white_mage_shield"	"White Mage Shield"
 		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"Absorbing Damage"
 		
@@ -63,7 +63,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
 		"item_property_ruby_dragon"					"Ruby Dragon"
-		"property_ruby_dragon_description"			"When you finish casting @Ability4 - summon a ruby dragon that breathes fire on enemies that deals @special_property1x your strength on impact and @special_property2x your strength every 0.5 seconds for 3 seconds as burn damage.<br>All damage dealt directly by items is enhanced by @special_property3% for each 10 points of strength."
+		"property_ruby_dragon_description"			"When you finish casting @Ability4 - summon a ruby dragon that breathes fire on enemies that deals @special_property1x your Strength on impact and @special_property2x your Strength every 0.5 seconds for 3 seconds as burn damage.<br>All damage dealt directly by items is enhanced by @special_property3% for each 10 points of Strength."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
@@ -95,14 +95,14 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
 		"item_property_odin"						"Zantetsuken"
-		"property_odin_description"					"All instances of damage dealt have a @special_property1% chance to be multiplied by @special_property2, which is considered Post-Mitigation increase, but multiplies other sources of Post-Mitigation damage as well."
+		"property_odin_description"					"All instances of damage dealt have a @special_property1% chance to be multiplied by @special_property2. This Post-Mitigation bonus increases the final damage dealt to the target, and therefore multiplies all other Post-Mitigation effects applied during calculation."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
 		"item_property_iron_colossus"				"Iron Colossus"	
-		"property_iron_colossus_description"		"Each point of strength increases your damage by <% IRON_COLOSSUS_ATT_PER_STR %> and armor by <% IRON_COLOSSUS_AMR_PER_STR %> and you grow by 15%. Your attack speed is forced at <% IRON_COLOSSUS_ATT_SPD %> and your attack range is forced at <% IRON_COLOSSUS_ATT_RNG %>. Attacks stun for 0.5 seconds, and deal an additional <% IRON_COLOSSUS_DMG_PER_ATT %>x physical damage. @Ability2 costs 1000 extra mana."
+		"property_iron_colossus_description"		"Each point of Strength increases your damage by <% IRON_COLOSSUS_ATT_PER_STR %> and armor by <% IRON_COLOSSUS_AMR_PER_STR %> and you grow by 15%. Your attack speed is forced at <% IRON_COLOSSUS_ATT_SPD %> and your attack range is forced at <% IRON_COLOSSUS_ATT_RNG %>. Attacks stun for 0.5 seconds, and deal an additional <% IRON_COLOSSUS_DMG_PER_ATT %>x physical damage. @Ability2 costs 1000 extra mana."
 		"DOTA_Tooltip_modifier_iron_colossus"					"Iron Colossus"
-		"DOTA_Tooltip_modifier_iron_colossus_description"		"Attacks deal 50x physical damage, stun enemies for 0.5s and size increased. Attack speed locked at 120. Gain bonus damage and armor from strength."
+		"DOTA_Tooltip_modifier_iron_colossus_description"		"Attacks deal 50x physical damage, stun enemies for 0.5s and size increased. Attack speed locked at 120. Gain bonus damage and armor from Strength."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
@@ -112,14 +112,14 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"
 		"item_property_swamp_witch"					"Murky Wave"
-		"property_swamp_witch_description"			"Each cast of @Ability2 also unleashes a swarm of bats in front of you - dealing @special_property1x your intelligence as damage. Enemies hit by the wave take @special_property2% increased post-mitigation damage for 8 seconds, stacking up to 10 times."
+		"property_swamp_witch_description"			"Each cast of @Ability2 also unleashes a swarm of bats in front of you - dealing @special_property1x your Intelligence as damage. Enemies hit by the wave take @special_property2% increased post-mitigation damage for 8 seconds, stacking up to 10 times."
 		"DOTA_Tooltip_modifier_witch_hat_damage_amp"	"Murky Wave"
 		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"Taking 15% increased post-mitigation damage per stack."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
 		"item_property_trickster"					"Laughing Gas"
-		"property_trickster_description"			"Each cast of @Ability2 instantly moves you 380 units in a random direction. All Post-Mitigaiton damage is multiplied by a random factor of 0.5-2.5. Total Base Ability Damage of @Ability2 is multiplied by a random factor of 0.1-6."
+		"property_trickster_description"            "Each cast of @Ability2 instantly moves you 380 units in a random direction. All Post-Mitigaiton damage is multiplied by a random factor of 0.5-2.5. Total Base Ability damage of @Ability2 is multiplied by a random factor of 0.1-6."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
@@ -166,7 +166,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_undertakers_hood"								"Undertaker's Hood"
 		"item_property_undertaker"					"Death Strike"
-		"property_undertaker_description"			"Your basic attacks also unleash a slow moving hand that deals magic damage equal to 30x your intelligence"
+		"property_undertaker_description"			"Your basic attacks also unleash a slow moving hand that deals magic damage equal to 30x your Intelligence"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_shroud_of_eternal_night"							"Shroud of Eternal Night"
@@ -238,7 +238,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"Hood of the Defiler"
 		"item_property_hood_of_defiler"					"Corruption"
-		"property_hood_of_defiler_description"				"Enemies hit by @Ability2 receive a debuff that reduces CURRENT armor by 15%, and additionally take 25% increased post-mitigation physical damage from all sources. Stacks up to 5 times and lasts 9 seconds. Increases Bonus Attack damage by 0.5% for each target hit, up to 100 stacks."
+		"property_hood_of_defiler_description"                "Enemies hit by @Ability2 receive a debuff that reduces CURRENT armor by 15%, and additionally take 25% increased Post-Mitigation physical damage from all sources. Stacks up to 5 times and lasts 9 seconds. Increases Bonus Attack damage by 0.5% for each target hit, up to 100 stacks."
 		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible"	"Corruption"
 		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible_Description"	"Reduced Armor, and taking increased physical damage."
 		"DOTA_Tooltip_modifier_hood_of_defiler_buff"			"Corruption"

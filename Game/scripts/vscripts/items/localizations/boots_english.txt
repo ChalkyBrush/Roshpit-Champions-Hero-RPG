@@ -32,7 +32,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"Yasha Boots"
 		"item_property_yasha"						"Combat Mastery Y"	
-		"property_yasha_description"				"Increase attack speed by 1 for every @special_property1 strength. Sets Base Attack Time to @special_property2s"
+		"property_yasha_description"				"Increase attack speed by 1 for every @special_property1 Strength. Sets Base Attack Time to @special_property2s"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mana_striders"									"Mana Striders"
@@ -77,7 +77,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crusader_boots"									"Crusader Boots"
 		"item_property_crusader_boots"				"Devotion Aura"
-		"property_crusader_boots_description"		"Gives armor to you and nearby allied heroes equal to 10% of your strength."
+		"property_crusader_boots_description"		"Gives armor to you and nearby allied heroes equal to 10% of your Strength."
 
 		"DOTA_Tooltip_modifier_devotion_aura_buff"  "Devotion Aura Effect"
 		"DOTA_Tooltip_modifier_devotion_aura_buff_Description"	"Gaining Armor"
@@ -134,7 +134,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_pure_waters"							"Boots of Pure Waters"
 		"item_property_pure_waters"							"Clear Waves"
-		"property_pure_waters_description"					"When you cast @Ability3, restore 4% of your max mana and launch a trail of water that deals the greater of 10x your attack damage or 80x your intelligence as pure damage. Also slows movespeed by 30% for 4 seconds.<br>Can only trigger once every 1 second."
+		"property_pure_waters_description"					"When you cast @Ability3, restore 4% of your max mana and launch a trail of water that deals the greater of 10x your attack damage or 80x your Intelligence as pure damage. Also slows movespeed by 30% for 4 seconds.<br>Can only trigger once every 1 second."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"								"Terrasic Lava Boots"
@@ -166,7 +166,7 @@
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
 		 "item_property_boots_of_ashara"						"Autumnwood Charm"
-		 "property_boots_of_ashara_description"					"@Ability3 deals @special_property1x increased Base Ability damage while health is less than or equal to @special_property2%"
+		 "property_boots_of_ashara_description"					"@Ability3 gains @special_property1x increased Base Ability damage while health is less than or equal to @special_property2%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"Sandstream Slippers"
@@ -214,7 +214,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_alaranas_ice_boot"								"Alarana's Ice Boots"
 		"item_property_alarana"								"Ice Block"
-		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% and increasing post-mitigation magic damage by @special_property4% for @special_property1 seconds. If total damage blocked exceeds @special_property2x your Max Health, the shield shatters. On shattering, root all nearby enemies and deal damage equal to @special_property3x your Max Health."
+		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% and increasing Post-Mitigation magic damage by @special_property4% for @special_property1 seconds. If total damage blocked exceeds @special_property2x your Max Health, the shield shatters. On shattering, root all nearby enemies and deal damage equal to @special_property3x your Max Health."
 		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"Ice Block"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"Frost Nova"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"Rooted"

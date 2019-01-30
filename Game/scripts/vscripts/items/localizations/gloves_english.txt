@@ -105,7 +105,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
 		"item_property_spirit_glove"				"Spirit Touch" 
-		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and all nearby allies equal to 6x your intelligence per second for 12 seconds."
+		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and all nearby allies equal to 6x your Intelligence per second for 12 seconds."
 		"DOTA_Tooltip_modifier_spirit_glove_effect"	"Spirit Touch"
 		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Restoring health each second."
 		
@@ -119,12 +119,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mountain_vambraces"								"Mountain Vambraces"
 		"item_property_mountain_vambraces"			"Craggy Shock"
-		"property_mountain_vambraces_description"	"Your attacks have a 15% chance (10% range) to stun units in a small area for 2 seconds and take @special_property1x your strength as magic damage. Enemies can not be stunned more than once every 4 seconds.<br>All damage dealt directly by items is enhanced by @special_property2% for each 10 points of strength."
+		"property_mountain_vambraces_description"	"Your attacks have a 15% chance (10% range) to stun units in a small area for 2 seconds and take @special_property1x your Strength as magic damage. Enemies can not be stunned more than once every 4 seconds.<br>All damage dealt directly by items is enhanced by @special_property2% for each 10 points of Strength."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"Cytopian Laser Glove"
 		"item_property_cytopian_laser"				"Cytopian Laser"
-		"property_cytopian_laser_description"		"Casting @Ability2 also fires lasers at all surrounding enemies, dealing @special_property1x your intelligence times @Ability2 level as magic damage. Each successive hit deals 100% increased damage. Max @special_property2 stacks."
+		"property_cytopian_laser_description"		"Casting @Ability2 also fires lasers at all surrounding enemies, dealing @special_property1x your Intelligence times @Ability2 level as magic damage. Each successive hit deals 100% increased damage. Max @special_property2 stacks."
 		"DOTA_Tooltip_modifier_cytopian_stacks"		"Cytopian Laser"
 		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"Taking increased damage from lasers"
 		
@@ -136,7 +136,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"
 		"item_property_grand_arcanist"				"Master of Magic"
-		"property_grand_arcanist_description"		"Increases Base Ability damage by 0.3% for every 10 points of intelligence."
+		"property_grand_arcanist_description"		"Increases Base Ability damage by 0.3% for every 10 points of Intelligence."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"Eternal Essence Gauntlet"
@@ -167,14 +167,14 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"Royal Wristguards"		
 		"item_property_royal_wrist"								"Commanding Steel"
-		"property_royal_wrist_description"						"On taking damage, gain a stack of @special_property1% Bonus Attack damage. Base Ability damage of @Ability1 increased by @special_property2% per stack, but removes all stacks on cast. Stacks up to 80 times."
+		"property_royal_wrist_description"						"On taking damage, gain a stack of @special_property1% Bonus Attack damage. Base Ability damage of @Ability1 is increased by @special_property2% per stack, but removes all stacks on cast. Stacks up to 80 times."
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect"	"Commanding Steel"
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect_Description" "Increased attack and Q ability damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
 		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Increases all Post-Mitigation damage dealt by @special_property1% for each missing percent of health. Each spell cast drains 20% of max life, and each attack drains 7% of max life. Draining health cannot be lethal."
+		"property_mordiggus_description"					"Increases all Post-Mitigation damage dealt by @special_property1% for each missing percent of health. Each spell cast drains 20% of max life, and each attack drains 7% of max life. Health drained by this effect cannot be lethal."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"
@@ -210,7 +210,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_gravekeepers_gauntlet"							"Gravekeeper's Gauntlet"
 		"item_property_gravekeeper_gauntlet"				"Gravekeeper"
-		"property_gravekeeper_gauntlet_description"		"Successive attacks on the same target increase all pre-mitigation damage dealt to it by 10%, and drain 3 movespeed from target. Changing attack targets restarts the effect."
+		"property_gravekeeper_gauntlet_description"		"Successive attacks on the same target increase all Pre-Mitigation damage you deal to it by 10%, and each stack also drains 3 movespeed from the unit. Changing attack targets restarts the effect."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"Grave Target"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"Losing movespeed and taking additional damage with each stack."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"Gravekeeper"
@@ -221,7 +221,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_autumnrock_bracer"								"Autumnrock Bracer"
 		"item_property_autumnrock_bracer"						"Fissure"
-		 "property_autumnrock_bracer_description"				"10% chance when taking damage to create an explosive fissure towards the damage source. The fissure stuns for 2 seconds and deals @special_property1x your strength as magic damage.<br>All damage dealt directly by items is enhanced by @special_property2% for each 100 points of current health."
+		 "property_autumnrock_bracer_description"				"10% chance when taking damage to create an explosive fissure towards the damage source. The fissure stuns for 2 seconds and deals @special_property1x your Strength as magic damage.<br>All damage dealt directly by items is enhanced by @special_property2% for each 100 points of current health."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"Malachite Shade Bracer"
