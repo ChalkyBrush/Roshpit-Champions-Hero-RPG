@@ -1003,14 +1003,14 @@
 	            		"damage"		"%damage"
 	            		"stun_duration"	"%stun_duration"
 	            	}
-	            	"OnDestroy"
+	            }
+	            "OnDestroy"
+	            {
+	            	"RunScript"
 	            	{
-	            		"RunScript"
-	            		{
-	            			"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
-	            			"Function"		"axe_motion_end"
-	            			"target"		"TARGET"
-	            		}
+	            		"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
+	            		"Function"		"axe_motion_end"
+	            		"target"		"TARGET"
 	            	}
 	            }
             }
@@ -1181,14 +1181,14 @@
 						"duration"		"%slow_duration"
 						"radius"		"%radius"
 	            	}
-	            	"OnDestroy"
+	            }
+	            "OnDestroy"
+	            {
+	            	"RunScript"
 	            	{
-	            		"RunScript"
-	            		{
-	            			"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
-	            			"Function"		"axe_motion_end"
-	            			"target"		"TARGET"
-	            		}
+	            		"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
+	            		"Function"		"axe_motion_end"
+	            		"target"		"TARGET"
 	            	}
 	            }
             }
@@ -1362,14 +1362,14 @@
 						"duration"		"%duration"
 						"radius"		"%radius"
 	            	}
-	            	"OnDestroy"
+	            }
+	            "OnDestroy"
+	            {
+	            	"RunScript"
 	            	{
-	            		"RunScript"
-	            		{
-	            			"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
-	            			"Function"		"axe_motion_end"
-	            			"target"		"TARGET"
-	            		}
+	            		"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
+	            		"Function"		"axe_motion_end"
+	            		"target"		"TARGET"
 	            	}
 	            }
             }
