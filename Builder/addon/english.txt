@@ -886,7 +886,7 @@
 		"item_rpc_neutral_glyph_4_1_description" 			"Reduces respawn time by @glyph_property1%, and you will respawn at the location of your death. If you die again within @glyph_property2 seconds, however, you will respawn at your Respawn Flag or at the map's default location."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_1"	"Glyph of Walling"
-		"item_rpc_neutral_glyph_5_1_description" 			"Decreases ALL damage taken by @glyph_property1% and reduces all outgoing damage by @glyph_property2%"
+		"item_rpc_neutral_glyph_5_1_description" 			"Decreases all damage taken by @glyph_property1% and reduces all outgoing damage by @glyph_property2%"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_1"	"Glyph of War"
 		"item_rpc_neutral_glyph_6_1_description" 			"Increase attack damage by @glyph_property1%"
@@ -908,7 +908,7 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_2"	"Glyph of Berserking"
-		"item_rpc_neutral_glyph_5_2_description" 			"Increases ALL damage taken by @glyph_property1% and increases all outgoing damage by @glyph_property2%"
+		"item_rpc_neutral_glyph_5_2_description" 			"Increases all damage taken by @glyph_property1% and increases all outgoing damage by @glyph_property2%"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_2"	"Glyph of Aptitude"
 		"item_rpc_neutral_glyph_6_2_description" 			"Increase Normal damage by @glyph_property1%"
@@ -932,7 +932,7 @@
 		"item_rpc_neutral_glyph_5_3_description" 			"Increases ALL physical damage output by @glyph_property1% and decreases all magic damage output by @glyph_property2%"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_3"	"Glyph of Sorcery"
-		"item_rpc_neutral_glyph_6_3_description" 			"Increase ALL magic damage output by @glyph_property1%"
+		"item_rpc_neutral_glyph_6_3_description" 			"Increases Post-Mitigation magic damage by @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"Glyph of Grand Intelligence"
 		"item_rpc_neutral_glyph_7_3_description" 			"Increases Intelligence by either @glyph_property2% or @glyph_property1, whichever provides a greater bonus."

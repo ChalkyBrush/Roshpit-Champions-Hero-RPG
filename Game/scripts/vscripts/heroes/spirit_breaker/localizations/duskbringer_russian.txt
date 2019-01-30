@@ -276,4 +276,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_3"            "Cranium Basher"
         "item_property_duskbringer_immortal_weapon3"                             "Skull Bash"
-        "property_duskbringer_immortal_weapon3_description"                      "С @special_property1% шансом при обычной атаке герой оглушит врага на @special_property2 сек. и получит @special_property3 заряда [E2] Ghost armor."
+        "property_duskbringer_immortal_weapon3_description"                      "С @special_property1% шансом при обычной атаке герой оглушит врага на @special_property2 сек. и получит @special_property3 зарядов [E2] Ghost armor."
