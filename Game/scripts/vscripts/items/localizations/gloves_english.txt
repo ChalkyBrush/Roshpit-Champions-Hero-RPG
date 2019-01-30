@@ -95,7 +95,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"
 		"item_property_master_gloves"				"Master's Teachings"
-		"property_master_gloves_description"		"Increases the damage of @Ability4 by 200%"
+		"property_master_gloves_description"		"Increases the Base Ability damage of @Ability4 by 200%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
@@ -131,17 +131,17 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Ranger Glove"
 		"item_property_power_ranger"				"Megaforce"
-		"property_power_ranger_description"			"Increases attack damage by 150%. All post-mitigation physical damage is enhanced by 200%"
+		"property_power_ranger_description"			"Increases attack damage by 150%. All Post-Mitigation physical damage is enhanced by 200%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"
 		"item_property_grand_arcanist"				"Master of Magic"
-		"property_grand_arcanist_description"		"Increases base ability damage by 0.3% for every 10 points of intelligence."
+		"property_grand_arcanist_description"		"Increases Base Ability damage by 0.3% for every 10 points of intelligence."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"Eternal Essence Gauntlet"
 		"item_property_eternal_essence"				"Absorption"
-		"property_eternal_essence_description"		"Slain enemies heal you for 4% of their max health"
+		"property_eternal_essence_description"		"Slain enemies heal you for 4% of their max health."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_bladeforge_gauntlet"								"Bladeforge Gauntlet"
@@ -155,36 +155,36 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
 		"item_property_silverspring_glove"			"Silverspring"
-		"property_silverspring_description"			"Your Attack Power is increased by @special_property1% of your Health Regen stat."
+		"property_silverspring_description"			"Your Base Attack damage is increased by @special_property1% of your Health Regen stat."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"
 		"item_property_farseer_glove"				"Spell Strike"
-		"property_farseer_description"				"Increases your base attack damage by 1% of the last instance of pre-mitigation Magic Damage that you dealt. Lasts 15 seconds and does not stack. Damage bonus is capped at 50x primary attribute."
+		"property_farseer_description"				"Increases your Base Attack damage by 1% of the last instance of pre-mitigation Magic Damage that you dealt. Lasts 15 seconds and does not stack. Damage bonus is capped at 50x primary attribute."
 		"DOTA_Tooltip_modifier_far_seer_effect"				"Spell Strike"
 		"DOTA_Tooltip_modifier_far_seer_effect_Description"	"Attack Damage was Increased by last instance of Magic Damage"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"Royal Wristguards"		
 		"item_property_royal_wrist"								"Commanding Steel"
-		"property_royal_wrist_description"						"On taking damage, gain a stack of @special_property1% bonus attack damage. @Ability1 deals @special_property2% increased damage per stack, but removes all stacks on cast. Stacks up to 80 times."
+		"property_royal_wrist_description"						"On taking damage, gain a stack of @special_property1% Bonus Attack damage. Base Ability damage of @Ability1 increased by @special_property2% per stack, but removes all stacks on cast. Stacks up to 80 times."
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect"	"Commanding Steel"
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect_Description" "Increased attack and Q ability damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
 		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Increases ALL damage output by @special_property1% for each missing percent of hp. Each spell cast drains 20% of max life, and each attack drains 7% of max life. Drained Health cannot be lethal."
+		"property_mordiggus_description"					"Increases all Post-Mitigation damage dealt by @special_property1% for each missing percent of health. Each spell cast drains 20% of max life, and each attack drains 7% of max life. Draining health cannot be lethal."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"
 		"item_property_ironbound_gloves"					"Ironfist"
-		"property_ironbound_gloves_description"				"Your base attack damage is increased by @special_property1x your armor."
+		"property_ironbound_gloves_description"				"Your Base Attack damage is increased by @special_property1x your armor."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
 		"item_property_sweeping_wind"						"Sweeping Winds"
-		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants +100% attack damage, and all nearby enemies take 50% of your attack damage as magic each second. Attacking consumes a stack. Max 5 stacks. Lasts 10 seconds."
+		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants +100% Bonus Attack damage, and all nearby enemies take 50% of your attack damage as magic each second. Attacking consumes a stack. Max 5 stacks. Lasts 10 seconds."
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Each stack provides bonus attack damage and damages nearby enemies."
 		 
@@ -204,13 +204,13 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
 		"item_property_spiritual_empowerment"				"Spiritual Empowerment"
-		"property_spiritual_empowerment_description"		"Every 6 seconds gain a stack of Spiritual Empowerment. Each stack adds @special_property1% base ability damage. Casting a spell consumes a stack. Max 10 stacks."
+		"property_spiritual_empowerment_description"		"Every 6 seconds gain a stack of Spiritual Empowerment. Each stack adds @special_property1% Base Ability damage. Casting a spell consumes a stack. Max 10 stacks."
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Each stack providing %property_one%%% base ability damage."
 		 
     	"DOTA_Tooltip_ability_item_rpc_gravekeepers_gauntlet"							"Gravekeeper's Gauntlet"
 		"item_property_gravekeeper_gauntlet"				"Gravekeeper"
-		"property_gravekeeper_gauntlet_description"		"Successive attacks on the same target deal an additional stacking 10% damage, and drain 3 movespeed. Changing attack targets restarts the effect."
+		"property_gravekeeper_gauntlet_description"		"Successive attacks on the same target increase all pre-mitigation damage dealt to it by 10%, and drain 3 movespeed from target. Changing attack targets restarts the effect."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"Grave Target"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"Losing movespeed and taking additional damage with each stack."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"Gravekeeper"
@@ -226,12 +226,12 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"Malachite Shade Bracer"
 		"item_property_malachite_shade"						"Verdant Flow"
-		 "property_malachite_shade_description"					"Mana and Health Regen is increased by 15% of your Agility. Base attack damage is increased by 100% of your health regen and mana regen."
+		 "property_malachite_shade_description"					"Mana and Health Regen is increased by 15% of your Agility. Base Attack damage is increased by 100% of your health regen and mana regen."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet"							"Skulldigger Gauntlet"
 		"item_property_skulldigger"						"Wraithfire"
-		"property_skulldigger_description"					"Gain wraithfire stacks each @special_property1 seconds. When attacked, launch a wraithfire blast at the target that deals @special_property3x your attack damage on impact and stuns in a small AOE for @special_property4 seconds. Max @special_property2 stacks."
+		"property_skulldigger_description"					"Gain Wraithfire stacks each @special_property1 seconds. When attacked, launch a Wraithfire Blast at the target that deals @special_property3x your attack damage on impact and stuns in a small AOE for @special_property4 seconds. Max @special_property2 stacks."
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"Wraithfire"
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks_Description"	"When taking damage, launch a wraithfire blast at the attacker."
 		 
@@ -251,7 +251,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
 		"item_property_shadowflame_fist"						"Vacant Shade"
-		"property_shadowflame_fist_description"					"Mana is capped at @special_property1% of max. Base Damage of @Ability2 is increased by @special_property2%."
+		"property_shadowflame_fist_description"					"Mana is capped at @special_property1% of max. Base Ability Damage of @Ability2 is increased by @special_property2%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
@@ -261,9 +261,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"
 		"item_property_demonfire"								"Demon Flame"
-		"property_demonfire_description"						"Landing an attack adds a stack of Demon Flame which increases all elemental damage by @special_property1%. When the buff ends, the 4 closest enemies within a 1000 radius are damaged by @special_property2% of attack damage times the number of stacks. Max @special_property3 stacks."
+		"property_demonfire_description"						"Landing an attack adds a stack of Demon Flame which increases all Elemental damage by @special_property1%. When the buff ends, the 4 closest enemies within a 1000 radius are damaged by @special_property2% of Attack power times the number of stacks. Max @special_property3 stacks."
 		"DOTA_Tooltip_modifier_demonfire_stack"					"Demon Flame"
-		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Each stack increases elemental damage by 30%%"
+		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Each stack increases Elemental damage by 30%%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_heavy_echo_gauntlet"								"Heavy Echo Gauntlet"
@@ -284,7 +284,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	
 		"property_dark_emissary"												"Spectral Mist"
-		"property_dark_emissary_Description"									"Casting @Ability1 creates a ghost cloud that deals @special_property1% of attack power in a 400 radius roots for 5 seconds. Applies invisibility for @special_property2 seconds. Invisibility has a @special_property3 second cooldown."
+		"property_dark_emissary_Description"									"Casting @Ability1 creates a ghost cloud that deals @special_property1% of Attack power in a 400 radius roots for 5 seconds. Applies invisibility for @special_property2 seconds. Invisibility has a @special_property3 second cooldown."
 		"DOTA_Tooltip_modifier_dark_emissary_invis"								"Spectral Mist"
 		"DOTA_Tooltip_modifier_dark_emissary_invis_Description"					"Invisible"
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"Spectral Mist"
@@ -298,7 +298,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_buzukis_finger"				"Buzuki's Finger"
 		"item_property_buzuki_finger"								"Power Up"
-		"property_buzuki_finger_description"						"Casting @Ability2 buffs all nearby non-hero units. Buffed units deal @special_property1% increased post-mitigation damage and their attacks create an energy beam that deals @special_property2% of attack damage. The damage is attributed to the original caster. Buff lasts 30 seconds."
+		"property_buzuki_finger_description"						"Casting @Ability2 buffs all nearby non-hero units. Buffed units deal @special_property1% increased Post-Mitigation damage and their attacks create an energy beam that deals @special_property2% of attack damage. The damage is attributed to the original caster. Buff lasts 30 seconds."
 		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"Power Up!"
 		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"Increased post-mitigation damage and dealing additional pure damage on attacks"
 		

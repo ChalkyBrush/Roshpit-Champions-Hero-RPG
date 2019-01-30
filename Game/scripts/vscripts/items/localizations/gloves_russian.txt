@@ -83,7 +83,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"
 		"item_property_scarecrow"					"Replenishing Mind"
-		"property_scarecrow_description"			"Увеличивает реген. маны на 50% от вашего интеллекта."
+		"property_scarecrow_description"			"Увеличивает регенерацию маны на 50% от вашего интеллекта."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_living_gauntlet"									"Living Gauntlet"
@@ -100,7 +100,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
 		"item_property_phoenix_gloves"				"Perpetual Rebirth" 
-		"property_phoenix_gloves_description"		"Даёт @special_property1 реген. здоровья за каждое отсутствующее очко здоровья. Каждое имеющееся очко текущего здоровья увеличивает базовый урон на @special_property2."
+		"property_phoenix_gloves_description"		"Даёт @special_property1 регенерацию здоровья за каждое отсутствующее очко здоровья. Каждое имеющееся очко текущего здоровья увеличивает Базовый Урон атаки на @special_property2."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
@@ -136,7 +136,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"
 		"item_property_grand_arcanist"				"Master of Magic"
-		"property_grand_arcanist_description"		"Увеличивает базовый урон способностей на 0.3% за каждые 10 очков Интеллекта."
+		"property_grand_arcanist_description"		"Увеличивает Базовый Урон Способностей на 0.3% за каждые 10 очков Интеллекта."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"Eternal Essence Gauntlet"
@@ -167,24 +167,24 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"Royal Wristguards"		
 		"item_property_royal_wrist"								"Commanding Steel"
-		"property_royal_wrist_description"						"Каждый раз, получая урон, герой получает заряд. Каждый заряд увеличивает основной урон героя на @special_property1%, базовый урон умения (Q) @Ability1 на @special_property2%. Заряды накапливаются до 80 раз, но полностью теряются после прочтения (Q) @Ability1."
+		"property_royal_wrist_description"						"Каждый раз, получая урон, герой получает заряд. Каждый заряд увеличивает Бонусный Урон атаки героя на @special_property1%, Базовый Урон Способности (Q) @Ability1 на @special_property2%. Заряды накапливаются до 80 раз, но полностью теряются после прочтения (Q) @Ability1."
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect"	"Commanding Steel"
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect_Description" "Основной урон и базовый урон умения Q увеличен."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
 		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Увеличивает весь наносимый урон на 100%. Каждое прочтение любого заклинания тратит 20% от макс. здоровья героя. Каждая атака тратит 7% от макс. здоровья героя. Затрачиваемое здоровье не может быть смертельным, оставляя минимум 1 ед. здоровья."
+		"property_mordiggus_description"					"Увеличивает весь Пост-Резистный урон на 100%. Каждое прочтение любого заклинания тратит 20% от макс. здоровья героя. Каждая атака тратит 7% от макс. здоровья героя. Затрачиваемое здоровье не может быть смертельным, оставляя минимум 1 ед. здоровья."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"
 		"item_property_ironbound_gloves"					"Ironfist"
-		"property_ironbound_gloves_description"				"Базовый урон увеличивается на @special_property1х вашей брони."
+		"property_ironbound_gloves_description"				"Базовый урон атаки увеличивается на @special_property1х вашей брони."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
 		"item_property_sweeping_wind"						"Sweeping Winds"
-		"property_sweeping_wind_description"				"При прочтении способности (Е) @Ability3, герой получит заряд способности предмета. Каждый заряд увеличивает урон героя на 100%, а все ближайшие противники будут ежесекундно получать магический урон в размере 50% от основного урона героя. Каждая базовая атака поглощает 1 заряд. Максимум 5 зарядов. Длительность 10 секунд."
+		"property_sweeping_wind_description"				"При прочтении способности (Е) @Ability3, герой получит заряд способности предмета. Каждый заряд увеличивает Бонусный урон героя на 100%, а все ближайшие противники будут ежесекундно получать магический урон в размере 50% от основного урона героя. Каждая базовая атака поглощает 1 заряд. Максимум 5 зарядов. Длительность 10 секунд."
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Каждый заряд дарует увеличение базового урона, а ближайшие враги получают ежесекундный урон."
 		 
@@ -210,7 +210,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_gravekeepers_gauntlet"							"Gravekeeper's Gauntlet"
 		"item_property_gravekeeper_gauntlet"				"Gravekeeper"
-		"property_gravekeeper_gauntlet_description"		"Успешно атакуя одну и ту же цель, герой наносит на 10% больше урона и снижает её скорость передвижения на 3. Складывается неограниченное количество раз. Смена цели полностью сбрасывает эффект."
+		"property_gravekeeper_gauntlet_description"		"Успешно атакуя одну и ту же цель, герой наносит по ней на 10% больше урона и снижает её скорость передвижения на 3. Складывается неограниченное количество раз. Смена цели полностью сбрасывает эффект."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"Grave Target"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"Теряет скорость передвижения и получает увеличенный урон с каждым зарядом."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"Gravekeeper"
@@ -251,7 +251,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
 		"item_property_shadowflame_fist"						"Vacant Shade"
-		"property_shadowflame_fist_description"					"Значение маны не может быть выше @special_property1% от максимума. Базовый урон умения (W) @Ability2 увеличен на @special_property2%."
+		"property_shadowflame_fist_description"					"Значение маны не может быть выше @special_property1% от максимума. Базовый Урон Способности (W) @Ability2 увеличен на @special_property2%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
@@ -261,7 +261,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"
 		"item_property_demonfire"								"Demon Flame"
-		"property_demonfire_description"						"При успешной атаке герой получает заряды этого предмета. Каждый заряд увеличивает урон от всех стихий на @special_property1%. Когда заряды развеются, 4 ближайших врага в радиусе 1000 получат урон, равный @special_property2% урона героя, умноженного на количество зарядов. Максимум зарядов: @special_property3."
+		"property_demonfire_description"						"При успешной атаке герой получает заряды этого предмета. Каждый заряд увеличивает урон от всех Элементов на @special_property1%. Когда заряды развеются, 4 ближайших врага в радиусе 1000 получат урон, равный @special_property2% урона героя, умноженного на количество зарядов. Максимум зарядов: @special_property3."
 		"DOTA_Tooltip_modifier_demonfire_stack"					"Demon Flame"
 		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Каждый заряд увеличивает стихийный урон на 30%%"
 		
@@ -293,7 +293,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_energy_whip_glove"	"Energy Whip Glove"
 		"item_property_energy_whip"							"Spell Lash"
-		"property_energy_whip_description"					"Успешно атакуя врага, герой автоматически применяет (W) @Ability2 в место, где находимся атакуемый противник и если умение не перезаряжается."
+		"property_energy_whip_description"					"Успешно атакуя врага, герой автоматически применяет (W) @Ability2 в место, где находится атакуемый противник, если умение не перезаряжается."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_buzukis_finger"				"Buzuki's Finger"
@@ -305,5 +305,5 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"
 		"item_property_swiftspike_bracer"							"Sonic Overflow"
-		"property_swiftspike_bracer_description"					"Каждое очки текущей скорости передвижения увеличивает Базовый Урон Способностей на @special_property1%"
+		"property_swiftspike_bracer_description"					"Каждое очко текущей скорости передвижения увеличивает Базовый Урон Способностей на @special_property1%"
 		

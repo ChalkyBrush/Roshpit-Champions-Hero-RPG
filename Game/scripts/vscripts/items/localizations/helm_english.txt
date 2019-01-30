@@ -17,17 +17,17 @@
 
     	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil LV1"
 		 "item_property_shipyard_veil_1"					"Soul Shield I"
-		 "property_shipyard_veil_1_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (0.1 second cooldown). Max @special_property1 stacks. Each stack increases @Ability1 damage by @special_property2%. Whenever a damage instance is absorbed,<br>this property increases by 1. Upgrades at @special_property3."
+		 "property_shipyard_veil_1_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (0.1 second cooldown). Max @special_property1 stacks. Each stack increases Base Ability damage of @Ability1 by @special_property2%. Whenever a damage instance is absorbed,<br>this property increases by 1. Upgrades at @special_property3."
 
 		 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv2"								"Shipyard Veil LV2"
 		 "item_property_shipyard_veil_2"					"Soul Shield II"
-		 "property_shipyard_veil_2_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (0.1 second cooldown). Max @special_property1 stacks. Each stack increases @Ability1 damage by @special_property2%. Whenever a damage instance is absorbed,<br>this property increases by 1. Upgrades at @special_property3."
+		 "property_shipyard_veil_2_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (0.1 second cooldown). Max @special_property1 stacks. Each stack increases Base Ability damage of @Ability1 by @special_property2%. Whenever a damage instance is absorbed,<br>this property increases by 1. Upgrades at @special_property3."
 
 		 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv3"								"Shipyard Veil LV3"
 		 "item_property_shipyard_veil_3"					"Soul Shield III"
-		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (0.1 second cooldown). Max @special_property1 stacks. Each stack increases @Ability1 damage by @special_property2%. Enemies who damage the shield are targeted by a skull that deals<br>@special_property3x your primary attribute as magic damage."
+		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (0.1 second cooldown). Max @special_property1 stacks. Each stack increases Base Ability damage of @Ability1 by @special_property2%. Enemies who damage the shield are targeted by a skull that deals<br>@special_property3x your primary attribute as magic damage."
 
 		 
 		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"Soul Shield"
@@ -78,7 +78,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"Death Whisper Helm"
 		"item_property_death_whisper"				"Death Whisper"
-		"property_death_whisper_description"		"All enemies struck by @Ability1 take 30% increased damage from all sources and are slowed by 100 for 5 seconds."
+		"property_death_whisper_description"		"All enemies struck by @Ability1 take 30% increased Post-mitigation damage from all sources and are slowed by 100 for 5 seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"Cap of Wild Nature"
@@ -95,7 +95,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
 		"item_property_odin"						"Zantetsuken"
-		"property_odin_description"					"All instances of damage dealt have a @special_property1% chance of dealing @special_property2x damage post-mitigation."
+		"property_odin_description"					"All instances of damage dealt have a @special_property1% chance to be multiplied by @special_property2, which is considered Post-Mitigation increase, but multiplies other sources of Post-Mitigation damage as well."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
@@ -107,7 +107,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
 		"item_property_mugato"						"Curse of Mugato"	
-		"property_mugato_description" 				"Casting any spell silences you for @special_property1 seconds, and attacking silences you for @special_property2 seconds. While silenced from any source, your post-mitigation damage is increased by @special_property3%."
+		"property_mugato_description" 				"Casting any spell silences you for @special_property1 seconds, and attacking silences you for @special_property2 seconds. While silenced from any source, your Post-Mitigation damage is increased by @special_property3%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"
@@ -119,7 +119,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
 		"item_property_trickster"					"Laughing Gas"
-		"property_trickster_description"			"Each cast of @Ability2 instantly moves you 380 units in a random direction. All damage instances are multiplied by a random factor of 0.5-2.5. Base Damage of @Ability2 is multiplied by a random factor of 0.1-6."
+		"property_trickster_description"			"Each cast of @Ability2 instantly moves you 380 units in a random direction. All Post-Mitigaiton damage is multiplied by a random factor of 0.5-2.5. Total Base Ability Damage of @Ability2 is multiplied by a random factor of 0.1-6."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
@@ -129,7 +129,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
 		"item_property_tyrius"						"Might of Tyrius"
-		"property_tyrius_description"				"Each point of strength additionally increases your Health by 10 and your Max Mana by 4"
+		"property_tyrius_description"				"Each point of Strength additionally increases your Health by 10 and your Max Mana by 4"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"
@@ -139,7 +139,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
 		"item_property_super_ascendency"			"Super Ascension"
-		"property_super_ascendency_description"		"After casting @Ability4 - attacks gain 500 attack range - 100% attack damage - 240 attack speed and gain 100 movespeed. Attacks can hit 3 targets at once and each attack that hits reduces cooldown of @Ability4 by 0.05 seconds. Lasts 12 seconds."
+		"property_super_ascendency_description"		"After casting @Ability4 attacks gain 500 attack range, 100% Bonus Attack damage, 240 attack speed and gain 100 movespeed. Attacks can hit 3 targets at once and each attack that hits reduces cooldown of @Ability4 by 0.05 seconds. Lasts 12 seconds."
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
 		"DOTA_Tooltip_modifier_super_ascendency_trigger_Descrtiption"	"500 bonus attack range, 100%% bonus attack damage, 240 bonus attack speed and 100 movespeed. Multishot for 2 additional targets. Each attack hit on enemy reduces R remaining cooldown."
 		
@@ -156,7 +156,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
 		"item_property_samurai_helmet"				"Critical Strike"
-		"property_samurai_helmet_description"		"Your base attacks have a @special_property1% chance to deal @special_property2% increased damage. Additionally increases base attack damage by @special_property3x your level."
+		"property_samurai_helmet_description"		"Your base attacks have a @special_property1% chance to deal @special_property2% increased damage. Additionally increases Base Attack damage by @special_property3x your level."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
@@ -176,7 +176,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
 		"item_property_druids_spirt"				"Feral Spirits"
-		"property_druids_spirit_description"		"While channeling @Ability4 - summon a Feral Spirit Wolf every 0.5 seconds which has 2x your attack damage, 25% of your health and 1x your armor. Feral Spirits last 16 seconds. Each wolf provides a stacking 15% attack damage buff."
+		"property_druids_spirit_description"		"While channeling @Ability4 - summon a Feral Spirit Wolf every 0.5 seconds which has 2x your attack power, 25% of your health and 1x your armor. Feral Spirits last 16 seconds. Each wolf provides a stacking 15% attack damage buff."
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"Feral Spirit"
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"Increased attack damage from Spirit Wolves"
 		
@@ -214,7 +214,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"Crest of the Umbral Sentinel"
 		"item_property_umbral"						"Illusory Fog"
-		"property_umbral_description"				"Enemies damaged by @Ability2 lose armor equal to 70x the ability level, and take increased magic damage equal to 3% x ability level. Stacks up to 5 times. Lasts 10 seconds."
+		"property_umbral_description"				"Enemies damaged by @Ability2 lose armor equal to 70x the ability level, and take increased Post-Mitigation magic damage equal to 3% x ability level. Stacks up to 5 times. Lasts 10 seconds."
 		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible" "Illusory Fog"
 		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible_Description"	"Losing a %% of base physical armor and taking increased magic damage."
 		
@@ -233,12 +233,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"Wraith Hunter's Steel Helm"
 		"item_property_wraith_hunter"						"Wraith Hunter"
-		"property_wraith_hunter_description"				"Your mana is empty by default and can only be restored by taking damage. 3% of damage taken restores mana. Each mana increases base damage by 5. Attacking drains 2% of your max mana. Additionally increases damage of @Ability2 by 350%."
+		"property_wraith_hunter_description"				"Your mana is empty by default and can only be restored by taking damage. 3% of damage taken restores mana. Each mana increases Base Attack damage by 5. Attacking drains 2% of your max mana. Additionally increases damage of @Ability2 by 350%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"Hood of the Defiler"
 		"item_property_hood_of_defiler"					"Corruption"
-		"property_hood_of_defiler_description"				"Enemies hit by @Ability2 receive a debuff that reduces CURRENT armor by 15%, and additionally take 25% increased physical damage from all sources. Stacks up to 5 times and lasts 9 seconds. Increases attack damage by 0.5% for each target hit, up to 100 stacks."
+		"property_hood_of_defiler_description"				"Enemies hit by @Ability2 receive a debuff that reduces CURRENT armor by 15%, and additionally take 25% increased post-mitigation physical damage from all sources. Stacks up to 5 times and lasts 9 seconds. Increases Bonus Attack damage by 0.5% for each target hit, up to 100 stacks."
 		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible"	"Corruption"
 		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible_Description"	"Reduced Armor, and taking increased physical damage."
 		"DOTA_Tooltip_modifier_hood_of_defiler_buff"			"Corruption"
@@ -262,7 +262,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"
 		 "item_property_black_mage"							"Black Magic"
-		 "property_black_mage_description"					"All magic damage is increased by 280%. Damage dealt directly from items is reduced by 80%"
+		 "property_black_mage_description"					"Post-Mitigation magic damage increased by 280%. Damage dealt directly from items is reduced by 80%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"
@@ -350,7 +350,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hood_of_the_sea_oracle"					"Hood of the Sea Oracle"	
 		"property_sea_oracle"												"Progenetic Srike"
-		"property_sea_oracle_Description"									"Attacks reduce the current base attack damage and armor of the target by @special_property1%. Stacks up to @special_property2 times. You deal @special_property3% increased post-mitigation damage to targets with max stacks."
+		"property_sea_oracle_Description"									"Attacks reduce the current Base Attack damage and armor of the target by @special_property1%. Stacks up to @special_property2 times. You deal @special_property3% increased Post-Mitigation damage to targets with max stacks."
 		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Progenetic Strike Stacks"
 		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"Each stack reduces base attack damage and armor. If at 15 stacks, take extra damage from the inflictor."
 		
@@ -376,6 +376,6 @@
 	
 		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"
 		"item_property_chains_of_orthok"							"Binding Zeal"
-		"property_chains_of_orthok_description"						"Attacking and casting @Ability2 add 1 zeal stack. Casting @Ability1 and @Ability3 add 5 zeal stacks. Casting @Ability4 adds 12 zeal stacks. Each stack increases base ability damage by @special_property1%. Each stacks lasts 10 seconds and has its own individual duration."
+		"property_chains_of_orthok_description"						"Attacking and casting @Ability2 add 1 zeal stack. Casting @Ability1 and @Ability3 add 5 zeal stacks. Casting @Ability4 adds 12 zeal stacks. Each stack increases Base Ability damage by @special_property1%. Each stacks lasts 10 seconds and has its own individual duration."
 		"DOTA_Tooltip_modifier_orthok_zeal"							"Zeal"
 		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"Increased Base Ability Damage"

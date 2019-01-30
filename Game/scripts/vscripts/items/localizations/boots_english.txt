@@ -115,19 +115,19 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blue_dragon_greaves"								"Blue Dragon Greaves"
 		"item_property_dragon_greaves"				"Dragon Dance"
-		"property_dragon_greaves_description"		"For every 1200 units of distance moved, gain 85% evasion and 350% attack damage for 6 seconds."
+		"property_dragon_greaves_description"		"For every 1200 units of distance moved, gain 85% evasion and 350% Bonus Attack damage for 6 seconds."
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect"	"Dragon Dance"
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "85%% evasion and 350%% increased attack damage"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"						"Resplendent Rubber Boots"
 		"item_property_resplendent_rubber"					"Grounding"
-		"property_resplendent_rubber_description"			"Reduces ALL post-reduction magic damage taken by 35%"
+		"property_resplendent_rubber_description"			"Reduces all magic damage taken by 35%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_old_wisdom"								"Boots of Old Wisdom"
 		"item_property_old_wisdom"								"Spell Variance"
-		"property_old_wisdom_description"						"Increases base ability damage by @special_property1%. Using the same ability twice in a row removes this effect for 12 seconds."
+		"property_old_wisdom_description"						"Increases Base Ability damage by @special_property1%. Using the same ability twice in a row removes this effect for 12 seconds."
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown"				"Spell Variance Cooldown"
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown_Description"	"Used same spell twice in a row."
 		
@@ -146,7 +146,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"Ablecore Greaves"
 		"item_property_ablecore_greaves"					"Slugfoot"
-		"property_ablecore_greaves_description"			"While movespeed is equal to or less than 300, incoming damage is reduced by 80% and outgoing damage is increased by 150%. The buff sticks for 6 seconds if your movespeed moves back above 300."
+		"property_ablecore_greaves_description"			"While movespeed is equal to or less than 300, incoming damage is reduced by 80% and outgoing Post-Mitigation damage is increased by 150%. The buff sticks for 6 seconds if your movespeed moves back above 300."
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"Slugfoot"
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Incoming damage reduced by 80%% and outgoing damage increased by 150%%"
 		 
@@ -159,14 +159,14 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"Redfall Runners"
 		"item_property_redfall_runners"					"Crackling Leaves"
-		"property_redfall_runners_description"				"Casting @Ability3 applies a buff that increases the damage of @Ability2 by 20x. Lasts 7 seconds and is removed on cast."
+		"property_redfall_runners_description"				"Casting @Ability3 applies a buff that increases the damage of @Ability2 by 2400%. Lasts 7 seconds but works only for next damage instance of @Ability2."
 		"DOTA_Tooltip_modifier_redfall_runners_buff"		"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"W Ability damage increased by 20x"
+		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"W Ability damage increased by 2400%%."
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
 		 "item_property_boots_of_ashara"						"Autumnwood Charm"
-		 "property_boots_of_ashara_description"					"@Ability3 deals @special_property1x increased base ability damage while health is less than or equal to @special_property2%"
+		 "property_boots_of_ashara_description"					"@Ability3 deals @special_property1x increased Base Ability damage while health is less than or equal to @special_property2%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"Sandstream Slippers"
@@ -214,7 +214,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_alaranas_ice_boot"								"Alarana's Ice Boots"
 		"item_property_alarana"								"Ice Block"
-		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% and increasing magic damage by @special_property4% for @special_property1 seconds. If total damage blocked exceeds @special_property2x your Max Health, the shield shatters. On shattering, root all nearby enemies and deal damage equal to @special_property3x your Max Health."
+		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% and increasing post-mitigation magic damage by @special_property4% for @special_property1 seconds. If total damage blocked exceeds @special_property2x your Max Health, the shield shatters. On shattering, root all nearby enemies and deal damage equal to @special_property3x your Max Health."
 		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"Ice Block"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"Frost Nova"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"Rooted"
@@ -237,7 +237,7 @@
 	
 		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"Oceanrunner Boots"	
 		"property_oceanrunner"												"Alacrity"
-		"property_oceanrunner_Description"									"Increases base ability damage by @special_property1% for every 10 points of Agility."
+		"property_oceanrunner_Description"									"Increases Base Ability damage by @special_property1% for every 10 points of Agility."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"Crystalline Slippers"	

@@ -64,7 +64,7 @@
 		"item_property_azure_empire"				"Sky Magistrate"
 		"property_azure_empire_description"			"3 azure hawks accompany you, absorbing 1 instance of magic or pure damage each. Hawks regenerate @special_property1 seconds after taking a hit."
 		"item_property_azure_empire_silver"				"Silver Skies"
-		"property_azure_empire_silver_description"	"Each active hawk increases base ability damage by @special_property2%"
+		"property_azure_empire_silver_description"	"Each active hawk increases Base Ability damage by @special_property2%"
 		"item_property_azure_empire_green"				"Jade Skies"
 		"property_azure_empire_green_description"	"Each active hawk increases agility by @special_property3x your hero's level."
 		"item_property_azure_empire_red"				"Crimson Skies"
@@ -82,7 +82,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_eye_of_avernus"									"Eye of Avernus"
 		"item_property_avernus"						"Commanding Vision"								
-		"property_avernus_description"				"Increases the damage of all base abilities by 50%"
+		"property_avernus_description"				"Increases damage of Base Abilities by 50%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tome_of_chaos"									"Tome of Chaos"
@@ -96,7 +96,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_torch_of_gengar"									"Torch of Gengar"
 		"item_property_gengar"						"Shadow Walk"
-		"property_gengar"							"15% chance on taking damage to gain 75% evasion, unit walking and 300% increased ability damage for 6 seconds."
+		"property_gengar"							"15% chance on taking damage to gain 75% evasion, unit walking and 300% increased Base Abilities damage for 6 seconds."
 		"DOTA_Tooltip_modifier_torch_of_gengar_effect"	"Shadow Walk"
 		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"75%% evasion, unit walking and 300%% increased ability damage."
 		
@@ -110,12 +110,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"Omega Ruby"
 		"item_property_omega_ruby"					"Omega Flare"
-		"property_omega_ruby"						"Your basic attacks have an explosive @special_property1% magic damage in 360 AOE. Stacks with other forms of cleave."
+		"property_omega_ruby"						"Your basic attacks additionally have an explosive @special_property1% magic damage in 360 AOE."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol LV1"
 		"item_property_raven_idol"					"Black Soul"		
-		"property_raven_idol_description"			"Reduce damage taken from all sources by 40%. Your health can not go above 50% of your max. Each time you take damage, this property increases by 1. Upgrades at 12000."
+		"property_raven_idol_description"			"Reduce damage taken from all sources by 40%. Your health can not go above 50% of your max. Each time you take damage, this property increases by 1. Upgrades at 12000, cannot be reforged after upgrade."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol2"										"Raven Idol LV2"
@@ -131,7 +131,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"Volcano Orb"
 		"item_property_volcano_orb"					"Fiery Core"
-		"property_volcano_orb_description"			"Increases ALL magic damage output by @special_property1%"
+		"property_volcano_orb_description"			"Increases Post-Mitigation magic damage output by @special_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"Aerith's Tear"
@@ -146,7 +146,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"Ring of Nobility"
 		"item_property_nobility"							"Path of Nobility"
-		"property_nobility_description"						"Increases all attributes by @special_property1x your level. When an enemy is slain, this property counts up, and when it reaches 10,000 this ring upgrades."
+		"property_nobility_description"						"Increases all attributes by @special_property1x your level. When an enemy is slain, this property counts up, and when it reaches 10,000 this ring upgrades. Upgraded item cannot be reforged."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"						"Augmented Ring of Nobility"
@@ -168,20 +168,20 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"Tempest Falcon Ring"
 		"item_property_tempest_falcon"						"Storm Switch"
-		"property_tempest_falcon_description"				"Dealing an instance of physical damage applies a buff that enhances your next instance of magic damage by 300%"
+		"property_tempest_falcon_description"				"Dealing an instance of physical damage applies a buff that enhances Post-Mitigation damage of your next instance of magic damage."
 		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect"	"Storm Switch"
-		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"Next instance of magic damage deals 300%% more."
+		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"Next instance of magic damage deals 300%% more Post-Mitigation damage."
 		 
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_firelock_pendant"								"Firelock Pendant"
 		"item_property_firelock"							"Steady Flame"		
-		"property_firelock_description"					"Increases ALL physical damage by @special_property1% for every 10 points of strength."
+		"property_firelock_description"					"Increases Post-Mitigation physical damage by @special_property1% for every 10 points of strength."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"Antique Mana Relic"
 		"item_property_antique_mana_relic"					"Mana Storm"
-		"property_antique_mana_relic_description"			"@Ability1 drains 50% of your max mana and deals 400% increased damage. Attacks restore 2.5% of max mana. Each point of current mana adds 1 base attack damage."
+		"property_antique_mana_relic_description"			"@Ability1 drains 50% of your max mana and gains 400% increased Base Ability damage after cast. Attacks restore 2.5% of max mana. Each point of current mana adds 1 base attack damage."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"
@@ -191,7 +191,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"Fenrir's Fang"
 		"item_property_fenrir_fang"							"Alpha Wolf Aura"
-		"property_fenrir_fang"									"Increases attack damage of yourself and nearby allies by 60%"
+		"property_fenrir_fang"									"Increases attack damage of yourself and nearby allies by 60%."
 		"DOTA_Tooltip_modifier_fenrir_fang_buff"				"Alpha Wolf Aura"
 		"DOTA_Tooltip_modifier_fenrir_fang_buff_Description"	"Increased attack damage"
 		
@@ -206,7 +206,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"						"Fortune's Talisman of Truth"
 		"item_property_fortune_talisman"						"Luck Booster"
-		"property_fortune_talisman_description"				"Increases the proc chance of all equipped items by @special_property1%"
+		"property_fortune_talisman_description"				"Increases the proc chance of all equipped items by @special_property1%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_cobalt_serenity_ring"							"Cobalt Serenity Ring"
@@ -221,7 +221,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"Garnet Warfare Ring"
 		"item_property_garnet_warfare"							"Garnet Warfare"
-		 "property_garnet_warfare_description"					"Increases base ability damage by @special_property1% for every 10 points of Strength."
+		 "property_garnet_warfare_description"					"Increases Base Abilities damage by @special_property1% for every 10 points of Strength."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"							"Serengaard Sun Crystal"
@@ -233,8 +233,8 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_aqua_lily"										"Aqua Lily"
-		"item_property_aqua_lily"							"Water Bloom"
-		 "property_aqua_lily_description"					"Every point in R4 rune increases Intelligence by @special_property1."
+		"item_property_aqua_lily"								"Water Bloom"
+		 "property_aqua_lily_description"						"Every point in R4 rune increases Intelligence by @special_property1."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fire_blossom"									"Fire Blossom"
@@ -246,7 +246,7 @@
 		"item_property_ankh_of_ancients"						"Immortal Spirit"
 		 "property_ankh_of_ancients_description"				"On taking a fatal blow, gain a shield for @special_property1 seconds that reduces all damage taken by 100% and grants stun immunity and refreshes all cooldowns. @special_property2x of duration cooldown. Max duration cannot be more than @special_property3 seconds."
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield"		"Immortal Spirit"
-		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"	"Immune to damage and stuns"
+		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"	"Immune to damage and stuns."
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"		"Ankh Cooldown"
 		 
 		 
@@ -255,10 +255,10 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_world_trees_flower_cache"						"World Tree's Flower Cache"
 		"item_property_world_trees_flower_cache"				"Blood Orchid"
-		"property_world_trees_flower_cache_description"			"On taking lethal damage, you are reborn from a flower after 3 seconds with full health. Upon emerging, you receive a buff that increases post-mitigation damage by 200% but increases all damage taken by 200% for 12 seconds. 12 second cooldown."
+		"property_world_trees_flower_cache_description"			"On taking lethal damage, you are reborn from a flower after 3 seconds with full health. Upon emerging, you receive a buff that increases Post-Mitigation damage by 200% but increases all damage taken by 200% for 12 seconds. 12 second cooldown."
 		"DOTA_Tooltip_modifier_world_tree_cache_cooldown"		"Blood Orchid Cooldown"
 		"DOTA_Tooltip_modifier_world_tree_effect"				"Blood Orchid"
-		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"Post-mitigation damage dealt and damage taken increased by 200%%"
+		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"Post-Mitigation damage dealt and damage taken increased by 200%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
