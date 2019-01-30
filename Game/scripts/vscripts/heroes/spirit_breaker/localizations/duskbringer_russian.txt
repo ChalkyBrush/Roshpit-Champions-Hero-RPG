@@ -244,7 +244,7 @@
     	"DOTA_Tooltip_ability_manifestation_Description"			"Стихия: <font color=\"#9ACCD1\">Призрак</font><br>Duskbringer мгновенно перемещается к указанной точке, атакуя попавшихся врагов с помощью [E3] Entity Clash."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_a"		"(Immortal) Глиф второго шанса"
-		"item_rpc_duskbringer_glyph_5_a_description" 				"Союзники не погибают по окончании действия формы духа. Эта особенность перезаряжается @glyph_property1 сек.."
+		"item_rpc_duskbringer_glyph_5_a_description" 				"Союзники не погибают по окончании действия формы духа. Эта особенность перезаряжается @glyph_property1 сек."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_book"	"Книга Глифов Duskbringer"
 		

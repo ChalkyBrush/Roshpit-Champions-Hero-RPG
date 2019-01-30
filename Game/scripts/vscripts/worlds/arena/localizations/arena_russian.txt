@@ -587,7 +587,7 @@
 		"DOTA_Tooltip_ability_doombringer_searing_chains_Description"	"Обездвиживает ближайших врагов и наносит им урон."
 
 
-		"arena_lies_supreme_ogre"										"Верховный Огр"
+		"arena_lies_supreme_ogre"										"Высший Огр"
 
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive"			"Mystery Infusion"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_Description"	"Наделяет существо повышенной силой."
@@ -619,7 +619,7 @@
 		"DOTA_Tooltip_ability_arena_lies_trickster_ability"				"Whirling Dodge"
 		"DOTA_Tooltip_ability_arena_lies_trickster_ability_Description"	"Позволяет быстро удаляться от ближайших врагов."	
 
-		"arena_lies_supreme_ogre_true"									"Настоящий Верховный Огр"
+		"arena_lies_supreme_ogre_true"									"Настоящий Высший Огр"
 
 		"DOTA_Tooltip_ability_arena_lies_black_hole"					"Black Hole"
 		"DOTA_Tooltip_ability_arena_lies_black_hole_Description"		"Поглощает свет и материю в небольшой области на 4 секунды."
