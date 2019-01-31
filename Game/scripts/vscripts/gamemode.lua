@@ -325,12 +325,12 @@ end
 function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
   Events:beginQuests()
-  Timers:CreateTimer(90, 
-    function()
-      --Events:championChance()
-      RPCItems:ClearItems()
-      return 90 
-    end)
+  --Timers:CreateTimer(90, 
+  --  function()
+  --    --Events:championChance()
+  --    RPCItems:ClearItems()
+  --    return 90 
+  --  end)
   -- Timers:CreateTimer(5, 
   --   function()
   --       Events:adjustStats()
