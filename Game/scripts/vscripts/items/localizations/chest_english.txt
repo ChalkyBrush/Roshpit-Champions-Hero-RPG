@@ -333,7 +333,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"Direwolf Bulwark"
 		"item_property_direwolf"						"Cerberus Core"
-		"property_direwolf_description"					""Each 10 points of your primary attribute increases Base Attack damage by @special_property1, Armor by @special_property2, and Base Ability damage by @special_property3%. This item cannot be reforged by the Blacksmith."
+		"property_direwolf_description"					"Each 10 points of your primary attribute increases Base Attack damage by @special_property1, Armor by @special_property2, and Base Ability damage by @special_property3%. This item cannot be reforged by the Blacksmith."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"Armor of Atlantis"	
