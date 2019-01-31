@@ -332,10 +332,10 @@ function Stars:StarEventPlayer(starEventName, hero)
 				end  
 				Stars:StarEventSolo(starEventName, hero)
 			end
-		else
-			Timers:CreateTimer(10, function()
-				Stars:StarEventPlayer(starEventName, hero)
-			end)
+		--else
+		--	Timers:CreateTimer(10, function()
+		--		Stars:StarEventPlayer(starEventName, hero)
+		--	end)
 		end
 	end
 end
