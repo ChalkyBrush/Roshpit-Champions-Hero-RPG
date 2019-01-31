@@ -87,7 +87,7 @@
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_base_damage"			"BASE DAMAGE:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"BASE RADIUS"		
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_agility_added_to_base_damage"	"AGILITY MULTIPLIER ADDED TO BASE DAMAGE:"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_q_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Lightning base damage increase</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Lightning base damage increase</font>:"
 
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q"				"Electron Shield"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_Description"	"Quantum electric particles form a barrier around Jex that makes his health unable to drop below a minimum value. Each time the shield is hit, 1 stack is removed."
