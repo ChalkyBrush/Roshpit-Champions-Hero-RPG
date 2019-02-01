@@ -1,0 +1,80 @@
+.error_logger_root
+{
+	width: 100%;
+	height: 100%;
+}
+
+#logger_root
+{
+	width: 40%;
+	height: 80%;
+	background-color: #189ee7;
+	border-top-left-radius: 3%;
+	border-bottom-left-radius: 3%;
+	border: 3px solid white;
+	vertical-align: center;
+	transition: position 0.3s ease-in-out 0s;
+}
+
+#logger
+{
+	vertical-align: center;
+	horizontal-align: center;
+	border-radius: 10px;
+	border: 3px solid white;
+	background-color: black;
+	width: 90%;
+	height: 88%;
+	margin-bottom: 5%;
+	flow-children: down;
+	overflow: clip scroll;
+	padding: 7px;
+}
+
+#main_button
+{
+	width: 2.5%;
+	height: 8%;
+	background-color: black;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border: 3px solid white;
+	transition: position 0.3s ease-in-out 0s;
+	position: 100% 17% 0;
+}
+
+#logger VerticalScrollBar
+{
+	width: 3%;
+	height: 100%;
+	vertical-align: center;
+	horizontal-align: right;
+}
+
+#logger VerticalScrollBar .VerticalScrollThumb
+{
+	background-color: #189ee7;
+	border: 2px solid white;
+}
+
+.logger_line
+{
+	color: white;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+}
+
+#logger_root_options
+{
+	vertical-align: bottom;
+	horizontal-align: center;
+	width: 90%;
+	height: 7.4%;
+	margin-bottom: 4px;
+	padding: 5px;
+}
+
+#logger_font_size
+{
+	vertical-align: center;
+	width: 10%;
+}

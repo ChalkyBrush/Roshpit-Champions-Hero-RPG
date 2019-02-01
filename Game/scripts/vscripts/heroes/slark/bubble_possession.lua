@@ -68,7 +68,6 @@ function bubble_possess_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_possession_moving_toward_target", {duration = 10})
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/possession_begin_flight_tart.vpcf", caster:GetAbsOrigin(), 1)
 	ability.moveInterval = 0
-	print(caster:GetAbsOrigin())
 	ability.speed = WallPhysics:GetDistance(caster:GetAbsOrigin(), target:GetAbsOrigin())/12
 	Timers:CreateTimer(0.03, function()
 		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_SLARK_POUNCE, rate=2})
@@ -99,31 +98,35 @@ function possession_moving_towards_think(event)
 	caster:SetAbsOrigin(caster:GetAbsOrigin()+directionToTarget*ability.speed)
 	local distanceToTarget = WallPhysics:GetDistance(caster:GetAbsOrigin(), ability.target:GetAbsOrigin())
 	if distanceToTarget < ability.speed*1.1 then
-		if ability.target.dominion then
-			ability.lockedTarget = ability.target
-			CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_bubble_possession", "slipfinn_release_possess", DOTA_ULTIMATE_SLOT)
-			ability.enemyMovementPhase = 0
-			ability:ApplyDataDrivenModifier(caster, ability.target, "modifier_possession_enemy_lock", {duration = duration})
-			ability.target:AddNewModifier( caster, ability, "slipfinn_possessed_lua", {duration = duration} )
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_enemy_locked", {duration = duration})
-			local d_d_level = caster:GetRuneValue("r", 4)
-			if d_d_level > 0 then
-				local attackPowerGain = ability.lockedTarget:GetAttackDamage()*SLIPFINN_R4_ATTACK_POWER_STEAL*d_d_level
-				ability:ApplyDataDrivenModifier(caster, caster, "modifier_possession_attack_power", {})
-				caster:SetModifierStackCount("modifier_possession_attack_power", caster, attackPowerGain)
+		if IsValidEntity(ability.target) and ability.target:IsAlive() then
+			if ability.target.dominion then
+				ability.lockedTarget = ability.target
+				CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_bubble_possession", "slipfinn_release_possess", DOTA_ULTIMATE_SLOT)
+				ability.enemyMovementPhase = 0
+				ability:ApplyDataDrivenModifier(caster, ability.target, "modifier_possession_enemy_lock", {duration = duration})
+				ability.target:AddNewModifier( caster, ability, "slipfinn_possessed_lua", {duration = duration} )
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_enemy_locked", {duration = duration})
+				local d_d_level = caster:GetRuneValue("r", 4)
+				if d_d_level > 0 then
+					local attackPowerGain = ability.lockedTarget:GetAttackDamage()*SLIPFINN_R4_ATTACK_POWER_STEAL*d_d_level
+					ability:ApplyDataDrivenModifier(caster, caster, "modifier_possession_attack_power", {})
+					caster:SetModifierStackCount("modifier_possession_attack_power", caster, attackPowerGain)
+				end
+				if ability.lockedTarget:IsAlive() then
+					collect_abilities(caster, ability, ability.lockedTarget)	
+				end		
+			else
+				Notifications:Top(caster:GetPlayerOwnerID(), {text="slipfinn_possession_cant_possess", duration=5, style={color="#FF1111"}, continue=true})
+				if caster:HasModifier("modifier_slipfinn_glyph_6_1") then
+					ability.fallFromHeight = ability.target:GetAbsOrigin().z
+					ability.target:RemoveModifierByName("modifier_possession_enemy_lock")
+					ability.target:RemoveModifierByName("slipfinn_possessed_lua")
+					ability:ApplyDataDrivenModifier(caster, ability.target, "modifier_release_falling", {duration = 1})
+					ability.target.possessionFallSpeed = 3
+				end
 			end
-			if ability.lockedTarget:IsAlive() then
-				collect_abilities(caster, ability, ability.lockedTarget)	
-			end		
 		else
-			Notifications:Top(caster:GetPlayerOwnerID(), {text="slipfinn_possession_warning", duration=5, style={color="#FF1111"}, continue=true})
-			if caster:HasModifier("modifier_slipfinn_glyph_6_1") then
-				ability.fallFromHeight = ability.target:GetAbsOrigin().z
-				ability.target:RemoveModifierByName("modifier_possession_enemy_lock")
-				ability.target:RemoveModifierByName("slipfinn_possessed_lua")
-				ability:ApplyDataDrivenModifier(caster, ability.target, "modifier_release_falling", {duration = 1})
-				ability.target.possessionFallSpeed = 3
-			end
+			Notifications:Top(caster:GetPlayerOwnerID(), {text="slipfinn_possession_target_dead", duration=5, style={color="#FF1111"}, continue=true})
 		end
 		ability.TargetToAddToTable = ability.target
 		EndAnimation(caster)

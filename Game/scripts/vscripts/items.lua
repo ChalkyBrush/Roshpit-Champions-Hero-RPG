@@ -1407,7 +1407,7 @@ function RPCItems:LegendaryPickup(itemEntity, heroEntity)
 		else
 			CustomGameEventManager:Send_ServerToAllClients("item_roll", {item=itemEntity:GetEntityIndex(), rollSlot=rollSlot, minLevel = itemEntity.minLevel} )
 			Timers:CreateTimer(30, function()
-				RPCItems:EndRoll(rollSlot, itemIndex)
+				Logger:Watch(RPCItems.EndRoll, RPCItems, rollSlot, itemIndex)
 			end)
 		end
 	end
@@ -1549,6 +1549,8 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 			end
 			RPCItems.item_roll_queue = newQueue	
 		end
+	else
+		error("This item was already rolled")
 	end
 end
 
@@ -1609,19 +1611,19 @@ function RPCItems:ItemVote(keys)
 		table.insert(RPCItems.item_roll_1, vote)
 		if #RPCItems.item_roll_1 >= RPCItems:GetConnectedPlayerCount() then
 			print("END ROLL")
-			RPCItems:EndRoll(1, itemIndex)
+			Logger:Watch(RPCItems.EndRoll, RPCItems, 1, itemIndex)
 		end
 	elseif index == 2 then
 		table.insert(RPCItems.item_roll_2, vote)
 		if #RPCItems.item_roll_2 >= RPCItems:GetConnectedPlayerCount() then
 			print("END ROLL")
-			RPCItems:EndRoll(2, itemIndex)
+			Logger:Watch(RPCItems.EndRoll, RPCItems, 2, itemIndex)
 		end
 	elseif index == 3 then
 		table.insert(RPCItems.item_roll_3, vote)
 		if #RPCItems.item_roll_3 >= RPCItems:GetConnectedPlayerCount() then
 			print("END ROLL")
-			RPCItems:EndRoll(3, itemIndex)
+			Logger:Watch(RPCItems.EndRoll, RPCItems, 3, itemIndex)
 		end
 	end
 end
