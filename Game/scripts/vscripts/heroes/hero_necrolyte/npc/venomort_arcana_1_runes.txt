@@ -9,6 +9,7 @@
 		"AbilityTextureName"	"venomort/venomort_rune_r_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		
 
 		"AbilitySpecial"
