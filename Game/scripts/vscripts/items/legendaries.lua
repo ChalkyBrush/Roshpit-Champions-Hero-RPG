@@ -75,7 +75,7 @@ end
 
 function RPCItems:RollSandTombOrb(xpBounty, deathLocation, rarity, isShop, type, hero)
     local itemVariant = "item_rpc_sand_tomb_orb"
-    local item = CreateItem(itemVariant, nil, nil)
+    local item = RPCItems:CreateItem(itemVariant, nil, nil)
 
 
 
@@ -161,7 +161,7 @@ end
 
 function RPCItems:CreateVariant(variantName, rarityName, itemNameText, slot, gear, slotText)
     local itemVariant = variantName
-    local item = CreateItem(itemVariant, nil, nil)
+    local item = RPCItems:CreateItem(itemVariant, nil, nil)
     item.rarity = rarityName
     local rarityValue = RPCItems:GetRarityFactor(item.rarity)
     local itemName = itemNameText
@@ -176,7 +176,7 @@ end
 
 function RPCItems:CreateVariantWithHero(variantName, rarityName, itemNameText, slot, gear, slotText, requiredHero)
     local itemVariant = variantName
-    local item = CreateItem(itemVariant, nil, nil)
+    local item = RPCItems:CreateItem(itemVariant, nil, nil)
     item.rarity = rarityName
     local rarityValue = RPCItems:GetRarityFactor(item.rarity)
     local itemName = itemNameText
@@ -192,7 +192,7 @@ end
 
 function RPCItems:CreateVariantWithMin(variantName, rarityName, itemNameText, slot, gear, slotText, minLevel, prefix, suffix)
     local itemVariant = variantName
-    local item = CreateItem(itemVariant, nil, nil)
+    local item = RPCItems:CreateItem(itemVariant, nil, nil)
     item.rarity = rarityName
     local rarityValue = RPCItems:GetRarityFactor(item.rarity)
     local itemName = itemNameText
@@ -213,7 +213,7 @@ end
 
 function RPCItems:CreateVariantArcana(variantName, rarityName, itemNameText, slot, gear, slotText, requiredHero, minLevel)
     local itemVariant = variantName
-    local item = CreateItem(itemVariant, nil, nil)
+    local item = RPCItems:CreateItem(itemVariant, nil, nil)
     item.rarity = rarityName
     local rarityValue = RPCItems:GetRarityFactor(item.rarity)
     local itemName = itemNameText
@@ -232,7 +232,7 @@ end
 
 function RPCItems:CreateConsumable(variantName, rarityName, itemNameText, slot, gear, slotText, useDescription)
     local itemVariant = variantName
-    local item = CreateItem(itemVariant, nil, nil)
+    local item = RPCItems:CreateItem(itemVariant, nil, nil)
     item.rarity = rarityName
     local rarityValue = RPCItems:GetRarityFactor(item.rarity)
     local itemName = itemNameText
@@ -251,7 +251,7 @@ end
 
 function RPCItems:CreateUnstashable(variantName, rarityName, itemNameText, slot, gear, slotText, useDescription)
     local itemVariant = variantName
-    local item = CreateItem(itemVariant, nil, nil)
+    local item = RPCItems:CreateItem(itemVariant, nil, nil)
     item.rarity = rarityName
     local rarityValue = RPCItems:GetRarityFactor(item.rarity)
     local itemName = itemNameText

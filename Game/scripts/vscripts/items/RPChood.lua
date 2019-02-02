@@ -7,7 +7,7 @@ function RPCItems:RollHood(xpBounty, deathLocation, rarity, isShop, type, hero, 
         randomHelm = type
     end
 	local itemVariant = BASE_HEAD_TABLE[randomHelm]
-    local item = CreateItem(itemVariant, nil, nil)
+    local item = RPCItems:CreateItem(itemVariant, nil, nil)
 
 
 

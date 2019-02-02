@@ -32,7 +32,7 @@ function Redfall:Debug()
       -- hero.runeUnit3.amulet.r_3 = hero.runeUnit3.amulet.r_3 + 500
       -- Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.r_3, "rune_r_3", hero)
     end
-    local item = CreateItem("item_debug_blink", nil, nil)
+    local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
     local drop = CreateItemOnPositionSync(Vector(-15168, -14976), item )
     local position = Vector(-15168, -14976)
     RPCItems:DropItem(item, Vector(-15168, -14976))

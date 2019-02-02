@@ -735,7 +735,7 @@ end
 
 function ruins_key_holder_die(event)
 	local caster = event.caster
-	local item = CreateItem("item_ruins_key", nil, nil)
+	local item = RPCItems:CreateItem("item_ruins_key", nil, nil)
 	local drop = CreateItemOnPositionSync( caster:GetAbsOrigin(), item )
 	-- item:LaunchLoot(true, 0, 0, caster:GetAbsOrigin())
 	print("key_holder_die")

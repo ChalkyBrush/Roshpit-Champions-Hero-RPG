@@ -82,7 +82,7 @@ function SpawnAlarmUnits()
 	keyholder:FindAbilityByName("riki_permanent_invisibility"):SetLevel(4)
 	keyholder:FindAbilityByName("invis_dungeon_creep"):SetLevel(1)
 	keyholder.specialAggro = "keyholder"
-	local gem = CreateItem("item_gem", nil, nil)
+	local gem = RPCItems:CreateItem("item_gem", nil, nil)
 	keyholder.gem = gem
 	RPCItems:GiveItemToHero(keyholder, gem)
 	Timers:CreateTimer(5, function()

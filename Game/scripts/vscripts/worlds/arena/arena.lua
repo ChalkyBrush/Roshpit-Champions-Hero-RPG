@@ -27,7 +27,7 @@ function Arena:Debug()
 	-- 	Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.q_1, "rune_q_1", hero)
     end
 	-- -- Arena:BeginBattle(MAIN_HERO_TABLE[1])
- --    local item = CreateItem("item_debug_blink", nil, nil)
+ --    local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
  --    local drop = CreateItemOnPositionSync( Vector(-3136, -11200), item )
  --    local position = Vector(-3136, -11200)
  --    RPCItems:DropItem(item, Vector(-3136, -11200))

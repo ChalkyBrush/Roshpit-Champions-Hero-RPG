@@ -12,7 +12,7 @@ function Seafortress:Debug()
       MAIN_HERO_TABLE[1]:CalculateStatBonus()
     end
 
-    local item = CreateItem("item_debug_blink", nil, nil)
+    local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
     local drop = CreateItemOnPositionSync( Vector(844, -15488), item )
     local position = Vector(844, -15488)
     RPCItems:DropItem(item, Vector(844, -15488))

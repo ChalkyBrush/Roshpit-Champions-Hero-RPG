@@ -25,7 +25,7 @@ function Attributes:Init()
 
     Attributes.v = v
 
-    Attributes.applier = CreateItem("item_stat_modifier", nil, nil)
+    Attributes.applier = RPCItems:CreateItem("item_stat_modifier", nil, nil)
 end
 
 function Attributes:ModifyBonuses(hero)

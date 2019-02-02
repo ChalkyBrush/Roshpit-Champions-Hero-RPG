@@ -53,7 +53,7 @@ function Beacons:DEBUG()
 	
 
 
-	local item = CreateItem("item_debug_blink", nil, nil)
+	local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
     local drop = CreateItemOnPositionSync( Vector(-14528, 14528), item )
     local position = Vector(-14528, 14528)
     RPCItems:DropItem(item, Vector(-14528, 14528))

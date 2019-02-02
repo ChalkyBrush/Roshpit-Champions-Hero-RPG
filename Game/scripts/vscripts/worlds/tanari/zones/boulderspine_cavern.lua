@@ -18,7 +18,7 @@ function Tanari:InitializeCave()
 	Tanari:SpawnCaveMonster(Vector(1467, 7181), Vector(1,-0.4))
 	Tanari:SpawnCaveMonster(Vector(1955, 7141), Vector(-1,-0.4))
 
-	-- local beacon = CreateItem("item_rpc_pedestal_item", nil, nil)
+	-- local beacon = RPCItems:CreateItem("item_rpc_pedestal_item", nil, nil)
 	-- CreateItemOnPositionSync(Vector(2112, 7168), beacon)
 	-- beacon:GetContainer():SetForwardVector(Vector(0,-1))
 
