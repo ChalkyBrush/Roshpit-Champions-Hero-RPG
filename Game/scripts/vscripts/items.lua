@@ -1465,8 +1465,7 @@ function RPCItems:LegendaryPickup(itemEntity, heroEntity)
 			CustomGameEventManager:Send_ServerToAllClients("item_roll", {item=itemEntity:GetEntityIndex(), rollSlot=rollSlot, minLevel = itemEntity.minLevel} )
 
 			Timers:CreateTimer(33, function()
-				RPCItems:EndRoll(rollSlot, itemIndex)
-        Logger:Watch(RPCItems.EndRoll, RPCItems, rollSlot, itemIndex)
+        		Logger:Watch(RPCItems.EndRoll, RPCItems, rollSlot, itemIndex)
 			end)
 		end
 	end
