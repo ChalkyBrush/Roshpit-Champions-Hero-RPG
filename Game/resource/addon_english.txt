@@ -582,6 +582,8 @@
 		"ui_recalculate_stats_waiting"	"Recalculating"
 		"ui_recalculate_stats_tooltip"	"Use this if you think an item's properties aren't being applied to your hero. This should not be used in combat."
 
+		"ui_logger_font_size"			"Current font size"
+
 		"tooltip_loading_screen_tip_title"	"Tip!"
 		"tooltip_loading_screen_tip_click"	"Click for new Tip"
 		"tooltip_loading_screen_tip"		"New Players: Make sure you select a map that says 'normal' difficulty. Otherwise you will enter a world where everything destroys you immediately!"
@@ -6894,7 +6896,7 @@
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_base_damage"			"BASE DAMAGE:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"BASE RADIUS"		
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_agility_added_to_base_damage"	"AGILITY MULTIPLIER ADDED TO BASE DAMAGE:"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_q_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Lightning base damage increase</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Lightning base damage increase</font>:"
 
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q"				"Electron Shield"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_Description"	"Quantum electric particles form a barrier around Jex that makes his health unable to drop below a minimum value. Each time the shield is hit, 1 stack is removed."
@@ -6910,8 +6912,8 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_q"				"Charged Sproutling"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>An electrified sproutling warrior is summoned to fight for Jex. The minion inherits armor and attack damage from their summoner, and their attacks have a 30% chance to trigger a chain lightning effect that deals magic damage based on attack power."
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_max_targets_per_tech"	"<font color=\"#f4b942\">SPROUTLING CHAIN LIGHTNING MAX TARGETS PER TECH</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_armor_mult_per_tech"		"%<font color=\"#f4b942\">SPROUTLING ARMOR AS A MULTIPLE OF JEX'S PER TECH</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_attack_mult_per_tech"		"%<font color=\"#f4b942\">SPROUTLING ATTACK DAMAGE AS A MULTIPLE OF JEX'S PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_armor_mult_per_tech"		"<font color=\"#f4b942\">SPROUTLING ARMOR AS A MULTIPLE OF JEX'S PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_attack_mult_per_tech"		"<font color=\"#f4b942\">SPROUTLING ATTACK DAMAGE AS A MULTIPLE OF JEX'S PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_health_mult"				"SPROUTLING HEALTH AS A MULTIPLE OF JEX'S:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_duration"					"SPROUTLING DURATION"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_damage_pct_attack_power" "% CHAIN LIGHTNING DAMAGE % OF ATTACK POWER:"
@@ -8522,7 +8524,8 @@
     	"DOTA_Tooltip_ability_slipfinn_release_possess"								"Release"
     	"DOTA_Tooltip_ability_slipfinn_release_possess_Description"					"Pops the Possession Bubble and lets the carried enemy free."
 		
-		"slipfinn_possession_warning"												"Cannot be Possessed"
+		"slipfinn_possession_cant_possess"                                                "Cannot be Possessed"
+        "slipfinn_possession_target_dead"                                           "The target is dead"
 		
 		"DOTA_Tooltip_ability_slipfinn_rune_r_1"									"[R1] Amphibious Versatility"
     	"DOTA_Tooltip_ability_slipfinn_rune_r_1_Description"						"All stolen abilities deal increased damage."
@@ -11170,7 +11173,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"Crystalline Slippers"	
 		"property_crystalline"												"Crystal Root"
-		"property_crystalline_Description"									"Enemies who are rooted deal @special_property1% reduced damage to you and take @special_property2x amplified damage."
+		"property_crystalline_Description"									"Enemies who are rooted deal @special_property1% reduced damage to you and take @special_property2x pre-mitigation damage."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"Gravelfoot Treads"
@@ -13530,7 +13533,7 @@
 		"redfall_quest_4_objective_2"							"Defeat the Ash Treant."
 
 		"DOTA_Tooltip_ability_item_redfall_ashen_twig"			"Ashen Twig"
-		"DOTA_Tooltip_ability_item_redfall_ashen_twig_Description"	"Use: Awakens the Ash Treant when standing near him."
+		"DOTA_Tooltip_ability_item_redfall_ashen_twig_Description"	"Use: Awakens the Ash Treant in the eastern part of forest when standing near him."
 
 		"quest_immortal_head_gear"								"Immortal Helm"
 

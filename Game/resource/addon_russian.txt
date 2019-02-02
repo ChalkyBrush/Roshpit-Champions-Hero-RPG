@@ -5261,7 +5261,7 @@
     	"DOTA_Tooltip_ability_manifestation_Description"			"Стихия: <font color=\"#9ACCD1\">Призрак</font><br>Duskbringer мгновенно перемещается к указанной точке, атакуя попавшихся врагов с помощью [E3] Entity Clash."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_a"		"(Immortal) Глиф второго шанса"
-		"item_rpc_duskbringer_glyph_5_a_description" 				"Союзники не погибают по окончании действия формы духа. Эта особенность перезаряжается @glyph_property1 сек.."
+		"item_rpc_duskbringer_glyph_5_a_description" 				"Союзники не погибают по окончании действия формы духа. Эта особенность перезаряжается @glyph_property1 сек."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_book"	"Книга Глифов Duskbringer"
 		
@@ -10616,7 +10616,7 @@
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_base_damage"			"УРОН:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"РАДИУС"		
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_agility_added_to_base_damage"	"МНОЖИТЕЛЬ ЛОВКОСТИ К БАЗЕ УРОНА:"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_q_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[Q4] Усиление урона удара молнии</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[Q4] Усиление урона удара молнии</font>:"
 
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q"				"Electron Shield"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_Description"	"Барьер из квантовых частиц вокруг Jex не позволяет его здоровью упасть ниже определенного предела. Получаемый урон снимает слои щита."
@@ -10632,8 +10632,8 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_q"				"Charged Sproutling"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"Элемент: <font color=\"#5CCDF9\">Молния</font> / <font color=\"#69BC71\">Природа</font><br>Наэлектризованный воин из живого дерева вызывается на помощь Jex. Воин наследует броню и силу атаки призывателя, а его атаки с 30% шансом запустят магическую цепную молнию."
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_max_targets_per_tech"	"<font color=\"#f4b942\">ЦЕЛИ ЦЕПНОЙ МОЛНИИ, ЗА ТЕХ. УРОВЕНЬ</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_armor_mult_per_tech"		"%<font color=\"#f4b942\">БРОНЯ ВОИНА, МНОЖИТЕЛЬ ОТ ПРИЗЫВАТЕЛЯ, ЗА ТЕХ. УРОВЕНЬ</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_attack_mult_per_tech"		"%<font color=\"#f4b942\">АТАКА ВОИНА, МНОЖИТЕЛЬ ОТ ПРИЗЫВАТЕЛЯ, ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_armor_mult_per_tech"		"<font color=\"#f4b942\">БРОНЯ ВОИНА, МНОЖИТЕЛЬ ОТ ПРИЗЫВАТЕЛЯ, ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_attack_mult_per_tech"		"<font color=\"#f4b942\">АТАКА ВОИНА, МНОЖИТЕЛЬ ОТ ПРИЗЫВАТЕЛЯ, ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_health_mult"				"ЗДОРОВЬЕ ВОИНА, МНОЖИТЕЛЬ ОТ ЗДОРОВЬЯ ПРИЗЫВАТЕЛЯ:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_duration"					"ДЛИТЕЛЬНОСТЬ:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_damage_pct_attack_power" "УРОН МОЛНИИ В % ОТ СИЛЫ АТАКИ:"
@@ -12177,7 +12177,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
 		"item_property_fire_deity"							"Wrath of Fire"
-		 "property_fire_deity_description"					"<font color=\"#E4AE33\">ДОПОЛНЕНИЕ К СПОСОБНОСТИ:</font> С @special_property1% шансом, наносимый умением (W) @Ability2 урон окажется пирокластическим взрывом, который нанесет урон, равний @special_property2% от урона способности и окружит ближайших врагов на 0.6 секунды в небольшой области вокруг. Этот предмет ограничивает ваш стихийный бонус <font color=\"#EF4126\">Огня</font> на 5000%."
+		 "property_fire_deity_description"					"<font color=\"#E4AE33\">ДОПОЛНЕНИЕ К СПОСОБНОСТИ:</font> С @special_property1% шансом, наносимый умением (W) @Ability2 урон окажется пирокластическим взрывом, который нанесет урон, равный @special_property2% от урона способности и окружит ближайших врагов на 0.6 секунды в небольшой области вокруг. Этот предмет ограничивает ваш стихийный бонус <font color=\"#EF4126\">Огня</font> на 5000%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
@@ -13157,7 +13157,7 @@
 		"DOTA_Tooltip_ability_doombringer_searing_chains_Description"	"Обездвиживает ближайших врагов и наносит им урон."
 
 
-		"arena_lies_supreme_ogre"										"Верховный Огр"
+		"arena_lies_supreme_ogre"										"Высший Огр"
 
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive"			"Mystery Infusion"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_Description"	"Наделяет существо повышенной силой."
@@ -13189,7 +13189,7 @@
 		"DOTA_Tooltip_ability_arena_lies_trickster_ability"				"Whirling Dodge"
 		"DOTA_Tooltip_ability_arena_lies_trickster_ability_Description"	"Позволяет быстро удаляться от ближайших врагов."	
 
-		"arena_lies_supreme_ogre_true"									"Настоящий Верховный Огр"
+		"arena_lies_supreme_ogre_true"									"Настоящий Высший Огр"
 
 		"DOTA_Tooltip_ability_arena_lies_black_hole"					"Black Hole"
 		"DOTA_Tooltip_ability_arena_lies_black_hole_Description"		"Поглощает свет и материю в небольшой области на 4 секунды."
@@ -13510,7 +13510,7 @@
 		"redfall_quest_4_objective_2"							"Одолейте сгоревшего трента."
 
 		"DOTA_Tooltip_ability_item_redfall_ashen_twig"			"Сгоревшая ветка"
-		"DOTA_Tooltip_ability_item_redfall_ashen_twig_Description"	"Использование: Позволяет разбудить сгоревшего трента. Необходимо стоять рядом с ним во время активации."
+		"DOTA_Tooltip_ability_item_redfall_ashen_twig_Description"	"Использование: Позволяет разбудить сгоревшего трента в восточной части леса. Необходимо стоять рядом с ним во время активации."
 
 		"quest_immortal_head_gear"								"Immortal Шлем"
 
