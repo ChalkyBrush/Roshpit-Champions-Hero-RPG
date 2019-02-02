@@ -582,6 +582,8 @@
 		"ui_recalculate_stats_waiting"	"Recalculating"
 		"ui_recalculate_stats_tooltip"	"Use this if you think an item's properties aren't being applied to your hero. This should not be used in combat."
 
+		"ui_logger_font_size"			"Current font size"
+
 		"tooltip_loading_screen_tip_title"	"Tip!"
 		"tooltip_loading_screen_tip_click"	"Click for new Tip"
 		"tooltip_loading_screen_tip"		"New Players: Make sure you select a map that says 'normal' difficulty. Otherwise you will enter a world where everything destroys you immediately!"

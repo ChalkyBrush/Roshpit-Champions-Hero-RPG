@@ -110,7 +110,8 @@
     	"DOTA_Tooltip_ability_slipfinn_release_possess"								"Release"
     	"DOTA_Tooltip_ability_slipfinn_release_possess_Description"					"Pops the Possession Bubble and lets the carried enemy free."
 		
-		"slipfinn_possession_warning"												"Cannot be Possessed"
+		"slipfinn_possession_cant_possess"                                                "Cannot be Possessed"
+        "slipfinn_possession_target_dead"                                           "The target is dead"
 		
 		"DOTA_Tooltip_ability_slipfinn_rune_r_1"									"[R1] Amphibious Versatility"
     	"DOTA_Tooltip_ability_slipfinn_rune_r_1_Description"						"All stolen abilities deal increased damage."

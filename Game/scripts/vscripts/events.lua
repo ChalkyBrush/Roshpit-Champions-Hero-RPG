@@ -594,6 +594,8 @@ function GameMode:OnPlayerChat(keys)
     local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
     Weapons:RollLegendWeapon3WithDotaName(name, hero:GetAbsOrigin())
   end
+  elseif string.match(text, "-log") then
+    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid), "error_logger_open", {})
   elseif GameState:GetDifficultyFactor() == 3 then
     local playerid = keys.playerid
     if (string.match(text, "-crystal") or string.match(text, "-crystals")) and not GameMode.VoteSystem.crystal_loot_disabled then

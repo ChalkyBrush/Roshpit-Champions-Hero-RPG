@@ -1,0 +1,21 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/error_logger.css" />
+	</styles>
+	<script>
+		const print = $.Msg
+	</script>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/error_logger.js" />
+	</scripts>
+	<Panel class="error_logger_root" hittest="false">
+		<Panel id="logger_root">
+			<Panel id="logger">
+			</Panel>
+			<Panel id="logger_root_options">
+				<NumberEntry id="logger_font_size" min="20" max="60" onmouseover="DOTAShowTextTooltip('#ui_logger_font_size')" onmouseout="DOTAHideTextTooltip()"/>
+			</Panel>
+		</Panel>
+		<Button id="main_button" onload="Load()" onactivate="Open()"/>
+	</Panel>
+</root>

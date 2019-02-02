@@ -41,6 +41,7 @@ require( 'custom_abilities')
 require( 'challenges')
 require( 'stars')
 require( 'custom_attributes')
+require('logger')
 
 Statistics = require('statistic')
 
