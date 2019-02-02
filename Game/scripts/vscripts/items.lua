@@ -28,6 +28,62 @@ require('items/arcanas')
 require('items/synthesis')
 require('curator')
 
+--Wrapper function to valve's "CreateItem" with custom table tweaks
+--	handle CreateItem(string item_name, handle owner, handle owner)
+function RPCItems:CreateItem(item_name, owner, owner)
+	local item = CreateItem(item_name, owner, owner)
+	RPCItems:CustomNetTablesItemRemoving(item)
+	return item
+end
+
+
+
+--Removing all existing item table values for given item handle
+function RPCItems:CustomNetTablesItemRemoving(item)
+	if not item then
+		print("[Error] RPCItems:CustomNetTablesItemRemoving item is null")
+		return
+	end
+	local itemIndex = item:GetEntityIndex()
+	if not item then
+		print("[Error] RPCItems:CustomNetTablesItemRemoving itemIndex is null")
+		return
+	end
+	local item_basics_key = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex).."-key")
+	if item_basics_key then
+		CustomNetTables:SetTableValue("item_basics", tostring(itemIndex).."-key", nil)
+		--print("CustomNetTablesItemRemoving item_basics_key")
+	end
+
+	local item_basics = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
+	if item_basics then
+		CustomNetTables:SetTableValue("item_basics", tostring(itemIndex), nil)
+		--print("CustomNetTablesItemRemoving item_basics")
+	end
+
+	local min_level_reduction = CustomNetTables:GetTableValue("min_level_reduction", tostring(itemIndex))
+	if min_level_reduction then
+		CustomNetTables:SetTableValue("min_level_reduction", tostring(itemIndex), nil)
+		--print("CustomNetTablesItemRemoving min_level_reduction")
+	end
+
+	local weapons_cnt = CustomNetTables:GetTableValue("weapons", "item"..tostring(itemIndex))
+	if weapons_cnt then
+		CustomNetTables:SetTableValue("weapons", "item"..tostring(itemIndex), nil)
+		--print("CustomNetTablesItemRemoving item_basics_key")
+	end
+	
+	for i=1,5 do
+		local item_properties = CustomNetTables:GetTableValue("item_properties", tostring(itemIndex).."-"..tostring(i))
+		if item_properties then
+			CustomNetTables:SetTableValue("item_properties", tostring(itemIndex).."-"..tostring(i), nil)
+			--print(i)
+			--print("CustomNetTablesItemRemoving item_properties")
+		end		
+	end
+end
+
+
 function RPCItems:LaunchLoot(item, height, duration, destinationPosition, origPosition)
 	destinationPosition = GetGroundPosition(destinationPosition, item:GetContainer())
 	local deltaX = destinationPosition.x - origPosition.x
@@ -196,7 +252,7 @@ end
 function RPCItems:RollGold(xpBounty, deathLocation)
 	Timers:CreateTimer(1, 
 		function()
-		item = CreateItem("item_bag_of_gold", nil, nil)
+		item = RPCItems:CreateItem("item_bag_of_gold", nil, nil)
     	local drop = CreateItemOnPositionSync( deathLocation, item )
     	local position = deathLocation
     	item.rarity = "common"
@@ -253,7 +309,7 @@ BASE_POTION_TABLE = {"item_potion_green", "item_potion_blue", "item_potion_red"}
 
 function RPCItems:RollBasicPotion(xpBounty, deathLocation, rarity, unitLevel)
 	local potion_variant = BASE_POTION_TABLE[RandomInt(1, 3)]
-    local item = CreateItem(potion_variant, nil, nil)
+    local item = RPCItems:CreateItem(potion_variant, nil, nil)
     item.rarity = rarity
     local rarityValue = RPCItems:GetRarityFactor(rarity)
     local itemName = "Potion"
@@ -545,6 +601,7 @@ function RPCItems:ClearItems()
 						UTIL_Remove(container)
 					end
 					if IsValidEntity(item) then
+						RPCItems:CustomNetTablesItemRemoving(item)
 						if item.arcanaDummy then
 							UTIL_Remove(item.arcanaDummy)
 						end

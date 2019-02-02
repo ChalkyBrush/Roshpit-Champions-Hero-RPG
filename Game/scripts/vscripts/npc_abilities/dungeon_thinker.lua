@@ -1106,7 +1106,7 @@ function dispenseWards(caster, position)
 		caster.stopDispense = true
 		Timers:CreateTimer(1.8, function()
 			EmitSoundOn("General.ButtonClick", caster.wardDispenser)
-			local item = CreateItem("item_ward_sentry", nil, nil)
+			local item = RPCItems:CreateItem("item_ward_sentry", nil, nil)
 			local position = caster:GetAbsOrigin()
 		    local drop = CreateItemOnPositionSync( position, item )
 		    item.cantStash = true

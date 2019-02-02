@@ -17,7 +17,7 @@ function initializeTooltip(func){
 	// $.Msg(queryUnit)
 	var itemName = Abilities.GetAbilityName( item );
 	var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() )
-	var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
+	//var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
 	itemValues = itemValuesCheck(itemValues)
 	var unitName = queryUnit
 	if (!(itemValues.requiredHero === undefined)){

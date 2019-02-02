@@ -347,6 +347,9 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 		return tooltip
 	}
 	var OGpropertyName = itemProperty.propertyName
+	if (OGpropertyName === undefined){
+		return tooltip
+	}
 	var propertyName = $.Localize(itemProperty.propertyName)
 	// itemProperty = itemPropertyCheck(itemProperty)
 	$.Msg(OGpropertyName)

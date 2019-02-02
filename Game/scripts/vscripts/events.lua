@@ -79,6 +79,35 @@ function GameMode:OnDisconnect(keys)
   -- hero.disconnectLevel = hero:GetLevel()
   Statistics.dispatch("player:disconnect");
 end
+
+function GameMode:GlobalThinkers_ClearItems_Think()
+  print("GlobalThinkers_ClearItems_Think")
+  if RPCItems then
+    RPCItems:ClearItems()
+  end
+  return 90
+end
+
+function GameMode:GlobalThinkersInit_ClearItems_Thinker()
+  GameRules:GetGameModeEntity():SetThink("GlobalThinkers_ClearItems_Think", self)
+  GameMode.GlobalThinkers._ClearItems_Thinker = true
+end
+
+function GameMode:GlobalThinkers_Convars_Think()
+  print("GlobalThinkers_Convars_Think")
+  if MAIN_HERO_TABLE and #MAIN_HERO_TABLE>0 then
+    for _,hero in pairs(MAIN_HERO_TABLE) do
+      hero:AddNewModifier(hero, nil, "modifier_client_setting", {})
+    end
+  end
+  return 30
+end
+
+function GameMode:GlobalThinkersInit_Convars_Thinker()
+  GameRules:GetGameModeEntity():SetThink("GlobalThinkers_Convars_Think", self)
+  GameMode.GlobalThinkers._Convars_Thinker = true
+end
+
 -- The overall game state has changed
 function GameMode:OnGameRulesStateChange(keys)
   DebugPrint("[BAREBONES] GameRules State Changed")
@@ -87,6 +116,19 @@ function GameMode:OnGameRulesStateChange(keys)
   GameMode.VoteSystem = {}
   GameMode.VoteSystem.junk_loot_disabled = false  
   GameMode.VoteSystem.crystal_loot_disabled = false
+
+  if not GameMode.GlobalThinkers then
+    GameMode.GlobalThinkers = {}
+  end
+  if GameMode.GlobalThinkers then
+    if not GameMode.GlobalThinkers._ClearItems_Thinker then
+      GameMode:GlobalThinkersInit_ClearItems_Thinker()
+    end
+    if not GameMode.GlobalThinkers._Convars_Thinker then
+      GameMode:GlobalThinkersInit_Convars_Thinker()
+    end
+  end
+
   -- This internal handling is used to set up main barebones functions
   GameMode:_OnGameRulesStateChange(keys)
 
@@ -1627,15 +1669,6 @@ function Events:beginQuests()
   if Beacons.cheats or Convars:GetBool("developer") then
     Beacons:DEBUG()
   end
-
-  Timers:CreateTimer(2, function()
-    if MAIN_HERO_TABLE and #MAIN_HERO_TABLE>0 then
-      for _,hero in pairs(MAIN_HERO_TABLE) do
-        hero:AddNewModifier(hero, nil, "modifier_client_setting", {})
-      end
-    end
-    return 2
-  end)
 end
 
 function Events:InitGameEntities()

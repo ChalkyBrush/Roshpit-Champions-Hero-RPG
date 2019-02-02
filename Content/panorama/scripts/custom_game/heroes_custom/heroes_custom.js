@@ -28,7 +28,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 	var playerIndex = Entities.GetPlayerOwnerID( queryUnit )
 	$.Msg(requiredHero)
 	var heroName = convertFullHeroNameToRPC(requiredHero)
-	$.Msg("----")
+	$.Msg("----heroes_custom replaceRuneTooltip ")
 	$.Msg(heroName)
 	$.Msg("-----")
 	if (tooltip.indexOf("[Q1]") > -1){

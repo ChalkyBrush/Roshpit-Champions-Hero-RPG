@@ -293,32 +293,40 @@ function populateCurateItem(item)
     var attributeItem = $.CreatePanel("Panel", parent, "attribute1")
     attributeItem.BLoadLayoutSnippet("curator_item_row");   
     var itemProperty = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
-    attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemProperty.propertyColor+"'>"+$.Localize(itemProperty.propertyName)+"</font>"
-    attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemProperty.propertyColor+"'>"+itemProperty.propertyValue+"</font>"
+	if (!(itemProperty===undefined)){
+		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemProperty.propertyColor+"'>"+$.Localize(itemProperty.propertyName)+"</font>"
+		attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemProperty.propertyColor+"'>"+itemProperty.propertyValue+"</font>"
+	}
 
     var parent = $.GetContextPanel().FindChildTraverse('item_property2')
     parent.RemoveAndDeleteChildren()
     var attributeItem = $.CreatePanel("Panel", parent, "attribute2")
     attributeItem.BLoadLayoutSnippet("curator_item_row");   
     var itemProperty = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-2" )
-    attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemProperty.propertyColor+"'>"+$.Localize(itemProperty.propertyName)+"</font>"
-    attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemProperty.propertyColor+"'>"+itemProperty.propertyValue+"</font>"
+	if (!(itemProperty===undefined)){
+		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemProperty.propertyColor+"'>"+$.Localize(itemProperty.propertyName)+"</font>"
+		attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemProperty.propertyColor+"'>"+itemProperty.propertyValue+"</font>"
+	}
 
     var parent = $.GetContextPanel().FindChildTraverse('item_property3')
     parent.RemoveAndDeleteChildren()
     var attributeItem = $.CreatePanel("Panel", parent, "attribute3")
     attributeItem.BLoadLayoutSnippet("curator_item_row");   
     var itemProperty = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
-    attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemProperty.propertyColor+"'>"+$.Localize(itemProperty.propertyName)+"</font>"
-    attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemProperty.propertyColor+"'>"+itemProperty.propertyValue+"</font>"
+	if (!(itemProperty===undefined)){
+		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemProperty.propertyColor+"'>"+$.Localize(itemProperty.propertyName)+"</font>"
+		attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemProperty.propertyColor+"'>"+itemProperty.propertyValue+"</font>"
+	}
 
     var parent = $.GetContextPanel().FindChildTraverse('item_property4')
     parent.RemoveAndDeleteChildren()
     var attributeItem = $.CreatePanel("Panel", parent, "attribute4")
     attributeItem.BLoadLayoutSnippet("curator_item_row");   
     var itemProperty = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-4" )
-    attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemProperty.propertyColor+"'>"+$.Localize(itemProperty.propertyName)+"</font>"
-    attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemProperty.propertyColor+"'>"+itemProperty.propertyValue+"</font>"
+	if (!(itemProperty===undefined)){
+		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemProperty.propertyColor+"'>"+$.Localize(itemProperty.propertyName)+"</font>"
+		attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemProperty.propertyColor+"'>"+itemProperty.propertyValue+"</font>"
+	}
 
     $.GetContextPanel().FindChildTraverse('final_curate_button_container').RemoveClass('invisible')
     

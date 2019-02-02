@@ -540,7 +540,7 @@ end
 
 function Weapons:CreateWeaponVariant(variantName, rarityName, itemNameText, slot, gear, slotText, whichHero, maxLevel, minLevel)
     local itemVariant = variantName
-    local item = CreateItem(itemVariant, nil, nil)
+    local item = RPCItems:CreateItem(itemVariant, nil, nil)
     item.rarity = rarityName
     local rarityValue = RPCItems:GetRarityFactor(item.rarity)
     local itemName = itemNameText

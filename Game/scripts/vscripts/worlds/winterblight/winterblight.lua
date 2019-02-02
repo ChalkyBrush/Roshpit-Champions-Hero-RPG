@@ -6,7 +6,7 @@ require('worlds/winterblight/zones/starting_zone')
 require('worlds/winterblight/zones/shrine_of_azalea')
 
 function Winterblight:Debug()
-    local item = CreateItem("item_debug_blink", nil, nil)
+    local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
     local drop = CreateItemOnPositionSync( Vector(-15424,-2560), item )
     local position = Vector(-15424,-2560)
     RPCItems:DropItem(item, Vector(-15424,-2560))

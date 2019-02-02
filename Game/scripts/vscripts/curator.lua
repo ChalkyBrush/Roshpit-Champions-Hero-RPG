@@ -59,7 +59,7 @@ function Curator:CurateBasicEquipment(playerID)
 	local xpBounty = 300
 	local randomHelm = RandomInt(1, 3)
 	local itemVariant = BASE_BOOT_TABLE[randomHelm]
-    local item = CreateItem(itemVariant, nil, nil)
+    local item = RPCItems:CreateItem(itemVariant, nil, nil)
     local rarity = "uncommon"
 
 
@@ -90,7 +90,7 @@ function Curator:CurateBasicEquipment(playerID)
 
    	local randomHelm = RandomInt(1, 3)
 	local itemVariant = BASE_HEAD_TABLE[randomHelm]
-    local item = CreateItem(itemVariant, nil, nil)
+    local item = RPCItems:CreateItem(itemVariant, nil, nil)
 
     item.rarity = rarity
     local rarityValue = 2
@@ -121,7 +121,7 @@ function Curator:CurateBasicEquipment(playerID)
 
 	local randomHelm = RandomInt(1, 3)
 	local itemVariant = BASE_HAND_TABLE[randomHelm]
-    local item = CreateItem(itemVariant, nil, nil)
+    local item = RPCItems:CreateItem(itemVariant, nil, nil)
 
     item.rarity = rarity
     local rarityValue = 2
@@ -152,7 +152,7 @@ function Curator:CurateBasicEquipment(playerID)
 
 	local randomHelm = RandomInt(1, 3)
 	local itemVariant = BASE_BODY_TABLE[randomHelm]
-    local item = CreateItem(itemVariant, nil, nil)
+    local item = RPCItems:CreateItem(itemVariant, nil, nil)
 
     item.rarity = rarity
     local rarityValue = 2
@@ -184,7 +184,7 @@ function Curator:CurateBasicEquipment(playerID)
 
 	local randomHelm = RandomInt(1, 3)
 	local itemVariant = BASE_AMULET_TABLE[randomHelm]
-    local item = CreateItem(itemVariant, nil, nil)
+    local item = RPCItems:CreateItem(itemVariant, nil, nil)
 
 
 

@@ -6,7 +6,7 @@ function RPCItems:RollBlaster(xpBounty, deathLocation, rarity, isShop, type, her
         randomHelm = type
     end
 	local blaster_variant = BASE_BLASTER_TABLE[randomHelm]
-    local item = CreateItem(blaster_variant, nil, nil)
+    local item = RPCItems:CreateItem(blaster_variant, nil, nil)
     item.rarity = rarity
     print("rarity:")
     print(rarity)

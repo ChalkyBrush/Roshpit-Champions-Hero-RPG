@@ -180,7 +180,7 @@ function wing_attack( keys )
 end
 
 function rune_b_a(target, abilityLevel, caster)
-		-- local item = CreateItem("item_bag_of_gold", nil, nil)
+		-- local item = RPCItems:CreateItem("item_bag_of_gold", nil, nil)
 		-- local location = target:GetAbsOrigin()
   --   	local drop = CreateItemOnPositionSync( location, item )
   --   	local position = location + RandomVector(RandomInt(200, 1100))

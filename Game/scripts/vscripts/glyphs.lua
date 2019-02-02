@@ -238,7 +238,7 @@ end
 
 function Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText, useDescription, deathLocation, requiredHero, minLevel, property1, dropIndex)
     local itemVariant = variantName
-    local item = CreateItem(itemVariant, nil, nil)
+    local item = RPCItems:CreateItem(itemVariant, nil, nil)
     item.rarity = rarityName
     local rarityValue = RPCItems:GetRarityFactor(item.rarity)
     local itemName = itemNameText
