@@ -5578,7 +5578,7 @@ function lightning_ball_think(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	if not IsValidEntity(caster) then
+	if not IsValidEntity(caster) or not caster.origCaster then
 		return false
 	end
 	if caster.origCaster.dying then

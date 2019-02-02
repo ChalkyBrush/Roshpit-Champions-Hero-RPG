@@ -1,14 +1,10 @@
-require('heroes/spirit_breaker/whirling_flail')
-require('/heroes/spirit_breaker/constants')
+require('heroes/spirit_breaker/duskbringer_1_q')
+require('/heroes/spirit_breaker/duskbringer_constants')
 
-function arcana_ability_start(event)
+function shadow_slam_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
-	if caster:HasAbility("whirling_flail") then
-		local flailAbility = caster:FindAbilityByName("whirling_flail")
-		flailAbility.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "duskbringer")
-	end
 	local newPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
 
 	-- caster:SetAbsOrigin(newPosition)
@@ -22,10 +18,9 @@ function arcana_ability_start(event)
 	Filters:CastSkillArguments(2, caster)
 	ability.moveVector = ((newPosition-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	EmitSoundOn("Duskbringer.Arcana1.VO", caster)
-	caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "duskbringer")
 end
 
-function smashing_think(event)
+function shadow_slam_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local moveSpeed = 30
@@ -37,9 +32,10 @@ function smashing_think(event)
 	end
 	local newPosition = GetGroundPosition(caster:GetAbsOrigin()+ability.moveVector*moveSpeed, caster)
 	caster:SetAbsOrigin(newPosition)
+	duskbringer_rune_e_1_think(event)
 end
 
-function smashing_end(event)
+function shadow_slam_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_elder_titan/duskbringer_a_b.vpcf", PATTACH_CUSTOMORIGIN, caster)
@@ -53,14 +49,14 @@ function smashing_end(event)
 	local damage = event.damage
 	local w_1_level = caster:GetRuneValue("w", 1)
 	if w_1_level > 0 then
-		damage = damage + w_1_level*OverflowProtectedGetAverageTrueAttackDamage(caster) * ability:GetLevel() * W1_ARCANA1_AMP_PERCENT / 100
+		damage = damage + w_1_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * ability:GetLevel() * DUSKBRINGER_ARCANA_W1_ADD_DMG_PER_ATT_PER_LEVEL
 	end
 
 	local w_2_level = caster:GetRuneValue("w", 2)
 	local w_3_level = caster:GetRuneValue("w", 3)
 	local w_4_level = caster:GetRuneValue("w", 4)
 	local flailAbility = caster:FindAbilityByName("whirling_flail")
-	local stacksCount = Runes:Procs(w_3_level, W3_ARCANA1_PROC_CHANCE, 1)
+	local stacksCount = Runes:Procs(w_3_level, DUSKBRINGER_ARCANA_W3_PROC_CHANCE, 1)
 					
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )	
 	if #enemies > 0 then	
@@ -72,28 +68,25 @@ function smashing_end(event)
 			end
 		end
 	end
-
-	
 	if w_2_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_arcana_armor", {duration = 6})
-		caster:SetModifierStackCount("modifier_duskbringer_arcana_armor", caster, w_2_level)
+		local w_2_duration = Filters:GetAdjustedBuffDuration(caster, DUSKBRINGER_ARCANA_W2_BASE_DUR, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_arcana_rune_w_2", {duration = w_2_duration})
+		caster:SetModifierStackCount("modifier_duskbringer_arcana_rune_w_2", caster, w_2_level)
 	end	
 	if w_4_level > 0 then
-		if not caster:HasModifier("modifier_duskbringer_arcana_damage_buff") then
+		if not caster:HasModifier("modifier_duskbringer_arcana_rune_w_4") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifer_duskbringer_d_b_charging_up", {duration = 0.8})
 			Timers:CreateTimer(0.3, function()
 				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Duskbringer.Arcana1.DB", caster)
 			end)
 			StartAnimation(caster, {duration=1.1, activity=ACT_DOTA_VICTORY, rate=1.2})
 			Timers:CreateTimer(0.8, function()
-				local d_b_duration = Filters:GetAdjustedBuffDuration(caster, 18, false)
-				ability:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_arcana_damage_buff", {duration = d_b_duration})
-				caster:SetModifierStackCount("modifier_duskbringer_arcana_damage_buff", caster, w_4_level)
+				local w_4_duration = Filters:GetAdjustedBuffDuration(caster, DUSKBRINGER_ARCANA_W4_BASE_DUR, false)
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_arcana_rune_w_4", {duration = w_4_duration})
+				caster:SetModifierStackCount("modifier_duskbringer_arcana_rune_w_4", caster, w_4_level)
 			end)
 		end
 	end
-	
-
 	GridNav:DestroyTreesAroundPoint(caster:GetAbsOrigin(), 300, false)
 	Timers:CreateTimer(3, function()
 		ParticleManager:DestroyParticle(pfx, false)

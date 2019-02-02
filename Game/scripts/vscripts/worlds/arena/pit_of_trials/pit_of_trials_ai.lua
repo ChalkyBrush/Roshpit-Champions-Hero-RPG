@@ -437,6 +437,7 @@ function ConquestBirdTrigger()
 							Events:CreateCollectionBeam(Vector(-8907, 13922, 766), Vector(-8640, 14336, 456))
 							EmitSoundOnLocationWithCaster(Vector(-8640, 14336, 256), "Arena.StaffBeam", Arena.ArenaMaster)
 							local mountainSpirit = CreateUnitByName("arena_cliff_spirit", Vector(-8567, 14144, 0), false, nil, nil, DOTA_TEAM_NEUTRALS)
+							mountainSpirit.dummy = true
 							mountainSpirit:SetForwardVector(Vector(-0.5, 1))
 							Timers:CreateTimer(0.1, function()
 								StartAnimation(mountainSpirit, {duration=2, activity=ACT_DOTA_ANCESTRAL_SPIRIT, rate=1.0})
@@ -460,7 +461,7 @@ end
 function mountain_spirit_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	if #enemies> 0 then
 		for i = 1, #enemies, 1 do
 			if not enemies[i]:HasModifier("modifier_mountain_spirit_transfer") and not enemies[i]:HasModifier("modifier_mountain_spirit_transfer_immunity") then
@@ -925,6 +926,7 @@ function ConquestBirdTrigger2()
 							Events:CreateCollectionBeam(Vector(-14584, 4979, 770), Vector(-14656, 4608, 286))
 							EmitSoundOnLocationWithCaster(Vector(-14584, 4979, 770), "Arena.StaffBeam", Arena.ArenaMaster)
 							local mountainSpirit = CreateUnitByName("arena_cliff_spirit", Vector(-14656, 4608, 286), false, nil, nil, DOTA_TEAM_NEUTRALS)
+							mountainSpirit.dummy = true
 							mountainSpirit:SetForwardVector(Vector(-0.5, -1))
 							Timers:CreateTimer(0.1, function()
 								StartAnimation(mountainSpirit, {duration=2, activity=ACT_DOTA_ANCESTRAL_SPIRIT, rate=1.0})

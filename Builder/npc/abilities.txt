@@ -1271,7 +1271,7 @@
 				"Target"
 				{
 					"Center"	"CASTER"
-					"Teams"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					"Radius"	"350"
 				}
 				"Center"	"CASTER"
@@ -1455,7 +1455,7 @@
 				"Target"
 				{
 					"Center"	"CASTER"
-					"Teams"		"DOTA_UNIT_TARGET_TEAM_NONE"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					"Radius"	"%radius"
 				}
 				"Center"	"CASTER"
@@ -2789,7 +2789,7 @@
 				"Target"
 				{
 					"Center"	"CASTER"
-					"Teams"		"DOTA_UNIT_TARGET_TEAM_NONE"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					"Radius"	"%radius + 20"
 				}
 				"Center"	"CASTER"
@@ -8064,7 +8064,7 @@
 			{
 				"IsHidden" "0"
 				"TextureName"	"misc/teleportation"
-				"Duration"	"10"
+				"Duration"	"7"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "1"
@@ -13288,7 +13288,7 @@
 						"Target"
 						{
 							"Center"	"CASTER"
-							"Teams"		"DOTA_UNIT_TARGET_TEAM_NONE"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 							"Radius"	"300"
 						}
 						"Center"	"CASTER"
@@ -13352,7 +13352,7 @@
 						"Target"
 						{
 							"Center"	"CASTER"
-							"Teams"		"DOTA_UNIT_TARGET_TEAM_NONE"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 							"Radius"	"300"
 						}
 						"Center"	"CASTER"
@@ -13415,7 +13415,7 @@
 						"Target"
 						{
 							"Center"	"CASTER"
-							"Teams"		"DOTA_UNIT_TARGET_TEAM_NONE"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 							"Radius"	"300"
 						}
 						"Center"	"CASTER"
@@ -14872,7 +14872,7 @@
 				"Target"
 				{
 					"Center"	"TARGET"
-					"Teams"		"DOTA_UNIT_TARGET_TEAM_NONE"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					"Radius"	"250"
 				}
 				"Center"	"CASTER"
@@ -14937,7 +14937,7 @@
 						"Target"
 						{
 							"Center"	"TARGET"
-							"Teams"		"DOTA_UNIT_TARGET_TEAM_NONE"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 							"Radius"	"250"
 						}
 						"Center"	"CASTER"
@@ -30128,7 +30128,7 @@
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
 
 		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"0"
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
 
@@ -30722,7 +30722,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-10"
 				}
 			}
 			"modifier_walking_fast"
@@ -30730,7 +30730,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-25"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "10"
 				}
 			}
 			"modifier_arena_show_combatant"
@@ -45839,7 +45839,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
+		"AbilityCastPoint"				"3"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------

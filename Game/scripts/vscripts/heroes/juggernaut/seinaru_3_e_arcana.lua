@@ -123,8 +123,12 @@ function sunstrider_end(event)
 
 	Timers:CreateTimer(0.06, function()
 		caster:RemoveNoDraw()
-		caster:RemoveModifierByName("modifier_sunstrider_a_c_damage_bonus")
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sunstrider_a_c_damage_bonus", {duration = 3})
+		local e_1_level = caster:GetRuneValue("e", 1)
+		if e_1_level > 0 then
+			caster:RemoveModifierByName("modifier_sunstrider_a_c_damage_bonus")
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_sunstrider_a_c_damage_bonus", {duration = 3})
+			caster:SetModifierStackCount("modifier_sunstrider_a_c_damage_bonus", caster, e_1_level)
+		end
 		local b_c_level = caster:GetRuneValue("e", 2)
 		if b_c_level > 0 then
 			local b_c_duration = Filters:GetAdjustedBuffDuration(caster, SEINARU_ARCANA_E2_DUR * b_c_level, false)

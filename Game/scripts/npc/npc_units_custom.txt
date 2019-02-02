@@ -12,11 +12,11 @@
         "SoundSet"  "Creep_Good_Range"
         "Level" "1"
         "UnitLabel" "healing_ward"
-        "Ability1"  "onibi_nature_1"
-        "Ability2"  "onibi_lightning_2"
-        "Ability3"  "onibi_q"
-        "Ability4"  "onibi_invoke"
-        "Ability5"  ""
+        "Ability1"  "onibi_q"
+        "Ability2"  "onibi_w"
+        "Ability3"  "onibi_e"
+        "Ability4"  "onibi_nature_1"
+        "Ability5"  "onibi_lightning_2"
         "Ability6"  ""
         "Ability7"  ""
         "Ability8"  ""
@@ -3453,7 +3453,7 @@
         // Movement
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
-        "MovementSpeed"             "85"        // Speed
+        "MovementSpeed"             "240"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
@@ -3562,7 +3562,7 @@
         // Movement
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
-        "MovementSpeed"             "135"        // Speed
+        "MovementSpeed"             "240"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
@@ -3676,7 +3676,7 @@
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"    
         "ShouldDoFlyHeightVisual"   "1"
-        "MovementSpeed"             "220"        // Speed
+        "MovementSpeed"             "300"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
@@ -4017,7 +4017,7 @@
         "FoodCost"  "3"
         "BuildTime" "26"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
-        "MovementSpeed" "290"
+        "MovementSpeed" "350"
         "MovementTurnRate"  "0.6"
         "StatusHealth"  "12000"
         "StatusHealthRegen" "0.25"
@@ -11342,7 +11342,7 @@
         // Movement
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
-        "MovementSpeed"             "200"        // Speed
+        "MovementSpeed"             "240"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
@@ -40620,7 +40620,7 @@
         "FoodCost"  "3"
         "BuildTime" "26"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
-        "MovementSpeed" "330"
+        "MovementSpeed" "400"
         "MovementTurnRate"  "0.6"
         "StatusHealth"  "1340000"
         "StatusHealthRegen" "10"
@@ -45751,6 +45751,8 @@
         "SoundSet"              "Hero_Morphling"
         "precache"
         {
+			"model" "models/heroes/chen/chen.vmdl"
+			"model" "models/heroes/chen/mount.vmdl"
             "particle"      "particles/roshpit/arena/challenger6_shield.vpcf"
         }
         "ArmorPhysical" "25"
@@ -46504,7 +46506,7 @@
         "FoodCost"  "3"
         "BuildTime" "26"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
-        "MovementSpeed" "340"
+        "MovementSpeed" "420"
         "MovementTurnRate"  "0.4"
         "StatusHealth"  "1065000"
         "StatusHealthRegen" "0.25"
@@ -48127,6 +48129,7 @@
 
         "precache"
         {
+			"model" "models/items/undying/idol_of_ruination/ruin_wight_minion_gold.vmdl"
             "model" "models/items/undying/idol_of_ruination/ruin_wight_minion_torso_gold.vmdl"
         }
         "ArmorPhysical" "0"
@@ -49920,7 +49923,7 @@
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"    
         "ShouldDoFlyHeightVisual"   "1"
-        "MovementSpeed"             "120"        // Speed
+        "MovementSpeed"             "300"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status

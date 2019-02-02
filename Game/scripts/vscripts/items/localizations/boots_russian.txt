@@ -67,7 +67,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_admiral_boots"									"Admiral's Boots"
 		"item_property_admiral_boots"				"Sea Commander"
-		"property_admiral_boots_description"		"Увеличивает урон от способности (E) @Ability3 на 100%"
+		"property_admiral_boots_description"		"Увеличивает Базовый Урон Способности (E) @Ability3 на 100%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"Rooted Feet"
@@ -85,7 +85,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_arcanys_slipper"									"Arcanys Slippers"
 		"item_property_arcanys_slipper"				"Arcane Rush"
-		"property_arcanys_slipper_description"		"После прочтения способности (E) @Ability3 за 1.2 секунды происходят три энергетических взрыва. Каждый взрыв выжигает @special_property1% от макс. запаса маны и добавляет герою базовый урон в размере @special_property2х выжженой маны."
+		"property_arcanys_slipper_description"		"После прочтения способности (E) @Ability3 за 1.2 секунды происходят три энергетических взрыва. Каждый взрыв выжигает @special_property1% от макс. запаса маны и добавляет герою Базовый Урон атаки в размере @special_property2х выжженой маны."
 		"DOTA_Tooltip_modifier_arcanys_slipper_buff"	"Arcane Rush"
 		"DOTA_Tooltip_modifier_arcanys_slipper_buff_Description"	"Базовый урон увеличен"
 		
@@ -122,7 +122,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"						"Resplendent Rubber Boots"
 		"item_property_resplendent_rubber"					"Grounding"
-		"property_resplendent_rubber_description"			"Снижает весь получаемый пост-резистный магический урон 35%"
+		"property_resplendent_rubber_description"			"Снижает весь получаемый магический урон на 35%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_old_wisdom"								"Boots of Old Wisdom"
@@ -159,9 +159,9 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"Redfall Runners"
 		"item_property_redfall_runners"					"Crackling Leaves"
-		"property_redfall_runners_description"				"После прочтения (E) @Ability3 следующее произнесение (W) @Ability2 будет усилено в 20 раз. Эффект длится 7 секунд и снимается при активации умения (W) @Ability2."
+		"property_redfall_runners_description"				"После прочтения (E) @Ability3 Базовый Урон способности (W) @Ability2 будет усилен на 2400%. Эффект длится 7 секунд, но снимается сразу же при нанесении любого урона от (W) @Ability2."
 		"DOTA_Tooltip_modifier_redfall_runners_buff"		"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"Умение (W) усилено в 20 раз"
+		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"Умение (W) усилено на 2400%%."
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
@@ -198,7 +198,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_great_fortune"							"Boots of Great Fortune"
 		"item_property_boots_of_great_fortune"					"Additional Luck"
-		 "property_boots_of_great_fortune_description"			"Добавляет к шансу срабатывания всех надетых предметов дополнительно @special_property1%."
+		 "property_boots_of_great_fortune_description"			"Прибавляет к шансу срабатывания всех надетых предметов дополнительно @special_property1%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
@@ -242,7 +242,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"Crystalline Slippers"	
 		"property_crystalline"												"Crystal Root"
-		"property_crystalline_Description"									"Обездвиженные враги наносят на @special_property1% меньше урона владельцу предмета и получают от него увеличенный в @special_property2 раз(а) урон."
+		"property_crystalline_Description"									"Обездвиженные враги наносят на @special_property1% меньше урона владельцу предмета и получают от него увеличенный в @special_property2 раз урон."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"Gravelfoot Treads"

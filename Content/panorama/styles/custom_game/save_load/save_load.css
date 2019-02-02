@@ -118,6 +118,12 @@
 	flow-children:right;
 }
 
+.save_container_premium_class{
+	horizontal-align:center;
+	text-align: center;
+	flow-children:right;
+}
+
 #premium_save_container{
 	width:100%;
 	horizontal-align:center;

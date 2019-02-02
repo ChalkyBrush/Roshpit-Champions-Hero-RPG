@@ -375,40 +375,6 @@ function Runes:GetTotalRuneLevel(caster, tier, runeID, heroName)
 	end
 end
 
-function Runes:GetTotalRuneLevelGeneric(caster, tier, index)
-	local runeUnit = ""
-	if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") or caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
-		caster = caster.origCaster
-	end
-	if tier == 1 then
-		runeUnit = caster.runeUnit
-	elseif tier == 2 then
-		runeUnit = caster.runeUnit2
-	elseif tier == 3 then
-		runeUnit = caster.runeUnit3
-	elseif tier == 4 then
-		runeUnit = caster.runeUnit4
-	end
-	local runeID = Runes:ConvertTierAndIndexToRune(tier, index)
-	if runeUnit then
-		local runeAbility = runeUnit:GetAbilityByIndex(index)
-		if runeAbility then
-			if runeAbility:IsActivated() then
-				local abilityLevel = runeAbility:GetLevel()
-				local bonusLevel = Runes:GetTotalBonus(runeUnit, runeID)
-				local totalLevel = abilityLevel + bonusLevel
-				return totalLevel
-			else
-				return 0
-			end
-		else
-			return 0
-		end
-	else
-		return 0
-	end
-end
-
 function Runes:GetRuneAbility(caster, tier, index)
 	local runeUnit = ""
 	if tier == 1 then

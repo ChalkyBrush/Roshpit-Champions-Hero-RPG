@@ -65,7 +65,7 @@
 		"item_property_azure_empire"				"Sky Magistrate"
 		"property_azure_empire_description"			"3 лазурных сокола следуют за героем. Каждый сокол может поглотить любой входящий магический или чистый урон. Время восстановления соколов - @special_property1 сек после получения урона."
 		"item_property_azure_empire_silver"				"Silver Skies"
-		"property_azure_empire_silver_description"	"Каждый живой сокол увеличивает базовый урон умений на @special_property2%"
+		"property_azure_empire_silver_description"	"Каждый живой сокол увеличивает Базовый Урон Способностей на @special_property2%"
 		"item_property_azure_empire_green"				"Jade Skies"
 		"property_azure_empire_green_description"	"Каждый живой сокол увеличивает Ловкость на значение, равное @special_property3x уровня героя."
 		"item_property_azure_empire_red"				"Crimson Skies"
@@ -83,7 +83,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_eye_of_avernus"									"Eye of Avernus"
 		"item_property_avernus"						"Commanding Vision"								
-		"property_avernus_description"				"Увеличивает урон от всех способностей на 50%"
+		"property_avernus_description"				"Увеличивает Базовый Урон Способностей на 50%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tome_of_chaos"									"Tome of Chaos"
@@ -97,7 +97,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_torch_of_gengar"									"Torch of Gengar"
 		"item_property_gengar"						"Shadow Walk"
-		"property_gengar"							"При получении урона есть шанс 15%, что герой получит возможность уклоняться от 75% атак, ходить сквозь юнитов и увеличит базовый урон всех способностей на 300% на 6 секунд."
+		"property_gengar"							"При получении урона есть шанс 15%, что герой получит возможность уклоняться от 75% атак, ходить сквозь юнитов и увеличит Базовый Урон Способностей на 300% на 6 секунд."
 		"DOTA_Tooltip_modifier_torch_of_gengar_effect"	"Shadow Walk"
 		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"75%% уклонение, хождение сквозь юнитов, базовый урон способностей увеличен на 300%%."
 		
@@ -111,7 +111,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"Omega Ruby"
 		"item_property_omega_ruby"					"Omega Flare"
-		"property_omega_ruby"						"Вместе с обычными атаками происходит взрыв, наносящий магический урон в области 360 единиц в размере @special_property1% от нанесённого урона. Сочетается со всеми любыми видами урона по области."
+		"property_omega_ruby"						"Вместе с обычными атаками происходит взрыв, наносящий магический урон в области 360 единиц в размере @special_property1% от нанесённого урона."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol LV1"
@@ -164,7 +164,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_waterstone"						"Ancient Tanari Waterstone"
 		"item_property_ancient_waterstone"					"Water Goddess' Blessing"
-		"property_ancient_waterstone_description"			"Урон, напрямую наносимый надетыми предметами увеличен на @special_property1%"
+		"property_ancient_waterstone_description"			"Урон, напрямую наносимый предметами увеличен на @special_property1%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"Tempest Falcon Ring"
@@ -177,12 +177,12 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_firelock_pendant"								"Firelock Pendant"
 		"item_property_firelock"							"Steady Flame"		
-		"property_firelock_description"					"Увеличивает ВЕСЬ физический урон на @special_property1% за каждые 10 очков Силы."
+		"property_firelock_description"					"Увеличивает Пост-Резистный физический урон на @special_property1% за каждые 10 очков Силы."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"Antique Mana Relic"
 		"item_property_antique_mana_relic"					"Mana Storm"
-		"property_antique_mana_relic_description"			"Способность (Q) @Ability1 выжжет 50% вашей маны и нанесёт на 400% больше урона. Каждая базовая атака восстанавливает 2.5% маны. Каждое очко текущей маны увеличивает базовый урон героя на 1."
+		"property_antique_mana_relic_description"			"Прочтение способности (Q) @Ability1 выжжет 50% вашей маны и усилит Базовый Урон этой способности на несколько секунд. Каждая базовая атака восстанавливает 2.5% маны. Каждое очко текущей маны увеличивает базовый урон героя на 1."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"
@@ -207,7 +207,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"						"Fortune's Talisman of Truth"
 		"item_property_fortune_talisman"						"Luck Booster"
-		"property_fortune_talisman_description"				"Увеличивает шанс срабатывания всех надетых предметов на @special_property1%"
+		"property_fortune_talisman_description"				"Увеличивает шанс срабатывания всех надетых предметов на @special_property1%, мультипликативно."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_cobalt_serenity_ring"							"Cobalt Serenity Ring"
@@ -222,7 +222,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"Garnet Warfare Ring"
 		"item_property_garnet_warfare"							"Garnet Warfare"
-		 "property_garnet_warfare_description"					"Увеличивает базовый урон способностей на @special_property1% за каждые 10 очков Силы."
+		 "property_garnet_warfare_description"					"Увеличивает Базовый Урон Способностей на @special_property1% за каждые 10 очков Силы."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"							"Serengaard Sun Crystal"
@@ -256,7 +256,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_world_trees_flower_cache"						"World Tree's Flower Cache"
 		"item_property_world_trees_flower_cache"				"Blood Orchid"
-		"property_world_trees_flower_cache_description"			"При получении смертельного урона, герой перерождается в цветке, возвращаясь в бой через 3 секунды с полным здоровьем. После возрождения весь исходящий пост-резистный урон увеличивается на 200%, но увеличивает весь входящий урон на 200% на 12 секунд. Перезаряжается 12 секунд."
+		"property_world_trees_flower_cache_description"			"При получении смертельного урона, герой перерождается в цветке, возвращаясь в бой через 3 секунды с полным здоровьем. После возрождения весь исходящий Пост-Резистный урон увеличивается на 200%, но увеличивает весь входящий урон на 200% на 12 секунд. Перезаряжается 12 секунд."
 		"DOTA_Tooltip_modifier_world_tree_cache_cooldown"		"Перезарядка Blood Orchid"
 		"DOTA_Tooltip_modifier_world_tree_effect"				"Blood Orchid"
 		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"Наносимый пост-резистный урон увеличен на 200%%, получаемый урон увеличен на 200%%"

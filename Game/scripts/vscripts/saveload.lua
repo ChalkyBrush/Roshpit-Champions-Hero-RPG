@@ -116,7 +116,7 @@ end
 
 function SaveLoad:GetCharacterDataFromJSON(resultTable)
 	local characters = {}
-	local MAX_SAVE_SLOTS = 32
+	local MAX_SAVE_SLOTS = 36
 	for i = 1, MAX_SAVE_SLOTS, 1 do
 		characters[i] = {}
 	end
@@ -1572,6 +1572,7 @@ function SaveLoad:SaveJex(hero)
 	url = url.."steam_id="..steamID
 	url = url.."&championcharacter_id="..hero.roshpitID
 	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+	url = url.."&tony_key="..GetDedicatedServerKey("tony")
 	for i = 1, #elements_table, 1 do
 		local element1 = elements_table[i]
 		-- local other_elements = get_other_elements(onibi, element1)

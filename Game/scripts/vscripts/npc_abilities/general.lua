@@ -435,7 +435,11 @@ function jex_thundershroom_think(caster)
   local sorcPosition = caster.summoner:GetAbsOrigin()
   local aspectPosition = caster:GetAbsOrigin()
   local position = sorcPosition + caster.summoner:GetForwardVector()*300 + RandomVector(RandomInt(0, 80))
-  if WallPhysics:GetDistance(sorcPosition, aspectPosition) > 650 then
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC+DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false )	
+	if #enemies > 0 then
+		return false
+	end
+  if WallPhysics:GetDistance(sorcPosition, aspectPosition) > 1000 then
     caster:MoveToPosition(position)
   else
     caster:MoveToPositionAggressive(position)

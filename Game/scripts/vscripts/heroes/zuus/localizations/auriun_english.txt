@@ -121,6 +121,7 @@
 		"DOTA_Tooltip_ability_auriun_ult_movespeed"						"MOVEMENT SPEED BUFF:"
     	"DOTA_Tooltip_ability_auriun_ult_regen_percent"					"HP REGEN %:"
     	"DOTA_Tooltip_ability_auriun_ult_radius"						"RADIUS:"
+		"DOTA_Tooltip_ability_auriun_ult_movespeed"						"BONUS MOVESPEED:"
 
     	"DOTA_Tooltip_modifier_auriun_ult_effect"						"Blessing of Life"
     	"DOTA_Tooltip_modifier_auriun_ult_effect_Description"			"Massive HP regen and increased movement speed."

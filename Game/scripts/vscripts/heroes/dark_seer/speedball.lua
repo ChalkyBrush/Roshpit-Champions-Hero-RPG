@@ -235,18 +235,20 @@ function immortal_glyph_thinker(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, mach_punch_ability:GetCastRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES+DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		local enemy = enemies[1]
-		caster:SetForwardVector(((enemy:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized())
-		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=2.8})
-		local eventTable = {}
-		eventTable.caster = caster
-		eventTable.target = enemy
-		eventTable.cancelAnim = true
-		eventTable.ability = caster:FindAbilityByName("zonik_mach_punch")
-		if caster:HasAbility("zonik_comet_punch") then
-			eventTable.ability = caster:FindAbilityByName("zonik_comet_punch")
+		if not enemy.dummy then
+			caster:SetForwardVector(((enemy:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized())
+			StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=2.8})
+			local eventTable = {}
+			eventTable.caster = caster
+			eventTable.target = enemy
+			eventTable.cancelAnim = true
+			eventTable.ability = caster:FindAbilityByName("zonik_mach_punch")
+			if caster:HasAbility("zonik_comet_punch") then
+				eventTable.ability = caster:FindAbilityByName("zonik_comet_punch")
+			end
+			eventTable.damage_mult = eventTable.ability:GetLevelSpecialValueFor("damage_mult", eventTable.ability:GetLevel())
+			eventTable.stun_duration = eventTable.ability:GetLevelSpecialValueFor("stun_duration", eventTable.ability:GetLevel())
+			mach_punch_cast(eventTable)
 		end
-		eventTable.damage_mult = eventTable.ability:GetLevelSpecialValueFor("damage_mult", eventTable.ability:GetLevel())
-		eventTable.stun_duration = eventTable.ability:GetLevelSpecialValueFor("stun_duration", eventTable.ability:GetLevel())
-		mach_punch_cast(eventTable)
 	end
 end

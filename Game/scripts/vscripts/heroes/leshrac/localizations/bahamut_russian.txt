@@ -262,7 +262,7 @@
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_3_1"		"(T3) Глиф разделения"
 		"item_rpc_bahamut_glyph_3_1_description" 				"(W) Judgement действует вокруг героя(вместо атаки впереди) на @glyph_property1% большем радиусе."
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"(T7) Глиф барьера"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"(T4) Глиф барьера"
 		"item_rpc_bahamut_glyph_4_1_description" 				"Увеличивает время действия (Q) Wall of Impunity на @glyph_property1 сек."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"(T5) Глиф изоляции"
@@ -271,7 +271,7 @@
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"(T6) Глиф гордости"
 		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] становится пассивной, и не замедляет. Каждый пятый импульс оглушает цели на @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"(T4) Глиф вздымающихся волн"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"(T7) Глиф вздымающихся волн"
 		"item_rpc_bahamut_glyph_7_1_description" 				"Увеличивает радиус [E3] на @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_a"		"(Immortal) Глиф бесконечных граней"

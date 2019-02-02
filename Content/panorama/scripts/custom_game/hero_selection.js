@@ -418,6 +418,8 @@ function AbilityHideTooltip(abilityButton, abilityIndex, queryUnit, parent)
     $.DispatchEvent( "DOTAHideAbilityTooltip", parent );
 }
 
+HERO_SELECT_SAVE_SLOTS = 36
+
 function LoadCharactersLoaded(msg){
     var result = msg.result
     var parent = $('#hero_select_content')
@@ -435,7 +437,7 @@ function LoadCharactersLoaded(msg){
         var rowNumber = 1
         var rowCounter = 0
         var heroesTaken = CustomNetTables.GetTableValue( "hero_index", "taken_heroes")
-        for ( var i = 1; i <= 32; ++i )
+        for ( var i = 1; i <= HERO_SELECT_SAVE_SLOTS; ++i )
         {
             $.Msg(result.characters[i].heroName)
             if (!(result.characters[i].heroName == "empty")){

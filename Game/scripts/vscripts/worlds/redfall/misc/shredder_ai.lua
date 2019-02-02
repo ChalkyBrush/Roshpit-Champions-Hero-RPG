@@ -90,8 +90,8 @@ end
 function shredder_dismount(event)
 	local caster = event.caster
 	local shredderAbility = caster:FindAbilityByName("redfall_friendly_shredder_passive" )
-	shredderAbility:ApplyDataDrivenModifier(caster, caster, "modifier_friendly_shredder_lightning_effect", {duration = 2.6})
-	StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_FLAIL, rate=1.0})
+	shredderAbility:ApplyDataDrivenModifier(caster, caster, "modifier_friendly_shredder_lightning_effect", {duration = 1.0})
+	StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_FLAIL, rate=1.0})
 	EmitSoundOn("Redfall.FriendlyShredder.Activate", caster)
 	Timers:CreateTimer(2, function()
 		EmitSoundOn("Redfall.FriendlyShredder.Destruct", caster)

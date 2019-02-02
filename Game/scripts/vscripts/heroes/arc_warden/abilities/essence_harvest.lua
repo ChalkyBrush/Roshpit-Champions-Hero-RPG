@@ -160,6 +160,7 @@ function start_channel(event)
 	ability.harvested = 0
 	print("ESSENCE HARVEST ANIMATION")
 	StartAnimation(caster, {duration=3, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.4})
+	ability.casted = false
 	-- local allies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	-- local flowers = {}
 	-- for i = 1, #allies, 1 do
@@ -335,7 +336,10 @@ end
 
 function transfer_to_onibi(caster, ability)
 	if ability.harvested > 0 then
-		Filters:CastSkillArguments(4, caster)
+		if not ability.casted then
+			Filters:CastSkillArguments(4, caster)
+			ability.casted = true
+		end
 		local intensity = 1
 		if ability.harvested > 10 then
 			intensity = 2
@@ -372,6 +376,15 @@ function transfer_to_onibi(caster, ability)
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
 		end
+	end
+end
+
+function successfullCast(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not ability.casted then
+		Filters:CastSkillArguments(4, caster)
+		ability.casted = true
 	end
 end
 

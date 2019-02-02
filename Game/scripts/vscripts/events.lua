@@ -1077,6 +1077,37 @@ function Events:LevelUpRune(keys)
   CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId=PlayerID})
 end 
 
+function Events:LevelUpRuneMax(keys)
+	local PlayerID = keys.playerID
+	local player = PlayerResource:GetPlayer(PlayerID)
+	local ability = EntIndexToHScript(keys.ability)
+	local unit = EntIndexToHScript(keys.unit)
+	local player_stats = CustomNetTables:GetTableValue("player_stats", tostring(player:GetPlayerID()))
+	local current_rune_points = player_stats.runePoints
+	local current_skill_points = player_stats.skillPoints
+	local hero = player:GetAssignedHero()
+	local bAllow = true
+	if not unit:GetPlayerOwnerID() == PlayerID then
+		if unit:IsHero() then
+			bAllow = false
+		end
+	end
+	print(unit:GetPlayerOwnerID())
+	print(PlayerID)
+	if current_rune_points > 0 and ability:GetLevel() < 20 and hero:IsAlive() and bAllow then
+		local levelsToSet = math.min(current_rune_points, 20 - ability:GetLevel())
+		CustomNetTables:SetTableValue("player_stats", tostring(PlayerID), {skillPoints = current_skill_points, runePoints = current_rune_points - levelsToSet } )
+		local newLevel = ability:GetLevel() + levelsToSet
+		ability:SetLevel(newLevel)
+		EmitSoundOnClient("ui.crafting_gem_applied", player)
+		Runes:apply_runes(ability, unit, PlayerID)
+	else
+		EmitSoundOnClient("General.Cancel", player)
+	end
+	CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId=PlayerID})
+	CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId=PlayerID})
+end 
+
 function Events:LevelUpAbility(keys)
   local PlayerID = keys.playerID
   local player = PlayerResource:GetPlayer(PlayerID)
@@ -1593,7 +1624,7 @@ end
 
 function Events:beginQuests()
   -- print("BEGINQUESTS IS HAPPENING")
-  if Beacons.cheats then
+  if Beacons.cheats or Convars:GetBool("developer") then
     Beacons:DEBUG()
   end
 
@@ -1892,7 +1923,7 @@ end
 
 function Events:TeleportUnit(unit, position, ability, caster, delay)
         StartSoundEvent("Hero_Chen.TeleportLoop", unit)
-        ability:ApplyDataDrivenModifier(caster, unit, "modifier_recently_teleported_portal", {duration = 9})
+        ability:ApplyDataDrivenModifier(caster, unit, "modifier_recently_teleported_portal", {duration = 7})
         ability:ApplyDataDrivenModifier(caster, unit, "modifier_teleporting", {})
         Timers:CreateTimer(delay,
         function()

@@ -16,12 +16,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSK_Q1_DAMAGE %>"
+				"property_one"			"<% DUSKBRINGER_Q1_DMG_PER_STACK %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% Q1_AGI_DAMAGE %>"
+				"property_two"			"<% DUSKBRINGER_Q1_DMG_PER_AGI_PER_STACK %>"
 			}
 			"03"
 			{
@@ -57,7 +57,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% Q2_ITEM_AMPLIFY_PERCENT %>"
+				"property_one"			"<% DUSKBRINGER_Q2_ITEM_PCT * 100 %>"
 			}
 		}
 	}
@@ -78,7 +78,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSK_Q3_AMPLIFY_PERCENT %>"
+				"property_one"			"<% DUSKBRINGER_Q3_ADD_DMG_PCT_MAX * 100 %>"
 			}
 		}
 	}
@@ -99,12 +99,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% Q4_AMPLIFY_PERCENT %>"
+				"property_one"			"<% DUSKBRINGER_Q4_ADD_DMG_PCT * 100 %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% Q4_ADD_RADIUS %>"
+				"property_two"			"<% DUSKBRINGER_Q4_ADD_RADIUS %>"
 			}
 		}
 	}
@@ -126,7 +126,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"<% DUSKBRINGER_W1_DMG_PER_ATT * 100 %>"
 			}
 			"02"
 			{
@@ -157,7 +157,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"<% DUSKBRINGER_W2_MAG_RES_RED %>"
 			}
 		}
 	}
@@ -178,7 +178,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"<% DUSKBRINGER_W3_HEAL %>"
 			}
 		}
 	}
@@ -199,7 +199,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSK_W4_AMPLIFY_PERCENT %>"
+				"property_one"			"<% DUSKBRINGER_W4_POSTMIT * 100 %>"
 			}
 		}
 		"Modifiers"
@@ -256,12 +256,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSK_E1_BONUS_DAMAGE %>"
+				"property_one"			"<% DUSKBRINGER_E1_ATT_DMG %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% E1_BONUS_ARMOR %>"
+				"property_two"			"<% DUSKBRINGER_E1_ARMOR %>"
 			}
 		}
 		"Modifiers"
@@ -272,13 +272,13 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  	"0.3"
+				"ThinkInterval"  	"0.03"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/spirit_breaker/helpers.lua"
-						"Function"		"rune_unit_1_think"
+						"ScriptFile"	"heroes/spirit_breaker/duskbringer_3_e.lua"
+						"Function"		"duskbringer_rune_e_1_think"
 					}
 				}
 			}
@@ -301,15 +301,6 @@
 					}
 				}
 			}
-			"modifier_duskbringer_glyph_3_1_effect"
-			{
-				"IsBuff"	"1"
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "5"
-				}
-			}
 		}
 	}
 
@@ -329,12 +320,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"<% DUSKBRINGER_E2_DUR %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"0.7"
+				"property_one_base"		"<% DUSKBRINGER_E2_BASE_DUR %>"
 			}
 		}
 	}
@@ -355,7 +346,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% E3_PROC_CHANCE %>"
+				"property_one"			"<% DUSKBRINGER_E3_PROC_CHANCE %>"
 			}
 		}
 	}
@@ -376,7 +367,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% E4_ADD_TIME %>"
+				"property_one"			"<% DUSKBRINGER_E4_DUR %>"
 			}
 		}
 	}
@@ -398,7 +389,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% R1_PERCENT %>"
+				"property_one"			"<% DUSKBRINGER_R1_DMG_PER_DMG * 100 %>"
 			}
 			"02"
 			{
@@ -429,16 +420,23 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DUSK_R2_AMPLIFY_PERCENT %>"
+				"property_one"			"<% DUSKBRINGER_R2_POSTMIT * 100 %>"
 			}
 		}
 		"Modifiers"
 		{
-			"modifier_duskbringer_rune_r_2"
+			"modifier_duskbringer_rune_r_2_visible"
 			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
+				"IsBuff"		"1"
+	        	"IsHidden"		"0"
+				"IsPurgable"	"0"
+				"TextureName"	"spectre_spectral_dagger"
+			}
+			"modifier_duskbringer_rune_r_2_invisible"
+			{
+				"IsBuff"		"1"
+	        	"IsHidden"		"1"
+				"IsPurgable"	"0"
 			}
 		}
 	}
@@ -459,7 +457,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSK_R3_ATK_POWER %>"
+				"property_one"			"<% DUSKBRINGER_R3_ATT_DMG_PCT %>"
 			}
 		}
 		"Modifiers"
@@ -495,22 +493,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_duskbringer_rune_r_4"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"EffectName"		"particles/items2_fx/satanic_buff.vpcf"
-				"EffectAttachType"	"attach_attack1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_one"
-				}
+				"property_one"			"<% DUSKBRINGER_R4_GHOST_PCT_PER_STR * 100 * 10 %>"
 			}
 		}
 	}

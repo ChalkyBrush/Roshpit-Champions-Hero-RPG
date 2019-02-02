@@ -198,17 +198,19 @@ function arctic_burn_thinker(event)
 	else
 		enemies = FindUnitsInRadius( caster:GetTeamNumber(), fire_thinker:GetAbsOrigin(), nil, fire_thinker.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	end
+	local q_1_level = caster:GetRuneValue("q", 1)
+	local q_4_level = caster:GetRuneValue("q", 4)
 	if #enemies > 0 then	
 		for i = 1, #enemies, 1 do
 			local enemy = enemies[i]
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_DRAGON, RPC_ELEMENT_FIRE)
-			if ability.q_1_level > 0 then
+			if q_1_level > 0 then
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_arctic_burn_slow", {duration = 0.5})
-				enemy:SetModifierStackCount("modifier_arctic_burn_slow", caster, ability.q_1_level)
+				enemy:SetModifierStackCount("modifier_arctic_burn_slow", caster, q_1_level)
 			end
-			if ability.q_4_level > 0 then
+			if q_4_level > 0 then
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_arctic_burn_casttime", {duration = 0.5})
-				enemy:SetModifierStackCount("modifier_arctic_burn_casttime", caster, ability.q_1_level)
+				enemy:SetModifierStackCount("modifier_arctic_burn_casttime", caster, q_4_level)
 			end
 		end
 	end
@@ -247,27 +249,7 @@ function arctic_burn_passive_thinker(event)
 				caster:RemoveModifierByName("modifier_scorch_charge_cooldown")
 			end
 		end	
-	else
+	elseif caster:HasAbility("dinath_scorch_charge") then
 		caster:RemoveAbility("dinath_scorch_charge")
 	end
-	-- if ability:GetCooldownTimeRemaining() > 0 then
-	-- 	local indexSkill = caster:GetAbilityByIndex(0)
-	-- 	local q_3_level = caster:GetRuneValue("q", 3)
-	-- 	print("q_3_level")
-	-- 	print(q_3_level)
-	-- 	if not caster:HasAbility("dinath_scorch_charge") then
-	-- 		caster:AddAbility("dinath_scorch_charge"):SetLevel(1)
-	-- 		caster:FindAbilityByName("dinath_scorch_charge"):SetAbilityIndex(0)
-	-- 	end
-	-- 	if q_3_level > 0 then
-	-- 		if indexSkill:GetAbilityName() == "dinath_arctic_burn" then
-	-- 			CustomAbilities:AddAndOrSwapSkill(caster, "dinath_arctic_burn", "dinath_scorch_charge", 0)
-	-- 		end
-	-- 	end
-	-- else
-	-- 	local indexSkill = caster:GetAbilityByIndex(0)
-	-- 	if indexSkill:GetAbilityName() == "dinath_scorch_charge" then
-	-- 		CustomAbilities:AddAndOrSwapSkill(caster, "dinath_scorch_charge", "dinath_arctic_burn", 0)
-	-- 	end
-	-- end
 end

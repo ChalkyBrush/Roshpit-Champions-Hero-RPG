@@ -13,6 +13,7 @@ require('/heroes/skywrath_mage/constants')
 require('/heroes/invoker/constants_CONJUROR')
 require("/heroes/moon_ranger/constants")
 require("/heroes/dragon_knight/flamewaker_constants")
+require("/heroes/spirit_breaker/duskbringer_constants")
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -580,6 +581,7 @@ function GameState:OrderFilter(orderTable)
 							ability:ApplyDataDrivenModifier(unit, unit, "modifier_jex_portal_teleporting", {duration = 1.2})
 							ability.teleporting_to = movementPosition
 							EmitSoundOn("Jex.EarthsGate.Portal", unit)
+							EmitSoundOnLocationWithCaster(ability.teleporting_to, "Jex.EarthsGate.Portal", caster)
 							unit:Stop()
 							unit:AddNewModifier( unit, nil, "modifier_black_portal_shrink", {duration = 1.3} )
 							return false
@@ -1332,9 +1334,9 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 				damage = damage*reduction
 			end
 		end
-		if victim:HasModifier("modifier_duskbringer_arcana_armor") then
-			local stackCount = victim:GetModifierStackCount("modifier_duskbringer_arcana_armor", victim)
-			local consideredArmor = victim:GetPhysicalArmorValue()*0.01*stackCount
+		if victim:HasModifier("modifier_duskbringer_arcana_rune_w_2") then
+			local stackCount = victim:GetModifierStackCount("modifier_duskbringer_arcana_rune_w_2", victim)
+			local consideredArmor = victim:GetPhysicalArmorValue() * DUSKBRINGER_ARCANA_W2_MAGIC_PURE_RES_PER_ARMOR * stackCount
 			damage = GameState:GetPostReductionPhysicalDamage(damage, consideredArmor)
 		end
 	    if victim:HasModifier("modifier_pure_resist") then
@@ -1676,9 +1678,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		end
 	end
 
-	if victim:HasModifier("modifier_duskbringer_t42_visible") then
-		local stacks = victim:GetModifierStackCount("modifier_duskbringer_t42_visible", victim)
-		damage = damage * (1 - 0.03 * stacks)
+	if victim:HasModifier("modifier_duskbringer_glyph_4_2_visible") then
+		local stacks = victim:GetModifierStackCount("modifier_duskbringer_glyph_4_2_visible", victim)
+		damage = damage * (1 - DUSKBRINGER_GLYPH_4_2_RES_PER_STACK * stacks)
 	end
 	if victim:HasModifier("modifier_snowshaker_passive") then
 		local passive = victim:FindAbilityByName("winterblight_snowshaker_passive")
@@ -2145,7 +2147,10 @@ function GameState:FilterDamage(filterTable)
 			victim:SetModifierStackCount("modifier_voltex_lightning_dash_regen_hidden", victim, dash.regen)
 		end
 	end
-
+	if victim:HasModifier("modifier_jex_q_cosmic_cosmic_postmitigation") then
+		local stacks = victim:GetModifierStackCount("modifier_jex_q_cosmic_cosmic_postmitigation", attacker)
+		mult = mult + 0.3*stacks
+	end
 	if attacker:HasModifier("modifier_trickster_mask") then
 		local minBoost = 0
 		if attacker:HasModifier("modifier_boots_of_great_fortune") then
@@ -2364,10 +2369,7 @@ function GameState:FilterDamage(filterTable)
 		local stacks = attacker:GetModifierStackCount("modifier_bahamut_charge_of_light_postmitigation", attacker)
 		mult = mult + 0.15*stacks
 	end
-	if attacker:HasModifier("modifier_jex_q_cosmic_cosmic_postmitigation") then
-		local stacks = attacker:GetModifierStackCount("modifier_jex_q_cosmic_cosmic_postmitigation", attacker)
-		mult = mult + 0.3*stacks
-	end
+
 	if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
 		if attacker.r_4_level then
 			mult = mult + 0.04*attacker.r_4_level
@@ -3189,12 +3191,14 @@ function GameState:FilterDamage(filterTable)
 	end
 	--DUSKBRINGER
 	if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" and victim:IsRooted() then
-		mult = mult + attacker.w_4_level * 8/100
+		local w_4_level = attacker:GetRuneValue("w", 4)
+		mult = mult + w_4_level * DUSKBRINGER_W4_POSTMIT
 	end
-	modifier = victim:FindModifierByName("modifier_duskbringer_b_d_invisible")
+	modifier = victim:FindModifierByName("modifier_duskbringer_rune_r_2_invisible")
 	if modifier then
 		local stacks = modifier:GetStackCount()
-		mult = mult + stacks*0.012
+		mult = mult + stacks * DUSKBRINGER_R2_POSTMIT
+
 	end
 
 	if victim:HasModifier("modifier_channeling_water_torrent") then
@@ -3729,7 +3733,8 @@ function GameState:FilterDamage(filterTable)
 		end
 		if victim:HasModifier('modifier_duskbringer_ghost_form_checker') and not rezzed then
             local caster = victim:FindModifierByName('modifier_duskbringer_ghost_form_checker'):GetCaster()
-			if caster.e_4_level > 0 then
+			local e_4_level = caster:GetRuneValue("e", 4)
+			if e_4_level > 0 then
 				if caster:HasModifier('modifier_duskbringer_glyph_1_1') then
 			        for i = 0, 3, 1 do
 			            local abilityIndex = i
@@ -3740,7 +3745,7 @@ function GameState:FilterDamage(filterTable)
 			        end
 			    end
                 local ability = caster:FindAbilityByName('specter_rush_two')
-                ability:ApplyDataDrivenModifier(caster, victim, "modifier_duskbringer_ghost_form_active", {duration = 0.2 * caster.e_4_level})
+                ability:ApplyDataDrivenModifier(caster, victim, "modifier_duskbringer_ghost_form_active", {duration = DUSKBRINGER_E4_DUR * e_4_level})
                 CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", victim:GetAbsOrigin()+Vector(0,0,50), 0.4)
                 EmitSoundOn("Duskbringer.Wraithform", victim)
 				filterTable["damage"] =  0

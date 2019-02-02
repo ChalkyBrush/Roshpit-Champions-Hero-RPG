@@ -136,10 +136,12 @@ function jex_cosmic_cosmic_w_explode(event)
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			if not enemy.dummy then
-				local towardCenter = ((caster.explosionPoint - enemy:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-				local distance = WallPhysics:GetDistance2d(caster.explosionPoint, enemy:GetAbsOrigin())
-				local newPos = enemy:GetAbsOrigin() + towardCenter*distance*0.5
-				FindClearSpaceForUnit(enemy, newPos, false)
+				if not enemy.pushLock then
+					local towardCenter = ((caster.explosionPoint - enemy:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+					local distance = WallPhysics:GetDistance2d(caster.explosionPoint, enemy:GetAbsOrigin())
+					local newPos = enemy:GetAbsOrigin() + towardCenter*distance*0.5
+					FindClearSpaceForUnit(enemy, newPos, false)
+				end
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, caster.damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
                 if not enemy:HasModifier("jex_grenade_root_immunity") then
                     ability:ApplyDataDrivenModifier(caster, enemy, "jex_grenade_root", {duration = root_duration})

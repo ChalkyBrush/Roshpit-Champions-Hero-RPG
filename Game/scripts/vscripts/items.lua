@@ -1406,8 +1406,10 @@ function RPCItems:LegendaryPickup(itemEntity, heroEntity)
 			table.insert(RPCItems.item_roll_queue, itemEntity)
 		else
 			CustomGameEventManager:Send_ServerToAllClients("item_roll", {item=itemEntity:GetEntityIndex(), rollSlot=rollSlot, minLevel = itemEntity.minLevel} )
-			Timers:CreateTimer(30, function()
-				Logger:Watch(RPCItems.EndRoll, RPCItems, rollSlot, itemIndex)
+
+			Timers:CreateTimer(33, function()
+				RPCItems:EndRoll(rollSlot, itemIndex)
+        Logger:Watch(RPCItems.EndRoll, RPCItems, rollSlot, itemIndex)
 			end)
 		end
 	end
@@ -1594,6 +1596,11 @@ function RPCItems:ItemVote(keys)
 	local rollType = keys.type
 	local playerID = keys.playerID
 	local itemIndex = keys.itemIndex
+
+	if not itemIndex or not EntIndexToHScript(itemIndex) or not IsValidEntity(EntIndexToHScript(itemIndex)) then
+		print("Maybe item is not valid anymore?")
+		return
+	end
 	local vote = {}
 	if rollType == "pass" then
 		table.insert(vote, playerID)
@@ -1821,7 +1828,7 @@ end
 
 function RPCItems:AdjustAttributeValue(hero, value)
 	if hero:GetUnitName() == "npc_dota_hero_zuus" then
-		local b_d_level = Runes:GetTotalRuneLevel(hero, 2, "r_2", "auriun")
+		local b_d_level = hero:GetRuneValue("r", 2)
 		value = value + value*0.005*b_d_level
 	end
 	return value
