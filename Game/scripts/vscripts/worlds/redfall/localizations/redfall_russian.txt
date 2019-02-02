@@ -70,7 +70,7 @@
 		"redfall_quest_4_objective_2"							"Одолейте сгоревшего трента."
 
 		"DOTA_Tooltip_ability_item_redfall_ashen_twig"			"Сгоревшая ветка"
-		"DOTA_Tooltip_ability_item_redfall_ashen_twig_Description"	"Использование: Позволяет разбудить сгоревшего трента. Необходимо стоять рядом с ним во время активации."
+		"DOTA_Tooltip_ability_item_redfall_ashen_twig_Description"	"Использование: Позволяет разбудить сгоревшего трента в восточной части леса. Необходимо стоять рядом с ним во время активации."
 
 		"quest_immortal_head_gear"								"Immortal Шлем"
 

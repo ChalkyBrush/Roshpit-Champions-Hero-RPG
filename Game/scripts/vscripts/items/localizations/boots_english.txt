@@ -242,7 +242,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"Crystalline Slippers"	
 		"property_crystalline"												"Crystal Root"
-		"property_crystalline_Description"									"Enemies who are rooted deal @special_property1% reduced damage to you and take @special_property2x amplified damage."
+		"property_crystalline_Description"									"Enemies who are rooted deal @special_property1% reduced damage to you and take @special_property2x pre-mitigation damage."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"Gravelfoot Treads"

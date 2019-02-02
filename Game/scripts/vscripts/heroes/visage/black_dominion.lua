@@ -503,7 +503,7 @@ function black_aura_think(event)
 	local ability = event.ability
 	local particleName = "particles/units/heroes/hero_slark/slark_dark_pact_pulses.vpcf"
 	-- CustomAbilities:QuickAttachParticle(particleName, target, 4)
-	local beamPFX = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, attacker)
+	local beamPFX = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(beamPFX, 0, target:GetAbsOrigin())
 	ParticleManager:SetParticleControl(beamPFX, 1, Vector(1200, 2, 1200))
 	Timers:CreateTimer(3, function()

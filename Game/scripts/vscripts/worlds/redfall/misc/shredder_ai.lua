@@ -93,7 +93,7 @@ function shredder_dismount(event)
 	shredderAbility:ApplyDataDrivenModifier(caster, caster, "modifier_friendly_shredder_lightning_effect", {duration = 1.0})
 	StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_FLAIL, rate=1.0})
 	EmitSoundOn("Redfall.FriendlyShredder.Activate", caster)
-	Timers:CreateTimer(2, function()
+	Timers:CreateTimer(1, function()
 		EmitSoundOn("Redfall.FriendlyShredder.Destruct", caster)
 		Timers:CreateTimer(0.1, function()
 			local hero = caster.hero

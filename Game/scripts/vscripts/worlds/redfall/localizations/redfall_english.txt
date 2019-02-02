@@ -70,7 +70,7 @@
 		"redfall_quest_4_objective_2"							"Defeat the Ash Treant."
 
 		"DOTA_Tooltip_ability_item_redfall_ashen_twig"			"Ashen Twig"
-		"DOTA_Tooltip_ability_item_redfall_ashen_twig_Description"	"Use: Awakens the Ash Treant when standing near him."
+		"DOTA_Tooltip_ability_item_redfall_ashen_twig_Description"	"Use: Awakens the Ash Treant in the eastern part of forest when standing near him."
 
 		"quest_immortal_head_gear"								"Immortal Helm"
 
