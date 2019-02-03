@@ -11,13 +11,13 @@ var open = false
 function Load() {
 	main_button.visible = false
 	logger_root.visible = false
-	logger_root.style.position = Game.GetScreenWidth()+"px 0px 0"
+	logger_root.style.position = "100% 0px 0"
 
 	const f = function() {		
 		if (main_button.actuallayoutwidth == 0){
 			$.Schedule(1, f)
 		}else{
-			main_button.style.position = (Game.GetScreenWidth()-main_button.actuallayoutwidth+4)+"px 17% 0"
+			main_button.style.position = (1-main_button.actuallayoutwidth/Game.GetScreenWidth()+0.002)*100+"% 17% 0"
 		}
 	}
 	f()
@@ -52,14 +52,15 @@ function Load() {
 }
 
 function Open() {
+	const screen_width = Game.GetScreenWidth()
 	if (open){
 		open = false
-		logger_root.style.position = Game.GetScreenWidth()+"px 0px 0"
-		main_button.style.position = (Game.GetScreenWidth()-main_button.actuallayoutwidth+4)+"px 17% 0"
+		logger_root.style.position = "100% 0px 0"
+		main_button.style.position = (1-main_button.actuallayoutwidth/screen_width+0.002)*100+"% 17% 0"
 	}else{
 		open = true
-		logger_root.style.position = (Game.GetScreenWidth()-logger_root.actuallayoutwidth)+"px 0px 0"
-		main_button.style.position = (Game.GetScreenWidth()-logger_root.actuallayoutwidth-main_button.actuallayoutwidth+4)+"px 17% 0"
+		logger_root.style.position = (1-logger_root.actuallayoutwidth/screen_width)*100+"% 0px 0"
+		main_button.style.position = (1-logger_root.actuallayoutwidth/screen_width-main_button.actuallayoutwidth/screen_width+0.002)*100+"% 17% 0"
 	}
 }
 
