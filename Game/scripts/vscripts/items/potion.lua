@@ -156,7 +156,7 @@ function use_web_prem_token(event)
 		CustomGameEventManager:Send_ServerToAllClients("update_premium", {playerID = playerID} )
 		Notifications:Top(playerID, {text="Web Premium Added", duration=8, style={color="#A2EFEF"}, continue=true})
 		if IsValidEntity(item) then
-			UTIL_Remove(item)
+			RPCItems:ItemUTIL_Remove(item)
 		end
 	end )
 

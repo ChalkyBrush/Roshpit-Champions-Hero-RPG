@@ -285,7 +285,7 @@ function Challenges:FinalReroll(msg)
 			if IsValidEntity(newItem) then
 				newItem:StartCooldown(2)
 				hero:TakeItem(item)
-				UTIL_Remove(item)
+				RPCItems:ItemUTIL_Remove(item)
 				RPCItems:GiveItemToHeroWithSlotCheck(hero, newItem)
 			else
 				CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
@@ -329,7 +329,7 @@ function ChatDropItems(keys)
   end
   if string.match(text, "weapon_lvl") then
     for i=1,50 do
-      Timers:CreateTimer(i/10, function()
+      Timers:CreateTimer(i/5, function()
         Weapons:UpdateWeaponXP(2000000000)
       end)
     end

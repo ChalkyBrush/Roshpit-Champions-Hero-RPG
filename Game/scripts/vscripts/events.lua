@@ -348,7 +348,7 @@ function Events:PickUpTest(heroEntity, itemEntity, itemname)
     PopupGoldGain(heroEntity, r)
     itemEntity.noMin = true
     SendOverheadEventMessage( owner, OVERHEAD_ALERT_GOLD, owner, r, nil )
-    UTIL_Remove( itemEntity )
+    RPCItems:ItemUTIL_Remove( itemEntity )
   end
   if itemEntity.rarity and not itemEntity.pickedUp then
     print("RARITY")
@@ -965,7 +965,7 @@ function Events:InitializeHero(heroEntity)
       local item = heroEntity:GetItemInSlot(i)
       if item then
         if IsValidEntity(item) then
-          UTIL_Remove(item)
+          RPCItems:ItemUTIL_Remove(item)
         end
       end
     end

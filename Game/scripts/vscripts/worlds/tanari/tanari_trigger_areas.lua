@@ -750,7 +750,7 @@ function use_spirit_stones(event)
 	if GameState:IsTanariJungle() then
 		if distance < 1000 then
 
-			UTIL_Remove(item)
+			RPCItems:ItemUTIL_Remove(item)
 			EmitGlobalSound("Tanari.EnterSpiritRealm")
 			for i = 1, #MAIN_HERO_TABLE, 1 do
 				Tanari.fountainAbility:ApplyDataDrivenModifier(Tanari.WitchDoctor, MAIN_HERO_TABLE[i], "modifier_tanari_entering_spirit_realm", {duration = 4})

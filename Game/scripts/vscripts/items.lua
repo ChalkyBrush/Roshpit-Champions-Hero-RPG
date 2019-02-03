@@ -28,24 +28,44 @@ require('items/arcanas')
 require('items/synthesis')
 require('curator')
 
---Wrapper function to valve's "CreateItem" with custom table tweaks
---	handle CreateItem(string item_name, handle owner, handle owner)
-function RPCItems:CreateItem(item_name, owner, owner)
-	local item = CreateItem(item_name, owner, owner)
+
+--- Wrapper function to Valve's "UTIL_Remove", only referred to items
+-- @param item entity handle
+function RPCItems:ItemUTIL_Remove(item)
+	if not item then
+		print("[Error] RPCItems:ItemUTIL_Remove item is null")
+		return
+	end
+	if not IsValidEntity(item) then
+		print("[Error] RPCItems:ItemUTIL_Remove entity is not valid")
+		return
+	end
+	RPCItems:CustomNetTablesItemRemoving(item)
+	UTIL_Remove(item)
+end
+
+
+--- Wrapper function to Valve's "CreateItem" with custom table tweaks
+-- @param item_name npc_ name of creating item
+-- @param owner1 entity handle, unused
+-- @param owner2 entity handle, unused
+-- @return item entity handle
+function RPCItems:CreateItem(item_name, owner1, owner2)
+	local item = CreateItem(item_name, owner1, owner2)
 	RPCItems:CustomNetTablesItemRemoving(item)
 	return item
 end
 
 
-
---Removing all existing item table values for given item handle
+--- Removing all existing item table values for given item handle
+-- @param item entity handle
 function RPCItems:CustomNetTablesItemRemoving(item)
 	if not item then
 		print("[Error] RPCItems:CustomNetTablesItemRemoving item is null")
 		return
 	end
 	local itemIndex = item:GetEntityIndex()
-	if not item then
+	if not itemIndex then
 		print("[Error] RPCItems:CustomNetTablesItemRemoving itemIndex is null")
 		return
 	end
@@ -601,11 +621,10 @@ function RPCItems:ClearItems()
 						UTIL_Remove(container)
 					end
 					if IsValidEntity(item) then
-						RPCItems:CustomNetTablesItemRemoving(item)
 						if item.arcanaDummy then
 							UTIL_Remove(item.arcanaDummy)
 						end
-						UTIL_Remove(item)
+						RPCItems:ItemUTIL_Remove(item)
 					end
             	end
             end
@@ -762,7 +781,7 @@ function RPCItems:DropItem(item, position)
 		 end
 	else
 		UTIL_Remove(item:GetContainer())
-		UTIL_Remove(item)
+		RPCItems:ItemUTIL_Remove(item)
 	end
 
 end
@@ -1564,7 +1583,7 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 					UTIL_Remove(item:GetContainer())
 				end
 				if IsValidEntity(item) then
-					UTIL_Remove(item)
+					RPCItems:ItemUTIL_Remove(item)
 				end
 			end
 		elseif rollType == "greed" then

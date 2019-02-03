@@ -16,7 +16,7 @@ function RPCItems:RollBody(xpBounty, deathLocation, rarity, isShop, type, hero, 
     local itemName = BASE_BODY_NAME_TABLE[randomHelm]
     if rarityValue == 5 then
         if RPCItems:BodyLegendary(itemVariant, deathLocation) then
-			UTIL_Remove(item)
+			RPCItems:ItemUTIL_Remove(item)
             return nil
         end
     end
