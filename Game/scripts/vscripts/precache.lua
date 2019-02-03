@@ -416,8 +416,31 @@ function Precache:champions_league()
 	PrecacheUnitByNameAsync(unitTable[i], precache_function)
 end
 
-function Precache:pit_of_trials()
-	local unitTable = {"arena_pit_of_trials_final_boss", "arena_boss_spectre_summon", "arena_pit_pit_guardian", "master_duelist", "champion_gladiator", "pit_crawler", "arena_pit_quizmaster", "arena_pit_soul_revenant", "arena_pit_shadow_sniper", "arena_pit_conquest_mire_keeper", "arena_pit_conquest_mountain_behemoth", "arena_pit_conquest_root_overgrowth", "arena_pit_conquest_cragnataur", "arena_pit_conquest_mountain_spider", "arena_pit_conquest_spider", "arena_pit_conquest_priest_of_karzhun", "arena_pit_conquest_helob", "arena_conquest_ruins_guardian", "arena_conquest_gift_of_kharzun", "arena_pit_conquest_temple_explorer", "arena_pit_conquest_temple_shaman", "arena_pit_temple_guardian_snakes", "arena_conquest_temple_witch_doctor", "arena_conquest_temple_repeller", "arena_conquest_temple_hunter", "arena_conquest_skeletal_mage", "arena_conquest_temple_shifter", "pit_conquest_dragon", "arena_pit_conquest_mire_boss", "terrasic_goremaw_flame_splitter", "pit_conquest_forest_soldier", "pit_conquest_woods_titan", "pit_conquest_forest_mage", "arena_lies_castle_light_absorber", "pit_conquest_lord_of_bovel", "arena_lies_spark_beetle", "arena_lies_lich",  "arena_lies_doombringer", "arena_lies_samurai", "arena_lies_arbiter_of_truth", "lies_treasure_hoarder", "lies_golden_skullbone", "arena_lies_shadow_beast", "lies_trickster_mage", "tanari_angry_fish", "arena_lies_castle_enigma", "arena_lies_razor_miniboss", "arena_lies_boss", "arena_descent_exiled_spirit", "arena_descent_exiled_spirit_big", "arena_descent_passage_keeper", "arena_descent_grieving_widow", "arena_descent_horror_construct", "arena_descent_death_seeker", "arena_descent_zombie", "arena_descent_tombstone", "arena_descent_terror_striker", "arena_descent_gargoyle", "arena_descent_goo_beetle", "arena_descent_zombie_critter", "arena_descent_razor_guard", "arena_descent_doombringer", "arena_descent_boss", "pit_conquest_boss", "arena_pit_conquest_spirit_of_rakash"}
+function Precache:pit_of_trials_1()
+	local unitTable = {"arena_pit_pit_guardian", "master_duelist", "champion_gladiator", "pit_crawler", "arena_pit_quizmaster", "arena_pit_soul_revenant", "arena_pit_shadow_sniper", "arena_pit_conquest_mire_keeper", "arena_pit_conquest_mountain_behemoth", "arena_pit_conquest_root_overgrowth", "arena_pit_conquest_cragnataur", "arena_pit_conquest_mountain_spider", "arena_pit_conquest_spider", "arena_pit_conquest_priest_of_karzhun", "arena_pit_conquest_helob", "arena_conquest_ruins_guardian", "pit_conquest_dragon", "arena_pit_conquest_mire_boss", "terrasic_goremaw_flame_splitter", "pit_conquest_forest_soldier", "pit_conquest_woods_titan", "arena_lies_spark_beetle", "arena_lies_lich", "arena_lies_samurai", "arena_lies_arbiter_of_truth", "lies_treasure_hoarder", "arena_lies_shadow_beast", "lies_trickster_mage", "tanari_angry_fish", "arena_descent_exiled_spirit", "arena_descent_exiled_spirit_big", "arena_descent_passage_keeper", "arena_descent_grieving_widow", "arena_descent_horror_construct"}
+	local i = 1 
+	local function precache_function()
+		print("done precaching: "..unitTable[i])
+		i = i+1
+		if i > #unitTable then
+			print("done precaching units")
+			Timers:CreateTimer(0, function()
+				CustomGameEventManager:Send_ServerToAllClients("finish_precache", {units = 1})
+				return 2
+			end)
+		else
+			print("precaching: "..unitTable[i])
+			local pct = math.floor(i/#unitTable*100)
+			CustomGameEventManager:Send_ServerToAllClients("update_precache", {units = 1, pct = tostring(pct)})
+			PrecacheUnitByNameAsync(unitTable[i], precache_function)
+		end
+	end
+	print("precaching: "..unitTable[i])
+	PrecacheUnitByNameAsync(unitTable[i], precache_function)
+end
+
+function Precache:pit_of_trials_2()
+	local unitTable = {"arena_pit_of_trials_final_boss", "arena_boss_spectre_summon", "lies_golden_skullbone", "arena_descent_doombringer", "arena_descent_boss", "pit_conquest_boss", "pit_conquest_lord_of_bovel", "arena_conquest_temple_witch_doctor", "arena_conquest_temple_repeller", "arena_conquest_temple_hunter", "arena_conquest_skeletal_mage", "arena_conquest_temple_shifter", "arena_lies_castle_enigma", "arena_lies_razor_miniboss", "arena_lies_boss", "arena_lies_doombringer", "arena_conquest_gift_of_kharzun", "arena_pit_conquest_temple_explorer", "arena_pit_conquest_temple_shaman", "arena_pit_temple_guardian_snakes", "arena_descent_tombstone", "arena_descent_terror_striker", "arena_descent_gargoyle", "arena_descent_goo_beetle", "arena_descent_zombie_critter", "arena_descent_razor_guard", "arena_pit_conquest_spirit_of_rakash" "arena_descent_death_seeker", "arena_descent_zombie", "pit_conquest_forest_mage", "arena_lies_castle_light_absorber"}
 	local i = 1 
 	local function precache_function()
 		print("done precaching: "..unitTable[i])
