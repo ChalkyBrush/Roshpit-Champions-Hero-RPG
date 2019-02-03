@@ -259,7 +259,7 @@ function use_spirit_ruby(event)
 	 if distance < 2000 then
 	  	if GameState:IsRedfallRidge() then
 
-	      UTIL_Remove(item)
+	      RPCItems:ItemUTIL_Remove(item)
 	      EmitGlobalSound("Redfall.EnterEquinox")
 	      -- for i = 1, #MAIN_HERO_TABLE, 1 do
 	      --   Tanari.fountainAbility:ApplyDataDrivenModifier(Tanari.WitchDoctor, MAIN_HERO_TABLE[i], "modifier_tanari_entering_spirit_realm", {duration = 4})

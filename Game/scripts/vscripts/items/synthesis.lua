@@ -304,7 +304,7 @@ function RPCItems:UseArcanaCache(caster, item)
 					RPCItems.LevelRoll = nil
 				end
 				if IsValidEntity(item) then
-					UTIL_Remove(item)
+					RPCItems:ItemUTIL_Remove(item)
 				end
 			end
 		end )

@@ -240,7 +240,7 @@ function use_sunstone(event)
 					end)
 				end
 			end)
-			UTIL_Remove(item)
+			RPCItems:ItemUTIL_Remove(item)
 	    else
 	      EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
 	    end

@@ -125,7 +125,7 @@ function Challenges:FinalReroll(msg)
 			if IsValidEntity(newItem) then
 				newItem:StartCooldown(2)
 				hero:TakeItem(item)
-				UTIL_Remove(item)
+				RPCItems:ItemUTIL_Remove(item)
 				RPCItems:GiveItemToHeroWithSlotCheck(hero, newItem)
 			else
 				CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})

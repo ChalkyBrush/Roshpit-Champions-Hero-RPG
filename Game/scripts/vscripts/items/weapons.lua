@@ -158,7 +158,7 @@ function Weapons:Equip(heroEntity, itemEntity)
 	-- CustomGameEventManager:Send_ServerToPlayer(player, "InitializeEquipment", {item=itemEntity:GetEntityIndex()} )
 	heroEntity:TakeItem(itemEntity)
 	if IsValidEntity(itemEntity:GetContainer()) then
-		UTIL_Remove(itemEntity:GetContainer())
+		RPCItems:ItemUTIL_Remove(itemEntity:GetContainer())
 	end
 	local hero, inventory_unit = RPCItems:GetHeroAndInventoryByID(player:GetPlayerID())
 	RPCItems:EquipItem(slot, hero, inventory_unit, itemEntity)
@@ -223,13 +223,13 @@ function Weapons:ValidateGear(hero)
 						print("SLOT CORRECT")
 					else
 						print("INCORRECT SLOT")
-						UTIL_Remove(itemEntity)
+						RPCItems:ItemUTIL_Remove(itemEntity)
 						CustomNetTables:SetTableValue("equipment", tostring(playerID).."-"..tostring(slot), {itemIndex = -1} )
 						CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
 					end
 				else
 					print("NO SLOT!")
-					UTIL_Remove(itemEntity)
+					RPCItems:ItemUTIL_Remove(itemEntity)
 					CustomNetTables:SetTableValue("equipment", tostring(playerID).."-"..tostring(slot), {itemIndex = -1} )
 					CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
 				end
