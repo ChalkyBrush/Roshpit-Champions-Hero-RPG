@@ -46,10 +46,10 @@ end
 
 
 --- Wrapper function to Valve's "CreateItem" with custom table tweaks
--- @param item_name entity handle
+-- @param item_name npc_ name of creating item
 -- @param owner1 entity handle, unused
 -- @param owner2 entity handle, unused
--- @return item handle
+-- @return item entity handle
 function RPCItems:CreateItem(item_name, owner1, owner2)
 	local item = CreateItem(item_name, owner1, owner2)
 	RPCItems:CustomNetTablesItemRemoving(item)
