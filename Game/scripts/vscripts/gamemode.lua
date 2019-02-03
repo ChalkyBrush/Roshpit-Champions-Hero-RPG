@@ -159,7 +159,10 @@ function GameMode:PostLoadPrecache()
       Precache:champions_league()
     end)
     Timers:CreateTimer(20, function()
-      Precache:pit_of_trials()
+      Precache:pit_of_trials_1()
+    end)
+	Timers:CreateTimer(25, function()
+      Precache:pit_of_trials_2()
     end)
   end
   if GameState:IsRedfallRidge() then
