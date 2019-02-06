@@ -3,6 +3,7 @@ require('heroes/phantom_assassin/constants_voltex')
 function begin_zap(event)
   local caster = event.caster
   local ability = event.ability
+  StartAnimation(caster, {duration=0.15, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
   Filters:CastSkillArguments(2, caster)
   if caster:HasModifier("modifier_voltex_glyph_7_1") then
     caster:SetMana(0)
