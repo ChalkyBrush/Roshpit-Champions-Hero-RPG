@@ -53,8 +53,8 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
-        "VisionDaytimeRange"    "300"
-        "VisionNighttimeRange"  "275"
+        "VisionDaytimeRange"    "500"
+        "VisionNighttimeRange"  "500"
         "AttackDesire"  "1.5"
     }
 
@@ -112,8 +112,8 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
-        "VisionDaytimeRange"    "300"
-        "VisionNighttimeRange"  "275"
+        "VisionDaytimeRange"    "500"
+        "VisionNighttimeRange"  "500"
         "AttackDesire"  "1.5"
         "Creature"
         {
