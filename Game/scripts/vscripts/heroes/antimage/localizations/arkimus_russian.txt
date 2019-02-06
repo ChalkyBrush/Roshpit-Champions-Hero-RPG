@@ -86,7 +86,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_e_2"									"[E2] Regeneration Cycle"
     	"DOTA_Tooltip_ability_arkimus_rune_e_2_Description"						"Каждый раз, когда Arkimus восполняет запас маны, он исцеляется на то же значение."
     	"DOTA_Tooltip_ability_arkimus_rune_e_2_property_one"					"Лечение"
-    	"DOTA_Tooltip_ability_arkimus_rune_e_2_suffix"							" За каждое полученное очко Маны"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_2_suffix"							" за каждое полученное очко Маны"
 
     	"DOTA_Tooltip_ability_arkimus_rune_e_3"									"[E3] Elevated System"
     	"DOTA_Tooltip_ability_arkimus_rune_e_3_Description"						"После прыжка от @Ability3 герой на 3 секунды увеличивает свой пост-резистный урон."
