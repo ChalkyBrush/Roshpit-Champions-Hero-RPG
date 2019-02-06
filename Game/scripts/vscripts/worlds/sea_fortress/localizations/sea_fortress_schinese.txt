@@ -364,10 +364,6 @@
 		"DOTA_Tooltip_ability_mekanoid_battery_assault"				"弹幕冲击"
 		"DOTA_Tooltip_ability_mekanoid_battery_assault_Description"	"施加一个状态造成伤害并对周围敌人造成一个短暂的眩晕."
 
-		"DOTA_Tooltip_ability_mekanoid_power_cogs"					"梅卡诺德的动力齿轮"
-		"DOTA_Tooltip_ability_mekanoid_power_cogs_Description"		"释放齿轮阵推开敌人并且燃烧魔法"
-		"DOTA_Tooltip_ability_mekanoid_power_cogs_drain_amount"		"法力汲取:"
-
 		"DOTA_Tooltip_ability_spikey_beetle_carapace"				"尖刺外壳"
 		"DOTA_Tooltip_ability_spikey_beetle_carapace_Description"	"当尖刺外壳激活时将反弹敌人的伤害并且造成眩晕.伤害只反弹一次."
 		"DOTA_Tooltip_ability_spikey_beetle_carapace_reflect_duration"	"反弹持续时间:"

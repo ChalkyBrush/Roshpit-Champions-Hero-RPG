@@ -70791,10 +70791,6 @@
         "SoundSet"      "Hero_Rattletrap"
         "precache"
         {
-            "particle"  "particles/units/heroes/hero_rattletrap/rattletrap_cog_attack.vpcf"
-            "particle"  "particles/units/heroes/hero_rattletrap/rattletrap_cog_ambient_blur.vpcf"
-            "model"      "models/heroes/rattletrap/rattletrap_cog.vmdl"
-            "particle"  "particles/units/heroes/hero_rattletrap/rattletrap_cog_attack.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_rattletrap.vsndevts"
             "particle"  "particles/units/heroes/hero_rattletrap/rattletrap_battery_shrapnel.vpcf"
             "particle"  "particles/units/heroes/hero_rattletrap/rattletrap_battery_assault.vpcf"
@@ -70833,9 +70829,8 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "mekanoid_battery_assault"
-        "Ability2"      "mekanoid_power_cogs"
-        "Ability3"      "fire_temple_steadfast"
-        "Ability4"      "dungeon_creep"
+        "Ability2"      "fire_temple_steadfast"
+        "Ability3"      "dungeon_creep"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
