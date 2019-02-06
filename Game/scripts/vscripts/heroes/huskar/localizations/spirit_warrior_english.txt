@@ -325,3 +325,6 @@
         "DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_3"            "Spear of Aeris"
         "item_property_spirit_warrior_immortal_weapon3"                             "Hail of Spears"
         "property_spirit_warrior_immortal_weapon3_description"                      "Regular attacks hit 2 additional enemies with all procs."
+		
+		"spirit_warrior_spirit"								"Ancient Spirit"
+		"spirit_warrior_spirit_elite"						"Elite Ancient Spirit"
