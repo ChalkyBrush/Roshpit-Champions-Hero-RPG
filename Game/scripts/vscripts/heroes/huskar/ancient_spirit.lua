@@ -131,7 +131,7 @@ function spirit_dashing_think(event)
 		local spiritOrigin = spirit:GetAbsOrigin()
 		local casterOrigin = caster:GetAbsOrigin()
 		local moveVector = ((spiritOrigin-casterOrigin)*Vector(1,1,0)):Normalized()
-		local dashSpeed = 34
+		local dashSpeed = 50
 		if caster:HasModifier("modifier_spirit_warrior_glyph_1_1") then
 			dashSpeed = math.floor(dashSpeed*1.5)
 		end
