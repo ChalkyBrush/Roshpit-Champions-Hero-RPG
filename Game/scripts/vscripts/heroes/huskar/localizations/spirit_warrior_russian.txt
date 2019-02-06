@@ -31,8 +31,8 @@
     	"DOTA_Tooltip_modifier_ancient_vigor_Description"			"Урон и скорость атаки увеличены."
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1"				"[Q1] Burning Flameblood"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Атаки под действием (Q) Flameblood дополнительно поджигают врагов на 5 секунд и снижают их броню. Эффект может быть сложен до 50 раз. Эффект снижения брони складывается бесконечно. Горение усиливается при отрицательной броне, так же как и @Ability1."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Урон в секунду за стак"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Атаки под действием (Q) Flameblood дополнительно поджигают врагов на 5 секунд и снижают их броню, горение наносит урон каждые полсекунды. Эффект горения может быть сложен до 50 раз. Эффект снижения брони складывается бесконечно. Горение усиливается при отрицательной броне, так же как и @Ability1."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Урон за стак"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix"	""
 		"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_two" "Снижение брони за стак"   
         "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix_two"   ""

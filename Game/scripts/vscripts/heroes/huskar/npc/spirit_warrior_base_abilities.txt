@@ -124,7 +124,7 @@
 				"IsDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
-				"ThinkInterval"  "1"
+				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
 					"RunScript"
