@@ -87,7 +87,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "Урон способности @Ability2 увеличивается на % от атаки героя. Если активно копье от @Ability1, то противники получат дополнительно урон и от нее. Указанный бонус умножается на уровень прокачки основного умения."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_one"	"Доп. урон способности"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix"		"% от урона героя"
-		"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_two" "урон от Flameblood & Windstrike"  
+		"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_two" "Урон от Flameblood & Windstrike"  
         "DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix_two"       "%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4"				"[W4] Spirit Fuse"
