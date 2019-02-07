@@ -527,7 +527,7 @@ function CustomAbilities:HitShipyardShield(victim, attacker)
     	if victim.headItem:GetAbilityName() == "item_rpc_shipyard_veil_lv1" then
     		local upgradeThreshold = victim.headItem:GetLevelSpecialValueFor("property_three", 1)
 			local nextValue = ability.property1 + 1
-			if nextValue == upgradeThreshold then
+			if nextValue >= upgradeThreshold then
 				ability.lock = true
 				RPCItems:RollShipyardVeil2(victim, ability)
 				-- Notifications:Top(attacker.summoner:GetPlayerOwnerID(), {text="Robe of Flooding Upgraded", duration=5, style={color="white"}, continue=true})
@@ -539,7 +539,7 @@ function CustomAbilities:HitShipyardShield(victim, attacker)
     	elseif victim.headItem:GetAbilityName() == "item_rpc_shipyard_veil_lv2" then
     		local upgradeThreshold = victim.headItem:GetSpecialValueFor("property_three")
 			local nextValue = ability.property1 + 1
-			if nextValue == upgradeThreshold then
+			if nextValue >= upgradeThreshold then
 				ability.lock = true
 				RPCItems:RollShipyardVeil3(victim, ability)
 				-- Notifications:Top(attacker.summoner:GetPlayerOwnerID(), {text="Robe of Flooding Upgraded", duration=5, style={color="white"}, continue=true})
@@ -559,7 +559,7 @@ function CustomAbilities:HitCrimsythElite(victim, attacker, damage)
     		if damage < victim:GetMaxHealth() and damage >= victim:GetMaxHealth()*0.5 then
 	    		local upgradeThreshold = victim.foot:GetLevelSpecialValueFor("property_four", 1)
 				local nextValue = ability.property1 + 1
-				if nextValue == upgradeThreshold then
+				if nextValue >= upgradeThreshold then
 					ability.lock = true
 					RPCItems:RollCrimsythEliteGreavesLV2(victim, ability)
 					-- Notifications:Top(attacker.summoner:GetPlayerOwnerID(), {text="Robe of Flooding Upgraded", duration=5, style={color="white"}, continue=true})
@@ -572,7 +572,7 @@ function CustomAbilities:HitCrimsythElite(victim, attacker, damage)
     		if damage < victim:GetMaxHealth() and damage >= victim:GetMaxHealth()*0.75 then
 	    		local upgradeThreshold = victim.foot:GetLevelSpecialValueFor("property_four", 1)
 				local nextValue = ability.property1 + 1
-				if nextValue == upgradeThreshold then
+				if nextValue >= upgradeThreshold then
 					ability.lock = true
 					RPCItems:RollCrimsythEliteGreavesLV3(victim, ability)
 					-- Notifications:Top(attacker.summoner:GetPlayerOwnerID(), {text="Robe of Flooding Upgraded", duration=5, style={color="white"}, continue=true})
