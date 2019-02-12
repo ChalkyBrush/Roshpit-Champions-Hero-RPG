@@ -2136,7 +2136,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_e_2"									"[E2] Regeneration Cycle"
     	"DOTA_Tooltip_ability_arkimus_rune_e_2_Description"						"Каждый раз, когда Arkimus восполняет запас маны, он исцеляется на то же значение."
     	"DOTA_Tooltip_ability_arkimus_rune_e_2_property_one"					"Лечение"
-    	"DOTA_Tooltip_ability_arkimus_rune_e_2_suffix"							" За каждое полученное очко Маны"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_2_suffix"							" за каждое полученное очко Маны"
 
     	"DOTA_Tooltip_ability_arkimus_rune_e_3"									"[E3] Elevated System"
     	"DOTA_Tooltip_ability_arkimus_rune_e_3_Description"						"После прыжка от @Ability3 герой на 3 секунды увеличивает свой пост-резистный урон."
@@ -8930,7 +8930,7 @@
 		"item_rpc_sorceress_glyph_3_2_description" 				"Бонус регенерации маны и интеллекта от руны [W3] увеличен в @glyph_property1 раз(а)."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_2"		"(T4-2)Глиф тайной вибрации"
-		"item_rpc_sorceress_glyph_4_2_description" 				"(E) @Ability3 тратит только @glyph_property1 зарядов Flicker."
+		"item_rpc_sorceress_glyph_4_2_description" 				"(E) @Ability3 тратит только @glyph_property1 зарядов Flicker. Сброс перезарядки ультимейта происходит гарантированно."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_2"		"(T5-2)Глиф смягчения"
 		"item_rpc_sorceress_glyph_5_2_description" 				"Sorceress добавляет на @glyph_property1% меньше времени к иммунитету врагов к оглушению."
@@ -9017,8 +9017,8 @@
     	"DOTA_Tooltip_modifier_ancient_vigor_Description"			"Урон и скорость атаки увеличены."
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1"				"[Q1] Burning Flameblood"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Атаки под действием (Q) Flameblood дополнительно поджигают врагов на 5 секунд и снижают их броню. Эффект может быть сложен до 50 раз. Эффект снижения брони складывается бесконечно. Горение усиливается при отрицательной броне, так же как и @Ability1."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Урон в секунду за стак"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Атаки под действием (Q) Flameblood дополнительно поджигают врагов на 5 секунд и снижают их броню, горение наносит урон каждые полсекунды. Эффект горения может быть сложен до 50 раз. Эффект снижения брони складывается бесконечно. Горение усиливается при отрицательной броне, так же как и @Ability1."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Урон за стак"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix"	""
 		"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_two" "Снижение брони за стак"   
         "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix_two"   ""
@@ -9073,7 +9073,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "Урон способности @Ability2 увеличивается на % от атаки героя. Если активно копье от @Ability1, то противники получат дополнительно урон и от нее. Указанный бонус умножается на уровень прокачки основного умения."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_one"	"Доп. урон способности"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix"		"% от урона героя"
-		"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_two" "урон от Flameblood & Windstrike"  
+		"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_two" "Урон от Flameblood & Windstrike"  
         "DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix_two"       "%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4"				"[W4] Spirit Fuse"
@@ -9304,6 +9304,10 @@
         "DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_3"            "Spear of Aeris"
         "item_property_spirit_warrior_immortal_weapon3"                             "Hail of Spears"
         "property_spirit_warrior_immortal_weapon3_description"                      "Обычные атаки разделяются, дополнительно атакуя еще 2 цели со всеми возможными эффектами."
+		
+				
+		"spirit_warrior_spirit"								"Ancient Spirit"
+		"spirit_warrior_spirit_elite"						"Elite Ancient Spirit"
 
 
 		"tooltip_trapper_q"											"Fulminating Trap и Net Trap, Poison Trap и Torrent Trap"
@@ -10614,7 +10618,7 @@
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_minimum_bolts_per_tech"	"<font color=\"#f4b942\">УДАРОВ МОЛНИИ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_minimum_bolts_base"		"НАЧАЛЬНОЕ КОЛИЧЕСТВО УДАРОВ МОЛНИИ:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_base_damage"			"УРОН:"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"РАДИУС"		
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"РАДИУС:"		
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_agility_added_to_base_damage"	"МНОЖИТЕЛЬ ЛОВКОСТИ К БАЗЕ УРОНА:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[Q4] Усиление урона удара молнии</font>:"
 
@@ -14818,10 +14822,6 @@
 
 		"DOTA_Tooltip_ability_mekanoid_battery_assault"				"Battery Assault"
 		"DOTA_Tooltip_ability_mekanoid_battery_assault_Description"	"Позволяет с небольшими интервалами наносить урон и кратковременно оглушать находящихся неподалёку врагов."
-
-		"DOTA_Tooltip_ability_mekanoid_power_cogs"					"Mekanoid Power Cogs"
-		"DOTA_Tooltip_ability_mekanoid_power_cogs_Description"		"Создаёт несколько энергетических катушек, при контакте отталкивающих врагов и сжигающих им ману."
-		"DOTA_Tooltip_ability_mekanoid_power_cogs_drain_amount"		"ВЫЖИГАЕТ МАНЫ:"
 
 		"DOTA_Tooltip_ability_spikey_beetle_carapace"				"Spike Carapace"
 		"DOTA_Tooltip_ability_spikey_beetle_carapace_Description"	"При получении урона во время действия этой способности вернёт атакующему весь урон. Для каждого противника срабатывает лишь раз за прочтение."

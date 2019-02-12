@@ -23324,7 +23324,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"12"
 			}
 		}
 	}
@@ -23558,7 +23558,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"12"
+				"duration"				"18"
 			}
 			"03"
 			{
@@ -23592,11 +23592,11 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1100 1100 1100 1100 1100 1100 1100"
-		"AbilityCastPoint"				"0.7"
+		"AbilityCastPoint"				"0.3"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14"
+		"AbilityCooldown"				"12"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
@@ -23659,7 +23659,7 @@
 				"IsDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
-				"ThinkInterval"  "1"
+				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -23711,7 +23711,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"12"
+				"duration"				"18"
 			}
 			"02"
 			{
@@ -23723,11 +23723,11 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1100 1100 1100 1100 1100 1100 1100"
-		"AbilityCastPoint"				"0.7"
+		"AbilityCastPoint"				"0.3"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14"
+		"AbilityCooldown"				"12"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
@@ -23902,7 +23902,7 @@
 			"particle"					"particles/roshpit/spirit_warrior/glyph_5_a_lightning_shield.vpcf"
 		}
 
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.1"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -23919,7 +23919,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"cooldown"				"6.0 5.5 5.0 4.5 4.0 3.5 3.0"
+				"cooldown"				"6.0 5.0 4.0 4.0 3.0 2.7 2.1"
 			}
 			"02"
 			{
@@ -24678,7 +24678,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"9"
+				"property_one"			"12"
 			}
 		}
 	}
@@ -48431,7 +48431,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"morphling_adaptive_strike_agi_ethereal_blade"
+		"AbilityTextureName"	"epoch/epoch_rune_q_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
@@ -48478,7 +48478,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/epoch_q_4"
+		"AbilityTextureName"	"epoch/epoch_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -48597,7 +48597,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/epoch_w_4"
+		"AbilityTextureName"	"epoch/epoch_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -48735,7 +48735,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/epoch_e_4"
+		"AbilityTextureName"	"epoch/epoch_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -49584,6 +49584,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
 		"AOERadius"				"%radius"
 
 	    // Stats
@@ -54058,7 +54059,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityTextureName"			"morphling_adaptive_strike_agi"
+		"AbilityTextureName"			"hydroxis/hydroxis_w"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -128599,7 +128600,7 @@
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"Aura"          	"modifier_teleporter_aura"
-				"Aura_Radius"   	"260"
+				"Aura_Radius"   	"300"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -138941,76 +138942,6 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"interval"			"0.7 0.6 0.5"
-			}
-		}
-	}
-
-	"mekanoid_power_cogs"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5238"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilitySound"					"Hero_Rattletrap.Power_Cogs"
-		"BaseClass"						"rattletrap_power_cogs"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"5.5"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"drain_amount"		"500 10000 60000"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attacks_to_destroy"	"2 2 2 3"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"push_length"		"220"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"push_duration"		"0.85"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cogs_radius"			"215"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"trigger_distance"			"170"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"extra_pull_buffer"			"-10"
 			}
 		}
 	}

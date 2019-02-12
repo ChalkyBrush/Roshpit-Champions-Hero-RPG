@@ -6894,7 +6894,7 @@
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_minimum_bolts_per_tech"	"<font color=\"#f4b942\">MINIMUM BOLTS PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_minimum_bolts_base"		"MINIMUM BOLTS BASE:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_base_damage"			"BASE DAMAGE:"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"BASE RADIUS"		
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"BASE RADIUS:"		
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_agility_added_to_base_damage"	"AGILITY MULTIPLIER ADDED TO BASE DAMAGE:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Lightning base damage increase</font>:"
 
@@ -9382,7 +9382,7 @@
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1"				"[Q1] Burning Flameblood"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Flameblood attacks additionally apply a stacking burn debuff and for 5 seconds and a stacking armor debuff for 10 seconds. Max 50 burn stacks but no limit on armor loss stacks. The burn damage is amplified by negative armor the same as its base skill Flameblood."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Damage per second per burn stack"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Damage per tick per burn stack"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix"	""
         "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_two" "Armor loss per stack"   
         "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix_two"   ""
@@ -9675,6 +9675,9 @@
         "DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_3"            "Spear of Aeris"
         "item_property_spirit_warrior_immortal_weapon3"                             "Hail of Spears"
         "property_spirit_warrior_immortal_weapon3_description"                      "Regular attacks hit 2 additional enemies with all procs."
+		
+		"spirit_warrior_spirit"								"Ancient Spirit"
+		"spirit_warrior_spirit_elite"						"Elite Ancient Spirit"
 
 
 		"tooltip_trapper_q"											"Fulminating Trap, Net Trap, Poison Trap & Torrent Trap"
@@ -14881,10 +14884,6 @@
 
 		"DOTA_Tooltip_ability_mekanoid_battery_assault"				"Battery Assault"
 		"DOTA_Tooltip_ability_mekanoid_battery_assault_Description"	"Apply a buff that damages and applies a mini-stun on nearby enemies on a short interval."
-
-		"DOTA_Tooltip_ability_mekanoid_power_cogs"					"Mekanoid Power Cogs"
-		"DOTA_Tooltip_ability_mekanoid_power_cogs_Description"		"Creates power cogs that push back and burn mana."
-		"DOTA_Tooltip_ability_mekanoid_power_cogs_drain_amount"		"MANA DRAIN:"
 
 		"DOTA_Tooltip_ability_spikey_beetle_carapace"				"Spike Carapace"
 		"DOTA_Tooltip_ability_spikey_beetle_carapace_Description"	"Taking damage while spike carapace is active will return damage to the attacker. The reflect can only apply to each target once per cast."
