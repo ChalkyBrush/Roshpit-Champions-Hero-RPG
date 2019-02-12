@@ -162,7 +162,7 @@ function scorch_attack_land(event)
 			end
 			local nextValue = ability.property1 + 1
 			local upgradeThreshold = 4000
-			if nextValue == upgradeThreshold then
+			if nextValue >= upgradeThreshold then
 				ability.lock = true
 				RPCItems:RollScorchedGauntlets2(attacker, ability)
 				Notifications:Top(attacker:GetPlayerOwnerID(), {text="Gauntlet of Flame Upgraded", duration=5, style={color="white"}, continue=true})
@@ -394,7 +394,7 @@ function flood_water_elemental_kill(event)
 			end
 			local nextValue = ability.property1 + 1
 			local upgradeThreshold = 5000
-			if nextValue == upgradeThreshold then
+			if nextValue >= upgradeThreshold then
 				ability.lock = true
 				RPCItems:CreateFloodRobe2(attacker.summoner, ability)
 				Notifications:Top(attacker.summoner:GetPlayerOwnerID(), {text="Robe of Flooding Upgraded", duration=5, style={color="white"}, continue=true})
@@ -500,7 +500,7 @@ function hyper_visor_upgrade(caster, ability, target)
 	if target.hyperHits < 50 then
 		local nextValue = ability.property1 + 1
 		local upgradeThreshold = ability:GetSpecialValueFor("property_three")
-		if nextValue == upgradeThreshold then
+		if nextValue >= upgradeThreshold then
 			ability.lock = true
 			RPCItems:CreateHyperVisor2(caster, ability)
 			Notifications:Top(caster:GetPlayerOwnerID(), {text="Hyper Visor Upgraded", duration=5, style={color="white"}, continue=true})
@@ -2790,7 +2790,7 @@ function raven_idol_take_damage(event)
 	local ability = event.ability
 	local nextValue = ability.property1 + 1
 	local upgradeThreshold = 12000
-	if nextValue == upgradeThreshold then
+	if nextValue >= upgradeThreshold then
 		RPCItems:RollRavenIdol2(target, ability)
 		Notifications:Top(target:GetPlayerOwnerID(), {text="Raven Idol Upgraded", duration=5, style={color="white"}, continue=true})
 		
@@ -4593,7 +4593,7 @@ function tiny_avalanche_think(event)
 		if not levelTwo then
 			local nextValue = ability.property1 + 1
 			local upgradeThreshold = 1500
-			if nextValue == upgradeThreshold then
+			if nextValue >= upgradeThreshold then
 				ability.property1 = nextValue
 				ability.lock = true
 				RPCItems:AvalancePlate2(target, ability)

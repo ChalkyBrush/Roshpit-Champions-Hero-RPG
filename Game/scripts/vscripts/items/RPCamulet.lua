@@ -20,7 +20,7 @@ function RPCItems:RollAmulet(xpBounty, deathLocation, rarity, isShop, type, hero
     item.gear = true
     if rarityValue == 5 then
         if RPCItems:AmuletLegendary(itemVariant, deathLocation) then
-			UTIL_Remove(item)
+			RPCItems:ItemUTIL_Remove(item)
             return nil
         end
     end

@@ -31,8 +31,8 @@
     	"DOTA_Tooltip_modifier_ancient_vigor_Description"			"Урон и скорость атаки увеличены."
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1"				"[Q1] Burning Flameblood"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Атаки под действием (Q) Flameblood дополнительно поджигают врагов на 5 секунд и снижают их броню. Эффект может быть сложен до 50 раз. Эффект снижения брони складывается бесконечно. Горение усиливается при отрицательной броне, так же как и @Ability1."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Урон в секунду за стак"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Атаки под действием (Q) Flameblood дополнительно поджигают врагов на 5 секунд и снижают их броню, горение наносит урон каждые полсекунды. Эффект горения может быть сложен до 50 раз. Эффект снижения брони складывается бесконечно. Горение усиливается при отрицательной броне, так же как и @Ability1."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Урон за стак"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix"	""
 		"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_two" "Снижение брони за стак"   
         "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix_two"   ""
@@ -87,7 +87,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "Урон способности @Ability2 увеличивается на % от атаки героя. Если активно копье от @Ability1, то противники получат дополнительно урон и от нее. Указанный бонус умножается на уровень прокачки основного умения."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_one"	"Доп. урон способности"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix"		"% от урона героя"
-		"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_two" "урон от Flameblood & Windstrike"  
+		"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_two" "Урон от Flameblood & Windstrike"  
         "DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix_two"       "%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4"				"[W4] Spirit Fuse"
@@ -318,3 +318,7 @@
         "DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_3"            "Spear of Aeris"
         "item_property_spirit_warrior_immortal_weapon3"                             "Hail of Spears"
         "property_spirit_warrior_immortal_weapon3_description"                      "Обычные атаки разделяются, дополнительно атакуя еще 2 цели со всеми возможными эффектами."
+		
+				
+		"spirit_warrior_spirit"								"Ancient Spirit"
+		"spirit_warrior_spirit_elite"						"Elite Ancient Spirit"

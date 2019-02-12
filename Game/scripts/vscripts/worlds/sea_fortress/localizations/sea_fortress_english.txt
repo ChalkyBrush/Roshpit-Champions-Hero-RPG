@@ -365,10 +365,6 @@
 		"DOTA_Tooltip_ability_mekanoid_battery_assault"				"Battery Assault"
 		"DOTA_Tooltip_ability_mekanoid_battery_assault_Description"	"Apply a buff that damages and applies a mini-stun on nearby enemies on a short interval."
 
-		"DOTA_Tooltip_ability_mekanoid_power_cogs"					"Mekanoid Power Cogs"
-		"DOTA_Tooltip_ability_mekanoid_power_cogs_Description"		"Creates power cogs that push back and burn mana."
-		"DOTA_Tooltip_ability_mekanoid_power_cogs_drain_amount"		"MANA DRAIN:"
-
 		"DOTA_Tooltip_ability_spikey_beetle_carapace"				"Spike Carapace"
 		"DOTA_Tooltip_ability_spikey_beetle_carapace_Description"	"Taking damage while spike carapace is active will return damage to the attacker. The reflect can only apply to each target once per cast."
 		"DOTA_Tooltip_ability_spikey_beetle_carapace_reflect_duration"	"REFLECT DURATION:"

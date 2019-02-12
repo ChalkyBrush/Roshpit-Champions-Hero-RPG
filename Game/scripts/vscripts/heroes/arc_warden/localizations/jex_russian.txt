@@ -85,7 +85,7 @@
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_minimum_bolts_per_tech"	"<font color=\"#f4b942\">УДАРОВ МОЛНИИ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_minimum_bolts_base"		"НАЧАЛЬНОЕ КОЛИЧЕСТВО УДАРОВ МОЛНИИ:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_base_damage"			"УРОН:"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"РАДИУС"		
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"РАДИУС:"		
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_agility_added_to_base_damage"	"МНОЖИТЕЛЬ ЛОВКОСТИ К БАЗЕ УРОНА:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[Q4] Усиление урона удара молнии</font>:"
 

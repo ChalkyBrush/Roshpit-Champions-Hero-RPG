@@ -2050,21 +2050,6 @@ function mekanoid_disruptor_ai(caster)
 	-- 	end	
 	-- end
 
-	local cogs = caster:FindAbilityByName("mekanoid_power_cogs")
-	if cogs:IsFullyCastable() then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
-		if #enemies > 0 then
-			local newOrder = {
-					UnitIndex = caster:entindex(),
-					OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-					AbilityIndex = cogs:entindex(),
-			 	}
-			 
-			ExecuteOrderFromTable(newOrder)	
-			return		
-		end	
-	end
-
 	local battery = caster:FindAbilityByName("mekanoid_battery_assault")
 	if battery:IsFullyCastable() then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	

@@ -57,7 +57,7 @@ function neutral_glyph_4_3_think(event)
 			if potionApplyStats then
 				UTIL_Remove(v)
 				if IsValidEntity(item) then
-					UTIL_Remove(item)
+					RPCItems:ItemUTIL_Remove(item)
 				end
 				local caster = event.target
 				local glyphMult = getPotionMultipler(caster)

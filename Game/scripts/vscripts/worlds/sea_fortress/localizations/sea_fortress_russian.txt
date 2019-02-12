@@ -363,10 +363,6 @@
 		"DOTA_Tooltip_ability_mekanoid_battery_assault"				"Battery Assault"
 		"DOTA_Tooltip_ability_mekanoid_battery_assault_Description"	"Позволяет с небольшими интервалами наносить урон и кратковременно оглушать находящихся неподалёку врагов."
 
-		"DOTA_Tooltip_ability_mekanoid_power_cogs"					"Mekanoid Power Cogs"
-		"DOTA_Tooltip_ability_mekanoid_power_cogs_Description"		"Создаёт несколько энергетических катушек, при контакте отталкивающих врагов и сжигающих им ману."
-		"DOTA_Tooltip_ability_mekanoid_power_cogs_drain_amount"		"ВЫЖИГАЕТ МАНЫ:"
-
 		"DOTA_Tooltip_ability_spikey_beetle_carapace"				"Spike Carapace"
 		"DOTA_Tooltip_ability_spikey_beetle_carapace_Description"	"При получении урона во время действия этой способности вернёт атакующему весь урон. Для каждого противника срабатывает лишь раз за прочтение."
 		"DOTA_Tooltip_ability_spikey_beetle_carapace_reflect_duration"	"ДЛИТЕЛЬНОСТЬ ОТРАЖЕНИЯ:"

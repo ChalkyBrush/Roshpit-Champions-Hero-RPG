@@ -411,7 +411,7 @@ function use_prizebox(event)
 	Timers:CreateTimer(0.5, function()
 		RPCItems.StrictItemLevel = false
 	end)
-	UTIL_Remove(item)
+	RPCItems:ItemUTIL_Remove(item)
 end
 
 function rollArenaPrizeItem(deathLocation, rarity)

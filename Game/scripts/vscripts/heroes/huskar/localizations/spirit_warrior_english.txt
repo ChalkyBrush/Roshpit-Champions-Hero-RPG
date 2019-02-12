@@ -32,7 +32,7 @@
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1"				"[Q1] Burning Flameblood"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Flameblood attacks additionally apply a stacking burn debuff and for 5 seconds and a stacking armor debuff for 10 seconds. Max 50 burn stacks but no limit on armor loss stacks. The burn damage is amplified by negative armor the same as its base skill Flameblood."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Damage per second per burn stack"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Damage per tick per burn stack"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix"	""
         "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_two" "Armor loss per stack"   
         "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix_two"   ""
@@ -325,3 +325,6 @@
         "DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_3"            "Spear of Aeris"
         "item_property_spirit_warrior_immortal_weapon3"                             "Hail of Spears"
         "property_spirit_warrior_immortal_weapon3_description"                      "Regular attacks hit 2 additional enemies with all procs."
+		
+		"spirit_warrior_spirit"								"Ancient Spirit"
+		"spirit_warrior_spirit_elite"						"Elite Ancient Spirit"
