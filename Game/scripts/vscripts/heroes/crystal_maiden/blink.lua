@@ -173,7 +173,7 @@ function water_elemental_attack(event)
   local target = event.target
   local ability = event.ability
   local particleName = "particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_explode_ti5.vpcf"
-    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, attacker )
     local origin = target:GetAbsOrigin()
     ParticleManager:SetParticleControl( particle1, 0, origin )
     ParticleManager:SetParticleControl( particle1, 1, origin )

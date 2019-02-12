@@ -23,7 +23,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"12"
+				"duration"				"18"
 			}
 			"03"
 			{
@@ -57,11 +57,11 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1100 1100 1100 1100 1100 1100 1100"
-		"AbilityCastPoint"				"0.7"
+		"AbilityCastPoint"				"0.3"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14"
+		"AbilityCooldown"				"12"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
@@ -124,7 +124,7 @@
 				"IsDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
-				"ThinkInterval"  "1"
+				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -176,7 +176,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"12"
+				"duration"				"18"
 			}
 			"02"
 			{
@@ -188,11 +188,11 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1100 1100 1100 1100 1100 1100 1100"
-		"AbilityCastPoint"				"0.7"
+		"AbilityCastPoint"				"0.3"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14"
+		"AbilityCooldown"				"12"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
@@ -367,7 +367,7 @@
 			"particle"					"particles/roshpit/spirit_warrior/glyph_5_a_lightning_shield.vpcf"
 		}
 
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.1"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -384,7 +384,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"cooldown"				"6.0 5.5 5.0 4.5 4.0 3.5 3.0"
+				"cooldown"				"6.0 5.0 4.0 4.0 3.0 2.7 2.1"
 			}
 			"02"
 			{

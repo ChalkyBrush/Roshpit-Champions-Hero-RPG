@@ -1681,6 +1681,7 @@ end
 
 function Redfall:CastleSpawnBackHallway()
   local stone = Redfall:SpawnCastleGroundsGuardian(Vector(4825, 4032), Vector(0,1))
+  stone:SetModelScale(2.4)
   Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, stone, "modifier_castle_unit_generic", {})
   stone.code = 9
 
