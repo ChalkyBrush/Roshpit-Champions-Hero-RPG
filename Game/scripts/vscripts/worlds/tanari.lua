@@ -242,8 +242,10 @@ function Tanari:Debug()
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
             ---------MAX CURATION----------
-    -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
-    -- Curator:CurateAllGlyphsForHero("neutral")
+    Curator:FullCurateHero(MAIN_HERO_TABLE[1])
+    Timers:CreateTimer(40, function()
+        Curator:CurateAllGlyphsForHero("neutral")
+    end)
     -- Curator:CurateALLHeroes()
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 
