@@ -577,7 +577,7 @@ function Filters:stormcrack_upgrade(caster, ability, target)
     if target.hyperHits < 50 then
         local nextValue = ability.property1 + 1
         local upgradeThreshold = 4000
-        if nextValue == upgradeThreshold then
+        if nextValue >= upgradeThreshold then
             ability.lock = true
             RPCItems:RollStormcrackHelm2(caster, ability)
             Notifications:Top(caster:GetPlayerOwnerID(), {text="Stormcrack Upgraded", duration=5, style={color="white"}, continue=true})
@@ -648,7 +648,7 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
                 local item = caster.headItem
                 local nextValue = item.property1 + 1
                 local upgradeThreshold = 5000
-                if nextValue == upgradeThreshold then
+                if nextValue >= upgradeThreshold then
                     item.lock = true
                     RPCItems:CreateWhiteMageHat2(caster, item)
                     Notifications:Top(caster:GetPlayerOwnerID(), {text="White Mage Hat Upgraded", duration=5, style={color="white"}, continue=true})
