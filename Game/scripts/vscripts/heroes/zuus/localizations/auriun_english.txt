@@ -127,7 +127,7 @@
     	"DOTA_Tooltip_modifier_auriun_ult_effect_Description"			"Massive HP regen and increased movement speed."
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_1"						"[R1] Sage Strikes"
-    	"DOTA_Tooltip_ability_auriun_rune_r_1_Description"			"Auriun's attacks deal addition pure damage, and his attack damage is increased further by his intelligence."
+    	"DOTA_Tooltip_ability_auriun_rune_r_1_Description"			"Auriun's attacks deal additional pure damage, and his attack damage is increased further by his Intelligence."
     	"DOTA_Tooltip_ability_auriun_rune_r_1_property_one"			"Intelligence added to Damage"
     	"DOTA_Tooltip_ability_auriun_rune_r_1_suffix"				"%"
         "DOTA_Tooltip_ability_auriun_rune_r_1_property_two"         "Additional Damage Dealt"
