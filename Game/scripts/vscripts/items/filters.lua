@@ -2336,7 +2336,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_winter_wyvern" then
             if attacker:HasModifier("modifier_dinath_arcana1") then
                 local movespeed = attacker:GetBaseMoveSpeed()
-                local actualMS = attacker:GetMoveSpeedModifier(movespeed)
+                local actualMS = attacker:GetMoveSpeedModifier(movespeed, false)
                 mult = mult + actualMS*0.001*attacker:GetRuneValue("w", 2)
             end
         end

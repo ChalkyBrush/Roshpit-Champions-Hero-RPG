@@ -3635,7 +3635,7 @@ end
 function ablecore_greaves_think(event)
 	local caster = event.target
 	local movespeed = caster:GetBaseMoveSpeed()
-	local movespeedModifier = caster:GetMoveSpeedModifier(movespeed)
+	local movespeedModifier = caster:GetMoveSpeedModifier(movespeed, false)
 	if movespeedModifier <= 300 then
 		event.ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_ablecore_greaves_effect", {})
 	else
@@ -4615,7 +4615,7 @@ function eternal_frost_slowing(event)
 		local newStacks = target:GetModifierStackCount("modifier_eternal_frost_slowing_effect", caster) + 1
 		target:SetModifierStackCount("modifier_eternal_frost_slowing_effect", caster, newStacks)
 		local movespeed = target:GetBaseMoveSpeed()
-		local movespeedModifier = target:GetMoveSpeedModifier(movespeed)
+		local movespeedModifier = target:GetMoveSpeedModifier(movespeed, false)
 		if movespeedModifier <= 150 then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_eternal_frost_nova", {duration = 4.5})
 			target:RemoveModifierByName("modifier_eternal_frost_slowing_effect")
@@ -4816,7 +4816,7 @@ end
 function emerald_speed_runners_think(event)
 	local caster = event.target
 	local movespeed = caster:GetBaseMoveSpeed()
-	local movespeedModifier = math.ceil(caster:GetMoveSpeedModifier(movespeed))
+	local movespeedModifier = math.ceil(caster:GetMoveSpeedModifier(movespeed), false)
 	if movespeedModifier < 550 then
 		local currentStacks = caster:GetModifierStackCount("modifier_emerald_speed_runners_speed", event.caster)
 		event.ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_emerald_speed_runners_speed", {})
@@ -5776,7 +5776,7 @@ function swiftspike_think(event)
 	local hero = event.target
 	local ability = event.ability
 	local movespeed = hero:GetBaseMoveSpeed()
-	local movespeedActual = hero:GetMoveSpeedModifier(movespeed)
+	local movespeedActual = hero:GetMoveSpeedModifier(movespeed, false)
 	if not hero:HasModifier("modifier_swiftspike_bad") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_swiftspike_bad", {})
 	end
