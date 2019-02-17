@@ -1701,7 +1701,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_speed_softening") then
 		local passive = victim:FindAbilityByName("winterblight_speed_softening")
 		local movespeed = victim:GetBaseMoveSpeed()
-		local actual_movespeed = victim:GetMoveSpeedModifier(movespeed)
+		local actual_movespeed = victim:GetMoveSpeedModifier(movespeed, false)
 		if actual_movespeed >= 300 then
 			local reduction = passive:GetLevelSpecialValueFor("damage_reduc", passive:GetLevel())
 			reduction = (100-reduction)/100
@@ -2707,9 +2707,9 @@ function GameState:FilterDamage(filterTable)
 		local modifierCaster = modifier:GetCaster()
 		if attacker:GetEntityIndex() == modifierCaster:GetEntityIndex() then
 			local movespeed = attacker:GetBaseMoveSpeed()
-			local movespeedAttacker = attacker:GetMoveSpeedModifier(movespeed)
+			local movespeedAttacker = attacker:GetMoveSpeedModifier(movespeed, false)
 			movespeed = victim:GetBaseMoveSpeed()
-			local movespeedVictim = victim:GetMoveSpeedModifier(movespeed)
+			local movespeedVictim = victim:GetMoveSpeedModifier(movespeed, false)
 			local amp = math.max((movespeedAttacker-movespeedVictim)/100, 0)
 			mult = mult + amp
 		end
@@ -2719,9 +2719,9 @@ function GameState:FilterDamage(filterTable)
 		local modifierCaster = modifier:GetCaster()
 		if attacker:GetEntityIndex() == modifierCaster:GetEntityIndex() then
 			local movespeed = attacker:GetBaseMoveSpeed()
-			local movespeedAttacker = attacker:GetMoveSpeedModifier(movespeed)
+			local movespeedAttacker = attacker:GetMoveSpeedModifier(movespeed, false)
 			movespeed = victim:GetBaseMoveSpeed()
-			local movespeedVictim = victim:GetMoveSpeedModifier(movespeed)
+			local movespeedVictim = victim:GetMoveSpeedModifier(movespeed, false)
 			-- local amp = math.max((movespeedAttacker-movespeedVictim)/100, 0)
 			local amp = (movespeedAttacker-movespeedVictim)/100
 			mult = mult + amp
@@ -3241,8 +3241,8 @@ function GameState:FilterDamage(filterTable)
 
 	modifier = victim:FindModifierByName("modifier_seinaru_rune_q_3_postmitigation_take")
 	if modifier then
-		local attacker_movespeed = attacker:GetMoveSpeedModifier(attacker:GetBaseMoveSpeed())
-		local victim_movespeed = victim:GetMoveSpeedModifier(victim:GetBaseMoveSpeed())
+		local attacker_movespeed = attacker:GetMoveSpeedModifier(attacker:GetBaseMoveSpeed(), false)
+		local victim_movespeed = victim:GetMoveSpeedModifier(victim:GetBaseMoveSpeed(), false)
 		local movespeed_difference = math.max(attacker_movespeed - victim_movespeed, 0)
 		mult = mult + movespeed_difference * SEINARU_Q3_POSTMIT_PER_MOVESPEED_DIF * modifier:GetStackCount()
 	end

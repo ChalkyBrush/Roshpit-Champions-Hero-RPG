@@ -161,7 +161,7 @@ function slipfinn_jump_start(event)
 	local ability = event.ability
 
 	local movespeed = caster:GetBaseMoveSpeed()
-	local actualMS = caster:GetMoveSpeedModifier(movespeed)
+	local actualMS = caster:GetMoveSpeedModifier(movespeed, false)
 	ability.w_1_level = caster:GetRuneValue("w", 1)
 	ability.w_2_level = caster:GetRuneValue("w", 2)
 	ability.w_3_level = caster:GetRuneValue("w", 3)

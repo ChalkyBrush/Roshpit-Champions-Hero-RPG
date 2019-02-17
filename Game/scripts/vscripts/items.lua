@@ -1513,6 +1513,7 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 		local item = EntIndexToHScript(itemIndex)
 		if not IsValidEntity(item) then
 			CustomGameEventManager:Send_ServerToAllClients("empty_roll_slot", {rollSlot=rollSlot} )
+			RPCItems.indexesRolled[itemIndex] = nil
 			if #RPCItems.item_roll_queue > 0 then
 				RPCItems:LegendaryPickup(RPCItems.item_roll_queue[1], false)
 				local newQueue = {}
@@ -1618,6 +1619,7 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 			Weapons:Equip(hero, item)
 		end
 		CustomGameEventManager:Send_ServerToAllClients("empty_roll_slot", {rollSlot=rollSlot} )
+		RPCItems.indexesRolled[itemIndex] = nil
 		if #RPCItems.item_roll_queue > 0 then
 			RPCItems:LegendaryPickup(RPCItems.item_roll_queue[1], false)
 			local newQueue = {}

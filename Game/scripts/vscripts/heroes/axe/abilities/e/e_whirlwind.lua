@@ -29,7 +29,7 @@ function start(event)
 
     Filters:CastSkillArguments(3, hero)
     local movespeedBase = hero:GetBaseMoveSpeed()
-    local movespeed = hero:GetMoveSpeedModifier(movespeedBase)
+    local movespeed = hero:GetMoveSpeedModifier(movespeedBase, false)
     ability.forwardVelocity = math.max(movespeed/21, 20)
 
     ability.enemies = {}

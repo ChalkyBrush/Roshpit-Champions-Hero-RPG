@@ -161,7 +161,7 @@ end
 function hydroxis_animation_think(event)
 	local caster = event.caster
 	local movespeed = caster:GetBaseMoveSpeed()
-	local movespeedModifier = caster:GetMoveSpeedModifier(movespeed)
+	local movespeedModifier = caster:GetMoveSpeedModifier(movespeed, false)
 	if movespeedModifier < 420 then
 		caster:RemoveModifierByName("modifier_animation_translate")
 	else

@@ -724,8 +724,8 @@ function CustomAttributes:CalcMovespeed(unit)
 	Timers:CreateTimer(0, function()
 		unit:RemoveModifierByName("modifier_master_movespeed")
 		local baseSpeed = unit:GetBaseMoveSpeed()
-		local modifier = unit:GetMoveSpeedModifier(baseSpeed)
-		local modifier2 =unit:GetMoveSpeedModifier(0)
+		local modifier = unit:GetMoveSpeedModifier(baseSpeed, false)
+		local modifier2 =unit:GetMoveSpeedModifier(0, false)
 		local ideal = unit:GetIdealSpeed()
 		if modifier2 > 100 then
 			unit.master_move_speed = modifier2 + baseSpeed
