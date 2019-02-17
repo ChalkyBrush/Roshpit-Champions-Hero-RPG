@@ -1021,6 +1021,39 @@ function Runes:EquipArcana(hero, index)
 			Runes:EasySwapArcanaSkills(hero, 1, "dinath_drake_ring", "dinath_dragon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 			hero:RemoveModifierByName("modifier_drake_ring_passive")
 		end
+	elseif hero:GetUnitName() == "npc_dota_hero_arc_warden" then
+		if index == 1 then
+			local abilityCheck = hero:GetAbilityByIndex(1)
+			if not abilityCheck:GetAbilityName() == "jex_base_cannon_lightning" then 
+				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_lightning", 1)
+			end
+			hero:RemoveModifierByName("modifier_jex_vortex_w")
+			
+			local abilities_to_remove_table = {"jex_thunder_thunder_q", "jex_lightning_cosmic_q", "jex_lightning_nature_q", "jex_lightning_lightning_w", "jex_lightning_nature_w", "jex_lightning_cosmic_w", "jex_lightning_nature_e", "jex_lightning_lightning_e", "jex_lightning_cosmic_e"}
+			for i = 1, #abilities_to_remove_table, 1 do
+				local ability_name = abilities_to_remove_table[i]
+				if hero:HasAbility(ability_name) then
+					hero:RemoveAbility(ability_name)
+				end
+			end
+
+			Runes:EasySwapArcanaSkills(hero, 1, "jex_base_cannon_lightning", "jex_base_cannon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			local onibi = hero.onibi
+			local onibi_ability_check1 = onibi:GetAbilityByIndex(3)
+			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check1:GetAbilityName(), "onibi_fire_1", 3)
+			local onibi_ability_check2 = onibi:GetAbilityByIndex(4)
+			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check2:GetAbilityName(), "onibi_fire_2", 4)
+			onibi.stats_table["arcanas"] = {}
+			onibi.stats_table["arcanas"]["fire"] = 1
+			if not onibi.stats_table["fire"]["exp"] then
+				onibi.stats_table["fire"]["exp"] = 0
+			end
+			if not onibi.stats_table["fire"]["level"] then
+				onibi.stats_table["fire"]["level"] = 0
+			end
+			require('heroes/arc_warden/abilities/onibi')
+			calculate_onibi_element_levels(onibi)
+		end
 	end
 end
 

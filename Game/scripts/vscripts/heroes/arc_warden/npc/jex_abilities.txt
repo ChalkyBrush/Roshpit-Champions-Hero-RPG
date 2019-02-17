@@ -40,6 +40,12 @@
 				"StatusEffectName" 		"particles/status_fx/status_effect_terrorblade_reflection.vpcf"
 				"StatusEffectPriority"  "10"
 			}
+			"jex_essence_fire"
+			{
+				"IsHidden"	"1"
+				"EffectName"		"particles/roshpit/jex/fire_flower_ambient.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
 			"jex_essence_spawning"
 			{
 				"IsHidden"	"1"

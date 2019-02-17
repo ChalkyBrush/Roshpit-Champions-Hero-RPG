@@ -67,6 +67,8 @@ function get_onibi_essences(caster, onibi)
 			essences[i] = "lightning"
 		elseif ability:GetAbilityName() == "onibi_cosmic_"..i then
 			essences[i] = "cosmic"
+		elseif ability:GetAbilityName() == "onibi_fire_"..i then
+			essences[i] = "fire"
 		end
 	end
 	onibi.essences = essences
@@ -111,6 +113,12 @@ function essence_aura_unit_die(event)
 			essence_unit:SetRenderColor(100, 0, 255)
 			essence_data.z_offset = 0
 			essence_data.spawn_particle_vector = Vector(180, 55, 255)
+		elseif actual_essence == "fire" then
+			essence_data.model = "models/items/dark_willow/dark_willow_ti8_immortal_head/dark_willow_ti8_immortal_flower.vmdl"
+			essence_data.model_scale = 6.5
+			essence_data.z_offset = 20
+			essence_data.spawn_particle_vector = Vector(255, 100, 0)
+			essence_unit:SetRenderColor(255, 0, 0)
 		end
 		essence_unit:SetOriginalModel(essence_data.model)
 		essence_unit:SetModel(essence_data.model)

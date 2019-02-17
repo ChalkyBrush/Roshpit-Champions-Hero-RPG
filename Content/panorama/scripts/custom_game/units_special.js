@@ -2,13 +2,23 @@ onibi_panel = null
 onibi_elements = []
 open_ability_panel = false
 
-function get_onibi_active_elements(){
-	var elements = ["nature", "lightning", "cosmic"]
+function get_onibi_active_elements(onibi_data){
+	var elements = []
+	elements.push("nature")
+	$.Msg("ELEMENTS kkkkk")
+	$.Msg(onibi_data)
+	$.Msg(onibi_data["arcanas"])
+	if (!(onibi_data["arcanas"]===undefined) && (onibi_data["arcanas"]["fire"] == 1)){
+		elements.push("fire")
+	}else{
+		elements.push("lightning")
+	}
+	elements.push("cosmic")
 	return elements
 }
 
-function get_onibi_other_elements(element){
-	var elements = get_onibi_active_elements()
+function get_onibi_other_elements(element, onibi_data){
+	var elements = get_onibi_active_elements(onibi_data)
 	var other_elements = []
 	for (var i = 0; i <= 2; i++) {
 		if (elements[i] == element){
@@ -33,14 +43,14 @@ function units_special_check(msg){
 		if (!(unit_container.BHasClass("active" ))){
 			unit_container.RemoveClass("invisible")
 			unit_container.AddClass("active")
-			$.Msg("SELECTED ONIBI")
 			var unit_special_panel = $.CreatePanel("Panel", unit_container, "unit_special")
 			open_ability_panel = false
 			unit_special_panel.BLoadLayoutSnippet("onibi_ability_bar")
 			// unit_special_panel.FindChildTraverse('something')
 			var ability_bar_attach_panel = unit_special_panel
-			var elements = get_onibi_active_elements()
 			var onibi_data = CustomNetTables.GetTableValue( "hero_index", "onibi-"+queryUnit.toString() );
+			var elements = get_onibi_active_elements(onibi_data)
+			
 			onibi_panel = ability_bar_attach_panel
 			onibi_elements = []
 			$.Msg(onibi_data)
@@ -114,8 +124,8 @@ function onibi_element_click(element_panel, index, element_data, element, queryU
 	ability_element_panel.FindChildTraverse('onibi_element_abilities_meta_header').style.color = color
 	var abilities = ["Q", "W", "E"]
 	var abilities_attach_panel = ability_element_panel.FindChildTraverse('onibi_element_abilities_parent_container')
-	var elements = get_onibi_active_elements()
-	var other_elements = get_onibi_other_elements(element)
+	var elements = get_onibi_active_elements(onibi_data)
+	var other_elements = get_onibi_other_elements(element, onibi_data)
 	$.Msg(onibi_data)
 	for (var i = 0; i <= 2; i++) {
 		var ability_key = abilities[i]
@@ -229,7 +239,7 @@ function update_onibi(msg){
 
 	if (unitName ==	"jex_onibi"){
 		var onibi_data = CustomNetTables.GetTableValue( "hero_index", "onibi-"+queryUnit.toString() );
-		var elements = get_onibi_active_elements()
+		var elements = get_onibi_active_elements(onibi_data)
 		for (var i = 0; i <= 2; i++) {
 			var onibi_element = onibi_elements[i]
 			var element_data = onibi_data[elements[i]]

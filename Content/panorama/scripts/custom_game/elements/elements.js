@@ -7,6 +7,8 @@ function convertElementNameToNumber(element_name)
 		element_number = 8
 	}else if(element_name == "lightning"){
 		element_number = 4
+	}else if(element_name == "fire"){
+		element_number = 2
 	}
 	return element_number
 }

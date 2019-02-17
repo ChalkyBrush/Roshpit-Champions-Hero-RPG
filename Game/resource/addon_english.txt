@@ -7203,6 +7203,9 @@
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"Glyph of Techno Supremacy"
 	"item_rpc_jex_glyph_5_a_description" 				"Increases the tech level of all of Jex's abilities by @glyph_property1."
 
+	"item_property_jex_arcana1"                                     "Fire Module"
+    "property_jex_arcana1_description"                              "Replaces Onibi's <font color=\"#5CCDF9\">Lightning</font> module with a <font color=\"#EF4126\">Fire</font> module."
+
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"Shockwave"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#AF843D\">Earth</font><br>Unearths a cascade of force that damage and stuns everyone in its path."
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_stun_duration"	"STUN DURATION:"

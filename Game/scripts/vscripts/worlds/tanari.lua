@@ -42,7 +42,7 @@ function Tanari:Debug()
     local drop = CreateItemOnPositionSync( Vector(-4928, 2048), item )
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
-
+    RPCItems:RollJexArcana1(Vector(-4928, 2048))
     -- RPCItems:RollAstralArcana2(Vector(-4928, 2048))
     -- RPCItems:RollAstralArcana3(Vector(-4928, 2048))
     -- RPCItems:RollConjurorArcana4(Vector(-4928, 2048))
@@ -242,10 +242,10 @@ function Tanari:Debug()
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
             ---------MAX CURATION----------
-    Curator:FullCurateHero(MAIN_HERO_TABLE[1])
-    Timers:CreateTimer(40, function()
-        Curator:CurateAllGlyphsForHero("neutral")
-    end)
+    -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
+    -- Timers:CreateTimer(40, function()
+    --     Curator:CurateAllGlyphsForHero("neutral")
+    -- end)
     -- Curator:CurateALLHeroes()
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 
