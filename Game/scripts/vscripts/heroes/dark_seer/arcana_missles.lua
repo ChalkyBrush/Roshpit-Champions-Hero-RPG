@@ -115,7 +115,7 @@ function passive_think(event)
 	local ability = event.ability
 	local damage = event.damage
 	local baseMS = caster:GetBaseMoveSpeed()
-	local actualMS = caster:GetMoveSpeedModifier(baseMS)
+	local actualMS = caster:GetMoveSpeedModifier(baseMS, false)
 	damage = damage*actualMS
 	if not ability.r_4_interval then
 		ability.r_4_interval = 0

@@ -244,7 +244,7 @@ function seinaru_immo_3_think(event)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_immo_weapon_3_strength", {})
 
 	local movespeedBase = target:GetBaseMoveSpeed()
-	local movespeedActual = target:GetMoveSpeedModifier(movespeedBase)
+	local movespeedActual = target:GetMoveSpeedModifier(movespeedBase, false)
 	target:SetModifierStackCount("modifier_seinaru_immo_weapon_3_strength", caster, movespeedActual)
 end
 
