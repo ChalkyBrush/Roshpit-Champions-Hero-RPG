@@ -9,6 +9,7 @@ function PitTerminal(trigger)
 			if Arena.PitActive or Arena.PitLocked then
 				lockoutStatus = 2
 			end
+			lockoutStatus = 0--removed cd check
 			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "pit_terminal", {pitData=hero.pit, heroName=hero:GetUnitName(), lockoutStatus = lockoutStatus})
 		end
 	end
