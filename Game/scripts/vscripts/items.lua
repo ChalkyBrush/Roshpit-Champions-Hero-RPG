@@ -40,6 +40,7 @@ function RPCItems:ItemUTIL_Remove(item)
 		print("[Error] RPCItems:ItemUTIL_Remove entity is not valid")
 		return
 	end
+	RPCItems:ClearRollTableFromIndex(item)
 	RPCItems:CustomNetTablesItemRemoving(item)
 	UTIL_Remove(item)
 end
@@ -52,6 +53,7 @@ end
 -- @return item entity handle
 function RPCItems:CreateItem(item_name, owner1, owner2)
 	local item = CreateItem(item_name, owner1, owner2)
+	RPCItems:ClearRollTableFromIndex(item)
 	RPCItems:CustomNetTablesItemRemoving(item)
 	return item
 end
@@ -1513,7 +1515,6 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 		local item = EntIndexToHScript(itemIndex)
 		if not IsValidEntity(item) then
 			CustomGameEventManager:Send_ServerToAllClients("empty_roll_slot", {rollSlot=rollSlot} )
-			RPCItems.indexesRolled[itemIndex] = nil
 			if #RPCItems.item_roll_queue > 0 then
 				RPCItems:LegendaryPickup(RPCItems.item_roll_queue[1], false)
 				local newQueue = {}
@@ -1619,7 +1620,6 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 			Weapons:Equip(hero, item)
 		end
 		CustomGameEventManager:Send_ServerToAllClients("empty_roll_slot", {rollSlot=rollSlot} )
-		RPCItems.indexesRolled[itemIndex] = nil
 		if #RPCItems.item_roll_queue > 0 then
 			RPCItems:LegendaryPickup(RPCItems.item_roll_queue[1], false)
 			local newQueue = {}
