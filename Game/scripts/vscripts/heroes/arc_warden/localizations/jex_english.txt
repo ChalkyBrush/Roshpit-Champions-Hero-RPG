@@ -27,6 +27,12 @@
 	"DOTA_Tooltip_ability_onibi_cosmic_2"		"Cosmic Module"
 	"DOTA_Tooltip_ability_onibi_cosmic_2_Description"		"Enables the activation of Cosmic abilities. Enemies who die near Jex will leave behind galaxy mushroom for harvesting."
 
+	"DOTA_Tooltip_ability_onibi_fire_1"		"Fire Module"
+	"DOTA_Tooltip_ability_onibi_fire_1_Description"		"Enables the activation of Fire abilities. Enemies who die near Jex will leave behind fire flowers for harvesting."
+
+	"DOTA_Tooltip_ability_onibi_fire_2"		"Fire Module"
+	"DOTA_Tooltip_ability_onibi_fire_2_Description"		"Enables the activation of Fire abilities. Enemies who die near Jex will leave behind fire flowers for harvesting."
+
 	"DOTA_Tooltip_ability_onibi_q"				"Q Activator"
 	"DOTA_Tooltip_ability_onibi_q_Description"	"Onibi synthesizes his elemental modules and grants a new [Q] ability for Jex."
 
@@ -50,6 +56,10 @@
 	"DOTA_Tooltip_ability_jex_base_cannon_cosmic"	"Base Cannon: Cosmic"
 	"DOTA_Tooltip_ability_jex_base_cannon_cosmic_Description"	"Element: <font color=\"#C25DFC\">Cosmic</font><br>Target an enemy and deal damage."
 	"DOTA_Tooltip_ability_jex_base_cannon_cosmic_damage"		"DAMAGE:"
+
+	"DOTA_Tooltip_ability_jex_base_cannon_fire"	"Base Cannon: Fire"
+	"DOTA_Tooltip_ability_jex_base_cannon_fire_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Target an enemy and deal damage."
+	"DOTA_Tooltip_ability_jex_base_cannon_fire_damage"		"DAMAGE:"
 
 	"DOTA_Tooltip_ability_jex_essence_harvest"	"Essence Harvest"
 	"DOTA_Tooltip_ability_jex_essence_harvest_Description"	"Jex selects an area and harvests the biological matter within. The resulting harvest is transferred to Onibi in order to grant him permanent upgrades. Onibi's tech allocation persists through game sessions after saving. Use the website to reset Onibi to level 1."
@@ -394,5 +404,10 @@
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"Glyph of Techno Supremacy"
 	"item_rpc_jex_glyph_5_a_description" 				"Increases the tech level of all of Jex's abilities by @glyph_property1."
 
+    //FIRE ARCANA
+    
 	"item_property_jex_arcana1"                                     "Fire Module"
     "property_jex_arcana1_description"                              "Replaces Onibi's <font color=\"#5CCDF9\">Lightning</font> module with a <font color=\"#EF4126\">Fire</font> module."
+
+    "DOTA_Tooltip_ability_jex_fire_fire_q"				"Ring of Fire"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>A ring of fire expands and contracts, dealing damage to enemies that come into contact."

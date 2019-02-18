@@ -263,6 +263,8 @@ function get_ability_name_by_element_combination_and_key(element1, element2, abi
 			ability_name = "jex_cosmic_cosmic_q"
 		elseif element1 == "fire" and element2 == "fire" then
 			ability_name = "jex_fire_fire_q"
+		elseif (element1 == "fire" and element2 == "cosmic") or (element1 == "cosmic" and element2 == "fire") then
+			ability_name = "jex_fire_cosmic_q"
 		end
 	elseif ability_key == "W" then
 		if element1 == "nature" and element2 == "nature" then
