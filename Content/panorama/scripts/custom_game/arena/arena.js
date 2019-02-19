@@ -770,11 +770,10 @@ function PitTerminal(msg){
     
     
     if (msg.lockoutStatus == 1){
-        // sign.FindChildTraverse('pit_lockout_label').text = $.Localize("tooltip_lock_out")
-        // sign.FindChildTraverse('champions_league_start_button').AddClass('champions_league_start_button_inactive')
-        // sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize("tooltip_dungeon_lockout")       temporary removed cd check
+         sign.FindChildTraverse('pit_lockout_label').text = $.Localize("tooltip_lock_out")
          sign.FindChildTraverse('champions_league_start_button').AddClass('champions_league_start_button_inactive')
-         sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize("tooltip_pit_open")    }
+         sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize("tooltip_dungeon_lockout")
+    }
     else if(msg.lockoutStatus == 0){
          sign.FindChildTraverse('champions_league_start_button').AddClass('champions_league_start_button_inactive')
          sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize('tooltip_select_pit_level')      
