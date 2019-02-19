@@ -40,7 +40,6 @@ function RPCItems:ItemUTIL_Remove(item)
 		print("[Error] RPCItems:ItemUTIL_Remove entity is not valid")
 		return
 	end
-	RPCItems:ClearRollTableFromIndex(item)
 	RPCItems:CustomNetTablesItemRemoving(item)
 	UTIL_Remove(item)
 end
@@ -53,7 +52,6 @@ end
 -- @return item entity handle
 function RPCItems:CreateItem(item_name, owner1, owner2)
 	local item = CreateItem(item_name, owner1, owner2)
-	RPCItems:ClearRollTableFromIndex(item)
 	RPCItems:CustomNetTablesItemRemoving(item)
 	return item
 end
