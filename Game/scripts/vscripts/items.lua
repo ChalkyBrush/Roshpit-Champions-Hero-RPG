@@ -41,7 +41,6 @@ function RPCItems:ItemUTIL_Remove(item)
 		return
 	end
 	RPCItems:ClearRollTableFromIndex(item)
-	RPCItems:CustomNetTablesItemRemoving(item)
 	UTIL_Remove(item)
 end
 
@@ -54,7 +53,6 @@ end
 function RPCItems:CreateItem(item_name, owner1, owner2)
 	local item = CreateItem(item_name, owner1, owner2)
 	RPCItems:ClearRollTableFromIndex(item)
-	RPCItems:CustomNetTablesItemRemoving(item)
 	return item
 end
 
@@ -1511,8 +1509,14 @@ function RPCItems:GetFreeRollSlot(itemEntity)
 end 
 
 function RPCItems:EndRoll(rollSlot, itemIndex)
+	local oldIndex = itemIndex
+	local itemValidator = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex).."-key")
+	if itemValidator and itemValidator.key then
+		print("RPCItems:EndRoll itemValidator")
+		itemIndex = itemValidator.key
+	end
 	if not RPCItems.indexesRolled[itemIndex] then
-		local item = EntIndexToHScript(itemIndex)
+		local item = EntIndexToHScript(oldIndex)
 		if not IsValidEntity(item) then
 			CustomGameEventManager:Send_ServerToAllClients("empty_roll_slot", {rollSlot=rollSlot} )
 			if #RPCItems.item_roll_queue > 0 then
@@ -1589,7 +1593,7 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 				end
 			end
 		elseif rollType == "greed" then
-			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemIndex, heroId=heroId, playerId=playerID, pickup="greed", roll=winningRoll} )
+			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=oldIndex, heroId=heroId, playerId=playerID, pickup="greed", roll=winningRoll} )
 			if hero:HasAnyAvailableInventorySpace() then
 				if IsValidEntity(item) then
 					RPCItems:GiveItemToHero(hero, item)
@@ -1607,7 +1611,7 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 				item.expiryTime = Time() + 260				
 			end
 		elseif rollType == "need" then	
-			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemIndex, heroId=heroId, playerId=playerID, pickup="need", roll=winningRoll} )
+			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=oldIndex, heroId=heroId, playerId=playerID, pickup="need", roll=winningRoll} )
 			local slot = RPCItems:getGearSlot(item.slot)
 			print("WEAPON EQUIP OUTSIDE BLOCK NEED")
 			print(slot)
