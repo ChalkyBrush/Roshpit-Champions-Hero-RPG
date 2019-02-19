@@ -114,9 +114,9 @@ function essence_aura_unit_die(event)
 			essence_data.z_offset = 0
 			essence_data.spawn_particle_vector = Vector(180, 55, 255)
 		elseif actual_essence == "fire" then
-			essence_data.model = "models/items/dark_willow/dark_willow_ti8_immortal_head/dark_willow_ti8_immortal_flower.vmdl"
-			essence_data.model_scale = 6.5
-			essence_data.z_offset = 20
+			essence_data.model = "models/heroes/dark_willow/dark_willow_taunt_rose.vmdl"
+			essence_data.model_scale = 1.45
+			essence_data.z_offset = 6
 			essence_data.spawn_particle_vector = Vector(255, 100, 0)
 			essence_unit:SetRenderColor(255, 0, 0)
 		end
