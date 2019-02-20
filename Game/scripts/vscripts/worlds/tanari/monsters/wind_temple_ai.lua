@@ -1355,7 +1355,7 @@ end
 function wind_spirit_die(event)
 	local caster = event.caster
 	EmitSoundOn("Tanari.WindSpirit.Die", caster)
-	local pfx = ParticleManager:CreateParticle("particles/radiant_fx/epoch_rune_w_3_ranged001_lvl3_disintegrate.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	local pfx = ParticleManager:CreateParticle("particles/radiant_fx/epoch_rune_c_b_ranged001_lvl3_disintegrate.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,60))
 	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,60))
 
