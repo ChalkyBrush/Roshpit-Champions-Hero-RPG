@@ -1302,9 +1302,6 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			damage = 0
 		end
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
-		if victim:HasModifier("modifier_resplendent_rubber_boots") then
-			damage = damage*0.65
-		end
 		if victim:HasModifier("modifier_starseeker_passive") then
 			damage = 0
 		end
@@ -1416,6 +1413,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 
 	if victim:HasModifier("modifier_ablecore_greaves_effect") then
 		damage = damage*0.2
+	end
+	if victim:HasModifier("modifier_resplendent_rubber_boots") then
+		damage = damage*0.25
 	end
 	if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
 		damage = damage*0.05
