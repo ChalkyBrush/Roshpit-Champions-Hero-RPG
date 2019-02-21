@@ -42,6 +42,10 @@ function lava_prisoner_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_FARTHEST, false )
+	if not ability then
+		print("[error] lava_prisoner_think ability")
+		return
+	end
 	if #enemies > 0 then
 		if caster:HasModifier("modifier_lava_prisoner_submerged") then
 			caster:RemoveModifierByName("modifier_lava_prisoner_submerged")
@@ -457,7 +461,7 @@ end
 function agility_aura_think(event)
 	local caster = event.caster
 	local omni_slash = caster:FindAbilityByName("fire_temple_omni_slash")
-	if caster.aggro then
+	if omni_slash and caster.aggro then
 		if omni_slash:IsFullyCastable() then
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 620, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_FARTHEST, false )	
 			if #enemies > 0 then
@@ -1602,7 +1606,7 @@ function fire_spirit_die(event)
 	local caster = event.caster
 	Tanari:SpiritFireTempleStart()
 	EmitSoundOn("Tanari.FireSpirit.Death", caster)
-	local pfx = ParticleManager:CreateParticle("particles/radiant_fx/epoch_rune_w_3_ranged001_lvl3_disintegrate.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	local pfx = ParticleManager:CreateParticle("particles/radiant_fx/epoch_rune_c_b_ranged001_lvl3_disintegrate.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,60))
 	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,60))
 

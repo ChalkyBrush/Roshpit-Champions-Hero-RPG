@@ -405,7 +405,7 @@
 			"soundfile"					"items/hotd.wav"
 			"particle"					"particles/econ/items/sven/sven_cyclopean_marauder/leshrac_grow_effect.vpcf"
 			"particle"					"particles/econ/items/sven/sven_cyclopean_marauder/leshrac_shrink_effect.vpcf"
-			"particle"					"particles/units/heroes/hero_skywrath_mage/leshrac_rune_e_2_arcane_bolt.vpcf"
+			"particle"					"particles/units/heroes/hero_skywrath_mage/leshrac_rune_b_c_arcane_bolt.vpcf"
 			"particle"		"particles/units/heroes/hero_leshrac/bahamut_nova.vpcf"
 			"particle"		"particles/units/heroes/hero_leshrac/bahamut_nova_strike.vpcf"
 			"particle"		"particles/units/heroes/hero_invoker/invoker_death_end.vpcf"
