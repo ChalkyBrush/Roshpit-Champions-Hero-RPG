@@ -16,11 +16,16 @@
 		"wave_spawning"													"Появление волны"
 
 		"rpc_serengaard_tower"											"Драконья Башня"
+		"DOTA_Tooltip_ability_serengaard_tower_ability_Description"		"Башни-магические стражи атакуют приближающихся противников."
 		"serengaard_ancient_guardian"									"Солнечный Страж"
 
 		"rpc_serengaard_barracks"										"Солнечные бараки"
+		"DOTA_Tooltip_ability_serengaard_barracks_ability"				"Serengaard Barracks"
+		"DOTA_Tooltip_ability_serengaard_barracks_ability_Description"	"Этот барак периодически выпускает стражей, которые защищают свою линию."
 
 		"serengaard_ranger"												"Солнечный стрелок"
+		"DOTA_Tooltip_ability_serengaard_ranger_ability"				"Sun Ranger"
+		"DOTA_Tooltip_ability_serengaard_ranger_ability_Description"				"Девы Щита отвлекают противников бросками лезвий."
 
 		"rpc_serengaard_teleporter"										"Телепорт Серенгарда"
 
