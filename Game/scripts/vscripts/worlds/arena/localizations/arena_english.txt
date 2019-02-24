@@ -810,10 +810,9 @@
 		"DOTA_Tooltip_modifier_arena_grave_chill_target"		"Descent Grave Chill"
 		"DOTA_Tooltip_modifier_arena_grave_chill_target_Description"	"Reduced movespeed, armor, and magic resist."
 
-		"DOTA_Tooltip_ability_golden_skullbone_ai"				"Magic Immunity"
-
 		"lies_golden_skullbone"									"Golden Skullbone"
-		"DOTA_Tooltip_ability_golden_skullbone_ai"				"That unit has permanent immunity to magical damage."
+		"DOTA_Tooltip_ability_golden_skullbone_ai"				"Magic Immunity"
+		"DOTA_Tooltip_ability_golden_skullbone_ai_Description"				"That unit has permanent immunity to magical damage."
 		
 		"arena_descent_tombstone"								"Tombstone"
 		
