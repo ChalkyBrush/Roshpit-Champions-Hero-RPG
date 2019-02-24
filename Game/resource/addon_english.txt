@@ -7219,7 +7219,18 @@
     "property_jex_arcana1_description"                              "Replaces Onibi's <font color=\"#5CCDF9\">Lightning</font> module with a <font color=\"#EF4126\">Fire</font> module."
 
     "DOTA_Tooltip_ability_jex_fire_fire_q"				"Ring of Fire"
-    "DOTA_Tooltip_ability_jex_fire_fire_q_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>A ring of fire expands and contracts, dealing damage to enemies that come into contact."
+    "DOTA_Tooltip_ability_jex_fire_fire_q_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>A ring of fire expands and contracts, dealing damage to enemies that come into contact with it."
+    "DOTA_Tooltip_ability_jex_fire_fire_q_attack_damage_per_tech"		"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO BASE DAMAGE PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_cooldown_reduction_per_tech"	"<font color=\"#f4b942\">COOLDOWN REDUCTION PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_base_damage"					"BASE DAMAGE:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_radius"						"MAX RADIUS:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_agility_added_to_base_damage"	"AGILITY MULTIPLIER ADDED TO BASE DAMAGE:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_w_4_damage_increase_pct_edges"	"%<font color=\"#7DFF12\">[W4] Maximum Base damage increase based on radius. Largest multiplier at edge of radius:</font>:"
+
+    "DOTA_Tooltip_ability_jex_fire_fire_q"				"Woodland Fever"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_Description"	"Creates a tree that radiates a deep and disorienting heat. Enemies close to the tree will attack it in confusion. Each instance of damage taken by the tree deals 1 damage."
+
+    //EXOTHERMIC SPLICE
 
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"Shockwave"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#AF843D\">Earth</font><br>Unearths a cascade of force that damage and stuns everyone in its path."

@@ -16,6 +16,8 @@ function jex_activate_q_nature_fire(event)
     tree.summoner = caster
     tree:SetOwner(caster)
     tree:SetRenderColor(125, 70, 30)
+    tree:SetDayTimeVisionRange(700)
+    tree:SetNightTimeVisionRange(700)
     tree:SetControllableByPlayer(caster:GetPlayerID(), true)
     tree.dieTime = life_duration
     tree:AddAbility("ability_die_after_time_generic"):SetLevel(1)

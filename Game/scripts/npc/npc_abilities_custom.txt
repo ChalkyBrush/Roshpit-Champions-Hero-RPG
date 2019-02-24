@@ -3738,6 +3738,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"jex/invoked_abilities/wrath_of_lightning"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
@@ -3752,7 +3753,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"2.4"
+		"AbilityCooldown"				"2.8"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -3764,42 +3765,32 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_damage_per_tech"				"20"
+				"attack_damage_per_tech"				"2000"
 			}	
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius_per_tech"		"30"
+				"cooldown_reduction_per_tech"				"0.1"
 			}	
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"minimum_bolts_per_tech"		"2"
+				"base_damage"				"5000 10000 32000 84000 240000 500000 1500000"
 			}	
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"minimum_bolts_base"				"2"
-			}		
+				"radius"				"700 750 800 850 900 950 1000"
+			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_damage"				"1000 4000 10000 32000 84000 176000 298000"
-			}	
+				"agility_added_to_base_damage"		"200 400 600 800 1000 1200 1400"
+			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"700"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"agility_added_to_base_damage"		"20 40 60 80 100 120 140"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"w_4_damage_increase_pct"		"10"
+				"w_4_damage_increase_pct_edges"		"100"
 			}
 		}
 		"OnSpellStart"
@@ -3809,13 +3800,10 @@
 				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_fire_fire.lua"
 				"Function"		"jex_activate_q_fire_fire"
 				"attack_damage_per_tech" 	"%attack_damage_per_tech"
-				"radius"	"%radius"
-				"radius_per_tech"	"%radius_per_tech"
+				"cooldown_reduction_per_tech"	"%cooldown_reduction_per_tech"
 				"base_damage"		"%base_damage"
+				"radius"			"%radius"
 				"agility_added_to_base_damage"	"%agility_added_to_base_damage"
-				"w_4_damage_increase_pct"		"%w_4_damage_increase_pct"
-				"minimum_bolts_base"			"%minimum_bolts_base"
-				"minimum_bolts_per_tech"		"%minimum_bolts_per_tech"
 
 			}
 		}
@@ -3833,6 +3821,7 @@
 					{
 						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_fire_fire.lua"
 						"Function"		"jex_fire_fire_ring_thinker"
+						"w_4_damage_increase_pct_edges"	"%w_4_damage_increase_pct_edges"
 					}
 				}
 			}
@@ -3954,7 +3943,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_1"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK2"
 		"AbilityCastRange"				"800 900 1000 1100 1200 1300 1400"
 
 		// Precache
@@ -3965,7 +3954,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6.0 5.75 5.5 5.25 5.0 4.75 4.5"
+		"AbilityCooldown"				"8"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -3978,19 +3967,24 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_damage_per_tech"				"100 500 1000 3000 10000 30000 100000"
+				"health_per_tech"				"3"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_speed_per_tech"				"50"
+				"var_type"				"FIELD_FLOAT"
+				"taunt_duration_per_tech"				"0.2"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"travel_speed_per_tech"				"5"
+				"taunt_duration_base"				"1"
 			}
 			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_base"				"12"
+			}
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"cast_range"				"800 900 1000 1100 1200 1300 1400"
@@ -3998,17 +3992,17 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"travel_speed_base"				"50"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"10"
+				"duration"				"30"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"w_4_duration_increase"				"0.4"
+				"q_4_duration_increase"				"0.5"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"w_4_attack_damage_from_pulse"				"80"
 			}
 		}
 		"OnSpellStart"
@@ -4823,7 +4817,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8"
+		"AbilityCooldown"				"5.5"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------

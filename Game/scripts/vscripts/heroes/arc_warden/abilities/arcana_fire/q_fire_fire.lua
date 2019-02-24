@@ -12,13 +12,8 @@ function jex_activate_q_fire_fire(event)
 	local agility_added_to_base_damage = event.agility_added_to_base_damage
 
 	local tech_level = onibi_get_total_tech_level(caster, "fire", "fire", "Q")
-	local total_radius = radius + radius_per_tech*tech_level
 	local damage = base_damage + agility_added_to_base_damage*caster:GetAgility() + (attack_damage_per_tech/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
 
-	local w_4_level = caster:GetRuneValue("w", 4)
-	if w_4_level > 0 then
-		damage = damage + damage*(event.w_4_damage_increase_pct/100)*w_4_level
-	end
 	ability.damage = damage
 
 	if not ability.ring_table then
@@ -30,7 +25,6 @@ function jex_activate_q_fire_fire(event)
 	new_ring.pfx = ParticleManager:CreateParticle("particles/roshpit/jex/ring_of_fire_reduced_flash.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	table.insert(ability.ring_table, new_ring)
 	local ringDuration = 0
-	local radius = 1000
 	local speed = radius*1
 	ability.speed = speed
 	ability.radius = radius
@@ -52,6 +46,10 @@ function jex_activate_q_fire_fire(event)
 	EmitSoundOn("Jex.RingOfFire.Start", caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_ring_of_fire_thinker", {})
 	Filters:CastSkillArguments(1, caster)
+	local cd = ability:GetCooldownTimeRemaining()
+	cd = cd - tech_level*event.cooldown_reduction_per_tech
+	ability:EndCooldown()
+	ability:StartCooldown(cd)
 end
 
 function reindex_fire_fire_q_table(caster, ability)
@@ -70,6 +68,7 @@ end
 function jex_fire_fire_ring_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
+	local w_4_level = caster:GetRuneValue("w", 4)
 	for i = 1, #ability.ring_table, 1 do
 		local ring = ability.ring_table[i]
 		if ring.active then
@@ -87,8 +86,14 @@ function jex_fire_fire_ring_thinker(event)
 					for _,enemy in pairs(enemies) do
 						if WallPhysics:DoesTableHaveValue(enemies_exclude, enemy) then
 						else
+							local damage = ability.damage
+							if w_4_level > 0 then
+								local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), enemy:GetAbsOrigin())
+								local distance_percentage = distance/ability.radius
+								damage = damage + damage*distance_percentage*event.w_4_damage_increase_pct_edges*w_4_level
+							end
 							EmitSoundOn("Jex.RingOfFire.Hit", enemy)
-							Filters:TakeArgumentsAndApplyDamage(enemy, caster, ability.damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+							Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 							CustomAbilities:QuickAttachParticle("particles/econ/items/ogre_magi/ogre_ti8_immortal_weapon/ogre_ti8_immortal_bloodlust_buff_flash.vpcf", enemy, 2)
 						end
 					end
