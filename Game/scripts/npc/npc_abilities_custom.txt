@@ -3735,7 +3735,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"jex/invoked_abilities/wrath_of_lightning"
 		"LevelsBetweenUpgrades"  "0"
@@ -3942,6 +3942,220 @@
 
 		}
 	}
+
+	"jex_nature_fire_q"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/invoked_abilities/jolt"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_1"
+		"AbilityCastRange"				"800 900 1000 1100 1200 1300 1400"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.15"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6.0 5.75 5.5 5.25 5.0 4.75 4.5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_damage_per_tech"				"100 500 1000 3000 10000 30000 100000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed_per_tech"				"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"travel_speed_per_tech"				"5"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"				"800 900 1000 1100 1200 1300 1400"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"travel_speed_base"				"50"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"10"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"w_4_duration_increase"				"0.4"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_nature_fire.lua"
+        		"Function"		"jex_activate_q_nature_fire"
+        		"Target"		"POINT"
+        		"travel_speed_base"	"%travel_speed_base"
+        		"travel_speed_per_tech"			"%travel_speed_per_tech"
+        	}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_fire_tree"
+			{
+				"IsHidden"	"1"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_nature_fire.lua"
+						"Function"		"jex_fire_tree_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_nature_fire.lua"
+						"Function"		"jex_fire_tree_die"
+					}
+				}
+			}
+			"modifier_jex_fire_tree_taunt"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"
+				"StatusEffectPriority"  "10"
+				"EffectName"		"particles/items2_fx/satanic_buff.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"redrock_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+
+	"jex_fire_fire_w"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"zonik/timewarp_missles"
+		"AbilityCastPoint"	"0.1"
+		"AbilityCooldown"	"0"
+
+		"AbilityCastAnimation"	"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"0"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/w_fire_fire.lua"
+				"Function"		"jex_fire_fire_w_start"
+				"target"		"POINT"
+			}
+
+		}
+
+		"Modifiers"
+		{
+			"modifier_w_fire_fire_thinker"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+			
+				"ThinkInterval" 	"0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/w_fire_fire.lua"
+						"Function"		"jex_w_fire_thinker"
+						"damage"		"%damage"
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"3000 10000 25000 60000 200000 1000000 2500000"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"ms_mult"	"1"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"create_interval"	"0.36 0.33 0.3 0.27 0.24 0.21 0.18"
+			}
+		}
+	}
+
+
 
 	"jex_nature_fire_w"
 	{
@@ -4582,6 +4796,172 @@
 		}
 	}
 
+	"jex_fire_cosmic_e"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"bahamut/bahamut_arcana_orb"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"80000"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT_END"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+	    "precache"
+	    {
+
+	    }
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_drain_per_second"	"75.0 60.0 50.0 40.0 25.0 15.0 5.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"1188"
+			}
+
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_cosmic.lua"
+				"Function"		"begin_lightning_dash"
+				"Target"		"POINT"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_bahamut_sphere_of_divinity"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"OverrideAnimation"     "ACT_DOTA_VERSUS"
+				"EffectName"	"particles/roshpit/jex/fire_cosmic_e_ball_lightning.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"ThinkInterval"  "0.03"
+				"IsHidden"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_cosmic.lua"
+						"Function"		"dash_think"
+						"mana_drain_per_second"	"%mana_drain_per_second"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_cosmic.lua"
+						"Function"		"dash_end"
+					}
+				}
+			}
+			"modifier_bahamut_arcana_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_spellvamp_healing"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_witchdoctor/ivory_gryffin_heal.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+						"ControlPoints"
+						{
+							"01"	"500 500 500"
+						}
+					}
+				}
+			}
+			"modifier_bahamut_arcana_post_mit"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"bahamut/bahamut_rune_w_2_arcana2"
+				"EffectName"	"particles/roshpit/bahamut/bahamut_arcana_postmit_heal.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_arcana2_purity_freeze"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"		"particles/roshpit/bahamut/purity_freeze_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"TextureName"	"bahamut/bahamut_rune_w_3_arcana2"
+				"OnCreated"
+				{
+					"FireEffect"
+					{
+						"EffectName"        "particles/roshpit/bahamut/purity_impact.vpcf"
+						"EffectAttachType"  "start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"CASTER"	"follow_origin"
+							"TARGET"	"follow_origin"
+						}
+					}
+				}
+			}
+			"modifier_bahamut_arcana_w4_amp"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"bahamut/bahamut_w_4_arcana2"
+			}
+			"modifier_bahamut_arcana_w4_amp_linger"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"bahamut/bahamut_w_4_arcana2"
+			}
+		}
+	}
 
 
 	"jex_rune_w_1_arcana1"

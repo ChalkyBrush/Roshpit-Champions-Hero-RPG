@@ -3515,7 +3515,8 @@ function Filters:RedrockFootwear(caster)
             local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
             if #enemies > 0 then
                 for _,enemy in pairs(enemies) do
-                    if not enemy:GetAttackCapability() == DOTA_UNIT_CAP_NO_ATTACK then
+                    if enemy:GetAttackCapability() == DOTA_UNIT_CAP_NO_ATTACK then
+                    else
                         ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_redrock_footwear_taunt_effect", {duration = 5})
                         enemy:MoveToTargetToAttack(caster)
                     end
