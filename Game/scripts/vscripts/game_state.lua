@@ -26,6 +26,8 @@ local heroes = {
 	mountain_protector = require('/heroes/legion_commander/constants')
 }
 
+VectorTarget:Init({ noOrderFilter = true })
+
 GameState.PVP_REDUCTION = 0.01
 
 function OverflowProtectedGetAverageTrueAttackDamage(caster)
@@ -1276,7 +1278,8 @@ function GameState:OrderFilter(orderTable)
 			end
 		end
 	end
-	return true
+	return VectorTarget:OrderFilter(params)
+	-- return true
 
 end
 
@@ -1663,6 +1666,12 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		if shouldConsumeShields then
 			CustomAbilities:HitLunaShield(victim, attacker)
 		end
+	end
+	if victim:HasModifier("modifier_jex_orbital_flame_effect") then
+		if shouldConsumeShields then
+			damage = 0
+			CustomAbilities:HitJexOrbitalFlame(victim, attacker)
+		end		
 	end
 	if victim:HasModifier("modifier_knights_disciple_heal") then
 		damage = damage*0.8

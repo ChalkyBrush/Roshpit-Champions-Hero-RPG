@@ -36,6 +36,7 @@ function jex_activate_q_fire_fire(event)
 	ability.radius = radius
 	new_ring.distance_from_center = 0
 	new_ring.interval = 0
+	new_ring.attachmentUnit = caster
     ParticleManager:SetParticleControl(new_ring.pfx, 0, caster:GetAbsOrigin())
     ParticleManager:SetParticleControl(new_ring.pfx, 1, Vector(speed, radius, 600))
     Timers:CreateTimer(ringDuration+(radius/speed), function()

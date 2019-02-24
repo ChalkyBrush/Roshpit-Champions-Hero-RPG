@@ -3,7 +3,7 @@ require('heroes/arc_warden/abilities/onibi')
 function jex_fire_cosmic_q_phase(event)
 	local caster = event.caster
 	local ability = event.ability
-	StartAnimation(caster, {duration=0.97, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.1})
+	StartAnimation(caster, {duration=0.97, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.9})
 	local point = event.target_points[1]
 
 	ability.point = point

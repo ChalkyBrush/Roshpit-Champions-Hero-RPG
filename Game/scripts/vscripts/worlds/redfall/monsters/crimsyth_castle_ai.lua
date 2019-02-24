@@ -289,10 +289,11 @@ function bombadier_bomb_thinking(event)
 	caster.interval = caster.interval + 1
 	local groundHeight = GetGroundHeight(caster:GetAbsOrigin(), caster)
 	if caster:GetAbsOrigin().z - groundHeight < 10 then
-		flareParticle(caster:GetAbsOrigin())
+		
 		EmitSoundOn("Redfall.Bombadier.BombExplose", caster)
 		caster:RemoveModifierByName("modifier_solar_projectile_motion")
 		bombImpact(caster, ability)
+		flareParticle(caster:GetAbsOrigin())
 		Timers:CreateTimer(0.1, function()
 			UTIL_Remove(caster)
 		end)

@@ -826,9 +826,29 @@ function CustomAbilities:JumpEnd(caster)
 		ScreenShake(caster:GetAbsOrigin(), 300, 0.5, 0.5, 9000, 0, true)
 	end
 end
+
+function CustomAbilities:HitJexOrbitalFlame(victim, attacker)
+	local caster = victim:FindModifierByName("modifier_jex_orbital_flame_effect"):GetCaster()
+    local currentStacks = victim:GetModifierStackCount("modifier_jex_orbital_flame_effect", caster)
+    if currentStacks > 1 then
+        victim:SetModifierStackCount("modifier_jex_orbital_flame_effect", caster, currentStacks-1)
+    else
+        victim:RemoveModifierByName("modifier_jex_orbital_flame_effect")
+    end   
+
+    local fireAbility = caster:FindAbilityByName("jex_fire_cosmic_w")
+    for i = 1, #fireAbility.flameTable, 1 do
+    	if fireAbility.flameTable[i]:HasModifier("modifier_energy_field_thinker") then
+    		fireAbility.flameTable[i]:RemoveModifierByName("modifier_energy_field_thinker")
+    		break
+    	end
+    end
+end
+
 function CustomAbilities:UnitsSpecial(msg)
 	if msg.onibi then
 		require('heroes/arc_warden/abilities/onibi')
 		upgrade_onibi_ability(msg)
 	end
 end
+

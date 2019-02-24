@@ -3,6 +3,7 @@
 require('internal/util')
 require('gamemode')
 
+
 function Precache( context )
 --[[
   This function is used to precache resources/units/items/abilities that will be needed
@@ -209,6 +210,7 @@ PrecacheResource("particle", "particles/econ/items/meepo/meepo_colossal_crystal_
   -- PrecacheResource("model", "models/items/vest.vmdl", context)
 
   -- SpecialPrecache(context)
+  VectorTarget:Precache( context )
 end
 
 -- Create the game mode when we activate

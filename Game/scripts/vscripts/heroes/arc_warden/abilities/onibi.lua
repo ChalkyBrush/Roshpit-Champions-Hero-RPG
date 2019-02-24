@@ -279,6 +279,12 @@ function get_ability_name_by_element_combination_and_key(element1, element2, abi
 			ability_name = "jex_lightning_cosmic_w"
 		elseif element1 == "cosmic" and element2 == "cosmic" then
 			ability_name = "jex_cosmic_cosmic_w"
+		elseif element1 == "fire" and element2 == "fire" then
+			ability_name = "jex_fire_fire_w"
+		elseif (element1 == "nature" and element2 == "fire") or (element1 == "fire" and element2 == "nature") then
+			ability_name = "jex_nature_fire_w"
+		elseif (element1 == "cosmic" and element2 == "fire") or (element1 == "fire" and element2 == "cosmic") then
+			ability_name = "jex_fire_cosmic_w"
 		end
 	elseif ability_key == "E" then
 		if element1 == "nature" and element2 == "nature" then
@@ -293,6 +299,10 @@ function get_ability_name_by_element_combination_and_key(element1, element2, abi
 			ability_name = "jex_lightning_cosmic_e"
 		elseif element1 == "cosmic" and element2 == "cosmic" then
 			ability_name = "jex_cosmic_cosmic_e"
+		elseif element1 == "fire" and element2 == "fire" then
+			ability_name = "jex_fire_fire_e"
+		elseif (element1 == "nature" and element2 == "fire") or (element1 == "fire" and element2 == "nature") then
+			ability_name = "jex_nature_fire_e"
 		end
 
 

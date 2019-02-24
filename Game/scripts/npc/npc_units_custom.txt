@@ -250,6 +250,85 @@
         "Ability2"      "hero_summon_ai"
     }
 
+    "jex_cinderbark_treant"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/treant_protector/treant_protector.vmdl"
+        "SoundSet"  "Hero_Treant"
+        "Level" "1"
+        "UnitLabel" "healing_ward"
+        "ModelScale"    "0.5"
+        "HealthBarOffset"   "340"
+        "precache"
+        {
+
+        }
+        "Ability1"      "jex_cinderbark_teleport"
+        "Ability2"      "cinderbark_detonate"
+        "Ability3"      "hero_summon_ai"
+        "ArmorPhysical" "1500"
+        "MagicalResistance" "20"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageMin"   "900"
+        "AttackDamageMax"   "1200"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "0.41"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "210"
+        "ProjectileModel"   ""
+        "AttributePrimary"  "DOTA_ATTRIBUTE_STRENGTH"
+        "AttributeBaseStrength" "0"
+        "AttributeStrengthGain" "0"
+        "AttributeBaseIntelligence" "0"
+        "AttributeIntelligenceGain" "0"
+        "AttributeBaseAgility"  "0"
+        "AttributeAgilityGain"  "0"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "BountyXP"  "900"
+        "BountyGoldMin" "600"
+        "BountyGoldMax" "800"
+        "RingRadius"    "0"
+        "HasInventory"  "0"
+        "CollisionSize" "0"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.6"
+        "FollowRange"   "0"
+        "StatusHealth"  "60000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
+        "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "VisionDaytimeRange"    "0"
+        "VisionNighttimeRange"  "0"
+        "AttackDesire"  "1.5"
+
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "8427"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "8429"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "8425"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "8428"
+                }
+            }
+        }
+    }
+
 
 
     "ekkan_skeleton_archer"
