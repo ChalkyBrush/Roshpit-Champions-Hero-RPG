@@ -930,6 +930,8 @@
 		"DOTA_Tooltip_ability_redfall_mega_steadfast"							"Mega Steadfast"
 		"DOTA_Tooltip_ability_redfall_mega_steadfast_Description"				"Each instance of damage can not deal more than a % of max health."
 		"DOTA_Tooltip_ability_redfall_mega_steadfast_max_damage"				"HEALTH % MAX:"
+		"DOTA_Tooltip_modifier_mega_steadfast"									"Mega Steadfast"
+		"DOTA_Tooltip_modifier_mega_steadfast_Description"						"Each instance of damage can not deal more than a % of max health."
 
 		"redfall_crimsyth_castle_grounds_guardian"						"Castle Grounds Guardian"
 

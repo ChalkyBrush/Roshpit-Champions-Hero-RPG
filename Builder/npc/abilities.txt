@@ -43340,7 +43340,7 @@
 			"modifier_ancient_steadfast"
 			{
 				"Passive"	"1"
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 			}
 			"modifier_steadfast_boss_dying"
 			{
@@ -50280,7 +50280,7 @@
 			"modifier_mega_steadfast"
 			{
 				"Passive"	"1"
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 			}
 		}
 	}
