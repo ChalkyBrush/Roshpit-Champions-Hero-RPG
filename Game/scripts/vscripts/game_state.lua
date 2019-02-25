@@ -1027,7 +1027,7 @@ function GameState:OrderFilter(orderTable)
 					if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 						movementPosition = (EntIndexToHScript(orderTable.entindex_target)):GetAbsOrigin()
 						local distance = WallPhysics:GetDistance2d(unit:GetAbsOrigin(), movementPosition)
-						if distance > 800 then
+						if distance > 2000 then
 							local distanceFromCenter = WallPhysics:GetDistance2d(Vector(-64, 256), movementPosition)
 							if distanceFromCenter < 5600 then
 								unit:Stop()
@@ -1038,7 +1038,7 @@ function GameState:OrderFilter(orderTable)
 					end
 				else
 					local distance = WallPhysics:GetDistance2d(unit:GetAbsOrigin(), movementPosition)
-					if distance > 800 then
+					if distance > 2000 then
 						local distanceFromCenter = WallPhysics:GetDistance2d(Vector(-64, 256), movementPosition)
 						if distanceFromCenter < 5600 then
 							unit:Stop()
