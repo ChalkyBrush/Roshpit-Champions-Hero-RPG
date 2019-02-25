@@ -3982,7 +3982,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health_base"				"12"
+				"health_base"				"6"
 			}
 			"05"
 			{
@@ -4002,7 +4002,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"w_4_attack_damage_from_pulse"				"80"
+				"w_4_attack_damage_from_pulse"				"150"
 			}
 		}
 		"OnSpellStart"
@@ -4012,8 +4012,10 @@
         		"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_nature_fire.lua"
         		"Function"		"jex_activate_q_nature_fire"
         		"Target"		"POINT"
-        		"travel_speed_base"	"%travel_speed_base"
-        		"travel_speed_per_tech"			"%travel_speed_per_tech"
+        		"health_per_tech"	"%health_per_tech"
+        		"health_base"			"%health_base"
+        		"duration"			"%duration"
+        		"q_4_duration_increase"	"%q_4_duration_increase"
         	}
 		}
 		"Modifiers"
@@ -4038,6 +4040,8 @@
 						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_nature_fire.lua"
 						"Function"		"jex_fire_tree_think"
 						"target"		"TARGET"
+						"taunt_duration_base"	"%taunt_duration_base"
+						"taunt_duration_per_tech"	"%taunt_duration_per_tech"
 					}
 				}
 				"OnDeath"
@@ -4047,6 +4051,17 @@
 						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_nature_fire.lua"
 						"Function"		"jex_fire_tree_die"
 					}
+				}
+			}
+			"modifier_jex_fire_nature_q_attack_power"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"		"particles/items2_fx/satanic_buff.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%w_4_attack_damage_from_pulse"
 				}
 			}
 			"modifier_jex_fire_tree_taunt"

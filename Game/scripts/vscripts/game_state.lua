@@ -3487,7 +3487,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_frozen_stand") then
 		filterTable["damage"] = 0
 	end
-	if victim:HasModifier("modifier_shipyard_spawner_passive") then
+	if victim:HasModifier("modifier_shipyard_spawner_passive") or victim:HasModifier("modifier_jex_fire_tree") then
 		filterTable["damage"] = 1
 	end
 	if victim:HasModifier("modifier_line_tower_passive") then

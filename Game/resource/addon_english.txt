@@ -7229,8 +7229,15 @@
 
     "DOTA_Tooltip_ability_jex_fire_fire_q"				"Woodland Fever"
     "DOTA_Tooltip_ability_jex_fire_fire_q_Description"	"Creates a tree that radiates a deep and disorienting heat. Enemies close to the tree will attack it in confusion. Each instance of damage taken by the tree deals 1 damage."
+    "DOTA_Tooltip_ability_jex_fire_fire_q_health_per_tech"			"<font color=\"#f4b942\">ADDITIONAL TREE HEALTH PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_taunt_duration_per_tech"	"<font color=\"#f4b942\">ADDITIONAL TAUNT DURATION PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_taunt_duration_base"		"TAUNT DURATION BASE:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_health_base"				"TREE BASE HEALTH:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_cast_range"				"CAST RANGE:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_duration"					"TREE DURATION BASE:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_q_4_duration_increase"		"<font color=\"#7DFF12\">[Q4] Duration Increase</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_fire_q_w_4_attack_damage_from_pulse"	"<font color=\"#7DFF12\">[W4] Attack damage buff when Jex touched by taunt wave. Same duration as taunt effect</font>:"	
 
-    //EXOTHERMIC SPLICE
 
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"Shockwave"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#AF843D\">Earth</font><br>Unearths a cascade of force that damage and stuns everyone in its path."
