@@ -3836,6 +3836,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"jex/invoked_abilities/jolt"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -3864,37 +3865,37 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_damage_per_tech"				"100 500 1000 3000 10000 30000 100000"
+				"meteors_per_tech"				"4"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_speed_per_tech"				"50"
+				"attack_damage_percent_added_per_tech"				"100"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"travel_speed_per_tech"				"5"
+				"base_damage"				"3000 10000 40000 80000 240000 640000 1280000"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range"				"800 900 1000 1100 1200 1300 1400"
+				"base_meteors"				"12"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"travel_speed_base"				"50"
+				"strength_added_to_damage"				"10 20 40 80 160 320 640"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"				"10"
+				"w_4_base_damage_increase"				"15"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"w_4_duration_increase"				"0.4"
+				"e_4_stun_duration"				"0.03"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -3922,8 +3923,13 @@
         		"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_fire_cosmic.lua"
         		"Function"		"jex_activate_q_fire_cosmic"
         		"Target"		"POINT"
-        		"travel_speed_base"	"%travel_speed_base"
-        		"travel_speed_per_tech"			"%travel_speed_per_tech"
+        		"meteors_per_tech"	"%meteors_per_tech"
+        		"attack_damage_percent_added_per_tech"			"%attack_damage_percent_added_per_tech"
+        		"base_damage"			"%base_damage"
+        		"base_meteors"			"%base_meteors"
+        		"strength_added_to_damage"	"%strength_added_to_damage"
+        		"w_4_base_damage_increase"			"%w_4_base_damage_increase"
+        		"e_4_stun_duration"			"%e_4_stun_duration"
         	}
 		}
 		"Modifiers"
@@ -3992,7 +3998,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"				"30"
+				"duration"				"25"
 			}
 			"07"
 			{

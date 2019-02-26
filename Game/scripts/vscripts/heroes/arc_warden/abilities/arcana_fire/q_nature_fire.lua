@@ -19,6 +19,7 @@ function jex_activate_q_nature_fire(event)
 	local life_duration = event.duration + event.q_4_duration_increase*q_4_level
 	local max_health = event.health_base + event.health_per_tech*tech_level
 	tree:SetBaseMaxHealth(max_health)
+	tree:SetMaxHealth(max_health)
 	tree:SetHealth(max_health)
     tree.summoner = caster
     tree:SetOwner(caster)
@@ -40,7 +41,7 @@ function jex_fire_tree_think(event)
     local position = target:GetAbsOrigin()
     local particleName = "particles/units/heroes/hero_faceless_void/redrock_timedialate.vpcf"
     local particle = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
-    local radius = 600
+    local radius = 450
     ParticleManager:SetParticleControl(particle, 0, position)
     ParticleManager:SetParticleControl(particle, 1, Vector(radius,radius,radius))
     Timers:CreateTimer(2, function()

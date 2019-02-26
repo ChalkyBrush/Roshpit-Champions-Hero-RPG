@@ -405,7 +405,8 @@
 	"item_rpc_jex_glyph_5_a_description" 				"Increases the tech level of all of Jex's abilities by @glyph_property1."
 
     //FIRE ARCANA
-    
+    "DOTA_Tooltip_ability_item_jex_arcana1"							"Flamesynth Cybernetics"
+
 	"item_property_jex_arcana1"                                     "Fire Module"
     "property_jex_arcana1_description"                              "Replaces Onibi's <font color=\"#5CCDF9\">Lightning</font> module with a <font color=\"#EF4126\">Fire</font> module."
 
@@ -418,13 +419,29 @@
     "DOTA_Tooltip_ability_jex_fire_fire_q_agility_added_to_base_damage"	"AGILITY MULTIPLIER ADDED TO BASE DAMAGE:"
     "DOTA_Tooltip_ability_jex_fire_fire_q_w_4_damage_increase_pct_edges"	"%<font color=\"#7DFF12\">[W4] Maximum Base damage increase based on radius. Largest multiplier at edge of radius:</font>:"
 
-    "DOTA_Tooltip_ability_jex_fire_fire_q"				"Woodland Fever"
-    "DOTA_Tooltip_ability_jex_fire_fire_q_Description"	"Creates a tree that radiates a deep and disorienting heat. Enemies close to the tree will attack it in confusion. Each instance of damage taken by the tree deals 1 damage."
-    "DOTA_Tooltip_ability_jex_fire_fire_q_health_per_tech"			"<font color=\"#f4b942\">ADDITIONAL TREE HEALTH PER TECH</font>:"
-    "DOTA_Tooltip_ability_jex_fire_fire_q_taunt_duration_per_tech"	"<font color=\"#f4b942\">ADDITIONAL TAUNT DURATION PER TECH</font>:"
-    "DOTA_Tooltip_ability_jex_fire_fire_q_taunt_duration_base"		"TAUNT DURATION BASE:"
-    "DOTA_Tooltip_ability_jex_fire_fire_q_health_base"				"TREE BASE HEALTH:"
-    "DOTA_Tooltip_ability_jex_fire_fire_q_cast_range"				"CAST RANGE:"
-    "DOTA_Tooltip_ability_jex_fire_fire_q_duration"					"TREE DURATION BASE:"
-    "DOTA_Tooltip_ability_jex_fire_fire_q_q_4_duration_increase"		"<font color=\"#7DFF12\">[Q4] Duration Increase</font>:"	
-    "DOTA_Tooltip_ability_jex_fire_fire_q_w_4_attack_damage_from_pulse"	"<font color=\"#7DFF12\">[W4] Attack damage buff when Jex touched by taunt wave. Same duration as taunt effect</font>:"	
+    "DOTA_Tooltip_ability_jex_nature_fire_q"				"Woodland Fever"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_Description"	"Creates a tree that radiates a deep and disorienting heat. Enemies close to the tree will attack it in confusion. Each instance of damage taken by the tree deals 1 damage."
+    "DOTA_Tooltip_ability_jex_nature_fire_q_health_per_tech"			"<font color=\"#f4b942\">ADDITIONAL TREE HEALTH PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_taunt_duration_per_tech"	"<font color=\"#f4b942\">ADDITIONAL TAUNT DURATION PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_taunt_duration_base"		"TAUNT DURATION BASE:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_health_base"				"TREE BASE HEALTH:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_cast_range"				"CAST RANGE:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_duration"					"TREE DURATION BASE:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_q_4_duration_increase"		"<font color=\"#7DFF12\">[Q4] Additional Tree Duration</font>:"	
+    "DOTA_Tooltip_ability_jex_nature_fire_q_w_4_attack_damage_from_pulse"	"<font color=\"#7DFF12\">[W4] Attack damage buff when Jex touched by taunt wave. Same duration as taunt effect</font>:"	
+
+    "DOTA_Tooltip_modifier_jex_fire_tree_taunt"				"Woodland Fever"
+    "DOTA_Tooltip_modifier_jex_fire_tree_taunt_Description"	"Taunted"
+
+    "DOTA_Tooltip_modifier_jex_fire_nature_q_attack_power"	"Woodland Fever"
+    "DOTA_Tooltip_modifier_jex_fire_nature_q_attack_power_Description"	"Increased attack power"
+
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q"				"Meteor Shower"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_Description"	"Element: <font color=\"#EF4126\">Fire</font>/<font color=\"#C25DFC\">Cosmic</font><br>Jex creates a magnetic field that draws multiple meteors to crash down into the target area."
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_meteors_per_tech"			"<font color=\"#f4b942\">METEORS PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_attack_damage_percent_added_per_tech"	"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO BASE PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_base_damage"		"BASE DAMAGE:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_base_meteors"				"BASE METEORS:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_strength_added_to_damage"	"STRENGTH ADDED TO DAMAGE:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_w_4_base_damage_increase"		"%<font color=\"#7DFF12\">[W4] Base Damage Increase</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_e_4_stun_duration"	"<font color=\"#7DFF12\">[E4] Stun Duration</font>:"
