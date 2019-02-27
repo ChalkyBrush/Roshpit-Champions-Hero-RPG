@@ -7292,6 +7292,9 @@
     "DOTA_Tooltip_ability_jex_fire_cosmic_e_w_4_burn_damage_attack_power"	"%<font color=\"#7DFF12\">[W4] Enemies in contact burn for 5 seconds and take attack power as damage every 0.5 seconds:</font>:"
     "DOTA_Tooltip_ability_jex_fire_cosmic_e_e_4_mana_restore_on_land"		"%<font color=\"#7DFF12\">[E4] Mana restore upon landing:</font>:"	
 
+    "DOTA_Tooltip_modifier_jex_cipher_bolt_burn"			"Cipher Bolt Burn"
+    "DOTA_Tooltip_modifier_jex_cipher_bolt_burn_Description"	"Taking damage based on Jex's attack power and W4 level every 0.5 seconds"
+
 
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"Shockwave"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#AF843D\">Earth</font><br>Unearths a cascade of force that damage and stuns everyone in its path."
