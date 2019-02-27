@@ -1961,7 +1961,7 @@ function RPCItems:RollJexArcana1(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     item.property1 = 1
     item.property1name = "!arcana!_jex_arcana1"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_jex_arcana1", "#e08045",  1, "#property_jex_arcana1_description")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_jex_arcana1", "#EF4126",  1, "#property_jex_arcana1_description")
 
 
     item.hasRunePoints = true

@@ -54,7 +54,7 @@ function jex_activate_q_fire_cosmic(event)
 	end
 
 	local meteor_delay = 0.15
-	
+
 	for i = 1, meteors, 1 do
 		Timers:CreateTimer((i-1)*meteor_delay, function()
 			local target = ability.meteor_showers_table[RandomInt(1, #ability.meteor_showers_table)].position + RandomVector(RandomInt(1, 600))
@@ -63,7 +63,7 @@ function jex_activate_q_fire_cosmic(event)
 			Timers:CreateTimer(0.45, function()
 				EmitSoundOnLocationWithCaster(target, "Jex.MeteorShower.Impact", caster)
 				CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf", target, 3)
-				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 				if #enemies > 0 then
 					for _,enemy in pairs(enemies) do
 						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_COSMOS)

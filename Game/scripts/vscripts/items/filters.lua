@@ -1404,6 +1404,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local current_stack = attacker:GetModifierStackCount( "modifier_foot_base_ability_damage", attacker.InventoryUnit)
             damageMult = damageMult + 0.01*current_stack
         end
+        if attacker:HasModifier("modifier_jex_orbital_flame_effect") then
+            local fireAbility = attacker:FindAbilityByName("jex_fire_cosmic_w")
+            damageMult = damageMult + (fireAbility:GetSpecialValueFor("base_ability_damage_per_flame_tech")/100)*attacker:GetModifierStackCount("modifier_jex_orbital_flame_effect", attacker)*fireAbility.tech_level
+        end
         if attacker:HasModifier("modifier_weapon_base_ability_damage") then
             local current_stack = attacker:GetModifierStackCount( "modifier_weapon_base_ability_damage", attacker.InventoryUnit)
             damageMult = damageMult + 0.01*current_stack

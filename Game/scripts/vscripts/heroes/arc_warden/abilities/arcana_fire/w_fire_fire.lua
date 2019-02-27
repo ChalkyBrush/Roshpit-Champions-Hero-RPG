@@ -1,33 +1,4 @@
-function start_channel(event)
-	local caster = event.caster
-	local ability = event.ability
-	ability.interval = 0
-	ability.liftSpeed = 15
-	if ability.missleTable then
-		for i = 1, #ability.missleTable, 1 do
-			ParticleManager:DestroyParticle(ability.missleTable[i].pfx, false)
-		end
-	end
-	ability.missleTable = {}
-	StartSoundEvent("Zonik.ArcanaMissles.Channel", caster)
-	EmitSoundOn("Zonik.ArcanaMissles.StartVO", caster)
-	ability.point = event.target_points[1]
-    local radius = 160
-    local particleNameS = "particles/roshpit/zhonik/test/cube_explosion.vpcf"
-    local particle2 = ParticleManager:CreateParticle( particleNameS, PATTACH_WORLDORIGIN, caster )
-    ParticleManager:SetParticleControl( particle2, 0, caster:GetAbsOrigin() )
-    ParticleManager:SetParticleControl( particle2, 1, Vector(radius,radius,radius) )
-    ParticleManager:SetParticleControl( particle2, 2, Vector(1.1, 1.1, 1.1) )
-    ParticleManager:SetParticleControl( particle2, 4, Vector(100, 255, 100) )
-    Timers:CreateTimer(2.5, function()
-    	ParticleManager:DestroyParticle(particle2, false)
-    end)
-    if caster:HasModifier("modifier_iron_treads_of_destruction") then
-    	for i = 1, 10, 1 do
-    		create_fire_fire_w_missle(caster, ability, 300)
-    	end
-    end
-end
+require('heroes/arc_warden/abilities/onibi')
 
 function jex_fire_fire_w_start(event)
 	local caster = event.caster
@@ -36,14 +7,18 @@ function jex_fire_fire_w_start(event)
 		ability.missleTable = {}
 	end
 	ability.point = event.target_points[1]
-	local missle_count = 4
+	local tech_level = onibi_get_total_tech_level(caster, "fire", "fire", "W")
+	local missle_count = math.max(event.flames_per_tech*tech_level, 1)
 	for i = 1, missle_count, 1 do
 		Timers:CreateTimer((i-1)*0.1, function()
 			create_fire_fire_w_missle(caster, ability, 0)
 		end)
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_w_fire_fire_thinker", {})
+	EmitSoundOn("Jex.FireJuggler.Toss", caster)
 	Filters:CastSkillArguments(2, caster)
+	ability.damage = event.damage + (event.attack_damage_percent_added_per_tech/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
+	ability.w_4_level = caster:GetRuneValue("w", 4)
 end
 
 function create_fire_fire_w_missle(caster, ability, zOff)
@@ -62,7 +37,7 @@ function create_fire_fire_w_missle(caster, ability, zOff)
 	table.insert(ability.missleTable, missle)	
 	Timers:CreateTimer(0.5, function()
 		missle.locked = true
-		missle.lockPoint = ability.point + RandomVector(RandomInt(1, 260))
+		missle.lockPoint = GetGroundPosition(ability.point + RandomVector(RandomInt(1, 260)), caster) 
 		ParticleManager:SetParticleControl(pfx, 1, missle.lockPoint+Vector(0,0,50))
 		ParticleManager:SetParticleControl(pfx, 2, Vector(1400, 1400, 1400))
 		EmitSoundOnLocationWithCaster(missle.position, "Zonik.ArcanaMissles.Launch", caster)
@@ -90,13 +65,23 @@ function jex_w_fire_thinker(event)
 							missle.position = missle.position + fv*1400*0.03
 							local distance = WallPhysics:GetDistance(missle.position, missle.lockPoint+Vector(0,0,50))
 							if distance < 40 then
-								EmitSoundOnLocationWithCaster(missle.position, "Zonik.ArcanaMissles.Impact", caster)
+								EmitSoundOnLocationWithCaster(missle.position, "Jex.FireJuggler.Impact", caster)
+
+								local enemies = FindUnitsInRadius( caster:GetTeamNumber(), missle.lockPoint, nil, 250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+								if #enemies > 0 then
+									for _,enemy in pairs(enemies) do
+										Filters:TakeArgumentsAndApplyDamage(enemy, caster, ability.damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+										if ability.w_4_level > 0 then
+											ability:ApplyDataDrivenModifier(caster, enemy, "modifier_w_fire_fire_as_slow", {duration = 4})
+										end
+									end
+								end 
+
 								missle.exploded = true
 								ParticleManager:DestroyParticle(missle.pfx, false)
-								CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf", missle.position, 3)
+								CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf", missle.lockPoint, 3)
 								reindex_fire_w_missle_table(caster, ability)
-								-- Filters:TakeArgumentsAndApplyDamage(missleTablesle.lockPoint, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
-								-- Filters:ApplyStun(caster, 0.1, missle.lockPoint)
+				
 							end
 						end
 					end

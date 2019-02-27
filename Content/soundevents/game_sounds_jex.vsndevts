@@ -2414,3 +2414,99 @@
         }
     }   
 }
+
+"Jex.FireJuggler.Toss"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/phoenix/icarus_dive_stop.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.557000"  }
+                    "pitch_rand_min"    {   "value"     "-0.06000"  }
+                    "pitch_rand_max"    {   "value"     "0.060000"  }
+                    "pitch"             {   "value"     "0.500000"  }
+                    "soundlevel"        {   "value"     "86.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }   
+}
+
+"Jex.FireJuggler.Impact"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/lina/projectile_impact.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.257000"  }
+                    "pitch_rand_min"    {   "value"     "-0.06000"  }
+                    "pitch_rand_max"    {   "value"     "0.060000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "86.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }   
+}
+
+"Jex.OrbitalFlame.End"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/lina/projectile_impact.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.157000"  }
+                    "pitch_rand_min"    {   "value"     "-0.06000"  }
+                    "pitch_rand_max"    {   "value"     "0.060000"  }
+                    "pitch"             {   "value"     "1.300000"  }
+                    "soundlevel"        {   "value"     "86.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }   
+}

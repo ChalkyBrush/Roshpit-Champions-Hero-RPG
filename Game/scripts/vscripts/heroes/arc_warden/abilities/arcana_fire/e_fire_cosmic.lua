@@ -1,4 +1,6 @@
-function begin_lightning_dash(event)
+require('heroes/arc_warden/abilities/onibi')
+
+function cipher_bolt_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	caster:AddNoDraw()
@@ -7,7 +9,8 @@ function begin_lightning_dash(event)
 	else
 		ability.point = event.target_points[1]
 	end
-	local clamp_distance = 1000
+	local tech_level = onibi_get_total_tech_level(caster, "fire", "cosmic", "E")
+	local clamp_distance = event.clamp_distance_base + event.clamp_distance_per_tech*tech_level
 	local moveDirection = ((ability.point - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 
 	local distance = WallPhysics:GetDistance2d(ability.point, caster:GetAbsOrigin())
@@ -15,7 +18,7 @@ function begin_lightning_dash(event)
 		ability.point = caster:GetAbsOrigin()+moveDirection*clamp_distance
 	end
 	ability.moveDirection = (ability.point-caster:GetAbsOrigin()):Normalized()
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_sphere_of_divinity", {duration = 7})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_cipher_bolt", {duration = 7})
 	StartSoundEvent("Jex.ShootingStar.LP", caster)
 	EmitSoundOn("Jex.Cinderbark.Attack", caster)
 	
@@ -35,14 +38,17 @@ function begin_lightning_dash(event)
 
    	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf", caster:GetAbsOrigin(), 3)
 	Filters:CastSkillArguments(3, caster)
+	local cd = ability:GetCooldownTimeRemaining()
+	local new_cd = cd - event.cooldown_reduction_per_tech*tech_level
+	Filters:ReduceECooldown(caster, ability, new_cd, true)
+	ability.w_4_level = caster:GetRuneValue("w", 4)
 
 end
 
-function dash_think(event)
+function cipher_bolt_dash_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local w_4_level = 0
-	if caster:IsHero() then w_4_level = caster:GetRuneValue("w",4) end
 	
 	ability.moveDirection = (ability.point-caster:GetAbsOrigin()):Normalized()
 
@@ -52,51 +58,51 @@ function dash_think(event)
     local distance_for_slowing = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.point)
     local forwardSpeed = 2300/33
 
-    if caster:HasModifier("modifier_light_charging") then
-    	forwardSpeed = forwardSpeed*BAHAMUT_ARCANA_W4_R_SPEED_MULT
-    else
-	    if distance_for_slowing < 200 then
-	    	forwardSpeed = 30
-	    elseif distance_for_slowing < 400 then
-	    	forwardSpeed = 34
-	    elseif distance_for_slowing < 600 then
-	    	forwardSpeed = 38
-	    end
-	end
+
+    if distance_for_slowing < 200 then
+    	forwardSpeed = 30
+    elseif distance_for_slowing < 400 then
+    	forwardSpeed = 34
+    elseif distance_for_slowing < 600 then
+    	forwardSpeed = 38
+    end
+
 
 	if blockUnit then
 		forwardSpeed = 0
-		caster:RemoveModifierByName("modifier_bahamut_sphere_of_divinity")
+		caster:RemoveModifierByName("modifier_jex_cipher_bolt")
 	end
 	local newPosition = caster:GetAbsOrigin() + ability.moveDirection*forwardSpeed
 	caster:SetAbsOrigin(Vector(newPosition.x, newPosition.y, 200) + Vector(0,0,GetGroundHeight(newPosition, caster)))
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.point)
 	if distance < forwardSpeed*1.5 then
-		caster:RemoveModifierByName("modifier_bahamut_sphere_of_divinity")
+		caster:RemoveModifierByName("modifier_jex_cipher_bolt")
 	end
 	ability.interval = ability.interval + 1
-	if caster:GetUnitName() == "npc_dota_hero_leshrac" then
-		if ability.interval % 3 == 0 then
-			local tickManaDrain = caster:GetMaxMana()*event.mana_drain_per_second*0.09/100
-
-			if caster:GetMana() > tickManaDrain then
-				caster:ReduceMana(tickManaDrain)
-			else
-				caster:RemoveModifierByName("modifier_bahamut_sphere_of_divinity")
-			end
+	if ability.w_4_level > 0 then
+		if ability.interval % 5 == 0 then
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			if #enemies > 0 then
+				for _,enemy in pairs(enemies) do
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_jex_cipher_bolt_burn", {duration = 5})
+				end
+			end 			
 		end
 	end
+
 end
 
-function dash_end(event)
+function cipher_bolt_dash_end(event)
 	local caster = event.caster
 	local ability = event.ability
-	if caster:HasModifier("modifier_bahamut_arcana_w4_amp") and caster:HasModifier("modifier_light_charging") then
-		local stacks = caster:GetModifierStackCount("modifier_bahamut_arcana_w4_amp", caster)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp_linger", {duration = BAHAMUT_ARCANA_W4_AMP_LINGER_DURATION})
-		caster:SetModifierStackCount("modifier_bahamut_arcana_w4_amp_linger", ability, stacks)
+	local e_4_level = caster:GetRuneValue("e", 4)
+	if e_4_level > 0 then
+		local manaRestore = event.e_4_mana_restore_on_land*e_4_level
+		caster:GiveMana(manaRestore)
+		Timers:CreateTimer(0.1, function()
+			PopupMana(caster, manaRestore)
+		end)
 	end
-	caster:RemoveModifierByName("modifier_bahamut_arcana_w4_amp")
 	Timers:CreateTimer(0.03, function()
 		StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_TELEPORT_END, rate=1.1}) 
 		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
@@ -113,7 +119,13 @@ function dash_end(event)
 	if not caster:HasModifier("modifier_sorceress_blink_datadriven") then
 		caster:RemoveNoDraw()
 	end
-	-- ParticleManager:DestroyParticle(ability.pfx, false)
-	-- ability.pfx = false
 
+end
+
+function cipher_bolt_burn_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local damage = (event.w_4_burn_damage_attack_power*ability.w_4_level/100)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end

@@ -4112,19 +4112,18 @@
 
 		}
 
-		"AbilityManaCost"	"0"
+		"AbilityManaCost"	"100 300 600 1000 2000 4000 9000"
+		"AbilityCastRange"				"1400"
 		"OnSpellStart"
 		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
 			"RunScript"
 			{
 				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/w_fire_fire.lua"
 				"Function"		"jex_fire_fire_w_start"
 				"target"		"POINT"
+				"damage"		"%base_damage"
+				"flames_per_tech"	"%flames_per_tech"
+				"attack_damage_percent_added_per_tech"	"%attack_damage_percent_added_per_tech"
 			}
 
 		}
@@ -4144,8 +4143,21 @@
 					{
 						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/w_fire_fire.lua"
 						"Function"		"jex_w_fire_thinker"
-						"damage"		"%damage"
 					}
+				}
+			}
+			"modifier_w_fire_fire_as_slow"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+			
+				"EffectName"		"particles/units/heroes/hero_phoenix/phoenix_icarus_dive_burn_debuff.vpcf"
+				"EffectAttachType"	"attach_origin"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%w_4_attack_slow"
 				}
 			}
 		}
@@ -4155,17 +4167,22 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"3000 10000 25000 60000 200000 1000000 2500000"
+				"flames_per_tech"	"1"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"ms_mult"	"1"
+				"attack_damage_percent_added_per_tech"	"2 4 8 16 32 64 128"
 			}
 			"03"
 			{
-				"var_type"	"FIELD_FLOAT"
-				"create_interval"	"0.36 0.33 0.3 0.27 0.24 0.21 0.18"
+				"var_type"	"FIELD_INTEGER"
+				"base_damage"	"1250 2500 15000 30000 60000 150000 300000"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"w_4_attack_slow"	"-6"
 			}
 		}
 	}
@@ -4186,13 +4203,35 @@
 		"MaxLevel"				 		"7"
 		"AbilityTextureName"			"jex/nature_gun"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"900 1000 1100 1200 1300 1400 1500"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 5000 25000 75000 150000 250000 500000"
+				"attack_damage_of_target_per_tech"				"1 2 4 8 16 32 64"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"				"5000 25000 75000 150000 250000 500000 1500000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"				"900 1000 1100 1200 1300 1400 1500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"q_4_stun_duration"				"0.05"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"w_4_damage_increase_from_target_max_health"				"0.01 0.03 0.05 0.1 0.3 0.5 0.1"
+			}
+
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_ATTACK2"
 		// Precache
@@ -4218,7 +4257,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"60 120 240 440 840 1620 3000"
 
 		"OnSpellStart"
 		{
@@ -4266,12 +4305,15 @@
 						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/w_nature_fire.lua"
 						"Function"		"jex_living_bomb_explode"
 						"target"		"TARGET"
+						"attack_damage_of_target_per_tech"	"%attack_damage_of_target_per_tech"
+						"base_damage"		"%base_damage"
+						"q_4_stun_duration"				"%q_4_stun_duration"
+						"w_4_damage_increase_from_target_max_health"	"%w_4_damage_increase_from_target_max_health"
 					}
 				}
 			}
 		}
 	}
-
 
 	"jex_fire_fire_e"
 	{
@@ -4423,6 +4465,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
+		"AbilityManaCost"				"100 300 800 2000 4000 8000 16000"
 		"precache"
 		{
 
@@ -4436,26 +4479,14 @@
 				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/w_fire_cosmic.lua"
 				"Function"		"jex_fire_cosmic_w_start"
 				"flames"	"%flames"
-				"damage"	"%damage"
+				"duration"	"%duration"
 			}
 		}
 		"Modifiers"
 		{
-			"modifier_energy_field_damage_reduce"
+			"modifier_orbital_flame_thinker"
 			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"EffectName"		"particles/roshpit/items/violet_guard_2.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%damage_reduce"
-				}
-			}
-			"modifier_energy_field_thinker"
-			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"IsDebuff"	"1"
 				"States"
 				{
@@ -4470,7 +4501,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/w_fire_cosmic.lua"
-						"Function"		"energy_thinker"
+						"Function"		"orbital_thinker"
 						"target"		"TARGET"
 						"damage"		"%damage"
 					}
@@ -4480,39 +4511,45 @@
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/w_fire_cosmic.lua"
-						"Function"		"energy_thinker_end"
+						"Function"		"orbital_thinker_end"
 						"target"		"TARGET"
 					}
 				}
-			}
-			"modifier_energy_shield_a_a_buff_visible"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"TextureName"	"arkimus/arkimus_rune_r_1"
-			}
-			"modifier_energy_shield_a_a_buff_invisible"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
-				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "3"
-				}
-			}
-			"modifier_energy_field_c_d_shield"
-			{
-				"IsHidden"	"0"
-				"TextureName"	"arkimus/arkimus_rune_r_3"
-				"EffectName"	"particles/roshpit/arkimus/c_d_shield_reflect_energy.vpcf"
-				"EffectAttachType"	"attach_hitloc"
 			}
 			"modifier_jex_orbital_flame_effect"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_jex_orbital_flame_attack_damage"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_jex_orbital_flame_mana_regen"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_jex_orbital_flame_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%w_4_base_attack_damage_per_flame"
+				}
+			}
+			"modifier_jex_orbital_flame_mana_regen"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%e_4_mana_regen_per_flame"
+				}
 			}
 		}
 
@@ -4521,7 +4558,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"200 1000 5000 25000 100000 200000 400000"
+				"base_ability_damage_per_flame_tech"			"75"
 			}
 			"02"
 			{
@@ -4531,7 +4568,17 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_reduce"		"-15 -18 -21 -24 -27 -30 -33"
+				"duration"			"150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"w_4_base_attack_damage_per_flame"			"50 100 250 400 800 1400 2000"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"e_4_mana_regen_per_flame"			"1 2 4 8 16 32 64"
 			}
 		}
 	}
@@ -4838,7 +4885,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5.5"
+		"AbilityCooldown"				"6.5"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -4850,15 +4897,29 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_drain_per_second"	"75.0 60.0 50.0 40.0 25.0 15.0 5.0"
+				"var_type"				"FIELD_INTEGER"
+				"clamp_distance_per_tech"	"35 50 65 80 95 110 125"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1188"
+				"var_type"				"FIELD_FLOAT"
+				"cooldown_reduction_per_tech"	"0.15"
 			}
-
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"clamp_distance_base"	"875"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"w_4_burn_damage_attack_power"					"50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"e_4_mana_restore_on_land"					"50 100 200 500 1000 2000 3500"
+			}
 		}
 
 		"OnSpellStart"
@@ -4866,14 +4927,17 @@
 			"RunScript"
 			{
 				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_cosmic.lua"
-				"Function"		"begin_lightning_dash"
+				"Function"		"cipher_bolt_start"
 				"Target"		"POINT"
+				"clamp_distance_per_tech"	"%clamp_distance_per_tech"
+				"cooldown_reduction_per_tech" "%cooldown_reduction_per_tech"
+				"clamp_distance_base"		"%clamp_distance_base"
 			}
 		}
 
 		"Modifiers"
 		{
-			"modifier_bahamut_sphere_of_divinity"
+			"modifier_jex_cipher_bolt"
 			{
 				"IsHidden"	"1"
 				"IsBuff"	"1"
@@ -4887,8 +4951,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_cosmic.lua"
-						"Function"		"dash_think"
-						"mana_drain_per_second"	"%mana_drain_per_second"
+						"Function"		"cipher_bolt_dash_think"
 					}
 				}
 				"States"
@@ -4900,80 +4963,28 @@
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_cosmic.lua"
-						"Function"		"dash_end"
+						"Function"		"cipher_bolt_dash_end"
+						"e_4_mana_restore_on_land"	"%e_4_mana_restore_on_land"
 					}
 				}
 			}
-			"modifier_bahamut_arcana_passive"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_spellvamp_healing"
-			{
-				"IsHidden"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_witchdoctor/ivory_gryffin_heal.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-						"ControlPoints"
-						{
-							"01"	"500 500 500"
-						}
-					}
-				}
-			}
-			"modifier_bahamut_arcana_post_mit"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"bahamut/bahamut_rune_w_2_arcana2"
-				"EffectName"	"particles/roshpit/bahamut/bahamut_arcana_postmit_heal.vpcf"
-				"EffectAttachType"	"attach_origin"
-			}
-			"modifier_arcana2_purity_freeze"
+			"modifier_jex_cipher_bolt_burn"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"EffectName"		"particles/roshpit/bahamut/purity_freeze_debuff.vpcf"
+				"ThinkInterval"  "0.5"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
-				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
-				"StatusEffectPriority"  "10"
-				"States"
+				"OnIntervalThink"
 				{
-					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"TextureName"	"bahamut/bahamut_rune_w_3_arcana2"
-				"OnCreated"
-				{
-					"FireEffect"
+					"RunScript"
 					{
-						"EffectName"        "particles/roshpit/bahamut/purity_impact.vpcf"
-						"EffectAttachType"  "start_at_customorigin"
-						"ControlPointEntities"
-						{
-							"CASTER"	"follow_origin"
-							"TARGET"	"follow_origin"
-						}
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_cosmic.lua"
+						"Function"		"cipher_bolt_burn_think"
+						"target"		"TARGET"
+						"w_4_burn_damage_attack_power"	"%w_4_burn_damage_attack_power"
 					}
 				}
-			}
-			"modifier_bahamut_arcana_w4_amp"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"bahamut/bahamut_w_4_arcana2"
-			}
-			"modifier_bahamut_arcana_w4_amp_linger"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"bahamut/bahamut_w_4_arcana2"
 			}
 		}
 	}

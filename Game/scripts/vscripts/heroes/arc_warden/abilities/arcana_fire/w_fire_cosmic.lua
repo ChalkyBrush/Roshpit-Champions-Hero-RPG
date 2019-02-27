@@ -8,11 +8,11 @@ function jex_fire_cosmic_w_start(event)
 	ability.rotationDelta = 50
 	StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
 	EmitSoundOn("Arkimus.EnergyField.VO", caster)
-
+	ability.tech_level = onibi_get_total_tech_level(caster, "fire", "cosmic", "W")
 	ability.r_1_level = caster:GetRuneValue("r", 1)
 	ability.r_2_level = caster:GetRuneValue("r", 2)
 	local count = event.flames
-	local duration = Filters:GetAdjustedBuffDuration(caster, 45, false)
+	local duration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
 	if not ability.flameTable then
 		ability.flameTable = {}
 	end
@@ -37,8 +37,20 @@ function jex_fire_cosmic_w_start(event)
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_orbital_flame_effect", {duration = duration})
 	caster:SetModifierStackCount("modifier_jex_orbital_flame_effect", caster, #ability.flameTable)
+	local w_4_level = caster:GetRuneValue("w", 4)
+	local e_4_level = caster:GetRuneValue("e", 4)
+	ability.w_4_level = w_4_level
+	ability.e_4_level = e_4_level
+	if w_4_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_orbital_flame_attack_damage", {duration = duration})
+		caster:SetModifierStackCount("modifier_jex_orbital_flame_attack_damage", caster, #ability.flameTable*w_4_level)
+	end
+	if e_4_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_orbital_flame_mana_regen", {duration = duration})
+		caster:SetModifierStackCount("modifier_jex_orbital_flame_mana_regen", caster, #ability.flameTable*e_4_level)
+	end
 	for i = 1, #ability.flameTable, 1 do
-		ability:ApplyDataDrivenModifier(caster, ability.flameTable[i], "modifier_energy_field_thinker", {duration = duration})
+		ability:ApplyDataDrivenModifier(caster, ability.flameTable[i], "modifier_orbital_flame_thinker", {duration = duration})
 		local baseFV = caster:GetForwardVector()
 		local projectileFV = WallPhysics:rotateVector(baseFV, 2*math.pi*i/5)
 		local position = caster:GetAbsOrigin() 
@@ -54,21 +66,7 @@ function jex_fire_cosmic_w_start(event)
 	Filters:CastSkillArguments(2, caster)
 end
 
-function calculate_a_d(caster, ability)
-	if ability.r_1_level > 0 then
-		if #ability.flameTable > 0 then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_energy_shield_a_a_buff_visible", {})
-			caster:SetModifierStackCount("modifier_energy_shield_a_a_buff_visible", caster, #ability.flameTable)
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_energy_shield_a_a_buff_invisible", {})
-			caster:SetModifierStackCount("modifier_energy_shield_a_a_buff_invisible", caster, #ability.flameTable*ability.r_1_level)
-		else
-			caster:RemoveModifierByName("modifier_energy_shield_a_a_buff_visible")
-			caster:RemoveModifierByName("modifier_energy_shield_a_a_buff_invisible")
-		end
-	end
-end
-
-function energy_thinker(event)
+function orbital_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
@@ -93,31 +91,11 @@ function energy_thinker(event)
 
 
 	end
-	-- if dummy.hardInterval%5 == 0 then
-	-- 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), dummy:GetAbsOrigin(), nil, 120, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	--     if #enemies > 0 then
-	--     	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arkimus.EnergyField.Hit", caster)
-	--         for _,enemy in pairs(enemies) do
-	--         	if not ability.particleCount then
-	--         		ability.particleCount = 0
-	--         	end
-	--         	if ability.particleCount < 15 then
-	-- 	        	ability.particleCount = ability.particleCount + 1
-	-- 	        	CustomAbilities:QuickAttachParticle("particles/econ/items/wisp/wisp_guardian_explosion_ti7.vpcf", enemy, 1)
-	-- 	        	Timers:CreateTimer(1, function()
-	-- 	        		ability.particleCount = ability.particleCount - 1
-	-- 	        	end)
-	-- 	        end
-	--         	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
-	--         	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_energy_field_damage_reduce", {duration = 5})
-	--         end
-	--     end
-	-- end
 end
 
 
 
-function energy_thinker_end(event)
+function orbital_thinker_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
@@ -128,10 +106,9 @@ function energy_thinker_end(event)
 		UTIL_Remove(target)
 		reindex_flameTable(ability)
 		if #ability.flameTable == 0 then
-			StopSoundEvent("Arkimus.EnergyField.Channel", caster)
+			caster:RemoveModifierByName("modifier_jex_orbital_flame_effect")
 		end
-		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arkimus.EnergyField.End", caster)
-		calculate_a_d(caster, ability)
+		EmitSoundOn("Jex.OrbitalFlame.End", caster)
 	end)
 	Timers:CreateTimer(0.2, function()
 		ParticleManager:DestroyParticle(pfx, false)
