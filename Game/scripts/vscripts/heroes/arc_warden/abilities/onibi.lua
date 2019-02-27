@@ -113,8 +113,9 @@ function set_onibi_model(onibi)
 	for i = 1, #elements_table, 1 do
 		sum_level = sum_level + onibi.stats_table[elements_table[i]]["level"]
 	end
-	local model_index = math.ceil(sum_level/18.75)
+	local model_index = math.max(math.ceil(sum_level/18.75), 1)
 	local model_string = available_models[model_index]
+
 	if onibi.current_model_index == model_index then
 	else
 		onibi.current_model_index = model_index
@@ -420,6 +421,7 @@ function onibi_activate_ability_key(event)
 	element2 = string.gsub(element2, '_2', "")
 	local ability_key = string.upper(event.ability_key)
 	local ability_level = caster.stats_table[element1][element2][ability_key]["level"]
+	ability_level = 1
 	if ability_level > 0 then
 		EmitSoundOn("Jex.Invoke", caster)
 		local ability_name = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
@@ -595,6 +597,9 @@ function jex_equip_immortal_weapon(event)
 					bonus = 1
 				end
 				if (element1 == "lightning" or element2 == "lightning") and caster:HasModifier("modifier_jex_immortal_weapon_2") then
+					bonus = 1
+				end
+				if (element1 == "fire" or element2 == "fire") and caster:HasModifier("modifier_jex_immortal_weapon_2_a") then
 					bonus = 1
 				end
 				if (element1 == "cosmic" or element2 == "cosmic") and caster:HasModifier("modifier_jex_immortal_weapon_3") then

@@ -14,7 +14,7 @@ require('glyphs')
 require('paragon')
 require('elements')
 
-Beacons.cheats = true
+Beacons.cheats = false
 
 if Events == nil then
   Events = class({})
@@ -1678,7 +1678,6 @@ end
 
 function Events:initializeTown()
   print("initialize world 1")
-  VectorTarget:Init()
   GameState:InitializeGameState()
   -- Beacons:MakeBeacon(Vector(-6443,-5282), "wave", "forestForest", 0)
   Timers:CreateTimer(5, function()

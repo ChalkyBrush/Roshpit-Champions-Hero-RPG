@@ -2029,6 +2029,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local multIncrease = modifier:GetStackCount()*0.15
             fireMult = fireMult + multIncrease
         end
+        if unitName == "npc_dota_hero_arc_warden" then
+            if attacker:HasModifier("modifier_jex_arcana1") then
+                if attacker.w_2_level then
+                    fireMult = fireMult + attacker.w_2_level*1
+                end
+            end
+        end
         if fireMult > 50 and attacker:HasModifier("modifier_fire_deity_crown") then
             fireMult = 50
         end
@@ -2112,8 +2119,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + stacks/100
         end
         if unitName == "npc_dota_hero_arc_warden" then
-            if attacker.w_2_level then
-                mult = mult + attacker.w_2_level*1
+            if not attacker:HasModifier("modifier_jex_arcana1") then
+                if attacker.w_2_level then
+                    mult = mult + attacker.w_2_level*1
+                end
             end
         end
     end

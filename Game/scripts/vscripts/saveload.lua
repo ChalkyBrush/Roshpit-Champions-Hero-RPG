@@ -1580,7 +1580,9 @@ function SaveLoad:SaveJex(hero)
 			for j = 1, #ability_keys, 1 do
 				local ability_key = ability_keys[j]
 				local element2 = elements_table[k]
-				url = url.."&tech_"..element1.."-"..element2.."_"..ability_key.."="..onibi.stats_table[element1][element2][ability_key]["level"]
+				if onibi.stats_table[element1][element2][ability_key]["level"] then
+					url = url.."&tech_"..element1.."-"..element2.."_"..ability_key.."="..onibi.stats_table[element1][element2][ability_key]["level"]
+				end
 			end
 		end
 		url = url.."&"..element1.."_exp="..onibi.stats_table[element1]["exp"]

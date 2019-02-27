@@ -7349,6 +7349,10 @@
 	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_property_one"				"Bonus Upgrade Multiple"
 	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_suffix"						""
 
+	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_2_a"            "Lava Boiler"
+	"item_property_jex_immortal_weapon2_a"                             "Fire Enhancement"
+	"property_jex_immortal_weapon2_a_description"                      "All tech abilities with <font color=\"#EF4126\">Fire</font> element receive @special_property1 Tech Level. Double <font color=\"#EF4126\">Fire</font> abilities gain @special_property2 bonus Tech Levels."
+
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"Shockwave"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#AF843D\">Earth</font><br>Unearths a cascade of force that damage and stuns everyone in its path."
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_stun_duration"	"STUN DURATION:"

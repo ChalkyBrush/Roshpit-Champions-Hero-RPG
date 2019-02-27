@@ -539,3 +539,7 @@
 	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_Description"					"Each ability that has <font color=\"#EF4126\">Fire</font> element receives a special bonus. The bottom of each ability's tooltip describes the perk provided by this rune."
 	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_property_one"				"Bonus Upgrade Multiple"
 	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_suffix"						""
+
+	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_2_a"            "Lava Boiler"
+	"item_property_jex_immortal_weapon2_a"                             "Fire Enhancement"
+	"property_jex_immortal_weapon2_a_description"                      "All tech abilities with <font color=\"#EF4126\">Fire</font> element receive @special_property1 Tech Level. Double <font color=\"#EF4126\">Fire</font> abilities gain @special_property2 bonus Tech Levels."

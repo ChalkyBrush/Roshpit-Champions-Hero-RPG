@@ -2079,6 +2079,8 @@ function RPCItems:GetAvailableArcanaData(hero)
         table.insert(arcanaData, {1, 1})
     elseif unitName == "npc_dota_hero_winter_wyvern" then
         table.insert(arcanaData, {1, 1})
+    elseif unitName == "npc_dota_hero_arc_warden" then
+        table.insert(arcanaData, {1, 1})
     end
     return arcanaData
 end
@@ -2097,7 +2099,7 @@ function RPCItems:GetAllArcanaNames()
     "item_rpc_spirit_warrior_arcana1", "item_rpc_spirit_warrior_arcana2", "item_rpc_spirit_warrior_arcana3", "item_rpc_mountain_protector_arcana1", "item_rpc_mountain_protector_arcana2", "item_rpc_mountain_protector_arcana3",
     "item_rpc_chernobog_arcana1", "item_rpc_chernobog_arcana2", "item_rpc_solunia_arcana1", "item_rpc_solunia_arcana2", "item_rpc_hydroxis_arcana1", "item_rpc_ekkan_arcana1", "item_rpc_zonik_arcana1",
     "item_rpc_zonik_arcana2", "item_rpc_arkimus_arcana1", "item_rpc_arkimus_arcana2", "item_rpc_djanghor_arcana1", "item_rpc_hydroxis_arcana2", "item_rpc_voltex_arcana2", "item_rpc_duskbringer_arcana1", "item_rpc_auriun_arcana1", "item_rpc_auriun_arcana2",
-    "item_rpc_dinath_arcana1", "item_rpc_conjuror_arcana2", "item_rpc_conjuror_arcana3", "item_rpc_conjuror_arcana4", "item_rpc_axe_arcana2"}
+    "item_rpc_dinath_arcana1", "item_rpc_conjuror_arcana2", "item_rpc_conjuror_arcana3", "item_rpc_conjuror_arcana4", "item_rpc_axe_arcana2", "item_rpc_jex_arcana1"}
     return arcanaTable
 end
 
@@ -2201,6 +2203,8 @@ function RPCItems:RollArcanaByName(arcana_name, position)
         arcana = RPCItems:RollConjurorArcana4(position)
     elseif arcana_name == "item_rpc_axe_arcana2" then
         arcana = RPCItems:RollAxeArcana2(position)
+    elseif arcana_name == "item_rpc_jex_arcana1" then
+        arcana = RPCItems:RollJexArcana1(position)
     end
     return arcana
 end
