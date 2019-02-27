@@ -1,9 +1,13 @@
 jex_fire_fire_e = class({})
+require('heroes/arc_warden/abilities/onibi')
 
 function jex_fire_fire_e:OnSpellStart()
     local caster = self:GetCaster()
 
     local ability = self
+
+    local tech_level = onibi_get_total_tech_level(caster, "fire", "fire", "E")
+    ability.tech_level = tech_level
 	if not ability.fv then
 		ability.fv = caster:GetForwardVector()
 	end
@@ -18,20 +22,22 @@ function jex_fire_fire_e:OnSpellStart()
 	-- ability.fv = WallPhysics:rotateVector(ability.fv, 2*math.pi*ability.interval/90)
 
 	ability.movespeed = WallPhysics:GetDistance2d(ability.lastPos, caster:GetAbsOrigin())/0.5 + 120
-	local distance = 2500
+	local distance = ability:GetSpecialValueFor("fire_range")
 	local projectileOrigin = ability:GetPointOfCast()
 	ability.lastPos = caster:GetAbsOrigin()
 
 	StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=0.9})
 
+	local speed = ability:GetSpecialValueFor("fire_speed_base") + ability:GetSpecialValueFor("fire_speed_per_tech")*tech_level
 	local fv = ability:GetDirectionVector()
-	fire_fire_e_projectile(caster, ability, distance, fv, 0, projectileOrigin)
+	fire_fire_e_projectile(caster, ability, distance, fv, 0, projectileOrigin, speed)
 
 	EmitSoundOnLocationWithCaster(projectileOrigin, "Jex.FireSurf.FlameStart", caster)
 	local luck = RandomInt(1, 2)
 	if luck == 1 then
 		EmitSoundOn("Jex.Grunt", caster)
 	end
+	ability.w_4_level = caster:GetRuneValue("w", 4)
 	Filters:CastSkillArguments(3, caster)    
 end
 
@@ -49,17 +55,19 @@ function jex_fire_fire_e:OnProjectileHit(target, vLocation)
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_jex_e_fire_fire_push", {duration = 0.5})
 			EmitSoundOn("Jex.FireSurf.FlameHitSelf", caster)
 		elseif target:GetTeamNumber() ~= caster:GetTeamNumber() then
-			local damage = 1000
+			local damage = ability:GetSpecialValueFor("base_damage") + ability:GetSpecialValueFor("attack_damage_added_per_tech")*ability.tech_level*(OverflowProtectedGetAverageTrueAttackDamage(caster)/100)
 			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			if ability.w_4_level > 0 then
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_jex_e_fire_fire_burn", {duration = 4})
+			end
 		end
 	end
 end
 
-function fire_fire_e_projectile(caster, ability, range, fv, pullback, projectileOrigin)
+function fire_fire_e_projectile(caster, ability, range, fv, pullback, projectileOrigin, speed)
 	local projectileParticle = "particles/roshpit/flamewaker/dragonfire.vpcf"
 	local start_radius = 240
 	local end_radius = 240
-	local speed = 2000
 	local info = 
 	{
 			Ability = ability,

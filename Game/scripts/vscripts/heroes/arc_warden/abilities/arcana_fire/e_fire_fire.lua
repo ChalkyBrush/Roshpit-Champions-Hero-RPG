@@ -20,3 +20,11 @@ function jex_fire_push_end(event)
 		FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
 	end)
 end
+
+function jex_e_fire_fire_burn_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local damage = event.w_4_burn_damage_attack_power*(OverflowProtectedGetAverageTrueAttackDamage(caster)/100)*ability.w_4_level
+	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+end

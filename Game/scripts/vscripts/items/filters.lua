@@ -4472,7 +4472,7 @@ function Filters:IsIceFrozen(target)
 end
 
 function Filters:IsFireBurning(target)
-    if target:HasModifier("modifier_pyroblast_ignite") or target:HasModifier("modifier_fulminating_burn_effect") or target:HasModifier("modifier_flametongue_a_a_rune") or target:HasModifier("modifier_solunia_solar_burn") or target:HasModifier("modifier_on_fire_effect") or target:HasModifier("ruby_dragon_burn") or target:HasModifier("modifier_infernal_prison_effect_from_attack") or target:HasModifier("modifier_infernal_prison_nearby") or target:HasModifier("fire_walker_aura") or target:HasModifier("scorched_earth_aura") or target:HasModifier("modifier_ring_of_fire_burn") or target:HasModifier("modifier_sun_lance_burn") or target:HasModifier("modifier_jex_cipher_bolt_burn") or target:HasModifier("modifier_w_fire_fire_as_slow") then
+    if target:HasModifier("modifier_pyroblast_ignite") or target:HasModifier("modifier_fulminating_burn_effect") or target:HasModifier("modifier_flametongue_a_a_rune") or target:HasModifier("modifier_solunia_solar_burn") or target:HasModifier("modifier_on_fire_effect") or target:HasModifier("ruby_dragon_burn") or target:HasModifier("modifier_infernal_prison_effect_from_attack") or target:HasModifier("modifier_infernal_prison_nearby") or target:HasModifier("fire_walker_aura") or target:HasModifier("scorched_earth_aura") or target:HasModifier("modifier_ring_of_fire_burn") or target:HasModifier("modifier_sun_lance_burn") or target:HasModifier("modifier_jex_cipher_bolt_burn") or target:HasModifier("modifier_w_fire_fire_as_slow") or target:HasModifier("modifier_jex_e_fire_fire_burn") then
         return true
     else
         return false

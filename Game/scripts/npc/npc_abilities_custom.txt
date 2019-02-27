@@ -3553,7 +3553,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityTextureName"			"batrider_sticky_napalm"
+		"AbilityTextureName"			"jex/fire/fire_gun"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
@@ -3619,7 +3619,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"tidehunter_ravage"
+		"AbilityTextureName"			"jex/fire/onibi_fire"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 
@@ -3690,7 +3690,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"tidehunter_ravage"
+		"AbilityTextureName"			"jex/fire/onibi_fire"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 
@@ -3737,7 +3737,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/invoked_abilities/wrath_of_lightning"
+		"AbilityTextureName"			"jex/fire/fire_fire_q"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
@@ -3835,7 +3835,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/invoked_abilities/jolt"
+		"AbilityTextureName"			"jex/fire/fire_cosmic_q"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
@@ -3945,7 +3945,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/invoked_abilities/jolt"
+		"AbilityTextureName"			"jex/fire/nature_fire_q"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -4098,7 +4098,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
 
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"zonik/timewarp_missles"
+		"AbilityTextureName"	"jex/fire/fire_fire_w"
 		"AbilityCastPoint"	"0.1"
 		"AbilityCooldown"	"0"
 
@@ -4201,7 +4201,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityTextureName"			"jex/nature_gun"
+		"AbilityTextureName"			"jex/fire/nature_fire_w"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"900 1000 1100 1200 1300 1400 1500"
 		"AbilitySpecial"
@@ -4323,7 +4323,7 @@
 		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"flamewaker/fireborne"
+		"AbilityTextureName"			"jex/fire/fire_fire_e"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 		"BaseClass"                     "ability_lua"
@@ -4350,7 +4350,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"40 80 120 180 300 440 700"
+		"AbilityManaCost"				"0"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -4359,27 +4359,32 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"base_damage"				"80 240 400 800 3000 9000 20000"
+				"attack_damage_added_per_tech"				"200"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"attack_dmg_bonus"				"20 25 30 35 40 45 50"
+				"fire_speed_per_tech"				"150"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"mana_drain"				"40 60 80 120 200 320 500"
+				"fire_speed_base"				"850"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_reduce"				"95"
+				"fire_range"				"1200 1400 1600 1800 2000 2200 2400"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"armor_shred"				"-50 -100 -250 -500 -1000 -2000 -3500"
+				"base_damage"				"5000 15000 50000 125000 500000 1500000 3000000"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"w_4_burn_damage_attack_power"				"100"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -4396,35 +4401,6 @@
 		}
 		"Modifiers"
 		{
-			"modifier_dragonflame_armor_shred"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_shred"
-				}
-			}
-			"modifier_flamewaker_dragonflame"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-			
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_fire.lua"
-						"Function"		"dragonflame_think"
-						"mana_drain"	"%mana_drain"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 			"modifier_jex_e_fire_fire_push"
 			{
 				"Passive"			"0"
@@ -4449,6 +4425,24 @@
 					}
 				}
 			}
+			"modifier_jex_e_fire_fire_burn"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_fire.lua"
+						"Function"		"jex_e_fire_fire_burn_thinker"
+						"target"		"TARGET"
+						"w_4_burn_damage_attack_power"	"%w_4_burn_damage_attack_power"
+					}
+				}
+			}
 		}
 	}
 
@@ -4456,7 +4450,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"arkimus/arkimus_energy_field"
+		"AbilityTextureName"	"jex/fire/fire_cosmic_w"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"0.1"
 		"AbilityCastRange"				"580"
@@ -4590,7 +4584,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/invoked_abilities/thundersprout"
+		"AbilityTextureName"			"jex/fire/nature_fire_e"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
@@ -4791,7 +4785,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/onibi_lightning"
+		"AbilityTextureName"			"jex/fire/onibi_fire"
 		"AbilityCastRange"				"99999"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -4865,7 +4859,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"bahamut/bahamut_arcana_orb"
+		"AbilityTextureName"			"jex/fire/fire_cosmic_e"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -4995,7 +4989,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_w_1"
+		"AbilityTextureName"	"jex/fire/jex_rune_w_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -5013,7 +5007,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_w_2"
+		"AbilityTextureName"	"jex/fire/jex_rune_w_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -5031,7 +5025,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_w_3"
+		"AbilityTextureName"	"jex/fire/jex_rune_w_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -5049,7 +5043,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_w_4"
+		"AbilityTextureName"	"jex/fire/jex_rune_w_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
