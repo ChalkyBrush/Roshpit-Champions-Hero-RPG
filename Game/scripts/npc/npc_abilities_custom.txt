@@ -23383,7 +23383,7 @@
             {
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"necrolyte_death_pulse"
+				"TextureName"	"necrolyte/sullen_hollow/necrophos_death_pulse"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
@@ -24196,18 +24196,18 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"12"
+				"duration"				"18"
 			}
 		}
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1100 1100 1100 1100 1100 1100 1100"
-		"AbilityCastPoint"				"0.7"
+		"AbilityCastPoint"				"0.3"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14"
+		"AbilityCooldown"				"12"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
@@ -44752,7 +44752,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-		        "TextureName"	"luna/zodiac_sigils_skills/luna_lunar_blessing"
+		        "TextureName"	"astral_ranger/astral_rune_e_3"
 
 				"EffectName"		"particles/econ/courier/courier_faceless_rex/astral_rune_c_c_effect.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -45604,7 +45604,6 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
@@ -45621,16 +45620,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_two_base"		"50"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_ability"			"4"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
 			}
 		}
 	}
@@ -50119,7 +50108,6 @@
 		"AbilityTextureName"	"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_sanity_eclipse"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
@@ -51142,7 +51130,7 @@
 	    // General
 	    //-------------------------------------------------------------------------------------
 	    "BaseClass" "ability_datadriven"
-	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
@@ -121667,7 +121655,7 @@
 			"modifier_ancient_steadfast"
 			{
 				"Passive"	"1"
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 			}
 			"modifier_steadfast_boss_dying"
 			{
@@ -128607,7 +128595,7 @@
 			"modifier_mega_steadfast"
 			{
 				"Passive"	"1"
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 			}
 		}
 	}
