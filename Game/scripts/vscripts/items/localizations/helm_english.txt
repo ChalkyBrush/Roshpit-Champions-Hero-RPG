@@ -200,6 +200,8 @@
 		"item_property_blackfeather"				"Vesper of Crows"	
 		"property_blackfeather_description"			"Every 4 seconds, summon a Crow Aspect that deals 5x your attack damage and lowers its target's armor by 40. Each crow lasts 10 seconds."
 		
+		"twilight_crow_summon"		"Crow Aspect"
+		
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"Wraith Crown"
 		"item_property_wraith"						"Wraithtide"					

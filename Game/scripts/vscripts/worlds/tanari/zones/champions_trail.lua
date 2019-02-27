@@ -350,7 +350,6 @@ function Tanari:SpawnHeroTrail2()
 		Tanari:SpawnWaterSlug(Vector(9114, -1284), Vector(1,0))
 		Tanari:SpawnWaterSlug(Vector(5766, -1284), Vector(-1,-0.2))
 
-		Tanari:SpawnTrainingDummy(Vector(6016, -1728))
 	end)
 	Timers:CreateTimer(7, function()
 		local position1 = Vector(4608, -1966)

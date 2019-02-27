@@ -1997,6 +1997,7 @@ function Winterblight:OpenShrineOfAzalea()
 	Timers:CreateTimer(6, function()
 		Winterblight.AzaleaEntranceBridgeRaised = true
 	end)
+	Dungeons.respawnPoint = Vector(11133, -8100)
 end
 
 function Winterblight:SpawnColdSeer(position, fv)

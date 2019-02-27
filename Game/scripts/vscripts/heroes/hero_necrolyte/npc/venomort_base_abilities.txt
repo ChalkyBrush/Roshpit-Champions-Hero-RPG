@@ -505,7 +505,7 @@
             {
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"necrolyte_death_pulse"
+				"TextureName"	"necrolyte/sullen_hollow/necrophos_death_pulse"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% E3_AURA_DAMAGE_PERCENT %>"

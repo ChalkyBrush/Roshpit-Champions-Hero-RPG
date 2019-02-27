@@ -189,7 +189,6 @@
 		"AbilityTextureName"	"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_sanity_eclipse"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"

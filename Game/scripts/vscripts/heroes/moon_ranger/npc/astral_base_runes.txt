@@ -356,7 +356,6 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
@@ -373,16 +372,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_two_base"		"<% ASTRAL_R2_BASE_RADIUS %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_ability"			"4"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
 			}
 		}
 	}

@@ -794,11 +794,10 @@
 
 		"DOTA_Tooltip_modifier_arena_grave_chill_target"		"Descent Grave Chill"
 		"DOTA_Tooltip_modifier_arena_grave_chill_target_Description"	"Снижение скорости передвижения, брони и сопротивления магии."
-
-		"DOTA_Tooltip_ability_golden_skullbone_ai"				"Невосприимчивость магии"
-
 		"lies_golden_skullbone"									"Golden Skullbone"
+		
 		"DOTA_Tooltip_ability_golden_skullbone_ai"				"Невосприимчивость магии"
+		"DOTA_Tooltip_ability_golden_skullbone_ai_Description"				"Юнит полностью невосприимчив к магии."
 		
 		"arena_descent_tombstone"								"Tombstone"
 		
