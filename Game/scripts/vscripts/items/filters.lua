@@ -3621,7 +3621,7 @@ function Filters:DefilerHit(attacker, victim)
 
     local currentArmorLoss = victim:GetModifierStackCount( "modifier_hood_of_defiler_armor_loss", ability )
     local additionalArmorLoss = math.ceil(victim:GetPhysicalArmorValue()*0.15)
-    if origStacks < 5 then
+    if origStacks >= 5 then
         additionalArmorLoss = 0
     end
     ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_hood_of_defiler_armor_loss", {duration = 9})
