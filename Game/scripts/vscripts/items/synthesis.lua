@@ -75,7 +75,11 @@ function RPCItems:CombineItems(msg)
 			print(vessel.itemTable[i]:GetAbilityName())
 		end
 		Events.reroll = true
-		local newItem = RPCItems:SynthCheckCombination(vessel.itemTable[1], vessel.itemTable[2], hero:GetAbsOrigin())
+		local newItem = nil
+		newItem = RPCItems:SynthCheckCombination(vessel.itemTable[1], vessel.itemTable[2], hero:GetAbsOrigin())
+		if not newItem then
+			newItem = RPCItems:SynthCheckCombination2(vessel.itemTable[1], vessel.itemTable[2], hero:GetAbsOrigin())
+		end
 		Events.reroll = false
 		if newItem and IsValidEntity(newItem) then
 			UTIL_Remove(vessel.itemTable[1])
@@ -92,6 +96,37 @@ function RPCItems:CombineItems(msg)
 		end
 	else
 		Notifications:Top(playerID, {text="Must Insert 2 Items", duration=5, style={color="#EE2211"}, continue=true})
+	end
+end
+
+function RPCItems:SynthCheckCombination2(item1, item2, position)
+	print("-------")
+	local core_of_fire_table = {"item_tanari_core_of_fire_normal", "item_tanari_core_of_fire_elite", "item_tanari_core_of_fire_legend"}
+	local jex_weapon_table = {"item_rpc_jex_immortal_weapon_1", "item_rpc_jex_immortal_weapon_2", "item_rpc_jex_immortal_weapon_3"}
+	if (WallPhysics:DoesTableHaveValue(core_of_fire_table, item1:GetAbilityName()) and WallPhysics:DoesTableHaveValue(jex_weapon_table, item2:GetAbilityName())) or (WallPhysics:DoesTableHaveValue(core_of_fire_table, item2:GetAbilityName()) and WallPhysics:DoesTableHaveValue(jex_weapon_table, item1:GetAbilityName())) then
+		print("WE'RE IN")
+		local newItem = nil
+		local maxWeaponLevel = 50
+		if WallPhysics:DoesTableHaveValue(jex_weapon_table, item1:GetAbilityName()) then
+			maxWeaponLevel = item1.maxLevel
+		elseif WallPhysics:DoesTableHaveValue(jex_weapon_table, item2:GetAbilityName()) then
+			maxWeaponLevel = item2.maxLevel
+		end
+		local newItemName = "item_rpc_jex_immortal_weapon_2_a"
+		local new_min_level = 100
+		maxWeaponLevel = math.min(maxWeaponLevel, 50)
+		RPCItems.LevelRoll = new_min_level				
+		local newItem = Weapons:RollJexLegendWeapon2a(position, true)
+		RPCItems.LevelRoll = nil
+		if newItem and IsValidEntity(newItem) then
+			newItem.pickedUp = true
+			newItem.minLevel = new_min_level
+			return newItem
+		else
+			return false
+		end
+	else
+		return false
 	end
 end
 

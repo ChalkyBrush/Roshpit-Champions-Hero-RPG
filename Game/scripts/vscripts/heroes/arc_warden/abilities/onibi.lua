@@ -15,7 +15,7 @@ function load_onibi_data(caster, onibi_data)
 	caster.onibi:GetAbilityByIndex(3):SetLevel(1)
 	caster.onibi:GetAbilityByIndex(4):SetLevel(1)
 	caster.onibi.stats_table = {}
-	local elements_table = get_onibi_elements_name_table(caster.onibi)
+	local elements_table = all_possible_onibi_elements(caster.onibi)
 	local ability_keys = {"Q", "W", "E"}
 	for i = 1, #elements_table, 1 do
 		local element1 = elements_table[i]
@@ -26,6 +26,7 @@ function load_onibi_data(caster, onibi_data)
 			for k = 1, #ability_keys, 1 do
 				local ability_key = ability_keys[k]
 				caster.onibi.stats_table[element1][element2][ability_key] = {}
+				print(element1.." : "..element2.." - "..ability_key)
 			end
 		end
 	end
@@ -40,9 +41,12 @@ function load_onibi_data(caster, onibi_data)
 	else
 		caster.onibi.stats_table["lightning"]["exp"] = 0
 	end
+	if onibi_data["modules"]["fire"] then
+		caster.onibi.stats_table["fire"]["exp"] = onibi_data["modules"]["fire"]["exp"]
+	else
+		caster.onibi.stats_table["fire"]["exp"] = 0
+	end
 	if onibi_data["modules"]["cosmic"] then
-		print("SEt COSMIC")
-		print(onibi_data["modules"]["cosmic"]["exp"])
 		caster.onibi.stats_table["cosmic"]["exp"] = onibi_data["modules"]["cosmic"]["exp"]
 	else
 		caster.onibi.stats_table["cosmic"]["exp"] = 0
@@ -55,8 +59,20 @@ function load_onibi_data(caster, onibi_data)
 	calculate_onibi_element_levels(caster.onibi)
 end
 
+function all_possible_onibi_elements(onibi)
+	return {"nature", "lightning", "fire", "cosmic"}
+end
+
 function get_onibi_elements_name_table(onibi)
-	return {"nature", "lightning", "cosmic"}
+	local element_table = {}
+	table.insert(element_table, "nature")
+	if onibi.caster:HasModifier("modifier_jex_arcana1") then
+		table.insert(element_table, "fire")
+	else
+		table.insert(element_table, "lightning")
+	end
+	table.insert(element_table, "cosmic")
+	return element_table
 end
 
 function get_other_elements(onibi, element)
@@ -97,8 +113,9 @@ function set_onibi_model(onibi)
 	for i = 1, #elements_table, 1 do
 		sum_level = sum_level + onibi.stats_table[elements_table[i]]["level"]
 	end
-	local model_index = math.ceil(sum_level/18.75)
+	local model_index = math.max(math.ceil(sum_level/18.75), 1)
 	local model_string = available_models[model_index]
+
 	if onibi.current_model_index == model_index then
 	else
 		onibi.current_model_index = model_index
@@ -114,11 +131,17 @@ function set_onibi_model(onibi)
 	end
 end
 
+function unviable_element_pairs()
+	local unviable_pairs = {}
+	table.insert(unviable_pairs, {"fire", "lightning"})
+	return unviable_pairs
+end
+
 function onibi_initial_set_abilities_data(onibi, data_from_server)
 	if not onibi.stats_table.abilities then
 		onibi.stats_table.abilities = {}
 	end
-	local elements_table = get_onibi_elements_name_table(onibi)
+	local elements_table = all_possible_onibi_elements(onibi)
 	local ability_keys = {"Q", "W", "E"}
 	for i = 1, #elements_table, 1 do
 		local element_tech_used
@@ -129,34 +152,48 @@ function onibi_initial_set_abilities_data(onibi, data_from_server)
 			for j = 1, #ability_keys, 1 do
 				local ability_key = ability_keys[j]
 				local element2 = elements_table[k]
-				local level = 0
-				local tech_data = nil
-				if #data_from_server["techs"] > 0 then
-					for i = 1, #data_from_server["techs"], 1 do
-						local tech_from_server = data_from_server["techs"][i]
-						if (tech_from_server["element1"] == element1 and tech_from_server["element2"] == element2) or (tech_from_server["element1"] == element2 and tech_from_server["element2"] == element1) then
-							tech_data = tech_from_server
-							break
-						end
-					end
-					if ability_key == "Q" then
-						level = tech_data["q_level"]
-					elseif ability_key == "W" then
-						level = tech_data["w_level"]
-					elseif ability_key == "E" then
-						level = tech_data["e_level"]
+				local process = true
+				local unviable_pairs = unviable_element_pairs()
+				for qw = 1, #unviable_pairs, 1 do
+					local unviable_pair = unviable_pairs[qw]
+					if (element1 == unviable_pair[1] and element2 == unviable_pair[2]) or (element1 == unviable_pair[2] and element2 == unviable_pair[1]) then
+						process = false
 					end
 				end
-				onibi.stats_table[element1][element2][ability_key]["name"] = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
-				onibi.stats_table[element2][element1][ability_key]["name"] = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
-				onibi.stats_table[element1][element2][ability_key]["level"] = level
-				onibi.stats_table[element2][element1][ability_key]["level"] = level
-				onibi.stats_table[element1][element2][ability_key]["bonus_level"] = 0
-				onibi.stats_table[element2][element1][ability_key]["bonus_level"] = 0
-				tech_points_spent = tech_points_spent + total_tech_used_on_ability(element1, element2, ability_key, level)
+				if process then
+					local level = 0
+					local tech_data = nil
+					if #data_from_server["techs"] > 0 then
+						for i = 1, #data_from_server["techs"], 1 do
+							local tech_from_server = data_from_server["techs"][i]
+							if (tech_from_server["element1"] == element1 and tech_from_server["element2"] == element2) or (tech_from_server["element1"] == element2 and tech_from_server["element2"] == element1) then
+								tech_data = tech_from_server
+								break
+							end
+						end
+						if tech_data then
+							if ability_key == "Q" then
+								level = tech_data["q_level"]
+							elseif ability_key == "W" then
+								level = tech_data["w_level"]
+							elseif ability_key == "E" then
+								level = tech_data["e_level"]
+							end
+						end
+					end
+					if not level then
+						level = 0
+					end
+					onibi.stats_table[element1][element2][ability_key]["name"] = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
+					onibi.stats_table[element2][element1][ability_key]["name"] = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
+					onibi.stats_table[element1][element2][ability_key]["level"] = level
+					onibi.stats_table[element2][element1][ability_key]["level"] = level
+					onibi.stats_table[element1][element2][ability_key]["bonus_level"] = 0
+					onibi.stats_table[element2][element1][ability_key]["bonus_level"] = 0
+					tech_points_spent = tech_points_spent + total_tech_used_on_ability(element1, element2, ability_key, level)
+				end
 			end
 		end
-		print(onibi.stats_table[element1]["exp"])
 		local element_level = get_level_by_sum_exp(onibi.stats_table[element1]["exp"])
 		tech_points_spent = tech_points_spent/2
 		local tech_available = tech_points_earned_for_element(element1, element_level) - tech_points_spent
@@ -200,7 +237,6 @@ function onibi_calculate_all_tech_points(onibi)
 				local ability_key = ability_keys[j]
 				local element2 = elements_table[k]
 				local level = onibi.stats_table[element1][element2][ability_key]["level"]
-				print(element1.." : "..element2)
 				tech_points_spent = tech_points_spent + total_tech_used_on_ability(element1, element2, ability_key, level)
 			end
 		end
@@ -226,6 +262,12 @@ function get_ability_name_by_element_combination_and_key(element1, element2, abi
 			ability_name = "jex_lightning_cosmic_q"
 		elseif element1 == "cosmic" and element2 == "cosmic" then
 			ability_name = "jex_cosmic_cosmic_q"
+		elseif element1 == "fire" and element2 == "fire" then
+			ability_name = "jex_fire_fire_q"
+		elseif (element1 == "fire" and element2 == "cosmic") or (element1 == "cosmic" and element2 == "fire") then
+			ability_name = "jex_fire_cosmic_q"
+		elseif (element1 == "fire" and element2 == "nature") or (element1 == "nature" and element2 == "fire") then
+			ability_name = "jex_nature_fire_q"
 		end
 	elseif ability_key == "W" then
 		if element1 == "nature" and element2 == "nature" then
@@ -240,6 +282,14 @@ function get_ability_name_by_element_combination_and_key(element1, element2, abi
 			ability_name = "jex_lightning_cosmic_w"
 		elseif element1 == "cosmic" and element2 == "cosmic" then
 			ability_name = "jex_cosmic_cosmic_w"
+		elseif element1 == "fire" and element2 == "fire" then
+			ability_name = "jex_fire_fire_w"
+		elseif (element1 == "nature" and element2 == "fire") or (element1 == "fire" and element2 == "nature") then
+			ability_name = "jex_nature_fire_w"
+		elseif (element1 == "cosmic" and element2 == "fire") or (element1 == "fire" and element2 == "cosmic") then
+			ability_name = "jex_fire_cosmic_w"
+		elseif element1 == "fire" and element2 == "fire" then
+			ability_name = "jex_fire_fire_w"
 		end
 	elseif ability_key == "E" then
 		if element1 == "nature" and element2 == "nature" then
@@ -254,6 +304,12 @@ function get_ability_name_by_element_combination_and_key(element1, element2, abi
 			ability_name = "jex_lightning_cosmic_e"
 		elseif element1 == "cosmic" and element2 == "cosmic" then
 			ability_name = "jex_cosmic_cosmic_e"
+		elseif element1 == "fire" and element2 == "fire" then
+			ability_name = "jex_fire_fire_e"
+		elseif (element1 == "nature" and element2 == "fire") or (element1 == "fire" and element2 == "nature") then
+			ability_name = "jex_nature_fire_e"
+		elseif (element1 == "fire" and element2 == "cosmic") or (element1 == "cosmic" and element2 == "fire") then
+			ability_name = "jex_fire_cosmic_e"
 		end
 
 
@@ -335,14 +391,21 @@ function onibi_activate_essence(event)
 	local ability = event.ability
 	local essence = event.essence
 	local index = event.index
+	local jex = caster.caster
 	-- local other_index = 2
 	-- if index == 2 then
 	-- 	other_index = 1
 	-- end
 	if essence == "nature" then
-		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_nature_"..index, "onibi_lightning_"..index, index-1)
+		if jex:HasModifier("modifier_jex_arcana1") then
+			CustomAbilities:AddAndOrSwapSkill(caster, "onibi_nature_"..index, "onibi_fire_"..index, index-1)
+		else
+			CustomAbilities:AddAndOrSwapSkill(caster, "onibi_nature_"..index, "onibi_lightning_"..index, index-1)
+		end
 	elseif essence == "lightning" then
 		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_lightning_"..index, "onibi_cosmic_"..index, index-1)
+	elseif essence == "fire" then
+		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_fire_"..index, "onibi_cosmic_"..index, index-1)
 	elseif essence == "cosmic" then
 		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_cosmic_"..index, "onibi_nature_"..index, index-1)
 	end
@@ -358,6 +421,7 @@ function onibi_activate_ability_key(event)
 	element2 = string.gsub(element2, '_2', "")
 	local ability_key = string.upper(event.ability_key)
 	local ability_level = caster.stats_table[element1][element2][ability_key]["level"]
+	ability_level = 1
 	if ability_level > 0 then
 		EmitSoundOn("Jex.Invoke", caster)
 		local ability_name = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
@@ -467,9 +531,17 @@ function onibi_master_rune_thinker(event)
 	local lightning_level = get_level_by_sum_exp(onibi.stats_table["lightning"]["exp"])
 	local nature_level = get_level_by_sum_exp(onibi.stats_table["nature"]["exp"])
 	local cosmic_level = get_level_by_sum_exp(onibi.stats_table["cosmic"]["exp"])
+	local fire_level = 0
+	if onibi.stats_table["fire"] then
+		fire_level = get_level_by_sum_exp(onibi.stats_table["fire"]["exp"])
+	end
 
 	total_attack_damage_stacks = total_attack_damage_stacks + nature_level*q_1_level
-	total_attack_damage_stacks = total_attack_damage_stacks + lightning_level*w_1_level
+	if caster:HasModifier("modifier_jex_arcana1") then
+		total_attack_damage_stacks = total_attack_damage_stacks + fire_level*w_1_level
+	else
+		total_attack_damage_stacks = total_attack_damage_stacks + lightning_level*w_1_level
+	end
 	total_attack_damage_stacks = total_attack_damage_stacks + cosmic_level*e_1_level
 	if total_attack_damage_stacks > 0 then
 		ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_onibi_base_attack_damage", {})
@@ -484,7 +556,11 @@ function onibi_master_rune_thinker(event)
 	local e_3_level = caster:GetRuneValue("e", 3)
 	
 	total_attributes_stacks = total_attributes_stacks + nature_level*q_3_level
-	total_attributes_stacks = total_attributes_stacks + lightning_level*w_3_level
+	if caster:HasModifier("modifier_jex_arcana1") then
+		total_attributes_stacks = total_attributes_stacks + fire_level*w_3_level
+	else
+		total_attributes_stacks = total_attributes_stacks + lightning_level*w_3_level
+	end
 	total_attributes_stacks = total_attributes_stacks + cosmic_level*e_3_level
 	if total_attributes_stacks > 0 then
 		ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_onibi_all_attributes", {})
@@ -505,9 +581,9 @@ end
 
 function jex_equip_immortal_weapon(event)
 	local caster = event.target
-	local elements_table = get_onibi_elements_name_table(onibi)
-	local ability_keys = {"Q", "W", "E"}
 	local onibi = caster.onibi
+	local elements_table = all_possible_onibi_elements(onibi)
+	local ability_keys = {"Q", "W", "E"}
 	for i = 1, #elements_table, 1 do
 		local element1 = elements_table[i]
 		-- local other_elements = get_other_elements(onibi, element1)
@@ -521,6 +597,9 @@ function jex_equip_immortal_weapon(event)
 					bonus = 1
 				end
 				if (element1 == "lightning" or element2 == "lightning") and caster:HasModifier("modifier_jex_immortal_weapon_2") then
+					bonus = 1
+				end
+				if (element1 == "fire" or element2 == "fire") and caster:HasModifier("modifier_jex_immortal_weapon_2_a") then
 					bonus = 1
 				end
 				if (element1 == "cosmic" or element2 == "cosmic") and caster:HasModifier("modifier_jex_immortal_weapon_3") then

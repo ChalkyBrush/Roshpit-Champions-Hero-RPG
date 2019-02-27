@@ -73,6 +73,11 @@ function RPCItems:HandLegendary(itemVariant, deathLocation)
             RPCItems:RollMageBaneGloves(deathLocation)
             return true
         elseif luck == 6 then
+            local arcanaLuck = RandomInt(1, 1120)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+                RPCItems:RollJexArcana1(deathLocation)
+                return true
+            end
             RPCItems:RollCytopianLaserGloves(deathLocation)
             return true
         elseif luck == 7 then

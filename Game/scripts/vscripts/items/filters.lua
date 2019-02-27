@@ -1404,6 +1404,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local current_stack = attacker:GetModifierStackCount( "modifier_foot_base_ability_damage", attacker.InventoryUnit)
             damageMult = damageMult + 0.01*current_stack
         end
+        if attacker:HasModifier("modifier_jex_orbital_flame_effect") then
+            local fireAbility = attacker:FindAbilityByName("jex_fire_cosmic_w")
+            damageMult = damageMult + (fireAbility:GetSpecialValueFor("base_ability_damage_per_flame_tech")/100)*attacker:GetModifierStackCount("modifier_jex_orbital_flame_effect", attacker)*fireAbility.tech_level
+        end
         if attacker:HasModifier("modifier_weapon_base_ability_damage") then
             local current_stack = attacker:GetModifierStackCount( "modifier_weapon_base_ability_damage", attacker.InventoryUnit)
             damageMult = damageMult + 0.01*current_stack
@@ -2025,6 +2029,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local multIncrease = modifier:GetStackCount()*0.15
             fireMult = fireMult + multIncrease
         end
+        if unitName == "npc_dota_hero_arc_warden" then
+            if attacker:HasModifier("modifier_jex_arcana1") then
+                if attacker.w_2_level then
+                    fireMult = fireMult + attacker.w_2_level*1
+                end
+            end
+        end
         if fireMult > 50 and attacker:HasModifier("modifier_fire_deity_crown") then
             fireMult = 50
         end
@@ -2108,8 +2119,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + stacks/100
         end
         if unitName == "npc_dota_hero_arc_warden" then
-            if attacker.w_2_level then
-                mult = mult + attacker.w_2_level*1
+            if not attacker:HasModifier("modifier_jex_arcana1") then
+                if attacker.w_2_level then
+                    mult = mult + attacker.w_2_level*1
+                end
             end
         end
     end
@@ -3515,7 +3528,8 @@ function Filters:RedrockFootwear(caster)
             local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
             if #enemies > 0 then
                 for _,enemy in pairs(enemies) do
-                    if not enemy:GetAttackCapability() == DOTA_UNIT_CAP_NO_ATTACK then
+                    if enemy:GetAttackCapability() == DOTA_UNIT_CAP_NO_ATTACK then
+                    else
                         ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_redrock_footwear_taunt_effect", {duration = 5})
                         enemy:MoveToTargetToAttack(caster)
                     end
@@ -4467,7 +4481,7 @@ function Filters:IsIceFrozen(target)
 end
 
 function Filters:IsFireBurning(target)
-    if target:HasModifier("modifier_pyroblast_ignite") or target:HasModifier("modifier_fulminating_burn_effect") or target:HasModifier("modifier_flametongue_a_a_rune") or target:HasModifier("modifier_solunia_solar_burn") or target:HasModifier("modifier_on_fire_effect") or target:HasModifier("ruby_dragon_burn") or target:HasModifier("modifier_infernal_prison_effect_from_attack") or target:HasModifier("modifier_infernal_prison_nearby") or target:HasModifier("fire_walker_aura") or target:HasModifier("scorched_earth_aura") or target:HasModifier("modifier_ring_of_fire_burn") or target:HasModifier("modifier_sun_lance_burn") then
+    if target:HasModifier("modifier_pyroblast_ignite") or target:HasModifier("modifier_fulminating_burn_effect") or target:HasModifier("modifier_flametongue_a_a_rune") or target:HasModifier("modifier_solunia_solar_burn") or target:HasModifier("modifier_on_fire_effect") or target:HasModifier("ruby_dragon_burn") or target:HasModifier("modifier_infernal_prison_effect_from_attack") or target:HasModifier("modifier_infernal_prison_nearby") or target:HasModifier("fire_walker_aura") or target:HasModifier("scorched_earth_aura") or target:HasModifier("modifier_ring_of_fire_burn") or target:HasModifier("modifier_sun_lance_burn") or target:HasModifier("modifier_jex_cipher_bolt_burn") or target:HasModifier("modifier_w_fire_fire_as_slow") or target:HasModifier("modifier_jex_e_fire_fire_burn") or target:HasModifier("modifier_cinderbark_burning") then
         return true
     else
         return false

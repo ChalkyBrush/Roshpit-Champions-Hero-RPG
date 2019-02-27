@@ -7203,6 +7203,156 @@
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"Glyph of Techno Supremacy"
 	"item_rpc_jex_glyph_5_a_description" 				"Increases the tech level of all of Jex's abilities by @glyph_property1."
 
+    //FIRE ARCANA
+    "DOTA_Tooltip_ability_item_rpc_jex_arcana1"						"Flamesynth Cybernetics"
+
+	"item_property_jex_arcana1"                                     "Fire Module"
+    "property_jex_arcana1_description"                              "Replaces Onibi's <font color=\"#5CCDF9\">Lightning</font> module with a <font color=\"#EF4126\">Fire</font> module."
+
+	"DOTA_Tooltip_ability_onibi_fire_1"		"Fire Module"
+	"DOTA_Tooltip_ability_onibi_fire_1_Description"		"Enables the activation of Fire abilities. Enemies who die near Jex will leave behind fire flowers for harvesting."
+
+	"DOTA_Tooltip_ability_onibi_fire_2"		"Fire Module"
+	"DOTA_Tooltip_ability_onibi_fire_2_Description"		"Enables the activation of Fire abilities. Enemies who die near Jex will leave behind fire flowers for harvesting."
+
+	"DOTA_Tooltip_ability_jex_base_cannon_fire"	"Base Cannon: Fire"
+	"DOTA_Tooltip_ability_jex_base_cannon_fire_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Target an enemy and deal damage."
+	"DOTA_Tooltip_ability_jex_base_cannon_fire_damage"		"DAMAGE:"
+
+    "DOTA_Tooltip_ability_jex_fire_fire_q"				"Ring of Fire"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>A ring of fire expands and contracts, dealing damage to enemies that come into contact with it."
+    "DOTA_Tooltip_ability_jex_fire_fire_q_attack_damage_per_tech"		"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO BASE DAMAGE PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_cooldown_reduction_per_tech"	"<font color=\"#f4b942\">COOLDOWN REDUCTION PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_base_damage"					"BASE DAMAGE:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_radius"						"MAX RADIUS:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_agility_added_to_base_damage"	"AGILITY MULTIPLIER ADDED TO BASE DAMAGE:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_w_4_damage_increase_pct_edges"	"%<font color=\"#7DFF12\">[W4] Maximum Base damage increase based on radius. Largest multiplier at edge of radius:</font>:"
+
+    "DOTA_Tooltip_ability_jex_nature_fire_q"				"Woodland Fever"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_Description"	"Creates a tree that radiates a deep and disorienting heat. Enemies close to the tree will attack it in confusion. Each instance of damage taken by the tree deals 1 damage."
+    "DOTA_Tooltip_ability_jex_nature_fire_q_health_per_tech"			"<font color=\"#f4b942\">ADDITIONAL TREE HEALTH PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_taunt_duration_per_tech"	"<font color=\"#f4b942\">ADDITIONAL TAUNT DURATION PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_taunt_duration_base"		"TAUNT DURATION BASE:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_health_base"				"TREE BASE HEALTH:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_cast_range"				"CAST RANGE:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_duration"					"TREE DURATION BASE:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_q_4_duration_increase"		"<font color=\"#7DFF12\">[Q4] Additional Tree Duration</font>:"	
+    "DOTA_Tooltip_ability_jex_nature_fire_q_w_4_attack_damage_from_pulse"	"<font color=\"#7DFF12\">[W4] Attack damage buff when Jex touched by taunt wave. Same duration as taunt effect</font>:"	
+
+    "DOTA_Tooltip_modifier_jex_fire_tree_taunt"				"Woodland Fever"
+    "DOTA_Tooltip_modifier_jex_fire_tree_taunt_Description"	"Taunted"
+
+    "DOTA_Tooltip_modifier_jex_fire_nature_q_attack_power"	"Woodland Fever"
+    "DOTA_Tooltip_modifier_jex_fire_nature_q_attack_power_Description"	"Increased attack power"
+
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q"				"Meteor Shower"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_Description"	"Element: <font color=\"#EF4126\">Fire</font>/<font color=\"#C25DFC\">Cosmic</font><br>Jex creates a magnetic field that draws multiple meteors to crash down into the target area."
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_meteors_per_tech"			"<font color=\"#f4b942\">METEORS PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_attack_damage_percent_added_per_tech"	"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO BASE PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_base_damage"		"BASE DAMAGE:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_base_meteors"				"BASE METEORS:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_strength_added_to_damage"	"STRENGTH ADDED TO DAMAGE:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_w_4_base_damage_increase"		"%<font color=\"#7DFF12\">[W4] Base Damage Increase</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_e_4_stun_duration"	"<font color=\"#7DFF12\">[E4] Stun Duration</font>:"
+
+    "DOTA_Tooltip_ability_jex_fire_fire_w"					"Fire Juggler"
+    "DOTA_Tooltip_ability_jex_fire_fire_w_Description"		"Element: <font color=\"#EF4126\">Fire</font><br>Jex tosses out disorderly cluster of fireballs that impact enemies in a tight radius around the casting point."
+    "DOTA_Tooltip_ability_jex_fire_fire_w_flames_per_tech"	"<font color=\"#f4b942\">FIREBALLS PER TECH</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_fire_w_attack_damage_percent_added_per_tech"	"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO BASE PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_w_base_damage"		"BASE DAMAGE:"
+    "DOTA_Tooltip_ability_jex_fire_fire_w_w_4_attack_slow"	"<font color=\"#7DFF12\">[W4] 4 second attack speed slow</font>:"
+
+    "DOTA_Tooltip_modifier_w_fire_fire_as_slow"				"Fire Juggler Burn"
+    "DOTA_Tooltip_modifier_w_fire_fire_as_slow_Description"	"Reduced Attack Speed"
+
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w"				"Orbital Flame"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_Description"	"Summons up a set of slow moving, cosmic flames that orbit around Jex through a controlled gravity. Each active flame provides bonus Base Ability damage. When taking damage, a flame is destroyed but that damage instance is reduced to 0."
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_base_ability_damage_per_flame_tech"	"%<font color=\"#f4b942\">ALL BASE ABILITY DAMAGE INCREASE PER FLAME PER TECH</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_flames"								"FLAMES:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_duration"							"DURATION:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_w_4_base_attack_damage_per_flame"	"<font color=\"#7DFF12\">[W4] Base Attack Damage per Flame</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_e_4_mana_regen_per_flame"			"<font color=\"#7DFF12\">[E4] Mana Regen per Flame</font>:"
+
+    "DOTA_Tooltip_modifier_jex_orbital_flame_effect"		"Orbital Flame"
+    "DOTA_Tooltip_modifier_jex_orbital_flame_effect_Description" "Increased Base Ability damage and absorbing damage instances"
+
+    "DOTA_Tooltip_ability_jex_nature_fire_w"				"Living Bomb"
+    "DOTA_Tooltip_ability_jex_nature_fire_w_Description"	"Jex translates a biological entity into a living explosive for 2 seconds. When its duration runs out or on death, the affected entity explodes and damages enemies in a 600 radius. Can target enemies or allies."	
+    "DOTA_Tooltip_ability_jex_nature_fire_w_attack_damage_of_target_per_tech"	"%<font color=\"#f4b942\">ADDITIONAL DAMAGE FROM BOMB CARRIER'S ATTACK POWER PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_w_base_damage"						"BASE DAMAGE:"
+    "DOTA_Tooltip_ability_jex_nature_fire_w_cast_range"							"CAST RANGE:"
+    "DOTA_Tooltip_ability_jex_nature_fire_w_q_4_stun_duration"	"<font color=\"#7DFF12\">[Q4] Maximum Enemy Stun Duration, scales to 0 at edge of explosion radius</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_w_w_4_damage_increase_from_target_max_health"					"%<font color=\"#7DFF12\">[W4] Additional damage from Bomb Carrier's max health</font>:"
+
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e"				"Cipher Bolt"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_Description"	"Jex becomes a starlike ball of fire that quickly blasts toward the target location."
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_clamp_distance_per_tech"		"<font color=\"#f4b942\">ADDITIONAL CLAMP DISTANCE PER TECH</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_cooldown_reduction_per_tech"	"<font color=\"#f4b942\">BASE COOLDOWN REDUCTION PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_clamp_distance_base"			"BASE CLAMP DISTANCE:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_w_4_burn_damage_attack_power"	"%<font color=\"#7DFF12\">[W4] Enemies in contact burn for 5 seconds and take attack power as damage every 0.5 seconds</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_e_4_mana_restore_on_land"		"%<font color=\"#7DFF12\">[E4] Mana restore upon landing:</font>:"	
+
+    "DOTA_Tooltip_modifier_jex_cipher_bolt_burn"			"Cipher Bolt Burn"
+    "DOTA_Tooltip_modifier_jex_cipher_bolt_burn_Description"	"Taking damage based on Jex's attack power and W4 level every 0.5 seconds"
+
+
+    "DOTA_Tooltip_ability_jex_fire_fire_e"					"Flame Sweep"
+    "DOTA_Tooltip_ability_jex_fire_fire_e_Description"		"<font color=\"#A8C8FF\">VECTOR TARGET</font><br>Element: <font color=\"#EF4126\">Fire</font><br>Throw a sweeping flame from the starting cast point toward the second cast point. If the flame hits Jex, it launches him in the direction of the fire. Enemies are damaged by the sweeping flame."
+    "DOTA_Tooltip_ability_jex_fire_fire_e_attack_damage_added_per_tech"	"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_e_fire_speed_per_tech"			"<font color=\"#f4b942\">FLAME MOVESPEED PER TECH</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_fire_e_fire_speed_base"				"FLAME SPEED BASE:"
+    "DOTA_Tooltip_ability_jex_fire_fire_e_fire_range"					"FLAME RANGE:"
+    "DOTA_Tooltip_ability_jex_fire_fire_e_base_damage"					"BASE DAMAGE:"
+    "DOTA_Tooltip_ability_jex_fire_fire_e_w_4_burn_damage_attack_power"	"%<font color=\"#7DFF12\">[W4] Enemies hit burn for 4 seconds and take attack power as damage every 0.5 seconds</font>:"
+
+    "DOTA_Tooltip_modifier_jex_e_fire_fire_burn"				"Flame Sweep Burning"
+    "DOTA_Tooltip_modifier_jex_e_fire_fire_burn_Description"	"Taking damage based on Jex's attack power and W4 level every 0.5 seconds"
+
+    "DOTA_Tooltip_ability_jex_nature_fire_e"				"Cinderbark Treant"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_Description"	"Summons an immolated treant to fight for Jex. The treant gains permanent attack damage every second while it is alive. While the treant is active, it drains increasing amounts of Jex's mana. If Jex runs out of mana, the treant dies. When the treant dies, he emits a firey explosion that deals damage based on his final attack power. The treant also has a small AOE magic attack that deals fire damage."
+    "DOTA_Tooltip_ability_jex_nature_fire_e_explosion_attack_damage_per_tech"		"%<font color=\"#f4b942\">DETONATION DAMAGE PER TECH FROM CINDERBARK'S ATTACK POWER</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_explosive_attack_damage_per_tech"		"%<font color=\"#f4b942\">CINDERBARK'S ATTACK EXPLOSION DAMAGE, BASED ON CINDERBARK'S ATTACK POWER</font>:"	
+    "DOTA_Tooltip_ability_jex_nature_fire_e_armor_mult_per_tech"					"<font color=\"#f4b942\">ARMOR MULT PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_attack_mult_per_tech"					"<font color=\"#f4b942\">ATTACK DAMAGE MULT PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_attack_gain_per_second"				"BASE ATTACK DAMAGE GAIN PER SECOND:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_max_health_mult"						"MAX HEALTH MULT:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_mana_cost_increase_per_second"		"MANA COST INCREASE PER SECOND:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_q_4_cooldown_reduction"				"<font color=\"#7DFF12\">[Q4] Cooldown Reduction</font>:"	
+    "DOTA_Tooltip_ability_jex_nature_fire_e_w_4_burn_damage_explosion_damage"		"%<font color=\"#7DFF12\">[W4] 5 second burn from detonation, percentage of detonation base damage every 0.5 seconds</font>:"
+
+    "DOTA_Tooltip_ability_cinderbark_detonate"				"Detonate"
+    "DOTA_Tooltip_ability_cinderbark_detonate_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Immediately kills the Cinderbark Treant."
+
+    "DOTA_Tooltip_modifier_cinderbark_burning"				"Cinderbark Burning"
+    "DOTA_Tooltip_modifier_cinderbark_burning_Description"	"Taking damage based on Cinderbark's detonation damage and Jex's W4 level every 0.5 seconds"
+
+    "DOTA_Tooltip_ability_jex_cinderbark_teleport"			"Fire Tract"
+    "DOTA_Tooltip_ability_jex_cinderbark_teleport_Description"	"Brings Jex toward the location of the Cinderbark Treant."
+
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1"								"[W1] Fire Module I"
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_Description"					"Onibi's <font color=\"#EF4126\">Fire</font> level increases Jex's base attack damage."
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_property_one"				"Attack Damage Bonus"
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_suffix"						"x Onibi's Module Level"
+
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1"								"[W2] Fire Module II"
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_Description"					"Increases all <font color=\"#EF4126\">Fire</font> damage."
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_property_one"				"Elemental Damage Bonus"
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_suffix"						"%"
+
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1"								"[W3] Fire Module III"
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_Description"					"Onibi's <font color=\"#EF4126\">Fire</font> level increases Jex's attributes."
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_property_one"				"Attribute Bonus"
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_suffix"						"x Onibi's Module Level"
+
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1"								"[W4] Fire Module IV"
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_Description"					"Each ability that has <font color=\"#EF4126\">Fire</font> element receives a special bonus. The bottom of each ability's tooltip describes the perk provided by this rune."
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_property_one"				"Bonus Upgrade Multiple"
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_suffix"						""
+
+	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_2_a"            "Lava Boiler"
+	"item_property_jex_immortal_weapon2_a"                             "Fire Enhancement"
+	"property_jex_immortal_weapon2_a_description"                      "All tech abilities with <font color=\"#EF4126\">Fire</font> element receive @special_property1 Tech Level. Double <font color=\"#EF4126\">Fire</font> abilities gain @special_property2 bonus Tech Levels."
+
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"Shockwave"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#AF843D\">Earth</font><br>Unearths a cascade of force that damage and stuns everyone in its path."
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_stun_duration"	"STUN DURATION:"

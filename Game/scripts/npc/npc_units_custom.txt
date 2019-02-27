@@ -250,6 +250,149 @@
         "Ability2"      "hero_summon_ai"
     }
 
+    "jex_cinderbark_treant"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/treant_protector/treant_protector.vmdl"
+        "SoundSet"  "Hero_Treant"
+        "Level" "1"
+        "UnitLabel" "healing_ward"
+        "ModelScale"    "0.5"
+        "HealthBarOffset"   "340"
+        "precache"
+        {
+
+        }
+        "Ability1"      "jex_cinderbark_teleport"
+        "Ability2"      "cinderbark_detonate"
+        "Ability3"      "hero_summon_ai"
+        "ArmorPhysical" "1500"
+        "MagicalResistance" "20"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageMin"   "900"
+        "AttackDamageMax"   "1200"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "0.41"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "210"
+        "ProjectileModel"   ""
+        "AttributePrimary"  "DOTA_ATTRIBUTE_STRENGTH"
+        "AttributeBaseStrength" "0"
+        "AttributeStrengthGain" "0"
+        "AttributeBaseIntelligence" "0"
+        "AttributeIntelligenceGain" "0"
+        "AttributeBaseAgility"  "0"
+        "AttributeAgilityGain"  "0"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "BountyXP"  "900"
+        "BountyGoldMin" "600"
+        "BountyGoldMax" "800"
+        "RingRadius"    "0"
+        "HasInventory"  "0"
+        "CollisionSize" "0"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.6"
+        "FollowRange"   "0"
+        "StatusHealth"  "60000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
+        "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "VisionDaytimeRange"    "0"
+        "VisionNighttimeRange"  "0"
+        "AttackDesire"  "1.5"
+
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "8427"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "8429"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "8425"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "8428"
+                }
+            }
+        }
+    }
+
+    "jex_fever_tree"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/props_tree/cypress/tree_cypress010_inspector.vmdl"
+        "ModelScale"    "0.3"
+        "Level" "1"
+        "HealthBarOffset"   "200"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "SoundSet"  "Hero_zuus"
+
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+        "ProjectileSpeed"   "800"
+        "ProjectileModel"   "particles/econ/items/zeus/lightning_weapon_fx/zuus_base_attack_immortal_lightning.vpcf"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "40"
+        "AttackDamageMax"   "55.0"
+        "AttackRate"    "0.7"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange"    "1000"
+        "AttackRange"   "375"
+        "BountyGoldMin" "13"
+        "BountyGoldMax" "15"
+        "BountyXP" "20"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "350"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "900"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "700"
+        "VisionNighttimeRange"  "700"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
+
 
 
     "ekkan_skeleton_archer"

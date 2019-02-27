@@ -5,6 +5,8 @@ function Weapons:RollLegendWeaponVariantWithAbilityName(abilityName, strictMaxIt
 		if string.match(abilityName, "_immortal_weapon_1") then
 			class = string.gsub(abilityName, "_immortal_weapon_1", "")
 			return Weapons:RollLegendWeapon1(position, class, strictMaxItemLevel, disableDrop)
+		elseif string.match(abilityName, "_immortal_weapon_2_a") then
+			return Weapons:RollJexLegendWeapon2a(position, disableDrop)
 		elseif string.match(abilityName, "_immortal_weapon_2") then
 			class = string.gsub(abilityName, "_immortal_weapon_2", "")
 			return Weapons:RollLegendWeapon2(position, class, strictMaxItemLevel, disableDrop)
@@ -1118,6 +1120,62 @@ function Weapons:RollLegendWeapon3(deathLocation, class, strictMaxItemLevel, dis
 	DeepPrintTable(tooltipTable)
 	DeepPrintTable(propertyTable)
 	print("----------")
+	local value = Weapons:GetDeviation(baseValueTable[specialProperty1]+RandomInt(1, 15), rarityFactor)
+	weapon.property3 = value
+	weapon.property3name = propertyTable[specialProperty1]
+	RPCItems:SetPropertyValues(weapon, weapon.property3, tooltipTable[specialProperty1], colorTable[specialProperty1],  3)
+
+	local value = Weapons:GetDeviation(baseValueTable[specialProperty2]+RandomInt(1, 15), rarityFactor)
+	weapon.property4 = value
+	weapon.property4name = propertyTable[specialProperty2]
+	RPCItems:SetPropertyValues(weapon, weapon.property4, tooltipTable[specialProperty2], colorTable[specialProperty2],  4)
+
+	if not disableDrop then
+		local drop = CreateItemOnPositionSync( deathLocation, weapon )
+		local position = deathLocation
+		RPCItems:DropItem(weapon, position)
+	end
+	return weapon
+end
+
+function Weapons:RollJexLegendWeapon2a(deathLocation, disableDrop)
+	
+	local maxFactor = RPCItems:GetMaxFactor()
+	local rarityRoll = RandomInt(1, 100+RandomInt(1, maxFactor))
+	local rarity = "immortal"
+	local itemName = ""
+	local mainAttrRoll = RandomInt(1,3)
+	local rarityFactor = RPCItems:GetRarityFactor(rarity)
+	local maxLevel = math.min(RPCItems:GetLogarithmicVarianceValue(48, 0, 0, 0, 0), 50)
+	maxLevel = math.max(maxLevel, 50)
+	if strictMaxItemLevel then
+		maxLevel = strictMaxItemLevel
+	end
+	local maxLuck = RandomInt(1,200)
+
+
+	local propertyTable, baseValueTable, propensityTable, tooltipTable, colorTable = HerosCustom:GetAvailableRunes("npc_dota_hero_arc_warden")
+	local specialProperty1 = RandomInt(1, #propensityTable)
+	local specialProperty2 = RandomInt(1, #propensityTable)
+	while specialProperty1 == specialProperty2 do
+		specialProperty2 = RandomInt(1, #propensityTable)
+	end
+	local weaponName = "item_rpc_jex_immortal_weapon_2_a"
+
+	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "", "weapon", true, "Slot: Weapon", "npc_dota_hero_arc_warden", maxLevel, 100)
+
+
+    weapon.property1 = 1
+    weapon.property1name = "!immortal_weapon!"
+	RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_jex_immortal_weapon2_a", "#EF4126",  1, "#property_jex_immortal_weapon2_a_description")
+
+	local value = Weapons:GetDeviation(300+RandomInt(1,700), 0)
+    weapon.property2 = value
+    weapon.property2name = "attack_damage"
+    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_bonus_attack_damage", "#343EC9",  2) 
+
+
+
 	local value = Weapons:GetDeviation(baseValueTable[specialProperty1]+RandomInt(1, 15), rarityFactor)
 	weapon.property3 = value
 	weapon.property3name = propertyTable[specialProperty1]

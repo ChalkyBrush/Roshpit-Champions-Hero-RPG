@@ -1021,6 +1021,54 @@ function Runes:EquipArcana(hero, index)
 			Runes:EasySwapArcanaSkills(hero, 1, "dinath_drake_ring", "dinath_dragon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 			hero:RemoveModifierByName("modifier_drake_ring_passive")
 		end
+	elseif hero:GetUnitName() == "npc_dota_hero_arc_warden" then
+		Timers:CreateTimer(0, function()
+			if hero.onibi then
+				if index == 1 then
+					local abilityCheck = hero:GetAbilityByIndex(1)
+					if abilityCheck:GetAbilityName() ~= "jex_base_cannon_lightning" then 
+						CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_lightning", 1)
+					end
+					local abilityCheck = hero:GetAbilityByIndex(0)
+					if abilityCheck:GetAbilityName() ~= "jex_base_cannon_nature" then 
+						CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_nature", 0)
+					end
+					local abilityCheck = hero:GetAbilityByIndex(2)
+					if abilityCheck:GetAbilityName() ~= "jex_base_cannon_cosmic" then 
+						CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_cosmic", 2)
+					end
+					hero:RemoveModifierByName("modifier_jex_vortex_w")
+					
+					local abilities_to_remove_table = {"jex_thunder_thunder_q", "jex_lightning_cosmic_q", "jex_lightning_nature_q", "jex_lightning_lightning_w", "jex_lightning_nature_w", "jex_lightning_cosmic_w", "jex_lightning_nature_e", "jex_lightning_lightning_e", "jex_lightning_cosmic_e"}
+					for i = 1, #abilities_to_remove_table, 1 do
+						local ability_name = abilities_to_remove_table[i]
+						if hero:HasAbility(ability_name) then
+							hero:RemoveAbility(ability_name)
+						end
+					end
+
+					Runes:EasySwapArcanaSkills(hero, 1, "jex_base_cannon_lightning", "jex_base_cannon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+					local onibi = hero.onibi
+					local onibi_ability_check1 = onibi:GetAbilityByIndex(3)
+					CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check1:GetAbilityName(), "onibi_fire_1", 3)
+					local onibi_ability_check2 = onibi:GetAbilityByIndex(4)
+					CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check2:GetAbilityName(), "onibi_fire_2", 4)
+					onibi.stats_table["arcanas"] = {}
+					onibi.stats_table["arcanas"]["fire"] = 1
+					if not onibi.stats_table["fire"]["exp"] then
+						onibi.stats_table["fire"]["exp"] = 0
+					end
+					if not onibi.stats_table["fire"]["level"] then
+						onibi.stats_table["fire"]["level"] = 0
+					end
+					require('heroes/arc_warden/abilities/onibi')
+					calculate_onibi_element_levels(onibi)
+				end
+			else
+				print("retrying arcana equip")
+				return 0.5
+			end
+		end)
 	end
 end
 
@@ -1633,6 +1681,52 @@ function Runes:UnequipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_spire_breath")
 			hero:RemoveModifierByName("modifier_spire_breath_a_b_buff")
 			hero:RemoveModifierByName("modifier_dinath_passive_ms_cap")
+		end
+	elseif hero:GetUnitName() == "npc_dota_hero_arc_warden" then
+		if index == 1 then
+			local abilityCheck = hero:GetAbilityByIndex(1)
+			if abilityCheck:GetAbilityName() ~= "jex_base_cannon_fire" then 
+				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_fire", 1)
+			end
+			local abilityCheck = hero:GetAbilityByIndex(0)
+			if abilityCheck:GetAbilityName() ~= "jex_base_cannon_nature" then 
+				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_nature", 0)
+			end
+			local abilityCheck = hero:GetAbilityByIndex(2)
+			if abilityCheck:GetAbilityName() ~= "jex_base_cannon_cosmic" then 
+				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_cosmic", 2)
+			end
+			if hero:HasAbility("jex_fire_cosmic_w") then
+				if hero:HasModifier("modifier_jex_orbital_flame_effect") then
+					local fire_cosmic_w = hero:FindAbilityByName("jex_fire_cosmic_w")
+				    for i = 1, #fire_cosmic_w.flameTable, 1 do
+				    	if fire_cosmic_w.flameTable[i]:HasModifier("modifier_orbital_flame_thinker") then
+				    		fire_cosmic_w.flameTable[i]:RemoveModifierByName("modifier_orbital_flame_thinker")
+				    	end
+				    end
+				    hero:RemoveModifierByName("modifier_jex_orbital_flame_effect")
+				end
+			end
+			
+			
+			local abilities_to_remove_table = {"jex_fire_fire_q", "jex_fire_cosmic_q", "jex_nature_fire_q", "jex_fire_fire_w", "jex_fire_cosmic_w", "jex_nature_fire_w", "jex_fire_fire_e", "jex_fire_cosmic_e", "jex_nature_fire_e"}
+			for i = 1, #abilities_to_remove_table, 1 do
+				local ability_name = abilities_to_remove_table[i]
+				if hero:HasAbility(ability_name) then
+					hero:RemoveAbility(ability_name)
+				end
+			end
+
+			Runes:EasyRevertArcanaSkills(hero, 1, "jex_base_cannon_lightning", "jex_base_cannon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			local onibi = hero.onibi
+			local onibi_ability_check1 = onibi:GetAbilityByIndex(3)
+			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check1:GetAbilityName(), "onibi_nature_1", 3)
+			local onibi_ability_check2 = onibi:GetAbilityByIndex(4)
+			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check2:GetAbilityName(), "onibi_nature_2", 4)
+			onibi.stats_table["arcanas"]["fire"] = 0
+			require('heroes/arc_warden/abilities/onibi')
+
+			calculate_onibi_element_levels(onibi)
 		end
 	end
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "ability_tree_upgrade", {playerId=hero:GetPlayerOwnerID()})

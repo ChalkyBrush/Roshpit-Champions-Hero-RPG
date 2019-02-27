@@ -1561,7 +1561,7 @@ end
 function SaveLoad:SaveJex(hero)
 	require('heroes/arc_warden/abilities.onibi')
 	local onibi = hero.onibi
-	local elements_table = get_onibi_elements_name_table(onibi)
+	local elements_table = all_possible_onibi_elements(onibi)
 	local ability_keys = {"Q", "W", "E"}
 
 	local playerID = hero:GetPlayerOwnerID()
@@ -1580,7 +1580,9 @@ function SaveLoad:SaveJex(hero)
 			for j = 1, #ability_keys, 1 do
 				local ability_key = ability_keys[j]
 				local element2 = elements_table[k]
-				url = url.."&tech_"..element1.."-"..element2.."_"..ability_key.."="..onibi.stats_table[element1][element2][ability_key]["level"]
+				if onibi.stats_table[element1][element2][ability_key]["level"] then
+					url = url.."&tech_"..element1.."-"..element2.."_"..ability_key.."="..onibi.stats_table[element1][element2][ability_key]["level"]
+				end
 			end
 		end
 		url = url.."&"..element1.."_exp="..onibi.stats_table[element1]["exp"]

@@ -49,6 +49,12 @@
 				"StatusEffectName" 		"particles/status_fx/status_effect_terrorblade_reflection.vpcf"
 				"StatusEffectPriority"  "10"
 			}
+			"jex_essence_fire"
+			{
+				"IsHidden"	"1"
+				"EffectName"		"particles/roshpit/jex/fire_flower_ambient.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
 			"jex_essence_spawning"
 			{
 				"IsHidden"	"1"
@@ -3531,6 +3537,1566 @@
 						"Function"		"path_flying_think"
 					}
 				}
+			}
+		}
+	}
+
+	"jex_base_cannon_fire"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityTextureName"			"jex/fire/fire_gun"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"1000 5000 25000 75000 150000 250000 500000"
+			}
+		}
+		"AbilityCastAnimation"	"ACT_DOTA_ATTACK2"
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.2"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/base_cannons.lua"
+				"Function"		"base_cannon_shoot"
+				"target"		"TARGET"
+				"element"		"fire"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/base_cannons.lua"
+				"Function"		"base_cannon_impact"
+				"target"		"TARGET"
+				"element"		"fire"
+				"damage"		"%damage"
+			}
+		}
+	}
+
+	"onibi_fire_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/fire/onibi_fire"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_essence"
+				"essence"		"fire"
+				"index"			"1"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_e_fire_fire_push"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_fire.lua"
+						"Function"		"jex_e_fire_fire_push_thinker"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_fire.lua"
+						"Function"		"jex_fire_push_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_jex_e_fire_fire_burn"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_fire.lua"
+						"Function"		"jex_e_fire_fire_burn_thinker"
+						"target"		"TARGET"
+						"w_4_burn_damage_attack_power"	"%w_4_burn_damage_attack_power"
+					}
+				}
+			}
+		}
+	}
+
+	"onibi_fire_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/fire/onibi_fire"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_essence"
+				"essence"		"fire"
+				"index"			"2"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"jex_fire_fire_q"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/fire/fire_fire_q"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AOERadius"				"800"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2.8"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_damage_per_tech"				"2000"
+			}	
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cooldown_reduction_per_tech"				"0.1"
+			}	
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"				"5000 10000 32000 84000 240000 500000 1500000"
+			}	
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"700 750 800 850 900 950 1000"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"agility_added_to_base_damage"		"200 400 600 800 1000 1200 1400"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"w_4_damage_increase_pct_edges"		"100"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_fire_fire.lua"
+				"Function"		"jex_activate_q_fire_fire"
+				"attack_damage_per_tech" 	"%attack_damage_per_tech"
+				"cooldown_reduction_per_tech"	"%cooldown_reduction_per_tech"
+				"base_damage"		"%base_damage"
+				"radius"			"%radius"
+				"agility_added_to_base_damage"	"%agility_added_to_base_damage"
+
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_ring_of_fire_thinker"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_fire_fire.lua"
+						"Function"		"jex_fire_fire_ring_thinker"
+						"w_4_damage_increase_pct_edges"	"%w_4_damage_increase_pct_edges"
+					}
+				}
+			}
+		}
+	}
+
+	"jex_fire_cosmic_q"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/fire/fire_cosmic_q"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_1"
+		"AbilityCastRange"				"800 900 1000 1100 1200 1300 1400"
+		"AOERadius"						"700"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"1.0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6.0 5.75 5.5 5.25 5.0 4.75 4.5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"meteors_per_tech"				"4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_damage_percent_added_per_tech"				"100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"				"3000 10000 40000 80000 240000 640000 1280000"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_meteors"				"12"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"strength_added_to_damage"				"10 20 40 80 160 320 640"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"w_4_base_damage_increase"				"15"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"e_4_stun_duration"				"0.03"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_fire_cosmic.lua"
+				"Function"		"jex_fire_cosmic_q_phase"
+				"Target"		"POINT"
+			}
+		}
+		"OnAbilityPhaseInterrupted"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_fire_cosmic.lua"
+				"Function"		"jex_fire_cosmic_q_phase_interrupt"
+				"Target"		"POINT"
+			}
+		}		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_fire_cosmic.lua"
+        		"Function"		"jex_activate_q_fire_cosmic"
+        		"Target"		"POINT"
+        		"meteors_per_tech"	"%meteors_per_tech"
+        		"attack_damage_percent_added_per_tech"			"%attack_damage_percent_added_per_tech"
+        		"base_damage"			"%base_damage"
+        		"base_meteors"			"%base_meteors"
+        		"strength_added_to_damage"	"%strength_added_to_damage"
+        		"w_4_base_damage_increase"			"%w_4_base_damage_increase"
+        		"e_4_stun_duration"			"%e_4_stun_duration"
+        	}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"jex_nature_fire_q"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/fire/nature_fire_q"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK2"
+		"AbilityCastRange"				"800 900 1000 1100 1200 1300 1400"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.15"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_per_tech"				"3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"taunt_duration_per_tech"				"0.2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"taunt_duration_base"				"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_base"				"6"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"				"800 900 1000 1100 1200 1300 1400"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"25"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"q_4_duration_increase"				"0.5"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"w_4_attack_damage_from_pulse"				"150"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_nature_fire.lua"
+        		"Function"		"jex_activate_q_nature_fire"
+        		"Target"		"POINT"
+        		"health_per_tech"	"%health_per_tech"
+        		"health_base"			"%health_base"
+        		"duration"			"%duration"
+        		"q_4_duration_increase"	"%q_4_duration_increase"
+        	}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_fire_tree"
+			{
+				"IsHidden"	"1"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_nature_fire.lua"
+						"Function"		"jex_fire_tree_think"
+						"target"		"TARGET"
+						"taunt_duration_base"	"%taunt_duration_base"
+						"taunt_duration_per_tech"	"%taunt_duration_per_tech"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/q_nature_fire.lua"
+						"Function"		"jex_fire_tree_die"
+					}
+				}
+			}
+			"modifier_jex_fire_nature_q_attack_power"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"		"particles/items2_fx/satanic_buff.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%w_4_attack_damage_from_pulse"
+				}
+			}
+			"modifier_jex_fire_tree_taunt"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"
+				"StatusEffectPriority"  "10"
+				"EffectName"		"particles/items2_fx/satanic_buff.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"redrock_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+
+	"jex_fire_fire_w"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"jex/fire/fire_fire_w"
+		"AbilityCastPoint"	"0.1"
+		"AbilityCooldown"	"0"
+
+		"AbilityCastAnimation"	"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"100 300 600 1000 2000 4000 9000"
+		"AbilityCastRange"				"1400"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/w_fire_fire.lua"
+				"Function"		"jex_fire_fire_w_start"
+				"target"		"POINT"
+				"damage"		"%base_damage"
+				"flames_per_tech"	"%flames_per_tech"
+				"attack_damage_percent_added_per_tech"	"%attack_damage_percent_added_per_tech"
+			}
+
+		}
+
+		"Modifiers"
+		{
+			"modifier_w_fire_fire_thinker"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+			
+				"ThinkInterval" 	"0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/w_fire_fire.lua"
+						"Function"		"jex_w_fire_thinker"
+					}
+				}
+			}
+			"modifier_w_fire_fire_as_slow"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+			
+				"EffectName"		"particles/units/heroes/hero_phoenix/phoenix_icarus_dive_burn_debuff.vpcf"
+				"EffectAttachType"	"attach_origin"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%w_4_attack_slow"
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"flames_per_tech"	"1"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"attack_damage_percent_added_per_tech"	"2 4 8 16 32 64 128"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"base_damage"	"1250 2500 15000 30000 60000 150000 300000"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"w_4_attack_slow"	"-6"
+			}
+		}
+	}
+
+
+
+	"jex_nature_fire_w"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityTextureName"			"jex/fire/nature_fire_w"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"900 1000 1100 1200 1300 1400 1500"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_damage_of_target_per_tech"				"1 2 4 8 16 32 64"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"				"5000 25000 75000 150000 250000 500000 1500000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"				"900 1000 1100 1200 1300 1400 1500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"q_4_stun_duration"				"0.05"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"w_4_damage_increase_from_target_max_health"				"0.01 0.03 0.05 0.1 0.3 0.5 0.1"
+			}
+
+		}
+		"AbilityCastAnimation"	"ACT_DOTA_ATTACK2"
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.24"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"60 120 240 440 840 1620 3000"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/w_nature_fire.lua"
+				"Function"		"jex_living_bomb_cast"
+				"target"		"TARGET"
+				"element"		"nature"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_living_bomb"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+			
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"       "particles/roshpit/jex/jex_living_bomb.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/w_nature_fire.lua"
+						"Function"		"jex_living_bomb_explode"
+						"target"		"TARGET"
+						"attack_damage_of_target_per_tech"	"%attack_damage_of_target_per_tech"
+						"base_damage"		"%base_damage"
+						"q_4_stun_duration"				"%q_4_stun_duration"
+						"w_4_damage_increase_from_target_max_health"	"%w_4_damage_increase_from_target_max_health"
+					}
+				}
+			}
+		}
+	}
+
+	"jex_fire_fire_e"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/fire/fire_fire_e"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"BaseClass"                     "ability_lua"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		
+		"AbilityCastRange"				"1300"
+		"ScriptFile"                    "heroes/arc_warden/abilities/arcana_fire/e_fire_fire_lua.lua"
+		"VectorTarget"      "1"
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_damage_added_per_tech"				"200"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"fire_speed_per_tech"				"150"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"fire_speed_base"				"850"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"fire_range"				"1200 1400 1600 1800 2000 2200 2400"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"base_damage"				"5000 15000 50000 125000 500000 1500000 3000000"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"w_4_burn_damage_attack_power"				"100"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_fire.lua"
+				"Function"		"flame_proj_hit"
+				"base_damage"	"%base_damage"
+				"attack_dmg_bonus"	"%attack_dmg_bonus"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_e_fire_fire_push"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_fire.lua"
+						"Function"		"jex_e_fire_fire_push_thinker"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_fire.lua"
+						"Function"		"jex_fire_push_end"
+					}
+				}
+			}
+			"modifier_jex_e_fire_fire_burn"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_fire.lua"
+						"Function"		"jex_e_fire_fire_burn_thinker"
+						"target"		"TARGET"
+						"w_4_burn_damage_attack_power"	"%w_4_burn_damage_attack_power"
+					}
+				}
+			}
+		}
+	}
+
+	"jex_fire_cosmic_w"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"jex/fire/fire_cosmic_w"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"0.1"
+		"AbilityCastRange"				"580"
+		"AOERadius"						"580"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityManaCost"				"100 300 800 2000 4000 8000 16000"
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"0"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/w_fire_cosmic.lua"
+				"Function"		"jex_fire_cosmic_w_start"
+				"flames"	"%flames"
+				"duration"	"%duration"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_orbital_flame_thinker"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/w_fire_cosmic.lua"
+						"Function"		"orbital_thinker"
+						"target"		"TARGET"
+						"damage"		"%damage"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/w_fire_cosmic.lua"
+						"Function"		"orbital_thinker_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_jex_orbital_flame_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_jex_orbital_flame_attack_damage"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_jex_orbital_flame_mana_regen"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_jex_orbital_flame_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%w_4_base_attack_damage_per_flame"
+				}
+			}
+			"modifier_jex_orbital_flame_mana_regen"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%e_4_mana_regen_per_flame"
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"base_ability_damage_per_flame_tech"			"75"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"flames"			"2 2 3 3 4 4 5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"w_4_base_attack_damage_per_flame"			"50 100 250 400 800 1400 2000"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"e_4_mana_regen_per_flame"			"1 2 4 8 16 32 64"
+			}
+		}
+	}
+
+	"jex_nature_fire_e"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/fire/nature_fire_e"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AbilityCastRange"				"1000"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"16"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"explosion_attack_damage_per_tech"				"300"
+			}		
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"explosive_attack_damage_per_tech"				"40"
+			}	
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_mult_per_tech"				"4"
+			}	
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_mult_per_tech"				"1"
+			}		
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_gain_per_second"				"3000 5000 8000 15000 45000 100000 225000"
+			}	
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"max_health_mult"				"2 4 6 8 10 12 14"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_cost_increase_per_second"				"50 100 200 400 800 1200 1600"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"q_4_cooldown_reduction"				"0.15"
+			}	
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"w_4_burn_damage_explosion_damage"					"50"
+			}	
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_nature_fire.lua"
+				"Function"		"jex_activate_cinderbark"
+				"target"		"POINT"
+				"armor_mult_per_tech"			"%armor_mult_per_tech"
+				"attack_mult_per_tech"			"%attack_mult_per_tech"
+				"max_health_mult"				"%max_health_mult"
+				"q_4_cooldown_reduction"		"%q_4_additional_duration"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_cinderbark"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_nature_fire.lua"
+						"Function"		"jex_cinderbark_attack_land"
+						"target"		"TARGET"
+						"explosive_attack_damage_per_tech"	"%explosive_attack_damage_per_tech"
+					}
+				}
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_nature_fire.lua"
+						"Function"		"jex_cinderbark_base_thinking"
+						"target"		"TARGET"
+						"attack_gain_per_second"			"%attack_gain_per_second"
+						"mana_cost_increase_per_second"			"%mana_cost_increase_per_second"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_nature_fire.lua"
+						"Function"		"jex_cinderbark_death"
+						"explosion_attack_damage_per_tech"	"%explosion_attack_damage_per_tech"
+						"w_4_burn_damage_explosion_damage"	"%w_4_burn_damage_explosion_damage"
+					}
+				}
+			}
+			"modifier_jex_charged_mushroom_spawning"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_nature_fire.lua"
+						"Function"		"jex_charged_mushroom_spawning"
+						"target"		"TARGET"
+					}
+				}
+
+			}
+			"modifier_cinderbark_burning"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.5"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_nature_fire.lua"
+						"Function"		"cinderbark_burn_think"
+						"target"		"TARGET"		
+					}
+				}
+			}
+			"modifier_jex_glyph_4_1_as"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "140"
+				}
+			}
+		}
+	}
+
+	"cinderbark_detonate"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"techies_suicide"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK2"
+
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0"
+		"AOERadius"						"440"
+
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityCooldown"				"5"
+
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"240"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"2.4"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_nature_fire.lua"
+				"Function"		"fire_aspect_detonate"
+			}
+		}
+	}
+
+	"jex_cinderbark_teleport"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/fire/onibi_fire"
+		"AbilityCastRange"				"99999"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_nature_fire.lua"
+				"Function"		"jex_cinderbark_teleport_unit"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_cinderbark_teleporting"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_nature_fire.lua"
+						"Function"		"cinderbark_teleporting_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"jex_fire_cosmic_e"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/fire/fire_cosmic_e"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"80000"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT_END"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+	    "precache"
+	    {
+
+	    }
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"clamp_distance_per_tech"	"35 50 65 80 95 110 125"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cooldown_reduction_per_tech"	"0.15"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"clamp_distance_base"	"875"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"w_4_burn_damage_attack_power"					"50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"e_4_mana_restore_on_land"					"50 100 200 500 1000 2000 3500"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_cosmic.lua"
+				"Function"		"cipher_bolt_start"
+				"Target"		"POINT"
+				"clamp_distance_per_tech"	"%clamp_distance_per_tech"
+				"cooldown_reduction_per_tech" "%cooldown_reduction_per_tech"
+				"clamp_distance_base"		"%clamp_distance_base"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_jex_cipher_bolt"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"OverrideAnimation"     "ACT_DOTA_VERSUS"
+				"EffectName"	"particles/roshpit/jex/fire_cosmic_e_ball_lightning.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"ThinkInterval"  "0.03"
+				"IsHidden"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_cosmic.lua"
+						"Function"		"cipher_bolt_dash_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_cosmic.lua"
+						"Function"		"cipher_bolt_dash_end"
+						"e_4_mana_restore_on_land"	"%e_4_mana_restore_on_land"
+					}
+				}
+			}
+			"modifier_jex_cipher_bolt_burn"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.5"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_cosmic.lua"
+						"Function"		"cipher_bolt_burn_think"
+						"target"		"TARGET"
+						"w_4_burn_damage_attack_power"	"%w_4_burn_damage_attack_power"
+					}
+				}
+			}
+		}
+	}
+
+
+	"jex_rune_w_1_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/fire/jex_rune_w_1_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"150"
+			}
+		}
+	}
+
+	"jex_rune_w_2_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/fire/jex_rune_w_2_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"100"
+			}
+		}
+	}
+
+	"jex_rune_w_3_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/fire/jex_rune_w_3_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"2"
+			}
+		}
+	}
+
+	"jex_rune_w_4_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/fire/jex_rune_w_4_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1"
 			}
 		}
 	}

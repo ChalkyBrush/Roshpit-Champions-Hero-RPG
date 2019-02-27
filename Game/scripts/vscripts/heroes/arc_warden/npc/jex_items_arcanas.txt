@@ -1,0 +1,91 @@
+	"item_rpc_jex_arcana1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"arcana/jex_arcana1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"ItemKillable" "0"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+			"particle"		"particles/roshpit/jex/fire_flower_ambient.vpcf"
+			"particle"		"particles/roshpit/jex/ring_of_fire_reduced_flash.vpcf"
+			"particle"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+			"particle"		"particles/items2_fx/satanic_buff.vpcf"
+			"particle"		"particles/status_fx/status_effect_battle_hunger.vpcf"
+			"particle"		"particles/units/heroes/hero_phoenix/phoenix_icarus_dive_burn_debuff.vpcf"
+			"particle"		"particles/roshpit/jex/jex_living_bomb.vpcf"
+			"particle"		"particles/roshpit/jex/fire_cosmic_e_ball_lightning.vpcf"
+			"particle"		"particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf"
+			"particle"		"particles/roshpit/jex/fire_cosmic_land.vpcf"
+			"particle"		"particles/econ/items/ogre_magi/ogre_ti8_immortal_weapon/ogre_ti8_immortal_bloodlust_buff_flash.vpcf"
+			"particle"		"particles/roshpit/flamewaker/dragonfire.vpcf"
+			"particle"		"particles/units/heroes/hero_huskar/huskar_inner_fire.vpcf"
+			"particle"		"particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
+			"particle"		"particles/roshpit/jex/jex_meteor_ring.vpcf"
+			"particle"		"particles/econ/items/invoker/invoker_apex/invoker_sun_strike_immortal1.vpcf"
+			"particle"		"particles/roshpit/jex/jex_fire_cosmic_q_meteor_attack.vpcf"
+			"particle"		"particles/econ/items/treant_protector/ti7_shoulder/treant_ti7_crimson_livingarmor.vpcf"
+			"particle"		"particles/units/heroes/hero_faceless_void/redrock_timedialate.vpcf"
+			"particle"		"particles/units/heroes/hero_furion/furion_sprout.vpcf"
+			"particle"		"particles/roshpit/jex/orbital_flame.vpcf"
+			"particle"		"particles/roshpit/jex/jex_tinker_tinker_laser.vpcf"
+			"particle"		"particles/roshpit/jex/jex_explode_living_bomb.vpcf"
+			"model"			"models/heroes/treant_protector/treant_protector.vmdl"
+			"model"			"models/props_tree/cypress/tree_cypress010_inspector.vmdl"
+			"model"			"models/items/treant/emberbark_arms/emberbark_arms.vmdl"
+			"model"			"models/items/treant/emberbark_arms/emberbark_head.vmdl"
+			"model"			"models/items/treant/emberbark_arms/emberbark_legs.vmdl"
+			"model"			"models/items/treant/emberbark_arms/emberbark_shoulder.vmdl"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_jex_arcana1"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"equip_arcana"
+						"target"		"TARGET"
+						"index"			"1"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"unequip_arcana"
+						"target"		"TARGET"
+						"index"			"1"
+					}
+				}
+			}
+		}
+	}

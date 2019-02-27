@@ -22,6 +22,9 @@ function base_cannon_shoot(event)
 	elseif element == "cosmic" then
 		projectileModel = "particles/units/heroes/hero_vengeful/vengeful_base_attack.vpcf"
 		sound = "Jex.CosmicCannon.Shoot"
+	elseif element == "fire" then
+		projectileModel = "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+		sound = "Jex.FireCannon.Shoot"
 	end
 	local info = 
 	{
@@ -63,6 +66,9 @@ function base_cannon_impact(event)
 	elseif element == "cosmic" then
 		sound = "Jex.CosmicCannon.Hit"
 		damage_element = RPC_ELEMENT_COSMOS
+	elseif element == "fire" then
+		sound = "Jex.FireCannon.Hit"
+		damage_element = RPC_ELEMENT_FIRE
 	end
 	local damage = event.damage
 	EmitSoundOn(sound, target)
