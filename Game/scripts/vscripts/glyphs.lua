@@ -169,14 +169,16 @@ function Glyphs:SaveResources()
 					print( "Done." )
 					local resultTable = JSON:decode(result.Body)
 					hero.crystalsToSave = 0
-					-- resultTable = Quests:GetQuestDataFromJSON(resultTable)
-					local arcaneCrystals = resultTable.arcane_crystals
-					local enchanterTier = resultTable.glyph_enchanter_tier
-					CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-resources", {arcane = arcaneCrystals})
-					CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-enchanter", {tier = enchanterTier})
-					CustomGameEventManager:Send_ServerToPlayer(player, "update_resources", {arcane_crystals= arcaneCrystals, enchanter_tier = enchanterTier, player=playerID} )
+					if resultTable then
+						-- resultTable = Quests:GetQuestDataFromJSON(resultTable)
+						local arcaneCrystals = resultTable.arcane_crystals
+						local enchanterTier = resultTable.glyph_enchanter_tier
+						CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-resources", {arcane = arcaneCrystals})
+						CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-enchanter", {tier = enchanterTier})
+						CustomGameEventManager:Send_ServerToPlayer(player, "update_resources", {arcane_crystals= arcaneCrystals, enchanter_tier = enchanterTier, player=playerID} )
 
-					Statistics.dispatch("crystals:change", {playerID = playerID});
+						Statistics.dispatch("crystals:change", {playerID = playerID});
+					end
 				end )	
 				print("SAVING HERO CRYSTALS: "..hero.crystalsToSave)
 			end
