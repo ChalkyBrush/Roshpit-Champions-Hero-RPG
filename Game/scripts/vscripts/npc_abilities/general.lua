@@ -417,6 +417,8 @@ function hero_summon_think(event)
 		SorcWaterElementalThink(caster)
 	elseif caster:GetUnitName() == "jex_charged_mushroom" then
 		jex_thundershroom_think(caster)
+	elseif caster:GetUnitName() == "jex_cinderbark_treant" then
+		jex_thundershroom_think(caster)
 	end
 end
 

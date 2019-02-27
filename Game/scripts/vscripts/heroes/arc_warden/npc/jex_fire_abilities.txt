@@ -137,6 +137,24 @@
 					}
 				}
 			}
+			"modifier_jex_e_fire_fire_burn"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_fire_fire.lua"
+						"Function"		"jex_e_fire_fire_burn_thinker"
+						"target"		"TARGET"
+						"w_4_burn_damage_attack_power"	"%w_4_burn_damage_attack_power"
+					}
+				}
+			}
 		}
 	}
 
@@ -1057,7 +1075,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"7"
+		"AbilityCooldown"				"16"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -1069,12 +1087,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"chain_lightning_max_targets_per_tech"				"1"
+				"explosion_attack_damage_per_tech"				"300"
 			}		
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_mult_per_tech"				"1"
+				"explosive_attack_damage_per_tech"				"40"
+			}	
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_mult_per_tech"				"4"
 			}	
 			"03"
 			{
@@ -1084,27 +1107,27 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health_mult"				"2 4 6 8 10 12 14"
+				"attack_gain_per_second"				"3000 5000 8000 15000 45000 100000 225000"
 			}	
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"32 34 36 38 40 42 44"
+				"max_health_mult"				"2 4 6 8 10 12 14"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"chain_lightning_damage_pct_attack_power"				"100"
+				"mana_cost_increase_per_second"				"50 100 200 400 800 1200 1600"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"q_4_additional_duration"				"0.5"
+				"q_4_cooldown_reduction"				"0.15"
 			}	
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"w_4_lightning_damage_increase"				"6"
+				"w_4_burn_damage_explosion_damage"					"50"
 			}	
 		}
 		"OnSpellStart"
@@ -1114,12 +1137,10 @@
 				"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_nature_fire.lua"
 				"Function"		"jex_activate_cinderbark"
 				"target"		"POINT"
-				"chain_target_count"	"%chain_lightning_max_targets_per_tech"
-				"duration"			"%duration"
-				"health_mult"			"%health_mult"
 				"armor_mult_per_tech"			"%armor_mult_per_tech"
 				"attack_mult_per_tech"			"%attack_mult_per_tech"
-				"q_4_additional_duration"		"%q_4_additional_duration"
+				"max_health_mult"				"%max_health_mult"
+				"q_4_cooldown_reduction"		"%q_4_additional_duration"
 			}
 		}
 		"Modifiers"
@@ -1127,7 +1148,7 @@
 			"modifier_jex_cinderbark"
 			{
 				"Passive"			"0"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -1140,7 +1161,19 @@
 						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_nature_fire.lua"
 						"Function"		"jex_cinderbark_attack_land"
 						"target"		"TARGET"
-						"w_4_lightning_damage_increase"	"%w_4_lightning_damage_increase"
+						"explosive_attack_damage_per_tech"	"%explosive_attack_damage_per_tech"
+					}
+				}
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_nature_fire.lua"
+						"Function"		"jex_cinderbark_base_thinking"
+						"target"		"TARGET"
+						"attack_gain_per_second"			"%attack_gain_per_second"
+						"mana_cost_increase_per_second"			"%mana_cost_increase_per_second"
 					}
 				}
 				"OnDeath"
@@ -1149,6 +1182,8 @@
 					{
 						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_nature_fire.lua"
 						"Function"		"jex_cinderbark_death"
+						"explosion_attack_damage_per_tech"	"%explosion_attack_damage_per_tech"
+						"w_4_burn_damage_explosion_damage"	"%w_4_burn_damage_explosion_damage"
 					}
 				}
 			}
@@ -1171,6 +1206,23 @@
 					}
 				}
 
+			}
+			"modifier_cinderbark_burning"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.5"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/arcana_fire/e_nature_fire.lua"
+						"Function"		"cinderbark_burn_think"
+						"target"		"TARGET"		
+					}
+				}
 			}
 			"modifier_jex_glyph_4_1_as"
 			{
@@ -1280,13 +1332,6 @@
 		}
 		"Modifiers"
 		{
-			"modifier_blossom_glow_effect"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"EffectName"		"particles/roshpit/jex/nature_bush_ambient.vpcf"
-				"EffectAttachType"	"attach_origin"
-			}
 			"modifier_cinderbark_teleporting"
 			{
 				"IsHidden"	"1"

@@ -480,7 +480,7 @@
     "DOTA_Tooltip_ability_jex_fire_cosmic_e_clamp_distance_per_tech"		"<font color=\"#f4b942\">ADDITIONAL CLAMP DISTANCE PER TECH</font>:"	
     "DOTA_Tooltip_ability_jex_fire_cosmic_e_cooldown_reduction_per_tech"	"<font color=\"#f4b942\">BASE COOLDOWN REDUCTION PER TECH</font>:"
     "DOTA_Tooltip_ability_jex_fire_cosmic_e_clamp_distance_base"			"BASE CLAMP DISTANCE:"
-    "DOTA_Tooltip_ability_jex_fire_cosmic_e_w_4_burn_damage_attack_power"	"%<font color=\"#7DFF12\">[W4] Enemies in contact burn for 5 seconds and take attack power as damage every 0.5 seconds:</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_w_4_burn_damage_attack_power"	"%<font color=\"#7DFF12\">[W4] Enemies in contact burn for 5 seconds and take attack power as damage every 0.5 seconds</font>:"
     "DOTA_Tooltip_ability_jex_fire_cosmic_e_e_4_mana_restore_on_land"		"%<font color=\"#7DFF12\">[E4] Mana restore upon landing:</font>:"	
 
     "DOTA_Tooltip_modifier_jex_cipher_bolt_burn"			"Cipher Bolt Burn"
@@ -494,7 +494,48 @@
     "DOTA_Tooltip_ability_jex_fire_fire_e_fire_speed_base"				"FLAME SPEED BASE:"
     "DOTA_Tooltip_ability_jex_fire_fire_e_fire_range"					"FLAME RANGE:"
     "DOTA_Tooltip_ability_jex_fire_fire_e_base_damage"					"BASE DAMAGE:"
-    "DOTA_Tooltip_ability_jex_fire_fire_e_w_4_burn_damage_attack_power"	"%<font color=\"#7DFF12\">[W4] Enemies hit burn for 4 seconds and take attack power as damage every 0.5 seconds:</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_e_w_4_burn_damage_attack_power"	"%<font color=\"#7DFF12\">[W4] Enemies hit burn for 4 seconds and take attack power as damage every 0.5 seconds</font>:"
 
     "DOTA_Tooltip_modifier_jex_e_fire_fire_burn"				"Flame Sweep Burning"
     "DOTA_Tooltip_modifier_jex_e_fire_fire_burn_Description"	"Taking damage based on Jex's attack power and W4 level every 0.5 seconds"
+
+    "DOTA_Tooltip_ability_jex_nature_fire_e"				"Cinderbark Treant"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_Description"	"Summons an immolated treant to fight for Jex. The treant gains permanent attack damage every second while it is alive. While the treant is active, it drains increasing amounts of Jex's mana. If Jex runs out of mana, the treant dies. When the treant dies, he emits a firey explosion that deals damage based on his final attack power. The treant also has a small AOE magic attack that deals fire damage."
+    "DOTA_Tooltip_ability_jex_nature_fire_e_explosion_attack_damage_per_tech"		"%<font color=\"#f4b942\">DETONATION DAMAGE PER TECH FROM CINDERBARK'S ATTACK POWER</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_explosive_attack_damage_per_tech"		"%<font color=\"#f4b942\">CINDERBARK'S ATTACK EXPLOSION DAMAGE, BASED ON CINDERBARK'S ATTACK POWER</font>:"	
+    "DOTA_Tooltip_ability_jex_nature_fire_e_armor_mult_per_tech"					"<font color=\"#f4b942\">ARMOR MULT PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_attack_mult_per_tech"					"<font color=\"#f4b942\">ATTACK DAMAGE MULT PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_attack_gain_per_second"				"BASE ATTACK DAMAGE GAIN PER SECOND:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_max_health_mult"						"MAX HEALTH MULT:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_mana_cost_increase_per_second"		"MANA COST INCREASE PER SECOND:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_q_4_cooldown_reduction"				"<font color=\"#7DFF12\">[Q4] Cooldown Reduction</font>:"	
+    "DOTA_Tooltip_ability_jex_nature_fire_e_w_4_burn_damage_explosion_damage"		"%<font color=\"#7DFF12\">[W4] 5 second burn from detonation, percentage of detonation base damage every 0.5 seconds</font>:"
+
+    "DOTA_Tooltip_ability_cinderbark_detonate"				"Detonate"
+    "DOTA_Tooltip_ability_cinderbark_detonate_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Immediately kills the Cinderbark Treant."
+
+    "DOTA_Tooltip_modifier_cinderbark_burning"				"Cinderbark Burning"
+    "DOTA_Tooltip_modifier_cinderbark_burning_Description"	"Taking damage based on Cinderbark's detonation damage and Jex's W4 level every 0.5 seconds"
+
+    "DOTA_Tooltip_ability_jex_cinderbark_teleport"			"Fire Tract"
+    "DOTA_Tooltip_ability_jex_cinderbark_teleport_Description"	"Brings Jex toward the location of the Cinderbark Treant."
+
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1"								"[W1] Fire Module I"
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_Description"					"Onibi's <font color=\"#EF4126\">Fire</font> level increases Jex's base attack damage."
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_property_one"				"Attack Damage Bonus"
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_suffix"						"x Onibi's Module Level"
+
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1"								"[W2] Fire Module II"
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_Description"					"Increases all <font color=\"#EF4126\">Fire</font> damage."
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_property_one"				"Elemental Damage Bonus"
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_suffix"						"%"
+
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1"								"[W3] Fire Module III"
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_Description"					"Onibi's <font color=\"#EF4126\">Fire</font> level increases Jex's attributes."
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_property_one"				"Attribute Bonus"
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_suffix"						"x Onibi's Module Level"
+
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1"								"[W4] Fire Module IV"
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_Description"					"Each ability that has <font color=\"#EF4126\">Fire</font> element receives a special bonus. The bottom of each ability's tooltip describes the perk provided by this rune."
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_property_one"				"Bonus Upgrade Multiple"
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_suffix"						""

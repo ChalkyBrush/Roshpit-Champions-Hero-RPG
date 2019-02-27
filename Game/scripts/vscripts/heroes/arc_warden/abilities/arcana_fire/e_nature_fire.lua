@@ -6,7 +6,6 @@ function jex_activate_cinderbark(event)
 	local point = event.target_points[1]
 
 	local tech_level = onibi_get_total_tech_level(caster, "fire", "nature", "Q")
-	ability.tech_level = tech_level
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf", point, 3)
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf", point, 3)
 	
@@ -27,11 +26,9 @@ function jex_activate_cinderbark(event)
 
 	local attack_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * event.attack_mult_per_tech * tech_level
 	local armor = caster:GetPhysicalArmorValue()*event.armor_mult_per_tech*tech_level
-	local hp = caster:GetMaxHealth()*event.health_mult
-	local life_duration = event.duration
-	local q_4_level = caster:GetRuneValue("q", 4)
-	life_duration = life_duration + event.q_4_additional_duration*q_4_level
-	local max_chain_targets = event.chain_target_count*tech_level
+	local hp = caster:GetMaxHealth()*event.max_health_mult
+
+
 	shroom:SetBaseMaxHealth(hp)
 	shroom:SetMaxHealth(hp)
 	shroom:SetHealth(hp)
@@ -45,13 +42,41 @@ function jex_activate_cinderbark(event)
     shroom.summoner = caster
     shroom:SetOwner(caster)
     shroom:SetControllableByPlayer(caster:GetPlayerID(), true)
-    shroom.dieTime = life_duration
-    shroom:AddAbility("ability_die_after_time_generic"):SetLevel(1)
+
     ability.treant = shroom
-    ability.max_chain_targets = max_chain_targets
+
     EmitSoundOn("Jex.Thundershroom.Spawn", shroom)
     EmitSoundOn("Jex.Cinderbark.Summon", shroom)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(3, caster)
+	local q_4_level = caster:GetRuneValue("q", 4)
+	if q_4_level > 0 then
+		local cd = ability:GetCooldownTimeRemaining()
+		local new_cd = cd - event.q_4_cooldown_reduction*q_4_level
+		Filters:ReduceECooldown(caster, ability, new_cd, true)
+	end
+	shroom.manaDrain = 0
+end
+
+function jex_cinderbark_base_thinking(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if target:HasModifier("modifier_jex_charged_mushroom_spawning") then
+		return false
+	end
+	if target:IsAlive() then
+		target.manaDrain = target.manaDrain + event.mana_cost_increase_per_second
+		local maxScale = 1.5
+		local newScale = math.min(maxScale, target:GetModelScale() + 0.03)
+		target:SetModelScale(newScale)
+		local attack_damage = OverflowProtectedGetAverageTrueAttackDamage(target) + event.attack_gain_per_second
+		target:SetBaseDamageMin(attack_damage)
+		target:SetBaseDamageMax(attack_damage)
+		if caster:GetMana() < target.manaDrain then
+			target:ForceKill(false)
+		end
+		caster:ReduceMana(target.manaDrain)
+	end
 end
 
 function jex_charged_mushroom_spawning(event)
@@ -66,15 +91,21 @@ function jex_cinderbark_death(event)
 	local unit = event.unit
 	local caster = event.caster
 	local ability = event.ability
+	local explosion_attack_damage_per_tech = event.explosion_attack_damage_per_tech
 	local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_huskar/huskar_inner_fire.vpcf", unit:GetAbsOrigin(), 4)
 	ParticleManager:SetParticleControl(pfx, 3, unit:GetAbsOrigin())
 	EmitSoundOn("Jex.LivingBomb.Explode", unit)
+	local w_4_level = caster:GetRuneValue("w", 4)
 	local radius = 600
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(unit)*1000
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(unit)*(explosion_attack_damage_per_tech/100)*ability.tech_level
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), unit:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NATURE)
+			if w_4_level > 0 then
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_cinderbark_burning", {duration = 5})
+				ability.burn_damage = damage*w_4_level*(event.w_4_burn_damage_explosion_damage/100)
+			end
 		end
 	end 
 	GridNav:DestroyTreesAroundPoint(unit:GetAbsOrigin(), radius, false)
@@ -97,8 +128,9 @@ function jex_cinderbark_attack_land(event)
 	Timers:CreateTimer(2, function()
 		ParticleManager:DestroyParticle( particle1, false )
 	end)
+	local explosive_attack_damage_per_tech = event.explosive_attack_damage_per_tech
 	EmitSoundOn("Jex.Cinderbark.Attack", target)
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*(explosive_attack_damage_per_tech/100)*ability.tech_level
 	local radius = 240
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
@@ -165,4 +197,12 @@ function cinderbark_teleporting_think(event)
 			FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
 		end)
 	end
+end
+
+function cinderbark_burn_think(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	local damage = ability.burn_damage
+	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end

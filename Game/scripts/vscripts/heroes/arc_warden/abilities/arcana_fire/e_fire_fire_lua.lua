@@ -37,12 +37,14 @@ function jex_fire_fire_e:OnSpellStart()
 	if luck == 1 then
 		EmitSoundOn("Jex.Grunt", caster)
 	end
-	ability.w_4_level = caster:GetRuneValue("w", 4)
+	onibi_ability = caster.onibi:FindAbilityByName("onibi_fire_1")
+	onibi_ability.w_4_level = caster:GetRuneValue("w", 4)
 	Filters:CastSkillArguments(3, caster)    
 end
 
 function jex_fire_fire_e:OnProjectileHit(target, vLocation)
 	local caster = self:GetCaster()
+	local ability = caster:FindAbilityByName("jex_fire_fire_e")
 	if target then
 		local w_3_level = caster:GetRuneValue("w", 3)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/ogre_magi/ogre_ti8_immortal_weapon/ogre_ti8_immortal_bloodlust_buff_flash.vpcf", target, 2)
@@ -57,6 +59,7 @@ function jex_fire_fire_e:OnProjectileHit(target, vLocation)
 		elseif target:GetTeamNumber() ~= caster:GetTeamNumber() then
 			local damage = ability:GetSpecialValueFor("base_damage") + ability:GetSpecialValueFor("attack_damage_added_per_tech")*ability.tech_level*(OverflowProtectedGetAverageTrueAttackDamage(caster)/100)
 			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			local ability = caster.onibi:FindAbilityByName("onibi_fire_1")
 			if ability.w_4_level > 0 then
 				ability:ApplyDataDrivenModifier(caster, target, "modifier_jex_e_fire_fire_burn", {duration = 4})
 			end
