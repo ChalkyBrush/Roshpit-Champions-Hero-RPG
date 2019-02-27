@@ -182,6 +182,11 @@ function Weaponmodifiers:runeProperty(propertyName, propertyValue, hero)
 			propertyValue = math.ceil(propertyValue * (1 + BLACKSMITH_TABLE_ADD_STATS_PCT))
 		end
 	end
+	if hero:HasModifier("modifier_paladin_glyph_2_2") then
+		if propertyValue > 1 then
+			propertyValue = math.ceil(propertyValue * (1 + PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT/100))
+		end
+	end
 	if propertyName == "rune_q_1" then
 		hero.runeUnit.weapon.q_1 = hero.runeUnit.weapon.q_1 + propertyValue
 		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit.weapon.q_1, propertyName, hero)

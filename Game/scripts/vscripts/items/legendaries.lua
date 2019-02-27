@@ -5385,7 +5385,7 @@ function RPCItems:RollResplendantRubberBoots(deathLocation)
     item.property1name = "rubber_boot"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_resplendent_rubber", "#DADE66",  1, "#property_resplendent_rubber_description")
 
-    item.property2 = RandomInt(8, 15)
+    item.property2 = RandomInt(8, 25)
     item.property2name = "magic_resist"
     RPCItems:SetPropertyValues(item, item.property2, "#item_magic_resist", "#AC47DE",  2)
 

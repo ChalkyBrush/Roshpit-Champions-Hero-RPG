@@ -27,7 +27,7 @@
 
 		"serengaard_ranger"												"Sun Ranger"
 		"DOTA_Tooltip_ability_serengaard_ranger_ability"				"Sun Ranger"
-		"DOTA_Tooltip_ability_serengaard_ranger_ability"				"Shieldmaidens aggravate the advancing monsters by throwing moon glaives."
+		"DOTA_Tooltip_ability_serengaard_ranger_ability_Description"				"Shieldmaidens aggravate the advancing monsters by throwing moon glaives."
 
 		"rpc_serengaard_teleporter"										"Serengaard Teleporter"
 

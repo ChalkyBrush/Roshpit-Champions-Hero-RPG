@@ -1367,7 +1367,9 @@
 
 		"DOTA_Tooltip_ability_ancient_god_steadfast"							"Ancient Steadfast"
 		"DOTA_Tooltip_ability_ancient_god_steadfast_Description"				"Each instance of damage can not deal more than a % of max health."
-		"DOTA_Tooltip_ability_ancient_god_steadfast_max_damage"				"HEALTH % MAX:"
+		"DOTA_Tooltip_ability_ancient_god_steadfast_max_damage"					"HEALTH % MAX:"
+		"DOTA_Tooltip_modifier_ancient_steadfast"								"Ancient Steadfast"
+		"DOTA_Tooltip_modifier_ancient_steadfast_Description"					"Each instance of damage can not deal more than a % of max health."
 
 		"DOTA_Tooltip_ability_ancient_god_dragon_slave"					"Fire Wave"
 		"DOTA_Tooltip_ability_ancient_god_dragon_slave_Description"		"A burning dragon deals damage to enemies in a line."
