@@ -15,10 +15,10 @@ end
 function Serengaard:Debug2()
   -- Serengaard.mainAncient:ForceKill(false)
   -- Serengaard:Mithril("baron", Serengaard.mainAncient:GetAbsOrigin(), 120)
-  Serengaard.InfiniteWaveCount = 30
-  for i = 1, #MAIN_HERO_TABLE, 1 do
-    Stars:StarEventPlayer("serengaard_infinite", MAIN_HERO_TABLE[i])
-  end
+  --Serengaard.InfiniteWaveCount = 30
+  --for i = 1, #MAIN_HERO_TABLE, 1 do
+  --  Stars:StarEventPlayer("serengaard_infinite", MAIN_HERO_TABLE[i])
+  --end
   -- Serengaard:SubmitStats()
   -- Serengaard:SpawnBossUnit("serengaard_final_boss", SERENGAARD_SPAWN_POINTS[RandomInt(1,#SERENGAARD_SPAWN_POINTS)], 1, 35, 0, false)
   -- Serengaard:SpawnBossUnit("serengaard_final_boss", SERENGAARD_SPAWN_POINTS[RandomInt(1,#SERENGAARD_SPAWN_POINTS)], 1, 35, 0, false)
@@ -62,8 +62,8 @@ function Serengaard:Init()
   
   Serengaard.wave = 0
   if Beacons.cheats then
-      Serengaard.wave = 5
-      Serengaard:LinewarIncomeFunction(60)
+      --Serengaard.wave = 5
+      Serengaard:LinewarIncomeFunction(150)
   else
     Serengaard:LinewarIncomeFunction(startTime)
     Serengaard:ZoneDisplayAndMusic()
