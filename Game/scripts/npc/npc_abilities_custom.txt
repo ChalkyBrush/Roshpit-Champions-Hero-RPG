@@ -98807,7 +98807,7 @@
 					{
 						"ScriptFile"	"worlds/tanari/monsters/wildwood_thicket_ai"
 						"Function"		"bat_attack_land"
-						"mana_drain_percent"	"50"
+						"mana_drain_percent"	"10"
 					}
 				}
 				"Properties"
