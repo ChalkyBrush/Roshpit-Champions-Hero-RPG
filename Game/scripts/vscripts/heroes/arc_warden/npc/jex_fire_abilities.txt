@@ -244,7 +244,7 @@
 			}	
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"cooldown_reduction_per_tech"				"0.1"
 			}	
 			"03"

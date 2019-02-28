@@ -192,18 +192,19 @@ function Winterblight:Debug2()
  
  -- Winterblight:ShrineSpawn2()
 --  Winterblight.MathPuzzleComplete = true
--- Winterblight:SpawnAzaleaCups()
+
 
  -- Winterblight:SpawnGrandStalacorr(Vector(-15424,-2560), RandomVector(1))
  -- local hero = MAIN_HERO_TABLE[1]
  -- Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "ranger_aoe_explosion", "crystal_arrow", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
  -- Winterblight:StartOrbSequence()
   -- Winterblight:EndOrbWaves()
-    -- Winterblight:OpenShrineOfAzalea()
+    Winterblight:OpenShrineOfAzalea()
+    Winterblight:SpawnAzaleaCup(Vector(15910, -15831), Vector(-1,0), 1)
     -- Winterblight:ShrineSpawn6()
     -- Winterblight:SpawnChrolonus(Vector(7424, -15488), Vector(1,0))
     -- Winterblight:PlatformRoomStartBeacon()
-    Winterblight:CandyCrushRoom()
+    -- Winterblight:CandyCrushRoom()
     -- Winterblight:SpawnCruxal(Vector(-15367, -2924), Vector(0,-1))
     -- Winterblight:InitAzaleaMazeRoom()
     -- Winterblight:AzaleaSummonerRoomInit()

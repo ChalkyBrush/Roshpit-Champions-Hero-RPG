@@ -1063,7 +1063,6 @@ function GameState:OrderFilter(orderTable)
 								else
 									local distance = WallPhysics:GetDistance2d(enemy:GetAbsOrigin(), unit:GetAbsOrigin())
 									if distance < ability.e_3_level*12 + 400 then
-										DeepPrintTable(orderTable)
 										if enemy.dummy then
 										elseif enemy:GetClassname() == "dota_item_drop" then
 										elseif enemy:GetTeamNumber() == unit:GetTeamNumber() then
@@ -1278,7 +1277,28 @@ function GameState:OrderFilter(orderTable)
 			end
 		end
 	end
-	return VectorTarget:OrderFilter(params)
+	if orderTable.entindex_ability > 0 then
+		if IsValidEntity(unit) then
+			if unit:GetUnitName() == "npc_dota_hero_arc_warden" then
+				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
+				if IsValidEntity(orderAbility) then
+					if orderAbility:GetAbilityName() == "jex_fire_fire_e" then
+						return VectorTarget:OrderFilter(orderTable)
+					else
+						return true
+					end
+				else
+					return true
+				end
+			else
+				return true
+			end
+		else
+			return true
+		end
+	else
+		return true
+	end
 	-- return true
 
 end

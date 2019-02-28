@@ -428,7 +428,7 @@
     "DOTA_Tooltip_ability_jex_nature_fire_q_cast_range"				"CAST RANGE:"
     "DOTA_Tooltip_ability_jex_nature_fire_q_duration"					"TREE DURATION BASE:"
     "DOTA_Tooltip_ability_jex_nature_fire_q_q_4_duration_increase"		"<font color=\"#7DFF12\">[Q4] Additional Tree Duration</font>:"	
-    "DOTA_Tooltip_ability_jex_nature_fire_q_w_4_attack_damage_from_pulse"	"<font color=\"#7DFF12\">[W4] Attack damage buff when Jex touched by taunt wave. Same duration as taunt effect</font>:"	
+    "DOTA_Tooltip_ability_jex_nature_fire_q_w_4_attack_damage_from_pulse"	"%<font color=\"#7DFF12\">[W4] Attack damage buff when Jex touched by taunt wave. Same duration as taunt effect</font>:"	
 
     "DOTA_Tooltip_modifier_jex_fire_tree_taunt"				"Woodland Fever"
     "DOTA_Tooltip_modifier_jex_fire_tree_taunt_Description"	"Taunted"
@@ -447,7 +447,7 @@
     "DOTA_Tooltip_ability_jex_fire_cosmic_q_e_4_stun_duration"	"<font color=\"#7DFF12\">[E4] Stun Duration</font>:"
 
     "DOTA_Tooltip_ability_jex_fire_fire_w"					"Fire Juggler"
-    "DOTA_Tooltip_ability_jex_fire_fire_w_Description"		"Element: <font color=\"#EF4126\">Fire</font><br>Jex tosses out disorderly cluster of fireballs that impact enemies in a tight radius around the casting point."
+    "DOTA_Tooltip_ability_jex_fire_fire_w_Description"		"Element: <font color=\"#EF4126\">Fire</font><br>Jex tosses out a disorderly cluster of fireballs that impact enemies in a tight radius around the casting point."
     "DOTA_Tooltip_ability_jex_fire_fire_w_flames_per_tech"	"<font color=\"#f4b942\">FIREBALLS PER TECH</font>:"	
     "DOTA_Tooltip_ability_jex_fire_fire_w_attack_damage_percent_added_per_tech"	"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO BASE PER TECH</font>:"
     "DOTA_Tooltip_ability_jex_fire_fire_w_base_damage"		"BASE DAMAGE:"
@@ -468,7 +468,7 @@
     "DOTA_Tooltip_modifier_jex_orbital_flame_effect_Description" "Increased Base Ability damage and absorbing damage instances"
 
     "DOTA_Tooltip_ability_jex_nature_fire_w"				"Living Bomb"
-    "DOTA_Tooltip_ability_jex_nature_fire_w_Description"	"Jex translates a biological entity into a living explosive for 2 seconds. When its duration runs out or on death, the affected entity explodes and damages enemies in a 600 radius. Can target enemies or allies."	
+    "DOTA_Tooltip_ability_jex_nature_fire_w_Description"	"Element: <font color=\"#EF4126\">Fire</font>/<font color=\"#69BC71\">Nature</font><br>Jex translates a biological entity into a living explosive for 2 seconds. When its duration runs out or on death, the affected entity explodes and damages enemies in a 600 radius. Can target enemies or allies."	
     "DOTA_Tooltip_ability_jex_nature_fire_w_attack_damage_of_target_per_tech"	"%<font color=\"#f4b942\">ADDITIONAL DAMAGE FROM BOMB CARRIER'S ATTACK POWER PER TECH</font>:"
     "DOTA_Tooltip_ability_jex_nature_fire_w_base_damage"						"BASE DAMAGE:"
     "DOTA_Tooltip_ability_jex_nature_fire_w_cast_range"							"CAST RANGE:"
@@ -481,7 +481,7 @@
     "DOTA_Tooltip_ability_jex_fire_cosmic_e_cooldown_reduction_per_tech"	"<font color=\"#f4b942\">BASE COOLDOWN REDUCTION PER TECH</font>:"
     "DOTA_Tooltip_ability_jex_fire_cosmic_e_clamp_distance_base"			"BASE CLAMP DISTANCE:"
     "DOTA_Tooltip_ability_jex_fire_cosmic_e_w_4_burn_damage_attack_power"	"%<font color=\"#7DFF12\">[W4] Enemies in contact burn for 5 seconds and take attack power as damage every 0.5 seconds</font>:"
-    "DOTA_Tooltip_ability_jex_fire_cosmic_e_e_4_mana_restore_on_land"		"%<font color=\"#7DFF12\">[E4] Mana restore upon landing:</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_e_4_mana_restore_on_land"		"<font color=\"#7DFF12\">[E4] Mana restore upon landing:</font>:"	
 
     "DOTA_Tooltip_modifier_jex_cipher_bolt_burn"			"Cipher Bolt Burn"
     "DOTA_Tooltip_modifier_jex_cipher_bolt_burn_Description"	"Taking damage based on Jex's attack power and W4 level every 0.5 seconds"
@@ -500,7 +500,7 @@
     "DOTA_Tooltip_modifier_jex_e_fire_fire_burn_Description"	"Taking damage based on Jex's attack power and W4 level every 0.5 seconds"
 
     "DOTA_Tooltip_ability_jex_nature_fire_e"				"Cinderbark Treant"
-    "DOTA_Tooltip_ability_jex_nature_fire_e_Description"	"Summons an immolated treant to fight for Jex. The treant gains permanent attack damage every second while it is alive. While the treant is active, it drains increasing amounts of Jex's mana. If Jex runs out of mana, the treant dies. When the treant dies, he emits a firey explosion that deals damage based on his final attack power. The treant also has a small AOE magic attack that deals fire damage."
+    "DOTA_Tooltip_ability_jex_nature_fire_e_Description"	"Summons an immolated treant to fight for Jex. The treant gains permanent attack damage every second while it is alive. While the treant is active, it drains increasing amounts of Jex's mana. If Jex runs out of mana, the treant dies. When the treant dies, it emits a fiery explosion that deals damage based on its final attack power. The treant also has a small AOE magic attack that deals fire damage."
     "DOTA_Tooltip_ability_jex_nature_fire_e_explosion_attack_damage_per_tech"		"%<font color=\"#f4b942\">DETONATION DAMAGE PER TECH FROM CINDERBARK'S ATTACK POWER</font>:"
     "DOTA_Tooltip_ability_jex_nature_fire_e_explosive_attack_damage_per_tech"		"%<font color=\"#f4b942\">CINDERBARK'S ATTACK EXPLOSION DAMAGE, BASED ON CINDERBARK'S ATTACK POWER</font>:"	
     "DOTA_Tooltip_ability_jex_nature_fire_e_armor_mult_per_tech"					"<font color=\"#f4b942\">ARMOR MULT PER TECH</font>:"

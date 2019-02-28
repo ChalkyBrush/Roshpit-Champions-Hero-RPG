@@ -78,12 +78,12 @@ end
 
 -- call this in your init code to initialize the library's SetExecuteOrderFilter
 function VectorTarget:InitOrderFilter()
-    if self.initializedOrderFilter then return end
-    print("[VECTORTARGET] registering ExecuteOrderFilter (use noOrderFilter option to prevent this)")
-    local mode = GameRules:GetGameModeEntity()
-    mode:ClearExecuteOrderFilter()
-    mode:SetExecuteOrderFilter(function(_, data) return self:OrderFilter(data) end, {}) -- Note: wrapping the call in an anonymous function allows reloading to work properly
-    self.initializedOrderFilter = true
+    -- if self.initializedOrderFilter then return end
+    -- print("[VECTORTARGET] registering ExecuteOrderFilter (use noOrderFilter option to prevent this)")
+    -- local mode = GameRules:GetGameModeEntity()
+    -- mode:ClearExecuteOrderFilter()
+    -- mode:SetExecuteOrderFilter(function(_, data) return self:OrderFilter(data) end, {}) -- Note: wrapping the call in an anonymous function allows reloading to work properly
+    -- self.initializedOrderFilter = true
 end
 
 -- Loads vector target KV values from a file, or a table with the same format as one returned by LoadKeyValues()

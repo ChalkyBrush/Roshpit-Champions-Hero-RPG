@@ -31,6 +31,7 @@ function jex_activate_q_nature_fire(event)
     tree:AddAbility("ability_die_after_time_generic"):SetLevel(1)
     CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf", point, 3)
     EmitSoundOn("Jex.FireTree.Summon", tree)
+    Filters:CastSkillArguments(1, caster)
 end
 
 function jex_fire_tree_think(event)
