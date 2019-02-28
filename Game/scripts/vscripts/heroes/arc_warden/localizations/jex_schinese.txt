@@ -393,3 +393,152 @@
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"至高科技雕文"
 	"item_rpc_jex_glyph_5_a_description" 				"提高杰克斯所有技能的科技水平 @glyph_property1 级."
+	//FIRE ARCANA
+    "DOTA_Tooltip_ability_item_rpc_jex_arcana1"						"神经机械：火烈鸟"
+
+	"item_property_jex_arcana1"                                     "烈火模块"
+    "property_jex_arcana1_description"                              "将鬼火的 <font color=\"#5CCDF9\">电</font>模块替换为 <font color=\"#EF4126\">火</font>模块."
+
+	"DOTA_Tooltip_ability_onibi_fire_1"		"烈火模块"
+	"DOTA_Tooltip_ability_onibi_fire_1_Description"		"激活火焰技能。敌人在杰克斯附近死亡会留下用于收割的烈火玫瑰."
+
+	"DOTA_Tooltip_ability_onibi_fire_2"		"烈火模块"
+	"DOTA_Tooltip_ability_onibi_fire_2_Description"		"激活火焰技能。敌人在杰克斯附近死亡会留下用于收割的烈火玫瑰."
+
+	"DOTA_Tooltip_ability_jex_base_cannon_fire"	"基础加农：烈火"
+	"DOTA_Tooltip_ability_jex_base_cannon_fire_Description"	"元素: <font color=\"#EF4126\">火</font><br>指定一个敌人并对其造成伤害."
+	"DOTA_Tooltip_ability_jex_base_cannon_fire_damage"		"伤害:"
+
+    "DOTA_Tooltip_ability_jex_fire_fire_q"				"灼热火环"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_Description"	"元素: <font color=\"#EF4126\">火</font><br>释放一圈火炎，到达最大距离时收缩，火炎对与之接触的敌人造成伤害."
+    "DOTA_Tooltip_ability_jex_fire_fire_q_attack_damage_per_tech"		"%<font color=\"#f4b942\">每点科技点增加%攻击力至基础伤害</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_cooldown_reduction_per_tech"	"<font color=\"#f4b942\">每点科技点减少冷却时间</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_base_damage"					"基础伤害:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_radius"						"最大范围:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_agility_added_to_base_damage"	"每点敏捷增加基础伤害:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_w_4_damage_increase_pct_edges"	"%<font color=\"#7DFF12\">[W4] 最大基础伤害根据距离增加. 火环边缘最大伤害增加:</font>:"
+
+    "DOTA_Tooltip_ability_jex_nature_fire_q"				"火树银花"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_Description"	"创造出一棵散发出一种深深的、令人迷惑的热量的树。靠近树的敌人会在混乱中攻击它。树受到的每一次伤害减少1生命值."
+    "DOTA_Tooltip_ability_jex_nature_fire_q_health_per_tech"			"<font color=\"#f4b942\">每点科技点增加树的生命值</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_taunt_duration_per_tech"	"<font color=\"#f4b942\">每点科技点增加嘲讽时间</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_taunt_duration_base"		"基础嘲讽时间:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_health_base"				"树的基础生命值:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_cast_range"				"施法距离:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_duration"					"树的基础持续时间:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_q_4_duration_increase"		"<font color=\"#7DFF12\">[Q4] 增加树的持续时间</font>:"	
+    "DOTA_Tooltip_ability_jex_nature_fire_q_w_4_attack_damage_from_pulse"	"<font color=\"#7DFF12\">[W4] 杰克斯触碰到嘲讽波时增加%攻击力，持续时间与嘲讽的持续时间相同</font>:"	
+
+    "DOTA_Tooltip_modifier_jex_fire_tree_taunt"				"火树银花"
+    "DOTA_Tooltip_modifier_jex_fire_tree_taunt_Description"	"嘲讽"
+
+    "DOTA_Tooltip_modifier_jex_fire_nature_q_attack_power"	"火树银花"
+    "DOTA_Tooltip_modifier_jex_fire_nature_q_attack_power_Description"	"增加攻击力"
+
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q"				"火星陨"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_Description"	"元素: <font color=\"#EF4126\">火</font>/<font color=\"#C25DFC\">宇宙</font><br>杰克斯创造一个磁场，吸引多颗流星坠落到目标区域造成伤害."
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_meteors_per_tech"			"<font color=\"#f4b942\">每点科技点增加流星数量</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_attack_damage_percent_added_per_tech"	"%<font color=\"#f4b942\">每点科技点增加%攻击力至基础伤害</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_base_damage"		"基础伤害:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_base_meteors"				"基础流星数量:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_strength_added_to_damage"	"每点力量值增加基础伤害:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_w_4_base_damage_increase"		"%<font color=\"#7DFF12\">[W4] 基础伤害提升</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_e_4_stun_duration"	"<font color=\"#7DFF12\">[E4] 增加眩晕时间</font>:"
+
+    "DOTA_Tooltip_ability_jex_fire_fire_w"					"小火球"
+    "DOTA_Tooltip_ability_jex_fire_fire_w_Description"		"元素: <font color=\"#EF4126\">火</font><br>杰克斯抛出一团杂乱无章的火球，这些火球会在投射点周围的一个很小的半径内撞击敌人。."
+    "DOTA_Tooltip_ability_jex_fire_fire_w_flames_per_tech"	"<font color=\"#f4b942\">每点科技点增加火球数量</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_fire_w_attack_damage_percent_added_per_tech"	"%<font color=\"#f4b942\">每点科技点增加%攻击力至基础伤害</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_w_base_damage"		"基础伤害:"
+    "DOTA_Tooltip_ability_jex_fire_fire_w_w_4_attack_slow"	"<font color=\"#7DFF12\">[W4] 4秒内降低受到撞击的敌人的攻击速度</font>:"
+
+    "DOTA_Tooltip_modifier_w_fire_fire_as_slow"				"小火球灼烧"
+    "DOTA_Tooltip_modifier_w_fire_fire_as_slow_Description"	"减少攻击速度"
+
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w"				"护体燃焰"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_Description"	"召唤一组缓慢移动的宇宙火焰，通过控制的重力绕着杰克斯运行。每个火焰提供额外的基础技能伤害。当受到伤害时，火焰会被摧毁，但伤害会减少到0。."
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_base_ability_damage_per_flame_tech"	"%<font color=\"#f4b942\">每点科技点使每个火球提供基础技能伤害</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_flames"								"火焰数量:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_duration"							"持续时间:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_w_4_base_attack_damage_per_flame"	"<font color=\"#7DFF12\">[W4] 每个火焰增加基础攻击力</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_e_4_mana_regen_per_flame"			"<font color=\"#7DFF12\">[E4] 每个火焰增加魔法回复</font>:"
+
+    "DOTA_Tooltip_modifier_jex_orbital_flame_effect"		"护体燃焰"
+    "DOTA_Tooltip_modifier_jex_orbital_flame_effect_Description" "增加基础技能伤害并避免即将受到的伤害"
+
+    "DOTA_Tooltip_ability_jex_nature_fire_w"				"活体爆弹"
+    "DOTA_Tooltip_ability_jex_nature_fire_w_Description"	"杰克斯将一个单位转化为一个活体爆弹2秒。当其持续时间耗尽或死亡时，受影响的单位会爆炸并在600半径范围内伤害敌人。可以对敌人或盟友使用."	
+    "DOTA_Tooltip_ability_jex_nature_fire_w_attack_damage_of_target_per_tech"	"%<font color=\"#f4b942\">每点科技点增加炸弹携带者攻击的%加入至爆炸伤害</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_w_base_damage"						"基础伤害:"
+    "DOTA_Tooltip_ability_jex_nature_fire_w_cast_range"							"施法距离:"
+    "DOTA_Tooltip_ability_jex_nature_fire_w_q_4_stun_duration"	"<font color=\"#7DFF12\">[Q4] 最大敌人晕眩持续时间，在爆炸半径边缘缩放至0</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_w_w_4_damage_increase_from_target_max_health"					"%<font color=\"#7DFF12\">[W4] 根据炸弹携带者的最大生命值%造成额外伤害</font>:"
+
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e"				"虚空突进"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_Description"	"杰克斯变成一颗星火，迅速向目标地点移动."
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_clamp_distance_per_tech"		"<font color=\"#f4b942\">每点科技点增加移动距离</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_cooldown_reduction_per_tech"	"<font color=\"#f4b942\">每点科技点减少冷却时间</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_clamp_distance_base"			"基础移动距离:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_w_4_burn_damage_attack_power"	"%<font color=\"#7DFF12\">[W4] 接触到火焰的敌人燃烧5秒并且每0.5秒受到一次杰克斯攻击力%的伤害</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_e_4_mana_restore_on_land"		"%<font color=\"#7DFF12\">[E4] 着陆后恢复魔法值:</font>:"	
+
+    "DOTA_Tooltip_modifier_jex_cipher_bolt_burn"			"星火燃烧"
+    "DOTA_Tooltip_modifier_jex_cipher_bolt_burn_Description"	"每0.5秒受到一次与杰克斯攻击力及其W4等级相关的伤害"
+
+    "DOTA_Tooltip_ability_jex_fire_fire_e"					"猛火横扫"
+    "DOTA_Tooltip_ability_jex_fire_fire_e_Description"		"<font color=\"#A8C8FF\">以矢量施法</font><br>元素: <font color=\"#EF4126\">火</font><br>从第一个施法点向第二个施法点投射扫射火焰。如果火焰击中杰克斯，它就会把他朝着火的方向推进。被火焰触及的敌人受到伤害."
+    "DOTA_Tooltip_ability_jex_fire_fire_e_attack_damage_added_per_tech"	"%<font color=\"#f4b942\">每点科技点增加%攻击力至基础伤害</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_e_fire_speed_per_tech"			"<font color=\"#f4b942\">每点科技点增加火焰移动速度</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_fire_e_fire_speed_base"				"火焰基础移动速度:"
+    "DOTA_Tooltip_ability_jex_fire_fire_e_fire_range"					"火焰范围:"
+    "DOTA_Tooltip_ability_jex_fire_fire_e_base_damage"					"基础伤害:"
+    "DOTA_Tooltip_ability_jex_fire_fire_e_w_4_burn_damage_attack_power"	"%<font color=\"#7DFF12\">[W4] 被触碰的敌人每0.5秒受到攻击力%的伤害，持续4秒</font>:"
+
+    "DOTA_Tooltip_modifier_jex_e_fire_fire_burn"				"猛火灼烧"
+    "DOTA_Tooltip_modifier_jex_e_fire_fire_burn_Description"	"每0.5秒受到一次与杰克斯攻击力及其W4等级相关的伤害"
+
+    "DOTA_Tooltip_ability_jex_nature_fire_e"				"灰烬树精"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_Description"	"召唤一个灰烬树精为杰克斯而战。树精活着时，每秒都会受到伤害。当树精存活时，它会消耗更多的杰克斯法力。如果杰克斯法力值不足，树精就会死亡。当树精死后，他会爆炸，根据他最后的攻击力造成伤害。树精也有一个小的AOE魔法攻击，造成火属性伤害."
+    "DOTA_Tooltip_ability_jex_nature_fire_e_explosion_attack_damage_per_tech"		"%<font color=\"#f4b942\">每点科技点根据树精攻击力%增加引爆伤害</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_explosive_attack_damage_per_tech"		"%<font color=\"#f4b942\">每点科技点增加树精攻击范围伤害，基于攻击力%</font>:"	
+    "DOTA_Tooltip_ability_jex_nature_fire_e_armor_mult_per_tech"					"<font color=\"#f4b942\">每点科技点增加树精护甲（乘法）</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_attack_mult_per_tech"					"<font color=\"#f4b942\">每点科技点增加树精攻击力（乘法）</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_attack_gain_per_second"				"树精每秒增加基础攻击力:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_max_health_mult"						"最大生命值倍数:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_mana_cost_increase_per_second"		"每秒增加法力值消耗:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_q_4_cooldown_reduction"				"<font color=\"#7DFF12\">[Q4] 冷却时间减少</font>:"	
+    "DOTA_Tooltip_ability_jex_nature_fire_e_w_4_burn_damage_explosion_damage"		"%<font color=\"#7DFF12\">[W4] 被引爆伤害的敌人5秒内每0.5秒受到一次基于引爆伤害%的燃烧伤害</font>:"
+
+    "DOTA_Tooltip_ability_cinderbark_detonate"				"引爆"
+    "DOTA_Tooltip_ability_cinderbark_detonate_Description"	"元素: <font color=\"#EF4126\">火</font><br>立即杀死灰烬树精."
+
+    "DOTA_Tooltip_modifier_cinderbark_burning"				"灰烬燃烧"
+    "DOTA_Tooltip_modifier_cinderbark_burning_Description"	"每0.5秒受到一次与杰克斯攻击力及其W4等级相关的伤害"
+
+    "DOTA_Tooltip_ability_jex_cinderbark_teleport"			"火焰牵引"
+    "DOTA_Tooltip_ability_jex_cinderbark_teleport_Description"	"将杰克斯移动至灰烬树精所在的位置."
+
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1"								"[W1] 烈火模块 I"
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_Description"					"鬼火的 <font color=\"#EF4126\">火</font> 等级 增加杰克斯的攻击力."
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_property_one"				"攻击力加成"
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_suffix"						"x 鬼火的模块等级"
+
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1"								"[W2] 烈火模块 II"
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_Description"					"增加所有 <font color=\"#EF4126\">火</font> 伤害."
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_property_one"				"元素加成"
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_suffix"						"%"
+
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1"								"[W3] 烈火模块 III"
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_Description"					"鬼火的 <font color=\"#EF4126\">火</font> 等级增加杰克斯的属性."
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_property_one"				"属性加成"
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_suffix"						"x 鬼火的模块等级"
+
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1"								"[W4] 烈火模块 IV"
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_Description"					"每个带有 <font color=\"#EF4126\">火</font> 元素的技能获得一个特殊加成。在每个技能的描述底部显示着由该符文提供的加成."
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_property_one"				"额外等级加成"
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_suffix"						""
+
+	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_2_a"            "炽热熔炉"
+	"item_property_jex_immortal_weapon2_a"                             "火焰强化"
+	"property_jex_immortal_weapon2_a_description"                      "所有 <font color=\"#EF4126\">火</font> 元素的科技技能获得@special_property1 科技等级.双 <font color=\"#EF4126\">火</font> 技能获得额外@special_property2 科技等级."
+
