@@ -385,6 +385,7 @@ function ChatDropItems(keys)
     Timers:CreateTimer(timer, function() RPCItems:RollHydroxisArcana2(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollVoltexArcana2(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollDinathArcana1(vector) end) timer = timer + 1
+    Timers:CreateTimer(timer, function() RPCItems:RollJexArcana1(vector) end) timer = timer + 1
   end
 
   if string.match(text, "-legendaries1") or string.match(text, "-gloves") then
@@ -684,7 +685,7 @@ function ChatDropItems(keys)
       end)
     end
   end
-  
+  --TO DO
   local wepClass
   wepClass = "conjuror" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
   wepClass = "flamewaker" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
@@ -713,8 +714,13 @@ function ChatDropItems(keys)
   wepClass = "slipfinn" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
   wepClass = "sephyr" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
   wepClass = "dinath" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "jex" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-
+  wepClass = "jex" if string.match(text, "-"..wepClass) and not string.match(text, "2a") then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+  wepClass = "jex" 
+    if string.match(text, "-"..wepClass) and string.match(text, "2a") then
+        for i=1,10 do
+            Weapons:RollJexLegendWeapon2a(vector, false)
+        end      
+    end
 end
 
 function StringSplit(inputstr, sep)
