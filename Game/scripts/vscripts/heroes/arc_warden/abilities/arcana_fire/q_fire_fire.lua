@@ -48,7 +48,7 @@ function jex_activate_q_fire_fire(event)
 	Filters:CastSkillArguments(1, caster)
 	local cd = ability:GetCooldownTimeRemaining()
 	cd = cd - tech_level*event.cooldown_reduction_per_tech
-	local cd = math.max(cd, 0.2)
+	cd = math.max(cd, 0.2)
 	if caster:HasModifier("modifier_hood_of_lords_lua") then
 		cd = math.max(cd, 1.2)
 	end
