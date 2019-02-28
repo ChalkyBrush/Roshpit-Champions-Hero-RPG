@@ -74,6 +74,7 @@ function slice_start(event)
 				--DEAL DAMAGE AND SOUND
 				if r1_level > 0 then
 					ability.r1_damage = damage * r1_level * ARCANA1_R1_DAMAGE_PERCENT/100
+					ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_arcana2_reaper_dot", {duration = ARCANA1_R1_DURATION})
 					if caster:HasModifier('modifier_venomort_immortal_weapon_1') then
 			            if not ability.particleCount then
 			                ability.particleCount = 0
@@ -96,8 +97,6 @@ function slice_start(event)
 								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_venomort_arcana2_reaper_dot", {duration = ARCANA1_R1_DURATION})
 							end
 						end
-					else
-						ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_arcana2_reaper_dot", {duration = ARCANA1_R1_DURATION})
 					end
 
 				end
