@@ -336,7 +336,8 @@
 				"TextureName"	"arkimus/arkimus_rune_w_3"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1200"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1300"
+					"MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE" "1300"
 				}
 				"States"
 				{
