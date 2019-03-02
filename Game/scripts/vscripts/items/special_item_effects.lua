@@ -4816,7 +4816,7 @@ end
 function emerald_speed_runners_think(event)
 	local caster = event.target
 	local movespeed = caster:GetBaseMoveSpeed()
-	local movespeedModifier = math.ceil(caster:GetMoveSpeedModifier(movespeed), false)
+	local movespeedModifier = math.ceil(caster:GetMoveSpeedModifier(movespeed, false))
 	if movespeedModifier < 550 then
 		local currentStacks = caster:GetModifierStackCount("modifier_emerald_speed_runners_speed", event.caster)
 		event.ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_emerald_speed_runners_speed", {})

@@ -334,6 +334,9 @@ function ChatDropItems(keys)
       end)
     end
   end
+  if string.match(text, "-synthesis") then
+    RPCItems:DropSynthesisVessel(vector)
+  end
   if string.match(text, "-arcanas") then    
     local timer = 1
     Timers:CreateTimer(timer, function() RPCItems:RollFlamewakerArcana1(vector) end) timer = timer + 1
@@ -813,6 +816,25 @@ function GameMode:OnPlayerChat(keys)
         RPCItems:RollConjurorArcana3(vector)
     end
   end
+
+  if string.match(text, "-serengaard") then
+    --Serengaard:LinewarIncomeFunction(150)
+    if Serengaard and Serengaard.InfiniteWaveCount then
+      if string.match(text, "150") then
+        Serengaard.InfiniteWaveCount = 150
+      elseif string.match(text, "200") then
+        Serengaard.InfiniteWaveCount = 200
+      elseif string.match(text, "250") then
+        Serengaard.InfiniteWaveCount = 250
+      elseif string.match(text, "300") then
+        Serengaard.InfiniteWaveCount = 300
+      else
+        Serengaard.InfiniteWaveCount = 350
+      end
+      CustomGameEventManager:Send_ServerToAllClients("serengaardInfiniteWaves", {} )
+      CustomGameEventManager:Send_ServerToAllClients("serengaardUpdateData", {enemiesMax = 0, currentEnemies = 0, waveNumber = "I-"..Serengaard.InfiniteWaveCount} )
+    end
+  end  
   if string.match(text, "debug_entities") then
     local entityesToLog = { "dota_item_wearable", "ability_datadriven", "npc_dota_creature", "npc_dota_thinker", "item_datadriven", "dota_item_drop" }
     local textNotif = ""
@@ -861,6 +883,7 @@ function GameMode:OnPlayerChat(keys)
         add_resources_to_onibi(MAIN_HERO_TABLE[i], "nature", 500000000)
         add_resources_to_onibi(MAIN_HERO_TABLE[i], "lightning", 500000000)
         add_resources_to_onibi(MAIN_HERO_TABLE[i], "cosmic", 500000000)
+        add_resources_to_onibi(MAIN_HERO_TABLE[i], "fire", 500000000)
       end
     end
   end
