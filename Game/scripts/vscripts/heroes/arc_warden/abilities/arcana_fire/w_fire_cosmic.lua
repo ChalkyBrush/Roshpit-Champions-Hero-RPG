@@ -7,7 +7,6 @@ function jex_fire_cosmic_w_start(event)
 	ability.velocity = 400
 	ability.rotationDelta = 50
 	StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
-	EmitSoundOn("Arkimus.EnergyField.VO", caster)
 	ability.tech_level = onibi_get_total_tech_level(caster, "fire", "cosmic", "W")
 	ability.r_1_level = caster:GetRuneValue("r", 1)
 	ability.r_2_level = caster:GetRuneValue("r", 2)
