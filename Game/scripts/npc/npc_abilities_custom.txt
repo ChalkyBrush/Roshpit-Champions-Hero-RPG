@@ -4345,8 +4345,7 @@
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 		"BaseClass"                     "ability_lua"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		
 		"AbilityCastRange"				"1300"
 		"ScriptFile"                    "heroes/arc_warden/abilities/arcana_fire/e_fire_fire_lua.lua"
