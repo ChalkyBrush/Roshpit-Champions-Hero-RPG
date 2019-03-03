@@ -782,7 +782,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			SaveLoad:ApplyValidator(gearTable, item)
 			return item
 		elseif string.match(gearTable.item_variant, "item_serengaard_hyperstone") then
-			local item = Serengaard:RollHyperstone(gearTable.property1)
+			local item = RPCItems:RollHyperstone(gearTable.property1)
 			return item
 		end
 	end
