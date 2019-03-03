@@ -141,7 +141,7 @@ function RPCItems:SynthCheckCombination2(item1, item2, position)
 		local divisor = RPCItems:GetLogarithmicVarianceValue(220, 0, 0, 0, 0)
 		local final_score = math.max(total_score/divisor, 30)
 		final_score = math.min(math.ceil(final_score), 350)
-		local hyperstone = Serengaard:RollHyperstone(final_score)
+		local hyperstone = RPCItems:RollHyperstone(final_score)
 		return hyperstone
 	else
 		return false
