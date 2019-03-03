@@ -246,6 +246,25 @@ function enter_equinox(){
 
 }
 
+function sunstone_activate(){
+	$('#generic_panel').RemoveClass('invisible');
+	$('#generic_panel').AddClass('yellow_panel')
+	$('#generic_panel').AddClass('animateEaseClassSpecial');
+	
+	$.Msg("EASING IN")
+	    	$.Schedule(5, function(){
+	    		$('#generic_panel').RemoveClass('animateEaseClassSpecial')
+	    		$('#generic_panel').AddClass('animateEaseOutClassSpecial');
+	    		$.Msg("EASING OUT")
+	    		$.Schedule(3.95, function(){
+	    			$('#generic_panel').RemoveClass('animateEaseOutClassSpecial');
+	    			$('#generic_panel').AddClass('invisible');
+	    			$.Msg("DONE")
+	    		});
+	    	});
+	
+}
+
 (function () {
   initializeSpecialEvents();
   GameEvents.Subscribe( "crixalisEvent", crixalisEventStart );
@@ -262,4 +281,5 @@ function enter_equinox(){
   GameEvents.Subscribe( "phoenix_hatch", phoenix_hatch );
   GameEvents.Subscribe( "enter_spirit_realm", enter_spirit_realm );
   GameEvents.Subscribe( "enter_equinox", enter_equinox );
+  GameEvents.Subscribe( "sunstone_activate", sunstone_activate );
 })();

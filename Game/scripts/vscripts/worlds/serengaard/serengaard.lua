@@ -10,6 +10,11 @@ function Serengaard:Debug()
   -- Serengaard:TimerEnd()
   -- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient)
   -- Serengaard:SubmitStats()
+  -- print("SERENGAARD DEBUG")
+  -- print(MAIN_HERO_TABLE[1]:GetUnitName())
+  -- RPCItems:DropSynthesisVessel(MAIN_HERO_TABLE[1]:GetAbsOrigin())
+  -- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient:GetAbsOrigin())
+  -- RPCItems:RollSunCrystal(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 200)
 end
 
 function Serengaard:Debug2()
@@ -1335,4 +1340,18 @@ function Serengaard:Mithril(name, position, mithrilReward)
           end)
         end
   end)
+end
+
+function Serengaard:RollHyperstone(wave_bonus)
+  local item = RPCItems:CreateConsumable("item_serengaard_hyperstone", "immortal", "Serengaard Hyperstone", "consumable", false, "Consumable", "item_serengaard_hyperstone_desc")
+  item.stashable = true
+  item.consumable = true
+  item.property1 = wave_bonus
+  item.property1name = "wave_number"
+  item.property1color = "#e8f442"
+  item.property1tooltip = "serengaard_hyperstone_property"
+  RPCItems:SetPropertyValuesSpecial(item, item.property1, item.property1tooltip, item.property1color,  1, "#item_serengaard_hyperstone_desc")
+  local validator = RPCItems:GetRandomKey(13)
+  CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()).."-key", {key = validator} )
+  return item
 end

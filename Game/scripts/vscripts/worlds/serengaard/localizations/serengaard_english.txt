@@ -223,3 +223,7 @@
         "phoenix_siege_dragon"  				  "Siege Drake"
 		
 		"DOTA_Tooltip_modifier_high_jump_ai_passive" "High Jump"
+
+		"DOTA_Tooltip_ability_item_serengaard_hyperstone"					"Serengaard Hyperstone"
+		"item_serengaard_hyperstone_desc"									"Use before the first wave in the Battle of Serengaard to skip to this infinite wave level on Legend."
+		"serengaard_hyperstone_property"									"Infinite Wave Number"

@@ -38,6 +38,11 @@
   opacity:1.0;
 }
 
+.yellow_panel{
+  background-color: #e8f442;
+  opacity:1.0;
+}
+
 
 .invisible{
 	visibility: collapse;
