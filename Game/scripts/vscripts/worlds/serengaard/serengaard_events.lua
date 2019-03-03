@@ -247,6 +247,43 @@ function use_sunstone(event)
 	end	
 end
 
+function use_hyperstone(event)
+  local hero = event.caster
+  local item = event.ability
+  if GameState:GetDifficultyFactor() < 3 then
+    EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
+    return
+  end
+
+	if GameState:IsSerengaard() then
+		if Serengaard.wave == 0 then
+			CustomGameEventManager:Send_ServerToAllClients("BGMend", {})
+			CustomGameEventManager:Send_ServerToAllClients("BGMstart", {songName = "Serengaard.UseStone"})
+			
+			Serengaard.timerBlock = true
+			CustomGameEventManager:Send_ServerToAllClients("sunstone_activate", {} )
+
+			Serengaard.InfiniteWaveCount = item.property1
+
+			Timers:CreateTimer(3, function()
+				Serengaard.timerBlock = false
+				Serengaard:LinewarIncomeFunction(90)
+			end)
+			Timers:CreateTimer(7, function()
+				Serengaard.wave = 31
+				for i = 1, 20, 1 do
+					Timers:CreateTimer(i, function()
+						Serengaard:UpdateTowers()
+					end)
+				end
+			end)
+			RPCItems:ItemUTIL_Remove(item)
+	    else
+	      EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
+	    end
+	end	
+end
+
 function serengaard_ancient_think(event)
 	local caster = event.caster
 	local ability = event.ability

@@ -10889,15 +10889,15 @@
 
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_1"           "Biosynthesizer"
 	"item_property_jex_immortal_weapon"                             "Nature Enhancement"
-	"property_jex_immortal_weapon_description"                      "Все способности с элементом <font color=\"#69BC71\">Природа</font> получают @special_property1 дополнительный Технологических уровня. Способности с двойным элементом <font color=\"#69BC71\">Природа</font> получают @special_property2 дополнительных Технологических уровня."
+	"property_jex_immortal_weapon_description"                      "Все способности с элементом <font color=\"#69BC71\">Природа</font> получают @special_property1 дополнительный Технологический уровень. Способности с двойным элементом <font color=\"#69BC71\">Природа</font> получают @special_property2 дополнительных Технологических уровня."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_2"            "Venus Atomizer"
 	"item_property_jex_immortal_weapon2"                             "Lightning Enhancement"
-	"property_jex_immortal_weapon2_description"                      "Все способности с элементом <font color=\"#5CCDF9\">Молния</font> получают @special_property1 дополнительный Технологических уровня. Способности с двойным элементом <font color=\"#5CCDF9\">Молния</font> получают @special_property2 дополнительных Технологических уровня."
+	"property_jex_immortal_weapon2_description"                      "Все способности с элементом <font color=\"#5CCDF9\">Молния</font> получают @special_property1 дополнительный Технологический уровень. Способности с двойным элементом <font color=\"#5CCDF9\">Молния</font> получают @special_property2 дополнительных Технологических уровня."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_3"            "Exodius Plasma Cannon"
 	"item_property_jex_immortal_weapon3"                             "Cosmic Enhancement"
-	"property_jex_immortal_weapon3_description"                      "Все способности с элементом <font color=\"#C25DFC\">Космос</font> получают @special_property1 дополнительный Технологических уровня. Способности с двойным элементом <font color=\"#C25DFC\">Космос</font> получают @special_property2 дополнительных Технологических уровня."
+	"property_jex_immortal_weapon3_description"                      "Все способности с элементом <font color=\"#C25DFC\">Космос</font> получают @special_property1 дополнительный Технологический уровень. Способности с двойным элементом <font color=\"#C25DFC\">Космос</font> получают @special_property2 дополнительных Технологических уровня."
 
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_1_1"		"Glyph of Biosynthesis"
@@ -10926,6 +10926,156 @@
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"Glyph of Techno Supremacy"
 	"item_rpc_jex_glyph_5_a_description" 				"Увеличивает показатель Технологических уровней на всех способностях Jex на @glyph_property1."
+	
+	//FIRE ARCANA
+    "DOTA_Tooltip_ability_item_rpc_jex_arcana1"						"Flamesynth Cybernetics"
+
+	"item_property_jex_arcana1"                                     "Fire Module"
+    "property_jex_arcana1_description"                              "Заменяет модуль <font color=\"#5CCDF9\">Молнии</font> у Ониби на модуль <font color=\"#EF4126\">Огня</font>."
+
+	"DOTA_Tooltip_ability_onibi_fire_1"		"Модуль Огня"
+	"DOTA_Tooltip_ability_onibi_fire_1_Description"		"Позволяет активировать способности Огня. Противники, умирающие рядом будут оставлять после смерти огненные цветки для сбора. Собирать их необходимо используя Essence Harvest."
+
+	"DOTA_Tooltip_ability_onibi_fire_2"		"Модуль Огня"
+	"DOTA_Tooltip_ability_onibi_fire_2_Description"		"Позволяет активировать способности Огня. Противники, умирающие рядом будут оставлять после смерти огненные цветки для сбора. Собирать их необходимо используя Essence Harvest."
+
+	"DOTA_Tooltip_ability_jex_base_cannon_fire"	"Базовое Оружие: Огонь"
+	"DOTA_Tooltip_ability_jex_base_cannon_fire_Description"	"Элемент: <font color=\"#EF4126\">Огонь</font><br>Наносит урон по одной цели."
+	"DOTA_Tooltip_ability_jex_base_cannon_fire_damage"		"УРОН:"
+
+    "DOTA_Tooltip_ability_jex_fire_fire_q"				"Ring of Fire"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_Description"	"Элемент: <font color=\"#EF4126\">Fire</font><br>Кольцо огня разворачивается вокруг Jex'a, нанося урон попавшим под него противникам."
+    "DOTA_Tooltip_ability_jex_fire_fire_q_attack_damage_per_tech"		"%<font color=\"#f4b942\">ПРИБАВКА К УРОНУ АТАКИ ЗА ТЕХ. УРОВЕНЬ</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_cooldown_reduction_per_tech"	"<font color=\"#f4b942\">УМЕНЬШЕНИЕ ПЕРЕЗАРЯДКИ ЗА ТЕХ. УРОВЕНЬ</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_base_damage"					"БАЗОВЫЙ УРОН:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_radius"						"МАКСИМАЛЬНЫЙ РАДИУС:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_agility_added_to_base_damage"	"МУЛЬТИПЛИКАТОР ЛОВКОСТИ, ПРИБАВКА К УРОНУ СПОСОБНОСТИ:"
+    "DOTA_Tooltip_ability_jex_fire_fire_q_w_4_damage_increase_pct_edges"	"%<font color=\"#7DFF12\">[W4] Чем дальше противник, тем больше урона он получит. Максимальный мультипликатор на краю:</font>:"
+
+    "DOTA_Tooltip_ability_jex_nature_fire_q"				"Woodland Fever"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_Description"	"Создает дерево, отвлекающее на себя противников своим теплом. Получает 1 единицу урона за удар от любых источников."
+    "DOTA_Tooltip_ability_jex_nature_fire_q_health_per_tech"			"<font color=\"#f4b942\">ДОП. ЗДОРОВЬЕ ДЕРЕВА ЗА ТЕХ. УРОВЕНЬ</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_taunt_duration_per_tech"	"<font color=\"#f4b942\">ВРЕМЯ ОТВЛЕЧЕНИЯ ЗА ТЕХ. УРОВЕНЬ</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_taunt_duration_base"		"БАЗОВАЯ ДЛИТЕЛЬНОСТЬ ОТВЛЕЧЕНИЯ:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_health_base"				"БАЗОВОЕ ЗДОРОВЬЕ ДЕРЕВА:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_cast_range"				"ДАЛЬНОСТЬ КАСТА:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_duration"					"ДЛИТЕЛЬНОСТЬ:"
+    "DOTA_Tooltip_ability_jex_nature_fire_q_q_4_duration_increase"		"<font color=\"#7DFF12\">[Q4] Дополнительное время жизни дерева</font>:"	
+    "DOTA_Tooltip_ability_jex_nature_fire_q_w_4_attack_damage_from_pulse"	"%<font color=\"#7DFF12\">[W4] Дополнительный урон атаки Jex'a если он коснулся отвлекающей волны. Длительность совпадает с отвлечением</font>:"	
+
+    "DOTA_Tooltip_modifier_jex_fire_tree_taunt"				"Woodland Fever"
+    "DOTA_Tooltip_modifier_jex_fire_tree_taunt_Description"	"Отвлечен"
+
+    "DOTA_Tooltip_modifier_jex_fire_nature_q_attack_power"	"Woodland Fever"
+    "DOTA_Tooltip_modifier_jex_fire_nature_q_attack_power_Description"	"Урон атаки увеличен"
+
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q"				"Meteor Shower"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_Description"	"Элемент: <font color=\"#EF4126\">Огонь</font>/<font color=\"#C25DFC\">Космос</font><br>Jex притягивает метеориты в выбранную зону."
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_meteors_per_tech"			"<font color=\"#f4b942\">МЕТЕОРИТОВ ЗА ТЕХ. УРОВЕНЬ</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_attack_damage_percent_added_per_tech"	"%<font color=\"#f4b942\">ПРИБАВКА УРОНА АТАКЕ К УРОНУ МЕТЕОРИТА, ЗА ТЕХ. УРОВЕНЬ</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_base_damage"		"УРОН:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_base_meteors"				"КОЛИЧЕСТВО МЕТЕОРИТОВ:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_strength_added_to_damage"	"ПРИБАВКА СИЛЫ К УРОНУ:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_w_4_base_damage_increase"		"%<font color=\"#7DFF12\">[W4] Увеличение базового урона</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_e_4_stun_duration"	"<font color=\"#7DFF12\">[E4] Длительность оглушения</font>:"
+
+    "DOTA_Tooltip_ability_jex_fire_fire_w"					"Fire Juggler"
+    "DOTA_Tooltip_ability_jex_fire_fire_w_Description"		"Элемент: <font color=\"#EF4126\">Огонь</font><br>Jex выбрасывает беспорядочные огненные шарики в сторону цели, которые поражают все в небольшом радиусе."
+    "DOTA_Tooltip_ability_jex_fire_fire_w_flames_per_tech"	"<font color=\"#f4b942\">ОГНЕННЫХ ШАРИКОВ ЗА ТЕХ. УРОВЕНЬ</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_fire_w_attack_damage_percent_added_per_tech"	"%<font color=\"#f4b942\">ПРИБАВКА УРОНА АТАКИ ЗА ТЕХ. УРОВЕНЬ</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_w_base_damage"		"УРОН:"
+    "DOTA_Tooltip_ability_jex_fire_fire_w_w_4_attack_slow"	"<font color=\"#7DFF12\">[W4] Снижение скорости атаки на 4 секунды</font>:"
+
+    "DOTA_Tooltip_modifier_w_fire_fire_as_slow"				"Fire Juggler Burn"
+    "DOTA_Tooltip_modifier_w_fire_fire_as_slow_Description"	"Скорость Атаки снижена"
+
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w"				"Orbital Flame"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_Description"	"Призывает несколько вращающихся вокруг Jex вспышек огня, каждая из них увеличивает Базовый Урон Способностей и защищает от единицы урона, разрушаясь при этом."
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_base_ability_damage_per_flame_tech"	"%<font color=\"#f4b942\">УВЕЛИЧЕНИЕ УРОНА СПОСОБНОСТЕЙ ЗА ТЕХ. УРОВЕНЬ</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_flames"								"ВСПЫШЕК:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_duration"							"ДЛИТЕЛЬНОСТЬ:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_w_4_base_attack_damage_per_flame"	"<font color=\"#7DFF12\">[W4] Базового урона атаки за вспышку</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_w_e_4_mana_regen_per_flame"			"<font color=\"#7DFF12\">[E4] Регенерации маны за вспышку</font>:"
+
+    "DOTA_Tooltip_modifier_jex_orbital_flame_effect"		"Orbital Flame"
+    "DOTA_Tooltip_modifier_jex_orbital_flame_effect_Description" "Защищает от урона и увеличивает урон способностей."
+
+    "DOTA_Tooltip_ability_jex_nature_fire_w"				"Living Bomb"
+    "DOTA_Tooltip_ability_jex_nature_fire_w_Description"	"Элемент: <font color=\"#EF4126\">Огонь</font>/<font color=\"#69BC71\">Природа</font><br>Jex превращает выбранный живой объект в взрывчатку. Через 2 секунды или при смерти объекта взрывчатка детонирует. Можно наложить и на союзников, и на противников."	
+    "DOTA_Tooltip_ability_jex_nature_fire_w_attack_damage_of_target_per_tech"	"%<font color=\"#f4b942\">ДОП. УРОН В ЗАВИСИМОСТИ ОТ АТАКИ НОСИТЕЛЯ</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_w_base_damage"						"УРОН:"
+    "DOTA_Tooltip_ability_jex_nature_fire_w_cast_range"							"РАДИУС КАСТА:"
+    "DOTA_Tooltip_ability_jex_nature_fire_w_q_4_stun_duration"	"<font color=\"#7DFF12\">[Q4] Максимальное время оглушения, чем ближе к центру, тем длительнее</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_w_w_4_damage_increase_from_target_max_health"					"%<font color=\"#7DFF12\">[W4] Дополнительный урон от ХП носителя</font>:"
+
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e"				"Cipher Bolt"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_Description"	"Jex модифицирует себя в звезду и пролетает к выбранной позиции."
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_clamp_distance_per_tech"		"<font color=\"#f4b942\">ДОП. ДАЛЬНОСТЬ ПРЫЖКА ЗА ТЕХ. УРОВЕНЬ</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_cooldown_reduction_per_tech"	"<font color=\"#f4b942\">СНИЖЕНИЕ ПЕРЕЗАРЯДКИ ЗА ТЕХ. УРОВЕНЬ</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_clamp_distance_base"			"ДАЛЬНОСТЬ ПРЫЖКА:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_w_4_burn_damage_attack_power"	"%<font color=\"#7DFF12\">[W4] Противники загораются при контакте. 5 секунд, тик 2 раза в секунду, урон от урона атаки</font>:"
+    "DOTA_Tooltip_ability_jex_fire_cosmic_e_e_4_mana_restore_on_land"		"<font color=\"#7DFF12\">[E4] Восстановление маны по завершении прыжка:</font>:"	
+
+    "DOTA_Tooltip_modifier_jex_cipher_bolt_burn"			"Cipher Bolt Burn"
+    "DOTA_Tooltip_modifier_jex_cipher_bolt_burn_Description"	"Получает урон от горения, в зависимости от урон Jex и W4, каждые 0.5 сек."
+
+
+    "DOTA_Tooltip_ability_jex_fire_fire_e"					"Flame Sweep"
+    "DOTA_Tooltip_ability_jex_fire_fire_e_Description"		"<font color=\"#A8C8FF\">ВЕКТОРНАЯ</font><br>Элемент: <font color=\"#EF4126\">Огонь</font><br>Разряжает поток пламени из выбранной точки по вектору. Если пламя касается Jex, это переносит его вместе с потоком пламени. Наносит урон противникам."
+    "DOTA_Tooltip_ability_jex_fire_fire_e_attack_damage_added_per_tech"	"%<font color=\"#f4b942\">УРОНА АТАКИ ЗА ТЕХ. УРОВЕНЬ</font>:"
+    "DOTA_Tooltip_ability_jex_fire_fire_e_fire_speed_per_tech"			"<font color=\"#f4b942\">СКОРОСТЬ ПЛАМЕНИ ЗА ТЕХ. УРОВЕНЬ</font>:"	
+    "DOTA_Tooltip_ability_jex_fire_fire_e_fire_speed_base"				"СКОРОСТЬ ПЛАМЕНИ:"
+    "DOTA_Tooltip_ability_jex_fire_fire_e_fire_range"					"ДАЛЬНОСТЬ ПЛАМЕНИ:"
+    "DOTA_Tooltip_ability_jex_fire_fire_e_base_damage"					"БАЗОВЫЙ УРОН:"
+    "DOTA_Tooltip_ability_jex_fire_fire_e_w_4_burn_damage_attack_power"	"%<font color=\"#7DFF12\">[W4] Противники горят 4 секунды и получают урон от силы атаки каждые 0.5 секунды</font>:"
+
+    "DOTA_Tooltip_modifier_jex_e_fire_fire_burn"				"Flame Sweep Burning"
+    "DOTA_Tooltip_modifier_jex_e_fire_fire_burn_Description"	"Получает урон в зависимости от урона атаки Jex и его уровеня W4 каждые 0.5 секунды."
+
+    "DOTA_Tooltip_ability_jex_nature_fire_e"				"Cinderbark Treant"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_Description"	"Вызывает горящего трента, сражающегося на стороне героя. Трент накапливает урон атаки, пока он жив. Пока трент активен, мана героя постоянно уменьшается, если мана заканчивается, то трент умирает, что вызывает огненный взрыв. Урон взрыва базируется на уроне атаки трента. Дополнительно каждая атака трента наносит огненный урон в небольшом радиусе."
+    "DOTA_Tooltip_ability_jex_nature_fire_e_explosion_attack_damage_per_tech"		"%<font color=\"#f4b942\">УРОН ВЗРЫВА ЗА ТЕХ. УРОВЕНЬ, ОТ УРОНА АТАКИ ТРЕНТА</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_explosive_attack_damage_per_tech"		"%<font color=\"#f4b942\">УРОН ВЗРЫВА АТАК, ОТ УРОНА АТАКИ ТРЕНТА</font>:"	
+    "DOTA_Tooltip_ability_jex_nature_fire_e_armor_mult_per_tech"					"<font color=\"#f4b942\">МНОЖИТЕЛЬ БРОНИ ЗА ТЕХ. УРОВЕНЬ</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_attack_mult_per_tech"					"<font color=\"#f4b942\">МНОЖИТЕЛЬ УРОНА АТАКИ ЗА ТЕХНОЛОГИЮ</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_attack_gain_per_second"				"ПРИРОСТ БАЗОВОГО УРОНА АТАКИ В СЕКУНДУ:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_max_health_mult"						"МНОЖИТЕЛЬ ХП:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_mana_cost_increase_per_second"		"СТОИМОСТЬ МАНЫ В СЕКУНДУ:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_q_4_cooldown_reduction"				"<font color=\"#7DFF12\">[Q4] Снижение перезарядки</font>:"	
+    "DOTA_Tooltip_ability_jex_nature_fire_e_w_4_burn_damage_explosion_damage"		"%<font color=\"#7DFF12\">[W4] Процент от взрыва, переведенный в горение, 5 секунд, каждые 0.5 секунды</font>:"
+
+    "DOTA_Tooltip_ability_cinderbark_detonate"				"Detonate"
+    "DOTA_Tooltip_ability_cinderbark_detonate_Description"	"Элемент: <font color=\"#EF4126\">Огонь</font><br>Мгновенно убивает Cinderbark Treant."
+
+    "DOTA_Tooltip_modifier_cinderbark_burning"				"Cinderbark Burning"
+    "DOTA_Tooltip_modifier_cinderbark_burning_Description"	"Получает урон, основываясь на уроне взрыва и уровня W4 каждые 0.5 секунды"
+
+    "DOTA_Tooltip_ability_jex_cinderbark_teleport"			"Fire Tract"
+    "DOTA_Tooltip_ability_jex_cinderbark_teleport_Description"	"Переносит Jex к его Cinderbark Treant."
+
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1"								"[W1] Fire Module I"
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_Description"					"Уровни <font color=\"#EF4126\">Огня</font> у Onibi увеличивают базовый урон атаки Jex'а."
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_property_one"				"Увеличение Базовой Атаки"
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_suffix"						"x Уровень Модуля Onibi"
+
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1"								"[W2] Fire Module II"
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_Description"					"Увеличивает элементальный урон <font color=\"#EF4126\">Огня</font>."
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_property_one"				"Бонус к урону элемента"
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_suffix"						"%"
+
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1"								"[W3] Fire Module III"
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_Description"					"Уровни <font color=\"#EF4126\">Огня</font> у Onibi увеличивают атрибуты Jex'а."
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_property_one"				"Бонус Атрибутов"
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_suffix"						"x Уровень Модуля Onibi"
+
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1"								"[W4] Fire Module IV"
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_Description"					"Способности с элементом <font color=\"#EF4126\">Огня</font> получают специальный бонус. Он указан внизу описания способности зеленым текстом."
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_property_one"				"Множитель перков"
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_suffix"						""
+
+	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_2_a"            "Lava Boiler"
+	"item_property_jex_immortal_weapon2_a"                             "Fire Enhancement"
+	"property_jex_immortal_weapon2_a_description"                      "Все способности с элементом <font color=\"#EF4126\">Огонь</font> получают @special_property1 дополнительный Технологический уровень. Способности с двойным элементом <font color=\"#EF4126\">Огня</font> получают @special_property2 дополнительных Технологических уровня."
 
 
 

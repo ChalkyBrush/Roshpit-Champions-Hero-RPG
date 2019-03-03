@@ -418,7 +418,7 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		url = url.."&suffix"..gearSlot.."="..escape(itemTable.itemSuffix)
 		local affixCount = 0
 		print("TU78A")
-		if item:GetAbilityName() == "item_rpc_web_premium_token" or string.match(item:GetAbilityName(), "galactic_arcana_cache") then
+		if item:GetAbilityName() == "item_rpc_web_premium_token" or string.match(item:GetAbilityName(), "galactic_arcana_cache") or string.match(item:GetAbilityName(), "item_serengaard_hyperstone") then
 			print("TU78B")
 			local affixCount = 1
 			for i = 1, affixCount, 1 do
@@ -780,6 +780,9 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		elseif gearTable.item_variant == "item_rpc_boreal_granite_chunk" then
 			local item = RPCItems:CreateBasicConsumable(nil, gearTable.item_variant, gearTable.item_name, RPCItems:GetRarityNameFromFactor(gearTable.rarity), false)
 			SaveLoad:ApplyValidator(gearTable, item)
+			return item
+		elseif string.match(gearTable.item_variant, "item_serengaard_hyperstone") then
+			local item = Serengaard:RollHyperstone(gearTable.property1)
 			return item
 		end
 	end

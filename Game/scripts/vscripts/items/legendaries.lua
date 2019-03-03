@@ -7762,26 +7762,26 @@ function RPCItems:RollSunCrystal(deathLocation, infiniteWave)
     local maxFactor = RPCItems:GetMaxFactor()
     
 
-    local initRoll = RandomInt(1000, 1000+infiniteWave*40)
+    local initRoll = RandomInt(500, 1000+infiniteWave*40)
     local value = math.min(RPCItems:GetLogarithmicVarianceValue(initRoll, 0, 0, 0, 0), 9000)
     item.property1 = value
     item.property1name = "strength"
     RPCItems:SetPropertyValues(item, item.property1, "#item_strength", "#CC0000",  1)
 
-    local initRoll = RandomInt(1000, 1000+infiniteWave*40)
+    local initRoll = RandomInt(500, 1000+infiniteWave*40)
     local value = math.min(RPCItems:GetLogarithmicVarianceValue(initRoll, 0, 0, 0, 0), 9000)
     item.property2 = value
     item.property2name = "agility"
     RPCItems:SetPropertyValues(item, item.property2, "#item_agility", "#2EB82E",  2)
 
-    local initRoll = RandomInt(1000, 1000+infiniteWave*40)
+    local initRoll = RandomInt(500, 1000+infiniteWave*40)
     local value = math.min(RPCItems:GetLogarithmicVarianceValue(initRoll, 0, 0, 0, 0), 9000)
     item.property3 = value
     item.property3name = "intelligence"
     RPCItems:SetPropertyValues(item, item.property3, "#item_intelligence", "#33CCFF",  3)
 
 
-    local initRoll = RandomInt(50, 50+infiniteWave*5)
+    local initRoll = RandomInt(35, 50+infiniteWave*5)
     local value = math.min(RPCItems:GetLogarithmicVarianceValue(initRoll, 0, 0, 0, 0), 1000)
     item.property4 = value
     item.property4name = "all_elements"

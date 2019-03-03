@@ -125,6 +125,24 @@ function RPCItems:SynthCheckCombination2(item1, item2, position)
 		else
 			return false
 		end
+	elseif (string.match(item1:GetAbilityName(), "item_serengaard_sunstone") and string.match(item2:GetAbilityName(), "item_rpc_serengaard_sun_crystal")) or (string.match(item2:GetAbilityName(), "item_serengaard_sunstone") and string.match(item1:GetAbilityName(), "item_rpc_serengaard_sun_crystal")) then
+		local suncrystal = nil
+		if string.match(item2:GetAbilityName(), "item_rpc_serengaard_sun_crystal") then
+			suncrystal = item2
+		elseif string.match(item2:GetAbilityName(), "item_serengaard_sunstone") then
+			suncrystal = item1
+		end
+		local score1 = RPCItems:GetLogarithmicVarianceValue(suncrystal.property1, 0, 0, 0, 0)
+		local score2 = RPCItems:GetLogarithmicVarianceValue(suncrystal.property2, 0, 0, 0, 0)
+		local score3 = RPCItems:GetLogarithmicVarianceValue(suncrystal.property3, 0, 0, 0, 0)
+		local score4 = RPCItems:GetLogarithmicVarianceValue(suncrystal.property4, 0, 0, 0, 0)*10
+		local score5 = suncrystal.minLevel*200
+		local total_score = RPCItems:GetLogarithmicVarianceValue(score1 + score2 + score2 + score4 + score5, 0, 0, 0, 0)
+		local divisor = RPCItems:GetLogarithmicVarianceValue(220, 0, 0, 0, 0)
+		local final_score = math.max(total_score/divisor, 30)
+		final_score = math.min(math.ceil(final_score), 350)
+		local hyperstone = Serengaard:RollHyperstone(final_score)
+		return hyperstone
 	else
 		return false
 	end
