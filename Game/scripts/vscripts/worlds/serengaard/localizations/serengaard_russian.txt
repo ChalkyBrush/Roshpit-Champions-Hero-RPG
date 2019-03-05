@@ -201,6 +201,9 @@
 		"DOTA_Tooltip_ability_serengaard_shredder_madness_armor_loss"	"СНИЖЕНИЕ БРОНИ:"
 		"DOTA_Tooltip_ability_creep_jump"		"Jump"
 		"DOTA_Tooltip_ability_creep_jump_Description"	"Прыгает вперед."
+		"DOTA_Tooltip_ability_item_serengaard_hyperstone"					"Serengaard Hyperstone"
+		"item_serengaard_hyperstone_desc"									"Использование: Активируйте этот камень перед самой первой волной в Битве за Серенгард, чтобы пропустить волны до бесконечной стадии на сложности Legend и перейти на указанную волну. Чем лучше использованный для создания кристалл, тем выше указанная волна."
+		"serengaard_hyperstone_property"									"Волна в бесконечном режиме"
 		
         "serengaard_nightmare_raider" 		   "Nightmare Raider"
         "serengaard_night_invader"   			 "Nightscape Invader"
