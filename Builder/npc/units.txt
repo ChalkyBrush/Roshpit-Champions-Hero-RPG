@@ -38766,7 +38766,7 @@
     "champions_league_assistant"
     {
         "BaseClass" "npc_dota_creature"
-        "Model" "models/heroes/drow/drow.vmdl"
+        "Model" "models/heroes/drow/drow_base.vmdl"
         "ModelScale"    "1.22"
         "Level" "1"
         "HealthBarOffset"   "200"
@@ -50684,7 +50684,7 @@
     "redfall_forest_ranger"
     {
         "BaseClass" "npc_dota_creature"
-        "Model" "models/heroes/drow/drow.vmdl"
+        "Model" "models/heroes/drow/drow_base.vmdl"
         "ModelScale"    "1.02"
         "Level" "1"
         "HealthBarOffset"   "200"
@@ -50776,7 +50776,7 @@
     "redfall_red_raven"
     {
         "BaseClass" "npc_dota_creature"
-        "Model" "models/heroes/drow/drow.vmdl"
+        "Model" "models/heroes/drow/drow_base.vmdl"
         "ModelScale"    "1.42"
         "Level" "1"
         "HealthBarOffset"   "220"
@@ -53747,7 +53747,7 @@
     "redfall_ashara"
     {
         "BaseClass" "npc_dota_creature"
-        "Model" "models/heroes/drow/drow.vmdl"
+        "Model" "models/heroes/drow/drow_base.vmdl"
         "ModelScale"    "1.62"
         "Level" "1"
         "HealthBarOffset"   "220"
@@ -59207,7 +59207,7 @@
     "redfall_castle_archer"
     {
         "BaseClass" "npc_dota_creature"
-        "Model" "models/heroes/drow/drow.vmdl"
+        "Model" "models/heroes/drow/drow_base.vmdl"
         "ModelScale"    "1.02"
         "Level" "1"
         "HealthBarOffset"   "200"
@@ -67175,7 +67175,7 @@
     "sea_fortress_goddess_of_the_hunt"
     {
         "BaseClass" "npc_dota_creature"
-        "Model" "models/heroes/drow/drow.vmdl"
+        "Model" "models/heroes/drow/drow_base.vmdl"
         "ModelScale"    "1.68"
         "Level" "1"
         "HealthBarOffset"   "200"
@@ -67264,7 +67264,7 @@
     "sea_fortress_lunar_archer"
     {
         "BaseClass" "npc_dota_creature"
-        "Model" "models/heroes/drow/drow.vmdl"
+        "Model" "models/heroes/drow/drow_base.vmdl"
         "ModelScale"    "1.3"
         "Level" "1"
         "HealthBarOffset"   "200"
@@ -79309,7 +79309,7 @@
     "water_archer_spirit"
     {
         "BaseClass" "npc_dota_creature"
-        "Model" "models/heroes/drow/drow.vmdl"
+        "Model" "models/heroes/drow/drow_base.vmdl"
         "ModelScale"    "2.52"
         "Level" "1"
         "HealthBarOffset"   "200"

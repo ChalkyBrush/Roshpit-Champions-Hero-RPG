@@ -3961,7 +3961,7 @@
     "winterblight_azalea_archer"
     {
         "BaseClass" "npc_dota_creature"
-        "Model" "models/heroes/drow/drow.vmdl"
+        "Model" "models/heroes/drow/drow_base.vmdl"
         "ModelScale"    "1.0"
         "Level" "1"
         "HealthBarOffset"   "200"
