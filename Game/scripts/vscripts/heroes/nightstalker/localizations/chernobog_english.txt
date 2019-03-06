@@ -127,7 +127,9 @@
 		"DOTA_Tooltip_modifier_chernobog_c_c_cooldown"							"Sudden Strike Cooldown"
 
     	"DOTA_Tooltip_modifier_chernobog_c_c_cooldown"							"Sudden Strike Cooldown"
-
+		"DOTA_Tooltip_modifier_chernobog_rune_e_3_postmit"						"Sudden Strike"
+		"DOTA_Tooltip_modifier_chernobog_rune_e_3_postmit_Description"			"Takes higher damage."
+		
     	"DOTA_Tooltip_ability_chernobog_rune_e_4"								"[E4] Eclipse"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"Gain 100% evasion and 30% magic resistance while Shadow Hunt is active. The buff persists for some time after disabling Shadow Hunt."
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_one"					"Duration after disabling Shadow Hunt"

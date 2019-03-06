@@ -124,6 +124,8 @@
 		"DOTA_Tooltip_modifier_chernobog_c_c_cooldown"							"Sudden Strike Cooldown"
 
     	"DOTA_Tooltip_modifier_chernobog_c_c_cooldown"							"Sudden Strike Cooldown"
+		"DOTA_Tooltip_modifier_chernobog_rune_e_3_postmit"						"Sudden Strike"
+		"DOTA_Tooltip_modifier_chernobog_rune_e_3_postmit_Description"			"Получает больше урона."
 
     	"DOTA_Tooltip_ability_chernobog_rune_e_4"								"[E4] Eclipse"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"Во время действия и после деактивации @Ability3, герой получает 100% уклонение и 30% сопротивление магии."
