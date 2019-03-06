@@ -238,6 +238,7 @@ function enemy_locked_end(event)
 						stun_duration = stun_duration*SLIPFINN_GLYPH_6_1_STUN_MULT
 					end
 					Filters:ApplyStun(caster, stun_duration, ability.lockedTarget)
+					ability:ApplyDataDrivenModifier(caster, ability.lockedTarget, "modifier_slipfinn_release_immunity", {duration = 6.0})
 				end
 				ability.fallFromHeight = ability.lockedTarget:GetAbsOrigin().z
 				EmitSoundOn("Slipfinn.Possess.EnemyEnd", ability.lockedTarget)

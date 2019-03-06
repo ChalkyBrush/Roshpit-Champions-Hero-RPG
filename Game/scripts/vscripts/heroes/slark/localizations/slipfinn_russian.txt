@@ -118,9 +118,11 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_r_1_suffix"								"%"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_r_2"									"[R2] Disorienting Pop"
-    	"DOTA_Tooltip_ability_slipfinn_rune_r_2_Description"						"Отпущенный из пузыря враг ненадолго оглушается. Впервые захваченный враг оглушает всех других врагов в радиусе 500."
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_2_Description"						"Освобожденный из пузыря противник ненадолго оглушается. Впервые захваченный противник оглушает всех других врагов в радиусе 500. Противник полностью защищен от урона на 6 секунд после освобождения."
     	"DOTA_Tooltip_ability_slipfinn_rune_r_2_property_one"						"Длительность оглушения"
     	"DOTA_Tooltip_ability_slipfinn_rune_r_2_suffix"								" сек."
+		"DOTA_Tooltip_modifier_slipfinn_release_immunity"							"Immunity"
+		"DOTA_Tooltip_modifier_slipfinn_release_immunity_Description"				"Неуязвим"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_r_3"									"[R3] Expose Weaknesses"
     	"DOTA_Tooltip_ability_slipfinn_rune_r_3_Description"						"После захвата врага, получает увеличенный пост-резистный урон против такого же типа противников на всю игровую сессию. Если не удалось захватить врага, герой все равно получит бонус."

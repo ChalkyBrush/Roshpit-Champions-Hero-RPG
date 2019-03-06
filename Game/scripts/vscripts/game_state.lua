@@ -3447,6 +3447,9 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_ankh_of_ancients_shield") then
 		filterTable["damage"] = 0
 	end
+	if victim:HasModifier("modifier_slipfinn_release_immunity") then
+		filterTable["damage"] = 0
+	end
 	if victim:HasModifier("modifier_epoch_glyph_5_a_little_shield") then
 		filterTable["damage"] = 0
 	end
