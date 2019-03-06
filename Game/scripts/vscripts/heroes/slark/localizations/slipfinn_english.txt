@@ -119,7 +119,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_r_1_suffix"								"%"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_r_2"									"[R2] Disorienting Pop"
-    	"DOTA_Tooltip_ability_slipfinn_rune_r_2_Description"						"When an enemy is released from a Possession Bubble, they are stunned for a short duration. When an enemy is first possessed, all enemies in a 500 radius are stunned. After release enemy is protected from any damage for 6 seconds."
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_2_Description"						"When an enemy is released from a Possession Bubble, they are stunned for a short duration. When an enemy is first possessed, all enemies in a 500 radius are stunned.After release, the enemy is protected from all damage for 6 seconds. It can still be affected by abilities, including @Ability4."
     	"DOTA_Tooltip_ability_slipfinn_rune_r_2_property_one"						"Stun Duration"
     	"DOTA_Tooltip_ability_slipfinn_rune_r_2_suffix"								" seconds"
 		"DOTA_Tooltip_modifier_slipfinn_release_immunity"							"Immunity"
