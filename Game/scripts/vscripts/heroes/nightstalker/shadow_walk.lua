@@ -79,15 +79,17 @@ function shadow_walk_think(event)
 	local caster = event.caster
 	local target = event.target
 	if not caster:HasModifier("modifier_disable_player") and not caster:HasModifier("modifier_nights_procession_caster_lifting") and not caster:HasModifier("modifier_command_restric_player") then
-		local drain_per_second = event.drain_per_second
-		drain_per_second = drain_per_second/100
-		if not caster:HasModifier("modifier_chernobog_glyph_5_1") or caster:GetHealth()/caster:GetMaxHealth() > CHERNOBOG_GLYPH51_DRAIN_HP_CAP_PCT then
-			local healthDrain = caster:GetMaxHealth()*drain_per_second
-			local newHealth = math.max(caster:GetHealth()-healthDrain, 1)
-			caster:SetHealth(newHealth)
+		if caster:IsAlive() then
+			local drain_per_second = event.drain_per_second
+			drain_per_second = drain_per_second/100
+			if not caster:HasModifier("modifier_chernobog_glyph_5_1") or caster:GetHealth()/caster:GetMaxHealth() > CHERNOBOG_GLYPH51_DRAIN_HP_CAP_PCT then
+				local healthDrain = caster:GetMaxHealth()*drain_per_second
+				local newHealth = math.max(caster:GetHealth()-healthDrain, 1)
+				caster:SetHealth(newHealth)
+			end
+			local manaDrain = caster:GetMaxMana()*drain_per_second
+			caster:ReduceMana(manaDrain)
 		end
-		local manaDrain = caster:GetMaxMana()*drain_per_second
-		caster:ReduceMana(manaDrain)
 	end
 end
 

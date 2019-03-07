@@ -3640,7 +3640,9 @@
 		"DOTA_Tooltip_modifier_chernobog_c_c_cooldown"							"Sudden Strike Cooldown"
 
     	"DOTA_Tooltip_modifier_chernobog_c_c_cooldown"							"Sudden Strike Cooldown"
-
+		"DOTA_Tooltip_modifier_chernobog_rune_e_3_postmit"						"Sudden Strike"
+		"DOTA_Tooltip_modifier_chernobog_rune_e_3_postmit_Description"			"Takes higher damage."
+		
     	"DOTA_Tooltip_ability_chernobog_rune_e_4"								"[E4] Eclipse"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"Gain 100% evasion and 30% magic resistance while Shadow Hunt is active. The buff persists for some time after disabling Shadow Hunt."
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_one"					"Duration after disabling Shadow Hunt"
@@ -7401,7 +7403,7 @@
     	"DOTA_Tooltip_modifier_energy_channel_Description"						""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_1"				"[W1] Mountain Echoes"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_Description"	"Passively increases health Regen by % of max health."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_Description"	"Increases health regeneration by a % of maximum health while channeling @Ability2."	
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_property_one"	"Health Regen"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_suffix"		"% of max health"
 		
@@ -8683,9 +8685,11 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_r_1_suffix"								"%"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_r_2"									"[R2] Disorienting Pop"
-    	"DOTA_Tooltip_ability_slipfinn_rune_r_2_Description"						"When an enemy is released from a Possession Bubble, they are stunned for a short duration. When an enemy is first possessed, all enemies in a 500 radius are stunned."
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_2_Description"						"When an enemy is released from a Possession Bubble, they are stunned for a short duration. When an enemy is first possessed, all enemies in a 500 radius are stunned.After release, the enemy is protected from all damage for 6 seconds. It can still be affected by abilities, including @Ability4."
     	"DOTA_Tooltip_ability_slipfinn_rune_r_2_property_one"						"Stun Duration"
     	"DOTA_Tooltip_ability_slipfinn_rune_r_2_suffix"								" seconds"
+		"DOTA_Tooltip_modifier_slipfinn_release_immunity"							"Immunity"
+		"DOTA_Tooltip_modifier_slipfinn_release_immunity_Description"				"Immune to damage"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_r_3"									"[R3] Expose Weaknesses"
     	"DOTA_Tooltip_ability_slipfinn_rune_r_3_Description"						"After possessing an enemy, gain increased post-mitigation damage towards that type of enemy for the rest of the game session. If an enemy cannot be possessed, the damage bonus against that type of enemy is acquired regardless."
