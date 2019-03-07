@@ -713,6 +713,12 @@
 					}
 				}
 			}
+			"modifier_slipfinn_release_immunity"
+			{
+				"IsHidden"	"0"
+				"StatusEffectName" 		"particles/roshpit/tanari/status_effect_spirit_blue.vpcf"	   
+				"StatusEffectPriority"  "100"
+			}
 			"modifier_possession_attack_power"
 			{
 				"IsHidden"	"1"

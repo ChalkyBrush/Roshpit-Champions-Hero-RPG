@@ -691,7 +691,8 @@
 			}
 			"modifier_chernobog_rune_e_3_postmit"
 			{
-				"IsHidden"	"1"
+				"IsHidden"	"0"
+				"IsDebuff"			"1"
 			}
 			"modifier_chernobog_c_c_cooldown"
 			{

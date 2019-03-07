@@ -1028,7 +1028,7 @@ function Serengaard:AdjustUnit(unit)
     unit:SetDeathXP(bountyXP)
   end
   if Serengaard.InfiniteWaveCount then
-    local bountyXP = math.ceil(unit:GetDeathXP()+unit:GetDeathXP()*0.1*Serengaard.InfiniteWaveCount)
+    local bountyXP = math.ceil(unit:GetDeathXP()+unit:GetDeathXP()*0.05*Serengaard.InfiniteWaveCount)
     unit:SetDeathXP(bountyXP)
     unit:SetRenderColor(120, 120, 120)
     Events:ColorWearables(unit, Vector(120,120,120))

@@ -46,7 +46,7 @@
     	"DOTA_Tooltip_modifier_energy_channel_Description"						""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_1"				"[W1] Mountain Echoes"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_Description"	"Passively increases health Regen by % of max health."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_Description"	"Increases health regeneration by a % of maximum health while channeling @Ability2."	
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_property_one"	"Health Regen"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_suffix"		"% of max health"
 		
