@@ -50,7 +50,7 @@ function jex_activate_q_fire_cosmic(event)
 
     local damage = event.base_damage + event.strength_added_to_damage*caster:GetStrength() + (event.attack_damage_percent_added_per_tech/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
 	if w_4_level > 0 then
-		damage = damage + (event.w_4_base_damage_increase/100)*w_4_level
+		damage = damage * (event.w_4_base_damage_increase/100)*w_4_level
 	end
 
 	local meteor_delay = 0.15
