@@ -1892,36 +1892,39 @@ function charge_slide_end(event)
 end
 
 function FireSpiritTrigger(event)
-	Tanari:ActivateSwitchGenericWithZ(Vector(11482, -12206, 500), "FireSwitch", true, 0.34)
+	if not Tanari.FireSpiritTriggerEvent then
+		Tanari.FireSpiritTriggerEvent = true
+		Tanari:ActivateSwitchGenericWithZ(Vector(11482, -12206, 500), "FireSwitch", true, 0.34)
 
-	Tanari.FireTemple.SpiritWaveUnitsSlain = 0
-	Tanari.fireSpawnPortalTable = {}
-	local spawnPositionTable = {Vector(11328, -12872, 274), Vector(12160, -11008, 274), Vector(13366, -12902, 297), Vector(13397, -11074, 300), Vector(15428, -12976, 364), Vector(14464, -11074)}
-	Timers:CreateTimer(2, function()
-		for i = 1, #spawnPositionTable, 1 do
-			local pfx = ParticleManager:CreateParticle("particles/econ/events/ti4/teleport_end_counter_ti4.vpcf", PATTACH_WORLDORIGIN, Tanari.TanariMaster)
-			ParticleManager:SetParticleControl(pfx, 0, spawnPositionTable[i]+Vector(0,0,420+Tanari.ZFLOAT))
-			ParticleManager:SetParticleControl(pfx, 1, spawnPositionTable[i]+Vector(0,0,420+Tanari.ZFLOAT))
+		Tanari.FireTemple.SpiritWaveUnitsSlain = 0
+		Tanari.fireSpawnPortalTable = {}
+		local spawnPositionTable = {Vector(11328, -12872, 274), Vector(12160, -11008, 274), Vector(13366, -12902, 297), Vector(13397, -11074, 300), Vector(15428, -12976, 364), Vector(14464, -11074)}
+		Timers:CreateTimer(2, function()
+			for i = 1, #spawnPositionTable, 1 do
+				local pfx = ParticleManager:CreateParticle("particles/econ/events/ti4/teleport_end_counter_ti4.vpcf", PATTACH_WORLDORIGIN, Tanari.TanariMaster)
+				ParticleManager:SetParticleControl(pfx, 0, spawnPositionTable[i]+Vector(0,0,420+Tanari.ZFLOAT))
+				ParticleManager:SetParticleControl(pfx, 1, spawnPositionTable[i]+Vector(0,0,420+Tanari.ZFLOAT))
 
-			table.insert(Tanari.fireSpawnPortalTable, pfx)
-			EmitSoundOnLocationWithCaster(spawnPositionTable[i], "Tanari.FireEvent", Tanari.TanariMaster)
-		end
-	end)
-	Timers:CreateTimer(7, function()
-		for i = 1, #spawnPositionTable, 1 do
-			local delay = 1.5
-			if GameState:GetDifficultyFactor() == 2 then
-				delay = 1.3
-			elseif GameState:GetDifficultyFactor() == 3 then
-				delay = 1.1
+				table.insert(Tanari.fireSpawnPortalTable, pfx)
+				EmitSoundOnLocationWithCaster(spawnPositionTable[i], "Tanari.FireEvent", Tanari.TanariMaster)
 			end
-			if i <= 3 then
-				Tanari:SpawnSpiritFireWaveUnit("fire_temple_blackguard", spawnPositionTable[i], 4, 33, delay, true)
-			else
-				Tanari:SpawnSpiritFireWaveUnit("blackguard_cultist", spawnPositionTable[i], 4, 33, delay, true)
+		end)
+		Timers:CreateTimer(7, function()
+			for i = 1, #spawnPositionTable, 1 do
+				local delay = 1.5
+				if GameState:GetDifficultyFactor() == 2 then
+					delay = 1.3
+				elseif GameState:GetDifficultyFactor() == 3 then
+					delay = 1.1
+				end
+				if i <= 3 then
+					Tanari:SpawnSpiritFireWaveUnit("fire_temple_blackguard", spawnPositionTable[i], 4, 33, delay, true)
+				else
+					Tanari:SpawnSpiritFireWaveUnit("blackguard_cultist", spawnPositionTable[i], 4, 33, delay, true)
+				end
 			end
-		end
-	end)
+		end)
+	end
 end
 
 function fire_temple_unit_die(event)

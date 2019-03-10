@@ -176,16 +176,16 @@ function hyperbeam_jolt(caster, hyperbeam, enemy)
 	if IsValidEntity(hyperbeam) then
 	  local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.05*hyperbeam.r_1_level
 	  damage = damage*(hyperbeam.size/100)
-      local particleName = "particles/roshpit/dinath/hyper_zap_beam.vpcf"
-      local attachPointA = hyperbeam:GetAbsOrigin()
-      local attachPointB = enemy:GetAbsOrigin() + Vector(0,0,enemy:GetBoundingMaxs().z)
-      local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster) 
-      ParticleManager:SetParticleControl(lightningBolt,0,Vector(attachPointA.x,attachPointA.y,attachPointA.z))   
-      ParticleManager:SetParticleControl(lightningBolt,1,Vector(attachPointB.x,attachPointB.y,attachPointB.z))
-      Timers:CreateTimer(2, function()
-        ParticleManager:DestroyParticle(lightningBolt, false)
-        ParticleManager:ReleaseParticleIndex(lightningBolt)
-      end)
+      -- local particleName = "particles/roshpit/dinath/hyper_zap_beam.vpcf"
+      -- local attachPointA = hyperbeam:GetAbsOrigin()
+      -- local attachPointB = enemy:GetAbsOrigin() + Vector(0,0,enemy:GetBoundingMaxs().z)
+      -- local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster) 
+      -- ParticleManager:SetParticleControl(lightningBolt,0,Vector(attachPointA.x,attachPointA.y,attachPointA.z))   
+      -- ParticleManager:SetParticleControl(lightningBolt,1,Vector(attachPointB.x,attachPointB.y,attachPointB.z))
+      -- Timers:CreateTimer(2, function()
+      --   ParticleManager:DestroyParticle(lightningBolt, false)
+      --   ParticleManager:ReleaseParticleIndex(lightningBolt)
+      -- end)
       Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_DRAGON, RPC_ELEMENT_LIGHTNING)
     end
 end

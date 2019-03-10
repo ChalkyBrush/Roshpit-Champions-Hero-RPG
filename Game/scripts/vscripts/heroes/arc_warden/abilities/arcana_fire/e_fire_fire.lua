@@ -9,9 +9,9 @@ function jex_e_fire_fire_push_thinker(event)
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, searchPos+(fv*60), target)
 	if blockUnit then
 		fv = 0
+	else
+		target:SetAbsOrigin(target:GetAbsOrigin() + ability.pushDirection*ability.pushSpeed)
 	end
-
-	target:SetAbsOrigin(target:GetAbsOrigin() + ability.pushDirection*ability.pushSpeed)
 end
 
 function jex_fire_push_end(event)

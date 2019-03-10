@@ -62,7 +62,7 @@ function send_magnet(index, startPoint, direction, range, caster, fv, ability)
         	bHasFrontalCone = true,
         	bReplaceExisting = false,
         	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
         	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
         	fExpireTime = GameRules:GetGameTime() + 5.0,
 		bDeleteOnHit = false,
@@ -95,6 +95,11 @@ function magnet_hit(event)
 		if ability.target_table then
 			table.insert(ability.target_table, target)
 		end
+		local q_4_level = caster:GetRuneValue("q", 4)
+		local d_a_duration = Filters:GetAdjustedBuffDuration(caster, q_4_level*0.1, false)
+		if q_4_level > 0 then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_magnet_d_d", {duration = d_a_duration})
+		end
 	end
 end
 
@@ -109,6 +114,12 @@ function magnet_thinker(event)
 			local target = ability.target_table[1]
 			table.remove(ability.target_table, 1)
 			if IsValidEntity(target) and target:IsAlive() then
+				local q_2_level = caster:GetRuneValue("q", 2)
+				local procs = Runes:Procs(q_2_level, 1, 1)
+				if procs > 0 then
+					Filters:CleanseStuns(caster)
+					Filters:CleanseSilences(caster)
+				end
 				local ogPosition = caster:GetAbsOrigin()
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {duration = 0.12})
 				local tpRange = math.min(caster:Script_GetAttackRange(), 320)
@@ -125,12 +136,6 @@ function magnet_thinker(event)
 						EmitSoundOn("Voltex.MagnetAttack", target)
 					end
 				end)
-			end
-			local q_2_level = caster:GetRuneValue("q", 2)
-			local procs = Runes:Procs(q_2_level, 0.5, 1)
-			if procs > 0 then
-				Filters:CleanseStuns(caster)
-				Filters:CleanseSilences(caster)
 			end
 		else
 			if not caster:HasModifier("modifier_magnet_travelling") then

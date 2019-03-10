@@ -547,16 +547,18 @@ function GameState:OrderFilter(orderTable)
 			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 				if orderTable.entindex_target then
 					local target = EntIndexToHScript(orderTable.entindex_target)
-					if target:GetUnitName() == "jex_thunder_blossom" then
-						local teleport_ability = target:FindAbilityByName("thunder_blossom_teleport")
-						if teleport_ability:IsFullyCastable() then
-							local order = {
-							 		UnitIndex = target:entindex(), 
-							 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-							 		TargetIndex = unit:entindex(),
-							 		AbilityIndex = teleport_ability:entindex(),
-						 	}
-							ExecuteOrderFromTable(order)
+					if target:GetClassname() ~= "dota_item_drop" then
+						if target:GetUnitName() == "jex_thunder_blossom" then
+							local teleport_ability = target:FindAbilityByName("thunder_blossom_teleport")
+							if teleport_ability:IsFullyCastable() then
+								local order = {
+								 		UnitIndex = target:entindex(), 
+								 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+								 		TargetIndex = unit:entindex(),
+								 		AbilityIndex = teleport_ability:entindex(),
+							 	}
+								ExecuteOrderFromTable(order)
+							end
 						end
 					end
 				end

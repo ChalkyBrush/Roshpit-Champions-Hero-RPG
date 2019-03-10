@@ -235,7 +235,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_q_3_arcana2_suffix"				"%"
 
     	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2"								"[Q4] Quantum Path"
-    	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_Description"					"Gain a short buff when a Thermion Magnet ends. While the buff is active, @Ability2 pushes Voltex forward on cast and @Ability4 does not require a channel to cast."
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_Description"					"Gain a short buff when a Thermion Magnet hits an enemy or when it ends. While the buff is active, @Ability2 pushes Voltex forward on cast and @Ability4 does not require a channel to cast."
     	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_property_one"					"Duration"
     	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_suffix"						" seconds"
 

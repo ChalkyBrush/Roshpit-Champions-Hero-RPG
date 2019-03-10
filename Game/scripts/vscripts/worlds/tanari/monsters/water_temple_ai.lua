@@ -98,29 +98,32 @@ end
 function cast_summon_water_elemental(event)
 	local ability = event.ability
 	local caster = event.caster
-	local elemental = CreateUnitByName("aqua_mage_water_elemental", caster:GetAbsOrigin()+RandomVector(240), true, caster, caster, caster:GetTeamNumber())
-	Events:AdjustDeathXP(elemental)
-	elemental:SetDeathXP(0)
-	elemental:SetMaximumGoldBounty(0)
-	elemental:SetMinimumGoldBounty(0)
-	elemental.summoner = caster
-	EmitSoundOn("Tanari.WaterTemple.SummonWaterElemental", elemental)
 
-	local particleName = "particles/units/heroes/hero_slark/slark_pounce_splash.vpcf"
-    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, elemental)
-    for k = 0, 4, 1 do
-    	ParticleManager:SetParticleControl(pfx,k,elemental:GetAbsOrigin()+Vector(0,0,250) )
-	end
-    Timers:CreateTimer(1.25, function()
-    	ParticleManager:DestroyParticle(pfx, false)
-    end)
-
-    StartAnimation(elemental, {duration=1, activity=ACT_DOTA_SPAWN, rate=1})
     if not caster.summons then
     	caster.summons = 0
     end
-    caster.summons = caster.summons + 1
+    if caster.summons < 5 then
+	    caster.summons = caster.summons + 1
 
+		local elemental = CreateUnitByName("aqua_mage_water_elemental", caster:GetAbsOrigin()+RandomVector(240), true, caster, caster, caster:GetTeamNumber())
+		Events:AdjustDeathXP(elemental)
+		elemental:SetDeathXP(0)
+		elemental:SetMaximumGoldBounty(0)
+		elemental:SetMinimumGoldBounty(0)
+		elemental.summoner = caster
+		EmitSoundOn("Tanari.WaterTemple.SummonWaterElemental", elemental)
+
+		local particleName = "particles/units/heroes/hero_slark/slark_pounce_splash.vpcf"
+	    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, elemental)
+	    for k = 0, 4, 1 do
+	    	ParticleManager:SetParticleControl(pfx,k,elemental:GetAbsOrigin()+Vector(0,0,250) )
+		end
+	    Timers:CreateTimer(1.25, function()
+	    	ParticleManager:DestroyParticle(pfx, false)
+	    end)
+
+	    StartAnimation(elemental, {duration=1, activity=ACT_DOTA_SPAWN, rate=1})
+	end
 end
 
 function water_elemental_attack(event)

@@ -109,7 +109,8 @@ function begin_hydro_pump(event)
 			local oceanQuake = caster:FindAbilityByName("hydroxis_tsunami")
 			local damage = oceanQuake:GetSpecialValueFor("strength_damage")*caster:GetStrength()*ability.q_1_level*0.08
 			local stunDuration = oceanQuake:GetSpecialValueFor("stun_duration")
-			local slow_duration = oceanQuake:GetSpecialValueFor("slow_duration") + stunDuration
+			local slow_duration = oceanQuake:GetSpecialValueFor("slow_duration")
+			slow_duration = slow_duration + stunDuration
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_WATER, RPC_ELEMENT_EARTH)

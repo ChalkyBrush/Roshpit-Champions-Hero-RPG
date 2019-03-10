@@ -5703,10 +5703,11 @@ function ice_floe_think(event)
 	local fv = (targetPoint-hero:GetAbsOrigin()):Normalized()
 	hero.ice_floe_table.speed = math.max(hero.ice_floe_table.speed - 0.3, 25)
 	local newPosition = hero:GetAbsOrigin() + fv*hero.ice_floe_table.speed
+	local obstruction = WallPhysics:FindNearestObstruction(newPosition)
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition*Vector(1,1,0), hero)
 	newPosition = GetGroundPosition(newPosition, hero)
-	if not blockUnit then
-		-- newPosition = GetGroundPosition(newPosition, target)
+	if blockUnit then
+	else
 		hero:SetAbsOrigin(newPosition)
 	end
 	local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), targetPoint)

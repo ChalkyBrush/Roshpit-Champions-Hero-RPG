@@ -156,6 +156,14 @@
 						"Function"		"archon_form_thinking"
 					}
 				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/antimage/archon_form.lua"
+						"Function"		"archon_form_attack_start"
+					}
+				}
 			}
 			"modifier_archon_pushback"
 			{

@@ -8065,6 +8065,14 @@
 						"Function"		"archon_form_thinking"
 					}
 				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/antimage/archon_form.lua"
+						"Function"		"archon_form_attack_start"
+					}
+				}
 			}
 			"modifier_archon_pushback"
 			{
@@ -8235,7 +8243,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.01"
+				"property_one"			"1.5"
 			}
 		}
 	}
@@ -50702,7 +50710,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"4.5"
+		"AbilityCooldown"				"3.5"
 		"AbilityCastRange"				"1000 1100 1200 1300 1400 1500 1600"
 
 		// Cost
@@ -50897,7 +50905,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"1.0"
 			}
 		}
 	}
@@ -55446,7 +55454,7 @@
 			}
 			"02"
 			{
-				"var_type"					"FIELD_FLOAT"
+				"var_type"					"FIELD_INTEGER"
 				"torrents"						"3 3 4 4 5 5 6"
 			}
 		}
@@ -56261,15 +56269,15 @@
 			}
 			"03"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"slow_duration"	"6"
+				"var_type"	"FIELD_FLOAT"
+				"slow_duration"	"6.0"
 			}
-			"03"
+			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
 				"move_slow"	"-120"
 			}
-			"04"
+			"05"
 			{
 				"var_type"	"FIELD_INTEGER"
 				"attack_slow"	"-50"

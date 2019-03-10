@@ -166,3 +166,16 @@ function archon_init_seafortress(event)
 	ability.r_4_level = 20
 	EmitSoundOn("Arkimus.ArchonForm.Start", caster)
 end
+
+function archon_form_attack_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if ability.r_4_level > 0 then
+		local luck = RandomInt(1, 1000)
+		luck = 1
+		if luck <= ability.r_4_level*15 then
+			Filters:PerformAttackSpecial(caster, target, true, true, true, false, true, false, false)
+		end
+	end
+end

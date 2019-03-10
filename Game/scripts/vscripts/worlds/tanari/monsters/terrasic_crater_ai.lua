@@ -338,7 +338,7 @@ function volcano_pharoah_think(event)
 		StartAnimation(caster, {duration=2.2, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.47}) 
 		caster.aggroAnimation = true
 	end
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 	if #enemies > 0 then
 		if caster:HasModifier("modifier_volcano_pharoah_submerged") then
 			AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 400, 5, false)

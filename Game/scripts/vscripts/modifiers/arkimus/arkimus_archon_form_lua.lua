@@ -50,7 +50,7 @@ end
 
 
 function arkimus_archon_form_lua:GetAttackSound( params )
-	return "Arkimus.ArchonForm.Attack"
+    return "Arkimus.ArchonForm.Attack"
 end
 
 function arkimus_archon_form_lua:IsHidden()
