@@ -175,7 +175,7 @@ function archon_form_attack_start(event)
 		if target.dummy then
 		else
 			local luck = RandomInt(1, 1000)
-			if luck <= ability.r_4_level*15 then
+			if luck <= ability.r_4_level*5 then
 				Filters:PerformAttackSpecial(caster, target, true, true, true, false, true, false, false)
 			end
 		end
