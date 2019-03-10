@@ -1518,6 +1518,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% JEX_RUNE_ROW_2_VALUE %>"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"2"
+			}
 		}
 	}
 

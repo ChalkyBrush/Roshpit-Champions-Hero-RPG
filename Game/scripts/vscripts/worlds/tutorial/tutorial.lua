@@ -935,6 +935,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
 				Timers:CreateTimer(0.3, function()
 					local shroomling = CreateUnitByName("tutorial_shroomling", Vector(-576, 1984), false, nil, nil, DOTA_TEAM_NEUTRALS)
+					shroomling.dominion = true
 					EmitSoundOn("Tutorial.SpawnUnit", shroomling)
 					shroomling:SetForwardVector(Vector(1,0))
 					CustomAbilities:QuickParticleAtPoint("particles/roshpit/tutorial/tutorial_sprout.vpcf", shroomling:GetAbsOrigin(), 3)
@@ -1207,6 +1208,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 					Timers:CreateTimer(0.3, function()
 						local shroomling = CreateUnitByName("tutorial_shroomling", Vector(-576, 1984), false, nil, nil, DOTA_TEAM_NEUTRALS)
 						EmitSoundOn("Tutorial.SpawnUnit", shroomling)
+						shroomling.dominion = true
 						shroomling:SetForwardVector(Vector(1,0))
 						CustomAbilities:QuickParticleAtPoint("particles/roshpit/tutorial/tutorial_sprout.vpcf", shroomling:GetAbsOrigin(), 3)
 						shroomling.cantAggro = true
@@ -2091,7 +2093,7 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 								for i = 1, 10, 1 do
 									local rotatedVector = WallPhysics:rotateVector(Vector(1,0), 2*math.pi*i/10)
 									local shroomling = CreateUnitByName("tutorial_shroomling2", Vector(-576, 1984)+rotatedVector*300, false, nil, nil, DOTA_TEAM_NEUTRALS)
-									
+									shroomling.dominion = true
 									shroomling:SetForwardVector(Vector(1,0))
 									CustomAbilities:QuickParticleAtPoint("particles/roshpit/tutorial/tutorial_sprout.vpcf", shroomling:GetAbsOrigin(), 3)
 									-- shroomling.cantAggro = true

@@ -216,9 +216,11 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2_suffix"							"%"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2"									"[R4] Cerebrum"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"When attacking, have a chance to perform an extra attack."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"When attacking, have a chance to perform an extra attack. Attacks have reduced Base Attack Time."
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"					"Extra Attack Chance"
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"							"%"
+        "DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_two"                    "Base Attack Time Reduction"
+        "DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix_two"                      "s"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"Glyph of Energy Focus"
