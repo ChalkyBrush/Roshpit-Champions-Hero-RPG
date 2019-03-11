@@ -219,7 +219,7 @@
     	"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"提高 <% SEINARU_ARCANA_E2_PURE_DMG_REDUCE * 100%>%  纯粹伤害减免"
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2"						"[E3] 光之斩"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"施放E技能时，提高E技能税后伤害."
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"施放E技能时，提高税后伤害."
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_one"			"税后伤害提高"
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					"%"
 

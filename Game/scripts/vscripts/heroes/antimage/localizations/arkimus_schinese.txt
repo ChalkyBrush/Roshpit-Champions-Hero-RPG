@@ -202,9 +202,9 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2_suffix"							"%"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2"									"[R4] 中枢"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"奥法审判者形态下，基础攻击间隔降低。"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"					"基础攻击间隔减少"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"							"秒"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"奥法审判者形态下，阿基莫斯的攻击有概率造成连击。"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"					"连击概率"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"							"%"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"能量场雕文"
