@@ -76271,6 +76271,8 @@
             "particle"  "particles/econ/items/sven/sven_ti7_sword/sven_ti7_sword_spell_great_cleave_gods_strength_crit.vpcf"
             "particle"  "particles/roshpit/seafortress/boss_dying_effect.vpcf"
             "particle"  "particles/econ/items/sven/sven_warcry_ti5/hyper_visor.vpcf"
+            "particle"  "particles/econ/items/sven/sven_ti7_sword/sven_ti7_sword_spell_great_cleave.vpcf"
+            "particle"  "particles/econ/items/sven/sven_ti7_sword/sven_ti7_sword_spell_great_cleave_gods_strength.vpcf"
         }
         "ArmorPhysical" "320"
         "MagicalResistance" "75"
