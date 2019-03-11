@@ -49,7 +49,7 @@ function begin_mystic_wave(event)
 		        	bHasFrontalCone = true,
 		        	bReplaceExisting = false,
 		        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 		        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		        	fExpireTime = GameRules:GetGameTime() + 5.0,
 				bDeleteOnHit = false,
@@ -143,7 +143,10 @@ function mystic_wave_impact(event)
 					damage = damage + damage*ability.e_3_amp
 				end
 				ability:ApplyDataDrivenModifier(caster, target, "modifier_mystic_wave_flail", {duration = stunDuration})
-				Filters:ApplyStun(caster, stunDuration, target)
+				if target:IsMagicImmune() then
+				else
+					Filters:ApplyStun(caster, stunDuration, target)
+				end
 				local particleName = "particles/econ/events/ti5/dagon_lvl2_ti5.vpcf"
 				local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, target )
 				ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)

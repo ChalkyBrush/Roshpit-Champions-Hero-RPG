@@ -2809,6 +2809,13 @@ function raven_idol_think(event)
 	end
 end
 
+function raven_idol_health_gained(event)
+	local target = event.unit
+	if target:GetHealth() > target:GetMaxHealth()*0.5 then
+		target:SetHealth(target:GetMaxHealth()*0.5)
+	end
+end
+
 function twilight_damage_taken(event)
 	local target = event.unit
 	local damageTaken = event.damage_taken
