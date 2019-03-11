@@ -204,9 +204,11 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2_suffix"							"%"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2"									"[R4] Cerebrum"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"Снижает базовое время атаки во время действия @Ability4."
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"					"Снижение базового времени атаки"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"							"сек."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"Позволяет атаковать противника дважды с небольшим шансом. Снижает базовое время атаки во время действия @Ability4."
+		"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"                    "Шанс на дополнительную атаку"
+        "DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"                      "%"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property"					"Снижение базового времени атаки"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix_two"							"сек."
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"(T1) Глиф концентрированной энергии"

@@ -232,7 +232,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_q_3_arcana2_suffix"				"%"
 
     	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2"								"[Q4] Quantum Path"
-    	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_Description"					"После завершения @Ability1 позволяет на короткий срок использовать @Ability2 для небольшого перемещения вперед при касте, а @Ability4 не затрачивает времени на каст."
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_Description"					"После завершения @Ability1 или когда способность поражает противника позволяет на короткий срок использовать @Ability2 для небольшого перемещения вперед при касте, а @Ability4 не затрачивает времени на каст."
     	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_property_one"					"Длительность"
     	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_suffix"						" секунд"
 
