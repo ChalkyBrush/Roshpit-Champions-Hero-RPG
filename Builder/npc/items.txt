@@ -18234,6 +18234,15 @@
 						"target"		"TARGET"
 					}
 				}
+				"OnHealthGained"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"raven_idol_health_gained"
+						"unit"		"UNIT"
+					}
+				}
 				"OnTakeDamage"
 				// "%attack_damage" is set to the damage value after mitigation
 				{
@@ -18290,6 +18299,15 @@
 						"Function"		"raven_idol_think"
 						"target"		"TARGET"
 					}
+				}
+			}
+			"OnHealthGained"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/special_item_effects.lua"
+					"Function"		"raven_idol_health_gained"
+					"unit"		"UNIT"
 				}
 			}
 		}
