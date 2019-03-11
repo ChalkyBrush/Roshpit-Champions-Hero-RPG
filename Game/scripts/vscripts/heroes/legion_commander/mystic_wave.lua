@@ -146,29 +146,30 @@ function mystic_wave_impact(event)
 				if target:IsMagicImmune() then
 				else
 					Filters:ApplyStun(caster, stunDuration, target)
+					local particleName = "particles/econ/events/ti5/dagon_lvl2_ti5.vpcf"
+					local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, target )
+					ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)
+					ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)
+					Timers:CreateTimer(1.0, function() 
+					  ParticleManager:DestroyParticle( pfx, false )
+					end) 
+					EmitSoundOn("MysticAssasin.MysticWave.Impact", target)
+					if ability.q_2_level > 0 then
+						local q_2_duration = Filters:GetAdjustedBuffDuration(caster, 15, false)
+						ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_q_2_visible", {duration = q_2_duration})
+						local currentStacks = target:GetModifierStackCount("modifier_mountain_protector_q_2_visible", caster)
+						local newStacks = currentStacks + 1
+						target:SetModifierStackCount("modifier_mountain_protector_q_2_visible", caster, newStacks)
+						ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_q_2_invisible", {duration = q_2_duration})
+						target:SetModifierStackCount("modifier_mountain_protector_q_2_invisible", caster, newStacks*ability.q_2_level)
+					end
+					if ability.q_1_level > 0 then
+						ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_q_3_daze", {duration = 5})
+						target:SetModifierStackCount("modifier_mountain_protector_q_3_daze", caster, ability.q_3_level)
+					end
 				end
-				local particleName = "particles/econ/events/ti5/dagon_lvl2_ti5.vpcf"
-				local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, target )
-				ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)
-				ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)
-				Timers:CreateTimer(1.0, function() 
-				  ParticleManager:DestroyParticle( pfx, false )
-				end) 
-				EmitSoundOn("MysticAssasin.MysticWave.Impact", target)
 				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_NORMAL, RPC_ELEMENT_EARTH)
-				if ability.q_2_level > 0 then
-					local q_2_duration = Filters:GetAdjustedBuffDuration(caster, 15, false)
-					ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_q_2_visible", {duration = q_2_duration})
-					local currentStacks = target:GetModifierStackCount("modifier_mountain_protector_q_2_visible", caster)
-					local newStacks = currentStacks + 1
-					target:SetModifierStackCount("modifier_mountain_protector_q_2_visible", caster, newStacks)
-					ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_q_2_invisible", {duration = q_2_duration})
-					target:SetModifierStackCount("modifier_mountain_protector_q_2_invisible", caster, newStacks*ability.q_2_level)
-				end
-				if ability.q_1_level > 0 then
-					ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_q_3_daze", {duration = 5})
-					target:SetModifierStackCount("modifier_mountain_protector_q_3_daze", caster, ability.q_3_level)
-				end
+
 			end
 		end)
 	end
