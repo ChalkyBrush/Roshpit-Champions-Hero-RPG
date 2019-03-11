@@ -876,7 +876,7 @@
 		"tooltip_loading_screen_tip16"		"如果有任何bug或者建议可以发表到肉山谷创意工坊的留言板或者Discord的bug聊天区哦！"
 		"tooltip_loading_screen_tip17"		"找到镇上神谕者你就可以保存你的角色和放取装备了。"
 		"tooltip_loading_screen_tip18"		"角色的基础技能可以升到7级，符文可以升到20级。道具加成的符文效果可以让你的符文超过20。"
-		"tooltip_loading_screen_tip19"		"你的第三个技能提高你的机动性。你的大招需要持续施法所有注意别被打断。"
+		"tooltip_loading_screen_tip19"		"你的第三个技能提高你的机动性。你的大招需要持续施法所以注意别被打断。"
 		"tooltip_loading_screen_tip20"		"至宝是可以改变英雄的某一列技能以及符文的专属装备。掉落的时候会有全地图的音效与一道冲天的绿色光柱。看到请立马去捡起来，否则时间久了也会刷新掉。"
 		"tooltip_loading_screen_tip21"		"符文如果标注基于基础技能伤害，提高基础技能伤害会提高该符文的伤害。并且此符文的伤害还会被物品特效和buff加强。"
 		"tooltip_loading_screen_tip22"		"感谢您对游戏的支持并购买通行证！如果想进一步资助游戏开发，请访问 roshpit.ca/web-premium。成为尊享会员，享受更多的线上服务。会员卡还可销售以获得水晶。"
@@ -2582,9 +2582,9 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2_suffix"							"%"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2"									"[R4] 中枢"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"奥法审判者形态下，基础攻击间隔降低。"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"					"基础攻击间隔减少"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"							"秒"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"奥法审判者形态下，阿基莫斯的攻击有概率造成连击。"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"					"连击概率"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"							"%"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"能量场雕文"
@@ -7973,7 +7973,7 @@
     	"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"提高 <font color='#ccff66'>90</font>%  纯粹伤害减免"
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2"						"[E3] 光之斩"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"施放E技能时，提高E技能税后伤害."
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"施放E技能时，提高税后伤害."
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_one"			"税后伤害提高"
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					"%"
 

@@ -2254,9 +2254,11 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2_suffix"							"%"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2"									"[R4] Cerebrum"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"Снижает базовое время атаки во время действия @Ability4."
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"					"Снижение базового времени атаки"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"							"сек."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"Позволяет атаковать противника дважды с небольшим шансом. Снижает базовое время атаки во время действия @Ability4."
+		"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"                    "Шанс на дополнительную атаку"
+        "DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"                      "%"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property"					"Снижение базового времени атаки"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix_two"							"сек."
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"(T1) Глиф концентрированной энергии"
@@ -10171,7 +10173,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_q_3_arcana2_suffix"				"%"
 
     	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2"								"[Q4] Quantum Path"
-    	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_Description"					"После завершения @Ability1 позволяет на короткий срок использовать @Ability2 для небольшого перемещения вперед при касте, а @Ability4 не затрачивает времени на каст."
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_Description"					"После завершения @Ability1 или когда способность поражает противника позволяет на короткий срок использовать @Ability2 для небольшого перемещения вперед при касте, а @Ability4 не затрачивает времени на каст."
     	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_property_one"					"Длительность"
     	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_suffix"						" секунд"
 
