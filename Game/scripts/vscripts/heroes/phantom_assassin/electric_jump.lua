@@ -154,16 +154,13 @@ function electricLeap_rune_e_3(hero, ability)
   local caster = hero
   local runeUnit = caster.runeUnit3
   local runeAbility = runeUnit:FindAbilityByName("voltex_rune_e_3")
-  local totalLevel = Runes:GetTotalRuneLevel(caster, 3, "e_3", "voltex")
-  if totalLevel > 0 then
-    -- runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_e_3", {duration = 1.05})
-    -- runeAbility.e_3_level = totalLevel
-    -- ability.e_3_level = totalLevel
-    if caster:IsAlive() then
+  local e_3_level = caster:GetRuneValue("e", 3)
+  if e_3_level > 0 then
+    if caster:IsAlive() and not caster.chargeActive then
     	CustomAbilities:AddAndOrSwapSkill(caster, "electric_jump", "heavens_charge", 2)
 	  	caster.chargeActive = true
 	  	local heavens_charge = caster:FindAbilityByName("heavens_charge")
-	  	heavens_charge.rune_e_3_level = totalLevel
+	  	heavens_charge.rune_e_3_level = e_3_level
 	end
   end
 end
