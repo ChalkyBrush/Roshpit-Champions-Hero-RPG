@@ -629,13 +629,25 @@ function GameMode:OnPlayerChat(keys)
     local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
     Weapons:RollLegendWeapon2WithDotaName(name, hero:GetAbsOrigin())
   end
-  elseif string.match(text, "-iweap3") then
-  if Beacons.cheats then
-    local name = string.gsub(text, "-iweap3 ", "")
-    name = "npc_dota_hero_"..name
-    local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-    Weapons:RollLegendWeapon3WithDotaName(name, hero:GetAbsOrigin())
-  end
+	elseif string.match(text, "-iweap3") then
+		if Beacons.cheats then
+			local name = string.gsub(text, "-iweap3 ", "")
+			name = "npc_dota_hero_"..name
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			Weapons:RollLegendWeapon3WithDotaName(name, hero:GetAbsOrigin())
+		end
+	elseif string.match(text, "-onibi") then
+		if Beacons.cheats then
+			for i=1,#MAIN_HERO_TABLE do
+				if MAIN_HERO_TABLE[i]:GetUnitName() == "npc_dota_hero_arc_warden" then
+					local res = require('heroes/arc_warden/abilities/essence_harvest')
+					add_resources_to_onibi(MAIN_HERO_TABLE[i], "nature", 500000000)
+					add_resources_to_onibi(MAIN_HERO_TABLE[i], "lightning", 500000000)
+					add_resources_to_onibi(MAIN_HERO_TABLE[i], "cosmic", 500000000)
+					add_resources_to_onibi(MAIN_HERO_TABLE[i], "fire", 500000000)
+				end
+			end
+		end
   elseif string.match(text, "-log") then
     CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid), "error_logger_open", {})
   elseif GameState:GetDifficultyFactor() == 3 then

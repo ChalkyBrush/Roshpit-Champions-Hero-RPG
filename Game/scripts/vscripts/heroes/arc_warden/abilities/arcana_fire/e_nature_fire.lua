@@ -5,7 +5,7 @@ function jex_activate_cinderbark(event)
 	local ability = event.ability
 	local point = event.target_points[1]
 
-	local tech_level = onibi_get_total_tech_level(caster, "fire", "nature", "Q")
+	ability.tech_level = onibi_get_total_tech_level(caster, "fire", "nature", "Q")
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf", point, 3)
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf", point, 3)
 	
@@ -24,8 +24,8 @@ function jex_activate_cinderbark(event)
 	ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_cinderbark", {})
 	ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_charged_mushroom_spawning", {duration = 0.3})
 
-	local attack_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * event.attack_mult_per_tech * tech_level
-	local armor = caster:GetPhysicalArmorValue()*event.armor_mult_per_tech*tech_level
+	local attack_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * event.attack_mult_per_tech * ability.tech_level
+	local armor = caster:GetPhysicalArmorValue()*event.armor_mult_per_tech * ability.tech_level
 	local hp = caster:GetMaxHealth()*event.max_health_mult
 
 
