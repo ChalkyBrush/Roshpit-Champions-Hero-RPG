@@ -258,6 +258,8 @@
 	"DOTA_Tooltip_ability_jex_nature_nature_e_damage_reduction"			"% СНИЖЕНИЕ ВХОДЯЩЕГО УРОНА:"
 	"DOTA_Tooltip_ability_jex_nature_nature_e_radius_base"				"БАЗОВЫЙ РАДИУС:"
 	"DOTA_Tooltip_ability_jex_nature_nature_e_q_4_cooldown_reduce"		"<font color=\"#7DFF12\">[Q4] Снижение перезарядки</font>:"	
+	"DOTA_Tooltip_modifier_natures_path_master_buff"					"Nature's Path"
+	"DOTA_Tooltip_modifier_natures_path_master_buff_Description"		"Входящий урон снижен, регенерация здоровья повышена. Можно проходить через препятствия и противников."
 
 	"DOTA_Tooltip_ability_jex_rune_q_1"								"[Q1] Nature Module I"
 	"DOTA_Tooltip_ability_jex_rune_q_1_Description"					"<font color=\"#69BC71\">Природные</font> уровни Onibi увеличивают базовый урон атаки Jex'а."
@@ -418,7 +420,9 @@
     "DOTA_Tooltip_ability_jex_fire_fire_q_radius"						"МАКСИМАЛЬНЫЙ РАДИУС:"
     "DOTA_Tooltip_ability_jex_fire_fire_q_agility_added_to_base_damage"	"МУЛЬТИПЛИКАТОР ЛОВКОСТИ, ПРИБАВКА К УРОНУ СПОСОБНОСТИ:"
     "DOTA_Tooltip_ability_jex_fire_fire_q_w_4_damage_increase_pct_edges"	"%<font color=\"#7DFF12\">[W4] Чем дальше противник, тем больше урона он получит. Максимальный мультипликатор на краю:</font>:"
-
+	"DOTA_Tooltip_modifier_jex_ring_of_fire_thinker" 				"Ring of Fire"
+	"DOTA_Tooltip_modifier_jex_ring_of_fire_thinker_Description"	"Кольцо огня разворачивается вокруг Jex'a, нанося урон попавшим под него противникам."
+	
     "DOTA_Tooltip_ability_jex_nature_fire_q"				"Woodland Fever"
     "DOTA_Tooltip_ability_jex_nature_fire_q_Description"	"Создает дерево, отвлекающее на себя противников своим теплом. Получает 1 единицу урона за удар от любых источников."
     "DOTA_Tooltip_ability_jex_nature_fire_q_health_per_tech"			"<font color=\"#f4b942\">ДОП. ЗДОРОВЬЕ ДЕРЕВА ЗА ТЕХ. УРОВЕНЬ</font>:"

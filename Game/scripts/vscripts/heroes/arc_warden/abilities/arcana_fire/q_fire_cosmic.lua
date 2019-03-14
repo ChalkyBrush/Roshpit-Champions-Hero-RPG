@@ -48,7 +48,7 @@ function jex_activate_q_fire_cosmic(event)
 	local meteors = event.base_meteors + event.meteors_per_tech*tech_level
 	local stun_duration = event.e_4_stun_duration*e_4_level
 
-    local damage = event.base_damage + event.strength_added_to_damage*caster:GetStrength() + (event.attack_damage_percent_added_per_tech/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
+    local damage = event.base_damage + event.strength_added_to_damage*caster:GetStrength() + (event.attack_damage_percent_added_per_tech/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*tech_level
 	if w_4_level > 0 then
 		damage = damage * (event.w_4_base_damage_increase/100)*w_4_level
 	end

@@ -13,7 +13,7 @@ function jex_activate_q_lightning_lightning(event)
 
 	local tech_level = onibi_get_total_tech_level(caster, "lightning", "lightning", "Q")
 	local total_radius = radius + radius_per_tech*tech_level
-	local damage = base_damage + agility_added_to_base_damage*caster:GetAgility() + (attack_damage_per_tech/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
+	local damage = base_damage + agility_added_to_base_damage*caster:GetAgility() + (attack_damage_per_tech/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*tech_level
 
 	local w_4_level = caster:GetRuneValue("w", 4)
 	if w_4_level > 0 then
