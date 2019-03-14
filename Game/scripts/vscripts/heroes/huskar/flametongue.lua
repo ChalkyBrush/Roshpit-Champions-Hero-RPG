@@ -47,7 +47,7 @@ function flametongue_start(event)
 
 	caster.q_2_level = ability.q_2_level
 	if ability.q_2_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_flametongue_w_2_fire_shield", {duration = duration})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_flametongue_q_2_fire_shield", {duration = duration})
 		CustomAbilities:QuickAttachParticle("particles/roshpit/heroes/spirit_warrior/flameblood_fire_shield.vpcf", caster, 2)
 		-- CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/crimsyth_elite_magic.vpcf", caster:GetAbsOrigin()+Vector(0,0,100)+caster:GetForwardVector()*150, 1.5)
 	end
