@@ -5564,49 +5564,49 @@ function boreal_granite_vest_take_damage(event)
 	local cd = ability:GetCooldownTimeRemaining()
 	local distance = WallPhysics:GetDistance(hero:GetAbsOrigin(), target:GetAbsOrigin())
 	local behavior = ability:GetBehavior()
-	if proc and (distance <= ability:GetCastRange() or bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET) then
-		ability:EndCooldown()
-		local manaRestore = ability:GetManaCost(ability:GetLevel())
-		if manaRestore > 0 then
-			attacker:GiveMana(manaRestore)
+	if proc then
+		if distance <= ability:GetCastRange() or (bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET and distance < 2000) then
+			ability:EndCooldown()
+			local manaRestore = ability:GetManaCost(ability:GetLevel())
+			if manaRestore > 0 then
+				attacker:GiveMana(manaRestore)
+			end
+			local castPointSave = hero.castPointQ
+			ability.boreal_cast_point = castPointSave
+			ability:SetOverrideCastPoint(0)
+			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
+				local order =
+				{
+					UnitIndex = hero:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+					AbilityIndex = ability:entindex(),
+					Queue = true
+				}
+				hero:Stop()
+				ExecuteOrderFromTable(order)
+			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT then
+				local order =
+				{
+					UnitIndex = hero:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = ability:entindex(),
+					Position = target:GetAbsOrigin(),
+					Queue = true
+				}
+				hero:Stop()
+				ExecuteOrderFromTable(order)
+			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
+				local order = {
+		 			UnitIndex = hero:entindex(), 
+		 			OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+		 			TargetIndex = target:entindex(),
+		 			AbilityIndex = ability:entindex(),
+		 			Queue = true
+		 		}
+		 		hero:Stop()
+				ExecuteOrderFromTable(order)	
+			end
 		end
-		local castPointSave = hero.castPointQ
-		ability.boreal_cast_point = castPointSave
-		ability:SetOverrideCastPoint(0)
-		if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
-			local order =
-			{
-				UnitIndex = hero:entindex(),
-				OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-				AbilityIndex = ability:entindex(),
-				Queue = true
-			}
-			hero:Stop()
-			ExecuteOrderFromTable(order)
-		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT then
-			local order =
-			{
-				UnitIndex = hero:entindex(),
-				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-				AbilityIndex = ability:entindex(),
-				Position = target:GetAbsOrigin(),
-				Queue = true
-			}
-			hero:Stop()
-			ExecuteOrderFromTable(order)
-		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
-			local order = {
-		 		UnitIndex = hero:entindex(), 
-		 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-		 		TargetIndex = target:entindex(),
-		 		AbilityIndex = ability:entindex(),
-		 		Queue = true
-		 	}
-		 	hero:Stop()
-			ExecuteOrderFromTable(order)	
-		end
-		-- ability:StartCooldown(0)
-
 	end
 end
 
