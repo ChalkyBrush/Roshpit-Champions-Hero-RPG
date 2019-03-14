@@ -5563,7 +5563,8 @@ function boreal_granite_vest_take_damage(event)
 	local proc = Filters:GetProc(hero, 10)
 	local cd = ability:GetCooldownTimeRemaining()
 	local distance = WallPhysics:GetDistance(hero:GetAbsOrigin(), target:GetAbsOrigin())
-	if proc and distance <= ability:GetCastRange() then
+	local behavior = ability:GetBehavior()
+	if proc and (distance <= ability:GetCastRange() or bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET) then
 		ability:EndCooldown()
 		local manaRestore = ability:GetManaCost(ability:GetLevel())
 		if manaRestore > 0 then
@@ -5572,7 +5573,6 @@ function boreal_granite_vest_take_damage(event)
 		local castPointSave = hero.castPointQ
 		ability.boreal_cast_point = castPointSave
 		ability:SetOverrideCastPoint(0)
-		local behavior = ability:GetBehavior()
 		if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
 			local order =
 			{
