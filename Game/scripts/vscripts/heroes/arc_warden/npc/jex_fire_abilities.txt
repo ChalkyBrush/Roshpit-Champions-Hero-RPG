@@ -1139,7 +1139,7 @@
 				"armor_mult_per_tech"			"%armor_mult_per_tech"
 				"attack_mult_per_tech"			"%attack_mult_per_tech"
 				"max_health_mult"				"%max_health_mult"
-				"q_4_cooldown_reduction"		"%q_4_additional_duration"
+				"q_4_cooldown_reduction"		"%q_4_cooldown_reduction"
 			}
 		}
 		"Modifiers"
