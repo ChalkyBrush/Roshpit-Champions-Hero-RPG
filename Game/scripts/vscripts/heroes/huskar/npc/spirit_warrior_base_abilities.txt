@@ -151,7 +151,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"
 				}
 			}
-			"modifier_flametongue_w_2_fire_shield"
+			"modifier_flametongue_q_2_fire_shield"
 			{
 				"IsHidden"	"1"
 			}

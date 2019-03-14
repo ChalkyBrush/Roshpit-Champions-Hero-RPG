@@ -69,7 +69,7 @@ function cast_soul_thrust(event)
 					if flametongueAbility.q_1_level > 0 then
 						flametongueAbility:ApplyDataDrivenModifier(caster,enemy, "modifier_flametongue_a_a_rune", {duration = 5})
 						local stacks = enemy:GetModifierStackCount("modifier_flametongue_a_a_rune", caster)
-						local newStacks = math.min(stacks+1, 10)
+						local newStacks = math.min(stacks+1, 50)
 						enemy:SetModifierStackCount("modifier_flametongue_a_a_rune", caster, newStacks)
 					end
 	            end
@@ -78,6 +78,7 @@ function cast_soul_thrust(event)
 	            		local flametongueEvent = {}
 	            		flametongueEvent.attacker = caster
 	            		flametongueEvent.target = enemy
+						flametongueEvent.caster = caster
 	            		flametongueEvent.ability = caster:FindAbilityByName("spirit_warrior_flametongue")
 	            		flametongueEvent.pure_damage = flametongueEvent.ability:GetSpecialValueFor("flat_pure_damage")
 	            		flametongueEvent.mult = w_3_mult
@@ -90,6 +91,7 @@ function cast_soul_thrust(event)
 	            		local windstrikeEvent = {}
 	            		windstrikeEvent.attacker = caster
 	            		windstrikeEvent.target = enemy
+						windstrikeEvent.caster = caster
 	            		windstrikeEvent.ability = caster:FindAbilityByName("spirit_warrior_windstrike_weapon")
 	            		windstrikeEvent.mult = w_3_mult
 	            		windstrike_attack_land(windstrikeEvent)          		
@@ -100,6 +102,7 @@ function cast_soul_thrust(event)
 	            		local waterHeartEvent = {}
 	            		waterHeartEvent.attacker = caster
 	            		waterHeartEvent.target = enemy
+						waterHeartEvent.caster = caster
 	            		waterHeartEvent.ability = caster:FindAbilityByName("spirit_warrior_waterheart_weapon")
 	            		waterHeartEvent.mult = w_3_mult
 	            		waterheart_attack_land(waterHeartEvent)          		

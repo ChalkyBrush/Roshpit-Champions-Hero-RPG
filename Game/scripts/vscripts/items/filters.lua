@@ -2466,18 +2466,19 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_WIND or element2 == RPC_ELEMENT_WIND then
         if unitName == "npc_dota_hero_huskar" then
+            local e_4_level = attacker:GetRuneValue("e", 4)
             if attacker:HasModifier("modifier_spirit_warrior_arcana3") then
-                local d_c_arcana_level = attacker:GetRuneValue("e", 4)
-                if d_c_arcana_level > 0 then
-                    mult = mult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_c_arcana_level
+                if e_4_level > 0 then
+                    mult = mult + 0.0008 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * e_4_level
                 end
             else
-                if attacker.e_4_level then
-                    mult = mult + 0.0015*attacker:GetIntellect()/10*attacker.e_4_level
+                if e_4_level then
+                    mult = mult + 0.0015 * attacker:GetIntellect() / 10 * e_4_level
                 end
             end
-            if attacker.q_4_level then
-                mult = mult + 0.0003*attacker:GetAgility()/10*attacker.e_4_level
+            local q_4_level = attacker:GetRuneValue("q", 4)
+            if q_4_level then
+                mult = mult + 0.0003 * attacker:GetAgility() / 10 * q_4_level
             end
         elseif unitName == "npc_dota_hero_juggernaut" then
             if attacker.w_4_level then
