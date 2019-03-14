@@ -129,28 +129,30 @@ function slice_think(event)
 			EmitSoundOn("Hero_Juggernaut.Attack", caster)
 		end
 		for _,enemy in pairs(enemies) do
-			enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
-			if ability.e_1_level > 0 then
-				if #ability.e_1_unit_table < SEINARU_E1_TARGETS_BASE + SEINARU_E1_TARGETS * ability.e_1_level then
-					local procs = 1 + Runes:Procs(ability.e_2_level, SEINARU_E2_CHANCE, 1)
-					enemy.seinaru_e1_max_procs = procs
-					if not enemy.seinaru_e1_proc_number then
-						enemy.seinaru_e1_proc_number = 0
-					end
-					if not enemy.seinaru_e_cast_number or enemy.seinaru_e_cast_number ~= ability.cast_number then
-						enemy.seinaru_e1_proc_number = 0
-					end
-					for i = 1,procs,1 do
-						if #ability.e_1_unit_table < SEINARU_E1_TARGETS_BASE + SEINARU_E1_TARGETS * ability.e_1_level and enemy.seinaru_e1_proc_number < enemy.seinaru_e1_max_procs then
-							table.insert(ability.e_1_unit_table, enemy:GetEntityIndex())
-							enemy.seinaru_e1_proc_number = enemy.seinaru_e1_proc_number + 1
+			if not enemy.dummy then
+				enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
+				if ability.e_1_level > 0 then
+					if #ability.e_1_unit_table < SEINARU_E1_TARGETS_BASE + SEINARU_E1_TARGETS * ability.e_1_level then
+						local procs = 1 + Runes:Procs(ability.e_2_level, SEINARU_E2_CHANCE, 1)
+						enemy.seinaru_e1_max_procs = procs
+						if not enemy.seinaru_e1_proc_number then
+							enemy.seinaru_e1_proc_number = 0
 						end
+						if not enemy.seinaru_e_cast_number or enemy.seinaru_e_cast_number ~= ability.cast_number then
+							enemy.seinaru_e1_proc_number = 0
+						end
+						for i = 1,procs,1 do
+							if #ability.e_1_unit_table < SEINARU_E1_TARGETS_BASE + SEINARU_E1_TARGETS * ability.e_1_level and enemy.seinaru_e1_proc_number < enemy.seinaru_e1_max_procs then
+								table.insert(ability.e_1_unit_table, enemy:GetEntityIndex())
+								enemy.seinaru_e1_proc_number = enemy.seinaru_e1_proc_number + 1
+							end
+						end
+						enemy.seinaru_e_cast_number = ability.cast_number
 					end
-					enemy.seinaru_e_cast_number = ability.cast_number
 				end
-			end
-			if damage then
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 3, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)	
+				if damage then
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 3, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)	
+				end
 			end
 		end
 	end 	
