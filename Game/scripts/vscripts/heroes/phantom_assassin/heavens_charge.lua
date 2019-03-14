@@ -68,7 +68,7 @@ function heaven_charge_fall_think(event)
 					Filters:ApplyStun(caster, stun_duration, enemy)
 				end				
 			end 
-			if caster:IsAlive() then
+			if caster:IsAlive() and caster.chargeActive then
 			  	CustomAbilities:AddAndOrSwapSkill(caster, "heavens_charge", "electric_jump", 2)
 			  	caster.chargeActive = false
 			end
