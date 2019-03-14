@@ -3783,7 +3783,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_damage_per_tech"				"2000"
+				"attack_damage_per_tech"				"200"
 			}	
 			"02"
 			{
@@ -4682,7 +4682,7 @@
 				"armor_mult_per_tech"			"%armor_mult_per_tech"
 				"attack_mult_per_tech"			"%attack_mult_per_tech"
 				"max_health_mult"				"%max_health_mult"
-				"q_4_cooldown_reduction"		"%q_4_additional_duration"
+				"q_4_cooldown_reduction"		"%q_4_cooldown_reduction"
 			}
 		}
 		"Modifiers"
@@ -25285,7 +25285,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"
 				}
 			}
-			"modifier_flametongue_w_2_fire_shield"
+			"modifier_flametongue_q_2_fire_shield"
 			{
 				"IsHidden"	"1"
 			}
