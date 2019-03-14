@@ -158,7 +158,7 @@ function Glyphs:SaveResources()
 				local url = ROSHPIT_URL.."/champions/modifyArcaneCrystals?"
 				url = url.."steam_id="..steamID
 				url = url.."&amount="..amount
-				url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+				url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 				CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 					SaveLoad:NewKey()
 					local resultTable = {}
@@ -471,7 +471,7 @@ function Glyphs:UpgradeArcaneTier(msg)
 		url = url.."steam_id="..steamID
 		url = url.."&newTier="..newTier
 		url = url.."&cost="..cost
-		url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 			SaveLoad:NewKey()
 			local resultTable = {}
@@ -555,7 +555,7 @@ function Glyphs:GlyphPurchase(msg)
 		local url = ROSHPIT_URL.."/champions/modifyArcaneCrystals?"
 		url = url.."steam_id="..steamID
 		url = url.."&amount="..crystalReduce
-		url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 			SaveLoad:NewKey()
 			local resultTable = {}
@@ -657,7 +657,7 @@ function Glyphs:ReanimationPurchase(msg)
 		local url = ROSHPIT_URL.."/champions/modifyArcaneCrystals?"
 		url = url.."steam_id="..steamID
 		url = url.."&amount="..-30000
-		url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 			SaveLoad:NewKey()
 			local resultTable = {}

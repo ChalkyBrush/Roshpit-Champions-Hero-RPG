@@ -550,7 +550,7 @@ function winterblight_boss_think(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_boss_dying", {})
 		local url = ROSHPIT_URL.."/champions/winterblight_update?"
 		url = url.."boss="..bossName
-		url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 		url = url.."&mapname="..GetMapName()
 		CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
 			if result.StatusCode == 200 then

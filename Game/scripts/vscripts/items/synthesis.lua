@@ -337,7 +337,7 @@ function RPCItems:UseArcanaCache(caster, item)
 		local url = ROSHPIT_URL.."/champions/arcana_cache_use?"
 		url = url.."steam_id="..steamID
 		url = url.."&validator="..validator
-		url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 			if result.StatusCode == 200 then
 				print( "POST response:\n" )

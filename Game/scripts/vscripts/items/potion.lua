@@ -143,7 +143,7 @@ function use_web_prem_token(event)
 	local url = ROSHPIT_URL.."/web-premium/consumed?"
 	url = url.."steam_id="..steamID
 	url = url.."&prem_id="..item.property1
-	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		SaveLoad:NewKey()
 		print( "POST response:\n" )

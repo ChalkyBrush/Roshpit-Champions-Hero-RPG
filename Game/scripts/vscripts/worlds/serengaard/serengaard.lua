@@ -1249,7 +1249,7 @@ function Serengaard:SubmitStats()
   if Serengaard.InfiniteWaveCount and SaveLoad:GetAllowSaving() then
     url = ROSHPIT_URL.."/champions/save_serengaard?"
     url = url.."wave_number="..Serengaard.InfiniteWaveCount
-    url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+    url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
     SaveLoad:NewKey()
     for i = 1, #Serengaard.CachedPlayers, 1 do
       -- local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()

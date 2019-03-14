@@ -2639,7 +2639,7 @@ function Tutorial:SaveTutorialProgressOnWeb(hero, section_index, newProgress)
 	url = url.."&type=".."progress"
 	url = url.."&section="..section_index
 	url = url.."&progress="..newProgress
-	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	print(url)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		if result.StatusCode == 200 then
@@ -2696,7 +2696,7 @@ function Tutorial:UpdateRewardProgressOnWeb(hero, section_index)
 	url = url.."steam_id="..steamID
 	url = url.."&type=".."reward"
 	url = url.."&section="..section_index
-	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	print(url)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		if result.StatusCode == 200 then
@@ -2749,7 +2749,7 @@ function Tutorial:UpdateSpecialKeyOnWeb(hero, special_key)
 	url = url.."steam_id="..steamID
 	url = url.."&type=".."special_key"
 	url = url.."&special_key="..special_key
-	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	print(url)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		if result.StatusCode == 200 then

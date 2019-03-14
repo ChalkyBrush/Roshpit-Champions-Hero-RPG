@@ -362,7 +362,7 @@ function Stars:UpdateStarsOnServer(heroName, type, starAmount, playerID)
 	url = url.."&starTitle="..type
 	url = url.."&stars="..starAmount
 	url = url.."&hero_name="..heroName
-	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		if result.StatusCode == 200 then

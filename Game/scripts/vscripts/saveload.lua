@@ -201,7 +201,7 @@ function SaveLoad:SaveCharacter(msg)
 		url = url.."&ability4level="..hero:GetAbilityByIndex(DOTA_ULTIMATE_SLOT):GetLevel()
 		url = url.."&ability_points="..current_skill_points
 		url = url.."&rune_points="..current_rune_points
-		url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 		-- if GameState:IsWorld1() then
 			url = SaveLoad:AttachPortalKeysToUrl(url, hero)
 		-- end
@@ -1110,7 +1110,7 @@ function SaveLoad:DraggedToStash(keys)
 				local url = ROSHPIT_URL.."/champions/saveStashItem?"
 				url = url.."steam_id="..steamID
 				url = SaveLoad:AttachItemToURL(url, hero, 1, stashSlot, playerID, 0, itemIndex)
-				url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+				url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 				Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_stash_lock", {duration = 90})
 					CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 						print( "POST response:\n" )
@@ -1170,7 +1170,7 @@ function SaveLoad:DraggedToStash(keys)
 				url = url.."steam_id="..steamID
 				url = url.."&from_slot="..fromSlot
 				url = url.."&to_slot="..stashSlot
-				url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+				url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 					CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 						SaveLoad:NewKey()
 						print( "POST response:\n" )
@@ -1221,7 +1221,7 @@ function SaveLoad:DraggedFromStash(keys)
 					local url = ROSHPIT_URL.."/champions/saveStashItem?"
 					url = url.."steam_id="..steamID
 					url = SaveLoad:AttachItemToURL(url, hero, 1, stashSlot, playerID, 0, itemEntity:GetEntityIndex())
-					url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+					url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 					
 						CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 							SaveLoad:NewKey()
@@ -1273,7 +1273,7 @@ function SaveLoad:DraggedFromStash(keys)
 				local url = ROSHPIT_URL.."/champions/removeStashItem?"
 				url = url.."steam_id="..steamID
 				url = url.."&stash_slot="..stashSlot
-				url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+				url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 				print(url)
 					CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 						SaveLoad:NewKey()
@@ -1439,7 +1439,7 @@ function SaveLoad:WithdrawKey(msg)
 	url = url.."&limit="..limit
 	url = url.."&change=-1"
 	url = url.."&keyIndex="..msg.keyIndex
-	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 
 	-- local url = ROSHPIT_URL.."/champions/getPlayerKeys?"
 	-- url = url.."steam_id="..steamID
@@ -1478,7 +1478,7 @@ function SaveLoad:DepositKey(msg)
 	url = url.."&limit="..limit
 	url = url.."&change=1"
 	url = url.."&keyIndex="..msg.keyIndex
-	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	if SaveLoad:GetAllowSaving() then
 		local itemEntity = EntIndexToHScript(itemIndex)
 		hero:TakeItem(itemEntity)
@@ -1574,8 +1574,8 @@ function SaveLoad:SaveJex(hero)
 	local url = ROSHPIT_URL.."/champions/save_onibi?"
 	url = url.."steam_id="..steamID
 	url = url.."&championcharacter_id="..hero.roshpitID
-	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
-	url = url.."&tony_key="..GetDedicatedServerKey("tony")
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
+	url = url.."&tony_key="..GetDedicatedServerKeyV2("tony")
 	for i = 1, #elements_table, 1 do
 		local element1 = elements_table[i]
 		-- local other_elements = get_other_elements(onibi, element1)

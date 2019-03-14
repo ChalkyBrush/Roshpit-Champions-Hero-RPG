@@ -55,7 +55,7 @@ function Challenges:ChiselItem(msg)
 	url = url.."&hero_slot="..saveSlot
 	url = url.."&equip_slot="..itemSlot
 	url = url.."&cost="..cost
-	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		SaveLoad:NewKey()
 		local resultTable = {}
@@ -147,7 +147,7 @@ function Challenges:FinalReroll(msg)
 		url = url.."steam_id="..steamID
 		url = url.."&amount="..amount
 		url = url.."&reason=".."reroll"
-		url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 		
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "playerReceivedItem", {})
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
@@ -196,7 +196,7 @@ function Challenges:ModifyMithril(amount, hero, reason)
 	url = url.."steam_id="..steamID
 	url = url.."&amount="..amount
 	url = url.."&reason="..reason
-	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		SaveLoad:NewKey()
 		local resultTable = {}
@@ -240,7 +240,7 @@ function Challenges:CollectMithrilIncome(msg)
 	url = url.."steam_id="..steamID
 	url = url.."&amount="..amount
 	url = url.."&reason=".."income"
-	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		SaveLoad:NewKey()
 		local resultTable = {}
@@ -589,7 +589,7 @@ function Challenges:SaveMithrilShards(winnerTable)
 				url = url.."steam_id="..steamID
 				url = url.."&amount="..amount
 				url = url.."&reason=".."challenge"
-				url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+				url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 				hero.shardsPickedUp = hero.shardsPickedUp - amount
 				CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 					SaveLoad:NewKey()
