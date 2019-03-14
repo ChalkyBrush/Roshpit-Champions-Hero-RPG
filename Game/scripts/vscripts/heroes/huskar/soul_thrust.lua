@@ -69,7 +69,7 @@ function cast_soul_thrust(event)
 					if flametongueAbility.q_1_level > 0 then
 						flametongueAbility:ApplyDataDrivenModifier(caster,enemy, "modifier_flametongue_a_a_rune", {duration = 5})
 						local stacks = enemy:GetModifierStackCount("modifier_flametongue_a_a_rune", caster)
-						local newStacks = math.min(stacks+1, 10)
+						local newStacks = math.min(stacks+1, 50)
 						enemy:SetModifierStackCount("modifier_flametongue_a_a_rune", caster, newStacks)
 					end
 	            end
