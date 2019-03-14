@@ -929,6 +929,7 @@ function Tanari:SpawnWindBallSwitch(position)
     ball.startPosition = ball:GetAbsOrigin()
     ball.jumpLock = true
     ball.pushLock = true
+	ball.dummy = true
     ball.moveVelocity = 0
     ball.liftVelocity = 0
     ball.roll = 0

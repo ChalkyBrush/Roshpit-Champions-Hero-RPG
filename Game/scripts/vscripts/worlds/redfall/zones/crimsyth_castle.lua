@@ -1402,6 +1402,7 @@ function Redfall:SpawnBallSwitch(position)
     ball.startPosition = ball:GetAbsOrigin()
     ball.jumpLock = true
     ball.moveVelocity = 0
+	ball.dummy = true
     ball.liftVelocity = 0
     ball.roll = 0
     ball.pitch = 0
