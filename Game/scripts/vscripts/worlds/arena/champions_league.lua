@@ -894,7 +894,6 @@ function Arena:WinChampionsLeague(hero)
 	  	 			basic_dialogue(Arena.Coach, {hero}, "champion_assistant_dialogue_42", 6, 5, -30, true)
 	  	 			Timers:CreateTimer(6, function()
 	  	 				basic_dialogue(Arena.Coach, {hero}, "champion_assistant_dialogue_43", 6, 5, -30, true)
-	  	 				Arena.ChampionsLeague.state = 18
 	  	 			end)
 	  	 		end)
 	  	 	end)
