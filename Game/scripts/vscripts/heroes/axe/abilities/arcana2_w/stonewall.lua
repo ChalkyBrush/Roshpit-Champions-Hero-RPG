@@ -93,13 +93,27 @@ function stonewall_start(event)
 	            enemy:MoveToTargetToAttack(caster)
 			    if caster:HasModifier("modifier_axe_glyph_1_2") then
 			        Filters:ApplyStun(caster, T12_STUN_DURATION*ability:GetLevel(), enemy)
-			    end	     	            
+			    end	 
+			    local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), enemy:GetAbsOrigin())
+			    if distance > 80 then
+			    	if enemy.dummy or enemy.pushLock then
+			    	else
+			    		local moveVector = ((caster:GetAbsOrigin()-enemy:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+			    		FindClearSpaceForUnit(enemy, enemy:GetAbsOrigin() + moveVector*distance*0.8, false)
+			    	end
+			    end    	            
 	        end
 	    end 
+    local effectName = "particles/roshpit/red_general/stonewall_vacuum.vpcf"
+    local particle = ParticleManager:CreateParticle(effectName, PATTACH_CUSTOMORIGIN, caster)
+    ParticleManager:SetParticleControl(particle, 0, Vector(0.5,0.5,0.5))
+    ParticleManager:SetParticleControl(particle, 1, Vector(radius,radius,radius))
+    ParticleManager:SetParticleControl(particle, 2, Vector(0.5,0.5,0.5))
+    ParticleManager:SetParticleControl(particle, 3, caster:GetOrigin())
+    ParticleManager:SetParticleControl(particle, 4, Vector(0,0,0))
 
-	    -- Timers:CreateTimer(2, function()
-	    -- 	ParticleManager:DestroyParticle(pfx, false)
-	    -- end)
+
+
 	end
 	Helix.cast(caster,ability)
 end

@@ -237,8 +237,8 @@
         "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_suffix"              "% of attack power"
 
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2"                     "[W4] Enforcer"
-        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_Description"         "When Stonewall is cast, enemies within the radius are forced to issue an attack order on The Red General."
-        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_property_one"        "Taunt Radius"
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_Description"         "When Stonewall is cast, enemies within the radius are pulled towards the Red General and forced to issue an attack order on him."
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_property_one"        "Taunt and Vacuum Radius"
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_suffix"              ""
 
 		//Glyphs

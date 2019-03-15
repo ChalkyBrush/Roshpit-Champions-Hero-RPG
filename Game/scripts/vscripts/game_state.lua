@@ -2611,7 +2611,7 @@ function GameState:FilterDamage(filterTable)
 		modifier = victim:FindModifierByName("modifier_stonewall_aura_enemy_effect")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetCaster():GetRuneValue("w", 1)
-			mult = mult + 0.025*stacks
+			mult = mult + 0.05*stacks
 		end
 	end
 	if victim:HasModifier("modifier_hyperbeam_postmit") then
