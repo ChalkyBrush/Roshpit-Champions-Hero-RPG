@@ -235,7 +235,7 @@
         "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_suffix"              "% от атаки"
 
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2"                     "[W4] Enforcer"
-        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_Description"         "При прочтении @Ability2 заставляет всех ближайших врагов атаковать The Red General."
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_Description"         "При прочтении @Ability2 стягивает ближайших врагов внутрь ее и заставляет их атаковать The Red General."
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_property_one"        "Радиус"
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_suffix"              ""
 
