@@ -817,9 +817,9 @@
 		"item_health_restore"		"Восстанавливает здоровья"
 		"item_mana_restore"			"Восстанавливает маны"
 		"item_bonus_exp"			"Доп. ОПЫТ"
-		"item_perm_strength"		"Сила (на текущую сессию)"
-		"item_perm_agility"			"Ловкость  (на текущую сессию)"
-		"item_perm_intelligence"	"Интеллект (на текущую сессию)"
+		"item_perm_strength"		"Сила (на текущую игру)"
+		"item_perm_agility"			"Ловкость  (на текущую игру)"
+		"item_perm_intelligence"	"Интеллект (на текущую игру)"
 
 		"item_critical_strike"		"Критический удар"
 		"item_splash_damage"		"Удар по области, %"	
