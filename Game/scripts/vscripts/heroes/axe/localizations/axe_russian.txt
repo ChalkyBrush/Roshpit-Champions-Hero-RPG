@@ -102,7 +102,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_1_visible_Description"        "Получены доп. атрибуты за отсутствие здоровья"
 		
 		"DOTA_Tooltip_ability_axe_rune_e_2"                             "[E2] Cyclone Storm"
-        "DOTA_Tooltip_ability_axe_rune_e_2_Description"                 "Создаваемые мощные потоки от умения @Ability3 помогают герою наносить увеличенный урон. Эффект длится 5 секунд и обновляется с прочтением @Ability1."
+        "DOTA_Tooltip_ability_axe_rune_e_2_Description"                 "Импульс вращения от @Ability3 помогает герою наносить увеличенный урон. Эффект длится 5 секунд и обновляется с прочтением @Ability1."
         "DOTA_Tooltip_ability_axe_rune_e_2_property_one"                "Бонус к атаке"
         "DOTA_Tooltip_ability_axe_rune_e_2_suffix"                      "%"
  
