@@ -97,7 +97,7 @@ function cast_soul_thrust(event)
 	            		windstrike_attack_land(windstrikeEvent)          		
 	            	end
 	            end
-	            if caster:HasModifier("modifier_windstrike_weapon") then
+	            if caster:HasModifier("modifier_waterheart_weapon") then
 	            	if w_3_level > 0 then
 	            		local waterHeartEvent = {}
 	            		waterHeartEvent.attacker = caster
