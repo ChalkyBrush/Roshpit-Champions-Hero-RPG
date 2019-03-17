@@ -195,7 +195,7 @@ function slipfinn_jump_start(event)
 				end
 			end
 		end
-		jump_force(caster, ability)
+		jump_force(caster, ability, event.bog_roll)
 		ability.consecutive_bounces = 0
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_basic_jump", {duration = 6})
 		print("YO JUMPING DUDE")
@@ -207,7 +207,7 @@ function slipfinn_jump_start(event)
 	end
 end
 
-function jump_force(caster, ability)
+function jump_force(caster, ability, bog_roll)
 	print(caster.jumpPhase)
 	local jumpDelay = 0
 	if caster:HasModifier("modifier_slipfinn_prone") then
@@ -285,6 +285,12 @@ function jump_force(caster, ability)
 	end
 	if caster:HasModifier("modifier_slipfinn_bog_roller") then
 		activity = ACT_DOTA_OVERRIDE_ABILITY_2
+	end
+	if bog_roll then
+		rate = 1
+		activity = ACT_DOTA_SLARK_POUNCE
+		caster.jumpPhase = caster.jumpPhase - 1
+		caster.jump_force = 18
 	end
 	Timers:CreateTimer(jumpDelay, function()
 		if translate then

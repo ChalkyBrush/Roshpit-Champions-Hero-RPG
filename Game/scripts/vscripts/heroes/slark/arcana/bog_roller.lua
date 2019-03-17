@@ -1,5 +1,6 @@
 LinkLuaModifier("slipfinn_bog_roller_lua", "modifiers/slipfinn/slipfinn_bog_roller_lua", LUA_MODIFIER_MOTION_NONE)
 require('heroes/slark/constants')
+require('heroes/slark/jump')
 function turn_toggle_on(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -23,12 +24,13 @@ function turn_toggle_on(event)
 			Timers:CreateTimer(0.03, function()
 				StartAnimation(caster, {duration=99999, activity=ACT_DOTA_RUN, rate=1})
 			end)
+			ProjectileManager:ProjectileDodge(caster)
 			Filters:CastSkillArguments(3, caster)
 		end
 	end)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_bog_roller", {})
 	CustomAbilities:QuickAttachParticle("particles/econ/courier/courier_kunkka_parrot/courier_kunkka_parrot_splash.vpcf", caster, 2)
-	caster:SetRenderColor(10, 150, 255)
+	caster:SetRenderColor(50, 120, 250)
 	ability.fv = caster:GetForwardVector()
 	ability.fall_speed = 0
 	
@@ -160,7 +162,18 @@ function bog_roller_end(event)
 	caster:RemoveModifierByName("slipfinn_bog_roller_lua")
 	EmitSoundOn("Slipfinn.BogRoller.End", caster)
 	EndAnimation(caster)
+	if caster:HasModifier("modifier_slipfinn_basic_jump") then
+		event.guarantee = true
+		event.ability = caster:FindAbilityByName("slipfinn_jump")
+		event.bog_roll = true
+		if event.ability then
+			Timers:CreateTimer(0.03, function()
+				slipfinn_jump_start(event)
+			end)
+		end
+	end
 	Timers:CreateTimer(0.03, function()
+		ProjectileManager:ProjectileDodge(caster)
 		StartAnimation(caster, {duration=1, activity=ACT_DOTA_SLARK_POUNCE, rate=1})
 	end)
 	caster:RemoveModifierByName("modifier_bog_roller_attack_dmg_pct")
