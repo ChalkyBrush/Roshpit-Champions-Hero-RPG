@@ -1995,6 +1995,45 @@ function RPCItems:RollJexArcana1(deathLocation)
     return item
 end
 
+function RPCItems:RollSlipfinnArcana1(deathLocation)
+    local item = RPCItems:CreateVariantArcana("item_rpc_slipfinn_arcana1", "arcana", "Slipfinn Arcana 1", "feet", true, "Slot: Feet", "npc_dota_hero_slark", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.property1 = 1
+    item.property1name = "!arcana!_slipfinn_arcana1"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_slipfinn_arcana1", "#49CFF4",  1, "#property_slipfinn_arcana1_description")
+
+
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.property2name = "rune_e_1"
+        item.property2 = math.ceil(value*1.1)
+    elseif luck <= 70 then
+        item.property2name = "rune_e_2"
+        item.property2 = math.ceil(value*1.1)       
+    elseif luck <= 90 then
+        item.property2name = "rune_e_3"
+        item.property2 = math.ceil(value*1) 
+    else
+        item.property2name = "rune_e_4"
+        item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+
+
+    local value, prefixLevel = RPCItems:RollAttribute(100, 10, 55, 0, 0, item.rarity, false, maxFactor*27)
+    item.property3 = value
+    item.property3name = "agility"
+    RPCItems:SetPropertyValues(item, item.property3, "#item_agility", "#2EB82E",  3)
+
+    RPCItems:RollFootProperty4(item, 0)
+
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
+    return item
+end
+
 function RPCItems:PreacheArcanaResources(item)
     Timers:CreateTimer(0.05, function()
         PrecacheItemByNameAsync(item:GetAbilityName(), function(...) end)

@@ -1069,6 +1069,15 @@ function Runes:EquipArcana(hero, index)
 				return 0.5
 			end
 		end)
+	elseif hero:GetUnitName() == "npc_dota_hero_slark" then
+		if index == 1 then
+			local abilityCheck = hero:GetAbilityByIndex(2)
+			if abilityCheck:GetAbilityName() ~= "slipfinn_shadow_rush" then 
+				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "slipfinn_shadow_rush", 2)
+			end
+			hero:RemoveAbility("slipfinn_shadow_warp")
+			Runes:EasySwapArcanaSkills(hero, 2, "slipfinn_shadow_rush", "slipfinn_bog_roller", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		end
 	end
 end
 
@@ -1727,6 +1736,14 @@ function Runes:UnequipArcana(hero, index)
 			require('heroes/arc_warden/abilities/onibi')
 
 			calculate_onibi_element_levels(onibi)
+		end
+	elseif hero:GetUnitName() == "npc_dota_hero_slark" then
+		if index == 1 then
+			local abilityCheck = hero:GetAbilityByIndex(2)
+			if abilityCheck:GetAbilityName() ~= "slipfinn_bog_roller" then 
+				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "slipfinn_bog_roller", 2)
+			end
+			Runes:EasyRevertArcanaSkills(hero, 2, "slipfinn_shadow_rush", "slipfinn_bog_roller", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end
 	end
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "ability_tree_upgrade", {playerId=hero:GetPlayerOwnerID()})

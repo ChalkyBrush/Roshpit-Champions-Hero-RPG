@@ -80,15 +80,17 @@ end
 function slipfinn_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
-	if target.dummy then
-		return false
+	if attacker:HasAbility("slipfinn_shadow_rush") then
+		if target.dummy then
+			return false
+		end
+		local a_c_level = attacker:GetRuneValue("e", 1)
+		if a_c_level > 0 then
+			local damage = event.damage*SLIPFINN_E1_MULT*a_c_level
+			-- Timers:CreateTimer(0.05, function()
+				Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+				CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/shadow_shank.vpcf", target, 0.4)
+			-- end)
+		end 
 	end
-	local a_c_level = attacker:GetRuneValue("e", 1)
-	if a_c_level > 0 then
-		local damage = event.damage*SLIPFINN_E1_MULT*a_c_level
-		-- Timers:CreateTimer(0.05, function()
-			Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
-			CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/shadow_shank.vpcf", target, 0.4)
-		-- end)
-	end 
 end
