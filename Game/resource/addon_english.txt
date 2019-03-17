@@ -2955,7 +2955,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_1_visible_Description"        "Gaining bonus to all attributes based on missing health"
 		
 		"DOTA_Tooltip_ability_axe_rune_e_2"                             "[E2] Cyclone Storm"
-        "DOTA_Tooltip_ability_axe_rune_e_2_Description"                 "The cyclical force of The Red General's Redmist Cyclone briefly adds speed to his attacks. This effect lasts 5 seconds, and is refreshed when casting Skull Basher."
+        "DOTA_Tooltip_ability_axe_rune_e_2_Description"                 "The cyclical force of The Red General's Redmist Cyclone briefly increases his bonus attack damage. This effect lasts 5 seconds, and is refreshed when casting Skull Basher."
         "DOTA_Tooltip_ability_axe_rune_e_2_property_one"                "Attack Damage Bonus"
         "DOTA_Tooltip_ability_axe_rune_e_2_suffix"                      "%"
  
