@@ -78,16 +78,17 @@ end
 function essence_aura_unit_die(event)
 	local unit = event.unit
 	local xp = unit:GetDeathXP()
-	if xp > 0 then
-		local caster = event.caster
+	local caster = event.caster
+	local onibi = caster.onibi
+	get_onibi_essences(caster, onibi)
+	local essence_possibilities = {onibi.essences[1], onibi.essences[2]}
+	local actual_essence = essence_possibilities[RandomInt(1, #essence_possibilities)]
+	local level = get_level_by_sum_exp(caster.onibi.stats_table[actual_essence]["exp"])
+	if xp > 0 and level < 100 then
 	    local essence_value = math.ceil(xp/10)
 		local essence_point = GetGroundPosition(unit:GetAbsOrigin(), unit)+RandomVector(RandomInt(0, 300))
 		local essence_unit = CreateUnitByName("jex_essence", essence_point, false, nil, nil, DOTA_TEAM_GOODGUYS)
-		local onibi = caster.onibi
 		essence_unit:FindAbilityByName("jex_essence_ability"):SetLevel(1)
-		get_onibi_essences(caster, onibi)
-		local essence_possibilities = {onibi.essences[1], onibi.essences[2]}
-		local actual_essence = essence_possibilities[RandomInt(1, #essence_possibilities)]
 		local essence_data = {}
 		essence_unit:SetForwardVector(RandomVector(1))
 		print(actual_essence)
