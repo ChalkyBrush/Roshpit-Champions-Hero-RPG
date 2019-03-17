@@ -473,11 +473,35 @@ function jump_land(caster, ability)
 			EmitSoundOn("Slipfinn.Ground1", caster)
 		end
 	end
+	if caster.jump_force < -1 and caster:HasModifier("slipfinn_bog_roller_lua") then
+		local e_4_radius = (caster.jump_force*-8) + 40
+		bog_roller_e_4_explosion(caster, e_4_radius)
+	end
 	caster.jumpLock = false
 	EndAnimation(caster)	
 	print(caster.jumpPhase)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_jump_phase", {duration = 0.8})
 	caster:RemoveModifierByName("modifier_jump_not_attackable")
+end
+
+function bog_roller_e_4_explosion(caster, radius)
+	local e_4_level = caster:GetRuneValue("e", 4)
+		if e_4_level > 0 then
+		local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/slipfinn/bog_e_4_explosion.vpcf", caster:GetAbsOrigin(), 3)
+		for i = 1, 5, 1 do
+			ParticleManager:SetParticleControl(pfx, i, Vector(radius, radius, radius))
+		end
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			for _,enemy in pairs(enemies) do
+				local stun_duration = SLIPFINN_E4_STUN_DURATION*e_4_level
+				local damage = (SLIPFINN_E4_DAMAGE_ATK_POWER_PCT/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*e_4_level
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WATER, RPC_ELEMENT_SHADOW)
+				Filters:ApplyStun(caster, stun_duration, enemy)	
+			end
+		end 
+		
+	end
 end
 
 function jump_phase_reset(event)

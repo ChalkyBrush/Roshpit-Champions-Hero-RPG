@@ -19,7 +19,7 @@ function slipfinn_bog_roller_lua:GetModifierTurnRate_Percentage( params )
 end
 
 function slipfinn_bog_roller_lua:GetModifierModelScale( params )
-	return 0.73
+	return 0.65
 end
 
 function slipfinn_bog_roller_lua:IsHidden()

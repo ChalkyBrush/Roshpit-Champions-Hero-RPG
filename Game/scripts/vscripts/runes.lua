@@ -1743,6 +1743,8 @@ function Runes:UnequipArcana(hero, index)
 			if abilityCheck:GetAbilityName() ~= "slipfinn_bog_roller" then 
 				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "slipfinn_bog_roller", 2)
 			end
+			hero:RemoveModifierByName("modifier_bog_roller_passive")
+			hero:RemoveModifierByName("modifier_slipfinn_bog_roller")
 			Runes:EasyRevertArcanaSkills(hero, 2, "slipfinn_shadow_rush", "slipfinn_bog_roller", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end
 	end

@@ -2000,7 +2000,7 @@ function RPCItems:RollSlipfinnArcana1(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     item.property1 = 1
     item.property1name = "!arcana!_slipfinn_arcana1"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_slipfinn_arcana1", "#49CFF4",  1, "#property_slipfinn_arcana1_description")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_slipfinn_arcana1", "#395C93",  1, "#property_slipfinn_arcana1_description")
 
 
     item.hasRunePoints = true
