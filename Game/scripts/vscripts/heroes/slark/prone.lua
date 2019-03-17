@@ -54,7 +54,8 @@ function prone_start(event)
 		end)
 	else
 		if not caster:HasModifier("modifier_slipfinn_prone") then
-			if caster:FindAbilityByName("slipfinn_shadow_rush"):IsInAbilityPhase() or caster:IsChanneling() then
+			local shadow_rush_phase = caster:HasAbility("slipfinn_shadow_rush") and caster:FindAbilityByName("slipfinn_shadow_rush"):IsInAbilityPhase()
+			if shadow_rush_phase or caster:IsChanneling() then
 			else
 				local order =
 				{
@@ -67,7 +68,9 @@ function prone_start(event)
 			end
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_prone", {duration = duration})
 			EmitSoundOn("Slipfinn.Prone", caster)
-			CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_shadow_rush", "slipfinn_shadow_warp", 2)
+			if caster:HasAbility("slipfinn_shadow_rush") then
+				CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_shadow_rush", "slipfinn_shadow_warp", 2)
+			end
 			print("APPLY PRONE")
 			local q_2_level = caster:GetRuneValue("q", 2)
 			if q_2_level > 0 then
@@ -141,7 +144,9 @@ end
 function prone_end(event)
 	local caster = event.caster
 	local ability = event.ability
-	CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_shadow_warp", "slipfinn_shadow_rush", 2)
+	if caster:HasAbility("slipfinn_shadow_warp") then
+		CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_shadow_warp", "slipfinn_shadow_rush", 2)
+	end
 	if caster:HasModifier("modifier_shimmer_cape") then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shimmer_cape", {duration = 4})
 	end

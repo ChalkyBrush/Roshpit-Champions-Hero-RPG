@@ -2980,7 +2980,7 @@ function Filters:OdinCrit(attacker, victim, damage, damage_type)
 end
 
 function Filters:HasMovementModifier(caster)
-    if caster:HasModifier("modifier_possession_moving_toward_target") or caster:HasModifier("modifier_jumping") or caster:HasModifier("modifier_forest_guide_pull_thinking") or caster:HasModifier("modifier_mountain_spirit_transfer") or caster:HasModifier("modifier_inside_lizard") or caster:HasModifier("modifier_boat_dummy_prepping") or caster:HasModifier("modifier_wind_temple_flailing") or caster:HasModifier("modifier_heavy_boulder_pushback") or caster:HasModifier("modifier_lava_jumping") or caster:HasModifier("modifier_wind_temple_flailing") or caster:HasModifier("modifier_sea_fortress_green_beacon") then
+    if caster:HasModifier("modifier_possession_moving_toward_target") or caster:HasModifier("modifier_jumping") or caster:HasModifier("modifier_forest_guide_pull_thinking") or caster:HasModifier("modifier_mountain_spirit_transfer") or caster:HasModifier("modifier_inside_lizard") or caster:HasModifier("modifier_boat_dummy_prepping") or caster:HasModifier("modifier_wind_temple_flailing") or caster:HasModifier("modifier_heavy_boulder_pushback") or caster:HasModifier("modifier_lava_jumping") or caster:HasModifier("modifier_wind_temple_flailing") or caster:HasModifier("modifier_sea_fortress_green_beacon") or caster:HasModifier("modifier_slipfinn_bog_roller") then
         return true
     else
         return false

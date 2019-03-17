@@ -52,14 +52,9 @@
 		}
 		"OnToggleOn"
 		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_hydroxis_mist"
-				"Target" 		"CASTER"
-			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/slardar/arcana_ability"
+				"ScriptFile"	"heroes/slark/arcana/bog_roller"
 				"Function"		"turn_toggle_on"
 			}
 		}
@@ -67,203 +62,73 @@
 		{
 			"RemoveModifier"
 			{
-				"ModifierName"	"modifier_hydroxis_mist"
+				"ModifierName"	"modifier_slipfinn_bog_roller"
 				"Target" 		"CASTER"
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/slardar/arcana_ability"
+				"ScriptFile"	"heroes/slark/arcana/bog_roller"
 				"Function"		"turn_toggle_off"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"1"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/slardar/tsunami.lua"
-				"Function"		"poseidon_wrath_attack_hit"
-				"target"		"TARGET"
 			}
 		}
 		"Modifiers"
 		{
-			"modifier_hydroxis_slither"
-			{
-				"IsBuff"	"1"
-				"ThinkInterval"  "0.03"
-				"OverrideAnimation"     "ACT_DOTA_RUN"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/slardar/arcana_ability"
-						"Function"		"slither_think"
-					}
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/slardar/arcana_ability"
-						"Function"		"slither_start"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/slardar/arcana_ability"
-						"Function"		"slither_end"
-					}
-				}
-			}
-			"modifier_hydroxis_mist"
+			"modifier_slipfinn_bog_roller"
 			{
 				"OnCreated"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/slardar/arcana_ability"
-						"Function"		"mist_start"
-					}
 					"AttachEffect"
 					{
-						"EffectName"        "particles/roshpit/hydroxis/hydroxis_arcana_mist.vpcf"
+						"EffectName"        "particles/units/heroes/hero_pangolier/pangolier_gyroshell.vpcf"
 						"EffectAttachType"  "follow_origin"
 						"Target"            "TARGET"
-						"ControlPointEntities"
-						{
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-						}
+					}
+				}
+				"StatusEffectName" 		"particles/status_fx/status_effect_morphling.vpcf" 	   
+				"StatusEffectPriority"  "100"
+				"OverrideAnimation"     "ACT_DOTA_RUN"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/arcana/bog_roller"
+						"Function"		"bog_roller_start"
 					}
 				}
 				"OnDeath"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/slardar/arcana_ability"
-						"Function"		"mist_death"
+						"ScriptFile"	"heroes/slark/arcana/bog_roller"
+						"Function"		"bog_roller_death"
 					}
 				}
 				"OnDestroy"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/slardar/arcana_ability"
-						"Function"		"mist_end"
+						"ScriptFile"	"heroes/slark/arcana/bog_roller"
+						"Function"		"bog_roller_end"
 					}
 				}
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/slardar/arcana_ability"
-						"Function"		"mist_attack_land"
-					}
-				}
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
-				"Aura"          	"modifier_hydroxis_mist_debuff"
-				"Aura_Radius"   	"340"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-				"Aura_ApplyToCaster" "0"
-				"ThinkInterval"  "1.0"
+				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/slardar/arcana_ability"
-						"Function"		"mist_active_think"
-						"mana_drain"	"%mana_drain"
+						"ScriptFile"	"heroes/slark/arcana/bog_roller"
+						"Function"		"bog_roller_think"
 					}
 				}
 			}
-			"modifier_hydroxis_mist_debuff"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/roshpit/hydroxis/hydroxis_mist_debuff.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-						"ControlPointEntities"
-						{
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-						}
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "%blind"
-				}
-				"OnDestroy"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_hydroxis_mist_debuff_timered"
-						"Target" 		"TARGET"
-						"Duration"		"3"
-					}
-				}
-			}
-			"modifier_hydroxis_mist_debuff_timered"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"EffectName"	"particles/roshpit/hydroxis/hydroxis_mist_debuff.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "%blind"
-				}
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/roshpit/hydroxis/hydroxis_mist_debuff.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-						"ControlPointEntities"
-						{
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-						}
-					}
-				}
-			}
-			"modifier_hydroxis_d_b_arcana_visible"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"hydroxis/hydroxis_rune_w_4_arcana1"
-			}
-			"modifier_hydroxis_d_b_arcana_invisible"
+			"modifier_bog_roller_collision"
 			{
 				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "2500"
-				}
 			}
 		}
 	}

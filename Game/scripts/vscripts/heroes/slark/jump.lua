@@ -405,7 +405,8 @@ function jump_land(caster, ability)
 	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 	caster.max_slip_speed = MAX_SLIP_SPEED
 	ability.consecutive_bounces = 0
-	if caster:FindAbilityByName("slipfinn_shadow_rush"):IsInAbilityPhase() or caster:IsChanneling() then
+	local shadow_rush_phase = caster:HasAbility("slipfinn_shadow_rush") and caster:FindAbilityByName("slipfinn_shadow_rush"):IsInAbilityPhase()
+	if shadow_rush_phase or caster:IsChanneling() then
 	else
 		local orderPos = caster:GetAbsOrigin()+caster:GetForwardVector()*caster.speed*10
 		local order =
