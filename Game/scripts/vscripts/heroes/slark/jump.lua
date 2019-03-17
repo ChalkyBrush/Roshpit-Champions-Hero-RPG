@@ -104,11 +104,14 @@ function slipfinn_main_thinker(event)
 			if caster:HasModifier("modifier_slipfinn_basic_jump") then
 				caster:SetOrigin(caster:GetAbsOrigin()+caster.direction*caster.speed)
 			else
-				if math.abs(caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster)) < 60 then
-					caster:SetOrigin(caster:GetAbsOrigin()+caster.direction*caster.speed)
+				if caster:HasModifier("slipfinn_bog_roller_lua") then
 				else
-					caster.speed = 0
-					FindClearSpaceForUnit(caster, caster:GetAbsOrigin()-caster.direction*30, false)
+					if math.abs(caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster)) < 60 then
+						caster:SetOrigin(caster:GetAbsOrigin()+caster.direction*caster.speed)
+					else
+						caster.speed = 0
+						FindClearSpaceForUnit(caster, caster:GetAbsOrigin()-caster.direction*30, false)
+					end
 				end
 			end
 		end
@@ -224,8 +227,12 @@ function jump_force(caster, ability)
 			translate = "silent_ripper"
 			
 		else
-			EmitSoundOn("Slipfinn.BasicJump1", caster)
-			EmitSoundOn("Slipfinn.JumpWoosh1", caster)
+			if caster:HasModifier("slipfinn_bog_roller_lua") then
+				EmitSoundOn("Slipfinn.Jump.InBogRoller1", caster)
+			else
+				EmitSoundOn("Slipfinn.BasicJump1", caster)
+				EmitSoundOn("Slipfinn.JumpWoosh1", caster)
+			end
 			rate = 0.8
 		end
 	elseif caster.jumpPhase == 1 then
@@ -235,8 +242,12 @@ function jump_force(caster, ability)
 			rate = 1.1
 			translate = "silent_ripper"
 		else
-			EmitSoundOn("Slipfinn.BasicJump2", caster)
-			EmitSoundOn("Slipfinn.JumpWoosh2", caster)
+			if caster:HasModifier("slipfinn_bog_roller_lua") then
+				EmitSoundOn("Slipfinn.Jump.InBogRoller2", caster)
+			else
+				EmitSoundOn("Slipfinn.BasicJump2", caster)
+				EmitSoundOn("Slipfinn.JumpWoosh2", caster)
+			end
 			rate = 0.8
 		end
 	elseif caster.jumpPhase == 2 then
@@ -245,8 +256,12 @@ function jump_force(caster, ability)
 		activity = ACT_DOTA_SLARK_POUNCE
 		rate = 0.8
 		caster.jumpPhase = -1
-		EmitSoundOn("Slipfinn.BasicJump3", caster)
-		EmitSoundOn("Slipfinn.JumpWoosh3", caster)
+		if caster:HasModifier("slipfinn_bog_roller_lua") then
+			EmitSoundOn("Slipfinn.Jump.InBogRoller3", caster)
+		else
+			EmitSoundOn("Slipfinn.BasicJump3", caster)
+			EmitSoundOn("Slipfinn.JumpWoosh3", caster)
+		end
 	end
 	if caster.longJump then
 		caster.longJump = nil
@@ -254,13 +269,23 @@ function jump_force(caster, ability)
 		if caster:HasModifier("modifier_slipfinn_glyph_2_1") then
 			caster.jump_force = caster.jump_force + SLIPFINN_GLYPH_2_1_JUMP_FORCE
 		end
-		EmitSoundOn("Slipfinn.JumpWoosh2", caster)
+		if caster:HasModifier("slipfinn_bog_roller_lua") then
+			EmitSoundOn("Slipfinn.Jump.InBogRoller2", caster)
+		else
+			EmitSoundOn("Slipfinn.JumpWoosh2", caster)
+		end
 	elseif caster.highJump then
-		EmitSoundOn("Slipfinn.JumpWoosh2", caster)
+		if caster:HasModifier("slipfinn_bog_roller_lua") then
+			EmitSoundOn("Slipfinn.Jump.InBogRoller2", caster)
+		else
+			EmitSoundOn("Slipfinn.JumpWoosh2", caster)
+		end
 		caster.highJump = nil
 		caster.jump_force = caster.jump_force*HIGH_JUMP_HEIGHT_MULT + ability.w_4_level*SLIPFINN_W4_JUMP_FORCE
 	end
-
+	if caster:HasModifier("modifier_slipfinn_bog_roller") then
+		activity = ACT_DOTA_OVERRIDE_ABILITY_2
+	end
 	Timers:CreateTimer(jumpDelay, function()
 		if translate then
 			StartAnimation(caster, {duration=animation_duration, activity=activity, rate=rate, translate = translate})
@@ -427,14 +452,26 @@ function jump_land(caster, ability)
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	if caster.jump_force < -42 then
-		EmitSoundOn("Slipfinn.Ground3", caster)
+		if caster:HasModifier("slipfinn_bog_roller_lua") then
+			EmitSoundOn("Slipfinn.BogRoller.CollisionLand3", caster)
+		else
+			EmitSoundOn("Slipfinn.Ground3", caster)
+		end
 		print("HEAVY")
 	elseif caster.jump_force < -35 then
-		EmitSoundOn("Slipfinn.Ground2", caster)
+		if caster:HasModifier("slipfinn_bog_roller_lua") then
+			EmitSoundOn("Slipfinn.BogRoller.CollisionLand2", caster)
+		else
+			EmitSoundOn("Slipfinn.Ground2", caster)
+		end
 		print("MED")
 	else
 		print("LIGHT")
-		EmitSoundOn("Slipfinn.Ground1", caster)
+		if caster:HasModifier("slipfinn_bog_roller_lua") then
+			EmitSoundOn("Slipfinn.BogRoller.CollisionLand1", caster)
+		else
+			EmitSoundOn("Slipfinn.Ground1", caster)
+		end
 	end
 	caster.jumpLock = false
 	EndAnimation(caster)	

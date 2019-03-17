@@ -1010,3 +1010,390 @@
         }
     }
 }
+
+"Slipfinn.BogRoller.Start"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/troll_warlord/whirling_ranged_cast.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.55000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0300"  }
+                    "pitch_rand_max"    {   "value"     "0.03000"  }
+                    "pitch"             {   "value"     "1.62000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Slipfinn.BogRoller.End"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/troll_warlord/whirling_ranged_cast.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.55000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0300"  }
+                    "pitch_rand_max"    {   "value"     "0.03000"  }
+                    "pitch"             {   "value"     "1.32000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Slipfinn.BogRoller.Collision"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/pangolier/gyro_carom.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.55000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0300"  }
+                    "pitch_rand_max"    {   "value"     "0.03000"  }
+                    "pitch"             {   "value"     "1.32000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Slipfinn.BogRoller.LP"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/physics/movement/hero/morphling/idle_loop.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.75000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0300"  }
+                    "pitch_rand_max"    {   "value"     "0.03000"  }
+                    "pitch"             {   "value"     "1.32000"  }
+                    "soundlevel"        {   "value"     "87.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Slipfinn.BogRoller.LP2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/venomancer/venomancer_stinging_loop.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.85000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0300"  }
+                    "pitch_rand_max"    {   "value"     "0.03000"  }
+                    "pitch"             {   "value"     "0.62000"  }
+                    "soundlevel"        {   "value"     "83.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Slipfinn.BogRoller.Start.VO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/slark/slark_deny_13.vsnd"
+                              "value1"        "sounds/vo/slark/slark_pain_09.vsnd"      
+                        }
+                    }
+                    "volume"            {   "value"     "0.95000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0300"  }
+                    "pitch_rand_max"    {   "value"     "0.03000"  }
+                    "pitch"             {   "value"     "1.02000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Slipfinn.Jump.InBogRoller1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/witch_doctor/deathward_attack.vsnd"     
+                        }
+                    }
+                    "volume"            {   "value"     "0.95000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0700"  }
+                    "pitch_rand_max"    {   "value"     "0.07000"  }
+                    "pitch"             {   "value"     "1.52000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Slipfinn.Jump.InBogRoller2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/witch_doctor/deathward_attack.vsnd"  
+                        }
+                    }
+                    "volume"            {   "value"     "1.25000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0700"  }
+                    "pitch_rand_max"    {   "value"     "0.07000"  }
+                    "pitch"             {   "value"     "1.42000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Slipfinn.Jump.InBogRoller3"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/witch_doctor/deathward_attack.vsnd"  
+                        }
+                    }
+                    "volume"            {   "value"     "1.45000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0700"  }
+                    "pitch_rand_max"    {   "value"     "0.07000"  }
+                    "pitch"             {   "value"     "1.32000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+
+"Slipfinn.BogRoller.CollisionLand1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/pangolier/gyro_carom.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.35000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0300"  }
+                    "pitch_rand_max"    {   "value"     "0.03000"  }
+                    "pitch"             {   "value"     "1.32000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+
+"Slipfinn.BogRoller.CollisionLand2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/pangolier/gyro_carom.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.55000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0300"  }
+                    "pitch_rand_max"    {   "value"     "0.03000"  }
+                    "pitch"             {   "value"     "1.22000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Slipfinn.BogRoller.CollisionLand3"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/pangolier/gyro_carom.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.75000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0300"  }
+                    "pitch_rand_max"    {   "value"     "0.03000"  }
+                    "pitch"             {   "value"     "1.12000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}

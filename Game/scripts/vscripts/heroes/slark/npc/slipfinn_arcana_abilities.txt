@@ -79,7 +79,7 @@
 				{
 					"AttachEffect"
 					{
-						"EffectName"        "particles/units/heroes/hero_pangolier/pangolier_gyroshell.vpcf"
+						"EffectName"        "particles/roshpit/slipfinn/bog_roller_effect.vpcf"
 						"EffectAttachType"  "follow_origin"
 						"Target"            "TARGET"
 					}

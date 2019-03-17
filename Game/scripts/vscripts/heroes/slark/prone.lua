@@ -29,7 +29,12 @@ function prone_start(event)
 			animDur = animDur*SLIPFINN_GLYPH_4_1_POUND_DELAY_MULT
 			animRate = animRate/SLIPFINN_GLYPH_4_1_POUND_DELAY_MULT
 		end
-		StartAnimation(caster, {duration=animDur, activity=ACT_DOTA_SLARK_POUNCE, rate=animRate})
+		if caster:HasModifier("modifier_slipfinn_bog_roller") then
+			StartAnimation(caster, {duration=animDur, activity=ACT_DOTA_OVERRIDE_ABILITY_2, rate=animRate})
+			
+		else
+			StartAnimation(caster, {duration=animDur, activity=ACT_DOTA_SLARK_POUNCE, rate=animRate})
+		end
 
 		local q_2_level = caster:GetRuneValue("q", 2)
 		if q_2_level > 0 then
