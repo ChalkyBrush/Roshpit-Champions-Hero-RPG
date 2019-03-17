@@ -298,7 +298,7 @@ function TerminalNewbie(trigger)
 			end)
 		end)
 	end
-	if Arena.ChampionsLeague.state == 18 then
+	if Arena.ChampionsLeague.state == 18 and Arena.ChampionsLeague.rank == 19 then
 		Arena.ChampionsLeague.state = 19
 		Arena:OgreSequence(hero)
 		return false
