@@ -51,7 +51,7 @@ function slipfinn_main_thinker(event)
 		caster.direction = direction
 	else
 	end
-	if caster:HasModifier("slipfinn_shadow_rush_lua") or caster:HasModifier("modifier_jumping") or caster:HasModifier("modifier_slipfinn_basic_jump") then
+	if caster:HasModifier("slipfinn_shadow_rush_lua") or caster:HasModifier("modifier_jumping") or caster:HasModifier("modifier_slipfinn_basic_jump") or caster:HasModifier("modifier_slipfinn_bog_roller") then
 		if caster:HasModifier("modifier_slipfinn_glyph_7_1") then
 			Filters:CleanseStuns(caster)
 		end

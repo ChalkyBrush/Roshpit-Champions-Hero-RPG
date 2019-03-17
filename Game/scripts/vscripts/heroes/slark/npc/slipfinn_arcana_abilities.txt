@@ -231,17 +231,32 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SLIPFINN_E1_MULT * 100 %>"
+				"property_one"			"<% SLIPFINN_E1_RAZOR %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
+				"property_two"			"2"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
+				"property_two_base"			"60"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"element_one"				"11"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"				"14"
 			}
 		}
 	}
@@ -255,18 +270,29 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_e_2"
 		"MaxLevel"				"20"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% SLIPFINN_E2_ATK_DMG_PCT %>"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% SLIPFINN_E2_WATER_DAMAGE_ATK_POWER_PCT %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"				"14"
 			}
 		}
 	}
@@ -285,8 +311,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_E3_DURATION %>"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% SLIPFINN_E3_ARMOR %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% SLIPFINN_E3_POST_MIT_MAGIC_PCT %>"
 			}
 		}
 	}
@@ -301,12 +332,33 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"<% SLIPFINN_E4_STUN_DURATION %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% SLIPFINN_E4_DAMAGE_ATK_POWER_PCT %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"				"14"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"				"11"
 			}
 		}
 	}
