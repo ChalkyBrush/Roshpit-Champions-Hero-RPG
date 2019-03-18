@@ -8714,7 +8714,7 @@
         "property_slipfinn_arcana1_description"                               "Replaces @Ability3 and all of its runes with Bog Roller."
 
         "DOTA_Tooltip_ability_slipfinn_bog_roller"                       "Bog Roller"
-        "DOTA_Tooltip_ability_slipfinn_bog_roller_Description"           "Element: <font color=\"#7F4F84\">Shadow</font><br>Slipfinn curls up into a hardy shell that can traverse hazardous terrain and provides magic immunity. While in the shell, slipfinn barrels forward unrelentingly and attacks the closest nearby enemy every 0.06 seconds.<br>Bog Roller also passively adds an instance of <font color=\"#7F4F84\">Shadow</font> damage to basic attacks, and causes basic attacks to reduce armor. Switching in and out of Bog Roller disjoints projectiles."
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_Description"           "Element: <font color=\"#7F4F84\">Shadow</font><br>Slipfinn curls up into a hardy shell that can traverse hazardous terrain and provides magic immunity. While in the shell, Slipfinn barrels forward unrelentingly and attacks the closest nearby enemy every 0.06 seconds.<br>Bog Roller also passively adds an instance of <font color=\"#7F4F84\">Shadow</font> damage to basic attacks, and causes basic attacks to reduce armor. Switching in and out of Bog Roller disjoints projectiles."
         "DOTA_Tooltip_ability_slipfinn_bog_roller_armor_break_percent"      "% ARMOR BREAK:"
         "DOTA_Tooltip_ability_slipfinn_bog_roller_shadow_damage_on_attack"  "% <font color=\"#7F4F84\">SHADOW</font> DAMAGE ATTACK POWER"
 
@@ -8726,7 +8726,7 @@
 
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1"                      "[E1] Turbine"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "Using Prone while in Bog Roller provides a 2 second speed burst that decays over its duration. Additionally a cyclone of water and shadow damage nearby enemies based on attack power."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "Using Prone while in Bog Roller provides a 2 second speed burst that decays over its duration. This speed burst also whips up a short-lived cyclone of murky water that damages nearby enemies."
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_one"         "Damage"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix"               "% of Attack Power"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Speed Burst"
