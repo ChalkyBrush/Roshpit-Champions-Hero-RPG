@@ -57942,7 +57942,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shadow_damage_on_attack"						"50 100 150 200 250 300 350"
+				"shadow_damage_on_attack"						"100 200 300 400 500 600 700"
 			}
 		}
 		"OnToggleOn"
@@ -58181,7 +58181,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_two"			"30"
 			}
 			"03"
 			{
