@@ -104,6 +104,10 @@
 		"seafortress_ocean_diviner"							"Ocean Diviner"
 		"seafortress_squidcicle"							"Riparian Squid"
 		"seafortress_final_boss"							"Владыка моря Val'dun"
+		
+		"seafortress_ol_spiny"								"Ol' Spiny"
+		"DOTA_Tooltip_ability_ol_spiny_passive"				"Body Breach"
+		"DOTA_Tooltip_ability_ol_spiny_passive_Description"	"При ударе по противнику наносит еще 3 чистых и 3 магических атаки."
 
 		"DOTA_Tooltip_modifier_sea_fortress_ai"				"Монстр Морской крепости"
 		"DOTA_Tooltip_modifier_sea_fortress_ai_Description"	"Исходящий магический и чистый урон увеличены на 300%. Весь входящий урон снижен на 99.5%%"

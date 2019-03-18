@@ -134,7 +134,54 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_r_4_property_one"						"Доп. базовый урон"
     	"DOTA_Tooltip_ability_slipfinn_rune_r_4_suffix"								"% от базового урона врага"
 		
-		//Arcanas
+		 //Arcanas
+        "DOTA_Tooltip_ability_item_rpc_slipfinn_arcana1"                                "Swirlsog Slippers"
+
+        "item_property_slipfinn_arcana1"                                      "Bog Roller"
+        "property_slipfinn_arcana1_description"                               "Заменяет @Ability3 и все ее руны на Bog Roller."
+
+        "DOTA_Tooltip_ability_slipfinn_bog_roller"                       "Bog Roller"
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_Description"           "Элемент: <font color=\"#7F4F84\">Тень</font><br>Slipfinn заворачивается в прочный панцирь и может перемещаться по местности в нем. Дает неузявимость к магии. Внутри панциря герой атакует ближайшего противника каждые 0.06 секунды и движется вперед.<br>Bog Roller также даёт базовым атакам разрушение брони противника и пассивно добавляет к ним урон <font color=\"#7F4F84\">Тени</font>. Переключение способности сбрасывает летящие снаряды."
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_armor_break_percent"      "% РАЗРУШЕНИЕ БРОНИ:"
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_shadow_damage_on_attack"  "% УРОНА <font color=\"#7F4F84\">ТЕНИ</font> ОТ АТАКИ"
+
+        "DOTA_Tooltip_modifier_slipfinn_bog_roller"                     "Bog Roller"
+        "DOTA_Tooltip_modifier_slipfinn_bog_roller_Description"         "Катится в панцире"
+
+        "DOTA_Tooltip_modifier_slipfinn_bog_roller_armor_break"         "Bog Break"
+        "DOTA_Tooltip_modifier_slipfinn_bog_roller_armor_break_Description" "Снижение брони"
+
+
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1"                      "[E1] Turbine"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "@Ability1 даст ускорение внутри панциря на 2 секунды, а все ближайшие противникики дополнительно получают урон от водного потока."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_one"         "Урон"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix"               "% от силы Атаки"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Ускорение"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              ""
+
+        "DOTA_Tooltip_modifier_bog_roller_razor"                            "Turbine"
+        "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Получает ускорение и наносит урон по противникам поблизости" 
+
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1"                          "[E2] Sparkling Dagger"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_Description"              "Дает Бонусную Атаку во время Bog Roller. Атаки нанесут дополнительно удар магическим уроном <font color=\"#3894FF\">Воды</font>."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_one"             "Бонусная Атака"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix"                   "%"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_two"             "Урон<font color=\"#3894FF\">Воды</font>"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix_two"               "% от силы атаки"
+
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1"                          "[E3] Adamantium Shell"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_Description"              "Внутри панциря повышаются показатели Брони и Пост-Резистного магического урона."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_one"             "Броня"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix"                   ""
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_two"             "Пост-Резистный урон"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix_two"               "%"
+
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1"                          "[E4] Bayou Blister"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_Description"              "Приземление сопровождается ударом по области, оглушает и наносит урон в зависимости от урона атаки. Радиус зависит от высоты падения и увеличивается если использовать @Ability1 дополнительно для ускорения падения."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_property_one"             "Оглушение"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_suffix"                   " сек"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_property_two"             "Урон"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_suffix_two"                   "% от силы Атаки"
 		
 		//Glyphs
 		
