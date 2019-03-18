@@ -175,7 +175,7 @@
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix_two"               "%"
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1"                          "[E4] 渊流气泡"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_Description"              "在泥沼滚滚中跳起之后落地的瞬间在周围区域产生一个巨大的震荡，对敌人造成基于攻击力的伤害和眩晕。产生的范围与跳起的距离有关，并且在空中使用质化会进一步加强效果。"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_Description"              "在泥沼滚滚中跳起之后落地的瞬间在周围区域产生一个巨大的震荡，对敌人造成基于攻击力的伤害和眩晕。产生的范围与跳起的高度有关，并且在空中使用质化会进一步加强效果。"
         "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_property_one"             "眩晕持续时间"
         "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_suffix"                   ""
         "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_property_two"             "伤害"
