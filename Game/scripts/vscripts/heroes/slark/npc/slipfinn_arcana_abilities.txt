@@ -1,0 +1,364 @@
+
+	"slipfinn_bog_roller"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"slipfinn/arcana1/bog_roller"
+		"AbilityCastAnimation"			"ACT_DOTA_RUN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"armor_break_percent"						"50 60 70 80 90 100 110"
+			}
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shadow_damage_on_attack"						"50 100 150 200 250 300 350"
+			}
+		}
+		"OnToggleOn"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/slark/arcana/bog_roller"
+				"Function"		"turn_toggle_on"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_slipfinn_bog_roller"
+				"Target" 		"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/slark/arcana/bog_roller"
+				"Function"		"turn_toggle_off"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_bog_roller_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/arcana/bog_roller"
+						"Function"		"bog_roller_passive_attack_land"
+						"armor_break_percent"	"%armor_break_percent"
+						"shadow_damage_on_attack"	"%shadow_damage_on_attack"
+					}
+				}
+			}
+			"modifier_bog_roller_razor"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/arcana/bog_roller"
+						"Function"		"bog_roller_razor"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/arcana/bog_roller"
+						"Function"		"bog_roller_razor_end"
+					}
+				}
+			}
+			"modifier_slipfinn_bog_roller"
+			{
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/roshpit/slipfinn/bog_roller_effect.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
+				}
+				"StatusEffectName" 		"particles/status_fx/status_effect_morphling.vpcf" 	   
+				"StatusEffectPriority"  "100"
+				"OverrideAnimation"     "ACT_DOTA_RUN"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/arcana/bog_roller"
+						"Function"		"bog_roller_start"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/arcana/bog_roller"
+						"Function"		"bog_roller_death"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/arcana/bog_roller"
+						"Function"		"bog_roller_end"
+					}
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/arcana/bog_roller"
+						"Function"		"bog_roller_think"
+					}
+				}
+			}
+			"modifier_slipfinn_bog_roller_armor_break"
+			{
+				"TextureName"		"slardar_amplify_damage"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slardar/tsunami.lua"
+						"Function"		"AmplifyDamageParticle"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slardar/tsunami.lua"
+						"Function"		"EndAmplifyDamageParticle"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
+				}
+			}
+			"modifier_bog_roller_speedburst"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_bog_roller_collision"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_bog_roller_attack_dmg_pct"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% SLIPFINN_E2_ATK_DMG_PCT%>"
+				}
+			}
+			"modifier_slipfinn_bog_roller_e3"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% SLIPFINN_E3_ARMOR %>"
+				}
+			}
+		}
+	}
+
+	"slipfinn_rune_e_1_arcana1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"slipfinn/arcana1/slipfinn_e_1_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% SLIPFINN_E1_RAZOR %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two_base"			"60"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"				"11"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"				"14"
+			}
+		}
+	}
+
+	"slipfinn_rune_e_2_arcana1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"slipfinn/arcana1/slipfinn_e_2_arcana1"
+		"MaxLevel"				"20"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% SLIPFINN_E2_ATK_DMG_PCT %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% SLIPFINN_E2_WATER_DAMAGE_ATK_POWER_PCT %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"				"14"
+			}
+		}
+	}
+
+	"slipfinn_rune_e_3_arcana1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"slipfinn/arcana1/slipfinn_e_3_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% SLIPFINN_E3_ARMOR %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% SLIPFINN_E3_POST_MIT_MAGIC_PCT %>"
+			}
+		}
+	}
+
+	"slipfinn_rune_e_4_arcana1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"slipfinn/arcana1/slipfinn_e_4_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% SLIPFINN_E4_STUN_DURATION %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% SLIPFINN_E4_DAMAGE_ATK_POWER_PCT %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"				"14"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"				"11"
+			}
+		}
+	}

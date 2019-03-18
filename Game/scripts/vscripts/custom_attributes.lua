@@ -229,7 +229,7 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 	return intellect
 end
 
-function CDOTA_BaseNPC_Hero:GetRuneValue(letter, tier)
+function CDOTA_BaseNPC:GetRuneValue(letter, tier)
 	local index = 0
 	if letter == "q" then
 		index = 0

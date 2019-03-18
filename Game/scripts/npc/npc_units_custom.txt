@@ -70041,6 +70041,103 @@
         "Ability3"          "dungeon_creep"
     }
 
+    "seafortress_ol_spiny"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/slark/slark.vmdl"
+        "ModelScale"    "2.22"
+        "SoundSet"       "Hero_Slark"
+        "precache"
+        {
+            "particle"  "particles/roshpit/slipfinn/shadow_shank.vpcf"
+            "particle"  "particles/roshpit/slipfinn/bog_mystic_dagger.vpcf"
+        }
+        "Level" "1"
+        "HealthBarOffset"   "160"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "ArmorPhysical" "7"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "4000000"
+        "AttackDamageMax"   "5000000"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0.37"
+        "AttackAcquisitionRange"    "0"
+        "AttackRate"    "0.9"
+        "AttackRange"   "305"
+        "BountyGoldMin" "140"
+        "BountyGoldMax" "160"
+        "BountyXP" "80"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "420"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "8000000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "200"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "1000"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+
+                "Wearable1"
+                {
+                    "ItemDef"   "4804"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9164"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "5263"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "9538"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "6392"
+                }
+
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+        "Ability1"          "slipfinn_prone"
+        "Ability2"          "slipfinn_jump"
+        "Ability3"          "ol_spiny_passive"
+        "Ability4"          "ability_mega_haste"
+        "Ability5"          "armor_break_ultra"
+        "Ability6"          "redfall_mega_steadfast"
+        "Ability7"          "furbolg_blade_mail"
+        "Ability8"          "dungeon_creep"
+    }
+
     "seafortress_swamp_dragon"
     {
         "BaseClass" "npc_dota_creature"

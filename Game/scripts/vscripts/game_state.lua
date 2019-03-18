@@ -795,6 +795,14 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
+		if unit:HasModifier("modifier_slipfinn_bog_roller") then
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+				local clicked_position = Vector(orderTable.position_x, orderTable.position_y)
+				local bog_roller = unit:FindAbilityByName("slipfinn_bog_roller")
+				bog_roller.fv = ((clicked_position - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+				return false
+			end
+		end
 		if unit:HasModifier("modifier_frostmaw_hunters_hood") then
 			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 				local target = EntIndexToHScript(orderTable.entindex_target)
@@ -2045,6 +2053,10 @@ function GameState:FilterDamage(filterTable)
 		end
 		if attacker:HasModifier("modifier_sorcerers_regalia") then
 			mult = mult+0.4
+		end
+		if attacker:HasModifier("modifier_slipfinn_bog_roller_e3") then
+			local stacks = attacker:GetModifierStackCount("modifier_slipfinn_bog_roller_e3", attacker)
+			mult = mult + stacks*0.08
 		end
 		if attacker:HasModifier("modifier_neutral_glyph_6_3") then
 			mult = mult+0.25

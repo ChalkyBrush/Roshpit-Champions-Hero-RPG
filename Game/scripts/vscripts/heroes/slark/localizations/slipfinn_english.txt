@@ -135,7 +135,54 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_r_4_property_one"						"Base Attack Bonus"
     	"DOTA_Tooltip_ability_slipfinn_rune_r_4_suffix"								"% of enemy base attack power."
 		
-		//Arcanas
+        //Arcanas
+        "DOTA_Tooltip_ability_item_rpc_slipfinn_arcana1"                                "Swirlsog Slippers"
+
+        "item_property_slipfinn_arcana1"                                      "Bog Roller"
+        "property_slipfinn_arcana1_description"                               "Replaces @Ability3 and all of its runes with Bog Roller."
+
+        "DOTA_Tooltip_ability_slipfinn_bog_roller"                       "Bog Roller"
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_Description"           "Element: <font color=\"#7F4F84\">Shadow</font><br>Slipfinn curls up into a hardy shell that can traverse hazardous terrain. While in the shell, slipfinn barrels forward unrelentingly and attacks the closest nearby enemy every 0.06 seconds.<br>Bog Roller also passively adds an instance of <font color=\"#7F4F84\">Shadow</font> damage to basic attacks, and causes basic attacks to reduce armor. Switching in and out of Bog Roller disjoints projectiles."
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_armor_break_percent"      "% ARMOR BREAK:"
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_shadow_damage_on_attack"  "% <font color=\"#7F4F84\">SHADOW</font> DAMAGE ATTACK POWER"
+
+        "DOTA_Tooltip_modifier_slipfinn_bog_roller"                     "Bog Roller"
+        "DOTA_Tooltip_modifier_slipfinn_bog_roller_Description"         "Rolling around at a fervid pace"
+
+        "DOTA_Tooltip_modifier_slipfinn_bog_roller_armor_break"         "Bog Break"
+        "DOTA_Tooltip_modifier_slipfinn_bog_roller_armor_break_Description" "Reduced Armor"
+
+
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1"                      "[E1] Turbine"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "Using Prone while in Bog Roller provides a 2 second speed burst that decays over its duration. Additionally a cyclone of water and shadow damage nearby enemies based on attack power."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_one"         "Damage"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix"               "% of Attack Power"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Speed Burst"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              ""
+
+        "DOTA_Tooltip_modifier_bog_roller_razor"                            "Turbine"
+        "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Receiving a speed boost and damaging nearby enemies" 
+
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1"                          "[E2] Sparkling Dagger"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_Description"              "Gain bonus attack damage during Bog Roller. All attacks deal an additional instance of magical <font color=\"#3894FF\">Water</font> damage."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_one"             "Attack Power Bonus"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix"                   "%"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_two"             "Magic <font color=\"#3894FF\">Water</font> Damage Instance"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix_two"               "% of attack power"
+
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1"                          "[E3] Adamantium Shell"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_Description"              "Gain bonus armor and post-mitigation magic damage while in Bog Roller."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_one"             "Armor Bonus"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix"                   ""
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_two"             "Post-Mitigation Magic Damage"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix_two"               "%"
+
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1"                          "[E4] Bayou Blister"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_Description"              "Landing on the ground after jumping while in Bog Roller creates an area that stuns and deals damage based on attack power. The radius scales with the distance fallen, and is enhanced further when using a prone smash from the air."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_property_one"             "Stun Duration"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_suffix"                   ""
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_property_two"             "Damage"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_suffix_two"                   "% of attack power"
 		
 		//Glyphs
 		

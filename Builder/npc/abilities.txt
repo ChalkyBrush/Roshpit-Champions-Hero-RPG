@@ -157,6 +157,7 @@
 
 	##SLIPFINN_BASE_ABILITIES##
 	##SLIPFINN_BASE_RUNES##
+	##SLIPFINN_ARCANA_ABILITIES##
 
 	##DUSKBRINGER_ARCANA_1_ABILITIES##
 	##DUSKBRINGER_ARCANA_1_RUNES##
@@ -20435,6 +20436,68 @@
 				"States"
 				{
 					"MODIFIER_STATE_CANNOT_MISS"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"ol_spiny_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"MaxLevel"	"3"
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+				"Function"		"ol_spiny_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ol_spiny_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"ol_spiny_attack_land"
+					}
+				}
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"ol_spiny_think"
+					}
+				}	
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"ol_spiny_kill_unit"
+					}
+				}	
+			}
+			"modifier_disable_player"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/sea_fortress/immunity_shield.vpcf"
+				"EffectAttachType" "attach_hitloc"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}

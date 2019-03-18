@@ -1,5 +1,5 @@
 require('heroes/slark/constants')
-
+require('heroes/slark/jump')
 function prone_start(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -29,7 +29,12 @@ function prone_start(event)
 			animDur = animDur*SLIPFINN_GLYPH_4_1_POUND_DELAY_MULT
 			animRate = animRate/SLIPFINN_GLYPH_4_1_POUND_DELAY_MULT
 		end
-		StartAnimation(caster, {duration=animDur, activity=ACT_DOTA_SLARK_POUNCE, rate=animRate})
+		if caster:HasModifier("modifier_slipfinn_bog_roller") then
+			StartAnimation(caster, {duration=animDur, activity=ACT_DOTA_OVERRIDE_ABILITY_2, rate=animRate})
+
+		else
+			StartAnimation(caster, {duration=animDur, activity=ACT_DOTA_SLARK_POUNCE, rate=animRate})
+		end
 
 		local q_2_level = caster:GetRuneValue("q", 2)
 		if q_2_level > 0 then
@@ -54,7 +59,24 @@ function prone_start(event)
 		end)
 	else
 		if not caster:HasModifier("modifier_slipfinn_prone") then
-			if caster:FindAbilityByName("slipfinn_shadow_rush"):IsInAbilityPhase() or caster:IsChanneling() then
+			if caster:HasModifier("modifier_slipfinn_bog_roller") then
+				local e_1_level = caster:GetRuneValue("e", 1)
+				local bog_ability = caster:FindAbilityByName("slipfinn_bog_roller")
+				bog_ability.e_1_level = e_1_level
+				if e_1_level > 0 then
+					local stacks = 60 + e_1_level*2
+					
+					bog_ability.decay = stacks/(2/0.03)
+					bog_ability:ApplyDataDrivenModifier(caster, caster, "modifier_bog_roller_speedburst", {duration = 2})
+					bog_ability:ApplyDataDrivenModifier(caster, caster, "modifier_bog_roller_razor", {duration = 2})
+					caster:SetModifierStackCount("modifier_bog_roller_speedburst", caster, stacks)
+					local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/bog_razor.vpcf", caster, 2)
+					ParticleManager:SetParticleControl(pfx, 5, Vector(300, 300, 300))
+					StartSoundEvent("Slipfinn.BogRoller.RazorLP", caster)
+				end
+			end
+			local shadow_rush_phase = caster:HasAbility("slipfinn_shadow_rush") and caster:FindAbilityByName("slipfinn_shadow_rush"):IsInAbilityPhase()
+			if shadow_rush_phase or caster:IsChanneling() then
 			else
 				local order =
 				{
@@ -67,7 +89,9 @@ function prone_start(event)
 			end
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_prone", {duration = duration})
 			EmitSoundOn("Slipfinn.Prone", caster)
-			CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_shadow_rush", "slipfinn_shadow_warp", 2)
+			if caster:HasAbility("slipfinn_shadow_rush") then
+				CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_shadow_rush", "slipfinn_shadow_warp", 2)
+			end
 			print("APPLY PRONE")
 			local q_2_level = caster:GetRuneValue("q", 2)
 			if q_2_level > 0 then
@@ -88,6 +112,10 @@ function buttstomp_think(event)
 		if caster:GetAbsOrigin().z <= GetGroundHeight(caster:GetAbsOrigin(), caster)+math.abs(caster.fallSpeed) then
 			caster:RemoveModifierByName("modifier_slipfinn_buttstomp")
 			stomp(caster, ability, event.damage)
+			if caster:HasModifier("slipfinn_bog_roller_lua") then
+				local e_4_radius = ability.height*2 + 20
+				bog_roller_e_4_explosion(caster, e_4_radius)
+			end
 		elseif ability.stompSound then
 			if caster:GetAbsOrigin().z <= GetGroundHeight(caster:GetAbsOrigin(), caster)+math.abs(caster.fallSpeed*4) then
 				EmitSoundOn("Slipfinn.Watersmash"..ability.magnitude, caster)
@@ -141,7 +169,9 @@ end
 function prone_end(event)
 	local caster = event.caster
 	local ability = event.ability
-	CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_shadow_warp", "slipfinn_shadow_rush", 2)
+	if caster:HasAbility("slipfinn_shadow_warp") then
+		CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_shadow_warp", "slipfinn_shadow_rush", 2)
+	end
 	if caster:HasModifier("modifier_shimmer_cape") then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shimmer_cape", {duration = 4})
 	end

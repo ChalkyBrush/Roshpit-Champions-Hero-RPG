@@ -1995,6 +1995,45 @@ function RPCItems:RollJexArcana1(deathLocation)
     return item
 end
 
+function RPCItems:RollSlipfinnArcana1(deathLocation)
+    local item = RPCItems:CreateVariantArcana("item_rpc_slipfinn_arcana1", "arcana", "Slipfinn Arcana 1", "feet", true, "Slot: Feet", "npc_dota_hero_slark", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.property1 = 1
+    item.property1name = "!arcana!_slipfinn_arcana1"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_slipfinn_arcana1", "#395C93",  1, "#property_slipfinn_arcana1_description")
+
+
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.property2name = "rune_e_1"
+        item.property2 = math.ceil(value*1.1)
+    elseif luck <= 70 then
+        item.property2name = "rune_e_2"
+        item.property2 = math.ceil(value*1.1)       
+    elseif luck <= 90 then
+        item.property2name = "rune_e_3"
+        item.property2 = math.ceil(value*1) 
+    else
+        item.property2name = "rune_e_4"
+        item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+
+
+    local value, prefixLevel = RPCItems:RollAttribute(100, 10, 55, 0, 0, item.rarity, false, maxFactor*27)
+    item.property3 = value
+    item.property3name = "agility"
+    RPCItems:SetPropertyValues(item, item.property3, "#item_agility", "#2EB82E",  3)
+
+    RPCItems:RollFootProperty4(item, 0)
+
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
+    return item
+end
+
 function RPCItems:PreacheArcanaResources(item)
     Timers:CreateTimer(0.05, function()
         PrecacheItemByNameAsync(item:GetAbilityName(), function(...) end)
@@ -2075,6 +2114,8 @@ function RPCItems:GetAvailableArcanaData(hero)
         table.insert(arcanaData, {2, 3}) 
     elseif unitName == "npc_dota_hero_monkey_king" then
         table.insert(arcanaData, {1, 3})
+    elseif unitName == "npc_dota_hero_slark" then
+        table.insert(arcanaData, {1, 2})
     elseif unitName == "npc_dota_hero_skywrath_mage" then
         table.insert(arcanaData, {1, 1})
     elseif unitName == "npc_dota_hero_winter_wyvern" then
@@ -2099,7 +2140,7 @@ function RPCItems:GetAllArcanaNames()
     "item_rpc_spirit_warrior_arcana1", "item_rpc_spirit_warrior_arcana2", "item_rpc_spirit_warrior_arcana3", "item_rpc_mountain_protector_arcana1", "item_rpc_mountain_protector_arcana2", "item_rpc_mountain_protector_arcana3",
     "item_rpc_chernobog_arcana1", "item_rpc_chernobog_arcana2", "item_rpc_solunia_arcana1", "item_rpc_solunia_arcana2", "item_rpc_hydroxis_arcana1", "item_rpc_ekkan_arcana1", "item_rpc_zonik_arcana1",
     "item_rpc_zonik_arcana2", "item_rpc_arkimus_arcana1", "item_rpc_arkimus_arcana2", "item_rpc_djanghor_arcana1", "item_rpc_hydroxis_arcana2", "item_rpc_voltex_arcana2", "item_rpc_duskbringer_arcana1", "item_rpc_auriun_arcana1", "item_rpc_auriun_arcana2",
-    "item_rpc_dinath_arcana1", "item_rpc_conjuror_arcana2", "item_rpc_conjuror_arcana3", "item_rpc_conjuror_arcana4", "item_rpc_axe_arcana2", "item_rpc_jex_arcana1"}
+    "item_rpc_dinath_arcana1", "item_rpc_conjuror_arcana2", "item_rpc_conjuror_arcana3", "item_rpc_conjuror_arcana4", "item_rpc_axe_arcana2", "item_rpc_jex_arcana1", "item_rpc_slipfinn_arcana1"}
     return arcanaTable
 end
 
@@ -2205,6 +2246,8 @@ function RPCItems:RollArcanaByName(arcana_name, position)
         arcana = RPCItems:RollAxeArcana2(position)
     elseif arcana_name == "item_rpc_jex_arcana1" then
         arcana = RPCItems:RollJexArcana1(position)
+    elseif arcana_name == "item_rpc_slipfinn_arcana1" then
+        arcana = RPCItems:RollSlipfinnArcana1(position)
     end
     return arcana
 end
