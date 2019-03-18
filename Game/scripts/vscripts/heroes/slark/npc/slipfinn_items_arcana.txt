@@ -21,10 +21,14 @@
 		"ItemKillable" "0"
 		"precache"
 		{
-			"particle"	"particles/roshpit/slipfinn/slipfinn_arcana_mist.vpcf"
-			"particle"	"particles/roshpit/slipfinn/slipfinn_mist_debuff.vpcf"
 			"particle"	"particles/econ/courier/courier_kunkka_parrot/courier_kunkka_parrot_splash.vpcf"
-			"particle"	"particles/roshpit/slipfinn/arcana_spin_blade.vpcf"
+			"particle"	"particles/roshpit/slipfinn/bog_mystic_dagger.vpcf"
+			"particle"	"particles/roshpit/slipfinn/bog_e_4_explosion.vpcf"
+			"particle"	"particles/roshpit/slipfinn/bog_roller_effect.vpcf"
+			"particle"	"particles/status_fx/status_effect_morphling.vpcf" 
+			"particle"	"particles/roshpit/slipfinn/bog_razor.vpcf"
+			"particle"	"particles/roshpit/hydroxis/hydroxis_a_d_amp.vpcf"
+			"model"		"models/heroes/pangolier/pangolier_gyroshell2_rubick.vmdl"
 		}
 		"OnSpellStart"
 		{

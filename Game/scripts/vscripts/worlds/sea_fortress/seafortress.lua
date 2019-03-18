@@ -17,7 +17,7 @@ function Seafortress:Debug()
     local position = Vector(844, -15488)
     RPCItems:DropItem(item, Vector(844, -15488))
     AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(4800, -2176), 800, 300, false)
-
+    Seafortress:SpawnOlSpiny(Vector(844, -15488), Vector(0,-1))
     RPCItems:RollZhonikArcana2(Vector(844, -15488))
    -- local unit = Seafortress:SpawnCephapolos(Vector(844, -15488), Vector(1,0))
    -- unit:AddAbility("paragon_abilities"):SetLevel(1)
@@ -170,7 +170,20 @@ function Seafortress:Init()
     ParticleManager:SetParticleControl(Seafortress.switchPFX, 1, Vector(190, 190, 190))
   end)
   Seafortress.TempleEnergyState = -1
+  Seafortress:OlSpiny()
+end
 
+function Seafortress:OlSpiny()
+  local max_roll = 18 - GameState:GetPlayerPremiumStatusCount()*2
+  local luck = RandomInt(1, max_roll)
+  if luck == 1 then
+    PrecacheUnitByNameAsync("seafortress_ol_spiny", function(...) end)
+    local random_delay = RandomInt(45, 360)
+    Timers:CreateTimer(random_delay, function()
+      local random_position = Vector(RandomInt(-14000, 14000), RandomInt(-14000, 14000))
+      Seafortress:SpawnOlSpiny(random_position, RandomVector(1))
+    end)
+  end
 end
 
 function Seafortress:LeftWingKill()
@@ -4610,5 +4623,24 @@ function Seafortress:SpawnPaladinGolem(position, fv)
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:SetRenderColor(0, 0, 0)
   Seafortress:SetPositionCastArgs(queen, 1800, 0, 1, FIND_ANY_ORDER)
+  return queen
+end
+
+function Seafortress:SpawnOlSpiny(position, fv)
+  local queen = Seafortress:SpawnDungeonUnit("seafortress_ol_spiny", position, 7,8, "Seafortress.OlSpiny.Aggro", fv, false)
+  queen.reduc = 0.000002
+  queen.isBossFFS = true
+  Events:AdjustBossPower(queen, 8, 8, false)
+  Events:ColorWearablesAndBase(queen, Vector(30, 70, 255))
+  queen:SetModelScale(0.03)
+  Events:smoothSizeChange(queen, 0.03, 2.4, 90)
+  EmitSoundOn("Seafortress.OlSpiny.Spawn.FX", queen)
+  StartAnimation(queen, {duration=4.6, activity=ACT_DOTA_TELEPORT, rate=1.0})
+  Timers:CreateTimer(1.4, function()
+    EmitSoundOn("Seafortress.OlSpiny.Spawn.VO", queen)
+  end)
+  local ability = queen:FindAbilityByName("ol_spiny_passive")
+  ability:ApplyDataDrivenModifier(queen, queen, "modifier_disable_player", {duration = 4.5})
+  CustomAbilities:QuickAttachParticle("particles/dark_smoke_test.vpcf", queen, 6)
   return queen
 end

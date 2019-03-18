@@ -6279,3 +6279,104 @@ function dark_paladin_die(event)
 		RPCItems:RollPaladinArcana2(caster:GetAbsOrigin())
 	end
 end
+
+function ol_spiny_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*3
+	for i = 1, 3, 1 do
+		Timers:CreateTimer(i*0.03, function()
+			CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/shadow_shank.vpcf", target, 0.4)
+			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+			CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/bog_mystic_dagger.vpcf", target, 2)
+			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+		end)
+	end	
+end
+
+function ol_spiny_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local spine = caster:FindAbilityByName("furbolg_blade_mail")
+	if caster:HasModifier("modifier_disable_player") then
+		return false
+	end
+	if spine:IsFullyCastable() then		
+		local order =
+		{
+			UnitIndex = caster:entindex(),
+			OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+			AbilityIndex = spine:entindex(),
+		}
+		ExecuteOrderFromTable(order)
+		return false
+	end
+	local luck = RandomInt(1, 10)
+	if luck == 1 then
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1050, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			local jump_ability = caster:FindAbilityByName("slipfinn_jump")
+			if jump_ability:IsFullyCastable() then		
+				local order =
+				{
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+					AbilityIndex = jump_ability:entindex(),
+				}
+				ExecuteOrderFromTable(order)
+				return false
+			end
+		end
+	end
+end
+
+function ol_spiny_kill_unit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local unit = event.unit
+	if unit:IsRealHero() then
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 500, 10, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {})
+		CustomAbilities:QuickAttachParticle("particles/dark_smoke_test.vpcf", caster, 6)
+		Timers:CreateTimer(1, function()
+			Events:smoothSizeChange(caster, 2.4, 0.03, 90)
+			EmitSoundOn("Seafortress.OlSpiny.Spawn.FX", caster)
+			StartAnimation(caster, {duration=3, activity=ACT_DOTA_TELEPORT, rate=1.0})
+			Timers:CreateTimer(1.4, function()
+				EmitSoundOn("Seafortress.OlSpiny.Spawn.VO", caster)
+			end)
+			Timers:CreateTimer(3, function()
+				local pfx = ParticleManager:CreateParticle( "particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
+				ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+				ParticleManager:SetParticleControl(pfx, 5, Vector(0.2, 0.5, 0.9))
+				ParticleManager:SetParticleControl(pfx, 2, Vector(0.2,0.2,0.2))
+				Timers:CreateTimer(10, function() 
+				  ParticleManager:DestroyParticle( pfx, false )
+				  ParticleManager:ReleaseParticleIndex(pfx)
+				end)
+				ScreenShake(caster:GetAbsOrigin(), 300, 0.5, 0.5, 9000, 0, true)
+				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Seafortress.SmallCrash", Events.GameMaster)
+				EmitSoundOn("Seafortress.OlSpiny.Spawn.FX", caster)
+				UTIL_Remove(caster)
+			end)
+		end)
+	end
+end
+
+function ol_spiny_die(event)
+	local caster = event.caster
+	RPCItems:RollSlipfinnArcana1(caster:GetAbsOrigin())
+	Events:smoothSizeChange(caster, 2.4, 0.03, 90)
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_slark/slark_shadow_dance.vpcf", caster, 5)
+	EmitSoundOn("Seafortress.OlSpiny.Death", caster)
+	EmitSoundOn("Seafortress.OlSpiny.Spawn.FX", caster)
+	local pfx = ParticleManager:CreateParticle( "particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 5, Vector(0.2, 0.5, 0.9))
+	ParticleManager:SetParticleControl(pfx, 2, Vector(0.2,0.2,0.2))
+	Timers:CreateTimer(10, function() 
+	  ParticleManager:DestroyParticle( pfx, false )
+	  ParticleManager:ReleaseParticleIndex(pfx)
+	end)
+end

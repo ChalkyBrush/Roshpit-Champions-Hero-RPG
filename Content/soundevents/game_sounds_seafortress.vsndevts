@@ -10303,3 +10303,131 @@
         }
     }
 }
+
+"Seafortress.OlSpiny.Spawn.VO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/slark/slark_laugh_06.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.921000"  }
+                    "pitch_rand_min"    {   "value"     "-0.01000"  }
+                    "pitch_rand_max"    {   "value"     "0.010000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "95.00000" }
+                    "distance_max"      {   "value"     "3700.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Seafortress.OlSpiny.Spawn.FX"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/riki/riki_smokescreen.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.921000"  }
+                    "pitch_rand_min"    {   "value"     "-0.01000"  }
+                    "pitch_rand_max"    {   "value"     "0.010000"  }
+                    "pitch"             {   "value"     "0.80000"  }
+                    "soundlevel"        {   "value"     "95.00000" }
+                    "distance_max"      {   "value"     "3700.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Seafortress.OlSpiny.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/slark/slark_respawn_06.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.521000"  }
+                    "pitch_rand_min"    {   "value"     "-0.01000"  }
+                    "pitch_rand_max"    {   "value"     "0.010000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "95.00000" }
+                    "distance_max"      {   "value"     "3700.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Seafortress.OlSpiny.Death"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/slark/slark_death_07.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.821000"  }
+                    "pitch_rand_min"    {   "value"     "-0.01000"  }
+                    "pitch_rand_max"    {   "value"     "0.010000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "95.00000" }
+                    "distance_max"      {   "value"     "3700.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
