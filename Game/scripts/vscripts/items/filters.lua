@@ -279,7 +279,7 @@ function Filters:PerformAttackSpecial(caster, target, b1, b2, b3, b4, b5, b6, b7
 end
 
 function Filters:MagicImmuneBreak(attacker, target)
-    local magic_immunity_buffs = {"modifier_hope_of_saytaru_effect", "modifier_monk_ulti_gorudo", "modifier_black_widow", "modifier_warlord_stone_form", "modifier_gilded_soul_immunity", "modifier_auriun_immortal_weapon_3_effect", "modifier_black_King_bar_immunity", "modifier_jex_magic_immunity"}
+    local magic_immunity_buffs = {"modifier_hope_of_saytaru_effect", "modifier_monk_ulti_gorudo", "modifier_black_widow", "modifier_warlord_stone_form", "modifier_gilded_soul_immunity", "modifier_auriun_immortal_weapon_3_effect", "modifier_black_King_bar_immunity", "modifier_jex_magic_immunity", "modifier_magic_immune_breakable_ability"}
     local immuneBreak = false
     for i = 1, #magic_immunity_buffs, 1 do
         if target:HasModifier(magic_immunity_buffs[i]) then
