@@ -14835,6 +14835,8 @@
 		"seafortress_ocean_diviner"							"Ocean Diviner"
 		"seafortress_squidcicle"							"Riparian Squid"
 		"seafortress_final_boss"							"Val'dun, Lord of the Sea"
+		
+		"seafortress_ol_spiny"								"Ol' Spiny"
 
 		"DOTA_Tooltip_modifier_sea_fortress_ai"				"Sea Fortress"
 		"DOTA_Tooltip_modifier_sea_fortress_ai_Description"	"Magic and Pure damage dealt increased by 300%%. Damage taken reduced by 99.5%%"
