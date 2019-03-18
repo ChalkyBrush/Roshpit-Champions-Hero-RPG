@@ -171,7 +171,7 @@
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix_two"               "% of attack power"
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1"                          "[E3] Adamantium Shell"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_Description"              "Gain bonus armor and post-mitigation magic damage while in Bog Roller."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_Description"              "Gain bonus armor and Post-Mitigation Magic damage while in Bog Roller."
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_one"             "Armor Bonus"
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix"                   ""
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_two"             "Post-Mitigation Magic Damage"
@@ -180,7 +180,7 @@
         "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1"                          "[E4] Bayou Blister"
         "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_Description"              "Landing on the ground after jumping while in Bog Roller creates an area that stuns and deals damage based on attack power. The radius scales with the distance fallen, and is enhanced further when using a prone smash from the air."
         "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_property_one"             "Stun Duration"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_suffix"                   ""
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_suffix"                   " s"
         "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_property_two"             "Damage"
         "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_suffix_two"                   "% of attack power"
 		
