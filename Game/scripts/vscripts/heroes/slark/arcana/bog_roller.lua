@@ -221,7 +221,7 @@ function bog_roller_passive_attack_land(event)
 			ability.particle_count = ability.particle_count + 1
 			CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/bog_mystic_dagger.vpcf", target, 2)
 		end
-		local e_2_damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(SLIPFINN_E2_WATER_DAMAGE_ATK_POWER_PCT/100)
+		local e_2_damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(SLIPFINN_E2_WATER_DAMAGE_ATK_POWER_PCT/100)*e_2_level
 		Filters:TakeArgumentsAndApplyDamage(target, caster, e_2_damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 	end
 	Timers:CreateTimer(1, function()
