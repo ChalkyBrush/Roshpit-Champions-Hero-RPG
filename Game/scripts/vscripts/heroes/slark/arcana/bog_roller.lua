@@ -144,8 +144,16 @@ function bog_roller_think(event)
 		ability.interval = 0
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 		if #enemies > 0 then
-			Filters:PerformAttackSpecial(caster, enemies[1], true, true, true, false, true, false, false)
-			CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/shadow_shank.vpcf", enemies[1], 0.4)
+			local target = enemies[1]
+			if target:HasModifier("slipfinn_possessed_lua") and #enemies == 1 then
+				target = false
+			elseif target:HasModifier("slipfinn_possessed_lua") and #enemies > 1 then
+				target = enemies[2]
+			end
+			if target then
+				Filters:PerformAttackSpecial(caster, target, true, true, true, false, true, false, false)
+				CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/shadow_shank.vpcf", target, 0.4)
+			end
 		end 
 	end
 end

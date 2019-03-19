@@ -783,6 +783,9 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			return item
 		elseif string.match(gearTable.item_variant, "item_serengaard_hyperstone") then
 			local item = RPCItems:RollHyperstone(gearTable.property1)
+			item.pickedUp = true
+			item.stashable = true
+			item.consumable = true
 			return item
 		end
 	end
