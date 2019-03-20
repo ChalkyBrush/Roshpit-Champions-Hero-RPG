@@ -16,8 +16,6 @@ function lightning_attack_start(event)
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_1_1_effect", {duration = buffDuration})
     end
     if caster:HasModifier("modifier_voltex_glyph_2_1") then
-        caster:RemoveModifierByName("modifier_voltex_glyph_2_1_effect_invisible")
-        caster:RemoveModifierByName("modifier_voltex_glyph_2_1_effect_visible")
         local ability = event.ability
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_2_1_effect_visible", {duration = buffDuration})
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_2_1_effect_invisible", {duration = buffDuration})
