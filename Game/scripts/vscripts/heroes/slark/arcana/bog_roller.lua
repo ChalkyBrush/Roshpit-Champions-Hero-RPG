@@ -152,7 +152,6 @@ function bog_roller_think(event)
 			end
 			if target then
 				Filters:PerformAttackSpecial(caster, target, true, true, true, false, true, false, false)
-				CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/shadow_shank.vpcf", target, 0.4)
 			end
 		end 
 	end
