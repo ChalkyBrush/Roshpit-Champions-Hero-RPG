@@ -563,8 +563,8 @@
 	"tutorial_master_dialogue_5_3f"										"就在那儿！现在打败它，收集赏金!"
 	"tutorial_master_dialogue_5_3g"										"他挂了！现在收集那些紫色晶体！这一课就结束了。"
 
-	"quest_5_reward_title"												"领取100,000 秘银水晶"       
-	"quest_5_reward_description"										"获得 100,000 秘银水晶! 一笔巨款哦."
+	"quest_5_reward_title"												"领取125,000 秘银水晶"       
+	"quest_5_reward_description"										"获得 125,000 秘银水晶! 一笔巨款哦."
 
 	"quest_6_interface"													"6. 外部资源"
 	"quest_6_interface_description"										"本教程将介绍肉山谷官方市场网站www.roshpit.ca的主要特点."
