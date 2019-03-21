@@ -8429,7 +8429,53 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_r_4_suffix"								"% 敌人的攻击力"
 		
 		//Arcanas
-		
+        "DOTA_Tooltip_ability_item_rpc_slipfinn_arcana1"                                "漩流剃刀靴"
+
+        "item_property_slipfinn_arcana1"                                      "泥沼滚滚"
+        "property_slipfinn_arcana1_description"                               "将 @Ability3 和他的所有符文替换为泥沼滚滚。"
+
+        "DOTA_Tooltip_ability_slipfinn_bog_roller"                       "泥沼滚滚"
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_Description"           "元素： <font color=\"#7F4F84\">暗</font><br>黑礁守卫卷成一个具有坚硬的外壳的球体，这个球体能够穿过危险的地形并且提供技能免疫。在球体中时，黑礁守卫将无情的向前滚动并且每0.06秒攻击周围最近的敌人。<br>泥沼滚滚同时也会被动的使你的普通攻击附加一次<font color=\"#7F4F84\">暗</font>伤害，并且使你的普通攻击能够降低敌人的护甲。切换至泥沼滚滚或切换至常态可以躲避弹道。"
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_armor_break_percent"      " 护甲降低% :"
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_shadow_damage_on_attack"  " %攻击力造成的 <font color=\"#7F4F84\">暗</font> 伤害："
+
+        "DOTA_Tooltip_modifier_slipfinn_bog_roller"                     "泥沼滚滚"
+        "DOTA_Tooltip_modifier_slipfinn_bog_roller_Description"         "向前冲鸭"
+
+        "DOTA_Tooltip_modifier_slipfinn_bog_roller_armor_break"         "泥沼破坏"
+        "DOTA_Tooltip_modifier_slipfinn_bog_roller_armor_break_Description" "护甲被降低"
+
+
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1"                      "[E1] 旋转剃刀"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "在泥沼滚滚中使用质化会获得一个2秒持续时间的速度加成buff，这个速度加成效果随时间递减。此外也会在周围产生一个水流旋风，对周围的敌人造成基于黑礁守卫攻击力的伤害。"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_one"         "伤害"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix"               "% 攻击力造成的伤害"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "速度加成"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              ""
+
+        "DOTA_Tooltip_modifier_bog_roller_razor"                            "旋转剃刀"
+        "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "获得加速效果并且对周围敌人造成伤害" 
+
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1"                          "[E2] 海光剃刀"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_Description"              "在泥沼滚滚中时会获得额外攻击力加成。你的所有攻击将会额外造成一次魔法 <font color=\"#3894FF\">水</font> 伤害。"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_one"             "攻击力加成"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix"                   "%"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_two"             "魔法 <font color=\"#3894FF\">水</font> 伤害"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix_two"               "% 攻击力造成的伤害"
+
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1"                          "[E3] 金刚之壳"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_Description"              "在泥沼滚滚中时将会获得额外的护甲和税后魔法伤害加成G。"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_one"             "护甲加成"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix"                   ""
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_two"             "税后魔法伤害加成"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix_two"               "%"
+
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1"                          "[E4] 渊流气泡"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_Description"              "在泥沼滚滚中跳起之后落地的瞬间在周围区域产生一个巨大的震荡，对敌人造成基于攻击力的伤害和眩晕。产生的范围与跳起的高度有关，并且在空中使用质化会进一步加强效果。"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_property_one"             "眩晕持续时间"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_suffix"                   ""
+        "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_property_two"             "伤害"
+"DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_suffix_two" "% 攻击力造成的伤害"
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_1_1"		"滑行雕文"
@@ -11366,7 +11412,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"						"橡胶靴"
 		"item_property_resplendent_rubber"					"接地"
-		"property_resplendent_rubber_description"			"减少受到的所有魔法伤害35%。（计算在魔抗之后）"
+		"property_resplendent_rubber_description"			"减少受到的所有伤害75%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_old_wisdom"								"古老智慧之鞋"
@@ -17298,8 +17344,8 @@
 	"tutorial_master_dialogue_5_3f"										"就在那儿！现在打败它，收集赏金!"
 	"tutorial_master_dialogue_5_3g"										"他挂了！现在收集那些紫色晶体！这一课就结束了。"
 
-	"quest_5_reward_title"												"领取100,000 秘银水晶"       
-	"quest_5_reward_description"										"获得 100,000 秘银水晶! 一笔巨款哦."
+	"quest_5_reward_title"												"领取125,000 秘银水晶"       
+	"quest_5_reward_description"										"获得 125,000 秘银水晶! 一笔巨款哦."
 
 	"quest_6_interface"													"6. 外部资源"
 	"quest_6_interface_description"										"本教程将介绍肉山谷官方市场网站www.roshpit.ca的主要特点."

@@ -654,7 +654,7 @@ end
 
 function TemplePushOnTouch(trigger)
 	local hero = trigger.activator
-	FindClearSpaceForUnit(hero, Vector(-10944, 6042), false)
+	FindClearSpaceForUnit(hero, hero:GetAbsOrigin()-Vector(0,100,0), false)
 end
 
 function PlatformRoomSwitch(trigger)
