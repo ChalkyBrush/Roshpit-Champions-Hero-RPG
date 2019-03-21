@@ -8004,7 +8004,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"2"
+				"property_two"		"25"
 			}
 			"03"
 			{
@@ -8074,7 +8074,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"4"
+				"property_two"		"40"
 			}
 			"03"
 			{
