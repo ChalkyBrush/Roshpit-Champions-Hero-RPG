@@ -65,7 +65,7 @@
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity_Description"			"Слот: Наручи"
 		"item_property_divine_purity"				"Divine Purity"
-		"property_divine_purity_description"		"Базовые атаки дополнительно наносят 100% чистого урона"
+		"property_divine_purity_description"		"Базовые атаки дополнительно наносят x15 Чистого урона"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"Marauder Gloves"
@@ -78,7 +78,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hand_of_midas"									"Hand of Midas"
 		"item_property_hand_of_midas"				"Midas Touch"
-		"property_hand_of_midas_description"		"С 5% шансом при базовой атаке герой нанесет @special_property1x ЧИСТЫЙ урон по области тем самым превратит всех задетых врагов в золото - заморозит на 2 секунды. Максимум 1 заморозка за 5 секунд."
+		"property_hand_of_midas_description"		"С 20% шансом при базовой атаке герой нанесет @special_property1x Чистый урон по области, превращая задетых врагов в золото и замораживая их на 2 секунды. Максимум 1 заморозка за 5 секунд."
 		
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"
