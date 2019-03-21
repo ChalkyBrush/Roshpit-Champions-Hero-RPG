@@ -2014,7 +2014,7 @@ function GameState:FilterDamage(filterTable)
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		local inflictor = filterTable["entindex_inflictor_const"]
 		if attacker:HasModifier("modifier_volcano_orb") then
-			mult = mult+0.5
+			mult = mult+1.5
 			print("INCREASE MAGIC DAMAGE")
 		end
 		if attacker:HasModifier("modifier_alarana_ice_freeze") then

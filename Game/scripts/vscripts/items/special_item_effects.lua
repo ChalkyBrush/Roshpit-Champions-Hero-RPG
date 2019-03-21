@@ -107,11 +107,11 @@ function midas_attack_land(event)
 	local runeUnit = event.caster
 	local target = event.target
 	local ability = event.ability
-	local proc = Filters:GetProc(caster, 5)
+	local proc = Filters:GetProc(caster, 20)
 	if proc then
 		local position = target:GetAbsOrigin()
 		local radius = 340
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*7
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*50
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
@@ -2862,7 +2862,7 @@ end
 function purity_attack(event)
 	local target = event.target
 	local attacker = event.attacker
-	local damage = event.attack_damage
+	local damage = event.attack_damage*15
 	if target.dummy then
 		return false
 	end
