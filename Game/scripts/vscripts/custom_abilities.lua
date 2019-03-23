@@ -854,9 +854,162 @@ function CustomAbilities:HitJexOrbitalFlame(victim, attacker)
 end
 
 function CustomAbilities:UnitsSpecial(msg)
+	DeepPrintTable(msg)
 	if msg.onibi then
 		require('heroes/arc_warden/abilities/onibi')
 		upgrade_onibi_ability(msg)
+	elseif msg.special_type then
+		if msg.special_type == "dialogue" then
+			CustomAbilities:ClickOpenDialogue(msg)
+		end
 	end
 end
 
+function CustomAbilities:ClickOpenDialogue(msg)
+	if msg.unit_name == "the_oracle" then
+		local distance_cap = 700
+		local playerID = msg.PlayerID
+		local player = PlayerResource:GetPlayer(playerID)
+		if player then
+			local hero = GameState:GetHeroByPlayerID(playerID)
+			local queryUnit = EntIndexToHScript(msg.queryUnit)
+			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
+			if distance <= distance_cap then
+				CustomGameEventManager:Send_ServerToPlayer(player, "open_oracle", {player=playerID, loadEnabled = hero.loadEnabled} )
+			else
+				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
+				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
+			end
+		end
+	elseif msg.unit_name == "the_glyph_enchanter" then
+		local distance_cap = 700
+		local playerID = msg.PlayerID
+		local player = PlayerResource:GetPlayer(playerID)
+		if player then
+			local hero = GameState:GetHeroByPlayerID(playerID)
+			local queryUnit = EntIndexToHScript(msg.queryUnit)
+			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
+			if distance <= distance_cap then
+				Glyphs:OpenGlyphShop(playerID)
+			else
+				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
+				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
+			end
+		end
+	elseif msg.unit_name == "the_blacksmith" then
+		local distance_cap = 700
+		local playerID = msg.PlayerID
+		local player = PlayerResource:GetPlayer(playerID)
+		if player then
+			local hero = GameState:GetHeroByPlayerID(playerID)
+			local queryUnit = EntIndexToHScript(msg.queryUnit)
+			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
+			if distance <= distance_cap then
+				Challenges:OpenBlacksmith(playerID)
+			else
+				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
+				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
+			end
+		end
+	elseif msg.unit_name == "tanari_witch_doctor" then
+		local distance_cap = 700
+		local playerID = msg.PlayerID
+		local player = PlayerResource:GetPlayer(playerID)
+		if player then
+			local hero = GameState:GetHeroByPlayerID(playerID)
+			local queryUnit = EntIndexToHScript(msg.queryUnit)
+			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
+			if queryUnit:HasModifier("modifier_tanari_combining_elements") then
+				return false
+			end
+			if distance <= distance_cap then
+				CustomGameEventManager:Send_ServerToPlayer(player, "open_witch_doctor", {player=playerId} )
+			else
+				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
+				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
+			end
+		end
+	elseif msg.unit_name == "supplies_dealer" then
+		local distance_cap = 700
+		local playerID = msg.PlayerID
+		local player = PlayerResource:GetPlayer(playerID)
+		if player then
+			local hero = GameState:GetHeroByPlayerID(playerID)
+			local queryUnit = EntIndexToHScript(msg.queryUnit)
+			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
+			if distance <= distance_cap then
+				EmitSoundOn("NPC.SuppliesDealerGreeting", queryUnit)
+				CustomGameEventManager:Send_ServerToPlayer(player, "supplies_dealer", {player=playerID} )
+			else
+				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
+				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
+			end
+		end
+	elseif msg.unit_name == "the_curator" then
+		local distance_cap = 700
+		local playerID = msg.PlayerID
+		local player = PlayerResource:GetPlayer(playerID)
+		if player then
+			local hero = GameState:GetHeroByPlayerID(playerID)
+			local queryUnit = EntIndexToHScript(msg.queryUnit)
+			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
+			if distance <= distance_cap then
+				CustomGameEventManager:Send_ServerToPlayer(player, "open_curator", {player=playerID} )
+				Events:TutorialServerEvent(hero, "6_2", 1)
+			else
+				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
+				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
+			end
+		end
+	elseif msg.unit_name == "arena_training_dummy" then
+		local playerID = msg.PlayerID
+		local player = PlayerResource:GetPlayer(playerID)
+		if player then
+			local bInit = true
+			local hero = GameState:GetHeroByPlayerID(playerID)
+			local queryUnit = EntIndexToHScript(msg.queryUnit)
+			if GameState:IsTutorial() then
+				if not hero.dummy_lines_added then
+					hero.dummy_lines_added = 0
+				end
+				hero.dummy_lines_added = hero.dummy_lines_added + 1
+				if hero.dummy_lines_added == 8 then
+					Events:TutorialServerEvent(hero, "4_5", 1)
+				end
+				if caster:HasModifier("modifier_steadfast") then
+					if hero:HasModifier("challen_postmit_buff") then
+						Events:TutorialServerEvent(hero, "4_6", 1)
+					else
+						Events:TutorialServerEvent(hero, "4_6", 0)
+					end
+				end
+			end
+
+			local caster = queryUnit
+			local attacker = hero
+			if attacker:HasModifier("modifier_attacking_dummy") then
+				if caster.attackerIndex == attacker:GetEntityIndex() then
+				else
+					return false
+				end
+			else
+				if bInit then
+					local ability = caster:FindAbilityByName("training_dummy_ability")
+					CustomAbilities:InitTargetDummy(caster, ability, attacker)
+				end
+			end
+
+		end
+	end
+end
+
+function CustomAbilities:InitTargetDummy(caster, ability, attacker)
+	ability.moveMomentum = 0
+	ability.sway = 0
+	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_attacking_dummy", {})
+	caster.attackerIndex = attacker:GetEntityIndex()
+	attacker.targetDummy = caster
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dummy_active", {})
+	CustomGameEventManager:Send_ServerToPlayer(attacker:GetPlayerOwner(), "updateTargetDummy", {})
+	Events:TutorialServerEvent(attacker, "4_5", 0)
+end

@@ -28,16 +28,7 @@ function target_dummy_take_damage(event)
 		return
 	end
 	local attacker = CustomAbilities:getHeroFromUnit(event.attacker)
-	if attacker:HasModifier("modifier_attacking_dummy") then
-		if caster.attackerIndex == attacker:GetEntityIndex() then
-		else
-			return false
-		end
-	else
-		if bInit then
-			initTargetDummy(caster, ability, attacker)
-		end
-	end
+
 	if ability.moveMomentum then
 		ability.moveMomentum = math.min(ability.moveMomentum + 10, 60)
 		ability.sway = ability.sway + ability.moveMomentum

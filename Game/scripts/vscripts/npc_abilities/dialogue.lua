@@ -275,7 +275,7 @@ function blacksmith(caster, units)
 		local player = unit:GetPlayerOwner()
 		if player then
 			local playerId = player:GetPlayerID()	
-			Challenges:OpenBlacksmith(playerId)
+			
 		end
 	end
 end
@@ -378,16 +378,6 @@ function oracle(caster, units)
 		Quests:ShowDialogueText(units, caster, "#dialogue_oracle", time, true)
 		disableSpeech(caster, time, speechSlot)
 	end
-	for _,unit in ipairs(units) do
-		local player = unit:GetPlayerOwner()
-		if player then
-			local playerId = player:GetPlayerID()	
-			local hero = GameState:GetHeroByPlayerID(playerId)
-			print(hero:GetUnitName())
-			print(hero.loadEnabled)
-			CustomGameEventManager:Send_ServerToPlayer(player, "open_oracle", {player=playerId, loadEnabled = hero.loadEnabled} )
-		end
-	end
 end
 
 function curator(caster, units)
@@ -396,15 +386,6 @@ function curator(caster, units)
 	if speechSlot < 4 then
 		Quests:ShowDialogueText(units, caster, "#curator_dialogue_1", time, true)
 		disableSpeech(caster, time, speechSlot)
-	end
-	for _,unit in ipairs(units) do
-		local player = unit:GetPlayerOwner()
-		if player then
-			local playerId = player:GetPlayerID()	
-			local hero = GameState:GetHeroByPlayerID(playerId)
-			CustomGameEventManager:Send_ServerToPlayer(player, "open_curator", {player=playerId} )
-			Events:TutorialServerEvent(hero, "6_2", 1)
-		end
 	end
 end
 
@@ -435,13 +416,6 @@ function glyphShop(caster, units)
 			-- caster:AddSpeechBubble(speechSlot, "#dialogue_glyph_shop_one", time, 0, -25)
 			disableSpeech(caster, time, speechSlot)
 		end
-		for _,unit in ipairs(units) do
-			local player = unit:GetPlayerOwner()
-			if player then
-				local playerId = player:GetPlayerID()	
-				Glyphs:OpenGlyphShop(playerId)
-			end
-		end
 	end
 end
 
@@ -459,16 +433,6 @@ function witch_doctor(caster, units)
 	if caster:HasModifier("modifier_tanari_combining_elements") then
 		return false
 	end
-	for _,unit in ipairs(units) do
-		local player = unit:GetPlayerOwner()
-		if player then
-			local playerId = player:GetPlayerID()	
-			local hero = GameState:GetHeroByPlayerID(playerId)
-			print(hero:GetUnitName())
-			print(hero.loadEnabled)
-			CustomGameEventManager:Send_ServerToPlayer(player, "open_witch_doctor", {player=playerId} )
-		end
-	end
 	
 end
 
@@ -478,16 +442,6 @@ function supplies_dealer(caster, units)
 	if speechSlot < 4 then
 		Quests:ShowDialogueText(units, caster, "#dialogue_supplies_dealer", time, true)
 		disableSpeech(caster, time, speechSlot)
-	end
-	for _,unit in ipairs(units) do
-		local player = unit:GetPlayerOwner()
-		if player then
-			local playerId = player:GetPlayerID()	
-			local hero = GameState:GetHeroByPlayerID(playerId)
-			print(hero:GetUnitName())
-			print(hero.loadEnabled)
-			CustomGameEventManager:Send_ServerToPlayer(player, "supplies_dealer", {player=playerId} )
-		end
 	end
 	-- if #units > 0 then
 	-- 	EmitSoundOn("NPC.SuppliesDealerGreeting", caster)

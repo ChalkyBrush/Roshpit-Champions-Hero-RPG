@@ -63,6 +63,14 @@
 				</Panel>
 			</Panel>
 		</snippet>
+		<snippet name="dialogue_button_container">
+			<Panel class="dialogue_button_container" hittest="false">
+				<Panel id="dialogue_button" class="dialogue_button" hittest="true">
+					<Image id="dialogue_icon" hittest="false" />
+					<Label id="dialogue_button_label" text="Talk"/>
+				</Panel>
+			</Panel>
+		</snippet>
 	</snippets>
 	<Panel class="units_special_container" hittest="false">
 		<Panel id="units_special_attach_point" class="invisible" hittest="false">

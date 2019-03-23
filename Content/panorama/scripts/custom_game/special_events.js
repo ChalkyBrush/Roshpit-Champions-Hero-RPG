@@ -229,7 +229,7 @@ function enter_spirit_realm(){
 
 function enter_equinox(){
 	$('#generic_panel').RemoveClass('invisible');
-	$('#generic_panel').AddClass('red_panel')
+	$('#generic_panel').AddClass('pale_green_panel')
 	$('#generic_panel').AddClass('animateEaseClassSpecial');
 	
 	$.Msg("EASING IN")

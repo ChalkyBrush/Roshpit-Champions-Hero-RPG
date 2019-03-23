@@ -786,6 +786,8 @@
 	    //------------------------
 		// Save/Load
 		//------------------------
+		"basic_open"				"Open"
+
 		"dialogue_oracle"			"Eternity calls out for you."
 		"saveload_loading"			"Loading..."
 		"saveload_save_menu"		"Save Champion"
@@ -11846,7 +11848,7 @@
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity_Description"			"Slot: Hands"
 		"item_property_divine_purity"				"Divine Purity"
-		"property_divine_purity_description"		"Attacks deal an additional 100% pure damage"
+		"property_divine_purity_description"		"Attacks deal an additional x15 Pure damage"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"Marauder Gloves"
@@ -11859,7 +11861,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hand_of_midas"									"Hand of Midas"
 		"item_property_hand_of_midas"				"Midas Touch"
-		"property_hand_of_midas_description"		"5% chance on atack to deal @special_property1x your attack damage as PURE in an area around the target and turn all enemies to solid gold - freezing them for 2 seconds. Max 1 freeze every 5 seconds."
+		"property_hand_of_midas_description"		"20% chance on atack to deal @special_property1x your attack damage as Pure in an 340 radius area around the target and turn all enemies to solid gold, freezing them for 2 seconds. Max 1 freeze every 5 seconds."
 		
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"

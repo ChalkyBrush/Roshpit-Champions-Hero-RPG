@@ -1,6 +1,8 @@
 onibi_panel = null
 onibi_elements = []
 open_ability_panel = false
+mDialogueButton = null
+mDistanceChecker = 0
 
 function get_onibi_active_elements(onibi_data){
 	var elements = []
@@ -41,6 +43,10 @@ function units_special_check(msg){
 	}
 	if (unitName ==	"jex_onibi"){
 		if (!(unit_container.BHasClass("active" ))){
+			if (unit_container.BHasClass("dialogue" ))
+			{
+				unit_container.RemoveAndDeleteChildren(0)
+			}	
 			unit_container.RemoveClass("invisible")
 			unit_container.AddClass("active")
 			var unit_special_panel = $.CreatePanel("Panel", unit_container, "unit_special")
@@ -83,20 +89,98 @@ function units_special_check(msg){
 				set_onibi_element_click(onibi_element.FindChildTraverse('onibi_element_status_bg'), unit_container, i, element_data, elements[i], queryUnit, onibi_data)
 			}
 		}
+	}else if(unitName == "the_oracle" || unitName == "the_glyph_enchanter" || unitName == "the_blacksmith" || unitName == "tanari_witch_doctor" || unitName == "supplies_dealer" || unitName == "the_curator" || unitName == "arena_training_dummy"){
+		dialogue_button(unit_container, unitName)
 	}else{
-		if (unit_container.BHasClass("active" ))
+		if (unit_container.BHasClass("active" ) || unit_container.BHasClass("dialogue" ))
 		{
 			unit_container.RemoveClass("active")
+			unit_container.RemoveClass("dialogue")
 			unit_container.RemoveAndDeleteChildren(0)
 			unit_container.AddClass("invisible")
 		}
 	}
 }
 
+function dialogue_button(unit_container, unitName)
+{
+
+	unit_container.RemoveAndDeleteChildren(0)
+	
+
+	unit_container.RemoveClass("active")
+	unit_container.RemoveClass("invisible")
+	unit_container.AddClass("dialogue")
+	var unit_special_panel = $.CreatePanel("Panel", unit_container, "dialogue_special")
+	unit_special_panel.BLoadLayoutSnippet("dialogue_button_container")
+	unit_special_panel.FindChildTraverse('dialogue_button_label').text = $.Localize("basic_open") + " " + $.Localize(unitName)
+	unit_special_panel.FindChildTraverse('dialogue_icon').SetImage("file://{images}/custom_game/ui/dialogue/"+unitName+".png")
+	var button = unit_special_panel.FindChildTraverse('dialogue_button')
+	mDialogueButton = button;
+	var queryUnit = Players.GetLocalPlayerPortraitUnit();
+	set_dialogue_click(button, unitName, queryUnit);
+
+	mDialogueButton.AddClass("dialogue_button")
+	mDialogueButton.RemoveClass("dialogue_button_grey")
+
+	distance_test(unitName, queryUnit)
+
+}
+
+function distance_test(unitName, queryUnit)
+{
+    var playerID = Game.GetLocalPlayerID()
+    var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
+	if (unitName == "the_oracle" || unitName == "the_glyph_enchanter" || unitName == "the_blacksmith" || unitName == "tanari_witch_doctor" || unitName == "supplies_dealer" || unitName == "the_curator")
+	{
+		var position1 = Entities.GetAbsOrigin( queryUnit )
+		var position2 = Entities.GetAbsOrigin( heroIndex )
+		if (distance_between_two_vectors(position1, position2) > 700){
+			mDialogueButton.RemoveClass("dialogue_button")
+			mDialogueButton.AddClass("dialogue_button_grey")			
+		}else{
+			mDialogueButton.AddClass("dialogue_button")
+			mDialogueButton.RemoveClass("dialogue_button_grey")				
+		}
+	}
+}
+
+function distance_between_two_vectors(a, b)
+{
+	var x = a[0]-b[0]
+	var y = a[1]-b[1]
+	return Math.sqrt(x*x + y*y) 
+}
+
+function set_dialogue_click(button, unitName, queryUnit){
+	button.SetPanelEvent('onactivate', function Open() {
+		dialogue_click(button, unitName, queryUnit)
+	})
+	button.SetPanelEvent('onmouseover', function Open() {
+		if ((!button.BHasClass("dialogue_button_grey" ))){
+			Game.EmitSound("UI.DialogueHover")
+		}
+	})	
+}
+
+function dialogue_click(button, unitName, queryUnit){
+	GameEvents.SendCustomGameEventToServer( "units_special", {special_type: "dialogue", unit_name: unitName, queryUnit: queryUnit} );
+	distance_test(unitName, queryUnit)
+	if ((!button.BHasClass("dialogue_button_grey" ))){
+		Game.EmitSound("UI.DialogueOpen."+unitName)
+	};
+}
+
 function set_onibi_element_click(event_panel, onibi_element, i, element_data, element, queryUnit, onibi_data){
 	event_panel.SetPanelEvent('onactivate', function Open() {
 		onibi_element_click(onibi_element, i, element_data, element, queryUnit, onibi_data)
 	})
+}
+
+function grey_dialogue(){
+	mDialogueButton.RemoveClass("dialogue_button")
+	mDialogueButton.AddClass("dialogue_button_grey")
+	Game.EmitSound("UI.TooFarDialogue")
 }
 
 function onibi_element_click(element_panel, index, element_data, element, queryUnit, onibi_data)
@@ -284,6 +368,7 @@ function update_onibi(msg){
 	GameEvents.Subscribe( "dota_player_update_query_unit", units_special_check );
 	GameEvents.Subscribe( "reset_onibi", units_special_check)
 	GameEvents.Subscribe( "update_onibi", update_onibi );
+	GameEvents.Subscribe( "grey_dialogue", grey_dialogue );
 })();
 
 

@@ -258,3 +258,52 @@
 	color: white;
 	text-shadow: 1px 1px 2px black;
 }
+
+/*DIALOGUE*/
+
+.dialogue_button_container{
+	margin-bottom:160px;
+	horizontal-align:center;
+	vertical-align: bottom;
+}
+
+.dialogue_button{
+	background-color: gradient( linear, 0px 0%, 200px 0%, from( #0c203f), to( #040f21 ) );
+	margin-left:150px;
+	height:50px;
+	border:1px solid white;
+	border-radius:6px;
+	flow-children:right;
+}
+
+.dialogue_button:hover{
+	background-color: gradient( linear, 0px 0%, 200px 0%, from( #2d5caf), to( #1a50af ) );
+/*	opacity:0.8;*/
+}
+
+.dialogue_button_grey{
+	background-color: gradient( linear, 0px 0%, 200px 0%, from( #888888), to( #666666 ) );
+	margin-left:150px;
+	height:50px;
+	border:1px solid black;
+	border-radius:6px;
+	flow-children:right;
+}
+
+
+#dialogue_button_label{
+	color:#FFFFFF;
+	vertical-align: center;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	font-size: 20px;
+	font-weight: light;
+	margin-left:10px;
+	margin-right:20px;
+}
+
+#dialogue_icon{
+	width:24px;
+	height:24px;
+	vertical-align: center;
+	margin-left:10px;
+}

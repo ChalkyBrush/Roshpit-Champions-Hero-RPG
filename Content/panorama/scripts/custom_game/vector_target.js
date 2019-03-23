@@ -20,7 +20,8 @@ VectorTarget.SetFastClickDragMode = function(flag) {
 
 VectorTarget.IsFastClickDragMode = function() {
     /* Checks whether or not we're in fast click-drag mode */
-    return VectorTarget.fastClickDragMode;
+    // return VectorTarget.fastClickDragMode;
+    return true
 };
 
 
@@ -188,7 +189,7 @@ VectorTarget.IsFastClickDragMode = function() {
         }
     });
     
-    //VectorTarget.SetFastClickDragMode(true);
+    VectorTarget.SetFastClickDragMode(true);
 
     /* functional programming helpers */
 

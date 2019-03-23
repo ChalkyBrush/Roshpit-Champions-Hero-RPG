@@ -786,6 +786,8 @@
 	    //------------------------
 		// Save/Load
 		//------------------------
+		"basic_open"				"Open"
+
 		"dialogue_oracle"			"Eternity calls out for you."
 		"saveload_loading"			"Loading..."
 		"saveload_save_menu"		"Save Champion"
