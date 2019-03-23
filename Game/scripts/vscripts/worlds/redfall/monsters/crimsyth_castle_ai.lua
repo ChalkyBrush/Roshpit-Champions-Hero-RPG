@@ -1592,23 +1592,22 @@ end
 
 function barrel_explode(event)
 	local barrel = event.unit
-	local caster = barrel
-	local enemies = FindUnitsInRadius( caster.origCaster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	local damage = caster.damage
-	if not IsValidEntity(caster.origCaster) then
+	if not IsValidEntity(barrel.origCaster) or not IsValidEntity(barrel.origAbility) then
 		barrel:RemoveModifierByName("modifier_for_the_barrel")
 		Timers:CreateTimer(0.09, function()
 			UTIL_Remove(barrel)
 		end)
 		return false
 	end
+	local enemies = FindUnitsInRadius( barrel.origCaster:GetTeamNumber(), barrel:GetAbsOrigin(), nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local damage = barrel.damage
 	flareParticle(barrel:GetAbsOrigin())
 	StopSoundEvent("Redfall.TongeyKong.BarrellThrow.Barrel", barrel)
 	StopSoundEvent("Redfall.TongeyKong.BarrellThrow.Barrel2", barrel)
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster.origCaster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
-			Filters:ApplyStun(caster.origCaster, caster.stun_duration, enemy)
+			ApplyDamage({ victim = enemy, attacker = barrel.origCaster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+			Filters:ApplyStun(barrel.origCaster, barrel.stun_duration, enemy)
 		end
 	end 	
 	EmitSoundOn("Redfall.BarrelThrow.BombExplode", barrel)
