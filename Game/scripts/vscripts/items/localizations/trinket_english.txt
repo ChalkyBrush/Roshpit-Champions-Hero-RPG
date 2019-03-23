@@ -131,7 +131,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"Volcano Orb"
 		"item_property_volcano_orb"					"Fiery Core"
-		"property_volcano_orb_description"			"Increases Post-Mitigation magic damage output by @special_property1%"
+		"property_volcano_orb_description"			"Increases Post-Mitigation magic damage output by @special_property1%. This effect multiplies with other Post-Mitigation buffs."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"Aerith's Tear"
