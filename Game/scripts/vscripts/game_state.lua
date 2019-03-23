@@ -2013,10 +2013,6 @@ function GameState:FilterDamage(filterTable)
 		end
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		local inflictor = filterTable["entindex_inflictor_const"]
-		if attacker:HasModifier("modifier_volcano_orb") then
-			mult = mult+1.5
-			print("INCREASE MAGIC DAMAGE")
-		end
 		if attacker:HasModifier("modifier_alarana_ice_freeze") then
 			mult = mult + 0.75
 		end
@@ -3410,6 +3406,11 @@ function GameState:FilterDamage(filterTable)
 			PopupOdin(victim, 20)
 			CustomAbilities:QuickAttachParticle("particles/roshpit/items/odin_helmet.vpcf", victim, 1.2)
 			EmitSoundOnLocationWithCaster(victim:GetAbsOrigin(), "RPCItem.OdinHelmet.Crit", attacker)
+		end
+	end
+	if attacker:HasModifier("modifier_volcano_orb") then
+		if damagetype == DAMAGE_TYPE_MAGICAL then
+			filterTable["damage"] = filterTable["damage"] * 2.5
 		end
 	end
 

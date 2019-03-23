@@ -132,7 +132,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"Volcano Orb"
 		"item_property_volcano_orb"					"Fiery Core"
-		"property_volcano_orb_description"			"Увеличивает ВЕСЬ исходящий магический урон на @special_property1%"
+		"property_volcano_orb_description"			"Увеличивает Пост-Резистный магический урон на @special_property1%. Этот эффект работает отдельно от других усилений Пост-Резистного урона."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"Aerith's Tear"
