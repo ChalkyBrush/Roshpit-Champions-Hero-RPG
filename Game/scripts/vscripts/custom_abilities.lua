@@ -876,6 +876,7 @@ function CustomAbilities:ClickOpenDialogue(msg)
 			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
 			if distance <= distance_cap then
 				CustomGameEventManager:Send_ServerToPlayer(player, "open_oracle", {player=playerID, loadEnabled = hero.loadEnabled} )
+				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {} )
 			else
 				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
 				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
@@ -891,6 +892,7 @@ function CustomAbilities:ClickOpenDialogue(msg)
 			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
 			if distance <= distance_cap then
 				Glyphs:OpenGlyphShop(playerID)
+				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {} )
 			else
 				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
 				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
@@ -906,6 +908,7 @@ function CustomAbilities:ClickOpenDialogue(msg)
 			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
 			if distance <= distance_cap then
 				Challenges:OpenBlacksmith(playerID)
+				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {} )
 			else
 				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
 				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
@@ -924,6 +927,7 @@ function CustomAbilities:ClickOpenDialogue(msg)
 			end
 			if distance <= distance_cap then
 				CustomGameEventManager:Send_ServerToPlayer(player, "open_witch_doctor", {player=playerId} )
+				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {} )
 			else
 				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
 				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
@@ -940,6 +944,7 @@ function CustomAbilities:ClickOpenDialogue(msg)
 			if distance <= distance_cap then
 				EmitSoundOn("NPC.SuppliesDealerGreeting", queryUnit)
 				CustomGameEventManager:Send_ServerToPlayer(player, "supplies_dealer", {player=playerID} )
+				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {} )
 			else
 				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
 				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
@@ -956,6 +961,7 @@ function CustomAbilities:ClickOpenDialogue(msg)
 			if distance <= distance_cap then
 				CustomGameEventManager:Send_ServerToPlayer(player, "open_curator", {player=playerID} )
 				Events:TutorialServerEvent(hero, "6_2", 1)
+				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {} )
 			else
 				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
 				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
@@ -968,22 +974,7 @@ function CustomAbilities:ClickOpenDialogue(msg)
 			local bInit = true
 			local hero = GameState:GetHeroByPlayerID(playerID)
 			local queryUnit = EntIndexToHScript(msg.queryUnit)
-			if GameState:IsTutorial() then
-				if not hero.dummy_lines_added then
-					hero.dummy_lines_added = 0
-				end
-				hero.dummy_lines_added = hero.dummy_lines_added + 1
-				if hero.dummy_lines_added == 8 then
-					Events:TutorialServerEvent(hero, "4_5", 1)
-				end
-				if caster:HasModifier("modifier_steadfast") then
-					if hero:HasModifier("challen_postmit_buff") then
-						Events:TutorialServerEvent(hero, "4_6", 1)
-					else
-						Events:TutorialServerEvent(hero, "4_6", 0)
-					end
-				end
-			end
+
 
 			local caster = queryUnit
 			local attacker = hero
@@ -996,6 +987,7 @@ function CustomAbilities:ClickOpenDialogue(msg)
 				if bInit then
 					local ability = caster:FindAbilityByName("training_dummy_ability")
 					CustomAbilities:InitTargetDummy(caster, ability, attacker)
+					CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {} )
 				end
 			end
 

@@ -4,6 +4,12 @@ open_ability_panel = false
 mDialogueButton = null
 mDistanceChecker = 0
 
+function select_hero(){
+    var playerID = Game.GetLocalPlayerID()
+    var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
+	GameUI.SelectUnit(heroIndex, false)
+}
+
 function get_onibi_active_elements(onibi_data){
 	var elements = []
 	elements.push("nature")
@@ -364,6 +370,7 @@ function update_onibi(msg){
 
 (function()
 {
+	GameEvents.Subscribe( "select_hero", select_hero);
 	GameEvents.Subscribe( "dota_player_update_selected_unit", units_special_check );
 	GameEvents.Subscribe( "dota_player_update_query_unit", units_special_check );
 	GameEvents.Subscribe( "reset_onibi", units_special_check)
