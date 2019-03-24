@@ -389,6 +389,7 @@ function ChatDropItems(keys)
     Timers:CreateTimer(timer, function() RPCItems:RollVoltexArcana2(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollDinathArcana1(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollJexArcana1(vector) end) timer = timer + 1
+    Timers:CreateTimer(timer, function() RPCItems:RollSlipfinnArcana1(vector) end) timer = timer + 1
   end
 
   if string.match(text, "-legendaries1") or string.match(text, "-gloves") then
@@ -812,8 +813,8 @@ function GameMode:OnPlayerChat(keys)
   local text = string.lower(keys.text)
   if string.match(text, "dbg") then
     local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
-    for i=1,10 do
-        RPCItems:RollConjurorArcana3(vector)
+    for i=1,1 do
+        RPCItems:RollSlipfinnArcana1(vector)
     end
   end
 
@@ -931,7 +932,11 @@ function GameMode:OnPlayerChat(keys)
     if string.match(text, "-sea bahamut") then
       Seafortress:SpawnShadowOfBahamut()
     end       
-
+    if string.match(text, "-sea olspiny") then
+      local random_position = Vector(RandomInt(-14000, 14000), RandomInt(-14000, 14000))
+      AddFOWViewer(DOTA_TEAM_GOODGUYS, random_position, 8000, 30000, false)
+      Seafortress:SpawnOlSpiny(random_position, RandomVector(1))
+    end 
     AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-14272, 13696), 8000, 30000, false)
     AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(4416, 15744), 8000, 30000, false) 
     AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(12032, 9920), 8000, 30000, false)
