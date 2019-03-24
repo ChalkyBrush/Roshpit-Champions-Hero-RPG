@@ -603,32 +603,36 @@ end
 
 function barrel_explode(event)
 	local barrel = event.unit
-	local caster = barrel
-	if IsValidEntity(barrel) then
-		local enemies = FindUnitsInRadius( caster.origCaster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-		local damage = caster.damage
-		flareParticle(barrel:GetAbsOrigin(), barrel:GetForwardVector())
-		StopSoundEvent("Serengaard.Snowball.LP", barrel)
-		if #enemies > 0 then
-			for _,enemy in pairs(enemies) do
-				ApplyDamage({ victim = enemy, attacker = caster.origCaster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
-				Filters:ApplyStun(caster.origCaster, caster.stun_duration, enemy)
-			end
-		end 	
-		EmitSoundOn("Serengaard.Snowball.Explode", barrel)
-		local cd = barrel.origAbility:GetCooldownTimeRemaining()
-		if cd < 5.5 then
-			barrel.origAbility:EndCooldown()
-		else
-			Timers:CreateTimer(2, function()
-				barrel.origAbility:EndCooldown()
-			end)
-		end
+	if not IsValidEntity(barrel.origCaster) or not IsValidEntity(barrel.origAbility) then
 		barrel:RemoveModifierByName("modifier_for_the_barrel")
 		Timers:CreateTimer(0.09, function()
 			UTIL_Remove(barrel)
 		end)
+		return false
 	end
+	local enemies = FindUnitsInRadius( barrel.origCaster:GetTeamNumber(), barrel:GetAbsOrigin(), nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local damage = barrel.damage
+	flareParticle(barrel:GetAbsOrigin())
+	StopSoundEvent("Serengaard.Snowball.LP", barrel)
+	if #enemies > 0 then
+		for _,enemy in pairs(enemies) do
+			ApplyDamage({ victim = enemy, attacker = barrel.origCaster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+			Filters:ApplyStun(barrel.origCaster, barrel.stun_duration, enemy)
+		end
+	end 	
+	EmitSoundOn("Serengaard.Snowball.Explode", barrel)
+	local cd = barrel.origAbility:GetCooldownTimeRemaining()
+	if cd < 5.5 then
+		barrel.origAbility:EndCooldown()
+	else
+		Timers:CreateTimer(2, function()
+			barrel.origAbility:EndCooldown()
+		end)
+	end
+	barrel:RemoveModifierByName("modifier_for_the_barrel")
+	Timers:CreateTimer(0.09, function()
+		UTIL_Remove(barrel)
+	end)
 end
 
 function barrel_thrower_ai_think(event)
