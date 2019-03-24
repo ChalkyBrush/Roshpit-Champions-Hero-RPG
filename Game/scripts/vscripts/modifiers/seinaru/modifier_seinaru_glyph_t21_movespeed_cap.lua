@@ -32,3 +32,7 @@ end
 function modifier_seinaru_glyph_t21_movespeed_cap:IsHidden()
     return true
 end
+
+function modifier_seinaru_glyph_t21_movespeed_cap:GetAttributes()
+    return MODIFIER_ATTRIBUTE_PERMANENT
+end
