@@ -57,7 +57,7 @@
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"纯净护腕"
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity_Description"			"部位：手"
 		"item_property_divine_purity"				"纯净"
-		"property_divine_purity_description"		"攻击时额外造成100%纯粹伤害。"
+		"property_divine_purity_description"		"攻击时额外造成1500%纯粹伤害。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"掠夺者护手"
@@ -70,7 +70,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hand_of_midas"									"迈达斯之手"
 		"item_property_hand_of_midas"				"贪婪之触"
-		"property_hand_of_midas_description"		"攻击时有5% 几率对目标周围所有单位造成 @special_property1x 总攻击力的纯粹伤害并将敌人变成黄金————定身2秒。每5秒最多被定身1次。"
+		"property_hand_of_midas_description"		"攻击时有20% 几率对目标周围所有单位造成 @special_property1x 总攻击力的纯粹伤害并将敌人变成黄金————定身2秒。每5秒最多被定身1次。"
 		
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"稻草人手套"

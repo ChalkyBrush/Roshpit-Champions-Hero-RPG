@@ -5265,6 +5265,9 @@ function frostmaw_kill(event)
 	local unit = event.unit
 	local caster = event.attacker
 	local ability = event.ability
+	if not unit.dominion then
+		return
+	end
 	if not ability.frostmaw_minion_table then
 		ability.frostmaw_minion_table = {}
 	end

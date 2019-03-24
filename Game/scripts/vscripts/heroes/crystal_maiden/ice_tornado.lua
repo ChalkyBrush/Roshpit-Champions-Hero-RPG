@@ -4,11 +4,14 @@ function start_channel(event)
 	local caster = event.caster
 	local ability = event.ability
 	EmitSoundOn("Sorceress.Tornado.VO", caster)
-
-	ability.r_1_level = caster:GetRuneValue("r", 1)
-	ability.r_2_level = caster:GetRuneValue("r", 2)
-	ability.r_3_level = caster:GetRuneValue("r", 3)
-	ability.r_4_level = caster:GetRuneValue("r", 4)
+	local runeCheckEntity = caster
+	if caster.origCaster then
+		runeCheckEntity = caster.origCaster
+	end
+	ability.r_1_level = runeCheckEntity:GetRuneValue("r", 1)
+	ability.r_2_level = runeCheckEntity:GetRuneValue("r", 2)
+	ability.r_3_level = runeCheckEntity:GetRuneValue("r", 3)
+	ability.r_4_level = runeCheckEntity:GetRuneValue("r", 4)
 
 	if caster:HasModifier("modifier_clear_cast") then
 		event.noSound = true
@@ -34,11 +37,14 @@ function channel_complete(event)
 	local caster = event.caster
 	local ability = event.ability
 	local baseFV = caster:GetForwardVector()
-
-	ability.r_1_level = caster:GetRuneValue("r", 1)
-	caster.r_2_level = caster:GetRuneValue("r", 2)
-	ability.r_3_level = caster:GetRuneValue("r", 3)
-	ability.r_4_level = caster:GetRuneValue("r", 4)
+	local runeCheckEntity = caster
+	if caster.origCaster then
+		runeCheckEntity = caster.origCaster
+	end
+	ability.r_1_level = runeCheckEntity:GetRuneValue("r", 1)
+	caster.r_2_level = runeCheckEntity:GetRuneValue("r", 2)
+	ability.r_3_level = runeCheckEntity:GetRuneValue("r", 3)
+	ability.r_4_level = runeCheckEntity:GetRuneValue("r", 4)
 
 	if not ability.tornadoTable then
 		ability.tornadoTable = {}

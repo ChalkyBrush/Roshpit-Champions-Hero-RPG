@@ -129,7 +129,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"火山石"
 		"item_property_volcano_orb"					"火热之心"
-		"property_volcano_orb_description"			"提高所有魔法伤害 @special_property1%。"
+		"property_volcano_orb_description"			"提高所有魔法伤害 @special_property1%。该效果与其他税后效果乘法计算。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"艾瑞丝的眼泪"
