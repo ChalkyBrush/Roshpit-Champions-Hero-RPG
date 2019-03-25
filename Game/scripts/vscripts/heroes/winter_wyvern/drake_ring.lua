@@ -120,7 +120,7 @@ function drake_ring_end(event)
 end
 
 function glyph_5_attack_land(event)
-	local caster = event.caster
+	local caster = event.attacker
 	for i = 0, 8, 1 do
 		local baseAbility = caster:GetAbilityByIndex(i)
 		if baseAbility then
