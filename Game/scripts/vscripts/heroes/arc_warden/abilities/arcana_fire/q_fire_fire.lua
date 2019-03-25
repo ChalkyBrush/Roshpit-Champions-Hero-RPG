@@ -94,7 +94,7 @@ function jex_fire_fire_ring_thinker(event)
 							if w_4_level > 0 then
 								local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), enemy:GetAbsOrigin())
 								local distance_percentage = distance/ability.radius
-								damage = damage + damage*distance_percentage*event.w_4_damage_increase_pct_edges*w_4_level
+								damage = damage + damage*distance_percentage*(event.w_4_damage_increase_pct_edges/100)*w_4_level
 							end
 							EmitSoundOn("Jex.RingOfFire.Hit", enemy)
 							Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
