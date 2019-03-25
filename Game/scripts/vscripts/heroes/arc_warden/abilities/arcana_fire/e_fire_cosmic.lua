@@ -38,9 +38,7 @@ function cipher_bolt_start(event)
 
    	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf", caster:GetAbsOrigin(), 3)
 	Filters:CastSkillArguments(3, caster)
-	local cd = ability:GetCooldownTimeRemaining()
-	local new_cd = cd - event.cooldown_reduction_per_tech*tech_level
-	Filters:ReduceECooldown(caster, ability, new_cd, true)
+	Filters:ReduceCooldownGeneric(caster, ability, event.cooldown_reduction_per_tech * tech_level)
 	ability.w_4_level = caster:GetRuneValue("w", 4)
 
 end
