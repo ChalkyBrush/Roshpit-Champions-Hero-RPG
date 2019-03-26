@@ -3400,10 +3400,10 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if attacker:HasModifier("modifier_helm_odin") then
-		local proc = Filters:GetProc(attacker, 4)
+		local proc = Filters:GetProc(attacker, 10)
 		if proc then
-			filterTable["damage"] = filterTable["damage"] * 20
-			PopupOdin(victim, 20)
+			filterTable["damage"] = filterTable["damage"] * 7
+			PopupOdin(victim, 7)
 			CustomAbilities:QuickAttachParticle("particles/roshpit/items/odin_helmet.vpcf", victim, 1.2)
 			EmitSoundOnLocationWithCaster(victim:GetAbsOrigin(), "RPCItem.OdinHelmet.Crit", attacker)
 		end
