@@ -69,7 +69,7 @@ function leshrac_ult_go(ability, caster, damage, amp, enemy)
 		ability.r_3_level = caster:GetRuneValue("r", 3)
 	end
 	if ability.r_3_level > 0 then
-		damage = damage + ability.r_3_level*OverflowProtectedGetAverageTrueAttackDamage(caster)*0.04
+		damage = damage + ability.r_3_level*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*12
 	end
 	if amp then
 		damage = damage*ability.r_1_level*0.05
