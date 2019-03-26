@@ -8552,12 +8552,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"10"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"20"
+				"property_two"		"7"
 			}
 		}
 	}
