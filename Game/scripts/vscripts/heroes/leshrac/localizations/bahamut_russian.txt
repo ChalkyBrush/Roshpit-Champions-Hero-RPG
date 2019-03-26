@@ -201,9 +201,9 @@
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_suffix"				"%"
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1"						"[R3] Rise of Champions"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"Часть общего урона героя добавляется к урону молний от основного умения @Ability4."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"Множитель атрибутов героя добавляется к урону молний от основного умения @Ability4."
     	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_property_one"		"Доп. урон"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_suffix"				"% от общего урона героя"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_suffix"				"% от атрибутов"
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1"						"[R4] Omnipresence"
     	"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1_Description"			"С некоторым шансом @Ability4 поразит дополнительную цель. Значение шанса выше 100% гарантирует многократное срабатывание."
