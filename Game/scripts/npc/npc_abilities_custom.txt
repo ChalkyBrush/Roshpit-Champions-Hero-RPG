@@ -8620,15 +8620,15 @@
 				{
 					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"OnAttackLanded"
+				//"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/storm_weapon.lua"
-						"Function"		"c_b_attack_landed"
-					}
-				}
+				//{
+				//	"RunScript"
+				//	{
+				//		"ScriptFile"	"heroes/antimage/storm_weapon.lua"
+				//		"Function"		"c_b_attack_landed"
+				//	}
+				//}
 				"ThinkInterval"  "0.09"
 				"OnIntervalThink"
 				{
@@ -37775,7 +37775,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"6"
 			}
 		}
 	}
@@ -37795,7 +37795,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"12"
 			}
 		}
 	}
@@ -38030,7 +38030,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3.5"
+				"property_one"			"6"
 			}
 		}
 	}

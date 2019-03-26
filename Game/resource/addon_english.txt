@@ -540,7 +540,7 @@
 		"ui_need_roll_description"	"Winning a Need Roll automatically equips the item and destroys your old one in that slot. Need rolls trump greed rolls."
 		"ui_won_need_roll"		"Won Need Roll"
 		"ui_greed_roll"			"Greed"
-		"ui_greed_roll_description"	"Greed Rolls always lose to Need Rolls but the item goes into your inventory."
+		"ui_greed_roll_description"	"Greed Roll: All players who want this item will be assigned a number between 1 and 100; the highest roller wins the item."
 		"ui_won_greed_roll"		"Won Greed Roll"		
 		"ui_pass_roll"			"Pass"
 		"ui_pass_roll_description"	"Pass if you do not want this item. If all players pass, the item is destroyed."
@@ -3395,9 +3395,9 @@
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_suffix"				"%"
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1"						"[R3] Rise of Champions"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"A portion of Bahamut's attack power is added to Demigod's Vengeance bolts."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"A portion of Bahamut's  total attributes is added to Demigod's Vengeance bolts."
     	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_property_one"		"Additional Damage"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_suffix"				"% of attack power"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_suffix"				"x total attributes"
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1"						"[R4] Omnipresence"
     	"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1_Description"			"Demigod's Vengeance has a chance each tick to strike an additional target. Greater than 100% chance means it can strike multiple targets."
@@ -3514,6 +3514,7 @@
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "Origin Rune"
         "item_property_bahamut_immortal_weapon3"                             "Omega Waller"
         "property_bahamut_immortal_weapon3_description"                      "Increases the length of @Ability1 by @special_property1% and its damage by @special_property2%"
+
 
 		//Abilities
     	"DOTA_Tooltip_ability_chernobog_charons_claw"							"Charon's Claw"

@@ -692,7 +692,7 @@
 		"ui_need_roll_description"	"Выигрыш в лотерее с выбором Нужно! автоматически надевает выигранный предмет, заменяя существующий в этой ячейке. Пункт Нужно! имеет приоритет над Забрать."
 		"ui_won_need_roll"		"Выиграл предмет!"
 		"ui_greed_roll"			"Забрать"
-		"ui_greed_roll_description"	"Забирая предмет, вы получите его в свой инвентарь. Невозможно забрать предмет, если кто-то выбрал его как нужный."
+		"ui_greed_roll_description"	"Игроки, желающие этот предмет, случайным образом получат цифру от 1 до 100; игрок с наибольшим значением забирает предмет."
 		"ui_won_greed_roll"		"Забрал предмет!"		
 		"ui_pass_roll"			"Пас"
 		"ui_pass_roll_description"	"Пропустите, если вам не нужен указанный предмет. Если все игроки откажутся, предмет будет уничтожен."
@@ -3492,9 +3492,9 @@
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_suffix"				"%"
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1"						"[R3] Rise of Champions"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"Часть общего урона героя добавляется к урону молний от основного умения @Ability4."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"Множитель атрибутов героя добавляется к урону молний от основного умения @Ability4."
     	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_property_one"		"Доп. урон"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_suffix"				"% от общего урона героя"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_suffix"				"% от атрибутов"
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1"						"[R4] Omnipresence"
     	"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1_Description"			"С некоторым шансом @Ability4 поразит дополнительную цель. Значение шанса выше 100% гарантирует многократное срабатывание."

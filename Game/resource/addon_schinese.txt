@@ -3783,9 +3783,9 @@
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_suffix"				"%"
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1"						"[R3] 觉醒"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"巴哈姆特攻击力的一部分将加入到天罚的闪电伤害中。"    	
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"巴哈姆特总属性的一部分将加入到天罚的闪电伤害中。"    	
         "DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_property_one"		"闪电伤害提高"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_suffix"				"% 攻击力"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_suffix"				"x总属性"
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1"						"[R4] 全知"
     	"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1_Description"			"天罚每0.1秒的闪电打击有几率打击两个敌方单位，概率超过 100% 有几率打击多个单位。"
