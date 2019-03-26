@@ -202,9 +202,9 @@
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_suffix"				"%"
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1"						"[R3] Rise of Champions"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"A portion of Bahamut's attack power is added to Demigod's Vengeance bolts."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"A portion of Bahamut's  total attributes is added to Demigod's Vengeance bolts."
     	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_property_one"		"Additional Damage"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_suffix"				"% of attack power"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_suffix"				"x total attributes"
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1"						"[R4] Omnipresence"
     	"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1_Description"			"Demigod's Vengeance has a chance each tick to strike an additional target. Greater than 100% chance means it can strike multiple targets."
