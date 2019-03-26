@@ -36,7 +36,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3.5"
+				"property_one"			"6"
 			}
 		}
 	}
