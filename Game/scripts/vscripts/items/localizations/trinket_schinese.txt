@@ -134,7 +134,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"艾瑞丝的眼泪"
 		"item_property_aeriths_tear"							"最终幻想"
-		"property_aeriths_tear"									"240码范围内敌人对你的伤害降低 90% 。"
+		"property_aeriths_tear"									"400码范围内敌人对你的伤害降低 90% 。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"放大水晶"
