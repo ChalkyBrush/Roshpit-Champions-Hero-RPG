@@ -136,7 +136,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"Aerith's Tear"
 		"item_property_aeriths_tear"							"Last Wish"
-		"property_aeriths_tear"									"Reduces damage taken from enemies within 240 distance by @special_property1%"
+		"property_aeriths_tear"									"Reduces damage taken from enemies within 400 distance by @special_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"Fractional Enhancement Geode"
