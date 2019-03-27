@@ -3383,9 +3383,9 @@ function Filters:SetupSummonUnit(caster, position, damageMult, healthMult, lifeD
 end
 
 function Filters:CytopianLaser(caster)
-    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 480, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     local abilityLevel = caster:GetAbilityByIndex(1):GetLevel()
-    local damage = caster:GetIntellect()*abilityLevel
+    local damage = caster:GetAverageTrueAttackDamage()*abilityLevel*3
     if #enemies > 0 then
         local ability = caster.handItem
         EmitSoundOn("Hero_Tinker.Attack", enemies[1])
@@ -3405,7 +3405,7 @@ function Filters:CytopianLaser(caster)
             end)    
             print(ability:GetAbilityName())
             ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_cytopian_stacks", {duration = 4})
-            local newStacks = math.min(currentStacks + 1, 30)
+            local newStacks = math.min(currentStacks + 1, 10)
             enemy:SetModifierStackCount("modifier_cytopian_stacks", caster.InventoryUnit, newStacks)
         end
     end         
