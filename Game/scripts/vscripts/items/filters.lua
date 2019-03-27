@@ -3824,7 +3824,7 @@ end
 
 function Filters:AerithsTearTakeDamage(attacker, victim)
     local distance = CalcDistanceBetweenEntityOBB(attacker, victim)
-    if distance <= 240 then
+    if distance <= 400 then
         return true
     else
         return false
