@@ -3404,8 +3404,18 @@ function GameState:FilterDamage(filterTable)
 		if proc then
 			filterTable["damage"] = filterTable["damage"] * 7
 			PopupOdin(victim, 7)
-			CustomAbilities:QuickAttachParticle("particles/roshpit/items/odin_helmet.vpcf", victim, 1.2)
-			EmitSoundOnLocationWithCaster(victim:GetAbsOrigin(), "RPCItem.OdinHelmet.Crit", attacker)
+			local helm = attacker.headItem
+			if not helm.particleCount then
+				helm.particleCount = 0
+			end
+			if helm.particleCount < 12 then
+				helm.particleCount = helm.particleCount + 1
+				CustomAbilities:QuickAttachParticle("particles/roshpit/items/odin_helmet.vpcf", victim, 1.2)
+				EmitSoundOnLocationWithCaster(victim:GetAbsOrigin(), "RPCItem.OdinHelmet.Crit", attacker)
+				Timers:CreateTimer(1, function()
+					helm.particleCount = helm.particleCount - 1
+				end)
+			end
 		end
 	end
 	if attacker:HasModifier("modifier_volcano_orb") then
