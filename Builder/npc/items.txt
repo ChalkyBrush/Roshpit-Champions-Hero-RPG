@@ -4625,17 +4625,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"3"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"30"
+				"property_two"			"10"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"element_one"			"6"
+				"element_one"			"7"
 			}
 			"04"
 			{
