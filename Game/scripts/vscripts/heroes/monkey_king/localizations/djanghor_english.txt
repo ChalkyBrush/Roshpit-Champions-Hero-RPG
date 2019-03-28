@@ -133,8 +133,9 @@
 		"DOTA_Tooltip_modifier_hawk_tornado_debuff_Description"						"Slowed"
 
 		"DOTA_Tooltip_ability_djanghor_hawk_soar"									"Soar"
-		"DOTA_Tooltip_ability_djanghor_hawk_soar_Description"						"Djanghor increases altitude, making him out of reach of basic enemy attacks. This buff does not persist through shapeshift."
+		"DOTA_Tooltip_ability_djanghor_hawk_soar_Description"						"Djanghor increases altitude, making him out of reach of basic enemy attacks. Movement speed greatly increased and can't be slowed. This buff does not persist through shapeshift."
 		"DOTA_Tooltip_ability_djanghor_hawk_soar_duration"							"DURATION:"
+		"DOTA_Tooltip_ability_djanghor_hawk_soar_movespeed"							"MOVEMENT SPEED:"
 
 		"DOTA_Tooltip_modifier_hawk_soar"											"Soar"
 		"DOTA_Tooltip_modifier_hawk_soar_Description"								"Attack Immune"

@@ -1894,11 +1894,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.3"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"7.0"
+		"AbilityCooldown"				"2.0"
 		"AbilityCastRange"				"1000"
 
 		// Cost
@@ -1979,7 +1979,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"djanghor/hawk_tornado"
 		"LevelsBetweenUpgrades"  "0"
@@ -1995,7 +1995,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.2"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -2118,7 +2118,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16"
+		"AbilityCooldown"				"10"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -2131,6 +2131,11 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"duration"		"6.0 6.3 6.6 6.9 7.2 7.5 7.8"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movespeed"			"700"
 			}
 		}
 		"Modifiers"
@@ -2146,6 +2151,10 @@
 				"States"
 				{
 					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"	"700"
 				}
 			}
 			"modifier_hawk_soar_visual_z"

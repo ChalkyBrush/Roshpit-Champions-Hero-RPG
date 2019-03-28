@@ -124,8 +124,9 @@
 		"DOTA_Tooltip_modifier_hawk_tornado_debuff_Description"						"Замедлен"
 
 		"DOTA_Tooltip_ability_djanghor_hawk_soar"									"Soar"
-		"DOTA_Tooltip_ability_djanghor_hawk_soar_Description"						"Djanghor увеличивает высоту своего полёта, выходя за пределы возможных атак противников. Этот эффект не сохраняется при трансформации."
+		"DOTA_Tooltip_ability_djanghor_hawk_soar_Description"						"Djanghor увеличивает высоту своего полёта, выходя за пределы возможных атак противников. Скорость перемещения сильно увеличена и не может быть замедлена. Этот эффект не сохраняется при трансформации."
 		"DOTA_Tooltip_ability_djanghor_hawk_soar_duration"							"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_djanghor_hawk_soar_movespeed"							"СКОРОСТЬ:"
 
 		"DOTA_Tooltip_modifier_hawk_soar"											"Soar"
 		"DOTA_Tooltip_modifier_hawk_soar_Description"								"Иммунитет к атакам"
