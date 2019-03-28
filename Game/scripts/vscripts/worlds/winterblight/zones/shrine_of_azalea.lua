@@ -1935,6 +1935,7 @@ function Winterblight:ProcessLinks(links, hero)
 		end
 		units_to_remove_per_x_coord[links[i].x_coord][links[i].y_coord] = links[i]
 	end
+	Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
 	for x_coord, x_value in pairs(units_to_remove_per_x_coord) do
 		local steps_to_shift = 0
 		local y_coord = 1
@@ -1956,11 +1957,9 @@ function Winterblight:ProcessLinks(links, hero)
 	end
 	Timers:CreateTimer(1, function()
 		Winterblight:CheckCollapseCombos(hero, units_to_remove_per_x_coord)
-		local links_count = #links
 		for i = 1, #links, 1 do
 			UTIL_Remove(links[i])
 		end	
-		Winterblight:CandyCrushPoints(links_count)
 	end)
 end
 
@@ -2063,46 +2062,53 @@ function Winterblight:CheckCollapseCombos(hero, units_to_remove_per_x_coord)
 	end
 end
 
-function Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero, stackLevel)
-	local link_unit = links_table[#links_table]
-	if Winterblight.CandyCrushComplete then
-		return false
-	end
-	if not IsValidEntity(link_unit) then
-		return false
-	end
-	if horiz then
-		if link_unit.x_coord + direction < 1 or link_unit.x_coord + direction > 10 then
-			return false
+function Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
+	local points_table = {}
+	local points_index = 1
+	local units_to_check = {}
+	for x_coord, x_value in pairs(units_to_remove_per_x_coord) do
+		for y_coord, unit in pairs(x_value) do
+			if not units_to_remove_per_x_coord[x_coord][y_coord].checked then
+				points_table[points_index] = {}
+				units_to_remove_per_x_coord[x_coord][y_coord].checked = true
+				table.insert(units_to_check, units_to_remove_per_x_coord[x_coord][y_coord])
+				table.insert(points_table[points_index], units_to_check[1])
+				while #units_to_check > 0 do
+					local current_x_coord = units_to_check[1].x_coord
+					local current_y_coord = units_to_check[1].y_coord
+					if units_to_remove_per_x_coord[current_x_coord][current_y_coord + 1] and not units_to_remove_per_x_coord[current_x_coord][current_y_coord + 1].checked and units_to_check[1].color == units_to_remove_per_x_coord[current_x_coord][current_y_coord + 1].color then
+						units_to_remove_per_x_coord[current_x_coord][current_y_coord + 1].checked = true
+						table.insert(points_table[points_index], units_to_remove_per_x_coord[current_x_coord][current_y_coord + 1])
+						table.insert(units_to_check, units_to_remove_per_x_coord[current_x_coord][current_y_coord + 1])
+					end
+					if units_to_remove_per_x_coord[current_x_coord][current_y_coord - 1] and not units_to_remove_per_x_coord[current_x_coord][current_y_coord - 1].checked and units_to_check[1].color == units_to_remove_per_x_coord[current_x_coord][current_y_coord - 1].color then
+						units_to_remove_per_x_coord[current_x_coord][current_y_coord - 1].checked = true
+						table.insert(points_table[points_index], units_to_remove_per_x_coord[current_x_coord][current_y_coord - 1])
+						table.insert(units_to_check, units_to_remove_per_x_coord[current_x_coord][current_y_coord - 1])
+					end
+					if units_to_remove_per_x_coord[current_x_coord + 1] and units_to_remove_per_x_coord[current_x_coord + 1][current_y_coord] and not units_to_remove_per_x_coord[current_x_coord + 1][current_y_coord].checked and units_to_check[1].color == units_to_remove_per_x_coord[current_x_coord + 1][current_y_coord].color then
+						units_to_remove_per_x_coord[current_x_coord + 1][current_y_coord].checked = true
+						table.insert(points_table[points_index], units_to_remove_per_x_coord[current_x_coord + 1][current_y_coord])
+						table.insert(units_to_check, units_to_remove_per_x_coord[current_x_coord + 1][current_y_coord])
+					end
+					if units_to_remove_per_x_coord[current_x_coord - 1] and units_to_remove_per_x_coord[current_x_coord - 1][current_y_coord] and not units_to_remove_per_x_coord[current_x_coord - 1][current_y_coord].checked and units_to_check[1].color == units_to_remove_per_x_coord[current_x_coord - 1][current_y_coord].color then
+						units_to_remove_per_x_coord[current_x_coord - 1][current_y_coord].checked = true
+						table.insert(points_table[points_index], units_to_remove_per_x_coord[current_x_coord - 1][current_y_coord])
+						table.insert(units_to_check, units_to_remove_per_x_coord[current_x_coord - 1][current_y_coord])
+					end
+					table.remove(units_to_check, 1)
+				end
+				points_index = points_index + 1
+			end
 		end
-		if Winterblight.CandyCrushLayout[link_unit.y_coord][link_unit.x_coord+direction].color == link_unit.color then
-			table.insert(links_table, Winterblight.CandyCrushLayout[link_unit.y_coord][link_unit.x_coord+direction])
-			Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero, stackLevel)
-			return false
-		end
-	else
-		if link_unit.y_coord + direction < 1 or link_unit.y_coord + direction > 10 then
-			return false
-		end
-		if Winterblight.CandyCrushLayout[link_unit.y_coord+direction][link_unit.x_coord].color == link_unit.color then
-			table.insert(links_table, Winterblight.CandyCrushLayout[link_unit.y_coord+direction][link_unit.x_coord])
-			Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero, stackLevel)
-			return false
-		end
 	end
-	if #links_table >= 3 then
-		stackLevel = stackLevel + 1
-		Winterblight:ProcessLinks(links_table, hero, stackLevel)
-		return true
-	else
-		return false
+	local total_points = 0
+	for i = 1, #points_table do
+		local points = points_table[i]
+		total_points = total_points + #points - 2
 	end
-end
-
-function Winterblight:CandyCrushPoints(links_count)
-	local goal = 12 + GameState:GetDifficultyFactor()*2
-	local points = links_count - 2
-	Winterblight.CandyCrushProgressScore = Winterblight.CandyCrushProgressScore + points
+		local goal = 12 + GameState:GetDifficultyFactor()*2
+		Winterblight.CandyCrushProgressScore = Winterblight.CandyCrushProgressScore + total_points
 	print("SCORE: "..Winterblight.CandyCrushProgressScore)
 	local scale = 3*(Winterblight.CandyCrushProgressScore/goal)
 	local color = 255*(Winterblight.CandyCrushProgressScore/goal)
