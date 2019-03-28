@@ -1465,7 +1465,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 3.5
         end
         if attacker:HasModifier("modifier_outland_stone_cuirass") then
-            damageMult = damageMult + 30
+            damageMult = damageMult + 27
         end
         if attacker:HasModifier("modifier_mana_relic_damage_boost") then
             damageMult = damageMult + 4
