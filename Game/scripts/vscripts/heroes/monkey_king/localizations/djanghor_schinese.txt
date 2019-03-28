@@ -144,7 +144,7 @@
     	"DOTA_Tooltip_modifier_bear_regen_Description"								"每 0.1秒回复生命值"
 
     	"DOTA_Tooltip_ability_djanghor_rune_q_2"									"[Q2] 狼群"
-    	"DOTA_Tooltip_ability_djanghor_rune_q_2_Description"						"狼嚎将获得额外的基础攻击力。友军将获得 10% 的加成效果。"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_2_Description"						"狼嚎将获得额外的基础攻击力。友军将获得 100% 的加成效果。"
     	"DOTA_Tooltip_ability_djanghor_rune_q_2_property_one"						"狼嚎基础攻击力提高"
     	"DOTA_Tooltip_ability_djanghor_rune_q_2_suffix"								""
 
