@@ -165,6 +165,6 @@ end
 function bear_regen_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local healAmount = ability.q_1_level*DJANGHOR_Q1_REGEN_FLAT
+	local healAmount = ability.q_1_level*DJANGHOR_Q1_REGEN_FLAT + ability.q_1_level*DJANGHOR_Q1_REGEN_PCT/100 * caster:GetMaxHealth()
 	Filters:ApplyHeal(caster, caster, healAmount, true)
 end

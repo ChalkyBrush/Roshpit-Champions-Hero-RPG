@@ -12,7 +12,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"80"
+				"property_one"			"<% DJANGHOR_Q1_REGEN_FLAT %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% DJANGHOR_Q1_REGEN_PCT %>"
 			}
 		}
 	}
@@ -108,7 +113,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"<% DJANGHOR_W2_POST_MIT_PCT %>"
 			}
 		}
 	}

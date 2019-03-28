@@ -139,6 +139,8 @@
     	"DOTA_Tooltip_ability_djanghor_rune_q_1_Description"						"Прочтение (Q) Roar в форме медведя дарует герою восстановление здоровья на 12 секунд. Эффект продолжит действовать после трансформации."
     	"DOTA_Tooltip_ability_djanghor_rune_q_1_property_one"						"Восстановление здоровья"
     	"DOTA_Tooltip_ability_djanghor_rune_q_1_suffix"								" каждые 0.1 секунды"
+		"DOTA_Tooltip_ability_djanghor_rune_q_1_property_two"						"Восстановление здоровья (%)"
+		"DOTA_Tooltip_ability_djanghor_rune_q_1_suffix_two"							"% oт максимального ХП за тик"
 
     	"DOTA_Tooltip_modifier_bear_regen"											"Wild Regeneration"
     	"DOTA_Tooltip_modifier_bear_regen_Description"								"Восстанавливает здоровье каждые 0.1 секунды"
@@ -282,9 +284,9 @@
     	"DOTA_Tooltip_modifier_year_beast_b_d_health_Description"								"Здоровье увеличено"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1"									"[R3] Jade Voice"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"Часть всех атрибутов героя добавляется к урону всех способностей."
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Бонус к базе урона умений"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"% от атрибутов"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"Превращение в @Ability4 дает дополнительное сопротивление ко всем типам урона. Максимально - 90%."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Доп. Сопротивление"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"%"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1"									"[R4] Diamond Claws"
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1_Description"						"Дарует герою дополнительные атрибуты в форме Годня."

@@ -1664,6 +1664,13 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
             damage = damage*(1-reduction)
         end
     end
+	
+	if victim:HasModifier("modifier_shapeshift_year_beast_r_3") then
+		local modifier = victim:FindModifierByName("modifier_shapeshift_year_beast_r_3")
+		local reduction = modifier:GetAbility().r_3_level*DJANGHOR_R3_ARCANA_RESIST_PCT
+		reduction = math.min(reduction, DJANGHOR_R3_ARCANA_RESIST_MAX_PCT)
+		damage = damage*(1-reduction)
+	end
 
 	if victim:HasModifier("modifier_ancient_tree_passive") then
 		damage = damage*0.004
@@ -2287,7 +2294,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_wolf_rend_bleed") then
 		modifier = victim:FindModifierByName("modifier_wolf_rend_bleed")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local multIncrease = 0.04*modifier:GetAbility().w_2_level
+			local multIncrease = DJANGHOR_W2_POST_MIT_PCT/100*modifier:GetAbility().w_2_level
 			mult = mult + multIncrease
 		end
 	end

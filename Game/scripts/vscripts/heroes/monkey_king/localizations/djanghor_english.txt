@@ -142,8 +142,10 @@
 
     	"DOTA_Tooltip_ability_djanghor_rune_q_1"									"[Q1] Wild Regeneration"
     	"DOTA_Tooltip_ability_djanghor_rune_q_1_Description"						"Casting roar in bear form applies a 12 second regeneration buff that restores health every 0.1 seconds. Effects persists through shapeshift."
-    	"DOTA_Tooltip_ability_djanghor_rune_q_1_property_one"						"Health Restore"
-    	"DOTA_Tooltip_ability_djanghor_rune_q_1_suffix"								" every 0.1 seconds"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_1_property_one"						"Health Restore (flat)"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_1_suffix"								" every tick"
+		"DOTA_Tooltip_ability_djanghor_rune_q_1_property_two"						"Health Restore (percentile)"
+		"DOTA_Tooltip_ability_djanghor_rune_q_1_suffix_two"							"% of Max HP every tick"
 
     	"DOTA_Tooltip_modifier_bear_regen"											"Wild Regeneration"
     	"DOTA_Tooltip_modifier_bear_regen_Description"								"Restoring health every 0.1 seconds"
@@ -293,9 +295,9 @@
     	"DOTA_Tooltip_modifier_year_beast_b_d_health_Description"								"Increased Health"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1"									"[R3] Jade Voice"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"The base damage value of all abilities is increased by a flat amount, equal to a multiple of all attributes."
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Base Damage Bonus"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"% of attributes"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"All incoming damage is reduced while in @Ability4. Capped at 90%."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Additional Resistance"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"%"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1"									"[R4] Diamond Claws"
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1_Description"						"Gain Additional attributes in Year Beast Form."
