@@ -1340,7 +1340,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
-			damage = damage*0.1
+			damage = damage*0.05
 		end
 		if victim:HasModifier("modifier_sunstrider_lightsworn") then
 			damage = damage*(1 - SEINARU_ARCANA_E2_PURE_DMG_REDUCE)
