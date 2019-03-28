@@ -320,7 +320,7 @@
 		"item_rpc_djanghor_glyph_6_1_description" 				"Снимает случайный негативный эффект каждые @glyph_property1 сек."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"(T7) Глиф терзаний"
-		"item_rpc_djanghor_glyph_7_1_description" 				"С @glyph_property1% шансом атака в форме медведя может оглушить цель на @glyph_property3 сек. и нанести увеличенный на @glyph_property2% урон. Эффект продолжит действовать в течении 10 секунд после трансформации."
+		"item_rpc_djanghor_glyph_7_1_description" 				"С @glyph_property1% шансом атака в форме медведя может оглушить цель на @glyph_property3 сек. и нанести увеличенный на @glyph_property2% урон. Эффект продолжит действовать в течении 10 секунд после трансформации. War Stomp снижает броню целей, так же как и Rend."
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"Maul"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"Шанс оглушить цель при атаке и нанести дополнительный урон."

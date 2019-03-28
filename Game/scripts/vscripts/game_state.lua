@@ -1356,6 +1356,11 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			damage = (1 - SAYTARU_PURE_DMG_RESISTANCE) * damage
 		end
 	end
+	if damagetype == DAMAGE_TYPE_PHYSICAL or damagetype == DAMAGE_TYPE_PURE then
+		if victim:HasModifier("modifier_draghor_shapeshift_bear_lua") then
+			damage = damage*0.7
+		end
+	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_lightning_dash") then
 			local dash = victim:FindAbilityByName("voltex_lightning_dash")
@@ -1379,6 +1384,9 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
     		damageReduc = 1 - (damageReduc/100)
     		damage = damage*damageReduc
 	    end
+		if victim:HasModifier("modifier_draghor_shapeshift_cat_lua") then
+			damage = damage*0.3
+		end
 		if victim:HasModifier("modifier_ivory_gryffin_aura_effect") then
 			damage = damage * 0.7
 		end
@@ -2175,6 +2183,9 @@ function GameState:FilterDamage(filterTable)
 		if victim:HasModifier("modifier_zonik_lightspeed") then
 			local e_3_level = victim:FindAbilityByName("zonik_lightspeed").e_3_level
 			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility") * e_3_level * ZHONIK_E3_PHYS_BLOCK_FLAT, 0)
+		end
+		if victim:HasModifier("modifier_draghor_shapeshift_hawk_lua") then
+			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "intellect") * 5, 0)
 		end
 	end
 	--chrolonus boss also uses the passive, have to check for ability

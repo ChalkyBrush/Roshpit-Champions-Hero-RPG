@@ -4,16 +4,20 @@
         "djanghor_r"	"Shapeshift"
 
 		"DOTA_Tooltip_ability_draghor_shapeshift_cat"									"Shapeshift: Wolf"
-    	"DOTA_Tooltip_ability_draghor_shapeshift_cat_Description"						"Transform into a wolf with its own ability set after 1.75 second channel."
+    	"DOTA_Tooltip_ability_draghor_shapeshift_cat_Description"						"Transform into a wolf with its own ability set after 1.75 second channel. Form grants additional Magical and Pure damage reduction."
     	"DOTA_Tooltip_ability_draghor_shapeshift_cat_agility_bonus"						"AGILITY BONUS IN WOLF FORM:"
+		"DOTA_Tooltip_ability_draghor_shapeshift_cat_resist"							"MAGICAL AND PURE DAMAGE REDUCTION:"
+		
 
     	"DOTA_Tooltip_ability_draghor_shapeshift_bear"									"Shapeshift: Bear"
-    	"DOTA_Tooltip_ability_draghor_shapeshift_bear_Description"						"Transform into a bear with its own ability set after 1.75 second channel."
+    	"DOTA_Tooltip_ability_draghor_shapeshift_bear_Description"						"Transform into a bear with its own ability set after 1.75 second channel. Form grants additional Physical and Pure damage reduction."
     	"DOTA_Tooltip_ability_draghor_shapeshift_bear_strength_bonus"					"STRENGTH BONUS IN BEAR FORM:"
+		"DOTA_Tooltip_ability_draghor_shapeshift_bear_resist"							"PHYSICAL AND PURE DAMAGE REDUCTION:"
 
     	"DOTA_Tooltip_ability_draghor_shapeshift_crow"									"Shapeshift: Hawk"
     	"DOTA_Tooltip_ability_draghor_shapeshift_crow_Description"						"Transform into a hawk with its own ability set after 1.75 second channel. Hawk form cannot attack, has flying movement capability and drains 0.1% of max mana every 0.03 seconds. If mana runs out or Djanghor flies into an obstruction, he is immediately transformed back into Monkey Form."
     	"DOTA_Tooltip_ability_draghor_shapeshift_crow_int_bonus"						"INTELLIGENCE BONUS IN HAWK FORM:"
+		"DOTA_Tooltip_ability_draghor_shapeshift_crow_block"							"MAGICAL AND PHYSICAL DAMAGE BLOCK PER INTELLIGENCE:"
 
     	"DOTA_Tooltip_ability_draghor_monkey_form"										"Monkey Form"
     	"DOTA_Tooltip_ability_draghor_monkey_form_Description"							"Djanghor immediately transforms back into his base monkey form."	
@@ -67,7 +71,7 @@
 		"DOTA_Tooltip_modifier_wolf_howl_ally_Description"								"Increased attack damage"
 
 		"DOTA_Tooltip_ability_djanghor_feral_sprint"									"Feral Sprint"
-		"DOTA_Tooltip_ability_djanghor_feral_sprint_Description"						"Immediately increases movespeed and movespeed cap, and allows phased unit walking. Gain an additional 200 movespeed at the beginning of the cast that fades over 2 seconds. Buff persists through shapeshifting."
+		"DOTA_Tooltip_ability_djanghor_feral_sprint_Description"						"Immediately increases movespeed and movespeed cap, and provides cliff and unit walking. Gain an additional 200 movespeed at the beginning of the cast that fades over 2 seconds. Buff persists through shapeshifting."
 		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_increase"					"MOVESPEED BONUS:"
 		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_cap"						"MOVESPEED CAP:"
 		"DOTA_Tooltip_ability_djanghor_feral_sprint_duration"							"DURATION:"
@@ -331,7 +335,7 @@
 		"item_rpc_djanghor_glyph_6_1_description" 				"Attempt to remove an enemy debuff from self every @glyph_property1 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"Glyph of Mauling"
-		"item_rpc_djanghor_glyph_7_1_description" 				"@glyph_property1% chance to bash while in Bear Form, dealing @glyph_property2% increased damage and @glyph_property3 second stun. Buff persists for 10 seconds after shifting out."
+		"item_rpc_djanghor_glyph_7_1_description" 				"@glyph_property1% chance to bash while in Bear Form, dealing @glyph_property2% increased damage and @glyph_property3 second stun. Buff persists for 10 seconds after shifting out. War Stomp reduces target's armor same as Rend."
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"Maul"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"Chance on attack to stun and deal additional damage."

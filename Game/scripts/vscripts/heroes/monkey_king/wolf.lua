@@ -83,6 +83,18 @@ function wolf_sprint(event)
       Filters:CastSkillArguments(3, caster)
 end
 
+function wolf_sprint_think(event)
+	local caster = event.caster
+	local newPos = caster:GetAbsOrigin()+caster:GetForwardVector()*70
+	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin())
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos, caster)
+	if blockUnit then
+		caster:SetAbsOrigin(caster:GetAbsOrigin()-caster:GetForwardVector()*60)
+		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
+		caster:RemoveModifierByName("modifier_wolf_free_pathing")
+	end
+end
+
 function wolf_slide_think(event)
 	local caster = event.caster
 	local ability = event.ability

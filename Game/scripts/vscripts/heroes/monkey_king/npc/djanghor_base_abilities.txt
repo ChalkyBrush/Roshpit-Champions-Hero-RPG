@@ -242,6 +242,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"agility_bonus"			"100 200 500 1000 3000 6000 10000"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"resist"			"70"
+			}
 		}
 	}
 
@@ -441,6 +446,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"strength_bonus"			"100 200 500 1000 3000 6000 10000"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"resist"			"30"
+			}
 		}
 	}
 
@@ -635,6 +645,11 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"int_bonus"			"100 200 500 1000 3000 6000 10000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"block"			"5"
 			}
 		}
 	}
@@ -1397,6 +1412,24 @@
 				"States"
 				{
 					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_wolf_free_pathing"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.09"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/wolf.lua"
+						"Function"		"wolf_sprint_think"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_wolf_slide_burst"

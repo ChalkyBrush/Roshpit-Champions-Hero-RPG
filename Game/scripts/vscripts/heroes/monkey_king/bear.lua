@@ -67,6 +67,16 @@ function bear_warstomp(event)
 		for _,enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NATURE, RPC_ELEMENT_EARTH)
 			Filters:ApplyStun(caster, stun_duration, enemy)
+			if caster:HasModifier("modifier_djanghor_glyph_7_1") then
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_stack", {duration = 8})
+			local rendStacks = enemy:GetModifierStackCount("modifier_wolf_rend_stack", caster)
+			local newStacks = math.min(2, rendStacks+1)
+			enemy:SetModifierStackCount("modifier_wolf_rend_stack", caster, newStacks)
+
+			local armorLoss = (enemy:GetPhysicalArmorValue()+enemy:GetModifierStackCount("modifier_wolf_rend_armor_loss", caster))*0.5
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_armor_loss", {duration = 8})
+			enemy:SetModifierStackCount("modifier_wolf_rend_armor_loss", caster, armorLoss*newStacks)
+			end
 		end
 	end 
 	Filters:CastSkillArguments(2, caster)
