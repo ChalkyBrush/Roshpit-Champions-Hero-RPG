@@ -347,6 +347,7 @@ function monkey_form(event)
 	caster:RemoveModifierByName("modifier_shapeshift_cat")
 	caster:RemoveModifierByName("modifier_shapeshift_bear")
 	caster:RemoveModifierByName("modifier_shapeshift_year_beast")
+	caster:RemoveModifierByName("modifier_shapeshift_year_beast_r_3")
 	if caster:HasModifier("modifier_draghor_shapeshift_hawk_lua") then
 		caster:AddNewModifier( caster, ability, "modifier_draghor_shapeshift_shrink", {duration = 0.5} )
 	end
@@ -492,6 +493,9 @@ end
 function shapeshift_start_year_beast(event)
 	local caster = event.caster
 	local ability = event.ability
+	
+	ability.r_3_level = caster:GetRuneValue("r", 3)
+	
 	if ability.pfx then
 		ParticleManager:DestroyParticle(ability.pfx, false)
 		ability.pfx = false
@@ -505,6 +509,7 @@ function shapeshift_start_year_beast(event)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftIn.Finish", caster)
 	StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=1.2})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_year_beast", {})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_year_beast_r_3", {})
 
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_year_beast", "draghor_monkey_form", DOTA_ULTIMATE_SLOT)
 	local mark = caster:GetAbilityByIndex(0)
