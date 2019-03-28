@@ -5326,7 +5326,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1200"
+				"property_one"			"700"
 			}
 			"02"
 			{

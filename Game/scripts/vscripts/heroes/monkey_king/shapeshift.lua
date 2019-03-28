@@ -284,6 +284,10 @@ function monkey_form(event)
 		local ybShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
 		ybShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_year_beast_b_d_health", {duration = 7})
 	end
+	if caster:HasModifier("modifier_shapeshift_yearbeast_d_d") then
+		local ybShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
+		ybShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_yearbeast_d_d", {duration = 7})
+	end
 	local colorVector = Vector(0.45,0.8,0.6)
 	local springParticle = "particles/econ/items/monkey_king/arcana/death/monkey_king_spring_death_base.vpcf"
 	if (caster:HasModifier("modifier_djanghor_arcana1") or caster.forceOutYearBeast) and not caster.forceNonBeast then
