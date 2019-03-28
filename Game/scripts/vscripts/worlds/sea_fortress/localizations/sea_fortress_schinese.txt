@@ -107,6 +107,10 @@
 		"seafortress_ocean_diviner"							"深海占卜者"
 		"seafortress_squidcicle"							"水滨鱿鱼"
 		"seafortress_final_boss"							"无尽之海霸主 瓦尔顿"
+		"seafortress_ol_spiny"								"Ol'斯派尼 "
+		"DOTA_Tooltip_ability_ol_spiny_passive"				"肢解"
+		"DOTA_Tooltip_ability_ol_spiny_passive_Description"	"普通攻击将会造成3次纯粹伤害和3次魔法伤害。"
+
 
 		"DOTA_Tooltip_modifier_sea_fortress_ai"				"失落深海要塞"
 		"DOTA_Tooltip_modifier_sea_fortress_ai_Description"	"造成的魔法和纯粹伤害增加 300%%. 受到的伤害减少 99.5%%"
