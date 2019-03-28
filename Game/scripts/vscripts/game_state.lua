@@ -2002,7 +2002,7 @@ function GameState:FilterDamage(filterTable)
 			attacker.amulet:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_tempest_falcon_ring_effect", {duration = 8})
 		end
 		if attacker:HasModifier("modifier_firelock_pendant") then
-			local multIncrease = (attacker:GetStrength()/10)*0.005
+			local multIncrease = (attacker:GetStrength()/10)*0.003
 			mult = mult + multIncrease
 		end
 		if attacker:HasModifier("modifier_power_ranger") then
