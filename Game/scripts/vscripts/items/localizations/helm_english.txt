@@ -359,7 +359,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_reef_shark_helmet"					"Dark Reef Shark Helmet"	
 		"property_shark_helmet"												"Shark Bite"
-		"property_shark_helmet_Description"									"After performing 5 attacks, gain @special_property1% attack power for 2.5 seconds or until next attack."
+		"property_shark_helmet_Description"									"Passively grants @special_property2% bonus attack damage. After performing 5 attacks, gain @special_property1% attack power for 2.5 seconds or until next attack."
 		"DOTA_Tooltip_modifier_dark_reef_shark_stacks"						"Shark Stacks"
 		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"At 5 stacks, activate Shark Bite"
 		"DOTA_Tooltip_modifier_dark_reef_shark_effect"						"Shark Bite"
