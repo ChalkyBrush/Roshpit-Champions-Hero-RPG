@@ -4,11 +4,13 @@ function begin_electric_jump(event)
 	abilityLevel = ability:GetLevel()
 	--ability.location = caster:GetOrigin() + caster:GetForwardVector()*Vector(400,400)
 	ability.jump_level = 0
-	EmitSoundOn("phantom_assassin_phass_pain_02", caster)
+	EmitSoundOn("Voltex.ElectricJump.Grunt", caster)
 	Filters:CastSkillArguments(3, caster)
 	electricLeap_rune_e_1(caster, ability)
 	electricLeap_rune_e_3(caster, ability)
-	caster:StartGesture(ACT_DOTA_SPAWN)
+
+
+
     caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "voltex")
 
     ability:ApplyDataDrivenModifier(caster, caster, "modfier_voltex_jumping", {duration = 8})
@@ -24,6 +26,11 @@ function begin_electric_jump(event)
     Timers:CreateTimer(0.3, function()
     	ability.lifting = false
     end)
+    local zDiff = targetPoint.z - caster:GetAbsOrigin().z
+    local animation_speed = math.min(800/(distance+zDiff), 2.5)
+    animation_speed = math.max(animation_speed, 0.5)
+    StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_SPAWN, rate=animation_speed})
+    CustomAbilities:QuickAttachParticle("particles/econ/items/zeus/lightning_weapon_fx/zuus_lb_cfx_il.vpcf", caster, 2)
 end
 
 function new_jumping_think(event)
@@ -69,8 +76,6 @@ function jump_think(keys)
 	--	caster:SetAbsOrigin(groundPosition)
 	--end
 end
-
-
 
 function begin_drop(event)
 	local caster = event.caster
@@ -124,7 +129,8 @@ function drop_end(keys)
 	local location = caster:GetAbsOrigin()
 	electricLeap_rune_e_2(caster, ability)
 	WallPhysics:ClearSpaceForUnit(caster, location)
-
+	electricLeap_rune_e_1(caster, ability)
+	CustomAbilities:QuickAttachParticle("particles/econ/items/zeus/lightning_weapon_fx/zuus_lb_cfx_il.vpcf", caster, 2)
 end
 
 function target_effect(event)
@@ -174,15 +180,11 @@ function electricLeap_rune_e_1(hero, ability)
   local totalLevel = abilityLevel + bonusLevel
   local player = caster:GetPlayerOwner()
   if totalLevel > 0 then
-    ConjureImage(caster, player, ability, totalLevel, runeUnit)
-    Timers:CreateTimer(1.1,
-    function()
-      ConjureImage(caster, player, ability, totalLevel, runeUnit)
-    end)
+    ConjureImage(caster, player, ability, totalLevel, runeUnit, ability)
   end
 end
 
-function ConjureImage( caster, player, runeAbility, abilityLevel, runeUnit )
+function ConjureImage( caster, player, runeAbility, abilityLevel, runeUnit, ability )
  print("Conjure Image")
 
  local unit_name = caster:GetUnitName()
@@ -190,9 +192,31 @@ function ConjureImage( caster, player, runeAbility, abilityLevel, runeUnit )
  local duration = abilityLevel*0.2 + 1.5
  local outgoingDamage = abilityLevel*0.02+0.4
  local incomingDamage = 0.1
-
+ if not ability.illusions_table then
+ 	ability.illusions_table = {}
+ else
+ 	local new_table = {}
+ 	for i = 1, #ability.illusions_table, 1 do
+ 		if IsValidEntity(ability.illusions_table[i]) and ability.illusions_table[i]:IsAlive() then
+ 			table.insert(new_table, ability.illusions_table[i])
+ 		elseif IsValidEntity(ability.illusions_table[i]) then
+ 			if not ability.illusions_table[i]:IsAlive() then
+ 				UTIL_Remove(ability.illusions_table[i])
+ 			end
+ 		end
+ 	end
+ 	ability.illusions_table = new_table
+ 	print(#new_table)
+ end
+ if #ability.illusions_table >= 6 then
+ 	print("KILL IOT?")
+	ability.illusions_table[1]:SetHealth(10)
+	ability.illusions_table[1]:ForceKill(true)
+ end
  duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
  local illusion = CreateUnitByName("zap_assassin_clone", origin, true, caster, nil, caster:GetTeamNumber())
+
+ table.insert(ability.illusions_table, illusion)
  illusion:SetOwner(caster)
  illusion.owner = caster:GetPlayerOwnerID()
  illusion.hero = caster
@@ -236,5 +260,12 @@ illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = durat
     	runeAbility:ApplyDataDrivenModifier(caster.runeUnit3, illusion, "modifier_voltex_rune_r_3_buff", {duration = duration})
     	illusion:SetModifierStackCount( "modifier_voltex_rune_r_3_buff", runeAbility, c_d_level )
     end
-
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, illusion:GetAbsOrigin()+Vector(0,0,200))
+	ParticleManager:SetParticleControl(pfx, 1, illusion:GetAbsOrigin()-Vector(0,0,0))
+	Timers:CreateTimer(0.8, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	
+	StartAnimation(illusion, {duration=1.0, activity=ACT_DOTA_SPAWN, rate=1.2})
 end
