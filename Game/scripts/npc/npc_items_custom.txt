@@ -33495,12 +33495,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"3"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"30"
+				"property_two"			"10"
 			}
 			"03"
 			{
@@ -34842,7 +34842,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"90"
+				"property_one"			"95"
 			}
 		}
 	}
@@ -36711,12 +36711,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_one"			"2.5"
+				"property_one"			"1.5"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"3000"
+				"property_two"		"2700"
 			}
 		}
 	}
@@ -48228,7 +48228,7 @@
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"precache"
 		{
-			"particle"	"particles/econ/items/juggernaut/bladekeeper_healing_ward/aeriths_tear.vpcf"
+			"particle"	"particles/roshpit/items/aeriths2.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -48253,7 +48253,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"EffectName"	"particles/econ/items/juggernaut/bladekeeper_healing_ward/aeriths_tear.vpcf"
+				"EffectName"	"particles/roshpit/items/aeriths2.vpcf"
 				"EffectAttachType"	"follow_origin"
 			}
 		}

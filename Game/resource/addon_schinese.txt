@@ -12042,7 +12042,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"激光手套"
 		"item_property_cytopian_laser"				"激光"
-		"property_cytopian_laser_description"		"施放 @Ability2 的同时向附近的所有敌人发射激光，造成 @special_property1x 玩家智力值乘以 @Ability2 等级数的魔法伤害。激光每次击中敌人，都增加100%的伤害，最高叠加 @special_property2 层。"
+		"property_cytopian_laser_description"		"施放 @Ability2 的同时向附近的所有敌人发射激光，造成 @special_property1x 玩家攻击力乘以 @Ability2 等级数的魔法伤害。激光每次击中敌人，都增加100%的伤害，最高叠加 @special_property2 层。"
 		"DOTA_Tooltip_modifier_cytopian_stacks"		"激光"
 		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"受到激光的伤害增加"
 		
@@ -12739,7 +12739,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"艾瑞丝的眼泪"
 		"item_property_aeriths_tear"							"最终幻想"
-		"property_aeriths_tear"									"240码范围内敌人对你的伤害降低 90% 。"
+		"property_aeriths_tear"									"400码范围内敌人对你的伤害降低 90% 。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"放大水晶"

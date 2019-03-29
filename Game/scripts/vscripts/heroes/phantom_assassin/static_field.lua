@@ -17,6 +17,7 @@ function begin_static_field(event)
 		local rotatedVector = WallPhysics:rotateVector(fv, randomRadian)
 		create_spark(rotatedVector, event)
 	end
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", caster, 0.03)
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "voltex")
 	Filters:CastSkillArguments(4, caster)
 	d_d_set(caster, ability)
@@ -27,6 +28,7 @@ end
 function begin_static_channel(event)
 	local caster = event.caster
 	local ability = event.ability
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", caster, 0.03)
 	StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_ATTACK_EVENT, rate=0.38})
 	if caster:HasModifier("modifier_magnet_d_d") then
         Timers:CreateTimer(0.03, function()

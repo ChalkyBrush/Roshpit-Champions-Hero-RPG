@@ -50992,7 +50992,7 @@
 		"precache"
 		{
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_disruptor.vsndevts"
-			"particle"			"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
+			"particle"			"particles/roshpit/voltex/overcharge_activate.vpcf"
 			"particle"			"particles/status_fx/status_effect_electrical.vpcf"
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
 			"particle"			"particles/items_fx/chain_lightning.vpcf"
@@ -51053,7 +51053,7 @@
 
 			"FireEffect"
 			{
-				"EffectName"	"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
+				"EffectName"	"particles/roshpit/voltex/overcharge_activate.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Target"		"CASTER"
 			}
@@ -51229,16 +51229,6 @@
 	    		"Function"		"begin_zap"
 	    		"radius"		"%radius"
 	    	}
-  		   "AttachEffect"
-	        {
-	          "EffectName"  "particles/units/heroes/hero_stormspirit/storm_spirit_new_loadout.vpcf"
-	          "EffectAttachType"  "follow_origin"
-	          "EffectDurationScale" "1"
-	          "EffectLifeDurationScale" "1"
-	          "EffectColorA"  "255 0 0"
-	          "EffectColorB"  "255 0 0"
-	          "Target"  "CASTER"
-	        }
 			"FireSound"
 			{
 				"EffectName"	"Voltex.ZapSound"
@@ -51393,6 +51383,7 @@
 			"particle"			"particles/units/heroes/hero_arc_warden/arc_warden_ambient.vpcf"
 			"particle"			"particles/units/heroes/hero_lina/lina_spell_laguna_blade_impact_sparks.vpcf"
 			"particle"			"particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_attack_crit.vpcf"
+			"particle"			"particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf"
 	    }
 
 		// Casting
@@ -51472,23 +51463,9 @@
 					}
 					"FireSound"
 					{
-						"EffectName"	"Hero_Zuus.GodsWrath.Target"
+						"EffectName"	"Voltex.LightningLand"
 						"Target"		"CASTER"
 					}
-					"FireEffect"
-					{
-						"EffectName"	"particles/units/heroes/hero_disruptor/disruptor_thunder_strike_bolt.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "CASTER"
-
-						"ControlPoints"
-			            {
-			            	"00"	"CASTER"
-			            	"01"	"%land_radius 0 0"
-			            	"03"	"0 0 0"
-			            }
-					}
-
 					"DestroyTrees"
 			        {
 			        	"Center"	"CASTER"
@@ -51791,6 +51768,8 @@
 			"particle"	"particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf"
 			"particle"	"particles/roshpit/voltex/voltex_bolt_lightning_bolt.vpcf"
 			"soundfile"	"soundevents/game_sounds_voltex.vsndevts"
+			"particle"	"particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf"
+			"particle"	"particles/econ/items/zeus/lightning_weapon_fx/zuus_lb_cfx_il.vpcf"
 
 		}
 
@@ -51809,17 +51788,6 @@
 				"EffectName"	"phantom_assassin_phass_happy_04"
 				"Target"	"CASTER"
 			}
-			"AttachEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"EffectRadius"	"%radius"
-				"EffectDurationScale"	"1"
-				"EffectLifeDurationScale"	"1"
-				"EffectColorA"	"200 200 0"
-				"EffectColorB"	"200 200 0"
-				"Target"	"CASTER"
-			}
 			"RunScript"
 			{
 				"ScriptFile"	"scripts/vscripts/heroes/phantom_assassin/static_field.lua"
@@ -51833,18 +51801,6 @@
 			{
 				"Target"	"CASTER"
 				"ModifierName"	"modifier_channel_start"
-			}
-
-			"AttachEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"EffectRadius"	"%radius"
-				"EffectDurationScale"	"1"
-				"EffectLifeDurationScale"	"1"
-				"EffectColorA"	"200 200 0"
-				"EffectColorB"	"200 200 0"
-				"Target"	"CASTER"
 			}
 
 			"FireSound"
@@ -52603,6 +52559,10 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"300"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"OnDestroy"
 				{

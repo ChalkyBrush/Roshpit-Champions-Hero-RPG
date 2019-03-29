@@ -11908,7 +11908,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"Cytopian Laser Glove"
 		"item_property_cytopian_laser"				"Cytopian Laser"
-		"property_cytopian_laser_description"		"Casting @Ability2 also fires lasers at all surrounding enemies, dealing @special_property1x your Intelligence times @Ability2 level as magic damage. Each successive hit deals 100% increased damage. Max @special_property2 stacks."
+		"property_cytopian_laser_description"		"Casting @Ability2 also fires lasers at all surrounding enemies, dealing @special_property1x your attack damage times @Ability2 level as magic damage. Each successive hit deals 100% increased damage. Max @special_property2 stacks."
 		"DOTA_Tooltip_modifier_cytopian_stacks"		"Cytopian Laser"
 		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"Taking increased damage from lasers"
 		
@@ -12615,7 +12615,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"Aerith's Tear"
 		"item_property_aeriths_tear"							"Last Wish"
-		"property_aeriths_tear"									"Reduces damage taken from enemies within 240 distance by @special_property1%"
+		"property_aeriths_tear"									"Reduces damage taken from enemies within 400 distance by @special_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"Fractional Enhancement Geode"
@@ -12788,6 +12788,7 @@
 		"item_property_blue_divinex"									"X-Intelligence"
 		"property_blue_divinex_description"							"Strength and Agility are capped at 20. Intelligence is doubled. Each 10 points of Intelligence increases item damage by @special_property1%."
 		
+
 
 
 		

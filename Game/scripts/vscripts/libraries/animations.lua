@@ -65,6 +65,7 @@ local _ANIMATION_TRANSLATE_TO_CODE = {
   anvil= 7,
   arcana= 8,
   armaments_set= 20,
+  assassin=360,
   axes= 188,
   backstab= 41,
   backstroke_gesture= 283,

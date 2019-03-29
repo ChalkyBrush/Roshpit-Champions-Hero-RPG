@@ -353,3 +353,71 @@
         }
     }
 }
+
+"Voltex.ElectricJump.Grunt"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/phantom_assassin/phass_pain_02.vsnd"
+                              "value1"        "sounds/vo/phantom_assassin/phass_pain_01.vsnd"
+                              "value2"        "sounds/vo/phantom_assassin/phass_pain_12.vsnd"
+                              "value3"        "sounds/vo/phantom_assassin/phass_pain_13.vsnd"
+                              "value4"        "sounds/vo/phantom_assassin/phass_pain_14.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.12000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "92.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Voltex.LightningLand"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/zuus/gods_wrath_target.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.52000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.250000"  }
+                    "soundlevel"        {   "value"     "88.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}

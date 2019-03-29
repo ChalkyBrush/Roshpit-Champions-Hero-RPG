@@ -900,7 +900,7 @@ function Filters:ApplyQskills(caster)
     end
     if caster:HasModifier("modifier_outland_stone_cuirass") then
         CustomAbilities:QuickAttachParticle("particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", caster, 4)
-        caster:AddNewModifier(caster, nil, "modifier_stunned", {duration = 2.5})
+        caster:AddNewModifier(caster, nil, "modifier_stunned", {duration = 1.5})
     end
     if caster:HasModifier("modifier_dark_emissary_glove") then
         Filters:DarkEmissary(caster)
@@ -1465,7 +1465,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 3.5
         end
         if attacker:HasModifier("modifier_outland_stone_cuirass") then
-            damageMult = damageMult + 30
+            damageMult = damageMult + 27
         end
         if attacker:HasModifier("modifier_mana_relic_damage_boost") then
             damageMult = damageMult + 4
@@ -3383,9 +3383,9 @@ function Filters:SetupSummonUnit(caster, position, damageMult, healthMult, lifeD
 end
 
 function Filters:CytopianLaser(caster)
-    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 480, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     local abilityLevel = caster:GetAbilityByIndex(1):GetLevel()
-    local damage = caster:GetIntellect()*abilityLevel
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*abilityLevel*3
     if #enemies > 0 then
         local ability = caster.handItem
         EmitSoundOn("Hero_Tinker.Attack", enemies[1])
@@ -3405,7 +3405,7 @@ function Filters:CytopianLaser(caster)
             end)    
             print(ability:GetAbilityName())
             ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_cytopian_stacks", {duration = 4})
-            local newStacks = math.min(currentStacks + 1, 30)
+            local newStacks = math.min(currentStacks + 1, 10)
             enemy:SetModifierStackCount("modifier_cytopian_stacks", caster.InventoryUnit, newStacks)
         end
     end         
@@ -3824,7 +3824,7 @@ end
 
 function Filters:AerithsTearTakeDamage(attacker, victim)
     local distance = CalcDistanceBetweenEntityOBB(attacker, victim)
-    if distance <= 240 then
+    if distance <= 400 then
         return true
     else
         return false
