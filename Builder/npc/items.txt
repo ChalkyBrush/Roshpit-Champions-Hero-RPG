@@ -4635,7 +4635,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"element_one"			"7"
+				"element_one"			"6"
 			}
 			"04"
 			{

@@ -3385,7 +3385,7 @@ end
 function Filters:CytopianLaser(caster)
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     local abilityLevel = caster:GetAbilityByIndex(1):GetLevel()
-    local damage = caster:OverflowProtectedGetAverageTrueAttackDamage()*abilityLevel*3
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*abilityLevel*3
     if #enemies > 0 then
         local ability = caster.handItem
         EmitSoundOn("Hero_Tinker.Attack", enemies[1])
