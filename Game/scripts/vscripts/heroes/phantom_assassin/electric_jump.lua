@@ -9,8 +9,8 @@ function begin_electric_jump(event)
 	electricLeap_rune_e_1(caster, ability)
 	electricLeap_rune_e_3(caster, ability)
 
-
-
+	ability.animation = false
+	ability.extra_particle = false
     caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "voltex")
 
     ability:ApplyDataDrivenModifier(caster, caster, "modfier_voltex_jumping", {duration = 8})
@@ -31,6 +31,7 @@ function begin_electric_jump(event)
     animation_speed = math.max(animation_speed, 0.5)
     StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_SPAWN, rate=animation_speed})
     CustomAbilities:QuickAttachParticle("particles/econ/items/zeus/lightning_weapon_fx/zuus_lb_cfx_il.vpcf", caster, 2)
+    CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", caster, 0.03)
 end
 
 function new_jumping_think(event)
@@ -48,6 +49,12 @@ function new_jumping_think(event)
 	print(ability.jumpFV)
 	if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 10 and not ability.lifting then
 		caster:RemoveModifierByName("modfier_voltex_jumping")
+	elseif caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 200 and not ability.animation and not ability.lifting then
+		ability.animation = true
+		StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.5, translate="assassin"})
+	-- elseif caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 900 and not ability.extra_particle and not ability.lifting then
+		-- ability.extra_particle = true
+		
 	end
 end
 
@@ -106,13 +113,24 @@ function falling_think(keys)
 	caster.jump_velocity = math.min(caster.jump_velocity + 3, 50)
 	caster:SetAbsOrigin(newPosition)
 	if ability.jump_level == 0 then
-		if newPosition.z - GetGroundPosition(newPosition, caster).z < 250 then
-			caster:RemoveModifierByName("modifier_electric_jump_fall")
+		if newPosition.z - GetGroundPosition(newPosition, caster).z < 100 then
+			if not ability.lifting then
+				caster:RemoveModifierByName("modifier_electric_jump_fall")
+			end
+		elseif newPosition.z - GetGroundPosition(newPosition, caster).z < 350 then
+			print("EVER?")
+
 		end
 	else
 	local groundPos = GetGroundPosition(newPosition, caster)
+	print("ANY?")
 	if newPosition.z - groundPos.z < 10 then
 		caster:RemoveModifierByName("modifier_electric_jump_fall")
+	elseif newPosition.z - groundPos.z < 200 then
+		print("HALLO?")
+		if not ability.animation then
+			StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_1, rate=2, translate="assassin"})
+		end
 	end
 		if newPosition.z - GetGroundPosition(newPosition, caster).z < 400 and ability.explosions_fired == 0 then
 			--ability.explosions_fired = 1
@@ -131,6 +149,7 @@ function drop_end(keys)
 	WallPhysics:ClearSpaceForUnit(caster, location)
 	electricLeap_rune_e_1(caster, ability)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/zeus/lightning_weapon_fx/zuus_lb_cfx_il.vpcf", caster, 2)
+	local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", caster, 0.03)
 end
 
 function target_effect(event)

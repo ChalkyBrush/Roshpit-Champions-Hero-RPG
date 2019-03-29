@@ -19358,7 +19358,7 @@
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"precache"
 		{
-			"particle"	"particles/econ/items/juggernaut/bladekeeper_healing_ward/aeriths_tear.vpcf"
+			"particle"	"particles/roshpit/items/aeriths2.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -19383,7 +19383,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"EffectName"	"particles/econ/items/juggernaut/bladekeeper_healing_ward/aeriths_tear.vpcf"
+				"EffectName"	"particles/roshpit/items/aeriths2.vpcf"
 				"EffectAttachType"	"follow_origin"
 			}
 		}

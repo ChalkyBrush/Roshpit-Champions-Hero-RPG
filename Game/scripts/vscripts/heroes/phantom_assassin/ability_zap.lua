@@ -3,7 +3,7 @@ require('heroes/phantom_assassin/constants_voltex')
 function begin_zap(event)
   local caster = event.caster
   local ability = event.ability
-  StartAnimation(caster, {duration=0.15, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
+  StartAnimation(caster, {duration=0.25, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
   Filters:CastSkillArguments(2, caster)
   if caster:HasModifier("modifier_voltex_glyph_7_1") then
     caster:SetMana(0)
@@ -21,6 +21,7 @@ function begin_zap(event)
     end)
     EmitSoundOn("Hero_Zuus.GodsWrath.Target", caster)
   end
+  CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_stormspirit/storm_spirit_new_loadout.vpcf", caster:GetAbsOrigin()+Vector(0,0,30), 1)
   caster.e_4_level = caster:GetRuneValue("e", 4)
   ability.w_1_level = caster:GetRuneValue("w", 1)
   local w_2_level = caster:GetRuneValue("w", 2)
