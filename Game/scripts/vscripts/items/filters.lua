@@ -3385,7 +3385,7 @@ end
 function Filters:CytopianLaser(caster)
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     local abilityLevel = caster:GetAbilityByIndex(1):GetLevel()
-    local damage = caster:OverflowProtectedGetAverageTrueAttackDamage()*abilityLevel*3
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*abilityLevel*3
     if #enemies > 0 then
         local ability = caster.handItem
         EmitSoundOn("Hero_Tinker.Attack", enemies[1])
@@ -3393,7 +3393,7 @@ function Filters:CytopianLaser(caster)
             local currentStacks = enemy:GetModifierStackCount("modifier_cytopian_stacks", caster.InventoryUnit)
             damage = damage + damage*currentStacks
 
-            Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_MAGICAL,nil,RPC_ELEMENT_TIME, RPC_ELEMENT_LIGHTNING)
+            Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_MAGICAL,nil,RPC_ELEMENT_HOLY, RPC_ELEMENT_LIGHTNING)
             local particleName = "particles/units/heroes/hero_tinker/tinker_laser.vpcf"
             local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
             ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,100))
