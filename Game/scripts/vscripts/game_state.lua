@@ -1679,6 +1679,11 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local damageReduc = math.min(stacks*0.015, 0.9)
 		damage = damage - damage*damageReduc
 	end
+	if victim:HasModifier("modifier_venomort_arcana2_movespeed_set")then
+		local r4_level=victim:GetRuneValue("r",4)
+		local damageReduc=math.min(r4_level*0.02,0.9)
+		damage=damage-damage*damageReduc
+	end
 	if victim:HasModifier("modifier_steelforge_passive") then
 		local steelForge = victim:FindAbilityByName("mountain_protector_steelforge_stance")
 		local reduction = steelForge:GetLevelSpecialValueFor("damage_resist", steelForge:GetLevel())
