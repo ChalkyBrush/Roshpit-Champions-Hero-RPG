@@ -1142,7 +1142,7 @@ function challenger19ai(event)
 	local luck = RandomInt(1,4)
 	local range = GameState:GetDifficultyFactor()*250 + 300
 	if luck == 1 then
-		if blinkAbility:IsFullyCastable() then
+		if blinkAbility and blinkAbility:IsFullyCastable() then
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_FARTHEST, false )	
 			if #enemies > 0 then
 				local newOrder = {
@@ -1160,7 +1160,7 @@ function challenger19ai(event)
 	local luck = RandomInt(1,5-GameState:GetDifficultyFactor())
 	if luck == 1 then
 		local stifling = caster:FindAbilityByName("arena_stifling_dagger")
-		if stifling:IsFullyCastable() then
+		if stifling and stifling:IsFullyCastable() then
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
 			if #enemies > 0 then
 				local distance = WallPhysics:GetDistance(enemies[1]:GetAbsOrigin()*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
