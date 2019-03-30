@@ -1128,32 +1128,32 @@ function candy_crush_buff_end(event)
 			Winterblight:SpawnCandyCrushStatue(Vector(2958+xIncrease, -16128), hero.candy_crush_link_data.links[#hero.candy_crush_link_data.links].color, -1, -1)
 		end
 	else
-		if Winterblight.CandyCrushPhase == 1 then
+		if Winterblight.CandyCrushPhase == 1 or Winterblight.CandyCrushPhase == 2 or Winterblight.CandyCrushPhase == 3 then
 			Winterblight:ResetCandyCrush()
 			return false
-		elseif Winterblight.CandyCrushPhase == 2 then
-			for y = 1, #Winterblight.CandyCrushLayout, 1 do
-				for x = 1, #Winterblight.CandyCrushLayout[y], 1 do
-					Timers:CreateTimer(0.05*x + 0.5*y, function()
-						local statue = Winterblight.CandyCrushLayout[y][x]
-						if IsValidEntity(statue) then
-						    EmitSoundOn("Winterblight.CandyCrush.SpawnStatue", statue)
-						    CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_wisp/wisp_death.vpcf", statue:GetAbsOrigin()+Vector(0,0,40), 3)
-						    UTIL_Remove(statue)
-						end
-					end)
-				end
-			end
-			for i = 1, #Winterblight.CandyCrushBlackStatueTable, 1 do
-				Timers:CreateTimer(i*0.5, function()
-					local statue = Winterblight.CandyCrushBlackStatueTable[i]
-					if IsValidEntity(statue) then
-					    EmitSoundOn("Winterblight.CandyCrush.SpawnStatue", statue)
-					    CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_wisp/wisp_death.vpcf", statue:GetAbsOrigin()+Vector(0,0,40), 3)
-					    UTIL_Remove(statue)
-					end
-				end)
-			end
+		-- elseif Winterblight.CandyCrushPhase == 2 then
+		-- 	for y = 1, #Winterblight.CandyCrushLayout, 1 do
+		-- 		for x = 1, #Winterblight.CandyCrushLayout[y], 1 do
+		-- 			Timers:CreateTimer(0.05*x + 0.5*y, function()
+		-- 				local statue = Winterblight.CandyCrushLayout[y][x]
+		-- 				if IsValidEntity(statue) then
+		-- 				    EmitSoundOn("Winterblight.CandyCrush.SpawnStatue", statue)
+		-- 				    CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_wisp/wisp_death.vpcf", statue:GetAbsOrigin()+Vector(0,0,40), 3)
+		-- 				    UTIL_Remove(statue)
+		-- 				end
+		-- 			end)
+		-- 		end
+		-- 	end
+		-- 	for i = 1, #Winterblight.CandyCrushBlackStatueTable, 1 do
+		-- 		Timers:CreateTimer(i*0.5, function()
+		-- 			local statue = Winterblight.CandyCrushBlackStatueTable[i]
+		-- 			if IsValidEntity(statue) then
+		-- 			    EmitSoundOn("Winterblight.CandyCrush.SpawnStatue", statue)
+		-- 			    CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_wisp/wisp_death.vpcf", statue:GetAbsOrigin()+Vector(0,0,40), 3)
+		-- 			    UTIL_Remove(statue)
+		-- 			end
+		-- 		end)
+		-- 	end
 		end
 	end
 	for i = 1, #hero.candy_crush_link_data.links, 1 do
