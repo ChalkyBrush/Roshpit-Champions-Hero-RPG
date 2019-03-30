@@ -2251,6 +2251,9 @@ function Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
 		Winterblight.CandyCrushComplete = true
 		Winterblight.CandyCrushCup = true
 		local black_statue_count = #Winterblight.CandyCrushBlackStatueTable
+		if not black_statue_count then
+			black_statue_count = 9
+		end
 		EmitSoundOnLocationWithCaster(Winterblight.CandyCrushCrystal:GetAbsOrigin(), "Winterblight.AzaleaCrystal.FinishPuzzle", Winterblight.Master)
 		EmitSoundOnLocationWithCaster(Winterblight.CandyCrushProgressCrystal:GetAbsOrigin(), "Winterblight.AzaleaCrystal.FinishPuzzle", Winterblight.Master)
 		UTIL_Remove(Winterblight.CandyCrushCrystal)
