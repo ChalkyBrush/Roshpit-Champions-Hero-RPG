@@ -333,7 +333,7 @@
 		"item_rpc_djanghor_glyph_5_1_description" 				"Reduces the cooldown of @Ability1 by @glyph_property1 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"Glyph of Forest Blessing"
-		"item_rpc_djanghor_glyph_6_1_description" 				"Attempt to remove an enemy debuff from self every @glyph_property1 seconds."
+		"item_rpc_djanghor_glyph_6_1_description" 				"Attempt to remove an enemy debuff from self every @glyph_property1 seconds. Mobility skills with Charging type apply [E3] effect on cast."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"Glyph of Mauling"
 		"item_rpc_djanghor_glyph_7_1_description" 				"@glyph_property1% chance to bash while in Bear Form, dealing @glyph_property2% increased damage and @glyph_property3 second stun. Buff persists for 10 seconds after shifting out. War Stomp reduces target's armor same as Rend."

@@ -52,7 +52,7 @@ function hawk_screech(event)
 				if (modifierMaker:GetEntityIndex() == caster:GetEntityIndex() or modifierMaker:GetEntityIndex() == caster.InventoryUnit:GetEntityIndex()) then
 					local durationRemaining = modifier:GetRemainingTime()
 					if durationRemaining > 0 then
-						local durationIncrease = DJANGHOR_Q3_BUFF_DURATION_INCREASE*q_3_level
+						local durationIncrease = 0.3 + DJANGHOR_Q3_BUFF_DURATION_INCREASE*q_3_level
 						if modifier.djanghorQ3Increase >= DJANGHOR_Q3_MAX_APPLY_COUNT then
 						else
 							modifier.djanghorQ3Increase = modifier.djanghorQ3Increase + 1
@@ -274,7 +274,31 @@ function begin_bear_charge(event)
 	EmitSoundOn("Draghor.YearBeast.Charge", caster)
 	ability.interval = 0
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_charging", {duration = duration})
-
+	if caster:HasModifier("modifier_djanghor_glyph_6_1") then
+		local c_c_level = caster:GetRuneValue("e", 3)
+		if c_c_level > 0 then
+			local procs = Runes:Procs(c_c_level, 5, 1)
+			if procs > 0 then
+				local particle = false
+				for i = 1, procs, 1 do
+					local modifiers = caster:FindAllModifiers()
+					for j = 1, #modifiers, 1 do
+						local modifier = modifiers[j]
+						local modifierMaker = modifier:GetCaster()
+						if modifierMaker and modifierMaker.regularEnemy then
+							caster:RemoveModifierByName(modifier:GetName())
+							particle = true
+							break
+						end
+					end				
+				end
+				if particle then
+					EmitSoundOn("Draghor.Cleanse", caster)
+					local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_morphling/morphling_morph_agi.vpcf", caster, 1.2)
+				end
+			end
+		end
+	end	
 	Filters:CastSkillArguments(3, caster)
 end
 
