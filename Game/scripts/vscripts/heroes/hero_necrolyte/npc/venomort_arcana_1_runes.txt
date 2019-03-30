@@ -100,8 +100,19 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARCANA1_R4_BONUS_MOVESPEED %>"
+				"property_one"			 "<% ARCANA1_R4_BONUS_MOVESPEED %>"
 			}
+			"02"
+                        {
+                                "var_type"                             "FIELD_INTEGER"
+                                "property_two"                         "2"
+                        }
+                        "03"
+                        {
+                                                                     "var_type"           "FIELD_INTEGER"
+                                                                     "property_two_max"   "90"
+                        }
+
 		}
 	}
 
