@@ -163,6 +163,12 @@ function shapeshift_start_bear(event)
 		caster:SetModifierStackCount("modifier_bear_b_d", caster, b_d_level)
 		caster:FindModifierByName("modifier_bear_b_d"):SetDuration(-1, true)
 	end
+	local c_d_level = caster:GetRuneValue("r", 3)
+	if c_d_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_c_d", {})
+		caster:SetModifierStackCount("modifier_bear_c_d", caster, c_d_level)
+		caster:FindModifierByName("modifier_bear_c_d"):SetDuration(-1, true)
+	end
 	local d_d_level = caster:GetRuneValue("r", 4)
 	if d_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_bear_d_d", {})
@@ -258,6 +264,10 @@ function monkey_form(event)
 			hawkShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
 		end
 		hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_hawk_c_d", {duration = 7})
+	end
+	if caster:HasModifier("modifier_bear_c_d") then
+		local hawkShiftAbility = caster:FindAbilityByName("draghor_shapeshift_bear")
+		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bear_c_d", {duration = 7})
 	end
 	if caster:HasModifier("modifier_glyph_2_critical") then
 		local wolfShiftAbility = caster:FindAbilityByName("draghor_shapeshift_cat")

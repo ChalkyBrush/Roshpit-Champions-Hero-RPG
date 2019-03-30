@@ -548,6 +548,7 @@ function jump_end(event)
 	local stun_duration = event.stun_duration
 	local damage = event.stomp_damage
 	local w_3_level = caster:GetRuneValue("w", 3)
+	local e_1_level = caster:GetRuneValue("e", 1)
 	if w_3_level > 0 then
 		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*w_3_level
 	end
@@ -559,6 +560,9 @@ function jump_end(event)
 	ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
 	EmitSoundOn("Draghor.Yearbeast.Warstomp", caster)
 	-- FindClearSpaceForUnit(caster, position, false)
+	if e_1_level > 0 then
+		CustomAbilities:QuickAttachThinker(ability, caster, caster:GetAbsOrigin(), "modifier_monkey_a_c_thinker", {duration = 20})
+	end
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
@@ -570,5 +574,5 @@ function jump_end(event)
 	Timers:CreateTimer(0.03, function()
 		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_BELLYACHE_END, rate=1.3})
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-	end)
+	end)	
 end

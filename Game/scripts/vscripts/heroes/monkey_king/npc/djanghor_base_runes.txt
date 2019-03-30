@@ -172,7 +172,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"3"
 			}
 		}
 	}
@@ -285,7 +285,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"12"
 			}
 		}
 	}

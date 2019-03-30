@@ -872,6 +872,30 @@
 					}
 				}
 			}
+			"modifier_monkey_a_c_thinker"
+			{
+				"Aura"					"modifier_monkey_a_c_effect"
+				"Aura_Radius"			"250"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Duration"				"20"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/roshpit/draghor/a_c_pool_base.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+					}
+				}
+			}
+			"modifier_monkey_a_c_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"djanghor/djanghor_rune_e_1"
+			}
 		}
 	}
 

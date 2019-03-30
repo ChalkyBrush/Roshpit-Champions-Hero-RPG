@@ -195,7 +195,12 @@ function Filters:AdjustItemDamage(caster, damage, victim)
 		local q_2_level = caster:GetRuneValue("q", 2)
         mult = mult + DUSKBRINGER_Q2_ITEM_PCT * q_2_level
     end
-
+	if casterName == "npc_dota_hero_monkey_king" then
+		if caster:HasModifier("modifier_bear_c_d") then
+		local r_3_level = caster:GetRuneValue("r", 3)
+        mult = mult + DJANGHOR_R3_BEAR_ITEM_DAMAGE_PCT * r_3_level
+		end
+    end
     if caster:HasModifier("modifier_hood_of_the_black_mage") then
         damage = damage*0.2
     end
@@ -1431,7 +1436,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_hawk_c_d") then
             local current_stack = attacker:GetModifierStackCount( "modifier_hawk_c_d", attacker)
-            damageMult = damageMult + 0.08*current_stack
+            damageMult = damageMult + 0.12*current_stack
         end
         if attacker:HasModifier("modifier_rockfall_passive") then
             if slot > 0 then
@@ -2645,8 +2650,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + stacks/100
         end
         if victim:HasModifier("modifier_monkey_a_c_effect") then
-            local monkeyAbility = victim:FindModifierByName("modifier_monkey_a_c_effect"):GetAbility()
-            mult = mult + 0.15*monkeyAbility.e_1_level
+			local e_1_level = attacker:GetRuneValue("e", 1) 
+			if e_1_level > 0 then
+				mult = mult + mult*0.03*e_1_level
+			end
         end
         if unitName == "npc_dota_hero_arc_warden" then
             if attacker.q_2_level then

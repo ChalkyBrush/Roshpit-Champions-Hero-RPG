@@ -191,7 +191,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_4_suffix"								"% for every 10 points of Attributes"
 
     	"DOTA_Tooltip_ability_djanghor_rune_e_1"									"[E1] Marshlands"
-    	"DOTA_Tooltip_ability_djanghor_rune_e_1_Description"						"After landing from Monkey Leap, leave an acidic pool of organic matter that increases <font color=\"#69BC71\">Nature</font> damage towards all enemies standing within."
+    	"DOTA_Tooltip_ability_djanghor_rune_e_1_Description"						"After landing from Monkey Leap, leave an acidic pool of organic matter that increases <font color=\"#69BC71\">Nature</font> damage towards all enemies standing within. Works multiplicatively with hero's <font color=\"#69BC71\">Nature</font> amplification."
     	"DOTA_Tooltip_ability_djanghor_rune_e_1_property_one"						"Nature Damage Amp"
     	"DOTA_Tooltip_ability_djanghor_rune_e_1_suffix"								"%"
 
@@ -232,8 +232,8 @@
     	"DOTA_Tooltip_modifier_bear_b_d_Description"								"Increased Health"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3"									"[R3] Predator"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_Description"						"Gain increased Base Ability Damage in hawk form. After shifting out, retain the buff for 7 seconds."
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_property_one"						"Base Ability Damage Bonus"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_Description"						"Gain increased Base Ability Damage in Hawk form and increased Item Damage in Bear form respectively. After shifting out, retain the buff for 7 seconds."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_property_one"						"Base Ability and Item Damage Bonus"
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_suffix"								"%"
 
     	"DOTA_Tooltip_modifier_hawk_c_d"											"Predator"
@@ -281,7 +281,7 @@
 		"DOTA_Tooltip_ability_djanghor_year_beast_charge_duration"							"SPRINT DURATION:"
 
 		"DOTA_Tooltip_ability_draghor_year_beast_leap"									"Majestic Leap"
-		"DOTA_Tooltip_ability_draghor_year_beast_leap_Description"						"Element: <font color=\"#69BC71\">Nature</font> / <font color=\"#AF843D\">Earth</font><br>Jumps toward the target location and creates a quake that stuns and damages enemies around the landing point."
+		"DOTA_Tooltip_ability_draghor_year_beast_leap_Description"						"Element: <font color=\"#69BC71\">Nature</font> / <font color=\"#AF843D\">Earth</font><br>Jumps toward the target location and creates a quake that stuns and damages enemies around the landing point. Applies [E1] Marshlands after landing."
 		"DOTA_Tooltip_ability_draghor_year_beast_leap_stomp_damage"						"DAMAGE:"
 		"DOTA_Tooltip_ability_draghor_year_beast_leap_stun_duration"					"STUN DURATION:"
 		"DOTA_Tooltip_ability_draghor_year_beast_leap_cast_range"						"CAST RANGE:"

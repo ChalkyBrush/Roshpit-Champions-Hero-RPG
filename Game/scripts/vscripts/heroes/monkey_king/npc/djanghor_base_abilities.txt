@@ -400,6 +400,12 @@
 				"IsBuff"	"1"
 				"TextureName"	"djanghor/djanghor_rune_r_2"
 			}
+			"modifier_bear_c_d"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"djanghor/djanghor_rune_r_3"
+			}
 			"modifier_shapeshift_bear_d_d"
 			{
 				"IsHidden"	"1"
