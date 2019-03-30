@@ -7207,13 +7207,13 @@ function RPCItems:RollPuzzlersLocket(deathLocation)
 
     local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4).."_3"
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.property3 = math.floor(value*1.5)
+    item.property3 = math.floor(value*2)
     item.property3name = runeName
     RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3) 
 
     local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4).."_2"
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.property4 = math.max(math.floor(value/4.5), 1)
+    item.property4 = math.max(math.floor(value/2), 1)
     item.property4 = RPCItems:GetLogarithmicVarianceValue(item.property4, 0, 0, 0, 0)
     item.property4name = runeName
     RPCItems:SetPropertyValues(item, item.property4, "rune", "#7DFF12",  4) 
