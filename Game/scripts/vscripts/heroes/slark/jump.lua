@@ -137,21 +137,23 @@ function slipfinn_main_thinker(event)
 		end
 	end
 	ability.interval = ability.interval + 1
-	if ability.interval == 10 then
-		ability.interval = 0
-		ability.e_2_level = caster:GetRuneValue("e", 2)
-		if ability.e_2_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_b_c_health_regen", {})
-			local healthRegenMult = 1
-			if caster:HasModifier("modifier_slipfinn_prone") then
-				healthRegenMult = 2
+	if not caster:HasModifier("modifier_slipfinn_arcana1") then
+		if ability.interval == 10 then
+			ability.interval = 0
+			ability.e_2_level = caster:GetRuneValue("e", 2)
+			if ability.e_2_level > 0 then
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_b_c_health_regen", {})
+				local healthRegenMult = 1
+				if caster:HasModifier("modifier_slipfinn_prone") then
+					healthRegenMult = 2
+				end
+				caster:SetModifierStackCount("modifier_slipfinn_b_c_health_regen", caster, ability.e_2_level*healthRegenMult*SLIPFINN_E2_HEALTH_REGEN*caster:GetAgility())
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_b_c_health", {})
+				caster:SetModifierStackCount("modifier_slipfinn_b_c_health", caster, ability.e_2_level*SLIPFINN_E2_HEALTH*caster:GetAgility())
+			else
+				caster:RemoveModifierByName("modifier_slipfinn_b_c_health_regen")
+				caster:RemoveModifierByName("modifier_slipfinn_b_c_health")
 			end
-			caster:SetModifierStackCount("modifier_slipfinn_b_c_health_regen", caster, ability.e_2_level*healthRegenMult*SLIPFINN_E2_HEALTH_REGEN*caster:GetAgility())
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_b_c_health", {})
-			caster:SetModifierStackCount("modifier_slipfinn_b_c_health", caster, ability.e_2_level*SLIPFINN_E2_HEALTH*caster:GetAgility())
-		else
-			caster:RemoveModifierByName("modifier_slipfinn_b_c_health_regen")
-			caster:RemoveModifierByName("modifier_slipfinn_b_c_health")
 		end
 	end
 	if caster:HasModifier("modifier_slipfinn_basic_jump") then

@@ -1075,6 +1075,8 @@ function Runes:EquipArcana(hero, index)
 			if abilityCheck:GetAbilityName() ~= "slipfinn_shadow_rush" then 
 				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "slipfinn_shadow_rush", 2)
 			end
+			hero:RemoveModifierByName("modifier_slipfinn_b_c_health")
+			hero:RemoveModifierByName("modifier_slipfinn_b_c_health_regen")
 			hero:RemoveAbility("slipfinn_shadow_warp")
 			Runes:EasySwapArcanaSkills(hero, 2, "slipfinn_shadow_rush", "slipfinn_bog_roller", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end
