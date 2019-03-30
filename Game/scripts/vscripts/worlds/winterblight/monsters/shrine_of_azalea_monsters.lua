@@ -966,7 +966,7 @@ function candy_crush_crystal_hit(event)
 	end
 	if not Winterblight.CandyCrushLayout then
 		Winterblight:InitializeCandyCrush()
-	else
+	elseif Winterblight.CandyCrushPhase == 1 then
 		Winterblight:ResetCandyCrush()
 	end
 	if caster.dark then
