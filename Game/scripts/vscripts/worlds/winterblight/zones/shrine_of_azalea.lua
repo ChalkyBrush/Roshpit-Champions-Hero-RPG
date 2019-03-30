@@ -1627,7 +1627,8 @@ function Winterblight:AzaleaBladeAttacked(caster, attacker)
 end
 
 function Winterblight:CandyCrushRoom()
-	Winterblight:SpawnCandyCrushMasterCrystal()
+	Winterblight.CandyCrushPhase = 1
+	Winterblight:SpawnCandyCrushMasterCrystal(false)
 end
 
 function Winterblight:ResetCandyCrush()
@@ -1687,7 +1688,7 @@ function Winterblight:InitializeCandyCrush()
 	end)
 end
 
-function Winterblight:SpawnCandyCrushMasterCrystal()
+function Winterblight:SpawnCandyCrushMasterCrystal(bSkipLock)
 	local initial = true
 	if Winterblight.CandyCrushCrystal then
 		UTIL_Remove(Winterblight.CandyCrushCrystal)
@@ -1701,7 +1702,9 @@ function Winterblight:SpawnCandyCrushMasterCrystal()
     if Winterblight.CandyCrushPhase == 1 then
     	crystal:SetModelScale(1.5)
     elseif Winterblight.CandyCrushPhase == 2 then
-    	crystal:SetModelScale(1.8)
+    	crystal:SetModelScale(1.7)
+    elseif Winterblight.CandyCrushPhase == 3 then
+    	crystal:SetModelScale(2.0)
     end
     crystal:SetOriginalModel("models/winterblight/azalea_crystal.vmdl")
     crystal:SetModel("models/winterblight/azalea_crystal.vmdl")
@@ -1725,6 +1728,9 @@ function Winterblight:SpawnCandyCrushMasterCrystal()
 	    Timers:CreateTimer(20, function()
 	    	crystal.locked = false
 	    end)
+	end
+	if bSkipLock then
+		crystal.locked = false
 	end
     CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_wisp/wisp_death.vpcf", crystal, 3)
     AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 350, 6000, false)
@@ -1767,12 +1773,12 @@ function Winterblight:SpawnCandyCrushStatue(position, color, y_coord, x_coord)
 	    candy_crush:SetOriginalModel("models/winterblight/candy_crush_teal.vmdl")
 	    candy_crush:SetModel("models/winterblight/candy_crush_teal.vmdl")
 	    candy_crush:SetRenderColor(66, 244, 226)
-	    candy_crush:SetModelScale(0.86)
+	    candy_crush:SetModelScale(0.84)
 	elseif color == "orange" then
 	    candy_crush:SetOriginalModel("models/winterblight/candy_crush_orange.vmdl")
 	    candy_crush:SetModel("models/winterblight/candy_crush_orange.vmdl")
 	    candy_crush:SetRenderColor(244, 158, 66)
-	    candy_crush:SetModelScale(0.8)
+	    candy_crush:SetModelScale(0.56)
 	end
 	candy_crush.color = color
 	candy_crush.y_coord = y_coord
@@ -1963,7 +1969,7 @@ function Winterblight:SpawnCandyCrushTealUnit(position, fv, bBlack, nextUnit)
 		colorVector = Vector(30,30,30)
 	end
 	Events:ColorWearablesAndBase(stone, colorVector)
-	stone:SetModelScale(1.1)
+	stone:SetModelScale(0.81)
 	local linkUnit = stone
 	if nextUnit then
 		linkUnit = nextUnit
@@ -1985,12 +1991,12 @@ function Winterblight:SpawnCandyCrushOrangeUnit(position, fv, bBlack, nextUnit)
 	Events:AdjustBossPower(stone, 3, 3, false)
 	stone.itemLevel = 42
 	stone.dominion = true
-	local colorVector = Vector(66, 244, 226)
+	local colorVector = Vector(244, 158, 66)
 	if bBlack then
 		colorVector = Vector(30,30,30)
 	end
 	Events:ColorWearablesAndBase(stone, colorVector)
-	stone:SetModelScale(1.1)
+	stone:SetModelScale(0.56)
 	local linkUnit = stone
 	if nextUnit then
 		linkUnit = nextUnit
@@ -2230,11 +2236,10 @@ function Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
 	end
 	local goal = 12 + GameState:GetDifficultyFactor()*2
 	if Winterblight.CandyCrushPhase == 2 then
-		goal = goal + 2
+		goal = goal + 1
 	elseif Winterblight.CandyCrushPhase == 3 then
-		goal = goal + 4
+		goal = goal + 2
 	end
-	goal = 1
 	Winterblight.CandyCrushProgressScore = Winterblight.CandyCrushProgressScore + total_points
 	print("SCORE: "..Winterblight.CandyCrushProgressScore)
 	local scale = 3*(Winterblight.CandyCrushProgressScore/goal)
@@ -2274,24 +2279,30 @@ function Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
 			end
 			if Winterblight.CandyCrushPhase == 1 then
 				Winterblight.CandyCrushPhase = 2
-				Timers:CreateTimer(10, function()
+				Timers:CreateTimer(6, function()
 					Winterblight.CandyCrushComplete = false
 					Winterblight.CandyCrushLocked = false
+					Winterblight.CandyCrushLayout = nil
+					Winterblight.CandyCrushBlackStatueTable = nil
 					Winterblight.CandyCrushProgressCrystal:SetAbsOrigin(Winterblight.CandyCrushProgressCrystal:GetAbsOrigin()+Vector(0,0,400))
-					Winterblight:SpawnCandyCrushMasterCrystal()
+					Winterblight:SpawnCandyCrushMasterCrystal(true)
 				end)
 			elseif Winterblight.CandyCrushPhase == 2 then
 				Winterblight.CandyCrushPhase = 3
-				Timers:CreateTimer(10, function()
+				Timers:CreateTimer(6, function()
 					Winterblight.CandyCrushComplete = false
 					Winterblight.CandyCrushLocked = false
+					Winterblight.CandyCrushLayout = nil
+					Winterblight.CandyCrushBlackStatueTable = nil
 					Winterblight.CandyCrushProgressCrystal:SetAbsOrigin(Winterblight.CandyCrushProgressCrystal:GetAbsOrigin()+Vector(0,0,400))
-					Winterblight:SpawnCandyCrushMasterCrystal()
+					Winterblight:SpawnCandyCrushMasterCrystal(true)
 				end)
 			end
 		end)
 		if Winterblight.CandyCrushPhase == 1 then
+			print("HERE?")
 			Timers:CreateTimer(0.5, function()
+				print("RGB123")
 				local pfx = CustomAbilities:QuickParticleAtPoint("particles/act_2/flying_shatter_blast_explosion.vpcf", Winterblight.CandyCrushProgressCrystal:GetAbsOrigin(), 3)
 				for i = 1, 6, 1 do
 					ParticleManager:SetParticleControl(pfx, i, Winterblight.CandyCrushProgressCrystal:GetAbsOrigin())
@@ -2338,7 +2349,7 @@ function Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
 					elseif black_statue_count <= 8 then
 						reward = 80
 					end
-					Winterblight:MithrilRewardVariable(Winterblight.CandyCrushProgressCrystal:GetAbsOrigin()+Vector(0,0,400), "math", reward)	
+					Winterblight:MithrilRewardVariable(Vector(2505, -14245, 560), "math", reward)	
 					EmitSoundOnLocationWithCaster(position, "Winterblight.Azalea.Win", Winterblight.Master)
 				end)
 			end)
@@ -2360,7 +2371,7 @@ function Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
 				end
 				for i = 1, locketsCount, 1 do
 					Timers:CreateTimer((i-1), function()
-						RPCItems:RollPuzzlersLocket(position)
+						RPCItems:RollPuzzlersLocket(Vector(2505, -14245, 560))
 					end)
 				end
 				EmitSoundOnLocationWithCaster(position, "Winterblight.Azalea.Win", Winterblight.Master)

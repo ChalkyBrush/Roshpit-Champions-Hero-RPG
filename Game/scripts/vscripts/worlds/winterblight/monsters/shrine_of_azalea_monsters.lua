@@ -952,8 +952,12 @@ end
 
 function candy_crush_crystal_hit(event)
 	local caster = event.caster
+	local attacker = event.attacker
 	print("HIT1")
 	if caster.locked or caster:HasModifier("modifier_crystal_finished") then
+		return false
+	end
+	if not attacker:IsRealHero() then
 		return false
 	end
 	print("HIT2")

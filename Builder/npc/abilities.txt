@@ -47008,7 +47008,7 @@
 			"02"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"burn_dps"		"500 3000 21500"
+				"burn_dps"		"600 3000 31500"
 			}
 		}
 		"OnProjectileHitUnit"

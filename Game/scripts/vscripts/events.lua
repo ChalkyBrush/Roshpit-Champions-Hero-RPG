@@ -14,7 +14,8 @@ require('glyphs')
 require('paragon')
 require('elements')
 
-Beacons.cheats = true
+Beacons.cheats = false
+
 if Events == nil then
   Events = class({})
 end

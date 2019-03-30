@@ -245,7 +245,7 @@ function Hand:runeProperty(propertyName, propertyValue, hero)
 	if hero:HasModifier("modifier_puzzlers_locket") then
 		if string.match(propertyName, "_2") then
 			propertyName = string.gsub(propertyName, "_2", "_3")
-		elseif string.match(propertyName, "_3")
+		elseif string.match(propertyName, "_3") then
 			propertyName = string.gsub(propertyName, "_3", "_2")
 		end
 	end
