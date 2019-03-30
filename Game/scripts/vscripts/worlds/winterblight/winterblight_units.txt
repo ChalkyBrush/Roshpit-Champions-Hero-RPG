@@ -5928,6 +5928,148 @@
         }
     }
 
+    "winterblight_candy_crush_teal_spirit"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/darkreef/prisoner_swoledar/prisoner_swoledar.vmdl"
+        "ModelScale"    "0.81"
+        "Level" "1"
+        "HealthBarOffset"   "290"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"          "Hero_Slardar"
+        "precache"
+        {
+            "model" "models/winterblight/candy_crush_teal.vmdl"
+        }
+        "ArmorPhysical" "6"
+        "MagicalResistance" "15"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "12000"
+        "AttackDamageMax"   "14200"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0.35"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "200"
+        "BountyGoldMin" "300"
+        "BountyGoldMax" "400"
+        "BountyXP" "1150"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "50"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "370"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "1040000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"          "creature_roknar"
+        "Ability2"      "fire_temple_steadfast"
+        "Ability3"      "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+    
+            }
+        }
+    }
+
+    "winterblight_candy_crush_orange_spirit"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/neutral_creeps/n_creep_thunder_lizard/n_creep_thunder_lizard_big.vmdl"
+        "ModelScale"    "0.6"
+        "Level" "1"
+        "HealthBarOffset"   "290"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"          "Hero_Lina"
+        "precache"
+        {
+            "model" "models/winterblight/candy_crush_orange.vmdl"
+            "particle"  "particles/base_attacks/ranged_tower_bad.vpcf"
+        }
+        "ArmorPhysical" "2"
+        "MagicalResistance" "35"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "12000"
+        "AttackDamageMax"   "16200"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0.35"
+        "AttackAcquisitionRange"    "0"
+        "ProjectileModel"           "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+        "AttackRange"   "800"
+        "BountyGoldMin" "300"
+        "BountyGoldMax" "400"
+        "BountyXP" "1150"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "50"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "410"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "1040000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"  "redfall_sorceress_fire_spray"
+        "Ability2"  "redfall_mega_steadfast"
+        "Ability3"      "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+        }
+    }
+
     "winterblight_azalea_spectral_witch"
     {
         "BaseClass" "npc_dota_creature"

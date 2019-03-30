@@ -376,25 +376,26 @@ function yojimbo_think(event)
 	local flameGuard = caster:FindAbilityByName("yojimbo_flame_guard")
 	local fireRemnant = caster:FindAbilityByName("yojimbo_fire_remnant")
 	local activateFireRemnant = caster:FindAbilityByName("ember_spirit_activate_fire_remnant")
-	if #caster.remnantTable > 0 and activateFireRemnant:IsFullyCastable() then
-			local newOrder = {
-					UnitIndex = caster:entindex(),
-					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-					AbilityIndex = activateFireRemnant:entindex(),
-					Position = caster.remnantTable[1]
-			 	}
+	-- FIRE REMNANT CAUSING CRASHES
+	-- if #caster.remnantTable > 0 and activateFireRemnant:IsFullyCastable() then
+	-- 		local newOrder = {
+	-- 				UnitIndex = caster:entindex(),
+	-- 				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+	-- 				AbilityIndex = activateFireRemnant:entindex(),
+	-- 				Position = caster.remnantTable[1]
+	-- 		 	}
 			 
-			ExecuteOrderFromTable(newOrder)			
-			if #caster.remnantTable > 1 then
-				local newTable = {}
-				for i = 2, #caster.remnantTable, 1 do
-					table.insert(newTable, caster.remnantTable[i])
-				end
-				caster.remnantTable = newTable
-			else
-				caster.remnantTable = {}
-			end
-	end
+	-- 		ExecuteOrderFromTable(newOrder)			
+	-- 		if #caster.remnantTable > 1 then
+	-- 			local newTable = {}
+	-- 			for i = 2, #caster.remnantTable, 1 do
+	-- 				table.insert(newTable, caster.remnantTable[i])
+	-- 			end
+	-- 			caster.remnantTable = newTable
+	-- 		else
+	-- 			caster.remnantTable = {}
+	-- 		end
+	-- end
 	if flameGuard:IsFullyCastable() then
 		local newOrder = {
 		 		UnitIndex = caster:entindex(), 
@@ -418,23 +419,24 @@ function yojimbo_think(event)
 			return
 		end
 	end
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
-	if #enemies > 0 then
-		if fireRemnant:IsFullyCastable() then
-			local castPoint = enemies[1]:GetAbsOrigin()-enemies[1]:GetForwardVector()*100
-			local newOrder = {
-					UnitIndex = caster:entindex(),
-					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-					AbilityIndex = fireRemnant:entindex(),
-					Position = castPoint
-			 	}
+	-- FIRE REMNANT CAUSING CRASHES
+	-- local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+	-- if #enemies > 0 then
+	-- 	if fireRemnant:IsFullyCastable() then
+	-- 		local castPoint = enemies[1]:GetAbsOrigin()-enemies[1]:GetForwardVector()*100
+	-- 		local newOrder = {
+	-- 				UnitIndex = caster:entindex(),
+	-- 				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+	-- 				AbilityIndex = fireRemnant:entindex(),
+	-- 				Position = castPoint
+	-- 		 	}
 			 
-			ExecuteOrderFromTable(newOrder)	
-			activateFireRemnant:StartCooldown(3)
-			table.insert(caster.remnantTable, castPoint)
-			return
-		end
-	end
+	-- 		ExecuteOrderFromTable(newOrder)	
+	-- 		activateFireRemnant:StartCooldown(3)
+	-- 		table.insert(caster.remnantTable, castPoint)
+	-- 		return
+	-- 	end
+	-- end
 
 end
 

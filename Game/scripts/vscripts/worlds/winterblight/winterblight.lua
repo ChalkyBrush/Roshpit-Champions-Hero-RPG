@@ -33,6 +33,7 @@ function Winterblight:Debug()
     -- Winterblight:DropBorealGraniteChunk(Vector(-15424,-2560))
     -- RPCItems:RollSeinaruArcana1(Vector(-15424,-2560))
     -- RPCItems:RollSeinaruArcana1(Vector(-15424,-2560))
+    RPCItems:RollPuzzlersLocket(Vector(-15424,-2560))
     Winterblight:CandyCrushRoom()
 
 end
@@ -774,11 +775,11 @@ function Winterblight:MithrilRewardVariable(position, code, reward)
   Timers:CreateTimer(5, function()
         if code == "math" then
           if GameState:GetDifficultyFactor() == 1 then
-            reward = reward*40
+            reward = reward*120
           elseif GameState:GetDifficultyFactor() == 2 then
-            reward = reward*80
+            reward = reward*160
           elseif GameState:GetDifficultyFactor() == 3 then
-            reward = reward*200
+            reward = reward*240
           end
         end
 

@@ -12788,7 +12788,9 @@
 		"item_property_blue_divinex"									"X-Intelligence"
 		"property_blue_divinex_description"							"Strength and Agility are capped at 20. Intelligence is doubled. Each 10 points of Intelligence increases item damage by @special_property1%."
 		
-
+		"DOTA_Tooltip_ability_item_rpc_puzzlers_locket"				"Puzzler's Locket"
+		"item_property_puzzler"										"Anagram"
+		"property_puzzler_description"								"Tier 2 Rune Bonuses provided by equipment are swapped with Tier 3 Rune Bonuses"
 
 
 		

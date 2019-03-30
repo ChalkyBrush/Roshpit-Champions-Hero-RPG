@@ -901,7 +901,7 @@ end
 function fire_spray_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	if caster:HasModifier("modifier_sorceress_in_battle") then
+	if caster:HasModifier("modifier_sorceress_in_battle") or caster:GetUnitName() == "winterblight_candy_crush_orange_spirit" then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			EmitSoundOn("Redfall.SorceressFire", caster)

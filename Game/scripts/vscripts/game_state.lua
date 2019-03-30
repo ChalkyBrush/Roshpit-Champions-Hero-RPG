@@ -3903,17 +3903,17 @@ function GameState:FilterDamage(filterTable)
 	-- 	filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
 	if Beacons.cheats then
-		-- if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-		-- 	if victim:IsHero() then
-		-- 		filterTable["damage"] = 0
-		-- 	end
-		-- end
-		-- filterTable["damage"] = victim:GetHealth()-1
-		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-		-- 	if attacker:IsHero() then
-		-- 		filterTable["damage"] = 9999999999
-		-- 	end
-		-- end
+		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if victim:IsHero() then
+				filterTable["damage"] = 0
+			end
+		end
+		filterTable["damage"] = victim:GetHealth()-1
+		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if attacker:IsHero() then
+				filterTable["damage"] = 9999999999
+			end
+		end
 	end
 
 	if (EntIndexToHScript(filterTable["entindex_attacker_const"]) == EntIndexToHScript(filterTable["entindex_victim_const"])) and (filterTable["damage"] > StartingDamage) then

@@ -106,6 +106,12 @@ function LightningAttack( keys )
                 end
             end
         else
+            if not caster.hero.q_3_level then
+                caster.hero.q_3_level = caster.hero:GetRuneValue("q", 3)
+            end
+            if not caster.hero.q_3_ability then
+                caster.hero.q_3_ability = caster.hero:FindAbilityByName("overcharge")
+            end
             if caster.hero.q_3_level then
                 if caster.hero.q_3_level > 0 then
                     caster.hero.q_3_ability:ApplyDataDrivenModifier(caster.hero.q_3_runeUnit, unit, "modifier_voltex_rune_q_3", {duration = 6})
