@@ -1664,7 +1664,7 @@ function Winterblight:InitializeCandyCrush()
 	Winterblight.CandyCrushProgressCrystal:SetRenderColor(0, 0, 0)
 	Winterblight.CandyCrushProgressScore = 0
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(3925, -15086), 1500, 3000, false)
-	local color_possibilities = {"red", "yellow", "green", "blue"}
+	local color_possibilities = {"red", "yellow", "green", "blue", "magenta"}
 	local basePos = Vector(2958, -15832)
 	EmitSoundOnLocationWithCaster(Vector(3925, -15086),"Winterblight.CandyCrush.Start", Winterblight.Master)
 	Winterblight.CandyCrushLocked = true
@@ -1750,6 +1750,11 @@ function Winterblight:SpawnCandyCrushStatue(position, color, y_coord, x_coord)
 	    candy_crush:SetModel("models/winterblight/candy_crush_blue.vmdl")
 	    candy_crush:SetRenderColor(86, 123, 255)
 	    candy_crush:SetModelScale(0.8)
+	elseif color == "magenta" then
+	    candy_crush:SetOriginalModel("models/winterblight/candy_crush_magenta.vmdl")
+	    candy_crush:SetModel("models/winterblight/candy_crush_magenta.vmdl")
+	    candy_crush:SetRenderColor(204, 30, 218)
+	    candy_crush:SetModelScale(1.1)
 	end
 	candy_crush.color = color
 	candy_crush.y_coord = y_coord
@@ -1784,6 +1789,8 @@ function Winterblight:ActivateBlackStatues()
 				Winterblight:SpawnCandyCrushYellowUnit(statue:GetAbsOrigin(), Vector(1,0), true, Winterblight.CandyCrushBlackStatueTable[i+1])
 			elseif statue.color == "green" then
 				Winterblight:SpawnCandyCrushGreenUnit(statue:GetAbsOrigin(), Vector(1,0), true, Winterblight.CandyCrushBlackStatueTable[i+1])
+			elseif statue.color == "magenta" then
+				Winterblight:SpawnCandyCrushMagentaUnit(statue:GetAbsOrigin(), Vector(1,0), true, Winterblight.CandyCrushBlackStatueTable[i+1])
 			end
 			UTIL_Remove(statue)
 		end
@@ -1897,6 +1904,33 @@ function Winterblight:SpawnCandyCrushGreenUnit(position, fv, bBlack, nextUnit)
 	return stone
 end
 
+function Winterblight:SpawnCandyCrushMagentaUnit(position, fv, bBlack, nextUnit)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_candy_crush_magenta_spirit", position, 0, 1, "Winterblight.CandyCrushAggro.Magenta", fv, true)
+	Events:AdjustBossPower(stone, 3, 3, false)
+	stone.itemLevel = 42
+	stone.dominion = true
+	local colorVector = Vector(204, 30, 218)
+	if bBlack then
+		colorVector = Vector(30,30,30)
+	end
+	Events:ColorWearablesAndBase(stone, colorVector)
+	stone:SetModelScale(1.1)
+	local linkUnit = stone
+	if nextUnit then
+		linkUnit = nextUnit
+	end
+	local pfx = ParticleManager:CreateParticle( "particles/roshpit/mountain_protector/blue_steel_dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, stone )
+	ParticleManager:SetParticleControlEnt(pfx, 0, stone, PATTACH_POINT, "attach_hitloc", stone:GetAbsOrigin()+Vector(0,0,80), true)
+	ParticleManager:SetParticleControlEnt(pfx, 1, linkUnit, PATTACH_POINT, "attach_hitloc", linkUnit:GetAbsOrigin()+Vector(0,0,80), true)
+	Timers:CreateTimer(2.0, function() 
+	  ParticleManager:DestroyParticle( pfx, false )
+	end) 
+	local masterCrystalAbility = Winterblight.CandyCrushCrystal:FindAbilityByName("winterblight_candy_crush_master_crystal")
+	masterCrystalAbility:ApplyDataDrivenModifier(Winterblight.CandyCrushCrystal, stone, "modifier_candy_crush_unit_spawn", {duration = 1})
+	StartAnimation(stone, {duration=1.2, activity=ACT_DOTA_SPAWN, rate=0.9})
+	return stone
+end
+
 function Winterblight:ProcessLinks(links, hero)
 	print("Trying to process links: "..#links)
 	if Winterblight.CandyCrushComplete then
@@ -1924,6 +1958,8 @@ function Winterblight:ProcessLinks(links, hero)
 			Winterblight:SpawnCandyCrushYellowUnit(link:GetAbsOrigin(), Vector(1,0), false, links[i+1])
 		elseif link.color == "green" then
 			Winterblight:SpawnCandyCrushGreenUnit(link:GetAbsOrigin(), Vector(1,0), false, links[i+1])
+		elseif link.color == "magenta" then
+			Winterblight:SpawnCandyCrushMagentaUnit(link:GetAbsOrigin(), Vector(1,0), false, links[i+1])
 		end
 		table.insert(shift_table, link)
 		link:AddNoDraw()	
@@ -1977,8 +2013,8 @@ end
 
 function Winterblight:SpawnRandomColorStatue(position, y_coord, x_coord)
 	if not Winterblight.CandyCrushComplete then
-		local color_possibilities = {"red", "yellow", "green", "blue"}
-		local color = color_possibilities[RandomInt(1, 4)]
+		local color_possibilities = {"red", "yellow", "green", "blue", "magenta"}
+		local color = color_possibilities[RandomInt(1, 5)]
 		Winterblight:SpawnCandyCrushStatue(position, color, y_coord, x_coord)
 	end
 end

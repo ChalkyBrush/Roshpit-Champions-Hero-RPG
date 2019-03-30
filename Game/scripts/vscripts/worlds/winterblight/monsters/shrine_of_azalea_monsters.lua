@@ -1071,6 +1071,8 @@ function candy_crush_unit_hit(event)
 				pfxName = "particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf"
 			elseif target.color == "yellow" then
 				pfxName = "particles/roshpit/winterblight/tether_yellow.vpcf"
+			elseif target.color == "magenta" then
+				pfxName = "particles/roshpit/winterblight/tether_magenta.vpcf"
 			end
 			if #attacker.candy_crush_link_data.links == 1 then
 				attacker.candy_crush_link_data.pfxTable = {}
