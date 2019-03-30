@@ -2332,25 +2332,25 @@ function Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
 				Winterblight.CandyCrushProgressCrystal:SetAbsOrigin(Winterblight.CandyCrushProgressCrystal:GetAbsOrigin()-Vector(0,0,400))
 				-- UTIL_Remove(Winterblight.CandyCrushProgressCrystal)
 				Timers:CreateTimer(3.5, function()
-					local reward = 70
+					local reward = 20
 					if black_statue_count <= 0 then
-						reward = 1000
+						reward = 300
 					elseif black_statue_count <= 1 then
-						reward = 400
+						reward = 200
 					elseif black_statue_count <= 2 then
-						reward = 240
+						reward = 100
 					elseif black_statue_count <= 3 then
-						reward = 180
+						reward = 60
 					elseif black_statue_count <= 4 then
-						reward = 150
+						reward = 50
 					elseif black_statue_count <= 5 then
-						reward = 125
+						reward = 40
 					elseif black_statue_count <= 6 then
-						rewad = 110
+						reward = 35
 					elseif black_statue_count <= 7 then
-						reward = 90
+						reward = 30
 					elseif black_statue_count <= 8 then
-						reward = 80
+						reward = 25
 					end
 					Winterblight:MithrilRewardVariable(Vector(2505, -14245, 560), "math", reward)	
 					EmitSoundOnLocationWithCaster(position, "Winterblight.Azalea.Win", Winterblight.Master)
