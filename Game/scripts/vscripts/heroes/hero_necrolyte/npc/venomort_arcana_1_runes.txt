@@ -55,6 +55,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% ARCANA1_R2_RADIUS %>"
 			}
+			"02"
+		        {
+			"var_type"				"FIELD_INTEGER"
+			"property_two"			"2"
+		        }
 		}
 	}
 
