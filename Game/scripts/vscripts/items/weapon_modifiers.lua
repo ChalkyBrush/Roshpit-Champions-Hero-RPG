@@ -177,6 +177,13 @@ function Weaponmodifiers:addItemModifier(propertyValue, hero, inventory_unit, mo
 end
 
 function Weaponmodifiers:runeProperty(propertyName, propertyValue, hero)
+	if hero:HasModifier("modifier_puzzlers_locket") then
+		if string.match(propertyName, "_2") then
+			propertyName = string.gsub(propertyName, "_2", "_3")
+		elseif string.match(propertyName, "_3")
+			propertyName = string.gsub(propertyName, "_3", "_2")
+		end
+	end
 	if hero:HasModifier("modifier_blacksmiths_tablet") then
 		if propertyValue > 1 then
 			propertyValue = math.ceil(propertyValue * (1 + BLACKSMITH_TABLE_ADD_STATS_PCT))

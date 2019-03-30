@@ -242,6 +242,8 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_blue_divinex_amulet", item)
 	elseif propertyName == "green_divinex" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_green_divinex_amulet", item)
+	elseif propertyName == "puzzler" then
+		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_puzzlers_locket", item)
 	end
 	hero.amulet = item
 end
@@ -254,6 +256,13 @@ function Amulet:addItemModifier(propertyValue, hero, inventory_unit, modifier_na
 end
 
 function Amulet:runeProperty(propertyName, propertyValue, hero)
+	if hero:HasModifier("modifier_puzzlers_locket") then
+		if string.match(propertyName, "_2") then
+			propertyName = string.gsub(propertyName, "_2", "_3")
+		elseif string.match(propertyName, "_3")
+			propertyName = string.gsub(propertyName, "_3", "_2")
+		end
+	end
 	if propertyName == "rune_q_1" then
 		hero.runeUnit.amulet.q_1 = hero.runeUnit.amulet.q_1 + propertyValue
 		Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.q_1, propertyName, hero)
@@ -403,6 +412,7 @@ function Amulet:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_red_divinex_amulet")
 	hero:RemoveModifierByName("modifier_green_divinex_amulet")
 	hero:RemoveModifierByName("modifier_blue_divinex_amulet")
+	hero:RemoveModifierByName("modifier_puzzlers_locket")
 	hero.monkey_paw = false
 	hero.birdTable = false
 	hero.eternal_frost_gem = false

@@ -7191,6 +7191,39 @@ function RPCItems:RollGalaxyOrb(deathLocation)
     return item
 end
 
+function RPCItems:RollPuzzlersLocket(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_puzzlers_locket", "immortal", "Puzzler's Locket", "amulet", true, "Slot: Trinket")
+    local maxFactor = RPCItems:GetMaxFactor()
+    
+    item.property1name = "puzzler"
+    item.property1 = 1
+
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_puzzler", "#9AF4EB",  1, "#property_puzzler_description")
+
+    local value, nameLevel = RPCItems:RollAttribute(0, 4, 6, 0, 0, item.rarity, false, maxFactor*8)
+    item.property2 = value
+    item.property2name = "all_attributes"
+    RPCItems:SetPropertyValues(item, item.property2, "#item_all_attributes", "#FFFFFF",  2)
+
+    local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4).."_3"
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    item.property3 = math.floor(value*1.5)
+    item.property3name = runeName
+    RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3) 
+
+    local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4).."_2"
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    item.property4 = math.max(math.floor(value/4.5), 1)
+    item.property4 = RPCItems:GetLogarithmicVarianceValue(item.property4, 0, 0, 0, 0)
+    item.property4name = runeName
+    RPCItems:SetPropertyValues(item, item.property4, "rune", "#7DFF12",  4) 
+
+    local drop = CreateItemOnPositionSync( deathLocation, item )
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
 function RPCItems:RollVolcanoOrb(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_volcano_orb", "immortal", "Volcano Orb", "amulet", true, "Slot: Trinket")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -8714,6 +8747,8 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollHelmOfTheMountainGiant(deathLocation, false)
     elseif itemName == "item_rpc_chains_of_orthok" then
         newItem = RPCItems:RollChainsOfOrthok(deathLocation)
+    elseif itemName == "item_rpc_puzzlers_locket" then
+        newItem = RPCItems:RollPuzzlersLocket(deathLocation)
     end
     return newItem
 end

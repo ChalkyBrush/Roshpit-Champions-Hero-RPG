@@ -307,6 +307,13 @@ function Foot:remove_modifiers(hero)
 end
 
 function Foot:runeProperty(propertyName, propertyValue, hero)
+	if hero:HasModifier("modifier_puzzlers_locket") then
+		if string.match(propertyName, "_2") then
+			propertyName = string.gsub(propertyName, "_2", "_3")
+		elseif string.match(propertyName, "_3")
+			propertyName = string.gsub(propertyName, "_3", "_2")
+		end
+	end
 	if propertyName == "rune_q_1" then
 		hero.runeUnit.foot.q_1 = hero.runeUnit.foot.q_1 + propertyValue
 		Foot:setRuneBonusNetTable(hero.runeUnit.foot.q_1, propertyName, hero)

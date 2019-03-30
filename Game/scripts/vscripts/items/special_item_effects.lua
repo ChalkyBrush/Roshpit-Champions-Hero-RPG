@@ -5864,3 +5864,8 @@ function elder_shield_particle_init(event)
 		ParticleManager:SetParticleControl(target.elderShieldParticle, 1, Vector(255,255,255))
 	end
 end
+
+function puzzlers_locket_recalculate(event)
+	local hero = event.target
+	RPCItems:RecalculateStatsBasic(hero)
+end
