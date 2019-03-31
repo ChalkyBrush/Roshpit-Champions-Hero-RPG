@@ -223,7 +223,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_suffix"								" per attribute"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_2"									"[R2] Ursa Major"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_2_Description"						"Gain increased health in bear form. When shifting out of bear form, retain the buff for 7 seconds."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_2_Description"						"Gain increased health in bear form. When shifting out of bear form, retain the buff for 25 seconds and switching forms refreshes this buffs."
     	"DOTA_Tooltip_ability_djanghor_rune_r_2_property_one"						"Health Bonus"
     	"DOTA_Tooltip_ability_djanghor_rune_r_2_suffix"								""
 
@@ -231,7 +231,7 @@
     	"DOTA_Tooltip_modifier_bear_b_d_Description"								"Increased Health"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3"									"[R3] Predator"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_Description"						"Gain increased Base Ability Damage in Hawk form and increased Item Damage in Bear form respectively. After shifting out, retain the buff for 7 seconds."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_Description"						"Gain increased Base Ability Damage in Hawk form and increased Item Damage in Bear form respectively. After shifting out, retain the buff for 15 seconds and switching forms refreshes this buffs."
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_property_one"						"Base Ability and Item Damage Bonus"
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_suffix"								"%"
 
@@ -239,7 +239,7 @@
     	"DOTA_Tooltip_modifier_hawk_c_d_Description"								"Increased Base Ability Damage"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_4"									"[R4] Evolve"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_4_Description"						"Gain Additional Agility in Wolf Form, Strength in Bear Form, and Intelligence in Hawk Form."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_4_Description"						"Gain Additional Agility in Wolf Form, Strength in Bear Form, and Intelligence in Hawk Form. After shifting out, retain the buff for 25 seconds and switching forms refreshes these buffs."
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_property_one"						"Bonus Attribute"
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_suffix"								""
 
@@ -291,7 +291,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1_suffix"								" per attribute"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_2_arcana1"									"[R2] Golden Mane"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_2_arcana1_Description"						"Gain increased health in Year Beast form. When shifting out form, retain the buff for 7 seconds."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_2_arcana1_Description"						"Gain increased health in Year Beast form. When shifting out form, retain the buff for 25 seconds."
     	"DOTA_Tooltip_ability_djanghor_rune_r_2_arcana1_property_one"						"Health Bonus"
     	"DOTA_Tooltip_ability_djanghor_rune_r_2_arcana1_suffix"								" per attribute"
 
@@ -304,7 +304,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"%"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1"									"[R4] Diamond Claws"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1_Description"						"Gain Additional attributes in Year Beast Form."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1_Description"						"Gain Additional attributes in Year Beast Form.  After shifting out, retain the buff for 25 seconds."
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1_property_one"						"Bonus Attributes"
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1_suffix"								""
 		
@@ -335,7 +335,7 @@
 		"item_rpc_djanghor_glyph_6_1_description" 				"Attempt to remove an enemy debuff from self every @glyph_property1 seconds. Mobility skills with Charging type apply [E3] effect on cast."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"Glyph of Mauling"
-		"item_rpc_djanghor_glyph_7_1_description" 				"@glyph_property1% chance to bash while in Bear Form, dealing @glyph_property2% increased damage and @glyph_property3 second stun. Buff persists for 10 seconds after shifting out. War Stomp reduces target's armor same as Rend."
+		"item_rpc_djanghor_glyph_7_1_description" 				"@glyph_property1% chance to bash while in Bear Form, dealing @glyph_property2% increased damage and @glyph_property3 second stun. Buff persists for 15 seconds after shifting out. War Stomp reduces target's armor same as Rend."
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"Maul"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"Chance on attack to stun and deal additional damage."

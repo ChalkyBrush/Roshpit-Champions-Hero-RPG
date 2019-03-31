@@ -266,7 +266,7 @@ function monkey_form(event)
 		if caster:HasModifier("modifier_djanghor_arcana1") then
 			bearShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
 		end
-		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bear_b_d", {duration = 25})
+		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bear_b_d", {duration = 7})
 	end
 	if caster:HasModifier("modifier_hawk_c_d") then
 		local hawkShiftAbility = caster:FindAbilityByName("draghor_shapeshift_crow")
@@ -284,7 +284,7 @@ function monkey_form(event)
 		if caster:HasModifier("modifier_djanghor_arcana1") then
 			wolfShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
 		end
-		wolfShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_2_critical", {duration = 25})
+		wolfShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_2_critical", {duration = 7})
 	end
 	if caster:HasModifier("modifier_djanghor_glyph_3_1") then
 		local wolfShiftAbility = caster:FindAbilityByName("draghor_shapeshift_cat")
