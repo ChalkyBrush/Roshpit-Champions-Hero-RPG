@@ -2511,7 +2511,7 @@
     	"property_astral_arcana2_description"								"Заменяет (W) @Ability2 и все соответствующие руны на (W) Shot of Apollo."
 
     	"DOTA_Tooltip_ability_shot_of_apollo"						"Shot of Apollo"
-    	"DOTA_Tooltip_ability_shot_of_apollo_Description"			"Astral Ranger достаёт из колчана несколько стрел, магическим воздействием безгранично натягивая тетиву своего лука. После 2 секундной подготовки, она обрушивает на врага поток стрел."
+    	"DOTA_Tooltip_ability_shot_of_apollo_Description"			"Astral Ranger достаёт из колчана несколько стрел, магическим воздействием безгранично натягивая тетиву своего лука. После секундной подготовки, она обрушивает на врага поток стрел."
     	"DOTA_Tooltip_ability_shot_of_apollo_shots"				"СТРЕЛ:"
 
     	"DOTA_Tooltip_modifier_apollo_strikes"					"Shot of Apollo"
@@ -4663,16 +4663,19 @@
         "property_dinath_immortal_weapon3_description"                      "Весь нанесенный урон элементом <font color=\"#3289C7\">Дракон</font> наносит еще одну порцию урона с элементом <font color=\"#C25DFC\">Космос</font>"
 
 		"DOTA_Tooltip_ability_draghor_shapeshift_cat"									"Превращение: Волк"
-    	"DOTA_Tooltip_ability_draghor_shapeshift_cat_Description"						"За 1.75 секунды трансформируется в волка со своим набором умений"
+    	"DOTA_Tooltip_ability_draghor_shapeshift_cat_Description"						"За 1.75 секунды трансформируется в волка со своим набором умений. Форма волка дает дополнительное сопротивление к магическому и чистому урону и вампиризм при атаках, равный 0.5% от урона героя. "
     	"DOTA_Tooltip_ability_draghor_shapeshift_cat_agility_bonus"						"ДОП. ОЧКИ ЛОВКОСТИ В ФОРМЕ ВОЛКА:"
+		"DOTA_Tooltip_ability_draghor_shapeshift_cat_resist"							"СНИЖЕНИЕ МАГИЧЕСКОГО И ЧИСТОГО УРОНА:"
 
     	"DOTA_Tooltip_ability_draghor_shapeshift_bear"									"Превращение: Медведь"
-    	"DOTA_Tooltip_ability_draghor_shapeshift_bear_Description"						"За 1.75 секунды трансформируется в медведя со своим набором умений."
+    	"DOTA_Tooltip_ability_draghor_shapeshift_bear_Description"						"За 1.75 секунды трансформируется в медведя со своим набором умений. Форма медведя дает дополнительное сопротивление к физическому и чистому урону."
     	"DOTA_Tooltip_ability_draghor_shapeshift_bear_strength_bonus"					"ДОП. ОЧКИ СИЛЫ В ФОРМЕ МЕДВЕДЯ:"
+		"DOTA_Tooltip_ability_draghor_shapeshift_bear_resist"							"СНИЖЕНИЕ ФИЗИЧЕСКОГО И ЧИСТОГО УРОНА:"
 
     	"DOTA_Tooltip_ability_draghor_shapeshift_crow"									"Превращение: Ястреб"
-    	"DOTA_Tooltip_ability_draghor_shapeshift_crow_Description"						"За 1.75 секунды трансформируется в ястреба со своим набором умений. Ястреб не может атаковать, способен перелетать через многие препятствия и тратит 0.1% от макс. маны каждые 0.03 секунды на полёт. В случаях, если мана заканчивается или персонаж соприкасается с непроходимой областью, он превращается обратно в обезьяну."
+    	"DOTA_Tooltip_ability_draghor_shapeshift_crow_Description"						"За 1.75 секунды трансформируется в ястреба со своим набором умений. Ястреб не может атаковать, способен перелетать через многие препятствия и тратит 0.1% от макс. маны каждые 0.03 секунды на полёт. В случаях, если мана заканчивается или персонаж соприкасается с непроходимой областью, он превращается обратно в обезьяну. Часть входящего магического и физического урона блокируется в зависимости от показателя Интеллекта."
     	"DOTA_Tooltip_ability_draghor_shapeshift_crow_int_bonus"						"ДОП. ОЧКИ ИНТЕЛЛЕКТА В ФОРМЕ ЯСТРЕБА:"
+		"DOTA_Tooltip_ability_draghor_shapeshift_crow_block"							"МАГИЧЕСКИЙ И ФИЗИЧЕСКИЙ БЛОК, ОТ МНОЖИТЕЛЯ ИНТЕЛЛЕКТА:"
 
     	"DOTA_Tooltip_ability_draghor_monkey_form"										"Monkey Form"
     	"DOTA_Tooltip_ability_draghor_monkey_form_Description"							"Djanghor мгновенно трансформируется в форму обезьяны."	
@@ -4726,13 +4729,12 @@
 		"DOTA_Tooltip_modifier_wolf_howl_ally_Description"								"Урон увеличен"
 
 		"DOTA_Tooltip_ability_djanghor_feral_sprint"									"Feral Sprint"
-		"DOTA_Tooltip_ability_djanghor_feral_sprint_Description"						"Мгновенно увеличивает скорость передвижения и её максимальное значение. Позволяет проходить сквозь существ. Сразу после прочтения этой способности появляется бонус в 200 к скорости передвижения, который за 2 секунды постепенно исчезает. Эффект продолжит действовать после трансформации."
-		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_increase"					"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
-		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_cap"						"МАКС. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_djanghor_feral_sprint_Description"						"Абсолютная скорость передвижения увеличена. Герой может проходить сквозь препятствия и существ. Эффект продолжит действовать после трансформации."
+		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_increase"					"АБСОЛЮТНАЯ СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
 		"DOTA_Tooltip_ability_djanghor_feral_sprint_duration"							"ДЛИТЕЛЬНОСТЬ:"
 
 		"DOTA_Tooltip_modifier_wolf_sprint"												"Feral Sprint"
-		"DOTA_Tooltip_modifier_wolf_sprint_Description"									"Увеличивает скорость передвижения и максимальную скорость передвижения."
+		"DOTA_Tooltip_modifier_wolf_sprint_Description"									"Абсолютная скорость передвижения увеличена. Герой может проходить сквозь препятствия и существ."
 
 		"DOTA_Tooltip_ability_draghor_wolf_rend"										"Rend"
 		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Атакует всех врагов перед собой своими когтями, нанося урон, основанный на общем уроне героя. Каждый удар снижает броню врагов на 50%. Эффект складывается до 2 раз. Третий успешный удар оставит на противниках кровоточащие раны."
@@ -4746,7 +4748,7 @@
 		"DOTA_Tooltip_modifier_modifier_wolf_rend_bleed"								"Кровотечение от Rend"
 
 		"DOTA_Tooltip_ability_djanghor_bear_roar"										"Roar"
-		"DOTA_Tooltip_ability_djanghor_bear_roar_Description"							"Djanghor издаёт мощный рык, провоцирующий всех ближайших врагов атаковать только его. Пока действует этот эффект, герой получает огромный бонус к броне."
+		"DOTA_Tooltip_ability_djanghor_bear_roar_Description"							"Djanghor издаёт мощный рык, провоцирующий всех ближайших врагов атаковать только его. Пока действует этот эффект, герой получает существенный бонус к броне."
 		"DOTA_Tooltip_ability_djanghor_bear_roar_duration"								"ДЛИТЕЛЬНОСТЬ ПРОВОКАЦИИ:"
 		"DOTA_Tooltip_ability_djanghor_bear_roar_armor_bonus"							"ДОП. БРОНЯ:"
 
@@ -4788,8 +4790,9 @@
 		"DOTA_Tooltip_modifier_hawk_tornado_debuff_Description"						"Замедлен"
 
 		"DOTA_Tooltip_ability_djanghor_hawk_soar"									"Soar"
-		"DOTA_Tooltip_ability_djanghor_hawk_soar_Description"						"Djanghor увеличивает высоту своего полёта, выходя за пределы возможных атак противников. Этот эффект не сохраняется при трансформации."
+		"DOTA_Tooltip_ability_djanghor_hawk_soar_Description"						"Djanghor увеличивает высоту своего полёта, выходя за пределы возможных атак противников. Скорость перемещения сильно увеличена и не может быть замедлена. Этот эффект не сохраняется при трансформации."
 		"DOTA_Tooltip_ability_djanghor_hawk_soar_duration"							"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_djanghor_hawk_soar_movespeed"							"СКОРОСТЬ:"
 
 		"DOTA_Tooltip_modifier_hawk_soar"											"Soar"
 		"DOTA_Tooltip_modifier_hawk_soar_Description"								"Иммунитет к атакам"
@@ -4803,6 +4806,8 @@
     	"DOTA_Tooltip_ability_djanghor_rune_q_1_Description"						"Прочтение (Q) Roar в форме медведя дарует герою восстановление здоровья на 12 секунд. Эффект продолжит действовать после трансформации."
     	"DOTA_Tooltip_ability_djanghor_rune_q_1_property_one"						"Восстановление здоровья"
     	"DOTA_Tooltip_ability_djanghor_rune_q_1_suffix"								" каждые 0.1 секунды"
+		"DOTA_Tooltip_ability_djanghor_rune_q_1_property_two"						"Восстановление здоровья (%)"
+		"DOTA_Tooltip_ability_djanghor_rune_q_1_suffix_two"							"% oт максимального ХП за тик"
 
     	"DOTA_Tooltip_modifier_bear_regen"											"Wild Regeneration"
     	"DOTA_Tooltip_modifier_bear_regen_Description"								"Восстанавливает здоровье каждые 0.1 секунды"
@@ -4843,7 +4848,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_4_suffix"								"% за каждые 10 очков атрибутов"
 
     	"DOTA_Tooltip_ability_djanghor_rune_e_1"									"[E1] Marshlands"
-    	"DOTA_Tooltip_ability_djanghor_rune_e_1_Description"						"Оставляет лужу органической материи на месте приземления от прыжка (E) Monkey Leap. Враги, находящиеся в луже получают увеличенный стихийный урон <font color=\"#69BC71\">Природы</font>."
+    	"DOTA_Tooltip_ability_djanghor_rune_e_1_Description"						"Оставляет лужу органической материи на месте приземления от прыжка (E) Monkey Leap. Враги, находящиеся в луже получают увеличенный стихийный урон <font color=\"#69BC71\">Природы</font>. Умножается с текущим уроном <font color=\"#69BC71\">Природы</font> героя."
     	"DOTA_Tooltip_ability_djanghor_rune_e_1_property_one"						"Увеличение стихийного урона Природы"
     	"DOTA_Tooltip_ability_djanghor_rune_e_1_suffix"								"%"
 
@@ -4868,12 +4873,12 @@
     	"DOTA_Tooltip_ability_djanghor_rune_e_4_suffix"								" сек."
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_1"									"[R1] Savagery"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_1_Description"						"Увеличивает урон в форме любого зверя за счёт своих атрибутов. Урон волка увеличивается от Ловкости, медведя от Силы, а ястреб получает бонус к урону от Интеллекта."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_Description"						"Увеличивает урон в форме любого зверя за счёт своих атрибутов. Урон волка увеличивается от Ловкости, медведя от Силы, а ястреб получает бонус к урону от Интеллекта. Форма обезьяны наследует все три атрибута, но получает только 50% бонуса."
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_property_one"						"Attack Damage"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_1_suffix"								" per attribute"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_suffix"								" за ед. атрибута"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_2"									"[R2] Ursa Major"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_2_Description"						"Получает бонусные очки здоровья, пока находится в форме медведя. После трансформации эффект действует еще 7 секунд."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_2_Description"						"Получает бонусные очки здоровья, пока находится в форме медведя. После трансформации эффект действует еще 20 секунд и обновляется при смене формы."
     	"DOTA_Tooltip_ability_djanghor_rune_r_2_property_one"						"Доп. здоровье"
     	"DOTA_Tooltip_ability_djanghor_rune_r_2_suffix"								""
 
@@ -4881,7 +4886,7 @@
     	"DOTA_Tooltip_modifier_bear_b_d_Description"								"Здоровье увеличено"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3"									"[R3] Predator"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_Description"						"Увеличивает базовый урон умений, пока находится в форме ястреба. После трансформации эффект действует еще 7 секунд."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_Description"						"Увеличивает Базовый Урон Способностей, пока находится в форме ястреба или урон Предметов в форме медведя. После трансформации эффект действует еще 15 секунд и обновляется при смене формы."
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_property_one"						"Доп. базовый урон умений"
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_suffix"								"%"
 
@@ -4889,7 +4894,7 @@
     	"DOTA_Tooltip_modifier_hawk_c_d_Description"								"Базовый урон способностей увеличен"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_4"									"[R4] Evolve"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_4_Description"						"Получает дополнительные очки Ловкости в форме волка, Силы в форме медведя и Интеллекта в форме ястреба.."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_4_Description"						"Получает дополнительные очки Ловкости в форме волка, Силы в форме медведя и Интеллекта в форме ястреба. После трансформации эффект действует еще 25 секунд и обновляется при смене формы."
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_property_one"						"Доп. атрибутов"
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_suffix"								""
 
@@ -4938,7 +4943,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1_suffix"								" за каждое очко атрибутов"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_2_arcana1"									"[R2] Golden Mane"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_2_arcana1_Description"						"Увеличивает здоровье героя в форме Годня. Бонус продолжит действовать еще 7 секунд после смены формы."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_2_arcana1_Description"						"Увеличивает здоровье героя в форме Годня. Бонус продолжит действовать еще 25 секунд после смены формы."
     	"DOTA_Tooltip_ability_djanghor_rune_r_2_arcana1_property_one"						"Доп. здоровье"
     	"DOTA_Tooltip_ability_djanghor_rune_r_2_arcana1_suffix"								" за каждое очко атрибутов"
 
@@ -4946,12 +4951,12 @@
     	"DOTA_Tooltip_modifier_year_beast_b_d_health_Description"								"Здоровье увеличено"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1"									"[R3] Jade Voice"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"Часть всех атрибутов героя добавляется к урону всех способностей."
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Бонус к базе урона умений"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"% от атрибутов"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"Превращение в @Ability4 дает дополнительное сопротивление ко всем типам урона. Максимально - 90%."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Доп. Сопротивление"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"%"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1"									"[R4] Diamond Claws"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1_Description"						"Дарует герою дополнительные атрибуты в форме Годня."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1_Description"						"Дарует герою дополнительные атрибуты в форме Годня. Бонус продолжит действовать еще 25 секунд после смены формы."
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1_property_one"						"Доп. атрибуты"
     	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1_suffix"								""
 		
@@ -4979,10 +4984,10 @@
 		"item_rpc_djanghor_glyph_5_1_description" 				"Снижает время перезарядки (Q) @Ability1 на @glyph_property1 сек."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"(T6) Глиф лесного пробуждения"
-		"item_rpc_djanghor_glyph_6_1_description" 				"Снимает случайный негативный эффект каждые @glyph_property1 сек."
+		"item_rpc_djanghor_glyph_6_1_description" 				"Снимает случайный негативный эффект каждые @glyph_property1 сек. Способности перемещения Battle Charge и Legendary Charge применяют руну [E3] при касте."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"(T7) Глиф терзаний"
-		"item_rpc_djanghor_glyph_7_1_description" 				"С @glyph_property1% шансом атака в форме медведя может оглушить цель на @glyph_property3 сек. и нанести увеличенный на @glyph_property2% урон. Эффект продолжит действовать в течении 10 секунд после трансформации."
+		"item_rpc_djanghor_glyph_7_1_description" 				"С @glyph_property1% шансом атака в форме медведя может оглушить цель на @glyph_property3 сек. и нанести увеличенный на @glyph_property2% урон. Эффект продолжит действовать в течении 15 секунд после трансформации. War Stomp снижает броню целей, так же как и Rend."
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"Maul"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"Шанс оглушить цель при атаке и нанести дополнительный урон."
@@ -12444,9 +12449,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_reef_shark_helmet"					"Dark Reef Shark Helmet"	
 		"property_shark_helmet"												"Shark Bite"
-		"property_shark_helmet_Description"									"Совершив 5 успешных атак, герой получит @special_property1% бонус к урону на 2.5 секунды или до следующей атаки."
+		"property_shark_helmet_Description"									"Пассивно увеличивает бонусную силу Атаки на @special_property2%. Совершив 7 успешных атак, герой получит @special_property1% бонус к урону на 1.5 секунды."
 		"DOTA_Tooltip_modifier_dark_reef_shark_stacks"						"Shark Stacks"
-		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"После серии из 5 успешных атак герой получит бонус к урону на 2.5 секунды или до следующей атаки."
+		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"После серии из 7 успешных атак герой получит бонус к урону на 1.5 секунды."
 		"DOTA_Tooltip_modifier_dark_reef_shark_effect"						"Shark Bite"
 		"DOTA_Tooltip_modifier_dark_reef_shark_effect_Description"			"Получен огромный бонус к урону"
 		

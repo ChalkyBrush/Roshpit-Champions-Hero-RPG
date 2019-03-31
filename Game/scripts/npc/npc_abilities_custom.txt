@@ -39861,7 +39861,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.3"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -40464,6 +40464,30 @@
 					}
 				}
 			}
+			"modifier_monkey_a_c_thinker"
+			{
+				"Aura"					"modifier_monkey_a_c_effect"
+				"Aura_Radius"			"250"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Duration"				"20"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/roshpit/draghor/a_c_pool_base.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+					}
+				}
+			}
+			"modifier_monkey_a_c_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"djanghor/djanghor_rune_e_1"
+			}
 		}
 	}
 
@@ -40519,7 +40543,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one_max"			"90"
 			}
 		}
 	}
@@ -40537,7 +40566,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"300"
+				"property_one"			"200"
 			}
 		}
 	}
@@ -40696,6 +40725,21 @@
 					}
 				}
 			}
+			"modifier_djanghor_wolf_lifesteal"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/wolf"
+						"Function"		"lifesteal_attack"
+					}
+				}
+			}
 			"modifier_glyph_2_critical"
 			{
 				"IsHidden"	"0"
@@ -40787,6 +40831,11 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"agility_bonus"			"100 200 500 1000 3000 6000 10000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"resist"			"70"
 			}
 		}
 	}
@@ -40941,6 +40990,12 @@
 				"IsBuff"	"1"
 				"TextureName"	"djanghor/djanghor_rune_r_2"
 			}
+			"modifier_bear_c_d"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"djanghor/djanghor_rune_r_3"
+			}
 			"modifier_shapeshift_bear_d_d"
 			{
 				"IsHidden"	"1"
@@ -40986,6 +41041,11 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"strength_bonus"			"100 200 500 1000 3000 6000 10000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"resist"			"30"
 			}
 		}
 	}
@@ -41182,6 +41242,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"int_bonus"			"100 200 500 1000 3000 6000 10000"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"block"			"5"
+			}
 		}
 	}
 
@@ -41245,6 +41310,28 @@
 
 				"EffectName"		"particles/roshpit/djanghor/shapeshift_shield.vpcf"
 				"EffectAttachType"	"follow_origin"
+			}
+			"modifier_shapeshift_monkey_r1_thinker"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/shapeshift"
+						"Function"		"general_shapeshift_think"
+						"index"			"5"
+					}
+				}
+			}
+			"modifier_shapeshift_attack_power_a_d"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
 			}
 		}
 	}
@@ -41913,7 +42000,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"movespeed_increase"		"60 90 120 150 180 210 240"
+				"movespeed_increase"		"420 450 500 550 600 660 710"
 			}
 			"02"
 			{
@@ -41938,11 +42025,29 @@
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_increase"
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "%movespeed_increase"
 				}
 				"States"
 				{
 					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_wolf_free_pathing"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.09"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/wolf.lua"
+						"Function"		"wolf_sprint_think"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_wolf_slide_burst"
@@ -42407,11 +42512,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.3"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"7.0"
+		"AbilityCooldown"				"3.1"
 		"AbilityCastRange"				"1000"
 
 		// Cost
@@ -42492,7 +42597,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"djanghor/hawk_tornado"
 		"LevelsBetweenUpgrades"  "0"
@@ -42508,7 +42613,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.2"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -42631,7 +42736,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16"
+		"AbilityCooldown"				"14"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -42644,6 +42749,11 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"duration"		"6.0 6.3 6.6 6.9 7.2 7.5 7.8"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movespeed"			"700"
 			}
 		}
 		"Modifiers"
@@ -42659,6 +42769,10 @@
 				"States"
 				{
 					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"	"700"
 				}
 			}
 			"modifier_hawk_soar_visual_z"
@@ -42715,6 +42829,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"80"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.05"
+			}
 		}
 	}
 
@@ -42749,7 +42868,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one_base"			"0.3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -42809,7 +42933,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"8"
 			}
 		}
 	}
@@ -42827,7 +42951,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -42845,7 +42969,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -42863,7 +42987,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"3"
 			}
 		}
 	}
@@ -42976,7 +43100,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"12"
 			}
 		}
 	}
