@@ -219,7 +219,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_e_4_suffix"								" seconds"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_1"									"[R1] Savagery"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_1_Description"						"Attributes increase attack damage in each animal form. Wolf gains attack damage from agility, Bear gains attack damage from strength, and Hawk gains attack damage from intelligence."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_Description"						"Attributes increase attack damage in each animal form. Wolf gains attack damage from agility, Bear gains attack damage from strength, and Hawk gains attack damage from intelligence. Monkey form gains attack damage from all attributes but with 50% penalty, applies after Shapeshift."
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_property_one"						"Attack Damage"
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_suffix"								" per attribute"
 

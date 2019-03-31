@@ -721,6 +721,28 @@
 				"EffectName"		"particles/roshpit/djanghor/shapeshift_shield.vpcf"
 				"EffectAttachType"	"follow_origin"
 			}
+			"modifier_shapeshift_monkey_r1_thinker"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/shapeshift"
+						"Function"		"general_shapeshift_think"
+						"index"			"5"
+					}
+				}
+			}
+			"modifier_shapeshift_attack_power_a_d"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
 		}
 	}
 
