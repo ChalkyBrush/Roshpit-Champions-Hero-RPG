@@ -151,7 +151,6 @@ function ice_gale_hit(event)
 	end
 	if crit then
 		damage = damage + damage*(event.crit_mult/100)
-		PopupDamage(target, damage)
 	end
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_sephyr_chilled", {duration = 4})
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_ICE, RPC_ELEMENT_WIND)

@@ -168,7 +168,6 @@ function gale_hit(event)
 	end
 	if crit then
 		damage = damage + damage*0.2*ability.w_2_level
-		PopupDamage(target, damage)
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 end
