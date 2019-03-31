@@ -197,7 +197,7 @@
     	"property_astral_arcana2_description"								"Заменяет (W) @Ability2 и все соответствующие руны на (W) Shot of Apollo."
 
     	"DOTA_Tooltip_ability_shot_of_apollo"						"Shot of Apollo"
-    	"DOTA_Tooltip_ability_shot_of_apollo_Description"			"Astral Ranger достаёт из колчана несколько стрел, магическим воздействием безгранично натягивая тетиву своего лука. После 2 секундной подготовки, она обрушивает на врага поток стрел."
+    	"DOTA_Tooltip_ability_shot_of_apollo_Description"			"Astral Ranger достаёт из колчана несколько стрел, магическим воздействием безгранично натягивая тетиву своего лука. После секундной подготовки, она обрушивает на врага поток стрел."
     	"DOTA_Tooltip_ability_shot_of_apollo_shots"				"СТРЕЛ:"
 
     	"DOTA_Tooltip_modifier_apollo_strikes"					"Shot of Apollo"
