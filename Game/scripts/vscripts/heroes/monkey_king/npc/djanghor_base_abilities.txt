@@ -150,6 +150,21 @@
 					}
 				}
 			}
+			"modifier_djanghor_wolf_lifesteal"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/wolf"
+						"Function"		"lifesteal_attack"
+					}
+				}
+			}
 			"modifier_glyph_2_critical"
 			{
 				"IsHidden"	"0"
@@ -1410,7 +1425,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"movespeed_increase"		"60 90 120 150 180 210 240"
+				"movespeed_increase"		"420 450 500 550 600 660 710"
 			}
 			"02"
 			{
@@ -1435,7 +1450,7 @@
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_increase"
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "%movespeed_increase"
 				}
 				"States"
 				{
