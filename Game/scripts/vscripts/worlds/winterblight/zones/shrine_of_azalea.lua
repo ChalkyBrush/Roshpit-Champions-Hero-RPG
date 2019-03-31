@@ -2020,13 +2020,15 @@ function Winterblight:ProcessLinks(links, hero)
 	end
 	Winterblight.CandyCrushLocked = true
 	local score = #links
-	if hero then
-		EmitSoundOn("Winterblight.CandyCrush.Good2", hero) 
-		for i = 1, #hero.candy_crush_link_data.pfxTable, 1 do
-			ParticleManager:DestroyParticle(hero.candy_crush_link_data.pfxTable[i], false)
+	if #links > 2 then
+		if hero then
+			EmitSoundOn("Winterblight.CandyCrush.Good2", hero) 
+			for i = 1, #hero.candy_crush_link_data.pfxTable, 1 do
+				ParticleManager:DestroyParticle(hero.candy_crush_link_data.pfxTable[i], false)
+			end
+		else
+			EmitSoundOnLocationWithCaster(links[1]:GetAbsOrigin(), "Winterblight.CandyCrush.Good2", Winterblight.Master)
 		end
-	else
-		EmitSoundOnLocationWithCaster(links[1]:GetAbsOrigin(), "Winterblight.CandyCrush.Good2", Winterblight.Master)
 	end
 	Winterblight.CandyCrushShiftTable = {}
 	shift_table = {}
@@ -2232,7 +2234,9 @@ function Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
 	local total_points = 0
 	for i = 1, #points_table do
 		local points = points_table[i]
-		total_points = total_points + #points - 2
+		if #points > 2 then
+			total_points = total_points + #points - 2
+		end
 	end
 	local goal = 12 + GameState:GetDifficultyFactor()*2
 	if Winterblight.CandyCrushPhase == 2 then

@@ -1164,11 +1164,12 @@ function candy_crush_buff_end(event)
 		for i = 1, #hero.candy_crush_link_data.pfxTable, 1 do
 			ParticleManager:DestroyParticle(hero.candy_crush_link_data.pfxTable[i], false)
 		end
-		for i = 1, #hero.candy_crush_link_data.links, 1 do
-			local unit = hero.candy_crush_link_data.links[i]
-			Winterblight:SpawnRandomColorStatue(unit:GetAbsOrigin(), unit.y_coord,unit.x_coord)
-			UTIL_Remove(unit)			
-		end
+		-- for i = 1, #hero.candy_crush_link_data.links, 1 do
+		-- 	local unit = hero.candy_crush_link_data.links[i]
+		-- 	Winterblight:SpawnRandomColorStatue(unit:GetAbsOrigin(), unit.y_coord,unit.x_coord)
+		-- 	UTIL_Remove(unit)			
+		-- end
+		Winterblight:ProcessLinks(hero.candy_crush_link_data.links, hero)
 		hero.candy_crush_link_data.links = {}
 		hero.candy_crush_link_data.pfxTable = {}
 	else

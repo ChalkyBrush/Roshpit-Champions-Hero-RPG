@@ -3908,7 +3908,6 @@ function GameState:FilterDamage(filterTable)
 		-- 		filterTable["damage"] = 0
 		-- 	end
 		-- end
-		-- filterTable["damage"] = victim:GetHealth()-1
 		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 		-- 	if attacker:IsHero() then
 		-- 		filterTable["damage"] = 9999999999
