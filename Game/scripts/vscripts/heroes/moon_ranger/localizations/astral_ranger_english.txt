@@ -197,7 +197,7 @@
     	"property_astral_arcana2_description"								"Replaces @Ability2 and all of its runes with Shot of Apollo."
 
     	"DOTA_Tooltip_ability_shot_of_apollo"						"Shot of Apollo"
-    	"DOTA_Tooltip_ability_shot_of_apollo_Description"			"Astral Ranger nocks a multitude of arrows all at once, magically pushing her bowstring's tension beyond its limits. After winding up for 2 seconds, she blasts the target with multiple arrows in succession."
+    	"DOTA_Tooltip_ability_shot_of_apollo_Description"			"Astral Ranger nocks a multitude of arrows all at once, magically pushing her bowstring's tension beyond its limits. After winding up for 1 second, she blasts the target with multiple arrows in succession."
     	"DOTA_Tooltip_ability_shot_of_apollo_shots"				"ARROWS:"
 
     	"DOTA_Tooltip_modifier_apollo_strikes"					"Shot of Apollo"

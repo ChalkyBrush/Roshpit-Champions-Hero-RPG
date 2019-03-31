@@ -1356,6 +1356,11 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			damage = (1 - SAYTARU_PURE_DMG_RESISTANCE) * damage
 		end
 	end
+	if damagetype == DAMAGE_TYPE_PHYSICAL or damagetype == DAMAGE_TYPE_PURE then
+		if victim:HasModifier("modifier_draghor_shapeshift_bear_lua") then
+			damage = damage*0.7
+		end
+	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_lightning_dash") then
 			local dash = victim:FindAbilityByName("voltex_lightning_dash")
@@ -1379,6 +1384,9 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
     		damageReduc = 1 - (damageReduc/100)
     		damage = damage*damageReduc
 	    end
+		if victim:HasModifier("modifier_draghor_shapeshift_cat_lua") then
+			damage = damage*0.3
+		end
 		if victim:HasModifier("modifier_ivory_gryffin_aura_effect") then
 			damage = damage * 0.7
 		end
@@ -1664,6 +1672,13 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
             damage = damage*(1-reduction)
         end
     end
+	
+	if victim:HasModifier("modifier_shapeshift_year_beast_r_3") then
+		local modifier = victim:FindModifierByName("modifier_shapeshift_year_beast_r_3")
+		local reduction = modifier:GetAbility().r_3_level*DJANGHOR_R3_ARCANA_RESIST_PCT
+		reduction = math.min(reduction, DJANGHOR_R3_ARCANA_RESIST_MAX_PCT)
+		damage = damage*(1-reduction)
+	end
 
 	if victim:HasModifier("modifier_ancient_tree_passive") then
 		damage = damage*0.004
@@ -1995,7 +2010,7 @@ function GameState:FilterDamage(filterTable)
 			attacker.amulet:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_tempest_falcon_ring_effect", {duration = 8})
 		end
 		if attacker:HasModifier("modifier_firelock_pendant") then
-			local multIncrease = (attacker:GetStrength()/10)*0.005
+			local multIncrease = (attacker:GetStrength()/10)*0.003
 			mult = mult + multIncrease
 		end
 		if attacker:HasModifier("modifier_power_ranger") then
@@ -2169,6 +2184,9 @@ function GameState:FilterDamage(filterTable)
 			local e_3_level = victim:FindAbilityByName("zonik_lightspeed").e_3_level
 			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility") * e_3_level * ZHONIK_E3_PHYS_BLOCK_FLAT, 0)
 		end
+		if victim:HasModifier("modifier_draghor_shapeshift_hawk_lua") then
+			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "intellect") * 5, 0)
+		end
 	end
 	--chrolonus boss also uses the passive, have to check for ability
 	if victim:HasModifier("modifier_voltex_arcana1_passive") and victim:HasAbility("voltex_lightning_dash") then
@@ -2287,7 +2305,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_wolf_rend_bleed") then
 		modifier = victim:FindModifierByName("modifier_wolf_rend_bleed")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local multIncrease = 0.04*modifier:GetAbility().w_2_level
+			local multIncrease = DJANGHOR_W2_POST_MIT_PCT/100*modifier:GetAbility().w_2_level
 			mult = mult + multIncrease
 		end
 	end

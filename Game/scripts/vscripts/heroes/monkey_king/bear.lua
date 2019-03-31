@@ -67,6 +67,16 @@ function bear_warstomp(event)
 		for _,enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NATURE, RPC_ELEMENT_EARTH)
 			Filters:ApplyStun(caster, stun_duration, enemy)
+			if caster:HasModifier("modifier_djanghor_glyph_7_1") then
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_stack", {duration = 8})
+			local rendStacks = enemy:GetModifierStackCount("modifier_wolf_rend_stack", caster)
+			local newStacks = math.min(2, rendStacks+1)
+			enemy:SetModifierStackCount("modifier_wolf_rend_stack", caster, newStacks)
+
+			local armorLoss = (enemy:GetPhysicalArmorValue()+enemy:GetModifierStackCount("modifier_wolf_rend_armor_loss", caster))*0.5
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_armor_loss", {duration = 8})
+			enemy:SetModifierStackCount("modifier_wolf_rend_armor_loss", caster, armorLoss*newStacks)
+			end
 		end
 	end 
 	Filters:CastSkillArguments(2, caster)
@@ -87,7 +97,31 @@ function begin_bear_charge(event)
 	EmitSoundOn("Draghor.Bear.Charge", caster)
 	ability.interval = 0
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_charging", {duration = duration})
-
+	if caster:HasModifier("modifier_djanghor_glyph_6_1") then
+		local c_c_level = caster:GetRuneValue("e", 3)
+		if c_c_level > 0 then
+			local procs = Runes:Procs(c_c_level, 5, 1)
+			if procs > 0 then
+				local particle = false
+				for i = 1, procs, 1 do
+					local modifiers = caster:FindAllModifiers()
+					for j = 1, #modifiers, 1 do
+						local modifier = modifiers[j]
+						local modifierMaker = modifier:GetCaster()
+						if modifierMaker and modifierMaker.regularEnemy then
+							caster:RemoveModifierByName(modifier:GetName())
+							particle = true
+							break
+						end
+					end				
+				end
+				if particle then
+					EmitSoundOn("Draghor.Cleanse", caster)
+					local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_morphling/morphling_morph_agi.vpcf", caster, 1.2)
+				end
+			end
+		end
+	end
 	Filters:CastSkillArguments(3, caster)
 end
 
@@ -165,6 +199,6 @@ end
 function bear_regen_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local healAmount = ability.q_1_level*DJANGHOR_Q1_REGEN_FLAT
+	local healAmount = ability.q_1_level*DJANGHOR_Q1_REGEN_FLAT + ability.q_1_level*DJANGHOR_Q1_REGEN_PCT/100 * caster:GetMaxHealth()
 	Filters:ApplyHeal(caster, caster, healAmount, true)
 end

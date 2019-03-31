@@ -12,7 +12,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"80"
+				"property_one"			"<% DJANGHOR_Q1_REGEN_FLAT %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% DJANGHOR_Q1_REGEN_PCT %>"
 			}
 		}
 	}
@@ -48,7 +53,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one_base"			"0.3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -108,7 +118,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"<% DJANGHOR_W2_POST_MIT_PCT %>"
 			}
 		}
 	}
@@ -126,7 +136,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -144,7 +154,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -162,7 +172,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"3"
 			}
 		}
 	}
@@ -275,7 +285,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"12"
 			}
 		}
 	}

@@ -52,7 +52,7 @@ function hawk_screech(event)
 				if (modifierMaker:GetEntityIndex() == caster:GetEntityIndex() or modifierMaker:GetEntityIndex() == caster.InventoryUnit:GetEntityIndex()) then
 					local durationRemaining = modifier:GetRemainingTime()
 					if durationRemaining > 0 then
-						local durationIncrease = DJANGHOR_Q3_BUFF_DURATION_INCREASE*q_3_level
+						local durationIncrease = 0.3 + DJANGHOR_Q3_BUFF_DURATION_INCREASE*q_3_level
 						if modifier.djanghorQ3Increase >= DJANGHOR_Q3_MAX_APPLY_COUNT then
 						else
 							modifier.djanghorQ3Increase = modifier.djanghorQ3Increase + 1
@@ -274,7 +274,31 @@ function begin_bear_charge(event)
 	EmitSoundOn("Draghor.YearBeast.Charge", caster)
 	ability.interval = 0
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_charging", {duration = duration})
-
+	if caster:HasModifier("modifier_djanghor_glyph_6_1") then
+		local c_c_level = caster:GetRuneValue("e", 3)
+		if c_c_level > 0 then
+			local procs = Runes:Procs(c_c_level, 5, 1)
+			if procs > 0 then
+				local particle = false
+				for i = 1, procs, 1 do
+					local modifiers = caster:FindAllModifiers()
+					for j = 1, #modifiers, 1 do
+						local modifier = modifiers[j]
+						local modifierMaker = modifier:GetCaster()
+						if modifierMaker and modifierMaker.regularEnemy then
+							caster:RemoveModifierByName(modifier:GetName())
+							particle = true
+							break
+						end
+					end				
+				end
+				if particle then
+					EmitSoundOn("Draghor.Cleanse", caster)
+					local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_morphling/morphling_morph_agi.vpcf", caster, 1.2)
+				end
+			end
+		end
+	end	
 	Filters:CastSkillArguments(3, caster)
 end
 
@@ -524,6 +548,7 @@ function jump_end(event)
 	local stun_duration = event.stun_duration
 	local damage = event.stomp_damage
 	local w_3_level = caster:GetRuneValue("w", 3)
+	local e_1_level = caster:GetRuneValue("e", 1)
 	if w_3_level > 0 then
 		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*w_3_level
 	end
@@ -535,6 +560,9 @@ function jump_end(event)
 	ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
 	EmitSoundOn("Draghor.Yearbeast.Warstomp", caster)
 	-- FindClearSpaceForUnit(caster, position, false)
+	if e_1_level > 0 then
+		CustomAbilities:QuickAttachThinker(ability, caster, caster:GetAbsOrigin(), "modifier_monkey_a_c_thinker", {duration = 20})
+	end
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
@@ -546,5 +574,5 @@ function jump_end(event)
 	Timers:CreateTimer(0.03, function()
 		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_BELLYACHE_END, rate=1.3})
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-	end)
+	end)	
 end

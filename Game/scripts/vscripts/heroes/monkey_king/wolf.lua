@@ -83,6 +83,18 @@ function wolf_sprint(event)
       Filters:CastSkillArguments(3, caster)
 end
 
+function wolf_sprint_think(event)
+	local caster = event.caster
+	local newPos = caster:GetAbsOrigin()+caster:GetForwardVector()*70
+	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin())
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos, caster)
+	if blockUnit then
+		caster:SetAbsOrigin(caster:GetAbsOrigin()-caster:GetForwardVector()*60)
+		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
+		caster:RemoveModifierByName("modifier_wolf_free_pathing")
+	end
+end
+
 function wolf_slide_think(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -172,4 +184,20 @@ function rend_bleed_think(event)
 	local caster = event.caster
 	local damage = target.rendBleed
 	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+end
+
+function lifesteal_attack(event)
+	local attacker = event.attacker
+	local ability = event.ability
+	local damage = event.attack_damage
+	local lifesteal = math.floor(damage*0.05)
+
+	Filters:ApplyHeal(attacker, attacker, lifesteal, true)
+	local particleName = "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, attacker )
+	ParticleManager:SetParticleControlEnt(pfx, 0, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt( pfx, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin()+Vector(0,0,70), true )
+	Timers:CreateTimer(1, function() 
+	  ParticleManager:DestroyParticle( pfx, false )
+	end)  	
 end

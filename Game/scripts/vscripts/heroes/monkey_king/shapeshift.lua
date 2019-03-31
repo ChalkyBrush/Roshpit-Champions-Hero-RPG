@@ -89,6 +89,7 @@ function shapeshift_start_cat(event)
 	-- caster:SetModel(wolfModel)
 	-- CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_monkey_form", DOTA_ULTIMATE_SLOT)
 	caster:AddNewModifier( caster, ability, "modifier_draghor_shapeshift_cat_lua", {} )
+	caster:AddNewModifier( caster, ability, "modifier_djanghor_wolf_lifesteal", {} )
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftIn.Finish", caster)
 	StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=1.2})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_cat", {})
@@ -113,9 +114,12 @@ function shapeshift_start_cat(event)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_leap", "djanghor_feral_sprint", 2)
 	local d_d_level = caster:GetRuneValue("r", 4)
 	if d_d_level > 0 then
+		local currentStacks = caster:GetModifierStackCount("modifier_shapeshift_cat_d_d", caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_cat_d_d", {})
 		caster:SetModifierStackCount("modifier_shapeshift_cat_d_d", caster, d_d_level)
+		caster:FindModifierByName("modifier_shapeshift_cat_d_d"):SetDuration(-1, true)
 	end	
+	caster:RemoveModifierByName("modifier_shapeshift_monkey_r1_thinker")
 	caster:SetPrimaryAttribute(1)
 	all_shift_after(caster)
 end
@@ -163,11 +167,20 @@ function shapeshift_start_bear(event)
 		caster:SetModifierStackCount("modifier_bear_b_d", caster, b_d_level)
 		caster:FindModifierByName("modifier_bear_b_d"):SetDuration(-1, true)
 	end
+	local c_d_level = caster:GetRuneValue("r", 3)
+	if c_d_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_c_d", {})
+		caster:SetModifierStackCount("modifier_bear_c_d", caster, c_d_level)
+		caster:FindModifierByName("modifier_bear_c_d"):SetDuration(-1, true)
+	end
 	local d_d_level = caster:GetRuneValue("r", 4)
 	if d_d_level > 0 then
+		local currentStacks = caster:GetModifierStackCount("modifier_shapeshift_bear_d_d", caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_bear_d_d", {})
 		caster:SetModifierStackCount("modifier_shapeshift_bear_d_d", caster, d_d_level)
+		caster:FindModifierByName("modifier_shapeshift_bear_d_d"):SetDuration(-1, true)
 	end
+	caster:RemoveModifierByName("modifier_shapeshift_monkey_r1_thinker")
 	caster:SetPrimaryAttribute(0)
 	all_shift_after(caster)
 end
@@ -214,9 +227,12 @@ function shapeshift_start_crow(event)
 	end
 	local d_d_level = caster:GetRuneValue("r", 4)
 	if d_d_level > 0 then
+	local currentStacks = caster:GetModifierStackCount("modifier_shapeshift_crow_d_d", caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_crow_d_d", {})
 		caster:SetModifierStackCount("modifier_shapeshift_crow_d_d", caster, d_d_level)
+		caster:FindModifierByName("modifier_shapeshift_crow_d_d"):SetDuration(-1, true)
 	end
+	caster:RemoveModifierByName("modifier_shapeshift_monkey_r1_thinker")
 	caster:SetPrimaryAttribute(2)
 	all_shift_after(caster)
 end
@@ -257,7 +273,11 @@ function monkey_form(event)
 		if caster:HasModifier("modifier_djanghor_arcana1") then
 			hawkShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
 		end
-		hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_hawk_c_d", {duration = 7})
+		hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_hawk_c_d", {duration = 15})
+	end
+	if caster:HasModifier("modifier_bear_c_d") then
+		local hawkShiftAbility = caster:FindAbilityByName("draghor_shapeshift_bear")
+		hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bear_c_d", {duration = 15})
 	end
 	if caster:HasModifier("modifier_glyph_2_critical") then
 		local wolfShiftAbility = caster:FindAbilityByName("draghor_shapeshift_cat")
@@ -278,11 +298,27 @@ function monkey_form(event)
 		if caster:HasModifier("modifier_djanghor_arcana1") then
 			bearShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
 		end
-		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_7_bash", {duration = 10})
+		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_7_bash", {duration = 15})
+	end
+	if caster:HasModifier("modifier_shapeshift_cat_d_d") then
+		local wolfShiftAbility = caster:FindAbilityByName("draghor_shapeshift_cat")
+		wolfShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_cat_d_d", {duration = 25})
+	end
+	if caster:HasModifier("modifier_shapeshift_bear_d_d") then
+		local bearShiftAbility = caster:FindAbilityByName("draghor_shapeshift_bear")
+		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_bear_d_d", {duration = 25})
+	end
+	if caster:HasModifier("modifier_shapeshift_crow_d_d") then
+		local hawkShiftAbility = caster:FindAbilityByName("draghor_shapeshift_crow")
+		hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_crow_d_d", {duration = 25})
 	end
 	if caster:HasModifier("modifier_year_beast_b_d_health") then
 		local ybShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
-		ybShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_year_beast_b_d_health", {duration = 7})
+		ybShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_year_beast_b_d_health", {duration = 25})
+	end
+	if caster:HasModifier("modifier_shapeshift_yearbeast_d_d") then
+		local ybShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
+		ybShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_yearbeast_d_d", {duration = 25})
 	end
 	local colorVector = Vector(0.45,0.8,0.6)
 	local springParticle = "particles/econ/items/monkey_king/arcana/death/monkey_king_spring_death_base.vpcf"
@@ -345,8 +381,10 @@ function monkey_form(event)
 	caster:RemoveModifierByName("modifier_shapeshift_crow")
 	caster:RemoveModifierByName("modifier_shapeshift_crow_r1_thinker")
 	caster:RemoveModifierByName("modifier_shapeshift_cat")
+	caster:RemoveModifierByName("modifier_djanghor_wolf_lifesteal")	
 	caster:RemoveModifierByName("modifier_shapeshift_bear")
 	caster:RemoveModifierByName("modifier_shapeshift_year_beast")
+	caster:RemoveModifierByName("modifier_shapeshift_year_beast_r_3")
 	if caster:HasModifier("modifier_draghor_shapeshift_hawk_lua") then
 		caster:AddNewModifier( caster, ability, "modifier_draghor_shapeshift_shrink", {duration = 0.5} )
 	end
@@ -357,10 +395,6 @@ function monkey_form(event)
 	caster:RemoveModifierByName("modifier_hawk_soar")
 	caster:RemoveModifierByName("modifier_hawk_soar_visual_z")
 	caster:RemoveModifierByName("modifier_shapeshift_attack_power_a_d")
-	caster:RemoveModifierByName("modifier_shapeshift_cat_d_d")
-	caster:RemoveModifierByName("modifier_shapeshift_bear_d_d")
-	caster:RemoveModifierByName("modifier_shapeshift_crow_d_d")
-	caster:RemoveModifierByName("modifier_shapeshift_yearbeast_d_d")
 	Timers:CreateTimer(0.03, function()
 		caster:RemoveModifierByName("modifier_shapeshift_attack_power_a_d")
 		caster:RemoveModifierByName("modifier_hawk_soar_visual_z_down")
@@ -377,6 +411,7 @@ function monkey_form(event)
 
 	end)
 	caster:SetPrimaryAttribute(1)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_monkey_r1_thinker", {})
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftOut.Sound", caster)
 
 end
@@ -430,6 +465,8 @@ function general_shapeshift_think(event)
 			attribute = caster:GetIntellect()
 		elseif event.index == 4 then
 			attribute = caster:GetIntellect() + caster:GetAgility() + caster:GetStrength()
+		elseif event.index == 5 then 
+			attribute = math.ceil((caster:GetIntellect() + caster:GetAgility() + caster:GetStrength())*0.5)
 		end
 		local attackBonus = attribute*a_d_level*DJANGHOR_R1_ATTACK_POWER_PER_STAT
 		if caster:HasModifier("modifier_shapeshift_year_beast") then
@@ -492,6 +529,9 @@ end
 function shapeshift_start_year_beast(event)
 	local caster = event.caster
 	local ability = event.ability
+	
+	ability.r_3_level = caster:GetRuneValue("r", 3)
+	
 	if ability.pfx then
 		ParticleManager:DestroyParticle(ability.pfx, false)
 		ability.pfx = false
@@ -500,11 +540,14 @@ function shapeshift_start_year_beast(event)
 	CustomAbilities:QuickParticleAtPoint("particles/econ/items/monkey_king/arcana/death/monkey_king_spring_death_base.vpcf", caster:GetAbsOrigin(), 4)
 	EmitSoundOn("Draghor.ShapeshiftYearBeast.Growl", caster)
 	caster:RemoveModifierByName("modifier_draghor_shapeshift_shrink")
+	caster:RemoveModifierByName("modifier_shapeshift_yearbeast_d_d")
+	caster:RemoveModifierByName("modifier_year_beast_b_d_health")
 
 	caster:AddNewModifier( caster, ability, "modifier_draghor_shapeshift_year_beast_lua", {} )
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftIn.Finish", caster)
 	StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=1.2})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_year_beast", {})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_year_beast_r_3", {})
 
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_year_beast", "draghor_monkey_form", DOTA_ULTIMATE_SLOT)
 	local mark = caster:GetAbilityByIndex(0)
@@ -535,9 +578,12 @@ function shapeshift_start_year_beast(event)
 
 	local d_d_level = caster:GetRuneValue("r", 4)
 	if d_d_level > 0 then
+		duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
+		local currentStacks = caster:GetModifierStackCount("modifier_shapeshift_yearbeast_d_d", caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_yearbeast_d_d", {})
 		caster:SetModifierStackCount("modifier_shapeshift_yearbeast_d_d", caster, d_d_level)
 	end	
+	caster:RemoveModifierByName("modifier_shapeshift_monkey_r1_thinker")
 	if caster:HasModifier("modifier_mark_of_the_claw") then
 		caster:SetPrimaryAttribute(0)
 	elseif caster:HasModifier("modifier_mark_of_the_fang") then

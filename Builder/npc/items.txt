@@ -5288,6 +5288,10 @@
 						"Function"		"shark_helmet_attack_land"
 					}
 				}
+				"Properties"
+				{
+				"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_two"
+				}
 			}
 			"modifier_dark_reef_shark_stacks"
 			{
@@ -5322,7 +5326,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"6000"
+				"property_one"			"1000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"			"100"
 			}
 		}
 	}
@@ -20591,7 +20600,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"0.3"
 			}
 		}
 	}
