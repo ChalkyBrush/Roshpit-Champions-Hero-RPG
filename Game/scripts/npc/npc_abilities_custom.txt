@@ -39744,6 +39744,10 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
 			}
+			"modifier_shapeshift_year_beast_r_3"
+			{
+				"IsHidden"	"1"				
+			}
 			"modifier_shapeshift_yearbeast_d_d"
 			{
 				"IsHidden"	"1"
