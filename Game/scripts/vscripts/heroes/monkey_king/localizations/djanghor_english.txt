@@ -219,7 +219,7 @@
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_1"									"[R1] Savagery"
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_Description"						"Attributes increase base attack damage in each animal form. Bear gains damage from Strength, Wolf from Agility, and Hawk from Intelligence. Djanghor's Monkey form gains attack damage from ALL attributes, but at only half of the indicated value. This rune is activated when shapeshifting into the corresponding form."
-    	"DOTA_Tooltip_ability_djanghor_rune_r_1_property_one"						"Attack Damage"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_property_one"						"Base Attack Damage"
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_suffix"								" per attribute"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_2"									"[R2] Ursa Major"
@@ -286,8 +286,8 @@
 		"DOTA_Tooltip_ability_draghor_year_beast_leap_cast_range"						"CAST RANGE:"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1"									"[R1] Silver Fangs"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1_Description"						"Attributes increase attack damage in Year Beast form."
-    	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1_property_one"						"Attack Damage"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1_Description"						"Attributes increase base attack damage in Year Beast form."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1_property_one"						"Base Attack Damage"
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1_suffix"								" per attribute"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_2_arcana1"									"[R2] Golden Mane"
