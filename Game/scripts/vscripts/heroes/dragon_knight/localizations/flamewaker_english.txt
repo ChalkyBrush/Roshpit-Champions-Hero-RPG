@@ -91,7 +91,7 @@
     	"DOTA_Tooltip_modifier_heatwave_phase_one_Description"					"Increased movespeed and max movespeed."
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_1"								"[E1] Blazing Trail"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker leaves a trail of smoldering embers on the ground while surging with Heat Wave. Enemies standing on the fire take increased pre-mitigation physical damage based on negative armor."
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker leaves a trail of smoldering embers on the ground while surging with Heat Wave. Enemies standing on the fire take increased pre-mitigation physical damage based on negative armor.Max provides 200% x rune levle's premitigation damage increase"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_one"					"Damage/sec"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix"						""
         "DOTA_Tooltip_ability_flamewaker_rune_e_1_property_two"                 "Premitigation damage increase"
@@ -141,7 +141,7 @@
     	"DOTA_Tooltip_ability_cataclysm_stun_duration"					"STUN DURATION:"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_1"								"[R1] Mountain Strike"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"When starting an attack, 15% chance for Flamewaker to lift himself and his target into the air for 0.3 seconds, gaining bonus attack damage while airborne. The target is stunned for the duration."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"When starting an attack, 25% chance for Flamewaker to lift himself and his target into the air for 0.3 seconds, gaining bonus attack damage while airborne. The target is stunned for the duration."
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_property_one"					"Bonus Attack Damage"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
 		
