@@ -3353,10 +3353,11 @@ function chitinous_skin_think(event)
 	local caster = event.caster
 	local target = caster
 	local ability = event.ability
-
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_chitinous_skin_stacks", {})
-	local newStacks = math.min(target:GetModifierStackCount("modifier_chitinous_skin_stacks", caster) + 1, 20)
-	target:SetModifierStackCount("modifier_chitinous_skin_stacks", caster, newStacks)	
+	if ability then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_chitinous_skin_stacks", {})
+		local newStacks = math.min(target:GetModifierStackCount("modifier_chitinous_skin_stacks", caster) + 1, 20)
+		target:SetModifierStackCount("modifier_chitinous_skin_stacks", caster, newStacks)	
+	end
 end
 
 function chitinous_skin_take_damage(event)
@@ -3763,6 +3764,7 @@ end
 
 function zealot_die(caster)
 	CustomAbilities:QuickAttachParticle("particles/dire_fx/tower_bad_face_end_sparks.vpcf", caster, 5)
+	Seafortress:MiddleObjective()
  	 local wallL = Entities:FindByNameNearest("BigSeaDoorLeft", Vector(-4928, -1024), 900)
   	 local wallR = Entities:FindByNameNearest("BigSeaDoorRight", Vector(-4224, -1024), 900)
     Timers:CreateTimer(0.1, function()
@@ -4262,6 +4264,7 @@ function dark_reef_guard_die(caster)
 	end
 	Seafortress.BlueBolgDeath = Seafortress.BlueBolgDeath + 1
 	if Seafortress.BlueBolgDeath == 5 then
+		Seafortress:MiddleObjective()
 		Timers:CreateTimer(2, function()
 			local wall = Entities:FindByNameNearest("SeaDoor5", Vector(1717, 1993, -6+Seafortress.ZFLOAT), 900)
 			Seafortress:Walls(false, {wall}, true, 4)

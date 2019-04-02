@@ -203,7 +203,7 @@ function Seafortress:MiddleObjective()
     Seafortress.MiddleObjectives = 0
   end
   Seafortress.MiddleObjectives = Seafortress.MiddleObjectives + 1
-  if Seafortress.MiddleObjectives == 4 then
+  if Seafortress.MiddleObjectives == 5 then
     Timers:CreateTimer(1, function()
       Seafortress:SpawnSkultoth(Vector(-704, 5056), Vector(0,-1))
     end)

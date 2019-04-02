@@ -72183,6 +72183,7 @@
             "particle"  "particles/units/heroes/hero_puck/puck_phase_shift.vpcf"
             "particle"  "particles/units/heroes/hero_puck/puck_illusory_orb.vpcf"
             "particle"  "particles/units/heroes/hero_puck/puck_waning_rift.vpcf"
+            "particle"  "particles/units/heroes/hero_puck/puck_illusory_orb_main.vpcf"
         }
         "HealthBarOffset"   "220"
         "HasInventory"  "0"
