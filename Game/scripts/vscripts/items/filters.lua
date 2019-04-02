@@ -3867,7 +3867,7 @@ function Filters:GeodeDealDamage(victim, damage, attacker)
                 ability.particles = ability.particles - 1
             end)
         end
-        return damage*20
+        return damage*10
     else
         return damage
     end
