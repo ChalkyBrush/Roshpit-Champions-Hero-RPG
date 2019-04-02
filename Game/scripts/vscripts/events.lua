@@ -648,6 +648,24 @@ function GameMode:OnPlayerChat(keys)
 				end
 			end
 		end
+	elseif string.match(text, "-physical") then
+		if Beacons.cheats then
+			local damageValue = string.gsub(text, "-physical ", "")
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+		end
+	elseif string.match(text, "-magic") then
+		if Beacons.cheats then
+			local damageValue = string.gsub(text, "-magic ", "")
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+		end
+	elseif string.match(text, "-pure") then
+		if Beacons.cheats then
+			local damageValue = string.gsub(text, "-pure ", "")
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+		end
   elseif string.match(text, "-log") then
     CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid), "error_logger_open", {})
   elseif GameState:GetDifficultyFactor() == 3 then

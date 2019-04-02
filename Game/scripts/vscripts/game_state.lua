@@ -2198,7 +2198,7 @@ function GameState:FilterDamage(filterTable)
 				dash.regen = 0
 			end
 			local addedRegen = math.ceil(damage * 0.025 * e_3_level)
-			dash.regen = dash.regen + addedRegen
+			dash.regen = math.min(500000000 - (victim:GetHealthRegen() - dash.regen),  dash.regen + addedRegen)
 			dash:ApplyDataDrivenModifier(victim, victim, "modifier_voltex_lightning_dash_regen", {duration = 3})
 			dash:ApplyDataDrivenModifier(victim, victim, "modifier_voltex_lightning_dash_regen_hidden", {duration = 3})
 			victim:SetModifierStackCount("modifier_voltex_lightning_dash_regen_hidden", victim, dash.regen)
