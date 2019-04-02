@@ -4,7 +4,7 @@
         "djanghor_r"	"Shapeshift"
 
 		"DOTA_Tooltip_ability_draghor_shapeshift_cat"									"Shapeshift: Wolf"
-    	"DOTA_Tooltip_ability_draghor_shapeshift_cat_Description"						"Transform into a wolf with its own ability set after 1.75 second channel. Form grants additional Magical and Pure damage reduction. While in Wolf form, attacks provide lifesteal equal to 0.5% of Djanghor's attack damage."
+    	"DOTA_Tooltip_ability_draghor_shapeshift_cat_Description"						"Transform into a wolf with its own ability set after 1.75 second channel. Form grants additional Magical and Pure damage reduction.  While in Wolf form, each attack against an enemy unit will heal Djanghor for 0.5% of his total attack damage."
     	"DOTA_Tooltip_ability_draghor_shapeshift_cat_agility_bonus"						"AGILITY BONUS IN WOLF FORM:"
 		"DOTA_Tooltip_ability_draghor_shapeshift_cat_resist"							"MAGICAL AND PURE DAMAGE REDUCTION:"
 		
@@ -15,7 +15,7 @@
 		"DOTA_Tooltip_ability_draghor_shapeshift_bear_resist"							"PHYSICAL AND PURE DAMAGE REDUCTION:"
 
     	"DOTA_Tooltip_ability_draghor_shapeshift_crow"									"Shapeshift: Hawk"
-    	"DOTA_Tooltip_ability_draghor_shapeshift_crow_Description"						"Transform into a hawk with its own ability set after 1.75 second channel. Hawk form cannot attack, has flying movement capability and drains 0.1% of max mana every 0.03 seconds. If mana runs out or Djanghor flies into an obstruction, he is immediately transformed back into Monkey Form."
+    	"DOTA_Tooltip_ability_draghor_shapeshift_crow_Description"						"Transform into a hawk with its own ability set after 1.75 second channel. Hawk form cannot attack, has flying movement capability and drains 0.1% of max mana every 0.03 seconds. If mana runs out or Djanghor flies into an obstruction, he is immediately transformed back into Monkey Form. While in Hawk form, all Physical and Magical damage taken is reduced by 5 for each point of INT, applied after Armor and Magic Resistance but before other reductions."
     	"DOTA_Tooltip_ability_draghor_shapeshift_crow_int_bonus"						"INTELLIGENCE BONUS IN HAWK FORM:"
 		"DOTA_Tooltip_ability_draghor_shapeshift_crow_block"							"MAGICAL AND PHYSICAL DAMAGE BLOCK PER INTELLIGENCE:"
 
@@ -71,7 +71,7 @@
 		"DOTA_Tooltip_modifier_wolf_howl_ally_Description"								"Increased attack damage"
 
 		"DOTA_Tooltip_ability_djanghor_feral_sprint"									"Feral Sprint"
-		"DOTA_Tooltip_ability_djanghor_feral_sprint_Description"						"Immediately increases movement speed to the stated value and provides cliff and phase walking. Cannot be slowed buring sprint. Buff persists through shapeshifting."
+		"DOTA_Tooltip_ability_djanghor_feral_sprint_Description"						"Immediately increases movement speed to the stated value and provides cliff and phase walking. Cannot be slowed during sprint. Buff persists through shapeshifting."
 		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_increase"					"MOVESPEED BONUS:"
 		"DOTA_Tooltip_ability_djanghor_feral_sprint_duration"							"DURATION:"
 
@@ -145,7 +145,7 @@
 		"djanghor_r_abilities"														"Shapeshift"
 
     	"DOTA_Tooltip_ability_djanghor_rune_q_1"									"[Q1] Wild Regeneration"
-    	"DOTA_Tooltip_ability_djanghor_rune_q_1_Description"						"Casting roar in bear form applies a 12 second regeneration buff that restores health every 0.1 seconds. Effects persists through shapeshift."
+    	"DOTA_Tooltip_ability_djanghor_rune_q_1_Description"						"Casting Roar applies a buff to Djanghor that heals every 0.1 second for 12 seconds. This effect persists through shapeshifting."
     	"DOTA_Tooltip_ability_djanghor_rune_q_1_property_one"						"Health Restore (flat)"
     	"DOTA_Tooltip_ability_djanghor_rune_q_1_suffix"								" every tick"
 		"DOTA_Tooltip_ability_djanghor_rune_q_1_property_two"						"Health Restore (percentile)"
@@ -160,7 +160,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_q_2_suffix"								""
 
     	"DOTA_Tooltip_ability_djanghor_rune_q_3"									"[Q3] Oscillation"
-    	"DOTA_Tooltip_ability_djanghor_rune_q_3_Description"						"Casting Screech adds time to ALL remaining buffs applied by Djanghor and his items. Buff durations can be increased only 3 times until they are reapplied once again."
+    	"DOTA_Tooltip_ability_djanghor_rune_q_3_Description"						"Casting Screech adds time to ALL of Djanghor's buffs applied to himself by his own abilities, runes, and items. An individual buff's duration can only be increased 3 times, at which point it will need to be applied again in order to benefit from this effect."
     	"DOTA_Tooltip_ability_djanghor_rune_q_3_property_one"						"Duration Increase"
     	"DOTA_Tooltip_ability_djanghor_rune_q_3_suffix"								" seconds"
 
@@ -175,7 +175,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% of damage dealt"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] Rupture"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Enemies bleeding from Rend take increase post-mitigation damage from Djanghor."
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Enemies bleeding from Rend take increased post-mitigation damage from Djanghor."
     	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Post-Mitigation Damage"
     	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								"%"
 
@@ -190,7 +190,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_4_suffix"								"% for every 10 points of Attributes"
 
     	"DOTA_Tooltip_ability_djanghor_rune_e_1"									"[E1] Marshlands"
-    	"DOTA_Tooltip_ability_djanghor_rune_e_1_Description"						"After landing from Monkey Leap, leave an acidic pool of organic matter that increases <font color=\"#69BC71\">Nature</font> damage towards all enemies standing within. Works multiplicatively with hero's <font color=\"#69BC71\">Nature</font> amplification."
+    	"DOTA_Tooltip_ability_djanghor_rune_e_1_Description"						"After landing from Monkey Leap, leave an acidic pool of organic matter that severely weakens enemies standing within, multiplying all <font color=\"#69BC71\">Nature</font> damage dealt to them. The pool lasts 20 seconds."
     	"DOTA_Tooltip_ability_djanghor_rune_e_1_property_one"						"Nature Damage Amp"
     	"DOTA_Tooltip_ability_djanghor_rune_e_1_suffix"								"%"
 
@@ -198,7 +198,7 @@
     	"DOTA_Tooltip_modifier_monkey_a_c_effect_Description"						"Reduced Nature Resistance"
 
     	"DOTA_Tooltip_ability_djanghor_rune_e_2"									"[E2] Juniper Whip"
-    	"DOTA_Tooltip_ability_djanghor_rune_e_2_Description"						"Jin'bo has amplified base damage during Monkey Leap. If the 3rd strike of Jin'bo hits at least 1 enemy, there is a chance Djanghor will receive a free cast of shapeshift that removes the channel time. If chance is greater than 100%, Djanghor can get multiple stacks of freecast."
+    	"DOTA_Tooltip_ability_djanghor_rune_e_2_Description"						"Jin'bo has increased base damage when cast during Monkey Leap. If the 3rd strike of Jin'bo hits at least 1 enemy, there is a chance Djanghor will receive a free cast of Shapeshift, removing its channel time. A chance greater than 100% means that multiple stacks can be gained at a time."
     	"DOTA_Tooltip_ability_djanghor_rune_e_2_property_one"						"Jin'bo Damage Amp"
     	"DOTA_Tooltip_ability_djanghor_rune_e_2_suffix"								"%"
     	"DOTA_Tooltip_ability_djanghor_rune_e_2_property_two"						"Chance for free Shapeshift Stack"
@@ -218,12 +218,12 @@
     	"DOTA_Tooltip_ability_djanghor_rune_e_4_suffix"								" seconds"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_1"									"[R1] Savagery"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_1_Description"						"Attributes increase attack damage in each animal form. Wolf gains attack damage from agility, Bear gains attack damage from strength, and Hawk gains attack damage from intelligence. Monkey form gains attack damage from all attributes but with 50% penalty, applies after Shapeshift."
-    	"DOTA_Tooltip_ability_djanghor_rune_r_1_property_one"						"Attack Damage"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_Description"						"Attributes increase base attack damage in each animal form. Bear gains damage from Strength, Wolf from Agility, and Hawk from Intelligence. Djanghor's Monkey form gains attack damage from ALL attributes, but at only half of the indicated value. This rune is activated when shapeshifting into the corresponding form."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_property_one"						"Base Attack Damage"
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_suffix"								" per attribute"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_2"									"[R2] Ursa Major"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_2_Description"						"Gain increased health in bear form. When shifting out of bear form, retain the buff for 25 seconds and switching forms refreshes this buffs."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_2_Description"						"Gain increased maximum health in Bear form. This buff is retained for 25 seconds when shapeshifting out of Bear form."
     	"DOTA_Tooltip_ability_djanghor_rune_r_2_property_one"						"Health Bonus"
     	"DOTA_Tooltip_ability_djanghor_rune_r_2_suffix"								""
 
@@ -231,7 +231,7 @@
     	"DOTA_Tooltip_modifier_bear_b_d_Description"								"Increased Health"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3"									"[R3] Predator"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_Description"						"Gain increased Base Ability Damage in Hawk form and increased Item Damage in Bear form respectively. After shifting out, retain the buff for 15 seconds and switching forms refreshes this buffs."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_Description"						"Gain increased Base Ability Damage in Hawk form, or increased Item Damage in Bear form. After shapeshifting out, these buffs are retained for 15 seconds."
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_property_one"						"Base Ability and Item Damage Bonus"
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_suffix"								"%"
 
@@ -286,8 +286,8 @@
 		"DOTA_Tooltip_ability_draghor_year_beast_leap_cast_range"						"CAST RANGE:"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1"									"[R1] Silver Fangs"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1_Description"						"Attributes increase attack damage in Year Beast form."
-    	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1_property_one"						"Attack Damage"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1_Description"						"Attributes increase base attack damage in Year Beast form."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1_property_one"						"Base Attack Damage"
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1_suffix"								" per attribute"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_2_arcana1"									"[R2] Golden Mane"
@@ -320,7 +320,7 @@
 		"DOTA_Tooltip_modifier_glyph_2_critical_Description"	"Attacks have a chance to deal additional damage."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"Glyph of Elusion"
-		"item_rpc_djanghor_glyph_3_1_description" 				"@glyph_property1% evasion in wolf form, @glyph_property2% evasion in monkey form."
+		"item_rpc_djanghor_glyph_3_1_description" 				"@glyph_property1% evasion in Wolf form, @glyph_property2% evasion in Monkey form."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"Glyph of Protective Shapeshifter"
 		"item_rpc_djanghor_glyph_4_1_description" 				"Finishing a Shapeshift applies a shield that absorbs @glyph_property1 instances of damage. Lasts 12 seconds."
@@ -332,10 +332,10 @@
 		"item_rpc_djanghor_glyph_5_1_description" 				"Reduces the cooldown of @Ability1 by @glyph_property1 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"Glyph of Forest Blessing"
-		"item_rpc_djanghor_glyph_6_1_description" 				"Attempt to remove an enemy debuff from self every @glyph_property1 seconds. Mobility skills with Charging type apply [E3] effect on cast."
+		"item_rpc_djanghor_glyph_6_1_description" 				"Every 2 seconds, Djanghor cleanses 1 enemy debuff from himself. Any of Djanghor's animal form spells that make him charge to a location will apply [E3] when cast."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"Glyph of Mauling"
-		"item_rpc_djanghor_glyph_7_1_description" 				"@glyph_property1% chance to bash while in Bear Form, dealing @glyph_property2% increased damage and @glyph_property3 second stun. Buff persists for 15 seconds after shifting out. War Stomp reduces target's armor same as Rend."
+		"item_rpc_djanghor_glyph_7_1_description" 				"Attacks during Bear form have a @special_property1% chance to bash the target, dealing @special_property2% increased damage and stunning for @special_property3 seconds. Additionally, War Stomp now reduces the Armor of affected targets by the same value as Wolf form's Rend."
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"Maul"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"Chance on attack to stun and deal additional damage."
