@@ -41266,7 +41266,6 @@
 		"AbilityType"           		 "DOTA_ABILITY_TYPE_ULTIMATE"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------

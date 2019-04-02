@@ -465,6 +465,7 @@ end
 
 function SeaFortressSwitchTemple2()
 	Seafortress:ActivateSwitchGeneric(Vector(1928, -4641, 0+Seafortress.ZFLOAT), "CastleSwitch3", true, 0.408)
+	Seafortress:MiddleObjective()
 	Timers:CreateTimer(1, function()
 		local wall = Entities:FindByNameNearest("SeaDoor9", Vector(1187, -3694, 76+Seafortress.ZFLOAT), 1100)
 		Seafortress:Walls(false, {wall}, true, 4.3)

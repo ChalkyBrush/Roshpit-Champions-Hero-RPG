@@ -68,6 +68,7 @@ function seafortress_unit_die(event)
 			Timers:CreateTimer(2.82, function()
 				ScreenShake(caster:GetAbsOrigin(), 200, 0.5, 1, 9000, 0, true)
 			end)
+			Seafortress:LeftWingKill()
 		elseif caster.deathCode == 4 then
 			if not Seafortress.groveBlossomsSpawned then
 				Seafortress.groveBlossomsSpawned = 0
@@ -118,6 +119,7 @@ function seafortress_unit_die(event)
 				Seafortress:Walls(false, {wall}, true, 4)
 				Seafortress:RemoveBlockers(5, "SeaBlocker1", Vector(-12738, -14528, 530), 1200)
 				Seafortress:SpawnBehindMountainArea()
+				Seafortress:LeftWingKill()
 			end
 		elseif caster.deathCode == 6 then
 			EmitSoundOn("Seafortress.SwampRevenant.Death", caster)
@@ -142,6 +144,7 @@ function seafortress_unit_die(event)
 			EmitSoundOn("Seafortress.Ursan.Death", caster)
 			Timers:CreateTimer(0.82, function()
 				Seafortress.UrsanDead = true
+				Seafortress:LeftWingKill()
 			      local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
 			      local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
 			      ParticleManager:SetParticleControl(particle1,0,Seafortress.switchB:GetAbsOrigin())
@@ -3906,6 +3909,7 @@ function dragonwarrior_die(caster)
 	local wall = Entities:FindByNameNearest("SeaDoor11", Vector(-836, 200, -16+Seafortress.ZFLOAT), 700)
 	Seafortress:Walls(false, {wall}, true, 4)
 	Seafortress:RemoveBlockers(4, "SeaBlocker11", Vector(-832, 128), 1400)
+	Seafortress:MiddleObjective()
 	Seafortress:AfterDragonRoom()
 end
 
@@ -4281,9 +4285,7 @@ function reef_elite_die(event)
 	end
 	Seafortress.ReefEliteSlain = Seafortress.ReefEliteSlain + 1
 	if Seafortress.ReefEliteSlain == 4 then
-		Timers:CreateTimer(1, function()
-			Seafortress:SpawnSkultoth(Vector(-704, 5056), Vector(0,-1))
-		end)
+		Seafortress:MiddleObjective()
 	end
 	
 end

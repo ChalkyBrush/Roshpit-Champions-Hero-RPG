@@ -191,10 +191,22 @@ function Seafortress:LeftWingKill()
     Seafortress.LeftWingKills = 0
   end
   Seafortress.LeftWingKills = Seafortress.LeftWingKills + 1
-  if Seafortress.LeftWingKills == 3 then
+  if Seafortress.LeftWingKills == 6 then
     Seafortress.CentaurSwitchActive = true
     ParticleManager:DestroyParticle(Seafortress.switchPFX, false)
     Seafortress:ActivateOrDeactiveArchon()
+  end
+end
+
+function Seafortress:MiddleObjective()
+  if not Seafortress.MiddleObjectives then
+    Seafortress.MiddleObjectives = 0
+  end
+  Seafortress.MiddleObjectives = Seafortress.MiddleObjectives + 1
+  if Seafortress.MiddleObjectives == 4 then
+    Timers:CreateTimer(1, function()
+      Seafortress:SpawnSkultoth(Vector(-704, 5056), Vector(0,-1))
+    end)
   end
 end
 
@@ -3179,6 +3191,7 @@ function Seafortress:EndRainSequence()
     end)
   end)
   Timers:CreateTimer(8, function()
+    Seafortress:MiddleObjective()
     Seafortress:InitiateBehindFloodArea()
   end)
 end
