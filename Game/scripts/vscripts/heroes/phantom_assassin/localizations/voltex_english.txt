@@ -194,7 +194,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_2_arcana1_suffix_two"			" seconds"
 
   		"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1"						"[E3] Accelerator"
-    	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_Description"  		"A portion of pre-mitigation damage taken is added to health regen for 3 seconds and decays over the duration."
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_Description"  		"A portion of pre-mitigation damage taken is added to health regen for 3 seconds and decays over the duration. Can't increase your health regen above 500 million."
     	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_property_one"			"Health Regen Bonus"	
     	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_suffix"				"% of damage taken"
 
