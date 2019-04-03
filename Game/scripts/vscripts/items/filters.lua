@@ -17,6 +17,7 @@ require('/heroes/juggernaut/seinaru_constants')
 require('/heroes/lanaya/trapper_constants')
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/spirit_breaker/duskbringer_constants')
+require('/heroes/zuus/auriun_constants')
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -597,6 +598,13 @@ function Filters:stormcrack_upgrade(caster, ability, target)
 end
 
 function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
+	if caster:GetUnitName() == "npc_dota_hero_zuus" then
+		local w_2_level = caster:GetRuneValue("w", 2)
+		if w_2_level > 0 then
+			healAmount = healAmount + healAmount * AURIUN_W2_HEAL_SHADOW_HOLY_PCT_PER_INT * caster:GetIntellect() * w_2_level
+		end
+	end
+
     if bCap then
         healAmount = math.min(healAmount, target:GetMaxHealth())
     end
@@ -2211,6 +2219,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                     mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*q_3_level
                 end         
             end  
+			local w_2_level = attacker:GetRuneValue("w", 2)
+			if w_2_level > 0 then
+                mult = mult + AURIUN_W2_HEAL_SHADOW_HOLY_PCT_PER_INT * attacker:GetIntellect() * w_2_level
+			end
         elseif unitName == "npc_dota_hero_skywrath_mage" then
             if attacker:HasModifier("modifier_sephyr_holy_amp") then
                 local stacks = attacker:GetModifierStackCount("modifier_sephyr_holy_amp", caster)
@@ -2435,6 +2447,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                     mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*q_3_level
                 end         
             end  
+			local w_2_level = attacker:GetRuneValue("w", 2)
+			if w_2_level > 0 then
+                mult = mult + AURIUN_W2_HEAL_SHADOW_HOLY_PCT_PER_INT * attacker:GetIntellect() * w_2_level
+			end
         elseif unitName == "npc_dota_hero_slark" then
             attacker.q_4_level = attacker:GetRuneValue("q", 4)
             if attacker.q_4_level then

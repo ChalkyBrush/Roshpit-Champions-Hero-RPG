@@ -372,15 +372,6 @@ function duskbringer_glyph_7_1_end(event)
   	caster:SwapAbilities("specter_rush_two", "manifestation", true, false)
 end
 
-function auriun_glyph_7_1_think(event)
-	local target = event.target
-	local caster = event.caster
-	local ability = event.ability
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_glyph_7_1_effect", {})
-	local damageBonus = (target:GetAgility() + target:GetStrength())*5
-	target:SetModifierStackCount( "modifier_auriun_glyph_7_1_effect", ability, damageBonus )
-end
-
 function use_glyph_book(event)
 	local caster = event.caster
 	local book = event.ability

@@ -22,7 +22,6 @@ function initialize_flash_heal(event)
 		local cursorPos = event.target_points[1]
 		local allies = FindUnitsInRadius( caster:GetTeamNumber(), cursorPos, nil, 140, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		local healAmount = ability:GetSpecialValueFor("heal")
-		healAmount = b_b_amp(healAmount, caster, ability)
 		local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), cursorPos)
 		if not ability.lastCast then
 			ability.lastCast = -1
@@ -60,7 +59,6 @@ function initialize_flash_heal(event)
 				end
 				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), cursorPos, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 				local damage = ability.w_1_level*1920 + 400
-				damage = b_b_amp(damage, caster, ability)
 				for _,enemy in pairs(enemies) do
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 					d_b_apply(caster, enemy, ability.w_4_level, ability.w_4_ability)
@@ -94,13 +92,6 @@ function d_b_apply(caster, enemy, w_4_level, d_b_ability)
 	    enemy:SetModifierStackCount( "modifier_auriun_rune_w_4_effect_invisible", d_b_ability, new_stacks*w_4_level )
 	end
 	--"modifier_auriun_rune_w_4_effect_visible"
-end
-
-function b_b_amp(amount, caster, ability)
-	local ampPerTenInt = 0.0006
-	local adjustment = (caster:GetIntellect()/10)*ampPerTenInt*ability.w_2_level
-	local adjustedAmount = amount*(1+adjustment)
-	return math.ceil(adjustedAmount)
 end
 
 function c_b_effect(caster, ability, target, healAmount)
