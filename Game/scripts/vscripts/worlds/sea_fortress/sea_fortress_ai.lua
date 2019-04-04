@@ -5477,6 +5477,16 @@ function sea_fortress_final_boss_think(event)
 		Timers:CreateTimer(2, function()
 			RPCItems:DropSynthesisVessel(caster:GetAbsOrigin())
 		end)
+		local randDelay = RandomInt(10, 50)/10
+		local position = caster:GetAbsOrigin()
+		Timers:CreateTimer(randDelay, function()
+			for i = 1, #GameState:GetPlayerPremiumStatusCount()+1, 1 do
+				local luck = RandomInt(1, 50)
+				if luck == 1 then
+					RPCItems:RollRandomArcana(position)
+				end
+			end
+		end)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_boss_dying_effect", {})
 		local bossOrigin = caster:GetAbsOrigin()
 		StartAnimation(caster, {duration=9, activity=ACT_DOTA_FLAIL, rate=1})
