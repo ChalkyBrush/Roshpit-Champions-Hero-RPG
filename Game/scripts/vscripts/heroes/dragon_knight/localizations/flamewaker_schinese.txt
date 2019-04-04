@@ -88,7 +88,7 @@
     	"DOTA_Tooltip_modifier_heatwave_phase_one_Description"					"移动速度和移动速度上限提高"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_1"								"[E1] 余烬"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"烈焰行者炙热冲锋后将在地上留下余烬，灼烧碰到余烬的敌人,并且加深敌人受到的物理伤害（税前），提高数值基于敌人负甲的数值。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"烈焰行者炙热冲锋后将在地上留下余烬，灼烧碰到余烬的敌人,并且加深敌人受到的物理伤害（税前），提高数值基于敌人负甲的数值。税前伤害最大加成为200% x 符文等级."
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_one"					"每秒伤害"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix"						""
 	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_two"                 "税前伤害增加"
@@ -139,7 +139,7 @@
     	"DOTA_Tooltip_ability_cataclysm_stun_duration"					"眩晕时间："
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_1"								"[R1] 山岳打击"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"烈焰行者攻击时有15% 几率将自己和目标举至空中，眩晕目标0.3秒后大幅提高攻击力进行一次强力打击。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"烈焰行者攻击时有25% 几率将自己和目标举至空中，眩晕目标0.3秒后大幅提高攻击力进行一次强力打击。"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_property_one"					"额外攻击力"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
 		

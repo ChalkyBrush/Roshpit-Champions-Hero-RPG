@@ -141,7 +141,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"Fractional Enhancement Geode"
 		"item_property_geode"								"Logarathmic Amplification"
-		"property_geode_description"						"If you deal damage less than 0.2% of the target's max health, multiply that damage instance by 20."
+		"property_geode_description"						"If you deal damage less than 0.2% of the target's max health, multiply that damage instance by 10."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"Ring of Nobility"

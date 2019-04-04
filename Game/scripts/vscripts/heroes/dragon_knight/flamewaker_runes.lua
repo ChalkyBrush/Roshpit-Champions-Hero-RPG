@@ -420,7 +420,7 @@ function a_d_attack_land(event)
 	local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "flamewaker")
 	if a_d_level > 0 then
 		local luck = RandomInt(1,100)
-		if luck <= 15 then
+		if luck <= 25 then
 			if not target:IsNull() and not caster:HasModifier("modifier_flamewaker_a_d_crit_damage") and not caster:HasModifier("modifier_flamewaker_rune_w_4") then
 				StartAnimation(caster, {duration=0.1, activity=ACT_DOTA_TELEPORT_END, rate=2})
 				EmitSoundOn("Flamewaker.QuietShield", target)
