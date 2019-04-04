@@ -5867,14 +5867,14 @@ end
 
 function puzzlers_locket_recalculate(event)
 	local ability = event.ability
-	Timers:CreateTimer(5, function()
-		if not ability.recalculated then
-			ability.recalculated = true
+	if not ability.recalculated then
+		ability.recalculated = true
+		Timers:CreateTimer(5, function()
 			local hero = event.target
 			RPCItems:RecalculateStatsBasic(hero)
-			Timers:CreateTimer(10, function()
+			Timers:CreateTimer(12, function()
 				ability.recalculated = false
 			end)
-		end
-	end)
+		end)
+	end
 end
