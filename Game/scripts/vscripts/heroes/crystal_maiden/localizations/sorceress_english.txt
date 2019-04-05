@@ -60,7 +60,7 @@
 		"DOTA_Tooltip_ability_arcane_explosion_radius"					"RADIUS:"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_w_1"							"[W1] Arcane Shell"
-    	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"Casting Arcane Explosion applies a shell that absorbs the next 2 instances of damage. Whoever attacks the shell takes damage based on Sorceress' Intelligence. The damage is multiplied by the ability's level."
+    	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"Casting Arcane Explosion applies a shell that absorbs the next 3 instances of damage. Whoever attacks the shell takes damage based on Sorceress' Intelligence. The damage is multiplied by the ability's level."
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_property_one"				"Duration"
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_suffix"					" seconds"  
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_property_two"				"Damage"
@@ -311,12 +311,13 @@
 		"item_rpc_sorceress_glyph_4_1_description" 				"Increases the attack speed of Sorceress and her Water Elemental by @glyph_property1."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_1"		"Glyph of Arcane Torrent"
-		"item_rpc_sorceress_glyph_5_1_description" 				"Replaces Arcane Explosion with Arcane Torrent, which channels onto a single enemy from long range and deals damage equal to 10x Arcane Explosion damage."
+		"item_rpc_sorceress_glyph_5_1_description" 				"Replaces Arcane Explosion with Arcane Torrent, which channels onto a single enemy from long range and deals damage equal to 10x Arcane Explosion damage. [W1] applies 4 shields instead of 3."
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"Arcane Torrent"
 		"DOTA_Tooltip_ability_arcane_torrent_Description"		"Element: <font color=\"#E1A2E8\">Arcane</font><br>Toggle on to fire a missle at the closest nearby enemy every 0.2 seconds. Damage dealt is based on 5x Arcane Explosion's damage * the percentage of your mana compared to max mana."
 		"DOTA_Tooltip_ability_arcane_torrent_range"				"RANGE:"
 		"DOTA_Tooltip_ability_arcane_torrent_mana_drain_per_second" "MANA COST PER SECOND:"
+		"DOTA_Tooltip_ability_arcane_torrent_damage"			"DAMAGE (ARCANE EXPLOSION), % OF CURRENT MANA:"
 
 		"DOTA_Tooltip_modifier_arcane_torrent_enable"			"Arcane Torrent"
 

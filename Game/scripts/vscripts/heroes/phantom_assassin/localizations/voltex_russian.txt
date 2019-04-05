@@ -191,7 +191,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_2_arcana1_suffix_two"			" сек."
 
   		"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1"						"[E3] Accelerator"
-    	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_Description"  		"Увеличивает регенерацию здоровья на 3 секунды на % от полученного пред-резистного урона. Бонус к регенерации здоровья постененно уменьшается."
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_Description"  		"Увеличивает регенерацию здоровья на 3 секунды на % от полученного пред-резистного урона. Бонус к регенерации здоровья постепенно уменьшается.  Максимальный бонус регенерации равен 500 миллионам."
     	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_property_one"			"Доп. реген. здоровья"	
     	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_suffix"				"% от полученного урона"
 

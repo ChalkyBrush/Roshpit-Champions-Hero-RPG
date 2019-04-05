@@ -88,7 +88,7 @@
     	"DOTA_Tooltip_modifier_heatwave_phase_one_Description"					"Скорость передвижения и максимальная скорость передвижения увеличены."
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_1"								"[E1] Blazing Trail"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker оставляет след тлеющих угольков во время передвижения при активном умении @Ability3. Противники на углях получают дополнительный урон (пре-резистный) за каждую единицу отрицательной брони."
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker оставляет след тлеющих угольков во время передвижения при активном умении @Ability3. Противники на углях получают дополнительный урон (пре-резистный) за каждую единицу отрицательной брони. Максимальный бонус урона за одну руну равен 200%."
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_one"					"Урон/сек"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix"						""
 		"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_two"                 "Увеличение урона"
@@ -135,7 +135,7 @@
     	"DOTA_Tooltip_ability_cataclysm_stun_duration"					"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_1"								"[R1] Mountain Strike"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"С 15% шансом при атаке Flamewaker подбросит свою цель в воздух, оглушая её на 0.3 секунды, и получая в этот короткий момент бонусный урон атаки."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"С 25% шансом при атаке Flamewaker подбросит свою цель в воздух, оглушая её на 0.3 секунды, и получая в этот короткий момент бонусный урон атаки."
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_property_one"					"Бонусный урон атаки"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
 		

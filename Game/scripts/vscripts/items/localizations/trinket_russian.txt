@@ -308,3 +308,6 @@
 		"item_property_blue_divinex"									"X-Intelligence"
 		"property_blue_divinex_description"							"Значение Силы и Ловкости не может быть выше 20. Значение Интеллекта удвоено. Кажыде 10 очков Интеллекта увеличивают урон предметов на @special_property1%."
 		
+		"DOTA_Tooltip_ability_item_rpc_puzzlers_locket"				"Puzzler's Locket"
+		"item_property_puzzler"										"Anagram"
+		"property_puzzler_description"								"Все руны второго ряда, полученные со снаряжения, меняют свой показатель на руну третьего ряда, и наоборот."
