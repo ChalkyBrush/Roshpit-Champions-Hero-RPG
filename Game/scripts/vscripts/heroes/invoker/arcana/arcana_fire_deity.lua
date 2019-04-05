@@ -174,7 +174,7 @@ function fire_ray_casting_thinker2(event)
 	local heal_pct = event.heal_pct
 	for i = 1, #ability.beamTable, 1 do
 		local beam = ability.beamTable[i]
-		if IsValidEntity(beam) and IsValidEntity(beam.target) then
+		if beam and IsValidEntity(beam.target) then
 			local moveDirection = ((beam.target:GetAbsOrigin()-beam.position)*Vector(1,1,0)):Normalized()
 			beam.position = beam.position + moveDirection*100
 
