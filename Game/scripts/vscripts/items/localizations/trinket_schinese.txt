@@ -305,3 +305,6 @@
 		"item_property_blue_divinex"									"超强智力"
 		"property_blue_divinex_description"							"力量和敏捷上限被限定为20。智力翻倍。每10点智力提高装备伤害 @special_property1%."
 		
+		"DOTA_Tooltip_ability_item_rpc_puzzlers_locket"				"解谜者吊坠"
+		"item_property_puzzler"										"重组"
+		"property_puzzler_description"						 "装备上的T2 符文数和 T3符文数互换。"

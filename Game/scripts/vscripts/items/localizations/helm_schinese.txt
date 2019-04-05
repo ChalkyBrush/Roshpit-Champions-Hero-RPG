@@ -338,7 +338,7 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"瓦尔顿深海之盔"	
-		"property_all_elements"												"提高所有元素伤害 %（重铸获取750%）"
+		"property_all_elements"												"提高所有元素伤害 %"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_hood_of_the_sea_oracle"					"海神域的兜帽"	
@@ -350,9 +350,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_reef_shark_helmet"					"黑礁鲨头盔"	
 		"property_shark_helmet"												"鲨鱼撕咬"
-		"property_shark_helmet_Description"									"攻击任意敌人 5 次之后，下一次攻击的攻击力提高 @special_property1%，如没有攻击buff将持续 2.5 秒。"
+		"property_shark_helmet_Description"									"被动提供 @special_property2% 的额外攻击力。在完成7次普通攻击后，获得 @special_property1% 的额外攻击力，持续 1.5 秒。两者之间和其他额外攻击力加成均为乘法叠加。"
 		"DOTA_Tooltip_modifier_dark_reef_shark_stacks"						"鲨鱼撕咬层数"
-		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"到达 5 层时，激活鲨鱼撕咬 buff"
+		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"到达 7 层时，激活鲨鱼撕咬 buff"
 		"DOTA_Tooltip_modifier_dark_reef_shark_effect"						"鲨鱼撕咬"
 		"DOTA_Tooltip_modifier_dark_reef_shark_effect_Description"			"大幅提高攻击力"
 		
