@@ -2325,7 +2325,7 @@
 		"DOTA_Tooltip_modifier_moon_shroud_buff_Description"			"Astral Ranger получает бонусы от [Q3]."
 		
 		"DOTA_Tooltip_ability_astral_rune_q_1"							"[Q1] Infinity Lift"
-    	"DOTA_Tooltip_ability_astral_rune_q_1_Description"				"Находясь в облаке дальность атаки Astral Ranger увеличивается."
+    	"DOTA_Tooltip_ability_astral_rune_q_1_Description"				"Находясь в облаке @Ability1 дальность атаки Astral Ranger увеличивается."
     	"DOTA_Tooltip_ability_astral_rune_q_1_property_one"				"Доп. дальность атаки"
     	"DOTA_Tooltip_ability_astral_rune_q_1_suffix"					""
 
@@ -2343,7 +2343,7 @@
     	"DOTA_Tooltip_modifier_astral_b_a_armor_loss_Description"		"Броня снижена"
 		
 		"DOTA_Tooltip_ability_astral_rune_q_3"							"[Q3] Lunar Empowerment"
-    	"DOTA_Tooltip_ability_astral_rune_q_3_Description"				"Пока Astral Ranger находится под облаком от Moon Shroud, ее урон увеличивается."
+    	"DOTA_Tooltip_ability_astral_rune_q_3_Description"				"Пока Astral Ranger находится под облаком от @Ability1, ее урон увеличивается."
     	"DOTA_Tooltip_ability_astral_rune_q_3_property_one"				"Доп. урон"
     	"DOTA_Tooltip_ability_astral_rune_q_3_suffix"					"%"
 		
@@ -2381,7 +2381,7 @@
     	"DOTA_Tooltip_ability_astral_rune_w_3_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_astral_rune_w_4"							"[W4] Cluster Arrow"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_Description"				"Каждая стрела от основного умения, при попадании по противнику, оставляет на нём заряды. Каждый заряд увеличивает получаемый врагом пост-резистный урон от героя. Максимум 20 зарядов."
+    	"DOTA_Tooltip_ability_astral_rune_w_4_Description"				"Каждая стрела от @Ability2 при попадании по противнику оставляет на нём заряды. Каждый заряд увеличивает получаемый врагом пост-резистный урон от героя. Максимум 20 зарядов."
     	"DOTA_Tooltip_ability_astral_rune_w_4_property_one"				"Увеличение пост-резистного урона"
     	"DOTA_Tooltip_ability_astral_rune_w_4_suffix"					"% за каждый заряд"
 
@@ -2396,8 +2396,8 @@
     	"DOTA_Tooltip_ability_star_blink_star_aoe"						"РАДИУС ОГЛУШЕНИЯ:"
 		
 		"DOTA_Tooltip_ability_astral_rune_e_1"							"[E1] Pegasus"
-    	"DOTA_Tooltip_ability_astral_rune_e_1_Description"				"При использовании @Ability3, от текущего положения героя к упавшей звезде начинает следовать астральный пегас, ненадолго останавливающий задетых им врагов и увеличивающий получаемый ими пост-резистный урон. Эффект складывается до 10 раз."
-    	"DOTA_Tooltip_ability_astral_rune_e_1_property_one"				"Усиление пост-резистного урона"
+    	"DOTA_Tooltip_ability_astral_rune_e_1_Description"				"При касте @Ability3 призывает Пегаса, пролетающего сквозь противников между точкой прочтения и позицией героя. Пораженные противники будут получать увеличенный Пост-Резистный урон. Дебафф складывается до 10 раз."
+    	"DOTA_Tooltip_ability_astral_rune_e_1_property_one"				"Усиление Пост-Резистного урона"
     	"DOTA_Tooltip_ability_astral_rune_e_1_suffix"					"%"
     	"DOTA_Tooltip_ability_astral_rune_e_1_property_two"				"Длительность остановки"
     	"DOTA_Tooltip_ability_astral_rune_e_1_suffix_two"				" сек."
@@ -2443,7 +2443,7 @@
     	"DOTA_Tooltip_ability_ranger_aoe_explosion_duration"			"ДЛИТЕЛЬНОСТЬ ПОДБРАСЫВАНИЯ:"
 		
 		"DOTA_Tooltip_ability_astral_rune_r_1"							"[R1] Starstorm"
-    	"DOTA_Tooltip_ability_astral_rune_r_1_Description"				"Во время прочтения способности @Ability4 на ближайших врагов обрушивается вся мощь звезд. Каждая звезда, попавшая по противнику снижает его сопротивление стихии <font color=\"#C25DFC\">Космоса</font> на 10%."
+    	"DOTA_Tooltip_ability_astral_rune_r_1_Description"				"Во время прочтения способности @Ability4 на ближайших врагов обрушивается дождь из звезд. Каждая звезда, попавшая по противнику снижает его сопротивление стихии <font color=\"#C25DFC\">Космоса</font> на 10% на протяжение 7 секунд."
     	"DOTA_Tooltip_ability_astral_rune_r_1_property_one"				"Макс. звезд"
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_r_1_property_two"				"Урон каждой звездой"
@@ -2453,16 +2453,16 @@
     	"DOTA_Tooltip_modifier_starfall_a_d_visible_Description"		"Каждый заряд снижает сопротивление цели стихии <font color=\"#C25DFC\">Космоса</font> на 10%%."
 		
 		"DOTA_Tooltip_ability_astral_rune_r_2"                          "[R2] Star Quake"
-        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Звезды от [R1] создают кристальный взрыв при приземлении, нанося урон и оглушая цели (0.03 секунды) в небольшой области."
+        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Звезды от [R1] создают кристальный взрыв при приземлении, нанося урон и оглушая цели в небольшой области на 0.03 секунды."
         "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "Множитель урона [R1]"
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "%"
         "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "Радиус"
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"После успешного применения @Ability4, Astral Ranger призывает божественного Феникса, который будет следовать за героем и атаковать ближайших врагов последующие 20 секунд."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"После успешного применения @Ability4 Astral Ranger призывает космического Феникса, который будет следовать за героем и атаковать врагов в значительном радиусе последующие 20 секунд. Урон зависит от общей силы атаки героя."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Урон феникса"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% от урона героя"
+    	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% от силы атаки героя"
 		
 		"DOTA_Tooltip_ability_astral_rune_r_4"							"[R4] Cosmic Blessing"
     	"DOTA_Tooltip_ability_astral_rune_r_4_Description"				"Пассивно увеличивает шанс срабатывания рун, предметов и способностей (Этот бонус не добавляет процент к шансу, а увеличивает текущую вероятность события на определенный процент)."
@@ -6339,7 +6339,7 @@
     	"DOTA_Tooltip_modifier_heatwave_phase_one_Description"					"Скорость передвижения и максимальная скорость передвижения увеличены."
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_1"								"[E1] Blazing Trail"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker оставляет след тлеющих угольков во время передвижения при активном умении @Ability3. Противники на углях получают дополнительный урон (пре-резистный) за каждую единицу отрицательной брони."
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker оставляет след тлеющих угольков во время передвижения при активном умении @Ability3. Противники на углях получают дополнительный урон (пре-резистный) за каждую единицу отрицательной брони. Максимальный бонус урона за одну руну равен 200%."
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_one"					"Урон/сек"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix"						""
 		"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_two"                 "Увеличение урона"
@@ -6386,7 +6386,7 @@
     	"DOTA_Tooltip_ability_cataclysm_stun_duration"					"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_1"								"[R1] Mountain Strike"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"С 15% шансом при атаке Flamewaker подбросит свою цель в воздух, оглушая её на 0.3 секунды, и получая в этот короткий момент бонусный урон атаки."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"С 25% шансом при атаке Flamewaker подбросит свою цель в воздух, оглушая её на 0.3 секунды, и получая в этот короткий момент бонусный урон атаки."
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_property_one"					"Бонусный урон атаки"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
 		
@@ -8709,7 +8709,7 @@
 		"DOTA_Tooltip_ability_arcane_explosion_radius"					"РАДИУС:"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_w_1"							"[W1] Arcane Shell"
-    	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"Прочтение @Ability2 наделит героя щитом, имеющим 2 заряда. Каждый заряд тратится на полное поглощение урона. Противник, атакующий щит, получит урон, основанный на показателе Интеллекта Sorceress. Наносимый урон умножается на уровень способности (W) Arcane Explosion."
+    	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"Прочтение @Ability2 наделит героя щитом, имеющим 3 заряда. Каждый заряд тратится на полное поглощение урона. Противник, атакующий щит, получит урон, основанный на показателе Интеллекта Sorceress. Наносимый урон умножается на уровень способности (W) Arcane Explosion."
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_property_one"				"Длительность"
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_suffix"					" сек."  
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_property_two"				"Урон"
@@ -8960,12 +8960,13 @@
 		"item_rpc_sorceress_glyph_4_1_description" 				"Увеличивает скорость атаки героя и ее элементаля на @glyph_property1."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_1"		"(T5) Глиф потока мудрости"
-		"item_rpc_sorceress_glyph_5_1_description" 				"Заменяет (W) @Ability2 на (W) Arcane Torrent, который направляется в одного врага на большом расстоянии и наносит урон, равный 10х урона (W) @Ability2."
+		"item_rpc_sorceress_glyph_5_1_description" 				"Заменяет (W) @Ability2 на (W) Arcane Torrent, который направляется в одного врага на большом расстоянии и наносит урон, равный 10х урона (W) @Ability2. [W1] накладывает 4 щита, а не 3."
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"Arcane Torrent"
 		"DOTA_Tooltip_ability_arcane_torrent_Description"		"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>Активация этого умения позволяет выпускать поток тайной энергии в одного ближайшего врага каждые 0.2 секунды. Урон снарядов равен 5х урона (W) Arcane Explosion, умноженного на % текущей маны в сравнении с макс. маной."
 		"DOTA_Tooltip_ability_arcane_torrent_range"				"ДАЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_arcane_torrent_mana_drain_per_second" "ЗАТРАТЫ МАНЫ В СЕКУНДУ:"
+		"DOTA_Tooltip_ability_arcane_torrent_damage"			"БАЗОВЫЙ УРОН(ARCANE EXPLOSION), % ОТ ТЕКУЩЕЙ МАНЫ:"
 
 		"DOTA_Tooltip_modifier_arcane_torrent_enable"			"Arcane Torrent"
 
@@ -10184,7 +10185,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_2_arcana1_suffix_two"			" сек."
 
   		"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1"						"[E3] Accelerator"
-    	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_Description"  		"Увеличивает регенерацию здоровья на 3 секунды на % от полученного пред-резистного урона. Бонус к регенерации здоровья постененно уменьшается."
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_Description"  		"Увеличивает регенерацию здоровья на 3 секунды на % от полученного пред-резистного урона. Бонус к регенерации здоровья постепенно уменьшается.  Максимальный бонус регенерации равен 500 миллионам."
     	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_property_one"			"Доп. реген. здоровья"	
     	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_suffix"				"% от полученного урона"
 
@@ -11937,7 +11938,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
 		"item_property_silverspring_glove"			"Silverspring"
-		"property_silverspring_description"			"Увеличивает урон на @special_property1% от значения регенерации здоровья."
+		"property_silverspring_description"			"Увеличивает урон на @special_property1% от значения регенерации здоровья. Максимальный бонус урона равен 500 миллионам."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"
@@ -12782,7 +12783,9 @@
 		"item_property_blue_divinex"									"X-Intelligence"
 		"property_blue_divinex_description"							"Значение Силы и Ловкости не может быть выше 20. Значение Интеллекта удвоено. Кажыде 10 очков Интеллекта увеличивают урон предметов на @special_property1%."
 		
-
+		"DOTA_Tooltip_ability_item_rpc_puzzlers_locket"				"Puzzler's Locket"
+		"item_property_puzzler"										"Anagram"
+		"property_puzzler_description"								"Все руны второго ряда, полученные со снаряжения, меняют свой показатель на руну третьего ряда, и наоборот."
     	
 
 		

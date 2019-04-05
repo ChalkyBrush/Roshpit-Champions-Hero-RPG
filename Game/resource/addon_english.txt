@@ -2226,7 +2226,7 @@
 		"DOTA_Tooltip_modifier_moon_shroud_buff_Description"			"Astral Ranger receive [Q3] bonuses."
 		
 		"DOTA_Tooltip_ability_astral_rune_q_1"							"[Q1] Infinity Lift"
-    	"DOTA_Tooltip_ability_astral_rune_q_1_Description"				"Astral Ranger gains attack range when standing in her Moon Shroud."
+    	"DOTA_Tooltip_ability_astral_rune_q_1_Description"				"Astral Ranger gains attack range when standing in her @Ability1."
     	"DOTA_Tooltip_ability_astral_rune_q_1_property_one"				"Range Bonus"
     	"DOTA_Tooltip_ability_astral_rune_q_1_suffix"					""
 
@@ -2244,13 +2244,13 @@
     	"DOTA_Tooltip_modifier_astral_b_a_armor_loss_Description"		"Losing Armor"
 		
 		"DOTA_Tooltip_ability_astral_rune_q_3"							"[Q3] Lunar Empowerment"
-    	"DOTA_Tooltip_ability_astral_rune_q_3_Description"				"Astral Ranger gains increased attack damage while standing in Moon Shroud."
+    	"DOTA_Tooltip_ability_astral_rune_q_3_Description"				"Astral Ranger gains increased attack damage while standing in @Ability1."
     	"DOTA_Tooltip_ability_astral_rune_q_3_property_one"				"Damage Bonus"
     	"DOTA_Tooltip_ability_astral_rune_q_3_suffix"					"%"
 		
 		
     	"DOTA_Tooltip_ability_astral_rune_q_4"							"[Q4] Moonlight"
-    	"DOTA_Tooltip_ability_astral_rune_q_4_Description"				"Astral Ranger's attack damage is increased by all attributes. The effect only recalculates when Moon Shroud is cast."
+    	"DOTA_Tooltip_ability_astral_rune_q_4_Description"				"Astral Ranger's attack damage is increased by all attributes. The effect only recalculates when @Ability1 is cast."
     	"DOTA_Tooltip_ability_astral_rune_q_4_property_one"				"Bonus Damage"
     	"DOTA_Tooltip_ability_astral_rune_q_4_suffix"					" per Attribute"
 
@@ -2272,7 +2272,7 @@
     	"DOTA_Tooltip_modifier_astral_a_b_visible_Description"			"Stats Increased"
 		
 		"DOTA_Tooltip_ability_astral_rune_w_2"							"[W2] Astral Volley"
-    	"DOTA_Tooltip_ability_astral_rune_w_2_Description"				"When using Split Shot - have a chance to fire 2 volleys. Over 100% chance means it can proc multiple times. Each extra shot costs mana."
+    	"DOTA_Tooltip_ability_astral_rune_w_2_Description"				"@Ability2 has a chance to fire an additional volley of arrows with every cast. A chance greater than 100% means more than one additional volley may be fired."
     	"DOTA_Tooltip_ability_astral_rune_w_2_property_one"				"Chance for Multiple Split Shot"
     	"DOTA_Tooltip_ability_astral_rune_w_2_suffix"					"%"
 		
@@ -2282,7 +2282,7 @@
     	"DOTA_Tooltip_ability_astral_rune_w_3_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_astral_rune_w_4"							"[W4] Cluster Arrow"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_Description"				"Each time an enemy is hit by split shot, they receive a stacking debuff that enhances post-mitigation damage taken from Astral Ranger. Stacks up to 20 times."
+    	"DOTA_Tooltip_ability_astral_rune_w_4_Description"				"Each time an enemy is hit by @Ability2, they receive a stacking debuff that enhances Post-Mitigation damage taken from Astral Ranger. Stacks up to 20 times."
     	"DOTA_Tooltip_ability_astral_rune_w_4_property_one"				"Damage Enhance"
     	"DOTA_Tooltip_ability_astral_rune_w_4_suffix"					"% per stack"
 
@@ -2297,7 +2297,7 @@
     	"DOTA_Tooltip_ability_star_blink_star_aoe"						"RADIUS:"
 		
 		"DOTA_Tooltip_ability_astral_rune_e_1"							"[E1] Pegasus"
-    	"DOTA_Tooltip_ability_astral_rune_e_1_Description"				"Summons the Winged Horse when using Astral Rift - increasing post-mitigation taken and rooting enemies it passes through. Effect can stack. Can stack up to 10 times."
+    	"DOTA_Tooltip_ability_astral_rune_e_1_Description"				"Summons an aspect of the Pegasus when casting @Ability3, which sweeps over enemies along the path between Astral Ranger and the target point. Affected enemies are rooted and take increased post-mitigation damage. This vulnerability debuff can stack up to 10 times."
     	"DOTA_Tooltip_ability_astral_rune_e_1_property_one"				"Post-Mitigation Amp"
     	"DOTA_Tooltip_ability_astral_rune_e_1_suffix"					"%"
     	"DOTA_Tooltip_ability_astral_rune_e_1_property_two"				"Root Duration"
@@ -2307,7 +2307,7 @@
     	"DOTA_Tooltip_modifier_astral_rune_e_1_visible_Description"		"Rooted and taking increased post-mitigation damage"
 		
 		"DOTA_Tooltip_ability_astral_rune_e_2"							"[E2] Astral Empowerment"
-    	"DOTA_Tooltip_ability_astral_rune_e_2_Description"				"After casting Astral Rift - gain attack speed and damage for 6 seconds. Additionally fire an attack at all enemies surrounding the star's landing point."
+    	"DOTA_Tooltip_ability_astral_rune_e_2_Description"				"After casting @Ability3, gain bonus attack speed and base attack damage for 6 seconds. Additionally, a free attack will be launched against all enemies struck by the spell."
     	"DOTA_Tooltip_ability_astral_rune_e_2_property_one"				"Attack Speed"
     	"DOTA_Tooltip_ability_astral_rune_e_2_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_e_2_property_two"				"Damage Buff"
@@ -2318,7 +2318,7 @@
 		
 		
 		"DOTA_Tooltip_ability_astral_rune_e_3"							"[E3] Astral Shroud"
-    	"DOTA_Tooltip_ability_astral_rune_e_3_Description"				"After casting Astral Rift - cloak yourself in a shroud that reduces all damage taken by 75%, magic resistance by 95%, and cleanse stuns/silences every 0.5 seconds."
+    	"DOTA_Tooltip_ability_astral_rune_e_3_Description"				"After casting @Ability3, the Astral Ranger becomes cloaked in a veil that reduces all damage taken by 75%, and further adds 95% Magic Resistance. The shroud also removes any stuns and silences every 0.5 seconds while active."
     	"DOTA_Tooltip_ability_astral_rune_e_3_property_one"				"Duration"
     	"DOTA_Tooltip_ability_astral_rune_e_3_suffix"					" seconds"
 		
@@ -2345,7 +2345,7 @@
     	"DOTA_Tooltip_ability_ranger_aoe_explosion_duration"			"LIFT DURATION:"
 		
 		"DOTA_Tooltip_ability_astral_rune_r_1"							"[R1] Starstorm"
-    	"DOTA_Tooltip_ability_astral_rune_r_1_Description"				"While channeling Celestial Burst - drop powerful stars on nearby enemies. Each star that hits an enemy reduces their <font color=\"#C25DFC\">Cosmic</font> resistance by 10%."
+    	"DOTA_Tooltip_ability_astral_rune_r_1_Description"				"While channeling @Ability4, numerous fallen stars rain down upon nearby enemies. Each star reduces the target's resistance to <font color=\"#C25DFC\">Cosmic</font> damage by 10% for 7 seconds."
     	"DOTA_Tooltip_ability_astral_rune_r_1_property_one"				"Maximum Stars"
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_r_1_property_two"				"Damage Per Star"
@@ -2355,19 +2355,19 @@
     	"DOTA_Tooltip_modifier_starfall_a_d_visible_Description"		"Each stack reducing <font color=\"#C25DFC\">Cosmic</font> resistance by 10%%."
 		
 		"DOTA_Tooltip_ability_astral_rune_r_2"                          "[R2] Star Quake"
-        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Stars of [R1] create little quakes when they fall, dealing damage and stunning enemies for 0.03 seconds in an area."
+        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Increases the damage of [R1]. Each star also slams the ground on impact, dealing its damage in a small area around the primary target and stunning all affected enemies for 0.03 seconds."
         "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "Damage of [R1] Starstorm"
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "%"
         "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "Radius"
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summons the Phoenix Constellation on a successful Celestial Burst cast that follows for 20 seconds. Phoenix follows the Ranger and damages all enemies around her based on Astral's attack power."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summon an aspect of the Phoenix Constellation when @Ability4 is successfully cast. The aspect will attend the Astral Ranger for 20 seconds, constantly bombarding all enemies in an extreme radius around her. These attacks deal damage based on the Ranger's total attack power."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Phoenix Damage"
     	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% of attack power"
 		
 		"DOTA_Tooltip_ability_astral_rune_r_4"							"[R4] Cosmic Blessing"
-    	"DOTA_Tooltip_ability_astral_rune_r_4_Description"				"Passively enhances proc rate on runes, items and abilities. (Not a flat bonus)"
+    	"DOTA_Tooltip_ability_astral_rune_r_4_Description"				"Passively improves the activation chance of items and runes, by a percent of its base chance. This is not a flat bonus."
     	"DOTA_Tooltip_ability_astral_rune_r_4_property_one"				"Proc Chance Enhancement"
     	"DOTA_Tooltip_ability_astral_rune_r_4_suffix"					"%"
 		
@@ -2610,9 +2610,11 @@
     	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix"				""
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_2"						"[W2] Discipline"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"Every 10 points of Intelligence increases the heal of Flash Heal and the damage of Shadow Flare."
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"Damage/Heal added per 10 intelligence"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"%"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"Every 10 points of Intelligence increases heal, and all <font color=\"#7F4F84\">Shadow</font> and <font color=\"#F6FFB5\">Holy</font> damage"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"Shadow/Holy bonus"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"% for each 10 points of Intelligence"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_two"			"Heal bonus"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"% for each 10 points of Intelligence"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_3"						"[W3] Energizing Light"
     	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"Gain a buff after being touched by flash heal that heals a % of the original heal every 0.2 seconds for 3 seconds."
@@ -2647,8 +2649,8 @@
     	"DOTA_Tooltip_modifier_seraph_surge_glyphed_Description"		"No collision and invisible to enemies."
 		
 		"DOTA_Tooltip_ability_auriun_rune_e_1"						"[E1] Wings of Angels"
-    	"DOTA_Tooltip_ability_auriun_rune_e_1_Description"			"Gain passive increased post-mitigation magic damage output."
-    	"DOTA_Tooltip_ability_auriun_rune_e_1_property_one"			"Magic Damage Increase"
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_Description"			"Gain passive increased post-mitigation magic and pure damage output."
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_property_one"			"Magic and Pure Damage Increase"
     	"DOTA_Tooltip_ability_auriun_rune_e_1_suffix"				"%"		
 
     	//"DOTA_Tooltip_modifier_auriun_rune_e_1"						"Vitalize"
@@ -2815,8 +2817,8 @@
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"Luminescence"
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Magic and Physical Immunity"
 
-		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"Glyph of Balance"
-		"item_rpc_auriun_glyph_7_1_description" 				"Each point of Strength and Agility grants Auriun an additional @glyph_property1 attack damage."
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"Glyph of Smite"
+		"item_rpc_auriun_glyph_7_1_description" 				"[R1] attacks explode and deal another instance of damage to all enemies in a radius of <font color='#ccff66'>240</font>"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"Glyph of Shadow Flay"
 		"item_rpc_auriun_glyph_5_a_description" 				"All nearby enemies are grasped by Shadow Flay, dealing @glyph_property1x Auriun's intelligence per second and slowing them by @glyph_property2%. 1% of damage dealt heals Auriun."
@@ -9231,7 +9233,7 @@
 		"DOTA_Tooltip_ability_arcane_explosion_radius"					"RADIUS:"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_w_1"							"[W1] Arcane Shell"
-    	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"Casting Arcane Explosion applies a shell that absorbs the next 2 instances of damage. Whoever attacks the shell takes damage based on Sorceress' Intelligence. The damage is multiplied by the ability's level."
+    	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"Casting Arcane Explosion applies a shell that absorbs the next 3 instances of damage. Whoever attacks the shell takes damage based on Sorceress' Intelligence. The damage is multiplied by the ability's level."
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_property_one"				"Duration"
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_suffix"					" seconds"  
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_property_two"				"Damage"
@@ -9482,12 +9484,13 @@
 		"item_rpc_sorceress_glyph_4_1_description" 				"Increases the attack speed of Sorceress and her Water Elemental by @glyph_property1."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_1"		"Glyph of Arcane Torrent"
-		"item_rpc_sorceress_glyph_5_1_description" 				"Replaces Arcane Explosion with Arcane Torrent, which channels onto a single enemy from long range and deals damage equal to 10x Arcane Explosion damage."
+		"item_rpc_sorceress_glyph_5_1_description" 				"Replaces Arcane Explosion with Arcane Torrent, which channels onto a single enemy from long range and deals damage equal to 10x Arcane Explosion damage. [W1] applies 4 shields instead of 3."
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"Arcane Torrent"
 		"DOTA_Tooltip_ability_arcane_torrent_Description"		"Element: <font color=\"#E1A2E8\">Arcane</font><br>Toggle on to fire a missle at the closest nearby enemy every 0.2 seconds. Damage dealt is based on 5x Arcane Explosion's damage * the percentage of your mana compared to max mana."
 		"DOTA_Tooltip_ability_arcane_torrent_range"				"RANGE:"
 		"DOTA_Tooltip_ability_arcane_torrent_mana_drain_per_second" "MANA COST PER SECOND:"
+		"DOTA_Tooltip_ability_arcane_torrent_damage"			"DAMAGE (ARCANE EXPLOSION), % OF CURRENT MANA:"
 
 		"DOTA_Tooltip_modifier_arcane_torrent_enable"			"Arcane Torrent"
 
