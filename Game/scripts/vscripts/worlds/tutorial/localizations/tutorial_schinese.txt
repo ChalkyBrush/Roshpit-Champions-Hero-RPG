@@ -318,9 +318,9 @@
 
 	"quest_4_challenge_1_desc"											"左键点击敌人会打开它的属性面板，让你可以查看它的能力。右键点击敌人会发出攻击命令。你的英雄会一直自动攻击，直到目标死亡或者发出其他命令."
 	"quest_4_challenge_1_sub_0_summary"									"查看史拉姆灵找到查伦问题的答案."
-	"quest_4_challenge_1_sub_1_summary"									"用自动攻击杀死这个它"
+	"quest_4_challenge_1_sub_1_summary"									"用普通攻击杀死这个它"
 
-	"tutorial_master_dialogue_4_1a"										"肉闪谷的怪物有独特的能力。在所有的怪物中有数百种不同的被动和主动技能."
+	"tutorial_master_dialogue_4_1a"										"肉山谷的怪物有独特的能力。在所有的怪物中有数百种不同的被动和主动技能."
 	"tutorial_master_dialogue_4_1b"										"第一次接近敌人时，明智的做法是检查他们的技能并了解到他们的能力." 
 	"tutorial_master_dialogue_4_1c"										"当你了解了你的敌人，你就会清楚如何有效地对付他们."
 	"tutorial_master_dialogue_4_1d"										"这是一个邪恶的怪物。不要离它太近!我们还不知道他的能力是什么!"		
@@ -436,10 +436,10 @@
 
 	"tutorial_master_dialogue_4_4j"										"很好。这一课现在已经结束了."
 
-	"challens_elemental"												"Omnicrest Elemental"
+	"challens_elemental"												"无上元素"
 
-	"DOTA_Tooltip_ability_tutorial_elemental_ability"					"Omni Elemental"
-	"DOTA_Tooltip_ability_tutorial_elemental_ability_Description"		"Conjured entity of multiple elements."
+	"DOTA_Tooltip_ability_tutorial_elemental_ability"					"全能元素"
+	"DOTA_Tooltip_ability_tutorial_elemental_ability_Description"		"掌管着众多元素的实体。"
 
 	"quest_4_challenge_5_desc"											"在大多数地图上，城镇附近都有训练假人。对它造成伤害将打开伤害面板，让你查看伤害的详细情况."
 	"quest_4_challenge_5_sub_0_summary"									"攻击训练假人以打开伤害面板"
