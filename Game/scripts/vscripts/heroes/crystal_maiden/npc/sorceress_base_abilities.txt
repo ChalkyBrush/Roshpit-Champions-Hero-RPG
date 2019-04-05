@@ -1316,6 +1316,11 @@
 				"var_type"					"FIELD_INTEGER"
 				"mana_drain_per_second"		"1200 2400 6000 13000 17500 20500 26000"
 			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"				"100 200 400 800 1200 1600 2000"
+			}
 		}
 	}
 
