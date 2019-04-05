@@ -48,9 +48,11 @@
     	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix"				""
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_2"						"[W2] Discipline"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"Every 10 points of Intelligence increases the heal of Flash Heal and the damage of Shadow Flare."
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"Damage/Heal added per 10 intelligence"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"%"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"Every 10 points of Intelligence increases heal, and all <font color=\"#7F4F84\">Shadow</font> and <font color=\"#F6FFB5\">Holy</font> damage"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"Shadow/Holy bonus"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"% for each 10 points of Intelligence"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_two"			"Heal bonus"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"% for each 10 points of Intelligence"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_3"						"[W3] Energizing Light"
     	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"Gain a buff after being touched by flash heal that heals a % of the original heal every 0.2 seconds for 3 seconds."
@@ -85,8 +87,8 @@
     	"DOTA_Tooltip_modifier_seraph_surge_glyphed_Description"		"No collision and invisible to enemies."
 		
 		"DOTA_Tooltip_ability_auriun_rune_e_1"						"[E1] Wings of Angels"
-    	"DOTA_Tooltip_ability_auriun_rune_e_1_Description"			"Gain passive increased post-mitigation magic damage output."
-    	"DOTA_Tooltip_ability_auriun_rune_e_1_property_one"			"Magic Damage Increase"
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_Description"			"Gain passive increased post-mitigation magic and pure damage output."
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_property_one"			"Magic and Pure Damage Increase"
     	"DOTA_Tooltip_ability_auriun_rune_e_1_suffix"				"%"		
 
     	//"DOTA_Tooltip_modifier_auriun_rune_e_1"						"Vitalize"
@@ -253,8 +255,8 @@
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"Luminescence"
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Magic and Physical Immunity"
 
-		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"Glyph of Balance"
-		"item_rpc_auriun_glyph_7_1_description" 				"Each point of Strength and Agility grants Auriun an additional @glyph_property1 attack damage."
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"Glyph of Smite"
+		"item_rpc_auriun_glyph_7_1_description" 				"[R1] attacks explode and deal another instance of damage to all enemies in a radius of <% AURIUN_GLYPH7_RADIUS %>"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"Glyph of Shadow Flay"
 		"item_rpc_auriun_glyph_5_a_description" 				"All nearby enemies are grasped by Shadow Flay, dealing @glyph_property1x Auriun's intelligence per second and slowing them by @glyph_property2%. 1% of damage dealt heals Auriun."

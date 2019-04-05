@@ -2051,11 +2051,6 @@ function GameState:FilterDamage(filterTable)
 				print(stacks)
 			end
 		end
-		if attacker:HasModifier("modifier_auriun_passive") then
-			if attacker.e_1_level then
-				mult = mult + 0.02*attacker.e_1_level
-			end
-		end
 		if attacker:HasModifier("modifier_jex_nature_cosmic_w") then
 			local ability = attacker:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
 			if not ability.tech_level then
@@ -2152,7 +2147,11 @@ function GameState:FilterDamage(filterTable)
 				end
 			end
 		end
-
+		if attacker:HasModifier("modifier_auriun_passive") then
+			if attacker.e_1_level then
+				mult = mult + 0.02*attacker.e_1_level
+			end
+		end
 		if attacker:HasModifier("modifier_leshrac_arcana_b_d_effect") then
 			modifier = attacker:FindModifierByName("modifier_leshrac_arcana_b_d_effect")
 			if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
