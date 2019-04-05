@@ -12616,7 +12616,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"Fractional Enhancement Geode"
 		"item_property_geode"								"Logarathmic Amplification"
-		"property_geode_description"						"В случае, если ваши атаки нанесут меньше 0.2% урона от максимального показателя здоровья цели, то этот урон будет увеличен в 20 раз."
+		"property_geode_description"						"В случае, если ваши атаки нанесут меньше 0.2% урона от максимального показателя здоровья цели, то этот урон будет увеличен в 10 раз."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"Ring of Nobility"
@@ -12782,6 +12782,7 @@
 		"item_property_blue_divinex"									"X-Intelligence"
 		"property_blue_divinex_description"							"Значение Силы и Ловкости не может быть выше 20. Значение Интеллекта удвоено. Кажыде 10 очков Интеллекта увеличивают урон предметов на @special_property1%."
 		
+
     	
 
 		
