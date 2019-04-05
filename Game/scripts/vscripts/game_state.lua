@@ -1856,8 +1856,9 @@ function GameState:FilterDamage(filterTable)
 			if armor < 0 then
 				local heatwave_ability = victim:FindModifierByName("heatwave_fire_damage"):GetAbility()
 				if heatwave_ability.rune_e_1 then
-					local armor_current=armor
-					filterTable.damage = filterTable.damage + filterTable.damage * FLAMEWAKER_E1_PREMIT * heatwave_ability.rune_e_1*math.abs(2000,armor_current)
+					local armor_current = armor
+					local premit_enhance = math.min(FLAMEWAKER_E1_PREMIT * heatwave_ability.rune_e_1*math.abs(armor_current), heatwave_ability.rune_e_1*2)
+					filterTable.damage = filterTable.damage + filterTable.damage * premit_enhance
 				end
 			end
 		end

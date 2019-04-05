@@ -6294,7 +6294,7 @@
     	"DOTA_Tooltip_modifier_heatwave_phase_one_Description"					"Increased movespeed and max movespeed."
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_1"								"[E1] Blazing Trail"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker leaves a trail of smoldering embers on the ground while surging with Heat Wave. Enemies standing on the fire take increased pre-mitigation physical damage based on negative armor."
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker leaves a trail of smoldering embers on the ground while surging with Heat Wave. Enemies standing on the fire take increased pre-mitigation physical damage based on negative armor. The max premitigation bonus is 200% per rune level."
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_one"					"Damage/sec"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix"						""
         "DOTA_Tooltip_ability_flamewaker_rune_e_1_property_two"                 "Premitigation damage increase"
@@ -6344,7 +6344,7 @@
     	"DOTA_Tooltip_ability_cataclysm_stun_duration"					"STUN DURATION:"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_1"								"[R1] Mountain Strike"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"When starting an attack, 15% chance for Flamewaker to lift himself and his target into the air for 0.3 seconds, gaining bonus attack damage while airborne. The target is stunned for the duration."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"When starting an attack, 25% chance for Flamewaker to lift himself and his target into the air for 0.3 seconds, gaining bonus attack damage while airborne. The target is stunned for the duration."
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_property_one"					"Bonus Attack Damage"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
 		
@@ -10740,7 +10740,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_2_arcana1_suffix_two"			" seconds"
 
   		"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1"						"[E3] Accelerator"
-    	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_Description"  		"A portion of pre-mitigation damage taken is added to health regen for 3 seconds and decays over the duration."
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_Description"  		"A portion of pre-mitigation damage taken is added to health regen for 3 seconds and decays over the duration. Can't increase your health regen above 500 million."
     	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_property_one"			"Health Regen Bonus"	
     	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_suffix"				"% of damage taken"
 
@@ -11945,7 +11945,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
 		"item_property_silverspring_glove"			"Silverspring"
-		"property_silverspring_description"			"Your Base Attack damage is increased by @special_property1% of your Health Regen stat."
+		"property_silverspring_description"			"Your base attack damage is increased by @special_property1% of your health regen stat. Can't increase your base attack damage above 500 million."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"
@@ -12626,7 +12626,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"Fractional Enhancement Geode"
 		"item_property_geode"								"Logarathmic Amplification"
-		"property_geode_description"						"If you deal damage less than 0.2% of the target's max health, multiply that damage instance by 20."
+		"property_geode_description"						"If you deal damage less than 0.2% of the target's max health, multiply that damage instance by 10."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"Ring of Nobility"
@@ -12797,6 +12797,7 @@
 		"DOTA_Tooltip_ability_item_rpc_puzzlers_locket"				"Puzzler's Locket"
 		"item_property_puzzler"										"Anagram"
 		"property_puzzler_description"								"Tier 2 Rune Bonuses provided by equipment are swapped with Tier 3 Rune Bonuses"
+
 
 
 		

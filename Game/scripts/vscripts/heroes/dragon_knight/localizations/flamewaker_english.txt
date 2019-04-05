@@ -91,7 +91,7 @@
     	"DOTA_Tooltip_modifier_heatwave_phase_one_Description"					"Increased movespeed and max movespeed."
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_1"								"[E1] Blazing Trail"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker leaves a trail of smoldering embers on the ground while surging with Heat Wave. Enemies standing on the fire take increased pre-mitigation physical damage based on negative armor.Max provides 200% x rune levle's premitigation damage increase"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker leaves a trail of smoldering embers on the ground while surging with Heat Wave. Enemies standing on the fire take increased pre-mitigation physical damage based on negative armor. The max premitigation bonus is 200% per rune level."
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_one"					"Damage/sec"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix"						""
         "DOTA_Tooltip_ability_flamewaker_rune_e_1_property_two"                 "Premitigation damage increase"
