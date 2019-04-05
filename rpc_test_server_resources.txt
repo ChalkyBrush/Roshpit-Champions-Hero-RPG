@@ -448,6 +448,7 @@ function ChatDropItems(keys)
 
   if string.match(text, "-legendaries2") or string.match(text, "-chest") then
     RPCItems:RollHurricaneVest(vector)
+    RPCItems:VermillionDreamRobes(vector)
     RPCItems:RollBaronsStormArmor(vector)
     RPCItems:RollFloodRobe(vector)
     RPCItems:RollAvalanchePlate(vector)
@@ -618,6 +619,7 @@ function ChatDropItems(keys)
   end
 
   if string.match(text, "-legendaries5") or string.match(text, "-trinket") then
+    RPCItems:RollPuzzlersLocket(vector)
     RPCItems:RollWinterblightSkullRing(vector)
     RPCItems:RollArcaneCharm(vector)
     RPCItems:RollMonkeyPaw(vector)
