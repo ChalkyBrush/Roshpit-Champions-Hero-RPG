@@ -9260,7 +9260,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"8"
 			}
 		}
 	}
@@ -10151,7 +10151,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "25"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "40"
 				}
 			}
 		}
@@ -10971,7 +10971,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"500"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"750"
 				}
 			}
 			"modifier_axe_rune_q_2_visible"
@@ -11035,7 +11035,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"500"
+				"property_two"			"750"
 			}
 		}
 		"Modifiers"
@@ -11062,7 +11062,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"500"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"750"
 				}
 			}
 			"modifier_axe_rune_q_2_visible"
@@ -11363,7 +11363,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"40"
 			}
 		}
 	}
@@ -64633,7 +64633,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.15"
 			}
 		}
 	}
@@ -69215,7 +69215,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.07"
+				"property_one"			"0.12"
 			}
 		}
 	}

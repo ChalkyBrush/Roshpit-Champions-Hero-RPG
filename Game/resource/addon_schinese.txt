@@ -3015,9 +3015,11 @@
     	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix"				""
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_2"						"[W2] 神罚"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"每10点智力提高快速治疗的治疗量和暗影火炬的伤害。"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"每10点智力治疗量/伤害提高"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"%"
+   	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"每10点智力增加你的治疗量，以及所有的 <font color=\"#7F4F84\">暗</font> 和 <font color=\"#F6FFB5\">圣</font> 伤害。"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"暗/圣伤害加成"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"% 每10点智力 "
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_two"			"治疗加成"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"% 每10点智力"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_3"						"[W3] 圣光"
     	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"受到快速治疗的友军将获得一个buff，进行持续治疗。每0.2秒治疗 %% 快速治疗的治疗量，持续3秒。"
@@ -3052,8 +3054,8 @@
     	"DOTA_Tooltip_modifier_seraph_surge_glyphed_Description"		"无碰撞体积且对敌人隐身"
 		
 		"DOTA_Tooltip_ability_auriun_rune_e_1"						"[E1] 天使之翼"
-    	"DOTA_Tooltip_ability_auriun_rune_e_1_Description"			"敌人受到来自俄瑞恩的魔法伤害将被提高。（计算在敌人减伤之后）"
-    	"DOTA_Tooltip_ability_auriun_rune_e_1_property_one"			"魔法伤害加深"
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_Description"			"敌人受到来自俄瑞恩的魔法和纯粹伤害将被提高。（计算在敌人减伤之后）"
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_property_one"			"魔法和纯粹伤害加深"
     	"DOTA_Tooltip_ability_auriun_rune_e_1_suffix"				"%"		
 
     	//"DOTA_Tooltip_modifier_auriun_rune_e_1"						"天使之翼"
@@ -3218,8 +3220,8 @@
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"闪光"
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"魔法和物理免疫"
 
-		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"均衡雕文"
-		"item_rpc_auriun_glyph_7_1_description" 				"每点力量和敏捷值提高俄瑞恩 @glyph_property1 基础攻击力。"
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"猛击雕文"
+		"item_rpc_auriun_glyph_7_1_description" 				"普通攻击时 [R1]会产生爆炸，对周围 <font color='#ccff66'>240</font> 内的敌人造成一次额外伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"阴影雕文"
 		"item_rpc_auriun_glyph_5_a_description" 				"持续用二技能打击周围所有敌人，每秒造成 @glyph_property1x 宙斯智力值的伤害并且减速 @glyph_property2%. 1% 造成的伤害治疗宙斯."
@@ -8939,7 +8941,7 @@
 		"DOTA_Tooltip_ability_arcane_explosion_radius"					"范围："
 		
 		"DOTA_Tooltip_ability_sorceress_rune_w_1"							"[W1] 奥术护盾"
-    	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"施放魔爆术后获得一个奥术护盾吸收2次伤害。任何攻击护盾的目标将受到基于魔法少女智力值的伤害，此伤害还将乘以[W]魔爆术的等级。"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"施放魔爆术后获得一个奥术护盾吸收3次伤害。任何攻击护盾的目标将受到基于魔法少女智力值的伤害，此伤害还将乘以[W]魔爆术的等级。"
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_property_one"				"护盾持续时间"
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_suffix"					" 秒"  
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_property_two"				"攻击护盾受到伤害"
@@ -9186,7 +9188,7 @@
 		"item_rpc_sorceress_glyph_5_1_description" 				"将 @Ability2 替换为奥术洪流，在远距离吟唱施法，对目标敌人造成 10x @Ability2 的伤害。"
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"奥术洪流"
-		"DOTA_Tooltip_ability_arcane_torrent_Description"		"元素： <font color=\"#E1A2E8\">奥术</font><br> 开启技能，每 0.2 秒将发射弹道攻击最近的敌人。伤害为 5x 魔爆术伤害 x 现在的魔法值 / 最大魔法值。"
+		"DOTA_Tooltip_ability_arcane_torrent_Description"		"元素： <font color=\"#E1A2E8\">奥术</font><br> 开启技能，每 0.2 秒将发射弹道攻击最近的敌人。伤害为 5x 魔爆术伤害 x 现在的魔法值 / 最大魔法值。并且[W1]提供的护盾增加至4层。"
 		"DOTA_Tooltip_ability_arcane_torrent_range"				"距离："
 
 		"DOTA_Tooltip_modifier_arcane_torrent_enable"			"奥术洪流"
@@ -9249,6 +9251,7 @@
         "item_property_sorceress_immortal_weapon3"                             "炎魔"
         "property_sorceress_immortal_weapon3_description"                      "施放 @Ability1 将制造一个幻象，幻想拥有技能 @Ability4 和 @Ability3。制造幻象消耗一半的最大魔法值。"
 		
+
 
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue"			"炽血武器"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"元素： <font color=\"#EF4126\">火</font><br>给友方单位施加火焰buff，提高其攻击力并使其在攻击时造成额外魔法伤害。当炽血武器存在时，拥有者造成的  <font color=\"#EF4126\">火</font> 元素伤害增加。当敌人护甲为负值时，他们将会受到炽血的伤害将会提高。"
@@ -11442,9 +11445,9 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"格里夫斯"
 		"item_property_ablecore_greaves"					"龟速"
-		"property_ablecore_greaves_description"			"当移动速度低于或者等于300，受到的伤害减少80%并且伤害输出增加150%。当移动速度高于300时，此buff仍持续6秒。"
+		"property_ablecore_greaves_description"			"当移动速度低于或者等于300，受到的伤害减少80%并且伤害输出增加600%。当移动速度高于300时，此buff仍持续6秒。"
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"龟速"
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"受到的伤害减少80%并且伤害输出增加150%"
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"受到的伤害减少80%并且伤害输出增加600%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"巨型猎人的复原鞋子"
@@ -11692,9 +11695,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_nightmare_rider_mantle"							"梦魇骑士护肩"
 		"item_property_nightmare_rider"				"暗影融合"
-		"property_nightmare_rider_description"		"施放 @Ability1 后释放一股暗影波，降低附近所有敌人的移动速度40%、当前护甲值80%、同时加深敌人所受到受到的伤害 200% （伤害加深计算在减伤之后），持续10秒。<br>每次攻击时获得一层buff，提高暗影融合的范围50码，可叠加。同时每层存在的buff将提高 <font color=\"#7F4F84\">暗</font> 元素伤害 30%。"
+		"property_nightmare_rider_description"		"施放 @Ability1 后释放一股暗影波，降低附近所有敌人的移动速度40%、当前护甲值80%、同时加深敌人所受到受到的伤害 600% （伤害加深计算在减伤之后），持续10秒。<br>每次攻击时获得一层buff，提高暗影融合的范围100码，可叠加。同时每层存在的buff将提高 <font color=\"#7F4F84\">暗</font> 元素伤害 300%。"
 		"DOTA_Tooltip_modifier_nightmare_rider_stacks"	"夜魇层数"
-		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"每层提高暗影融合的范围50，并提高 <font color=\"#7F4F84\">暗</font> 元素伤害 30%%。"
+		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"每层提高暗影融合的范围100，并提高 <font color=\"#7F4F84\">暗</font> 元素伤害 300%%。"
 		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible"	"暗影融合"
 		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible_Description"	"移动速度和护甲值降低，并且伤害加深提高。"
 		
@@ -12734,7 +12737,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"凤凰徽章"
 		"item_property_phoenix_emblem"				"涅盘"
-		"property_phoenix_emblem"					"当你死亡时，5秒后涅盘重生并眩晕附近所有敌人5秒。冷却时间60秒。"
+		"property_phoenix_emblem"					"当你死亡时，5秒后涅盘重生并眩晕附近所有敌人5秒。冷却时间20秒。"
 		"DOTA_Tooltip_modifier_phoenix_emblem_cooldown"	"涅盘冷却中"
 		
 		

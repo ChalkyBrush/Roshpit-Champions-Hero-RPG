@@ -11299,9 +11299,9 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"Ablecore Greaves"
 		"item_property_ablecore_greaves"					"Slugfoot"
-		"property_ablecore_greaves_description"			"While movespeed is equal to or less than 300, incoming damage is reduced by 80% and outgoing Post-Mitigation damage is increased by 150%. The buff sticks for 6 seconds if your movespeed moves back above 300."
+		"property_ablecore_greaves_description"			"While movespeed is equal to or less than 300, incoming damage is reduced by 80% and outgoing Post-Mitigation damage is increased by 600%. The buff sticks for 6 seconds if your movespeed moves back above 300."
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"Slugfoot"
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Incoming damage reduced by 80%% and outgoing damage increased by 150%%"
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Incoming damage reduced by 80%% and outgoing damage increased by 600%%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"
@@ -11413,6 +11413,7 @@
 		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"Iron Treads of Destruction"
 		"item_property_iron_treads_of_destruction"					"Dissolution"
 		"property_iron_treads_of_destruction_description"			"@Ability4 does not require channeling to complete."
+
 
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
@@ -11552,9 +11553,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_nightmare_rider_mantle"							"Nightmare Rider Mantle"
 		"item_property_nightmare_rider"				"Shadow Melt"
-		"property_nightmare_rider_description"		"Casting @Ability1 releases a burst of shadow that slows all nearby enemies by 40% and reduces their current armor by 80% for 10 seconds. Also increases their post-mitigation damage taken by 200%. Attacking builds stacks that increase the radius by 50. Active stacks also increase <font color=\"#7F4F84\">Shadow</font> damage by 30%. Max 20 stacks."
+		"property_nightmare_rider_description"		"Casting @Ability1 releases a burst of shadow that slows all nearby enemies by 40% and reduces their current armor by 80% for 10 seconds. Also increases their post-mitigation damage taken by 600%. Attacking builds stacks that increase the radius by 100. Active stacks also increase <font color=\"#7F4F84\">Shadow</font> damage by 300%. Max 20 stacks."
 		"DOTA_Tooltip_modifier_nightmare_rider_stacks"	"Nightmare Stacks"
-		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"Each stack increases the radius of Shadow Melt and increases <font color=\"#7F4F84\">Shadow</font> damage by 30%%."
+		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"Each stack increases the radius of Shadow Melt and increases <font color=\"#7F4F84\">Shadow</font> damage by 300%%."
 		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible"	"Shadow Melt"
 		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible_Description"	"Losing Movespeed and Armor, and taking increased post-mitigation damage"
 		
@@ -11790,6 +11791,7 @@
 	
 		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"
 		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q Ability has no cooldown"
+
 
 		"DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"Blue Rain Gauntlet"
 		"item_property_blue_rain"								"Rain Lance"
@@ -12613,7 +12615,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"Phoenix Emblem"
 		"item_property_phoenix_emblem"				"Rebirth"
-		"property_phoenix_emblem"					"On death, revive after 5 seconds and stun all surrounding enemies for 5 seconds. 60 second cooldown."
+		"property_phoenix_emblem"					"On death, revive after 5 seconds and stun all surrounding enemies for 5 seconds. 20 second cooldown."
 		"DOTA_Tooltip_modifier_phoenix_emblem_cooldown"	"Rebirth Cooldown"
 		
 		
