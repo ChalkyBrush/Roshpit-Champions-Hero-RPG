@@ -136,9 +136,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_nightmare_rider_mantle"							"Nightmare Rider Mantle"
 		"item_property_nightmare_rider"				"Shadow Melt"
-		"property_nightmare_rider_description"		"Casting @Ability1 releases a burst of shadow that slows all nearby enemies by 40% and reduces their current armor by 80% for 10 seconds. Also increases their post-mitigation damage taken by 200%. Attacking builds stacks that increase the radius by 50. Active stacks also increase <font color=\"#7F4F84\">Shadow</font> damage by 30%. Max 20 stacks."
+		"property_nightmare_rider_description"		"Casting @Ability1 releases a burst of shadow that slows all nearby enemies by 40% and reduces their current armor by 80% for 10 seconds. Also increases their post-mitigation damage taken by 600%. Attacking builds stacks that increase the radius by 100. Active stacks also increase <font color=\"#7F4F84\">Shadow</font> damage by 300%. Max 20 stacks."
 		"DOTA_Tooltip_modifier_nightmare_rider_stacks"	"Nightmare Stacks"
-		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"Each stack increases the radius of Shadow Melt and increases <font color=\"#7F4F84\">Shadow</font> damage by 30%%."
+		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"Each stack increases the radius of Shadow Melt and increases <font color=\"#7F4F84\">Shadow</font> damage by 300%%."
 		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible"	"Shadow Melt"
 		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible_Description"	"Losing Movespeed and Armor, and taking increased post-mitigation damage"
 		
