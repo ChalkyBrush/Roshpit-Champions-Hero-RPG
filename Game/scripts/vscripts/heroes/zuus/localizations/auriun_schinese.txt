@@ -48,9 +48,11 @@
     	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix"				""
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_2"						"[W2] 神罚"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"每10点智力提高快速治疗的治疗量和暗影火炬的伤害。"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"每10点智力治疗量/伤害提高"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"%"
+   	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"每10点智力增加你的治疗量，以及所有的 <font color=\"#7F4F84\">暗</font> 和 <font color=\"#F6FFB5\">圣</font> 伤害。"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"暗/圣伤害加成"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"% 每10点智力 "
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_two"			"治疗加成"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"% 每10点智力"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_3"						"[W3] 圣光"
     	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"受到快速治疗的友军将获得一个buff，进行持续治疗。每0.2秒治疗 %% 快速治疗的治疗量，持续3秒。"
@@ -85,8 +87,8 @@
     	"DOTA_Tooltip_modifier_seraph_surge_glyphed_Description"		"无碰撞体积且对敌人隐身"
 		
 		"DOTA_Tooltip_ability_auriun_rune_e_1"						"[E1] 天使之翼"
-    	"DOTA_Tooltip_ability_auriun_rune_e_1_Description"			"敌人受到来自俄瑞恩的魔法伤害将被提高。（计算在敌人减伤之后）"
-    	"DOTA_Tooltip_ability_auriun_rune_e_1_property_one"			"魔法伤害加深"
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_Description"			"敌人受到来自俄瑞恩的魔法和纯粹伤害将被提高。（计算在敌人减伤之后）"
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_property_one"			"魔法和纯粹伤害加深"
     	"DOTA_Tooltip_ability_auriun_rune_e_1_suffix"				"%"		
 
     	//"DOTA_Tooltip_modifier_auriun_rune_e_1"						"天使之翼"
@@ -251,8 +253,8 @@
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"闪光"
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"魔法和物理免疫"
 
-		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"均衡雕文"
-		"item_rpc_auriun_glyph_7_1_description" 				"每点力量和敏捷值提高俄瑞恩 @glyph_property1 基础攻击力。"
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"猛击雕文"
+		"item_rpc_auriun_glyph_7_1_description" 				"普通攻击时 [R1]会产生爆炸，对周围 <% AURIUN_GLYPH7_RADIUS %> 内的敌人造成一次额外伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"阴影雕文"
 		"item_rpc_auriun_glyph_5_a_description" 				"持续用二技能打击周围所有敌人，每秒造成 @glyph_property1x 宙斯智力值的伤害并且减速 @glyph_property2%. 1% 造成的伤害治疗宙斯."
