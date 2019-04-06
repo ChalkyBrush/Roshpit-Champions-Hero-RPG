@@ -123,7 +123,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"凤凰徽章"
 		"item_property_phoenix_emblem"				"涅盘"
-		"property_phoenix_emblem"					"当你死亡时，5秒后涅盘重生并眩晕附近所有敌人5秒。冷却时间60秒。"
+		"property_phoenix_emblem"					"当你死亡时，5秒后涅盘重生并眩晕附近所有敌人5秒。冷却时间20秒。"
 		"DOTA_Tooltip_modifier_phoenix_emblem_cooldown"	"涅盘冷却中"
 		
 		
