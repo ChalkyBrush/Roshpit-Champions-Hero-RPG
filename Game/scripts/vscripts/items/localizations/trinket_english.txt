@@ -125,7 +125,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"Phoenix Emblem"
 		"item_property_phoenix_emblem"				"Rebirth"
-		"property_phoenix_emblem"					"On death, revive after 5 seconds and stun all surrounding enemies for 5 seconds. 60 second cooldown."
+		"property_phoenix_emblem"					"On death, revive after 5 seconds and stun all surrounding enemies for 5 seconds. 20 second cooldown."
 		"DOTA_Tooltip_modifier_phoenix_emblem_cooldown"	"Rebirth Cooldown"
 		
 		
