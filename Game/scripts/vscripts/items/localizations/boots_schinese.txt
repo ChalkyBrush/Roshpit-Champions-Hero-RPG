@@ -146,9 +146,9 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"格里夫斯"
 		"item_property_ablecore_greaves"					"龟速"
-		"property_ablecore_greaves_description"			"当移动速度低于或者等于300，受到的伤害减少80%并且伤害输出增加150%。当移动速度高于300时，此buff仍持续6秒。"
+		"property_ablecore_greaves_description"			"当移动速度低于或者等于300，受到的伤害减少80%并且伤害输出增加600%。当移动速度高于300时，此buff仍持续6秒。"
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"龟速"
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"受到的伤害减少80%并且伤害输出增加150%"
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"受到的伤害减少80%并且伤害输出增加600%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"巨型猎人的复原鞋子"
