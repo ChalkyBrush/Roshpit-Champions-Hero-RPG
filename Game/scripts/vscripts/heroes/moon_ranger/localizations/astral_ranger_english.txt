@@ -227,7 +227,7 @@
     	"DOTA_Tooltip_modifier_apollo_c_b_proc_visible_Description"				"Reduced Cosmic Resistance"	
 
     	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2"							"[W4] Focus Fire"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_Description"				"Focusing on a single target, Astral Ranger increases all post-mitigation damage dealt towards the targetted enemy for 8 seconds, stacking up to 50 times. Changing targets with Shot of Apollo resets this effect."
+    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_Description"				"Focusing on a single target, Astral Ranger increases all post-mitigation damage dealt towards the targeted enemy for 8 seconds, stacking up to 50 times. Changing targets with Shot of Apollo resets this effect."
     	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_property_one"				"Post-Mitigation"
     	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_suffix"					"% per stack"
 
