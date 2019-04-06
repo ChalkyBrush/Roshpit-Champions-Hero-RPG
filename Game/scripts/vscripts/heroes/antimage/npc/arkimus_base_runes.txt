@@ -255,7 +255,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"8"
 			}
 		}
 	}
