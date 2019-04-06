@@ -360,7 +360,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_boreal_granite_vest"	"Boreal Granite Vest"
 		"item_property_boreal_granite"						"Diametric Force"
-		"property_boreal_granite_description"				"When taking damage from an enemy, have a @special_property1% chance to cast @Ability1 immediately if they are within the ability's cast range. @Ability1's cooldown is refreshed on proc. Targetted abilities are targetted at the location of the attacker, if they are within cast range."
+		"property_boreal_granite_description"				"When taking damage from an enemy, have a @special_property1% chance to cast @Ability1 immediately if they are within the ability's cast range. @Ability1's cooldown is refreshed on proc. Targeted abilities are targetted at the location of the attacker, if they are within cast range."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"Captain's Vest"
