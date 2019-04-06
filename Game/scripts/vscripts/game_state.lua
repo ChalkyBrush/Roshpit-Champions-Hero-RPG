@@ -2235,7 +2235,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if attacker:HasModifier("modifier_ablecore_greaves_effect") then
-		mult = mult + 1.5
+		mult = mult + 6
 	end
 	if attacker:HasModifier("modifier_chernobog_demon_form") then
 		local demonForm = attacker:FindAbilityByName("chernobog_demon_morph")
