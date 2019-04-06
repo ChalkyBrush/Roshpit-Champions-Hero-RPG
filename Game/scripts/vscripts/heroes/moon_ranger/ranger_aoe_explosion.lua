@@ -13,13 +13,18 @@ function begin_explosion(event)
   if caster:HasModifier("modifier_astral_glyph_7_1") then
     damage = damage*10
   end 
-
+  StopSoundEvent("Astral.CelestialBurst.Start", caster)
+  StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_3, rate=1})
 	for i=-3, 3, 1 do 
 		rotatedVector = rotateVector(forwardVector, i*2*math.pi/7)*Vector(200, 200, 0)
 		targetPoint = rotatedVector + location*Vector(1,1,0)
 		create_individual_explosion(abilityLevel, caster, targetPoint, location, "dummy_aoe_explosion", 0, damage)
 	end
-  EmitSoundOn("Hero_Leshrac.Split_Earth.Tormented", caster)
+  local soundChance = RandomInt(1, 2)
+  if soundChance == 3 then
+    EmitSoundOn("Astral.CelestialBurst.ExplosionVO", caster)
+  end
+  -- EmitSoundOn("Hero_Leshrac.Split_Earth.Tormented", caster)
 	-- local smashLevel = caster:GetRuneValue("r",2)
 	-- if smashLevel > 0 then
  --    local b_d_damage = smashLevel*R2_DAMAGE
@@ -184,6 +189,7 @@ function channel_interrupt(event)
       caster.r_timer = nil
     end
   end
+  StopSoundEvent("Astral.CelestialBurst.Start", caster)
   EndAnimation(caster)
 end
 
@@ -204,8 +210,13 @@ function starfall_initiate(event)
       end)
     end
   end
+  StartSoundEvent("Astral.CelestialBurst.Start", caster)
   if not caster:HasModifier("modifier_astral_glyph_5_1") then
-    StartAnimation(caster, {duration=2, activity=ACT_DOTA_IDLE_RARE, rate=1})
+    StartAnimation(caster, {duration=2, activity=ACT_DOTA_TELEPORT, rate=1})
+    local channelVOchance = RandomInt(1, 3)
+    if channelVOchance == 1 then
+      EmitSoundOn("Astral.CelestialBurst.ChannelVO", caster)
+    end
   else
     local cd = ability:GetCooldown(ability:GetLevel()-1)-ASTRAL_T51_CD_REDUCE
     ability:EndCooldown()

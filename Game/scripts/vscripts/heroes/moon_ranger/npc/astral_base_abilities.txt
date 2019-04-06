@@ -696,7 +696,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"250 600 2000 5000 12000 35000 60000"
+		"AbilityDamage"					"5000 12000 35000 60000 150000 350000 1000000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -720,7 +720,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"star_damage"					"2000 5000 12000 35000 60000 150000 350000"
+				"star_damage"					"5000 12000 35000 60000 150000 350000 1000000"
 			}
 			"04"
 			{
@@ -740,24 +740,6 @@
 
 		"OnSpellStart"
 		{
-			"FireSound"
-			{
-				"EffectName"	"Hero_Slark.Pounce.Cast"
-				"Target"		"CASTER"
-			}
-
-			"FireEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
-				"EffectAttachType"	"start_at_customorigin"
-				"TargetPoint"		"POINT"
-
-				"ControlPoints"
-	            {
-	            	"01"	"%star_aoe 0 0"
-	            	"03"	"0 0 0"
-	            }
-			}
 
 			"DelayedAction"
 			{

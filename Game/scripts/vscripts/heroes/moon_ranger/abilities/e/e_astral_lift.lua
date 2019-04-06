@@ -8,7 +8,7 @@ local astralShroud = require('heroes/moon_ranger/abilities/e/e3_astral_shroud')
 
 function precast(event)
     local caster = event.caster
-    StartAnimation(caster, {duration=0.35, activity=ACT_DOTA_GENERIC_CHANNEL_1, rate=1.3})
+    StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.3})
 end
 
 function cast(event)
@@ -31,15 +31,18 @@ function cast(event)
     if caster:HasModifier("modifier_astral_glyph_4_1") then
         delay = delay/2
     end
-
+    EmitSoundOn("Astral.StarBlink.SpellStart", caster)
     local particleName = E_PARTICLE1
     local particleLocation = target
     local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
     ParticleManager:SetParticleControl( particle1, 0, particleLocation )
-    EmitSoundOn("Hero_Invoker.SunStrike.Ignite", caster)
+    -- EmitSoundOn("Hero_Invoker.SunStrike.Ignite", caster)
+
     Timers:CreateTimer(0.35, function()
-        EmitSoundOnLocationWithCaster(target, "Ability.StarfallImpact", caster)
+
+        EmitSoundOnLocationWithCaster(target, "Hero_Invoker.SunStrike.Ignite", caster)
     end)
+    CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf", target, 0.35)
     Timers:CreateTimer(delay, -- Start this timer 10 game-time seconds later
         function()
             -- ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_e_lift_moving", {duration = 0.3})
@@ -75,6 +78,15 @@ function cast(event)
     Filters:CastSkillArguments(3, caster)
     Timers:CreateTimer(0.2, function()
         dustParticle(target, caster)
+    end)
+
+    local particle = "particles/units/heroes/hero_drow/drow_marksmanship_frost_arrow.vpcf"
+    local arrowPFX = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, caster)
+    ParticleManager:SetParticleControl(arrowPFX, 0, caster:GetAttachmentOrigin(1)+Vector(0,0,20))
+    ParticleManager:SetParticleControl(arrowPFX, 1, caster:GetAttachmentOrigin(1)+Vector(0,0,2000))
+    ParticleManager:SetParticleControl(arrowPFX, 2, Vector(5000, 5000, 5000))    
+    Timers:CreateTimer(1, function()
+        ParticleManager:DestroyParticle(arrowPFX, false)
     end)
 end
 

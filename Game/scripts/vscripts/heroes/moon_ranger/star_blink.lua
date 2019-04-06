@@ -1,5 +1,10 @@
 require('heroes/moon_ranger/astral_arcana_ability')
 
+function star_blink_phase(event)
+  local caster = event.caster
+  StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.5})
+end
+
 function star_blink_impact(event)
 
 	local caster = event.caster
