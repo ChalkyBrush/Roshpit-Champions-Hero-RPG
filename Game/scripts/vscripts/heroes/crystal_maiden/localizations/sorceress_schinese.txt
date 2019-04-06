@@ -60,7 +60,7 @@
 		"DOTA_Tooltip_ability_arcane_explosion_radius"					"范围："
 		
 		"DOTA_Tooltip_ability_sorceress_rune_w_1"							"[W1] 奥术护盾"
-    	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"施放魔爆术后获得一个奥术护盾吸收2次伤害。任何攻击护盾的目标将受到基于魔法少女智力值的伤害，此伤害还将乘以[W]魔爆术的等级。"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"施放魔爆术后获得一个奥术护盾吸收3次伤害。任何攻击护盾的目标将受到基于魔法少女智力值的伤害，此伤害还将乘以[W]魔爆术的等级。"
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_property_one"				"护盾持续时间"
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_suffix"					" 秒"  
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_property_two"				"攻击护盾受到伤害"
@@ -307,7 +307,7 @@
 		"item_rpc_sorceress_glyph_5_1_description" 				"将 @Ability2 替换为奥术洪流，在远距离吟唱施法，对目标敌人造成 10x @Ability2 的伤害。"
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"奥术洪流"
-		"DOTA_Tooltip_ability_arcane_torrent_Description"		"元素： <font color=\"#E1A2E8\">奥术</font><br> 开启技能，每 0.2 秒将发射弹道攻击最近的敌人。伤害为 5x 魔爆术伤害 x 现在的魔法值 / 最大魔法值。"
+		"DOTA_Tooltip_ability_arcane_torrent_Description"		"元素： <font color=\"#E1A2E8\">奥术</font><br> 开启技能，每 0.2 秒将发射弹道攻击最近的敌人。伤害为 5x 魔爆术伤害 x 现在的魔法值 / 最大魔法值。并且[W1]提供的护盾增加至4层。"
 		"DOTA_Tooltip_ability_arcane_torrent_range"				"距离："
 
 		"DOTA_Tooltip_modifier_arcane_torrent_enable"			"奥术洪流"
