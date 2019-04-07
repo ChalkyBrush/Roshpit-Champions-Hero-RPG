@@ -547,7 +547,7 @@
 		"DOTA_Tooltip_ability_winterblight_stargazer_passive_comet_damage"	"COMET DAMAGE:"
 
 		"DOTA_Tooltip_modifier_stargazer_aura"						"Galaxy Storm"
-		"DOTA_Tooltip_modifier_stargazer_aura_Description"			"Targetted by Stars"
+		"DOTA_Tooltip_modifier_stargazer_aura_Description"			"Targeted by Stars"
 
 		"DOTA_Tooltip_ability_stargazer_glissade"					"Fabric Slip"
 		"DOTA_Tooltip_ability_stargazer_glissade_Description"		"Glide towards the target location."

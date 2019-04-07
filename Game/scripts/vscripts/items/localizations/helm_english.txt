@@ -378,6 +378,6 @@
 	
 		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"
 		"item_property_chains_of_orthok"							"Binding Zeal"
-		"property_chains_of_orthok_description"						"Attacking and casting @Ability2 add 1 zeal stack. Casting @Ability1 and @Ability3 add 5 zeal stacks. Casting @Ability4 adds 12 zeal stacks. Each stack increases Base Ability damage by @special_property1%. Each stacks lasts 10 seconds and has its own individual duration."
+		"property_chains_of_orthok_description"						"Attacking and casting @Ability2 add 1 zeal stack. Casting @Ability1 and @Ability3 add 5 zeal stacks. Casting @Ability4 adds 12 zeal stacks. Each stack increases Base Ability damage by @special_property1%. Each stack lasts 10 seconds and has its own individual duration."
 		"DOTA_Tooltip_modifier_orthok_zeal"							"Zeal"
 		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"Increased Base Ability Damage"

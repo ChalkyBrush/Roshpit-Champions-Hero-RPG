@@ -630,7 +630,7 @@ function Winterblight:CrystalPlaced(msg)
     elseif Winterblight.Stones == 2 then
       local crystal = Entities:FindByNameNearest("WinterblightStones2", Vector(-14061, -6978, 56+Winterblight.ZFLOAT), 500)
       Winterblight:CrystalEnterAnimation(crystal)
-      local positionTable = {Vector(-15616, -5760), Vector(-15355, -5120), Vector(-14720, -4873), Vector(14080, -4662), Vector(13503, -4888), Vector(-12928, -5132), Vector(-12773, -5760), Vector(-14626, -5325), Vector(-13568, -5325)}
+      local positionTable = {Vector(-15616, -5760), Vector(-15355, -5120), Vector(-14720, -4873), Vector(-14080, -4662), Vector(-13503, -4888), Vector(-12928, -5132), Vector(-12773, -5760), Vector(-14626, -5325), Vector(-13568, -5325), Vector(13770, -5411), Vector(8964, -5570)}
       for i = 1, #positionTable, 1 do
         Timers:CreateTimer(i*0.4, function()
           local queen = Winterblight:SpawnHeartFreezer(positionTable[i], Vector(0,-1))

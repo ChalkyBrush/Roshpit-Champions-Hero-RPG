@@ -425,7 +425,7 @@
 	"tutorial_master_dialogue_4_4e"										"Some abilities have dual elements which allow them to benefit from both types."
 	"tutorial_master_dialogue_4_4f"										"Now let's see if you can read your element names."
 
-	"tutorial_quiz_question_15"											"Name the primary the element of @sub1."
+	"tutorial_quiz_question_15"											"Name the primary element of @sub1."
 
 	"tutorial_quiz_wrong_4_4_3"											"That's wrong. Find the ability or rune with that name and tell me its element."
 	"tutorial_quiz_wrong_4_4_4"											"Please read your rune description and tell me which element it has."
