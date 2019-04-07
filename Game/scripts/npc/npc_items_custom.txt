@@ -21107,12 +21107,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
+				"property_one"			"100"
 			}
 		}
 	}

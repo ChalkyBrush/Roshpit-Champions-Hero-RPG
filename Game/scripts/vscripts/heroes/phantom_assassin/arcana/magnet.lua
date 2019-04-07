@@ -1,3 +1,5 @@
+require('heroes/phantom_assassin/voltex_constants')
+
 function blazing_magnet_precast(event)
 	local caster = event.caster
 	StartAnimation(caster, {duration=0.15, activity=ACT_DOTA_ATTACK_EVENT, rate=2.2})
@@ -14,6 +16,9 @@ function blazing_magnet_cast(event)
 	local solidFV = fv
 
 	local range = event.cast_range
+    if caster:HasModifier("modifier_voltex_glyph_5_a") then
+        range = range*((100+VOLTEX_5_A_DURATION_INCREASE_PCT)/100)
+    end
 	local q_3_level = caster:GetRuneValue("q", 3)
 	local procs = Runes:Procs(q_3_level, 10, 1) + 1
 	EmitSoundOn("Voltex.MagnetWindUp", caster)

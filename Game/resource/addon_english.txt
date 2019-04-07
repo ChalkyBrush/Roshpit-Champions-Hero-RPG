@@ -10825,7 +10825,7 @@
 		"item_rpc_voltex_glyph_7_1_description" 				"Static drains 100% of your mana and has an 8 second cooldown, but deals @glyph_property1x damage and stuns for @glyph_property2 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"Glyph of Conductivity"
-		"item_rpc_voltex_glyph_5_a_description" 			"@Ability1 duration is increased by @glyph_property1 seconds."
+		"item_rpc_voltex_glyph_5_a_description" 			"@Ability1 duration is increased by @glyph_property1%."
 
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed"	"Electron Effect"
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed_Description"	"Slowed"

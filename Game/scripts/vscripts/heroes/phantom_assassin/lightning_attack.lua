@@ -1,3 +1,5 @@
+require('heroes/phantom_assassin/voltex_constants')
+
 function lightning_attack_start(event)
     local caster = event.caster
     local ability = event.ability
@@ -5,7 +7,7 @@ function lightning_attack_start(event)
     caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "voltex")
     local buffDuration = ability:GetSpecialValueFor("duration")
     if caster:HasModifier("modifier_voltex_glyph_5_a") then
-        buffDuration = buffDuration + 3
+        buffDuration = buffDuration*((100+VOLTEX_5_A_DURATION_INCREASE_PCT)/100)
     end
     buffDuration = Filters:GetAdjustedBuffDuration(caster, buffDuration, false)
     caster:RemoveModifierByName("modifier_gods_strength_datadriven")
