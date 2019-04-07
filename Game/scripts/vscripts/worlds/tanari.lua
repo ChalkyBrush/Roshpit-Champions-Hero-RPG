@@ -50,7 +50,12 @@ function Tanari:Debug()
     -- RPCItems:RollSkulldiggerGloves(Vector(-4928, 2048))
     -- RPCItems:RollIceFloeSlippers(Vector(-4928, 2048))
     -- RPCItems:RollSlipfinnArcana1(Vector(-4928, 2048))
-    RPCItems:RollAerithsTear(Vector(-4928, 2048))
+    -- RPCItems:RollAerithsTear(Vector(-4928, 2048))
+
+    for i = 1, 7, 1 do
+        Glyphs:RollGlyphAll("item_rpc_voltex_glyph_"..tostring(i).."_1", Vector(-4928, 2048), 0)
+    end
+
     -- RPCItems:RollAstralArcana2(Vector(-4928, 2048))
     -- RPCItems:RollAstralArcana3(Vector(-4928, 2048))
     -- RPCItems:RollConjurorArcana4(Vector(-4928, 2048))

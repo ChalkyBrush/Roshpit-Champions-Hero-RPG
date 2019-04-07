@@ -35,7 +35,7 @@ function heaven_charge_start(event)
 	        ParticleManager:DestroyParticle( particle1, false )
 	      end)
 	if caster:HasModifier("modifier_voltex_glyph_3_1") then
-		local overcharge = caster:FindAbilityByName("overcharge")
+		local overcharge = caster:GetAbilityByIndex(0)
 		overcharge:EndCooldown()
 	end
 end

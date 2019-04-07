@@ -10795,19 +10795,19 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_1_1"		"Glyph of Magnetic Blur"
-		"item_rpc_voltex_glyph_1_1_description" 				"Gain @glyph_property1% Evasion while in Overcharge."
+		"item_rpc_voltex_glyph_1_1_description" 				"Gain @glyph_property1% Evasion while in @Ability1."
 
 		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect"			"Magnetic Blur"
 		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect_Description"	"Gaining Evasion"	
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_1"		"Glyph of Magnetic Haste"
-		"item_rpc_voltex_glyph_2_1_description" 				"Gain @glyph_property1x Agility and @glyph_property2 movespeed while in Overcharge."
+		"item_rpc_voltex_glyph_2_1_description" 				"Gain @glyph_property1x Agility and @glyph_property2 movespeed while in @Ability1."
 
 		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible" "Magnetic Haste"
 		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible_Description"	"Increased Agility and Movespeed"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_3_1"		"Glyph of Atmospheric Electricity"
-		"item_rpc_voltex_glyph_3_1_description" 				"Heaven's Charge refreshes the cooldown of Overcharge."
+		"item_rpc_voltex_glyph_3_1_description" 				"Heaven's Charge refreshes the cooldown of @Ability1."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_1"		"Glyph of Unstable Voltage"
 		"item_rpc_voltex_glyph_4_1_description" 				"When Voltex casts an ability other than Static, she releases @glyph_property1 electric bolts that deal @glyph_property2x her attack damage as magic."

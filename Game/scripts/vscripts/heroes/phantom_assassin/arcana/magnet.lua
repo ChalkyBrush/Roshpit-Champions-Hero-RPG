@@ -34,6 +34,23 @@ function blazing_magnet_cast(event)
 			send_magnet(i, magnet_start_point, direction, range, caster, fv, ability)
 		end)
 	end
+
+	local buffDuration = 5
+    if caster:HasModifier("modifier_voltex_glyph_1_1") then
+        local ability = event.ability
+        caster:RemoveModifierByName("modifier_voltex_glyph_1_1_effect")
+        ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_1_1_effect", {duration = buffDuration})
+    end
+    if caster:HasModifier("modifier_voltex_glyph_2_1") then
+        local ability = event.ability
+        ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_2_1_effect_visible", {duration = buffDuration})
+        ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_2_1_effect_invisible", {duration = buffDuration})
+        Timers:CreateTimer(0.03, function()
+            local agility = caster:GetBaseAgility()
+            caster:SetModifierStackCount( "modifier_voltex_glyph_2_1_effect_invisible", ability, agility)
+        end)
+    end
+
 	Filters:CastSkillArguments(1, caster)
 end
 
@@ -151,6 +168,9 @@ function magnet_thinker(event)
 			if q_4_level > 0 then
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_magnet_d_d", {duration = d_a_duration})
 			end
+			caster:RemoveModifierByName("modifier_voltex_glyph_1_1_effect")
+			caster:RemoveModifierByName("modifier_voltex_glyph_2_1_effect_visible")
+			caster:RemoveModifierByName("modifier_voltex_glyph_2_1_effect_invisible")
 		end
 	end
 end

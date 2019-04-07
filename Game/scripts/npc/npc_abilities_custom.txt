@@ -50979,6 +50979,32 @@
 					}
 				}
 			}
+			"modifier_voltex_glyph_1_1_effect"
+			{
+				"Passive"	"0"
+				"IsBuff"	"1"
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "80"
+				}
+			}
+			"modifier_voltex_glyph_2_1_effect_visible"
+			{
+				"Passive"	"0"
+				"IsBuff"	"1"
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "200"
+				}
+			}
+			"modifier_voltex_glyph_2_1_effect_invisible"
+			{
+				"Passive"	"0"
+				"IsBuff"	"1"
+				"IsHidden"	"1"
+			}
 		}
 		"OnProjectileHitUnit"
 		{
