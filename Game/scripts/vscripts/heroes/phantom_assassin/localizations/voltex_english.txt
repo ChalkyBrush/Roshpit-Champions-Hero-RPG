@@ -132,7 +132,7 @@
         "DOTA_Tooltip_modifier_static_field_post_mitigation_Description"    "Increased post-mitigation damage taken per stack"
 		
 		"DOTA_Tooltip_ability_voltex_rune_r_1"								"[R1] Thunder Storm"
-    	"DOTA_Tooltip_ability_voltex_rune_r_1_Description"					"When Voltex finishes the channel of Static Field - deadly lightning bolts drop from the sky around her."
+    	"DOTA_Tooltip_ability_voltex_rune_r_1_Description"					"When Voltex finishes the channel of Static Field - high powered lightning bolts drop from the sky around her."
     	"DOTA_Tooltip_ability_voltex_rune_r_1_property_one"					"Lightning Bolts"
     	"DOTA_Tooltip_ability_voltex_rune_r_1_suffix"						""
     	"DOTA_Tooltip_ability_voltex_rune_r_1_property_two"					"Damage per Bolt"

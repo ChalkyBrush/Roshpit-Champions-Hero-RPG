@@ -175,25 +175,27 @@ function rune_r_1(caster, ability)
 end
 
 function a_d_bolt(caster, ability, damage, point)
-		local particleName =  "particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf"
+		local particleName =  "particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf"
 		local particleVector = blastLocation
-		point = point + RandomVector(RandomInt(50, 600))
+		point = GetGroundPosition(caster:GetAbsOrigin() + RandomVector(RandomInt(50, 600)), caster) 
 
 		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-		ParticleManager:SetParticleControl( pfx, 0, point )
-		ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+		ParticleManager:SetParticleControl( pfx, 0, point + Vector(0,0,5000))
+		ParticleManager:SetParticleControl( pfx, 1, point + Vector(0,0,20))
 		Timers:CreateTimer(2, function() 
 		  ParticleManager:DestroyParticle( pfx, false )
 		end)
-		EmitSoundOnLocationWithCaster(point, "Hero_razor.Attack", caster)
-		Timers:CreateTimer(0.3, function()
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		-- CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_mars/debut_lightning.vpcf", point, 1)
+		EmitSoundOnLocationWithCaster(point, "Voltex.R1.LightningBolts", caster)
+		Timers:CreateTimer(0.1, function()
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
 					increment_d_d(caster, ability)
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 				end
 			end 
+			CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", point, 0.03)
 		end)
 
 end
