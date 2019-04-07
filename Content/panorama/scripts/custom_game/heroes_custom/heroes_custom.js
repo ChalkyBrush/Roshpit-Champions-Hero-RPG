@@ -199,8 +199,6 @@ function getSkillSlot2(queryUnit, slot)
 		abilityName = "Tooltip_jump_abilities"
 	}else if(abilityName == "ability_whirling_flail"){
 		abilityName = "tooltip_duskbringer_Q"
-	}else if(abilityName == "flash_heal"){
-		abilityName = "tooltip_auriun_w"
 	}else if(abilityName == "trapper_arcana_venom_whip" || abilityName == "trapper_arcana_lasso"){
 		abilityName = "item_property_trapper_arcana1"
 	}else if(abilityName == "fulminating_trap" || abilityName == "net_trap" || abilityName == "poison_trap" || abilityName == "torrent_trap"){
