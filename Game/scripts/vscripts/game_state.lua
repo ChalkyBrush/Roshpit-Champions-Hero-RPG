@@ -2374,7 +2374,7 @@ function GameState:FilterDamage(filterTable)
 		modifier = attacker:FindModifierByName("modifier_machinal_jump_c_c_amp")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			local multIncrease = 0.02*stacks
+			local multIncrease = 0.08*stacks
 			mult = mult + multIncrease
 		end
 	end
