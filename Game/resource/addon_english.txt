@@ -2442,7 +2442,7 @@
     	"DOTA_Tooltip_modifier_apollo_c_b_proc_visible_Description"				"Reduced Cosmic Resistance"	
 
     	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2"							"[W4] Focus Fire"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_Description"				"Focusing on a single target, Astral Ranger increases all post-mitigation damage dealt towards the targetted enemy for 8 seconds, stacking up to 50 times. Changing targets with Shot of Apollo resets this effect."
+    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_Description"				"Focusing on a single target, Astral Ranger increases all post-mitigation damage dealt towards the targeted enemy for 8 seconds, stacking up to 50 times. Changing targets with Shot of Apollo resets this effect."
     	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_property_one"				"Post-Mitigation"
     	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_suffix"					"% per stack"
 
@@ -2605,9 +2605,11 @@
     	"DOTA_Tooltip_ability_flash_heal_max_distance"					"MAX RANGE:"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_1"						"[W1] Shadow Flare"
-    	"DOTA_Tooltip_ability_auriun_rune_w_1_Description"			"If your cursor isn't over an ally or Auriun, Flash Heal creates a blaze of aphotic energy that deals damage at your cursor's location."
+    	"DOTA_Tooltip_ability_auriun_rune_w_1_Description"			"If your cursor isn't over an ally or Auriun, Flash Heal creates a blaze of aphotic energy that deals damage at your cursor's location. The damage from intelligence is multiplied by Auriun's hero level and @Ability2's level"
     	"DOTA_Tooltip_ability_auriun_rune_w_1_property_one"			"Damage"
     	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix"				""
+    	"DOTA_Tooltip_ability_auriun_rune_w_1_property_two"			"Damage"
+    	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix_two"				"x Intelligence"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_2"						"[W2] Discipline"
     	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"Every 10 points of Intelligence increases heal, and all <font color=\"#7F4F84\">Shadow</font> and <font color=\"#F6FFB5\">Holy</font> damage"
@@ -11253,7 +11255,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"Redrock Footwear"
 		"item_property_redrock"						"Fevering Footwork"
-		"property_redrock_description"				"When you cast @Ability3 - release 3 pulses of psychoactive heat over 1.5 seconds that force all nearby enemies to attack you for 5 seconds. Additionally gain 3x health and 50% damage resistance for the duration."
+		"property_redrock_description"				"When you cast @Ability3 - release 3 pulses of psychoactive heat over 1.5 seconds that force all nearby enemies to attack you for 5 seconds. Additionally increases your current health by 200% and reduces damage taken by 50%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_pathfinders_resonant_boots"						"Pathfinder's Resonant Boots"
@@ -11777,7 +11779,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_boreal_granite_vest"	"Boreal Granite Vest"
 		"item_property_boreal_granite"						"Diametric Force"
-		"property_boreal_granite_description"				"When taking damage from an enemy, have a @special_property1% chance to cast @Ability1 immediately if they are within the ability's cast range. @Ability1's cooldown is refreshed on proc. Targetted abilities are targetted at the location of the attacker, if they are within cast range."
+		"property_boreal_granite_description"				"When taking damage from an enemy, have a @special_property1% chance to cast @Ability1 immediately if they are within the ability's cast range. @Ability1's cooldown is refreshed on proc. Targeted abilities are targetted at the location of the attacker, if they are within cast range."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"Captain's Vest"
@@ -12088,7 +12090,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_energy_whip_glove"	"Energy Whip Glove"
 		"item_property_energy_whip"							"Spell Lash"
-		"property_energy_whip_description"					"Landing an attack on an enemy also immediately casts @Ability2 if it is not on cooldown. Targetted abilities are targetted at the position of the attacked target."
+		"property_energy_whip_description"					"Landing an attack on an enemy also immediately casts @Ability2 if it is not on cooldown. Targeted abilities are targeted at the position of the attacked target."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_buzukis_finger"				"Buzuki's Finger"
@@ -12479,12 +12481,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"Helm of the Mountain Giant"
 		"item_property_mountain_giant" 								"Hulking"
-		"property_mountain_giant_description"						"Increases max health by @special_property1x. While above 80% of max health, reduce all incoming damage by @special_property2%."
+		"property_mountain_giant_description"						"Increases max health by @special_property1%. While above 80% of max health, reduce all incoming damage by @special_property2%."
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"
 		"item_property_chains_of_orthok"							"Binding Zeal"
-		"property_chains_of_orthok_description"						"Attacking and casting @Ability2 add 1 zeal stack. Casting @Ability1 and @Ability3 add 5 zeal stacks. Casting @Ability4 adds 12 zeal stacks. Each stack increases Base Ability damage by @special_property1%. Each stacks lasts 10 seconds and has its own individual duration."
+		"property_chains_of_orthok_description"						"Attacking and casting @Ability2 add 1 zeal stack. Casting @Ability1 and @Ability3 add 5 zeal stacks. Casting @Ability4 adds 12 zeal stacks. Each stack increases Base Ability damage by @special_property1%. Each stack lasts 10 seconds and has its own individual duration."
 		"DOTA_Tooltip_modifier_orthok_zeal"							"Zeal"
 		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"Increased Base Ability Damage"
 
@@ -17614,7 +17616,7 @@
 	"tutorial_master_dialogue_4_4e"										"Some abilities have dual elements which allow them to benefit from both types."
 	"tutorial_master_dialogue_4_4f"										"Now let's see if you can read your element names."
 
-	"tutorial_quiz_question_15"											"Name the primary the element of @sub1."
+	"tutorial_quiz_question_15"											"Name the primary element of @sub1."
 
 	"tutorial_quiz_wrong_4_4_3"											"That's wrong. Find the ability or rune with that name and tell me its element."
 	"tutorial_quiz_wrong_4_4_4"											"Please read your rune description and tell me which element it has."
@@ -18396,7 +18398,7 @@
 		"DOTA_Tooltip_ability_winterblight_stargazer_passive_comet_damage"	"COMET DAMAGE:"
 
 		"DOTA_Tooltip_modifier_stargazer_aura"						"Galaxy Storm"
-		"DOTA_Tooltip_modifier_stargazer_aura_Description"			"Targetted by Stars"
+		"DOTA_Tooltip_modifier_stargazer_aura_Description"			"Targeted by Stars"
 
 		"DOTA_Tooltip_ability_stargazer_glissade"					"Fabric Slip"
 		"DOTA_Tooltip_ability_stargazer_glissade_Description"		"Glide towards the target location."

@@ -9342,7 +9342,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.25"
+				"property_one"			"0.2"
 			}
 		}
 	}
@@ -66070,6 +66070,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"11"
 			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"1"
+			}
 		}
 	}
 
@@ -87773,6 +87778,16 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_helm_movespeed"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"1"
+				}
 			}
 			"modifier_helm_respawn"
 			{

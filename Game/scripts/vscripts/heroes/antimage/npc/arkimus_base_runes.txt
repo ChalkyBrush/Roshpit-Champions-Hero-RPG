@@ -337,7 +337,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_R3_DURATION_PCT %>"
+				"property_one"			"<% ARKIMUS_R3_DURATION %>"
 			}
 		}
 	}
