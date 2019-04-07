@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_voltex_avatar_lua", "modifiers/voltex/modifier_voltex_avatar_lua", LUA_MODIFIER_MOTION_NONE)
+
 function begin_static_field(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -109,6 +111,7 @@ function rune_r_3(caster)
     		end
     		ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_r_3_avatar", {duration = duration})
     		ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_r_3_buff", {duration = duration})
+    		caster:AddNewModifier( caster, ability, "modifier_voltex_avatar_lua", {duration = duration} )
     		caster:SetModifierStackCount( "modifier_voltex_rune_r_3_buff", ability, totalLevel )
 
     	end
@@ -144,6 +147,7 @@ end
 
 function c_d_end(event)
 	local caster = event.target
+	caster:RemoveModifierByName("modifier_voltex_avatar_lua")
 	caster:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
 end
 

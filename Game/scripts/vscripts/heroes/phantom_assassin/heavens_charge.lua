@@ -47,10 +47,11 @@ function heaven_charge_fall_think(event)
 	if (currentPosition.z - GetGroundPosition(currentPosition, caster).z) < 20 then
 		caster:RemoveModifierByName("modifier_heavens_charge_falling")
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+		CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", caster:GetAbsOrigin(), 0.03)
 		EmitSoundOnLocationWithCaster(currentPosition, "Hero_Zuus.GodsWrath.Target", caster)
 	      particleName = "particles/units/heroes/hero_disruptor/disruptor_thunder_strike_bolt.vpcf"
 	      local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-	      ParticleManager:SetParticleControlEnt(particle1, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+	      ParticleManager:SetParticleControlEnt(particle1, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin()+Vector(0,0,40), true)
 	      ParticleManager:SetParticleControl( particle1, 1, Vector(400, 0, 0) )
 	      Timers:CreateTimer(2, 
 	      function()
