@@ -3546,7 +3546,7 @@ function Filters:RedrockFootwear(caster)
             end)
             ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_redrock_footwear_damage_reduction", {duration = 5})
             local currentStacks = caster:GetModifierStackCount( "modifier_redrock_footwear_health_increase", ability )
-            local healthStacks = (caster:GetMaxHealth()-(currentStacks*10))*2/10
+            local healthStacks = CustomAttributes:GetBaseHealth(caster, "modifier_redrock_footwear_health_increase") * 2 / 10
             ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_redrock_footwear_health_increase", {duration = 5})
             caster:SetModifierStackCount( "modifier_redrock_footwear_health_increase", ability, healthStacks)
             local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )

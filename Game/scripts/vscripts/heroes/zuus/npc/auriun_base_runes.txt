@@ -147,12 +147,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1920"
+				"property_one"			"<% AURIUN_W1_DMG %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"400"
+				"property_one_base"		"<% AURIUN_W1_DMG_BASE %>"
 			}
 			"03"
 			{
@@ -163,6 +163,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"11"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% AURIUN_W1_DMG_PER_LVL_PER_HERO_LVL_PER_INT %>"
 			}
 		}
 	}

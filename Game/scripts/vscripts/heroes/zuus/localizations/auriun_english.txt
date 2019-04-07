@@ -43,9 +43,11 @@
     	"DOTA_Tooltip_ability_flash_heal_max_distance"					"MAX RANGE:"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_1"						"[W1] Shadow Flare"
-    	"DOTA_Tooltip_ability_auriun_rune_w_1_Description"			"If your cursor isn't over an ally or Auriun, Flash Heal creates a blaze of aphotic energy that deals damage at your cursor's location."
+    	"DOTA_Tooltip_ability_auriun_rune_w_1_Description"			"If your cursor isn't over an ally or Auriun, Flash Heal creates a blaze of aphotic energy that deals damage at your cursor's location. The damage from intelligence is multiplied by Auriun's hero level and @Ability2's level"
     	"DOTA_Tooltip_ability_auriun_rune_w_1_property_one"			"Damage"
     	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix"				""
+    	"DOTA_Tooltip_ability_auriun_rune_w_1_property_two"			"Damage"
+    	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix_two"				"x Intelligence"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_2"						"[W2] Discipline"
     	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"Every 10 points of Intelligence increases heal, and all <font color=\"#7F4F84\">Shadow</font> and <font color=\"#F6FFB5\">Holy</font> damage"
