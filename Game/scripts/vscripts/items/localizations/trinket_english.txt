@@ -288,8 +288,8 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"            "Stargazer's Sphere"
-        "item_property_stargazer"                                    "Eye of the Stargazer"
-        "property_stargazer_description"                            "Change @special_property1 aoe area around you to stargazer's field. When dealing damage to enemies, shooting star fall, then causing @special_property2% additional damage. that shooting star has 0.3 s cd, this damage can't be increased by item damage bonus."
+        	"item_property_stargazer"                                    "Eye of the Stargazer"
+        	"property_stargazer_description"                            "Change @special_property1 aoe area around you to stargazer's field. When dealing damage to enemies, shooting star fall, then causing @special_property2% additional damage. that shooting star has 0.3 s cd, this damage can't be increased by item damage bonus."
 
 		"DOTA_Tooltip_modifier_in_stargazer_area"					"Stargazer's Sphere"
 		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"Hit by stars when taking damage"
