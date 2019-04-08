@@ -145,11 +145,13 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% 死神审判的伤害"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1"						"[R2] 疾病流窜"
-    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"提高死神镰刀搜索敌人的范围半径"
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"提高死神镰刀搜索敌人的范围半径，并使R1具有额外的打击概率"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_property_one"			"额外搜索半径提高"
-    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix"					""
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix"					"%"
+        "DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_property_two"			"额外的R1打击概率"
+        "DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix_two"				"%"
 
-  		"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1"						"[R3] 死神之拥"
+  	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1"						"[R3] 死神之拥"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"死神审判伤害的一部分会治疗剧毒巫师。任意的过度治疗都会为剧毒巫师制造一层护盾吸收伤害，护盾持续 30秒。"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_one"			"治疗量"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_suffix"					"% 技能伤害"
