@@ -199,11 +199,13 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% of Reaper's Judgement"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1"						"[R2] Pandemic"
-    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"Increases the target acquisition radius of Reaper's Judgement."
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"Increases the target acquisition radius of Reaper's Judgement,and provides R1 extra damage instances"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_property_one"			"Bonus Search Radius"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix"					""
-
-  		"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1"						"[R3] Death's Embrace"
+        "DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_property_two"			"Additional R1 Damage Instances"
+        "DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix_two"				"%"
+  		
+	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1"						"[R3] Death's Embrace"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"A portion of the damage dealt by @Ability4's initial strike heals Venomort. Any overhealing applies a shield that absorbs incoming damage for 30 seconds."
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_one"			"Heal Amount"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_suffix"					"% of damage"
