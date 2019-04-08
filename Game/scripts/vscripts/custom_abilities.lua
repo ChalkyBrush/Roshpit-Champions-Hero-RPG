@@ -36,7 +36,7 @@ function CustomAbilities:StargazerSphereTakeDamage(caster, ability, unit, damage
           Timers:CreateTimer(0.45, -- Start this timer 10 game-time seconds later
           function()
             if target:IsAlive() then
-              Filters:ApplyItemDamage(target,hero,damage,DAMAGE_TYPE_PURE,ability,RPC_ELEMENT_COSMOS,RPC_ELEMENT_NONE)
+              Filters:TakeArgumentsAndApplyDamage(target, hero, damage, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
               EmitSoundOn("RPCItems.Stargazer.Starfall", target)
             end
           end)
