@@ -43,9 +43,11 @@
     	"DOTA_Tooltip_ability_flash_heal_max_distance"					"最大距离"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_1"						"[W1] 暗影火炬"
-    	"DOTA_Tooltip_ability_auriun_rune_w_1_Description"			"如果你的鼠标并未指向友军或自己，快速治疗将释放一股黑色火焰对鼠标指向位置造成伤害。"
+    	"DOTA_Tooltip_ability_auriun_rune_w_1_Description"			"如果你的鼠标并未指向友军或自己，快速治疗将释放一股黑色火焰对鼠标指向位置造成伤害。基于智力的伤害会被俄瑞恩的等级和@Ability2的等级加强（乘法）"
     	"DOTA_Tooltip_ability_auriun_rune_w_1_property_one"			"伤害"
     	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix"				""
+        "DOTA_Tooltip_ability_auriun_rune_w_1_property_two"			"伤害"
+	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix_two" 			"x 智力"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_2"						"[W2] 神罚"
    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"每10点智力增加你的治疗量，以及所有的 <font color=\"#7F4F84\">暗</font> 和 <font color=\"#F6FFB5\">圣</font> 伤害。"

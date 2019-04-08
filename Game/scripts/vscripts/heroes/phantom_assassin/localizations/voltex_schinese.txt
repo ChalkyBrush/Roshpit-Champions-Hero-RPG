@@ -251,7 +251,7 @@
 		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect_Description"	"提高闪避"	
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_1"		"磁场加速雕文"
-		"item_rpc_voltex_glyph_2_1_description" 				"过载时提高 @glyph_property1x 敏捷和 @glyph_property2 移动速度。"
+		"item_rpc_voltex_glyph_2_1_description" 				" @Ability1状态下提高 @glyph_property1x 敏捷和 @glyph_property2 移动速度。"
 
 		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible" "磁场加速"
 		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible_Description"	"提高敏捷和移动速度"
