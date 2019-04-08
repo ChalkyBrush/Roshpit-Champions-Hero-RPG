@@ -134,6 +134,10 @@ function dot_think(event)
 	local ability = event.ability
 	local target = event.target
 	local damage = ability.r1_damage
-	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
+	local r2_level = caster:GetRuneValue("r", 2)
+	local procs = Runes:Procs(r2_level, ARCANA1_R2_INSTANCES_FOR_R1, 1)
+	for i=1,procs do
+		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
+	end
 end
 --end
