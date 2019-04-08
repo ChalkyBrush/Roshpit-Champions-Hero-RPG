@@ -23,7 +23,7 @@ function CustomAbilities:StargazerSphereTakeDamage(caster, ability, unit, damage
 		return false
 	end
 	target["stargazer_immune"..ability:GetEntityIndex()] = true
-	Timers:CreateTimer(0.5 ,function()
+	Timers:CreateTimer(0.3 ,function()
 		target["stargazer_immune"..ability:GetEntityIndex()] = false
 	end)
 	-- ability:ApplyDataDrivenModifier(caster, target, "modifier_stargazer_immunity", {duration = 0.5})
