@@ -216,10 +216,10 @@
     	"DOTA_Tooltip_modifier_reaper_slice_shield_Description"					"Absorbing Damage"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1"						"[R4] Disencumber"
-    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"Increases base movement speed while @Ability4 is toggled on.Meanwhile,@Ability4 provides extra damage reduction according to rune lvl(90% max)"
+    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"Increases base movement speed while @Ability4 is toggled on. @Ability4 also provides extra damage reduction according to rune level (90% max)"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_one"			"Bonus Movespeed"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix"					""
-        "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_two"      "damage reduction"
+        "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_two"      "Damage Reduction"
         "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix_two"                     ""
 
 
