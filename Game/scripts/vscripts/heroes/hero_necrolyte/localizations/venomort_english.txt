@@ -199,7 +199,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% of Reaper's Judgement"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1"						"[R2] Pandemic"
-    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"Increases the target acquisition radius of Reaper's Judgement,and provides R1 extra damage instances"
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"Increases the target acquisition radius of Reaper's Judgement,and provides [R1] extra damage instances"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_property_one"			"Bonus Search Radius"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix"					""
         "DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_property_two"			"Additional R1 Damage Instances"
@@ -216,7 +216,7 @@
     	"DOTA_Tooltip_modifier_reaper_slice_shield_Description"					"Absorbing Damage"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1"						"[R4] Disencumber"
-    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"Increases base movement speed while @Ability4 is toggled on.Meanwhile,@Ability4 provides extra damage reduction according to rune lvl"
+    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"Increases base movement speed while @Ability4 is toggled on.Meanwhile,@Ability4 provides extra damage reduction according to rune lvl(90% max)"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_one"			"Bonus Movespeed"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix"					""
         "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_two"      "damage reduction"
