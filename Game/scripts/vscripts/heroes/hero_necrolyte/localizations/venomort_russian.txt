@@ -176,9 +176,11 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% от Reaper's Judgement"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1"						"[R2] Pandemic"
-    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"Увеличивают дальность поиска цели @Ability4."
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"Увеличивают дальность поиска цели @Ability4. [R1] может нанести дополнительную порцию урона с небольшим шансом."
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_property_one"			"Бонусная дальность"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix"					""
+		"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_property_two"			"Шанс на доп. порцию урона"
+        "DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix_two"				"%"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1"						"[R3] Death's Embrace"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"Часть урона от базового удара @Ability4 лечит Venomort. Избыток восстановления здоровья дополнительно трансформирется в щит, который длится 30 секунд и поглощает входящий урон."
@@ -191,9 +193,11 @@
     	"DOTA_Tooltip_modifier_reaper_slice_shield_Description"					"Поглощает урон"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1"						"[R4] Disencumber"
-    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"Фиксированная способностью скорость передвижения увеличивается."
+    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"Фиксированная способностью скорость передвижения увеличивается. Пассивно увеличивает сопротивление урону во время действия @Ability4, максимально допустимое значение - 90%."
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_one"			"Увеличение скорости"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix"					""
+		 "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_two"      "Сопротивление урону"
+        "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix_two"                     ""
 
     	"DOTA_Tooltip_modifier_reaper_slice_amp_debuff"							"Descent of Death"
     	"DOTA_Tooltip_modifier_reaper_slice_amp_debuff_Description"				"Venomort's old Arcana R4 applied this debuff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
