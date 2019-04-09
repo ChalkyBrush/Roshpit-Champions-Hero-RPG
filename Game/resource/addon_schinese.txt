@@ -3010,9 +3010,11 @@
     	"DOTA_Tooltip_ability_flash_heal_max_distance"					"最大距离"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_1"						"[W1] 暗影火炬"
-    	"DOTA_Tooltip_ability_auriun_rune_w_1_Description"			"如果你的鼠标并未指向友军或自己，快速治疗将释放一股黑色火焰对鼠标指向位置造成伤害。"
+    	"DOTA_Tooltip_ability_auriun_rune_w_1_Description"			"如果你的鼠标并未指向友军或自己，快速治疗将释放一股黑色火焰对鼠标指向位置造成伤害。基于智力的伤害会被俄瑞恩的等级和@Ability2的等级加强（乘法）"
     	"DOTA_Tooltip_ability_auriun_rune_w_1_property_one"			"伤害"
     	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix"				""
+        "DOTA_Tooltip_ability_auriun_rune_w_1_property_two"			"伤害"
+	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix_two" 			"x 智力"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_2"						"[W2] 神罚"
    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"每10点智力增加你的治疗量，以及所有的 <font color=\"#7F4F84\">暗</font> 和 <font color=\"#F6FFB5\">圣</font> 伤害。"
@@ -10015,11 +10017,13 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% 死神审判的伤害"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1"						"[R2] 疾病流窜"
-    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"提高死神镰刀搜索敌人的范围半径"
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"提高死神镰刀搜索敌人的范围半径，并使R1具有额外的打击概率"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_property_one"			"额外搜索半径提高"
-    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix"					""
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix"					"%"
+        "DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_property_two"			"额外的R1打击概率"
+        "DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix_two"				"%"
 
-  		"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1"						"[R3] 死神之拥"
+  	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1"						"[R3] 死神之拥"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"死神审判伤害的一部分会治疗剧毒巫师。任意的过度治疗都会为剧毒巫师制造一层护盾吸收伤害，护盾持续 30秒。"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_one"			"治疗量"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_suffix"					"% 技能伤害"
@@ -10030,9 +10034,12 @@
     	"DOTA_Tooltip_modifier_reaper_slice_shield_Description"					"吸收伤害"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1"						"[R4] 娴熟收割"
-    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"提高开启 @Ability4 时的基础移速"
+    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"提高开启 @Ability4 时的基础移速，同时，根据@Ability4的符文等级为剧毒巫师减免一定百分比的伤害"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_one"			"移速提高"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix"					""
+        "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_two"                 "伤害减免"
+        "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix_two"                       ""
+
 
 	"DOTA_Tooltip_ability_item_rpc_venomort_arcana2"				"寒霜剧毒面具"
     	"item_property_venomort_arcana2"									"寒霜剧毒之触"
@@ -10412,7 +10419,7 @@
 		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect_Description"	"提高闪避"	
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_1"		"磁场加速雕文"
-		"item_rpc_voltex_glyph_2_1_description" 				"过载时提高 @glyph_property1x 敏捷和 @glyph_property2 移动速度。"
+		"item_rpc_voltex_glyph_2_1_description" 				" @Ability1状态下提高 @glyph_property1x 敏捷和 @glyph_property2 移动速度。"
 
 		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible" "磁场加速"
 		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible_Description"	"提高敏捷和移动速度"

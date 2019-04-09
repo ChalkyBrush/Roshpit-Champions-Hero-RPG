@@ -2240,9 +2240,9 @@ function Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
 	end
 	local goal = 12 + GameState:GetDifficultyFactor()*2
 	if Winterblight.CandyCrushPhase == 2 then
-		goal = goal + 6
+		goal = goal + 10
 	elseif Winterblight.CandyCrushPhase == 3 then
-		goal = goal + 8
+		goal = goal + 12
 	end
 	Winterblight.CandyCrushProgressScore = Winterblight.CandyCrushProgressScore + total_points
 	print("SCORE: "..Winterblight.CandyCrushProgressScore)

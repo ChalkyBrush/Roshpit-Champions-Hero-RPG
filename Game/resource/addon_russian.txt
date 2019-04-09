@@ -2705,14 +2705,18 @@
     	"DOTA_Tooltip_ability_flash_heal_max_distance"					"МАКС. ДАЛЬНОСТЬ:"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_1"						"[W1] Shadow Flare"
-    	"DOTA_Tooltip_ability_auriun_rune_w_1_Description"			"Если ваш курсор не направлен на союзника или Auriun, умение Flash Heal создаёт вспышку разрушительной энергии, наносящей урон."
+    	"DOTA_Tooltip_ability_auriun_rune_w_1_Description"			"Если ваш курсор не направлен на союзника или Auriun, умение Flash Heal создаёт вспышку разрушительной энергии, наносящей урон. Урон от Интеллекта, указанный ниже, также увеличивается на уровень героя и на уровень @Ability2."
     	"DOTA_Tooltip_ability_auriun_rune_w_1_property_one"			"Урон"
     	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix"				""
+		"DOTA_Tooltip_ability_auriun_rune_w_1_property_two"			"Урон"
+    	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix_two"				"x Интеллект"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_2"						"[W2] Discipline"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"Каждые 10 очков интеллекта увеличивают силу лечения умения Flash Heal и урон от руны Shadow Flare."
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"Лечение/Урон за каждые 10 интеллекта"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"%"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"Каждые 10 очков Интеллекта увеличивают лечение и урон <font color=\"#7F4F84\">Тени</font> and <font color=\"#F6FFB5\">Света</font>."
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"Урон Тени/Света"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"% за 10 очков Интеллекта"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_two"			"Усиление лечения"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"% за 10 очков Интеллекта"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_3"						"[W3] Energizing Light"
     	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"Цель, попавшая под исцеляющий эффект (W) Flash Heal получает бафф на 3 секунды, который дополнительно исцеляет цель каждые 0.2 секунды."
@@ -2747,7 +2751,7 @@
     	"DOTA_Tooltip_modifier_seraph_surge_glyphed_Description"		"Прохождение сквозь препятствия и существ."
 		
 		"DOTA_Tooltip_ability_auriun_rune_e_1"						"[E1] Wings of Angels"
-    	"DOTA_Tooltip_ability_auriun_rune_e_1_Description"			"Пассивно увеличивает весь исходящий пост-резистный магический урон."
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_Description"			"Пассивно увеличивает весь исходящий пост-резистный магический и чистый урон."
     	"DOTA_Tooltip_ability_auriun_rune_e_1_property_one"			"Усиление маг. урона"
     	"DOTA_Tooltip_ability_auriun_rune_e_1_suffix"				"%"		
 
@@ -2894,29 +2898,29 @@
     	"DOTA_Tooltip_modifier_shadow_trap_d_a_buff_Description"				"Пост-резистный магический урон увеличен. Регенерация маны увеличена."
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_1_1"		"(T1) Глиф Нимба"
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_1_1"		"(T1) Glyph of Nimbus"
 		"item_rpc_auriun_glyph_1_1_description" 				"Все союзники, попавшие под действие (R) @Ability4 получат @glyph_property1 скорости передвижения на @glyph_property2 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_2_1"		"(T2) Глиф распада"
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_2_1"		"(T2) Glyph of Radiance"
 		"item_rpc_auriun_glyph_2_1_description" 				"Весь напрямую наносимый предметами урон увеличен на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_3_1"		"(T3) Глиф очищения"
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_3_1"		"(T3) Glyph of Cleanse"
 		"item_rpc_auriun_glyph_3_1_description" 				"Применение (Q) Heaven's Shield на союзника снимает с него случайный негативный эффект."
 
-		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_4_1"		"(T4) Глиф безграничности"
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_4_1"		"(T4) Glyph of Stratus"
 		"item_rpc_auriun_glyph_4_1_description" 				"Увеличивает дальность атаки на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_1"		"(T5) Глиф Ангелов"
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_1"		"(T5) Glyph of Angels"
 		"item_rpc_auriun_glyph_5_1_description" 				"Герой может атаковать во время (E) @Ability3, но он не сможет уйти в невидимость. На время действия получает @glyph_property1% сопротивление магии."
 
-		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"(T6) Глиф света"
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"(T6) Glyph of Luminescence"
 		"item_rpc_auriun_glyph_6_1_description" 				"Добавляет @glyph_property1 сек неуязвимости, когда был активирован (Q) @Ability1."
 
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"Luminescence"
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Полный иммунитет к урону"
 
-		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"(T7) Глиф баланса"
-		"item_rpc_auriun_glyph_7_1_description" 				"Каждое очко Силы и Ловкости даёт герою дополнительно @glyph_property1 ед. базового урона."
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"(T7) Glyph of Smite"
+		"item_rpc_auriun_glyph_7_1_description" 				"[R1] взрываются и наносят урон в радиусе <font color='#ccff66'>240</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"(Immortal) Глиф разоряющей тени"
 		"item_rpc_auriun_glyph_5_a_description" 				"Все ближайшие враги оказываются под влиянием Разоряющей Тени, которая ежесекундно наносит им урон, равный @glyph_property1x Интеллекта героя и замедляющей их на @glyph_property2%. 1% от нанесённого урона исцеляет Auriun."
