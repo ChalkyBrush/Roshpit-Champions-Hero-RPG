@@ -199,10 +199,10 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% of Reaper's Judgement"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1"						"[R2] Pandemic"
-    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"Increases the target acquisition radius of Reaper's Judgement,and provides [R1] extra damage instances"
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"Increases the target acquisition radius of @Ability4. Additionally, instances of damage from [R1] have a chance to be duplicated. A chance greater than 100% means multiple duplications can occur."
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_property_one"			"Bonus Search Radius"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix"					""
-        "DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_property_two"			"Additional R1 Damage Instances"
+        "DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_property_two"			"Duplication Chance"
         "DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix_two"				"%"
   		
 	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1"						"[R3] Death's Embrace"
@@ -216,10 +216,10 @@
     	"DOTA_Tooltip_modifier_reaper_slice_shield_Description"					"Absorbing Damage"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1"						"[R4] Disencumber"
-    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"Increases base movement speed while @Ability4 is toggled on. @Ability4 also provides extra damage reduction according to rune level (90% max)"
+    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"Grants damage reduction, and increases base movement speed, while @Ability4 is toggled on. Damage reduction from this rune is capped at 90%."
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_one"			"Bonus Movespeed"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix"					""
-        "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_two"      "Damage Reduction"
+        "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_two"      "Damage reduction"
         "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix_two"                     ""
 
 
