@@ -1679,7 +1679,11 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		reduction = math.min(reduction, DJANGHOR_R3_ARCANA_RESIST_MAX_PCT)
 		damage = damage*(1-reduction)
 	end
-
+         if victim:HasModifier("modifier_venomort_arcana2_movespeed_set")then
+		local r4_level=victim:GetRuneValue("r",4)
+		local damageReduc=math.min(r4_level*0.02,0.9)
+		damage=damage-damage*damageReduc
+	end
 	if victim:HasModifier("modifier_ancient_tree_passive") then
 		damage = damage*0.004
 		if victim:HasModifier("modifier_ancient_tree_round_2") then
