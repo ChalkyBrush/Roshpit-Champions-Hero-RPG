@@ -1837,7 +1837,7 @@ end
 
 function ball_prop_think(event)
 	local caster = event.caster
-	if caster:GetAbsOrigin().z > 1200 + Tanari.ZFLOAT then
+	if caster:GetAbsOrigin().z > 1200 + Tanari.ZFLOAT or caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) then
 		caster:SetAbsOrigin(GetGroundPosition(caster.startPosition, caster))
 		caster:RemoveModifierByName("modifier_ball_switch_moving")
 	end
