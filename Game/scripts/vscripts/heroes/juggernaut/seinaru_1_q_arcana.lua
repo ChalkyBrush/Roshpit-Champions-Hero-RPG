@@ -114,8 +114,10 @@ function arcana_dashing_think(event)
 			caster:RemoveModifierByName("modifier_seinaru_arcana_dashing")
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 			caster:SetForwardVector(caster:GetForwardVector()*Vector(1,1,0))
-			if target and not target.dummy then
-				caster:PerformAttack(target, true, true, true, false, true, false, false)
+			if target then
+				if not target.dummy then
+					caster:PerformAttack(target, true, true, true, false, true, false, false)
+				end
 			end
 			StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_ATTACK, rate=2.0})
 			ParticleManager:DestroyParticle(ability.pfx, false)
