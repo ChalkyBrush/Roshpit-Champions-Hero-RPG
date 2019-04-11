@@ -13,7 +13,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AOERadius"						"300"
-		"AbilityCastRange"				"0"
+		"AbilityCastRange"				"340"
 		"precache"
 		{
 

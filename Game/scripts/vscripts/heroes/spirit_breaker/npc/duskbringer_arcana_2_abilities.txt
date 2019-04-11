@@ -1,0 +1,122 @@
+
+	"duskbringer_arcana_terrorize"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"duskbringer/duskbringer_arcana_ability1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AOERadius"						"300"
+		"AbilityCastRange"				"1000"
+		"precache"
+		{
+
+		}
+
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"5400 10000 40000 100000 240000 560000 900000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.06 0.09 0.12 0.15 0.18 0.21 0.24"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/spirit_breaker/duskbringer_1_q_arcana.lua"
+        		"Function"		"duskbringer_terrorize_start"
+        		"damage"		"%damage"
+        		"Target"		"POINT"
+			}
+		}
+        "Modifiers"
+        {
+        	"modifier_terrorize_thinking"
+        	{
+        		"Passive"			"0"
+        		"IsHidden"			"1"
+        		"IsDebuff"			"0"
+        	
+        		"ThinkInterval"  "0.03"
+        		"Properties"
+        		{
+        			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-200"
+        			"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE"	"1"
+        		}
+        		"States"
+        		{
+        			"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+        			"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+        		"OnIntervalThink"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/spirit_breaker/duskbringer_1_q_arcana.lua"
+        				"Function"		"duskbringer_terrorize_thinker"
+        			}
+        		}
+        		"OnDestroy"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/spirit_breaker/duskbringer_1_q_arcana.lua"
+        				"Function"		"terrorize_lift_end"
+        			}
+        		}
+        	}
+        	"modifier_terrorize_animation"
+        	{
+        		"Passive"			"0"
+        		"IsHidden"			"1"
+        		"IsDebuff"			"0"
+        		"OverrideAnimation"     "ACT_DOTA_VERSUS"       		
+        	}
+        	"modifier_name_after_terrorize_falling"
+        	{
+        		"Passive"			"0"
+        		"IsHidden"			"1"
+        		"IsDebuff"			"0"
+        	
+        		"ThinkInterval"  "0.03"
+        		"States"
+        		{
+        			"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+        		"OnIntervalThink"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/spirit_breaker/duskbringer_1_q_arcana.lua"
+        				"Function"		"duskbringer_terrorize_falling_think"
+        			}
+        		}
+        	}
+        }
+	}
+

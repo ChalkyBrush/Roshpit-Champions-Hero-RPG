@@ -42,6 +42,10 @@ function Tanari:Debug()
     local drop = CreateItemOnPositionSync( Vector(-4928, 2048), item )
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
+
+    RPCItems:RollDuskbringerArcana1(Vector(-4928, 2048))
+    RPCItems:RollDuskbringerArcana2(Vector(-4928, 2048))
+    Glyphs:RollGlyphAll("item_rpc_duskbringer_glyph_7_1", Vector(-4928, 2048), 0)
     -- RPCItems:RollJexArcana1(Vector(-4928, 2048))
     -- Tanari:AcquireEssence("fire", Vector(-4928, 2048))
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "jex")
@@ -52,9 +56,9 @@ function Tanari:Debug()
     -- RPCItems:RollSlipfinnArcana1(Vector(-4928, 2048))
     -- RPCItems:RollAerithsTear(Vector(-4928, 2048))
 
-    for i = 1, 7, 1 do
-        Glyphs:RollGlyphAll("item_rpc_voltex_glyph_"..tostring(i).."_1", Vector(-4928, 2048), 0)
-    end
+    -- for i = 1, 7, 1 do
+    --     Glyphs:RollGlyphAll("item_rpc_voltex_glyph_"..tostring(i).."_1", Vector(-4928, 2048), 0)
+    -- end
 
     -- RPCItems:RollAstralArcana2(Vector(-4928, 2048))
     -- RPCItems:RollAstralArcana3(Vector(-4928, 2048))

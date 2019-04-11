@@ -13,7 +13,9 @@ function shadow_slam_start(event)
 		return false
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_hidden_ghost_hallow_smashing", {duration = 0.3})
-
+	caster:RemoveModifierByName("modifier_terrorize_animation")
+	caster:RemoveModifierByName("modifier_terrorize_thinking")
+	caster:RemoveModifierByName("modifier_name_after_terrorize_falling")
 	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_TELEPORT_END, rate=1.2})
 	Filters:CastSkillArguments(2, caster)
 	ability.moveVector = ((newPosition-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
@@ -31,6 +33,14 @@ function shadow_slam_think(event)
 		moveSpeed = 0
 	end
 	local newPosition = GetGroundPosition(caster:GetAbsOrigin()+ability.moveVector*moveSpeed, caster)
+	-- if caster:HasModifier("modifier_terrorize_thinking") or caster:HasModifier("modifier_name_after_terrorize_falling") then
+		newPosition = caster:GetAbsOrigin()+ability.moveVector*moveSpeed
+		local downspeed = 40
+		if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + downspeed then
+			downspeed = 0
+		end
+		newPosition = newPosition - Vector(0,0,downspeed)
+	-- end
 	caster:SetAbsOrigin(newPosition)
 	duskbringer_rune_e_1_think(event)
 end

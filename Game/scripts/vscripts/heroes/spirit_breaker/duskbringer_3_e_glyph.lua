@@ -6,6 +6,7 @@ function begin_manifestation(event)
 	local ability = event.ability
     local target = event.target_points[1]
     local casterOrigin = caster:GetAbsOrigin()
+    local zLock = casterOrigin.z
     EmitSoundOn("Duskbringer.Manifestation", caster)
     target = WallPhysics:WallSearch(casterOrigin, target, caster)
     local e_2_level = caster:GetRuneValue("e", 2)
@@ -18,8 +19,14 @@ function begin_manifestation(event)
 	end
     local e_3_level = caster:GetRuneValue("e", 3)
     manifestParticle(casterOrigin, caster)
-	FindClearSpaceForUnit(caster, target, true)
-	manifestParticle(target, caster)
+    if caster:HasModifier("modifier_terrorize_thinking") then
+    	caster:SetAbsOrigin(Vector(target.x, target.y, zLock))
+    	manifestParticle(Vector(target.x, target.y, zLock), caster)
+    else
+		FindClearSpaceForUnit(caster, target, true)
+		manifestParticle(target, caster)
+	end
+	
 	if e_3_level > 0 then
 		local casterOrigin = caster:GetAbsOrigin()
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, 360, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
