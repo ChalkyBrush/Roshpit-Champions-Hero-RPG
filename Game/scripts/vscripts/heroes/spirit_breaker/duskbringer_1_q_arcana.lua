@@ -55,6 +55,8 @@ function terrorize_lift_end(event)
 	local ability = event.ability
 	StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_TELEPORT_END, rate=1.0})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_name_after_terrorize_falling", {})
+	ability.fallSpeed = 20
+	caster:RemoveModifierByName("modifier_terrorize_animation")
 end
 
 function duskbringer_terrorize_falling_think(event)
