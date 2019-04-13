@@ -6,7 +6,7 @@
 		"AbilityTextureName"	"spirit_warrior/ancient_rain"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"20"
-		"AbilityChannelTime"	"3.0"
+		"AbilityChannelTime"	"2.0"
 		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT"
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
 		"RequiredLevel"          		"-5"
