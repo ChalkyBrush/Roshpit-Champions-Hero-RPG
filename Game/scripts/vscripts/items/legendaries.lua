@@ -5428,7 +5428,7 @@ function RPCItems:RollGhostSlippers(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_ghost_slippers", "immortal", "Ghost Slippers", "feet", true, "Slot: Feet")
     item.property1 = 1
     item.property1name = "ghost_walk"
-    RPCItems:SetPropertyValues(item, item.property1, "#item_unit_walking", "#9B72C4", 1)
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_unit_walking", "#9B72C4", 1, "#property_unit_walking_description")
 
     item.property2 = RandomInt(5, 10)
     item.property2name = "magic_resist"
