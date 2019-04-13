@@ -869,7 +869,7 @@
 					}
 				}
 			}
-			"modifier_seinaru_r_att_per_agi"
+			"modifier_seinaru_gorudo_att_bonus_invisible"
 			{
 			    "IsHidden"  "1"
                 "Properties"
@@ -877,7 +877,7 @@
                     "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"1"
                 }
 			}
-			"modifier_monk_ulti_gorudo"
+			"modifier_seinaru_gorudo_magic_immunity"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
@@ -890,6 +890,15 @@
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
+			}
+			"modifier_seinaru_gorudo_att_bonus_visible"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+
+				"EffectName"			"particles/roshpit/seinaru/gorudo_buff.vpcf"
+				"EffectAttachType"		"attach_origin"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold_lvl2.vpcf"
 			}
 			"modifier_gorudo_thinker"
 			{

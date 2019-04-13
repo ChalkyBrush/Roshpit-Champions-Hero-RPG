@@ -105,8 +105,10 @@
 		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_seinaru_gorudo_attack_damage_percent"			"ЛОВКОСТЬ В СИЛУ АТАКИ:"
 
-		"DOTA_Tooltip_modifier_monk_ulti_gorudo"					"Gorudo"
-		"DOTA_Tooltip_modifier_monk_ulti_gorudo_Description"		"Иммунитет к магии"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_magic_immunity"					"Gorudo"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_magic_immunity_Description"		"Иммунитет к магии"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_att_bonus_visible"					"Gorudo"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_att_bonus_visible_Description"		"Grants base attack damage based on Seinaru's attributes"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_1"						"[R1] Armor Piercing"
     	"DOTA_Tooltip_ability_seinaru_rune_r_1_Description"			"Обычные атаки Seinaru значительно снижают броню врагов на 8 секунд.<br>Эффект не будет снижать броню ниже 0.<br>Эффект применяется перед атакой."

@@ -666,6 +666,11 @@ function GameMode:OnPlayerChat(keys)
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
 		end
+	elseif string.match(text, "-immunitybreak") then
+		if Beacons.cheats then
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			Filters:MagicImmuneBreak(hero, hero)
+		end
   elseif string.match(text, "-log") then
     CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid), "error_logger_open", {})
   elseif GameState:GetDifficultyFactor() == 3 then

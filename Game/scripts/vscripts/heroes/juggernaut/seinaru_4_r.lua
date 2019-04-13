@@ -7,13 +7,14 @@ function gorudo_start(event)
 	local att_per_agi = event.att_per_agi
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_monk_ulti_gorudo", {duration = duration})
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_r_att_per_agi", {duration = duration})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_gorudo_magic_immunity", {duration = duration})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_gorudo_att_bonus_visible", {duration = duration})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_gorudo_att_bonus_invisible", {duration = duration})
 	local bonus_att_damage = event.att_per_agi * caster:GetAgility()
 	if caster:HasModifier('modifier_seinaru_glyph_7_1') then
 		bonus_att_damage = event.att_per_agi * (SEINARU_GLYPH7_AGI_PART * caster:GetAgility() + SEINARU_GLYPH7_STR_PART * caster:GetStrength())
 	end
-	caster:SetModifierStackCount("modifier_seinaru_r_att_per_agi", caster, bonus_att_damage)
+	caster:SetModifierStackCount("modifier_seinaru_gorudo_att_bonus_invisible", caster, bonus_att_damage)
 
 	EmitSoundOn("Seinaru.Gorudo", caster)
 	Timers:CreateTimer(0.05, function()
@@ -166,7 +167,7 @@ function gorudo_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	if attacker:HasModifier("modifier_monk_ulti_gorudo") then
+	if attacker:HasModifier("modifier_seinaru_gorudo_att_bonus_visible") then
 		local c_d_level = attacker:GetRuneValue("r", 3)
 		if c_d_level > 0 then
 			local critModifier = attacker:FindModifierByName("modifier_seinaru_a_a_crit")
