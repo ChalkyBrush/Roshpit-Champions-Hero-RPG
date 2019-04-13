@@ -213,7 +213,7 @@ function splinter_hit(event)
 	if caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
 		caster = caster.origCaster
 	end
-	local damage = caster:GetIntellect()*3*ability.r_1_level
+	local damage = caster:GetIntellect()*7*ability.r_1_level
 	if caster:HasModifier("modifier_sorceress_glyph_7_1") then
 		damage = damage*1.5
 	end
