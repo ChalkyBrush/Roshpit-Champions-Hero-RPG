@@ -36,9 +36,9 @@
 		"DOTA_Tooltip_ability_flamewaker_rune_q_4"								"[Q4] Molten Flux"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"Health restored by Restorative Earth and damage caused by Eruption increase Flamewaker's attack damage for 4 seconds."
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_one"					"Attack Bonus From Restorative Earth"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix"						"per health point restored"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix"						" per health point restored"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_two"					"Attack Bonus From Eruption"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix_two"					"per 10 damage dealt"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix_two"					" per 10 damage dealt"
 
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_4" 							"Molten Flux"
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_4_description" 				"Increased Attack Damage."
