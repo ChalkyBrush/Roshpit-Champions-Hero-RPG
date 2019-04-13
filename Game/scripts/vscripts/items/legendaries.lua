@@ -64,9 +64,9 @@ function RPCItems:RollNeverlordRing(deathLocation)
     RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
     value = math.floor(value*1.5)
-    item.property3 = value
-    item.property3name = propertyName
-    RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  4)
+    item.property4 = value
+    item.property4name = propertyName
+    RPCItems:SetPropertyValues(item, item.property4, "rune", "#7DFF12",  4)
     local drop = CreateItemOnPositionSync( deathLocation, item )
     local position = deathLocation
     RPCItems:DropItem(item, position)
