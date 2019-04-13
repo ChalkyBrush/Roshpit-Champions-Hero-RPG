@@ -1151,7 +1151,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ALACRITY"
 
 		"AbilityCastRange"				"1300 1400 1500 1600 1700 1800 1900"
-		"AbilityCastPoint"				"0.6"
+		"AbilityCastPoint"				"0.05"
 		"AOERadius"						"%radius"
 
 		// Precache
@@ -1172,7 +1172,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"postmitigation_per_tech"				"30"
+				"postmitigation_per_tech"				"50"
 			}
 			"03"
 			{
@@ -1192,7 +1192,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"e_4_damage_increase_pct"				"10"
+				"e_4_damage_increase_pct"				"20"
 			}
 		}
 		"OnAbilityPhaseStart"
