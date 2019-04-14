@@ -3699,4 +3699,5 @@ function soul_ferrier_die(event)
 	EmitSoundOn("Arena.FerrierIntro3", caster)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", caster, 3)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arena.SecretHorrorPianoEnd", Events.GameMaster)
+	RPCItems:CreateBasicConsumable(caster:GetAbsOrigin(), "item_rpc_grimloks_soul_vessel", "Grimlok's Soul Vessel", "immortal", true)
 end

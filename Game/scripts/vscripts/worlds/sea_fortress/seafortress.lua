@@ -17,8 +17,7 @@ function Seafortress:Debug()
     local position = Vector(844, -15488)
     RPCItems:DropItem(item, Vector(844, -15488))
     AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(4800, -2176), 800, 300, false)
-    Seafortress:SpawnOlSpiny(Vector(844, -15488), Vector(0,-1))
-    RPCItems:RollZhonikArcana2(Vector(844, -15488))
+    RPCItems:CreateBasicConsumable(Vector(844, -15488), "item_rpc_grimloks_soul_vessel", "Grimlok's Soul Vessel", "immortal", true)
    -- local unit = Seafortress:SpawnCephapolos(Vector(844, -15488), Vector(1,0))
    -- unit:AddAbility("paragon_abilities"):SetLevel(1)
    -- local ability = unit:FindAbilityByName("paragon_abilities")
@@ -46,6 +45,7 @@ function Seafortress:Debug()
 end
 
 function Seafortress:Debug2()
+  Seafortress.AllBossesSlainEffect = true
   -- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-11478, -723), 800, 300, false)
   -- Seafortress:ActivateLaserCrystal(Vector(-11478, -723, 306))
   -- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-11478, -723), 800, 300, false)
@@ -68,7 +68,7 @@ function Seafortress:Debug2()
 
     -- Seafortress:AllBossesSlain()
     -- Seafortress:SpawnShadowOfBahamut()
-    Seafortress:AllBossesSlain()
+    -- Seafortress:AllBossesSlain()
     -- Seafortress:SpawnFinalBoss()
     -- Seafortress:SpawnGardenRoom()
 end

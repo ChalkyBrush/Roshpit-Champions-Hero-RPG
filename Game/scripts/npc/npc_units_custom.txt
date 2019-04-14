@@ -70272,6 +70272,100 @@
         "Ability8"          "dungeon_creep"
     }
 
+    "seafortress_beast_tyrant"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/spirit_breaker/spirit_breaker.vmdl"
+        "ModelScale"    "1.02"
+        "Level" "1"
+        "HealthBarOffset"   "290"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"              "Hero_spirit_breaker"
+        "precache"
+        {
+            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts"
+        }
+        "ArmorPhysical" "6"
+        "MagicalResistance" "15"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "800000"
+        "AttackDamageMax"   "1020000"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "0.35"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "200"
+        "BountyGoldMin" "300"
+        "BountyGoldMax" "600"
+        "BountyXP" "8150"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "50"
+        "CollisionSize" "50"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "500"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "125400000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"      "seafortress_beast_tryant_passive"
+        "Ability2"      "specter_rush_two"
+        "Ability3"      "seven_visions"
+        "Ability4"      "redfall_mega_steadfast"
+        "Ability5"      "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable2"
+                {
+                    "ItemDef"   "8234"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "9548"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "9878"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "5490"
+                }
+                "Wearable6"
+                {
+                    "ItemDef"   "12828"
+                }
+                "Wearable7"
+                {
+                    "ItemDef"   "106"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
     "seafortress_swamp_dragon"
     {
         "BaseClass" "npc_dota_creature"

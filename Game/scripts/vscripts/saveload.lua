@@ -777,7 +777,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			RPCItems:SetPropertyValues(item, item.property1, "cache_radiance", item.property1color,  1)
 			SaveLoad:ApplyValidator(gearTable, item)
 			return item
-		elseif gearTable.item_variant == "item_rpc_boreal_granite_chunk" then
+		elseif gearTable.item_variant == "item_rpc_boreal_granite_chunk" or gearTable.item_variant == "item_rpc_grimloks_soul_vessel" then
 			local item = RPCItems:CreateBasicConsumable(nil, gearTable.item_variant, gearTable.item_name, RPCItems:GetRarityNameFromFactor(gearTable.rarity), false)
 			item.pickedUp = true
 			SaveLoad:ApplyValidator(gearTable, item)

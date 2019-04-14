@@ -6395,3 +6395,178 @@ function ol_spiny_die(event)
 	  ParticleManager:ReleaseParticleIndex(pfx)
 	end)
 end
+
+function sea_fortress_use_soul_vessel(event)
+	local caster = event.caster
+	local ability = event.ability
+	if GameState:IsSeaFortress() then
+		UTIL_Remove(ability)
+		PrecacheUnitByNameAsync("seafortress_beast_tyrant", function(...) end)
+		CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", caster:GetAbsOrigin(), 3)
+		Timers:CreateTimer(2, function()
+			local spawnPos = caster:GetAbsOrigin()+RandomVector(400)
+			local stone = CreateUnitByName("seafortress_beast_tyrant", spawnPos, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			-- stone:SetRenderColor(150,150,150)
+			-- Arena:ColorWearables(stone, Vector(150,150,150))
+			AddFOWViewer(DOTA_TEAM_GOODGUYS, spawnPos, 300, 15, false)
+			Events:AdjustBossPower(stone, 14, 14, false)
+			stone.itemLevel = 128
+			stone:SetModelScale(0.03)
+			Events:smoothSizeChange(stone, 0.03, 1.0, 90)
+			Timers:CreateTimer(1, function()
+				EmitSoundOn("Seafortress.TyrantGhost.SpawnVO", stone)
+				StartAnimation(stone, {duration=5, activity=ACT_DOTA_TELEPORT, rate=1.0})
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", stone, 30)
+				Timers:CreateTimer(4, function()
+					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", stone, 30)
+				end)
+			end)
+			EmitSoundOnLocationWithCaster(stone:GetAbsOrigin(), "Seafortress.TyrantGhost.IntroMusic", stone)
+			stone:SetAbsOrigin(stone:GetAbsOrigin()+Vector(0,0,1500))
+			stone.speed_fall = 25
+			for i = 1, 200, 1 do
+				Timers:CreateTimer(i*0.03, function()
+					if stone:GetAbsOrigin().z - GetGroundHeight(stone:GetAbsOrigin(), stone) > 2 then
+						stone:SetAbsOrigin(stone:GetAbsOrigin() - Vector(0,0,stone.speed_fall))
+						stone.speed_fall = math.max(5, stone.speed_fall-0.3)
+					end
+				end)
+			end
+			local ghost_passive = stone:FindAbilityByName("seafortress_beast_tryant_passive")
+			ghost_passive:ApplyDataDrivenModifier(stone, stone, "modifier_beast_tyrant_ghost_mode", {})
+			ghost_passive:ApplyDataDrivenModifier(stone, stone, "modifier_disable_player", {})
+			stone.phase = 0
+			Timers:CreateTimer(6, function()
+				stone.phase = 1
+			end)
+		end)
+	else
+		local playerID = caster:GetPlayerOwnerID()
+		Notifications:Top(playerID, {text="Sea Fortress Only", duration=6, style={color="#FF3333"}, continue=true})
+	end
+end
+
+function tyrant_ghost_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.phase == 1 then
+		local moveToPos = Vector(-1144, 10038)
+		local distance = WallPhysics:GetDistance2d(moveToPos, caster:GetAbsOrigin())
+		if distance > 100 then
+			if Seafortress.AllBossesSlainEffect then
+				caster.phase = 2
+			else
+				caster:MoveToPosition(moveToPos)
+			end
+		elseif Seafortress.AllBossesSlainEffect then
+			caster.phase = 2
+		end
+	elseif caster.phase == 2 then
+		local moveToPos = Vector(-1432, 14784)
+		local distance = WallPhysics:GetDistance2d(moveToPos, caster:GetAbsOrigin())
+		if distance > 100 then
+			caster:MoveToPosition(moveToPos)
+		else
+			caster.phase = 3
+		end
+	elseif caster.phase == 3 then
+		local statuePos = Vector(-1344, 15700)
+		caster.phase = 4
+		EmitSoundOn("Seafortress.TyrantGhost.SpawnVO", caster)
+		StartAnimation(caster, {duration=16, activity=ACT_DOTA_TELEPORT, rate=1.0})
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", caster, 30)	
+		local new_beast = Seafortress:SpawnDungeonUnit("seafortress_beast_tyrant", statuePos, 10, 10, nil, Vector(0,-1), false)
+		new_beast:SetAbsOrigin(statuePos)
+		local new_beast_ability = new_beast:FindAbilityByName("seafortress_beast_tryant_passive")
+		
+		new_beast_ability:ApplyDataDrivenModifier(new_beast, new_beast, "modifier_disable_player", {})
+		Timers:CreateTimer(1, function()
+			new_beast_ability:ApplyDataDrivenModifier(new_beast, new_beast, "modifier_beast_tyrant_spawning", {})
+		end)
+		new_beast:SetAbsOrigin(new_beast:GetAbsOrigin()-Vector(0,0,3000))
+		new_beast:SetModelScale(3)
+		Events:ColorWearablesAndBase(new_beast, Vector(30, 30, 30))
+		new_beast.raise_interval = 0
+		Seafortress:objectShake(new_beast, 501, 15, true, true, false, "Hero_Spirit_Breaker.PreAttack", 60)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, new_beast:GetAbsOrigin(), 800, 60, false)
+		for i = 1, 500, 1 do
+			Timers:CreateTimer(i*0.03, function()
+				new_beast.raise_interval = new_beast.raise_interval + 1
+				if new_beast.raise_interval%10 == 0 then
+					EmitSoundOn("Seafortress.TyrantGhost.Shake", new_beast)
+					ScreenShake(new_beast:GetAbsOrigin(), 200, 0.5, 0.5, 500, 0, true)
+				end
+				if i % 120 == 0 then
+			      particleName = "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash.vpcf"
+			      EmitSoundOn("Tanari.WaterSplash", new_beast)
+			      local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, new_beast)
+			      ParticleManager:SetParticleControl( particle1, 0, GetGroundPosition(new_beast:GetAbsOrigin(), new_beast))
+			      Timers:CreateTimer(4, 
+			      function()
+			        ParticleManager:DestroyParticle( particle1, false )
+			      end)
+				end
+				new_beast:SetAbsOrigin(new_beast:GetAbsOrigin()+Vector(0,0,6.3))
+			end)
+		end
+		Timers:CreateTimer(16, function()
+			local stone = caster
+			EmitSoundOn("Seafortress.TyrantGhost.SpawnVO", stone)
+			StartAnimation(stone, {duration=10, activity=ACT_DOTA_TELEPORT, rate=1.0})
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", stone, 30)
+
+			EmitSoundOnLocationWithCaster(stone:GetAbsOrigin(), "Arena.SecretHorrorPiano", stone)
+			stone.speed_fall = 1
+			for i = 1, 200, 1 do
+				Timers:CreateTimer(i*0.03, function()
+						stone:SetAbsOrigin(stone:GetAbsOrigin() + Vector(0,0,stone.speed_fall))
+						stone.speed_fall = math.min(8, stone.speed_fall+0.4)
+				end)
+			end
+			Timers:CreateTimer(7, function()
+				UTIL_Remove(caster)
+			end)
+			Seafortress:objectShake(new_beast, 90, 30, true, true, false, "Seafortress.SmallCrash", 5 )
+			Timers:CreateTimer(1, function()
+				EmitSoundOnLocationWithCaster(new_beast:GetAbsOrigin(), "Seafortress.TyrantGhost.IntroMusic", new_beast)
+			end)
+			Timers:CreateTimer(2.5, function()
+				new_beast:RemoveModifierByName("modifier_beast_tyrant_spawning")
+				StartAnimation(new_beast, {duration=5, activity=ACT_DOTA_SPAWN, rate=1.0})
+				WallPhysics:Jump(new_beast, Vector(0,-1), 38, 30, 30, 1.2)
+				CustomAbilities:QuickAttachParticle("particles/econ/items/effigies/status_fx_effigies/base_statue_destruction_generic.vpcf", new_beast, 5)
+		        local pfx = ParticleManager:CreateParticle( "particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
+		        ParticleManager:SetParticleControl(pfx, 0, new_beast:GetAbsOrigin())
+		        ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.7, 0.9))
+		        ParticleManager:SetParticleControl(pfx, 2, Vector(1,1,1))
+		        Timers:CreateTimer(10, function() 
+		          ParticleManager:DestroyParticle( pfx, false )
+		          ParticleManager:ReleaseParticleIndex(pfx)
+		        end)				
+		        EmitSoundOn("Seafortress.TyrantGhost.IntroCrash", new_beast)
+
+				Events:ColorWearablesAndBase(new_beast, Vector(0, 100, 255))
+				Timers:CreateTimer(1.5, function()
+			        local pfx = ParticleManager:CreateParticle( "particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
+			        ParticleManager:SetParticleControl(pfx, 0, new_beast:GetAbsOrigin())
+			        ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.7, 0.9))
+			        ParticleManager:SetParticleControl(pfx, 2, Vector(1,1,1))
+			        Timers:CreateTimer(10, function() 
+			          ParticleManager:DestroyParticle( pfx, false )
+			          ParticleManager:ReleaseParticleIndex(pfx)
+			        end)			
+				end)
+				Timers:CreateTimer(2, function()
+					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", new_beast, 3)
+					EmitSoundOn("Seafortress.TyrantGhost.SpawnVO", new_beast)
+					StartAnimation(new_beast, {duration=3, activity=ACT_DOTA_TELEPORT, rate=0.8})
+
+					Timers:CreateTimer(3, function()
+						EmitSoundOn("Seafortress.TyrantGhost.SpawnVO", new_beast)
+						new_beast:RemoveModifierByName("modifier_disable_player")
+					end)
+				end)
+			end)
+		end)
+	end
+end
