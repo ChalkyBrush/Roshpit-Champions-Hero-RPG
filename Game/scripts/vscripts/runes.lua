@@ -1367,6 +1367,12 @@ function Runes:UnequipArcana(hero, index)
 			local newRune = hero.runeUnit4:AddAbility("duskbringer_rune_w_4")
 			newRune:SetLevel(runeLevel4)
 			newRune:SetAbilityIndex(abilityIndex)
+		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_terrorize_passive")
+			hero:RemoveModifierByName("modifier_terrorize_thinking")
+			hero:RemoveModifierByName("modifier_terrorize_animation")
+			hero:RemoveModifierByName("modifier_name_after_terrorize_falling")
+			Runes:EasyRevertArcanaSkills(hero, 0, "whirling_flail", "duskbringer_arcana_terrorize", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_invoker" then
 		if index == 1 then
