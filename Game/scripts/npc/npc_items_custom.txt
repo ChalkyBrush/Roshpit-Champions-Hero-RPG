@@ -24573,7 +24573,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"arcana/duskbringer_arcana1"
+		"AbilityTextureName"	"arcana/duskbringer_arcana2"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"0"

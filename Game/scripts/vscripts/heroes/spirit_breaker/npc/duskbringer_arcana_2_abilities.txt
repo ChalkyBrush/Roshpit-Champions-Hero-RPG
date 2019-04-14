@@ -6,12 +6,12 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"duskbringer/duskbringer_arcana_ability1"
+		"AbilityTextureName"			"duskbringer/arcana2/terrorize"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
 		"AOERadius"						"300"
 		"AbilityCastRange"				"1000"
 		"precache"
@@ -23,7 +23,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0"
+		"AbilityCooldown"				"8 7.5 7 6.5 6 5.5 5"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -33,16 +33,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"5400 10000 40000 100000 240000 560000 900000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"0.06 0.09 0.12 0.15 0.18 0.21 0.24"
-			}
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "base_duration"                "3"
+            }
 		}
 		"OnSpellStart"
 		{
@@ -52,6 +47,7 @@
         		"Function"		"duskbringer_terrorize_start"
         		"damage"		"%damage"
         		"Target"		"POINT"
+                "base_duration" "%base_duration"
 			}
 		}
         "Modifiers"
@@ -59,7 +55,7 @@
         	"modifier_terrorize_thinking"
         	{
         		"Passive"			"0"
-        		"IsHidden"			"1"
+        		"IsHidden"			"0"
         		"IsDebuff"			"0"
         	
         		"ThinkInterval"  "0.03"
@@ -72,6 +68,8 @@
         		{
         			"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
         			"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_ATTACK_IMMUNE"  "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_MAGIC_IMMUNE"   "MODIFIER_STATE_VALUE_ENABLED"
         		}
         		"OnIntervalThink"
         		{
@@ -89,6 +87,9 @@
         				"Function"		"terrorize_lift_end"
         			}
         		}
+                "StatusEffectName"         "particles/status_fx/status_effect_wraithking_ghosts.vpcf"        
+                "StatusEffectPriority"      "120"
+
         	}
         	"modifier_terrorize_animation"
         	{
@@ -117,6 +118,258 @@
         			}
         		}
         	}
+            "modifier_terrorize_passive"
+            {
+                "IsHidden"  "1"
+                "Passive"   "1"
+                "OnAttackLanded"
+                // "%attack_damage" is set to the damage value before mitigation
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/spirit_breaker/duskbringer_1_q.lua"
+                        "Function"      "whirling_flail_q1_on_hit"
+                    }
+                }
+            }
+            "modifier_duskbringer_rune_q_1"
+            {
+                "IsHidden"          "0"
+                "IsBuff"            "0"
+                "Duration"          "4"
+                "TextureName"       "rpc/duskbringer_rune_q_1"
+                "EffectName"        "particles/units/heroes/hero_huskar/duskbringer_flail_fire.vpcf"
+                "EffectAttachType"  "attach_origin"
+                "ThinkInterval"     "0.5"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/spirit_breaker/duskbringer_1_q.lua"
+                        "Function"      "duskbringer_rune_q_1_think"
+                        "target"        "TARGET"
+                    }
+                }
+            }
+            "modifier_duskbringer_arcana_q_4"
+            {
+                "IsHidden"  "0"
+                "IsBuff"    "1"
+                "TextureName"       "duskbringer/arcana2/duskbringer_rune_q_4_arcana2"
+            }
         }
 	}
 
+
+    "duskbringer_arcana_terrorize_phantom_plasma"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_datadriven"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+        "FightRecapLevel"               "1"
+        "AbilityTextureName"            "duskbringer/arcana2/phantom_plasma"
+        "RequiredLevel"                 "-5"
+        "LevelsBetweenUpgrades"         "10"
+        "MaxLevel"                      "7"
+        "AbilityCastAnimation"          "ACT_DOTA_SPAWN"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+        "AOERadius"                     "300"
+        "AbilityCastRange"              "1000"
+        "precache"
+        {
+
+        }
+
+        "AbilityCastPoint"              "0"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "0.3"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "damage"                "10000 40000 100000 240000 560000 900000 2000000"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "additional_damage_atk_power_pct"                "80 120 160 200 240 280 320"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "move_slow_percent"         "-20 -24 -28 -32 -34 -36 -38"
+            }
+        }
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/spirit_breaker/duskbringer_1_q_arcana.lua"
+                "Function"      "duskbringer_terrorize_bomb_start"
+                "damage"        "%damage"
+                "Target"        "POINT"
+                "additional_damage_atk_power_pct"   "%additional_damage_atk_power_pct"
+            }
+        }
+        "Modifiers"
+        {
+            "modifier_terrorize_slow"
+            {
+                "IsHidden"  "0"
+                "IsDebuff"  "1"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_slow_percent"
+                }
+            }
+            "modifier_terrorize_panic"
+            {
+                "IsHidden"  "0"
+                "IsDebuff"  "1"
+                "EffectName"    "particles/units/heroes/hero_demonartist/demonartist_soulchain_debuff.vpcf"
+                "EffectAttachType"  "attach_origin"
+                "TextureName"       "duskbringer/arcana2/duskbringer_rune_q_2_arcana2"
+                "States"
+                {
+                    "MODIFIER_STATE_DISARMED"        "MODIFIER_STATE_VALUE_ENABLED"
+                }
+                "ThinkInterval"  "0.3"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/spirit_breaker/duskbringer_1_q_arcana.lua"
+                        "Function"      "terrorize_panic_think"
+                        "target"        "TARGET"
+                    }
+                }
+                "OnCreated"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/spirit_breaker/duskbringer_1_q_arcana.lua"
+                        "Function"      "terrorize_panic_think"
+                        "target"        "TARGET"
+                    }
+                }
+            }
+
+        }
+    }
+
+
+    "duskbringer_rune_q_1_arcana2"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"             "ability_datadriven"
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_YES"
+        "AbilityTextureName"    "rpc/duskbringer_rune_q_1"
+        "MaxLevel"              "20"
+        "LevelsBetweenUpgrades" "0"
+        "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "property_one"          "<% DUSKBRINGER_Q1_ARCANA2_DMG_PER_STACK %>"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "property_two"          "<% DUSKBRINGER_Q1_ARCANA2_DMG_PER_STR_PER_STACK %>"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "base_ability"          "1"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "element_one"           "13"
+            }
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "element_two"           "2"
+            }
+        }
+    }
+
+    "duskbringer_rune_q_2_arcana2"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"             "ability_datadriven"
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_YES"
+        "AbilityTextureName"    "duskbringer/arcana2/duskbringer_rune_q_2_arcana2"
+        "MaxLevel"              "20"
+        "LevelsBetweenUpgrades" "0"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "property_one"          "<% DUSKBRINGER_Q2_ARCANA2_DURATION_PER_LV %>"
+            }
+        }
+    }
+
+    "duskbringer_rune_q_3_arcana2"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"             "ability_datadriven"
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_YES"
+        "AbilityTextureName"    "duskbringer/arcana2/duskbringer_rune_q_3_arcana2"
+        "MaxLevel"              "20"
+        "LevelsBetweenUpgrades" "0"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "property_one"          "<% DUSKBRINGER_Q3_ARCANA2_DURATION_INCREASE %>"
+            }
+        }
+    }
+
+    "duskbringer_rune_q_4_arcana2"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"             "ability_datadriven"
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_YES"
+        "AbilityTextureName"    "duskbringer/arcana2/duskbringer_rune_q_4_arcana2"
+        "MaxLevel"              "20"
+        "LevelsBetweenUpgrades" "0"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "property_one"          "<% DUSKBRINGER_Q4_ARCANA2_POSTMIT%>"
+            }
+        }
+    }

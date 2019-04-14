@@ -594,6 +594,11 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
+		if unit:HasModifier("modifier_terrorize_thinking") then
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+				unit:RemoveModifierByName("modifier_terrorize_thinking")
+			end
+		end
 		if unit:GetUnitName() == "npc_dota_hero_winter_wyvern" then
 			unit.lastOrder = orderTable.order_type
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
@@ -2212,6 +2217,10 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_jex_q_cosmic_cosmic_postmitigation") then
 		local stacks = victim:GetModifierStackCount("modifier_jex_q_cosmic_cosmic_postmitigation", attacker)
 		mult = mult + 0.3*stacks
+	end
+	if attacker:HasModifier("modifier_duskbringer_arcana_q_4") then
+		local stacks = attacker:GetModifierStackCount("modifier_duskbringer_arcana_q_4", attacker)
+		mult = mult + 0.17*stacks
 	end
 	if attacker:HasModifier("modifier_trickster_mask") then
 		local minBoost = 0
@@ -3936,6 +3945,7 @@ function GameState:FilterDamage(filterTable)
 		-- 		filterTable["damage"] = 9999999999
 		-- 	end
 		-- end
+		-- filterTable["damage"] = 0
 	end
 
 	if (EntIndexToHScript(filterTable["entindex_attacker_const"]) == EntIndexToHScript(filterTable["entindex_victim_const"])) and (filterTable["damage"] > StartingDamage) then

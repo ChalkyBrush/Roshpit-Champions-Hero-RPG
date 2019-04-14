@@ -48,8 +48,10 @@ function specter_rush_thinking(event)
 	local newPos = GetGroundPosition(caster:GetAbsOrigin() + ability.fv*movement, caster)
 	if caster:HasModifier("modifier_terrorize_thinking") or caster:HasModifier("modifier_name_after_terrorize_falling") then
 		newPos = caster:GetAbsOrigin() + ability.fv*movement
-		local downspeed = 5
+		local downspeed = -3
 		if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 5 then
+			downspeed = 0
+		elseif caster:GetAbsOrigin().z > 500 then
 			downspeed = 0
 		end
 		newPos = newPos - Vector(0,0,downspeed)

@@ -128,7 +128,6 @@ function whirling_flail_q1_on_hit(event)
 	end
 	local q_1_level = caster:GetRuneValue("q", 1)
 	if q_1_level > 0 then
-
 		if caster:HasModifier("modifier_duskbringer_glyph_5_2") then
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), enemy:GetAbsOrigin(), nil, DUSKBRINGER_GLYPH_5_2_BASE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
@@ -139,7 +138,6 @@ function whirling_flail_q1_on_hit(event)
 		else
 			increment_duskfire_stacks(caster, enemy, ability, stack_increment)
 		end
-
 		local particleName = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_nether_strike_begin_flash.vpcf"
 		local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
 		ParticleManager:SetParticleControlEnt(pfx2, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
@@ -184,11 +182,18 @@ function duskbringer_rune_q_1_think(event)
 	if q_1_level <= 0 then
 		return
 	end
+	if caster:HasModifier("modifier_duskbringer_arcana2") then
+		q_4_level = 0
+	end
 	if target.dummy then
 		return false
 	end
 	local fireStacks = target:GetModifierStackCount("modifier_duskbringer_rune_q_1", caster)
 	local damage = q_1_level * (DUSKBRINGER_Q1_DMG_PER_STACK + DUSKBRINGER_Q1_DMG_PER_AGI_PER_STACK * caster:GetAgility()) * fireStacks
+	if caster:HasModifier("modifier_duskbringer_arcana2") then
+		damage = q_1_level * (DUSKBRINGER_Q1_ARCANA2_DMG_PER_STACK + DUSKBRINGER_Q1_ARCANA2_DMG_PER_STR_PER_STACK * caster:GetStrength()) * fireStacks
+	end
 	damage = damage + damage * q_4_level * DUSKBRINGER_Q4_ADD_DMG_PCT
 	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_GHOST, RPC_ELEMENT_FIRE)
 end
+

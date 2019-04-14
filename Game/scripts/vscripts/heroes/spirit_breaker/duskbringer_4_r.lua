@@ -27,7 +27,6 @@ function seven_visions_think(event)
 	local caster = event.caster
 	if caster:HasModifier("modifier_terrorize_thinking") or caster:HasModifier("modifier_name_after_terrorize_falling") then
 		caster:RemoveModifierByName("modifier_terrorize_thinking")
-		caster:RemoveModifierByName("modifier_name_after_terrorize_falling")
 		caster:RemoveModifierByName("modifier_terrorize_animation")
 	end
 	seven_visions_strike(caster, caster:GetAbsOrigin(), damage, ability)

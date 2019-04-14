@@ -298,7 +298,7 @@ function RPCItems:RollDuskbringerArcana2(deathLocation)
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
 
-    local value, prefixLevel = RPCItems:RollAttribute(100, 10, 45, 0, 0, item.rarity, false, maxFactor*34)
+    local value, prefixLevel = RPCItems:RollAttribute(100, 10, 45, 0, 0, item.rarity, false, maxFactor*36)
     item.property3 = value
     item.property3name = "strength"
     RPCItems:SetPropertyValues(item, item.property3, "#item_strength", "#CC0000",  3)
