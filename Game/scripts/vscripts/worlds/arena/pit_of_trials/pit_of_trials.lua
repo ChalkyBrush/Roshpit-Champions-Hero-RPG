@@ -254,17 +254,17 @@ end
 function Arena:GetResistancePercentage()
 	local resistMult = 1
 	if Arena.PitLevel == 2 then
-		resistMult = 0.75
-	elseif Arena.PitLevel == 3 then
 		resistMult = 0.5	
-	elseif Arena.PitLevel == 4 then
+	elseif Arena.PitLevel == 3 then
 		resistMult = 0.2	
-	elseif Arena.PitLevel == 5 then
+	elseif Arena.PitLevel == 4 then
 		resistMult = 0.1	
-	elseif Arena.PitLevel == 6 then
+	elseif Arena.PitLevel == 5 then
 		resistMult = 0.007	
-	elseif Arena.PitLevel == 7 then
+	elseif Arena.PitLevel == 6 then
 		resistMult = 0.001	
+	elseif Arena.PitLevel == 7 then
+		resistMult = 0.0001	
 	end
 	return resistMult
 end
@@ -272,17 +272,17 @@ end
 function Arena:GetDamageStacks()
 	local damageStacks = 0
 	if Arena.PitLevel == 2 then
-		damageStacks = 1
-	elseif Arena.PitLevel == 3 then
 		damageStacks = 3
-	elseif Arena.PitLevel == 4 then
+	elseif Arena.PitLevel == 3 then
 		damageStacks = 5
-	elseif Arena.PitLevel == 5 then
+	elseif Arena.PitLevel == 4 then
 		damageStacks = 10
-	elseif Arena.PitLevel == 6 then
+	elseif Arena.PitLevel == 5 then
 		damageStacks = 20
-	elseif Arena.PitLevel == 7 then
+	elseif Arena.PitLevel == 6 then
 		damageStacks = 30
+	elseif Arena.PitLevel == 7 then
+		damageStacks = 50
 	end
 	return damageStacks
 end
@@ -2304,17 +2304,17 @@ end
 function Arena:GetPitMithrilReward()
 	local mithrilReward = 1500
 	if Arena.PitLevel == 2 then
-		mithrilReward = 1600
+		mithrilReward = 2000
 	elseif Arena.PitLevel == 3 then
-		mithrilReward = 2200
-	elseif Arena.PitLevel == 4 then
 		mithrilReward = 3000
-	elseif Arena.PitLevel == 5 then
-		mithrilReward = 4000
-	elseif Arena.PitLevel == 6 then
+	elseif Arena.PitLevel == 4 then
 		mithrilReward = 5000
+	elseif Arena.PitLevel == 5 then
+		mithrilReward = 7000
+	elseif Arena.PitLevel == 6 then
+		mithrilReward = 9000
 	elseif Arena.PitLevel == 7 then
-		mithrilReward = 6000
+		mithrilReward = 14000
 	end
 	return mithrilReward
 end
