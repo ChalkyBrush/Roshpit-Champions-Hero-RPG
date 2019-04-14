@@ -114,13 +114,14 @@ function duskbringer_terrorize_bomb_start(event)
 
 	local point = event.target_points[1]
 	local travel_speed = 2000
-	local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/duskbringer/terrorize_cast.vpcf", caster:GetAbsOrigin()+Vector(0,0,40)+caster:GetForwardVector()*60, 4)
+	local particleStartPoint = caster:GetAbsOrigin()+Vector(0,0,40)+caster:GetForwardVector()*40
+	local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/duskbringer/terrorize_cast.vpcf", particleStartPoint, 4)
 	ParticleManager:SetParticleControl(pfx, 1, point)
 	local projectile_model = "particles/units/heroes/hero_dark_willow/dark_willow_base_attack.vpcf"
 	local particle = projectile_model
 
 
-	local distance = WallPhysics:GetDistance(caster:GetAttachmentOrigin(4), point)
+	local distance = WallPhysics:GetDistance(particleStartPoint, point)
 	local travel_speed = 2500
 	local time_to_reach_end_point = distance/travel_speed
 	local stack_increment = 1
