@@ -819,7 +819,7 @@ function GetPitModData(level)
         enemyResistance = 99.9
         paragonSpawnRate = 2.25
     }else if (level == 7){
-        enemyAttackDamage = 500
+        enemyAttackDamage = 400
         enemyResistance = 99.99
         paragonSpawnRate = 2.5
     }

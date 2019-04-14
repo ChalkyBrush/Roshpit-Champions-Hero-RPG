@@ -144,7 +144,10 @@ function duskbringer_terrorize_bomb_start(event)
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
 				if q_2_level > 0 then
 					local duration = DUSKBRINGER_Q2_ARCANA2_DURATION_PER_LV*q_2_level
-					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_terrorize_panic", {duration = duration})
+					if not target:HasModifier("modifier_terrorize_panic_immune") then
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_terrorize_panic", {duration = duration})
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_terrorize_panic_immune", {duration = duration+3})
+					end
 				end
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_terrorize_slow", {duration = 10})
 			end

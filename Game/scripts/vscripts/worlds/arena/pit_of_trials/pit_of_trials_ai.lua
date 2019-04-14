@@ -2276,6 +2276,7 @@ function widow_die(event)
 			end)
 		end)
 	end)
+	--SOUL FERRIER
 end
 
 function pit_tombstone_think(event)
@@ -3614,4 +3615,88 @@ function createCheckpointParticle(position1, position2)
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 	end
+end
+
+function ferrier_unit_die(event)
+	local unit = event.unit
+	local caster = event.caster
+	local ability = event.ability
+	if unit.death_code == 1 then
+		if not Arena.FerrierUnitsSlain then
+			Arena.FerrierUnitsSlain = 0
+		end
+		Arena.FerrierUnitsSlain = Arena.FerrierUnitsSlain + 1
+		if not Arena.FerrierPhaseComplete then
+			local startPos = unit:GetAbsOrigin()
+			local newTable = {}
+			for i = 1, #Arena.FerrierGargoyleTable, 1 do
+				local gargoyle_check = Arena.FerrierGargoyleTable[i]
+				if gargoyle_check:GetEntityIndex() ~= unit:GetEntityIndex() then
+					table.insert(newTable, gargoyle_check)
+				end
+			end
+			print("TBFDF!!")
+			Arena.FerrierGargoyleTable = newTable
+			Timers:CreateTimer(0.25, function()
+				Arena:RemoveFerrierShield(startPos)
+			end)
+			if Arena.FerrierUnitsSlain == 30 then
+				Arena.FerrierPhaseComplete = true
+				StartAnimation(caster, {duration=5, activity=ACT_DOTA_TELEPORT, rate=1.0})
+				EmitSoundOn("Arena.FerrierIntro1", caster)
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", caster, 3)		
+				Timers:CreateTimer(5, function()
+					EmitSoundOn("Arena.FerrierIntro1", caster)
+					StartAnimation(caster, {duration=3, activity=ACT_DOTA_SPAWN, rate=1.0})
+					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", caster, 3)	
+					caster:RemoveModifierByName("modifier_disable_player")
+					ability:ApplyDataDrivenModifier(caster, caster, "modifier_ferrier_in_combat_aura", {})
+					Arena.FerrierGargoyleTable = {}
+					for i = 1, 30, 1 do
+						Timers:CreateTimer(i*0.2, function()
+							local spawn_pos = caster:GetAbsOrigin() + RandomVector(RandomInt(800, 1200))
+							local targetPosition = caster:GetAbsOrigin()+RandomVector(RandomInt(100, 400))
+							Arena:SpawnFerrierGargoyle(spawn_pos, targetPosition)
+						end)
+					end	
+					Timers:CreateTimer(2.5, function()
+						caster.aggroLock = false
+						Dungeons:AggroUnit(caster)
+					end)				
+				end)		
+			end
+		end
+
+	end
+end
+
+function ferrier_gargoyle_think(event)
+	local caster = event.caster
+	local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 60, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )
+	if #allies > 0 then
+		caster:MoveToPosition(caster:GetAbsOrigin()+RandomVector(RandomInt(60, 260)))
+	end
+end
+
+function ferrier_think_aura(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	local damage = target:GetMaxHealth()*0.007
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
+	caster:Heal(damage*10, caster)
+end
+
+function soul_ferrier_die(event)
+	local caster = event.caster
+	local pfx = CustomAbilities:QuickParticleAtPoint("particles/econ/items/pugna/pugna_ward_ti5/pugna_ward_attack_heavy_ti_5.vpcf", caster:GetAbsOrigin(), 3)
+	for i = 1, #Arena.FerrierGargoyleTable, 1 do
+		local gargoyle_open = Arena.FerrierGargoyleTable[i]
+		ParticleManager:SetParticleControl(pfx, 1, gargoyle_open:GetAbsOrigin()+Vector(0,0,100))
+		gargoyle_open:RemoveModifierByName("modifier_disable_player")
+	end
+	EmitSoundOn("Arena.FerrierShieldRemove.Scream", caster)
+	EmitSoundOn("Arena.FerrierIntro3", caster)
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", caster, 3)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arena.SecretHorrorPianoEnd", Events.GameMaster)
 end

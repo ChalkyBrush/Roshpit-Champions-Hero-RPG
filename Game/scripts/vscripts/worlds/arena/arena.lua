@@ -8,7 +8,7 @@ require('/worlds/arena/arena_nightmare')
 require('/worlds/arena/pit_of_trials/pit_of_trials')
 
 function Arena:Debug()
-	Arena:SpawnCragnataur(MAIN_HERO_TABLE[1]:GetAbsOrigin(), Vector(1,0))
+	-- Arena:SpawnCragnataur(MAIN_HERO_TABLE[1]:GetAbsOrigin(), Vector(1,0))
     if MAIN_HERO_TABLE[1] then
  --      MAIN_HERO_TABLE[1]:SetBaseStrength(40000)
  --      MAIN_HERO_TABLE[1]:SetBaseAgility(25000)
@@ -27,10 +27,10 @@ function Arena:Debug()
 	-- 	Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.q_1, "rune_q_1", hero)
     end
 	-- -- Arena:BeginBattle(MAIN_HERO_TABLE[1])
- --    local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
- --    local drop = CreateItemOnPositionSync( Vector(-3136, -11200), item )
- --    local position = Vector(-3136, -11200)
- --    RPCItems:DropItem(item, Vector(-3136, -11200))
+    local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
+    local drop = CreateItemOnPositionSync( Vector(-3136, -11200), item )
+    local position = Vector(-3136, -11200)
+    RPCItems:DropItem(item, Vector(-3136, -11200))
  --    MAIN_HERO_TABLE[1].ChampionsLeague = {}
  --    MAIN_HERO_TABLE[1].ChampionsLeague.rank = 14
 
@@ -55,7 +55,7 @@ function Arena:Debug()
 end
 
 function Arena:Debug2()
-	Arena:OpenPit(3)
+	-- Arena:OpenPit(3)
 	-- Arena:DescentRoom2()
 	-- Weapons:RollRandomLegendWeapon1(Vector(-3136, -11200))
 	-- Arena.PitLevel = 7
@@ -67,10 +67,12 @@ function Arena:Debug2()
 	-- RPCItems:RollHeroicConquerorVestments(Vector(-3136, -11200), 3)
 	-- Arena:OpenPit(3)
 	-- Arena:SpawnLies7()
-	Arena.PitLevel = 3
-	Arena.LiesOpen = true
-	Arena:SpawnLiesBoss(Vector(-3136, -11200))
-	Weapons:RollLegendWeapon1(Vector(-3136, -11200), "chernobog")
+	require('/worlds/arena/pit_of_trials/pit_of_trials')
+	Arena.PitLevel = 7
+	-- Arena.LiesOpen = true
+	-- Arena:SpawnLiesBoss(Vector(-3136, -11200))
+	-- Weapons:RollLegendWeapon1(Vector(-3136, -11200), "chernobog")
+	Arena:SoulFerrierEvent()
 	-- Weapons:RollLegendWeapon1(Vector(-3136, -11200), "spirit_warrior")
 	-- -- Arena:SpawnPitFinalBoss()
 	-- RPCItems:RollConquestStoneFalcon(Vector(-3136, -11200))

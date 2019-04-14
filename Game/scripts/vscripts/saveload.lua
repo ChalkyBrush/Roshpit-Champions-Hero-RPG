@@ -779,6 +779,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			return item
 		elseif gearTable.item_variant == "item_rpc_boreal_granite_chunk" then
 			local item = RPCItems:CreateBasicConsumable(nil, gearTable.item_variant, gearTable.item_name, RPCItems:GetRarityNameFromFactor(gearTable.rarity), false)
+			item.pickedUp = true
 			SaveLoad:ApplyValidator(gearTable, item)
 			return item
 		elseif string.match(gearTable.item_variant, "item_serengaard_hyperstone") then

@@ -60,23 +60,7 @@
 	
 	##PALADIN_UNITS##
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    ##ARENA_UNITS##
 
 
 

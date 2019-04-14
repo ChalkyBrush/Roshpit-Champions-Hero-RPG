@@ -264,6 +264,11 @@
                     }
                 }
             }
+            "modifier_terrorize_panic_immune"
+            {
+                "IsDebuff"  "1"
+                "IsHidden"  "1"
+            }
 
         }
     }

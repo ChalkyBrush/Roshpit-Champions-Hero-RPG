@@ -58864,6 +58864,11 @@
                     }
                 }
             }
+            "modifier_terrorize_panic_immune"
+            {
+                "IsDebuff"  "1"
+                "IsHidden"  "1"
+            }
 
         }
     }
@@ -79149,6 +79154,144 @@
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_DISARMED"   "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+
+	}
+
+
+	"soul_ferrier_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"MaxLevel"	"3"
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai"
+				"Function"		"soul_ferrier_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_soul_ferrier_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+			}
+			"modifier_disable_player"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"EffectName"	"particles/roshpit/sea_fortress/immunity_shield.vpcf"
+				"EffectAttachType" "attach_hitloc"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_ferrier_unit"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai"
+						"Function"		"ferrier_unit_die"
+					}
+				}
+			}
+			"modifier_ferrier_in_combat_aura"
+			{
+				"IsHidden"	"1"
+				"Aura"          	"modifier_ferrier_in_combat_aura_hit"
+				"Aura_Radius"   	"1500"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "0"
+			}
+			"modifier_ferrier_in_combat_aura_hit"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"	"TARGET"
+						"EffectName"	"particles/units/heroes/hero_pugna/epoch_life_give.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_hitloc"
+							"CASTER"	"attach_attack1"
+						}
+
+					}
+					"FireSound"
+					{
+						"EffectName"	"Arena.FerrierShieldRemove.Scream"
+						"Target" 		"TARGET"
+					}
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai"
+						"Function"		"ferrier_think_aura"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"soul_ferrier_gargoyle_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_disable_player"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			
+				"EffectName"		"particles/roshpit/zhonik/time_warp_shield.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+			"modifier_soul_ferrier_gargoyle_base_passive"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"ThinkInterval"  "1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai"
+						"Function"		"ferrier_gargoyle_think"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
