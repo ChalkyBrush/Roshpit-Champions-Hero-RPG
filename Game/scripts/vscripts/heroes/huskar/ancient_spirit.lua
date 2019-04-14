@@ -37,15 +37,16 @@ function cast_ancient_spirit(event)
 		if not caster:HasModifier("modifier_ancient_vigor") then
 			ability:ApplyDataDrivenModifier(caster, spirit, "modifier_ancient_spirit_disarm", {})
 		else
+			local duration = caster:FindModifierByName("modifier_ancient_vigor"):GetRemainingTime()
 			ability:ApplyDataDrivenModifier(caster, spirit, "modifier_spirit_attacking", {})
 			local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "spirit_warrior")
 			spirit.r_3_level = c_d_level
 			local vigor_ability = caster:FindAbilityByName("spirit_warrior_ancient_vigor")
 			if vigor_ability then
-				local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "spirit_warrior")
-				if d_d_level > 0 then
+				local r_4_level = caster:GetRuneValue("r", 4)
+				if r_4_level > 0 then
 					vigor_ability:ApplyDataDrivenModifier(caster, spirit, "modifier_ancient_spirit_attackspeed", {duration = duration})
-					spirit:SetModifierStackCount("modifier_ancient_spirit_attackspeed", caster, d_d_level)
+					spirit:SetModifierStackCount("modifier_ancient_spirit_attackspeed", caster, r_4_level)
 				end
 			end
 		end
