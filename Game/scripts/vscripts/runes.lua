@@ -345,6 +345,9 @@ function Runes:Procs(runeLevel, chancePerLevel, mod)
 end
 
 function Runes:GetTotalRuneLevel(caster, tier, runeID, heroName)
+	if not caster:IsRealHero() then
+		return 0
+	end
 	local runeUnit = ""
 	if tier == 1 then
 		runeUnit = caster.runeUnit

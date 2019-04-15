@@ -697,7 +697,9 @@ function WallPhysics:ClearSpaceForUnit(unit, position)
 	if GridNav:IsTraversable(unit:GetAbsOrigin()) then
 		FindClearSpaceForUnit(unit, position, false)
 	else
-		FindClearSpaceForUnit(unit, unit.safePos, false)
+		if unit.safePos then
+			FindClearSpaceForUnit(unit, unit.safePos, false)
+		end
 	end
 end
 

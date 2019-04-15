@@ -184,6 +184,9 @@ function immortal3_attack_land(event)
 end
 
 function duskbringer_rune_e_1_refresh(caster, duration)
+	if not caster:IsHero() then
+		return false
+	end
     local event = {}
     event.caster = caster.runeUnit
     event.duration = duration

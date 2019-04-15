@@ -20579,6 +20579,19 @@
 					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_beast_tyrant_combat_ai"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"tyrant_ghost_combat_think"
+					}
+				}
+			}
 		}
 	}
 

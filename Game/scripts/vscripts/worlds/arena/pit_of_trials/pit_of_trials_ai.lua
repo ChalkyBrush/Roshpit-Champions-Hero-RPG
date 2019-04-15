@@ -3660,7 +3660,7 @@ function ferrier_unit_die(event)
 						end)
 					end	
 					Timers:CreateTimer(2.5, function()
-						caster.aggroLock = false
+						caster.cantAggro = false
 						Dungeons:AggroUnit(caster)
 					end)				
 				end)		

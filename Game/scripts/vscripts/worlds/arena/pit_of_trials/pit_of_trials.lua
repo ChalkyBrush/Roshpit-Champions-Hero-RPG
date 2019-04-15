@@ -2341,7 +2341,7 @@ end
 
 function Arena:SpawnSoulFerrier(position, fv)
 	local stone = Arena:SpawnDungeonUnit("pit_of_trials_secret_soul_ferrier", position, 2, 4, "Arena.FerrierIntro2", fv, false)
-	stone.aggroLock = true
+	stone.cantAggro = true
 	-- stone:SetRenderColor(150,150,150)
 	-- Arena:ColorWearables(stone, Vector(150,150,150))
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 1500, 1500, false)

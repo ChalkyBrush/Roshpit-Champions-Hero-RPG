@@ -6450,6 +6450,10 @@ function tyrant_ghost_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if caster.phase == 1 then
+		if not caster.onwardSound then
+			EmitSoundOn("Seafortress.TyrantGhost.IntroSpawn.VO", caster)
+			caster.onwardSound = true
+		end
 		local moveToPos = Vector(-1144, 10038)
 		local distance = WallPhysics:GetDistance2d(moveToPos, caster:GetAbsOrigin())
 		if distance > 100 then
@@ -6475,7 +6479,7 @@ function tyrant_ghost_think(event)
 		EmitSoundOn("Seafortress.TyrantGhost.SpawnVO", caster)
 		StartAnimation(caster, {duration=16, activity=ACT_DOTA_TELEPORT, rate=1.0})
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", caster, 30)	
-		local new_beast = Seafortress:SpawnDungeonUnit("seafortress_beast_tyrant", statuePos, 10, 10, nil, Vector(0,-1), false)
+		local new_beast = Seafortress:SpawnDungeonUnit("seafortress_beast_tyrant", statuePos, 10, 10, "Seafortress.TyrantGhost.Aggro", Vector(0,-1), false)
 		new_beast:SetAbsOrigin(statuePos)
 		local new_beast_ability = new_beast:FindAbilityByName("seafortress_beast_tryant_passive")
 		
@@ -6489,6 +6493,7 @@ function tyrant_ghost_think(event)
 		new_beast.raise_interval = 0
 		Seafortress:objectShake(new_beast, 501, 15, true, true, false, "Hero_Spirit_Breaker.PreAttack", 60)
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, new_beast:GetAbsOrigin(), 800, 60, false)
+		new_beast.cantAggro = true
 		for i = 1, 500, 1 do
 			Timers:CreateTimer(i*0.03, function()
 				new_beast.raise_interval = new_beast.raise_interval + 1
@@ -6539,6 +6544,7 @@ function tyrant_ghost_think(event)
 		        ParticleManager:SetParticleControl(pfx, 0, new_beast:GetAbsOrigin())
 		        ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.7, 0.9))
 		        ParticleManager:SetParticleControl(pfx, 2, Vector(1,1,1))
+		        ScreenShake(new_beast:GetAbsOrigin(), 500, 2, 2, 3000, 0, true)
 		        Timers:CreateTimer(10, function() 
 		          ParticleManager:DestroyParticle( pfx, false )
 		          ParticleManager:ReleaseParticleIndex(pfx)
@@ -6555,18 +6561,96 @@ function tyrant_ghost_think(event)
 			          ParticleManager:DestroyParticle( pfx, false )
 			          ParticleManager:ReleaseParticleIndex(pfx)
 			        end)			
+			         ScreenShake(new_beast:GetAbsOrigin(), 500, 2, 2, 3000, 0, true)
+			          EmitSoundOn("Seafortress.TyrantGhost.IntroCrash", new_beast)
 				end)
 				Timers:CreateTimer(2, function()
 					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", new_beast, 3)
 					EmitSoundOn("Seafortress.TyrantGhost.SpawnVO", new_beast)
 					StartAnimation(new_beast, {duration=3, activity=ACT_DOTA_TELEPORT, rate=0.8})
 
-					Timers:CreateTimer(3, function()
-						EmitSoundOn("Seafortress.TyrantGhost.SpawnVO", new_beast)
+					Timers:CreateTimer(4, function()
 						new_beast:RemoveModifierByName("modifier_disable_player")
+						new_beast.cantAggro = false
+						Dungeons:AggroUnit(new_beast)
+						local new_beast_ability = new_beast:FindAbilityByName("seafortress_beast_tryant_passive")
+						new_beast_ability:ApplyDataDrivenModifier(new_beast, new_beast, "modifier_beast_tyrant_combat_ai", {})
+						new_beast:FindAbilityByName("specter_rush_two"):SetLevel(7)
 					end)
 				end)
 			end)
 		end)
 	end
+end
+
+function tyrant_ghost_combat_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:IsChanneling() then
+		return false
+	end
+	if not caster:IsAlive() then
+		return false
+	end
+	local seven_visions = caster:FindAbilityByName("seven_visions")
+	if seven_visions:IsFullyCastable() then
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 450, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			local order =
+			{
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+				AbilityIndex = seven_visions:entindex(),
+			}
+			ExecuteOrderFromTable(order)
+			return false
+		end
+	end
+end
+
+function beast_tyrant_die(event)
+	local caster = event.caster
+	ScreenShake(caster:GetAbsOrigin(), 500, 2, 2, 3000, 0, true)
+	EmitSoundOn("Seafortress.TyrantGhost.Die", caster)
+	Timers:CreateTimer(1.9, function()
+		local position = caster:GetAbsOrigin()+caster:GetForwardVector()*80
+        local pfx = ParticleManager:CreateParticle( "particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
+        ParticleManager:SetParticleControl(pfx, 0, position)
+        ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.7, 0.9))
+        ParticleManager:SetParticleControl(pfx, 2, Vector(1,1,1))
+        Timers:CreateTimer(10, function() 
+          ParticleManager:DestroyParticle( pfx, false )
+          ParticleManager:ReleaseParticleIndex(pfx)
+        end)			
+         ScreenShake(caster:GetAbsOrigin(), 500, 2, 2, 3000, 0, true)
+          EmitSoundOn("Seafortress.TyrantGhost.IntroCrash", caster)
+         Timers:CreateTimer(2.1, function()
+         	local death_position = caster:GetAbsOrigin()
+         	local is_paragon = caster.paragon
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", caster, 30)
+
+			-- EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arena.SecretHorrorPiano", caster)
+			caster.speed_fall = 2
+			for i = 1, 120, 1 do
+				Timers:CreateTimer(i*0.03, function()
+						caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,0,caster.speed_fall))
+						caster.speed_fall = math.min(8, caster.speed_fall+1.2)
+				end)
+			end
+			Timers:CreateTimer(6, function()
+				CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", death_position, 5)
+
+				EmitSoundOnLocationWithCaster(death_position, "Seafortress.TyrantGhost.IntroMusic", Events.GameMaster)
+				Timers:CreateTimer(5, function()
+					local arcanas = 1
+					if is_paragon then
+						arcanas = 2
+					end
+					for i = 1, arcanas, 1 do
+						RPCItems:RollDuskbringerArcana2(position)
+					end
+				end)
+			end)
+         end)
+	end)
 end
