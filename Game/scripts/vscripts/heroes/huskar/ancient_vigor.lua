@@ -76,22 +76,26 @@ end
 function vigor_deal_damage(event)
 	local caster = event.caster
 	local ability = event.ability
-	if ability.r_1_level > 0 then
-		local damage = event.damage
+	local damage = event.damage
+	local r_1_level = caster:GetRuneValue("r", 1)
+	if r_1_level > 0 then
+		if not ability.healInstances then
+			ability.healInstances = {}
+		end
 		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 		ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 2, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-		-- "particles/units/heroes/hero_legion_commander/legion_commander_courage_hit.vpcf"
 		Timers:CreateTimer(0.5, function() 
 		  ParticleManager:DestroyParticle( pfx, false )
 		end)
-		if not ability.trollBloodHeal then
-			ability.trollBloodHeal = 0
+		local trollBloodDuration = Filters:GetAdjustedBuffDuration(caster, 5, false) 
+		local trollBloodHeal = damage * 0.003 * r_1_level
+		if #ability.healInstances > 0 and ability.healInstances[#ability.healInstances].duration == trollBloodDuration then
+			ability.healInstances[#ability.healInstances].heal = ability.healInstances[#ability.healInstances].heal + trollBloodHeal / trollBloodDuration / 10
+		else
+			table.insert(ability.healInstances, { heal = trollBloodHeal / trollBloodDuration / 10, duration = trollBloodDuration})
 		end
-		local trollBloodDuration = Filters:GetAdjustedBuffDuration(caster, 5, false)
-		ability.trollBloodDuration = trollBloodDuration*10
-		ability.trollBloodHeal = ability.trollBloodHeal + damage*0.003*ability.r_1_level
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_vigor_troll_blood", {duration = trollBloodDuration})
 
 	end
@@ -100,9 +104,6 @@ end
 function troll_blood_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	if not ability.trollBloodDuration then
-		ability.trollBloodDuration = 50
-	end
 	local particleName = "particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
 	ability.trollBloodPFX = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControlEnt(ability.trollBloodPFX, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
@@ -114,14 +115,20 @@ end
 function troll_blood_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local weight = math.min(ability.trollBloodHeal/caster:GetMaxHealth(), 1)
+	local totalHeal = 0
+	for key, value in pairs(ability.healInstances) do --actualcode
+		totalHeal = totalHeal + value.heal
+		if ability.healInstances[key].duration <= 0.1 then
+			table.remove(ability.healInstances, key)
+		else
+			ability.healInstances[key].duration = ability.healInstances[key].duration - 0.1
+		end
+	end
+	totalHeal = math.ceil(totalHeal + 1)
+	totalHeal = math.min(totalHeal, caster:GetMaxHealth())
+	local weight = math.min(totalHeal/caster:GetMaxHealth(), 1)
 	ParticleManager:SetParticleControl(ability.trollBloodPFX, 14, Vector(1, 1*weight, weight))
-	local divisor = math.max(ability.trollBloodDuration + 1, 1)
-	local healAmount = math.min(math.ceil(ability.trollBloodHeal/divisor), caster:GetMaxHealth())
-	ability.trollBloodHeal = ability.trollBloodHeal - healAmount
-	ability.trollBloodDuration = ability.trollBloodDuration - 1
-	healAmount = math.ceil(healAmount + 1)
-	Filters:ApplyHeal(caster, caster, healAmount, true)
+	Filters:ApplyHeal(caster, caster, totalHeal, true)
 end
 
 function troll_blood_end(event)
