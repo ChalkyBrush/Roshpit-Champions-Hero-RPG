@@ -3607,6 +3607,14 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_disable_player") then
 		filterTable["damage"] = 0
 	end
+	if victim:HasModifier("modifier_beast_tyrant_combat_ai") then
+		if attacker:HasModifier("modifier_beast_tyrant_in_blue") and damagetype == DAMAGE_TYPE_MAGICAL then
+		elseif attacker:HasModifier("modifier_beast_tyrant_in_red") and damagetype == DAMAGE_TYPE_PHYSICAL then
+		elseif attacker:HasModifier("modifier_beast_tyrant_in_yellow") and damagetype == DAMAGE_TYPE_PURE then
+		else
+			filterTable["damage"] = 0
+		end
+	end
 	if victim:HasModifier("modifier_colossus_restore") then
 		filterTable["damage"] = 0
 	end
@@ -3943,7 +3951,9 @@ function GameState:FilterDamage(filterTable)
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if attacker:IsHero() then
 				if not victim:HasModifier("modifier_disable_player") then
-					filterTable["damage"] = 9999999999
+					if filterTable["damage"] > 0 then
+						filterTable["damage"] = 9999999999
+					end
 				end
 			end
 		end

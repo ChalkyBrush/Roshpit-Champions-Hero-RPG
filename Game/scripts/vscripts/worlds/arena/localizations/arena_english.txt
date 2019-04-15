@@ -884,3 +884,5 @@
 
 		"DOTA_Tooltip_ability_item_rpc_grimloks_soul_vessel"		"Grimlok's Soul Vessel"
 		"item_rpc_grimloks_soul_vessel_desc"						"Use anywhere in Sea Fortress to release the Beast Tyrant's ghost."
+
+		"pit_of_trials_secret_soul_ferrier"							"Soul Ferrier Grimlok"

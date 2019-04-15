@@ -6480,6 +6480,8 @@ function tyrant_ghost_think(event)
 		StartAnimation(caster, {duration=16, activity=ACT_DOTA_TELEPORT, rate=1.0})
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", caster, 30)	
 		local new_beast = Seafortress:SpawnDungeonUnit("seafortress_beast_tyrant", statuePos, 10, 10, "Seafortress.TyrantGhost.Aggro", Vector(0,-1), false)
+		new_beast.reduc = 0.0000018
+		new_beast.isBossFFS = true
 		new_beast:SetAbsOrigin(statuePos)
 		local new_beast_ability = new_beast:FindAbilityByName("seafortress_beast_tryant_passive")
 		
@@ -6575,7 +6577,6 @@ function tyrant_ghost_think(event)
 						Dungeons:AggroUnit(new_beast)
 						local new_beast_ability = new_beast:FindAbilityByName("seafortress_beast_tryant_passive")
 						new_beast_ability:ApplyDataDrivenModifier(new_beast, new_beast, "modifier_beast_tyrant_combat_ai", {})
-						new_beast:FindAbilityByName("specter_rush_two"):SetLevel(7)
 					end)
 				end)
 			end)
@@ -6592,6 +6593,10 @@ function tyrant_ghost_combat_think(event)
 	if not caster:IsAlive() then
 		return false
 	end
+	if not ability.interval then
+		ability.interval = 0
+	end
+	ability.interval = ability.interval + 1
 	local seven_visions = caster:FindAbilityByName("seven_visions")
 	if seven_visions:IsFullyCastable() then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 450, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )
@@ -6604,6 +6609,57 @@ function tyrant_ghost_combat_think(event)
 			}
 			ExecuteOrderFromTable(order)
 			return false
+		end
+	end
+	if ability.interval%RandomInt(2, 5) == 0 then
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			local plasma = caster:FindAbilityByName("duskbringer_arcana_terrorize_phantom_plasma")
+			if plasma:IsFullyCastable() then
+				local targetPoint = enemies[1]:GetOrigin() + RandomVector(RandomInt(80, 220))			
+				local order =
+				{
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = plasma:entindex(),
+					Position = targetPoint
+				}
+				ExecuteOrderFromTable(order)
+			end
+		end
+	end
+
+	if ability.interval == 40 then
+		ability.interval = 0
+		local colors_table = {"red", "blue", "yellow"}
+		EmitSoundOn("Seafortress.TyrantGhost.ColorsAbility.VO", caster)
+		StartAnimation(caster, {duration=1.9, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.9})
+		for i = 1, #colors_table, 1 do
+			local target = caster:GetAbsOrigin()+RandomVector(RandomInt(400, 1000))
+			local unit = CreateUnitByName("npc_dummy_unit", target, false, caster, caster, caster:GetTeamNumber())
+			
+			unit:AddAbility("seafortress_beast_tryant_dummy_area"):SetLevel(1)
+			local color_ability = unit:FindAbilityByName("seafortress_beast_tryant_dummy_area")
+			local modifierName = "modifier_beast_tyrant_dummy_"..colors_table[i]
+			color_ability:ApplyDataDrivenModifier(unit, unit, modifierName, {})
+			unit:FindAbilityByName("dummy_unit"):SetLevel(1)
+			unit.pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/ghost_tyrant_area_portrait.vpcf", PATTACH_CUSTOMORIGIN, unit)
+			local colorVector = Vector(255, 0, 0)
+			if colors_table[i] == "blue" then
+				colorVector = Vector(0,0,255)
+			elseif colors_table[i] == "yellow" then
+				colorVector = Vector(255,255,0)
+			end
+
+			ParticleManager:SetParticleControl(unit.pfx, 0, unit:GetAbsOrigin()+Vector(0,0,30))
+			ParticleManager:SetParticleControl(unit.pfx, 4, colorVector)
+			EmitSoundOnLocationWithCaster(target, "Seafortress.TyrantGhost.ColorsAbility.Effect", caster)
+			
+			
+			Timers:CreateTimer(12, function()
+				ParticleManager:DestroyParticle(unit.pfx, false)
+				UTIL_Remove(unit)
+			end)
 		end
 	end
 end

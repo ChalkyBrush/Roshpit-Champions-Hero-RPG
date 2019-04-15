@@ -2274,6 +2274,9 @@ function widow_die(event)
 					end
 				end)
 			end)
+			Timers:CreateTimer(10, function()
+				Arena:SoulFerrierEvent()
+			end)
 		end)
 	end)
 	--SOUL FERRIER

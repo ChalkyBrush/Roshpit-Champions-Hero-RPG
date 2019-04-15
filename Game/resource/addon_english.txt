@@ -13749,6 +13749,8 @@
 		"DOTA_Tooltip_ability_item_rpc_grimloks_soul_vessel"		"Grimlok's Soul Vessel"
 		"item_rpc_grimloks_soul_vessel_desc"						"Use anywhere in Sea Fortress to release the Beast Tyrant's ghost."
 
+		"pit_of_trials_secret_soul_ferrier"							"Soul Ferrier Grimlok"
+
 
 		"zone_redfall"											"Redfall Ridge"
 
@@ -15538,6 +15540,20 @@
 		
 		"DOTA_Tooltip_modifier_mega_haste_passive"						"Mega Haste"
 		"DOTA_Tooltip_modifier_mega_haste_passive_Description"			"Movespeed and movespeed cap increased by 500."
+
+		"DOTA_Tooltip_ability_seafortress_beast_tryant_passive"			"Beast Tyrant"
+		"DOTA_Tooltip_ability_seafortress_beast_tryant_passive_Description"	"Can only take damage from Magic when standing in blue, Pure when standing in Yellow, and Physical when standing in Red."	
+
+		"DOTA_Tooltip_modifier_beast_tyrant_in_blue"					"Beast Tyrant's Blue"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_blue_Description"		"Can deal Physical damage"
+
+		"DOTA_Tooltip_modifier_beast_tyrant_in_red"					"Beast Tyrant's Red"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_red_Description"		"Can deal Magical damage"
+
+		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow"					"Beast Tyrant's Yellow"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow_Description"		"Can deal Pure damage"
+
+		"seafortress_beast_tyrant"										"Beast Tyrant"
 
 		"serengaard_vote_skip_wave"										"Vote Skip"
 		

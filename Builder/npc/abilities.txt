@@ -20595,6 +20595,68 @@
 		}
 	}
 
+	"seafortress_beast_tryant_dummy_area"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_beast_tyrant_dummy_blue"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			
+				"Aura"          	"modifier_beast_tyrant_in_blue"
+				"Aura_Radius"   	"600"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_beast_tyrant_in_blue"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_beast_tyrant_dummy_red"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			
+				"Aura"          	"modifier_beast_tyrant_in_red"
+				"Aura_Radius"   	"600"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_beast_tyrant_in_red"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_beast_tyrant_dummy_yellow"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			
+				"Aura"          	"modifier_beast_tyrant_in_yellow"
+				"Aura_Radius"   	"600"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_beast_tyrant_in_yellow"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+		}
+	}
+
 	"tanari_thicket_bat_ai"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"

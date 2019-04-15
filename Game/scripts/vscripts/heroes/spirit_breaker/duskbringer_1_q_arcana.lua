@@ -153,8 +153,12 @@ function duskbringer_terrorize_bomb_start(event)
 			end
 		end		
 	end)
-	terrorize_ability.impact_count = math.min(terrorize_ability.impact_count + 1, 5)
-	EmitSoundOnLocationWithCaster(point, "Duskbringer.Terrorize.Impact"..terrorize_ability.impact_count, caster)
+	if terrorize_ability then
+		terrorize_ability.impact_count = math.min(terrorize_ability.impact_count + 1, 5)
+		EmitSoundOnLocationWithCaster(point, "Duskbringer.Terrorize.Impact"..terrorize_ability.impact_count, caster)
+	else
+		EmitSoundOnLocationWithCaster(point, "Duskbringer.Terrorize.Impact"..RandomInt(1, 5), caster)
+	end
 
 	EmitSoundOn("Duskbringer.Terrorize.Breath", caster)
 end

@@ -2331,12 +2331,15 @@ function Arena:SpawnSpiritOfRakash(position, fv)
 end
 
 function Arena:SoulFerrierEvent()
-	PrecacheUnitByNameAsync("pit_of_trials_secret_soul_ferrier", function(...) end)
-	PrecacheUnitByNameAsync("arena_ferrier_gargoyle", function(...) end)
-	Timers:CreateTimer(3, function()
-		local position = Vector(8896, 8640)
-		Arena:SpawnSoulFerrier(position, Vector(0,-1))
-	end)
+	local luck = RandomInt(1, 60)
+	if luck <= 2+GameState:GetPlayerPremiumStatusCount()*1 then
+		PrecacheUnitByNameAsync("pit_of_trials_secret_soul_ferrier", function(...) end)
+		PrecacheUnitByNameAsync("arena_ferrier_gargoyle", function(...) end)
+		Timers:CreateTimer(2, function()
+			local position = Vector(8896, 8640)
+			Arena:SpawnSoulFerrier(position, Vector(0,-1))
+		end)
+	end
 end
 
 function Arena:SpawnSoulFerrier(position, fv)

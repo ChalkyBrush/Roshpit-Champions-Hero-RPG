@@ -2124,6 +2124,7 @@ function RPCItems:GetAvailableArcanaData(hero)
         table.insert(arcanaData, {2, 1})
     elseif unitName == "npc_dota_hero_spirit_breaker" then
         table.insert(arcanaData, {1, 1})
+        table.insert(arcanaData, {2, 0})
     elseif unitName == "npc_dota_hero_zuus" then
         table.insert(arcanaData, {1, 0})
         table.insert(arcanaData, {2, 0})
@@ -2290,6 +2291,8 @@ function RPCItems:RollArcanaByName(arcana_name, position)
         arcana = RPCItems:RollJexArcana1(position)
     elseif arcana_name == "item_rpc_slipfinn_arcana1" then
         arcana = RPCItems:RollSlipfinnArcana1(position)
+    elseif arcana_name == "item_rpc_duskbringer_arcana2" then
+        arcana = RPCItems:RollDuskbringerArcana2(position)
     end
     return arcana
 end
