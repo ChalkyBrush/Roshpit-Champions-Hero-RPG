@@ -6292,9 +6292,9 @@
 		"DOTA_Tooltip_ability_flamewaker_rune_q_4"								"[Q4] Molten Flux"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"Health restored by Restorative Earth and damage caused by Eruption increase Flamewaker's attack damage for 4 seconds."
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_one"					"Attack Bonus From Restorative Earth"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix"						"per health point restored"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix"						" per health point restored"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_two"					"Attack Bonus From Eruption"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix_two"					"per 10 damage dealt"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix_two"					" per 10 damage dealt"
 
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_4" 							"Molten Flux"
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_4_description" 				"Increased Attack Damage."
@@ -8211,8 +8211,10 @@
 		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"DURATION:"
 		"DOTA_Tooltip_ability_seinaru_gorudo_att_per_agi"			"AGILITY TO ATTACK DAMAGE:"
 
-		"DOTA_Tooltip_modifier_monk_ulti_gorudo"					"Gorudo"
-		"DOTA_Tooltip_modifier_monk_ulti_gorudo_Description"		"Spell Immunity"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_magic_immunity"					"Gorudo"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_magic_immunity_Description"		"Spell Immunity"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_att_bonus_visible"					"Gorudo"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_att_bonus_visible_Description"		"Grants base attack damage based on Seinaru's attributes"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_1"						"[R1] Armor Piercing"
     	"DOTA_Tooltip_ability_seinaru_rune_r_1_Description"			"Seinaru's attacks reduce enemy Armor greatly for 8 seconds. Effect can not put a target below 0 armor. Applies before the attack lands."

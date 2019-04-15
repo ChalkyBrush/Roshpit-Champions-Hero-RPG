@@ -6291,9 +6291,9 @@
 		"DOTA_Tooltip_ability_flamewaker_rune_q_4"								"[Q4] Molten Flux"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"Восстановленное здоровье от руны [Q2] и урон, нанесенный руной [Q3] увеличивают урон Flamewaker на 4 секунды."
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_one"					"Доп. урон от руны Restorative Earth"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix"						"за каждое очко здоровья, восстановленное руной Restorative Earth"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix"						" за каждое очко здоровья, восстановленное руной Restorative Earth"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_two"					"Доп. урон от руны Eruption"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix_two"					"за каждые 10 ед. урона"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix_two"					" за каждые 10 ед. урона"
 
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_4" 							"Molten Flux"
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_4_description" 				"Урон увеличен."
@@ -7640,8 +7640,10 @@
 		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_seinaru_gorudo_attack_damage_percent"			"ЛОВКОСТЬ В СИЛУ АТАКИ:"
 
-		"DOTA_Tooltip_modifier_monk_ulti_gorudo"					"Gorudo"
-		"DOTA_Tooltip_modifier_monk_ulti_gorudo_Description"		"Иммунитет к магии"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_magic_immunity"					"Gorudo"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_magic_immunity_Description"		"Иммунитет к магии"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_att_bonus_visible"					"Gorudo"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_att_bonus_visible_Description"		"Grants base attack damage based on Seinaru's attributes"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_1"						"[R1] Armor Piercing"
     	"DOTA_Tooltip_ability_seinaru_rune_r_1_Description"			"Обычные атаки Seinaru значительно снижают броню врагов на 8 секунд.<br>Эффект не будет снижать броню ниже 0.<br>Эффект применяется перед атакой."
@@ -10273,7 +10275,7 @@
 		"item_rpc_voltex_glyph_7_1_description" 				"Прочтение (W) Static стоит 100% вашей маны и перезаряжается 8 секунд. При этом врагам наносится увеличенный в @glyph_property1 раз(а) урон и они оглушаются на @glyph_property2 сек."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"(Immortal) Глиф проводимости"
-		"item_rpc_voltex_glyph_5_a_description" 			"Увеличивает длительность эффекта от (Q) @Ability1 на @glyph_property1 секунды."
+		"item_rpc_voltex_glyph_5_a_description" 			"Увеличивает длительность эффекта от (Q) @Ability1 на @glyph_property1%."
 
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed"	"Electron Effect"
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed_Description"	"Замедлен"

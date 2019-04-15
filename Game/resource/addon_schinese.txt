@@ -7875,8 +7875,10 @@
 		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"持续时间:"
 		"DOTA_Tooltip_ability_seinaru_gorudo_att_per_agi"			"每点敏捷提高基础攻击:"
 
-		"DOTA_Tooltip_modifier_monk_ulti_gorudo"					"戈尔德"
-		"DOTA_Tooltip_modifier_monk_ulti_gorudo_Description"		"魔法免疫"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_magic_immunity"					"戈尔德"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_magic_immunity_Description"		"魔法免疫"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_att_bonus_visible"					"Gorudo"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_att_bonus_visible_Description"		"Grants base attack damage based on Seinaru's attributes"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_1"						"[R1] 穿甲"
     	"DOTA_Tooltip_ability_seinaru_rune_r_1_Description"			"神圣剑客的攻击在8秒内大量减少敌人的护甲。效果无法适用于护甲低于0的目标。抬手前就能造成该效果。"
@@ -10017,7 +10019,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% 死神审判的伤害"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1"						"[R2] 疾病流窜"
-    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"提高死神镰刀搜索敌人的范围半径，并使R1具有额外的打击概率"
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"提高死神镰刀搜索敌人的范围半径，并使[R1]具有额外的打击概率"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_property_one"			"额外搜索半径提高"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix"					"%"
         "DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_property_two"			"额外的R1打击概率"
@@ -10034,7 +10036,7 @@
     	"DOTA_Tooltip_modifier_reaper_slice_shield_Description"					"吸收伤害"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1"						"[R4] 娴熟收割"
-    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"提高开启 @Ability4 时的基础移速，同时，根据@Ability4的符文等级为剧毒巫师减免一定百分比的伤害"
+    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"提高开启 @Ability4 时的基础移速，同时，根据@Ability4的符文等级为剧毒巫师减免一定百分比的伤害(最高减伤值90%)"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_one"			"移速提高"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix"					""
         "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_two"                 "伤害减免"
