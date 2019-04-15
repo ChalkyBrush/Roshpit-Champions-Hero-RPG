@@ -53,7 +53,7 @@ function vigor_start(event)
 					spiritTable[i].r_3_level = c_d_level
 					if d_d_level > 0 then
 						ability:ApplyDataDrivenModifier(caster, spiritTable[i], "modifier_ancient_spirit_attackspeed", {duration = duration})
-						spiritTable[i]:SetModifierStackCount("modifier_ancient_spirit_attackspeed", caster, d_d_level+80)
+						spiritTable[i]:SetModifierStackCount("modifier_ancient_spirit_attackspeed", caster, d_d_level)
 					end
 				end
 			end

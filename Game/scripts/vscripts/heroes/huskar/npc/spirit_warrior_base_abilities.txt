@@ -731,7 +731,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "12"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15"
 				}
 			}
 			"modifier_ancient_vigor_regen"
