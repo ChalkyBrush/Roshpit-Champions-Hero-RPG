@@ -798,7 +798,7 @@ function GetPitModData(level)
     var enemyAttackDamage = 0
     var enemyResistance = 0
     var paragonSpawnRate = 1
-    }if (level == 2){
+    if (level == 2){
         enemyAttackDamage = 30
         enemyResistance = 50
         paragonSpawnRate = 1.25
