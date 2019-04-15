@@ -390,6 +390,7 @@ function ChatDropItems(keys)
     Timers:CreateTimer(timer, function() RPCItems:RollDinathArcana1(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollJexArcana1(vector) end) timer = timer + 1
     Timers:CreateTimer(timer, function() RPCItems:RollSlipfinnArcana1(vector) end) timer = timer + 1
+    Timers:CreateTimer(timer, function() RPCItems:RollDuskbringerArcana2(vector) end) timer = timer + 1
   end
 
   if string.match(text, "-legendaries1") or string.match(text, "-gloves") then
@@ -815,8 +816,8 @@ function GameMode:OnPlayerChat(keys)
   local text = string.lower(keys.text)
   if string.match(text, "dbg") then
     local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
-    for i=1,1 do
-        RPCItems:RollSlipfinnArcana1(vector)
+    for i=1,10 do
+        RPCItems:RollDuskbringerArcana2(vector)
     end
   end
 
