@@ -6629,7 +6629,7 @@ function tyrant_ghost_combat_think(event)
 		end
 	end
 
-	if ability.interval == 40 then
+	if ability.interval >= 40 then
 		ability.interval = 0
 		local colors_table = {"red", "blue", "yellow"}
 		EmitSoundOn("Seafortress.TyrantGhost.ColorsAbility.VO", caster)
