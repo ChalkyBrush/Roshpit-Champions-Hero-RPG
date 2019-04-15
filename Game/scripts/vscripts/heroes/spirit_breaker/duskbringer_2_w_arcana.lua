@@ -65,7 +65,6 @@ function shadow_slam_end(event)
 	local w_2_level = caster:GetRuneValue("w", 2)
 	local w_3_level = caster:GetRuneValue("w", 3)
 	local w_4_level = caster:GetRuneValue("w", 4)
-	local flailAbility = caster:FindAbilityByName("whirling_flail")
 	local stacksCount = Runes:Procs(w_3_level, DUSKBRINGER_ARCANA_W3_PROC_CHANCE, 1)
 					
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )	
@@ -74,7 +73,7 @@ function shadow_slam_end(event)
 			Filters:TakeArgumentsAndApplyDamage(enemies[i], caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_SHADOW)
 			Filters:ApplyStun(caster, stunDuration, enemies[i])
 			if w_3_level > 0 then
-				increment_duskfire_stacks(caster, enemies[i], flailAbility, stacksCount)
+				increment_duskfire_stacks(caster, enemies[i], stacksCount)
 			end
 		end
 	end

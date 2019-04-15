@@ -31,12 +31,11 @@ function begin_manifestation(event)
 		local casterOrigin = caster:GetAbsOrigin()
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, 360, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 
-		local flailAbility = caster:FindAbilityByName("whirling_flail")
 		if #enemies > 0 then
 			EmitSoundOn("Hero_Spirit_Breaker.GreaterBash", caster)
 			local stacksCount = DUSKBRINGER_GLYPH_7_1_MULT_STACKS * Runes:Procs(e_3_level, DUSKBRINGER_E3_PROC_CHANCE, 1)
 			for _,enemy in pairs(enemies) do
-				increment_duskfire_stacks(caster,enemy, flailAbility, stacksCount)
+				increment_duskfire_stacks(caster,enemy, stacksCount)
 			end
 		end 			
 	end
