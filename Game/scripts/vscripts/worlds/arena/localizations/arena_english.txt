@@ -881,3 +881,8 @@
 		"DOTA_Tooltip_ability_arena_pit_boss_dash_Description"	"Pit Lord dashes forward, crushing foes before him. Deals 305000 magical damage."
 		"DOTA_Tooltip_ability_arena_pit_final_boss_ai"			"Lord of the Pit"
 		"DOTA_Tooltip_ability_arena_pit_final_boss_ai_Description"			"In forsaken dungeons of Arena, the ancient evil awaits for challengers."
+
+		"DOTA_Tooltip_ability_item_rpc_grimloks_soul_vessel"		"Grimlok's Soul Vessel"
+		"item_rpc_grimloks_soul_vessel_desc"						"Use anywhere in Sea Fortress to release the Beast Tyrant's ghost."
+
+		"pit_of_trials_secret_soul_ferrier"							"Soul Ferrier Grimlok"

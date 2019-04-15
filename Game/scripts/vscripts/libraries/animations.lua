@@ -411,7 +411,8 @@ local _ANIMATION_TRANSLATE_TO_CODE = {
   basher = 355,
   freeze = 356,
   hunter_night = 357,
-  rope = 358
+  rope = 358,
+  walk_gesture = 361
 }
 
 local DoAnimation = function()

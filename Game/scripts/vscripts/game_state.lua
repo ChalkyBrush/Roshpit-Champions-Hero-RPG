@@ -594,6 +594,11 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
+		if unit:HasModifier("modifier_terrorize_thinking") then
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+				unit:RemoveModifierByName("modifier_terrorize_thinking")
+			end
+		end
 		if unit:GetUnitName() == "npc_dota_hero_winter_wyvern" then
 			unit.lastOrder = orderTable.order_type
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
@@ -2213,6 +2218,10 @@ function GameState:FilterDamage(filterTable)
 		local stacks = victim:GetModifierStackCount("modifier_jex_q_cosmic_cosmic_postmitigation", attacker)
 		mult = mult + 0.3*stacks
 	end
+	if attacker:HasModifier("modifier_duskbringer_arcana_q_4") then
+		local stacks = attacker:GetModifierStackCount("modifier_duskbringer_arcana_q_4", attacker)
+		mult = mult + 0.17*stacks
+	end
 	if attacker:HasModifier("modifier_trickster_mask") then
 		local minBoost = 0
 		if attacker:HasModifier("modifier_boots_of_great_fortune") then
@@ -3598,6 +3607,14 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_disable_player") then
 		filterTable["damage"] = 0
 	end
+	if victim:HasModifier("modifier_beast_tyrant_combat_ai") then
+		if attacker:HasModifier("modifier_beast_tyrant_in_blue") and damagetype == DAMAGE_TYPE_MAGICAL then
+		elseif attacker:HasModifier("modifier_beast_tyrant_in_red") and damagetype == DAMAGE_TYPE_PHYSICAL then
+		elseif attacker:HasModifier("modifier_beast_tyrant_in_yellow") and damagetype == DAMAGE_TYPE_PURE then
+		else
+			filterTable["damage"] = 0
+		end
+	end
 	if victim:HasModifier("modifier_colossus_restore") then
 		filterTable["damage"] = 0
 	end
@@ -3926,16 +3943,21 @@ function GameState:FilterDamage(filterTable)
 	-- 	filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
 	if Beacons.cheats then
-		-- if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-		-- 	if victim:IsHero() then
-		-- 		filterTable["damage"] = 0
-		-- 	end
-		-- end
-		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-		-- 	if attacker:IsHero() then
-		-- 		filterTable["damage"] = 9999999999
-		-- 	end
-		-- end
+		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if victim:IsHero() then
+				filterTable["damage"] = 0
+			end
+		end
+		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if attacker:IsHero() then
+				if not victim:HasModifier("modifier_disable_player") then
+					if filterTable["damage"] > 0 then
+						filterTable["damage"] = 9999999999
+					end
+				end
+			end
+		end
+		-- filterTable["damage"] = 0
 	end
 
 	if (EntIndexToHScript(filterTable["entindex_attacker_const"]) == EntIndexToHScript(filterTable["entindex_victim_const"])) and (filterTable["damage"] > StartingDamage) then

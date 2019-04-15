@@ -254,17 +254,17 @@ end
 function Arena:GetResistancePercentage()
 	local resistMult = 1
 	if Arena.PitLevel == 2 then
-		resistMult = 0.75
-	elseif Arena.PitLevel == 3 then
 		resistMult = 0.5	
-	elseif Arena.PitLevel == 4 then
+	elseif Arena.PitLevel == 3 then
 		resistMult = 0.2	
-	elseif Arena.PitLevel == 5 then
+	elseif Arena.PitLevel == 4 then
 		resistMult = 0.1	
-	elseif Arena.PitLevel == 6 then
+	elseif Arena.PitLevel == 5 then
 		resistMult = 0.007	
-	elseif Arena.PitLevel == 7 then
+	elseif Arena.PitLevel == 6 then
 		resistMult = 0.001	
+	elseif Arena.PitLevel == 7 then
+		resistMult = 0.0001	
 	end
 	return resistMult
 end
@@ -272,17 +272,17 @@ end
 function Arena:GetDamageStacks()
 	local damageStacks = 0
 	if Arena.PitLevel == 2 then
-		damageStacks = 1
-	elseif Arena.PitLevel == 3 then
 		damageStacks = 3
-	elseif Arena.PitLevel == 4 then
+	elseif Arena.PitLevel == 3 then
 		damageStacks = 5
-	elseif Arena.PitLevel == 5 then
+	elseif Arena.PitLevel == 4 then
 		damageStacks = 10
-	elseif Arena.PitLevel == 6 then
+	elseif Arena.PitLevel == 5 then
 		damageStacks = 20
-	elseif Arena.PitLevel == 7 then
+	elseif Arena.PitLevel == 6 then
 		damageStacks = 30
+	elseif Arena.PitLevel == 7 then
+		damageStacks = 40
 	end
 	return damageStacks
 end
@@ -2304,17 +2304,17 @@ end
 function Arena:GetPitMithrilReward()
 	local mithrilReward = 1500
 	if Arena.PitLevel == 2 then
-		mithrilReward = 1600
+		mithrilReward = 2000
 	elseif Arena.PitLevel == 3 then
-		mithrilReward = 2200
-	elseif Arena.PitLevel == 4 then
 		mithrilReward = 3000
-	elseif Arena.PitLevel == 5 then
-		mithrilReward = 4000
-	elseif Arena.PitLevel == 6 then
+	elseif Arena.PitLevel == 4 then
 		mithrilReward = 5000
+	elseif Arena.PitLevel == 5 then
+		mithrilReward = 7000
+	elseif Arena.PitLevel == 6 then
+		mithrilReward = 9000
 	elseif Arena.PitLevel == 7 then
-		mithrilReward = 6000
+		mithrilReward = 14000
 	end
 	return mithrilReward
 end
@@ -2327,5 +2327,106 @@ function Arena:SpawnSpiritOfRakash(position, fv)
 	stone.itemLevel = 128
 	local ability = stone:FindAbilityByName("solos_burning_spear")
 	ability:ToggleAutoCast()
+	return stone
+end
+
+function Arena:SoulFerrierEvent()
+	local luck = RandomInt(1, 60)
+	if luck <= 2+GameState:GetPlayerPremiumStatusCount()*1 then
+		PrecacheUnitByNameAsync("pit_of_trials_secret_soul_ferrier", function(...) end)
+		PrecacheUnitByNameAsync("arena_ferrier_gargoyle", function(...) end)
+		Timers:CreateTimer(2, function()
+			local position = Vector(8896, 8640)
+			Arena:SpawnSoulFerrier(position, Vector(0,-1))
+		end)
+	end
+end
+
+function Arena:SpawnSoulFerrier(position, fv)
+	local stone = Arena:SpawnDungeonUnit("pit_of_trials_secret_soul_ferrier", position, 2, 4, "Arena.FerrierIntro2", fv, false)
+	stone.cantAggro = true
+	-- stone:SetRenderColor(150,150,150)
+	-- Arena:ColorWearables(stone, Vector(150,150,150))
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 1500, 1500, false)
+	Events:AdjustBossPower(stone, 14, 14, false)
+	stone.itemLevel = 128
+	Events:ColorWearablesAndBase(stone, Vector(180, 255, 220))
+	stone:SetModelScale(0.03)
+	Events:smoothSizeChange(stone, 0.03, 1.5, 90)
+	Timers:CreateTimer(1, function()
+		StartAnimation(stone, {duration=10, activity=ACT_DOTA_TELEPORT, rate=1.0})
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", stone, 30)
+		EmitSoundOn("Arena.FerrierIntro1", stone)
+		Timers:CreateTimer(4, function()
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", stone, 30)
+		end)
+	end)
+	EmitSoundOnLocationWithCaster(stone:GetAbsOrigin(), "Arena.SecretHorrorPiano", stone)
+	for i = 1, #MAIN_HERO_TABLE, 1 do
+		EmitSoundOnLocationWithCaster(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "Arena.SecretHorrorPiano", stone)
+	end
+	local ability = stone:FindAbilityByName("soul_ferrier_passive")
+	ability:ApplyDataDrivenModifier(stone, stone, "modifier_disable_player", {})
+	
+
+	stone:SetAbsOrigin(stone:GetAbsOrigin()+Vector(0,0,1500))
+	stone.speed_fall = 25
+	for i = 1, 200, 1 do
+		Timers:CreateTimer(i*0.03, function()
+			if stone:GetAbsOrigin().z - GetGroundHeight(stone:GetAbsOrigin(), stone) > 2 then
+				stone:SetAbsOrigin(stone:GetAbsOrigin() - Vector(0,0,stone.speed_fall))
+				stone.speed_fall = math.max(5, stone.speed_fall-0.3)
+			end
+		end)
+	end
+	Timers:CreateTimer(8, function()
+		local enemies = FindUnitsInRadius( stone:GetTeamNumber(), stone:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			Arena:FerrierSequence(stone, enemies)
+		else
+			return 3
+		end
+	end)
+	return stone
+end
+
+function Arena:FerrierSequence(ferrier, enemies)
+	StartAnimation(ferrier, {duration=10, activity=ACT_DOTA_TELEPORT, rate=1.0})
+	Arena.FerrierGargoyleTable = {}
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", ferrier, 30)
+	for i = 1, 30, 1 do
+		Timers:CreateTimer(i*0.2, function()
+			local spawn_pos = ferrier:GetAbsOrigin() + RandomVector(RandomInt(800, 1200))
+			local targetPosition = enemies[RandomInt(1, #enemies)]:GetAbsOrigin()+RandomVector(RandomInt(100, 400))
+			local garg = Arena:SpawnFerrierGargoyle(spawn_pos, targetPosition)
+			local base_ability = ferrier:FindAbilityByName("soul_ferrier_passive")
+			base_ability:ApplyDataDrivenModifier(ferrier, garg, "modifier_ferrier_unit", {})
+		end)
+	end
+	EmitSoundOnLocationWithCaster(ferrier:GetAbsOrigin(), "Arena.FerrierWaveSpawn", ferrier)
+	EmitSoundOn("Arena.FerrierIntro1", ferrier)
+	Timers:CreateTimer(6.5, function()
+		Arena:RemoveFerrierShield(ferrier:GetAbsOrigin())
+	end)
+end
+
+function Arena:RemoveFerrierShield(startPos)
+	local pfx = CustomAbilities:QuickParticleAtPoint("particles/econ/items/pugna/pugna_ward_ti5/pugna_ward_attack_heavy_ti_5.vpcf", startPos+Vector(0,0,100), 3)
+	local gargoyle_open = Arena.FerrierGargoyleTable[RandomInt(1, #Arena.FerrierGargoyleTable)]
+	if gargoyle_open then
+		ParticleManager:SetParticleControl(pfx, 1, gargoyle_open:GetAbsOrigin()+Vector(0,0,100))
+		gargoyle_open:RemoveModifierByName("modifier_disable_player")
+		EmitSoundOn("Arena.FerrierShieldRemove.Scream", gargoyle_open)
+	end
+end
+
+function Arena:SpawnFerrierGargoyle(position, targetPosition)
+	local stone = Arena:SpawnDungeonUnit("arena_ferrier_gargoyle", position, 0, 1, nil, fv, false)
+	CustomAbilities:QuickAttachParticle("particles/econ/items/wisp/wisp_relocate_timer_buff_ti7_end_sparkle.vpcf", stone, 3)
+	EmitSoundOn("Arena.FerrierWaveSpawn", stone)
+	Dungeons:AggroUnit(stone)
+	stone:MoveToPositionAggressive(targetPosition)
+	stone.death_code = 1
+	table.insert(Arena.FerrierGargoyleTable, stone)
 	return stone
 end

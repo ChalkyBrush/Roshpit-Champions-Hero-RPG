@@ -9,7 +9,12 @@ function begin_specter_rush_two(event)
 	local cast_distance = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())
 	local distance = math.min(cast_distance, event.max_distance)
 	local duration = distance/chargeSpeed
-	StartAnimation(caster, {duration=duration+0.39, activity=ACT_DOTA_RUN, rate=1.4, translate="charge"})
+	caster:RemoveModifierByName("modifier_terrorize_animation")
+	if caster:HasModifier("modifier_terrorize_thinking") then
+		StartAnimation(caster, {duration=duration+0.39, activity=ACT_DOTA_RUN, rate=0.45, translate="charge"})
+	else
+		StartAnimation(caster, {duration=duration+0.39, activity=ACT_DOTA_RUN, rate=1.4, translate="charge"})
+	end
 	ability.fv = ((target-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	ability.e_3_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "duskbringer")
 	ability.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "duskbringer")
@@ -41,6 +46,16 @@ function specter_rush_thinking(event)
 	caster.EFV = ability.fv
 	local e_3_level = caster:GetRuneValue("e", 3)
 	local newPos = GetGroundPosition(caster:GetAbsOrigin() + ability.fv*movement, caster)
+	if caster:HasModifier("modifier_terrorize_thinking") or caster:HasModifier("modifier_name_after_terrorize_falling") then
+		newPos = caster:GetAbsOrigin() + ability.fv*movement
+		local downspeed = -3
+		if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 5 then
+			downspeed = 0
+		elseif caster:GetAbsOrigin().z > 500 then
+			downspeed = 0
+		end
+		newPos = newPos - Vector(0,0,downspeed)
+	end
 	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin()*Vector(1,1,0))
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos*Vector(1,1,0), caster)
 	if not blockUnit then
@@ -75,6 +90,14 @@ end
 function specter_rush_end(event)
 	local ability = event.ability
 	local caster = event.caster
+	if caster:HasModifier("modifier_terrorize_thinking") or caster:HasModifier("modifier_name_after_terrorize_falling") then
+		if caster:HasAbility("duskbringer_arcana_terrorize") and caster:HasModifier("modifier_terrorize_thinking") then
+			EndAnimation(caster)
+			local arcana_ability = caster:FindAbilityByName("duskbringer_arcana_terrorize")
+			arcana_ability:ApplyDataDrivenModifier(caster, caster, "modifier_terrorize_animation", {})
+		end
+		return false
+	end
 	ability.slideVelocity = 30
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_specter_rush_sliding", {duration = 0.45})
 	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
@@ -83,6 +106,9 @@ end
 function charge_slide_think(event)
 	local ability = event.ability
 	local caster = event.caster
+	if caster:HasModifier("modifier_terrorize_thinking") or caster:HasModifier("modifier_name_after_terrorize_falling") then
+		return false
+	end
 	local newPos = GetGroundPosition(caster:GetAbsOrigin() + ability.fv*ability.slideVelocity, caster)
 	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin()*Vector(1,1,0))
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos*Vector(1,1,0), caster)
@@ -158,6 +184,9 @@ function immortal3_attack_land(event)
 end
 
 function duskbringer_rune_e_1_refresh(caster, duration)
+	if not caster:IsHero() then
+		return false
+	end
     local event = {}
     event.caster = caster.runeUnit
     event.duration = duration
@@ -170,6 +199,9 @@ function duskbringer_rune_e_1_think(event)
     local caster = event.caster
     local ability = event.ability
     local hero = caster.hero
+    if not IsValidEntity(hero) then
+    	return false
+    end
     local e_1_level = hero:GetRuneValue("e", 1)
     if e_1_level > 0 then
         local target = hero

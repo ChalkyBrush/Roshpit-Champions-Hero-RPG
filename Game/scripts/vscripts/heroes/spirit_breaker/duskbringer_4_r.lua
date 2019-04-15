@@ -18,13 +18,17 @@ function seven_visions_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_seven_visions_striking_glyphed", {duration = (attacks-1)*0.3})
 	caster:RemoveModifierByName("modifier_duskbringer_rune_r_3")
 	seven_visions_strike(caster, caster:GetAbsOrigin(), damage, ability)
-
+	caster:RemoveModifierByName("modifier_terrorize_animation")
 	Filters:CastSkillArguments(4, caster)
 end
 
 function seven_visions_think(event)
 	local ability = event.ability
 	local caster = event.caster
+	if caster:HasModifier("modifier_terrorize_thinking") or caster:HasModifier("modifier_name_after_terrorize_falling") then
+		caster:RemoveModifierByName("modifier_terrorize_thinking")
+		caster:RemoveModifierByName("modifier_terrorize_animation")
+	end
 	seven_visions_strike(caster, caster:GetAbsOrigin(), damage, ability)
 end
 
@@ -91,5 +95,8 @@ end
 
 function seven_visions_end(event)
 	local caster = event.caster
+	if caster:HasModifier("modifier_terrorize_thinking") or caster:HasModifier("modifier_name_after_terrorize_falling") then
+		return false
+	end
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 end

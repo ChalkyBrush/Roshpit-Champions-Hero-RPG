@@ -10,6 +10,8 @@ function begin_ghost_hallow(event)
 	--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(target, caster), "ghost_hallow", {duration = 6})
 	CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(target, caster), "ghost_hallow", {duration = 6})
 	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=2.1})
+
+	EmitSoundOn("Hero_Spirit_Breaker.PreAttack", caster)
 end
 
 function ghost_trap_enter(event)
@@ -86,6 +88,9 @@ function ghost_hallow_think(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = caster:FindAbilityByName("whirling_flail")
+	if not ability then
+		ability = caster:FindAbilityByName("duskbringer_arcana_terrorize")
+	end
 	local q_1_level = caster:GetRuneValue("q", 1)
 	if caster:HasModifier("modifier_duskbringer_glyph_2_1") and q_1_level > 0 then
 		increment_duskfire_stacks(caster, target, ability, DUSKBRINGER_GLYPH_2_1_STACKS_PER_SEC)

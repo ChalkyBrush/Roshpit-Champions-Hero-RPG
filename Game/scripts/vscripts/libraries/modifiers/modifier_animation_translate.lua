@@ -360,7 +360,8 @@ local _CODE_TO_ANIMATION_TRANSLATE = {
   [357]= "hunter_night",
   [358]= "rope",
   [359]= "gyroshell",
-  [360]= "assassin"
+  [360]= "assassin",
+  [361]= "walk_gesture"
 }
 
 function modifier_animation_translate:OnCreated(keys) 

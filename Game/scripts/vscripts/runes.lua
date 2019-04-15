@@ -345,6 +345,9 @@ function Runes:Procs(runeLevel, chancePerLevel, mod)
 end
 
 function Runes:GetTotalRuneLevel(caster, tier, runeID, heroName)
+	if not caster:IsRealHero() then
+		return 0
+	end
 	local runeUnit = ""
 	if tier == 1 then
 		runeUnit = caster.runeUnit
@@ -680,6 +683,9 @@ function Runes:EquipArcana(hero, index)
 			local newRune = hero.runeUnit4:AddAbility("duskbringer_rune_w_4_arcana1")
 			newRune:SetLevel(runeLevel4)
 			newRune:SetAbilityIndex(abilityIndex)
+		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_flail_passive")
+			Runes:EasySwapArcanaSkills(hero, 0, "whirling_flail", "duskbringer_arcana_terrorize", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_invoker" then
 		print("-----HELLO----")
@@ -1364,6 +1370,12 @@ function Runes:UnequipArcana(hero, index)
 			local newRune = hero.runeUnit4:AddAbility("duskbringer_rune_w_4")
 			newRune:SetLevel(runeLevel4)
 			newRune:SetAbilityIndex(abilityIndex)
+		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_terrorize_passive")
+			hero:RemoveModifierByName("modifier_terrorize_thinking")
+			hero:RemoveModifierByName("modifier_terrorize_animation")
+			hero:RemoveModifierByName("modifier_name_after_terrorize_falling")
+			Runes:EasyRevertArcanaSkills(hero, 0, "whirling_flail", "duskbringer_arcana_terrorize", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_invoker" then
 		if index == 1 then

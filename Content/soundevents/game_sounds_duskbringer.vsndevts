@@ -322,3 +322,259 @@
         }
     }
 }
+
+"Duskbringer.Terrorize.Start"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/duskbringer/arcana2_jump.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.40000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "0.90000"  }
+                    "soundlevel"        {   "value"     "94.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Duskbringer.Terrorize.StartScare"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/duskbringer/arcana2_breath.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.15000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "0.90000"  }
+                    "soundlevel"        {   "value"     "93.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Duskbringer.Terrorize.Breath"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/duskbringer/arcana2_breath.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.30000"  }
+                    "pitch_rand_min"    {   "value"     "-0.04000"  }
+                    "pitch_rand_max"    {   "value"     "0.040000"  }
+                    "pitch"             {   "value"     "1.30000"  }
+                    "soundlevel"        {   "value"     "88.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Duskbringer.Terrorize.Impact1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/duskbringer/arcana2_impact1.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.70000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Duskbringer.Terrorize.Impact2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/duskbringer/arcana2_impact2.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.70000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Duskbringer.Terrorize.Impact3"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/duskbringer/arcana2_impact3.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.70000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Duskbringer.Terrorize.Impact4"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/duskbringer/arcana2_impact4.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.70000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Duskbringer.Terrorize.Impact5"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/duskbringer/arcana2_impact5.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.70000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}

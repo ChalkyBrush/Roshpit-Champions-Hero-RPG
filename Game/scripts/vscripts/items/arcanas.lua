@@ -270,6 +270,48 @@ function RPCItems:RollDuskbringerArcana1(deathLocation)
     return item
 end
 
+function RPCItems:RollDuskbringerArcana2(deathLocation)
+    local item = RPCItems:CreateVariantArcana("item_rpc_duskbringer_arcana2", "arcana", "Duskbringer Arcana 2", "head", true, "Slot: Head", "npc_dota_hero_spirit_breaker", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.property1 = 1
+    item.property1name = "!arcana!_duskbringer_arcana2"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_duskbringer_arcana2", "#c9d6d6",  1, "#property_duskbringer_arcana2_description")
+
+
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.property2name = "rune_q_1"
+        item.property2 = math.ceil(value*1.1)
+    elseif luck <= 70 then
+        item.property2name = "rune_q_2"
+        item.property2 = math.ceil(value*1.1)       
+    elseif luck <= 90 then
+        item.property2name = "rune_q_3"
+        item.property2 = math.ceil(value*1) 
+    else
+        item.property2name = "rune_q_4"
+        item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+
+
+    local value, prefixLevel = RPCItems:RollAttribute(100, 10, 45, 0, 0, item.rarity, false, maxFactor*36)
+    item.property3 = value
+    item.property3name = "strength"
+    RPCItems:SetPropertyValues(item, item.property3, "#item_strength", "#CC0000",  3)
+
+    local value, prefixLevel = RPCItems:RollAttribute(300, 300, 1000, 1, 1, item.rarity, false, maxFactor*2000)
+    item.property4 = value
+    item.property4name = "max_health"
+    RPCItems:SetPropertyValues(item, item.property4, "#item_max_health", "#B02020",  4)
+
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
+    return item
+end
+
 function RPCItems:RollConjurorArcana1(deathLocation)
     local item = RPCItems:CreateVariantArcana("item_rpc_conjuror_arcana1", "arcana", "Conjuror Arcana 1", "body", true, "Slot: Body", "npc_dota_hero_invoker", 0)
     local maxFactor = RPCItems:GetMaxFactor()
@@ -1872,7 +1914,7 @@ function RPCItems:RollConjurorArcana3(deathLocation)
     item.property3name = "strength"
     RPCItems:SetPropertyValues(item, item.property3, "#item_strength", "#CC0000",  3)
 
-    RPCItems:RollFootProperty4(item, 0)
+    RPCItems:RollHoodProperty4(item, 0)
 
     RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
     return item
@@ -2082,6 +2124,7 @@ function RPCItems:GetAvailableArcanaData(hero)
         table.insert(arcanaData, {2, 1})
     elseif unitName == "npc_dota_hero_spirit_breaker" then
         table.insert(arcanaData, {1, 1})
+        table.insert(arcanaData, {2, 0})
     elseif unitName == "npc_dota_hero_zuus" then
         table.insert(arcanaData, {1, 0})
         table.insert(arcanaData, {2, 0})
@@ -2248,6 +2291,8 @@ function RPCItems:RollArcanaByName(arcana_name, position)
         arcana = RPCItems:RollJexArcana1(position)
     elseif arcana_name == "item_rpc_slipfinn_arcana1" then
         arcana = RPCItems:RollSlipfinnArcana1(position)
+    elseif arcana_name == "item_rpc_duskbringer_arcana2" then
+        arcana = RPCItems:RollDuskbringerArcana2(position)
     end
     return arcana
 end

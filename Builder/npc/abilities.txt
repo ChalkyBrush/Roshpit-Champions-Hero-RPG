@@ -161,6 +161,7 @@
 
 	##DUSKBRINGER_ARCANA_1_ABILITIES##
 	##DUSKBRINGER_ARCANA_1_RUNES##
+	##DUSKBRINGER_ARCANA_2_ABILITIES##
 	##DUSKBRINGER_BASE_ABILITIES##
 	##DUSKBRINGER_BASE_RUNES##
 
@@ -191,6 +192,8 @@
 	##PALADIN_ARCANA_2_RUNES##
 
 	##WINTERBLIGHT_ABILITIES##
+
+	##ARENA_ABILITIES##
 
 
 	##TUTORIAL_ABILITIES##
@@ -20509,6 +20512,147 @@
 					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
 				}
+			}
+		}
+	}
+
+	"seafortress_beast_tryant_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"MaxLevel"	"3"
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+				"Function"		"beast_tyrant_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_beast_tyrant_ghost_mode"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
+				}	
+				"ThinkInterval"  "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"tyrant_ghost_think"
+					}
+				}
+				"StatusEffectName" 		"particles/status_fx/status_effect_ghost.vpcf"
+				"StatusEffectPriority"  "100"
+			}
+			"modifier_beast_tyrant_spawning"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"				"MODIFIER_STATE_VALUE_ENABLED"
+				}	
+			}
+			"modifier_disable_player"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_beast_tyrant_combat_ai"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"tyrant_ghost_combat_think"
+					}
+				}
+			}
+		}
+	}
+
+	"seafortress_beast_tryant_dummy_area"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_beast_tyrant_dummy_blue"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			
+				"Aura"          	"modifier_beast_tyrant_in_blue"
+				"Aura_Radius"   	"600"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_beast_tyrant_in_blue"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_beast_tyrant_dummy_red"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			
+				"Aura"          	"modifier_beast_tyrant_in_red"
+				"Aura_Radius"   	"600"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_beast_tyrant_in_red"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_beast_tyrant_dummy_yellow"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			
+				"Aura"          	"modifier_beast_tyrant_in_yellow"
+				"Aura_Radius"   	"600"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_beast_tyrant_in_yellow"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
 			}
 		}
 	}
