@@ -75,12 +75,11 @@ function specter_rush_thinking(event)
 			knockback_distance = knockback_distance,
 			knockback_height = 70
 		}
-		local flailAbility = caster:FindAbilityByName("whirling_flail")
 		if #enemies > 0 then
 			EmitSoundOn("Hero_Spirit_Breaker.GreaterBash", caster)
 			local stacksCount = Runes:Procs(e_3_level, DUSKBRINGER_E3_PROC_CHANCE, 1)
 			for _,enemy in pairs(enemies) do
-				increment_duskfire_stacks(caster,enemy, flailAbility, stacksCount)
+				increment_duskfire_stacks(caster,enemy, stacksCount)
 			end
 		end 			
 	end

@@ -93,7 +93,7 @@ function ghost_hallow_think(event)
 	end
 	local q_1_level = caster:GetRuneValue("q", 1)
 	if caster:HasModifier("modifier_duskbringer_glyph_2_1") and q_1_level > 0 then
-		increment_duskfire_stacks(caster, target, ability, DUSKBRINGER_GLYPH_2_1_STACKS_PER_SEC)
+		increment_duskfire_stacks(caster, target, DUSKBRINGER_GLYPH_2_1_STACKS_PER_SEC)
 	end
 end
 

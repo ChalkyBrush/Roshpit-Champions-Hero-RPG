@@ -139,7 +139,7 @@ function duskbringer_terrorize_bomb_start(event)
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				if q_1_level > 0 then
-					increment_duskfire_stacks(caster, enemy, terrorize_ability, stack_increment)
+					increment_duskfire_stacks(caster, enemy, stack_increment)
 				end
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
 				if q_2_level > 0 then
