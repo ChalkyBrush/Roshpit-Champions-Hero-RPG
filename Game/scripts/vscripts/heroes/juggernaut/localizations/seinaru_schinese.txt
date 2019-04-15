@@ -111,8 +111,10 @@
 		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"持续时间:"
 		"DOTA_Tooltip_ability_seinaru_gorudo_att_per_agi"			"每点敏捷提高基础攻击:"
 
-		"DOTA_Tooltip_modifier_monk_ulti_gorudo"					"戈尔德"
-		"DOTA_Tooltip_modifier_monk_ulti_gorudo_Description"		"魔法免疫"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_magic_immunity"					"戈尔德"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_magic_immunity_Description"		"魔法免疫"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_att_bonus_visible"					"Gorudo"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_att_bonus_visible_Description"		"Grants base attack damage based on Seinaru's attributes"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_1"						"[R1] 穿甲"
     	"DOTA_Tooltip_ability_seinaru_rune_r_1_Description"			"神圣剑客的攻击在8秒内大量减少敌人的护甲。效果无法适用于护甲低于0的目标。抬手前就能造成该效果。"
