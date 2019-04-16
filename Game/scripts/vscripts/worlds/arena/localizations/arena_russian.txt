@@ -866,3 +866,8 @@
 
 		"DOTA_Tooltip_ability_temple_arachnomancer"							"Summon Spiderlings"
 		"DOTA_Tooltip_ability_temple_arachnomancer_Description"				"Призывает пауков на свою сторону."
+		
+		"DOTA_Tooltip_ability_item_rpc_grimloks_soul_vessel"		"Grimlok's Soul Vessel"
+		"item_rpc_grimloks_soul_vessel_desc"						"Используйте на карте Sea Fortress чтобы выпустить призрак Зверя-Тирана."
+
+		"pit_of_trials_secret_soul_ferrier"							"Soul Ferrier Grimlok"

@@ -192,7 +192,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + multIncrease
     end
 
-    if casterName == "npc_dota_hero_spirit_breaker" then
+    if casterName == "npc_dota_hero_spirit_breaker" and caster:HasAbility("whirling_flail") then
 		local q_2_level = caster:GetRuneValue("q", 2)
         mult = mult + DUSKBRINGER_Q2_ITEM_PCT * q_2_level
     end
