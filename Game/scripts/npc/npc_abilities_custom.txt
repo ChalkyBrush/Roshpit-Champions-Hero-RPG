@@ -1181,7 +1181,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"postmitigation_per_tech"				"30"
+				"postmitigation_per_tech"				"50"
 			}
 			"03"
 			{
@@ -1201,7 +1201,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"e_4_damage_increase_pct"				"10"
+				"e_4_damage_increase_pct"				"20"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -1283,7 +1283,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"3.4"
+		"AbilityCooldown"				"1.5"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -1402,7 +1402,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"7"
+		"AbilityCooldown"				"3"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -1424,7 +1424,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"10.0 10.5 11.0 11.5 12.0 12.5 13.0"
+				"duration"				"20.0 20.0 20.0 20.0 20.0 20.0 20.0"
 			}
 			"02"
 			{
@@ -1573,7 +1573,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"w_4_lightning_damage_increase"				"6"
+				"w_4_lightning_damage_increase"				"10"
 			}	
 		}
 		"OnSpellStart"
@@ -1811,7 +1811,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"180 400 800 1400 2000 4800 9000"
+		"AbilityManaCost"				"180 400 800 1400 2000 3000 5000"
 
 		"precache"
 		{
@@ -1857,7 +1857,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"e_4_damage_increase_pct"			"15"
+				"e_4_damage_increase_pct"			"50"
 			}
 		}
 
@@ -1996,7 +1996,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_dmg_pct_per_tech"			"70"
+				"attack_dmg_pct_per_tech"			"100"
 			}
 			"03"
 			{
@@ -2167,7 +2167,7 @@
 			"09"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"w_4_damage_increase_pct"			"10"
+				"w_4_damage_increase_pct"			"25"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -2290,7 +2290,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"w_4_damage_increase_pct"			"10"
+				"w_4_damage_increase_pct"			"25"
 			}
 			"07"
 			{
@@ -2428,7 +2428,7 @@
 			"08"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"q_4_damage_increase_pct"			"10"
+				"q_4_damage_increase_pct"			"30"
 			}
 		}
 
@@ -2803,7 +2803,7 @@
 			"10"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"w_4_damage_increase_pct"			"10"
+				"w_4_damage_increase_pct"			"20"
 			}	
 		}
 		"OnSpellStart"
@@ -3173,7 +3173,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6.0 5.75 5.5 5.25 5.0 4.75 4.5"
+		"AbilityCooldown"				"6.0 5.5 5.0 4.5 4.0 3.5 3.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -3328,7 +3328,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movespeed_min_base"				"400"
+				"movespeed_min_base"				"550"
 			}			
 			"04"
 			{
@@ -3540,6 +3540,7 @@
 			}
 		}
 	}
+
 
 	"jex_base_cannon_fire"
 	{
@@ -3808,7 +3809,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"w_4_damage_increase_pct_edges"		"100"
+				"w_4_damage_increase_pct_edges"		"50"
 			}
 		}
 		"OnSpellStart"
@@ -3908,7 +3909,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"w_4_base_damage_increase"				"15"
+				"w_4_base_damage_increase"				"30"
 			}
 			"07"
 			{
@@ -4026,7 +4027,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"w_4_attack_damage_from_pulse"				"150"
+				"w_4_attack_damage_from_pulse"				"30"
 			}
 		}
 		"OnSpellStart"
@@ -4185,7 +4186,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"flames_per_tech"	"1"
+				"flames_per_tech"	"2"
 			}
 			"02"
 			{
@@ -4227,7 +4228,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_damage_of_target_per_tech"				"1 2 4 8 16 32 64"
+				"attack_damage_of_target_per_tech"				"2 4 8 16 32 64 128"
 			}
 			"02"
 			{
@@ -4669,7 +4670,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"w_4_burn_damage_explosion_damage"					"50"
+				"w_4_burn_damage_explosion_damage"					"100"
 			}	
 		}
 		"OnSpellStart"
@@ -5059,7 +5060,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"50"
 			}
 			"02"
 			{
@@ -5106,6 +5107,7 @@
 	}
 
 
+
 	"jex_rune_q_1"
 	{
 		"BaseClass"				"ability_datadriven"
@@ -5137,7 +5139,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"50"
 			}
 			"02"
 			{
@@ -5214,7 +5216,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"50"
 			}
 			"02"
 			{
@@ -5290,7 +5292,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"50"
 			}
 			"02"
 			{
@@ -5403,7 +5405,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"4"
+				"property_one"			"6"
 			}
 		}
 	}
@@ -24031,7 +24033,7 @@
 		"AbilityTextureName"	"spirit_warrior/ancient_rain"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"20"
-		"AbilityChannelTime"	"3.0"
+		"AbilityChannelTime"	"2.0"
 		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT"
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
 		"RequiredLevel"          		"-5"
@@ -24210,12 +24212,12 @@
 			"01"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"duration"	"24"
+				"duration"	"60"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_reduction_percent"	"40 45 50 55 60 65 70"
+				"damage_reduction_percent"	"60 65 70 75 80 85 90"
 			}
 			"03"
 			{
@@ -24249,7 +24251,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"18"
+				"duration"				"60"
 			}
 		}
 
@@ -24260,7 +24262,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"6"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
@@ -24685,7 +24687,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8.0 7.5 7.0 6.5 6.0 5.5 5.0"
+		"AbilityCooldown"				"6.0 5.5 5.0 4.5 4.0 3.5 3.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -24698,7 +24700,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"cooldown"				"8.0 7.5 7.0 6.5 6.0 5.5 5.0"
+				"cooldown"				"6.0 5.5 5.0 4.5 4.0 3.5 3.0"
 			}
 			"02"
 			{
@@ -25177,7 +25179,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"18"
+				"duration"				"60"
 			}
 			"03"
 			{
@@ -25215,7 +25217,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"6.0"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
@@ -25330,7 +25332,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"18"
+				"duration"				"60"
 			}
 			"02"
 			{
@@ -25346,7 +25348,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"6"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
