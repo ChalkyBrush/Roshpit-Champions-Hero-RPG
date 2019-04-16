@@ -6,7 +6,7 @@
 		"AbilityTextureName"	"spirit_warrior/ancient_rain"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"20"
-		"AbilityChannelTime"	"3.0"
+		"AbilityChannelTime"	"2.0"
 		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT"
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
 		"RequiredLevel"          		"-5"
@@ -185,12 +185,12 @@
 			"01"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"duration"	"24"
+				"duration"	"60"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_reduction_percent"	"40 45 50 55 60 65 70"
+				"damage_reduction_percent"	"60 65 70 75 80 85 90"
 			}
 			"03"
 			{
@@ -224,18 +224,18 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"18"
+				"duration"				"60"
 			}
 		}
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1100 1100 1100 1100 1100 1100 1100"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.1"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"6"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------

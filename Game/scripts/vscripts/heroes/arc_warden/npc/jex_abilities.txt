@@ -1151,7 +1151,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ALACRITY"
 
 		"AbilityCastRange"				"1300 1400 1500 1600 1700 1800 1900"
-		"AbilityCastPoint"				"0.6"
+		"AbilityCastPoint"				"0.05"
 		"AOERadius"						"%radius"
 
 		// Precache
@@ -1172,7 +1172,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"postmitigation_per_tech"				"30"
+				"postmitigation_per_tech"				"50"
 			}
 			"03"
 			{
@@ -1192,7 +1192,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"e_4_damage_increase_pct"				"10"
+				"e_4_damage_increase_pct"				"20"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -1274,7 +1274,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"3.4"
+		"AbilityCooldown"				"1.5"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -1393,7 +1393,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"7"
+		"AbilityCooldown"				"3"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -1415,7 +1415,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"10.0 10.5 11.0 11.5 12.0 12.5 13.0"
+				"duration"				"20.0 20.0 20.0 20.0 20.0 20.0 20.0"
 			}
 			"02"
 			{
@@ -1564,7 +1564,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"w_4_lightning_damage_increase"				"6"
+				"w_4_lightning_damage_increase"				"10"
 			}	
 		}
 		"OnSpellStart"
@@ -1802,7 +1802,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"180 400 800 1400 2000 4800 9000"
+		"AbilityManaCost"				"180 400 800 1400 2000 3000 5000"
 
 		"precache"
 		{
@@ -1848,7 +1848,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"e_4_damage_increase_pct"			"15"
+				"e_4_damage_increase_pct"			"50"
 			}
 		}
 
@@ -1987,7 +1987,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_dmg_pct_per_tech"			"70"
+				"attack_dmg_pct_per_tech"			"100"
 			}
 			"03"
 			{
@@ -2158,7 +2158,7 @@
 			"09"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"w_4_damage_increase_pct"			"10"
+				"w_4_damage_increase_pct"			"25"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -2281,7 +2281,8 @@
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"w_4_damage_increase_pct"			"10"
+				"w_4_damage_increase_pct"			"25
+				"
 			}
 			"07"
 			{
@@ -2419,7 +2420,7 @@
 			"08"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"q_4_damage_increase_pct"			"10"
+				"q_4_damage_increase_pct"			"30"
 			}
 		}
 
@@ -2649,7 +2650,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.1"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -2794,7 +2795,7 @@
 			"10"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"w_4_damage_increase_pct"			"10"
+				"w_4_damage_increase_pct"			"20"
 			}	
 		}
 		"OnSpellStart"
@@ -3164,7 +3165,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6.0 5.75 5.5 5.25 5.0 4.75 4.5"
+		"AbilityCooldown"				"6.0 5.5 5.0 4.5 4.0 3.5 3.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -3319,7 +3320,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movespeed_min_base"				"400"
+				"movespeed_min_base"				"550"
 			}			
 			"04"
 			{

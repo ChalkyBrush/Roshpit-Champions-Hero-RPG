@@ -265,7 +265,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"w_4_damage_increase_pct_edges"		"100"
+				"w_4_damage_increase_pct_edges"		"50"
 			}
 		}
 		"OnSpellStart"
@@ -323,7 +323,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"1.0"
+		"AbilityCastPoint"				"0.3"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -365,7 +365,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"w_4_base_damage_increase"				"15"
+				"w_4_base_damage_increase"				"30"
 			}
 			"07"
 			{
@@ -483,7 +483,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"w_4_attack_damage_from_pulse"				"150"
+				"w_4_attack_damage_from_pulse"				"30"
 			}
 		}
 		"OnSpellStart"
@@ -642,7 +642,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"flames_per_tech"	"1"
+				"flames_per_tech"	"2"
 			}
 			"02"
 			{
@@ -684,7 +684,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_damage_of_target_per_tech"				"1 2 4 8 16 32 64"
+				"attack_damage_of_target_per_tech"				"2 4 8 16 32 64 128"
 			}
 			"02"
 			{
@@ -1126,7 +1126,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"w_4_burn_damage_explosion_damage"					"50"
+				"w_4_burn_damage_explosion_damage"					"100"
 			}	
 		}
 		"OnSpellStart"
