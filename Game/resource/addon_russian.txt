@@ -5040,7 +5040,7 @@
 		"DOTA_Tooltip_modifier_whirling_flail_Description"  			"Размахивает оружием"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1"						"[Q1] Duskfire Flail"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"Оружие Duskbringer наделяется дополнительной энергией, высвобождаемой при атаках огненным взрывом, заставляя врагов получать доп. огненный урон. Эффект горения складывается неограниченное количество раз. Эффект длится 5 секунж."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"Оружие Duskbringer наделяется дополнительной энергией, высвобождаемой при атаках огненным взрывом, заставляя врагов получать доп. огненный урон. Эффект горения складывается неограниченное количество раз. Эффект длится 5 секунд."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_one"		"Базовый урон"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix"				""		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_two"		"Доп. урон от Ловкости"
@@ -5224,6 +5224,55 @@
 
 		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_4"					"Rise of the Phantom Lord"
 		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_4_Description"		"Урон героя значительно увеличен"
+		
+		//ARCANA2
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_arcana2"						"Horns of the Tyrant"
+
+		"item_property_duskbringer_arcana2"										"Terrorize"
+		"property_duskbringer_arcana2_description"								"Заменяет @Ability1 и все соответствующие руны на Terrorize."
+
+		"DOTA_Tooltip_modifier_terrorize_thinking"								"Terrorize"
+		"DOTA_Tooltip_modifier_terrorize_thinking_Description"					"Иммунитет к атакам и магии. Способности применяются без поворота герояя."
+
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize"						"Terrorize"
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_Description"			"Элемент: <font color=\"#9ACCD1\">Призрак</font><br>Duskbringer взмывает в воздух и зависает в выбранном месте. В этом состоянии герой неуязвим для магии и атакам, а применение способностей не требует поворота к цели. На время действия способность заменяется на Phantom Plasma. Приказ перемещения заканчивает эффект."
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_base_duration"		"ДЛИТЕЛЬНОСТЬ:"
+
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma"		"Phantom Plasma"
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_Description"			"Элемент: <font color=\"#9ACCD1\">Призрак</font><br>Сгусток потусторонней энергии вылетает в сторону цели и взрывается при ударе. Противники, пораженные сгустком, теряют скорость передвижения на 10 следующих секунд."
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_damage"				"УРОН:"
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_additional_damage_atk_power_pct"	"% СИЛЫ АТАКИ В УРОН СПОСОБНОСТИ:"
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_move_slow_percent"				"% ЗАМЕДЛЕНИЕ:"
+
+
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2"						"[Q1] Duskfire II"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_Description"			"Оружие Duskbringer наделяется дополнительной энергией, высвобождаемой при атаках огненным взрывом, заставляя врагов получать доп. огненный урон. Эффект горения складывается неограниченное количество раз. Эффект длится 5 секунд. Пораженные Phantom Plasma тоже загораются."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_one"		"Урон в секунду"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix"				""		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_two"		"Урон от Ловкости"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix_two"			"x"
+		
+		"DOTA_Tooltip_modifier_duskbringer_rune_q_1"				"Duskfire Flail"
+		"DOTA_Tooltip_modifier_duskbringer_rune_q_1_Description"	"Горит призрачным огнем"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2"						"[Q2] Panic"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2_Description"			"Противники, задетые Terrorize, обезоружены и убегают прочь от героя. Противники имунны к эффекту паники на 3 секунды после завершения действия эффекта."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2_property_one"		"Длительность паники"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2_suffix"				" секунд"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2"						"[Q3] Encroaching Fear"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2_Description"			"Продлевает длительность полёта от Terrorize."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2_property_one"		"Увеличение длительности"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2_suffix"				" секунд"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2"						"[Q4] Beast Haunt"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_Description"			"Во время Terrorize и на 4 секунды после приземления Пост-резистный урон увеличен."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_property_one"		"Пост-резистный урон"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_suffix"				"%"
+
+		"DOTA_Tooltip_modifier_duskbringer_arcana_q_4"							"Beast Haunt"
+		"DOTA_Tooltip_modifier_duskbringer_arcana_q_4_Description"				"Пост-резистный урон увеличен."
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_1"		"(T1) Глиф дыхания смерти"
@@ -13666,6 +13715,11 @@
 
 		"DOTA_Tooltip_ability_temple_arachnomancer"							"Summon Spiderlings"
 		"DOTA_Tooltip_ability_temple_arachnomancer_Description"				"Призывает пауков на свою сторону."
+		
+		"DOTA_Tooltip_ability_item_rpc_grimloks_soul_vessel"		"Grimlok's Soul Vessel"
+		"item_rpc_grimloks_soul_vessel_desc"						"Используйте на карте Sea Fortress чтобы выпустить призрак Зверя-Тирана."
+
+		"pit_of_trials_secret_soul_ferrier"							"Soul Ferrier Grimlok"
 
 		"zone_redfall"											"Осенний Хребет"
 
@@ -15412,6 +15466,20 @@
 		
 		"DOTA_Tooltip_modifier_mega_haste_passive"						"Mega Haste"
 		"DOTA_Tooltip_modifier_mega_haste_passive_Description"			"Скорость передвижения и ее порог увеличены на 500."
+		
+		"DOTA_Tooltip_ability_seafortress_beast_tryant_passive"			"Beast Tyrant"
+		"DOTA_Tooltip_ability_seafortress_beast_tryant_passive_Description"	"Получает только урон от Магии, когда стоит в синем круге, от Чистого урона, когда в желтом и от Физического урона, когда стоит в красном круге."	
+
+		"DOTA_Tooltip_modifier_beast_tyrant_in_blue"					"Beast Tyrant's Blue"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_blue_Description"		"Можно нанести Магический урон"
+
+		"DOTA_Tooltip_modifier_beast_tyrant_in_red"					"Beast Tyrant's Red"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_red_Description"		"Можно нанести Физический урон"
+
+		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow"					"Beast Tyrant's Yellow"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow_Description"		"Можно нанести Чистый урон"
+		
+		"seafortress_beast_tyrant"										"Зверь-Тиран"
 
 		"serengaard_vote_skip_wave"										"Пропустить ожидание"
 		

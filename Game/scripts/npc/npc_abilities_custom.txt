@@ -40410,6 +40410,7 @@
 		"MaxLevel"				 		"7"
 		"AOERadius"						"280"
 		"AbilityCastAnimation"			"ACT_DOTA_LEAP_STUN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"900 950 1000 1050 1100 1150 1200"
 
 		// Precache

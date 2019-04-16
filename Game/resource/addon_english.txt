@@ -4922,7 +4922,7 @@
 		"item_rpc_djanghor_glyph_6_1_description" 				"Every 2 seconds, Djanghor cleanses 1 enemy debuff from himself. Any of Djanghor's animal form spells that make him charge to a location will apply [E3] when cast."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"Glyph of Mauling"
-		"item_rpc_djanghor_glyph_7_1_description" 				"Attacks during Bear form have a @special_property1% chance to bash the target, dealing @special_property2% increased damage and stunning for @special_property3 seconds. Additionally, War Stomp now reduces the Armor of affected targets by the same value as Wolf form's Rend."
+		"item_rpc_djanghor_glyph_7_1_description" 				"Attacks during Bear form have a @glyph_property1% chance to bash the target, dealing @glyph_property2% increased damage and stunning for @glyph_property3 seconds. Additionally, War Stomp now reduces the Armor of affected targets by the same value as Wolf form's Rend."
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"Maul"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"Chance on attack to stun and deal additional damage."
@@ -5179,12 +5179,12 @@
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma"		"Phantom Plasma"
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_Description"			"Element: <font color=\"#9ACCD1\">Ghost</font><br>A bulb of spectral energy travels towards the target point and explodes on impact. Enemies hit by the plasma have their movement speed slowed for 10 seconds."
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_damage"				"DAMAGE:"
-		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_addition_damage_atk_power_pct"	"% ATTACK POWER ADDED TO BASE DAMAGE:"
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_additional_damage_atk_power_pct"	"% ATTACK POWER ADDED TO BASE DAMAGE:"
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_move_slow_percent"				"% MOVESPEED SLOW:"
 
 
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2"						"[Q1] Duskfire II"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_Description"			"Duskbringer's weapon has an additional energy that explodes on enemies and leaves a burning DPS debuff. The burn effect stacks with no limit. Duration 5 seconds. Enemies hit by Phantom Plasma have a stack of duskfire added."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_Description"			"Duskbringer's weapon has an additional energy that explodes on enemies and leaves a burning DPS debuff. The burn effect stacks with no limit. Duration 5 seconds. Enemies hit by Phantom Plasma have a stack of Duskfire added."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_one"		"DPS"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix"				""		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_two"		"Bonus Damage from Agility"
@@ -5194,17 +5194,17 @@
 		"DOTA_Tooltip_modifier_duskbringer_rune_q_1_Description"	"Taking ghastly burn damage"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2"						"[Q2] Panic"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2_Description"			"Enemies hit by terrorize run away from duskbringer and are disarmed for a short duration. Enemies become immune to the panic for 3 seconds after the debuff ends."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2_Description"			"Enemies hit by Terrorize run away from Duskbringer and are disarmed for a short duration. Enemies become immune to the panic for 3 seconds after the debuff ends."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2_property_one"		"Panic Duration"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2_suffix"				" seconds"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2"						"[Q3] Encroaching Fear"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2_Description"			"Increases the floating duration of Terrorize"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2_Description"			"Increases the floating duration of Terrorize."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2_property_one"		"Float Duration"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2_suffix"				" seconds"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2"						"[Q4] Beast Haunt"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_Description"			"During Terrorize and for 4 seconds after, Duskbringer has increased Post-mitigation damage."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_Description"			"During Terrorize and for 4 seconds after, Duskbringer has increased Post-Mitigation damage."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_property_one"		"Post-Mitigation Damage"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_suffix"				"%"
 
@@ -15547,10 +15547,10 @@
 		"DOTA_Tooltip_ability_seafortress_beast_tryant_passive_Description"	"Can only take damage from Magic when standing in blue, Pure when standing in Yellow, and Physical when standing in Red."	
 
 		"DOTA_Tooltip_modifier_beast_tyrant_in_blue"					"Beast Tyrant's Blue"
-		"DOTA_Tooltip_modifier_beast_tyrant_in_blue_Description"		"Can deal Physical damage"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_blue_Description"		"Can deal Magical damage"
 
 		"DOTA_Tooltip_modifier_beast_tyrant_in_red"					"Beast Tyrant's Red"
-		"DOTA_Tooltip_modifier_beast_tyrant_in_red_Description"		"Can deal Magical damage"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_red_Description"		"Can deal Physical damage"
 
 		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow"					"Beast Tyrant's Yellow"
 		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow_Description"		"Can deal Pure damage"
