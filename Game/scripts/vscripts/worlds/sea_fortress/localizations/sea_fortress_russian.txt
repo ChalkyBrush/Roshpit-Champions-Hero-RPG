@@ -727,3 +727,17 @@
 		
 		"DOTA_Tooltip_modifier_mega_haste_passive"						"Mega Haste"
 		"DOTA_Tooltip_modifier_mega_haste_passive_Description"			"Скорость передвижения и ее порог увеличены на 500."
+		
+		"DOTA_Tooltip_ability_seafortress_beast_tryant_passive"			"Beast Tyrant"
+		"DOTA_Tooltip_ability_seafortress_beast_tryant_passive_Description"	"Получает только урон от Магии, когда стоит в синем круге, от Чистого урона, когда в желтом и от Физического урона, когда стоит в красном круге."	
+
+		"DOTA_Tooltip_modifier_beast_tyrant_in_blue"					"Beast Tyrant's Blue"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_blue_Description"		"Можно нанести Магический урон"
+
+		"DOTA_Tooltip_modifier_beast_tyrant_in_red"					"Beast Tyrant's Red"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_red_Description"		"Можно нанести Физический урон"
+
+		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow"					"Beast Tyrant's Yellow"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow_Description"		"Можно нанести Чистый урон"
+		
+		"seafortress_beast_tyrant"										"Зверь-Тиран"
