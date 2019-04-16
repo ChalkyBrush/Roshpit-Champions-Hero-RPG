@@ -66,7 +66,7 @@ function SetMapImage(){
 		status = 1
 	}
 	if(mapName === "tutorial"){
-		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/tutorial_load2.jpg")
+		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/tutorial_load3.jpg")
 		status = 1
 	}
 	if (status == 1){
