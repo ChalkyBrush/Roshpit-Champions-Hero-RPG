@@ -218,7 +218,7 @@
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma"		"Phantom Plasma"
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_Description"			"Element: <font color=\"#9ACCD1\">Ghost</font><br>A bulb of spectral energy travels towards the target point and explodes on impact. Enemies hit by the plasma have their movement speed slowed for 10 seconds."
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_damage"				"DAMAGE:"
-		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_addition_damage_atk_power_pct"	"% ATTACK POWER ADDED TO BASE DAMAGE:"
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_additional_damage_atk_power_pct"	"% ATTACK POWER ADDED TO BASE DAMAGE:"
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_move_slow_percent"				"% MOVESPEED SLOW:"
 
 
