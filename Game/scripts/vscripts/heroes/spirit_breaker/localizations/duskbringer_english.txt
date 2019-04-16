@@ -223,7 +223,7 @@
 
 
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2"						"[Q1] Duskfire II"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_Description"			"Duskbringer's weapon has an additional energy that explodes on enemies and leaves a burning DPS debuff. The burn effect stacks with no limit. Duration 5 seconds. Enemies hit by Phantom Plasma have a stack of duskfire added."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_Description"			"Duskbringer's weapon has an additional energy that explodes on enemies and leaves a burning DPS debuff. The burn effect stacks with no limit. Duration 5 seconds. Enemies hit by Phantom Plasma have a stack of Duskfire added."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_one"		"DPS"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix"				""		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_two"		"Bonus Damage from Agility"
@@ -233,17 +233,17 @@
 		"DOTA_Tooltip_modifier_duskbringer_rune_q_1_Description"	"Taking ghastly burn damage"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2"						"[Q2] Panic"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2_Description"			"Enemies hit by terrorize run away from duskbringer and are disarmed for a short duration. Enemies become immune to the panic for 3 seconds after the debuff ends."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2_Description"			"Enemies hit by Terrorize run away from Duskbringer and are disarmed for a short duration. Enemies become immune to the panic for 3 seconds after the debuff ends."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2_property_one"		"Panic Duration"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2_suffix"				" seconds"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2"						"[Q3] Encroaching Fear"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2_Description"			"Increases the floating duration of Terrorize"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2_Description"			"Increases the floating duration of Terrorize."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2_property_one"		"Float Duration"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2_suffix"				" seconds"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2"						"[Q4] Beast Haunt"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_Description"			"During Terrorize and for 4 seconds after, Duskbringer has increased Post-mitigation damage."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_Description"			"During Terrorize and for 4 seconds after, Duskbringer has increased Post-Mitigation damage."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_property_one"		"Post-Mitigation Damage"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_suffix"				"%"
 
