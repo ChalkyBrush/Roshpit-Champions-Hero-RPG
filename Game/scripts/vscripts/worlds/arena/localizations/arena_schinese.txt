@@ -636,3 +636,8 @@
 		
 		"arena_descent_tombstone"								"墓碑"
 		"DOTA_Tooltip_ability_arena_descent_impervious"				"坚定"
+
+		"DOTA_Tooltip_ability_item_rpc_grimloks_soul_vessel"				"阴冷残魂灵龛"
+		"item_rpc_grimloks_soul_vessel_desc"						"在失落深海要塞的任何一处使用来召唤野兽暴君的鬼魂。"
+
+		"pit_of_trials_secret_soul_ferrier"							"芬里尔的残酷之魂"
