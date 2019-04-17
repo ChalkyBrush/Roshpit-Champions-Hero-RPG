@@ -2443,7 +2443,7 @@ function GameState:FilterDamage(filterTable)
 
 	if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
 		if attacker.r_4_level then
-			mult = mult + 0.04*attacker.r_4_level
+			mult = mult + 0.06*attacker.r_4_level
 		end
 	end
 	if attacker:HasModifier("modifier_hydroxis_basin_d_d") then
