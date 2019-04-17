@@ -2216,7 +2216,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_jex_q_cosmic_cosmic_postmitigation") then
 		local stacks = victim:GetModifierStackCount("modifier_jex_q_cosmic_cosmic_postmitigation", attacker)
-		mult = mult + 0.3*stacks
+		mult = mult + 0.5*stacks
 	end
 	if attacker:HasModifier("modifier_duskbringer_arcana_q_4") then
 		local stacks = attacker:GetModifierStackCount("modifier_duskbringer_arcana_q_4", attacker)
