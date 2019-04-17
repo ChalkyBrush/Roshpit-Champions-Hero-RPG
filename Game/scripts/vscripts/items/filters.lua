@@ -2045,7 +2045,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if unitName == "npc_dota_hero_arc_warden" then
             if attacker:HasModifier("modifier_jex_arcana1") then
                 if attacker.w_2_level then
-                    fireMult = fireMult + attacker.w_2_level*1
+                    fireMult = fireMult + attacker.w_2_level*0.5
                 end
             end
         end
@@ -2134,7 +2134,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if unitName == "npc_dota_hero_arc_warden" then
             if not attacker:HasModifier("modifier_jex_arcana1") then
                 if attacker.w_2_level then
-                    mult = mult + attacker.w_2_level*1
+                    mult = mult + attacker.w_2_level*0.5
                 end
             end
         end
@@ -2313,7 +2313,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
             if attacker.e_2_level then
-                cosmosMult = cosmosMult + attacker.e_2_level*1
+                cosmosMult = cosmosMult + attacker.e_2_level*0.5
             end
             if attacker:HasModifier("modifier_jex_cosmic_surge") then
                 local e_4_level = attacker:GetRuneValue("e", 4)
@@ -2673,7 +2673,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_arc_warden" then
             if attacker.q_2_level then
-                mult = mult + attacker.q_2_level*1
+                mult = mult + attacker.q_2_level*0.5
             end
         end
     end
@@ -2707,7 +2707,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_DRAGON or element2 == RPC_ELEMENT_DRAGON then
         if unitName == "npc_dota_hero_winter_wyvern" then
            local d_d_level = attacker:GetRuneValue("r", 4)
-           mult = mult + 0.001*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_d_level
+           mult = mult + 0.0015*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_d_level
            if bIsRealDamage then
                if attacker:HasModifier("modifier_dinath_immortal_weapon_3") then
                   Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
