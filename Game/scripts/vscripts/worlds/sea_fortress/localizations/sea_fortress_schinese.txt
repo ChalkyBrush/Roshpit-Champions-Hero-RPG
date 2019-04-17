@@ -732,4 +732,23 @@
 
 		"sea_fortress_paladin_golem"									"虚声恫吓"
 		"seafortress_archon_wizard"										"执政官巫师"
+		
+		"seafortress_wandering_pirate"									"海盗游魂"
+		"seafortress_wandering_ghost"									"游魂"
+		
+		"DOTA_Tooltip_modifier_mega_haste_passive"						"终极极速"
+		"DOTA_Tooltip_modifier_mega_haste_passive_Description" 			"移动速度上限增加500。"
+		
+		"DOTA_Tooltip_ability_seafortress_beast_tryant_passive"			"猛兽暴君"
+		"DOTA_Tooltip_ability_seafortress_beast_tryant_passive_Description"	"站在蓝色区域里时只受到魔法伤害，在黄色区域里只受到纯粹伤害，在红色区域里只受到物理伤害。"	
 
+		"DOTA_Tooltip_modifier_beast_tyrant_in_blue"					"猛兽暴君之蓝"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_blue_Description"		"可以受到魔法伤害"
+
+		"DOTA_Tooltip_modifier_beast_tyrant_in_red"					"猛兽暴君之红"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_red_Description"		"可以受到物理伤害"
+
+		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow"					"猛兽暴君之黄"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow_Description"		"可以受到纯粹伤害"
+
+		"seafortress_beast_tyrant" "猛兽暴君"
