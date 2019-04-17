@@ -245,12 +245,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"									"风暴裂痕之头 等级1"
 		"item_property_stormcrack"							"风暴裂痕"
-		"property_stormcrack_description"					"当你眩晕敌人时，造成1倍的攻击力+10倍总属性的魔法伤害。每次伤害1各单位增加1点计数。<br>计数达到4000时升级。升级后无法重铸。"
+		"property_stormcrack_description"				"当你眩晕敌人时，对敌人造成<% STORMCRACK_ATTACK_DAMAGE_MULT %>x 攻击力加 <% STORMCRACK_ATTR_DAMAGE_MULT %>x 你的总属性的魔法伤害。每次伤害1各单位增加1点计数。<br>计数达到4000时升级。升级后无法重铸。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm2"								"风暴裂痕之头 等级2"
 		 "item_property_stormcrack2"						"风暴裂痕 II"
-		 "property_stormcrack2_description"					"当你眩晕敌人时，造成 @special_property1x攻击力+@special_property2x总属性的魔法伤害。<br>增加玩家对敌人的的所有眩晕持续时间 35%。该装备无法重铸。"
+		 "property_stormcrack2_description"					"当你眩晕敌人时，造成 <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>X攻击力加<% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>X总属性的魔法伤害。<br>增加玩家对敌人的的所有眩晕持续时间 35%。该装备无法重铸。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"黑魔法兜帽"
