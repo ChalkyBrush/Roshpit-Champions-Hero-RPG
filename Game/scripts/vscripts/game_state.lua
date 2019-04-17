@@ -2216,7 +2216,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_jex_q_cosmic_cosmic_postmitigation") then
 		local stacks = victim:GetModifierStackCount("modifier_jex_q_cosmic_cosmic_postmitigation", attacker)
-		mult = mult + 0.3*stacks
+		mult = mult + 0.5*stacks
 	end
 	if attacker:HasModifier("modifier_duskbringer_arcana_q_4") then
 		local stacks = attacker:GetModifierStackCount("modifier_duskbringer_arcana_q_4", attacker)
@@ -2443,7 +2443,7 @@ function GameState:FilterDamage(filterTable)
 
 	if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
 		if attacker.r_4_level then
-			mult = mult + 0.04*attacker.r_4_level
+			mult = mult + 0.06*attacker.r_4_level
 		end
 	end
 	if attacker:HasModifier("modifier_hydroxis_basin_d_d") then
