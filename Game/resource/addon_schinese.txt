@@ -3679,7 +3679,7 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] 清洁"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"当巴哈姆特开始施放升华时，召唤一群神鸟攻击前方的敌人。被击中的敌人将被冻结一段时间。此外，增加[E3]巴哈姆特的脉搏的伤害，系数为最低的属性除以最高的属性（乘法）"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"当巴哈姆特开始施放升华时，召唤一群神鸟攻击前方的敌人。被击中的敌人将被冻结一段时间。此外，增加[E3]巴哈姆特的脉搏的伤害，增加数值为系数X最低的属性除以最高的属性（乘法）"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"伤害"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					"%"	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"冻结持续时间"
@@ -5522,6 +5522,54 @@
 		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_4"					"灵王之王"
 		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_4_Description"		"大幅提高攻击力"
 		
+		//ARCANA2
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_arcana2"						"暴君之角"
+
+		"item_property_duskbringer_arcana2"										"威吓"
+		"property_duskbringer_arcana2_description"								"将 @Ability1 和他的全部符文替换为威吓。"
+
+		"DOTA_Tooltip_modifier_terrorize_thinking"								"威吓"
+		"DOTA_Tooltip_modifier_terrorize_thinking_Description"					"没有施法角度。免疫魔法伤害和普通攻击。"
+
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize"						"威吓"
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_Description"			"元素：<font color=\"#9ACCD1\">鬼</font><br>夜幕使者向前跳跃，并且以恐怖的形象漂浮在目标地点上方。在威吓状态下时，夜幕使者免疫魔法伤害和普通攻击并且他的施法角度限制被移除。在持续时间内，夜幕使者的威吓将会变为幻影冲击。在威吓状态中发出移动指令将会立刻结束这个效果。"
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_base_duration"		"威吓持续时间："
+
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma"		"幻影冲击"
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_Description"			"元素： <font color=\"#9ACCD1\">鬼</font><br>发射一个充满虚无能量的光球冲向目标并在抵达时爆炸。被幻影冲击击中的敌人的移动速度将会降低，持续10秒。"
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_damage"				"伤害："
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_additional_damage_atk_power_pct"	"基于攻击力%的基础伤害 ："
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_move_slow_percent"				"移动速度降低%："
+
+
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2"						"[Q1] 冥火枷 II"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_Description"			"夜幕使者的武器上附有一股能量，在击中敌人后留下一个灼烧debuff。这个灼烧效果可以无限叠加。持续时间为5秒。敌人在被幻影冲击击中后将被施加冥火枷的debuff。"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_one"		"每层每秒伤害："
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix"				""		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_two"		"基于敏捷的额外伤害："
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix_two"			"x"
+		
+		"DOTA_Tooltip_modifier_duskbringer_rune_q_1"				"冥火枷"
+		"DOTA_Tooltip_modifier_duskbringer_rune_q_1_Description"	"受到可怕的灼烧伤害"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2"						"[Q2] 混乱"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2_Description"			"被威吓击中的敌人将会逃离夜幕使者的身边并且被缴械一段时间。敌人在debuff结束后将会免疫混乱一段时间。"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2_property_one"		"混乱持续时间："
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2_arcana2_suffix"				" 秒"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2"						"[Q3] 恐惧侵蚀"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2_Description"			"增加威吓的漂浮时间。"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2_property_one"		"漂浮持续时间增加："
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2_suffix"				" 秒"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2"						"[Q4] 游魂野鬼"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_Description"			"在威吓持续时间内以及脱离威吓后的4秒里，夜幕使者获得额外的税后伤害加成。"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_property_one"		"税后伤害增加："
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_suffix"				"%"
+
+		"DOTA_Tooltip_modifier_duskbringer_arcana_q_4"							"游魂野鬼"
+		"DOTA_Tooltip_modifier_duskbringer_arcana_q_4_Description"					 "增加税后伤害"
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_1"		"幽灵雕文"
 		"item_rpc_duskbringer_glyph_1_1_description" 				"当进入冥魂状态时，刷新一切技能冷却时间。（同样作用于友军）"
@@ -12492,12 +12540,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"									"风暴裂痕之头 等级1"
 		"item_property_stormcrack"							"风暴裂痕"
-		"property_stormcrack_description"					"当你眩晕敌人时，造成1倍的攻击力+10倍总属性的魔法伤害。每次伤害1各单位增加1点计数。<br>计数达到4000时升级。升级后无法重铸。"
+		"property_stormcrack_description"				"当你眩晕敌人时，对敌人造成<font color='#ccff66'>20</font>x 攻击力加 <font color='#ccff66'>200</font>x 你的总属性的魔法伤害。每次伤害1各单位增加1点计数。<br>计数达到4000时升级。升级后无法重铸。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm2"								"风暴裂痕之头 等级2"
 		 "item_property_stormcrack2"						"风暴裂痕 II"
-		 "property_stormcrack2_description"					"当你眩晕敌人时，造成 @special_property1x攻击力+@special_property2x总属性的魔法伤害。<br>增加玩家对敌人的的所有眩晕持续时间 35%。该装备无法重铸。"
+		 "property_stormcrack2_description"					"当你眩晕敌人时，造成 <font color='#ccff66'>40</font>X攻击力加<font color='#ccff66'>40</font>X总属性的魔法伤害。<br>增加玩家对敌人的的所有眩晕持续时间 35%。该装备无法重铸。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"黑魔法兜帽"
@@ -13572,6 +13620,11 @@
 		
 		"arena_descent_tombstone"								"墓碑"
 		"DOTA_Tooltip_ability_arena_descent_impervious"				"坚定"
+
+		"DOTA_Tooltip_ability_item_rpc_grimloks_soul_vessel"				"阴冷残魂灵龛"
+		"item_rpc_grimloks_soul_vessel_desc"						"在失落深海要塞的任何一处使用来召唤野兽暴君的鬼魂。"
+
+		"pit_of_trials_secret_soul_ferrier"							"芬里尔的残酷之魂"
 
 
 		"zone_redfall"											"落红流火之岭"
@@ -15160,7 +15213,26 @@
 
 		"sea_fortress_paladin_golem"									"虚声恫吓"
 		"seafortress_archon_wizard"										"执政官巫师"
+		
+		"seafortress_wandering_pirate"									"海盗游魂"
+		"seafortress_wandering_ghost"									"游魂"
+		
+		"DOTA_Tooltip_modifier_mega_haste_passive"						"终极极速"
+		"DOTA_Tooltip_modifier_mega_haste_passive_Description" 			"移动速度上限增加500。"
+		
+		"DOTA_Tooltip_ability_seafortress_beast_tryant_passive"			"猛兽暴君"
+		"DOTA_Tooltip_ability_seafortress_beast_tryant_passive_Description"	"站在蓝色区域里时只受到魔法伤害，在黄色区域里只受到纯粹伤害，在红色区域里只受到物理伤害。"	
 
+		"DOTA_Tooltip_modifier_beast_tyrant_in_blue"					"猛兽暴君之蓝"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_blue_Description"		"可以受到魔法伤害"
+
+		"DOTA_Tooltip_modifier_beast_tyrant_in_red"					"猛兽暴君之红"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_red_Description"		"可以受到物理伤害"
+
+		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow"					"猛兽暴君之黄"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow_Description"		"可以受到纯粹伤害"
+
+		"seafortress_beast_tyrant" "猛兽暴君"
 
 
 

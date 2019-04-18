@@ -25351,7 +25351,7 @@
 		"AbilityCooldown"				"6"
 
 		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
+	//-------------------------------------------------------------------------------------------------------------
 		"AbilityDamage"					"0"
 
 		// Cost
@@ -27392,7 +27392,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_two"			"0.03"
 			}
 		}
 	}
@@ -27475,12 +27475,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"-1.5"
+				"property_two"			"-1"
 			}
 		}
 	}
@@ -28756,7 +28756,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"45"
+				"property_one"			"15"
 			}
 			"02"
 			{
@@ -28813,12 +28813,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.01"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
+				"property_two"			"2"
 			}
 		}
 	}
