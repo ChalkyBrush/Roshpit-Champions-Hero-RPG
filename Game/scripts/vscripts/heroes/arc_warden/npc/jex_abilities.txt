@@ -2516,7 +2516,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"post_mitigation_magic_per_tech"			"3 5 7 10 15 20 30"
+				"post_mitigation_magic_per_tech"			"6 10 14 20 28 40 55"
 			}
 			"02"
 			{
