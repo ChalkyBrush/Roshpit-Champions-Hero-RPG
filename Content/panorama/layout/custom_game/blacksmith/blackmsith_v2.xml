@@ -1,0 +1,22 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/resources/blacksmith.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/resources/blacksmith.js" />
+	</scripts>
+	<snippets>
+		<snippet name="item_detail_blacksmith">
+			<Panel class="item_detail_blacksmith_root" hittest="false">
+			
+			</Panel>
+		</snippet>
+
+	</snippets>
+	<Panel class="blacksmith_root" hittest="false">
+
+	</Panel>
+
+
+</root>

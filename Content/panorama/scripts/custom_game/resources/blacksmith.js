@@ -113,8 +113,8 @@ function UnlockBlacksmithAfterReroll(msg){
 	GameUI.CustomUIConfig().mainDialog = 0
 	ToggleChiselState(false)
 	ToggleRerollState(false)
-	$('#item-display-content').RemoveAndDeleteChildren(0);
-	OpenBlacksmith()	
+	// $('#item-display-content').RemoveAndDeleteChildren(0);
+	// OpenBlacksmith()	
 	var rerollPanel = RerollButtonActivate()
 
 	var itemValues = CustomNetTables.GetTableValue( "item_basics", itemIndex.toString() )
@@ -123,16 +123,16 @@ function UnlockBlacksmithAfterReroll(msg){
 		return false;
 	}
 	if (rarity == 5){
-		$.Schedule(0.05, function(){
+
 			var playerID = Game.GetLocalPlayerID()
 			var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
-			Game.EmitSound("ui.crafting_pulse")
+			// Game.EmitSound("ui.crafting_pulse")
 			Game.PrepareUnitOrders( { OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_STOP} );
 			GameEvents.SendCustomGameEventToServer( "drag_into_reroll_slot", {playerID: playerID, heroIndex: heroIndex, itemIndex: itemIndex, ignoreLock: 0, lock1: msg.lock1, lock2: msg.lock2, lock3: msg.lock3, lock4: msg.lock4});
 			// $.Schedule(0.15, function(){
 			// 	rerollPanel.lockSlotsFromServerCall(msg)
 			// });
-        })
+
 	}
 }
 

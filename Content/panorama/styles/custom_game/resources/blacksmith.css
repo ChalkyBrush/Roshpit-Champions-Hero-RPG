@@ -315,6 +315,7 @@
 	margin-top:5px;
 	border-radius:4px;
 	horizontal-align:center;
+	min-height: 65px;
 }
 #item_name{
 	font-size:18px;
@@ -332,13 +333,13 @@
 
 #property_name{
 	horizontal-align:left;
-	font-size:13px;
+	font-size:15px;
 	vertical-align: center;
 }
 
 #property_value{
 	horizontal-align:right;
-	font-size:13px;
+	font-size:15px;
 	vertical-align:center;
 }
 

@@ -201,7 +201,11 @@ function release(event)
 	if ability:GetAbilityName() == "slipfinn_release_possess" then
 		ability = caster:FindAbilityByName("slipfinn_bubble_possession")
 	end
-	caster:RemoveModifierByName("modifier_slipfinn_enemy_locked")
+	if caster:HasModifier("modifier_slipfinn_enemy_locked") then
+		caster:RemoveModifierByName("modifier_slipfinn_enemy_locked")
+	else
+		enemy_locked_end(event)
+	end
 end
 
 function enemy_locked_end(event)
