@@ -2332,7 +2332,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_arkimus_c_b_sprinting") then
 		if victim:HasModifier("modifier_arkimus_immortal_weapon_3") then
-			filterTable["damage"] = 0
+			filterTable["damage"] = 0.01
 		end
 	end
 	if attacker:HasModifier("modifier_conjuror_glyph_5_a") or attacker:HasModifier("modifier_conjuror_glyph_5_a_summon") then
