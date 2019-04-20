@@ -707,11 +707,11 @@ function Winterblight:SpawnZefnar(position, fv)
 	local stone = Winterblight:SpawnDungeonUnit("winterblight_zefnar", position, 2, 4, "Winterblight.Zefnar.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 2, 3, false)
 	stone.itemLevel = 36
-	local health = 200
+	local health = 166
 	if GameState:GetDifficultyFactor() == 2 then
-		health = 500
+		health = 366
 	elseif GameState:GetDifficultyFactor() == 3 then
-		health = 1500
+		health = 666
 	end
     stone:SetMaxHealth(health)
     stone:SetBaseMaxHealth(health)
