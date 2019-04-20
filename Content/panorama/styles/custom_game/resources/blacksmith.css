@@ -325,21 +325,20 @@
 
 .blacksmith_attribute_row{
 	width:100%;
-	height:18px;
+	height:22px;
 	padding-left:10%;
 	padding-right:10%;
-
 }
 
 #property_name{
 	horizontal-align:left;
-	font-size:15px;
+	font-size:16px;
 	vertical-align: center;
 }
 
 #property_value{
 	horizontal-align:right;
-	font-size:15px;
+	font-size:18px;
 	vertical-align:center;
 }
 
@@ -353,38 +352,38 @@
 #min_level_container{
 	width:80%;
 	height:18px;
-	margin-top:10px;
+	margin-top:8px;
 	horizontal-align:center;
 }
 
 #min_level_label{
 	horizontal-align:left;
-	font-size:13px;
+	font-size:15px;
 	color: #DB2766;
 }
 
 #min_level_label_value{
 	horizontal-align:right;
-	font-size:13px;	
+	font-size:15px;
 	color: #DB2766;
 }
 
 #forge_price_container{
 	width:80%;
 	height:18px;
-	margin-top:10px;
+	margin-top:8px;
 	horizontal-align:center;
 }
 
 #forge_price_label{
 	horizontal-align:left;
-	font-size:13px;
+	font-size:15px;
 	color: #FFFFFF;
 }
 
 #forge_price_label_value{
 	horizontal-align:right;
-	font-size:13px;	
+	font-size:15px;
 	color: #57B3FF;
 }
 
@@ -395,8 +394,8 @@
 }
 
 #forge_price_image{
-	height:14px;
-	width:14px;
+	height:15px;
+	width:15px;
 }
 
 #forge_price_box_container_main{
@@ -408,7 +407,7 @@
 
 #forge_price_label_value_main{
 	horizontal-align:right;
-	font-size:16px;	
+	font-size:16px;
 	text-shadow: 0px 0px 2px #000000;
 	color: #57B3FF;
 }
