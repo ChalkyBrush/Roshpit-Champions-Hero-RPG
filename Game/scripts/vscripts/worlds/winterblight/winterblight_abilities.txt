@@ -5286,7 +5286,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduc"			"50 90 99.8"
+				"damage_reduc"			"50 90 99"
 			}
 		}
 		"Modifiers"
