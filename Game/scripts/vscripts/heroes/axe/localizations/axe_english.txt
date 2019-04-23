@@ -87,7 +87,7 @@
 		
 		
 		"DOTA_Tooltip_ability_whirlwind"                                "Redmist Cyclone"
-        "DOTA_Tooltip_ability_whirlwind_Description"                    "The Red General spins wildly, hooking all nearby units and dragging them along with him as he advances forward (except bosses). Enemies are dragged every 0.18 seconds, and at each of these intervals, The Red General is cleansed of stun effects and restores health for each affected enemy unit."
+        "DOTA_Tooltip_ability_whirlwind_Description"                    "The Red General runs and spins aggressively forward, hooking all nearby units and dragging them along with him as he advances forward (except bosses). Enemies are dragged every 0.18 seconds, and at each of these intervals, The Red General is cleansed of stun effects and restores health for each affected enemy unit."
         "DOTA_Tooltip_ability_whirlwind_Lore"                           ""
         "DOTA_Tooltip_ability_whirlwind_heal"                           "HEAL PER ENEMY HIT PER TICK:"
         "DOTA_Tooltip_ability_whirlwind_radius"                         "RADIUS:"
