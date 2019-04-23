@@ -179,7 +179,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_3_suffix"								"% от урона героя"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_4"									"[W4] Natural Selection"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_4_Description"						"Увеличивает стихийный урон <font color=\"#69BC71\">Природы</font> за счёи атрибутов героя."
+    	"DOTA_Tooltip_ability_djanghor_rune_w_4_Description"						"Увеличивает стихийный урон <font color=\"#69BC71\">Природы</font> за счёт атрибутов героя."
     	"DOTA_Tooltip_ability_djanghor_rune_w_4_property_one"						"Усиление стихийного урона Природы"
     	"DOTA_Tooltip_ability_djanghor_rune_w_4_suffix"								"% за каждые 10 очков атрибутов"
 
