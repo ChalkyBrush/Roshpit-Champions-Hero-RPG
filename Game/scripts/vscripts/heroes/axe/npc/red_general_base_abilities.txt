@@ -55,7 +55,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"radius"				"250 250 250 250"
+				"radius"				"300 300 300 300"
 			}
 		}
 
