@@ -919,6 +919,8 @@
 	    //------------------------
 		// Save/Load
 		//------------------------
+		"basic_open"				"Открыть - "
+		
 		"dialogue_oracle"			"Вечность взывает к тебе."
 		"saveload_loading"			"Загрузка..."
 		"saveload_save_menu"		"Сохранить Героя"
@@ -2310,7 +2312,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_3"            "Arcane Circuitry Shiv"
         "item_property_arkimus_immortal_weapon3"                             "Photon Shell"
-        "property_arkimus_immortal_weapon3_description"                      "Во время [W3] Photon Sprint весь входящий урон снижается на @special_property1%."
+        "property_arkimus_immortal_weapon3_description"                      "Во время [W3] весь входящий урон снижается на @special_property1%."
 
 		//Abilities
 		"DOTA_Tooltip_ability_moon_shroud"								"Moon Shroud"
@@ -4439,7 +4441,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_3"            "Sphere of Avennia"
         "item_property_conjuror_immortal_weapon3"                             "Elemental Core"
-        "property_conjuror_immortal_weapon3_description"                      "Призванные элементали облаают умением Стойкость."     
+        "property_conjuror_immortal_weapon3_description"                      "Призванные элементали обладают умением Стойкость."     
 
 		//Abilities
 		"DOTA_Tooltip_ability_dinath_arctic_burn"								"Wyvern Fire"
@@ -4847,7 +4849,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_3_suffix"								"% от урона героя"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_4"									"[W4] Natural Selection"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_4_Description"						"Увеличивает стихийный урон <font color=\"#69BC71\">Природы</font> за счёи атрибутов героя."
+    	"DOTA_Tooltip_ability_djanghor_rune_w_4_Description"						"Увеличивает стихийный урон <font color=\"#69BC71\">Природы</font> за счёт атрибутов героя."
     	"DOTA_Tooltip_ability_djanghor_rune_w_4_property_one"						"Усиление стихийного урона Природы"
     	"DOTA_Tooltip_ability_djanghor_rune_w_4_suffix"								"% за каждые 10 очков атрибутов"
 
@@ -12523,7 +12525,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"Helm of the Mountain Giant"
 		"item_property_mountain_giant" 								"Hulking"
-		"property_mountain_giant_description"						"Увеличивает максимальный запас здоровья в @special_property1 раз(а). Когда уровень здоровья выше 80%, герой получает на @special_property2% меньше урона."
+		"property_mountain_giant_description"						"Увеличивает максимальный запас здоровья на @special_property1%. Когда уровень здоровья выше 80%, герой получает на @special_property2% меньше урона."
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"
@@ -18279,7 +18281,7 @@
 		"DOTA_Tooltip_modifier_ghost_aura_disarm"				"Nightmare: Обезоруживание"
 
 		"DOTA_Tooltip_ability_winterblight_regression_strike"	"Regression Strike"
-		"DOTA_Tooltip_ability_winterblight_regression_strike_Description"	"Атаки наносят дополнительный чистый урон, зависящие от урона цели."
+		"DOTA_Tooltip_ability_winterblight_regression_strike_Description"	"Атаки наносят дополнительный чистый урон, зависящий от урона цели."
 		"DOTA_Tooltip_ability_winterblight_regression_strike_attack_power_mult"			"ЧИСТЫЙ УРОН, % ОТ УРОНА ВРАГА:"
 
 		"DOTA_Tooltip_ability_winterblight_azalea_dragoon_passive"	"Combat Block"

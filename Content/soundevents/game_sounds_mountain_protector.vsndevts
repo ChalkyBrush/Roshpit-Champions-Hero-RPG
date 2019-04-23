@@ -471,7 +471,7 @@
                               "value0"        "sounds/weapons/hero/monkey_king/iron_cudgel.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.42000"  }
+                    "volume"            {   "value"     "0.92000"  }
                     "pitch_rand_min"    {   "value"     "-0.02000"  }
                     "pitch_rand_max"    {   "value"     "0.020000"  }
                     "pitch"             {   "value"     "0.71000"  }
