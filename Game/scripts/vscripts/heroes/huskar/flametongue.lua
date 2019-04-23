@@ -78,7 +78,7 @@ function flametongue_attack_land(event)
 	if ability.q_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flametongue_b_a_rune_visible", {duration = 10})
 		local stacks = target:GetModifierStackCount("modifier_flametongue_b_a_rune_visible", caster)
-		local newStacks = math.min(stacks+1, 50)
+		local newStacks = stacks + 1
 		target:SetModifierStackCount("modifier_flametongue_b_a_rune_visible", caster, newStacks)
 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flametongue_b_a_rune_invisible", {duration = 10})
