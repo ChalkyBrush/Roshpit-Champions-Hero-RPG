@@ -209,24 +209,3 @@ function teleportToPosition(caster, ability, target)
 	end)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "MysticAssasin.MysticStrike.Out", caster)
 end
-
-function rune_unit_4_think(event)
-	local caster = event.caster
-	local hero = caster.hero
-	local ability = event.ability
-
-    if not ability then
-        return
-    end
-
-	local d_c_level = Runes:GetTotalRuneLevel(hero, 4, "e_4", "mountain_protector")
-	if d_c_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_mountain_rune_e_4_effect", {})
-		hero:SetModifierStackCount("modifier_mountain_rune_e_4_effect", caster, d_c_level)
-	else
-		hero:RemoveModifierByName("modifier_mountain_rune_e_4_effect")
-	end
-    if hero:HasModifier("modifier_rockfall_passive") and ability:GetAbilityName() == "mountain_protector_rune_e_4_arcana3" then
-        hero:RemoveModifierByName("modifier_mountain_rune_e_4_effect")
-    end
-end

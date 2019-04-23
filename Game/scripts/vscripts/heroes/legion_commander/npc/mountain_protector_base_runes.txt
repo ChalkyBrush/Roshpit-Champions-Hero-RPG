@@ -311,41 +311,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15000"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_E4_BASE_ATT_DMG %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_mountain_rune_e_4_think"
-			{
-				"Passive"			"1"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"ThinkInterval"  "2.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/mystic_strike.lua"
-						"Function"		"rune_unit_4_think"
-					}
-				}
-			}
-			"modifier_mountain_rune_e_4_effect"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"legion_commander_duel"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%property_one"
-				}
+				"property_two"			"<% MOUNTAIN_PROTECTOR_E4_BAD * 100 %>"
 			}
 		}
 	}

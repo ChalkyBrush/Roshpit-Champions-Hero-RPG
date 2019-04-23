@@ -119,7 +119,7 @@ function hailstorm_explosion(caster, position, damage, amp, explosionAOE, abilit
 			end
 			local refreshChance = ability:GetSpecialValueFor("refresh_chance")
 			local luck = RandomInt(1, 100)
-			if luck <= refresh_chance then
+			if luck <= refreshChance then
 				caster:GetAbilityByIndex(2):EndCooldown()
 			end
 		end 
