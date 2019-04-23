@@ -508,4 +508,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_3"            "Sphere of Avennia"
         "item_property_conjuror_immortal_weapon3"                             "Elemental Core"
-        "property_conjuror_immortal_weapon3_description"                      "Призванные элементали облаают умением Стойкость."     
+        "property_conjuror_immortal_weapon3_description"                      "Призванные элементали обладают умением Стойкость."     
