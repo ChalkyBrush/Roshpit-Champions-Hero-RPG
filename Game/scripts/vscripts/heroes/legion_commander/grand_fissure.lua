@@ -143,7 +143,7 @@ function aeon_fracture_explosion(caster, position, damage, amp, explosionAOE, ab
 			end
 			local refreshChance = ability:GetSpecialValueFor("refresh_chance")
 			local luck = RandomInt(1, 100)
-			if luck <= refresh_chance then
+			if luck <= refreshChance then
 				caster:GetAbilityByIndex(2):EndCooldown()
 			end
 		end 

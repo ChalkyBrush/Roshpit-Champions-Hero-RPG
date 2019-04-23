@@ -98,6 +98,22 @@
         		"IsHidden"	"0"
         		"IsDebuff"	"1"
         	}
+			"modifier_mountain_e_passives_think"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"ThinkInterval"  "2.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/legion_commander/mountain_protector_passives.lua"
+						"Function"		"mountain_protector_e_passives_think"
+					}
+				}
+			}
         }
 	}
 

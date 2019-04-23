@@ -18,6 +18,7 @@ require('/heroes/lanaya/trapper_constants')
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/spirit_breaker/duskbringer_constants')
 require('/heroes/zuus/auriun_constants')
+require('/heroes/legion_commander/mountain_protector_constants')
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -1388,10 +1389,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 0.07*current_stack
         end
 		
-        if attacker:HasModifier("modifier_mountain_rune_e_4_effect") and not attacker:HasModifier("modifier_rockfall_passive") then
-            local current_stack = attacker:GetModifierStackCount( "modifier_mountain_rune_e_4_effect", attacker.runeUnit4 )
-            local multIncrease = 0.2
-            damageMult = damageMult + multIncrease*current_stack
+        if attacker:HasAbility("mountain_protector_emberstone") then
+            local e_4_level = attacker:GetRuneValue("e", 4)
+            damageMult = damageMult + MOUNTAIN_PROTECTOR_E4_BAD * e_4_level
         end
         if attacker:HasModifier("modifier_infused_mageplate_stack") then
             local mageplateStacks = attacker:GetModifierStackCount("modifier_infused_mageplate_stack", attacker.body)

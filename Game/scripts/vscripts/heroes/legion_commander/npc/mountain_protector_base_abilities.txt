@@ -400,6 +400,32 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 			}
+			"modifier_mountain_e_passives_think"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"ThinkInterval"  "2.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/legion_commander/mountain_protector_passives.lua"
+						"Function"		"mountain_protector_e_passives_think"
+					}
+				}
+			}
+			"modifier_mountain_rune_e_4_effect"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"legion_commander_duel"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% MOUNTAIN_PROTECTOR_E4_BASE_ATT_DMG %>"
+				}
+			}
 		}
 	}
 
