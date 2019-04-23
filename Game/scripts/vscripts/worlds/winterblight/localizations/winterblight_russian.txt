@@ -451,7 +451,7 @@
 		"DOTA_Tooltip_modifier_ghost_aura_disarm"				"Nightmare: Обезоруживание"
 
 		"DOTA_Tooltip_ability_winterblight_regression_strike"	"Regression Strike"
-		"DOTA_Tooltip_ability_winterblight_regression_strike_Description"	"Атаки наносят дополнительный чистый урон, зависящие от урона цели."
+		"DOTA_Tooltip_ability_winterblight_regression_strike_Description"	"Атаки наносят дополнительный чистый урон, зависящий от урона цели."
 		"DOTA_Tooltip_ability_winterblight_regression_strike_attack_power_mult"			"ЧИСТЫЙ УРОН, % ОТ УРОНА ВРАГА:"
 
 		"DOTA_Tooltip_ability_winterblight_azalea_dragoon_passive"	"Combat Block"

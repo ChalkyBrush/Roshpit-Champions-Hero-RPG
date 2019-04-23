@@ -36056,6 +36056,7 @@
 			}
 			"modifier_forest_guide_pull"
 			{
+				"IsHidden"	"1"
 				"IsDebuff"			"1"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
 				"OnCreated"
