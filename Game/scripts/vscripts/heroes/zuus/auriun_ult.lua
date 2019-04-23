@@ -27,7 +27,7 @@ function channel_succeed(event)
 					elseif caster:HasAbility("auriun_aoe_shield") then
 						shieldAbility = caster:FindAbilityByName("auriun_aoe_shield")
 					end
-					d_d_apply_shield(caster, shieldAbility, ally, shieldStacks)
+					Auriun_R4_Apply_Shield(caster, shieldAbility, allAllies[i], shieldStacks)
 				end
 			end
 			if caster:HasModifier("modifier_auriun_glyph_1_1") then
@@ -50,7 +50,7 @@ function channel_succeed(event)
 					elseif caster:HasAbility("auriun_aoe_shield") then
 						shieldAbility = caster:FindAbilityByName("auriun_aoe_shield")
 					end
-					d_d_apply_shield(caster, shieldAbility, ally, shieldStacks)
+					Auriun_R4_Apply_Shield(caster, shieldAbility, ally, shieldStacks)
 				end
 			end
 			if caster:HasModifier("modifier_auriun_glyph_1_1") then
@@ -98,11 +98,8 @@ function passive_think(event)
 	end
 end
 
-function d_d_apply_shield(caster, ability, target, shieldStacks)
-	print("shield?"..shieldStacks)
-
-	local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "auriun")
-	local duration = 9+(q_2_level*0.3)
+function Auriun_R4_Apply_Shield(caster, ability, target, shieldStacks)
+	local duration = 9
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_heavens_shield", {duration = duration})
 	local currentStacks = target:GetModifierStackCount("modifier_heavens_shield", caster)
@@ -110,23 +107,19 @@ function d_d_apply_shield(caster, ability, target, shieldStacks)
 		target:SetModifierStackCount( "modifier_heavens_shield", ability, shieldStacks)
 	end
 
-	ability.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "auriun")
-
 	local particleName = "particles/units/heroes/hero_oracle/white_mage_healheal_core.vpcf"
 	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	Timers:CreateTimer(0.5, function() 
 	  ParticleManager:DestroyParticle( pfx, false )
 	end) 
-	-- Filters:CastSkillArguments(1, caster)
 
 	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "auriun")
-	if q_4_level > 0 then
+	if ability:GetAbilityName() == "heavens_shield" and q_4_level > 0 then
 		local runeAbility = caster.runeUnit4:FindAbilityByName("auriun_rune_q_4")
 		runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_auriun_rune_q_4_effect", {duration = duration})
 		target:SetModifierStackCount( "modifier_auriun_rune_q_4_effect", runeAbility, q_4_level)
 		target.auriun_d_a_ability = runeAbility
-		
 	end
 end
 
