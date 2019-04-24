@@ -95,7 +95,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"heroes/phantom_assassin/lightning_attack.lua"
-				"Function"		"lightning_attack_start"
+				"Function"		"Voltex_Overcharge_OnSpellStart"
 			}
 		}
 		

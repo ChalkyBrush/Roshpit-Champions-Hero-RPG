@@ -12,7 +12,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"<% VOLTEX_Q1_ARMOR %>"
 			}
 		}
 		"Modifiers"
@@ -46,7 +46,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_Q2_BAD_FLAT_PER_AGI * 100 %>"
+				"property_one"			"<% VOLTEX_Q2_BASE_LIGHTNING_DMG_PER_AGI * 100 %>"
 			}
 		}
 
@@ -69,17 +69,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"4.0"
+				"property_one"			"<% VOLTEX_Q3_ARMOR_LOSS_PER_STACK %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
+				"property_two"			"<% VOLTEX_Q3_DMG_PER_ATT * 100 %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"				"4"
+				"element_one"				"<% RPC_ELEMENT_LIGHTNING %>"
 			}
 			"04"
 			{
