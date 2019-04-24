@@ -1560,6 +1560,7 @@ end
 
 function Redfall:SpawnPerditionTorch(position)
     local torch = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+	torch.dummy = true
     torch:SetOriginalModel("models/redfall/lantern_hitbox.vmdl")
     torch:SetModel("models/redfall/lantern_hitbox.vmdl")
     torch.jumpLock = true
