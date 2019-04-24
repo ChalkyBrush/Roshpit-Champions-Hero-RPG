@@ -1,4 +1,5 @@
 require('heroes/axe/init')
+require('heroes/axe/red_general_constants')
 local CycloneStorm = require('heroes/axe/abilities/e/e2_cyclone_storm')
 local CyclonicShield = require('heroes/axe/abilities/e/e4_cyclonic_shield')
 local WhirlwindDamage = require('heroes/axe/abilities/e/e3_whirlwind_damage')
@@ -39,7 +40,7 @@ end
 
 local function onSpecificIntervalThink(ability, caster, position, heal)
     Filters:CleanseStuns(caster)
-    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, RED_GENERAL_E_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
     ability.enemies = enemies
     if #enemies > 0 then
         Filters:ApplyHeal(caster, caster, heal * #enemies, true,false)
