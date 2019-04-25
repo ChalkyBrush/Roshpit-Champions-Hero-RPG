@@ -940,6 +940,18 @@ function GameMode:OnPlayerChat(keys)
       AddFOWViewer(DOTA_TEAM_GOODGUYS, random_position, 8000, 30000, false)
       Seafortress:SpawnOlSpiny(random_position, RandomVector(1))
     end 
+    if string.match(text, "-sea beast_tyrant") then 
+        PrecacheUnitByNameAsync("seafortress_beast_tyrant", function(...) end)
+        local statuePos = Vector(-1306, 13709, 256)
+        local new_beast = Seafortress:SpawnDungeonUnit("seafortress_beast_tyrant", statuePos, 10, 10, "Seafortress.TyrantGhost.Aggro", Vector(0,-1), false)
+        new_beast:SetModelScale(3)
+        new_beast.reduc = 0.0000018
+        new_beast.isBossFFS = true
+        new_beast:SetAbsOrigin(statuePos)
+        local new_beast_ability = new_beast:FindAbilityByName("seafortress_beast_tryant_passive")
+        new_beast_ability:ApplyDataDrivenModifier(new_beast, new_beast, "modifier_beast_tyrant_combat_ai", {})
+        AddFOWViewer(DOTA_TEAM_GOODGUYS, statuePos, 8000, 30000, false)
+    end
     AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-14272, 13696), 8000, 30000, false)
     AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(4416, 15744), 8000, 30000, false) 
     AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(12032, 9920), 8000, 30000, false)
