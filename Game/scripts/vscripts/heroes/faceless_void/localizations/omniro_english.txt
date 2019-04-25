@@ -1,0 +1,2 @@
+		//Abilities
+		"DOTA_Tooltip_ability_omniro_something"								"Thing"
