@@ -1,33 +1,94 @@
+.heroes_special_container{
+	vertical-align: bottom;
+	horizontal-align:center;
+	width:900px;
+	height:1000px;	
+}
+
+#heroes_special_attach_point{
+	vertical-align: bottom;
+	horizontal-align:center;
+	width:100%;
+	height:100%;
+	margin-left:40px;
+}
+
+.omniro_parent_bg{
+	border-radius:4px;
+	background-color: #000000;
+	opacity:0.95;
+	width:100%;
+	height:100%;
+}
+
 .omniro_parent_outer_container{
 	vertical-align: bottom;
 	horizontal-align:center;
-	margin-bottom:300px;
-	flow-children:right;
+	margin-bottom:200px;
+
+	
 }
 
-.omniro_element_image{
-	width:32px;
-	height:32px;
+#omniro_parent_attach_point{
+	flow-children:right;
+	padding-left:6px;
+	padding-right:6px;
+	padding-bottom:4px;
+}
+
+#omniro_element_image{
+	width:24px;
+	height:24px;
+	margin-left:8px;
+	margin-top:8px;
+}
+
+#omniro_element_charge_counter{
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	font-size:20px;
+	margin-left:24px;
+	margin-top:18px;
 }
 
 .omniro_charge_container{
 	width:40px;
 	height:8px;
-	border:1px solid #AAAAAA;
 	margin-top:40px;
+	border-radius:2px;
 }
 
 .omniro_charge_bg{
 	background-color:#121212;
+	height:8px;
+	width:100%;
 }
+
 
 #omniro_charge_fill{
-	background-color: gradient( linear, 0px 0%, 40px 0%, from( #598c52), to( #377241 ) );
+	
+	height:8px;
+	width:0%;
 }
 
-.omniro_element_active_indicator{
+#omniro_element_active_indicator{
 	margin-top:50px;
 	width:40px;
 	height:4px;
 	background-color: #83f7f7;
+}
+
+.omniro_element_charges_exist{
+	color:white;
+}
+
+.omniro_charge_fill_charges_exist{
+	background-color: gradient( linear, 0px 0%, 40px 0%, from( #598c52), to( #377241 ) );
+}
+
+.omniro_element_no_charges{
+	color:#ba1228;
+}
+
+.omniro_element_charge_fill_no_charges{
+	background-color: gradient( linear, 0px 0%, 40px 0%, from( #ba1228), to( #720a18 ) );
 }

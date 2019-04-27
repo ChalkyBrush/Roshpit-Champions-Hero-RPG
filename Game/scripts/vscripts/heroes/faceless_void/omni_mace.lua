@@ -17,12 +17,13 @@ function omni_mace_main_think(event)
 
 	local player = caster:GetPlayerOwner()
 	CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
+
 end
 
 function init_omniro_data(event)
 	local caster = event.caster
 	caster.omniro_data = {}
-	for i = 1, 17, 1, do
+	for i = 1, 17, 1 do
 		caster.omniro_data[i] = {}
 		caster.omniro_data[i]["enabled"] = true
 		caster.omniro_data[i]["element_number"] = i
@@ -34,17 +35,18 @@ end
 
 function init_omniro_detail_data(event)
 	local caster = event.caster
-	for i = 1, 17, 1, do
-		if caster.omniro_data[i]["level"] > 0 then
+	for i = 1, 17, 1 do
+		-- if caster.omniro_data[i]["level"] > 0 then
 			caster.omniro_data[i]["charges"] = 1
 			caster.omniro_data[i]["max_charges"] = 1
 			caster.omniro_data[i]["charge_up_fraction"] = 0
 			caster.omniro_data[i]["charge_up_fraction_full"] = 80
-		end
+		-- end
 	end
 end
 
 function omniro_rune_calculate(event)
+	local caster = event.caster
 	local rune_q_1 = caster:GetRuneValue("q", 1)
 	local rune_q_2 = caster:GetRuneValue("q", 2)
 	local rune_q_3 = caster:GetRuneValue("q", 3)
@@ -86,16 +88,27 @@ function omniro_rune_calculate(event)
 	caster.omniro_data[RPC_ELEMENT_DEMON]["level"] = rune_w_4
 	caster.omniro_data[RPC_ELEMENT_NATURE]["level"] = rune_e_4
 	caster.omniro_data[RPC_ELEMENT_UNDEAD]["level"] = rune_r_4
+
+	for i = 1, #caster.omniro_data, 1 do
+		if caster.omniro_data[i]["level"] > 0 then
+			caster.omniro_data[i]["enabled"] = true
+		end
+	end
 end
 
 function omniro_element_charge_think(event)
+	local caster = event.caster
 	for i = 1, #caster.omniro_data, 1 do
-		if caster.omniro_data[i]["charges"] < caster.omniro_data[i]["max_charges"] then
-			caster.omniro_data[i]["charge_up_fraction"] = caster.omniro_data[i]["charge_up_fraction"] + 1
-			if caster.omniro_data[i]["charge_up_fraction"] >= caster.omniro_data[i]["charge_up_fraction_full"] then
-				caster.omniro_data[i]["charge_up_fraction"] = 0
-				caster.omniro_data[i]["charges"] = math.min(caster.omniro_data[i]["charges"] + 1, caster.omniro_data[i]["max_charges"])
+		if caster.omniro_data[i]["level"] > 0 then
+			if caster.omniro_data[i]["charges"] < caster.omniro_data[i]["max_charges"] then
+				caster.omniro_data[i]["charge_up_fraction"] = caster.omniro_data[i]["charge_up_fraction"] + 1
+				if caster.omniro_data[i]["charge_up_fraction"] >= caster.omniro_data[i]["charge_up_fraction_full"] then
+					caster.omniro_data[i]["charge_up_fraction"] = 0
+					caster.omniro_data[i]["charges"] = math.min(caster.omniro_data[i]["charges"] + 1, caster.omniro_data[i]["max_charges"])
+				end
 			end
+		else
+			caster.omniro_data[i]["enabled"] = false
 		end
 	end
 end
@@ -108,9 +121,9 @@ function omniro_mace_attack_land(event)
 
 	-- CURRENT ELEMENT EFFECT HERE
 	if caster:HasModifier("modifier_omni_orb_active") then
-		if caster.omniro_data[i]["charges"] > 0 then
+		if caster.omniro_data[active_element]["charges"] > 0 then
 			print("ORB EFFECT FIRE")
-			caster.omniro_data[i]["charges"] = caster.omniro_data[i]["charges"] - 1
+			caster.omniro_data[active_element]["charges"] = caster.omniro_data[active_element]["charges"] - 1
 		end
 	end
 
@@ -119,7 +132,7 @@ function omniro_mace_attack_land(event)
 	else
 		for i = active_element, 16, 1 do
 			if caster.omniro_data[active_element + 1]["level"] > 0 then
-				next_element = caster.omniro_data[active_element + 1]
+				next_element = active_element + 1
 				break
 			end
 		end	
@@ -127,12 +140,19 @@ function omniro_mace_attack_land(event)
 	if not next_element then
 		for i = 1, 17, 1 do
 			if caster.omniro_data[i]["level"] > 0 then
-				next_element = caster.omniro_data[i]
+				next_element = i
 			end
 		end
 	end
+	print("-----")
+	print(active_element)
+	print(next_element)
+	if next_element == active_element then
+		next_element = 1
+	end
 	caster.omniro_data[active_element]["active"] = false
 	caster.omniro_data[next_element]["active"] = true
+	caster.active_element = next_element
 
 	local player = caster:GetPlayerOwner()
 	CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})

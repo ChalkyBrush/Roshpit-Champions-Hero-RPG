@@ -2,20 +2,25 @@
 function UpdateOmniro(msg){
 	var omniro = msg.omniro
 	var omniro_data = msg.omniro_data
-	var omniro_parent = $.GetContextPanel().FindChildTraverse("omniro_parent")
-	var parent = $.GetContextPanel().FindChildTraverse('units_special_attach_point')
-	if (omniro_parent===undefined){
-		omniro_parent = $.CreatePanel("Panel", parent, "omniro_parent")
-		onibi_element.BLoadLayoutSnippet("omniro_parent_layout")
+	var omniro_parent = $.GetContextPanel().FindChildTraverse("omniro_parent_attach_point")
+	var parent = $.GetContextPanel().FindChildTraverse('heroes_special_attach_point')
+
+
+	if (omniro_parent===null){
+
+		omniro_parent_start = $.CreatePanel("Panel", parent, "omniro_parent")
+		omniro_parent_start.BLoadLayoutSnippet("omniro_parent_layout")
+		omniro_parent = omniro_parent_start.FindChildTraverse("omniro_parent_attach_point")
+		console.log("CAN WE MAKE THIS?")
 	}
 
-    var arrayLength = omniro_data.length;
+    var arrayLength = 17
     var element_exist_count = 0
     var element_leveled_count = 0
-    for (var i = 0; i < arrayLength; i++) {
-        console.log(omniro_data[i]);
+
+    for (var i = 1; i <= arrayLength; i++) {
         var element_parent = omniro_parent.FindChildTraverse('omniro-element-'+i)
-        if (!(element_parent === undefined)){
+        if (!(element_parent === null)){
         	element_exist_count = element_exist_count + 1
         }
         if (omniro_data[i]["level"] > 0){
@@ -23,6 +28,7 @@ function UpdateOmniro(msg){
         }
 
     }
+
     if (!(element_leveled_count == element_exist_count)){
     	reconstruct_omniro_element_ui(omniro_parent, omniro_data)
     }
@@ -31,8 +37,8 @@ function UpdateOmniro(msg){
 
 function reconstruct_omniro_element_ui(omniro_parent, omniro_data){
 	omniro_parent.RemoveAndDeleteChildren(0)
-    var arrayLength = omniro_data.length;
-    for (var i = 0; i < arrayLength; i++) {
+    var arrayLength = 17
+    for (var i = 1; i <= arrayLength; i++) {
     	if (omniro_data[i]["level"] > 0){
 	    	var element_parent = $.CreatePanel("Panel", omniro_parent, "omniro-element-"+i)
 	    	element_parent.BLoadLayoutSnippet('omniro_element')
@@ -44,10 +50,10 @@ function reconstruct_omniro_element_ui(omniro_parent, omniro_data){
 
 function update_omniro_element_ui_items(omniro_parent, omniro_data)
 {
-    var arrayLength = omniro_data.length;
-    for (var i = 0; i < arrayLength; i++) {
+    var arrayLength = 17
+    for (var i = 1; i <= arrayLength; i++) {
     	var element_parent = omniro_parent.FindChildTraverse('omniro-element-'+i)
-    	if (!(element_parent === undefined)){
+    	if (!(element_parent === null)){
     		update_omniro_element(element_parent, omniro_data[i])
     	}
     }
@@ -59,7 +65,18 @@ function update_omniro_element(element_parent, element_data){
 	if (element_data["charges"] == element_data["max_charges"]){
 		charge_percentage = 100
 	}
-	element_parent.FindChildTraverse('omniro_element_charge_counter').style.width = charge_percentage+"%"
+	if (element_data["charges"] == 0){
+		element_parent.FindChildTraverse('omniro_element_charge_counter').AddClass('omniro_element_no_charges')
+		element_parent.FindChildTraverse('omniro_charge_fill').AddClass('omniro_element_charge_fill_no_charges')
+		element_parent.FindChildTraverse('omniro_element_charge_counter').RemoveClass('omniro_element_charges_exist')
+		element_parent.FindChildTraverse('omniro_charge_fill').RemoveClass('omniro_charge_fill_charges_exist')
+	}else{
+		element_parent.FindChildTraverse('omniro_element_charge_counter').RemoveClass('omniro_element_no_charges')
+		element_parent.FindChildTraverse('omniro_charge_fill').RemoveClass('omniro_element_charge_fill_no_charges')
+		element_parent.FindChildTraverse('omniro_element_charge_counter').AddClass('omniro_element_charges_exist')
+		element_parent.FindChildTraverse('omniro_charge_fill').AddClass('omniro_charge_fill_charges_exist')
+	}
+	element_parent.FindChildTraverse('omniro_charge_fill').style.width = charge_percentage+"%"
 	var omniro_element_active_indicator = element_parent.FindChildTraverse('omniro_element_active_indicator')
 	if (element_data["active"]){
 		omniro_element_active_indicator.RemoveClass('invisible')
@@ -67,9 +84,9 @@ function update_omniro_element(element_parent, element_data){
 		omniro_element_active_indicator.AddClass('invisible')
 	}
 	if (element_data["enabled"]){
-		element_parent.style.opacity = 0.3
-	}else{
 		element_parent.style.opacity = 1
+	}else{
+		element_parent.style.opacity = 0.3
 	}
 }
 
