@@ -2,10 +2,12 @@
 	<styles>
 		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
 		<include src="file://{resources}/styles/custom_game/units_special.css" />
+		<include src="file://{resources}/styles/custom_game/heroes_special/omniro.css" />
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/units_special.js" />
 		<include src="file://{resources}/scripts/custom_game/elements/elements.js" />
+		<include src="file://{resources}/scripts/custom_game/heroes_special/omniro.js" />
 	</scripts>
 	<snippets>
 		<snippet name="onibi_ability_bar">
@@ -69,6 +71,21 @@
 					<Image id="dialogue_icon" hittest="false" />
 					<Label id="dialogue_button_label" text="Talk"/>
 				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="omniro_parent_layout">
+			<Panel class="omniro_parent_outer_container" hittest="false">
+			</Panel>
+		</snippet>
+		<snippet name="omniro_element">
+			<Panel class="omniro_element_parent" hittest="false">
+				<Image id="omniro_element_image" hittest="false" />
+				<Label id="omniro_element_charge_counter" text="0"/>
+				<Panel class="omniro_charge_container" hittest="false">
+					<Panel class="omniro_charge_bg"/>
+					<Panel id="omniro_charge_fill"/>
+				</Panel>
+				<Panel id="omniro_element_active_indicator" class="invisible" hittest="false"/>
 			</Panel>
 		</snippet>
 	</snippets>

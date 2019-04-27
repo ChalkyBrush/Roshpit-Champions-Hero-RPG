@@ -1,0 +1,33 @@
+.omniro_parent_outer_container{
+	vertical-align: bottom;
+	horizontal-align:center;
+	margin-bottom:300px;
+	flow-children:right;
+}
+
+.omniro_element_image{
+	width:32px;
+	height:32px;
+}
+
+.omniro_charge_container{
+	width:40px;
+	height:8px;
+	border:1px solid #AAAAAA;
+	margin-top:40px;
+}
+
+.omniro_charge_bg{
+	background-color:#121212;
+}
+
+#omniro_charge_fill{
+	background-color: gradient( linear, 0px 0%, 40px 0%, from( #598c52), to( #377241 ) );
+}
+
+.omniro_element_active_indicator{
+	margin-top:50px;
+	width:40px;
+	height:4px;
+	background-color: #83f7f7;
+}

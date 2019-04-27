@@ -60,6 +60,9 @@ function Runes:RedirectRunes(hero, runeUnit, runeUnit2, runeUnit3, runeUnit4, pl
 		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "dinath")
 	elseif heroName == "npc_dota_hero_arc_warden" then
 		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "jex")
+	else
+		local roshpit_name = HerosCustom:GetInternalHeroName(heroName)
+		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, roshpit_name)
 	end
 	
     runeUnit:AddAbility("town_unit"):SetLevel(1)

@@ -59,6 +59,8 @@ function HerosCustom:GetInternalHeroName(heroName)
 		return "dinath"
 	elseif heroName == "npc_dota_hero_arc_warden" then
 		return "jex"
+	elseif heroName == "npc_dota_hero_faceless_void" then
+		return "omniro"
 	end
 end
 
