@@ -11,7 +11,6 @@ function UpdateOmniro(msg){
 		omniro_parent_start = $.CreatePanel("Panel", parent, "omniro_parent")
 		omniro_parent_start.BLoadLayoutSnippet("omniro_parent_layout")
 		omniro_parent = omniro_parent_start.FindChildTraverse("omniro_parent_attach_point")
-		console.log("CAN WE MAKE THIS?")
 	}
 
     var arrayLength = 17
@@ -30,12 +29,12 @@ function UpdateOmniro(msg){
     }
 
     if (!(element_leveled_count == element_exist_count)){
-    	reconstruct_omniro_element_ui(omniro_parent, omniro_data)
+    	reconstruct_omniro_element_ui(omniro_parent, omniro_data, msg.omniro)
     }
     update_omniro_element_ui_items(omniro_parent, omniro_data)
 }
 
-function reconstruct_omniro_element_ui(omniro_parent, omniro_data){
+function reconstruct_omniro_element_ui(omniro_parent, omniro_data, omniro){
 	omniro_parent.RemoveAndDeleteChildren(0)
     var arrayLength = 17
     for (var i = 1; i <= arrayLength; i++) {
@@ -44,8 +43,37 @@ function reconstruct_omniro_element_ui(omniro_parent, omniro_data){
 	    	element_parent.BLoadLayoutSnippet('omniro_element')
 	    	var elementNumber = omniro_data[i]["element_number"]
 	    	element_parent.FindChildTraverse('omniro_element_image').SetImage("file://{images}/custom_game/ui/elements/element"+elementNumber+".png")
+	    	setup_tooltip_mechanisms(element_parent, omniro_data[i], omniro)
 	    }
     }
+}
+
+function setup_tooltip_mechanisms(element_parent, element_data, omniro){
+	var tooltip_element = element_parent.FindChildTraverse('omniro_element_image')
+	tooltip_element.SetPanelEvent('onmouseover', function Open() {
+		hover_tooltip(tooltip_element, element_data)
+	});
+	tooltip_element.SetPanelEvent('onmouseout', function Open() {
+		unhover_tooltip(tooltip_element)
+	})
+	tooltip_element.SetPanelEvent('onactivate', function Open() {
+		omniro_element_click(element_data, omniro)
+	})
+}
+
+function omniro_element_click(element_data, omniro){
+	GameEvents.SendCustomGameEventToServer( "units_special", {omniro: omniro, element_index: element_data["element_number"]} );
+}
+
+function hover_tooltip(element_parent, element_data){
+	var title_color = get_element_color_by_index(element_data["element_number"])
+	var title = "<font color='"+title_color+"'>"+$.Localize('rpc_element'+element_data["element_number"])+"</font>"
+	var tooltip = "Click to enable or disable this element from Omniro's rotation"
+	$.DispatchEvent("DOTAShowTitleTextTooltip", element_parent,  title, tooltip );
+}
+
+function unhover_tooltip(element_parent){
+	$.DispatchEvent( "DOTAHideTitleTextTooltip", element_parent );
 }
 
 function update_omniro_element_ui_items(omniro_parent, omniro_data)
@@ -83,10 +111,12 @@ function update_omniro_element(element_parent, element_data){
 	}else{
 		omniro_element_active_indicator.AddClass('invisible')
 	}
-	if (element_data["enabled"]){
+	if (element_data["in_rotation"] == 1){
 		element_parent.style.opacity = 1
+		element_parent.FindChildTraverse('omniro_disabled_element_label').AddClass("invisible")
 	}else{
-		element_parent.style.opacity = 0.3
+		element_parent.style.opacity = 0.2
+		element_parent.FindChildTraverse('omniro_disabled_element_label').RemoveClass("invisible")
 	}
 	if (element_data["locked"]){
 		element_parent.FindChildTraverse('omniro_element_image').AddClass("omniro_element_locked")

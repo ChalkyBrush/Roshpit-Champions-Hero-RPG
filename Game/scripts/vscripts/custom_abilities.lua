@@ -862,6 +862,9 @@ function CustomAbilities:UnitsSpecial(msg)
 		if msg.special_type == "dialogue" then
 			CustomAbilities:ClickOpenDialogue(msg)
 		end
+	elseif msg.omniro then
+		require('heroes/faceless_void/omni_mace')
+		omni_mace_ui_toggle(msg)
 	end
 end
 

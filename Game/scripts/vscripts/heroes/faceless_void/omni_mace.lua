@@ -31,6 +31,7 @@ function init_omniro_data(event)
 		caster.omniro_data[i]["element_number"] = i
 		caster.omniro_data[i]["active"] = false
 		caster.omniro_data[i]["locked"] = false
+		caster.omniro_data[i]["in_rotation"] = 1
 		if i > 1 then
 			caster.omniro_data[i]["rune_tier"] = math.floor(((i-2)/4) + 1)
 		else
@@ -137,6 +138,7 @@ end
 function omniro_mace_attack_land(event)
 	local caster = event.caster
 	local target = event.target
+	local ability = event.ability
 	if target.dummy then
 		return false
 	end
@@ -155,7 +157,7 @@ function omniro_mace_attack_land(event)
 
 	else
 		for i = active_element, 16, 1 do
-			if caster.omniro_data[i + 1]["level"] > 0 and caster.omniro_data[i + 1]["enabled"] then
+			if caster.omniro_data[i + 1]["level"] > 0 and caster.omniro_data[i + 1]["in_rotation"] == 1 then
 				next_element = i + 1
 				break
 			end
@@ -164,17 +166,17 @@ function omniro_mace_attack_land(event)
 	if not next_element then
 		next_element = active_element
 		for i = 1, 17, 1 do
-			if caster.omniro_data[i]["level"] > 0 and caster.omniro_data[i]["enabled"] then
+			if caster.omniro_data[i]["level"] > 0 and caster.omniro_data[i]["in_rotation"] == 1 then
 				next_element = i
+				break
 			end
 		end
 	end
 	print("-----")
 	print(active_element)
 	print(next_element)
-	if next_element == active_element then
-		next_element = 1
-	end
+	omni_mace_basic_hit(caster, ability, target, event.damage_mult)
+
 	if not caster.omniro_data[caster.active_element]["locked"] then
 		caster.omniro_data[active_element]["active"] = false
 		caster.omniro_data[next_element]["active"] = true
@@ -193,6 +195,75 @@ end
 function omni_mace_toggle_off(event)
 	local caster = event.caster
 	caster.omniro_data[caster.active_element]["locked"] = false
+end
+
+function omni_mace_ui_toggle(msg)
+	local caster = EntIndexToHScript(msg.omniro)
+	local total_elements_active_count = 0
+	for i = 1, #caster.omniro_data, 1 do
+		if caster.omniro_data[i]["level"] > 0 and caster.omniro_data[i]["in_rotation"] == 1 then
+			total_elements_active_count = total_elements_active_count + 1
+		end
+	end
+	if caster.omniro_data[msg.element_index]["in_rotation"] == 1 and total_elements_active_count > 1 then
+		caster.omniro_data[msg.element_index]["in_rotation"] = 0
+	else
+		caster.omniro_data[msg.element_index]["in_rotation"] = 1
+	end
+	print(caster.omniro_data[msg.element_index]["in_rotation"])
+	CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
+end
+
+function omni_mace_basic_hit(caster, ability, target, damage_mult)
+	local mace_hit_data = omni_mace_basic_element_data(caster.active_element)
+	local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/omni_mace.vpcf", target, 0.4)
+	print(mace_hit_data["color"])
+	ParticleManager:SetParticleControl(pfx, 1, mace_hit_data["color"])
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(damage_mult/100)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, mace_hit_data["damage_type"], 3, caster.active_element, RPC_ELEMENT_NONE)
+end
+
+function omni_mace_basic_element_data(element)
+	mace_hit_data = {}
+	if element == RPC_ELEMENT_NORMAL then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_PHYSICAL
+	elseif element == RPC_ELEMENT_FIRE then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_PHYSICAL
+	elseif element == RPC_ELEMENT_EARTH then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_PHYSICAL
+	elseif element == RPC_ELEMENT_LIGHTNING then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_PHYSICAL
+	elseif element == RPC_ELEMENT_POISON then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_MAGICAL
+	elseif element == RPC_ELEMENT_TIME then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_PURE
+	elseif element == RPC_ELEMENT_HOLY then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_MAGICAL
+	elseif element == RPC_ELEMENT_COSMOS then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_PURE
+	elseif element == RPC_ELEMENT_ICE then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_MAGICAL
+	elseif element == RPC_ELEMENT_ARCANE then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_MAGICAL
+	elseif element == RPC_ELEMENT_SHADOW then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_MAGICAL
+	elseif element == RPC_ELEMENT_WIND then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_MAGICAL
+	elseif element == RPC_ELEMENT_GHOST then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_PHYSICAL
+	elseif element == RPC_ELEMENT_WATER then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_PURE
+	elseif element == RPC_ELEMENT_DEMON then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_PURE
+	elseif element == RPC_ELEMENT_NATURE then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_MAGICAL
+	elseif element == RPC_ELEMENT_UNDEAD then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_MAGICAL
+	end
+	local name, hex = Elements:GetElementNameAndColorByCode(element)
+	local red, green, blue = Elements:hex2rgb(hex)
+	mace_hit_data["color"] = Vector(red, green, blue)/255
+	return mace_hit_data
 end
 
 

@@ -35,7 +35,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"jumps_per_tech"			"1"
+				"damage_mult"			"100 200 300 400 500 600 700"
 			}
 		}
 		"OnToggleOn"
@@ -76,6 +76,7 @@
 					{
 						"ScriptFile"	"heroes/faceless_void/omni_mace.lua"
 						"Function"		"omniro_mace_attack_land"
+						"damage_mult"	"%damage_mult"
 					}
 				}
 			}
