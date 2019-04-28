@@ -120,7 +120,7 @@ function magnet_hit(event)
 		local q_4_level = caster:GetRuneValue("q", 4)
 		local d_a_duration = Filters:GetAdjustedBuffDuration(caster, q_4_level*0.1, false)
 		if q_4_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_magnet_d_d", {duration = d_a_duration})
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_magnet_q_4", {duration = d_a_duration})
 		end
 	end
 end
@@ -171,7 +171,7 @@ function magnet_thinker(event)
 			local q_4_level = caster:GetRuneValue("q", 4)
 			local d_a_duration = Filters:GetAdjustedBuffDuration(caster, q_4_level*0.1, false)
 			if q_4_level > 0 then
-				ability:ApplyDataDrivenModifier(caster, caster, "modifier_magnet_d_d", {duration = d_a_duration})
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_magnet_q_4", {duration = d_a_duration})
 			end
 			caster:RemoveModifierByName("modifier_voltex_glyph_1_1_effect")
 			caster:RemoveModifierByName("modifier_voltex_glyph_2_1_effect_visible")

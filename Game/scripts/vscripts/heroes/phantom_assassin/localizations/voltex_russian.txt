@@ -1,11 +1,11 @@
 		//Abilities
-		"DOTA_Tooltip_ability_overcharge"								"Overcharge"
-		"DOTA_Tooltip_ability_overcharge_Description"					"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Значительное увеличение скорости атаки и поражение молниями врагов."
-		"DOTA_Tooltip_ability_overcharge_Lore"						""
-		"DOTA_Tooltip_ability_overcharge_attack_speed"				"ДОП. СКОРОСТЬ АТАКИ:"
-		"DOTA_Tooltip_ability_overcharge_proc_targets"				"МАКС. ЦЕЛЕЙ:"
-    	"DOTA_Tooltip_ability_overcharge_proc_damage"					"ЭЛЕКТР. УРОН:"
-    	"DOTA_Tooltip_ability_overcharge_duration"					"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_voltex_overcharge"								"Overcharge"
+		"DOTA_Tooltip_ability_voltex_overcharge_Description"					"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Значительное увеличение скорости атаки и поражение молниями врагов."
+		"DOTA_Tooltip_ability_voltex_overcharge_Lore"						""
+		"DOTA_Tooltip_ability_voltex_overcharge_attack_speed"				"ДОП. СКОРОСТЬ АТАКИ:"
+		"DOTA_Tooltip_ability_voltex_overcharge_proc_targets"				"МАКС. ЦЕЛЕЙ:"
+    	"DOTA_Tooltip_ability_voltex_overcharge_proc_damage"					"ЭЛЕКТР. УРОН:"
+    	"DOTA_Tooltip_ability_voltex_overcharge_duration"					"ДЛИТЕЛЬНОСТЬ:"
 		
 		"DOTA_Tooltip_ability_voltex_rune_q_1"								"[Q1] Magnetic Block"
     	"DOTA_Tooltip_ability_voltex_rune_q_1_Description"					"Во время действия @Ability1 герой получает дополнительную броню"
@@ -38,11 +38,11 @@
     	"DOTA_Tooltip_ability_voltex_rune_q_4_property_one"					"Доп. урон"
     	"DOTA_Tooltip_ability_voltex_rune_q_4_suffix"						"% от основного урона"
 		
-		"DOTA_Tooltip_ability_ability_zap"									"Static"
-		"DOTA_Tooltip_ability_ability_zap_Description"						"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Voltex перераспределяет свои ионы так, что происходит мощный разряд, наносящий урон и отталкивающий всех окружающих врагов."
-		"DOTA_Tooltip_ability_ability_zap_Lore"								""
-		"DOTA_Tooltip_ability_ability_zap_damage"							"УРОН:"
-    	"DOTA_Tooltip_ability_ability_zap_radius"							"РАДИУС:"
+		"DOTA_Tooltip_ability_voltex_static"									"Static"
+		"DOTA_Tooltip_ability_voltex_static_Description"						"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Voltex перераспределяет свои ионы так, что происходит мощный разряд, наносящий урон и отталкивающий всех окружающих врагов."
+		"DOTA_Tooltip_ability_voltex_static_Lore"								""
+		"DOTA_Tooltip_ability_voltex_static_damage"							"УРОН:"
+    	"DOTA_Tooltip_ability_voltex_static_radius"							"РАДИУС:"
 		
 		"DOTA_Tooltip_ability_voltex_rune_w_1"								"[W1] Silver Charge"
     	"DOTA_Tooltip_ability_voltex_rune_w_1_Description"					"Враги, задетые способностью @Ability2 получат чистый урон, равный части атаки героя. Эффект умножается на уровень основной способности."
@@ -79,16 +79,16 @@
     	"DOTA_Tooltip_modifier_voltex_d_b_debuff"							"Fulminating Static"
     	"DOTA_Tooltip_modifier_voltex_d_b_debuff_Description"				"Получает дополнительный магический урон от Voltex"
 		
-		"DOTA_Tooltip_ability_electric_jump"								"Azure Leap"
-		"DOTA_Tooltip_ability_electric_jump_Description"					"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Voltex прыгает вперед и бьёт о землю оглушая и нанося урон врагам."
-		"DOTA_Tooltip_ability_electric_jump_Lore"							""
-		"DOTA_Tooltip_ability_electric_jump_land_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
-    	"DOTA_Tooltip_ability_electric_jump_land_radius"					"РАДИУС:"
-    	"DOTA_Tooltip_ability_electric_jump_land_damage"					"УРОН:"
+		"DOTA_Tooltip_ability_voltex_azure_leap"								"Azure Leap"
+		"DOTA_Tooltip_ability_voltex_azure_leap_Description"					"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Voltex прыгает вперед и бьёт о землю оглушая и нанося урон врагам."
+		"DOTA_Tooltip_ability_voltex_azure_leap_Lore"							""
+		"DOTA_Tooltip_ability_voltex_azure_leap_land_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+    	"DOTA_Tooltip_ability_voltex_azure_leap_land_radius"					"РАДИУС:"
+    	"DOTA_Tooltip_ability_voltex_azure_leap_land_damage"					"УРОН:"
 		
-		"DOTA_Tooltip_ability_heavens_charge"								"Heaven's Charge"
-		"DOTA_Tooltip_ability_heavens_charge_Description"					"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Мгновенное перемещение, наносящее урон и оглушающее врагов в точке появления. Заменяется на Azure Leap после использования."
-		"DOTA_Tooltip_ability_heavens_charge_Lore"							""
+		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge"								"Heaven's Charge"
+		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge_Description"					"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Мгновенное перемещение, наносящее урон и оглушающее врагов в точке появления. Заменяется на Azure Leap после использования."
+		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge_Lore"							""
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_1"								"[E1] Lightning Remnant"
     	"DOTA_Tooltip_ability_voltex_rune_e_1_Description"					"В начале и в конце прыжка Voltex создаёт иллюзию. Иллюзия активирует Overcharge такого же уровня как и у Voltex, также скорость атаки у иллюзий повышена. Дополнительно имеют 5х брони, здоровья и урона."
@@ -97,7 +97,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_two"					"Урон"
     	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix_two"					"%"
 
-    	"zap_assassin_clone"												"Lightning Remnant"
+    	"voltex_rune_e_1_illusion"												"Lightning Remnant"
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_2"								"[E2] Electron Effect"
     	"DOTA_Tooltip_ability_voltex_rune_e_2_Description"					"По приземлении после @Ability3 -  Voltex может пройти сквозь врага, нанося при этом урон."
@@ -121,12 +121,12 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_4_property_one"					"Доп. урон"
     	"DOTA_Tooltip_ability_voltex_rune_e_4_suffix"						"% за каждые 10 очков Ловкости"
 		
-		"DOTA_Tooltip_ability_static_field"									"Static Field"
-		"DOTA_Tooltip_ability_static_field_Description"						"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Voltex заряжается окружающей энергией, после чего выпускает впереди себя несколько наносящих урон заряженных сфер. Каждый контакт противника со сферами увеличит входящий урон по нему, складывается бесконечно."
-		"DOTA_Tooltip_ability_static_field_Lore"							""
-		"DOTA_Tooltip_ability_static_field_damage"							"УРОН ЗА СФЕРУ:"
-    	"DOTA_Tooltip_ability_static_field_num_shocks"						"ЗАРЯЖЕННЫХ СФЕР:"
-		"DOTA_Tooltip_ability_static_field_post_mitigation_per_spark"       "ПОСТ-РЕЗИСТНЫЙ УРОН ЗА СФЕРУ:"
+		"DOTA_Tooltip_ability_voltex_static_field"									"Static Field"
+		"DOTA_Tooltip_ability_voltex_static_field_Description"						"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Voltex заряжается окружающей энергией, после чего выпускает впереди себя несколько наносящих урон заряженных сфер. Каждый контакт противника со сферами увеличит входящий урон по нему, складывается бесконечно."
+		"DOTA_Tooltip_ability_voltex_static_field_Lore"							""
+		"DOTA_Tooltip_ability_voltex_static_field_damage"							"УРОН ЗА СФЕРУ:"
+    	"DOTA_Tooltip_ability_voltex_static_field_num_shocks"						"ЗАРЯЖЕННЫХ СФЕР:"
+		"DOTA_Tooltip_ability_voltex_static_field_post_mitigation_per_spark"       "ПОСТ-РЕЗИСТНЫЙ УРОН ЗА СФЕРУ:"
 		
 		"DOTA_Tooltip_ability_voltex_rune_r_1"								"[R1] Thunder Storm"
     	"DOTA_Tooltip_ability_voltex_rune_r_1_Description"					"Когда Voltex завершает прочтение @Ability4, с небес на землю обрушивается серия смертоносных ударов молний."
@@ -236,7 +236,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_property_one"					"Длительность"
     	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_suffix"						" секунд"
 
-    	"DOTA_Tooltip_modifier_magnet_d_d"									"Quantum Path"
+    	"DOTA_Tooltip_modifier_magnet_q_4"									"Quantum Path"
 		
 		//Glyphs
 		

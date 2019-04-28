@@ -46399,7 +46399,7 @@
 					{
 						"ScriptFile"	"worlds/arena/arena_ai/target_dummy"
 						"Function"		"target_dummy_take_damage"
-						"target"		"TARGET"
+						"target"		"ATTACKER"
 					}
 				}
 			}

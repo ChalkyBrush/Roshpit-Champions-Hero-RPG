@@ -1889,10 +1889,12 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_paladin_glyph_7_2") then
 		filterTable["damage"] = filterTable["damage"]*0.001
 	end
-	if attacker:GetUnitName() == "zap_assassin_clone" then
+	if attacker:GetUnitName() == "voltex_rune_e_1_illusion" then
+		--Changes the attacker to hero, so that its cerdited to him
 		filterTable["entindex_attacker_const"] = attacker.hero:GetEntityIndex()
 		attacker = EntIndexToHScript(filterTable["entindex_attacker_const"])
-		filterTable["damage"] = filterTable["damage"]*(0.4+0.02*attacker.e_1_level)
+		local e_1_level = attacker:GetRuneValue("e", 1)
+		filterTable["damage"] = filterTable["damage"] * (VOLTEX_E1_BASE_OUTGOING_DMG_MULT + VOLTEX_E1_OUTGOING_DMG_MULT * e_1_level)
 	end
 	local damagetype = filterTable["damagetype_const"]
 
@@ -2284,8 +2286,8 @@ function GameState:FilterDamage(filterTable)
 		local multIncrease = 0.006*stacks
 		mult = mult + multIncrease
 	end
-	if victim:HasModifier("modifier_static_field_post_mitigation") then
-		local modifier = victim:FindModifierByName("modifier_static_field_post_mitigation")
+	if victim:HasModifier("modifier_voltex_static_field_post_mitigation") then
+		local modifier = victim:FindModifierByName("modifier_voltex_static_field_post_mitigation")
 		if modifier:GetCaster() == attacker then
 			local stack_value = modifier:GetAbility():GetSpecialValueFor("post_mitigation_per_spark")
 			local stacks = modifier:GetStackCount()

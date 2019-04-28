@@ -847,21 +847,21 @@ function Runes:EquipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_phantom_assassin" then
 		if index == 1 then
-			local heavensCharge = hero:FindAbilityByName("heavens_charge")
+			local heavensCharge = hero:FindAbilityByName("voltex_rune_e_3_heavens_charge")
 			if heavensCharge then
 				if hero.chargeActive then
-				  	local azure_leap = hero:FindAbilityByName("electric_jump")
+				  	local azure_leap = hero:FindAbilityByName("voltex_azure_leap")
 				  	azure_leap:SetLevel(heavensCharge:GetLevel())
-				  	hero:SwapAbilities("heavens_charge", "electric_jump", false, true)
+				  	hero:SwapAbilities("voltex_rune_e_3_heavens_charge", "voltex_azure_leap", false, true)
 				  	azure_leap:SetAbilityIndex(2)
-					hero:RemoveAbility("heavens_charge")
+					hero:RemoveAbility("voltex_rune_e_3_heavens_charge")
 				else
-					hero:RemoveAbility("heavens_charge")
+					hero:RemoveAbility("voltex_rune_e_3_heavens_charge")
 				end
 			end
-			Runes:EasySwapArcanaSkills(hero, 2, "electric_jump", "voltex_lightning_dash", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, 2, "voltex_azure_leap", "voltex_lightning_dash", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
-			Runes:EasySwapArcanaSkills(hero, 0, "overcharge", "voltex_magnet", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, 0, "voltex_overcharge", "voltex_magnet", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_omniknight" then
 		if index == 1 then
@@ -1560,9 +1560,9 @@ function Runes:UnequipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_phantom_assassin" then
 		if index == 1 then
 			hero:RemoveModifierByName("modifier_voltex_arcana1_passive")
-			Runes:EasyRevertArcanaSkills(hero, 2, "electric_jump", "voltex_lightning_dash", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasyRevertArcanaSkills(hero, 2, "voltex_azure_leap", "voltex_lightning_dash", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
-			Runes:EasyRevertArcanaSkills(hero, 0, "overcharge", "voltex_magnet", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasyRevertArcanaSkills(hero, 0, "voltex_overcharge", "voltex_magnet", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_omniknight" then
 		if index == 1 then

@@ -348,7 +348,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_5_A_DURATION_INCREASE_PCT %>"
+				"property_one"			"<% VOLTEX_GLYPH_5_A_DURATION_INCREASE_PCT %>"
 			}
 		}
 	}

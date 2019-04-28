@@ -32,10 +32,14 @@
 					<Label id="current" text="Current" class="rune_value_header"></Label>
 					<Label id="current_level_text_1" class="rune_value" html="true"></Label>
 					<Label id="current_level_text_2" class="rune_value" html="true"></Label>
+          <Label id="current_level_text_3" class="rune_value" html="true"></Label>
+          <Label id="current_level_text_4" class="rune_value" html="true"></Label>
 					<Panel id="rune_seperator"></Panel>
 					<Label id="next" text="Next Level" class="rune_value_header"></Label>
 					<Label id="next_level_text_1" class="rune_value" html="true"></Label>
 					<Label id="next_level_text_2" class="rune_value" html="true"></Label>
+          <Label id="next_level_text_3" class="rune_value" html="true"></Label>
+          <Label id="next_level_text_4" class="rune_value" html="true"></Label>
 				</Panel>
 		</Panel>		
 	</Panel>

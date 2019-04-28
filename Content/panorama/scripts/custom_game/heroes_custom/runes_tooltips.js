@@ -130,19 +130,88 @@ function initializeTooltip(func){
 		$('#current_level_text_2').text ="<font color='#70ccea'>" + $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_property_two") + ":</font> " + propertyValue2 + $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_suffix_two")
 		$('#next_level_text_2').text ="<font color='#70ccea'>" + $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_property_two") + ":</font> " + propertyValueNext2 + $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_suffix_two")
 		$('#current_level_text_2').RemoveClass('invisible')
-		$('#next_level_text_2').RemoveClass('invisible')
+        $('#next_level_text_2').RemoveClass('invisible')
+
+        var amount_per_level3 = Abilities.GetLevelSpecialValueFor(rune, "property_three", 1)
+        if (!(amount_per_level3 == 0)) {
+            amount_per_level3 = Math.round(amount_per_level3 * 100) / 100
+            var property_three_base = Abilities.GetLevelSpecialValueFor(rune, "property_three_base", 1)
+            property_three_base = Math.round(property_three_base * 100) / 100
+            var property_three_max = Abilities.GetLevelSpecialValueFor(rune, "property_three_max", 1)
+
+            var propertyValue3 = amount_per_level3 * total_level + property_three_base
+            if (property_three_max > 0) {
+                if ((amount_per_level3 * total_level + property_three_base) > property_three_max) {
+                    propertyValue3 = property_three_max
+                }
+            }
+            propertyValue3 = Math.round(propertyValue3 * 100) / 100
+            var propertyValueNext3 = amount_per_level3 * (total_level + 1) + property_three_base
+            if (property_three_max > 0) {
+                if ((amount_per_level3 * (total_level + 1) + property_three_base) > property_three_max) {
+                    propertyValueNext3 = property_three_max
+                }
+            }
+            propertyValueNext3 = Math.round(propertyValueNext3 * 100) / 100
+            $('#current_level_text_3').text = "<font color='#70ccea'>" + $.Localize("#DOTA_Tooltip_Ability_" + abilityNameInternal + "_property_three") + ":</font> " + propertyValue3 + $.Localize("#DOTA_Tooltip_Ability_" + abilityNameInternal + "_suffix_three")
+            $('#next_level_text_3').text = "<font color='#70ccea'>" + $.Localize("#DOTA_Tooltip_Ability_" + abilityNameInternal + "_property_three") + ":</font> " + propertyValueNext3 + $.Localize("#DOTA_Tooltip_Ability_" + abilityNameInternal + "_suffix_three")
+            $('#current_level_text_3').RemoveClass('invisible')
+            $('#next_level_text_3').RemoveClass('invisible')
+
+            var amount_per_level4 = Abilities.GetLevelSpecialValueFor(rune, "property_four", 1)
+            if (!(amount_per_level4 == 0)) {
+                amount_per_level4 = Math.round(amount_per_level4 * 100) / 100
+                var property_four_base = Abilities.GetLevelSpecialValueFor(rune, "property_four_base", 1)
+                property_four_base = Math.round(property_four_base * 100) / 100
+                var property_four_max = Abilities.GetLevelSpecialValueFor(rune, "property_four_max", 1)
+
+                var propertyValue4 = amount_per_level4 * total_level + property_four_base
+                if (property_four_max > 0) {
+                    if ((amount_per_level4 * total_level + property_four_base) > property_four_max) {
+                        propertyValue4 = property_four_max
+                    }
+                }
+                propertyValue4 = Math.round(propertyValue4 * 100) / 100
+                var propertyValueNext4 = amount_per_level4 * (total_level + 1) + property_four_base
+                if (property_four_max > 0) {
+                    if ((amount_per_level4 * (total_level + 1) + property_four_base) > property_four_max) {
+                        propertyValueNext4 = property_four_max
+                    }
+                }
+                propertyValueNext4 = Math.round(propertyValueNext4 * 100) / 100
+                $('#current_level_text_4').text = "<font color='#70ccea'>" + $.Localize("#DOTA_Tooltip_Ability_" + abilityNameInternal + "_property_four") + ":</font> " + propertyValue4 + $.Localize("#DOTA_Tooltip_Ability_" + abilityNameInternal + "_suffix_four")
+                $('#next_level_text_4').text = "<font color='#70ccea'>" + $.Localize("#DOTA_Tooltip_Ability_" + abilityNameInternal + "_property_four") + ":</font> " + propertyValueNext4 + $.Localize("#DOTA_Tooltip_Ability_" + abilityNameInternal + "_suffix_four")
+                $('#current_level_text_4').RemoveClass('invisible')
+                $('#next_level_text_4').RemoveClass('invisible')
+
+            } else {
+                $('#current_level_text_4').AddClass('invisible')
+                $('#next_level_text_4').AddClass('invisible')
+            }
+        } else {
+            $('#current_level_text_3').AddClass('invisible')
+            $('#next_level_text_3').AddClass('invisible')
+            $('#current_level_text_4').AddClass('invisible')
+            $('#next_level_text_4').AddClass('invisible')
+        }
 	}else{
 		$('#current_level_text_2').AddClass('invisible')
-		$('#next_level_text_2').AddClass('invisible')
+        $('#next_level_text_2').AddClass('invisible')
+        $('#current_level_text_3').AddClass('invisible')
+        $('#next_level_text_3').AddClass('invisible')
+        $('#current_level_text_4').AddClass('invisible')
+        $('#next_level_text_4').AddClass('invisible')
 	}
 	if (total_level<1){
 		$("#current").AddClass("invisible")
 		$("#current_level_text_1").AddClass("invisible")
-		$("#current_level_text_2").AddClass("invisible")
+        $("#current_level_text_2").AddClass("invisible")
+        $("#current_level_text_3").AddClass("invisible")
+        $("#current_level_text_4").AddClass("invisible")
 		$("#rune_seperator").AddClass("invisible")
 	}else{
 		$("#current").RemoveClass("invisible")
-		$("#current_level_text_1").RemoveClass("invisible")
+        $("#current_level_text_1").RemoveClass("invisible")
 		$("#rune_seperator").RemoveClass("invisible")
 	}
 }
