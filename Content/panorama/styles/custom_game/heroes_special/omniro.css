@@ -37,10 +37,11 @@
 }
 
 #omniro_element_image{
-	width:24px;
-	height:24px;
-	margin-left:8px;
-	margin-top:8px;
+	width:40px;
+	height:40px;
+	margin-left:0px;
+	margin-top:0px;
+	padding:8px;
 }
 
 #omniro_element_charge_counter{
@@ -54,26 +55,27 @@
 	width:40px;
 	height:8px;
 	margin-top:40px;
-	border-radius:2px;
+	border-radius:0px;
 }
 
 .omniro_charge_bg{
 	background-color:#121212;
 	height:8px;
 	width:100%;
+	border-radius:2px;
 }
 
 
 #omniro_charge_fill{
-	
 	height:8px;
-	width:0%;
+	border-radius:2px;
 }
 
 #omniro_element_active_indicator{
 	margin-top:50px;
 	width:40px;
 	height:4px;
+	border-radius:0px;
 	background-color: #83f7f7;
 }
 
@@ -91,4 +93,9 @@
 
 .omniro_element_charge_fill_no_charges{
 	background-color: gradient( linear, 0px 0%, 40px 0%, from( #ba1228), to( #720a18 ) );
+}
+
+.omniro_element_locked{
+	background-color: #000000;
+	border-radius:6px;
 }

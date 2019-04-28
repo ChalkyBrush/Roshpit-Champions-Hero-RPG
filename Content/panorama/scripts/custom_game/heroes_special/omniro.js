@@ -88,6 +88,11 @@ function update_omniro_element(element_parent, element_data){
 	}else{
 		element_parent.style.opacity = 0.3
 	}
+	if (element_data["locked"]){
+		element_parent.FindChildTraverse('omniro_element_image').AddClass("omniro_element_locked")
+	}else{
+		element_parent.FindChildTraverse('omniro_element_image').RemoveClass("omniro_element_locked")
+	}
 }
 
 (function()

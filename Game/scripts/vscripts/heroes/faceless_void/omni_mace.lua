@@ -1,3 +1,5 @@
+require('heroes/faceless_void/omniro_constants')
+
 function omni_mace_main_think(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -28,6 +30,12 @@ function init_omniro_data(event)
 		caster.omniro_data[i]["enabled"] = true
 		caster.omniro_data[i]["element_number"] = i
 		caster.omniro_data[i]["active"] = false
+		caster.omniro_data[i]["locked"] = false
+		if i > 1 then
+			caster.omniro_data[i]["rune_tier"] = math.floor(((i-2)/4) + 1)
+		else
+			caster.omniro_data[i]["rune_tier"] = 0
+		end
 	end
 	caster.omniro_data[1]["active"] = true
 	caster.active_element = 1
@@ -40,7 +48,7 @@ function init_omniro_detail_data(event)
 			caster.omniro_data[i]["charges"] = 1
 			caster.omniro_data[i]["max_charges"] = 1
 			caster.omniro_data[i]["charge_up_fraction"] = 0
-			caster.omniro_data[i]["charge_up_fraction_full"] = 80
+			caster.omniro_data[i]["charge_up_fraction_full"] = 100
 		-- end
 	end
 end
@@ -92,6 +100,19 @@ function omniro_rune_calculate(event)
 	for i = 1, #caster.omniro_data, 1 do
 		if caster.omniro_data[i]["level"] > 0 then
 			caster.omniro_data[i]["enabled"] = true
+			local max_charges = 1
+			local bonus_max_charges = 0
+			if caster.omniro_data[i]["rune_tier"] == 1 then
+				bonus_max_charges = math.floor(OMNIRO_T1_RUNE_MAX_CHARGES*caster.omniro_data[i]["level"])
+			elseif caster.omniro_data[i]["rune_tier"] == 2 then
+				bonus_max_charges = math.floor(OMNIRO_T2_RUNE_MAX_CHARGES*caster.omniro_data[i]["level"])
+			elseif caster.omniro_data[i]["rune_tier"] == 3 then
+				bonus_max_charges = math.floor(OMNIRO_T3_RUNE_MAX_CHARGES*caster.omniro_data[i]["level"])
+			elseif caster.omniro_data[i]["rune_tier"] == 4 then
+				bonus_max_charges = math.floor(OMNIRO_T4_RUNE_MAX_CHARGES*caster.omniro_data[i]["level"])
+			end
+			max_charges = max_charges + bonus_max_charges
+			caster.omniro_data[i]["max_charges"] = max_charges
 		end
 	end
 end
@@ -116,30 +137,34 @@ end
 function omniro_mace_attack_land(event)
 	local caster = event.caster
 	local target = event.target
+	if target.dummy then
+		return false
+	end
 	local active_element = caster.active_element
 
 
 	-- CURRENT ELEMENT EFFECT HERE
 	if caster:HasModifier("modifier_omni_orb_active") then
 		if caster.omniro_data[active_element]["charges"] > 0 then
-			print("ORB EFFECT FIRE")
 			caster.omniro_data[active_element]["charges"] = caster.omniro_data[active_element]["charges"] - 1
 		end
 	end
 
 	local next_element = nil
 	if active_element == 17 then
+
 	else
 		for i = active_element, 16, 1 do
-			if caster.omniro_data[active_element + 1]["level"] > 0 then
-				next_element = active_element + 1
+			if caster.omniro_data[i + 1]["level"] > 0 and caster.omniro_data[i + 1]["enabled"] then
+				next_element = i + 1
 				break
 			end
 		end	
 	end
 	if not next_element then
+		next_element = active_element
 		for i = 1, 17, 1 do
-			if caster.omniro_data[i]["level"] > 0 then
+			if caster.omniro_data[i]["level"] > 0 and caster.omniro_data[i]["enabled"] then
 				next_element = i
 			end
 		end
@@ -150,12 +175,24 @@ function omniro_mace_attack_land(event)
 	if next_element == active_element then
 		next_element = 1
 	end
-	caster.omniro_data[active_element]["active"] = false
-	caster.omniro_data[next_element]["active"] = true
-	caster.active_element = next_element
+	if not caster.omniro_data[caster.active_element]["locked"] then
+		caster.omniro_data[active_element]["active"] = false
+		caster.omniro_data[next_element]["active"] = true
+		caster.active_element = next_element
+	end
 
 	local player = caster:GetPlayerOwner()
 	CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
+end
+
+function omni_mace_toggle_on(event)
+	local caster = event.caster
+	caster.omniro_data[caster.active_element]["locked"] = true
+end
+
+function omni_mace_toggle_off(event)
+	local caster = event.caster
+	caster.omniro_data[caster.active_element]["locked"] = false
 end
 
 

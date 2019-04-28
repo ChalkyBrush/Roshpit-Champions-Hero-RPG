@@ -48,11 +48,19 @@
 		}
 		"OnToggleOn"
 		{
-
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/faceless_void/omni_mace.lua"
+				"Function"		"omni_mace_toggle_on"
+			}
 		}
 		"OnToggleOff"
 		{
-
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/faceless_void/omni_mace.lua"
+				"Function"		"omni_mace_toggle_off"
+			}
 		}
 		"Modifiers"
 		{
