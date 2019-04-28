@@ -37,6 +37,16 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage_mult"			"100 200 300 400 500 600 700"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"fire_special_a"			"200 400 600 800 1000 1200 1400"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"earth_special_a"			"200 400 600 800 1000 1200 1400"
+			}
 		}
 		"OnToggleOn"
 		{
@@ -80,7 +90,15 @@
 					}
 				}
 			}
-
+			"modifier_omnimace_fire_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%fire_special_a"
+				}
+			}
 		}
 	}
 

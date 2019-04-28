@@ -13,6 +13,49 @@ function convertElementNameToNumber(element_name)
 	return element_number
 }
 
+function convertElementNumberToName(element_number)
+{
+	var element_name = ""
+	if (element_number == 1){
+		element_name = "normal"
+	}else if(element_number == 2){
+		element_name = "fire"
+	}else if(element_number == 3){
+		element_name = "earth"
+	}else if(element_number == 4){
+		element_name = "lightning"
+	}else if(element_number == 5){
+		element_name = "poison"
+	}else if(element_number == 6){
+		element_name = "time"
+	}else if(element_number == 7){
+		element_name = "holy"
+	}else if(element_number == 8){
+		element_name = "cosmic"
+	}else if(element_number == 9){
+		element_name = "ice"
+	}else if(element_number == 10){
+		element_name = "arcane"
+	}else if(element_number == 11){
+		element_name = "shadow"
+	}else if(element_number == 12){
+		element_name = "wind"
+	}else if(element_number == 13){
+		element_name = "ghost"
+	}else if(element_number == 14){
+		element_name = "water"
+	}else if(element_number == 15){
+		element_name = "demon"
+	}else if(element_number == 16){
+		element_name = "nature"
+	}else if(element_number == 17){
+		element_name = "undead"
+	}else if(element_number == 18){
+		element_name = "dragon"
+	}
+	return element_name
+}
+
 function get_element_color_by_index(element_index){
 	var color = "#FFFFFF"
 	if (element_index == 1){

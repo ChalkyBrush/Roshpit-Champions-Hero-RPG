@@ -1,2 +1,7 @@
 		//Abilities
-		"DOTA_Tooltip_ability_omniro_something"								"Thing"
+		"DOTA_Tooltip_ability_omniro_omni_mace"								"Omni Mace"
+		"DOTA_Tooltip_ability_omniro_omni_mace_Description"					"Grants an additional effect when attacking an enemy. Striking an enemy cycles to the next available element. This ability can be toggled on to lock the current element. Hover over an element on Omniro's panel to see its effect. All effects scale with Omni Mace's level as well as that element's rune level."	
+		"DOTA_Tooltip_ability_omniro_omni_mace_damage_mult"					"% EXTRA DAMAGE INSTANCE BASEd ON ATTACK POWER:"
+		"omniro_fire_special_a_description"									"Applies a 12 second buff that increases base attack damage."
+		"omniro_fire_special_a_pretext"										"BONUS ATTACK DAMAGE: "												
+		"DOTA_Tooltip_ability_omniro_omni_mace_fire_special_a"				"<font color=\"#EF4126\">Fire</font> - BONUS ATTACK DAMAGE:"			

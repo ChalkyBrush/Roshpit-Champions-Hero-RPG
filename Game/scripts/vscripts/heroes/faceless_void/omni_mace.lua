@@ -221,6 +221,13 @@ function omni_mace_basic_hit(caster, ability, target, damage_mult)
 	ParticleManager:SetParticleControl(pfx, 1, mace_hit_data["color"])
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(damage_mult/100)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, mace_hit_data["damage_type"], 3, caster.active_element, RPC_ELEMENT_NONE)
+
+	if caster.active_element == RPC_ELEMENT_FIRE then
+		local duration = Filters:GetAdjustedBuffDuration(caster, 12, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_fire_buff", {duration = duration})
+		caster:SetModifierStackCount("modifier_omnimace_fire_buff", caster, caster.omniro_data[caster.active_element]["level"])
+	elseif caster.active_element == RPC_ELEMENT_EARTH then
+	end
 end
 
 function omni_mace_basic_element_data(element)
@@ -264,6 +271,9 @@ function omni_mace_basic_element_data(element)
 	local red, green, blue = Elements:hex2rgb(hex)
 	mace_hit_data["color"] = Vector(red, green, blue)/255
 	return mace_hit_data
+end
+
+function omniro_elemental_bonus(element1, element2, attacker)
 end
 
 

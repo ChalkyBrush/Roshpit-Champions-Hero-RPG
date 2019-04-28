@@ -19,6 +19,7 @@ require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/spirit_breaker/duskbringer_constants')
 require('/heroes/zuus/auriun_constants')
 require('/heroes/legion_commander/mountain_protector_constants')
+require('/heroes/faceless_void/omniro_constants')
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -1815,6 +1816,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if attacker:HasModifier("modifier_depth_demon_claw") then
             element2 = RPC_ELEMENT_DEMON
         end
+    end
+    if unitName == "npc_dota_hero_faceless_void" then
+        require('heroes/faceless_void/omni_mace')
+        mult = omniro_elemental_bonus(element1, element2, attacker)
     end
     if element1 > 1 or element2 > 1 then
         if attacker:HasModifier("modifier_neutral_glyph_2_3") then
