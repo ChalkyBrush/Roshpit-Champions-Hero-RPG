@@ -7747,8 +7747,16 @@
         "property_mountain_protector_immortal_weapon3_description"                      "@Ability3 is thrown overhand making it land faster, and has @special_property1% reduced cooldown."
 
 		//Abilities
+
+		"omni_mace_effect"													"Omni Mace Basic Effect"
+		"omniro_element_help_disable"												"Click to disable this element from Omniro's rotation"
+		"omniro_element_help_enable"												"Click to enable this element into Omniro's rotation"
+
+		"omniro_normal_special_description"									"No Special Effect."
+
+
 		"DOTA_Tooltip_ability_omniro_omni_mace"								"Omni Mace"
-		"DOTA_Tooltip_ability_omniro_omni_mace_Description"					"Grants an additional effect when attacking an enemy. Striking an enemy cycles to the next available element. This ability can be toggled on to lock the current element. Hover over an element on Omniro's panel to see its effect. All effects scale with Omni Mace's level as well as that element's rune level."	
+		"DOTA_Tooltip_ability_omniro_omni_mace_Description"					"Grants an additional effect when attacking an enemy. Striking an enemy cycles to the next available element. This ability can be toggled on to lock the current element. Hover over an element on Omniro's panel to see its effect (not all effects can fit in this ability's tooltip). All effects scale with Omni Mace's level as well as that element's rune level."	
 		"DOTA_Tooltip_ability_omniro_omni_mace_damage_mult"					"% EXTRA DAMAGE INSTANCE BASED ON ATTACK POWER:"
 
 		"omniro_fire_special_description"									"Applies a 12 second buff that increases base attack damage."
@@ -7790,7 +7798,7 @@
 		"DOTA_Tooltip_ability_omniro_omni_mace_ice_special_b"				"<font color=\"#87D9FF\">Ice</font> - ATTACK SPEED REDUCTION:"		
 
 		"omniro_arcane_special_description"									"Drains 20% of max mana to deal an additional instance of damage."
-		"omniro_arcane_special_a_pretext"										"DAMAGE MULTIPLIER BASED ON MANA USED:"												
+		"omniro_arcane_special_a_pretext"										"DAMAGE MULT PER MANA USED:"												
 		"DOTA_Tooltip_ability_omniro_omni_mace_arcane_special_a"				"<font color=\"#E1A2E8\">Arcane</font> - DAMAGE MULTIPLIER AT 20% OF MAX MANA:"
 
 		"omniro_shadow_special_description"									"Deal an additional amplified instance of damage and apply a debuff to the target that makes removes their armor reduction."
@@ -7820,6 +7828,12 @@
 		"omniro_nature_special_b_pretext"									"ROOT DAMAGE PER SECOND BASED ON % OF ATTACK POWER:"											
 		"DOTA_Tooltip_ability_omniro_omni_mace_nature_special_a"				"<font color=\"#69BC71\">Nature</font> - ROOT DURATION:"
 		"DOTA_Tooltip_ability_omniro_omni_mace_nature_special_b"				"%<font color=\"#69BC71\">Nature</font> - DAMAGE PER SECOND BASED ON % ATTACK POWER:"	
+
+		"omniro_undead_special_description"									"Target gains a debuff that disables healing. Applies a buff for 10 seconds that increases post-mitigation damage."
+		"omniro_undead_special_a_pretext"									"HEALING DISBLE DURATION:"		
+		"omniro_undead_special_b_pretext"									"POST MITIGATION BONUS %:"											
+		"DOTA_Tooltip_ability_omniro_omni_mace_undead_special_a"				"<font color=\"#5C776E\">Undead</font> - DISABLE HEALING DURATION:"
+		"DOTA_Tooltip_ability_omniro_omni_mace_undead_special_b"				"%<font color=\"#5C776E\">Undead</font> - POST MITIGATION BONUS:"	
 
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
 		"DOTA_Tooltip_ability_heroic_fury_Description"					"Element: <font color=\"#F6FFB5\">Holy</font> / <font color=\"#DDDDDD\">Normal</font><br>Empowers the Paladin's weapon to deal massive splash and slow effect, as well as heal him on successful strikes."

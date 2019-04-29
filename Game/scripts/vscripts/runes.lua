@@ -492,7 +492,10 @@ function Runes:apply_runes(ability, unit, PlayerID)
 			ability:ApplyDataDrivenModifier(unit, hero, "modifier_earth_guardian", {})
 		end
 	end
-	
+	-- if hero:GetUnitName() == "npc_dota_hero_faceless_void" then
+	-- 	local player = hero:GetPlayerOwner()
+	-- 	CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = hero.omniro_data, omniro = hero:GetEntityIndex(), reconstruct = true})
+	-- end
 end
 
 function Runes:EquipArcana(hero, index)

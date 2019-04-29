@@ -18,10 +18,10 @@
 		<snippet name="omniro_element">
 			<Panel class="omniro_element_parent" hittest="false">
 				<Image id="omniro_element_image" hittest="true" />
-				<Label id="omniro_element_charge_counter" text="0"/>
+				<Label id="omniro_element_charge_counter" text="0" hittest="false"/>
 				<Panel class="omniro_charge_container" hittest="false">
-					<Panel class="omniro_charge_bg"/>
-					<Panel id="omniro_charge_fill"/>
+					<Panel class="omniro_charge_bg" hittest="false"/>
+					<Panel id="omniro_charge_fill" hittest="false"/>
 				</Panel>
 				<Panel id="omniro_element_active_indicator" class="invisible" hittest="false"/>
 				<Label id="omniro_disabled_element_label" class="invisible" text="X" hittest="false"/>

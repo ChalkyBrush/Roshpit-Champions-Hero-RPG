@@ -8,7 +8,7 @@ function omni_mace_main_think(event)
 		init_omniro_data(event)
 	end
 
-	omniro_rune_calculate(event)
+	local reconstruct = omniro_rune_calculate(event)
 
 	if not caster.omniro_data_initialized then
 		init_omniro_detail_data(event)
@@ -18,7 +18,11 @@ function omni_mace_main_think(event)
 	omniro_element_charge_think(event)
 
 	local player = caster:GetPlayerOwner()
-	CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
+	if reconstruct then
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex(), reconstruct = true})
+	else
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
+	end
 
 	if not caster.omniro_weapon_pfx then		
 		-- local counter = 0
@@ -47,6 +51,7 @@ function init_omniro_data(event)
 		caster.omniro_data[i]["active"] = false
 		caster.omniro_data[i]["locked"] = false
 		caster.omniro_data[i]["in_rotation"] = 1
+		caster.omniro_data[i]["ability_index"] = event.ability:GetEntityIndex()
 		if i > 1 then
 			caster.omniro_data[i]["rune_tier"] = math.floor(((i-2)/4) + 1)
 		else
@@ -65,11 +70,13 @@ function init_omniro_detail_data(event)
 			caster.omniro_data[i]["max_charges"] = 1
 			caster.omniro_data[i]["charge_up_fraction"] = 0
 			caster.omniro_data[i]["charge_up_fraction_full"] = 100
+
 		-- end
 	end
 end
 
 function omniro_rune_calculate(event)
+	local reconstruct = false
 	local caster = event.caster
 	local rune_q_1 = caster:GetRuneValue("q", 1)
 	local rune_q_2 = caster:GetRuneValue("q", 2)
@@ -93,25 +100,73 @@ function omniro_rune_calculate(event)
 
 	caster.omniro_data[RPC_ELEMENT_NORMAL]["level"] = 1
 
-	caster.omniro_data[RPC_ELEMENT_FIRE]["level"] = rune_q_1
-	caster.omniro_data[RPC_ELEMENT_EARTH]["level"] = rune_w_1
-	caster.omniro_data[RPC_ELEMENT_LIGHTNING]["level"] = rune_e_1
-	caster.omniro_data[RPC_ELEMENT_POISON]["level"] = rune_r_1
+	if caster.omniro_data[RPC_ELEMENT_FIRE]["level"] ~= rune_q_1 then
+		caster.omniro_data[RPC_ELEMENT_FIRE]["level"] = rune_q_1
+		reconstruct = true
+	end
+	if caster.omniro_data[RPC_ELEMENT_EARTH]["level"] ~= rune_w_1 then
+		caster.omniro_data[RPC_ELEMENT_EARTH]["level"] = rune_w_1
+		reconstruct = true
+	end
+	if caster.omniro_data[RPC_ELEMENT_LIGHTNING]["level"] ~= rune_e_1 then
+		caster.omniro_data[RPC_ELEMENT_LIGHTNING]["level"] = rune_e_1
+		reconstruct = true
+	end
+	if caster.omniro_data[RPC_ELEMENT_POISON]["level"] ~= rune_r_1 then
+		caster.omniro_data[RPC_ELEMENT_POISON]["level"] = rune_r_1
+		reconstruct = true
+	end
 
-	caster.omniro_data[RPC_ELEMENT_TIME]["level"] = rune_q_2
-	caster.omniro_data[RPC_ELEMENT_HOLY]["level"] = rune_w_2
-	caster.omniro_data[RPC_ELEMENT_COSMOS]["level"] = rune_e_2
-	caster.omniro_data[RPC_ELEMENT_ICE]["level"] = rune_r_2
+	if caster.omniro_data[RPC_ELEMENT_TIME]["level"] ~= rune_q_2 then
+		caster.omniro_data[RPC_ELEMENT_TIME]["level"] = rune_q_2
+		reconstruct = true
+	end
+	if caster.omniro_data[RPC_ELEMENT_HOLY]["level"] ~= rune_w_2 then
+		caster.omniro_data[RPC_ELEMENT_HOLY]["level"] = rune_w_2
+		reconstruct = true
+	end
+	if caster.omniro_data[RPC_ELEMENT_COSMOS]["level"] ~= rune_e_2 then
+		caster.omniro_data[RPC_ELEMENT_COSMOS]["level"] = rune_e_2
+		reconstruct = true
+	end
+	if caster.omniro_data[RPC_ELEMENT_ICE]["level"] ~= rune_r_2 then
+		caster.omniro_data[RPC_ELEMENT_ICE]["level"] = rune_r_2
+		reconstruct = true
+	end
 
-	caster.omniro_data[RPC_ELEMENT_ARCANE]["level"] = rune_q_3
-	caster.omniro_data[RPC_ELEMENT_SHADOW]["level"] = rune_w_3
-	caster.omniro_data[RPC_ELEMENT_WIND]["level"] = rune_e_3
-	caster.omniro_data[RPC_ELEMENT_GHOST]["level"] = rune_r_3
+	if caster.omniro_data[RPC_ELEMENT_ARCANE]["level"] ~= rune_q_3 then
+		caster.omniro_data[RPC_ELEMENT_ARCANE]["level"] = rune_q_3
+		reconstruct = true
+	end
+	if caster.omniro_data[RPC_ELEMENT_SHADOW]["level"] ~= rune_w_3 then
+		caster.omniro_data[RPC_ELEMENT_SHADOW]["level"] = rune_w_3
+		reconstruct = true
+	end
+	if caster.omniro_data[RPC_ELEMENT_WIND]["level"] ~= rune_e_3 then
+		caster.omniro_data[RPC_ELEMENT_WIND]["level"] = rune_e_3
+		reconstruct = true
+	end
+	if caster.omniro_data[RPC_ELEMENT_GHOST]["level"] ~= rune_r_3 then
+		caster.omniro_data[RPC_ELEMENT_GHOST]["level"] = rune_r_3
+		reconstruct = true
+	end
 
-	caster.omniro_data[RPC_ELEMENT_WATER]["level"] = rune_q_4
-	caster.omniro_data[RPC_ELEMENT_DEMON]["level"] = rune_w_4
-	caster.omniro_data[RPC_ELEMENT_NATURE]["level"] = rune_e_4
-	caster.omniro_data[RPC_ELEMENT_UNDEAD]["level"] = rune_r_4
+	if caster.omniro_data[RPC_ELEMENT_WATER]["level"] ~= rune_q_4 then
+		caster.omniro_data[RPC_ELEMENT_WATER]["level"] = rune_q_4
+		reconstruct = true
+	end
+	if caster.omniro_data[RPC_ELEMENT_DEMON]["level"] ~= rune_w_4 then
+		caster.omniro_data[RPC_ELEMENT_DEMON]["level"] = rune_w_4
+		reconstruct = true
+	end
+	if caster.omniro_data[RPC_ELEMENT_NATURE]["level"] ~= rune_e_4 then
+		caster.omniro_data[RPC_ELEMENT_NATURE]["level"] = rune_e_4
+		reconstruct = true
+	end
+	if caster.omniro_data[RPC_ELEMENT_UNDEAD]["level"] ~= rune_r_4 then
+		caster.omniro_data[RPC_ELEMENT_UNDEAD]["level"] = rune_r_4
+		reconstruct = true
+	end
 
 	for i = 1, #caster.omniro_data, 1 do
 		if caster.omniro_data[i]["level"] > 0 then
@@ -131,6 +186,7 @@ function omniro_rune_calculate(event)
 			caster.omniro_data[i]["max_charges"] = max_charges
 		end
 	end
+	return reconstruct
 end
 
 function omniro_element_charge_think(event)
@@ -230,8 +286,8 @@ function omni_mace_ui_toggle(msg)
 	else
 		caster.omniro_data[msg.element_index]["in_rotation"] = 1
 	end
-	print(caster.omniro_data[msg.element_index]["in_rotation"])
-	CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
+	local player = caster:GetPlayerOwner()
+	CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex(), reconstruct = true})
 end
 
 function omni_mace_basic_hit(caster, ability, target, event)

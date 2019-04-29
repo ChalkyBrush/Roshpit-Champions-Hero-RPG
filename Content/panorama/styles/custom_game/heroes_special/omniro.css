@@ -108,3 +108,89 @@
 	font-weight:bold;
 	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
 }
+
+
+/*TOOLTIP*/
+
+
+#omniro_element_tooltip_title{
+	text-align: center;
+	font-weight:bold;
+	font-size:18px;
+	horizontal-align:center;
+}
+
+#omniro_tooltip_content{
+	flow-children:down;
+	color:#EEEEEE;
+}
+
+#omniro_element_tooltip_level{
+	color:#DDDDDD;
+	horizontal-align:center;
+}
+
+#omniro_element_help{
+	font-size:16px;
+}
+
+#omniro_tooltip_bg{
+	width:100%;
+	height:100%;
+}
+
+#omniro_omnimace_content{
+	border-radius:4px;
+	background-color: #111111;
+	box-shadow:1px 1px 1px #000000;
+	flow-children:down;
+	padding:8px;
+	width:100%;
+}
+
+#omniro_omnimace_title{
+	color:white;
+	font-size:16px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	horizontal-align:center;
+}
+
+#omniro_omnimace_effect_description{
+	color:#DDDDDD;
+	min-height:50px;
+	height:fit-children;
+}
+
+.omniro_element_property_content{
+	width:100%;
+	horizontal-align:center;
+	background-color: black;
+	border-radius:4px;
+	padding:5px;
+}
+
+#omniro_omnimace_special_property1{
+	max-width:70%;
+	vertical-align: center;
+}
+
+#omniro_omnimace_special_property1_value{
+	horizontal-align:right;
+	font-size:18px;
+	font-weight:bold;
+}
+
+#omniro_omnimace_special_property2{
+	max-width:70%;
+	vertical-align: center;
+}
+
+#omniro_omnimace_special_property2_value{
+	horizontal-align:right;
+	font-size:18px;
+	font-weight:bold;
+}
+
+.invisible{
+	visibility: collapse;
+}

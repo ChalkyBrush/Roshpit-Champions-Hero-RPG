@@ -31,6 +31,9 @@ function UpdateOmniro(msg){
     if (!(element_leveled_count == element_exist_count)){
     	reconstruct_omniro_element_ui(omniro_parent, omniro_data, msg.omniro)
     }
+    if (msg.reconstruct){
+    	reconstruct_omniro_element_ui(omniro_parent, omniro_data, msg.omniro)
+    }
     update_omniro_element_ui_items(omniro_parent, omniro_data)
 }
 
@@ -66,14 +69,13 @@ function omniro_element_click(element_data, omniro){
 }
 
 function hover_tooltip(element_parent, element_data){
-	var title_color = get_element_color_by_index(element_data["element_number"])
-	var title = "<font color='"+title_color+"'>"+$.Localize('rpc_element'+element_data["element_number"])+"</font>"
-	var tooltip = "Click to enable or disable this element from Omniro's rotation"
-	$.DispatchEvent("DOTAShowTitleTextTooltip", element_parent,  title, tooltip );
+	GameUI.CustomUIConfig.omniro_element_data = element_data
+	$.DispatchEvent("UIShowCustomLayoutTooltip", element_parent, "omniro_tooltip", "file://{resources}/layout/custom_game/hero/omniro_element_tooltip.xml");
 }
 
 function unhover_tooltip(element_parent){
-	$.DispatchEvent( "DOTAHideTitleTextTooltip", element_parent );
+	$.DispatchEvent("UIHideCustomLayoutTooltip", "omniro_tooltip");
+	// $.DispatchEvent( "DOTAHideTitleTextTooltip", element_parent );
 }
 
 function update_omniro_element_ui_items(omniro_parent, omniro_data)
