@@ -87,7 +87,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_e_3_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_venomort_rune_e_4"							"[E4] 施虐狂人"
-    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"每一只受到剧毒巫师的毒素伤害的敌人，都能为他增加额外的生命值和闪避。"
+    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"每一只受到剧毒巫师的毒素伤害的敌人，都能为他增加额外的生命值和闪避。精英计算为5个单位，boss计算为20个单位，基础持续时间为1.5秒。"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_one"				"生命值提高"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_suffix"						" 每个敌人"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_two"				"闪避提高"
