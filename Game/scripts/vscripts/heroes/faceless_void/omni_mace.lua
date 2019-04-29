@@ -20,6 +20,21 @@ function omni_mace_main_think(event)
 	local player = caster:GetPlayerOwner()
 	CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
 
+	if not caster.omniro_weapon_pfx then		
+		-- local counter = 0
+		-- for k, v in pairs(caster:GetChildren()) do 
+		-- 	if v:GetClassname() == "dota_item_wearable" then
+		-- 	  if counter == 5 then
+		-- 	  	caster.weapon_attachment = v
+		-- 	  end
+		-- 	  counter = counter + 1
+		-- 	end 
+		-- end  
+		-- print(caster.weapon_attachment:GetModelName())
+		local pfx = ParticleManager:CreateParticle("particles/roshpit/omniro/omniro_weapon_glow.vpcf", PATTACH_POINT_FOLLOW, caster)
+		ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
+		caster.omniro_weapon_pfx = pfx
+	end
 end
 
 function init_omniro_data(event)
@@ -175,12 +190,17 @@ function omniro_mace_attack_land(event)
 	print("-----")
 	print(active_element)
 	print(next_element)
-	omni_mace_basic_hit(caster, ability, target, event.damage_mult)
+	omni_mace_basic_hit(caster, ability, target, event)
 
 	if not caster.omniro_data[caster.active_element]["locked"] then
 		caster.omniro_data[active_element]["active"] = false
 		caster.omniro_data[next_element]["active"] = true
 		caster.active_element = next_element
+
+		local mace_hit = omni_mace_basic_element_data(next_element)
+		if caster.omniro_weapon_pfx then
+			ParticleManager:SetParticleControl(caster.omniro_weapon_pfx, 1, mace_hit["color"])
+		end
 	end
 
 	local player = caster:GetPlayerOwner()
@@ -214,20 +234,119 @@ function omni_mace_ui_toggle(msg)
 	CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
 end
 
-function omni_mace_basic_hit(caster, ability, target, damage_mult)
+function omni_mace_basic_hit(caster, ability, target, event)
 	local mace_hit_data = omni_mace_basic_element_data(caster.active_element)
 	local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/omni_mace.vpcf", target, 0.4)
 	print(mace_hit_data["color"])
 	ParticleManager:SetParticleControl(pfx, 1, mace_hit_data["color"])
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(damage_mult/100)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, mace_hit_data["damage_type"], 3, caster.active_element, RPC_ELEMENT_NONE)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.damage_mult/100)*caster.omniro_data[caster.active_element]["level"]
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, mace_hit_data["damage_type"], 1, caster.active_element, RPC_ELEMENT_NONE)
 
 	if caster.active_element == RPC_ELEMENT_FIRE then
 		local duration = Filters:GetAdjustedBuffDuration(caster, 12, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_fire_buff", {duration = duration})
-		caster:SetModifierStackCount("modifier_omnimace_fire_buff", caster, caster.omniro_data[caster.active_element]["level"])
+		caster:SetModifierStackCount("modifier_omnimace_fire_buff", caster, caster.omniro_data[RPC_ELEMENT_FIRE]["level"])
 	elseif caster.active_element == RPC_ELEMENT_EARTH then
+		local duration = Filters:GetAdjustedBuffDuration(caster, 14, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_earth_buff", {duration = duration})
+		caster:SetModifierStackCount("modifier_omnimace_earth_buff", caster, caster.omniro_data[RPC_ELEMENT_EARTH]["level"])
+	elseif caster.active_element == RPC_ELEMENT_LIGHTNING then
+		local lightning_dmg = target:GetHealth()*(event.lightning_special_a/100)*caster.omniro_data[RPC_ELEMENT_LIGHTNING]["level"]
+		Filters:TakeArgumentsAndApplyDamage(target, caster, lightning_dmg, mace_hit_data["damage_type"], 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+	elseif caster.active_element == RPC_ELEMENT_POISON then
+		local duration = 2
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_omnimace_poison_debuff", {duration = duration})
+	elseif caster.active_element == RPC_ELEMENT_TIME then
+		local duration = Filters:GetAdjustedBuffDuration(caster, 10, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_time_buff", {duration = duration})
+		caster:SetModifierStackCount("modifier_omnimace_time_buff", caster, caster.omniro_data[RPC_ELEMENT_TIME]["level"])
+	elseif caster.active_element == RPC_ELEMENT_HOLY then
+		local base_duration = event.holy_special_a*caster.omniro_data[RPC_ELEMENT_HOLY]["level"]
+		local duration = Filters:GetAdjustedBuffDuration(caster, base_duration, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_holy_buff", {duration = duration})		
+	elseif caster.active_element == RPC_ELEMENT_COSMOS then
+		local duration = Filters:GetAdjustedBuffDuration(caster, 14, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_time_buff", {duration = duration})
+		caster:SetModifierStackCount("modifier_omnimace_time_buff", caster, caster.omniro_data[RPC_ELEMENT_TIME]["level"])
+	elseif caster.active_element == RPC_ELEMENT_ICE then
+		local duration = 12
+		local icePoint = target:GetAbsOrigin()
+		local radius = 240
+	    local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+	    local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, caster )
+	    ParticleManager:SetParticleControl( pfx, 0, icePoint )
+	    ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+	    Timers:CreateTimer(2.5, function()
+	        ParticleManager:DestroyParticle(pfx, false)
+	    end)
+	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	    if #enemies > 0 then    
+	        for _,enemy in pairs(enemies) do
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ice_debuff", {duration = duration})
+				caster:SetModifierStackCount("modifier_ice_debuff", enemy, caster.omniro_data[RPC_ELEMENT_ICE]["level"])	
+	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 1, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+	        end
+	    end
+	elseif caster.active_element == RPC_ELEMENT_ARCANE then
+		local manaDrain = math.min(caster:GetMana(), caster:GetMaxMana()*0.2)
+		caster:ReduceMana(manaDrain)
+		local arcane_damage = (event.arcane_special_a)*manaDrain*caster.omniro_data[RPC_ELEMENT_ARCANE]["level"]
+		Filters:TakeArgumentsAndApplyDamage(target, caster, arcane_damage, mace_hit_data["damage_type"], 1, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+	elseif caster.active_element == RPC_ELEMENT_SHADOW then
+		local duration = 10
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_omniro_shadow_debuff", {duration = duration})
+		local shadow_damage = (event.shadow_special_a/100)*damage*caster.omniro_data[RPC_ELEMENT_SHADOW]["level"]
+		Filters:TakeArgumentsAndApplyDamage(target, caster, shadow_damage, mace_hit_data["damage_type"], 1, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+	elseif caster.active_element == RPC_ELEMENT_WIND then
+		local duration = Filters:GetAdjustedBuffDuration(caster, 14, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_wind_buff", {duration = duration})
+		caster:SetModifierStackCount("modifier_omnimace_wind_buff", caster, caster.omniro_data[RPC_ELEMENT_WIND]["level"])
+	elseif caster.active_element == RPC_ELEMENT_GHOST then
+		local base_duration = event.ghost_special_a*caster.omniro_data[RPC_ELEMENT_GHOST]["level"]
+		local duration = Filters:GetAdjustedBuffDuration(caster, base_duration, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_ghost_buff", {duration = duration})
+	elseif caster.active_element == RPC_ELEMENT_WATER then
+		local duration = Filters:GetAdjustedBuffDuration(caster, 14, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_water_buff", {duration = duration})
+		caster:SetModifierStackCount("modifier_omnimace_water_buff", caster, caster.omniro_data[RPC_ELEMENT_WATER]["level"])
+		local flat_heal = event.water_special_a*caster.omniro_data[RPC_ELEMENT_WATER]["level"]
+		Filters:ApplyHeal(caster, caster, flat_heal, true)
+		CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/basic_water_heal.vpcf", caster, 1)
+	elseif caster.active_element == RPC_ELEMENT_DEMON then
+		local duration = Filters:GetAdjustedBuffDuration(caster, 10, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_demon_buff", {duration = duration})
+		caster:SetModifierStackCount("modifier_omnimace_demon_buff", caster, caster.omniro_data[RPC_ELEMENT_DEMON]["level"])
+	elseif caster.active_element == RPC_ELEMENT_NATURE then
+		local base_duration = event.nature_special_a*caster.omniro_data[RPC_ELEMENT_NATURE]["level"]
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_omnimace_nature_debuff", {duration = base_duration})
+	elseif caster.active_element == RPC_ELEMENT_UNDEAD then
+		local base_duration = event.undead_special_a*caster.omniro_data[RPC_ELEMENT_UNDEAD]["level"]
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_omnimace_undead_debuff", {duration = base_duration})
+
+		local duration = Filters:GetAdjustedBuffDuration(caster, 12, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_undead_buff", {duration = duration})
+		caster:SetModifierStackCount("modifier_omnimace_undead_buff", caster, caster.omniro_data[RPC_ELEMENT_UNDEAD]["level"])
 	end
+end
+
+
+
+function omnimace_poison_debuff_think(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	local poison_damage = (event.poison_special_a/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
+	local hit_data = omni_mace_basic_element_data(RPC_ELEMENT_POISON)
+	Filters:ApplyDotDamage(caster, ability, target, poison_damage, hit_data["damage_type"], 1, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
+end
+
+function omnimace_root_think(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	local nature_damage = (event.nature_special_b/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
+	local hit_data = omni_mace_basic_element_data(RPC_ELEMENT_NATURE)
+	Filters:ApplyDotDamage(caster, ability, target, nature_damage, hit_data["damage_type"], 1, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
 end
 
 function omni_mace_basic_element_data(element)
@@ -274,9 +393,38 @@ function omni_mace_basic_element_data(element)
 end
 
 function omniro_elemental_bonus(element1, element2, attacker)
+	return 1
 end
 
+function omniro_AmplifyDamageParticle( event )
+  local target = event.target
+  local location = target:GetAbsOrigin()
+  local particleName = "particles/roshpit/omniro/shadow_armor_shred.vpcf"
+  if target.AmpDamageParticle then
+  	ParticleManager:DestroyParticle(target.AmpDamageParticle, false)
+  end
+-- Particle. Need to wait one frame for the older particle to be destroyed
+  Timers:CreateTimer(0.01, function() 
+    target.AmpDamageParticle = ParticleManager:CreateParticle(particleName, PATTACH_OVERHEAD_FOLLOW, target)
+    ParticleManager:SetParticleControl(target.AmpDamageParticle, 0, target:GetAbsOrigin())
+    ParticleManager:SetParticleControl(target.AmpDamageParticle, 1, target:GetAbsOrigin())
+    ParticleManager:SetParticleControl(target.AmpDamageParticle, 2, target:GetAbsOrigin())
 
+    ParticleManager:SetParticleControlEnt(target.AmpDamageParticle, 1, target, PATTACH_OVERHEAD_FOLLOW, "attach_overhead", target:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControlEnt(target.AmpDamageParticle, 2, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+  end)
+
+
+end
+
+-- Destroys the particle when the modifier is destroyed
+function omniro_EndAmplifyDamageParticle( event )
+  local target = event.target
+  	if target.AmpDamageParticle then
+	  ParticleManager:DestroyParticle(target.AmpDamageParticle,false)
+	  target.AmpDamageParticle = nil
+	end
+end
 -- RPC_ELEMENT_NONE = -1
 -- RPC_ELEMENT_NORMAL = 1
 -- RPC_ELEMENT_FIRE = 2

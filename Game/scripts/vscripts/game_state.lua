@@ -1834,11 +1834,14 @@ function GameState:FilterDamage(filterTable)
 	local difficultyDamageReduce = 1
 	local victim = EntIndexToHScript( victim_index )
 	local attacker = EntIndexToHScript( attacker_index )
-	
+
 	local abs = math.abs
 	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
 		local armor = victim:GetPhysicalArmorValue()
 		if attacker:HasModifier("modifier_hand_marauder") and armor >= 0 then
+			armor = 0
+		end
+		if victim:HasModifier("modifier_omniro_shadow_debuff") and armor >= 0 then
 			armor = 0
 		end
 		if attacker:GetUnitName() == "paladin_disciple" then
@@ -2217,6 +2220,12 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_jex_q_cosmic_cosmic_postmitigation") then
 		local stacks = victim:GetModifierStackCount("modifier_jex_q_cosmic_cosmic_postmitigation", attacker)
 		mult = mult + 0.5*stacks
+	end
+	if attacker:HasModifier("modifier_omnimace_undead_buff") then
+		local modifier = attacker:FindModifierByName("modifier_omnimace_undead_buff")
+		local stacks = attacker:GetModifierStackCount("modifier_omnimace_undead_buff", attacker)
+		local ability = attacker:FindAbilityByName("omniro_omni_mace")
+		mult = mult + (ability:GetSpecialValueFor("undead_special_b")/100)*stacks
 	end
 	if attacker:HasModifier("modifier_duskbringer_arcana_q_4") then
 		local stacks = attacker:GetModifierStackCount("modifier_duskbringer_arcana_q_4", attacker)
