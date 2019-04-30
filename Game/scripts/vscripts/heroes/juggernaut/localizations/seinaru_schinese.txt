@@ -98,7 +98,7 @@
     	"DOTA_Tooltip_ability_seinaru_rune_e_3_suffix"					"% 基础值"
 		
 		"DOTA_Tooltip_ability_seinaru_rune_e_4"						"[E4] 迅捷之翼"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"被鹰击击中过的敌人，穿甲允许将其护甲减少至低于0点。当敌人护甲为负时，每点低于0点的护甲值，都将提高其受到的圣元素伤害。"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"加强[R1]，使得[R1]能将目标的护甲降低至0以下。当敌人护甲为负时，每点低于0点的护甲值，都将提高其受到的圣元素伤害。"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_property_one"			"最大负值护甲"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix"					""
 	 	"DOTA_Tooltip_ability_seinaru_rune_e_4_property_two"			"圣元素伤害提高"
