@@ -26,6 +26,7 @@
 			"particle"		"particles/roshpit/omniro/omniro_ghost_buff.vpcf"
 			"particle"		"particles/roshpit/draghor/mark_of_the_talon_heal.vpcf"
 			"particle"		"particles/roshpit/jex/jex_root.vpcf"
+			"soundfile"		"soundevents/game_sounds_omniro.vsndevts"
 		}
 
 		// Casting
@@ -446,7 +447,27 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"jumps_per_tech"			"1"
+				"normal_orb_a"			"10 12 14 16 18 20 22 24"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"fire_orb_a"			"20 40 60 80 100 120 140"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"earth_orb_a"			"30 60 90 120 150 180 210"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"earth_orb_b"			"0.04"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"lightning_orb_a"			"30 60 90 120 150 180 210"
 			}
 		}
 		"OnToggleOn"

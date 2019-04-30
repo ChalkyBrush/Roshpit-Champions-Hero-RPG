@@ -14,15 +14,29 @@
 			<Label id="omniro_element_help" html="true"/>
 			<Panel id="omniro_omnimace_content">
 				<Label id="omniro_omnimace_title"/>
-				<Label id="omniro_omnimace_effect_description"/>
+				<Label id="omniro_omnimace_effect_description" html="true"/>
 
 				<Panel class="omniro_element_property_content invisible" id="omniro_content_1">
-					<Label id="omniro_omnimace_special_property1"/>
+					<Label id="omniro_omnimace_special_property1" class="omniro_property_text"/>
 					<Label id="omniro_omnimace_special_property1_value" html="true"/>
 				</Panel>
 				<Panel class="omniro_element_property_content invisible" id="omniro_content_2">
-					<Label id="omniro_omnimace_special_property2"/>
+					<Label id="omniro_omnimace_special_property2" class="omniro_property_text"/>
 					<Label id="omniro_omnimace_special_property2_value" html="true"/>
+				</Panel>
+			</Panel>
+
+			<Panel id="omniro_orb_content">
+				<Label id="omniro_orb_title"/>
+				<Label id="omniro_orb_effect_description" html="true"/>
+
+				<Panel class="omniro_element_property_content invisible" id="omniro_orb_content_1">
+					<Label id="omniro_orb_special_property1" class="omniro_property_text"/>
+					<Label id="omniro_orb_special_property1_value" html="true"/>
+				</Panel>
+				<Panel class="omniro_element_property_content invisible" id="omniro_orb_content_2">
+					<Label id="omniro_orb_special_property2" class="omniro_property_text"/>
+					<Label id="omniro_orb_special_property2_value" html="true"/>
 				</Panel>
 			</Panel>
 		</Panel>

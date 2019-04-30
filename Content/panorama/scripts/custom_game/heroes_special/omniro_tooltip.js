@@ -38,4 +38,29 @@ function initialize_omniro_tooltip(){
 		$('#omniro_content_2').AddClass('invisible')
 	}
 
+    // ORB 
+	$('#omniro_orb_title').text = $.Localize('omniro_orb_effect_title')
+	$('#omniro_orb_effect_description').text = $.Localize("omniro_"+element_name+"_orb_description")
+
+	var property1 = Abilities.GetSpecialValueFor( element_data["orb_ability_index"], element_name+"_orb_a" )
+	property1 = Math.round(property1 * 100, 1) / 100
+	if (!(property1 == 0)){
+		$('#omniro_orb_content_1').RemoveClass('invisible')
+		var display_value = Math.round(property1*element_data["level"] * 100, 1) / 100
+		$('#omniro_orb_special_property1').text = $.Localize('omniro_'+element_name+"_orb_a_pretext")
+		$('#omniro_orb_special_property1_value').text = "<font color='"+title_color+"'>"+display_value+"</font>"
+	}else{
+		$('#omniro_orb_content_1').AddClass('invisible')
+	}
+
+	var property2 = Abilities.GetSpecialValueFor( element_data["orb_ability_index"], element_name+"_orb_b" )
+	property2 = Math.round(property2 * 100, 1) / 100
+	if (!(property2 == 0)){
+		$('#omniro_orb_content_2').RemoveClass('invisible')
+		var display_value = Math.round(property2*element_data["level"] * 100, 1) / 100
+		$('#omniro_orb_special_property2').text = $.Localize('omniro_'+element_name+"_orb_b_pretext")
+		$('#omniro_orb_special_property2_value').text = "<font color='"+title_color+"'>"+display_value+"</font>"
+	}else{
+		$('#omniro_orb_content_2').AddClass('invisible')
+	}
 }
