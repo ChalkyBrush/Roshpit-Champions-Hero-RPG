@@ -245,11 +245,11 @@ function omniro_mace_attack_land(event)
 	print("-----")
 	print(active_element)
 	print(next_element)
-	omni_mace_basic_hit(caster, ability, target, event)
+	local basic_damage = omni_mace_basic_hit(caster, ability, target, event)
 	if caster:HasModifier("modifier_omni_orb_active") then
 		if caster.omniro_data[active_element]["charges"] > 0 then
 			caster.omniro_data[active_element]["charges"] = caster.omniro_data[active_element]["charges"] - 1
-			omni_orb_charge_procced(event)
+			omni_orb_charge_procced(event, basic_damage)
 		end
 	end
 
@@ -344,7 +344,7 @@ function omni_mace_basic_hit(caster, ability, target, event)
 	    if #enemies > 0 then    
 	        for _,enemy in pairs(enemies) do
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ice_debuff", {duration = duration})
-				caster:SetModifierStackCount("modifier_ice_debuff", enemy, caster.omniro_data[RPC_ELEMENT_ICE]["level"])	
+				enemy:SetModifierStackCount("modifier_ice_debuff", caster, caster.omniro_data[RPC_ELEMENT_ICE]["level"])	
 	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 1, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
 	        end
 	    end
@@ -353,6 +353,7 @@ function omni_mace_basic_hit(caster, ability, target, event)
 		caster:ReduceMana(manaDrain)
 		local arcane_damage = (event.arcane_special_a)*manaDrain*caster.omniro_data[RPC_ELEMENT_ARCANE]["level"]
 		Filters:TakeArgumentsAndApplyDamage(target, caster, arcane_damage, mace_hit_data["damage_type"], 1, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+		return arcane_damage
 	elseif caster.active_element == RPC_ELEMENT_SHADOW then
 		local duration = OMNIRO_SHADOW_SPECIAL_DURATION
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_omniro_shadow_debuff", {duration = duration})

@@ -1,4 +1,4 @@
-function omni_orb_charge_procced(event)
+function omni_orb_charge_procced(event, basic_damage)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
@@ -156,6 +156,64 @@ function omni_orb_charge_procced(event)
 			CustomAbilities:QuickParticleAtPoint("particles/roshpit/omniro/cosmic_orb_impact.vpcf", position, 3)
 			EmitSoundOnLocationWithCaster(position, "Omniro.Orb.Cosmic", caster)
 		end)
+	elseif caster.active_element == RPC_ELEMENT_ICE then
+		local mace_ability = caster:FindAbilityByName("omniro_omni_mace")
+		EmitSoundOn("Omniro.Orb.Ice", target)
+		local duration = OMNIRO_ICE_SPECIAL_DURATION
+		local icePoint = target:GetAbsOrigin()
+		local radius = OMNIRO_ICE_ORB_BASE_RADIUS + orb_ability:GetSpecialValueFor("ice_orb_b")*caster.omniro_data[RPC_ELEMENT_ICE]["level"]
+	    local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+	    local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, caster )
+
+	    
+	    local agi_mult = 1
+	    local str_mult = 1
+	    local int_mult = 1
+	    if caster:GetAgility() < caster:GetStrength() and caster:GetAgility() < caster:GetIntellect() then
+	    	agi_mult = OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT
+	    elseif caster:GetStrength() < caster:GetAgility() and caster:GetStrength() < caster:GetIntellect() then
+	    	str_mult = OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT
+	    elseif caster:GetIntellect() < caster:GetStrength() and caster:GetIntellect() < caster:GetAgility() then
+	    	agi_mult = OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT
+	    end
+	    local damage = (orb_ability:GetSpecialValueFor("ice_orb_a"))*(caster:GetIntellect()*int_mult + caster:GetStrength()*str_mult + caster:GetAgility()*agi_mult)*caster.omniro_data[RPC_ELEMENT_ICE]["level"]
+	    ParticleManager:SetParticleControl( pfx, 0, icePoint )
+	    ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+	    Timers:CreateTimer(2.5, function()
+	        ParticleManager:DestroyParticle(pfx, false)
+	    end)
+	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	    if #enemies > 0 then    
+	        for _,enemy in pairs(enemies) do
+				mace_ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ice_debuff", {duration = duration})
+				enemy:SetModifierStackCount("modifier_ice_debuff", caster, caster.omniro_data[RPC_ELEMENT_ICE]["level"])	
+	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 1, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+	        end
+	    end
+	elseif caster.active_element == RPC_ELEMENT_ARCANE then
+		EmitSoundOn("Omniro.Orb.Arcane", caster)
+
+		local debuff_duration = OMNIRO_ARCANE_ORB_MR_LOSS_DURATION
+	    local radius = OMNIRO_ARCANE_BASE_AOE + orb_ability:GetSpecialValueFor("arcane_orb_a")*caster.omniro_data[RPC_ELEMENT_ARCANE]["level"]
+	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	    local pulses = OMNIRO_ARCANE_ORB_BASE_PULSES + caster.omniro_data[RPC_ELEMENT_ARCANE]["max_charges"]
+	    if #enemies > 0 then    
+	        for _,enemy in pairs(enemies) do
+				orb_ability:ApplyDataDrivenModifier(caster, enemy, "modifier_arcane_orb_magic_resist", {duration = debuff_duration})
+				enemy:SetModifierStackCount("modifier_arcane_orb_magic_resist", caster, caster.omniro_data[RPC_ELEMENT_ARCANE]["level"])	
+				for i = 1, pulses, 1 do
+					Timers:CreateTimer((i-1)*0.5, function()
+						if enemy and IsValidEntity(enemy) then
+							local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/omni_mace.vpcf", enemy, 0.4)
+							ParticleManager:SetParticleControl(pfx, 1, mace_hit_data["color"])
+							Filters:TakeArgumentsAndApplyDamage(enemy, caster, basic_damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+							EmitSoundOn("Omniro.Orb.Arcane.Sub", enemy)
+						end
+					end)
+				end
+	            
+	        end
+	    end
 	end
 	Filters:CastSkillArguments(2, caster)
 end

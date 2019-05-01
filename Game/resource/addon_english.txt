@@ -7845,6 +7845,14 @@
 		"omniro_cosmic_orb_a_pretext"										"DAMAGE % ATTACK:"				
 		"omniro_cosmic_orb_b_pretext"										"DAMAGE x CURRENT HEALTH:"
 
+		"omniro_ice_orb_description"									"Creates a larger ice blast with a base radius of <font color='#ccff66'>380</font> and applies basic ice mace's slow. Damage is based on all attributes, and the lowest attribute is multiplied by <font color='#ccff66'>10</font>x."
+		"omniro_ice_orb_a_pretext"										"DAMAGE x ALL ATTRIBUTES:"				
+		"omniro_ice_orb_b_pretext"										"ADDITIONAL RADIUS:"
+
+		"omniro_arcane_orb_description"										"Enemies in <font color='#ccff66'>600</font> AOE are hit by <font color='#ccff66'>2</font> pulses of the basic proc and lose magic resist for <font color='#ccff66'>10</font> seconds. Pulse count is increased by Arcane's maximum charges."
+		"omniro_arcane_orb_a_pretext"										"ADDITIONAL RADIUS:"				
+		"omniro_arcane_orb_b_pretext"										"MAGIC RESIST LOSS:"
+
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
 		"DOTA_Tooltip_ability_heroic_fury_Description"					"Element: <font color=\"#F6FFB5\">Holy</font> / <font color=\"#DDDDDD\">Normal</font><br>Empowers the Paladin's weapon to deal massive splash and slow effect, as well as heal him on successful strikes."
 		"DOTA_Tooltip_ability_heroic_fury_Lore"							""

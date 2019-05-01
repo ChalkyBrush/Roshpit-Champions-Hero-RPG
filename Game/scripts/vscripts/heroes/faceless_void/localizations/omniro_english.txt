@@ -94,3 +94,11 @@
 		"omniro_cosmic_orb_description"									"Drops a comet on the target that deals damage in <% OMNIRO_ORB_COSMIC_RADIUS %> radius on a 0.45 second delay. Damage is based on attack power and current health."
 		"omniro_cosmic_orb_a_pretext"										"DAMAGE % ATTACK:"				
 		"omniro_cosmic_orb_b_pretext"										"DAMAGE x CURRENT HEALTH:"
+
+		"omniro_ice_orb_description"									"Creates a larger ice blast with a base radius of <% OMNIRO_ICE_ORB_BASE_RADIUS %> and applies basic ice mace's slow. Damage is based on all attributes, and the lowest attribute is multiplied by <% OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT %>x."
+		"omniro_ice_orb_a_pretext"										"DAMAGE x ALL ATTRIBUTES:"				
+		"omniro_ice_orb_b_pretext"										"ADDITIONAL RADIUS:"
+
+		"omniro_arcane_orb_description"										"Enemies in <% OMNIRO_ARCANE_BASE_AOE %> AOE are hit by <% OMNIRO_ARCANE_ORB_BASE_PULSES %> pulses of the basic proc and lose magic resist for <% OMNIRO_ARCANE_ORB_MR_LOSS_DURATION %> seconds. Pulse count is increased by Arcane's maximum charges."
+		"omniro_arcane_orb_a_pretext"										"ADDITIONAL RADIUS:"				
+		"omniro_arcane_orb_b_pretext"										"MAGIC RESIST LOSS:"

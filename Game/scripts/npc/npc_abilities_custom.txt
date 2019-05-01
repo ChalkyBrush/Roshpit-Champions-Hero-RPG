@@ -504,6 +504,26 @@
 				"var_type"			"FIELD_INTEGER"
 				"cosmic_orb_b"			"20 40 60 80 100 120 140"
 			}
+			"13"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ice_orb_a"			"25 50 75 100 125 150 175"
+			}
+			"14"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ice_orb_b"			"4"
+			}
+			"15"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"arcane_orb_a"			"6"
+			}
+			"16"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"arcane_orb_b"			"-1"
+			}
 		}
 		"OnToggleOn"
 		{
@@ -581,6 +601,17 @@
 						"Function"		"omniro_time_effect_end"
 						"target"        "TARGET"
 					}
+				}
+			}
+			"modifier_arcane_orb_magic_resist"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/items2_fx/veil_of_discord_debuff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%arcane_orb_b"
 				}
 			}
 		}
