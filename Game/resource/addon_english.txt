@@ -50,6 +50,7 @@
 		"npc_dota_hero_skywrath_mage"				"Sephyr"
 		"npc_dota_hero_winter_wyvern"				"Dinath"
 		"npc_dota_hero_arc_warden"					"Jex"
+		"npc_dota_hero_faceless_void"				"Omniro"
 
 		//--------------------
 		//Hero Lore
@@ -83,6 +84,7 @@
 		"npc_dota_hero_skywrath_mage_lore"				"Once a priest of Nefali, his fate has changed for worse ever since the temple was desecrated by the armies of Mak'Gorath. He took solitude on the eyries of the mountains, meditating and harnessing the powers of the wind. He became the first known Aeromancer, able to control the air and flows of wind with ease. Nefali finally granted him her blessing after many long years of solitude. A magical wind she said would protect him and those he holds dear from all harm. But he longed for more, so he continued his practice until he grew wings and was able to soar to the earth from the mountain tops. He received a jade staff from Nefali, enshrined with a gem that gleamed with the immense energy of tempests, which enchanted his winds to even greater levels. He had acquired all the power one could desire from Wind, which has the ability to protect and destroy. Finally he will have his revenge, and rebuild what was taken from him."
 		"npc_dota_hero_winter_wyvern_lore"				""	
 		"npc_dota_hero_arc_warden_lore"					""	
+		"npc_dota_hero_faceless_void_lore"				""
 		//--------------------
 		//Units
 		//--------------------
@@ -7769,7 +7771,7 @@
 		"omniro_lightning_special_description"									"Deals an extra instance of damage based on target's current HP."
 		"omniro_lightning_special_a_pretext"										"EXTRA DAMAGE % OF TARGET'S CURRENT HP: "												
 
-		"omniro_poison_special_description"									"Applies a 2 second DoT that deals damage every 0.5 seconds"
+		"omniro_poison_special_description"									"Applies a 2 second DoT that deals damage every 0.5 seconds. Deals <font color='#ccff66'>10</font>x damage when standing in orb effect's poison puddle."
 		"omniro_poison_special_a_pretext"										"DOT DAMAGE % OF ATTACK POWER: "
 
 		"omniro_time_special_description"									"Applies a <font color='#ccff66'>10</font> second buff that increases attack speed and movespeed."
@@ -7822,11 +7824,22 @@
 		"omniro_fire_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
 
 		"omniro_earth_orb_description"										"Creates an earthquake that damages and stuns enemies in a <font color='#ccff66'>340</font> AOE"
-		"omniro_earth_orb_a_pretext"										"DAMAGE X STRENGTH:"				
+		"omniro_earth_orb_a_pretext"										"DAMAGE x STRENGTH:"				
 		"omniro_earth_orb_b_pretext"										"STUN DURATION:"			
 
 		"omniro_lightning_orb_description"										"Struck target releases a chain lightning that bounces <font color='#ccff66'>3</font> times. Gains an extra bounce for each of lightning's maximum charges."
-		"omniro_lightning_orb_a_pretext"										"DAMAGE X AGILITY:"			
+		"omniro_lightning_orb_a_pretext"										"DAMAGE x AGILITY:"			
+
+		"omniro_poison_orb_description"										"Creates a <font color='#ccff66'>340</font> radius poison puddle that lasts for <font color='#ccff66'>9</font> seconds. Enemies inside are damaged every 0.5 seconds"
+		"omniro_poison_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
+
+		"omniro_time_orb_description"									"All enemies in a <font color='#ccff66'>600</font> radius around the target are frozen for a duration. When the freeze ends, they take damage based on Omniro's attack power."
+		"omniro_time_orb_a_pretext"										"DAMAGE AS % OF ATTACK POWER:"				
+		"omniro_time_orb_b_pretext"										"FREEZE DURATION:"
+
+		"omniro_holy_orb_description"									"All enemies in a <font color='#ccff66'>550</font> radius around Omniro take damage based on intelligence and armor. Omniro and his allies are healed for <font color='#ccff66'>2</font>% of the damage."
+		"omniro_holy_orb_a_pretext"										"DAMAGE x INTELLIGENCE:"				
+		"omniro_holy_orb_b_pretext"										"DAMAGE x ARMOR:"
 
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
 		"DOTA_Tooltip_ability_heroic_fury_Description"					"Element: <font color=\"#F6FFB5\">Holy</font> / <font color=\"#DDDDDD\">Normal</font><br>Empowers the Paladin's weapon to deal massive splash and slow effect, as well as heal him on successful strikes."

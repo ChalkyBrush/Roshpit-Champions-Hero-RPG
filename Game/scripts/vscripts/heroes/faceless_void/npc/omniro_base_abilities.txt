@@ -418,7 +418,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-
+			"particle"					"particles/roshpit/omniro/timelock.vpcf"
 		}
 
 		// Casting
@@ -461,6 +461,31 @@
 				"var_type"			"FIELD_INTEGER"
 				"lightning_orb_a"			"30 60 90 120 150 180 210"
 			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"poison_orb_a"			"2 4 6 8 10 12 14"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"time_orb_a"			"50 100 150 200 250 300 350"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"time_orb_b"			"0.02"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"holy_orb_a"			"100 200 300 400 500 600 700"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"holy_orb_b"			"70 140 210 280 350 420 490"
+			}
 		}
 		"OnToggleOn"
 		{
@@ -490,6 +515,53 @@
 					{
 						"ScriptFile"	"heroes/faceless_void/omni_orb.lua"
 						"Function"		"omni_orb_attack_land"
+					}
+				}
+			}
+			"modifier_omniro_poison_orb_pool"
+			{
+				"Aura"					"modifier_omniro_poison_pool_enemy"
+				"Aura_Radius"			"<% OMNIRO_ORB_POISON_POOL_RADIUS %>"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"	
+				"Duration"				"<% OMNIRO_ORB_POISON_POOL_DURATION %>"
+			}
+			"modifier_omniro_poison_pool_enemy"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+			
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/faceless_void/omni_orb.lua"
+						"Function"		"omniro_poison_pool_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_omniro_time_freeze"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_faceless_timewalk.vpcf" 	   
+				"StatusEffectPriority"  "20"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/faceless_void/omni_orb.lua"
+						"Function"		"omniro_time_effect_end"
+						"target"        "TARGET"
 					}
 				}
 			}

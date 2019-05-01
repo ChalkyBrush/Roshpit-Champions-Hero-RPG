@@ -397,6 +397,9 @@ function omnimace_poison_debuff_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local poison_damage = (event.poison_special_a/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
+	if target:HasModifier("modifier_omniro_poison_pool_enemy") then
+		poison_damage = poison_damage*OMNIRO_POISON_MULTIPLE_FOR_DOUBLE
+	end
 	local hit_data = omni_mace_basic_element_data(RPC_ELEMENT_POISON)
 	Filters:ApplyDotDamage(caster, ability, target, poison_damage, hit_data["damage_type"], 1, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
 end

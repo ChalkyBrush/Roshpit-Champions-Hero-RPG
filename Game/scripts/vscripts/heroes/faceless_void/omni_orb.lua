@@ -19,6 +19,7 @@ function omni_orb_charge_procced(event)
 	    Timers:CreateTimer(0.5, function()
 	    	ParticleManager:DestroyParticle(pfx, false)
 	    end)
+	    EmitSoundOn("Omniro.Orb.Normal", target)
 	elseif caster.active_element == RPC_ELEMENT_FIRE then
 		local damage = (orb_ability:GetSpecialValueFor("fire_orb_a")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_FIRE]["level"]
 
@@ -77,7 +78,7 @@ function omni_orb_charge_procced(event)
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 					local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
 					local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_CUSTOMORIGIN, nil)
-					local attach_unit_1 = attacker
+					local attach_unit_1 = caster
 					if i > 1 then
 						attach_unit_1 = chain.enemies[i-1]
 					end
@@ -89,8 +90,77 @@ function omni_orb_charge_procced(event)
 				end
 			end)
 		end
+	elseif caster.active_element == RPC_ELEMENT_POISON then
+		-- local damage = (orb_ability:GetSpecialValueFor("poison_orb_a")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_POISON]["level"]
+		local thinkerDuration = OMNIRO_ORB_POISON_POOL_DURATION
+		local particleName = "particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+		CustomAbilities:QuickAttachThinker(orb_ability, caster, target:GetAbsOrigin(), "modifier_omniro_poison_orb_pool", {duration = thinkerDuration})
+		StartSoundEvent("Omniro.Orb.Poison", target)
+		Timers:CreateTimer(4, function()
+			if target and IsValidEntity(target) then
+				StopSoundEvent("Omniro.Orb.Poison", target)
+			end
+		end)
+		local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf", target:GetAbsOrigin(), thinkerDuration)
+		ParticleManager:SetParticleControl(pfx, 1, Vector(OMNIRO_ORB_POISON_POOL_RADIUS, OMNIRO_ORB_POISON_POOL_RADIUS, OMNIRO_ORB_POISON_POOL_RADIUS))
+	elseif caster.active_element == RPC_ELEMENT_TIME then
+		local debuff_duration = (orb_ability:GetSpecialValueFor("time_orb_b"))*caster.omniro_data[RPC_ELEMENT_TIME]["level"]
+	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, OMNIRO_ORB_TIME_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	    if #enemies > 0 then    
+	        for _,enemy in pairs(enemies) do
+	        	CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/timelock.vpcf", enemy, 3)
+	            orb_ability:ApplyDataDrivenModifier(caster, enemy, "modifier_omniro_time_freeze", {duration = debuff_duration})
+	        end
+	    end	
+		EmitSoundOn("Omniro.Orb.Time.Start", target)
+	elseif caster.active_element == RPC_ELEMENT_HOLY then
+		local damage = (orb_ability:GetSpecialValueFor("holy_orb_a"))*caster:GetIntellect()*caster.omniro_data[RPC_ELEMENT_HOLY]["level"] + (orb_ability:GetSpecialValueFor("holy_orb_b"))*caster:GetPhysicalArmorValue()*caster.omniro_data[RPC_ELEMENT_HOLY]["level"]
+  		EmitSoundOn("Omniro.Orb.Holy", caster)
+  		local radius = OMNIRO_ORB_HOLY_AOE
+		local particleName =  "particles/units/heroes/hero_elder_titan/paladin_holy_nova.vpcf"
+		local position = caster:GetAbsOrigin()
+		local particleVector = position
+
+		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+		ParticleManager:SetParticleControl( pfx, 0, particleVector )
+		Timers:CreateTimer(1, function() 
+		  ParticleManager:DestroyParticle( pfx, false )
+		end) 
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			for _,enemy in pairs(enemies) do
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+			end
+		end
+		local allies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		local heal = damage*(OMNIRO_ORB_HOLY_HEAL_PCT/100)
+		if #allies > 0 then
+			for _,ally in pairs(allies) do
+				Filters:ApplyHeal(caster, ally, heal, false)
+			end
+		end  		
 	end
 	Filters:CastSkillArguments(2, caster)
+end
+
+function omniro_time_effect_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local mace_hit_data = omni_mace_basic_element_data(RPC_ELEMENT_TIME)
+	local damage = (ability:GetSpecialValueFor("time_orb_a")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_TIME]["level"]
+	CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/timelock.vpcf", target, 3)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+	EmitSoundOn("Omniro.Orb.Time.Pop", target)
+end
+
+function omniro_poison_pool_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local mace_hit_data = omni_mace_basic_element_data(RPC_ELEMENT_POISON)
+	local damage = (ability:GetSpecialValueFor("poison_orb_a")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_POISON]["level"]
+	Filters:ApplyDotDamage(caster, ability, target, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
 end
 
 -- RPC_ELEMENT_NONE = -1

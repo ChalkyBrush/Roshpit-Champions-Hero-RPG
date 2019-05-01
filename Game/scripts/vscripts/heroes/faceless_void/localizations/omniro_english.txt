@@ -21,7 +21,7 @@
 		"omniro_lightning_special_description"									"Deals an extra instance of damage based on target's current HP."
 		"omniro_lightning_special_a_pretext"										"EXTRA DAMAGE % OF TARGET'S CURRENT HP: "												
 
-		"omniro_poison_special_description"									"Applies a 2 second DoT that deals damage every 0.5 seconds"
+		"omniro_poison_special_description"									"Applies a 2 second DoT that deals damage every 0.5 seconds. Deals <% OMNIRO_POISON_MULTIPLE_FOR_DOUBLE %>x damage when standing in orb effect's poison puddle."
 		"omniro_poison_special_a_pretext"										"DOT DAMAGE % OF ATTACK POWER: "
 
 		"omniro_time_special_description"									"Applies a <% OMNIRO_TIME_SPECIAL_DURATION %> second buff that increases attack speed and movespeed."
@@ -74,8 +74,19 @@
 		"omniro_fire_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
 
 		"omniro_earth_orb_description"										"Creates an earthquake that damages and stuns enemies in a <% OMNIRO_ORB_EARTH_AOE %> AOE"
-		"omniro_earth_orb_a_pretext"										"DAMAGE X STRENGTH:"				
+		"omniro_earth_orb_a_pretext"										"DAMAGE x STRENGTH:"				
 		"omniro_earth_orb_b_pretext"										"STUN DURATION:"			
 
 		"omniro_lightning_orb_description"										"Struck target releases a chain lightning that bounces <% OMNIRO_ORB_LIGHTNING_BASE_BOUNCES %> times. Gains an extra bounce for each of lightning's maximum charges."
-		"omniro_lightning_orb_a_pretext"										"DAMAGE X AGILITY:"			
+		"omniro_lightning_orb_a_pretext"										"DAMAGE x AGILITY:"			
+
+		"omniro_poison_orb_description"										"Creates a <% OMNIRO_ORB_POISON_POOL_RADIUS %> radius poison puddle that lasts for <% OMNIRO_ORB_POISON_POOL_DURATION %> seconds. Enemies inside are damaged every 0.5 seconds"
+		"omniro_poison_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
+
+		"omniro_time_orb_description"									"All enemies in a <% OMNIRO_ORB_TIME_AOE %> radius around the target are frozen for a duration. When the freeze ends, they take damage based on Omniro's attack power."
+		"omniro_time_orb_a_pretext"										"DAMAGE AS % OF ATTACK POWER:"				
+		"omniro_time_orb_b_pretext"										"FREEZE DURATION:"
+
+		"omniro_holy_orb_description"									"All enemies in a <% OMNIRO_ORB_HOLY_AOE %> radius around Omniro take damage based on intelligence and armor. Omniro and his allies are healed for <% OMNIRO_ORB_HOLY_HEAL_PCT %>% of the damage."
+		"omniro_holy_orb_a_pretext"										"DAMAGE x INTELLIGENCE:"				
+		"omniro_holy_orb_b_pretext"										"DAMAGE x ARMOR:"
