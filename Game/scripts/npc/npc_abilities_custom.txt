@@ -524,6 +524,16 @@
 				"var_type"			"FIELD_INTEGER"
 				"arcane_orb_b"			"-1"
 			}
+			"17"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"shadow_orb_a"			"13 26 39 52 65 78 91"
+			}
+			"18"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"shadow_orb_b"			"7"
+			}
 		}
 		"OnToggleOn"
 		{

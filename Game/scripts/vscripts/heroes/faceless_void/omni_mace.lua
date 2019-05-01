@@ -185,6 +185,9 @@ function omniro_rune_calculate(event)
 			elseif caster.omniro_data[i]["rune_tier"] == 4 then
 				bonus_max_charges = math.floor(OMNIRO_T4_RUNE_MAX_CHARGES*caster.omniro_data[i]["level"])
 			end
+			if i == 1 then
+				bonus_max_charges = 9
+			end
 			max_charges = max_charges + bonus_max_charges
 			caster.omniro_data[i]["max_charges"] = max_charges
 		end

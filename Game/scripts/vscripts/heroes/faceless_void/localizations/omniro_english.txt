@@ -102,3 +102,7 @@
 		"omniro_arcane_orb_description"										"Enemies in <% OMNIRO_ARCANE_BASE_AOE %> AOE are hit by <% OMNIRO_ARCANE_ORB_BASE_PULSES %> pulses of the basic proc and lose magic resist for <% OMNIRO_ARCANE_ORB_MR_LOSS_DURATION %> seconds. Pulse count is increased by Arcane's maximum charges."
 		"omniro_arcane_orb_a_pretext"										"ADDITIONAL RADIUS:"				
 		"omniro_arcane_orb_b_pretext"										"MAGIC RESIST LOSS:"
+
+		"omniro_shadow_orb_description"									"Creates a splash of shadow in <% OMNIRO_SHADOW_ORB_BASE_AOE %> and applies the armor disabling debuff. Deals damage based on attack power."
+		"omniro_shadow_orb_a_pretext"										"DAMAGE x ATTACK:"				
+		"omniro_shadow_orb_b_pretext"										"ADDITIONAL RADIUS:"

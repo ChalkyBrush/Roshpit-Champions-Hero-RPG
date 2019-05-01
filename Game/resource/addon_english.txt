@@ -7853,6 +7853,10 @@
 		"omniro_arcane_orb_a_pretext"										"ADDITIONAL RADIUS:"				
 		"omniro_arcane_orb_b_pretext"										"MAGIC RESIST LOSS:"
 
+		"omniro_shadow_orb_description"									"Creates a splash of shadow in <font color='#ccff66'>500</font> and applies the armor disabling debuff. Deals damage based on attack power."
+		"omniro_shadow_orb_a_pretext"										"DAMAGE x ATTACK:"				
+		"omniro_shadow_orb_b_pretext"										"ADDITIONAL RADIUS:"
+
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
 		"DOTA_Tooltip_ability_heroic_fury_Description"					"Element: <font color=\"#F6FFB5\">Holy</font> / <font color=\"#DDDDDD\">Normal</font><br>Empowers the Paladin's weapon to deal massive splash and slow effect, as well as heal him on successful strikes."
 		"DOTA_Tooltip_ability_heroic_fury_Lore"							""

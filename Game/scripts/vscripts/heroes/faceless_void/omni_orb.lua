@@ -214,6 +214,28 @@ function omni_orb_charge_procced(event, basic_damage)
 	            
 	        end
 	    end
+	elseif caster.active_element == RPC_ELEMENT_SHADOW then
+		local mace_ability = caster:FindAbilityByName("omniro_omni_mace")
+		EmitSoundOn("Omniro.Orb.Shadow", target)
+		local damage = (orb_ability:GetSpecialValueFor("shadow_orb_a")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_SHADOW]["level"]
+	    local shadowRadius = OMNIRO_SHADOW_ORB_BASE_AOE + orb_ability:GetSpecialValueFor("shadow_orb_b")*caster.omniro_data[RPC_ELEMENT_SHADOW]["level"]
+	    local duration = OMNIRO_SHADOW_SPECIAL_DURATION
+	    local origin = target:GetAbsOrigin()
+	    local particleName = "particles/roshpit/items/nightmare_rider_mantle_cowlofice.vpcf"
+	    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target)
+	    ParticleManager:SetParticleControl( particle1, 0, origin+Vector(0,0,20) )
+	    ParticleManager:SetParticleControl( particle1, 1, Vector(shadowRadius, 2, shadowRadius) )
+	    ParticleManager:SetParticleControl( particle1, 3, Vector(shadowRadius, shadowRadius, shadowRadius) )
+	    Timers:CreateTimer(3, function()
+	        ParticleManager:DestroyParticle(particle1, false)
+	    end)
+	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), origin, nil, shadowRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	    if #enemies > 0 then    
+	        for _,enemy in pairs(enemies) do
+				mace_ability:ApplyDataDrivenModifier(caster, enemy, "modifier_omniro_shadow_debuff", {duration = duration})
+	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 1, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+	        end
+	    end
 	end
 	Filters:CastSkillArguments(2, caster)
 end
