@@ -129,7 +129,7 @@ function omni_orb_charge_procced(event)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 			end
 		end
 		local allies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
@@ -139,6 +139,23 @@ function omni_orb_charge_procced(event)
 				Filters:ApplyHeal(caster, ally, heal, false)
 			end
 		end  		
+	elseif caster.active_element == RPC_ELEMENT_COSMOS then
+		local comet_damage = (orb_ability:GetSpecialValueFor("cosmic_orb_a")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_COSMOS]["level"] + (orb_ability:GetSpecialValueFor("cosmic_orb_b"))*caster:GetHealth()*caster.omniro_data[RPC_ELEMENT_COSMOS]["level"]
+		local starParticle = "particles/roshpit/solunia/comet_moon_attack_attack.vpcf"
+		local position = target:GetAbsOrigin()
+		local pfx = CustomAbilities:QuickParticleAtPoint(starParticle, position, 3)
+		EmitSoundOnLocationWithCaster(position, "Omniro.Orb.Cosmic.Start", caster)
+		Timers:CreateTimer(0.45, function()
+			local radius = OMNIRO_ORB_COSMIC_RADIUS
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+			if #enemies > 0 then
+				for _,enemy in pairs(enemies) do
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, comet_damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+				end
+			end
+			CustomAbilities:QuickParticleAtPoint("particles/roshpit/omniro/cosmic_orb_impact.vpcf", position, 3)
+			EmitSoundOnLocationWithCaster(position, "Omniro.Orb.Cosmic", caster)
+		end)
 	end
 	Filters:CastSkillArguments(2, caster)
 end

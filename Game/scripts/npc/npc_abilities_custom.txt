@@ -484,15 +484,25 @@
 				"var_type"			"FIELD_FLOAT"
 				"time_orb_b"			"0.02"
 			}
-			"06"
+			"09"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"holy_orb_a"			"100 200 300 400 500 600 700"
 			}
-			"07"
+			"10"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"holy_orb_b"			"70 140 210 280 350 420 490"
+			}
+			"11"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cosmic_orb_a"			"30 60 90 120 150 180 210"
+			}
+			"12"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cosmic_orb_b"			"20 40 60 80 100 120 140"
 			}
 		}
 		"OnToggleOn"

@@ -7841,6 +7841,10 @@
 		"omniro_holy_orb_a_pretext"										"DAMAGE x INTELLIGENCE:"				
 		"omniro_holy_orb_b_pretext"										"DAMAGE x ARMOR:"
 
+		"omniro_cosmic_orb_description"									"Drops a comet on the target that deals damage in <font color='#ccff66'>260</font> radius on a 0.45 second delay. Damage is based on attack power and current health."
+		"omniro_cosmic_orb_a_pretext"										"DAMAGE % ATTACK:"				
+		"omniro_cosmic_orb_b_pretext"										"DAMAGE x CURRENT HEALTH:"
+
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
 		"DOTA_Tooltip_ability_heroic_fury_Description"					"Element: <font color=\"#F6FFB5\">Holy</font> / <font color=\"#DDDDDD\">Normal</font><br>Empowers the Paladin's weapon to deal massive splash and slow effect, as well as heal him on successful strikes."
 		"DOTA_Tooltip_ability_heroic_fury_Lore"							""
