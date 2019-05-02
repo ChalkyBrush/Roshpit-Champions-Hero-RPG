@@ -245,6 +245,16 @@
 				"property_one"			"12"
 			}
 		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/faceless_void/omni_orb.lua"
+				"Function"		"omni_rune_wind_projectile_hit"
+				"target"        "TARGET"
+			}
+		}
 	}
 
 	"omniro_rune_e_4"

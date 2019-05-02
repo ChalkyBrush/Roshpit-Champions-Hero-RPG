@@ -712,6 +712,14 @@ function WallPhysics:ReverseTable(t)
     return reversedTable
 end
 
+function WallPhysics:SetPushPositionOverGround(unit, position)
+	if position.z > unit:GetAbsOrigin().z then
+		unit:SetAbsOrigin(GetGroundPosition(position, unit))
+	else
+		unit:SetAbsOrigin(position)
+	end
+end
+
 function WallPhysics:RandomPointInSquare(vec1, vec2)
 	local point = vec1 + Vector(RandomInt(0, vec2.x - vec1.x), RandomInt(0, vec2.y - vec1.y))
 	return point

@@ -106,3 +106,7 @@
 		"omniro_shadow_orb_description"									"Creates a splash of shadow in <% OMNIRO_SHADOW_ORB_BASE_AOE %> and applies the armor disabling debuff. Deals damage based on attack power."
 		"omniro_shadow_orb_a_pretext"										"DAMAGE x ATTACK:"				
 		"omniro_shadow_orb_b_pretext"										"ADDITIONAL RADIUS:"
+
+		"omniro_wind_orb_description"									"A burst of wind radiates from the target, dealing damage based on attack power and agility and pushing them away."
+		"omniro_wind_orb_a_pretext"										"DAMAGE x ATTACK:"				
+		"omniro_wind_orb_b_pretext"										"DAMAGE x AGILITY:"

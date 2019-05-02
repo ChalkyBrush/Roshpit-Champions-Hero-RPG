@@ -236,8 +236,68 @@ function omni_orb_charge_procced(event, basic_damage)
 	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 1, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 	        end
 	    end
+	elseif caster.active_element == RPC_ELEMENT_WIND then
+		local fv = caster:GetForwardVector()
+		local speed = 1300
+		local rune_ability = caster.runeUnit3:FindAbilityByName("omniro_rune_e_3")
+		local wind_range = OMNIRO_WIND_ORB_RANGE
+		EmitSoundOn("Omniro.Orb.Wind", target)
+		orb_ability.wind_orb_damage = (orb_ability:GetSpecialValueFor("wind_orb_a")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_WIND]["level"] + (orb_ability:GetSpecialValueFor("wind_orb_b"))*caster:GetAgility()*caster.omniro_data[RPC_ELEMENT_WIND]["level"]
+		for i = 1, 8, 1 do
+			local wind_fv = WallPhysics:rotateVector(fv, 2*math.pi*i/8)
+			local info = 
+			{
+					Ability = rune_ability,
+		        	EffectName = "particles/items/hurricane_vest_projectile.vpcf",
+		        	vSpawnOrigin = target:GetAbsOrigin()+Vector(0,0,60),
+		        	fDistance = wind_range,
+		        	fStartRadius = 130,
+		        	fEndRadius = 130,
+		        	Source = caster,
+		        	StartPosition = "attach_attack1",
+		        	bHasFrontalCone = true,
+		        	bReplaceExisting = false,
+		        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		        	fExpireTime = GameRules:GetGameTime() + 5.0,
+				bDeleteOnHit = false,
+				vVelocity = wind_fv*Vector(1,1,0) * speed,
+				bProvidesVision = false,
+			}
+			projectile = ProjectileManager:CreateLinearProjectile(info)			
+		end
 	end
 	Filters:CastSkillArguments(2, caster)
+end
+
+
+function omni_rune_wind_projectile_hit(event)
+	local caster = event.caster.hero
+	local ability = caster:FindAbilityByName("omniro_omni_orb")
+	local damage = ability.wind_orb_damage
+	local enemy = event.target
+	local mace_hit_data = omni_mace_basic_element_data(RPC_ELEMENT_WIND)
+	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+	if not enemy.pushLock then
+		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wind_orb_pushback", {duration = 1})
+	end
+end
+
+function omniro_wind_orb_push_think(event)
+	local caster = event.caster
+	local target = event.target
+	local fv = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin())
+	local pushSpeed = math.max(40 - (distance/1400)*40, 10)
+	local newPosition = target:GetAbsOrigin()+pushSpeed*fv
+	WallPhysics:SetPushPositionOverGround(target, newPosition)
+end
+
+function omniro_wind_orb_end(event)
+	local caster = event.caster
+	local target = event.target
+	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
 end
 
 function omniro_time_effect_end(event)
@@ -259,6 +319,7 @@ function omniro_poison_pool_think(event)
 	local damage = (ability:GetSpecialValueFor("poison_orb_a")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_POISON]["level"]
 	Filters:ApplyDotDamage(caster, ability, target, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
 end
+
 
 -- RPC_ELEMENT_NONE = -1
 -- RPC_ELEMENT_NORMAL = 1

@@ -526,6 +526,16 @@
 				"var_type"			"FIELD_INTEGER"
 				"shadow_orb_b"			"7"
 			}
+			"19"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"wind_orb_a"			"8 16 24 32 40 48 56"
+			}
+			"20"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"wind_orb_b"			"20 40 60 80 100 120 140"
+			}
 		}
 		"OnToggleOn"
 		{
@@ -614,6 +624,31 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%arcane_orb_b"
+				}
+			}
+			"modifier_wind_orb_pushback"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/faceless_void/omni_orb.lua"
+						"Function"		"omniro_wind_orb_push_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/faceless_void/omni_orb.lua"
+						"Function"		"omniro_wind_orb_end"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
