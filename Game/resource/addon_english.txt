@@ -7861,6 +7861,10 @@
 		"omniro_wind_orb_a_pretext"										"DAMAGE x ATTACK:"				
 		"omniro_wind_orb_b_pretext"										"DAMAGE x AGILITY:"
 
+		"omniro_ghost_orb_description"										"Creates a ghastly <font color='#ccff66'>400</font> radius shroud that disarms enemies within and deals damage each second. Base duration is <font color='#ccff66'>400</font> second."
+		"omniro_ghost_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
+		"omniro_ghost_orb_b_pretext"											"ADDITIONAL CLOUD DURATION:"
+
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
 		"DOTA_Tooltip_ability_heroic_fury_Description"					"Element: <font color=\"#F6FFB5\">Holy</font> / <font color=\"#DDDDDD\">Normal</font><br>Empowers the Paladin's weapon to deal massive splash and slow effect, as well as heal him on successful strikes."
 		"DOTA_Tooltip_ability_heroic_fury_Lore"							""

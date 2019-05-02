@@ -72,6 +72,7 @@ function Tutorial:SpawnTrainingDummies()
 		dummy:SetForwardVector(fvTable[i])
 		dummy.angle = indexTable[i]
 		dummy.targetPosition = dummy:GetAbsOrigin()
+		dummy.pushLock = true
 	end
 end
 

@@ -267,8 +267,36 @@ function omni_orb_charge_procced(event, basic_damage)
 			}
 			projectile = ProjectileManager:CreateLinearProjectile(info)			
 		end
+	elseif caster.active_element == RPC_ELEMENT_GHOST then
+		local radius = OMNIRO_GHOST_ORB_AOE
+		local duration = OMNIRO_GHOST_ORB_BASE_DURATION + (orb_ability:GetSpecialValueFor("ghost_orb_b"))*caster.omniro_data[RPC_ELEMENT_GHOST]["level"]
+		local location = target:GetAbsOrigin()
+		local dummy = CreateUnitByName("npc_dummy_unit", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+		dummy:SetAbsOrigin(location)
+		dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+		dummy.hero = caster
+		orb_ability:ApplyDataDrivenModifier(dummy, dummy, "modifier_ghost_orb_aura", {duration = duration})
+		dummy.pfx = ParticleManager:CreateParticle("particles/roshpit/omniro/ghost_orb_cloud.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(dummy.pfx, 0, location+Vector(0,0,80))
+		ParticleManager:SetParticleControl(dummy.pfx, 1, Vector(radius, radius, 200))
+		EmitSoundOn("Omniro.Orb.Ghost", target)
 	end
 	Filters:CastSkillArguments(2, caster)
+end
+
+function omniro_ghost_orb_aura_end(event)
+	local target = event.target
+	ParticleManager:DestroyParticle(target.pfx, false)
+	UTIL_Remove(target)
+end
+
+function omniro_ghost_orb_aura_effect_think(event)
+	local caster = event.ability:GetCaster()
+	local ability = event.ability
+	local target = event.target
+	local mace_hit_data = omni_mace_basic_element_data(RPC_ELEMENT_GHOST)
+	local damage = (ability:GetSpecialValueFor("ghost_orb_a")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_GHOST]["level"]
+	Filters:ApplyDotDamage(caster, ability, target, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
 end
 
 

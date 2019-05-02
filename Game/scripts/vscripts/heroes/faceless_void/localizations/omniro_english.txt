@@ -110,3 +110,7 @@
 		"omniro_wind_orb_description"									"A burst of wind radiates from the target, dealing damage based on attack power and agility and pushing them away."
 		"omniro_wind_orb_a_pretext"										"DAMAGE x ATTACK:"				
 		"omniro_wind_orb_b_pretext"										"DAMAGE x AGILITY:"
+
+		"omniro_ghost_orb_description"										"Creates a ghastly <% OMNIRO_GHOST_ORB_AOE %> radius shroud that disarms enemies within and deals damage each second. Base duration is <% OMNIRO_GHOST_ORB_AOE %> second."
+		"omniro_ghost_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
+		"omniro_ghost_orb_b_pretext"											"ADDITIONAL CLOUD DURATION:"
