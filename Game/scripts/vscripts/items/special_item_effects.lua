@@ -389,26 +389,25 @@ function flood_water_elemental_kill(event)
 			return
 		end
 		if ability:GetAbilityName() == "item_rpc_robe_of_flooding" then
-			if dyingUnit:GetDeathXP() < attacker.summoner:GetLevel()*20 then
-				return false
-			end
-			local nextValue = ability.property1 + 1
-			local upgradeThreshold = 5000
-			if nextValue >= upgradeThreshold then
-				ability.lock = true
-				RPCItems:CreateFloodRobe2(attacker.summoner, ability)
-				Notifications:Top(attacker.summoner:GetPlayerOwnerID(), {text="Robe of Flooding Upgraded", duration=5, style={color="white"}, continue=true})
-				      particleName = "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash.vpcf"
-				      local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, attacker.summoner )
-				      ParticleManager:SetParticleControl( particle1, 0, attacker.summoner:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,140) )
-				      EmitSoundOn("Tanari.WaterSplash", attacker.summoner)
-				      Timers:CreateTimer(4, 
-				      function()
-				        ParticleManager:DestroyParticle( particle1, false )
-				      end)
-			else
-				ability.property1 = nextValue
-				RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_flooding", "#57CFFF",  1, "#property_flooding_description")
+			if dyingUnit:GetDeathXP() > 0 then
+				local nextValue = ability.property1 + 1
+				local upgradeThreshold = 5000
+				if nextValue >= upgradeThreshold then
+					ability.lock = true
+					RPCItems:CreateFloodRobe2(attacker.summoner, ability)
+					Notifications:Top(attacker.summoner:GetPlayerOwnerID(), {text="Robe of Flooding Upgraded", duration=5, style={color="white"}, continue=true})
+						  particleName = "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash.vpcf"
+						  local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, attacker.summoner )
+						  ParticleManager:SetParticleControl( particle1, 0, attacker.summoner:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,140) )
+						  EmitSoundOn("Tanari.WaterSplash", attacker.summoner)
+						  Timers:CreateTimer(4, 
+						  function()
+							ParticleManager:DestroyParticle( particle1, false )
+						  end)
+				else
+					ability.property1 = nextValue
+					RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_flooding", "#57CFFF",  1, "#property_flooding_description")
+				end
 			end
 		end
 	end
