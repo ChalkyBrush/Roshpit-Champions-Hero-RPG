@@ -1,4 +1,4 @@
-require("heroes/moon_ranger/constants")
+require('heroes/faceless_void/omniro_constants')
 
 function dimension_stalker_channel_start(event)
 	local caster = event.caster
@@ -14,7 +14,7 @@ function dimension_stalker_channel_start(event)
 		ParticleManager:DestroyParticle(ability.aoePFX, false)
 		ability.aoePFX = false
 	end
-	local radius = 1200
+	local radius = event.radius
 	local aoePFX = ParticleManager:CreateParticle("particles/roshpit/omniro/omniro_ult_indicator_ring.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(aoePFX, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(aoePFX, 1, Vector(radius, 1, radius))
@@ -88,7 +88,7 @@ end
 function fire_dimension_stalker(event)
 	local caster = event.caster
 	local ability = event.ability
-	local max_targets = 10
+	local max_targets = event.max_targets
 
 	local interval_between_strikes = 0.06
     local duration = max_targets*interval_between_strikes + interval_between_strikes
@@ -103,7 +103,7 @@ end
 function dimension_stalker_active_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local radius = 1000
+	local radius = event.radius
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 
     if #enemies > 0 then    

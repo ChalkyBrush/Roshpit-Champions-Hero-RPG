@@ -1366,7 +1366,7 @@
 		"ModelScale"    "1.0"
 		"Ability1"	"omniro_omni_mace"
 		"Ability2"	"omniro_omni_orb"
-		"Ability3"	"heat_wave"
+		"Ability3"	"omniro_chrono_path"
 		"Ability4"	"generic_hidden"
 		"Ability5"	"generic_hidden"
 		"Ability6"	"omniro_dimension_stalker"

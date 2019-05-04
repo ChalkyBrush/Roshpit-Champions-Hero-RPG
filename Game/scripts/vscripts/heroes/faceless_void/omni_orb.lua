@@ -270,7 +270,7 @@ function omni_orb_charge_procced(event, basic_damage)
 		local radius = OMNIRO_GHOST_ORB_AOE
 		local duration = OMNIRO_GHOST_ORB_BASE_DURATION + (orb_ability:GetSpecialValueFor("ghost_orb_b"))*caster.omniro_data[RPC_ELEMENT_GHOST]["level"]
 		local location = target:GetAbsOrigin()
-		local dummy = CreateUnitByName("npc_dummy_unit", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+		local dummy = CreateUnitByName("npc_dummy_unit", location, false, nil, nil, caster:GetTeamNumber())
 		dummy:SetAbsOrigin(location)
 		dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
 		dummy.hero = caster
