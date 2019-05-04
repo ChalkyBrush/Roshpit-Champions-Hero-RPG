@@ -140,7 +140,7 @@ function omni_orb_charge_procced(event, basic_damage)
 			end
 		end  		
 	elseif caster.active_element == RPC_ELEMENT_COSMOS then
-		local comet_damage = (orb_ability:GetSpecialValueFor("cosmic_orb_a")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_COSMOS]["level"] + (orb_ability:GetSpecialValueFor("cosmic_orb_b"))*caster:GetHealth()*caster.omniro_data[RPC_ELEMENT_COSMOS]["level"]
+		local comet_damage = (orb_ability:GetSpecialValueFor("cosmic_orb_a")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_COSMOS]["level"] + (orb_ability:GetSpecialValueFor("cosmic_orb_b"))*caster:GetMaxHealth()*caster.omniro_data[RPC_ELEMENT_COSMOS]["level"]
 		local starParticle = "particles/roshpit/solunia/comet_moon_attack_attack.vpcf"
 		local position = target:GetAbsOrigin()
 		local pfx = CustomAbilities:QuickParticleAtPoint(starParticle, position, 3)
@@ -280,6 +280,84 @@ function omni_orb_charge_procced(event, basic_damage)
 		ParticleManager:SetParticleControl(dummy.pfx, 0, location+Vector(0,0,80))
 		ParticleManager:SetParticleControl(dummy.pfx, 1, Vector(radius, radius, 200))
 		EmitSoundOn("Omniro.Orb.Ghost", target)
+	elseif caster.active_element == RPC_ELEMENT_WATER then
+		local damage = (orb_ability:GetSpecialValueFor("water_orb_a")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_WATER]["level"]
+		local hydroPosition = target:GetAbsOrigin()
+		hydroPosition = GetGroundPosition(hydroPosition, target)
+		EmitSoundOnLocationWithCaster(hydroPosition, "Omniro.Orb.Water", caster)
+		local pfx = ParticleManager:CreateParticle("particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_skills/kunkka_spell_torrent_splash_fxset.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(pfx, 0, hydroPosition)
+		Timers:CreateTimer(2, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), hydroPosition, nil, OMNIRO_WATER_ORB_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			for _,enemy in pairs(enemies) do
+				if not enemy.jumpLock then
+					if enemy:GetAbsOrigin().z - GetGroundHeight(enemy:GetAbsOrigin(), enemy) < 500 then
+						if not Filters:HasFlyingModifier(enemy) then
+							if not enemy:IsMagicImmune() then
+								orb_ability:ApplyDataDrivenModifier(caster, enemy, "modifier_torrent_stun", {duration = 4})
+								orb_ability:ApplyDataDrivenModifier(caster, enemy, "modifier_torrent_lifting", {duration = OMNIRO_WATER_STUN_DURATION})
+								enemy.torrentLiftVelocity = 19
+							end
+						end
+					end
+				end
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+			end
+		end
+	elseif caster.active_element == RPC_ELEMENT_DEMON then
+		local damage = (orb_ability:GetSpecialValueFor("demon_orb_a")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_DEMON]["level"]
+		CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/omniro_demon_orb.vpcf", target, 3)
+		EmitSoundOn("Omniro.Orb.Demon", target)
+		caster.ignore_steadfast = true
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+	elseif caster.active_element == RPC_ELEMENT_NATURE then
+		EmitSoundOn("Omniro.Orb.Nature", target)
+		local max_shield_stacks = OMNIRO_NATURE_SHIELD_BASE_MAX_STACKS + orb_ability:GetSpecialValueFor("nature_orb_b")*caster.omniro_data[RPC_ELEMENT_NATURE]["level"]
+		local current_stacks = caster:GetModifierStackCount("modifier_omniro_nature_shield", caster)
+		local additional_stacks = Runes:Procs(caster.omniro_data[RPC_ELEMENT_NATURE]["level"], orb_ability:GetSpecialValueFor("nature_orb_a"), 1)
+		print(additional_stacks)
+		local final_new_stacks = math.min(current_stacks+additional_stacks, max_shield_stacks)
+
+		local shield_duration = Filters:GetAdjustedBuffDuration(caster, OMNIRO_NATURE_SHIELD_DURATION, false)
+		-- if not caster:HasModifier("modifier_omniro_nature_shield") then
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/grithault_heal_core.vpcf", caster, 3)
+		-- end
+		orb_ability:ApplyDataDrivenModifier(caster, caster, "modifier_omniro_nature_shield", {duration = shield_duration})
+		caster:SetModifierStackCount("modifier_omniro_nature_shield", caster, final_new_stacks)
+	elseif caster.active_element == RPC_ELEMENT_UNDEAD then
+		local fv = caster:GetForwardVector()
+		local speed = 1200
+		local rune_ability = caster.runeUnit4:FindAbilityByName("omniro_rune_r_4")
+		local wind_range = OMNIRO_UNDEAD_ORB_RANGE
+		EmitSoundOn("Omniro.Orb.Undead", target)
+		orb_ability.undead_orb_damage = (orb_ability:GetSpecialValueFor("undead_orb_a")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_UNDEAD]["level"] + (orb_ability:GetSpecialValueFor("undead_orb_b"))*caster:GetHealth()*caster.omniro_data[RPC_ELEMENT_UNDEAD]["level"]
+
+		local undead_fv = fv
+		local info = 
+		{
+				Ability = rune_ability,
+	        	EffectName = "particles/roshpit/omniro/omniro_undead_orb_terror.vpcf",
+	        	vSpawnOrigin = target:GetAbsOrigin()+Vector(0,0,60),
+	        	fDistance = wind_range,
+	        	fStartRadius = 130,
+	        	fEndRadius = 130,
+	        	Source = caster,
+	        	StartPosition = "attach_attack1",
+	        	bHasFrontalCone = true,
+	        	bReplaceExisting = false,
+	        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+	        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+	        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+	        	fExpireTime = GameRules:GetGameTime() + 5.0,
+			bDeleteOnHit = false,
+			vVelocity = undead_fv*Vector(1,1,0) * speed,
+			bProvidesVision = false,
+		}
+		projectile = ProjectileManager:CreateLinearProjectile(info)			
+
 	end
 	Filters:CastSkillArguments(2, caster)
 end
@@ -299,6 +377,16 @@ function omniro_ghost_orb_aura_effect_think(event)
 	Filters:ApplyDotDamage(caster, ability, target, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
 end
 
+function omni_rune_undead_projectile_hit(event)
+	local caster = event.caster.hero
+	local ability = caster:FindAbilityByName("omniro_omni_mace")
+	local orb_ability = caster:FindAbilityByName("omniro_omni_orb")
+	local damage = orb_ability.undead_orb_damage
+	local enemy = event.target
+	local mace_hit_data = omni_mace_basic_element_data(RPC_ELEMENT_UNDEAD)
+	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
+	ability:ApplyDataDrivenModifier(caster, enemy,"modifier_omnimace_undead_debuff", {duration = OMNIRO_UNDEAD_SPECIAL_DURATION})
+end
 
 function omni_rune_wind_projectile_hit(event)
 	local caster = event.caster.hero
@@ -346,6 +434,38 @@ function omniro_poison_pool_think(event)
 	local mace_hit_data = omni_mace_basic_element_data(RPC_ELEMENT_POISON)
 	local damage = (ability:GetSpecialValueFor("poison_orb_a")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_POISON]["level"]
 	Filters:ApplyDotDamage(caster, ability, target, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
+end
+
+function water_orb_torrent_stun_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	target:SetAbsOrigin(target:GetAbsOrigin() + Vector(0,0,target.torrentLiftVelocity))
+	target.torrentLiftVelocity = target.torrentLiftVelocity - 0.9
+	if target.torrentLiftVelocity < 0 then
+		target:RemoveModifierByName("modifier_torrent_lifting")
+	end
+	if not target:HasModifier("modifier_torrent_lifting") then
+		if target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target) < 30 then
+			target:RemoveModifierByName("modifier_torrent_stun")
+		end
+	end
+end
+
+function water_orb_torrent_stun_end(event)
+	local target = event.target
+	local ability = event.ability
+	Timers:CreateTimer(0.06, function()
+		target.torrentLiftVelocity = nil
+	end)
+
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_slardar/slardar_crush.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 1, Vector(70, 70, 70))
+	Timers:CreateTimer(3.0, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+
 end
 
 

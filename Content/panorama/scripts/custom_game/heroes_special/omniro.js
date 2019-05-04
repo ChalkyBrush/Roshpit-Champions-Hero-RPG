@@ -65,7 +65,11 @@ function setup_tooltip_mechanisms(element_parent, element_data, omniro){
 }
 
 function omniro_element_click(element_data, omniro){
-	GameEvents.SendCustomGameEventToServer( "units_special", {omniro: omniro, element_index: element_data["element_number"]} );
+	if (GameUI.IsAltDown()){
+		GameEvents.SendCustomGameEventToServer( "units_special", {omniro: omniro, element_index: element_data["element_number"], alt: 1} )
+	}else{
+		GameEvents.SendCustomGameEventToServer( "units_special", {omniro: omniro, element_index: element_data["element_number"], alt: 0} );
+	}
 }
 
 function hover_tooltip(element_parent, element_data){

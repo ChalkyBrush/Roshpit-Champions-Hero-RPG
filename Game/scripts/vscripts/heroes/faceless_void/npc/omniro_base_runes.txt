@@ -366,4 +366,15 @@
 				"property_one"			"365"
 			}
 		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/faceless_void/omni_orb.lua"
+				"Function"		"omni_rune_undead_projectile_hit"
+				"target"        "TARGET"
+			}
+		}
 	}

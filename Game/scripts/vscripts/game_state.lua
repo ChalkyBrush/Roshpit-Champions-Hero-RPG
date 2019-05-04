@@ -2761,6 +2761,13 @@ function GameState:FilterDamage(filterTable)
 			CustomAbilities:HitShieldGeneric(victim, attacker, victim, "modifier_djanghor_4_1_shield")
 		end
 	end
+	if victim:HasModifier("modifier_omniro_nature_shield") then
+		if filterTable["damage"] > 0 then
+			filterTable["damage"] = 0
+			local shieldCaster = victim:FindModifierByName("modifier_omniro_nature_shield"):GetCaster()
+			CustomAbilities:HitShieldGeneric(victim, attacker, victim, "modifier_omniro_nature_shield")
+		end
+	end
 	if victim:HasModifier("modifier_ice_throw_b_b_frozen") then
 		modifier = victim:FindModifierByName("modifier_ice_throw_b_b_frozen")
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PHYSICAL then
@@ -3372,12 +3379,16 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if not attacker:HasModifier("modifier_backstab_jumping") and applyEffects then
-			filterTable["damage"] = CustomAbilities:Steadfast(filterTable["damage"], victim, thresholdMult)
+			if not attacker.ignore_steadfast then
+				filterTable["damage"] = CustomAbilities:Steadfast(filterTable["damage"], victim, thresholdMult)
+			end
 		end
 	end
 	if victim:HasModifier("modifier_ancient_steadfast") then
 		if not attacker:HasModifier("modifier_backstab_jumping") and applyEffects then
-			filterTable["damage"] = CustomAbilities:AncientSteadfast(filterTable["damage"], victim)
+			if not attacker.ignore_steadfast then
+				filterTable["damage"] = CustomAbilities:AncientSteadfast(filterTable["damage"], victim)
+			end
 		end
 	end
 	if victim:HasModifier("modifier_mega_steadfast") then
@@ -3416,8 +3427,13 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if not attacker:HasModifier("modifier_backstab_jumping") and applyEffects then
-			filterTable["damage"] = CustomAbilities:MegaSteadfast(filterTable["damage"], victim, thresholdMult)
+			if not attacker.ignore_steadfast then
+				filterTable["damage"] = CustomAbilities:MegaSteadfast(filterTable["damage"], victim, thresholdMult)
+			end
 		end
+	end
+	if attacker.ignore_steadfast then
+		attacker.ignore_steadfast = false
 	end
 
 	--APPLY MULT

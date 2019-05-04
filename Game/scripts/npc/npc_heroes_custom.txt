@@ -1369,7 +1369,7 @@
 		"Ability3"	"heat_wave"
 		"Ability4"	"generic_hidden"
 		"Ability5"	"generic_hidden"
-		"Ability6"	"cataclysm"
+		"Ability6"	"omniro_dimension_stalker"
 		"Ability7"	""
 		"Ability8"	""
 		"Ability9"	""

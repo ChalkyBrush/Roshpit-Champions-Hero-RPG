@@ -546,6 +546,36 @@
 				"var_type"			"FIELD_FLOAT"
 				"ghost_orb_b"			"0.1"
 			}
+			"23"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"water_orb_a"			"50 100 150 200 250 300 350"
+			}
+			"24"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"demon_orb_a"			"100 200 300 400 500 600 700"
+			}
+			"23"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"nature_orb_a"			"10"
+			}
+			"24"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"nature_orb_b"			"0.2"
+			}
+			"25"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"undead_orb_a"			"80 160 240 320 400 480 560"
+			}
+			"26"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"undead_orb_b"			"5 10 15 20 25 30 35"
+			}
 		}
 		"OnToggleOn"
 		{
@@ -698,5 +728,158 @@
 					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_torrent_lifting"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_torrent_stun"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OverrideAnimation"     "ACT_DOTA_FLAIL"
+				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/faceless_void/omni_orb.lua"
+						"Function"		"water_orb_torrent_stun_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/faceless_void/omni_orb.lua"
+						"Function"		"water_orb_torrent_stun_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_omniro_nature_shield"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+
+				"EffectName"		"particles/roshpit/djanghor/shapeshift_shield.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
 		}
 	}
+
+
+	"omniro_dimension_stalker"
+    {
+        "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+        "BaseClass" "ability_datadriven"
+        "AOERadius" "700"
+        "AbilityTextureName"    "astral_ranger/crystal_arrow"
+        "AbilityCastRange"  "700"
+        "AbilityCastPoint"  "0.0"
+        "AbilityCooldown"   "10.0"
+        "AbilityChannelTime"    "1.8"
+        "AbilityUnitDamageType" "DAMAGE_TYPE_PURE"
+        "AbilityCastAnimation"  "ACT_DOTA_TAUNT"
+        "AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+        "RequiredLevel"                 "-5"
+        "LevelsBetweenUpgrades"         "10"
+        "MaxLevel"                      "7"
+        "precache"
+        {
+
+        }
+
+        "AbilityManaCost"   "0"
+        "SideShop"  "1"
+        "OnSpellStart"
+        {
+            "ApplyModifier"
+            {
+                "Target"    "CASTER"
+                "ModifierName"  "modifier_channel_start"
+                "Duration"      "1.5"
+            }
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/faceless_void/dimension_stalker.lua"
+                "Function"      "dimension_stalker_channel_start"
+                "target"        "POINT"
+            }
+        }
+
+        "OnChannelSucceeded"
+        {
+            "RemoveModifier"
+            {
+                "Target"    "CASTER"
+                "ModifierName"  "modifier_channel_start"
+            }
+
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/faceless_void/dimension_stalker.lua"
+                "Function"      "fire_dimension_stalker"
+                "target"        "POINT"
+            }
+
+        }
+
+        "OnChannelFinish"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/faceless_void/dimension_stalker.lua"
+                "Function"      "remove_modifier_channel_start"
+            }
+
+        }
+
+        "OnChannelInterrupted"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/faceless_void/dimension_stalker.lua"
+                "Function"      "remove_modifier_channel_start"
+            }
+
+        }
+
+        "Modifiers"
+        {
+            "modifier_dimension_stalker_passive"
+            {
+                "IsHidden"  "1"
+                "Passive"   "1"
+                "ThinkInterval"  "0.5"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/faceless_void/dimension_stalker.lua"
+                        "Function"      "dimension_stalker_passive_think"
+                    }
+                }
+            }
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "5000 25000 60000 120000 255000 400000 1000000"
+            }
+        }
+    }
+
