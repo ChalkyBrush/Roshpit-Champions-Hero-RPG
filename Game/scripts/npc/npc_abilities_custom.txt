@@ -865,6 +865,47 @@
 
         "Modifiers"
         {
+            "modifier_channel_start"
+            {
+                "IsHidden"  "1"
+                "OnCreated"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/util/channeling.lua"
+                        "Function"      "beginChannel"
+                    }
+                }
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/util/channeling.lua"
+                        "Function"      "endChannel"
+                    }
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/faceless_void/dimension_stalker.lua"
+                        "Function"      "dimension_stalker_channel_end"
+                    }
+                }
+                "ThinkInterval"  "0.03"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/faceless_void/dimension_stalker.lua"
+                        "Function"      "dimension_stalker_channel_think"
+                    }
+                }
+                "StatusEffectName" 		"particles/roshpit/omniro/dimension_status.vpcf" 	   
+                "StatusEffectPriority"  "120"
+                "States"
+                {
+                	"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+                	"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+                }
+            }
             "modifier_dimension_stalker_passive"
             {
                 "IsHidden"  "1"
@@ -879,6 +920,53 @@
                     }
                 }
             }
+            "modifier_dimension_stalker_channel_end"
+            {
+                "IsHidden"  "1"
+                "ThinkInterval"  "0.03"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/faceless_void/dimension_stalker.lua"
+                        "Function"      "dimension_stalker_channel_end_think"
+                    }
+                }
+                "States"
+                {
+                    "MODIFIER_STATE_ROOTED"     "MODIFIER_STATE_VALUE_ENABLED"
+                }
+            }
+            "modifier_dimension_stalker_active"
+            {
+            	"IsHidden"	"0"
+            	"IsBuff"	"1"
+            	"States"
+            	{
+            		"MODIFIER_STATE_CANNOT_MISS"		"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+            	"Properties"
+            	{
+            		"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%radius"
+            	}
+            	"ThinkInterval"  "0.06"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/faceless_void/dimension_stalker.lua"
+                        "Function"      "dimension_stalker_active_think"
+                    }
+                }
+                "OnDestroy"
+                {
+                	"RunScript"
+                	{
+                		"ScriptFile"	"heroes/faceless_void/dimension_stalker.lua"
+                		"Function"		"dimension_stalker_end"
+                	}
+                }
+            }
         }
 
         "AbilitySpecial"
@@ -886,7 +974,7 @@
             "01"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "damage"                    "5000 25000 60000 120000 255000 400000 1000000"
+                "radius"                    "1500"
             }
         }
     }

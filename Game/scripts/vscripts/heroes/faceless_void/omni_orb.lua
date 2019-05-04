@@ -6,11 +6,10 @@ function omni_orb_charge_procced(event, basic_damage)
 	local orb_ability = caster:FindAbilityByName("omniro_omni_orb")
 	if caster.active_element == RPC_ELEMENT_NORMAL then
 		local damage = orb_ability:GetSpecialValueFor("normal_orb_a")*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_NORMAL]["level"]
-		local pfx = ParticleManager:CreateParticle("particles/econ/items/sven/sven_ti7_sword/sven_ti7_sword_spell_great_cleave_crit_b.vpcf", PATTACH_ABSORIGIN, caster)
+		local pfx = ParticleManager:CreateParticle("particles/roshpit/omniro/omniro_normal_orb.vpcf", PATTACH_ABSORIGIN, caster)
 		-- local pull_direction = ((target:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+caster:GetForwardVector()*100)
-		ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin())
-	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin()+caster:GetForwardVector()*120, nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin()+Vector(0,0,40))
+	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	    if #enemies > 0 then    
 	        for _,enemy in pairs(enemies) do
 	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
@@ -104,7 +103,7 @@ function omni_orb_charge_procced(event, basic_damage)
 		local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf", target:GetAbsOrigin(), thinkerDuration)
 		ParticleManager:SetParticleControl(pfx, 1, Vector(OMNIRO_ORB_POISON_POOL_RADIUS, OMNIRO_ORB_POISON_POOL_RADIUS, OMNIRO_ORB_POISON_POOL_RADIUS))
 	elseif caster.active_element == RPC_ELEMENT_TIME then
-		local debuff_duration = (orb_ability:GetSpecialValueFor("time_orb_b"))*caster.omniro_data[RPC_ELEMENT_TIME]["level"]
+		local debuff_duration = (orb_ability:GetSpecialValueFor("time_orb_b"))*caster.omniro_data[RPC_ELEMENT_TIME]["level"] + OMNIRO_TIME_ORB_BASE_DURATION
 	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, OMNIRO_ORB_TIME_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	    if #enemies > 0 then    
 	        for _,enemy in pairs(enemies) do
@@ -119,7 +118,7 @@ function omni_orb_charge_procced(event, basic_damage)
   		local radius = OMNIRO_ORB_HOLY_AOE
 		local particleName =  "particles/units/heroes/hero_elder_titan/paladin_holy_nova.vpcf"
 		local position = caster:GetAbsOrigin()
-		local particleVector = position
+		local particleVector = position + Vector(0,0,40)
 
 		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
 		ParticleManager:SetParticleControl( pfx, 0, particleVector )

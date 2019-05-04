@@ -250,8 +250,10 @@ function omniro_mace_attack_land(event)
 	print(next_element)
 	local basic_damage = omni_mace_basic_hit(caster, ability, target, event)
 	if caster:HasModifier("modifier_omni_orb_active") then
-		if caster.omniro_data[active_element]["charges"] > 0 then
-			caster.omniro_data[active_element]["charges"] = caster.omniro_data[active_element]["charges"] - 1
+		if caster.omniro_data[active_element]["charges"] > 0 or caster:HasModifier("modifier_dimension_stalker_active") then
+			if not caster:HasModifier("modifier_dimension_stalker_active") then
+				caster.omniro_data[active_element]["charges"] = caster.omniro_data[active_element]["charges"] - 1
+			end
 			omni_orb_charge_procced(event, basic_damage)
 		end
 	end
@@ -298,7 +300,15 @@ function omni_mace_ui_toggle(msg)
 		local player = caster:GetPlayerOwner()
 		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex(), reconstruct = true})
 	else
+		local lock_new_skill = false
 		caster.omniro_data[caster.active_element]["active"] = false
+		if caster.omniro_data[caster.active_element]["locked"] then
+			lock_new_skill = true
+			caster.omniro_data[caster.active_element]["locked"] = false
+		end
+		if lock_new_skill then
+			caster.omniro_data[msg.element_index]["locked"] = true
+		end
 		caster.omniro_data[msg.element_index]["active"] = true
 		caster.active_element = msg.element_index
 		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
