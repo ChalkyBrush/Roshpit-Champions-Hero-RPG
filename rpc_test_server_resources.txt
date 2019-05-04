@@ -820,6 +820,11 @@ function GameMode:OnPlayerChat(keys)
         RPCItems:RollDuskbringerArcana2(vector)
     end
   end
+    if string.match(text, "-allglyph") then
+        local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+        local name = HerosCustom:GetInternalHeroName(hero:GetUnitName())
+        Glyphs:DebugRollHeroGlyphs(name, hero:GetAbsOrigin())
+    end
 
   if string.match(text, "-serengaard") then
     local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
@@ -1144,19 +1149,6 @@ function GameMode:OnPlayerChat(keys)
       name = "item_rpc_"..name
       local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
       RPCItems:RollArcanaByName(name, hero:GetAbsOrigin())
-    end
-  elseif string.match(text, "-gly") then
-    if Beacons.cheats then
-      local name = string.gsub(text, "-gly ", "")
-      name = "item_rpc_"..name
-      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-      Glyphs:RollGlyphAll(name, hero:GetAbsOrigin(), 0)
-    end
-  elseif string.match(text, "-allglyph") then
-    if Beacons.cheats then
-      local name = string.gsub(text, "-allglyph ", "")
-      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-      Glyphs:DebugRollHeroGlyphs(name, hero:GetAbsOrigin())
     end
   elseif string.match(text, "-curatehero") then
     if Beacons.cheats then
