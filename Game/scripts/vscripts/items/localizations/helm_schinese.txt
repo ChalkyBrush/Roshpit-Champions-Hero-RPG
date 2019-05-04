@@ -364,7 +364,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"山岭巨人头盔"
 		"item_property_mountain_giant" 								"稳如泰山"
-		"property_mountain_giant_description"						"提高最大生命值 @special_property1x. 当生命值高于80%时，拥有 @special_property2% 减伤。"
+		"property_mountain_giant_description"						"提高最大生命值 @special_property1%。 当生命值高于80%时，拥有 @special_property2% 减伤。"
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"奥斯克的链盔"
