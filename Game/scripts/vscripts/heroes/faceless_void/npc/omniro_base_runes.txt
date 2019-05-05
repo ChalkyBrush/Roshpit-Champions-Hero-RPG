@@ -6,7 +6,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"nyx_assassin_mana_burn"
+		"AbilityTextureName"	"omniro/omniro_element_fire"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -15,12 +15,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"1"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1200"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% OMNIRO_T1_RUNE_MAX_CHARGES %>"
 			}
 		}
 	}
@@ -32,7 +32,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"lina_laguna_blade"
+		"AbilityTextureName"	"omniro/omniro_element_earth"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -41,7 +41,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% OMNIRO_T1_RUNE_MAX_CHARGES %>"
 			}
 		}
 	}
@@ -53,7 +58,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_breaker_charge_of_darkness_alt"
+		"AbilityTextureName"	"omniro/omniro_element_lightning"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -62,7 +67,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% OMNIRO_T1_RUNE_MAX_CHARGES %>"
 			}
 		}
 	}
@@ -74,7 +84,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"invoker_quas"
+		"AbilityTextureName"	"omniro/omniro_element_poison"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -83,7 +93,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"365"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% OMNIRO_T1_RUNE_MAX_CHARGES %>"
 			}
 		}
 	}
@@ -96,7 +111,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"nyx_assassin_mana_burn"
+		"AbilityTextureName"	"omniro/omniro_element_time"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -105,12 +120,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"1"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1200"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% OMNIRO_T2_RUNE_MAX_CHARGES %>"
 			}
 		}
 	}
@@ -122,7 +137,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"lina_laguna_blade"
+		"AbilityTextureName"	"omniro/omniro_element_holy"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -131,7 +146,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% OMNIRO_T2_RUNE_MAX_CHARGES %>"
 			}
 		}
 	}
@@ -143,7 +163,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_breaker_charge_of_darkness_alt"
+		"AbilityTextureName"	"omniro/omniro_element_cosmic"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -152,7 +172,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% OMNIRO_T2_RUNE_MAX_CHARGES %>"
 			}
 		}
 	}
@@ -164,7 +189,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"invoker_quas"
+		"AbilityTextureName"	"omniro/omniro_element_ice"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -173,7 +198,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"365"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% OMNIRO_T2_RUNE_MAX_CHARGES %>"
 			}
 		}
 	}
@@ -186,7 +216,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"nyx_assassin_mana_burn"
+		"AbilityTextureName"	"omniro/omniro_element_arcane"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -195,12 +225,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"1"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1200"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% OMNIRO_T3_RUNE_MAX_CHARGES %>"
 			}
 		}
 	}
@@ -212,7 +242,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"lina_laguna_blade"
+		"AbilityTextureName"	"omniro/omniro_element_shadow"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -221,7 +251,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% OMNIRO_T3_RUNE_MAX_CHARGES %>"
 			}
 		}
 	}
@@ -242,7 +277,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% OMNIRO_T3_RUNE_MAX_CHARGES %>"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -251,7 +291,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"heroes/faceless_void/omni_orb.lua"
-				"Function"		"omni_rune_wind_projectile_hit"
+				"Function"		"omniro/omniro_element_wind"
 				"target"        "TARGET"
 			}
 		}
@@ -264,7 +304,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"invoker_quas"
+		"AbilityTextureName"	"omniro/omniro_element_ghost"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -273,7 +313,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"365"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% OMNIRO_T3_RUNE_MAX_CHARGES %>"
 			}
 		}
 	}
@@ -286,7 +331,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"nyx_assassin_mana_burn"
+		"AbilityTextureName"	"omniro/omniro_element_water"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -295,12 +340,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"1"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1200"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% OMNIRO_T4_RUNE_MAX_CHARGES %>"
 			}
 		}
 	}
@@ -312,7 +357,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"lina_laguna_blade"
+		"AbilityTextureName"	"omniro/omniro_element_demon"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -321,7 +366,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% OMNIRO_T4_RUNE_MAX_CHARGES %>"
 			}
 		}
 	}
@@ -333,7 +383,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_breaker_charge_of_darkness_alt"
+		"AbilityTextureName"	"omniro/omniro_element_nature"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -342,7 +392,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% OMNIRO_T4_RUNE_MAX_CHARGES %>"
 			}
 		}
 	}
@@ -354,7 +409,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"invoker_quas"
+		"AbilityTextureName"	"omniro/omniro_element_undead"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -363,7 +418,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"365"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% OMNIRO_T4_RUNE_MAX_CHARGES %>"
 			}
 		}
 

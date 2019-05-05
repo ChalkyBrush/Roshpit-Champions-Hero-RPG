@@ -13,7 +13,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/invoked_abilities/vortex_weapon"
+		"AbilityTextureName"			"omniro/omni_mace"
 		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
@@ -23,10 +23,20 @@
 		"precache"
 		{
 			"particle"		"particles/roshpit/omniro/shadow_armor_shred.vpcf"
-			"particle"		"particles/roshpit/omniro/omniro_ghost_buff.vpcf"
 			"particle"		"particles/roshpit/draghor/mark_of_the_talon_heal.vpcf"
 			"particle"		"particles/roshpit/jex/jex_root.vpcf"
 			"soundfile"		"soundevents/game_sounds_omniro.vsndevts"
+			"particle"		"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
+			"particle"		"particles/roshpit/omniro/time_haste.vpcf"
+			"particle"		"particles/status_fx/status_effect_frost_lich.vpcf"
+			"particle"		"particles/roshpit/omniro/omniro_ghost_buff.vpcf"
+			"particle"		"particles/roshpit/draghor/mark_of_the_talon_heal.vpcf"
+			"particle"		"particles/units/heroes/hero_invoker/invoker_ghost_walk.vpcf"
+			"particle"		"particles/econ/courier/courier_trail_hw_2012/courier_trail_hw_2012_ghosts.vpcf"
+			"particle"		"particles/roshpit/omniro/omni_mace.vpcf"
+			"particle"		"particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+			"particle"		"particles/roshpit/omniro/omniro_weapon_glow.vpcf"
+			"particle"		"particles/roshpit/omniro/basic_water_heal.vpcf"
 		}
 
 		// Casting
@@ -214,6 +224,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"	"omniro/omniro_element_fire"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%fire_special_a"
@@ -223,6 +234,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"	"omniro/omniro_element_earth"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%earth_special_a"
@@ -235,6 +247,7 @@
 				"ThinkInterval"		"0.5"
 				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"TextureName"	"omniro/omniro_element_poison"
 
 				"OnIntervalThink"
 				{
@@ -255,6 +268,7 @@
 			
 				"EffectName"		"particles/roshpit/omniro/time_haste.vpcf"
 				"EffectAttachType"	"follow_origin"
+				"TextureName"	"omniro/omniro_element_time"
 			
 				"Properties"
 				{
@@ -268,6 +282,8 @@
 				"IsBuff"	"1"
 				"EffectName"	"particles/items_fx/black_king_bar_avatar.vpcf"
 				"EffectAttachType"	"follow_origin"
+
+				"TextureName"	"omniro/omniro_element_holy"
 				"States"
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -286,11 +302,13 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
+				"TextureName"	"omniro/omniro_element_cosmic"
 			}
 			"modifier_ice_debuff"
 			{
 				"IsDebuff"	"1"
 				"IsHidden"	"1"
+				"TextureName"	"omniro/omniro_element_ice"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "20"
 				"Properties"
@@ -305,6 +323,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"TextureName"	"omniro/omniro_element_shadow"
 				"OnCreated"
 				{
 					"RunScript"
@@ -327,6 +346,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"	"omniro/omniro_element_wind"
 			}
 			"modifier_omnimace_ghost_buff"
 			{
@@ -334,6 +354,7 @@
 				"IsBuff"	"1"
 				"EffectName"	"particles/roshpit/omniro/omniro_ghost_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
+				"TextureName"	"omniro/omniro_element_ghost"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
@@ -345,6 +366,7 @@
 				"IsBuff"	"1"
 				"EffectName"	"particles/roshpit/draghor/mark_of_the_talon_heal.vpcf"
 				"EffectAttachType"	"follow_origin"
+				"TextureName"	"omniro/omniro_element_water"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%water_special_b"
@@ -354,6 +376,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"	"omniro/omniro_element_demon"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%demon_special_a"
@@ -367,6 +390,7 @@
 		
 				"EffectName"		"particles/roshpit/jex/jex_root.vpcf"
 				"EffectAttachType"	"follow_origin"
+				"TextureName"	"omniro/omniro_element_nature"
 				"ThinkInterval"  "1.0"
 				"OnIntervalThink"
 				{
@@ -393,6 +417,7 @@
 						"Target"            "TARGET"
 					}
 				}
+				"TextureName"	"omniro/omniro_element_undead"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
 				"EffectName"		"particles/econ/courier/courier_trail_hw_2012/courier_trail_hw_2012_ghosts.vpcf"
@@ -406,6 +431,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"	"omniro/omniro_element_undead"
 			}
 		}
 	}
@@ -417,7 +443,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/invoked_abilities/vortex_weapon"
+		"AbilityTextureName"			"omniro/omni_orb"
 		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
@@ -426,7 +452,26 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"particle"					"particles/roshpit/omniro/timelock.vpcf"
+			"particle"		"particles/roshpit/omniro/timelock.vpcf"
+			"particle"		"particles/status_fx/status_effect_faceless_timewalk.vpcf" 	
+			"particle"		"particles/items2_fx/veil_of_discord_debuff.vpcf"
+			"particle"		"particles/roshpit/djanghor/shapeshift_shield.vpcf"
+			"particle"		"particles/roshpit/omniro/omniro_normal_orb.vpcf"
+			"particle"		"particles/units/heroes/hero_elder_titan/ring_of_fire.vpcf"
+			"particle"		"particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
+			"particle"		"particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
+			"particle"		"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+			"particle"		"particles/units/heroes/hero_elder_titan/paladin_holy_nova.vpcf"
+			"particle"		"particles/roshpit/solunia/comet_moon_attack_attack.vpcf"
+			"particle"		"particles/roshpit/omniro/cosmic_orb_impact.vpcf"
+			"particle"		"particles/roshpit/items/nightmare_rider_mantle_cowlofice.vpcf"
+			"particle"		"particles/items/hurricane_vest_projectile.vpcf"
+			"particle"		"particles/roshpit/omniro/ghost_orb_cloud.vpcf"
+			"particle"		"particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_skills/kunkka_spell_torrent_splash_fxset.vpcf"
+			"particle"		"particles/roshpit/omniro/omniro_demon_orb.vpcf"
+			"particle"		"particles/units/heroes/hero_oracle/grithault_heal_core.vpcf"
+			"particle"		"particles/roshpit/omniro/omniro_undead_orb_terror.vpcf"
+			"particle"		"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
 		}
 
 		// Casting
@@ -641,11 +686,13 @@
 						"target"		"TARGET"
 					}
 				}
+				"TextureName"	"omniro/omniro_element_poison"
 			}
 			"modifier_omniro_time_freeze"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"TextureName"	"omniro/omniro_element_time"
 				"StatusEffectName" 		"particles/status_fx/status_effect_faceless_timewalk.vpcf" 	   
 				"StatusEffectPriority"  "20"
 				"States"
@@ -669,6 +716,7 @@
 				"IsDebuff"	"1"
 				"EffectName"	"particles/items2_fx/veil_of_discord_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"TextureName"	"omniro/omniro_element_arcane"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%arcane_orb_b"
@@ -722,6 +770,7 @@
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
 				"ThinkInterval"  "1.0"
+				"TextureName"	"omniro/omniro_element_ghost"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -745,6 +794,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"TextureName"	"omniro/omniro_element_water"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
 				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
@@ -779,6 +829,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
+				"TextureName"	"omniro/omniro_element_nature"
 
 				"EffectName"		"particles/roshpit/djanghor/shapeshift_shield.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -793,7 +844,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/fire/fire_fire_q"
+		"AbilityTextureName"			"omniro/chrono_path"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
@@ -814,6 +865,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 
+		"precache"
+		{
+			"particle"  "particles/roshpit/omniro/chrono_path_sphere.vpcf"
+		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -911,7 +966,7 @@
         "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
         "BaseClass" "ability_datadriven"
         "AOERadius" "%radius"
-        "AbilityTextureName"    "astral_ranger/crystal_arrow"
+        "AbilityTextureName"    "omniro/dimension_stalker"
         "AbilityCastRange"  "%radius"
         "AbilityCastPoint"  "0.0"
         "AbilityCooldown"   "8"
@@ -924,7 +979,9 @@
         "MaxLevel"                      "7"
         "precache"
         {
-
+        	"particle"				"particles/roshpit/omniro/omniro_ult_indicator_ring.vpcf"
+        	"particle"				"particles/roshpit/omniro/dimension_stalk_attack.vpcf"
+        	"particle"				"particles/roshpit/omniro/dimension_status.vpcf"
         }
 
         "AbilityManaCost"   "0"
@@ -1115,7 +1172,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"nyx_assassin_mana_burn"
+		"AbilityTextureName"	"omniro/omniro_element_fire"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1124,12 +1181,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"1"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1200"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.02"
 			}
 		}
 	}
@@ -1141,7 +1198,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"lina_laguna_blade"
+		"AbilityTextureName"	"omniro/omniro_element_earth"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1150,7 +1207,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.02"
 			}
 		}
 	}
@@ -1162,7 +1224,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_breaker_charge_of_darkness_alt"
+		"AbilityTextureName"	"omniro/omniro_element_lightning"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1171,7 +1233,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.02"
 			}
 		}
 	}
@@ -1183,7 +1250,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"invoker_quas"
+		"AbilityTextureName"	"omniro/omniro_element_poison"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1192,7 +1259,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"365"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.02"
 			}
 		}
 	}
@@ -1205,7 +1277,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"nyx_assassin_mana_burn"
+		"AbilityTextureName"	"omniro/omniro_element_time"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1214,12 +1286,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"1"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1200"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.02"
 			}
 		}
 	}
@@ -1231,7 +1303,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"lina_laguna_blade"
+		"AbilityTextureName"	"omniro/omniro_element_holy"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1240,7 +1312,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.02"
 			}
 		}
 	}
@@ -1252,7 +1329,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_breaker_charge_of_darkness_alt"
+		"AbilityTextureName"	"omniro/omniro_element_cosmic"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1261,7 +1338,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.02"
 			}
 		}
 	}
@@ -1273,7 +1355,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"invoker_quas"
+		"AbilityTextureName"	"omniro/omniro_element_ice"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1282,7 +1364,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"365"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.02"
 			}
 		}
 	}
@@ -1295,7 +1382,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"nyx_assassin_mana_burn"
+		"AbilityTextureName"	"omniro/omniro_element_arcane"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1304,12 +1391,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"1"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1200"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.04"
 			}
 		}
 	}
@@ -1321,7 +1408,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"lina_laguna_blade"
+		"AbilityTextureName"	"omniro/omniro_element_shadow"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1330,7 +1417,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.04"
 			}
 		}
 	}
@@ -1351,7 +1443,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.04"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -1360,7 +1457,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"heroes/faceless_void/omni_orb.lua"
-				"Function"		"omni_rune_wind_projectile_hit"
+				"Function"		"omniro/omniro_element_wind"
 				"target"        "TARGET"
 			}
 		}
@@ -1373,7 +1470,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"invoker_quas"
+		"AbilityTextureName"	"omniro/omniro_element_ghost"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1382,7 +1479,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"365"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.04"
 			}
 		}
 	}
@@ -1395,7 +1497,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"nyx_assassin_mana_burn"
+		"AbilityTextureName"	"omniro/omniro_element_water"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1404,12 +1506,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"1"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1200"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.08"
 			}
 		}
 	}
@@ -1421,7 +1523,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"lina_laguna_blade"
+		"AbilityTextureName"	"omniro/omniro_element_demon"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1430,7 +1532,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.08"
 			}
 		}
 	}
@@ -1442,7 +1549,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_breaker_charge_of_darkness_alt"
+		"AbilityTextureName"	"omniro/omniro_element_nature"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1451,7 +1558,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.08"
 			}
 		}
 	}
@@ -1463,7 +1575,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"invoker_quas"
+		"AbilityTextureName"	"omniro/omniro_element_undead"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1472,7 +1584,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"365"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.08"
 			}
 		}
 

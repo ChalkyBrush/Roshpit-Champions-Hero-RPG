@@ -1,6 +1,9 @@
 "DOTAAbilities"
 {
 	//hero section
+	##OMNIRO_ITEMS_GLYPHS##
+	##OMNIRO_ITEMS_WEAPONS##
+
 	##JEX_ITEMS_GLYPHS##
 	##JEX_ITEMS_WEAPONS##
 	##JEX_ITEMS_ARCANAS##

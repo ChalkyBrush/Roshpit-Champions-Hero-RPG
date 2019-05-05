@@ -97,6 +97,8 @@ function Weapons:weaponRedirect(hero)
 		Weapons:InitialWeapon(hero, "item_rpc_dinath_weapon_00", "Spike")
 	elseif heroName == "npc_dota_hero_arc_warden" then
 		Weapons:InitialWeapon(hero, "item_rpc_jex_weapon_00", "Gun")
+	elseif heroName == "npc_dota_hero_faceless_void" then
+		Weapons:InitialWeapon(hero, "item_rpc_omniro_weapon_00", "Mace")
 	end
 end
 
