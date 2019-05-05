@@ -96,6 +96,7 @@ function update_omniro_element_ui_items(omniro_parent, omniro_data)
 function update_omniro_element(element_parent, element_data){
 	element_parent.FindChildTraverse('omniro_element_charge_counter').text = element_data["charges"]
 	var charge_percentage = (element_data["charge_up_fraction"]*100)/element_data["charge_up_fraction_full"]
+	charge_percentage = Math.min(charge_percentage, 100)
 	if (element_data["charges"] == element_data["max_charges"]){
 		charge_percentage = 100
 	}

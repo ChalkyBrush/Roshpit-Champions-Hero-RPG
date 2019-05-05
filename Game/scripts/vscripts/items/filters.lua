@@ -1863,6 +1863,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + ARKIMUS_ARCANA2_R3_ELEMENTS_PCT*r_3_level
             end
         end
+        if attacker:HasModifier("modifier_omniro_dragon_buff") then
+            mult = mult + 8
+        end
         if attacker:HasModifier("shadow_deity_passive") then
             if bIsRealDamage and slot ~= 0 then
                 if element1 == RPC_ELEMENT_NORMAL or element1 == RPC_ELEMENT_NONE  then

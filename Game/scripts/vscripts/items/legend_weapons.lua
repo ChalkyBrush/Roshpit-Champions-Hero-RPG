@@ -1132,7 +1132,7 @@ function Weapons:RollLegendWeapon3(deathLocation, class, strictMaxItemLevel, dis
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_bonus_attack_damage", "#343EC9",  2) 
 	elseif internalName == "omniro" then
 	    weapon.property1 = 1
-	    weapon.property1name = "omniro_immortal3"
+	    weapon.property1name = "!immortal_weapon!"
 	    RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_omniro_immortal_weapon3", "#3289C7",  1, "#property_omniro_immortal_weapon3_description")
 
 	    local value = Weapons:GetDeviation(5+RandomInt(4,24), rarityFactor)

@@ -169,6 +169,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"undead_special_b"			"3.0 4.5 6.0 7.5 9.0 10.5 12.0"
 			}
+			"24"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"dragon_special_a"			"800"
+			}
 		}
 		"OnToggleOn"
 		{
@@ -432,6 +437,15 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"TextureName"	"omniro/omniro_element_undead"
+			}
+			"modifier_omniro_dragon_buff"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+
+				"EffectName"		"particles/econ/generic/generic_buff_1/rainbow_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
 			}
 		}
 	}
@@ -835,15 +849,6 @@
 				"EffectName"		"particles/roshpit/djanghor/shapeshift_shield.vpcf"
 				"EffectAttachType"	"follow_origin"
 			}
-			"modifier_omniro_dragon_buff"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"EffectName"		"particles/econ/generic/generic_buff_1/rainbow_buff.vpcf"
-				"EffectAttachType"	"follow_origin"
-			}
 		}
 	}
 
@@ -1201,7 +1206,7 @@
 		}
 	}
 
-	"omniro_rune_q_2"
+	"omniro_rune_w_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -1227,7 +1232,7 @@
 		}
 	}
 
-	"omniro_rune_q_3"
+	"omniro_rune_e_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -1253,7 +1258,7 @@
 		}
 	}
 
-	"omniro_rune_q_4"
+	"omniro_rune_r_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -1280,7 +1285,7 @@
 	}
 
 
-	"omniro_rune_w_1"
+	"omniro_rune_q_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -1332,7 +1337,7 @@
 		}
 	}
 
-	"omniro_rune_w_3"
+	"omniro_rune_e_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -1358,7 +1363,7 @@
 		}
 	}
 
-	"omniro_rune_w_4"
+	"omniro_rune_r_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -1385,7 +1390,7 @@
 	}
 
 
-	"omniro_rune_e_1"
+	"omniro_rune_q_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -1411,7 +1416,7 @@
 		}
 	}
 
-	"omniro_rune_e_2"
+	"omniro_rune_w_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -1444,7 +1449,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_breaker_charge_of_darkness_alt"
+		"AbilityTextureName"	"omniro/omniro_element_wind"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -1467,13 +1472,13 @@
 			"RunScript"
 			{
 				"ScriptFile"	"heroes/faceless_void/omni_orb.lua"
-				"Function"		"omniro/omniro_element_wind"
+				"Function"		"omni_rune_wind_projectile_hit"
 				"target"        "TARGET"
 			}
 		}
 	}
 
-	"omniro_rune_e_4"
+	"omniro_rune_r_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -1500,7 +1505,7 @@
 	}
 
 
-	"omniro_rune_r_1"
+	"omniro_rune_q_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -1526,7 +1531,7 @@
 		}
 	}
 
-	"omniro_rune_r_2"
+	"omniro_rune_w_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -1552,7 +1557,7 @@
 		}
 	}
 
-	"omniro_rune_r_3"
+	"omniro_rune_e_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------

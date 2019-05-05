@@ -161,6 +161,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"undead_special_b"			"3.0 4.5 6.0 7.5 9.0 10.5 12.0"
 			}
+			"24"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"dragon_special_a"			"<% OMNIRO_DRAGON_MACE_ELEMENTAL_BUFF %>"
+			}
 		}
 		"OnToggleOn"
 		{
@@ -424,6 +429,15 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"TextureName"	"omniro/omniro_element_undead"
+			}
+			"modifier_omniro_dragon_buff"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+
+				"EffectName"		"particles/econ/generic/generic_buff_1/rainbow_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
 			}
 		}
 	}
@@ -825,15 +839,6 @@
 				"TextureName"	"omniro/omniro_element_nature"
 
 				"EffectName"		"particles/roshpit/djanghor/shapeshift_shield.vpcf"
-				"EffectAttachType"	"follow_origin"
-			}
-			"modifier_omniro_dragon_buff"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"EffectName"		"particles/econ/generic/generic_buff_1/rainbow_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
 			}
 		}
