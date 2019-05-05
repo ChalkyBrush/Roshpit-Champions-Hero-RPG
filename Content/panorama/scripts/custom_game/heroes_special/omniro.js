@@ -13,7 +13,7 @@ function UpdateOmniro(msg){
 		omniro_parent = omniro_parent_start.FindChildTraverse("omniro_parent_attach_point")
 	}
 
-    var arrayLength = 17
+    var arrayLength = 18
     var element_exist_count = 0
     var element_leveled_count = 0
 
@@ -39,7 +39,7 @@ function UpdateOmniro(msg){
 
 function reconstruct_omniro_element_ui(omniro_parent, omniro_data, omniro){
 	omniro_parent.RemoveAndDeleteChildren(0)
-    var arrayLength = 17
+    var arrayLength = 18
     for (var i = 1; i <= arrayLength; i++) {
     	if (omniro_data[i]["level"] > 0){
 	    	var element_parent = $.CreatePanel("Panel", omniro_parent, "omniro-element-"+i)
@@ -84,7 +84,7 @@ function unhover_tooltip(element_parent){
 
 function update_omniro_element_ui_items(omniro_parent, omniro_data)
 {
-    var arrayLength = 17
+    var arrayLength = 18
     for (var i = 1; i <= arrayLength; i++) {
     	var element_parent = omniro_parent.FindChildTraverse('omniro-element-'+i)
     	if (!(element_parent === null)){

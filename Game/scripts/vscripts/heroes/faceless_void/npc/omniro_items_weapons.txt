@@ -413,14 +413,6 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% WEAPON1_AOE_RADIUS %>"
-			}
-		}
 	}
 
 	"item_rpc_omniro_immortal_weapon_2"
@@ -465,7 +457,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% WEAPON2_FUSIONS_COUNT %>"
+				"property_one"			"<% OMNIRO_LEGEND_WEAPON_2_RECHARGE_INCREASE %>"
 			}
 		}
 	}
@@ -505,14 +497,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"		"<% WEAPON3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT %>"
 			}
 		}
 	}

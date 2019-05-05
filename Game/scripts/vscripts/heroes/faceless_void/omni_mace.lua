@@ -46,7 +46,7 @@ function init_omniro_data(event)
 	local caster = event.caster
 	local orb_ability = caster:FindAbilityByName("omniro_omni_orb")
 	caster.omniro_data = {}
-	for i = 1, 17, 1 do
+	for i = 1, 18, 1 do
 		caster.omniro_data[i] = {}
 		caster.omniro_data[i]["enabled"] = true
 		caster.omniro_data[i]["element_number"] = i
@@ -67,7 +67,7 @@ end
 
 function init_omniro_detail_data(event)
 	local caster = event.caster
-	for i = 1, 17, 1 do
+	for i = 1, 18, 1 do
 		-- if caster.omniro_data[i]["level"] > 0 then
 			caster.omniro_data[i]["charges"] = 1
 			caster.omniro_data[i]["max_charges"] = 1
@@ -170,6 +170,11 @@ function omniro_rune_calculate(event)
 		caster.omniro_data[RPC_ELEMENT_UNDEAD]["level"] = rune_r_4
 		reconstruct = true
 	end
+	if caster:HasModifier("modifier_omniro_immortal_weapon_3") then
+		caster.omniro_data[RPC_ELEMENT_DRAGON]["level"] = 1
+	else
+		caster.omniro_data[RPC_ELEMENT_DRAGON]["level"] = 0
+	end
 
 	for i = 1, #caster.omniro_data, 1 do
 		if caster.omniro_data[i]["level"] > 0 then
@@ -197,10 +202,14 @@ end
 
 function omniro_element_charge_think(event)
 	local caster = event.caster
+	local recharge_rate = 1
+	if caster:HasModifier("modifier_omniro_immortal_weapon_2") then
+		recharge_rate = recharge_rate * (1 + OMNIRO_LEGEND_WEAPON_2_RECHARGE_INCREASE/100)
+	end
 	for i = 1, #caster.omniro_data, 1 do
 		if caster.omniro_data[i]["level"] > 0 then
 			if caster.omniro_data[i]["charges"] < caster.omniro_data[i]["max_charges"] then
-				caster.omniro_data[i]["charge_up_fraction"] = caster.omniro_data[i]["charge_up_fraction"] + 1
+				caster.omniro_data[i]["charge_up_fraction"] = caster.omniro_data[i]["charge_up_fraction"] + recharge_rate
 				if caster.omniro_data[i]["charge_up_fraction"] >= caster.omniro_data[i]["charge_up_fraction_full"] then
 					caster.omniro_data[i]["charge_up_fraction"] = 0
 					caster.omniro_data[i]["charges"] = math.min(caster.omniro_data[i]["charges"] + 1, caster.omniro_data[i]["max_charges"])
@@ -226,10 +235,10 @@ function omniro_mace_attack_land(event)
 
 
 	local next_element = nil
-	if active_element == 17 then
+	if active_element == 18 then
 
 	else
-		for i = active_element, 16, 1 do
+		for i = active_element, 17, 1 do
 			if caster.omniro_data[i + 1]["level"] > 0 and caster.omniro_data[i + 1]["in_rotation"] == 1 then
 				next_element = i + 1
 				break
@@ -238,7 +247,7 @@ function omniro_mace_attack_land(event)
 	end
 	if not next_element then
 		next_element = active_element
-		for i = 1, 17, 1 do
+		for i = 1, 18, 1 do
 			if caster.omniro_data[i]["level"] > 0 and caster.omniro_data[i]["in_rotation"] == 1 then
 				next_element = i
 				break
@@ -249,6 +258,9 @@ function omniro_mace_attack_land(event)
 	print(active_element)
 	print(next_element)
 	local basic_damage = omni_mace_basic_hit(caster, ability, target, event)
+	if caster:HasModifier("modifier_omniro_immortal_weapon_1") then
+		omni_mace_basic_hit(caster, ability, target, event)
+	end
 	if caster:HasModifier("modifier_omni_orb_active") then
 		if caster.omniro_data[active_element]["charges"] > 0 or caster:HasModifier("modifier_dimension_stalker_active") then
 			if not caster:HasModifier("modifier_dimension_stalker_active") then
@@ -408,6 +420,10 @@ function omni_mace_basic_hit(caster, ability, target, event)
 		local duration = Filters:GetAdjustedBuffDuration(caster, OMNIRO_UNDEAD_SPECIAL_DURATION, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_undead_buff", {duration = duration})
 		caster:SetModifierStackCount("modifier_omnimace_undead_buff", caster, caster.omniro_data[RPC_ELEMENT_UNDEAD]["level"])
+	elseif caster.active_element == RPC_ELEMENT_DRAGON then
+		local duration = Filters:GetAdjustedBuffDuration(caster, OMNIRO_DRAGON_SPECIAL_DURATION, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omniro_dragon_buff", {duration = duration})
+		caster:SetModifierStackCount("modifier_omniro_dragon_buff", caster, caster.omniro_data[RPC_ELEMENT_DRAGON]["level"])
 	end
 end
 
@@ -470,6 +486,8 @@ function omni_mace_basic_element_data(element)
 		mace_hit_data["damage_type"] = DAMAGE_TYPE_MAGICAL
 	elseif element == RPC_ELEMENT_UNDEAD then
 		mace_hit_data["damage_type"] = DAMAGE_TYPE_MAGICAL
+	elseif element == RPC_ELEMENT_DRAGON then
+		mace_hit_data["damage_type"] = DAMAGE_TYPE_PURE
 	end
 	local name, hex = Elements:GetElementNameAndColorByCode(element)
 	local red, green, blue = Elements:hex2rgb(hex)

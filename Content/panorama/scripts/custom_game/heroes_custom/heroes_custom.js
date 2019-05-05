@@ -304,6 +304,8 @@ function getSkillSlot(heroName, slot){
 		skillName = getDinathSkill(slot)
 	}else if (heroName == "npc_dota_hero_arc_warden"){
 		skillName = getJexSkill(slot)
+	}else if (heroName == "npc_dota_hero_faceless_void"){
+		skillName = getOmniroSkill(slot)
 	}
 	return skillName
 }
@@ -700,6 +702,20 @@ function getJexSkill(slot){
 	return skillName
 }
 
+function getOmniroSkill(slot){
+	var skillName = ""
+	if (slot == 1){
+		skillName = "DOTA_Tooltip_ability_omniro_omni_mace"
+	}else if(slot == 2){
+		skillName = "DOTA_Tooltip_ability_omniro_omni_orb"
+	}else if(slot == 3){
+		skillName = "DOTA_Tooltip_ability_omniro_chrono_path"
+	}else if(slot == 4){
+		skillName = "DOTA_Tooltip_ability_omniro_dimension_stalker"
+	}
+	return skillName
+}
+
 function testing(){
 	$.Msg("did we load?")
 }
@@ -799,6 +815,8 @@ function convertFullHeroNameToRPC(heroName){
 		rpcName = "dinath"
 	}else if (heroName == "npc_dota_hero_arc_warden"){
 		rpcName = "jex"
+	}else if (heroName == "npc_dota_hero_faceless_void"){
+		rpcName = "omniro"
 	}else if (heroName == "tooltip_neutral"){
 		rpcName = "neutral"
 	}

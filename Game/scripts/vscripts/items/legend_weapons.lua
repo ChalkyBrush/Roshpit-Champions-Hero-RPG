@@ -384,6 +384,15 @@ function Weapons:RollLegendWeapon1(deathLocation, class, strictMaxItemLevel, dis
 	    weapon.property2 = value
 	    weapon.property2name = "attack_damage"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_bonus_attack_damage", "#343EC9",  2) 
+	elseif internalName == "omniro" then
+	    weapon.property1 = 1
+	    weapon.property1name = "!immortal_weapon!"
+		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_omniro_immortal_weapon", "#f26ae6",  1, "#property_omniro_immortal_weapon_description")
+
+		local value = RandomInt(1, RandomInt(1, Arena.PitLevel))
+	    weapon.property2 = value
+	    weapon.property2name = "base_ability"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_base_ability", "#7AB4CC",  2)  
 	end
 	-- if mainAttrRoll == 1 then
 	-- 	local value = Weapons:GetDeviation(15, rarityFactor)
@@ -796,6 +805,15 @@ function Weapons:RollLegendWeapon2(deathLocation, class, strictMaxItemLevel, dis
 	    weapon.property2 = value
 	    weapon.property2name = "attack_damage"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_bonus_attack_damage", "#343EC9",  2) 
+	elseif internalName == "omniro" then
+	    weapon.property1 = 1
+	    weapon.property1name = "!immortal_weapon!"
+		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_omniro_immortal_weapon2", "#c7eefc",  1, "#property_omniro_immortal_weapon2_description")
+
+		local value = Weapons:GetDeviation(25+RandomInt(5,22), rarityFactor)
+	    weapon.property2 = value
+	    weapon.property2name = "agility"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_agility", "#2EB82E",  2)
 	end
 
 	print("----------")
@@ -1111,7 +1129,16 @@ function Weapons:RollLegendWeapon3(deathLocation, class, strictMaxItemLevel, dis
 		local value = Weapons:GetDeviation(300+RandomInt(1,700), 0)
 	    weapon.property2 = value
 	    weapon.property2name = "attack_damage"
-	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_bonus_attack_damage", "#343EC9",  2) 	
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_bonus_attack_damage", "#343EC9",  2) 
+	elseif internalName == "omniro" then
+	    weapon.property1 = 1
+	    weapon.property1name = "omniro_immortal3"
+	    RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_omniro_immortal_weapon3", "#3289C7",  1, "#property_omniro_immortal_weapon3_description")
+
+	    local value = Weapons:GetDeviation(5+RandomInt(4,24), rarityFactor)
+	    weapon.property2 = value
+	    weapon.property2name = "all_attributes"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_all_attributes", "#FFFFFF",  2)		
 	end
 
 	print("----------")

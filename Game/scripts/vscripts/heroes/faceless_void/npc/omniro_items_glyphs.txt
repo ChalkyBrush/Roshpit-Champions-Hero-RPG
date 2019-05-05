@@ -45,7 +45,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% omniro_GLYPH_1_HARVEST_RADIUS %>"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -123,12 +123,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% omniro_GLYPH_3_SLOW %>"
+				"property_one"			"1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% omniro_GLYPH_3_DURATION %>"
+				"property_two"			"1"
 			}
 		}
 	}
@@ -167,7 +167,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% omniro_GLYPH_4_ATTACKSPEED %>"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -206,7 +206,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% omniro_GLYPH_5_DAMAGE_DEALT_PERCENT %>"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -281,12 +281,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% omniro_GLYPH_7_DAMAGE_PCT %>"
+				"property_one"			"1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% omniro_GLYPH_7_RADIUS %>"
+				"property_two"			"1"
 			}
 			"03"
 			{
@@ -358,7 +358,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% omniro_GLYPH_5_A_TECH %>"
+				"property_one"			"1"
 			}
 		}
 	}

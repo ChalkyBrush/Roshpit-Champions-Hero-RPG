@@ -464,6 +464,7 @@
 			"particle"		"particles/units/heroes/hero_oracle/grithault_heal_core.vpcf"
 			"particle"		"particles/roshpit/omniro/omniro_undead_orb_terror.vpcf"
 			"particle"		"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+			"particle"		"particles/act_2/frostbitten_icicle.vpcf"
 		}
 
 		// Casting
@@ -642,7 +643,7 @@
 		{
 			"modifier_omni_orb_active"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
 				{
@@ -824,6 +825,15 @@
 				"TextureName"	"omniro/omniro_element_nature"
 
 				"EffectName"		"particles/roshpit/djanghor/shapeshift_shield.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+			"modifier_omniro_dragon_buff"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+
+				"EffectName"		"particles/econ/generic/generic_buff_1/rainbow_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
 			}
 		}

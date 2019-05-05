@@ -356,7 +356,13 @@ function omni_orb_charge_procced(event, basic_damage)
 			bProvidesVision = false,
 		}
 		projectile = ProjectileManager:CreateLinearProjectile(info)			
-
+	elseif caster.active_element == RPC_ELEMENT_DRAGON then
+		EmitSoundOn("Omniro.Orb.Dragon", caster)
+		for i = 1, 17, 1 do
+			caster.omniro_data[i]["charges"] = caster.omniro_data[i]["max_charges"]
+			caster.omniro_data[i]["charge_up_fraction"] = 0
+		end
+		CustomAbilities:QuickAttachParticle("particles/act_2/frostbitten_icicle.vpcf", caster, 3)
 	end
 	Filters:CastSkillArguments(2, caster)
 end
