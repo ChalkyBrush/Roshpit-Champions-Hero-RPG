@@ -11,14 +11,14 @@
 <Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/loading_screen/tutorial_load.jpg"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/ui/tutorial/tutorial_header.jpg"/>
 
-<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/jex/glyph_jex_2_1.png"/>
-<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/jex/glyph_jex_6_1.png"/>
-<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/jex/glyph_jex_4_1.png"/>
-<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/jex/glyph_jex_3_1.png"/>
-<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/jex/glyph_jex_5_a.png"/>
-<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/jex/glyph_jex_1_1.png"/>
-<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/jex/glyph_jex_5_1.png"/>
-<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/jex/glyph_jex_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_7_1.png"/>
 <!-- <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/winterblight_glacier_stone.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_ruby_ring.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/wraps_of_the_grand_arcanist.png"/>
