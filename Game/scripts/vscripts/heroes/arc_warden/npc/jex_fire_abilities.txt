@@ -938,8 +938,6 @@
 		{
 
 		}
-
-		"AbilityManaCost"	"0"
 		"OnSpellStart"
 		{
 			"RunScript"
