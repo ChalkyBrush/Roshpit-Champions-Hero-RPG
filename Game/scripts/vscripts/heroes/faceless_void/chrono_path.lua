@@ -28,6 +28,7 @@ function omniro_chrono_path_start(event)
 		ParticleManager:SetParticleControl(dummy.pfx, 3, randomColor)
 		ability:ApplyDataDrivenModifier(caster, dummy, "modifier_omniro_chrono_path_dummy", {duration = chrono_duration})
 	end
+	Filters:CastSkillArguments(3, caster)
 end
 
 function chrono_path_dummy_end(event)

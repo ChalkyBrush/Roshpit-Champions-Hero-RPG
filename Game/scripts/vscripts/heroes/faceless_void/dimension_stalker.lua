@@ -96,11 +96,8 @@ function fire_dimension_stalker(event)
 	local interval_between_strikes = 0.06
     local duration = max_targets*interval_between_strikes + interval_between_strikes
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_dimension_stalker_active", {duration = duration})
-   EmitSoundOn("Omniro.DimensionStalk.Success.VO", caster)
-	
-	
-	
-
+   	EmitSoundOn("Omniro.DimensionStalk.Success.VO", caster)
+	Filters:CastSkillArguments(4, caster)
 end
 
 function dimension_stalker_active_think(event)
