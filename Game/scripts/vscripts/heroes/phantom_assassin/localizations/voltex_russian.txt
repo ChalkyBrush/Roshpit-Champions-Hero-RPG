@@ -51,10 +51,14 @@
 
     	"DOTA_Tooltip_ability_voltex_rune_w_2"								"[W2] Proton Switch"
     	"DOTA_Tooltip_ability_voltex_rune_w_2_Description"					"Использование умения @Ability2 увеличивает скорость атаки и урон Voltex на 2 секунды. Ближайшие союзники также получат усиление."
-    	"DOTA_Tooltip_ability_voltex_rune_w_2_property_one"					"Доп. скорость атаки"
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_property_one"					"Скорость атаки (Voltex)"
     	"DOTA_Tooltip_ability_voltex_rune_w_2_suffix"						""
-    	"DOTA_Tooltip_ability_voltex_rune_w_2_property_two"					"Доп. урон"
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_property_two"					"Доп. урон (Voltex)"
     	"DOTA_Tooltip_ability_voltex_rune_w_2_suffix_two"					"%"
+		"DOTA_Tooltip_ability_voltex_rune_w_2_property_three"				"Скорость атаки (Союзники)"
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_suffix_three"					""
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_property_four"				"Доп. урон (Союзники)"
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_suffix_four"					"%"
 
 		"DOTA_Tooltip_modifier_voltex_rune_w_2_self" 						"Proton Switch"
 		"DOTA_Tooltip_modifier_voltex_rune_w_2_self_description" 			"Доп. скорость атаки и урон"
@@ -91,7 +95,7 @@
 		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge_Lore"							""
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_1"								"[E1] Lightning Remnant"
-    	"DOTA_Tooltip_ability_voltex_rune_e_1_Description"					"В начале и в конце прыжка Voltex создаёт иллюзию. Иллюзия активирует Overcharge такого же уровня как и у Voltex, также скорость атаки у иллюзий повышена. Дополнительно имеют 5х брони, здоровья и урона."
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_Description"					"В начале и в конце прыжка Voltex создаёт иллюзию. Иллюзия активирует Overcharge такого же уровня как и у Voltex. <br/> Иллюзии наследуют следующие атрибуты Voltex: <br/> <% VOLTEX_E1_INHERITED_HEALTH %>x Здоровье <br/> <% VOLTEX_E1_INHERITED_ARMOR %>x Броня <br/> <% VOLTEX_E1_INTERITED_ATT %>x Урон <br/> Базовая скорость атаки: <% VOLTEX_E1_BAT %> сек."
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_one"					"Длительность иллюзий"
     	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix"						""
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_two"					"Урон"
@@ -110,7 +114,7 @@
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_description" 				"Voltex проходит сквозь врага, нанося урон."
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_3"								"[E3] Heaven's Charge"
-    	"DOTA_Tooltip_ability_voltex_rune_e_3_Description"					"После использования способности @Ability3, она будет заменена на Heaven's Charge. Heaven's Charge позволяет вам телепортироваться к конечной точке, нанося урон и оглушая всех в месте появления."
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_Description"					"После использования способности @Ability3, она будет заменена на Heaven's Charge. Heaven's Charge позволяет герою прыгнуть к конечной точке, нанося урон и оглушая всех в месте появления на <% VOLTEX_E3_BASE_STUN_DUR %> сек, радиус <% VOLTEX_E3_BASE_RADIUS %>."
     	"DOTA_Tooltip_ability_voltex_rune_e_3_property_one"					"Урон"
     	"DOTA_Tooltip_ability_voltex_rune_e_3_suffix"						""
     	"DOTA_Tooltip_ability_voltex_rune_e_3_property_two"					"Макс. расстояние"
