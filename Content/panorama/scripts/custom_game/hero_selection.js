@@ -143,7 +143,7 @@ function backButtonFunction(heroSelectContent, backButton){
     });
 }
 
-NEW_HEROES_PER_ROW = 7
+NEW_HEROES_PER_ROW = 8
 
 function getRowNumber(index)
 {

@@ -89,6 +89,9 @@ function fire_dimension_stalker(event)
 	local caster = event.caster
 	local ability = event.ability
 	local max_targets = event.max_targets
+	if caster:HasModifier("modifier_omniro_glyph_3_1") then
+		max_targets = max_targets + OMNIRO_GLYPH_3_1_INCREASED_ATTACKS
+	end
 
 	local interval_between_strikes = 0.06
     local duration = max_targets*interval_between_strikes + interval_between_strikes

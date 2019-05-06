@@ -203,6 +203,7 @@
 		"DOTA_Tooltip_ability_omniro_chrono_path"								"Chrono Path"
 		"DOTA_Tooltip_ability_omniro_chrono_path_Description"					"Pockets of warped spacetime line up in a row in from of Omniro. While omniro is standing in the fields, he has en enforced minimum movespeed, free pathing and cannot be attacked."
 		"DOTA_Tooltip_ability_omniro_chrono_path_min_movespeed"						"MINIMUM MOVESPEED:"
+		"DOTA_Tooltip_ability_omniro_chrono_path_duration"						"DURATION:"
 
 		"DOTA_Tooltip_modifier_omniro_in_chrono_path"							"Chrono Path"
 		"DOTA_Tooltip_modifier_omniro_in_chrono_path_Description"				"Can't be attacked and Free Pathing"
@@ -365,7 +366,7 @@
 		"item_rpc_omniro_glyph_4_1_description" 				"Adds @glyph_property1 levels to Normal Element and it recharges @glyph_property2% faster."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_1"		"Glyph of Inspiration"
-		"item_rpc_omniro_glyph_5_1_description" 				"@glyph_property1 of the lowest level runes have @glyph_property2 extra orb charge."
+		"item_rpc_omniro_glyph_5_1_description" 				"@glyph_property1 of the lowest level runes have @glyph_property2 extra orb charge (excluding Normal and Dragon)."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_6_1"		"Glyph of Sapping"
 		"item_rpc_omniro_glyph_6_1_description" 				"Attacking an enemy restores @glyph_property1% of the current element's orb charge."
@@ -374,4 +375,4 @@
 		"item_rpc_omniro_glyph_7_1_description" 				"Omniro's highest level element has @glyph_property1 additional maximum orb charges."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"Glyph of Chromaticity"
-		"item_rpc_omniro_glyph_5_a_description" 				"Highest level element gets 1000 elemental amp, 500 2nd highest, 3rd highest 200% ....."
+		"item_rpc_omniro_glyph_5_a_description" 				"Omniro's Highest level element gain <% OMNIRO_GLYPH_5_A_TOP_1_BONUS %>% damage amp, 2nd highest <% OMNIRO_GLYPH_5_A_TOP_2_BONUS%>%, 3rd <% OMNIRO_GLYPH_5_A_TOP_3_BONUS %>, and 4th highest <% OMNIRO_GLYPH_5_A_TOP_4_BONUS %>."

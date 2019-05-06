@@ -9,9 +9,12 @@ function omniro_chrono_path_start(event)
 	local particleName = "particles/roshpit/omniro/chrono_path_sphere.vpcf"
 
 	local chrono_base_radius = OMNIRO_CHRONO_PATH_RADIUS
-	local chrono_duration = 8
+	local chrono_duration = OMNIRO_CHRONO_PATH_DURATION
 	StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.6})
 	local path_length = 5
+	if caster:HasModifier("modifier_omniro_glyph_2_1") then
+		path_length = path_length + OMNIRO_GLYPH_2_PATH_INCREASE
+	end
 	for i = 1, path_length, 1 do
 		local randomColor = Vector(RandomInt(30, 255), RandomInt(30, 255), RandomInt(30, 255))/255
 		local position = caster:GetAbsOrigin()+caster:GetForwardVector()*(chrono_base_radius*1.5)*i

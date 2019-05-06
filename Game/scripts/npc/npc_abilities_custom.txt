@@ -860,7 +860,6 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"omniro/chrono_path"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
@@ -875,7 +874,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"7.0"
+		"AbilityCooldown"				"6.0"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -892,6 +891,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"min_movespeed"				"680 710 740 770 800 830 860"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"5"
 			}	
 		}
 		"OnSpellStart"
@@ -986,7 +990,6 @@
         "AbilityCastPoint"  "0.0"
         "AbilityCooldown"   "8"
         "AbilityChannelTime"    "1.8"
-        "AbilityUnitDamageType" "DAMAGE_TYPE_PURE"
         "AbilityCastAnimation"  "ACT_DOTA_TAUNT"
         "AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
         "RequiredLevel"                 "-5"

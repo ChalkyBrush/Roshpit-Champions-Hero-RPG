@@ -81,6 +81,7 @@ end
 function omniro_rune_calculate(event)
 	local reconstruct = false
 	local caster = event.caster
+	local ability = event.ability
 	local rune_q_1 = caster:GetRuneValue("q", 1)
 	local rune_q_2 = caster:GetRuneValue("q", 2)
 	local rune_q_3 = caster:GetRuneValue("q", 3)
@@ -101,7 +102,17 @@ function omniro_rune_calculate(event)
 	local rune_r_3 = caster:GetRuneValue("r", 3)
 	local rune_r_4 = caster:GetRuneValue("r", 4)
 
-	caster.omniro_data[RPC_ELEMENT_NORMAL]["level"] = 1
+	
+	if caster:HasModifier("modifier_omniro_glyph_4_1") then
+		local new_level = 1 + OMNIRO_GLYPH_4_1_NORMAL_LEVELS
+		if caster.omniro_data[RPC_ELEMENT_NORMAL]["level"] == new_level then
+		else
+			caster.omniro_data[RPC_ELEMENT_NORMAL]["level"] = new_level
+			reconstruct = true
+		end
+	else
+		caster.omniro_data[RPC_ELEMENT_NORMAL]["level"] = 1
+	end
 
 	if caster.omniro_data[RPC_ELEMENT_FIRE]["level"] ~= rune_q_1 then
 		caster.omniro_data[RPC_ELEMENT_FIRE]["level"] = rune_q_1
@@ -175,7 +186,12 @@ function omniro_rune_calculate(event)
 	else
 		caster.omniro_data[RPC_ELEMENT_DRAGON]["level"] = 0
 	end
-
+	if caster:HasModifier("modifier_omniro_glyph_5_1") then
+		omnimace_set_lowest_elements_table(caster, event.ability)
+	end
+	if caster:HasModifier("modifier_omniro_glyph_5_a") or caster:HasModifier("modifier_omniro_glyph_7_1") then
+		omnimace_set_highest_elements_table(caster, event.ability)
+	end
 	for i = 1, #caster.omniro_data, 1 do
 		if caster.omniro_data[i]["level"] > 0 then
 			caster.omniro_data[i]["enabled"] = true
@@ -191,10 +207,22 @@ function omniro_rune_calculate(event)
 				bonus_max_charges = math.floor(OMNIRO_T4_RUNE_MAX_CHARGES*caster.omniro_data[i]["level"])
 			end
 			if i == 1 then
-				bonus_max_charges = 9
+				bonus_max_charges = bonus_max_charges + 9
+			end
+			if caster:HasModifier("modifier_omniro_glyph_5_1") and WallPhysics:DoesTableHaveValue(ability.lowest_elements_table, caster.omniro_data[i]["element_number"]) then
+				bonus_max_charges = bonus_max_charges + OMNIRO_GLYPH_5_1_BOTTOM_ELEMENTS_MAX_CHARGES
+			end
+			if caster:HasModifier("modifier_omniro_glyph_7_1") and ability.highest_elements_table[1] == caster.omniro_data[i]["element_number"] then
+				max_charges = max_charges + OMNIRO_GLYPH_7_1_HIGHEST_ELEMENT_ADDITIONAL_CHARGES
 			end
 			max_charges = max_charges + bonus_max_charges
 			caster.omniro_data[i]["max_charges"] = max_charges
+			if caster.omniro_data[i]["charges"] then
+				if caster.omniro_data[i]["charges"] > max_charges then
+					caster.omniro_data[i]["charges"] = caster.omniro_data[i]["max_charges"]
+					caster.omniro_data[i]["charge_up_fraction"] = 0
+				end
+			end
 		end
 	end
 	return reconstruct
@@ -209,7 +237,11 @@ function omniro_element_charge_think(event)
 	for i = 1, #caster.omniro_data, 1 do
 		if caster.omniro_data[i]["level"] > 0 then
 			if caster.omniro_data[i]["charges"] < caster.omniro_data[i]["max_charges"] then
-				caster.omniro_data[i]["charge_up_fraction"] = caster.omniro_data[i]["charge_up_fraction"] + recharge_rate
+				local local_recharge_rate = recharge_rate
+				if caster:HasModifier("modifier_omniro_glyph_4_1") and caster.omniro_data[i]["element_number"] == RPC_ELEMENT_NORMAL then
+					local_recharge_rate = local_recharge_rate * (1 + OMNIRO_GLYPH_4_1_NORMAL_RECHARGE/100)
+				end
+				caster.omniro_data[i]["charge_up_fraction"] = caster.omniro_data[i]["charge_up_fraction"] + local_recharge_rate
 				if caster.omniro_data[i]["charge_up_fraction"] >= caster.omniro_data[i]["charge_up_fraction_full"] then
 					caster.omniro_data[i]["charge_up_fraction"] = 0
 					caster.omniro_data[i]["charges"] = math.min(caster.omniro_data[i]["charges"] + 1, caster.omniro_data[i]["max_charges"])
@@ -218,6 +250,55 @@ function omniro_element_charge_think(event)
 		else
 			caster.omniro_data[i]["enabled"] = false
 		end
+	end
+end
+
+function omnimace_set_lowest_elements_table(caster, ability)
+	local lowest_elements_table = WallPhysics:CloneTable(caster.omniro_data)
+	table.sort(lowest_elements_table, function (left, right)
+		return left["level"] < right["level"]
+	end)
+	local next_lowest_table = {}
+	for i = 1, #lowest_elements_table, 1 do
+		if lowest_elements_table[i]["level"] > 0 then
+			if lowest_elements_table[i]["element_number"] == RPC_ELEMENT_NORMAL or lowest_elements_table[i]["element_number"] == RPC_ELEMENT_DRAGON then
+			else
+				table.insert(next_lowest_table, lowest_elements_table[i]["element_number"])
+			end
+		end
+		if #next_lowest_table == 4 then
+			break
+		end
+	end
+	ability.lowest_elements_table = next_lowest_table
+end
+
+function omnimace_set_highest_elements_table(caster, ability)
+	local highest_elements_table = WallPhysics:CloneTable(caster.omniro_data)
+	table.sort(highest_elements_table, function (left, right)
+		return left["level"] > right["level"]
+	end)
+	local next_highest_table = {}
+	for i = 1, #highest_elements_table, 1 do
+		if highest_elements_table[i]["level"] > 0 then
+			if highest_elements_table[i]["element_number"] == RPC_ELEMENT_NORMAL or highest_elements_table[i]["element_number"] == RPC_ELEMENT_DRAGON then
+			else
+				table.insert(next_highest_table, highest_elements_table[i]["element_number"])
+			end
+		end
+		if #next_highest_table == 4 then
+			break
+		end
+	end
+	ability.highest_elements_table = next_highest_table
+	
+end
+
+function is_bottom_four_leveled_element(caster, element, ability)
+	if WallPhysics:DoesTableHaveValue(ability.lowest_elements_table, element) then
+		return true
+	else
+		return false
 	end
 end
 
@@ -240,8 +321,15 @@ function omniro_mace_attack_land(event)
 	else
 		for i = active_element, 17, 1 do
 			if caster.omniro_data[i + 1]["level"] > 0 and caster.omniro_data[i + 1]["in_rotation"] == 1 then
-				next_element = i + 1
-				break
+				if caster:HasModifier("modifier_omniro_glyph_1_1") then
+					if caster.omniro_data[i + 1]["charges"] > 0 then
+						next_element = i + 1
+						break
+					end
+				else
+					next_element = i + 1
+					break
+				end
 			end
 		end	
 	end
@@ -249,8 +337,15 @@ function omniro_mace_attack_land(event)
 		next_element = active_element
 		for i = 1, 18, 1 do
 			if caster.omniro_data[i]["level"] > 0 and caster.omniro_data[i]["in_rotation"] == 1 then
-				next_element = i
-				break
+				if caster:HasModifier("modifier_omniro_glyph_1_1") then
+					if caster.omniro_data[i]["charges"] > 0 then
+						next_element = i
+						break
+					end
+				else
+					next_element = i
+					break
+				end
 			end
 		end
 	end
@@ -261,6 +356,7 @@ function omniro_mace_attack_land(event)
 	if caster:HasModifier("modifier_omniro_immortal_weapon_1") then
 		omni_mace_basic_hit(caster, ability, target, event)
 	end
+
 	if caster:HasModifier("modifier_omni_orb_active") then
 		if caster.omniro_data[active_element]["charges"] > 0 or caster:HasModifier("modifier_dimension_stalker_active") then
 			if not caster:HasModifier("modifier_dimension_stalker_active") then
@@ -269,7 +365,10 @@ function omniro_mace_attack_land(event)
 			omni_orb_charge_procced(event, basic_damage)
 		end
 	end
-
+	if caster:HasModifier("modifier_omniro_glyph_6_1") then
+		caster.omniro_data[active_element]["charge_up_fraction"] = caster.omniro_data[active_element]["charge_up_fraction"] + OMNIRO_GLYPH_6_1_RECHARGE_ON_ATTACK_PERCENT
+		
+	end
 	if not caster.omniro_data[caster.active_element]["locked"] then
 		caster.omniro_data[active_element]["active"] = false
 		caster.omniro_data[next_element]["active"] = true
@@ -495,8 +594,31 @@ function omni_mace_basic_element_data(element)
 	return mace_hit_data
 end
 
-function omniro_elemental_bonus(element1, element2, attacker)
-	return 1
+function omniro_elemental_bonus(element1, element2, caster)
+	local ability = caster:FindAbilityByName("omniro_omni_mace")
+	local mult = 1
+	if element1 == -1 or element1 == 0 then
+		return 1
+	end
+	if element2 == -1 or element2 == 0 then
+		element2 = element1
+	end
+	if caster:HasModifier("modifier_omniro_glyph_5_a") then
+		if caster.omniro_data[element1] then
+			if WallPhysics:DoesTableHaveValue(ability.highest_elements_table, caster.omniro_data[element1]["element_number"]) then
+				if ability.highest_elements_table[1] == element1 or ability.highest_elements_table[1] == element2 then
+					mult = OMNIRO_GLYPH_5_A_TOP_1_BONUS/100
+				elseif ability.highest_elements_table[2] == element1 or ability.highest_elements_table[2] == element2 then
+					mult = OMNIRO_GLYPH_5_A_TOP_2_BONUS/100
+				elseif ability.highest_elements_table[3] == element1 or ability.highest_elements_table[3] == element2 then
+					mult = OMNIRO_GLYPH_5_A_TOP_3_BONUS/100
+				elseif ability.highest_elements_table[4] == element1 or ability.highest_elements_table[4] == element2 then
+					mult = OMNIRO_GLYPH_5_A_TOP_4_BONUS/100
+				end
+			end
+		end
+	end
+	return mult
 end
 
 function omniro_AmplifyDamageParticle( event )

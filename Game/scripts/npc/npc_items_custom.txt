@@ -76,7 +76,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -115,12 +115,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1"
+				"property_one"			"4"
 			}
 		}
 	}
@@ -159,7 +154,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"9"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"100"
 			}
 		}
 	}
@@ -198,8 +198,14 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"4"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"1"
+			}
+			
 		}
 	}
 
@@ -234,7 +240,11 @@
 		}
 		"AbilitySpecial"
 		{
-
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"12"
+			}
 		}
 	}
 
@@ -273,27 +283,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"4"
+				"property_one"			"3"
 			}
 		}
 	}
@@ -325,24 +315,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-						"Function"		"omniro_equip_immortal_weapon"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-						"Function"		"omniro_equip_immortal_weapon"
-						"target"		"TARGET"
-					}
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -350,7 +322,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"1500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"1000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_three"			"500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_four"			"250"
 			}
 		}
 	}
