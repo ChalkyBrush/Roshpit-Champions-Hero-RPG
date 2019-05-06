@@ -458,8 +458,8 @@ function omni_mace_basic_hit(caster, ability, target, event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_holy_buff", {duration = duration})		
 	elseif caster.active_element == RPC_ELEMENT_COSMOS then
 		local duration = Filters:GetAdjustedBuffDuration(caster, OMNIRO_COSMIC_SPECIAL_DURATION, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_time_buff", {duration = duration})
-		caster:SetModifierStackCount("modifier_omnimace_time_buff", caster, caster.omniro_data[RPC_ELEMENT_TIME]["level"])
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_cosmic_buff", {duration = duration})
+		caster:SetModifierStackCount("modifier_omnimace_cosmic_buff", caster, caster.omniro_data[RPC_ELEMENT_COSMOS]["level"])
 	elseif caster.active_element == RPC_ELEMENT_ICE then
 		local duration = OMNIRO_ICE_SPECIAL_DURATION
 		local icePoint = target:GetAbsOrigin()

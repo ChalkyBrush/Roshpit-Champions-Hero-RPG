@@ -17,7 +17,7 @@ function omniro_chrono_path_start(event)
 	end
 	for i = 1, path_length, 1 do
 		local randomColor = Vector(RandomInt(30, 255), RandomInt(30, 255), RandomInt(30, 255))/255
-		local position = caster:GetAbsOrigin()+caster:GetForwardVector()*(chrono_base_radius*1.5)*i
+		local position = caster:GetAbsOrigin()+caster:GetForwardVector()*(chrono_base_radius*1.5)*i - caster:GetForwardVector()*100
 		position = GetGroundPosition(position, caster)
 		local dummy = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, caster:GetTeamNumber())
 		dummy:SetAbsOrigin(position)
