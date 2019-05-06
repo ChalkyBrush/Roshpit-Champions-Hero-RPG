@@ -114,7 +114,7 @@ function dimension_stalker_active_think(event)
    			if not target.dummy then
    				CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/dimension_stalk_attack.vpcf", target, 3)
    				Timers:CreateTimer(0.1, function()
-   					Filters:PerformAttackSpecial(caster, target, true, true, true, false, true, false, false)
+   					Filters:PerformAttackSpecial(caster, target, false, true, true, false, false, false, true)
    				end)
    			end
    		end

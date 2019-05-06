@@ -186,7 +186,7 @@ function omni_orb_charge_procced(event, basic_damage)
 	        for _,enemy in pairs(enemies) do
 				mace_ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ice_debuff", {duration = duration})
 				enemy:SetModifierStackCount("modifier_ice_debuff", caster, caster.omniro_data[RPC_ELEMENT_ICE]["level"])	
-	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 1, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
 	        end
 	    end
 	elseif caster.active_element == RPC_ELEMENT_ARCANE then

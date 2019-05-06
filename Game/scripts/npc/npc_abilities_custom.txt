@@ -1159,14 +1159,6 @@
             {
             	"IsHidden"	"0"
             	"IsBuff"	"1"
-            	"States"
-            	{
-            		"MODIFIER_STATE_CANNOT_MISS"		"MODIFIER_STATE_VALUE_ENABLED"
-            	}
-            	"Properties"
-            	{
-            		"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%radius"
-            	}
             	"ThinkInterval"  "0.06"
                 "OnIntervalThink"
                 {
