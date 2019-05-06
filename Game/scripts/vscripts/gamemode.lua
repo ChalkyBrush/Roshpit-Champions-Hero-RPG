@@ -77,7 +77,7 @@ function GameMode:PostLoadPrecache()
       for i = 1, #unitTable, 1 do
         Timers:CreateTimer(i*0, 
         function()
-          print("precaching: "..unitTable[i])
+          --print("precaching: "..unitTable[i])
           PrecacheUnitByNameAsync(unitTable[i], function(...) end)      
           end)
       end
@@ -88,7 +88,7 @@ function GameMode:PostLoadPrecache()
         for i = 1, #unitTable, 1 do
           Timers:CreateTimer(i*0, 
           function()
-            print("precaching: "..unitTable[i])
+            --print("precaching: "..unitTable[i])
             PrecacheUnitByNameAsync(unitTable[i], function(...) end)      
             end)
         end
@@ -205,7 +205,7 @@ function superPrecache()
   for i = 1, #unitTable, 1 do
     Timers:CreateTimer(i*2, 
     function()
-      print("precaching: "..unitTable[i])
+      --print("precaching: "..unitTable[i])
       PrecacheUnitByNameAsync(unitTable[i], function(...) end)      
       end)
   end

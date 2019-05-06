@@ -121,7 +121,7 @@
 			{
 				"IsHidden"	"1"
 			}
-			"modifier_magnet_d_d"
+			"modifier_magnet_q_4"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"

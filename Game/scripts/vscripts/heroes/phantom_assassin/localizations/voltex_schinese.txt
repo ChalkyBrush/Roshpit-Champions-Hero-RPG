@@ -1,11 +1,11 @@
 		//Abilities
-		"DOTA_Tooltip_ability_overcharge"								"过载"
-		"DOTA_Tooltip_ability_overcharge_Description"					"元素： <font color=\"#5CCDF9\">电</font><br>极大提高攻击速度，并在击中敌方单位时施加叉状闪电效果。"
-		"DOTA_Tooltip_ability_overcharge_Lore"						""
-		"DOTA_Tooltip_ability_overcharge_attack_speed"				"攻击速度增加："
-		"DOTA_Tooltip_ability_overcharge_proc_targets"				"叉状最多目标："
-    	"DOTA_Tooltip_ability_overcharge_proc_damage"					"闪电伤害："
-    	"DOTA_Tooltip_ability_overcharge_duration"					"持续时间："
+		"DOTA_Tooltip_ability_voltex_overcharge"								"过载"
+		"DOTA_Tooltip_ability_voltex_overcharge_Description"					"元素： <font color=\"#5CCDF9\">电</font><br>极大提高攻击速度，并在击中敌方单位时施加叉状闪电效果。"
+		"DOTA_Tooltip_ability_voltex_overcharge_Lore"						""
+		"DOTA_Tooltip_ability_voltex_overcharge_attack_speed"				"攻击速度增加："
+		"DOTA_Tooltip_ability_voltex_overcharge_proc_targets"				"叉状最多目标："
+    	"DOTA_Tooltip_ability_voltex_overcharge_proc_damage"					"闪电伤害："
+    	"DOTA_Tooltip_ability_voltex_overcharge_duration"					"持续时间："
 		
 		"DOTA_Tooltip_ability_voltex_rune_q_1"								"[Q1] 磁场"
     	"DOTA_Tooltip_ability_voltex_rune_q_1_Description"					"过载时，电光使者的护甲值提高。"
@@ -38,11 +38,11 @@
     	"DOTA_Tooltip_ability_voltex_rune_q_4_property_one"					"过载额外伤害"
     	"DOTA_Tooltip_ability_voltex_rune_q_4_suffix"						"% 总攻击力"
 		
-		"DOTA_Tooltip_ability_ability_zap"									"静电"
-		"DOTA_Tooltip_ability_ability_zap_Description"						"元素： <font color=\"#5CCDF9\">电</font><br>电光使者平衡她的离子，释放静电造成伤害并击退周围所有单位。"
-		"DOTA_Tooltip_ability_ability_zap_Lore"								""
-		"DOTA_Tooltip_ability_ability_zap_damage"							"伤害："
-    	"DOTA_Tooltip_ability_ability_zap_radius"							"范围："
+		"DOTA_Tooltip_ability_voltex_static"									"静电"
+		"DOTA_Tooltip_ability_voltex_static_Description"						"元素： <font color=\"#5CCDF9\">电</font><br>电光使者平衡她的离子，释放静电造成伤害并击退周围所有单位。"
+		"DOTA_Tooltip_ability_voltex_static_Lore"								""
+		"DOTA_Tooltip_ability_voltex_static_damage"							"伤害："
+    	"DOTA_Tooltip_ability_voltex_static_radius"							"范围："
 		
 		"DOTA_Tooltip_ability_voltex_rune_w_1"								"[W1] 银色充能"
     	"DOTA_Tooltip_ability_voltex_rune_w_1_Description"					"被静电击中的敌人受到基于电光使者攻击力的纯粹伤害。伤害随着静电等级提高而提高（乘法）。"
@@ -79,16 +79,16 @@
     	"DOTA_Tooltip_modifier_voltex_d_b_debuff"							"静电爆发"
     	"DOTA_Tooltip_modifier_voltex_d_b_debuff_Description"				"受到来自电光使者额外的魔法伤害"
 		
-		"DOTA_Tooltip_ability_electric_jump"								"飞跃"
-		"DOTA_Tooltip_ability_electric_jump_Description"					"元素： <font color=\"#5CCDF9\">电</font><br>电光使者飞跃后重击地面，眩晕周围单位并造成伤害。"
-		"DOTA_Tooltip_ability_electric_jump_Lore"							""
-		"DOTA_Tooltip_ability_electric_jump_land_stun_duration"				"眩晕持续时间"
-    	"DOTA_Tooltip_ability_electric_jump_land_radius"					"范围:"
-    	"DOTA_Tooltip_ability_electric_jump_land_damage"					"伤害:"
+		"DOTA_Tooltip_ability_voltex_azure_leap"								"飞跃"
+		"DOTA_Tooltip_ability_voltex_azure_leap_Description"					"元素： <font color=\"#5CCDF9\">电</font><br>电光使者飞跃后重击地面，眩晕周围单位并造成伤害。"
+		"DOTA_Tooltip_ability_voltex_azure_leap_Lore"							""
+		"DOTA_Tooltip_ability_voltex_azure_leap_land_stun_duration"				"眩晕持续时间"
+    	"DOTA_Tooltip_ability_voltex_azure_leap_land_radius"					"范围:"
+    	"DOTA_Tooltip_ability_voltex_azure_leap_land_damage"					"伤害:"
 		
-		"DOTA_Tooltip_ability_heavens_charge"								"雷电充能"
-		"DOTA_Tooltip_ability_heavens_charge_Description"					"元素： <font color=\"#5CCDF9\">电</font><br>传送至目标位置，对落地点附近敌人造成伤害和眩晕。使用后重新替换为飞跃技能。"
-		"DOTA_Tooltip_ability_heavens_charge_Lore"							""
+		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge"								"雷电充能"
+		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge_Description"					"元素： <font color=\"#5CCDF9\">电</font><br>传送至目标位置，对落地点附近敌人造成伤害和眩晕。使用后重新替换为飞跃技能。"
+		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge_Lore"							""
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_1"								"[E1] 电流印迹"
     	"DOTA_Tooltip_ability_voltex_rune_e_1_Description"					"电光使者施放飞跃后，在起跳点和着陆点产生幻象攻击敌人。<br>幻象拥有当前等级的过载并已提高攻击速度，且拥有你5倍的护甲值、生命值和攻击力。"
@@ -97,7 +97,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_two"					"幻象攻击力"
     	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix_two"					"% 本体攻击力"
 
-    	"zap_assassin_clone"												"电流印迹"
+    	"voltex_rune_e_1_illusion"												"电流印迹"
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_2"								"[E2] 电子效应"
     	"DOTA_Tooltip_ability_voltex_rune_e_2_Description"					"电光使者落地后，获得相位移动能力并对她穿过的敌人造成持续伤害。"
@@ -121,16 +121,16 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_4_property_one"					"伤害提高"
     	"DOTA_Tooltip_ability_voltex_rune_e_4_suffix"						"% 每10点敏捷值"
 		
-		"DOTA_Tooltip_ability_static_field"									"静电场"
-		"DOTA_Tooltip_ability_static_field_Description"						"元素： <font color=\"#5CCDF9\">电</font><br>电光使者充电后驱散离子，向前方锥形区域发射电球造成伤害。每当敌人被一个闪电球击中后受到的税后伤害将会提高，可以叠加，叠加没有上限，debuff持续12秒。"
+		"DOTA_Tooltip_ability_voltex_static_field"									"静电场"
+		"DOTA_Tooltip_ability_voltex_static_field_Description"						"元素： <font color=\"#5CCDF9\">电</font><br>电光使者充电后驱散离子，向前方锥形区域发射电球造成伤害。每当敌人被一个闪电球击中后受到的税后伤害将会提高，可以叠加，叠加没有上限，debuff持续12秒。"
        
-		"DOTA_Tooltip_ability_static_field_Lore"							""
-		"DOTA_Tooltip_ability_static_field_damage"							"每个电球伤害："
-    	"DOTA_Tooltip_ability_static_field_num_shocks"						"电球数："
-	"DOTA_Tooltip_ability_static_field_post_mitigation_per_spark"       "每层增加的税后伤害%:"
+		"DOTA_Tooltip_ability_voltex_static_field_Lore"							""
+		"DOTA_Tooltip_ability_voltex_static_field_damage"							"每个电球伤害："
+    	"DOTA_Tooltip_ability_voltex_static_field_num_shocks"						"电球数："
+	"DOTA_Tooltip_ability_voltex_static_field_post_mitigation_per_spark"       "每层增加的税后伤害%:"
 
-        "DOTA_Tooltip_modifier_static_field_post_mitigation"                "静电场"
-        "DOTA_Tooltip_modifier_static_field_post_mitigation_Description"    "每一层增加受到的税后伤害"
+        "DOTA_Tooltip_modifier_voltex_static_field_post_mitigation"                "静电场"
+        "DOTA_Tooltip_modifier_voltex_static_field_post_mitigation_Description"    "每一层增加受到的税后伤害"
 		
 		"DOTA_Tooltip_ability_voltex_rune_r_1"								"[R1] 雷霆风暴"
     	"DOTA_Tooltip_ability_voltex_rune_r_1_Description"					"当电光使者引导完静电场时，致命闪电从天而降，对周围单位造成伤害。"
@@ -240,7 +240,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_property_one"					"持续时间"
     	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_suffix"						" 秒"
 
-    	"DOTA_Tooltip_modifier_magnet_d_d"									"量子路径"
+    	"DOTA_Tooltip_modifier_magnet_q_4"									"量子路径"
 		
 		//Glyphs
 		

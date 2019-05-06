@@ -115,7 +115,7 @@ end
 
 function voltex_glyph_4_1_trigger(event)
 	local executedAbility = event.event_ability
-	if executedAbility:GetAbilityName()== "ability_zap" or executedAbility:IsItem() then
+	if executedAbility:GetAbilityName()== "voltex_static" or executedAbility:IsItem() then
 	else
 		local ability = event.ability
 		local caster = ability.hero

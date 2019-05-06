@@ -2,7 +2,7 @@ function EnterLava(trigger)
 	local hero = trigger.activator
 	local caster = Events.GameMaster
 	local ability = caster:FindAbilityByName("npc_abilities")
-	if not hero:IsAlive() or hero:HasModifier("modifier_heavens_charge_falling") then
+	if not hero:IsAlive() or hero:HasModifier("modifier_voltex_rune_e_3_heavens_charge_falling") then
 		return false
 	end
 	if hero:HasFlyMovementCapability() or Filters:HasFlyingModifier(hero) then
@@ -28,7 +28,7 @@ function Lava3(trigger)
 	local hero = trigger.activator
 	local caster = Events.GameMaster
 	local ability = caster:FindAbilityByName("npc_abilities")
-	if not hero:IsAlive() or hero:HasModifier("modifier_heavens_charge_falling") then
+	if not hero:IsAlive() or hero:HasModifier("modifier_voltex_rune_e_3_heavens_charge_falling") then
 		return false
 	end
 	if hero:HasFlyMovementCapability() or Filters:HasFlyingModifier(hero) then
@@ -118,7 +118,7 @@ function Lava6(trigger)
 	end
 	local caster = Events.GameMaster
 	local ability = caster:FindAbilityByName("npc_abilities")
-	if not hero:IsAlive() or hero:HasModifier("modifier_heavens_charge_falling") then
+	if not hero:IsAlive() or hero:HasModifier("modifier_voltex_rune_e_3_heavens_charge_falling") then
 		return false
 	end
 	if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then

@@ -1273,11 +1273,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         Is_solunia_b_d = true
     end
     local attackerName = attacker:GetUnitName()
-    if attackerName == "zap_assassin_clone" then
-        attacker = attacker.hero
-        damage = damage*(0.4+0.02*attacker.e_1_level)
-    end
-
     if not ignore_effects then
         if attackerName == "npc_dota_hero_leshrac" and not attacker:HasModifier("modifier_bahamut_sphere_of_divinity") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
             if slot > 0 then
@@ -1752,7 +1747,7 @@ function Filters:IsTouchingGround(unit)
 end
 
 function Filters:HasFlyingModifier(unit)
-    if unit:HasModifier("modifier_heavens_charge_falling") or unit:HasModifier("modifier_z_flight") or unit:HasModifier("modifier_hawk_soar_visual_z") or unit:HasModifier("modifier_shapeshift_crow") or unit:HasModifier("modifier_dinath_postflight_zheight") or unit:HasModifier("modifier_thunder_blossom_teleporting") or unit:HasModifier("modifier_jex_lightning_lightning_e_movement") then
+    if unit:HasModifier("modifier_voltex_rune_e_3_heavens_charge_falling") or unit:HasModifier("modifier_z_flight") or unit:HasModifier("modifier_hawk_soar_visual_z") or unit:HasModifier("modifier_shapeshift_crow") or unit:HasModifier("modifier_dinath_postflight_zheight") or unit:HasModifier("modifier_thunder_blossom_teleporting") or unit:HasModifier("modifier_jex_lightning_lightning_e_movement") then
         return true
     else
         return false
@@ -2108,17 +2103,17 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + 10
         end
         if unitName == "npc_dota_hero_phantom_assassin" then
-            local e_4_level = attacker:GetRuneValue("e", 4)
-            local lightningRuneRate = 0.001
-            if attacker:HasModifier("modifier_voltex_arcana1_passive") then
-                lightningRuneRate = 0.0015
+			if attacker:HasAbility("voltex_azure_leap") or attacker:HasAbility("voltex_rune_e_3_heavens_charge") then
+				local e_4_level = attacker:GetRuneValue("e", 4)
+				 mult = mult + attacker:GetAgility() * e_4_level * VOLTEX_E4_LIGHTNING_PCT_PER_AGI
+			elseif attacker:HasAbility("voltex_lightning_dash") then
+				 mult = mult + attacker:GetAgility() * e_4_level * VOLTEX_ARCANA_E4_LIGHTNING_PCT_PER_AGI
             end
-            mult = mult + lightningRuneRate*attacker:GetAgility()/10*e_4_level
-            if attacker:HasAbility("overcharge") then
+            if attacker:HasAbility("voltex_overcharge") then
                 if bIsRealDamage then
                     local q_2_level = attacker:GetRuneValue("q", 2)
                     if q_2_level > 0 then
-                        damage = damage + attacker:GetAgility()*VOLTEX_Q2_BAD_FLAT_PER_AGI*q_2_level
+                        damage = damage + attacker:GetAgility() * VOLTEX_Q2_BASE_LIGHTNING_DMG_PER_AGI * q_2_level
                     end 
                 end
             end
