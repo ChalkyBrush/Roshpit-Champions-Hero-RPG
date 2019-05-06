@@ -1,6 +1,9 @@
 require('heroes/faceless_void/omniro_constants')
 require('heroes/faceless_void/omni_orb')
 
+function omni_mace_init_go(event)
+end
+
 function omni_mace_main_think(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -9,36 +12,41 @@ function omni_mace_main_think(event)
 		init_omniro_data(event)
 	end
 
-	local reconstruct = omniro_rune_calculate(event)
+	
 
 	if not caster.omniro_data_initialized then
 		init_omniro_detail_data(event)
 		caster.omniro_data_initialized = true
 	end
-
-	omniro_element_charge_think(event)
+    if caster.offload_think_completed then
+		omniro_element_charge_think(event)
+	end
 
 	local player = caster:GetPlayerOwner()
+	local reconstruct = false
 	if reconstruct then
 		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex(), reconstruct = true})
 	else
 		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
 	end
 
-	if not caster.omniro_weapon_pfx then		
-		-- local counter = 0
-		-- for k, v in pairs(caster:GetChildren()) do 
-		-- 	if v:GetClassname() == "dota_item_wearable" then
-		-- 	  if counter == 5 then
-		-- 	  	caster.weapon_attachment = v
-		-- 	  end
-		-- 	  counter = counter + 1
-		-- 	end 
-		-- end  
-		-- print(caster.weapon_attachment:GetModelName())
-		local pfx = ParticleManager:CreateParticle("particles/roshpit/omniro/omniro_weapon_glow.vpcf", PATTACH_POINT_FOLLOW, caster)
-		ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
-		caster.omniro_weapon_pfx = pfx
+	-- if not caster.omniro_weapon_pfx then		
+	-- 	local pfx = ParticleManager:CreateParticle("particles/roshpit/omniro/omniro_weapon_glow.vpcf", PATTACH_POINT_FOLLOW, caster)
+	-- 	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
+	-- 	caster.omniro_weapon_pfx = pfx
+	-- end
+end
+
+function omni_mace_offload_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	caster.offload_think_completed = true
+	local reconstruct = omniro_rune_calculate(event)
+	local player = caster:GetPlayerOwner()
+	if reconstruct then
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex(), reconstruct = true})
+	else
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
 	end
 end
 
@@ -375,9 +383,9 @@ function omniro_mace_attack_land(event)
 		caster.active_element = next_element
 
 		local mace_hit = omni_mace_basic_element_data(next_element)
-		if caster.omniro_weapon_pfx then
-			ParticleManager:SetParticleControl(caster.omniro_weapon_pfx, 1, mace_hit["color"])
-		end
+		-- if caster.omniro_weapon_pfx then
+		-- 	ParticleManager:SetParticleControl(caster.omniro_weapon_pfx, 1, mace_hit["color"])
+		-- end
 	end
 
 	local player = caster:GetPlayerOwner()

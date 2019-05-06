@@ -189,6 +189,14 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/faceless_void/omni_mace.lua"
+						"Function"		"omni_mace_init_go"
+					}
+				}
 				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
 				{
@@ -214,6 +222,20 @@
 						"water_special_a"		"%water_special_a"
 						"nature_special_a"		"%nature_special_a"
 						"undead_special_a"		"%undead_special_a"
+					}
+				}
+			}
+			"modifier_omnimace_offloading"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/faceless_void/omni_mace.lua"
+						"Function"		"omni_mace_offload_think"
 					}
 				}
 			}
