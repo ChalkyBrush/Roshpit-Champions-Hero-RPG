@@ -2773,8 +2773,8 @@
     	"DOTA_Tooltip_modifier_starfall_a_d_visible_Description"		"每层减少 <font color=\"#C25DFC\">宇宙</font> 元素伤害抗性 10%%"
 		
 		"DOTA_Tooltip_ability_astral_rune_r_2"							"[R2] 星辰震颤"
-    	"DOTA_Tooltip_ability_astral_rune_r_2_Description"				"在[R1]的流星落下后将会造成一系列震动，对被击中的敌人造成伤害并且产生0.03秒的眩晕。"
-	 "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "基于[R1] 流星雨的伤害"
+    	"DOTA_Tooltip_ability_astral_rune_r_2_Description"				"增加[R1]的伤害，并且使流星落下后造成一系列震动，对被击中的敌人周围造成伤害并且产生0.03秒的眩晕。"
+	 "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "[R1] 流星雨的伤害增加"
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "%"
         "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "范围"
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
@@ -10009,7 +10009,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_e_3_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_venomort_rune_e_4"							"[E4] 施虐狂人"
-    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"每一只受到剧毒巫师的毒素伤害的敌人，都能为他增加额外的生命值和闪避。"
+    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"每一只受到剧毒巫师的毒素伤害的敌人，都能为他增加额外的生命值和闪避。精英计算为5个单位，boss计算为20个单位，基础持续时间为1.5秒。"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_one"				"生命值提高"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_suffix"						" 每个敌人"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_two"				"闪避提高"
@@ -15224,13 +15224,13 @@
 		"DOTA_Tooltip_ability_seafortress_beast_tryant_passive_Description"	"站在蓝色区域里时只受到魔法伤害，在黄色区域里只受到纯粹伤害，在红色区域里只受到物理伤害。"	
 
 		"DOTA_Tooltip_modifier_beast_tyrant_in_blue"					"猛兽暴君之蓝"
-		"DOTA_Tooltip_modifier_beast_tyrant_in_blue_Description"		"可以受到魔法伤害"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_blue_Description"		"可以造成魔法伤害"
 
 		"DOTA_Tooltip_modifier_beast_tyrant_in_red"					"猛兽暴君之红"
-		"DOTA_Tooltip_modifier_beast_tyrant_in_red_Description"		"可以受到物理伤害"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_red_Description"		"可以造成物理伤害"
 
 		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow"					"猛兽暴君之黄"
-		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow_Description"		"可以受到纯粹伤害"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow_Description"		"可以造成纯粹伤害"
 
 		"seafortress_beast_tyrant" "猛兽暴君"
 
