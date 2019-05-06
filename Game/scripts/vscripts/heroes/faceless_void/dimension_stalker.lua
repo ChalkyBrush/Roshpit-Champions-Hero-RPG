@@ -88,6 +88,7 @@ end
 function fire_dimension_stalker(event)
 	local caster = event.caster
 	local ability = event.ability
+	local radius = event.radius
 	local max_targets = event.max_targets
 	if caster:HasModifier("modifier_omniro_glyph_3_1") then
 		max_targets = max_targets + OMNIRO_GLYPH_3_1_INCREASED_ATTACKS
@@ -97,6 +98,7 @@ function fire_dimension_stalker(event)
     local duration = max_targets*interval_between_strikes + interval_between_strikes
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_dimension_stalker_active", {duration = duration})
    	EmitSoundOn("Omniro.DimensionStalk.Success.VO", caster)
+   	ability.enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	Filters:CastSkillArguments(4, caster)
 end
 
@@ -104,10 +106,10 @@ function dimension_stalker_active_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local radius = event.radius
-    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+    local enemies = ability.enemies
 
     if #enemies > 0 then    
-    	local target = enemies[1]
+    	local target = enemies[RandomInt(1, #enemies)]
    		if target and IsValidEntity(target) then
    			if not target.dummy then
    				CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/dimension_stalk_attack.vpcf", target, 3)
@@ -117,9 +119,9 @@ function dimension_stalker_active_think(event)
    			end
    		end
     end	
-	if ability.aoePFX then
-		ParticleManager:SetParticleControl(ability.aoePFX, 0, caster:GetAbsOrigin())
-	end
+	-- if ability.aoePFX then
+	-- 	ParticleManager:SetParticleControl(ability.aoePFX, 0, caster:GetAbsOrigin())
+	-- end
 end
 
 function dimension_stalker_end(event)

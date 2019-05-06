@@ -24,10 +24,14 @@ function omni_mace_main_think(event)
 
 	local player = caster:GetPlayerOwner()
 	local reconstruct = false
-	if reconstruct then
-		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex(), reconstruct = true})
+	if ability.update_lock then
+		ability.update_lock = false
 	else
-		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
+		if reconstruct then
+			CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex(), reconstruct = true})
+		else
+			CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
+		end
 	end
 
 	-- if not caster.omniro_weapon_pfx then		
@@ -43,6 +47,7 @@ function omni_mace_offload_think(event)
 	caster.offload_think_completed = true
 	local reconstruct = omniro_rune_calculate(event)
 	local player = caster:GetPlayerOwner()
+	ability.update_lock = true
 	if reconstruct then
 		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex(), reconstruct = true})
 	else
@@ -606,7 +611,7 @@ function omniro_elemental_bonus(element1, element2, caster)
 	local ability = caster:FindAbilityByName("omniro_omni_mace")
 	local mult = 0
 	if element1 == -1 or element1 == 0 then
-		return 1
+		return 0
 	end
 	if element2 == -1 or element2 == 0 then
 		element2 = element1
