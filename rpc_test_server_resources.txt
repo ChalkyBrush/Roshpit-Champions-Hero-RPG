@@ -728,6 +728,7 @@ function ChatDropItems(keys)
             Weapons:RollJexLegendWeapon2a(vector, false)
         end      
     end
+  wepClass = "omniro" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
 end
 
 function StringSplit(inputstr, sep)
