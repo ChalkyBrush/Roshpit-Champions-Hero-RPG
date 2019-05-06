@@ -409,12 +409,15 @@ end
 function omniro_wind_orb_push_think(event)
 	local caster = event.caster
 	local target = event.target
+	if target.pushLock then
+		return false
+	end
 	local fv = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin())
 	local pushSpeed = math.max(40 - (distance/1400)*40, 10)
 	local newPosition = target:GetAbsOrigin()+pushSpeed*fv
     local obstruction = WallPhysics:FindNearestObstruction(newPosition)
-    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, caster)
+    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, target)
 	if blockUnit then
 	else
 		WallPhysics:SetPushPositionOverGround(target, newPosition)
