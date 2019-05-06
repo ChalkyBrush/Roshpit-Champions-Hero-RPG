@@ -393,8 +393,8 @@ function omniro_mace_attack_land(event)
 		-- end
 	end
 
-	local player = caster:GetPlayerOwner()
-	CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
+	-- local player = caster:GetPlayerOwner()
+	-- CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
 end
 
 function omni_mace_toggle_on(event)
