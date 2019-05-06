@@ -148,7 +148,7 @@
 		"omniro_holy_orb_a_pretext"										"УРОН x ИНТЕЛЛЕКТ:"				
 		"omniro_holy_orb_b_pretext"										"УРОН x БРОНЯ:"
 
-		"omniro_cosmic_orb_description"									"Падающая звезда наносит урон в радиусе <% OMNIRO_ORB_COSMIC_RADIUS %> через 0.45 секунды. Урон базируется на силе атаки и максимальном здоровье.Damage is based on attack power and current health."
+		"omniro_cosmic_orb_description"									"Падающая звезда наносит урон в радиусе <% OMNIRO_ORB_COSMIC_RADIUS %> через 0.45 секунды. Урон базируется на силе атаки и максимальном здоровье."
 		"omniro_cosmic_orb_a_pretext"										"УРОН % ОТ СИЛЫ АТАКИ:"				
 		"omniro_cosmic_orb_b_pretext"										"УРОН x МАКС ЗДОРОВЬЕ:"
 
