@@ -1814,7 +1814,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if unitName == "npc_dota_hero_faceless_void" then
         require('heroes/faceless_void/omni_mace')
-        mult = omniro_elemental_bonus(element1, element2, attacker)
+        mult = mult + omniro_elemental_bonus(element1, element2, attacker)
     end
     if element1 > 1 or element2 > 1 then
         if attacker:HasModifier("modifier_neutral_glyph_2_3") then
@@ -4408,15 +4408,19 @@ end
 
 function Filters:VioletGuard2Hit(victim, attacker, damage)
     attacker.body:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_violet_guard_armor_loss_visible", {duration = 6})
-    local armorLoss = math.min(math.ceil(damage*0.001), victim:GetPhysicalArmorValue())
-    armorLoss = math.max(1, armorLoss)
     local oldModifier = victim:FindModifierByName("modifier_violet_guard_armor_loss_invisible")
+	local armorLoss = 0
     if oldModifier then
-        local oldModifierStacks = oldModifier:GetStackCount()
-        if oldModifierStacks then
-            armorLoss = math.max(armorLoss,oldModifierStacks)
-        end
-    end
+		local oldModifierStacks = oldModifier:GetStackCount()
+	end
+	if oldModifierStacks then
+		armorLoss = math.min(math.ceil(damage*0.001), victim:GetPhysicalArmorValue() + oldModifierStacks)
+		armorLoss = math.max(1, armorLoss)
+		armorLoss = math.max(armorLoss, oldModifierStacks)
+	else
+		armorLoss = math.min(math.ceil(damage*0.001), victim:GetPhysicalArmorValue())
+		armorLoss = math.max(1, armorLoss)
+	end
     attacker.body:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_violet_guard_armor_loss_invisible", {duration = 6})
     victim:SetModifierStackCount("modifier_violet_guard_armor_loss_invisible", attacker.InventoryUnit, armorLoss)
 end
