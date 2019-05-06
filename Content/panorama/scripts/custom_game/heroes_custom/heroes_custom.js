@@ -621,7 +621,7 @@ function getHeroList(){
             "npc_dota_hero_skywrath_mage",
             "npc_dota_hero_winter_wyvern",
             "npc_dota_hero_arc_warden",
-            "npc_dota_hero_faceless_void];
+            "npc_dota_hero_faceless_void"];
     return heroList;
 }
 
