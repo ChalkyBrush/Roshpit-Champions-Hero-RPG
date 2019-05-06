@@ -52,9 +52,11 @@ function begin_hydro_pump(event)
 						for _,enemy in pairs(enemies) do
 							if not enemy.jumpLock then
 								if enemy:GetAbsOrigin().z - GetGroundHeight(enemy:GetAbsOrigin(), enemy) < 500 then
-									ability:ApplyDataDrivenModifier(caster, enemy, "modifier_torrent_stun", {duration = 4})
-									ability:ApplyDataDrivenModifier(caster, enemy, "modifier_torrent_lifting", {duration = 2})
-									enemy.torrentLiftVelocity = 16
+									if not Filters:HasFlyingModifier(enemy) then
+										ability:ApplyDataDrivenModifier(caster, enemy, "modifier_torrent_stun", {duration = 4})
+										ability:ApplyDataDrivenModifier(caster, enemy, "modifier_torrent_lifting", {duration = 2})
+										enemy.torrentLiftVelocity = 16
+									end
 								end
 							end
 							Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)

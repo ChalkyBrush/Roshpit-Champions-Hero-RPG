@@ -117,66 +117,67 @@ function getSkillSlot2(queryUnit, slot)
 
 
 function getSkillSlot(heroName, slot){
-	
-    var skillName = "error";
-	if (heroName === "npc_dota_hero_dragon_knight"){
-        skillName = getFlamewakerSkill(slot);
-	}else if (heroName === "npc_dota_hero_phantom_assassin"){
-        skillName = getVoltexSkill(slot);
-	}else if (heroName === "npc_dota_hero_necrolyte"){
-        skillName = getVenoSkill(slot);
-	}else if (heroName === "npc_dota_hero_axe"){
-        skillName = getAxeSkill(slot);
-	}else if (heroName === "npc_dota_hero_drow_ranger"){
-        skillName = getAstralSkill(slot);
-	}else if (heroName === "npc_dota_hero_obsidian_destroyer"){
-        skillName = getEpochSkill(slot);
-	}else if (heroName === "npc_dota_hero_omniknight"){
-        skillName = getPaladinSkill(slot);
-	}else if (heroName === "npc_dota_hero_crystal_maiden"){
-        skillName = getSorcSkill(slot);
-	}else if (heroName === "npc_dota_hero_invoker"){
-        skillName = getConjurorSkill(slot);
-	}else if (heroName === "npc_dota_hero_juggernaut"){
-        skillName = getMonkSkill(slot);
-	}else if (heroName === "npc_dota_hero_beastmaster"){
-        skillName = getWarlordSkill(slot);
-	}else if (heroName === "npc_dota_hero_leshrac"){
-        skillName = getBahamutSkill(slot);
-	}else if (heroName === "npc_dota_hero_spirit_breaker"){
-        skillName = getDuskbringerSkill(slot);
-	}else if (heroName === "npc_dota_hero_zuus"){
-        skillName = getAuriunSkill(slot);
-	}else if (heroName === "npc_dota_hero_templar_assassin"){
-        skillName = getTrapperSkill(slot);
-	}else if (heroName === "npc_dota_hero_huskar"){
-        skillName = getSpiritWarriorSkill(slot);
-	}else if (heroName === "npc_dota_hero_legion_commander"){
-        skillName = getMountainProtectorSkill(slot);
-	}else if (heroName === "npc_dota_hero_night_stalker"){
-        skillName = getChernobogSkill(slot);
-	}else if (heroName === "npc_dota_hero_vengefulspirit"){
-        skillName = getSoluniaSkill(slot);
-	}else if (heroName === "npc_dota_hero_slardar"){
-        skillName = getHydroxisSkill(slot);
-	}else if (heroName === "npc_dota_hero_visage"){
-        skillName = getEkkanSkill(slot);
-	}else if (heroName === "npc_dota_hero_dark_seer"){
-        skillName = getZonikSkill(slot);
-	}else if (heroName === "npc_dota_hero_antimage"){
-        skillName = getArkimusSkill(slot);
-	}else if (heroName === "npc_dota_hero_monkey_king"){
-        skillName = getDjanghorSkill(slot);
-	}else if (heroName === "npc_dota_hero_slark"){
-        skillName = getSlipfinnSkill(slot);
-	}else if (heroName === "npc_dota_hero_skywrath_mage"){
-        skillName = getSephyrSkill(slot);
-	}else if (heroName === "npc_dota_hero_winter_wyvern"){
-        skillName = getDinathSkill(slot);
-	}else if (heroName === "npc_dota_hero_arc_warden"){
-        skillName = getJexSkill(slot);
+	var skillName = "error"
+	if (heroName == "npc_dota_hero_dragon_knight"){
+		skillName = getFlamewakerSkill(slot)
+	}else if (heroName == "npc_dota_hero_phantom_assassin"){
+		skillName = getVoltexSkill(slot)
+	}else if (heroName == "npc_dota_hero_necrolyte"){
+		skillName = getVenoSkill(slot)
+	}else if (heroName == "npc_dota_hero_axe"){
+		skillName = getAxeSkill(slot)
+	}else if (heroName == "npc_dota_hero_drow_ranger"){
+		skillName = getAstralSkill(slot)
+	}else if (heroName == "npc_dota_hero_obsidian_destroyer"){
+		skillName = getEpochSkill(slot)
+	}else if (heroName == "npc_dota_hero_omniknight"){
+		skillName = getPaladinSkill(slot)
+	}else if (heroName == "npc_dota_hero_crystal_maiden"){
+		skillName = getSorcSkill(slot)
+	}else if (heroName == "npc_dota_hero_invoker"){
+		skillName = getConjurorSkill(slot)
+	}else if (heroName == "npc_dota_hero_juggernaut"){
+		skillName = getMonkSkill(slot)
+	}else if (heroName == "npc_dota_hero_beastmaster"){
+		skillName = getWarlordSkill(slot)
+	}else if (heroName == "npc_dota_hero_leshrac"){
+		skillName = getBahamutSkill(slot)
+	}else if (heroName == "npc_dota_hero_spirit_breaker"){
+		skillName = getDuskbringerSkill(slot)
+	}else if (heroName == "npc_dota_hero_zuus"){
+		skillName = getAuriunSkill(slot)
+	}else if (heroName == "npc_dota_hero_templar_assassin"){
+		skillName = getTrapperSkill(slot)
+	}else if (heroName == "npc_dota_hero_huskar"){
+		skillName = getSpiritWarriorSkill(slot)
+	}else if (heroName == "npc_dota_hero_legion_commander"){
+		skillName = getMountainProtectorSkill(slot)
+	}else if (heroName == "npc_dota_hero_night_stalker"){
+		skillName = getChernobogSkill(slot)
+	}else if (heroName == "npc_dota_hero_vengefulspirit"){
+		skillName = getSoluniaSkill(slot)
+	}else if (heroName == "npc_dota_hero_slardar"){
+		skillName = getHydroxisSkill(slot)
+	}else if (heroName == "npc_dota_hero_visage"){
+		skillName = getEkkanSkill(slot)
+	}else if (heroName == "npc_dota_hero_dark_seer"){
+		skillName = getZonikSkill(slot)
+	}else if (heroName == "npc_dota_hero_antimage"){
+		skillName = getArkimusSkill(slot)
+	}else if (heroName == "npc_dota_hero_monkey_king"){
+		skillName = getDjanghorSkill(slot)
+	}else if (heroName == "npc_dota_hero_slark"){
+		skillName = getSlipfinnSkill(slot)
+	}else if (heroName == "npc_dota_hero_skywrath_mage"){
+		skillName = getSephyrSkill(slot)
+	}else if (heroName == "npc_dota_hero_winter_wyvern"){
+		skillName = getDinathSkill(slot)
+	}else if (heroName == "npc_dota_hero_arc_warden"){
+		skillName = getJexSkill(slot)
+	}else if (heroName == "npc_dota_hero_faceless_void"){
+		skillName = getOmniroSkill(slot)
 	}
-    return skillName;
+	return skillName
 }
 
 function getFlamewakerSkill(slot){
@@ -571,6 +572,20 @@ function getJexSkill(slot){
     return skillName;
 }
 
+function getOmniroSkill(slot){
+	var skillName = ""
+	if (slot == 1){
+		skillName = "DOTA_Tooltip_ability_omniro_omni_mace"
+	}else if(slot == 2){
+		skillName = "DOTA_Tooltip_ability_omniro_omni_orb"
+	}else if(slot == 3){
+		skillName = "DOTA_Tooltip_ability_omniro_chrono_path"
+	}else if(slot == 4){
+		skillName = "DOTA_Tooltip_ability_omniro_dimension_stalker"
+	}
+	return skillName
+}
+
 function testing(){
     $.Msg("did we load?");
 }
@@ -605,7 +620,8 @@ function getHeroList(){
             "npc_dota_hero_slark",
             "npc_dota_hero_skywrath_mage",
             "npc_dota_hero_winter_wyvern",
-            "npc_dota_hero_arc_warden"];
+            "npc_dota_hero_arc_warden",
+            "npc_dota_hero_faceless_void];
     return heroList;
 }
 
@@ -637,65 +653,67 @@ function getPosition(str, m, i) {
 }
 
 function convertFullHeroNameToRPC(heroName){
-    var rpcName = "error";
-	if (heroName === "npc_dota_hero_dragon_knight"){
-        rpcName = "flamewaker";
-	}else if (heroName === "npc_dota_hero_phantom_assassin"){
-        rpcName = "voltex";
-	}else if (heroName === "npc_dota_hero_necrolyte"){
-        rpcName = "venomort";
-	}else if (heroName === "npc_dota_hero_axe"){
-        rpcName = "axe";
-	}else if (heroName === "npc_dota_hero_drow_ranger"){
-        rpcName = "astral";
-	}else if (heroName === "npc_dota_hero_obsidian_destroyer"){
-        rpcName = "epoch";
-	}else if (heroName === "np;c_dota_hero_omniknight"){
-        rpcName = "paladin";
-	}else if (heroName === "npc_dota_hero_crystal_maiden"){
-        rpcName = "sorceress";
-	}else if (heroName === "npc_dota_hero_invoker"){
-        rpcName = "conjuror";
-	}else if (heroName === "npc;_dota_hero_juggernaut"){
-        rpcName = "seinaru";
-	}else if (heroName === "npc_dota_hero_beastmaster"){
-        rpcName = "warlord";
-	}else if (heroName === "npc_dota_hero_leshrac"){
-        rpcName = "bahamut";
-	}else if (heroName === "npc_dota_hero_spirit_breaker"){
-        rpcName = "duskbringer";
-	}else if (heroName === "npc_dota_hero_zuus"){
-        rpcName = "auriun";
-	}else if (heroName === "npc_dota_hero_templar_assassin"){
-        rpcName = "trapper";	
-	}else if (heroName === "npc_dota_hero_huskar"){
-        rpcName = "spirit_warrior";
-	}else if (heroName === "npc_dota_hero_legion_commander"){
-        rpcName = "mountain_protector";
-	}else if (heroName === "npc_dota_hero_night_stalker"){
-        rpcName = "chernobog";
-	}else if (heroName === "npc_dota_hero_vengefulspirit"){
-        rpcName = "solunia";
-	}else if (heroName === "npc_dota_hero_slardar"){
-        rpcName = "hydroxis";	
-	}else if (heroName === "npc_dota_hero_visage"){
-        rpcName = "ekkan";
-	}else if (heroName === "npc_dota_hero_dark_seer"){
-        rpcName = "zonik";	
-	}else if (heroName === "npc_dota_hero_antimage"){
-        rpcName = "arkimus";
-	}else if (heroName === "npc_dota_hero_monkey_king"){
-        rpcName = "djanghor";
-	}else if (heroName === "npc_dota_hero_slark"){
-        rpcName = "slipfinn";
-	}else if (heroName === "npc_dota_hero_skywrath_mage"){
-        rpcName = "sephyr";
-	}else if (heroName === "npc_dota_hero_winter_wyvern"){
-        rpcName = "dinath";
-	}else if (heroName === "npc_dota_hero_arc_warden"){
-        rpcName = "jex";
-	}else if (heroName === "tooltip_neutral"){
-        rpcName = "neutral";
+	var rpcName = "error"
+	if (heroName == "npc_dota_hero_dragon_knight"){
+		rpcName = "flamewaker"
+	}else if (heroName == "npc_dota_hero_phantom_assassin"){
+		rpcName = "voltex"
+	}else if (heroName == "npc_dota_hero_necrolyte"){
+		rpcName = "venomort"
+	}else if (heroName == "npc_dota_hero_axe"){
+		rpcName = "axe"
+	}else if (heroName == "npc_dota_hero_drow_ranger"){
+		rpcName = "astral"
+	}else if (heroName == "npc_dota_hero_obsidian_destroyer"){
+		rpcName = "epoch"
+	}else if (heroName == "npc_dota_hero_omniknight"){
+		rpcName = "paladin"
+	}else if (heroName == "npc_dota_hero_crystal_maiden"){
+		rpcName = "sorceress"
+	}else if (heroName == "npc_dota_hero_invoker"){
+		rpcName = "conjuror"
+	}else if (heroName == "npc_dota_hero_juggernaut"){
+		rpcName = "seinaru"
+	}else if (heroName == "npc_dota_hero_beastmaster"){
+		rpcName = "warlord"
+	}else if (heroName == "npc_dota_hero_leshrac"){
+		rpcName = "bahamut"
+	}else if (heroName == "npc_dota_hero_spirit_breaker"){
+		rpcName = "duskbringer"
+	}else if (heroName == "npc_dota_hero_zuus"){
+		rpcName = "auriun"
+	}else if (heroName == "npc_dota_hero_templar_assassin"){
+		rpcName = "trapper"	
+	}else if (heroName == "npc_dota_hero_huskar"){
+		rpcName = "spirit_warrior"	
+	}else if (heroName == "npc_dota_hero_legion_commander"){
+		rpcName = "mountain_protector"	
+	}else if (heroName == "npc_dota_hero_night_stalker"){
+		rpcName = "chernobog"	
+	}else if (heroName == "npc_dota_hero_vengefulspirit"){
+		rpcName = "solunia"	
+	}else if (heroName == "npc_dota_hero_slardar"){
+		rpcName = "hydroxis"	
+	}else if (heroName == "npc_dota_hero_visage"){
+		rpcName = "ekkan"	
+	}else if (heroName == "npc_dota_hero_dark_seer"){
+		rpcName = "zonik"	
+	}else if (heroName == "npc_dota_hero_antimage"){
+		rpcName = "arkimus"	
+	}else if (heroName == "npc_dota_hero_monkey_king"){
+		rpcName = "djanghor"	
+	}else if (heroName == "npc_dota_hero_slark"){
+		rpcName = "slipfinn"
+	}else if (heroName == "npc_dota_hero_skywrath_mage"){
+		rpcName = "sephyr"
+	}else if (heroName == "npc_dota_hero_winter_wyvern"){
+		rpcName = "dinath"
+	}else if (heroName == "npc_dota_hero_arc_warden"){
+		rpcName = "jex"
+	}else if (heroName == "npc_dota_hero_faceless_void"){
+		rpcName = "omniro"
+	}else if (heroName == "tooltip_neutral"){
+		rpcName = "neutral"
 	}
-    return rpcName;
+	return rpcName
 }

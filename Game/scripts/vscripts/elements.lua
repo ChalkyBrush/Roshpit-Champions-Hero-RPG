@@ -43,6 +43,48 @@ RPC_ELEMENT_NATURE_COLOR = "#69BC71"
 RPC_ELEMENT_UNDEAD_COLOR = "#5C776E"
 RPC_ELEMENT_DRAGON_COLOR = "#3289C7"
 
+function Elements:GetElementIndexByString(element_name)
+	local element_number = 0
+	if element_name == "normal" then
+		element_number = RPC_ELEMENT_NORMAL
+	elseif element_name == "fire" then
+		element_number = RPC_ELEMENT_FIRE
+	elseif element_name == "earth" then
+		element_number = RPC_ELEMENT_EARTH
+	elseif element_name == "lightning" then
+		element_number = RPC_ELEMENT_LIGHTNING
+	elseif element_name == "poison" then
+		element_number = RPC_ELEMENT_POISON
+	elseif element_name == "time" then
+		element_number = RPC_ELEMENT_TIME
+	elseif element_name == "holy" then
+		element_number = RPC_ELEMENT_HOLY
+	elseif element_name == "cosmic" then
+		element_number = RPC_ELEMENT_COSMOS
+	elseif element_name == "ice" then
+		element_number = RPC_ELEMENT_ICE
+	elseif element_name == "arcane" then
+		element_number = RPC_ELEMENT_ARCANE
+	elseif element_name == "shadow" then
+		element_number = RPC_ELEMENT_SHADOW
+	elseif element_name == "wind" then
+		element_number = RPC_ELEMENT_WIND
+	elseif element_name == "ghost" then
+		element_number = RPC_ELEMENT_GHOST
+	elseif element_name == "water" then
+		element_number = RPC_ELEMENT_WATER
+	elseif element_name == "demon" then
+		element_number = RPC_ELEMENT_DEMON
+	elseif element_name == "nature" then
+		element_number = RPC_ELEMENT_NATURE
+	elseif element_name == "undead" then
+		element_number = RPC_ELEMENT_UNDEAD
+	elseif element_name == "dragon" then
+		element_number = RPC_ELEMENT_DRAGON
+	end
+	return element_number
+end
+
 function Elements:GetElementNameAndColorByCode(elementCode)
 	local name = ""
 	local color = "#000000"

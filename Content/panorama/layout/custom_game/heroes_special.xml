@@ -1,0 +1,37 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+		<include src="file://{resources}/styles/custom_game/heroes_special/omniro.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/elements/elements.js" />
+		<include src="file://{resources}/scripts/custom_game/heroes_special/omniro.js" />
+	</scripts>
+	<snippets>
+		<snippet name="omniro_parent_layout">
+			<Panel class="omniro_parent_outer_container" hittest="false">
+				<Panel class="omniro_parent_bg" hittest="false"/>
+				<Panel id="omniro_parent_attach_point" hittest="false">
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="omniro_element">
+			<Panel class="omniro_element_parent" hittest="false">
+				<Image id="omniro_element_image" hittest="true" />
+				<Label id="omniro_element_charge_counter" text="0" hittest="false"/>
+				<Panel class="omniro_charge_container" hittest="false">
+					<Panel class="omniro_charge_bg" hittest="false"/>
+					<Panel id="omniro_charge_fill" hittest="false"/>
+				</Panel>
+				<Panel id="omniro_element_active_indicator" class="invisible" hittest="false"/>
+				<Label id="omniro_disabled_element_label" class="invisible" text="X" hittest="false"/>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="heroes_special_container" hittest="false">
+		<Panel id="heroes_special_attach_point" hittest="false">
+
+		</Panel>	
+	</Panel>
+
+</root>

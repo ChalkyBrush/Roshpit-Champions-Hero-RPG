@@ -2,10 +2,12 @@
 	<styles>
 		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
 		<include src="file://{resources}/styles/custom_game/units_special.css" />
+
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/units_special.js" />
 		<include src="file://{resources}/scripts/custom_game/elements/elements.js" />
+
 	</scripts>
 	<snippets>
 		<snippet name="onibi_ability_bar">

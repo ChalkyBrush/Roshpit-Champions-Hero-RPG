@@ -168,6 +168,7 @@ function Winterblight:SpawnTrainingDummy(position)
   local positionTable = {position}
   for i =1, #positionTable, 1 do
     local dummy = CreateUnitByName("arena_training_dummy", positionTable[i], true, nil, nil, DOTA_TEAM_NEUTRALS)
+    dummy.pushLock = true
     dummy:SetForwardVector(Vector(1,-1))
     dummy.targetPosition = dummy:GetAbsOrigin()
     local dummyAbility = dummy:FindAbilityByName("training_dummy_ability")

@@ -871,6 +871,7 @@ function Arena:SpawnTrainingDummies()
 		local dummy = CreateUnitByName("arena_training_dummy", positionTable[i], true, nil, nil, DOTA_TEAM_NEUTRALS)
 		dummy:SetForwardVector(Vector(1,-1))
 		dummy.targetPosition = dummy:GetAbsOrigin()
+		dummy.pushLock = true
 		-- AddFOWViewer(DOTA_TEAM_GOODGUYS, dummy.targetPosition, 500, 4, false)
 		Timers:CreateTimer(6, function()
 			-- if IsValidEntity(dummy) then

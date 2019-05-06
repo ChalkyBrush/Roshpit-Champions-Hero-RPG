@@ -1,0 +1,267 @@
+.heroes_special_container{
+	vertical-align: bottom;
+	horizontal-align:center;
+	width:900px;
+	height:1000px;	
+}
+
+#heroes_special_attach_point{
+	vertical-align: bottom;
+	horizontal-align:center;
+	width:100%;
+	height:100%;
+	margin-left:40px;
+}
+
+.omniro_parent_bg{
+	border-radius:4px;
+	background-color: #000000;
+	opacity:0.95;
+	width:100%;
+	height:100%;
+}
+
+.omniro_parent_outer_container{
+	vertical-align: bottom;
+	horizontal-align:center;
+	margin-bottom:200px;
+
+	
+}
+
+#omniro_parent_attach_point{
+	flow-children:right;
+	padding-left:6px;
+	padding-right:6px;
+	padding-bottom:4px;
+}
+
+#omniro_element_image{
+	width:40px;
+	height:40px;
+	margin-left:0px;
+	margin-top:0px;
+	padding:8px;
+}
+
+#omniro_element_charge_counter{
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	font-size:20px;
+	margin-left:24px;
+	margin-top:18px;
+}
+
+.omniro_charge_container{
+	width:40px;
+	height:8px;
+	margin-top:40px;
+	border-radius:0px;
+}
+
+.omniro_charge_bg{
+	background-color:#121212;
+	height:8px;
+	width:100%;
+	border-radius:2px;
+}
+
+
+#omniro_charge_fill{
+	height:8px;
+	border-radius:2px;
+}
+
+#omniro_element_active_indicator{
+	margin-top:50px;
+	width:40px;
+	height:4px;
+	border-radius:0px;
+	background-color: #83f7f7;
+}
+
+.omniro_element_charges_exist{
+	color:white;
+}
+
+.omniro_charge_fill_charges_exist{
+	background-color: gradient( linear, 0px 0%, 40px 0%, from( #598c52), to( #377241 ) );
+}
+
+.omniro_element_no_charges{
+	color:#ba1228;
+}
+
+.omniro_element_charge_fill_no_charges{
+	background-color: gradient( linear, 0px 0%, 40px 0%, from( #ba1228), to( #720a18 ) );
+}
+
+.omniro_element_locked{
+	background-color: #000000;
+	border-radius:6px;
+}
+
+#omniro_disabled_element_label{
+	color: #770d16;
+	font-size:32px;
+	margin-left:10px;
+	margin-top:2px;
+	font-weight:bold;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
+
+/*TOOLTIP*/
+
+
+#omniro_element_tooltip_title{
+	text-align: center;
+	font-weight:bold;
+	font-size:18px;
+	horizontal-align:center;
+}
+
+#omniro_tooltip_content{
+	flow-children:down;
+	color:#EEEEEE;
+}
+
+#omniro_element_tooltip_level{
+	color:#DDDDDD;
+	horizontal-align:center;
+}
+
+#omniro_element_help{
+	font-size:16px;
+	min-width:380px;
+}
+
+#omniro_tooltip_bg{
+	width:100%;
+	height:100%;
+}
+
+#omniro_omnimace_content{
+	border-radius:4px;
+	background-color: #111111;
+	box-shadow:1px 1px 1px #000000;
+	flow-children:down;
+	padding:8px;
+	width:100%;
+	border:1px solid black;
+}
+
+#omniro_omnimace_title{
+	color:white;
+	font-size:16px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	horizontal-align:center;
+}
+
+#omniro_omnimace_effect_description{
+	color:#DDDDDD;
+	min-height:50px;
+	height:fit-children;
+	horizontal-align:center;
+}
+
+.omniro_element_property_content{
+	width:100%;
+	horizontal-align:center;
+	background-color: black;
+	border-radius:4px;
+	padding:5px;
+}
+
+#omniro_omnimace_special_property1{
+	max-width:70%;
+	vertical-align: center;
+}
+
+#omniro_omnimace_special_property1_value{
+	horizontal-align:right;
+	font-size:18px;
+	font-weight:bold;
+}
+
+#omniro_omnimace_special_property2{
+	max-width:70%;
+	vertical-align: center;
+}
+
+#omniro_omnimace_special_property2_value{
+	horizontal-align:right;
+	font-size:18px;
+	font-weight:bold;
+}
+
+.invisible{
+	visibility: collapse;
+}
+
+
+#omniro_orb_content{
+	border-radius:4px;
+	background-color: #111111;
+	box-shadow:1px 1px 1px #000000;
+	flow-children:down;
+	padding:8px;
+	width:100%;
+	border:1px solid black;
+}
+
+#omniro_orb_title{
+	color:white;
+	font-size:16px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	horizontal-align:center;
+}
+
+#omniro_orb_effect_description{
+	color:#DDDDDD;
+	min-height:50px;
+	height:fit-children;
+	horizontal-align:center;
+}
+
+.omniro_element_property_content{
+	width:100%;
+	horizontal-align:center;
+	background-color: black;
+	border-radius:4px;
+	padding:5px;
+
+}
+
+#omniro_orb_special_property1{
+	max-width:70%;
+	vertical-align: center;
+}
+
+#omniro_orb_special_property1_value{
+	horizontal-align:right;
+	font-size:18px;
+	font-weight:bold;
+}
+
+#omniro_orb_special_property2{
+	max-width:70%;
+	vertical-align: center;
+}
+
+#omniro_orb_special_property2_value{
+	horizontal-align:right;
+	font-size:18px;
+	font-weight:bold;
+}
+
+#omniro_orb_content{
+	margin-top:15px;
+}
+
+.omniro_property_text{
+	font-weight:lighter;
+	color:white;
+	font-size:14px;
+	vertical-align: center;
+	line-height:14px;
+}

@@ -739,12 +739,12 @@
 		"DOTA_Tooltip_ability_seafortress_beast_tryant_passive_Description"	"站在蓝色区域里时只受到魔法伤害，在黄色区域里只受到纯粹伤害，在红色区域里只受到物理伤害。"	
 
 		"DOTA_Tooltip_modifier_beast_tyrant_in_blue"					"猛兽暴君之蓝"
-		"DOTA_Tooltip_modifier_beast_tyrant_in_blue_Description"		"可以受到魔法伤害"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_blue_Description"		"可以造成魔法伤害"
 
 		"DOTA_Tooltip_modifier_beast_tyrant_in_red"					"猛兽暴君之红"
-		"DOTA_Tooltip_modifier_beast_tyrant_in_red_Description"		"可以受到物理伤害"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_red_Description"		"可以造成物理伤害"
 
 		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow"					"猛兽暴君之黄"
-		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow_Description"		"可以受到纯粹伤害"
+		"DOTA_Tooltip_modifier_beast_tyrant_in_yellow_Description"		"可以造成纯粹伤害"
 
 		"seafortress_beast_tyrant" "猛兽暴君"

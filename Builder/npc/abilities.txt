@@ -5,6 +5,8 @@
 "DOTAAbilities"
 {
 	//hero section
+	##OMNIRO_BASE_ABILITIES##
+	##OMNIRO_BASE_RUNES##
 
 	##JEX_ABILITIES##
 	##JEX_FIRE_ABILITIES##

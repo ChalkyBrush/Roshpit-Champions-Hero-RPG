@@ -183,6 +183,7 @@ function Redfall:SpawnTrainingDummy(position)
     dummy.targetPosition = dummy:GetAbsOrigin()
     local dummyAbility = dummy:FindAbilityByName("training_dummy_ability")
     dummyAbility:ApplyDataDrivenModifier(dummy, dummy, "modifier_dummy_red", {})
+    dummy.pushLock = true
   end
   
 end

@@ -60,6 +60,9 @@ function Runes:RedirectRunes(hero, runeUnit, runeUnit2, runeUnit3, runeUnit4, pl
 		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "dinath")
 	elseif heroName == "npc_dota_hero_arc_warden" then
 		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "jex")
+	else
+		local roshpit_name = HerosCustom:GetInternalHeroName(heroName)
+		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, roshpit_name)
 	end
 	
     runeUnit:AddAbility("town_unit"):SetLevel(1)
@@ -489,7 +492,10 @@ function Runes:apply_runes(ability, unit, PlayerID)
 			ability:ApplyDataDrivenModifier(unit, hero, "modifier_earth_guardian", {})
 		end
 	end
-	
+	-- if hero:GetUnitName() == "npc_dota_hero_faceless_void" then
+	-- 	local player = hero:GetPlayerOwner()
+	-- 	CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = hero.omniro_data, omniro = hero:GetEntityIndex(), reconstruct = true})
+	-- end
 end
 
 function Runes:EquipArcana(hero, index)

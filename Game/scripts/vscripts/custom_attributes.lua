@@ -530,6 +530,10 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_stonewall_aura_axe_armor_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_stonewall_aura_axe_armor_strength", CustomAttributes.AXE_ARCANA2_W2_STRENGTH)
 	end
+	if hero:HasModifier("modifier_omnimace_wind_buff") then
+		local ability = hero:FindAbilityByName("omniro_omni_mace")
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_omnimace_wind_buff", ability:GetSpecialValueFor("wind_special_a"))	
+	end
 
 	-- BASIC ITEMS STATS --
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_helm_strength", 1)
@@ -859,6 +863,10 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	end
 	if excludedModifier ~= "modifier_earth_deity_q_2" and hero:HasModifier("modifier_earth_deity_q_2") then
 		flatHealthBonus = flatHealthBonus + CONJUROR_ARCANA_Q2_FLAT_HEALTH * hero:GetRuneValue("q", 2)
+	end
+	if excludedModifier ~= "modifier_omnimace_cosmic_buff" and hero:HasModifier("modifier_omnimace_cosmic_buff") then
+		local ability = hero:FindAbilityByName("omniro_omni_mace")
+		flatHealthBonus = flatHealthBonus + ability:GetSpecialValueFor("cosmic_special_a")*hero.omniro_data[RPC_ELEMENT_COSMOS]["level"]
 	end
 	return flatHealthBonus
 end

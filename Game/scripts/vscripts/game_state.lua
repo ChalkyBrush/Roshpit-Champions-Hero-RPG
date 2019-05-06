@@ -1834,11 +1834,14 @@ function GameState:FilterDamage(filterTable)
 	local difficultyDamageReduce = 1
 	local victim = EntIndexToHScript( victim_index )
 	local attacker = EntIndexToHScript( attacker_index )
-	
+
 	local abs = math.abs
 	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
 		local armor = victim:GetPhysicalArmorValue()
 		if attacker:HasModifier("modifier_hand_marauder") and armor >= 0 then
+			armor = 0
+		end
+		if victim:HasModifier("modifier_omniro_shadow_debuff") and armor >= 0 then
 			armor = 0
 		end
 		if attacker:GetUnitName() == "paladin_disciple" then
@@ -2219,6 +2222,12 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_jex_q_cosmic_cosmic_postmitigation") then
 		local stacks = victim:GetModifierStackCount("modifier_jex_q_cosmic_cosmic_postmitigation", attacker)
 		mult = mult + 0.5*stacks
+	end
+	if attacker:HasModifier("modifier_omnimace_undead_buff") then
+		local modifier = attacker:FindModifierByName("modifier_omnimace_undead_buff")
+		local stacks = attacker:GetModifierStackCount("modifier_omnimace_undead_buff", attacker)
+		local ability = attacker:FindAbilityByName("omniro_omni_mace")
+		mult = mult + (ability:GetSpecialValueFor("undead_special_b")/100)*stacks
 	end
 	if attacker:HasModifier("modifier_duskbringer_arcana_q_4") then
 		local stacks = attacker:GetModifierStackCount("modifier_duskbringer_arcana_q_4", attacker)
@@ -2752,6 +2761,13 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = 0
 			local shieldCaster = victim:FindModifierByName("modifier_djanghor_4_1_shield"):GetCaster()
 			CustomAbilities:HitShieldGeneric(victim, attacker, victim, "modifier_djanghor_4_1_shield")
+		end
+	end
+	if victim:HasModifier("modifier_omniro_nature_shield") then
+		if filterTable["damage"] > 0 then
+			filterTable["damage"] = 0
+			local shieldCaster = victim:FindModifierByName("modifier_omniro_nature_shield"):GetCaster()
+			CustomAbilities:HitShieldGeneric(victim, attacker, victim, "modifier_omniro_nature_shield")
 		end
 	end
 	if victim:HasModifier("modifier_ice_throw_b_b_frozen") then
@@ -3365,12 +3381,16 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if not attacker:HasModifier("modifier_backstab_jumping") and applyEffects then
-			filterTable["damage"] = CustomAbilities:Steadfast(filterTable["damage"], victim, thresholdMult)
+			if not attacker.ignore_steadfast then
+				filterTable["damage"] = CustomAbilities:Steadfast(filterTable["damage"], victim, thresholdMult)
+			end
 		end
 	end
 	if victim:HasModifier("modifier_ancient_steadfast") then
 		if not attacker:HasModifier("modifier_backstab_jumping") and applyEffects then
-			filterTable["damage"] = CustomAbilities:AncientSteadfast(filterTable["damage"], victim)
+			if not attacker.ignore_steadfast then
+				filterTable["damage"] = CustomAbilities:AncientSteadfast(filterTable["damage"], victim)
+			end
 		end
 	end
 	if victim:HasModifier("modifier_mega_steadfast") then
@@ -3409,8 +3429,13 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if not attacker:HasModifier("modifier_backstab_jumping") and applyEffects then
-			filterTable["damage"] = CustomAbilities:MegaSteadfast(filterTable["damage"], victim, thresholdMult)
+			if not attacker.ignore_steadfast then
+				filterTable["damage"] = CustomAbilities:MegaSteadfast(filterTable["damage"], victim, thresholdMult)
+			end
 		end
+	end
+	if attacker.ignore_steadfast then
+		attacker.ignore_steadfast = false
 	end
 
 	--APPLY MULT
@@ -3950,15 +3975,15 @@ function GameState:FilterDamage(filterTable)
 				filterTable["damage"] = 0
 			end
 		end
-		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if attacker:IsHero() then
-				if not victim:HasModifier("modifier_disable_player") then
-					if filterTable["damage"] > 0 then
-						filterTable["damage"] = 9999999999
-					end
-				end
-			end
-		end
+		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+		-- 	if attacker:IsHero() then
+		-- 		if not victim:HasModifier("modifier_disable_player") then
+		-- 			if filterTable["damage"] > 0 then
+		-- 				filterTable["damage"] = 9999999999
+		-- 			end
+		-- 		end
+		-- 	end
+		-- end
 		-- filterTable["damage"] = 0
 	end
 
