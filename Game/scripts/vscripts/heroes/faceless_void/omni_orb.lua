@@ -232,7 +232,7 @@ function omni_orb_charge_procced(event, basic_damage)
 	    if #enemies > 0 then    
 	        for _,enemy in pairs(enemies) do
 				mace_ability:ApplyDataDrivenModifier(caster, enemy, "modifier_omniro_shadow_debuff", {duration = duration})
-	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 1, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 	        end
 	    end
 	elseif caster.active_element == RPC_ELEMENT_WIND then
