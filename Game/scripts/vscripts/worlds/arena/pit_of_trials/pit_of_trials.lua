@@ -2382,7 +2382,10 @@ function Arena:SpawnSoulFerrier(position, fv)
 	Timers:CreateTimer(8, function()
 		local enemies = FindUnitsInRadius( stone:GetTeamNumber(), stone:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
-			Arena:FerrierSequence(stone, enemies)
+			if not stone.lock_sequence then
+				stone.lock_sequence = true
+				Arena:FerrierSequence(stone, enemies)
+			end
 		else
 			return 3
 		end

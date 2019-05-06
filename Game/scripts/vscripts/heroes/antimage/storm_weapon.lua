@@ -14,6 +14,7 @@ function storm_weapon_cast(event)
 		end
 	end
 	Filters:CastSkillArguments(2, caster)
+	caster:RemoveModifierByName("modifier_burnout")
 	if not ability.pfx then
 
 		ability.pfx = ParticleManager:CreateParticle("particles/roshpit/heroes/arkimus/weapon_enhance.vpcf", PATTACH_POINT_FOLLOW, caster)

@@ -1182,7 +1182,6 @@
 
 
 
-
 	"omniro_rune_q_1"
 	{
 		// General
@@ -1193,7 +1192,7 @@
 		"AbilityTextureName"	"omniro/omniro_element_fire"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySpecial"
 		{
 			"01"
@@ -1205,6 +1204,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.02"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"2"
 			}
 		}
 	}
@@ -1219,6 +1223,7 @@
 		"AbilityTextureName"	"omniro/omniro_element_earth"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
 		"AbilitySpecial"
 		{
@@ -1231,6 +1236,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.02"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"3"
 			}
 		}
 	}
@@ -1245,6 +1255,7 @@
 		"AbilityTextureName"	"omniro/omniro_element_lightning"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
 		"AbilitySpecial"
 		{
@@ -1257,6 +1268,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.02"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"4"
 			}
 		}
 	}
@@ -1271,6 +1287,7 @@
 		"AbilityTextureName"	"omniro/omniro_element_poison"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
@@ -1283,6 +1300,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.02"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"5"
 			}
 		}
 	}
@@ -1298,6 +1320,7 @@
 		"AbilityTextureName"	"omniro/omniro_element_time"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 
 		"AbilitySpecial"
 		{
@@ -1310,6 +1333,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.02"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"6"
 			}
 		}
 	}
@@ -1324,6 +1352,7 @@
 		"AbilityTextureName"	"omniro/omniro_element_holy"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
@@ -1336,6 +1365,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.02"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
 			}
 		}
 	}
@@ -1350,6 +1384,7 @@
 		"AbilityTextureName"	"omniro/omniro_element_cosmic"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 
 		"AbilitySpecial"
 		{
@@ -1362,6 +1397,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.02"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"8"
 			}
 		}
 	}
@@ -1376,6 +1416,7 @@
 		"AbilityTextureName"	"omniro/omniro_element_ice"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
@@ -1388,6 +1429,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.02"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"9"
 			}
 		}
 	}
@@ -1403,6 +1449,7 @@
 		"AbilityTextureName"	"omniro/omniro_element_arcane"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
@@ -1415,6 +1462,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.04"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"10"
 			}
 		}
 	}
@@ -1429,6 +1481,7 @@
 		"AbilityTextureName"	"omniro/omniro_element_shadow"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
@@ -1441,6 +1494,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.04"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"11"
 			}
 		}
 	}
@@ -1455,6 +1513,7 @@
 		"AbilityTextureName"	"omniro/omniro_element_wind"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
@@ -1467,6 +1526,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.04"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"12"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -1491,6 +1555,7 @@
 		"AbilityTextureName"	"omniro/omniro_element_ghost"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
 		"AbilitySpecial"
 		{
@@ -1503,6 +1568,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.04"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"13"
 			}
 		}
 	}
@@ -1518,6 +1588,7 @@
 		"AbilityTextureName"	"omniro/omniro_element_water"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 
 		"AbilitySpecial"
 		{
@@ -1530,6 +1601,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.08"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"14"
 			}
 		}
 	}
@@ -1544,6 +1620,7 @@
 		"AbilityTextureName"	"omniro/omniro_element_demon"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 
 		"AbilitySpecial"
 		{
@@ -1556,6 +1633,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.08"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"15"
 			}
 		}
 	}
@@ -1570,6 +1652,7 @@
 		"AbilityTextureName"	"omniro/omniro_element_nature"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
@@ -1582,6 +1665,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.08"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"16"
 			}
 		}
 	}
@@ -1596,6 +1684,7 @@
 		"AbilityTextureName"	"omniro/omniro_element_undead"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
@@ -1608,6 +1697,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.08"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"17"
 			}
 		}
 
@@ -6099,8 +6193,6 @@
 		{
 
 		}
-
-		"AbilityManaCost"	"0"
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -52582,7 +52674,7 @@
 			{
 				"IsHidden"	"1"
 			}
-			"modifier_magnet_d_d"
+			"modifier_magnet_q_4"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
@@ -52744,7 +52836,7 @@
 
 
 
-	"overcharge"
+	"voltex_overcharge"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -52787,8 +52879,8 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_speed"		"60 90 120 150 180 210 240"
+				"var_type"					"FIELD_INTEGER"
+				"attack_speed"				"60 90 120 150 180 210 240"
 			}
 
 			"02"
@@ -52803,13 +52895,13 @@
 			}
 			"04"
 			{
-				"var_type" "FIELD_INTEGER"
-				"duration" "5"
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"5"
 			}
 			"05"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"search_radius"	"520 530 540 550 560 570 580"
+				"var_type"					"FIELD_INTEGER"
+				"search_radius"				"520 530 540 550 560 570 580"
 			}
 		}
 
@@ -52829,18 +52921,8 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/phantom_assassin/voltex_runes.lua"
-				"Function"		"voltex_q_1"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/phantom_assassin/voltex_runes.lua"
-				"Function"		"voltex_q_3"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/phantom_assassin/lightning_attack.lua"
-				"Function"		"lightning_attack_start"
+				"ScriptFile"	"heroes/phantom_assassin/voltex_1_q.lua"
+				"Function"		"voltex_overcharge_onspellstart"
 			}
 		}
 		
@@ -52862,41 +52944,12 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/phantom_assassin/lightning_attack.lua"
-						"Function"		"LightningAttack"
-						"Target"	"TARGET"
-						"damage"	"%proc_damage"
+						"ScriptFile"	"heroes/phantom_assassin/voltex_1_q.lua"
+						"Function"		"voltex_overcharge_onattacklanded"
+						"Target"		"TARGET"
+						"damage"		"%proc_damage"
 						"shock_limit"	"%proc_targets"
 						"search_radius"	"%search_radius"
-					}
-				}
-			}
-			"modifier_overcharge_invis_passive"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"ThinkInterval"  "2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/voltex_runes"
-						"Function"		"apply_b_a_think"
-					}
-				}
-			}
-			"modifier_voltex_rune_q_2"
-			{
-				"Passive"	"0"
-				"TextureName"	"zuus_lightning_bolt_immortal"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/voltex_runes"
-						"Function"		"voltex_q_2"
-						"Target"		"TARGET"
 					}
 				}
 			}
@@ -52929,7 +52982,7 @@
 		}
 	}
 
-	"ability_zap"
+	"voltex_static"
 	{
 	    // General
 	    //-------------------------------------------------------------------------------------
@@ -52995,8 +53048,8 @@
 	    {
 	    	"RunScript"
 	    	{
-	    		"ScriptFile"	"heroes/phantom_assassin/ability_zap.lua"
-	    		"Function"		"begin_zap"
+	    		"ScriptFile"	"heroes/phantom_assassin/voltex_2_w.lua"
+	    		"Function"		"voltex_static_onspellstart"
 	    		"radius"		"%radius"
 	    	}
 			"FireSound"
@@ -53027,8 +53080,8 @@
 	                }
 	        		"RunScript"
 	        		{
-			    		"ScriptFile"	"heroes/phantom_assassin/ability_zap.lua"
-			    		"Function"		"zap_damage"
+			    		"ScriptFile"	"heroes/phantom_assassin/voltex_2_w.lua"
+			    		"Function"		"voltex_static_hit"
 			    		"target"		"TARGET"
 			    		"damage"		"%damage"
 	        		}
@@ -53128,7 +53181,7 @@
 		}
 	}
 
-	"electric_jump"
+	"voltex_azure_leap"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -53193,8 +53246,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
-				"Function"		"begin_electric_jump"
+				"ScriptFile"	"heroes/phantom_assassin/voltex_3_e.lua"
+				"Function"		"voltex_azure_leap_onspellstart"
 				"Target"		"POINT"
 			}
 		}
@@ -53220,16 +53273,16 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
-						"Function"		"new_jumping_think"
+						"ScriptFile"	"heroes/phantom_assassin/voltex_3_e.lua"
+						"Function"		"voltex_azure_leap_jumping_think"
 					}
 				}
 				"OnDestroy"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
-						"Function"		"drop_end"
+						"ScriptFile"	"heroes/phantom_assassin/voltex_3_e.lua"
+						"Function"		"voltex_azure_leap_landing"
 					}
 					"FireSound"
 					{
@@ -53255,132 +53308,8 @@
 						{
 							"RunScript"
 							{
-								"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
-								"Function"		"target_effect"
-								"stun_duration"	"%land_stun_duration"
-								"land_damage"	"%land_damage"
-								"target"		"TARGET"
-							}
-						}
-					}
-				}
-			}
-			"modifier_electric_jump_lift"
-			{
-				"Duration"		"0.5"
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"OverrideAnimation"	"ACT_DOTA_IDLE"
-				"ThinkInterval"  "0.03"
-				"EffectName"	"particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex_debuff.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
-						"Function"		"jump_think"
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
-						"Function"		"begin_drop"
-					}
-				}
-
-			}
-			"modifier_electric_jump_fall"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"1"
-				"Duration"	"5"
-				"OverrideAnimation"	"ACT_DOTA_IDLE"
-				"ThinkInterval"  "0.03"
-				"EffectName"	"particles/units/heroes/hero_batrider/batrider_flaming_lasso_electric_cloud.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_zuus/zeus_loadout.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "CASTER"
-					}
-				}
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
-						"Function"		"falling_think"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
-						"Function"		"drop_end"
-					}
-					"FireSound"
-					{
-						"EffectName"	"Hero_Zuus.GodsWrath.Target"
-						"Target"		"CASTER"
-					}
-					"FireEffect"
-					{
-						"EffectName"	"particles/units/heroes/hero_disruptor/disruptor_thunder_strike_bolt.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "CASTER"
-
-						"ControlPoints"
-			            {
-			            	"00"	"CASTER"
-			            	"01"	"%land_radius 0 0"
-			            	"03"	"0 0 0"
-			            }
-					}
-
-					"DestroyTrees"
-			        {
-			        	"Center"	"CASTER"
-			        	"Radius"	"%land_radius"
-			        }
-					"ActOnTargets"
-					{
-						"Target"
-						{
-							"Center"  	"TARGET"
-							"Radius" 	"%land_radius"
-							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-						}
-
-						"Action"
-						{
-							"RunScript"
-							{
-								"ScriptFile"	"heroes/phantom_assassin/electric_jump.lua"
-								"Function"		"target_effect"
+								"ScriptFile"	"heroes/phantom_assassin/voltex_3_e.lua"
+								"Function"		"voltex_azure_leap_actontargets"
 								"stun_duration"	"%land_stun_duration"
 								"land_damage"	"%land_damage"
 								"target"		"TARGET"
@@ -53408,8 +53337,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/phantom_assassin/voltex_runes"
-						"Function"		"b_c_think"
+						"ScriptFile"	"heroes/phantom_assassin/voltex_3_e.lua"
+						"Function"		"voltex_rune_e_2_think"
 						"Target"		"CASTER"
 					}
 				}
@@ -53429,7 +53358,7 @@
 		}
 	}
 
-	"heavens_charge"
+	"voltex_rune_e_3_heavens_charge"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -53464,14 +53393,14 @@
 		{
 			"RunScript"
 			{
-        		"ScriptFile"	"heroes/phantom_assassin/heavens_charge"
-        		"Function"		"heaven_charge_start"
+        		"ScriptFile"	"heroes/phantom_assassin/voltex_3_e.lua"
+        		"Function"		"voltex_rune_e_3_heavens_charge_onspellstart"
         		"Target"		"POINT"
 			}
 		}
 		"Modifiers"
 		{
-			"modifier_heavens_charge_falling"
+			"modifier_voltex_rune_e_3_heavens_charge_falling"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -53494,8 +53423,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/phantom_assassin/heavens_charge"
-						"Function"		"heaven_charge_fall_think"
+						"ScriptFile"	"heroes/phantom_assassin/voltex_3_e.lua"
+						"Function"		"voltex_rune_e_3_heavens_charge_falling_think"
 					}
 				}
 				"States"
@@ -53507,7 +53436,7 @@
 		}
 	}
 
-	"static_field"
+	"voltex_static_field"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"	"ability_datadriven"
@@ -53560,8 +53489,8 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/phantom_assassin/static_field.lua"
-				"Function"		"begin_static_channel"
+				"ScriptFile"	"scripts/vscripts/heroes/phantom_assassin/voltex_4_r.lua"
+				"Function"		"voltex_static_field_onspellstart"
 			}
 		}
 
@@ -53581,8 +53510,8 @@
 
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/phantom_assassin/static_field.lua"
-				"Function"		"begin_static_field"
+				"ScriptFile"	"scripts/vscripts/heroes/phantom_assassin/voltex_4_r.lua"
+				"Function"		"voltex_static_field_onchannelsucceeded"
 				"num_sparks"	"%num_sparks"
 			}
 
@@ -53612,8 +53541,8 @@
 			"DeleteOnHit"	"0"
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/phantom_assassin/static_field.lua"
-				"Function"		"spark_hit"
+				"ScriptFile"	"scripts/vscripts/heroes/phantom_assassin/voltex_4_r.lua"
+				"Function"		"voltex_static_field_spark_hit"
 				"Target"		"TARGET"
 				"damage"		"%damage"
 			}
@@ -53688,7 +53617,7 @@
 				"IsDebuff"			"0"
 				"IsPurgable"		"0"
 			}
-			"modifier_static_field_post_mitigation"
+			"modifier_voltex_static_field_post_mitigation"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
@@ -53715,255 +53644,6 @@
 		}
 	}
 
-	"thunder_strike"//unused
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"razor_plasma_field"
-		"AbilityCastRange"	"1000"
-		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"14.0"
-		"AbilityChannelTime"	"2.0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
-		"AbilityDamage"	"%damage"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		"RequiredLevel"          "1"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "6"
-		"precache"
-		{
-			"particle"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
-			"particle"  "particles/units/heroes/hero_rhasta/forked_lightning_old.vpcf"
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
-			"particle" "particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf"
-			"particle"	"particles/test_particle/damage_immunity.vpcf"
-		}
-
-		"AbilityManaCost"	"0"
-		"SideShop"	"1"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-			"FireSound"
-			{
-				"EffectName"	"Hero_Razor.Storm.Cast"
-				"Target"	"CASTER"
-			}
-			"AttachEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"EffectRadius"	"%radius"
-				"EffectDurationScale"	"1"
-				"EffectLifeDurationScale"	"1"
-				"EffectColorA"	"200 200 0"
-				"EffectColorB"	"200 200 0"
-				"Target"	"CASTER"
-			}
-		}
-
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-			"AttachEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"EffectRadius"	"%radius"
-				"EffectDurationScale"	"1"
-				"EffectLifeDurationScale"	"1"
-				"EffectColorA"	"200 200 0"
-				"EffectColorB"	"200 200 0"
-				"Target"	"CASTER"
-			}
-
-			"Knockback"
-			{
-				"Center"	"CASTER"
-				"Target"
-				{
-					"Center"	"CASTER"
-					"Radius"	"%radius"
-					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				}
-
-				"Duration"	"%duration"
-				"Distance"	"%distance/2"
-				"Height"	"%height"
-			}
-
-			"Knockback"
-			{
-				"Center"	"CASTER"
-				"Target"
-				{
-					"Center"	"CASTER"
-					"Radius"	"%radius/2"
-					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				}
-
-				"Duration"	"%duration"
-				"Distance"	"%distance"
-				"Height"	"%height"
-			}
-
-			"FireSound"
-			{
-				"EffectName"	"Hero_Razor.Storm.Cast"
-				"Target"	"CASTER"
-			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"scripts/vscripts/heroes/phantom_assassin/thunder_strike.lua"
-				"Function"		"begin_strike"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/phantom_assassin/voltex_runes"
-				"Function"		"r_1"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/phantom_assassin/voltex_runes"
-				"Function"		"r_2"
-			}
-
-		}
-
-		"OnChannelFinish"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"Modifiers"
-		{
-			"modifier_channel_start"
-			{
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"IsHidden"	"1"
-						"EffectName"	"particles/units/heroes/hero_rhasta/forked_lightning_old.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"	"CASTER"
-						"EffectRadius"	"%radius"
-						"EffectColorA"	"255 0 0"
-						"EffectColorB"	"255 0 0"
-						"ControlPoints"
-						{
-							"00"	"50 100 5"
-						}
-
-					}
-
-				}
-
-			}
-			"modifier_thunder_clap"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-
-				"EffectName"		"particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap_debuff.vpcf"
-				"EffectAttachType"	"follow_origin"
-
-				"StatusEffectName" 		"particles/status_fx/status_effect_brewmaster_thunder_clap.vpcf"
-				"StatusEffectPriority"  "10"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-50"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
-				}
-
-				"OnCreated"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Hero_Brewmaster.ThunderClap.Target"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-
-		}
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"duration"	"0.5"
-			}
-
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"600 800 1000 1200"
-			}
-
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"radius"	"550 525 550 600"
-			}
-
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"distance"	"400 500 600 700"
-			}
-
-			"05"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"height"	"100 125 150 175"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"ring_damage"				"160 250 330 440 500 610"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"no_of_rings"				"3 4 5 6 7 8"
-			}
-
-		}
-	}
-
-
 
 
 	"voltex_rune_q_1"
@@ -53987,7 +53667,6 @@
 			"modifier_voltex_rune_q_1_buff"
 			{
 				"Passive"	"0"
-				"Duration"  "5"
 				"IsHidden"	"0"
 				"Properties"
 				{
@@ -54031,12 +53710,13 @@
 		"AbilityTextureName"	"slardar_amplify_damage"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"4.0"
+				"property_one"			"4"
 			}
 			"02"
 			{
@@ -54046,7 +53726,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"				"4"
+				"element_one"			"4"
 			}
 			"04"
 			{
@@ -54067,7 +53747,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-4.0"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-4"
 				}
 			}
 		}
@@ -54119,87 +53799,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"2"
 			}
-		}
-	}
-
-	"voltex_rune_w_1_thunder_stun"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"luna_lucent_beam"
-
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0"
-		"AOERadius"						"%aoe"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8 7 6 5"
-		"AbilityDuration"				"%light_strike_array_stun_duration"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"75"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
+			"03"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"aoe"							"400"
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"4"
 			}
-
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"duration"						"0.5"
-			}
-		}
-
-		"OnSpellStart"
-		{
-
-			"FireEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_disruptor/disruptor_thunder_strike_bolt.vpcf"
-				"EffectAttachType"	"start_at_customorigin"
-				"TargetPoint"		"POINT"
-
-				"ControlPoints"
-	            {
-	            	"01"	"%aoe 0 0"
-	            	"03"	"0 0 0"
-	            }
-			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/phantom_assassin/voltex_runes.lua"
-				"Function"		"a_b_thunder_stun"
-				"Target"		"POINT"
-				"Radius"		"%aoe"
-				"Damage"		"%damage"
-			}
-
-			"DestroyTrees"
-	        {
-	        	"Target"	"POINT"
-	        	"Radius"	"%aoe"
-	        }
 		}
 	}
 
@@ -54222,6 +53826,16 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_two"			"45"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_three"		"6"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_four"			"10"
 			}
 		}
 		"Modifiers"
@@ -54262,7 +53876,12 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"				"4"
+				"base_ability"			"2"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"4"
 			}
 		}
 	}
@@ -54318,32 +53937,6 @@
 				"property_two_base"		"40"
 			}
 		}
-		"Modifiers"
-		{
-			"modifier_voltex_rune_e_1_remnant"
-			{
-				"IsBuff"		"1"
-				"IsPurgable"	"0"
-				"IsHidden"		"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"300"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/voltex_runes.lua"
-						"Function"		"illusion_end"
-					}
-				}
-			}
-		}
 	}
 
 	"voltex_rune_e_2"
@@ -54385,7 +53978,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"				"4"
+				"element_one"			"4"
 			}
 		}
 		"Modifiers"
@@ -54428,27 +54021,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"				"4"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_voltex_rune_e_3"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"ThinkInterval"  "0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/voltex_runes.lua"
-						"Function"		"rune_e_3_think"
-						"Target"		"TARGET"
-					}
-				}
+				"element_one"			"4"
 			}
 		}
 	}
@@ -54507,94 +54080,13 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"		"4"
+				"base_ability"			"4"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"				"4"
+				"element_one"			"4"
 			}
-		}
-	}
-
-	"voltex_rune_r_1_lightning_blast"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"luna_lucent_beam"
-
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0"
-		"AOERadius"						"%aoe"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8 7 6 5"
-		"AbilityDuration"				"%light_strike_array_stun_duration"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"aoe"							"150"
-			}
-
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage"						"1000"
-			}
-		}
-
-		"OnSpellStart"
-		{
-
-			"FireEffect"
-			{
-				"EffectName"	"particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf"
-				"EffectAttachType"	"start_at_customorigin"
-				"TargetPoint"		"POINT"
-
-				"ControlPoints"
-	            {
-	            	"01"	"%aoe 0 0"
-	            	"03"	"0 0 0"
-	            }
-			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/phantom_assassin/voltex_runes.lua"
-				"Function"		"a_d_lightning_damage"
-				"Target"		"POINT"
-				"Radius"		"%aoe"
-				"Damage"		"%damage"
-			}
-
-			"DestroyTrees"
-	        {
-	        	"Target"	"POINT"
-	        	"Radius"	"%aoe"
-	        }
 		}
 	}
 
@@ -54622,12 +54114,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-15"
+				"property_two"			"15"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"				"4"
+				"element_one"			"4"
 			}
 			"05"
 			{
@@ -54643,28 +54135,12 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/voltex_runes.lua"
-						"Function"		"rune_unit_2_think"
-					}
-				}
-			}
-			"modifier_voltex_rune_r_2_rune_effect"
-			{
-				"Passive"			"1"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"OnAttackLanded"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/phantom_assassin/voltex_runes.lua"
-						"Function"		"b_d_attack"
+						"ScriptFile"	"heroes/phantom_assassin/volex_4_r.lua"
+						"Function"		"voltex_rune_r_2_onattacklanded"
 					}
 				}
 			}
@@ -54675,90 +54151,9 @@
 				"IsDebuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_two"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"
 				}
 			}
-		}
-	}
-
-	"voltex_rune_r_2_thunder_stun"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"luna_lucent_beam"
-
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0"
-		"AOERadius"						"%aoe"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8 7 6 5"
-		"AbilityDuration"				"%light_strike_array_stun_duration"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"75"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"aoe"							"400"
-			}
-
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"duration"						"0.5"
-			}
-		}
-
-		"OnSpellStart"
-		{
-
-			"FireEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_disruptor/disruptor_thunder_strike_bolt.vpcf"
-				"EffectAttachType"	"start_at_customorigin"
-				"TargetPoint"		"POINT"
-
-				"ControlPoints"
-	            {
-	            	"01"	"%aoe 0 0"
-	            	"03"	"0 0 0"
-	            }
-			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/phantom_assassin/voltex_runes.lua"
-				"Function"		"b_d_lightning_stun"
-				"Target"		"POINT"
-				"Radius"		"%aoe"
-				"Damage"		"%damage"
-			}
-
-			"DestroyTrees"
-	        {
-	        	"Target"	"POINT"
-	        	"Radius"	"%aoe"
-	        }
 		}
 	}
 
@@ -54794,7 +54189,7 @@
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "600"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"			"600"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"120"
 					"MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS"		"1200"
 				}
@@ -54803,8 +54198,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/phantom_assassin/static_field.lua"
-						"Function"		"c_d_think"
+						"ScriptFile"	"heroes/phantom_assassin/voltex_4_r.lua"
+						"Function"		"voltex_rune_r_3_think"
 						"target"		"TARGET"
 					}
 				}
@@ -54812,8 +54207,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/phantom_assassin/static_field.lua"
-						"Function"		"c_d_apply"
+						"ScriptFile"	"heroes/phantom_assassin/voltex_4_r.lua"
+						"Function"		"voltex_rune_r_3_apply"
 						"target"		"TARGET"
 					}
 					"AttachEffect"
@@ -54823,15 +54218,15 @@
 						"Target"            "TARGET"
 						"ControlPointEntities"
 						{
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
+							"TARGET"	"attach_hitloc"
+							"TARGET"	"attach_hitloc"
+							"TARGET"	"attach_hitloc"
+							"TARGET"	"attach_hitloc"
+							"TARGET"	"attach_hitloc"
+							"TARGET"	"attach_hitloc"
+							"TARGET"	"attach_hitloc"
+							"TARGET"	"attach_hitloc"
+							"TARGET"	"attach_hitloc"
 						}
 					}
 				}
@@ -54839,8 +54234,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/phantom_assassin/static_field.lua"
-						"Function"		"c_d_end"
+						"ScriptFile"	"heroes/phantom_assassin/voltex_4_r.lua"
+						"Function"		"voltex_rune_r_3_end"
 						"target"		"TARGET"
 					}
 				}
@@ -54852,8 +54247,8 @@
 				"IsHidden"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "3"
-				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "2400"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"3"
+				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"2400"
 				}
 			}
 			"modifier_voltex_rune_r_3_buff_glyph_5_1"
@@ -54884,12 +54279,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"10"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.2"
 			}
 		}
 		"Modifiers"
@@ -54907,7 +54302,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_one"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.2"
 				}
 			}
 		}
@@ -127374,7 +126769,7 @@
 					{
 						"ScriptFile"	"worlds/arena/arena_ai/target_dummy"
 						"Function"		"target_dummy_take_damage"
-						"target"		"TARGET"
+						"target"		"ATTACKER"
 					}
 				}
 			}

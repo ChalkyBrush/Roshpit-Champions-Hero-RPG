@@ -7229,6 +7229,385 @@
         "item_property_mountain_protector_immortal_weapon3"                             "Mountain Pitch"
         "property_mountain_protector_immortal_weapon3_description"                      "Камень от (E) @Ability3 падает сверху в указанную точку. Время перезарядки способности сокращено на @special_property1%."
 
+		//Abilities
+
+		"omni_mace_effect"													"Omni Mace Effect"
+		"omniro_element_help_disable"												"Click to set this as current element.<br>Alt-Click to disable this element from Omniro's rotation."
+		"omniro_element_help_enable"												"Click to set this as current element.<br>Alt-Click to enable this element into Omniro's rotation."
+
+		"omniro_normal_special_description"									"<br>No Special Effect"
+
+
+		"DOTA_Tooltip_ability_omniro_omni_mace"								"Omni Mace"
+		"DOTA_Tooltip_ability_omniro_omni_mace_Description"					"Grants an additional effect when attacking an enemy. Striking an enemy cycles to the next available element. This ability can be toggled on to lock the current element. Hover over an element on Omniro's panel to see its effect (not all effects can fit in this ability's tooltip). All effects scale with Omni Mace's level as well as that element's rune level."	
+		"DOTA_Tooltip_ability_omniro_omni_mace_damage_mult"					"% EXTRA DAMAGE INSTANCE BASED ON ATTACK POWER:"
+
+		"omniro_fire_special_description"									"Applies a <font color='#ccff66'>12</font> second buff that increases base attack damage."
+		"omniro_fire_special_a_pretext"										"BASE ATTACK DAMAGE: "		
+
+		"DOTA_Tooltip_modifier_omnimace_fire_buff"							"Omni Mace: Fire"	
+		"DOTA_Tooltip_modifier_omnimace_fire_buff_Description"				"Increased Base Attack damage"							
+
+		"omniro_earth_special_description"									"Applies a <font color='#ccff66'>14</font> second buff that increases armor and magic resistance."
+		"omniro_earth_special_a_pretext"									"BONUS ARMOR:"		
+		"omniro_earth_special_b_pretext"									"BONUS MAGIC RESISTANCE:"	
+
+		"DOTA_Tooltip_modifier_omnimace_earth_buff"							"Omni Mace: Earth"
+		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"Increased armor and "									
+
+		"omniro_lightning_special_description"									"Deals an extra instance of damage based on target's current HP."
+		"omniro_lightning_special_a_pretext"										"EXTRA DAMAGE % OF TARGET'S CURRENT HP: "												
+
+		"omniro_poison_special_description"									"Applies a 2 second DoT that deals damage every 0.5 seconds. Deals <font color='#ccff66'>10</font>x damage when standing in orb effect's poison puddle."
+		"omniro_poison_special_a_pretext"										"DOT DAMAGE % OF ATTACK POWER: "
+
+		"DOTA_Tooltip_modifier_omnimace_poison_debuff"						"Omni Mace: Poison"
+		"DOTA_Tooltip_modifier_omnimace_poison_debuff_Description"			"Taking damage on 0.5 second interval"
+
+		"omniro_time_special_description"									"Applies a <font color='#ccff66'>10</font> second buff that increases attack speed and movespeed."
+		"omniro_time_special_a_pretext"									"MOVESPEED:"		
+		"omniro_time_special_b_pretext"									"ATTACK SPEED:"		
+
+		"DOTA_Tooltip_modifier_omnimace_time_buff"							"Omni Mace: Temporal"
+		"DOTA_Tooltip_modifier_omnimace_time_buff_Description"				"Increased Attack Speed and Movespeed"
+
+		"omniro_holy_special_description"									"Grants Magic Immunity for a short duration."
+		"omniro_holy_special_a_pretext"										"MAGIC IMMUNITY DURATION: "		
+
+		"DOTA_Tooltip_modifier_omnimace_holy_buff"							"Omni Mace: Holy"
+		"DOTA_Tooltip_modifier_omnimace_holy_buff_Description"				"Magic Immune"							
+
+		"omniro_cosmic_special_description"									"Applies a <font color='#ccff66'>15</font> second buff that increases Max Health."
+		"omniro_cosmic_special_a_pretext"										"MAX HEALTH:"	
+
+		"DOTA_Tooltip_modifier_omnimace_cosmic_buff"						"Omni Mace: Cosmic"		
+		"DOTA_Tooltip_modifier_omnimace_cosmic_buff_Description"			"Increased Max Health"								
+
+		"omniro_ice_special_description"									"Deals an additional instance of damage in a small <font color='#ccff66'>220</font> AOE that slows enemies for <font color='#ccff66'>8</font> seconds."
+		"omniro_ice_special_a_pretext"									"MOVESPEED REDUCTION:"		
+		"omniro_ice_special_b_pretext"									"ATTACK SPEED REDUCTION:"	
+
+		"DOTA_Tooltip_modifier_ice_debuff"								"Omni Mace: Ice"	
+		"DOTA_Tooltip_modifier_ice_debuff_Description"					"Movespeed and Attack Speed slowed"									
+
+		"omniro_arcane_special_description"									"Drains <font color='#ccff66'>20</font>% of max mana to deal an additional instance of damage."
+		"omniro_arcane_special_a_pretext"										"DAMAGE MULT PER MANA USED:"							
+
+		"omniro_shadow_special_description"									"Deal an additional amplified instance of damage and apply a debuff to the target that makes removes their armor reduction for <font color='#ccff66'>12</font> seconds."
+		"omniro_shadow_special_a_pretext"										"% EXTRA DAMAGE MULTIPLIER:"		
+
+		"DOTA_Tooltip_modifier_omniro_shadow_debuff"					"Omni Mace: Shadow"		
+		"DOTA_Tooltip_modifier_omniro_shadow_debuff_Description"		"Armor Negated"													
+
+		"omniro_wind_special_description"									"Applies a <font color='#ccff66'>14</font> second buff that increases agility."
+		"omniro_wind_special_a_pretext"										"BONUS AGILITY: "	
+
+		"DOTA_Tooltip_modifier_omnimace_wind_buff"						"Omni Mace: Wind"
+		"DOTA_Tooltip_modifier_omnimace_wind_buff_Description"			"Increased Agility"									
+
+		"omniro_ghost_special_description"									"Grants 100% evasion for a short duration."
+		"omniro_ghost_special_a_pretext"										"EVASION DURATION: "
+
+		"DOTA_Tooltip_modifier_omnimace_ghost_buff"						"Omni Mace: Ghost"	
+		"DOTA_Tooltip_modifier_omnimace_ghost_buff_Description"			"100%% Evasion"											
+
+		"omniro_water_special_description"									"Heal a flat amount and gain additional health regen for <font color='#ccff66'>14</font> seconds."
+		"omniro_water_special_a_pretext"									"IMMEDIATE HEAL:"		
+		"omniro_water_special_b_pretext"									"BONUS HEALTH REGEN:"		
+
+		"DOTA_Tooltip_modifier_omnimace_water_buff"							"Omni Mace: Water"	
+		"DOTA_Tooltip_modifier_omnimace_water_buff_Description"				"Increased Health Regen"							
+
+		"omniro_demon_special_description"									"Applies a <font color='#ccff66'>10</font> second buff that provides green bonus attack damage."
+		"omniro_demon_special_a_pretext"										"% DAMAGE BONUS: "		
+
+		"DOTA_Tooltip_modifier_omnimace_demon_buff"							"Omni Mace: Demon"	
+		"DOTA_Tooltip_modifier_omnimace_demon_buff_Description"				"Increased Bonus Attack Damage"								
+
+		"omniro_nature_special_description"									"Target is rooted and takes damage every 1 second of root time."
+		"omniro_nature_special_a_pretext"									"ROOT DURATION:"		
+		"omniro_nature_special_b_pretext"									"ROOT DAMAGE PER SECOND BASED ON % OF ATTACK POWER:"		
+
+		"DOTA_Tooltip_modifier_omnimace_nature_debuff"						"Omni Mace: Nature"
+		"DOTA_Tooltip_modifier_omnimace_nature_debuff_Description"			"Rooted and taking damage each send"		
+
+		"omniro_undead_special_description"									"Target gains a debuff that disables healing. Applies a buff for <font color='#ccff66'>12</font> seconds that increases post-mitigation damage."
+		"omniro_undead_special_a_pretext"									"HEALING DISBLE DURATION:"		
+		"omniro_undead_special_b_pretext"									"POST MITIGATION BONUS %:"	
+
+		"omniro_dragon_special_description"									"Applies a <font color='#ccff66'>12</font> second buff that provides increase to all elemental damage."
+		"omniro_dragon_special_a_pretext"									"ELEMENTAL DAMAGE AMP:"		
+
+		"DOTA_Tooltip_modifier_omniro_dragon_buff"							"Omni Mace: Dragon"
+		"DOTA_Tooltip_modifier_omniro_dragon_buff_Description"				"Increased elemental damage"
+
+		"DOTA_Tooltip_modifier_omnimace_undead_debuff"						"Omni Mace: Undead"	
+		"DOTA_Tooltip_modifier_omnimace_undead_debuff_Description"			"Disabled Healing"
+
+		"DOTA_Tooltip_modifier_omnimace_undead_buff"						"Omni Mace: Undead"	
+		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"Increased Post-Mitigation Damage"
+
+		"omniro_orb_effect_title"											"Orb Effect"
+
+		"omniro_normal_orb_description"										"Creates a cleave affect that does big damage based on attack power"
+		"omniro_normal_orb_a_pretext"										"ATTACK POWER MULTIPLE:"
+
+		"omniro_fire_orb_description"										"Creates a ring of fire that damages enemies in a <font color='#ccff66'>500</font> AOE"
+		"omniro_fire_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
+
+		"omniro_earth_orb_description"										"Creates an earthquake that damages and stuns enemies in a <font color='#ccff66'>340</font> AOE"
+		"omniro_earth_orb_a_pretext"										"DAMAGE x STRENGTH:"				
+		"omniro_earth_orb_b_pretext"										"STUN DURATION:"			
+
+		"omniro_lightning_orb_description"										"Struck target releases a chain lightning that bounces <font color='#ccff66'>3</font> times. Gains an extra bounce for each of lightning's maximum charges."
+		"omniro_lightning_orb_a_pretext"										"DAMAGE x AGILITY:"			
+
+		"omniro_poison_orb_description"										"Creates a <font color='#ccff66'>340</font> radius poison puddle that lasts for <font color='#ccff66'>9</font> seconds. Enemies inside are damaged every 0.5 seconds"
+		"omniro_poison_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
+
+		"DOTA_Tooltip_modifier_omniro_poison_pool_enemy"					"Omni Orb: Poison"
+		"DOTA_Tooltip_modifier_omniro_poison_pool_enemy_Description"		"Taking damage each 0.5 seconds"
+
+		"omniro_time_orb_description"									"All enemies in a <font color='#ccff66'>600</font> radius around the target are frozen for a duration. When the freeze ends, they take damage based on Omniro's attack power."
+		"omniro_time_orb_a_pretext"										"DAMAGE AS % OF ATTACK POWER:"				
+		"omniro_time_orb_b_pretext"										"FREEZE DURATION:"
+
+		"DOTA_Tooltip_modifier_omniro_time_freeze"						"Omni Orb: Temporal"
+		"DOTA_Tooltip_modifier_omniro_time_freeze_Description"			"Frozen in time. Will take damage upon end of freeze"
+
+		"omniro_holy_orb_description"									"All enemies in a <font color='#ccff66'>550</font> radius around Omniro take damage based on intelligence and armor. Omniro and his allies are healed for <font color='#ccff66'>2</font>% of the damage."
+		"omniro_holy_orb_a_pretext"										"DAMAGE x INTELLIGENCE:"				
+		"omniro_holy_orb_b_pretext"										"DAMAGE x ARMOR:"
+
+		"omniro_cosmic_orb_description"									"Drops a comet on the target that deals damage in <font color='#ccff66'>260</font> radius on a 0.45 second delay. Damage is based on attack power and current health."
+		"omniro_cosmic_orb_a_pretext"										"DAMAGE % ATTACK:"				
+		"omniro_cosmic_orb_b_pretext"										"DAMAGE x MAX HEALTH:"
+
+		"omniro_ice_orb_description"									"Creates a larger ice blast with a base radius of <font color='#ccff66'>380</font> and applies basic ice mace's slow. Damage is based on all attributes, and the lowest attribute is multiplied by <font color='#ccff66'>10</font>x."
+		"omniro_ice_orb_a_pretext"										"DAMAGE x ALL ATTRIBUTES:"				
+		"omniro_ice_orb_b_pretext"										"ADDITIONAL RADIUS:"
+
+		"omniro_arcane_orb_description"										"Enemies in <font color='#ccff66'>600</font> AOE are hit by <font color='#ccff66'>2</font> pulses of the basic proc and lose magic resist for <font color='#ccff66'>10</font> seconds. Pulse count is increased by Arcane's maximum charges."
+		"omniro_arcane_orb_a_pretext"										"ADDITIONAL RADIUS:"				
+		"omniro_arcane_orb_b_pretext"										"MAGIC RESIST LOSS:"
+
+		"DOTA_Tooltip_modifier_arcane_orb_magic_resist"					"Omni Orb: Arcane"
+		"DOTA_Tooltip_modifier_arcane_orb_magic_resist_Description"		"Reduced Magic Resistance"
+
+		"omniro_shadow_orb_description"									"Creates a splash of shadow in <font color='#ccff66'>500</font> and applies the armor disabling debuff. Deals damage based on attack power."
+		"omniro_shadow_orb_a_pretext"										"DAMAGE x ATTACK:"				
+		"omniro_shadow_orb_b_pretext"										"ADDITIONAL RADIUS:"
+
+		"omniro_wind_orb_description"									"A burst of wind radiates from the target, dealing damage based on attack power and agility and pushing them away."
+		"omniro_wind_orb_a_pretext"										"DAMAGE x ATTACK:"				
+		"omniro_wind_orb_b_pretext"										"DAMAGE x AGILITY:"
+
+		"omniro_ghost_orb_description"										"Creates a ghastly <font color='#ccff66'>400</font> radius shroud that disarms enemies within and deals damage each second. Base duration is <font color='#ccff66'>400</font> second."
+		"omniro_ghost_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
+		"omniro_ghost_orb_b_pretext"											"ADDITIONAL CLOUD DURATION:"
+
+		"DOTA_Tooltip_modifier_ghost_orb_effect"						"Omni Orb: Ghost"
+		"DOTA_Tooltip_modifier_ghost_orb_effect_Description"			"Disarmed"
+
+		"omniro_water_orb_description"										"A torrent of water knocks up enemies in a <font color='#ccff66'>270</font> radius. While they are launcing into the air, enemies are stunned."
+		"omniro_water_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
+
+		"omniro_demon_orb_description"										"Deals a large instance of damage that ignores Steadfast."
+		"omniro_demon_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
+
+		"omniro_nature_orb_description"										"Applies a shield that absorbs instances of damage. Base maximum stacks is <font color='#ccff66'>2</font> and scales with levels. Lasts <font color='#ccff66'>10</font> seconds."
+		"omniro_nature_orb_a_pretext"											"CHANCE TO ADD SHIELD STACK %:"	
+		"omniro_nature_orb_b_pretext"											"ADDITIONAL MAX SHIELD STACKS:"
+
+		"DOTA_Tooltip_modifier_omniro_nature_shield"						"Omni Orb: Nature"
+		"DOTA_Tooltip_modifier_omniro_nature_shield_Description"			"Absorbing damage"
+
+		"omniro_undead_orb_description"										"Throws a skull behind the target that damages everything in its path and applies the debuff that makes them unable to heal."
+		"omniro_undead_orb_a_pretext"											"DAMAGE % ATTACK POWER:"	
+		"omniro_undead_orb_b_pretext"											"DAMAGE x CURRENT HEALTH:"
+
+		"omniro_dragon_orb_description"										"Recharges all other elements to full."
+
+		"DOTA_Tooltip_ability_omniro_omni_orb"								"Omni Orb"
+		"DOTA_Tooltip_ability_omniro_omni_orb_Description"					"While toggled on, triggers an additional effect on cast based on the currently active element. The effect only triggers if the element has active charges. Charges are displayed on Omniro's elements panel. Max Charges can be increased by leveling up the elements through runes. Base recharge time is 10 seconds per charge. Each element's Orb Effect can be seen by hovering over an element on Omniro's elements panel."	
+
+		"DOTA_Tooltip_ability_omniro_chrono_path"								"Chrono Path"
+		"DOTA_Tooltip_ability_omniro_chrono_path_Description"					"Pockets of warped spacetime line up in a row in from of Omniro. While omniro is standing in the fields, he has en enforced minimum movespeed, free pathing and cannot be attacked."
+		"DOTA_Tooltip_ability_omniro_chrono_path_min_movespeed"						"MINIMUM MOVESPEED:"
+		"DOTA_Tooltip_ability_omniro_chrono_path_duration"						"DURATION:"
+
+		"DOTA_Tooltip_modifier_omniro_in_chrono_path"							"Chrono Path"
+		"DOTA_Tooltip_modifier_omniro_in_chrono_path_Description"				"Can't be attacked and Free Pathing"
+
+		"DOTA_Tooltip_ability_omniro_dimension_stalker"								"Dimension Stalker"
+		"DOTA_Tooltip_ability_omniro_dimension_stalker_Description"					"After a 1.8 second target acquisition period, Omniro triggers a series of attacks on random enemies in the ability's radius. While channeling, Omniro is immune to magic."
+		"DOTA_Tooltip_ability_omniro_dimension_stalker_radius"						"RADIUS:"
+		"DOTA_Tooltip_ability_omniro_dimension_stalker_max_targets"					"MAX TARGETS:"
+
+    	"DOTA_Tooltip_ability_omniro_rune_q_1"							"[Q1] Omniro Fire"
+    	"DOTA_Tooltip_ability_omniro_rune_q_1_Description"				"Levels up Omniro's <font color=\"#EF4126\">Fire</font> element, which scales his Omni Mace and Omni Orb ability effects. Hover over the element on Omniro's element panel to view the specific values. Max Charges are increased for each whole number for the 'Max Charge Increase' property of this rune."
+    	"DOTA_Tooltip_ability_omniro_rune_q_1_property_one"				"Element Level"
+    	"DOTA_Tooltip_ability_omniro_rune_q_1_suffix"					""
+    	"DOTA_Tooltip_ability_omniro_rune_q_1_property_two"				"Max Charge Increase"
+    	"DOTA_Tooltip_ability_omniro_rune_q_1_suffix_two"				""
+
+    	"DOTA_Tooltip_ability_omniro_rune_w_1"							"[W1] Omniro Earth"
+    	"DOTA_Tooltip_ability_omniro_rune_w_1_Description"				"Levels up Omniro's <font color=\"#AF843D\">Earth</font> element, which scales his Omni Mace and Omni Orb ability effects. Hover over the element on Omniro's element panel to view the specific values. Max Charges are increased for each whole number for the 'Max Charge Increase' property of this rune."
+    	"DOTA_Tooltip_ability_omniro_rune_w_1_property_one"				"Element Level"
+    	"DOTA_Tooltip_ability_omniro_rune_w_1_suffix"					""
+    	"DOTA_Tooltip_ability_omniro_rune_w_1_property_two"				"Max Charge Increase"
+    	"DOTA_Tooltip_ability_omniro_rune_w_1_suffix_two"				""
+
+    	"DOTA_Tooltip_ability_omniro_rune_e_1"							"[E1] Omniro Lightning"
+    	"DOTA_Tooltip_ability_omniro_rune_e_1_Description"				"Levels up Omniro's <font color=\"#5CCDF9\">Lightning</font> element, which scales his Omni Mace and Omni Orb ability effects. Hover over the element on Omniro's element panel to view the specific values. Max Charges are increased for each whole number for the 'Max Charge Increase' property of this rune."
+    	"DOTA_Tooltip_ability_omniro_rune_e_1_property_one"				"Element Level"
+    	"DOTA_Tooltip_ability_omniro_rune_e_1_suffix"					""
+    	"DOTA_Tooltip_ability_omniro_rune_e_1_property_two"				"Max Charge Increase"
+    	"DOTA_Tooltip_ability_omniro_rune_e_1_suffix_two"				""
+
+    	"DOTA_Tooltip_ability_omniro_rune_r_1"							"[R1] Omniro Poison"
+    	"DOTA_Tooltip_ability_omniro_rune_r_1_Description"				"Levels up Omniro's <font color=\"#37DD3D\">Poison</font> element, which scales his Omni Mace and Omni Orb ability effects. Hover over the element on Omniro's element panel to view the specific values. Max Charges are increased for each whole number for the 'Max Charge Increase' property of this rune."
+    	"DOTA_Tooltip_ability_omniro_rune_r_1_property_one"				"Element Level"
+    	"DOTA_Tooltip_ability_omniro_rune_r_1_suffix"					""
+    	"DOTA_Tooltip_ability_omniro_rune_r_1_property_two"				"Max Charge Increase"
+    	"DOTA_Tooltip_ability_omniro_rune_r_1_suffix_two"				""
+
+    	"DOTA_Tooltip_ability_omniro_rune_q_2"							"[Q2] Omniro Temporal"
+    	"DOTA_Tooltip_ability_omniro_rune_q_2_Description"				"Levels up Omniro's <font color=\"#B5FFB7\">Temporal</font> element, which scales his Omni Mace and Omni Orb ability effects. Hover over the element on Omniro's element panel to view the specific values. Max Charges are increased for each whole number for the 'Max Charge Increase' property of this rune."
+    	"DOTA_Tooltip_ability_omniro_rune_q_2_property_one"				"Element Level"
+    	"DOTA_Tooltip_ability_omniro_rune_q_2_suffix"					""
+    	"DOTA_Tooltip_ability_omniro_rune_q_2_property_two"				"Max Charge Increase"
+    	"DOTA_Tooltip_ability_omniro_rune_q_2_suffix_two"				""
+
+    	"DOTA_Tooltip_ability_omniro_rune_w_2"							"[W2] Omniro Holy"
+    	"DOTA_Tooltip_ability_omniro_rune_w_2_Description"				"Levels up Omniro's <font color=\"#F6FFB5\">Holy</font> element, which scales his Omni Mace and Omni Orb ability effects. Hover over the element on Omniro's element panel to view the specific values. Max Charges are increased for each whole number for the 'Max Charge Increase' property of this rune."
+    	"DOTA_Tooltip_ability_omniro_rune_w_2_property_one"				"Element Level"
+    	"DOTA_Tooltip_ability_omniro_rune_w_2_suffix"					""
+    	"DOTA_Tooltip_ability_omniro_rune_w_2_property_two"				"Max Charge Increase"
+    	"DOTA_Tooltip_ability_omniro_rune_w_2_suffix_two"				""
+
+    	"DOTA_Tooltip_ability_omniro_rune_e_2"							"[E2] Omniro Cosmic"
+    	"DOTA_Tooltip_ability_omniro_rune_e_2_Description"				"Levels up Omniro's <font color=\"#C25DFC\">Cosmic</font> element, which scales his Omni Mace and Omni Orb ability effects. Hover over the element on Omniro's element panel to view the specific values. Max Charges are increased for each whole number for the 'Max Charge Increase' property of this rune."
+    	"DOTA_Tooltip_ability_omniro_rune_e_2_property_one"				"Element Level"
+    	"DOTA_Tooltip_ability_omniro_rune_e_2_suffix"					""
+    	"DOTA_Tooltip_ability_omniro_rune_e_2_property_two"				"Max Charge Increase"
+    	"DOTA_Tooltip_ability_omniro_rune_e_2_suffix_two"				""
+
+    	"DOTA_Tooltip_ability_omniro_rune_r_2"							"[R2] Omniro Ice"
+    	"DOTA_Tooltip_ability_omniro_rune_r_2_Description"				"Levels up Omniro's <font color=\"#87D9FF\">Ice</font> element, which scales his Omni Mace and Omni Orb ability effects. Hover over the element on Omniro's element panel to view the specific values. Max Charges are increased for each whole number for the 'Max Charge Increase' property of this rune."
+    	"DOTA_Tooltip_ability_omniro_rune_r_2_property_one"				"Element Level"
+    	"DOTA_Tooltip_ability_omniro_rune_r_2_suffix"					""
+    	"DOTA_Tooltip_ability_omniro_rune_r_2_property_two"				"Max Charge Increase"
+    	"DOTA_Tooltip_ability_omniro_rune_r_2_suffix_two"				""
+
+    	"DOTA_Tooltip_ability_omniro_rune_q_3"							"[Q3] Omniro Arcane"
+    	"DOTA_Tooltip_ability_omniro_rune_q_3_Description"				"Levels up Omniro's <font color=\"#E1A2E8\">Arcane</font> element, which scales his Omni Mace and Omni Orb ability effects. Hover over the element on Omniro's element panel to view the specific values. Max Charges are increased for each whole number for the 'Max Charge Increase' property of this rune."
+    	"DOTA_Tooltip_ability_omniro_rune_q_3_property_one"				"Element Level"
+    	"DOTA_Tooltip_ability_omniro_rune_q_3_suffix"					""
+    	"DOTA_Tooltip_ability_omniro_rune_q_3_property_two"				"Max Charge Increase"
+    	"DOTA_Tooltip_ability_omniro_rune_q_3_suffix_two"				""
+
+    	"DOTA_Tooltip_ability_omniro_rune_w_3"							"[W3] Omniro Shadow"
+    	"DOTA_Tooltip_ability_omniro_rune_w_3_Description"				"Levels up Omniro's <font color=\"#7F4F84\">Shadow</font> element, which scales his Omni Mace and Omni Orb ability effects. Hover over the element on Omniro's element panel to view the specific values. Max Charges are increased for each whole number for the 'Max Charge Increase' property of this rune."
+    	"DOTA_Tooltip_ability_omniro_rune_w_3_property_one"				"Element Level"
+    	"DOTA_Tooltip_ability_omniro_rune_w_3_suffix"					""
+    	"DOTA_Tooltip_ability_omniro_rune_w_3_property_two"				"Max Charge Increase"
+    	"DOTA_Tooltip_ability_omniro_rune_w_3_suffix_two"				""
+
+    	"DOTA_Tooltip_ability_omniro_rune_e_3"							"[E3] Omniro Wind"
+    	"DOTA_Tooltip_ability_omniro_rune_e_3_Description"				"Levels up Omniro's <font color=\"#7AE2A7\">Wind</font> element, which scales his Omni Mace and Omni Orb ability effects. Hover over the element on Omniro's element panel to view the specific values. Max Charges are increased for each whole number for the 'Max Charge Increase' property of this rune."
+    	"DOTA_Tooltip_ability_omniro_rune_e_3_property_one"				"Element Level"
+    	"DOTA_Tooltip_ability_omniro_rune_e_3_suffix"					""
+    	"DOTA_Tooltip_ability_omniro_rune_e_3_property_two"				"Max Charge Increase"
+    	"DOTA_Tooltip_ability_omniro_rune_e_3_suffix_two"				""
+
+    	"DOTA_Tooltip_ability_omniro_rune_r_3"							"[R3] Omniro Ghost"
+    	"DOTA_Tooltip_ability_omniro_rune_r_3_Description"				"Levels up Omniro's <font color=\"#9ACCD1\">Ghost</font> element, which scales his Omni Mace and Omni Orb ability effects. Hover over the element on Omniro's element panel to view the specific values. Max Charges are increased for each whole number for the 'Max Charge Increase' property of this rune."
+    	"DOTA_Tooltip_ability_omniro_rune_r_3_property_one"				"Element Level"
+    	"DOTA_Tooltip_ability_omniro_rune_r_3_suffix"					""
+    	"DOTA_Tooltip_ability_omniro_rune_r_3_property_two"				"Max Charge Increase"
+    	"DOTA_Tooltip_ability_omniro_rune_r_3_suffix_two"				""
+
+    	"DOTA_Tooltip_ability_omniro_rune_q_4"							"[Q4] Omniro Water"
+    	"DOTA_Tooltip_ability_omniro_rune_q_4_Description"				"Levels up Omniro's <font color=\"#3894FF\">Water</font> element, which scales his Omni Mace and Omni Orb ability effects. Hover over the element on Omniro's element panel to view the specific values. Max Charges are increased for each whole number for the 'Max Charge Increase' property of this rune."
+    	"DOTA_Tooltip_ability_omniro_rune_q_4_property_one"				"Element Level"
+    	"DOTA_Tooltip_ability_omniro_rune_q_4_suffix"					""
+    	"DOTA_Tooltip_ability_omniro_rune_q_4_property_two"				"Max Charge Increase"
+    	"DOTA_Tooltip_ability_omniro_rune_q_4_suffix_two"				""
+
+    	"DOTA_Tooltip_ability_omniro_rune_w_4"							"[W4] Omniro Demon"
+    	"DOTA_Tooltip_ability_omniro_rune_w_4_Description"				"Levels up Omniro's <font color=\"#5B648C\">Demon</font> element, which scales his Omni Mace and Omni Orb ability effects. Hover over the element on Omniro's element panel to view the specific values. Max Charges are increased for each whole number for the 'Max Charge Increase' property of this rune."
+    	"DOTA_Tooltip_ability_omniro_rune_w_4_property_one"				"Element Level"
+    	"DOTA_Tooltip_ability_omniro_rune_w_4_suffix"					""
+    	"DOTA_Tooltip_ability_omniro_rune_w_4_property_two"				"Max Charge Increase"
+    	"DOTA_Tooltip_ability_omniro_rune_w_4_suffix_two"				""
+
+    	"DOTA_Tooltip_ability_omniro_rune_e_4"							"[E4] Omniro Nature"
+    	"DOTA_Tooltip_ability_omniro_rune_e_4_Description"				"Levels up Omniro's <font color=\"#69BC71\">Nature</font> element, which scales his Omni Mace and Omni Orb ability effects. Hover over the element on Omniro's element panel to view the specific values. Max Charges are increased for each whole number for the 'Max Charge Increase' property of this rune."
+    	"DOTA_Tooltip_ability_omniro_rune_e_4_property_one"				"Element Level"
+    	"DOTA_Tooltip_ability_omniro_rune_e_4_suffix"					""
+    	"DOTA_Tooltip_ability_omniro_rune_e_4_property_two"				"Max Charge Increase"
+    	"DOTA_Tooltip_ability_omniro_rune_e_4_suffix_two"				""
+
+    	"DOTA_Tooltip_ability_omniro_rune_r_4"							"[R4] Omniro Undead"
+    	"DOTA_Tooltip_ability_omniro_rune_r_4_Description"				"Levels up Omniro's <font color=\"#5C776E\">Undead</font> element, which scales his Omni Mace and Omni Orb ability effects. Hover over the element on Omniro's element panel to view the specific values. Max Charges are increased for each whole number for the 'Max Charge Increase' property of this rune."
+    	"DOTA_Tooltip_ability_omniro_rune_r_4_property_one"				"Element Level"
+    	"DOTA_Tooltip_ability_omniro_rune_r_4_suffix"					""
+    	"DOTA_Tooltip_ability_omniro_rune_r_4_property_two"				"Max Charge Increase"
+    	"DOTA_Tooltip_ability_omniro_rune_r_4_suffix_two"				""
+
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_00"		"Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_01"		"Element Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_02"		"Chrome Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_03"		"Charged Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_11"		"Orbital Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_12"		"Prismatic Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_13"		"Protonic Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_14"		"Multistorm Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_21"		"Maleficient Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_22"		"Multicore Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_23"		"Atomic Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_24"		"Partitioned Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_25"		"Hammer of Division"
+
+		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_1"           "Omnichromatic Hammer"
+		"item_property_omniro_immortal_weapon"                             "Multicrux"
+		"property_omniro_immortal_weapon_description"                      "Omniro's basic elemental mace effect triggers twice on each attack."
+
+		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_2"            "Supercharged Prism Hammer"
+		"item_property_omniro_immortal_weapon2"                             "Kaleidoscopic Reload"
+		"property_omniro_immortal_weapon2_description"                      "Element charges replenish <font color='#ccff66'>66</font>% faster."
+
+		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_3"            "Mace of the Drakken"
+		"item_property_omniro_immortal_weapon3"                             "Dragon Element"
+		"property_omniro_immortal_weapon3_description"                      "Activates Omniro's <font color=\"#3289C7\">Dragon</font> element. Dragon basic mace effect applies a buff that increases elemental damage. The orb effect refreshes the charges on all other elements."
+
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_1_1"		"Glyph of Consistency"
+		"item_rpc_omniro_glyph_1_1_description" 				"Standard element rotation will skip elements that don't have Orb Charges (unless all elements have no charges)."
+
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_2_1"		"Glyph of Chromatic Pathing"
+		"item_rpc_omniro_glyph_2_1_description" 				"Increases the path length for @Ability3 by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_3_1"		"Glyph of Planar Stalking"
+		"item_rpc_omniro_glyph_3_1_description" 				"@Ability4 deals @glyph_property1 additional strikes."
+
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_4_1"		"Glyph of Galvanization"
+		"item_rpc_omniro_glyph_4_1_description" 				"Adds @glyph_property1 levels to <font color=\"#DDDDDD\">Normal</font> Element and it recharges @glyph_property2% faster."
+
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_1"		"Glyph of Inspiration"
+		"item_rpc_omniro_glyph_5_1_description" 				"@glyph_property1 of the lowest level runes have @glyph_property2 extra orb charge (excluding <font color=\"#DDDDDD\">Normal</font> and <font color=\"#3289C7\">Dragon</font> Elements)."
+
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_6_1"		"Glyph of Sapping"
+		"item_rpc_omniro_glyph_6_1_description" 				"Attacking an enemy restores @glyph_property1% of the current element's orb charge."
+
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_7_1"		"Glyph of Elemental Specialization"
+		"item_rpc_omniro_glyph_7_1_description" 				"Omniro's highest level element (excluding <font color=\"#3289C7\">Dragon</font> Element) has @glyph_property1 additional maximum orb charges."
+
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"Glyph of Chromaticity"
+		"item_rpc_omniro_glyph_5_a_description" 				"Omniro's Highest level element (excluding <font color=\"#3289C7\">Dragon</font> Element) gain <font color='#ccff66'>1500</font>% damage amp, 2nd highest <font color='#ccff66'>1000</font>%, 3rd <font color='#ccff66'>500</font>, and 4th highest <font color='#ccff66'>250</font>."
+
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
 		"DOTA_Tooltip_ability_heroic_fury_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Наделяет оружие Paladin силой, способной наносить урон соседним целям, замедляя их, и восполняя здоровье героя за каждый успешный удар."
 		"DOTA_Tooltip_ability_heroic_fury_Lore"							""
@@ -10054,13 +10433,13 @@
     	"property_venomort_immortal_weapon3_description"						"[E2] не имеет длительности, но продолжает учитываться как периодический урон. Урон за руну [E2] увеличен на @special_property1% от максимального здоровья Venomort. "
 
 		//Abilities
-		"DOTA_Tooltip_ability_overcharge"								"Overcharge"
-		"DOTA_Tooltip_ability_overcharge_Description"					"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Значительное увеличение скорости атаки и поражение молниями врагов."
-		"DOTA_Tooltip_ability_overcharge_Lore"						""
-		"DOTA_Tooltip_ability_overcharge_attack_speed"				"ДОП. СКОРОСТЬ АТАКИ:"
-		"DOTA_Tooltip_ability_overcharge_proc_targets"				"МАКС. ЦЕЛЕЙ:"
-    	"DOTA_Tooltip_ability_overcharge_proc_damage"					"ЭЛЕКТР. УРОН:"
-    	"DOTA_Tooltip_ability_overcharge_duration"					"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_voltex_overcharge"								"Overcharge"
+		"DOTA_Tooltip_ability_voltex_overcharge_Description"					"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Значительное увеличение скорости атаки и поражение молниями врагов."
+		"DOTA_Tooltip_ability_voltex_overcharge_Lore"						""
+		"DOTA_Tooltip_ability_voltex_overcharge_attack_speed"				"ДОП. СКОРОСТЬ АТАКИ:"
+		"DOTA_Tooltip_ability_voltex_overcharge_proc_targets"				"МАКС. ЦЕЛЕЙ:"
+    	"DOTA_Tooltip_ability_voltex_overcharge_proc_damage"					"ЭЛЕКТР. УРОН:"
+    	"DOTA_Tooltip_ability_voltex_overcharge_duration"					"ДЛИТЕЛЬНОСТЬ:"
 		
 		"DOTA_Tooltip_ability_voltex_rune_q_1"								"[Q1] Magnetic Block"
     	"DOTA_Tooltip_ability_voltex_rune_q_1_Description"					"Во время действия @Ability1 герой получает дополнительную броню"
@@ -10093,11 +10472,11 @@
     	"DOTA_Tooltip_ability_voltex_rune_q_4_property_one"					"Доп. урон"
     	"DOTA_Tooltip_ability_voltex_rune_q_4_suffix"						"% от основного урона"
 		
-		"DOTA_Tooltip_ability_ability_zap"									"Static"
-		"DOTA_Tooltip_ability_ability_zap_Description"						"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Voltex перераспределяет свои ионы так, что происходит мощный разряд, наносящий урон и отталкивающий всех окружающих врагов."
-		"DOTA_Tooltip_ability_ability_zap_Lore"								""
-		"DOTA_Tooltip_ability_ability_zap_damage"							"УРОН:"
-    	"DOTA_Tooltip_ability_ability_zap_radius"							"РАДИУС:"
+		"DOTA_Tooltip_ability_voltex_static"									"Static"
+		"DOTA_Tooltip_ability_voltex_static_Description"						"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Voltex перераспределяет свои ионы так, что происходит мощный разряд, наносящий урон и отталкивающий всех окружающих врагов."
+		"DOTA_Tooltip_ability_voltex_static_Lore"								""
+		"DOTA_Tooltip_ability_voltex_static_damage"							"УРОН:"
+    	"DOTA_Tooltip_ability_voltex_static_radius"							"РАДИУС:"
 		
 		"DOTA_Tooltip_ability_voltex_rune_w_1"								"[W1] Silver Charge"
     	"DOTA_Tooltip_ability_voltex_rune_w_1_Description"					"Враги, задетые способностью @Ability2 получат чистый урон, равный части атаки героя. Эффект умножается на уровень основной способности."
@@ -10106,10 +10485,14 @@
 
     	"DOTA_Tooltip_ability_voltex_rune_w_2"								"[W2] Proton Switch"
     	"DOTA_Tooltip_ability_voltex_rune_w_2_Description"					"Использование умения @Ability2 увеличивает скорость атаки и урон Voltex на 2 секунды. Ближайшие союзники также получат усиление."
-    	"DOTA_Tooltip_ability_voltex_rune_w_2_property_one"					"Доп. скорость атаки"
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_property_one"					"Скорость атаки (Voltex)"
     	"DOTA_Tooltip_ability_voltex_rune_w_2_suffix"						""
-    	"DOTA_Tooltip_ability_voltex_rune_w_2_property_two"					"Доп. урон"
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_property_two"					"Доп. урон (Voltex)"
     	"DOTA_Tooltip_ability_voltex_rune_w_2_suffix_two"					"%"
+		"DOTA_Tooltip_ability_voltex_rune_w_2_property_three"				"Скорость атаки (Союзники)"
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_suffix_three"					""
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_property_four"				"Доп. урон (Союзники)"
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_suffix_four"					"%"
 
 		"DOTA_Tooltip_modifier_voltex_rune_w_2_self" 						"Proton Switch"
 		"DOTA_Tooltip_modifier_voltex_rune_w_2_self_description" 			"Доп. скорость атаки и урон"
@@ -10134,25 +10517,25 @@
     	"DOTA_Tooltip_modifier_voltex_d_b_debuff"							"Fulminating Static"
     	"DOTA_Tooltip_modifier_voltex_d_b_debuff_Description"				"Получает дополнительный магический урон от Voltex"
 		
-		"DOTA_Tooltip_ability_electric_jump"								"Azure Leap"
-		"DOTA_Tooltip_ability_electric_jump_Description"					"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Voltex прыгает вперед и бьёт о землю оглушая и нанося урон врагам."
-		"DOTA_Tooltip_ability_electric_jump_Lore"							""
-		"DOTA_Tooltip_ability_electric_jump_land_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
-    	"DOTA_Tooltip_ability_electric_jump_land_radius"					"РАДИУС:"
-    	"DOTA_Tooltip_ability_electric_jump_land_damage"					"УРОН:"
+		"DOTA_Tooltip_ability_voltex_azure_leap"								"Azure Leap"
+		"DOTA_Tooltip_ability_voltex_azure_leap_Description"					"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Voltex прыгает вперед и бьёт о землю оглушая и нанося урон врагам."
+		"DOTA_Tooltip_ability_voltex_azure_leap_Lore"							""
+		"DOTA_Tooltip_ability_voltex_azure_leap_land_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+    	"DOTA_Tooltip_ability_voltex_azure_leap_land_radius"					"РАДИУС:"
+    	"DOTA_Tooltip_ability_voltex_azure_leap_land_damage"					"УРОН:"
 		
-		"DOTA_Tooltip_ability_heavens_charge"								"Heaven's Charge"
-		"DOTA_Tooltip_ability_heavens_charge_Description"					"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Мгновенное перемещение, наносящее урон и оглушающее врагов в точке появления. Заменяется на Azure Leap после использования."
-		"DOTA_Tooltip_ability_heavens_charge_Lore"							""
+		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge"								"Heaven's Charge"
+		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge_Description"					"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Мгновенное перемещение, наносящее урон и оглушающее врагов в точке появления. Заменяется на Azure Leap после использования."
+		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge_Lore"							""
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_1"								"[E1] Lightning Remnant"
-    	"DOTA_Tooltip_ability_voltex_rune_e_1_Description"					"В начале и в конце прыжка Voltex создаёт иллюзию. Иллюзия активирует Overcharge такого же уровня как и у Voltex, также скорость атаки у иллюзий повышена. Дополнительно имеют 5х брони, здоровья и урона."
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_Description"					"В начале и в конце прыжка Voltex создаёт иллюзию. Иллюзия активирует Overcharge такого же уровня как и у Voltex. <br/> Иллюзии наследуют следующие атрибуты Voltex: <br/> <font color='#ccff66'>5</font>x Здоровье <br/> <font color='#ccff66'>5</font>x Броня <br/> <font color='#ccff66'>5</font>x Урон <br/> Базовая скорость атаки: <font color='#ccff66'>1</font> сек."
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_one"					"Длительность иллюзий"
     	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix"						""
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_two"					"Урон"
     	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix_two"					"%"
 
-    	"zap_assassin_clone"												"Lightning Remnant"
+    	"voltex_rune_e_1_illusion"												"Lightning Remnant"
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_2"								"[E2] Electron Effect"
     	"DOTA_Tooltip_ability_voltex_rune_e_2_Description"					"По приземлении после @Ability3 -  Voltex может пройти сквозь врага, нанося при этом урон."
@@ -10165,7 +10548,7 @@
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_description" 				"Voltex проходит сквозь врага, нанося урон."
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_3"								"[E3] Heaven's Charge"
-    	"DOTA_Tooltip_ability_voltex_rune_e_3_Description"					"После использования способности @Ability3, она будет заменена на Heaven's Charge. Heaven's Charge позволяет вам телепортироваться к конечной точке, нанося урон и оглушая всех в месте появления."
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_Description"					"После использования способности @Ability3, она будет заменена на Heaven's Charge. Heaven's Charge позволяет герою прыгнуть к конечной точке, нанося урон и оглушая всех в месте появления на <font color='#ccff66'>1.5</font> сек, радиус <font color='#ccff66'>400</font>."
     	"DOTA_Tooltip_ability_voltex_rune_e_3_property_one"					"Урон"
     	"DOTA_Tooltip_ability_voltex_rune_e_3_suffix"						""
     	"DOTA_Tooltip_ability_voltex_rune_e_3_property_two"					"Макс. расстояние"
@@ -10176,12 +10559,12 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_4_property_one"					"Доп. урон"
     	"DOTA_Tooltip_ability_voltex_rune_e_4_suffix"						"% за каждые 10 очков Ловкости"
 		
-		"DOTA_Tooltip_ability_static_field"									"Static Field"
-		"DOTA_Tooltip_ability_static_field_Description"						"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Voltex заряжается окружающей энергией, после чего выпускает впереди себя несколько наносящих урон заряженных сфер. Каждый контакт противника со сферами увеличит входящий урон по нему, складывается бесконечно."
-		"DOTA_Tooltip_ability_static_field_Lore"							""
-		"DOTA_Tooltip_ability_static_field_damage"							"УРОН ЗА СФЕРУ:"
-    	"DOTA_Tooltip_ability_static_field_num_shocks"						"ЗАРЯЖЕННЫХ СФЕР:"
-		"DOTA_Tooltip_ability_static_field_post_mitigation_per_spark"       "ПОСТ-РЕЗИСТНЫЙ УРОН ЗА СФЕРУ:"
+		"DOTA_Tooltip_ability_voltex_static_field"									"Static Field"
+		"DOTA_Tooltip_ability_voltex_static_field_Description"						"Стихия: <font color=\"#5CCDF9\">Молния</font><br>Voltex заряжается окружающей энергией, после чего выпускает впереди себя несколько наносящих урон заряженных сфер. Каждый контакт противника со сферами увеличит входящий урон по нему, складывается бесконечно."
+		"DOTA_Tooltip_ability_voltex_static_field_Lore"							""
+		"DOTA_Tooltip_ability_voltex_static_field_damage"							"УРОН ЗА СФЕРУ:"
+    	"DOTA_Tooltip_ability_voltex_static_field_num_shocks"						"ЗАРЯЖЕННЫХ СФЕР:"
+		"DOTA_Tooltip_ability_voltex_static_field_post_mitigation_per_spark"       "ПОСТ-РЕЗИСТНЫЙ УРОН ЗА СФЕРУ:"
 		
 		"DOTA_Tooltip_ability_voltex_rune_r_1"								"[R1] Thunder Storm"
     	"DOTA_Tooltip_ability_voltex_rune_r_1_Description"					"Когда Voltex завершает прочтение @Ability4, с небес на землю обрушивается серия смертоносных ударов молний."
@@ -10291,7 +10674,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_property_one"					"Длительность"
     	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_suffix"						" секунд"
 
-    	"DOTA_Tooltip_modifier_magnet_d_d"									"Quantum Path"
+    	"DOTA_Tooltip_modifier_magnet_q_4"									"Quantum Path"
 		
 		//Glyphs
 		

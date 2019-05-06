@@ -1,33 +1,23 @@
 		//Abilities
 
 		"omni_mace_effect"													"全能权杖效果"
-		"omniro_element_help_disable"												"点击来设定当前使用的元素。<br>Alt+左键来禁用该元素进
-
-入奥尼洛的元素的更替。"
-		"omniro_element_help_enable"												"点击来将这个元素设定为当前元素。<br>Alt+左键来使得这
-
-个元素进入奥尼洛的元素更替。"
+		"omniro_element_help_disable"												"点击来设定当前使用的元素。<br>Alt+左键来禁用该元素进入奥尼洛的元素的更替。"
+		"omniro_element_help_enable"												"点击来将这个元素设定为当前元素。<br>Alt+左键来使得这个元素进入奥尼洛的元素更替。"
 
 		"omniro_normal_special_description"									"<br>没有特殊效果"
 
 
 		"DOTA_Tooltip_ability_omniro_omni_mace"								"全能权杖"
-		"DOTA_Tooltip_ability_omniro_omni_mace_Description"					"在攻击敌人时获得一个额外效果。攻击一个敌人将会自动切换至下一个可用的元素。这个技能能
-
-够被切换至开启状态来锁定当前的元素。将鼠标移动到界面上来查看它的效果（并不是所有的效果能够在技能的文本中显示完全)。所有的效果都基于奥尼洛的对应元素的符文等级。 "	
+		"DOTA_Tooltip_ability_omniro_omni_mace_Description"					"在攻击敌人时获得一个额外效果。攻击一个敌人将会自动切换至下一个可用的元素。这个技能能 够被切换至开启状态来锁定当前的元素。将鼠标移动到界面上来查看它的效果（并不是所有的效果能够在技能的文本中显示完全)。所有的效果都基于奥尼洛的对应元素的符文等级。 "	
 		"DOTA_Tooltip_ability_omniro_omni_mace_damage_mult"					"普攻时造成的基于攻击力%的额外伤害%："
 
-		"omniro_fire_special_description"									"施加一个 <% OMNIRO_FIRE_SPECIAL_DURATION %> 秒的buff，该buff增加奥尼
-
-洛的基础攻击力。"
+		"omniro_fire_special_description"									"施加一个 <% OMNIRO_FIRE_SPECIAL_DURATION %> 秒的buff，该buff增加奥尼 洛的基础攻击力。"
 		"omniro_fire_special_a_pretext"										"基础攻击力增加："		
 
 		"DOTA_Tooltip_modifier_omnimace_fire_buff"							"全能权杖: 火"	
 		"DOTA_Tooltip_modifier_omnimace_fire_buff_Description"				"增加基础攻击力"							
 
-		"omniro_earth_special_description"									"施加一个 <% OMNIRO_EARTH_SPECIAL_DURATION %> 秒的buff，buff增加护甲
-
-和魔法抗性。"
+		"omniro_earth_special_description"									"施加一个 <% OMNIRO_EARTH_SPECIAL_DURATION %> 秒的buff，buff增加护甲 和魔法抗性。"
 		"omniro_earth_special_a_pretext"									"额外护甲："		
 		"omniro_earth_special_b_pretext"									"额外魔法抗性："	
 
@@ -39,17 +29,13 @@
 
 							
 
-		"omniro_poison_special_description"									"施加一个2秒的DoT，DoT每0.5秒造成一次伤害。当站在毒液沼泽中时造成<% 
-
-OMNIRO_POISON_MULTIPLE_FOR_DOUBLE %>x 的伤害。"
+		"omniro_poison_special_description"									"施加一个2秒的DoT，DoT每0.5秒造成一次伤害。当站在毒液沼泽中时造成 <% OMNIRO_POISON_MULTIPLE_FOR_DOUBLE %>x 的伤害。"
 		"omniro_poison_special_a_pretext"										"攻击力 %的DoT伤害 ： "
 
 		"DOTA_Tooltip_modifier_omnimace_poison_debuff"						"全能权杖：毒"
 		"DOTA_Tooltip_modifier_omnimace_poison_debuff_Description"			"没0.5秒受到一次伤害"
 
-		"omniro_time_special_description"									"施加一个 <% OMNIRO_TIME_SPECIAL_DURATION %>秒的buff，该buff增加攻击
-
-速度和移动速度。"
+		"omniro_time_special_description"									"施加一个 <% OMNIRO_TIME_SPECIAL_DURATION %>秒的buff，该buff增加攻击 速度和移动速度。"
 		"omniro_time_special_a_pretext"									"移动速度："		
 		"omniro_time_special_b_pretext"									"攻击速度："		
 
@@ -62,31 +48,23 @@ OMNIRO_POISON_MULTIPLE_FOR_DOUBLE %>x 的伤害。"
 		"DOTA_Tooltip_modifier_omnimace_holy_buff"							"全能权杖：圣"
 		"DOTA_Tooltip_modifier_omnimace_holy_buff_Description"				"魔法免疫"							
 
-		"omniro_cosmic_special_description"									"施加一个 <% OMNIRO_COSMIC_SPECIAL_DURATION %> 秒的buff，该buff增加最
-
-大生命值。"
+		"omniro_cosmic_special_description"									"施加一个 <% OMNIRO_COSMIC_SPECIAL_DURATION %> 秒的buff，该buff增加最 大生命值。"
 		"omniro_cosmic_special_a_pretext"										"最大生命值："	
 
 		"DOTA_Tooltip_modifier_omnimace_cosmic_buff"						"全能权杖：宇宙"		
 		"DOTA_Tooltip_modifier_omnimace_cosmic_buff_Description"			"增加最大生命值"								
 
-		"omniro_ice_special_description"									"造成一个 <% OMNIRO_ICE_SPECIAL_RADIUS %> 范围的AOE，该AOE对敌人造成
-
-减速效果，持续 <% OMNIRO_ICE_SPECIAL_DURATION %> 秒。"
+		"omniro_ice_special_description"									"造成一个 <% OMNIRO_ICE_SPECIAL_RADIUS %> 范围的AOE，该AOE对敌人造成 减速效果，持续 <% OMNIRO_ICE_SPECIAL_DURATION %> 秒。"
 		"omniro_ice_special_a_pretext"									"移动速度降低："		
 		"omniro_ice_special_b_pretext"									"攻击速度降低："	
 
 		"DOTA_Tooltip_modifier_ice_debuff"								"全能权杖：冰"	
 		"DOTA_Tooltip_modifier_ice_debuff_Description"					"移动速度和攻击速度被降低"									
 
-		"omniro_arcane_special_description"									"汲取 <% OMNIRO_ARCANE_MANA_DRAIN_PERCENTAGE %>% 的最大魔法值来造成一
-
-次额外伤害。"
+		"omniro_arcane_special_description"									"汲取 <% OMNIRO_ARCANE_MANA_DRAIN_PERCENTAGE %>% 的最大魔法值来造成一 次额外伤害。"
 		"omniro_arcane_special_a_pretext"										"X魔法汲取量："							
 
-		"omniro_shadow_special_description"									"造成一次额外伤害并且对敌人施加一个减甲的debuff，持续<% 
-
-OMNIRO_SHADOW_SPECIAL_DURATION %> 秒。"
+		"omniro_shadow_special_description"									"造成一次额外伤害并且对敌人施加一个减甲的debuff，持续 <% OMNIRO_SHADOW_SPECIAL_DURATION %> 秒。"
 		"omniro_shadow_special_a_pretext"										"额外伤害倍数%："		
 
 		"DOTA_Tooltip_modifier_omniro_shadow_debuff"					"全能权杖：暗"		
@@ -94,9 +72,7 @@ OMNIRO_SHADOW_SPECIAL_DURATION %> 秒。"
 
 	
 
-		"omniro_wind_special_description"									"施加一个 <% OMNIRO_WIND_SPECIAL_DURATION %>秒的buff，该buff增加敏捷
-
-。"
+		"omniro_wind_special_description"									"施加一个 <% OMNIRO_WIND_SPECIAL_DURATION %>秒的buff，该buff增加敏捷。"
 		"omniro_wind_special_a_pretext"										"额外敏捷："	
 
 		"DOTA_Tooltip_modifier_omnimace_wind_buff"						"全能权杖：风"
@@ -108,18 +84,14 @@ OMNIRO_SHADOW_SPECIAL_DURATION %> 秒。"
 		"DOTA_Tooltip_modifier_omnimace_ghost_buff"						"全能权杖：鬼"	
 		"DOTA_Tooltip_modifier_omnimace_ghost_buff_Description"			"100%%闪避"											
 
-		"omniro_water_special_description"									"治疗一部分生命值并且获得生命回复速率加成，持续 <% 
-
-OMNIRO_WATER_SPECIAL_DURATION %> 秒。"
+		"omniro_water_special_description"									"治疗一部分生命值并且获得生命回复速率加成，持续 <% OMNIRO_WATER_SPECIAL_DURATION %> 秒。"
 		"omniro_water_special_a_pretext"									"治疗："		
 		"omniro_water_special_b_pretext"									"额外生命值回复："		
 
 		"DOTA_Tooltip_modifier_omnimace_water_buff"							"全能权杖：水"	
 		"DOTA_Tooltip_modifier_omnimace_water_buff_Description"				"增加生命回复"							
 
-		"omniro_demon_special_description"									"施加一个 <% OMNIRO_DEMON_SPECIAL_DURATION %> 秒的buff来提供额外攻击
-
-力。"
+		"omniro_demon_special_description"									"施加一个 <% OMNIRO_DEMON_SPECIAL_DURATION %> 秒的buff来提供额外攻击力。"
 		"omniro_demon_special_a_pretext"										"额外攻击力%："		
 
 		"DOTA_Tooltip_modifier_omnimace_demon_buff"							"全能权杖：恶魔"	
@@ -132,15 +104,11 @@ OMNIRO_WATER_SPECIAL_DURATION %> 秒。"
 		"DOTA_Tooltip_modifier_omnimace_nature_debuff"						"全能权杖: 自然"
 		"DOTA_Tooltip_modifier_omnimace_nature_debuff_Description"			"被缠绕并且每秒受到一次伤害"		
 
-		"omniro_undead_special_description"									"施加一个禁止治疗的debuff。施加一个buff来增加税后伤害，持续<% 
-
-OMNIRO_UNDEAD_SPECIAL_DURATION %> 秒"
+		"omniro_undead_special_description"									"施加一个禁止治疗的debuff。施加一个buff来增加税后伤害，持续<% OMNIRO_UNDEAD_SPECIAL_DURATION %> 秒"
 		"omniro_undead_special_a_pretext"									"禁止治疗debuff持续时间："		
 		"omniro_undead_special_b_pretext"									"税后伤害增加 %："	
 
-		"omniro_dragon_special_description"									"施加一个 <% OMNIRO_DRAGON_SPECIAL_DURATION %> 秒的buff，该buff提供所
-
-有元素伤害。"
+		"omniro_dragon_special_description"									"施加一个 <% OMNIRO_DRAGON_SPECIAL_DURATION %> 秒的buff，该buff提供所有元素伤害。"
 		"omniro_dragon_special_a_pretext"									"元素伤害增加："		
 
 		"DOTA_Tooltip_modifier_omniro_dragon_buff"							"全能权杖：龙"
@@ -160,116 +128,84 @@ OMNIRO_UNDEAD_SPECIAL_DURATION %> 秒"
 		"omniro_fire_orb_description"										"产生一个 <% OMNIRO_ORB_FIRE_AOE %>范围的火焰之环对敌人造成伤害。"
 		"omniro_fire_orb_a_pretext"											"攻击力 % 的额外伤害："	
 
-		"omniro_earth_orb_description"										"产生一个 <% OMNIRO_ORB_EARTH_AOE %> 范围的地震对敌人造成伤害和眩晕。
-
-"
+		"omniro_earth_orb_description"										"产生一个 <% OMNIRO_ORB_EARTH_AOE %> 范围的地震对敌人造成伤害和眩晕。"
 		"omniro_earth_orb_a_pretext"										"力量倍数的伤害："				
 		"omniro_earth_orb_b_pretext"										"眩晕时间："			
 
-		"omniro_lightning_orb_description"										"攻击目标会释放一个连环闪电，连环闪电能够弹射<% 
-
-OMNIRO_ORB_LIGHTNING_BASE_BOUNCES %> 次。每点最大充能提供一次弹跳的次数。"
+		"omniro_lightning_orb_description"										"攻击目标会释放一个连环闪电，连环闪电能够弹射<% OMNIRO_ORB_LIGHTNING_BASE_BOUNCES %> 次。每点最大充能提供一次弹跳的次数。"
 		"omniro_lightning_orb_a_pretext"										"敏捷倍数的伤害："			
 
-		"omniro_poison_orb_description"										"产生一个 <% OMNIRO_ORB_POISON_POOL_RADIUS %> 范围的毒液沼泽，持续 <% 
-
-OMNIRO_ORB_POISON_POOL_DURATION %> 秒。每0.5秒对站在其中的敌人造成一次伤害。"
+		"omniro_poison_orb_description"										"产生一个 <% OMNIRO_ORB_POISON_POOL_RADIUS %> 范围的毒液沼泽，持续 <% OMNIRO_ORB_POISON_POOL_DURATION %> 秒。每0.5秒对站在其中的敌人造成一次伤害。"
 		"omniro_poison_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
 
 		"DOTA_Tooltip_modifier_omniro_poison_pool_enemy"					"全能之球: 毒"
 		"DOTA_Tooltip_modifier_omniro_poison_pool_enemy_Description"		"每0.5秒受到一次伤害"
 
-		"omniro_time_orb_description"									"周围 <% OMNIRO_ORB_TIME_AOE %> 范围内的敌人将会被冻结一段时间。当冻结结束时
-
-，他们受到一次基于奥尼洛攻击力的伤害。"
+		"omniro_time_orb_description"									"周围 <% OMNIRO_ORB_TIME_AOE %> 范围内的敌人将会被冻结一段时间。当冻结结束时，他们受到一次基于奥尼洛攻击力的伤害。"
 		"omniro_time_orb_a_pretext"										"攻击力 % 的伤害："				
 		"omniro_time_orb_b_pretext"										"冻结持续时间："
 
 		"DOTA_Tooltip_modifier_omniro_time_freeze"						"全能之球：时"
 		"DOTA_Tooltip_modifier_omniro_time_freeze_Description"			"被冻结。在冻结结束后将会受到一次伤害。"
 
-		"omniro_holy_orb_description"									"周围 <% OMNIRO_ORB_HOLY_AOE %>范围内的敌人将会受到基于奥尼洛护甲和智力值的伤
-
-害。奥尼洛和他的友军将会被治疗，治疗量为造成伤害的<% OMNIRO_ORB_HOLY_HEAL_PCT %>%。"
+		"omniro_holy_orb_description"									"周围 <% OMNIRO_ORB_HOLY_AOE %>范围内的敌人将会受到基于奥尼洛护甲和智力值的伤害。奥尼洛和他的友军将会被治疗，治疗量为造成伤害的<% OMNIRO_ORB_HOLY_HEAL_PCT %>%。"
 		"omniro_holy_orb_a_pretext"										"智力倍数的伤害："				
 		"omniro_holy_orb_b_pretext"										"护甲倍数的伤害："
 
-		"omniro_cosmic_orb_description"									"使一个彗星坠落至目标处，0.45秒延迟后对目标 <% OMNIRO_ORB_COSMIC_RADIUS %> 范
-
-围内的敌人造成伤害。伤害基于攻击力和当前生命值。"
+		"omniro_cosmic_orb_description"									"使一个彗星坠落至目标处，0.45秒延迟后对目标 <% OMNIRO_ORB_COSMIC_RADIUS %> 范围内的敌人造成伤害。伤害基于攻击力和当前生命值。"
 		"omniro_cosmic_orb_a_pretext"										"攻击力%的伤害："				
 		"omniro_cosmic_orb_b_pretext"										"最大生命值倍数的伤害："
 
-		"omniro_ice_orb_description"									"产生一个基础范围为<% OMNIRO_ICE_ORB_BASE_RADIUS %> 的冰霜爆发，并且全能权杖
-
-将造成减速。伤害基于全属性，并且最低的属性将会被提高 <% OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT %>x。"
+		"omniro_ice_orb_description"									"产生一个基础范围为<% OMNIRO_ICE_ORB_BASE_RADIUS %> 的冰霜爆发，并且全能权杖将造成减速。伤害基于全属性，并且最低的属性将会被提高 <% OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT %>x。"
 		"omniro_ice_orb_a_pretext"										"基于全属性的伤害："				
 		"omniro_ice_orb_b_pretext"										"额外范围："
 
-		"omniro_arcane_orb_description"										"在 <% OMNIRO_ARCANE_BASE_AOE %> 将会被 <% 
-
-OMNIRO_ARCANE_ORB_BASE_PULSES %> 道脉冲击中并且魔法抗性将会降低，持续 <% OMNIRO_ARCANE_ORB_MR_LOSS_DURATION %> 秒。脉冲的次数将会被奥术充能的最大充能增加。 "
+		"omniro_arcane_orb_description"										"在 <% OMNIRO_ARCANE_BASE_AOE %> 将会被 <% OMNIRO_ARCANE_ORB_BASE_PULSES %> 道脉冲击中并且魔法抗性将会降低，持续 <% OMNIRO_ARCANE_ORB_MR_LOSS_DURATION %> 秒。脉冲的次数将会被奥术充能的最大充能增加。 "
 		"omniro_arcane_orb_a_pretext"										"额外脉冲范围："				
 		"omniro_arcane_orb_b_pretext"										"魔法抗性降低："
 
 		"DOTA_Tooltip_modifier_arcane_orb_magic_resist"					"全能之球：奥术"
 		"DOTA_Tooltip_modifier_arcane_orb_magic_resist_Description"		"降低魔法抗性"
 
-		"omniro_shadow_orb_description"									"产生一个暗影冲击对 <% OMNIRO_SHADOW_ORB_BASE_AOE %> 范围内的敌人造成伤害并且
-
-施加一个禁用护甲的debuff。伤害基于攻击力。"
+		"omniro_shadow_orb_description"									"产生一个暗影冲击对 <% OMNIRO_SHADOW_ORB_BASE_AOE %> 范围内的敌人造成伤害并且施加一个禁用护甲的debuff。伤害基于攻击力。"
 		"omniro_shadow_orb_a_pretext"										"攻击力倍数的伤害："				
 		"omniro_shadow_orb_b_pretext"										"额外范围："
 
-		"omniro_wind_orb_description"									"由目标向目标周围释放一股狂风，造成基于攻击力和敏捷值的伤害，并且将敌人推开。
-
-"
+		"omniro_wind_orb_description"									"由目标向目标周围释放一股狂风，造成基于攻击力和敏捷值的伤害，并且将敌人推开。"
 		"omniro_wind_orb_a_pretext"										"攻击力倍数的伤害："				
 		"omniro_wind_orb_b_pretext"										"敏捷倍数的伤害："
 
-		"omniro_ghost_orb_description"										"在 <% OMNIRO_GHOST_ORB_AOE %> 范围内产生一个诡异的迷雾，缴械迷雾中的
-
-敌人并且每秒对他们造成伤害。基础持续时间为 <% OMNIRO_GHOST_ORB_AOE %> 秒。"
+		"omniro_ghost_orb_description"										"在 <% OMNIRO_GHOST_ORB_AOE %> 范围内产生一个诡异的迷雾，缴械迷雾中的敌人并且每秒对他们造成伤害。基础持续时间为 <% OMNIRO_GHOST_ORB_AOE %> 秒。"
 		"omniro_ghost_orb_a_pretext"											"攻击力%的伤害："	
 		"omniro_ghost_orb_b_pretext"											"额外迷雾持续时间："
 
 		"DOTA_Tooltip_modifier_ghost_orb_effect"						"全能之球：鬼"
 		"DOTA_Tooltip_modifier_ghost_orb_effect_Description"			"被缴械"
 
-		"omniro_water_orb_description"										"一道水之洪流将 <% OMNIRO_WATER_ORB_AOE %> 范围内的敌人冲起。 当他们
-
-被冲到空中时，将会眩晕。"
+		"omniro_water_orb_description"										"一道水之洪流将 <% OMNIRO_WATER_ORB_AOE %> 范围内的敌人冲起。 当他们被冲到空中时，将会眩晕。"
 		"omniro_water_orb_a_pretext"											"攻击力%的伤害："	
 
 		"omniro_demon_orb_description"										"造成一次无视坚定的伤害。"
 		"omniro_demon_orb_a_pretext"											"攻击力 % 的伤害："	
 
-		"omniro_nature_orb_description"										"获得一个护盾来抵挡伤害。基础最大层数为 <% 
-
-OMNIRO_NATURE_SHIELD_BASE_MAX_STACKS %> 并且随等级提高。持续 <% OMNIRO_NATURE_SHIELD_DURATION %> 秒"
+		"omniro_nature_orb_description"										"获得一个护盾来抵挡伤害。基础最大层数为 <% OMNIRO_NATURE_SHIELD_BASE_MAX_STACKS %> 并且随等级提高。持续 <% OMNIRO_NATURE_SHIELD_DURATION %> 秒"
 		"omniro_nature_orb_a_pretext"											"额外护盾概率 %："	
 		"omniro_nature_orb_b_pretext"											"额外最大护盾层数："
 
 		"DOTA_Tooltip_modifier_omniro_nature_shield"						"全能之球：自然"
 		"DOTA_Tooltip_modifier_omniro_nature_shield_Description"			"吸收伤害"
 
-		"omniro_undead_orb_description"										"向目标身后投掷一个骷髅，对在路径上的所有事物造成伤害并且施加一个
-
-debuff，使受影响的敌人无法被治疗。"
+		"omniro_undead_orb_description"										"向目标身后投掷一个骷髅，对在路径上的所有事物造成伤害并且施加一个debuff，使受影响的敌人无法被治疗。"
 		"omniro_undead_orb_a_pretext"											"攻击力 % 的伤害："	
 		"omniro_undead_orb_b_pretext"											"基于当前生命值倍数的伤害："
 
 		"omniro_dragon_orb_description"										"使其他元素充能恢复成最大充能状态。"
 
 		"DOTA_Tooltip_ability_omniro_omni_orb"								"全能之球"
-		"DOTA_Tooltip_ability_omniro_omni_orb_Description"					"在开启时，每次施法触发一个额外特效，特效根据当前选择的元素决定。这个效果只有在该元素
-
-有可用充能时触发。充能被展示在奥尼洛的元素面板上。最大充能能够被对应元素的符文提高。基础充能时间为10秒（1点）。每个元素法球特效能够通过将鼠标移动至元素面板查看。 "	
+		"DOTA_Tooltip_ability_omniro_omni_orb_Description"					"在开启时，每次施法触发一个额外特效，特效根据当前选择的元素决定。这个效果只有在该元素有可用充能时触发。充能被展示在奥尼洛的元素面板上。最大充能能够被对应元素的符文提高。基础充能时间为10秒（1点）。每个元素法球特效能够通过将鼠标移动至元素面板查看。 "	
 
 		"DOTA_Tooltip_ability_omniro_chrono_path"								"时空之路"
-		"DOTA_Tooltip_ability_omniro_chrono_path_Description"					"向奥尼洛前方产生一系列的时空之路。奥尼洛站在其中时将会获得设定的最低移动速度，相位状
-
-态并且不能被攻击。"
+		"DOTA_Tooltip_ability_omniro_chrono_path_Description"					"向奥尼洛前方产生一系列的时空之路。奥尼洛站在其中时将会获得设定的最低移动速度，相位状态并且不能被攻击。"
 		"DOTA_Tooltip_ability_omniro_chrono_path_min_movespeed"						"最低移动速度："
 		"DOTA_Tooltip_ability_omniro_chrono_path_duration"						"持续时间："
 
@@ -277,151 +213,117 @@ debuff，使受影响的敌人无法被治疗。"
 		"DOTA_Tooltip_modifier_omniro_in_chrono_path_Description"				"不能被攻击并且处于相位状态"
 
 		"DOTA_Tooltip_ability_omniro_dimension_stalker"								"维度行者"
-		"DOTA_Tooltip_ability_omniro_dimension_stalker_Description"					"在1.8 的施法后，奥尼洛释放一系列的攻击，攻击周围随机目标。在施法时，奥尼洛魔
-
-法免疫。"
+		"DOTA_Tooltip_ability_omniro_dimension_stalker_Description"					"在1.8 的施法后，奥尼洛释放一系列的攻击，攻击周围随机目标。在施法时，奥尼洛魔法免疫。"
 		"DOTA_Tooltip_ability_omniro_dimension_stalker_radius"						"范围："
 		"DOTA_Tooltip_ability_omniro_dimension_stalker_max_targets"					"最大目标数："
 
     	"DOTA_Tooltip_ability_omniro_rune_q_1"							"[Q1] 奥尼洛 火"
-    	"DOTA_Tooltip_ability_omniro_rune_q_1_Description"				"升级奥尼洛的 <font color=\"#EF4126\">火</font>元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动
-
-至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。 "
+    	"DOTA_Tooltip_ability_omniro_rune_q_1_Description"				"升级奥尼洛的 <font color=\"#EF4126\">火</font>元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动<br>至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
     	"DOTA_Tooltip_ability_omniro_rune_q_1_property_one"				"元素等级"
     	"DOTA_Tooltip_ability_omniro_rune_q_1_suffix"					""
     	"DOTA_Tooltip_ability_omniro_rune_q_1_property_two"				"最大充能数增加"
     	"DOTA_Tooltip_ability_omniro_rune_q_1_suffix_two"				""
 
     	"DOTA_Tooltip_ability_omniro_rune_w_1"							"[W1] 奥尼洛 土"
-    	"DOTA_Tooltip_ability_omniro_rune_w_1_Description"				"升级奥尼洛的 <font color=\"#AF843D\">土</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移
-
-动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
+    	"DOTA_Tooltip_ability_omniro_rune_w_1_Description"				"升级奥尼洛的 <font color=\"#AF843D\">土</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
     	"DOTA_Tooltip_ability_omniro_rune_w_1_property_one"				"元素等级"
     	"DOTA_Tooltip_ability_omniro_rune_w_1_suffix"					""
     	"DOTA_Tooltip_ability_omniro_rune_w_1_property_two"				"最大充能数增加"
     	"DOTA_Tooltip_ability_omniro_rune_w_1_suffix_two"				""
 
     	"DOTA_Tooltip_ability_omniro_rune_e_1"							"[E1] 奥尼洛 电"
-    	"DOTA_Tooltip_ability_omniro_rune_e_1_Description"				"升级奥尼洛的<font color=\"#5CCDF9\">电</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动
-
-至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
+    	"DOTA_Tooltip_ability_omniro_rune_e_1_Description"				"升级奥尼洛的<font color=\"#5CCDF9\">电</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
     	"DOTA_Tooltip_ability_omniro_rune_e_1_property_one"				"元素等级"
     	"DOTA_Tooltip_ability_omniro_rune_e_1_suffix"					""
     	"DOTA_Tooltip_ability_omniro_rune_e_1_property_two"				"最大充能数增加"
     	"DOTA_Tooltip_ability_omniro_rune_e_1_suffix_two"				""
 
     	"DOTA_Tooltip_ability_omniro_rune_r_1"							"[R1] 奥尼洛 毒"
-    	"DOTA_Tooltip_ability_omniro_rune_r_1_Description"				"升级奥尼洛的 <font color=\"#37DD3D\">毒</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移
-
-动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
+    	"DOTA_Tooltip_ability_omniro_rune_r_1_Description"				"升级奥尼洛的 <font color=\"#37DD3D\">毒</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
     	"DOTA_Tooltip_ability_omniro_rune_r_1_property_one"				"元素等级"
     	"DOTA_Tooltip_ability_omniro_rune_r_1_suffix"					""
     	"DOTA_Tooltip_ability_omniro_rune_r_1_property_two"				"最大充能数增加"
     	"DOTA_Tooltip_ability_omniro_rune_r_1_suffix_two"				""
 
     	"DOTA_Tooltip_ability_omniro_rune_q_2"							"[Q2] 奥尼洛 时"
-    	"DOTA_Tooltip_ability_omniro_rune_q_2_Description"				"升级奥尼洛的 <font color=\"#B5FFB7\">时</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移
-
-动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
+    	"DOTA_Tooltip_ability_omniro_rune_q_2_Description"				"升级奥尼洛的 <font color=\"#B5FFB7\">时</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
     	"DOTA_Tooltip_ability_omniro_rune_q_2_property_one"				"元素等级"
     	"DOTA_Tooltip_ability_omniro_rune_q_2_suffix"					""
     	"DOTA_Tooltip_ability_omniro_rune_q_2_property_two"				"最大充能数增加"
     	"DOTA_Tooltip_ability_omniro_rune_q_2_suffix_two"				""
 
     	"DOTA_Tooltip_ability_omniro_rune_w_2"							"[W2] 奥尼洛 圣"
-    	"DOTA_Tooltip_ability_omniro_rune_w_2_Description"				"升级奥尼洛的 <font color=\"#F6FFB5\">圣</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移
-
-动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
+    	"DOTA_Tooltip_ability_omniro_rune_w_2_Description"				"升级奥尼洛的 <font color=\"#F6FFB5\">圣</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
     	"DOTA_Tooltip_ability_omniro_rune_w_2_property_one"				"元素等级"
     	"DOTA_Tooltip_ability_omniro_rune_w_2_suffix"					""
     	"DOTA_Tooltip_ability_omniro_rune_w_2_property_two"				"最大充能数增加"
     	"DOTA_Tooltip_ability_omniro_rune_w_2_suffix_two"				""
 
     	"DOTA_Tooltip_ability_omniro_rune_e_2"							"[E2] 奥尼洛 宇宙"
-    	"DOTA_Tooltip_ability_omniro_rune_e_2_Description"				"升级奥尼洛的<font color=\"#C25DFC\">宇宙</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移
-
-动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
+    	"DOTA_Tooltip_ability_omniro_rune_e_2_Description"				"升级奥尼洛的<font color=\"#C25DFC\">宇宙</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
     	"DOTA_Tooltip_ability_omniro_rune_e_2_property_one"				"元素等级"
     	"DOTA_Tooltip_ability_omniro_rune_e_2_suffix"					""
     	"DOTA_Tooltip_ability_omniro_rune_e_2_property_two"				"最大充能数增加"
     	"DOTA_Tooltip_ability_omniro_rune_e_2_suffix_two"				""
 
     	"DOTA_Tooltip_ability_omniro_rune_r_2"							"[R2] 奥尼洛 冰"
-    	"DOTA_Tooltip_ability_omniro_rune_r_2_Description"				"升级奥尼洛的 <font color=\"#87D9FF\">冰</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移
-
-动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
+    	"DOTA_Tooltip_ability_omniro_rune_r_2_Description"				"升级奥尼洛的 <font color=\"#87D9FF\">冰</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
     	"DOTA_Tooltip_ability_omniro_rune_r_2_property_one"				"元素等级"
     	"DOTA_Tooltip_ability_omniro_rune_r_2_suffix"					""
     	"DOTA_Tooltip_ability_omniro_rune_r_2_property_two"				"最大充能数增加"
     	"DOTA_Tooltip_ability_omniro_rune_r_2_suffix_two"				""
 
     	"DOTA_Tooltip_ability_omniro_rune_q_3"							"[Q3] 奥尼洛 奥术"
-    	"DOTA_Tooltip_ability_omniro_rune_q_3_Description"				"升级奥尼洛的 <font color=\"#E1A2E8\">奥术</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标
-
-移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
+    	"DOTA_Tooltip_ability_omniro_rune_q_3_Description"				"升级奥尼洛的 <font color=\"#E1A2E8\">奥术</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
     	"DOTA_Tooltip_ability_omniro_rune_q_3_property_one"				"元素等级"
     	"DOTA_Tooltip_ability_omniro_rune_q_3_suffix"					""
     	"DOTA_Tooltip_ability_omniro_rune_q_3_property_two"				"最大充能数增加"
     	"DOTA_Tooltip_ability_omniro_rune_q_3_suffix_two"				""
 
     	"DOTA_Tooltip_ability_omniro_rune_w_3"							"[W3] 奥尼洛 暗"
-    	"DOTA_Tooltip_ability_omniro_rune_w_3_Description"				"升级奥尼洛的<font color=\"#7F4F84\">暗</font>元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动
-
-至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
+    	"DOTA_Tooltip_ability_omniro_rune_w_3_Description"				"升级奥尼洛的<font color=\"#7F4F84\">暗</font>元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
     	"DOTA_Tooltip_ability_omniro_rune_w_3_property_one"				"元素等级"
     	"DOTA_Tooltip_ability_omniro_rune_w_3_suffix"					""
     	"DOTA_Tooltip_ability_omniro_rune_w_3_property_two"				"最大充能数增加"
     	"DOTA_Tooltip_ability_omniro_rune_w_3_suffix_two"				""
 
     	"DOTA_Tooltip_ability_omniro_rune_e_3"							"[E3] 奥尼洛 风"
-    	"DOTA_Tooltip_ability_omniro_rune_e_3_Description"				"升级奥尼洛的 <font color=\"#7AE2A7\">风</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移
-
-动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
+    	"DOTA_Tooltip_ability_omniro_rune_e_3_Description"				"升级奥尼洛的 <font color=\"#7AE2A7\">风</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
     	"DOTA_Tooltip_ability_omniro_rune_e_3_property_one"				"元素等级"
     	"DOTA_Tooltip_ability_omniro_rune_e_3_suffix"					""
     	"DOTA_Tooltip_ability_omniro_rune_e_3_property_two"				"最大充能数增加"
     	"DOTA_Tooltip_ability_omniro_rune_e_3_suffix_two"				""
 
     	"DOTA_Tooltip_ability_omniro_rune_r_3"							"[R3] 奥尼洛 鬼"
-    	"DOTA_Tooltip_ability_omniro_rune_r_3_Description"				"升级奥尼洛的 <font color=\"#9ACCD1\">鬼</font>元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动
-
-至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
+    	"DOTA_Tooltip_ability_omniro_rune_r_3_Description"				"升级奥尼洛的 <font color=\"#9ACCD1\">鬼</font>元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
     	"DOTA_Tooltip_ability_omniro_rune_r_3_property_one"				"元素等级"
     	"DOTA_Tooltip_ability_omniro_rune_r_3_suffix"					""
     	"DOTA_Tooltip_ability_omniro_rune_r_3_property_two"				"最大充能数增加"
     	"DOTA_Tooltip_ability_omniro_rune_r_3_suffix_two"				""
 
     	"DOTA_Tooltip_ability_omniro_rune_q_4"							"[Q4] 奥尼洛 水"
-    	"DOTA_Tooltip_ability_omniro_rune_q_4_Description"				"升级奥尼洛的 <font color=\"#3894FF\">水</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移
-
-动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
+    	"DOTA_Tooltip_ability_omniro_rune_q_4_Description"				"升级奥尼洛的 <font color=\"#3894FF\">水</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
     	"DOTA_Tooltip_ability_omniro_rune_q_4_property_one"				"元素等级"
     	"DOTA_Tooltip_ability_omniro_rune_q_4_suffix"					""
     	"DOTA_Tooltip_ability_omniro_rune_q_4_property_two"				"最大充能数增加"
     	"DOTA_Tooltip_ability_omniro_rune_q_4_suffix_two"				""
 
     	"DOTA_Tooltip_ability_omniro_rune_w_4"							"[W4] 奥尼洛 恶魔"
-    	"DOTA_Tooltip_ability_omniro_rune_w_4_Description"				"升级奥尼洛的 <font color=\"#5B648C\">恶魔</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标
-
-移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
+    	"DOTA_Tooltip_ability_omniro_rune_w_4_Description"				"升级奥尼洛的 <font color=\"#5B648C\">恶魔</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
     	"DOTA_Tooltip_ability_omniro_rune_w_4_property_one"				"元素等级"
     	"DOTA_Tooltip_ability_omniro_rune_w_4_suffix"					""
     	"DOTA_Tooltip_ability_omniro_rune_w_4_property_two"				"最大充能数增加"
     	"DOTA_Tooltip_ability_omniro_rune_w_4_suffix_two"				""
 
     	"DOTA_Tooltip_ability_omniro_rune_e_4"							"[E4] 奥尼洛 自然"
-    	"DOTA_Tooltip_ability_omniro_rune_e_4_Description"				"升级奥尼洛的 <font color=\"#69BC71\">自然</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标
-
-移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
+    	"DOTA_Tooltip_ability_omniro_rune_e_4_Description"				"升级奥尼洛的 <font color=\"#69BC71\">自然</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
     	"DOTA_Tooltip_ability_omniro_rune_e_4_property_one"				"元素等级"
     	"DOTA_Tooltip_ability_omniro_rune_e_4_suffix"					""
     	"DOTA_Tooltip_ability_omniro_rune_e_4_property_two"				"最大充能数增加"
     	"DOTA_Tooltip_ability_omniro_rune_e_4_suffix_two"				""
 
     	"DOTA_Tooltip_ability_omniro_rune_r_4"							"[R4] 奥尼洛 不死"
-    	"DOTA_Tooltip_ability_omniro_rune_r_4_Description"				"升级奥尼洛的 <font color=\"#5C776E\">不死</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标
-
-移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
+    	"DOTA_Tooltip_ability_omniro_rune_r_4_Description"				"升级奥尼洛的 <font color=\"#5C776E\">不死</font> 元素来提升他的全能权杖和全能之球的技能效果。将鼠标移动至奥尼洛的元素面板可以查看它的具体数值。最大充能将会被该符文的“最大充能数增加”这一属性增加。"
     	"DOTA_Tooltip_ability_omniro_rune_r_4_property_one"				"元素等级"
     	"DOTA_Tooltip_ability_omniro_rune_r_4_suffix"					""
     	"DOTA_Tooltip_ability_omniro_rune_r_4_property_two"				"最大充能数增加"
@@ -452,9 +354,7 @@ debuff，使受影响的敌人无法被治疗。"
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_3"            "德雷克的权杖"
 		"item_property_omniro_immortal_weapon3"                             "龙之元素"
-		"property_omniro_immortal_weapon3_description"                      "激活奥尼洛的 <font color=\"#3289C7\">龙</font> 元素。龙的全能权杖特效为施加一个增加元素伤害的buff。全能
-
-之球的特效为刷新所有其他元素的充能。"
+		"property_omniro_immortal_weapon3_description"                      "激活奥尼洛的 <font color=\"#3289C7\">龙</font> 元素。龙的全能权杖特效为施加一个增加元素伤害的buff。全能之球的特效为刷新所有其他元素的充能。"
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_1_1"		"连贯性雕文"
@@ -479,6 +379,4 @@ debuff，使受影响的敌人无法被治疗。"
 		"item_rpc_omniro_glyph_7_1_description" 				"奥尼洛的最高等级的元素增加 @glyph_property1 点充能。"
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"色度雕文"
-		"item_rpc_omniro_glyph_5_a_description" 				"奥尼洛的最高等级的元素伤害增加 <% OMNIRO_GLYPH_5_A_TOP_1_BONUS %>% ，第二高的伤害增加 <% 
-
-OMNIRO_GLYPH_5_A_TOP_2_BONUS%>%, 第三高的伤害增加 <% OMNIRO_GLYPH_5_A_TOP_3_BONUS %>, 第四高的伤害增加 <% OMNIRO_GLYPH_5_A_TOP_4_BONUS %>。"
+		"item_rpc_omniro_glyph_5_a_description" 				"奥尼洛的最高等级的元素伤害增加 <% OMNIRO_GLYPH_5_A_TOP_1_BONUS %>% ，第二高的伤害增加 <% OMNIRO_GLYPH_5_A_TOP_2_BONUS%>%, 第三高的伤害增加 <% OMNIRO_GLYPH_5_A_TOP_3_BONUS %>, 第四高的伤害增加 <% OMNIRO_GLYPH_5_A_TOP_4_BONUS %>。"

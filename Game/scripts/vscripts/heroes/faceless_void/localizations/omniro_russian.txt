@@ -8,7 +8,7 @@
 
 
 		"DOTA_Tooltip_ability_omniro_omni_mace"								"Omni Mace"
-		"DOTA_Tooltip_ability_omniro_omni_mace_Description"					"Grants an additional effect when attacking an enemy. Striking an enemy cycles to the next available element. This ability can be toggled on to lock the current element. Hover over an element on Omniro's panel to see its effect (not all effects can fit in this ability's tooltip). All effects scale with Omni Mace's level as well as that element's rune level. The extra instance of damage provided passively by this ability will be of the same damage type and element of the rune that enhances it."	
+		"DOTA_Tooltip_ability_omniro_omni_mace_Description"					"Grants an additional effect when attacking an enemy. Striking an enemy cycles to the next available element. This ability can be toggled on to lock the current element. Hover over an element on Omniro's panel to see its effect (not all effects can fit in this ability's tooltip). All effects scale with Omni Mace's level as well as that element's rune level."	
 		"DOTA_Tooltip_ability_omniro_omni_mace_damage_mult"					"% EXTRA DAMAGE INSTANCE BASED ON ATTACK POWER:"
 
 		"omniro_fire_special_description"									"Applies a <% OMNIRO_FIRE_SPECIAL_DURATION %> second buff that increases base attack damage."
@@ -22,12 +22,12 @@
 		"omniro_earth_special_b_pretext"									"BONUS MAGIC RESISTANCE:"	
 
 		"DOTA_Tooltip_modifier_omnimace_earth_buff"							"Omni Mace: Earth"
-		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"Increased armor and magic resistance"									
+		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"Increased armor and "									
 
 		"omniro_lightning_special_description"									"Deals an extra instance of damage based on target's current HP."
-		"omniro_lightning_special_a_pretext"										"CURRENT HP % DAMAGE:"												
+		"omniro_lightning_special_a_pretext"										"EXTRA DAMAGE % OF TARGET'S CURRENT HP: "												
 
-		"omniro_poison_special_description"									"Applies a 2 second DoT that deals damage every 0.5 seconds. Deals <% OMNIRO_POISON_MULTIPLE_FOR_DOUBLE %>x damage when afflicted enemy is also standing in Orb Effect's poison puddle."
+		"omniro_poison_special_description"									"Applies a 2 second DoT that deals damage every 0.5 seconds. Deals <% OMNIRO_POISON_MULTIPLE_FOR_DOUBLE %>x damage when standing in orb effect's poison puddle."
 		"omniro_poison_special_a_pretext"										"DOT DAMAGE % OF ATTACK POWER: "
 
 		"DOTA_Tooltip_modifier_omnimace_poison_debuff"						"Omni Mace: Poison"
@@ -62,7 +62,7 @@
 		"omniro_arcane_special_description"									"Drains <% OMNIRO_ARCANE_MANA_DRAIN_PERCENTAGE %>% of max mana to deal an additional instance of damage."
 		"omniro_arcane_special_a_pretext"										"DAMAGE MULT PER MANA USED:"							
 
-		"omniro_shadow_special_description"									"Deal an additional amplified instance of damage and apply a debuff to the target that removes their armor's resistance to physical damage for <% OMNIRO_SHADOW_SPECIAL_DURATION %> seconds."
+		"omniro_shadow_special_description"									"Deal an additional amplified instance of damage and apply a debuff to the target that makes removes their armor reduction for <% OMNIRO_SHADOW_SPECIAL_DURATION %> seconds."
 		"omniro_shadow_special_a_pretext"										"% EXTRA DAMAGE MULTIPLIER:"		
 
 		"DOTA_Tooltip_modifier_omniro_shadow_debuff"					"Omni Mace: Shadow"		
@@ -88,7 +88,7 @@
 		"DOTA_Tooltip_modifier_omnimace_water_buff_Description"				"Increased Health Regen"							
 
 		"omniro_demon_special_description"									"Applies a <% OMNIRO_DEMON_SPECIAL_DURATION %> second buff that provides green bonus attack damage."
-		"omniro_demon_special_a_pretext"										"PERCENTILE DAMAGE BONUS: "		
+		"omniro_demon_special_a_pretext"										"% DAMAGE BONUS: "		
 
 		"DOTA_Tooltip_modifier_omnimace_demon_buff"							"Omni Mace: Demon"	
 		"DOTA_Tooltip_modifier_omnimace_demon_buff_Description"				"Increased Bonus Attack Damage"								
@@ -98,10 +98,10 @@
 		"omniro_nature_special_b_pretext"									"ROOT DAMAGE PER SECOND BASED ON % OF ATTACK POWER:"		
 
 		"DOTA_Tooltip_modifier_omnimace_nature_debuff"						"Omni Mace: Nature"
-		"DOTA_Tooltip_modifier_omnimace_nature_debuff_Description"			"Rooted and taking damage each second"		
+		"DOTA_Tooltip_modifier_omnimace_nature_debuff_Description"			"Rooted and taking damage each send"		
 
 		"omniro_undead_special_description"									"Target gains a debuff that disables healing. Applies a buff for <% OMNIRO_UNDEAD_SPECIAL_DURATION %> seconds that increases post-mitigation damage."
-		"omniro_undead_special_a_pretext"									"HEALING DISABLE DURATION:"		
+		"omniro_undead_special_a_pretext"									"HEALING DISBLE DURATION:"		
 		"omniro_undead_special_b_pretext"									"POST MITIGATION BONUS %:"	
 
 		"omniro_dragon_special_description"									"Applies a <% OMNIRO_DRAGON_SPECIAL_DURATION %> second buff that provides increase to all elemental damage."
@@ -118,13 +118,13 @@
 
 		"omniro_orb_effect_title"											"Orb Effect"
 
-		"omniro_normal_orb_description"										"Creates a cleave effect that deals damage based on attack power"
+		"omniro_normal_orb_description"										"Creates a cleave affect that does big damage based on attack power"
 		"omniro_normal_orb_a_pretext"										"ATTACK POWER MULTIPLE:"
 
-		"omniro_fire_orb_description"										"Creates a ring of fire that damages enemies in a <% OMNIRO_ORB_FIRE_AOE %> AOE."
+		"omniro_fire_orb_description"										"Creates a ring of fire that damages enemies in a <% OMNIRO_ORB_FIRE_AOE %> AOE"
 		"omniro_fire_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
 
-		"omniro_earth_orb_description"										"Creates an earthquake that damages and stuns enemies in a <% OMNIRO_ORB_EARTH_AOE %> AOE."
+		"omniro_earth_orb_description"										"Creates an earthquake that damages and stuns enemies in a <% OMNIRO_ORB_EARTH_AOE %> AOE"
 		"omniro_earth_orb_a_pretext"										"DAMAGE x STRENGTH:"				
 		"omniro_earth_orb_b_pretext"										"STUN DURATION:"			
 
@@ -152,7 +152,7 @@
 		"omniro_cosmic_orb_a_pretext"										"DAMAGE % ATTACK:"				
 		"omniro_cosmic_orb_b_pretext"										"DAMAGE x MAX HEALTH:"
 
-		"omniro_ice_orb_description"									"Creates a larger ice blast with a base radius of <% OMNIRO_ICE_ORB_BASE_RADIUS %>, and applies the Omni Mace's slow. Damage is based on all attributes, and the lowest attribute is multiplied by <% OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT %>x."
+		"omniro_ice_orb_description"									"Creates a larger ice blast with a base radius of <% OMNIRO_ICE_ORB_BASE_RADIUS %> and applies basic ice mace's slow. Damage is based on all attributes, and the lowest attribute is multiplied by <% OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT %>x."
 		"omniro_ice_orb_a_pretext"										"DAMAGE x ALL ATTRIBUTES:"				
 		"omniro_ice_orb_b_pretext"										"ADDITIONAL RADIUS:"
 
@@ -184,24 +184,24 @@
 		"omniro_demon_orb_description"										"Deals a large instance of damage that ignores Steadfast."
 		"omniro_demon_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
 
-		"omniro_nature_orb_description"										"Applies a shield that absorbs instances of damage. Base maximum stacks is <% OMNIRO_NATURE_SHIELD_BASE_MAX_STACKS %> and scales with Nature's level. Lasts <% OMNIRO_NATURE_SHIELD_DURATION %> seconds."
+		"omniro_nature_orb_description"										"Applies a shield that absorbs instances of damage. Base maximum stacks is <% OMNIRO_NATURE_SHIELD_BASE_MAX_STACKS %> and scales with levels. Lasts <% OMNIRO_NATURE_SHIELD_DURATION %> seconds."
 		"omniro_nature_orb_a_pretext"											"CHANCE TO ADD SHIELD STACK %:"	
 		"omniro_nature_orb_b_pretext"											"ADDITIONAL MAX SHIELD STACKS:"
 
 		"DOTA_Tooltip_modifier_omniro_nature_shield"						"Omni Orb: Nature"
 		"DOTA_Tooltip_modifier_omniro_nature_shield_Description"			"Absorbing damage"
 
-		"omniro_undead_orb_description"										"Throws a skull behind the target that damages enemies in its path and applies the debuff that makes them unable to heal."
+		"omniro_undead_orb_description"										"Throws a skull behind the target that damages everything in its path and applies the debuff that makes them unable to heal."
 		"omniro_undead_orb_a_pretext"											"DAMAGE % ATTACK POWER:"	
 		"omniro_undead_orb_b_pretext"											"DAMAGE x CURRENT HEALTH:"
 
 		"omniro_dragon_orb_description"										"Recharges all other elements to full."
 
 		"DOTA_Tooltip_ability_omniro_omni_orb"								"Omni Orb"
-		"DOTA_Tooltip_ability_omniro_omni_orb_Description"					"While toggled on, triggers an additional effect on cast based on the currently active element. The effect only triggers if the element has active charges. Charges are displayed on Omniro's elements panel. Max Charges can be increased by leveling up the elements through runes. Base recharge time is 10 seconds per charge. Each element's Orb Effect can be seen by hovering over an element on Omniro's elements panel. All effects scale with Omni Orb's level as well as that element's rune level."	
+		"DOTA_Tooltip_ability_omniro_omni_orb_Description"					"While toggled on, triggers an additional effect on cast based on the currently active element. The effect only triggers if the element has active charges. Charges are displayed on Omniro's elements panel. Max Charges can be increased by leveling up the elements through runes. Base recharge time is 10 seconds per charge. Each element's Orb Effect can be seen by hovering over an element on Omniro's elements panel."	
 
 		"DOTA_Tooltip_ability_omniro_chrono_path"								"Chrono Path"
-		"DOTA_Tooltip_ability_omniro_chrono_path_Description"					"Pockets of warped spacetime line up in a row in front of Omniro. While Omniro is standing in the fields, he has an enforced minimum movespeed, free pathing and cannot be attacked."
+		"DOTA_Tooltip_ability_omniro_chrono_path_Description"					"Pockets of warped spacetime line up in a row in from of Omniro. While omniro is standing in the fields, he has en enforced minimum movespeed, free pathing and cannot be attacked."
 		"DOTA_Tooltip_ability_omniro_chrono_path_min_movespeed"						"MINIMUM MOVESPEED:"
 		"DOTA_Tooltip_ability_omniro_chrono_path_duration"						"DURATION:"
 
@@ -326,23 +326,23 @@
     	"DOTA_Tooltip_ability_omniro_rune_r_4_suffix_two"				""
 
 		//Weapons
-	"DOTA_Tooltip_ability_item_rpc_omniro_weapon_00"		"Dull Mace"
-		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_01"		"Iron Hammer"
-		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_02"		"Chrome Cudgel"
-		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_03"		"Lead Gavel"
-		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_11"		"Faceted Club"
-		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_12"		"Bismuth Flange"
-		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_13"		"Silver Maul"
-		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_14"		"Spinecrusher"
-		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_21"		"Coruscating Flail"
-		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_22"		"Heavy Mallet"
-		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_23"		"Gleaming Bruiser"
-		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_24"		"Atomic Pulverizer"
-		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_25"		"Martel de Fer"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_00"		"Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_01"		"Element Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_02"		"Chrome Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_03"		"Charged Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_11"		"Orbital Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_12"		"Prismatic Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_13"		"Protonic Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_14"		"Multistorm Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_21"		"Maleficient Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_22"		"Multicore Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_23"		"Atomic Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_24"		"Partitioned Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_25"		"Hammer of Division"
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_1"           "Omnichromatic Hammer"
 		"item_property_omniro_immortal_weapon"                             "Multicrux"
-		"property_omniro_immortal_weapon_description"                      "Omniro's @Ability1 effect triggers twice on each attack."
+		"property_omniro_immortal_weapon_description"                      "Omniro's basic elemental mace effect triggers twice on each attack."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_2"            "Supercharged Prism Hammer"
 		"item_property_omniro_immortal_weapon2"                             "Kaleidoscopic Reload"
