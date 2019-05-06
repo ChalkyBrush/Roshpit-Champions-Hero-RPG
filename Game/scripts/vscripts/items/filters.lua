@@ -1819,7 +1819,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if unitName == "npc_dota_hero_faceless_void" then
         require('heroes/faceless_void/omni_mace')
-        mult = omniro_elemental_bonus(element1, element2, attacker)
+        mult = mult + omniro_elemental_bonus(element1, element2, attacker)
     end
     if element1 > 1 or element2 > 1 then
         if attacker:HasModifier("modifier_neutral_glyph_2_3") then

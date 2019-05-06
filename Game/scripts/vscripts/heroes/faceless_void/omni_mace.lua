@@ -281,7 +281,7 @@ function omnimace_set_highest_elements_table(caster, ability)
 	local next_highest_table = {}
 	for i = 1, #highest_elements_table, 1 do
 		if highest_elements_table[i]["level"] > 0 then
-			if highest_elements_table[i]["element_number"] == RPC_ELEMENT_NORMAL or highest_elements_table[i]["element_number"] == RPC_ELEMENT_DRAGON then
+			if highest_elements_table[i]["element_number"] == RPC_ELEMENT_DRAGON then
 			else
 				table.insert(next_highest_table, highest_elements_table[i]["element_number"])
 			end
@@ -596,7 +596,7 @@ end
 
 function omniro_elemental_bonus(element1, element2, caster)
 	local ability = caster:FindAbilityByName("omniro_omni_mace")
-	local mult = 1
+	local mult = 0
 	if element1 == -1 or element1 == 0 then
 		return 1
 	end
@@ -607,13 +607,16 @@ function omniro_elemental_bonus(element1, element2, caster)
 		if caster.omniro_data[element1] then
 			if WallPhysics:DoesTableHaveValue(ability.highest_elements_table, caster.omniro_data[element1]["element_number"]) then
 				if ability.highest_elements_table[1] == element1 or ability.highest_elements_table[1] == element2 then
-					mult = OMNIRO_GLYPH_5_A_TOP_1_BONUS/100
-				elseif ability.highest_elements_table[2] == element1 or ability.highest_elements_table[2] == element2 then
-					mult = OMNIRO_GLYPH_5_A_TOP_2_BONUS/100
-				elseif ability.highest_elements_table[3] == element1 or ability.highest_elements_table[3] == element2 then
-					mult = OMNIRO_GLYPH_5_A_TOP_3_BONUS/100
-				elseif ability.highest_elements_table[4] == element1 or ability.highest_elements_table[4] == element2 then
-					mult = OMNIRO_GLYPH_5_A_TOP_4_BONUS/100
+					mult = mult + OMNIRO_GLYPH_5_A_TOP_1_BONUS/100
+				end
+				if ability.highest_elements_table[2] == element1 or ability.highest_elements_table[2] == element2 then
+					mult = mult + OMNIRO_GLYPH_5_A_TOP_2_BONUS/100
+				end
+				if ability.highest_elements_table[3] == element1 or ability.highest_elements_table[3] == element2 then
+					mult = mult + OMNIRO_GLYPH_5_A_TOP_3_BONUS/100
+				end
+				if ability.highest_elements_table[4] == element1 or ability.highest_elements_table[4] == element2 then
+					mult = mult + OMNIRO_GLYPH_5_A_TOP_4_BONUS/100
 				end
 			end
 		end
