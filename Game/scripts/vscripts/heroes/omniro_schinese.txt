@@ -476,9 +476,9 @@ debuff，使受影响的敌人无法被治疗。"
 		"item_rpc_omniro_glyph_6_1_description" 				"攻击一个敌人回复 @glyph_property1% 的当前元素的充能。"
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_7_1"		"元素特化雕文"
-		"item_rpc_omniro_glyph_7_1_description" 				"奥尼洛的最高等级的元素增加 @glyph_property1 点充能。"
+		"item_rpc_omniro_glyph_7_1_description" 				"奥尼洛的最高等级的元素(不包括 <font color=\"#3289C7\">龙</font> 元素)增加 @glyph_property1 点充能。"
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"色度雕文"
-		"item_rpc_omniro_glyph_5_a_description" 				"奥尼洛的最高等级的元素伤害增加 <% OMNIRO_GLYPH_5_A_TOP_1_BONUS %>% ，第二高的伤害增加 <% 
+		"item_rpc_omniro_glyph_5_a_description" 				"奥尼洛的最高等级的元素(不包括 <font color=\"#3289C7\">龙</font> 元素) 伤害增加 <% OMNIRO_GLYPH_5_A_TOP_1_BONUS %>% ，第二高的伤害增加 <% 
 
 OMNIRO_GLYPH_5_A_TOP_2_BONUS%>%, 第三高的伤害增加 <% OMNIRO_GLYPH_5_A_TOP_3_BONUS %>, 第四高的伤害增加 <% OMNIRO_GLYPH_5_A_TOP_4_BONUS %>。"
