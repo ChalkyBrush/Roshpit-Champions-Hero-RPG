@@ -2107,6 +2107,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
 				local e_4_level = attacker:GetRuneValue("e", 4)
 				 mult = mult + attacker:GetAgility() * e_4_level * VOLTEX_E4_LIGHTNING_PCT_PER_AGI
 			elseif attacker:HasAbility("voltex_lightning_dash") then
+                local e_4_level = attacker:GetRuneValue("e", 4)
 				 mult = mult + attacker:GetAgility() * e_4_level * VOLTEX_ARCANA_E4_LIGHTNING_PCT_PER_AGI
             end
             if attacker:HasAbility("voltex_overcharge") then
