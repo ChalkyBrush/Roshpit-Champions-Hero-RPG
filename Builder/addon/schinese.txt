@@ -48,6 +48,7 @@
 		"npc_dota_hero_skywrath_mage"					"希芙尔"
 		"npc_dota_hero_winter_wyvern"					"帝纳斯"
 		"npc_dota_hero_arc_warden"					"杰克斯"
+		"npc_dota_hero_faceless_void"					"奥尼洛"
 		
 		
 		
