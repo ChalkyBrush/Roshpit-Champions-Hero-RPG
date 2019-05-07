@@ -62,7 +62,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"fire_special_a"			"200 400 600 800 1000 1200 1400"
+				"fire_special_a"			"200 400 800 1200 2000 5000 10000"
 			}
 			"03"
 			{
