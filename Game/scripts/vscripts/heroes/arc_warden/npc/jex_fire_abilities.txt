@@ -933,7 +933,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityManaCost"				"100 300 800 2000 4000 8000 16000"
+		"AbilityManaCost"				"100 200 400 600 1000 2400 4200"
 		"precache"
 		{
 
