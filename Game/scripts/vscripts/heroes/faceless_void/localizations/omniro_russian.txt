@@ -191,7 +191,7 @@
 		"DOTA_Tooltip_modifier_omniro_nature_shield"						"Omni Orb: Природа"
 		"DOTA_Tooltip_modifier_omniro_nature_shield_Description"			"Поглощает урон"
 
-		"omniro_undead_orb_description"										"Выпускает череп за спиной противника, который наносит урон все попавшим под него и отключает возможность восстанавливать здоровье."
+		"omniro_undead_orb_description"										"Выпускает череп за спиной противника, который наносит урон всем попавшим под него и отключает возможность восстанавливать здоровье."
 		"omniro_undead_orb_a_pretext"											"УРОН, % ОТ СИЛЫ АТАКИ:"	
 		"omniro_undead_orb_b_pretext"											"УРОН x ТЕКУЩЕЕ ЗДОРОВЬЕ:"
 
@@ -201,7 +201,7 @@
 		"DOTA_Tooltip_ability_omniro_omni_orb_Description"					"При включении активирует дополнительный эффект от текущего элемента. Орб-эффект срабатывает только если элемент имеет активные заряды, указанные на панели. Количество зарядов может быть увеличено рунами героя. Базовая скорость восстановления заряда - 10 секунд. Каждый орб-эффект указан на панели элементов героя."	
 
 		"DOTA_Tooltip_ability_omniro_chrono_path"								"Chrono Path"
-		"DOTA_Tooltip_ability_omniro_chrono_path_Description"					"Карманы сжатого пространства-времени выстраиваются в линию перед лицом Omniro. Пока герой находится в кармане, он имеет фиксированную скорость передвижения, свободное передвижение и не может быть атакован."
+		"DOTA_Tooltip_ability_omniro_chrono_path_Description"					"Зоны сжатого пространства-времени выстраиваются в линию перед лицом Omniro. Пока герой находится в зоне, он имеет фиксированную скорость передвижения, свободное передвижение и не может быть атакован."
 		"DOTA_Tooltip_ability_omniro_chrono_path_min_movespeed"						"МИНИМУМ СКОРОСТИ:"
 		"DOTA_Tooltip_ability_omniro_chrono_path_duration"						"ДЛИТЕЛЬНОСТЬ:"
 
