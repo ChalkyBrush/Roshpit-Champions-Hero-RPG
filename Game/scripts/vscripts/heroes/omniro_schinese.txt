@@ -202,7 +202,7 @@ OMNIRO_ORB_POISON_POOL_DURATION %> 秒。每0.5秒对站在其中的敌人造成
 
 		"omniro_ice_orb_description"									"产生一个基础范围为<% OMNIRO_ICE_ORB_BASE_RADIUS %> 的冰霜爆发，并且全能权杖
 
-将造成减速。伤害基于全属性，并且最低的属性将会被提高 <% OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT %>x。"
+将造成减速。伤害基于全属加上最低的属性 <% OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT %>x。"
 		"omniro_ice_orb_a_pretext"										"基于全属性的伤害："				
 		"omniro_ice_orb_b_pretext"										"额外范围："
 
