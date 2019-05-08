@@ -39,7 +39,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
                     ability = Entities.GetAbility(skill_tree_data, skillIndex);
                     tooltip = tooltip.replace(regex, "<font color='#7DFF12'>" + $.Localize("DOTA_Tooltip_Ability_" + Abilities.GetAbilityName(ability)) + "</font>");
                 } else if (!(requiredHero === "")) {
-                    tooltip = tooltip.replace(regex, "<font color='#7DFF12'>" + $.Localize("DOTA_Tooltip_Ability_" + heroName + "_rune_q_1") + "</font>");
+                    tooltip = tooltip.replace(regex, "<font color='#7DFF12'>" + $.Localize("DOTA_Tooltip_Ability_" + heroName + "_rune_" + skill + "_" + tier) + "</font>");
                 }
             }
         });
