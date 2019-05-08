@@ -156,7 +156,7 @@
 		"omniro_cosmic_orb_a_pretext"										"攻击力%的伤害："				
 		"omniro_cosmic_orb_b_pretext"										"最大生命值倍数的伤害："
 
-		"omniro_ice_orb_description"									"产生一个基础范围为<% OMNIRO_ICE_ORB_BASE_RADIUS %> 的冰霜爆发，并且全能权杖将造成减速。伤害基于全属性，并且最低的属性将会被提高 <% OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT %>x。"
+		"omniro_ice_orb_description"									"产生一个基础范围为<% OMNIRO_ICE_ORB_BASE_RADIUS %> 的冰霜爆发，并且全能权杖将造成减速。伤害基于全属性和最低的属性的 <% OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT %>x。"
 		"omniro_ice_orb_a_pretext"										"基于全属性的伤害："				
 		"omniro_ice_orb_b_pretext"										"额外范围："
 
@@ -376,7 +376,7 @@
 		"item_rpc_omniro_glyph_6_1_description" 				"攻击一个敌人回复 @glyph_property1% 的当前元素的充能。"
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_7_1"		"元素特化雕文"
-		"item_rpc_omniro_glyph_7_1_description" 				"奥尼洛的最高等级的元素增加 @glyph_property1 点充能。"
+		"item_rpc_omniro_glyph_7_1_description" 				"奥尼洛的最高等级(不包括 <font color=\"#3289C7\">龙</font>元素)的元素增加 @glyph_property1 点充能。"
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"色度雕文"
-		"item_rpc_omniro_glyph_5_a_description" 				"奥尼洛的最高等级的元素伤害增加 <% OMNIRO_GLYPH_5_A_TOP_1_BONUS %>% ，第二高的伤害增加 <% OMNIRO_GLYPH_5_A_TOP_2_BONUS%>%, 第三高的伤害增加 <% OMNIRO_GLYPH_5_A_TOP_3_BONUS %>, 第四高的伤害增加 <% OMNIRO_GLYPH_5_A_TOP_4_BONUS %>。"
+		"item_rpc_omniro_glyph_5_a_description" 				"奥尼洛的最高等级(不包括 <font color=\"#3289C7\">龙</font>元素)的元素伤害增加 <% OMNIRO_GLYPH_5_A_TOP_1_BONUS %>% ，第二高的伤害增加 <% OMNIRO_GLYPH_5_A_TOP_2_BONUS%>%, 第三高的伤害增加 <% OMNIRO_GLYPH_5_A_TOP_3_BONUS %>%, 第四高的伤害增加 <% OMNIRO_GLYPH_5_A_TOP_4_BONUS %>%。"
