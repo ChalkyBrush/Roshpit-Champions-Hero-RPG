@@ -1115,7 +1115,9 @@ function Arena:GrandVictorySequence(hero)
 	hero:SetForwardVector(Vector(0,-1))
 	Arena.Coach:SetForwardVector(Vector(0,-1))
 	local particleTable = {}
-	PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(), hero)
+	Timers:CreateTimer(2, function()
+  	 	PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(), nil)
+  	 end)
 	for i = 1, 6, 1 do
 		Timers:CreateTimer(3*i, function()
 			EmitGlobalSound("Arena.Cheer"..RandomInt(3,4))

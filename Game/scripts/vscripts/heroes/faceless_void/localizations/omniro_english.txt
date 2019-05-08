@@ -326,7 +326,7 @@
     	"DOTA_Tooltip_ability_omniro_rune_r_4_suffix_two"				""
 
 		//Weapons
-	"DOTA_Tooltip_ability_item_rpc_omniro_weapon_00"		"Dull Mace"
+		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_00"		"Dull Mace"
 		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_01"		"Iron Hammer"
 		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_02"		"Chrome Cudgel"
 		"DOTA_Tooltip_ability_item_rpc_omniro_weapon_03"		"Lead Gavel"
