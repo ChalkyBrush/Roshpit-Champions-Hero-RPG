@@ -7402,7 +7402,7 @@
 		"omniro_wind_orb_a_pretext"										"УРОН x СИЛА АТАКИ:"				
 		"omniro_wind_orb_b_pretext"										"УРОН x ЛОВКОСТЬ:"
 
-		"omniro_ghost_orb_description"										"Создает призрачное облако, обезоруживающее противников внутри, радиусом <font color='#ccff66'>400</font>. Наносит урон каждую секунду, длительность <font color='#ccff66'>400</font> секунд."
+		"omniro_ghost_orb_description"										"Создает призрачное облако, обезоруживающее противников внутри, радиусом <font color='#ccff66'>400</font>. Наносит урон каждую секунду, длительность <font color='#ccff66'>1</font> секунд."
 		"omniro_ghost_orb_a_pretext"											"УРОН, % ОТ СИЛЫ АТАКИ:"	
 		"omniro_ghost_orb_b_pretext"											"ДОПОЛНИТЕЛЬНАЯ ДЛИТЕЛЬНОСТЬ:"
 

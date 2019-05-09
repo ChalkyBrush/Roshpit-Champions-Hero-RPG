@@ -171,7 +171,7 @@
 		"omniro_wind_orb_a_pretext"										"DAMAGE x ATTACK:"				
 		"omniro_wind_orb_b_pretext"										"DAMAGE x AGILITY:"
 
-		"omniro_ghost_orb_description"										"Creates a ghastly <% OMNIRO_GHOST_ORB_AOE %> radius shroud that disarms enemies within and deals damage each second. Base duration is <% OMNIRO_GHOST_ORB_AOE %> second."
+		"omniro_ghost_orb_description"										"Creates a ghastly <% OMNIRO_GHOST_ORB_AOE %> radius shroud that disarms enemies within and deals damage each second. Base duration is <% OMNIRO_GHOST_ORB_BASE_DURATION %> second."
 		"omniro_ghost_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
 		"omniro_ghost_orb_b_pretext"											"ADDITIONAL CLOUD DURATION:"
 
@@ -209,7 +209,7 @@
 		"DOTA_Tooltip_modifier_omniro_in_chrono_path_Description"				"Can't be attacked and Free Pathing"
 
 		"DOTA_Tooltip_ability_omniro_dimension_stalker"								"Dimension Stalker"
-		"DOTA_Tooltip_ability_omniro_dimension_stalker_Description"					"After a 1.8 second target acquisition period, Omniro triggers a series of attacks on random enemies in the ability's radius. While channeling, Omniro is immune to magic."
+		"DOTA_Tooltip_ability_omniro_dimension_stalker_Description"					"After a 1.8 second target acquisition period, Omniro triggers a series of attacks on random enemies in the ability's radius. While channeling, Omniro is immune to magic. Attacks during Dimension Stalker do not consume charges or require them in order to proc their Orb Effect"
 		"DOTA_Tooltip_ability_omniro_dimension_stalker_radius"						"RADIUS:"
 		"DOTA_Tooltip_ability_omniro_dimension_stalker_max_targets"					"MAX TARGETS:"
 

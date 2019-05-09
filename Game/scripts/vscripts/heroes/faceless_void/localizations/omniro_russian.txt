@@ -171,7 +171,7 @@
 		"omniro_wind_orb_a_pretext"										"УРОН x СИЛА АТАКИ:"				
 		"omniro_wind_orb_b_pretext"										"УРОН x ЛОВКОСТЬ:"
 
-		"omniro_ghost_orb_description"										"Создает призрачное облако, обезоруживающее противников внутри, радиусом <% OMNIRO_GHOST_ORB_AOE %>. Наносит урон каждую секунду, длительность <% OMNIRO_GHOST_ORB_AOE %> секунд."
+		"omniro_ghost_orb_description"										"Создает призрачное облако, обезоруживающее противников внутри, радиусом <% OMNIRO_GHOST_ORB_AOE %>. Наносит урон каждую секунду, длительность <% OMNIRO_GHOST_ORB_BASE_DURATION %> секунд."
 		"omniro_ghost_orb_a_pretext"											"УРОН, % ОТ СИЛЫ АТАКИ:"	
 		"omniro_ghost_orb_b_pretext"											"ДОПОЛНИТЕЛЬНАЯ ДЛИТЕЛЬНОСТЬ:"
 
