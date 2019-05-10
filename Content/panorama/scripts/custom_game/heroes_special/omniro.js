@@ -1,7 +1,7 @@
 
 function UpdateOmniro(msg){
 	var omniro = msg.omniro
-	var omniro_data = msg.omniro_data
+	var omniro_data = CustomNetTables.GetTableValue( "hero_index", "omniro-"+omniro.toString() );
 	var omniro_parent = $.GetContextPanel().FindChildTraverse("omniro_parent_attach_point")
 	var parent = $.GetContextPanel().FindChildTraverse('heroes_special_attach_point')
 

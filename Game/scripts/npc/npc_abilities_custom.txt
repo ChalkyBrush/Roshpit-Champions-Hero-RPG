@@ -102,7 +102,7 @@
 			"10"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"cosmic_special_a"			"100 200 400 800 1500 3000 5000"
+				"cosmic_special_a"			"200 400 800 1500 3000 5000 10000"
 			}
 			"11"
 			{
@@ -167,7 +167,7 @@
 			"23"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"undead_special_b"			"3.0 4.5 6.0 7.5 9.0 10.5 12.0"
+				"undead_special_b"			"6.0 7.5 9.0 10.5 12.0 13.5 15"
 			}
 			"24"
 			{

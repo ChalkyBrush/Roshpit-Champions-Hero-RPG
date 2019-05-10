@@ -27,10 +27,11 @@ function omni_mace_main_think(event)
 	if ability.update_lock then
 		ability.update_lock = false
 	else
+		CustomNetTables:SetTableValue("hero_index", "omniro-"..tostring(caster:GetEntityIndex()), caster.omniro_data)
 		if reconstruct then
-			CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex(), reconstruct = true})
+			CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro = caster:GetEntityIndex(), reconstruct = true})
 		else
-			CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
+			CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro = caster:GetEntityIndex()})
 		end
 	end
 
@@ -48,10 +49,11 @@ function omni_mace_offload_think(event)
 	local reconstruct = omniro_rune_calculate(event)
 	local player = caster:GetPlayerOwner()
 	ability.update_lock = true
+	CustomNetTables:SetTableValue("hero_index", "omniro-"..tostring(caster:GetEntityIndex()), caster.omniro_data)
 	if reconstruct then
-		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex(), reconstruct = true})
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro = caster:GetEntityIndex(), reconstruct = true})
 	else
-		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro = caster:GetEntityIndex()})
 	end
 end
 
@@ -394,7 +396,7 @@ function omniro_mace_attack_land(event)
 	end
 
 	-- local player = caster:GetPlayerOwner()
-	-- CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
+	-- CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro = caster:GetEntityIndex()})
 end
 
 function omni_mace_toggle_on(event)
@@ -421,8 +423,9 @@ function omni_mace_ui_toggle(msg)
 		else
 			caster.omniro_data[msg.element_index]["in_rotation"] = 1
 		end
+		CustomNetTables:SetTableValue("hero_index", "omniro-"..tostring(caster:GetEntityIndex()), caster.omniro_data)
 		local player = caster:GetPlayerOwner()
-		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex(), reconstruct = true})
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro = caster:GetEntityIndex(), reconstruct = true})
 	else
 		local lock_new_skill = false
 		caster.omniro_data[caster.active_element]["active"] = false
@@ -435,7 +438,8 @@ function omni_mace_ui_toggle(msg)
 		end
 		caster.omniro_data[msg.element_index]["active"] = true
 		caster.active_element = msg.element_index
-		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = caster.omniro_data, omniro = caster:GetEntityIndex()})
+		CustomNetTables:SetTableValue("hero_index", "omniro-"..tostring(caster:GetEntityIndex()), caster.omniro_data)
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro = caster:GetEntityIndex()})
 	end
 end
 
