@@ -670,6 +670,10 @@ function WaterTempleKeyInitiate()
 	if not Tanari.BoulderSpine.PrincessShattered then
 		return
 	end
+	if Tanari.WaterKeyBossStarted then
+		return
+	end
+	Tanari.WaterKeyBossStarted = true
 	Dungeons.respawnPoint = Vector(9408, -5760)
 	Tanari:CreateWaterKeyWall()
 
