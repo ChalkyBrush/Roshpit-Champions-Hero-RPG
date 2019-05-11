@@ -2236,7 +2236,7 @@
 		"DOTA_Tooltip_modifier_rune_q_1_thinker_description" 			"Astral Ranger gains attack range in her Moon Shroud."
 		
 		"DOTA_Tooltip_ability_astral_rune_q_2"							"[Q2] Biting Stars"
-    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"Your attacks have a 20% chance to drop a star on the enemy that deals Pure damage based on attack power, and lowers the target's armor. Can trigger from Split Attacks. Steadfast threshold is multiplied by 5 against this rune."
+    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"Your attacks have a 20% chance to drop a star on the enemy that deals Pure damage based on attack power, and lowers the target's armor. Steadfast threshold is multiplied by 5 against this rune."
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_one"				"Star Impact Damage"
     	"DOTA_Tooltip_ability_astral_rune_q_2_suffix"					"% of attack power"
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_two"				"Armor Loss"
