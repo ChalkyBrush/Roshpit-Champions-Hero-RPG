@@ -5,19 +5,17 @@ function rune_think(event)
 end
 
 function rune_w_1(caster)
-  if caster:HasAbility("leshrac_nuke") then
-	  local runeUnit = caster.runeUnit
-	  local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_w_1")
-	  local abilityLevel = runeAbility:GetLevel()
-	  local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_1")
-	  local totalLevel = abilityLevel + bonusLevel
-	  if totalLevel > 0 then
-	  	runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_bahamut_a_b_buff", {})
-	  	caster:SetModifierStackCount( "modifier_bahamut_a_b_buff", runeAbility, totalLevel )
-	  else
-	  	caster:RemoveModifierByName("modifier_bahamut_a_b_buff")
-	  end
-	 end
+	if caster:HasAbility("leshrac_nuke") then
+		local runeUnit = caster.runeUnit
+		local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_w_1")
+		local w_1_level = caster:GetRuneValue("w", 1)
+		if w_1_level > 0 then
+			runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_bahamut_a_b_buff", {})
+			caster:SetModifierStackCount( "modifier_bahamut_a_b_buff", runeAbility, w_1_level )
+		else
+			caster:RemoveModifierByName("modifier_bahamut_a_b_buff")
+		end
+	end
 end
 
 function rune_q_2(caster)
