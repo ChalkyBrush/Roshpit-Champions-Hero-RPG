@@ -1013,7 +1013,9 @@ function rock_giant_take_damage(event)
 	if not caster.rocksOut then
 		caster.rocksOut = 0
 	end
+	--print("[rock_giant_take_damage] rocksOut: "..tostring(caster.rocksOut))
 	if caster.rocksOut < 10 then
+		caster.rocksOut = caster.rocksOut + 1
 		local info = 
 		{
 			Target = attacker,
@@ -1034,7 +1036,9 @@ function rock_giant_take_damage(event)
 		}
 		local projectile = ProjectileManager:CreateTrackingProjectile(info)
 		Timers:CreateTimer(1.5, function()
-			caster.rocksOut = caster.rocksOut - 1
+			if caster.rocksOut > 0 then
+				caster.rocksOut = caster.rocksOut - 1
+			end
 		end)
 	end
 end
