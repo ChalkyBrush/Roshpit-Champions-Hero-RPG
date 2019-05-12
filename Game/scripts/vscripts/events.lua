@@ -654,9 +654,9 @@ function GameMode:OnPlayerChat(keys)
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
 		end
-	elseif string.match(text, "-magic") then
+	elseif string.match(text, "-magical") then
 		if Beacons.cheats then
-			local damageValue = string.gsub(text, "-magic ", "")
+			local damageValue = string.gsub(text, "-magical ", "")
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
 		end

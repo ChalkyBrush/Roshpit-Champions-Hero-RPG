@@ -1062,7 +1062,6 @@ function RPCItems:GearPickup(heroEntity, itemEntity)
 		end
 	end
 	if oldGear then
-		print("OLD GEAR DETECTED")
 		heroEntity:TakeItem(itemEntity)
   		if IsValidEntity(itemEntity:GetContainer()) then
   			UTIL_Remove(itemEntity:GetContainer())
@@ -1100,45 +1099,27 @@ function RPCItems:EquipItem(slot, hero, inventory_unit, itemEntity)
 	Weapons:ValidateGear(hero)
 	if slot == 0 then
 		Head:remove_modifiers(hero)
-	 	Timers:CreateTimer(0.2, 
-	 	function()
-			Head:add_modifiers(hero, inventory_unit, itemEntity)
-		end)
+		Head:add_modifiers(hero, inventory_unit, itemEntity)
 	end
 	if slot == 1 then
 		Weaponmodifiers:remove_modifiers(hero)
-	 	Timers:CreateTimer(0.2, 
-	 	function()
-			Weaponmodifiers:add_modifiers(hero, inventory_unit, itemEntity)
-		end)
+		Weaponmodifiers:add_modifiers(hero, inventory_unit, itemEntity)
 	end
 	if slot == 2 then
 		Hand:remove_modifiers(hero)
-	 	Timers:CreateTimer(0.2, 
-	 	function()
-			Hand:add_modifiers(hero, inventory_unit, itemEntity)
-		end)
+		Hand:add_modifiers(hero, inventory_unit, itemEntity)
 	end
 	if slot == 3 then
 		Foot:remove_modifiers(hero)
-	 	Timers:CreateTimer(0.2, 
-	 	function()
-			Foot:add_modifiers(hero, inventory_unit, itemEntity)
-		end)
+		Foot:add_modifiers(hero, inventory_unit, itemEntity)
 	end
 	if slot == 4 then
 		Body:remove_modifiers(hero)
-	 	Timers:CreateTimer(0.2, 
-	 	function()
-			Body:add_modifiers(hero, inventory_unit, itemEntity)
-		end)
+		Body:add_modifiers(hero, inventory_unit, itemEntity)
 	end
 	if slot == 5 then
 		Amulet:remove_modifiers(hero)
-	 	Timers:CreateTimer(0.2, 
-	 	function()
-			Amulet:add_modifiers(hero, inventory_unit, itemEntity)
-		end)
+		Amulet:add_modifiers(hero, inventory_unit, itemEntity)
 	end
 	Timers:CreateTimer(1.5, function()
 		CustomGameEventManager:Send_ServerToAllClients("update_runes", {})
@@ -1167,58 +1148,6 @@ function RPCItems:RemoveItemStats(slot, hero)
 	Timers:CreateTimer(1.5, function()
 		CustomGameEventManager:Send_ServerToAllClients("update_runes", {})
 	end)
-end
-
-function RPCItems:EquipAllRespawn(player)
-	local hero, inventory_unit = RPCItems:GetHeroAndInventoryByID(player:GetPlayerID())
-	Head:remove_modifiers(hero)
-	Hand:remove_modifiers(hero)
-	Foot:remove_modifiers(hero)
-	Body:remove_modifiers(hero)
-	Amulet:remove_modifiers(hero)
-	local oldGearTable = CustomNetTables:GetTableValue("equipment", tostring(player:GetPlayerID()).."-"..tostring(0))
-	local oldGear = false
-	local itemEntity = false
-	if oldGearTable then
-		oldGear = EntIndexToHScript(oldGearTable.itemIndex)
-		itemEntity = EntIndexToHScript(oldGear)
-	end
-	if itemEntity then
-		Head:add_modifiers(hero, inventory_unit, itemEntity)
-	end
-	oldGearTable = false
-	oldGearTable = CustomNetTables:GetTableValue("equipment", tostring(player:GetPlayerID()).."-"..tostring(1))
-	oldGear = false
-	local itemEntity = false
-	if oldGearTable then
-		oldGear = EntIndexToHScript(oldGearTable.itemIndex)
-		itemEntity = EntIndexToHScript(oldGear)
-	end
-	if itemEntity then
-		Hand:add_modifiers(hero, inventory_unit, itemEntity)
-	end
-	oldGearTable = false
-	oldGearTable = CustomNetTables:GetTableValue("equipment", tostring(player:GetPlayerID()).."-"..tostring(2))
-	oldGear = false
-	local itemEntity = false
-	if oldGearTable then
-		oldGear = EntIndexToHScript(oldGearTable.itemIndex)
-		itemEntity = EntIndexToHScript(oldGear)
-	end
-	if itemEntity then
-		Foot:add_modifiers(hero, inventory_unit, itemEntity)
-	end
-	oldGearTable = false
-	oldGearTable = CustomNetTables:GetTableValue("equipment", tostring(player:GetPlayerID()).."-"..tostring(3))
-	oldGear = false
-	local itemEntity = false
-	if oldGearTable then
-		oldGear = EntIndexToHScript(oldGearTable.itemIndex)
-		itemEntity = EntIndexToHScript(oldGear)
-	end
-	if itemEntity then
-		Body:add_modifiers(hero, inventory_unit, itemEntity)
-	end
 end
 
 function RPCItems:FindPickupSlot(itemEntity, inventory_unit)
@@ -1319,7 +1248,6 @@ function RPCItems:RecalculateStats(keys)
 			local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..tostring(i))
 			if itemEntity then
 				local item = EntIndexToHScript(itemEntity.itemIndex)
-				print("GOOOOOODDDAY")
 				RPCItems:EquipItem(i, hero, hero.InventoryUnit, item)
 			end
 		end)
