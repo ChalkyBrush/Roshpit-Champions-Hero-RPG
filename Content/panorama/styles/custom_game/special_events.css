@@ -1,6 +1,7 @@
 .special_container{
   width:100%;
   height:100%;
+  opacity: 0.5;
 }
 
 #yellow_panel{
@@ -30,24 +31,23 @@
 
 .white_panel{
   background-color: white;
-  opacity:1.0;
+  opacity:0.5;
 }
 
 .pale_green_panel{
   background-color: #78ad75;
-  opacity:1.0;
+  opacity:0.5;
 }
 
 .red_panel{
-  background-color: #CC3333;
-  opacity:1.0;
+  background-color: #aa3a3a;
+  opacity:0.5;
 }
 
 .yellow_panel{
   background-color: #e8f442;
-  opacity:1.0;
+  opacity:0.3;
 }
-
 
 .invisible{
 	visibility: collapse;
@@ -73,23 +73,23 @@
 
 .animateEaseClassSpecial{
     animation-name: easeIn;
-    animation-duration: 4s;
+    animation-duration: 2s;
     animation-timing-function: linear;  
 }
 
 .animateEaseOutClassSpecial{
     animation-name: easeOut;
-    animation-duration: 4s;
+    animation-duration: 2s;
     animation-timing-function: linear;  
 }
 
 @keyframes 'easeIn'{
   0%   { opacity: 0; }
-  100% { opacity: 1; }
+  100% { opacity: 0.5; }
 }
 
 @keyframes 'easeOut'{
-  0%   { opacity: 1; }
+  0%   { opacity: 0.5; }
   100% { opacity: 0; }
 }
 
