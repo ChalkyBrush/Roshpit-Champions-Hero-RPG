@@ -46220,7 +46220,7 @@
         "AttackRange"   "90"
         "BountyGoldMin" "50"
         "BountyGoldMax" "60"
-        "BountyXP" "100"
+        "BountyXP" "3000"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
