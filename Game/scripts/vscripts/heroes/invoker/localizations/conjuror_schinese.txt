@@ -522,7 +522,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_2"            "三位一体"
         "item_property_conjuror_immortal_weapon2"                             "宇宙平衡"
-        "property_conjuror_immortal_weapon2_description"                      "每 10 点力量值提高 @Ability1 的伤害 0.03%，每 10 点智力值提高 @Ability2 的伤害 0.03%，每 10 点敏捷值提高 @Ability3 的伤害 0.03%。"  
+        "property_conjuror_immortal_weapon2_description"                      "每 10 点力量值提高 @Ability1 的伤害 0.3%，每 10 点智力值提高 @Ability2 的伤害 0.3%，每 10 点敏捷值提高 @Ability3 的伤害 0.3%。"  
 
 
         "DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_3"            "坚定球"
