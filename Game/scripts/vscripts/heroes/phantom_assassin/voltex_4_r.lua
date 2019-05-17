@@ -144,12 +144,13 @@ function voltex_rune_r_1_bolt(caster, ability, damage, point)
 end
 
 function voltex_rune_r_2_onattacklanded(event)
+    local attacker = event.attacker
+    local target = event.target
+    local ability = event.ability
     local luck = RandomInt(1,100)
-    if luck <= VOLTEX_R2_CHANCE then
-        local attacker = event.attacker
-        local target = event.target
-        local ability = event.ability
-        local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*(VOLTEX_R2_DMG_PER_ATT_BASE+VOLTEX_R2_DMG_PER_ATT*ability.r_2_level)
+	local r_2_level = attacker:GetRuneValue("r", 2)
+    if r_2_level > 0 and luck <= VOLTEX_R2_CHANCE then
+        local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * (VOLTEX_R2_BASE_DMG_PER_ATT + VOLTEX_R2_DMG_PER_ATT * r_2_level)
         Filters:ApplyStun(attacker, 0.2, target)
         Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
         -- Renders the particle on the target
@@ -160,7 +161,7 @@ function voltex_rune_r_2_onattacklanded(event)
         ParticleManager:SetParticleControl(particle, 2, Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))
 
         ability:ApplyDataDrivenModifier(attacker.runeUnit2, target, "modifier_voltex_rune_r_2_armor_loss", {duration = 6})
-        target:SetModifierStackCount( "modifier_voltex_rune_r_2_armor_loss", ability, ability.r_2_level )
+        target:SetModifierStackCount( "modifier_voltex_rune_r_2_armor_loss", ability, r_2_level )
         EmitSoundOn("Voltex.LightningBolt", target)
         Timers:CreateTimer(2, function()
             ParticleManager:DestroyParticle(particle, false)
@@ -171,10 +172,8 @@ end
 function voltex_rune_r_3(caster)
     local runeUnit = caster.runeUnit3
     local ability = runeUnit:FindAbilityByName("voltex_rune_r_3")
-    local abilityLevel = ability:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_3")
-    local totalLevel = Runes:GetTotalRuneLevel(caster, 3, "r_3", "voltex")
-    	if totalLevel > 0 then
+    local r_3_level = caster:GetRuneValue("r", 3)
+    	if r_3_level > 0 then
     		EmitSoundOn("DOTA_Item.BlackKingBar.Activate", caster)
     		local duration = VOLTEX_R3_BASE_DUR
     		if caster:HasModifier("modifier_voltex_glyph_5_1") then
@@ -187,7 +186,7 @@ function voltex_rune_r_3(caster)
     		ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_r_3_avatar", {duration = duration})
     		ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_r_3_buff", {duration = duration})
     		caster:AddNewModifier( caster, ability, "modifier_voltex_avatar_lua", {duration = duration} )
-    		caster:SetModifierStackCount( "modifier_voltex_rune_r_3_buff", ability, totalLevel )
+    		caster:SetModifierStackCount( "modifier_voltex_rune_r_3_buff", ability, r_3_level )
 
     	end
 end
