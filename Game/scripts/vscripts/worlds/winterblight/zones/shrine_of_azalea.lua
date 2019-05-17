@@ -2336,7 +2336,7 @@ function Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
 				Winterblight.CandyCrushProgressCrystal:SetAbsOrigin(Winterblight.CandyCrushProgressCrystal:GetAbsOrigin()-Vector(0,0,400))
 				-- UTIL_Remove(Winterblight.CandyCrushProgressCrystal)
 				Timers:CreateTimer(3.5, function()
-					local reward = 20
+					local reward = 7
 					if black_statue_count <= 0 then
 						reward = 300
 					elseif black_statue_count <= 1 then
