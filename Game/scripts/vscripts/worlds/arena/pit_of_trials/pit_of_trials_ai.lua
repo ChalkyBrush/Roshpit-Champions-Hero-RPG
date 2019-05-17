@@ -3652,8 +3652,6 @@ function ferrier_unit_die(event)
 					EmitSoundOn("Arena.FerrierIntro1", caster)
 					StartAnimation(caster, {duration=3, activity=ACT_DOTA_SPAWN, rate=1.0})
 					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", caster, 3)	
-					caster:RemoveModifierByName("modifier_disable_player")
-					ability:ApplyDataDrivenModifier(caster, caster, "modifier_ferrier_in_combat_aura", {})
 					Arena.FerrierGargoyleTable = {}
 					for i = 1, 30, 1 do
 						Timers:CreateTimer(i*0.2, function()
@@ -3662,7 +3660,9 @@ function ferrier_unit_die(event)
 							Arena:SpawnFerrierGargoyle(spawn_pos, targetPosition)
 						end)
 					end	
-					Timers:CreateTimer(2.5, function()
+					Timers:CreateTimer(6.0, function()
+						caster:RemoveModifierByName("modifier_disable_player")
+						ability:ApplyDataDrivenModifier(caster, caster, "modifier_ferrier_in_combat_aura", {})
 						caster.cantAggro = false
 						Dungeons:AggroUnit(caster)
 					end)				
