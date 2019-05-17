@@ -4924,7 +4924,7 @@
 		"item_rpc_djanghor_glyph_6_1_description" 				"Every 2 seconds, Djanghor cleanses 1 enemy debuff from himself. Any of Djanghor's animal form spells that make him charge to a location will apply [E3] when cast."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"Glyph of Mauling"
-		"item_rpc_djanghor_glyph_7_1_description" 				"Attacks during Bear form have a @glyph_property1% chance to bash the target, dealing @glyph_property2% increased damage and stunning for @glyph_property3 seconds. Additionally, War Stomp now reduces the Armor of affected targets by the same value as Wolf form's Rend."
+		"item_rpc_djanghor_glyph_7_1_description" 				"Attacks during Bear form have a @glyph_property1% chance to bash the target, dealing @glyph_property2% increased damage and stunning for @glyph_property3 seconds. Additionally, War Stomp now reduces the Armor of affected targets by the same value as Wolf form's Rend for 20 seconds."
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"Maul"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"Chance on attack to stun and deal additional damage."

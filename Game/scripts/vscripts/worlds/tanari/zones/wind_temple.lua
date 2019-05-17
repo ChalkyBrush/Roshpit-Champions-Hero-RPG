@@ -278,6 +278,8 @@ function Tanari:SpawnWindTempleStaff(position, base, staffID)
 	local staff = CreateUnitByName("wind_temple_staff", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
 	staff.dummy = true
 	staff.jumpLock = true
+	local staffAbility = staff:FindAbilityByName("wind_temple_staff_dummy")
+	staffAbility:SetLevel(1)
 	Tanari:StaffChangeColor(staff, base)
 	if staffID == 1 then
 		Tanari.WindTemple.staff1 = staff

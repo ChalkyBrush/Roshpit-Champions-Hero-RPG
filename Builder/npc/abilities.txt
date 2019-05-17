@@ -587,6 +587,7 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"States"
 				{
 					"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -605,6 +606,11 @@
 						"Function"		"wind_temple_staff_take_damage"
 					}
 				}
+			}
+			"modifier_disable_player"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"	"1"
 			}
 			"wind_temple_staff_dummy_buff"
 			{

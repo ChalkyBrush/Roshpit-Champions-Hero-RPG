@@ -44089,7 +44089,17 @@
 		}
 		"Modifiers"
 		{
-
+			"modifier_bear_rend_armor_loss"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"TextureName"	"djanghor/war_stomp"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
+				}
+			}
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -53637,6 +53647,31 @@
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
 			}
+			"modifier_voltex_rune_r_2_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/voltex_4_r.lua"
+						"Function"		"voltex_rune_r_2_onattacklanded"
+					}
+				}
+			}
+			"modifier_voltex_rune_r_2_armor_loss"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"
+				}
+			}
 		}
 
 		"AbilitySpecial"
@@ -54140,34 +54175,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"4"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_voltex_rune_r_2_passive"
-			{
-				"Passive"			"1"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/volex_4_r.lua"
-						"Function"		"voltex_rune_r_2_onattacklanded"
-					}
-				}
-			}
-			"modifier_voltex_rune_r_2_armor_loss"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"
-				}
 			}
 		}
 	}
@@ -80970,6 +80977,7 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"States"
 				{
 					"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -80988,6 +80996,11 @@
 						"Function"		"wind_temple_staff_take_damage"
 					}
 				}
+			}
+			"modifier_disable_player"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"	"1"
 			}
 			"wind_temple_staff_dummy_buff"
 			{
