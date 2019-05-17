@@ -1768,7 +1768,17 @@
 		}
 		"Modifiers"
 		{
-
+			"modifier_bear_rend_armor_loss"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"TextureName"	"djanghor/war_stomp"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
+				}
+			}
 		}
 		"OnAbilityPhaseStart"
 		{

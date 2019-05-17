@@ -2238,11 +2238,11 @@ function Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
 			total_points = total_points + #points - 2
 		end
 	end
-	local goal = 12 + GameState:GetDifficultyFactor()*2
+	local goal = 16 + GameState:GetDifficultyFactor()*2
 	if Winterblight.CandyCrushPhase == 2 then
-		goal = goal + 10
+		goal = goal + 6
 	elseif Winterblight.CandyCrushPhase == 3 then
-		goal = goal + 12
+		goal = goal + 8
 	end
 	Winterblight.CandyCrushProgressScore = Winterblight.CandyCrushProgressScore + total_points
 	print("SCORE: "..Winterblight.CandyCrushProgressScore)
@@ -2336,7 +2336,7 @@ function Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
 				Winterblight.CandyCrushProgressCrystal:SetAbsOrigin(Winterblight.CandyCrushProgressCrystal:GetAbsOrigin()-Vector(0,0,400))
 				-- UTIL_Remove(Winterblight.CandyCrushProgressCrystal)
 				Timers:CreateTimer(3.5, function()
-					local reward = 20
+					local reward = 7
 					if black_statue_count <= 0 then
 						reward = 300
 					elseif black_statue_count <= 1 then
@@ -2354,7 +2354,7 @@ function Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
 					elseif black_statue_count <= 7 then
 						reward = 20
 					elseif black_statue_count <= 8 then
-						reward = 15
+						reward = 8
 					end
 					Winterblight:MithrilRewardVariable(Vector(2505, -14245, 560), "math", reward)	
 					EmitSoundOnLocationWithCaster(position, "Winterblight.Azalea.Win", Winterblight.Master)

@@ -210,15 +210,15 @@ function phoenix_hatch(msg){
 
 function enter_spirit_realm(){
 	$('#generic_panel').RemoveClass('invisible');
-	$('#generic_panel').AddClass('white_panel')
+	$('#generic_panel').AddClass('pale_green_panel')
 	$('#generic_panel').AddClass('animateEaseClassSpecial');
 	
 	$.Msg("EASING IN")
-	    	$.Schedule(5, function(){
+	    	$.Schedule(2, function(){
 	    		$('#generic_panel').RemoveClass('animateEaseClassSpecial')
 	    		$('#generic_panel').AddClass('animateEaseOutClassSpecial');
 	    		$.Msg("EASING OUT")
-	    		$.Schedule(3.95, function(){
+	    		$.Schedule(1.9, function(){
 	    			$('#generic_panel').RemoveClass('animateEaseOutClassSpecial');
 	    			$('#generic_panel').AddClass('invisible');
 	    			$.Msg("DONE")
@@ -229,15 +229,15 @@ function enter_spirit_realm(){
 
 function enter_equinox(){
 	$('#generic_panel').RemoveClass('invisible');
-	$('#generic_panel').AddClass('pale_green_panel')
+	$('#generic_panel').AddClass('red_panel')
 	$('#generic_panel').AddClass('animateEaseClassSpecial');
 	
 	$.Msg("EASING IN")
-	    	$.Schedule(5, function(){
+	    	$.Schedule(2, function(){
 	    		$('#generic_panel').RemoveClass('animateEaseClassSpecial')
 	    		$('#generic_panel').AddClass('animateEaseOutClassSpecial');
 	    		$.Msg("EASING OUT")
-	    		$.Schedule(3.95, function(){
+	    		$.Schedule(1.9, function(){
 	    			$('#generic_panel').RemoveClass('animateEaseOutClassSpecial');
 	    			$('#generic_panel').AddClass('invisible');
 	    			$.Msg("DONE")
@@ -252,11 +252,11 @@ function sunstone_activate(){
 	$('#generic_panel').AddClass('animateEaseClassSpecial');
 	
 	$.Msg("EASING IN")
-	    	$.Schedule(5, function(){
+	    	$.Schedule(2, function(){
 	    		$('#generic_panel').RemoveClass('animateEaseClassSpecial')
 	    		$('#generic_panel').AddClass('animateEaseOutClassSpecial');
 	    		$.Msg("EASING OUT")
-	    		$.Schedule(3.95, function(){
+	    		$.Schedule(1.9, function(){
 	    			$('#generic_panel').RemoveClass('animateEaseOutClassSpecial');
 	    			$('#generic_panel').AddClass('invisible');
 	    			$.Msg("DONE")
