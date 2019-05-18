@@ -25,7 +25,7 @@ function cast_ancient_spirit(event)
 		EmitSoundOn(soundTable[RandomInt(1,3)], caster)
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "SpiritWarrior.AncientSpiritJumping", caster)
 	else
-		Filters:ReduceECooldown(caster, ability, cooldown, true)
+		-- Filters:ReduceECooldown(caster, ability, cooldown, true)
 		EmitSoundOn("SpiritWarrior.AncientSpiritCast", caster)
 		local spirit = CreateUnitByName("spirit_warrior_spirit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 		spirit:SetOwner(caster)
@@ -166,8 +166,9 @@ function spirit_moving_out(event)
 	local targetPoint = spirit.targetPoint
 	local casterOrigin = spirit:GetAbsOrigin()
 	local moveVector = ((targetPoint-casterOrigin)*Vector(1,1,0)):Normalized()
-	local newPosition = casterOrigin+moveVector*25
-	local checkPosition = casterOrigin+moveVector*30
+	local movespeed = 35
+	local newPosition = casterOrigin+moveVector*movespeed
+	local checkPosition = casterOrigin+moveVector*(movespeed+5)
 	local obstruction = WallPhysics:FindNearestObstruction(checkPosition*Vector(1,1,0))
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, checkPosition*Vector(1,1,0), spirit)
 	if not blockUnit then
