@@ -26397,7 +26397,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"cooldown"				"6.0 5.5 5.0 4.5 4.0 3.5 3.0"
+				"cooldown"				"1"
 			}
 			"02"
 			{
@@ -27237,7 +27237,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"cooldown"				"6.0 5.0 4.0 4.0 3.0 2.7 2.1"
+				"cooldown"				"0.5"
 			}
 			"02"
 			{
