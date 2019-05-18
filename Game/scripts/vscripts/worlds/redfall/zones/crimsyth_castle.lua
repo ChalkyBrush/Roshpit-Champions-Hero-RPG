@@ -492,6 +492,7 @@ function Redfall:SpawnPropSword()
     shield:RemoveModifierByName("dummy_unit")
     shield.basePosition = Vector(5773, 8652, 325+Redfall.ZFLOAT)
     shield.jumpLock = true
+    shield.dummy = true
     AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(5773, 8652, 455+Redfall.ZFLOAT), 500, 99999, false)
 end
 
@@ -826,6 +827,7 @@ function Redfall:InitCastleNextFirstRoom()
   end)
   local turtle = CreateUnitByName("redfall_exploding_turtle", Vector(3200, 9856), true, nil, nil, DOTA_TEAM_NEUTRALS)
   turtle.jumpLock = true
+  turtle.dummy = true
   Redfall.Castle.FireTurtle = turtle
 end
 
@@ -1060,6 +1062,7 @@ function Redfall:CreateReaverSwitch()
     shield:SetAngles(0, 270, 0)
     shield.type = "reaver"
     shield.jumpLock = true
+    shield.dummy = true
     for i = 1, 130, 1 do
       Timers:CreateTimer(i*0.03, function()
         if i%18 == 0 then
@@ -1401,6 +1404,7 @@ function Redfall:SpawnBallSwitch(position)
     ball:RemoveModifierByName("dummy_unit")
     ball.startPosition = ball:GetAbsOrigin()
     ball.jumpLock = true
+    ball.dummy = true
     ball.moveVelocity = 0
 	ball.dummy = true
     ball.liftVelocity = 0
@@ -1560,7 +1564,7 @@ end
 
 function Redfall:SpawnPerditionTorch(position)
     local torch = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
-	torch.dummy = true
+	  torch.dummy = true
     torch:SetOriginalModel("models/redfall/lantern_hitbox.vmdl")
     torch:SetModel("models/redfall/lantern_hitbox.vmdl")
     torch.jumpLock = true
@@ -1622,6 +1626,7 @@ function Redfall:SpawnFortuneRoomChest(position, i, j)
     torch:SetOriginalModel("models/redfall/chest_hitbox.vmdl")
     torch:SetModel("models/redfall/chest_hitbox.vmdl")
     torch.jumpLock = true
+    torch.dummy = true
     torch:SetForwardVector(Vector (1,0))
     torch:AddAbility("dummy_unit_can_be_attacked_cant_die"):SetLevel(1)
     torch:AddAbility("redfall_fortune_chest_ability"):SetLevel(1)

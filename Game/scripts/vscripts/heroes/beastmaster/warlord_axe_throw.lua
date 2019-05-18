@@ -113,16 +113,6 @@ function swapSkills(element, caster, ability)
 	end
 end
 
-function rune_w_2(caster)
-	return 0
-    -- local runeUnit = caster.runeUnit2
-    -- local runeAbility = runeUnit:FindAbilityByName("warlord_rune_w_2")
-    -- local abilityLevel = runeAbility:GetLevel()
-    -- local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_2")
-    -- local totalLevel = abilityLevel + bonusLevel
-    -- return totalLevel
-end
-
 function launchAxe(ability, caster, particle, fv, startPoint, bSplit, element)
 	local start_radius = 120
 	local end_radius = 120
@@ -217,15 +207,16 @@ function axe_moving_think(event)
 	else
 		target:SetAbsOrigin(target:GetAbsOrigin()+target.velocity*FrameTime())
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 120, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
-		if #enemies > 0 then	
-			event.target = enemies[1]
+		if #enemies > 0 then
+			local strike_event_table = WallPhysics:CloneTable(event)
+			strike_event_table.target = enemies[1]
 			if target.element == "earth" then
-				earthAxeStrike(event)
+				earthAxeStrike(strike_event_table)
 			elseif target.element == "fire" then
-				fireAxeStrike(event)
+				fireAxeStrike(strike_event_table)
 			elseif target.element == "ice" then
-				event.axe = target
-				iceAxeStrike(event)
+				strike_event_table.axe = target
+				iceAxeStrike(strike_event_table)
 			end
 			target:RemoveModifierByName("modifier_warlord_axe_motion")
 			ParticleManager:DestroyParticle(target.pfx, false)
