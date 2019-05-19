@@ -2798,6 +2798,7 @@ function Tutorial:SubmitQuiz(msg)
 				end			
 		end
 		if tonumber(msg.bLocalize) == 1 then
+			msg.answer = string.gsub(msg.answer, "%", "")
 			correct_answer = msg.verifier == string.gsub(msg.answer, "%%", "")
 		end
 		print(msg.challenge_index)
