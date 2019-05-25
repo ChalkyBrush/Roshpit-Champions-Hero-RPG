@@ -1411,7 +1411,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"28"
+		"AbilityCooldown"				"20"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -1523,6 +1523,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"magic_instances_absorbed"		"2 3 4 5 6 7 8"
 			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"pure_instances_absorbed"		"2 3 3 3 4 4 5"
+			}
 		}
 		"OnSpellStart"
 		{
@@ -1532,6 +1537,7 @@
         		"Function"		"warlord_ice_shell"
         		"duration"		"%duration"
         		"stacks"		"%magic_instances_absorbed"
+				"stacks_pure"	"%pure_instances_absorbed"
 			}
 			"FireSound"
 			{
@@ -1560,6 +1566,12 @@
             			"Target" 		"TARGET"
             		}
             	}
+            }
+			"modifier_warlord_ice_shell_pure"
+            {
+            	"IsHidden"	"0"
+            	"IsBuff"	"1"
+            	"EffectName"			"particles/roshpit/warlord/ice_shell.vpcf"
             }
         }
 	}
@@ -1601,7 +1613,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"				"14"
+				"duration"				"16"
 			}
 			"02"
 			{
