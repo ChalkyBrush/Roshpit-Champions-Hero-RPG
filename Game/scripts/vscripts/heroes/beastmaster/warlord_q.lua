@@ -41,6 +41,8 @@ function warlord_ice_shell(event)
 	local duration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_ice_shell", {duration = duration})
 	caster:SetModifierStackCount("modifier_warlord_ice_shell", caster, event.stacks)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_ice_shell_pure", {duration = duration})
+	caster:SetModifierStackCount("modifier_warlord_ice_shell_pure", caster, event.stacks_pure)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/warlord/ice_shell_activate.vpcf", caster, 3)
 
 

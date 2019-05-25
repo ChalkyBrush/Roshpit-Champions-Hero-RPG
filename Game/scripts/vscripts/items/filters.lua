@@ -4110,6 +4110,14 @@ function Filters:WarlordTakeMagicDamage(warlord)
     end
 end
 
+function Filters:WarlordTakePureDamage(warlord)
+    local newStacks = warlord:GetModifierStackCount("modifier_warlord_ice_shell_pure", warlord) - 1
+    warlord:SetModifierStackCount("modifier_warlord_ice_shell_pure", warlord, newStacks)
+    if newStacks == 0 then
+        warlord:RemoveModifierByName("modifier_warlord_ice_shell_pure")
+    end
+end
+
 function Filters:NightmareRider(caster)
     local shadowCharges = caster:GetModifierStackCount("modifier_nightmare_rider_stacks", caster.InventoryUnit)
     local shadowRadius = 400 + shadowCharges*100

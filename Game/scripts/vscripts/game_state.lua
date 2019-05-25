@@ -3079,6 +3079,12 @@ function GameState:FilterDamage(filterTable)
     		Filters:WarlordTakeMagicDamage(victim)
     	end
     end
+	if victim:HasModifier("modifier_warlord_ice_shell_pure") then
+    	if filterTable["damagetype_const"] == DAMAGE_TYPE_PURE then
+    		filterTable["damage"] = 0
+    		Filters:WarlordTakePureDamage(victim)
+    	end
+    end
     if victim:HasModifier("modifier_demon_farmer_mark_passive") then
     	if attacker:HasModifier("modifier_demon_farmer_mark_effect") then
     	else
