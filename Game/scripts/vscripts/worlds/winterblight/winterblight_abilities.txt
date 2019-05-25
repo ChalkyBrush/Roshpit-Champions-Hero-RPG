@@ -80,6 +80,10 @@
 					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_damage_immunity"
+			{
+				"IsHidden"	"1"
+			}
 			"modifier_redfall_pushback"
 			{
 				"Passive"			"0"

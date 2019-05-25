@@ -62331,6 +62331,10 @@
 					}
 				}
 			}
+			"modifier_damage_immunity"
+			{
+				"IsHidden"	"1"
+			}
 			"modifier_black_portal_teleporting_out"
 			{
 				"IsHidden"	"1"
