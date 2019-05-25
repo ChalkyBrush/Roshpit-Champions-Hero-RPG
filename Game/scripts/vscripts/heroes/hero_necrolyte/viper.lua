@@ -47,7 +47,7 @@ function cast(event)
         multiplier = multiplier + r2_level * R2_VIPER_SCALE_PERCENT/100
     end
 
-    local armor = caster:GetPhysicalArmorValue()
+    local armor = caster:GetPhysicalArmorValue(true)
     local lifetime = R_DURATION
     local attackspeed = 100
 

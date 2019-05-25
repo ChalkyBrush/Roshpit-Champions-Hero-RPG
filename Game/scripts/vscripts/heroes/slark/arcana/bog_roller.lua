@@ -206,7 +206,7 @@ function bog_roller_passive_attack_land(event)
 	local ability = event.ability
 	local armor_break_percent = event.armor_break_percent
 	local current_stacks = target:GetModifierStackCount("modifier_slipfinn_bog_roller_armor_break", caster)
-	local stacks = (target:GetPhysicalArmorValue()+current_stacks)*(armor_break_percent/100)
+	local stacks = (target:GetPhysicalArmorValue(true)+current_stacks)*(armor_break_percent/100)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_slipfinn_bog_roller_armor_break", {duration = 10})
 	target:SetModifierStackCount("modifier_slipfinn_bog_roller_armor_break", caster, stacks)
 	if target.dummy then

@@ -113,7 +113,7 @@ function omni_orb_charge_procced(event, basic_damage)
 	    end	
 		EmitSoundOn("Omniro.Orb.Time.Start", target)
 	elseif caster.active_element == RPC_ELEMENT_HOLY then
-		local damage = (orb_ability:GetSpecialValueFor("holy_orb_a"))*caster:GetIntellect()*caster.omniro_data[RPC_ELEMENT_HOLY]["level"] + (orb_ability:GetSpecialValueFor("holy_orb_b"))*caster:GetPhysicalArmorValue()*caster.omniro_data[RPC_ELEMENT_HOLY]["level"]
+		local damage = (orb_ability:GetSpecialValueFor("holy_orb_a"))*caster:GetIntellect()*caster.omniro_data[RPC_ELEMENT_HOLY]["level"] + (orb_ability:GetSpecialValueFor("holy_orb_b"))*caster:GetPhysicalArmorValue(true)*caster.omniro_data[RPC_ELEMENT_HOLY]["level"]
   		EmitSoundOn("Omniro.Orb.Holy", caster)
   		local radius = OMNIRO_ORB_HOLY_AOE
 		local particleName =  "particles/units/heroes/hero_elder_titan/paladin_holy_nova.vpcf"

@@ -147,7 +147,7 @@ function ConjureImage(caster, player, ability)
 	illusion:SetBaseMaxHealth(newHealth)
 	illusion:SetHealth(newHealth)
 	illusion:Heal(newHealth, illusion)
-	local newArmor = caster:GetPhysicalArmorValue()*5
+	local newArmor = caster:GetPhysicalArmorValue(true)*5
 	illusion:SetPhysicalArmorBaseValue(newArmor)
 	local newDamage = OverflowProtectedGetAverageTrueAttackDamage(caster)*5
 	Filters:SetAttackDamage(illusion, newDamage)

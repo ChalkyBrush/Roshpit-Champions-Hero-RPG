@@ -71,7 +71,7 @@ function bear_warstomp(event)
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_bear_rend_armor_loss", {duration = 20})
 				local shredStacks = enemy:GetModifierStackCount("modifier_bear_rend_armor_loss", caster)
 				local newStacks = math.min(2, shredStacks+1)
-				local armorLoss = (enemy:GetPhysicalArmorValue()+enemy:GetModifierStackCount("modifier_bear_rend_armor_loss", caster))*0.5
+				local armorLoss = (enemy:GetPhysicalArmorValue(true)+enemy:GetModifierStackCount("modifier_bear_rend_armor_loss", caster))*0.5
 				enemy:SetModifierStackCount("modifier_bear_rend_armor_loss", caster, armorLoss*newStacks)
 			end
 		end

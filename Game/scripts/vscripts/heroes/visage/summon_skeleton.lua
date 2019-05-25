@@ -72,7 +72,7 @@ function cast_raise_skeleton(event)
 
 					skeletonDuration = Filters:GetAdjustedBuffDuration(caster, skeletonDuration, false)
 					ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_skeleton_summon_unit", {duration = skeletonDuration})
-					local skeleArmor = caster:GetPhysicalArmorValue()*event.armor_mult
+					local skeleArmor = caster:GetPhysicalArmorValue(true)*event.armor_mult
 					skeleton:SetPhysicalArmorBaseValue(skeleArmor)
 					skeleton.w_1_level = w_1_level
 					skeleton:SetBaseDamageMin(attackDamage)

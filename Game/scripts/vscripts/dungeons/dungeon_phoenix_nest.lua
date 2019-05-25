@@ -334,9 +334,9 @@ function Dungeons:PhoenixScale(unit)
     unit:SetBaseDamageMin(minDamage+damageAdjustment)
     unit:SetBaseDamageMax(maxDamage+damageAdjustment) 
 
-    -- local newArmor = unit:GetPhysicalArmorValue()*difficulty*difficulty+30*(difficulty-1)
+    -- local newArmor = unit:GetPhysicalArmorValue(true)*difficulty*difficulty+30*(difficulty-1)
     -- if difficulty > 2 then
-    --   newArmor = newArmor+90 + unit:GetPhysicalArmorValue()*4
+    --   newArmor = newArmor+90 + unit:GetPhysicalArmorValue(true)*4
     -- end
     local newArmor = unit:GetPhysicalArmorBaseValue()*difficulty + 10*(difficulty-1)
     newArmor = newArmor + Dungeons.phoenixWave*difficulty

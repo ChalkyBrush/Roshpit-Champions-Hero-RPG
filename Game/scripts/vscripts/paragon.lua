@@ -91,7 +91,7 @@ function Paragon:AdjustParagonPower(unit)
     elseif difficulty == 3 then
     	armorMult = 3
     end
-    local newArmor = unit:GetPhysicalArmorValue()*armorMult
+    local newArmor = unit:GetPhysicalArmorValue(true)*armorMult
 
     unit:SetPhysicalArmorBaseValue(newArmor)
 
@@ -177,7 +177,7 @@ function Paragon:AdjustParagonPowerSolo(unit)
     elseif difficulty == 3 then
     	armorMult = 3
     end
-    local newArmor = unit:GetPhysicalArmorValue()*armorMult
+    local newArmor = unit:GetPhysicalArmorValue(true)*armorMult
 
     unit:SetPhysicalArmorBaseValue(newArmor)
 

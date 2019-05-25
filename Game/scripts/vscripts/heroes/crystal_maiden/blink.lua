@@ -152,7 +152,7 @@ function summon_water_elemental(caster, origin, totalLevel, ability)
       caster.waterElemental:Heal(health, caster.waterElemental)
       caster.waterElemental:SetBaseDamageMin(baseDamage)
       caster.waterElemental:SetBaseDamageMax(baseDamage)
-      caster.waterElemental:SetPhysicalArmorBaseValue(caster:GetPhysicalArmorValue())
+      caster.waterElemental:SetPhysicalArmorBaseValue(caster:GetPhysicalArmorValue(true))
       caster.waterElemental.e_4_level = d_c_level
     end)
     caster:ReduceMana(totalLevel*100 + 100)

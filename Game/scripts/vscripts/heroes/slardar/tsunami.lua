@@ -57,7 +57,7 @@ function channel_complete(event)
 
 			local r_1_level = caster:GetRuneValue("r", 1)
 			ability.r_1_level = r_1_level
-			damage = damage * (1 + HYDROXIS_R1_BAD_PCT_PER_ARMOR * r_1_level * caster:GetPhysicalArmorValue())
+			damage = damage * (1 + HYDROXIS_R1_BAD_PCT_PER_ARMOR * r_1_level * caster:GetPhysicalArmorValue(true))
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_WATER, RPC_ELEMENT_EARTH)
@@ -222,7 +222,7 @@ function tsunami_impact(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local damage = 85000*ability.r_2_level * (1 + HYDROXIS_R1_BAD_PCT_PER_ARMOR * ability.r_1_level * caster:GetPhysicalArmorValue()) * HYDROXIS_R1_RUNE_MULT
+	local damage = 85000*ability.r_2_level * (1 + HYDROXIS_R1_BAD_PCT_PER_ARMOR * ability.r_1_level * caster:GetPhysicalArmorValue(true)) * HYDROXIS_R1_RUNE_MULT
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 	local slow_duration = event.slow_duration
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_ocean_quake_slowed", {duration = slow_duration})
@@ -283,7 +283,7 @@ function poseidon_wrath_attack_hit(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local damage = ability.r_3_level*0.35*OverflowProtectedGetAverageTrueAttackDamage(caster) * (1 + HYDROXIS_R1_BAD_PCT_PER_ARMOR * ability.r_1_level * caster:GetPhysicalArmorValue()) * HYDROXIS_R1_RUNE_MULT
+	local damage = ability.r_3_level*0.35*OverflowProtectedGetAverageTrueAttackDamage(caster) * (1 + HYDROXIS_R1_BAD_PCT_PER_ARMOR * ability.r_1_level * caster:GetPhysicalArmorValue(true)) * HYDROXIS_R1_RUNE_MULT
 	if caster:HasModifier("modifier_hydroxis_immortal_weapon_1") then
 		damage = damage*2
 	end
