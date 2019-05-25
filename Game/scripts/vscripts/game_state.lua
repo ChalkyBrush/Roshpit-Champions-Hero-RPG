@@ -3634,6 +3634,9 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_disable_player") then
 		filterTable["damage"] = 0
 	end
+	if victim:HasModifier("modifier_damage_immunity") then
+		filterTable["damage"] = 0
+	end
 	if victim:HasModifier("modifier_beast_tyrant_combat_ai") then
 		if attacker:HasModifier("modifier_beast_tyrant_in_blue") and damagetype == DAMAGE_TYPE_MAGICAL then
 		elseif attacker:HasModifier("modifier_beast_tyrant_in_red") and damagetype == DAMAGE_TYPE_PHYSICAL then
