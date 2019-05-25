@@ -1613,7 +1613,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"				"14"
+				"duration"				"16"
 			}
 			"02"
 			{

@@ -98,10 +98,10 @@ function warlord_c_a_attack(event)
 	local ability = event.ability
 	local caster = event.caster
 	local q_3_level = ability.q_3_level
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_warlord_rune_q_3_visible", {duration = 8})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_warlord_rune_q_3_visible", {duration = 12})
 	local newStacks = target:GetModifierStackCount("modifier_warlord_rune_q_3_visible", caster) + 1
 	target:SetModifierStackCount("modifier_warlord_rune_q_3_visible", caster, newStacks)
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_warlord_rune_q_3_invisible", {duration = 8})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_warlord_rune_q_3_invisible", {duration = 12})
 	target:SetModifierStackCount("modifier_warlord_rune_q_3_invisible", caster, newStacks*q_3_level)
 end
