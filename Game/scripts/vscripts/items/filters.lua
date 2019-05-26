@@ -3412,17 +3412,18 @@ end
 function Filters:CytopianLaser(caster)
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     local abilityLevel = caster:GetAbilityByIndex(1):GetLevel()
-    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*abilityLevel*3
+    local baseDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * abilityLevel * 3
     if #enemies > 0 then
         local ability = caster.handItem
         EmitSoundOn("Hero_Tinker.Attack", enemies[1])
         for _,enemy in pairs(enemies) do
+			local damage = baseDamage
             local currentStacks = enemy:GetModifierStackCount("modifier_cytopian_stacks", caster.InventoryUnit)
-            damage = damage + damage*currentStacks
+            damage = damage + damage * currentStacks
 
-            Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_MAGICAL,nil,RPC_ELEMENT_TIME, RPC_ELEMENT_LIGHTNING)
+            Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_TIME, RPC_ELEMENT_LIGHTNING)
             local particleName = "particles/units/heroes/hero_tinker/tinker_laser.vpcf"
-            local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
+            local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, enemy)
             ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,100))
             ParticleManager:SetParticleControlEnt(pfx, 1, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin()+Vector(0,0,100), true)
             ParticleManager:SetParticleControlEnt(pfx, 3, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin()+Vector(0,0,100), true)
@@ -3430,7 +3431,6 @@ function Filters:CytopianLaser(caster)
             Timers:CreateTimer(0.8, function() 
               ParticleManager:DestroyParticle( pfx, false )
             end)    
-            print(ability:GetAbilityName())
             ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_cytopian_stacks", {duration = 4})
             local newStacks = math.min(currentStacks + 1, 10)
             enemy:SetModifierStackCount("modifier_cytopian_stacks", caster.InventoryUnit, newStacks)
