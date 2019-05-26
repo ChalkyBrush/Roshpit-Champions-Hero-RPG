@@ -54,8 +54,8 @@ function windstrike_attack_land(event)
 	local mult = event.mult
 	CustomAbilities:QuickAttachParticle("particles/econ/items/elder_titan/elder_titan_fissured_soul/elder_titan_fissured_soul_spirit_buff_endcap.vpcf", target, 1)
 	local damage = ability.q_3_level*spirit_warrior_q3_dmg_pct*OverflowProtectedGetAverageTrueAttackDamage(attacker)*mult
-	if target:GetPhysicalArmorValue(true) > 0 then
-		damage = damage + damage*0.01*target:GetPhysicalArmorValue(true)
+	if target:GetPhysicalArmorValue(false) > 0 then
+		damage = damage + damage*0.01*target:GetPhysicalArmorValue(false)
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 end

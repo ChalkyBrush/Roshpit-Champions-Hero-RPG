@@ -60,8 +60,8 @@ function flametongue_attack_land(event)
 	local ability = event.ability
 	local caster = event.caster
 	local mult = event.mult
-	if target:GetPhysicalArmorValue(true) < 0 then
-		damage = damage + (event.negative_armor_amp/100)*math.abs(target:GetPhysicalArmorValue(true))*damage
+	if target:GetPhysicalArmorValue(false) < 0 then
+		damage = damage + (event.negative_armor_amp/100)*math.abs(target:GetPhysicalArmorValue(false))*damage
 	end
 	damage = damage*mult
 	EmitSoundOn("SpiritWarrior.FlametongueImpact", target)
@@ -94,8 +94,8 @@ function a_a_damage(event)
 	local caster = event.caster
 	local stacks = target:GetModifierStackCount("modifier_flametongue_a_a_rune", caster)
 	local burnDamage = (220 + 285*ability.q_1_level)*stacks
-	if target:GetPhysicalArmorValue(true) < 0 then
-		burnDamage = burnDamage + (event.negative_armor_amp/100)*math.abs(target:GetPhysicalArmorValue(true))*burnDamage
+	if target:GetPhysicalArmorValue(false) < 0 then
+		burnDamage = burnDamage + (event.negative_armor_amp/100)*math.abs(target:GetPhysicalArmorValue(false))*burnDamage
 	end
 	Filters:ApplyDotDamage(caster, ability, target, burnDamage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end

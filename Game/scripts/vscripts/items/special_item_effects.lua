@@ -178,7 +178,7 @@ function scorched_earth_damage(event)
 	local target = event.target
 	local ability = event.ability
 	local attacker = ability.attacker
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(ability.attacker)*event.attack_mult/100 + ability.attacker:GetPhysicalArmorValue(true)*event.armor_mult
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(ability.attacker)*event.attack_mult/100 + ability.attacker:GetPhysicalArmorValue(false)*event.armor_mult
 	Filters:ApplyItemDamage(target,attacker,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_FIRE,RPC_ELEMENT_NONE)
 end
 
@@ -623,7 +623,7 @@ function odin_attack(event)
 	local target = event.target
 	local attacker = event.attacker
 	local attack_damage = event.attack_damage
-	attack_damage = GameState:GetPostReductionPhysicalDamage(attack_damage, target:GetPhysicalArmorValue(true))
+	attack_damage = GameState:GetPostReductionPhysicalDamage(attack_damage, target:GetPhysicalArmorValue(false))
 	local proc = Filters:GetProc(attacker, 5)	
 	if proc then
 		ApplyDamage({ victim = target, attacker = attacker, damage = attack_damage*20, damage_type = DAMAGE_TYPE_PURE })
@@ -1845,7 +1845,7 @@ function stormshield_main_think(event)
 	local caster = event.target
 	local position = caster:GetAbsOrigin()
 	local radius = 200
-	local damage = (caster:GetPhysicalArmorValue(true)*20)/3
+	local damage = (caster:GetPhysicalArmorValue(false)*20)/3
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		EmitSoundOn("ui.inv_equip_metalblade", caster.shieldTable[1])
@@ -2015,7 +2015,7 @@ function wolfir_druid_channel(event)
 	dmg = Filters:AdjustItemDamage(caster, dmg, nil)
 	dmg = Filters:ElementalDamage(wolf, caster, dmg, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
 	Filters:SetAttackDamage(wolf, dmg)
-	wolf:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue(true), nil))
+	wolf:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue(false), nil))
 	local wolfHealth = math.floor(caster:GetMaxHealth()*0.25)
 	wolfHealth = Filters:AdjustItemDamage(caster, wolfHealth, nil)
 	wolf:SetMaxHealth(wolfHealth)
@@ -2706,7 +2706,7 @@ function ruby_attack(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	-- damage = GameState:GetPostReductionPhysicalDamage(damage, target:GetPhysicalArmorValue(true))
+	-- damage = GameState:GetPostReductionPhysicalDamage(damage, target:GetPhysicalArmorValue(false))
 	print("RUBY DAMAGE:"..damage)
 	EmitSoundOn("Hero_Lina.ProjectileImpact", target)
 	local radius = 360
@@ -3219,7 +3219,7 @@ function ironbound_think(event)
 	local target = event.target
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_ironbound_effect", {})
-	target:SetModifierStackCount("modifier_ironbound_effect", ability, target:GetPhysicalArmorValue(true))
+	target:SetModifierStackCount("modifier_ironbound_effect", ability, target:GetPhysicalArmorValue(false))
 end
 
 function mordiggus_attack(event)
@@ -3426,7 +3426,7 @@ function depth_crest_hit(event)
 		ParticleManager:SetParticleControl( pfx, 1, Vector(300, 0, 0))	
 		local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
-			local damage = target:GetStrength()*120 + target:GetPhysicalArmorValue(true)*8000
+			local damage = target:GetStrength()*120 + target:GetPhysicalArmorValue(false)*8000
 			for _,enemy in pairs(enemies) do
 				Filters:ApplyItemDamage(enemy,target,damage,DAMAGE_TYPE_MAGICAL,event.ability,RPC_ELEMENT_WATER,RPC_ELEMENT_NORMAL)
 				Filters:ApplyStun(target, 0.1, enemy)
@@ -3698,7 +3698,7 @@ function trials_attack(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	damage = GameState:GetPostReductionPhysicalDamage(damage, target:GetPhysicalArmorValue(true))
+	damage = GameState:GetPostReductionPhysicalDamage(damage, target:GetPhysicalArmorValue(false))
 	EmitSoundOn("Item.SacredTrial", target)
 	local radius = 320
       local particleName = "particles/roshpit/items/sacred_trial.vpcf"
@@ -3906,7 +3906,7 @@ function infernal_prison_attacker_think(event)
 	local ability = event.ability
 	local target = event.target
 	local caster = event.caster.hero
-	local damage = caster:GetPhysicalArmorValue(true)*50
+	local damage = caster:GetPhysicalArmorValue(false)*50
 	Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_FIRE,RPC_ELEMENT_NONE)
 end
 
@@ -4930,7 +4930,7 @@ function aquasteel_take_damage(event)
 				ParticleManager:DestroyParticle(dagon_particle, false)
 				ParticleManager:ReleaseParticleIndex(dagon_particle)
 			end)
-			local damage = damage_mult*OverflowProtectedGetAverageTrueAttackDamage(caster) + caster:GetPhysicalArmorValue(true)*armor_mult
+			local damage = damage_mult*OverflowProtectedGetAverageTrueAttackDamage(caster) + caster:GetPhysicalArmorValue(false)*armor_mult
 			EmitSoundOn("RPCItem.Aquasteel", attacker)
 			Timers:CreateTimer(0.1, function()
 				Filters:ApplyItemDamage(attacker,caster,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_WATER,RPC_ELEMENT_NONE)
@@ -5059,7 +5059,7 @@ function sea_oracle_attack_land(event)
 		local newStacks = currentStacks + attackerReduce
 		target:SetModifierStackCount("modifier_sea_oracle_health_loss", caster, newStacks)
 
-		local armorReduce = target:GetPhysicalArmorValue(true)*0.05
+		local armorReduce = target:GetPhysicalArmorValue(false)*0.05
 		local currentStacks = target:GetModifierStackCount("modifier_sea_oracle_armor_loss", caster)
 		local newStacks = currentStacks + armorReduce
 		target:SetModifierStackCount("modifier_sea_oracle_armor_loss", caster, newStacks)

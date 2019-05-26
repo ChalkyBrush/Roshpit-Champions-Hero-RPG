@@ -164,7 +164,7 @@ end
 
 function activate_great_wall(event)
 	local caster = event.caster
-	local baseArmor = caster:GetPhysicalArmorValue(true)
+	local baseArmor = caster:GetPhysicalArmorValue(false)
 
 	local armorMult = 4
 	if GameState:GetDifficultyFactor() == 2 then

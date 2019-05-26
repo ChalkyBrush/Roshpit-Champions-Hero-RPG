@@ -2353,9 +2353,9 @@ function Events:AdjustDeathXP(unit)
     unit:SetBaseDamageMin(minDamage+damageAdjustment)
     unit:SetBaseDamageMax(maxDamage+damageAdjustment) 
 
-    -- local newArmor = unit:GetPhysicalArmorValue(true)*difficulty*difficulty+30*(difficulty-1)
+    -- local newArmor = unit:GetPhysicalArmorValue(false)*difficulty*difficulty+30*(difficulty-1)
     -- if difficulty > 2 then
-    --   newArmor = newArmor+90 + unit:GetPhysicalArmorValue(true)*4
+    --   newArmor = newArmor+90 + unit:GetPhysicalArmorValue(false)*4
     -- end
     local newArmor = unit:GetPhysicalArmorBaseValue()*difficulty + 10*(difficulty-1)
     unit:SetPhysicalArmorBaseValue(newArmor)
@@ -2395,7 +2395,7 @@ function Events:AdjustBossPower(unit, damageFactor, healthFactor, bHealthbar)
   local healthAdjustment = healthFactor*800000*(difficulty-1)
   if difficulty > 2 then
     healthAdjustment = healthAdjustment + healthFactor*1600000
-    local armor = unit:GetPhysicalArmorValue(true)
+    local armor = unit:GetPhysicalArmorValue(false)
     unit:SetPhysicalArmorBaseValue(armor+40*healthFactor)
     unit:SetPhysicalArmorBaseValue(unit:GetPhysicalArmorBaseValue()*difficulty+(healthFactor*(difficulty-1)*3))
   end
