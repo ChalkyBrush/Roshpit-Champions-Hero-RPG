@@ -2776,6 +2776,9 @@ function Tutorial:SubmitQuiz(msg)
 		if hero.tutorial.active_challenge == "2_1" then
 			msg.verifier = Tutorial:RemoveRunePrefix(msg.verifier)
 		end
+		if hero.tutorial.active_challenge == "2_2" then
+			msg.answer = string.gsub(msg.answer, "%%", "")
+		end
 		if hero.tutorial.active_challenge == "3_3" then
 			local weapons_data = CustomNetTables:GetTableValue("weapons", tostring(hero:GetEntityIndex()))
 			msg.verifier = weapons_data.maxLevel
@@ -2798,12 +2801,8 @@ function Tutorial:SubmitQuiz(msg)
 				end			
 		end
 		if tonumber(msg.bLocalize) == 1 then
-			msg.answer = string.gsub(msg.answer, "%", "")
 			correct_answer = msg.verifier == string.gsub(msg.answer, "%%", "")
 		end
-		print(msg.challenge_index)
-		print(msg.verifier)
-		print(msg.answer)
 		if correct_answer then
 			CustomGameEventManager:Send_ServerToPlayer(player, "close_quiz", {} )
 			Tutorial:TutorialServerEvent(hero, hero.tutorial.active_challenge, msg.challenge_progress)
