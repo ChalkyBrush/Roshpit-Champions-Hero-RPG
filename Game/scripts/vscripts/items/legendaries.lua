@@ -160,110 +160,132 @@ function RPCItems:RollSlithicusRingProperty()
 end
 
 function RPCItems:CreateVariant(variantName, rarityName, itemNameText, slot, gear, slotText)
-    local itemVariant = variantName
-    local item = RPCItems:CreateItem(itemVariant, nil, nil)
-    item.rarity = rarityName
-    local rarityValue = RPCItems:GetRarityFactor(item.rarity)
-    local itemName = itemNameText
-    local suffix = ""
-    local prefix = ""
-    item.slot = slot
-    item.gear = gear
-    RPCItems:SetTableValues(item, itemName, false, slotText, RPCItems:GetRarityColor(item.rarity), item.rarity, "", "", RPCItems:GetRarityFactor(item.rarity))
+    local item = RPCItems:CreateItem(variantName, nil, nil)
+    item.newItemTable = {}
+    item.newItemTable.qualityName = rarityName
+    item.newItemTable.rarity = rarityName
+    item.newItemTable.rarityFactor = RPCItems:GetRarityFactor(item.rarity)
+    item.newItemTable.itemPrefix = ""
+    item.newItemTable.itemSuffix = ""
+    item.newItemTable.item_slot = slot
+    item.newItemTable.gear = gear
+    item.newItemTable.consumable = false
+    RPCItems:SetTableValues(item, itemNameText, item.newItemTable.consumable, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, "", "", RPCItems:GetRarityFactor(item.newItemTable.rarity))
 
     return item
 end
 
 function RPCItems:CreateVariantWithHero(variantName, rarityName, itemNameText, slot, gear, slotText, requiredHero)
-    local itemVariant = variantName
-    local item = RPCItems:CreateItem(itemVariant, nil, nil)
-    item.rarity = rarityName
-    local rarityValue = RPCItems:GetRarityFactor(item.rarity)
-    local itemName = itemNameText
-    local suffix = ""
-    local prefix = ""
-    item.slot = slot
-    item.gear = gear
-    item.requiredHero = requiredHero
-    RPCItems:SetTableValues(item, itemName, false, slotText, RPCItems:GetRarityColor(item.rarity), item.rarity, "", "", RPCItems:GetRarityFactor(item.rarity))
+    local item = RPCItems:CreateItem(variantName, nil, nil)
+    item.newItemTable = {}
+    item.newItemTable.qualityName = rarityName
+    item.newItemTable.rarity = rarityName
+    item.newItemTable.rarityFactor = RPCItems:GetRarityFactor(item.rarity)
+    item.newItemTable.itemPrefix = ""
+    item.newItemTable.itemSuffix = ""
+    item.newItemTable.item_slot = slot
+    item.newItemTable.gear = gear
+    item.newItemTable.consumable = false
+    item.newItemTable.requiredHero = requiredHero
+    RPCItems:SetTableValues(item, itemNameText, item.newItemTable.consumable, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, "", "", RPCItems:GetRarityFactor(item.newItemTable.rarity))
 
     return item
 end
 
 function RPCItems:CreateVariantWithMin(variantName, rarityName, itemNameText, slot, gear, slotText, minLevel, prefix, suffix)
-    local itemVariant = variantName
-    local item = RPCItems:CreateItem(itemVariant, nil, nil)
-    item.rarity = rarityName
-    local rarityValue = RPCItems:GetRarityFactor(item.rarity)
-    local itemName = itemNameText
-    local suffix = suffix
-    local prefix = prefix
-    if not suffix then
-        suffix = ""
-    end
+    local item = RPCItems:CreateItem(variantName, nil, nil)
+    item.newItemTable = {}
+    item.newItemTable.qualityName = rarityName
+    item.newItemTable.rarity = rarityName
+    item.newItemTable.rarityFactor = RPCItems:GetRarityFactor(item.rarity)
     if not prefix then
         prefix = ""
     end
-    item.slot = slot
-    item.gear = gear
-    item.minLevel = minLevel
-    RPCItems:SetTableValues(item, itemName, false, slotText, RPCItems:GetRarityColor(item.rarity), item.rarity, prefix, suffix, RPCItems:GetRarityFactor(item.rarity))
+    if not suffix then
+        suffix = ""
+    end
+    item.newItemTable.itemPrefix = prefix
+    item.newItemTable.itemSuffix = suffix
+    item.newItemTable.item_slot = slot
+    item.newItemTable.gear = gear
+    item.newItemTable.consumable = false
+    item.newItemTable.minLevel = minLevel   
+    RPCItems:SetTableValues(item, itemNameText, item.newItemTable.consumable, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, "", "", RPCItems:GetRarityFactor(item.newItemTable.rarity))
+
+
     return item
 end
 
 function RPCItems:CreateVariantArcana(variantName, rarityName, itemNameText, slot, gear, slotText, requiredHero, minLevel)
-    local itemVariant = variantName
-    local item = RPCItems:CreateItem(itemVariant, nil, nil)
-    item.rarity = rarityName
-    local rarityValue = RPCItems:GetRarityFactor(item.rarity)
-    local itemName = itemNameText
-    local suffix = ""
-    local prefix = ""
-    item.slot = slot
-    item.gear = gear
-    item.requiredHero = requiredHero
-    if minLevel > 0 then
-        item.minLevel = minLevel
-    end
-    RPCItems:SetTableValues(item, itemName, false, slotText, RPCItems:GetRarityColor(item.rarity), item.rarity, "", "", RPCItems:GetRarityFactor(item.rarity))
+    local item = RPCItems:CreateItem(variantName, nil, nil)
+    item.newItemTable = {}
+    item.newItemTable.qualityName = rarityName
+    item.newItemTable.rarity = rarityName
+    item.newItemTable.rarityFactor = RPCItems:GetRarityFactor(item.rarity)
+    item.newItemTable.itemPrefix = ""
+    item.newItemTable.itemSuffix = ""
+    item.newItemTable.item_slot = slot
+    item.newItemTable.gear = gear
+    item.newItemTable.consumable = false
+    item.newItemTable.requiredHero = requiredHero
+    item.newItemTable.minLevel = minLevel   
+    RPCItems:SetTableValues(item, itemNameText, item.newItemTable.consumable, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, "", "", RPCItems:GetRarityFactor(item.newItemTable.rarity))
 
     return item
 end
 
 function RPCItems:CreateConsumable(variantName, rarityName, itemNameText, slot, gear, slotText, useDescription)
-    local itemVariant = variantName
-    local item = RPCItems:CreateItem(itemVariant, nil, nil)
-    item.rarity = rarityName
-    local rarityValue = RPCItems:GetRarityFactor(item.rarity)
-    local itemName = itemNameText
-    local suffix = ""
-    local prefix = ""
-    item.slot = slot
-    item.gear = gear
-    item.stackable = true
-    item.stashable = true
-    RPCItems:SetTableValues(item, itemName, false, slotText, RPCItems:GetRarityColor(item.rarity), item.rarity, "", "", RPCItems:GetRarityFactor(item.rarity))
-    CustomNetTables:SetTableValue("weapons", "item"..tostring(item:GetEntityIndex()), {} )
-    CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = false, itemDescription = description, qualityColor = RPCItems:GetRarityColor(item.rarity), itemDescription = slotText, qualityName = rarityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = RPCItems:GetRarityFactor(item.rarity), stackedConsumable = true, minLevel = 0, useDescription = useDescription } )
+    local item = RPCItems:CreateItem(variantName, nil, nil)
+    item.newItemTable = {}
+    item.newItemTable.qualityName = rarityName
+    item.newItemTable.rarity = rarityName
+    item.newItemTable.rarityFactor = RPCItems:GetRarityFactor(item.rarity)
+    item.newItemTable.itemPrefix = ""
+    item.newItemTable.itemSuffix = ""
+    item.newItemTable.item_slot = slot
+    item.newItemTable.gear = gear
+    item.newItemTable.consumable = false
+    item.newItemTable.stackable = true
+    item.newItemTable.stashable = true
+    RPCItems:SetTableValues(item, itemNameText, item.newItemTable.consumable, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, "", "", RPCItems:GetRarityFactor(item.newItemTable.rarity))
 
+    item.newItemTable.itemName = itemNameText
+    item.newItemTable.qualityColor = RPCItems:GetRarityColor(item.rarity)
+    item.newItemTable.itemDescription = slotText
+    item.newItemTable.qualityName = rarityName
+    item.newItemTable.stackedConsumable = true
+    item.newItemTable.minLevel = 0
+    item.newItemTable.useDescription = useDescription
+
+    CustomNetTables:SetTableValue("item_basics", tostring(itemIndex), item.newItemTable)
+    
     return item
 end
 
 function RPCItems:CreateUnstashable(variantName, rarityName, itemNameText, slot, gear, slotText, useDescription)
-    local itemVariant = variantName
-    local item = RPCItems:CreateItem(itemVariant, nil, nil)
-    item.rarity = rarityName
-    local rarityValue = RPCItems:GetRarityFactor(item.rarity)
-    local itemName = itemNameText
-    local suffix = ""
-    local prefix = ""
-    item.slot = slot
-    item.gear = gear
-    item.cantStash = true
-    RPCItems:SetTableValues(item, itemName, false, slotText, RPCItems:GetRarityColor(item.rarity), item.rarity, "", "", RPCItems:GetRarityFactor(item.rarity))
-    
-    CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = false, itemDescription = description, qualityColor = RPCItems:GetRarityColor(item.rarity), itemDescription = slotText, qualityName = rarityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = RPCItems:GetRarityFactor(item.rarity), stackedConsumable = false, minLevel = 0, useDescription = useDescription } )
+    local item = RPCItems:CreateItem(variantName, nil, nil)
+    item.newItemTable = {}
+    item.newItemTable.qualityName = rarityName
+    item.newItemTable.rarity = rarityName
+    item.newItemTable.rarityFactor = RPCItems:GetRarityFactor(item.rarity)
+    item.newItemTable.itemPrefix = ""
+    item.newItemTable.itemSuffix = ""
+    item.newItemTable.item_slot = slot
+    item.newItemTable.gear = gear
+    item.newItemTable.consumable = false
+    item.newItemTable.cantStash = true
+    RPCItems:SetTableValues(item, itemNameText, item.newItemTable.consumable, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, "", "", RPCItems:GetRarityFactor(item.newItemTable.rarity))
 
+    item.newItemTable.itemName = itemNameText
+    item.newItemTable.qualityColor = RPCItems:GetRarityColor(item.rarity)
+    item.newItemTable.itemDescription = slotText
+    item.newItemTable.qualityName = rarityName
+    item.newItemTable.stackedConsumable = false
+    item.newItemTable.minLevel = 0
+    item.newItemTable.useDescription = useDescription
+    
+    CustomNetTables:SetTableValue("item_basics", tostring(itemIndex), item.newItemTable)
+    
     return item
 end
 
@@ -272,7 +294,7 @@ end
 function RPCItems:RollSteelbarkPlate(hero)
 
     local item = RPCItems:CreateVariant("item_rpc_steelbark_guard", "immortal", "Steelbark Guard", "body", true, "Slot: Body")
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "steelbark"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_steelbark", "#ADFF5C",  1, "#property_steelbark_description")
 
@@ -406,7 +428,7 @@ end
 function RPCItems:RollBerserkerGloves(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_berserker_gloves", "immortal", "Berserker Gloves", "hands", true, "Slot: Hands")
 
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "berserker_rage"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_berserker", "#850D0D",  1, "#property_berserker_rage_description")
 
@@ -426,7 +448,7 @@ end
 function RPCItems:RollShadowArmlet(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_shadow_armlet", "immortal", "Shadow Armlet", "hands", true, "Slot: Hands")
 
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "shadow_armlet"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_shadow_armlet", "#54457A",  1, "#property_shadow_armlet_description")
 
@@ -446,7 +468,7 @@ end
 function RPCItems:RollMalachiteShadeBracer(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_malachite_shade_bracer", "immortal", "Malachite Shade Bracer", "hands", true, "Slot: Hands")
 
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "malachite_shade"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_malachite_shade", "#95DB9D",  1, "#property_malachite_shade_description")
 
@@ -467,7 +489,7 @@ end
 function RPCItems:RollHeavyEchoGauntlet(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_heavy_echo_gauntlet", "immortal", "Heavy Echo Gauntlet", "hands", true, "Slot: Hands")
 
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "heavy_echo"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_heavy_echo", "#CE3350",  1, "#property_heavy_echo_description")
 
@@ -495,7 +517,7 @@ end
 function RPCItems:RollBoneguardGauntlets(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_boneguard_gauntlets", "immortal", "Boneguard Gauntlets", "hands", true, "Slot: Hands")
 
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "boneguard"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_boneguard", "#8EA38B",  1, "#property_boneguard_description")
 
@@ -574,7 +596,7 @@ end
 function RPCItems:RollHandOfMidas(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_hand_of_midas", "immortal", "Hand of Midas", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "midas"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_hand_of_midas", "#EFF700",  1, "#property_hand_of_midas_description")
 
@@ -594,7 +616,7 @@ end
 
 function RPCItems:RollProudGloves(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_kappa_pride_gloves", "immortal", "Proud Gloves", "hands", true, "Slot: Hands")
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "pride"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_pride", "#D950D6",  1, "#property_pride_description")
     RPCItems:RollHandProperty2(item, 0)
@@ -608,7 +630,7 @@ end
 
 function RPCItems:RollClawOfAzinoth(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_claw_of_azinoth", "immortal", "Claw of Azinoth", "hands", true, "Slot: Hands")
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "azinoth"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_azinoth", "#543553",  1, "#property_azinoth_description")
     item.hasRunePoints = true
@@ -627,7 +649,7 @@ end
 
 function RPCItems:RollBuzukisFinger(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_buzukis_finger", "immortal", "Buzuki's Finger", "hands", true, "Slot: Hands")
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "buzuki"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_buzuki_finger", "#6FD8ED",  1, "#property_buzuki_finger_description")
 
@@ -647,7 +669,7 @@ end
 
 function RPCItems:RollSwiftspikeBracer(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_swiftspike_bracer", "immortal", "Swiftspike Bracer", "hands", true, "Slot: Hands")
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "swiftspike"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_swiftspike_bracer", "#3F74A8",  1, "#property_swiftspike_bracer_description")
 
@@ -672,7 +694,7 @@ end
 
 function RPCItems:RollDivinePurityGauntlets(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_gauntlet_of_divine_purity", "immortal", "Gauntlets of Divine Purity", "hands", true, "Slot: Hands")
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "divine_purity"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_divine_purity", "#A8D3ED",  1, "#property_divine_purity_description")
     
@@ -701,7 +723,7 @@ end
 
 function RPCItems:RollMarauderGloves(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_marauder_gloves", "immortal", "Marauder Gloves", "hands", true, "Slot: Hands")
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "marauder"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_marauder", "#326E94",  1, "#property_marauder_description")
     
@@ -721,7 +743,7 @@ end
 
 function RPCItems:RollSkulldiggerGloves(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_skulldigger_gauntlet", "immortal", "Skulldigger Gauntlet", "hands", true, "Slot: Hands")
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "skulldigger_v2"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_skulldigger", "#90E8E7",  1, "#property_skulldigger_description")
     
@@ -846,7 +868,7 @@ end
 
 function RPCItems:RollElderGrasp(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_grasp_of_elder", "immortal", "Grasp of the Elders", "hands", true, "Slot: Hands")
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "elder_grasp"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_elder_grasp", "#5A54C4",  1, "#property_elder_grasp_description")
     item.hasRunePoints = true
@@ -867,7 +889,7 @@ end
 function RPCItems:RollScarecrowGloves(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_scarecrow_gloves", "immortal", "Scarecrow Gloves", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "scarecrow"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_scarecrow", "#2CA8F5",  1, "#property_scarecrow_description")
 
@@ -887,7 +909,7 @@ end
 function RPCItems:RollChitinousLobsterClaw(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_chitinous_lobster_claw", "immortal", "Chitinous Lobster Claw", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "lobster"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_lobster_claw", "#C97360",  1, "#property_lobster_claw_Description")
 
@@ -907,7 +929,7 @@ end
 function RPCItems:RollDarkEmissaryGlove(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_dark_emissary_glove", "immortal", "Dark Emissary Glove", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "dark_emissary"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_dark_emissary", "#3E7BBC",  1, "#property_dark_emissary_Description")
 
@@ -925,7 +947,7 @@ end
 function RPCItems:RollDepthDemonClaw(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_depth_demon_claw", "immortal", "Depth Demon Claw", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "depth_demon"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_depth_demon_claw", "#634F87",  1, "#property_depth_demon_claw_Description")
 
@@ -943,7 +965,7 @@ end
 function RPCItems:RollGlovesOfSweepingWind(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_gloves_of_sweeping_wind", "immortal", "Sweeping Wind Glove", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "sweeping_wind"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sweeping_wind", "#A9D4C5",  1, "#property_sweeping_wind_description")
 
@@ -961,7 +983,7 @@ end
 function RPCItems:RollLivingGauntlet(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_living_gauntlet", "immortal", "Living Gauntlet", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "living_gauntlet"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_living_gauntlet", "#ADFF5C",  1, "#property_living_gauntlet_description")
 
@@ -985,7 +1007,7 @@ end
 function RPCItems:RollSilverspringGloves(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_silverspring_gloves", "immortal", "Silverspring Gloves", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "silverspring"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_silverspring_glove", "#AFCCB8",  1, "#property_silverspring_description")
 
@@ -1005,7 +1027,7 @@ end
 function RPCItems:RollMordiggusGauntlet(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_mordiggus_gauntlet", "immortal", "Mordiggus Gauntlet", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "mordiggus"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mordiggus", "#B84874",  1, "#property_mordiggus_description")
 
@@ -1030,7 +1052,7 @@ end
 function RPCItems:RollIronboundGloves(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_ironbound_gloves", "immortal", "Ironbound Gloves", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "ironbound"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ironbound_gloves", "#CFD2D4",  1, "#property_ironbound_gloves_description")
 
@@ -1051,7 +1073,7 @@ end
 function RPCItems:RollFarSeersEnchantedGloves(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_far_seers_enchanted_gloves", "immortal", "Far Seer's Enchanted Gloves", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "far_seer"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_farseer_glove", "#CAD683",  1, "#property_farseer_description")
 
@@ -1073,7 +1095,7 @@ end
 function RPCItems:RollShadowflameFist(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_shadowflame_fist", "immortal", "Shadowflame Fist", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "shadowflame"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_shadowflame_fist", "#5A25BC",  1, "#property_shadowflame_fist_description")
     local luck = RandomInt(1,2)
@@ -1099,7 +1121,7 @@ end
 function RPCItems:RollMasterGloves(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_master_gloves", "immortal", "Master Gloves", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "master"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_master_gloves", "#EDCA3B",  1, "#property_master_gloves_description")
 
@@ -1138,7 +1160,7 @@ end
 function RPCItems:RollPhoenixGloves(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_phoenix_gloves", "immortal", "Phoenix Gloves", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "phoenix"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_phoenix_gloves", "#EDA65F",  1, "#property_phoenix_gloves_description")
 
@@ -1158,7 +1180,7 @@ end
 function RPCItems:RollEternalEssenceGauntlet(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_eternal_essence_gauntlet", "immortal", "Eternal Essence Gauntlet", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "eternal_essence"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_eternal_essence", "#51C9AF",  1, "#property_eternal_essence_description")
 
@@ -1186,7 +1208,7 @@ end
 function RPCItems:RollSpiritGlove(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_spirit_glove", "immortal", "Spirit Glove", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "spirit"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_spirit_glove", "#FFFFFF",  1, "#property_spirit_glove_description")
 
@@ -1211,7 +1233,7 @@ end
 function RPCItems:RollFrostburnGauntlets(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_frostburn_gauntlets", "immortal", "Frostburn Gauntlets", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "frostburn"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_frostburn_gauntlets", "#7DDAE8",  1, "#property_frostburn_gauntlets_description")
 
@@ -1231,7 +1253,7 @@ end
 function RPCItems:RollHalcyonSoulGlove(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_halcyon_soul_glove", "immortal", "Halcyon Soul Glove", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "halcyon_soul"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_halcyon_soul", "#E8F274",  1, "#property_halcyon_soul_description")
 
@@ -1280,7 +1302,7 @@ function RPCItems:RollGloveOfTheForgottenGhost(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_glove_of_the_forgotten_ghost", "immortal", "Glove of the Forgotten Ghost", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
 
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "forgotten_ghost"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_forgotten_ghost", "#A5E8E7",  1, "#property_forgotten_ghost_description")
 
@@ -1302,7 +1324,7 @@ function RPCItems:RollGravekeepersGauntlet(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_gravekeepers_gauntlet", "immortal", "Gravekeeper's Gauntlet", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
 
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "gravekeeper"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gravekeeper_gauntlet", "#94EBFF",  1, "#property_gravekeeper_gauntlet_description")
 
@@ -1340,7 +1362,7 @@ function RPCItems:RollBlueRainGauntlet(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_blue_rain_gauntlet", "immortal", "Blue Rain Gauntlet", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
 
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "blue_rain"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_blue_rain", "#B6DEE3",  1, "#property_blue_rain_description")
 
@@ -1363,7 +1385,7 @@ function RPCItems:RollSpiritualEmpowermentGlove(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_spiritual_empowerment_glove", "immortal", "Spiritual Empowerment Glove", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
 
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "spiritual_empowerment"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_spiritual_empowerment", "#B6DEE3",  1, "#property_spiritual_empowerment_description")
 
@@ -1388,7 +1410,7 @@ end
 function RPCItems:RollMountainVambraces(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_mountain_vambraces", "immortal", "Mountain Vambraces", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "mountain_vambrace"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mountain_vambraces", "#694B4B",  1, "#property_mountain_vambraces_description")
 
@@ -1408,7 +1430,7 @@ end
 function RPCItems:RollAutumnrockBracers(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_autumnrock_bracer", "immortal", "Autumnrock Bracer", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "autumnrock_bracer"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_autumnrock_bracer", "#C2485E",  1, "#property_autumnrock_bracer_description")
 
@@ -1428,7 +1450,7 @@ end
 function RPCItems:RollGrandArcanist(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_grand_arcanist_wraps", "immortal", "Wraps of the Grand Arcanist", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "grand_arcanist"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_grand_arcanist", "#A05BCF",  1, "#property_grand_arcanist_description")
 
@@ -1448,7 +1470,7 @@ end
 function RPCItems:RollBladeforgeGauntlet(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_bladeforge_gauntlet", "immortal", "Bladeforge Gauntlet", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "bladeforge"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_bladeforge", "#AB0303",  1, "#property_bladeforge_description")
 
@@ -1469,7 +1491,7 @@ end
 function RPCItems:RollRoyalWristguards(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_royal_wristguards", "immortal", "Royal Wristguards", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "royal_wrist"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_royal_wrist", "#D94848",  1, "#property_royal_wrist_description")
 
@@ -1495,7 +1517,7 @@ end
 function RPCItems:RollAquasteelBracers(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_aquasteel_bracers", "immortal", "Aquasteel Bracers", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "aquasteel"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_aquasteel", "#56BBEA",  1, "#property_aquasteel_description")
 
@@ -1520,7 +1542,7 @@ end
 function RPCItems:RollDemonfireGauntlet(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_demonfire_gauntlet", "immortal", "Demonfire Gauntlet", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "demonfire"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_demonfire", "#8C1C1C",  1, "#property_demonfire_description")
 
@@ -1543,7 +1565,7 @@ function RPCItems:RollCytopianLaserGloves(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
 
     local value, nameLevel = RPCItems:RollAttribute(0, 260, 620, 0, 0, item.rarity, false, maxFactor*600)
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "cytopian_laser"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_cytopian_laser", "#85CEED",  1, "#property_cytopian_laser_description")
 
@@ -1564,7 +1586,7 @@ function RPCItems:RollClawOfTheEtherealRevenant(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_claws_of_the_ethereal_revenant", "immortal", "Claws of the Ethereal Revenant", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
 
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "ethereal_revenant"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ethereal_revenant", "#90DFF5",  1, "#property_ethereal_revenant_description")
 
@@ -1601,7 +1623,7 @@ function RPCItems:RollEnergyWhipGlove(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_energy_whip_glove", "immortal", "Energy Whip Glove", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
 
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "energy_whip"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_energy_whip", "#4986b2",  1, "#property_energy_whip_description")
 
@@ -1657,7 +1679,7 @@ function RPCItems:RollStormclothBracer(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
 
     local value, nameLevel = RPCItems:RollAttribute(0, 160, 420, 0, 0, item.rarity, false, maxFactor*400)
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "stormcloth"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_stormcloth", "#85CEED",  1, "#property_stormcloth_description")
     local luck = RandomInt(1,3)
@@ -1683,7 +1705,7 @@ function RPCItems:RollPowerRangerGloves(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
 
     local value, nameLevel = RPCItems:RollAttribute(0, 50, 100, 0, 0, item.rarity, false, maxFactor*120)
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "power_ranger"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_power_ranger", "#FF4545",  1, "#property_power_ranger_description")
 
@@ -1713,7 +1735,7 @@ end
 function RPCItems:RollHurricaneVest(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_hurricane_vest", "immortal", "Hurricane Vest", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "hurricane"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_hurricane", "#5A54C4",  1, "#property_hurricane_description")
 
@@ -1736,7 +1758,7 @@ end
 function RPCItems:RollBaronsStormArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_barons_storm_armor", "immortal", "Barons Storm Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    ----item.property1 = 1
     item.property1name = "baron_storm"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_baron_storm", "#96DCFF",  1, "#property_baron_storm_description")
 
@@ -1779,7 +1801,7 @@ function RPCItems:CreateFloodRobe2(hero, ability)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "flooding"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_flooding_2", "#57CFFF",  1, "#property_flooding_description_2")
 
@@ -1813,7 +1835,7 @@ function RPCItems:CreateFloodRobe3(hero, ability)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "flooding"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_flooding_3", "#57CFFF",  1, "#property_flooding_description_3")
 
@@ -1886,7 +1908,7 @@ end
 function RPCItems:AvalancePlate2(hero, ability)
     local item = RPCItems:CreateVariantWithMin("item_rpc_avalanche_plate_2", "immortal", "Avalanche Plate LV2", "body", true, "Slot: Body", ability.minLevel, "", "")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "avalanche"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_avalanche_2", "#9C8C81",  1, "#property_avalanche_description_2")
 
@@ -1918,7 +1940,7 @@ end
 function RPCItems:RollKnightCrusherArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_staggering_knight_crusher_armor", "immortal", "Staggering Knight Crusher Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "knight_crusher"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_knight_crusher", "#DBB948",  1, "#property_knight_crusher_description")
 
@@ -1938,7 +1960,7 @@ end
 function RPCItems:RollTerrasicStonePlate(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_terrasic_stone_plate", "immortal", "Terrasic Stone Plate", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "terrasic_stone"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_terrasic_stone", "#BF8154",  1, "#property_terrasic_stone_description")
 
@@ -1962,7 +1984,7 @@ end
 function RPCItems:RollCaptainsVest(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_captains_vest", "immortal", "Captains Vest", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "captains_vest"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_captains_vest", "#4FCCB1",  1, "#property_captains_vest_description")
 
@@ -1991,7 +2013,7 @@ end
 function RPCItems:RollBorealGraniteVest(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_boreal_granite_vest", "immortal", "Boreal Granite Vest", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "boreal_granite"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_boreal_granite", "#9EE0FF",  1, "#property_boreal_granite_description")
 
@@ -2071,7 +2093,7 @@ function RPCItems:RollVioletGuardArmor2(hero, ability)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "violet_guard2"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_violet_guard_armor2", "#A337E6",  1, "#property_violet_guard_armor_description2")
 
     local oldProperty = CustomNetTables:GetTableValue("item_properties", tostring(ability:GetEntityIndex()).."-"..tostring(2))
@@ -2102,7 +2124,7 @@ end
 function RPCItems:RollTwilightVestments(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_twilight_vestments", "immortal", "Twilight Vestments", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "twilight"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_twilight_vestments", "#BCD8E6",  1, "#property_twilight_vestments_description")
 
@@ -2139,7 +2161,7 @@ end
 function RPCItems:RollRadiantRuinsLeather(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_radiant_ruins_leather", "immortal", "Radiant Ruins Leather", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "radiant_ruins"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_radiant_ruins", "#EDB940",  1, "#property_radiant_ruins_description")
 
@@ -2160,7 +2182,7 @@ end
 function RPCItems:RollBladestormVest(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_bladestorm_vest", "immortal", "Bladestorm Vest", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "bladestorm"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_bladestorm_vest", "#DE2644",  1, "#property_bladestorm_vest_description")
 
@@ -2180,7 +2202,7 @@ end
 function RPCItems:RollSacredTrialsArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_sacred_trials_armor", "immortal", "Sacred Trials Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "sacred_trials"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sacred_trials", "#EDC02D",  1, "#property_sacred_trials_description")
 
@@ -2200,7 +2222,7 @@ end
 function RPCItems:RollHermitSpikeShell(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_hermits_spike_shell", "immortal", "Hermit's Spike Shell", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "spike_shell"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_hermit_spike_shell", "#CDD17B",  1, "#property_hermit_spike_shell_description")
 
@@ -2220,7 +2242,7 @@ end
 function RPCItems:RollSoulVest(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_seraphic_soulvest", "immortal", "Seraphic Soulvest", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "seraphic"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_seraphic_soulvest", "#C5E7FC",  1, "#property_seraphic_soulvest_description")
 
@@ -2262,7 +2284,7 @@ end
 function RPCItems:RollTanariWindArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_ancient_tanari_wind_armor", "immortal", "Ancient Tanari Wind Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "ancient_tanari"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_tanari_wind_armor", "#C5E7FC",  1, "#property_tanari_wind_armor_description")
 
@@ -2300,7 +2322,7 @@ end
 function RPCItems:RollEmpyrealSunriseRobe(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_empyreal_sunrise_robe", "immortal", "Empyreal Sunrise Robe", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "sunrise"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_tropical_sunrise", "#F7E37E",  1, "#property_tropical_sunrise_Description")
 
@@ -2321,7 +2343,7 @@ end
 function RPCItems:RollMageplate(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_infused_mageplate", "immortal", "Infused Mageplate", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "mageplate"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mageplate", "#B05CFF",  1, "#property_mageplate_description")
 
@@ -2345,7 +2367,7 @@ end
 function RPCItems:RollGoldenWarPlate(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_golden_war_plate", "immortal", "Golden War Plate", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "golden_war_plate"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gold_war_plate", "#E8E83C",  1, "#property_gold_war_plate_description")
 
@@ -2365,7 +2387,7 @@ end
 function RPCItems:RollWaterMageRobes(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_water_mage_robes", "immortal", "Water Mage Robes", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "watermage"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_watermage", "#49B7E3",  1, "#property_watermage_description")
 
@@ -2389,7 +2411,7 @@ function RPCItems:RollWatcherPlate(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     local luck = RandomInt(1, 2)
     if luck == 1 then
-        item.property1 = 1
+        --item.property1 = 1
         item.property1name = "watcher1"
         RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_watcher_one", "#64A4CC",  1, "#property_watcher_one_description")
     else
@@ -2434,7 +2456,7 @@ end
 function RPCItems:RollSorcererRegalia(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_sorcerers_regalia", "immortal", "Sorcerer's Regalia", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "sorcerer"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sorcerers_regalia", "#1996E3",  1, "#property_sorcerers_regalia_description")
 
@@ -2467,7 +2489,7 @@ end
 function RPCItems:RollSpellslingerCoat(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_spellslinger_coat", "immortal", "Spellslinger's Coat", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "spellslinger"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_spellslinger_coat", "#3FEBC5",  1, "#property_spellslinger_coat_description")
 
@@ -2496,7 +2518,7 @@ end
 function RPCItems:RollDoomplate(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_doomplate", "immortal", "Doomplate", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "doomplate"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_doomplate", "#E85920",  1, "#property_doomplate_description")
 
@@ -2526,7 +2548,7 @@ end
 function RPCItems:RollOceanTempestPallium(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_ocean_tempest_pallium", "immortal", "Ocean Tempest Pallium", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "ocean_tempest"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ocean_tempest", "#4C74A8",  1, "#property_ocean_tempest_description")
 
@@ -2547,7 +2569,7 @@ end
 function RPCItems:RollSavagePlateOfOgthun(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_savage_plate_of_ogthun", "immortal", "Savage Plate of Og'Thun", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "ogthun"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ogthun", "#B32224",  1, "#property_ogthun_description")
 
@@ -2568,7 +2590,7 @@ end
 function RPCItems:RollIceQuillCarapace(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_ice_quill_carapace", "immortal", "Ice Quill Carapace", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "ice_quill"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ice_quill", "#6FD2F2",  1, "#property_ice_quill_description")
 
@@ -2593,7 +2615,7 @@ end
 function RPCItems:RollDepthCrestArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_depth_crest_armor", "immortal", "Depth Crest Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "depth_crest"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_depth_crest", "#6877E8",  1, "#property_depth_crest_description")
 
@@ -2619,7 +2641,7 @@ end
 function RPCItems:RollFeatherwhiteArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_featherwhite_armor", "immortal", "Featherwhite Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "featherwhite"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_featherwhite_armor", "#FFFFFF",  1, "#property_featherwhite_armor_description")
 
@@ -2641,7 +2663,7 @@ end
 function RPCItems:RollDragonCeremonyVestments(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_dragon_ceremony_vestments", "immortal", "Vestments of the Dragon Ceremony", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "dragon_ceremony"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_dragon_ceremony", "#D4583F",  1, "#property_dragon_ceremony_description")
 
@@ -2663,7 +2685,7 @@ end
 function RPCItems:RollSecretTempleArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_armor_of_secret_temple", "immortal", "Armor of the Secret Temple", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "secret_temple"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_secret_temple", "#CE87E6",  1, "#property_secret_temple_description")
 
@@ -2684,7 +2706,7 @@ end
 function RPCItems:RollVampiricBreastplate(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_vampiric_breastplate", "immortal", "Vampiric Breastplate", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "vampiric_breastplate"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_vampiric_breastplate", "#71EBA3",  1, "#property_varmpiric_breastplate_description")
 
@@ -2705,7 +2727,7 @@ end
 function RPCItems:RollGuardOfFeronia(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_guard_of_feronia", "immortal", "Guard of Feronia", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "feronia"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_guard_of_feronia", "#D67CC9",  1, "#property_guard_of_feronia_description")
 
@@ -2727,7 +2749,7 @@ end
 function RPCItems:RollMysticManaWall(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_mystic_mana_wall", "immortal", "Mystic Mana Wall", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "mystic_mana"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mystic_mana_wall", "#5FCFF5",  1, "#property_mystic_mana_wall_description")
 
@@ -2748,7 +2770,7 @@ end
 function RPCItems:RollSkyforgeFlurryPlate(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_skyforge_flurry_plate", "immortal", "Skyforge Flurry Plate", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "skyforge"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_skyforge", "#66BCDE",  1, "#property_skyforge_description")
 
@@ -2769,7 +2791,7 @@ end
 function RPCItems:RollDarkArtsVestments(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_dark_arts_vestments", "immortal", "Vestments of the Dark Arts", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "dark_arts"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_dark_arts", "#7A3B63",  1, "#property_dark_arts_description")
 
@@ -2791,7 +2813,7 @@ end
 function RPCItems:RollSapphireDragonScaleArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_sapphire_dragon_scale_armor", "immortal", "Sapphire Dragon Scale Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "sapphire_dragon"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sapphire_dragon", "#5786C9",  1, "#property_sapphire_dragon_description")
 
@@ -2815,7 +2837,7 @@ end
 function RPCItems:RollTopazDragonScaleArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_topaz_dragon_scale_armor", "immortal", "Topaz Dragon Scale Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "topaz_dragon"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_topaz_dragon", "#FFFC5C",  1, "#property_topaz_dragon_description")
 
@@ -2839,7 +2861,7 @@ end
 function RPCItems:RollBlazingFuryArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_blazing_fury_armor", "immortal", "Blazing Fury Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "blazing_fury"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_blazing_fury_armor", "#C1513E",  1, "#property_blazing_fury_description")
 
@@ -2860,7 +2882,7 @@ end
 function RPCItems:RollRubyDragonScaleArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_ruby_dragon_scale_armor", "immortal", "Ruby Dragon Scale Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "ruby_dragon"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ruby_dragon_armor", "#C94242",  1, "#property_ruby_dragon_armor_description")
 
@@ -2884,7 +2906,7 @@ end
 function RPCItems:RollLegionVestments(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_legion_vestments", "immortal", "Legion Vestments", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "legion_vest"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_legion_vestments", "#D45757",  1, "#property_legion_vestments_description")
 
@@ -2901,7 +2923,7 @@ end
 function RPCItems:RollNightmareRiderMantle(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_nightmare_rider_mantle", "immortal", "Nightmare Rider Mantle", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "nightmare_rider"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_nightmare_rider", "#423670",  1, "#property_nightmare_rider_description")
     local luck = RandomInt(1,2)
@@ -2922,7 +2944,7 @@ end
 function RPCItems:RollGoldPlateOfLeon(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_gold_plate_of_leon", "immortal", "Gold Plate of Leon", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "gold_leon"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gold_plate_of_leon", "#E6E617",  1, "#property_gold_plate_of_leon_description")
 
@@ -2939,7 +2961,7 @@ end
 function RPCItems:RollSpaceTechVest(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_space_tech_vest", "immortal", "Space Tech Vest", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "space_tech"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_space_tech", "#4843E6",  1, "#property_space_tech_description")
 
@@ -2957,7 +2979,7 @@ end
 function RPCItems:RollStormshieldCloak(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_stormshield_cloak", "immortal", "Stormshield Cloak", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "stormshield"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_stormshield", "#BAD5DE",  1, "#property_stormshield_description")
 
@@ -2984,7 +3006,7 @@ end
 function RPCItems:RollDirewolfBulkwark(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_direwolf_bulwark", "immortal", "Direwolf Bulwark", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "direwolf"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_direwolf", "#502AA3",  1, "#property_direwolf_description")
 
@@ -3024,7 +3046,7 @@ function RPCItems:RollInfernalPrison(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_the_infernal_prison", "immortal", "The Infernal Prison", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
 
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "infernal_prison"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_infernal_prison", "#E87E15",  1, "#property_infernal_prison_description")
 
@@ -3047,7 +3069,7 @@ function RPCItems:RollEnchantedSolarCape(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_enchanted_solar_cape", "immortal", "Enchanted Solar Cape", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
 
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "enchanted_solar"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_enchanted_solar", "#EBB523",  1, "#property_enchanted_solar_description")
     
@@ -3070,7 +3092,7 @@ end
 function RPCItems:RollGildedSoulCage(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_gilded_soul_cage", "immortal", "Gilded Soul Cage", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "soul_cage"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gilded_soul", "#B0C930",  1, "#property_gilded_soul_description")
 
@@ -3091,7 +3113,7 @@ end
 function RPCItems:RollOutlandStoneCuirass(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_outland_stone_cuirass", "immortal", "Outland Stone Cuirass", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "outland_stone"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_outland_stone", "#FFB668",  1, "#property_outland_stone_description")
 
@@ -3112,7 +3134,7 @@ end
 function RPCItems:RollArmorOfAtlantis(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_armor_of_atlantis", "immortal", "Outland Stone Cuirass", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "atlantis"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_armor_of_atlantis", "#478EC1",  1, "#property_armor_of_atlantis_Description")
 
@@ -3133,7 +3155,7 @@ end
 function RPCItems:RollBluestarArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_bluestar_armor", "immortal", "Bluestar Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "bluestar"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_bluestar_armor", "#285EBD",  1, "#property_bluestar_armor_description")
 
@@ -3154,7 +3176,7 @@ end
 function RPCItems:RollTatteredNoviceArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_tattered_novice_armor", "immortal", "Tattered Novice Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "tattered_novice"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_tattered_novice_armor", "#61C695",  1, "#property_tattered_novice_armor_description")
 
@@ -3185,7 +3207,7 @@ end
 function RPCItems:RollWindsteelArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_windsteel_armor", "immortal", "Windsteel Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "windsteel"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_windsteel_armor", "#5079D9",  1, "#property_windsteel_armor_description")
 
@@ -3208,7 +3230,7 @@ end
 function RPCItems:VermillionDreamRobes(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_vermillion_dream_robes", "immortal", "Vermillion Dream Robes", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "vermillion_dream"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_vermillion_dream_robes", "#D14268",  1, "#property_vermillion_dream_robes_description")
     local luck = RandomInt(1,4)
@@ -3240,7 +3262,7 @@ end
 function RPCItems:RollLightSeersRobes(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_templar_light_seers_robe", "immortal", "Templar Light Seer's Robe", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "light_seer"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_light_seer", "#F4E155",  1, "#property_light_seer_Description")
     local luck = RandomInt(1,3)
@@ -3295,7 +3317,7 @@ function RPCItems:CreateWhiteMageHat2(hero, ability)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "white_mage_hat2"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_white_mage_hat_2", "#FFFFFF",  1, "#property_white_mage_hat_2_description")
 
@@ -3327,7 +3349,7 @@ end
 function RPCItems:RollBasiliskPlagueHelm(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_basilisk_plague_helm", "immortal", "Basilisk Plague Helm", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "basilisk_plague"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_basilisk_plague", "#93B058",  1, "#property_basilisk_plague_description")
 
@@ -3352,7 +3374,7 @@ end
 function RPCItems:RollHoodOfTheSeaOracle(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_hood_of_the_sea_oracle", "immortal", "Hood of the Sea Oracle", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "sea_oracle"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_sea_oracle", "#FFBC49",  1, "#property_sea_oracle_Description")
 
@@ -3373,7 +3395,7 @@ end
 function RPCItems:RollFrostmawHuntersHood(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_frostmaw_hunters_hood", "immortal", "Frostmaw Hunter's Hood", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "frostmaw"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_frostmaw", "#ff443a",  1, "#property_frostmaw_description")
 
@@ -3571,7 +3593,7 @@ function RPCItems:RollShipyardVeil3(hero, ability)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "shipyard_veil"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_shipyard_veil_3", "#91F2F1",  1, "#property_shipyard_veil_3_description")
 
@@ -3625,7 +3647,7 @@ function RPCItems:CreateHyperVisor2(hero, ability)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "hyper_visor"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_hyper_visor2", "#3CB7E8",  1, "#property_hyper_visor2_description")
 
@@ -3657,7 +3679,7 @@ end
 function RPCItems:RollBurningSpiritHelmet(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_burning_spirit_helmet", "immortal", "Burning Spirit Helmet", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "burning_spirit"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_burning_spirit", "#D6B948",  1, "#property_burning_spirit_description")
 
@@ -3689,7 +3711,7 @@ end
 function RPCItems:RollRubyDragonCrown(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_crown_of_ruby_dragon", "immortal", "Crown of Ruby Dragon", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "ruby_dragon"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ruby_dragon", "#BD2A2A",  1, "#property_ruby_dragon_description")
 
@@ -3745,7 +3767,7 @@ end
 function RPCItems:RollDeathWhisperHelm(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_death_whisper_helm", "immortal", "Death Whisper Helm", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "death_whisper"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_death_whisper", "#4A6A8C",  1, "#property_death_whisper_description")
 
@@ -3765,7 +3787,7 @@ end
 function RPCItems:RollGuardOfGrithault(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_guard_of_grithault", "immortal", "Guard of Grithault", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "grithault"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_grithault", "#34E039",  1, "#property_grithault_description")
 
@@ -3785,7 +3807,7 @@ end
 function RPCItems:RollHoodOfBlackMage(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_hood_of_the_black_mage", "immortal", "Hood of the Black Mage", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "black_mage"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_black_mage", "#A9B023",  1, "#property_black_mage_description")
 
@@ -3805,17 +3827,17 @@ function RPCItems:RollCapOfWildNature(deathLocation, isShop)
     local maxFactor = RPCItems:GetMaxFactor()
     local luck = RandomInt(1, 3)
     if luck == 1 then
-        item.property1 = 1
+        --item.property1 = 1
         item.property1name = "wild_nature_one"
         RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wild_nature", "#573E2F",  1, "#property_wild_nature_description")
         RPCItems:RollHoodProperty2(item, 0)
     elseif luck == 2 then
-        item.property1 = 1
+        --item.property1 = 1
         item.property1name = "wild_nature_two"
         RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wild_nature_two", "#573E2F",  1, "#property_wild_nature_two_description")
         RPCItems:RollHoodProperty2(item, 0)
     else
-        item.property1 = 1
+        --item.property1 = 1
         item.property1name = "wild_nature_one"
         RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wild_nature", "#573E2F",  1, "#property_wild_nature_description")
         item.property2 = 1
@@ -3831,7 +3853,7 @@ end
 function RPCItems:RollLumaGuard(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_guard_of_luma", "immortal", "Guard of Luma", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "luma_guard"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_luma", "#B8A3E3",  1, "#property_luma_description")
 
@@ -3850,7 +3872,7 @@ end
 function RPCItems:RollBrazenKabuto(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_brazen_kabuto_of_the_desert_realm", "immortal", "Brazen Kabuto of the Desert Realm", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "brazen_kabuto"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_brazen_kabuto", "#A87D4C",  1, "#property_brazen_kabuto_description")
 
@@ -3861,7 +3883,7 @@ function RPCItems:RollBrazenKabuto(deathLocation, isShop)
         item.property2name = "armor"
         RPCItems:SetPropertyValues(item, item.property2, "#item_armor", "#D1D1D1",  2)
     else
-		item.hasRunePoints = true
+        item.hasRunePoints = true
         local luck2 = RandomInt(1, 100)
         local runeValue = 0
         local runeName = ""
@@ -3892,7 +3914,7 @@ end
 function RPCItems:RollOdinHelmet(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_odin_helmet", "immortal", "Odin Helmet", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "odin"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_odin", "#82A6B3",  1, "#property_odin_description")
 
@@ -3932,7 +3954,7 @@ function RPCItems:RollStormcrackHelm2(hero, ability)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "stormcrack2"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_stormcrack2", "#EFF2AE",  1, "#property_stormcrack2_description")
 
@@ -3964,7 +3986,7 @@ end
 function RPCItems:RollWraithCrown(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_wraith_crown", "immortal", "Wraith Crown", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "wraith"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wraith", "#5671E8",  1, "#property_wraith_description")
 
@@ -3983,7 +4005,7 @@ end
 function RPCItems:RollIronColossus(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_iron_colussus", "immortal", "Helm of the Iron Colossus", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "iron_colossus"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_iron_colossus", "#874E4D",  1, "#property_iron_colossus_description")
 
@@ -4007,7 +4029,7 @@ end
 function RPCItems:RollMugatoMask(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_mask_of_mugato", "immortal", "Mask of Mugato", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "mugato"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mugato", "#26E0C1",  1, "#property_mugato_description")
 
@@ -4027,7 +4049,7 @@ end
 function RPCItems:RollWitchHat(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_swamp_witch_hat", "immortal", "Swamp Witch's Hat", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "swamp_witch"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_swamp_witch", "#7300DE",  1, "#property_swamp_witch_description")
     local luck = RandomInt(1,2)
@@ -4050,7 +4072,7 @@ end
 function RPCItems:RollExcavatorsFocusHat(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_excavators_focus_cap", "immortal", "Excavator's Focus Cap", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "excavator"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_excavator", "#7300DE",  1, "#property_excavator_description")
 
@@ -4076,7 +4098,7 @@ end
 function RPCItems:RollTricksterMask(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_tricksters_mask", "immortal", "Trickster's Mask", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "trickster"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_trickster", "#FFFB17",  1, "#property_trickster_description")
 
@@ -4100,7 +4122,7 @@ end
 function RPCItems:RollDemonMask(deathLocation, isShop, waveBonus)
     local item = RPCItems:CreateVariant("item_rpc_demon_mask", "immortal", "Demon Mask", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "demon_mask"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_demon", "#C91818",  1, "#property_demon_description")
 
@@ -4141,7 +4163,7 @@ end
 function RPCItems:RollCrestOfTheUmbralSentinel(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_crest_of_the_umbral_sentinel", "immortal", "Crest of the Umbral Sentinel", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "umbral"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_umbral", "#90C3D4",  1, "#property_umbral_description")
 
@@ -4173,7 +4195,7 @@ end
 function RPCItems:RollCarbuncleHelm(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_carbuncles_helm_of_reflection", "immortal", "Carbuncle's Helm of Reflection", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "carbuncle"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_carbuncle", "#B85454",  1, "#property_carbuncle_description")
 
@@ -4207,7 +4229,7 @@ end
 function RPCItems:RollWraithHuntersSteelHelm(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_wraith_hunters_steel_helm", "immortal", "Wraith Hunter's Steel Helm", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "wraith_hunter"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wraith_hunter", "#55A9ED",  1, "#property_wraith_hunter_description")
 
@@ -4229,7 +4251,7 @@ end
 function RPCItems:RollEmeraldDouli(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_emerald_douli", "immortal", "Emerald Douli", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "emerald_douli"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_emerald_douli", "#1DDB49",  1, "#property_emerald_douli_description")
 
@@ -4252,7 +4274,7 @@ end
 function RPCItems:RollMaskOfTyrius(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_mask_of_tyrius", "immortal", "Mask of Tyrius", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "tyrius"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_tyrius", "#D6693A",  1, "#property_tyrius_description")
 
@@ -4276,7 +4298,7 @@ end
 function RPCItems:RollAutumnSleeperMask(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_autumn_sleeper_mask", "immortal", "Autumn Sleeper Mask", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "autumn_sleeper"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_autumn_sleeper", "#BF5050",  1, "#property_autumn_sleeper_description")
 
@@ -4290,7 +4312,7 @@ end
 function RPCItems:RollIgneousCanineHelm(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_igneous_canine_helm", "immortal", "Igneous Canine Helm", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "igneous_canine"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_igneous_canine", "#EDDA61",  1, "#property_igneous_canine_description")
 
@@ -4304,7 +4326,7 @@ end
 function RPCItems:RollCrimsonSkullCap(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_crimson_skull_cap", "immortal", "Crimson Skull Cap", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "crimson_skull_cap"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_crimson_skull_cap", "#C25D55",  1, "#property_crimson_skull_cap_description")
 
@@ -4323,7 +4345,7 @@ end
 function RPCItems:RollEyeOfSeasons(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_eye_of_seasons", "immortal", "Eye of Seasons", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "eye_of_seasons"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_eye_of_seasons", "#E8985F",  1, "#property_eye_of_seasons_description")
 
@@ -4343,7 +4365,7 @@ end
 function RPCItems:RollCeruleanHighguard(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_veil_of_the_cerulean_high_guard", "immortal", "Veil of the Cerulean Highguard", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "cerulean_highguard"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_cerulean_highguard", "#1D35D1",  1, "#property_cerulean_highguard_description")
 
@@ -4363,7 +4385,7 @@ end
 function RPCItems:RollBlackfeatherCrown(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_blackfeather_crown", "immortal", "Blackfeather Crown", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "blackfeather"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_blackfeather", "#615C6E",  1, "#property_blackfeather_description")
 
@@ -4382,7 +4404,7 @@ end
 function RPCItems:RollSuperAscendency(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_super_ascendency_mask", "immortal", "Super Ascendency Mask", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "super_ascendency"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_super_ascendency", "#E89300",  1, "#property_super_ascendency_description")
 
@@ -4407,7 +4429,7 @@ end
 function RPCItems:RollPhantomSorcererMask(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_mask_of_the_phantom_sorcerer", "immortal", "Mask of the Phantom Sorcerer", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "phantom_sorcerer"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_phantom_sorcerer", "#02F21E",  1, "#property_phantom_sorcerer_description")
 
@@ -4428,7 +4450,7 @@ end
 function RPCItems:RollHelmOfSilentTemplar(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_helm_of_the_silent_templar", "immortal", "Helm of the Silent Templar", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "silent_templar"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_helm_of_silent_templar", "#9FC1ED",  1, "#property_helm_of_silent_templar_description")
 
@@ -4449,7 +4471,7 @@ end
 function RPCItems:RollChainsOfOrthok(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_chains_of_orthok", "immortal", "Chains of Orthok", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "orthok"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_chains_of_orthok", "#E8F43F",  1, "#property_chains_of_orthok_description")
     print("ORTHOK??")
@@ -4470,7 +4492,7 @@ end
 function RPCItems:RollArcaneCascadeHat(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_arcane_cascade_hat", "immortal", "Arcane Cascade Hat", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "arcane_cascade"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_arcane_cascade", "#E558F5",  1, "#property_arcane_cascade_description")
 
@@ -4494,7 +4516,7 @@ end
 function RPCItems:RollSamuraiHelmet(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_adamantine_samurai_helmet", "immortal", "Adamantine Samurai Helmet", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "samurai_helmet"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_samurai_helmet", "#FF2427",  1, "#property_samurai_helmet_description")
 
@@ -4518,7 +4540,7 @@ end
 function RPCItems:RollScourgeKnightHelm(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_scourge_knights_helm", "immortal", "Scourge Knight's Helm", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "scourge_knight"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_scourge_knight", "#2A194F",  1, "#property_scourge_knight_description")
     local value = 0
@@ -4549,7 +4571,7 @@ end
 function RPCItems:RollHoodOfDefiler(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_hood_of_defiler", "immortal", "Hood of the Defiler", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "hood_of_defiler"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_hood_of_defiler", "#B36481",  1, "#property_hood_of_defiler_description")
 
@@ -4574,7 +4596,7 @@ end
 function RPCItems:RollDarkReefSharkHelmet(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_dark_reef_shark_helmet", "immortal", "Dark Reef Shark Helmet", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "shark_helmet"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_shark_helmet", "#A7BAB7",  1, "#property_shark_helmet_Description")
 
@@ -4602,7 +4624,7 @@ end
 function RPCItems:RollNecromancerMask(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_mask_of_the_desert_necromancer", "immortal", "Mask of the Desert Necromancer", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "desert_necromancer"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_desert_necromancer", "#B38C66",  1, "#property_desert_necromancer_description")
     local value = 0
@@ -4629,7 +4651,7 @@ end
 function RPCItems:RollUndertakersHood(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_undertakers_hood", "immortal", "Undertaker's Hood", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "undertaker"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_undertaker", "#3E8A2B",  1, "#property_undertaker_description")
 
@@ -4654,7 +4676,7 @@ end
 function RPCItems:RollEternalNightShroud(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_shroud_of_eternal_night", "immortal", "Shroud of Eternal Night", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "eternal_night"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_eternal_night", "#494F63",  1, "#property_eternal_night_description")
 
@@ -4669,7 +4691,7 @@ end
 function RPCItems:RollHelmOfTheMountainGiant(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_helm_of_the_mountain_giant", "immortal", "Helm Of The Mountain Giant", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "mountain_giant"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mountain_giant", "#C95226",  1, "#property_mountain_giant_description")
 
@@ -4689,7 +4711,7 @@ end
 function RPCItems:RollDruidsSpiritHelm(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_wolfir_druids_spirit_helm", "immortal", "Wolfir Druid's Spirit Helm", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "druid_spirit"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_druids_spirt", "#9DCCC2",  1, "#property_druids_spirit_description")
 
@@ -4712,7 +4734,7 @@ end
 function RPCItems:RollGlintOfOnu(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_blinded_glint_of_onu", "immortal", "Blinded Glint of Onu", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "glint_of_onu"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_glint_of_onu", "#9DCCC2",  1, "#property_glint_of_onu_description")
 
@@ -4731,7 +4753,7 @@ end
 function RPCItems:RollLavaForgeCrown(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_crown_of_the_lava_forge", "immortal", "Crown of the Lava Forge", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "lava_forge"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_lava_forge", "#EB6A59",  1, "#property_lava_forge_description")
 
@@ -4750,7 +4772,7 @@ end
 function RPCItems:RollRoknarEmperor(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_crown_of_the_roknar_emperor", "immortal", "Crown of the Rok'nar Emperor", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "roknar"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_roknar_emperor", "#72BD28",  1, "#property_roknar_emperor_description")
 
@@ -4773,7 +4795,7 @@ end
 function RPCItems:RollSwampDoctorMask(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_swamp_doctors_tribal_mask", "immortal", "Swamp Doctor's Tribal Mask", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "swamp_doctor"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_swamp_doctor", "#61AD64",  1, "#property_swamp_doctor_description")
 
@@ -4792,7 +4814,7 @@ end
 function RPCItems:RollDunetreadBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_dunetread_boots", "immortal", "Dunetreads", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "dunetread"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_dunetread", "#8A8546",  1, "#property_dunetread_description")
 
@@ -4808,7 +4830,7 @@ end
 function RPCItems:RollEmeraldSpeedRunners(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_emerald_speed_runners", "immortal", "Emerald Speed Runners", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "emerald_speed"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_emerald_speed", "#3EC18A",  1, "#property_emerald_speed_description")
 
@@ -4830,7 +4852,7 @@ end
 function RPCItems:RollCrystallineSlippers(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_crystalline_slippers", "immortal", "Crystalline Slippers", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "crystalline"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_crystalline", "#99E8E0",  1, "#property_crystalline_Description")
 
@@ -4852,7 +4874,7 @@ end
 function RPCItems:RollAlaranaIceBoot(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_alaranas_ice_boot", "immortal", "Alarana's Ice Boot", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "alarana"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_alarana", "#AFECFF",  1, "#property_alarana_description")
     local luck = RandomInt(1,3)
@@ -4886,7 +4908,7 @@ end
 function RPCItems:RollGiantHunterBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_giant_hunters_boots_of_resilience", "immortal", "Giant Hunters Boots of Resilience", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "giant_hunter"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_giant_hunter_boot", "#E3E300",  1, "#property_giant_hunter_boot_description")
 
@@ -4911,7 +4933,7 @@ end
 function RPCItems:RollVoyagerBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_voyager_boots", "immortal", "Voyager Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "voyager"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_voyager", "#AB9091",  1, "#property_voyager_description")
 
@@ -4929,7 +4951,7 @@ end
 function RPCItems:RollRedrockFootwear(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_redrock_footwear", "immortal", "Redrock Footwear", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "redrock"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_redrock", "#EB0E0E",  1, "#property_redrock_description")
 
@@ -4945,7 +4967,7 @@ end
 function RPCItems:RollResonantPathfinderBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_pathfinders_resonant_boots", "immortal", "Pathfinder's Resonant Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "pathfinder"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_pathfinder", "#E3E02D",  1, "#property_pathfinder_description")
 
@@ -4966,7 +4988,7 @@ end
 function RPCItems:RollNeptunesWaterGliders(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_neptunes_water_gliders", "immortal", "Neptune's Water Gliders", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "neptune"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_neptune", "#2294F2",  1, "#property_neptune_description")
 
@@ -4998,7 +5020,7 @@ end
 function RPCItems:RollVioletTreads(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_boots_of_the_violet_guard", "immortal", "Boots of the Violet Guard", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "violet_boots"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_violet_boot", "#A337E6",  1, "#property_violet_boot_description")
 
@@ -5018,7 +5040,7 @@ end
 function RPCItems:SlingerBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_slinger_boots", "immortal", "Bladeslinger Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "slinger"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_slinger_boot", "#D6D2D2",  1, "#property_slinger_boots_description")
 
@@ -5034,7 +5056,7 @@ end
 function RPCItems:RollGuardianGreaves(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_guardian_greaves", "immortal", "Guardian Greaves", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "guardian_greaves"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_guardian_greaves", "#8FE051",  1, "#property_guardien_greaves_description")
 
@@ -5209,7 +5231,7 @@ function RPCItems:RollCrimsythEliteGreavesLV3(hero, ability)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "crimsyth_elite"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_crimsyth_elite_3", "#DD2727",  1, "#property_crimsyth_elite_3_description")
 
@@ -5241,7 +5263,7 @@ end
 function RPCItems:RollAblecoreGreaves(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_ablecore_greaves", "immortal", "Ablecore Greaves", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "ablecore"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ablecore_greaves", "#DED083",  1, "#property_ablecore_greaves_description")
 
@@ -5264,7 +5286,7 @@ end
 function RPCItems:RollBlueDragonGreaves(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_blue_dragon_greaves", "immortal", "Blue Dragon Greaves", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "dragon_greaves"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_dragon_greaves", "#2B4DE3",  1, "#property_dragon_greaves_description")
 
@@ -5300,7 +5322,7 @@ function RPCItems:RollSangeBoots(deathLocation)
 
     item.hasRunePoints = true
 
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "sange"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sange", "#CC1104",  1, "#property_sange_description")
 
@@ -5341,7 +5363,7 @@ end
 function RPCItems:RollOceanrunnerBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_oceanrunner_boots", "immortal", "Oceanrunner", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "oceanrunner"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_oceanrunner", "#58EFD6",  1, "#property_oceanrunner_Description")
 
@@ -5361,7 +5383,7 @@ end
 function RPCItems:RollBootsOfOldWisdom(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_boots_of_old_wisdom", "immortal", "Boots of Old Wisdom", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "old_wisdom"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_old_wisdom", "#8DEBCE",  1, "#property_old_wisdom_description")
 
@@ -5381,7 +5403,7 @@ end
 function RPCItems:RollResplendantRubberBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_resplendent_rubber_boots", "immortal", "Resplendent Rubber Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "rubber_boot"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_resplendent_rubber", "#DADE66",  1, "#property_resplendent_rubber_description")
 
@@ -5405,7 +5427,7 @@ end
 function RPCItems:RollTerrasicLavaBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_terrasic_lava_boots", "immortal", "Terrasic Lava Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "terrasic_lava"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_terrasic_lava", "#9C4343",  1, "#property_terrasic_lava_description")
 
@@ -5426,9 +5448,9 @@ end
 
 function RPCItems:RollGhostSlippers(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_ghost_slippers", "immortal", "Ghost Slippers", "feet", true, "Slot: Feet")
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "ghost_walk"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_unit_walking", "#9B72C4", 1, "#property_unit_walking_description")
+    RPCItems:SetPropertyValues(item, item.property1, "#item_unit_walking", "#9B72C4", 1)
 
     item.property2 = RandomInt(5, 10)
     item.property2name = "magic_resist"
@@ -5464,7 +5486,7 @@ end
 function RPCItems:RollYashaBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_yasha_boots", "immortal", "Yasha Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "yasha"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_yasha", "#4FD65A",  1, "#property_yasha_description")
 
@@ -5484,7 +5506,7 @@ end
 function RPCItems:RollSteamboots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_steamboots", "immortal", "Steam Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "steamboots"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_steamboots", "#4FD65A",  1, "#property_steamboots_description")
 
@@ -5505,7 +5527,7 @@ end
 function RPCItems:RollTranquilBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_tranquil_boots", "immortal", "Tranquil Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "tranquil"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_tranquil_boots", "#30E691",  1, "#property_tranquil_boots_description")
 
@@ -5521,7 +5543,7 @@ end
 function RPCItems:RollFireWalkers(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_fire_walkers", "immortal", "Fire Walkers", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "fire_walker"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fire_walkers", "#DE4318",  1, "#property_fire_walkers_description")
 
@@ -5537,7 +5559,7 @@ end
 function RPCItems:RollRedfallRunners(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_redfall_runners", "immortal", "Redfall Runners", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "redfall_runners"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_redfall_runners", "#E87B7B",  1, "#property_redfall_runners_description")
 
@@ -5557,7 +5579,7 @@ end
 function RPCItems:RollRedOctoberBoots(deathLocation, isSpirit)
     local item = RPCItems:CreateVariant("item_rpc_red_october_boots", "immortal", "Red October Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "red_october"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_red_october", "#E87B7B",  1, "#property_red_october_description")
 
@@ -5596,7 +5618,7 @@ end
 function RPCItems:RollBootsOfAshara(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_boots_of_ashara", "immortal", "Boots of Ashara", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "ashara"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_boots_of_ashara", "#E6C149",  1, "#property_boots_of_ashara_description")
 
@@ -5616,7 +5638,7 @@ end
 function RPCItems:RollGravelfootTreads(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_gravelfoot_treads", "immortal", "Gravelfoot Treads", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "gravelfoot"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gravelfoot", "#8FC2C9",  1, "#property_gravelfoot_description")
 
@@ -5636,7 +5658,7 @@ end
 function RPCItems:RollIceFloeSlippers(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_ice_floe_slippers", "immortal", "Ice Floe Slippers", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "ice_floe"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ice_floe_slippers", "#8BD3F9",  1, "#property_ice_floe_slippers_description")
 
@@ -5673,7 +5695,7 @@ end
 function RPCItems:RollIronTreadsOfDestruction(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_iron_treads_of_destruction", "immortal", "Iron Treads of Destruction", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "destruction"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_iron_treads_of_destruction", "#4259F4",  1, "#property_iron_treads_of_destruction_description")
 
@@ -5712,7 +5734,7 @@ end
 function RPCItems:RollBloodstoneBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_bloodstone_boots", "immortal", "Bloodstone Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "bloodstone"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_bloodstone_boots", "#E2371D",  1, "#property_bloodstone_boots_description")
 
@@ -5731,41 +5753,33 @@ end
 
 function RPCItems:RollBootsOfGreatFortune(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_boots_of_great_fortune", "immortal", "Boots of Great Fortune", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
-    item.property1name = "great_fortune"
+    item.newItemTable.specialPropertyName = "great_fortune"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_boots_of_great_fortune", "#F1F756",  1, "#property_boots_of_great_fortune_description")
 
-    item.hasRunePoints = true
-    item.property2 = RPCItems:GetLogarithmicVarianceValue(GameState:GetDifficultyFactor()*5, 0, 0, 0, 0)
-    item.property2name = "rune_e_4"
-    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2) 
+    RPCItems:SetPropertyValues(item, RPCItems:GetLogarithmicVarianceValue(GameState:GetDifficultyFactor()*5, 0, 0, 0, 0), "rune_e_4", "#7DFF12",  2) 
 
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
     local drop = CreateItemOnPositionSync( deathLocation, item )
     local position = deathLocation
+    RPCItems:ItemUpdateCustomNetTables(item)
     RPCItems:DropItem(item, position)
     return item
 end
 
 function RPCItems:RollSandstreamSlippers(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_sandstream_slippers", "immortal", "Sandstream Slippers", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
-    item.property1name = "sandstream"
+    item.newItemTable.specialPropertyName = "sandstream"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sandstream_slippers", "#E3DEBA",  1, "#property_sandstream_slippers_description")
 
-    item.hasRunePoints = true
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.property2 = math.floor(value*1.2)
-    item.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2) 
+    RPCItems:SetPropertyValues(item, math.floor(value*1.2), propertyName, "#7DFF12",  2) 
 
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
     local drop = CreateItemOnPositionSync( deathLocation, item )
     local position = deathLocation
+    RPCItems:ItemUpdateCustomNetTables(item)
     RPCItems:DropItem(item, position)
     return item
 end
@@ -5774,7 +5788,7 @@ end
 function RPCItems:RollManaStriders(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_mana_striders", "immortal", "Mana Striders", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "mana_stride"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mana_striders", "#55A4CF",  1, "#property_mana_striders_description")
 
@@ -5787,6 +5801,7 @@ function RPCItems:RollManaStriders(deathLocation)
     RPCItems:RollFootProperty4(item, 0)
     local drop = CreateItemOnPositionSync( deathLocation, item )
     local position = deathLocation
+    RPCItems:ItemUpdateCustomNetTables(item)
     RPCItems:DropItem(item, position)
     return item
 end
@@ -5794,7 +5809,7 @@ end
 function RPCItems:RollBootsOfPureWaters(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_boots_of_pure_waters", "immortal", "Boots of Pure Waters", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "pure_waters"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_pure_waters", "#2679BD",  1, "#property_pure_waters_description")
 
@@ -5814,7 +5829,7 @@ end
 function RPCItems:RollMoonTechs(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_moon_tech_runners", "immortal", "Moon Tech Runners", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "moon_tech"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_moon_techs", "#3700CF",  1, "#property_moon_techs_description")
 
@@ -5831,7 +5846,7 @@ end
 function RPCItems:RollTemporalWarpBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_temporal_warp_boots", "immortal", "Temporal Warp Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "temporal_warp"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_temporal_warp", "#A1F442",  1, "#property_temporal_warp_description")
     print("TEMPORAL WARP BOOTS")
@@ -5856,7 +5871,7 @@ end
 function RPCItems:RollSonicBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_sonic_boots", "immortal", "Sonic Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "sonic_boot"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sonic_boots", "#AACFE6",  1, "#property_sonic_boots_description")
 
@@ -5874,7 +5889,7 @@ function RPCItems:RollFalconBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_falcon_boots", "immortal", "Falcon Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
 
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "falcon_boot"
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_falcon_boot", "#AACFE6",  1, "#property_falcon_boot_description")
@@ -5899,7 +5914,7 @@ end
 function RPCItems:RollCrusaderBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_crusader_boots", "immortal", "Crusader Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "crusader"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_crusader_boots", "#48B6CF",  1, "#property_crusader_boots_description")
 
@@ -5921,7 +5936,7 @@ end
 function RPCItems:RollArcanysSlipper(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_arcanys_slipper", "immortal", "Arcanys Slippers", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "arcanys"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_arcanys_slipper", "#C23CCF",  1, "#property_arcanys_slipper_description")
 
@@ -5973,7 +5988,7 @@ end
 function RPCItems:RollAdmiralBoot(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_admiral_boots", "immortal", "Admiral's Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "admiral"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_admiral_boots", "#A66829",  1, "#property_admiral_boots_description")
 
@@ -6010,7 +6025,7 @@ end
 function RPCItems:RollRootedFeet(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_rooted_feet", "immortal", "Rooted Feet", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "rooted_feet"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_rooted_feet", "#ADFF5C",  1, "#property_rooted_feet_description")
 
@@ -6202,7 +6217,7 @@ function RPCItems:RollBlacksmithsTablet(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "blacksmith"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_blacksmiths_tablet", "#C1C7C9",  1, "#property_blacksmiths_tablet_description")
 
@@ -6308,7 +6323,7 @@ function RPCItems:RollSapphireLotus(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "sapphire_lotus"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sapphire_lotus", "#008CFF",  1, "#property_sapphire_lotus_description")
 
     local value, nameLevel = RPCItems:RollAttribute(0, 8, 12, 0, 0, item.rarity, false, maxFactor*12)
@@ -6341,7 +6356,7 @@ function RPCItems:RollArborDragonfly(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "arbor"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_arbor_dragonfly", "#B59B77",  1, "#property_arbor_dragonfly_description")
 
     local value, nameLevel = RPCItems:RollAttribute(0, 6, 13, 0, 0, item.rarity, false, maxFactor*13)
@@ -6374,7 +6389,7 @@ function RPCItems:RollTokenOfOceanis(deathLocation, bBossDrop)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "oceanis"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_sparkling_token", "#FFE884",  1, "#property_sparkling_token_Description")
     local bossMax = 14
     if bBossDrop then
@@ -6411,7 +6426,7 @@ function RPCItems:RollAncientTanariWaterstone(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "ancient_waterstone"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ancient_waterstone", "#70C6FF",  1, "#property_ancient_waterstone_description")
 
     local value, nameLevel = RPCItems:RollAttribute(0, 6, 11, 0, 0, item.rarity, false, maxFactor*11)
@@ -6449,7 +6464,7 @@ function RPCItems:RollAntiqueManaRelic(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "mana_relic"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_antique_mana_relic", "#9DBCF5",  1, "#property_antique_mana_relic_description")
 
     local value, prefixLevel = RPCItems:RollAttribute(300, 150, 400, 0, 1, item.rarity, false, maxFactor*150)
@@ -6482,7 +6497,7 @@ function RPCItems:RollFrostGem(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "eternal_frost"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_eternal_frost", "#9FE9F5",  1, "#property_eternal_frost_description")
 
     local value, nameLevel = RPCItems:RollAttribute(0, 7, 14, 0, 0, item.rarity, false, maxFactor*14)
@@ -6519,7 +6534,7 @@ function RPCItems:RollTwigOfEnlightened(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "enlightened_twig"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_twig_of_enlightened", "#95CAF5",  1, "#property_twig_of_enlightened_description")
 
     local value, nameLevel = RPCItems:RollAttribute(0, 9, 12, 0, 0, item.rarity, false, maxFactor*12)
@@ -6553,7 +6568,7 @@ function RPCItems:RollLifesourceVessel(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "lifesource"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_lifesource_vessel", "#E31459",  1, "#property_lifesource_vessel_description")
 
     local value, prefixLevel = RPCItems:RollAttribute(300, 220, 600, 1, 1, item.rarity, false, maxFactor*400)
@@ -6584,7 +6599,7 @@ function RPCItems:RollTomeOfChaos(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "tome_of_chaos"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_tome_of_chaos", "#0FBD09",  1, "#property_tome_of_chaos")
 
     local value, nameLevel = RPCItems:RollAttribute(0, 6, 10, 0, 0, item.rarity, false, maxFactor*10)
@@ -6622,7 +6637,7 @@ function RPCItems:RollAerithsTear(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "aerith"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_aeriths_tear", "#3EDAE6",  1, "#property_aeriths_tear")
 
     local value, nameLevel = RPCItems:RollAttribute(0, 7, 9, 0, 0, item.rarity, false, maxFactor*9)
@@ -6655,7 +6670,7 @@ function RPCItems:RollTorchOfGengar(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "gengar"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gengar", "#7E36D6",  1, "#property_gengar")
 
     local magicResistRoll = RandomInt(5, 10)
@@ -6688,7 +6703,7 @@ function RPCItems:RollRuinfallSkullToken(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "ruinfall"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ruinfall", "#5E572D",  1, "#property_ruinfall")
 
     local maxFactor = RPCItems:GetMaxFactor()
@@ -6775,7 +6790,7 @@ function RPCItems:RollRavenIdol2(hero, ability)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "raven2"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_raven_idol2", "#807F85",  1, "#property_raven_idol_description2")
 
     local oldProperty = CustomNetTables:GetTableValue("item_properties", tostring(ability:GetEntityIndex()).."-"..tostring(2))
@@ -6808,7 +6823,7 @@ function RPCItems:RollConquestStoneFalcon(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "stone_falcon"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_stone_falcon", "#A5B5A9",  1, "#property_stone_falcon_description")
 
     local maxFactor = RPCItems:GetMaxFactor()
@@ -6843,7 +6858,7 @@ function RPCItems:RollFortunesTalismanOfTruth(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "fortune_talisman"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fortune_talisman", "#EFEC3B",  1, "#property_fortune_talisman_description")
 
     local maxFactor = RPCItems:GetMaxFactor()
@@ -6886,7 +6901,7 @@ function RPCItems:RollEpsilonsEyeglass(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "epsilon"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_epsilon_eyeglass", "#4A91D9",  1, "#property_epsilon_eyeglass_description")
 
     local maxFactor = RPCItems:GetMaxFactor()
@@ -6921,7 +6936,7 @@ function RPCItems:RollOmegaRuby(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "omega_ruby"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_omega_ruby", "#C40404",  1, "#property_omega_ruby")
 
     local value = RandomInt(maxFactor*12, maxFactor*360)
@@ -6954,7 +6969,7 @@ function RPCItems:RollFenrirFang(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "fenrir_fang"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fenrir_fang", "#EB7B6A",  1, "#property_fenrir_fang")
 
     local value = RandomInt(maxFactor*12, maxFactor*360)
@@ -6987,7 +7002,7 @@ function RPCItems:RollPhoenixEmblem(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "phoenix_emblem"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_phoenix_emblem", "#C98920",  1, "#property_phoenix_emblem")
 
     local value, prefixLevel = RPCItems:RollAttribute(100, 5, 23, 0, 0, item.rarity, false, maxFactor*30)
@@ -7020,7 +7035,7 @@ function RPCItems:RollHopeOfSaytaru(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
 
     item.property1name = "saytaru"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_saytaru", "#EDE618",  1, "#property_saytaru_description")
 
     local luck = RandomInt(1, 2)
@@ -7063,7 +7078,7 @@ function RPCItems:RollFuchsiaRing(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "fuchsia"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fuchsia_ring", "#FF0080",  1, "#property_fuchsia_ring_description")
 
     local magicResistRoll = RandomInt(7, 16)
@@ -7096,7 +7111,7 @@ function RPCItems:RollAnkhOfAncients(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "ankh_of_ancients"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ankh_of_ancients", "#AEF2E1",  1, "#property_ankh_of_ancients_description")
 
     local magicResistRoll = math.ceil(RPCItems:GetLogarithmicVarianceValue(17, 0, 0, 0, 0))
@@ -7129,7 +7144,7 @@ function RPCItems:RollWorldTreesFlowerCache(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "world_tree_flower"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_world_trees_flower_cache", "#C4544E",  1, "#property_world_trees_flower_cache_description")
 
     local luck = RandomInt(1,3)
@@ -7167,7 +7182,7 @@ function RPCItems:RollGalaxyOrb(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "galaxy_orb"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_galaxy_orb", "#FF9100",  1, "#property_galaxy_orb_description")
 
@@ -7229,7 +7244,7 @@ function RPCItems:RollVolcanoOrb(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "volcano_orb"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_volcano_orb", "#995050",  1, "#property_volcano_orb_description")
 
@@ -7263,7 +7278,7 @@ function RPCItems:RollFractionalEnhancementGeode(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "geode"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_geode", "#05FF0D",  1, "#property_geode_description")
 
@@ -7326,7 +7341,7 @@ function RPCItems:CreateAugmentedRingOfNobility(hero, ability)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "nobility_augmented"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_nobility_augmented", "#FFFFFF",  1, "#property_nobility_augmented_description")
 
@@ -7361,7 +7376,7 @@ function RPCItems:RollAzureEmpire(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "azure_empire"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_azure_empire", "#7AD2F0",  1, "#property_azure_empire_description")
 
@@ -7407,7 +7422,7 @@ function RPCItems:RollTempestFalconRing(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "tempest_falcon"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_tempest_falcon", "#92E0C5",  1, "#property_tempest_falcon_description")
 
@@ -7439,7 +7454,7 @@ function RPCItems:RollFirelockPendant(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "firelock"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_firelock", "#DE5957",  1, "#property_firelock_description")
 
@@ -7473,7 +7488,7 @@ function RPCItems:RollStargazersSphere(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "stargazer"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_stargazer", "#7A5C8E",  1, "#property_stargazer_description")
 
@@ -7507,7 +7522,7 @@ function RPCItems:RollEmeraldNullificationRing(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "emerald_null"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_emerald_null", "#38D667",  1, "#property_emerald_null_description")
 
@@ -7539,7 +7554,7 @@ function RPCItems:RollGarnetWarfareRing(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "garnet_warfare"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_garnet_warfare", "#D62D2D",  1, "#property_garnet_warfare_description")
 
@@ -7571,7 +7586,7 @@ function RPCItems:RollRedDivinexAmulet(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "red_divinex"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_red_divinex", "#D62447",  1, "#property_red_divinex_description")
 
@@ -7603,7 +7618,7 @@ function RPCItems:RollGreenDivinexAmulet(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "green_divinex"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_green_divinex", "#4CDB64",  1, "#property_green_divinex_description")
 
@@ -7635,7 +7650,7 @@ function RPCItems:RollBlueDivinexAmulet(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "blue_divinex"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_blue_divinex", "#3857F4",  1, "#property_blue_divinex_description")
 
@@ -7667,7 +7682,7 @@ function RPCItems:RollCobaltSerenityRing(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "cobalt_serenity"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_cobalt_serenity", "#4FADE8",  1, "#property_cobalt_serenity_description")
 
@@ -7699,7 +7714,7 @@ function RPCItems:RollWindOrchid(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "wind_orchid"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wind_orchid", "#38D667",  1, "#property_wind_orchid_description")
 
@@ -7731,7 +7746,7 @@ function RPCItems:RollFireBlossom(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "fire_blossom"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fire_blossom", "#D62D2D",  1, "#property_fire_blossom_description")
 
@@ -7763,7 +7778,7 @@ function RPCItems:RollAquaLily(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "aqua_lily"
-    item.property1 = 1
+    --item.property1 = 1
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_aqua_lily", "#4FADE8",  1, "#property_aqua_lily_description")
 
@@ -7831,7 +7846,7 @@ function RPCItems:RollSignusCharm(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "signus"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_signus", "#ED217D",  1, "#property_signus_description")
 
     local value, nameLevel = RPCItems:RollAttribute(0, 6, 11, 0, 0, item.rarity, false, maxFactor*11)
@@ -7864,7 +7879,7 @@ function RPCItems:RollEyeOfAvernus(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     
     item.property1name = "avernus"
-    item.property1 = 1
+    --item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_avernus", "#E85F31",  1, "#property_avernus_description")
 
     local value, nameLevel = RPCItems:RollAttribute(0, 6, 12, 0, 0, item.rarity, false, maxFactor*12)
@@ -7917,7 +7932,7 @@ end
 function RPCItems:RollSpellfireGloves(deathLocation, spiritRealm)
     local item = RPCItems:CreateVariant("item_rpc_spellfire_gloves", "immortal", "Spellfire Gloves", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "spellfire"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_spellfire", "#FFA62B",  1, "#property_spellfire_description")
 
@@ -7950,7 +7965,7 @@ end
 function RPCItems:RollHoodOfLords(deathLocation, spiritRealm)
     local item = RPCItems:CreateVariant("item_rpc_hood_of_lords", "immortal", "Hood of Lords", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "lords"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_lords", "#FEFFC6",  1, "#property_lords_description")
 
@@ -7984,7 +7999,7 @@ end
 function RPCItems:RollWindDeityCrown(deathLocation, isSpirit, paragonBonus)
     local item = RPCItems:CreateVariant("item_rpc_wind_deity_crown", "immortal", "Wind Deity Crown", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "wind_deity"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wind_deity", "#92E8A6",  1, "#property_wind_deity_description")
 
@@ -8026,7 +8041,7 @@ end
 function RPCItems:RollWaterDeityCrown(deathLocation, isSpirit, paragonBonus)
     local item = RPCItems:CreateVariant("item_rpc_water_deity_crown", "immortal", "Water Deity Crown", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "water_deity"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_water_deity", "#5D9AF0",  1, "#property_water_deity_description")
 
@@ -8064,7 +8079,7 @@ end
 function RPCItems:RollFireDeityCrown(deathLocation, isSpirit, paragonBonus)
     local item = RPCItems:CreateVariant("item_rpc_fire_deity_crown", "immortal", "Fire Deity Crown", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
-    item.property1 = 1
+    --item.property1 = 1
     item.property1name = "fire_deity"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fire_deity", "#E85A4A",  1, "#property_fire_deity_description")
 

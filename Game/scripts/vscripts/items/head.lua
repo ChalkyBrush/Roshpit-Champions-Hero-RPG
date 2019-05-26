@@ -43,25 +43,25 @@ end
 
 
 function Head:action(propertyName, propertyValue, hero, inventory_unit, head_ability, item)
-	if propertyName == "strength" then
+	if propertyName == "#item_strength" then
 		head_ability.strength = head_ability.strength + propertyValue
 		Head:addBasicModifier(head_ability.strength, hero, inventory_unit, "modifier_helm_strength", head_ability)
-	elseif propertyName == "agility" then
+	elseif propertyName == "#item_agility" then
 		head_ability.agility = head_ability.agility + propertyValue
 		Head:addBasicModifier(head_ability.agility, hero, inventory_unit, "modifier_helm_agility", head_ability)
-	elseif propertyName == "intelligence" then
+	elseif propertyName == "#item_intelligence" then
 		head_ability.intelligence = head_ability.intelligence + propertyValue
 		Head:addBasicModifier(head_ability.intelligence, hero, inventory_unit, "modifier_helm_intelligence", head_ability)
-	elseif propertyName == "magic_resist" then
+	elseif propertyName == "#item_magic_resist" then
 		head_ability.magic_resist = head_ability.magic_resist + propertyValue
 		Head:addBasicModifier(head_ability.magic_resist, hero, inventory_unit, "modifier_helm_magic_resist", head_ability)
-	elseif propertyName == "armor" then
+	elseif propertyName == "#item_armor" then
 		head_ability.armor = head_ability.armor + propertyValue
 		Head:addBasicModifier(head_ability.armor, hero, inventory_unit, "modifier_helm_armor", head_ability)
-	elseif propertyName == "health_regen" then
+	elseif propertyName == "#item_health_regen" then
 		head_ability.health_regen = head_ability.health_regen + propertyValue
 		Head:addBasicModifier(head_ability.health_regen, hero, inventory_unit, "modifier_helm_health_regen", head_ability)
-	elseif propertyName == "mana_regen" then
+	elseif propertyName == "#item_mana_regen" then
 		head_ability.mana_regen = head_ability.mana_regen + propertyValue
 		Head:addBasicModifier(head_ability.mana_regen, hero, inventory_unit, "modifier_helm_mana_regen", head_ability)
 	elseif propertyName == "max_health" then
@@ -73,7 +73,7 @@ function Head:action(propertyName, propertyValue, hero, inventory_unit, head_abi
 	elseif propertyName == "base_ability" then
 		head_ability.base_ability = head_ability.base_ability + propertyValue
 		Head:addBasicModifier(head_ability.base_ability, hero, inventory_unit, "modifier_helm_base_ability_damage", head_ability)
-	elseif propertyName == "movespeed" then
+	elseif propertyName == "#item_movespeed" then
 		head_ability.movespeed = head_ability.movespeed + propertyValue
 		Head:addBasicModifier(head_ability.movespeed, hero, inventory_unit, "modifier_helm_movespeed", head_ability)
 	elseif propertyName == "respawn_reduce" then

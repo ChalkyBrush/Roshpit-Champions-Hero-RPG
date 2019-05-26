@@ -44,13 +44,13 @@ end
 
 
 function Body:action(propertyName, propertyValue, hero, inventory_unit, body_ability, item)
-	if propertyName == "strength" then
+	if propertyName == "#item_strength" then
 		body_ability.strength = body_ability.strength + propertyValue
 		Body:addBasicModifier(body_ability.strength, hero, inventory_unit, "modifier_body_strength", body_ability)
-	elseif propertyName == "agility" then
+	elseif propertyName == "#item_agility" then
 		body_ability.agility = body_ability.agility + propertyValue
 		Body:addBasicModifier(body_ability.agility, hero, inventory_unit, "modifier_body_agility", body_ability)
-	elseif propertyName == "intelligence" then
+	elseif propertyName == "#item_intelligence" then
 		body_ability.intelligence = body_ability.intelligence + propertyValue
 		Body:addBasicModifier(body_ability.intelligence, hero, inventory_unit, "modifier_body_intelligence", body_ability)
 	elseif propertyName == "all_attributes" then
@@ -60,16 +60,16 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 		Body:addBasicModifier(body_ability.agility, hero, inventory_unit, "modifier_body_agility", body_ability)		
 		body_ability.intelligence = body_ability.intelligence + propertyValue
 		Body:addBasicModifier(body_ability.intelligence, hero, inventory_unit, "modifier_body_intelligence", body_ability)
-	elseif propertyName == "magic_resist" then
+	elseif propertyName == "#item_magic_resist" then
 		body_ability.magic_resist = body_ability.magic_resist + propertyValue
 		Body:addBasicModifier(body_ability.magic_resist, hero, inventory_unit, "modifier_body_magic_resist", body_ability)
-	elseif propertyName == "armor" then
+	elseif propertyName == "#item_armor" then
 		body_ability.armor = body_ability.armor + propertyValue
 		Body:addBasicModifier(body_ability.armor, hero, inventory_unit, "modifier_body_armor", body_ability)
-	elseif propertyName == "health_regen" then
+	elseif propertyName == "#item_health_regen" then
 		body_ability.health_regen = body_ability.health_regen + propertyValue
 		Body:addBasicModifier(body_ability.health_regen, hero, inventory_unit, "modifier_body_health_regen", body_ability)
-	elseif propertyName == "mana_regen" then
+	elseif propertyName == "#item_mana_regen" then
 		body_ability.mana_regen = body_ability.mana_regen + propertyValue
 		Body:addBasicModifier(body_ability.mana_regen, hero, inventory_unit, "modifier_body_mana_regen", body_ability)
 	elseif propertyName == "physical_block" then
@@ -96,7 +96,7 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 	elseif propertyName == "base_ability" then
 		body_ability.base_ability = body_ability.base_ability + propertyValue
 		Body:addBasicModifier(body_ability.base_ability, hero, inventory_unit, "modifier_body_base_ability_damage", body_ability)
-	elseif propertyName == "movespeed" then
+	elseif propertyName == "#item_movespeed" then
 		body_ability.movespeed = body_ability.movespeed + propertyValue
 		Body:addBasicModifier(body_ability.movespeed, hero, inventory_unit, "modifier_body_movespeed", body_ability)
 	elseif propertyName == "steelbark" then

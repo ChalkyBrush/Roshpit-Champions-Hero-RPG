@@ -40,6 +40,9 @@ end
 -- end
 
 function Weapons:weaponRedirect(hero)
+	if true then
+		return
+	end
 	local heroName = hero:GetName()
 	if heroName == "npc_dota_hero_dragon_knight" then
 		Weapons:InitialWeapon(hero, "item_rpc_basic_sword", "Basic Sword")
@@ -104,22 +107,37 @@ end
 
 function Weapons:InitialWeapon(hero, item_variant, itemName)
 	local item = Weapons:CreateWeaponVariant(item_variant, "common", itemName, "weapon", true, "Slot: Weapon", hero:GetUnitName(), 20, 1)
-    item.xp = 0
-    item.level = 1
-    item.maxLevel = 20
-    item.requiredHero = hero:GetUnitName()
-    -- item.upgradeStatus = 0
-    -- item.phase = 0
-    -- item.upgradeIndex = "00"
-    hero.weapon = item
-    CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), {xp = item.xp, level = item.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.level], maxLevel = item.maxLevel, requiredHero = item.requiredHero} )
-    -- CustomNetTables:SetTableValue("weapons", "item"..tostring(item:GetEntityIndex()), {xp = item.xp, level = item.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.level], maxLevel = item.maxLevel, requiredHero = item.requiredHero, itemName = item:GetAbilityName()} )
-    Weapons:SetWeaponTable(item)
-    item.property1 = 100
-    item.property1name = "attack_damage"
-    RPCItems:SetPropertyValues(item, item.property1, "#item_bonus_attack_damage", "#343EC9",  1) 
+	if not item.newItemTable then
+		item.newItemTable = {}
+	end	
+	item.newItemTable.xp = 0
+	item.newItemTable.level = 1
+	item.newItemTable.maxLevel = 20
+	item.newItemTable.requiredHero = hero:GetUnitName()
 
-    Weapons:Equip(hero, item)
+	hero.weapon = item.newItemTable
+
+	item.newItemTable.xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.newItemTable.level]
+
+	Weapons:SetWeaponTable(item)
+
+	RPCItems:SetPropertyValues(item, 100, "#item_bonus_attack_damage", "#343EC9",  1) 
+	RPCItems:ItemUpdateCustomNetTables(item)
+	print("Weapons:InitialWeapon 111111111111")
+	DeepPrintTable(item)
+	print("Weapons:InitialWeapon @111111111111")
+	print(item)
+	print(type(item))
+	print("Weapons:InitialWeapon #@111111111111")
+
+	-- CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), 
+	-- 	{xp = item.newItemTable.xp, 
+	-- 	level = item.newItemTable.level, 
+	-- 	xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.newItemTable.level], 
+	-- 	maxLevel = item.newItemTable.maxLevel, 
+	-- 	requiredHero = item.newItemTable.requiredHero} )
+	
+	Weapons:Equip(hero, item)
 end
 
 function Weapons:InitialWeaponConjuror(hero, item_variant, itemName)
@@ -143,15 +161,17 @@ function Weapons:InitialWeaponConjuror(hero, item_variant, itemName)
 end
 
 function Weapons:Equip(heroEntity, itemEntity)
+	print("[Weapons:Equip] itemEntity")
+	print(itemEntity)
 	local player = heroEntity:GetPlayerOwner()
-	local slot = RPCItems:getGearSlot(itemEntity.slot)
+	local slot = RPCItems:getGearSlot(itemEntity.newItemTable.slot)
 	print(slot)
 	local oldGearTable = CustomNetTables:GetTableValue("equipment", tostring(player:GetPlayerID()).."-"..tostring(slot))
 	local oldGear = false
 	local playerID = heroEntity:GetPlayerID()
 	local heroId = heroEntity:GetClassname()
-	if itemEntity.requiredHero then
-		if itemEntity.requiredHero == heroEntity:GetUnitName() then
+	if itemEntity.newItemTable.requiredHero then
+		if itemEntity.newItemTable.requiredHero == heroEntity:GetUnitName() then
 		else
 			return false
 		end
@@ -167,20 +187,22 @@ function Weapons:Equip(heroEntity, itemEntity)
 	CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
 
 
-	if itemEntity.hasRunePoints then
-		itemEntity.translated = false
+	if itemEntity.newItemTable.hasRunePoints then
+		itemEntity.newItemTable.translated = false
         RPCItems:AmuletPickup(heroEntity, itemEntity)
     end
     print("SLOT: "..slot)
     if slot == 1 then
-    	if not itemEntity.xp and not itemEntity.level then
+    	if not itemEntity.newItemTable.xp and not itemEntity.newItemTable.level then
 		    item.xp = 0
 		    item.level = 1
 		end
     	print("SLOT = 1!!")
     	hero.weapon = itemEntity
     	Weapons:SetWeaponTable(itemEntity)
-    	CustomNetTables:SetTableValue("weapons", tostring(heroEntity:GetEntityIndex()), {xp = itemEntity.xp, level = itemEntity.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[itemEntity.level], maxLevel = itemEntity.maxLevel, requiredHero = itemEntity.requiredHero} )
+
+    	--CustomNetTables:SetTableValue("weapons", tostring(heroEntity:GetEntityIndex()), {xp = itemEntity.xp, level = itemEntity.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[itemEntity.level], maxLevel = itemEntity.maxLevel, requiredHero = itemEntity.requiredHero} )
+    	
     	CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemEntity:GetEntityIndex(), heroId=heroId, playerId=playerID, pickup="weapon"} )
     else
     	CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemEntity:GetEntityIndex(), heroId=heroId, playerId=playerID, pickup="equip"} )
@@ -191,8 +213,37 @@ function Weapons:Equip(heroEntity, itemEntity)
 end
 
 function Weapons:SetWeaponTable(itemEntity)
+	if not itemEntity then
+		print("[Weapons:SetWeaponTable] itemEntity is null")
+		return
+	end
+	if not itemEntity.newItemTable then
+		print("[Weapons:SetWeaponTable] itemEntity.newItemTable is null")
+		itemEntity.newItemTable = {}
+	end	
+	if not itemEntity.newItemTable.itemName then
+		print("[Weapons:SetWeaponTable] itemEntity.newItemTable.itemName is null")
+	end
+	if itemEntity:IsNull() then
+		print("[Weapons:SetWeaponTable] itemEntity:IsNull() is null")
+	end
+	--itemEntity.newItemTable.xp = itemEntity.xp
+	--itemEntity.newItemTable.level = itemEntity.level
+	--itemEntity.newItemTable.xpNeeded = Weapons.XP_PER_LEVEL_TABLE[itemEntity.level]
+	--itemEntity.newItemTable.maxLevel = itemEntity.maxLevel
+	--itemEntity.newItemTable.requiredHero = itemEntity.requiredHero
+	if not itemEntity.newItemTable.itemName then
+		itemEntity.newItemTable.itemName = itemEntity:GetAbilityName()
+	end
+	RPCItems:ItemUpdateCustomNetTables(itemEntity)
 
-	CustomNetTables:SetTableValue("weapons", "item"..tostring(itemEntity:GetEntityIndex()), {xp = itemEntity.xp, level = itemEntity.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[itemEntity.level], maxLevel = itemEntity.maxLevel, requiredHero = itemEntity.requiredHero, itemName = itemEntity:GetAbilityName()} )
+	-- CustomNetTables:SetTableValue("weapons", "item"..tostring(itemEntity:GetEntityIndex()), 
+	-- 	{xp = itemEntity.xp, 
+	-- 	level = itemEntity.level, 
+	-- 	xpNeeded = Weapons.XP_PER_LEVEL_TABLE[itemEntity.level], 
+	-- 	maxLevel = itemEntity.maxLevel, 
+	-- 	requiredHero = itemEntity.requiredHero, 
+	-- 	itemName = itemEntity:GetAbilityName()} )
 end
 
 function Weapons:UnequipItem(hero, item)
@@ -211,6 +262,7 @@ function Weapons:UnequipItem(hero, item)
 end
 
 function Weapons:ValidateGear(hero)
+	print("[Weapons:ValidateGear} +++++++++++++++++++++++++++++++++++++++++++++")
 	local playerID = hero:GetPlayerOwnerID()
 	for i = 0, 5, 1 do
 		local gearTable = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..tostring(i))
@@ -219,18 +271,18 @@ function Weapons:ValidateGear(hero)
 			local itemEntity = EntIndexToHScript(index)
 			if IsValidEntity(itemEntity) then
 				print(itemEntity:GetAbilityName())
-				print("VALID ENTITY")
-				if itemEntity.slot then
-					if RPCItems:getGearSlot(itemEntity.slot) == i then
-						print("SLOT CORRECT")
+				print("[Weapons:ValidateGear} VALID ENTITY")
+				if itemEntity.newItemTable and itemEntity.newItemTable.item_slot then
+					if RPCItems:getGearSlot(itemEntity.newItemTable.item_slot) == i then
+						print("[Weapons:ValidateGear} SLOT CORRECT")
 					else
-						print("INCORRECT SLOT")
+						print("[Weapons:ValidateGear} INCORRECT SLOT")
 						RPCItems:ItemUTIL_Remove(itemEntity)
 						CustomNetTables:SetTableValue("equipment", tostring(playerID).."-"..tostring(slot), {itemIndex = -1} )
 						CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
 					end
 				else
-					print("NO SLOT!")
+					print("[Weapons:ValidateGear} NO SLOT!")
 					RPCItems:ItemUTIL_Remove(itemEntity)
 					CustomNetTables:SetTableValue("equipment", tostring(playerID).."-"..tostring(slot), {itemIndex = -1} )
 					CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
@@ -543,35 +595,55 @@ end
 function Weapons:CreateWeaponVariant(variantName, rarityName, itemNameText, slot, gear, slotText, whichHero, maxLevel, minLevel)
     local itemVariant = variantName
     local item = RPCItems:CreateItem(itemVariant, nil, nil)
-    item.rarity = rarityName
-    local rarityValue = RPCItems:GetRarityFactor(item.rarity)
+	if not item.newItemTable then
+		item.newItemTable = {}
+	end	    
+	item.newItemTable.itemName = variantName
+	item.newItemTable.rarity = rarityName
+    local rarityValue = RPCItems:GetRarityFactor(item.newItemTable.rarity)
     local itemName = itemNameText
     local suffix = ""
     local prefix = ""
-    item.slot = slot
-    item.gear = gear
+    item.newItemTable.slot = slot
+    item.newItemTable.gear = gear
+	item.newItemTable.hasRunePoints = true
+    item.newItemTable.xp = 0
+    item.newItemTable.level = 1
+    item.newItemTable.xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.newItemTable.level]
+    item.newItemTable.minLevel = minLevel
+    item.newItemTable.maxLevel = maxLevel
+    item.newItemTable.requiredHero = whichHero
 
-	item.hasRunePoints = true
-    item.xp = 0
-    item.level = 1
-    item.minLevel = minLevel
-    item.maxLevel = maxLevel
-    item.requiredHero = whichHero
-
-    Weapons:SetWeaponTableValues(item, itemName, false, slotText, RPCItems:GetRarityColor(item.rarity), item.rarity, "", "", RPCItems:GetRarityFactor(item.rarity), slot)
+    Weapons:SetWeaponTableValues(item, itemName, false, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, "", "", RPCItems:GetRarityFactor(item.newItemTable.rarity), slot)
     return item
 end
 
 function Weapons:SetWeaponTableValues(item, itemName, consumableBoolean, description, qualityColor, qualityName, prefix, suffix, rarityFactor, slot)
+	if not item.newItemTable then
+		item.newItemTable = {}
+	end	
 	local minLevel = 0
 	if qualityName == "immortal" then
-		if not item.minLevel then
-			item.minLevel = 100
+		if not item.newItemTable.minLevel then
+			item.newItemTable.minLevel = 100
 			minLevel = 100
 		end
 	end
 	print("SET WEAPON TABLE VALUES")
-	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = consumableBoolean, itemDescription = description, qualityColor = qualityColor, qualityName = qualityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = rarityFactor, minLevel = item.minLevel, maxLevel = item.maxLevel, requiredHero = item.requiredHero, slot = slot } )
+
+	--item.newItemTable.itemName = itemName
+	item.newItemTable.consumable = consumableBoolean
+	item.newItemTable.itemDescription = description
+	item.newItemTable.qualityColor = qualityColor
+	item.newItemTable.qualityName = qualityName
+	item.newItemTable.itemPrefix = prefix
+	item.newItemTable.itemSuffix = suffix
+	item.newItemTable.rarityFactor = rarityFactor
+	item.newItemTable.minLevel = item.newItemTable.minLevel
+	item.newItemTable.maxLevel = 50
+	item.newItemTable.requiredHero = item.newItemTable.requiredHero
+	item.newItemTable.slot = slot
+	RPCItems:ItemUpdateCustomNetTables(item)
 end
 
 

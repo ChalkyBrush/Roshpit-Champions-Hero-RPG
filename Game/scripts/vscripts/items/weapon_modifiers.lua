@@ -12,7 +12,10 @@ end
 
 
 function Weaponmodifiers:add_modifiers(hero, inventory_unit, item)
-	print(item)
+	print("[add_modifiers]1++++++++++++++++++++++++++++")
+	-- DeepPrintTable(item)
+	-- print("[add_modifiers]2++++++++++++++++++++++++++++")	
+	-- print(item)
 	local weapon_ability = inventory_unit:FindAbilityByName("weapon_slot")
 	weapon_ability.strength = 0
 	weapon_ability.agility = 0
@@ -46,6 +49,9 @@ end
 
 
 function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_unit, weapon_ability, item)
+	if type(propertyValue) == "string" then
+		propertyValue = 0
+	end
 	local propertyBoost = 1
 	if hero:HasModifier("modifier_blacksmiths_tablet") then
 		if propertyValue > 1 then
@@ -57,14 +63,17 @@ function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_uni
 			propertyBoost = propertyBoost + PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT/100
 		end
 	end
+	if type(propertyValue) == "string" or propertyValue == nil then
+		propertyValue = 0
+	end
 	propertyValue = propertyValue*propertyBoost
-	if propertyName == "strength" then
+	if propertyName == "#item_strength" then
 		weapon_ability.strength = weapon_ability.strength + propertyValue
 		Weaponmodifiers:addBasicModifier(weapon_ability.strength, hero, inventory_unit, "modifier_weapon_strength", weapon_ability)
-	elseif propertyName == "agility" then
+	elseif propertyName == "#item_agility" then
 		weapon_ability.agility = weapon_ability.agility + propertyValue
 		Weaponmodifiers:addBasicModifier(weapon_ability.agility, hero, inventory_unit, "modifier_weapon_agility", weapon_ability)
-	elseif propertyName == "intelligence" then
+	elseif propertyName == "#item_intelligence" then
 		weapon_ability.intelligence = weapon_ability.intelligence + propertyValue
 		Weaponmodifiers:addBasicModifier(weapon_ability.intelligence, hero, inventory_unit, "modifier_weapon_intelligence", weapon_ability)
 	elseif propertyName == "attack_damage" then
@@ -155,7 +164,7 @@ function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_uni
 		Weaponmodifiers:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_weapon_demon", weapon_ability)
 	elseif propertyName == "undead" then
 		Weaponmodifiers:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_weapon_undead", weapon_ability)
-	elseif propertyName == "movespeed" then
+	elseif propertyName == "#item_movespeed" then
 		Weaponmodifiers:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_weapon_movespeed", weapon_ability)
 	elseif propertyName == "time" then
 		Weaponmodifiers:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_weapon_time", weapon_ability)	

@@ -1152,10 +1152,10 @@ function HerosCustom:GetAvailableRunes(heroName)
 		-- table.insert(tooltipTable, "rune")
 		-- table.insert(colorTable, "#7DFF12")
 
-		table.insert(runeTable, "splash_damage")
+		table.insert(runeTable, "#item_splash_damage")
 		table.insert(baseValueTable, 20)
 		table.insert(propensityTable, -1)
-		table.insert(tooltipTable, "#item_splash_damage")
+		table.insert(tooltipTable, "splash_damage")
 		table.insert(colorTable, "#CC3D3D")
 	elseif heroName == "npc_dota_hero_leshrac" then
 		table.insert(runeTable, "rune_q_1")

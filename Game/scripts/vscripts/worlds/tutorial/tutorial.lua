@@ -160,16 +160,12 @@ function Tutorial:LoadTutorialDataForHero(hero, resultTable)
 	hero.tutorial.section1.progress = resultTable.progress1
 	hero.tutorial.section1.state = 0
 	hero.tutorial.section1.reward = resultTable.reward1
-	if hero.tutorial.section1.reward == 1 then
 		Tutorial:ActivatePortal(false)
-	end
 	hero.tutorial.section2 = {}
 	hero.tutorial.section2.progress = resultTable.progress2
 	hero.tutorial.section2.state = 0
 	hero.tutorial.section2.reward = resultTable.reward2
-	if hero.tutorial.section2.reward == 1 then
 		Tutorial:SpawnAllTownNPCs()
-	end
 	hero.tutorial.section3 = {}
 	hero.tutorial.section3.progress = resultTable.progress3
 	hero.tutorial.section3.state = 0
@@ -178,9 +174,7 @@ function Tutorial:LoadTutorialDataForHero(hero, resultTable)
 	hero.tutorial.section4.progress = resultTable.progress4
 	hero.tutorial.section4.state = 0
 	hero.tutorial.section4.reward = resultTable.reward4
-	if hero.tutorial.section4.reward == 1 then
 		Tutorial:SpawnTrainingDummyForHero(hero)
-	end
 	hero.tutorial.section5 = {}
 	hero.tutorial.section5.progress = resultTable.progress5
 	hero.tutorial.section5.state = 0

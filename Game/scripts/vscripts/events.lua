@@ -81,7 +81,7 @@ function GameMode:OnDisconnect(keys)
 end
 
 function GameMode:GlobalThinkers_ClearItems_Think()
-  print("GlobalThinkers_ClearItems_Think")
+  --print("GlobalThinkers_ClearItems_Think")
   if RPCItems then
     RPCItems:ClearItems()
   end
@@ -94,7 +94,7 @@ function GameMode:GlobalThinkersInit_ClearItems_Thinker()
 end
 
 function GameMode:GlobalThinkers_Convars_Think()
-  print("GlobalThinkers_Convars_Think")
+  --print("GlobalThinkers_Convars_Think")
   if MAIN_HERO_TABLE and #MAIN_HERO_TABLE>0 then
     for _,hero in pairs(MAIN_HERO_TABLE) do
       hero:AddNewModifier(hero, nil, "modifier_client_setting", {})
@@ -429,19 +429,143 @@ function GameMode:OnPlayerReconnect(keys)
   -- end
 end
 
+function GameMode:DropWeapons(vector, name)
+  Weapons:RollLegendWeapon1(vector, name)
+  Weapons:RollLegendWeapon2(vector, name)
+  Weapons:RollLegendWeapon3(vector, name)
+end
+
 function GameMode:OnPlayerChat(keys)
   local text = string.lower(keys.text)
   -- if string.match(text, "-gold") or string.match(text, "-lvlup") or string.match(text, "-respawn") or string.match(text, "-createhero") or string.match(text, "-refresh") or string.match(text, "-item") or string.match(text, "-allvision") or string.match(text, "-wtf") or string.match(text, "-respawn") or string.match(text, "-teleport") then
   --   print("CHEATS ENABLED")
   --   GameState:CheatCommandUsed()
   -- end
-  if string.match(text, "-suicide") then
-    -- DeepPrintTable(keys)
-    -- local playerHandle = EntIndexToHScript(keys.userid)
+  Dungeons.itemLevel = 1200
+  local playerAsd = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+  -- local itemIdNewAsdf = 411
+  -- if string.match(text, "asdf") then
+  --   local indexedItem = EntIndexToHScript(itemIdNewAsdf)
+  --   DeepPrintTable(indexedItem)
+  -- end  
+  -- --table: 0x00a4d0d0
+  -- --table: 0x00a4d0d0
+  -- if string.match(text, "asd2") then
+  --   local indexedItem = EntIndexToHScript(itemIdNewAsdf)
+  --   DeepPrintTable(indexedItem)
+  --   playerAsd:TakeItem(indexedItem)
+  -- end
+  -- if string.match(text, "asd1") then
+  --   --local playerAsd = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+  --   print(playerAsd)
+  -- end
+  if string.match(text, "dbg") then
+    local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+    -- local item = RPCItems:RollBootsOfGreatFortune(vector)
+    --local item2 = RPCItems:RollSandstreamSlippers(vector)
+    --local item3 = Weapons:RollLegendWeapon2(vector, "jex")
+    -- local item3 = Weapons:RollJexLegendWeapon2a(vector)
+    print("1++++++++++++++++++++++++++++")
+    -- local itemD = Weapons:RollLegendWeapon1(vector, "omniro")
+    local itemD = RPCItems:RollBootsOfGreatFortune(vector)
+    local itemIndex = itemD:GetEntityIndex()
+    -- -- Weapons:weaponRedirect(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero())
+    -- print("2++++++++++++++++++++++++++++")
+    DeepPrintTable(itemD)
+    print(itemIndex)
+    print("3++++++++++++++++++++++++++++")--259
+    -- local indexedItem = EntIndexToHScript(367)
+    -- DeepPrintTable(indexedItem)
+    -- PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():TakeItem(indexedItem)
+    -- print(indexedItem)
+    print("4++++++++++++++++++++++++++++")--259
+  --GameMode:DropWeapons(vector, "conjuror")
+  --GameMode:DropWeapons(vector, "flamewaker")
+  --GameMode:DropWeapons(vector, "voltex")
+  -- GameMode:DropWeapons(vector, "venomort")
+  -- GameMode:DropWeapons(vector, "axe")
+  -- GameMode:DropWeapons(vector, "astral")
+  -- GameMode:DropWeapons(vector, "epoch")
+  -- GameMode:DropWeapons(vector, "paladin")
+  -- GameMode:DropWeapons(vector, "sorceress")
+  -- GameMode:DropWeapons(vector, "seinaru")
+  -- GameMode:DropWeapons(vector, "warlord")
+  -- GameMode:DropWeapons(vector, "bahamut")
+  -- GameMode:DropWeapons(vector, "auriun")
+  -- GameMode:DropWeapons(vector, "duskbringer")
+  -- GameMode:DropWeapons(vector, "trapper")
+  -- GameMode:DropWeapons(vector, "spirit_warrior")
+  -- GameMode:DropWeapons(vector, "mountain_protector")
+  -- GameMode:DropWeapons(vector, "chernobog")
+  -- GameMode:DropWeapons(vector, "solunia")
+  -- GameMode:DropWeapons(vector, "hydroxis")
+  -- GameMode:DropWeapons(vector, "ekkan")
+  -- GameMode:DropWeapons(vector, "zonik")
+  -- GameMode:DropWeapons(vector, "arkimus")
+  -- GameMode:DropWeapons(vector, "djanghor")
+  -- GameMode:DropWeapons(vector, "slipfinn")
+  -- GameMode:DropWeapons(vector, "sephyr")
+  -- GameMode:DropWeapons(vector, "dinath")
+  -- GameMode:DropWeapons(vector, "jex")
+  -- GameMode:DropWeapons(vector, "omniro")
+
+  -- Weapons:RollLegendWeapon1(vector, "conjuror")
+  -- Weapons:RollLegendWeapon1(vector, "flamewaker")
+  -- Weapons:RollLegendWeapon1(vector, "voltex")
+  -- Weapons:RollLegendWeapon1(vector, "venomort")
+  -- Weapons:RollLegendWeapon1(vector, "axe")
+  -- Weapons:RollLegendWeapon1(vector, "astral")
+  -- Weapons:RollLegendWeapon1(vector, "epoch")
+  -- Weapons:RollLegendWeapon1(vector, "paladin")
+  -- Weapons:RollLegendWeapon1(vector, "sorceress")
+  -- Weapons:RollLegendWeapon1(vector, "seinaru")
+  -- Weapons:RollLegendWeapon1(vector, "warlord")
+  -- Weapons:RollLegendWeapon1(vector, "bahamut")
+  -- Weapons:RollLegendWeapon1(vector, "auriun")
+  -- Weapons:RollLegendWeapon1(vector, "duskbringer")
+  -- Weapons:RollLegendWeapon1(vector, "trapper")
+  -- Weapons:RollLegendWeapon1(vector, "spirit_warrior")
+  -- Weapons:RollLegendWeapon1(vector, "mountain_protector")
+  -- Weapons:RollLegendWeapon1(vector, "chernobog")
+  -- Weapons:RollLegendWeapon1(vector, "solunia")
+  -- Weapons:RollLegendWeapon1(vector, "hydroxis")
+  -- Weapons:RollLegendWeapon1(vector, "ekkan")
+  -- Weapons:RollLegendWeapon1(vector, "zonik")
+  -- Weapons:RollLegendWeapon1(vector, "arkimus")
+  -- Weapons:RollLegendWeapon1(vector, "djanghor")
+  -- Weapons:RollLegendWeapon1(vector, "slipfinn")
+  -- Weapons:RollLegendWeapon1(vector, "sephyr")
+  -- Weapons:RollLegendWeapon1(vector, "dinath")
+  -- Weapons:RollLegendWeapon1(vector, "jex")
+
+
+
+    -- print("-----------------------------------------")
+    -- DeepPrintTable(item)
+    -- print("-----------------------------------------")
+    -- print(item)
+    -- print("-----------------------------------------")
+    -- local itemProperties = CustomNetTables:GetTableValue("item_basics", tostring(item:GetEntityIndex()))
+    -- -- local reductionTable = CustomNetTables:GetTableValue("min_level_reduction", tostring(item:GetEntityIndex()) )
+    -- print("----------------------------------------- item_basics")
+    -- DeepPrintTable(itemProperties)
+    -- print("----------------------------------------- item_basics")
+    -- -- print("-----------------------------------------")
+    -- -- DeepPrintTable(reductionTable)
+
+    -- local reductionTable2 = CustomNetTables:GetTableValue("min_level_reduction", tostring(item:GetEntityIndex()))
+    -- print("-----------------------------------------min_level_reduction")
+    -- DeepPrintTable(reductionTable2)
+    -- print("-----------------------------------------min_level_reduction")
+    --RPCItems:RollBloodstoneBoots(vector)
+
+        -- local playerHandle = EntIndexToHScript(keys.userid)
     -- local hero = player:GetAssignedHero()
     -- hero:ForceKill(false)
 
   end
+
+
   if string.match(text, "debug_entities") then
     local entityesToLog = { "dota_item_wearable", "ability_datadriven", "npc_dota_creature", "npc_dota_thinker", "item_datadriven", "dota_item_drop" }
     local textNotif = ""
@@ -2353,9 +2477,9 @@ function Events:AdjustDeathXP(unit)
     unit:SetBaseDamageMin(minDamage+damageAdjustment)
     unit:SetBaseDamageMax(maxDamage+damageAdjustment) 
 
-    -- local newArmor = unit:GetPhysicalArmorValue(true)*difficulty*difficulty+30*(difficulty-1)
+    -- local newArmor = unit:GetPhysicalArmorValue()*difficulty*difficulty+30*(difficulty-1)
     -- if difficulty > 2 then
-    --   newArmor = newArmor+90 + unit:GetPhysicalArmorValue(true)*4
+    --   newArmor = newArmor+90 + unit:GetPhysicalArmorValue()*4
     -- end
     local newArmor = unit:GetPhysicalArmorBaseValue()*difficulty + 10*(difficulty-1)
     unit:SetPhysicalArmorBaseValue(newArmor)
@@ -2395,7 +2519,7 @@ function Events:AdjustBossPower(unit, damageFactor, healthFactor, bHealthbar)
   local healthAdjustment = healthFactor*800000*(difficulty-1)
   if difficulty > 2 then
     healthAdjustment = healthAdjustment + healthFactor*1600000
-    local armor = unit:GetPhysicalArmorValue(true)
+    local armor = unit:GetPhysicalArmorValue()
     unit:SetPhysicalArmorBaseValue(armor+40*healthFactor)
     unit:SetPhysicalArmorBaseValue(unit:GetPhysicalArmorBaseValue()*difficulty+(healthFactor*(difficulty-1)*3))
   end

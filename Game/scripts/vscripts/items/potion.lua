@@ -31,11 +31,11 @@ end
 function action(propertyName, propertyValue, caster)
 	if propertyName == "heal" then
 		heal(propertyValue, caster)
-	elseif propertyName == "strength" then
+	elseif propertyName == "#item_strength" then
 		add_strength(propertyValue, caster)
-	elseif propertyName == "agility" then
+	elseif propertyName == "#item_agility" then
 		add_agility(propertyValue, caster)
-	elseif propertyName == "intelligence" then
+	elseif propertyName == "#item_intelligence" then
 		add_intelligence(propertyValue, caster)
 	elseif propertyName == "mana_heal" then
 		restore_mana(propertyValue, caster)

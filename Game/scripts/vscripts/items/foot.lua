@@ -4,7 +4,13 @@ end
 
 
 function Foot:add_modifiers(hero, inventory_unit, item)
-	print(item)
+	print("[Foot:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	DeepPrintTable(item)
+	-- print(type(item))
+	-- print(item)
+	print("[Foot:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	-- local itemIndex = item:GetEntityIndex()
+	-- item = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
 	local foot_ability = inventory_unit:FindAbilityByName("foot_slot")
 	foot_ability.strength = 0
 	foot_ability.agility = 0
@@ -20,50 +26,58 @@ function Foot:add_modifiers(hero, inventory_unit, item)
 	foot_ability.evasion = 0
 	foot_ability.base_ability = 0
 	foot_ability.max_health = 0
-	local property1 = RPCItems:AdjustAttributeValue(hero, item.property1)
-	Foot:action(item.property1name, property1, hero, inventory_unit, foot_ability, item)
-	Foot:runeProperty(item.property1name, item.property1, hero)
-	if item.property2name then
-		local property2 = RPCItems:AdjustAttributeValue(hero, item.property2)
-		Foot:action(item.property2name, property2, hero, inventory_unit, foot_ability, item)
-		Foot:runeProperty(item.property2name, item.property2, hero)
+	local property1 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property1)
+	Foot:action(item.newItemTable.property1name, property1, hero, inventory_unit, foot_ability, item)
+	Foot:runeProperty(item.newItemTable.property1name, item.newItemTable.property1, hero)
+	if item.newItemTable.property2name then
+		local property2 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property2)
+		Foot:action(item.newItemTable.property2name, property2, hero, inventory_unit, foot_ability, item)
+		Foot:runeProperty(item.newItemTable.property2name, item.newItemTable.property2, hero)
 	end
-	if item.property3name then
-		local property3 = RPCItems:AdjustAttributeValue(hero, item.property3)
-		Foot:action(item.property3name, property3, hero, inventory_unit, foot_ability, item)
-		Foot:runeProperty(item.property3name, item.property3, hero)
+	if item.newItemTable.property3name then
+		local property3 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property3)
+		Foot:action(item.newItemTable.property3name, property3, hero, inventory_unit, foot_ability, item)
+		Foot:runeProperty(item.newItemTable.property3name, item.newItemTable.property3, hero)
 	end
-	if item.property4name then
-		local property4 = RPCItems:AdjustAttributeValue(hero, item.property4)
-		Foot:action(item.property4name, property4, hero, inventory_unit, foot_ability, item)
-		Foot:runeProperty(item.property4name, item.property4, hero)
+	if item.newItemTable.property4name then
+		local property4 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property4)
+		Foot:action(item.newItemTable.property4name, property4, hero, inventory_unit, foot_ability, item)
+		Foot:runeProperty(item.newItemTable.property4name, item.newItemTable.property4, hero)
 	end
 end
 
 
 function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_ability, item)
-	if propertyName == "strength" then
+	print("[Foot:action] ++++++++++++++++++++++++++++++++++++++++++++")
+	print(type(propertyName))
+	print(propertyName)
+	print("[Foot:action] ++++++++++++++++++++++++++++++++++++++++++++")
+	if type(propertyName) ~= "string" then
+		print("[Foot:action] not string")
+		propertyName = "";
+	end
+	if propertyName == "#item_strength" then
 		foot_ability.strength = foot_ability.strength + propertyValue
 		Foot:addBasicModifier(foot_ability.strength, hero, inventory_unit, "modifier_foot_strength", foot_ability)
-	elseif propertyName == "agility" then
+	elseif propertyName == "#item_agility" then
 		foot_ability.agility = foot_ability.agility + propertyValue
 		Foot:addBasicModifier(foot_ability.agility, hero, inventory_unit, "modifier_foot_agility", foot_ability)
-	elseif propertyName == "intelligence" then
+	elseif propertyName == "#item_intelligence" then
 		foot_ability.intelligence = foot_ability.intelligence + propertyValue
 		Foot:addBasicModifier(foot_ability.intelligence, hero, inventory_unit, "modifier_foot_intelligence", foot_ability)
-	elseif propertyName == "magic_resist" then
+	elseif propertyName == "#item_magic_resist" then
 		foot_ability.magic_resist = foot_ability.magic_resist + propertyValue
 		Foot:addBasicModifier(foot_ability.magic_resist, hero, inventory_unit, "modifier_foot_magic_resist", foot_ability)
-	elseif propertyName == "armor" then
+	elseif propertyName == "#item_armor" then
 		foot_ability.armor = foot_ability.armor + propertyValue
 		Foot:addBasicModifier(foot_ability.armor, hero, inventory_unit, "modifier_foot_armor", foot_ability)
-	elseif propertyName == "health_regen" then
+	elseif propertyName == "#item_health_regen" then
 		foot_ability.health_regen = foot_ability.health_regen + propertyValue
 		Foot:addBasicModifier(foot_ability.health_regen, hero, inventory_unit, "modifier_foot_health_regen", foot_ability)
-	elseif propertyName == "mana_regen" then
+	elseif propertyName == "#item_mana_regen" then
 		foot_ability.mana_regen = foot_ability.mana_regen + propertyValue
 		Foot:addBasicModifier(foot_ability.mana_regen, hero, inventory_unit, "modifier_foot_mana_regen", foot_ability)
-	elseif propertyName == "movespeed" then
+	elseif propertyName == "#item_movespeed" then
 		foot_ability.movespeed = foot_ability.movespeed + propertyValue
 		Foot:addBasicModifier(foot_ability.movespeed, hero, inventory_unit, "modifier_foot_movespeed", foot_ability)
 	elseif propertyName == "movespeed_slow" then

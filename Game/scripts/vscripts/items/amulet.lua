@@ -59,22 +59,22 @@ end
 
 
 function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinket_ability, item)
-	if propertyName == "strength" then
+	if propertyName == "#item_strength" then
 		trinket_ability.strength = trinket_ability.strength + propertyValue
 		Amulet:addBasicModifier(trinket_ability.strength, hero, inventory_unit, "modifier_trinket_strength", trinket_ability)
-	elseif propertyName == "agility" then
+	elseif propertyName == "#item_agility" then
 		trinket_ability.agility = trinket_ability.agility + propertyValue
 		Amulet:addBasicModifier(trinket_ability.agility, hero, inventory_unit, "modifier_trinket_agility", trinket_ability)
-	elseif propertyName == "intelligence" then
+	elseif propertyName == "#item_intelligence" then
 		trinket_ability.intelligence = trinket_ability.intelligence + propertyValue
 		Amulet:addBasicModifier(trinket_ability.intelligence, hero, inventory_unit, "modifier_trinket_intelligence", trinket_ability)
-	elseif propertyName == "armor" then
+	elseif propertyName == "#item_armor" then
 		trinket_ability.armor = trinket_ability.armor + propertyValue
 		Amulet:addBasicModifier(trinket_ability.armor, hero, inventory_unit, "modifier_trinket_armor", trinket_ability)
-	elseif propertyName == "health_regen" then
+	elseif propertyName == "#item_health_regen" then
 		trinket_ability.health_regen = trinket_ability.health_regen + propertyValue
 		Amulet:addBasicModifier(trinket_ability.health_regen, hero, inventory_unit, "modifier_trinket_health_regen", trinket_ability)
-	elseif propertyName == "mana_regen" then
+	elseif propertyName == "#item_mana_regen" then
 		trinket_ability.mana_regen = trinket_ability.mana_regen + propertyValue
 		Amulet:addBasicModifier(trinket_ability.mana_regen, hero, inventory_unit, "modifier_trinket_mana_regen", trinket_ability)
 	elseif propertyName == "attack_damage" then
@@ -86,7 +86,7 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 	elseif propertyName == "max_mana" then
 		trinket_ability.max_mana = trinket_ability.max_mana + propertyValue
 		Amulet:addBasicModifier(trinket_ability.max_mana, hero, inventory_unit, "modifier_trinket_max_mana", trinket_ability)
-	elseif propertyName == "magic_resist" then
+	elseif propertyName == "#item_magic_resist" then
 		trinket_ability.magic_resist = trinket_ability.magic_resist + propertyValue
 		Amulet:addBasicModifier(trinket_ability.magic_resist, hero, inventory_unit, "modifier_trinket_magic_resist", trinket_ability)
 	elseif propertyName == "base_ability" then

@@ -42,25 +42,25 @@ end
 
 
 function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_ability, item)
-	if propertyName == "strength" then
+	if propertyName == "#item_strength" then
 		hand_ability.strength = hand_ability.strength + propertyValue
 		Hand:addBasicModifier(hand_ability.strength, hero, inventory_unit, "modifier_hand_strength", hand_ability)
-	elseif propertyName == "agility" then
+	elseif propertyName == "#item_agility" then
 		hand_ability.agility = hand_ability.agility + propertyValue
 		Hand:addBasicModifier(hand_ability.agility, hero, inventory_unit, "modifier_hand_agility", hand_ability)
-	elseif propertyName == "intelligence" then
+	elseif propertyName == "#item_intelligence" then
 		hand_ability.intelligence = hand_ability.intelligence + propertyValue
 		Hand:addBasicModifier(hand_ability.intelligence, hero, inventory_unit, "modifier_hand_intelligence", hand_ability)
-	elseif propertyName == "magic_resist" then
+	elseif propertyName == "#item_magic_resist" then
 		hand_ability.magic_resist = hand_ability.magic_resist + propertyValue
 		Hand:addBasicModifier(hand_ability.magic_resist, hero, inventory_unit, "modifier_hand_magic_resist", hand_ability)
-	elseif propertyName == "armor" then
+	elseif propertyName == "#item_armor" then
 		hand_ability.armor = hand_ability.armor + propertyValue
 		Hand:addBasicModifier(hand_ability.armor, hero, inventory_unit, "modifier_hand_armor", hand_ability)
-	elseif propertyName == "health_regen" then
+	elseif propertyName == "#item_health_regen" then
 		hand_ability.health_regen = hand_ability.health_regen + propertyValue
 		Hand:addBasicModifier(hand_ability.health_regen, hero, inventory_unit, "modifier_hand_health_regen", hand_ability)
-	elseif propertyName == "mana_regen" then
+	elseif propertyName == "#item_mana_regen" then
 		hand_ability.mana_regen = hand_ability.mana_regen + propertyValue
 		Hand:addBasicModifier(hand_ability.mana_regen, hero, inventory_unit, "modifier_hand_mana_regen", hand_ability)
 	elseif propertyName == "attack_speed" then
@@ -228,7 +228,7 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 		RPCItems:PreacheArcanaResources(item)
 	elseif propertyName == "swiftspike" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_swiftspike_bracer", item)
-	elseif propertyName == "movespeed" then
+	elseif propertyName == "#item_movespeed" then
 		Hand:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_hand_movespeed", hand_ability)
 	end
 	hero.handItem = item

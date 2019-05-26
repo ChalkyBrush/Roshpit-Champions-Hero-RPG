@@ -40,7 +40,7 @@ function RPCItems:ItemUTIL_Remove(item)
 		print("[Error] RPCItems:ItemUTIL_Remove entity is not valid")
 		return
 	end
-	RPCItems:ClearRollTableFromIndex(item)
+	-- RPCItems:ClearRollTableFromIndex(item)
 	UTIL_Remove(item)
 end
 
@@ -52,7 +52,7 @@ end
 -- @return item entity handle
 function RPCItems:CreateItem(item_name, owner1, owner2)
 	local item = CreateItem(item_name, owner1, owner2)
-	RPCItems:ClearRollTableFromIndex(item)
+	-- RPCItems:ClearRollTableFromIndex(item)
 	return item
 end
 
@@ -736,7 +736,7 @@ function RPCItems:DropItem(item, position)
     position =  WallPhysics:WallSearch(basePosition, position, Events.SafeItemEntity)
 	FindClearSpaceForUnit(Events.SafeItemEntity, position, false)
 	position = Events.SafeItemEntity:GetAbsOrigin()
-	if determineIfOKdrop(item) then
+	if determineIfOKdrop(item) or not determineIfOKdrop(item) then
 		local rarityFactor = RPCItems:GetRarityFactor(item.rarity)
 		item.expiryTime = Time() + RPCItems:GetExpiryTime(item)
 		if rarityFactor > 2 then
@@ -835,6 +835,10 @@ function determineIfOKdrop(item)
 end
 
 function RPCItems:SetTableValues(item, itemName, consumableBoolean, description, qualityColor, qualityName, prefix, suffix, rarityFactor)
+	if not item.newItemTable then
+		item.newItemTable = {}
+	end
+	
 	if prefix == "" then
 	else
 		if prefix then
@@ -848,33 +852,46 @@ function RPCItems:SetTableValues(item, itemName, consumableBoolean, description,
 		end
 	end
 	local minLevel = 0
-	if item.slot == "weapon" then
-		if not item.minLevel then
+	if item.newItemTable.slot == "weapon" then
+		if not item.newItemTable.minLevel then
 			if rarityFactor < 5 then
 				minLevel = 0
 			else
 				minLevel = 100
-				item.minLevel = minLevel
+				item.newItemTable.minLevel = minLevel
 			end
 		end
 	end 
-	if item.minLevel then
+	if item.newItemTable.minLevel then
 	else
 		minLevel = RPCItems:GetMinLevel()
-		item.minLevel = minLevel
+		item.newItemTable.minLevel = minLevel
 	end
 	
 
-	print("MIN LEVEL BEFORE ADJUST"..item.minLevel)
+	print("MIN LEVEL BEFORE ADJUST"..item.newItemTable.minLevel)
 	-- 
-	-- print("MIN LEVEL AFTER ADJUST"..item.minLevel)
-	if item.requiredHero then
-		CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = consumableBoolean, itemDescription = description, qualityColor = qualityColor, qualityName = qualityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = rarityFactor, minLevel = item.minLevel, requiredHero = item.requiredHero } )
-	else
-		CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = consumableBoolean, itemDescription = description, qualityColor = qualityColor, qualityName = qualityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = rarityFactor, minLevel = item.minLevel } )
+	if not item.newItemTable.validator then
+		item.newItemTable.validator = RPCItems:GetRandomKey(13)
 	end
-	local key = RPCItems:GetRandomKey(13)
-	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()).."-key", {key = key} )
+
+
+
+	item.newItemTable.item_name = itemName
+	item.newItemTable.consumable = consumableBoolean
+	item.newItemTable.itemDescription = description
+	item.newItemTable.qualityColor = qualityColor
+	item.newItemTable.qualityName = qualityName
+	item.newItemTable.itemPrefix = prefix
+	item.newItemTable.itemSuffix = suffix
+	item.newItemTable.rarityFactor = rarityFactor
+	--item.newItemTable.minLevel = item.minLevel
+
+	if not item.newItemTable.validator then
+		item.newItemTable.validator = RPCItems:GetRandomKey(13)
+	end
+	
+	--RPCItems:ItemUpdateCustomNetTables(item)
 end
 
 function RPCItems:GetRandomKey(length)
@@ -953,6 +970,57 @@ function RPCItems:ClearRollTableFromIndex(item)
 	end
 end
 
+--- creating/updating item's CustomNetTables
+-- @param item entity handle
+function RPCItems:ItemUpdateCustomNetTables(item)
+	if not item then
+		print("[Error] RPCItems:ItemUpdateCustomNetTables item is null")
+		return
+	end
+	if item:IsNull() then
+		print("[Error] RPCItems:ItemUpdateCustomNetTables IsNull")
+		return
+	end
+	local itemIndex = item:GetEntityIndex()
+	if not itemIndex then
+		print("[Error] RPCItems:ItemUpdateCustomNetTables item index is null")
+		return
+	end
+	if not item.newItemTable then
+		print("[Error] RPCItems:ItemUpdateCustomNetTables newItemTable is null")
+		return
+	end
+	if not item.newItemTable.minLevel then
+		item.newItemTable.minLevel = 1
+	end
+	if not item.newItemTable.validator then
+		item.newItemTable.validator = RPCItems:GetRandomKey(13)
+	end
+	if not item.newItemTable.qualityName then
+		item.newItemTable.qualityName = "common"
+	end
+	if not item.newItemTable.itemEntityIndex then
+		item.newItemTable.itemEntityIndex = itemIndex
+	end
+	-- if item.newItemTable.rarity then
+	-- 	item.newItemTable.qualityName = RPCItems:GetRarityNameFromFactor(item.newItemTable.rarity)
+	-- end
+	-- if not item.newItemTable.qualityColor then
+	-- 	item.newItemTable.qualityColor = RPCItems:GetRarityColor(item.newItemTable.qualityName)
+	-- end
+	--item.newItemTable.minLevel = item.newItemTable.min_level
+	--item.newItemTable.rarityFactor = item.newItemTable.rarity
+	--item.newItemTable.itemName = item.newItemTable.item_name
+	if not item.newItemTable.itemPrefix then
+		item.newItemTable.itemPrefix = ""
+	end
+	if not item.newItemTable.itemSuffix then
+		item.newItemTable.itemSuffix = ""
+	end
+	--DeepPrintTable(item.newItemTable)
+	CustomNetTables:SetTableValue("item_basics", tostring(itemIndex), item.newItemTable)
+end
+
 function RPCItems:SetPropertyValues(item, propertyValue, propertyName, propertyColor, propertyNumber)
 	-- print('-----property-adding-to-table-----')
 	-- print(item)
@@ -961,7 +1029,27 @@ function RPCItems:SetPropertyValues(item, propertyValue, propertyName, propertyC
 	-- print(propertyColor)
 	-- print(propertyNumber)
 	-- print('-----end-----')
-	CustomNetTables:SetTableValue( "item_properties", tostring(item:GetEntityIndex()).."-"..tostring(propertyNumber), {propertyValue = propertyValue, propertyName = propertyName, propertyColor = propertyColor })
+	if not item.newItemTable then
+		item.newItemTable = {}
+	end
+	if propertyNumber == 1 then
+		item.newItemTable.property1 = propertyValue
+		item.newItemTable.property1color = propertyColor
+		item.newItemTable.property1name = propertyName
+	elseif propertyNumber == 2 then
+		item.newItemTable.property2 = propertyValue
+		item.newItemTable.property2color = propertyColor
+		item.newItemTable.property2name = propertyName
+	elseif propertyNumber == 3 then
+		item.newItemTable.property3 = propertyValue
+		item.newItemTable.property3color = propertyColor
+		item.newItemTable.property3name = propertyName
+	elseif propertyNumber == 4 then
+		item.newItemTable.property4 = propertyValue
+		item.newItemTable.property4color = propertyColor
+		item.newItemTable.property4name = propertyName
+	end
+	--CustomNetTables:SetTableValue( "item_properties", tostring(item:GetEntityIndex()).."-"..tostring(propertyNumber), {propertyValue = propertyValue, propertyName = propertyName, propertyColor = propertyColor })
 end
 
 function RPCItems:SetPropertyValuesSpecial(item, propertyValue, propertyName, propertyColor, propertyNumber, specialDescription)
@@ -972,7 +1060,31 @@ function RPCItems:SetPropertyValuesSpecial(item, propertyValue, propertyName, pr
 	-- print(propertyColor)
 	-- print(propertyNumber)
 	-- print('-----end-----')
-	CustomNetTables:SetTableValue( "item_properties", tostring(item:GetEntityIndex()).."-"..tostring(propertyNumber), {propertyValue = propertyValue, propertyName = propertyName, propertyColor = propertyColor, specialDescription = specialDescription, specialValue = specialValue })
+	if not item.newItemTable then
+		item.newItemTable = {}
+	end
+	if propertyNumber == 1 then
+		item.newItemTable.property1 = propertyValue
+		item.newItemTable.property1color = propertyColor
+		item.newItemTable.property1name = propertyName
+		item.newItemTable.property1special = specialDescription
+	elseif propertyNumber == 2 then
+		item.newItemTable.property2 = propertyValue
+		item.newItemTable.property2color = propertyColor
+		item.newItemTable.property2name = propertyName
+		item.newItemTable.property2special = specialDescription
+	elseif propertyNumber == 3 then
+		item.newItemTable.property3 = propertyValue
+		item.newItemTable.property3color = propertyColor
+		item.newItemTable.property3name = propertyName
+		item.newItemTable.property3special = specialDescription
+	elseif propertyNumber == 4 then
+		item.newItemTable.property4 = propertyValue
+		item.newItemTable.property4color = propertyColor
+		item.newItemTable.property4name = propertyName
+		item.newItemTable.property4special = specialDescription
+	end	
+	--CustomNetTables:SetTableValue( "item_properties", tostring(item:GetEntityIndex()).."-"..tostring(propertyNumber), {propertyValue = propertyValue, propertyName = propertyName, propertyColor = propertyColor, specialDescription = specialDescription, specialValue = specialValue })
 end
 
 
@@ -1050,10 +1162,14 @@ function RPCItems:GetRarityParticle(rarityName)
 end
 
 function RPCItems:GearPickup(heroEntity, itemEntity)
+	print("[RPCItems:GearPickup] start")
 	local player = heroEntity:GetPlayerOwner()
-	local slot = RPCItems:getGearSlot(itemEntity.slot)
+	local slot = RPCItems:getGearSlot(itemEntity.newItemTable.item_slot)
 	local oldGearTable = CustomNetTables:GetTableValue("equipment", tostring(player:GetPlayerID()).."-"..tostring(slot))
 	local oldGear = false
+	local itemIndexNew = itemEntity:GetEntityIndex()
+	print("[RPCItems:GearPickup] slot: "..slot)
+	print("[RPCItems:GearPickup] slot: "..itemIndexNew)
 	if oldGearTable then
 		if oldGearTable.itemIndex == -1 then
 			oldGear = false
@@ -1062,62 +1178,68 @@ function RPCItems:GearPickup(heroEntity, itemEntity)
 		end
 	end
 	if oldGear then
+		print("[RPCItems:GearPickup] oldGear")
 		heroEntity:TakeItem(itemEntity)
-  		if IsValidEntity(itemEntity:GetContainer()) then
-  			UTIL_Remove(itemEntity:GetContainer())
-  		end
-  		CustomGameEventManager:Send_ServerToPlayer(player, "close_blacksmith", {})
-  		CustomGameEventManager:Send_ServerToPlayer(player, "new_item_with_slot", {newItem=itemEntity:GetEntityIndex(), oldItem=oldGear:GetEntityIndex()} )
+		if IsValidEntity(itemEntity:GetContainer()) then
+			UTIL_Remove(itemEntity:GetContainer())
+		end
+		CustomGameEventManager:Send_ServerToPlayer(player, "close_blacksmith", {})
+		CustomGameEventManager:Send_ServerToPlayer(player, "new_item_with_slot", {newItem=itemIndexNew, oldItem=oldGear:GetEntityIndex()} )
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, heroEntity, "modifier_equip_ui_open", {})
 	else
+		print("[RPCItems:GearPickup] NO oldGear")
 		local playerID = heroEntity:GetPlayerID()
 		local heroId = heroEntity:GetClassname()
-		-- CustomGameEventManager:Send_ServerToPlayer(player, "InitializeEquipment", {item=itemEntity:GetEntityIndex()} )
-  		heroEntity:TakeItem(itemEntity)
-  		if IsValidEntity(itemEntity:GetContainer()) then
-  			UTIL_Remove(itemEntity:GetContainer())
-  		end
-  		CustomNetTables:SetTableValue("equipment", tostring(player:GetPlayerID()).."-"..tostring(slot), {itemIndex = itemEntity:GetEntityIndex()} )
- 		local hero = heroEntity
- 		local inventory_unit = heroEntity.InventoryUnit
+		-- CustomGameEventManager:Send_ServerToPlayer(player, "InitializeEquipment", {item=itemIndexNew} )
+		heroEntity:TakeItem(itemEntity)
+		if IsValidEntity(itemEntity:GetContainer()) then
+			UTIL_Remove(itemEntity:GetContainer())
+		end
+		CustomNetTables:SetTableValue("equipment", tostring(player:GetPlayerID()).."-"..tostring(slot), {itemIndex = itemIndexNew} )
+		local hero = heroEntity
+		local inventory_unit = heroEntity.InventoryUnit
 		RPCItems:EquipItem(slot, hero, inventory_unit, itemEntity)
-		CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemEntity:GetEntityIndex(), heroId=heroId, playerId=playerID, pickup="equip"} )
-        EmitGlobalSound("RPC.EquipItem")
-        CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
-	    if slot == 1 then
-	    	hero.weapon = itemEntity
-	    	Weapons:SetWeaponTable(itemEntity)
-	    	CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), {xp = itemEntity.xp, level = itemEntity.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[itemEntity.level], maxLevel = itemEntity.maxLevel, requiredHero = itemEntity.requiredHero} )
-	    end
-        print(slot)
+		CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemIndexNew, heroId=heroId, playerId=playerID, pickup="equip"} )
+		EmitGlobalSound("RPC.EquipItem")
+		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
+		if slot == 1 then
+			hero.weapon = itemEntity
+			Weapons:SetWeaponTable(itemEntity)
+			CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), 
+				{xp = itemEntity.newItemTable.xp, 
+				level = itemEntity.newItemTable.level, 
+				xpNeeded = Weapons.XP_PER_LEVEL_TABLE[itemEntity.newItemTable.level], 
+				maxLevel = itemEntity.newItemTable.maxLevel, 
+				requiredHero = itemEntity.newItemTable.requiredHero} )
+		end
 	end
 	Statistics.dispatch('items:equip')
 end
 
 function RPCItems:EquipItem(slot, hero, inventory_unit, itemEntity)
+	print("[RPCItems:EquipItem]1@@@@@@@@@@@@@@@@@@")
+	print(itemEntity)
+	-- DeepPrintTable(itemEntity)
+	print(slot)
+	print("[RPCItems:EquipItem]2@@@@@@@@@@@@@@@@@@")
 	Events:TutorialServerEvent(hero, "3_1", 0)
 	Weapons:ValidateGear(hero)
 	if slot == 0 then
 		Head:remove_modifiers(hero)
 		Head:add_modifiers(hero, inventory_unit, itemEntity)
-	end
-	if slot == 1 then
+	elseif slot == 1 then
 		Weaponmodifiers:remove_modifiers(hero)
 		Weaponmodifiers:add_modifiers(hero, inventory_unit, itemEntity)
-	end
-	if slot == 2 then
+	elseif slot == 2 then
 		Hand:remove_modifiers(hero)
 		Hand:add_modifiers(hero, inventory_unit, itemEntity)
-	end
-	if slot == 3 then
+	elseif slot == 3 then
 		Foot:remove_modifiers(hero)
 		Foot:add_modifiers(hero, inventory_unit, itemEntity)
-	end
-	if slot == 4 then
+	elseif slot == 4 then
 		Body:remove_modifiers(hero)
 		Body:add_modifiers(hero, inventory_unit, itemEntity)
-	end
-	if slot == 5 then
+	elseif slot == 5 then
 		Amulet:remove_modifiers(hero)
 		Amulet:add_modifiers(hero, inventory_unit, itemEntity)
 	end
@@ -1212,6 +1334,7 @@ function RPCItems:GetGearSlotName(gearSlot)
 end
 
 function RPCItems:RecalculateStatsBasic(hero)
+	print("[RPCItems:RecalculateStatsBasic] ASDF")
 	local playerID = hero:GetPlayerOwnerID()
 	print(hero:GetUnitName())
 	print(hero)
@@ -1238,6 +1361,7 @@ function RPCItems:RecalculateStatsBasic(hero)
 end
 
 function RPCItems:RecalculateStats(keys)
+	print("[RPCItems:RecalculateStats] ASDF")
 	local playerID = keys.playerId
 	local player = PlayerResource:GetPlayer(playerID)
 	local hero = GameState:GetHeroByPlayerID(playerID)
@@ -1259,35 +1383,45 @@ end
 
 
 function RPCItems:AcceptNewItem(keys)
+	print("[RPCItems:AcceptNewItem] ++++++++++++++++++++++++++++++++++++++++++++")
 	local playerID = keys.PlayerID
 	local oldItem = EntIndexToHScript(keys.oldItem)
+	-- print("[RPCItems:AcceptNewItem] old:")
+	-- DeepPrintTable(oldItem)
 	local newItem = EntIndexToHScript(keys.newItem)
+	-- print("[RPCItems:AcceptNewItem] new:")
+	-- DeepPrintTable(newItem)
 	local hero, inventory_unit = RPCItems:GetHeroAndInventoryByID(keys.PlayerID)
 	hero.cant_use_items = true
 	Timers:CreateTimer(0.75, function()
 		hero.cant_use_items = false
 	end)
 	DeepPrintTable(keys)
-	local slot = RPCItems:getGearSlot(newItem.slot)
+	local slot = RPCItems:getGearSlot(newItem.newItemTable.item_slot)
 	CustomNetTables:SetTableValue("equipment", tostring(playerID).."-"..tostring(slot), {itemIndex = newItem:GetEntityIndex()} )
 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "update_inventory", {} )
 	
 	if oldItem then
-		 UTIL_Remove( oldItem ) 
+		UTIL_Remove( oldItem ) 
 	end
 	hero:RemoveModifierByName("modifier_equip_ui_open")
-      EmitGlobalSound("RPC.EquipItem")
-      local player = hero:GetPlayerOwner()
-      local heroId = hero:GetClassname()
-      if newItem then
-	      CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=newItem:GetEntityIndex(), heroId=heroId, playerId=playerID, pickup="equip"} )
-	      RPCItems:EquipItem(slot, hero, inventory_unit, newItem)
-  	  end
-    if slot == 1 then
-    	hero.weapon = newItem
-    	Weapons:SetWeaponTable(newItem)
-    	CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), {xp = newItem.xp, level = newItem.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[newItem.level], maxLevel = newItem.maxLevel, requiredHero = newItem.requiredHero} )
-    end
+	EmitGlobalSound("RPC.EquipItem")
+	local player = hero:GetPlayerOwner()
+	local heroId = hero:GetClassname()
+	if newItem then
+		CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=newItem:GetEntityIndex(), heroId=heroId, playerId=playerID, pickup="equip"} )
+		RPCItems:EquipItem(slot, hero, inventory_unit, newItem)
+	end
+	if slot == 1 then
+		hero.weapon = newItem
+		Weapons:SetWeaponTable(newItem)
+		CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), 
+		{xp = newItem.newItemTable.xp, 
+		level = newItem.newItemTable.level, 
+		xpNeeded = Weapons.XP_PER_LEVEL_TABLE[newItem.newItemTable.level], 
+		maxLevel = newItem.newItemTable.maxLevel, 
+		requiredHero = newItem.newItemTable.requiredHero} )
+	end
 end
 
 function RPCItems:RejectNewItem(keys)

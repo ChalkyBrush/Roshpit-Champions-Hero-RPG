@@ -69,7 +69,7 @@ function action(propertyName, propertyValue, caster, ability)
 		blaster_root(propertyValue, ability)
 	elseif propertyName == "caster_knockback" then
 		caster_knockback(propertyValue, ability)
-	elseif propertyName == "movespeed" then
+	elseif propertyName == "#item_movespeed" then
 		caster_movespeed(propertyValue, ability)
 	elseif propertyName == "extra_shots" then
 		extra_shots(propertyValue, ability)
