@@ -21,7 +21,7 @@ function jex_activate_thunder_blossom(event)
 	ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_thunder_blossom_spawning", {duration = 0.3})
 
 	local attack_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * event.attack_mult_per_tech * tech_level
-	local armor = caster:GetPhysicalArmorValue(true)*event.armor_mult_per_tech*tech_level
+	local armor = caster:GetPhysicalArmorValue(false)*event.armor_mult_per_tech*tech_level
 	local hp = caster:GetMaxHealth()*event.health_mult
 	local life_duration = math.max((event.duration_per_tech)*tech_level, 20)
 	local max_chain_targets = event.chain_target_count*tech_level

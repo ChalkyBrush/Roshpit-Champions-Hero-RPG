@@ -25,7 +25,7 @@ function jex_activate_cinderbark(event)
 	ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_charged_mushroom_spawning", {duration = 0.3})
 
 	local attack_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * event.attack_mult_per_tech * ability.tech_level
-	local armor = caster:GetPhysicalArmorValue(true)*event.armor_mult_per_tech * ability.tech_level
+	local armor = caster:GetPhysicalArmorValue(false)*event.armor_mult_per_tech * ability.tech_level
 	local hp = caster:GetMaxHealth()*event.max_health_mult
 
 

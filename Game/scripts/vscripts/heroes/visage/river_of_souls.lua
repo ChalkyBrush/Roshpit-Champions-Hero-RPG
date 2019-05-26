@@ -109,7 +109,7 @@ function SummonFamiliar(caster, ability, portalPosition, b_c_level)
 		familiar:SetControllableByPlayer(caster:GetPlayerOwnerID(), false)
 		familiar:SetOwner(caster)
 
-		local familiarArmor = caster:GetPhysicalArmorValue(true)*0.1*b_c_level
+		local familiarArmor = caster:GetPhysicalArmorValue(false)*0.1*b_c_level
 		familiar:SetPhysicalArmorBaseValue(familiarArmor)
 		local attackDamage =  math.min(OverflowProtectedGetAverageTrueAttackDamage(caster)*0.2*b_c_level, (2^31)-10)
 		

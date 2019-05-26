@@ -1376,7 +1376,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 		end
 		if victim:HasModifier("modifier_duskbringer_arcana_rune_w_2") then
 			local stackCount = victim:GetModifierStackCount("modifier_duskbringer_arcana_rune_w_2", victim)
-			local consideredArmor = victim:GetPhysicalArmorValue(true) * DUSKBRINGER_ARCANA_W2_MAGIC_PURE_RES_PER_ARMOR * stackCount
+			local consideredArmor = victim:GetPhysicalArmorValue(false) * DUSKBRINGER_ARCANA_W2_MAGIC_PURE_RES_PER_ARMOR * stackCount
 			damage = GameState:GetPostReductionPhysicalDamage(damage, consideredArmor)
 		end
 	    if victim:HasModifier("modifier_pure_resist") then
@@ -1773,7 +1773,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_armor_softening") then
 		local passive = victim:FindAbilityByName("winterblight_armor_softening")
-		local armor = victim:GetPhysicalArmorValue(true)
+		local armor = victim:GetPhysicalArmorValue(false)
 		if armor > 0 then
 			local reduction = passive:GetLevelSpecialValueFor("damage_reduc", passive:GetLevel())
 			reduction = (100-reduction)/100
@@ -1837,7 +1837,7 @@ function GameState:FilterDamage(filterTable)
 
 	local abs = math.abs
 	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
-		local armor = victim:GetPhysicalArmorValue(true)
+		local armor = victim:GetPhysicalArmorValue(false)
 		if attacker:HasModifier("modifier_hand_marauder") and armor >= 0 then
 			armor = 0
 		end
@@ -1864,7 +1864,7 @@ function GameState:FilterDamage(filterTable)
 		filterTable.damage = filterTable.damage * (1 - ((0.05 * armor) / (1 + 0.05 * abs(armor))))
 		
 		if victim:HasModifier("heatwave_fire_damage") then
-			local armor = victim:GetPhysicalArmorValue(true)
+			local armor = victim:GetPhysicalArmorValue(false)
 			if armor < 0 then
 				local heatwave_ability = victim:FindModifierByName("heatwave_fire_damage"):GetAbility()
 				if heatwave_ability.rune_e_1 then
@@ -2279,11 +2279,11 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + 6
 	end
 	if victim:HasModifier("modifier_epoch_rune_w_2_visible") then
-		if victim:GetPhysicalArmorValue(true) < 0 then
+		if victim:GetPhysicalArmorValue(false) < 0 then
 			if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 				modifier = victim:FindModifierByName("modifier_epoch_rune_w_2_visible")
 				if attacker:GetRuneValue("w", 2) > 0 then
-					local multIncrease = attacker:GetRuneValue("w", 2) * EPOCH_W2_POST_MITI_PCT * math.abs(victim:GetPhysicalArmorValue(true))/10
+					local multIncrease = attacker:GetRuneValue("w", 2) * EPOCH_W2_POST_MITI_PCT * math.abs(victim:GetPhysicalArmorValue(false))/10
 					mult = mult + multIncrease / 100
 				end
 			end
