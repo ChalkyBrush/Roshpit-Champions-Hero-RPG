@@ -164,16 +164,17 @@ function RPCItems:AmuletLegendary(itemVariant, deathLocation)
 end
 
 function RPCItems:AmuletPickup(heroEntity, itemEntity)
+    print("[RPCItems:AmuletPickup]")
     local heroName = heroEntity:GetName()
     if itemEntity.requiredHero then
         heroName = itemEntity.requiredHero
     end
     local rarityFactor = RPCItems:GetRarityFactor(itemEntity.rarity)
     print("show correct runes!")
-     print("show correct runes!")
-      print("show correct runes!")
-      local rpcName = HerosCustom:GetInternalHeroNameMain(heroName)
-      local runePrefix = "#DOTA_Tooltip_ability_"..rpcName.."_"
+    print("show correct runes!")
+    print("show correct runes!")
+    local rpcName = HerosCustom:GetInternalHeroNameMain(heroName)
+    local runePrefix = "#DOTA_Tooltip_ability_"..rpcName.."_"
     for i = 1, rarityFactor, 1 do
         RPCItems:SkillTranslateBasic(heroEntity, itemEntity, i, runePrefix)
     end

@@ -40,7 +40,7 @@ function RPCItems:ItemUTIL_Remove(item)
 		print("[Error] RPCItems:ItemUTIL_Remove entity is not valid")
 		return
 	end
-	-- RPCItems:ClearRollTableFromIndex(item)
+	RPCItems:ClearRollTableFromIndex(item)
 	UTIL_Remove(item)
 end
 
@@ -52,7 +52,7 @@ end
 -- @return item entity handle
 function RPCItems:CreateItem(item_name, owner1, owner2)
 	local item = CreateItem(item_name, owner1, owner2)
-	-- RPCItems:ClearRollTableFromIndex(item)
+	RPCItems:ClearRollTableFromIndex(item)
 	return item
 end
 
@@ -1416,11 +1416,11 @@ function RPCItems:AcceptNewItem(keys)
 		hero.weapon = newItem
 		Weapons:SetWeaponTable(newItem)
 		CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), 
-		{xp = newItem.newItemTable.xp, 
-		level = newItem.newItemTable.level, 
-		xpNeeded = Weapons.XP_PER_LEVEL_TABLE[newItem.newItemTable.level], 
-		maxLevel = newItem.newItemTable.maxLevel, 
-		requiredHero = newItem.newItemTable.requiredHero} )
+		{xp = newItem.xp, 
+		level = newItem.level, 
+		xpNeeded = Weapons.XP_PER_LEVEL_TABLE[newItem.level], 
+		maxLevel = newItem.maxLevel, 
+		requiredHero = newItem.requiredHero} )
 	end
 end
 

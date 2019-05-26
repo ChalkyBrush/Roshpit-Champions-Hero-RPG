@@ -441,7 +441,6 @@ function GameMode:OnPlayerChat(keys)
   --   print("CHEATS ENABLED")
   --   GameState:CheatCommandUsed()
   -- end
-  Dungeons.itemLevel = 1200
   local playerAsd = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
   -- local itemIdNewAsdf = 411
   -- if string.match(text, "asdf") then
