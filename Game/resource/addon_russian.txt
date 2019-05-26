@@ -5682,12 +5682,17 @@
     	"DOTA_Tooltip_modifier_warlord_stone_form_Description"			"Невосприимчив к магии, скорость передвижения снижена"	
     	
     	"DOTA_Tooltip_ability_warlord_ice_shell"						"Ice Shell"
-    	"DOTA_Tooltip_ability_warlord_ice_shell_Description"			"Elemental Warlord укрывает себя ледяным щитом, который полностью поглощает магический урон несколько раз."
+    	"DOTA_Tooltip_ability_warlord_ice_shell_Description"			"Elemental Warlord укрывает себя ледяным щитом, который полностью поглощает магический и чистый урон несколько раз."
     	"DOTA_Tooltip_ability_warlord_ice_shell_duration"				"ДЛИТЕЛЬНОСТЬ:"
     	"DOTA_Tooltip_ability_warlord_ice_shell_magic_instances_absorbed"	"ЗАРЯДОВ ПОГЛОЩЕНИЯ МАГИЧЕСКОГО УРОНА:"
+		"DOTA_Tooltip_ability_warlord_ice_shell_pure_instances_absorbed"	"ЗАРЯДОВ ПОГЛОЩЕНИЯ ЧИСТОГО УРОНА:"
+		
 
     	"DOTA_Tooltip_modifier_warlord_ice_shell"						"Ice Shell"
     	"DOTA_Tooltip_modifier_warlord_ice_shell_Description"			"Поглощение магического урона"
+		"DOTA_Tooltip_modifier_warlord_ice_shell_pure"						"Ice Shell"
+    	"DOTA_Tooltip_modifier_warlord_ice_shell_pure_Description"			"Поглощение чистого урона"
+
 
     	"DOTA_Tooltip_ability_warlord_flame_rush"						"Flame Rush"
     	"DOTA_Tooltip_ability_warlord_flame_rush_Description"			"Вспышка внутреннего пламени разжигает огненный порыв, во время которого Elemental Warlord увеличивает свой урон, скорость атаки и передвижения."
@@ -5726,7 +5731,7 @@
     	"DOTA_Tooltip_modifier_warlord_rune_q_2_visible_Description"	"Броня увеличена"
 		
 		"DOTA_Tooltip_ability_warlord_rune_q_3"							"[Q3] Wrath of Fire"
-    	"DOTA_Tooltip_ability_warlord_rune_q_3_Description"				"Атаки во время (Q) Flame Rush дополнительно накладывают на врагов складывающийся дебафф, который снижает броню цели. Длительность - 8 секунд."
+    	"DOTA_Tooltip_ability_warlord_rune_q_3_Description"				"Атаки во время (Q) Flame Rush дополнительно накладывают на врагов складывающийся дебафф, который снижает броню цели. Длительность - 12 секунд."
     	"DOTA_Tooltip_ability_warlord_rune_q_3_property_one"			"Снижение брони"
     	"DOTA_Tooltip_ability_warlord_rune_q_3_suffix"					" за заряд"
 
