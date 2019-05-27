@@ -275,7 +275,7 @@
 		"item_rpc_voltex_glyph_7_1_description" 				"静电汲取你100% 的魔法值且冷却时间变为8秒，造成 @glyph_property1x 伤害并眩晕敌人 @glyph_property2 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"离子雕文"
-		"item_rpc_voltex_glyph_5_a_description" 			"延长 @Ability1 的持续时间 @glyph_property1 秒。"
+		"item_rpc_voltex_glyph_5_a_description" 			"延长 @Ability1 的持续时间 @glyph_property1%。"
 
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed"	"电子效应"
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed_Description"	"减速"
