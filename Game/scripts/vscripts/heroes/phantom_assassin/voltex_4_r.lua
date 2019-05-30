@@ -160,7 +160,7 @@ function voltex_rune_r_2_onattacklanded(event)
         ParticleManager:SetParticleControl(particle, 1, Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z+1000 ))
         ParticleManager:SetParticleControl(particle, 2, Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))
 
-        ability:ApplyDataDrivenModifier(attacker.runeUnit2, target, "modifier_voltex_rune_r_2_armor_loss", {duration = 6})
+        ability:ApplyDataDrivenModifier(attacker.runeUnit2, target, "modifier_voltex_rune_r_2_armor_loss", { duration = VOLTEX_R2_ARMOR_LOSS_DUR })
         target:SetModifierStackCount( "modifier_voltex_rune_r_2_armor_loss", ability, r_2_level )
         EmitSoundOn("Voltex.LightningBolt", target)
         Timers:CreateTimer(2, function()
