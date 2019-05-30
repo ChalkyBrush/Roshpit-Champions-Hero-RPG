@@ -9168,3 +9168,99 @@
         }
 
     }
+
+    "winterblight_scouring_sherpa"
+    {
+
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/meepo/meepo.vmdl"
+        "ModelScale"    "0.9"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "little_meepo"
+        "precache"
+        {
+            "soundfile" "soundevents/voscripts/game_sounds_vo_meepo.vsndevts"
+
+        }
+        
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1070"
+        "AttackDamageMax"   "1090"
+        "AttackRate"    "0.7"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange"  "0"
+        "AttackRange"   "80"
+        "BountyGoldMin" "14"
+        "BountyGoldMax" "18"
+        "BountyXP" "14"
+        "BoundsHullName"  "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "30"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "350"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "228200"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"  "winterblight_gang_up"
+        "Ability2"  "winterblight_damage_sap"
+        "Ability3"  "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                //weapon
+                "Wearable1"
+                {
+                    "ItemDef"   "4423"
+                }
+                //back
+                "Wearable2"
+                {
+                    "ItemDef"   "4911"
+                }
+                //shoulder
+                "Wearable3"
+                {
+                    "ItemDef"   "4421"
+                }
+                //head
+                "Wearable4"
+                {
+                    "ItemDef"   "7203"
+                }
+                //arms
+                "Wearable5"
+                {
+                    "ItemDef"   "7202"
+                }
+
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+        }
+    }

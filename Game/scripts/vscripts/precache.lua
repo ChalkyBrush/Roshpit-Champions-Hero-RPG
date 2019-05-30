@@ -700,6 +700,29 @@ function Precache:Winterblight()
 	PrecacheUnitByNameAsync(unitTable[i], precache_function)
 end
 
+function Precache:WinterblightCavern()
+	local unitTable = {"winterblight_scouring_sherpa"}
+	local i = 1 
+	local function precache_function()
+		--print("done precaching: "..unitTable[i])
+		i = i+1
+		if i > #unitTable then
+			--print("done precaching units")
+			Timers:CreateTimer(0, function()
+				CustomGameEventManager:Send_ServerToAllClients("finish_precache", {units = 1})
+				return 2
+			end)
+		else
+			--print("precaching "..unitTable[i])
+			local pct = math.floor(i/#unitTable*100)
+			CustomGameEventManager:Send_ServerToAllClients("update_precache", {units = 1, pct = tostring(pct)})
+			PrecacheUnitByNameAsync(unitTable[i], precache_function)
+		end
+	end
+	--print("precaching "..unitTable[i])
+	PrecacheUnitByNameAsync(unitTable[i], precache_function)	
+end
+
 function Precache:Tutorial()
 	local unitTable = {"tutorial_master", "tutorial_assistant", "tutorial_shroomling", "challens_elemental"}
 	local i = 1 

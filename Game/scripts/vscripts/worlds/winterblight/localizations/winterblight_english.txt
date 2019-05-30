@@ -718,3 +718,7 @@
 		"winterblight_orthok_the_damned"						"Orthok the Damned"
 		"winterblight_captain_reynar_ghost"						"Captain Reynar"
 		"winterblight_grand_stalacorr"							"Great Winter Stalacorr"
+
+		//WINTERBLIGHT PART 2
+
+		"winterblight_scouring_sherpa"							"Scouring Sherpa"

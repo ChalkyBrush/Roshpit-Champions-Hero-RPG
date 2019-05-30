@@ -277,3 +277,8 @@ function Villager3(trigger)
 	StartAnimation(villager, {duration=3, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.0})
 	EmitSoundOn("Winterblight.Villager.Speak", villager)
 end
+
+function ForestZoneTrigger(trigger)
+	local hero = trigger.activator
+	Winterblight:InitWinterForest()
+end

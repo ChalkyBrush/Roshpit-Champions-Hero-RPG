@@ -4,6 +4,7 @@ end
 
 require('worlds/winterblight/zones/starting_zone')
 require('worlds/winterblight/zones/shrine_of_azalea')
+require('worlds/winterblight/zones/winter_forest')
 
 function Winterblight:Debug()
     local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
@@ -83,6 +84,7 @@ function Winterblight:InitCamp()
     Winterblight.Master:AddAbility("dummy_unit"):SetLevel(1)
     Timers:CreateTimer(25, function()
       Winterblight:ShrineOfAzaleaMusic()
+      Winterblight:CavernMusic()
     end)
     Winterblight:InitProps()
 end
@@ -232,6 +234,9 @@ function Winterblight:CalculateHeroZones()
             else
               hero.bgm = "Music.Winterblight.ShrineOfAzelea"
             end
+          elseif WallPhysics:IsWithinRegionA(heroOrigin, Vector(-17000, 1000), Vector(-13708,17000)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(-13708, 3062), Vector(-8120,17000)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(-7685, 6807), Vector(-4228,17000)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(-4228, 11672), Vector(-2394,11672)) then
+            hero.bgm = "Music.Winterblight.Cavern"
+            CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_cavern"} )
           elseif (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-9856, -9496), Vector(10058,267))) then
             CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_mountain"} )
             hero.bgm = "Music.Winterblight.Start"
@@ -268,6 +273,19 @@ function Winterblight:ShrineOfAzaleaMusic()
       end
     -- end
     return 157
+  end)
+end
+
+function Winterblight:CavernMusic()
+  Timers:CreateTimer(1, function()
+      for i = 1, #MAIN_HERO_TABLE, 1 do
+        if MAIN_HERO_TABLE[i].bgm == "Music.Winterblight.Cavern" then
+          CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "BGMend", {})
+          CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "BGMstart", {songName = "Music.Winterblight.Cavern"})
+        end
+      end
+    -- end
+    return 127
   end)
 end
 
