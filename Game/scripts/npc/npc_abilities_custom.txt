@@ -80349,12 +80349,12 @@
 		}
 		"Modifiers"
 		{
-			"modifier_gang_up"
+			"modifier_gang_up_passive"
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
 				"ThinkInterval"  "1.0"
-				"OnAttackStart"
+				"OnIntervalThink"
 				{
 					"RunScript"
 					{
@@ -80422,9 +80422,103 @@
 			"modifier_damage_sap_stack_enemy"
 			{
 				"IsHidden"	"0"
+				"IsDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%damage_sap_enemy"
+				}
+			}
+		}
+	}
+
+	"relict_monkey_leap"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"monkey_king_primal_spring"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastRange"				"1200 1250 1300"
+
+		// Precache
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_monkey_king/monkey_king_spring_channel_rings.vpcf"
+		}
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1.5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"			"1200 1250 1300"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+				"Function"		"relict_jump_pre_start"
+				"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+        		"Function"		"relict_monkey_jump_start"
+        		"Target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_monkey_jump"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"ThinkInterval"  "0.03"
+				"OverrideAnimation"     "ACT_DOTA_MK_SPRING_SOAR"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"relict_jump_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"relict_jump_end"
+					}
 				}
 			}
 		}

@@ -19040,5 +19040,25 @@
 		//WINTERBLIGHT PART 2
 
 		"winterblight_scouring_sherpa"							"Scouring Sherpa"
+
+		"DOTA_Tooltip_ability_winterblight_gang_up"				"Gang Up"
+		"DOTA_Tooltip_ability_winterblight_gang_up_Description"	"Gain a Gang Up stack for each nearby ally that also has the Gang Up ability."
+		"DOTA_Tooltip_ability_winterblight_gang_up_armor"		"ARMOR PER STACK:"
+		"DOTA_Tooltip_ability_winterblight_gang_up_attack_damage_percent"	"% ATTACK DAMAGE BONUS PER STACK:"
+		"DOTA_Tooltip_ability_winterblight_gang_up_attack_speed"			"ATTACK SPEED PER STACK:"
+		"DOTA_Tooltip_ability_winterblight_gang_up_movespeed"				"MOVESPEED PER STACK:"
+
+		"DOTA_Tooltip_modifier_gangup_stack"					"Gang Up"
+		"DOTA_Tooltip_modifier_gangup_stack_Description"		"Gaining power for each nearby ally with Gang Up"
+
+		"DOTA_Tooltip_ability_winterblight_damage_sap"			"Damage Sap"
+		"DOTA_Tooltip_ability_winterblight_damage_sap_Description"	"Attacking an enemy reduces their base attack damage, and increases the attacker's damage for 8 seconds."
+		"DOTA_Tooltip_ability_winterblight_damage_sap_damage_sap"	"DAMAGE SAP:"
+
+		"DOTA_Tooltip_modifier_damage_sap_stack_owner"			"Damage Sap"
+		"DOTA_Tooltip_modifier_damage_sap_stack_owner_Description"	"Stolen attack damage"
+
+		"DOTA_Tooltip_modifier_damage_sap_stack_enemy"			"Damage Sap"
+		"DOTA_Tooltip_modifier_damage_sap_stack_enemy_Description"	"Reduced attack damage"
 	}	
 }

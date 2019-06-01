@@ -1008,3 +1008,19 @@ function CustomAbilities:InitTargetDummy(caster, ability, attacker)
 	CustomGameEventManager:Send_ServerToPlayer(attacker:GetPlayerOwner(), "updateTargetDummy", {})
 	Events:TutorialServerEvent(attacker, "4_5", 0)
 end
+
+function CDOTA_BaseNPC:ApplyAndIncrementStack(ability, caster, modifier_name, increment, max_stacks, duration)
+	local currentStacks = self:GetModifierStackCount(modifier_name, caster)
+	local new_stacks = nil
+	if max_stacks > 0 then
+		new_stacks = math.min(currentStacks + increment, max_stacks)
+	else
+		new_stacks = currentStacks + increment
+	end
+	if duration > 0 then
+		ability:ApplyDataDrivenModifier(caster, self, modifier_name, {duration = duration})
+	else
+		ability:ApplyDataDrivenModifier(caster, self, modifier_name, {})
+	end
+	self:SetModifierStackCount(modifier_name, caster, new_stacks)
+end
