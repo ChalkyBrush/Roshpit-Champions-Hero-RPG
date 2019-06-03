@@ -80260,66 +80260,6 @@
 	"winterblight_gang_up"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AOERadius"			"1300 1600 1900"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"meepo_divided_we_stand"
-		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor"				"10 300 1500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_damage_percent"				"10 50 100"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_speed"				"15 30 60"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed"				"20 40 60"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_gang_up"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"ThinkInterval"  "1.0"
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
-						"Function"		"gang_up_think"
-					}
-				}
-			}
-			"modifier_gangup_stack"
-			{
-				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_damage_percent" 
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed"
-				}
-			}
-		}
-	}
-
-	"winterblight_gang_up"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AOERadius"			"650"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"meepo_divided_we_stand"
@@ -80519,6 +80459,282 @@
 						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 						"Function"		"relict_jump_end"
 					}
+				}
+			}
+		}
+	}
+
+	"winterblight_ice_vortex_aoe"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AOERadius"						"2000"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"ancient_apparition/shatterblast_crown/ancient_apparition_ice_blast"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+
+		}
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6 5 4"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_duration"				"6 7 8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ms_slow"				"-100 -240 -500"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"as_slow"				"-100 -150 -200"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+        		"Function"		"aoe_ice_vortex_cast"
+        		"duration"		"%slow_duration"
+			}
+		}
+        "Modifiers"
+        {
+			"aoe_ice_vortex_thinker"
+			{
+				"Aura"          	"modifier_ice_vortex_aoe_slow"
+				"Aura_Radius"   	"300"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_ice_vortex_aoe_slow"
+			{
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_slow"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_slow"
+				}
+			}
+        }
+	}
+
+	"winterblight_rock_guardian_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/zefnar_passive"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"burn_damage"			"30 300 5000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"500 5000 200000"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+				"Function"		"rock_guardian_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_shipyard_spawner_passive"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"rock_guardian_attack_start"
+					}
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"rock_guardian_attack_land"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
+				}
+			}
+			"modifier_disable_player"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"rock_guardian_rising_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Winterblight.StoneGuardian.Rising.End"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_winterblight_rock_tower_stack"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-10"
+				}
+			}
+			"modifier_heavy_boulder_pushback"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"ThinkInterval" 	"0.03"
+				"OverrideAnimation"     "ACT_DOTA_DISABLED"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"winter_heavy_boulder_pushback"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"winter_heavy_boulder_push_end"
+						"target"		"TARGET"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"winterblight_merkurio_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/zefnar_passive"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"burn_damage"			"30 300 5000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"500 5000 200000"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+				"Function"		"merkurio_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_merkurio_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"merkurio_attack_start"
+					}
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"merkurio_think"
+					}
+				}
+			}
+			"modifier_disable_player"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/winterblight/immunity_shield.vpcf"
+				"EffectAttachType" "attach_hitloc"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}

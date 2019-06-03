@@ -282,3 +282,7 @@ function ForestZoneTrigger(trigger)
 	local hero = trigger.activator
 	Winterblight:InitWinterForest()
 end
+
+function OutsideCaveTrigger(trigger)
+	Winterblight:OutsideCaveSpawn()
+end
