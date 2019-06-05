@@ -170,6 +170,9 @@ function Winterblight:SpawnMerkurio(position, fv)
 	ability:ApplyDataDrivenModifier(stone, stone, "modifier_disable_player", {duration = 4.1})
 	WallPhysics:Jump(stone,Vector(0,-1), 1, 1, 1, 1)
 	Timers:CreateTimer(2.2, function()
+		if GameState:GetDifficultyFactor() == 3 and Winterblight.Stones > 0 then
+			stone:AddAbility("creature_pure_strike"):SetLevel(3)
+		end
 		Timers:CreateTimer(0.5, function()
 			EmitSoundOn("Winterblight.Merkurio.Spawn", stone)
 		end)
