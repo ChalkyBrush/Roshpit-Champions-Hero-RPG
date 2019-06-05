@@ -2574,7 +2574,11 @@ function GameState:FilterDamage(filterTable)
 		local distanceCompare = passive:GetSpecialValueFor("distance")
 		local damageReduce = passive:GetSpecialValueFor("damage_block")
 		if distance > distanceCompare then
-			StartAnimation(victim, {duration=0.5, activity=ACT_DOTA_THUNDER_STRIKE, rate=1.8})
+			if victim:GetUnitName() == "azalea_dragoon" then
+				StartAnimation(victim, {duration=0.5, activity=ACT_DOTA_THUNDER_STRIKE, rate=1.8})
+			else
+				StartAnimation(victim, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.1})
+			end
 			EmitSoundOn("Winterblight.Dragoon.Block", victim)
 			if not passive.particleLock then
 				CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/dragoon_block.vpcf", victim, 1)
@@ -3984,15 +3988,15 @@ function GameState:FilterDamage(filterTable)
 				filterTable["damage"] = 0
 			end
 		end
-		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-		-- 	if attacker:IsHero() then
-		-- 		if not victim:HasModifier("modifier_disable_player") then
-		-- 			if filterTable["damage"] > 0 then
-		-- 				filterTable["damage"] = 9999999999
-		-- 			end
-		-- 		end
-		-- 	end
-		-- end
+		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if attacker:IsHero() then
+				if not victim:HasModifier("modifier_disable_player") then
+					if filterTable["damage"] > 0 then
+						filterTable["damage"] = 9999999999
+					end
+				end
+			end
+		end
 		-- filterTable["damage"] = 0
 	end
 

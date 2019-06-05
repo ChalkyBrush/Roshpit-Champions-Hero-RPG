@@ -9690,6 +9690,7 @@
         "precache"
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_monkey_king.vsndevts"
+            "soundfile" "soundevents/game_sounds_draghor.vsndevts"
         }
         "ArmorPhysical" "30"
         "MagicalResistance" "15"
@@ -9717,10 +9718,12 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "monkey_king_boundless_strike"
-        "Ability2"      "cast_ability_1_position_ai"
+        "Ability2"      "winterblight_azalea_dragoon_passive"
         "Ability3"      "winterblight_merkurio_passive"
         "Ability4"      "redfall_mega_steadfast"
-        "Ability5"      "dungeon_creep"
+        "Ability5"      "draghor_monkey_leap"
+        "Ability6"      "dungeon_creep"
+        "Ability7"      "cast_ability_1_position_ai"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Creature"

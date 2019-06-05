@@ -160,18 +160,21 @@ function Winterblight:SpawnMerkurio(position, fv)
 	Events:AdjustBossPower(stone, 1, 1, false)
 	stone.itemLevel = 40
 	stone:SetRenderColor(170, 200, 255)
-	stone.dominion = true
+	stone.state = 0
 	Winterblight:SetPositionCastArgs(stone, 1000, 0, 1, FIND_ANY_ORDER)
 
 	stone:SetAbsOrigin(stone:GetAbsOrigin()+Vector(0,0,2000))
 
 	local ability = stone:FindAbilityByName("winterblight_merkurio_passive")
 	stone.cantAggro = true
-	ability:ApplyDataDrivenModifier(stone, stone, "particles/roshpit/winterblight/immunity_shield.vpcf", {duration = 4.1})
+	ability:ApplyDataDrivenModifier(stone, stone, "modifier_disable_player", {duration = 4.1})
 	WallPhysics:Jump(stone,Vector(0,-1), 1, 1, 1, 1)
 	Timers:CreateTimer(2.2, function()
-		EmitSoundOn("Winterblight.Merkurio.Spawn", stone)
-		StartAnimation(stone, {duration=2, activity=ACT_DOTA_MK_SPRING_END, rate=0.8})
+		Timers:CreateTimer(0.5, function()
+			EmitSoundOn("Winterblight.Merkurio.Spawn", stone)
+		end)
+		StartAnimation(stone, {duration=2.5, activity=ACT_DOTA_MK_SPRING_END, rate=0.6})
+		EmitSoundOn("Winterblight.Merkurio.Gust", stone)
 		for i = 1, 5, 1 do
 			local fv = WallPhysics:rotateVector(stone:GetForwardVector(), 2*math.pi*i/5)
 			local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_drow/drow_silence_wave.vpcf", stone:GetAbsOrigin(), 4)

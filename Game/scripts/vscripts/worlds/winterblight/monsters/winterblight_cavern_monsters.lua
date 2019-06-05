@@ -138,6 +138,9 @@ function rock_guardian_attack_land(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
+	if not ability then
+		return false
+	end
 	EmitSoundOn("Winterblight.StoneGuardian.AttackLand", target)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_winterblight_rock_tower_stack", {duratio = 5})
 	target:ApplyAndIncrementStack(ability, nil, "modifier_winterblight_rock_tower_stack", 1, 5, 5)
@@ -147,7 +150,7 @@ function rock_guardian_attack_land(event)
 		ability.pushVector = false
 		ability.pushVelocity = 30
 		ability.tossPosition = caster:GetAbsOrigin()
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_heavy_boulder_pushback", {duration = 1})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_heavy_boulder_pushback", {duration = 0.6})
 	end
 end
 
@@ -160,6 +163,7 @@ function rock_guardian_die(event)
 	end)
 	CustomAbilities:QuickParticleAtPoint("particles/radiant_fx/tower_good3_destroy_lvl3.vpcf", caster:GetAbsOrigin(), 3)
 	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,300))
+	caster:AddNoDraw()
 	Winterblight.StoneGuardiansSlain = Winterblight.StoneGuardiansSlain + 1
 	if Winterblight.StoneGuardiansSlain == 3 and Winterblight.OutsideCaveSequence == 0 then
 		Winterblight:SpawnMerkurio(Vector(-7252, 4283), Vector(0,-1))
@@ -194,14 +198,17 @@ function winter_heavy_boulder_pushback(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
+	if not ability then
+		return false
+	end
 	if not ability.pushVector then
 		local impactPoint = target:GetAbsOrigin()
 		local pushVector = ((impactPoint - ability.tossPosition)*Vector(1,1,0)):Normalized()
 		ability.pushVector = pushVector
 		EmitSoundOn("Winterblight.StoneAttack", target)
 	end
-	local obstruction = WallPhysics:FindNearestObstruction(target:GetAbsOrigin())
-	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, target:GetAbsOrigin(), target)
+	local obstruction = WallPhysics:FindNearestObstruction(target:GetAbsOrigin()+ability.pushVector*30)
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, target:GetAbsOrigin()+ability.pushVector*30, target)
 	local fv = ability.pushVector
 
 	if blockUnit then
@@ -226,6 +233,173 @@ end
 
 function merkurio_think(event)
 	local caster = event.caster
+	local ability = event.ability
 	local boundless = caster:FindAbilityByName("monkey_king_boundless_strike")
 	boundless:EndCooldown()
+	caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="walk"})
+	if caster.state == 0 and caster:GetHealth() < 1000 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {duration = 5.1})
+		StartAnimation(caster, {duration=5.1, activity=ACT_DOTA_MK_SPRING_CAST, rate=0.33})
+		caster.state = 1
+		EmitSoundOn("Winterblight.Merkurio.State2", caster)
+		Timers:CreateTimer(1, function()
+			Winterblight:SpawnStoneGuardian(Vector(-7680, 4608), Vector(0,-1))
+			Winterblight:SpawnStoneGuardian(Vector(-7415, 4985), Vector(0,-1))
+			Winterblight:SpawnStoneGuardian(Vector(-6985, 4928), Vector(0,-1))
+			Winterblight.StoneGuardiansSlain = 0
+			Winterblight.OutsideCaveSequence = 1
+		end)
+		Timers:CreateTimer(5.1, function()
+			caster.state = 2
+			EmitSoundOn("Winterblight.Merkurio.State3", caster)
+		end)
+		EmitSoundOn("Winterblight.Merkurio.Gust", caster)
+		for i = 1, 5, 1 do
+			local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*i/5)
+			local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_drow/drow_silence_wave.vpcf", caster:GetAbsOrigin(), 4)
+			ParticleManager:SetParticleControl(pfx, 1, fv*1000)
+			ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin()+fv*1000)
+		end
+	elseif caster.state == 1 then
+		caster:SetHealth(caster:GetHealth() + caster:GetMaxHealth()*0.1)
+	elseif caster.state == 2 and caster:GetHealth() < 1000 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {duration = 5.1})
+		StartAnimation(caster, {duration=5.1, activity=ACT_DOTA_MK_SPRING_CAST, rate=0.33})
+		caster.state = 1
+		EmitSoundOn("Winterblight.Merkurio.State4", caster)
+
+		Timers:CreateTimer(1, function()
+			local positionTable = {Vector(-7680, 3686), Vector(-7680, 4224), Vector(-7413, 4886), Vector(-6912, 4736), Vector(-6651, 4352)}
+			positionTable = WallPhysics:ShuffleTable(positionTable)
+			for i = 1, #positionTable, 1 do
+				Timers:CreateTimer(i*0.3, function()
+					local direction = (Vector(-6839, 3925) - positionTable[i]):Normalized()
+					Winterblight:SpawnStoneGuardian(positionTable[i], direction)
+				end)
+			end
+			Winterblight.StoneGuardiansSlain = 0
+			Winterblight.OutsideCaveSequence = 2
+			Timers:CreateTimer(2, function()
+				EmitSoundOn("Winterblight.Merkurio.State5", caster)
+				local positionTable = {Vector(-8192, 3200), Vector(-8192,3584), Vector(-8192, 3968), Vector(-6784, 5376), Vector(-6400, 5376)}
+				positionTable = WallPhysics:ShuffleTable(positionTable)
+				for i = 1, #positionTable, 1 do
+					Timers:CreateTimer(i*0.3, function()
+						local direction = (Vector(-6839, 3925) - positionTable[i]):Normalized()
+						local monkey = Winterblight:SpawnRelict(positionTable[i], direction)
+						Dungeons:AggroUnit(monkey)
+						local eventTable = {}
+						eventTable.caster = monkey
+						eventTable.ability = monkey:FindAbilityByName("relict_monkey_leap")
+						eventTable.target_points = {}
+						eventTable.target_points[1] = Vector(-6839, 3925) + RandomVector(240)
+						relict_monkey_jump_start(eventTable)
+					end)
+				end
+			end)
+		end)
+		Timers:CreateTimer(5.1, function()
+			caster.state = 3
+			EmitSoundOn("Winterblight.Merkurio.State3", caster)
+		end)
+	elseif caster.state == 3 and caster:GetHealth() < 1000 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {})
+		EmitSoundOn("Winterblight.Merkurio.State6", caster)
+		StartAnimation(caster, {duration=3, activity=ACT_DOTA_DISABLED, rate=1})
+		caster.state = 1
+		EmitSoundOn("Winterblight.Merkurio.Gust", caster)
+		for i = 1, 5, 1 do
+			local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*i/5)
+			local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_drow/drow_silence_wave.vpcf", caster:GetAbsOrigin(), 4)
+			ParticleManager:SetParticleControl(pfx, 1, fv*1000)
+			ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin()+fv*1000)
+		end
+		Timers:CreateTimer(3, function()
+			caster.state = 4
+		end)
+	elseif caster.state == 4 then
+		caster:MoveToPosition(Vector(-7506, 5504))
+		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(-7506, 5504))
+		if distance < 120 then
+			caster.state = 5
+		end
+	elseif caster.state == 5 then
+		caster.state = 6
+		local rocks = Entities:FindAllByNameWithin("OutsideCaveRocks", Vector(-7620, 5992, 145+Winterblight.ZFLOAT), 2400)
+		for i = 1, 6, 1 do
+			Timers:CreateTimer(i, function()
+				StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_ATTACK, rate=1, translate="attack_normal_range"})
+				Timers:CreateTimer(0.4, function()
+					EmitSoundOn("Winterblight.Merkurio.AttackRock", caster)
+					if i < 6 then
+						for i = 1, #rocks, 1 do
+							Events:objectShake(rocks[i], 4, 8, true, true, true, nil, 1)
+						end
+					end
+				end)
+			end)
+		end
+		Timers:CreateTimer(6.4, function()
+			local rocks = Entities:FindAllByNameWithin("OutsideCaveRocks", Vector(-7620, 5992, 145+Winterblight.ZFLOAT), 2400)
+			for i = 1, #rocks, 1 do
+				UTIL_Remove(rocks[i])
+			end
+		    Winterblight:RemoveBlockers(0.1, "AzaleaCaveMainBlocker", Vector(-7620, 5992, 300+Winterblight.ZFLOAT), 2800)
+		    local explosionPosTable = {Vector(-7808, 5601, 239+Winterblight.ZFLOAT), Vector(-7711, 5837, 239+Winterblight.ZFLOAT), Vector(-7594, 6057, 239+Winterblight.ZFLOAT)}
+		    for i = 1, #explosionPosTable, 1 do
+				CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/rock_statue_destroy_acks_melee002_destroy_lvl3.vpcf", explosionPosTable[i], 3)
+				EmitSoundOnLocationWithCaster(explosionPosTable[i], "Winterblight.StoneGuardian.Die", caster)
+			end
+		    caster.state = 7
+		    Timers:CreateTimer(0.5, function()
+		    	EmitSoundOnLocationWithCaster(Vector(-7711, 5837), "Winterblight.CaveIntro", caster)
+		    end)
+		end)
+	elseif caster.state == 7 then
+		caster:MoveToPosition(Vector(-4905, 7595))
+		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(-4905, 7595))
+		if distance < 120 then
+			caster.state = 8
+		end
+	elseif caster.state == 8 then
+		caster:MoveToPosition(Vector(-5082, 7595))
+		caster.state = 9
+	end
+	if not caster:HasModifier("modifier_disable_player") then
+		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(-7252, 4283))
+		if distance > 800 then
+			local jump_ability = caster:FindAbilityByName("draghor_monkey_leap")
+			if jump_ability:GetLevel() < 4 then
+				jump_ability:SetLevel(4)
+			end
+			jump_ability:EndCooldown()
+			if jump_ability:IsFullyCastable() then
+				local targetPoint = Vector(-7252, 4283) + RandomVector(RandomInt(20, 120))			
+				local order =
+				{
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = jump_ability:entindex(),
+					Position = targetPoint
+				}
+				ExecuteOrderFromTable(order)
+				Timers:CreateTimer(1.2, function()
+					caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="walk"})
+					Dungeons:DeaggroUnit(caster)
+				end)
+				caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="walk"})
+				local luck = RandomInt(1, 2)
+				if luck < 3 then
+					if not caster.soundLock then
+						EmitSoundOn("Winterblight.Merkurio.JumpBack", caster)
+						caster.soundLock = true
+						Timers:CreateTimer(2, function()
+							caster.soundLock = false
+						end)
+					end
+				end
+				return false
+			end
+		end
+	end
 end
