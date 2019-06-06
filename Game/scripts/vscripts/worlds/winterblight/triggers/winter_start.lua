@@ -286,3 +286,8 @@ end
 function OutsideCaveTrigger(trigger)
 	Winterblight:OutsideCaveSpawn()
 end
+
+function CaveGuideSpawn(trigger)
+	print("TRIGGERED1")
+	Winterblight:CaveGuideSpawn()
+end

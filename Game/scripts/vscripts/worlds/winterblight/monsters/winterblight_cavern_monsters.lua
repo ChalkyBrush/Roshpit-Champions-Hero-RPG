@@ -266,10 +266,10 @@ function merkurio_think(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {duration = 5.1})
 		StartAnimation(caster, {duration=5.1, activity=ACT_DOTA_MK_SPRING_CAST, rate=0.33})
 		caster.state = 1
-		EmitSoundOn("Winterblight.Merkurio.State4", caster)
+		EmitSoundOn("Winterblight.Merkurio.Aggro", caster)
 
 		Timers:CreateTimer(1, function()
-			local positionTable = {Vector(-7680, 3686), Vector(-7680, 4224), Vector(-7413, 4886), Vector(-6912, 4736), Vector(-6651, 4352)}
+			local positionTable = {Vector(-7680, 3686), Vector(-7680, 4224), Vector(-7313, 4586), Vector(-6912, 4736), Vector(-6651, 4352)}
 			positionTable = WallPhysics:ShuffleTable(positionTable)
 			for i = 1, #positionTable, 1 do
 				Timers:CreateTimer(i*0.3, function()
@@ -358,12 +358,14 @@ function merkurio_think(event)
 	elseif caster.state == 7 then
 		caster:MoveToPosition(Vector(-4905, 7595))
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(-4905, 7595))
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 500, 2, false)
 		if distance < 120 then
 			caster.state = 8
 		end
 	elseif caster.state == 8 then
 		caster:MoveToPosition(Vector(-5082, 7595))
 		caster.state = 9
+		Winterblight.CaveGuideReady = true
 	end
 	if not caster:HasModifier("modifier_disable_player") then
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(-7252, 4283))
@@ -400,6 +402,35 @@ function merkurio_think(event)
 				end
 				return false
 			end
+		end
+	end
+end
+
+function guide_entering_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.fallSpeed then
+		caster.fallSpeed = 15
+	end
+	caster.fallSpeed = math.max(caster.fallSpeed - 0.1, 3)
+	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,caster.fallSpeed))
+	local heightDistance = caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster)
+	if heightDistance < 5 then
+		if not caster.sequence then
+			caster.sequence = true
+			CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", caster:GetAbsOrigin(), 4)
+			CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", caster, 4)
+			caster:RemoveModifierByName("modifier_guide_entering")
+			EmitSoundOn("Winterblight.GuideCaveIntro", caster)
+			
+			Timers:CreateTimer(1.5, function()
+				StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.0})
+				EmitSoundOn("Winterblight.CaveGuide.Welcome", caster)
+			end)
+			Timers:CreateTimer(2.5, function()
+				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.GuideCaveIntro2", Events.GameMaster)
+				CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", caster, 4)
+			end)
 		end
 	end
 end

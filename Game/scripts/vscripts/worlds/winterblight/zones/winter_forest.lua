@@ -139,11 +139,11 @@ function Winterblight:SpawnStoneGuardian(position, fv)
 	stone.jumpLock = true
 	local health = 10
 	if GameState:GetDifficultyFactor() == 2 then
-		health = 150
+		health = 25
 	elseif GameState:GetDifficultyFactor() == 3 then
-		health = 200
+		health = 40
 	end
-	health = health + Winterblight.Stones*50
+	health = health + Winterblight.Stones*20
     stone:SetMaxHealth(health)
     stone:SetBaseMaxHealth(health)
     stone:SetHealth(health)
@@ -156,7 +156,7 @@ function Winterblight:SpawnStoneGuardian(position, fv)
 end
 
 function Winterblight:SpawnMerkurio(position, fv)
-	local stone = Winterblight:SpawnDungeonUnit("winterblight_merkurio", position, 3, 7, "Winterblight.Merkurio.Aggro", fv, false)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_merkurio", position, 3, 7, "Winterblight.Merkurio.State4", fv, false)
 	Events:AdjustBossPower(stone, 1, 1, false)
 	stone.itemLevel = 40
 	stone:SetRenderColor(170, 200, 255)

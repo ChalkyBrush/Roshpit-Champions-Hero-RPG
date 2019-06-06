@@ -11619,3 +11619,134 @@
         }
     }
 }
+
+
+"Winterblight.Cave.GuideIntro1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/weapons/hero/earthshaker/arcana_projectile01.vsnd"
+                            "value1"        "sounds/weapons/hero/earthshaker/arcana_projectile02.vsnd"
+                            "value2"        "sounds/weapons/hero/earthshaker/arcana_projectile03.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.75000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "100.00000" }
+                    "distance_max"      {   "value"     "4400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.GuideCaveIntro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/weapons/hero/earthshaker/arcana_echo.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.95000"  }
+                    "pitch_rand_min"    {   "value"     "-0.04000"  }
+                    "pitch_rand_max"    {   "value"     "0.040000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "100.00000" }
+                    "distance_max"      {   "value"     "4400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.CaveGuide.Welcome"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/vo/dark_seer/dkseer_spawn_05.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.85000"  }
+                    "pitch_rand_min"    {   "value"     "-0.04000"  }
+                    "pitch_rand_max"    {   "value"     "0.040000"  }
+                    "pitch"             {   "value"     "0.86000"  }
+                    "soundlevel"        {   "value"     "100.00000" }
+                    "distance_max"      {   "value"     "4400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.GuideCaveIntro2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/items/faerie_spark.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.35000"  }
+                    "pitch_rand_min"    {   "value"     "-0.04000"  }
+                    "pitch_rand_max"    {   "value"     "0.040000"  }
+                    "pitch"             {   "value"     "1.20000"  }
+                    "soundlevel"        {   "value"     "100.00000" }
+                    "distance_max"      {   "value"     "4400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}

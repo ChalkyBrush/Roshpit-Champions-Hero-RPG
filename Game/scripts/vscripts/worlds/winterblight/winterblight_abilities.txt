@@ -10050,3 +10050,57 @@
 			}
 		}
 	}
+
+	"winterblight_cave_guide_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"redfall/autumn_spawner"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor"			"4 100 1500"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_disable_player"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"EffectName"	"particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_totem_buff_rocks.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_guide_entering"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"EffectName"	"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"guide_entering_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}

@@ -5,6 +5,7 @@ end
 require('worlds/winterblight/zones/starting_zone')
 require('worlds/winterblight/zones/shrine_of_azalea')
 require('worlds/winterblight/zones/winter_forest')
+require('worlds/winterblight/zones/winter_cave')
 
 function Winterblight:Debug()
     local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
