@@ -374,7 +374,7 @@ function Events:PickUpTest(heroEntity, itemEntity, itemname)
       if player then
         local playerId = player:GetPlayerID()
         local heroId = heroEntity:GetClassname()
-        CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemEntity:GetEntityIndex(), heroId=heroId, playerId=playerId, pickup="normal"} )
+        CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemEntity:GetEntityIndex(), heroId=heroId, playerId=playerId, pickup="normal", rarity=itemEntity.rarity, rarityColor=RPCItems:GetRarityColor(itemEntity.rarity)} )
       end
     end
     if itemEntity.slot == "weapon" and rarityFactor > 2 and rarityFactor < 5 then

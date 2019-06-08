@@ -181,9 +181,9 @@ function Weapons:Equip(heroEntity, itemEntity)
     	hero.weapon = itemEntity
     	Weapons:SetWeaponTable(itemEntity)
     	CustomNetTables:SetTableValue("weapons", tostring(heroEntity:GetEntityIndex()), {xp = itemEntity.xp, level = itemEntity.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[itemEntity.level], maxLevel = itemEntity.maxLevel, requiredHero = itemEntity.requiredHero} )
-    	CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemEntity:GetEntityIndex(), heroId=heroId, playerId=playerID, pickup="weapon"} )
+    	CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemEntity:GetEntityIndex(), heroId=heroId, playerId=playerID, pickup="weapon", rarity=itemEntity.rarity, rarityColor=RPCItems:GetRarityColor(itemEntity.rarity)} )
     else
-    	CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemEntity:GetEntityIndex(), heroId=heroId, playerId=playerID, pickup="equip"} )
+    	CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemEntity:GetEntityIndex(), heroId=heroId, playerId=playerID, pickup="equip", rarity=itemEntity.rarity, rarityColor=RPCItems:GetRarityColor(itemEntity.rarity)} )
 	    EmitGlobalSound("ui.treasure_reveal")
 	    EmitGlobalSound("ui.treasure_reveal")
 	    EmitGlobalSound("ui.treasure_reveal")

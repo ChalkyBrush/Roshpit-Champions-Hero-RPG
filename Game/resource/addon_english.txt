@@ -8120,7 +8120,7 @@
 		"item_rpc_omniro_glyph_4_1_description" 				"Adds @glyph_property1 levels to <font color=\"#DDDDDD\">Normal</font> Element and it recharges @glyph_property2% faster."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_1"		"Glyph of Inspiration"
-		"item_rpc_omniro_glyph_5_1_description" 				"@glyph_property1 of the lowest level runes have @glyph_property2 extra orb charge (excluding <font color=\"#DDDDDD\">Normal</font> and <font color=\"#3289C7\">Dragon</font> elements)."
+		"item_rpc_omniro_glyph_5_1_description" 				"@glyph_property1 of Omniro's lowest level elements (excluding <font color=\"#DDDDDD\">Normal</font> and <font color=\"#3289C7\">Dragon</font>) have @glyph_property2 extra orb charge."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_6_1"		"Glyph of Sapping"
 		"item_rpc_omniro_glyph_6_1_description" 				"Attacking an enemy restores @glyph_property1% of the current element's orb charge."
@@ -8129,7 +8129,7 @@
 		"item_rpc_omniro_glyph_7_1_description" 				"Omniro's highest level element (excluding <font color=\"#3289C7\">Dragon</font>) has @glyph_property1 additional maximum orb charges."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"Glyph of Chromaticity"
-		"item_rpc_omniro_glyph_5_a_description" 				"Omniro gains bonuses to Elemental damage types matching his four highest-level elements (excluding <font color=\"#3289C7\">Dragon</font>). The highest gains a <font color='#ccff66'>1500</font>% bonus, 2nd highest <font color='#ccff66'>1000</font>%, 3rd highest <font color='#ccff66'>500</font>, and 4th highest <font color='#ccff66'>250</font>."
+		"item_rpc_omniro_glyph_5_a_description" 				"Omniro gains bonuses to Elemental damage types matching his four highest-level elements (excluding <font color=\"#3289C7\">Dragon</font>). The highest gains a %<font color='#ccff66'>1500</font> bonus, 2nd highest <font color='#ccff66'>1000</font>%, 3rd highest <font color='#ccff66'>500</font>, and 4th highest <font color='#ccff66'>250</font>."
 
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
 		"DOTA_Tooltip_ability_heroic_fury_Description"					"Element: <font color=\"#F6FFB5\">Holy</font> / <font color=\"#DDDDDD\">Normal</font><br>Empowers the Paladin's weapon to deal massive splash and slow effect, as well as heal him on successful strikes."
@@ -11017,8 +11017,8 @@
 		"DOTA_Tooltip_modifier_voltex_rune_q_2_description" 				"Agility added to Lightning elemental damage"
 		
 		"DOTA_Tooltip_ability_voltex_rune_q_3"								"[Q3] Power Break"
-    	"DOTA_Tooltip_ability_voltex_rune_q_3_Description"					"Enemies struck by @Ability1 electricity are burdened with a stacking Armor debuff for 6 seconds. Each strike of @Ability1 has a 30% chance to deal an extra instance of physical damage."
-    	"DOTA_Tooltip_ability_voltex_rune_q_3_property_one"					"Armor Loss per stack"
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_Description"					"Enemies struck by @Ability1 electricity are burdened with a stacking Armor debuff for 6 seconds. Each strike of @Ability1 has a 30% chance to deal an extra instance of Physical damage."
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_property_one"					"Armor loss per stack"
     	"DOTA_Tooltip_ability_voltex_rune_q_3_suffix"						""
         "DOTA_Tooltip_ability_voltex_rune_q_3_property_two"                 "Physical Damage Proc"
         "DOTA_Tooltip_ability_voltex_rune_q_3_suffix_two"                   "% of attack power"
@@ -11088,7 +11088,7 @@
 		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge_Lore"							""
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_1"								"[E1] Lightning Remnant"
-    	"DOTA_Tooltip_ability_voltex_rune_e_1_Description"					"Casting @Ability3 or [E3] creates an illusion at both the jump and landing points to fight nearby enemies. The illusions have your level of @Ability1 active. <br/> The illusions have stats inherited from Voltex: <br/> <font color='#ccff66'>5</font>x Health <br/> <font color='#ccff66'>5</font>x Armor <br/> <font color='#ccff66'>5</font>x Attack damage <br/> Base Attack Time: <font color='#ccff66'>1</font>s"
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_Description"					"Casting @Ability3 or [E3] creates an illusion at both the jump and landing points to fight nearby enemies. The illusions have your level of @Ability1 active. <br/> The illusions have stats inherited from Voltex: <br/> <font color='#ccff66'>5</font>x Health <br/> <font color='#ccff66'>5</font>x Armor <br/> <font color='#ccff66'>5</font>x Total Attack Damage <br/> Base Attack Time: <font color='#ccff66'>1</font>s"
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_one"					"Illusion Duration"
     	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix"						""
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_two"					"Illusion Increased Base Attack Damage"
@@ -11104,10 +11104,10 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_2_suffix_two"					""
 
 		"DOTA_Tooltip_modifier_voltex_rune_e_2" 							"Electron Effect"
-		"DOTA_Tooltip_modifier_voltex_rune_e_2_description" 				"PHased and dealing damage to enemies you pass through."
+		"DOTA_Tooltip_modifier_voltex_rune_e_2_description" 				"Phased and dealing damage to enemies you pass through."
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_3"								"[E3] Heaven's Charge"
-    	"DOTA_Tooltip_ability_voltex_rune_e_3_Description"					"After using @Ability3 the ability is swapped with Heaven's Charge. Heaven's charge allows you to quickly jump to a target location, dealing damage and stunning all targets for <font color='#ccff66'>1.5</font> seconds in a radius of <font color='#ccff66'>400</font> upon landing."
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_Description"					"After using @Ability3 - the ability is swapped with Heaven's Charge. Heaven's charge allows you to quickly jump to a target location, dealing damage and stunning all targets for <font color='#ccff66'>1.5</font>s in a radius of <font color='#ccff66'>400</font> upon landing."
     	"DOTA_Tooltip_ability_voltex_rune_e_3_property_one"					"Impact Damage"
     	"DOTA_Tooltip_ability_voltex_rune_e_3_suffix"						""
     	"DOTA_Tooltip_ability_voltex_rune_e_3_property_two"					"Max Distance"
@@ -11136,20 +11136,20 @@
     	"DOTA_Tooltip_ability_voltex_rune_r_1_suffix_two"					""
 
     	"DOTA_Tooltip_ability_voltex_rune_r_2"								"[R2] Lightning Bolt"
-    	"DOTA_Tooltip_ability_voltex_rune_r_2_Description"					"Attacks have a 30% to deal bonus Magical damage, stun the target for 0.2 seconds, and reduce the target's Armor for 4 seconds."
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_Description"					"Attacks have a 30% to deal bonus Magical damage, stun the target for 0.2 seconds, and reduce the target's Armor for <font color='#ccff66'>6</font> seconds."
     	"DOTA_Tooltip_ability_voltex_rune_r_2_property_one"					"Damage"
     	"DOTA_Tooltip_ability_voltex_rune_r_2_suffix"						"% of attack damage"
     	"DOTA_Tooltip_ability_voltex_rune_r_2_property_two"					"Armor Reduction"
     	"DOTA_Tooltip_ability_voltex_rune_r_2_suffix_two"					""
 
     	"DOTA_Tooltip_modifier_voltex_rune_r_2_rune_effect"					"Lightning Bolt"
-    	"DOTA_Tooltip_modifier_voltex_rune_r_2_rune_effect_Description"		"30%% chance to deal Magical damage, stun, and decrease Armor."
+    	"DOTA_Tooltip_modifier_voltex_rune_r_2_rune_effect_Description"		"30%% chance to deal increased damage, stun and decrease armor."
 
     	"DOTA_Tooltip_modifier_voltex_rune_r_2_armor_loss"					"Lightning Bolt"
     	"DOTA_Tooltip_modifier_voltex_rune_r_2_armor_loss_Description"		"Reduced Armor"
 		
 		"DOTA_Tooltip_ability_voltex_rune_r_3"								"[R3] Avatar"
-    	"DOTA_Tooltip_ability_voltex_rune_r_3_Description"					"After casting @Ability4, Voltex gains 600 attack range, 120 attack speed, additional base attack damage, and Magic Resistance for 12 seconds. [E1] illusions generated while Avatar is active will have Avatar permanently."
+    	"DOTA_Tooltip_ability_voltex_rune_r_3_Description"					"After casting @Ability4, Voltex gains 600 attack range, 120 attack speed, additional base attack damage, and Magic Resistance for 12 seconds. Lightning Remnant illusions generated while Avatar is active will have Avatar permanently."
     	"DOTA_Tooltip_ability_voltex_rune_r_3_property_one"					"Damage Increase"
     	"DOTA_Tooltip_ability_voltex_rune_r_3_suffix"						""
     	"DOTA_Tooltip_ability_voltex_rune_r_3_property_two"					"Magic Resistance Bonus"

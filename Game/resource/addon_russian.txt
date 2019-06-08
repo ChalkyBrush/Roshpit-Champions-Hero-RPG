@@ -10534,7 +10534,7 @@
 		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge_Lore"							""
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_1"								"[E1] Lightning Remnant"
-    	"DOTA_Tooltip_ability_voltex_rune_e_1_Description"					"В начале и в конце прыжка Voltex создаёт иллюзию. Иллюзия активирует Overcharge такого же уровня как и у Voltex. <br/> Иллюзии наследуют следующие атрибуты Voltex: <br/> <font color='#ccff66'>5</font>x Здоровье <br/> <font color='#ccff66'>5</font>x Броня <br/> <font color='#ccff66'>5</font>x Урон <br/> Базовая скорость атаки: <font color='#ccff66'>1</font> сек."
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_Description"					"В начале и в конце прыжка Voltex создаёт иллюзию. Иллюзия активирует Overcharge такого же уровня как и у Voltex. <br/> Иллюзии наследуют следующие атрибуты Voltex: <br/> <font color='#ccff66'>5</font>x Здоровье <br/> <font color='#ccff66'>5</font>x Броня <br/> <font color='#ccff66'>0</font>x Урон <br/> Базовая скорость атаки: <font color='#ccff66'>1</font> сек."
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_one"					"Длительность иллюзий"
     	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix"						""
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_two"					"Урон"
