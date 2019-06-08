@@ -6,7 +6,26 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/pickup/new_pickup.js" />
+		<include src="file://{resources}/scripts/custom_game/equipment/item_tooltip.js" />
 	</scripts>
+	<snippets>
+		<snippet name="pickup_contents">
+			<Panel class="PickupBoxRoot" hittest="false">
+				<Panel id="pickup-bg" hittest="false">
+				</Panel>
+				<Panel id="pickupbox-parent" hittest="false">
+					<Image id="pickup_player_portrait" />
+					<Panel id="ItemImagePickup-container" hittest="true">
+						<DOTAItemImage hittest="true" class="ItemImagePickup" id="ItemImagePickup"/>
+					</Panel>
+				</Panel>
+				<Label id="pickup_player_name" hittest="false"></Label>
+				<Image id="pickup-arrow" src="file://{images}/custom_game/ui/right-arrow.png" hittest="false"/>
+				<Label id="pickup_label" hittest="false"></Label>
+				<Label id="pickup_item_rarity" html="true" hittest="false"></Label>
+			</Panel>
+		</snippet>
+	</snippets>
 	<Panel class="main_pickup" hittest="false">
 		<Panel id="main_pickup_parent" hittest="false">
 

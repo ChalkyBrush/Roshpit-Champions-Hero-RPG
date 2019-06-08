@@ -1081,7 +1081,7 @@ function RPCItems:GearPickup(heroEntity, itemEntity)
  		local hero = heroEntity
  		local inventory_unit = heroEntity.InventoryUnit
 		RPCItems:EquipItem(slot, hero, inventory_unit, itemEntity)
-		CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemEntity:GetEntityIndex(), heroId=heroId, playerId=playerID, pickup="equip"} )
+		CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemEntity:GetEntityIndex(), heroId=heroId, playerId=playerID, pickup="equip", rarity=itemEntity.rarity, rarityColor=RPCItems:GetRarityColor(itemEntity.rarity)} )
         EmitGlobalSound("RPC.EquipItem")
         CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 	    if slot == 1 then
@@ -1280,7 +1280,7 @@ function RPCItems:AcceptNewItem(keys)
       local player = hero:GetPlayerOwner()
       local heroId = hero:GetClassname()
       if newItem then
-	      CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=newItem:GetEntityIndex(), heroId=heroId, playerId=playerID, pickup="equip"} )
+	      CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=newItem:GetEntityIndex(), heroId=heroId, playerId=playerID, pickup="equip", rarity=newItem.rarity, rarityColor=RPCItems:GetRarityColor(newItem.rarity)} )
 	      RPCItems:EquipItem(slot, hero, inventory_unit, newItem)
   	  end
     if slot == 1 then
@@ -1521,7 +1521,7 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 				end
 			end
 		elseif rollType == "greed" then
-			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=oldIndex, heroId=heroId, playerId=playerID, pickup="greed", roll=winningRoll} )
+			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=oldIndex, heroId=heroId, playerId=playerID, pickup="greed", roll=winningRoll, rarity=item.rarity, rarityColor=RPCItems:GetRarityColor(item.rarity)} )
 			if hero:HasAnyAvailableInventorySpace() then
 				if IsValidEntity(item) then
 					RPCItems:GiveItemToHero(hero, item)
@@ -1539,7 +1539,7 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 				item.expiryTime = Time() + 260				
 			end
 		elseif rollType == "need" then	
-			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=oldIndex, heroId=heroId, playerId=playerID, pickup="need", roll=winningRoll} )
+			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=oldIndex, heroId=heroId, playerId=playerID, pickup="need", roll=winningRoll, rarity=item.rarity, rarityColor=RPCItems:GetRarityColor(item.rarity)} )
 			local slot = RPCItems:getGearSlot(item.slot)
 			print("WEAPON EQUIP OUTSIDE BLOCK NEED")
 			print(slot)

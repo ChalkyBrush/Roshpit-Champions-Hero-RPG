@@ -366,13 +366,13 @@
 		"item_rpc_omniro_glyph_4_1_description" 				"Adds @glyph_property1 levels to <font color=\"#DDDDDD\">Normal</font> Element and it recharges @glyph_property2% faster."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_1"		"Glyph of Inspiration"
-		"item_rpc_omniro_glyph_5_1_description" 				"@glyph_property1 of the lowest level runes have @glyph_property2 extra orb charge (excluding <font color=\"#DDDDDD\">Normal</font> and <font color=\"#3289C7\">Dragon</font> Elements)."
+		"item_rpc_omniro_glyph_5_1_description" 				"@glyph_property1 of Omniro's lowest level elements (excluding <font color=\"#DDDDDD\">Normal</font> and <font color=\"#3289C7\">Dragon</font>) have @glyph_property2 extra orb charge."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_6_1"		"Glyph of Sapping"
 		"item_rpc_omniro_glyph_6_1_description" 				"Attacking an enemy restores @glyph_property1% of the current element's orb charge."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_7_1"		"Glyph of Elemental Specialization"
-		"item_rpc_omniro_glyph_7_1_description" 				"Omniro's highest level element (excluding <font color=\"#3289C7\">Dragon</font> Element) has @glyph_property1 additional maximum orb charges."
+		"item_rpc_omniro_glyph_7_1_description" 				"Omniro's highest level element (excluding <font color=\"#3289C7\">Dragon</font>) has @glyph_property1 additional maximum orb charges."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"Glyph of Chromaticity"
-		"item_rpc_omniro_glyph_5_a_description" 				"Omniro's Highest level element (excluding <font color=\"#3289C7\">Dragon</font> Element) gain <% OMNIRO_GLYPH_5_A_TOP_1_BONUS %>% damage amp, 2nd highest <% OMNIRO_GLYPH_5_A_TOP_2_BONUS%>%, 3rd <% OMNIRO_GLYPH_5_A_TOP_3_BONUS %>, and 4th highest <% OMNIRO_GLYPH_5_A_TOP_4_BONUS %>."
+		"item_rpc_omniro_glyph_5_a_description" 				"Omniro gains bonuses to Elemental damage types matching his four highest-level elements (excluding <font color=\"#3289C7\">Dragon</font>). The highest gains a %<% OMNIRO_GLYPH_5_A_TOP_1_BONUS %> bonus, 2nd highest <% OMNIRO_GLYPH_5_A_TOP_2_BONUS%>%, 3rd highest <% OMNIRO_GLYPH_5_A_TOP_3_BONUS %>, and 4th highest <% OMNIRO_GLYPH_5_A_TOP_4_BONUS %>."
