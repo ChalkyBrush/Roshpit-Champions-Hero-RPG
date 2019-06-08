@@ -87653,7 +87653,7 @@
         "SoundSet"  "Hero_DoomBringer"
         "precache"
         {
-            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevt"
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
             "particle"      "particles/units/heroes/hero_monkey_king/monkey_king_jump_stomp.vpcf"
             "particle"      "particles/roshpit/winterblight/zefnar_hit.vpcf"
             "particle"      "particles/roshpit/winterblight/zefnar_root_debuff.vpcf"
