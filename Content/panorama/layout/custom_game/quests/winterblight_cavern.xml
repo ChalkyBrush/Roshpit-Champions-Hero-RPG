@@ -1,0 +1,97 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/quests/winterblight_cavern.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/quests/winterblight_cavern.js" />
+	</scripts>
+	<snippets>
+		<snippet name="winter_cavern_main_snippet">
+			<Panel class="winter_cavern_main_root">		
+				<Panel id="winterblight_cavern_main_ui_bg" hittest="false"/>
+				<Panel id="winterblight_cavern_main_ui_container">
+					<Label id="winterblight_cavern_title" text="winterblight_cavern"/>
+					<Label id="winterblight_help_1" text="winterblight_cavern_help1"/>
+					<Panel class="winterblight_chamber_row" id="chamber-row-1">
+						<Panel class="chamber-button-container">
+							<Button class="winterblight_chamber_button" id="chamber-button-1">
+								<Image class="chamber-button-image" src="file://{images}/custom_game/ui/winterblight/frozen_foyer.jpg"/>
+								<Label class="chamber-button-label" text="winterblight_cavern_room1"/>
+								<Label class="chamber-button-number-label" text="1."/>
+							</Button>
+							<Label class="chamber-button-status-label" id='chamber-status-label-1'/>
+						</Panel>
+						<Panel class="chamber-button-container">
+							<Button class="winterblight_chamber_button" id="chamber-button-2">
+								<Image class="chamber-button-image" src="file://{images}/custom_game/ui/winterblight/aurora_passage.jpg"/>
+								<Label class="chamber-button-label" text="winterblight_cavern_room2"/>
+								<Label class="chamber-button-number-label" text="2."/>
+							</Button>
+							<Label class="chamber-button-status-label" id='chamber-status-label-2'/>
+						</Panel>
+					</Panel>	
+					<Panel class="winterblight_chamber_row" id="chamber-row-2">
+						<Panel class="chamber-button-container">
+							<Button class="winterblight_chamber_button" id="chamber-button-3">
+								<Image class="chamber-button-image" src="file://{images}/custom_game/ui/winterblight/crystarium.jpg"/>
+								<Label class="chamber-button-label" text="winterblight_cavern_room3"/>
+								<Label class="chamber-button-number-label" text="3."/>
+							</Button>
+							<Label class="chamber-button-status-label" id='chamber-status-label-3'/>
+						</Panel>
+						<Panel class="chamber-button-container">
+							<Button class="winterblight_chamber_button" id="chamber-button-4">
+								<Image class="chamber-button-image" src="file://{images}/custom_game/ui/winterblight/edge_of_winter.jpg"/>
+								<Label class="chamber-button-label" text="winterblight_cavern_room4"/>
+								<Label class="chamber-button-number-label" text="4."/>
+							</Button>
+							<Label class="chamber-button-status-label" id='chamber-status-label-4'/>
+						</Panel>
+					</Panel>	
+
+					<Button class="main_menu_button" id="winterblight_cavern_close_button" hittest="true" onactivate='CloseWinterCavern()'>
+						<Label id="winterblight_cavern_exit_label" text="arena_training_button_3"/>
+					</Button>
+				</Panel>				
+			</Panel>
+		</snippet>
+		<snippet name="winter_cavern_chamber">
+			<Panel class="winter_cavern_chamber_root">
+				<Panel id="winterblight_cavern_main_ui_bg" hittest="false"/>
+				<Panel id="winterblight_cavern_main_ui_container">
+					<Label id="winterblight_cavern_title" text="winterblight_cavern"/>
+					<Image id="chamber_main_image" src="file://{images}/custom_game/ui/winterblight/edge_of_winter.jpg"/>
+					<Label id="winterblight_help_1" text="winterblight_cavern_help2"/>
+					<Panel id="winter_cavern_event_buttons_container">
+					</Panel>
+					<Panel id="winter_cavern_event_details_container" class="invisible">
+						<Label id="winterblight_chamber_event_title"/>
+						<Label id="winterblight_chamber_event_description"/>
+						<Panel id="chamber_event_fragments_container">
+							<Image class="chamber_event_fragments_icon" src="file://{images}/custom_game/ui/winterblight/relic_fragments.png"/>
+							<Label id="winterblight_chamber_event_fragments" text="winterblight_cavern_fragments"/>
+						</Panel>
+					</Panel>
+
+					<Button class="main_menu_button" id="winterblight_cavern_close_button" hittest="true" onactivate='CloseWinterCavern()'>
+						<Label id="winterblight_cavern_exit_label" text="arena_training_button_3"/>
+					</Button>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="winter_cavern_event">
+			<Panel class="winter_cavern_event_root">
+					<Button id="winter_cavern_event_button" class="winter_cavern_button_not_highlighted">
+						<Label id="winter_event_button_label" />
+					</Button>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="winterblight_cavern_root" hittest="false">
+		<Panel id="winterblight_cavern_main_ui" class="invisible" hittest="false">
+		</Panel>
+	</Panel>
+
+
+</root>

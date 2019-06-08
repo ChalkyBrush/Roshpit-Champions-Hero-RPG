@@ -1,0 +1,229 @@
+.winterblight_cavern_root{
+	width:100%;
+	height:100%;
+}
+
+#winterblight_cavern_main_ui{
+	border-radius:8px;
+	border:1px solid #DDDDDD;
+	width:600px;
+	height:760px;
+	horizontal-align: center;
+	vertical-align: center;
+	margin-bottom:160px;
+}
+
+#winterblight_cavern_main_ui_bg{
+	opacity: 0.99;
+	background-color: #111111;
+	width:100%;
+	height:100%;
+}
+
+#winterblight_cavern_main_ui_container{
+	width:100%;
+	height:100%;
+	flow-children:down;
+}
+
+#winterblight_cavern_title{
+	color:#FFFFFF;
+	font-size:24px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	padding-top:10px;	
+	horizontal-align:center;
+	text-decoration: underline;
+}
+
+#winterblight_cavern_close_button{
+	border-bottom-left-radius:8px;
+	border-bottom-right-radius:8px;
+	vertical-align: bottom;
+	width:100%;
+	height:40px;
+	line-height:32px;
+
+}
+
+#winterblight_cavern_exit_label{
+	color:#FFFFFF;
+	font-size:24px;
+	vertical-align: center;
+	horizontal-align:center;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;		
+}
+
+#cavern_ui{
+	width:100%;
+	height:100%;
+}
+
+#winterblight_help_1{
+	color:#FFFFFF;
+	font-size:16px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	padding:20px;
+	padding-bottom:10px;
+	text-align: center;
+}
+
+.winterblight_chamber_row{
+	flow-children:right;
+	horizontal-align:center;
+	height:205px;
+	margin-bottom:5px;
+}
+
+.winterblight_chamber_button{
+	height:180px;
+	width:180px;
+	border-radius:6px;
+	margin-left:10px;
+	margin-right:10px;
+	border:3px solid black;
+}
+
+.winterblight_chamber_button:hover{
+	border:3px solid white;
+}
+
+.chamber-button-image{
+	width:100%;
+	height:100%;
+	opacity:0.9;
+}
+
+.chamber-button-label{
+	color:#FFFFFF;
+	font-size:20px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	padding:20px;
+	text-align: center;
+	vertical-align: bottom;
+	horizontal-align:center;
+	text-shadow: 1px 1px 1px #000000;
+}
+
+.chamber-button-number-label{
+	color:#FFFFFF;
+	font-size:20px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	padding:10px;
+	vertical-align: top;
+	text-shadow: 1px 1px 1px #000000;	
+}
+
+.chamber-button-container{
+	flow-children:down;
+}
+
+.chamber-button-status-label{
+	color:#AAAAAA;
+	font-size:18px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	vertical-align: top;
+	horizontal-align:center;
+	width:80%;
+	background-color: #000;
+	border-radius:6px;
+	text-align: center;
+	padding-top:2px;
+	box-shadow:1px 1px 1px #000;
+}
+
+#winter_cavern_event_buttons_container{
+	horizontal-align:center;
+	height:60px;
+	flow-children:right;
+}
+
+#winter_cavern_event_button{
+	border-radius:100%;
+	
+	width:50px;
+	height:50px;
+	margin-right:12px;
+}
+
+.winter_cavern_button_not_highlighted{
+/*	border:1px solid #000;*/
+}
+
+.winter_cavern_button_not_highlighted:hover{
+	background-color: gradient( linear, 0px 0%, 50px 0%, from( #1C4FA0 ), to( #0d326d ) );
+}
+
+.winter_cavern_event_button_highlighted{
+	border:1px solid white;
+	background-color: gradient( linear, 0px 0%, 50px 0%, from( #1C4FA0 ), to( #0d326d ) );	
+}
+
+#winter_event_button_label{
+	color:#FFFFFF;
+	font-size:20px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	padding:10px;
+	vertical-align: center;
+	text-shadow: 1px 1px 1px #000000;	
+	horizontal-align:center;
+}
+
+#chamber_main_image{
+	border-radius:10px;
+	border:1px solid black;
+	width:100px;
+	height:100px;
+	horizontal-align:center;
+	margin-top:10px;
+}
+
+#winter_cavern_event_details_container{
+	flow-children:down;
+	horizontal-align:center;
+	padding:12px;
+	width:90%;
+	border-radius:6px;
+	background-color: #111111;
+	border:1px solid black;
+}
+
+#winterblight_chamber_event_title{
+	color:#FFFFFF;
+	font-size:20px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	horizontal-align:center;	
+}
+
+#winterblight_chamber_event_description{
+	color:#FFFFFF;
+	font-size:16px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	padding-top:5px;	
+	horizontal-align:center;	
+}
+
+#winterblight_chamber_event_fragments{
+	color:#FFFFFF;
+	font-size:16px;
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
+	horizontal-align:center;	
+}
+
+#chamber_event_fragments_container{
+	horizontal-align:center;
+	background-color: #080808;
+	border-radius:4px;
+	padding:5px;
+	margin-top:5px;
+	padding-left:120px;
+	padding-right:120px;
+}
+
+.chamber_event_fragments_icon{
+	horizontal-align:left;
+	margin-right:5px;
+}
+
+#chamber_event_fragments_container{
+	flow-children:right;
+}

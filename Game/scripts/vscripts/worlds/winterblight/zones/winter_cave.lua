@@ -1,6 +1,6 @@
 function Winterblight:CaveGuideSpawn()
 	if not Winterblight.CaveGuideSpawned then
-		if Winterblight.CaveGuideReady then
+	-- 	if Winterblight.CaveGuideReady then
 			print("TRIGGERED")
 			Winterblight.CaveGuideSpawned = true
 			local spawnPos = GetGroundPosition(Vector(-5427, 6930), Events.GameMaster)
@@ -21,7 +21,7 @@ function Winterblight:CaveGuideSpawn()
 			guide:SetRenderColor(60, 50, 255)
 			local ability = guide:FindAbilityByName("winterblight_cave_guide_ability")
 			ability:ApplyDataDrivenModifier(guide, guide, "modifier_guide_entering", {duration = 60})
-		end
+	-- 	end
 	end
 end
 
