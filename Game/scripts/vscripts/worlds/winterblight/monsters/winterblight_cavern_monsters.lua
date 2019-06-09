@@ -410,7 +410,7 @@ function guide_entering_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if not caster.fallSpeed then
-		caster.fallSpeed = 15
+		caster.fallSpeed = 22
 	end
 	caster.fallSpeed = math.max(caster.fallSpeed - 0.1, 3)
 	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,caster.fallSpeed))

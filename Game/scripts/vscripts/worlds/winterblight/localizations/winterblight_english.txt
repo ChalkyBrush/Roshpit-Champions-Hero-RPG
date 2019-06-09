@@ -762,3 +762,13 @@
 		"winterblight_cavern_status_inactive"								"Inactive"
 
 		"winterblight_cavern_fragments"								"Relic Fragments:"
+
+		"winterblight_1_stone"										"Legend 1 Glacier Stone"
+		"winterblight_2_stone"										"Legend 2 Glacier Stones"
+		"winterblight_3_stone"										"Legend 3 Glacier Stones"
+
+		"winterblight_no_max"										"No Max"
+		"winterblight_event_max_yours"								"Your hero's maximum"
+		"winterblight_event_max"									"Maximum Event Level"	
+		"event_level_input"											"Choose the Power Level of this Event"
+		"start_chamber_event"										"Start Chamber Event"

@@ -59,7 +59,10 @@
 		<snippet name="winter_cavern_chamber">
 			<Panel class="winter_cavern_chamber_root">
 				<Panel id="winterblight_cavern_main_ui_bg" hittest="false"/>
-				<Panel id="winterblight_cavern_main_ui_container">
+				<Button id="winterblight_cavern_back_button" hittest="true" onactivate='CavernBack()'>
+					<Label id="back_button_label" text="←"/>
+				</Button>
+				<Panel id="winterblight_cavern_main_ui_container" hittest="false">
 					<Label id="winterblight_cavern_title" text="winterblight_cavern"/>
 					<Image id="chamber_main_image" src="file://{images}/custom_game/ui/winterblight/edge_of_winter.jpg"/>
 					<Label id="winterblight_help_1" text="winterblight_cavern_help2"/>
@@ -73,7 +76,53 @@
 							<Label id="winterblight_chamber_event_fragments" text="winterblight_cavern_fragments"/>
 						</Panel>
 					</Panel>
-
+					<Panel id="chamber_event_start_container" class="invisible">
+						<Panel id="chamber_event_start_container1" class="chamber_event_start_container">
+							<Panel class="chamber_event_max_level_row">
+								<Label class="max_level_row_left" text="ui_normal"/>
+								<Label class="max_level_row_right" text="1"/>
+							</Panel>
+							<Panel class="chamber_event_max_level_row">
+								<Label class="max_level_row_left" text="ui_elite"/>
+								<Label class="max_level_row_right" text="3"/>
+							</Panel>
+							<Panel class="chamber_event_max_level_row">
+								<Label class="max_level_row_left" text="ui_legend"/>
+								<Label class="max_level_row_right" text="5"/>
+							</Panel>
+							<Panel class="chamber_event_max_level_row">
+								<Label class="max_level_row_left" text="winterblight_1_stone"/>
+								<Label class="max_level_row_right" text="10"/>
+							</Panel>
+							<Panel class="chamber_event_max_level_row">
+								<Label class="max_level_row_left" text="winterblight_2_stone"/>
+								<Label class="max_level_row_right" text="15"/>
+							</Panel>
+							<Panel class="chamber_event_max_level_row">
+								<Label class="max_level_row_left" text="winterblight_3_stone"/>
+								<Label class="max_level_row_right" text="winterblight_no_max"/>
+							</Panel>				
+							<Panel class="chamber_event_max_level_row">
+								<Label class="max_level_row_left" id="your-max-level-title" text="winterblight_event_max_yours"/>
+								<Label class="max_level_row_right" id="your-max-level-label" text="ui_loading"/>
+							</Panel>				
+						</Panel>
+						<Panel id="chamber_event_start_container2" class="chamber_event_start_container invisible">
+							<Label id="event_max_main_label" text="winterblight_event_max"/>
+							<NumberEntry id="max_level_input" min="1" onmouseover="DOTAShowTextTooltip('#event_level_input')" onmouseout="DOTAHideTextTooltip()"/>
+							<Button id="start_event_button" hittest="true">
+								<Label id="start_event_button_label" text="start_chamber_event"/>
+							</Button>
+						</Panel>
+					</Panel>
+					<Panel id="chamber_event_records_container" class="invisible">
+						<Panel id="chamber_event_records_container1" class="chamber_event_records_container">
+							<Label text="ui_Loading" class="loading_records_text"/>
+						</Panel>
+						<Panel id="chamber_event_records_container2" class="chamber_event_records_container">
+							<Label text="ui_Loading" class="loading_records_text"/>
+						</Panel>
+					</Panel>
 					<Button class="main_menu_button" id="winterblight_cavern_close_button" hittest="true" onactivate='CloseWinterCavern()'>
 						<Label id="winterblight_cavern_exit_label" text="arena_training_button_3"/>
 					</Button>

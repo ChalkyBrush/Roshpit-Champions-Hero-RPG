@@ -865,6 +865,8 @@ function CustomAbilities:UnitsSpecial(msg)
 	elseif msg.omniro then
 		require('heroes/faceless_void/omni_mace')
 		omni_mace_ui_toggle(msg)
+	elseif msg.winterblight then
+		Winterblight:ProcessUIMessage(msg)
 	end
 end
 
