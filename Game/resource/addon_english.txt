@@ -19090,5 +19090,10 @@
 		"winterblight_event_max"									"Maximum Event Level"	
 		"event_level_input"											"Choose the Power Level of this Event"
 		"start_chamber_event"										"Start Chamber Event"
+
+		"cavern_record_yours_hero"									"Your record as"
+		"cavern_record_yours_all"									"Your Best Overall Record"
+		"cavern_record_global_hero"									"Global Record as"	
+		"cavern_record_global_all"									"Global Record"						
 	}	
 }

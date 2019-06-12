@@ -76,7 +76,8 @@ function Winterblight:ReturnRecordsToUI(msg)
 	print(msg.playerID)
 	local player = PlayerResource:GetPlayer(msg.PlayerID)
 	local steamID = tostring(PlayerResource:GetSteamAccountID(msg.PlayerID))
-	CustomGameEventManager:Send_ServerToPlayer(player, "load_winterblight_cavern_records", {wb_data = Winterblight.CavernMetaData, chamber_index = msg.chamber_index, event_index = msg.event_index, steam_id = steamID, difficulty = GameState:GetDifficultyFactor(), stones = Winterblight.Stones})
+	local steamID_long = tostring(PlayerResource:GetSteamID(msg.PlayerID))
+	CustomGameEventManager:Send_ServerToPlayer(player, "load_winterblight_cavern_records", {wb_data = Winterblight.CavernMetaData, chamber_index = msg.chamber_index, event_index = msg.event_index, steam_id = steamID, steam_id_long = steamID_long, difficulty = GameState:GetDifficultyFactor(), stones = Winterblight.Stones})
 end
 
 function Winterblight:ProcessChamberStart(msg)

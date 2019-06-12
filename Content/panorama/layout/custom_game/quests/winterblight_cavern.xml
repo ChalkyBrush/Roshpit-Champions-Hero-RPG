@@ -117,16 +117,34 @@
 					</Panel>
 					<Panel id="chamber_event_records_container" class="invisible">
 						<Panel id="chamber_event_records_container1" class="chamber_event_records_container">
-							<Label text="ui_Loading" class="loading_records_text"/>
+							<Label text="ui_Loading" class="loading_records_text" id="loading-records-left"/>
+							<Label class="records_title_top" id="records-title-top-left"/>
+							<Panel id="chamber-record-top1"/>
+							<Label class="records_title_bottom" id="records-title-bottom-left"/>
+							<Panel id="chamber-record-bottom1"/>
 						</Panel>
 						<Panel id="chamber_event_records_container2" class="chamber_event_records_container">
-							<Label text="ui_Loading" class="loading_records_text"/>
+							<Label text="ui_Loading" class="loading_records_text" id="loading-records-right"/>
+							<Label class="records_title_top" id="records-title-top-right"/>
+							<Panel id="chamber-record-top2"/>
+							<Label class="records_title_bottom" id="records-title-bottom-right"/>
+							<Panel id="chamber-record-bottom2"/>
 						</Panel>
 					</Panel>
 					<Button class="main_menu_button" id="winterblight_cavern_close_button" hittest="true" onactivate='CloseWinterCavern()'>
 						<Label id="winterblight_cavern_exit_label" text="arena_training_button_3"/>
 					</Button>
 				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="winter_cavern_individual_record">
+			<Panel class="winter_cavern_record_left">
+				<DOTAAvatarImage id="player_avatar"></DOTAAvatarImage>
+				<Panel id="hero_other_data_container">
+					<Image id="hero_portrait" heroid="5" />
+					<DOTAUserName class="dota_player_name" id="dota_player_name" text="playername"/>
+					<Label id="record_label" />
+				</Panel>						
 			</Panel>
 		</snippet>
 		<snippet name="winter_cavern_event">
