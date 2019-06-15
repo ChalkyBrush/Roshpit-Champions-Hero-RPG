@@ -1,7 +1,9 @@
 function Winterblight:InitWinterForest()
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-6400, 200), 8000, 999999, false)
-
-	Precache:WinterblightCavern()
+	if not Winterblight.CavernPrecached then
+		Winterblight.CavernPrecached = true
+		Precache:WinterblightCavern()
+	end
 	Timers:CreateTimer(3, function()
    		local positionTable = {Vector(-7680, 768), Vector(-6912, -372), Vector(-5865, -147), Vector(-5376,166), Vector(-5558, 1024), Vector(-5558, 1792)}
 	    for i = 1, #positionTable, 1 do
@@ -70,6 +72,10 @@ function Winterblight:InitWinterForest()
 end
 
 function Winterblight:OutsideCaveSpawn()
+	if not Winterblight.CavernPrecached then
+		Winterblight.CavernPrecached = true
+		Precache:WinterblightCavern()
+	end
 	Winterblight:SpawnStoneGuardian(Vector(-7680, 4608), Vector(0,-1))
 	Winterblight:SpawnStoneGuardian(Vector(-7415, 4985), Vector(0,-1))
 	Winterblight:SpawnStoneGuardian(Vector(-6985, 4928), Vector(0,-1))

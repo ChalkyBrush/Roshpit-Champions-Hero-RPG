@@ -232,7 +232,6 @@ function jump_think(event)
 	-- end
 	local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
 	if height < math.abs(ability.liftVelocity) then
-		print(height)
 		if not ability.rising then
 			caster:RemoveModifierByName("modifier_machinal_jump")
 		end
@@ -1533,7 +1532,6 @@ function ice_specter_attack_land(event)
 	ability.particleLock = false
 	if not ability.particleLock then
 		ability.particleLock = true
-		print("PFX!!")
 		local particleName = "particles/units/heroes/hero_leshrac/leshrac_lightning_impact.vpcf"
 		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
 		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_CUSTOMORIGIN, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -2459,7 +2457,6 @@ function grand_slacorr_slam_cast(event)
 end
 
 function grand_slacorr_die(event)
-	print("GRAND STALACORR DIE??")
 	local caster = event.caster
 	EmitSoundOn("Winterblight.Stalacorr.WindUp", caster)
 	Timers:CreateTimer(1, function()

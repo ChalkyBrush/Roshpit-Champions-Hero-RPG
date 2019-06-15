@@ -1006,7 +1006,7 @@ function CustomAbilities:ClickOpenDialogue(msg)
 			local queryUnit = EntIndexToHScript(msg.queryUnit)
 			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
 			if distance <= distance_cap then
-				CustomGameEventManager:Send_ServerToPlayer(player, "open_winterblight_cavern_ui", {player=playerID} )
+				CustomGameEventManager:Send_ServerToPlayer(player, "open_winterblight_cavern_ui", {player=playerID, winterblight_cavern=Winterblight.CavernData} )
 				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {} )
 			else
 				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})

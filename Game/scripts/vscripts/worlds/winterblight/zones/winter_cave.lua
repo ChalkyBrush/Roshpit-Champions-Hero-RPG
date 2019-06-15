@@ -1,6 +1,10 @@
 function Winterblight:CaveGuideSpawn()
 	if not Winterblight.CaveGuideSpawned then
 	-- 	if Winterblight.CaveGuideReady then
+			if not Winterblight.CavernPrecached then
+				Winterblight.CavernPrecached = true
+				Precache:WinterblightCavern()
+			end
 			Winterblight:InitCavernData()
 			Winterblight.CaveGuideSpawned = true
 			local spawnPos = GetGroundPosition(Vector(-5427, 6930), Events.GameMaster)
@@ -59,8 +63,14 @@ function Winterblight:InitCavernData()
 		Winterblight.CavernData.Chambers[i] = {}
 		Winterblight.CavernData.Chambers[i]["status"] = 0
 		Winterblight.CavernData.Chambers[i]["relic_fragments_reward"] = 100
-
+		Winterblight.CavernData.Chambers[i]["events"] = {}
+		for j = 1, 4, 1 do
+			Winterblight.CavernData.Chambers[i]["events"][j] = {}
+			Winterblight.CavernData.Chambers[i]["events"][j]["status"] = 0
+		end
 	end
+	Winterblight.CavernChamberVertices = {}
+	Winterblight.CavernChamberVertices[1] = Winterblight:GetVertices(1)
 end
 
 function Winterblight:ProcessUIMessage(msg)
@@ -81,6 +91,15 @@ function Winterblight:ReturnRecordsToUI(msg)
 end
 
 function Winterblight:ProcessChamberStart(msg)
+	if Winterblight.CavernData.Chambers[msg.chamber]["status"] > 0 then
+		return false
+	end
+	Winterblight.CavernData.Chambers[msg.chamber]["status"] = 1
+	Winterblight.CavernData.Chambers[msg.chamber]["events"][msg.event_number]["status"] = 1
+	if Beacons.cheats then
+		Winterblight.CavernData.Chambers[msg.chamber]["status"] = 0
+		Winterblight.CavernData.Chambers[msg.chamber]["events"][msg.event_number]["status"] = 0
+	end
 	if msg.chamber == 1 then
 		Winterblight:FrozenFoyer(msg)
 	end
@@ -88,5 +107,142 @@ end
 
 function Winterblight:FrozenFoyer(msg)
 	if msg.event_number == 1 then
+		Winterblight:FrozenFoyer1(msg)
 	end
+end
+
+function Winterblight:FrozenFoyer1(msg)
+	local unitsTable = {}
+	local positionTable = {Vector(-7040, 7552), Vector(-6809, 7936), Vector(-6519, 8320)}
+	for i = 1, #positionTable, 1 do
+		local fv = ((Vector(-5622, 6912) - positionTable[i])*Vector(1,1,0)):Normalized()
+		local unit = Winterblight:SpawnWinterRunner(positionTable[i], fv)
+		Winterblight:SetCavernUnit(unit, 1, positionTable[i], true)
+	end
+
+end
+
+function Winterblight:SetCavernUnit(unit, chamber_id, original_position, bDeaggro)
+	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_winterblight_cavern_unit", {})
+	unit.chamber_id = chamber_id
+	unit.deaggro = bDeaggro
+	unit.original_position = original_position
+end
+
+function Winterblight:SpawnWinterRunner(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_cavern_centaur", position, 1, 2, "Winterblight.Cavern.Centaur.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 50
+	stone:SetRenderColor(170, 200, 255)
+	stone.dominion = true
+	return stone
+end
+
+function Winterblight:IsWithinChamber(unit, chamber_id)
+	local compare_position = unit:GetAbsOrigin()
+	local is_in_region = false
+	for i = 1, #Winterblight.CavernChamberVertices[chamber_id], 1 do
+		if WallPhysics:IsWithinRegionA(compare_position, Winterblight.CavernChamberVertices[chamber_id][i][1], Winterblight.CavernChamberVertices[chamber_id][i][2]) then
+			is_in_region = true
+			break
+		end
+	end
+	return is_in_region
+end
+
+function Winterblight:GetVertices(chamber_id)
+	local vertices = {}
+	if chamber_id == 1 then
+		local height = 819
+		local width = 1550
+		local origin = Vector(-8584, 5664)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 667
+		local width = 1092
+		local origin = Vector(-9273, 5893)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 430
+		local width = 1027
+		local origin = Vector(-10110, 6224)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 1137
+		local width = 4157
+		local origin = Vector(-8646, 6968)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 802
+		local width = 501
+		local origin = Vector(-7930, 6038)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 1137
+		local width = 720
+		local origin = Vector(-11027, 6969)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 890
+		local width = 6560
+		local origin = Vector(-9248, 7928)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 1508
+		local width = 9150
+		local origin = Vector(-8863, 9046)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 1609
+		local width = 7120
+		local origin = Vector(-7848, 10460)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 888
+		local width = 2118
+		local origin = Vector(-12335, 10115)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 738
+		local width = 853
+		local origin = Vector(-11778, 10895)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 424
+		local width = 3000
+		local origin = Vector(-9910, 11401)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 870
+		local width = 2100
+		local origin = Vector(-10360, 12021)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+	end
+	return vertices
 end

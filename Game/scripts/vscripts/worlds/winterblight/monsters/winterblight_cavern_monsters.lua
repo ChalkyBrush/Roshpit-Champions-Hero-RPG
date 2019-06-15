@@ -72,7 +72,6 @@ function relict_jump_think(event)
 	-- end
 	local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
 	if height < math.abs(ability.liftVelocity) then
-		print(height)
 		if not ability.rising then
 			caster:RemoveModifierByName("modifier_monkey_jump")
 		end
@@ -431,6 +430,30 @@ function guide_entering_think(event)
 				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.GuideCaveIntro2", Events.GameMaster)
 				CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", caster, 4)
 			end)
+		end
+	end
+end
+
+function winter_stampede_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
+	for i = 1, #allies, 1 do
+		local ally = allies[1]
+		ability:ApplyDataDrivenModifier(caster, ally, "modifier_winter_centaur_stampede", {duration = event.duration})
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_spirit_breaker/spirit_breaker_haste_owner.vpcf", ally, 1)
+	end
+end
+
+function winter_cavern_unit_think(event)
+	local target = event.target
+	if Winterblight:IsWithinChamber(target, target.chamber_id) then
+	else
+		EmitSoundOn("Winterblight.Cavern.PopBack", target)
+		CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_lone_druid/lone_druid_loadout.vpcf", target:GetAbsOrigin(), 3)
+		FindClearSpaceForUnit(target, target.original_position, false)
+		if target.deaggro then
+			Dungeons:DeaggroUnit(target)
 		end
 	end
 end

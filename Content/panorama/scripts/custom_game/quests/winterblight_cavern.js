@@ -86,11 +86,24 @@ function ChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_contai
 	cavern_ui_panel.event_index = index
 	cavern_ui_panel.chamber_index = chamber_index
 	GameEvents.SendCustomGameEventToServer( "units_special", {winterblight: 1, records: 1, chamber_index: chamber_index, event_index: index} );
+
+	var start_button = cavern_ui_panel.FindChildTraverse('start_event_button')
+	set_start_button(start_button, chamber_index, index, 1)
 	// NumberEntry.max( integer integer_1 )
 }
 
-function EventStartButtonPress(){
-	GameEvents.SendCustomGameEventToServer( "units_special", {winterblight: 1, level: 0, chamber: 1, chamber_event: 1, start_event: 1} );
+function set_start_button(start_button, chamber_index, event_index, level){
+	start_button.SetPanelEvent('onactivate', function StartEvent() {
+		EventStartButtonPress(chamber_index, event_index, level)
+	});
+}
+
+
+function EventStartButtonPress(chamber_index, event_index, level){
+	GameEvents.SendCustomGameEventToServer( "units_special", {winterblight: 1, level: level, chamber: chamber_index, event_number: event_index, start_event: 1} );
+	Game.EmitSound("Winterblight.UI.ChamberEventStart")
+	Game.EmitSound("Winterblight.UI.ChamberSelect")
+	CloseWinterCavern()
 }
 
 function InitCavernUI(){
