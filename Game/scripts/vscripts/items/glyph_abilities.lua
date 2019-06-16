@@ -38,20 +38,20 @@ function neutral_glyph_4_3_think(event)
 			statTable["strength"] = 0
 			statTable["agility"] = 0
 			statTable["intelligence"] = 0
-			if item.property1name and statTable[item.property1name] ~= nil then
-				statTable[item.property1name] = statTable[item.property1name] + item.property1
+			if item.newItemTable.property1name and statTable[item.newItemTable.property1name] ~= nil then
+				statTable[item.newItemTable.property1name] = statTable[item.newItemTable.property1name] + item.newItemTable.property1
 				potionApplyStats = true
 			end
-			if item.property2name and statTable[item.property2name] ~= nil then
-				statTable[item.property2name] = statTable[item.property2name] + item.property2
+			if item.newItemTable.property2name and statTable[item.newItemTable.property2name] ~= nil then
+				statTable[item.newItemTable.property2name] = statTable[item.newItemTable.property2name] + item.newItemTable.property2
 				potionApplyStats = true
 			end
-			if item.property3name and statTable[item.property3name] ~= nil then
-				statTable[item.property3name] = statTable[item.property3name] + item.property3
+			if item.newItemTable.property3name and statTable[item.newItemTable.property3name] ~= nil then
+				statTable[item.newItemTable.property3name] = statTable[item.newItemTable.property3name] + item.newItemTable.property3
 				potionApplyStats = true
 			end
-			if item.property4name and statTable[item.property4name] ~= nil then
-				statTable[item.property4name] = statTable[item.property4name] + item.property4
+			if item.newItemTable.property4name and statTable[item.newItemTable.property4name] ~= nil then
+				statTable[item.newItemTable.property4name] = statTable[item.newItemTable.property4name] + item.newItemTable.property4
 				potionApplyStats = true
 			end
 			if potionApplyStats then
@@ -385,8 +385,8 @@ function use_glyph_book(event)
 	local url = ROSHPIT_URL.."/champions/updateGlyphRecipe?"
 	url = url.."steam_id="..steamID
 	url = url.."&hero="..HerosCustom:ConvertRPCNameToStringHeroName(class)
-	url = url.."&tier="..book.property1
-	url = url.."&column="..book.property2
+	url = url.."&tier="..book.newItemTable.property1
+	url = url.."&column="..book.newItemTable.property2
 	print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		local resultTable = {}

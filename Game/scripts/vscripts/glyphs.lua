@@ -160,7 +160,7 @@ function Glyphs:SaveResources()
 				url = url.."&amount="..amount
 				url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 				CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-					SaveLoad:NewKey()
+					--SaveLoad:NewKey()
 					local resultTable = {}
 					print( "GET response:\n" )
 					for k,v in pairs( result ) do
@@ -241,26 +241,34 @@ end
 function Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText, useDescription, deathLocation, requiredHero, minLevel, property1, dropIndex)
     local itemVariant = variantName
     local item = RPCItems:CreateItem(itemVariant, nil, nil)
-    item.rarity = rarityName
-    local rarityValue = RPCItems:GetRarityFactor(item.rarity)
-    local itemName = itemNameText
-    local suffix = ""
-    local prefix = ""
-    item.slot = -1
-    item.gear = false
-    item.glyph = true
-    item.property1 = property1
-    item.minLevel = minLevel
-    item.requiredHero = requiredHero
-    RPCItems:SetTableValues(item, itemName, false, slotText, RPCItems:GetRarityColor(item.rarity), item.rarity, "", "", RPCItems:GetRarityFactor(item.rarity))
+    item.newItemTable.rarity = rarityName
+	item.newItemTable.itemPrefix = ""
+	item.newItemTable.itemSuffix = ""
+	item.newItemTable.rarityFactor = RPCItems:GetRarityFactor(item.newItemTable.rarity)
+	item.newItemTable.qualityColor = RPCItems:GetRarityColor(item.newItemTable.rarity)
+	item.newItemTable.stackedConsumable = true
+	item.newItemTable.consumable = false
+	item.newItemTable.itemDescription = description
+	item.newItemTable.itemDescription = slotText
+	item.newItemTable.useDescription = useDescription
+    item.newItemTable.item_slot = -1
+	item.newItemTable.qualityName = rarityName
+	item.newItemTable.glyph = 1
+    item.newItemTable.gear = false
+    item.newItemTable.glyph = true
+    item.newItemTable.property1 = property1
+    item.newItemTable.minLevel = minLevel
+    item.newItemTable.requiredHero = requiredHero
+    RPCItems:SetTableValues(item, itemNameText, false, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, "", "", RPCItems:GetRarityFactor(item.newItemTable.rarity))
     if requiredHero == "tooltip_neutral" then
-    	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = false, itemDescription = description, qualityColor = RPCItems:GetRarityColor(item.rarity), itemDescription = slotText, qualityName = rarityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = RPCItems:GetRarityFactor(item.rarity), stackedConsumable = true, minLevel = minLevel, useDescription = useDescription, glyph = 1 } )
     else
-    	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = false, itemDescription = description, qualityColor = RPCItems:GetRarityColor(item.rarity), itemDescription = slotText, qualityName = rarityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = RPCItems:GetRarityFactor(item.rarity), stackedConsumable = true, minLevel = minLevel, useDescription = useDescription, requiredHero = requiredHero, glyph = 1 } )
+		item.newItemTable.requiredHero = requiredHero
     end
     CustomNetTables:SetTableValue("weapons", "item"..tostring(item:GetEntityIndex()), {} )
     RPCItems:RemovePropertyValues(item)
-    RPCItems:ClearRollTableFromIndex(item)
+
+    RPCItems:ItemUpdateCustomNetTables(item)
+    -- DeepPrintTable(item)
     if dropIndex == 0 then
 	    local drop = CreateItemOnPositionSync( deathLocation, item )
 	    local position = deathLocation
@@ -288,16 +296,21 @@ function Glyphs:PlaceGlyphInSlot(msg)
 	local item = EntIndexToHScript(msg.itemIndex)
 	local glyphSlot = msg.glyphSlot
 	hero:Stop()
+	print("[Glyphs:PlaceGlyphInSlot] +++++++++++++++++++++++++++++++++++++++++++++")
+	DeepPrintTable(msg)
 	print(msg.heroIndex)
 	print('glyph SLOT'..msg.glyphSlot)
-	if item.glyph then
+	if item.newItemTable.glyph then
+		print("PlaceGlyphInSlot 1")
 		local applicable = Glyphs:CheckApplicable(item, hero)
 		if applicable == 1 then
+			print("PlaceGlyphInSlot 2")
 			hero:TakeItem(item)
 			print(tostring(msg.heroIndex).."-glyph-"..tostring(glyphSlot))
 			Glyphs:ApplyGlyph(hero, glyphSlot, msg.itemIndex)
 			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "new_glyph_inserted", {glyphSlot = glyphSlot})
 		else
+			print("PlaceGlyphInSlot 3")
 			Timers:CreateTimer(0.03, function()
 				hero:Stop()
 			end)
@@ -307,17 +320,24 @@ function Glyphs:PlaceGlyphInSlot(msg)
 end
 
 function Glyphs:CheckApplicable(glyph, hero)
+	print("[Glyphs:CheckApplicable] +++++++++++++++++++++++++")
 	print(hero:GetUnitName())
-	print(glyph.requiredHero)
-	if hero:GetUnitName() == glyph.requiredHero or glyph.requiredHero == "tooltip_neutral" then
+	print(glyph.newItemTable.requiredHero)
+	local modifierToFind = ""
+	if glyph.newItemTable.property1 then
+		modifierToFind = glyph.newItemTable.property1
+	else
+		return "No modifier name."
+	end
+	if hero:GetUnitName() == glyph.newItemTable.requiredHero or glyph.newItemTable.requiredHero == "tooltip_neutral" then
 	else
 		return "Can't Equip"
 	end
-	if hero:GetLevel() < glyph.minLevel then
+	if hero:GetLevel() < glyph.newItemTable.minLevel then
 		return "Level Requirement"
-	elseif (not hero:GetUnitName() == glyph.requiredHero and not glyph.requiredHero == "tooltip_neutral") then
+	elseif (not hero:GetUnitName() == glyph.newItemTable.requiredHero and not glyph.newItemTable.requiredHero == "tooltip_neutral") then
 		return "Can't Equip"
-	elseif hero:HasModifier(glyph.property1) then
+	elseif hero:HasModifier(modifierToFind) then
 		return "Can't Have Duplicate Glyphs"
 	else
 		return 1
@@ -327,7 +347,7 @@ end
 function Glyphs:ApplyGlyph(heroEntity, glyphSlot, glyphIndex)
 	local glyph = EntIndexToHScript(glyphIndex)
 	glyph.pickedUp = true
-	glyph.hero = heroEntity
+	glyph.newItemTable.hero = heroEntity
 	if Glyphs:ValidateGlyph(glyph, heroEntity) then
 		CustomNetTables:SetTableValue("skill_tree", tostring(heroEntity:GetPlayerOwnerID()).."-glyph-"..tostring(glyphSlot), {glyphIndex = glyphIndex})
 		heroEntity.glyphUnit:AddItem(glyph)
@@ -448,7 +468,7 @@ function Glyphs:RemoveGlyphBonusesAndRecalculateAll(heroEntity)
 		local glyph = CustomNetTables:GetTableValue("skill_tree", tostring(heroEntity:GetPlayerOwnerID()).."-glyph-"..tostring(j))
 			if glyph.glyphIndex > 0 then
 			glyph = EntIndexToHScript(glyph.glyphIndex)
-			local glyphModifierName = glyph.property1
+			local glyphModifierName = glyph.newItemTable.property1
 			glyph:ApplyDataDrivenModifier(heroEntity.glyphUnit, heroEntity, glyphModifierName, {})
 		end
 	end
@@ -473,7 +493,7 @@ function Glyphs:UpgradeArcaneTier(msg)
 		url = url.."&cost="..cost
 		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-			SaveLoad:NewKey()
+			--SaveLoad:NewKey()
 			local resultTable = {}
 			print( "GET response:\n" )
 			for k,v in pairs( result ) do
@@ -557,7 +577,7 @@ function Glyphs:GlyphPurchase(msg)
 		url = url.."&amount="..crystalReduce
 		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-			SaveLoad:NewKey()
+			--SaveLoad:NewKey()
 			local resultTable = {}
 			print( "GET response:\n" )
 			for k,v in pairs( result ) do
@@ -627,6 +647,7 @@ function Glyphs:RollGlyphAll(variantName, position, heroIndex)
 	print(modifierName)
 
 	local glyph = Glyphs:CreateGlyphItem(variantName, rarityName, nil, slotText, useDescription, position, tooltipName, minLevel, modifierName, heroIndex)
+	RPCItems:ItemUpdateCustomNetTables(glyph)
 	return glyph
 end
 
@@ -659,7 +680,7 @@ function Glyphs:ReanimationPurchase(msg)
 		url = url.."&amount="..-30000
 		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-			SaveLoad:NewKey()
+			--SaveLoad:NewKey()
 			local resultTable = {}
 			print( "GET response:\n" )
 			for k,v in pairs( result ) do
@@ -773,6 +794,9 @@ function Glyphs:GetGlyphAvailability(msg)
 end
 
 function Glyphs:FormatRecipeResults(resultTable)
+	if not resultTable then
+		return {}
+	end
 	DeepPrintTable(resultTable)
 	if next(resultTable) == nil then
 		return {}
@@ -800,22 +824,22 @@ end
 function Glyphs:RollGlyphBook(deathLocation, class, row, column)
 	local rarityName = Glyphs:GetRarityFromGlyphTier(row, column)
     local item = RPCItems:CreateConsumable("item_rpc_"..class.."_glyph_book", rarityName, "glyph_book", "glyph_book", false, "Consumable", "DOTA_Tooltip_ability_glyph_book_desc")
-    item.glyphBook = true
-	item.property1 = row
-	item.property1name = "row"
-	RPCItems:SetPropertyValues(item, item.property1, "item_row", "#99FF66",  1)
+    item.newItemTable.glyphBook = true
+	item.newItemTable.property1 = row
+	item.newItemTable.property1name = "row"
+	RPCItems:SetPropertyValues(item, item.newItemTable.property1, "item_row", "#99FF66",  1)
 
-	item.property2 = column
-	item.property2name = "column"
-	RPCItems:SetPropertyValues(item, item.property2, "item_column", "#99FF66",  2)
+	item.newItemTable.property2 = column
+	item.newItemTable.property2name = "column"
+	RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_column", "#99FF66",  2)
 
 	local glyphName = "DOTA_Tooltip_ability_item_rpc_"..class.."_glyph_"..row.."_"..column
-	item.property3 = 0
-	item.property3name = glyphName
+	item.newItemTable.property3 = 0
+	item.newItemTable.property3name = glyphName
 	RPCItems:SetPropertyValues(item, 0, glyphName, "#D378ED",  3)
 
-	item.property4 = 0
-	item.property4name = ""
+	item.newItemTable.property4 = 0
+	item.newItemTable.property4name = ""
 	RPCItems:SetPropertyValues(item, 0, "", "#FFFFFF",  4)
     local drop = CreateItemOnPositionSync( deathLocation, item )
     local position = deathLocation
@@ -827,22 +851,22 @@ function Glyphs:CreateGlyphBook(itemName, row, column)
 	class = string.gsub(class, "_glyph_book", "")
 	local rarityName = Glyphs:GetRarityFromGlyphTier(row, column)
     local item = RPCItems:CreateConsumable(itemName, rarityName, "glyph_book", "glyph_book", false, "Consumable", "DOTA_Tooltip_ability_glyph_book_desc")
-    item.glyphBook = true
-	item.property1 = row
-	item.property1name = "row"
-	RPCItems:SetPropertyValues(item, item.property1, "item_row", "#99FF66",  1)
+    item.newItemTable.glyphBook = true
+	item.newItemTable.property1 = row
+	item.newItemTable.property1name = "row"
+	RPCItems:SetPropertyValues(item, item.newItemTable.property1, "item_row", "#99FF66",  1)
 
-	item.property2 = column
-	item.property2name = "column"
-	RPCItems:SetPropertyValues(item, item.property2, "item_column", "#99FF66",  2)
+	item.newItemTable.property2 = column
+	item.newItemTable.property2name = "column"
+	RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_column", "#99FF66",  2)
 
 	local glyphName = "DOTA_Tooltip_ability_item_rpc_"..class.."_glyph_"..row.."_"..column
-	item.property3 = 0
-	item.property3name = glyphName
+	item.newItemTable.property3 = 0
+	item.newItemTable.property3name = glyphName
 	RPCItems:SetPropertyValues(item, 0, glyphName, "#D378ED",  3)
 
-	item.property4 = 0
-	item.property4name = ""
+	item.newItemTable.property4 = 0
+	item.newItemTable.property4name = ""
 	RPCItems:SetPropertyValues(item, 0, "", "#FFFFFF",  4)
 
 	return item

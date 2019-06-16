@@ -11,6 +11,7 @@ function Curator:StopUnit(msg)
 end
 
 function Curator:Curate(msg)
+	print("curator ++++++++++++++++++++++++++++++++++++")
 	local item = EntIndexToHScript(msg.item)
 	local playerID = msg.playerID
 	
@@ -63,11 +64,11 @@ function Curator:CurateBasicEquipment(playerID)
     local rarity = "uncommon"
 
 
-    item.rarity = rarity
+    item.newItemTable.rarity = rarity
     local rarityValue = 2
-    local itemName = BASE_BOOT_NAME_TABLE[randomHelm]
-    item.slot = "feet"
-    item.gear = true
+    local item_name = BASE_BOOT_NAME_TABLE[randomHelm]
+    item.newItemTable.item_slot = "feet"
+    item.newItemTable.gear = true
     local prefix = ""
     local additional_prefix = ""
     local suffix = RPCItems:RollFootProperty1(item, xpBounty, randomHelm)
@@ -81,10 +82,10 @@ function Curator:CurateBasicEquipment(playerID)
     end
     if rarityValue>=4 then
     	additional_prefix = RPCItems:RollFootProperty4(item, xpBounty)
-    	itemName = additional_prefix.." "..itemName
+    	item_name = additional_prefix.." "..item_name
     end
 
-    RPCItems:SetTableValues(item, itemName, false, "Slot: Feet", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
+    RPCItems:SetTableValues(item, item_name, false, "Slot: Feet", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
     Curator:GetItemInfoFromClientAndSendToWeb(item, playerID)
     --
 
@@ -92,11 +93,11 @@ function Curator:CurateBasicEquipment(playerID)
 	local itemVariant = BASE_HEAD_TABLE[randomHelm]
     local item = RPCItems:CreateItem(itemVariant, nil, nil)
 
-    item.rarity = rarity
+    item.newItemTable.rarity = rarity
     local rarityValue = 2
-    local itemName = BASE_HEAD_NAME_TABLE[randomHelm]
-    item.slot = "head"
-    item.gear = true
+    local item_name = BASE_HEAD_NAME_TABLE[randomHelm]
+    item.newItemTable.item_slot = "head"
+    item.newItemTable.gear = true
 
     local prefix = ""
     local additional_prefix = ""
@@ -111,10 +112,10 @@ function Curator:CurateBasicEquipment(playerID)
     end
     if rarityValue>=4 then
     	additional_prefix = RPCItems:RollHoodProperty4(item, xpBounty)
-    	itemName = additional_prefix.." "..itemName
+    	item_name = additional_prefix.." "..item_name
     end
 
-    RPCItems:SetTableValues(item, itemName, false, "Slot: Head", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
+    RPCItems:SetTableValues(item, item_name, false, "Slot: Head", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
     Curator:GetItemInfoFromClientAndSendToWeb(item, playerID)
 
     --
@@ -123,11 +124,11 @@ function Curator:CurateBasicEquipment(playerID)
 	local itemVariant = BASE_HAND_TABLE[randomHelm]
     local item = RPCItems:CreateItem(itemVariant, nil, nil)
 
-    item.rarity = rarity
+    item.newItemTable.rarity = rarity
     local rarityValue = 2
-    local itemName = BASE_HAND_NAME_TABLE[randomHelm]
-    item.slot = "hands"
-    item.gear = true
+    local item_name = BASE_HAND_NAME_TABLE[randomHelm]
+    item.newItemTable.item_slot = "hands"
+    item.newItemTable.gear = true
     local suffix = RPCItems:RollHandProperty1(item, xpBounty, randomHelm)
     local prefix = ""
     local additional_prefix = ""
@@ -142,10 +143,10 @@ function Curator:CurateBasicEquipment(playerID)
     end
     if rarityValue>=4 then
     	additional_prefix = RPCItems:RollHandProperty4(item, xpBounty)
-    	itemName = additional_prefix.." "..itemName
+    	item_name = additional_prefix.." "..item_name
     end
 
-    RPCItems:SetTableValues(item, itemName, false, "Slot: Hands", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
+    RPCItems:SetTableValues(item, item_name, false, "Slot: Hands", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
     Curator:GetItemInfoFromClientAndSendToWeb(item, playerID)
 
     --
@@ -154,12 +155,12 @@ function Curator:CurateBasicEquipment(playerID)
 	local itemVariant = BASE_BODY_TABLE[randomHelm]
     local item = RPCItems:CreateItem(itemVariant, nil, nil)
 
-    item.rarity = rarity
+    item.newItemTable.rarity = rarity
     local rarityValue = 2
-    local itemName = BASE_BODY_NAME_TABLE[randomHelm]
+    local item_name = BASE_BODY_NAME_TABLE[randomHelm]
 
-    item.slot = "body"
-    item.gear = true
+    item.newItemTable.item_slot = "body"
+    item.newItemTable.gear = true
     local prefix = ""
     local additional_prefix = ""
     local suffix = RPCItems:RollBodyProperty1(item, xpBounty, randomHelm)
@@ -173,10 +174,10 @@ function Curator:CurateBasicEquipment(playerID)
     end
     if rarityValue>=4 then
     	additional_prefix = RPCItems:RollBodyProperty4(item, xpBounty)
-    	itemName = additional_prefix.." "..itemName
+    	item_name = additional_prefix.." "..item_name
     end
 
-    RPCItems:SetTableValues(item, itemName, false, "Slot: Body", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
+    RPCItems:SetTableValues(item, item_name, false, "Slot: Body", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
     Curator:GetItemInfoFromClientAndSendToWeb(item, playerID)
     --
 
@@ -188,13 +189,13 @@ function Curator:CurateBasicEquipment(playerID)
 
 
 
-    item.rarity = rarity
+    item.newItemTable.rarity = rarity
     local rarityValue = 2
-    local itemName = BASE_AMULET_NAME_TABLE[randomHelm]
+    local item_name = BASE_AMULET_NAME_TABLE[randomHelm]
     local suffix = ""
     local prefix = ""
-    item.slot = "amulet"
-    item.gear = true
+    item.newItemTable.item_slot = "amulet"
+    item.newItemTable.gear = true
     local tier, value, propertyName = RPCItems:RollAmuletProperty1(item, xpBounty, randomHelm)
     if tier == 1 then
         suffix = SUFFIX_TIER_1_SKILL_TABLE[RandomInt(1, 5)]
@@ -204,9 +205,9 @@ function Curator:CurateBasicEquipment(playerID)
         suffix = propertyName
     end
     if tier > 0 then
-        item.property1 = value
-        item.property1name = propertyName
-        RPCItems:SetPropertyValues(item, item.property1, "rune", "#7DFF12",  1)
+        item.newItemTable.property1 = value
+        item.newItemTable.property1name = propertyName
+        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "rune", "#7DFF12",  1)
     end
 
     if rarityValue >= 2 then
@@ -219,29 +220,29 @@ function Curator:CurateBasicEquipment(playerID)
             prefix = propertyName
         end
         if tier > 0 then
-            item.property2 = value
-            item.property2name = propertyName
-            RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+            item.newItemTable.property2 = value
+            item.newItemTable.property2name = propertyName
+            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12",  2)
         end
     end
     if rarityValue>=3 then
         local tier, value, propertyName = RPCItems:RollSkillProperty()
         if tier > 0 then
-            item.property3 = value
-            item.property3name = propertyName
-            RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
+            item.newItemTable.property3 = value
+            item.newItemTable.property3name = propertyName
+            RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12",  3)
         end
     end
     if rarityValue>=4 then
         local tier, value, propertyName = RPCItems:RollSkillProperty()
         if tier > 0 then
-            item.property4 = value
-            item.property4name = propertyName
-            RPCItems:SetPropertyValues(item, item.property4, "rune", "#7DFF12",  4)
+            item.newItemTable.property4 = value
+            item.newItemTable.property4name = propertyName
+            RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12",  4)
         end
     end
 
-    RPCItems:SetTableValues(item, itemName, false, "Slot: Trinket", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
+    RPCItems:SetTableValues(item, item_name, false, "Slot: Trinket", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
     Curator:GetItemInfoFromClientAndSendToWeb(item, playerID)
 end
 
@@ -338,10 +339,12 @@ function Curator:FinishGettingClientData(msg)
 	local language = msg.language
 	local localizedItemName = Curator:urlencode(msg.localizedName)
 	local itemTexture = msg.itemTexture
-
-	DeepPrintTable(msg)
-	DeepPrintTable(msg.property1)
-	print(msg.property1["0"])
+	print("[Curator:FinishGettingClientData] ")
+	-- DeepPrintTable(msg)
+	-- print("[Curator:FinishGettingClientData] 2+++++++++++++++++++++++++++++++++++++++++++")
+	-- DeepPrintTable(msg.property1)
+	-- print("[Curator:FinishGettingClientData] 3+++++++++++++++++++++++++++++++++++++++++++")
+	-- print(msg.property1["0"])
 	if msg.property1 then
 		if next(msg.property1) == nil then
 			property1color = ""
@@ -352,7 +355,7 @@ function Curator:FinishGettingClientData(msg)
 			property1value = ""
 		else
 			property1color = msg.property1["0"]:gsub('#', "")
-			property1name = item.property1name
+			property1name = item.newItemTable.property1name
 			property1localized = Curator:urlencode(msg.property1["2"])
 			property1special = msg.property1["3"]
 			if type(property1special) == "table" then
@@ -367,7 +370,7 @@ function Curator:FinishGettingClientData(msg)
 			else
 				property1specialLocalized = Curator:urlencode(property1specialLocalized)
 			end
-			property1value = item.property1
+			property1value = item.newItemTable.property1
 		end
 	end
 	if msg.property2 then
@@ -380,7 +383,7 @@ function Curator:FinishGettingClientData(msg)
 			property2value = ""
 		else
 			property2color = msg.property2["0"]:gsub('#', "")
-			property2name = item.property2name
+			property2name = item.newItemTable.property2name
 			property2localized = Curator:urlencode(msg.property2["2"])
 			property2special = msg.property2["3"]
 			if type(property2special) == "table" then
@@ -394,7 +397,7 @@ function Curator:FinishGettingClientData(msg)
 			else
 				property2specialLocalized = Curator:urlencode(property2specialLocalized)
 			end
-			property2value = item.property2
+			property2value = item.newItemTable.property2
 		end
 	end
 	if msg.property3 then
@@ -408,7 +411,7 @@ function Curator:FinishGettingClientData(msg)
 		else
 			DeepPrintTable(msg.property3)
 			property3color = msg.property3["0"]:gsub('#', "")
-			property3name = item.property3name
+			property3name = item.newItemTable.property3name
 			property3localized = Curator:urlencode(msg.property3["2"])
 			property3special = msg.property3["3"]
 			if type(property3special) == "table" then
@@ -422,7 +425,7 @@ function Curator:FinishGettingClientData(msg)
 			else
 				property3specialLocalized = Curator:urlencode(property3specialLocalized)
 			end
-			property3value =item.property3
+			property3value =item.newItemTable.property3
 		end
 	end
 	if msg.property4 then
@@ -435,7 +438,7 @@ function Curator:FinishGettingClientData(msg)
 			property4value = ""
 		else
 			property4color = msg.property4["0"]:gsub('#', "")
-			property4name = item.property4name
+			property4name = item.newItemTable.property4name
 			property4localized = Curator:urlencode(msg.property4["2"])
 			property4special = msg.property4["3"]
 			if type(property4special) == "table" then
@@ -450,7 +453,7 @@ function Curator:FinishGettingClientData(msg)
 			else
 				property4specialLocalized = Curator:urlencode(property4specialLocalized)
 			end
-			property4value = item.property4
+			property4value = item.newItemTable.property4
 		end
 	end
 
@@ -462,8 +465,8 @@ function Curator:FinishGettingClientData(msg)
 	url = url.."&localizedItemName="..localizedItemName
 	url = url.."&texture="..itemTexture
 	url = url.."&item_variant="..item:GetAbilityName()
-	url = url.."&rarity="..item.rarity
-	url = url.."&equipSlot="..item.slot
+	url = url.."&rarity="..item.newItemTable.rarity
+	url = url.."&equipSlot="..item.newItemTable.item_slot
 	url = url.."&damageType="..item:GetAbilityDamageType()
 	url = url.."&element1="..item:GetSpecialValueFor("element_one")
 	url = url.."&element2="..item:GetSpecialValueFor("element_two")
@@ -509,7 +512,7 @@ function Curator:FinishGettingClientData(msg)
 			local resultTable = JSON:decode(result.Body)
 			--SUCCESS
 		else
-			--FAIL
+			print("Curator ++++ StatusCode != 200")
 		end
 	end )
 end

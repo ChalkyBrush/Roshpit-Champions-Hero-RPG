@@ -290,11 +290,12 @@ function Stars:StarEventPlayer(starEventName, hero)
 					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
 				end 
 				Stars:StarEventSolo(starEventName, hero)
-			elseif starEventName == "weapon" then
+			elseif starEventName == "weapon" and hero.weapon then
 				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
-				if hero.weapon.level >= 40 then
+				local weaponLevel1 = hero.weapon.newItemTable.level
+				if weaponLevel1 >= 40 then
 					starAmount = 3
-				elseif hero.weapon.level >= 30 then
+				elseif weaponLevel1 >= 30 then
 					starAmount = 2
 				else
 					starAmount = 1

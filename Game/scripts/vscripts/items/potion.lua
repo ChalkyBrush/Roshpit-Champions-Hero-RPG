@@ -1,6 +1,6 @@
 function usePotion(event)
 	local caster = event.caster
-	local ability = event.ability
+	local ability = event.ability.newItemTable
 
 	local mult = getPotionMultipler(caster)
 
@@ -142,10 +142,10 @@ function use_web_prem_token(event)
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local url = ROSHPIT_URL.."/web-premium/consumed?"
 	url = url.."steam_id="..steamID
-	url = url.."&prem_id="..item.property1
+	url = url.."&prem_id="..item.newItemTable.property1
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-		SaveLoad:NewKey()
+		--SaveLoad:NewKey()
 		print( "POST response:\n" )
 		for k,v in pairs( result ) do
 			print( string.format( "%s : %s\n", k, v ) )

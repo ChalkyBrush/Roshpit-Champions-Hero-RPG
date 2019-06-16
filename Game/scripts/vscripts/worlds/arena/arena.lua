@@ -992,7 +992,7 @@ function Arena:SaveChampionsLeagueData(hero, battleRank, score)
 	if hero.roshpitID == nil then
 		return
 	end
-	SaveLoad:NewKey()
+	--SaveLoad:NewKey()
 	url = url.."steam_id="..steamID
 	url = url.."&hero_id="..hero.roshpitID
 	url = url.."&rank="..battleRank
@@ -1001,7 +1001,7 @@ function Arena:SaveChampionsLeagueData(hero, battleRank, score)
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	if Arena:DetermineIfSaveIsNecessary(hero, battleRank, score) then
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-			SaveLoad:NewKey()
+			--SaveLoad:NewKey()
 			local resultTable = {}
 			print( "GET response:\n" )
 			for k,v in pairs( result ) do

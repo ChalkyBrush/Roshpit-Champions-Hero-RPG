@@ -953,6 +953,7 @@ function Tanari:AcquireEssence(element, position)
       --GIVE KEY TO PLAYER
       local itemName = itemName.."_"..GameState:GetDifficultyName()
       local key = RPCItems:CreateConsumable(itemName, "mythical", "tanari_element", "consumable", false, "Key Item", itemName.."_desc")
+	  RPCItems:ItemUpdateCustomNetTables(key)
       RPCItems:GiveItemToHeroWithSlotCheck(MAIN_HERO_TABLE[i], key)
   end
 end

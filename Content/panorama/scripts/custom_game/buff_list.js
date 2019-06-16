@@ -30,14 +30,14 @@ function UpdateBuff( buffPanel, queryUnit, buffSerial )
 	var itemIdx = buffTexture.indexOf( "item_" );
 	if ( itemIdx === -1 )
 	{
-		if ( itemImage ) itemImage.itemname = "";
+		if ( itemImage ) itemImage.item_name = "";
 		if ( abilityImage ) abilityImage.abilityname = buffTexture;
 		buffPanel.SetHasClass( "item_buff", false );
 		buffPanel.SetHasClass( "ability_buff", true );
 	}
 	else
 	{
-		if ( itemImage ) itemImage.itemname = buffTexture;
+		if ( itemImage ) itemImage.item_name = buffTexture;
 		if ( abilityImage ) abilityImage.abilityname = "";
 		buffPanel.SetHasClass( "item_buff", true );
 		buffPanel.SetHasClass( "ability_buff", false );

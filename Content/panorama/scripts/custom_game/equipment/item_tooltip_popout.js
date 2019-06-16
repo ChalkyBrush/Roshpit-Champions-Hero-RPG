@@ -17,7 +17,8 @@ function initializeTooltip(func){
 	// $.Msg(queryUnit)
 	var itemName = Abilities.GetAbilityName( item );
 	var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() )
-	//var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
+	$.Msg(itemValues)
+
 	itemValues = itemValuesCheck(itemValues)
 	var unitName = queryUnit
 	if (!(itemValues.requiredHero === undefined)){
@@ -39,10 +40,10 @@ function initializeTooltip(func){
 	//QUALITY AND SLOT
 
 	var tooltip = ""
-	if (itemValues.consumable == 1)
-	{
-		tooltip = tooltip+"<font color='#AAAAAA'>Consumable</font><br>"
-	}
+	// if (itemValues.consumable == 1)
+	// {
+	// 	tooltip = tooltip+"<font color='#AAAAAA'>Consumable</font><br>"
+	// }
 	tooltip = tooltip+""+itemValues.itemDescription
 	$('#tooltip_quality_left').text = itemValues.qualityName
 	$('#tooltip_quality_right').text = tooltip
@@ -69,8 +70,12 @@ function initializeTooltip(func){
 			$('#properties_value4').AddClass('invisible')
 			$('#properties_special4').AddClass('invisible')
 
-			var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
-			$.Msg(itemProperty1)
+			var itemProperty1 = {}
+			if (itemValues.property1color) itemProperty1.propertyColor = itemValues.property1color
+			if (itemValues.property1) itemProperty1.propertyValue = itemValues.property1
+			if (itemValues.property1special) itemProperty1.specialDescription = itemValues.property1special
+			if (itemValues.property1tooltip) itemProperty1.propertyName = itemValues.property1tooltip == "rune" ? itemValues.property1name : itemValues.property1tooltip
+			$.Msg("Tooltip useDescription")
 			if (!(itemProperty1===undefined)){
 				var property1text = AddAffixToItem("", itemProperty1, queryUnit, "", 5, itemName)
 				if (property1text[0] !== undefined && property1text[1] !== undefined){
@@ -83,7 +88,12 @@ function initializeTooltip(func){
 		}else{
 			$('#consumable-text').AddClass('invisible')
 			//PROPERTY1
-			var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
+			var itemProperty1 = {}
+			itemProperty1.propertyColor = itemValues.property1color
+			itemProperty1.propertyValue = itemValues.property1
+			itemProperty1.specialDescription = itemValues.property1special
+			itemProperty1.propertyName = itemValues.property1tooltip == "rune" ? itemValues.property1name : itemValues.property1tooltip
+
 			var property1text = AddAffixToItem("", itemProperty1, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
 			$('#properties_name1').text = property1text[0]
 			$('#properties_value1').text = property1text[1]
@@ -92,7 +102,12 @@ function initializeTooltip(func){
 
 			handleSpecialProperty(itemProperty1, 1, item, queryUnit, itemValues, itemProperty1)
 			//PROPERTY2
-			var itemProperty2 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-2" )
+			var itemProperty2 = {}
+			itemProperty2.propertyColor = itemValues.property2color
+			itemProperty2.propertyValue = itemValues.property2
+			itemProperty2.specialDescription = itemValues.property2special
+			itemProperty2.propertyName = itemValues.property2tooltip == "rune" ? itemValues.property2name : itemValues.property2tooltip
+
 			var property2text = AddAffixToItem("", itemProperty2, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
 			$('#properties_name2').text = property2text[0]
 			$('#properties_value2').text = property2text[1]
@@ -101,7 +116,12 @@ function initializeTooltip(func){
 
 			handleSpecialProperty(itemProperty2, 2, item, queryUnit, itemValues, itemProperty2)
 			//PROPERTY3
-			var itemProperty3 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
+			var itemProperty3 = {}
+			itemProperty3.propertyColor = itemValues.property3color
+			itemProperty3.propertyValue = itemValues.property3
+			itemProperty3.specialDescription = itemValues.property3special
+			itemProperty3.propertyName = itemValues.property3tooltip == "rune" ? itemValues.property3name : itemValues.property3tooltip
+
 			var property3text = AddAffixToItem("", itemProperty3, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
 			$('#properties_name3').text = property3text[0]
 			$('#properties_value3').text = property3text[1]
@@ -110,7 +130,12 @@ function initializeTooltip(func){
 
 			handleSpecialProperty(itemProperty3, 3, item, queryUnit, itemValues, itemProperty3)
 			//PROPERTY4
-			var itemProperty4 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-4" )
+			var itemProperty4 = {}
+			itemProperty4.propertyColor = itemValues.property4color
+			itemProperty4.propertyValue = itemValues.property4
+			itemProperty4.specialDescription = itemValues.property4special
+			itemProperty4.propertyName = itemValues.property4tooltip == "rune" ? itemValues.property4name : itemValues.property4tooltip
+
 			var property4text = AddAffixToItem("", itemProperty4, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
 			$('#properties_name4').text = property4text[0]
 			$('#properties_value4').text = property4text[1]
@@ -129,21 +154,10 @@ function initializeTooltip(func){
 		//MINLEVEL
 		var bHideReqLines = true
 		if (!(itemValues.minLevel ===undefined)){
-			var reductionTable = CustomNetTables.GetTableValue( "min_level_reduction", item.toString() )
-			var reduction = 0
-			if (!(reductionTable===undefined)){
-				reduction = reductionTable.levelReduce
-			}
 			var minLevel = itemValues.minLevel
 			var minLevelText = ""
 			if (minLevel > 0){
-				if (reduction > 0){
-					minLevel = minLevel - reduction
-					minLevelText = minLevelText + "<font color='#DB2766'>"+$.Localize('#item_min_level')+": </font><font color='#F28100'>"+minLevel+"</font>"
-				}
-				else{
-					minLevelText = minLevelText + "<font color='#DB2766'>"+$.Localize('#item_min_level')+": "+minLevel+"</font>"
-				}
+				minLevelText = minLevelText + "<font color='#DB2766'>"+$.Localize('#item_min_level')+": "+minLevel+"</font>"
 			}
 			if (parseInt(minLevel) > 0){
 				$('#tooltip_requirements_left').RemoveClass('invisible')
@@ -181,16 +195,17 @@ function initializeTooltip(func){
 		// tooltip = tooltip + "<br><br><font color='#F7501E'>"+$.Localize('#'+itemTable.requiredHero)+" "+$.Localize('#weapon_usable')+"</font>"
 		// tooltip = tooltip + "<br><br><font color='#FF2B2B'>"+$.Localize('#weapon_max_level')+": "+itemTable.maxLevel+"</font>"
 
-		var weaponValues = CustomNetTables.GetTableValue( "weapons", "item"+item.toString() )
+		var weaponValues = itemValues
 		$.Msg(weaponValues)
 		if (!(weaponValues === undefined) && !(weaponValues.level === undefined)){
 			$.Msg("SHOULD BE HERE!!!")
+			$.Msg("item_tooltip_popout.js weaponValues")
 			$('#tooltip_weapons_data_container').RemoveClass('invisible')
 			$('#tooltip_weapon_left1').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_current_level')+":</font>"
 			$('#tooltip_weapon_right1').text = "<font color='#FFFFFF'>"+weaponValues.level+"</font>"
 			$('#tooltip_weapon_left2').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_max_level')+":</font>"
 			$('#tooltip_weapon_right2').text = "<font color='#FFFFFF'>"+weaponValues.maxLevel+"</font>"
-			if (weaponValues.itemName == Abilities.GetAbilityName(item)){
+			if (weaponValues.item_name == Abilities.GetAbilityName(item)){
 				$('#weapon_exp_bar').RemoveClass("invisible")
 				if (weaponValues.level == weaponValues.maxLevel){
 					$('#weapon_exp_bar_inner').style.width = "100%"
@@ -357,18 +372,14 @@ function itemValuesCheck(itemValues)
 	if (itemValues.qualityColor === undefined){
 		itemValues.qualityColor  = "#FFFFFF"
 	}
-	if (itemValues.itemName === undefined){
-		itemValues.itemName  = "undefined"
+	if (itemValues.item_name === undefined){
+		itemValues.item_name  = "undefined"
 	}
 	return itemValues
 }
 
 function replaceConsumableText(item, tooltip)
 {
-	var itemProperty3 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
-	if (!(itemProperty3===undefined)){
-		tooltip = tooltip.replace("@consumableProperty3", "<font color='"+itemProperty3.propertyColor+"'>"+$.Localize(itemProperty3.propertyName)+"</font>")
-	}
 	return tooltip
 }
 

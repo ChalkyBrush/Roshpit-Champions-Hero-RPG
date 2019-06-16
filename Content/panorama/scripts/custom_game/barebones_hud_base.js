@@ -75,7 +75,7 @@ function AddNotification(msg, panel) {
     notification.abilityname = msg.ability
     notification.hittest = false;
   } else if (msg.item != null){
-    notification.itemname = msg.item
+    notification.item_name = msg.item
     notification.hittest = false;
   } else{
     notification.html = true;

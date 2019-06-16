@@ -4,7 +4,14 @@ end
 
 
 function Foot:add_modifiers(hero, inventory_unit, item)
-	print(item)
+	print("[Foot:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	DeepPrintTable(item)
+	if not item.newItemTable then
+		print("[Error] Foot:add_modifiers item.newItemTable is null")
+		RPCItems:ItemUTIL_Remove(item)
+		return
+	end
+	print("[Foot:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
 	local foot_ability = inventory_unit:FindAbilityByName("foot_slot")
 	foot_ability.strength = 0
 	foot_ability.agility = 0
@@ -20,23 +27,25 @@ function Foot:add_modifiers(hero, inventory_unit, item)
 	foot_ability.evasion = 0
 	foot_ability.base_ability = 0
 	foot_ability.max_health = 0
-	local property1 = RPCItems:AdjustAttributeValue(hero, item.property1)
-	Foot:action(item.property1name, property1, hero, inventory_unit, foot_ability, item)
-	Foot:runeProperty(item.property1name, item.property1, hero)
-	if item.property2name then
-		local property2 = RPCItems:AdjustAttributeValue(hero, item.property2)
-		Foot:action(item.property2name, property2, hero, inventory_unit, foot_ability, item)
-		Foot:runeProperty(item.property2name, item.property2, hero)
+	if item.newItemTable.property1name then
+		local property1 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property1)
+		Foot:action(item.newItemTable.property1name, property1, hero, inventory_unit, foot_ability, item)
+		Foot:runeProperty(item.newItemTable.property1name, item.newItemTable.property1, hero)
 	end
-	if item.property3name then
-		local property3 = RPCItems:AdjustAttributeValue(hero, item.property3)
-		Foot:action(item.property3name, property3, hero, inventory_unit, foot_ability, item)
-		Foot:runeProperty(item.property3name, item.property3, hero)
+	if item.newItemTable.property2name then
+		local property2 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property2)
+		Foot:action(item.newItemTable.property2name, property2, hero, inventory_unit, foot_ability, item)
+		Foot:runeProperty(item.newItemTable.property2name, item.newItemTable.property2, hero)
 	end
-	if item.property4name then
-		local property4 = RPCItems:AdjustAttributeValue(hero, item.property4)
-		Foot:action(item.property4name, property4, hero, inventory_unit, foot_ability, item)
-		Foot:runeProperty(item.property4name, item.property4, hero)
+	if item.newItemTable.property3name then
+		local property3 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property3)
+		Foot:action(item.newItemTable.property3name, property3, hero, inventory_unit, foot_ability, item)
+		Foot:runeProperty(item.newItemTable.property3name, item.newItemTable.property3, hero)
+	end
+	if item.newItemTable.property4name then
+		local property4 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property4)
+		Foot:action(item.newItemTable.property4name, property4, hero, inventory_unit, foot_ability, item)
+		Foot:runeProperty(item.newItemTable.property4name, item.newItemTable.property4, hero)
 	end
 end
 
@@ -84,6 +93,9 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 	elseif propertyName == "base_ability" then
 		foot_ability.base_ability = foot_ability.base_ability + propertyValue
 		Foot:addBasicModifier(foot_ability.base_ability, hero, inventory_unit, "modifier_foot_base_ability_damage", foot_ability)
+	elseif propertyName == "item_damage" then
+		foot_ability.base_ability = foot_ability.base_ability + propertyValue
+		Foot:addBasicModifier(foot_ability.base_ability, hero, inventory_unit, "modifier_foot_item_damage_inc", foot_ability)
 	elseif propertyName == "ghost_walk" then
 		Foot:addBasicModifier(1, hero, inventory_unit, "modifier_foot_unit_walk", foot_ability)
 	elseif propertyName == "dunetread" then
@@ -238,6 +250,7 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_foot_evasion")
 	hero:RemoveModifierByName("modifier_foot_unit_walk")
 	hero:RemoveModifierByName("modifier_foot_base_ability_damage")
+	hero:RemoveModifierByName("modifier_foot_item_damage_inc")
 	hero:RemoveModifierByName("modifier_foot_max_health")
 
 	hero:RemoveModifierByName("modifier_dunetread_boots")

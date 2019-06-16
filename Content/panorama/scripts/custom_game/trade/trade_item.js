@@ -46,7 +46,7 @@ function UpdateItem()
 	
 	// $( "#HotkeyText" ).text = hotkey;
 	// $.Msg(itemName);
-	// $( "#ItemImage" ).itemname = itemName;
+	// $( "#ItemImage" ).item_name = itemName;
 	$( "#ItemImage" ).contextEntityIndex = m_Item;
 	if (m_Item == -1){
 		$( "#ItemImage" ).SetImage("file://{images}/custom_game/ui/empty-inventory-slot.png")
@@ -89,56 +89,6 @@ function itemPropertyCheck(itemProperty){
 	itemProperty.propertyName = $.Localize(itemProperty.propertyName)
 	return itemProperty
 }
-
-// function ItemShowTooltip()
-// {
-// 	var item = m_Item
-// 	var queryUnit = m_QueryUnit
-// 	$.Msg("HOVER TIP?")
-// 	if ( item == -1 )
-// 		return;
-// 	var itemName = Abilities.GetAbilityName( item );
-// 	var queryUnit = Players.GetLocalPlayerPortraitUnit();
-
-// 	var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() )
-// 	if (itemValues === undefined){
-// 		$.DispatchEvent("DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, item);
-// 	}else{
-// 		var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
-// 		var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
-// 		tooltip = AddAffixToItem(tooltip, itemProperty1)
-// 		if (itemValues.rarityFactor >= 2 )
-// 		{
-// 			var itemProperty2 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-2" )
-// 			tooltip = AddAffixToItem(tooltip, itemProperty2)
-// 		}
-// 		if (itemValues.rarityFactor >= 3 )
-// 		{
-// 			var itemProperty3 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
-// 			tooltip = AddAffixToItem(tooltip, itemProperty3)
-// 		}
-// 		if (itemValues.rarityFactor >= 4 )
-// 		{
-// 			var itemProperty4 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-4" )
-// 			tooltip = AddAffixToItem(tooltip, itemProperty4)
-// 		}
-// 		var itemPrefix = ""
-// 		var itemSuffix = ""
-// 		//$.Msg( itemValues.property1 );
-// 		//$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, queryUnit );
-// 		var title = "<font color='"+itemValues.qualityColor+"'>"+itemPrefix+" "+itemValues.itemName+" "+itemSuffix+"</font>"
-// 		if (!(itemValues.minLevel ===undefined)){
-// 			tooltip = AddMinLevelToTooltip(itemValues, tooltip)
-// 		}		
-// 		tooltip = AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, itemProperty3, itemProperty4, itemValues.rarityFactor)
-// 		tooltip = updateSkillInTooltip(tooltip, queryUnit)
-// 		title = title.replace(/(['"])/g, "\\$1");
-// 		tooltip = tooltip.replace(/(['"])/g, "\\$1");
-
-// 		$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(), title, tooltip);
-// 		//$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(),  "#DOTA_Tooltip_Ability_"+itemName, tooltip );
-// 	}
-// }
 
 function AddMinLevelToTooltip(itemValues, tooltip)
 {
@@ -230,7 +180,7 @@ function getPosition(str, m, i) {
 function CreateCustomTooltip(itemValues, itemName, itemProperty1)
 {
 	$.Msg( itemValues );
-	//var tooltip = "<Label style='color:"+itemValues.qualityColor+";font-size:16px;'>"+itemValues.itemName+"</Label><br>";
+	//var tooltip = "<Label style='color:"+itemValues.qualityColor+";font-size:16px;'>"+itemValues.item_name+"</Label><br>";
 	var tooltip = "<i>"+itemValues.qualityName+"</i><br>"
 	if (itemValues.consumable == 1)
 	{
@@ -418,7 +368,7 @@ function OnDragStart( panel, dragCallbacks )
 
 	// create a temp panel that will be dragged around
 	var displayPanel = $.CreatePanel( "DOTAItemImage", $.GetContextPanel(), "dragImage" );
-	displayPanel.itemname = itemName;
+	displayPanel.item_name = itemName;
 	displayPanel.contextEntityIndex = m_Item;
 	displayPanel.m_DragItem = m_Item;
 	displayPanel.m_DragCompleted = false; // whether the drag was successful
