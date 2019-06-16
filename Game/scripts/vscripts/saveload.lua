@@ -506,7 +506,7 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 
 	end
 	--print("FINAL URL +++++++++++++++++++++++")
-	--print(url)
+	----print(url)
 	--print("FINAL URL +++++++++++++++++++++++")
 	return url
 -- :championcharacter_id, :build_number, :is_stash, :stash_slot, :steam_id, :item_variant, :item_name, :rarity, :item_slot, :level, :current_xp, :property1, :property1value, :property1color, 
@@ -1529,7 +1529,7 @@ function SaveLoad:DraggedFromStash(keys)
 				url = url.."steam_id="..steamID
 				url = url.."&stash_slot="..stashSlot
 				url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-				--print(url)
+				----print(url)
 					CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 						--SaveLoad:NewKey()
 						--print( "POST response:\n" )
@@ -1845,7 +1845,7 @@ function SaveLoad:SaveJex(hero)
 		end
 		url = url.."&"..element1.."_exp="..onibi.stats_table[element1]["exp"]
 	end
-	--print(url)
+	----print(url)
 	if SaveLoad:GetAllowSaving() then
 		CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
 			if result.StatusCode == 200 then

@@ -4,14 +4,14 @@ end
 
 function Curator:StopUnit(msg)
 	local unit = EntIndexToHScript(msg.unitIndex)
-	print("STOP UNIT!?")
+	--print("STOP UNIT!?")
 	Timers:CreateTimer(0.03, function()
 		unit:Stop()
 	end)
 end
 
 function Curator:Curate(msg)
-	print("curator ++++++++++++++++++++++++++++++++++++")
+	--print("curator ++++++++++++++++++++++++++++++++++++")
 	local item = EntIndexToHScript(msg.item)
 	local playerID = msg.playerID
 	
@@ -49,7 +49,7 @@ function Curator:CurateBasicWeapons(hero)
 	for j = 1, #weaponsSuffixTable, 1 do
 		Timers:CreateTimer(j, function()
 			local weapon = Curator:RollBasicWeapon(heroName, weaponsSuffixTable[j])
-			print(weapon:GetAbilityName())
+			--print(weapon:GetAbilityName())
 			Curator:GetItemInfoFromClientAndSendToWeb(weapon, playerID)
 		end)
 	end
@@ -287,7 +287,7 @@ function Curator:RollBasicWeapon(heroName, digits)
 	local weaponIndexString = tostring(rarityFactor-2)
 
 	local weaponName = "item_rpc_"..internalName.."_weapon_"..digits
-	print(weaponName)
+	--print(weaponName)
 	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "", "weapon", true, "Slot: Weapon", whichHero, Weapons:GetMaxWeaponLevel(), 0)
 
 	if internalName == "conjuror" then
@@ -339,12 +339,12 @@ function Curator:FinishGettingClientData(msg)
 	local language = msg.language
 	local localizedItemName = Curator:urlencode(msg.localizedName)
 	local itemTexture = msg.itemTexture
-	print("[Curator:FinishGettingClientData] ")
+	--print("[Curator:FinishGettingClientData] ")
 	-- DeepPrintTable(msg)
-	-- print("[Curator:FinishGettingClientData] 2+++++++++++++++++++++++++++++++++++++++++++")
+	-- --print("[Curator:FinishGettingClientData] 2+++++++++++++++++++++++++++++++++++++++++++")
 	-- DeepPrintTable(msg.property1)
-	-- print("[Curator:FinishGettingClientData] 3+++++++++++++++++++++++++++++++++++++++++++")
-	-- print(msg.property1["0"])
+	-- --print("[Curator:FinishGettingClientData] 3+++++++++++++++++++++++++++++++++++++++++++")
+	-- --print(msg.property1["0"])
 	if msg.property1 then
 		if next(msg.property1) == nil then
 			property1color = ""
@@ -447,7 +447,7 @@ function Curator:FinishGettingClientData(msg)
 				property4special = property4special:gsub('#', "")
 			end
 			property4specialLocalized = msg.property4["4"]
-			print(property4specialLocalized)
+			--print(property4specialLocalized)
 			if property4specialLocalized == "undefined" then
 				property4specialLocalized = ""
 			else
@@ -500,19 +500,19 @@ function Curator:FinishGettingClientData(msg)
 	url = url.."&propertyValue4="..property4value
 
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	print(url)
+	----print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			print( "GET response:\n" )
+			--print( "GET response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			--SUCCESS
 		else
-			print("Curator ++++ StatusCode != 200")
+			--print("Curator ++++ StatusCode != 200")
 		end
 	end )
 end
@@ -537,7 +537,7 @@ end
 function Curator:CurateHero(playerID)
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	local player = PlayerResource:GetPlayer(playerID)
-	print(player:GetPlayerID())
+	--print(player:GetPlayerID())
 	CustomGameEventManager:Send_ServerToPlayer(player, "get_hero_curator", {heroIndex = hero:GetEntityIndex(), runeUnit1 = hero.runeUnit:GetEntityIndex(), runeUnit2 = hero.runeUnit2:GetEntityIndex(), runeUnit3 = hero.runeUnit3:GetEntityIndex(), runeUnit4 = hero.runeUnit4:GetEntityIndex()} )
 	for i = 0, 3, 1 do
 		local delay = i*2 + 3
@@ -568,7 +568,7 @@ function Curator:CurateAllGlyphsForHero(heroName)
 		for i = 1, 7, 1 do
 			Timers:CreateTimer(i*2, function()
 				local variantName = "item_rpc_"..heroName.."_glyph_"..i.."_"..j
-				print(variantName)
+				--print(variantName)
 				local glyph = Glyphs:RollGlyphAll(variantName, Vector(0,0), 0)
 				Curator:CurateGlyph(glyph, heroName)
 			end)
@@ -588,7 +588,7 @@ function Curator:CurateAllGlyphsForHeroWithTiers(heroName, tiers)
 		for i = 1, 7, 1 do
 			Timers:CreateTimer(i*2, function()
 				local variantName = "item_rpc_"..heroName.."_glyph_"..i.."_"..j
-				print(variantName)
+				--print(variantName)
 				local glyph = Glyphs:RollGlyphAll(variantName, Vector(0,0), 0)
 				Curator:CurateGlyph(glyph, heroName)
 			end)
@@ -624,15 +624,15 @@ function Curator:ClientDataGlyph(msg)
 	url = url.."&reqHero="..glyph.requiredHero
 	url = url.."&rarity="..glyph.rarity
 	url = url.."&glyphTexture="..msg.glyphTexture
-	print(url)
+	----print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			print( "GET response:\n" )
+			--print( "GET response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			--SUCCESS
 		else
@@ -665,8 +665,8 @@ function Curator:CurateArcanaAbilities(hero)
 				-- 	DeepPrintTable(kv)
 				-- end
 
-				print("curate_ability")
-				print(ability:GetEntityIndex())
+				--print("curate_ability")
+				--print(ability:GetEntityIndex())
 				CustomGameEventManager:Send_ServerToPlayer(player, "get_ability_curator", {heroIndex = hero:GetEntityIndex(), abilityIndex = ability:GetEntityIndex(), abilitySpecial = abilitySpecial, rune1 = rune1:GetEntityIndex(), rune2 = rune2:GetEntityIndex(), rune3 = rune3:GetEntityIndex(), rune4 = rune4:GetEntityIndex(), abilitySlotIndex = index, arcanaIndex = index, item_reference = item_reference} )	
 			end)
 			Timers:CreateTimer(5, function()
@@ -691,8 +691,8 @@ function Curator:CurateAbility(hero, index)
 	-- 	DeepPrintTable(kv)
 	-- end
 
-	print("curate_ability")
-	print(ability:GetEntityIndex())
+	--print("curate_ability")
+	--print(ability:GetEntityIndex())
 	CustomGameEventManager:Send_ServerToPlayer(player, "get_ability_curator", {heroIndex = hero:GetEntityIndex(), abilityIndex = ability:GetEntityIndex(), abilitySpecial = abilitySpecial, rune1 = rune1:GetEntityIndex(), rune2 = rune2:GetEntityIndex(), rune3 = rune3:GetEntityIndex(), rune4 = rune4:GetEntityIndex(), abilitySlotIndex = index, arcanaIndex = -1, item_reference = ""} )	
 end
 
@@ -703,7 +703,7 @@ function Curator:ClientDataAbility(msg)
 	local ability = EntIndexToHScript(msg.ability)
 	local abilityNameLocalized = Curator:urlencode(msg.abilityNameLocalized)
 	local abilityDescription = Curator:urlencode(msg.abilityDescription)
-	print(abilityDescription)
+	--print(abilityDescription)
 	local abilityTargetType = msg.abilityTargetType
 	local abilityDamageType = msg.abilityDamageType
 
@@ -765,8 +765,8 @@ function Curator:ClientDataAbility(msg)
 			manaString = manaString..manaCost.." / "
 		else
 			manaString = manaString..manaCost
-			print("MANA STRING:")
-			print(manaString)
+			--print("MANA STRING:")
+			--print(manaString)
 			url = url.."&manaString="..Curator:urlencode(manaString)
 		end
 	end
@@ -792,20 +792,20 @@ function Curator:ClientDataAbility(msg)
 			if ability:GetCooldown(1) == ability:GetCooldown(2) and ability:GetCooldown(2) == ability:GetCooldown(3) and ability:GetCooldown(3) == ability:GetCooldown(4) and ability:GetCooldown(4) == ability:GetCooldown(5) and ability:GetCooldown(5) == ability:GetCooldown(6) and ability:GetCooldown(6) == ability:GetCooldown(7) then
 				cdString = cd
 			end 
-			print("CD STRING")
-			print(cdString)
+			--print("CD STRING")
+			--print(cdString)
 			url = url.."&cdString="..Curator:urlencode(cdString)
 		end
 	end
-	print(url)
+	----print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			print( "GET response:\n" )
+			--print( "GET response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			--SUCCESS
 		else
@@ -840,15 +840,15 @@ function Curator:ClientDataHero(msg)
 	url = url.."&localizedHeroName="..localizedHeroName
 	url = url.."&heroTexture="..heroTexture
 	url = url.."&internalName="..internalName
-	print(url)
+	----print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			print( "GET response:\n" )
+			--print( "GET response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			--SUCCESS
 		else
@@ -888,7 +888,7 @@ function Curator:CurateALLHeroes()
 			PlayerResource:ReplaceHeroWith(playerID, hero_table[i], 0, 0)
 			Timers:CreateTimer(1, function()
 				local hero = GameState:GetHeroByPlayerID(playerID)
-				print("Curating: "..hero:GetUnitName())
+				--print("Curating: "..hero:GetUnitName())
 				Curator:FullCurateHero(hero)
 			end)
 		end)

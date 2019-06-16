@@ -364,7 +364,7 @@ function Stars:UpdateStarsOnServer(heroName, type, starAmount, playerID)
 	url = url.."&stars="..starAmount
 	url = url.."&hero_name="..heroName
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	print(url)
+	--print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
@@ -415,7 +415,7 @@ function Stars:GetPlayerStars(playerID)
 	local player = PlayerResource:GetPlayer(playerID)
 	local url = ROSHPIT_URL.."/champions/getStars?"
 	url = url.."steam_id="..steamID
-	print(url)
+	--print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
