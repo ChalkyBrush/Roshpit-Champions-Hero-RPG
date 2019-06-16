@@ -92,11 +92,11 @@ function SaveLoad:GetPlayerCharacters(msg)
 		CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
 			if result.StatusCode == 200 then
 				local resultTable = {}
-				print( "GET response:\n" )
+				--print( "GET response:\n" )
 				for k,v in pairs( result ) do
-					print( string.format( "%s : %s\n", k, v ) )
+					--print( string.format( "%s : %s\n", k, v ) )
 				end
-				print( "Done." )
+				--print( "Done." )
 				local resultTable = JSON:decode(result.Body)
 				SaveLoad:GetCharacterDataFromJSON(resultTable)
 				local premium = 0
@@ -123,7 +123,7 @@ function SaveLoad:GetCharacterDataFromJSON(resultTable)
 	for i = 1, MAX_SAVE_SLOTS, 1 do
 		if resultTable[i] then
 			local slot = resultTable[i].save_slot
-			print(slot)
+			--print(slot)
 			characters[slot].heroName = resultTable[i].hero_name
 			characters[slot].level = resultTable[i].hero_level
 		end
@@ -210,11 +210,11 @@ function SaveLoad:SaveCharacter(msg)
 			url = SaveLoad:AttachItemToURL(url, hero, 0, 0, playerID, i, 0)
 		end
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-			print( "POST response:\n" )
+			--print( "POST response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 			--SaveLoad:NewKey()
 			local resultTable = JSON:decode(result.Body)
 			-- SaveLoad:GetCharacterDataFromJSON(resultTable)
@@ -290,7 +290,7 @@ function SaveLoad:DebugGear(playerID)
 end
 
 function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gearSlot, itemIndex)
-	print("[SaveLoad:AttachItemToURL] Start")
+	--print("[SaveLoad:AttachItemToURL] Start")
 	gearSlot = tostring(gearSlot)
 	local gearTable = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..gearSlot)
 	local itemTable = false
@@ -304,16 +304,16 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		url = url.."&item_slot"..gearSlot.."="..gearSlot
 		return url
 	end
-	print("[SaveLoad:AttachItemToURL] 1")
+	--print("[SaveLoad:AttachItemToURL] 1")
 	if itemIndex > 0 then
 		itemTable = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
-		print("ITEM TABLE??")
-		print(itemIndex)
+		--print("ITEM TABLE??")
+		--print(itemIndex)
 		-- DeepPrintTable(itemTable)
 	end
 	local item = EntIndexToHScript(itemIndex)
 	if not item then
-		print("[SaveLoad:AttachItemToURL] ITEM is null")
+		--print("[SaveLoad:AttachItemToURL] ITEM is null")
 		url = url.."&build_number"..gearSlot.."="..0
 		url = url.."&item_slot"..gearSlot.."="..gearSlot
 		return url
@@ -322,7 +322,7 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		Notifications:Top(playerID, {text="Can't stash this item", duration=2, style={color="red"}, continue=true})
 		return url
 	end
-	print("[SaveLoad:AttachItemToURL] 2")
+	--print("[SaveLoad:AttachItemToURL] 2")
 	local validatorValue = itemTable.validator
 	if validatorValue then
 		url = url.."&validator"..gearSlot.."="..validatorValue
@@ -332,7 +332,7 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 
 	--itemTable.consumable valve's custom net tables swapping boolean value to number when you set table.
 	if itemTable and itemTable.property1 and not itemTable.glyph and itemTable.consumable ~= 1 then
-		print("[SaveLoad:AttachItemToURL] 3")
+		--print("[SaveLoad:AttachItemToURL] 3")
 		-- local itemName = string.gsub(itemTable.item_name, "%s+", '%%20')
 		local item_name = escape(itemTable.item_name)
 		local internalMinLevel = math.max(itemTable.minLevel, 1)
@@ -426,7 +426,7 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		end
 		-- url = url.."&min_level"..gearSlot.."="..itemTable.minLevel
 	elseif itemTable.stashable then
-		print("[SaveLoad:AttachItemToURL] 4")
+		--print("[SaveLoad:AttachItemToURL] 4")
 		local item_name = escape(itemTable.item_name)
 		url = url.."&build_number"..gearSlot.."=".."-1"
 		url = url.."&is_stash"..gearSlot.."="..is_stash
@@ -440,9 +440,9 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		url = url.."&prefix"..gearSlot.."="..escape(itemTable.itemPrefix)
 		url = url.."&suffix"..gearSlot.."="..escape(itemTable.itemSuffix)
 		local affixCount = 0
-		print("TU78A")
+		--print("TU78A")
 		if item:GetAbilityName() == "item_rpc_web_premium_token" or string.match(item:GetAbilityName(), "galactic_arcana_cache") or string.match(item:GetAbilityName(), "item_serengaard_hyperstone") then
-			print("TU78B")
+			--print("TU78B")
 			local affixCount = 1
 			for i = 1, affixCount, 1 do
 				local property = 0
@@ -485,9 +485,9 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 				url = url.."&property"..i.."name"..gearSlot.."="..propertyName
 				url = url.."&property"..i.."color"..gearSlot.."="..escape(saveColor)
 				url = url.."&property"..i.."tooltip"..gearSlot.."="..escape(saveTooltip)
-				print("----TU78C-----")
-				print(itemTable)
-				print("--------------")
+				--print("----TU78C-----")
+				--print(itemTable)
+				--print("--------------")
 				if saveSpecialDescription then
 					url = url.."&property"..i.."special"..gearSlot.."="..escape(saveSpecialDescription)
 				end
@@ -505,9 +505,9 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		url = url.."&item_slot"..gearSlot.."="..gearSlot
 
 	end
-	print("FINAL URL +++++++++++++++++++++++")
-	print(url)
-	print("FINAL URL +++++++++++++++++++++++")
+	--print("FINAL URL +++++++++++++++++++++++")
+	--print(url)
+	--print("FINAL URL +++++++++++++++++++++++")
 	return url
 -- :championcharacter_id, :build_number, :is_stash, :stash_slot, :steam_id, :item_variant, :item_name, :rarity, :item_slot, :level, :current_xp, :property1, :property1value, :property1color, 
 -- :property1tooltip, :property1special, :property2, :property2value, :property2color, :property2tooltip, :property2special, :property3, 
@@ -529,11 +529,11 @@ function SaveLoad:LoadCharacter(msg)
 	url = url.."&slot="..slot
 	CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
 		local resultTable = {}
-		print( "GET response:\n" )
+		--print( "GET response:\n" )
 		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 		-- DeepPrintTable(resultTable)
 		SaveLoad:ApplyDataToHero(resultTable.character, playerID)
@@ -590,9 +590,9 @@ function SaveLoad:LoadPortalKeys(character, hero)
 end
 
 function SaveLoad:LoadGear(gearTable, playerID, bEquip)
-	print("SaveLoad:LoadGear+++")
+	--print("SaveLoad:LoadGear+++")
 	DeepPrintTable(gearTable)
-	print("SaveLoad:LoadGear++-")
+	--print("SaveLoad:LoadGear++-")
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	if not gearTable then
 		return false
@@ -602,8 +602,8 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 	end
 	if gearTable.build_number > -1 then
 		local gearSlot = RPCItems:GetGearSlotName(gearTable.item_slot)
-		print("LOADED ITEM GEARSLOT")
-		-- print(gearSlot)
+		--print("LOADED ITEM GEARSLOT")
+		-- --print(gearSlot)
 		-- DeepPrintTable(gearTable)
 		local item = nil
 		if gearTable.is_weapon == 1 then
@@ -618,9 +618,9 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 				gearTable.min_level)
 		else
 			if gearTable.rarity == 6 then
-				print("ARCANA ADD REQUIRED HERO!")
-				print(gearTable)
-				print(gearTable.required_hero)
+				--print("ARCANA ADD REQUIRED HERO!")
+				--print(gearTable)
+				--print(gearTable.required_hero)
 				item = RPCItems:CreateVariantArcana(gearTable.item_variant, 
 					RPCItems:GetRarityNameFromFactor(gearTable.rarity), 
 					gearTable.item_name, 
@@ -629,10 +629,10 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 					"Slot: "..gearSlot:gsub("^%l", string.upper), 
 					tostring(gearTable.required_hero), gearTable.min_level)
 				
-				print(item.newItemTable.requiredHero)
+				--print(item.newItemTable.requiredHero)
 			else
-				print("[SaveLoad:LoadGear] item_variant:"..tostring(gearTable.item_variant))
-				print("[SaveLoad:LoadGear] item_name:"..tostring(gearTable.item_name))
+				--print("[SaveLoad:LoadGear] item_variant:"..tostring(gearTable.item_variant))
+				--print("[SaveLoad:LoadGear] item_name:"..tostring(gearTable.item_name))
 				if gearTable.item_variant == "item_rpc_raven_idol" 
 					or gearTable.item_variant == "item_rpc_raven_idol2" then
 
@@ -820,7 +820,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 
 		--PROPERTY2
 		if gearTable.property2 then
-			print("[SaveLoad:LoadGear] PROPERTY2")
+			--print("[SaveLoad:LoadGear] PROPERTY2")
 			item.newItemTable.property2 = gearTable.property2
 			item.newItemTable.property2name = gearTable.property2name
 			if gearTable.property2special then
@@ -841,7 +841,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		end
 		--PROPERTY3
 		if gearTable.property3 then
-			print("[SaveLoad:LoadGear] PROPERTY3")
+			--print("[SaveLoad:LoadGear] PROPERTY3")
 			item.newItemTable.property3 = gearTable.property3
 			item.newItemTable.property3name = gearTable.property3name
 			if gearTable.property3special then
@@ -862,7 +862,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		end
 		--PROPERTY4
 		if gearTable.property4 then
-			print("[SaveLoad:LoadGear] PROPERTY4")
+			--print("[SaveLoad:LoadGear] PROPERTY4")
 			item.newItemTable.property4 = gearTable.property4
 			item.newItemTable.property4name = gearTable.property4name
 			if gearTable.property4special then
@@ -883,7 +883,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		end
 		--WEAPON
 		if gearTable.is_weapon == 1 then
-			-- print("GEARTABLE IS WEAPON")
+			-- --print("GEARTABLE IS WEAPON")
 
 		    item.newItemTable.xp = gearTable.current_xp
 		    item.newItemTable.level = gearTable.level
@@ -926,7 +926,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
 		elseif gearTable.item_name == "glyph" then
-			print(gearTable.item_variant)
+			--print(gearTable.item_variant)
 			local item = Glyphs:RollGlyphAll(gearTable.item_variant, Vector(0, 0), -1)
 			item.pickedUp = true
 			SaveLoad:RemoveProperties(item)
@@ -984,7 +984,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
 		elseif gearTable.item_variant == "item_rpc_web_premium_token" then
-			print("IN HERE??")
+			--print("IN HERE??")
 			local item = RPCItems:CreateConsumable("item_rpc_web_premium_token", "immortal", "Web Premium Token", "consumable", false, "Consumable", "web_premium_desc")
 			SaveLoad:RemoveProperties(item)
 			SaveLoad:RemoveAdditionalData(item, false, false)
@@ -1054,7 +1054,7 @@ end
 
 function SaveLoad:FixLoadedRuneProperties(propertyName)
 	if propertyName then
-		print("propertyName: "..propertyName)
+		--print("propertyName: "..propertyName)
 		if propertyName == "rune_a_a" then
 			return "rune_q_1"
 		end
@@ -1125,9 +1125,9 @@ function SaveLoad:RemoveAdditionalData(item, bRequiredLevel, bHeroRequirement)
 end
 
 function SaveLoad:ApplyDataToHero(results, playerID)
-	-- print(results.current_xp)
-	-- print(hero)
-	-- print(playerID)
+	-- --print(results.current_xp)
+	-- --print(hero)
+	-- --print(playerID)
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	hero:AddExperience(results.current_xp-hero:GetCurrentXP(), 0, false, false)
 	CustomGameEventManager:Send_ServerToAllClients("xp_earned", {} )
@@ -1202,9 +1202,9 @@ function SaveLoad:StashOpen(keys)
 	if hero.stashTable then
 		for i = 1, #hero.stashTable, 1 do
 			if IsValidEntity(hero.stashTable[i]) then
-				-- print("------")
-				-- print(hero.stashTable[i]:GetEntityIndex())
-				-- print(hero.pullStashItem)
+				-- --print("------")
+				-- --print(hero.stashTable[i]:GetEntityIndex())
+				-- --print(hero.pullStashItem)
 				if hero.stashTable[i]:GetEntityIndex() == hero.pullStashItem then
 					hero.pullStashItem = nil
 				else
@@ -1216,11 +1216,11 @@ function SaveLoad:StashOpen(keys)
 	end
 	CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
 		local resultTable = {}
-		print( "GET response:\n" )
+		--print( "GET response:\n" )
 		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 		-- Weapons:ValidateGear(hero)
 		-- DeepPrintTable(resultTable)
@@ -1312,7 +1312,7 @@ end
 	-- for i = 1, MAX_SAVE_SLOTS, 1 do
 	-- 	if resultTable[i] then
 	-- 		local slot = resultTable[i].save_slot
-	-- 		print(slot)
+	-- 		--print(slot)
 	-- 		characters[slot].heroName = resultTable[i].hero_name
 	-- 		characters[slot].level = resultTable[i].hero_level
 	-- 	end
@@ -1332,19 +1332,19 @@ function SaveLoad:DraggedToStash(keys)
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	local itemEntity = EntIndexToHScript(itemIndex)
 	local fromSlot = keys.fromSlot
-	print("DRAGGED TO STASH")
+	--print("DRAGGED TO STASH")
 	if itemEntity.cantStash then
 		Notifications:Top(playerID, {text="Can't Stash This", duration=2, style={color="red"}, continue=true})
 		EmitSoundOnClient("General.Cancel", caster:GetPlayerOwner())
 		return false
 	end
 	--SaveLoad:NewKey()
-	print("-----HAS ITEM OR NOT BELOW-----")
+	--print("-----HAS ITEM OR NOT BELOW-----")
 	if keys.drag_type == "inventory" then
 		if Challenges:CheckIfHeroHasItemByItemIndex(hero, itemIndex) then
-			print("HAS ITEM!")
+			--print("HAS ITEM!")
 		else
-			print("DOESN'T HAVE ITEM")
+			--print("DOESN'T HAVE ITEM")
 			return false
 		end
 	end
@@ -1352,12 +1352,12 @@ function SaveLoad:DraggedToStash(keys)
 		return false
 	end
 	CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {} )
-	print("DRAGGED TO")
+	--print("DRAGGED TO")
 	if SaveLoad:GetAllowSaving() then
 		if stashSlot < 13 or GameState:GetPlayerPremiumStatus(playerID) then
 			if keys.drag_type == "inventory" then
 				hero:Stop()
-				print("TAKE ITEM")
+				--print("TAKE ITEM")
 				hero:TakeItem(itemEntity)
 		  		if IsValidEntity(itemEntity:GetContainer()) then
 		  			UTIL_Remove(itemEntity:GetContainer())
@@ -1368,20 +1368,20 @@ function SaveLoad:DraggedToStash(keys)
 				url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 				Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_stash_lock", {duration = 90})
 					CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-						print( "POST response:\n" )
+						--print( "POST response:\n" )
 						for k,v in pairs( result ) do
-							print( string.format( "%s : %s\n", k, v ) )
+							--print( string.format( "%s : %s\n", k, v ) )
 						end
 						--SaveLoad:NewKey()
-						print( "Done." )
-						print(result.StatusCode)
+						--print( "Done." )
+						--print(result.StatusCode)
 						hero:RemoveModifierByName("modifier_stash_lock")
 						if result.StatusCode == 200 then
 							RPCItems:ItemUTIL_Remove(itemEntity)
 							-- Weapons:ValidateGear(hero)
 							local resultTable = JSON:decode(result.Body)
-							print("@@@@ WITHDRAW RESULTS @@@@")
-							print(resultTable)
+							--print("@@@@ WITHDRAW RESULTS @@@@")
+							--print(resultTable)
 							local keys = {}
 							-- local inventoryItem = CustomNetTables:GetTableValue("stash", tostring(playerID).."-"..tostring(stashSlot))
 							if resultTable then
@@ -1428,11 +1428,11 @@ function SaveLoad:DraggedToStash(keys)
 				url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 					CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 						--SaveLoad:NewKey()
-						print( "POST response:\n" )
+						--print( "POST response:\n" )
 						for k,v in pairs( result ) do
-							print( string.format( "%s : %s\n", k, v ) )
+							--print( string.format( "%s : %s\n", k, v ) )
 						end
-						print( "Done." )
+						--print( "Done." )
 						local resultTable = JSON:decode(result.Body)
 						local keys = {}
 						
@@ -1459,7 +1459,7 @@ function SaveLoad:DraggedFromStash(keys)
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	--SaveLoad:NewKey()
 
-	print("DRAGGED FROM STASH")
+	--print("DRAGGED FROM STASH")
 	if SaveLoad:GetAllowSaving() then
 			if hero:GetItemInSlot(inventorySlot) then
 				if stashSlot < 12 or GameState:GetPlayerPremiumStatus(playerID) then
@@ -1480,11 +1480,11 @@ function SaveLoad:DraggedFromStash(keys)
 					
 						CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 							--SaveLoad:NewKey()
-							print( "POST response:\n" )
+							--print( "POST response:\n" )
 							for k,v in pairs( result ) do
-								print( string.format( "%s : %s\n", k, v ) )
+								--print( string.format( "%s : %s\n", k, v ) )
 							end
-							print( "Done." )
+							--print( "Done." )
 							if result.StatusCode == 200 then
 								local resultTable = JSON:decode(result.Body)
 								local keys = {}
@@ -1529,18 +1529,18 @@ function SaveLoad:DraggedFromStash(keys)
 				url = url.."steam_id="..steamID
 				url = url.."&stash_slot="..stashSlot
 				url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-				print(url)
+				--print(url)
 					CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 						--SaveLoad:NewKey()
-						print( "POST response:\n" )
+						--print( "POST response:\n" )
 						for k,v in pairs( result ) do
-							print( string.format( "%s : %s\n", k, v ) )
+							--print( string.format( "%s : %s\n", k, v ) )
 						end
-						print( "Done." )
+						--print( "Done." )
 						if result.StatusCode == 200 then
 							local resultTable = JSON:decode(result.Body)
 							local keys = {}
-							print(resultTable)
+							--print(resultTable)
 							local withdrawnItem = SaveLoad:LoadGear(resultTable, playerID, false)
 							withdrawnItem.itemIndex = withdrawnItem:GetEntityIndex()
 							if withdrawnItem.itemIndex == 0 then
@@ -1561,7 +1561,7 @@ function SaveLoad:DraggedFromStash(keys)
 end
 
 function SaveLoad:PutItemInInventory(hero, itemIndex)
-	print("ADD ITEM!")
+	--print("ADD ITEM!")
 	hero:AddItem(EntIndexToHScript(itemIndex))
 	hero.pullStashItem = itemIndex
 	-- SwapItems(int nSlot1, int nSlot2)
@@ -1594,7 +1594,7 @@ function SaveLoad:PreviewAbilities(msg)
 		previewHero:AddNoDraw()
 
 		local abilityTable = {previewHero:GetAbilityByIndex(0):GetEntityIndex(), previewHero:GetAbilityByIndex(1):GetEntityIndex(), previewHero:GetAbilityByIndex(2):GetEntityIndex(), previewHero:GetAbilityByIndex(3):GetEntityIndex()}
-		print(EntIndexToHScript(abilityTable[1]):GetAbilityName())
+		--print(EntIndexToHScript(abilityTable[1]):GetAbilityName())
 		CustomGameEventManager:Send_ServerToPlayer(player, "updateSkillPreview", {heroIndex = previewHero:GetEntityIndex()} )
 	end)
 
@@ -1667,11 +1667,11 @@ function SaveLoad:OpenKeyBank(msg)
 	CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			print( "GET response:\n" )
+			--print( "GET response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			CustomGameEventManager:Send_ServerToPlayer(player, "player_keys_loaded", {result=resultTable, premium=premium} )
 			Events:TutorialServerEvent(hero, "5_2", 0)
@@ -1702,20 +1702,20 @@ function SaveLoad:WithdrawKey(msg)
 		--SaveLoad:NewKey()
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			print( "GET response:\n" )
+			--print( "GET response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			CustomGameEventManager:Send_ServerToPlayer(player, "player_keys_loaded", {result=resultTable} )
 			SaveLoad:WithdrawKeyFinal(hero, keyIndex)
 		else
-			print( "GET response:\n" )
+			--print( "GET response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 		end
 	end )
 end
@@ -1747,20 +1747,20 @@ function SaveLoad:DepositKey(msg)
 			--SaveLoad:NewKey()
 			if result.StatusCode == 200 then
 				local resultTable = {}
-				print( "GET response:\n" )
+				--print( "GET response:\n" )
 				for k,v in pairs( result ) do
-					print( string.format( "%s : %s\n", k, v ) )
+					--print( string.format( "%s : %s\n", k, v ) )
 				end
-				print( "Done." )
+				--print( "Done." )
 				local resultTable = JSON:decode(result.Body)
 				RPCItems:ItemUTIL_Remove(itemEntity)
 				CustomGameEventManager:Send_ServerToPlayer(player, "player_keys_loaded", {result=resultTable, premium=premium} )
 			else
-				print( "GET response:\n" )
+				--print( "GET response:\n" )
 				for k,v in pairs( result ) do
-					print( string.format( "%s : %s\n", k, v ) )
+					--print( string.format( "%s : %s\n", k, v ) )
 				end
-				print( "Done." )
+				--print( "Done." )
 			end
 		end )
 	end
@@ -1845,23 +1845,23 @@ function SaveLoad:SaveJex(hero)
 		end
 		url = url.."&"..element1.."_exp="..onibi.stats_table[element1]["exp"]
 	end
-	print(url)
+	--print(url)
 	if SaveLoad:GetAllowSaving() then
 		CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
 			if result.StatusCode == 200 then
 				local resultTable = {}
-				print( "GET response:\n" )
+				--print( "GET response:\n" )
 				for k,v in pairs( result ) do
-					print( string.format( "%s : %s\n", k, v ) )
+					--print( string.format( "%s : %s\n", k, v ) )
 				end
-				print( "Done." )
+				--print( "Done." )
 				local resultTable = JSON:decode(result.Body)
 			else
-				print( "GET response:\n" )
+				--print( "GET response:\n" )
 				for k,v in pairs( result ) do
-					print( string.format( "%s : %s\n", k, v ) )
+					--print( string.format( "%s : %s\n", k, v ) )
 				end
-				print( "Done." )
+				--print( "Done." )
 			end
 		end )
 	end
