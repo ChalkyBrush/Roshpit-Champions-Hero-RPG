@@ -98,7 +98,7 @@ function Arena:UpdatePitLevels()
 				individualURL = individualURL.."&hero_id="..MAIN_HERO_TABLE[i].roshpitID
 				individualURL = individualURL.."&pit_level="..Arena.PitLevel
 				individualURL = individualURL.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-				print(individualURL)
+				--print(individualURL)
 				print(MAIN_HERO_TABLE[i])
 				if MAIN_HERO_TABLE[i].pit.pit_level < Arena.PitLevel then
 					CreateHTTPRequestScriptVM( "POST", individualURL ):Send( function( result )
