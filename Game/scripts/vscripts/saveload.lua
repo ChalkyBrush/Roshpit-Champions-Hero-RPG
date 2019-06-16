@@ -773,6 +773,24 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			end
 		end
 
+		--should be removed after db update
+		if gearTable.property1name and gearTable.property1name == "level_reduce" and gearTable.property1tooltip and gearTable.property1tooltip == "#item_min_level_reduction" then
+			gearTable.property1name = "item_damage"
+			gearTable.property1tooltip = "#item_damage_increase"
+		end
+		if gearTable.property2name and gearTable.property2name == "level_reduce" and gearTable.property2tooltip and gearTable.property2tooltip == "#item_min_level_reduction" then
+			gearTable.property2name = "item_damage"
+			gearTable.property2tooltip = "#item_damage_increase"
+		end
+		if gearTable.property3name and gearTable.property3name == "level_reduce" and gearTable.property3tooltip and gearTable.property3tooltip == "#item_min_level_reduction" then
+			gearTable.property3name = "item_damage"
+			gearTable.property3tooltip = "#item_damage_increase"
+		end
+		if gearTable.property4name and gearTable.property4name == "level_reduce" and gearTable.property4tooltip and gearTable.property4tooltip == "#item_min_level_reduction" then
+			gearTable.property4name = "item_damage"
+			gearTable.property4tooltip = "#item_damage_increase"
+		end
+
 		item.newItemTable.item_slot = gearSlot
 		item.newItemTable.hasRunePoints = true
 		item.pickedUp = true
