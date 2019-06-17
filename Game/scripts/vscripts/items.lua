@@ -959,6 +959,10 @@ function RPCItems:ItemUpdateCustomNetTables(item)
 	if not item.newItemTable.itemSuffix then
 		item.newItemTable.itemSuffix = ""
 	end
+	
+	if not item.newItemTable.item_slot and type(item.newItemTable.slot) == "string" and item.newItemTable.slot then
+		item.newItemTable.item_slot = item.newItemTable.slot
+	end
 	--DeepPrintTable(item.newItemTable)
 	CustomNetTables:SetTableValue("item_basics", tostring(itemIndex), item.newItemTable)
 end
@@ -1103,7 +1107,7 @@ function RPCItems:GearPickup(heroEntity, itemEntity)
 	local oldGear = false
 	local itemIndexNew = itemEntity:GetEntityIndex()
 	print("[RPCItems:GearPickup] slot: "..slot)
-	print("[RPCItems:GearPickup] slot: "..itemIndexNew)
+	print("[RPCItems:GearPickup] itemIndexNew: "..itemIndexNew)
 	if oldGearTable then
 		if oldGearTable.itemIndex == -1 then
 			oldGear = false
