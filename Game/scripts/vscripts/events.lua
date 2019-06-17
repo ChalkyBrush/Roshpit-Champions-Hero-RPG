@@ -440,12 +440,6 @@ function GameMode:OnPlayerReconnect(keys)
   -- end
 end
 
-function GameMode:DropWeapons(vector, name)
-  Weapons:RollLegendWeapon1(vector, name)
-  Weapons:RollLegendWeapon2(vector, name)
-  Weapons:RollLegendWeapon3(vector, name)
-end
-
 function GameMode:OnPlayerChat(keys)
   local text = string.lower(keys.text)
   -- if string.match(text, "-gold") or string.match(text, "-lvlup") or string.match(text, "-respawn") or string.match(text, "-createhero") or string.match(text, "-refresh") or string.match(text, "-item") or string.match(text, "-allvision") or string.match(text, "-wtf") or string.match(text, "-respawn") or string.match(text, "-teleport") then
@@ -459,10 +453,10 @@ function GameMode:OnPlayerChat(keys)
   -- 	PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():HasModifier(nil)
   -- end
   if string.match(text, "dbg") then
-    local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
-    RPCItems:RollFlamewakerArcana1(vector)
-    RPCItems.DROP_LOCATION = vector
-    RPCItems:CreateArcanaCache(99, "12345")
+    -- local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+    -- RPCItems:RollFlamewakerArcana1(vector)
+    -- RPCItems.DROP_LOCATION = vector
+    -- RPCItems:CreateArcanaCache(99, "12345")
   end
 
 
@@ -699,7 +693,7 @@ function GameMode:OnPlayerChat(keys)
     CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid), "error_logger_open", {})
   elseif GameState:GetDifficultyFactor() == 3 then
     local playerid = keys.playerid
-    if (string.match(text, "-crystal") or string.match(text, "-crystals")) and not GameMode.VoteSystem.crystal_loot_disabled then
+    if string.match(text, "-crystal") and not GameMode.VoteSystem.crystal_loot_disabled then
       Events:LootDisableCrystal(playerid)
     end
 
