@@ -225,7 +225,10 @@ function RPCItems:CreateVariantArcana(variantName, rarityName, itemNameText, slo
     item.newItemTable.gear = gear
     item.newItemTable.consumable = nil
     item.newItemTable.requiredHero = requiredHero
-    item.newItemTable.minLevel = RPCItems:GetMinLevel()   
+	if not minLevel then
+		minLevel = RPCItems:GetMinLevel()
+	end
+    item.newItemTable.minLevel = minLevel
     RPCItems:SetTableValues(item, itemNameText, item.newItemTable.consumable, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, "", "", RPCItems:GetRarityFactor(item.newItemTable.rarity))
 
     return item

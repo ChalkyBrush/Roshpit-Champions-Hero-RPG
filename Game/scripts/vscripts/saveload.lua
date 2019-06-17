@@ -627,7 +627,8 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 					gearSlot, 
 					true, 
 					"Slot: "..gearSlot:gsub("^%l", string.upper), 
-					tostring(gearTable.required_hero), gearTable.min_level)
+					tostring(gearTable.required_hero), 
+					gearTable.min_level)
 				
 				--print(item.newItemTable.requiredHero)
 			else
