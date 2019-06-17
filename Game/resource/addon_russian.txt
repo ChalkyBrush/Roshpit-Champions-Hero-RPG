@@ -834,6 +834,8 @@
 
 		"item_base_ability"			"Доп. урон умений, %" //Усиление базовых способностей, %
 
+		"item_damage_increase"			"Доп. урон предметов, %"
+
 		"property_unit_walking_description"			"Позволяет герою проходить сквозь других юнитов."
 
 		"item_all_runes"							"+ Все T1-T3 Руны"

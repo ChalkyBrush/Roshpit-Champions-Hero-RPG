@@ -1,7 +1,8 @@
 function RPCItems:DropSynthesisVessel(position)
     local item = RPCItems:CreateConsumable("item_rpc_synthesis_vessel", "immortal", "Synthesis Vessel", "consumable", false, "Consumable", "synthesis_vessel_desc")
-    item.stashable = true
-    item.consumable = true
+    item.newItemTable.stashable = true
+    item.newItemTable.consumable = true
+    RPCItems:ItemUpdateCustomNetTables(item)
     RPCItems:BasicDropItem(position, item)
 end
 
@@ -18,27 +19,6 @@ function RPCItems:SynthesisItemPlaced(msg)
 		hero:Stop()
 	end)
 	table.insert(vessel.itemTable, draggedItem)
-end
-
-function RPCItems:GetRealItemLevel(item)
-	local itemLevel = 1
-	if item.minLevel then
-		itemLevel = item.minLevel
-	end
-	if item.property1 and item.property1name and item.property1name == "level_reduce" then
-		itemLevel = itemLevel + item.property1
-	end
-	if item.property2 and item.property2name and item.property2name == "level_reduce" then
-		itemLevel = itemLevel + item.property2
-	end
-	if item.property3 and item.property3name and item.property3name == "level_reduce" then
-		itemLevel = itemLevel + item.property3
-	end
-	if item.property4 and item.property4name and item.property4name == "level_reduce" then
-		itemLevel = itemLevel + item.property4
-	end
-	-- print("GetRealItemLevel "..itemLevel)		
-	return math.max(itemLevel, 1)--min lvl can not be lower than 1
 end
 
 function RPCItems:CombineItems(msg)
@@ -89,7 +69,7 @@ function RPCItems:CombineItems(msg)
 			newItem.pickedUp = true
 			newItem.expiryTime = nil
 			RPCItems:GiveItemToHeroWithSlotCheck(hero, newItem)
-			EmitSoundOn("Item.SynthesisComplete", hero)
+			EmitSoundOn("item.newItemTable.SynthesisComplete", hero)
 			CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_g_cowlofice_b.vpcf", hero, 5)
 		else
 			Notifications:Top(playerID, {text="Synthesis Fail", duration=5, style={color="#EE2211"}, continue=true})
@@ -108,9 +88,9 @@ function RPCItems:SynthCheckCombination2(item1, item2, position)
 		local newItem = nil
 		local maxWeaponLevel = 50
 		if WallPhysics:DoesTableHaveValue(jex_weapon_table, item1:GetAbilityName()) then
-			maxWeaponLevel = item1.maxLevel
+			maxWeaponLevel = item1.newItemTable.maxLevel
 		elseif WallPhysics:DoesTableHaveValue(jex_weapon_table, item2:GetAbilityName()) then
-			maxWeaponLevel = item2.maxLevel
+			maxWeaponLevel = item2.newItemTable.maxLevel
 		end
 		local newItemName = "item_rpc_jex_immortal_weapon_2_a"
 		local new_min_level = 100
@@ -120,7 +100,7 @@ function RPCItems:SynthCheckCombination2(item1, item2, position)
 		RPCItems.LevelRoll = nil
 		if newItem and IsValidEntity(newItem) then
 			newItem.pickedUp = true
-			newItem.minLevel = new_min_level
+			newItem.newItemTable.minLevel = new_min_level
 			return newItem
 		else
 			return false
@@ -132,11 +112,23 @@ function RPCItems:SynthCheckCombination2(item1, item2, position)
 		elseif string.match(item2:GetAbilityName(), "item_serengaard_sunstone") then
 			suncrystal = item1
 		end
-		local score1 = RPCItems:GetLogarithmicVarianceValue(suncrystal.property1, 0, 0, 0, 0)
-		local score2 = RPCItems:GetLogarithmicVarianceValue(suncrystal.property2, 0, 0, 0, 0)
-		local score3 = RPCItems:GetLogarithmicVarianceValue(suncrystal.property3, 0, 0, 0, 0)
-		local score4 = RPCItems:GetLogarithmicVarianceValue(suncrystal.property4, 0, 0, 0, 0)*10
-		local score5 = suncrystal.minLevel*200
+		local score1 = 0
+		if suncrystal.newItemTable.property1 and type(suncrystal.newItemTable.property1) == "number" then
+			score1 = RPCItems:GetLogarithmicVarianceValue(suncrystal.newItemTable.property1, 0, 0, 0, 0)
+		end
+		local score2 = 0
+		if suncrystal.newItemTable.property2 and type(suncrystal.newItemTable.property2) == "number" then
+			score2 = RPCItems:GetLogarithmicVarianceValue(suncrystal.newItemTable.property2, 0, 0, 0, 0)
+		end
+		local score3 = 0
+		if suncrystal.newItemTable.property3 and type(suncrystal.newItemTable.property3) == "number" then
+			score3 = RPCItems:GetLogarithmicVarianceValue(suncrystal.newItemTable.property3, 0, 0, 0, 0)
+		end
+		local score4 = 0
+		if suncrystal.newItemTable.property4 and type(suncrystal.newItemTable.property4) == "number" then
+			score4 = RPCItems:GetLogarithmicVarianceValue(suncrystal.newItemTable.property4, 0, 0, 0, 0)*10
+		end
+		local score5 = suncrystal.newItemTable.minLevel*200
 		local total_score = RPCItems:GetLogarithmicVarianceValue(score1 + score2 + score2 + score4 + score5, 0, 0, 0, 0)
 		local divisor = RPCItems:GetLogarithmicVarianceValue(220, 0, 0, 0, 0)
 		local final_score = math.max(total_score/divisor, 30)
@@ -149,58 +141,61 @@ function RPCItems:SynthCheckCombination2(item1, item2, position)
 end
 
 function RPCItems:SynthCheckCombination(item1, item2, position)
-	if item1.gear and item2.gear then
-		if item1.rarity == "arcana" and item2.rarity == "arcana" then
-			local possibilityTable = {item1:GetAbilityName(), item2:GetAbilityName()}
-			local newArcanaName = possibilityTable[RandomInt(1, #possibilityTable)]
-			local minLevelAVG = math.floor((RPCItems:GetRealItemLevel(item1) + RPCItems:GetRealItemLevel(item2))/2)
-			local new_min_level = minLevelAVG
-			new_min_level = math.max(math.min(new_min_level, 100), 3)
-			RPCItems.LevelRoll = new_min_level
-			local newItem = RPCItems:RollArcanaByName(newArcanaName, position)
+	if item1.newItemTable.gear and item2.newItemTable.gear then
+		if item1.newItemTable.rarity == "arcana" and item2.newItemTable.rarity == "arcana" then
+			local possibilityTable = {item1, item2}
+			local randomItem = possibilityTable[RandomInt(1, #possibilityTable)]
+			local minLevelAVG = math.floor((item1.newItemTable.minLevel + item2.newItemTable.minLevel)/2)
+			local newMinLevel = RPCItems:GetImmortalLevelForSynth(minLevelAVG)
+			newMinLevel = math.max(math.min(newMinLevel, 100), 3)
+			RPCItems.LevelRoll = newMinLevel
+			local newItem = RPCItems:RollArcanaByName(randomItem:GetAbilityName(), position)
 			RPCItems.LevelRoll = nil
 			if newItem and IsValidEntity(newItem) then
-	            newItem.pickedUp = true
-	            newItem.minLevel = new_min_level
-	            local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(newItem:GetEntityIndex()))
-	            CustomNetTables:SetTableValue( "item_basics", tostring(newItem:GetEntityIndex()), {itemName = itemInfo.itemName, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, minLevel = newItem.minLevel, requiredHero = itemInfo.requiredHero  } )
+				newItem.pickedUp = true
+				newItem.newItemTable.minLevel = newMinLevel
+				local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(randomItem:GetEntityIndex()))
+				newItem.newItemTable.validator = itemInfo.validator
+				RPCItems:ItemUpdateCustomNetTables(newItem)
 				return newItem
 			else
 				return false
 			end
-		elseif item1.rarity == "immortal" and item2.rarity == "immortal" then
-			if item1.slot ~= "weapon" and item2.slot ~= "weapon" then
-				local possibilityTable = {item1:GetAbilityName(), item2:GetAbilityName()}
-				local newItemName = possibilityTable[RandomInt(1, #possibilityTable)]
-				local minLevelAVG = math.floor((RPCItems:GetRealItemLevel(item1) + RPCItems:GetRealItemLevel(item2))/2)
-				local new_min_level = RPCItems:GetImmortalLevelForSynth(minLevelAVG)
-				new_min_level = math.max(math.min(new_min_level, 100), 3)
-				RPCItems.LevelRoll = new_min_level
-				local newItem = RPCItems:RollImmortalByName(newItemName, position)
+		elseif item1.newItemTable.rarity == "immortal" and item2.newItemTable.rarity == "immortal" then
+			if item1.newItemTable.slot ~= "weapon" and item2.newItemTable.slot ~= "weapon" then
+				local possibilityTable = {item1, item2}
+				local randomItem = possibilityTable[RandomInt(1, #possibilityTable)]
+				local minLevelAVG = math.floor((item1.newItemTable.minLevel + item2.newItemTable.minLevel)/2)
+				local newMinLevel = RPCItems:GetImmortalLevelForSynth(minLevelAVG)
+				newMinLevel = math.max(math.min(newMinLevel, 100), 3)
+				RPCItems.LevelRoll = newMinLevel
+				local newItem = RPCItems:RollImmortalByName(randomItem:GetAbilityName(), position)
 				RPCItems.LevelRoll = nil
 				if newItem and IsValidEntity(newItem) then
 					newItem.pickedUp = true
-					newItem.minLevel = new_min_level
-					local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(newItem:GetEntityIndex()))
-					CustomNetTables:SetTableValue( "item_basics", tostring(newItem:GetEntityIndex()), {itemName = itemInfo.itemName, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, minLevel = newItem.minLevel } )
+					newItem.newItemTable.minLevel = newMinLevel
+					local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(randomItem:GetEntityIndex()))
+					newItem.newItemTable.validator = itemInfo.validator
+					RPCItems:ItemUpdateCustomNetTables(newItem)
 					return newItem
 				else
 					return false
 				end
-			elseif item1.slot == "weapon" and item2.slot == "weapon" then
-				local possibilityTable = {item1:GetAbilityName(), item2:GetAbilityName()}
-				local newItemName = possibilityTable[RandomInt(1, #possibilityTable)]
-				local new_min_level = 100
-				local maxWeaponLevel = math.floor((item1.maxLevel + item2.maxLevel)/2)
+			elseif item1.newItemTable.slot == "weapon" and item2.newItemTable.slot == "weapon" then
+				local possibilityTable = {item1, item2}
+				local randomItem = possibilityTable[RandomInt(1, #possibilityTable)]
+				local newMinLevel = 100
+				local maxWeaponLevel = math.floor((item1.newItemTable.maxLevel + item2.newItemTable.maxLevel)/2)
 				maxWeaponLevel = math.min(maxWeaponLevel, 50)
-				RPCItems.LevelRoll = new_min_level				
-				local newItem = Weapons:RollLegendWeaponVariantWithAbilityName(newItemName, maxWeaponLevel, position, true)
+				RPCItems.LevelRoll = newMinLevel
+				local newItem = Weapons:RollLegendWeaponVariantWithAbilityName(randomItem:GetAbilityName(), maxWeaponLevel, position, true)
 				RPCItems.LevelRoll = nil
 				if newItem and IsValidEntity(newItem) then
 					newItem.pickedUp = true
-					newItem.minLevel = new_min_level
-					-- local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(newItem:GetEntityIndex()))
-					-- CustomNetTables:SetTableValue( "item_basics", tostring(newItem:GetEntityIndex()), {itemName = itemInfo.itemName, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, minLevel = newItem.minLevel, maxLevel = newItem.maxLevel, requiredHero = newItem.requiredHero, slot = newItem.slot } )
+					newItem.newItemTable.minLevel = newMinLevel
+					local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(randomItem:GetEntityIndex()))
+					newItem.newItemTable.validator = itemInfo.validator
+					RPCItems:ItemUpdateCustomNetTables(newItem)
 					return newItem
 				else
 					return false
@@ -213,18 +208,19 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 		end
 	else
 		if (item1:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_1" and item2:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_2") or (item1:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_2" and item2:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_1") then
-			local radianceAVG = math.floor((item1.property1 + item2.property1)/2)
+			local radianceAVG = math.floor((item1.newItemTable.property1 + item2.newItemTable.property1)/2)
 			local key1 = "abc"
 			local key2 = "xyz"
-			local validatorTable = CustomNetTables:GetTableValue("item_basics", tostring(item1:GetEntityIndex()).."-key")
+			local validatorTable = CustomNetTables:GetTableValue("item_basics", tostring(item1:GetEntityIndex()))
 			if validatorTable then
-				key1 = validatorTable.key
+				key1 = validatorTable.validator
 			end
-			local validatorTable = CustomNetTables:GetTableValue("item_basics", tostring(item2:GetEntityIndex()).."-key")
+			local validatorTable = CustomNetTables:GetTableValue("item_basics", tostring(item2:GetEntityIndex()))
 			if validatorTable then
-				key2 = validatorTable.key
+				key2 = validatorTable.validator
 			end
-			local validator = key1.."-"..key2
+			--local validator = key1.."-"..key2
+			local validator = key1
 			local newItem = RPCItems:CreateArcanaCache(radianceAVG, validator)
 			if newItem and IsValidEntity(newItem) then
 	            newItem.pickedUp = true
@@ -232,12 +228,16 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			else
 				return false
 			end			
-		elseif (item1:GetAbilityName() == "item_rpc_boreal_granite_chunk" and item2.slot and item2.slot == "body" and item2.rarity == "immortal") or (item2:GetAbilityName() == "item_rpc_boreal_granite_chunk" and item1.slot and item1.slot == "body" and item1.rarity == "immortal") then
+		elseif (item1:GetAbilityName() == "item_rpc_boreal_granite_chunk" and item2.newItemTable.slot and item2.newItemTable.slot == "body" and item2.newItemTable.rarity == "immortal") 
+			or (item2:GetAbilityName() == "item_rpc_boreal_granite_chunk" and item1.newItemTable.slot and item1.newItemTable.slot == "body" and item1.newItemTable.rarity == "immortal") then
 			local new_min_level = 0
-			if item2.slot then
-				new_min_level = RPCItems:GetLogarithmicVarianceValue(item2.minLevel, 0, 0, 0, 0)
-			elseif item1.slot then
-				new_min_level = RPCItems:GetLogarithmicVarianceValue(item1.minLevel, 0, 0, 0, 0)
+			local newValidator = nil
+			if item2.newItemTable.slot then
+				new_min_level = RPCItems:GetLogarithmicVarianceValue(item2.newItemTable.minLevel, 0, 0, 0, 0)
+				newValidator = item2.newItemTable.validator
+			elseif item1.newItemTable.slot then
+				new_min_level = RPCItems:GetLogarithmicVarianceValue(item1.newItemTable.minLevel, 0, 0, 0, 0)
+				newValidator = item1.newItemTable.validator
 			end
 			new_min_level = math.max(math.min(new_min_level, 100), 3)
 			RPCItems.LevelRoll = new_min_level
@@ -245,9 +245,10 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			RPCItems.LevelRoll = nil
 			if newItem and IsValidEntity(newItem) then
 	            newItem.pickedUp = true
-	            newItem.minLevel = new_min_level
+	            newItem.newItemTable.minLevel = new_min_level
 	            local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(newItem:GetEntityIndex()))
-	            CustomNetTables:SetTableValue( "item_basics", tostring(newItem:GetEntityIndex()), {itemName = itemInfo.itemName, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, minLevel = newItem.minLevel } )
+	            newItem.newItemTable.validator = newValidator
+				RPCItems:ItemUpdateCustomNetTables(newItem)
 				return newItem
 			else
 				return false
@@ -295,35 +296,35 @@ end
 
 function RPCItems:CreateArcanaCache(radiance, validator)
     local item = RPCItems:CreateConsumable("item_rpc_galactic_arcana_cache", "arcana", "Galactic Arcana Cache", "consumable", false, "Consumable", "item_rpc_galactic_arcana_cache_desc")
-    item.stashable = true
-    item.consumable = true
-    item.property1 = radiance
-    item.property1name = "cache_radiance"
-	item.property1color = "#e9ff5b"
-	item.property1tooltip = "cache_radiance"
-	RPCItems:SetPropertyValues(item, item.property1, "cache_radiance", item.property1color,  1)
+    item.newItemTable.stashable = true
+    item.newItemTable.consumable = true
+    item.newItemTable.property1 = radiance
+    item.newItemTable.property1name = "cache_radiance"
+	item.newItemTable.property1color = "#e9ff5b"
+	item.newItemTable.property1tooltip = "cache_radiance"
+	RPCItems:SetPropertyValues(item, item.newItemTable.property1, "cache_radiance", item.newItemTable.property1color,  1)
+	item.newItemTable.validator = validator
+	RPCItems:ItemUpdateCustomNetTables(item)
     RPCItems:BasicDropItem(RPCItems.DROP_LOCATION, item)	
-    CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()).."-key", {key = validator} )
     return item
 end
 
 function RPCItems:DropGalacticArcanaCachePart(part_name, position)
     local item = RPCItems:CreateConsumable(part_name, "immortal", "Arcana Cache Part", "consumable", false, "Consumable", part_name.."_desc")
-    item.stashable = true
-    item.consumable = true
-    item.property1 = RPCItems:GetMinLevel()
-    item.property1name = "cache_radiance"
-	item.property1color = "#e9ff5b"
-	item.property1tooltip = "cache_radiance"
-	RPCItems:SetPropertyValues(item, item.property1, "cache_radiance", item.property1color,  1)
+    item.newItemTable.stashable = true
+    item.newItemTable.consumable = true
+    item.newItemTable.property1 = RPCItems:GetMinLevel()
+    item.newItemTable.property1name = "cache_radiance"
+	item.newItemTable.property1color = "#e9ff5b"
+	item.newItemTable.property1tooltip = "cache_radiance"
+	RPCItems:SetPropertyValues(item, item.newItemTable.property1, "cache_radiance", item.newItemTable.property1color,  1)
+	RPCItems:ItemUpdateCustomNetTables(item)
     RPCItems:BasicDropItem(position, item)
-    local validator = RPCItems:GetRandomKey(13)
-    CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()).."-key", {key = validator} )
 end
 
 function RPCItems:UseArcanaCache(caster, item)
 	if item:GetAbilityName() == "item_rpc_galactic_arcana_cache" then
-		local radiance = item.property1
+		local radiance = item.newItemTable.property1
 		if not Challenges:CheckIfHeroHasItemByItemIndex(caster, item:GetEntityIndex()) then
 			return false
 		end
@@ -366,14 +367,13 @@ end
 
 function RPCItems:RollHyperstone(wave_bonus)
   local item = RPCItems:CreateConsumable("item_serengaard_hyperstone", "immortal", "Serengaard Hyperstone", "consumable", false, "Consumable", "item_serengaard_hyperstone_desc")
-  item.stashable = true
-  item.consumable = true
-  item.property1 = wave_bonus
-  item.property1name = "wave_number"
-  item.property1color = "#e8f442"
-  item.property1tooltip = "serengaard_hyperstone_property"
-  RPCItems:SetPropertyValuesSpecial(item, item.property1, item.property1tooltip, item.property1color,  1, "#item_serengaard_hyperstone_desc")
-  local validator = RPCItems:GetRandomKey(13)
-  CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()).."-key", {key = validator} )
+  item.newItemTable.stashable = true
+  item.newItemTable.consumable = true
+  item.newItemTable.property1 = wave_bonus
+  item.newItemTable.property1name = "wave_number"
+  item.newItemTable.property1color = "#e8f442"
+  item.newItemTable.property1tooltip = "serengaard_hyperstone_property"
+  RPCItems:SetPropertyValuesSpecial(item, item.newItemTable.property1, item.newItemTable.property1tooltip, item.newItemTable.property1color,  1, "#item_serengaard_hyperstone_desc")
+  RPCItems:ItemUpdateCustomNetTables(item)
   return item
 end

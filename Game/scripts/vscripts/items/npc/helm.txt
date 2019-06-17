@@ -112,7 +112,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/shipyard_veil_lv1" // "phoenix_gloves"
+		"AbilityTextureName"	"rpc/shipyard_veil_lv3" // "phoenix_gloves"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"0"
@@ -129,159 +129,6 @@
 		{
 			"particle"  "particles/roshpit/redfall/shipyard_tracking_skull_enemy.vpcf"
 			"particle"	"particles/roshpit/redfall/shipyard_veil_shield.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"100"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"		"12000"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_shipyard_veil"
-			{
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_shipyard_veil_shield"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_shipyard_veil_shield"
-			{
-				"IsHidden"	"0"
-				"TextureName"	"necrolyte_death_pulse"
-				"EffectName"	"particles/roshpit/redfall/shipyard_veil_shield.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-			}
-		}
-	}
-
-	"item_rpc_shipyard_veil_lv2"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/shipyard_veil_lv2" // "phoenix_gloves"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"precache"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"3"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"100"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"		"50000"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_shipyard_veil"
-			{
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_shipyard_veil_shield"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_shipyard_veil_shield"
-			{
-				"IsHidden"	"0"
-				"TextureName"	"necrolyte_death_pulse"
-				"EffectName"	"particles/roshpit/redfall/shipyard_veil_shield.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-			}
-		}
-	}
-
-	"item_rpc_shipyard_veil_lv3"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/shipyard_veil_lv3" // "phoenix_gloves"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"precache"
-		{
-
 		}
 		"OnSpellStart"
 		{
@@ -359,6 +206,7 @@
 			}
 		}
 	}
+
 
 	"item_rpc_brazen_kabuto_of_the_desert_realm"
 	{

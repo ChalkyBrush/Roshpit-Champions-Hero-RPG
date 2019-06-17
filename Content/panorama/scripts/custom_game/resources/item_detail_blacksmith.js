@@ -100,8 +100,43 @@ function setLockSlot(slot){
 	}
 }
 
+function customNetTableSplitter(itemPropertyesTable, index){
+	var itemPropertyesTableNew = {}
+	var propertyColor = undefined
+	var propertyName = undefined
+	var propertyValue = undefined
+	switch (index){
+		case 1:
+			propertyColor = itemPropertyesTable.property1color
+			propertyName = itemPropertyesTable.property1tooltip == "rune" ? itemPropertyesTable.property1name : itemPropertyesTable.property1tooltip
+			propertyValue = itemPropertyesTable.property1
+			break;
+		case 2:
+			propertyColor = itemPropertyesTable.property2color
+			propertyName = itemPropertyesTable.property2tooltip == "rune" ? itemPropertyesTable.property2name : itemPropertyesTable.property2tooltip
+			propertyValue = itemPropertyesTable.property2
+			break;
+		case 3:
+			propertyColor = itemPropertyesTable.property3color
+			propertyName = itemPropertyesTable.property3tooltip == "rune" ? itemPropertyesTable.property3name : itemPropertyesTable.property3tooltip
+			propertyValue = itemPropertyesTable.property3
+			break;
+		case 4:
+			propertyColor = itemPropertyesTable.property4color
+			propertyName = itemPropertyesTable.property4tooltip == "rune" ? itemPropertyesTable.property4name : itemPropertyesTable.property4tooltip
+			propertyValue = itemPropertyesTable.property4
+			break;
+	}
+	if (propertyColor===undefined || propertyColor===undefined || propertyColor===undefined) return null
+	itemPropertyesTableNew.propertyColor = propertyColor
+	itemPropertyesTableNew.propertyName = propertyName
+	itemPropertyesTableNew.propertyValue = propertyValue
+	return itemPropertyesTableNew
+}
+
 function populateItem()
 {
+	$.Msg("item_detail_blacksmith.js +++++++++++++++++++++++++++++++++++++")
 	$('#item_image').contextEntityIndex = mItemIndex;
 	$('#item_image').SetAttributeInt("item", mItemIndex)
 	var itemName = Abilities.GetAbilityName( mItemIndex);
@@ -114,7 +149,7 @@ function populateItem()
 	var parentPanel = $("#item_properties_container")
 	for (i = 1; i <= 4; i++) 
 	{ 
-		var itemProperty = CustomNetTables.GetTableValue( "item_properties", mItemIndex.toString()+"-"+i.toString() )
+		var itemProperty = customNetTableSplitter(itemValues, i)
 		if (itemProperty){
 			var newChildPanel = $.CreatePanel( "Panel", parentPanel, "chisel-item" );
 			newChildPanel.propertyTable = itemProperty
@@ -127,11 +162,7 @@ function populateItem()
 	}
 	if (itemValues.minLevel){
 		var minLevelText = $.Localize('#item_min_level')
-		var reductionTable = CustomNetTables.GetTableValue( "min_level_reduction", mItemIndex.toString() )
 		var reduction = 0
-		if (!(reductionTable===undefined)){
-			reduction = reductionTable.levelReduce
-		}
 		$('#min_level_label').text = minLevelText
 		var minLevelValue = parseInt(itemValues.minLevel - reduction)
 		$('#min_level_label_value').text = minLevelValue

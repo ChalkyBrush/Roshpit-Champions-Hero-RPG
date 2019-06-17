@@ -380,7 +380,7 @@ function OnDragStart( panel, dragCallbacks )
 	
 	// create a temp panel that will be dragged around
 	var displayPanel = $.CreatePanel( "DOTAItemImage", $.GetContextPanel(), "dragImage" );
-	displayPanel.itemname = itemName;
+	displayPanel.item_name = itemName;
 	displayPanel.contextEntityIndex = m_Item;
 	displayPanel.m_DragItem = m_Item;
 	displayPanel.m_Item = m_Item;

@@ -12,7 +12,14 @@ end
 
 
 function Weaponmodifiers:add_modifiers(hero, inventory_unit, item)
-	print(item)
+	print("[Weaponmodifiers:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	DeepPrintTable(item)
+	if not item.newItemTable then
+		print("[Error] Weaponmodifiers:add_modifiers item.newItemTable is null")
+		RPCItems:ItemUTIL_Remove(item)
+		return
+	end
+	print("[Weaponmodifiers:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
 	local weapon_ability = inventory_unit:FindAbilityByName("weapon_slot")
 	weapon_ability.strength = 0
 	weapon_ability.agility = 0
@@ -21,25 +28,27 @@ function Weaponmodifiers:add_modifiers(hero, inventory_unit, item)
 	weapon_ability.critical_strike = 0
 	weapon_ability.splash_damage = 0
 	weapon_ability.base_ability = 0
-	local property1 = RPCItems:AdjustAttributeValue(hero, item.property1)
-	Weaponmodifiers:action(item.property1name, property1, hero, inventory_unit, weapon_ability, item)
-	Weaponmodifiers:runeProperty(item.property1name, item.property1, hero)
-	if item.property2name then
-		local property2 = RPCItems:AdjustAttributeValue(hero, item.property2)
-		Weaponmodifiers:action(item.property2name, property2, hero, inventory_unit, weapon_ability, item)
-		Weaponmodifiers:runeProperty(item.property2name, item.property2, hero)
+	if item.newItemTable.property1name then
+		local property1 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property1)
+		Weaponmodifiers:action(item.newItemTable.property1name, property1, hero, inventory_unit, weapon_ability, item)
+		Weaponmodifiers:runeProperty(item.newItemTable.property1name, item.newItemTable.property1, hero)
 	end
-	if item.property3name then
-		local property3 = RPCItems:AdjustAttributeValue(hero, item.property3)
-		Weaponmodifiers:action(item.property3name, property3, hero, inventory_unit, weapon_ability, item)
-		Weaponmodifiers:runeProperty(item.property3name, item.property3, hero)
+	if item.newItemTable.property2name then
+		local property2 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property2)
+		Weaponmodifiers:action(item.newItemTable.property2name, property2, hero, inventory_unit, weapon_ability, item)
+		Weaponmodifiers:runeProperty(item.newItemTable.property2name, item.newItemTable.property2, hero)
 	end
-	if item.property4name then
-		local property4 = RPCItems:AdjustAttributeValue(hero, item.property4)
-		Weaponmodifiers:action(item.property4name, property4, hero, inventory_unit, weapon_ability, item)
-		Weaponmodifiers:runeProperty(item.property4name, item.property4, hero)
+	if item.newItemTable.property3name then
+		local property3 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property3)
+		Weaponmodifiers:action(item.newItemTable.property3name, property3, hero, inventory_unit, weapon_ability, item)
+		Weaponmodifiers:runeProperty(item.newItemTable.property3name, item.newItemTable.property3, hero)
 	end
-	if item.rarity =="immortal" then
+	if item.newItemTable.property4name then
+		local property4 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property4)
+		Weaponmodifiers:action(item.newItemTable.property4name, property4, hero, inventory_unit, weapon_ability, item)
+		Weaponmodifiers:runeProperty(item.newItemTable.property4name, item.newItemTable.property4, hero)
+	end
+	if item.newItemTable.rarity =="immortal" then
 		Stars:StarEventPlayer("weapon", hero)
 	end
 end
@@ -56,6 +65,10 @@ function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_uni
 		if propertyValue > 1 then
 			propertyBoost = propertyBoost + PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT/100
 		end
+	end
+	if type(propertyValue) == "string" then
+		print("[Weaponmodifiers:action] propertyValue:"..propertyValue)
+		propertyValue = 0
 	end
 	propertyValue = propertyValue*propertyBoost
 	if propertyName == "strength" then
@@ -120,6 +133,9 @@ function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_uni
 	elseif propertyName == "base_ability" then
 		weapon_ability.base_ability = weapon_ability.base_ability + propertyValue
 		Weaponmodifiers:addBasicModifier(weapon_ability.base_ability, hero, inventory_unit, "modifier_weapon_base_ability_damage", weapon_ability)
+	elseif propertyName == "item_damage" then
+		weapon_ability.base_ability = weapon_ability.base_ability + propertyValue
+		Weaponmodifiers:addBasicModifier(weapon_ability.base_ability, hero, inventory_unit, "modifier_weapon_item_damage_inc", weapon_ability)
 	elseif propertyName == "all_attributes" then
 		weapon_ability.strength = weapon_ability.strength + propertyValue
 		Weaponmodifiers:addBasicModifier(weapon_ability.strength, hero, inventory_unit, "modifier_weapon_strength", weapon_ability)	
@@ -266,6 +282,7 @@ function Weaponmodifiers:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_weapon_intelligence")
 	hero:RemoveModifierByName("modifier_weapon_attack_damage")
 	hero:RemoveModifierByName("modifier_weapon_base_ability_damage")
+	hero:RemoveModifierByName("modifier_weapon_item_damage_inc")
 	hero:RemoveModifierByName("modifier_weapon_poison")
 	hero:RemoveModifierByName("modifier_weapon_normal")
 	hero:RemoveModifierByName("modifier_weapon_cosmos")

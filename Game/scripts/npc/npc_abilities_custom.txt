@@ -84174,14 +84174,6 @@
 						"Function"		"flood_water_elemental_attack"
 					}
 				}
-				"OnKill"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"flood_water_elemental_kill"
-					}
-				}
 			}
 		}
 
@@ -89394,6 +89386,12 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_helm_item_damage_inc"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
 			"modifier_helm_movespeed"
 			{
 				"Passive"	"0"
@@ -89750,6 +89748,12 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_hand_base_ability_damage"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_hand_item_damage_inc"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
@@ -90166,6 +90170,12 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_foot_item_damage_inc"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
 			"modifier_foot_cosmos"
 			{
 				"Passive"	"0"
@@ -90341,6 +90351,12 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_body_base_ability_damage"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_body_item_damage_inc"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
@@ -90654,6 +90670,12 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_trinket_item_damage_inc"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
 			"modifier_trinket_cosmos"
 			{
 				"Passive"	"0"
@@ -90808,6 +90830,12 @@
 				}
 			}
 			"modifier_weapon_base_ability_damage"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_weapon_item_damage_inc"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"

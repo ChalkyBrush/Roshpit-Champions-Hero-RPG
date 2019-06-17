@@ -168,7 +168,7 @@ local function getItemsByIndexes(itemsIndexes)
         local luaItem = EntIndexToHScript(itemIndexOnly.itemIndex)
         if luaItem and not luaItem.glyph and luaItem.property1 then
             local clearedItem = {
-                itemName = luaItem.itemName,
+                itemName = luaItem.item_name,
                 property1 = luaItem.property1,
                 property1name = luaItem.property1name,
                 property2 = luaItem.property2,
@@ -198,7 +198,7 @@ local function getCurrentStashItems(hero)
         for key, luaItem in pairs(hero.stashTable) do
             local itemIndex = luaItem:GetEntityIndex()
             local clearedItem = {
-                itemName = luaItem.itemName,
+                itemName = luaItem.item_name,
                 property1 = luaItem.property1,
                 property1name = luaItem.property1name,
                 property2 = luaItem.property2,

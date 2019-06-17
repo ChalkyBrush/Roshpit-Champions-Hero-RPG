@@ -74,9 +74,9 @@ function Arena:UpdatePitLockout(hero)
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	-- url = url.."&rank="..battleRank
 	-- url = url.."&score="..score
-	SaveLoad:NewKey()
+	--SaveLoad:NewKey()
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-		SaveLoad:NewKey()
+		--SaveLoad:NewKey()
 		local resultTable = {}
 		print( "GET response:\n" )
 		for k,v in pairs( result ) do
@@ -89,7 +89,7 @@ end
 
 function Arena:UpdatePitLevels()
 	if SaveLoad:GetAllowSaving() then
-		SaveLoad:NewKey()
+		--SaveLoad:NewKey()
 		local url = ROSHPIT_URL.."/champions/updatePitClear?"
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			Timers:CreateTimer(i, function()
@@ -98,11 +98,11 @@ function Arena:UpdatePitLevels()
 				individualURL = individualURL.."&hero_id="..MAIN_HERO_TABLE[i].roshpitID
 				individualURL = individualURL.."&pit_level="..Arena.PitLevel
 				individualURL = individualURL.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-				print(individualURL)
+				--print(individualURL)
 				print(MAIN_HERO_TABLE[i])
 				if MAIN_HERO_TABLE[i].pit.pit_level < Arena.PitLevel then
 					CreateHTTPRequestScriptVM( "POST", individualURL ):Send( function( result )
-						SaveLoad:NewKey()
+						--SaveLoad:NewKey()
 						local resultTable = {}
 						print( "GET response:\n" )
 						for k,v in pairs( result ) do

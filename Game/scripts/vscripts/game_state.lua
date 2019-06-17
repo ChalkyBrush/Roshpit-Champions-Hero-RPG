@@ -1594,9 +1594,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage*2
 	end
 
-	if victim:HasModifier("modifier_raven_idol") then
-		damage = damage*0.6
-	end
 	if victim:HasModifier("modifier_raven_idol2") then
 		damage = damage*0.5
 	end
@@ -3572,9 +3569,6 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_seven_visions_striking") or victim:HasModifier("modifier_seven_visions_striking_glyphed") then
 		filterTable["damage"] = 0
-	end
-	if victim:HasModifier("modifier_crimsyth_elite_greaves") then
-		CustomAbilities:HitCrimsythElite(victim, attacker, filterTable["damage"])
 	end
     if victim:HasModifier("modifier_mystic_mana_wall") then
     	if filterTable["damagetype_const"] == DAMAGE_TYPE_MAGICAL or filterTable["damagetype_const"] == DAMAGE_TYPE_PURE then

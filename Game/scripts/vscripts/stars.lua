@@ -290,11 +290,12 @@ function Stars:StarEventPlayer(starEventName, hero)
 					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
 				end 
 				Stars:StarEventSolo(starEventName, hero)
-			elseif starEventName == "weapon" then
+			elseif starEventName == "weapon" and hero.weapon then
 				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
-				if hero.weapon.level >= 40 then
+				local weaponLevel1 = hero.weapon.newItemTable.level
+				if weaponLevel1 >= 40 then
 					starAmount = 3
-				elseif hero.weapon.level >= 30 then
+				elseif weaponLevel1 >= 30 then
 					starAmount = 2
 				else
 					starAmount = 1
@@ -363,7 +364,7 @@ function Stars:UpdateStarsOnServer(heroName, type, starAmount, playerID)
 	url = url.."&stars="..starAmount
 	url = url.."&hero_name="..heroName
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	print(url)
+	--print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
@@ -414,7 +415,7 @@ function Stars:GetPlayerStars(playerID)
 	local player = PlayerResource:GetPlayer(playerID)
 	local url = ROSHPIT_URL.."/champions/getStars?"
 	url = url.."steam_id="..steamID
-	print(url)
+	--print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}

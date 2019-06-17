@@ -233,7 +233,7 @@ function Tutorial:GetTutorialFromServer(hero)
 			local player = PlayerResource:GetPlayer(playerID)
 			local url = ROSHPIT_URL.."/champions/get_tutorial_status?"
 			url = url.."steam_id="..steamID
-			print(url)
+			--print(url)
 			CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 				if result.StatusCode == 200 then
 					local resultTable = {}
@@ -1463,7 +1463,7 @@ function Tutorial:CheckSpecialKeyAndLoop(hero)
 	local player = PlayerResource:GetPlayer(playerID)
 	local url = ROSHPIT_URL.."/champions/get_tutorial_status?"
 	url = url.."steam_id="..steamID
-	print(url)
+	--print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
@@ -2641,7 +2641,7 @@ function Tutorial:SaveTutorialProgressOnWeb(hero, section_index, newProgress)
 	url = url.."&section="..section_index
 	url = url.."&progress="..newProgress
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	print(url)
+	--print(url)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
@@ -2698,7 +2698,7 @@ function Tutorial:UpdateRewardProgressOnWeb(hero, section_index)
 	url = url.."&type=".."reward"
 	url = url.."&section="..section_index
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	print(url)
+	--print(url)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
@@ -2751,7 +2751,7 @@ function Tutorial:UpdateSpecialKeyOnWeb(hero, special_key)
 	url = url.."&type=".."special_key"
 	url = url.."&special_key="..special_key
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	print(url)
+	--print(url)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}

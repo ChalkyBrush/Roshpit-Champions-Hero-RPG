@@ -490,18 +490,14 @@ function itemValuesCheck(itemValues)
 	if (itemValues.qualityColor === undefined){
 		itemValues.qualityColor  = "#FFFFFF"
 	}
-	if (itemValues.itemName === undefined){
-		itemValues.itemName  = "undefined"
+	if (itemValues.item_name === undefined){
+		itemValues.item_name  = "undefined"
 	}
 	return itemValues
 }
 
 function replaceConsumableText(item, tooltip)
 {
-	var itemProperty3 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
-	if (!(itemProperty3===undefined)){
-		tooltip = tooltip.replace("@consumableProperty3", "<font color='"+itemProperty3.propertyColor+"'>"+$.Localize(itemProperty3.propertyName)+"</font>")
-	}
 	return tooltip
 }
 

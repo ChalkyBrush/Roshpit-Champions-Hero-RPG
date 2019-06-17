@@ -172,9 +172,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         end
     end
     if caster:HasModifier("modifier_hyper_visor") then
-        if caster.headItem:GetAbilityName() == "item_rpc_hyper_visor2" then
-            mult = mult + 0.003*(caster:GetAgility()/10)
-        end
+		mult = mult + 0.003*(caster:GetAgility()/10)
     end
     if caster:HasModifier("modifier_rpc_steamboots") then
         mult = mult + 0.003*(caster:GetAgility()/10)
@@ -193,6 +191,32 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         local multIncrease = ((caster:GetMaxHealth()-caster:GetHealth())/100)*0.001
         mult = mult + multIncrease
     end
+
+    if caster:HasModifier("modifier_trinket_item_damage_inc") then
+        local current_stack = caster:GetModifierStackCount( "modifier_trinket_item_damage_inc", caster.InventoryUnit)
+        mult = mult + 0.01*current_stack
+    end
+    if caster:HasModifier("modifier_helm_item_damage_inc") then
+        local current_stack = caster:GetModifierStackCount( "modifier_helm_item_damage_inc", caster.InventoryUnit)
+        mult = mult + 0.01*current_stack
+    end
+    if caster:HasModifier("modifier_body_item_damage_inc") then
+        local current_stack = caster:GetModifierStackCount( "modifier_body_item_damage_inc", caster.InventoryUnit)
+        mult = mult + 0.01*current_stack
+    end
+    if caster:HasModifier("modifier_hand_item_damage_inc") then
+        local current_stack = caster:GetModifierStackCount( "modifier_hand_item_damage_inc", caster.InventoryUnit)
+        mult = mult + 0.01*current_stack
+    end
+    if caster:HasModifier("modifier_foot_item_damage_inc") then
+        local current_stack = caster:GetModifierStackCount( "modifier_foot_item_damage_inc", caster.InventoryUnit)
+        mult = mult + 0.01*current_stack
+    end
+    if caster:HasModifier("modifier_weapon_item_damage_inc") then
+        local current_stack = caster:GetModifierStackCount( "modifier_weapon_item_damage_inc", caster.InventoryUnit)
+        mult = mult + 0.01*current_stack
+    end
+   
 
     if casterName == "npc_dota_hero_spirit_breaker" and caster:HasAbility("whirling_flail") then
 		local q_2_level = caster:GetRuneValue("q", 2)
@@ -317,39 +341,8 @@ function Filters:SetAttackDamage(unit, damage)
 end
 
 function Filters:AbilityKills(attacker, victim, ability)
-    -- if ability:GetAbilityName() == "item_rpc_skulldigger_gauntlet_lv1" then
-    --     if victim:GetDeathXP() < attacker:GetLevel()*2 then
-    --         return false
-    --     end
-    --     local nextValue = ability.property1 + 1
-    --     local upgradeThreshold = 4000
-    --     if nextValue == upgradeThreshold then
-    --         ability.lock = true
-    --         attacker:RemoveModifierByName("modifier_skulldigger_gauntlet")
-    --         RPCItems:RollSkulldiggerGlovesLV2(attacker, ability)
-    --         -- Notifications:Top(attacker.summoner:GetPlayerOwnerID(), {text="Robe of Flooding Upgraded", duration=5, style={color="white"}, continue=true})
-    --         CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_jakiro/viper_explosion_liquid_fire_explosion.vpcf", attacker, 2)
-    --     else
-    --         ability.property1 = nextValue
-    --         RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_skulldigger1", "#90E8E7",  1, "#property_skulldigger1_description")
-    --     end
-    -- elseif ability:GetAbilityName() == "item_rpc_skulldigger_gauntlet_lv2" then
-    --     if victim:GetDeathXP() < attacker:GetLevel()*30 then
-    --         return false
-    --     end
-    --     local nextValue = ability.property1 + 1
-    --     local upgradeThreshold = 8000
-    --     if nextValue == upgradeThreshold then
-    --         ability.lock = true
-    --         attacker:RemoveModifierByName("modifier_skulldigger_gauntlet")
-    --         RPCItems:RollSkulldiggerGlovesLV3(attacker, ability)
-    --         -- Notifications:Top(attacker.summoner:GetPlayerOwnerID(), {text="Robe of Flooding Upgraded", duration=5, style={color="white"}, continue=true})
-    --         CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_jakiro/viper_explosion_liquid_fire_explosion.vpcf", attacker, 2)
-    --     else
-    --         ability.property1 = nextValue
-    --         RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_skulldigger2", "#90E8E7",  1, "#property_skulldigger2_description")
-    --     end
-    -- end
+
+
 end
 
 function Filters:ReduceCooldownAll(caster, ability, baseCD)
@@ -501,26 +494,7 @@ function Filters:ApplyStun(caster, duration, target)
     if caster:HasModifier("modifier_steelforge_passive") then
         caster.w_2_level = caster:GetRuneValue("w", 2)
     end
-    if caster:HasModifier("modifier_stormcrack_helm") then
-        if caster:GetTeamNumber() == target:GetTeamNumber() then
-        else
-            if not caster.headItem.stormCrackParticles then
-                caster.headItem.stormCrackParticles = 0
-            end
-            if caster.headItem.stormCrackParticles < 8 then
-                caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles + 1
-                -- CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
-                CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
-                Timers:CreateTimer(1.5, function()
-                    caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles - 1
-                end)
-            end
-            
-            local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*STORMCRACK_ATTACK_DAMAGE_MULT + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*STORMCRACK_ATTR_DAMAGE_MULT
-            Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
-            Filters:stormcrack_upgrade(caster, caster.headItem, target)
-        end
-    elseif caster:HasModifier("modifier_stormcrack_helm2") then
+    if caster:HasModifier("modifier_stormcrack_helm2") then
         if caster:GetTeamNumber() == target:GetTeamNumber() then
         else
             if not caster.headItem.stormCrackParticles then
@@ -571,31 +545,6 @@ function Filters:ApplyStun(caster, duration, target)
     end
     if duration > 0 then
         target:AddNewModifier(caster, nil, "modifier_stunned", {duration = duration})
-    end
-end
-
-function Filters:stormcrack_upgrade(caster, ability, target)
-    if not target.hyperHits then
-        target.hyperHits = 0
-    end
-    if ability.lock then
-        return false
-    end
-    target.hyperHits = target.hyperHits + 1
-    if target.hyperHits < 50 then
-        local nextValue = ability.property1 + 1
-        local upgradeThreshold = 4000
-        if nextValue >= upgradeThreshold then
-            ability.lock = true
-            RPCItems:RollStormcrackHelm2(caster, ability)
-            Notifications:Top(caster:GetPlayerOwnerID(), {text="Stormcrack Upgraded", duration=5, style={color="white"}, continue=true})
-            CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", caster, 2)
-            CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", caster, 2)
-            EmitSoundOn("Hero_StormSpirit.Orchid_BallLightning", caster)
-        else
-            ability.property1 = nextValue
-            RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_stormcrack", "#EFF2AE",  1, "#property_stormcrack_description")
-        end
     end
 end
 
@@ -651,28 +600,6 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
             end
             target.whiteMageShield = math.min(target.whiteMageShield + overheal, target:GetMaxHealth())
             caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_white_mage_shield", {duration = 16})
-        end
-    end
-    if caster.headItem then
-        if caster.headItem:GetAbilityName() == "item_rpc_white_mage_hat" then
-            local countUp = false
-            if target:GetHealth() < target:GetMaxHealth() then
-                countUp = true
-            end
-            if countUp then
-                local item = caster.headItem
-                local nextValue = item.property1 + 1
-                local upgradeThreshold = 5000
-                if nextValue >= upgradeThreshold then
-                    item.lock = true
-                    RPCItems:CreateWhiteMageHat2(caster, item)
-                    Notifications:Top(caster:GetPlayerOwnerID(), {text="White Mage Hat Upgraded", duration=5, style={color="white"}, continue=true})
-                    CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/white_mage_healheal.vpcf", caster, 2)
-                else
-                    item.property1 = nextValue
-                    RPCItems:SetPropertyValuesSpecial(item, item.property1, "#item_property_white_mage_hat", "#FFFFFF",  1, "#property_white_mage_hat_description")
-                end
-            end
         end
     end
 end
@@ -1413,13 +1340,13 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local current_stack = attacker:GetModifierStackCount( "modifier_foot_base_ability_damage", attacker.InventoryUnit)
             damageMult = damageMult + 0.01*current_stack
         end
-        if attacker:HasModifier("modifier_jex_orbital_flame_effect") then
-            local fireAbility = attacker:FindAbilityByName("jex_fire_cosmic_w")
-            damageMult = damageMult + (fireAbility:GetSpecialValueFor("base_ability_damage_per_flame_tech")/100)*attacker:GetModifierStackCount("modifier_jex_orbital_flame_effect", attacker)*fireAbility.tech_level
-        end
         if attacker:HasModifier("modifier_weapon_base_ability_damage") then
             local current_stack = attacker:GetModifierStackCount( "modifier_weapon_base_ability_damage", attacker.InventoryUnit)
             damageMult = damageMult + 0.01*current_stack
+        end
+        if attacker:HasModifier("modifier_jex_orbital_flame_effect") then
+            local fireAbility = attacker:FindAbilityByName("jex_fire_cosmic_w")
+            damageMult = damageMult + (fireAbility:GetSpecialValueFor("base_ability_damage_per_flame_tech")/100)*attacker:GetModifierStackCount("modifier_jex_orbital_flame_effect", attacker)*fireAbility.tech_level
         end
         if attacker:HasModifier("modifier_neutral_glyph_2_2") then
             damageMult = damageMult + 2.5
@@ -1755,28 +1682,22 @@ function Filters:HasFlyingModifier(unit)
 end
 
 function Filters:ApplyQdamage(victim, attacker, damage, damage_type)
-    if attacker:HasModifier("modifier_body_violet_guard") then
-        Filters:IncrementLevelUpItem("item_rpc_armor_of_violet_guard", attacker, attacker.body, 20000, "#item_property_violet_guard_armor", "#A337E6", "#property_violet_guard_armor_description")
-    elseif attacker:HasModifier("modifier_body_violet_guard2") then
+    if attacker:HasModifier("modifier_body_violet_guard2") then
         Filters:VioletGuard2Hit(victim, attacker, damage)
     end
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 0)
-    -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(0) })
 end
 
 function Filters:ApplyWdamage(victim, attacker, damage, damage_type)
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 1)
-    -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(1) })
 end
 
 function Filters:ApplyEdamage(victim, attacker, damage, damage_type)
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 2)
-    -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(2) })
 end
 
 function Filters:ApplyRdamage(victim, attacker, damage, damage_type)
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, DOTA_ULTIMATE_SLOT)
-    -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(3) })
 end
 
 function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slot)
@@ -2132,7 +2053,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + stacks/100
         end
         if attacker:HasModifier("modifier_body_lightning") then
-            local stacks = attacker:GetModifierStackCount("modifier_hand_lightning", attacker.InventoryUnit)
+            local stacks = attacker:GetModifierStackCount("modifier_body_lightning", attacker.InventoryUnit)
             mult = mult + stacks/100
         end
         if unitName == "npc_dota_hero_arc_warden" then
@@ -2767,21 +2688,10 @@ end
 
 
 function Filters:FloodRobe(caster)
-    local damageMult = 25
-    local eleName = "water_elemental_flood"
-    local renderVector = Vector(255, 255, 255)
-    local bAddAbility = false
-    if caster.body:GetAbilityName() == "item_rpc_robe_of_flooding_2" then
-        damageMult = 30
-        eleName = "water_elemental_flood_2"
-        renderVector = Vector(220, 220, 255)
-        bAddAbility = true
-    elseif caster.body:GetAbilityName() == "item_rpc_robe_of_flooding_3" then
-        damageMult = 35
-        eleName = "water_elemental_flood_3"
-        renderVector = Vector(175, 175, 255)
-        bAddAbility = true
-    end
+    local damageMult = 35
+    local eleName = "water_elemental_flood_3"
+    local renderVector = Vector(175, 175, 255)
+    local bAddAbility = true
 
     local elemental = CreateUnitByName(eleName, caster:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS)
     elemental:SetRenderColor(renderVector.x, renderVector.y, renderVector.z)
@@ -3294,21 +3204,6 @@ function Filters:FalconProjectile(caster, fv, projectileOrigin)
     }
     projectile = ProjectileManager:CreateLinearProjectile(info)
 end
-
---function Filters:MonkeyPaw(caster)
---    local item = caster.monkey_paw
---    local wishes = item.property1
---    if wishes == 1 then
---        caster:RemoveModifierByName("modifier_monkey_paw")
---        item.property1 = "-"
---        RPCItems:SetPropertyValuesSpecial(item, item.property1, "#item_broken_slot", "#444444",  1, "#property_monkey_paw_description")
---    else
---        local newWishes = wishes - 1
---        item.property1 = newWishes
---        RPCItems:SetPropertyValuesSpecial(item, item.property1, "#item_property_monkey_paw", "#E4AE33",  1, "#property_monkey_paw_description")
---    end
---    RPCItems:RollItemtype(1, caster:GetAbsOrigin(), 5, 1)
---end
 
 function Filters:EternalFrost(caster)
         local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
@@ -4399,19 +4294,6 @@ function Filters:PhoenixEmblem(victim)
             egg.hero = caster
             ability:ApplyDataDrivenModifier(inventoryUnit, egg, "modifier_egg_reviving", {duration = 5})
             AddFOWViewer(caster:GetTeamNumber(), rezPosition, 800, 8, false)
-    end
-end
-
-function Filters:IncrementLevelUpItem(itemName, unit, ability, upgradeThreshold, itemProperty, hexColor, itemPropertyDescription)
-    local nextValue = ability.property1 + 1
-    if nextValue >= upgradeThreshold then
-        if itemName == "item_rpc_armor_of_violet_guard" then
-            RPCItems:RollVioletGuardArmor2(unit, ability)
-            Notifications:Top(unit:GetPlayerOwnerID(), {text="Armor of Violet Guard Upgraded", duration=5, style={color="white"}, continue=true})
-        end
-    else
-        ability.property1 = nextValue
-        RPCItems:SetPropertyValuesSpecial(ability, ability.property1, itemProperty, hexColor,  1, itemPropertyDescription)
     end
 end
 

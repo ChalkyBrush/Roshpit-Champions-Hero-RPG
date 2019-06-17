@@ -189,7 +189,7 @@ function InitializeShopGlyphItem(glyphPanel, msg)
 	}
 	glyphPanel.FindChildTraverse('glyph_purchase_price_value').text = numberWithCommas(getTierCost(glyphPanel.rowTier, glyphPanel.column, heroName))
 	glyphPanel.SetAttributeInt('item', item)
-	glyphPanel.itemName = mItemName
+	glyphPanel.item_name = mItemName
 	SetShopGlyphEvents(glyphPanel)
 	// if (glyphPanel.column == 1){
 	// 	$('#glyph_purchase_price_value').text = numberWithCommas(getTierCost(mRowTier))
@@ -214,7 +214,7 @@ function PurchaseGlyph(glyphPanel)
 {
 	if (GameUI.CustomUIConfig().glyphShopLock == 0 && mTier >= glyphPanel.rowTier){
 		var heroIndex = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() )
-		GameEvents.SendCustomGameEventToServer( "glyph_purchase", {heroIndex: heroIndex, glyphName: glyphPanel.itemName, tier: glyphPanel.rowTier, column: glyphPanel.column, glyphHero: glyphPanel.heroName});
+		GameEvents.SendCustomGameEventToServer( "glyph_purchase", {heroIndex: heroIndex, glyphName: glyphPanel.item_name, tier: glyphPanel.rowTier, column: glyphPanel.column, glyphHero: glyphPanel.heroName});
 		GameUI.CustomUIConfig().glyphShopLock = 1
 		Game.EmitSound("Glyphs.Purchase")
 	}

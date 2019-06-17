@@ -99,7 +99,7 @@ function UpdateItem()
 
 		// $.Msg( $("#helm_container"));
 
-		itemImage.itemname = itemName;
+		itemImage.item_name = itemName;
 		itemImage.contextEntityIndex = item;
 		if (item == -1){
 			itemImage.SetImage("file://{images}/custom_game/ui/empty-inventory-slot.png");
@@ -199,11 +199,7 @@ function weaponDetailsOut(){
 
 function AddMinLevelToTooltip(itemValues, tooltip, item)
 {
-	var reductionTable = CustomNetTables.GetTableValue( "min_level_reduction", item.toString() )
 	var reduction = 0
-	if (!(reductionTable===undefined)){
-		reduction = reductionTable.levelReduce
-	}
 	var minLevel = itemValues.minLevel
 	if (minLevel > 0){
 		if (reduction > 0){
@@ -329,8 +325,8 @@ function itemValuesCheck(itemValues)
 	if (itemValues.qualityColor === undefined){
 		itemValues.qualityColor  = "#FFFFFF"
 	}
-	if (itemValues.itemName === undefined){
-		itemValues.itemName  = "undefined"
+	if (itemValues.item_name === undefined){
+		itemValues.item_name  = "undefined"
 	}
 	return itemValues
 }
@@ -356,7 +352,7 @@ function itemPropertyCheck(itemProperty){
 function CreateCustomTooltip(itemValues, itemName, itemProperty1)
 {
 	// $.Msg( itemValues );
-	//var tooltip = "<Label style='color:"+itemValues.qualityColor+";font-size:16px;'>"+itemValues.itemName+"</Label><br>";
+	//var tooltip = "<Label style='color:"+itemValues.qualityColor+";font-size:16px;'>"+itemValues.item_name+"</Label><br>";
 
 	var tooltip = "<i>"+itemValues.qualityName+"</i><br>"
 	if (itemValues.consumable == 1)
