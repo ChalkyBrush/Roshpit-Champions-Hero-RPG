@@ -1661,6 +1661,21 @@ function RPCItems:RollFloodRobe(deathLocation)
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF",  2)
     RPCItems:RollBodyProperty3(item, 0)
     RPCItems:RollBodyProperty4(item, 0)
+
+    --pre patch lv values
+    if type(item.newItemTable.property2) == "number" then
+        item.newItemTable.property2 = math.ceil(item.newItemTable.property2*1.1)
+        item.newItemTable.property2 = math.ceil(item.newItemTable.property2*1.1)
+    end
+    if type(item.newItemTable.property3) == "number" then
+        item.newItemTable.property3 = math.ceil(item.newItemTable.property3*1.1)
+        item.newItemTable.property3 = math.ceil(item.newItemTable.property3*1.1)
+    end
+    if type(item.newItemTable.property4) == "number" then
+        item.newItemTable.property4 = math.ceil(item.newItemTable.property4*1.1)
+        item.newItemTable.property4 = math.ceil(item.newItemTable.property4*1.1)
+    end
+
     local drop = CreateItemOnPositionSync( deathLocation, item )
     local position = deathLocation
 
@@ -1682,6 +1697,18 @@ function RPCItems:RollAvalanchePlate(deathLocation)
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000",  2)
     RPCItems:RollBodyProperty3(item, 0)
     RPCItems:RollBodyProperty4(item, 0)
+
+    --pre patch lv values
+    if type(item.newItemTable.property2) == "number" then
+        item.newItemTable.property2 = math.ceil(item.newItemTable.property2*1.1)
+    end
+    if type(item.newItemTable.property3) == "number" then
+        item.newItemTable.property3 = math.ceil(item.newItemTable.property3*1.1)
+    end
+    if type(item.newItemTable.property4) == "number" then
+        item.newItemTable.property4 = math.ceil(item.newItemTable.property4*1.1)
+    end
+
     local drop = CreateItemOnPositionSync( deathLocation, item )
     local position = deathLocation
     RPCItems:DropItem(item, position)
@@ -3048,6 +3075,18 @@ function RPCItems:RollWhiteMageHat(deathLocation, isShop)
 
     RPCItems:RollHoodProperty3(item, 0)
     RPCItems:RollHoodProperty4(item, 0)
+
+    --pre patch lv values
+    if type(item.newItemTable.property2) == "number" then
+        item.newItemTable.property2 = math.ceil(item.newItemTable.property2*1.2)
+    end
+    if type(item.newItemTable.property3) == "number" then
+        item.newItemTable.property3 = math.ceil(item.newItemTable.property3*1.2)
+    end
+    if type(item.newItemTable.property4) == "number" then
+        item.newItemTable.property4 = math.ceil(item.newItemTable.property4*1.2)
+    end
+
     RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
     return item
 end
@@ -3256,6 +3295,20 @@ function RPCItems:RollShipyardVeil1(deathLocation)
 
     RPCItems:RollHoodProperty3(item, 0)
     RPCItems:RollHoodProperty4(item, 0)
+
+    --pre patch lv values
+    if type(item.newItemTable.property2) == "number" then
+        item.newItemTable.property2 = math.ceil(item.newItemTable.property2*1.1)
+        item.newItemTable.property2 = math.ceil(item.newItemTable.property2*1.1)
+    end
+    if type(item.newItemTable.property3) == "number" then
+        item.newItemTable.property3 = math.ceil(item.newItemTable.property3*1.1)
+        item.newItemTable.property3 = math.ceil(item.newItemTable.property3*1.1)
+    end
+    if type(item.newItemTable.property4) == "number" then
+        item.newItemTable.property4 = math.ceil(item.newItemTable.property4*1.1)
+        item.newItemTable.property4 = math.ceil(item.newItemTable.property4*1.1)
+    end
     
     local drop = CreateItemOnPositionSync( deathLocation, item )
     local position = deathLocation
@@ -4748,6 +4801,21 @@ function RPCItems:RollCrimsythEliteGreavesLV1(deathLocation)
 
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
+
+    --pre patch lv values
+    if type(item.newItemTable.property2) == "number" then
+        item.newItemTable.property2 = math.ceil(item.newItemTable.property2*1.1)
+        item.newItemTable.property2 = math.ceil(item.newItemTable.property2*1.1)
+    end
+    if type(item.newItemTable.property3) == "number" then
+        item.newItemTable.property3 = math.ceil(item.newItemTable.property3*1.1)
+        item.newItemTable.property3 = math.ceil(item.newItemTable.property3*1.1)
+    end
+    if type(item.newItemTable.property4) == "number" then
+        item.newItemTable.property4 = math.ceil(item.newItemTable.property4*1.1)
+        item.newItemTable.property4 = math.ceil(item.newItemTable.property4*1.1)
+    end
+
     local drop = CreateItemOnPositionSync( deathLocation, item )
     local position = deathLocation
     RPCItems:DropItem(item, position)
@@ -6280,6 +6348,12 @@ function RPCItems:RollRavenIdol(deathLocation)
         item.newItemTable.property4 = math.floor(value*1.4)
         item.newItemTable.property4name = propertyName
         RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12",  4)
+    end
+    
+    --pre patch lv values
+    if type(item.newItemTable.property2) == "number" then
+        item.newItemTable.property2 = math.ceil(item.newItemTable.property2*1.1)
+        item.newItemTable.property2 = math.ceil(item.newItemTable.property2*1.1)
     end
 
     local drop = CreateItemOnPositionSync( deathLocation, item )
