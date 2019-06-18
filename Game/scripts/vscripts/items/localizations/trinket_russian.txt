@@ -114,7 +114,7 @@
 		"property_omega_ruby"						"Вместе с обычными атаками происходит взрыв, наносящий магический урон в области 360 единиц в размере @special_property1% от нанесённого урона."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_raven_idol2"										"Raven Idol"
+		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol"
 		"item_property_raven_idol2"					"Black Soul"		
 		"property_raven_idol_description2"			"Весь получаемый урон снижен на 50%. Уровень здоровья не поднимется выше 50% от максимума. Каждые 100 очков недостающего здоровья увеличивают урон, напрямую наносимый предметами на 0.01%.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		

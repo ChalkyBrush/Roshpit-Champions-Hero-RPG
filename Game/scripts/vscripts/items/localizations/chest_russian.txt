@@ -21,17 +21,17 @@
 		"property_steelbark_description"	"Когда здоровье опускается ниже 40% дает 100 доп. реген здоровья и +40 брони."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding_3"								"Robe of Flooding"
+		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"Robe of Flooding"
 		"item_property_flooding_3"					"Water Elemental"
 		"property_flooding_description_3"			"По завершении прочтения (R) @Ability4 - на сторону героя призывается водный элементаль, который живёт 12 секунд и восстанавливает владельцу 5% от макс. маны с каждой своей атакой. Атаки наносят урон в небольшой области в размере 35x Интеллекта героя.<br>Дополнительно с каждой атакой выпускает волну, которая наносит магический урон, равный общему урону героя.<br>Весь наносимый урон может быть увеличен за счёт всех усилений, действующих на базовую способность (R) @Ability4.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_avalanche_plate_2"								"Avalanche Plate"
+		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"
 		"item_property_avalanche_2"					"Mountain Quake"
 		"property_avalanche_description_2"			"По завершении прочтения (R) @Ability4 вокруг героя в радиусе 400 происходит сильный камнепад, который нанесёт урон, равный @special_property1x Силы каждые 0.2 секунды и оглушает врагов на 0.1 секунды.<br>Каждое успешное попадание камнепадом по противнику накапливает заряды. Когда будет накоплено 20 зарядов, произойдёт сильное землетрясение в радиусе 600,<br>которое нанесёт урон, равный @special_property2x Силы и оглушит задетых врагов на 1.6 секунды.<br>Весь урон, напрямую наносимый предметами увеличивается на @special_property3% за каждые 10 очков Силы.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard2"							"Armor of the Violet Guard"
+		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard"
 		"item_property_violet_guard_armor2"			"Violet Conqueror"
 		"property_violet_guard_armor_description2"	"Увеличивает Базовый Урон Способности (Q) @Ability1 на 350%.<br>Когда (Q) @Ability1 попадает по противнику, его броня снижается на 1 за каждые 0.1% от базового урона умения на 6 секунд.<br>Значение брони цели не может опуститься ниже 0."
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"

@@ -176,7 +176,7 @@
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"Убирает время перезарядки для умения (E). Прочтение способности (E) потратит заряд."
 		 
 		 
-    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv3"						"Crimsyth Elite Greaves"
+    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv1"						"Crimsyth Elite Greaves"
 		"item_property_crimsyth_elite_3"						"Crimsyth Elite"
 		 "property_crimsyth_elite_3_description"				"Увеличивает броню на @special_property1x от уровня героя. При прочтении любой способности, на @special_property3 сек. герой потеряет бонус брони, вместо этого получит @special_property2 % сопротивление магии.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		 

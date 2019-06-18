@@ -176,7 +176,7 @@
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"移除E技能的冷却时间，使用E技能消耗一层流沙"
 		 
 		 
-    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv3"						"Crimsyth精英鞋子"
+    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv1"						"Crimsyth精英鞋子"
 		"item_property_crimsyth_elite_3"						"Crimsyth精英"
 		 "property_crimsyth_elite_3_description"				"增加护甲值，增加值为 @special_property1x 你的英雄等级。施放任意技能失去护甲值，但是提高魔法抗性 @special_property2 ，持续 @special_property3 秒。该装备无法重铸。"
 		 
