@@ -11,18 +11,8 @@
 		"property_brazen_kabuto_description"		"施放 @Ability4 时，100% 伤害免疫。施法完成后，获得95%减伤的护盾，持续4秒"
 		
 
-    	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"船厂面纱 等级1"
-		 "item_property_shipyard_veil_1"					"灵魂支盾 I"
-		 "property_shipyard_veil_1_description"				"@Ability1 每击中一个敌人为玩家增加一层护盾，每层护盾可吸收一次伤害，最高 @special_property1 层。同时每层存在的护盾增加 @Ability1 伤害 @special_property2%。当护盾吸收伤害后，<br>此属性增加1. 当属性值达到 @special_property3 后升级。升级后无法重铸。"
-
-		 
-		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv2"								"船厂面纱 等级2"
-		 "item_property_shipyard_veil_2"					"灵魂支盾 II"
-		 "property_shipyard_veil_2_description"				"@Ability1 每击中一个敌人为玩家增加一层护盾，每层护盾可吸收一次伤害，最高 @special_property1 层。同时每层存在的护盾增加 @Ability1 伤害 @special_property2%。当护盾吸收伤害后，<br>此属性增加1. 当属性值达到 @special_property3 后升级。该装备无法重铸。"
-
-		 
-		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv3"								"船厂面纱 等级3"
-		 "item_property_shipyard_veil_3"					"灵魂支盾 III"
+		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv3"								"船厂面纱"
+		 "item_property_shipyard_veil_3"					"灵魂支盾"
 		 "property_shipyard_veil_3_description"				"@Ability1 每击中一个敌人为玩家增加一层护盾，每层护盾可吸收一次伤害，最高 @special_property1 层。同时每层存在的护盾增加 @Ability1 伤害 @special_property2%。护盾被打破，玩家将会对攻击者施放骷颅攻击。<br>骷颅造成 @special_property3x 你的主属性的魔法伤害。该装备无法重铸。"
 
 		 
@@ -35,25 +25,15 @@
 		 "property_lava_forge_description"					"受到伤害时有100% 几率向进攻者发射火球，在目标小范围内造成2x攻击力 + 2000x敏捷值的伤害。"
 		 
 		 
-		"DOTA_Tooltip_ability_item_rpc_white_mage_hat"									"白色魔法帽 等级1"
-		"item_property_white_mage_hat"				"关怀"
-		"property_white_mage_hat_description"		"施放 @Ability2 技能将为你和附近友军回复 @special_property1x 倍数智力的生命值。当治疗你自己或者友军时，此属性增加1。属性到达5000后升级。升级后无法重铸。"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_white_mage_hat_2"								"白色魔法帽 等级2"
+    	"DOTA_Tooltip_ability_item_rpc_white_mage_hat_2"								"白色魔法帽"
 		"item_property_white_mage_hat_2"			"关怀庇护"
 		"property_white_mage_hat_2_description"		"施放 @Ability2 技能将为你和附近友军回复 @special_property1x 倍数智力的生命值。所有的过量治疗（治疗量减目标缺失的生命值）都会创造一层护盾吸收等量的伤害，护盾最大伤害吸收量为 100% 护盾拥有者的最大生命值。同时每10点智力值提高基础技能伤害 @special_property2% 。该装备无法重铸。"
 		"DOTA_Tooltip_modifier_white_mage_shield"	"白魔法护盾"
 		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"吸收伤害"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_hyper_visor"										"长沿帽 等级1"
-		"item_property_hyper_visor"					"超级闪电"
-		"property_hyper_visor_description"			"攻击时有 @special_property1% 几率向目标施放一道闪电，造成施法者 @special_property2x 倍数攻击力的AOE魔法伤害。每触发一次此属性增加，属性值达到 @special_property3 后升级。升级后无法重铸。"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_hyper_visor2"									"长沿帽 等级2"
-		"item_property_hyper_visor2"					"超级闪电 II"
+    	"DOTA_Tooltip_ability_item_rpc_hyper_visor2"									"长沿帽"
+		"item_property_hyper_visor2"				"超级闪电"
 		"property_hyper_visor2_description"			"攻击时有 @special_property1% 几率向目标施放一道闪电，造成施法者 @special_property2x 倍数攻击力的AOE魔法伤害。减少第一次攻击抬手 @special_property3 秒。<br>每10点敏捷值提高 @special_property4% 的装备伤害。该装备无法重铸。"
 		
 		
@@ -243,13 +223,8 @@
 		"property_excavator_description"					"每10点智力值提高由装备造成的伤害 0.5%。"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"									"风暴裂痕之头 等级1"
-		"item_property_stormcrack"							"风暴裂痕"
-		"property_stormcrack_description"				"当你眩晕敌人时，对敌人造成<% STORMCRACK_ATTACK_DAMAGE_MULT %>x 攻击力加 <% STORMCRACK_ATTR_DAMAGE_MULT %>x 你的总属性的魔法伤害。每次伤害1各单位增加1点计数。<br>计数达到4000时升级。升级后无法重铸。"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm2"								"风暴裂痕之头 等级2"
-		 "item_property_stormcrack2"						"风暴裂痕 II"
+    	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm2"								"风暴裂痕之头"
+		 "item_property_stormcrack2"						"风暴裂痕"
 		 "property_stormcrack2_description"					"当你眩晕敌人时，造成 <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>X攻击力加<% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>X总属性的魔法伤害。<br>增加玩家对敌人的的所有眩晕持续时间 35%。该装备无法重铸。"
 		
 		

@@ -111,13 +111,8 @@
 		"property_omega_ruby"						"你的普通攻击附有火焰，造成 200% AOE魔法伤害。与其他类型的分裂攻击叠加。"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"乌鸦玩偶 LV1"
-		"item_property_raven_idol"					"黑暗灵魂"		
-		"property_raven_idol_description"			"减少受到的所有伤害40%。生命值将不会超过最大生命值的50%。每次受到伤害此数值增加1，数值达到12000时，乌鸦玩偶升级。升级后无法重铸。"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_raven_idol2"										"乌鸦玩偶 LV2"
-		"item_property_raven_idol2"					"黑暗灵魂 II"		
+		"DOTA_Tooltip_ability_item_rpc_raven_idol2"										"乌鸦玩偶"
+		"item_property_raven_idol2"					"黑暗灵魂"		
 		"property_raven_idol_description2"			"减少受到的所有伤害50%。生命值将不会超过最大生命值的50%。 每100点缺失的血量提高装备伤害 0.01% 。该装备无法重铸。"
 		
 		

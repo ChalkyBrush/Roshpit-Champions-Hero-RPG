@@ -21,37 +21,17 @@
 		"property_steelbark_description"	"While below 40% Health gain 100HP regen and +40 armor."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"Robe of Flooding LV1"
-		"item_property_flooding"					"Water Elemental 1"
-		"property_flooding_description"				"When you finish casting @Ability4 - summon a Water Elemental that restores 5% of your max mana on attack for 12 seconds. Attacks deal AOE magic damage equal to 25x your Intelligence.<br>When the elemental gets 5000 kills, the robe upgrades."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding_2"								"Robe of Flooding LV2"
-		"item_property_flooding_2"					"Water Elemental 2"
-		"property_flooding_description_2"			"When you finish casting @Ability4 - summon a Water Elemental that restores 5% of your max mana on attack for 12 seconds. Attacks deal AOE magic damage equal to 30x your Intelligence.<br>Also has a wave projectile that deals your attack power as magic damage."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding_3"								"Robe of Flooding LV3"
-		"item_property_flooding_3"					"Water Elemental 3"
+		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding_3"								"Robe of Flooding"
+		"item_property_flooding_3"					"Water Elemental"
 		"property_flooding_description_3"			"When you finish casting @Ability4 - summon a Water Elemental that restores 5% of your max mana on attack for 12 seconds. Attacks deal AOE magic damage equal to 35x your Intelligence.<br>Also has a wave projectile that deals your attack power as magic damage.<br>All damage dealt is considered Base Ability damage for @Ability4."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"									"Avalanche Plate LV1"
-		"item_property_avalanche"					"Avalanche"
-		"property_avalanche_description"			"When you finish casting @Ability4 - summon an avalanche that deals @special_property1x your Strength every 0.2 seconds and stuns for 0.1 seconds in a 400 radius. All damage dealt directly by items is enhanced by @special_property3%<br>for each 10 points of Strength. Each avalanche tick that hits an enemy increases this property by one.<br>Upgrades at 1500."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_avalanche_plate_2"								"Avalanche Plate LV2"
+		"DOTA_Tooltip_ability_item_rpc_avalanche_plate_2"								"Avalanche Plate"
 		"item_property_avalanche_2"					"Mountain Quake"
 		"property_avalanche_description_2"			"When you finish casting @Ability4 - summon an avalanche that deals @special_property1x your Strength every 0.2 seconds and stuns for 0.1 seconds in a 400 radius. Each enemy hit counts up to 20, at which point you create a massive earthquake that deals<br>@special_property2x Strength to enemies in a 600 radius and stuns for 1.6 seconds.<br>All damage dealt directly by items is enhanced by @special_property3% for each 10 points of Strength."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard LV1"
-		"item_property_violet_guard_armor"			"Violet Crusader"
-		"property_violet_guard_armor_description"	"Increases Base Ability damage of @Ability1 by 300%. Each time an enemy is hit by @Ability1, this property increases by 1. Upgrades at 20000."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard2"							"Armor of the Violet Guard LV2"
+		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard2"							"Armor of the Violet Guard"
 		"item_property_violet_guard_armor2"			"Violet Conqueror"
 		"property_violet_guard_armor_description2"	"Increases Base Ability damage of @Ability1 by 350%. 0.1% of the base ability damage of @Ability1 reduces the target's armor by 1 for 6 seconds. Cannot reduce a target's armor below 0."
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
