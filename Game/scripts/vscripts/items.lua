@@ -672,7 +672,7 @@ end
 
 function RPCItems:GetExpiryTime(item)
 	local rarity = item.newItemTable.rarity
-	local baseExpiryTime = 6000
+	local baseExpiryTime = 60
 	local aLotExpiryTime = 999999
 	if item.newItemTable.item_slot and item.newItemTable.item_slot == "glyph_book" then
 		return aLotExpiryTime

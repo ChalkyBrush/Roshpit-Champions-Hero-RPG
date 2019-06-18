@@ -286,6 +286,10 @@ function Head:runeProperty(propertyName, propertyValue, hero)
 			propertyName = string.gsub(propertyName, "_3", "_2")
 		end
 	end
+	if type(propertyValue) == "string" then
+		print("[Head:runeProperty] propertyValue:"..propertyValue)
+		return
+	end
 	if propertyName == "rune_q_1" then
 		hero.runeUnit.head.q_1 = hero.runeUnit.head.q_1 + propertyValue
 		Head:setRuneBonusNetTable(hero.runeUnit.head.q_1, propertyName, hero)
