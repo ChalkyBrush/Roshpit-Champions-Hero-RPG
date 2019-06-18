@@ -934,9 +934,6 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			if gearTable.validator then
 				item.newItemTable.validator = gearTable.validator
 			end
-			if gearTable.property1 then
-				item.newItemTable.property1 = gearTable.property1
-			end
 			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
 		elseif gearTable.item_name == "temple_key" then
@@ -1112,9 +1109,9 @@ function SaveLoad:FixLoadedRuneProperties(propertyName)
 end
 
 function SaveLoad:RemoveProperties(item)
-	for i = 1, 4, 1 do
-		RPCItems:SetPropertyValues(item, nil, nil, nil, i)
-	end
+	-- for i = 1, 4, 1 do
+	-- 	RPCItems:SetPropertyValues(item, nil, nil, nil, i)
+	-- end
 end
 
 function SaveLoad:RemoveAdditionalData(item, bRequiredLevel, bHeroRequirement)
