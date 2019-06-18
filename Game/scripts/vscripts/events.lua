@@ -458,11 +458,11 @@ function GameMode:OnPlayerChat(keys)
     -- RPCItems.DROP_LOCATION = vector
     -- RPCItems:CreateArcanaCache(99, "12345")
 
-    local key = RPCItems:CreateConsumable("item_rpc_winterblight_glacier_stone", "mythical", "Glacier Stone", "consumable", false, "Consumable", "item_rpc_winterblight_glacier_stone_desc")
-    key.newItemTable.stashable = true
-    key.newItemTable.consumable = true
-	RPCItems:ItemUpdateCustomNetTables(key)
-    RPCItems:GiveItemToHeroWithSlotCheck(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero(), key)
+ --    local key = RPCItems:CreateConsumable("item_rpc_winterblight_glacier_stone", "mythical", "Glacier Stone", "consumable", false, "Consumable", "item_rpc_winterblight_glacier_stone_desc")
+ --    key.newItemTable.stashable = true
+ --    key.newItemTable.consumable = true
+	-- RPCItems:ItemUpdateCustomNetTables(key)
+ --    RPCItems:GiveItemToHeroWithSlotCheck(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero(), key)
   end
 
 
