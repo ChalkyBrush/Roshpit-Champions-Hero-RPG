@@ -6350,12 +6350,6 @@ function RPCItems:RollRavenIdol(deathLocation)
         RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12",  4)
     end
     
-    --pre patch lv values
-    if type(item.newItemTable.property2) == "number" then
-        item.newItemTable.property2 = math.ceil(item.newItemTable.property2*1.1)
-        item.newItemTable.property2 = math.ceil(item.newItemTable.property2*1.1)
-    end
-
     local drop = CreateItemOnPositionSync( deathLocation, item )
     local position = deathLocation
     RPCItems:DropItem(item, position)
