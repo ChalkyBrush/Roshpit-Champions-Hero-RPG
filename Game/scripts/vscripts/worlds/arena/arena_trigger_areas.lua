@@ -374,24 +374,24 @@ end
 function use_prizebox(event)
 	local caster = event.caster
 	local item = event.ability
-	local rarity = item.rarity
+	local rarity = item.newItemTable.rarity
 	RPCItems.StrictItemLevel = 260
-	for i = 1, item.property2, 1 do
-		rollArenaPrizeItem(caster:GetAbsOrigin(), item.property2name)
+	for i = 1, item.newItemTable.property2, 1 do
+		rollArenaPrizeItem(caster:GetAbsOrigin(), item.newItemTable.property2name)
 	end
-	if item.rarity == "rare" or item.rarity == "mythical" then
-		if item.property3name == "arcane_crystals" then
-			dropArcaneCrystalsPrizeBox(caster:GetAbsOrigin(), item.property3)
+	if item.newItemTable.rarity == "rare" or item.newItemTable.rarity == "mythical" then
+		if item.newItemTable.property3name == "arcane_crystals" then
+			dropArcaneCrystalsPrizeBox(caster:GetAbsOrigin(), item.newItemTable.property3)
 		else
-			for i = 1, item.property3, 1 do
-				rollArenaPrizeItem(caster:GetAbsOrigin(), item.property3name)
+			for i = 1, item.newItemTable.property3, 1 do
+				rollArenaPrizeItem(caster:GetAbsOrigin(), item.newItemTable.property3name)
 			end
 		end
 	end
-	if item.rarity == "mythical" then
-		if item.property4name == "arcane_crystals" then
-			dropArcaneCrystalsPrizeBox(caster:GetAbsOrigin(), item.property4)
-		elseif item.property4name == "champions_gear" then
+	if item.newItemTable.rarity == "mythical" then
+		if item.newItemTable.property4name == "arcane_crystals" then
+			dropArcaneCrystalsPrizeBox(caster:GetAbsOrigin(), item.newItemTable.property4)
+		elseif item.newItemTable.property4name == "champions_gear" then
 			local luck = RandomInt(1,4)
 			if luck == 1 then
 	        	RPCItems:RollChampionsGearHelm(caster:GetAbsOrigin())
@@ -403,8 +403,8 @@ function use_prizebox(event)
 	        	RPCItems:RollChampionsGearBoots(caster:GetAbsOrigin())		
 	        end	
 		else
-			for i = 1, item.property4, 1 do
-				rollArenaPrizeItem(caster:GetAbsOrigin(), item.property4name)
+			for i = 1, item.newItemTable.property4, 1 do
+				rollArenaPrizeItem(caster:GetAbsOrigin(), item.newItemTable.property4name)
 			end
 		end
 	end
