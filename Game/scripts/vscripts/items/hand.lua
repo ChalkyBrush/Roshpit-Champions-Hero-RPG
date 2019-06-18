@@ -51,6 +51,11 @@ end
 
 
 function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_ability, item)
+	print("[Hand:action] propertyName:"..tostring(propertyName))
+	if type(propertyValue) == "string" then
+		print("[action] type(propertyValue) == string")
+		propertyValue = 1
+	end
 	if propertyName == "strength" then
 		hand_ability.strength = hand_ability.strength + propertyValue
 		Hand:addBasicModifier(hand_ability.strength, hero, inventory_unit, "modifier_hand_strength", hand_ability)

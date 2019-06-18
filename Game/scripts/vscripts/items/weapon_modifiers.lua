@@ -55,9 +55,10 @@ end
 
 
 function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_unit, weapon_ability, item)
+	print("[Weaponmodifiers:action] propertyName:"..tostring(propertyName))
 	if type(propertyValue) == "string" then
 		print("[Weaponmodifiers:action] propertyValue:"..propertyValue)
-		propertyValue = 0
+		propertyValue = 1
 	end
 	local propertyBoost = 1
 	if hero:HasModifier("modifier_blacksmiths_tablet") then

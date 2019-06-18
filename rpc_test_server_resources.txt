@@ -80,84 +80,94 @@ function Challenges:ChiselItem(msg)
 		return false
 	end
 
-	SaveLoad:NewKey()
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_cant_equip", {duration = 6})
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local cost = math.max(msg.cost, 1)
 
 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 	hero:RemoveModifierByName("modifier_cant_equip")
-	Weapons:UnequipItem(hero, item)
+	Weapons:UnequipItem(hero, item, itemSlot)
 	Statistics.dispatch('items:chisel')
 end
 
 function Challenges:FinalReroll(msg)
-	local playerID = msg.playerID
-	local hero = GameState:GetHeroByPlayerID(playerID)
-	local player = hero:GetPlayerOwner()
-	local itemIndex = msg.itemIndex
-	local item = EntIndexToHScript(itemIndex)
-	local steamID = PlayerResource:GetSteamAccountID(playerID)
-	local itemLevel = math.max(item.minLevel+RPCItems:GetPrereductionMinLevel(item), 5)
-	CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {} )
-	Events.reroll = true
-	local newItem = nil
-	if (msg.lock1 + msg.lock2 + msg.lock3 + msg.lock4) > 2 then
-		return false
-	end
-	local itemProperties = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
-	local reductionTable = CustomNetTables:GetTableValue( "min_level_reduction", tostring(itemIndex) )
-	local minLevel = itemProperties.minLevel
-	local minReduc = 0
-	if reductionTable then
-		if reductionTable.levelReduce then
-			minReduc = reductionTable.levelReduce
-		end
-	end
-	local costMult = math.max(1, (msg.lock1+msg.lock2+msg.lock3+msg.lock4)*2)
-	local cost = (minLevel-minReduc)*3*costMult
-	-- local cost = msg.cost
-	local amount = math.min(cost*(-1), -1)
-	
-	local shards = CustomNetTables:GetTableValue("player_stats", tostring(playerID).."-mithril").mithril
-	if shards < cost then
-		return false
-	end
-	if Challenges:CheckIfHeroHasItemByItemIndex(hero, item:GetEntityIndex()) then
-		if IsValidEntity(item:GetContainer()) then
-			CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
-			return false
-		end
-	else
-		CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
-		return false
-	end
-	if IsValidEntity(item) then
-		newItem = RPCItems:RerollImmortal(hero, item, msg.lock1, msg.lock2, msg.lock3, msg.lock4, 100)
-		if newItem then
-			if IsValidEntity(newItem) then
-				newItem:StartCooldown(2)
-				hero:TakeItem(item)
-				RPCItems:ItemUTIL_Remove(item)
-				RPCItems:GiveItemToHeroWithSlotCheck(hero, newItem)
-			else
-				CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
-			end
-		else
-			CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
-		end
-	else
-		CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
-		return false
-	end
-	Events.reroll = false
+    print("[Challenges:FinalReroll] msg")
+    DeepPrintTable(msg)
+    local playerID = msg.playerID
+    local hero = GameState:GetHeroByPlayerID(playerID)
+    local player = hero:GetPlayerOwner()
+    local itemIndex = msg.itemIndex
+    local itemProperties = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
+    if not itemProperties then
+        print("[Challenges:FinalReroll] item custom net table is null")
+        return
+    end
+    local item = EntIndexToHScript(itemIndex)
+    local steamID = PlayerResource:GetSteamAccountID(playerID)
+    local minLevel = itemProperties.minLevel
+    minLevel = math.max(math.min(minLevel, 100), 1)
+    CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {} )
+    Events.reroll = true
+    local newItem = nil
+    if (msg.lock1 + msg.lock2 + msg.lock3 + msg.lock4) > 2 then
+        return false
+    end
+    local costMult = math.max(1, (msg.lock1+msg.lock2+msg.lock3+msg.lock4)*2)
+    local cost = minLevel*3*costMult
+    local amount = math.min(cost*(-1), -1)
+    
+    local shards = CustomNetTables:GetTableValue("player_stats", tostring(playerID).."-mithril").mithril
+    if shards < cost then
+        return false
+    end
+    print("[Challenges:FinalReroll] shards:"..tostring(shards))
+    print("[Challenges:FinalReroll] cost:"..tostring(cost))
+    if Challenges:CheckIfHeroHasItemByItemIndex(hero, item:GetEntityIndex()) then
+        if IsValidEntity(item:GetContainer()) then
+            CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+            return false
+        end
+    else
+        CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+        return false
+    end
+    if IsValidEntity(item) then
+        newItem = RPCItems:RerollImmortal(hero, item, msg.lock1, msg.lock2, msg.lock3, msg.lock4, minLevel, itemProperties)
+        if newItem then
+            if IsValidEntity(newItem) then
+                newItem:StartCooldown(2)
+                hero:TakeItem(item)
+                RPCItems:ItemUTIL_Remove(item)
+                RPCItems:GiveItemToHeroWithSlotCheck(hero, newItem)
+            else
+                CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+            end
+        else
+            CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+        end
+    else
+        CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+        return false
+    end
+    Events.reroll = false
 
-	Statistics.dispatch('items:reroll')
-	
-	DeepPrintTable(msg)
-	if newItem then
-		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "playerReceivedItem", {})
-		CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith_after_reroll", {itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
+    Statistics.dispatch('items:reroll')
+    
+    -- DeepPrintTable(msg)
+    if newItem then
+        if true then
+
+            if Challenges:CheckIfHeroHasItemByItemIndex(hero, newItem:GetEntityIndex()) then
+                Timers:CreateTimer(0, function()
+                    CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith_after_reroll", 
+                        {itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
+                end)
+            else
+                CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+            end
+        else
+            CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+        end 
     end
 end
 
@@ -1224,116 +1234,109 @@ function RPCItems:RollHarvesterBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_harvester_boots", "immortal", "Harvester Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
     
-    item.hasRunePoints = true
-    RPCItems:RollFootProperty1(item, 0)
-    local luck = RandomInt(3,3)
+    item.newItemTable.hasRunePoints = true
+
+    local luck = 3
     if luck == 3 then
         local letter = RPCItems:GetRandomRuneLetter(1, 4)
         runeName = "rune_"..letter.."_1"
         runeValue = math.floor(RPCItems:GetLogarithmicVarianceValue(maxFactor/5, 0, 0, 0, 0))
 
-        item.property1name = runeName
-        item.property1 = runeValue
-        RPCItems:SetPropertyValues(item, item.property1, "rune", "#7DFF12",  1)
+        item.newItemTable.property1name = runeName
+        item.newItemTable.property1 = runeValue
+        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "rune", "#7DFF12",  1)
     else
+        RPCItems:RollFootProperty1(item, 0)
         local itemBonus = RPCItems:GetLogarithmicVarianceNoRounding(1.0)
         itemBonus = math.min(itemBonus, 1.35)
-        local ability = item
-        local oldProperty = CustomNetTables:GetTableValue("item_properties", tostring(ability:GetEntityIndex()).."-"..tostring(1))
-        local value = math.ceil(ability.property1*itemBonus)
+        local value = math.ceil(item.newItemTable.property1*itemBonus)
         value = math.ceil(value)
-        CustomNetTables:SetTableValue( "item_properties", tostring(item:GetEntityIndex()).."-"..tostring(1), {propertyValue = value, propertyName = oldProperty.propertyName, propertyColor = oldProperty.propertyColor })
-        item.property1 = value
-        item.property1name = ability.property1name
-        item.hasRunePoints = true
+        item.newItemTable.property1 = value
+        item.newItemTable.hasRunePoints = true
     end
-    RPCItems:RollFootProperty2(item, 0)
-    local luck = RandomInt(3,3)
+
+    local luck = 3
     if luck == 3 then
         local letter = RPCItems:GetRandomRuneLetter(1, 4)
         runeName = "rune_"..letter.."_2"
         runeValue = math.floor(RPCItems:GetLogarithmicVarianceValue(maxFactor/5, 0, 0, 0, 0))
 
-        item.property2name = runeName
-        item.property2 = math.floor(runeValue)
-        RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+        item.newItemTable.property2name = runeName
+        item.newItemTable.property2 = math.floor(runeValue)
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12",  2)
     else
+        RPCItems:RollFootProperty2(item, 0)
         local itemBonus = RPCItems:GetLogarithmicVarianceNoRounding(1.0)
         itemBonus = math.min(itemBonus, 1.35)
-        local ability = item
-        local oldProperty = CustomNetTables:GetTableValue("item_properties", tostring(ability:GetEntityIndex()).."-"..tostring(2))
-        local value = math.ceil(ability.property2*itemBonus)
+        local value = math.ceil(item.newItemTable.property2*itemBonus)
         value = math.ceil(value)
-        CustomNetTables:SetTableValue( "item_properties", tostring(item:GetEntityIndex()).."-"..tostring(2), {propertyValue = value, propertyName = oldProperty.propertyName, propertyColor = oldProperty.propertyColor })
-        item.property2 = value
-        item.property2name = ability.property2name
-        item.hasRunePoints = true
+        item.newItemTable.property2 = value
+        item.newItemTable.hasRunePoints = true
     end
-    RPCItems:RollFootProperty3(item, 0)
-    local luck = RandomInt(3,3)
+
+    local luck = 3
     if luck == 3 and maxFactor >= 150 then
         local letter = RPCItems:GetRandomRuneLetter(1, 4)
         runeName = "rune_"..letter.."_3"
         runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/10, 0, 0, 0, 0)
 
-        item.property3name = runeName
-        item.property3 = math.floor(runeValue)
-        RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
+        item.newItemTable.property3name = runeName
+        item.newItemTable.property3 = math.floor(runeValue)
+        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12",  3)
     else
+        RPCItems:RollFootProperty3(item, 0)
         local itemBonus = RPCItems:GetLogarithmicVarianceNoRounding(1.0)
         itemBonus = math.min(itemBonus, 1.35)
-        local ability = item
-        local oldProperty = CustomNetTables:GetTableValue("item_properties", tostring(ability:GetEntityIndex()).."-"..tostring(3))
-        local value = math.ceil(ability.property3*itemBonus)
+        local value = math.ceil(item.newItemTable.property3*itemBonus)
         value = math.ceil(value)
-        CustomNetTables:SetTableValue( "item_properties", tostring(item:GetEntityIndex()).."-"..tostring(3), {propertyValue = value, propertyName = oldProperty.propertyName, propertyColor = oldProperty.propertyColor })
-        item.property3 = value
-        item.property3name = ability.property3name
-        item.hasRunePoints = true
+        item.newItemTable.property3 = value
+        item.newItemTable.hasRunePoints = true
     end
-    RPCItems:RollFootProperty4(item, 0)
-    local luck = RandomInt(4,4)
+
+    local luck = 4
     if luck == 4 and maxFactor >= 270 then
         local letter = RPCItems:GetRandomRuneLetter(1, 4)
         runeName = "rune_"..letter.."_4"
         runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/30, 0, 0, 0, 0)
 
-        item.property4name = runeName
-        item.property4 = math.floor(runeValue)
-        RPCItems:SetPropertyValues(item, item.property4, "rune", "#7DFF12",  4)
+        item.newItemTable.property4name = runeName
+        item.newItemTable.property4 = math.floor(runeValue)
+        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12",  4)
     else
+        RPCItems:RollFootProperty4(item, 0)
         local itemBonus = RPCItems:GetLogarithmicVarianceNoRounding(1.0)
         itemBonus = math.min(itemBonus, 1.35)
-        local ability = item
-        local oldProperty = CustomNetTables:GetTableValue("item_properties", tostring(ability:GetEntityIndex()).."-"..tostring(4))
-        local value = math.ceil(ability.property4*itemBonus)
+        local value = math.ceil(item.newItemTable.property4*itemBonus)
         value = math.ceil(value)
-        CustomNetTables:SetTableValue( "item_properties", tostring(item:GetEntityIndex()).."-"..tostring(4), {propertyValue = value, propertyName = oldProperty.propertyName, propertyColor = oldProperty.propertyColor })
-        item.property4 = value
-        item.property4name = ability.property4name
-        item.hasRunePoints = true
+        item.newItemTable.property4 = value
+        item.newItemTable.hasRunePoints = true
     end
     local drop = CreateItemOnPositionSync( deathLocation, item )
     local position = deathLocation
+
+    item.pickedUp = true    
+    
     RPCItems:DropItem(item, position)
     return item
 end
 
+
 function nobility_kill(event)
-	local attacker = event.attacker
-	local ability = event.ability
-	local nextValue = ability.property1 + 1
-	local upgradeThreshold = 1
-	if nextValue >= upgradeThreshold then
-		RPCItems:CreateAugmentedRingOfNobility(attacker, ability)
-		Notifications:Top(attacker:GetPlayerOwnerID(), {text="Ring of Nobility Upgraded", duration=5, style={color="white"}, continue=true})
-		CustomAbilities:QuickAttachParticle("particles/econ/items/legion/legion_weapon_voth_domosh/legion_duel_start_endcap_arcana.vpcf", attacker, 3)
-		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_legion_commander/legion_commander_duel_winner_rays.vpcf", attacker, 3)
-		
-		EmitSoundOn("Items.NobilityUpgrade", attacker)
-	else
-		ability.property1 = nextValue
-		RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_nobility", "#FFFFFF",  1, "#property_nobility_description")
-	end
-	 
+    local attacker = event.attacker
+    local ability = event.ability
+    local nextValue = ability.newItemTable.property1 + 1
+    local upgradeThreshold = 1
+    if nextValue >= upgradeThreshold then
+        RPCItems:CreateAugmentedRingOfNobility(attacker, ability)
+        Notifications:Top(attacker:GetPlayerOwnerID(), {text="Ring of Nobility Upgraded", duration=5, style={color="white"}, continue=true})
+        CustomAbilities:QuickAttachParticle("particles/econ/items/legion/legion_weapon_voth_domosh/legion_duel_start_endcap_arcana.vpcf", attacker, 3)
+        CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_legion_commander/legion_commander_duel_winner_rays.vpcf", attacker, 3)
+        
+        EmitSoundOn("Items.NobilityUpgrade", attacker)
+    else
+        ability.newItemTable.property1 = nextValue
+        RPCItems:SetPropertyValuesSpecial(ability, ability.newItemTable.property1, "#item_property_nobility", "#FFFFFF",  1, "#property_nobility_description")
+        RPCItems:ItemUpdateCustomNetTables(ability)
+    end
+     
 end

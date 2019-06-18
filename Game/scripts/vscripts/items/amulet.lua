@@ -68,6 +68,10 @@ end
 
 function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinket_ability, item)
 	print("[Amulet:action] propertyName:"..tostring(propertyName))
+	if type(propertyValue) == "string" then
+		print("[action] type(propertyValue) == string")
+		propertyValue = 1
+	end
 	if propertyName == "strength" then
 		trinket_ability.strength = trinket_ability.strength + propertyValue
 		Amulet:addBasicModifier(trinket_ability.strength, hero, inventory_unit, "modifier_trinket_strength", trinket_ability)

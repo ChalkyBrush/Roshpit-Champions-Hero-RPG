@@ -1591,7 +1591,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_doomplate") then
             Filters:DoomplateApply(attacker, victim)
         end
-        if attacker:HasModifier("modifier_ocean_tempest_pallium") then
+        if attacker:HasModifier("modifier_ocean_tempest_pallium") and attacker.ocean_tempest and attacker.ocean_tempest.manaDrained then
+            --TO DO check for bugs
             local damageIncrease = (attacker.ocean_tempest.manaDrained/100)*0.015
             damageMult = damageMult + damageIncrease
         end
