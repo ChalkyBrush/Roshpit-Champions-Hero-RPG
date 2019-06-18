@@ -2046,9 +2046,9 @@ function Arena:RollPitPrizebox(deathLocation)
 		prizeLevel = math.ceil(prizeLevel*(1+(0.3*GameState:GetPlayerPremiumStatusCount())))
 	end
     local item = RPCItems:CreateVariantWithMin("item_rpc_arena_prizebox", rarity, "Prizebox", false, false, "Consumable", 0, nil, nil)
-    item.property1 = prizeLevel
-    item.property1name = "prize_level"
-    RPCItems:SetPropertyValues(item, item.property1, "#arena_prizebox_level", "#D1D1D1",  1) 
+    item.newItemTable.property1 = prizeLevel
+    item.newItemTable.property1name = "prize_level"
+    RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#arena_prizebox_level", "#D1D1D1",  1) 
     Arena:RollPrizeBoxProperty2(item, prizeLevel)
     if rarity == "rare" or rarity == "mythical" then
     	Arena:RollPrizeBoxProperty3(item, prizeLevel)
