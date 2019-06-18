@@ -327,6 +327,10 @@ function Foot:runeProperty(propertyName, propertyValue, hero)
 			propertyName = string.gsub(propertyName, "_3", "_2")
 		end
 	end
+	if type(propertyValue) == "string" then
+		print("[Foot:runeProperty] propertyValue:"..propertyValue)
+		return
+	end
 	if propertyName == "rune_q_1" then
 		hero.runeUnit.foot.q_1 = hero.runeUnit.foot.q_1 + propertyValue
 		Foot:setRuneBonusNetTable(hero.runeUnit.foot.q_1, propertyName, hero)

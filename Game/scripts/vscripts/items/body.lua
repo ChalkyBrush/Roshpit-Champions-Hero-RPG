@@ -307,6 +307,10 @@ function Body:runeProperty(propertyName, propertyValue, hero)
 			propertyName = string.gsub(propertyName, "_3", "_2")
 		end
 	end
+	if type(propertyValue) == "string" then
+		print("[Body:runeProperty] propertyValue:"..propertyValue)
+		return
+	end
 	if propertyName == "rune_q_1" then
 		hero.runeUnit.body.q_1 = hero.runeUnit.body.q_1 + propertyValue
 		Body:setRuneBonusNetTable(hero.runeUnit.body.q_1, propertyName, hero)

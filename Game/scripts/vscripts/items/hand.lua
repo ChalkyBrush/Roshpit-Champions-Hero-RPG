@@ -261,6 +261,10 @@ function Hand:runeProperty(propertyName, propertyValue, hero)
 			propertyName = string.gsub(propertyName, "_3", "_2")
 		end
 	end
+	if type(propertyValue) == "string" then
+		print("[Hand:runeProperty] propertyValue:"..propertyValue)
+		return
+	end
 	if propertyName == "rune_q_1" then
 		hero.runeUnit.hand.q_1 = hero.runeUnit.hand.q_1 + propertyValue
 		Hand:setRuneBonusNetTable(hero.runeUnit.hand.q_1, propertyName, hero)

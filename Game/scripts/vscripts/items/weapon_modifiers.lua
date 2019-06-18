@@ -55,6 +55,10 @@ end
 
 
 function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_unit, weapon_ability, item)
+	if type(propertyValue) == "string" then
+		print("[Weaponmodifiers:action] propertyValue:"..propertyValue)
+		propertyValue = 0
+	end
 	local propertyBoost = 1
 	if hero:HasModifier("modifier_blacksmiths_tablet") then
 		if propertyValue > 1 then
@@ -65,10 +69,6 @@ function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_uni
 		if propertyValue > 1 then
 			propertyBoost = propertyBoost + PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT/100
 		end
-	end
-	if type(propertyValue) == "string" then
-		print("[Weaponmodifiers:action] propertyValue:"..propertyValue)
-		propertyValue = 0
 	end
 	propertyValue = propertyValue*propertyBoost
 	if propertyName == "strength" then
@@ -199,6 +199,10 @@ function Weaponmodifiers:runeProperty(propertyName, propertyValue, hero)
 		elseif string.match(propertyName, "_3") then
 			propertyName = string.gsub(propertyName, "_3", "_2")
 		end
+	end
+	if type(propertyValue) == "string" then
+		print("[Weaponmodifiers:runeProperty] propertyValue:"..propertyValue)
+		return
 	end
 	if hero:HasModifier("modifier_blacksmiths_tablet") then
 		if propertyValue > 1 then

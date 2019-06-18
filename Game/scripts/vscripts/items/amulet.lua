@@ -273,6 +273,10 @@ function Amulet:runeProperty(propertyName, propertyValue, hero)
 			propertyName = string.gsub(propertyName, "_3", "_2")
 		end
 	end
+	if type(propertyValue) == "string" then
+		print("[Amulet:runeProperty] propertyValue:"..propertyValue)
+		return
+	end
 	if propertyName == "rune_q_1" then
 		hero.runeUnit.amulet.q_1 = hero.runeUnit.amulet.q_1 + propertyValue
 		Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.q_1, propertyName, hero)
