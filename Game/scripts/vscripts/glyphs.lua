@@ -869,5 +869,6 @@ function Glyphs:CreateGlyphBook(itemName, row, column)
 	item.newItemTable.property4name = ""
 	RPCItems:SetPropertyValues(item, 0, "", "#FFFFFF",  4)
 
+	RPCItems:ItemUpdateCustomNetTables(item)
 	return item
 end

@@ -934,6 +934,9 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			if gearTable.validator then
 				item.newItemTable.validator = gearTable.validator
 			end
+			if gearTable.property1 then
+				item.newItemTable.property1 = gearTable.property1
+			end
 			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
 		elseif gearTable.item_name == "temple_key" then
