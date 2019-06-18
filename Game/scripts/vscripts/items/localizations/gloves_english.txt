@@ -40,12 +40,7 @@
 		"property_boneguard_description"		"15% chance on attack to summon a skeleton warrior to fight by your side for 20 seconds. Max 5 skeletons."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"								"Gauntlet of Flame"
-		"item_property_scorched_gauntlet"			"Scorched Ground"
-		"property_scorched_gauntlet_description"	"20% chance on attack to leave a burning patch that deals damage per second to all units in its radius equal to @special_property1% of attack power + @special_property2x armor. Upgrades at 4000."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets_2"							"Gauntlet of the High Flame"
+    	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"							"Gauntlet of the High Flame"
 		"item_property_scorched_gauntlet_2"			"Scorched Earth"
 		"property_scorched_gauntlet_description_2"	"20% chance on attack to leave a burning patch that deals damage per second to all units in its radius equal to @special_property1% of attack power + @special_property2x armor. A stray flame jumps in a random direction from the target and deal @special_property3% of attack power in an area and stun for @special_property4 seconds and leave another pool of fire."
 		

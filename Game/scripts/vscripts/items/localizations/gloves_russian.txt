@@ -40,12 +40,7 @@
 		"property_boneguard_description"		"При каждой атаке с шансом 15% рядом с целью появится скелет-защитник, сражающийся на вашей стороне в течение 20 секунд. Максимум 5 скелетов."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"								"Gauntlet of Flame"
-		"item_property_scorched_gauntlet"			"Scorched Ground"
-		"property_scorched_gauntlet_description"	"С 20% шансом при атаке оставляет пламенный след, который ежесекундно наносит урон всем юнитам, попавшим в область действия, равный @special_property1% урона героя + @special_property2x значения его брони. Предмет обновится, когда эффект сработает 4000 раз.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets_2"							"Gauntlet of the High Flame"
+    	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"							"Gauntlet of the High Flame"
 		"item_property_scorched_gauntlet_2"			"Scorched Earth"
 		"property_scorched_gauntlet_description_2"	"С 20% шансом при атаке оставляет пламенный след, который ежесекундно наносит урон всем юнитам, попавшим в область действия, равный @special_property1% урона героя + @special_property2x значения его брони. Бушующее пламя скачет в случайном направлении от атакуемой цели и наносит урон, равный @special_property3% от урона героя в небольшой области и оглушает задетые цели на @special_property4 сек, дополнительно поджигая землю под ними.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		

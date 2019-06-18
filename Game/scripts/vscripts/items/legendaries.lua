@@ -547,6 +547,18 @@ function RPCItems:RollScorchedGauntlets(deathLocation)
 
     RPCItems:RollHandProperty3(item, 0)
     RPCItems:RollHandProperty4(item, 0)
+
+    --pre patch lv values
+    if type(item.newItemTable.property2) == "number" then
+        item.newItemTable.property2 = math.ceil(item.newItemTable.property2*2)
+    end
+    if type(item.newItemTable.property3) == "number" then
+        item.newItemTable.property3 = math.ceil(item.newItemTable.property3*1.1)
+    end
+    if type(item.newItemTable.property4) == "number" then
+        item.newItemTable.property4 = math.ceil(item.newItemTable.property4*1.1)
+    end
+
     local drop = CreateItemOnPositionSync( deathLocation, item )
     local position = deathLocation
     RPCItems:DropItem(item, position)
@@ -732,6 +744,21 @@ function RPCItems:RollSkulldiggerGloves(deathLocation)
 
     RPCItems:RollHandProperty3(item, 0)
     RPCItems:RollHandProperty4(item, 0)
+
+    --pre patch lv values
+    if type(item.newItemTable.property2) == "number" then
+        item.newItemTable.property2 = math.ceil(item.newItemTable.property2*1.1)
+        item.newItemTable.property2 = math.ceil(item.newItemTable.property2*1.1)
+    end
+    if type(item.newItemTable.property3) == "number" then
+        item.newItemTable.property3 = math.ceil(item.newItemTable.property3*1.1)
+        item.newItemTable.property3 = math.ceil(item.newItemTable.property3*1.1)
+    end
+    if type(item.newItemTable.property4) == "number" then
+        item.newItemTable.property4 = math.ceil(item.newItemTable.property4*1.1)
+        item.newItemTable.property4 = math.ceil(item.newItemTable.property4*1.1)
+    end
+    
     local drop = CreateItemOnPositionSync( deathLocation, item )
     local position = deathLocation
     RPCItems:DropItem(item, position)
