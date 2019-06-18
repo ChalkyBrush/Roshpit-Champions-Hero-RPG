@@ -225,7 +225,7 @@ function RPCItems:CreateVariantArcana(variantName, rarityName, itemNameText, slo
     item.newItemTable.gear = gear
     item.newItemTable.consumable = nil
     item.newItemTable.requiredHero = requiredHero
-	if not minLevel then
+	if not minLevel or (minLevel and minLevel == 0) then
 		minLevel = RPCItems:GetMinLevel()
 	end
     item.newItemTable.minLevel = minLevel
