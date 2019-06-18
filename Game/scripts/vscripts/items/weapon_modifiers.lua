@@ -55,6 +55,7 @@ end
 
 
 function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_unit, weapon_ability, item)
+	print("[Weaponmodifiers:action] propertyName:"..tostring(propertyName))
 	if type(propertyValue) == "string" then
 		print("[Weaponmodifiers:action] propertyValue:"..propertyValue)
 		propertyValue = 0

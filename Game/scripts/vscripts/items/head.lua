@@ -52,6 +52,11 @@ end
 
 
 function Head:action(propertyName, propertyValue, hero, inventory_unit, head_ability, item)
+	print("[Head:action] propertyName:"..tostring(propertyName))
+	if type(propertyValue) == "string" then
+		print("[action] type(propertyValue) == string")
+		propertyValue = 0
+	end
 	if propertyName == "strength" then
 		head_ability.strength = head_ability.strength + propertyValue
 		Head:addBasicModifier(head_ability.strength, hero, inventory_unit, "modifier_helm_strength", head_ability)
