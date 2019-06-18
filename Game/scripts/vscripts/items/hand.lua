@@ -54,7 +54,7 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 	print("[Hand:action] propertyName:"..tostring(propertyName))
 	if type(propertyValue) == "string" then
 		print("[action] type(propertyValue) == string")
-		propertyValue = 0
+		propertyValue = 1
 	end
 	if propertyName == "strength" then
 		hand_ability.strength = hand_ability.strength + propertyValue
