@@ -179,8 +179,9 @@ end
 
 function Winterblight:DropGlacierStone(position)
     local item = RPCItems:CreateConsumable("item_rpc_winterblight_glacier_stone", "mythical", "Glacier Stone", "consumable", false, "Consumable", "item_rpc_winterblight_glacier_stone_desc")
-    item.stashable = true
-    item.consumable = true
+    item.newItemTable.stashable = true
+    item.newItemTable.consumable = true
+	RPCItems:ItemUpdateCustomNetTables(item)
     RPCItems:BasicDropItem(position, item)
 end
 

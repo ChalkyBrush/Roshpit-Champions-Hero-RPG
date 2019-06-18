@@ -1811,8 +1811,9 @@ function SaveLoad:WithdrawKeyFinal(hero, keyIndex)
 	    RPCItems:GiveItemToHeroWithSlotCheck(hero, key)
 	elseif keyIndex == 11 then
 	    local key = RPCItems:CreateConsumable("item_rpc_winterblight_glacier_stone", "mythical", "Glacier Stone", "consumable", false, "Consumable", "item_rpc_winterblight_glacier_stone_desc")
-	    key.stashable = true
-	    key.consumable = true
+	    key.newItemTable.stashable = true
+	    key.newItemTable.consumable = true
+		RPCItems:ItemUpdateCustomNetTables(key)
 	    RPCItems:GiveItemToHeroWithSlotCheck(hero, key)
 	end
 end
