@@ -113,13 +113,8 @@
 		"property_omega_ruby"						"Your basic attacks additionally have an explosive @special_property1% magic damage in 360 AOE."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol LV1"
-		"item_property_raven_idol"					"Black Soul"		
-		"property_raven_idol_description"            "Reduce damage taken from all sources by 40%. Your health can not go above 50% of your max. Each time you take damage, this property increases by 1. Upgrades at 12000. After upgrading, the Blacksmith cannot reforge this item."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_raven_idol2"										"Raven Idol LV2"
-		"item_property_raven_idol2"					"Black Soul II"		
+		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol"
+		"item_property_raven_idol2"					"Black Soul"		
 		"property_raven_idol_description2"			"Reduce damage taken from all sources by 50%. Your health can not go above 50% of your max. Each 100 points of missing health increases damage dealt directly by items by 0.1%. This item cannot be reforged by the Blacksmith."
 		
 		
