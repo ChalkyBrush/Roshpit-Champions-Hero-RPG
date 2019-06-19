@@ -728,8 +728,9 @@ function Filters:BeginRChannel(caster)
     end
     local baseCd = ability:GetCooldownTimeRemaining()
     if caster:HasModifier("modifier_iron_treads_of_destruction") then
-        Timers:CreateTimer(0.03, function()
-            ability:EndChannel(false)
+        ability:OnChannelFinish(false)
+	Timers:CreateTimer(0.03, function()
+            ability:EndChannel(true)
         end)
     end
     if caster:HasModifier("modifier_galaxy_orb") then
