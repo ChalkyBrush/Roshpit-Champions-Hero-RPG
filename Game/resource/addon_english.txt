@@ -15595,7 +15595,7 @@
 		"DOTA_Tooltip_ability_seafortress_rock_breaker_passive_duration"	"LIFT DURATION:"
 
 		"DOTA_Tooltip_ability_seafortress_explosive_skin_passive"				"Frozen Granite"
-		"DOTA_Tooltip_ability_seafortress_explosive_skin_passive_Description"	"When taking enough damage to meet the threshold - solidify into thick rock that is immune to damage. When the rock form ends, unleash a wave if frosty water that damage and stuns enemies in a large area."
+		"DOTA_Tooltip_ability_seafortress_explosive_skin_passive_Description"	"When taking enough damage to meet the threshold - solidify into thick rock that is immune to damage. When the rock form ends, unleash a wave of frosty water that damage and stuns enemies in a large area."
 		"DOTA_Tooltip_ability_seafortress_explosive_skin_passive_threshold"		"HP THRESHOLD %:"
 		"DOTA_Tooltip_ability_seafortress_explosive_skin_passive_stun_duration"	"STUN DURATION:"
 		"DOTA_Tooltip_ability_seafortress_explosive_skin_passive_damage"		"DAMAGE:"
