@@ -11770,20 +11770,8 @@
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"Убирает время перезарядки для умения (E). Прочтение способности (E) потратит заряд."
 		 
 		 
-    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv1"						"Crimsyth Elite Greaves LV1"
-		"item_property_crimsyth_elite_1"						"Crimsyth Elite I"
-		 "property_crimsyth_elite_1_description"				"Увеличивает броню на @special_property1x от уровня героя. При прочтении любой способности, на @special_property3 сек. герой потеряет бонус брони, вместо этого получит @special_property2 % сопротивление магии. При получении не смертельного урона, который отнимет более 50% от макс. запаса здоровья, счётчик свойства этого предмета будет повышен на 1. Предмет обновится, когда счётчик достигнет значения @special_property4.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
-		  "DOTA_Tooltip_modifier_crimsyth_elite_greaves_armor"	"Crimsyth Elite Armor"
-		 "DOTA_Tooltip_modifier_crimsyth_elite_greaves_magic_shield"	"Crimsyth Elite Magic Shield"
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv2"						"Crimsyth Elite Greaves LV2"
-		 "item_property_crimsyth_elite_2"						"Crimsyth Elite II"
-		 "property_crimsyth_elite_2_description"				"Увеличивает броню на @special_property1x от уровня героя. При прочтении любой способности, на @special_property3 сек. герой потеряет бонус брони, вместо этого получит @special_property2 % сопротивление магии. При получении не смертельного урона, который отнимет более 75% от макс. запаса здоровья, счётчик свойства этого предмета будет повышен на 1. Предмет обновится, когда счётчик достигнет значения @special_property4.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv3"						"Crimsyth Elite Greaves LV3"
-		"item_property_crimsyth_elite_3"						"Crimsyth Elite III"
+    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv1"						"Crimsyth Elite Greaves"
+		"item_property_crimsyth_elite_3"						"Crimsyth Elite"
 		 "property_crimsyth_elite_3_description"				"Увеличивает броню на @special_property1x от уровня героя. При прочтении любой способности, на @special_property3 сек. герой потеряет бонус брони, вместо этого получит @special_property2 % сопротивление магии.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		 
 		 
@@ -11878,37 +11866,17 @@
 		"property_steelbark_description"	"Когда здоровье опускается ниже 40% дает 100 доп. реген здоровья и +40 брони."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"Robe of Flooding LV1"
-		"item_property_flooding"					"Water Elemental 1"
-		"property_flooding_description"				"По завершении прочтения (R) @Ability4 - на сторону героя призывается водный элементаль, который живёт 12 секунд и восстанавливает владельцу 5% от макс. маны с каждой своей атакой. Атаки наносят урон в небольшой области в размере 25х Интеллекта героя.<br>Когда элементаль убьет суммарно 5000 врагов, предмет обновится.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding_2"								"Robe of Flooding LV2"
-		"item_property_flooding_2"					"Water Elemental 2"
-		"property_flooding_description_2"			"По завершении прочтения (R) @Ability4 - на сторону героя призывается водный элементаль, который живёт 12 секунд и восстанавливает владельцу 5% от макс. маны с каждой своей атакой. Атаки наносят урон в небольшой области в размере 30x Интеллекта героя.<br>Дополнительно с каждой атакой выпускает волну, которая наносит магический урон, равный общему урону героя.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding_3"								"Robe of Flooding LV3"
-		"item_property_flooding_3"					"Water Elemental 3"
+		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"Robe of Flooding"
+		"item_property_flooding_3"					"Water Elemental"
 		"property_flooding_description_3"			"По завершении прочтения (R) @Ability4 - на сторону героя призывается водный элементаль, который живёт 12 секунд и восстанавливает владельцу 5% от макс. маны с каждой своей атакой. Атаки наносят урон в небольшой области в размере 35x Интеллекта героя.<br>Дополнительно с каждой атакой выпускает волну, которая наносит магический урон, равный общему урону героя.<br>Весь наносимый урон может быть увеличен за счёт всех усилений, действующих на базовую способность (R) @Ability4.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"									"Avalanche Plate LV1"
-		"item_property_avalanche"					"Avalanche"
-		"property_avalanche_description"			"По завершении прочтения (R) @Ability4 вокруг героя в радиусе 400 происходит сильный камнепад, который нанесёт урон, равный @special_property1x Силы каждые 0.2 секунды и оглушает врагов на 0.1 секунды.<br>Весь урон, напрямую наносимый предметами увеличивается на @special_property3%<br>за каждые 10 очков Силы.<br>Каждый тик камнепада, задевший врага добавляет к свойству предмета 1 очко.<br>Предмет улучшится, погда счётчик свойства достигнет значения 1500.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_avalanche_plate_2"								"Avalanche Plate LV2"
+		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"
 		"item_property_avalanche_2"					"Mountain Quake"
 		"property_avalanche_description_2"			"По завершении прочтения (R) @Ability4 вокруг героя в радиусе 400 происходит сильный камнепад, который нанесёт урон, равный @special_property1x Силы каждые 0.2 секунды и оглушает врагов на 0.1 секунды.<br>Каждое успешное попадание камнепадом по противнику накапливает заряды. Когда будет накоплено 20 зарядов, произойдёт сильное землетрясение в радиусе 600,<br>которое нанесёт урон, равный @special_property2x Силы и оглушит задетых врагов на 1.6 секунды.<br>Весь урон, напрямую наносимый предметами увеличивается на @special_property3% за каждые 10 очков Силы.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard LV1"
-		"item_property_violet_guard_armor"			"Violet Crusader"
-		"property_violet_guard_armor_description"	"Увеличивает Базовый Урон Способности (Q) @Ability1 на 300%. Каждый раз, когда (Q) @Ability1 попадает по противнику, к свойству предмета добавляется 1 очко. Предмет улучшится, когда значение достигнет 20000."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard2"							"Armor of the Violet Guard LV2"
+		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard"
 		"item_property_violet_guard_armor2"			"Violet Conqueror"
 		"property_violet_guard_armor_description2"	"Увеличивает Базовый Урон Способности (Q) @Ability1 на 350%.<br>Когда (Q) @Ability1 попадает по противнику, его броня снижается на 1 за каждые 0.1% от базового урона умения на 6 секунд.<br>Значение брони цели не может опуститься ниже 0."
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
@@ -12274,12 +12242,7 @@
 		"property_boneguard_description"		"При каждой атаке с шансом 15% рядом с целью появится скелет-защитник, сражающийся на вашей стороне в течение 20 секунд. Максимум 5 скелетов."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"								"Gauntlet of Flame"
-		"item_property_scorched_gauntlet"			"Scorched Ground"
-		"property_scorched_gauntlet_description"	"С 20% шансом при атаке оставляет пламенный след, который ежесекундно наносит урон всем юнитам, попавшим в область действия, равный @special_property1% урона героя + @special_property2x значения его брони. Предмет обновится, когда эффект сработает 4000 раз.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets_2"							"Gauntlet of the High Flame"
+    	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"							"Gauntlet of the High Flame"
 		"item_property_scorched_gauntlet_2"			"Scorched Earth"
 		"property_scorched_gauntlet_description_2"	"С 20% шансом при атаке оставляет пламенный след, который ежесекундно наносит урон всем юнитам, попавшим в область действия, равный @special_property1% урона героя + @special_property2x значения его брони. Бушующее пламя скачет в случайном направлении от атакуемой цели и наносит урон, равный @special_property3% от урона героя в небольшой области и оглушает задетые цели на @special_property4 сек, дополнительно поджигая землю под ними.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
@@ -12559,18 +12522,8 @@
         "DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Входящий урон снижен на <font color='#ccff66'>95</font>%."
 		
 
-    	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil LV1"
-		 "item_property_shipyard_veil_1"					"Soul Shield I"
-		 "property_shipyard_veil_1_description"				"Каждый враг, задетый (Q) @Ability1 даст герою заряд щита, способного полностью поглощать урон. Максимум зарядов - @special_property1. Каждый заряд дополнительно увеличивает урон (Q) @Ability1 на @special_property2%. Когда щит поглотит урон, счётчик свойства этого предмета увеличится на 1. Предмет обновится, когда счётчик достигнет значения @special_property3.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
-
-		 
-		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv2"								"Shipyard Veil LV2"
-		 "item_property_shipyard_veil_2"					"Soul Shield II"
-		 "property_shipyard_veil_2_description"				"Каждый враг, задетый (Q) @Ability1 даст герою заряд щита, способного полностью поглощать урон. Максимум зарядов - @special_property1. Каждый заряд дополнительно увеличивает урон (Q) @Ability1 на @special_property2%. Когда щит поглотит урон, счётчик свойства этого предмета увеличится на 1. Предмет обновится, когда счётчик достигнет значения @special_property3.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
-
-		 
-		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv3"								"Shipyard Veil LV3"
-		 "item_property_shipyard_veil_3"					"Soul Shield III"
+		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
+		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Каждый враг, задетый (Q) @Ability1 даст герою заряд щита, способного полностью поглощать урон. Максимум зарядов - @special_property1. Каждый заряд дополнительно увеличивает урон (Q) @Ability1 на @special_property2%. Враг, атаковавший героя во время активного щита будет ответно атакован черепом, который нанесёт магический урон в размере @special_property3x от основного атрибута героя.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 
 		 
@@ -12583,25 +12536,15 @@
 		 "property_lava_forge_description"					"При получении урона в сторону атакующего будет выпущен огненный шар, наносящий урон самой цели при попадании и соседним целям в небольшом радиусе в размере <font color='#ccff66'>2</font>x базового урона + <font color='#ccff66'>2000</font>x Ловкости."
 		 
 		 
-		"DOTA_Tooltip_ability_item_rpc_white_mage_hat"									"White Mage Hat LV1"
-		"item_property_white_mage_hat"				"Cura"
-		"property_white_mage_hat_description"		"Каждое прочтение (W) @Ability2 дополнительно восстановит здоровье вам и вашим союзникам в размере @special_property1x вашего Интеллекта. С каждым успешным исцелением себя или союзника к свойству предмета добавится 1 очко. Предмет улучшится, когда свойство достигнет значения 5000.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_white_mage_hat_2"								"White Mage Hat LV2"
+    	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
 		"item_property_white_mage_hat_2"			"Curaga"
 		"property_white_mage_hat_2_description"		"Каждое прочтение (W) @Ability2 дополнительно восстановит здоровье вам и вашим союзникам в размере @special_property1x вашего Интеллекта. Когда цели имеют полное здоровье, каждое следующее применение эффекта наделит их щитом, который способен поглотить урон. Сила щита зависит от силы лечения, но не более 100% от максимального здоровья цели.<br>Базовый Урон Способностей увеличивается на @special_property2% за каждые 10 очков Интеллекта.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		"DOTA_Tooltip_modifier_white_mage_shield"	"White Mage Shield"
 		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"Поглощение урона"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_hyper_visor"										"Hyper Visor LV1"
-		"item_property_hyper_visor"					"Hyper Lightning"
-		"property_hyper_visor_description"			"С @special_property1% шансом вместе с вашими атаками во врага ударит молния, которая нанесет урон по области равный @special_property2x от вашего урона. С каждым успешным срабатыванием, к свойству предмета добавляется 1 очко. Предмет улучшится, когда свойство достигнет значения @special_property3.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_hyper_visor2"									"Hyper Visor LV2"
-		"item_property_hyper_visor2"					"Hyper Lightning II"
+    	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
+		"item_property_hyper_visor2"				"Hyper Lightning"
 		"property_hyper_visor2_description"			"С @special_property1% шансом вместе с вашими атаками во врага ударит молния, которая нанесет урон по области равный @special_property2x от вашего урона. Снижает базовое время атаки @special_property3 сек.<br>Весь урон, напрямую наносимый предметами увеличивается на @special_property4% за каждые 10 очков Ловкости.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
 		
@@ -12794,13 +12737,8 @@
 		"property_excavator_description"					"Урон, напрямую наносимый надетыми предметами увеличен на 0.5% за каждые 10 очков Интеллекта."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"									"Stormcrack Helm LV1"
-		"item_property_stormcrack"							"Stormcrack"
-		"property_stormcrack_description"					"Когда герой оглушает противника, он дополнительно наносит магический урон в размере 1x своего общего урона и 10x суммы всех атрибутов.<br>Каждое успешное срабатывание эффекта добавляет 1 очко к основному свойству.<br>Предмет улучшится, когда значение достигнет 4000.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm2"								"Stormcrack Helm LV2"
-		 "item_property_stormcrack2"						"Stormcrack II"
+    	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"
+		 "item_property_stormcrack2"						"Stormcrack"
 		 "property_stormcrack2_description"					"Когда герой оглушает противника, он дополнительно наносит магический урон в размере @special_property1x своего общего урона + @special_property2x суммы всех атрибутов.<br>Увеличивает длительность всех оглушений на 35%.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
 		
@@ -13040,13 +12978,8 @@
 		"property_omega_ruby"						"Вместе с обычными атаками происходит взрыв, наносящий магический урон в области 360 единиц в размере @special_property1% от нанесённого урона."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol LV1"
-		"item_property_raven_idol"					"Black Soul"		
-		"property_raven_idol_description"			"Весь получаемый урон снижен на 40%. Уровень здоровья не поднимется выше 50% от максимума.<br>Каждый раз, когда герой получает урон, к свойству предмета добавляется 1 очко.<br>Предмет улучшится, когда значение достигнет 12000.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_raven_idol2"										"Raven Idol LV2"
-		"item_property_raven_idol2"					"Black Soul II"		
+		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol"
+		"item_property_raven_idol2"					"Black Soul"		
 		"property_raven_idol_description2"			"Весь получаемый урон снижен на 50%. Уровень здоровья не поднимется выше 50% от максимума. Каждые 100 очков недостающего здоровья увеличивают урон, напрямую наносимый предметами на 0.01%.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
 		
