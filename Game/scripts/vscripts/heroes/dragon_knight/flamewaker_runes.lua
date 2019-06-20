@@ -77,56 +77,56 @@ function getCasterItemsTotalLevel(caster, lvl_100_as_lvl)
 		lvl_100_as_lvl = 100
 	end
 	local total_level = 0
-
+	--[evil laugh]
 	local level = 0
-	if caster.headItem and caster.headItem.minLevel then
-		level = caster.headItem.minLevel
+	if caster.headItem and caster.headItem.newItemTable and caster.headItem.newItemTable.minLevel and type(caster.headItem.newItemTable.minLevel) == "number" then
+		level = caster.headItem.newItemTable.minLevel
 	end
 	if level == 100 then
 		level = lvl_100_as_lvl
 	end
 	total_level = total_level + level
 	level = 0
-	if caster.handItem and caster.handItem.minLevel then
-		level = caster.handItem.minLevel
+	if caster.handItem and caster.handItem.newItemTable and caster.handItem.newItemTable.minLevel and type(caster.handItem.newItemTable.minLevel) == "number" then
+		level = caster.handItem.newItemTable.minLevel
 	end
 	if level == 100 then
 		level = lvl_100_as_lvl
 	end
 	total_level = total_level + level
 	level = 0
-	if caster.foot and caster.foot.minLevel then
-		level = caster.foot.minLevel
+	if caster.foot and caster.foot.newItemTable and caster.foot.newItemTable.minLevel and type(caster.foot.newItemTable.minLevel) == "number" then
+		level = caster.foot.newItemTable.minLevel
 	end
 	if level == 100 then
 		level = lvl_100_as_lvl
 	end
 	total_level = total_level + level
 	level = 0
-	if caster.weapon and caster.weapon.minLevel then
-		level = caster.weapon.minLevel
+	if caster.weapon and caster.weapon.newItemTable and caster.weapon.newItemTable.minLevel and type(caster.weapon.newItemTable.minLevel) == "number" then
+		level = caster.weapon.newItemTable.minLevel
 	end
 	if level == 100 then
 		level = lvl_100_as_lvl
 	end
 	total_level = total_level + level
 	level = 0
-	if caster.amulet and caster.amulet.minLevel then
-		level = caster.amulet.minLevel
+	if caster.amulet and caster.amulet.newItemTable and caster.amulet.newItemTable.minLevel and type(caster.amulet.newItemTable.minLevel) == "number" then
+		level = caster.amulet.newItemTable.minLevel
 	end
 	if level == 100 then
 		level = lvl_100_as_lvl
 	end
 	total_level = total_level + level
 	level = 0
-	if caster.body and caster.body.minLevel then
-		level = caster.body.minLevel
+	if caster.body and caster.body.newItemTable and caster.body.newItemTable.minLevel and type(caster.body.newItemTable.minLevel) == "number" then
+		level = caster.body.newItemTable.minLevel
 	end
 	if level == 100 then
 		level = lvl_100_as_lvl
 	end
 	total_level = total_level + level
-	level = 0
+	print("[getCasterItemsTotalLevel] total_level:"..tostring(total_level))
 	return total_level
 end
 
