@@ -13143,7 +13143,7 @@
 		"item_property_fuchsia_ring"							"Solidarity"
 		"property_fuchsia_ring_description"					"While silenced or stunned all damage taken is reduced by @special_property1% and health regen is increased by @special_property2% of max health."
 		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Solidarity"
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance_Description"		"Damage taken reduced by 85% and health regen increased by 45% of max health."
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance_Description"		"Damage taken reduced by 85%% and health regen increased by 45%% of max health."
 		 
 		 
 		 
