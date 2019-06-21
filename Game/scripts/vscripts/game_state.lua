@@ -38,6 +38,16 @@ function OverflowProtectedGetAverageTrueAttackDamage(caster)
 	return averageTrueAttackDamage
 end
 
+function OverflowProtectedMaxHealingValue(healAmount)
+	if healAmount < 0 then
+		return 2000000000
+	elseif healAmount >= 2000000000 then
+		return 2000000000
+	else
+		return healAmount
+	end
+end
+
 function GameState:RecordPlayerID(hero)
 	if not GameState.PlayerTable then
 		GameState.PlayerTable = {}
