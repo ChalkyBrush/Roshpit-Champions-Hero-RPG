@@ -553,9 +553,11 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
 		local w_2_level = caster:GetRuneValue("w", 2)
 		if w_2_level > 0 then
 			healAmount = healAmount + healAmount * AURIUN_W2_HEAL_SHADOW_HOLY_PCT_PER_INT * caster:GetIntellect() * w_2_level
+            healAmount = OverflowProtectedMaxHealingValue(healAmount)
 		end
 	end
 
+    healAmount = OverflowProtectedMaxHealingValue(healAmount)
     if bCap then
         healAmount = math.min(healAmount, target:GetMaxHealth())
     end
@@ -569,7 +571,8 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
         local modifiers = target:FindAllModifiersByName("modifier_pirate_aura_debuff")
         for _,modifier in pairs(modifiers) do
             local pirateCaster = modifier:GetCaster()
-            Filters:ApplyHeal(pirateCaster, pirateCaster, healAmount*100, true)
+            local finalValue = OverflowProtectedMaxHealingValue(healAmount*100)
+            Filters:ApplyHeal(pirateCaster, pirateCaster, finalValue, true)
         end
     end
     if caster:GetUnitName() == "npc_dota_hero_omniknight" then
@@ -580,7 +583,13 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
                 local origHeal = healAmount
                 local actualHeal = math.min(target:GetMaxHealth() - target:GetHealth(), origHeal)
                 local shieldAmount = origHeal - actualHeal
-                if not target.paladin_q4_absorb then
+                if shieldAmount < 0 then
+                    return
+                end
+                if not target.paladin_q4_absorb  then
+                    target.paladin_q4_absorb = 0
+                end
+                if target.paladin_q4_absorb < 0 then
                     target.paladin_q4_absorb = 0
                 end
                 target.paladin_q4_absorb = math.min(target.paladin_q4_absorb + shieldAmount, target:GetMaxHealth()*0.1*q_4_level)
@@ -598,7 +607,11 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
             if not target:HasModifier("modifier_white_mage_shield") then
                 target.whiteMageShield = 0
             end
-            target.whiteMageShield = math.min(target.whiteMageShield + overheal, target:GetMaxHealth())
+            local shieldValue = math.min(target.whiteMageShield + overheal, target:GetMaxHealth())
+            if shieldValue < 0 then
+                return
+            end
+            target.whiteMageShield = shieldValue
             caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_white_mage_shield", {duration = 16})
         end
     end

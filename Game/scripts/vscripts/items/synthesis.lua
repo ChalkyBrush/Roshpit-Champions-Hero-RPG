@@ -162,7 +162,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 				return false
 			end
 		elseif item1.newItemTable.rarity == "immortal" and item2.newItemTable.rarity == "immortal" then
-			if item1.newItemTable.slot ~= "weapon" and item2.newItemTable.slot ~= "weapon" then
+			if item1.newItemTable.item_slot ~= "weapon" and item2.newItemTable.item_slot ~= "weapon" then
 				local possibilityTable = {item1, item2}
 				local randomItem = possibilityTable[RandomInt(1, #possibilityTable)]
 				local minLevelAVG = math.floor((item1.newItemTable.minLevel + item2.newItemTable.minLevel)/2)
@@ -181,7 +181,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 				else
 					return false
 				end
-			elseif item1.newItemTable.slot == "weapon" and item2.newItemTable.slot == "weapon" then
+			elseif item1.newItemTable.item_slot == "weapon" and item2.newItemTable.item_slot == "weapon" then
 				local possibilityTable = {item1, item2}
 				local randomItem = possibilityTable[RandomInt(1, #possibilityTable)]
 				local newMinLevel = 100
@@ -228,14 +228,14 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			else
 				return false
 			end			
-		elseif (item1:GetAbilityName() == "item_rpc_boreal_granite_chunk" and item2.newItemTable.slot and item2.newItemTable.slot == "body" and item2.newItemTable.rarity == "immortal") 
-			or (item2:GetAbilityName() == "item_rpc_boreal_granite_chunk" and item1.newItemTable.slot and item1.newItemTable.slot == "body" and item1.newItemTable.rarity == "immortal") then
+		elseif (item1:GetAbilityName() == "item_rpc_boreal_granite_chunk" and item2.newItemTable.item_slot and item2.newItemTable.item_slot == "body" and item2.newItemTable.rarity == "immortal") 
+			or (item2:GetAbilityName() == "item_rpc_boreal_granite_chunk" and item1.newItemTable.item_slot and item1.newItemTable.item_slot == "body" and item1.newItemTable.rarity == "immortal") then
 			local new_min_level = 0
 			local newValidator = nil
-			if item2.newItemTable.slot then
+			if item2.newItemTable.item_slot then
 				new_min_level = RPCItems:GetLogarithmicVarianceValue(item2.newItemTable.minLevel, 0, 0, 0, 0)
 				newValidator = item2.newItemTable.validator
-			elseif item1.newItemTable.slot then
+			elseif item1.newItemTable.item_slot then
 				new_min_level = RPCItems:GetLogarithmicVarianceValue(item1.newItemTable.minLevel, 0, 0, 0, 0)
 				newValidator = item1.newItemTable.validator
 			end

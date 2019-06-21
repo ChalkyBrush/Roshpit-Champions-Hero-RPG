@@ -51,7 +51,7 @@ function initializeTooltip(func){
 		if (!(itemValues.useDescription === undefined)){
 			var tooltip = ""
 			tooltip = tooltip + "<font color='#A3D4A1'>"+$.Localize(itemValues.useDescription)+"</font>"
-			tooltip = replaceConsumableText(item, tooltip)
+			tooltip = replaceConsumableText(itemValues, tooltip)
 			tooltip = updateGlyphInTooltip(tooltip, item)
 			$.Msg("AGAIN HI:"+queryUnit)
 			tooltip = updateSkillInTooltipHandler(tooltip, itemValues, queryUnit)
@@ -378,8 +378,11 @@ function itemValuesCheck(itemValues)
 	return itemValues
 }
 
-function replaceConsumableText(item, tooltip)
+function replaceConsumableText(itemValues, tooltip)
 {
+	if (itemValues.property3color && itemValues.property3name){
+		tooltip = tooltip.replace("@consumableProperty3", "<font color='"+itemValues.property3color+"'>"+$.Localize(itemValues.property3name)+"</font>")
+	}
 	return tooltip
 }
 
