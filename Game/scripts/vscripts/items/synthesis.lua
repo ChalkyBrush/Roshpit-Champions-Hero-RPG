@@ -162,7 +162,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 				return false
 			end
 		elseif item1.newItemTable.rarity == "immortal" and item2.newItemTable.rarity == "immortal" then
-			if item1.newItemTable.slot ~= "weapon" and item2.newItemTable.slot ~= "weapon" then
+			if item1.newItemTable.item_slot ~= "weapon" and item2.newItemTable.item_slot ~= "weapon" then
 				local possibilityTable = {item1, item2}
 				local randomItem = possibilityTable[RandomInt(1, #possibilityTable)]
 				local minLevelAVG = math.floor((item1.newItemTable.minLevel + item2.newItemTable.minLevel)/2)
@@ -181,7 +181,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 				else
 					return false
 				end
-			elseif item1.newItemTable.slot == "weapon" and item2.newItemTable.slot == "weapon" then
+			elseif item1.newItemTable.item_slot == "weapon" and item2.newItemTable.item_slot == "weapon" then
 				local possibilityTable = {item1, item2}
 				local randomItem = possibilityTable[RandomInt(1, #possibilityTable)]
 				local newMinLevel = 100
