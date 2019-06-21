@@ -164,8 +164,6 @@ function Weapons:Equip(heroEntity, itemEntity)
     	hero.weapon = itemEntity
     	Weapons:SetWeaponTable(itemEntity)
 
-    	--CustomNetTables:SetTableValue("weapons", tostring(heroEntity:GetEntityIndex()), {xp = itemEntity.xp, level = itemEntity.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[itemEntity.level], maxLevel = itemEntity.maxLevel, requiredHero = itemEntity.requiredHero} )
-    	
     	CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemEntity:GetEntityIndex(), heroId=heroId, playerId=playerID, pickup="weapon", rarity=itemEntity.newItemTable.rarity, rarityColor=RPCItems:GetRarityColor(itemEntity.newItemTable.rarity)} )
     else
     	CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemEntity:GetEntityIndex(), heroId=heroId, playerId=playerID, pickup="equip", rarity=itemEntity.newItemTable.rarity, rarityColor=RPCItems:GetRarityColor(itemEntity.newItemTable.rarity)} )
@@ -612,7 +610,9 @@ function Weapons:SetWeaponTableValues(item, itemName, consumableBoolean, descrip
 	item.newItemTable.itemPrefix = prefix
 	item.newItemTable.itemSuffix = suffix
 	item.newItemTable.rarityFactor = rarityFactor
-	item.newItemTable.maxLevel = 50
+	if not item.newItemTable.maxLevel then
+		item.newItemTable.maxLevel = 50
+	end
 	item.newItemTable.requiredHero = item.newItemTable.requiredHero
 	item.newItemTable.slot = slot
 	Weapons:SetWeaponTable(item)
