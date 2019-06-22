@@ -81,7 +81,7 @@ function GameMode:OnDisconnect(keys)
 end
 
 function GameMode:GlobalThinkers_ClearItems_Think()
-  print("GlobalThinkers_ClearItems_Think")
+  --print("GlobalThinkers_ClearItems_Think")
   if RPCItems then
     RPCItems:ClearItems()
   end
@@ -94,13 +94,13 @@ function GameMode:GlobalThinkersInit_ClearItems_Thinker()
 end
 
 function GameMode:GlobalThinkers_Convars_Think()
-  print("GlobalThinkers_Convars_Think")
+  --print("GlobalThinkers_Convars_Think")
   if MAIN_HERO_TABLE and #MAIN_HERO_TABLE>0 then
     for _,hero in pairs(MAIN_HERO_TABLE) do
       hero:AddNewModifier(hero, nil, "modifier_client_setting", {})
     end
   end
-  return 30
+  return 90
 end
 
 function GameMode:GlobalThinkersInit_Convars_Thinker()
@@ -304,13 +304,16 @@ end
 
 -- An item was picked up off the ground
 function GameMode:OnItemPickedUp(keys)
-  DebugPrint( '[BAREBONES] OnItemPickedUp' )
-  DebugPrintTable(keys)
+	print("[GameMode:OnItemPickedUp]")
+	print(keys)
+	DeepPrintTable(keys)
+  -- DebugPrint( '[BAREBONES] OnItemPickedUp' )
+  -- DebugPrintTable(keys)
 
   local heroEntity = EntIndexToHScript(keys.HeroEntityIndex)
   local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
   local player = PlayerResource:GetPlayer(keys.PlayerID)
-  local itemname = keys.itemname
+  local itemname = keys.item_name
   if itemEntity.particle then
     ParticleManager:DestroyParticle( itemEntity.particle, false )
     itemEntity.particle = false
@@ -328,10 +331,11 @@ function GameMode:OnItemPickedUp(keys)
 end
 
 function Events:PickUpTest(heroEntity, itemEntity, itemname)
-  if itemEntity.gear then
-      if itemEntity.slot == "amulet" then
+	print("[Events:PickUpTest]")
+  if itemEntity.newItemTable.gear then
+      if itemEntity.newItemTable.slot == "amulet" then
         RPCItems:AmuletPickup(heroEntity, itemEntity)
-      elseif itemEntity.hasRunePoints then
+      elseif itemEntity.newItemTable.hasRunePoints then
         RPCItems:AmuletPickup(heroEntity, itemEntity)
       end
       -- RPCItems:GearPickup(heroEntity, itemEntity)
@@ -350,11 +354,12 @@ function Events:PickUpTest(heroEntity, itemEntity, itemname)
     SendOverheadEventMessage( owner, OVERHEAD_ALERT_GOLD, owner, r, nil )
     RPCItems:ItemUTIL_Remove( itemEntity )
   end
-  if itemEntity.rarity and not itemEntity.pickedUp then
+  if itemEntity.newItemTable.rarity and not itemEntity.pickedUp then
     print("RARITY")
     itemEntity.pickedUp = true
-    RPCItems:ReduceLevelRequirement(itemEntity)
-    local rarityFactor = RPCItems:GetRarityFactor(itemEntity.rarity)
+
+    local rarityFactor = RPCItems:GetRarityFactor(itemEntity.newItemTable.rarity)
+    print("[Events:PickUpTest] rarityFactor:"..tostring(rarityFactor))
     if rarityFactor > 2 then
       local soundString = ""
       if rarityFactor >= 5 then
@@ -374,16 +379,22 @@ function Events:PickUpTest(heroEntity, itemEntity, itemname)
       if player then
         local playerId = player:GetPlayerID()
         local heroId = heroEntity:GetClassname()
-        CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemEntity:GetEntityIndex(), heroId=heroId, playerId=playerId, pickup="normal", rarity=itemEntity.rarity, rarityColor=RPCItems:GetRarityColor(itemEntity.rarity)} )
+        CustomGameEventManager:Send_ServerToAllClients("PickupPopup", 
+        	{item=itemEntity:GetEntityIndex(), 
+        	heroId=heroId, 
+        	playerId=playerId, 
+        	pickup="normal", 
+        	rarity=itemEntity.newItemTable.rarity, 
+        	rarityColor=RPCItems:GetRarityColor(itemEntity.newItemTable.rarity)} )
       end
     end
-    if itemEntity.slot == "weapon" and rarityFactor > 2 and rarityFactor < 5 then
+    if itemEntity.newItemTable.slot == "weapon" and rarityFactor > 2 and rarityFactor < 5 then
       RPCItems:LegendaryPickup(itemEntity, heroEntity)
     end
     if IsValidEntity(itemEntity) then
       if itemEntity:GetAbilityName() == "item_reanimation_stone" then
         RPCItems:LegendaryPickup(itemEntity, heroEntity)
-      elseif itemEntity.glyph or itemEntity.glyphBook then
+      elseif itemEntity.newItemTable.glyph or itemEntity.newItemTable.glyphBook then
         if rarityFactor < 5 then
           RPCItems:LegendaryPickup(itemEntity, heroEntity)
         end
@@ -435,13 +446,26 @@ function GameMode:OnPlayerChat(keys)
   --   print("CHEATS ENABLED")
   --   GameState:CheatCommandUsed()
   -- end
-  if string.match(text, "-suicide") then
-    -- DeepPrintTable(keys)
-    -- local playerHandle = EntIndexToHScript(keys.userid)
-    -- local hero = player:GetAssignedHero()
-    -- hero:ForceKill(false)
+  local playerAsd = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 
+  -- if string.match(text, "crash_client") then
+  -- 	print("boom")
+  -- 	PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():HasModifier(nil)
+  -- end
+  if string.match(text, "dbg") then
+    -- local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+    -- RPCItems:RollFlamewakerArcana1(vector)
+    -- RPCItems.DROP_LOCATION = vector
+    -- RPCItems:CreateArcanaCache(99, "12345")
+
+ --    local key = RPCItems:CreateConsumable("item_rpc_winterblight_glacier_stone", "mythical", "Glacier Stone", "consumable", false, "Consumable", "item_rpc_winterblight_glacier_stone_desc")
+ --    key.newItemTable.stashable = true
+ --    key.newItemTable.consumable = true
+	-- RPCItems:ItemUpdateCustomNetTables(key)
+ --    RPCItems:GiveItemToHeroWithSlotCheck(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero(), key)
   end
+
+
   if string.match(text, "debug_entities") then
     local entityesToLog = { "dota_item_wearable", "ability_datadriven", "npc_dota_creature", "npc_dota_thinker", "item_datadriven", "dota_item_drop" }
     local textNotif = ""
@@ -629,53 +653,53 @@ function GameMode:OnPlayerChat(keys)
     local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
     Weapons:RollLegendWeapon2WithDotaName(name, hero:GetAbsOrigin())
   end
-	elseif string.match(text, "-iweap3") then
-		if Beacons.cheats then
-			local name = string.gsub(text, "-iweap3 ", "")
-			name = "npc_dota_hero_"..name
-			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			Weapons:RollLegendWeapon3WithDotaName(name, hero:GetAbsOrigin())
-		end
-	elseif string.match(text, "-onibi") then
-		if Beacons.cheats then
-			for i=1,#MAIN_HERO_TABLE do
-				if MAIN_HERO_TABLE[i]:GetUnitName() == "npc_dota_hero_arc_warden" then
-					local res = require('heroes/arc_warden/abilities/essence_harvest')
-					add_resources_to_onibi(MAIN_HERO_TABLE[i], "nature", 500000000)
-					add_resources_to_onibi(MAIN_HERO_TABLE[i], "lightning", 500000000)
-					add_resources_to_onibi(MAIN_HERO_TABLE[i], "cosmic", 500000000)
-					add_resources_to_onibi(MAIN_HERO_TABLE[i], "fire", 500000000)
-				end
-			end
-		end
-	elseif string.match(text, "-physical") then
-		if Beacons.cheats then
-			local damageValue = string.gsub(text, "-physical ", "")
-			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
-		end
-	elseif string.match(text, "-magical") then
-		if Beacons.cheats then
-			local damageValue = string.gsub(text, "-magical ", "")
-			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
-		end
-	elseif string.match(text, "-pure") then
-		if Beacons.cheats then
-			local damageValue = string.gsub(text, "-pure ", "")
-			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
-		end
-	elseif string.match(text, "-immunitybreak") then
-		if Beacons.cheats then
-			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			Filters:MagicImmuneBreak(hero, hero)
-		end
+  elseif string.match(text, "-iweap3") then
+    if Beacons.cheats then
+      local name = string.gsub(text, "-iweap3 ", "")
+      name = "npc_dota_hero_"..name
+      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+      Weapons:RollLegendWeapon3WithDotaName(name, hero:GetAbsOrigin())
+    end
+  elseif string.match(text, "-onibi") then
+    if Beacons.cheats then
+      for i=1,#MAIN_HERO_TABLE do
+        if MAIN_HERO_TABLE[i]:GetUnitName() == "npc_dota_hero_arc_warden" then
+          local res = require('heroes/arc_warden/abilities/essence_harvest')
+          add_resources_to_onibi(MAIN_HERO_TABLE[i], "nature", 500000000)
+          add_resources_to_onibi(MAIN_HERO_TABLE[i], "lightning", 500000000)
+          add_resources_to_onibi(MAIN_HERO_TABLE[i], "cosmic", 500000000)
+          add_resources_to_onibi(MAIN_HERO_TABLE[i], "fire", 500000000)
+        end
+      end
+    end
+  elseif string.match(text, "-physical") then
+    if Beacons.cheats then
+      local damageValue = string.gsub(text, "-physical ", "")
+      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+      Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+    end
+  elseif string.match(text, "-magical") then
+    if Beacons.cheats then
+      local damageValue = string.gsub(text, "-magical ", "")
+      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+      Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+    end
+  elseif string.match(text, "-pure") then
+    if Beacons.cheats then
+      local damageValue = string.gsub(text, "-pure ", "")
+      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+      Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+    end
+  elseif string.match(text, "-immunitybreak") then
+    if Beacons.cheats then
+      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+      Filters:MagicImmuneBreak(hero, hero)
+    end
   elseif string.match(text, "-log") then
     CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid), "error_logger_open", {})
   elseif GameState:GetDifficultyFactor() == 3 then
     local playerid = keys.playerid
-    if (string.match(text, "-crystal") or string.match(text, "-crystals")) and not GameMode.VoteSystem.crystal_loot_disabled then
+    if string.match(text, "-crystal") and not GameMode.VoteSystem.crystal_loot_disabled then
       Events:LootDisableCrystal(playerid)
     end
 
@@ -768,7 +792,7 @@ function GameMode:OnItemPurchased( keys )
   if not plyID then return end
 
   -- The name of the item purchased
-  local itemName = keys.itemname 
+  local itemName = keys.item_name 
   
   -- The cost of the item purchased
   local itemcost = keys.itemcost
@@ -1155,34 +1179,34 @@ function Events:LevelUpRune(keys)
 end 
 
 function Events:LevelUpRuneMax(keys)
-	local PlayerID = keys.playerID
-	local player = PlayerResource:GetPlayer(PlayerID)
-	local ability = EntIndexToHScript(keys.ability)
-	local unit = EntIndexToHScript(keys.unit)
-	local player_stats = CustomNetTables:GetTableValue("player_stats", tostring(player:GetPlayerID()))
-	local current_rune_points = player_stats.runePoints
-	local current_skill_points = player_stats.skillPoints
-	local hero = player:GetAssignedHero()
-	local bAllow = true
-	if not unit:GetPlayerOwnerID() == PlayerID then
-		if unit:IsHero() then
-			bAllow = false
-		end
-	end
-	print(unit:GetPlayerOwnerID())
-	print(PlayerID)
-	if current_rune_points > 0 and ability:GetLevel() < 20 and hero:IsAlive() and bAllow then
-		local levelsToSet = math.min(current_rune_points, 20 - ability:GetLevel())
-		CustomNetTables:SetTableValue("player_stats", tostring(PlayerID), {skillPoints = current_skill_points, runePoints = current_rune_points - levelsToSet } )
-		local newLevel = ability:GetLevel() + levelsToSet
-		ability:SetLevel(newLevel)
-		EmitSoundOnClient("ui.crafting_gem_applied", player)
-		Runes:apply_runes(ability, unit, PlayerID)
-	else
-		EmitSoundOnClient("General.Cancel", player)
-	end
-	CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId=PlayerID})
-	CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId=PlayerID})
+  local PlayerID = keys.playerID
+  local player = PlayerResource:GetPlayer(PlayerID)
+  local ability = EntIndexToHScript(keys.ability)
+  local unit = EntIndexToHScript(keys.unit)
+  local player_stats = CustomNetTables:GetTableValue("player_stats", tostring(player:GetPlayerID()))
+  local current_rune_points = player_stats.runePoints
+  local current_skill_points = player_stats.skillPoints
+  local hero = player:GetAssignedHero()
+  local bAllow = true
+  if not unit:GetPlayerOwnerID() == PlayerID then
+    if unit:IsHero() then
+      bAllow = false
+    end
+  end
+  print(unit:GetPlayerOwnerID())
+  print(PlayerID)
+  if current_rune_points > 0 and ability:GetLevel() < 20 and hero:IsAlive() and bAllow then
+    local levelsToSet = math.min(current_rune_points, 20 - ability:GetLevel())
+    CustomNetTables:SetTableValue("player_stats", tostring(PlayerID), {skillPoints = current_skill_points, runePoints = current_rune_points - levelsToSet } )
+    local newLevel = ability:GetLevel() + levelsToSet
+    ability:SetLevel(newLevel)
+    EmitSoundOnClient("ui.crafting_gem_applied", player)
+    Runes:apply_runes(ability, unit, PlayerID)
+  else
+    EmitSoundOnClient("General.Cancel", player)
+  end
+  CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId=PlayerID})
+  CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId=PlayerID})
 end 
 
 function Events:LevelUpAbility(keys)
@@ -1637,7 +1661,7 @@ function GameMode:OnItemCombined(keys)
   local player = PlayerResource:GetPlayer(plyID)
 
   -- The name of the item purchased
-  local itemName = keys.itemname 
+  local itemName = keys.item_name 
   
   -- The cost of the item purchased
   local itemcost = keys.itemcost
@@ -1684,11 +1708,11 @@ function GameMode:OnNPCGoalReached(keys)
 end
 
 function CDOTA_BaseNPC:IsFakeStunned()
-	if self:HasModifier("modifier_fake_stunned") then
-		return true
-	else
-		return false
-	end
+  if self:HasModifier("modifier_fake_stunned") then
+    return true
+  else
+    return false
+  end
 end
 
 function CDOTA_BaseNPC:ClearParticles()

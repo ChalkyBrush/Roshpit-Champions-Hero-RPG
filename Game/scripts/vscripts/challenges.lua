@@ -28,6 +28,13 @@ function Challenges:ChiselItem(msg)
 	local itemIndex = msg.itemIndex
 	local item = nil
 	local itemSlot = msg.slot
+	-- print("Challenges:ChiselItem:"..tostring(itemSlot))
+	-- print("Challenges:ChiselItem:stats")
+	-- DeepPrintTable(msg)
+	if not itemSlot then
+		print("[Error] Challenges:ChiselItem no itemSlot")
+		return false
+	end
 	if not SaveLoad:GetAllowSaving() then
 		return false
 	end
@@ -45,7 +52,7 @@ function Challenges:ChiselItem(msg)
 	-- 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 	-- 	return false
 	-- end
-	SaveLoad:NewKey()
+	--SaveLoad:NewKey()
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_cant_equip", {duration = 6})
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local cost = math.max(msg.cost, 1)
@@ -57,7 +64,7 @@ function Challenges:ChiselItem(msg)
 	url = url.."&cost="..cost
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-		SaveLoad:NewKey()
+		--SaveLoad:NewKey()
 		local resultTable = {}
 		print( "GET response:\n" )
 		for k,v in pairs( result ) do
@@ -71,7 +78,7 @@ function Challenges:ChiselItem(msg)
 			CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player=playerID} )
 			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 			hero:RemoveModifierByName("modifier_cant_equip")
-			Weapons:UnequipItem(hero, item)
+			Weapons:UnequipItem(hero, item, itemSlot)
 			Statistics.dispatch('items:chisel')
 			Events:TutorialServerEvent(hero, "3_2", 0)
 		end
@@ -79,37 +86,37 @@ function Challenges:ChiselItem(msg)
 end
 
 function Challenges:FinalReroll(msg)
+	print("[Challenges:FinalReroll] msg")
+	DeepPrintTable(msg)
 	local playerID = msg.playerID
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	local player = hero:GetPlayerOwner()
 	local itemIndex = msg.itemIndex
+	local itemProperties = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
+	if not itemProperties then
+		print("[Challenges:FinalReroll] item custom net table is null")
+		return
+	end
 	local item = EntIndexToHScript(itemIndex)
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
-	local itemLevel = math.max(item.minLevel+RPCItems:GetPrereductionMinLevel(item), 5)
+	local minLevel = itemProperties.minLevel
+	minLevel = math.max(math.min(minLevel, 100), 1)
 	CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {} )
 	Events.reroll = true
 	local newItem = nil
 	if (msg.lock1 + msg.lock2 + msg.lock3 + msg.lock4) > 2 then
 		return false
 	end
-	local itemProperties = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
-	local reductionTable = CustomNetTables:GetTableValue( "min_level_reduction", tostring(itemIndex) )
-	local minLevel = itemProperties.minLevel
-	local minReduc = 0
-	if reductionTable then
-		if reductionTable.levelReduce then
-			minReduc = reductionTable.levelReduce
-		end
-	end
 	local costMult = math.max(1, (msg.lock1+msg.lock2+msg.lock3+msg.lock4)*2)
-	local cost = (minLevel-minReduc)*3*costMult
-	-- local cost = msg.cost
+	local cost = minLevel*3*costMult
 	local amount = math.min(cost*(-1), -1)
 	
 	local shards = CustomNetTables:GetTableValue("player_stats", tostring(playerID).."-mithril").mithril
 	if shards < cost then
 		return false
 	end
+	print("[Challenges:FinalReroll] shards:"..tostring(shards))
+	print("[Challenges:FinalReroll] cost:"..tostring(cost))
 	if Challenges:CheckIfHeroHasItemByItemIndex(hero, item:GetEntityIndex()) then
 		if IsValidEntity(item:GetContainer()) then
 			CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
@@ -120,7 +127,7 @@ function Challenges:FinalReroll(msg)
 		return false
 	end
 	if IsValidEntity(item) then
-		newItem = RPCItems:RerollImmortal(hero, item, msg.lock1, msg.lock2, msg.lock3, msg.lock4, itemLevel)
+		newItem = RPCItems:RerollImmortal(hero, item, msg.lock1, msg.lock2, msg.lock3, msg.lock4, minLevel, itemProperties)
 		if newItem then
 			if IsValidEntity(newItem) then
 				newItem:StartCooldown(2)
@@ -141,7 +148,7 @@ function Challenges:FinalReroll(msg)
 
 	Statistics.dispatch('items:reroll')
 	
-	DeepPrintTable(msg)
+	-- DeepPrintTable(msg)
 	if newItem then
 		local url = ROSHPIT_URL.."/champions/modifyMithrilShards?"
 		url = url.."steam_id="..steamID
@@ -151,7 +158,7 @@ function Challenges:FinalReroll(msg)
 		
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "playerReceivedItem", {})
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-			SaveLoad:NewKey()
+			--SaveLoad:NewKey()
 			local resultTable = {}
 			print( "GET response:\n" )
 			for k,v in pairs( result ) do
@@ -160,13 +167,15 @@ function Challenges:FinalReroll(msg)
 			print( "Done." )
 			if result.StatusCode == 200 then
 				local resultTable = JSON:decode(result.Body)
-				local shards = resultTable.mithril_shards
-				CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-mithril", {mithril = shards})
-				CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player=playerID} )
+				local shardsFromJson = resultTable.mithril_shards
+				print("[Challenges:FinalReroll] shardsFromJson:"..tostring(shardsFromJson))
+				CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-mithril", {mithril = shardsFromJson})
+				CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shardsFromJson, player=playerID} )
 
 				if Challenges:CheckIfHeroHasItemByItemIndex(hero, newItem:GetEntityIndex()) then
 					Timers:CreateTimer(0, function()
-						CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith_after_reroll", {itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
+						CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith_after_reroll", 
+							{itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
 					end)
 					-- CustomGameEventManager:Send_ServerToPlayer(player, "lockSlotsFromServerCall", {itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
 
@@ -198,7 +207,7 @@ function Challenges:ModifyMithril(amount, hero, reason)
 	url = url.."&reason="..reason
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-		SaveLoad:NewKey()
+		--SaveLoad:NewKey()
 		local resultTable = {}
 		print( "GET response:\n" )
 		for k,v in pairs( result ) do
@@ -242,7 +251,7 @@ function Challenges:CollectMithrilIncome(msg)
 	url = url.."&reason=".."income"
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-		SaveLoad:NewKey()
+		--SaveLoad:NewKey()
 		local resultTable = {}
 		print( "GET response:\n" )
 		for k,v in pairs( result ) do
@@ -304,7 +313,7 @@ function Challenges:DragIntoRerollSlot(msg)
 	-- if IsValidEntity(item:GetContainer()) then
 	-- 	UTIL_Remove(item:GetContainer())
 	-- end
-	if item.slot == "weapon" then
+	if item.newItemTable.item_slot == "weapon" then
 		return false
 	end
 	Timers:CreateTimer(0.03, function()
@@ -592,7 +601,7 @@ function Challenges:SaveMithrilShards(winnerTable)
 				url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 				hero.shardsPickedUp = hero.shardsPickedUp - amount
 				CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-					SaveLoad:NewKey()
+					--SaveLoad:NewKey()
 					local resultTable = {}
 					print( "GET response:\n" )
 					for k,v in pairs( result ) do

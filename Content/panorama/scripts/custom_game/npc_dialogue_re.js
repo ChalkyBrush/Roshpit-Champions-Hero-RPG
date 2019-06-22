@@ -106,55 +106,66 @@ function CloseDialogue(msg){
 
 function GetItemDataForCurator(msg)
 {
-    var item = msg.itemIndex
+    $.Msg("GetItemDataForCurator start")
+	var item = msg.itemIndex
     var language = $.Language()
     var itemName = Abilities.GetAbilityName( item );
     var localizedName = $.Localize("DOTA_Tooltip_Ability_"+itemName)
     var itemTexture = Abilities.GetAbilityTextureName( item )
+	var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() );
 
-    //PROPERTY1
-    var property = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
-    if (!(property===undefined)){
-        var property1special = SpecialDescriptionValues($.Localize(property.specialDescription), item)
-        var property1localized = $.Localize(property.propertyName)
-        if (property.propertyName.indexOf("rune_") > 0){
-            property1localized = $.Localize(property.propertyName.substr(property.propertyName.length - 8))
-        }
-        var property1data = [property.propertyColor, property.propertyName, property1localized, property.specialDescription, property1special, property.propertyValue]
-    }
+	//Property1
+	if (!(itemValues===undefined || itemValues.property1tooltip === undefined)){
+		$.Msg("GetItemDataForCurator Property1")
+		var tooltip = itemValues.property1tooltip == "rune" ? itemValues.property1name : itemValues.property1tooltip
+		var property1special = SpecialDescriptionValues($.Localize(itemValues.property1special), item)
+		var property1localized = $.Localize(tooltip)
+		if (tooltip.indexOf("rune_") > 0){
+			property1localized = $.Localize(tooltip.substr(tooltip.length - 8))
+		}
+		var property1data = [itemValues.property1color, tooltip, property1localized, itemValues.property1special, property1special, itemValues.property1]
+		$.Msg(property1data)
+	}
 
-    //PROPERTY2
-    var property = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-2" )
-    if (!(property===undefined)){
-        var property2special = SpecialDescriptionValues($.Localize(property.specialDescription), item)
-        var property2localized = $.Localize(property.propertyName)
-        if (property.propertyName.indexOf("rune_") > 0){
-            property2localized = $.Localize(property.propertyName.substr(property.propertyName.length - 8))
-        }
-        var property2data = [property.propertyColor, property.propertyName, property2localized, property.specialDescription, property2special, property.propertyValue]
-    }
+	//Property2
+	if (!(itemValues===undefined || itemValues.property2tooltip === undefined)){
+		$.Msg("GetItemDataForCurator Property2")
+		var tooltip = itemValues.property2tooltip == "rune" ? itemValues.property2name : itemValues.property2tooltip
+		var property2special = SpecialDescriptionValues($.Localize(itemValues.property2special), item)
+		var property2localized = $.Localize(tooltip)
+		if (tooltip.indexOf("rune_") > 0){
+			property2localized = $.Localize(tooltip.substr(tooltip.length - 8))
+		}
+		var property2data = [itemValues.property2color, tooltip, property2localized, itemValues.property2special, property2special, itemValues.property2]
+		$.Msg(property2data)
+	}
 
-    //PROPERTY3
-    var property = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
-    if (!(property===undefined)){
-        var property3special = SpecialDescriptionValues($.Localize(property.specialDescription), item)
-        var property3localized = $.Localize(property.propertyName)
-        if (property.propertyName.indexOf("rune_") > 0){
-            property3localized = $.Localize(property.propertyName.substr(property.propertyName.length - 8))
-        }
-        var property3data = [property.propertyColor, property.propertyName, property3localized, property.specialDescription, property3special, property.propertyValue]
-    }
+	//Property3
+	if (!(itemValues===undefined || itemValues.property3tooltip === undefined)){
+		$.Msg("GetItemDataForCurator Property3")
+		var tooltip = itemValues.property3tooltip == "rune" ? itemValues.property3name : itemValues.property3tooltip
+		var property3special = SpecialDescriptionValues($.Localize(itemValues.property3special), item)
+		var property3localized = $.Localize(tooltip)
+		if (tooltip.indexOf("rune_") > 0){
+			property3localized = $.Localize(tooltip.substr(tooltip.length - 8))
+		}
+		var property3data = [itemValues.property3color, tooltip, property3localized, itemValues.property3special, property3special, itemValues.property3]
+		$.Msg(property3data)
+	}
 
-    //PROPERTY4
-    var property = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-4" )
-    if (!(property===undefined)){
-        var property4special = SpecialDescriptionValues($.Localize(property.specialDescription), item)
-        var property4localized = $.Localize(property.propertyName)
-        if (property.propertyName.indexOf("rune_") > 0){
-            property4localized = $.Localize(property.propertyName.substr(property.propertyName.length - 8))
-        }
-        var property4data = [property.propertyColor, property.propertyName, property4localized, property.specialDescription, property4special, property.propertyValue]
-    }
+	//Property4
+	if (!(itemValues===undefined || itemValues.property4tooltip === undefined)){
+		$.Msg("GetItemDataForCurator Property4")
+		var tooltip = itemValues.property4tooltip == "rune" ? itemValues.property4name : itemValues.property4tooltip
+		var property4special = SpecialDescriptionValues($.Localize(itemValues.property4special), item)
+		var property4localized = $.Localize(tooltip)
+		if (tooltip.indexOf("rune_") > 0){
+			property4localized = $.Localize(tooltip.substr(tooltip.length - 8))
+		}
+		var property4data = [itemValues.property4color, tooltip, property4localized, itemValues.property4special, property4special, itemValues.property4]
+		$.Msg(property4data)
+	}
+	
     Game.EmitSound("RPC.Curate")
     BigChanges()
     GameEvents.SendCustomGameEventToServer( "curator_client", {item: item, language: language, localizedName: localizedName, itemTexture: itemTexture, property1: property1data, property2: property2data, property3: property3data, property4: property4data, playerID: Game.GetLocalPlayerID()} );
@@ -285,47 +296,52 @@ function OnDragLeave( panelId, draggedPanel )
 
 function populateCurateItem(item)
 {
-    $.GetContextPanel().FindChildTraverse('item_placement_tip').text = $.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( item ));
+    $.Msg("populateCurateItem start +++++++++++++++++++")
+	$.Msg(item)
+    $.Msg("populateCurateItem start +++++++++++++++++++")
+	$.GetContextPanel().FindChildTraverse('item_placement_tip').text = $.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( item ));
     $.GetContextPanel().FindChildTraverse('item_image').contextEntityIndex = item;
     $.GetContextPanel().curateItem = item
+	var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() );
+	
     var parent = $.GetContextPanel().FindChildTraverse('item_property1')
     parent.RemoveAndDeleteChildren()
     var attributeItem = $.CreatePanel("Panel", parent, "attribute1")
     attributeItem.BLoadLayoutSnippet("curator_item_row");   
-    var itemProperty = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
-	if (!(itemProperty===undefined)){
-		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemProperty.propertyColor+"'>"+$.Localize(itemProperty.propertyName)+"</font>"
-		attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemProperty.propertyColor+"'>"+itemProperty.propertyValue+"</font>"
+	if (!(itemValues===undefined)){
+		var tooltip = itemValues.property1tooltip == "rune" ? itemValues.property1name : itemValues.property1tooltip
+		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemValues.property1color+"'>"+$.Localize(tooltip)+"</font>"
+		attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemValues.property1color+"'>"+itemValues.property1+"</font>"
 	}
 
     var parent = $.GetContextPanel().FindChildTraverse('item_property2')
     parent.RemoveAndDeleteChildren()
     var attributeItem = $.CreatePanel("Panel", parent, "attribute2")
     attributeItem.BLoadLayoutSnippet("curator_item_row");   
-    var itemProperty = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-2" )
-	if (!(itemProperty===undefined)){
-		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemProperty.propertyColor+"'>"+$.Localize(itemProperty.propertyName)+"</font>"
-		attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemProperty.propertyColor+"'>"+itemProperty.propertyValue+"</font>"
+	if (!(itemValues===undefined)){
+		var tooltip = itemValues.property2tooltip == "rune" ? itemValues.property2name : itemValues.property2tooltip
+		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemValues.property2color+"'>"+$.Localize(tooltip)+"</font>"
+		attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemValues.property2color+"'>"+itemValues.property2+"</font>"
 	}
 
     var parent = $.GetContextPanel().FindChildTraverse('item_property3')
     parent.RemoveAndDeleteChildren()
     var attributeItem = $.CreatePanel("Panel", parent, "attribute3")
     attributeItem.BLoadLayoutSnippet("curator_item_row");   
-    var itemProperty = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
-	if (!(itemProperty===undefined)){
-		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemProperty.propertyColor+"'>"+$.Localize(itemProperty.propertyName)+"</font>"
-		attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemProperty.propertyColor+"'>"+itemProperty.propertyValue+"</font>"
+	if (!(itemValues===undefined)){
+		var tooltip = itemValues.property3tooltip == "rune" ? itemValues.property3name : itemValues.property3tooltip
+		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemValues.property3color+"'>"+$.Localize(tooltip)+"</font>"
+		attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemValues.property3color+"'>"+itemValues.property3+"</font>"
 	}
 
     var parent = $.GetContextPanel().FindChildTraverse('item_property4')
     parent.RemoveAndDeleteChildren()
     var attributeItem = $.CreatePanel("Panel", parent, "attribute4")
     attributeItem.BLoadLayoutSnippet("curator_item_row");   
-    var itemProperty = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-4" )
-	if (!(itemProperty===undefined)){
-		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemProperty.propertyColor+"'>"+$.Localize(itemProperty.propertyName)+"</font>"
-		attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemProperty.propertyColor+"'>"+itemProperty.propertyValue+"</font>"
+	if (!(itemValues===undefined)){
+		var tooltip = itemValues.property4tooltip == "rune" ? itemValues.property4name : itemValues.property4tooltip
+		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemValues.property4color+"'>"+$.Localize(tooltip)+"</font>"
+		attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemValues.property4color+"'>"+itemValues.property4+"</font>"
 	}
 
     $.GetContextPanel().FindChildTraverse('final_curate_button_container').RemoveClass('invisible')

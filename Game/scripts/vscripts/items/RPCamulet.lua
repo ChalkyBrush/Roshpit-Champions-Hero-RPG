@@ -11,13 +11,13 @@ function RPCItems:RollAmulet(xpBounty, deathLocation, rarity, isShop, type, hero
 
 
 
-    item.rarity = rarity
+    item.newItemTable.rarity = rarity
     local rarityValue = RPCItems:GetRarityFactor(rarity)
     local itemName = BASE_AMULET_NAME_TABLE[randomHelm]
     local suffix = ""
     local prefix = ""
-    item.slot = "amulet"
-    item.gear = true
+    item.newItemTable.slot = "amulet"
+    item.newItemTable.gear = true
     if rarityValue == 5 then
         if RPCItems:AmuletLegendary(itemVariant, deathLocation) then
 			RPCItems:ItemUTIL_Remove(item)
@@ -33,9 +33,9 @@ function RPCItems:RollAmulet(xpBounty, deathLocation, rarity, isShop, type, hero
         suffix = propertyName
     end
     if tier > 0 then
-        item.property1 = value
-        item.property1name = propertyName
-        RPCItems:SetPropertyValues(item, item.property1, "rune", "#7DFF12",  1)
+        item.newItemTable.property1 = value
+        item.newItemTable.property1name = propertyName
+        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "rune", "#7DFF12",  1)
     end
 
     if rarityValue >= 2 then
@@ -48,25 +48,25 @@ function RPCItems:RollAmulet(xpBounty, deathLocation, rarity, isShop, type, hero
             prefix = propertyName
         end
         if tier > 0 then
-            item.property2 = value
-            item.property2name = propertyName
-            RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+            item.newItemTable.property2 = value
+            item.newItemTable.property2name = propertyName
+            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12",  2)
         end
     end
     if rarityValue>=3 then
         local tier, value, propertyName = RPCItems:RollSkillProperty()
         if tier > 0 then
-            item.property3 = value
-            item.property3name = propertyName
-            RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
+            item.newItemTable.property3 = value
+            item.newItemTable.property3name = propertyName
+            RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12",  3)
         end
     end
     if rarityValue>=4 then
         local tier, value, propertyName = RPCItems:RollSkillProperty()
         if tier > 0 then
-            item.property4 = value
-            item.property4name = propertyName
-            RPCItems:SetPropertyValues(item, item.property4, "rune", "#7DFF12",  4)
+            item.newItemTable.property4 = value
+            item.newItemTable.property4name = propertyName
+            RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12",  4)
         end
     end
 
@@ -173,32 +173,22 @@ end
 
 function RPCItems:AmuletPickup(heroEntity, itemEntity)
     local heroName = heroEntity:GetName()
-    if itemEntity.requiredHero then
-        heroName = itemEntity.requiredHero
+    if itemEntity.newItemTable.requiredHero then
+        heroName = itemEntity.newItemTable.requiredHero
     end
-    local rarityFactor = RPCItems:GetRarityFactor(itemEntity.rarity)
-    print("show correct runes!")
-     print("show correct runes!")
-      print("show correct runes!")
-      local rpcName = HerosCustom:GetInternalHeroNameMain(heroName)
-      local runePrefix = "#DOTA_Tooltip_ability_"..rpcName.."_"
+    print("[RPCItems:AmuletPickup] name:"..tostring(heroName))
+    local rarityFactor = RPCItems:GetRarityFactor(itemEntity.newItemTable.rarity)
+    print("[RPCItems:AmuletPickup] show correct runes!")
+    local rpcName = HerosCustom:GetInternalHeroNameMain(heroName)
+    local runePrefix = "#DOTA_Tooltip_ability_"..rpcName.."_"
     for i = 1, rarityFactor, 1 do
         RPCItems:SkillTranslateBasic(heroEntity, itemEntity, i, runePrefix)
     end
-    itemEntity.translated = true
+    itemEntity.newItemTable.translated = true
 end
 
 function RPCItems:SetBaseValue(slot, itemEntity, propertyValue)
-    if not itemEntity.translated then
-        if slot == 1 then
-            itemEntity.baseValue1 = itemEntity.property1
-        elseif slot == 2 then
-            itemEntity.baseValue2 = itemEntity.property2
-        elseif slot == 3 then
-            itemEntity.baseValue3 = itemEntity.property3
-        elseif slot == 4 then
-            itemEntity.baseValue4 = itemEntity.property4
-        end
+    if not itemEntity.newItemTable.translated then
         return propertyValue
     else
         return 0
@@ -209,41 +199,34 @@ function RPCItems:SkillTranslateFlamewaker(heroEntity, itemEntity, slot)
     local propertyName = ""
     local runeName = ""
     local propertyValue = 0
-    local baseValue = 0
     RPCItems:SetBaseValue(slot, itemEntity, propertyValue)
     if slot == 1 then
-        propertyName = itemEntity.property1name
-        propertyValue = itemEntity.property1
-        baseValue = itemEntity.baseValue1
+        propertyName = itemEntity.newItemTable.property1name
+        propertyValue = itemEntity.newItemTable.property1
     elseif slot == 2 then
-        propertyName = itemEntity.property2name
-        propertyValue = itemEntity.property2
-        baseValue = itemEntity.baseValue2
+        propertyName = itemEntity.newItemTable.property2name
+        propertyValue = itemEntity.newItemTable.property2
     elseif slot == 3 then
-        propertyName = itemEntity.property3name
-        propertyValue = itemEntity.property3
-        baseValue = itemEntity.baseValue3
+        propertyName = itemEntity.newItemTable.property3name
+        propertyValue = itemEntity.newItemTable.property3
     elseif slot == 4 then
-        propertyName = itemEntity.property4name
-        propertyValue = itemEntity.property4
-        baseValue = itemEntity.baseValue4
+        propertyName = itemEntity.newItemTable.property4name
+        propertyValue = itemEntity.newItemTable.property4
     end
 
-
-    propertyValue = baseValue
 
     if propertyValue < 1 then
         propertyValue = 1
     end
 
     if slot == 1 then
-        itemEntity.property1 = propertyValue
+        itemEntity.newItemTable.property1 = propertyValue
     elseif slot == 2 then
-        itemEntity.property2 = propertyValue
+        itemEntity.newItemTable.property2 = propertyValue
     elseif slot == 3 then
-        itemEntity.property3 = propertyValue
+        itemEntity.newItemTable.property3 = propertyValue
     elseif slot == 4 then
-        itemEntity.property4 = propertyValue
+        itemEntity.newItemTable.property4 = propertyValue
     end
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
@@ -256,38 +239,33 @@ function RPCItems:SkillTranslateVoltex(heroEntity, itemEntity, slot)
     local propertyName = ""
     local runeName = ""
     local propertyValue = 0
-    local baseValue = 0
     RPCItems:SetBaseValue(slot, itemEntity, propertyValue)
     if slot == 1 then
-        propertyName = itemEntity.property1name
-        propertyValue = itemEntity.property1
-        baseValue = itemEntity.baseValue1
+        propertyName = itemEntity.newItemTable.property1name
+        propertyValue = itemEntity.newItemTable.property1
     elseif slot == 2 then
-        propertyName = itemEntity.property2name
-        propertyValue = itemEntity.property2
-        baseValue = itemEntity.baseValue2
+        propertyName = itemEntity.newItemTable.property2name
+        propertyValue = itemEntity.newItemTable.property2
     elseif slot == 3 then
-        propertyName = itemEntity.property3name
-        propertyValue = itemEntity.property3
-        baseValue = itemEntity.baseValue3
+        propertyName = itemEntity.newItemTable.property3name
+        propertyValue = itemEntity.newItemTable.property3
     elseif slot == 4 then
-        propertyName = itemEntity.property4name
-        propertyValue = itemEntity.property4
-        baseValue = itemEntity.baseValue4
+        propertyName = itemEntity.newItemTable.property4name
+        propertyValue = itemEntity.newItemTable.property4
     end
-    propertyValue = baseValue
+
     if propertyValue < 1 then
         propertyValue = 1
     end
 
     if slot == 1 then
-        itemEntity.property1 = propertyValue
+        itemEntity.newItemTable.property1 = propertyValue
     elseif slot == 2 then
-        itemEntity.property2 = propertyValue
+        itemEntity.newItemTable.property2 = propertyValue
     elseif slot == 3 then
-        itemEntity.property3 = propertyValue
+        itemEntity.newItemTable.property3 = propertyValue
     elseif slot == 4 then
-        itemEntity.property4 = propertyValue
+        itemEntity.newItemTable.property4 = propertyValue
     end
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
@@ -300,38 +278,33 @@ function RPCItems:SkillTranslateVenomort(heroEntity, itemEntity, slot)
     local propertyName = ""
     local runeName = ""
     local propertyValue = 0
-    local baseValue = 0
     RPCItems:SetBaseValue(slot, itemEntity, propertyValue)
     if slot == 1 then
-        propertyName = itemEntity.property1name
-        propertyValue = itemEntity.property1
-        baseValue = itemEntity.baseValue1
+        propertyName = itemEntity.newItemTable.property1name
+        propertyValue = itemEntity.newItemTable.property1
     elseif slot == 2 then
-        propertyName = itemEntity.property2name
-        propertyValue = itemEntity.property2
-        baseValue = itemEntity.baseValue2
+        propertyName = itemEntity.newItemTable.property2name
+        propertyValue = itemEntity.newItemTable.property2
     elseif slot == 3 then
-        propertyName = itemEntity.property3name
-        propertyValue = itemEntity.property3
-        baseValue = itemEntity.baseValue3
+        propertyName = itemEntity.newItemTable.property3name
+        propertyValue = itemEntity.newItemTable.property3
     elseif slot == 4 then
-        propertyName = itemEntity.property4name
-        propertyValue = itemEntity.property4
-        baseValue = itemEntity.baseValue4
+        propertyName = itemEntity.newItemTable.property4name
+        propertyValue = itemEntity.newItemTable.property4
     end
-    propertyValue = baseValue
+
     if propertyValue < 1 then
         propertyValue = 1
     end
 
     if slot == 1 then
-        itemEntity.property1 = propertyValue
+        itemEntity.newItemTable.property1 = propertyValue
     elseif slot == 2 then
-        itemEntity.property2 = propertyValue
+        itemEntity.newItemTable.property2 = propertyValue
     elseif slot == 3 then
-        itemEntity.property3 = propertyValue
+        itemEntity.newItemTable.property3 = propertyValue
     elseif slot == 4 then
-        itemEntity.property4 = propertyValue
+        itemEntity.newItemTable.property4 = propertyValue
     end
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
@@ -344,24 +317,19 @@ function RPCItems:SkillTranslateAxe(heroEntity, itemEntity, slot)
     local propertyName = ""
     local runeName = ""
     local propertyValue = 0
-    local baseValue = 0
     RPCItems:SetBaseValue(slot, itemEntity, propertyValue)
     if slot == 1 then
-        propertyName = itemEntity.property1name
-        propertyValue = itemEntity.property1
-        baseValue = itemEntity.baseValue1
+        propertyName = itemEntity.newItemTable.property1name
+        propertyValue = itemEntity.newItemTable.property1
     elseif slot == 2 then
-        propertyName = itemEntity.property2name
-        propertyValue = itemEntity.property2
-        baseValue = itemEntity.baseValue2
+        propertyName = itemEntity.newItemTable.property2name
+        propertyValue = itemEntity.newItemTable.property2
     elseif slot == 3 then
-        propertyName = itemEntity.property3name
-        propertyValue = itemEntity.property3
-        baseValue = itemEntity.baseValue3
+        propertyName = itemEntity.newItemTable.property3name
+        propertyValue = itemEntity.newItemTable.property3
     elseif slot == 4 then
-        propertyName = itemEntity.property4name
-        propertyValue = itemEntity.property4
-        baseValue = itemEntity.baseValue4
+        propertyName = itemEntity.newItemTable.property4name
+        propertyValue = itemEntity.newItemTable.property4
     end
 
     if propertyValue < 1 then
@@ -369,13 +337,13 @@ function RPCItems:SkillTranslateAxe(heroEntity, itemEntity, slot)
     end
 
     if slot == 1 then
-        itemEntity.property1 = propertyValue
+        itemEntity.newItemTable.property1 = propertyValue
     elseif slot == 2 then
-        itemEntity.property2 = propertyValue
+        itemEntity.newItemTable.property2 = propertyValue
     elseif slot == 3 then
-        itemEntity.property3 = propertyValue
+        itemEntity.newItemTable.property3 = propertyValue
     elseif slot == 4 then
-        itemEntity.property4 = propertyValue
+        itemEntity.newItemTable.property4 = propertyValue
     end
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
@@ -388,24 +356,19 @@ function RPCItems:SkillTranslateAstral(heroEntity, itemEntity, slot)
     local propertyName = ""
     local runeName = ""
     local propertyValue = 0
-    local baseValue = 0
     RPCItems:SetBaseValue(slot, itemEntity, propertyValue)
     if slot == 1 then
-        propertyName = itemEntity.property1name
-        propertyValue = itemEntity.property1
-        baseValue = itemEntity.baseValue1
+        propertyName = itemEntity.newItemTable.property1name
+        propertyValue = itemEntity.newItemTable.property1
     elseif slot == 2 then
-        propertyName = itemEntity.property2name
-        propertyValue = itemEntity.property2
-        baseValue = itemEntity.baseValue2
+        propertyName = itemEntity.newItemTable.property2name
+        propertyValue = itemEntity.newItemTable.property2
     elseif slot == 3 then
-        propertyName = itemEntity.property3name
-        propertyValue = itemEntity.property3
-        baseValue = itemEntity.baseValue3
+        propertyName = itemEntity.newItemTable.property3name
+        propertyValue = itemEntity.newItemTable.property3
     elseif slot == 4 then
-        propertyName = itemEntity.property4name
-        propertyValue = itemEntity.property4
-        baseValue = itemEntity.baseValue4
+        propertyName = itemEntity.newItemTable.property4name
+        propertyValue = itemEntity.newItemTable.property4
     end
 
     if propertyValue < 1 then
@@ -413,13 +376,13 @@ function RPCItems:SkillTranslateAstral(heroEntity, itemEntity, slot)
     end
 
     if slot == 1 then
-        itemEntity.property1 = propertyValue
+        itemEntity.newItemTable.property1 = propertyValue
     elseif slot == 2 then
-        itemEntity.property2 = propertyValue
+        itemEntity.newItemTable.property2 = propertyValue
     elseif slot == 3 then
-        itemEntity.property3 = propertyValue
+        itemEntity.newItemTable.property3 = propertyValue
     elseif slot == 4 then
-        itemEntity.property4 = propertyValue
+        itemEntity.newItemTable.property4 = propertyValue
     end
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
@@ -432,37 +395,32 @@ function RPCItems:SkillTranslateEpoch(heroEntity, itemEntity, slot)
     local propertyName = ""
     local runeName = ""
     local propertyValue = 0
-    local baseValue = 0
     RPCItems:SetBaseValue(slot, itemEntity, propertyValue)
     if slot == 1 then
-        propertyName = itemEntity.property1name
-        propertyValue = itemEntity.property1
-        baseValue = itemEntity.baseValue1
+        propertyName = itemEntity.newItemTable.property1name
+        propertyValue = itemEntity.newItemTable.property1
     elseif slot == 2 then
-        propertyName = itemEntity.property2name
-        propertyValue = itemEntity.property2
-        baseValue = itemEntity.baseValue2
+        propertyName = itemEntity.newItemTable.property2name
+        propertyValue = itemEntity.newItemTable.property2
     elseif slot == 3 then
-        propertyName = itemEntity.property3name
-        propertyValue = itemEntity.property3
-        baseValue = itemEntity.baseValue3
+        propertyName = itemEntity.newItemTable.property3name
+        propertyValue = itemEntity.newItemTable.property3
     elseif slot == 4 then
-        propertyName = itemEntity.property4name
-        propertyValue = itemEntity.property4
-        baseValue = itemEntity.baseValue4
+        propertyName = itemEntity.newItemTable.property4name
+        propertyValue = itemEntity.newItemTable.property4
     end
     if propertyValue < 1 then
         propertyValue = 1
     end
 
     if slot == 1 then
-        itemEntity.property1 = propertyValue
+        itemEntity.newItemTable.property1 = propertyValue
     elseif slot == 2 then
-        itemEntity.property2 = propertyValue
+        itemEntity.newItemTable.property2 = propertyValue
     elseif slot == 3 then
-        itemEntity.property3 = propertyValue
+        itemEntity.newItemTable.property3 = propertyValue
     elseif slot == 4 then
-        itemEntity.property4 = propertyValue
+        itemEntity.newItemTable.property4 = propertyValue
     end
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
@@ -475,38 +433,33 @@ function RPCItems:SkillTranslatePaladin(heroEntity, itemEntity, slot)
     local propertyName = ""
     local runeName = ""
     local propertyValue = 0
-    local baseValue = 0
     RPCItems:SetBaseValue(slot, itemEntity, propertyValue)
     if slot == 1 then
-        propertyName = itemEntity.property1name
-        propertyValue = itemEntity.property1
-        baseValue = itemEntity.baseValue1
+        propertyName = itemEntity.newItemTable.property1name
+        propertyValue = itemEntity.newItemTable.property1
     elseif slot == 2 then
-        propertyName = itemEntity.property2name
-        propertyValue = itemEntity.property2
-        baseValue = itemEntity.baseValue2
+        propertyName = itemEntity.newItemTable.property2name
+        propertyValue = itemEntity.newItemTable.property2
     elseif slot == 3 then
-        propertyName = itemEntity.property3name
-        propertyValue = itemEntity.property3
-        baseValue = itemEntity.baseValue3
+        propertyName = itemEntity.newItemTable.property3name
+        propertyValue = itemEntity.newItemTable.property3
     elseif slot == 4 then
-        propertyName = itemEntity.property4name
-        propertyValue = itemEntity.property4
-        baseValue = itemEntity.baseValue4
+        propertyName = itemEntity.newItemTable.property4name
+        propertyValue = itemEntity.newItemTable.property4
     end
-    propertyValue = baseValue
+
     if propertyValue < 1 then
         propertyValue = 1
     end
 
     if slot == 1 then
-        itemEntity.property1 = propertyValue
+        itemEntity.newItemTable.property1 = propertyValue
     elseif slot == 2 then
-        itemEntity.property2 = propertyValue
+        itemEntity.newItemTable.property2 = propertyValue
     elseif slot == 3 then
-        itemEntity.property3 = propertyValue
+        itemEntity.newItemTable.property3 = propertyValue
     elseif slot == 4 then
-        itemEntity.property4 = propertyValue
+        itemEntity.newItemTable.property4 = propertyValue
     end
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
@@ -519,24 +472,19 @@ function RPCItems:SkillTranslateSorceress(heroEntity, itemEntity, slot)
     local propertyName = ""
     local runeName = ""
     local propertyValue = 0
-    local baseValue = 0
     RPCItems:SetBaseValue(slot, itemEntity, propertyValue)
     if slot == 1 then
-        propertyName = itemEntity.property1name
-        propertyValue = itemEntity.property1
-        baseValue = itemEntity.baseValue1
+        propertyName = itemEntity.newItemTable.property1name
+        propertyValue = itemEntity.newItemTable.property1
     elseif slot == 2 then
-        propertyName = itemEntity.property2name
-        propertyValue = itemEntity.property2
-        baseValue = itemEntity.baseValue2
+        propertyName = itemEntity.newItemTable.property2name
+        propertyValue = itemEntity.newItemTable.property2
     elseif slot == 3 then
-        propertyName = itemEntity.property3name
-        propertyValue = itemEntity.property3
-        baseValue = itemEntity.baseValue3
+        propertyName = itemEntity.newItemTable.property3name
+        propertyValue = itemEntity.newItemTable.property3
     elseif slot == 4 then
-        propertyName = itemEntity.property4name
-        propertyValue = itemEntity.property4
-        baseValue = itemEntity.baseValue4
+        propertyName = itemEntity.newItemTable.property4name
+        propertyValue = itemEntity.newItemTable.property4
     end
 
     if propertyValue < 1 then
@@ -544,13 +492,13 @@ function RPCItems:SkillTranslateSorceress(heroEntity, itemEntity, slot)
     end
 
     if slot == 1 then
-        itemEntity.property1 = propertyValue
+        itemEntity.newItemTable.property1 = propertyValue
     elseif slot == 2 then
-        itemEntity.property2 = propertyValue
+        itemEntity.newItemTable.property2 = propertyValue
     elseif slot == 3 then
-        itemEntity.property3 = propertyValue
+        itemEntity.newItemTable.property3 = propertyValue
     elseif slot == 4 then
-        itemEntity.property4 = propertyValue
+        itemEntity.newItemTable.property4 = propertyValue
     end
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
@@ -563,39 +511,33 @@ function RPCItems:SkillTranslateConjuror(heroEntity, itemEntity, slot)
     local propertyName = ""
     local runeName = ""
     local propertyValue = 0
-    local baseValue = 0
     RPCItems:SetBaseValue(slot, itemEntity, propertyValue)
     if slot == 1 then
-        propertyName = itemEntity.property1name
-        propertyValue = itemEntity.property1
-        baseValue = itemEntity.baseValue1
+        propertyName = itemEntity.newItemTable.property1name
+        propertyValue = itemEntity.newItemTable.property1
     elseif slot == 2 then
-        propertyName = itemEntity.property2name
-        propertyValue = itemEntity.property2
-        baseValue = itemEntity.baseValue2
+        propertyName = itemEntity.newItemTable.property2name
+        propertyValue = itemEntity.newItemTable.property2
     elseif slot == 3 then
-        propertyName = itemEntity.property3name
-        propertyValue = itemEntity.property3
-        baseValue = itemEntity.baseValue3
+        propertyName = itemEntity.newItemTable.property3name
+        propertyValue = itemEntity.newItemTable.property3
     elseif slot == 4 then
-        propertyName = itemEntity.property4name
-        propertyValue = itemEntity.property4
-        baseValue = itemEntity.baseValue4
+        propertyName = itemEntity.newItemTable.property4name
+        propertyValue = itemEntity.newItemTable.property4
     end
-    propertyValue = baseValue
 
     if propertyValue < 1 then
         propertyValue = 1
     end
 
     if slot == 1 then
-        itemEntity.property1 = propertyValue
+        itemEntity.newItemTable.property1 = propertyValue
     elseif slot == 2 then
-        itemEntity.property2 = propertyValue
+        itemEntity.newItemTable.property2 = propertyValue
     elseif slot == 3 then
-        itemEntity.property3 = propertyValue
+        itemEntity.newItemTable.property3 = propertyValue
     elseif slot == 4 then
-        itemEntity.property4 = propertyValue
+        itemEntity.newItemTable.property4 = propertyValue
     end
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
@@ -608,24 +550,19 @@ function RPCItems:SkillTranslateMonk(heroEntity, itemEntity, slot)
     local propertyName = ""
     local runeName = ""
     local propertyValue = 0
-    local baseValue = 0
     RPCItems:SetBaseValue(slot, itemEntity, propertyValue)
     if slot == 1 then
-        propertyName = itemEntity.property1name
-        propertyValue = itemEntity.property1
-        baseValue = itemEntity.baseValue1
+        propertyName = itemEntity.newItemTable.property1name
+        propertyValue = itemEntity.newItemTable.property1
     elseif slot == 2 then
-        propertyName = itemEntity.property2name
-        propertyValue = itemEntity.property2
-        baseValue = itemEntity.baseValue2
+        propertyName = itemEntity.newItemTable.property2name
+        propertyValue = itemEntity.newItemTable.property2
     elseif slot == 3 then
-        propertyName = itemEntity.property3name
-        propertyValue = itemEntity.property3
-        baseValue = itemEntity.baseValue3
+        propertyName = itemEntity.newItemTable.property3name
+        propertyValue = itemEntity.newItemTable.property3
     elseif slot == 4 then
-        propertyName = itemEntity.property4name
-        propertyValue = itemEntity.property4
-        baseValue = itemEntity.baseValue4
+        propertyName = itemEntity.newItemTable.property4name
+        propertyValue = itemEntity.newItemTable.property4
     end
 
     if propertyValue < 1 then
@@ -633,13 +570,13 @@ function RPCItems:SkillTranslateMonk(heroEntity, itemEntity, slot)
     end
 
     if slot == 1 then
-        itemEntity.property1 = propertyValue
+        itemEntity.newItemTable.property1 = propertyValue
     elseif slot == 2 then
-        itemEntity.property2 = propertyValue
+        itemEntity.newItemTable.property2 = propertyValue
     elseif slot == 3 then
-        itemEntity.property3 = propertyValue
+        itemEntity.newItemTable.property3 = propertyValue
     elseif slot == 4 then
-        itemEntity.property4 = propertyValue
+        itemEntity.newItemTable.property4 = propertyValue
     end
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
@@ -652,38 +589,37 @@ function RPCItems:SkillTranslateBasic(heroEntity, itemEntity, slot, tooltipName)
     local propertyName = ""
     local runeName = ""
     local propertyValue = 0
-    local baseValue = 0
     RPCItems:SetBaseValue(slot, itemEntity, propertyValue)
     if slot == 1 then
-        propertyName = itemEntity.property1name
-        propertyValue = itemEntity.property1
-        baseValue = itemEntity.baseValue1
+        propertyName = itemEntity.newItemTable.property1name
+        propertyValue = itemEntity.newItemTable.property1
     elseif slot == 2 then
-        propertyName = itemEntity.property2name
-        propertyValue = itemEntity.property2
-        baseValue = itemEntity.baseValue2
+        propertyName = itemEntity.newItemTable.property2name
+        propertyValue = itemEntity.newItemTable.property2
     elseif slot == 3 then
-        propertyName = itemEntity.property3name
-        propertyValue = itemEntity.property3
-        baseValue = itemEntity.baseValue3
+        propertyName = itemEntity.newItemTable.property3name
+        propertyValue = itemEntity.newItemTable.property3
     elseif slot == 4 then
-        propertyName = itemEntity.property4name
-        propertyValue = itemEntity.property4
-        baseValue = itemEntity.baseValue4
+        propertyName = itemEntity.newItemTable.property4name
+        propertyValue = itemEntity.newItemTable.property4
     end
 
-    if propertyValue < 1 then
+    if type(propertyValue) == "number" and propertyValue < 1 then
         propertyValue = 1
     end
 
     if slot == 1 then
-        itemEntity.property1 = propertyValue
+        itemEntity.newItemTable.property1 = propertyValue
     elseif slot == 2 then
-        itemEntity.property2 = propertyValue
+        itemEntity.newItemTable.property2 = propertyValue
     elseif slot == 3 then
-        itemEntity.property3 = propertyValue
+        itemEntity.newItemTable.property3 = propertyValue
     elseif slot == 4 then
-        itemEntity.property4 = propertyValue
+        itemEntity.newItemTable.property4 = propertyValue
+    end
+    if propertyName == nil then
+        print("[RPCItems:SkillTranslateBasic] propertyName == nil")
+        return
     end
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
@@ -711,27 +647,27 @@ function RPCItems:RollAmuletProperty1(item, xpBounty, randomHelm)
         local prefix = ""
         if luck < 34 then
         	local bonus = RPCItems:GetHeadBonusRoll(randomHelm, 3, 4)
-            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 4+bonus, 0, 0, item.rarity, false, maxFactor*10)
-            item.property1 = value
-            item.property1name = "strength"
+            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 4+bonus, 0, 0, item.newItemTable.rarity, false, maxFactor*10)
+            item.newItemTable.property1 = value
+            item.newItemTable.property1name = "strength"
             suffix = SUFFIX_HOOD_STRENGTH_TABLE[suffixLevel]
-            RPCItems:SetPropertyValues(item, item.property1, "#item_strength", "#CC0000",  1)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_strength", "#CC0000",  1)
         elseif luck >= 34 and luck < 67 then
         	local bonus = RPCItems:GetHeadBonusRoll(randomHelm, 2, 4)
-            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 4+bonus, 0, 0, item.rarity, false, maxFactor*10)
-            item.property1 = value
-            item.property1name = "agility"
+            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 4+bonus, 0, 0, item.newItemTable.rarity, false, maxFactor*10)
+            item.newItemTable.property1 = value
+            item.newItemTable.property1name = "agility"
             suffix = SUFFIX_HOOD_AGILITY_TABLE[suffixLevel]
-            RPCItems:SetPropertyValues(item, item.property1, "#item_agility", "#2EB82E",  1)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_agility", "#2EB82E",  1)
         elseif luck >= 67 then
         	local bonus = RPCItems:GetHeadBonusRoll(randomHelm, 1, 4)
-            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 4+bonus, 0, 0, item.rarity, false, maxFactor*10)
-            item.property1 = value
-            item.property1name = "intelligence"
+            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 4+bonus, 0, 0, item.newItemTable.rarity, false, maxFactor*10)
+            item.newItemTable.property1 = value
+            item.newItemTable.property1name = "intelligence"
             suffix = SUFFIX_HOOD_INTELLIGENCE_TABLE[suffixLevel]
-            RPCItems:SetPropertyValues(item, item.property1, "#item_intelligence", "#33CCFF",  1)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_intelligence", "#33CCFF",  1)
         end
-        return 0, value, item.property1name
+        return 0, value, item.newItemTable.property1name
     else
         return RPCItems:RollSkillProperty()
     end
@@ -747,33 +683,33 @@ function RPCItems:RollAmuletProperty2(item, xpBounty, randomHelm)
         local prefix = ""
         if luck < 34 then
             local bonus = 2
-            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 6+bonus, 0, 0, item.rarity, false, maxFactor*10)
-            item.property2 = value
-            item.property2name = "strength"
+            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 6+bonus, 0, 0, item.newItemTable.rarity, false, maxFactor*10)
+            item.newItemTable.property2 = value
+            item.newItemTable.property2name = "strength"
             prefix = PREFIX_HOOD_STRENGTH_TABLE[prefixLevel]
-            RPCItems:SetPropertyValues(item, item.property2, "#item_strength", "#CC0000",  2)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000",  2)
         elseif luck >= 34 and luck < 67 then
             local bonus = 2
-            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 6+bonus, 0, 0, item.rarity, false, maxFactor*10)
-            item.property2 = value
-            item.property2name = "agility"
+            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 6+bonus, 0, 0, item.newItemTable.rarity, false, maxFactor*10)
+            item.newItemTable.property2 = value
+            item.newItemTable.property2name = "agility"
             prefix = PREFIX_HOOD_AGILITY_TABLE[prefixLevel]
-            RPCItems:SetPropertyValues(item, item.property2, "#item_agility", "#2EB82E",  2)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E",  2)
         elseif luck >= 67 and luck < 100 then
             local bonus = 2
-            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 6+bonus, 0, 0, item.rarity, false, maxFactor*10)
-            item.property2 = value
-            item.property2name = "intelligence"
+            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 6+bonus, 0, 0, item.newItemTable.rarity, false, maxFactor*10)
+            item.newItemTable.property2 = value
+            item.newItemTable.property2name = "intelligence"
             prefix = PREFIX_HOOD_INTELLIGENCE_TABLE[prefixLevel]
-            RPCItems:SetPropertyValues(item, item.property2, "#item_intelligence", "#33CCFF",  2)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF",  2)
         elseif luck >= 100 then
-            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 14, 0, 0, item.rarity, false, math.floor(maxFactor/3))
-            item.property2 = value
-            item.property2name = "base_ability"
+            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 14, 0, 0, item.newItemTable.rarity, false, math.floor(maxFactor/3))
+            item.newItemTable.property2 = value
+            item.newItemTable.property2name = "base_ability"
             prefix = PREFIX_HOOD_INTELLIGENCE_TABLE[prefixLevel]
-            RPCItems:SetPropertyValues(item, item.property2, "#item_base_ability", "#7AB4CC",  2)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_base_ability", "#7AB4CC",  2)
         end
-        return 0, value, item.property2name
+        return 0, value, item.newItemTable.property2name
     else
         return RPCItems:RollSkillProperty()
     end

@@ -4,7 +4,14 @@ end
 
 
 function Hand:add_modifiers(hero, inventory_unit, item)
-	print(item)
+	print("[Hand:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	DeepPrintTable(item)
+	if not item.newItemTable then
+		print("[Error] Hand:add_modifiers item.newItemTable is null")
+		RPCItems:ItemUTIL_Remove(item)
+		return
+	end
+	print("[Hand:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
 	local hand_ability = inventory_unit:FindAbilityByName("hand_slot")
 	hand_ability.strength = 0
 	hand_ability.agility = 0
@@ -20,28 +27,35 @@ function Hand:add_modifiers(hero, inventory_unit, item)
 	hand_ability.lifesteal = 0
 	hand_ability.base_ability = 0
 	hand_ability.attack_damage = 0
-	local property1 = RPCItems:AdjustAttributeValue(hero, item.property1)
-	Hand:action(item.property1name, property1, hero, inventory_unit, hand_ability, item)
-	Hand:runeProperty(item.property1name, item.property1, hero)
-	if item.property2name then
-		local property2 = RPCItems:AdjustAttributeValue(hero, item.property2)
-		Hand:action(item.property2name, property2, hero, inventory_unit, hand_ability, item)
-		Hand:runeProperty(item.property2name, item.property2, hero)
+	if item.newItemTable.property1name then
+		local property1 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property1)
+		Hand:action(item.newItemTable.property1name, property1, hero, inventory_unit, hand_ability, item)
+		Hand:runeProperty(item.newItemTable.property1name, item.newItemTable.property1, hero)
 	end
-	if item.property3name then
-		local property3 = RPCItems:AdjustAttributeValue(hero, item.property3)
-		Hand:action(item.property3name, property3, hero, inventory_unit, hand_ability, item)
-		Hand:runeProperty(item.property3name, item.property3, hero)
+	if item.newItemTable.property2name then
+		local property2 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property2)
+		Hand:action(item.newItemTable.property2name, property2, hero, inventory_unit, hand_ability, item)
+		Hand:runeProperty(item.newItemTable.property2name, item.newItemTable.property2, hero)
 	end
-	if item.property4name then
-		local property4 = RPCItems:AdjustAttributeValue(hero, item.property4)
-		Hand:action(item.property4name, property4, hero, inventory_unit, hand_ability, item)
-		Hand:runeProperty(item.property4name, item.property4, hero)
+	if item.newItemTable.property3name then
+		local property3 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property3)
+		Hand:action(item.newItemTable.property3name, property3, hero, inventory_unit, hand_ability, item)
+		Hand:runeProperty(item.newItemTable.property3name, item.newItemTable.property3, hero)
+	end
+	if item.newItemTable.property4name then
+		local property4 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property4)
+		Hand:action(item.newItemTable.property4name, property4, hero, inventory_unit, hand_ability, item)
+		Hand:runeProperty(item.newItemTable.property4name, item.newItemTable.property4, hero)
 	end
 end
 
 
 function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_ability, item)
+	print("[Hand:action] propertyName:"..tostring(propertyName))
+	if type(propertyValue) == "string" then
+		print("[action] type(propertyValue) == string")
+		propertyValue = 1
+	end
 	if propertyName == "strength" then
 		hand_ability.strength = hand_ability.strength + propertyValue
 		Hand:addBasicModifier(hand_ability.strength, hero, inventory_unit, "modifier_hand_strength", hand_ability)
@@ -84,6 +98,9 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 	elseif propertyName == "base_ability" then
 		hand_ability.base_ability = hand_ability.base_ability + propertyValue
 		Hand:addBasicModifier(hand_ability.base_ability, hero, inventory_unit, "modifier_hand_base_ability_damage", hand_ability)
+	elseif propertyName == "item_damage" then
+		hand_ability.base_ability = hand_ability.base_ability + propertyValue
+		Hand:addBasicModifier(hand_ability.base_ability, hero, inventory_unit, "modifier_hand_item_damage_inc", hand_ability)
 	elseif propertyName == "berserker_rage" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_berserker_gloves_base", item)
 	elseif propertyName == "shadow_armlet" then
@@ -249,6 +266,10 @@ function Hand:runeProperty(propertyName, propertyValue, hero)
 			propertyName = string.gsub(propertyName, "_3", "_2")
 		end
 	end
+	if type(propertyValue) == "string" then
+		print("[Hand:runeProperty] propertyValue:"..propertyValue)
+		return
+	end
 	if propertyName == "rune_q_1" then
 		hero.runeUnit.hand.q_1 = hero.runeUnit.hand.q_1 + propertyValue
 		Hand:setRuneBonusNetTable(hero.runeUnit.hand.q_1, propertyName, hero)
@@ -338,6 +359,7 @@ function Hand:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_divine_purity")
 	hero:RemoveModifierByName("modifier_hand_max_health")
 	hero:RemoveModifierByName("modifier_hand_base_ability_damage")
+	hero:RemoveModifierByName("modifier_hand_item_damage_inc")
 	hero:RemoveModifierByName("modifier_grasp_of_elder")
 	hero:RemoveModifierByName("modifier_hand_of_midas")
 	hero:RemoveModifierByName("modifier_hand_of_midas_effect")

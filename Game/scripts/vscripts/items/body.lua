@@ -4,7 +4,14 @@ end
 
 
 function Body:add_modifiers(hero, inventory_unit, item)
-	print(item)
+	print("[Body:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	DeepPrintTable(item)
+	if not item.newItemTable then
+		print("[Error] Body:add_modifiers item.newItemTable is null")
+		RPCItems:ItemUTIL_Remove(item)
+		return
+	end
+	print("[Body:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
 	local body_ability = inventory_unit:FindAbilityByName("body_slot")
 	body_ability.strength = 0
 	body_ability.agility = 0
@@ -22,28 +29,35 @@ function Body:add_modifiers(hero, inventory_unit, item)
 	body_ability.attack_damage = 0
 	body_ability.base_ability = 0
 	body_ability.movespeed = 0
-	local property1 = RPCItems:AdjustAttributeValue(hero, item.property1)
-	Body:action(item.property1name, property1, hero, inventory_unit, body_ability, item)
-	Body:runeProperty(item.property1name, item.property1, hero)
-	if item.property2name then
-		local property2 = RPCItems:AdjustAttributeValue(hero, item.property2)
-		Body:action(item.property2name, property2, hero, inventory_unit, body_ability, item)
-		Body:runeProperty(item.property2name, item.property2, hero)
+	if item.newItemTable.property1name then
+		local property1 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property1)
+		Body:action(item.newItemTable.property1name, property1, hero, inventory_unit, body_ability, item)
+		Body:runeProperty(item.newItemTable.property1name, item.newItemTable.property1, hero)
 	end
-	if item.property3name then
-		local property3 = RPCItems:AdjustAttributeValue(hero, item.property3)
-		Body:action(item.property3name, property3, hero, inventory_unit, body_ability, item)
-		Body:runeProperty(item.property3name, item.property3, hero)
+	if item.newItemTable.property2name then
+		local property2 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property2)
+		Body:action(item.newItemTable.property2name, property2, hero, inventory_unit, body_ability, item)
+		Body:runeProperty(item.newItemTable.property2name, item.newItemTable.property2, hero)
 	end
-	if item.property4name then
-		local property4 = RPCItems:AdjustAttributeValue(hero, item.property4)
-		Body:action(item.property4name, property4, hero, inventory_unit, body_ability, item)
-		Body:runeProperty(item.property4name, item.property4, hero)
+	if item.newItemTable.property3name then
+		local property3 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property3)
+		Body:action(item.newItemTable.property3name, property3, hero, inventory_unit, body_ability, item)
+		Body:runeProperty(item.newItemTable.property3name, item.newItemTable.property3, hero)
+	end
+	if item.newItemTable.property4name then
+		local property4 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property4)
+		Body:action(item.newItemTable.property4name, property4, hero, inventory_unit, body_ability, item)
+		Body:runeProperty(item.newItemTable.property4name, item.newItemTable.property4, hero)
 	end
 end
 
 
 function Body:action(propertyName, propertyValue, hero, inventory_unit, body_ability, item)
+	print("[Body:action] propertyName:"..tostring(propertyName))
+	if type(propertyValue) == "string" then
+		print("[action] type(propertyValue) == string")
+		propertyValue = 1
+	end
 	if propertyName == "strength" then
 		body_ability.strength = body_ability.strength + propertyValue
 		Body:addBasicModifier(body_ability.strength, hero, inventory_unit, "modifier_body_strength", body_ability)
@@ -96,6 +110,9 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 	elseif propertyName == "base_ability" then
 		body_ability.base_ability = body_ability.base_ability + propertyValue
 		Body:addBasicModifier(body_ability.base_ability, hero, inventory_unit, "modifier_body_base_ability_damage", body_ability)
+	elseif propertyName == "item_damage" then
+		body_ability.base_ability = body_ability.base_ability + propertyValue
+		Body:addBasicModifier(body_ability.base_ability, hero, inventory_unit, "modifier_body_item_damage_inc", body_ability)
 	elseif propertyName == "movespeed" then
 		body_ability.movespeed = body_ability.movespeed + propertyValue
 		Body:addBasicModifier(body_ability.movespeed, hero, inventory_unit, "modifier_body_movespeed", body_ability)
@@ -108,8 +125,6 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 		Body:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_body_flooding", body_ability)
 	elseif propertyName == "avalanche" then
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_body_avalanche", item)
-	elseif propertyName == "violet_guard" then
-		Body:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_body_violet_guard", body_ability)
 	elseif propertyName == "violet_guard2" then
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_body_violet_guard2", item)
 	elseif propertyName == "watcher1" then
@@ -296,6 +311,10 @@ function Body:runeProperty(propertyName, propertyValue, hero)
 			propertyName = string.gsub(propertyName, "_3", "_2")
 		end
 	end
+	if type(propertyValue) == "string" then
+		print("[Body:runeProperty] propertyValue:"..propertyValue)
+		return
+	end
 	if propertyName == "rune_q_1" then
 		hero.runeUnit.body.q_1 = hero.runeUnit.body.q_1 + propertyValue
 		Body:setRuneBonusNetTable(hero.runeUnit.body.q_1, propertyName, hero)
@@ -406,6 +425,7 @@ function Body:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_spellslinger_coat")
 	hero:RemoveModifierByName("modifier_doomplate")
 	hero:RemoveModifierByName("modifier_body_base_ability_damage")
+	hero:RemoveModifierByName("modifier_body_item_damage_inc")
 	hero:RemoveModifierByName("modifier_body_cosmos")
 	hero:RemoveModifierByName("modifier_body_water")
 	hero:RemoveModifierByName("modifier_body_wind")

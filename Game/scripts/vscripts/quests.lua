@@ -54,7 +54,7 @@ function Quests:DeleteQuest(msg)
 	url = url.."steam_id="..steamID
 	url = url.."&hero_slot="..slot
 	url = url.."&quest_id="..questID
-	print(url)
+	--print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		local resultTable = {}
 		print( "GET response:\n" )

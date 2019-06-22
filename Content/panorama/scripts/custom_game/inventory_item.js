@@ -44,7 +44,7 @@ function UpdateItem()
 	$.GetContextPanel().SetHasClass( "is_passive", isPassive );
 	
 	$( "#HotkeyText" ).text = hotkey;
-	$( "#ItemImage" ).itemname = itemName;
+	$( "#ItemImage" ).item_name = itemName;
 	$( "#ItemImage" ).contextEntityIndex = m_Item;
 
 	if (m_Item == -1){
@@ -111,63 +111,6 @@ function ItemShowTooltipInit()
 	var queryUnit = Players.GetLocalPlayerPortraitUnit();
 	$.GetContextPanel().SetAttributeInt( "item", item)
 	ItemShowTooltipOnPanel($.GetContextPanel())
-
-	// var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() )
-	// if (itemValues === undefined){
-	// 	$.DispatchEvent("DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, item);
-	// }else{
-	// 	if (!(itemValues.useDescription === undefined)){
-	// 		var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
-	// 		tooltip = tooltip + "<br><font color='#A3D4A1'>"+$.Localize(itemValues.useDescription)+"</font>"
-	// 		tooltip = breakUpTooltip(tooltip)
-	// 	}else{
-	// 		var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
-	// 		var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
-	// 		tooltip = AddAffixToItem(tooltip, itemProperty1)
-	// 		if (itemValues.rarityFactor >= 2 )
-	// 		{
-	// 			var itemProperty2 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-2" )
-	// 			tooltip = AddAffixToItem(tooltip, itemProperty2)
-	// 		}
-	// 		if (itemValues.rarityFactor >= 3 )
-	// 		{
-	// 			var itemProperty3 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
-	// 			tooltip = AddAffixToItem(tooltip, itemProperty3)
-	// 		}
-	// 		if (itemValues.rarityFactor >= 4 )
-	// 		{
-	// 			var itemProperty4 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-4" )
-	// 			tooltip = AddAffixToItem(tooltip, itemProperty4)
-	// 		}
-	// 	}
-	// 	var itemPrefix = itemValues.itemPrefix
-	// 	var itemSuffix = itemValues.itemSuffix
-	// 	//$.Msg( itemValues.property1 );
-	// 	//$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, queryUnit );
-	// 	var localizedItemName = $.Localize("#DOTA_Tooltip_Ability_"+Abilities.GetAbilityName(item))
-	// 	var title = "<font color='"+itemValues.qualityColor+"'>"+itemPrefix+" "+localizedItemName+" "+itemSuffix+"</font>"
-	// 	if (!(itemValues.minLevel ===undefined)){
-	// 		tooltip = AddMinLevelToTooltip(itemValues, tooltip, item)
-	// 	}		
-	// 	if (!(itemValues.requiredHero === undefined)){
-	// 		if (itemValues.glyph){
-	// 			tooltip = tooltip + "<br><br><font color='#F7501E'>"+$.Localize('#'+itemValues.requiredHero)+" "+$.Localize('#tooltip_glyph')+"</font>"
-	// 		}else if(itemValues.rarityFactor == 6){
-	// 			$.Msg(itemValues.requiredHero)
-	// 			tooltip = tooltip + "<br><br><font color='#F7501E'>"+$.Localize('#'+itemValues.requiredHero)+" "+$.Localize('#item_only')+"</font>"
-	// 		}else{
-	// 			tooltip = AddWeaponDataToTooltip(tooltip, itemValues)
-	// 		}
-	// 	}
-	// 	tooltip = AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, itemProperty3, itemProperty4, itemValues.rarityFactor, item)
-	// 	tooltip = updateSkillInTooltip(tooltip, queryUnit)
-	// 	tooltip = updateGlyphInTooltip(tooltip, item)
-	// 	title = title.replace(/(['"])/g, "\\$1");
-	// 	tooltip = tooltip.replace(/(['"])/g, "\\$1");
-
-	// 	$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(), title, tooltip);
-		//$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(),  "#DOTA_Tooltip_Ability_"+itemName, tooltip );
-	// }
 }
 
 function updateGlyphInTooltip(tooltip, item)
@@ -196,11 +139,7 @@ function AddWeaponDataToTooltip(tooltip, itemTable){
 
 function AddMinLevelToTooltip(itemValues, tooltip, item)
 {
-	var reductionTable = CustomNetTables.GetTableValue( "min_level_reduction", item.toString() )
 	var reduction = 0
-	if (!(reductionTable===undefined)){
-		reduction = reductionTable.levelReduce
-	}
 	var minLevel = itemValues.minLevel
 	if (minLevel > 0){
 		if (reduction > 0){
@@ -332,7 +271,7 @@ function getPosition(str, m, i) {
 function CreateCustomTooltip(itemValues, itemName, itemProperty1)
 {
 	// $.Msg( itemValues );
-	//var tooltip = "<Label style='color:"+itemValues.qualityColor+";font-size:16px;'>"+itemValues.itemName+"</Label><br>";
+	//var tooltip = "<Label style='color:"+itemValues.qualityColor+";font-size:16px;'>"+itemValues.item_name+"</Label><br>";
 	var tooltip = "<i>"+itemValues.qualityName+"</i><br>"
 	if (itemValues.consumable == 1)
 	{
@@ -521,7 +460,7 @@ function OnDragStart( panelId, dragCallbacks )
 
 	// create a temp panel that will be dragged around
 	var displayPanel = $.CreatePanel( "DOTAItemImage", $.GetContextPanel(), "dragImage" );
-	displayPanel.itemname = itemName;
+	displayPanel.item_name = itemName;
 	displayPanel.fromInventory = true;
 	displayPanel.contextEntityIndex = m_Item;
 	displayPanel.m_DragItem = m_Item;

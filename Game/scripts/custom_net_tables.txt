@@ -4,7 +4,7 @@
   [
 //    "game_state",
 	  "item_basics",
-	  "item_properties",
+	  //"item_properties",
 	  "equipment",
 	  "player_stats",
 	  "skill_tree",
@@ -13,7 +13,7 @@
 	  "stash",
 	  "portal_keys",
 	  "xp_table",
-	  "min_level_reduction",
+	  //"min_level_reduction",
 	  "premium_pass"
   ]
 }

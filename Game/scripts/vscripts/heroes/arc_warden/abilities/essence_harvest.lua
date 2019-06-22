@@ -35,7 +35,7 @@ function get_onibi(caster)
 	local url = ROSHPIT_URL.."/champions/getUnibi?"
 	url = url.."&steam_id="..PlayerResource:GetSteamAccountID(playerID)
 	url = url.."&championcharacter_id="..roshpit_id
-	print(url)
+	--print(url)
 	CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}

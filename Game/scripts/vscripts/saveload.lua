@@ -40,7 +40,7 @@ function SaveLoad:GetKey()
 
 end
 
-function SaveLoad:NewKey()
+--function SaveLoad:NewKey()
 	-- if Beacons.cheats then
 	-- 	return false
 	-- end
@@ -56,7 +56,7 @@ function SaveLoad:NewKey()
 	-- 		-- SaveLoad:ProcessKey()
 	-- 	end
 	-- end )
-end
+--end
 
 -- function SaveLoad:KeyDebug()
 -- 	local url = ROSHPIT_URL.."/champions/protection_test?"
@@ -92,11 +92,11 @@ function SaveLoad:GetPlayerCharacters(msg)
 		CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
 			if result.StatusCode == 200 then
 				local resultTable = {}
-				print( "GET response:\n" )
+				--print( "GET response:\n" )
 				for k,v in pairs( result ) do
-					print( string.format( "%s : %s\n", k, v ) )
+					--print( string.format( "%s : %s\n", k, v ) )
 				end
-				print( "Done." )
+				--print( "Done." )
 				local resultTable = JSON:decode(result.Body)
 				SaveLoad:GetCharacterDataFromJSON(resultTable)
 				local premium = 0
@@ -123,7 +123,7 @@ function SaveLoad:GetCharacterDataFromJSON(resultTable)
 	for i = 1, MAX_SAVE_SLOTS, 1 do
 		if resultTable[i] then
 			local slot = resultTable[i].save_slot
-			print(slot)
+			--print(slot)
 			characters[slot].heroName = resultTable[i].hero_name
 			characters[slot].level = resultTable[i].hero_level
 		end
@@ -171,7 +171,7 @@ function SaveLoad:SaveCharacter(msg)
 	local runeUnit4 = hero.runeUnit4
 	hero.loadEnabled = 0
 	Weapons:ValidateGear(hero)
-	SaveLoad:NewKey()
+	--SaveLoad:NewKey()
 	if SaveLoad:GetAllowSaving() then
 		local url = ROSHPIT_URL.."/champions/saveCharacter?"
 		url = url.."slot="..slot
@@ -210,12 +210,12 @@ function SaveLoad:SaveCharacter(msg)
 			url = SaveLoad:AttachItemToURL(url, hero, 0, 0, playerID, i, 0)
 		end
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-			print( "POST response:\n" )
+			--print( "POST response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
-			SaveLoad:NewKey()
+			--print( "Done." )
+			--SaveLoad:NewKey()
 			local resultTable = JSON:decode(result.Body)
 			-- SaveLoad:GetCharacterDataFromJSON(resultTable)
 			CustomGameEventManager:Send_ServerToPlayer(player, "recentlySaved", {} )
@@ -290,7 +290,7 @@ function SaveLoad:DebugGear(playerID)
 end
 
 function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gearSlot, itemIndex)
-
+	--print("[SaveLoad:AttachItemToURL] Start")
 	gearSlot = tostring(gearSlot)
 	local gearTable = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..gearSlot)
 	local itemTable = false
@@ -304,58 +304,66 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		url = url.."&item_slot"..gearSlot.."="..gearSlot
 		return url
 	end
+	--print("[SaveLoad:AttachItemToURL] 1")
 	if itemIndex > 0 then
 		itemTable = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
-		print("ITEM TABLE??")
-		print(itemIndex)
+		--print("ITEM TABLE??")
+		--print(itemIndex)
 		-- DeepPrintTable(itemTable)
 	end
 	local item = EntIndexToHScript(itemIndex)
 	if not item then
+		--print("[SaveLoad:AttachItemToURL] ITEM is null")
 		url = url.."&build_number"..gearSlot.."="..0
 		url = url.."&item_slot"..gearSlot.."="..gearSlot
 		return url
 	end
-	if item.cantStash then
+	if itemTable.cantStash then
 		Notifications:Top(playerID, {text="Can't stash this item", duration=2, style={color="red"}, continue=true})
 		return url
 	end
-	local validatorTable = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex).."-key")
-	if validatorTable then
-		url = url.."&validator"..gearSlot.."="..validatorTable.key
+	--print("[SaveLoad:AttachItemToURL] 2")
+	local validatorValue = itemTable.validator
+	if validatorValue then
+		url = url.."&validator"..gearSlot.."="..validatorValue
 	end
-	if itemTable and item.property1 and not item.glyph and not item.consumable then
-		-- local itemName = string.gsub(itemTable.itemName, "%s+", '%%20')
-		local itemName = escape(itemTable.itemName)
-		local internalMinLevel = math.max(item.minLevel+RPCItems:GetPrereductionMinLevel(item), 1)
+	
+	DeepPrintTable(itemTable)
+
+	--itemTable.consumable valve's custom net tables swapping boolean value to number when you set table.
+	if itemTable and itemTable.property1 and not itemTable.glyph and itemTable.consumable ~= 1 then
+		--print("[SaveLoad:AttachItemToURL] 3")
+		-- local itemName = string.gsub(itemTable.item_name, "%s+", '%%20')
+		local item_name = escape(itemTable.item_name)
+		local internalMinLevel = math.max(itemTable.minLevel, 1)
 		local buildNumber = "1"
-		if item.glyphBook then
+		if itemTable.glyphBook then
 			buildNumber = "-2"
 		end
 		url = url.."&build_number"..gearSlot.."="..buildNumber
 		url = url.."&is_stash"..gearSlot.."="..is_stash
 		url = url.."&stash_slot"..gearSlot.."="..stash_slot
 		url = url.."&item_variant"..gearSlot.."="..item:GetAbilityName()
-		url = url.."&item_name"..gearSlot.."="..itemName
+		url = url.."&item_name"..gearSlot.."="..item_name
 		-- url = url.."&item_description"..gearSlot.."="..itemTable.itemDescription
 		url = url.."&rarity"..gearSlot.."="..itemTable.rarityFactor
-		url = url.."&item_slot"..gearSlot.."="..RPCItems:getGearSlot(item.slot)
+		url = url.."&item_slot"..gearSlot.."="..RPCItems:getGearSlot(itemTable.item_slot)
 		url = url.."&min_level"..gearSlot.."="..internalMinLevel
 		url = url.."&prefix"..gearSlot.."="..escape(itemTable.itemPrefix)
 		url = url.."&suffix"..gearSlot.."="..escape(itemTable.itemSuffix)
-		if item.slot == "weapon" then
+		if itemTable.item_slot == "weapon" then
 			url = url.."&is_weapon=".."1"
-			url = url.."&weapon_xp="..item.xp
-			url = url.."&item_level="..item.level
-			url = url.."&max_level1="..item.maxLevel
-			url = url.."&required_hero1="..item.requiredHero
+			url = url.."&weapon_xp="..itemTable.xp
+			url = url.."&item_level="..itemTable.level
+			url = url.."&max_level1="..itemTable.maxLevel
+			url = url.."&required_hero1="..itemTable.requiredHero
 		else
 			url = url.."&is_weapon=".."0"
-			if item.requiredHero then
+			if itemTable.requiredHero then
 				if is_stash == 1 then
-					url = url.."&required_hero1="..item.requiredHero
+					url = url.."&required_hero1="..itemTable.requiredHero
 				else
-					url = url.."&required_hero"..gearSlot.."="..item.requiredHero
+					url = url.."&required_hero"..gearSlot.."="..itemTable.requiredHero
 				end
 			else
 				url = url.."&required_hero"..gearSlot.."="..0
@@ -371,94 +379,122 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 			affixCount = 4
 		end
 		for i = 1, affixCount, 1 do
-			local affixTable = CustomNetTables:GetTableValue("item_properties", tostring(item:GetEntityIndex()).."-"..tostring(i))
-			-- DeepPrintTable(affixTable)
 			local property = 0
 			local propertyName = ""
+			local saveTooltip = 1
 			if i == 1 then
-				property = item.property1
-				propertyName = item.property1name
+				property = itemTable.property1
+				propertyName = itemTable.property1name
+				saveColor = itemTable.property1color
+				saveTooltip = itemTable.property1tooltip
+				saveSpecialDescription = itemTable.property1special
 			elseif i == 2 then
-				property = item.property2
-				propertyName = item.property2name
+				property = itemTable.property2
+				propertyName = itemTable.property2name
+				saveColor = itemTable.property2color
+				saveTooltip = itemTable.property2tooltip
+				saveSpecialDescription = itemTable.property2special
 			elseif i == 3 then
-				property = item.property3
-				propertyName = item.property3name
+				property = itemTable.property3
+				propertyName = itemTable.property3name
+				saveColor = itemTable.property3color
+				saveTooltip = itemTable.property3tooltip
+				saveSpecialDescription = itemTable.property3special
 			elseif i == 4 then
-				property = item.property4
-				propertyName = item.property4name
+				property = itemTable.property4
+				propertyName = itemTable.property4name
+				saveColor = itemTable.property4color
+				saveTooltip = itemTable.property4tooltip
+				saveSpecialDescription = itemTable.property4special
 			end
 			if not property then
 				property = 0
+			end
+			if type(property) == "string" and property == "★" then
+				property = 1
 			end
 			if not propertyName then
 				propertyName = ""
 			end
 			url = url.."&property"..i..gearSlot.."="..property
 			url = url.."&property"..i.."name"..gearSlot.."="..propertyName
-			url = url.."&property"..i.."color"..gearSlot.."="..escape(affixTable.propertyColor)
-			url = url.."&property"..i.."tooltip"..gearSlot.."="..escape(affixTable.propertyName)
-			if affixTable.specialDescription then
-				url = url.."&property"..i.."special"..gearSlot.."="..escape(affixTable.specialDescription)
+			url = url.."&property"..i.."color"..gearSlot.."="..escape(saveColor)
+			url = url.."&property"..i.."tooltip"..gearSlot.."="..escape(saveTooltip)
+			if saveSpecialDescription then
+				url = url.."&property"..i.."special"..gearSlot.."="..escape(saveSpecialDescription)
 			end
 		end
 		-- url = url.."&min_level"..gearSlot.."="..itemTable.minLevel
-	elseif item.stashable then
-		local itemName = escape(itemTable.itemName)
+	elseif itemTable.stashable then
+		--print("[SaveLoad:AttachItemToURL] 4")
+		local item_name = escape(itemTable.item_name)
 		url = url.."&build_number"..gearSlot.."=".."-1"
 		url = url.."&is_stash"..gearSlot.."="..is_stash
 		url = url.."&stash_slot"..gearSlot.."="..stash_slot
 		url = url.."&item_variant"..gearSlot.."="..item:GetAbilityName()
-		url = url.."&item_name"..gearSlot.."="..itemName
+		url = url.."&item_name"..gearSlot.."="..item_name
 		-- url = url.."&item_description"..gearSlot.."="..itemTable.itemDescription
 		url = url.."&rarity"..gearSlot.."="..itemTable.rarityFactor
-		url = url.."&item_slot"..gearSlot.."="..RPCItems:getGearSlot(item.slot)
+		url = url.."&item_slot"..gearSlot.."="..RPCItems:getGearSlot(itemTable.item_slot)
 		url = url.."&min_level"..gearSlot.."="..0
 		url = url.."&prefix"..gearSlot.."="..escape(itemTable.itemPrefix)
 		url = url.."&suffix"..gearSlot.."="..escape(itemTable.itemSuffix)
 		local affixCount = 0
-		print("TU78A")
+		--print("TU78A")
 		if item:GetAbilityName() == "item_rpc_web_premium_token" or string.match(item:GetAbilityName(), "galactic_arcana_cache") or string.match(item:GetAbilityName(), "item_serengaard_hyperstone") then
-			print("TU78B")
+			--print("TU78B")
 			local affixCount = 1
 			for i = 1, affixCount, 1 do
-				local affixTable = CustomNetTables:GetTableValue("item_properties", tostring(item:GetEntityIndex()).."-"..tostring(i))
-				-- DeepPrintTable(affixTable)
 				local property = 0
 				local propertyName = ""
 				if i == 1 then
-					property = item.property1
-					propertyName = item.property1name
+					property = itemTable.property1
+					propertyName = itemTable.property1name
+					saveColor = itemTable.property1color
+					saveTooltip = itemTable.property1tooltip
+					saveSpecialDescription = itemTable.property1special
 				elseif i == 2 then
-					property = item.property2
-					propertyName = item.property2name
+					property = itemTable.property2
+					propertyName = itemTable.property2name
+					saveColor = itemTable.property2color
+					saveTooltip = itemTable.property2tooltip
+					saveSpecialDescription = itemTable.property2special
 				elseif i == 3 then
-					property = item.property3
-					propertyName = item.property3name
+					property = itemTable.property3
+					propertyName = itemTable.property3name
+					saveColor = itemTable.property3color
+					saveTooltip = itemTable.property3tooltip
+					saveSpecialDescription = itemTable.property3special
 				elseif i == 4 then
-					property = item.property4
-					propertyName = item.property4name
+					property = itemTable.property4
+					propertyName = itemTable.property4name
+					saveColor = itemTable.property4color
+					saveTooltip = itemTable.property4tooltip
+					saveSpecialDescription = itemTable.property4special
 				end
 				if not property then
 					property = 0
+				end
+				if type(property) == "string" and property == "★" then
+					property = 1
 				end
 				if not propertyName then
 					propertyName = ""
 				end
 				url = url.."&property"..i..gearSlot.."="..property
 				url = url.."&property"..i.."name"..gearSlot.."="..propertyName
-				url = url.."&property"..i.."color"..gearSlot.."="..escape(affixTable.propertyColor)
-				url = url.."&property"..i.."tooltip"..gearSlot.."="..escape(affixTable.propertyName)
-				print("----TU78C-----")
-				print(affixTable)
-				print("--------------")
-				if affixTable.specialDescription then
-					url = url.."&property"..i.."special"..gearSlot.."="..escape(affixTable.specialDescription)
+				url = url.."&property"..i.."color"..gearSlot.."="..escape(saveColor)
+				url = url.."&property"..i.."tooltip"..gearSlot.."="..escape(saveTooltip)
+				--print("----TU78C-----")
+				--print(itemTable)
+				--print("--------------")
+				if saveSpecialDescription then
+					url = url.."&property"..i.."special"..gearSlot.."="..escape(saveSpecialDescription)
 				end
 			end
 		end
-	elseif item.glyph then
-		local itemName = item:GetAbilityName()
+	elseif itemTable.glyph then
+		local item_name = item:GetAbilityName()
 		url = url.."&build_number"..gearSlot.."=".."-1"
 		url = url.."&is_stash"..gearSlot.."="..is_stash
 		url = url.."&stash_slot"..gearSlot.."="..stash_slot
@@ -469,7 +505,9 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		url = url.."&item_slot"..gearSlot.."="..gearSlot
 
 	end
-
+	--print("FINAL URL +++++++++++++++++++++++")
+	----print(url)
+	--print("FINAL URL +++++++++++++++++++++++")
 	return url
 -- :championcharacter_id, :build_number, :is_stash, :stash_slot, :steam_id, :item_variant, :item_name, :rarity, :item_slot, :level, :current_xp, :property1, :property1value, :property1color, 
 -- :property1tooltip, :property1special, :property2, :property2value, :property2color, :property2tooltip, :property2special, :property3, 
@@ -491,11 +529,11 @@ function SaveLoad:LoadCharacter(msg)
 	url = url.."&slot="..slot
 	CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
 		local resultTable = {}
-		print( "GET response:\n" )
+		--print( "GET response:\n" )
 		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 		-- DeepPrintTable(resultTable)
 		SaveLoad:ApplyDataToHero(resultTable.character, playerID)
@@ -552,6 +590,9 @@ function SaveLoad:LoadPortalKeys(character, hero)
 end
 
 function SaveLoad:LoadGear(gearTable, playerID, bEquip)
+	--print("SaveLoad:LoadGear+++")
+	DeepPrintTable(gearTable)
+	--print("SaveLoad:LoadGear++-")
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	if not gearTable then
 		return false
@@ -559,36 +600,208 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 	if not gearTable.item_variant then
 		return false
 	end
-	DeepPrintTable(gearTable)
 	if gearTable.build_number > -1 then
 		local gearSlot = RPCItems:GetGearSlotName(gearTable.item_slot)
-		print("LOADED ITEM GEARSLOT")
-		-- print(gearSlot)
+		--print("LOADED ITEM GEARSLOT")
+		-- --print(gearSlot)
 		-- DeepPrintTable(gearTable)
 		local item = nil
 		if gearTable.is_weapon == 1 then
-			item = Weapons:CreateWeaponVariant(gearTable.item_variant, RPCItems:GetRarityNameFromFactor(gearTable.rarity), gearTable.item_name, gearSlot, true, "Slot: "..gearSlot:gsub("^%l", string.upper), gearTable.required_hero, gearTable.max_level, gearTable.min_level)
+			item = Weapons:CreateWeaponVariant(gearTable.item_variant, 
+				RPCItems:GetRarityNameFromFactor(gearTable.rarity), 
+				gearTable.item_name, 
+				gearSlot, 
+				true, 
+				"Slot: "..gearSlot:gsub("^%l", string.upper), 
+				gearTable.required_hero, 
+				gearTable.max_level, 
+				gearTable.min_level)
 		else
 			if gearTable.rarity == 6 then
-				print("ARCANA ADD REQUIRED HERO!")
-				print(gearTable)
-				print(gearTable.required_hero)
-				item = RPCItems:CreateVariantArcana(gearTable.item_variant, RPCItems:GetRarityNameFromFactor(gearTable.rarity), gearTable.item_name, gearSlot, true, "Slot: "..gearSlot:gsub("^%l", string.upper), tostring(gearTable.required_hero), gearTable.min_level)
-				print(item.requiredHero)
+				--print("ARCANA ADD REQUIRED HERO!")
+				--print(gearTable)
+				--print(gearTable.required_hero)
+				item = RPCItems:CreateVariantArcana(gearTable.item_variant, 
+					RPCItems:GetRarityNameFromFactor(gearTable.rarity), 
+					gearTable.item_name, 
+					gearSlot, 
+					true, 
+					"Slot: "..gearSlot:gsub("^%l", string.upper), 
+					tostring(gearTable.required_hero), 
+					gearTable.min_level)
+				
+				--print(item.newItemTable.requiredHero)
 			else
-				item = RPCItems:CreateVariantWithMin(gearTable.item_variant, RPCItems:GetRarityNameFromFactor(gearTable.rarity), gearTable.item_name, gearSlot, true, "Slot: "..gearSlot:gsub("^%l", string.upper), gearTable.min_level, gearTable.prefix, gearTable.suffix)
+				--print("[SaveLoad:LoadGear] item_variant:"..tostring(gearTable.item_variant))
+				--print("[SaveLoad:LoadGear] item_name:"..tostring(gearTable.item_name))
+				if gearTable.item_variant == "item_rpc_raven_idol" 
+					or gearTable.item_variant == "item_rpc_raven_idol2" then
+
+					gearTable.item_variant = "item_rpc_raven_idol"
+					gearTable.item_name = "Raven Idol"
+
+					gearTable.property1name = "raven2"
+					gearTable.property1 = 1
+					gearTable.property1tooltip = "#item_property_raven_idol2"
+					gearTable.property1color = "#807F85"
+					gearTable.property1special = "#property_raven_idol_description2"
+					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_raven_idol", "#807F85",  1, "#property_raven_idol_description")
+				elseif gearTable.item_variant == "item_rpc_robe_of_flooding" 
+					or gearTable.item_variant == "item_rpc_robe_of_flooding_2" 
+					or gearTable.item_variant == "item_rpc_robe_of_flooding_3" then
+
+					gearTable.item_variant = "item_rpc_robe_of_flooding"
+					gearTable.item_name = "Robe of Flooding"
+
+					gearTable.property1name = "flooding"
+					gearTable.property1 = 1
+					gearTable.property1tooltip = "#item_property_flooding_3"
+					gearTable.property1color = "#57CFFF"
+					gearTable.property1special = "#property_flooding_description_3"
+					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_flooding_3", "#57CFFF",  1, "#property_flooding_description_3")
+				elseif gearTable.item_variant == "item_rpc_shipyard_veil_lv1" 
+					or gearTable.item_variant == "item_rpc_shipyard_veil_lv2" 
+					or gearTable.item_variant == "item_rpc_shipyard_veil_lv3" then
+
+					gearTable.item_variant = "item_rpc_shipyard_veil_lv1"
+					gearTable.item_name = "Shipyard Veil LV1"
+
+					gearTable.property1name = "shipyard_veil"
+					gearTable.property1 = 1
+					gearTable.property1tooltip = "#item_property_shipyard_veil_3"
+					gearTable.property1color = "#91F2F1"
+					gearTable.property1special = "#property_shipyard_veil_3_description"
+					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_shipyard_veil_3", "#91F2F1",  1, "#property_shipyard_veil_3_description")
+				elseif gearTable.item_variant == "item_rpc_crimsyth_elite_greaves_lv1" 
+					or gearTable.item_variant == "item_rpc_crimsyth_elite_greaves_lv2" 
+					or gearTable.item_variant == "item_rpc_crimsyth_elite_greaves_lv3" then
+
+					gearTable.item_variant = "item_rpc_crimsyth_elite_greaves_lv1"
+					gearTable.item_name = "Crimsyth Elite Greaves LV1"
+
+					gearTable.property1name = "crimsyth_elite"
+					gearTable.property1 = 1
+					gearTable.property1tooltip = "#item_property_crimsyth_elite_3"
+					gearTable.property1color = "#DD2727"
+					gearTable.property1special = "#property_crimsyth_elite_3_description"
+					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_crimsyth_elite_3", "#DD2727",  1, "#property_crimsyth_elite_3_description")
+				elseif gearTable.item_variant == "item_rpc_avalanche_plate" 
+					or gearTable.item_variant == "item_rpc_avalanche_plate_2" then
+
+					gearTable.item_variant = "item_rpc_avalanche_plate"
+					gearTable.item_name = "Avalanche Plate"
+
+					gearTable.property1name = "avalanche"
+					gearTable.property1 = 1
+					gearTable.property1tooltip = "#item_property_avalanche_2"
+					gearTable.property1color = "#9C8C81"
+					gearTable.property1special = "#property_avalanche_description_2"					
+					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_avalanche_2", "#9C8C81",  1, "#property_avalanche_description_2")
+				elseif gearTable.item_variant == "item_rpc_armor_of_violet_guard" 
+					or gearTable.item_variant == "item_rpc_armor_of_violet_guard2" then
+
+					gearTable.item_variant = "item_rpc_armor_of_violet_guard"
+					gearTable.item_name = "Armor of Violet Guard"
+
+					gearTable.property1name = "violet_guard2"
+					gearTable.property1 = 1
+					gearTable.property1tooltip = "#item_property_violet_guard_armor2"
+					gearTable.property1color = "#A337E6"
+					gearTable.property1special = "#property_violet_guard_armor_description2"					
+					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_violet_guard_armor2", "#A337E6",  1, "#property_violet_guard_armor_description2")
+				elseif gearTable.item_variant == "item_rpc_white_mage_hat" 
+					or gearTable.item_variant == "item_rpc_white_mage_hat_2" then
+
+					gearTable.item_variant = "item_rpc_white_mage_hat"
+					gearTable.item_name = "White Mage Hat"
+
+					gearTable.property1name = "white_mage_hat2"
+					gearTable.property1 = 1
+					gearTable.property1tooltip = "#item_property_white_mage_hat_2"
+					gearTable.property1color = "#FFFFFF"
+					gearTable.property1special = "#property_white_mage_hat_2_description"					
+					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_white_mage_hat_2", "#FFFFFF",  1, "#property_white_mage_hat_2_description")
+				elseif gearTable.item_variant == "item_rpc_hyper_visor" 
+					or gearTable.item_variant == "item_rpc_hyper_visor2" then
+
+					gearTable.item_variant = "item_rpc_hyper_visor"
+					gearTable.item_name = "Hyper Visor"
+
+					gearTable.property1name = "hyper_visor"
+					gearTable.property1 = 1
+					gearTable.property1tooltip = "#item_property_hyper_visor2"
+					gearTable.property1color = "#3CB7E8"
+					gearTable.property1special = "#property_hyper_visor2_description"					
+					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_hyper_visor2", "#3CB7E8",  1, "#property_hyper_visor2_description")
+				elseif gearTable.item_variant == "item_rpc_stormcrack_helm" 
+					or gearTable.item_variant == "item_rpc_stormcrack_helm2" then
+
+					gearTable.item_variant = "item_rpc_stormcrack_helm"
+					gearTable.item_name = "Stormcrack Helm"
+
+					gearTable.property1name = "stormcrack2"
+					gearTable.property1 = 1
+					gearTable.property1tooltip = "#item_property_stormcrack2"
+					gearTable.property1color = "#EFF2AE"
+					gearTable.property1special = "#property_stormcrack2_description"					
+					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_stormcrack2", "#EFF2AE",  1, "#property_stormcrack2_description")
+				elseif gearTable.item_variant == "item_rpc_scorched_gauntlets" 
+					or gearTable.item_variant == "item_rpc_scorched_gauntlets_2" then
+
+					gearTable.item_variant = "item_rpc_scorched_gauntlets"
+					gearTable.item_name = "Gloves of the High Flame"
+
+					gearTable.property1name = "scorched_gauntlet"
+					gearTable.property1 = 1
+					gearTable.property1tooltip = "#item_property_scorched_gauntlet_2"
+					gearTable.property1color = "#E8A917"
+					gearTable.property1special = "#property_scorched_gauntlet_description_2"					
+					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_scorched_gauntlet_2", "#E8A917",  1, "#property_scorched_gauntlet_description_2")
+				end
+
+
+				item = RPCItems:CreateVariantWithMin(gearTable.item_variant, 
+					RPCItems:GetRarityNameFromFactor(gearTable.rarity), 
+					gearTable.item_name, 
+					gearSlot, true, 
+					"Slot: "..gearSlot:gsub("^%l", string.upper), 
+					gearTable.min_level, 
+					gearTable.prefix, 
+					gearTable.suffix)
+				if gearTable.required_hero and gearTable.item_variant == "item_rpc_winterblight_skull_ring" then
+					item.newItemTable.requiredHero = gearTable.required_hero
+				end
 			end
 		end
-		item.slot = gearSlot
-		item.hasRunePoints = true
+
+		--should be removed after db update
+		if gearTable.property1name and gearTable.property1name == "level_reduce" and gearTable.property1tooltip and gearTable.property1tooltip == "#item_min_level_reduction" then
+			gearTable.property1name = "item_damage"
+			gearTable.property1tooltip = "#item_damage_increase"
+		end
+		if gearTable.property2name and gearTable.property2name == "level_reduce" and gearTable.property2tooltip and gearTable.property2tooltip == "#item_min_level_reduction" then
+			gearTable.property2name = "item_damage"
+			gearTable.property2tooltip = "#item_damage_increase"
+		end
+		if gearTable.property3name and gearTable.property3name == "level_reduce" and gearTable.property3tooltip and gearTable.property3tooltip == "#item_min_level_reduction" then
+			gearTable.property3name = "item_damage"
+			gearTable.property3tooltip = "#item_damage_increase"
+		end
+		if gearTable.property4name and gearTable.property4name == "level_reduce" and gearTable.property4tooltip and gearTable.property4tooltip == "#item_min_level_reduction" then
+			gearTable.property4name = "item_damage"
+			gearTable.property4tooltip = "#item_damage_increase"
+		end
+
+		item.newItemTable.item_slot = gearSlot
+		item.newItemTable.hasRunePoints = true
 		item.pickedUp = true
 		gearTable.property1name = SaveLoad:FixLoadedRuneProperties(gearTable.property1name)
 		gearTable.property2name = SaveLoad:FixLoadedRuneProperties(gearTable.property2name)
 		gearTable.property3name = SaveLoad:FixLoadedRuneProperties(gearTable.property3name)
 		gearTable.property4name = SaveLoad:FixLoadedRuneProperties(gearTable.property4name)
 		--PROPERTY1
-		item.property1 = gearTable.property1
-		item.property1name = gearTable.property1name
+		item.newItemTable.property1 = gearTable.property1
+		item.newItemTable.property1name = gearTable.property1name
 
 		if gearTable.property1special then
 			local tooltipValue = "★"
@@ -605,10 +818,12 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			end
 			RPCItems:SetPropertyValues(item, gearTable.property1, gearTable.property1tooltip, gearTable.property1color, 1) 
 		end
+
 		--PROPERTY2
 		if gearTable.property2 then
-			item.property2 = gearTable.property2
-			item.property2name = gearTable.property2name
+			--print("[SaveLoad:LoadGear] PROPERTY2")
+			item.newItemTable.property2 = gearTable.property2
+			item.newItemTable.property2name = gearTable.property2name
 			if gearTable.property2special then
 				local tooltipValue = "★"
 				if gearTable.property2 > 1 then
@@ -627,8 +842,9 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		end
 		--PROPERTY3
 		if gearTable.property3 then
-			item.property3 = gearTable.property3
-			item.property3name = gearTable.property3name
+			--print("[SaveLoad:LoadGear] PROPERTY3")
+			item.newItemTable.property3 = gearTable.property3
+			item.newItemTable.property3name = gearTable.property3name
 			if gearTable.property3special then
 				local tooltipValue = "★"
 				if gearTable.property3 > 1 then
@@ -647,8 +863,9 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		end
 		--PROPERTY4
 		if gearTable.property4 then
-			item.property4 = gearTable.property4
-			item.property4name = gearTable.property4name
+			--print("[SaveLoad:LoadGear] PROPERTY4")
+			item.newItemTable.property4 = gearTable.property4
+			item.newItemTable.property4name = gearTable.property4name
 			if gearTable.property4special then
 				local tooltipValue = "★"
 				if gearTable.property4 > 1 then
@@ -667,126 +884,170 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		end
 		--WEAPON
 		if gearTable.is_weapon == 1 then
-			-- print("GEARTABLE IS WEAPON")
+			-- --print("GEARTABLE IS WEAPON")
 
-		    item.xp = gearTable.current_xp
-		    item.level = gearTable.level
-		    item.maxLevel = gearTable.max_level
-		    item.requiredHero = gearTable.required_hero
+		    item.newItemTable.xp = gearTable.current_xp
+		    item.newItemTable.level = gearTable.level
+		    item.newItemTable.maxLevel = gearTable.max_level
+		    item.newItemTable.requiredHero = gearTable.required_hero
 		    Weapons:SetWeaponTable(item)
 			if bEquip == 1 then
 				hero.weapon = item 
-		   		CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), {xp = item.xp, level = item.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.level], maxLevel = item.maxLevel, requiredHero = item.requiredHero} )
+		   		CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), 
+		   			{xp = item.newItemTable.xp, 
+		   			level = item.newItemTable.level, 
+		   			xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.newItemTable.level], 
+		   			maxLevel = item.newItemTable.maxLevel, 
+		   			requiredHero = item.newItemTable.requiredHero} )
 		    end
 		    Timers:CreateTimer(0.1, function()
 		    	Weapons:UpdateWeaponXP(0)
 		    end)
 		end
 		item.pickedUp = true
-		RPCItems:ReduceLevelRequirement(item)
+		if gearTable.validator then
+			item.newItemTable.validator = gearTable.validator
+		end
+		RPCItems:ItemUpdateCustomNetTables(item)
+
 		if bEquip == 1 then
 			Weapons:Equip(hero, item)
 		else
-			SaveLoad:ApplyValidator(gearTable, item)
 			return item
 		end
 	else
-
 		if gearTable.item_variant == "item_reanimation_stone" then
 			local item = RPCItems:CreateConsumable("item_reanimation_stone", "mythical", "Reanimation Stone", "consumable", false, "Consumable", "reanimation_stone_desc")
 			item.pickedUp = true
-			SaveLoad:ApplyValidator(gearTable, item)
 			SaveLoad:RemoveProperties(item)
 			SaveLoad:RemoveAdditionalData(item, false, false)
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
 		elseif gearTable.item_name == "glyph" then
-			print(gearTable.item_variant)
+			--print(gearTable.item_variant)
 			local item = Glyphs:RollGlyphAll(gearTable.item_variant, Vector(0, 0), -1)
 			item.pickedUp = true
-			SaveLoad:ApplyValidator(gearTable, item)
 			SaveLoad:RemoveProperties(item)
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
 		elseif gearTable.item_name == "temple_key" then
 			local key = RPCItems:CreateConsumable(gearTable.item_variant, "rare", "temple_key", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
 			key.pickedUp = true
-			SaveLoad:ApplyValidator(gearTable, key)
 			SaveLoad:RemoveProperties(key)
 			SaveLoad:RemoveAdditionalData(key, false, false)
+			if gearTable.validator then
+				key.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
 			return key
 		elseif gearTable.item_name == "tanari_element" then
 			local element = RPCItems:CreateConsumable(gearTable.item_variant, "mythical", "tanari_element", "consumable", false, "Key Item", gearTable.item_variant.."_desc")
 			element.pickedUp = true
-			SaveLoad:ApplyValidator(gearTable, element)
 			SaveLoad:RemoveProperties(element)
 			SaveLoad:RemoveAdditionalData(element, false, false)
+			if gearTable.validator then
+				element.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
 			return element
 		elseif gearTable.item_name == "tanari_spirit_stones" then
 			local stones = RPCItems:CreateConsumable(gearTable.item_variant, "immortal", "tanari_spirit_stones", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
 			stones.pickedUp = true
-			SaveLoad:ApplyValidator(gearTable, stones)
 			SaveLoad:RemoveProperties(stones)
 			SaveLoad:RemoveAdditionalData(stones, false, false)
+			if gearTable.validator then
+				stones.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
 			return stones
 		elseif gearTable.item_name == "redfall_key" then
 			local key = RPCItems:CreateConsumable(gearTable.item_variant, "rare", "redfall_key", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
 			key.pickedUp = true
-			SaveLoad:ApplyValidator(gearTable, key)
 			SaveLoad:RemoveProperties(key)
 			SaveLoad:RemoveAdditionalData(key, false, false)
+			if gearTable.validator then
+				key.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
 			return key
 		elseif gearTable.item_name == "glyph_book" then
 			local item = Glyphs:CreateGlyphBook(gearTable.item_variant, gearTable.property1, gearTable.property2)
 			item.pickedUp = true
-			SaveLoad:ApplyValidator(gearTable, item)
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
 		elseif gearTable.item_variant == "item_rpc_web_premium_token" then
-			print("IN HERE??")
+			--print("IN HERE??")
 			local item = RPCItems:CreateConsumable("item_rpc_web_premium_token", "immortal", "Web Premium Token", "consumable", false, "Consumable", "web_premium_desc")
 			SaveLoad:RemoveProperties(item)
 			SaveLoad:RemoveAdditionalData(item, false, false)
-			item.property1 = gearTable.property1
-			item.property1color = gearTable.property1color
-			item.property1name = gearTable.property1name
-			item.property1tooltip = gearTable.property1tooltip
-			item.consumable = true
-			item.stashable = true
-			RPCItems:SetPropertyValues(item, item.property1, "web_prem_tracking_id", item.property1color,  1)
+			item.newItemTable.property1 = gearTable.property1
+			item.newItemTable.property1color = gearTable.property1color
+			item.newItemTable.property1name = gearTable.property1name
+			item.newItemTable.property1tooltip = gearTable.property1tooltip
+			item.newItemTable.consumable = true
+			item.newItemTable.stashable = true
+			RPCItems:SetPropertyValues(item, item.newItemTable.property1, "web_prem_tracking_id", item.newItemTable.property1color,  1)
 			item.pickedUp = true
-			SaveLoad:ApplyValidator(gearTable, item)
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
 		elseif gearTable.item_variant == "item_rpc_synthesis_vessel" then
 			local item = RPCItems:CreateConsumable("item_rpc_synthesis_vessel", "immortal", "Synthesis Vessel", "consumable", false, "Consumable", "synthesis_vessel_desc")
 			SaveLoad:RemoveProperties(item)
 			SaveLoad:RemoveAdditionalData(item, false, false)
-			item.consumable = true
-			item.stashable = true
+			item.newItemTable.consumable = true
+			item.newItemTable.stashable = true
 			item.pickedUp = true
-			SaveLoad:ApplyValidator(gearTable, item)
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
 		elseif string.match(gearTable.item_variant, "galactic_arcana_cache") then
 			local item = RPCItems:CreateConsumable(gearTable.item_variant, "immortal", "Arcana Cache Part", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
 			SaveLoad:RemoveProperties(item)
 			SaveLoad:RemoveAdditionalData(item, false, false)
-			item.stashable = true
-			item.consumable = true
+			item.newItemTable.stashable = true
+			item.newItemTable.consumable = true
 			item.pickedUp = true
-			item.property1 = gearTable.property1
-		    item.property1name = gearTable.property1name
-			item.property1color = gearTable.property1color
-			item.property1tooltip = gearTable.property1tooltip
-			RPCItems:SetPropertyValues(item, item.property1, "cache_radiance", item.property1color,  1)
-			SaveLoad:ApplyValidator(gearTable, item)
+			item.newItemTable.property1 = gearTable.property1
+		    item.newItemTable.property1name = gearTable.property1name
+			item.newItemTable.property1color = gearTable.property1color
+			item.newItemTable.property1tooltip = gearTable.property1tooltip
+			RPCItems:SetPropertyValues(item, item.newItemTable.property1, "cache_radiance", item.newItemTable.property1color,  1)
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
 		elseif gearTable.item_variant == "item_rpc_boreal_granite_chunk" or gearTable.item_variant == "item_rpc_grimloks_soul_vessel" then
 			local item = RPCItems:CreateBasicConsumable(nil, gearTable.item_variant, gearTable.item_name, RPCItems:GetRarityNameFromFactor(gearTable.rarity), false)
 			item.pickedUp = true
-			SaveLoad:ApplyValidator(gearTable, item)
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
 		elseif string.match(gearTable.item_variant, "item_serengaard_hyperstone") then
 			local item = RPCItems:RollHyperstone(gearTable.property1)
 			item.pickedUp = true
-			item.stashable = true
-			item.consumable = true
+			item.newItemTable.stashable = true
+			item.newItemTable.consumable = true
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
 		end
 	end
@@ -794,7 +1055,7 @@ end
 
 function SaveLoad:FixLoadedRuneProperties(propertyName)
 	if propertyName then
-		print("propertyName: "..propertyName)
+		--print("propertyName: "..propertyName)
 		if propertyName == "rune_a_a" then
 			return "rune_q_1"
 		end
@@ -848,35 +1109,26 @@ function SaveLoad:FixLoadedRuneProperties(propertyName)
 end
 
 function SaveLoad:RemoveProperties(item)
-	for i = 1, 4, 1 do
-		RPCItems:SetPropertyValues(item, nil, nil, nil, i)
-	end
+	-- for i = 1, 4, 1 do
+	-- 	RPCItems:SetPropertyValues(item, nil, nil, nil, i)
+	-- end
 end
 
 function SaveLoad:RemoveAdditionalData(item, bRequiredLevel, bHeroRequirement)
-    local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(item:GetEntityIndex()))
+    --local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(item:GetEntityIndex()))
     -- if bRequiredLevel then
-    -- 	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemInfo.itemName, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, minLevel = newItem.minLevel} )
+    -- 	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemInfo.item_name, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, minLevel = newItem.minLevel} )
     -- elseif bHeroRequirement then
-    -- 	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemInfo.itemName, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, requiredHero = itemInfo.requiredHero  } )
+    -- 	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemInfo.item_name, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, requiredHero = itemInfo.requiredHero  } )
     -- else
-    -- 	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemInfo.itemName, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor } )
+    -- 	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemInfo.item_name, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor } )
     -- end
 end
 
-function SaveLoad:ApplyValidator(gearTable, item)
-	if gearTable.validator then
-		if gearTable.validator == "roshpit" then
-		else
-			CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()).."-key", {key = gearTable.validator} )
-		end
-	end
-end
-
 function SaveLoad:ApplyDataToHero(results, playerID)
-	-- print(results.current_xp)
-	-- print(hero)
-	-- print(playerID)
+	-- --print(results.current_xp)
+	-- --print(hero)
+	-- --print(playerID)
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	hero:AddExperience(results.current_xp-hero:GetCurrentXP(), 0, false, false)
 	CustomGameEventManager:Send_ServerToAllClients("xp_earned", {} )
@@ -951,9 +1203,9 @@ function SaveLoad:StashOpen(keys)
 	if hero.stashTable then
 		for i = 1, #hero.stashTable, 1 do
 			if IsValidEntity(hero.stashTable[i]) then
-				-- print("------")
-				-- print(hero.stashTable[i]:GetEntityIndex())
-				-- print(hero.pullStashItem)
+				-- --print("------")
+				-- --print(hero.stashTable[i]:GetEntityIndex())
+				-- --print(hero.pullStashItem)
 				if hero.stashTable[i]:GetEntityIndex() == hero.pullStashItem then
 					hero.pullStashItem = nil
 				else
@@ -965,11 +1217,11 @@ function SaveLoad:StashOpen(keys)
 	end
 	CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
 		local resultTable = {}
-		print( "GET response:\n" )
+		--print( "GET response:\n" )
 		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 		-- Weapons:ValidateGear(hero)
 		-- DeepPrintTable(resultTable)
@@ -1061,7 +1313,7 @@ end
 	-- for i = 1, MAX_SAVE_SLOTS, 1 do
 	-- 	if resultTable[i] then
 	-- 		local slot = resultTable[i].save_slot
-	-- 		print(slot)
+	-- 		--print(slot)
 	-- 		characters[slot].heroName = resultTable[i].hero_name
 	-- 		characters[slot].level = resultTable[i].hero_level
 	-- 	end
@@ -1081,19 +1333,19 @@ function SaveLoad:DraggedToStash(keys)
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	local itemEntity = EntIndexToHScript(itemIndex)
 	local fromSlot = keys.fromSlot
-	print("DRAGGED TO STASH")
+	--print("DRAGGED TO STASH")
 	if itemEntity.cantStash then
 		Notifications:Top(playerID, {text="Can't Stash This", duration=2, style={color="red"}, continue=true})
 		EmitSoundOnClient("General.Cancel", caster:GetPlayerOwner())
 		return false
 	end
-	SaveLoad:NewKey()
-	print("-----HAS ITEM OR NOT BELOW-----")
+	--SaveLoad:NewKey()
+	--print("-----HAS ITEM OR NOT BELOW-----")
 	if keys.drag_type == "inventory" then
 		if Challenges:CheckIfHeroHasItemByItemIndex(hero, itemIndex) then
-			print("HAS ITEM!")
+			--print("HAS ITEM!")
 		else
-			print("DOESN'T HAVE ITEM")
+			--print("DOESN'T HAVE ITEM")
 			return false
 		end
 	end
@@ -1101,12 +1353,12 @@ function SaveLoad:DraggedToStash(keys)
 		return false
 	end
 	CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {} )
-	print("DRAGGED TO")
+	--print("DRAGGED TO")
 	if SaveLoad:GetAllowSaving() then
 		if stashSlot < 13 or GameState:GetPlayerPremiumStatus(playerID) then
 			if keys.drag_type == "inventory" then
 				hero:Stop()
-				print("TAKE ITEM")
+				--print("TAKE ITEM")
 				hero:TakeItem(itemEntity)
 		  		if IsValidEntity(itemEntity:GetContainer()) then
 		  			UTIL_Remove(itemEntity:GetContainer())
@@ -1117,20 +1369,20 @@ function SaveLoad:DraggedToStash(keys)
 				url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 				Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_stash_lock", {duration = 90})
 					CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-						print( "POST response:\n" )
+						--print( "POST response:\n" )
 						for k,v in pairs( result ) do
-							print( string.format( "%s : %s\n", k, v ) )
+							--print( string.format( "%s : %s\n", k, v ) )
 						end
-						SaveLoad:NewKey()
-						print( "Done." )
-						print(result.StatusCode)
+						--SaveLoad:NewKey()
+						--print( "Done." )
+						--print(result.StatusCode)
 						hero:RemoveModifierByName("modifier_stash_lock")
 						if result.StatusCode == 200 then
 							RPCItems:ItemUTIL_Remove(itemEntity)
 							-- Weapons:ValidateGear(hero)
 							local resultTable = JSON:decode(result.Body)
-							print("@@@@ WITHDRAW RESULTS @@@@")
-							print(resultTable)
+							--print("@@@@ WITHDRAW RESULTS @@@@")
+							--print(resultTable)
 							local keys = {}
 							-- local inventoryItem = CustomNetTables:GetTableValue("stash", tostring(playerID).."-"..tostring(stashSlot))
 							if resultTable then
@@ -1176,12 +1428,12 @@ function SaveLoad:DraggedToStash(keys)
 				url = url.."&to_slot="..stashSlot
 				url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 					CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-						SaveLoad:NewKey()
-						print( "POST response:\n" )
+						--SaveLoad:NewKey()
+						--print( "POST response:\n" )
 						for k,v in pairs( result ) do
-							print( string.format( "%s : %s\n", k, v ) )
+							--print( string.format( "%s : %s\n", k, v ) )
 						end
-						print( "Done." )
+						--print( "Done." )
 						local resultTable = JSON:decode(result.Body)
 						local keys = {}
 						
@@ -1206,9 +1458,9 @@ function SaveLoad:DraggedFromStash(keys)
 	local inventorySlot = keys.inventorySlot
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
-	SaveLoad:NewKey()
+	--SaveLoad:NewKey()
 
-	print("DRAGGED FROM STASH")
+	--print("DRAGGED FROM STASH")
 	if SaveLoad:GetAllowSaving() then
 			if hero:GetItemInSlot(inventorySlot) then
 				if stashSlot < 12 or GameState:GetPlayerPremiumStatus(playerID) then
@@ -1228,12 +1480,12 @@ function SaveLoad:DraggedFromStash(keys)
 					url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 					
 						CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-							SaveLoad:NewKey()
-							print( "POST response:\n" )
+							--SaveLoad:NewKey()
+							--print( "POST response:\n" )
 							for k,v in pairs( result ) do
-								print( string.format( "%s : %s\n", k, v ) )
+								--print( string.format( "%s : %s\n", k, v ) )
 							end
-							print( "Done." )
+							--print( "Done." )
 							if result.StatusCode == 200 then
 								local resultTable = JSON:decode(result.Body)
 								local keys = {}
@@ -1278,18 +1530,18 @@ function SaveLoad:DraggedFromStash(keys)
 				url = url.."steam_id="..steamID
 				url = url.."&stash_slot="..stashSlot
 				url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-				print(url)
+				----print(url)
 					CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-						SaveLoad:NewKey()
-						print( "POST response:\n" )
+						--SaveLoad:NewKey()
+						--print( "POST response:\n" )
 						for k,v in pairs( result ) do
-							print( string.format( "%s : %s\n", k, v ) )
+							--print( string.format( "%s : %s\n", k, v ) )
 						end
-						print( "Done." )
+						--print( "Done." )
 						if result.StatusCode == 200 then
 							local resultTable = JSON:decode(result.Body)
 							local keys = {}
-							print(resultTable)
+							--print(resultTable)
 							local withdrawnItem = SaveLoad:LoadGear(resultTable, playerID, false)
 							withdrawnItem.itemIndex = withdrawnItem:GetEntityIndex()
 							if withdrawnItem.itemIndex == 0 then
@@ -1310,7 +1562,7 @@ function SaveLoad:DraggedFromStash(keys)
 end
 
 function SaveLoad:PutItemInInventory(hero, itemIndex)
-	print("ADD ITEM!")
+	--print("ADD ITEM!")
 	hero:AddItem(EntIndexToHScript(itemIndex))
 	hero.pullStashItem = itemIndex
 	-- SwapItems(int nSlot1, int nSlot2)
@@ -1343,7 +1595,7 @@ function SaveLoad:PreviewAbilities(msg)
 		previewHero:AddNoDraw()
 
 		local abilityTable = {previewHero:GetAbilityByIndex(0):GetEntityIndex(), previewHero:GetAbilityByIndex(1):GetEntityIndex(), previewHero:GetAbilityByIndex(2):GetEntityIndex(), previewHero:GetAbilityByIndex(3):GetEntityIndex()}
-		print(EntIndexToHScript(abilityTable[1]):GetAbilityName())
+		--print(EntIndexToHScript(abilityTable[1]):GetAbilityName())
 		CustomGameEventManager:Send_ServerToPlayer(player, "updateSkillPreview", {heroIndex = previewHero:GetEntityIndex()} )
 	end)
 
@@ -1416,11 +1668,11 @@ function SaveLoad:OpenKeyBank(msg)
 	CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			print( "GET response:\n" )
+			--print( "GET response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			CustomGameEventManager:Send_ServerToPlayer(player, "player_keys_loaded", {result=resultTable, premium=premium} )
 			Events:TutorialServerEvent(hero, "5_2", 0)
@@ -1448,23 +1700,23 @@ function SaveLoad:WithdrawKey(msg)
 	-- local url = ROSHPIT_URL.."/champions/getPlayerKeys?"
 	-- url = url.."steam_id="..steamID
 	CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
-		SaveLoad:NewKey()
+		--SaveLoad:NewKey()
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			print( "GET response:\n" )
+			--print( "GET response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			CustomGameEventManager:Send_ServerToPlayer(player, "player_keys_loaded", {result=resultTable} )
 			SaveLoad:WithdrawKeyFinal(hero, keyIndex)
 		else
-			print( "GET response:\n" )
+			--print( "GET response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 		end
 	end )
 end
@@ -1493,23 +1745,23 @@ function SaveLoad:DepositKey(msg)
 		-- local url = ROSHPIT_URL.."/champions/getPlayerKeys?"
 		-- url = url.."steam_id="..steamID
 		CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
-			SaveLoad:NewKey()
+			--SaveLoad:NewKey()
 			if result.StatusCode == 200 then
 				local resultTable = {}
-				print( "GET response:\n" )
+				--print( "GET response:\n" )
 				for k,v in pairs( result ) do
-					print( string.format( "%s : %s\n", k, v ) )
+					--print( string.format( "%s : %s\n", k, v ) )
 				end
-				print( "Done." )
+				--print( "Done." )
 				local resultTable = JSON:decode(result.Body)
 				RPCItems:ItemUTIL_Remove(itemEntity)
 				CustomGameEventManager:Send_ServerToPlayer(player, "player_keys_loaded", {result=resultTable, premium=premium} )
 			else
-				print( "GET response:\n" )
+				--print( "GET response:\n" )
 				for k,v in pairs( result ) do
-					print( string.format( "%s : %s\n", k, v ) )
+					--print( string.format( "%s : %s\n", k, v ) )
 				end
-				print( "Done." )
+				--print( "Done." )
 			end
 		end )
 	end
@@ -1559,8 +1811,9 @@ function SaveLoad:WithdrawKeyFinal(hero, keyIndex)
 	    RPCItems:GiveItemToHeroWithSlotCheck(hero, key)
 	elseif keyIndex == 11 then
 	    local key = RPCItems:CreateConsumable("item_rpc_winterblight_glacier_stone", "mythical", "Glacier Stone", "consumable", false, "Consumable", "item_rpc_winterblight_glacier_stone_desc")
-	    key.stashable = true
-	    key.consumable = true
+	    key.newItemTable.stashable = true
+	    key.newItemTable.consumable = true
+		RPCItems:ItemUpdateCustomNetTables(key)
 	    RPCItems:GiveItemToHeroWithSlotCheck(hero, key)
 	end
 end
@@ -1594,23 +1847,23 @@ function SaveLoad:SaveJex(hero)
 		end
 		url = url.."&"..element1.."_exp="..onibi.stats_table[element1]["exp"]
 	end
-	print(url)
+	----print(url)
 	if SaveLoad:GetAllowSaving() then
 		CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
 			if result.StatusCode == 200 then
 				local resultTable = {}
-				print( "GET response:\n" )
+				--print( "GET response:\n" )
 				for k,v in pairs( result ) do
-					print( string.format( "%s : %s\n", k, v ) )
+					--print( string.format( "%s : %s\n", k, v ) )
 				end
-				print( "Done." )
+				--print( "Done." )
 				local resultTable = JSON:decode(result.Body)
 			else
-				print( "GET response:\n" )
+				--print( "GET response:\n" )
 				for k,v in pairs( result ) do
-					print( string.format( "%s : %s\n", k, v ) )
+					--print( string.format( "%s : %s\n", k, v ) )
 				end
-				print( "Done." )
+				--print( "Done." )
 			end
 		end )
 	end

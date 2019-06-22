@@ -8,69 +8,6 @@ function ItemShowTooltipOnPanel(itemPanel)
 	}
 	if ( item == -1 )
 		return;
-	// $.Msg(itemPanel)
-	// var itemName = Abilities.GetAbilityName( item );
-	// var queryUnit = Players.GetLocalPlayerPortraitUnit();
-	// //var property1 = RPCItems.GetProperty1( item )
-	// var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() )
-	// var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
-	// itemValues = itemValuesCheck(itemValues)
-	// var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
-	// tooltip = AddAffixToItem(tooltip, itemProperty1, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-	// 	if (!(itemValues.useDescription === undefined)){
-	// 		var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
-	// 		tooltip = tooltip + "<br><font color='#A3D4A1'>"+$.Localize(itemValues.useDescription)+"</font>"
-	// 		tooltip = replaceConsumableText(item, tooltip)
-	// 	}else{
-	// 		var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
-	// 		var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
-	// 		tooltip = AddAffixToItem(tooltip, itemProperty1, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-	// 		if (itemValues.rarityFactor >= 2 )
-	// 		{
-	// 			var itemProperty2 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-2" )
-	// 			tooltip = AddAffixToItem(tooltip, itemProperty2, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-	// 		}
-	// 		if (itemValues.rarityFactor >= 3 )
-	// 		{
-	// 			var itemProperty3 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
-	// 			tooltip = AddAffixToItem(tooltip, itemProperty3, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-	// 		}
-	// 		if (itemValues.rarityFactor >= 4 )
-	// 		{
-	// 			var itemProperty4 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-4" )
-	// 			tooltip = AddAffixToItem(tooltip, itemProperty4, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-	// 		}
-	// 	}
-	// 	var itemPrefix = itemValues.itemPrefix
-	// 	var itemSuffix = itemValues.itemSuffix
-	// 	//$.Msg( itemValues.property1 );
-	// 	//$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, queryUnit );
-	// 	var localizedItemName = $.Localize("#DOTA_Tooltip_ability_"+Abilities.GetAbilityName(item))
-	// 	var title = "<font color='"+itemValues.qualityColor+"'>"+itemPrefix+" "+localizedItemName+" "+itemSuffix+"</font>"
-	// if (!(itemValues.minLevel ===undefined)){
-	// 	tooltip = AddMinLevelToTooltip(itemValues, tooltip, item)
-	// }
-
-	// if (!(itemValues.requiredHero === undefined)){
-	// 	if (itemValues.glyph){
-	// 		tooltip = tooltip + "<br><br><font color='#F7501E'>"+$.Localize('#'+itemValues.requiredHero)+" "+$.Localize('#tooltip_glyph')+"</font>"
-	// 	}else if(itemValues.rarityFactor == 6){
-	// 		tooltip = tooltip + "<br><br><font color='#F7501E'>"+$.Localize('#'+itemValues.requiredHero)+" "+$.Localize('#item_only')+"</font>"
-	// 	}else{
-	// 		tooltip = AddWeaponDataToTooltip(tooltip, itemValues, item)
-	// 	}
-	// }
-	// tooltip = AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, itemProperty3, itemProperty4, itemValues.rarityFactor, item)
-	// if (!(itemValues.requiredHero === undefined)){
-	// 	if (Entities.GetUnitName( queryUnit ) == itemValues.requiredHero){
-	// 		tooltip = updateSkillInTooltip(tooltip, queryUnit)
-	// 	}else{
-	// 		tooltip = updateSkillInTooltipByName(tooltip, itemValues.requiredHero)
-	// 	}
-	// }else{
-	// 	$.Msg("fsdfdfe?")
-	// 	tooltip = updateSkillInTooltip(tooltip, queryUnit)
-	// }
 
 	// tooltip = updateGlyphInTooltip(tooltip, item)
 	
@@ -97,73 +34,6 @@ function ItemShowTooltip(panelId)
 	if ( item == -1 )
 		return;
 
-	// var itemName = Abilities.GetAbilityName( item );
-	// var queryUnit = Players.GetLocalPlayerPortraitUnit();
-	// //var property1 = RPCItems.GetProperty1( item )
-	// var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() )
-	// var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
-	// itemValues = itemValuesCheck(itemValues)
-	// var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
-	// tooltip = AddAffixToItem(tooltip, itemProperty1, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-	// 	if (!(itemValues.useDescription === undefined)){
-	// 		var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
-	// 		tooltip = tooltip + "<br><font color='#A3D4A1'>"+$.Localize(itemValues.useDescription)+"</font>"
-	// 		tooltip = replaceConsumableText(item, tooltip)
-	// 	}else{
-	// 		var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
-	// 		var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
-	// 		tooltip = AddAffixToItem(tooltip, itemProperty1, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-	// 		if (itemValues.rarityFactor >= 2 )
-	// 		{
-	// 			var itemProperty2 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-2" )
-	// 			tooltip = AddAffixToItem(tooltip, itemProperty2, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-	// 		}
-	// 		if (itemValues.rarityFactor >= 3 )
-	// 		{
-	// 			var itemProperty3 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
-	// 			tooltip = AddAffixToItem(tooltip, itemProperty3, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-	// 		}
-	// 		if (itemValues.rarityFactor >= 4 )
-	// 		{
-	// 			var itemProperty4 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-4" )
-	// 			tooltip = AddAffixToItem(tooltip, itemProperty4, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-	// 		}
-	// 	}
-	// 	var itemPrefix = itemValues.itemPrefix
-	// 	var itemSuffix = itemValues.itemSuffix
-	// 	//$.Msg( itemValues.property1 );
-	// 	//$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, queryUnit );
-	// 	var localizedItemName = $.Localize("#DOTA_Tooltip_ability_"+Abilities.GetAbilityName(item))
-	// 	var title = "<font color='"+itemValues.qualityColor+"'>"+itemPrefix+" "+localizedItemName+" "+itemSuffix+"</font>"
-	// if (!(itemValues.minLevel ===undefined)){
-	// 	tooltip = AddMinLevelToTooltip(itemValues, tooltip, item)
-	// }
-	// if (!(itemValues.requiredHero === undefined)){
-	// 	if (itemValues.glyph){
-	// 		tooltip = tooltip + "<br><br><font color='#F7501E'>"+$.Localize('#'+itemValues.requiredHero)+" "+$.Localize('#tooltip_glyph')+"</font>"
-	// 	}else if(itemValues.rarityFactor == 6){
-	// 		$.Msg(itemValues.requiredHero)
-	// 		tooltip = tooltip + "<br><br><font color='#F7501E'>"+$.Localize('#'+itemValues.requiredHero)+" "+$.Localize('#item_only')+"</font>"
-	// 	}else{
-	// 		tooltip = AddWeaponDataToTooltip(tooltip, itemValues, item)
-	// 	}
-	// }
-	// tooltip = AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, itemProperty3, itemProperty4, itemValues.rarityFactor, item)
-	// if (!(itemValues.requiredHero === undefined)){
-	// 	if (Entities.GetUnitName( queryUnit ) == itemValues.requiredHero){
-	// 		tooltip = updateSkillInTooltip(tooltip, queryUnit)
-	// 	}else{
-	// 		tooltip = updateSkillInTooltipByName(tooltip, itemValues.requiredHero)
-	// 	}
-	// }else{
-	// 	$.Msg("fsdfdfe?")
-	// 	tooltip = updateSkillInTooltip(tooltip, queryUnit)
-	// }
-	// tooltip = updateGlyphInTooltip(tooltip, item)
-	
-	// title = title.replace(/(['"])/g, "\\$1");
-	// tooltip = tooltip.replace(/(['"])/g, "\\$1");
-
 	var tooltipArgs = "item="+item+"&queryUnit="+queryUnit
 	$.DispatchEvent("UIShowCustomLayoutParametersTooltip", itemPanel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
 
@@ -181,7 +51,7 @@ function AddWeaponDataToTooltip(tooltip, itemTable, item){
 	$.Msg("WEAPON VALUES ----")
 	$.Msg(weaponValues)
 	if (!(weaponValues == undefined)){
-		if (weaponValues.itemName == Abilities.GetAbilityName(item)){
+		if (weaponValues.item_name == Abilities.GetAbilityName(item)){
 			tooltip = tooltip + "<br>"
 			if (weaponValues.level == weaponValues.maxLevel){
 				tooltip = tooltip + "<font color='#f4dc42'>"+"★ MAX LEVEL ★"+"</font>"
@@ -213,11 +83,7 @@ function updateGlyphInTooltip(tooltip, item)
 
 function AddMinLevelToTooltip(itemValues, tooltip, item)
 {
-	var reductionTable = CustomNetTables.GetTableValue( "min_level_reduction", item.toString() )
 	var reduction = 0
-	if (!(reductionTable===undefined)){
-		reduction = reductionTable.levelReduce
-	}
 	var minLevel = itemValues.minLevel
 	if (minLevel > 0){
 		if (reduction > 0){
@@ -227,15 +93,6 @@ function AddMinLevelToTooltip(itemValues, tooltip, item)
 		else{
 			tooltip = tooltip + "<br><br><font color='#DB2766'>"+$.Localize('#item_min_level')+": "+minLevel+"</font>"
 		}
-	}
-	return tooltip
-}
-
-function replaceConsumableText(item, tooltip)
-{
-	var itemProperty3 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
-	if (!(itemProperty3===undefined)){
-		tooltip = tooltip.replace("@consumableProperty3", "<font color='"+itemProperty3.propertyColor+"'>"+$.Localize(itemProperty3.propertyName)+"</font>")
 	}
 	return tooltip
 }
@@ -466,8 +323,8 @@ function itemValuesCheck(itemValues)
 	if (itemValues.qualityColor === undefined){
 		itemValues.qualityColor  = "#FFFFFF"
 	}
-	if (itemValues.itemName === undefined){
-		itemValues.itemName  = "undefined"
+	if (itemValues.item_name === undefined){
+		itemValues.item_name  = "undefined"
 	}
 	return itemValues
 }
@@ -531,7 +388,7 @@ function itemPropertyCheck(itemProperty){
 function CreateCustomTooltip(itemValues, itemName, itemProperty1)
 {
 	$.Msg( itemValues );
-	//var tooltip = "<Label style='color:"+itemValues.qualityColor+";font-size:16px;'>"+itemValues.itemName+"</Label><br>";
+	//var tooltip = "<Label style='color:"+itemValues.qualityColor+";font-size:16px;'>"+itemValues.item_name+"</Label><br>";
 
 	var tooltip = "<i>"+itemValues.qualityName+"</i><br>"
 	if (itemValues.consumable == 1)

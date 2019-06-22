@@ -4452,10 +4452,11 @@ function Seafortress:SpawnOceanDiviner(position, fv)
 end
 
 function Seafortress:SpawnFinalBoss()
-  local queen = Seafortress:SpawnUnitNoParagon("seafortress_final_boss", Vector(-14272, 13696), 7, 9, nil, Vector(-1,1), false)
-  queen.reduc = 0.0005
-  queen.isBossFFS = true
-  Events:AdjustBossPower(queen, 8, 8, false) 
+local queen = Seafortress:SpawnUnitNoParagon("seafortress_final_boss", Vector(-14272, 13696), 7, 9, nil, Vector(-1,1), false)
+	queen.reduc = 0.00125
+	queen.isBossFFS = true
+	queen.mainBoss = true
+	Events:AdjustBossPower(queen, 8, 8, false) 
 end
 
 function Seafortress:BossMusic()

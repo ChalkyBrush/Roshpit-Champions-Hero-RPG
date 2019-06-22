@@ -184,6 +184,7 @@ function recalculatePriceReroll(detail_parent){
 
 function populateItem(detail_parent)
 {
+	$.Msg("reroll_pre_screen.js +++++++++++++++++++++++++++++++++++++")
 	// $.Msg(detail_parent)
 	// $.Msg(mItemIndex)
 	detail_parent.FindChildTraverse('item_image').contextEntityIndex = mItemIndex;
@@ -196,37 +197,15 @@ function populateItem(detail_parent)
 	detail_parent.FindChildTraverse('item_name').text = "<font color='"+rarityColor+"'>"+$.Localize("#DOTA_Tooltip_Ability_"+itemName)+"</font>"
 
 	var parentPanel = detail_parent.FindChildTraverse("item_properties_container")
-	for (i = 1; i <= 4; i++) 
-	{ 
-		var itemProperty = CustomNetTables.GetTableValue( "item_properties", mItemIndex.toString()+"-"+i.toString() )
-		createAttributeRow(itemProperty, parentPanel, i, detail_parent)
-		// if (itemProperty){
-		// 	var newChildPanel = $.CreatePanel( "Panel", parentPanel, "chisel-item-attribute"+i );
-		// 	newChildPanel.propertyTable = itemProperty
-		// 	newChildPanel.chisel = 0
-		// 	newChildPanel.reroll = 1
-		// 	newChildPanel.propertySlot = i
-		// 	newChildPanel.rerollParent = $.GetContextPanel()
-		// 	newChildPanel.BLoadLayoutSnippet("blacksmith_item_row");
-		// 	newChildPanel.FindChildTraverse('property_name').text = "<font color='"+itemProperty.propertyColor+"'>"+$.Localize(itemProperty.propertyName)+"</font>"
-		// 	newChildPanel.FindChildTraverse('property_value').text = "<font color='"+itemProperty.propertyColor+"'>"+itemProperty.propertyValue+"</font>"
-
-		// 	var button = newChildPanel.FindChildTraverse('property_row_button')
-		// 	button.SetPanelEvent('onmouseover', function SetButtonItemMouseover(){
-		// 		PropertyLockTooltip(button)
-		// 	});
-		// 	button.SetPanelEvent('onmouseout', function SetButtonItemMouseover(){
-		// 		HidePropertyTooltip(button)
-		// 	});
-		// }
+	
+	for (i = 1; i <= 4; i++) {
+		var itemTable = customNetTableSplitter(itemValues, i)
+		createAttributeRow(itemTable, parentPanel, i, detail_parent)
 	}
+
 	if (itemValues.minLevel){
 		var minLevelText = $.Localize('#item_min_level')
-		var reductionTable = CustomNetTables.GetTableValue( "min_level_reduction", mItemIndex.toString() )
 		var reduction = 0
-		if (!(reductionTable===undefined)){
-			reduction = reductionTable.levelReduce
-		}
 		detail_parent.FindChildTraverse('min_level_label').text = minLevelText
 		var minLevelValue = parseInt(itemValues.minLevel - reduction)
 		detail_parent.FindChildTraverse('min_level_label_value').text = minLevelValue
@@ -241,6 +220,40 @@ function populateItem(detail_parent)
 
 mButtonTable = []
 mChildPanelTable = []
+
+function customNetTableSplitter(itemPropertyesTable, index){
+	var itemPropertyesTableNew = {}
+	var propertyColor = undefined
+	var propertyName = undefined
+	var propertyValue = undefined
+	switch (index){
+		case 1:
+			propertyColor = itemPropertyesTable.property1color
+			propertyName = itemPropertyesTable.property1tooltip == "rune" ? itemPropertyesTable.property1name : itemPropertyesTable.property1tooltip
+			propertyValue = itemPropertyesTable.property1
+			break;
+		case 2:
+			propertyColor = itemPropertyesTable.property2color
+			propertyName = itemPropertyesTable.property2tooltip == "rune" ? itemPropertyesTable.property2name : itemPropertyesTable.property2tooltip
+			propertyValue = itemPropertyesTable.property2
+			break;
+		case 3:
+			propertyColor = itemPropertyesTable.property3color
+			propertyName = itemPropertyesTable.property3tooltip == "rune" ? itemPropertyesTable.property3name : itemPropertyesTable.property3tooltip
+			propertyValue = itemPropertyesTable.property3
+			break;
+		case 4:
+			propertyColor = itemPropertyesTable.property4color
+			propertyName = itemPropertyesTable.property4tooltip == "rune" ? itemPropertyesTable.property4name : itemPropertyesTable.property4tooltip
+			propertyValue = itemPropertyesTable.property4
+			break;
+	}
+	if (propertyColor===undefined || propertyColor===undefined || propertyColor===undefined) return null
+	itemPropertyesTableNew.propertyColor = propertyColor
+	itemPropertyesTableNew.propertyName = propertyName
+	itemPropertyesTableNew.propertyValue = propertyValue
+	return itemPropertyesTableNew
+}
 
 function createAttributeRow(itemProperty, parentPanel, i, detail_parent)
 {

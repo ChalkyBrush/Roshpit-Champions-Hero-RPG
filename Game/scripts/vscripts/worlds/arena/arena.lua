@@ -908,9 +908,9 @@ function Arena:RollPrizebox(rank, score, hero)
 		rarity = "mythical"
 	end
     local item = RPCItems:CreateVariantWithMin("item_rpc_arena_prizebox", rarity, "Prizebox", false, false, "Consumable", 0, nil, nil)
-    item.property1 = prizeLevel
-    item.property1name = "prize_level"
-    RPCItems:SetPropertyValues(item, item.property1, "#arena_prizebox_level", "#D1D1D1",  1) 
+    item.newItemTable.property1 = prizeLevel
+    item.newItemTable.property1name = "prize_level"
+    RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#arena_prizebox_level", "#D1D1D1",  1) 
     Arena:RollPrizeBoxProperty2(item, prizeLevel)
     if rarity == "rare" or rarity == "mythical" then
     	Arena:RollPrizeBoxProperty3(item, prizeLevel)
@@ -932,9 +932,9 @@ function Arena:RollPrizeBoxProperty2(item, itemLevel)
 		qualities = "immortal"
 	end
 	local quantity = math.min(RandomInt(1, itemLevel/30), 2)
-	item.property2 = quantity
-	item.property2name = qualities
-	RPCItems:SetPropertyValues(item, item.property2, "#item_rarity_"..qualities, RPCItems:GetRarityColor(qualities),  2) 
+	item.newItemTable.property2 = quantity
+	item.newItemTable.property2name = qualities
+	RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_rarity_"..qualities, RPCItems:GetRarityColor(qualities),  2) 
 end
 
 function Arena:RollPrizeBoxProperty3(item, itemLevel)
@@ -947,15 +947,15 @@ function Arena:RollPrizeBoxProperty3(item, itemLevel)
 		qualities = "immortal"
 	end
 	if luck >= 20 and luck <= 28 then
-		item.property3 = RandomInt(140, 140+itemLevel)
-		item.property3name = "arcane_crystals"
-		RPCItems:SetPropertyValues(item, item.property3, "#tooltip_arcane_crystals", "#C363D4",  3) 
+		item.newItemTable.property3 = RandomInt(140, 140+itemLevel)
+		item.newItemTable.property3name = "arcane_crystals"
+		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#tooltip_arcane_crystals", "#C363D4",  3) 
 		return
 	end
 	local quantity = math.min(RandomInt(1, itemLevel/30), 3)
-	item.property3 = quantity
-	item.property3name = qualities
-	RPCItems:SetPropertyValues(item, item.property3, "#item_rarity_"..qualities, RPCItems:GetRarityColor(qualities),  3) 
+	item.newItemTable.property3 = quantity
+	item.newItemTable.property3name = qualities
+	RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_rarity_"..qualities, RPCItems:GetRarityColor(qualities),  3) 
 end
 
 function Arena:RollPrizeBoxProperty4(item, itemLevel)
@@ -968,21 +968,21 @@ function Arena:RollPrizeBoxProperty4(item, itemLevel)
 		qualities = "immortal"
 	end
 	if luck >= 20 and luck <= 29 then
-		item.property4 = RandomInt(200, 260+itemLevel)
-		item.property4name = "arcane_crystals"
-		RPCItems:SetPropertyValues(item, item.property4, "#tooltip_arcane_crystals", "#C363D4",  4) 
+		item.newItemTable.property4 = RandomInt(200, 260+itemLevel)
+		item.newItemTable.property4name = "arcane_crystals"
+		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#tooltip_arcane_crystals", "#C363D4",  4) 
 		return
 	end
 	if luck >= 88 and luck <= 102 then
-		item.property4 = 1
-		item.property4name = "champions_gear"
-		RPCItems:SetPropertyValues(item, item.property4, "#arena_prizebox_champions", "#D11D59",  4) 
+		item.newItemTable.property4 = 1
+		item.newItemTable.property4name = "champions_gear"
+		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#arena_prizebox_champions", "#D11D59",  4) 
 		return
 	end
 	local quantity = math.min(RandomInt(1, itemLevel/30), 5)
-	item.property4 = quantity
-	item.property4name = qualities
-	RPCItems:SetPropertyValues(item, item.property4, "#item_rarity_"..qualities, RPCItems:GetRarityColor(qualities),  4) 
+	item.newItemTable.property4 = quantity
+	item.newItemTable.property4name = qualities
+	RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#item_rarity_"..qualities, RPCItems:GetRarityColor(qualities),  4) 
 end
 
 function Arena:SaveChampionsLeagueData(hero, battleRank, score)
@@ -992,7 +992,7 @@ function Arena:SaveChampionsLeagueData(hero, battleRank, score)
 	if hero.roshpitID == nil then
 		return
 	end
-	SaveLoad:NewKey()
+	--SaveLoad:NewKey()
 	url = url.."steam_id="..steamID
 	url = url.."&hero_id="..hero.roshpitID
 	url = url.."&rank="..battleRank
@@ -1001,7 +1001,7 @@ function Arena:SaveChampionsLeagueData(hero, battleRank, score)
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	if Arena:DetermineIfSaveIsNecessary(hero, battleRank, score) then
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-			SaveLoad:NewKey()
+			--SaveLoad:NewKey()
 			local resultTable = {}
 			print( "GET response:\n" )
 			for k,v in pairs( result ) do

@@ -176,20 +176,8 @@
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"移除E技能的冷却时间，使用E技能消耗一层流沙"
 		 
 		 
-    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv1"						"Crimsyth精英鞋子 LV1"
-		"item_property_crimsyth_elite_1"						"Crimsyth精英 I"
-		 "property_crimsyth_elite_1_description"				"增加护甲值，增加值为 @special_property1x 你的英雄等级。施放任意技能失去护甲值，但是提高魔法抗性 @special_property2 ，持续 @special_property3 秒。当受到非致命伤，<br>伤害高于 50% 最大生命值时，此属性增加1。<br>属性值达到 @special_property4 时升级。升级后无法重铸。"
-		  "DOTA_Tooltip_modifier_crimsyth_elite_greaves_armor"	"Crimsyth 精英护甲"
-		 "DOTA_Tooltip_modifier_crimsyth_elite_greaves_magic_shield"	"Crimsyth精英魔法盾"
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv2"						"Crimsyth精英鞋子 LV2"
-		 "item_property_crimsyth_elite_2"						"Crimsyth精英 II"
-		 "property_crimsyth_elite_2_description"				"增加护甲值，增加值为 @special_property1x 你的英雄等级。施放任意技能失去护甲值，但是提高魔法抗性 @special_property2 ，持续 @special_property3 秒。当受到非致命伤，<br>伤害高于 75% 最大生命值时，此属性增加1。<br>属性值达到 @special_property4 时升级。该装备无法重铸。"
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv3"						"Crimsyth精英鞋子 LV3"
-		"item_property_crimsyth_elite_3"						"Crimsyth精英 III"
+    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv1"						"Crimsyth精英鞋子"
+		"item_property_crimsyth_elite_3"						"Crimsyth精英"
 		 "property_crimsyth_elite_3_description"				"增加护甲值，增加值为 @special_property1x 你的英雄等级。施放任意技能失去护甲值，但是提高魔法抗性 @special_property2 ，持续 @special_property3 秒。该装备无法重铸。"
 		 
 		 

@@ -46,7 +46,7 @@ function UpdateItem()
 	
 	// $( "#HotkeyText" ).text = hotkey;
 	// $.Msg(itemName);
-	// $( "#ItemImage" ).itemname = itemName;
+	// $( "#ItemImage" ).item_name = itemName;
 	$( "#ItemImage" ).contextEntityIndex = m_Item;
 	if (m_Item == -1){
 		$( "#ItemImage" ).SetImage("file://{images}/custom_game/ui/empty-inventory-slot.png")
@@ -97,6 +97,7 @@ function itemPropertyCheck(itemProperty){
 
 function ItemShowTooltip()
 {
+	$.Msg("What is that? CustomNetTables 02.06.19 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 	var item = m_Item
 	var queryUnit = m_QueryUnit
 	if ( item == -1 )
@@ -108,29 +109,29 @@ function ItemShowTooltip()
 	if (itemValues === undefined){
 		$.DispatchEvent("DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, item);
 	}else{
-		var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
+		var itemProperty1 = undefined
 		var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
 		tooltip = AddAffixToItem(tooltip, itemProperty1)
 		if (itemValues.rarityFactor >= 2 )
 		{
-			var itemProperty2 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-2" )
+			var itemProperty2 = undefined
 			tooltip = AddAffixToItem(tooltip, itemProperty2)
 		}
 		if (itemValues.rarityFactor >= 3 )
 		{
-			var itemProperty3 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
+			var itemProperty3 = undefined
 			tooltip = AddAffixToItem(tooltip, itemProperty3)
 		}
 		if (itemValues.rarityFactor >= 4 )
 		{
-			var itemProperty4 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-4" )
+			var itemProperty4 = undefined
 			tooltip = AddAffixToItem(tooltip, itemProperty4)
 		}
 		var itemPrefix = ""
 		var itemSuffix = ""
 		//$.Msg( itemValues.property1 );
 		//$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, queryUnit );
-		var title = "<font color='"+itemValues.qualityColor+"'>"+itemPrefix+" "+itemValues.itemName+" "+itemSuffix+"</font>"
+		var title = "<font color='"+itemValues.qualityColor+"'>"+itemPrefix+" "+itemValues.item_name+" "+itemSuffix+"</font>"
 		if (!(itemValues.minLevel ===undefined)){
 			tooltip = AddMinLevelToTooltip(itemValues, tooltip)
 		}		
@@ -267,7 +268,7 @@ function getPosition(str, m, i) {
 function CreateCustomTooltip(itemValues, itemName, itemProperty1)
 {
 	// $.Msg( itemValues );
-	//var tooltip = "<Label style='color:"+itemValues.qualityColor+";font-size:16px;'>"+itemValues.itemName+"</Label><br>";
+	//var tooltip = "<Label style='color:"+itemValues.qualityColor+";font-size:16px;'>"+itemValues.item_name+"</Label><br>";
 	var tooltip = "<i>"+itemValues.qualityName+"</i><br>"
 	if (itemValues.consumable == 1)
 	{
@@ -443,7 +444,7 @@ function OnDragStart( panel, dragCallbacks )
 	$.GetContextPanel().scrollingParent.style.overflow = "clip"
 	// create a temp panel that will be dragged around
 	var displayPanel = $.CreatePanel( "DOTAItemImage", $.GetContextPanel(), "dragImage" );
-	displayPanel.itemname = itemName;
+	displayPanel.item_name = itemName;
 	displayPanel.contextEntityIndex = m_Item;
 	displayPanel.m_DragItem = m_Item;
 	displayPanel.m_DragCompleted = false; // whether the drag was successful

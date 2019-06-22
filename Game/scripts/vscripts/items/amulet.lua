@@ -15,7 +15,14 @@ function Amulet:AdjustAttackPowerBonus(hero, value)
 end
 
 function Amulet:add_modifiers(hero, inventory_unit, item)
-	print(item)
+	print("[Amulet:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	DeepPrintTable(item)
+	if not item.newItemTable then
+		print("[Error] Amulet:add_modifiers item.newItemTable is null")
+		RPCItems:ItemUTIL_Remove(item)
+		return
+	end
+	print("[Amulet:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
 	local trinket_ability = inventory_unit:FindAbilityByName("trinket_slot")
 	trinket_ability.strength = 0
 	trinket_ability.agility = 0
@@ -36,29 +43,35 @@ function Amulet:add_modifiers(hero, inventory_unit, item)
 	trinket_ability.demon = 0
 	trinket_ability.arcane = 0
 	trinket_ability.undead = 0
-	local property1 = RPCItems:AdjustAttributeValue(hero, item.property1)
-	Amulet:action(item.property1name, property1, hero, inventory_unit, trinket_ability, item)
-	Amulet:runeProperty(item.property1name, item.property1, hero)
-	if item.property2name then
-		local property2 = RPCItems:AdjustAttributeValue(hero, item.property2)
-		Amulet:action(item.property2name, property2, hero, inventory_unit, trinket_ability, item)
-		Amulet:runeProperty(item.property2name, item.property2, hero)
+	if item.newItemTable.property1name then
+		local property1 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property1)
+		Amulet:action(item.newItemTable.property1name, property1, hero, inventory_unit, trinket_ability, item)
+		Amulet:runeProperty(item.newItemTable.property1name, item.newItemTable.property1, hero)
 	end
-	if item.property3name then
-		local property3 = RPCItems:AdjustAttributeValue(hero, item.property3)
-		Amulet:action(item.property3name, property3, hero, inventory_unit, trinket_ability, item)
-		Amulet:runeProperty(item.property3name, item.property3, hero)
+	if item.newItemTable.property2name then
+		local property2 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property2)
+		Amulet:action(item.newItemTable.property2name, property2, hero, inventory_unit, trinket_ability, item)
+		Amulet:runeProperty(item.newItemTable.property2name, item.newItemTable.property2, hero)
 	end
-	if item.property4name then
-		local property4 = RPCItems:AdjustAttributeValue(hero, item.property4)
-		Amulet:action(item.property4name, property4, hero, inventory_unit, trinket_ability, item)
-		Amulet:runeProperty(item.property4name, item.property4, hero)
+	if item.newItemTable.property3name then
+		local property3 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property3)
+		Amulet:action(item.newItemTable.property3name, property3, hero, inventory_unit, trinket_ability, item)
+		Amulet:runeProperty(item.newItemTable.property3name, item.newItemTable.property3, hero)
 	end
-	--CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "ability_tree_upgrade", {playerId="0"})
+	if item.newItemTable.property4name then
+		local property4 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property4)
+		Amulet:action(item.newItemTable.property4name, property4, hero, inventory_unit, trinket_ability, item)
+		Amulet:runeProperty(item.newItemTable.property4name, item.newItemTable.property4, hero)
+	end
 end
 
 
 function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinket_ability, item)
+	print("[Amulet:action] propertyName:"..tostring(propertyName))
+	if type(propertyValue) == "string" then
+		print("[action] type(propertyValue) == string")
+		propertyValue = 1
+	end
 	if propertyName == "strength" then
 		trinket_ability.strength = trinket_ability.strength + propertyValue
 		Amulet:addBasicModifier(trinket_ability.strength, hero, inventory_unit, "modifier_trinket_strength", trinket_ability)
@@ -92,6 +105,9 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 	elseif propertyName == "base_ability" then
 		trinket_ability.base_ability = trinket_ability.base_ability + propertyValue
 		Amulet:addBasicModifier(trinket_ability.base_ability, hero, inventory_unit, "modifier_trinket_base_ability_damage", trinket_ability)
+	elseif propertyName == "item_damage" then
+		trinket_ability.base_ability = trinket_ability.base_ability + propertyValue
+		Amulet:addBasicModifier(trinket_ability.base_ability, hero, inventory_unit, "modifier_trinket_item_damage_inc", trinket_ability)
 	elseif propertyName == "monkey_paw" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_monkey_paw", item)
 		hero.monkey_paw = item
@@ -141,8 +157,6 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_ruinfall_skull_token", item)
 	elseif propertyName == "omega_ruby" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_omega_ruby", item)
-	elseif propertyName == "raven" then
-		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_raven_idol", item)
 	elseif propertyName == "raven2" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_raven_idol2", item)
 	elseif propertyName == "phoenix_emblem" then
@@ -263,6 +277,10 @@ function Amulet:runeProperty(propertyName, propertyValue, hero)
 			propertyName = string.gsub(propertyName, "_3", "_2")
 		end
 	end
+	if type(propertyValue) == "string" then
+		print("[Amulet:runeProperty] propertyValue:"..propertyValue)
+		return
+	end
 	if propertyName == "rune_q_1" then
 		hero.runeUnit.amulet.q_1 = hero.runeUnit.amulet.q_1 + propertyValue
 		Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.q_1, propertyName, hero)
@@ -350,6 +368,7 @@ function Amulet:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_trinket_mana_regen")
 	hero:RemoveModifierByName("modifier_trinket_max_health")
 	hero:RemoveModifierByName("modifier_trinket_base_ability_damage")
+	hero:RemoveModifierByName("modifier_trinket_item_damage_inc")
 	hero:RemoveModifierByName("modifier_trinket_magic_resist")
 	hero:RemoveModifierByName("modifier_monkey_paw")
 	hero:RemoveModifierByName("modifier_blacksmiths_tablet")
@@ -368,7 +387,6 @@ function Amulet:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_torch_of_gengar")
 	hero:RemoveModifierByName("modifier_ruinfall_skull_token")
 	hero:RemoveModifierByName("modifier_omega_ruby")
-	hero:RemoveModifierByName("modifier_raven_idol")
 	hero:RemoveModifierByName("modifier_raven_idol2")
 	hero:RemoveModifierByName("modifier_phoenix_emblem")
 	hero:RemoveModifierByName("modifier_volcano_orb")

@@ -851,15 +851,15 @@ function Redfall:ForestFinalBridge()
 end
 
 function Redfall:GiveBurgundyFirefly(hero)
-    local itemName = "item_redfall_burgundy_firefly_"..GameState:GetDifficultyName()
-    local key = RPCItems:CreateConsumable(itemName, "rare", "redfall_key", "consumable", false, "Consumable", itemName.."_desc")
+    local item_name = "item_redfall_burgundy_firefly_"..GameState:GetDifficultyName()
+    local key = RPCItems:CreateConsumable(item_name, "rare", "redfall_key", "consumable", false, "Consumable", item_name.."_desc")
 
     RPCItems:GiveItemToHeroWithSlotCheck(hero, key)
 end
 
 function Redfall:DropAshTwig(position)
-    local itemName = "item_redfall_ashen_twig"
-    local key = RPCItems:CreateConsumable(itemName, "rare", "redfall_twig", "consumable", false, "Redfall Ridge Only", "DOTA_Tooltip_ability_"..itemName.."_Description")
+    local item_name = "item_redfall_ashen_twig"
+    local key = RPCItems:CreateConsumable(item_name, "rare", "redfall_twig", "consumable", false, "Redfall Ridge Only", "DOTA_Tooltip_ability_"..item_name.."_Description")
     key.cantStash = true
     local drop = CreateItemOnPositionSync( position, key )
     RPCItems:DropItem(key, position)
@@ -886,8 +886,8 @@ function Redfall:SpawnAshTreant(position, fv)
 end
 
 function Redfall:DropEnchantedLeaf(position)
-    local itemName = "item_redfall_glowing_redfall_leaf"
-    local key = RPCItems:CreateConsumable(itemName, "rare", "redfall_leaf", "consumable", false, "Redfall Ridge Only", "DOTA_Tooltip_ability_"..itemName.."_Description")
+    local item_name = "item_redfall_glowing_redfall_leaf"
+    local key = RPCItems:CreateConsumable(item_name, "rare", "redfall_leaf", "consumable", false, "Redfall Ridge Only", "DOTA_Tooltip_ability_"..item_name.."_Description")
     key.cantStash = true
     local drop = CreateItemOnPositionSync( position, key )
     RPCItems:DropItem(key, position)

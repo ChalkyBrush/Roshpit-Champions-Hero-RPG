@@ -144,32 +144,10 @@ function scorch_attack_land(event)
 	if proc then
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "RPCItem.HighFlameStart", attacker)
 		ability.attacker = attacker
-		--ability:ApplyDataDrivenThinker(caster, target:GetAbsOrigin(), "modifier_hand_scorched_earth_thinker", {})
+
 		CustomAbilities:QuickAttachThinker(ability, caster, target:GetAbsOrigin(), "modifier_hand_scorched_earth_thinker", {})
 		if ability:GetAbilityName() == "item_rpc_scorched_gauntlets_2" then
 			HighFlameThrow(attacker, ability, target)
-		end
-		-- local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_firefly.vpcf", PATTACH_CUSTOMORIGIN, target)
-		-- ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
-		-- ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin())
-		-- ParticleManager:SetParticleControl(particle, 2, target:GetAbsOrigin())
-		-- ParticleManager:SetParticleControl(particle, 3, target:GetAbsOrigin())
-		-- ParticleManager:SetParticleControl(particle, 4, target:GetAbsOrigin())
-		-- ParticleManager:SetParticleControl(particle, 5, target:GetAbsOrigin())
-		if ability:GetAbilityName() == "item_rpc_scorched_gauntlets" then
-			if target:GetDeathXP() < attacker:GetLevel()*5 then
-				return false
-			end
-			local nextValue = ability.property1 + 1
-			local upgradeThreshold = 4000
-			if nextValue >= upgradeThreshold then
-				ability.lock = true
-				RPCItems:RollScorchedGauntlets2(attacker, ability)
-				Notifications:Top(attacker:GetPlayerOwnerID(), {text="Gauntlet of Flame Upgraded", duration=5, style={color="white"}, continue=true})
-			else
-				ability.property1 = nextValue
-				RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_scorched_gauntlet", "#E8A917",  1, "#property_scorched_gauntlet_description")
-			end
 		end
 	end
 end
@@ -380,39 +358,6 @@ function flood_water_elemental_think(event)
 	end
 end
 
-function flood_water_elemental_kill(event)
-	local attacker = event.attacker
-	local dyingUnit = event.unit
-	if attacker:GetUnitName() == "water_elemental_flood" then
-		local ability = attacker.summoner.body
-		if ability.lock then
-			return
-		end
-		if ability:GetAbilityName() == "item_rpc_robe_of_flooding" then
-			if dyingUnit:GetDeathXP() > 0 then
-				local nextValue = ability.property1 + 1
-				local upgradeThreshold = 5000
-				if nextValue >= upgradeThreshold then
-					ability.lock = true
-					RPCItems:CreateFloodRobe2(attacker.summoner, ability)
-					Notifications:Top(attacker.summoner:GetPlayerOwnerID(), {text="Robe of Flooding Upgraded", duration=5, style={color="white"}, continue=true})
-						  particleName = "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash.vpcf"
-						  local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, attacker.summoner )
-						  ParticleManager:SetParticleControl( particle1, 0, attacker.summoner:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,140) )
-						  EmitSoundOn("Tanari.WaterSplash", attacker.summoner)
-						  Timers:CreateTimer(4, 
-						  function()
-							ParticleManager:DestroyParticle( particle1, false )
-						  end)
-				else
-					ability.property1 = nextValue
-					RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_flooding", "#57CFFF",  1, "#property_flooding_description")
-				end
-			end
-		end
-	end
-end
-
 function flood_elemental_wave_hit(event)
 	local target = event.target
 	local caster = event.caster
@@ -467,7 +412,7 @@ function hyper_visor_attack_land(event)
 	local agilityMult = ability:GetSpecialValueFor("property_two")
 	if proc then
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*agilityMult
-		local radius = 180
+		local radius = 450
 		local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
@@ -482,39 +427,9 @@ function hyper_visor_attack_land(event)
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 		EmitSoundOn("Hero_StormSpirit.Orchid_BallLightning", target)
-		if ability:GetAbilityName() == "item_rpc_hyper_visor" then
-			hyper_visor_upgrade(attacker, ability, target)
-		end
-	end
-end
-
-function hyper_visor_upgrade(caster, ability, target)
-	if not target.hyperHits then
-		target.hyperHits = 0
-	end
-	if ability.lock then
-		return false
-	end
-	target.hyperHits = target.hyperHits + 1
-	if target.hyperHits < 50 then
-		local nextValue = ability.property1 + 1
-		local upgradeThreshold = ability:GetSpecialValueFor("property_three")
-		if nextValue >= upgradeThreshold then
-			ability.lock = true
-			RPCItems:CreateHyperVisor2(caster, ability)
-			Notifications:Top(caster:GetPlayerOwnerID(), {text="Hyper Visor Upgraded", duration=5, style={color="white"}, continue=true})
-			local pfx = ParticleManager:CreateParticle( "particles/econ/items/sven/sven_warcry_ti5/hyper_visor.vpcf", PATTACH_CUSTOMORIGIN, caster )
-			ParticleManager:SetParticleControl( pfx, 0, caster:GetAbsOrigin())
-			ParticleManager:SetParticleControl( pfx, 1, Vector(240, 0, 0) )		
-			ParticleManager:SetParticleControl( pfx, 3, Vector(0, 0, 0) )	
-			Timers:CreateTimer(1.5, function()
-				ParticleManager:DestroyParticle(pfx, false)
-			end)
-			EmitSoundOn("Hero_StormSpirit.Orchid_BallLightning", caster)
-		else
-			ability.property1 = nextValue
-			RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_hyper_visor", "#3CB7E8",  1, "#property_hyper_visor_description")
-		end
+	else
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*agilityMult
+		Filters:ApplyItemDamage(target,attacker,damage,DAMAGE_TYPE_MAGICAL,event.ability,RPC_ELEMENT_LIGHTNING,RPC_ELEMENT_NONE)
 	end
 end
 
@@ -1475,20 +1390,20 @@ function azure_empire_init(event)
 		bird:SetModelScale(0.5)
 		table.insert(target.birdTable, bird)
 		ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_empire_buff", {})
-		if ability.property2name == "azure_silver" then
+		if ability.newItemTable.property2name == "azure_silver" then
 			-- ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_hawk_silver", {})
 			bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 			ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(bird.pfx, 15, Vector(180, 190, 255))
-		elseif ability.property2name == "azure_green" then
+		elseif ability.newItemTable.property2name == "azure_green" then
 			bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 			ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(bird.pfx, 15, Vector(80, 255, 80))
-		elseif ability.property2name == "azure_blue" then
+		elseif ability.newItemTable.property2name == "azure_blue" then
 			bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 			ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(bird.pfx, 15, Vector(80, 80, 255))
-		elseif ability.property2name == "azure_red" then
+		elseif ability.newItemTable.property2name == "azure_red" then
 			bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 			ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(bird.pfx, 15, Vector(255, 80, 80))
@@ -1540,16 +1455,16 @@ function azure_think(event)
 	local caster = event.caster
 	local stacks = target:GetModifierStackCount("modifier_azure_empire_visible", caster)
 	local heroLevel = target:GetLevel()
-	if ability.property2name == "azure_silver" then
+	if ability.newItemTable.property2name == "azure_silver" then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_azure_empire_base_ability", {})
 		target:SetModifierStackCount("modifier_azure_empire_base_ability", caster, stacks)
-	elseif ability.property2name == "azure_green" then
+	elseif ability.newItemTable.property2name == "azure_green" then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_azure_empire_agility", {})
 		target:SetModifierStackCount("modifier_azure_empire_agility", caster, heroLevel*stacks)
-	elseif ability.property2name == "azure_red" then
+	elseif ability.newItemTable.property2name == "azure_red" then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_azure_empire_strength", {})
 		target:SetModifierStackCount("modifier_azure_empire_strength", caster, heroLevel*stacks)
-	elseif ability.property2name == "azure_blue" then
+	elseif ability.newItemTable.property2name == "azure_blue" then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_azure_empire_intelligence", {})
 		target:SetModifierStackCount("modifier_azure_empire_intelligence", caster, heroLevel*stacks)
 	end
@@ -2438,20 +2353,6 @@ function gengar_damage(event)
 	end
 end
 
-function infenal_prison_think(event)
-	local caster = event.caster
-	local target = event.target
-	local ability = event.ability
-	local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, 340, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	local damage = ability.property1*0.6
-	if #enemies > 0 then
-		for _,enemy in pairs(enemies) do
-			Filters:ApplyItemDamage(enemy,target,damage,DAMAGE_TYPE_MAGICAL,event.ability,RPC_ELEMENT_FIRE,RPC_ELEMENT_NONE)
-			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_infernal_prison_effect", {})
-		end
-	end 
-end
-
 function redrock_end(event)
 	local target = event.target
 	target:Stop()
@@ -2781,24 +2682,6 @@ function ocean_tempest_think(event)
 		  ParticleManager:DestroyParticle( pfx, false )
 		end) 
 	end	
-end
-
-function raven_idol_take_damage(event)
-	local target = event.unit
-	local damage = event.damage
-	local ability = event.ability
-	local nextValue = ability.property1 + 1
-	local upgradeThreshold = 12000
-	if nextValue >= upgradeThreshold then
-		RPCItems:RollRavenIdol2(target, ability)
-		Notifications:Top(target:GetPlayerOwnerID(), {text="Raven Idol Upgraded", duration=5, style={color="white"}, continue=true})
-		
-		EmitSoundOn("Items.NobilityUpgrade", target)
-	else
-		ability.property1 = nextValue
-		RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_raven_idol", "#807F85",  1, "#property_raven_idol_description")
-	end
-
 end
 
 function raven_idol_think(event)
@@ -3198,7 +3081,7 @@ end
 function nobility_kill(event)
 	local attacker = event.attacker
 	local ability = event.ability
-	local nextValue = ability.property1 + 1
+	local nextValue = ability.newItemTable.property1 + 1
 	local upgradeThreshold = 10000
 	if nextValue >= upgradeThreshold then
 		RPCItems:CreateAugmentedRingOfNobility(attacker, ability)
@@ -3208,8 +3091,9 @@ function nobility_kill(event)
 		
 		EmitSoundOn("Items.NobilityUpgrade", attacker)
 	else
-		ability.property1 = nextValue
-		RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_nobility", "#FFFFFF",  1, "#property_nobility_description")
+		ability.newItemTable.property1 = nextValue
+		RPCItems:SetPropertyValuesSpecial(ability, ability.newItemTable.property1, "#item_property_nobility", "#FFFFFF",  1, "#property_nobility_description")
+		RPCItems:ItemUpdateCustomNetTables(ability)
 	end
 	 
 end
@@ -3998,42 +3882,6 @@ function skulldigger_hellfire_hit(event)
 			Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_UNDEAD,RPC_ELEMENT_NONE)
 		end
 	end
-
-	-- local victim = target
-	-- local attacker = caster
- --    if ability:GetAbilityName() == "item_rpc_skulldigger_gauntlet_lv1" then
- --        if victim:GetDeathXP() < attacker:GetLevel()*5 then
- --            return false
- --        end
- --        local nextValue = ability.property1 + 1
- --        local upgradeThreshold = 4000
- --        if nextValue == upgradeThreshold then
- --            ability.lock = true
- --            attacker:RemoveModifierByName("modifier_skulldigger_gauntlet")
- --            RPCItems:RollSkulldiggerGlovesLV2(attacker, ability)
- --            -- Notifications:Top(attacker.summoner:GetPlayerOwnerID(), {text="Robe of Flooding Upgraded", duration=5, style={color="white"}, continue=true})
- --            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_jakiro/viper_explosion_liquid_fire_explosion.vpcf", attacker, 2)
- --        else
- --            ability.property1 = nextValue
- --            RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_skulldigger1", "#90E8E7",  1, "#property_skulldigger1_description")
- --        end
- --    elseif ability:GetAbilityName() == "item_rpc_skulldigger_gauntlet_lv2" then
- --        if victim:GetDeathXP() < attacker:GetLevel()*30 then
- --            return false
- --        end
- --        local nextValue = ability.property1 + 1
- --        local upgradeThreshold = 8000
- --        if nextValue == upgradeThreshold then
- --            ability.lock = true
- --            attacker:RemoveModifierByName("modifier_skulldigger_gauntlet")
- --            RPCItems:RollSkulldiggerGlovesLV3(attacker, ability)
- --            -- Notifications:Top(attacker.summoner:GetPlayerOwnerID(), {text="Robe of Flooding Upgraded", duration=5, style={color="white"}, continue=true})
- --            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_jakiro/viper_explosion_liquid_fire_explosion.vpcf", attacker, 2)
- --        else
- --            ability.property1 = nextValue
- --            RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_skulldigger2", "#90E8E7",  1, "#property_skulldigger2_description")
- --        end
- --    end
 end
 
 function shipyard_shield_lvl3_take_damage(event)
@@ -4559,10 +4407,7 @@ function tiny_avalanche_think(event)
 	local ability = event.ability
 	ParticleManager:SetParticleControl( ability.pfx, 0, target:GetAbsOrigin() )
 	local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, 420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	local levelTwo = false
-	if ability:GetAbilityName() == "item_rpc_avalanche_plate_2" then
-		levelTwo = true
-	end
+	local levelTwo = true
 	if #enemies > 0 then
 		local mult = 6
 		if levelTwo then
@@ -4595,19 +4440,6 @@ function tiny_avalanche_think(event)
 				        end
 				    end  
 				end
-			end
-		end
-		if not levelTwo then
-			local nextValue = ability.property1 + 1
-			local upgradeThreshold = 1500
-			if nextValue >= upgradeThreshold then
-				ability.property1 = nextValue
-				ability.lock = true
-				RPCItems:AvalancePlate2(target, ability)
-				Notifications:Top(target:GetPlayerOwnerID(), {text="Avalanche Plate Upgraded", duration=5, style={color="white"}, continue=true})
-			else
-				ability.property1 = nextValue
-				RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_avalanche", "#9C8C81",  1, "#property_avalanche_description")
 			end
 		end
 	end 
@@ -5214,14 +5046,15 @@ function arcane_charm_end(event)
 end
 
 function skull_ring_init(event)
+	print("[skull_ring_init]")
 	local heroEntity = event.target
 	local item = event.ability
 	local caster = event.caster
-	local propertyTable = CustomNetTables:GetTableValue("item_properties", tostring(item:GetEntityIndex()).."-"..tostring(1))
-	local tooltipGlyph = propertyTable.propertyName
+	local propertyTable = CustomNetTables:GetTableValue("item_basics", tostring(item:GetEntityIndex()))
+	local tooltipGlyph = propertyTable.property1tooltip
 	local glyphName = string.gsub(tooltipGlyph, "#DOTA_Tooltip_ability_item_rpc_", "")
 	local glyphNameWithItem = string.gsub(tooltipGlyph, "#DOTA_Tooltip_ability_", "")
-	print(glyphNameWithItem)
+	print("skull_ring_init:"..glyphNameWithItem)
 	caster.skullGlyph = Glyphs:RollGlyphAll(glyphNameWithItem, Vector(0, 0), 0)
 	UTIL_Remove(caster.skullGlyph:GetContainer())
 	local modifierName = "modifier_"..glyphName
