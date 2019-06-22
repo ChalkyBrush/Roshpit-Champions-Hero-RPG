@@ -10,12 +10,12 @@ function Winterblight:CaveGuideSpawn()
 			local spawnPos = GetGroundPosition(Vector(-5427, 6930), Events.GameMaster)
 			local guide = CreateUnitByName("winterblight_cavern_guide", spawnPos, false, nil, nil, DOTA_TEAM_GOODGUYS)
 			guide:SetForwardVector(Vector(-1,1))
-			StartAnimation(guide, {duration=4, activity=ACT_DOTA_VERSUS, rate=0.9})
+			StartAnimation(guide, {duration=5, activity=ACT_DOTA_VERSUS, rate=0.8})
 			EmitSoundOnLocationWithCaster(spawnPos, "Winterblight.GuideCaveIntro2", Events.GameMaster)
 			CustomAbilities:QuickParticleAtPoint("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", spawnPos, 3)
 			CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", spawnPos, 3)
 			for i = 1, 5, 1 do
-				Timers:CreateTimer(0.75*(i+1)-0.5, function()
+				Timers:CreateTimer(1*(i+1)-0.5, function()
 					EmitSoundOnLocationWithCaster(spawnPos, "Winterblight.Cave.GuideIntro1", Events.GameMaster)
 					CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", spawnPos, 3)
 				end)
@@ -23,6 +23,7 @@ function Winterblight:CaveGuideSpawn()
 			guide:SetAbsOrigin(guide:GetAbsOrigin()+Vector(0,0,2000))
 			guide:SetModelScale(1.3)
 			guide:SetRenderColor(60, 50, 255)
+			Winterblight.CavernGuide = guide
 			local ability = guide:FindAbilityByName("winterblight_cave_guide_ability")
 			ability:ApplyDataDrivenModifier(guide, guide, "modifier_guide_entering", {duration = 60})
 	-- 	end
@@ -94,12 +95,23 @@ function Winterblight:ProcessChamberStart(msg)
 	if Winterblight.CavernData.Chambers[msg.chamber]["status"] > 0 then
 		return false
 	end
+	local hero = PlayerResource:GetPlayer(msg.PlayerID):GetAssignedHero()
+	if not Winterblight:ValidateChamberMaxLevel(hero, msg.chamber, msg.event_number, msg.level) then
+		return false
+	end
 	Winterblight.CavernData.Chambers[msg.chamber]["status"] = 1
 	Winterblight.CavernData.Chambers[msg.chamber]["events"][msg.event_number]["status"] = 1
 	if Beacons.cheats then
 		Winterblight.CavernData.Chambers[msg.chamber]["status"] = 0
 		Winterblight.CavernData.Chambers[msg.chamber]["events"][msg.event_number]["status"] = 0
 	end
+	StartAnimation(Winterblight.CavernGuide, {duration=4, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.6})
+	Timers:CreateTimer(1.0, function()
+		EmitSoundOnLocationWithCaster(Winterblight.CavernGuide:GetAbsOrigin(), "Winterblight.GuideCaveIntro2", Events.GameMaster)
+		CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", Winterblight.CavernGuide, 4)
+		CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", Winterblight.CavernGuide:GetAbsOrigin(), 4)
+	end)
+	EmitSoundOn("Winterblight.CavernGuide.EventStart.VO", Winterblight.CavernGuide)
 	if msg.chamber == 1 then
 		Winterblight:FrozenFoyer(msg)
 	end
@@ -117,16 +129,20 @@ function Winterblight:FrozenFoyer1(msg)
 	for i = 1, #positionTable, 1 do
 		local fv = ((Vector(-5622, 6912) - positionTable[i])*Vector(1,1,0)):Normalized()
 		local unit = Winterblight:SpawnWinterRunner(positionTable[i], fv)
-		Winterblight:SetCavernUnit(unit, 1, positionTable[i], true)
+		Winterblight:SetCavernUnit(unit, 1, positionTable[i], true, true)
 	end
 
 end
 
-function Winterblight:SetCavernUnit(unit, chamber_id, original_position, bDeaggro)
+function Winterblight:SetCavernUnit(unit, chamber_id, original_position, bDeaggro, bParticle)
 	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_winterblight_cavern_unit", {})
 	unit.chamber_id = chamber_id
 	unit.deaggro = bDeaggro
 	unit.original_position = original_position
+	if bParticle then
+		CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", unit:GetAbsOrigin(), 4)
+		EmitSoundOn("Winterblight.GuideCaveIntro", unit)
+	end
 end
 
 function Winterblight:SpawnWinterRunner(position, fv)
@@ -148,6 +164,42 @@ function Winterblight:IsWithinChamber(unit, chamber_id)
 		end
 	end
 	return is_in_region
+end
+
+function Winterblight:ValidateChamberMaxLevel(hero, chamber_index, event_index, level)
+	local playerID = hero:GetPlayerOwnerID()
+	local steam_id = PlayerResource:GetSteamAccountID(playerID)
+	local overall_max = 1
+	local your_hero_max = 1
+	local chamber_index = tostring(chamber_index)
+	local event_index = tostring(event_index)
+	if Winterblight.CavernMetaData[chamber_index][event_index][steam_id] and Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"] and Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"]["level"] then
+		your_hero_max = Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"]["level"] + 1
+	end
+	local game_settings_max = 1
+	local difficulty = GameState:GetDifficultyFactor()
+	if difficulty == 2 then
+		game_settings_max = 3
+	elseif difficulty == 3 then
+		game_settings_max = 5
+		if Winterblight.Stones == 1 then
+			game_settings_max = 10
+		elseif Winterblight.Stones == 2 then
+			game_settings_max = 15
+		elseif Winterblight.Stones == 3 then
+			game_settings_max = -1
+		end
+	end
+	if game_settings_max > 0 then
+		overall_max = math.min(your_hero_max, game_settings_max)
+	else
+		overall_max = math.max(your_hero_max, 20)
+	end
+	if overall_max >= level then
+		return true
+	else
+		return false
+	end
 end
 
 function Winterblight:GetVertices(chamber_id)
