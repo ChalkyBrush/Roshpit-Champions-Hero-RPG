@@ -154,9 +154,42 @@
 					</Button>
 			</Panel>
 		</snippet>
+		<snippet name="cavern_summary">
+			<Panel class="cavern_summary_root" hittest="false">
+				<Panel id="cavern_summary_header">
+					<Label id="cavern_summary_title" text="winterblight_cavern"/>
+					<Button id="cavern_summary_expander">
+						<Label id="cavern_expander_label" text="-" />
+					</Button>
+				</Panel>
+				<Panel id="cavern_summary_contents" hittest="false">
+					<Panel id="cavern_summary_bg" hittest="false"/>
+					<Panel id="cavern_summary_items_attacher" hittest="false"/>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="cavern_summary_item">
+			<Panel class="cavern_summary_item_root" hittest="false">
+				<Panel id="summary-top-row" hittest="false">
+					<Label id="winter_event_chamber_name" />
+					<DOTAUserName class="dota_player_name" id="event_player_name" text="playername"/>
+					<Image id="event_hero_portrait" heroid="5" />
+					<Panel id="event-name-and-level">
+						<Label id="winter_event_event_name" />
+						<Label id="winter_event_event_level" />
+					</Panel>
+				</Panel>
+				<Panel id="summary-bottom-row" hittest="false">
+					<Panel id="event-progress-bar" hittest="false">
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
 	</snippets>
 	<Panel class="winterblight_cavern_root" hittest="false">
 		<Panel id="winterblight_cavern_main_ui" class="invisible" hittest="false">
+		</Panel>
+		<Panel id="winterblight_cavern_summary_container" class="invisible" hittest="false">
 		</Panel>
 	</Panel>
 

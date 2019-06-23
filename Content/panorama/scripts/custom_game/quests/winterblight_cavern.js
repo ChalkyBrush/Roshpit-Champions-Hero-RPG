@@ -1,4 +1,5 @@
 bInit = false
+bInit2 = false
 room_mapping = ["frozen_foyer", "aurora_passage", "crystarium", "edge_of_winter"]
 event_count = 4
 mChamberMax = 0
@@ -112,6 +113,9 @@ function EventStartButtonPress(chamber_index, event_index, cavern_ui_panel){
 		Game.EmitSound("Winterblight.UI.ChamberSelect")
 		CloseWinterCavern()
 	}else{
+		var color_container = cavern_ui_panel.FindChildTraverse('chamber_event_start_container')
+		color_container.RemoveClass('animate_red')
+		color_container.AddClass('animate_red')
 		Game.EmitSound("Winterblight.Cavern.EventStart.NotAllowed")
 	}
 }
@@ -233,9 +237,77 @@ function get_event_difficulty_max(difficulty, stones)
 	}
 }
 
+function CavernSummaryInit(msg)
+{
+	$('#winterblight_cavern_summary_container').RemoveClass('invisible')
+	$('#winterblight_cavern_summary_container').RemoveClass('animateMainFadeIn')
+	if (!(bInit2)){
+		$('#winterblight_cavern_summary_container').AddClass('animateMainFadeIn')
+		bInit2 = true
+	}
+	$('#winterblight_cavern_summary_container').RemoveAndDeleteChildren()
+	var cavern_ui_panel = $.CreatePanel("Panel", $('#winterblight_cavern_summary_container'), "cavern_summary")
+	cavern_ui_panel.BLoadLayoutSnippet("cavern_summary")	
+	$.Msg("-----CHAMBER DATA----")
+	$.Msg(msg.chamber_data)
+	var expander_button = cavern_ui_panel.FindChildTraverse('cavern_summary_expander')
+	var attacher = cavern_ui_panel.FindChildTraverse('cavern_summary_items_attacher')
+	var expander_label = cavern_ui_panel.FindChildTraverse('cavern_expander_label')
+	var expander_header = cavern_ui_panel.FindChildTraverse('cavern_summary_header')
+	expander_button.open = true
+	expander_button.SetPanelEvent('onactivate', function Open() {
+		expander_buttom_event(cavern_ui_panel, expander_button, expander_label, expander_header)
+	});
+	for (var i = 1; i <= 4; i++) {
+		var chamber_data = msg.chamber_data[i]
+		$.Msg(chamber_data)
+		if (chamber_data["status"] == 1){
+			var chamber_index = i
+			var event_index = chamber_data["event"]
+			var event_parent = $.CreatePanel("Panel", attacher, "cavern_summary_event_"+i)
+			event_parent.BLoadLayoutSnippet('cavern_summary_item')
+			event_parent.FindChildTraverse('winter_event_chamber_name').text = $.Localize("winterblight_cavern_room"+i) + " - "
+			var hero_name = Entities.GetUnitName( chamber_data["hero"] )
+			event_parent.FindChildTraverse('event_hero_portrait').SetImage("file://{images}/heroes/" + hero_name + ".png")
+			event_parent.FindChildTraverse('event_player_name').steamid = chamber_data["steam_id_long"]
+			event_parent.FindChildTraverse('winter_event_event_name').text = $.Localize("winterblight_cavern_room"+chamber_index+"_event"+event_index)
+			event_parent.FindChildTraverse('winter_event_event_level').text = "LV"+chamber_data["level"]
+		}
+	}	
+}
+
+// function update_summary(event_parent, chamber_data){
+
+// }
+
+function construct_chamber_info(){
+
+}
+
+function expander_buttom_event(cavern_ui_panel, expander_button, cavern_expander_label, expander_header)
+{
+	if(expander_button.open){
+		cavern_ui_panel.RemoveClass('slide_closed')
+		cavern_ui_panel.RemoveClass('slide_open')
+		cavern_ui_panel.AddClass('slide_closed')
+		cavern_ui_panel.AddClass('cavern_summary_closed')
+		expander_button.open = false
+		// cavern_expander_label.text = "+"
+		expander_header.AddClass('round-bottom-right')
+	}else{
+		cavern_ui_panel.RemoveClass('slide_closed')
+		cavern_ui_panel.RemoveClass('slide_open')
+		cavern_ui_panel.AddClass('slide_open')
+		cavern_ui_panel.RemoveClass('cavern_summary_closed')
+		expander_button.open = true
+		// cavern_expander_label.text = "-"
+		expander_header.RemoveClass('round-bottom-right')
+	}
+}
+
 (function()
 {
 	GameEvents.Subscribe( "open_winterblight_cavern_ui", OpenWinterblightCavernUi);
 	GameEvents.Subscribe( "load_winterblight_cavern_records", CavernRecordsLoaded)
-
+	GameEvents.Subscribe( "cavern_summary_init", CavernSummaryInit)
 })();

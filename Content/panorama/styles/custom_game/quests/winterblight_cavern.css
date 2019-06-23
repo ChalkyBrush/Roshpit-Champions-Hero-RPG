@@ -459,3 +459,171 @@
 #cavern_records_right2{
 	margin-top:50px;
 }
+
+.animate_red{
+    animation-name: redFade;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+@keyframes 'redFade'{
+  0%   { background-color: #111116; }
+  100% { background-color: #962e2e; }
+}
+
+#cavern_summary_header{
+	height:30px;
+	width:400px;
+	background-color: gradient( linear, 0px 0%, 400px 0%, from( #11294f ), to( #021738) );
+	border-top-right-radius:8px;
+}
+
+.cavern_summary_root{
+	margin-top:160px;
+	flow-children:down;
+}
+
+#cavern_summary_title{
+	color:#FFFFFF;
+	font-size:16px;
+	horizontal-align:center;
+	vertical-align: center;
+	line-height:26px;
+	text-shadow: 1px 1px 2px 3 #00000066;
+	text-transform:uppercase;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
+#cavern_summary_contents{
+/*	height:100%;*/
+	width:100%;
+}
+
+#cavern_summary_bg{
+	height:100%;
+	width:100%;
+	background-color: #111111;
+	opacity:0.92;
+	border-top-right-radius:1px;
+}
+
+#cavern_summary_expander{
+	width:40px;
+	height:40px;
+	horizontal-align:right;
+}
+
+#cavern_summary_expander:hover{
+	background-color: #111111;
+}
+
+#cavern_expander_label{
+	horizontal-align:center;
+	color:#FFFFFF;
+	font-size:28px;
+	vertical-align: top;
+
+}
+
+@keyframes 'slideClosed'{
+  0%   { position: 0px 0px 0px; }
+  100% { position: -360px 0px 0px; }
+}
+
+.slide_closed{
+    animation-name: slideClosed;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+.cavern_summary_closed{
+	position: -360px 0px 0px;
+}
+
+@keyframes 'slideOpen'{
+  0%   { position: -360px 0px 0px; }
+  100% { position: 0px 0px 0px; }
+}
+
+.slide_open{
+    animation-name: slideOpen;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+.round-bottom-right{
+	border-bottom-right-radius:8px;
+}
+
+#cavern_summary_items_attacher{
+	width:100%;
+}
+
+.cavern_summary_item_root{
+	padding-top:8px;
+	flow-children:down;
+	width:100%;
+	padding-left:12px;
+	padding-right:12px;
+}
+
+#event-progress-bar{
+	height:20px;
+	width:90%;
+/*	border-radius:4px;*/
+	border:1px solid #888888;
+	margin-bottom:2px;
+	background-color: #111111;
+}
+
+#summary-bottom-row{
+	width:100%;
+}
+
+#summary-top-row{
+	flow-children:right;
+}
+
+#summary-mid-row{
+	flow-children:right;
+}
+
+#event_hero_portrait{
+	width:30px;
+	margin-right:4px;
+	height:16px;
+}
+
+#winter_event_chamber_name{
+	font-size:16px;
+	color:white;
+	text-shadow: 1px 1px 2px 3 #00000066;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
+#event_player_name{
+	font-size:16px;
+	color:white;
+	text-shadow: 1px 1px 2px 3 #00000066;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	max-width:110px;
+}
+
+#winter_event_event_name{
+	font-size:14px;
+	color:white;
+	text-shadow: 1px 1px 2px 3 #00000066;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+}
+
+#winter_event_event_level{
+	font-size:14px;
+	color:white;
+	text-shadow: 1px 1px 2px 3 #00000066;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+}
+
+#event-name-and-level{
+	flow-children:right;
+	horizontal-align:right;
+}

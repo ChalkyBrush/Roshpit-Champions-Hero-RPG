@@ -92,19 +92,21 @@ function Winterblight:ReturnRecordsToUI(msg)
 end
 
 function Winterblight:ProcessChamberStart(msg)
-	if Winterblight.CavernData.Chambers[msg.chamber]["status"] > 0 then
-		return false
+	if not Beacons.cheats then
+		if Winterblight.CavernData.Chambers[msg.chamber]["status"] > 0 then
+			return false
+		end
 	end
 	local hero = PlayerResource:GetPlayer(msg.PlayerID):GetAssignedHero()
 	if not Winterblight:ValidateChamberMaxLevel(hero, msg.chamber, msg.event_number, msg.level) then
 		return false
 	end
 	Winterblight.CavernData.Chambers[msg.chamber]["status"] = 1
+	Winterblight.CavernData.Chambers[msg.chamber]["level"] = msg.level
+	Winterblight.CavernData.Chambers[msg.chamber]["event"] = msg.event_number
+	Winterblight.CavernData.Chambers[msg.chamber]["hero"] = hero:GetEntityIndex()
 	Winterblight.CavernData.Chambers[msg.chamber]["events"][msg.event_number]["status"] = 1
-	if Beacons.cheats then
-		Winterblight.CavernData.Chambers[msg.chamber]["status"] = 0
-		Winterblight.CavernData.Chambers[msg.chamber]["events"][msg.event_number]["status"] = 0
-	end
+	
 	StartAnimation(Winterblight.CavernGuide, {duration=4, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.6})
 	Timers:CreateTimer(1.0, function()
 		EmitSoundOnLocationWithCaster(Winterblight.CavernGuide:GetAbsOrigin(), "Winterblight.GuideCaveIntro2", Events.GameMaster)
@@ -115,6 +117,11 @@ function Winterblight:ProcessChamberStart(msg)
 	if msg.chamber == 1 then
 		Winterblight:FrozenFoyer(msg)
 	end
+
+	local player = hero:GetPlayerOwner()
+	local playerID = hero:GetPlayerOwnerID()
+	Winterblight.CavernData.Chambers[msg.chamber]["steam_id_long"] = tostring(PlayerResource:GetSteamID(playerID))
+	CustomGameEventManager:Send_ServerToPlayer(player, "cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers})
 end
 
 function Winterblight:FrozenFoyer(msg)
@@ -124,6 +131,8 @@ function Winterblight:FrozenFoyer(msg)
 end
 
 function Winterblight:FrozenFoyer1(msg)
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 100
+	Winterblight.CavernData.Chambers[msg.chamber]["current"] = 1
 	local unitsTable = {}
 	local positionTable = {Vector(-7040, 7552), Vector(-6809, 7936), Vector(-6519, 8320)}
 	for i = 1, #positionTable, 1 do
@@ -195,7 +204,7 @@ function Winterblight:ValidateChamberMaxLevel(hero, chamber_index, event_index, 
 	else
 		overall_max = math.max(your_hero_max, 20)
 	end
-	if overall_max >= level then
+	if overall_max >= level and level > 0 then
 		return true
 	else
 		return false
