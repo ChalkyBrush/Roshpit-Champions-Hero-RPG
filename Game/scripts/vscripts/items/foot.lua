@@ -5,13 +5,11 @@ end
 
 function Foot:add_modifiers(hero, inventory_unit, item)
 	print("[Foot:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
-	DeepPrintTable(item)
 	if not item.newItemTable then
 		print("[Error] Foot:add_modifiers item.newItemTable is null")
 		RPCItems:ItemUTIL_Remove(item)
 		return
 	end
-	print("[Foot:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
 	local foot_ability = inventory_unit:FindAbilityByName("foot_slot")
 	foot_ability.strength = 0
 	foot_ability.agility = 0
@@ -26,6 +24,7 @@ function Foot:add_modifiers(hero, inventory_unit, item)
 	foot_ability.respawn_reduce = 0
 	foot_ability.evasion = 0
 	foot_ability.base_ability = 0
+	foot_ability.item_damage = 0
 	foot_ability.max_health = 0
 	if item.newItemTable.property1name then
 		local property1 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property1)
@@ -99,8 +98,8 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 		foot_ability.base_ability = foot_ability.base_ability + propertyValue
 		Foot:addBasicModifier(foot_ability.base_ability, hero, inventory_unit, "modifier_foot_base_ability_damage", foot_ability)
 	elseif propertyName == "item_damage" then
-		foot_ability.base_ability = foot_ability.base_ability + propertyValue
-		Foot:addBasicModifier(foot_ability.base_ability, hero, inventory_unit, "modifier_foot_item_damage_inc", foot_ability)
+		foot_ability.item_damage = foot_ability.item_damage + propertyValue
+		Foot:addBasicModifier(foot_ability.item_damage, hero, inventory_unit, "modifier_foot_item_damage_inc", foot_ability)
 	elseif propertyName == "ghost_walk" then
 		Foot:addBasicModifier(1, hero, inventory_unit, "modifier_foot_unit_walk", foot_ability)
 	elseif propertyName == "dunetread" then

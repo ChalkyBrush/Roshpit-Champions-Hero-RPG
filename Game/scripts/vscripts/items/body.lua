@@ -5,13 +5,11 @@ end
 
 function Body:add_modifiers(hero, inventory_unit, item)
 	print("[Body:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
-	DeepPrintTable(item)
 	if not item.newItemTable then
 		print("[Error] Body:add_modifiers item.newItemTable is null")
 		RPCItems:ItemUTIL_Remove(item)
 		return
 	end
-	print("[Body:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
 	local body_ability = inventory_unit:FindAbilityByName("body_slot")
 	body_ability.strength = 0
 	body_ability.agility = 0
@@ -28,6 +26,7 @@ function Body:add_modifiers(hero, inventory_unit, item)
 	body_ability.max_health = 0
 	body_ability.attack_damage = 0
 	body_ability.base_ability = 0
+	body_ability.item_damage = 0
 	body_ability.movespeed = 0
 	if item.newItemTable.property1name then
 		local property1 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property1)
@@ -111,8 +110,8 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 		body_ability.base_ability = body_ability.base_ability + propertyValue
 		Body:addBasicModifier(body_ability.base_ability, hero, inventory_unit, "modifier_body_base_ability_damage", body_ability)
 	elseif propertyName == "item_damage" then
-		body_ability.base_ability = body_ability.base_ability + propertyValue
-		Body:addBasicModifier(body_ability.base_ability, hero, inventory_unit, "modifier_body_item_damage_inc", body_ability)
+		body_ability.item_damage = body_ability.item_damage + propertyValue
+		Body:addBasicModifier(body_ability.item_damage, hero, inventory_unit, "modifier_body_item_damage_inc", body_ability)
 	elseif propertyName == "movespeed" then
 		body_ability.movespeed = body_ability.movespeed + propertyValue
 		Body:addBasicModifier(body_ability.movespeed, hero, inventory_unit, "modifier_body_movespeed", body_ability)

@@ -5,13 +5,11 @@ end
 
 function Hand:add_modifiers(hero, inventory_unit, item)
 	print("[Hand:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
-	DeepPrintTable(item)
 	if not item.newItemTable then
 		print("[Error] Hand:add_modifiers item.newItemTable is null")
 		RPCItems:ItemUTIL_Remove(item)
 		return
 	end
-	print("[Hand:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
 	local hand_ability = inventory_unit:FindAbilityByName("hand_slot")
 	hand_ability.strength = 0
 	hand_ability.agility = 0
@@ -26,6 +24,7 @@ function Hand:add_modifiers(hero, inventory_unit, item)
 	hand_ability.max_health = 0
 	hand_ability.lifesteal = 0
 	hand_ability.base_ability = 0
+	hand_ability.item_damage = 0
 	hand_ability.attack_damage = 0
 	if item.newItemTable.property1name then
 		local property1 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property1)
@@ -99,8 +98,8 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 		hand_ability.base_ability = hand_ability.base_ability + propertyValue
 		Hand:addBasicModifier(hand_ability.base_ability, hero, inventory_unit, "modifier_hand_base_ability_damage", hand_ability)
 	elseif propertyName == "item_damage" then
-		hand_ability.base_ability = hand_ability.base_ability + propertyValue
-		Hand:addBasicModifier(hand_ability.base_ability, hero, inventory_unit, "modifier_hand_item_damage_inc", hand_ability)
+		hand_ability.item_damage = hand_ability.item_damage + propertyValue
+		Hand:addBasicModifier(hand_ability.item_damage, hero, inventory_unit, "modifier_hand_item_damage_inc", hand_ability)
 	elseif propertyName == "berserker_rage" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_berserker_gloves_base", item)
 	elseif propertyName == "shadow_armlet" then
