@@ -13,13 +13,11 @@ end
 
 function Weaponmodifiers:add_modifiers(hero, inventory_unit, item)
 	print("[Weaponmodifiers:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
-	DeepPrintTable(item)
 	if not item.newItemTable then
 		print("[Error] Weaponmodifiers:add_modifiers item.newItemTable is null")
 		RPCItems:ItemUTIL_Remove(item)
 		return
 	end
-	print("[Weaponmodifiers:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
 	local weapon_ability = inventory_unit:FindAbilityByName("weapon_slot")
 	weapon_ability.strength = 0
 	weapon_ability.agility = 0
@@ -28,6 +26,7 @@ function Weaponmodifiers:add_modifiers(hero, inventory_unit, item)
 	weapon_ability.critical_strike = 0
 	weapon_ability.splash_damage = 0
 	weapon_ability.base_ability = 0
+	weapon_ability.item_damage = 0
 	if item.newItemTable.property1name then
 		local property1 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property1)
 		Weaponmodifiers:action(item.newItemTable.property1name, property1, hero, inventory_unit, weapon_ability, item)
@@ -135,8 +134,8 @@ function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_uni
 		weapon_ability.base_ability = weapon_ability.base_ability + propertyValue
 		Weaponmodifiers:addBasicModifier(weapon_ability.base_ability, hero, inventory_unit, "modifier_weapon_base_ability_damage", weapon_ability)
 	elseif propertyName == "item_damage" then
-		weapon_ability.base_ability = weapon_ability.base_ability + propertyValue
-		Weaponmodifiers:addBasicModifier(weapon_ability.base_ability, hero, inventory_unit, "modifier_weapon_item_damage_inc", weapon_ability)
+		weapon_ability.item_damage = weapon_ability.item_damage + propertyValue
+		Weaponmodifiers:addBasicModifier(weapon_ability.item_damage, hero, inventory_unit, "modifier_weapon_item_damage_inc", weapon_ability)
 	elseif propertyName == "all_attributes" then
 		weapon_ability.strength = weapon_ability.strength + propertyValue
 		Weaponmodifiers:addBasicModifier(weapon_ability.strength, hero, inventory_unit, "modifier_weapon_strength", weapon_ability)	

@@ -5,13 +5,11 @@ end
 
 function Head:add_modifiers(hero, inventory_unit, item)
 	print("[Head:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
-	DeepPrintTable(item)
 	if not item.newItemTable then
 		print("[Error] Head:add_modifiers item.newItemTable is null")
 		RPCItems:ItemUTIL_Remove(item)
 		return
 	end
-	print("[Head:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
 	local head_ability = inventory_unit:FindAbilityByName("helm_slot")
 	head_ability.strength = 0
 	head_ability.agility = 0
@@ -28,6 +26,7 @@ function Head:add_modifiers(hero, inventory_unit, item)
 	head_ability.attack_damage = 0
 	head_ability.lifesteal = 0
 	head_ability.base_ability = 0
+	head_ability.item_damage = 0
 	if item.newItemTable.property1name then
 		local property1 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property1)
 		Head:action(item.newItemTable.property1name, property1, hero, inventory_unit, head_ability, item)
@@ -88,8 +87,8 @@ function Head:action(propertyName, propertyValue, hero, inventory_unit, head_abi
 		head_ability.base_ability = head_ability.base_ability + propertyValue
 		Head:addBasicModifier(head_ability.base_ability, hero, inventory_unit, "modifier_helm_base_ability_damage", head_ability)
 	elseif propertyName == "item_damage" then
-		head_ability.base_ability = head_ability.base_ability + propertyValue
-		Head:addBasicModifier(head_ability.base_ability, hero, inventory_unit, "modifier_helm_item_damage_inc", head_ability)
+		head_ability.item_damage = head_ability.item_damage + propertyValue
+		Head:addBasicModifier(head_ability.item_damage, hero, inventory_unit, "modifier_helm_item_damage_inc", head_ability)
 	elseif propertyName == "movespeed" then
 		head_ability.movespeed = head_ability.movespeed + propertyValue
 		Head:addBasicModifier(head_ability.movespeed, hero, inventory_unit, "modifier_helm_movespeed", head_ability)
