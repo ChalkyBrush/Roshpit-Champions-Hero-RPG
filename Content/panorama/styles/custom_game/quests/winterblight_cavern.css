@@ -565,15 +565,17 @@
 	width:100%;
 	padding-left:12px;
 	padding-right:12px;
+
 }
 
 #event-progress-bar{
 	height:20px;
 	width:90%;
 /*	border-radius:4px;*/
-	border:1px solid #888888;
+	border:1px solid #333333;
 	margin-bottom:2px;
 	background-color: #111111;
+	horizontal-align:center;
 }
 
 #summary-bottom-row{
@@ -582,6 +584,7 @@
 
 #summary-top-row{
 	flow-children:right;
+	horizontal-align:center;
 }
 
 #summary-mid-row{
@@ -599,11 +602,12 @@
 	color:white;
 	text-shadow: 1px 1px 2px 3 #00000066;
 	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+
 }
 
 #event_player_name{
 	font-size:16px;
-	color:white;
+	color:#8eb9ff;
 	text-shadow: 1px 1px 2px 3 #00000066;
 	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
 	max-width:110px;
@@ -613,17 +617,27 @@
 	font-size:14px;
 	color:white;
 	text-shadow: 1px 1px 2px 3 #00000066;
-	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	margin-top:1px;	
 }
 
 #winter_event_event_level{
 	font-size:14px;
-	color:white;
+	color:yellow;
 	text-shadow: 1px 1px 2px 3 #00000066;
 	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	margin-top:1px;
 }
 
 #event-name-and-level{
 	flow-children:right;
 	horizontal-align:right;
+}
+
+#event-progress-bar-label{
+	horizontal-align:center;
+	text-shadow: 1px 1px 2px 3 #00000066;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color:white;
+	font-size:16px;
 }

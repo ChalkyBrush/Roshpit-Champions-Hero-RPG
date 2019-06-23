@@ -181,6 +181,8 @@
 				</Panel>
 				<Panel id="summary-bottom-row" hittest="false">
 					<Panel id="event-progress-bar" hittest="false">
+						<Panel id="event-progress-bar-fill" hittest="false"/>
+						<Label id="event-progress-bar-label" />
 					</Panel>
 				</Panel>
 			</Panel>

@@ -132,6 +132,7 @@ end
 
 function Winterblight:FrozenFoyer1(msg)
 	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 100
+	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	Winterblight.CavernData.Chambers[msg.chamber]["current"] = 1
 	local unitsTable = {}
 	local positionTable = {Vector(-7040, 7552), Vector(-6809, 7936), Vector(-6519, 8320)}

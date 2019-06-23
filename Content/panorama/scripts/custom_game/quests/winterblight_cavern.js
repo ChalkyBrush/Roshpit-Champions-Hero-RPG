@@ -256,7 +256,7 @@ function CavernSummaryInit(msg)
 	var expander_header = cavern_ui_panel.FindChildTraverse('cavern_summary_header')
 	expander_button.open = true
 	expander_button.SetPanelEvent('onactivate', function Open() {
-		expander_buttom_event(cavern_ui_panel, expander_button, expander_label, expander_header)
+		expander_buttom_event(cavern_ui_panel, expander_button, expander_label, expander_header, attacher)
 	});
 	for (var i = 1; i <= 4; i++) {
 		var chamber_data = msg.chamber_data[i]
@@ -272,6 +272,7 @@ function CavernSummaryInit(msg)
 			event_parent.FindChildTraverse('event_player_name').steamid = chamber_data["steam_id_long"]
 			event_parent.FindChildTraverse('winter_event_event_name').text = $.Localize("winterblight_cavern_room"+chamber_index+"_event"+event_index)
 			event_parent.FindChildTraverse('winter_event_event_level').text = "LV"+chamber_data["level"]
+			event_parent.FindChildTraverse('event-progress-bar-label').text = chamber_data["progress"] + "/" + chamber_data["goal"]
 		}
 	}	
 }
@@ -284,7 +285,7 @@ function construct_chamber_info(){
 
 }
 
-function expander_buttom_event(cavern_ui_panel, expander_button, cavern_expander_label, expander_header)
+function expander_buttom_event(cavern_ui_panel, expander_button, cavern_expander_label, expander_header, attacher)
 {
 	if(expander_button.open){
 		cavern_ui_panel.RemoveClass('slide_closed')
@@ -302,6 +303,7 @@ function expander_buttom_event(cavern_ui_panel, expander_button, cavern_expander
 		expander_button.open = true
 		// cavern_expander_label.text = "-"
 		expander_header.RemoveClass('round-bottom-right')
+		attacher.RemoveClass('invisible')
 	}
 }
 
