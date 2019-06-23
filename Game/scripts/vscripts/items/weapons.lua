@@ -162,6 +162,13 @@ function Weapons:Equip(heroEntity, itemEntity)
 		end
     	print("SLOT = 1!!")
     	hero.weapon = itemEntity
+		CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), 
+			{xp = itemEntity.newItemTable.xp, 
+			level = itemEntity.newItemTable.level, 
+			xpNeeded = Weapons.XP_PER_LEVEL_TABLE[itemEntity.newItemTable.level], 
+			maxLevel = itemEntity.newItemTable.maxLevel, 
+			requiredHero = itemEntity.newItemTable.requiredHero} )
+
     	Weapons:SetWeaponTable(itemEntity)
 
     	CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemEntity:GetEntityIndex(), heroId=heroId, playerId=playerID, pickup="weapon", rarity=itemEntity.newItemTable.rarity, rarityColor=RPCItems:GetRarityColor(itemEntity.newItemTable.rarity)} )

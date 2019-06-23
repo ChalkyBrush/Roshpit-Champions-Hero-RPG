@@ -26,8 +26,7 @@ function pattern1(forwardVector, location, ability, caster, abilityLevel)
 		targetPoint = rotatedVector + location*Vector(1,1,0)
 		create_individual_explosion(abilityLevel, caster, targetPoint, location)
 	end
-	Timers:CreateTimer(0.3, -- Start this timer 10 game-time seconds later
-          function()
+	Timers:CreateTimer(0.3,           function()
           	EmitSoundOn("Hero_Nevermore.Shadowraze", caster)
 				for i=-6, 6, 1 do 
 					rotatedVector = rotateVector(forwardVector, i*2*math.pi/13)*Vector(400, 400, 0)
@@ -35,8 +34,7 @@ function pattern1(forwardVector, location, ability, caster, abilityLevel)
 					create_individual_explosion(abilityLevel, caster, targetPoint, location)
 				end
            end)
-	Timers:CreateTimer(0.6, -- Start this timer 10 game-time seconds later
-          function()
+	Timers:CreateTimer(0.6,           function()
           	EmitSoundOn("Hero_Nevermore.Shadowraze", caster)
 				for i=-9, 9, 1 do 
 					rotatedVector = rotateVector(forwardVector, i*2*math.pi/19)*Vector(600, 600, 0)
@@ -44,8 +42,7 @@ function pattern1(forwardVector, location, ability, caster, abilityLevel)
 					create_individual_explosion(abilityLevel, caster, targetPoint, location)
 				end
            end)
-	Timers:CreateTimer(0.9, -- Start this timer 10 game-time seconds later
-          function()
+	Timers:CreateTimer(0.9,           function()
           	EmitSoundOn("Hero_Nevermore.Shadowraze", caster)
 				for i=-13, 13, 1 do 
 					rotatedVector = rotateVector(forwardVector, i*2*math.pi/27)*Vector(600, 600, 0)
@@ -62,48 +59,42 @@ function pattern2(forwardVector, location, ability, caster, abilityLevel)
 		targetPoint = (location+forwardVector*Vector(200,200,0)) + forwardVector+perp*Vector(200,200,0)*i
 		create_individual_explosion(abilityLevel, caster, targetPoint, location)
 	end	
-	Timers:CreateTimer(.15, -- Start this timer 10 game-time seconds later
-          function()
+	Timers:CreateTimer(.15,           function()
           	EmitSoundOn("Hero_Nevermore.Shadowraze", caster)
 			for i=-2, 2, 1 do 
 				targetPoint = (location+forwardVector*Vector(400,400,0)) + forwardVector+perp*Vector(200,200,0)*i
 				create_individual_explosion(abilityLevel, caster, targetPoint, location)
 			end	
            end)
-	Timers:CreateTimer(.3, -- Start this timer 10 game-time seconds later
-          function()
+	Timers:CreateTimer(.3,           function()
           	EmitSoundOn("Hero_Nevermore.Shadowraze", caster)
 			for i=-2, 2, 1 do 
 				targetPoint = (location+forwardVector*Vector(600,600,0)) + forwardVector+perp*Vector(200,200,0)*i
 				create_individual_explosion(abilityLevel, caster, targetPoint, location)
 			end	
            end)
-	Timers:CreateTimer(.45, -- Start this timer 10 game-time seconds later
-          function()
+	Timers:CreateTimer(.45,           function()
           	EmitSoundOn("Hero_Nevermore.Shadowraze", caster)
 			for i=-2, 2, 1 do 
 				targetPoint = (location+forwardVector*Vector(800,800,0)) + forwardVector+perp*Vector(200,200,0)*i
 				create_individual_explosion(abilityLevel, caster, targetPoint, location)
 			end	
            end)
-	Timers:CreateTimer(.6, -- Start this timer 10 game-time seconds later
-          function()
+	Timers:CreateTimer(.6,           function()
           	EmitSoundOn("Hero_Nevermore.Shadowraze", caster)
 			for i=-2, 2, 1 do 
 				targetPoint = (location+forwardVector*Vector(1000,1000,0)) + forwardVector+perp*Vector(200,200,0)*i
 				create_individual_explosion(abilityLevel, caster, targetPoint, location)
 			end	
            end)
-	Timers:CreateTimer(0.75, -- Start this timer 10 game-time seconds later
-          function()
+	Timers:CreateTimer(0.75,           function()
           	EmitSoundOn("Hero_Nevermore.Shadowraze", caster)
 			for i=-2, 2, 1 do 
 				targetPoint = (location+forwardVector*Vector(1200,1200,0)) + forwardVector+perp*Vector(200,200,0)*i
 				create_individual_explosion(abilityLevel, caster, targetPoint, location)
 			end	
            end)
-	Timers:CreateTimer(0.9, -- Start this timer 10 game-time seconds later
-          function()
+	Timers:CreateTimer(0.9,           function()
           	EmitSoundOn("Hero_Nevermore.Shadowraze", caster)
 			for i=-2, 2, 1 do 
 				targetPoint = (location+forwardVector*Vector(1400,1400,0)) + forwardVector+perp*Vector(200,200,0)*i
@@ -127,8 +118,7 @@ function pattern3(forwardVector, location, ability, caster, abilityLevel)
 	end
 	forwardVector = rotateVector(forwardVector, math.pi/6)
 	location = caster:GetAbsOrigin()
-		Timers:CreateTimer(.8, -- Start this timer 10 game-time seconds later
-	          function()
+		Timers:CreateTimer(.8, 	          function()
 	          	EmitSoundOn("Hero_Nevermore.Shadowraze", caster)
 		for i = -7, 7 do
 				targetPoint = (location+forwardVector*Vector(200,200,0)*i)
@@ -142,8 +132,7 @@ function pattern3(forwardVector, location, ability, caster, abilityLevel)
 	end)
 	forwardVector = rotateVector(forwardVector, math.pi/6)
 	location = caster:GetAbsOrigin()
-		Timers:CreateTimer(1.6, -- Start this timer 10 game-time seconds later
-	          function()
+		Timers:CreateTimer(1.6, 	          function()
 	          	EmitSoundOn("Hero_Nevermore.Shadowraze", caster)
 		for i = -7, 7 do
 				targetPoint = (location+forwardVector*Vector(200,200,0)*i)
@@ -178,8 +167,7 @@ function create_individual_explosion(abilityLevel, caster, targetPoint, casterOr
 	}
 
 	ExecuteOrderFromTable(order)
-	  Timers:CreateTimer(4, -- Start this timer 10 game-time seconds later
-	  function()
+	  Timers:CreateTimer(4, 	  function()
 		dummy:RemoveSelf() 
 	  end)
 end

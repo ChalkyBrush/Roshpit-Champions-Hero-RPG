@@ -8,8 +8,7 @@ function begin_splitter(event)
 	forwardVector = caster:GetForwardVector()
 	local randInt = RandomInt(0, 2)
 	for i = 0, 16, 1 do
-		Timers:CreateTimer(i*0.2, -- Start this timer 10 game-time seconds later
-	          function()
+		Timers:CreateTimer(i*0.2, 	          function()
 	    location = caster:GetOrigin()
 		targetPoint = location + RandomVector(300)
 		create_individual_explosion(abilityLevel, caster, targetPoint, location)

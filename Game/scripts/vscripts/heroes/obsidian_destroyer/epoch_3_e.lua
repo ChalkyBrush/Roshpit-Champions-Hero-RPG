@@ -53,8 +53,7 @@ function fireOrb(abilityLevel, caster, targetPoint, casterOrigin, ability, e_4_l
 		Queue = true
 	}
 	ExecuteOrderFromTable(order)
-	  Timers:CreateTimer(5, -- Start this timer 10 game-time seconds later
-	  function()
+	  Timers:CreateTimer(5, 	  function()
 		dummy:RemoveSelf() 
 	  end)
 end
@@ -111,8 +110,7 @@ function jaunt(ability, caster)
 		      ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin())
 		      local particle2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
 		      ParticleManager:SetParticleControl( particle2, 0, newPosition )
-		      Timers:CreateTimer(2, -- Start this timer 10 game-time seconds later
-		      function()
+		      Timers:CreateTimer(2, 		      function()
 		        ParticleManager:DestroyParticle( particle1, false )
 		        ParticleManager:DestroyParticle( particle2, false )
 		      end)

@@ -522,8 +522,7 @@ function world1_wave_unit_die(event)
 
               EmitGlobalSound("Tutorial.Quest.complete_01")
               Notifications:TopToAll({image="file://{images}/custom_game/text/wave-clear-simple.png", duration=4.0})
-              Timers:CreateTimer(3, -- Start this timer 10 game-time seconds later
-              function()
+              Timers:CreateTimer(3,               function()
                 GameRules.Quest:CompleteQuest()
                 GameRules.Quest.UnitsKilled = -100
                 GameRules.Quest.KillLimit = -1000

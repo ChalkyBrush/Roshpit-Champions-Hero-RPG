@@ -158,8 +158,7 @@ function jumpEnd(event)
     local origin = hero:GetAbsOrigin() 
     local ability = event.ability
     -- StartAnimation(hero, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.2})
-      Timers:CreateTimer(0.2, -- Start this timer 10 game-time seconds later
-      function()
+      Timers:CreateTimer(0.2,       function()
         EmitSoundOn("Hero_ElderTitan.EchoStomp", hero)
         FindClearSpaceForUnit(hero, origin, true)
       end)

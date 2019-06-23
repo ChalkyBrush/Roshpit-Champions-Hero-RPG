@@ -307,8 +307,7 @@ function create_dummy_ability(location, caster, abilityName, abilityLevel)
 		Queue = true
 	}
 	ExecuteOrderFromTable(order)
-	  Timers:CreateTimer(8, -- Start this timer 10 game-time seconds later
-	  function()
+	  Timers:CreateTimer(8, 	  function()
 		dummy:RemoveSelf() 
 	  end)	
 end
