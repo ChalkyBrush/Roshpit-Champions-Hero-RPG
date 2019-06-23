@@ -207,7 +207,9 @@ function Weapons:UnequipItem(hero, item, slot)
 	RPCItems:RemoveItemStats(slot, hero)
 
 	CustomNetTables:SetTableValue("equipment", tostring(hero:GetPlayerOwnerID()).."-"..tostring(slot), {itemIndex = -1} )
-	hero.weapon = nil
+	if slot == 1 then
+		hero.weapon = nil
+	end
 	if IsValidEntity(item:GetContainer()) then
 		UTIL_Remove(item:GetContainer())
 	end
