@@ -8,7 +8,7 @@ function init_solunia(event)
 		      local model = v:GetModelName()
 		      caster.weaponFX = v
 		      caster.weaponFXname = model
-		      print(caster.weaponFX:GetModelName())
+		     --print(caster.weaponFX:GetModelName())
 		      break
 		    end 
 		  end 
@@ -192,9 +192,9 @@ function boomerang_thinking(event)
 			caster:RemoveModifierByName("modifier_boomerang_motion")
 			boomerangFinishAll(caster)
 			if caster.damagedEnemy then
-				print("DAMAGED ENEMY REUTNR")
+				--print("DAMAGED ENEMY REUTNR")
 				if caster.origCaster:HasModifier("modifier_solunia_glyph_2_1") then
-					print("IN THSI BLOCK??")
+					--print("IN THSI BLOCK??")
 					reduceNapalmCooldown(caster.origCaster, "solunia_solar_glow")
 					reduceNapalmCooldown(caster.origCaster, "solunia_lunar_glow")
 				end
@@ -214,9 +214,9 @@ function boomerang_thinking(event)
 end
 
 function reduceNapalmCooldown(caster, napalmName)
-	print(napalmName)
+	--print(napalmName)
 	if caster:HasAbility(napalmName) then
-		print("REDUCE NAPALM COOLDOWN")
+		--print("REDUCE NAPALM COOLDOWN")
 		local ability = caster:FindAbilityByName(napalmName)
 		if ability then
 			if ability:GetCooldownTimeRemaining() > 0 then
@@ -275,8 +275,8 @@ function a_c_explosion(caster, finalMoveVector)
 		local enemies = FindUnitsInRadius( caster.origCaster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				print(caster.damage)
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, caster.damage*(1+caster.e_1_level*0.5), damageType, 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+				--print(caster.damage)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, caster.damage*(1+caster.e_1_level*0.5), damageType, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 				Filters:ApplyStun(caster.origCaster, caster.e_1_level*0.05, enemy)
 			end
 		end 
@@ -436,7 +436,7 @@ function boomerang_impact(caster, ability, target)
 			local newStacks = math.min(caster.origCaster:GetModifierStackCount("modifier_black_widow_stacks", caster.origCaster) + 1, 50)
 			caster.origCaster:SetModifierStackCount("modifier_black_widow_stacks", caster.origCaster, newStacks)
 		end
-		Filters:TakeArgumentsAndApplyDamage(target, caster.origCaster, damage, damageType, 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NORMAL)
+		Filters:TakeArgumentsAndApplyDamage(target, caster.origCaster, damage, damageType, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NORMAL)
 		CustomAbilities:QuickAttachParticle("particles/roshpit/solunia/boomerang_impact.vpcf", target, 0.3)
 		EmitSoundOn("Solunia.BoomerangImpact", target)
 	end

@@ -178,7 +178,7 @@ function ShredderUpgradeTrigger3(trigger)
 			if lumber >= 100 then
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lone_druid/lone_druid_loadout.vpcf", hero.shredder, 3)
 				EmitSoundOn("Redfall.FriendlyShredder.Upgrade", hero.shredder)
-				print("ROLL HARVESTER BOOTS")
+				--print("ROLL HARVESTER BOOTS")
 				hero.RedfallQuests[8].active = 2
 				hero.RedfallQuests[8].state = 1
 				local item = RPCItems:RollHarvesterBoots(hero:GetAbsOrigin())
@@ -223,7 +223,7 @@ function shredder_whirling_death_cast(event)
 	EmitSoundOn("Redfall.FriendlyShredder.WhirlingDeath", caster)
 	local treeCount = 0
 	local trees = GridNav:GetAllTreesAroundPoint(caster:GetAbsOrigin(), 280, false)
-	print(#trees)
+	--print(#trees)
 	for i = 1, #trees, 1 do
 		if trees[i]:IsStanding() then
 			treeCount = treeCount + 1

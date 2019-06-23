@@ -2,14 +2,14 @@
 
   -- A timer running every second that starts immediately on the next frame, respects pauses
   Timers:CreateTimer(function()
-      print ("Hello. I'm running immediately and then every second thereafter.")
+     --print ("Hello. I'm running immediately and then every second thereafter.")
       return 1.0
     end
   )
 
   -- A timer running every second that starts 5 seconds in the future, respects pauses
   Timers:CreateTimer(5, function()
-      print ("Hello. I'm running 5 seconds after you called me and then every second thereafter.")
+     --print ("Hello. I'm running 5 seconds after you called me and then every second thereafter.")
       return 1.0
     end
   )
@@ -18,7 +18,7 @@
   Timers:CreateTimer({
     endTime = 10, -- when this timer should first execute, you can omit this if you want it to run first on the next frame
     callback = function()
-      print ("Hello. I'm running 10 seconds after when I was started.")
+     --print ("Hello. I'm running 10 seconds after when I was started.")
     end
   })
 
@@ -27,7 +27,7 @@
     useGameTime = false,
     endTime = 10, -- when this timer should first execute, you can omit this if you want it to run first on the next frame
     callback = function()
-      print ("Hello. I'm running 10 seconds after I was started even if someone paused the game.")
+     --print ("Hello. I'm running 10 seconds after I was started even if someone paused the game.")
     end
   })
 
@@ -37,7 +37,7 @@
     useGameTime = false,
     endTime = 120,
     callback = function()
-      print ("Hello. I'm running after 2 minutes and then every second thereafter.")
+     --print ("Hello. I'm running after 2 minutes and then every second thereafter.")
       return 1
     end
   })
@@ -48,7 +48,7 @@
     useOldStyle = true,
     endTime = GameRules:GetGameTime() + 5,
     callback = function()
-      print ("Hello. I'm running after 5 seconds and then every second thereafter.")
+     --print ("Hello. I'm running after 5 seconds and then every second thereafter.")
       return GameRules:GetGameTime() + 1
     end
   })
@@ -60,7 +60,7 @@
 TIMERS_THINK = 0.01
 
 if Timers == nil then
-  print ( '[Timers] creating Timers' )
+ --print ( '[Timers] creating Timers' )
   Timers = {}
   Timers.__index = Timers
 end
@@ -142,7 +142,7 @@ function Timers:Think()
 end
 
 function Timers:HandleEventError(name, event, err)
-  print(err)
+ --print(err)
 
   -- Ensure we have data
   name = tostring(name or 'unknown')
@@ -172,7 +172,7 @@ function Timers:CreateTimer(name, args)
     name = DoUniqueString("timer")
   end
   if not args.callback then
-    print("Invalid timer created: "..name)
+   --print("Invalid timer created: "..name)
     return
   end
 

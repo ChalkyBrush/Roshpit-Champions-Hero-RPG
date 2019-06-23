@@ -68,7 +68,7 @@ function jex_lightning_lightning_thinker(event)
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
 			
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, ability.damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, ability.damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 			hit = true
 			if caster:HasModifier("modifier_jex_glyph_3_1") then
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_jex_thunder_wrath_glyph_slow", {duration = JEX_GLYPH_3_DURATION})

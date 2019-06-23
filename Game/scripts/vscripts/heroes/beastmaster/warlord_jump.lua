@@ -16,14 +16,14 @@ function jumpStart(event)
 	end
     local distance = WallPhysics:GetDistance(targetPoint*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
     local jumpFV = ((targetPoint-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-    print(jumpFV)
+   --print(jumpFV)
     ability.jump_velocity = distance/30 + 15
     ability.jumpFV = jumpFV
     ability.distance = distance
     ability.targetPoint = targetPoint
     ability.lifting = true
     local animationRate = math.min(1100/distance, 2.5)
-    print(animationRate)
+   --print(animationRate)
     StartAnimation(caster, {duration=0.3+distance/1000, activity=ACT_DOTA_SPAWN, rate=animationRate})
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_jumping", {duration = 4})
     Timers:CreateTimer(0.3, function()
@@ -68,14 +68,14 @@ function fireJumpStart(event)
 	end
     local distance = WallPhysics:GetDistance(targetPoint*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
     local jumpFV = ((targetPoint-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-    print(jumpFV)
+   --print(jumpFV)
     ability.jump_velocity = distance/20 + 10
     ability.jumpFV = jumpFV
     ability.distance = distance
     ability.targetPoint = targetPoint
     ability.lifting = true
     -- local animationRate = math.min(1100/distance, 2.5)
-    -- print(animationRate)
+    --print(animationRate)
     -- StartAnimation(caster, {duration=0.3+distance/1000, activity=ACT_DOTA_SPAWN, rate=animationRate})
     -- ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_jumping", {duration = 4})
     Timers:CreateTimer(0.3, function()
@@ -96,7 +96,7 @@ function new_jumping_think(event)
 	end
 	caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,ability.jump_velocity)+ability.jumpFV*forwardSpeed)
 	ability.jump_velocity = ability.jump_velocity - 3.3
-	print(ability.jumpFV)
+	--print(ability.jumpFV)
 	if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 10 and not ability.lifting then
 		caster:RemoveModifierByName("modifier_warlord_jumping")
 		-- caster:RemoveModifierByName("modifier_ignore_cast_angle")
@@ -165,7 +165,7 @@ function c_c_projectile_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local damage = ability.e_3_damage
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
 function fallThink(event)
@@ -201,7 +201,7 @@ function warlordLand(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius+5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
 			Filters:ApplyStun(caster, stun_duration, enemy)	
 		end
 	end 
@@ -217,8 +217,8 @@ function fireDashThink(event)
 	local position = caster:GetAbsOrigin()
 	local fv = caster:GetForwardVector()
 	local searchPos = Vector(position.x, position.y, GetGroundHeight(position, caster))
-	print("SAERCH POS")
-	print(searchPos)
+	--print("SAERCH POS")
+	--print(searchPos)
 	local obstruction = WallPhysics:FindNearestObstruction(searchPos+(fv*30))
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, searchPos+(fv*30), caster)
 	if blockUnit then
@@ -255,7 +255,7 @@ function warlordLandFire(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius+5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)	
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)	
 		end
 	end 
 	-- caster:RemoveModifierByName("modifier_ignore_cast_angle")
@@ -336,7 +336,7 @@ function iceSprintBlast(caster, position, radius, damage, ability)
 	if #enemies > 0 then	
 		for _,enemy in pairs(enemies) do
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ice_sprint_slow", {duration = 3})
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
 		end
 	end
 end

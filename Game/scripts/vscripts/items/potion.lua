@@ -24,7 +24,7 @@ function getPotionMultipler(caster)
 	if caster:HasModifier("modifier_neutral_glyph_4_3") then
 		mult = mult + 0.2
 	end
-	-- print("getPotionMultipler "..mult)
+	--print("getPotionMultipler "..mult)
 	return mult
 end
 
@@ -114,7 +114,7 @@ function use_reanimation_stone(event)
 end
 
 function stackable_pickup(event)
-	print('stackable PICKUP')
+	--print('stackable PICKUP')
 	local ability = event.ability
 	ability.stackable = true
 	Events:PickUpTest(event.caster, ability, ability:GetAbilityName())
@@ -146,11 +146,11 @@ function use_web_prem_token(event)
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		--SaveLoad:NewKey()
-		print( "POST response:\n" )
+		--print( "POST response:\n" )
 		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 		CustomNetTables:SetTableValue("premium_pass", "web-"..tostring(playerID), {premium = 1} )
 		CustomGameEventManager:Send_ServerToAllClients("update_premium", {playerID = playerID} )

@@ -20,7 +20,7 @@ function epoch_attack_start(event)
 end
 
 function epoch_attack(event)
-	print("epoch_attack_start triggered")
+	--print("epoch_attack_start triggered")
 	local caster = event.attacker
 	local ability = event.ability
 	local target = event.target

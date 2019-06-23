@@ -12,7 +12,7 @@ function wave_unit_die(event)
 		else
 			CustomGameEventManager:Send_ServerToAllClients("serengaardUpdateData", {enemiesMax = Serengaard.waveMax, currentEnemies = Serengaard.waveProgress, waveNumber = Serengaard.wave})
 		end
-		print("WAVE UNIT DIE")
+		--print("WAVE UNIT DIE")
 		if Serengaard.waveProgress == Serengaard.waveMax then
 			Statistics.dispatch("serengard:finish_wave", {wave = Serengaard.wave});
 			Serengaard:NextWave()

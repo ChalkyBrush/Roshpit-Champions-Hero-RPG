@@ -299,7 +299,7 @@ function disciple_bolt_start(event)
 	local r_3_level = paladin:GetRuneValue("r", 3)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(paladin) * PALADIN_R3_DMG_PER_ATT * r_3_level
 	EmitSoundOn("Paladin.HolyBolt", target)
-	Filters:TakeArgumentsAndApplyDamage(target, paladin, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, paladin, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	Filters:ApplyStun(paladin, 0.1, target)
 	local particle = ParticleManager:CreateParticle("particles/roshpit/paladin/crusader_bolt_lightning_bolt.vpcf", PATTACH_WORLDORIGIN, target)
 	ParticleManager:SetParticleControl(particle, 0, Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))
@@ -312,7 +312,7 @@ function disciple_bolt_start(event)
 				EmitSoundOn("Paladin.HolyBolt", enemies[1])
 				for i = 1, #enemies, 1 do
 					local enemy = enemies[i]
-					Filters:TakeArgumentsAndApplyDamage(enemy, paladin, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+					Filters:TakeArgumentsAndApplyDamage(enemy, paladin, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 					Filters:ApplyStun(paladin, 0.1, enemy)
 					local particle = ParticleManager:CreateParticle("particles/roshpit/paladin/crusader_bolt_lightning_bolt.vpcf", PATTACH_WORLDORIGIN, enemy)
 					ParticleManager:SetParticleControl(particle, 0, Vector(enemy:GetAbsOrigin().x,enemy:GetAbsOrigin().y,enemy:GetAbsOrigin().z))

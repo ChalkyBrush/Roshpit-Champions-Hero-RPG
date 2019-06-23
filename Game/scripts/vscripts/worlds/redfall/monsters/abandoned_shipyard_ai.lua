@@ -1,5 +1,5 @@
 function ShipyardWater(trigger)
-	print("ENTER?")
+	--print("ENTER?")
 	local hero = trigger.activator
 	if hero:HasModifier("modifier_redfall_shipyard_water") then
 		return false
@@ -431,7 +431,7 @@ end
 function shipyard_aoe_phase_start(event)
 	local caster = event.caster
     local particle1 = ParticleManager:CreateParticle("particles/frostivus_gameplay/wraith_king_hellfire_eruption_tell.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-    print("eruption?")
+   --print("eruption?")
     for i = 0, 9, 1 do
     	ParticleManager:SetParticleControl(particle1,i,caster:GetAbsOrigin())
     end
@@ -494,8 +494,8 @@ function shipyard_gatekeeper_die(event)
 end
 
 function BoatTriggerA(trigger)
-	-- print(Redfall.Shipyard.boatsEnabled)
-	-- print(Redfall.Shipyard.boatAlock)
+	----print(Redfall.Shipyard.boatsEnabled)
+	----print(Redfall.Shipyard.boatAlock)
 	if Redfall.Shipyard.boatsEnabled then
 		if not Redfall.Shipyard.boatAlock then
 			local hero = trigger.activator
@@ -539,8 +539,8 @@ function BoatTriggerA(trigger)
 end
 
 function BoatTriggerB(trigger)
-	-- print(Redfall.Shipyard.boatsEnabled)
-	-- print(Redfall.Shipyard.boatAlock)
+	----print(Redfall.Shipyard.boatsEnabled)
+	----print(Redfall.Shipyard.boatAlock)
 	if Redfall.Shipyard.boatsEnabled then
 		if not Redfall.Shipyard.boatBlock then
 			local hero = trigger.activator
@@ -938,7 +938,7 @@ function shipyard_boss_aura_end(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	print("BREAK AURA??")
+	--print("BREAK AURA??")
 	if IsValidEntity(caster) then
 		if target:IsHero() and target:IsAlive() then
 			local roomCenter = Vector(14825, 10613)
@@ -1012,6 +1012,26 @@ function shipyard_boss_unit_think(event)
 		Timers:CreateTimer(0.1, function()
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lone_druid/lone_druid_loadout.vpcf", target, 3)
 		end)
+	end
+end
+
+function redfall_shipyard_boss_death_check(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.deathStart then
+	else
+		if caster:GetHealth() < 50 then
+			caster.deathStart = true
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_dying_generic", {duration = 20})
+			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
+			caster.deathStart = true
+			StartAnimation(caster, {duration=7, activity=ACT_DOTA_FLAIL, rate=1})
+			if caster.paragonDummy == nil or caster.buddiesSlain == caster.packSize then
+				Redfall:ShipyardBossDeath(caster, ability)
+			else
+				caster:ForceKill(false)
+			end
+		end
 	end
 end
 

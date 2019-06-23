@@ -145,7 +145,7 @@ function Redfall:SpawnShipyardArea2()
 end
 
 function Redfall:SpawnBloodHunter(position, fv)
-	local stone = Redfall:SpawnDungeonUnit(  "redfall_shipyard_crimsyth_blood_hunter", position, 1, 4, "Redfall.BloodHunter.Aggro", fv, false)
+	local stone = Spawning:SpawnNormalCreep("redfall_shipyard_crimsyth_blood_hunter", position, 1, 4, "Redfall.BloodHunter.Aggro", fv, false)
 	stone:SetRenderColor(255,151,151)
 	Events:AdjustBossPower(stone, 4, 4, false)
 	stone.itemLevel = 70
@@ -154,7 +154,7 @@ function Redfall:SpawnBloodHunter(position, fv)
 end
 
 function Redfall:SpawnBloodWolf(position, fv)
-	local stone = Redfall:SpawnDungeonUnit(  "redfall_shipyard_blood_wolf", position, 1, 2, "Redfall.BloodWolf.Aggro", fv, true)
+	local stone = Spawning:SpawnNormalCreep(  "redfall_shipyard_blood_wolf", position, 1, 2, "Redfall.BloodWolf.Aggro", fv, true)
 	Events:AdjustBossPower(stone, 1, 1, false)
 	stone.itemLevel = 68
 	stone.dominion = true
@@ -162,7 +162,7 @@ function Redfall:SpawnBloodWolf(position, fv)
 end
 
 function Redfall:SpawnDemonWolf(position, fv)
-	local stone = Redfall:SpawnDungeonUnit(  "redfall_shipyard_demon_wolf", position, 1, 2, "Redfall.DemonWolf.Aggro", fv, false)
+	local stone = Spawning:SpawnNormalCreep(  "redfall_shipyard_demon_wolf", position, 1, 2, "Redfall.DemonWolf.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 1, 1, false)
 	stone:SetRenderColor(120, 60, 60)
 	stone.itemLevel = 68
@@ -171,7 +171,7 @@ function Redfall:SpawnDemonWolf(position, fv)
 end
 
 function Redfall:SpawnSkeletonArcher(position, fv, bAggro)
-	local stone = Redfall:SpawnDungeonUnit(  "shipyard_skeleton_archer", position, 1, 2, "Redfall.SkeletonArcher.Aggro", fv, bAggro)
+	local stone = Spawning:SpawnNormalCreep(  "shipyard_skeleton_archer", position, 1, 2, "Redfall.SkeletonArcher.Aggro", fv, bAggro)
 	Events:AdjustBossPower(stone, 3, 3, false)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_beastmaster/beastmaster_call_boar_glow_base.vpcf", stone, 3)
 	stone:SetRenderColor(120, 70, 70)
@@ -181,7 +181,7 @@ function Redfall:SpawnSkeletonArcher(position, fv, bAggro)
 end
 
 function Redfall:SpawnShipyardZombie(position, fv, bAggro)
-	local stone = Redfall:SpawnDungeonUnit(  "shipyard_zombie_warrior", position, 0, 1, "Redfall.ShipyardZombie.Aggro", fv, bAggro)
+	local stone = Spawning:SpawnNormalCreep(  "shipyard_zombie_warrior", position, 0, 1, "Redfall.ShipyardZombie.Aggro", fv, bAggro)
     local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
     local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
     ParticleManager:SetParticleControl(particle1,0,stone:GetAbsOrigin())
@@ -197,7 +197,7 @@ function Redfall:SpawnShipyardZombie(position, fv, bAggro)
 end
 
 function Redfall:SpawnSkeletonArcherBoss(position, fv, bAggro)
-	local stone = Redfall:SpawnDungeonUnit(  "shipyard_skeleton_archer_boss", position, 3, 5, "Redfall.SkeletonArcherBoss.Aggro", fv, bAggro)
+	local stone = Spawning:SpawnNormalCreep(  "shipyard_skeleton_archer_boss", position, 3, 5, "Redfall.SkeletonArcherBoss.Aggro", fv, bAggro)
 	Events:AdjustBossPower(stone, 6, 7, false)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_beastmaster/beastmaster_call_boar_glow_base.vpcf", stone, 3)
 	stone:SetRenderColor(255,130,130)
@@ -243,7 +243,7 @@ function Redfall:RedBeam(positionA, positionB)
 end
 
 function Redfall:SpawnDemonRat(position, fv, bAggro)
-	local stone = Redfall:SpawnDungeonUnit("redfall_demon_rat", position, 0, 1, nil, fv, bAggro)
+	local stone = Spawning:SpawnNormalCreep("redfall_demon_rat", position, 0, 1, nil, fv, bAggro)
     local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
     local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
     ParticleManager:SetParticleControl(particle1,0,stone:GetAbsOrigin())
@@ -258,7 +258,7 @@ function Redfall:SpawnDemonRat(position, fv, bAggro)
 end
 
 function Redfall:SpawnShipyardDemonVoid(position, fv, bAggro)
-	local stone = Redfall:SpawnDungeonUnit("redfall_shipyard_void", position, 0, 2, "Redfall.DemoinVoid.Aggro", fv, bAggro)
+	local stone = Spawning:SpawnNormalCreep("redfall_shipyard_void", position, 0, 2, "Redfall.DemoinVoid.Aggro", fv, bAggro)
     local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
     local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
     ParticleManager:SetParticleControl(particle1,0,stone:GetAbsOrigin())
@@ -274,7 +274,7 @@ function Redfall:SpawnShipyardDemonVoid(position, fv, bAggro)
 end
 
 function Redfall:SpawnShipyardDemonBrute(position, fv, bAggro)
-	local stone = Redfall:SpawnDungeonUnit("redfall_shipyard_demon_brute", position, 1, 2, "Redfall.DemoinBrute.Aggro", fv, bAggro)
+	local stone = Spawning:SpawnNormalCreep("redfall_shipyard_demon_brute", position, 1, 2, "Redfall.DemoinBrute.Aggro", fv, bAggro)
     local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
     local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
     ParticleManager:SetParticleControl(particle1,0,stone:GetAbsOrigin())
@@ -290,7 +290,7 @@ function Redfall:SpawnShipyardDemonBrute(position, fv, bAggro)
 end
 
 function Redfall:SpawnShipyardConductor(position, fv, bAggro)
-	local stone = Redfall:SpawnDungeonUnit("redfall_shipyard_conductor", position, 1, 2, "Redfall.ShipyardConductor.Aggro", fv, bAggro)
+	local stone = Spawning:SpawnNormalCreep("redfall_shipyard_conductor", position, 1, 2, "Redfall.ShipyardConductor.Aggro", fv, bAggro)
     local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
     local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
     ParticleManager:SetParticleControl(particle1,0,stone:GetAbsOrigin())
@@ -353,7 +353,7 @@ end
 function Redfall:Switch2Pressed()
 	Redfall.shipyardSpawnPortalTable = {}
 	local spawnPositionTable = {Vector(14275, -6679), Vector(15723, -6489), Vector(15093, -7482)}
-	print("SPAWN BATTLE??")
+	--print("SPAWN BATTLE??")
 	Timers:CreateTimer(2, function()
 		for i = 1, #spawnPositionTable, 1 do
 			local pfx = ParticleManager:CreateParticle("particles/econ/events/ti4/teleport_end_counter_ti4.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
@@ -448,7 +448,7 @@ function Redfall:ShipyardGatekeeperBoss()
 end
 
 function Redfall:SpawnShipyardGatekeeper(position, fv, bAggro)
-	local stone = Redfall:SpawnDungeonUnit("redfall_shipyard_gatekeeper", position, 5, 7, "Redfall.Gatekeeper.Aggro", fv, bAggro)
+	local stone = Spawning:SpawnMiniBoss("redfall_shipyard_gatekeeper", position, 5, 7, "Redfall.Gatekeeper.Aggro", fv, bAggro)
 
 	stone:SetRenderColor(255,130,130)
 	Redfall:ColorWearables(stone, Vector(255,130,130))
@@ -553,7 +553,7 @@ function Redfall:SpawnShipyardPt2()
 end
 
 function Redfall:SpawnShipyardGhostFish(position, fv)
-	local stone = Redfall:SpawnDungeonUnit("shipyard_ghost_fish", position, 0, 2, "Redfall.ShipyardSharkFish.Aggro", fv, false)
+	local stone = Spawning:SpawnNormalCreep("shipyard_ghost_fish", position, 0, 2, "Redfall.ShipyardSharkFish.Aggro", fv, false)
 
 	stone:SetRenderColor(255,60,60)
 	Redfall:ColorWearables(stone, Vector(255,60,60))
@@ -580,7 +580,7 @@ function Redfall:ShipyardSkeletons(position)
 end
 
 function Redfall:SpawnShipyardSkeletonWarrior(position, fv)
-	local stone = Redfall:SpawnDungeonUnit( "redfall_shipyard_basic_skeleton", position, 0, 1, "Redfall.SkeletonSpawn.Aggro", fv, false)
+	local stone = Spawning:SpawnNormalCreep( "redfall_shipyard_basic_skeleton", position, 0, 1, "Redfall.SkeletonSpawn.Aggro", fv, false)
 
 	stone:SetRenderColor(90,180,150)
 	stone.itemLevel = 72
@@ -629,7 +629,7 @@ function Redfall:ShipyardBigTrigger1()
 end
 
 function Redfall:SpawnShipyardCargoWatcher(position, fv)
-	local stone = Redfall:SpawnDungeonUnit("redfall_shipyard_cargo_watcher", position, 2, 5, "Redfall.CargoWatcher.Aggro", fv, false)
+	local stone = Spawning:SpawnNormalCreep("redfall_shipyard_cargo_watcher", position, 2, 5, "Redfall.CargoWatcher.Aggro", fv, false)
 
 	stone:SetRenderColor(255,160,160)
 	Redfall:ColorWearables(stone, Vector(255,160,160))
@@ -639,7 +639,7 @@ function Redfall:SpawnShipyardCargoWatcher(position, fv)
 end
 
 function Redfall:SpawnShipyardSpawnerUnit(position, fv, itemRoll, bAggro)
-	local stone = Redfall:SpawnDungeonUnit("redfall_shipyard_pirate_gnoll", position, itemRoll, itemRoll, "Redfall.ShipyardKobold.Aggro", fv, bAggro)
+	local stone = Spawning:SpawnNormalCreep("redfall_shipyard_pirate_gnoll", position, itemRoll, itemRoll, "Redfall.ShipyardKobold.Aggro", fv, bAggro)
 	stone:SetRenderColor(233,140,140)
 	stone.itemLevel = 67
 	stone.dominion = true
@@ -662,7 +662,7 @@ function Redfall:SpawnShipyardSpawner(position, fv)
 end
 
 function Redfall:SpawnShipyardSoulCollector(position, fv)
-	local stone = Redfall:SpawnDungeonUnit("redfall_shipyard_soul_collector", position, 4, 7, "Redfall.ShipyardSoulCollector.Aggro", fv, false)
+	local stone = Spawning:SpawnNormalCreep("redfall_shipyard_soul_collector", position, 4, 7, "Redfall.ShipyardSoulCollector.Aggro", fv, false)
 
 	stone:SetRenderColor(255,160,160)
 	Redfall:ColorWearables(stone, Vector(255,160,160))

@@ -96,9 +96,9 @@ function fire_main_orb(event)
 end
 
 function jaunt(ability, caster)
-	print("jaunt calculated distance:")
+	--print("jaunt calculated distance:")
 
-	print(ability.orb_distance)
+	--print(ability.orb_distance)
 	if ability.orb_distance then
 		ProjectileManager:ProjectileDodge(caster)
 		EmitSoundOn("Hero_ElderTitan.AncestralSpirit.Cast", caster)
@@ -154,13 +154,13 @@ function onProjectileHit(event)
 	local ability = event.ability
 	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.e_4_level*EPOCH_E4_DMG_MULTI_PCT/100
 	if target:HasModifier("modifier_time_bound") or target:HasModifier("modifier_time_bind") or target:HasModifier("modifier_space_link") or target:HasModifier("modifier_epoch_arcana_root") then
-		print("damage x2!!!")
+		--print("damage x2!!!")
 		damage = damage*2
 		if target:HasModifier("modifier_epoch_immortal_weapon_3") then
 			Filters:ApplyStun(caster, 0.8, target)
 		end
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 
 end
 
@@ -173,7 +173,7 @@ function epoch_e_1(caster)
   	if caster:HasModifier("modifier_epoch_glyph_2_1") then
   		e_1_duration = e_1_duration * 2 
   	end
-  	-- print("e_1_duration "..e_1_duration)
+  	--print("e_1_duration "..e_1_duration)
     ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_rune_e_1", {duration = e_1_duration})
   end
 end
@@ -331,7 +331,7 @@ function epoch_e_2_projectile_hit(event)
 		end
 	end
 	if damage then
-		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 	end
 
 end

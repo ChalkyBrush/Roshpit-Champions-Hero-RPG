@@ -5,7 +5,7 @@ function EnterNoArea(trigger)
 end
 
 function wall0_n(trigger)
-	print('wall0')
+	--print('wall0')
 	local hero = trigger.activator
 	hero.pushVector = Vector(0,5,0)
 	hero.wall = true
@@ -15,14 +15,14 @@ function wall0_n(trigger)
 end
 
 function wall0_2(trigger)
-	print('wall02')
+	--print('wall02')
 	local hero = trigger.activator
 	local origin = hero:GetAbsOrigin()
 	hero:SetAbsOrigin(origin+Vector(0,50,0))
 end
 
 function wall0_3(trigger)
-	print('wall03')
+	--print('wall03')
 	local hero = trigger.activator
 	local origin = hero:GetAbsOrigin()
 	hero:SetAbsOrigin(origin+Vector(0,200,0))
@@ -35,7 +35,7 @@ function wall90(trigger)
 end
 
 function TouchingSpikes(trigger)
-	print("touchingSpikes")
+	--print("touchingSpikes")
 	local hero = trigger.activator
 	local ability = Events.GameMaster:FindAbilityByName("npc_abilities")
 	ability:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_spike_damage", {duration = 0.11})

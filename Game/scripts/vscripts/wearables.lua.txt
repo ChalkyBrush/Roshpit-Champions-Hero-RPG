@@ -11,7 +11,7 @@ function EquipWeapon( event )
             local modelName = model:GetModelName()
             if modelName == hero.originalWeaponModel then
                 -- Set the weapon model, save both the new and original model names in the caster handle to call OnUnequip
-                print("FOUND "..modelName.." SWAPPING TO "..newWeaponModel)
+               --print("FOUND "..modelName.." SWAPPING TO "..newWeaponModel)
                 hero.originalWeaponModel = modelName
                 hero.weapon = newWeaponModel
                 model:SetModel(newWeaponModel)
@@ -19,10 +19,10 @@ function EquipWeapon( event )
         end
         model = model:NextMovePeer()
         if model ~= nil and model:GetModelName() ~= "" then
-            print("Next Peer:" .. model:GetModelName())
+           --print("Next Peer:" .. model:GetModelName())
         end
     end
-    print("------------------------")
+   --print("------------")
 end
 
 function UnequipWeapon( event )
@@ -42,9 +42,9 @@ function UnequipWeapon( event )
         end
         model = model:NextMovePeer()
         if model ~= nil and model:GetModelName() ~= "" then
-            print("Next Peer:" .. model:GetModelName())
+           --print("Next Peer:" .. model:GetModelName())
         end
     end
 
-    print("------------------------")
+   --print("------------")
 end

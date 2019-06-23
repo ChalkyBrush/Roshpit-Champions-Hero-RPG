@@ -153,7 +153,7 @@ function ice_gale_hit(event)
 		damage = damage + damage*(event.crit_mult/100)
 	end
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_sephyr_chilled", {duration = 4})
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_ICE, RPC_ELEMENT_WIND)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_ICE, RPC_ELEMENT_WIND)
 end
 
 function sephyr_passive_think_icegale(event)

@@ -125,7 +125,7 @@ function temporal_field_enter(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	-- print("DID THIS TRIGGER?")
+	--print("DID THIS TRIGGER?")
 
 	if target:GetEntityIndex() == caster:GetEntityIndex() then
 		target:RemoveModifierByName("modifier_dummy_aura1_effect_zhonik")
@@ -195,7 +195,7 @@ function enemy_in_field_think(event)
 	if ability.e_2_level > 0 then
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.e_2_level*ZHONIK_E2_ARCANA_DMG_PCT/100
 		CustomAbilities:QuickParticleAtPoint("particles/econ/items/dazzle/dazzle_darkclaw/dazzle_darkclaw_poison_touch_launch_flash.vpcf", target:GetAbsOrigin()+Vector(0,0,80), 1)
-		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 	end
 end
 

@@ -42,7 +42,7 @@ function mark_of_the_fang(event)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_fang", "draghor_mark_of_the_claw", 0)
 	if not caster:HasModifier("modifier_djanghor_arcana1") then
 		if caster:HasAbility("draghor_shapeshift_crow") then
-			CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_shapeshift_cat", DOTA_ULTIMATE_SLOT)
+			CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_shapeshift_cat", DOTA_R_SLOT)
 		end
 	end
 
@@ -75,7 +75,7 @@ function mark_of_the_claw(event)
 
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_claw", "draghor_mark_of_the_talon", 0)
 	if not caster:HasModifier("modifier_djanghor_arcana1") then
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_shapeshift_bear", DOTA_ULTIMATE_SLOT)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_shapeshift_bear", DOTA_R_SLOT)
 	end
 	EmitSoundOn("Draghor.MarkBG.Low", caster)
 
@@ -106,7 +106,7 @@ function mark_of_the_talon(event)
 
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_talon", "draghor_mark_of_the_fang", 0)
 	if not caster:HasModifier("modifier_djanghor_arcana1") then
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_shapeshift_crow", DOTA_ULTIMATE_SLOT)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_shapeshift_crow", DOTA_R_SLOT)
 	end
 	EmitSoundOn("Draghor.MarkBG.High", caster)
 
@@ -128,7 +128,7 @@ function draghor_attack_land(event)
 	local w_1_level = attacker:GetRuneValue("w", 1)
 	if w_1_level > 0 then
 		local damage = event.damage*DJANGHOR_W1_DAMAGE_MULT*w_1_level
-		Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_venomancer/venomancer_venomous_gale_impact.vpcf", target, 0.4)
 	end 
 end

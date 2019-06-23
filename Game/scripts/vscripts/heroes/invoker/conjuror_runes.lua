@@ -31,7 +31,7 @@ function rune_q_2_damage(event)
 	local caster = event.caster
 	local totalLevel = get_q_2_level(caster.conjuror)
 	local damage = caster:GetHealth()*0.08*totalLevel
-	Filters:TakeArgumentsAndApplyDamage(target, caster.conjuror, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster.conjuror, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
 end
 
 function get_q_2_level(caster)
@@ -78,7 +78,7 @@ function rune_q_2_clap_start(event)
 		for i = 1, #enemies, 1 do
 			local target = enemies[i]
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_thunder_clap", {duration = 3})
-			Filters:TakeArgumentsAndApplyDamage(target, caster.conjuror, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(target, caster.conjuror, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
 		end
 	end
 end
@@ -121,7 +121,7 @@ function immolation_think(event)
 	local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			ability:ApplyDataDrivenModifier(target, enemy, "modifier_immolation_burn", {})
 			healthGain = healthGain + damage
 		end

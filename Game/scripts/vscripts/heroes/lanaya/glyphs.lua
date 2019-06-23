@@ -2,7 +2,7 @@ require('heroes/lanaya/constants')
 
 function t51_think(event)
     local caster = event.caster.hero
-    print("t51 think")
+   --print("t51 think")
     local ability = caster:FindModifierByName("modifier_trapper_glyph_5_1"):GetAbility()
     local modifierName = 'modifier_trapper_5_1_add_radius'
     local newStacks = math.min(caster:GetModifierStackCount(modifierName, caster) + 1, T51_MAX_STACKS_COUNT)

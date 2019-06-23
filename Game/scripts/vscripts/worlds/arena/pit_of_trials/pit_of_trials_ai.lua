@@ -3,9 +3,9 @@ function PitTerminal(trigger)
 	if hero.pit then
 		if hero.pit.pit_open_time then
 			local lockoutStatus = getLockoutStatus(os:TimeStamp(hero.pit.pit_open_time), os:ServerTimeToTable())
-			DeepPrintTable(os:TimeStamp(hero.pit.pit_open_time))
-			DeepPrintTable(os:ServerTimeToTable())
-			print(lockoutStatus)
+			--DeepPrintTable(os:TimeStamp(hero.pit.pit_open_time))
+			--DeepPrintTable(os:ServerTimeToTable())
+			--print(lockoutStatus)
 			lockoutStatus = 0--removed cd check
 			if Arena.PitActive or Arena.PitLocked then
 				lockoutStatus = 2
@@ -257,7 +257,7 @@ end
 
 function pit_quizmaster_impact(event)
 	local target = event.target
-	print("IMPACT!?")
+	--print("IMPACT!?")
 	local particleName = "particles/econ/events/ti4/dagon_ti4.vpcf"
 	EmitSoundOn("Arena.QuizMaster.SpellImpact", target)
 	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, target )
@@ -353,7 +353,7 @@ function arena_root_think(event)
 	if #enemies > 0 then
 		if caster:HasModifier("modifier_arena_root_overgrowth_submerged") then
 			caster:RemoveModifierByName("modifier_arena_root_overgrowth_submerged")
-			print("RISE!")
+			--print("RISE!")
 			StartAnimation(caster, {duration=1, activity=ACT_DOTA_SPAWN, rate=1}) 
 			for i = 1, 13, 1 do
 				Timers:CreateTimer(0.03*i, function()
@@ -375,7 +375,7 @@ function arena_root_think(event)
 		if not caster:HasModifier("modifier_arena_root_overgrowth_submerged") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_arena_root_overgrowth_submerged", {})
 			caster:RemoveModifierByName("modifier_beast_fighting")
-			print("FALL!")
+			--print("FALL!")
 			StartAnimation(caster, {duration=1, activity=ACT_DOTA_IDLE, rate=1}) 
 			for i = 1, 13, 1 do
 				Timers:CreateTimer(0.03*i, function()
@@ -708,7 +708,7 @@ function conquest_switch_attack(event)
 			if not Arena.ForestGuide then
 				caster.switch = true
 				Timers:CreateTimer(0.5, function()
-					print("GO!")
+					--print("GO!")
 					StartAnimation(caster, {duration=1, activity=ACT_DOTA_IDLE_RARE, rate=1.8})
 					EmitSoundOn("Arena.ForestSwitchAttack", caster)
 					Arena.ForestGuide = CreateUnitByName("conquest_forest_guide", caster:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_GOODGUYS)
@@ -1274,7 +1274,7 @@ function conquest_boss_die(event)
 	local caster = event.caster
 	EmitSoundOn("Arena.ConquestBossDie", caster)
 	Timers:CreateTimer(0.5, function()
-		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 		EmitSoundOn("Arena.ConquestBossDie2", caster)
 		UTIL_Remove(caster.staff1)
 		UTIL_Remove(caster.staff2)
@@ -1346,7 +1346,7 @@ function LiesMainSwitch(trigger)
 		return
 	end
 	Arena.LiesOpen = true
-	print("LIES SWITCH")
+	--print("LIES SWITCH")
 	Dungeons.respawnPoint = Vector(-2113, 10418)
 	Arena:ActivateSwitchGeneric(Vector(-2113, 10418), "LiesSwitch", true, 0.35)
 	Timers:CreateTimer(1.2, function()
@@ -1798,9 +1798,9 @@ function supreme_ogre_die(event)
 end
 
 function LiesNumberSwitchA()
-	print("NUMBER SWITCH!?")
-	print(Arena.numberSwitch1:Attribute_GetIntValue("pressed", 0))
-	print(Arena.NumberSwitchLock)
+	--print("NUMBER SWITCH!?")
+	--print(Arena.numberSwitch1:Attribute_GetIntValue("pressed", 0))
+	--print(Arena.NumberSwitchLock)
 	if not Arena.ButtonsPressedTable then
 		Arena.ButtonsPressedTable = {}
 	end
@@ -1961,7 +1961,7 @@ function arena_lies_boss_illusion_ability_cast(event)
 		if not caster.illusionTable then
 			caster.illusionTable = {}
 		end
-		print(#caster.illusionTable)
+		--print(#caster.illusionTable)
 		if #caster.illusionTable < 12 then
 			local position = caster:GetAbsOrigin()+RandomVector(340)
 			local illusion = CreateUnitByName("arena_lies_boss", position, true, nil, nil, DOTA_TEAM_NEUTRALS)
@@ -1990,7 +1990,7 @@ function lies_boss_die(event)
 	if caster.liesBoss then
 		EmitSoundOn("Arena.LiesBoss.Die", caster)
 		Timers:CreateTimer(0.5, function()
-			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 		end)
 		Timers:CreateTimer(1.0, function()
 			EmitGlobalSound("ui.set_applied")
@@ -2042,7 +2042,7 @@ function DescentMainSwitch(trigger)
 		return
 	end
 	Arena.DescentOpen = true
-	print("DESCENT SWITCH")
+	--print("DESCENT SWITCH")
 	Dungeons.respawnPoint = Vector(-672, 9787)
 	Arena:ActivateSwitchGeneric(Vector(-672, 9787, 262+Arena.ZFLOAT), "DescentSwitch", true, 0.35)
 	Timers:CreateTimer(1.2, function()
@@ -2210,7 +2210,7 @@ end
 
 function widow_die(event)
 	local caster = event.caster
-	print("THIS CALLED?")
+	--print("THIS CALLED?")
 	EmitSoundOn("Arena.Descent.WidowDeath", caster)
 	Arena.AllowNemesis = true
 	Timers:CreateTimer(2, function()
@@ -2514,7 +2514,7 @@ function nemesis_think(event)
 			ExecuteOrderFromTable(newOrder)	
 		end
 	end
-	print("HELLO?")
+	--print("HELLO?")
 	local boltAbility = caster:FindAbilityByName("arena_challenger_2_sword_dash")
 	if boltAbility:IsFullyCastable() then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
@@ -2927,7 +2927,7 @@ function descent_boss_die(event)
 	local casterLoc = caster:GetAbsOrigin()
 	EmitSoundOn("Arena.DescentBoss.Death", caster)
 	Timers:CreateTimer(0.5, function()
-		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 	end)
 	Timers:CreateTimer(1, function()
 		Arena:CreateGooBlast(casterLoc+Vector(0,0,450))
@@ -3101,7 +3101,7 @@ function pit_boss_think(event)
 				end)
 				local castPoint = enemies[1]:GetAbsOrigin() + enemies[1]:GetForwardVector()*100
 				caster.firestormPosition = castPoint
-				print(castPoint)
+				--print(castPoint)
 				caster.walking = false
 				if not caster.castSound then
 					caster.castSound = true
@@ -3181,7 +3181,7 @@ function pit_ability_cast(event)
 
 	if abilityCast:GetAbilityName() == "pit_boss_firestorm" then
 		local point = GetGroundPosition(caster.firestormPosition, caster) + Vector(0,0,10)
-		print(point)
+		--print(point)
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/boss/pit_firestorm_indicator_portrait.vpcf", PATTACH_WORLDORIGIN, caster)
 		ParticleManager:SetParticleControl(pfx, 0, point)
 		ParticleManager:SetParticleControl(pfx, 1, point)
@@ -3241,7 +3241,7 @@ function pit_boss_die_1(event)
 	Arena.PitBossActive = false
 		-- CustomGameEventManager:Send_ServerToAllClients("BGMstart", {songName = "Arena.PitBossIntro"})
 	Timers:CreateTimer(2, function()
-		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 		for i = 1, 45, 1 do
 			Timers:CreateTimer(i*0.03, function()
 				caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,10))
@@ -3362,7 +3362,7 @@ end
 function pit_lord_dash_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	print("HELLO?? WTF!!!")
+	--print("HELLO?? WTF!!!")
 	if caster.attacked then
 		return
 	end
@@ -3406,7 +3406,7 @@ function pit_boss_final_death(caster, ability)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_pit_boss_dying_effect", {})
 	local bossOrigin = caster:GetAbsOrigin()
 	Timers:CreateTimer(9, function()
-		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 		caster:RemoveModifierByName("modifier_pit_boss_dying")
 		Timers:CreateTimer(0.1, function()
 			StartAnimation(caster, {duration=8, activity=ACT_DOTA_DIE, rate=0.25})
@@ -3638,7 +3638,7 @@ function ferrier_unit_die(event)
 					table.insert(newTable, gargoyle_check)
 				end
 			end
-			print("TBFDF!!")
+			--print("TBFDF!!")
 			Arena.FerrierGargoyleTable = newTable
 			Timers:CreateTimer(0.25, function()
 				Arena:RemoveFerrierShield(startPos)

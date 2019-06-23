@@ -31,7 +31,7 @@ function modifier_zonik_temporal_field_cap:GetModifierMoveSpeed_Limit( params )
  --    if self:GetAbility():GetOwner():HasModifier("modifier_zonik_glyph_5_1") then
  --        cap = cap + 120
  --    end
- --    print("CAP:"..cap)
+ --   --print("CAP:"..cap)
  	local cap = self:GetAbility():GetSpecialValueFor("movespeed_cap")
     return cap
 end

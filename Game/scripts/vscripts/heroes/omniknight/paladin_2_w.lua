@@ -148,7 +148,7 @@ function cone_impact(event)
 		end
 	else
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_glyph_1_2_effect", {duration = 8})
-		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		paladin_w_1_apply(caster, target, ability)
 	end
 end
@@ -236,7 +236,7 @@ function rune_w_3(caster, ability)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_paladin_c_b_disarm", {duration = 1})
 			end
 		end
@@ -257,7 +257,7 @@ function paladin_glyph_4_2_equip(event)
 	local ability = event.ability
 	local target = event.target
 
-	local pointAbility = target:GetAbilityByIndex(1)
+	local pointAbility = target:GetAbilityByIndex(DOTA_W_SLOT)
 	if pointAbility then
 		if pointAbility.cast_point_og then
 		else
@@ -273,7 +273,7 @@ function paladin_glyph_4_2_off(event)
 	local target = event.target
 
 	local index = event.index
-	local pointAbility = target:GetAbilityByIndex(1)
+	local pointAbility = target:GetAbilityByIndex(DOTA_W_SLOT)
 	if pointAbility then
 		if pointAbility.cast_point_og then
 			pointAbility:SetOverrideCastPoint(pointAbility.cast_point_og)

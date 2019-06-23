@@ -220,7 +220,7 @@ function Activate()
 end
 
 function SpecialPrecache(context)
-  print("performing pre-load precache")    
+ --print("performing pre-load precache")    
   --PrecacheItemByNameAsync("item_example_item", function(...) end)
   --PrecacheItemByNameAsync("cataclysm", function(...) end)
 
@@ -295,7 +295,7 @@ end
 function PrecacheItemsSYNC(context)
 local itemTable = {"item_reanimation_stone", "item_rpc_nightmare_rider_mantle", "item_rpc_redrock_footwear", "item_rpc_arcanys_slipper", "item_rpc_pathfinders_resonant_boots", "item_rpc_neptunes_water_gliders", "item_rpc_enchanted_solar_cape", "item_rpc_ruinfall_skull_token", "item_rpc_omega_ruby", "item_rpc_blue_dragon_greaves", "item_rpc_stormcloth_bracer", "item_rpc_ocean_tempest_pallium", "item_rpc_brazen_kabuto_of_the_desert_realm", "item_rpc_radiant_ruins_leather", "item_rpc_windsteel_armor", "item_rpc_phoenix_emblem", "item_rpc_demon_mask", "item_rpc_crest_of_the_umbral_sentinel", "item_rpc_savage_plate_of_ogthun", "item_rpc_arcane_cascade_hat", "item_rpc_skyforge_flurry_plate", "item_rpc_aeriths_tear", "item_rpc_carbuncles_helm_of_reflection", "item_rpc_boots_of_old_wisdom", "item_rpc_guard_of_grithault", "item_rpc_fractional_enhancement_geode", "item_rpc_ring_of_nobility", "item_rpc_mordiggus_gauntlet", "item_rpc_twig_of_the_enlightened", "item_rpc_boots_of_pure_waters", "item_rpc_gloves_of_sweeping_wind", "item_rpc_depth_crest_armor", "item_rpc_tempest_falcon_ring", "item_rpc_crown_of_the_lava_forge", "item_rpc_water_mage_robes", "item_rpc_undertakers_hood", "item_rpc_hood_of_defiler", "item_rpc_stormcrack_helm", "item_rpc_antique_mana_relic", "item_rpc_ablecore_greaves", "item_rpc_basilisk_plague_helm", "item_rpc_giant_hunters_boots_of_resilience", "item_rpc_conquest_stone_falcon", "item_rpc_moon_tech_runners", "item_rpc_space_tech_vest", "item_rpc_rooted_feet", "item_rpc_wolfir_druids_spirit_helm", "item_rpc_autumn_sleeper_mask", "item_rpc_redfall_runners", "item_rpc_fenrirs_fang", "item_rpc_autumnrock_bracer", "item_rpc_guard_of_feronia", "item_rpc_helm_of_the_silent_templar", "item_rpc_skulldigger_gauntlet_lv1", "item_rpc_shipyard_veil_lv1", "item_rpc_crimsyth_elite_greaves_lv1"}
   for i = 1, #itemTable, 1 do
-      print("precaching: "..itemTable[i])
+     --print("precaching: "..itemTable[i])
       PrecacheItemByNameSync(itemTable[i], context)
   end
 end

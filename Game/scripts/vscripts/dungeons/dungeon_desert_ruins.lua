@@ -431,9 +431,9 @@ function Dungeons:InitializeRuins()
 	while Dungeons.roomKey1 == Dungeons.roomKey2 do
 		Dungeons.roomKey2 = RandomInt(1, 8)
 	end
-	-- print("ROOM KEYS:")
-	-- print(Dungeons.roomKey1)
-	-- print(Dungeons.roomKey2)
+	----print("ROOM KEYS:")
+	----print(Dungeons.roomKey1)
+	----print(Dungeons.roomKey2)
 	Dungeons.templeRoomsClearedTable = {0,0,0,0,0,0,0,0}
 end
 

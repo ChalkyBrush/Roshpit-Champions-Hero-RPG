@@ -140,7 +140,7 @@ function passive_think(event)
 							missle.exploded = true
 							ParticleManager:DestroyParticle(missle.pfx, false)
 							
-							Filters:TakeArgumentsAndApplyDamage(missle.lockEnemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+							Filters:TakeArgumentsAndApplyDamage(missle.lockEnemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 							Filters:ApplyStun(caster, 0.1, missle.lockEnemy)
 							local r_1_level = caster:GetRuneValue("r", 1)
 							if r_1_level > 0 then
@@ -149,7 +149,7 @@ function passive_think(event)
 							    if #enemies > 0 then
 							    	local aoeDamage = damage*r_1_level*ZHONIK_R1_ARCANA_AOE_DMG_PCT/100
 							        for _,enemy in pairs(enemies) do
-							        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, aoeDamage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+							        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, aoeDamage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 							        end
 							    end
 							end
@@ -180,7 +180,7 @@ function passive_think(event)
 							end
 							if caster:HasModifier("modifier_zonik_immortal_weapon_3") then
 								if caster:HasAbility("tachyon_shell") then
-									print("HERE?")
+									--print("HERE?")
 									local eventTable = {}
 									eventTable.caster = caster
 									eventTable.target = missle.lockEnemy

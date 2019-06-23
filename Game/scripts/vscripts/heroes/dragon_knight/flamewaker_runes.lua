@@ -204,8 +204,8 @@ function flamewaker_r_2_impact(event)
 	local caster = event.caster
 	local damage = math.max(ability.r_2_damage, 10)
 	for i = 1, FLAMEWAKER_R2_INSTANCE_OF_DAMAGE_COUNT, 1 do
-		print(damage)
-    	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+		--print(damage)
+    	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
     end
 end
 
@@ -293,7 +293,7 @@ function rune_q_3_start(event)
 	ability.q_3_level = caster:GetRuneValue("q",3)
 	if ability.q_3_level > 0 then
 		ability.tauntDuration = ability.q_3_level*0.15 + 2.0
-		print(ability.tauntDuration)
+		--print(ability.tauntDuration)
 		ability.runeAbility = runeAbility
 		ability.runeUnit = runeUnit
 		runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "flamewaker_rune_q_3_buff", {duration = ability.tauntDuration})
@@ -388,7 +388,7 @@ function a_b_attack(event)
 	if #enemies > 0 then	
 		for _,enemy in pairs(enemies) do
 			if not enemy.dummy then
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 				if caster:HasModifier('modifier_flamewaker_glyph_3_1') and w_ability then
 					if w_3_level > 0 then
 						local additional_armorLoss = math.ceil(1.0*w_3_level)
@@ -458,7 +458,7 @@ function d_b_burn_think(event)
 	local target = event.target
 	local caster = event.caster.hero
 	local damage = target.flamewaker_d_c_burn
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ITEM, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 	
 end
 

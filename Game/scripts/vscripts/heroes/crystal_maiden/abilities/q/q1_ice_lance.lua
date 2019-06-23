@@ -115,7 +115,7 @@ function projectileHit(event)
     if chance > luck and caster.q_3_level > 0 then
         IceExplode.cast(caster, target, ability, damage)
     else
-        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
     end
     
     if ability:GetAbilityName() == "ice_lance" then

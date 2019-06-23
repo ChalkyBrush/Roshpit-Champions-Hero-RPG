@@ -409,7 +409,7 @@ function Curator:FinishGettingClientData(msg)
 			property3specialLocalized = ""
 			property3value = ""
 		else
-			DeepPrintTable(msg.property3)
+			--DeepPrintTable(msg.property3)
 			property3color = msg.property3["0"]:gsub('#', "")
 			property3name = item.newItemTable.property3name
 			property3localized = Curator:urlencode(msg.property3["2"])
@@ -650,7 +650,7 @@ function Curator:CurateArcanaAbilities(hero)
 				local index = available_arcanas[i][2]
 				local ability = hero:GetAbilityByIndex(index)
 				if index == 3 then
-					ability = hero:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
+					ability = hero:GetAbilityByIndex(DOTA_R_SLOT)
 				end
 				local abilitySpecial = ability:GetAbilityKeyValues()["AbilitySpecial"]
 				local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
@@ -679,7 +679,7 @@ end
 function Curator:CurateAbility(hero, index)
 	local ability = hero:GetAbilityByIndex(index)
 	if index == 3 then
-		ability = hero:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
+		ability = hero:GetAbilityByIndex(DOTA_R_SLOT)
 	end
 	local abilitySpecial = ability:GetAbilityKeyValues()["AbilitySpecial"]
 	local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())

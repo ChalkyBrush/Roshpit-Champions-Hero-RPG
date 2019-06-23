@@ -18,7 +18,7 @@ function cataclysm_damage(event)
     local caster = event.caster
     local damage = event.damage
     
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_EARTH)
+    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_EARTH)
     local stun_duration = event.stun_duration
     if caster:HasModifier("modifier_flamewaker_immortal_weapon_3") then
         stun_duration = stun_duration + stun_duration*1.5

@@ -208,7 +208,7 @@ function end_warp_flare(ability,caster)
 		caster:FindAbilityByName("solunia_lunar_glow"):SetActivated(true)
 	end
 	ability.fallVelocity = 3
-	print(ability.flareCount)
+	--print(ability.flareCount)
 	flareParticle(caster:GetAbsOrigin(), caster, ability)
 	local maxFlares = 3
 	if caster:HasModifier("modifier_solunia_glyph_7_1") then
@@ -287,8 +287,8 @@ function rune_e_2_galaxy_nitro(caster, ability)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), boomerang:GetAbsOrigin(), nil, 270, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
-					print(caster.damage)
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, boomerang.damage*(1+(b_c_level*0.2)), damageType, 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+					--print(caster.damage)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, boomerang.damage*(1+(b_c_level*0.2)), damageType, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 					Filters:ApplyStun(caster, b_c_level*0.08, enemy)
 				end
 			end 

@@ -109,7 +109,7 @@ local Notify = function(player, msg, duration)
     local table = {text=msg, duration=duration, style={color="red"}}
     Notifications:Bottom(player, table)
   else
-    print('[Attachments.lua] ' .. msg)
+   --print('[Attachments.lua] ' .. msg)
   end
 end
 
@@ -153,18 +153,18 @@ end
 
 function Attachments:ActivateAttachmentSetup(addon)
   if addon == nil or addon == "" then
-    print("[Attachments.lua] Addon name must be specified.")
+   --print("[Attachments.lua] Addon name must be specified.")
     return
   end
 
   if not io then
-    print("[Attachments.lua] Attachments Setup is only available in tools mode.")
+   --print("[Attachments.lua] Attachments Setup is only available in tools mode.")
     return
   end
   if not Attachments.activated then
     local file = io.open("../../dota_addons/" .. addon ..  "/scripts/attachments.txt", 'r')
     if not file and Attachments.dbFilePath == nil then
-      print("[Attachments.lua] Cannot find file 'dota_addons/" .. addon .. "/scripts/attachments.txt'.  Re-execute the console command to force create the file.")
+     --print("[Attachments.lua] Cannot find file 'dota_addons/" .. addon .. "/scripts/attachments.txt'.  Re-execute the console command to force create the file.")
       Attachments.dbFilePath = ""
       return
     end
@@ -174,7 +174,7 @@ function Attachments:ActivateAttachmentSetup(addon)
     if not file then
       file = io.open(Attachments.dbFilePath, 'w')
       WriteKV(file, "Attachments", {})
-      print("[Attachments.lua] Created file: 'dota_addons/" .. addon .. "/scripts/attachments.txt'.")
+     --print("[Attachments.lua] Created file: 'dota_addons/" .. addon .. "/scripts/attachments.txt'.")
     end
     file:close()
     
@@ -304,12 +304,12 @@ function Attachments:Attachment_SaveAttach(args)
   Attachments:Attachment_UpdateAttach(args)
 
   if not io then
-    print("[Attachments.lua] Attachments Setup is only available in tools mode.")
+   --print("[Attachments.lua] Attachments Setup is only available in tools mode.")
     return
   end
 
   if Attachments.dbFilePath == nil or Attachments.dbFilePath == "" then
-    print("[Attachments.lua] Attachments database file must be set.")
+   --print("[Attachments.lua] Attachments database file must be set.")
     return
   end
 
@@ -334,7 +334,7 @@ function Attachments:Attachment_LoadAttach(args)
   local model = properties.model
 
   if not io then
-    print("[Attachments.lua] Attachments Setup is only available in tools mode.")
+   --print("[Attachments.lua] Attachments Setup is only available in tools mode.")
     return
   end
 
@@ -456,7 +456,7 @@ function Attachments:AttachProp(unit, attachPoint, model, scale, properties)
     if propModel.GetModelName then propModel = propModel:GetModelName() end
     if not properties then
       if not db[unitModel] or not db[unitModel][attachPoint] or not db[unitModel][attachPoint][propModel] then
-        print("[Attachments.lua] No attach found in attachment database for '" .. unitModel .. "', '" .. attachPoint .. "', '" .. propModel .. "'")
+       --print("[Attachments.lua] No attach found in attachment database for '" .. unitModel .. "', '" .. attachPoint .. "', '" .. propModel .. "'")
         return
       end
     end

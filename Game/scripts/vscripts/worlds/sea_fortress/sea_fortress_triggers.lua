@@ -203,7 +203,7 @@ end
 
 function SeaFortressSwitchA()
 
-	print("SWITCH A")
+	--print("SWITCH A")
 	if Seafortress.RevenantDead then
 		if not Seafortress.SwitchA then
 			Seafortress.SwitchA = true
@@ -230,7 +230,7 @@ end
 
 function SeaFortressSwitchB()
 
-	print("SWITCH B")
+	--print("SWITCH B")
 	if Seafortress.UrsanDead then
 		if not Seafortress.SwitchB then
 			Seafortress.SwitchB = true
@@ -429,7 +429,7 @@ end
 
 function GreenBeaconTrigger(trigger)
 	local hero = trigger.activator
-	print("HELLO?")
+	--print("HELLO?")
 	if hero:HasModifier("modifier_sea_fortress_green_beacon") then
 		return false
 	end
@@ -480,8 +480,8 @@ function MemorySwitchTrigger(trigger)
 		InitMemoryTable()
 	end
 	local caller = trigger.caller
-	print(caller:GetName())
-	print(caller:GetAbsOrigin())
+	--print(caller:GetName())
+	--print(caller:GetAbsOrigin())
 	local switchIndex = caller:GetName():gsub('MemorySwitchTrigger', "")
 	switchIndex = tonumber(switchIndex)
 	local button = Entities:FindByNameNearest("MemorySwitch", caller:GetAbsOrigin(), 200)
@@ -529,7 +529,7 @@ function ButtonPress(buttonIndex, button, hero)
 					sum = sum + Seafortress.MemoryActivated[k]
 				end
 				if sum == 48 then
-					print("PUZZLE COMPLETE")
+					--print("PUZZLE COMPLETE")
 					EmitSoundOnLocationWithCaster(Vector(-460, -1804, 245), "Seafortress.MemoryButton.Complete", Events.GameMaster)
 					local wall = Entities:FindByNameNearest("SeaDoor10", Vector(-1280, -2700, -131+Seafortress.ZFLOAT), 900)
 					Seafortress:Walls(false, {wall}, true, 4)
@@ -798,7 +798,7 @@ function TempleEnergyButton(trigger)
 	local darkBlue = Vector(81, 119, 148)
 	local darkSwitch = Vector(67, 131, 101)
 	local lightSwitch = Vector(199, 192, 75)
-	print(Seafortress.TempleEnergyState)
+	--print(Seafortress.TempleEnergyState)
 	if Seafortress.TempleEnergyState == 0 then
 		if switchIndex == 1 then
 			local switch = Entities:FindByNameNearest("BeamButton", Vector(-6242, -256), 800)
@@ -969,7 +969,7 @@ end
 
 function MajorTeleport(trigger)
 	local hero = trigger.activator
-	print("teleport?")
+	--print("teleport?")
 	if not hero:HasModifier("modifier_recently_teleported_portal") then
 		if Seafortress.FinalRoomInit then
 			local portToVector = Vector(448, -10368)
@@ -1148,7 +1148,7 @@ end
 
 function JumperTrigger(trigger)
 	local hero = trigger.activator
-	print("HELLO?")
+	--print("HELLO?")
 	if hero:HasModifier("modifier_sea_fortress_green_beacon") then
 		return false
 	end
@@ -1174,7 +1174,7 @@ end
 
 function ArkimusTeleportTrigger(trigger)
 	local hero = trigger.activator
-	print("teleport?")
+	--print("teleport?")
 	if Seafortress.ArkimusActive then
 		if not hero:HasModifier("modifier_recently_teleported_portal") then
 			local portToVector = Vector(3104, 14272)
@@ -1189,7 +1189,7 @@ end
 
 function ArkimusTeleportTrigger2(trigger)
 	local hero = trigger.activator
-	print("teleport?")
+	--print("teleport?")
 	if Seafortress.ArchonSlain then
 		if not hero:HasModifier("modifier_recently_teleported_portal") then
 			local portToVector = Vector(-14674, 3428)

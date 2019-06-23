@@ -94,9 +94,9 @@ function createWall(event)
 		for i = 1, #ability.wallThinkerTable, 1 do
 			wallThinker = ability.wallThinkerTable[i]
 			if wallThinker.index == intervalForFunction then
-				print("remove one with walindex: "..wallThinker.index)
+				--print("remove one with walindex: "..wallThinker.index)
 			else
-				print("INSERT..."..wallThinker.index)
+				--print("INSERT..."..wallThinker.index)
 				table.insert(newTable, wallThinker)
 			end
 		end
@@ -122,7 +122,7 @@ function WallDamageThink(event)
 	if caster:HasModifier("modifier_bahamut_immortal_weapon_3") then
 		damage = damage*3
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	EmitSoundOn("Hero_DeathProphet.Exorcism.Damage", target)
 	local particleName = "particles/econ/items/antimage/antimage_weapon_basher_ti5/leshrac_wall_burn.vpcf"
 	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )

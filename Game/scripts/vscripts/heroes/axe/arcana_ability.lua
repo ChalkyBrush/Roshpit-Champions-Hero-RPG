@@ -39,7 +39,7 @@ function begin_arcana_ult(event)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), startPoint, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 	            Filters:ApplyStun(caster, stun_duration, enemy)
 			end
 		end 
@@ -63,7 +63,7 @@ function begin_arcana_ult(event)
 
 						local particleName = "particles/roshpit/axe/arcana_sunder.vpcf"
 						local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-						print("DOING ANYTHING?")
+						--print("DOING ANYTHING?")
 						ParticleManager:SetParticleControl(pfx, 0, startPoint-direction*50+forkDirection*50)
 						ParticleManager:SetParticleControl(pfx, 1, startPoint+forkDirection*1500)
 						ParticleManager:SetParticleControl(pfx, 3, Vector(100,3.5,100)) -- y COMPONENT = duration
@@ -76,7 +76,7 @@ function begin_arcana_ult(event)
 	
 							local enemies = FindUnitsInLine(caster:GetTeamNumber(), startPoint, startPoint+forkDirection*1500, nil, 150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
 					        for _,enemy in pairs(enemies) do
-					            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+					            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 					            Filters:ApplyStun(caster, stun_duration, enemy)
 					            --ability:ApplyDataDrivenModifier(caster, targetUnit, "modifier_stun_explosion", {})
 					        end
@@ -99,7 +99,7 @@ function axe_arcana_take_damage(event)
 	local caster = event.caster
 	local damage = event.damage
 	local ability = event.ability
-	print(damage)
+	--print(damage)
 	local b_d_level = caster:GetRuneValue("r", 2)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_arcana_b_d_attack_power", {duration = 4})
 	local currentStacks = caster:GetModifierStackCount("modifier_axe_arcana_b_d_attack_power", caster)

@@ -86,7 +86,7 @@ function overload_start(event)
 		if #enemies > 0 then	
 			for _,enemy in pairs(enemies) do
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_elemental_overload_frozen", {duration = event.ice_freeze_duration})
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, iceDamage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, iceDamage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
 				if b_d_level > 0 then
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_warlord_b_d_effect", {duration = 8})
 					enemy:SetModifierStackCount("modifier_warlord_b_d_effect", caster, b_d_level)
@@ -204,7 +204,7 @@ function fireball_impact(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then	
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 		end
 	end
 end
@@ -228,10 +228,10 @@ function warlord_a_d_think(event)
 	local aoeDamage = OverflowProtectedGetAverageTrueAttackDamage(target)*0.03*ability.earthCharges
 	local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
-	print("WARLORD A_D")	
+	--print("WARLORD A_D")	
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Warlord.ADAoeSound", caster)
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, target, aoeDamage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, target, aoeDamage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
 
 			local pfx2 = ParticleManager:CreateParticle("particles/roshpit/elemental_warlord/earth_axe_throw_explode.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControl(pfx2, 0, enemy:GetAbsOrigin())

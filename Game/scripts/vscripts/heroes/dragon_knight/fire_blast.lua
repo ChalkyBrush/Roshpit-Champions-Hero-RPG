@@ -87,7 +87,7 @@ function fire_blast_damage(event)
         stun_duration = stun_duration + stun_duration*1.5
     end
     Filters:ApplyStun(caster, stun_duration, target)
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_EARTH)
+    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_EARTH)
 end
 
 function rune_q_3_eruption(ability, caster, point, radius)
@@ -111,7 +111,7 @@ function eruption_damage(event)
     local ability = event.ability
     if IsValidEntity(ability) then
         local damage = ability.q_3_damage
-        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
         local seismicFlare = caster:FindAbilityByName("seismic_flare")
         CustomAbilities:QuickAttachParticle("particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_c.vpcf", target, 1)
         if seismicFlare.q_4_level > 0 then

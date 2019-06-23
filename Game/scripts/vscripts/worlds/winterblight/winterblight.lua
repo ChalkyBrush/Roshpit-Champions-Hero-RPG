@@ -40,7 +40,7 @@ end
 
 
 function Winterblight:InitCamp()
-  print("Initialize Winterblight")
+ --print("Initialize Winterblight")
       Dungeons.phoenixCollision = true
       RPCItems.DROP_LOCATION = Vector(-16000,492)
       Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
@@ -200,7 +200,7 @@ function Winterblight:Debug2()
 
  -- Winterblight:SpawnGrandStalacorr(Vector(-15424,-2560), RandomVector(1))
  -- local hero = MAIN_HERO_TABLE[1]
- -- Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "ranger_aoe_explosion", "crystal_arrow", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
+ -- Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "ranger_aoe_explosion", "crystal_arrow", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
  -- Winterblight:StartOrbSequence()
   -- Winterblight:EndOrbWaves()
     -- Winterblight:OpenShrineOfAzalea()
@@ -553,7 +553,7 @@ end
 
 function Winterblight:CloseAltarOfIce(msg)
   local hero = EntIndexToHScript(msg.heroIndex)
-  print("CLOSE ALTAR")
+ --print("CLOSE ALTAR")
   hero.WinterblightAltar = false
   local closeAltar = true
   for i = 1, #MAIN_HERO_TABLE, 1 do

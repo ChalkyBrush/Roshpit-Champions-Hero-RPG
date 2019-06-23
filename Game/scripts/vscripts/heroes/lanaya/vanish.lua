@@ -171,7 +171,7 @@ function decoy_die(event)
     local enemies = FindUnitsInRadius( decoy:GetTeamNumber(), position, nil, E2_EXPLODE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then
         for _,enemy in pairs(enemies) do
-            Filters:TakeArgumentsAndApplyDamage(enemy, decoy.summoner, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+            Filters:TakeArgumentsAndApplyDamage(enemy, decoy.summoner, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
         end
     end
 end

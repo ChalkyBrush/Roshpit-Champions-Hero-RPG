@@ -20,7 +20,7 @@ function begin_splitter(event)
 end
 
 function animation(keys)
-	print('animating')
+	--print('animating')
 	caster = keys.caster
 	StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_6, rate=1, translate="arcana"})
 end

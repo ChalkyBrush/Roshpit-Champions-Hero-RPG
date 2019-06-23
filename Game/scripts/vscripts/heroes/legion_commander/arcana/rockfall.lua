@@ -41,15 +41,15 @@ function begin_rockfall(event)
 				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), particlePosition, nil, 220, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 				if #enemies > 0 then
 					for _,enemy in pairs(enemies) do
-						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_EARTH, RPC_ELEMENT_FIRE)
+						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_EARTH, RPC_ELEMENT_FIRE)
 						Filters:ApplyStun(caster, stun_duration, enemy)
 						ability:ApplyDataDrivenModifier(caster, caster, "modifier_rockfall_min_health", {duration = 0.09})
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_rockfall_post_mit", {duration = 10})
 						if enemy.dummy then
 						else
-							print("SELF DAMAGE")
+							--print("SELF DAMAGE")
 							local self_damage = caster:GetMaxHealth()*self_damage_percent/100
-							print(self_damage)
+							--print(self_damage)
 							Filters:ApplyDamageBasic(caster,enemy,self_damage,DAMAGE_TYPE_PURE)
 						end
 					end

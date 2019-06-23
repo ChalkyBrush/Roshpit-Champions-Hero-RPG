@@ -26,7 +26,7 @@ function ringOfFire(caster, ability, totalLevel)
       	ParticleManager:SetParticleControl( particle1, 8, Vector(300,300,300) )
       	ParticleManager:SetParticleControl( particle1, 9, Vector(300,300,300) )
       	EmitSoundOn("Ability.LightStrikeArray", caster)
-      	print("Ring of Fire")
+      	--print("Ring of Fire")
       	local radius = 600
       	local damage = totalLevel*200 + 300
 
@@ -184,7 +184,7 @@ function arcane_torrent_projectile_hit(event)
 		target:SetModifierStackCount("modifier_sorceress_rune_w_2", ability, newStacks )
 		target:SetModifierStackCount("modifier_sorceress_rune_w_2_invisible", ability, newStacks*ability.w_2_level )
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal_core.vpcf", target, 0.5)
 	
 end
@@ -218,5 +218,5 @@ function arcane_enhancement_impact(event)
 			end
 		end 
 	end
-	print("ARCANE ENHANCEMENT IMPACT")
+	--print("ARCANE ENHANCEMENT IMPACT")
 end

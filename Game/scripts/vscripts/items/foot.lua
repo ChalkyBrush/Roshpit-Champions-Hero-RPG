@@ -4,9 +4,10 @@ end
 
 
 function Foot:add_modifiers(hero, inventory_unit, item)
-	print("[Foot:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	--print("[Foot:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	--DeepPrintTable(item)
 	if not item.newItemTable then
-		print("[Error] Foot:add_modifiers item.newItemTable is null")
+		--print("[Error] Foot:add_modifiers item.newItemTable is null")
 		RPCItems:ItemUTIL_Remove(item)
 		return
 	end
@@ -50,9 +51,9 @@ end
 
 
 function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_ability, item)
-	print("[Foot:action] propertyName:"..tostring(propertyName))
+	--print("[Foot:action] propertyName:"..tostring(propertyName))
 	if type(propertyValue) == "string" then
-		print("[action] type(propertyValue) == string")
+		--print("[action] type(propertyValue) == string")
 		propertyValue = 1
 	end
 	if propertyName == "strength" then
@@ -204,7 +205,7 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 		RPCItems:PreacheArcanaResources(item)
 		local suffix = propertyName:gsub("!arcana!_", "")
 		local modifierName = "modifier_"..suffix
-		print(modifierName)
+		--print(modifierName)
 		Head:addItemModifier(0, hero, inventory_unit, modifierName, item)
 	elseif propertyName == "crystalline" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_crystalline_slippers", item)
@@ -231,7 +232,7 @@ function Foot:addItemModifier(propertyValue, hero, inventory_unit, modifier_name
 end
 
 function Foot:addBasicModifier(propertyValue, hero, inventory_unit, modifier_name, foot_ability)
-	print(inventory_unit)
+	--print(inventory_unit)
 	--local stacks = hero:GetModifierStackCount(modifierName, inventory_unit)
 	foot_ability = inventory_unit:FindAbilityByName("foot_slot")
 	foot_ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
@@ -332,7 +333,7 @@ function Foot:runeProperty(propertyName, propertyValue, hero)
 		end
 	end
 	if type(propertyValue) == "string" then
-		print("[Foot:runeProperty] propertyValue:"..propertyValue)
+		--print("[Foot:runeProperty] propertyValue:"..propertyValue)
 		return
 	end
 	if propertyName == "rune_q_1" then
@@ -388,8 +389,8 @@ end
 
 function Foot:setRuneBonusNetTable(value, rune, hero)
 	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_"..rune.."_foot", {bonus = value} )
-	print("Setting Rune Net Table: ")
-	print(tostring(hero:GetEntityIndex()).."_"..rune.."_foot")
+	--print("Setting Rune Net Table: ")
+	--print(tostring(hero:GetEntityIndex()).."_"..rune.."_foot")
 end
 
 function Foot:remove_rune_bonuses(hero)

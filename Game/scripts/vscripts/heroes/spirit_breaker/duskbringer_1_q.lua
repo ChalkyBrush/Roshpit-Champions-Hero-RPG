@@ -97,7 +97,7 @@ function whirling_flail_think(event)
 			local distance = WallPhysics:GetDistance(enemy:GetAbsOrigin(), caster:GetAbsOrigin())
 			local damageBonusMult = math.max(1 - (distance/(ability.radius)),0)--for some reason it hist further than it should
 			local distanceDamage = damage * (1 + q_3_level * DUSKBRINGER_Q3_ADD_DMG_PCT_MAX * damageBonusMult)
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, distanceDamage, DAMAGE_TYPE_PHYSICAL, 1, RPC_ELEMENT_NORMAL, RPC_ELEMENT_GHOST)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, distanceDamage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_Q, RPC_ELEMENT_NORMAL, RPC_ELEMENT_GHOST)
 
 			enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
 			local particleName = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
@@ -142,7 +142,7 @@ function whirling_flail_q1_on_hit(event)
 		local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
 		ParticleManager:SetParticleControlEnt(pfx2, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
 		local damage = q_1_level * (DUSKBRINGER_Q1_DMG_PER_STACK + DUSKBRINGER_Q1_DMG_PER_AGI_PER_STACK * caster:GetAgility())
-		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_GHOST, RPC_ELEMENT_FIRE)
+		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_GHOST, RPC_ELEMENT_FIRE)
 		Timers:CreateTimer(0.4, function() 
 		  ParticleManager:DestroyParticle( pfx2, false )
 		end) 

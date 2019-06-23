@@ -48,7 +48,7 @@ function cosmic_surge_thinking(event)
 			for _,enemy in pairs(enemies) do
 				if not enemy.dummy then
 					local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(JEX_GLYPH_7_DAMAGE_PCT/100)
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_COSMOS, RPC_ELEMENT_LIGHTNING)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_COSMOS, RPC_ELEMENT_LIGHTNING)
 					EmitSoundOn("Jex.Thundershroom.Lightning", enemy)
 					local particleName = "particles/roshpit/jex/glyph_7_lightning.vpcf"
 					local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, nil) 

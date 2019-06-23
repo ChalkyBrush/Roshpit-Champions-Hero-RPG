@@ -10,7 +10,7 @@ function begin_genesis_orb(event)
 	ability.w_2_level = caster:GetRuneValue("w", 2)
 	local w_3_level = caster:GetRuneValue("w", 3)
 	ability.w_3_level = w_3_level
-	print(w_3_level)
+	--print(w_3_level)
 	if w_3_level > 0 then
 		local stackIncrease = 1
 		if caster:HasModifier("modifier_epoch_immortal_weapon_1") then
@@ -66,7 +66,7 @@ function genesis_orb_impact(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	print("GENESIS IMPACT??")
+	--print("GENESIS IMPACT??")
 	local damage = event.damage
 	if caster:HasModifier("modifier_time_warp_buff") then
 		damage = damage * 2
@@ -75,12 +75,12 @@ function genesis_orb_impact(event)
 	if caster:HasModifier("modifier_epoch_glyph_3_1") then
 		damage = damage + caster:GetMana()*2*ability:GetLevel()
 	end
-	-- print("MANA "..caster:GetMaxMana())
-	-- print("MANA "..caster:GetMana())
+	--print("MANA "..caster:GetMaxMana())
+	--print("MANA "..caster:GetMana())
 	if caster:HasModifier("modifier_epoch_immortal_weapon_1") then
 		damage = damage*2
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 
 	if ability.w_1_level > 0 then
 		if not ability.pfx then
@@ -98,13 +98,13 @@ function genesis_orb_impact(event)
 		end) 
 
 		local manaRestore = caster:GetMaxMana()*ability.w_1_level*EPOCH_W1_MANA_RESTORE_PCT/100
-		print(manaRestore)
+		--print(manaRestore)
 		caster:GiveMana(manaRestore)
 		PopupMana(caster, manaRestore)
 	end
 
 	local w_2_level = ability.w_2_level
-	print("w_2_level: "..w_2_level)
+	--print("w_2_level: "..w_2_level)
 	if w_2_level > 0 then
 		local finalStacksCount = w_2_level
 		local currentStacks = 0
@@ -124,7 +124,7 @@ function genesis_orb_impact(event)
 				finalStacksCount = math.ceil (EPOCH_W2_MAX_NEGATIVE_ARMOR/EPOCH_W2_ARMOR_REDUCTION);
 			end
 		end
-		-- print("finalStacksCount "..finalStacksCount)
+		--print("finalStacksCount "..finalStacksCount)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_epoch_rune_w_2_visible", {duration = 6})
 		target:SetModifierStackCount("modifier_epoch_rune_w_2_visible", caster, finalStacksCount)
 	end

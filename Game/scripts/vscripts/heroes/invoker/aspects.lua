@@ -543,7 +543,7 @@ function aspect_die(event)
 		end
 	elseif event.caster:GetUnitName() == "fire_aspect" or event.caster:GetUnitName() == "fire_deity" then
 		if caster.conjuror:HasAbility("summon_fire_deity") then
-			print("WTF2")
+			--print("WTF2")
 			local fireAspectSkill = caster.conjuror:FindAbilityByName("summon_fire_deity")
 			local immolationSkill = caster.conjuror:FindAbilityByName("fire_arcana_ability")
 			fireAspectSkill:SetLevel(immolationSkill:GetLevel())
@@ -604,7 +604,7 @@ function fireAspectDie(caster, fireAspect, w_4_level)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 440, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			-- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			-- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			Filters:ApplyStun(caster, 2, enemy)
 			aspect_ability:ApplyDataDrivenModifier(caster, enemy, "modifier_conjuror_w_4_burn", {duration = 7})
 			enemy.conjuror_w_4_burn_damage = damage
@@ -616,7 +616,7 @@ function conjuror_w_4_burn(event)
 	local caster = event.caster
 	local target = event.target
 	local damage = target.conjuror_w_4_burn_damage
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
 function rotateVector(vector, radians)
@@ -780,7 +780,7 @@ function shadow_attack_strike(event)
 	  end   
 	  -- ApplyDamage(damageTable)
 	  -- ApplyDamage({ victim = event.target, attacker = ability.attacker, damage = ability.pureDamage, damage_type = DAMAGE_TYPE_PURE})
-	  Filters:TakeArgumentsAndApplyDamage(event.target, event.caster, ability.pureDamage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+	  Filters:TakeArgumentsAndApplyDamage(event.target, event.caster, ability.pureDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 end
 
 function shadow_aspect_kill(event)

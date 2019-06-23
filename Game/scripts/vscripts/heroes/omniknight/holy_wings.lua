@@ -34,7 +34,7 @@ function radiance_think(event)
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			CustomAbilities:QuickAttachParticle("particles/items2_fx/radiance.vpcf", enemy, 1)
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, tickDamage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, tickDamage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		end
 	end 
 end
@@ -158,7 +158,7 @@ function wing_attack( keys )
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_heroic_fury_slow", {duration = 4})
 				enemy:AddNewModifier( enemy, nil, "modifier_knockback", modifierKnockback )
 			end
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
 			if applyFire then
 				apply_holy_fire(caster, enemy, caster.holyCone)
 			end
@@ -243,8 +243,8 @@ end
 
 function paladin_2_1_destroy(event)
 	local target = event.target
-	local wings = target:GetAbilityByIndex(0)
-	print(wings:GetToggleState())
+	local wings = target:GetAbilityByIndex(DOTA_Q_SLOT)
+	--print(wings:GetToggleState())
 	if wings:GetToggleState() == true then
 		wings:ToggleAbility()
 	end

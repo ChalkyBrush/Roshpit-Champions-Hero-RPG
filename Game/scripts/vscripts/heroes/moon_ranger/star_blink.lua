@@ -15,7 +15,7 @@ function star_blink_impact(event)
     rune_e_1(caster, target, ability)
     rune_e_2(caster)
     rune_e_3(caster, target)
-    print("particle attached")
+   --print("particle attached")
     caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "astral")
     caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "astral")
     local delay = 2
@@ -66,7 +66,7 @@ function star_blink_damage(event)
     local damage = event.damage
     local stun_duration = event.stun_duration
     Filters:ApplyStun(caster, stun_duration, target)
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 end
 
 function rune_e_1(caster, targetPoint, starAbility)
@@ -165,11 +165,11 @@ function rune_e_1_strike(event)
 
       target:SetModifierStackCount("modifier_astral_rune_e_1_visible", caster, newStacks);
       target:SetModifierStackCount("modifier_astral_rune_e_1_invisible", caster, newStacks * ability.level);
-      print('stacksCount')
-      print(newStacks)
-      print(newStacks * ability.level)
-      print('duration')
-      print(ability.rootDuration)
+     --print('stacksCount')
+     --print(newStacks)
+     --print(newStacks * ability.level)
+     --print('duration')
+     --print(ability.rootDuration)
   end
 end
 

@@ -143,9 +143,9 @@ function firestorm_channel_think(event)
 						damage = damage*2
 					end
 					if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
-						Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+						Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 					else
-						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 					end
 					CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/firestorm_impact.vpcf", enemy, 1)
 				end
@@ -182,9 +182,9 @@ function sorceress_firestorm_impact(caster, target, ability, damage, bBurn, amp)
 		EmitSoundOn("Sorceress.Firestorm.Impact", target)
 		for _,enemy in pairs(enemies) do
 			if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage*amp, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage*amp, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			else
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage*amp, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage*amp, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			end
 			if bBurn then
 				local burnDuration = Q3_BASE_DURATION + (caster.q_3_level * Q3_ADD_DURATION)

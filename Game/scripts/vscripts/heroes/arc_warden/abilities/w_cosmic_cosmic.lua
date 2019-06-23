@@ -142,13 +142,13 @@ function jex_cosmic_cosmic_w_explode(event)
 					local newPos = enemy:GetAbsOrigin() + towardCenter*distance*0.5
 					FindClearSpaceForUnit(enemy, newPos, false)
 				end
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, caster.damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, caster.damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
                 if not enemy:HasModifier("jex_grenade_root_immunity") then
                     ability:ApplyDataDrivenModifier(caster, enemy, "jex_grenade_root", {duration = root_duration})
                     ability:ApplyDataDrivenModifier(caster, enemy, "jex_grenade_root_immunity", {duration = root_duration+1})
                 end
 			end
-			-- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			-- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 		end
 	end 	
 

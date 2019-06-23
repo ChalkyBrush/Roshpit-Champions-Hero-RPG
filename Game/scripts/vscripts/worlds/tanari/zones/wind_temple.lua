@@ -352,7 +352,7 @@ function Tanari:AttachParticleToBoss(color, staff, boss)
 	elseif color == "blue" then
 		particleName = blueParticle
 	end
-	print(particleName)
+	--print(particleName)
 	local eonPfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, staff )
 	ParticleManager:SetParticleControl(eonPfx, 0, staff:GetAbsOrigin()+Vector(0,0,300))
 	ParticleManager:SetParticleControlEnt(eonPfx, 1, boss, PATTACH_POINT_FOLLOW, "attach_hitloc", boss:GetAbsOrigin()+Vector(0,0,140), true)
@@ -538,7 +538,7 @@ function Tanari:WindTempleBossMusic()
 end
 
 function Tanari:SpawnWindTempleBoss(position)
-	print("SPAWN BOSS!!")
+	--print("SPAWN BOSS!!")
 	local boss = Events:SpawnBoss("wind_temple_boss", position)
 	boss.jumpLock = true
 	boss.pushLock = true
@@ -973,7 +973,7 @@ function Tanari:SpiritWindTempleBossRoom()
 	Timers:CreateTimer(7, function()
 		local positionTable2 = {Vector(11169, 2880), Vector(11264, 2560), Vector(11840, 2398), Vector(12672, 2176), Vector(13056, 2709), Vector(13903, 2816), Vector(14656, 2709), Vector(14656, 2176), Vector(14080, 1824)}
 		for i = 1, #positionTable2, 1 do
-			print("poison flowers")
+			--print("poison flowers")
 			local flower = Tanari:SpawnPoisonFlower(RandomVector(1), positionTable2[i])
 			Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, flower, "tanari_mountain_specter_ai", {})
 		end	

@@ -57,5 +57,5 @@ function windstrike_attack_land(event)
 	if target:GetPhysicalArmorValue(false) > 0 then
 		damage = damage + damage*0.01*target:GetPhysicalArmorValue(false)
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 end

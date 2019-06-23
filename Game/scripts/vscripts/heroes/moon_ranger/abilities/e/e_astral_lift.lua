@@ -104,5 +104,5 @@ function damage(event)
     local damage = event.damage
     local stun_duration = event.stun_duration
     Filters:ApplyStun(caster, stun_duration, target)
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 end

@@ -58,7 +58,7 @@ function cast_soul_thrust(event)
 	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), centerPoint, nil, 340, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	    if #enemies > 0 then
 	        for _,enemy in pairs(enemies) do
-	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_WIND)
+	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_WIND)
 	            ability:ApplyDataDrivenModifier(caster, enemy, "modifier_soul_thrust_effect", {duration = 7})
 	            if stun_duration > 0 then
 	            	Filters:ApplyStun(caster, stun_duration, enemy)

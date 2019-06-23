@@ -72,7 +72,7 @@ function flood_basin_aura_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local a_d_level = ability.r_1_level
-	print("AURA START")
+	--print("AURA START")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_flood_basin_mana_regen", {})
 	caster:AddNewModifier( caster, ability, "modifier_flood_basin_lua", {} )
 	if a_d_level > 0 then
@@ -113,7 +113,7 @@ end
 function slippery_tail_arcana(caster, target, e_ability)
 	local ability = caster:FindAbilityByName("hydroxis_spellbound_flood_basin")
 	if ability.basin_table and #ability.basin_table > 0 then
-		print("BASIN?")
+		--print("BASIN?")
 		local closest_basin = ability.basin_table[1]
 		for i = 1, #ability.basin_table, 1 do
 			local distance = WallPhysics:GetDistance2d(ability.basin_table[i]:GetAbsOrigin(), target)
@@ -201,7 +201,7 @@ function flood_root_init(event)
 	local target = event.target
 	local ability = event.ability
 	if ability.basin_table and #ability.basin_table > 0 then
-		print("BASIN?")
+		--print("BASIN?")
 		local closest_basin = ability.basin_table[1]
 		for i = 1, #ability.basin_table, 1 do
 			local distance = WallPhysics:GetDistance2d(ability.basin_table[i]:GetAbsOrigin(), target:GetAbsOrigin())

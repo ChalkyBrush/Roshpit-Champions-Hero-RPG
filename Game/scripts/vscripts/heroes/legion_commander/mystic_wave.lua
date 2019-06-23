@@ -130,14 +130,14 @@ function mystic_wave_impact(event)
 				end
 				if target:HasModifier("modifier_mountain_protector_q_2_invisible") then
 					local stacks = target:GetModifierStackCount("modifier_mountain_protector_q_2_invisible", caster)
-					-- print("---ORIG DAMAGE:---")
-					-- print(damage)
+					--print("---ORIG DAMAGE:---")
+					--print(damage)
 					damage = damage + damage*0.1*stacks
-					-- print("STACKS:")
-					-- print(stacks)
-					-- print("NEW DAMAGE:")
-					-- print(damage)
-					-- print("--------------------------")
+					--print("STACKS:")
+					--print(stacks)
+					--print("NEW DAMAGE:")
+					--print(damage)
+					--print("--------------")
 				end
 				if ability.e_3_amp > 0 then
 					damage = damage + damage*ability.e_3_amp
@@ -168,7 +168,7 @@ function mystic_wave_impact(event)
 						target:SetModifierStackCount("modifier_mountain_protector_q_3_daze", caster, ability.q_3_level)
 					end
 				end
-				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_NORMAL, RPC_ELEMENT_EARTH)
+				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_NORMAL, RPC_ELEMENT_EARTH)
 
 			end
 		end)

@@ -52,7 +52,7 @@ function attackLand(event)
                     if caster:HasModifier("modifier_astral_arcana1") then
                         baseAbilityFor = 1
                     end
-                    print(baseAbilityFor)
+                   --print(baseAbilityFor)
                     Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, baseAbilityFor, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
                     EmitSoundOn("Ability.StarfallImpact", target)
                     if caster:HasModifier("modifier_astral_arcana1") then

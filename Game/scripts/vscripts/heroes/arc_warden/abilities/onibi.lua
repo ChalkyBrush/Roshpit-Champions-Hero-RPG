@@ -9,11 +9,11 @@ function load_onibi_data(caster, onibi_data)
 	caster.onibi.caster = caster
 	caster.onibi:SetRenderColor(20, 0, 255)
 	caster.onibi:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
-	caster.onibi:GetAbilityByIndex(0):SetLevel(1)
-	caster.onibi:GetAbilityByIndex(1):SetLevel(1)
-	caster.onibi:GetAbilityByIndex(2):SetLevel(1)
-	caster.onibi:GetAbilityByIndex(3):SetLevel(1)
-	caster.onibi:GetAbilityByIndex(4):SetLevel(1)
+	caster.onibi:GetAbilityByIndex(DOTA_Q_SLOT):SetLevel(1)
+	caster.onibi:GetAbilityByIndex(DOTA_W_SLOT):SetLevel(1)
+	caster.onibi:GetAbilityByIndex(DOTA_E_SLOT):SetLevel(1)
+	caster.onibi:GetAbilityByIndex(DOTA_D_SLOT):SetLevel(1)
+	caster.onibi:GetAbilityByIndex(DOTA_F_SLOT):SetLevel(1)
 	caster.onibi.stats_table = {}
 	local elements_table = all_possible_onibi_elements(caster.onibi)
 	local ability_keys = {"Q", "W", "E"}
@@ -26,7 +26,7 @@ function load_onibi_data(caster, onibi_data)
 			for k = 1, #ability_keys, 1 do
 				local ability_key = ability_keys[k]
 				caster.onibi.stats_table[element1][element2][ability_key] = {}
-				print(element1.." : "..element2.." - "..ability_key)
+				--print(element1.." : "..element2.." - "..ability_key)
 			end
 		end
 	end
@@ -120,7 +120,7 @@ function set_onibi_model(onibi)
 	else
 		onibi.current_model_index = model_index
 		local modelName = "models/items/courier/onibi_lvl_"..model_string.."/onibi_lvl_"..model_string.."_flying.vmdl"
-		print(modelName)
+		--print(modelName)
 		PrecacheModel(modelName, {})
 		Timers:CreateTimer(1, function()
 			onibi:SetOriginalModel(modelName)
@@ -415,9 +415,9 @@ function onibi_activate_ability_key(event)
 	local caster = event.caster
 	local ability = event.ability
 	local onibi = caster
-	local element1 = string.gsub(caster:GetAbilityByIndex(3):GetAbilityName(), "onibi_", "")
+	local element1 = string.gsub(caster:GetAbilityByIndex(DOTA_D_SLOT):GetAbilityName(), "onibi_", "")
 	element1 = string.gsub(element1, '_1', "")
-	local element2 = string.gsub(caster:GetAbilityByIndex(4):GetAbilityName(), "onibi_", "")
+	local element2 = string.gsub(caster:GetAbilityByIndex(DOTA_F_SLOT):GetAbilityName(), "onibi_", "")
 	element2 = string.gsub(element2, '_2', "")
 	local ability_key = string.upper(event.ability_key)
 	local ability_level = caster.stats_table[element1][element2][ability_key]["level"]
@@ -447,15 +447,15 @@ function onibi_invoke(event)
 	-- local caster = event.caster
 	-- local ability = event.ability
 	-- local onibi = caster
-	-- local element1 = string.gsub(caster:GetAbilityByIndex(0):GetAbilityName(), "onibi_", "")
+	-- local element1 = string.gsub(caster:GetAbilityByIndex(DOTA_Q_SLOT):GetAbilityName(), "onibi_", "")
 	-- element1 = string.gsub(element1, '_1', "")
-	-- local element2 = string.gsub(caster:GetAbilityByIndex(1):GetAbilityName(), "onibi_", "")
+	-- local element2 = string.gsub(caster:GetAbilityByIndex(DOTA_W_SLOT):GetAbilityName(), "onibi_", "")
 	-- element2 = string.gsub(element2, '_2', "")
-	-- local ability_key = string.gsub(caster:GetAbilityByIndex(2):GetAbilityName(), "onibi_", "")
+	-- local ability_key = string.gsub(caster:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName(), "onibi_", "")
 	-- ability_key = string.upper(ability_key)
-	-- print(element1)
-	-- print(element2)
-	-- print(ability_key)
+	----print(element1)
+	----print(element2)
+	----print(ability_key)
 	-- local ability_level = caster.stats_table[element1][element2][ability_key]["level"]
 	-- if ability_level > 0 then
 	-- 	EmitSoundOn("Jex.Invoke", caster)
@@ -501,12 +501,12 @@ function upgrade_onibi_ability(msg)
 		mult = 2
 	end
 	local cost = get_ability_tech_up_cost(onibi.stats_table[element1][element2][ability_key]["level"], mult)
-	print("--")
-	print("COST: "..cost)
-	print(element1)
-	print(element2)
-	print(onibi.stats_table[element1]["tech"])
-	print(onibi.stats_table[element2]["tech"])
+	--print("--")
+	--print("COST: "..cost)
+	--print(element1)
+	--print(element2)
+	--print(onibi.stats_table[element1]["tech"])
+	--print(onibi.stats_table[element2]["tech"])
 	local player = PlayerResource:GetPlayer(onibi.caster:GetPlayerOwnerID())
 	if onibi.stats_table[element1]["tech"] >= cost and onibi.stats_table[element2]["tech"] >= cost then
 		onibi.stats_table[element1][element2][ability_key]["level"] = onibi.stats_table[element1][element2][ability_key]["level"] + 1

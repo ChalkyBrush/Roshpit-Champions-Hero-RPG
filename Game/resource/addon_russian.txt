@@ -1134,8 +1134,8 @@
 		// Special Mobs
 		//------------------------		
 
-		"DOTA_Tooltip_modifier_paragon"								"Монстр Парагона"
-		"DOTA_Tooltip_modifier_paragon_Description"					"Мощное элитное существо"
+		"DOTA_Tooltip_modifier_paragon_pack"								"Монстр Парагона"
+		"DOTA_Tooltip_modifier_paragon_pack_Description"					"Мощное элитное существо"
 
 		"DOTA_Tooltip_modifier_paragon_solo"						"Монстр Парагона"
 		"DOTA_Tooltip_modifier_paragon_solo_Description"			"Мощное легендарное существо"
@@ -16017,9 +16017,9 @@
         "serengaard_night_invader"   			 "Nightscape Invader"
         "phoenix_siege_dragon"  				  "Siege Drake"
 
-		//---------------------------
+		//---------------
 		// Tanari Jungle
-		//---------------------------
+		//---------------
 
 		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_normal"			"Ключ Дворца ветров"
 		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_elite"				"Ключ Дворца ветров"

@@ -65,7 +65,7 @@ function bear_warstomp(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NATURE, RPC_ELEMENT_EARTH)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_NATURE, RPC_ELEMENT_EARTH)
 			Filters:ApplyStun(caster, stun_duration, enemy)
 			if caster:HasModifier("modifier_djanghor_glyph_7_1") then
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_bear_rend_armor_loss", {duration = 20})
@@ -184,11 +184,11 @@ function charge_slide_think(event)
 	if ability.slideVelocity > 0 then
 		ability.slideVelocity = ability.slideVelocity - 2
 	end
-	print("slide think")
+	--print("slide think")
 end
 
 function charge_slide_end(event)
-	print("slide END")
+	--print("slide END")
 	local caster = event.caster
 	caster.EFV = nil
 end

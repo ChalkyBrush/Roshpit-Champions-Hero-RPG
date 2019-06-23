@@ -67,7 +67,7 @@ function channel_complete(event)
 		if caster:HasModifier("modifier_mountain_protector_glyph_5_a") and ability.cast_difference then
 			for i = 1, explosionCount, 1 do
 				Timers:CreateTimer(i*0.3, function()
-					print("SHORT BURN")
+					--print("SHORT BURN")
 					--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(caster:GetAbsOrigin()+ability.cast_difference, caster)+Vector(0,0,50), "modifier_protector_c_d_scorched_earth", {duration = 1.5})
 					CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(caster:GetAbsOrigin()+ability.cast_difference, caster)+Vector(0,0,50), "modifier_protector_c_d_scorched_earth", {duration = 1.5})
 				end)
@@ -81,12 +81,12 @@ function channel_complete(event)
 end
 
 function c_d_thinker_take_damage(event)
-	print("CMON!")
+	--print("CMON!")
 	local caster = event.caster
 	local ability = event.ability
 	local damage = ability.r_3_level * (5000 + ability:GetCaster():GetStrength() * 5)
 
-	Filters:TakeArgumentsAndApplyDamage(event.target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(event.target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
 function aeon_fracture_explosion(caster, position, damage, amp, explosionAOE, ability, canBD, a_c_stun_duration)
@@ -115,11 +115,11 @@ function aeon_fracture_explosion(caster, position, damage, amp, explosionAOE, ab
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, targetFlag, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, 4, RPC_ELEMENT_EARTH, RPC_ELEMENT_FIRE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, BASE_ABILITY_R, RPC_ELEMENT_EARTH, RPC_ELEMENT_FIRE)
 				Filters:ApplyStun(caster, stun_duration+a_c_stun_duration, enemy)
 				if ability.r_1_level > 0 then
 					local a_d_damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.3*ability.r_1_level
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_d_damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_d_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 					local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, caster )
 					ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT, "attach_hitloc", caster:GetAbsOrigin()+Vector(0,0,80), true)
 					ParticleManager:SetParticleControlEnt(pfx, 1, enemy, PATTACH_POINT, "attach_hitloc", enemy:GetAbsOrigin()+Vector(0,0,80), true)
@@ -144,7 +144,7 @@ function aeon_fracture_explosion(caster, position, damage, amp, explosionAOE, ab
 			local refreshChance = ability:GetSpecialValueFor("refresh_chance")
 			local luck = RandomInt(1, 100)
 			if luck <= refreshChance then
-				caster:GetAbilityByIndex(2):EndCooldown()
+				caster:GetAbilityByIndex(DOTA_E_SLOT):EndCooldown()
 			end
 		end 
 		if a_c_stun_duration > 0 then

@@ -67,7 +67,7 @@ function startChannel(event)
                     if caster:HasModifier("modifier_axe_glyph_5_a") then
                         damage = damage * (1 + T5A_AMPLIFY_PERCENT/100)
                     end
-                    Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+                    Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
                     Filters:ApplyStun(caster, stun_duration, enemy)
                 end
             end
@@ -195,7 +195,7 @@ function dealDamage(caster, ability, damage, stun_duration, startPoint, endPoint
         if caster:HasModifier("modifier_axe_glyph_5_a") then
              damage = damage * (1 + T5A_AMPLIFY_PERCENT/100)
         end
-        Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+        Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
         Filters:ApplyStun(caster, stun_duration, enemy)
         --ability:ApplyDataDrivenModifier(caster, targetUnit, "modifier_stun_explosion", {})
     end

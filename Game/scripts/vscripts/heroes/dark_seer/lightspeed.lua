@@ -114,7 +114,7 @@ function lightspeed_think(event)
 					local pfx = ParticleManager:CreateParticle("particles/roshpit/zonik_remant_spirit_static_remnant.vpcf", PATTACH_WORLDORIGIN, caster)
 					ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
 					local angle = WallPhysics:vectorToAngle(caster:GetForwardVector())*2
-					print("Angle"..angle)
+					--print("Angle"..angle)
 					ParticleManager:SetParticleControl(pfx, 1, caster:GetForwardVector()*180)
 					ParticleManager:SetParticleControl(pfx, 2, Vector(0.8, 0.8, 0.8))
 					-- Timers:CreateTimer(2.5, function()
@@ -163,7 +163,7 @@ function remnant_explode(event)
 	end
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 		end
 	end 
 	EmitSoundOn("Zonik.Remnant.Explode", event.caster)

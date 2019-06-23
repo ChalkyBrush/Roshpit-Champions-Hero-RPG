@@ -1513,8 +1513,8 @@
 		// Special Mobs
 		//------------------------		
 
-		"DOTA_Tooltip_modifier_paragon"								"精英怪"
-		"DOTA_Tooltip_modifier_paragon_Description"					"强大的精英怪"
+		"DOTA_Tooltip_modifier_paragon_pack"								"精英怪"
+		"DOTA_Tooltip_modifier_paragon_pack_Description"					"强大的精英怪"
 
 		"DOTA_Tooltip_modifier_paragon_solo"						"精英首领"
 		"DOTA_Tooltip_modifier_paragon_solo_Description"			"强大的精英首领"

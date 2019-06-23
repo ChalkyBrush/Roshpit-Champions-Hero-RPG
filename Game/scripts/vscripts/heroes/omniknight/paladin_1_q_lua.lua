@@ -39,7 +39,7 @@ function class:OnSpellStart()
 	local ability = self
 	if bit.band(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_TOGGLE) == DOTA_ABILITY_BEHAVIOR_TOGGLE then return end
 	local caster = self:GetCaster()
-	print("HAS?",caster:HasModifier("modifier_paladin_q_passive"))
+	--print("HAS?",caster:HasModifier("modifier_paladin_q_passive"))
 	EmitSoundOn("Paladin.HeroicFuryActivate", caster)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf", caster, 2)
 	for i=1,4 do

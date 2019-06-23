@@ -95,7 +95,7 @@ function PVP:RollRandomGlyph(position)
 		rowItem = RandomInt(1,3)
 	end
 	local glyphName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..rowItem
-	print(glyphName)
+	--print(glyphName)
 	Glyphs:RollGlyphAll(glyphName, position, 0)
 end
 
@@ -354,7 +354,7 @@ function PVP:SpawnAutumnSpirit(position, fv, teamNumber)
 	local ancient = PVP:SpawnDungeonUnit( "redfall_autumn_spirit", position, 1, 3, "Redfall.AutumnSpirit.Aggro", fv, true, teamNumber)
 	Events:AdjustBossPower(ancient, 3, 3, false)
 	ancient.itemLevel = 25
-	Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, ancient, "modifier_experimental_fire_effect", {})
+	Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, ancient, "modifier_redfall_disciple_of_maru_die", {})
 	ancient:SetRenderColor(255, 158, 158)
 	return ancient
 end
@@ -706,8 +706,8 @@ function PVP:pvp_summon_unit(caster, unitCode, bounty, playerID, regionCode)
 	local casterOrigin = caster:GetAbsOrigin()
 	local fv = caster:GetForwardVector()
 	local unit = nil
-	print("REGION CODE")
-	print(regionCode)
+	--print("REGION CODE")
+	--print(regionCode)
 	if regionCode == "tanari" then
 		if unitCode == "A0" then
 			unit = PVP:LineWarSummonMountainBully(casterOrigin, fv, caster:GetTeamNumber())

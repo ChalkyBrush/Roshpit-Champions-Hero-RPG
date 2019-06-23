@@ -66,7 +66,7 @@ function jex_activate_q_fire_cosmic(event)
 				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 				if #enemies > 0 then
 					for _,enemy in pairs(enemies) do
-						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_COSMOS)
+						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_COSMOS)
 						if stun_duration > 0 then
 							Filters:ApplyStun(caster, stun_duration, enemy)
 						end

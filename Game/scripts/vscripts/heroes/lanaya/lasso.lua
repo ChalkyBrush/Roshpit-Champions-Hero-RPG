@@ -75,7 +75,7 @@ function trapper_lasso_think(event)
 	target.lassoLiftSpeed = target.lassoLiftSpeed - 2.4
 	if ability.w_3_level > 0 then
 		local damage = ability.w_3_level * travelDistance/100 * ARCANA1_W3_AGI_DAMAGE * caster:GetAgility()
-		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 	end
 	if not ability.lifting then
 		if target:GetAbsOrigin().z < GetGroundHeight(target:GetAbsOrigin(), target) + 40 then
@@ -143,7 +143,7 @@ end
 	-- ParticleManager:SetParticleControlEnt( pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true )
     -- local distance = WallPhysics:GetDistance(targetPoint*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
     -- local jumpFV = ((targetPoint-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-    -- print(jumpFV)
+    --print(jumpFV)
     -- ability.jump_velocity = distance/30 + 15
     -- ability.jumpFV = jumpFV
     -- ability.distance = distance

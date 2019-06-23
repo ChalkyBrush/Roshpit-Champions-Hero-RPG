@@ -8,7 +8,7 @@ function Winterblight:SpawnAzaleaCups()
 end
 
 function Winterblight:CupSpawnCondition(index)
-	print("T5A")
+	--print("T5A")
 	if not Winterblight.AzaleaDungeonOpened then
 		return false
 	end
@@ -137,7 +137,7 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 		return false
 	end
 	if not cup.active then
-		print("HIT INACTIVE CUP")
+		--print("HIT INACTIVE CUP")
 		cup.active = true
 		local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
 		local radius = 350
@@ -236,7 +236,7 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 		Winterblight:ShrineSpawn5()
 	else
 		attacker.cupSequence = false
-		print("ATTACK ACTIVE CUP")
+		--print("ATTACK ACTIVE CUP")
 		attacker:AddNewModifier( attacker, nil, "modifier_black_portal_shrink", {} )
 		Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, attacker, "modifier_disable_player", {duration = 4})
 		Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, attacker, "modifier_damage_immunity", {duration = 6})
@@ -513,10 +513,10 @@ function Winterblight:AttackAzaleaCrystal(caster, bOrigin)
     elseif crystal.color == "yellow" then
     	crystal:SetRenderColor(220, 220, 100)
     end
-    print(bOrigin)
+   --print(bOrigin)
     if bOrigin then
 	    for i = 1, #crystal.switches, 1 do
-	    	print(crystal.switches[i])
+	    	--print(crystal.switches[i])
 	    	Winterblight:AttackAzaleaCrystal(Winterblight.AzaleaCrystalTable[crystal.switches[i]], false)
 	    end
 	    Winterblight:CheckAndProcessCrystals()
@@ -698,9 +698,9 @@ function Winterblight:ShrineSpawn2()
 				UTIL_Remove(right_abacus[i])
 			end
 		end
-		print("------MATH!!!-----")
-		print(Winterblight.leftCount.."-operator-"..Winterblight.rightCount)
-		print(Winterblight.MathCount)
+		--print("------MATH!!!-----")
+		--print(Winterblight.leftCount.."-operator-"..Winterblight.rightCount)
+		--print(Winterblight.MathCount)
 	end
 end
 
@@ -755,10 +755,10 @@ function Winterblight:AzaleaSwitch1()
 					Winterblight.AzaleaMathCounter = 0
 				end
 				Timers:CreateTimer(2, function()
-					print("-----")
-					print(Winterblight.AzaleaMathCounter)
-					print(Winterblight.MathCount)
-					print("-----")
+					--print("-----")
+					--print(Winterblight.AzaleaMathCounter)
+					--print(Winterblight.MathCount)
+					--print("-----")
 					if Winterblight.AzaleaMathCounter == Winterblight.MathCount then
 						Winterblight.MathPuzzleComplete = true
 						EmitSoundOnLocationWithCaster(Vector(15733, -11788, 78+Winterblight.ZFLOAT), "Winterblight.AzaleaCrystal.FinishPuzzle", Winterblight.Master)
@@ -2015,7 +2015,7 @@ function Winterblight:SpawnCandyCrushOrangeUnit(position, fv, bBlack, nextUnit)
 end
 
 function Winterblight:ProcessLinks(links, hero)
-	print("Trying to process links: "..#links)
+	--print("Trying to process links: "..#links)
 	if Winterblight.CandyCrushComplete then
 		return false
 	end
@@ -2128,7 +2128,7 @@ function Winterblight:CheckCollapseCombos(hero, units_to_remove_per_x_coord)
 	for x_coord, y_coord in pairs(coords_to_check) do
 		local current_y = y_coord
 		while current_y < 11 do
-			print("Checking horizontally of "..x_coord..":"..current_y)
+			--print("Checking horizontally of "..x_coord..":"..current_y)
 			local horizontal_links = {}
 			--checking horizontal left
 			for i = 1, x_coord - 1, 1 do
@@ -2146,7 +2146,7 @@ function Winterblight:CheckCollapseCombos(hero, units_to_remove_per_x_coord)
 					break
 				end
 			end
-			print("Found "..#horizontal_links.." statues")
+			--print("Found "..#horizontal_links.." statues")
 			if #horizontal_links >= 3 then
 				for index, value in pairs(horizontal_links) do
 					if not value.link_lock or value.link_lock == false then
@@ -2155,7 +2155,7 @@ function Winterblight:CheckCollapseCombos(hero, units_to_remove_per_x_coord)
 					end
 				end
 			end
-			print("Checking vertically of "..x_coord..":"..current_y)
+			--print("Checking vertically of "..x_coord..":"..current_y)
 			local vertical_links = {}
 			--checking vertical left
 			for i = 1, current_y - 1, 1 do
@@ -2173,7 +2173,7 @@ function Winterblight:CheckCollapseCombos(hero, units_to_remove_per_x_coord)
 					break
 				end
 			end
-			print("Found "..#vertical_links.." statues")
+			--print("Found "..#vertical_links.." statues")
 			if #vertical_links >= 3 then
 				for index, value in pairs(vertical_links) do
 					if not value.link_lock or value.link_lock == false then
@@ -2622,7 +2622,7 @@ function Winterblight:AzaleaPuckAttacked(caster, attacker)
 	if caster.locked then
 		return false
 	end
-	print("PUCK ATTACKED")
+	--print("PUCK ATTACKED")
 	caster.speed = math.min(caster.speed + 25, 40)
 	local ability = caster:FindAbilityByName("winterblight_attackable_unit")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_winterblight_puck_motion", {})
@@ -3063,8 +3063,8 @@ function Winterblight:AzaleaPlatformSpawns(index)
 end
 
 function Winterblight:AzaleaPlatformPitSpawn(spawnIndex)
-	print("PLATFORM SPAWN")
-	print(spawnIndex)
+	--print("PLATFORM SPAWN")
+	--print(spawnIndex)
 	if spawnIndex == 1 then
 		local positionTable = {}
 		local luck = RandomInt(1, 3)
@@ -3291,8 +3291,8 @@ function Winterblight:InitAzaleaMazeRoom()
 		FindClearSpaceForUnit(mazeGhost, mazeGhost:GetAbsOrigin(), false)
 		local positionTable = {Vector(-3840, -15250), Vector(-3840, -14750), Vector(-3840, -14250), Vector(-3840, -13750), Vector(-3840, -13250), Vector(-3840, -12750), Vector(-3840, -12250), Vector(-3840, -11750), Vector(-3840, -11250), Vector(-3840, -10750), Vector(-3840, -15872), Vector(-3262, -15872), Vector(-2729, -15872), Vector(-2729, -15184), Vector(-3268, -15184), Vector(-3269, -14485), Vector(-2729, -14485), Vector(-2729, -13848), Vector(-2729, -13105), Vector(-3251, -13105), Vector(-3251, -12480), Vector(-2729, -12480), Vector(-3277, -11787), Vector(-2586, -11787), Vector(-1930, -11787), Vector(-1930, -11126), Vector(-2612, -11126), Vector(-3297, -11126), Vector(-3297, -10372), Vector(-2582, -10372), Vector(-1934, -10372), Vector(-5969, -15990), Vector(-5969, -15408), Vector(-5285, -15990), Vector(-5285, -15408), Vector(-4608, -15990), Vector(-4608, -15408)}
 		positionTable = WallPhysics:ShuffleTable(positionTable)
-		print("YOUR NUMBER SIR:")
-		print(#positionTable)
+		--print("YOUR NUMBER SIR:")
+		--print(#positionTable)
 		mazeGhost.goalFood = 16
 		mazeGhost.jumpLock = true
 		mazeGhost.pushLock = true
@@ -5199,9 +5199,9 @@ function Winterblight:SpawnAzaleaBoss()
 			Timers:CreateTimer(0, function()
 				if not Winterblight.AzaleaBossSlain then
 					for i = 1, #MAIN_HERO_TABLE, 1 do
-						print("LETS GO")
+						--print("LETS GO")
 						if MAIN_HERO_TABLE[i].bgm == "Winterblight.AzaleaBossMusic" then
-							print("YEP")
+							--print("YEP")
 						  CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "BGMend", {})
 						  CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "BGMstart", {songName = "Winterblight.AzaleaBossMusic"})
 						end
@@ -5270,7 +5270,7 @@ function Winterblight:AzaleaBossDie(boss)
 	end)
 	Timers:CreateTimer(8, function()
 		EmitSoundOn("Winterblight.AzaleaBoss.Death2.VO", boss)
-		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(boss)})
 		boss:RemoveModifierByName("modifier_boss_dying")
 		Timers:CreateTimer(0.03, function()
 			StartAnimation(boss, {duration=10, activity=ACT_DOTA_DIE, rate=0.24})

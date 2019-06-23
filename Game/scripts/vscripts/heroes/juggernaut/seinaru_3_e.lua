@@ -45,7 +45,7 @@ function getUniqueValuesInTable(table)
 
 	for _,v in ipairs(table) do
 	   if (not hash[v]) then
-	       res[#res+1] = v -- you could print here instead of saving to result table if you wanted
+	       res[#res+1] = v -- you could--print here instead of saving to result table if you wanted
 	       hash[v] = true
 	   end
 
@@ -151,7 +151,7 @@ function slice_think(event)
 					end
 				end
 				if damage then
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 3, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)	
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_E, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)	
 				end
 			end
 		end
@@ -259,7 +259,7 @@ function odachi_a_c_think(event)
 	if #ability.e_1_unit_table > 0 then
 		local target = EntIndexToHScript(ability.e_1_unit_table[1])
 		local distance = 0
-		print('unit table size is ' .. #ability.e_1_unit_table)
+		--print('unit table size is ' .. #ability.e_1_unit_table)
 		if IsValidEntity(target) then
 			distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), target:GetAbsOrigin())
 			if not target:IsAlive() then
@@ -288,7 +288,7 @@ function odachi_a_c_think(event)
 		end
 		if distance <= ability.movespeed + 5 then
 			ability.particle = true
-			DeepPrintTable(ability.e_1_unit_table)
+			--DeepPrintTable(ability.e_1_unit_table)
 			-- CustomAbilities:QuickAttachParticle("particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_gold.vpcf", target, 1.5)	
 			local particleName = "particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_gold.vpcf"
 			local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, target )

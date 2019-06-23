@@ -101,7 +101,7 @@ function possession_moving_towards_think(event)
 		if IsValidEntity(ability.target) and ability.target:IsAlive() then
 			if ability.target.dominion then
 				ability.lockedTarget = ability.target
-				CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_bubble_possession", "slipfinn_release_possess", DOTA_ULTIMATE_SLOT)
+				CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_bubble_possession", "slipfinn_release_possess", DOTA_R_SLOT)
 				ability.enemyMovementPhase = 0
 				ability:ApplyDataDrivenModifier(caster, ability.target, "modifier_possession_enemy_lock", {duration = duration})
 				ability.target:AddNewModifier( caster, ability, "slipfinn_possessed_lua", {duration = duration} )
@@ -248,7 +248,7 @@ function enemy_locked_end(event)
 				EmitSoundOn("Slipfinn.Possess.EnemyEnd", ability.lockedTarget)
 				ability.lockedTarget:RemoveModifierByName("modifier_possession_enemy_lock")
 				ability.lockedTarget:RemoveModifierByName("slipfinn_possessed_lua")
-				CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_release_possess", "slipfinn_bubble_possession", DOTA_ULTIMATE_SLOT)
+				CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_release_possess", "slipfinn_bubble_possession", DOTA_R_SLOT)
 				ability:ApplyDataDrivenModifier(caster, ability.lockedTarget, "modifier_release_falling", {duration = 1})
 				ability.lockedTarget.possessionFallSpeed = 3
 
@@ -261,7 +261,7 @@ function enemy_locked_end(event)
 				end)
 			end
 		else
-			CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_release_possess", "slipfinn_bubble_possession", DOTA_ULTIMATE_SLOT)
+			CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_release_possess", "slipfinn_bubble_possession", DOTA_R_SLOT)
 		end
 		ability.lockedTarget = nil
 	end
@@ -270,7 +270,7 @@ end
 
 function collect_abilities(caster, ability, target)
 	local abilitiesTable = {}
-	print(target:GetAbilityCount())
+	--print(target:GetAbilityCount())
 	for i = 0, 12, 1 do
 		local abilityCheck = target:GetAbilityByIndex(i)
 		if abilityCheck then
@@ -287,7 +287,7 @@ function collect_abilities(caster, ability, target)
 			UTIL_Remove(caster:FindAbilityByName(abilitiesTable[i]:GetAbilityName()))
 		end
 		local newAbil = caster:AddAbility(abilitiesTable[i]:GetAbilityName())
-		newAbil:SetAbilityIndex(DOTA_ULTIMATE_SLOT+i)
+		newAbil:SetAbilityIndex(DOTA_R_SLOT+i)
 		newAbil.possessionAbility = true
 		newAbil:SetLevel(level)
 		table.insert(slarkAbilitiesTable, newAbil)
@@ -304,9 +304,9 @@ function release_falling_think(event)
 		target:SetAbsOrigin(target:GetAbsOrigin()-Vector(0,0,target.possessionFallSpeed))
 	end
 	target.possessionFallSpeed = target.possessionFallSpeed + 1
-	print(target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target))
+	--print(target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target))
 	if target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target) < target.possessionFallSpeed then
-		print("LAND")
+		--print("LAND")
 		target:RemoveModifierByName("modifier_release_falling")
 	end
 end

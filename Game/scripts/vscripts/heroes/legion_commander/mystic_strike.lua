@@ -98,13 +98,13 @@ function bomb_jump_to_position(caster, ability, unit, forwardVector, distance, l
             local liftForce = math.max(liftForce-i*gravity, 0)
             local newPosition = currentPosition+forwardVector*propulsion+Vector(0,0,liftForce)
             unit:SetOrigin(newPosition)
-            print(liftForce)
+           --print(liftForce)
         end)
     end
     local fallLoop = 0
     Timers:CreateTimer(0.03*liftDuration+0.03, function()
         Timers:CreateTimer(0.03*fallLoop, function()
-        	print("FALLING?")
+        	--print("FALLING?")
             fallLoop = fallLoop + 1
             local currentPosition = unit:GetAbsOrigin()
             local newPosition = currentPosition+forwardVector*propulsion-Vector(0,0,fallLoop*fallGravity)
@@ -170,7 +170,7 @@ end
 function rock_change_angle(event)
 	local caster = event.caster
 	local angles = caster:GetAngles()
-	print(angles)
+	--print(angles)
 	caster:SetAngles(angles.x+2, angles.y+20, 0)
 end
 

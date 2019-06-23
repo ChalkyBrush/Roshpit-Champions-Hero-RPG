@@ -26,7 +26,7 @@ function jex_lightning_lightning_attack_land(event)
 			local enemy = enemies[i]
 			if IsValidEntity(enemy) and enemy:IsAlive() then
 				EmitSoundOn("Jex.Thundershroom.Lightning", enemy)
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 				local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
 				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_CUSTOMORIGIN, nil)
 				local attach_unit_1 = target

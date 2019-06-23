@@ -55,8 +55,8 @@ function channel_complete(event)
 	local startPoint = event.target_points[1]
 	ability.velocity = 1000
 	ability.rotationDelta = 20
-	DeepPrintTable(event.target_points)
-	print(startPoint)
+	--DeepPrintTable(event.target_points)
+	--print(startPoint)
 	local distance = WallPhysics:GetDistance2d(startPoint, caster:GetAbsOrigin())
 	ability.velocity = distance*1
 	if event.noSound then
@@ -118,7 +118,7 @@ function channel_complete(event)
 		if bAvatar then
 			max_tornados = 3
 		end
-		print(max_tornados)
+		--print(max_tornados)
 		if #ability.tornadoTable > max_tornados then
 			ability.tornadoTable[1]:RemoveModifierByName("modifier_tornado_thinker")
 		end
@@ -230,7 +230,7 @@ function splinter_hit(event)
 		end
 		CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/ice_lance_fracture.vpcf", target, 0.3)
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
 end
 
 -- function begin_lance_from_tornado(event)
@@ -296,7 +296,7 @@ function tornado_damage_think(event)
 			damage = damage + damage*ability.e_3_amp
 		end		
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_ICE, RPC_ELEMENT_WIND)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_ICE, RPC_ELEMENT_WIND)
 	if ability.r_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_tornado_ice_resist_loss_visible", {duration = 3})
 		local newStacks = target:GetModifierStackCount("modifier_tornado_ice_resist_loss_visible", caster) + 1

@@ -6,11 +6,14 @@ function paragon_die(event)
 	local caster = event.caster
 	local deathPosition = caster:GetAbsOrigin()
 	Challenges:ParagonKilled(caster.affixes, deathPosition)
-	if caster.buddiesTable then
-		for i = 1, #caster.buddiesTable, 1 do
-			local buddy = caster.buddiesTable[i]
+	if caster.paragonDummy then
+		for i = 1, #caster.paragonDummy.buddiesTable, 1 do
+			local buddy = caster.paragonDummy.buddiesTable[i]
 			if IsValidEntity(buddy) then
 				buddy.buddiesSlain = buddy.buddiesSlain + 1
+				if buddy.enemyType == ENEMY_TYPE_BOSS or buddy.enemyType == ENEMY_TYPE_MAJOR_BOSS then
+					CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(thisEntity)})
+				end
 			end
 		end
 	end
@@ -20,7 +23,12 @@ function paragon_die(event)
 	else
 		if caster.buddiesSlain == caster.packSize then
 			Glyphs:DropArcaneCrystals(deathPosition, 0.85)
+			caster.paragonDummy:SetAbsOrigin(deathPosition)
+			caster.paragonDummy:ForceKill(false)
 			paragon_loot_drop(deathPosition)
+			Timers:CreateTimer(5, function()
+				UTIL_Remove(caster.paragonDummy)
+			end)
 		end
 	end
 end
@@ -305,7 +313,7 @@ function blinking_think(event)
 			return false
 		end
 	end
-	print("blinkingthink2")
+	--print("blinkingthink2")
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 740, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		local enemy = enemies[1]

@@ -19,7 +19,7 @@ function voltex_azure_leap_onspellstart(event)
     local targetPoint = event.target_points[1]
     local distance = WallPhysics:GetDistance(targetPoint*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
     local jumpFV = ((targetPoint-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-    print(jumpFV)
+   --print(jumpFV)
     ability.jump_velocity = distance/30 + 15
     ability.jumpFV = jumpFV
     ability.distance = distance
@@ -48,7 +48,7 @@ function voltex_azure_leap_jumping_think(event)
 	end
 	caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,ability.jump_velocity)+ability.jumpFV*forwardSpeed)
 	ability.jump_velocity = ability.jump_velocity - 3.3
-	print(ability.jumpFV)
+	--print(ability.jumpFV)
 	if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 10 and not ability.lifting then
 		caster:RemoveModifierByName("modfier_voltex_jumping")
 	elseif caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 200 and not ability.animation and not ability.lifting then
@@ -74,7 +74,7 @@ function voltex_azure_leap_actontargets(event)
     local damage = event.land_damage
     local stun_duration = event.stun_duration
 
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
     Filters:ApplyStun(caster, stun_duration, target)
 end
 
@@ -138,7 +138,7 @@ function ConjureImage(caster, player, ability)
 
 	-- Without MakeIllusion the unit counts as a hero, e.g. if it dies to neutrals it says killed by neutrals, it respawns, etc.
 	illusion:MakeIllusion()
-	overCharge:SetLevel(caster:GetAbilityByIndex(0):GetLevel())
+	overCharge:SetLevel(caster:GetAbilityByIndex(DOTA_Q_SLOT):GetLevel())
 	overCharge:ApplyDataDrivenModifier(illusion, illusion, "modifier_gods_strength_datadriven" , {duration = duration})
 
 
@@ -192,7 +192,7 @@ function voltex_rune_e_2_think(event)
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			ability.particles = ability.particles + 1
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE) 
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE) 
 			if ability.particles < 12 then
 				local particleName = "particles/units/heroes/hero_lina/lina_spell_laguna_blade_impact_sparks.vpcf"
 				local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
@@ -256,7 +256,7 @@ function voltex_rune_e_3_heavens_charge_onspellstart(event)
 		ParticleManager:DestroyParticle( particle1, false )
 	end)
 	if caster:HasModifier("modifier_voltex_glyph_3_1") then
-		local overcharge = caster:GetAbilityByIndex(0)
+		local overcharge = caster:GetAbilityByIndex(DOTA_Q_SLOT)
 		overcharge:EndCooldown()
 	end
 end
@@ -287,7 +287,7 @@ function voltex_rune_e_3_heavens_charge_falling_think(event)
 		local stun_duration = VOLTEX_E3_BASE_STUN_DUR
 		if #enemies > 0 then	
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 				Filters:ApplyStun(caster, stun_duration, enemy)
 			end				
 		end 

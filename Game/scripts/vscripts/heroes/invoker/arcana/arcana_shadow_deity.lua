@@ -155,7 +155,7 @@ function black_razor_think(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, event.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*(CONJUROR_ARCANA_E1_ATTACK_POWER_BLACK_RAZOR/100)*ability.e_1_level
 	for _,enemy in pairs(enemies) do
-		Filters:TakeArgumentsAndApplyDamage(enemy, conjuror, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(enemy, conjuror, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 	end
 end
 

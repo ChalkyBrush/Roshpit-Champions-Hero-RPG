@@ -2,7 +2,7 @@
 	"sephyr_rune_q_1"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -22,7 +22,7 @@
 	"sephyr_rune_q_2"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -42,7 +42,7 @@
 	"sephyr_rune_q_3"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -67,7 +67,7 @@
 	"sephyr_rune_q_4"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -92,7 +92,7 @@
 	"sephyr_rune_w_1"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -112,7 +112,7 @@
 	"sephyr_rune_w_2"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -132,7 +132,7 @@
 	"sephyr_rune_w_3"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -152,7 +152,7 @@
 	"sephyr_rune_w_4"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -172,7 +172,7 @@
 	"sephyr_rune_e_1"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -208,7 +208,7 @@
 	"sephyr_rune_e_2"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -233,7 +233,7 @@
 	"sephyr_rune_e_3"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -258,7 +258,7 @@
 	"sephyr_rune_e_4"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -283,7 +283,7 @@
 	"sephyr_rune_r_1"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -303,7 +303,7 @@
 	"sephyr_rune_r_2"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -328,7 +328,7 @@
 	"sephyr_rune_r_3"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -353,7 +353,7 @@
 	"sephyr_rune_r_4"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"

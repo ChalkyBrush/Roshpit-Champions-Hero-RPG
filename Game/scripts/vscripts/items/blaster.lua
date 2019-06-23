@@ -287,7 +287,7 @@ function modifier_knockback_on_destroy(keys)
 end
 
 function create_dummy_ability(location, caster, abilityName, abilityLevel)
-	print(abilityName)
+	--print(abilityName)
   	local dummy = CreateUnitByName("npc_dummy_unit", location, true, caster, caster, caster:GetTeamNumber())
   	dummy.owner = caster:GetPlayerOwnerID()
 

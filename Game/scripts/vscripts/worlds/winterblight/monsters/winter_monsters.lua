@@ -232,7 +232,7 @@ function jump_think(event)
 	-- end
 	local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
 	if height < math.abs(ability.liftVelocity) then
-		print(height)
+		--print(height)
 		if not ability.rising then
 			caster:RemoveModifierByName("modifier_machinal_jump")
 		end
@@ -275,7 +275,7 @@ function jump_end(event)
 	        	CreateZonisBeam(caster:GetAbsOrigin(), enemy:GetAbsOrigin()+Vector(0,0,50))
 	        	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_stun", {duration = 0.2})
 	        	Filters:ApplyStun(caster, 0.2, enemy)
-	        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_ARCANE, RPC_ELEMENT_LIGHTNING)
+	        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_ARCANE, RPC_ELEMENT_LIGHTNING)
 	        end
 	    else
 	    	for i = 1, 3, 1 do
@@ -1188,7 +1188,7 @@ function winterblight_wave_unit_die(event)
 			Winterblight.CaveUnitsSlain = 0
 		end
 		Winterblight.CaveUnitsSlain = Winterblight.CaveUnitsSlain + 1
-		print(Winterblight.CaveUnitsSlain)
+		--print(Winterblight.CaveUnitsSlain)
 		if Winterblight.CaveUnitsSlain == 34 then
 			local delay = 1.2 - 0.15*GameState:GetDifficultyFactor()
 			for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
@@ -1533,7 +1533,7 @@ function ice_specter_attack_land(event)
 	ability.particleLock = false
 	if not ability.particleLock then
 		ability.particleLock = true
-		print("PFX!!")
+		--print("PFX!!")
 		local particleName = "particles/units/heroes/hero_leshrac/leshrac_lightning_impact.vpcf"
 		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
 		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_CUSTOMORIGIN, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -1752,7 +1752,7 @@ function sword_lifting_think(event)
 		return false
 	end
 	if caster:GetAbsOrigin().z > 3000 then
-		print("spawn sven")
+		--print("spawn sven")
 		caster:RemoveModifierByName("modifier_sword_lifting")
 		caster.locked = true
 		local titan = Winterblight:SpawnFrostTitan(caster:GetAbsOrigin(), caster:GetForwardVector())
@@ -2275,7 +2275,7 @@ end
 function heartfreezer_blink(event)
 	local caster = event.caster
 	local ability = event.ability
-	print("ANYTHING?")
+	--print("ANYTHING?")
 	EmitSoundOn("Winterblight.IceBlink", caster)
 	local position = event.target_points[1]
 	local particleName = "particles/econ/events/winter_major_2017/blink_dagger_start_wm07.vpcf"
@@ -2459,7 +2459,7 @@ function grand_slacorr_slam_cast(event)
 end
 
 function grand_slacorr_die(event)
-	print("GRAND STALACORR DIE??")
+	--print("GRAND STALACORR DIE??")
 	local caster = event.caster
 	EmitSoundOn("Winterblight.Stalacorr.WindUp", caster)
 	Timers:CreateTimer(1, function()

@@ -21,7 +21,7 @@ function skull_basher_start(event)
 
     local animationTime = math.min(500/distance, 1)
     StartAnimation(caster, {duration=jumpDuration, activity=ACT_DOTA_FLAIL, rate=animationTime, translate="forcestaff_friendly"})
-    print(jumpFV)
+   --print(jumpFV)
 
     local extraHeight = math.max(GetGroundHeight(targetPoint, caster) - caster:GetAbsOrigin().z, 0)
     ability.jump_velocity = math.max(distance/30 + 5 + extraHeight/14, 15)
@@ -61,7 +61,7 @@ function new_jumping_think(event)
 	end
 	caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,ability.jump_velocity)+ability.jumpFV*forwardSpeed)
 	ability.jump_velocity = ability.jump_velocity - 3.3
-	print(ability.jumpFV)
+	--print(ability.jumpFV)
 	if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 14 and not ability.lifting then
 		caster:RemoveModifierByName("modfier_axe_jumping")
 	-- elseif caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 54 and not ability.lifting then
@@ -143,7 +143,7 @@ function StunAttack( keys )
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), targetUnit:GetAbsOrigin(), nil, base_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then
         for _,enemy in pairs(enemies) do
-            Filters:TakeArgumentsAndApplyDamage(enemy, caster, aoe_damage, DAMAGE_TYPE_PHYSICAL, 1, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+            Filters:TakeArgumentsAndApplyDamage(enemy, caster, aoe_damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_Q, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
             Filters:ApplyStun(caster, stun_duration, enemy)
             --ability:ApplyDataDrivenModifier(caster, targetUnit, "modifier_stun_explosion", {})
         end

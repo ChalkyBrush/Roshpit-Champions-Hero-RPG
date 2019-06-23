@@ -187,7 +187,7 @@ function water_elemental_attack(event)
     local slowDuration = 1.2
     if #enemies > 0 then
       for _,enemy in pairs(enemies) do
-        Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+        Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
         ability:ApplyDataDrivenModifier(attacker, enemy, "modifier_elemental_slow", {duration = slowDuration})
       end
     end 
@@ -241,7 +241,7 @@ function elemental_extra_attack_strike(event)
     local slowDuration = 1.2
     if #enemies > 0 then
       for _,enemy in pairs(enemies) do
-        Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+        Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
         ability:ApplyDataDrivenModifier(attacker, enemy, "modifier_elemental_slow", {duration = slowDuration})
       end
     end 

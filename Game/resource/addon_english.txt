@@ -1027,8 +1027,8 @@
 		// Special Mobs
 		//------------------------		
 
-		"DOTA_Tooltip_modifier_paragon"								"Paragon Unit"
-		"DOTA_Tooltip_modifier_paragon_Description"					"Powerful Elite Creature"
+		"DOTA_Tooltip_modifier_paragon_pack"								"Paragon Unit"
+		"DOTA_Tooltip_modifier_paragon_pack_Description"					"Powerful Elite Creature"
 
 		"DOTA_Tooltip_modifier_paragon_solo"						"Paragon Hero"
 		"DOTA_Tooltip_modifier_paragon_solo_Description"			"Powerful Legendary Creature"
@@ -16113,9 +16113,9 @@
 		"item_serengaard_hyperstone_desc"									"Use before the first wave in the Battle of Serengaard to skip to this infinite wave level on Legend."
 		"serengaard_hyperstone_property"									"Infinite Wave Number"
 
-		//---------------------------
+		//---------------
 		// Tanari Jungle
-		//---------------------------
+		//---------------
 
 		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_normal"			"Wind Temple Key"
 		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_elite"				"Wind Temple Key"

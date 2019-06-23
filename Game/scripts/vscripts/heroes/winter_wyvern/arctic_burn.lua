@@ -203,7 +203,7 @@ function arctic_burn_thinker(event)
 	if #enemies > 0 then	
 		for i = 1, #enemies, 1 do
 			local enemy = enemies[i]
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_DRAGON, RPC_ELEMENT_FIRE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_DRAGON, RPC_ELEMENT_FIRE)
 			if q_1_level > 0 then
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_arctic_burn_slow", {duration = 0.5})
 				enemy:SetModifierStackCount("modifier_arctic_burn_slow", caster, q_1_level)

@@ -12,7 +12,7 @@ function start_channel(event)
 
 	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "chernobog")
 	if d_d_level > 0 then
-		print("D_D_INTO")
+		--print("D_D_INTO")
 		local particleName = "particles/roshpit/chernobog/d_d_intro.vpcf"
 		ability.channelPFX = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(ability.channelPFX, 0, caster:GetAbsOrigin())
@@ -80,7 +80,7 @@ function begin_nights_procession(event)
 		
 		-- caster:RemoveNoDraw()
 		local casterOrigin = caster:GetAbsOrigin()
-		print(casterOrigin)
+		--print(casterOrigin)
 		local blockedTarget = WallPhysics:WallSearch(originalPosition, ability.targetPoint, caster)
 		ability.targetPoint = blockedTarget
 		caster:SetAbsOrigin(Vector(blockedTarget.x, blockedTarget.y, GetGroundHeight(blockedTarget, caster)+sumheight))
@@ -169,7 +169,7 @@ function rune_r_2_illusion(event)
 			CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/nights_procession_illusion.vpcf", target, CHERNOBOG_SHADOWS_ATT_INTERVAL_BASE * intervalsForAtt)
 			Timers:CreateTimer(0.5, function()
 				EmitSoundOn("Chernobog.BC.Hit", target)
-				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
 			end)
 		end)
 		ability.r2_strike_current = strike_current
@@ -183,7 +183,7 @@ function locked_unit_attack(event)
 	local caster = event.caster
 	if attacker:GetEntityIndex() == caster:GetEntityIndex() then
 		local caster = attacker
-		print("HELLO?")
+		--print("HELLO?")
 		if ability.r_3_level > 0 then
 			-- for i = 1, #ability.trappedUnitTable, 1 do
 			-- 	local damage = event.attack_damage*0.03*ability.r_3_level
@@ -204,7 +204,7 @@ function locked_unit_attack(event)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
-					Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+					Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
 				end
 			end 
 		end

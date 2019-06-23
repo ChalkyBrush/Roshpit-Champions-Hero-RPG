@@ -73,11 +73,11 @@ function DonationsBoard(trigger)
 	-- url = url.."&cost="..cost
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		local resultTable = {}
-		print( "GET response:\n" )
+		--print( "GET response:\n" )
 		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		if result.StatusCode == 200 then
 			local resultTable = JSON:decode(result.Body)
 			-- local newTable = {}
@@ -315,7 +315,7 @@ end
 
 function NewbieLoungeEnter(trigger)
 	local hero = trigger.activator
-	print("enterLounge")
+	--print("enterLounge")
 	if not hero.ChampionsLeague then
 		local angryGuard = Arena.NewbieGuardTable[RandomInt(1,#Arena.NewbieGuardTable)]
 		local guardAbility = angryGuard:FindAbilityByName("arena_guard_ability")
@@ -331,7 +331,7 @@ end
 
 function MajorLoungeEnter(trigger)
 	local hero = trigger.activator
-	print("enterLounge")
+	--print("enterLounge")
 	if not hero.ChampionsLeague or hero.ChampionsLeague.rank > 10 then
 		local angryGuard = Arena.MajorGuardTable[RandomInt(1,#Arena.MajorGuardTable)]
 		local guardAbility = angryGuard:FindAbilityByName("arena_guard_ability")
@@ -347,7 +347,7 @@ end
 
 function AllStarLoungeEnter(trigger)
 	local hero = trigger.activator
-	print("enterLounge")
+	--print("enterLounge")
 	if not hero.ChampionsLeague or hero.ChampionsLeague.rank > 10 then
 		local angryGuard = Arena.AllstarGuardTable[RandomInt(1,#Arena.AllstarGuardTable)]
 		local guardAbility = angryGuard:FindAbilityByName("arena_guard_ability")

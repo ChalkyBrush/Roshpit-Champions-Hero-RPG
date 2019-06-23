@@ -63,8 +63,7 @@ function Filters:ApplyItemDamage(victim, attacker, damage, damage_type, item, el
     end
     damage = damage*mult
 
-    Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, 0, element1, element2, false, item)
-    -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = item })
+    Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, BASE_ITEM, element1, element2, false, item)
 end
 
 function Filters:ApplyItemDamageBasedOnAbility(victim,attacker,damage,damage_type,item,element1,element2)
@@ -86,7 +85,7 @@ function Filters:ApplyItemDamageBasedOnAbility(victim,attacker,damage,damage_typ
             end
         end
     end
-    Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, 0, element1, element2)
+    Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, BASE_ITEM, element1, element2)
 end
 
 function Filters:GetUnpurgableDebuffNames()
@@ -735,14 +734,14 @@ function Filters:CastSkillArguments(slot, caster)
 end
 
 function Filters:BeginRChannel(caster)
-    local ability = caster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
+    local ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
     if not ability then
         return false
     end
     local baseCd = ability:GetCooldownTimeRemaining()
     if caster:HasModifier("modifier_iron_treads_of_destruction") then
         ability:OnChannelFinish(false)
-	Timers:CreateTimer(0.03, function()
+		Timers:CreateTimer(0.03, function()
             ability:EndChannel(true)
         end)
     end
@@ -809,7 +808,7 @@ end
 
 function Filters:ApplyQskills(caster)
     if caster:HasModifier("modifier_mask_of_ahnqhir_purple") then
-        local ability = caster:GetAbilityByIndex(0)
+        local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
         local baseCd = ability:GetCooldownTimeRemaining()
         baseCd = baseCd * 0.6
         ability:EndCooldown()
@@ -817,7 +816,7 @@ function Filters:ApplyQskills(caster)
         ability:StartCooldown(baseCd)
     end
     if caster:HasModifier("modifier_tattered_novice_stack") then
-        local ability = caster:GetAbilityByIndex(0)
+        local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
         local currentStack = caster:GetModifierStackCount("modifier_tattered_novice_stack", caster.InventoryUnit)
         if currentStack > 1 then
             caster:SetModifierStackCount("modifier_tattered_novice_stack", caster.InventoryUnit, currentStack - 1)
@@ -838,13 +837,13 @@ function Filters:ApplyQskills(caster)
     end
     if caster:HasModifier("modifier_djanghor_glyph_5_1") then
         if caster:GetUnitName() == "npc_dota_hero_monkey_king" then
-            local qAbility = caster:GetAbilityByIndex(0)
+            local qAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
             Filters:ReduceCooldownGeneric(caster, qAbility, 3)
         end
     end
     if caster:HasModifier("modifier_royal_wristguards") then
         local current_stack = caster:GetModifierStackCount( "modifier_royal_wristguards_stack_effect", caster.handItem )
-        local qAbility = caster:GetAbilityByIndex(0)
+        local qAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
         qAbility.royalStacks = current_stack
         if not caster:HasModifier("modifier_royal_wristguards_stack_effect") then
             qAbility.royalStacks = 0
@@ -861,7 +860,7 @@ function Filters:ApplyQskills(caster)
     if caster:HasModifier("modifier_dark_emissary_glove") then
         Filters:DarkEmissary(caster)
     end
-    local ability = caster:GetAbilityByIndex(0)
+    local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
     if ability.castPointSave then
         ability:SetOverrideCastPoint(ability.castPointSave)
         ability.castPointSave = nil
@@ -917,7 +916,7 @@ end
 
 function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_mask_of_ahnqhir_yellow") then
-        local ability = caster:GetAbilityByIndex(1)
+        local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
         local baseCd = ability:GetCooldownTimeRemaining()
         baseCd = math.max(baseCd - 1, 0)
         ability:EndCooldown()
@@ -954,7 +953,7 @@ function Filters:ApplyWskills(caster)
         caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_sacred_trials_attack_bonus", {duration = 12})
     end
     if caster:HasModifier("modifier_phantom_sorcerer") then
-        local ability = caster:GetAbilityByIndex(1)
+        local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
         local cdRemaining = ability:GetCooldownTimeRemaining()
         local newCD = math.min(cdRemaining + 4, ability:GetCooldown(ability:GetLevel()-1)+4)
         ability:EndCooldown()
@@ -967,7 +966,7 @@ function Filters:ApplyWskills(caster)
         Filters:TomeOfChaos(caster)
     end
     if caster:HasModifier("modifier_iron_colossus") then
-        local ability = caster:GetAbilityByIndex(1)
+        local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
         local manaCost = ability:GetManaCost(ability:GetLevel())
         caster:ReduceMana(1000)
     end
@@ -985,7 +984,7 @@ function Filters:ApplyWskills(caster)
     end
     if caster:HasModifier("modifier_windsteel_armor") then
         if not caster:HasModifier("modifier_windsteel_cooldown") then
-            local stackCount = caster:GetAbilityByIndex(1):GetLevel()
+            local stackCount = caster:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
             caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_windsteel_effect", {duration = 8})
             caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_windsteel_stat_bonuses", {duration = 8})
             caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_windsteel_cooldown", {duration = 5})
@@ -993,7 +992,7 @@ function Filters:ApplyWskills(caster)
             EmitSoundOn("Item.WindSteel", caster)
         end
     end
-    local ability = caster:GetAbilityByIndex(1)
+    local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
     if ability.castPointSave then
         ability:SetOverrideCastPoint(ability.castPointSave)
         ability.castPointSave = nil
@@ -1003,7 +1002,7 @@ function Filters:ApplyWskills(caster)
         local currentStacks = caster:GetModifierStackCount("modifier_burnout", Events.GameMaster) + 1
         caster:SetModifierStackCount("modifier_burnout", Events.GameMaster, currentStacks)
         if currentStacks == 15 then
-            local disableAbility = caster:GetAbilityByIndex(1)
+            local disableAbility = caster:GetAbilityByIndex(DOTA_W_SLOT)
             if IsValidEntity(disableAbility) then
                 disableAbility:StartCooldown(5)
                 Notifications:Top(caster:GetPlayerOwnerID(), {text="Too Fast!", duration=2, style={color="red"}, continue=true})
@@ -1022,7 +1021,7 @@ function Filters:ApplyWskills(caster)
 end
 
 function Filters:ApplyEskills(caster)
-    local ability = caster:GetAbilityByIndex(2)
+    local ability = caster:GetAbilityByIndex(DOTA_E_SLOT)
     local baseCd = ability:GetCooldownTimeRemaining()
     Filters:ReduceECooldown(caster, ability, baseCd, false)
     if caster:HasModifier("modifier_violet_boots") then
@@ -1087,7 +1086,7 @@ end
 function Filters:ApplyRskills(caster)
 
     if caster:HasModifier("modifier_hurricane_vest") then
-        print(caster.InventoryUnit:GetUnitName())
+       --print(caster.InventoryUnit:GetUnitName())
         caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_hurricane_vest_start", {duration = 0.3})
     end
    if caster:HasModifier("modifier_body_flooding") then
@@ -1207,7 +1206,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     -- if damage_type == DAMAGE_TYPE_PHYSICAL then
     --     damage = damage/(1+((attacker:GetIntellect()/16)/100))
     -- end
-    -- print("before bad and elem: "..damage)
+    ----print("before bad and elem: "..damage)
     local Is_solunia_b_d = false
     if slot == -2 then
         slot = 0
@@ -1446,7 +1445,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 1
         end
         if attacker:HasModifier("modifier_royal_wristguards_stack_effect") then
-            local qAbility = attacker:GetAbilityByIndex(0)
+            local qAbility = attacker:GetAbilityByIndex(DOTA_Q_SLOT)
             local current_stack = qAbility.royalStacks
             if not qAbility.royalStacks then
                 current_stack = 1
@@ -1656,7 +1655,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_bahamut_immortal_weapon_1") then
             local proc = Filters:GetProc(attacker, 20)    
             if proc then
-                print("BIG IMMORTAL NUKE!")
+               --print("BIG IMMORTAL NUKE!")
                 local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_invoker/invoker_death_end.vpcf", PATTACH_CUSTOMORIGIN, victim )
                 ParticleManager:SetParticleControlEnt(pfx, 0, victim, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", victim:GetAbsOrigin(), true)
                 ParticleManager:SetParticleControl(pfx, 1, Vector(255,255,255))
@@ -1671,16 +1670,16 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if not Is_solunia_b_d then
             Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, ability or 0)
         else
-            Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, DOTA_ULTIMATE_SLOT)
+            Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, DOTA_R_SLOT)
         end
-        -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(0) })
+        -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(DOTA_Q_SLOT) })
     end
 
     return damage
 end
 
 function Filters:IsTouchingGround(unit)
-    print(GetGroundHeight(unit:GetAbsOrigin(), unit) - unit:GetAbsOrigin().z)
+   --print(GetGroundHeight(unit:GetAbsOrigin(), unit) - unit:GetAbsOrigin().z)
     if GetGroundHeight(unit:GetAbsOrigin(), unit) - unit:GetAbsOrigin().z < -12 or Filters:HasFlyingModifier(unit) then
         return false
     else
@@ -1712,7 +1711,7 @@ function Filters:ApplyEdamage(victim, attacker, damage, damage_type)
 end
 
 function Filters:ApplyRdamage(victim, attacker, damage, damage_type)
-    Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, DOTA_ULTIMATE_SLOT)
+    Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, DOTA_R_SLOT)
 end
 
 function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slot)
@@ -2128,10 +2127,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + ZHONIK_E4_ARCANA_ELEMENT_TEMPORAL_PER_ATRI/100*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*e_4_level
             end
         elseif unitName == "npc_dota_hero_obsidian_destroyer" then
-            -- print("OD HERE")
+            ----print("OD HERE")
             local d_d_level = attacker:GetRuneValue("r", 4)
             if d_d_level > 0 then
-                -- print("OD HERE2 r4: "..r_4_level)
+                ----print("OD HERE2 r4: "..r_4_level)
                 mult = mult + attacker:GetManaRegen()*d_d_level*EPOCH_R4_ELEM_TIME/1000
             end   
         end    
@@ -2695,7 +2694,7 @@ end
 
 function Filters:MoonTechRunners(caster)
     local ability = caster.foot
-    print("MOOON TECH!")
+   --print("MOOON TECH!")
     --ability:ApplyDataDrivenThinker(caster, caster:GetAbsOrigin(), "modifier_moon_tech_thinker", {})
 	CustomAbilities:QuickAttachThinker(ability, caster, caster:GetAbsOrigin(), "modifier_moon_tech_thinker", {})
 end
@@ -2798,7 +2797,7 @@ end
 function Filters:WatcherOne(caster)
     local proc = Filters:GetProc(caster, 25)    
     if proc then
-        local ability = caster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
+        local ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
         ability:EndCooldown()
     end
 end
@@ -2817,7 +2816,7 @@ function Filters:SorcerersRegalia(caster)
 end
 
 function Filters:SpellslingerCoat(caster)
-    local ability = caster:GetAbilityByIndex(1)
+    local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
     local manaCost = ability:GetManaCost(-1)
     local manaRestore = manaCost*0.35
     manaRestore = WallPhysics:round(manaRestore, 0)
@@ -2918,7 +2917,7 @@ function Filters:LumaGuardStrike(attacker, victim, damage)
         -- end)
         local damage = damage * 4
         Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
-        -- print("MOONBEAM HAS FIRED")
+        ----print("MOONBEAM HAS FIRED")
         return true
     end
 end
@@ -3142,7 +3141,7 @@ function Filters:SonicBoot(caster)
 end
 
 function Filters:FalconBoot(caster)
-    print("falcon boot?")
+   --print("falcon boot?")
     if not caster:HasModifier("modifier_falcon_immune") then
 
         local fv = caster:GetForwardVector()
@@ -3168,14 +3167,14 @@ function Filters:FalconBoot(caster)
             end
         end)
         Timers:CreateTimer(2.25, function()
-            print("TIME 2.25!")
+           --print("TIME 2.25!")
             if #ability.liftedTargetsTable > 0 then
             end
-            print(#ability.liftedTargetsTable)
+           --print(#ability.liftedTargetsTable)
             for i = 1, #ability.liftedTargetsTable, 1 do
                 local target = ability.liftedTargetsTable[i]
                 target:RemoveModifierByName("modifier_falcon_out")
-                print("CLEAR SPACE!!"..i)
+               --print("CLEAR SPACE!!"..i)
                 if not target:HasModifier("modifier_falcon_immune") then
                     Timers:CreateTimer(0.05, function()
                         ability:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_falcon_freeze", {duration = 4})
@@ -3245,7 +3244,7 @@ function Filters:EternalFrost(caster)
 end
 
 function Filters:CeruleanHighguard(caster)
-    local ability = caster:GetAbilityByIndex(1)
+    local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
     local manaCost = ability:GetManaCost(-1)
     caster:ReduceMana(manaCost*4)
 end
@@ -3321,7 +3320,7 @@ end
 
 function Filters:CytopianLaser(caster)
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-    local abilityLevel = caster:GetAbilityByIndex(1):GetLevel()
+    local abilityLevel = caster:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
     local baseDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * abilityLevel * 3
     if #enemies > 0 then
         local ability = caster.handItem
@@ -3349,11 +3348,11 @@ function Filters:CytopianLaser(caster)
 end
 
 function Filters:VoyagerBoots(caster)
-    local ability1 = caster:GetAbilityByIndex(0)
+    local ability1 = caster:GetAbilityByIndex(DOTA_Q_SLOT)
     Filters:ReduceCDByPercentage(ability1, 0.3)
-    local ability2 = caster:GetAbilityByIndex(1)
+    local ability2 = caster:GetAbilityByIndex(DOTA_W_SLOT)
     Filters:ReduceCDByPercentage(ability2, 0.3)
-    local ability4 = caster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
+    local ability4 = caster:GetAbilityByIndex(DOTA_R_SLOT)
     Filters:ReduceCDByPercentage(ability4, 0.3)
     -- local blizzard = caster:FindAbilityByName("blizzard")
     -- Filters:ReduceCDByPercentage(blizzard, 0.3)
@@ -3550,7 +3549,7 @@ end
 
 function Filters:UmbralSentinel(attacker, victim)
     local ability = attacker.headItem
-    local wLevel = attacker:GetAbilityByIndex(1):GetLevel()
+    local wLevel = attacker:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
     local origStacks = victim:GetModifierStackCount( "modifier_crest_of_the_umbral_sentinel_effect_visible", ability )
     local newStacks = math.min(origStacks+1, 5)
     ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_crest_of_the_umbral_sentinel_effect_visible", {duration = 10})
@@ -3611,7 +3610,7 @@ function Filters:FarSeerGloves(attacker, damage, inflictor)
     local stacks = math.min(math.floor(damage*0.01), maximum)
 
     modifier = attacker:FindModifierByName("modifier_far_seer_effect")
-    -- print("FarSeerGloves "..modifier:GetStackCount())
+    ----print("FarSeerGloves "..modifier:GetStackCount())
     local oldStacks = modifier:GetStackCount()
     stacks = math.max (stacks,oldStacks)
     attacker:SetModifierStackCount( "modifier_far_seer_effect", attacker.handItem, stacks)
@@ -3683,14 +3682,14 @@ function Filters:EarthGuardian(victim, damage)
         elseif caster.earthAspect.linkParticleCount > 20 then
             caster.earthAspect.linkParticleCount = 0
         end
-        print(splitDamage)
+       --print(splitDamage)
         ApplyDamage({ victim = aspect, attacker = aspect, damage = splitDamage, damage_type = DAMAGE_TYPE_PURE})
     end
 
 end
 
 function Filters:WindSteelTakeDamage(victim, damage)
-    print("WINDSTEEL HIT")
+   --print("WINDSTEEL HIT")
     local stackCount = victim:GetModifierStackCount( "modifier_windsteel_effect", victim.body )
     if stackCount >= 1 then
         victim:SetModifierStackCount( "modifier_windsteel_effect", victim.body, stackCount-1)
@@ -3895,7 +3894,7 @@ function Filters:ShatterArcaneShell(victim, attacker)
 		EmitSoundOn("Sorceress.ArcaneShellZap", attacker)
 		local w_1_level =  Runes:GetTotalRuneLevel(victim, 1, "w_1", "sorceress")
 		local damage = 0.2*w_1_level*victim:GetIntellect()
-		Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 
 		local particleName = "particles/roshpit/sorceress_arcane_shield_blast.vpcf"
 		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, victim )
@@ -3975,7 +3974,7 @@ function Filters:ShatterPaladinShell(victim, attacker)
 		EmitSoundOn("Paladin.AegisZap", attacker)
 		local q_3_level =  victim:GetRuneValue("q", 3)
 		local damage = PALADIN_Q3_DMG_PER_STR * q_3_level * victim:GetStrength()
-		Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 
 
 		local particleName = "particles/roshpit/paladin_aegis_zap.vpcf"
@@ -4000,7 +3999,7 @@ function Filters:ShatterVoltexShell(victim, attacker)
 		EmitSoundOn("Voltex.IonShellZap", attacker)
 		local w_3_level =  victim:GetRuneValue("w", 3)
 		local damage = VOLTEX_W3_DMG_PER_AGI * w_3_level*victim:GetAgility()
-		Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 
 		local particleName = "particles/roshpit/voltex_shell_zap.vpcf"
 		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, victim )
@@ -4212,7 +4211,7 @@ function Filters:IgneousCanine(caster)
     Timers:CreateTimer(2, function()
         ParticleManager:DestroyParticle(pfx, false)
     end)
-    local wAbilityLevel = caster:GetAbilityByIndex(1):GetLevel()
+    local wAbilityLevel = caster:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
     local stunDuration = wAbilityLevel*0.2
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "RPCItem.IgneousCanine", caster.InventoryUnit)
@@ -4290,7 +4289,7 @@ function Filters:PhoenixEmblem(victim)
                 caster:SetAbsOrigin(rezPosition)
                 local playerID = caster:GetPlayerID()
                 if playerID then
-                    print("WE HERE?? BREZ!!")
+                   --print("WE HERE?? BREZ!!")
                     PlayerResource:SetCameraTarget(playerID, caster)
                 end
                 Timers:CreateTimer(2, function()
@@ -4355,19 +4354,19 @@ function Filters:TimeWarp(caster)
                 local cd2 = Filters:GetCDNoHood(caster, timeData[5])
                 local cd4 = Filters:GetCDNoHood(caster, timeData[6])
                 if cd1 > 0 then
-                    caster:GetAbilityByIndex(0):StartCooldown(cd1)
+                    caster:GetAbilityByIndex(DOTA_Q_SLOT):StartCooldown(cd1)
                 else
-                    caster:GetAbilityByIndex(0):EndCooldown()
+                    caster:GetAbilityByIndex(DOTA_Q_SLOT):EndCooldown()
                 end
                 if cd2 > 0 then
-                    caster:GetAbilityByIndex(1):StartCooldown(cd2)
+                    caster:GetAbilityByIndex(DOTA_W_SLOT):StartCooldown(cd2)
                 else
-                    caster:GetAbilityByIndex(1):EndCooldown()
+                    caster:GetAbilityByIndex(DOTA_W_SLOT):EndCooldown()
                 end
                 if cd4 > 0 then
-                    caster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT):StartCooldown(cd4)
+                    caster:GetAbilityByIndex(DOTA_R_SLOT):StartCooldown(cd4)
                 else
-                    caster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT):EndCooldown()
+                    caster:GetAbilityByIndex(DOTA_R_SLOT):EndCooldown()
                 end
             end
         end)

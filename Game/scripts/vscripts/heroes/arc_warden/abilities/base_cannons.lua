@@ -72,5 +72,5 @@ function base_cannon_impact(event)
 	end
 	local damage = event.damage
 	EmitSoundOn(sound, target)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, damage_element, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, damage_element, RPC_ELEMENT_NONE)
 end

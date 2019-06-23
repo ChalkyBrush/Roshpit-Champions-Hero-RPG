@@ -105,7 +105,7 @@ function dominion_debuff_death(event)
 	    	summon:AddAbility("black_dominion_lifesteal"):SetLevel(1)
 	    end
 	    if caster.q_2_level > 0 then
-	    	print("ADD CORPSE PICKUP ABILITY")
+	    	--print("ADD CORPSE PICKUP ABILITY")
 	    	summon:AddAbility("black_dominion_corpse_pickup"):SetLevel(1)
 	    end
 	    if caster.q_4_level > 0 then
@@ -339,7 +339,7 @@ function dominion_zombie_strike_hit(event)
 	local ability = event.ability
 	local damage = caster.q_1_level*0.12*ability.attack_damage
 	ability:ApplyDataDrivenModifier(event.caster, target, "modifier_hit_by_zombie_strike", {duration = 0.3})
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 end
 
 function zombie_strike_enemy_die(event)
@@ -361,7 +361,7 @@ function black_dominion_lifesteal_think(event)
 		return
 	end
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.07*q_1_level
-	Filters:TakeArgumentsAndApplyDamage(target, origCaster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, origCaster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 	local heal = math.min(damage*0.1, caster:GetMaxHealth()-caster:GetHealth())
 	if heal > 0 then
 		Filters:ApplyHeal(origCaster, caster, heal, true)
@@ -403,7 +403,7 @@ function dominion_corpse_pickup_end(event)
 	local ability = event.ability
 	local origCaster = caster.hero
 	local q_2_level = origCaster:GetRuneValue("q", 2)
-	print(q_2_level)
+	--print(q_2_level)
 	if q_2_level == 0 then
 		caster.immortalSouls = 0
 		dominion_corpse_remove_modifier(caster)

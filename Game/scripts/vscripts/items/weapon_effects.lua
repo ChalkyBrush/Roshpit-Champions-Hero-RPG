@@ -86,7 +86,7 @@ function sorceress_avatar_think(event)
 				end
 			end
 			if lanceAbility:IsFullyCastable() then
-				print("CAST LANCE?")
+				--print("CAST LANCE?")
 				local targetPoint = enemies[1]:GetOrigin()			
 				local order =
 				{
@@ -282,13 +282,13 @@ function spirit_warrior_immo3_attack_start(event)
 			local max = 2
 			local counter = 0
 			if #enemies > 0 then
-				print(#enemies)
+				--print(#enemies)
 				for _,enemy in pairs(enemies) do
 					if enemy:GetEntityIndex() == target:GetEntityIndex() then
 					else
 						if counter < max then
 							counter = counter + 1
-							print("PERFORM ATTACK")
+							--print("PERFORM ATTACK")
 							Filters:PerformAttackSpecial(attacker, enemy, true, true, true, false, true, false, false)
 						end
 					end
