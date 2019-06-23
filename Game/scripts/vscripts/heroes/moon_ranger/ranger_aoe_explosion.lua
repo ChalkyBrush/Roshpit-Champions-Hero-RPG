@@ -91,8 +91,7 @@ function rune_r_1_start(caster, level, ability)
     --     	if ability.stars_dropped > level*2 then
     --     		break
     --     	end
-			 --  Timers:CreateTimer(timeInterval*ability.stars_dropped, -- Start this timer 10 game-time seconds later
-			 --  function()
+			 --  Timers:CreateTimer(timeInterval*ability.stars_dropped, 			 --  function()
     --       dropStar(enemy, caster, 300+level*80, , ability)
 			 --  end)
 			 --  ability.stars_dropped = ability.stars_dropped + 1      		   
@@ -124,8 +123,7 @@ function create_individual_explosion(abilityLevel, caster, targetPoint, casterOr
 	}
 
 	ExecuteOrderFromTable(order)
-	  Timers:CreateTimer(5, -- Start this timer 10 game-time seconds later
-	  function()
+	  Timers:CreateTimer(5, 	  function()
 		UTIL_Remove(dummy)
 	  end)
 end

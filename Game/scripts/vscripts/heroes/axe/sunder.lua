@@ -38,8 +38,7 @@ end
 
 function sunderLoop(caster, ability, damage, particle)
 caster:StartGesture(ACT_DOTA_CAST_ABILITY_4)
-  Timers:CreateTimer(0.3, -- Start this timer 10 game-time seconds later
-  function()
+  Timers:CreateTimer(0.3,   function()
 	CustomAbilities:AxeSunder(caster, ability, damage, 1, particle)
   end)
 end

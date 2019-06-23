@@ -177,8 +177,7 @@ end
  
 --  dummy:MakeIllusion()
 --     -- FindClearSpaceForUnit(dummy, position, true)
---       Timers:CreateTimer(duration + 0.5, -- Start this timer 10 game-time seconds later
---       function()
+--       Timers:CreateTimer(duration + 0.5,        function()
 --       UTIL_Remove(dummy)
 --       end)  
 -- end
@@ -212,8 +211,7 @@ end
 --       Timers:CreateTimer(0.6, function() 
 --         ParticleManager:DestroyParticle( pfx, false )
 --       end)  
---           Timers:CreateTimer(0.45, -- Start this timer 10 game-time seconds later
---           function()
+--           Timers:CreateTimer(0.45,            function()
 --             if target:IsAlive() then
 --                Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 --               EmitSoundOn("Ability.StarfallImpact", target)

@@ -69,8 +69,7 @@ function drop_end(keys)
 	local newLoc = GetGroundPosition(location, caster)
 	caster:SetOrigin(newLoc)
 	--FindClearSpaceForUnit(caster, newLoc, true)
-  	--Timers:CreateTimer(0.5, -- Start this timer 10 game-time seconds later
-    --function()
+  	--Timers:CreateTimer(0.5,     function()
     --  caster:RemoveGesture(ACT_DOTA_CAST_ABILITY_1)
     --end)
 	caster.holy_slide_velocity = 75
@@ -100,8 +99,7 @@ function slide_end(keys)
 	local newLoc = GetGroundPosition(location, caster)
 	caster:SetOrigin(newLoc)
 	FindClearSpaceForUnit(caster, newLoc, true)
-  	Timers:CreateTimer(0.5, -- Start this timer 10 game-time seconds later
-    function()
+  	Timers:CreateTimer(0.5,     function()
       caster:RemoveGesture(ACT_DOTA_CAST_ABILITY_1)
     end)
 	

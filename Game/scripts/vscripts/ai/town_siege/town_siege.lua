@@ -203,8 +203,7 @@ function updateSiegeProgress(amount)
 			Dungeons.siegeStage = 6
 			EmitGlobalSound("Tutorial.Quest.complete_01")
 			Dungeons.chieftain:SetBaseHealthRegen(0)
-			Timers:CreateTimer(1, -- Start this timer 10 game-time seconds later
-			function()
+			Timers:CreateTimer(1, 			function()
 
 			end)
 		end	

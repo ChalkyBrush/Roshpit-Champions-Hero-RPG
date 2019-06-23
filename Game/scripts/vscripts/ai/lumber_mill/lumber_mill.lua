@@ -176,8 +176,7 @@ function assaultUnitDie(event)
 	        end)
 	          if Dungeons.assaultKills == 120 then
 	              EmitGlobalSound("Tutorial.Quest.complete_01")
-	              Timers:CreateTimer(1, -- Start this timer 10 game-time seconds later
-	              function()
+	              Timers:CreateTimer(1, 	              function()
 	                -- GameRules.millQuest:CompleteQuest()
 	              end)
 	              Dungeons.millAssault = false	

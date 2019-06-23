@@ -47,8 +47,7 @@ function attackLand(event)
         Timers:CreateTimer(0.6, function()
             ParticleManager:DestroyParticle( pfx, false )
         end)
-        Timers:CreateTimer(0.45, -- Start this timer 10 game-time seconds later
-            function()
+        Timers:CreateTimer(0.45,             function()
                 if target:IsAlive() then
                     if caster:HasModifier("modifier_astral_arcana1") then
                         baseAbilityFor = 1

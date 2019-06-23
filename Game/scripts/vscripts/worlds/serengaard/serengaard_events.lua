@@ -8,9 +8,9 @@ function wave_unit_die(event)
 			Serengaard.waveProgress = Serengaard.waveProgress + 1
 		end
 		if Serengaard.InfiniteWaveCount then
-			CustomGameEventManager:Send_ServerToAllClients("serengaardUpdateData", {enemiesMax = Serengaard.waveMax, currentEnemies = Serengaard.waveProgress, waveNumber = "I-"..Serengaard.InfiniteWaveCount} )
+			CustomGameEventManager:Send_ServerToAllClients("serengaardUpdateData", {enemiesMax = Serengaard.waveMax, currentEnemies = Serengaard.waveProgress, waveNumber = "I-"..Serengaard.InfiniteWaveCount})
 		else
-			CustomGameEventManager:Send_ServerToAllClients("serengaardUpdateData", {enemiesMax = Serengaard.waveMax, currentEnemies = Serengaard.waveProgress, waveNumber = Serengaard.wave} )
+			CustomGameEventManager:Send_ServerToAllClients("serengaardUpdateData", {enemiesMax = Serengaard.waveMax, currentEnemies = Serengaard.waveProgress, waveNumber = Serengaard.wave})
 		end
 		print("WAVE UNIT DIE")
 		if Serengaard.waveProgress == Serengaard.waveMax then
@@ -102,7 +102,7 @@ function tower_attack_hit(event)
 	if target:IsHero() then
 	elseif target.serengaardBoss then
 	else
-		ApplyDamage({ victim = target, attacker = attacker, damage = target:GetMaxHealth()*0.2, damage_type = DAMAGE_TYPE_PURE })
+		ApplyDamage({victim = target, attacker = attacker, damage = target:GetMaxHealth() * 0.2, damage_type = DAMAGE_TYPE_PURE})
 		if target:HasModifier("modifier_serengaard_wave_unit") then
 			target:MoveToTargetToAttack(attacker)
 		end
@@ -113,7 +113,7 @@ function sun_guardian_think(event)
 	local caster = event.caster
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(-236, 322))
 	if distance > 1100 then
-		caster:MoveToPosition(caster:GetAbsOrigin() - (caster:GetAbsOrigin():Normalized()*600))
+		caster:MoveToPosition(caster:GetAbsOrigin() - (caster:GetAbsOrigin():Normalized() * 600))
 	end
 end
 
@@ -135,18 +135,18 @@ function barracks_spawn(event)
 		FindClearSpaceForUnit(knight, knight:GetAbsOrigin(), false)
 		table.insert(caster.knightTable, knight)
 		if Serengaard.wave then
-			local armor = math.floor(knight:GetPhysicalArmorBaseValue()*(1.05^Serengaard.wave))
-			local attackDamage = math.floor(knight:GetAttackDamage()*(1.08^Serengaard.wave))
-			attackDamage = attackDamage + 600*(1.2^Serengaard.wave)
-			local hp = math.floor(knight:GetMaxHealth()*(1.05^Serengaard.wave))
-			hp = hp + 400*(1.1^Serengaard.wave)
+			local armor = math.floor(knight:GetPhysicalArmorBaseValue() * (1.05 ^ Serengaard.wave))
+			local attackDamage = math.floor(knight:GetAttackDamage() * (1.08 ^ Serengaard.wave))
+			attackDamage = attackDamage + 600 * (1.2 ^ Serengaard.wave)
+			local hp = math.floor(knight:GetMaxHealth() * (1.05 ^ Serengaard.wave))
+			hp = hp + 400 * (1.1 ^ Serengaard.wave)
 			knight:SetMaxHealth(hp)
 			knight:SetHealth(hp)
-	   		knight:SetBaseMaxHealth(hp)
+			knight:SetBaseMaxHealth(hp)
 
 			knight:SetPhysicalArmorBaseValue(armor)
-		    knight:SetBaseDamageMin(attackDamage)
-		    knight:SetBaseDamageMax(attackDamage) 
+			knight:SetBaseDamageMin(attackDamage)
+			knight:SetBaseDamageMax(attackDamage)
 		end
 		Timers:CreateTimer(0.1, function()
 			EmitSoundOn("Serengaard.KnightSpawn", knight)
@@ -160,22 +160,22 @@ function friendly_ranger_die(event)
 	local position = caster.spawnPoint
 	EmitSoundOn("Serengaard.RangerDie", caster)
 	-- Timers:CreateTimer(420, function()
-	-- 	local ranger = Serengaard:SpawnRanger(position)
-	-- 	if Serengaard.wave then
-	-- 		local armor = math.floor(ranger:GetPhysicalArmorBaseValue()*(1.05^Serengaard.wave))
-			
-	-- 		local attackDamage = math.floor(ranger:GetAttackDamage()*(1.07^Serengaard.wave))
-	-- 		attackDamage = attackDamage + 300*(Serengaard.wave)*(1.05^Serengaard.wave)
-	-- 		local hp = math.floor(ranger:GetMaxHealth()*(1.05^Serengaard.wave))
-	-- 		ranger:SetMaxHealth(hp)
-	-- 		ranger:SetHealth(hp)
-	--    		ranger:SetBaseMaxHealth(hp)
+	-- local ranger = Serengaard:SpawnRanger(position)
+	-- if Serengaard.wave then
+	-- local armor = math.floor(ranger:GetPhysicalArmorBaseValue()*(1.05^Serengaard.wave))
 
-	-- 		ranger:SetPhysicalArmorBaseValue(armor)
-	-- 	    ranger:SetBaseDamageMin(attackDamage)
-	-- 	    ranger:SetBaseDamageMax(attackDamage) 
-	-- 	end
-	-- 	CustomAbilities:QuickAttachParticle("particles/econ/items/luna/luna_lucent_ti5/luna_lucent_beam_moonfall.vpcf", ranger, 2.5)
+	-- local attackDamage = math.floor(ranger:GetAttackDamage()*(1.07^Serengaard.wave))
+	-- attackDamage = attackDamage + 300*(Serengaard.wave)*(1.05^Serengaard.wave)
+	-- local hp = math.floor(ranger:GetMaxHealth()*(1.05^Serengaard.wave))
+	-- ranger:SetMaxHealth(hp)
+	-- ranger:SetHealth(hp)
+	--    ranger:SetBaseMaxHealth(hp)
+
+	-- ranger:SetPhysicalArmorBaseValue(armor)
+	--     ranger:SetBaseDamageMin(attackDamage)
+	--     ranger:SetBaseDamageMax(attackDamage)
+	-- end
+	-- CustomAbilities:QuickAttachParticle("particles/econ/items/luna/luna_lucent_ti5/luna_lucent_beam_moonfall.vpcf", ranger, 2.5)
 	-- end)
 end
 
@@ -200,7 +200,7 @@ function ancient_die(event)
 	-- CustomAbilities:QuickAttachParticle("particles/dire_fx/tower_bad_destroy.vpcf", caster, 4)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Serengaard.TowerDie", Events.GameMaster)
 	CustomGameEventManager:Send_ServerToAllClients("BGMstart", {songName = "Serengaard.Music.Lose"})
-	Dungeons:CreateBasicCameraLock(Vector(0,0,0), 30)
+	Dungeons:CreateBasicCameraLock(Vector(0, 0, 0), 30)
 	Serengaard.gameOver = true
 	Timers:CreateTimer(0.3, function()
 		UTIL_Remove(caster)
@@ -214,20 +214,25 @@ function ancient_die(event)
 end
 
 function use_sunstone(event)
-  local hero = event.caster
-  local item = event.ability
-  if GameState:GetDifficultyFactor() < 3 then
-    EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
-    return
-  end
+	local hero = event.caster
+	local item = event.ability
+	if GameState:GetDifficultyFactor() < 3 then
+		EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
+		return
+	end
+	if Serengaard.SunstoneUsed then
+		EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
+		return
+	end
 
 	if GameState:IsSerengaard() then
 		if Serengaard.wave == 0 then
+			Serengaard.SunstoneUsed = true
 			CustomGameEventManager:Send_ServerToAllClients("BGMend", {})
 			CustomGameEventManager:Send_ServerToAllClients("BGMstart", {songName = "Serengaard.UseStone"})
-			
+
 			Serengaard.timerBlock = true
-			CustomGameEventManager:Send_ServerToAllClients("enter_equinox", {} )
+			CustomGameEventManager:Send_ServerToAllClients("enter_equinox", {})
 			Timers:CreateTimer(3, function()
 				Serengaard.timerBlock = false
 				Serengaard:LinewarIncomeFunction(90)
@@ -241,27 +246,32 @@ function use_sunstone(event)
 				end
 			end)
 			RPCItems:ItemUTIL_Remove(item)
-	    else
-	      EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
-	    end
-	end	
+		else
+			EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
+		end
+	end
 end
 
 function use_hyperstone(event)
-  local hero = event.caster
-  local item = event.ability
-  if GameState:GetDifficultyFactor() < 3 then
-    EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
-    return
-  end
+	local hero = event.caster
+	local item = event.ability
+	if GameState:GetDifficultyFactor() < 3 then
+		EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
+		return
+	end
+	if Serengaard.SunstoneUsed then
+		EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
+		return
+	end
 
 	if GameState:IsSerengaard() then
 		if Serengaard.wave == 0 then
+			Serengaard.SunstoneUsed = true
 			CustomGameEventManager:Send_ServerToAllClients("BGMend", {})
 			CustomGameEventManager:Send_ServerToAllClients("BGMstart", {songName = "Serengaard.UseStone"})
-			
+
 			Serengaard.timerBlock = true
-			CustomGameEventManager:Send_ServerToAllClients("sunstone_activate", {} )
+			CustomGameEventManager:Send_ServerToAllClients("sunstone_activate", {})
 
 			Serengaard.InfiniteWaveCount = item.property1
 
@@ -278,10 +288,10 @@ function use_hyperstone(event)
 				end
 			end)
 			RPCItems:ItemUTIL_Remove(item)
-	    else
-	      EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
-	    end
-	end	
+		else
+			EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
+		end
+	end
 end
 
 function serengaard_ancient_think(event)
@@ -301,8 +311,8 @@ function serengaard_ancient_moveback(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	local movement = (caster.origPos - caster:GetAbsOrigin())/30
-	caster:SetAbsOrigin(caster:GetAbsOrigin()+movement)
+	local movement = (caster.origPos - caster:GetAbsOrigin()) / 30
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + movement)
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.origPos)
 	if distance < 100 then
 		caster:RemoveModifierByName("modifier_ancient_moving_back")
@@ -312,7 +322,7 @@ end
 function enemy_near_ancient_think(event)
 	local unit = event.target
 	local caster = event.caster
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 3000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	local aliveHero = false
 	if #enemies > 0 then
 		for i = 1, #enemies, 1 do

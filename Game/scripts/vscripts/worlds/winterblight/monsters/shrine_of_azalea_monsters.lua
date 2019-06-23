@@ -2735,8 +2735,7 @@ function star_prophecy_end(event)
 		      Timers:CreateTimer(0.6, function() 
 		        ParticleManager:DestroyParticle( pfx, false )
 		      end)  
-	          Timers:CreateTimer(0.45, -- Start this timer 10 game-time seconds later
-	          function()
+	          Timers:CreateTimer(0.45, 	          function()
 	            if target:IsAlive() then
 	              ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
 	              EmitSoundOn("Winterblight.StarProphecy.Impact", target)
