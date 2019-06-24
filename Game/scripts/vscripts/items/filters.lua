@@ -548,7 +548,7 @@ function Filters:ApplyStun(caster, duration, target)
     end
 end
 
-function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
+function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp)
 	if caster:GetUnitName() == "npc_dota_hero_zuus" then
 		local w_2_level = caster:GetRuneValue("w", 2)
 		if w_2_level > 0 then
@@ -1436,9 +1436,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         if attacker:HasModifier("modifier_shipyard_veil") then
+            local shipyardStacks = attacker:GetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit)
+            damageMult = damageMult + shipyardStacks
             if not ignore_effects then
-                local shipyardStacks = attacker:GetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit)
-                damageMult = damageMult + shipyardStacks
                 Filters:ShipyardVeilQHit(attacker, victim)
             end
         end
