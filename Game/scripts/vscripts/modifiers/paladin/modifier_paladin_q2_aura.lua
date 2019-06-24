@@ -21,7 +21,7 @@ function class:OnIntervalThink()
 			damage = Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 			if caster:HasModifier("modifier_paladin_glyph_3_2") then
 				local heal = damage * (PALADIN_GLYPH_3_2_LIFESTEAL / 100)
-				Filters:ApplyHeal(caster, caster, heal, true, true)
+				Filters:ApplyHeal(caster, caster, heal, true)
 			end
 		end
 	end 
