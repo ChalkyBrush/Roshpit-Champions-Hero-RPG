@@ -1436,9 +1436,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         if attacker:HasModifier("modifier_shipyard_veil") then
+            local shipyardStacks = attacker:GetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit)
+            damageMult = damageMult + shipyardStacks
             if not ignore_effects then
-                local shipyardStacks = attacker:GetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit)
-                damageMult = damageMult + shipyardStacks
                 Filters:ShipyardVeilQHit(attacker, victim)
             end
         end
