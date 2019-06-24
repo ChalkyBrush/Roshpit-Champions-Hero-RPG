@@ -60,7 +60,7 @@ function class:OnAttackLanded( event )
 	end
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, ability:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
 
-	Filters:ApplyHeal(caster, caster, heal, true)
+	Filters:ApplyHeal(caster, caster, heal, true, true)
 
 	
 	if #enemies > 0 then

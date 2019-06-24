@@ -548,7 +548,7 @@ function Filters:ApplyStun(caster, duration, target)
     end
 end
 
-function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
+function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp)
 	if caster:GetUnitName() == "npc_dota_hero_zuus" then
 		local w_2_level = caster:GetRuneValue("w", 2)
 		if w_2_level > 0 then
