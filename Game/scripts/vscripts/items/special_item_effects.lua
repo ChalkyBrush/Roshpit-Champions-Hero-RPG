@@ -4108,8 +4108,6 @@ function doom_blink(event)
 	local particleName = "particles/econ/events/ti6/blink_dagger_start_ti6_lvl2.vpcf"
 	local pfx1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx1, 0, caster:GetAbsOrigin())
-	-- local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_loadout.vpcf", PATTACH_ABSORIGIN, event.caster )
-	--     ParticleManager:SetParticleControl( pfx, 0, position )
 	local newPosition = point
 	FindClearSpaceForUnit(caster, newPosition, false)
 	local pfx2 = ParticleManager:CreateParticle("particles/econ/events/ti6/blink_dagger_end_ti6.vpcf", PATTACH_CUSTOMORIGIN, caster)
@@ -4223,6 +4221,7 @@ function igneous_canine_damage(event)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 2
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
+
 function hurricane_vest_create(event)
 
 	local caster = event.caster.hero
@@ -5212,8 +5211,6 @@ function frozen_heart_think(event)
 	-- if not hero:HasModifier("modifier_frozen_heart_negative_health") then
 	-- ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_negative_health", {})
 	-- end
-	-- --print("stacks to be")
-	-- --print(stacksToBeApplied)
 	-- if hero:GetMaxHealth() - stacksToBeApplied > 10 then
 	-- Timers:CreateTimer(0.03, function()
 	-- hero:SetModifierStackCount("modifier_frozen_heart_negative_health", caster, stacksToBeApplied)

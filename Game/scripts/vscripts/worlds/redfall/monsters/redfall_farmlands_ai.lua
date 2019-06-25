@@ -594,7 +594,7 @@ function bandit_attack_land(event)
 			end)
 		end)
 	end
-	if targetGetIntellect
+	if targetGetIntellect then
 		Timers:CreateTimer(0.3, function()
 			local damage = targetGetIntellect * prismMult
 			ApplyDamage({victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
