@@ -170,8 +170,7 @@ function create_epoch_copy(caster, ability, position, duration, fv, distance, to
  ability:ApplyDataDrivenModifier(caster, dummy, "modifier_eternity_flood_ghost", {duration = duration+1})
 
     -- FindClearSpaceForUnit(dummy, position, true)
-      Timers:CreateTimer(duration, -- Start this timer 10 game-time seconds later
-      function()
+      Timers:CreateTimer(duration,       function()
       
         local particleName =  "particles/units/heroes/hero_oracle/oracle_false_promise_cast.vpcf"
         local particleVector = position

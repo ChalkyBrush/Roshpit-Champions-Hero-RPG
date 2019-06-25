@@ -23,7 +23,7 @@ function jex_activate_charged_mushroom(event)
 	local hp = caster:GetMaxHealth()*event.health_mult
 	local life_duration = event.duration
 	local q_4_level = caster:GetRuneValue("q", 4)
-	life_duration = life_duration + event.q_4_additional_duration*q_4_level
+	life_duration = life_duration + event.q_4_additional_duration * q_4_level
 	local max_chain_targets = event.chain_target_count*tech_level
 	shroom:SetBaseMaxHealth(hp)
 	shroom:SetMaxHealth(hp)

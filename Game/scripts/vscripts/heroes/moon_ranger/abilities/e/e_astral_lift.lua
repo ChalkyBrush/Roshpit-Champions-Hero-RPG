@@ -43,8 +43,7 @@ function cast(event)
         EmitSoundOnLocationWithCaster(target, "Hero_Invoker.SunStrike.Ignite", caster)
     end)
     CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf", target, 0.35)
-    Timers:CreateTimer(delay, -- Start this timer 10 game-time seconds later
-        function()
+    Timers:CreateTimer(delay,         function()
             -- ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_e_lift_moving", {duration = 0.3})
             ParticleManager:DestroyParticle( particle1, false )
             particleName = E_PARTICLE2
@@ -59,8 +58,7 @@ function cast(event)
             FindClearSpaceForUnit(caster, target, true)
 
             ProjectileManager:ProjectileDodge(caster)
-            Timers:CreateTimer(2, -- Start this timer 10 game-time seconds later
-                function()
+            Timers:CreateTimer(2,                 function()
                     ParticleManager:DestroyParticle( particle2, false )
                     ParticleManager:DestroyParticle( particle3, false )
                 end)

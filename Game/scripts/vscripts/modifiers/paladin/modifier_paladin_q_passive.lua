@@ -15,14 +15,19 @@ function class:DeclareFunctions()
 end
 
 function class:OnAttackLanded(event)
-	print("HERE")
+	print("HERE modifier_paladin_q_passive")
 	local caster = self:GetParent()
 	if event.attacker ~= caster then return end
 	if caster.q3_level and caster.q3_level > 0 then
 		local duration = 0.8+caster.q3_level*0.1
 		local max_stacks = 1
-		if caster:HasModifier("modifier_paladin_immortal_weapon_1") then
-			max_stacks = caster.weapon:GetSpecialValueFor("property_three")
+		if not caster.weapon then
+			print("[modifier_paladin_q_passive] error caster.weapon is null")
+			return
+		else
+			if caster:HasModifier("modifier_paladin_immortal_weapon_1") then
+				max_stacks = caster.weapon:GetSpecialValueFor("property_three")
+			end
 		end
 		local stacks = caster:GetModifierStackCount("modifier_paladin_q3_shield", caster)
 		caster:AddNewModifier(caster, self:GetAbility(), "modifier_paladin_q3_shield", {duration = duration})

@@ -247,8 +247,7 @@ function a_d(event)
 				Queue = true
 			}
 			ExecuteOrderFromTable(order)
-			  Timers:CreateTimer(7, -- Start this timer 10 game-time seconds later
-			  function()
+			  Timers:CreateTimer(7, 			  function()
 				UTIL_Remove(dummy)
 			  end)
 		end
@@ -305,8 +304,7 @@ function rune_q_3_start(event)
 		ParticleManager:SetParticleControl(lightningBolt,0,caster:GetAbsOrigin())	
 	  	EmitSoundOn("dragon_knight_drag_anger_03", caster)
 	  	EmitSoundOn("dragon_knight_drag_anger_03", caster)
-		  Timers:CreateTimer(2.0, -- Start this timer 10 game-time seconds later
-		  function()
+		  Timers:CreateTimer(2.0, 		  function()
 		  	ParticleManager:DestroyParticle(lightningBolt, false)
 		  end)
 	 end
@@ -321,8 +319,7 @@ function rune_q_3(event)
 			local stunDuration = event.duration
 			local tauntDuration = ability.tauntDuration
 			local target = event.target
-			  Timers:CreateTimer(stunDuration, -- Start this timer 10 game-time seconds later
-			  function()
+			  Timers:CreateTimer(stunDuration, 			  function()
 
 			ability.runeAbility:ApplyDataDrivenModifier(runeUnit, target, "flamewaker_rune_q_3_taunt", {duration = tauntDuration})
 			target:SetForceAttackTarget(caster)

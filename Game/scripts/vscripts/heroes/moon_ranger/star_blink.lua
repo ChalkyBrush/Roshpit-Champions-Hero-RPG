@@ -26,8 +26,7 @@ function star_blink_impact(event)
     local particleLocation = target
     local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
     ParticleManager:SetParticleControl( particle1, 0, particleLocation )
-    Timers:CreateTimer(delay, -- Start this timer 10 game-time seconds later
-    function()
+    Timers:CreateTimer(delay,     function()
       ability:ApplyDataDrivenModifier(caster, caster, "modifier_star_blink_moving", {duration = 0.3})
       ParticleManager:DestroyParticle( particle1, false )
       particleName = "particles/units/heroes/hero_dark_seer/dark_seer_surge_start.vpcf"
@@ -39,8 +38,7 @@ function star_blink_impact(event)
       caster:SetAbsOrigin(target)
       FindClearSpaceForUnit(caster, target, true)
       ProjectileManager:ProjectileDodge(caster)
-      Timers:CreateTimer(2, -- Start this timer 10 game-time seconds later
-      function()
+      Timers:CreateTimer(2,       function()
         ParticleManager:DestroyParticle( particle2, false )
         ParticleManager:DestroyParticle( particle3, false )
       end)

@@ -16,13 +16,11 @@ end
 
 function Amulet:add_modifiers(hero, inventory_unit, item)
 	print("[Amulet:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
-	DeepPrintTable(item)
 	if not item.newItemTable then
 		print("[Error] Amulet:add_modifiers item.newItemTable is null")
 		RPCItems:ItemUTIL_Remove(item)
 		return
 	end
-	print("[Amulet:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
 	local trinket_ability = inventory_unit:FindAbilityByName("trinket_slot")
 	trinket_ability.strength = 0
 	trinket_ability.agility = 0
@@ -35,6 +33,7 @@ function Amulet:add_modifiers(hero, inventory_unit, item)
 	trinket_ability.max_mana = 0
 	trinket_ability.magic_resist = 0
 	trinket_ability.base_ability = 0
+	trinket_ability.item_damage = 0
 	trinket_ability.cosmos = 0
 	trinket_ability.nature = 0
 	trinket_ability.ice = 0
@@ -106,8 +105,8 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		trinket_ability.base_ability = trinket_ability.base_ability + propertyValue
 		Amulet:addBasicModifier(trinket_ability.base_ability, hero, inventory_unit, "modifier_trinket_base_ability_damage", trinket_ability)
 	elseif propertyName == "item_damage" then
-		trinket_ability.base_ability = trinket_ability.base_ability + propertyValue
-		Amulet:addBasicModifier(trinket_ability.base_ability, hero, inventory_unit, "modifier_trinket_item_damage_inc", trinket_ability)
+		trinket_ability.item_damage = trinket_ability.item_damage + propertyValue
+		Amulet:addBasicModifier(trinket_ability.item_damage, hero, inventory_unit, "modifier_trinket_item_damage_inc", trinket_ability)
 	elseif propertyName == "monkey_paw" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_monkey_paw", item)
 		hero.monkey_paw = item
