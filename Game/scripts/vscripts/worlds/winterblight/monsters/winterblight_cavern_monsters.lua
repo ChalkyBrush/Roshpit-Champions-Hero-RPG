@@ -457,3 +457,12 @@ function winter_cavern_unit_think(event)
 		end
 	end
 end
+
+function winter_cavern_hero_die(event)
+	local hero = event.unit
+	for i = 1, #Winterblight.CavernData.Chambers, 1 do
+		if Winterblight.CavernData.Chambers[i]["hero"] == hero:GetEntityIndex() then
+			Winterblight:ResetChamber(hero, i)
+		end
+	end
+end

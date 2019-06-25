@@ -106,6 +106,8 @@ function Winterblight:ProcessChamberStart(msg)
 	Winterblight.CavernData.Chambers[msg.chamber]["event"] = msg.event_number
 	Winterblight.CavernData.Chambers[msg.chamber]["hero"] = hero:GetEntityIndex()
 	Winterblight.CavernData.Chambers[msg.chamber]["events"][msg.event_number]["status"] = 1
+
+	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, hero, "modifier_winterblight_cavern_fighter", {})
 	
 	StartAnimation(Winterblight.CavernGuide, {duration=4, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.6})
 	Timers:CreateTimer(1.0, function()
@@ -140,8 +142,8 @@ function Winterblight:FrozenFoyer1(msg)
 		local unit = Winterblight:SpawnWinterRunner(positionTable[i], fv)
 		Winterblight:SetCavernUnit(unit, 1, positionTable[i], true, true, msg.chamber)
 	end
-
 end
+
 
 function Winterblight:SetCavernUnit(unit, chamber_id, original_position, bDeaggro, bParticle, chamber_index)
 	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_winterblight_cavern_unit", {})
@@ -307,4 +309,8 @@ function Winterblight:GetVertices(chamber_id)
 		table.insert(vertices, {bl_vertex, tr_vertex})
 	end
 	return vertices
+end
+
+function Winterblight:ResetChamber(hero, chamber)
+	
 end

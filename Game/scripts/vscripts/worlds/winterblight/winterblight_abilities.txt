@@ -187,6 +187,19 @@
 					}
 				}
 			}
+			"modifier_winterblight_cavern_fighter"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"winter_cavern_hero_die"
+					}
+				}
+			}
 		}
 	}
 
