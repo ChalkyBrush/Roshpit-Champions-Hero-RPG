@@ -1,6 +1,6 @@
-		//---------------------------
+		//---------------
 		// Tanari Jungle
-		//---------------------------
+		//---------------
 
 		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_normal"			"Wind Temple Key"
 		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_elite"				"Wind Temple Key"

@@ -18,7 +18,7 @@ function class:OnIntervalThink()
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			CustomAbilities:QuickAttachParticle("particles/items2_fx/radiance.vpcf", enemy, 1)
-			damage = Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+			damage = Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 			if caster:HasModifier("modifier_paladin_glyph_3_2") then
 				local heal = damage * (PALADIN_GLYPH_3_2_LIFESTEAL / 100)
 				Filters:ApplyHeal(caster, caster, heal, true)

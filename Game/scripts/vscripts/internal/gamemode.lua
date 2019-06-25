@@ -1,7 +1,6 @@
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 
-DOTA_ULTIMATE_SLOT = 5
 
 function GameMode:SetTeamData(playersPerTeam)
   local custom_team_player_count = {}
@@ -29,7 +28,7 @@ end
 
 function GameMode:_InitGameMode()
   -- Setup rules
-  print("init game mode")
+ --print("init game mode")
   GameRules:SetHeroRespawnEnabled( ENABLE_HERO_RESPAWN )
   GameRules:SetUseUniversalShopMode( UNIVERSAL_SHOP_MODE )
   GameRules:SetSameHeroSelectionEnabled( ALLOW_SAME_HERO_SELECTION )
@@ -75,7 +74,7 @@ function GameMode:_InitGameMode()
       count = count + 1
     end
   else
-    print(GameState:IsPVPAlpha())
+   --print(GameState:IsPVPAlpha())
     if GameState:IsPVPAlphaEarlyCheck() then
       if GameState:IsPVPAlpha3v3EarlyCheck() then
         GameMode:SetTeamData(3)

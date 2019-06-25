@@ -33,7 +33,7 @@ function modifier_zonik_lightspeed_cap:GetModifierMoveSpeed_Limit( params )
     if self:GetAbility():GetOwner():HasModifier("modifier_zonik_glyph_5_1") then
         cap = cap + 200
     end
-    print("CAP:"..cap)
+   --print("CAP:"..cap)
     return cap
 end
 

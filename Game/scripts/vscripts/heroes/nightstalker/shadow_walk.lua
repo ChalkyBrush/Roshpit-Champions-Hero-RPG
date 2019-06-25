@@ -117,7 +117,7 @@ function rune_e_2_illusion(event)
 		ParticleManager:SetParticleControl(pfx, 1, Vector(particle_animation_rate, 0, 0))
 		Timers:CreateTimer(damage_delay, function()
 			EmitSoundOn("Chernobog.BC.Hit", target)
-			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
 		end)
 		ability.e2_strike_current = strike_current
 	end

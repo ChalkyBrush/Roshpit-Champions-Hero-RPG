@@ -3,7 +3,7 @@ function vaultGuardDeath(event)
 	local caster = event.caster
 	local ability = event.ability
 	local blinkAbility = antimage:FindAbilityByName("antimage_blink_custom")
-	print("VAULT GUARD DEATH")
+	--print("VAULT GUARD DEATH")
 	local order =
 	{
 		UnitIndex = antimage:GetEntityIndex(),
@@ -91,14 +91,14 @@ function SpawnAlarmUnits()
 end
 
 function key_holder_think(event)
-	print("key_think")
+	--print("key_think")
 	local caster = event.caster
 	local ability = event.ability
 	local point = caster:GetAbsOrigin()
 	-- local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, 900, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if not caster.event then
 		local enemies = Entities:FindAllInSphere(point, 900)
-		print(#enemies)
+		--print(#enemies)
 		if caster:GetHealth() < 50000 then
 			local speechSlot = findEmptyDialogSlot()
 			local time = 6
@@ -405,9 +405,9 @@ function drop_barking_dog_trap(ability, quadrant)
 	for i = 0, 30, 1 do
 		Timers:CreateTimer(i*0.03, function()
 			local currentPosition = dogTrap:GetAbsOrigin()
-			print("current_position:")
-			print(currentPosition)
-			print("i = "..i)
+			--print("current_position:")
+			--print(currentPosition)
+			--print("i = "..i)
 			dogTrap:SetAbsOrigin(currentPosition-Vector(0,0,dogTrap.fallVelocity))
 			dogTrap.fallVelocity = dogTrap.fallVelocity+2
 			if i == 30 then

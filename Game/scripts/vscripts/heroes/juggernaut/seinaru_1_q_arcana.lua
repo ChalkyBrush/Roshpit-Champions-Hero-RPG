@@ -5,7 +5,7 @@ function blade_dash_start(event)
 	local ability = event.ability
 	ability.interval = 0
 	local target = event.targetUnit
-	DeepPrintTable(event.target_points)
+	--DeepPrintTable(event.target_points)
 	if target then
 		ability.target = event.target
 		ability.targetPoint = false
@@ -17,8 +17,8 @@ function blade_dash_start(event)
 		ability.target = false
 		ability.targetPoint = event.target_points[1]
 	end
-	print(ability.target)
-	print(ability.targetPoint)
+	--print(ability.target)
+	--print(ability.targetPoint)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_arcana_dashing", {duration = 4})
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,0,80))
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Hero_Juggernaut.PreAttack", caster)
@@ -84,7 +84,7 @@ function arcana_dashing_think(event)
 		if #enemies > 0 then
 			EmitSoundOn("juggernaut_jug_ability_omnislash_1"..RandomInt(5,7), enemies[1])
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, ability.damage, DAMAGE_TYPE_PHYSICAL, 1, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, ability.damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_Q, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_seinaru_dashing_stun", {duration = 0.2})
 			end		
 		end		

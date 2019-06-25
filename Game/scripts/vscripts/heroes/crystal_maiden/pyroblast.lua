@@ -120,7 +120,7 @@ function rune_r_1(caster, ability)
   	end
   	ability:ApplyDataDrivenModifier(caster, caster, "modifier_pyro_cooldown", {duration = 17})
   	fireball:SetLevel(ability:GetLevel())
-  	fireball:SetAbilityIndex(DOTA_ULTIMATE_SLOT)
+  	fireball:SetAbilityIndex(DOTA_R_SLOT)
   	fireball.rune_r_1_level = totalLevel
   	caster:SwapAbilities("pyroblast", "fireball", false, true)
   	-- Timers:CreateTimer(17,function()
@@ -161,7 +161,7 @@ function pyroblast_impact(event)
 		damage = damage*1.5
 	end
 	-- damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.r_4_level*damage
-	local filterDamage = Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	local filterDamage = Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 	if ability.rune_r_2_level > 0 then
 		applyIgnite(caster, ability, filterDamage, target, ability.rune_r_2_level, 6)
 	end

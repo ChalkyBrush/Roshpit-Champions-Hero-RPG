@@ -260,7 +260,7 @@ function arrows_thinking(event)
 			if arrow.pending then
 				arrow.position = arrow.position + arrow.fv*arrow.velocity*0.03
 				local distance = WallPhysics:GetDistance(arrow.position, arrow.target_point)
-				print(distance)
+				--print(distance)
 				if distance < 250 and arrow.sound then
 					arrow.sound = false
 					EmitSoundOnLocationWithCaster(arrow.target_point, "Astral.CrystalArrow.Impact", caster)
@@ -306,7 +306,7 @@ function arrow_explode(caster, ability, position, damage)
     if #enemies > 0 then
     	local AOEDamage = damage
         for _,enemy in pairs(enemies) do
-        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, AOEDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_ICE, RPC_ELEMENT_COSMOS)
+        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, AOEDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_ICE, RPC_ELEMENT_COSMOS)
         end
     end 
 end

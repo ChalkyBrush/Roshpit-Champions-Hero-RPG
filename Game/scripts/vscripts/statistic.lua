@@ -42,10 +42,10 @@ local function send(jsonStats, repeatCount)
     request:SetHTTPRequestGetOrPostParameter("data", jsonStats)
     request:Send(function(result)
         if result.StatusCode ~= 200 then
-            print("[STATS] Server connection failure, code", result.StatusCode)
+           --print("[STATS] Server connection failure, code", result.StatusCode)
 
             if repeatCount ~= nil and repeatCount > 0 then
-                print("[STATS] Repeating in 3 seconds")
+               --print("[STATS] Repeating in 3 seconds")
                 Timers:CreateTimer(3, function() send(jsonStats, repeatCount - 1) end)
             end
         end
@@ -80,7 +80,7 @@ local function dispatch(event, data)
     end
 
     data['event'] = event
-    print("event dispatched " .. event)
+   --print("event dispatched " .. event)
 
     for k, listener in pairs(listeners[event]) do
         local status, exception = pcall(function()
@@ -112,9 +112,9 @@ local function getMatchId(eventInfo, repeatCount)
     request:SetHTTPRequestGetOrPostParameter("type", "getInitialMatchId")
     request:Send(function(result)
         if result.StatusCode ~= 200 then
-            print("[STATS] Get initial match id. Server connection failure, code", result.StatusCode)
+           --print("[STATS] Get initial match id. Server connection failure, code", result.StatusCode)
             if repeatCount ~= nil and repeatCount > 0 then
-                print("[STATS] Repeating in 3 seconds")
+               --print("[STATS] Repeating in 3 seconds")
                 Timers:CreateTimer(3, function() getMatchId(eventInfo, repeatCount - 1) end)
             end
         else

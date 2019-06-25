@@ -444,7 +444,7 @@ function Tanari:SpawnLindworm()
 		Timers:CreateTimer(0.03*i, function()
 			dragon:SetAbsOrigin(dragon:GetAbsOrigin()+moveDirection*14+(Vector(0,0,-3.7)*(math.cos(i*2*math.pi/80)+1)))
 			AddFOWViewer(DOTA_TEAM_GOODGUYS, dragon:GetAbsOrigin()+Vector(0,0,100), 240, 2, false)
-			print(dragon:GetAbsOrigin())
+			--print(dragon:GetAbsOrigin())
 		end)
 	end
 	dragon.itemLevel = 62

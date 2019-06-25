@@ -170,8 +170,8 @@ function skeleton_die(event)
 	local ability = event.ability
 	local caster = event.caster
 	reindexSkeleTable(ability)
-	print("SKELETON DIE")
-	print(#ability.skeleTable)
+	--print("SKELETON DIE")
+	--print(#ability.skeleTable)
 	if #ability.skeleTable > 0 then
 		caster:SetModifierStackCount("modifier_summon_skeleton_counter", caster, #ability.skeleTable)
 	else
@@ -185,8 +185,8 @@ function skeleton_expire(event)
 	local caster = event.caster
 	local ability = event.ability
 	reindexSkeleTable(ability)
-	print("SKELETON DIE")
-	print(#ability.skeleTable)
+	--print("SKELETON DIE")
+	--print(#ability.skeleTable)
 	if #ability.skeleTable > 0 then
 		caster:SetModifierStackCount("modifier_summon_skeleton_counter", caster, #ability.skeleTable)
 	else
@@ -218,7 +218,7 @@ function mage_blast_target_point(event)
 		local enemies = FindUnitsInRadius( hero:GetTeamNumber(), point, nil, radius+20, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				-- Filters:TakeArgumentsAndApplyDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
+				-- Filters:TakeArgumentsAndApplyDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR, ability = ability  })
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_mage_blast_slow", {duration = 5})
 				enemy:SetModifierStackCount("modifier_mage_blast_slow", caster, caster.w_3_level)

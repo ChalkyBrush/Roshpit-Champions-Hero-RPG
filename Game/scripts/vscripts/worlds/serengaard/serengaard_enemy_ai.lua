@@ -66,8 +66,8 @@ function serengaard_pudge_hook_throw(event)
 	ParticleManager:SetParticleControlEnt(ability.hookPFX, 7, caster, PATTACH_POINT_FOLLOW, "attach_hook", caster:GetAbsOrigin(), true)
 
 	ability.point = event.target_points[1]
-	print("POINT?")
-	print(ability.point)
+	--print("POINT?")
+	--print(ability.point)
 	ParticleManager:SetParticleControl(ability.hookPFX, 1, ability.point)
 	-- ParticleManager:SetParticleControl(ability.hookPFX, 6, ability.point)
 
@@ -161,7 +161,7 @@ function hook_impact(event)
 		target.hookAbility.target = false
 	end
 	target.hookAbility = ability
-	print("HOOK IMPACT!")
+	--print("HOOK IMPACT!")
 	EmitSoundOn("Serengaard.HookImpact", target)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_pudge_hook_movement", {duration = 1.5})
 	ability.retract = true

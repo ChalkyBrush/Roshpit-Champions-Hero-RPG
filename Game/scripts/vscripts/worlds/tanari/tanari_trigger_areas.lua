@@ -19,9 +19,9 @@ function EnterLava(trigger)
 			LavaJump(hero, hero:GetForwardVector(), RandomInt(10, 13), 27, 25, 1)
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_lava_flailing", {duration = 4})
 		end)
-	print("LaVA TOUCH!------------")
+	--print("LaVA TOUCH!------")
 	ability:ApplyDataDrivenModifier(caster, hero, "modifier_lava_hit", {duration = 4})
-	print("TOUCHING LAVA!!")
+	--print("TOUCHING LAVA!!")
 end
 
 function Lava3(trigger)
@@ -45,9 +45,9 @@ function Lava3(trigger)
 			LavaJump(hero, hero:GetForwardVector(), RandomInt(10, 13), 27, 25, 1)
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_lava_flailing", {duration = 4})
 		end)
-	print("LaVA TOUCH!------------")
+	--print("LaVA TOUCH!------")
 	ability:ApplyDataDrivenModifier(caster, hero, "modifier_lava_hit", {duration = 4})
-	print("TOUCHING LAVA!!")
+	--print("TOUCHING LAVA!!")
 end
 
 function Lava4(trigger)
@@ -74,9 +74,9 @@ function Lava4(trigger)
 			LavaJump(hero, hero:GetForwardVector(), RandomInt(10, 13), 27, 25, 1)
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_lava_flailing", {duration = 4})
 		end)
-	print("LaVA TOUCH!------------")
+	--print("LaVA TOUCH!------")
 	ability:ApplyDataDrivenModifier(caster, hero, "modifier_lava_hit", {duration = 4})
-	print("TOUCHING LAVA!!")
+	--print("TOUCHING LAVA!!")
 end
 
 function Lava5(trigger)
@@ -103,9 +103,9 @@ function Lava5(trigger)
 					LavaJump(hero, hero:GetForwardVector(), RandomInt(10, 13), 27, 25, 1)
 					ability:ApplyDataDrivenModifier(caster, hero, "modifier_lava_flailing", {duration = 4})
 				end)
-			print("LaVA TOUCH!------------")
+			--print("LaVA TOUCH!------")
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_lava_hit", {duration = 4})
-			print("TOUCHING LAVA!!")
+			--print("TOUCHING LAVA!!")
 		end
 	end)
 
@@ -132,9 +132,9 @@ function Lava6(trigger)
 			LavaJump(hero, hero:GetForwardVector(), RandomInt(10, 13), 27, 25, 1)
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_lava_flailing", {duration = 4})
 		end)
-	print("LaVA TOUCH!------------")
+	--print("LaVA TOUCH!------")
 	ability:ApplyDataDrivenModifier(caster, hero, "modifier_lava_hit", {duration = 4})
-	print("TOUCHING LAVA!!")
+	--print("TOUCHING LAVA!!")
 end
 
 function lava_damage_think(event)
@@ -159,7 +159,7 @@ function LavaJump(unit, forwardVector, propulsion, liftForce, liftDuration, grav
 		return false
 	end
 	gameMasterAbil:ApplyDataDrivenModifier(gameMaster, unit, jumpingModifier, {duration = 5})
-	print("----LAVA JUMP----")
+	--print("--LAVA JUMP--")
 
 	for i = 1, liftDuration, 1 do
 		Timers:CreateTimer(0.03*i, function()
@@ -197,23 +197,23 @@ function LavaJump(unit, forwardVector, propulsion, liftForce, liftDuration, grav
 					newPosition = newPosition-(forwardVector*propulsion)
 				end
 				unit:SetOrigin(newPosition)
-				-- print("NEWPOSITION.Z:")
-				-- print(newPosition.z)
+				--print("NEWPOSITION.Z:")
+				--print(newPosition.z)
 
 				if newPosition.z - GetGroundPosition(newPosition, unit).z < 10 then
-					print("z1")
+					--print("z1")
 					unit:RemoveModifierByName(jumpingModifier)
 					FindClearSpaceForUnit(unit, newPosition, false)
 					WallPhysics:UnitLand(unit)
 					unit:RemoveModifierByName("modifier_lava_jumping")
-					print (currentPosition.z)
+					--print (currentPosition.z)
 					if (currentPosition.z <= 252) then
 						local triggerTable = {}
 						triggerTable.activator = unit
 						EnterLava(triggerTable)
 					end
 				elseif newPosition.z <= 252 then
-					print("z2")
+					--print("z2")
 					unit:RemoveModifierByName(jumpingModifier)
 					-- FindClearSpaceForUnit(unit, newPosition, false)
 					WallPhysics:UnitLand(unit)
@@ -339,7 +339,7 @@ function SpecialWall2(trigger)
 end
 
 function RiverFlow(trigger)
-	print("RIVER FLOW")
+	--print("RIVER FLOW")
 	local hero = trigger.activator
 	local gameMaster = Events.GameMaster
 	local gameMasterAbil = gameMaster:FindAbilityByName("npc_abilities")
@@ -362,7 +362,7 @@ function river_flow_think(event)
 end
 
 function WaterfallFlow(trigger)
-	print("RIVER FLOW")
+	--print("RIVER FLOW")
 	local hero = trigger.activator
 	local gameMaster = Events.GameMaster
 	local gameMasterAbil = gameMaster:FindAbilityByName("npc_abilities")
@@ -923,7 +923,7 @@ end
 function respawn_flag_succeed(event)
 	local caster = event.caster
 	local ability = event.ability
-	print(ability.color)
+	--print(ability.color)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/solunia/eclipse_sparks.vpcf", caster, 3)
 	EmitSoundOn("RPCItem.RespawnFlagCast", caster)
 	caster:RemoveAbility("rpc_respawn_flag")

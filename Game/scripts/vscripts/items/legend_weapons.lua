@@ -410,24 +410,24 @@ function Weapons:RollLegendWeapon1(deathLocation, class, strictMaxItemLevel, dis
 	--     weapon.newItemTable.property2name = "intelligence"
 	--     RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_intelligence", "#33CCFF",  2)
 	-- end
-	print("----------")
-	print(class)
-	DeepPrintTable(baseValueTable)
-	DeepPrintTable(tooltipTable)
-	DeepPrintTable(propertyTable)
-	print("----------")
+	--print("------")
+	--print(class)
+	--DeepPrintTable(baseValueTable)
+	--DeepPrintTable(tooltipTable)
+	--DeepPrintTable(propertyTable)
+	--print("------")
 	local value = Weapons:GetDeviation(baseValueTable[specialProperty1]+RandomInt(1, Arena.PitLevel*2), rarityFactor)
 	weapon.newItemTable.property3 = value
 	weapon.newItemTable.property3name = propertyTable[specialProperty1]
-	print("3 property3name: "..tostring(weapon.newItemTable.property3name))
-	print("3 specialProperty1: "..tostring(tooltipTable[specialProperty1]))
+	--print("3 property3name: "..tostring(weapon.newItemTable.property3name))
+	--print("3 specialProperty1: "..tostring(tooltipTable[specialProperty1]))
 	RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property3, tooltipTable[specialProperty1], colorTable[specialProperty1],  3)
 
 	local value = Weapons:GetDeviation(baseValueTable[specialProperty2]+RandomInt(1, Arena.PitLevel*2), rarityFactor)
 	weapon.newItemTable.property4 = value
 	weapon.newItemTable.property4name = propertyTable[specialProperty2]
-	print("4 property4name: "..tostring(weapon.newItemTable.property4name))
-	print("4 specialProperty2: "..tostring(tooltipTable[specialProperty2]))
+	--print("4 property4name: "..tostring(weapon.newItemTable.property4name))
+	--print("4 specialProperty2: "..tostring(tooltipTable[specialProperty2]))
 	RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property4, tooltipTable[specialProperty2], colorTable[specialProperty2],  4)
 	RPCItems:ItemUpdateCustomNetTables(weapon)
 	if not disableDrop then
@@ -475,12 +475,12 @@ function Weapons:RollInfernalStaff(deathLocation)
 	    RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_intelligence", "#33CCFF",  2)
 
 
-	print("----------")
-	print(class)
-	DeepPrintTable(baseValueTable)
-	DeepPrintTable(tooltipTable)
-	DeepPrintTable(propertyTable)
-	print("----------")
+	--print("------")
+	--print(class)
+	--DeepPrintTable(baseValueTable)
+	--DeepPrintTable(tooltipTable)
+	--DeepPrintTable(propertyTable)
+	--print("------")
 	local value = Weapons:GetDeviation(baseValueTable[specialProperty1]+RandomInt(1, Arena.PitLevel*2), rarityFactor)
 	weapon.newItemTable.property3 = value
 	weapon.newItemTable.property3name = propertyTable[specialProperty1]
@@ -820,12 +820,12 @@ function Weapons:RollLegendWeapon2(deathLocation, class, strictMaxItemLevel, dis
 	    RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_agility", "#2EB82E",  2)
 	end
 
-	print("----------")
-	print(class)
-	DeepPrintTable(baseValueTable)
-	DeepPrintTable(tooltipTable)
-	DeepPrintTable(propertyTable)
-	print("----------")
+	--print("------")
+	--print(class)
+	--DeepPrintTable(baseValueTable)
+	--DeepPrintTable(tooltipTable)
+	--DeepPrintTable(propertyTable)
+	--print("------")
 	local value = Weapons:GetDeviation(baseValueTable[specialProperty1]+RandomInt(1, 15), rarityFactor)
 	weapon.newItemTable.property3 = value
 	weapon.newItemTable.property3name = propertyTable[specialProperty1]
@@ -1145,12 +1145,12 @@ function Weapons:RollLegendWeapon3(deathLocation, class, strictMaxItemLevel, dis
 	    RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_all_attributes", "#FFFFFF",  2)		
 	end
 
-	print("----------")
-	print(class)
-	DeepPrintTable(baseValueTable)
-	DeepPrintTable(tooltipTable)
-	DeepPrintTable(propertyTable)
-	print("----------")
+	--print("------")
+	--print(class)
+	--DeepPrintTable(baseValueTable)
+	--DeepPrintTable(tooltipTable)
+	--DeepPrintTable(propertyTable)
+	--print("------")
 	local value = Weapons:GetDeviation(baseValueTable[specialProperty1]+RandomInt(1, 15), rarityFactor)
 	weapon.newItemTable.property3 = value
 	weapon.newItemTable.property3name = propertyTable[specialProperty1]

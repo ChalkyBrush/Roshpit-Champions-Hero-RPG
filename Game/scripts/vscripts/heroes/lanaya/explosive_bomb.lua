@@ -28,7 +28,7 @@ function bomb_throw_start(event)
     end
     ability.total_bombs = ability.total_bombs + 1
     table.insert(ability.bombs, bomb)
-    DeepPrintTable(ability.bombs)
+    --DeepPrintTable(ability.bombs)
 --    if caster:HasModifier("modifier_trapper_glyph_6_1") then
 --        bomb.detonate = false
 --        if ability.total_bombs > 5 then
@@ -141,7 +141,7 @@ function bomb_explode(unit)
     local w_1_level = unit.w_1_level
     local w_3_level = unit.w_3_level
     ability.total_bombs = ability.total_bombs - 1
-    print("BOMB EXPLODE??")
+   --print("BOMB EXPLODE??")
     Timers:CreateTimer(0.05, function()
                 local position = unit:GetAbsOrigin()
                 StopSoundEvent("Trapper.BombTicking", unit)
@@ -175,7 +175,7 @@ function bomb_explode(unit)
                         local damageBonusMult = 1 - (distance/explosionRadius)
                         a_b_damage = damage + damage*damageBonusMult*w_1_level*TRAPPER_W1_AMP_PERCENT/100
                     end
-                    Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_b_damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NORMAL)
+                    Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_b_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NORMAL)
                     Filters:ApplyStun(caster, stun_duration, enemy)
                 end
             end
@@ -400,7 +400,7 @@ end
 --    local caster = unit.origCaster
 --    local ability = unit.origAbility
 --    local blind_duration = unit.blind_duration
---    print("BOMB EXPLODE??")
+--   --print("BOMB EXPLODE??")
 --    Timers:CreateTimer(0.9, function()
 --                local position = unit:GetAbsOrigin()
 --                StopSoundEvent("Trapper.BombTicking", unit)

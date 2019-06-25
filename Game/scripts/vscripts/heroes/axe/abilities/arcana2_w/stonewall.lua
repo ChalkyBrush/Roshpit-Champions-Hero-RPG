@@ -80,7 +80,7 @@ function stonewall_start(event)
 	Filters:CastSkillArguments(2, caster)
 	local w_4_level = caster:GetRuneValue("w", 4)
 	if w_4_level > 0 then
-		print("IN HERE?")
+		--print("IN HERE?")
 		local radius = AXE_ARCANA2_W3_RADIUS_BASE + AXE_ARCANA2_W3_RADIUS_GROWTH*w_4_level
 		-- local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf", caster, 2)
 		-- ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
@@ -145,7 +145,7 @@ function stonewall_passive_attacked(event)
 		    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 220, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		    if #enemies > 0 then
 		        for _,enemy in pairs(enemies) do
-		            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+		            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 		        end
 		    end 
 		end

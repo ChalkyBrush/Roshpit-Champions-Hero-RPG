@@ -29,7 +29,7 @@ function c_d_enter(event)
  	local caster = ability.origCaster
 
  	local damage = ability.r_3_level * ASTRAL_R3_ATTACK_DAMAGE_PERCENT * OverflowProtectedGetAverageTrueAttackDamage(caster)
-    print(caster:GetUnitName())
+   --print(caster:GetUnitName())
     if caster:HasModifier("modifier_astral_glyph_2_1") then
     	damage = damage*3
     	ability.glyphed = true
@@ -90,7 +90,7 @@ function c_d_projectile_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local damage = ability.r_3_damage
-	Filters:TakeArgumentsAndApplyDamage(target, ability.origCaster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, ability.origCaster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 	if ability.glyphed then
 		ability:ApplyDataDrivenModifier(ability.origCaster.runeUnit3, target, "modifier_astral_glyph_2_1_slow", {duration = 4})
 	end

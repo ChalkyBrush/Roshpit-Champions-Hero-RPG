@@ -176,9 +176,9 @@ function RPCItems:AmuletPickup(heroEntity, itemEntity)
     if itemEntity.newItemTable.requiredHero then
         heroName = itemEntity.newItemTable.requiredHero
     end
-    print("[RPCItems:AmuletPickup] name:"..tostring(heroName))
+   --print("[RPCItems:AmuletPickup] name:"..tostring(heroName))
     local rarityFactor = RPCItems:GetRarityFactor(itemEntity.newItemTable.rarity)
-    print("[RPCItems:AmuletPickup] show correct runes!")
+   --print("[RPCItems:AmuletPickup] show correct runes!")
     local rpcName = HerosCustom:GetInternalHeroNameMain(heroName)
     local runePrefix = "#DOTA_Tooltip_ability_"..rpcName.."_"
     for i = 1, rarityFactor, 1 do
@@ -618,14 +618,14 @@ function RPCItems:SkillTranslateBasic(heroEntity, itemEntity, slot, tooltipName)
         itemEntity.newItemTable.property4 = propertyValue
     end
     if propertyName == nil then
-        print("[RPCItems:SkillTranslateBasic] propertyName == nil")
+       --print("[RPCItems:SkillTranslateBasic] propertyName == nil")
         return
     end
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
         -- runeName = tooltipName..propertyName
         runeName = propertyName
-        print(runeName)
+       --print(runeName)
         RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12", slot)
     end 
 end

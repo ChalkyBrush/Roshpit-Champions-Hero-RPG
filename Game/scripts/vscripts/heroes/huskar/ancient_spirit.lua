@@ -219,7 +219,7 @@ function reachSpirit(caster, ability, spiritPosition)
 			    if #enemies > 0 then
 			    	local damage = 4400*a_c_level
 			        for _,enemy in pairs(enemies) do
-			        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+			        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 			            if caster:HasModifier("modifier_windstrike_weapon") then
 			            	if a_c_level > 0 then
 			            		local windstrikeEvent = {}
@@ -277,7 +277,7 @@ function ancient_spirit_attack_hit(event)
 	local target = event.target
 	local origCaster = attacker.origCaster
 	local damage = attacker.r_3_level*0.5*OverflowProtectedGetAverageTrueAttackDamage(origCaster)
-	Filters:TakeArgumentsAndApplyDamage(target, origCaster, damage, DAMAGE_TYPE_PHYSICAL, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_WIND)
+	Filters:TakeArgumentsAndApplyDamage(target, origCaster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_WIND)
 end
 
 function ancient_attacking_end(event)
@@ -301,7 +301,7 @@ function tempest_haze_enemy_think(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.e_3_damage_tick, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WIND, RPC_ELEMENT_LIGHTNING)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.e_3_damage_tick, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_WIND, RPC_ELEMENT_LIGHTNING)
 end
 
 function tempest_haze_friendly_think(event)

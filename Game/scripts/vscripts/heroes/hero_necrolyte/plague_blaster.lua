@@ -95,7 +95,7 @@ function projectile_hit(event)
     if caster:HasModifier("modifier_venomort_immortal_weapon_2") then
         Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_POISON, RPC_ELEMENT_GHOST)
     else
-        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_POISON, RPC_ELEMENT_GHOST)
+        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_POISON, RPC_ELEMENT_GHOST)
     end
     if ability.w2_level > 0 then
         local luck = RandomInt(1,100)

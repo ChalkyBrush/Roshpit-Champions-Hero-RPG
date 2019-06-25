@@ -84,7 +84,7 @@ function Notifications:Top(player, table)
 end
 
 function Notifications:TopToAll(table)
-  print("hi")
+ --print("hi")
   if table.text ~= nil then
     CustomGameEventManager:Send_ServerToAllClients("top_notification", {text=table.text, duration=table.duration, class=table.class, style=table.style, continue=table.continue} )
   elseif table.hero ~= nil then

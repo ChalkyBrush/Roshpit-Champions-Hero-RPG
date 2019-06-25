@@ -8,7 +8,7 @@ function death_check(event)
 	if not caster.deathStart then
 		if caster:GetHealth() < 50 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_dying_generic", {duration = 20})
-			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 			caster.deathStart = true
 			if caster:GetUnitName() == "graveyard_boss" then
 				graveyard_boss_die(caster)
@@ -53,7 +53,7 @@ end
 function BossTakeDamage(event)
 	local caster = event.caster
 	local ability = event.ability
-	CustomGameEventManager:Send_ServerToAllClients("update_boss_health", {current_health = caster:GetHealth()})
+	CustomGameEventManager:Send_ServerToAllClients("update_boss_health", {current_health = caster:GetHealth(), bossId = tostring(caster)})
 end
 
 function death_animation(keys)

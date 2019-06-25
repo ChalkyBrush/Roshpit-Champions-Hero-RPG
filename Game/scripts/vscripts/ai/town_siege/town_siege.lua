@@ -151,7 +151,7 @@ function updateSiegeProgress(amount)
 		end
 	elseif Dungeons.siegeStage == 1 then
 		if Dungeons.siegeKills > threshold2 then
-			print("SPAWN SIEGE HULKER")
+			--print("SPAWN SIEGE HULKER")
 			for i = 1, 2, 1 do
 				local hulker = CreateUnitByName("siege_hulker", Vector(-6400, 1252+RandomInt(1, 500)), true, nil, nil, DOTA_TEAM_NEUTRALS)
 				Events:AdjustDeathXP(hulker)

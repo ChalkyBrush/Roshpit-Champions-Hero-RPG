@@ -345,7 +345,7 @@
 	"arkimus_rune_r_4"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"

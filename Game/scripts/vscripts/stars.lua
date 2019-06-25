@@ -14,7 +14,7 @@ function Stars:ActivateStarsMenu(msg)
 	-- 	table.insert(starsData.categories, {herosTable[i], 1, 2, 3, 1, 2, 3, 1, 2, 3, 0})
 	-- end
 	local starsData = Stars:GetOrganizedStarData(playerID)
-	DeepPrintTable(starsData)
+	--DeepPrintTable(starsData)
 	local openingPlayer = PlayerResource:GetPlayer(msg.openingPlayerID)
 	CustomGameEventManager:Send_ServerToPlayer(openingPlayer, "open_stars", {playerID = playerID, starsData = starsData, grandTotalStars = hero.grandTotalStars})
 	Events:TutorialServerEvent(hero, "1_4", 0)
@@ -171,13 +171,13 @@ function Stars:StarEventSolo(starEventName, hero)
 end
 
 function Stars:StarEventPlayer(starEventName, hero)
-	print("STAR EVENT PLAYER")
+	--print("STAR EVENT PLAYER")
 	if SaveLoad:GetAllowSaving() then
 		local playerID = hero:GetPlayerOwnerID()
 		if not RPCItems:GetIsPlayerConnected(playerID) then
 			return false
 		end
-		print("STAR EVENT PLAYER AND CONNECTED")
+		--print("STAR EVENT PLAYER AND CONNECTED")
 		local starAmount = 0
 		local starData = Stars:GetOrganizedStarData(hero:GetPlayerOwnerID())
 		if starData then
@@ -368,12 +368,12 @@ function Stars:UpdateStarsOnServer(heroName, type, starAmount, playerID)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			-- print( "GET response:\n" )
+			--print( "GET response:\n" )
 			for k,v in pairs( result ) do
-				-- print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			-- print( "Done." )
-			-- print("STARS UPDATED")
+			--print( "Done." )
+			--print("STARS UPDATED")
 			local resultTable = JSON:decode(result.Body)
 			Stars:parseHeroData(player, resultTable)
 		end
@@ -381,7 +381,7 @@ function Stars:UpdateStarsOnServer(heroName, type, starAmount, playerID)
 end
 
 function Stars:parseHeroData(player, resultTable)
-	DeepPrintTable(resultTable)
+	--DeepPrintTable(resultTable)
 	local herosTable = HerosCustom:GetAvailableHerosTable()
 	local heroCount = #herosTable
 	table.insert(herosTable, "solo_stars")
@@ -410,7 +410,7 @@ function Stars:GetPlayerStars(playerID)
 	-- if not Beacons.cheats then
 	-- 	return false
 	-- end
-	print("GET STARS!!")
+	--print("GET STARS!!")
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local player = PlayerResource:GetPlayer(playerID)
 	local url = ROSHPIT_URL.."/champions/getStars?"
@@ -419,11 +419,11 @@ function Stars:GetPlayerStars(playerID)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			-- print( "GET response:\n" )
+			--print( "GET response:\n" )
 			-- for k,v in pairs( result ) do
-			-- 	print( string.format( "%s : %s\n", k, v ) )
+			-- 	--print( string.format( "%s : %s\n", k, v ) )
 			-- end
-			print( "Done." )
+			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			Stars:parseHeroData(player, resultTable)
 			Timers:CreateTimer(3, function()

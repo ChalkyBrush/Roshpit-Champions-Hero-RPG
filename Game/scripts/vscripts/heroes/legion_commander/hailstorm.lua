@@ -84,7 +84,7 @@ function hailstorm_thinker_think(event)
 	local damage = event.damage + event.damage_from_strength * caster:GetStrength()
 	hailstorm_explosion(caster, randomExplosionLocation, damage, 1, 300, ability, true, 0)
 	-- if target:HasModifier("modifier_hailstorm_aura_friendly") then
-	-- 	print("I HAVE THE AURA")
+	-- 	--print("I HAVE THE AURA")
 	-- end
 end
 
@@ -114,13 +114,13 @@ function hailstorm_explosion(caster, position, damage, amp, explosionAOE, abilit
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, targetFlag, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, 4, RPC_ELEMENT_EARTH, RPC_ELEMENT_ICE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, BASE_ABILITY_R, RPC_ELEMENT_EARTH, RPC_ELEMENT_ICE)
 				Filters:ApplyStun(caster, stun_duration+a_c_stun_duration, enemy)
 			end
 			local refreshChance = ability:GetSpecialValueFor("refresh_chance")
 			local luck = RandomInt(1, 100)
 			if luck <= refreshChance then
-				caster:GetAbilityByIndex(2):EndCooldown()
+				caster:GetAbilityByIndex(DOTA_E_SLOT):EndCooldown()
 			end
 		end 
 		if a_c_stun_duration > 0 then
@@ -166,9 +166,9 @@ function frozen_stand_start(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	caster:GetAbilityByIndex(1):SetActivated(false)
-	caster:GetAbilityByIndex(2):SetActivated(false)
-	caster:GetAbilityByIndex(3):SetActivated(false)
+	caster:GetAbilityByIndex(DOTA_W_SLOT):SetActivated(false)
+	caster:GetAbilityByIndex(DOTA_E_SLOT):SetActivated(false)
+	caster:GetAbilityByIndex(DOTA_D_SLOT):SetActivated(false)
 	ability.r2_level = caster:GetRuneValue("r", 2)
 
 	local ability_duration = constants.ARCANA2_R2_DURATION_BASE + ability.r2_level * constants.ARCANA2_R2_DURATION
@@ -188,9 +188,9 @@ function frozen_stand_end(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	caster:GetAbilityByIndex(1):SetActivated(true)
-	caster:GetAbilityByIndex(2):SetActivated(true)
-	caster:GetAbilityByIndex(3):SetActivated(true)
+	caster:GetAbilityByIndex(DOTA_W_SLOT):SetActivated(true)
+	caster:GetAbilityByIndex(DOTA_E_SLOT):SetActivated(true)
+	caster:GetAbilityByIndex(DOTA_D_SLOT):SetActivated(true)
 	local stun_duration =  ability.r2_level * constants.ARCANA2_R2_STUN_DURATION
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, constants.ARCANA2_R2_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then

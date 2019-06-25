@@ -228,7 +228,7 @@ function GameMode:OnPlayerReconnect(msg)
 end
 
 function GameMode:PlayerConnect(msg)
-  print(msg)
+ --print(msg)
   if DIFFICULTY_FACTOR then
     CustomGameEventManager:Send_ServerToAllClients("update_selected_difficulty", {difficulty = DIFFICULTY_FACTOR} )
   end
@@ -243,18 +243,19 @@ end
   This function is called once and only once after all players have loaded into the game, right as the hero selection time begins.
   It can be used to initialize non-hero player state or adjust the hero selection (i.e. force random etc)
 ]]
+    
 function GameMode:OnAllPlayersLoaded()
   DebugPrint("[BAREBONES] All Players have loaded into the game")
   CustomNetTables:SetTableValue("player_stats", "diff", {difficulty = DIFFICULTY_FACTOR} )
   Events.MapName = GetMapName()
-
+  
   Events.DifficultyFactor = GameState:SetDifficultyFactor()
   Events.WaveNumber = 0
   Dungeons.itemLevel = 0
   Events.HEROKV = LoadKeyValues("scripts/npc/npc_heroes_custom.txt")
   Events:InitGameEntities()
   VectorTarget:Init()
-  print("ALL PLAYERS LOADED")
+ --print("ALL PLAYERS LOADED")
   CustomGameEventManager:Send_ServerToAllClients("update_selected_difficulty", {difficulty = DIFFICULTY_FACTOR} )
   CustomNetTables:SetTableValue("hero_index", "taken_heroes", {} )
 
@@ -319,7 +320,7 @@ function GameMode:OnHeroInGame(hero)
   --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
     --with the "example_ability" ability
 
-  local abil = hero:GetAbilityByIndex(1)
+  local abil = hero:GetAbilityByIndex(DOTA_W_SLOT)
   hero:RemoveAbility(abil:GetAbilityName())
   hero:AddAbility("example_ability")]]
 end
@@ -382,7 +383,7 @@ end
 
 -- This is an example console command
 function GameMode:ExampleConsoleCommand()
-  print( '******* Example Console Command ***************' )
+ --print( '******* Example Console Command ***************' )
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then
     local playerID = cmdPlayer:GetPlayerID()
@@ -392,5 +393,5 @@ function GameMode:ExampleConsoleCommand()
     end
   end
 
-  print( '*********************************************' )
+ --print( '*********************************************' )
 end

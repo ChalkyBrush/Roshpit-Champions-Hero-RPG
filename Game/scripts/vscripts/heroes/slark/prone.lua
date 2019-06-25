@@ -55,7 +55,7 @@ function prone_start(event)
 				ability.magnitude = 2
 			end
 			ability.height = height
-			print(height)
+			--print(height)
 		end)
 	else
 		if not caster:HasModifier("modifier_slipfinn_prone") then
@@ -92,7 +92,7 @@ function prone_start(event)
 			if caster:HasAbility("slipfinn_shadow_rush") then
 				CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_shadow_rush", "slipfinn_shadow_warp", 2)
 			end
-			print("APPLY PRONE")
+			--print("APPLY PRONE")
 			local q_2_level = caster:GetRuneValue("q", 2)
 			if q_2_level > 0 then
 				caster:RemoveModifierByName("modifier_shimmer_cape")
@@ -154,7 +154,7 @@ function stomp(caster, ability, damage)
 		for _,enemy in pairs(enemies) do
 			local distancePercentage = 1 - (WallPhysics:GetDistance2d(enemy:GetAbsOrigin(), position)/radius)
 			local damage2 = (damage + heightBonus)*(1 + damageBonus*distancePercentage)
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage2, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_WATER, RPC_ELEMENT_NORMAL)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage2, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_WATER, RPC_ELEMENT_NORMAL)
 			Filters:ApplyStun(caster, stun_duration, enemy)	
 		end
 	end 

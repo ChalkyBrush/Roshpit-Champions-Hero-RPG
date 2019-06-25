@@ -2,7 +2,7 @@
 	"conjuror_rune_w_1_arcana2"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -28,7 +28,7 @@
 	"conjuror_rune_w_2_arcana2"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -54,7 +54,7 @@
 	"conjuror_rune_w_3_arcana2"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -90,7 +90,7 @@
 	"conjuror_rune_w_4_arcana2"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"

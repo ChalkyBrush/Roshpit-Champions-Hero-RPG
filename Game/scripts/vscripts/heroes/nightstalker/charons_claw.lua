@@ -49,12 +49,12 @@ function charons_claw_cast(event)
 			local thinkerPos = GetGroundPosition(casterOrigin + fv*100*(i-1) + fv*80, caster)
 			local obstruction = WallPhysics:FindNearestObstruction(thinkerPos)
 			local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, thinkerPos, caster)
-			print(thinkerPos)
+			--print(thinkerPos)
 			if obstruction then
-				print(obstruction:GetAbsOrigin())
+				--print(obstruction:GetAbsOrigin())
 			end
-			print(blockUnit)
-			print("-------")
+			--print(blockUnit)
+			--print("-----")
 			if not blockUnit then
 				--ability:ApplyDataDrivenThinker(caster, thinkerPos, "modifier_charons_claw_path", {duration = pathDuration})
 				CustomAbilities:QuickAttachThinker(ability, caster, thinkerPos, "modifier_charons_claw_path", {duration = pathDuration})
@@ -74,7 +74,7 @@ function claw_projectile_hit(event)
 	local ability = event.ability
 	local damage = ability.damage
 	if caster:HasModifier("modifier_chernobog_glyph_3_1") then
-		local procession = caster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
+		local procession = caster:GetAbilityByIndex(DOTA_R_SLOT)
 		local cdRemaining = procession:GetCooldownTimeRemaining()
 		if cdRemaining > 0 then
 			local newCD = math.max(0, cdRemaining - 0.5)
@@ -84,7 +84,7 @@ function claw_projectile_hit(event)
 	end
 	EmitSoundOn("Chernobog.CharonsClawImpact", target)
 	-- ability:ApplyDataDrivenModifier(caster, target, "modifier_charons_claw_enemy", {duration = 8})
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_DEMON, RPC_ELEMENT_SHADOW)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_DEMON, RPC_ELEMENT_SHADOW)
 end
 
 function charon_impacted_think(event)
@@ -116,7 +116,7 @@ function claw_path_apply(event)
 	end
 	if caster:GetTeamNumber() == target:GetTeamNumber() then
 	else
-		print("CHARONS??")
+		--print("CHARONS??")
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_charons_claw_enemy", {})
 		if ability.rune_q_1_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_charons_claw_rune_q_1_effect", {})

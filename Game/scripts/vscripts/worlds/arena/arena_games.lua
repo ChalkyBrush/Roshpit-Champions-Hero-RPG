@@ -6,7 +6,7 @@ function Arena:WaterGameStart(hero)
 	Arena.WaterMagician.gameStart = true
 	Arena.WaterMagician.validHero = hero:GetEntityIndex()
 	Arena.WaterMagician.gameAbility = Arena.WaterMagician:FindAbilityByName("arena_water_magician_ability")
-	print('WaterGameStart')
+	--print('WaterGameStart')
 	Timers:CreateTimer(0.2, function()
 		EmitSoundOn("Arena.MagicianLaugh", Arena.WaterMagician)
 	end)

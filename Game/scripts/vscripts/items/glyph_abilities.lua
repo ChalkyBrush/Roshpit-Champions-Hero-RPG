@@ -26,11 +26,11 @@ end
 
 function neutral_glyph_4_3_think(event)	
 	local ent = Entities:FindAllByClassnameWithin("dota_item_drop", event.target:GetAbsOrigin(), 400)
-	-- print("Entities found: "..#ent)
+	--print("Entities found: "..#ent)
 	for i,v in pairs(ent) do
 		abilityName = v:GetContainedItem():GetAbilityName()
 		if abilityName == "item_potion_green" or abilityName == "item_potion_blue" or abilityName == "item_potion_red" then
-			-- print("potionName "..abilityName)
+			--print("potionName "..abilityName)
 			local item = v:GetContainedItem()
 			local statTable = {}
 			statTable["heal"] = 0
@@ -234,7 +234,7 @@ function astral_glyph_6_1_attack_land(event)
 	local extraPure = OverflowProtectedGetAverageTrueAttackDamage(attacker)*0.1
 	ApplyDamage({ victim = target, attacker = attacker, damage = extraPure, damage_type = DAMAGE_TYPE_PURE})
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_drow/drow_dust_hit.vpcf", target, 0.3)
-	print("EXTRAPURE"..extraPure)
+	--print("EXTRAPURE"..extraPure)
 end
 
 function seinaru_glyph_6_1_activate(event)
@@ -244,15 +244,15 @@ function seinaru_glyph_6_1_activate(event)
 		local originalCastpoint = hikari:GetCastPoint()
 		hikari.originalCastpoint = originalCastpoint
 	end
-	print(hikari)
-	print("OVERRIDE DAT CAST POINT")
+	--print(hikari)
+	--print("OVERRIDE DAT CAST POINT")
 	hikari:SetOverrideCastPoint(0)
 end
 
 function seinaru_glyph_6_1_deactivate(event)
 	local target = event.target
 	local hikari = target:FindAbilityByName("seinaru_hands_of_hikari")
-	print("DEACTIVATE")
+	--print("DEACTIVATE")
 	hikari:SetOverrideCastPoint(hikari.originalCastpoint)
 end
 
@@ -390,14 +390,14 @@ function use_glyph_book(event)
 	--print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		local resultTable = {}
-		print( "GET response:\n" )
+		--print( "GET response:\n" )
 		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 		-- resultTable = Quests:GetQuestDataFromJSON(resultTable)
-		print(resultTable)
+		--print(resultTable)
 		if resultTable == 1 then
 			EmitSoundOn("RPC.Glyph.LearnRecipe", caster)
 			CustomAbilities:QuickAttachParticle("particles/roshpit/learn_glyph_recipe.vpcf", caster, 5)

@@ -8,13 +8,13 @@ function Challenges:InitializeChallenges()
 
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		local resultTable = {}
-		print( "GET response:\n" )
+		--print( "GET response:\n" )
 		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
-		print(resultTable)
+		--print(resultTable)
 		Challenges:CommitChallengeToGame(resultTable)
 	end )	
 
@@ -28,11 +28,11 @@ function Challenges:ChiselItem(msg)
 	local itemIndex = msg.itemIndex
 	local item = nil
 	local itemSlot = msg.slot
-	-- print("Challenges:ChiselItem:"..tostring(itemSlot))
-	-- print("Challenges:ChiselItem:stats")
+	----print("Challenges:ChiselItem:"..tostring(itemSlot))
+	----print("Challenges:ChiselItem:stats")
 	-- DeepPrintTable(msg)
 	if not itemSlot then
-		print("[Error] Challenges:ChiselItem no itemSlot")
+		--print("[Error] Challenges:ChiselItem no itemSlot")
 		return false
 	end
 	if not SaveLoad:GetAllowSaving() then
@@ -66,11 +66,11 @@ function Challenges:ChiselItem(msg)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		--SaveLoad:NewKey()
 		local resultTable = {}
-		print( "GET response:\n" )
+		--print( "GET response:\n" )
 		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		if result.StatusCode == 200 then
 			local resultTable = JSON:decode(result.Body)
 			local shards = resultTable.mithril_shards
@@ -86,15 +86,15 @@ function Challenges:ChiselItem(msg)
 end
 
 function Challenges:FinalReroll(msg)
-	print("[Challenges:FinalReroll] msg")
-	DeepPrintTable(msg)
+	--print("[Challenges:FinalReroll] msg")
+	--DeepPrintTable(msg)
 	local playerID = msg.playerID
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	local player = hero:GetPlayerOwner()
 	local itemIndex = msg.itemIndex
 	local itemProperties = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
 	if not itemProperties then
-		print("[Challenges:FinalReroll] item custom net table is null")
+		--print("[Challenges:FinalReroll] item custom net table is null")
 		return
 	end
 	local item = EntIndexToHScript(itemIndex)
@@ -115,8 +115,8 @@ function Challenges:FinalReroll(msg)
 	if shards < cost then
 		return false
 	end
-	print("[Challenges:FinalReroll] shards:"..tostring(shards))
-	print("[Challenges:FinalReroll] cost:"..tostring(cost))
+	--print("[Challenges:FinalReroll] shards:"..tostring(shards))
+	--print("[Challenges:FinalReroll] cost:"..tostring(cost))
 	if Challenges:CheckIfHeroHasItemByItemIndex(hero, item:GetEntityIndex()) then
 		if IsValidEntity(item:GetContainer()) then
 			CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
@@ -160,15 +160,15 @@ function Challenges:FinalReroll(msg)
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 			--SaveLoad:NewKey()
 			local resultTable = {}
-			print( "GET response:\n" )
+			--print( "GET response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 			if result.StatusCode == 200 then
 				local resultTable = JSON:decode(result.Body)
 				local shardsFromJson = resultTable.mithril_shards
-				print("[Challenges:FinalReroll] shardsFromJson:"..tostring(shardsFromJson))
+				--print("[Challenges:FinalReroll] shardsFromJson:"..tostring(shardsFromJson))
 				CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-mithril", {mithril = shardsFromJson})
 				CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shardsFromJson, player=playerID} )
 
@@ -209,11 +209,11 @@ function Challenges:ModifyMithril(amount, hero, reason)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		--SaveLoad:NewKey()
 		local resultTable = {}
-		print( "GET response:\n" )
+		--print( "GET response:\n" )
 		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 		local shards = resultTable.mithril_shards
 		Statistics.dispatch("mithril:change", {playerID = playerID});
@@ -253,11 +253,11 @@ function Challenges:CollectMithrilIncome(msg)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		--SaveLoad:NewKey()
 		local resultTable = {}
-		print( "GET response:\n" )
+		--print( "GET response:\n" )
 		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 		local shards = resultTable.mithril_shards
 		CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-mithril", {mithril = shards})
@@ -329,8 +329,8 @@ function Challenges:DragIntoRerollSlot(msg)
 		-- 		UTIL_Remove(item:GetContainer())
 		-- 	end
 		-- end)
-		print("LOAD ITEM INTO REROLL SLOT")
-		DeepPrintTable(msg)
+		--print("LOAD ITEM INTO REROLL SLOT")
+		--DeepPrintTable(msg)
 		CustomGameEventManager:Send_ServerToPlayer(player, "load_item_for_reroll", {itemIndex = itemIndex, player=playerID, ignoreLock=ignoreLock, lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4} )
 	end
 end
@@ -369,7 +369,7 @@ function Challenges:CommitChallengeToGame(resultTable)
 	-- Challenges.challenge.disallowed_hero = resultTable.disallowed_hero
 	-- Challenges.challenge.no_deaths = resultTable.no_deaths
 	-- Challenges.challenge.reward = resultTable.reward
-	DeepPrintTable(Challenges.challenge)
+	--DeepPrintTable(Challenges.challenge)
 end
 
 function Challenges:InitializeChallengeVariables()
@@ -406,7 +406,7 @@ end
 function Challenges:BossDie(bossName, bossPosition)
 	Challenges.timerEnd = GameRules:GetGameTime()
 	if Challenges.challenge.enemy_objective_name then
-		print("DEBUG: ENEMY OBJECTIVE TRUE")
+		--print("DEBUG: ENEMY OBJECTIVE TRUE")
 		if Challenges.challenge.enemy_objective_name == bossName then
 			if bossName == "phoenix_boss" and Challenges.challenge.quantity then
 				if (Dungeons.phoenixWave - 10) >= Challenges.challenge.quantity then
@@ -514,7 +514,7 @@ function Challenges:ParagonKilled(affixTable, deathPosition)
 		end
 		for i = 1, #newTable, 1 do
 			if newTable[i] == Challenges.challenge.paragon_affix then
-				print("PARAGON WITH AFFIX INCREASE")
+				--print("PARAGON WITH AFFIX INCREASE")
 				Challenges.paragonsWithKeyAffixKilled = Challenges.paragonsWithKeyAffixKilled + 1
 			end
 		end
@@ -603,11 +603,11 @@ function Challenges:SaveMithrilShards(winnerTable)
 				CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 					--SaveLoad:NewKey()
 					local resultTable = {}
-					print( "GET response:\n" )
+					--print( "GET response:\n" )
 					for k,v in pairs( result ) do
-						print( string.format( "%s : %s\n", k, v ) )
+						--print( string.format( "%s : %s\n", k, v ) )
 					end
-					print( "Done." )
+					--print( "Done." )
 					if result.StatusCode == 200 then
 						local resultTable = JSON:decode(result.Body)
 						

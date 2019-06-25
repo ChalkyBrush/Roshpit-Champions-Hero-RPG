@@ -285,7 +285,7 @@ function corpse_projectile_hit(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 220, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, ability.corpseDamage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, ability.corpseDamage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 		end
 	end 
 	

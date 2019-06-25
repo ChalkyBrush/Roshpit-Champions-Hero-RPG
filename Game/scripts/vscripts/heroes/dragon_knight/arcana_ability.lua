@@ -103,7 +103,7 @@ function cast_dragon_fire_burst(caster, ability, target_point, damage, q_2_level
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_flamewaker_arcana_b_a_effect_stacking_invisible", {duration = FLAMEWAKER_ARCANA_Q2_DURATION})
 				enemy:SetModifierStackCount("modifier_flamewaker_arcana_b_a_effect_stacking_invisible", caster, newStacks*q_2_level)
 			end
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			Filters:ApplyStun(caster, stunDuration, enemy)
 		end
 	end
@@ -142,7 +142,7 @@ function d_a_stun(event)
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*FLAMEWAKER_ARCANA_Q4_DMG_PER_ATT*ability.q_4_level
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Flamewaker.ArcanaDAStun", target)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/techies/techies_arcana/techies_suicide_flame.vpcf", target, 3)
-		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flamewaker_arcana_d_a_immune", {duration = 0.4})
 	end
 	-- Filters:ApplyStun(caster, stunDuration, target)	

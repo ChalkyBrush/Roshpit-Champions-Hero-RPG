@@ -8,7 +8,7 @@ require('items/constants/trinket')
 
 function astral_glyph_4_1_apply(event)
 	local target = event.target
-	local ability = target:GetAbilityByIndex(2)
+	local ability = target:GetAbilityByIndex(DOTA_E_SLOT)
 	if not ability then return end
 	if not target.saveECastPoint then
 		target.saveECastPoint = ability:GetCastPoint()
@@ -18,7 +18,7 @@ end
 
 function astral_glyph_4_1_remove(event)
 	local target = event.target
-	local ability = target:GetAbilityByIndex(2)
+	local ability = target:GetAbilityByIndex(DOTA_E_SLOT)
 	if not ability or not target.saveECastPoint then return end
 	ability:SetOverrideCastPoint(target.saveECastPoint)
 end
@@ -165,7 +165,7 @@ function HighFlameThrow(caster, ability, victim)
 	local zDifferential = target.z - victim:GetAbsOrigin().z
 	local baseFV = (target * Vector(1, 1, 0) - victim:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
 	local forwardVelocity = WallPhysics:GetDistance2d(target, victim:GetAbsOrigin()) / 32 + 1
-	print(caster:GetAttachmentOrigin(2))
+	--print(caster:GetAttachmentOrigin(2))
 	local startPosition = victim:GetAbsOrigin()
 	local fvModifier = ((caster:GetAbsOrigin() - startPosition) * Vector(1, 1, 0)):Normalized()
 	local fvModifierDivisor = 2.8 / forwardVelocity
@@ -275,7 +275,7 @@ function marauder_attack_land(event)
 end
 
 function flood_water_elemental_attack(event)
-	print("flood attack")
+	--print("flood attack")
 	local ability = event.ability
 	local target = event.target
 	local attacker = event.attacker
@@ -325,10 +325,10 @@ end
 function flood_water_elemental_think(event)
 	local ability = event.ability
 	local caster = event.caster
-	print("ELEMENTAL THINK?")
-	print(caster:HasAbility("water_flood_nuke"))
+	--print("ELEMENTAL THINK?")
+	--print(caster:HasAbility("water_flood_nuke"))
 	if caster:HasAbility("water_flood_nuke") then
-		print("AER WE HERE??")
+		--print("AER WE HERE??")
 		local nukeAbility = caster:FindAbilityByName("water_flood_nuke")
 		if nukeAbility:IsFullyCastable() then
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -364,7 +364,7 @@ function flood_elemental_wave_hit(event)
 		if caster:GetUnitName() == "water_elemental_flood_2" then
 			ApplyDamage({victim = target, attacker = summoner, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
 		elseif caster:GetUnitName() == "water_elemental_flood_3" then
-			Filters:TakeArgumentsAndApplyDamage(target, summoner, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_WATER, RPC_ELEMENT_ICE)
+			Filters:TakeArgumentsAndApplyDamage(target, summoner, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_WATER, RPC_ELEMENT_ICE)
 		end
 	end
 end
@@ -463,7 +463,7 @@ function centaur_horn_think(event)
 	if not caster:IsAlive() then
 		if caster:GetTimeUntilRespawn() == 0 then
 			if not caster:GetUnitName() == "npc_dota_hero_night_stalker" then
-				print("KILL!")
+				--print("KILL!")
 				caster:SetHealth(10)
 				caster:ForceKill(true)
 			end
@@ -657,13 +657,13 @@ function ice_quill_think(event)
 	if not target.ice_quill_mana_prev then
 		target.ice_quill_mana_prev = target:GetMana()
 		target.ice_quill_mana_loss = 0
-		print("HERE?")
+		--print("HERE?")
 	end
 	local mana_lost = target.ice_quill_mana_prev - target:GetMana()
-	print(mana_lost)
+	--print(mana_lost)
 	if mana_lost > 0 then
 		target.ice_quill_mana_loss = target.ice_quill_mana_loss + mana_lost
-		print(target.ice_quill_mana_loss)
+		--print(target.ice_quill_mana_loss)
 		if target.ice_quill_mana_loss > threshold then
 			local addedStacks = math.floor(target.ice_quill_mana_loss / threshold)
 			target.ice_quill_mana_loss = target.ice_quill_mana_loss % threshold
@@ -674,7 +674,7 @@ function ice_quill_think(event)
 	end
 
 	target.ice_quill_mana_prev = target:GetMana()
-	print("--------")
+	--print("--------")
 end
 
 function ice_quill_spell_cast(event)
@@ -781,8 +781,8 @@ function ceremony_beast_projectile_strike(event)
 	elseif primeAttribute == 2 then
 		damage = hero:GetIntellect() * 12
 	end
-	print(target)
-	print(hero)
+	--print(target)
+	--print(hero)
 	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
@@ -1217,7 +1217,7 @@ end
 function falcon_boot_impact(event)
 	local target = event.target
 	local ability = event.ability
-	-- print(event.target_entities[1]:GetUnitName())
+	----print(event.target_entities[1]:GetUnitName())
 	-- DeepPrintTable(event)
 	if target:HasModifier("modifier_falcon_out") or target:HasModifier("modifier_falcon_lift_immune") then
 		return false
@@ -1260,9 +1260,9 @@ function rooted_foot_created(event)
 	local caster = event.caster
 	local ability = event.ability
 	Timers:CreateTimer(0.4, function()
-		print("AFTER TIMER?")
+		--print("AFTER TIMER?")
 		if target:HasModifier("modifier_rooted_feet_applicator") then
-			print("attach particle")
+			--print("attach particle")
 			if not ability.pfx then
 				ability.pfx = ParticleManager:CreateParticle("particles/roshpit/items/rooted_feet.vpcf", PATTACH_ABSORIGIN, target)
 				ParticleManager:SetParticleControlEnt(ability.pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", target:GetAbsOrigin(), true)
@@ -1545,7 +1545,7 @@ function super_ascension_end(event)
 	local target = event.target
 	target:RemoveModifierByName("modifier_super_ascendency_lua")
 	if not target:HasModifier("modifier_tomahawk_buffs") and not target:HasModifier("modifier_chernobog_demonform_lua") and not target:HasModifier("modifier_arkimus_archon_form") and not target:HasModifier("modifier_demon_flight_flying") then
-		print("SET TO MELEE")
+		--print("SET TO MELEE")
 		target:SetAttackCapability(target.baseAttackCapability)
 	end
 	-- target:SetRangedProjectileName(target.originalProjectile)
@@ -1555,7 +1555,7 @@ function super_ascension_attack(event)
 	local caster = event.caster
 	local target = event.attacker
 
-	local ulti = target:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
+	local ulti = target:GetAbilityByIndex(DOTA_R_SLOT)
 	local currentCD = ulti:GetCooldownTimeRemaining()
 	ulti:EndCooldown()
 	ulti:StartCooldown(currentCD - 0.05)
@@ -1641,7 +1641,7 @@ function lifesteal_land(event)
 	Timers:CreateTimer(1, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
-	print("lifesteal land")
+	--print("lifesteal land")
 end
 
 function nightmare_rider_initialize(event)
@@ -1776,7 +1776,7 @@ function stormshield_cloak_shield_think(event)
 end
 
 function stormshield_cloak_shield_end(event)
-	print("SHIELD END")
+	--print("SHIELD END")
 	local target = event.target
 	for i = 1, #target.shieldTable, 1 do
 		UTIL_Remove(target.shieldTable[i])
@@ -1890,7 +1890,7 @@ end
 
 function wolfir_druid_init(event)
 	event.ability.initial = true
-	print("WOLF WHAT")
+	--print("WOLF WHAT")
 end
 
 function wolfir_druid_channel(event)
@@ -2358,7 +2358,7 @@ function pathfinder_think(event)
 			animation = true
 		end
 		if animation then
-			print("PARTICLE???")
+			--print("PARTICLE???")
 			local particleName = "particles/frostivus_gameplay/wraith_king_heal.vpcf"
 			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
 			ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -2469,7 +2469,7 @@ function neptune_gliding_think_new(event)
 	end
 	ability.interval = ability.interval + 1
 	if ability.interval == 8 then
-		print("SHOW PARTICLE!")
+		--print("SHOW PARTICLE!")
 		local particleName = "particles/roshpit/hydroxis/slipstream_puddle.vpcf"
 		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
 		ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin())
@@ -2515,7 +2515,7 @@ function neptune_gliding_think_new(event)
 				ability.blockCheck = 0
 			end
 			ability.blockCheck = ability.blockCheck + 1
-			print(ability.blockCheck)
+			--print(ability.blockCheck)
 			if ability.blockCheck >= 3 then
 				target:RemoveModifierByName("modifier_neptune_gliding_new")
 				ability.blockCheck = 0
@@ -2590,7 +2590,7 @@ function ruby_attack(event)
 	local target = event.target
 	local ability = event.ability
 	-- damage = GameState:GetPostReductionPhysicalDamage(damage, target:GetPhysicalArmorValue(false))
-	print("RUBY DAMAGE:"..damage)
+	--print("RUBY DAMAGE:"..damage)
 	EmitSoundOn("Hero_Lina.ProjectileImpact", target)
 	local radius = 360
 	local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
@@ -2734,7 +2734,7 @@ end
 
 function windsteel_take_damage(event)
 	local target = event.unit
-	print("WINDSTEEL HIT")
+	--print("WINDSTEEL HIT")
 	local stackCount = target:GetModifierStackCount("modifier_windsteel_effect", target.body)
 	if stackCount > 1 then
 		target:SetModifierStackCount("modifier_windsteel_effect", target.body, stackCount - 1)
@@ -2765,7 +2765,7 @@ function phoenix_die(event)
 			end
 		end
 		if bRez then
-			print("BREZ!!")
+			--print("BREZ!!")
 			caster.revive = true
 			local rezPosition = caster:GetAbsOrigin()
 			ability.rezPosition = rezPosition
@@ -2782,7 +2782,7 @@ function phoenix_die(event)
 				caster:SetAbsOrigin(rezPosition)
 				local playerID = caster:GetPlayerID()
 				if playerID then
-					print("WE HERE?? BREZ!!")
+					--print("WE HERE?? BREZ!!")
 					PlayerResource:SetCameraTarget(playerID, caster)
 				end
 				Timers:CreateTimer(2, function()
@@ -2963,10 +2963,10 @@ function old_wisdom_spell_cast(event)
 	local caster = event.caster
 	local target = event.unit
 	local executedAbility = event.event_ability
-	print(executedAbility:GetAbilityName())
-	print(ability.lastUsedAbilityName)
+	--print(executedAbility:GetAbilityName())
+	--print(ability.lastUsedAbilityName)
 	if executedAbility:GetAbilityName() == ability.lastUsedAbilityName then
-		print("REMOVE??")
+		--print("REMOVE??")
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_boots_of_old_wisdom_cooldown", {duration = 12})
 		target:RemoveModifierByName("modifier_boots_of_old_wisdom_active")
 	end
@@ -3355,7 +3355,7 @@ function lava_forge_fireball_hit(event)
 	local caster = ability.caster
 	local target = event.target
 
-	print("IMPACT?")
+	--print("IMPACT?")
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * LAVA_FORGE_DMG_PER_ATT + caster:GetAgility() * LAVA_FORGE_DMG_PER_AGI
 
 	local radius = LAVA_FORGE_RADIUS
@@ -3879,8 +3879,7 @@ function shipyard_shield_lvl3_take_damage(event)
 		bProvidesVision = true,
 		iVisionRadius = 0,
 		iMoveSpeed = 500,
-		iVisionTeamNumber = unit:GetTeamNumber()
-	}
+	iVisionTeamNumber = unit:GetTeamNumber()}
 	projectile = ProjectileManager:CreateTrackingProjectile(info)
 end
 
@@ -3988,12 +3987,12 @@ end
 function doom_summon_think(event)
 	local caster = event.caster
 	local doomAbility = caster:FindAbilityByName("doomplate_castable_doom")
-	print("IS DOOM THINKING?")
+	--print("IS DOOM THINKING?")
 	-- if not caster.caster:HasModifier("modifier_doomplate_doom_debuff") then
 
 	-- end
 	if doomAbility:IsFullyCastable() then
-		print("IS FULLY CASTABLE?")
+		--print("IS FULLY CASTABLE?")
 		local newOrder = {
 			UnitIndex = caster:entindex(),
 			OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
@@ -4109,8 +4108,6 @@ function doom_blink(event)
 	local particleName = "particles/econ/events/ti6/blink_dagger_start_ti6_lvl2.vpcf"
 	local pfx1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx1, 0, caster:GetAbsOrigin())
-	--local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_loadout.vpcf", PATTACH_ABSORIGIN, event.caster )
-	--ParticleManager:SetParticleControl( pfx, 0, position )
 	local newPosition = point
 	FindClearSpaceForUnit(caster, newPosition, false)
 	local pfx2 = ParticleManager:CreateParticle("particles/econ/events/ti6/blink_dagger_end_ti6.vpcf", PATTACH_CUSTOMORIGIN, caster)
@@ -4440,7 +4437,7 @@ function seraphic_soul_hit(event)
 	local hero = ability.hero
 
 	local target = event.target
-	local abilityLevel = hero:GetAbilityByIndex(1):GetLevel()
+	local abilityLevel = hero:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
 	if target:IsAlive() then
 		EmitSoundOn("RPCItem.SoulVestImpact", target)
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * 0.5 * abilityLevel
@@ -4524,7 +4521,7 @@ function temporal_warp_boots_think(event)
 		ability.dataTable = {}
 	end
 	ability.interval = ability.interval + 1
-	local timeData = {target:GetMana(), target:GetHealth(), target:GetAbsOrigin(), target:GetAbilityByIndex(0):GetCooldownTimeRemaining(), target:GetAbilityByIndex(1):GetCooldownTimeRemaining(), target:GetAbilityByIndex(DOTA_ULTIMATE_SLOT):GetCooldownTimeRemaining()}
+	local timeData = {target:GetMana(), target:GetHealth(), target:GetAbsOrigin(), target:GetAbilityByIndex(DOTA_Q_SLOT):GetCooldownTimeRemaining(), target:GetAbilityByIndex(DOTA_W_SLOT):GetCooldownTimeRemaining(), target:GetAbilityByIndex(DOTA_R_SLOT):GetCooldownTimeRemaining()}
 	if #ability.dataTable <= 40 then
 		table.insert(ability.dataTable, timeData)
 	else
@@ -4533,9 +4530,9 @@ function temporal_warp_boots_think(event)
 	-- ability.mana = target:GetMana()
 	-- ability.health = target:GetHealth()
 	-- ability.position = target:GetAbsOrigin()
-	-- ability.cooldownA = target:GetAbilityByIndex(0):GetCooldownTimeRemaining()
-	-- ability.cooldownB = target:GetAbilityByIndex(1):GetCooldownTimeRemaining()
-	-- ability.cooldownD = target:GetAbilityByIndex(3):GetCooldownTimeRemaining()
+	-- ability.cooldownA = target:GetAbilityByIndex(DOTA_Q_SLOT):GetCooldownTimeRemaining()
+	-- ability.cooldownB = target:GetAbilityByIndex(DOTA_W_SLOT):GetCooldownTimeRemaining()
+	-- ability.cooldownD = target:GetAbilityByIndex(DOTA_D_SLOT):GetCooldownTimeRemaining()
 	if ability.interval == 40 then
 		ability.interval = 0
 	end
@@ -4592,11 +4589,11 @@ function blue_rain_attack_land(event)
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * BLUE_RAIN_DMG_PER_ATT
 		local endFV = ((target:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 		local range = 1000
-		print(caster:GetAbsOrigin())
-		print(caster:GetAbsOrigin() + endFV * range)
+		--print(caster:GetAbsOrigin())
+		--print(caster:GetAbsOrigin()+endFV*range)
 		local enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin() + endFV * range, caster, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
 		if #enemies > 0 then
-			print("ENEMIES??")
+			--print("ENEMIES??")
 			for _, enemy in pairs(enemies) do
 				if not enemy.dummy then
 					Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_ICE)
@@ -4702,7 +4699,7 @@ function flamethrower_impact(event)
 	local target = event.target
 	local ability = event.ability
 	Filters:ApplyItemDamage(target, ability.origCaster, ability.damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-	local ulti = ability.origCaster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
+	local ulti = ability.origCaster:GetAbilityByIndex(DOTA_R_SLOT)
 	local currentCD = ulti:GetCooldownTimeRemaining()
 	ulti:EndCooldown()
 	ulti:StartCooldown(currentCD - 0.5)
@@ -5014,7 +5011,7 @@ function arcane_charm_end(event)
 end
 
 function skull_ring_init(event)
-	print("[skull_ring_init]")
+	--print("[skull_ring_init]")
 	local heroEntity = event.target
 	local item = event.ability
 	local caster = event.caster
@@ -5022,7 +5019,7 @@ function skull_ring_init(event)
 	local tooltipGlyph = propertyTable.property1tooltip
 	local glyphName = string.gsub(tooltipGlyph, "#DOTA_Tooltip_ability_item_rpc_", "")
 	local glyphNameWithItem = string.gsub(tooltipGlyph, "#DOTA_Tooltip_ability_", "")
-	print("skull_ring_init:"..glyphNameWithItem)
+	--print("skull_ring_init:"..glyphNameWithItem)
 	caster.skullGlyph = Glyphs:RollGlyphAll(glyphNameWithItem, Vector(0, 0), 0)
 	UTIL_Remove(caster.skullGlyph:GetContainer())
 	local modifierName = "modifier_"..glyphName
@@ -5206,16 +5203,14 @@ function frozen_heart_think(event)
 	local ability = event.ability
 	local hero = event.target
 	-- local maxHealth = math.floor(hero:GetMaxHealth() + hero:GetModifierStackCount("modifier_frozen_heart_negative_health", caster))
-	-- print("MAXHEALTH----")
-	-- print(maxHealth)
-	-- print("-----")
+	----print("MAXHEALTH----")
+	----print(maxHealth)
+	----print("-----")
 	-- if hero:GetMaxHealth() > 101 or hero:GetMaxHealth() < 99 then
 	-- local stacksToBeApplied = hero:GetMaxHealth() - 99
 	-- if not hero:HasModifier("modifier_frozen_heart_negative_health") then
 	-- ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_negative_health", {})
 	-- end
-	-- print("stacks to be")
-	-- print(stacksToBeApplied)
 	-- if hero:GetMaxHealth() - stacksToBeApplied > 10 then
 	-- Timers:CreateTimer(0.03, function()
 	-- hero:SetModifierStackCount("modifier_frozen_heart_negative_health", caster, stacksToBeApplied)
@@ -5290,7 +5285,7 @@ function frozen_heart_take_damage(event)
 	local ability = event.ability
 	local caster = event.caster
 	ability.interval = 0
-	print("take damage")
+	--print("take damage")
 	ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_regen_prep", {duration = 2.5})
 	local modifier = unit:FindModifierByName("modifier_frozen_heart_regen_prep")
 	if modifier then
@@ -5305,19 +5300,19 @@ end
 function energy_whip_glove_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
-	local ability = attacker:GetAbilityByIndex(1)
+	local ability = attacker:GetAbilityByIndex(DOTA_W_SLOT)
 	if attacker.Attacking_a_Cup then
 		return
 	end
 	if ability:GetCooldownTimeRemaining() <= 0 then
-		print("B2")
+		--print("B2")
 		local manaRestore = ability:GetManaCost(ability:GetLevel())
 		attacker:GiveMana(manaRestore)
 		local castPointSave = ability:GetCastPoint()
 		ability.castPointSave = attacker.castPointW
 		ability:SetOverrideCastPoint(0)
 		local behavior = ability:GetBehavior()
-		print(bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET))
+		--print(bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET))
 		if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
 			local order =
 			{
@@ -5328,7 +5323,7 @@ function energy_whip_glove_attack_land(event)
 			}
 			attacker:Stop()
 			ExecuteOrderFromTable(order)
-			print("IN HERE")
+			--print("IN HERE")
 		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
 			local order = {
 				UnitIndex = attacker:entindex(),
@@ -5338,7 +5333,7 @@ function energy_whip_glove_attack_land(event)
 				Queue = true
 			}
 			attacker:Stop()
-			print("HERE?")
+			--print("HERE?")
 			ExecuteOrderFromTable(order)
 		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT then
 			local order =
@@ -5362,7 +5357,7 @@ function boreal_granite_vest_take_damage(event)
 	if hero:GetEntityIndex() == target:GetEntityIndex() then
 		return false
 	end
-	local ability = hero:GetAbilityByIndex(0)
+	local ability = hero:GetAbilityByIndex(DOTA_Q_SLOT)
 	local proc = Filters:GetProc(hero, 10)
 	local cd = ability:GetCooldownTimeRemaining()
 	local distance = WallPhysics:GetDistance(hero:GetAbsOrigin(), target:GetAbsOrigin())

@@ -17,7 +17,7 @@ function CollectRetreatMarkers()
 end
 POSITIONS_retreat = CollectRetreatMarkers()
 
---------------------------------------------------------------------------------------------------------
+----------------------------------------------------
 
 
 BehaviorNone = {}
@@ -34,7 +34,7 @@ function BehaviorNone:Begin()
 	local enemy =  AICore:RandomEnemyHeroInRange( thisEntity, 10000 )
 	
 	if enemy and not thisEntity.dead then
-		print("order_attack_move")
+		--print("order_attack_move")
 		self.order =
 		{
 			UnitIndex = thisEntity:entindex(),
@@ -53,16 +53,16 @@ function BehaviorNone:Continue()
 	self.endTime = GameRules:GetGameTime() + 0.4
 end
 
---------------------------------------------------------------------------------------------------------
+----------------------------------------------------
 
 
---------------------------------------------------------------------------------------------------------
+----------------------------------------------------
 
 BasicSkill = {}
 
 function BasicSkill:Evaluate()
 	local desire = 0
-	print("evaluate basic skill")
+	--print("evaluate basic skill")
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
 
@@ -78,7 +78,7 @@ function BasicSkill:Evaluate()
 end
 
 function BasicSkill:Begin()
-	print("fire basic")
+	--print("fire basic")
 	self.endTime = GameRules:GetGameTime() + 1
 		self.order =
 		{
@@ -92,16 +92,16 @@ end
 
 BasicSkill.Continue = BasicSkill.Begin
 
---------------------------------------------------------------------------------------------------------
+----------------------------------------------------
 
 
---------------------------------------------------------------------------------------------------------
+----------------------------------------------------
 
 DiveSkill = {}
 
 function DiveSkill:Evaluate()
 	local desire = 0
-	print("evaluate dive skill")
+	--print("evaluate dive skill")
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
 
@@ -117,7 +117,7 @@ function DiveSkill:Evaluate()
 end
 
 function DiveSkill:Begin()
-	print("fire dive")
+	--print("fire dive")
 	self.endTime = GameRules:GetGameTime() + 1
 		self.order =
 		{
@@ -130,16 +130,16 @@ end
 
 DiveSkill.Continue = DiveSkill.Begin
 
---------------------------------------------------------------------------------------------------------
+----------------------------------------------------
 
 
---------------------------------------------------------------------------------------------------------
+----------------------------------------------------
 
 SplitterSkill = {}
 
 function SplitterSkill:Evaluate()
 	local desire = 0
-	print("evaluate Splitter skill")
+	--print("evaluate Splitter skill")
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
 
@@ -155,7 +155,7 @@ function SplitterSkill:Evaluate()
 end
 
 function SplitterSkill:Begin()
-	print("fire Splitter")
+	--print("fire Splitter")
 	self.endTime = GameRules:GetGameTime() + 1
 		self.order =
 		{
@@ -168,16 +168,16 @@ end
 
 SplitterSkill.Continue = SplitterSkill.Begin
 
---------------------------------------------------------------------------------------------------------
+----------------------------------------------------
 
 
---------------------------------------------------------------------------------------------------------
+----------------------------------------------------
 
 Die = {}
 DEATH_SOUND_TABLE = {"nevermore_nev_arc_death_12"}
 function Die:Evaluate()
 	local desire = 0
-	print("evaluate Splitter skill")
+	--print("evaluate Splitter skill")
 	-- let's not choose this twice in a row
 	if thisEntity:GetHealth() < 20 and not thisEntity.dead then
    		desire = 15
@@ -187,11 +187,11 @@ function Die:Evaluate()
 end
 
 function Die:Begin()
-	print("Dying")
+	--print("Dying")
 	self.endTime = GameRules:GetGameTime() + 13
 		--ParticleCity(thisEntity)
 		thisEntity.dead = true
-		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(thisEntity)})
 		Events:updateKillQuest(thisEntity)
 		local ability = thisEntity:FindAbilityByName( "cant_die" )
 		ability:ApplyDataDrivenModifier(thisEntity, thisEntity, "modifier_dying", {duration = 13})
@@ -223,10 +223,10 @@ end
 
 Die.Continue = Die.Begin
 
---------------------------------------------------------------------------------------------------------
+----------------------------------------------------
 
 
---------------------------------------------------------------------------------------------------------
+----------------------------------------------------
 
 
 

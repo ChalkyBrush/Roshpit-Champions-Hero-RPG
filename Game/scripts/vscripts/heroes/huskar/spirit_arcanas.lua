@@ -77,7 +77,7 @@ function ancient_rain_think(event)
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "SpiritWarrior.RainLightning", caster)
 			local enemy = enemies[1]
 			MaelstromBeam(caster:GetAbsOrigin()+Vector(0,0,500), enemy:GetAbsOrigin())
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_WATER, RPC_ELEMENT_LIGHTNING)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_WATER, RPC_ELEMENT_LIGHTNING)
 		end 	
 	end
 	local armor_per_missing_health = event.armor_per_missing_health
@@ -218,7 +218,7 @@ function javelin_hit(event)
 				ability.particleCount = ability.particleCount - 1
 			end)
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NORMAL)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NORMAL)
 	local w_2_level = ability.w_2_level
 	if w_2_level > 0 then
 		local mult = w_2_level*0.04
@@ -475,7 +475,7 @@ function reachSpirit(caster, ability, spiritPosition)
 			    if #enemies > 0 then
 			    	local damage = 8800*a_c_level
 			        for _,enemy in pairs(enemies) do
-			        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+			        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 			        end
 			    end 
 			end)

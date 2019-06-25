@@ -92,10 +92,10 @@ function lavaGO(trigger, fv, zHeight)
 			LavaJump(hero, fv, RandomInt(10, 13), 27, 25, 1, zHeight)
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_lava_flailing", {duration = 4})
 		end)
-	print("LaVA TOUCH!------------")
+	--print("LaVA TOUCH!------")
 	ability:ApplyDataDrivenModifier(caster, hero, "modifier_lava_hit", {duration = 4})
 	ability:ApplyDataDrivenModifier(caster, hero, "modifier_lava_jumping_start", {duration = 0.3})
-	print("TOUCHING LAVA!!")
+	--print("TOUCHING LAVA!!")
 end
 
 function lava_damage_think(event)
@@ -156,17 +156,17 @@ function LavaJump(unit, forwardVector, propulsion, liftForce, liftDuration, grav
 					newPosition = newPosition-(forwardVector*propulsion)
 				end
 				unit:SetOrigin(newPosition)
-				-- print("NEWPOSITION.Z:")
-				-- print(newPosition.z)
+				--print("NEWPOSITION.Z:")
+				--print(newPosition.z)
 				if newPosition.z - GetGroundPosition(newPosition, unit).z < 30 then
 					if not unit:HasModifier("modifier_lava_jumping_start") then
-						print("z1")
+						--print("z1")
 						unit:RemoveModifierByName(jumpingModifier)
 						WallPhysics:UnitLand(unit)
 						unit:RemoveModifierByName("modifier_lava_jumping")
 						FindClearSpaceForUnit(unit, newPosition, false)
-						print("REMOVE LAVA JUMPING")
-						print (currentPosition.z)
+						--print("REMOVE LAVA JUMPING")
+						--print (currentPosition.z)
 					end
 				else
 					return 0.03
@@ -245,7 +245,7 @@ function redfall_bombadier_ability_start(event)
 		divisor = 36
 	end
 	local forwardVelocity = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())/divisor + 6
-	print(baseFV)
+	--print(baseFV)
 	local bombCount = event.num_bombs
 	local damage = event.damage
 	for i = 0, bombCount-1, 1 do
@@ -467,9 +467,9 @@ function sorceress_moving_think(event)
 		end		
 	end
 	currentZ = currentZ + math.sin(2*math.pi*caster.interval/45)*4
-	print("-----SORC STATE_-----")
-	print(caster.state)
-	print(currentZ)
+	--print("---SORC STATE_---")
+	--print(caster.state)
+	--print(currentZ)
 	caster:SetModifierStackCount("modifier_z_axis", caster, currentZ)
 	if caster.interval > 45 then
 		caster.interval = 0
@@ -1219,8 +1219,8 @@ function LavaDrainTrigger(trigger)
 						else
 							randomPosition = Vector(7056+RandomInt(1, 1420), 7757+RandomInt(1, 755))
 						end
-						print("SPAWN LIZARD")
-						print(randomPosition)
+						--print("SPAWN LIZARD")
+						--print(randomPosition)
 						local lizard = Redfall:SpawnCastleLavaLizard(randomPosition, RandomVector(1))
 						lizard:SetAbsOrigin(lizard:GetAbsOrigin()-Vector(0,0,300))
 					end)
@@ -1748,7 +1748,7 @@ function generic_castle_unit_die(event)
 						Redfall.Castle.tortureBoss.ability:ApplyDataDrivenModifier(Redfall.Castle.tortureBoss, bombadier, "modifier_sadist_building_unit", {duration = 4})
 					end)
 				end
-				print("TORTURED SOUL TIME")
+				--print("TORTURED SOUL TIME")
 				Redfall:SpawnTortureWaveUnit("redfall_tortured_soul", Vector(10432, 6144), 11, 100, 0.7, true)
 				Redfall:SpawnTortureWaveUnit("redfall_tortured_soul", Vector(11008, 6464), 11, 100, 0.7, true)
 				Redfall:SpawnTortureWaveUnit("redfall_tortured_soul", Vector(11264, 7168), 11, 100, 0.7, true)
@@ -1764,11 +1764,11 @@ function generic_castle_unit_die(event)
 						Redfall.Castle.tortureBoss.ability:ApplyDataDrivenModifier(Redfall.Castle.tortureBoss, bombadier, "modifier_sadist_building_unit", {duration = 4})
 					end)
 				end
-				print("TORTURED SOUL TIME")
+				--print("TORTURED SOUL TIME")
 				Redfall:SpawnTortureWaveUnit("redfall_tortured_soul", Vector(10432, 6144), 10, 100, 0.8, true)
-				print("CORRUPTED CORPSE TIME")
+				--print("CORRUPTED CORPSE TIME")
 				Redfall:SpawnTortureWaveUnit("redfall_crimsyth_corrupted_corpse", Vector(11008, 6464), 10, 100, 0.8, true)
-				print("KHAN KNIGHT TIME")
+				--print("KHAN KNIGHT TIME")
 				Redfall:SpawnTortureWaveUnit("redfall_crimsyth_khan_knight", Vector(11264, 7168), 5, 100, 1.6, true)
 			elseif Redfall.Castle.TortureUnitsKilled == 95 then
 				local buildTable = {Vector(9984, 7168), Vector(9984, 6848), Vector(10432, 6412), Vector(10832, 6601)}
@@ -2189,7 +2189,7 @@ function redfall_molok_bombs_ability_start(event)
 	local baseFV = (target*Vector(1,1,0)-caster:GetAbsOrigin()*Vector(1,1,0)):Normalized()
 	local divisor = 40
 	local forwardVelocity = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())/divisor + 6
-	print(baseFV)
+	--print(baseFV)
 	local bombCount = event.num_bombs
 	local damage = event.damage
 
@@ -2311,7 +2311,7 @@ function check_spheres_matching()
 	if Redfall.Castle.BossSphereTable[1].colorCode == Redfall.Castle.BossSphereTable[2].colorCode and Redfall.Castle.BossSphereTable[2].colorCode == Redfall.Castle.BossSphereTable[3].colorCode then
 		colorCode = Redfall.Castle.BossSphereTable[1].colorCode
 	end
-	print(colorCode)
+	--print(colorCode)
 	if colorCode > 0 then
 		local modifierName = "modifier_moloth_sphere_on_moloth_red"
 		if colorCode == 2 then
@@ -2481,7 +2481,7 @@ function CastleTileTrigger11(trigger)
 end
 
 function castle_tile_hit(tileIndex)
-	DeepPrintTable(Redfall.Castle.TileLocationTable)
+	--DeepPrintTable(Redfall.Castle.TileLocationTable)
 	for i = 1, #Redfall.Castle.TileLocationTable, 1 do
 		if Redfall.Castle.TileLocationTable[i] == tileIndex then
 			if Redfall.Castle.TileLocationTable[i] == 0 then
@@ -2548,7 +2548,7 @@ function GardenLordTrigger(trigger)
 						if j%15 == 0 then
 							EmitSoundOnLocationWithCaster(Vector(1245, 9041, 263+Redfall.ZFLOAT), "Redfall.Shaking", Events.GameMaster)
 						end
-						print("MOVE PIECE")
+						--print("MOVE PIECE")
 						totalStatue[i]:SetAbsOrigin(totalStatue[i]:GetAbsOrigin()+moveVector)
 					end)
 				end
@@ -3196,8 +3196,8 @@ function ball_switch_moving_think(event)
 		for i = 1, #Redfall.Castle.BallSwitchGoalsTable, 1 do
 			if Redfall.Castle.BallSwitchGoalsTable[i] then
 				local goalDistance = WallPhysics:GetDistance(Redfall.Castle.BallSwitchGoalsTable[i], ball:GetAbsOrigin())
-				print("GOAL DISTANCE:")
-				print(goalDistance)
+				--print("GOAL DISTANCE:")
+				--print(goalDistance)
 				if goalDistance < 90 then
 					ball:SetAbsOrigin(Redfall.Castle.BallSwitchGoalsTable[i])
 					Redfall.Castle.BallSwitchGoalsTable[i] = false
@@ -3770,7 +3770,7 @@ function FortunaSequence()
 					if j%15 == 0 then
 						EmitSoundOnLocationWithCaster(Vector(4043, 6464, 108+Redfall.ZFLOAT), "Redfall.FortunaSequence.Shaking", Events.GameMaster)
 					end
-					print("MOVE PIECE")
+					--print("MOVE PIECE")
 					totalStatue[i]:SetAbsOrigin(totalStatue[i]:GetAbsOrigin()+moveVector)
 				end)
 			end
@@ -4683,7 +4683,7 @@ end
 
 function castle_final_boss_death(caster, ability)
 	Statistics.dispatch("redfall_ridge:kill:lord_scarloth");
-	CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+	CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dying_generic", {})
 	Timers:CreateTimer(0.5, function()
 		EmitSoundOn("Redfall.FinalBoss.Death", caster)

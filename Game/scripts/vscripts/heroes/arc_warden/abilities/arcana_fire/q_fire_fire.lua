@@ -97,7 +97,7 @@ function jex_fire_fire_ring_thinker(event)
 								damage = damage + damage*distance_percentage*(event.w_4_damage_increase_pct_edges/100)*w_4_level
 							end
 							EmitSoundOn("Jex.RingOfFire.Hit", enemy)
-							Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+							Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 							CustomAbilities:QuickAttachParticle("particles/econ/items/ogre_magi/ogre_ti8_immortal_weapon/ogre_ti8_immortal_bloodlust_buff_flash.vpcf", enemy, 2)
 						end
 					end

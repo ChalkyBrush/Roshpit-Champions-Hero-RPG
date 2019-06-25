@@ -15,7 +15,7 @@ function WallPhysics:FindNearestObstruction(point)
 	else
 		local obstruction = Entities:FindByClassnameNearest("point_simple_obstruction", point, 1400)
 		if obstruction then
-			-- print(obstruction:GetAbsOrigin())
+			--print(obstruction:GetAbsOrigin())
 			if obstruction:GetAbsOrigin().z < point.z - 300 then
 				local searchPos = Vector(point.x, point.y, GetGroundHeight(point, Events.GameMaster))
 				local obstruction2 = Entities:FindByClassnameNearest("point_simple_obstruction", searchPos, 500)
@@ -140,7 +140,7 @@ function WallPhysics:WallSearch(startPoint, endPoint, unit)
 		local obstruction = WallPhysics:FindNearestObstruction(startPointNoZ+normal*i*75)
 		local block = WallPhysics:ShouldBlockUnit(obstruction, startPointNoZ+normal*i*75, unit, true) 
 		if block then
-			print("BLOCKED!!")
+			--print("BLOCKED!!")
 			return startPoint+normal*(i-1)*75-normal*50
 		end
 	end
@@ -288,7 +288,7 @@ function WallPhysics:JumpFixedDistanceWithBlocking(unit, forwardVector, distance
 		    if not blockUnit then
 		        unit:SetOrigin(newPosition)
 		    else 
-		    	print("SHOULD BE BLOCKING?")
+		    	--print("SHOULD BE BLOCKING?")
 		    	gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_mobility_blocked", {duration = 1.5})
 		        unit:SetOrigin(newPosition-forwardVector*propulsion)
 		    end
@@ -574,10 +574,10 @@ function WallPhysics:UnitLand(unit)
 			local damageAmp = 0.5 + q_3_level*0.1
 			CustomAbilities:AxeSunder(caster, ability, damage, damageAmp, "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start.vpcf")		
 		elseif caster.flamewaker_d_b_target then
-			print("block1")
+			--print("block1")
 			if IsValidEntity(caster.flamewaker_d_b_target) then
 				if caster.flamewaker_d_b_target:IsAlive() then
-					print("blockMAIN")
+					--print("blockMAIN")
 					EmitSoundOn("Flamewaker.SpecialCrit", caster.flamewaker_d_b_target)
 					local target = caster.flamewaker_d_b_target
 

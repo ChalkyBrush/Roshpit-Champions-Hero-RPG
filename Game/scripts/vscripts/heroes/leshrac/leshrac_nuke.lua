@@ -46,7 +46,7 @@ function blast(caster, point, radius, damage, ability)
 			Timers:CreateTimer(0.1,function()
 				for _,enemy in pairs(enemies) do
 					local damage_with_w_3 = damage + OverflowProtectedGetAverageTrueAttackDamage(enemy)*0.2*w_3_level
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage_with_w_3, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage_with_w_3, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_leshrac_nuke_judged", {duration = 5}) 
 
@@ -115,7 +115,7 @@ function rune_w_3(caster, ability, fv)
 				bProvidesVision = false,
 			}
 			projectile = ProjectileManager:CreateLinearProjectile(info)
-			print("projectile fire")
+			--print("projectile fire")
     end
 end
 
@@ -128,7 +128,7 @@ function c_b_strike(event)
 	local w_3_level = caster:GetRuneValue("w", 3)
 	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(target)*0.2*w_3_level
 	damage = damage*ability.damageAmp
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 
 	ability = caster:FindAbilityByName("leshrac_nuke")
 	if ability.w_2_level then

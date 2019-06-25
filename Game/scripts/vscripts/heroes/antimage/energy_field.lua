@@ -144,7 +144,7 @@ function energy_thinker(event)
 		        		ability.particleCount = ability.particleCount - 1
 		        	end)
 		        end
-	        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+	        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 	        	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_energy_field_damage_reduce", {duration = 5})
 	        end
 	    end

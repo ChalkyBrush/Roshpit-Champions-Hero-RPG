@@ -195,8 +195,8 @@ end
 
 function phoenix_mob_die(event)
 	Dungeons.phoenixMobsKilled = Dungeons.phoenixMobsKilled + 1
-	print("KILLED "..Dungeons.phoenixMobsKilled)
-	print("Thresh "..Dungeons.phoenixMobsThreshold)
+	--print("KILLED "..Dungeons.phoenixMobsKilled)
+	--print("Thresh "..Dungeons.phoenixMobsThreshold)
 	if Dungeons.phoenixMobsKilled == Dungeons.phoenixMobsThreshold then
 		Dungeons:IncrementPhoenixWave()
 	end
@@ -211,7 +211,7 @@ function kriggus_follower_think(event)
 	-- 	local forwardMovement = caster:GetForwardVector()*Vector(1,1,0)
 	-- 	local bGround = true
 	-- 	if position.z < forwardGroundPosition.z-20 then
-	-- 		print("CLIMB!")
+	-- 		--print("CLIMB!")
 	-- 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_kriggus_climbing", {})
 	-- 	else
 	-- 		caster:RemoveModifierByName("modifier_kriggus_climbing")
@@ -661,7 +661,7 @@ function phoenix_boss_think(event)
 			end			
 		end
 		caster.interval = caster.interval + 1
-		print(caster.interval)
+		--print(caster.interval)
 		if caster.interval >= 106 then
 			caster.interval = -20
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_phoenix_boss_pyromaniac", {duration = 4})
@@ -823,7 +823,7 @@ function bringBossFromPentagram(bossName, location, index, rootDuration, forward
 	if index == 1 then
 		Dungeons.subbossA = subboss
 	elseif index == 2 then
-		print("DUNGEONS.SUBBOSSB WTF!!")
+		--print("DUNGEONS.SUBBOSSB WTF!!")
 		Dungeons.subbossB = subboss
 	elseif index == 3 then
 		Dungeons.subbossC = subboss

@@ -27,7 +27,7 @@ function jex_living_bomb_explode(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			local distance_portion = 1 - (WallPhysics:GetDistance2d(enemy:GetAbsOrigin(), target:GetAbsOrigin())/radius)
 			local stun_duration = base_stun_duration*distance_portion
 			Filters:ApplyStun(caster, stun_duration, enemy)

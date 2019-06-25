@@ -3,7 +3,7 @@ require('heroes/spirit_breaker/duskbringer_3_e')
 require('heroes/spirit_breaker/duskbringer_glyphs')
 
 function seven_visions_channel(event)
-	print('channel function')
+	--print('channel function')
 	duskbringer_rune_e_1_refresh(event.caster, 4)
 	duskbringer_glyph_4_2_refresh(event.caster, 4)
 end
@@ -65,7 +65,7 @@ function seven_visions_strike(caster, position, damage, ability)
 				caster:SetModifierStackCount( "modifier_duskbringer_rune_r_3", runeAbility, r_3_current_stacks + r_3_level )
 			end
 			caster:PerformAttack(enemy, true, true, true, true, false, false, false)
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 4, RPC_ELEMENT_GHOST, RPC_ELEMENT_NORMAL)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_GHOST, RPC_ELEMENT_NORMAL)
 			EmitSoundOn("Hero_Spirit_Breaker.GreaterBash", enemy)
 			enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
 			local particleName = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
@@ -86,7 +86,7 @@ function seven_visions_strike(caster, position, damage, ability)
 				local r_1_enemies = FindUnitsInRadius( caster:GetTeamNumber(), enemy:GetAbsOrigin(), nil, DUSKBRINGER_R1_BASE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 				local r_1_damage = r_1_level * DUSKBRINGER_R1_DMG_PER_DMG * damage
 				for _,r_1_enemy in pairs(r_1_enemies) do
-					Filters:TakeArgumentsAndApplyDamage(r_1_enemy, caster, r_1_damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
+					Filters:TakeArgumentsAndApplyDamage(r_1_enemy, caster, r_1_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
 				end
 			end	
 		end)

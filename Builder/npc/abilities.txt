@@ -18978,7 +18978,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_paragon"
+			"modifier_paragon_pack"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -18991,9 +18991,24 @@
 					{
 						"ScriptFile"	"npc_abilities/champion_abilities.lua"
 						"Function"		"paragon_created"
-						"Target"		"TARGET"
 					}
 				}
+				"OnOwnerDied"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/champion_abilities.lua"
+						"Function"		"paragon_die"
+					}
+				}
+			}
+			"modifier_paragon_pack_visual"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"StatusEffectName" 		"particles/status_fx/status_effect_huskar_lifebreak_blue_2.vpcf"
+				"StatusEffectPriority"  "110"
 			}
 			"modifier_paragon_solo"
 			{
@@ -19008,9 +19023,16 @@
 					{
 						"ScriptFile"	"npc_abilities/champion_abilities.lua"
 						"Function"		"paragon_created"
-						"Target"		"TARGET"
 					}
 				}
+			}
+			"modifier_paragon_solo_visual"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold_lvl2.vpcf"
+				"StatusEffectPriority"  "110"
 			}
 			"modifier_paragon_fire_breathing"
 			{
@@ -39354,20 +39376,24 @@
 					}
 				}
 			}
-			"modifier_experimental_fire_effect"
+			"modifier_redfall_disciple_of_maru_die"
 			{
 				"IsHidden"				"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"StatusEffectName" 		"particles/roshpit/redfall/status_effect_experimental_fire.vpcf"
-				"StatusEffectPriority"  "10"
 				"OnDeath"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
-						"Function"		"maru_disciple_die"
+						"Function"		"redfall_disciple_of_maru_die"
 					}
 				}
+			}
+			"modifier_fire_effect"
+			{
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/roshpit/redfall/status_effect_experimental_fire.vpcf"
+				"StatusEffectPriority"  "10"
 			}
 			"modifier_blessing_of_maru"
 			{
@@ -39702,6 +39728,184 @@
 			"modifier_disable_player"
 			{
 				"IsHidden"	"1"
+			}
+			"modifier_weak_creep"
+			{
+				"TextureName"		"redfall/enemy_weak_creep"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
+			"modifier_normal_creep"
+			{
+				"TextureName"		"redfall/enemy_normal_creep"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
+			"modifier_mini_boss"
+			{
+				"TextureName"		"redfall/enemy_mini_boss"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
+			"modifier_boss"
+			{
+				"TextureName"		"redfall/enemy_boss"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
+			"modifier_major_boss"
+			{
+				"TextureName"		"redfall/enemy_major_boss"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
+			"modifier_redfall_forest_ranger_die"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"Function"		"forest_ranger_die"
+					}
+				}
+			}
+			"modifier_redfall_red_raven_die"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"Function"		"redfall_red_raven_die"
+					}
+				}
+			}
+			"modifier_redfall_ashara_die"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"Function"		"redfall_ashara_die"
+					}
+				}
+			}
+			"modifier_redfall_fenrir"
+			{
+				"IsHidden"	"1"
+				"StatusEffectName" 		"particles/roshpit/redfall/status_effect_experimental_fire.vpcf"
+				"StatusEffectPriority"  "10"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"Function"		"redfall_fenrir_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"Function"		"redfall_fenrir_die"
+					}
+				}
+			}
+			"modifier_redfall_crimsyth_cultist_die"
+			{
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"Function"		"redfall_crimsyth_cultist_die"
+					}
+				}
+			}
+			"modifier_redfall_crimsyth_cultist_master_die"
+			{
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"Function"		"redfall_crimsyth_cultist_master_die"
+					}
+				}
+			}
+			"modifier_autumn_mage_boss_die"
+			{
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"Function"		"autumn_mage_boss_die"
+					}
+				}
+			}
+			"modifier_redfall_canyon_dinosaur_die"
+			{
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"Function"		"redfall_canyon_dinosaur_die"
+					}
+				}
+			}
+			"modifier_redfall_spirit_of_ashara_die"
+			{
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"Function"		"redfall_spirit_of_ashara_die"
+					}
+				}
+			}
+			"modifier_redfall_canyon_barbarian_die"
+			{
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"Function"		"redfall_canyon_barbarian_die"
+					}
+				}
+			}
+			"modifier_redfall_canyon_feronia_die"
+			{
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"Function"		"redfall_canyon_feronia_die"
+					}
+				}
 			}
 		}
 	}
@@ -40168,14 +40372,6 @@
 				"armor_reduce"		"-10 -600 -3500"
 			}
 		}
-		"OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
-				"Function"		"forest_ranger_die"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_forest_ranger_ai"
@@ -40370,15 +40566,6 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
 		"AbilityDamage"					"1500 60000 300000"
-
-		"OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
-				"Function"		"massive_arrow_ability_death"
-			}
-		}
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
 		// Casting
@@ -40952,14 +41139,6 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"health_percent"			"1 3 4"
-			}
-		}
-		"OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
-				"Function"		"crimsyth_cultist_die"
 			}
 		}
 		"Modifiers"
@@ -41618,14 +41797,6 @@
 				"target"		"TARGET"
 			}
 		}
-		"OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
-				"Function"		"dinosaur_die"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_redfall_dinosaur_passive"
@@ -41812,14 +41983,6 @@
 			{
 				"Duration"	"0.4"
 				"Target"	"TARGET"
-			}
-		}
-		"OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
-				"Function"		"barbarian_die"
 			}
 		}
 		"Modifiers"
@@ -42024,15 +42187,6 @@
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityDamage"			"2000 10000 200000"
-
-		"OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
-				"Function"		"autumn_mage_boss_die"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_autumn_mage_boss_passive"
@@ -42110,14 +42264,6 @@
 				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
 				"Function"		"crimsith_cult_master_pull"
 				"target"		"TARGET"
-			}
-		}
-		"OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
-				"Function"		"cult_boss_death"
 			}
 		}
 		"AbilitySpecial"
@@ -42257,7 +42403,7 @@
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"AbilityCastRange"				"1200 1400 1600"
+		"AbilityCastRange"				"5000"
 
 
 		// Precache
@@ -42275,7 +42421,15 @@
 		"AbilityManaCost"				"0"
 
 		// Special
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"max_range"						"1200 1400 1600"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -42310,7 +42464,7 @@
 
 	}
 
-	"redfall_cant_die"
+	"redfall_canyon_boss_passive"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
@@ -42318,7 +42472,7 @@
 		"MaxLevel"	"1"
 		"Modifiers"
 		{
-			"modifier_cant_die_generic"
+			"modifier_redfall_canyon_boss_death_check"
 			{
 				"Passive"	"1"
 				"Properties"
@@ -42331,7 +42485,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
-						"Function"		"death_check"
+						"Function"		"redfall_canyon_boss_death_check"
 						"Target"		"TARGET"
 					}
 				}
@@ -42359,7 +42513,6 @@
 					}
 				}
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
-
 			}
 			"modifier_cant_die_disabled"
 			{
@@ -42369,9 +42522,68 @@
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-
 		}
-
+	}
+	
+	"redfall_shipyard_boss_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rubick_empty1"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_redfall_shipyard_boss_death_check"
+			{
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+						"Function"		"redfall_shipyard_boss_death_check"
+						"Target"		"TARGET"
+					}
+				}
+			}
+			"modifier_dying_generic"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "1.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"Function"		"death_animation"
+					}
+				}
+				"OverrideAnimation"     "ACT_DOTA_FLAIL"
+			}
+			"modifier_cant_die_disabled"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
 	}
 
 	"ash_tree_overgrowth"
@@ -42505,14 +42717,6 @@
 				"damage"				"400 10000 105000"
 			}
 		}
-		"OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
-				"Function"		"spirit_of_ashara_die"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_spirit_of_ashara_ai"
@@ -42530,7 +42734,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"spirit_of_ashara_think"
 						"damage"		"%damage"
 					}
@@ -42861,31 +43065,6 @@
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attacK_damage_increase"
 				}
 			}
-			"modifier_main_fenrir"
-			{
-				"IsHidden"	"1"
-				"StatusEffectName" 		"particles/roshpit/redfall/status_effect_experimental_fire.vpcf"
-				"StatusEffectPriority"  "10"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
-						"Function"		"fenrir_main_think"
-						"target"		"TARGET"
-					}
-				}
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
-						"Function"		"main_fenrir_die"
-					}
-				}
-			}
 		}
 	}
 
@@ -43022,14 +43201,6 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"evasion"			"10 30 50"
-			}
-		}
-		"OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
-				"Function"		"feronia_die"
 			}
 		}
 		"Modifiers"
@@ -43723,14 +43894,6 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"armor_reduce"		"-10 -600 -3500"
-			}
-		}
-		"OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
-				"Function"		"forest_ranger_die"
 			}
 		}
 		"Modifiers"
@@ -50198,7 +50361,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"strike_crit_mult"			"140 160 180 200"
+				"strike_crit_mult"			"140 160 180"
 			}
 			"03"
 			{

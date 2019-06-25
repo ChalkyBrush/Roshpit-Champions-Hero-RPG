@@ -77,7 +77,7 @@ function moon_shroud_damage(event)
     local target = event.target
     local caster = event.caster.hero
     local damage = event.damage
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 end
 
 function moon_shroud_end(event)
@@ -213,7 +213,7 @@ end
 --       end)  
 --           Timers:CreateTimer(0.45,            function()
 --             if target:IsAlive() then
---                Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+--                Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 --               EmitSoundOn("Ability.StarfallImpact", target)
 --               if caster:HasModifier("modifier_astral_arcana1") then
 --                 ability = caster:FindAbilityByName("astral_arcana_ability")

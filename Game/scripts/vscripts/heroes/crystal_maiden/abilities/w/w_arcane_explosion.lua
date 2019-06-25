@@ -58,7 +58,7 @@ function projectileHit(event)
     local target = event.target
     local ability = event.ability
     local damage = ability.damage
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 
     AmplifyMagic.cast(caster, target, ability)
 end

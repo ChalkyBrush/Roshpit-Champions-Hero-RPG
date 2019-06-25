@@ -53225,7 +53225,7 @@
         "Ability1"              "canyon_boss_time_walk"
         "Ability2"              "canyon_boss_ai"
         "Ability3"              "boss_health"
-        "Ability4"              "redfall_cant_die"
+        "Ability4"              "redfall_canyon_boss_passive"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"

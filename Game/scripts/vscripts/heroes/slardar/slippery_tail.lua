@@ -219,5 +219,5 @@ function hydroxis_b_c_hit(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.e_2_damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.e_2_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 end

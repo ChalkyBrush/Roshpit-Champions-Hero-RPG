@@ -82,7 +82,7 @@ function gorudo_start(event)
 		for _,enemy in pairs(enemies) do
 			enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )	
 			local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*3
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 			-- ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })	
 		end
 	end
@@ -181,11 +181,11 @@ function gorudo_attack_land(event)
 				local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, SEINARU_GLYPH3_R3_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 				for _,enemy in pairs(enemies) do
 					if not enemy.dummy then
-						Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
+						Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
 					end
 				end
 			else
-				Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
+				Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
 			end
 		end
 	end

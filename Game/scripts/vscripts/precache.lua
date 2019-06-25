@@ -26,7 +26,7 @@ function Precache:section2()
 end
 
 function Precache:section3()
-	print("precacheing yo")
+	--print("precacheing yo")
 	local unitTable = {"rolling_earth_spirit", "little_meepo", "furion_mystic", "twitch_lone_druid", "exploding_warrior"}
 	for i = 1, #unitTable, 1 do
 		Timers:CreateTimer(i*0.3, 
@@ -129,22 +129,22 @@ local itemTable = {"item_rpc_ice_quill_carapace",
  
 	local i = 1 
 	local function precache_function()
-		print("done precaching: "..itemTable[i])
+		--print("done precaching: "..itemTable[i])
 		i = i+1
 		if i > #itemTable then
-			print("done precaching items")
+			--print("done precaching items")
 			Timers:CreateTimer(0, function()
 				CustomGameEventManager:Send_ServerToAllClients("finish_precache", {items = 1})
 				return 2
 			end)
 		else
-			print("precaching "..itemTable[i])
+			--print("precaching "..itemTable[i])
 			local pct = math.floor(i/#itemTable*100)
 			CustomGameEventManager:Send_ServerToAllClients("update_precache", {items = 1, pct = tostring(pct)})
 			PrecacheItemByNameAsync(itemTable[i], precache_function)
 		end
 	end
-	print("precaching "..itemTable[i])
+	--print("precaching "..itemTable[i])
 	PrecacheItemByNameAsync(itemTable[i], precache_function)
 end
 
@@ -817,7 +817,7 @@ end
 --###################
 
 function Precache:section3SYNC()
-	print("precacheing yo")
+	--print("precacheing yo")
 	local unitTable = {"rolling_earth_spirit", "little_meepo", "furion_mystic", "twitch_lone_druid", "exploding_warrior"}
 	for i = 1, #unitTable, 1 do
 		Timers:CreateTimer(i*0.3, 

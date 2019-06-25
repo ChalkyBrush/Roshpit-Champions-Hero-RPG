@@ -84,7 +84,7 @@ function Redfall:InitiateCastleTiles()
   while tileIndex1 == tileIndex2 do
     tileIndex2 = RandomInt(1, #tilePositionTable)
   end
-  print(tilePositionTable[tileIndex1])
+ --print(tilePositionTable[tileIndex1])
   tile1:SetAbsOrigin(tilePositionTable[tileIndex1]+Vector(0,0,-127))
   tile2:SetAbsOrigin(tilePositionTable[tileIndex2]+Vector(0,0,-127))
   Redfall.Castle.TileLocationTable = {tileIndex1, tileIndex2}
@@ -917,7 +917,7 @@ function Redfall:WaterPlatformRoom()
   Redfall:SpawnCrimsonSamurai(Vector(-64, 8926), Vector(1,0))
   Redfall:SpawnCrimsonSamurai(Vector(-1279, 8917), Vector(1,0))
   Redfall:SpawnCrimsonSamurai(Vector(-1152, 10048), Vector(1,0))
-  DeepPrintTable(Redfall.Castle.WaterPlatformColorTable)
+  --DeepPrintTable(Redfall.Castle.WaterPlatformColorTable)
   Timers:CreateTimer(2, function()
     local basePosition = Vector(448, 9664)
     for i = 1, 3, 1 do
@@ -1617,8 +1617,8 @@ function Redfall:SpawnFortuneRoom()
   Redfall.Castle.FortuneChestsOpened = 0
   
 
-  print("FORTUNE CHEST INDEX!")
-  print(Redfall.Castle.FortuneChestBoss)
+ --print("FORTUNE CHEST INDEX!")
+ --print(Redfall.Castle.FortuneChestBoss)
 end
 
 function Redfall:SpawnFortuneRoomChest(position, i, j)
@@ -2088,8 +2088,8 @@ function Redfall:ActivateBossStatue(position)
         Timers:CreateTimer(5.0, function()
           EmitSoundOnLocationWithCaster(Vector(-2154, 3249), "Redfall.TreeHealed", Events.GameMaster)
           local blockers = Entities:FindAllByNameWithin("BossBlocker", Vector(-1408, 3264, 263+Redfall.ZFLOAT), 2400)
-          print(#blockers)
-          print("NUM BLOCKERS")
+         --print(#blockers)
+         --print("NUM BLOCKERS")
           for i = 1, #blockers, 1 do
             UTIL_Remove(blockers[i])
           end

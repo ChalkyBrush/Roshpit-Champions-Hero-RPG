@@ -45,10 +45,10 @@ function epoch_arcana_q_1_end(event)
 	local typeCheck = type(target.epochArcanaAA)
 	if typeCheck == "number" then
 		local damage = target.epochArcanaAA*damageMult
-		-- print("target.epochArcanaAA "..target.epochArcanaAA)
+		--print("target.epochArcanaAA "..target.epochArcanaAA)
 
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.1})
-		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
 		PopupDamage(target, damage)
 		Timers:CreateTimer(0.03, function()
 			caster:RemoveModifierByName("modifier_backstab_jumping")
@@ -93,7 +93,7 @@ function epoch_arcana_q_3_get_damage(attacker, caster, reduceMana)
 		return nil
 	end
 	local q_3_level = attacker:GetRuneValue("q", 3)
-	print("q_3_level: "..q_3_level)
+	--print("q_3_level: "..q_3_level)
 	if q_3_level > 0 then
 		if not attacker:HasModifier("modifier_epoch_q_3_lock") and reduceMana then
 			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_epoch_q_3_lock", {duration = 0.1})
@@ -101,7 +101,7 @@ function epoch_arcana_q_3_get_damage(attacker, caster, reduceMana)
 		end
 		damage = manaDrain * q_3_level * EPOCH_ARCANA_Q3_DMG_MULTI_PCT
 	end
-	print("q_3_damage: "..damage)
+	--print("q_3_damage: "..damage)
 	return damage
 end
 
@@ -110,6 +110,6 @@ function epoch_arcana_q_3_strike(event)
 	local ability = event.ability
 	local caster = event.caster
 	if not target.dummy then
-		Filters:TakeArgumentsAndApplyDamage(target, caster, ability.q_3_damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, ability.q_3_damage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 	end
 end

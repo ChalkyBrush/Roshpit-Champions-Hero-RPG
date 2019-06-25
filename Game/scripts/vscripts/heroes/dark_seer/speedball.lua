@@ -157,14 +157,14 @@ function speedball_explode(caster, ability, damage, stun_duration)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 560, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_COSMIC)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_TIME, RPC_ELEMENT_COSMIC)
 			Filters:ApplyStun(caster, stun_duration, enemy)
 			local cd = ability:GetCooldownTimeRemaining()
 			ability:EndCooldown()
 			ability:StartCooldown(cd - 0.2)
 			if caster:HasModifier("modifier_zonik_immortal_weapon_3") then
 				if caster:HasAbility("tachyon_shell") then
-					print("HERE?")
+					--print("HERE?")
 					local eventTable = {}
 					eventTable.caster = caster
 					eventTable.target = enemy
@@ -172,7 +172,7 @@ function speedball_explode(caster, ability, damage, stun_duration)
 					eventTable.duration = eventTable.ability:GetLevelSpecialValueFor("duration", eventTable.ability:GetLevel())
 					eventTable.bNoCast = true
 					if eventTable.ability then
-						print("CAST TACHYON")
+						--print("CAST TACHYON")
 						tachyon_shield_cast(eventTable)
 					end
 				end
@@ -215,7 +215,7 @@ function mach_ready_thinking(event)
 								eventTable.ability = caster:FindAbilityByName("zonik_comet_punch")
 							end
 							eventTable.damage_mult = eventTable.ability:GetLevelSpecialValueFor("damage_mult", eventTable.ability:GetLevel())
-							print(eventTable.damage_mult)
+							--print(eventTable.damage_mult)
 							eventTable.stun_duration = eventTable.ability:GetLevelSpecialValueFor("stun_duration", eventTable.ability:GetLevel())
 							mach_punch_cast(eventTable)
 						end

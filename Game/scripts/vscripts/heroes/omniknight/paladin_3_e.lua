@@ -67,7 +67,7 @@ end
 function paladin_rune_e_1_die(event)
 	local caster = event.caster
 	local deathLocation = caster:GetAbsOrigin()
-	print("a_c_death")
+	--print("a_c_death")
 	local e_1_level = caster:GetRuneValue("e", 1)
 	local runeUnit = caster.runeUnit
 	local runeAbility = runeUnit:FindAbilityByName("paladin_rune_e_1")
@@ -130,7 +130,7 @@ function paladin_rune_e_2_attacked(event)
 		if not unit.retributions then
 			unit.retributions = 0
 		end
-		Filters:TakeArgumentsAndApplyDamage(attacker, unit, damage, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(attacker, unit, damage, DAMAGE_TYPE_PHYSICAL, BASE_ITEM, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		if unit.retributions < 10 then
 			if attacker:GetMaxHealth()>200 then
 				unit.retributions = unit.retributions + 1
@@ -161,7 +161,7 @@ function paladin_rune_e_3_falcon_hit(event)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(ability.e_3_level*0.25+0.1)
 	-- damage = damage + 0.0004*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*ability.w_4_level*damage
 
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	Timers:CreateTimer(1.0, function() 
 	  ParticleManager:DestroyParticle( pfx, false )
 	end) 

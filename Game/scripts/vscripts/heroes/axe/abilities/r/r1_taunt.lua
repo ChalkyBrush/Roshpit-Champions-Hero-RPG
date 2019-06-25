@@ -54,14 +54,14 @@ function takeDamage(event)
             local radius = 260
 
             local damage = math.min(event.damage, 20 * caster:GetHealth());
-            print("incoming damage = " .. event.damage)
+           --print("incoming damage = " .. event.damage)
             damage = damage * caster.r_1_level*RED_GENERAL_R1_DAMAGE
             if caster:HasModifier("modifier_axe_glyph_5_a") then
                 damage = damage * (1 + T5A_AMPLIFY_PERCENT/100)
             end
 
-            print("damage from r1 = " .. damage)
-            Filters:TakeArgumentsAndApplyDamage(attacker, caster, damage, DAMAGE_TYPE_PHYSICAL, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+           --print("damage from r1 = " .. damage)
+            Filters:TakeArgumentsAndApplyDamage(attacker, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
         end
     end
 end

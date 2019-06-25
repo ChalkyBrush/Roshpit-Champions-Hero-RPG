@@ -90,7 +90,7 @@ function voltex_static_hit(event)
 	local w_1_level = caster:GetRuneValue("w", 1)
     if w_1_level > 0 then
 		local pureDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * w_1_level * VOLTEX_W1_DMG_PER_ATT_PER_LVL * ability:GetLevel()
-		Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
     end
 
 	local w_4_level = caster:GetRuneValue("w", 4)
@@ -98,5 +98,5 @@ function voltex_static_hit(event)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_voltex_d_b_debuff", {duration = 12})
 		target:SetModifierStackCount("modifier_voltex_d_b_debuff", caster, w_4_level)
     end
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 end

@@ -239,8 +239,8 @@ function Beacons:IsHeroInCorrectLocation(hero, beaconPortal)
 			return true
 		end
 	end
-	print(beaconPortal)
-	print(currentLocation)
+	--print(beaconPortal)
+	--print(currentLocation)
 	if beaconPortal == currentLocation then
 		return true
 	else
@@ -255,7 +255,7 @@ function Beacons:ResetPortalsUsed()
 end
 
 function Beacons:WaveClear(waveNumber)
-	print("Beacons:WaveClear -- "..waveNumber)
+	--print("Beacons:WaveClear -- "..waveNumber)
 	Events.isTownActive = true
 	Beacons:WorldBeacons()
 	if waveNumber == 4 or waveNumber == 5 then

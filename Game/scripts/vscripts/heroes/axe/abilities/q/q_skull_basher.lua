@@ -43,7 +43,7 @@ function start(event)
     Timers:CreateTimer(0.3, function()
         ability.lifting = false
     end)
-    print("----NEW JUMP----")
+   --print("--NEW JUMP--")
 
     if caster:HasModifier("modifier_axe_glyph_7_1") then
         local newCD = 1.5
@@ -136,7 +136,7 @@ function attackLand(event)
         for _,enemy in pairs(enemies) do
             Filters:ApplyStun(caster, stun_duration, enemy)
             if dealDamage then
-                Filters:TakeArgumentsAndApplyDamage(enemy, caster, aoe_damage, DAMAGE_TYPE_PHYSICAL, 1, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+                Filters:TakeArgumentsAndApplyDamage(enemy, caster, aoe_damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_Q, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
             end
 
             ReduceResist.applyDebuff(caster, enemy, ability)

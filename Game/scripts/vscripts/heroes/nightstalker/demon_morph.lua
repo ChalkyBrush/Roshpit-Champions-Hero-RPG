@@ -56,7 +56,7 @@ function begin_demon_morph(event)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_demon_form_aura", {duration = morphDuration})
 		end
 		if caster:HasModifier("modifier_chernobog_arcana2") then
-			if caster:GetAbilityByIndex(2):GetAbilityName() == "chernobog_demon_flight" then
+			if caster:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_flight" then
 				CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_flight", "chernobog_demon_walk", 2)
 			end		
 		end
@@ -103,7 +103,7 @@ function demon_form_end(event)
 		caster:SetOriginalModel("models/heroes/nightstalker/nightstalker.vmdl")
 	end
 	if caster:HasModifier("modifier_chernobog_arcana2") then
-		if caster:GetAbilityByIndex(2):GetAbilityName() == "chernobog_demon_walk" then
+		if caster:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_walk" then
 			CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_walk", "chernobog_demon_flight", 2)
 		end
 	end
@@ -121,7 +121,7 @@ function demon_form_attack_land(event)
 		    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		    if #enemies > 0 then
 		        for _,enemy in pairs(enemies) do
-		        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, splashDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+		        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, splashDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
 		        end
 		    end 	
 		    if caster:HasModifier("modifier_demon_hunter") then
@@ -141,7 +141,7 @@ function demon_form_attack_start(event)
 		if ability.r_3_level > 0 then
 			local procs = Runes:Procs(ability.r_3_level, 15, 1)
 			local splitCount = 0
-			print(procs)
+			--print(procs)
 			if procs > 0 then
 			    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 			    if #enemies > 0 then

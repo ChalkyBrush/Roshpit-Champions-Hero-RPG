@@ -521,7 +521,7 @@ function Tanari:Debug2()
     --   Tanari.reroll = 0
     -- end
     -- Tanari.reroll = Tanari.reroll+1
-    -- print(Tanari.reroll)
+    ----print(Tanari.reroll)
     -- Challenges:FinalReroll(msg)
     -- Tanari.WaterTemple = {}
     --   Timers:CreateTimer(1.5, function()
@@ -596,7 +596,7 @@ end
 
 
 function Tanari:InitCamp()
-  print("Initialize Tanari Jungle")
+ --print("Initialize Tanari Jungle")
       Dungeons.phoenixCollision = true
       RPCItems.DROP_LOCATION = Vector(6656,-16128)
       Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
@@ -820,7 +820,7 @@ function Tanari:DefeatDungeonBoss(element, position)
         end
         if starTitle then
           for i = 1, #MAIN_HERO_TABLE, 1 do
-            print("STARS WTF??")
+           --print("STARS WTF??")
             Stars:StarEventPlayer(starTitle, MAIN_HERO_TABLE[i])
           end
         end
@@ -974,10 +974,10 @@ end
 function Tanari:WitchDoctorCombine(hero, difficulty)
   local witchDoctor = Tanari.WitchDoctor
   local witchAbility = Tanari.fountainAbility
-  print(difficulty)
+ --print(difficulty)
   -- local itemName = itemName.."_"..GameState:GetDifficultyName()
   local itemName = "item_tanari_spirit_stones_"..Tanari:ConvertDifficultyNumberToName(difficulty)
-  print("FINAL COMBINE")
+ --print("FINAL COMBINE")
   witchAbility:ApplyDataDrivenModifier(witchDoctor, witchDoctor, "modifier_tanari_combining_elements", {duration = 6.5})
   for i = 1, 5, 1 do
     Timers:CreateTimer(i, function()
@@ -1162,8 +1162,8 @@ function Tanari:SpawnFinalBoss(position, fv)
   -- ancient:SetAcquisitionRange(99999)
   -- ancient:SetRenderColor(80, 80, 80)
   ancient.starting = true
-  print("ANCHENT AGGRO??")
-  print(ancient.aggro)
+ --print("ANCHENT AGGRO??")
+ --print(ancient.aggro)
 
   ancient:AddAbility("ancient_god_wind_blink_ability"):SetLevel(3)
 

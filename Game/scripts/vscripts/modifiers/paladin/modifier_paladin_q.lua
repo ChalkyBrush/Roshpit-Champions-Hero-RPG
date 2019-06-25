@@ -80,7 +80,7 @@ function class:OnAttackLanded( event )
 				Timers:CreateTimer( 8, function() target.holy_struck = false end)
 				enemy:AddNewModifier(caster, ability, "modifier_q_slow", {duration = 4})
 			end
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
 		end
 	end 
 end

@@ -74,7 +74,7 @@ function leshrac_ult_go(ability, caster, damage, amp, enemy)
 	if amp then
 		damage = damage*ability.r_1_level*0.05
 	end
-	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_leshrac_arcana_slow", {duration = 0.2})
 	EmitSoundOn("Bahamut.ArcanaUlt", enemy)
 

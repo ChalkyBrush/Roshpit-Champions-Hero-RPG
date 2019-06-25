@@ -30,8 +30,8 @@ function lift_think(keys)
     if blockUnit then
     	forwardSpeed = 0
     end
-     print("FORWARD SPEED UP")
-    print(forwardSpeed)   
+    --print("FORWARD SPEED UP")
+   --print(forwardSpeed)   
 	local newPosition = origin+Vector(0,0,caster.holy_lift_velocity)+ability.forwardVector*forwardSpeed
 	caster.holy_lift_velocity = math.max(caster.holy_lift_velocity - 3, 0)
 	caster:SetAbsOrigin(newPosition)
@@ -72,9 +72,9 @@ function drop_think(keys)
     if blockUnit then
     	forwardSpeed = 0
     end
-    print(blockUnit)
-    print("FORWARD SPEED")
-    print(forwardSpeed)
+   --print(blockUnit)
+   --print("FORWARD SPEED")
+   --print(forwardSpeed)
 	local newPosition = origin+Vector(0,0,-caster.holy_lift_velocity)+ability.forwardVector*forwardSpeed
 	caster.holy_lift_velocity = math.min(caster.holy_lift_velocity + 3, 50)
 	caster:SetAbsOrigin(newPosition)
@@ -100,7 +100,7 @@ function drop_end(keys)
 	local ability = keys.ability
 	local location = caster:GetAbsOrigin()
 	local newLoc = GetGroundPosition(location, caster)
-	print("****DROP END****")
+	--print("****DROP END****")
 	--FindClearSpaceForUnit(caster, newLoc, true)
   	--Timers:CreateTimer(0.5,     function()
     --  caster:RemoveGesture(ACT_DOTA_CAST_ABILITY_1)
@@ -277,7 +277,7 @@ function d_c_projectile(caster, runeAbility, target, position)
 end
 
 function d_c_projectile_hit(event)
-	print("HIT")
+	--print("HIT")
 	local ability = event.ability
 	local caster = ability.paladin
 	local target = event.target
@@ -287,9 +287,9 @@ function d_c_projectile_hit(event)
 		Filters:ApplyHeal(caster, target, healAmount, true)
 		PopupHealing(target, healAmount)
 	else
-		print('d_c_projectile damage')
+		--print('d_c_projectile damage')
 		local damage = ability.projectileDamage * 0.5 * ability.e_4_level
-		print(damage)
+		--print(damage)
 		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 	end
 end

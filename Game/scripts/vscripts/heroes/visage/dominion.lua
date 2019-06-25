@@ -34,7 +34,7 @@ function dominion_bolt_impact(event)
 	local target = event.target
 	local ability = event.ability
 	local debuff_duration = event.duration
-	print("ekkan target unit name:"..target:GetUnitName())
+	--print("ekkan target unit name:"..target:GetUnitName())
 	if dominion_allowed_selfcasted_units(target:GetUnitName()) then
 		-- EmitSoundOn("Ekkan.Dominion.Impact", target)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_ekkan_dominion_debuff", {duration = debuff_duration})
@@ -332,7 +332,7 @@ function dominion_zombie_strike_hit(event)
 	local ability = event.ability
 	local damage = caster.q_1_level*0.12*ability.attack_damage
 	ability:ApplyDataDrivenModifier(event.caster, target, "modifier_hit_by_zombie_strike", {duration = 0.3})
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 end
 
 function zombie_strike_enemy_die(event)

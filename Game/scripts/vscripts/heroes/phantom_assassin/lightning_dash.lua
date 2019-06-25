@@ -78,7 +78,7 @@ function dash_think(event)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 				      if ability.particles < 12 then
 				        local particleName = "particles/units/heroes/hero_lina/lina_spell_laguna_blade_impact_sparks.vpcf"
 				        local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
@@ -126,7 +126,7 @@ function dash_end(event)
 		local stun_duration = b_c_level*0.01
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 				Filters:ApplyStun(caster, stun_duration, enemy)
 			end
 		end 
@@ -156,7 +156,7 @@ function regen_think(event)
 	local ability = event.ability
 	local modifier = caster:FindModifierByName("modifier_voltex_lightning_dash_regen")
 	local timeLeft = modifier:GetRemainingTime()
-	-- print(timeLeft)
+	--print(timeLeft)
 	local portion = timeLeft/3
 	ability.regen = math.ceil(ability.regen*portion)
 end

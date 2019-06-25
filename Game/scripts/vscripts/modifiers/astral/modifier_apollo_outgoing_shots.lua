@@ -36,7 +36,7 @@ function modifier_apollo_outgoing_shots:OnAttackLanded()
 				    if luck <= procChance then
 						CustomAbilities:QuickAttachParticle("particles/roshpit/astral/apollo_proc_start_ti7_lvl2.vpcf", target, 1)
 						local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.12*ability.w_3_level
-						Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+						Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 						target:AddNewModifier(caster, ability, "modifier_apollo_c_b_proc_visible", {duration = 10})
 						local newStacks = target:GetModifierStackCount("modifier_apollo_c_b_proc_visible", caster) + 1
 						target:SetModifierStackCount("modifier_apollo_c_b_proc_visible", caster, newStacks)

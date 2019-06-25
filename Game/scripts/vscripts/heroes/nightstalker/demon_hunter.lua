@@ -85,7 +85,7 @@ function demon_hunter_attack(event)
 	local healthdrain = (event.health_cost_percent/100)*attacker:GetMaxHealth()
 	local newHealth = math.max(attacker:GetHealth()-healthdrain, 1)
 	attacker:SetHealth(newHealth)
-	Filters:TakeArgumentsAndApplyDamage(target, attacker, demonHunterDamage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, attacker, demonHunterDamage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
 	CustomAbilities:QuickAttachParticle("particles/chernobog/demon_hunter_timedialate.vpcf", target, 2)
 	CustomAbilities:ChernobogDemonHunterManaReduced(attacker)
 end
@@ -102,8 +102,8 @@ function demon_hunter_a_b_attack(event)
 		if attacker:HasModifier("modifier_demon_hunter") or attacker:HasModifier("modifier_chernobog_glyph_5_a") then
 			CustomAbilities:QuickAttachParticle("particles/chernobog/chernobog_a_b_timedialate.vpcf", target, 2)
 			local extraDamage = rune_w_1_level*500*mana_drain_per_attack
-			print(extraDamage)
-			Filters:TakeArgumentsAndApplyDamage(target, attacker, extraDamage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+			--print(extraDamage)
+			Filters:TakeArgumentsAndApplyDamage(target, attacker, extraDamage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
 		end
 		if not attacker:HasModifier("modifier_demon_hunter") or attacker:HasModifier("modifier_chernobog_glyph_5_a") then
 			CustomAbilities:QuickAttachParticle("particles/chernobog/chernobog_a_b_timedialate.vpcf", attacker, 2)
@@ -150,7 +150,7 @@ function chernobog_always_think(event)
 	local ability = event.ability
 	if not caster:IsAlive() then
 		if caster:GetTimeUntilRespawn() == 0 then
-			print("KILL!")
+			--print("KILL!")
 			caster:SetHealth(10)
 			caster:ForceKill(true)
 		end

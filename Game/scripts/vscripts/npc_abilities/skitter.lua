@@ -1,5 +1,5 @@
 function BeginTeleport(event)
-	print("any skitter")
+	--print("any skitter")
   local caster = event.caster
   local ability = event.ability
   if not caster.dead then
@@ -66,7 +66,7 @@ end
 --       EmitSoundOn("Hero_Weaver.Footsteps", caster)
 --       ability:ApplyDataDrivenModifier(caster, caster, "modifier_skitter_teleport_datadriven", {})
 --     end)
---     print("SKITTERING")
+--    --print("SKITTERING")
   
 -- end
 

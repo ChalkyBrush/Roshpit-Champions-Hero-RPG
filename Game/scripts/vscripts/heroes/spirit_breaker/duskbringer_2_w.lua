@@ -15,7 +15,7 @@ function begin_ghost_hallow(event)
 end
 
 function ghost_trap_enter(event)
-	-- print("test duskbringer w1")
+	--print("test duskbringer w1")
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
@@ -76,7 +76,7 @@ function ghost_trap_a_b_thinker(event)
 		Timers:CreateTimer(0.15, function()
 			if target:IsAlive() then
 				CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", target:GetAbsOrigin()+Vector(0,0,40), 0.2)
-				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
 				EmitSoundOn("Duskbringer.GhostHallowAB", target)
 			end
 

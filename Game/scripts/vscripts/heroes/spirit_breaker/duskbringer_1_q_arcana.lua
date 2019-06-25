@@ -32,7 +32,7 @@ function duskbringer_terrorize_start(event)
 	EmitSoundOn("Duskbringer.Terrorize.Start", caster)
 	ability.playSound = true
 	caster:RemoveModifierByName("modifier_name_after_terrorize_falling")
-	local ability_in_slot = caster:GetAbilityByIndex(0)
+	local ability_in_slot = caster:GetAbilityByIndex(DOTA_Q_SLOT)
 	if ability_in_slot:GetAbilityName() == ability:GetAbilityName() then
 		CustomAbilities:AddAndOrSwapSkill(caster, ability:GetAbilityName(), "duskbringer_arcana_terrorize_phantom_plasma", 0)
 	end
@@ -82,7 +82,7 @@ function terrorize_lift_end(event)
 	ability.fallSpeed = 20
 	caster:RemoveModifierByName("modifier_terrorize_animation")
 
-	local ability_in_slot = caster:GetAbilityByIndex(0)
+	local ability_in_slot = caster:GetAbilityByIndex(DOTA_Q_SLOT)
 	if ability_in_slot:GetAbilityName() == "duskbringer_arcana_terrorize_phantom_plasma" then
 		CustomAbilities:AddAndOrSwapSkill(caster, "duskbringer_arcana_terrorize_phantom_plasma", ability:GetAbilityName(), 0)
 	end
@@ -141,7 +141,7 @@ function duskbringer_terrorize_bomb_start(event)
 				if q_1_level > 0 then
 					increment_duskfire_stacks(caster, enemy, stack_increment)
 				end
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
 				if q_2_level > 0 then
 					local duration = DUSKBRINGER_Q2_ARCANA2_DURATION_PER_LV*q_2_level
 					if not enemy:HasModifier("modifier_terrorize_panic_immune") then

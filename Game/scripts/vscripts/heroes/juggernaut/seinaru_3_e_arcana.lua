@@ -171,7 +171,7 @@ function vengeance_hit(event)
 	if #enemies > 0 then
 		for i = 1, #enemies, 1 do
 			local enemy = enemies[i]
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		end
 	end 
 end

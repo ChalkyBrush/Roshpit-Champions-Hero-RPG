@@ -30,7 +30,7 @@ end
 
 function Attributes:ModifyBonuses(hero)
 
-    print("Modifying Stats Bonus of hero "..hero:GetUnitName())
+   --print("Modifying Stats Bonus of hero "..hero:GetUnitName())
 
     -- hero:AddNewModifier(hero, nil, "modifier_movespeed_cap", {})
     Timers:CreateTimer(function()
@@ -108,13 +108,13 @@ function Attributes:ModifyBonuses(hero)
             end
 
             local mana_stacks = math.abs(intellect * Attributes.mana_adjustment)
-            print("MANA STACKS A:")
-            print(mana_stacks)
+           --print("MANA STACKS A:")
+           --print(mana_stacks)
             if hero:HasModifier("modifier_halcyon_soul_glove") then
                mana_stacks = mana_stacks - intellect*Attributes.v.MANA_PER_INT*0.5
             end
-            print("MANA STACKS B:")
-            print(mana_stacks)
+           --print("MANA STACKS B:")
+           --print(mana_stacks)
             if hero:GetMaxMana() - mana_stacks > 300 then
              hero:SetModifierStackCount("modifier_mana_bonus", Attributes.applier, mana_stacks)
             end
@@ -136,7 +136,7 @@ function Attributes:ModifyBonuses(hero)
             -- end
 
             -- local spellpower_stacks = intellect
-            -- print(spellpower_stacks)
+            --print(spellpower_stacks)
             -- hero:SetModifierStackCount("modifier_spell_damage_constant", Attributes.applier, spellpower_stacks)
 
             
@@ -149,7 +149,7 @@ function Attributes:ModifyBonuses(hero)
 
         hero:CalculateStatBonus()
         if hero:GetMaxMana() < intellect*5 then
-            print("REMOVE MANA MOD")
+           --print("REMOVE MANA MOD")
             hero:RemoveModifierByName("modifier_mana_bonus")
         end
         return 0.03

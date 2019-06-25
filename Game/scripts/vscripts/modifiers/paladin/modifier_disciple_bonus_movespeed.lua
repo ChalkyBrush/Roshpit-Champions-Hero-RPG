@@ -14,7 +14,7 @@ function class:OnCreated( event )
 end
 
 function class:GetModifierMoveSpeed_Limit()
-	print(self.movespeed)
+	--print(self.movespeed)
 	return self.movespeed
 end
 

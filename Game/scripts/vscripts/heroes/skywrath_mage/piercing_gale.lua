@@ -169,7 +169,7 @@ function gale_hit(event)
 	if crit then
 		damage = damage + damage*0.2*ability.w_2_level
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 end
 
 function sephyr_passive_think_gale(event)

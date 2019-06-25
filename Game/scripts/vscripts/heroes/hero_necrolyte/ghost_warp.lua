@@ -101,7 +101,7 @@ function ghost_warp_take_damage(event)
 			local currentHealth = caster:GetHealth()
 			if math.floor(ability.previous_health * T32_HEALTH_THRESHOLD_PERCENT/caster:GetMaxHealth()) - math.floor(currentHealth * T32_HEALTH_THRESHOLD_PERCENT/caster:GetMaxHealth()) > 0 then
 				e2_damage = e2_damage * VENOMORT_T32_AMPLIFY
-				print('E2 amplify apply')
+				--print('E2 amplify apply')
 			end
 		end
 		ability.previous_health = caster:GetHealth()

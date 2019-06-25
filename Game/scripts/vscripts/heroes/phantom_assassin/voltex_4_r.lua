@@ -87,7 +87,7 @@ function voltex_static_field_spark_hit(event)
 	local stacks = target:GetModifierStackCount("modifier_voltex_static_field_post_mitigation", caster)
 	local newStacks = math.min(stacks + 1, 50)
 	target:SetModifierStackCount("modifier_voltex_static_field_post_mitigation", caster, newStacks)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 	if caster:HasModifier("modifier_voltex_immortal_weapon_3") then
 		caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_voltex_immortal_paralysis", {duration = 4.5})
 	end
@@ -136,7 +136,7 @@ function voltex_rune_r_1_bolt(caster, ability, damage, point)
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				voltex_rune_r_4_increment(caster, ability)
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 			end
 		end 
 		CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", point, 0.03)
@@ -152,7 +152,7 @@ function voltex_rune_r_2_onattacklanded(event)
     if r_2_level > 0 and luck <= VOLTEX_R2_CHANCE then
         local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * (VOLTEX_R2_BASE_DMG_PER_ATT + VOLTEX_R2_DMG_PER_ATT * r_2_level)
         Filters:ApplyStun(attacker, 0.2, target)
-        Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+        Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
         -- Renders the particle on the target
         local particle = ParticleManager:CreateParticle("particles/roshpit/voltex/voltex_bolt_lightning_bolt.vpcf", PATTACH_WORLDORIGIN, target)
         -- Raise 1000 value if you increase the camera height above 1000

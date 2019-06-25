@@ -11,7 +11,7 @@ function TerrasicGuardTrigger(trigger)
 end
 
 function terrasic_guard_die(event)
-	print("GUARD DIE")
+	--print("GUARD DIE")
 	local caster = event.caster
 	if not caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 		return false
@@ -64,7 +64,7 @@ function lava_beast_think(event)
 		if caster:HasModifier("modifier_lava_beast_submerged") then
 			caster:RemoveModifierByName("modifier_lava_beast_submerged")
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_beast_fighting", {})
-			print("RISE!")
+			--print("RISE!")
 			StartAnimation(caster, {duration=1, activity=ACT_DOTA_ATTACK, rate=1}) 
 			for i = 1, 13, 1 do
 				Timers:CreateTimer(0.03*i, function()
@@ -86,7 +86,7 @@ function lava_beast_think(event)
 		if not caster:HasModifier("modifier_lava_beast_submerged") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_lava_beast_submerged", {})
 			caster:RemoveModifierByName("modifier_beast_fighting")
-			print("FALL!")
+			--print("FALL!")
 			StartAnimation(caster, {duration=1, activity=ACT_DOTA_ATTACK, rate=1}) 
 			for i = 1, 13, 1 do
 				Timers:CreateTimer(0.03*i, function()
@@ -268,8 +268,8 @@ function black_dragon_think(event)
 		local directionVector = WallPhysics:rotateVector(Vector(1,0), caster.interval*2*math.pi/10)
 		caster:MoveToPosition(basePos + directionVector*radius)
 		caster.interval = caster.interval + 1
-		-- print("what!")
-		-- print(basePos + directionVector*radius)
+		--print("what!")
+		--print(basePos + directionVector*radius)
 	elseif caster.phase == 2 then
 		caster:MoveToPosition(Vector(-3904, -8832))
 		local distance = WallPhysics:GetDistance(caster:GetAbsOrigin()*Vector(1,1,0), Vector(-3904, -8832))
@@ -294,7 +294,7 @@ function black_dragon_die(event)
 		return false
 	end
 	caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_GROUND)
-	print("BLACK DRAGON DIE")
+	--print("BLACK DRAGON DIE")
 	Timers:CreateTimer(0.5, function()
 		EmitSoundOnLocationWithCaster(Vector(-3976, -8613, 700), "Tanari.StatueRise", Events.GameMaster)
 	end)
@@ -1014,7 +1014,7 @@ function FireKeyHolderInitTrigger(event)
 		return
 	end
 	Tanari.FireKeyBossStart = true
-	print("FIRED?")
+	--print("FIRED?")
 	Dungeons.respawnPoint = Vector(-1920, -4736)
 
 	Tanari.fireKeyBlock1 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = Vector(-2233,-4224, 160), name ="wallObstruction"})
@@ -1124,7 +1124,7 @@ end
 
 function steam_end(event)
 	local victim = event.caster
-	print("STEAm END?")
+	--print("STEAm END?")
 	if event.type == DAMAGE_TYPE_PHYSICAL then
 		victim.physicalStacks = 0
 	elseif event.type == DAMAGE_TYPE_MAGICAL then

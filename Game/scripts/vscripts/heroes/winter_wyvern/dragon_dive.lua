@@ -27,7 +27,7 @@ function begin_dinath_dive(event)
 		testSpeed = math.min(testSpeed + 1, 40)
 		testDistanceMoved = testDistanceMoved + testSpeed
 		ticksToReachPoint = ticksToReachPoint + 1
-		-- print(testDistanceMoved)
+		--print(testDistanceMoved)
 	end
 	ability.distanceChecker = math.max(90, totalFlyDistance/100)
 	ability.straightVector = caster:GetAbsOrigin()
@@ -93,7 +93,7 @@ function dinath_diving_think(event)
 	if afterWallPosition == (ability.straightVector + ability.fv*moveVelocity) then
 		caster:SetAbsOrigin(newPosition)
 	else
-		print("HERE?")
+		--print("HERE?")
 		caster:RemoveModifierByName("modifier_dinath_diving")
 		caster:SetAbsOrigin(newPosition-ability.fv*moveVelocity)
 	end

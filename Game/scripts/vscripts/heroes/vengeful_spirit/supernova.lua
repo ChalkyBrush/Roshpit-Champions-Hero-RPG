@@ -8,8 +8,8 @@ function start_channel(event)
 	ability.rotationIndex = 0
 	ability.fallVelocity = 1
 	ability.startRotation = vectorToAngle(caster:GetForwardVector())
-	print(caster:GetForwardVector())
-	print(ability.startRotation)
+	--print(caster:GetForwardVector())
+	--print(ability.startRotation)
 	caster:RemoveModifierByName("modifier_solunia_in_between_flare")
 	ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "solunia")
 	ability.r_3_damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.05*ability.r_3_level
@@ -174,7 +174,7 @@ function novaExplosion(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 580, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, BASE_ABILITY_R, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
 			Filters:ApplyStun(caster, stun_duration, enemy)
 			if ability.r_2_level > 0 then
 				Solunia_Apply_R2_Stack(event, enemy)
@@ -333,10 +333,10 @@ function swap_sun_moon(currentType, caster)
 		swapAbility(caster, "solunia_solarang", "solunia_lunarang", 1)
 		swapAbility(caster, "solunia_warp_flare", "solunia_lunar_warp_flare", 2)
 		if caster:HasModifier("modifier_solunia_arcana2") then
-			swapAbility(caster, "solunia_solar_alpha_spark", "solunia_lunar_alpha_spark", DOTA_ULTIMATE_SLOT)
+			swapAbility(caster, "solunia_solar_alpha_spark", "solunia_lunar_alpha_spark", DOTA_R_SLOT)
 			arcana2runes(caster, caster:FindAbilityByName("solunia_solar_alpha_spark"))
 		else
-			swapAbility(caster, "solunia_supernova", "solunia_eclipse", DOTA_ULTIMATE_SLOT)
+			swapAbility(caster, "solunia_supernova", "solunia_eclipse", DOTA_R_SLOT)
 		end
 
 	  elseif currentType == "moon" then
@@ -354,10 +354,10 @@ function swap_sun_moon(currentType, caster)
 	  	swapAbility(caster, "solunia_lunarang", "solunia_solarang", 1)
 	  	swapAbility(caster, "solunia_lunar_warp_flare", "solunia_warp_flare", 2)
 	  	if caster:HasModifier("modifier_solunia_arcana2") then
-	  		swapAbility(caster, "solunia_lunar_alpha_spark", "solunia_solar_alpha_spark", DOTA_ULTIMATE_SLOT)
+	  		swapAbility(caster, "solunia_lunar_alpha_spark", "solunia_solar_alpha_spark", DOTA_R_SLOT)
 	  		arcana2runes(caster, caster:FindAbilityByName("solunia_lunar_alpha_spark"))
 	  	else
-			swapAbility(caster, "solunia_eclipse", "solunia_supernova", DOTA_ULTIMATE_SLOT)
+			swapAbility(caster, "solunia_eclipse", "solunia_supernova", DOTA_R_SLOT)
 		end
 
 	  	local wAbility = caster:FindAbilityByName("solunia_solarang")
@@ -401,7 +401,7 @@ function supernova_projectile_hit(event)
 	if ability:GetAbilityName() == "solunia_supernova" then
 		target.solunia_c_c_pullVector = target.solunia_c_c_pullVector*-1
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.r_3_damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.r_3_damage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 	if not target.jumpLock then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_supernova_projectile_pull", {duration = 0.7})
 	end

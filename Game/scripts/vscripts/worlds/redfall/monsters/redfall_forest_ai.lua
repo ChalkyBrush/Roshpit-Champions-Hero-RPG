@@ -15,7 +15,7 @@ function RedfallQuest1Trigger(trigger)
 			questGuy.talking = false
 		end)
 	end
-	DeepPrintTable(hero.RedfallQuests)
+	--DeepPrintTable(hero.RedfallQuests)
 	if hero.RedfallQuests[1].state == -1 then
 		hero.RedfallQuests[1].state = 0
 		Timers:CreateTimer(5, function()
@@ -108,14 +108,7 @@ function createSummonParticle(position, caster, target)
     ParticleManager:SetParticleControl(pfx,1,target:GetAbsOrigin()+Vector(0,0,422))
 	Timers:CreateTimer(3.5, function()
 		ParticleManager:DestroyParticle(pfx, false)
-	end)
-	-- particleName = "particles/econ/items/pugna/pugna_ward_ti5/pugna_ward_lightning.vpcf"
-	-- local pfx2 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
- --    ParticleManager:SetParticleControl(pfx2,0,caster:GetAbsOrigin()+Vector(0,0,200))   
- --    ParticleManager:SetParticleControl(pfx2,1,target:GetAbsOrigin()+Vector(0,0,822))
-	-- Timers:CreateTimer(3.5, function()
-	-- 	ParticleManager:DestroyParticle(pfx2, false)
-	-- end)		
+	end)	
 end
 
 function ForestHouseTrigger(trigger)
@@ -271,26 +264,21 @@ function JuggStatueTrigger()
 	Redfall:JuggStatueTrigger()
 end
 
-function maru_disciple_die(event)
-	if not event.unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
-		return false
+function redfall_disciple_of_maru_die(event)
+	if not Redfall.DisciplesSlain then
+		Redfall.DisciplesSlain = 0
 	end
-	if event.unit:GetUnitName() == "redfall_disciple_of_maru" then
-		if not Redfall.DisciplesSlain then
-			Redfall.DisciplesSlain = 0
-		end
-		Redfall.DisciplesSlain = Redfall.DisciplesSlain + 1
-		for i = 1, #MAIN_HERO_TABLE, 1 do
-			MAIN_HERO_TABLE[i].RedfallQuests[2].state = Redfall.DisciplesSlain
-		end
-		if Redfall.DisciplesSlain == 12 then
-			CustomGameEventManager:Send_ServerToAllClients("newQuest", {})
-			EmitSoundOnLocationWithCaster(Vector(-6916, -8042), "Redfall.JuggStatue.End", Redfall.RedfallMaster)
-			for i = 1, 240, 1 do
-				Timers:CreateTimer(0.03*i, function()
-					Redfall.JuggStatue:SetAbsOrigin(Redfall.JuggStatue:GetAbsOrigin()-Vector(0,0,1))
-				end)
-			end
+	Redfall.DisciplesSlain = Redfall.DisciplesSlain + 1
+	for i = 1, #MAIN_HERO_TABLE, 1 do
+		MAIN_HERO_TABLE[i].RedfallQuests[2].state = Redfall.DisciplesSlain
+	end
+	if Redfall.DisciplesSlain == 12 then
+		CustomGameEventManager:Send_ServerToAllClients("newQuest", {})
+		EmitSoundOnLocationWithCaster(Vector(-6916, -8042), "Redfall.JuggStatue.End", Redfall.RedfallMaster)
+		for i = 1, 240, 1 do
+			Timers:CreateTimer(0.03*i, function()
+				Redfall.JuggStatue:SetAbsOrigin(Redfall.JuggStatue:GetAbsOrigin()-Vector(0,0,1))
+			end)
 		end
 	end
 end
@@ -564,7 +552,7 @@ end
 function redfall_dodge(event)
 	local caster = event.caster
 	local ability = event.ability
-	print("REDFALL DODGE!!")
+	--print("REDFALL DODGE!!")
 	if caster:GetUnitName() == "redfall_forest_ranger" then
 		local casterOrigin = caster:GetAbsOrigin()
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
@@ -653,7 +641,7 @@ function forest_ranger_think(event)
 			if arrowAbility:IsFullyCastable() then
 				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
 				if #enemies > 0 then
-					print("HEAVY ARROW")
+					--print("HEAVY ARROW")
 					local castPoint = enemies[1]:GetAbsOrigin()
 					local newOrder = {
 							UnitIndex = caster:entindex(),
@@ -720,8 +708,9 @@ function forest_ranger_die(event)
 		Redfall.ForestRangersDied = 0
 	end
 	Redfall.ForestRangersDied = Redfall.ForestRangersDied + 1
+	print("Forest Ranger Died!")
 	if Redfall.ForestRangersDied == 7 then
-		 Redfall:SpawnRedRaven(Vector(-3729, -6332), RandomVector(1))
+		 Redfall:SpawnRedRaven(Vector(-3456, -8057), Vector(0, 1, 0))
 	end
 end
 
@@ -1068,23 +1057,25 @@ function cultist_entering_think(event)
 	caster.rotationIndex = caster.rotationIndex + 1
 end
 
-function crimsyth_cultist_die(event)
-	local caster = event.caster
+function redfall_crimsyth_cultist_die(event)
+	print("-------------------redfall_crimsyth_cultist_die-------------------")
+	local unit = event.unit
 	local ability = event.ability
-	if not caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+	if not unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 		return false
 	end
-	if caster.bossLock then
+	if unit.bossLock then
 		return false
 	end
-	local treeDummy = caster.treeDummy
+	local treeDummy = unit.treeDummy
 	if not treeDummy then
 		return
 	end
 	treeDummy.cultistsSlain = treeDummy.cultistsSlain + 1
+	print("Cultists slain: "..treeDummy.cultistsSlain)
 	if treeDummy.boss then
 		if treeDummy.cultistsSlain == 20 then
-			Redfall:SpawnCanyonBoss()
+			Redfall:SpawnCanyonBossParagonTest()
 		end
 		return false
 	end
@@ -1118,8 +1109,8 @@ function crimsyth_cultist_die(event)
 						EmitSoundOnLocationWithCaster(position, "Redfall.TreeHealedMain", Events.GameMaster)
 						EmitSoundOnLocationWithCaster(position, "Redfall.TreeHealed", Redfall.RedfallMaster)
 						local particle = "particles/roshpit/redfall/tree_healed.vpcf"
-						local pfxA = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, caster )
-						FindClearSpaceForUnit(caster, position, false)
+						local pfxA = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, unit )
+						FindClearSpaceForUnit(unit, position, false)
 						ParticleManager:SetParticleControl( pfxA, 0, position )
 						ParticleManager:SetParticleControl( pfxA, 1, position )
 						ParticleManager:SetParticleControl( pfxA, 2, Vector(0,1) )
@@ -1168,8 +1159,7 @@ function crimsyth_cultist_die(event)
 	end
 end
 
-function cult_boss_death(event)
-
+function redfall_crimsyth_cultist_master_die(event)
 	for i = 1, #MAIN_HERO_TABLE, 1 do
 		if MAIN_HERO_TABLE[i].RedfallQuests[1].state >= 0 then
 			MAIN_HERO_TABLE[i].RedfallQuests[1].state = 1
@@ -1183,7 +1173,7 @@ function crimsith_cult_master_pull(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	print("PULL??")
+	--print("PULL??")
 	EmitSoundOn("Redfall.CultBoss.PullAbilityEffect", target)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova_g.vpcf", caster, 3)
 	local particleName = "particles/units/heroes/hero_lich/lich_dark_ritual.vpcf"
@@ -1224,7 +1214,7 @@ function use_autumnleaf_firefly(event)
 			EmitSoundOnClient("General.Cancel", caster:GetPlayerOwner())
 		end
 	else
-		print("MIN MAP EVENT")
+		--print("MIN MAP EVENT")
 		MinimapEvent(caster:GetTeamNumber(), caster, -15352, -8303, DOTA_MINIMAP_EVENT_BASE_UNDER_ATTACK, 4)
 		EmitSoundOnClient("General.Cancel", caster:GetPlayerOwner())
 	end
@@ -1255,19 +1245,16 @@ function redfall_unit_die(event)
 		return false
 	end
 	local unit = event.unit
-	if Redfall.TwigDropped then
-	else
-		local luck = RandomInt(1,2200-GameState:GetPlayerPremiumStatusCount()*100)
-		if luck == 1 then
-			Redfall.TwigDropped = true
-			Redfall:DropAshTwig(event.unit:GetAbsOrigin())
-		end
-		if luck == 2 then
-			RPCItems:RollRedfallRunners(event.unit:GetAbsOrigin())
-		end
-		if luck == 3 then
-			RPCItems:RollFuchsiaRing(event.unit:GetAbsOrigin())
-		end
+	local luck = RandomInt(1, 2200 - GameState:GetPlayerPremiumStatusCount() * 100)
+	if luck == 1 and Redfall.TwigDropped == false then
+		Redfall.TwigDropped = true
+		Redfall:DropAshTwig(event.unit:GetAbsOrigin())
+	end
+	if luck == 2 then
+		RPCItems:RollRedfallRunners(event.unit:GetAbsOrigin())
+	end
+	if luck == 3 then
+		RPCItems:RollFuchsiaRing(event.unit:GetAbsOrigin())
 	end
 end
 
@@ -1399,77 +1386,37 @@ function ash_tree_think(event)
 	caster.spawnTicks = caster.spawnTicks + 1
 end
 
-function massive_arrow_ability_death(event)
-	local caster = event.caster
-	local position = caster:GetAbsOrigin()
-	if caster:GetUnitName() == "redfall_red_raven" then
+function redfall_red_raven_die(event)
+	print("redfall_red_raven_die triggered")
+	local unit = event.unit	
+	if unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+		print("Unit: "..unit:GetUnitName())
+		print("Position: "..tostring(unit:GetAbsOrigin()))
+		local position = unit:GetAbsOrigin()
 		Redfall:DropEnchantedLeaf(position)
-	elseif caster:GetUnitName() == "redfall_ashara" then
-		if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
-			EmitGlobalSound("Tutorial.Quest.complete_01")
-			Timers:CreateTimer(1.5, function()
-				EmitSoundOn("Redfall.Ashara.Death", caster)
-			end)
-			Timers:CreateTimer(4, function()
-				Redfall:DefeatDungeonBoss("ashara", position)
-			end)
-			for i = 1, #MAIN_HERO_TABLE, 1 do
-				MAIN_HERO_TABLE[i].RedfallQuests[5].active = 2
-				MAIN_HERO_TABLE[i].RedfallQuests[5].state = 1
-			end
-			local luck = RandomInt(1,GameState:GetDifficultyFactor())
-			if luck == 1 then
-				RPCItems:RollBootsOfAshara(position)
-			end
-		end
 	end
 end
 
-function spirit_of_ashara_think(event)
-	local caster = event.caster
-	local damage = event.damage
-	local ability = event.ability
-	if not caster:IsAlive() then
-		return false
-	end
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	if #enemies > 0 then
-		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
-			local particleName = "particles/roshpit/redfall/ashara_moonbeam_lucent_beam_impact_shared_ti_5_gold.vpcf"
-			local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
-			for i = 1, 8, 1 do
-				ParticleManager:SetParticleControlEnt(pfx, i, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", enemy:GetAbsOrigin(), true)
-			end
-			ParticleManager:SetParticleControl(pfx, 2, Vector(0,0,1000))
-			for i = 3, 12, 1 do
-				ParticleManager:SetParticleControlEnt(pfx, i, enemy, PATTACH_CUSTOMORIGIN, "attach_origin", enemy:GetAbsOrigin(), true)
-			end
-			EmitSoundOn("Redfall.SpiritAshara.BeamImpact", enemy)	
-			Timers:CreateTimer(4, function()
-				ParticleManager:DestroyParticle(pfx, false)
-			end)
+function redfall_ashara_die(event)
+	local unit = event.unit
+	local position = unit:GetAbsOrigin()
+	if unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+		EmitGlobalSound("Tutorial.Quest.complete_01")
+		Timers:CreateTimer(1.5, function()
+			EmitSoundOn("Redfall.Ashara.Death", unit)
+		end)
+		Timers:CreateTimer(4, function()
+			Redfall:DefeatDungeonBoss("ashara", position)
+		end)
+		for i = 1, #MAIN_HERO_TABLE, 1 do
+			MAIN_HERO_TABLE[i].RedfallQuests[5].active = 2
+			MAIN_HERO_TABLE[i].RedfallQuests[5].state = 1
 		end
-	end 
-end
-
-function spirit_of_ashara_die(event)
-
-	local caster = event.caster
-	local ability = event.ability
-	if not caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
-		return false
+		local luck = RandomInt(1,GameState:GetDifficultyFactor())
+		if luck == 1 then
+			RPCItems:RollBootsOfAshara(position)
+		end
 	end
-	for i = 1, #MAIN_HERO_TABLE, 1 do
-		MAIN_HERO_TABLE[i].RedfallQuests[5].objective = "redfall_quest_5_objective_3"
-		CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "newQuest", {} )
-		Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, MAIN_HERO_TABLE[i], "modifier_blessing_of_ashara", {})
-		createSummonParticle(caster:GetAbsOrigin(), caster, MAIN_HERO_TABLE[i])
-	end  
-
-	Redfall.AsharaExitPortalActive = true
-	EmitGlobalSound("ui.set_applied")
-	Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(-9762, 15336, -50+Redfall.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
 end
 
 function ashara_leap_cast(event)
@@ -1726,7 +1673,7 @@ function ashara_wave_unit_die(event)
 	end
 	local caster = event.caster
 	Redfall.AsharaWaveCounter = Redfall.AsharaWaveCounter + 1
-	print("REDFALL WAVE UNIT DIE!!")
+	--print("REDFALL WAVE UNIT DIE!!")
 	local spawnPositionTable = {Vector(1244,-14176), Vector(1856, -14750), Vector(1244, -15424), Vector(513, -14750)}
 	if Redfall.AsharaWaveCounter == 28 then
 		for i = 1, #spawnPositionTable, 1 do
@@ -1792,7 +1739,7 @@ end
 function begin_splitshot(event)
 	-- Dungeons:Debug()
 	-- local cheats = Convars:GetBool("developer")
-	-- print(cheats)
+	----print(cheats)
 	local caster = event.caster
 	local ability = event.ability
 	local abilityLevel = ability:GetLevel()
@@ -1836,11 +1783,11 @@ function create_shot2(ability, caster, fv, arrowOrigin)
 	local start_radius = 60
 	local end_radius = 60
 	local speed = 1100
-	print(fv)
-	print(arrowOrigin)
-	print(caster:GetUnitName())
-	print(ability:GetAbilityName())
-	print("ASHARA ARROW")
+	--print(fv)
+	--print(arrowOrigin)
+	--print(caster:GetUnitName())
+	--print(ability:GetAbilityName())
+	--print("ASHARA ARROW")
 		local info = 
 		{
 				Ability = ability,
@@ -1904,7 +1851,7 @@ function fenrir_ghost_think(event)
 	end
 end
 
-function main_fenrir_die(event)
+function redfall_fenrir_die(event)
 	if not event.unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 		return false
 	end
@@ -1916,20 +1863,65 @@ function main_fenrir_die(event)
 	end
 end
 
-function fenrir_main_think(event)
-	local caster = event.caster
-	if caster.aggro then
-		if not caster.lock then
-			caster:Stop()
-			caster.lock = true
+function redfall_fenrir_think(event)
+	local target = event.target
+	if target.buddiesTable then
+		local aggro = false
+		local gottaMove = false
+		for i = 1, #target.buddiesTable, 1 do
+			local buddy = target.buddiesTable[i]
+			if IsValidEntity(buddy) then
+				if buddy.aggro then
+					aggro = true
+					break
+				end
+			end
 		end
-		return false
+		if aggro then
+			for i = 1, #target.buddiesTable, 1 do
+				local buddy = target.buddiesTable[i]
+				if IsValidEntity(buddy) then
+					if not buddy.lock then
+						buddy:Stop()
+						buddy.lock = true
+						buddy.aggro = true
+					end
+					return false
+				end
+			end
+		end
+		for i = 1, #target.buddiesTable, 1 do
+			local buddy = target.buddiesTable[i]
+			if IsValidEntity(buddy) then
+				local distanceToTarget = WallPhysics:GetDistance(buddy.targetPoint, buddy:GetAbsOrigin()*Vector(1,1,0))
+				buddy:MoveToPosition(buddy.targetPoint)
+				if distanceToTarget < 150 then
+					gottaMove = true
+					break
+				end
+			end
+		end
+		if gottaMove then
+			local targetPoint = target.buddiesTable[1].movementTable[RandomInt(1,#target.buddiesTable[1].movementTable)]
+			for i = 1, #target.buddiesTable, 1 do
+				local buddy = target.buddiesTable[i]
+				if IsValidEntity(buddy) then
+					buddy.targetPoint = targetPoint
+				end
+			end
+		end
+	else
+		if target.aggro then
+			if not target.lock then
+				target:Stop()
+				target.lock = true
+			end
+			return false
+		end
+		local distanceToTarget = WallPhysics:GetDistance(target.targetPoint, target:GetAbsOrigin()*Vector(1,1,0))
+		target:MoveToPosition(target.targetPoint)
+		if distanceToTarget < 150 then
+			target.targetPoint = target.movementTable[RandomInt(1,#target.movementTable)]
+		end
 	end
-	local distanceToTarget = WallPhysics:GetDistance(caster.targetPoint, caster:GetAbsOrigin()*Vector(1,1,0))
-	caster:MoveToPosition(caster.targetPoint)
-	if distanceToTarget < 150 then
-		caster.targetPoint = caster.movementTable[RandomInt(1,#caster.movementTable)]
-	end
-	local position = caster:GetAbsOrigin()
-	
 end

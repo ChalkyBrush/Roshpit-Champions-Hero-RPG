@@ -1134,8 +1134,8 @@
 		// Special Mobs
 		//------------------------		
 
-		"DOTA_Tooltip_modifier_paragon"								"Монстр Парагона"
-		"DOTA_Tooltip_modifier_paragon_Description"					"Мощное элитное существо"
+		"DOTA_Tooltip_modifier_paragon_pack"								"Монстр Парагона"
+		"DOTA_Tooltip_modifier_paragon_pack_Description"					"Мощное элитное существо"
 
 		"DOTA_Tooltip_modifier_paragon_solo"						"Монстр Парагона"
 		"DOTA_Tooltip_modifier_paragon_solo_Description"			"Мощное легендарное существо"

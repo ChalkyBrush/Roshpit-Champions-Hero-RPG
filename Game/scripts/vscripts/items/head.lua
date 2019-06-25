@@ -4,9 +4,10 @@ end
 
 
 function Head:add_modifiers(hero, inventory_unit, item)
-	print("[Head:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	--print("[Head:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	--DeepPrintTable(item)
 	if not item.newItemTable then
-		print("[Error] Head:add_modifiers item.newItemTable is null")
+		--print("[Error] Head:add_modifiers item.newItemTable is null")
 		RPCItems:ItemUTIL_Remove(item)
 		return
 	end
@@ -51,9 +52,9 @@ end
 
 
 function Head:action(propertyName, propertyValue, hero, inventory_unit, head_ability, item)
-	print("[Head:action] propertyName:"..tostring(propertyName))
+	--print("[Head:action] propertyName:"..tostring(propertyName))
 	if type(propertyValue) == "string" then
-		print("[action] type(propertyValue) == string")
+		--print("[action] type(propertyValue) == string")
 		propertyValue = 1
 	end
 	if propertyName == "strength" then
@@ -104,9 +105,9 @@ function Head:action(propertyName, propertyValue, hero, inventory_unit, head_abi
 		head_ability.attack_damage = head_ability.attack_damage + Amulet:AdjustAttackPowerBonus(hero, propertyValue)
 		Head:addBasicModifier(head_ability.attack_damage, hero, inventory_unit, "modifier_helm_attack_damage", head_ability)
 	elseif propertyName == "lifesteal" then
-		print("LIFESTEAL: ")
+		--print("LIFESTEAL: ")
 		head_ability.lifesteal = head_ability.lifesteal + propertyValue
-		print(head_ability.lifesteal)
+		--print(head_ability.lifesteal)
 		Head:addBasicModifier(head_ability.lifesteal, hero, inventory_unit, "modifier_helm_lifesteal", head_ability)
 	elseif propertyName == "vision" then
 		Head:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_helm_vision", head_ability)
@@ -248,7 +249,7 @@ function Head:action(propertyName, propertyValue, hero, inventory_unit, head_abi
 		RPCItems:PreacheArcanaResources(item)
 		local suffix = propertyName:gsub("!arcana!_", "")
 		local modifierName = "modifier_"..suffix
-		print(modifierName)
+		--print(modifierName)
 		Head:addItemModifier(0, hero, inventory_unit, modifierName, item)
 	elseif propertyName == "shark_helmet" then
 		Head:addItemModifier(0, hero, inventory_unit, "modifier_dark_reef_shark_helmet", item)
@@ -291,7 +292,7 @@ function Head:runeProperty(propertyName, propertyValue, hero)
 		end
 	end
 	if type(propertyValue) == "string" then
-		print("[Head:runeProperty] propertyValue:"..propertyValue)
+		--print("[Head:runeProperty] propertyValue:"..propertyValue)
 		return
 	end
 	if propertyName == "rune_q_1" then
@@ -347,23 +348,23 @@ end
 
 function Head:setRuneBonusNetTable(value, rune, hero)
 	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_"..rune.."_head", {bonus = value} )
-	print("Setting Rune Net Table: ")
-	print(tostring(hero:GetEntityIndex()).."_"..rune.."_head")
+	--print("Setting Rune Net Table: ")
+	--print(tostring(hero:GetEntityIndex()).."_"..rune.."_head")
 end
 
 function Head:addBasicModifier(propertyValue, hero, inventory_unit, modifier_name, head_ability)
-	print(inventory_unit)
+	--print(inventory_unit)
 	--local stacks = hero:GetModifierStackCount(modifierName, inventory_unit)
 	head_ability = inventory_unit:FindAbilityByName("helm_slot")
 	head_ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
 	--hero:SetModifierStackCount( modifier_name, head_ability, (propertyValue+stacks) )
 	hero:SetModifierStackCount( modifier_name, head_ability, propertyValue )
-	print(propertyValue)
-	print(modifier_name)
+	--print(propertyValue)
+	--print(modifier_name)
 end
 
 function Head:remove_modifiers(hero)
-	print("REMOVE HEAD MODIFIERS")
+	--print("REMOVE HEAD MODIFIERS")
 	local headModifierTable = {"modifier_helm_strength", "modifier_helm_agility", "modifier_helm_intelligence", "modifier_helm_magic_resist", "modifier_helm_base_ability_damage", "modifier_helm_item_damage_inc", "modifier_helm_movespeed", "modifier_helm_armor", "modifier_helm_health_regen", "modifier_helm_mana_regen","modifier_helm_max_health","modifier_helm_max_mana", "modifier_hyper_visor", "modifier_helm_respawn","modifier_white_mage_hat", "attack_speed", "modifier_ruby_dragon", "modifier_centaur_horns", "modifier_death_whisper", "modifier_wild_nature_one", "modifier_wild_nature_two", "modifier_luma_guard", "modifier_helm_odin", "modifier_mugato", "modifier_witch_hat", "modifier_trickster_mask", "modifier_emerald_douli", "modifier_mask_of_tyrius", "modifier_tyrius_buff", "modifier_cerulean_high_guard", "modifier_helm_attack_damage", "modifier_super_ascendency", "modifier_phantom_sorcerer", "modifier_arcane_cascade_hat", "modifier_samurai_helmet", "modifier_helm_lifesteal", "modifier_scourge_knight", "modifier_undertakers_hood", "modifier_eternal_night", "modifier_druid_spirit_helm", "modifier_blinded_glint", "modifier_roknar_emperor", "modifier_swamp_doctor_mask", "modifier_desert_necromancer", "modifier_brazen_kabuto", "modifier_blackfeather_crown", "modifier_wraith_crown", "modifier_demon_mask", "modifier_crest_of_the_umbral_sentinel", "modifier_carbuncles_helm_of_reflection", "modifier_guard_of_grithault", "modifier_wraith_hunters_steel_helm", "modifier_crown_of_the_lava_forge", "modifier_hood_of_defiler", "modifier_excavators_focus_cap", "modifier_stormcrack_helm", "modifier_basilisk_plague_helm", "modifier_hood_of_the_black_mage", "modifier_autumn_sleeper_mask", "modifier_eye_of_seasons", "modifier_helm_of_silent_templar", "modifier_wind_deity_crown", "modifier_water_deity_crown", "modifier_fire_deity_crown", "modifier_shipyard_veil", "modifier_crimson_skull_cap", "modifier_hood_of_lords_lua", "modifier_igneous_canine_helm", "modifier_flamewaker_arcana1", "modifier_seinaru_arcana1", "modifier_white_mage_hat2", "modifier_astral_arcana1", "modifier_stormcrack_helm2", "modifier_helm_undead", "modifier_helm_wind", "modifier_helm_demon", "modifier_helm_shadow", "modifier_helm_poison", "modifier_burning_spirit_helmet", "modifier_auriun_arcana1", "modifier_auriun_arcana2", "modifier_epoch_arcana1", "modifier_ekkan_arcana1", "modifier_arkimus_arcana1", "modifier_dark_reef_shark_helmet", "modifier_hood_of_the_sea_oracle", "modifier_helm_all_elements", "modifier_mask_of_ahnqhir_purple", "modifier_mask_of_ahnqhir_yellow", "modifier_mask_of_ahnqhir_blue", "modifier_solunia_arcana1", "modifier_sorceress_arcana2", "modifier_venomort_arcana2", "modifier_frostmaw_hunters_hood", "modifier_chains_of_orthok", "modifier_helm_of_the_mountain_giant", "modifier_voltex_arcana2", "modifier_conjuror_arcana3", "modifier_duskbringer_arcana2"}
 	for i = 1, #headModifierTable, 1 do
 		hero:RemoveModifierByName(headModifierTable[i])

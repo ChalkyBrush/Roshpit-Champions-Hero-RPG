@@ -12,9 +12,10 @@ end
 
 
 function Weaponmodifiers:add_modifiers(hero, inventory_unit, item)
-	print("[Weaponmodifiers:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	--print("[Weaponmodifiers:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	--DeepPrintTable(item)
 	if not item.newItemTable then
-		print("[Error] Weaponmodifiers:add_modifiers item.newItemTable is null")
+		--print("[Error] Weaponmodifiers:add_modifiers item.newItemTable is null")
 		RPCItems:ItemUTIL_Remove(item)
 		return
 	end
@@ -54,9 +55,9 @@ end
 
 
 function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_unit, weapon_ability, item)
-	print("[Weaponmodifiers:action] propertyName:"..tostring(propertyName))
+	--print("[Weaponmodifiers:action] propertyName:"..tostring(propertyName))
 	if type(propertyValue) == "string" then
-		print("[Weaponmodifiers:action] propertyValue:"..propertyValue)
+		--print("[Weaponmodifiers:action] propertyValue:"..propertyValue)
 		propertyValue = 1
 	end
 	local propertyBoost = 1
@@ -176,7 +177,7 @@ function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_uni
 	elseif propertyName == "time" then
 		Weaponmodifiers:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_weapon_time", weapon_ability)	
 	elseif propertyName == "sephyr_immortal3" then
-		print("SEPHYR IMMORTAL3")
+		--print("SEPHYR IMMORTAL3")
 		local runeTable = {"rune_q_4", "rune_w_4", "rune_e_4", "rune_r_4"}
 		for i = 1, #runeTable, 1 do
 			Weaponmodifiers:runeProperty(runeTable[i], 7, hero)
@@ -201,7 +202,7 @@ function Weaponmodifiers:runeProperty(propertyName, propertyValue, hero)
 		end
 	end
 	if type(propertyValue) == "string" then
-		print("[Weaponmodifiers:runeProperty] propertyValue:"..propertyValue)
+		--print("[Weaponmodifiers:runeProperty] propertyValue:"..propertyValue)
 		return
 	end
 	if hero:HasModifier("modifier_blacksmiths_tablet") then
@@ -267,12 +268,12 @@ end
 
 function Weaponmodifiers:setRuneBonusNetTable(value, rune, hero)
 	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_"..rune.."_weapon", {bonus = value} )
-	print("Setting Rune Net Table: ")
-	print(tostring(hero:GetEntityIndex()).."_"..rune.."_weapon")
+	--print("Setting Rune Net Table: ")
+	--print(tostring(hero:GetEntityIndex()).."_"..rune.."_weapon")
 end
 
 function Weaponmodifiers:addBasicModifier(propertyValue, hero, inventory_unit, modifier_name, weapon_ability)
-	print(inventory_unit)
+	--print(inventory_unit)
 	--local stacks = hero:GetModifierStackCount(modifierName, inventory_unit)
 	weapon_ability = inventory_unit:FindAbilityByName("weapon_slot")
 	weapon_ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})

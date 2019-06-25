@@ -89,7 +89,7 @@ function d_c(caster, d_c_level)
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				Filters:ApplyStun(caster, stunDuration, enemy)
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 				local particle = ParticleManager:CreateParticle("particles/roshpit/paladin/crusader_bolt_lightning_bolt.vpcf", PATTACH_WORLDORIGIN, enemy)
 				ParticleManager:SetParticleControl(particle, 0, Vector(enemy:GetAbsOrigin().x,enemy:GetAbsOrigin().y,enemy:GetAbsOrigin().z))
 				ParticleManager:SetParticleControl(particle, 1, Vector(enemy:GetAbsOrigin().x,enemy:GetAbsOrigin().y,enemy:GetAbsOrigin().z+1500))

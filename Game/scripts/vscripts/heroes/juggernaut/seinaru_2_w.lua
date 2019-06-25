@@ -49,7 +49,7 @@ function new_b_b(caster, ability, w_2_level)
 			if caster:HasModifier('modifier_seinaru_glyph_5_1') and enemy:HasModifier('modifier_kaze_gust_blind') then
 				damage_vs_the_enemy = damage_vs_the_enemy * SEINARU_GLYPH5_W_DMG_AMP_VS_BLINDED
 			end
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage_vs_the_enemy, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage_vs_the_enemy, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 		end
 	end
 end

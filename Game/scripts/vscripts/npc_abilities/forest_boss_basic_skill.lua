@@ -106,7 +106,7 @@ function pattern2(forwardVector, location, ability, caster, abilityLevel)
 end
 
 function pattern3(forwardVector, location, ability, caster, abilityLevel)
-	print("pattern3 time")
+	--print("pattern3 time")
 	for i = -7, 7 do
 			targetPoint = (location+forwardVector*Vector(200,200,0)*i)
 			create_individual_explosion(abilityLevel, caster, targetPoint, location)

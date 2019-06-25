@@ -58,7 +58,7 @@ function jex_fire_fire_e:OnProjectileHit(target, vLocation)
 			EmitSoundOn("Jex.FireSurf.FlameHitSelf", caster)
 		elseif target:GetTeamNumber() ~= caster:GetTeamNumber() then
 			local damage = ability:GetSpecialValueFor("base_damage") + ability:GetSpecialValueFor("attack_damage_added_per_tech")*ability.tech_level*(OverflowProtectedGetAverageTrueAttackDamage(caster)/100)
-			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			local ability = caster.onibi:FindAbilityByName("onibi_fire_1")
 			if ability.w_4_level > 0 then
 				ability:ApplyDataDrivenModifier(caster, target, "modifier_jex_e_fire_fire_burn", {duration = 4})

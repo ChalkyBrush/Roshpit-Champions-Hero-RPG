@@ -4,9 +4,10 @@ end
 
 
 function Body:add_modifiers(hero, inventory_unit, item)
-	print("[Body:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	--print("[Body:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	--DeepPrintTable(item)
 	if not item.newItemTable then
-		print("[Error] Body:add_modifiers item.newItemTable is null")
+		--print("[Error] Body:add_modifiers item.newItemTable is null")
 		RPCItems:ItemUTIL_Remove(item)
 		return
 	end
@@ -52,9 +53,9 @@ end
 
 
 function Body:action(propertyName, propertyValue, hero, inventory_unit, body_ability, item)
-	print("[Body:action] propertyName:"..tostring(propertyName))
+	--print("[Body:action] propertyName:"..tostring(propertyName))
 	if type(propertyValue) == "string" then
-		print("[action] type(propertyValue) == string")
+		--print("[action] type(propertyValue) == string")
 		propertyValue = 1
 	end
 	if propertyName == "strength" then
@@ -255,7 +256,7 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 		RPCItems:PreacheArcanaResources(item)
 		local suffix = propertyName:gsub("!arcana!_", "")
 		local modifierName = "modifier_"..suffix
-		print(modifierName)
+		--print(modifierName)
 		Head:addItemModifier(0, hero, inventory_unit, modifierName, item)
 	elseif propertyName == "atlantis" then
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_armor_of_atlantis", item)
@@ -311,7 +312,7 @@ function Body:runeProperty(propertyName, propertyValue, hero)
 		end
 	end
 	if type(propertyValue) == "string" then
-		print("[Body:runeProperty] propertyValue:"..propertyValue)
+		--print("[Body:runeProperty] propertyValue:"..propertyValue)
 		return
 	end
 	if propertyName == "rune_q_1" then
@@ -382,12 +383,12 @@ end
 
 function Body:setRuneBonusNetTable(value, rune, hero)
 	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_"..rune.."_body", {bonus = value} )
-	print("Setting Rune Net Table: ")
-	print(tostring(hero:GetEntityIndex()).."_"..rune.."_body")
+	--print("Setting Rune Net Table: ")
+	--print(tostring(hero:GetEntityIndex()).."_"..rune.."_body")
 end
 
 function Body:addBasicModifier(propertyValue, hero, inventory_unit, modifier_name, body_ability)
-	print(inventory_unit)
+	--print(inventory_unit)
 	--local stacks = hero:GetModifierStackCount(modifierName, inventory_unit)
 	body_ability = inventory_unit:FindAbilityByName("body_slot")
 	body_ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})

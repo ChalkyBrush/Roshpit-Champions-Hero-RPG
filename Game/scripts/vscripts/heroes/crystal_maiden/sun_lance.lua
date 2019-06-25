@@ -88,7 +88,7 @@ function fireball_hit(event)
 	ParticleManager:SetParticleControl(pfx, 2, target:GetAbsOrigin()+ability.projectileFV*200)
 	ParticleManager:SetParticleControl(pfx, 3, target:GetAbsOrigin())
 	EmitSoundOn("Sorceress.SunLance.Impact", target)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 	local luck = RandomInt(1, 100)
 	if luck <= chance then
 		local eventTable = {}
@@ -116,7 +116,7 @@ function ring_of_fire_burn(event)
 	local ability = event.ability
 	local target = event.target
 	local damage = target.ringOfFireBurn
-	print("RING OF FIRE BURN?")
+	--print("RING OF FIRE BURN?")
 	if damage > 0 then
 		target.ringOfFireTick = true
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)

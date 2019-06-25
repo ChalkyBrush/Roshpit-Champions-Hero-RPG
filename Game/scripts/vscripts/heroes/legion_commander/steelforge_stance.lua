@@ -61,7 +61,7 @@ function energy_shield_create(event)
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				Filters:ApplyStun(caster, 0.5, enemy)
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_EARTH, RPC_ELEMENT_ICE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_EARTH, RPC_ELEMENT_ICE)
 			end
 		end 
 	end
@@ -119,7 +119,7 @@ function steelforge_take_damage(event)
 				if ability.w_3_particles < 10 then
 					ability.w_3_particles = ability.w_3_particles + 1
 					local c_b_damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*constants.ARCANA1_W3_DAMAGE_PERCENT/100 * ability.w_3_level
-					Filters:TakeArgumentsAndApplyDamage(target, caster, c_b_damage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_ICE)
+					Filters:TakeArgumentsAndApplyDamage(target, caster, c_b_damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_ICE)
 					local pfx = ParticleManager:CreateParticle( "particles/roshpit/mountain_protector/blue_steel_dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, caster )
 					ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT, "attach_hitloc", caster:GetAbsOrigin()+Vector(0,0,80), true)
 					ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,80), true)
