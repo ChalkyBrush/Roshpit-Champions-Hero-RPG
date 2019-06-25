@@ -3243,6 +3243,7 @@ function checkBallSwitchGoal()
 		local walls = Entities:FindAllByNameWithin("CastleWallZ", Vector(-3054, 9829, 498+Redfall.ZFLOAT), 2000)
 		Redfall:Walls(false, walls, true, 3.51)
 		Redfall:CastleInitiateAfterBallRoom()
+		Redfall.Castle.SwampMazeActive = true
 		Timers:CreateTimer(5, function()
 			local blockers = Entities:FindAllByNameWithin("CastleBlocker", Vector(-2996, 9792, 128+Redfall.ZFLOAT), 2400)
 			for i = 1, #blockers, 1 do
@@ -3297,7 +3298,7 @@ function CastleBallSwitchRoomSpawnTrigger()
 end
 
 function SwampMazeTrigger()
-	if not Redfall.Castle.SwampMazeTrigger then
+	if not Redfall.Castle.SwampMazeTrigger and Redfall.Castle.SwampMazeActive == true then
 		Redfall.Castle.WaterArchersDead = 0
 		Redfall.Castle.SwampMazeTrigger = true
 		Redfall:ActivateSwitchGeneric(Vector(-6170, 9487, 470 + Redfall.ZFLOAT), "SwampRoomSwitch", true, 0.165)
@@ -4298,7 +4299,7 @@ function demon_follower_think(event)
 end
 
 function FinalBossTrigger()
-	if Redfall.Castle.BossStatuesActivated == 2 then
+	if Redfall.Castle.BossStatuesActivated == 2 and Redfall.Castle.FinalSwitchPressed == true then
 		Redfall.Castle.BossStatuesActivated = 3
 		Redfall.FinalBossStart = true
 		local allies = FindUnitsInRadius( DOTA_TEAM_GOODGUYS, Vector(448, 2542), nil, 2000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
