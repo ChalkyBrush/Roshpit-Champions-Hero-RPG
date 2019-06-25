@@ -20,14 +20,14 @@
 			</Panel>
 			<Panel class="doubleHeroContainer">
 				<Panel class="player_portrait_container">
-					<DOTAHeroImage class="roll_player_portrait" heroid="5" id="roll_portrait_1" />
+					<Image class="roll_player_portrait" heroid="5" id="roll_portrait_1" />
 
 					<Panel class="portrait_overlay" id="portrait_overlay_1">	
 					</Panel>
 					<Label class="roll-label" id="roll_label_1"></Label>
 				</Panel>
 				<Panel class="player_portrait_container">
-					<DOTAHeroImage class="roll_player_portrait" heroid="5" id="roll_portrait_2"/>
+					<Image class="roll_player_portrait" heroid="5" id="roll_portrait_2"/>
 					<Panel class="portrait_overlay" id="portrait_overlay_2">
 						
 					</Panel>
@@ -36,14 +36,14 @@
 			</Panel>
 			<Panel class="doubleHeroContainer">
 				<Panel class="player_portrait_container">
-					<DOTAHeroImage class="roll_player_portrait" heroid="5" id="roll_portrait_3"/>
+					<Image class="roll_player_portrait" heroid="5" id="roll_portrait_3"/>
 					<Panel class="portrait_overlay" id="portrait_overlay_3">
 						
 					</Panel>
 					<Label class="roll-label" id="roll_label_3"></Label>
 				</Panel>
 				<Panel class="player_portrait_container">
-					<DOTAHeroImage class="roll_player_portrait" heroid="5" id="roll_portrait_4"/>
+					<Image class="roll_player_portrait" heroid="5" id="roll_portrait_4"/>
 					<Panel class="portrait_overlay" id="portrait_overlay_4">
 						
 					</Panel>
@@ -52,7 +52,7 @@
 			</Panel>
 			<Panel class="doubleHeroContainer">
 				<Panel class="player_portrait_container">
-					<DOTAHeroImage class="roll_player_portrait" heroid="5" id="roll_portrait_5"/>
+					<Image class="roll_player_portrait" heroid="5" id="roll_portrait_5"/>
 					<Panel class="portrait_overlay" id="portrait_overlay_5">
 						
 					</Panel>
