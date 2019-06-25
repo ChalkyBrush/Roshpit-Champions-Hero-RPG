@@ -1934,6 +1934,7 @@ function RPCItems:CreateBasicConsumable(position, itemName, fullName, rarity, bD
     item.newItemTable.stashable = true
     item.newItemTable.consumable = true
     item.newItemTable.basicConsumable = true
+	RPCItems:ItemUpdateCustomNetTables(item)   
     if bDrop then
     	RPCItems:BasicDropItem(position, item)
     end
@@ -1991,4 +1992,20 @@ function RPCItems:GetEquippedItemsBelowRarity(hero, rarity)
 	end
 
 	return count
+end
+
+function RPCItems:CreateCurrencyReroll(position)
+	if position then
+		RPCItems:CreateBasicConsumable(position, "item_rpc_currency_reroll", "Currency Reroll Placeholder", "arcana", true)
+	else
+		RPCItems:CreateBasicConsumable(nil, "item_rpc_currency_reroll", "Currency Reroll Placeholder", "arcana", false)
+	end
+end
+
+function RPCItems:CreateCurrencyWhetstone(position)
+	if position then
+		RPCItems:CreateBasicConsumable(position, "item_rpc_currency_whetstone", "Currency Whetstone Placeholder", "arcana", true)
+	else
+		RPCItems:CreateBasicConsumable(nil, "item_rpc_currency_whetstone", "Currency Whetstone Placeholder", "arcana", false)
+	end
 end

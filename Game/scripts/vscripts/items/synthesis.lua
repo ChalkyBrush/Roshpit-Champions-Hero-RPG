@@ -141,7 +141,7 @@ function RPCItems:SynthCheckCombination2(item1, item2, position)
 end
 
 function RPCItems:SynthCheckCombination(item1, item2, position)
-	if item1.newItemTable.gear and item2.newItemTable.gear then
+	if item1.newItemTable.gear and item2.newItemTable.gear and (item1.newItemTable.gear == 1 or item1.newItemTable.gear == true) and (item2.newItemTable.gear == 1 or item2.newItemTable.gear == true) then
 		if item1.newItemTable.rarity == "arcana" and item2.newItemTable.rarity == "arcana" then
 			local possibilityTable = {item1, item2}
 			local randomItem = possibilityTable[RandomInt(1, #possibilityTable)]
@@ -253,10 +253,181 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			else
 				return false
 			end
+		elseif (item1:GetAbilityName() == "item_rpc_currency_whetstone" and item2.newItemTable.item_slot == "weapon") or (item2:GetAbilityName() == "item_rpc_currency_whetstone" and item1.newItemTable.item_slot == "weapon") then
+			local currencyItem = item1
+			local targetItem = item2
+			if item2:GetAbilityName() == "item_rpc_currency_whetstone" then
+				currencyItem = item2
+				targetItem = item1
+			end
+			if true then
+				return false
+			end
+
+
+				
+		elseif (item1:GetAbilityName() == "item_rpc_currency_reroll" and item2.newItemTable.rarity == "arcana" and (item2.newItemTable.gear == 1 or item2.newItemTable.gear == true)) 
+			or (item2:GetAbilityName() == "item_rpc_currency_reroll" and item1.newItemTable.rarity == "arcana" and (item1.newItemTable.gear == 1 or item1.newItemTable.gear == true)) then
+			local currencyItem = item1
+			local targetItem = item2
+			if item2:GetAbilityName() == "item_rpc_currency_reroll" then
+				currencyItem = item2
+				targetItem = item1
+			end
+			local itemData = CustomNetTables:GetTableValue("item_basics", tostring(targetItem:GetEntityIndex()))
+			if not itemData then
+				print("[RPCItems:SynthCheckCombination] Error itemData is null")
+				return
+			end
+			RPCItems.LevelRoll = itemData.minLevel
+			local newItem = RPCItems:RerollArcanaItem(targetItem:GetAbilityName(), itemData, position, 50)
+			RPCItems.LevelRoll = nil
+			if newItem and IsValidEntity(newItem) then
+				newItem.pickedUp = true
+				newItem.newItemTable.minLevel = itemData.minLevel				
+				newItem.newItemTable.validator = itemData.validator
+				RPCItems:ItemUpdateCustomNetTables(newItem)
+				return newItem
+			else
+				return false
+			end
 		else
 			return false
 		end
 	end
+end
+
+function RPCItems:RerollArcanaItem(abilityName, originalItemData, position, attempts)
+	DeepPrintTable(originalItemData)
+	local newProperty1Value = nil
+	local newProperty2Value = nil
+	local newProperty3Value = nil
+	local newProperty4Value = nil
+
+	for i=1,attempts do
+		if not newProperty1Value or not newProperty2Value or not newProperty3Value or not newProperty4Value then
+			print("[RPCItems:RerollArcanaItem] attempt:"..tostring(i))
+			local newItem = RPCItems:RollArcanaByName(abilityName, position)
+
+			if not newProperty1Value and (type(originalItemData.property1) == "string" or type(newItem.newItemTable.property1) == "string") then
+				print("[RPCItems:RerollArcanaItem] type(originalItemData.property1) == \"string\"")
+				newProperty1Value = true
+			end
+			if not newProperty1Value and newItem.newItemTable.property1tooltip == originalItemData.property1tooltip and newItem.newItemTable.property1 > originalItemData.property1 then
+				newProperty1Value = newItem.newItemTable.property1
+				print("[RPCItems:RerollArcanaItem] newProperty1Value == "..tostring(newProperty1Value))
+			end
+
+			if not newProperty2Value and (type(originalItemData.property2) == "string" or type(newItem.newItemTable.property2) == "string") then
+				print("[RPCItems:RerollArcanaItem] type(originalItemData.property2) == \"string\"")
+				newProperty2Value = true
+			end
+			if not newProperty2Value and newItem.newItemTable.property2tooltip == originalItemData.property2tooltip and newItem.newItemTable.property2 > originalItemData.property2 then
+				newProperty2Value = newItem.newItemTable.property2
+				print("[RPCItems:RerollArcanaItem] newProperty2Value == "..tostring(newProperty2Value))
+			end
+
+			if not newProperty3Value and (type(originalItemData.property3) == "string" or type(newItem.newItemTable.property3) == "string") then
+				print("[RPCItems:RerollArcanaItem] type(originalItemData.property3) == \"string\"")
+				newProperty3Value = true
+			end
+			if not newProperty3Value and newItem.newItemTable.property3tooltip == originalItemData.property3tooltip and newItem.newItemTable.property3 > originalItemData.property3 then
+				newProperty3Value = newItem.newItemTable.property3
+				print("[RPCItems:RerollArcanaItem] newProperty3Value == "..tostring(newProperty3Value))
+			end
+
+			if not newProperty4Value and (type(originalItemData.property4) == "string" or type(newItem.newItemTable.property4) == "string") then
+				print("[RPCItems:RerollArcanaItem] type(originalItemData.property4) == \"string\"")
+				newProperty4Value = true
+			end
+			if not newProperty4Value and newItem.newItemTable.property4tooltip == originalItemData.property4tooltip and newItem.newItemTable.property4 > originalItemData.property4 then
+				newProperty4Value = newItem.newItemTable.property4
+				print("[RPCItems:RerollArcanaItem] newProperty4Value == "..tostring(newProperty4Value))
+			end
+
+			if IsValidEntity(newItem:GetContainer()) then
+				UTIL_Remove(newItem:GetContainer())
+			end
+			UTIL_Remove(newItem)
+		end
+	end
+
+	local finalItem = RPCItems:RollArcanaByName(abilityName, position)
+
+	-- if originalItemData.property1name then
+	-- 	finalItem.newItemTable.property1name = originalItemData.property1name
+	-- end
+	-- if originalItemData.property1tooltip then 
+	-- 	finalItem.newItemTable.property1tooltip = originalItemData.property1tooltip 
+	-- end
+	-- if originalItemData.property1color then 
+	-- 	finalItem.newItemTable.property1color = originalItemData.property1color
+	-- end
+	-- if originalItemData.property1special then 
+	-- 	finalItem.newItemTable.property1special = originalItemData.property1special
+	-- end
+	-- if newProperty1Value then		
+	-- 	finalItem.newItemTable.property1 = newProperty1Value
+	-- else
+	-- 	finalItem.newItemTable.property1 = originalItemData.property1
+	-- end
+
+	if originalItemData.property2name then
+		finalItem.newItemTable.property2name = originalItemData.property2name
+	end
+	if originalItemData.property2tooltip then 
+		finalItem.newItemTable.property2tooltip = originalItemData.property2tooltip 
+	end
+	if originalItemData.property2color then 
+		finalItem.newItemTable.property2color = originalItemData.property2color
+	end
+	if originalItemData.property2special then 
+		finalItem.newItemTable.property2special = originalItemData.property2special
+	end
+	if newProperty2Value then		
+		finalItem.newItemTable.property2 = newProperty2Value
+	else
+		finalItem.newItemTable.property2 = originalItemData.property2
+	end
+
+	if originalItemData.property3name then
+		finalItem.newItemTable.property3name = originalItemData.property3name
+	end
+	if originalItemData.property3tooltip then 
+		finalItem.newItemTable.property3tooltip = originalItemData.property3tooltip 
+	end
+	if originalItemData.property3color then 
+		finalItem.newItemTable.property3color = originalItemData.property3color
+	end
+	if originalItemData.property3special then 
+		finalItem.newItemTable.property3special = originalItemData.property3special
+	end
+	if newProperty3Value then		
+		finalItem.newItemTable.property3 = newProperty3Value
+	else
+		finalItem.newItemTable.property3 = originalItemData.property3
+	end
+
+	if originalItemData.property4name then
+		finalItem.newItemTable.property4name = originalItemData.property4name
+	end
+	if originalItemData.property4tooltip then 
+		finalItem.newItemTable.property4tooltip = originalItemData.property4tooltip 
+	end
+	if originalItemData.property4color then 
+		finalItem.newItemTable.property4color = originalItemData.property4color
+	end
+	if originalItemData.property4special then 
+		finalItem.newItemTable.property4special = originalItemData.property4special
+	end
+	if newProperty4Value then		
+		finalItem.newItemTable.property4 = newProperty4Value
+	else
+		finalItem.newItemTable.property4 = originalItemData.property4
+	end
+
+	RPCItems:ItemUpdateCustomNetTables(finalItem)
+	return finalItem
 end
 
 function RPCItems:GetImmortalLevelForSynth(minLevelAVG)

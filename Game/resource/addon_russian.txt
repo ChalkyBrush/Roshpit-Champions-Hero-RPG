@@ -914,6 +914,12 @@
 		"DOTA_Tooltip_ability_item_rpc_galactic_arcana_cache"			"Галактический кейс с арканами"
 		"item_rpc_galactic_arcana_cache_desc"							"Использование: выбрасывает 3 случайных арканы к вашим ногам. Уровень предмета зависит от уровня Излучения кейса."
 
+		"DOTA_Tooltip_ability_item_rpc_currency_reroll"				"Currency Reroll Placeholder"
+		"item_rpc_currency_reroll_desc"								"Use: Reforges arcana item stat values, keeping only better rolls."
+
+		"DOTA_Tooltip_ability_item_rpc_currency_whetstone"			"Currency Whetstone Placeholder"
+		"item_rpc_currency_whetstone_desc"							"Use: Fully updates weapon level."
+		
 		"cache_radiance"									"Излучение"
 
 		"item_row"					"Уровень глифа"

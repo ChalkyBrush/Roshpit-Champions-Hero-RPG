@@ -783,6 +783,12 @@
 		"DOTA_Tooltip_ability_item_rpc_galactic_arcana_cache"			"Galactic Arcana Cache"
 		"item_rpc_galactic_arcana_cache_desc"							"Use: Drops 3 random arcanas at your feet. Their levels are determined by the cache's Radiance value."
 
+		"DOTA_Tooltip_ability_item_rpc_currency_reroll"				"Currency Reroll Placeholder"
+		"item_rpc_currency_reroll_desc"								"Use: Reforges arcana item stat values, keeping only better rolls."
+
+		"DOTA_Tooltip_ability_item_rpc_currency_whetstone"			"Currency Whetstone Placeholder"
+		"item_rpc_currency_whetstone_desc"							"Use: Fully updates weapon level."
+
 		"cache_radiance"									"Radiance"
 
 		"item_row"					"Glyph Tier"
@@ -6992,7 +6998,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_duration"					"SPROUTLING DURATION"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_damage_pct_attack_power" "% CHAIN LIGHTNING DAMAGE % OF ATTACK POWER:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_q_4_additional_duration"	"<font color=\"#7DFF12\">[Q4] Additional sproutling life duration in seconds</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_e_4_lightning_damage_increase"	"%<font color=\"#7DFF12\">[W4] Additional sproutling chain lightning damage</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_w_4_lightning_damage_increase"	"%<font color=\"#7DFF12\">[W4] Additional sproutling chain lightning damage</font>:"
 
 	"DOTA_Tooltip_ability_jex_nature_nature_q"					"Oak Infusion"
 	"DOTA_Tooltip_ability_jex_nature_nature_q_Description"		"Jex binds his body with ancient oak particles, increasing his armor and health regen. Enemies who damage Jex while the shield is active are stunned for a short duration."
