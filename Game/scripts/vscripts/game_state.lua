@@ -3217,6 +3217,22 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = filterTable["damage"]*victim.reduc
 		end
 	end
+	if victim:HasModifier("modifier_winterblight_cavern_unit") then
+		local chamber_level = Winterblight.CavernData.Chambers[victim.chamber]["level"]
+		local reduction = 0.95^chamber_level
+		if not Winterblight:IsWithinChamber(attacker, victim.chamber) then
+			filterTable["damage"] = 0
+		end
+		filterTable["damage"] = filterTable["damage"]*reduction
+		local allowed_player = EntIndexToHScript(Winterblight.CavernData.Chambers[victim.chamber]["hero"]):GetPlayerOwnerID()
+		if attacker:GetPlayerOwnerID() ~= allowed_player then
+			filterTable["damage"] = 0
+		end
+	elseif attacker:HasModifier("modifier_winterblight_cavern_unit") then
+		local chamber_level = Winterblight.CavernData.Chambers[attacker.chamber]["level"]
+		local damage_amp = 0.2*chamber_level
+		filterTable["damage"] = filterTable["damage"] + filterTable["damage"]*damage_amp
+	end
 	if attacker:HasModifier("modifier_Winterblight_unit") then
 		filterTable["damage"] = filterTable["damage"]*(1+Winterblight.Stones)
 	end

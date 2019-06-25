@@ -133,22 +133,22 @@ end
 function Winterblight:FrozenFoyer1(msg)
 	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 100
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
-	Winterblight.CavernData.Chambers[msg.chamber]["current"] = 1
 	local unitsTable = {}
 	local positionTable = {Vector(-7040, 7552), Vector(-6809, 7936), Vector(-6519, 8320)}
 	for i = 1, #positionTable, 1 do
 		local fv = ((Vector(-5622, 6912) - positionTable[i])*Vector(1,1,0)):Normalized()
 		local unit = Winterblight:SpawnWinterRunner(positionTable[i], fv)
-		Winterblight:SetCavernUnit(unit, 1, positionTable[i], true, true)
+		Winterblight:SetCavernUnit(unit, 1, positionTable[i], true, true, msg.chamber)
 	end
 
 end
 
-function Winterblight:SetCavernUnit(unit, chamber_id, original_position, bDeaggro, bParticle)
+function Winterblight:SetCavernUnit(unit, chamber_id, original_position, bDeaggro, bParticle, chamber_index)
 	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_winterblight_cavern_unit", {})
 	unit.chamber_id = chamber_id
 	unit.deaggro = bDeaggro
 	unit.original_position = original_position
+	unit.chamber = chamber_index
 	if bParticle then
 		CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", unit:GetAbsOrigin(), 4)
 		EmitSoundOn("Winterblight.GuideCaveIntro", unit)
