@@ -152,7 +152,7 @@ function Redfall:SpawnBloodHunter(position, fv)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "redfall_shipyard_crimsyth_blood_hunter",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 1, 
 		maxDrops = 4, 
 		itemLevel = 70, 
@@ -173,7 +173,7 @@ function Redfall:SpawnBloodWolf(position, fv)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "redfall_shipyard_blood_wolf",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 1, 
 		maxDrops = 2, 
 		itemLevel = 68, 
@@ -195,7 +195,7 @@ function Redfall:SpawnDemonWolf(position, fv)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "redfall_shipyard_demon_wolf",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 1, 
 		maxDrops = 2, 
 		itemLevel = 68, 
@@ -218,7 +218,7 @@ function Redfall:SpawnSkeletonArcher(position, fv, bAggro)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "shipyard_skeleton_archer",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 1, 
 		maxDrops = 2, 
 		itemLevel = 68, 
@@ -247,7 +247,7 @@ function Redfall:SpawnShipyardZombie(position, fv, bAggro)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "shipyard_zombie_warrior",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 0, 
 		maxDrops = 1, 
 		itemLevel = 68, 
@@ -273,7 +273,7 @@ function Redfall:SpawnSkeletonArcherBoss(position, fv, bAggro)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "shipyard_skeleton_archer_boss",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 3, 
 		maxDrops = 5, 
 		itemLevel = 74, 
@@ -333,7 +333,7 @@ function Redfall:SpawnDemonRat(position, fv, bAggro)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "redfall_demon_rat",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 0, 
 		maxDrops = 1, 
 		itemLevel = 68, 
@@ -361,7 +361,7 @@ function Redfall:SpawnShipyardDemonVoid(position, fv, bAggro)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "redfall_shipyard_void",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 0, 
 		maxDrops = 2, 
 		itemLevel = 74, 
@@ -390,7 +390,7 @@ function Redfall:SpawnShipyardDemonBrute(position, fv, bAggro)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "redfall_shipyard_demon_brute",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 1, 
 		maxDrops = 2, 
 		itemLevel = 74, 
@@ -420,7 +420,7 @@ function Redfall:SpawnShipyardConductor(position, fv, bAggro)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "redfall_shipyard_conductor",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 1, 
 		maxDrops = 2, 
 		itemLevel = 74, 
@@ -585,7 +585,7 @@ function Redfall:SpawnShipyardGatekeeper(position, fv, bAggro)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "redfall_shipyard_gatekeeper",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 5, 
 		maxDrops = 7, 
 		itemLevel = 80, 
@@ -703,7 +703,7 @@ function Redfall:SpawnShipyardGhostFish(position, fv)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "shipyard_ghost_fish",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 0, 
 		maxDrops = 2, 
 		itemLevel = 80, 
@@ -738,7 +738,7 @@ function Redfall:SpawnShipyardSkeletonWarrior(position, fv)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "redfall_shipyard_basic_skeleton",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 0, 
 		maxDrops = 1, 
 		itemLevel = 72, 
@@ -761,7 +761,7 @@ function Redfall:SpawnShipyardPirateArcher(position, fv)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "shipyard_pirate_archer",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 0, 
 		maxDrops = 2, 
 		itemLevel = 72, 
@@ -814,7 +814,7 @@ function Redfall:SpawnShipyardCargoWatcher(position, fv)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "redfall_shipyard_cargo_watcher",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 2, 
 		maxDrops = 5, 
 		itemLevel = 72, 
@@ -835,7 +835,7 @@ function Redfall:SpawnShipyardSpawnerUnit(position, fv, itemRoll, bAggro)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "redfall_shipyard_pirate_gnoll",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = itemRoll, 
 		maxDrops = itemRoll, 
 		itemLevel = 67, 
@@ -862,7 +862,7 @@ function Redfall:SpawnShipyardSpawner(position, fv)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "redfall_shipyard_spawner_boss",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = nil, 
 		maxDrops = nil, 
 		itemLevel = 86, 
@@ -884,7 +884,7 @@ function Redfall:SpawnShipyardSoulCollector(position, fv)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "redfall_shipyard_soul_collector",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 4, 
 		maxDrops = 7, 
 		itemLevel = 86, 
@@ -947,7 +947,7 @@ function Redfall:SpawnArmoredBearGuard(position, fv)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "shipyard_armored_bear_guard",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 1, 
 		maxDrops = 3, 
 		itemLevel = 86, 
@@ -995,14 +995,14 @@ function Redfall:SpawnCrimsythKnight(position, fv, bAggro)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "redfall_shipyard_crimsyth_knight",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 2, 
 		maxDrops = 3, 
 		itemLevel = 86, 
 		aggroSound = "Redfall.CrimsythKnight.Aggro",
 		fv = fv, 
 		isAggro = bAggro, 
-		deathModifier = nil, 
+		deathModifier = "modifier_shipyard_knight", 
 		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
 		creepFunction = creepFunction
 	}
@@ -1023,14 +1023,14 @@ function Redfall:SpawnCrimsythKnightChamp(position, fv, bAggro)
 	end
 	local unit = Spawning:SpawnUnit{
 		unitName = "redfall_shipyard_crimsyth_knight_champ",
-		spawnPoint = position,
+		spawnPoint = position,		canBeParagon = false
 		minDrops = 4, 
 		maxDrops = 5, 
 		itemLevel = 86, 
 		aggroSound = "Redfall.CrimsythKnight.Aggro",
 		fv = fv, 
 		isAggro = bAggro, 
-		deathModifier = nil, 
+		deathModifier = "modifier_shipyard_knight", 
 		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
 		creepFunction = creepFunction
 	}
