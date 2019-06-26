@@ -3089,7 +3089,7 @@ function Seafortress:SpawnFloodWaveUnit(unitName, spawnPoint, quantity, delay, b
         unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
       Events:AdjustDeathXP(unit)
       end
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
         unit.dominion = true
         unit.deathCode = 14
         Seafortress.MasterAbility:ApplyDataDrivenModifier(Seafortress.Master, unit, "modifier_sea_fortress_ai", {})
@@ -3099,13 +3099,13 @@ function Seafortress:SpawnFloodWaveUnit(unitName, spawnPoint, quantity, delay, b
         Seafortress:AdjustWaveUnit(unit)
       else
         for i = 1, #unit, 1 do
-          unit[i].aggro = true
-          unit[i].dominion = true
-          unit[i]:SetAcquisitionRange(3000)
-          unit[i].deathCode = 14
-          Seafortress.MasterAbility:ApplyDataDrivenModifier(Seafortress.Master, unit[i], "modifier_sea_fortress_ai", {})
-          CustomAbilities:QuickAttachParticle("particles/econ/events/ti7/blink_dagger_start_ti7_splash.vpcf", unit[i], 2)
-          Seafortress:AdjustWaveUnit(unit[i])
+          unit.buddiesTable[i].aggro = true
+          unit.buddiesTable[i].dominion = true
+          unit.buddiesTable[i]:SetAcquisitionRange(3000)
+          unit.buddiesTable[i].deathCode = 14
+          Seafortress.MasterAbility:ApplyDataDrivenModifier(Seafortress.Master, unit.buddiesTable[i], "modifier_sea_fortress_ai", {})
+          CustomAbilities:QuickAttachParticle("particles/econ/events/ti7/blink_dagger_start_ti7_splash.vpcf", unit.buddiesTable[i], 2)
+          Seafortress:AdjustWaveUnit(unit.buddiesTable[i])
         end
       end
     end)

@@ -935,26 +935,12 @@ function Redfall:SpawnBossMinions(boss, previousGeneration)
 		Events:AdjustBossPower(unit, 5 - unit.generation, 5 - unit.generation, false)
 		unit:SetModelScale(0.01)
 		unit:SetRenderColor(255, 255, 0)
-		local difficulty = GameState:GetDifficultyFactor()
-		if difficulty == DIFFICULTY_NORMAL then
-			if unit.generation == 1 then
-				unit.threshold = 0.5
-				unit.currentThreshold = 0.5
-			else
-				unit.threshold = 1
-				unit.currentThreshold = 0
-			end
-		elseif difficulty >= DIFFICULTY_ELITE then			
-			if unit.generation == 1 then
-				unit.threshold = 0.33
-				unit.currentThreshold = 0.66
-			elseif unit.generation == 2 then
-				unit.threshold = 0.5
-				unit.currentThreshold = 0.5
-			else
-				unit.threshold = 1
-				unit.currentThreshold = 0
-			end
+		if unit.generation == 1 or unit.generation == 2 then
+			unit.threshold = 0.5
+			unit.currentThreshold = 0.5
+		else
+			unit.threshold = 1
+			unit.currentThreshold = 0
 		end
 
 		unit.baseSize = 2 - unit.generation * 0.2

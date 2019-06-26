@@ -729,7 +729,7 @@ function Tanari:SpawnSpiritWindWaveUnit(unitName, spawnPoint, quantity, itemLeve
       Events:AdjustDeathXP(unit)
       end
 
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
         unit.itemLevel = itemLevel
         unit.dominion = true
         Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit, "tanari_wind_temple_modifier", {})
@@ -751,14 +751,14 @@ function Tanari:SpawnSpiritWindWaveUnit(unitName, spawnPoint, quantity, itemLeve
         -- end
       else
         for i = 1, #unit, 1 do
-          unit[i].aggro = true
-          unit[i].itemLevel = itemLevel
-          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit[i], "tanari_wind_temple_modifier", {})
-          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit[i], "tanari_mountain_specter_ai", {})
-          unit[i].code = 0
-          unit[i]:SetAcquisitionRange(3000)
-          unit[i].dominion = true
-          CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk_init.vpcf", unit[i], 2)
+          unit.buddiesTable[i].aggro = true
+          unit.buddiesTable[i].itemLevel = itemLevel
+          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_wind_temple_modifier", {})
+          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_mountain_specter_ai", {})
+          unit.buddiesTable[i].code = 0
+          unit.buddiesTable[i]:SetAcquisitionRange(3000)
+          unit.buddiesTable[i].dominion = true
+          CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk_init.vpcf", unit.buddiesTable[i], 2)
           -- if unit[i]:GetUnitName() == "redfall_autumn_monster" then
           --   unit[i].targetRadius = 800
           --   unit[i].autoAbilityCD = 1

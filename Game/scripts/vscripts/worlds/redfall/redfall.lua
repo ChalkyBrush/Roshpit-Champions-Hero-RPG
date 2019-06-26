@@ -12,12 +12,12 @@ require('worlds/redfall/zones/crimsyth_castle')
 
 function Redfall:Debug()
     if MAIN_HERO_TABLE[1] then
-      MAIN_HERO_TABLE[1]:SetBaseStrength(25000)
-      MAIN_HERO_TABLE[1]:SetBaseAgility(25000)
-      MAIN_HERO_TABLE[1]:SetBaseIntellect(25000)
-      MAIN_HERO_TABLE[1]:SetBaseDamageMax(50000)
-      MAIN_HERO_TABLE[1]:SetBaseDamageMin(50000)
-      MAIN_HERO_TABLE[1]:CalculateStatBonus()
+      --MAIN_HERO_TABLE[1]:SetBaseStrength(25000)
+      --MAIN_HERO_TABLE[1]:SetBaseAgility(25000)
+      --MAIN_HERO_TABLE[1]:SetBaseIntellect(25000)
+      --MAIN_HERO_TABLE[1]:SetBaseDamageMax(50000)
+      --MAIN_HERO_TABLE[1]:SetBaseDamageMin(50000)
+      --MAIN_HERO_TABLE[1]:CalculateStatBonus()
       -- local hero = MAIN_HERO_TABLE[1]
       -- hero.runeUnit2.amulet.e_2 = hero.runeUnit2.amulet.e_2 + 1500
       -- Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.e_2, "rune_e_2", hero)

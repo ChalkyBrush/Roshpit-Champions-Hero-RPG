@@ -524,7 +524,7 @@ function Redfall:SpawnShipyardWaveUnit(unitName, spawnPoint, quantity, itemLevel
         unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
     	Events:AdjustDeathXP(unit)
       end
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
       	unit.itemLevel = itemLevel
       	Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit, "modifier_shipyard_wave_unit", {})
       	unit:SetAcquisitionRange(3000)
@@ -548,12 +548,12 @@ function Redfall:SpawnShipyardWaveUnit(unitName, spawnPoint, quantity, itemLevel
       	end
       else
       	for i = 1, #unit, 1 do
-      		unit[i].aggro = true
-      		unit[i].itemLevel = itemLevel
-      		Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit[i], "modifier_shipyard_wave_unit", {})
-      		unit[i]:SetAcquisitionRange(3000)
-      		unit[i].dominion = true
-      		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_jakiro/viper_explosion_liquid_fire_explosion.vpcf", unit[i], 2)
+      		unit.buddiesTable[i].aggro = true
+      		unit.buddiesTable[i].itemLevel = itemLevel
+      		Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit.buddiesTable[i], "modifier_shipyard_wave_unit", {})
+      		unit.buddiesTable[i]:SetAcquisitionRange(3000)
+      		unit.buddiesTable[i].dominion = true
+      		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_jakiro/viper_explosion_liquid_fire_explosion.vpcf", unit.buddiesTable[i], 2)
       	end
       end
     end)
