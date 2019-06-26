@@ -1474,7 +1474,7 @@ function Tanari:SpawnFireSpiritFinalBoss()
 	Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, guardian, "tanari_mountain_specter_ai", {})
 	-- local guardian = CreateUnitByName("wind_temple_spirit_boss", Vector(12992, 1536), false, nil, nil, DOTA_TEAM_NEUTRALS)
 	guardian:SetForwardVector(Vector(0,-1))
-	Events:AdjustBossPower(guardian, 12, 12, false)
+	Events:AdjustBossPower(guardian, 12, 12, true)
 	-- local bossAbility = guardian:FindAbilityByName("water_spirit_main_boss_ability")
     local properties =  {
       roll = 0,
