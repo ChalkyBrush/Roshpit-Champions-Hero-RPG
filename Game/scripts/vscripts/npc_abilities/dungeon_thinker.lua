@@ -1176,7 +1176,7 @@ function sand_boss(caster)
 	sandBoss:RemoveModifierByName("modifier_tomb_boss_ability_prefight")
 	sandBossAbility:ApplyDataDrivenModifier(sandBoss, sandBoss, "modifier_tomb_boss_growing", {duration = 6.5})
 	Timers:CreateTimer(0.5, function()
-		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = sandBoss:GetUnitName(), bossMaxHealth = sandBoss:GetMaxHealth()})
+		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = sandBoss:GetUnitName(), bossMaxHealth = sandBoss:GetMaxHealth(), bossId = tostring(sandBoss)})
 		EmitGlobalSound("shop_jbrice_01.stinger.dire_lose")
 	end)
 end

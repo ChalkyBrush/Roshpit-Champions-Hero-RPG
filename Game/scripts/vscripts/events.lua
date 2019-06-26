@@ -2441,7 +2441,7 @@ function Events:SpawnBoss(unitName, spawnPoint)
 	local boss = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
 	Events:AdjustDeathXP(boss)
 	boss.mainBoss = true
-	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth()})
+	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth(), bossId = tostring(boss)})
 	return boss
 end
 

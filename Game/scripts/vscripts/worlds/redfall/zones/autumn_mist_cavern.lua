@@ -770,8 +770,16 @@ function Redfall:SpawnCanyonBossParagonTest()
 		unit:SetRenderColor(255, 255, 0)
 		unit.generation = 0
 		local difficulty = GameState:GetDifficultyFactor()
-		unit.threshold = 0.1
-		unit.currentThreshold = 0.9
+		if difficulty == DIFFICULTY_NORMAL then
+			unit.threshold = 0.33
+			unit.currentThreshold = 0.66
+		elseif difficulty == DIFFICULTY_ELITE then			
+			unit.threshold = 0.25
+			unit.currentThreshold = 0.75
+		else
+			unit.threshold = 0.2
+			unit.currentThreshold = 0.8
+		end
 		unit.baseSize = 2
 		unit.currentSize = 2
 		unit.render = 0
@@ -927,10 +935,7 @@ function Redfall:SpawnBossMinions(boss, previousGeneration)
 		Events:AdjustBossPower(unit, 5 - unit.generation, 5 - unit.generation, false)
 		unit:SetModelScale(0.01)
 		unit:SetRenderColor(255, 255, 0)
-		if unit.generation == 1 then
-			unit.threshold = 0.33
-			unit.currentThreshold = 0.66
-		elseif unit.generation == 2 then
+		if unit.generation == 1 or unit.generation == 2 then
 			unit.threshold = 0.5
 			unit.currentThreshold = 0.5
 		else

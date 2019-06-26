@@ -786,7 +786,7 @@ function Dungeons:CastleBossFightStart()
   	boss.slowPools = 0
   	Dungeons.entryPoint = Vector(-5225, 13180, 940) 
   	boss:SetAbsOrigin(Dungeons.castleCenter+boss.circlePos*Dungeons.castleRadius)
-  	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth()})
+  	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth(), bossId = tostring(boss)})
 	boss:SetForwardVector(Vector(-1,-1))
 	EmitGlobalSound("abaddon_abad_attack_11")
 	EmitGlobalSound("abaddon_abad_attack_11")

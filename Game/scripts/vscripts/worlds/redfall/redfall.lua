@@ -32,6 +32,11 @@ function Redfall:Debug()
       -- hero.runeUnit3.amulet.r_3 = hero.runeUnit3.amulet.r_3 + 500
       -- Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.r_3, "rune_r_3", hero)
     end
+	Redfall.Castle = {}
+	Redfall.Castle.BossStatuesActivated = 2 
+	Redfall.Castle.FinalSwitchPressed = true
+	Redfall.Shipyard = {}
+	Redfall:SpawnBossRoom()
     local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
     local drop = CreateItemOnPositionSync(Vector(-15168, -14976), item )
     local position = Vector(-15168, -14976)
@@ -51,7 +56,7 @@ function Redfall:Debug()
     Weapons:RollLegendWeapon3(Vector(-15168, -14976), "sephyr")
     RPCItems:RollWindDeityCrown(Vector(-15168, -14976), true, 7)
     -- Redfall:GiveVermillionBundle(MAIN_HERO_TABLE[1], Vector(-15168, -14976))
-    -- Redfall:GiveShipyardKey(MAIN_HERO_TABLE[1], Vector(-15168, -14976)) 
+     Redfall:GiveShipyardKey(MAIN_HERO_TABLE[1], Vector(-15168, -14976)) 
     -- Redfall:GiveDemonRelic(MAIN_HERO_TABLE[1], Vector(-15168, -14976))
     -- RPCItems:RollStormcrackHelm(Vector(-15168, -14976), false)
     -- RPCItems:RollHalcyonSoulGlove(Vector(-15168, -14976))
@@ -912,45 +917,71 @@ function Redfall:SpawnAncientTree()
 	end)
   
 	Timers:CreateTimer(2.0, function()
-		local stone = Spawning:SpawnMajorBoss("redfall_ancient_tree", position, 3, 5, "Redfall.AncientTree.Aggro", Vector(0,-1), false)
-		stone:SetRenderColor(255, 170, 170)
-		Events:ColorWearables(stone, Vector(255, 170, 170))
-		stone:SetModelScale(0.05)
-		stone.summonCount = 0
-		local stoneAbility = stone:FindAbilityByName("ancient_tree_passive")
-		stoneAbility:ApplyDataDrivenModifier(stone, stone, "modifier_ancient_tree_cinematic", {duration = 6.5})
-		for i = 1, 120, 1 do
-			Timers:CreateTimer(i * 0.03, function()
-				stone:SetModelScale(0.05 + i * 0.02)
-			end)
-		end
-		stone.itemLevel = 96
-		Events:AdjustBossPower(stone, 10, 10, true)
-		Timers:CreateTimer(0.05, function()
-			StartAnimation(stone, {duration=6, activity=ACT_DOTA_TELEPORT, rate=0.5})
-		end)
-		for j = 0, 3, 1 do
-			Timers:CreateTimer(j*0.8, function()
-				local particleName = "particles/econ/items/lina/lina_ti7/lina_spell_light_strike_array_ti7.vpcf"
-				local pfxB = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, stone)
-				ParticleManager:SetParticleControl(pfxB, 0, stone:GetAbsOrigin()+Vector(0,0,50))
-				ParticleManager:SetParticleControl(pfxB, 1, Vector(300+j*100, 1, 2))
-				ScreenShake(stone:GetAbsOrigin(), 130, 0.9, 0.9, 9000, 0, true)
-				Timers:CreateTimer(2.8, function()
-					ParticleManager:DestroyParticle(pfxB, false)
+		local creepFunction = function(unit) 
+			unit:SetRenderColor(255, 170, 170)
+			Events:ColorWearables(unit, Vector(255, 170, 170))
+			unit:SetModelScale(0.05)
+			unit.summonCount = 0
+			local unitAbility = unit:FindAbilityByName("ancient_tree_passive")
+			unitAbility:ApplyDataDrivenModifier(unit, unit, "modifier_ancient_tree_cinematic", {duration = 6.5})
+			for i = 1, 120, 1 do
+				Timers:CreateTimer(i * 0.03, function()
+					unit:SetModelScale(0.05 + i * 0.02)
 				end)
+			end
+			Events:AdjustBossPower(unit, 10, 10, true)
+			Timers:CreateTimer(0.05, function()
+				StartAnimation(unit, {duration=6, activity=ACT_DOTA_TELEPORT, rate=0.5})
+			end)
+			for j = 0, 3, 1 do
+				Timers:CreateTimer(j*0.8, function()
+					local particleName = "particles/econ/items/lina/lina_ti7/lina_spell_light_strike_array_ti7.vpcf"
+					local pfxB = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, unit)
+					ParticleManager:SetParticleControl(pfxB, 0, unit:GetAbsOrigin()+Vector(0,0,50))
+					ParticleManager:SetParticleControl(pfxB, 1, Vector(300+j*100, 1, 2))
+					ScreenShake(unit:GetAbsOrigin(), 130, 0.9, 0.9, 9000, 0, true)
+					Timers:CreateTimer(2.8, function()
+						ParticleManager:DestroyParticle(pfxB, false)
+					end)
+				end)
+			end
+
+			Timers:CreateTimer(1, function()
+				EmitSoundOn("Redfall.AncientTree.Spawn.VO", unit)
 			end)
 		end
-
-		Timers:CreateTimer(1, function()
-			EmitSoundOn("Redfall.AncientTree.Spawn.VO", stone)
-		end)
+		local unit = Spawning:SpawnUnit{
+			unitName = "redfall_ancient_tree",
+			spawnPoint = position,
+			minDrops = 3, 
+			maxDrops = 5, 
+			itemLevel = 96, 
+			aggroSound = "Redfall.AncientTree.Aggro",
+			fv = Vector(0,-1), 
+			isAggro = false, 
+			deathModifier = nil, 
+			enemyType = ENEMY_TYPE_MAJOR_BOSS, 
+			creepFunction = creepFunction
+		}
 	end)
 end
 
 function Redfall:SpawnAncientTreeSummon(position, fv)
-  local shroom = Spawning:SpawnWeakCreep("redfall_ancient_tree_summon", position, 0, 0, nil, fv, true)
-  shroom:SetDeathXP(0)
-  -- shroom.dominion = true
-  return shroom
+	local creepFunction = function(unit) 
+		unit:SetDeathXP(0)
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_ancient_tree_summon",
+		spawnPoint = position,
+		minDrops = 0, 
+		maxDrops = 0, 
+		itemLevel = 0, 
+		aggroSound = "Redfall.SkeletonSpawn.Aggro",
+		fv = fv, 
+		isAggro = true, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_WEAK_CREEP, 
+		creepFunction = creepFunction
+	}
+  return unit
 end

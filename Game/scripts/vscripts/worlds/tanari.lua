@@ -24,6 +24,10 @@ function Tanari:Debug()
       MAIN_HERO_TABLE[1]:CalculateStatBonus()
       -- Runes:EquipArcana(MAIN_HERO_TABLE[1], 2)
     end
+	Tanari.FireTemple = {}
+	Tanari:SpawnFireSpiritFinalBoss()
+	Tanari:SpawnWaterSpiritFinalBoss()
+	Tanari:SpawnWindTempleSpiritBoss()
     -- RPCItems:RollAxeArcana2(Vector(-4928, 2048))
     -- RPCItems:RollHarvesterBoots(Vector(-4928, 2048))
     -- RPCItems:RollSkulldiggerGloves(Vector(-4928, 2048))
@@ -278,10 +282,10 @@ function Tanari:Debug()
 
 
     -- Events.DifficultyFactor = 3
-    -- Events.SpiritRealm = true
+     Events.SpiritRealm = true
     -- Tanari.WaterTemple = {}
     -- Tanari.FireTemple = {}
-    -- Tanari:AcquireTempleKey(Vector(-4928, 2048), "wind")
+     Tanari:AcquireTempleKey(Vector(-4928, 2048), "wind")
     -- RPCItems:RollShadowflameFist(position)
     -- Curator:CurateALLGlyphs()
     -- RPCItems:RollHelmOfSilentTemplar(Vector(-4928, 2048), false)

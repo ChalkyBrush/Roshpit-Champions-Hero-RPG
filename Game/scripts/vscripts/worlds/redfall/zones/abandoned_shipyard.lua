@@ -145,68 +145,146 @@ function Redfall:SpawnShipyardArea2()
 end
 
 function Redfall:SpawnBloodHunter(position, fv)
-	local stone = Spawning:SpawnNormalCreep("redfall_shipyard_crimsyth_blood_hunter", position, 1, 4, "Redfall.BloodHunter.Aggro", fv, false)
-	stone:SetRenderColor(255,151,151)
-	Events:AdjustBossPower(stone, 4, 4, false)
-	stone.itemLevel = 70
-	stone.dominion = true
-	return stone
+	local creepFunction = function(unit) 
+		unit:SetRenderColor(255,151,151)
+		Events:AdjustBossPower(unit, 4, 4, false)
+		unit.dominion = true
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_shipyard_crimsyth_blood_hunter",
+		spawnPoint = position,
+		minDrops = 1, 
+		maxDrops = 4, 
+		itemLevel = 70, 
+		aggroSound = "Redfall.BloodHunter.Aggro",
+		fv = fv, 
+		isAggro = false, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:SpawnBloodWolf(position, fv)
-	local stone = Spawning:SpawnNormalCreep(  "redfall_shipyard_blood_wolf", position, 1, 2, "Redfall.BloodWolf.Aggro", fv, true)
-	Events:AdjustBossPower(stone, 1, 1, false)
-	stone.itemLevel = 68
-	stone.dominion = true
-	return stone
+	local creepFunction = function(unit) 
+		Events:AdjustBossPower(unit, 1, 1, false)
+		unit.dominion = true
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_shipyard_blood_wolf",
+		spawnPoint = position,
+		minDrops = 1, 
+		maxDrops = 2, 
+		itemLevel = 68, 
+		aggroSound = "Redfall.BloodWolf.Aggro",
+		fv = fv, 
+		isAggro = true, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:SpawnDemonWolf(position, fv)
-	local stone = Spawning:SpawnNormalCreep(  "redfall_shipyard_demon_wolf", position, 1, 2, "Redfall.DemonWolf.Aggro", fv, false)
-	Events:AdjustBossPower(stone, 1, 1, false)
-	stone:SetRenderColor(120, 60, 60)
-	stone.itemLevel = 68
-	stone.dominion = true
-	return stone
+	local creepFunction = function(unit) 
+		Events:AdjustBossPower(unit, 1, 1, false)
+		unit:SetRenderColor(120, 60, 60)
+		unit.dominion = true
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_shipyard_demon_wolf",
+		spawnPoint = position,
+		minDrops = 1, 
+		maxDrops = 2, 
+		itemLevel = 68, 
+		aggroSound = "Redfall.DemonWolf.Aggro",
+		fv = fv, 
+		isAggro = false, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:SpawnSkeletonArcher(position, fv, bAggro)
-	local stone = Spawning:SpawnNormalCreep(  "shipyard_skeleton_archer", position, 1, 2, "Redfall.SkeletonArcher.Aggro", fv, bAggro)
-	Events:AdjustBossPower(stone, 3, 3, false)
-	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_beastmaster/beastmaster_call_boar_glow_base.vpcf", stone, 3)
-	stone:SetRenderColor(120, 70, 70)
-	stone.itemLevel = 68
-	stone.dominion = true
-	return stone
+	local creepFunction = function(unit) 
+		Events:AdjustBossPower(unit, 3, 3, false)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_beastmaster/beastmaster_call_boar_glow_base.vpcf", unit, 3)
+		unit:SetRenderColor(120, 70, 70)
+		unit.dominion = true
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "shipyard_skeleton_archer",
+		spawnPoint = position,
+		minDrops = 1, 
+		maxDrops = 2, 
+		itemLevel = 68, 
+		aggroSound = "Redfall.SkeletonArcher.Aggro",
+		fv = fv, 
+		isAggro = bAggro, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:SpawnShipyardZombie(position, fv, bAggro)
-	local stone = Spawning:SpawnNormalCreep(  "shipyard_zombie_warrior", position, 0, 1, "Redfall.ShipyardZombie.Aggro", fv, bAggro)
-    local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
-    local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-    ParticleManager:SetParticleControl(particle1,0,stone:GetAbsOrigin())
-    Timers:CreateTimer(2, function()
-    	ParticleManager:DestroyParticle( particle1, false )
-    end)
-	stone:SetRenderColor(200, 160, 160)
-	stone.itemLevel = 68
-	stone.dominion = true
-	Dungeons:attachWearables(stone, "attach_attack2", "models/items/axe/vanguard_armor/vanguard_armor.vmdl", 1.0)
-	Dungeons:attachWearables(stone, "attach_attack1", "models/props_items/basher.vmdl", 1.0)
-	return stone
+	local creepFunction = function(unit) 
+		local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+		ParticleManager:SetParticleControl(particle1,0,unit:GetAbsOrigin())
+		Timers:CreateTimer(2, function()
+    		ParticleManager:DestroyParticle( particle1, false )
+		end)
+		unit:SetRenderColor(200, 160, 160)
+		unit.dominion = true
+		Dungeons:attachWearables(unit, "attach_attack2", "models/items/axe/vanguard_armor/vanguard_armor.vmdl", 1.0)
+		Dungeons:attachWearables(unit, "attach_attack1", "models/props_items/basher.vmdl", 1.0)
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "shipyard_zombie_warrior",
+		spawnPoint = position,
+		minDrops = 0, 
+		maxDrops = 1, 
+		itemLevel = 68, 
+		aggroSound = "Redfall.ShipyardZombie.Aggro",
+		fv = fv, 
+		isAggro = bAggro, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:SpawnSkeletonArcherBoss(position, fv, bAggro)
-	local stone = Spawning:SpawnNormalCreep(  "shipyard_skeleton_archer_boss", position, 3, 5, "Redfall.SkeletonArcherBoss.Aggro", fv, bAggro)
-	Events:AdjustBossPower(stone, 6, 7, false)
-	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_beastmaster/beastmaster_call_boar_glow_base.vpcf", stone, 3)
-	stone:SetRenderColor(255,130,130)
-	Redfall:ColorWearables(stone, Vector(255,130,130))
-	stone.itemLevel = 74
-	Redfall:SetPositionCastArgs(stone, 1400, 0, 1, FIND_ANY_ORDER)
+	local creepFunction = function(unit) 
+		Events:AdjustBossPower(unit, 6, 7, false)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_beastmaster/beastmaster_call_boar_glow_base.vpcf", unit, 3)
+		unit:SetRenderColor(255,130,130)
+		Redfall:ColorWearables(unit, Vector(255,130,130))
+		Redfall:SetPositionCastArgs(unit, 1400, 0, 1, FIND_ANY_ORDER)
 
-	stone.dominion = true
-	return stone
+		unit.dominion = true
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "shipyard_skeleton_archer_boss",
+		spawnPoint = position,
+		minDrops = 3, 
+		maxDrops = 5, 
+		itemLevel = 74, 
+		aggroSound = "Redfall.SkeletonArcherBoss.Aggro",
+		fv = fv, 
+		isAggro = bAggro, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:AbandonedShipyardLobsterTrigger()
@@ -243,67 +321,117 @@ function Redfall:RedBeam(positionA, positionB)
 end
 
 function Redfall:SpawnDemonRat(position, fv, bAggro)
-	local stone = Spawning:SpawnNormalCreep("redfall_demon_rat", position, 0, 1, nil, fv, bAggro)
-    local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
-    local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-    ParticleManager:SetParticleControl(particle1,0,stone:GetAbsOrigin())
-    Timers:CreateTimer(2, function()
-    	ParticleManager:DestroyParticle( particle1, false )
-    end)
-	stone:SetRenderColor(0, 120, 120)
-	stone.itemLevel = 68
-
-	stone.dominion = true
-	return stone
+	local creepFunction = function(unit) 
+		local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+		ParticleManager:SetParticleControl(particle1,0,unit:GetAbsOrigin())
+		Timers:CreateTimer(2, function()
+    		ParticleManager:DestroyParticle( particle1, false )
+		end)
+		unit:SetRenderColor(0, 120, 120)
+		unit.dominion = true
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_demon_rat",
+		spawnPoint = position,
+		minDrops = 0, 
+		maxDrops = 1, 
+		itemLevel = 68, 
+		aggroSound = nil,
+		fv = fv, 
+		isAggro = bAggro, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:SpawnShipyardDemonVoid(position, fv, bAggro)
-	local stone = Spawning:SpawnNormalCreep("redfall_shipyard_void", position, 0, 2, "Redfall.DemoinVoid.Aggro", fv, bAggro)
-    local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
-    local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-    ParticleManager:SetParticleControl(particle1,0,stone:GetAbsOrigin())
-    Timers:CreateTimer(2, function()
-    	ParticleManager:DestroyParticle( particle1, false )
-    end)
-	stone:SetRenderColor(255,130,130)
-	Redfall:ColorWearables(stone, Vector(255,130,130))
-	stone.itemLevel = 74
-
-	stone.dominion = true
-	return stone
+	local creepFunction = function(unit) 
+		local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+		ParticleManager:SetParticleControl(particle1,0,unit:GetAbsOrigin())
+		Timers:CreateTimer(2, function()
+    		ParticleManager:DestroyParticle( particle1, false )
+		end)
+		unit:SetRenderColor(255,130,130)
+		Redfall:ColorWearables(unit, Vector(255,130,130))
+		unit.dominion = true
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_shipyard_void",
+		spawnPoint = position,
+		minDrops = 0, 
+		maxDrops = 2, 
+		itemLevel = 74, 
+		aggroSound = "Redfall.DemoinVoid.Aggro",
+		fv = fv, 
+		isAggro = bAggro, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:SpawnShipyardDemonBrute(position, fv, bAggro)
-	local stone = Spawning:SpawnNormalCreep("redfall_shipyard_demon_brute", position, 1, 2, "Redfall.DemoinBrute.Aggro", fv, bAggro)
-    local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
-    local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-    ParticleManager:SetParticleControl(particle1,0,stone:GetAbsOrigin())
-    Timers:CreateTimer(2, function()
-    	ParticleManager:DestroyParticle( particle1, false )
-    end)
-	stone:SetRenderColor(255,130,130)
-	Redfall:ColorWearables(stone, Vector(255,130,130))
-	stone.itemLevel = 74
+	local creepFunction = function(unit) 
+		local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+		ParticleManager:SetParticleControl(particle1,0,unit:GetAbsOrigin())
+		Timers:CreateTimer(2, function()
+    		ParticleManager:DestroyParticle( particle1, false )
+		end)
+		unit:SetRenderColor(255,130,130)
+		Redfall:ColorWearables(unit, Vector(255,130,130))
 
-	stone.dominion = true
-	return stone
+		unit.dominion = true
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_shipyard_demon_brute",
+		spawnPoint = position,
+		minDrops = 1, 
+		maxDrops = 2, 
+		itemLevel = 74, 
+		aggroSound = "Redfall.DemoinBrute.Aggro",
+		fv = fv, 
+		isAggro = bAggro, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:SpawnShipyardConductor(position, fv, bAggro)
-	local stone = Spawning:SpawnNormalCreep("redfall_shipyard_conductor", position, 1, 2, "Redfall.ShipyardConductor.Aggro", fv, bAggro)
-    local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
-    local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-    ParticleManager:SetParticleControl(particle1,0,stone:GetAbsOrigin())
-    Timers:CreateTimer(2, function()
-    	ParticleManager:DestroyParticle( particle1, false )
-    end)
-    Events:AdjustBossPower(stone, 12, 12, false)
-	stone:SetRenderColor(255,130,130)
-	Redfall:ColorWearables(stone, Vector(255,130,130))
-	stone.itemLevel = 74
-	stone.targetRadius = 1500
-	stone.autoAbilityCD = 1
-	return stone
+	local creepFunction = function(unit) 
+		local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+		ParticleManager:SetParticleControl(particle1,0,unit:GetAbsOrigin())
+		Timers:CreateTimer(2, function()
+    		ParticleManager:DestroyParticle( particle1, false )
+		end)
+		Events:AdjustBossPower(unit, 12, 12, false)
+		unit:SetRenderColor(255,130,130)
+		Redfall:ColorWearables(unit, Vector(255,130,130))
+		unit.targetRadius = 1500
+		unit.autoAbilityCD = 1
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_shipyard_conductor",
+		spawnPoint = position,
+		minDrops = 1, 
+		maxDrops = 2, 
+		itemLevel = 74, 
+		aggroSound = "Redfall.ShipyardConductor.Aggro",
+		fv = fv, 
+		isAggro = bAggro, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:DropShipyardSwitch1()
@@ -407,7 +535,7 @@ function Redfall:SpawnShipyardWaveUnit(unitName, spawnPoint, quantity, itemLevel
       		unit:SetRenderColor(120, 60, 60)
       	elseif unit:GetUnitName() == "redfall_harvest_wraith" then
 			unit:SetRenderColor(255,140,140)
-			unit:ColorWearables(stone, Vector(255,140,140))
+			unit:ColorWearables(unit, Vector(255,140,140))
 		elseif unit:GetUnitName() == "redfall_shipyard_void" then
 			unit:SetRenderColor(255,130,130)
 			Redfall:ColorWearables(unit, Vector(255,130,130))
@@ -448,15 +576,27 @@ function Redfall:ShipyardGatekeeperBoss()
 end
 
 function Redfall:SpawnShipyardGatekeeper(position, fv, bAggro)
-	local stone = Spawning:SpawnMiniBoss("redfall_shipyard_gatekeeper", position, 5, 7, "Redfall.Gatekeeper.Aggro", fv, bAggro)
-
-	stone:SetRenderColor(255,130,130)
-	Redfall:ColorWearables(stone, Vector(255,130,130))
-	Events:AdjustBossPower(stone, 6, 6, false)
-	stone.itemLevel = 80
-	stone.targetRadius = 1300
-	stone.autoAbilityCD = 2
-	return stone
+	local creepFunction = function(unit) 
+		unit:SetRenderColor(255,130,130)
+		Redfall:ColorWearables(unit, Vector(255,130,130))
+		Events:AdjustBossPower(unit, 6, 6, false)
+		unit.targetRadius = 1300
+		unit.autoAbilityCD = 2
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_shipyard_gatekeeper",
+		spawnPoint = position,
+		minDrops = 5, 
+		maxDrops = 7, 
+		itemLevel = 80, 
+		aggroSound = "Redfall.Gatekeeper.Aggro",
+		fv = fv, 
+		isAggro = bAggro, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_MINI_BOSS, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:SpawnShipyardFerry()
@@ -553,16 +693,28 @@ function Redfall:SpawnShipyardPt2()
 end
 
 function Redfall:SpawnShipyardGhostFish(position, fv)
-	local stone = Spawning:SpawnNormalCreep("shipyard_ghost_fish", position, 0, 2, "Redfall.ShipyardSharkFish.Aggro", fv, false)
-
-	stone:SetRenderColor(255,60,60)
-	Redfall:ColorWearables(stone, Vector(255,60,60))
-	Events:AdjustBossPower(stone, 1, 1, false)
-	stone.itemLevel = 80
-	stone.targetRadius = 1000
-	stone.autoAbilityCD = 4
-	stone.dominion = true
-	return stone
+	local creepFunction = function(unit) 
+		unit:SetRenderColor(255,60,60)
+		Redfall:ColorWearables(unit, Vector(255,60,60))
+		Events:AdjustBossPower(unit, 1, 1, false)
+		unit.targetRadius = 1000
+		unit.autoAbilityCD = 4
+		unit.dominion = true
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "shipyard_ghost_fish",
+		spawnPoint = position,
+		minDrops = 0, 
+		maxDrops = 2, 
+		itemLevel = 80, 
+		aggroSound = "Redfall.ShipyardSharkFish.Aggro",
+		fv = fv, 
+		isAggro = false, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:ShipyardSkeletons(position)
@@ -580,22 +732,47 @@ function Redfall:ShipyardSkeletons(position)
 end
 
 function Redfall:SpawnShipyardSkeletonWarrior(position, fv)
-	local stone = Spawning:SpawnNormalCreep( "redfall_shipyard_basic_skeleton", position, 0, 1, "Redfall.SkeletonSpawn.Aggro", fv, false)
-
-	stone:SetRenderColor(90,180,150)
-	stone.itemLevel = 72
-	stone.dominion = true
-	return stone
+	local creepFunction = function(unit) 
+		unit:SetRenderColor(90,180,150)
+		unit.dominion = true
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_shipyard_basic_skeleton",
+		spawnPoint = position,
+		minDrops = 0, 
+		maxDrops = 1, 
+		itemLevel = 72, 
+		aggroSound = "Redfall.SkeletonSpawn.Aggro",
+		fv = fv, 
+		isAggro = false, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:SpawnShipyardPirateArcher(position, fv)
-	local stone = Redfall:SpawnDungeonUnit("shipyard_pirate_archer", position, 0, 2, "Redfall.PirateArcher.Aggro", fv, false)
-
-	stone:SetRenderColor(255,160,160)
-	Redfall:ColorWearables(stone, Vector(255,160,160))
-	Events:AdjustBossPower(stone, 2, 2, false)
-	stone.dominion = true
-	return stone
+	local creepFunction = function(unit) 
+		unit:SetRenderColor(255,160,160)
+		Redfall:ColorWearables(unit, Vector(255,160,160))
+		Events:AdjustBossPower(unit, 2, 2, false)
+		unit.dominion = true
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "shipyard_pirate_archer",
+		spawnPoint = position,
+		minDrops = 0, 
+		maxDrops = 2, 
+		itemLevel = 72, 
+		aggroSound = "Redfall.PirateArcher.Aggro",
+		fv = fv, 
+		isAggro = false, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:ShipyardBigTrigger1()
@@ -629,45 +806,96 @@ function Redfall:ShipyardBigTrigger1()
 end
 
 function Redfall:SpawnShipyardCargoWatcher(position, fv)
-	local stone = Spawning:SpawnNormalCreep("redfall_shipyard_cargo_watcher", position, 2, 5, "Redfall.CargoWatcher.Aggro", fv, false)
-
-	stone:SetRenderColor(255,160,160)
-	Redfall:ColorWearables(stone, Vector(255,160,160))
-	Events:AdjustBossPower(stone, 5, 5, false)
-	stone.dominion = true
-	return stone
+	local creepFunction = function(unit) 
+		unit:SetRenderColor(255,160,160)
+		Redfall:ColorWearables(unit, Vector(255,160,160))
+		Events:AdjustBossPower(unit, 5, 5, false)
+		unit.dominion = true
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_shipyard_cargo_watcher",
+		spawnPoint = position,
+		minDrops = 2, 
+		maxDrops = 5, 
+		itemLevel = 72, 
+		aggroSound = "Redfall.CargoWatcher.Aggro",
+		fv = fv, 
+		isAggro = false, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:SpawnShipyardSpawnerUnit(position, fv, itemRoll, bAggro)
-	local stone = Spawning:SpawnNormalCreep("redfall_shipyard_pirate_gnoll", position, itemRoll, itemRoll, "Redfall.ShipyardKobold.Aggro", fv, bAggro)
-	stone:SetRenderColor(233,140,140)
-	stone.itemLevel = 67
-	stone.dominion = true
-	return stone
+	local creepFunction = function(unit) 
+		unit:SetRenderColor(233,140,140)
+		unit.dominion = true
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_shipyard_pirate_gnoll",
+		spawnPoint = position,
+		minDrops = itemRoll, 
+		maxDrops = itemRoll, 
+		itemLevel = 67, 
+		aggroSound = "Redfall.ShipyardKobold.Aggro",
+		fv = fv, 
+		isAggro = bAggro, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:SpawnShipyardSpawner(position, fv)
-	local stone = CreateUnitByName("redfall_shipyard_spawner_boss", position, true, nil, nil, DOTA_TEAM_NEUTRALS)
-	stone:SetForwardVector(fv)
-	stone.itemLevel = 86
-	stone.summonCenter = summonCenter
-	stone.jumpLock = true
-    local newHealth = GameState:GetDifficultyFactor()*100
-    stone:SetMaxHealth(newHealth)
-    stone:SetBaseMaxHealth(newHealth)
-    stone:SetHealth(newHealth)
-    stone:Heal(newHealth, unit)
-
-	return stone
+	local creepFunction = function(unit) 
+		unit:SetForwardVector(fv)
+		unit.summonCenter = summonCenter
+		unit.jumpLock = true
+		local newHealth = GameState:GetDifficultyFactor()*100
+		unit:SetMaxHealth(newHealth)
+		unit:SetBaseMaxHealth(newHealth)
+		unit:SetHealth(newHealth)
+		unit:Heal(newHealth, unit)
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_shipyard_spawner_boss",
+		spawnPoint = position,
+		minDrops = nil, 
+		maxDrops = nil, 
+		itemLevel = 86, 
+		aggroSound = nil,
+		fv = fv, 
+		isAggro = false, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:SpawnShipyardSoulCollector(position, fv)
-	local stone = Spawning:SpawnNormalCreep("redfall_shipyard_soul_collector", position, 4, 7, "Redfall.ShipyardSoulCollector.Aggro", fv, false)
-
-	stone:SetRenderColor(255,160,160)
-	Redfall:ColorWearables(stone, Vector(255,160,160))
-	Events:AdjustBossPower(stone, 6, 6, false)
-	return stone
+	local creepFunction = function(unit) 
+		unit:SetRenderColor(255,160,160)
+		Redfall:ColorWearables(unit, Vector(255,160,160))
+		Events:AdjustBossPower(unit, 6, 6, false)
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_shipyard_soul_collector",
+		spawnPoint = position,
+		minDrops = 4, 
+		maxDrops = 7, 
+		itemLevel = 86, 
+		aggroSound = "Redfall.ShipyardSoulCollector.Aggro",
+		fv = fv, 
+		isAggro = false, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:RaiseShipyardBridge()
@@ -711,13 +939,26 @@ function Redfall:RaiseShipyardBridge()
 end
 
 function Redfall:SpawnArmoredBearGuard(position, fv)
-	local stone = Redfall:SpawnDungeonUnit("shipyard_armored_bear_guard", position, 1, 3, "Redfall.ShipyardArmoredBearGuard.Aggro", fv, false)
-
-	stone:SetRenderColor(255,190,190)
-	Redfall:ColorWearables(stone, Vector(255,190,190))
-	Events:AdjustBossPower(stone, 3, 3, false)
-	stone.dominion = true
-	return stone
+	local creepFunction = function(unit) 
+		unit:SetRenderColor(255,190,190)
+		Redfall:ColorWearables(unit, Vector(255,190,190))
+		Events:AdjustBossPower(unit, 3, 3, false)
+		unit.dominion = true
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "shipyard_armored_bear_guard",
+		spawnPoint = position,
+		minDrops = 1, 
+		maxDrops = 3, 
+		itemLevel = 86, 
+		aggroSound = "Redfall.ShipyardArmoredBearGuard.Aggro",
+		fv = fv, 
+		isAggro = false, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:ShipyardBridgeTrigger()
@@ -741,31 +982,59 @@ function Redfall:ShipyardBridgeTrigger()
 end
 
 function Redfall:SpawnCrimsythKnight(position, fv, bAggro)
-	local stone = Redfall:SpawnDungeonUnit("redfall_shipyard_crimsyth_knight", position, 2, 3, "Redfall.CrimsythKnight.Aggro", fv, bAggro)
-	Events:AdjustBossPower(stone, 4, 4, false)
-	if GameState:GetDifficultyFactor() > 1 then
-		stone.targetRadius = 500
-		stone.minRadius = 0
-		stone.targetAbilityCD = RandomInt(2, 4)
-		stone.targetFindOrder = FIND_CLOSEST
-		stone:AddAbility("use_ability_1_target_ai"):SetLevel(1)
+	local creepFunction = function(unit) 
+		Events:AdjustBossPower(unit, 4, 4, false)
+		if GameState:GetDifficultyFactor() > 1 then
+			unit.targetRadius = 500
+			unit.minRadius = 0
+			unit.targetAbilityCD = RandomInt(2, 4)
+			unit.targetFindOrder = FIND_CLOSEST
+			unit:AddAbility("use_ability_1_target_ai"):SetLevel(1)
+		end
+		unit.dominion = true
 	end
-	stone.dominion = true
-	return stone
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_shipyard_crimsyth_knight",
+		spawnPoint = position,
+		minDrops = 2, 
+		maxDrops = 3, 
+		itemLevel = 86, 
+		aggroSound = "Redfall.CrimsythKnight.Aggro",
+		fv = fv, 
+		isAggro = bAggro, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:SpawnCrimsythKnightChamp(position, fv, bAggro)
-	local stone = Redfall:SpawnDungeonUnit("redfall_shipyard_crimsyth_knight_champ", position, 4, 5, "Redfall.CrimsythKnight.Aggro", fv, bAggro)
-	Events:AdjustBossPower(stone, 5, 5, false)
-	stone.targetRadius = 500
-	stone.minRadius = 0
-	stone.targetAbilityCD = RandomInt(2, 4)
-	stone.targetFindOrder = FIND_CLOSEST
-	stone:AddAbility("use_ability_1_target_ai"):SetLevel(1)
-	stone:SetRenderColor(255,130,130)
-	Redfall:ColorWearables(stone, Vector(255,130,130))
-	stone.dominion = true
-	return stone
+	local creepFunction = function(unit) 
+		Events:AdjustBossPower(unit, 5, 5, false)
+		unit.targetRadius = 500
+		unit.minRadius = 0
+		unit.targetAbilityCD = RandomInt(2, 4)
+		unit.targetFindOrder = FIND_CLOSEST
+		unit:AddAbility("use_ability_1_target_ai"):SetLevel(1)
+		unit:SetRenderColor(255,130,130)
+		Redfall:ColorWearables(unit, Vector(255,130,130))
+		unit.dominion = true
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_shipyard_crimsyth_knight_champ",
+		spawnPoint = position,
+		minDrops = 4, 
+		maxDrops = 5, 
+		itemLevel = 86, 
+		aggroSound = "Redfall.CrimsythKnight.Aggro",
+		fv = fv, 
+		isAggro = bAggro, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_NORMAL_CREEP, 
+		creepFunction = creepFunction
+	}
+	return unit
 end
 
 function Redfall:LowerBossRoomWall()
