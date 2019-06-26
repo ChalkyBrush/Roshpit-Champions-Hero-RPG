@@ -4351,7 +4351,7 @@ function FinalBossTrigger()
 								StartAnimation(boss, {duration=2.5, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.8})
 								Quests:ShowDialogueText(MAIN_HERO_TABLE, boss, "redfall_castle_boss_dialogue_4", 6, false)
 								EmitSoundOn("Redfall.CastleBoss.IntroVO3", boss)
-								CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth()})
+								CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth(), bossId = tostring(boss)})
 								Timers:CreateTimer(2, function()
 									for i = 1, 12, 1 do
 										Timers:CreateTimer(i*0.4, function()
@@ -4619,7 +4619,7 @@ function castle_boss_in_combat_2(event)
 			CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "BGMend", {})
 		end
 		Redfall.CastleFinalBossEnd = true
-		local cantDieAbility = caster:FindAbilityByName("redfall_cant_die")
+		local cantDieAbility = caster:FindAbilityByName("redfall_crimsyth_castle_boss_passive")
 		castle_final_boss_death(caster, cantDieAbility)
 	end
 

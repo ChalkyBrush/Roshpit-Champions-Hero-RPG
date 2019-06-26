@@ -57348,7 +57348,7 @@
         "Ability3"  "shipyard_boss_ai"
         "Ability4"  "shipyard_boss_chemical_rage"
         "Ability5"  "boss_health"
-        "Ability6"  "redfall_cant_die"
+        "Ability6"  "redfall_shipyard_boss_passive"
         "Ability7"  "dungeon_creep"
         "Creature"
         {
@@ -58907,7 +58907,7 @@
         "Ability4"      "redfall_crimsyth_boss_passive"
         "Ability5"      "crimsyth_final_boss_fire_blast"
         "Ability6"      "boss_health"
-        "Ability7"      "redfall_cant_die"
+        "Ability7"      "redfall_crimsyth_castle_boss_passive"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Creature"

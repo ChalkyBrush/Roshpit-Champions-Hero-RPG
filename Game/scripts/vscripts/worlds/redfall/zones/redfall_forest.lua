@@ -1444,7 +1444,6 @@ function Redfall:SpawnFenrir()
 		enemyType = ENEMY_TYPE_MINI_BOSS, 
 		creepFunction = creepFunction
 	}
-	AddFOWViewer(DOTA_TEAM_GOODGUYS, spawnPoint, 5000, 25000, false)
 	return unit
 
 end

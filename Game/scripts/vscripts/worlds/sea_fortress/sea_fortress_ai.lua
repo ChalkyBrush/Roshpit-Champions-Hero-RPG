@@ -5535,7 +5535,7 @@ function final_boss_take_damage(event)
 	if not caster.init then
 		EmitSoundOn("Seafortress.FinalBoss.Start", caster)
 		caster.init = true
-		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = caster:GetUnitName(), bossMaxHealth = caster:GetMaxHealth()})
+		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = caster:GetUnitName(), bossMaxHealth = caster:GetMaxHealth(), bossId = tostring(caster)})
 		Seafortress:BossMusic()
 	end
 end

@@ -836,7 +836,7 @@ function kolthun_battle_begin(event)
 	Timers:CreateTimer(2.3, function()
 		EmitGlobalSound("Tanari.FireTemple.KolthunLaugh2")
 	end)
-	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = caster:GetUnitName(), bossMaxHealth = caster:GetMaxHealth()})
+	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = caster:GetUnitName(), bossMaxHealth = caster:GetMaxHealth(), bossId = tostring(caster)})
 	local rockFallTable = {Vector(7424, -9536, 400), Vector(8000, -8256, 400), Vector(5824, -8000, 400), Vector(7040, -8000, 400), Vector(7488, -10176, 400), Vector(6016, -9344, 400)}
 	Tanari.FireTemple.rockfallIndex = 1
 	Timers:CreateTimer(4, function()
