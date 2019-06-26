@@ -6878,7 +6878,7 @@ function RPCItems:RollRingOfNobility(deathLocation)
     item.newItemTable.property1name = "nobility"
     item.newItemTable.property1 = 0
 
-    RPCItems:SetPropertyValuesSpecial(item, 0, "#item_property_nobility", "#FFFFFF",  1, "#property_nobility_description")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_nobility", "#FFFFFF",  1, "#property_nobility_description")
 
     local value = math.ceil(RPCItems:GetMinLevel()/2)
     item.newItemTable.property2 = value*5

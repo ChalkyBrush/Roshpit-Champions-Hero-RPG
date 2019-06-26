@@ -3062,6 +3062,9 @@ end
 function nobility_kill(event)
 	local attacker = event.attacker
 	local ability = event.ability
+	if type(ability.newItemTable.property1) == "string" then
+		ability.newItemTable.property1 = 0
+	end
 	local nextValue = ability.newItemTable.property1 + 1
 	local upgradeThreshold = 10000
 	if nextValue >= upgradeThreshold then
@@ -3076,7 +3079,6 @@ function nobility_kill(event)
 		RPCItems:SetPropertyValuesSpecial(ability, ability.newItemTable.property1, "#item_property_nobility", "#FFFFFF", 1, "#property_nobility_description")
 		RPCItems:ItemUpdateCustomNetTables(ability)
 	end
-
 end
 
 function ironbound_think(event)
