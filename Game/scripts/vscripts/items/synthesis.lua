@@ -253,14 +253,33 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			else
 				return false
 			end
-		elseif (item1:GetAbilityName() == "item_rpc_currency_whetstone" and item2.newItemTable.item_slot == "weapon") or (item2:GetAbilityName() == "item_rpc_currency_whetstone" and item1.newItemTable.item_slot == "weapon") then
+		elseif (item1:GetAbilityName() == "item_rpc_currency_whetstone" and item2.newItemTable.item_slot == "weapon" and (item2.newItemTable.gear == 1 or item2.newItemTable.gear == true)) 
+			or (item2:GetAbilityName() == "item_rpc_currency_whetstone" and item1.newItemTable.item_slot == "weapon" and (item1.newItemTable.gear == 1 or item1.newItemTable.gear == true)) then
 			local currencyItem = item1
 			local targetItem = item2
 			if item2:GetAbilityName() == "item_rpc_currency_whetstone" then
 				currencyItem = item2
 				targetItem = item1
 			end
+			local itemData = CustomNetTables:GetTableValue("item_basics", tostring(targetItem:GetEntityIndex()))
+			if not itemData then
+				print("[RPCItems:SynthCheckCombination] Error itemData is null")
+				return
+			end
+			Weapons:UpdateWeaponXP(2000000000)
 			if true then
+				return
+			end
+			RPCItems.LevelRoll = itemData.minLevel
+			local newItem = RPCItems:RerollArcanaItem(targetItem:GetAbilityName(), itemData, position, 50)
+			RPCItems.LevelRoll = nil
+			if newItem and IsValidEntity(newItem) then
+				newItem.pickedUp = true
+				newItem.newItemTable.minLevel = itemData.minLevel				
+				newItem.newItemTable.validator = itemData.validator
+				RPCItems:ItemUpdateCustomNetTables(newItem)
+				return newItem
+			else
 				return false
 			end
 
