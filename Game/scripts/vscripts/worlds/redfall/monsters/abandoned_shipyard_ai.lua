@@ -812,7 +812,6 @@ function shipyard_knight_die(event)
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.2, function()
 				local knight = Redfall:SpawnCrimsythKnight(positionTable[i], Vector(0,-1), true)
-				Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, knight, "modifier_shipyard_knight", {})
 				CustomAbilities:QuickAttachParticle("particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death.vpcf", knight, 3)
 			end)
 		end
@@ -821,13 +820,11 @@ function shipyard_knight_die(event)
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.2, function()
 				local knight = Redfall:SpawnCrimsythKnight(positionTable[i], Vector(0,-1), true)
-				Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, knight, "modifier_shipyard_knight", {})
 				CustomAbilities:QuickAttachParticle("particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death.vpcf", knight, 3)
 			end)
 		end
 	elseif Redfall.Shipyard.KnightsKilled == 10 then
 		local knight = Redfall:SpawnCrimsythKnightChamp(Vector(15232, 7616), Vector(0,-1), true)
-		Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, knight, "modifier_shipyard_knight", {})
 		CustomAbilities:QuickAttachParticle("particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death.vpcf", knight, 3)
 		local positionTable = {Vector(15040, 7740), Vector(15424, 7744)}
 		for i = 1, #positionTable, 1 do

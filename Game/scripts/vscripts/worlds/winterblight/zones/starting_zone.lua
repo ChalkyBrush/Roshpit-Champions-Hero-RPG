@@ -826,7 +826,7 @@ function Winterblight:SpawnCaveWaveUnit(unitName, spawnPoint, quantity, delay, b
         unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
       Events:AdjustDeathXP(unit)
       end
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
         unit.dominion = true
         unit.deathCode = 1
         Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_winterblight_wave_unit", {})
@@ -836,13 +836,13 @@ function Winterblight:SpawnCaveWaveUnit(unitName, spawnPoint, quantity, delay, b
         Winterblight:AdjustWaveUnit(unit)
       else
         for i = 1, #unit, 1 do
-          unit[i].aggro = true
-          unit[i].dominion = true
-          unit[i]:SetAcquisitionRange(3000)
-          unit[i].deathCode = 1
-          Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit[i], "modifier_winterblight_wave_unit", {})
-          CustomAbilities:QuickAttachParticle("particles/econ/items/winter_wyvern/winter_wyvern_ti7/wyvern_cold_embrace_ti7buff_beams.vpcf", unit[i], 2)
-          Winterblight:AdjustWaveUnit(unit[i])
+          unit.buddiesTable[i].aggro = true
+          unit.buddiesTable[i].dominion = true
+          unit.buddiesTable[i]:SetAcquisitionRange(3000)
+          unit.buddiesTable[i].deathCode = 1
+          Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit.buddiesTable[i], "modifier_winterblight_wave_unit", {})
+          CustomAbilities:QuickAttachParticle("particles/econ/items/winter_wyvern/winter_wyvern_ti7/wyvern_cold_embrace_ti7buff_beams.vpcf", unit.buddiesTable[i], 2)
+          Winterblight:AdjustWaveUnit(unit.buddiesTable[i])
         end
       end
     end)
@@ -1792,7 +1792,7 @@ function Winterblight:SpawnAzaleaWaveUnit(unitName, spawnPoint, quantity, delay,
         unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
       Events:AdjustDeathXP(unit)
       end
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
         unit.dominion = true
         unit.deathCode = 2
         Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_winterblight_wave_unit", {})
@@ -1803,14 +1803,14 @@ function Winterblight:SpawnAzaleaWaveUnit(unitName, spawnPoint, quantity, delay,
         Winterblight:UnitDescendFromOrb(unit, spawnPoint)
       else
         for i = 1, #unit, 1 do
-          unit[i].aggro = true
-          unit[i].dominion = true
-          unit[i]:SetAcquisitionRange(5000)
-          unit[i].deathCode = 2
-          Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit[i], "modifier_winterblight_wave_unit", {})
-          CustomAbilities:QuickAttachParticle("particles/econ/items/winter_wyvern/winter_wyvern_ti7/wyvern_cold_embrace_ti7buff_beams.vpcf", unit[i], 2)
-          Winterblight:AdjustWaveUnit(unit[i])
-          Winterblight:UnitDescendFromOrb(unit[i], spawnPoint)
+          unit.buddiesTable[i].aggro = true
+          unit.buddiesTable[i].dominion = true
+          unit.buddiesTable[i]:SetAcquisitionRange(5000)
+          unit.buddiesTable[i].deathCode = 2
+          Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit.buddiesTable[i], "modifier_winterblight_wave_unit", {})
+          CustomAbilities:QuickAttachParticle("particles/econ/items/winter_wyvern/winter_wyvern_ti7/wyvern_cold_embrace_ti7buff_beams.vpcf", unit.buddiesTable[i], 2)
+          Winterblight:AdjustWaveUnit(unit.buddiesTable[i])
+          Winterblight:UnitDescendFromOrb(unit.buddiesTable[i], spawnPoint)
         end
       end
     end)

@@ -518,27 +518,34 @@ function electron_projectile(event, fv)
 	local end_radius = 140
 	local range = 800
 	local speed = 400 + RandomInt(0, 250)
+	
+	if not ability.lightnings then
+		ability.lightnings = 0
+	end
+	if ability.lightnings < 16 then
+		ability.lightnings = ability.lightnings + 1
 		local info = 
 		{
-				Ability = ability,
-	        	EffectName = projectileParticle,
-	        	vSpawnOrigin = projectileOrigin+Vector(0,0,60),
-	        	fDistance = range,
-	        	fStartRadius = start_radius,
-	        	fEndRadius = end_radius,
-	        	Source = caster,
-	        	StartPosition = "attach_attack1",
-	        	bHasFrontalCone = true,
-	        	bReplaceExisting = false,
-	        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-	        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-	        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-	        	fExpireTime = GameRules:GetGameTime() + 4.0,
+			Ability = ability,
+	        EffectName = projectileParticle,
+	        vSpawnOrigin = projectileOrigin+Vector(0,0,60),
+	        fDistance = range,
+	        fStartRadius = start_radius,
+	        fEndRadius = end_radius,
+	        Source = caster,
+	        StartPosition = "attach_attack1",
+	        bHasFrontalCone = true,
+	        bReplaceExisting = false,
+	        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+	        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+	        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+	        fExpireTime = GameRules:GetGameTime() + 4.0,
 			bDeleteOnHit = false,
 			vVelocity = fv * speed,
 			bProvidesVision = false,
 		}
 		projectile = ProjectileManager:CreateLinearProjectile(info)
+	end
 end
 
 function electron_projectile_hit(event)
@@ -549,6 +556,14 @@ function electron_projectile_hit(event)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)/1000
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 	PopupDamage(target, damage)
+end
+
+function electron_think(event)
+	local ability = event.ability
+	if not ability then
+		return
+	end
+	ability.lightnings = 0
 end
 
 function phoenix_begin_hatch(event)

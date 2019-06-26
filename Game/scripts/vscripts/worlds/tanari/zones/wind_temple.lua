@@ -542,7 +542,7 @@ function Tanari:SpawnWindTempleBoss(position)
 	local boss = Events:SpawnBoss("wind_temple_boss", position)
 	boss.jumpLock = true
 	boss.pushLock = true
-	Events:AdjustBossPower(boss, 4, 4)
+	Events:AdjustBossPower(boss, 4, 4, true)
 	local bossAbility = boss:FindAbilityByName("wind_temple_boss_ai")
 	bossAbility:ApplyDataDrivenModifier(boss, boss, "modifier_wind_temple_boss_intro", {duration = 5.1})
 	boss:SetAbsOrigin(Vector(position.x, position.y, boss:GetAbsOrigin().z)+Vector(0,0,-2800))
@@ -729,7 +729,7 @@ function Tanari:SpawnSpiritWindWaveUnit(unitName, spawnPoint, quantity, itemLeve
       Events:AdjustDeathXP(unit)
       end
 
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
         unit.itemLevel = itemLevel
         unit.dominion = true
         Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit, "tanari_wind_temple_modifier", {})
@@ -751,14 +751,14 @@ function Tanari:SpawnSpiritWindWaveUnit(unitName, spawnPoint, quantity, itemLeve
         -- end
       else
         for i = 1, #unit, 1 do
-          unit[i].aggro = true
-          unit[i].itemLevel = itemLevel
-          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit[i], "tanari_wind_temple_modifier", {})
-          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit[i], "tanari_mountain_specter_ai", {})
-          unit[i].code = 0
-          unit[i]:SetAcquisitionRange(3000)
-          unit[i].dominion = true
-          CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk_init.vpcf", unit[i], 2)
+          unit.buddiesTable[i].aggro = true
+          unit.buddiesTable[i].itemLevel = itemLevel
+          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_wind_temple_modifier", {})
+          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_mountain_specter_ai", {})
+          unit.buddiesTable[i].code = 0
+          unit.buddiesTable[i]:SetAcquisitionRange(3000)
+          unit.buddiesTable[i].dominion = true
+          CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk_init.vpcf", unit.buddiesTable[i], 2)
           -- if unit[i]:GetUnitName() == "redfall_autumn_monster" then
           --   unit[i].targetRadius = 800
           --   unit[i].autoAbilityCD = 1
@@ -1025,7 +1025,7 @@ function Tanari:SpawnWindTempleSpiritBoss()
 	Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, guardian, "tanari_mountain_specter_ai", {})
 	-- local guardian = CreateUnitByName("wind_temple_spirit_boss", Vector(12992, 1536), false, nil, nil, DOTA_TEAM_NEUTRALS)
 	guardian:SetForwardVector(Vector(0,1))
-	Events:AdjustBossPower(guardian, 4, 4, false)
+	Events:AdjustBossPower(guardian, 4, 4, true)
 	local ability = guardian:FindAbilityByName("wind_spirit_main_boss_ability")
 	ability:ApplyDataDrivenModifier(guardian, guardian, "modifier_main_boss_entering", {})
 	Timers:CreateTimer(0.3, function()

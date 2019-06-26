@@ -922,15 +922,15 @@ function Serengaard:SpawnWaveUnit(unitName, spawnPoint, quantity, itemLevel, del
 				unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
 
 			end
-			if IsValidEntity(unit) then
+			if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
 				unit.dominion = true
 				unit.itemLevel = itemLevel
 				Serengaard:AdjustUnit(unit)
 			else
 				for i = 1, #unit, 1 do
-					unit[i].dominion = true
-					unit[i].itemLevel = itemLevel
-					Serengaard:AdjustUnit(unit[i])
+					unit.buddiesTable[i].dominion = true
+					unit.buddiesTable[i].itemLevel = itemLevel
+					Serengaard:AdjustUnit(unit.buddiesTable[i])
 				end
 			end
 		end)
