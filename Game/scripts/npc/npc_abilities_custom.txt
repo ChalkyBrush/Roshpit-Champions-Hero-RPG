@@ -98889,7 +98889,7 @@
 			"modifier_electron_passive"
 			{
 				"Passive"	"1"
-				"ThinkInterval"  "5"
+				"ThinkInterval"  "4"
 				"StatusEffectName" 		"particles/status_fx/status_effect_electrical.vpcf"
 				"StatusEffectPriority"  "15"
 				"OnTakeDamage"
@@ -98900,7 +98900,14 @@
 						"Function"		"electron_take_damage"
 					}
 				}
-
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"ai/phoenix_nest/phoenix_nest.lua"
+						"Function"		"electron_think"
+					}
+				}
 			}
 		}
 		"OnProjectileHitUnit"

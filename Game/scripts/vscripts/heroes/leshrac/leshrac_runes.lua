@@ -250,7 +250,7 @@ function d_d_shell_think(event)
 		local modifier = modifiers[i]
 		local modifierMaker = modifier:GetCaster()
 		
-		if modifier:GetName() == "modifier_bahamut_rune_r_4_shell" or modifier:GetName() == "modifier_charge_of_light_sliding" then
+		if modifier:GetName() == "modifier_bahamut_rune_r_4_shell" or modifier:GetName() == "modifier_charge_of_light_sliding" or modifier:GetName() == "modifier_attack_land_basic" or modifier:GetName() == "modifier_client_setting" then
 		else
 			if modifierMaker:GetEntityIndex() == caster:GetEntityIndex() or modifierMaker:GetEntityIndex() == caster.InventoryUnit:GetEntityIndex() then
 
