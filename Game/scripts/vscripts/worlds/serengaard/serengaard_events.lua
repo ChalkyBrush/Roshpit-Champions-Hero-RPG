@@ -237,10 +237,10 @@ function use_sunstone(event)
 				Serengaard.timerBlock = false
 				Serengaard:LinewarIncomeFunction(90)
 			end)
-			Timers:CreateTimer(7, function()
+			Timers:CreateTimer(1, function()
 				Serengaard.wave = 31
 				for i = 1, 20, 1 do
-					Timers:CreateTimer(i, function()
+					Timers:CreateTimer(i/2, function()
 						Serengaard:UpdateTowers()
 					end)
 				end
@@ -273,16 +273,16 @@ function use_hyperstone(event)
 			Serengaard.timerBlock = true
 			CustomGameEventManager:Send_ServerToAllClients("sunstone_activate", {})
 
-			Serengaard.InfiniteWaveCount = item.property1
+			Serengaard.InfiniteWaveCount = item.newItemTable.property1
 
 			Timers:CreateTimer(3, function()
 				Serengaard.timerBlock = false
 				Serengaard:LinewarIncomeFunction(90)
 			end)
-			Timers:CreateTimer(7, function()
+			Timers:CreateTimer(1, function()
 				Serengaard.wave = 31
 				for i = 1, 20, 1 do
-					Timers:CreateTimer(i, function()
+					Timers:CreateTimer(i/2, function()
 						Serengaard:UpdateTowers()
 					end)
 				end
