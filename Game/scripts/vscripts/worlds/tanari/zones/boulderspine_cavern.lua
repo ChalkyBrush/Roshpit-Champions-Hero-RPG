@@ -108,7 +108,7 @@ function Tanari:SpawnWaveUnit(unitName, spawnPoint, quantity, itemLevel, bSound)
       		unit:AddNewModifier(unit, nil, "modifier_animation_translate", {translate="run"})
       	end
       else
-      	for i = 1, #unit, 1 do
+      	for i = 1, #unit.buddiesTable, 1 do
       		unit.buddiesTable[i].itemLevel = itemLevel
       		unit.buddiesTable[i].dominion = true
       		unit.buddiesTable[i]:AddAbility("tanari_cave_counter"):SetLevel(1)

@@ -835,7 +835,7 @@ function Winterblight:SpawnCaveWaveUnit(unitName, spawnPoint, quantity, delay, b
         unit.aggro = true
         Winterblight:AdjustWaveUnit(unit)
       else
-        for i = 1, #unit, 1 do
+        for i = 1, #unit.buddiesTable, 1 do
           unit.buddiesTable[i].aggro = true
           unit.buddiesTable[i].dominion = true
           unit.buddiesTable[i]:SetAcquisitionRange(3000)
@@ -1802,7 +1802,7 @@ function Winterblight:SpawnAzaleaWaveUnit(unitName, spawnPoint, quantity, delay,
         Winterblight:AdjustWaveUnit(unit)
         Winterblight:UnitDescendFromOrb(unit, spawnPoint)
       else
-        for i = 1, #unit, 1 do
+        for i = 1, #unit.buddiesTable, 1 do
           unit.buddiesTable[i].aggro = true
           unit.buddiesTable[i].dominion = true
           unit.buddiesTable[i]:SetAcquisitionRange(5000)

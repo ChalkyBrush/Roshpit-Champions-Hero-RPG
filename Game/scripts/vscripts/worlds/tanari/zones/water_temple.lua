@@ -1213,7 +1213,7 @@ function Tanari:SpawnWaterTempleWaveUnit(unitName, spawnPoint, quantity, itemLev
       	unit:SetAcquisitionRange(4000)
       	unit.dominion = true
       else
-      	for i = 1, #unit, 1 do
+      	for i = 1, #unit.buddiesTable, 1 do
       		unit.buddiesTable[i].itemLevel = itemLevel
       		unit.buddiesTable[i]:AddAbility("water_temple_wave_room_ability"):SetLevel(1)
       		unit.buddiesTable[i]:SetAcquisitionRange(4000)
@@ -2256,7 +2256,7 @@ function Tanari:SpawnSpiritWaterWaveUnit(unitName, spawnPoint, quantity, itemLev
         --   Redfall:ColorWearables(unit, Vector(255, 60, 60))
         -- end
       else
-        for i = 1, #unit, 1 do
+        for i = 1, #unit.buddiesTable, 1 do
           unit.buddiesTable[i].aggro = true
           unit.buddiesTable[i].itemLevel = itemLevel
           Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_water_temple_modifier", {})
