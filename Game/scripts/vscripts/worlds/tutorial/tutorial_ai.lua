@@ -1,6 +1,6 @@
 function tutorial_master_think(event)
 	local caster = event.caster
-	local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 180, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+	local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 180, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 	if #allies > 0 then
 		for i = 1, #allies, 1 do
 			Tutorial:OpenTutorial(allies[i])
@@ -12,17 +12,17 @@ function tutorial_assistant_think(event)
 	local caster = event.target
 	if caster.state == 0 then
 		if caster.hero and caster.hero:IsAlive() then
-			local targetPoint = caster.hero:GetAbsOrigin() + caster.hero:GetForwardVector()*150
+			local targetPoint = caster.hero:GetAbsOrigin() + caster.hero:GetForwardVector() * 150
 			caster:MoveToPosition(targetPoint)
 		end
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.hero:GetAbsOrigin())
 		if distance < 200 then
 			caster.state = 1
-			local fv = ((caster.hero:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-			caster:MoveToPosition(caster:GetAbsOrigin()+fv)
+			local fv = ((caster.hero:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+			caster:MoveToPosition(caster:GetAbsOrigin() + fv)
 			Quests:ShowDialogueText({caster.hero}, caster, "tutorial_assistant_1", 5, false)
 			EmitSoundOn("Tutorial.Assistant.Voice2", caster)
-			StartAnimation(caster, {duration=2, activity=ACT_DOTA_ATTACK, rate=1.0})
+			StartAnimation(caster, {duration = 2, activity = ACT_DOTA_ATTACK, rate = 1.0})
 			Timers:CreateTimer(5.5, function()
 				caster.state = 2
 				EmitSoundOn("Tutorial.Assistant.Voice6", caster)
@@ -33,14 +33,14 @@ function tutorial_assistant_think(event)
 		caster:MoveToPosition(Vector(154, -1856) + RandomVector(150))
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(154, -1856))
 		if distance < 200 then
-			caster.state = 3 
+			caster.state = 3
 		end
 	elseif caster.state == 3 then
-		local fv = ((caster.hero:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-		caster:MoveToPosition(caster:GetAbsOrigin()+fv)
+		local fv = ((caster.hero:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+		caster:MoveToPosition(caster:GetAbsOrigin() + fv)
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.hero:GetAbsOrigin())
 		if distance < 200 then
-			StartAnimation(caster, {duration=2, activity=ACT_DOTA_ATTACK, rate=1.0})
+			StartAnimation(caster, {duration = 2, activity = ACT_DOTA_ATTACK, rate = 1.0})
 			EmitSoundOn("Tutorial.Assistant.Voice1", caster)
 			caster.state = 1
 			Timers:CreateTimer(1.5, function()
@@ -54,11 +54,11 @@ function tutorial_assistant_think(event)
 			caster.state = 5
 		end
 	elseif caster.state == 5 then
-		local fv = ((caster.hero:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-		caster:MoveToPosition(caster:GetAbsOrigin()+fv)
+		local fv = ((caster.hero:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+		caster:MoveToPosition(caster:GetAbsOrigin() + fv)
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.hero:GetAbsOrigin())
 		if distance < 200 then
-			StartAnimation(caster, {duration=2, activity=ACT_DOTA_ATTACK, rate=1.0})
+			StartAnimation(caster, {duration = 2, activity = ACT_DOTA_ATTACK, rate = 1.0})
 			EmitSoundOn("Tutorial.Assistant.Voice2", caster)
 			caster.state = 1
 			Quests:ShowDialogueText({caster.hero}, caster, "tutorial_assistant_3", 5, false)
@@ -84,12 +84,12 @@ function tutorial_super_kill_think(event)
 			target:RemoveModifierByName("modifier_tutorial_super_kill")
 			Timers:CreateTimer(3, function()
 				Tutorial:UpdateChallengeSummaryProgress(target, 1, 2, 2, true)
-				Quests:ShowDialogueText({target}, Tutorial.Master,"tutorial_master_dialogue_1_2m", 4, false)
+				Quests:ShowDialogueText({target}, Tutorial.Master, "tutorial_master_dialogue_1_2m", 4, false)
 				Tutorial:ProgressUpdateOrNot(target, 1, 2)
 			end)
 		end
 	else
-		ApplyDamage({ victim = target, attacker = caster, damage = 10000000, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
+		ApplyDamage({victim = target, attacker = caster, damage = 10000000, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 		if not target:IsAlive() then
 			target.tutorialhasBeenSlain = true
 		end
@@ -145,18 +145,18 @@ function floating_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if caster.floatPhase == 0 then
-		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,5))
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 5))
 	else
 		if not caster.interval then
 			caster.interval = 0
 		end
-		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,6)*math.cos(2*math.pi*caster.interval/90))
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 6) * math.cos(2 * math.pi * caster.interval / 90))
 		caster.interval = caster.interval + 1
 
-		local rotatedFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi/90)
+		local rotatedFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi / 90)
 		caster:SetForwardVector(rotatedFV)
 		if caster.interval == 90 then
-			caster.interval = 0 
+			caster.interval = 0
 		end
 	end
 end
@@ -165,25 +165,25 @@ function floating_think_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_tutorial_summon_drop", {duration = 3})
-	
+
 end
 
 function floating_drop(event)
 	local caster = event.caster
 	local ability = event.ability
-	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,7))
+	caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, 7))
 	if GetGroundHeight(caster:GetAbsOrigin(), caster) + 10 > caster:GetAbsOrigin().z then
 		caster:RemoveModifierByName("modifier_tutorial_summon_drop")
 		Timers:CreateTimer(0.1, function()
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 			local position = caster:GetAbsOrigin()
-			local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, caster )
-			ParticleManager:SetParticleControl( pfx, 0, position )
-			ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+			local pfx = ParticleManager:CreateParticle("particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(pfx, 0, position)
+			ParticleManager:SetParticleControl(pfx, 1, Vector(200, 200, 200))
 			Timers:CreateTimer(2, function()
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
-			caster:MoveToPosition(caster:GetAbsOrigin()+Vector(1,0))
+			caster:MoveToPosition(caster:GetAbsOrigin() + Vector(1, 0))
 		end)
 	end
 end
