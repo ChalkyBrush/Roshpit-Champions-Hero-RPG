@@ -45,7 +45,7 @@ function action(propertyName, propertyValue, caster)
 end
 
 function heal(amount, caster)
- 	caster:Heal( amount, caster)
+	caster:Heal(amount, caster)
 	PopupHealing(caster, amount)
 end
 
@@ -107,10 +107,10 @@ function use_reanimation_stone(event)
 			ability:SetLevel(0)
 		end
 	end
-	local runePoints = (caster:GetLevel()-1)*2 + 3
-	local abilityPoints = math.floor(caster:GetLevel()/5)
-	CustomNetTables:SetTableValue("player_stats", tostring(caster:GetPlayerOwnerID()), {skillPoints = abilityPoints, runePoints = runePoints} )
-	CustomGameEventManager:Send_ServerToPlayer(caster:GetPlayerOwner(), "AbilityUp", {playerId=caster:GetPlayerOwnerID()})
+	local runePoints = (caster:GetLevel() - 1) * 2 + 3
+	local abilityPoints = math.floor(caster:GetLevel() / 5)
+	CustomNetTables:SetTableValue("player_stats", tostring(caster:GetPlayerOwnerID()), {skillPoints = abilityPoints, runePoints = runePoints})
+	CustomGameEventManager:Send_ServerToPlayer(caster:GetPlayerOwner(), "AbilityUp", {playerId = caster:GetPlayerOwnerID()})
 end
 
 function stackable_pickup(event)
@@ -144,21 +144,21 @@ function use_web_prem_token(event)
 	url = url.."steam_id="..steamID
 	url = url.."&prem_id="..item.newItemTable.property1
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 		--SaveLoad:NewKey()
 		--print( "POST response:\n" )
-		for k,v in pairs( result ) do
+		for k, v in pairs(result) do
 			--print( string.format( "%s : %s\n", k, v ) )
 		end
 		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
-		CustomNetTables:SetTableValue("premium_pass", "web-"..tostring(playerID), {premium = 1} )
-		CustomGameEventManager:Send_ServerToAllClients("update_premium", {playerID = playerID} )
-		Notifications:Top(playerID, {text="Web Premium Added", duration=8, style={color="#A2EFEF"}, continue=true})
+		CustomNetTables:SetTableValue("premium_pass", "web-"..tostring(playerID), {premium = 1})
+		CustomGameEventManager:Send_ServerToAllClients("update_premium", {playerID = playerID})
+		Notifications:Top(playerID, {text = "Web Premium Added", duration = 8, style = {color = "#A2EFEF"}, continue = true})
 		if IsValidEntity(item) then
 			RPCItems:ItemUTIL_Remove(item)
 		end
-	end )
+	end)
 
 end
 

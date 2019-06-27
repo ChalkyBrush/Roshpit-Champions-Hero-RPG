@@ -13,7 +13,7 @@ function equip_item(event)
 		return false
 	end
 	item.newItemTable = itemTable
-	
+
 	local caster = event.caster
 	--print("[equip_item] GetUnitName:"..tostring(caster:GetUnitName()))
 	if caster:HasModifier("modifier_cant_equip") then
