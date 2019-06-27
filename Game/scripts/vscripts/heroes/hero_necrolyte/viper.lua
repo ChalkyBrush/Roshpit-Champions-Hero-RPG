@@ -3,22 +3,22 @@ require('heroes/hero_necrolyte/constants')
 function begin_channel(event)
     local caster = event.caster
     if caster:HasModifier("modifier_iron_treads_of_destruction") then
-        StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.5})
+        StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.5})
     else
-        StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.38})
+        StartAnimation(caster, {duration = 2.0, activity = ACT_DOTA_CAST_ABILITY_4, rate = 0.38})
     end
     EmitSoundOn("Venomort.Viper.PrecastVO", caster)
     StartSoundEvent("Venomort.ViperChannel", caster)
-    local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/viper_channel_flare.vpcf", caster:GetAbsOrigin()+Vector(0,0,100), 1)
-    ParticleManager:SetParticleControl(pfx, 1, Vector(75,75,75))
-    ParticleManager:SetParticleControl(pfx, 2, Vector(24,24,24))
+    local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/viper_channel_flare.vpcf", caster:GetAbsOrigin() + Vector(0, 0, 100), 1)
+    ParticleManager:SetParticleControl(pfx, 1, Vector(75, 75, 75))
+    ParticleManager:SetParticleControl(pfx, 2, Vector(24, 24, 24))
 end
 
 function viper_channel_thinking(event)
     local caster = event.caster
-    local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/viper_channel_flare.vpcf", caster:GetAbsOrigin()+Vector(0,0,100), 1)
-    ParticleManager:SetParticleControl(pfx, 1, Vector(75,75,75))
-    ParticleManager:SetParticleControl(pfx, 2, Vector(24,24,24))
+    local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/viper_channel_flare.vpcf", caster:GetAbsOrigin() + Vector(0, 0, 100), 1)
+    ParticleManager:SetParticleControl(pfx, 1, Vector(75, 75, 75))
+    ParticleManager:SetParticleControl(pfx, 2, Vector(24, 24, 24))
 end
 
 function channel_interrupt(event)
@@ -44,7 +44,7 @@ function cast(event)
     local r2_level = caster:GetRuneValue("r", 2)
     local multiplier = 1;
     if r2_level > 0 then
-        multiplier = multiplier + r2_level * R2_VIPER_SCALE_PERCENT/100
+        multiplier = multiplier + r2_level * R2_VIPER_SCALE_PERCENT / 100
     end
 
     local armor = caster:GetPhysicalArmorValue(false)
@@ -56,7 +56,7 @@ function cast(event)
         lifetime = lifetime + T71_ADDITIONAL_LIFETIME
     end
     EmitSoundOn("Venomort.Viper.CastVO", caster)
-    local viper = CreateUnitByName("venomort_viper_summon", caster:GetAbsOrigin() + caster:GetForwardVector()*120, true, caster, caster, caster:GetTeamNumber())
+    local viper = CreateUnitByName("venomort_viper_summon", caster:GetAbsOrigin() + caster:GetForwardVector() * 120, true, caster, caster, caster:GetTeamNumber())
     viper.creator = caster
     viper.dieTime = lifetime
     viper.owner = caster
@@ -71,7 +71,7 @@ function cast(event)
     ability:ApplyDataDrivenModifier(caster, viper, "modifier_venomort_viper", {duration = lifetime})
     viper:FindAbilityByName("hero_summon_ai"):SetLevel(1)
     viper:SetControllableByPlayer(caster:GetPlayerID(), true)
-    StartAnimation(viper, {duration=1, activity=ACT_DOTA_TELEPORT_END, rate=1})
+    StartAnimation(viper, {duration = 1, activity = ACT_DOTA_TELEPORT_END, rate = 1})
     CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_nevermore/venom_raze.vpcf", viper, 3)
     local aiAbility = viper:FindAbilityByName("hero_summon_ai")
     if caster.bIsAIon == true or caster.bIsAIon == nil then
@@ -84,7 +84,7 @@ function cast(event)
     end
 
     Events:smoothSizeChange(viper, 0, 0.65, 20)
-    viper:SetModifierStackCount( "modifier_venomort_summon_attack_speed", viperAbility, attackspeed * multiplier - 100)
+    viper:SetModifierStackCount("modifier_venomort_summon_attack_speed", viperAbility, attackspeed * multiplier - 100)
     viper:SetMaxHealth(health * multiplier)
     viper:SetBaseMaxHealth(health * multiplier)
     viper:SetHealth(health * multiplier)
@@ -109,7 +109,7 @@ function attack_land(event)
 
     local r1_level = creator:GetRuneValue("r", 1)
     if r1_level > 0 then
-        local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * r1_level * R1_VIPER_DAMAGE_PERCENT/100
+        local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * r1_level * R1_VIPER_DAMAGE_PERCENT / 100
         local summonAbility = caster.summonAbility
         if creator:HasModifier('modifier_venomort_immortal_weapon_1') then
             if not summonAbility.particleCount then
@@ -127,9 +127,9 @@ function attack_land(event)
                     summonAbility.particleCount = summonAbility.particleCount - 1
                 end)
             end
-            local enemies = FindUnitsInRadius( creator:GetTeamNumber(), target:GetAbsOrigin(), nil, WEAPON1_AOE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
+            local enemies = FindUnitsInRadius(creator:GetTeamNumber(), target:GetAbsOrigin(), nil, WEAPON1_AOE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
             if #enemies > 0 then
-                for _,enemy in pairs(enemies) do
+                for _, enemy in pairs(enemies) do
                     Filters:ApplyDotDamage(creator, ability, enemy, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
                 end
             end

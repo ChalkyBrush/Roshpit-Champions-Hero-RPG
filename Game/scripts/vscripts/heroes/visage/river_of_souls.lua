@@ -12,9 +12,9 @@ function river_of_souls_start(event)
 		end
 		local particleName = "particles/roshpit/ekkan/ekkan_portal.vpcf"
 		local portalPFX = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-		local portalPosition = point - Vector(0,0,10)
+		local portalPosition = point - Vector(0, 0, 10)
 		ParticleManager:SetParticleControl(portalPFX, 0, portalPosition)
-		ParticleManager:SetParticleControl(portalPFX, 1, Vector(5,5,5))
+		ParticleManager:SetParticleControl(portalPFX, 1, Vector(5, 5, 5))
 		if #ability.portalTable == 0 then
 			--ability.portalTable[1] = ability:ApplyDataDrivenThinker(caster, point, "modifier_river_of_souls_thinker", {})
 			ability.portalTable[1] = CustomAbilities:QuickAttachThinker(ability, caster, point, "modifier_river_of_souls_thinker", {duration = 18000})
@@ -65,15 +65,15 @@ function river_of_souls_start(event)
 				corpse:SetForwardVector(RandomVector(1))
 				corpse.hp = caster:GetMaxHealth()
 				corpse.attackpower = OverflowProtectedGetAverageTrueAttackDamage(caster)
-				WallPhysics:Jump(corpse, RandomVector(1), RandomInt(8, 12), RandomInt(16,18), 32, 1)
+				WallPhysics:Jump(corpse, RandomVector(1), RandomInt(8, 12), RandomInt(16, 18), 32, 1)
 			end
 		end
 	else
 		EmitSoundOn("Ekkan.CorpseExplosion.Cast", caster)
 		local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "ekkan")
 		local targetCorpse = EntIndexToHScript(caster.corpseExplosionIndex)
-		ability.corpseDamage = targetCorpse.hp*0.05*a_c_level
-		local range = 700 + a_c_level*5
+		ability.corpseDamage = targetCorpse.hp * 0.05 * a_c_level
+		local range = 700 + a_c_level * 5
 		local beamPFX = ParticleManager:CreateParticle("particles/roshpit/ekkan/cast_beams_beams.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(beamPFX, 0, caster:GetAbsOrigin())
 		ParticleManager:SetParticleControl(beamPFX, 1, targetCorpse:GetAbsOrigin())
@@ -94,8 +94,8 @@ function river_of_souls_start(event)
 				ParticleManager:ReleaseParticleIndex(bloodPFX)
 			end)
 			for i = -4, 4, 1 do
-				local fv = WallPhysics:rotateVector(targetCorpse:GetForwardVector(), math.pi/4*i)
-				create_corpse_projectile(targetCorpse:GetAbsOrigin()+Vector(0,0,60), fv, caster, ability, range)
+				local fv = WallPhysics:rotateVector(targetCorpse:GetForwardVector(), math.pi / 4 * i)
+				create_corpse_projectile(targetCorpse:GetAbsOrigin() + Vector(0, 0, 60), fv, caster, ability, range)
 			end
 			UTIL_Remove(targetCorpse)
 		end)
@@ -104,57 +104,57 @@ function river_of_souls_start(event)
 end
 
 function SummonFamiliar(caster, ability, portalPosition, b_c_level)
-		local maxFamiliars = 2
-		local familiar = CreateUnitByName("ekkan_familiar", portalPosition, false, nil, nil, caster:GetTeamNumber())
-		familiar:SetControllableByPlayer(caster:GetPlayerOwnerID(), false)
-		familiar:SetOwner(caster)
+	local maxFamiliars = 2
+	local familiar = CreateUnitByName("ekkan_familiar", portalPosition, false, nil, nil, caster:GetTeamNumber())
+	familiar:SetControllableByPlayer(caster:GetPlayerOwnerID(), false)
+	familiar:SetOwner(caster)
 
-		local familiarArmor = caster:GetPhysicalArmorValue(false)*0.1*b_c_level
-		familiar:SetPhysicalArmorBaseValue(familiarArmor)
-		local attackDamage =  math.min(OverflowProtectedGetAverageTrueAttackDamage(caster)*0.2*b_c_level, (2^31)-10)
-		
-		familiar:SetBaseDamageMin(attackDamage)
-		familiar:SetBaseDamageMax(attackDamage)
-		if not ability.familiarTable then
-			ability.familiarTable = {}
-		end
-		local familiarHealth = math.floor(caster:GetMaxHealth()*0.5)
-	    familiar:SetMaxHealth(familiarHealth)
-	    familiar:SetBaseMaxHealth(familiarHealth)
-	    familiar:SetHealth(familiarHealth)	
-	    familiar.ekkan_unit = true
-	    familiar.ekkan_dominion = true
-	    familiar.dominion = true
-	    familiar.hero = caster
-		table.insert(ability.familiarTable, familiar)
-	    if caster:HasModifier("modifier_ekkan_glyph_6_1") then
-	    	maxFamiliars = maxFamiliars + 1
-	    end
-		if #ability.familiarTable > maxFamiliars then
-			if IsValidEntity(ability.familiarTable[1]) then
-				ability.familiarTable[1]:ForceKill(false)
-			end
-		end
-		reindexFamiliarTable(ability)
-		StartAnimation(familiar, {duration=1.0, activity=ACT_DOTA_SPAWN, rate=0.6})
-		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", familiar, 3)
-		
-			
-		familiar:SetAcquisitionRange(1500)
-		familiar.e_3_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "ekkan")
-		familiar.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "ekkan")
+	local familiarArmor = caster:GetPhysicalArmorValue(false) * 0.1 * b_c_level
+	familiar:SetPhysicalArmorBaseValue(familiarArmor)
+	local attackDamage = math.min(OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.2 * b_c_level, (2 ^ 31) - 10)
 
-		if familiar.e_4_level > 0 then
-			familiar:AddAbility("ekkan_familiar_stoneform"):SetLevel(1)
+	familiar:SetBaseDamageMin(attackDamage)
+	familiar:SetBaseDamageMax(attackDamage)
+	if not ability.familiarTable then
+		ability.familiarTable = {}
+	end
+	local familiarHealth = math.floor(caster:GetMaxHealth() * 0.5)
+	familiar:SetMaxHealth(familiarHealth)
+	familiar:SetBaseMaxHealth(familiarHealth)
+	familiar:SetHealth(familiarHealth)
+	familiar.ekkan_unit = true
+	familiar.ekkan_dominion = true
+	familiar.dominion = true
+	familiar.hero = caster
+	table.insert(ability.familiarTable, familiar)
+	if caster:HasModifier("modifier_ekkan_glyph_6_1") then
+		maxFamiliars = maxFamiliars + 1
+	end
+	if #ability.familiarTable > maxFamiliars then
+		if IsValidEntity(ability.familiarTable[1]) then
+			ability.familiarTable[1]:ForceKill(false)
 		end
-		familiar.stance = "aggressive"
-		familiar:AddAbility("ekkan_creep_aggressive"):SetLevel(1)
-		familiar.owner = caster:GetPlayerOwnerID()
-		if caster:HasModifier("modifier_ekkan_immortal_weapon_2") then
-			familiar:SetOriginalModel("models/creeps/bat_spitter/bat_spitter.vmdl")
-			familiar:SetModel("models/creeps/bat_spitter/bat_spitter.vmdl")
-			caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, familiar, "modifier_ekkan_immortal_weapon2_gargoyle", {})
-		end
+	end
+	reindexFamiliarTable(ability)
+	StartAnimation(familiar, {duration = 1.0, activity = ACT_DOTA_SPAWN, rate = 0.6})
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", familiar, 3)
+
+
+	familiar:SetAcquisitionRange(1500)
+	familiar.e_3_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "ekkan")
+	familiar.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "ekkan")
+
+	if familiar.e_4_level > 0 then
+		familiar:AddAbility("ekkan_familiar_stoneform"):SetLevel(1)
+	end
+	familiar.stance = "aggressive"
+	familiar:AddAbility("ekkan_creep_aggressive"):SetLevel(1)
+	familiar.owner = caster:GetPlayerOwnerID()
+	if caster:HasModifier("modifier_ekkan_immortal_weapon_2") then
+		familiar:SetOriginalModel("models/creeps/bat_spitter/bat_spitter.vmdl")
+		familiar:SetModel("models/creeps/bat_spitter/bat_spitter.vmdl")
+		caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, familiar, "modifier_ekkan_immortal_weapon2_gargoyle", {})
+	end
 end
 
 function reindexFamiliarTable(ability)
@@ -222,7 +222,7 @@ function teleportAllUnits(target)
 		end
 		if dominionAbility.dominionTable then
 			for i = 1, #dominionAbility.dominionTable, 1 do
-				FindClearSpaceForUnit(dominionAbility.dominionTable[i], target:GetAbsOrigin()+RandomVector(RandomInt(60, 200)), false)
+				FindClearSpaceForUnit(dominionAbility.dominionTable[i], target:GetAbsOrigin() + RandomVector(RandomInt(60, 200)), false)
 				Timers:CreateTimer(0.1, function()
 					CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan/unit_teleport_loadout.vpcf", dominionAbility.dominionTable[i], 3)
 				end)
@@ -231,7 +231,7 @@ function teleportAllUnits(target)
 		local skeleAbility = target:FindAbilityByName("ekkan_summon_skeleton")
 		if skeleAbility.skeleTable then
 			for i = 1, #skeleAbility.skeleTable, 1 do
-				FindClearSpaceForUnit(skeleAbility.skeleTable[i], target:GetAbsOrigin()+RandomVector(RandomInt(60, 200)), false)
+				FindClearSpaceForUnit(skeleAbility.skeleTable[i], target:GetAbsOrigin() + RandomVector(RandomInt(60, 200)), false)
 				Timers:CreateTimer(0.1, function()
 					CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan/unit_teleport_loadout.vpcf", skeleAbility.skeleTable[i], 3)
 				end)
@@ -240,7 +240,7 @@ function teleportAllUnits(target)
 		local riverAbility = target:FindAbilityByName("ekkan_river_of_souls")
 		if riverAbility.familiarTable then
 			for i = 1, #riverAbility.familiarTable, 1 do
-				FindClearSpaceForUnit(riverAbility.familiarTable[i], target:GetAbsOrigin()+RandomVector(RandomInt(60, 200)), false)
+				FindClearSpaceForUnit(riverAbility.familiarTable[i], target:GetAbsOrigin() + RandomVector(RandomInt(60, 200)), false)
 				Timers:CreateTimer(0.1, function()
 					CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan/unit_teleport_loadout.vpcf", riverAbility.familiarTable[i], 3)
 				end)
@@ -250,23 +250,23 @@ function teleportAllUnits(target)
 end
 
 function create_corpse_projectile(spellOrigin, forward, caster, ability, range)
-	
-	local info = 
+
+	local info =
 	{
 		Ability = ability,
-        	EffectName = "particles/roshpit/ekkan/corpse_explosion.vpcf",
-        	vSpawnOrigin = spellOrigin,
-        	fDistance = range,
-        	fStartRadius = 130,
-        	fEndRadius = 130,
-        	Source = caster,
-        	StartPosition = "attach_hitloc",
-        	bHasFrontalCone = true,
-        	bReplaceExisting = false,
-        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        	fExpireTime = GameRules:GetGameTime() + 7.0,
+		EffectName = "particles/roshpit/ekkan/corpse_explosion.vpcf",
+		vSpawnOrigin = spellOrigin,
+		fDistance = range,
+		fStartRadius = 130,
+		fEndRadius = 130,
+		Source = caster,
+		StartPosition = "attach_hitloc",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 7.0,
 		bDeleteOnHit = false,
 		vVelocity = forward * 1200,
 		bProvidesVision = false,
@@ -282,13 +282,13 @@ function corpse_projectile_hit(event)
 	local blastParticle = ParticleManager:CreateParticle("particles/roshpit/ekkan/mage_blast.vpcf", PATTACH_CUSTOMORIGIN, hero)
 	ParticleManager:SetParticleControl(blastParticle, 0, target:GetAbsOrigin())
 	ParticleManager:SetParticleControl(blastParticle, 1, Vector(200, 1, 200))
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 220, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 220, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
-		for _,enemy in pairs(enemies) do
+		for _, enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, ability.corpseDamage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 		end
-	end 
-	
+	end
+
 	EmitSoundOn("Ekkan.CorpseExplosion.Impact", target)
 end
 
@@ -306,9 +306,9 @@ end
 function familiar_stone_form(event)
 	local ability = event.ability
 	local caster = event.caster
-	local stun_duration = caster.e_4_level*0.25
+	local stun_duration = caster.e_4_level * 0.25
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_familiar_stoneform_effect", {duration = 6.2})
-	StartAnimation(caster, {duration=6.2, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.0})
+	StartAnimation(caster, {duration = 6.2, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.0})
 	Timers:CreateTimer(0.7, function()
 		if IsValidEntity(caster) then
 			if caster:IsAlive() then
@@ -317,12 +317,12 @@ function familiar_stone_form(event)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_familiar_stoneform_regen", {duration = 5.2})
 				caster:SetModifierStackCount("modifier_familiar_stoneform_regen", caster, caster.e_4_level)
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", caster, 3)
-				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 				if #enemies > 0 then
-					for _,enemy in pairs(enemies) do
+					for _, enemy in pairs(enemies) do
 						Filters:ApplyStun(caster.hero, stun_duration, enemy)
 					end
-				end 
+				end
 			end
 		end
 	end)
@@ -341,10 +341,10 @@ end
 function stone_form_thinking(event)
 	local caster = event.caster
 	if caster.rising then
-		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,6))
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 6))
 	else
 		if caster:GetAbsOrigin().z + 120 > GetGroundHeight(caster:GetAbsOrigin(), caster) then
-			caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,4))
+			caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, 4))
 		end
 	end
 end

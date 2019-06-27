@@ -9,14 +9,14 @@ local function createTauntWaves(caster, ability, damage)
             local particle = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
             local radius = 600
             ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-            ParticleManager:SetParticleControl(particle, 1, Vector(radius,radius,radius))
+            ParticleManager:SetParticleControl(particle, 1, Vector(radius, radius, radius))
             Timers:CreateTimer(4, function()
                 ParticleManager:DestroyParticle(particle, false)
             end)
 
-            local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+            local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
             if #enemies > 0 then
-                for _,enemy in pairs(enemies) do
+                for _, enemy in pairs(enemies) do
                     if enemy:GetAttackCapability() == DOTA_UNIT_CAP_NO_ATTACK then
                     else
                         ability:ApplyDataDrivenModifier(caster, enemy, "modifier_axe_rune_r_1_taunt", {duration = 1.5})
@@ -48,24 +48,23 @@ function takeDamage(event)
     if IsValidEntity(attacker) then
         if attacker == caster then
         else
-            Events:CreateLightningBeamWithParticle(attacker:GetAbsOrigin()+Vector(0,0,60), caster:GetAbsOrigin()+Vector(0,0,140), "particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_basher_lightning.vpcf", 1.5)
+            Events:CreateLightningBeamWithParticle(attacker:GetAbsOrigin() + Vector(0, 0, 60), caster:GetAbsOrigin() + Vector(0, 0, 140), "particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_basher_lightning.vpcf", 1.5)
 
             local position = attacker:GetAbsOrigin()
             local radius = 260
 
             local damage = math.min(event.damage, 20 * caster:GetHealth());
-           --print("incoming damage = " .. event.damage)
-            damage = damage * caster.r_1_level*RED_GENERAL_R1_DAMAGE
+            --print("incoming damage = " .. event.damage)
+            damage = damage * caster.r_1_level * RED_GENERAL_R1_DAMAGE
             if caster:HasModifier("modifier_axe_glyph_5_a") then
-                damage = damage * (1 + T5A_AMPLIFY_PERCENT/100)
+                damage = damage * (1 + T5A_AMPLIFY_PERCENT / 100)
             end
 
-           --print("damage from r1 = " .. damage)
+            --print("damage from r1 = " .. damage)
             Filters:TakeArgumentsAndApplyDamage(attacker, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
         end
     end
 end
-
 
 local module = {}
 module.cast = cast

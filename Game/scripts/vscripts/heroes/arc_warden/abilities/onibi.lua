@@ -2,7 +2,7 @@ ONIBI_ELEMENT_MAX_LEVEL = 100
 require('heroes/arc_warden/jex_constants')
 function load_onibi_data(caster, onibi_data)
 	local jex_ability = caster:FindAbilityByName("jex_essence_harvest")
-	local spawnPoint = caster:GetAbsOrigin() - caster:GetForwardVector()*100
+	local spawnPoint = caster:GetAbsOrigin() - caster:GetForwardVector() * 100
 	caster.onibi = CreateUnitByName("jex_onibi", spawnPoint, false, caster, caster, caster:GetTeamNumber())
 
 	jex_ability:ApplyDataDrivenModifier(caster, caster.onibi, "modifier_jex_onibi_thinker", {})
@@ -55,7 +55,6 @@ function load_onibi_data(caster, onibi_data)
 
 	onibi_initial_set_abilities_data(caster.onibi, onibi_data)
 
-
 	calculate_onibi_element_levels(caster.onibi)
 end
 
@@ -94,7 +93,7 @@ function calculate_onibi_element_levels(onibi)
 		local level = get_level_by_sum_exp(onibi.stats_table[element_name]["exp"])
 		onibi.stats_table[element_name]["level"] = level
 		onibi.stats_table[element_name]["current"] = onibi.stats_table[element_name]["exp"] - get_onibi_sum_exp_table(level)
-		onibi.stats_table[element_name]["required"] = get_onibi_sum_exp_table(level+1) - get_onibi_sum_exp_table(level)
+		onibi.stats_table[element_name]["required"] = get_onibi_sum_exp_table(level + 1) - get_onibi_sum_exp_table(level)
 	end
 	onibi_calculate_all_tech_points(onibi)
 	write_onibi_to_nettable(onibi)
@@ -113,7 +112,7 @@ function set_onibi_model(onibi)
 	for i = 1, #elements_table, 1 do
 		sum_level = sum_level + onibi.stats_table[elements_table[i]]["level"]
 	end
-	local model_index = math.max(math.ceil(sum_level/18.75), 1)
+	local model_index = math.max(math.ceil(sum_level / 18.75), 1)
 	local model_string = available_models[model_index]
 
 	if onibi.current_model_index == model_index then
@@ -195,7 +194,7 @@ function onibi_initial_set_abilities_data(onibi, data_from_server)
 			end
 		end
 		local element_level = get_level_by_sum_exp(onibi.stats_table[element1]["exp"])
-		tech_points_spent = tech_points_spent/2
+		tech_points_spent = tech_points_spent / 2
 		local tech_available = tech_points_earned_for_element(element1, element_level) - tech_points_spent
 		onibi.stats_table[element1]["tech"] = tech_available
 	end
@@ -206,7 +205,7 @@ function onibi_initial_set_abilities_data(onibi, data_from_server)
 end
 
 function tech_points_earned_for_element(element, level)
-	return level*3
+	return level * 3
 end
 
 function tech_points_available_for_element(element, level)
@@ -217,11 +216,11 @@ function total_tech_used_on_ability(element1, element2, ability_key, level)
 	if element1 == element2 then
 		mult = 2
 	end
-	return (level*(level + 1))*mult
+	return (level * (level + 1)) * mult
 end
 
 function get_ability_tech_up_cost(ability_level, mult)
-	return (ability_level + 1)*mult
+	return (ability_level + 1) * mult
 end
 
 function onibi_calculate_all_tech_points(onibi)
@@ -241,7 +240,7 @@ function onibi_calculate_all_tech_points(onibi)
 			end
 		end
 		local element_level = get_level_by_sum_exp(onibi.stats_table[element1]["exp"])
-		tech_points_spent = tech_points_spent/2
+		tech_points_spent = tech_points_spent / 2
 		local tech_available = tech_points_earned_for_element(element1, element_level) - tech_points_spent
 		onibi.stats_table[element1]["tech"] = tech_available
 	end
@@ -312,7 +311,6 @@ function get_ability_name_by_element_combination_and_key(element1, element2, abi
 			ability_name = "jex_fire_cosmic_e"
 		end
 
-
 	end
 	return ability_name
 end
@@ -323,7 +321,7 @@ function get_onibi_exp_table()
 	local starting_requirement = 20
 	for i = 1, ONIBI_ELEMENT_MAX_LEVEL, 1 do
 		local exp_value = starting_requirement + differential
-		differential = differential + 80*i
+		differential = differential + 80 * i
 		table[i] = exp_value
 	end
 	return table
@@ -345,23 +343,23 @@ function get_level_by_sum_exp(exp)
 	local xp_table = get_onibi_exp_table()
 	local sum = 0
 	local level = 0
-	for i = 0, ONIBI_ELEMENT_MAX_LEVEL-1, 1 do
-		sum = sum + xp_table[i+1]
-		if ((i == ONIBI_ELEMENT_MAX_LEVEL-1) and (exp >= sum)) then
+	for i = 0, ONIBI_ELEMENT_MAX_LEVEL - 1, 1 do
+		sum = sum + xp_table[i + 1]
+		if ((i == ONIBI_ELEMENT_MAX_LEVEL - 1) and (exp >= sum)) then
 			level = 100
 			break
 		elseif (sum > exp) then
 			level = i
 			break
 		end
-	end	
+	end
 	return level
 end
 
 function onibi_level_up(onibi)
 	EmitSoundOn("Jex.OnibiLevelUp", onibi)
 	Timers:CreateTimer(0.5, function()
-		StartAnimation(onibi, {duration=3, activity=ACT_DOTA_RUN, rate=1.5, translate="haste"})
+		StartAnimation(onibi, {duration = 3, activity = ACT_DOTA_RUN, rate = 1.5, translate = "haste"})
 		CustomAbilities:QuickAttachParticle("particles/roshpit/jex/jex_levelup_vine_glow_trail.vpcf", onibi, 4)
 	end)
 
@@ -376,12 +374,12 @@ function onibi_main_think(event)
 	local caster = event.caster
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), onibi:GetAbsOrigin())
 	if distance > 3000 then
-		local walkToPoint = caster:GetAbsOrigin() - caster:GetForwardVector()*160
+		local walkToPoint = caster:GetAbsOrigin() - caster:GetForwardVector() * 160
 		onibi:SetAbsOrigin(walkToPoint)
 		local tp_pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/jex/essence_spawn.vpcf", onibi, 2)
 		ParticleManager:SetParticleControl(tp_pfx, 1, Vector(0.3, 0.9, 0.8))
 	elseif distance > 420 then
-		local walkToPoint = caster:GetAbsOrigin() - caster:GetForwardVector()*160
+		local walkToPoint = caster:GetAbsOrigin() - caster:GetForwardVector() * 160
 		onibi:MoveToPosition(walkToPoint)
 	end
 end
@@ -394,20 +392,20 @@ function onibi_activate_essence(event)
 	local jex = caster.caster
 	-- local other_index = 2
 	-- if index == 2 then
-	-- 	other_index = 1
+	-- other_index = 1
 	-- end
 	if essence == "nature" then
 		if jex:HasModifier("modifier_jex_arcana1") then
-			CustomAbilities:AddAndOrSwapSkill(caster, "onibi_nature_"..index, "onibi_fire_"..index, index-1)
+			CustomAbilities:AddAndOrSwapSkill(caster, "onibi_nature_"..index, "onibi_fire_"..index, index - 1)
 		else
-			CustomAbilities:AddAndOrSwapSkill(caster, "onibi_nature_"..index, "onibi_lightning_"..index, index-1)
+			CustomAbilities:AddAndOrSwapSkill(caster, "onibi_nature_"..index, "onibi_lightning_"..index, index - 1)
 		end
 	elseif essence == "lightning" then
-		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_lightning_"..index, "onibi_cosmic_"..index, index-1)
+		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_lightning_"..index, "onibi_cosmic_"..index, index - 1)
 	elseif essence == "fire" then
-		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_fire_"..index, "onibi_cosmic_"..index, index-1)
+		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_fire_"..index, "onibi_cosmic_"..index, index - 1)
 	elseif essence == "cosmic" then
-		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_cosmic_"..index, "onibi_nature_"..index, index-1)
+		CustomAbilities:AddAndOrSwapSkill(caster, "onibi_cosmic_"..index, "onibi_nature_"..index, index - 1)
 	end
 end
 
@@ -458,26 +456,26 @@ function onibi_invoke(event)
 	----print(ability_key)
 	-- local ability_level = caster.stats_table[element1][element2][ability_key]["level"]
 	-- if ability_level > 0 then
-	-- 	EmitSoundOn("Jex.Invoke", caster)
-	-- 	local ability_name = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
-	-- 	local ability_index = convert_ability_key_into_ability_index(ability_key)
-	-- 	local old_ability_name = caster.caster:GetAbilityByIndex(ability_index):GetAbilityName()
-	-- 	CustomAbilities:AddAndOrSwapSkill(caster.caster, old_ability_name, ability_name, ability_index)
+	-- EmitSoundOn("Jex.Invoke", caster)
+	-- local ability_name = get_ability_name_by_element_combination_and_key(element1, element2, ability_key)
+	-- local ability_index = convert_ability_key_into_ability_index(ability_key)
+	-- local old_ability_name = caster.caster:GetAbilityByIndex(ability_index):GetAbilityName()
+	-- CustomAbilities:AddAndOrSwapSkill(caster.caster, old_ability_name, ability_name, ability_index)
 
-	-- 	local invokePFX = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_invoker/invoker_death_end.vpcf", onibi.caster, 4)
-	-- 	ParticleManager:SetParticleControl(invokePFX, 1, Vector(120, 180, 255))
-	-- 	local invokePFX2 = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_invoker/invoker_death_end.vpcf", onibi, 4)
-	-- 	ParticleManager:SetParticleControl(invokePFX2, 1, Vector(120, 180, 255))
-	-- 	local pfx = ParticleManager:CreateParticle("particles/roshpit/jex/essence_harvest.vpcf", PATTACH_CUSTOMORIGIN, nil)
-	-- 	ParticleManager:SetParticleControlEnt(pfx, 1, caster.caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster.caster:GetAbsOrigin(), true)
-	-- 	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
-	-- 	Timers:CreateTimer(0.15, function()
-	-- 		ParticleManager:DestroyParticle(pfx, false)
-	-- 	end)
+	-- local invokePFX = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_invoker/invoker_death_end.vpcf", onibi.caster, 4)
+	-- ParticleManager:SetParticleControl(invokePFX, 1, Vector(120, 180, 255))
+	-- local invokePFX2 = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_invoker/invoker_death_end.vpcf", onibi, 4)
+	-- ParticleManager:SetParticleControl(invokePFX2, 1, Vector(120, 180, 255))
+	-- local pfx = ParticleManager:CreateParticle("particles/roshpit/jex/essence_harvest.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	-- ParticleManager:SetParticleControlEnt(pfx, 1, caster.caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster.caster:GetAbsOrigin(), true)
+	-- ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
+	-- Timers:CreateTimer(0.15, function()
+	-- ParticleManager:DestroyParticle(pfx, false)
+	-- end)
 	-- else
-	-- 	EmitSoundOn("Jex.InvokeFail", caster)
+	-- EmitSoundOn("Jex.InvokeFail", caster)
 	-- end
-	
+
 end
 
 function convert_ability_key_into_ability_index(ability_key)
@@ -535,13 +533,13 @@ function onibi_master_rune_thinker(event)
 		fire_level = get_level_by_sum_exp(onibi.stats_table["fire"]["exp"])
 	end
 
-	total_attack_damage_stacks = total_attack_damage_stacks + nature_level*q_1_level
+	total_attack_damage_stacks = total_attack_damage_stacks + nature_level * q_1_level
 	if caster:HasModifier("modifier_jex_arcana1") then
-		total_attack_damage_stacks = total_attack_damage_stacks + fire_level*w_1_level
+		total_attack_damage_stacks = total_attack_damage_stacks + fire_level * w_1_level
 	else
-		total_attack_damage_stacks = total_attack_damage_stacks + lightning_level*w_1_level
+		total_attack_damage_stacks = total_attack_damage_stacks + lightning_level * w_1_level
 	end
-	total_attack_damage_stacks = total_attack_damage_stacks + cosmic_level*e_1_level
+	total_attack_damage_stacks = total_attack_damage_stacks + cosmic_level * e_1_level
 	if total_attack_damage_stacks > 0 then
 		ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_onibi_base_attack_damage", {})
 		caster:SetModifierStackCount("modifier_onibi_base_attack_damage", onibi, total_attack_damage_stacks)
@@ -553,14 +551,14 @@ function onibi_master_rune_thinker(event)
 	local q_3_level = caster:GetRuneValue("q", 3)
 	local w_3_level = caster:GetRuneValue("w", 3)
 	local e_3_level = caster:GetRuneValue("e", 3)
-	
-	total_attributes_stacks = total_attributes_stacks + nature_level*q_3_level
+
+	total_attributes_stacks = total_attributes_stacks + nature_level * q_3_level
 	if caster:HasModifier("modifier_jex_arcana1") then
-		total_attributes_stacks = total_attributes_stacks + fire_level*w_3_level
+		total_attributes_stacks = total_attributes_stacks + fire_level * w_3_level
 	else
-		total_attributes_stacks = total_attributes_stacks + lightning_level*w_3_level
+		total_attributes_stacks = total_attributes_stacks + lightning_level * w_3_level
 	end
-	total_attributes_stacks = total_attributes_stacks + cosmic_level*e_3_level
+	total_attributes_stacks = total_attributes_stacks + cosmic_level * e_3_level
 	if total_attributes_stacks > 0 then
 		ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_onibi_all_attributes", {})
 		caster:SetModifierStackCount("modifier_onibi_all_attributes", onibi, total_attributes_stacks)
@@ -605,7 +603,7 @@ function jex_equip_immortal_weapon(event)
 					bonus = 1
 				end
 				if element1 == element2 then
-					bonus = bonus*2
+					bonus = bonus * 2
 				end
 				if caster:HasModifier("modifier_jex_glyph_5_a") then
 					bonus = bonus + 1

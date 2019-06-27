@@ -15,13 +15,13 @@ function seinaru_weap_1_attack(event)
 
     local r_ability = attacker:FindAbilityByName('seinaru_gorudo')
 
-    local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, SEINARU_WEAP_1_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
-    for _,enemy in pairs(enemies) do
+    local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, SEINARU_WEAP_1_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+    for _, enemy in pairs(enemies) do
         if not enemy.dummy then
             if r_ability then
                 Seinaru_Apply_E4(attacker, enemy, r_ability)
             end
-            Filters:ApplyItemDamage(enemy,attacker,damage,DAMAGE_TYPE_PHYSICAL,ability, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+            Filters:ApplyItemDamage(enemy, attacker, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
         end
     end
     if not sword.particles then

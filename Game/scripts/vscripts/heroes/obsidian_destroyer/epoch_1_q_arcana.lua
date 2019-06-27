@@ -7,30 +7,30 @@ function epoch_arcana_q_start(event)
 	local q_4_level = caster:GetRuneValue("q", 4)
 	local procs = Runes:Procs(q_4_level, EPOCH_ARCANA_Q4_PROCS_PCT, 1)
 	for i = 0, procs, 1 do
-		Timers:CreateTimer(0.2*i, function()
+		Timers:CreateTimer(0.2 * i, function()
 			if i > 0 then
-				StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_ATTACK, rate=1.2})
+				StartAnimation(caster, {duration = 0.8, activity = ACT_DOTA_ATTACK, rate = 1.2})
 			end
 			local pfx = ParticleManager:CreateParticle("particles/roshpit/epoch/arcana_ability_area.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			EmitSoundOnLocationWithCaster(target, "Epoch.ArcanaAbility.Cast", caster)
-			local radius = 400 + q_4_level*5
-			ParticleManager:SetParticleControl(pfx, 0, target+Vector(0,0,120))
+			local radius = 400 + q_4_level * 5
+			ParticleManager:SetParticleControl(pfx, 0, target + Vector(0, 0, 120))
 			ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 100, radius))
 			Timers:CreateTimer(3, function()
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
 			ability.q_3_level = caster:GetRuneValue("q", 3)
 			local rootDuration = event.root_duration
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
-				for _,enemy in pairs(enemies) do
+				for _, enemy in pairs(enemies) do
 					Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
 					local alreadyHave = enemy:FindModifierByName("modifier_epoch_arcana_root")
-					if not alreadyHave then 
+					if not alreadyHave then
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_epoch_arcana_root", {duration = rootDuration})
 					end
 				end
-			end 
+			end
 			Filters:CastSkillArguments(1, caster)
 		end)
 	end
@@ -41,10 +41,10 @@ function epoch_arcana_q_1_end(event)
 	local target = event.target
 	local ability = event.ability
 	local q_1_level = caster:GetRuneValue("q", 1)
-	local damageMult = q_1_level*EPOCH_ARCANA_Q1_DMG_MULTI_PCT/100 + 0.05
+	local damageMult = q_1_level * EPOCH_ARCANA_Q1_DMG_MULTI_PCT / 100 + 0.05
 	local typeCheck = type(target.epochArcanaAA)
 	if typeCheck == "number" then
-		local damage = target.epochArcanaAA*damageMult
+		local damage = target.epochArcanaAA * damageMult
 		--print("target.epochArcanaAA "..target.epochArcanaAA)
 
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.1})
@@ -74,7 +74,7 @@ function epoch_arcana_q_3_damage_think(event)
 	local ability = event.ability
 	ability.q_3_level = caster:GetRuneValue("q", 3)
 	if ability.q_3_level > 0 then
-		local bonusDamage = math.floor(caster:GetMaxMana()*ability.q_3_level*EPOCH_ARCANA_Q3_EXTRA_BASE_ATT_DMG_PCT/100)
+		local bonusDamage = math.floor(caster:GetMaxMana() * ability.q_3_level * EPOCH_ARCANA_Q3_EXTRA_BASE_ATT_DMG_PCT / 100)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_epoch_arcana_attack_damage", {})
 		caster:SetModifierStackCount("modifier_epoch_arcana_attack_damage", caster, bonusDamage)
 	else

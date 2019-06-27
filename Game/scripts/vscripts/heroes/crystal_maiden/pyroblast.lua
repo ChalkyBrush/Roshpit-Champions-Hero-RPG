@@ -9,7 +9,7 @@ function start_channel(event)
 		begin_pyro(event)
 		local pyroblast = caster:FindAbilityByName("pyroblast")
 		caster:Stop()
-		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_1, rate=2.4})
+		StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_1, rate = 2.4})
 		EmitSoundOn("Hero_Jakiro.LiquidFire", caster)
 		ability:EndCooldown()
 		local cooldown = Filters:GetCDNoHood(caster, 0.7)
@@ -20,35 +20,34 @@ function start_channel(event)
 	end
 	ability.rune_r_2_level = rune_r_2(caster, ability)
 	caster.r_4_level = caster:GetRuneValue("r", 4)
- 	local c_d_level = caster:GetRuneValue("r", 3)
- 	local point = event.target_points[1]
+	local c_d_level = caster:GetRuneValue("r", 3)
+	local point = event.target_points[1]
 	if c_d_level > 0 then
 		ability.r_3_particle = ParticleManager:CreateParticle("particles/roshpit/sorceress/flamestrike_indicator_portrait.vpcf", PATTACH_WORLDORIGIN, caster)
 		ParticleManager:SetParticleControl(ability.r_3_particle, 0, point)
 		ParticleManager:SetParticleControl(ability.r_3_particle, 1, point)
-		ParticleManager:SetParticleControl(ability.r_3_particle, 2, point)	
-	end   
+		ParticleManager:SetParticleControl(ability.r_3_particle, 2, point)
+	end
 end
 
 function begin_pyro(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target_points[1]
-	local fv = ((target-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	local fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	local casterOrigin = caster:GetAbsOrigin()
 	StartSoundEvent("hero_jakiro.macropyre", caster)
-	  Timers:CreateTimer(1.5,
-	  function()
+	Timers:CreateTimer(1.5, function()
 		StopSoundEvent("hero_jakiro.macropyre", caster)
-	  end)
+	end)
 	if event.noAnim then
-		local luck = RandomInt(1,3)
+		local luck = RandomInt(1, 3)
 		if luck == 1 then
 			EmitSoundOn("Sorceress.PyroCastVO", caster)
 		end
 	else
 		EmitSoundOn("Sorceress.PyroCastVO", caster)
-		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
+		StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1})
 	end
 	if caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
 		caster = caster.origCaster
@@ -62,22 +61,22 @@ function begin_pyro(event)
 	if caster:HasModifier("modifier_sorceress_glyph_7_1") then
 		projectileParticle = "particles/econ/items/puck/puck_alliance_set/chaos_blast_aproset.vpcf"
 	end
-	local info = 
+	local info =
 	{
-			Ability = ability,
-        	EffectName = projectileParticle,
-        	vSpawnOrigin = casterOrigin,
-        	fDistance = range,
-        	fStartRadius = start_radius,
-        	fEndRadius = end_radius,
-        	Source = caster,
-        	StartPosition = "attach_origin",
-        	bHasFrontalCone = true,
-        	bReplaceExisting = false,
-        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        	fExpireTime = GameRules:GetGameTime() + 5.0,
+		Ability = ability,
+		EffectName = projectileParticle,
+		vSpawnOrigin = casterOrigin,
+		fDistance = range,
+		fStartRadius = start_radius,
+		fEndRadius = end_radius,
+		Source = caster,
+		StartPosition = "attach_origin",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
 		bDeleteOnHit = false,
 		vVelocity = fv * speed,
 		bProvidesVision = false,
@@ -85,10 +84,10 @@ function begin_pyro(event)
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 	Filters:CastSkillArguments(4, caster)
 
-	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "sorceress") 
+	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "sorceress")
 	if c_d_level > 0 then
 		-- local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "sorceress")
-		local runesCount  =c_d_level
+		local runesCount = c_d_level
 		-- damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*d_d_level*damage
 		sorceress_c_d(caster, target, 560, runesCount)
 	end
@@ -108,26 +107,26 @@ function channel_end(event)
 end
 
 function rune_r_1(caster, ability)
-  local runeUnit = caster.runeUnit
-  local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_r_1")
-  local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_1")
-  local totalLevel = abilityLevel + bonusLevel
-  if totalLevel > 0 and not caster:HasModifier("modifier_clear_cast") then
-  	local fireball = caster:FindAbilityByName("fireball")
-  	if not fireball then
-  		fireball = caster:AddAbility("fireball")
-  	end
-  	ability:ApplyDataDrivenModifier(caster, caster, "modifier_pyro_cooldown", {duration = 17})
-  	fireball:SetLevel(ability:GetLevel())
-  	fireball:SetAbilityIndex(DOTA_R_SLOT)
-  	fireball.rune_r_1_level = totalLevel
-  	caster:SwapAbilities("pyroblast", "fireball", false, true)
-  	-- Timers:CreateTimer(17,function()
-  	-- 	ability:SetLevel(iceLance:GetLevel())
-  	-- 	caster:SwapAbilities("pyroblast", "fireball", true, false)
-  	-- end)
-  end
+	local runeUnit = caster.runeUnit
+	local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_r_1")
+	local abilityLevel = runeAbility:GetLevel()
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_1")
+	local totalLevel = abilityLevel + bonusLevel
+	if totalLevel > 0 and not caster:HasModifier("modifier_clear_cast") then
+		local fireball = caster:FindAbilityByName("fireball")
+		if not fireball then
+			fireball = caster:AddAbility("fireball")
+		end
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_pyro_cooldown", {duration = 17})
+		fireball:SetLevel(ability:GetLevel())
+		fireball:SetAbilityIndex(DOTA_R_SLOT)
+		fireball.rune_r_1_level = totalLevel
+		caster:SwapAbilities("pyroblast", "fireball", false, true)
+		-- Timers:CreateTimer(17, function()
+		-- ability:SetLevel(iceLance:GetLevel())
+		-- caster:SwapAbilities("pyroblast", "fireball", true, false)
+		-- end)
+	end
 end
 
 function cooldownEnd(event)
@@ -135,15 +134,14 @@ function cooldownEnd(event)
 	local caster = event.caster
 	if caster:HasAbility("fireball") then
 		local level = caster:FindAbilityByName("fireball"):GetLevel()
-  		ability:SetLevel(level)
-  		caster:SwapAbilities("pyroblast", "fireball", true, false)	
-  	end
+		ability:SetLevel(level)
+		caster:SwapAbilities("pyroblast", "fireball", true, false)
+	end
 end
 
-
 function rune_r_2(caster, ability)
-  local totalLevel = caster:GetRuneValue("r", 2)
-  return totalLevel
+	local totalLevel = caster:GetRuneValue("r", 2)
+	return totalLevel
 end
 
 function pyroblast_impact(event)
@@ -154,11 +152,11 @@ function pyroblast_impact(event)
 	local damage = event.damage
 	if caster:HasModifier("modifier_clear_cast") then
 		if ability.e_3_amp then
-			damage = damage*ability.e_3_amp
+			damage = damage * ability.e_3_amp
 		end
 	end
 	if caster:HasModifier("modifier_sorceress_glyph_7_1") then
-		damage = damage*1.5
+		damage = damage * 1.5
 	end
 	-- damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.r_4_level*damage
 	local filterDamage = Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
@@ -166,7 +164,7 @@ function pyroblast_impact(event)
 		applyIgnite(caster, ability, filterDamage, target, ability.rune_r_2_level, 6)
 	end
 	Filters:ApplyStun(caster, stun_duration, target)
-	
+
 end
 
 function ignite_think(event)
@@ -178,10 +176,10 @@ function ignite_think(event)
 end
 
 function applyIgnite(caster, ability, damage, target, b_d_level, duration)
-	local igniteDPS = damage*0.033*b_d_level
+	local igniteDPS = damage * 0.033 * b_d_level
 	if caster:HasModifier("modifier_clear_cast") then
 		if ability.e_3_amp then
-			igniteDPS = igniteDPS*ability.e_3_amp
+			igniteDPS = igniteDPS * ability.e_3_amp
 		end
 	end
 	if target:HasModifier("modifier_pyroblast_ignite") and target.igniteDPS then
@@ -199,10 +197,10 @@ function pyroblast_impact_main(event)
 	if caster:HasModifier("modifier_sorceress_glyph_7_1") then
 		particleName = "particles/units/heroes/hero_warlock/chaos_blast_impact.vpcf"
 	end
-	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-	ParticleManager:SetParticleControl(pfx, 1, Vector(300,300,300))
-	Timers:CreateTimer(2.5, function() 
-	  ParticleManager:DestroyParticle( pfx, false )
-	end) 	
+	ParticleManager:SetParticleControl(pfx, 1, Vector(300, 300, 300))
+	Timers:CreateTimer(2.5, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
 end

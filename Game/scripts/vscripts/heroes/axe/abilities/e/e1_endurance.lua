@@ -8,14 +8,14 @@ function think(event)
         return
     end
 
-    local stacks = math.floor(20 - 20*(caster:GetHealth()/caster:GetMaxHealth()))
+    local stacks = math.floor(20 - 20 * (caster:GetHealth() / caster:GetMaxHealth()))
     local runeAbility = caster.runeUnit:FindAbilityByName("axe_rune_e_1")
 
     if stacks > 0 then
         runeAbility:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_axe_rune_e_1_visible", {})
-        caster:SetModifierStackCount( "modifier_axe_rune_e_1_visible", runeAbility, stacks )
+        caster:SetModifierStackCount("modifier_axe_rune_e_1_visible", runeAbility, stacks)
         runeAbility:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_axe_rune_e_1_invisible", {})
-        caster:SetModifierStackCount( "modifier_axe_rune_e_1_invisible", runeAbility, stacks * runesCount)
+        caster:SetModifierStackCount("modifier_axe_rune_e_1_invisible", runeAbility, stacks * runesCount)
     else
         caster:RemoveModifierByName("modifier_axe_rune_e_1_visible")
         caster:RemoveModifierByName("modifier_axe_rune_e_1_invisible")

@@ -15,28 +15,28 @@ function begin_holy_blink(event)
 end
 
 function lift_think(keys)
-	
+
 	local caster = keys.caster
 	local ability = keys.ability
 	local modifier = caster:FindModifierByName("modifier_holy_blink_lift")
 	local origin = caster:GetAbsOrigin()
-	
+
 	if not caster.holy_lift_velocity then
 		caster.holy_lift_velocity = 50
 	end
-	local obstruction = WallPhysics:FindNearestObstruction(origin*Vector(1,1,0))
-    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, origin*Vector(1,1,0), caster)
-    local forwardSpeed = 25
-    if blockUnit then
-    	forwardSpeed = 0
-    end
-    --print("FORWARD SPEED UP")
-   --print(forwardSpeed)   
-	local newPosition = origin+Vector(0,0,caster.holy_lift_velocity)+ability.forwardVector*forwardSpeed
+	local obstruction = WallPhysics:FindNearestObstruction(origin * Vector(1, 1, 0))
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, origin * Vector(1, 1, 0), caster)
+	local forwardSpeed = 25
+	if blockUnit then
+		forwardSpeed = 0
+	end
+	--print("FORWARD SPEED UP")
+	--print(forwardSpeed)
+	local newPosition = origin + Vector(0, 0, caster.holy_lift_velocity) + ability.forwardVector * forwardSpeed
 	caster.holy_lift_velocity = math.max(caster.holy_lift_velocity - 3, 0)
 	caster:SetAbsOrigin(newPosition)
 	--if origin.z - groundPosition.z > -200 then
-	--	caster:SetAbsOrigin(groundPosition)
+	--caster:SetAbsOrigin(groundPosition)
 	--end
 end
 
@@ -62,20 +62,20 @@ function drop_think(keys)
 	local caster = keys.caster
 	local modifier = caster:FindModifierByName("modifier_holy_blink_drop")
 	local origin = caster:GetAbsOrigin()
-	
+
 	if not caster.holy_lift_velocity then
 		caster.holy_lift_velocity = 0
 	end
-	local obstruction = WallPhysics:FindNearestObstruction(origin*Vector(1,1,0))
-    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, origin*Vector(1,1,0), caster)
-    local forwardSpeed = 25
-    if blockUnit then
-    	forwardSpeed = 0
-    end
-   --print(blockUnit)
-   --print("FORWARD SPEED")
-   --print(forwardSpeed)
-	local newPosition = origin+Vector(0,0,-caster.holy_lift_velocity)+ability.forwardVector*forwardSpeed
+	local obstruction = WallPhysics:FindNearestObstruction(origin * Vector(1, 1, 0))
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, origin * Vector(1, 1, 0), caster)
+	local forwardSpeed = 25
+	if blockUnit then
+		forwardSpeed = 0
+	end
+	--print(blockUnit)
+	--print("FORWARD SPEED")
+	--print(forwardSpeed)
+	local newPosition = origin + Vector(0, 0, -caster.holy_lift_velocity) + ability.forwardVector * forwardSpeed
 	caster.holy_lift_velocity = math.min(caster.holy_lift_velocity + 3, 50)
 	caster:SetAbsOrigin(newPosition)
 	if ability.jump_level == 0 then
@@ -102,9 +102,9 @@ function drop_end(keys)
 	local newLoc = GetGroundPosition(location, caster)
 	--print("****DROP END****")
 	--FindClearSpaceForUnit(caster, newLoc, true)
-  	--Timers:CreateTimer(0.5,     function()
-    --  caster:RemoveGesture(ACT_DOTA_CAST_ABILITY_1)
-    --end)
+	--Timers:CreateTimer(0.5, function()
+	--  caster:RemoveGesture(ACT_DOTA_CAST_ABILITY_1)
+	--end)
 	if ability.jump_level == 0 then
 		ability.jump_level = 1
 		caster.holy_lift_velocity = 50
@@ -113,15 +113,15 @@ function drop_end(keys)
 	else
 		caster.holy_slide_velocity = 25
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_holy_blink_slide", nil)
-		local obstruction = WallPhysics:FindNearestObstruction(newLoc*Vector(1,1,0))
-	    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newLoc*Vector(1,1,0), caster)
-	    if blockUnit then
-	    else
+		local obstruction = WallPhysics:FindNearestObstruction(newLoc * Vector(1, 1, 0))
+		local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newLoc * Vector(1, 1, 0), caster)
+		if blockUnit then
+		else
 			caster:SetOrigin(newLoc)
 		end
 	end
 	rune_e_3(caster, ability)
-	
+
 end
 
 function slide_think(keys)
@@ -129,21 +129,21 @@ function slide_think(keys)
 	local caster = keys.caster
 	local modifier = caster:FindModifierByName("modifier_holy_blink_slide")
 	local origin = caster:GetAbsOrigin()
-	
+
 	if not caster.holy_slide_velocity then
 		caster.holy_slide_velocity = 25
 	end
 
 	caster.holy_slide_velocity = math.max(caster.holy_slide_velocity - 3, 0)
-	local newPosition = origin+ability.forwardVector*caster.holy_slide_velocity
-	local groundPosition = GetGroundPosition( newPosition, caster )
-	local obstruction = WallPhysics:FindNearestObstruction(origin*Vector(1,1,0))
-    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, origin*Vector(1,1,0), caster)
-    if blockUnit then
-    else
-    	caster:SetAbsOrigin(groundPosition)
-    end
-	
+	local newPosition = origin + ability.forwardVector * caster.holy_slide_velocity
+	local groundPosition = GetGroundPosition(newPosition, caster)
+	local obstruction = WallPhysics:FindNearestObstruction(origin * Vector(1, 1, 0))
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, origin * Vector(1, 1, 0), caster)
+	if blockUnit then
+	else
+		caster:SetAbsOrigin(groundPosition)
+	end
+
 
 end
 
@@ -156,53 +156,52 @@ function slide_end(keys)
 	rune_e_4(caster, ability)
 	caster:SetOrigin(newLoc)
 	FindClearSpaceForUnit(caster, newLoc, true)
-  	Timers:CreateTimer(0.5,     function()
-      caster:RemoveGesture(ACT_DOTA_CAST_ABILITY_1)
-    end)
-    caster.EFV = nil
-	
+	Timers:CreateTimer(0.5, function()
+		caster:RemoveGesture(ACT_DOTA_CAST_ABILITY_1)
+	end)
+	caster.EFV = nil
+
 end
 
 function rune_e_3(caster, ability)
-  local runeUnit = caster.runeUnit3
-  local runeAbility = runeUnit:FindAbilityByName("paladin_rune_e_3")
-  local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_3")
-  local totalLevel = abilityLevel + bonusLevel
-  if totalLevel > 0 then
-  	local position = caster:GetAbsOrigin()
-  	local radius = 650	
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	ability.projectileDamage = 300 + totalLevel*80
-	if #enemies > 0 then
-		local projectileCount = 0
-		for _,enemy in pairs(enemies) do
-			local info = 
-			{
-				Target = enemy,
-				Source = caster,
-				Ability = ability,	
-				EffectName = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf",
-				StartPosition = "attach_hitloc",
-				bDrawsOnMinimap = false, 
-			        bDodgeable = true,
-			        bIsAttack = false, 
-			        bVisibleToEnemies = true,
-			        bReplaceExisting = false,
-			        flExpireTime = GameRules:GetGameTime() + 4,
-				bProvidesVision = true,
-				iVisionRadius = 0,
-				iMoveSpeed = 400,
-				iVisionTeamNumber = caster:GetTeamNumber()
-			}
-			projectile = ProjectileManager:CreateTrackingProjectile(info)
-			projectileCount = projectileCount + 1
-			if projectileCount == totalLevel + 2 then
-				break
+	local runeUnit = caster.runeUnit3
+	local runeAbility = runeUnit:FindAbilityByName("paladin_rune_e_3")
+	local abilityLevel = runeAbility:GetLevel()
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_3")
+	local totalLevel = abilityLevel + bonusLevel
+	if totalLevel > 0 then
+		local position = caster:GetAbsOrigin()
+		local radius = 650
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		ability.projectileDamage = 300 + totalLevel * 80
+		if #enemies > 0 then
+			local projectileCount = 0
+			for _, enemy in pairs(enemies) do
+				local info =
+				{
+					Target = enemy,
+					Source = caster,
+					Ability = ability,
+					EffectName = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf",
+					StartPosition = "attach_hitloc",
+					bDrawsOnMinimap = false,
+					bDodgeable = true,
+					bIsAttack = false,
+					bVisibleToEnemies = true,
+					bReplaceExisting = false,
+					flExpireTime = GameRules:GetGameTime() + 4,
+					bProvidesVision = true,
+					iVisionRadius = 0,
+					iMoveSpeed = 400,
+				iVisionTeamNumber = caster:GetTeamNumber()}
+				projectile = ProjectileManager:CreateTrackingProjectile(info)
+				projectileCount = projectileCount + 1
+				if projectileCount == totalLevel + 2 then
+					break
+				end
 			end
 		end
-	end  	
-  end
+	end
 end
 
 function paladin_rune_e_3_strike(event)
@@ -210,7 +209,7 @@ function paladin_rune_e_3_strike(event)
 	local ability = event.ability
 	local caster = event.caster
 	local damage = ability.projectileDamage
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
 end
 
 function rune_e_4(caster, ability)
@@ -225,55 +224,53 @@ function rune_e_4(caster, ability)
 		runeAbility.projectileDamage = ability.projectileDamage
 		runeAbility.e_4_level = d_c_level
 		local particleName = "particles/econ/items/enigma/enigma_world_chasm/paladin_d_c_ring_spiral.vpcf"
-		  local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN, caster )
-		  ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin()+Vector(0,0,50) )
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN, caster)
+		ParticleManager:SetParticleControl(particle1, 0, caster:GetAbsOrigin() + Vector(0, 0, 50))
 
-		  	local dummy = CreateUnitByName("npc_dummy_unit", position, true, caster, caster, caster:GetTeamNumber())
-		  	dummy.owner = caster:GetPlayerOwnerID()
-		  	dummy:NoHealthBar()
-		  	dummy:AddAbility("dummy_unit")
-		  	dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+		local dummy = CreateUnitByName("npc_dummy_unit", position, true, caster, caster, caster:GetTeamNumber())
+		dummy.owner = caster:GetPlayerOwnerID()
+		dummy:NoHealthBar()
+		dummy:AddAbility("dummy_unit")
+		dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
 
-		  Timers:CreateTimer(10, 
-		  function()
-		    ParticleManager:DestroyParticle( particle1, false )
-		    Timers:CreateTimer(0.5, function()
-		    	UTIL_Remove(dummy)
-		    end)
-		  end)
-		  for i = 0, 10, 1 do
-		  	Timers:CreateTimer(i, function()
-		  		local targets = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY+DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-		  		for j = 1, #targets, 1 do
-		  			d_c_projectile(dummy, runeAbility, targets[j], position)
-		  		end
-		  	end)
-		  end
+		Timers:CreateTimer(10, function()
+			ParticleManager:DestroyParticle(particle1, false)
+			Timers:CreateTimer(0.5, function()
+				UTIL_Remove(dummy)
+			end)
+		end)
+		for i = 0, 10, 1 do
+			Timers:CreateTimer(i, function()
+				local targets = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY + DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+				for j = 1, #targets, 1 do
+					d_c_projectile(dummy, runeAbility, targets[j], position)
+				end
+			end)
+		end
 	end
 end
 
 function d_c_projectile(caster, runeAbility, target, position)
-	
-			local info = 
-			{
-				Target = target,
-				Source = caster,
-				Ability = runeAbility,	
-				EffectName = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf",
-				StartPosition = "attach_origin",
-				vSpawnOrigin = position+Vector(0,0,200),
-				bDrawsOnMinimap = false, 
-			        bDodgeable = true,
-			        bIsAttack = false, 
-			        bVisibleToEnemies = true,
-			        bReplaceExisting = false,
-			        flExpireTime = GameRules:GetGameTime() + 4,
-				bProvidesVision = true,
-				iVisionRadius = 0,
-				iMoveSpeed = 480,
-				iVisionTeamNumber = caster:GetTeamNumber()
-			}
-			projectile = ProjectileManager:CreateTrackingProjectile(info)
+
+	local info =
+	{
+		Target = target,
+		Source = caster,
+		Ability = runeAbility,
+		EffectName = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf",
+		StartPosition = "attach_origin",
+		vSpawnOrigin = position + Vector(0, 0, 200),
+		bDrawsOnMinimap = false,
+		bDodgeable = true,
+		bIsAttack = false,
+		bVisibleToEnemies = true,
+		bReplaceExisting = false,
+		flExpireTime = GameRules:GetGameTime() + 4,
+		bProvidesVision = true,
+		iVisionRadius = 0,
+		iMoveSpeed = 480,
+	iVisionTeamNumber = caster:GetTeamNumber()}
+	projectile = ProjectileManager:CreateTrackingProjectile(info)
 end
 
 function d_c_projectile_hit(event)
@@ -283,13 +280,13 @@ function d_c_projectile_hit(event)
 	local target = event.target
 	if target:GetTeamNumber() == caster:GetTeamNumber() then
 		local healAmount = math.floor(ability.projectileDamage * 0.1 * ability.e_4_level)
-		
+
 		Filters:ApplyHeal(caster, target, healAmount, true)
 		PopupHealing(target, healAmount)
 	else
 		--print('d_c_projectile damage')
 		local damage = ability.projectileDamage * 0.5 * ability.e_4_level
 		--print(damage)
-		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+		ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
 	end
 end

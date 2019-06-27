@@ -1,6 +1,6 @@
 local function applyImmune(caster, target, ability, modifier, duration)
     target:RemoveModifierByName(modifier .. '_immune_stacks')
-    ability:ApplyDataDrivenModifier(caster, target, modifier .. '_immune',{duration = duration})
+    ability:ApplyDataDrivenModifier(caster, target, modifier .. '_immune', {duration = duration})
 end
 local function targetHasImmune(target, modifier)
     return target:HasModifier(modifier .. '_immune')

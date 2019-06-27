@@ -40,11 +40,11 @@ function leshrac_arcana_ult_effect_think(event)
 
 	ability.interval = ability.interval + 1
 
-	if ability.interval%5 == 0 then
+	if ability.interval % 5 == 0 then
 		CustomAbilities:QuickAttachParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_blink_start.vpcf", caster, 5)
 	end
 
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 750, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 750, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local maxTargets = 1
 	if ability.r_4_level > 0 then
 		local procs = Runes:Procs(ability.r_4_level, 10, 1)
@@ -58,7 +58,7 @@ function leshrac_arcana_ult_effect_think(event)
 				leshrac_ult_go(ability, caster, damage, false, enemies[i])
 			end)
 		end
-	end 
+	end
 end
 
 function leshrac_ult_go(ability, caster, damage, amp, enemy)
@@ -69,10 +69,10 @@ function leshrac_ult_go(ability, caster, damage, amp, enemy)
 		ability.r_3_level = caster:GetRuneValue("r", 3)
 	end
 	if ability.r_3_level > 0 then
-		damage = damage + ability.r_3_level*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*12
+		damage = damage + ability.r_3_level * (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * 12
 	end
 	if amp then
-		damage = damage*ability.r_1_level*0.05
+		damage = damage * ability.r_1_level * 0.05
 	end
 	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_leshrac_arcana_slow", {duration = 0.2})

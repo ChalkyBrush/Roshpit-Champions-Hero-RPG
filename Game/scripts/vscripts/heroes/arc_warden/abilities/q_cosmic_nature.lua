@@ -8,7 +8,7 @@ function jex_active_q_cosmic_nature_shield(event)
 	local duration_per_tech = event.duration_per_tech
 
 	local tech_level = onibi_get_total_tech_level(caster, "cosmic", "nature", "Q")
-	local duration = Filters:GetAdjustedBuffDuration(caster, duration_base + duration_per_tech*tech_level, false)
+	local duration = Filters:GetAdjustedBuffDuration(caster, duration_base + duration_per_tech * tech_level, false)
 
 	EmitSoundOn("Jex.CosmicBarrier", caster)
 	EmitSoundOn("Jex.CosmicBarrierMagic", caster)

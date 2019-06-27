@@ -17,7 +17,7 @@ function jex_cast_portal(event)
 	local portalPosition = point
 	ParticleManager:SetParticleControl(portalPFX, 0, portalPosition)
 	-- ParticleManager:SetParticleControl(portalPFX, 1, Vector(5,5,5))
-	local max_portals = event.max_portals_base + event.max_portals_per_tech*tech_level
+	local max_portals = event.max_portals_base + event.max_portals_per_tech * tech_level
 	local portal = {}
 	-- portal = CustomAbilities:QuickAttachThinker(ability, caster, point, "modifier_river_of_souls_thinker", {duration = 18000})
 	portal.pfx = portalPFX
@@ -26,7 +26,7 @@ function jex_cast_portal(event)
 	portal.aura_dummy = CreateUnitByName("npc_flying_dummy_vision", point, false, nil, nil, caster:GetTeamNumber())
 	ability:ApplyDataDrivenModifier(caster, portal.aura_dummy, "modifier_jex_portal_aura", {})
 	portal.aura_dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
-	
+
 	EmitSoundOn("Jex.Roots", caster)
 
 	EmitSoundOnLocationWithCaster(portalPosition, "Jex.EarthsGate.Create", caster)
@@ -87,5 +87,5 @@ function jex_portal_teleport_effect_end(event)
 	FindClearSpaceForUnit(target, ability.teleporting_to, false)
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_meepo/meepo_poof_end.vpcf", target:GetAbsOrigin(), 3)
 	EmitSoundOn("Jex.ThunderBlossom.Land", target)
-	StartAnimation(target, {duration=0.6, activity=ACT_DOTA_TELEPORT_END, rate=1.1})
+	StartAnimation(target, {duration = 0.6, activity = ACT_DOTA_TELEPORT_END, rate = 1.1})
 end

@@ -13,7 +13,7 @@ function begin_alpha_spark(event)
 	else
 		caster:SetAbsOrigin(point)
 	end
-	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CHANNEL_END_ABILITY_4, rate=1.3})
+	StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_CHANNEL_END_ABILITY_4, rate = 1.3})
 	if event.type == "moon" then
 		begin_eclipse(event)
 	else
@@ -21,7 +21,7 @@ function begin_alpha_spark(event)
 	end
 	local c_d_level = caster:GetRuneValue("r", 3)
 	if c_d_level > 0 then
-		local buffDuration = Filters:GetAdjustedBuffDuration(caster, c_d_level*0.25, false)
+		local buffDuration = Filters:GetAdjustedBuffDuration(caster, c_d_level * 0.25, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_c_d_arcana_shell", {duration = buffDuration})
 	end
 end

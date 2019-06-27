@@ -31,24 +31,24 @@ function shot_of_apollo:OnSpellStart()
 	local target = ability:GetCursorTarget()
 	ability.target = target
 	caster:AddNewModifier(caster, ability, "modifier_apollo_channel", {duration = ability:GetChannelTime()})
-	StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_GENERIC_CHANNEL_1, rate=0.8})
+	StartAnimation(caster, {duration = 2.0, activity = ACT_DOTA_GENERIC_CHANNEL_1, rate = 0.8})
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_bow_eyes", caster:GetAbsOrigin(), true)
 	for i = 0, 60, 1 do
-		Timers:CreateTimer(i*0.03, function()
-				local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin())/2
-				local direction = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-			ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+direction*distance+Vector(0,0,(1250/40)*i))
+		Timers:CreateTimer(i * 0.03, function()
+			local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin()) / 2
+			local direction = ((target:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+			ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin() + direction * distance + Vector(0, 0, (1250 / 40) * i))
 		end)
 	end
 	if caster:HasModifier("modifier_apollo_channel") then
 		local pfx2 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
 		ParticleManager:SetParticleControlEnt(pfx2, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 		for i = 0, 60, 1 do
-			Timers:CreateTimer(i*0.03, function()
-				local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin())/2
-				local direction = ((caster:GetAbsOrigin()-target:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-				ParticleManager:SetParticleControl(pfx2, 1, target:GetAbsOrigin()+direction*distance+Vector(0,0,(1250/40)*i))
+			Timers:CreateTimer(i * 0.03, function()
+				local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin()) / 2
+				local direction = ((caster:GetAbsOrigin() - target:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+				ParticleManager:SetParticleControl(pfx2, 1, target:GetAbsOrigin() + direction * distance + Vector(0, 0, (1250 / 40) * i))
 			end)
 		end
 		ability.pfx2 = pfx2
@@ -91,7 +91,7 @@ function shot_of_apollo:OnChannelFinish(bInterrupted)
 			shots = 9
 		end
 		local w_2_level = caster:GetRuneValue("w", 2)
-		shots = shots + Runes:Procs(w_2_level, 2*ability:GetLevel(), 1)
+		shots = shots + Runes:Procs(w_2_level, 2 * ability:GetLevel(), 1)
 		ability.shots = shots
 		if ability.pfx then
 			ParticleManager:DestroyParticle(ability.pfx, false)

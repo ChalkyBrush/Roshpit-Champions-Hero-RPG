@@ -5,17 +5,17 @@ function arctic_burn_finish_channel(event)
 	local ability = event.ability
 	local target = event.target_points[1]
 
-	local position = caster:GetAbsOrigin() + caster:GetForwardVector()*120
+	local position = caster:GetAbsOrigin() + caster:GetForwardVector() * 120
 	local bomb = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, caster:GetTeamNumber())
 	local flightStacks = caster:GetModifierStackCount("modifier_dinath_postflight_zheight", caster)
-	bomb:SetAbsOrigin(((caster:GetAbsOrigin() + caster:GetForwardVector()*120)*Vector(1,1,0))+Vector(0,0,caster:GetAbsOrigin().z+70+flightStacks))
+	bomb:SetAbsOrigin(((caster:GetAbsOrigin() + caster:GetForwardVector() * 120) * Vector(1, 1, 0)) + Vector(0, 0, caster:GetAbsOrigin().z + 70 + flightStacks))
 
 	local distanceToTarget = WallPhysics:GetDistance2d(target, bomb:GetAbsOrigin())
 
 	bomb:FindAbilityByName("dummy_unit"):SetLevel(1)
 	bomb.interval = 0
 	ability:ApplyDataDrivenModifier(caster, bomb, "modifier_arctic_burn_bomb", {})
-	bomb.fv = ((target - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	bomb.fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	if not ability.bombTable then
 		ability.bombTable = {}
 	end
@@ -33,11 +33,11 @@ function arctic_burn_finish_channel(event)
 	if heightFromGround >= 400 then
 		bomb.explosionSize = 3
 	end
-	local ticksToReachEnd = distanceToTarget/bomb.speed
+	local ticksToReachEnd = distanceToTarget / bomb.speed
 	bomb:SetDayTimeVisionRange(200)
 	bomb:SetNightTimeVisionRange(200)
 	bomb.distanceTravelled = 0
-	bomb.downSpeed = math.min((bomb:GetAbsOrigin().z- GetGroundHeight(target, bomb)) /ticksToReachEnd, 70)
+	bomb.downSpeed = math.min((bomb:GetAbsOrigin().z - GetGroundHeight(target, bomb)) / ticksToReachEnd, 70)
 	ability.channeledBeam = bomb
 	table.insert(ability.bombTable, bomb)
 	EmitSoundOn("Dinath.FireBomb.Launch", caster)
@@ -80,11 +80,11 @@ function arctic_burn_orb_thinking(event)
 	bomb.size = math.min(bomb.size + 5, 120)
 	ParticleManager:SetParticleControl(bomb.pfx, 2, Vector(bomb.size, bomb.size, bomb.size))
 	if bomb.launched then
-		local downVector = Vector(0,0,-bomb.downSpeed)
+		local downVector = Vector(0, 0, -bomb.downSpeed)
 		-- bomb.speed = math.max(bomb.speed - 0.7, 20)
 		local forwardMovement = bomb.speed
 		if bomb:GetAbsOrigin().z > GetGroundHeight(bomb:GetAbsOrigin(), bomb) + 0 then
-			bomb:SetAbsOrigin(bomb:GetAbsOrigin() + bomb.fv*forwardMovement + downVector)
+			bomb:SetAbsOrigin(bomb:GetAbsOrigin() + bomb.fv * forwardMovement + downVector)
 		else
 			bomb:RemoveModifierByName("modifier_arctic_burn_bomb")
 			arctic_burn_bomb_explosion(bomb, caster, ability, bomb.explosionSize)
@@ -92,9 +92,8 @@ function arctic_burn_orb_thinking(event)
 				UTIL_Remove(bomb)
 				reindex_arctic_bombs(ability)
 			end)
-			ParticleManager:DestroyParticle(bomb.pfx, false)			
+			ParticleManager:DestroyParticle(bomb.pfx, false)
 		end
-
 
 		bomb.interval = bomb.interval + 1
 	end
@@ -121,41 +120,41 @@ function arctic_burn_bomb_explosion(bomb, caster, ability, aoeSize)
 	if aoeSize > 1 then
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/dinath/fire_bomb.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, explosionPoint)
-		ParticleManager:SetParticleControl(pfx, 11, Vector(0.3,0.3,0.3))
+		ParticleManager:SetParticleControl(pfx, 11, Vector(0.3, 0.3, 0.3))
 		table.insert(pfxTable, pfx)
 	else
 		for i = 1, 4, 1 do
-			local position = explosionPoint + WallPhysics:rotateVector(Vector(0,1), 2*math.pi*i/4)*60
+			local position = explosionPoint + WallPhysics:rotateVector(Vector(0, 1), 2 * math.pi * i / 4) * 60
 			local pfx = ParticleManager:CreateParticle("particles/roshpit/dinath/fire_bomb.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl(pfx, 0, position)
-			ParticleManager:SetParticleControl(pfx, 11, Vector(0.3,0.3,0.3))
+			ParticleManager:SetParticleControl(pfx, 11, Vector(0.3, 0.3, 0.3))
 			table.insert(pfxTable, pfx)
 		end
 	end
 	if aoeSize >= 2 then
 		for i = 1, 6, 1 do
-			local position = explosionPoint + WallPhysics:rotateVector(Vector(0,1), 2*math.pi*i/6)*120
+			local position = explosionPoint + WallPhysics:rotateVector(Vector(0, 1), 2 * math.pi * i / 6) * 120
 			local pfx = ParticleManager:CreateParticle("particles/roshpit/dinath/fire_bomb.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl(pfx, 0, position)
-			ParticleManager:SetParticleControl(pfx, 11, Vector(0.3,0.3,0.3))
+			ParticleManager:SetParticleControl(pfx, 11, Vector(0.3, 0.3, 0.3))
 			table.insert(pfxTable, pfx)
 		end
 	end
 	if aoeSize >= 3 then
 		for i = 1, 12, 1 do
-			local position = explosionPoint + WallPhysics:rotateVector(Vector(0,1), 2*math.pi*i/12)*240
+			local position = explosionPoint + WallPhysics:rotateVector(Vector(0, 1), 2 * math.pi * i / 12) * 240
 			local pfx = ParticleManager:CreateParticle("particles/roshpit/dinath/fire_bomb.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl(pfx, 0, position)
-			ParticleManager:SetParticleControl(pfx, 11, Vector(0.3,0.3,0.3))
+			ParticleManager:SetParticleControl(pfx, 11, Vector(0.3, 0.3, 0.3))
 			table.insert(pfxTable, pfx)
 		end
 	end
 	if aoeSize >= 4 then
 		for i = 1, 18, 1 do
-			local position = explosionPoint + WallPhysics:rotateVector(Vector(0,1), 2*math.pi*i/18)*360
+			local position = explosionPoint + WallPhysics:rotateVector(Vector(0, 1), 2 * math.pi * i / 18) * 360
 			local pfx = ParticleManager:CreateParticle("particles/roshpit/dinath/fire_bomb.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl(pfx, 0, position)
-			ParticleManager:SetParticleControl(pfx, 11, Vector(0.3,0.3,0.3))
+			ParticleManager:SetParticleControl(pfx, 11, Vector(0.3, 0.3, 0.3))
 			table.insert(pfxTable, pfx)
 		end
 	end
@@ -171,7 +170,7 @@ end
 
 function get_arctic_burn_fire_duration(caster)
 	local fireDuration = 6
-	fireDuration = fireDuration + (caster:GetRuneValue("q", 2))*0.08
+	fireDuration = fireDuration + (caster:GetRuneValue("q", 2)) * 0.08
 	return fireDuration
 end
 
@@ -191,16 +190,16 @@ function arctic_burn_thinker(event)
 	local ability = event.ability
 	local damage = event.damage
 	local fire_thinker = event.target
-	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.damage_mult/100)
+	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * (event.damage_mult / 100)
 	local enemies = nil
 	if fire_thinker.line then
-		enemies = FindUnitsInLine(caster:GetTeamNumber(), fire_thinker:GetAbsOrigin(), fire_thinker:GetAbsOrigin()+fire_thinker.fv*fire_thinker.distance, nil, 180, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
+		enemies = FindUnitsInLine(caster:GetTeamNumber(), fire_thinker:GetAbsOrigin(), fire_thinker:GetAbsOrigin() + fire_thinker.fv * fire_thinker.distance, nil, 180, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
 	else
-		enemies = FindUnitsInRadius( caster:GetTeamNumber(), fire_thinker:GetAbsOrigin(), nil, fire_thinker.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		enemies = FindUnitsInRadius(caster:GetTeamNumber(), fire_thinker:GetAbsOrigin(), nil, fire_thinker.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	end
 	local q_1_level = caster:GetRuneValue("q", 1)
 	local q_4_level = caster:GetRuneValue("q", 4)
-	if #enemies > 0 then	
+	if #enemies > 0 then
 		for i = 1, #enemies, 1 do
 			local enemy = enemies[i]
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_DRAGON, RPC_ELEMENT_FIRE)
@@ -242,13 +241,13 @@ function arctic_burn_passive_thinker(event)
 			local scorch_ability = caster:FindAbilityByName("dinath_scorch_charge")
 			local scorch_cd = scorch_ability:GetCooldownTimeRemaining()
 			if scorch_cd > 0 then
-				if not caster:HasModifier("modifier_scorch_charge_cooldown") then	
+				if not caster:HasModifier("modifier_scorch_charge_cooldown") then
 					scorch_ability:ApplyDataDrivenModifier(caster, caster, "modifier_scorch_charge_cooldown", {duration = scorch_cd})
 				end
 			else
 				caster:RemoveModifierByName("modifier_scorch_charge_cooldown")
 			end
-		end	
+		end
 	elseif caster:HasAbility("dinath_scorch_charge") then
 		caster:RemoveAbility("dinath_scorch_charge")
 	end

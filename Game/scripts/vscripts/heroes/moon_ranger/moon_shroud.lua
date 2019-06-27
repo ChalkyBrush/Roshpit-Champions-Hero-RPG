@@ -1,28 +1,28 @@
 require ('heroes/moon_ranger/common')
 function shroud_animation(event)
   local caster = event.caster
-  StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
+  StartAnimation(caster, {duration = 0.6, activity = ACT_DOTA_CAST_ABILITY_2, rate = 2})
 end
 
 function begin_moon_shroud(event)
-	local caster = event.caster
-	local ability = event.ability
-	local origin = caster:GetForwardVector()*Vector(100,100,0)
-	local location = caster:GetOrigin() + origin
-	local duration = event.duration
-  
+  local caster = event.caster
+  local ability = event.ability
+  local origin = caster:GetForwardVector() * Vector(100, 100, 0)
+  local location = caster:GetOrigin() + origin
+  local duration = event.duration
+
   duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
-	create_moon_shroud_dummy(location, caster, duration, ability)
-  ability.q_4_level = caster:GetRuneValue("q",4)
+  create_moon_shroud_dummy(location, caster, duration, ability)
+  ability.q_4_level = caster:GetRuneValue("q", 4)
   Filters:CastSkillArguments(1, caster)
-  
+
   if ability.q_4_level > 0 then
     local runeAbility = caster.runeUnit4:FindAbilityByName("astral_rune_q_4")
     runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_astral_rune_q_4_visible", {})
-    caster:SetModifierStackCount( "modifier_astral_rune_q_4_visible", runeAbility, ability.q_4_level )
+    caster:SetModifierStackCount("modifier_astral_rune_q_4_visible", runeAbility, ability.q_4_level)
     runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_astral_rune_q_4_invisible", {})
-    local damageBonus = (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*0.5*ability.q_4_level
-    caster:SetModifierStackCount( "modifier_astral_rune_q_4_invisible", runeAbility, damageBonus )
+    local damageBonus = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * 0.5 * ability.q_4_level
+    caster:SetModifierStackCount("modifier_astral_rune_q_4_invisible", runeAbility, damageBonus)
   else
     caster:RemoveModifierByName("modifier_astral_rune_q_4_visible")
     caster:RemoveModifierByName("modifier_astral_rune_q_4_invisible")
@@ -46,7 +46,7 @@ function create_moon_shroud_dummy(location, caster, duration, ability)
     ParticleManager:DestroyParticle(dummy.pfx, false)
   end
   dummy.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_riki/astral_smoke.vpcf", PATTACH_CUSTOMORIGIN, nil)
-  ParticleManager:SetParticleControl(dummy.pfx, 0, location+Vector(0,0,80))
+  ParticleManager:SetParticleControl(dummy.pfx, 0, location + Vector(0, 0, 80))
   ParticleManager:SetParticleControl(dummy.pfx, 1, Vector(400, 400, 200))
 end
 
@@ -59,14 +59,14 @@ function moon_shroud_move(caster, point)
     dummy:SetAbsOrigin(point)
     local bonus_duration = ability:GetSpecialValueFor("add_duration")
     if caster:HasModifier("modifier_astral_glyph_4_1") then
-      bonus_duration = bonus_duration*(1-ASTRAL_T41_DURATION_REDUCTION_PCT/100)
+      bonus_duration = bonus_duration * (1 - ASTRAL_T41_DURATION_REDUCTION_PCT / 100)
     end
     local duration = dummy:FindModifierByName("modifier_moon_shroud_thinker"):GetRemainingTime() + bonus_duration
     dummy:FindModifierByName("modifier_moon_shroud_thinker"):SetDuration(duration, true)
     dummy:FindModifierByName("friendly_moon_shroud_thinker"):SetDuration(duration, true)
     local newPfx = ParticleManager:CreateParticle("particles/units/heroes/hero_riki/astral_smoke.vpcf", PATTACH_CUSTOMORIGIN, nil)
-    ParticleManager:SetParticleControl(newPfx, 0, point*Vector(1,1,0)+Vector(0,0,80)+GetGroundHeight(point, caster)*Vector(0,0,1))
-    ParticleManager:SetParticleControl(newPfx, 1, Vector(400,400,200))
+    ParticleManager:SetParticleControl(newPfx, 0, point * Vector(1, 1, 0) + Vector(0, 0, 80) + GetGroundHeight(point, caster) * Vector(0, 0, 1))
+    ParticleManager:SetParticleControl(newPfx, 1, Vector(400, 400, 200))
     ParticleManager:DestroyParticle(dummy.pfx, false)
     dummy.pfx = newPfx
   end
@@ -74,10 +74,10 @@ end
 
 -- 177013
 function moon_shroud_damage(event)
-    local target = event.target
-    local caster = event.caster.hero
-    local damage = event.damage
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+  local target = event.target
+  local caster = event.caster.hero
+  local damage = event.damage
+  Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 end
 
 function moon_shroud_end(event)
@@ -89,12 +89,12 @@ function moon_shroud_end(event)
 end
 
 function moon_shroud_buff_created(event)
-	local caster = event.caster
-	local target = event.target
-	local ability = event.ability
-	if target.moon_shroud_dummy and target.moon_shroud_dummy:GetEntityIndex() == caster:GetEntityIndex() then
-    local q_1_level = target:GetRuneValue("q",1)
-    local q_3_level = target:GetRuneValue("q",3)
+  local caster = event.caster
+  local target = event.target
+  local ability = event.ability
+  if target.moon_shroud_dummy and target.moon_shroud_dummy:GetEntityIndex() == caster:GetEntityIndex() then
+    local q_1_level = target:GetRuneValue("q", 1)
+    local q_3_level = target:GetRuneValue("q", 3)
     if q_1_level > 0 then
       ability:ApplyDataDrivenModifier(target, target, "modifier_astral_rune_q_1", {})
       target:FindModifierByName("modifier_astral_rune_q_1"):SetStackCount(q_1_level)
@@ -129,9 +129,9 @@ function moon_shroud_debuff_apply(event)
   target.origAcquisition = target:GetAcquisitionRange()
   target:SetAcquisitionRange(100)
   local caster = event.caster
-  local moveDirection = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+  local moveDirection = ((target:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
   if target:HasGroundMovementCapability() then
-    target:MoveToPosition(target:GetAbsOrigin() + moveDirection*200)
+    target:MoveToPosition(target:GetAbsOrigin() + moveDirection * 200)
   end
 end
 
@@ -155,7 +155,7 @@ end
 
 -- function rune_q_2(caster, ability, origin, duration)
 --   local q_2_level = caster:GetRuneValue("q", 2)
---   	create_andromeda(caster, ability, q_2_level, origin, duration)
+--   create_andromeda(caster, ability, q_2_level, origin, duration)
 -- end
 
 -- function create_andromeda(caster, ability, level, position, duration)
@@ -166,20 +166,20 @@ end
 --     dummy:AddAbility("replica")
 --     dummy:FindAbilityByName("replica"):SetLevel(1)
 --     StartAnimation(dummy, {duration=0.5, activity=ACT_DOTA_SPAWN, rate=1.0})
-    
+
 --     local damageBonus = (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*0.05*ability.q_4_level*level
 --     dummy:SetBaseDamageMin(damageBonus)
---     dummy:SetBaseDamageMax(damageBonus) 
+--     dummy:SetBaseDamageMax(damageBonus)
 
 --  ability:ApplyDataDrivenModifier(caster, dummy, "modifier_rune_q_2", {duration = duration})
 --  dummy:SetModifierStackCount( "modifier_rune_q_2", ability, level )
 --  dummy:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration, outgoing_damage = 1, incoming_damage = 1 })
- 
+
 --  dummy:MakeIllusion()
 --     -- FindClearSpaceForUnit(dummy, position, true)
---       Timers:CreateTimer(duration + 0.5,        function()
+--       Timers:CreateTimer(duration + 0.5, function()
 --       UTIL_Remove(dummy)
---       end)  
+--       end)
 -- end
 
 -- function moon_shroud_attack_land(event)
@@ -208,23 +208,23 @@ end
 --       local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
 --       local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
 --       ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
---       Timers:CreateTimer(0.6, function() 
+--       Timers:CreateTimer(0.6, function()
 --         ParticleManager:DestroyParticle( pfx, false )
---       end)  
---           Timers:CreateTimer(0.45,            function()
+--       end)
+--           Timers:CreateTimer(0.45, function()
 --             if target:IsAlive() then
 --                Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 --               EmitSoundOn("Ability.StarfallImpact", target)
 --               if caster:HasModifier("modifier_astral_arcana1") then
 --                 ability = caster:FindAbilityByName("astral_arcana_ability")
 --                 ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_b_a_arcana_armor_loss", {duration = 6})
---                 target:SetModifierStackCount("modifier_astral_b_a_arcana_armor_loss", ability, q_2_level)                
+--                 target:SetModifierStackCount("modifier_astral_b_a_arcana_armor_loss", ability, q_2_level)
 --               else
 --                 ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_b_a_armor_loss", {duration = 6})
 --                 target:SetModifierStackCount("modifier_astral_b_a_armor_loss", ability, q_2_level)
 --               end
 --             end
---           end)     
+--           end)
 --     end
 --   end
 -- end

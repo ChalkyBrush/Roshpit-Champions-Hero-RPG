@@ -1,5 +1,5 @@
 if HerosCustom == nil then
-  HerosCustom = class({})
+	HerosCustom = class({})
 end
 
 function HerosCustom:GetInternalHeroName(heroName)
@@ -98,9 +98,9 @@ function HerosCustom:GetInternalHeroNameMain(heroName)
 	elseif heroName == "npc_dota_hero_huskar" then
 		return "spirit_warrior"
 	elseif heroName == "npc_dota_hero_legion_commander" then
-		return "mountain_protector"	
+		return "mountain_protector"
 	elseif heroName == "npc_dota_hero_night_stalker" then
-		return "chernobog"	
+		return "chernobog"
 	elseif heroName == "npc_dota_hero_vengefulspirit" then
 		return "solunia"
 	elseif heroName == "npc_dota_hero_slardar" then
@@ -516,8 +516,6 @@ function HerosCustom:GetAvailableRunes(heroName)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")
 
-
-
 		table.insert(runeTable, "rune_e_1")
 		table.insert(baseValueTable, 10)
 		table.insert(propensityTable, -1)
@@ -885,7 +883,6 @@ function HerosCustom:GetAvailableRunes(heroName)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")
 
-
 		table.insert(runeTable, "rune_e_1")
 		table.insert(baseValueTable, 12)
 		table.insert(propensityTable, 0)
@@ -1009,7 +1006,7 @@ function HerosCustom:GetAvailableRunes(heroName)
 
 		table.insert(runeTable, "rune_q_2")
 		table.insert(baseValueTable, 12)
-		table.insert(propensityTable, -1)		
+		table.insert(propensityTable, -1)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")
 
@@ -1033,7 +1030,7 @@ function HerosCustom:GetAvailableRunes(heroName)
 
 		table.insert(runeTable, "rune_w_3")
 		table.insert(baseValueTable, 9)
-		table.insert(propensityTable, 0)	
+		table.insert(propensityTable, 0)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")
 
@@ -1184,31 +1181,31 @@ function HerosCustom:GetAvailableRunes(heroName)
 
 		table.insert(runeTable, "rune_w_2")
 		table.insert(baseValueTable, 10)
-		table.insert(propensityTable, 0)	
+		table.insert(propensityTable, 0)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")
 
 		table.insert(runeTable, "rune_w_3")
 		table.insert(baseValueTable, 14)
-		table.insert(propensityTable, 1)	
+		table.insert(propensityTable, 1)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")
 
 		table.insert(runeTable, "rune_e_1")
 		table.insert(baseValueTable, 14)
-		table.insert(propensityTable, -1)		
+		table.insert(propensityTable, -1)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")
 
 		table.insert(runeTable, "rune_e_2")
 		table.insert(baseValueTable, 14)
-		table.insert(propensityTable, -1)	
+		table.insert(propensityTable, -1)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")
 
 		table.insert(runeTable, "rune_e_3")
 		table.insert(baseValueTable, 12)
-		table.insert(propensityTable, -1)	
+		table.insert(propensityTable, -1)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")
 
@@ -1661,7 +1658,7 @@ function HerosCustom:GetAvailableRunes(heroName)
 		table.insert(propensityTable, 1)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")
-elseif heroName == "npc_dota_hero_vengefulspirit" then
+	elseif heroName == "npc_dota_hero_vengefulspirit" then
 		table.insert(runeTable, "rune_q_1")
 		table.insert(baseValueTable, 12)
 		table.insert(propensityTable, -1)
@@ -1733,7 +1730,7 @@ elseif heroName == "npc_dota_hero_vengefulspirit" then
 		table.insert(propensityTable, 1)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")
-elseif heroName == "npc_dota_hero_slardar" then
+	elseif heroName == "npc_dota_hero_slardar" then
 		table.insert(runeTable, "rune_q_1")
 		table.insert(baseValueTable, 10)
 		table.insert(propensityTable, -1)
@@ -1805,7 +1802,7 @@ elseif heroName == "npc_dota_hero_slardar" then
 		table.insert(propensityTable, 1)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")
-elseif heroName == "npc_dota_hero_visage" then
+	elseif heroName == "npc_dota_hero_visage" then
 		table.insert(runeTable, "rune_q_1")
 		table.insert(baseValueTable, 10)
 		table.insert(propensityTable, -1)
@@ -1877,7 +1874,7 @@ elseif heroName == "npc_dota_hero_visage" then
 		table.insert(propensityTable, 1)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")
-elseif heroName == "npc_dota_hero_dark_seer" then
+	elseif heroName == "npc_dota_hero_dark_seer" then
 		table.insert(runeTable, "rune_q_1")
 		table.insert(baseValueTable, 10)
 		table.insert(propensityTable, -1)
@@ -1949,7 +1946,7 @@ elseif heroName == "npc_dota_hero_dark_seer" then
 		table.insert(propensityTable, 1)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")
-elseif heroName == "npc_dota_hero_antimage" then
+	elseif heroName == "npc_dota_hero_antimage" then
 		table.insert(runeTable, "rune_q_1")
 		table.insert(baseValueTable, 10)
 		table.insert(propensityTable, -1)
@@ -2021,7 +2018,7 @@ elseif heroName == "npc_dota_hero_antimage" then
 		table.insert(propensityTable, 1)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")
-elseif heroName == "npc_dota_hero_monkey_king" then
+	elseif heroName == "npc_dota_hero_monkey_king" then
 		table.insert(runeTable, "rune_q_1")
 		table.insert(baseValueTable, 10)
 		table.insert(propensityTable, -1)

@@ -38,7 +38,6 @@ function mark_of_the_fang(event)
 	caster:RemoveModifierByName("modifier_mark_of_the_talon_rune")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_fang", {})
 
-
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_fang", "draghor_mark_of_the_claw", 0)
 	if not caster:HasModifier("modifier_djanghor_arcana1") then
 		if caster:HasAbility("draghor_shapeshift_crow") then
@@ -48,7 +47,7 @@ function mark_of_the_fang(event)
 
 	EmitSoundOn("Draghor.MarkBG.Med", caster)
 
-	StartAnimation(caster, {duration=0.64, activity=ACT_DOTA_MK_FUR_ARMY, rate=1.0})
+	StartAnimation(caster, {duration = 0.64, activity = ACT_DOTA_MK_FUR_ARMY, rate = 1.0})
 
 	ability.q_4_level = caster:GetRuneValue("q", 4)
 	if ability.q_4_level > 0 then
@@ -79,7 +78,7 @@ function mark_of_the_claw(event)
 	end
 	EmitSoundOn("Draghor.MarkBG.Low", caster)
 
-	StartAnimation(caster, {duration=0.64, activity=ACT_DOTA_MK_FUR_ARMY, rate=1.0})
+	StartAnimation(caster, {duration = 0.64, activity = ACT_DOTA_MK_FUR_ARMY, rate = 1.0})
 
 	ability.q_4_level = caster:GetRuneValue("q", 4)
 	if ability.q_4_level > 0 then
@@ -110,7 +109,7 @@ function mark_of_the_talon(event)
 	end
 	EmitSoundOn("Draghor.MarkBG.High", caster)
 
-	StartAnimation(caster, {duration=0.64, activity=ACT_DOTA_MK_FUR_ARMY, rate=1.0})
+	StartAnimation(caster, {duration = 0.64, activity = ACT_DOTA_MK_FUR_ARMY, rate = 1.0})
 
 	ability.q_4_level = caster:GetRuneValue("q", 4)
 	if ability.q_4_level > 0 then
@@ -127,8 +126,8 @@ function draghor_attack_land(event)
 	end
 	local w_1_level = attacker:GetRuneValue("w", 1)
 	if w_1_level > 0 then
-		local damage = event.damage*DJANGHOR_W1_DAMAGE_MULT*w_1_level
+		local damage = event.damage * DJANGHOR_W1_DAMAGE_MULT * w_1_level
 		Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_venomancer/venomancer_venomous_gale_impact.vpcf", target, 0.4)
-	end 
+	end
 end

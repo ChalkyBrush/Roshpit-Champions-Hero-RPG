@@ -2,7 +2,7 @@ local constants = require('/heroes/legion_commander/constants')
 function start_channel(event)
 	local caster = event.caster
 	local ability = event.ability
-	EmitSoundOn("legion_commander_legcom_econ_move_0"..RandomInt(3,10), caster)
+	EmitSoundOn("legion_commander_legcom_econ_move_0"..RandomInt(3, 10), caster)
 	if caster:HasModifier("modifier_mountain_protector_glyph_6_1") then
 		local currentCD = ability:GetCooldownTimeRemaining()
 		ability:EndCooldown()
@@ -25,38 +25,37 @@ function channel_complete(event)
 	ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "mountain_protector")
 	ability.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "mountain_protector")
 	ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "mountain_protector")
-	
-	StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_ATTACK, rate=1.1})
+
+	StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_ATTACK, rate = 1.1})
 	EmitSoundOn("MysticAssasin.FissureYell", caster)
 	EmitSoundOnLocationWithCaster(target, "MysticAssasin.FissureStart", caster)
 	local particleName = "particles/roshpit/mystic_assassin/grand_fissure_explosion_beams.vpcf"
-	local particleX = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-	ParticleManager:SetParticleControl( particleX, 0, caster:GetAbsOrigin()+Vector(0,0,25) )
-	Timers:CreateTimer(1, 
-	function()
-		ParticleManager:DestroyParticle( particleX, false )
-	end)	
+	local particleX = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(particleX, 0, caster:GetAbsOrigin() + Vector(0, 0, 25))
+	Timers:CreateTimer(1, function()
+		ParticleManager:DestroyParticle(particleX, false)
+	end)
 	caster:RemoveModifierByName("modifier_mountain_protector_rune_r_2_visible")
 	caster:RemoveModifierByName("modifier_mountain_protector_rune_r_2_invisible")
 	-- for i = 0, 4, 1 do
-	-- 	Timers:CreateTimer(i*0.2, function()
-	-- 		local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, caster )
-	-- 		ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,110))
-	-- 		ParticleManager:SetParticleControl(pfx, 1, target+RandomVector(RandomInt(0,250))+Vector(0,0,150))
-	-- 		Timers:CreateTimer(3.0, function() 
-	-- 		  ParticleManager:DestroyParticle( pfx, false )
-	-- 		end) 
-	-- 	end)
+	-- Timers:CreateTimer(i*0.2, function()
+	-- local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, caster )
+	-- ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,110))
+	-- ParticleManager:SetParticleControl(pfx, 1, target+RandomVector(RandomInt(0,250))+Vector(0,0,150))
+	-- Timers:CreateTimer(3.0, function()
+	--   ParticleManager:DestroyParticle( pfx, false )
+	-- end)
+	-- end)
 	-- end
 	if caster:HasModifier("modifier_mountain_protector_glyph_5_a") then
-		ability.cast_difference = (target - caster:GetAbsOrigin())*Vector(1,1,0)
+		ability.cast_difference = (target - caster:GetAbsOrigin()) * Vector(1, 1, 0)
 	end
 	local explosionCount = event.numExplosions
 	for i = 1, explosionCount, 1 do
-		Timers:CreateTimer(i*0.3, function()
-			local randomExplosionLocation = target + RandomVector(RandomInt(0,500)) + Vector(0,0,20)
+		Timers:CreateTimer(i * 0.3, function()
+			local randomExplosionLocation = target + RandomVector(RandomInt(0, 500)) + Vector(0, 0, 20)
 			if caster:HasModifier("modifier_mountain_protector_glyph_5_a") and ability.cast_difference then
-				randomExplosionLocation = GetGroundPosition(caster:GetAbsOrigin()+ability.cast_difference + RandomVector(RandomInt(0,700)) + Vector(0,0,20), caster) 
+				randomExplosionLocation = GetGroundPosition(caster:GetAbsOrigin() + ability.cast_difference + RandomVector(RandomInt(0, 700)) + Vector(0, 0, 20), caster)
 			end
 			aeon_fracture_explosion(caster, randomExplosionLocation, damage, 1, explosionAOE, ability, true, 0)
 		end)
@@ -66,15 +65,15 @@ function channel_complete(event)
 		ability.burnCenter = target
 		if caster:HasModifier("modifier_mountain_protector_glyph_5_a") and ability.cast_difference then
 			for i = 1, explosionCount, 1 do
-				Timers:CreateTimer(i*0.3, function()
+				Timers:CreateTimer(i * 0.3, function()
 					--print("SHORT BURN")
 					--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(caster:GetAbsOrigin()+ability.cast_difference, caster)+Vector(0,0,50), "modifier_protector_c_d_scorched_earth", {duration = 1.5})
-					CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(caster:GetAbsOrigin()+ability.cast_difference, caster)+Vector(0,0,50), "modifier_protector_c_d_scorched_earth", {duration = 1.5})
+					CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(caster:GetAbsOrigin() + ability.cast_difference, caster) + Vector(0, 0, 50), "modifier_protector_c_d_scorched_earth", {duration = 1.5})
 				end)
 			end
 		else
 			--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(target, caster)+Vector(0,0,50), "modifier_protector_c_d_scorched_earth", {duration = 0.3*explosionCount})
-			CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(target, caster)+Vector(0,0,50), "modifier_protector_c_d_scorched_earth", {duration = 0.3*explosionCount})
+			CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(target, caster) + Vector(0, 0, 50), "modifier_protector_c_d_scorched_earth", {duration = 0.3 * explosionCount})
 		end
 	end
 
@@ -90,73 +89,72 @@ function c_d_thinker_take_damage(event)
 end
 
 function aeon_fracture_explosion(caster, position, damage, amp, explosionAOE, ability, canBD, a_c_stun_duration)
-		local stun_duration = 1.5
-		damage = damage*amp
-		-- if not ability.r_4_level then
-		-- 	ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "mountain_protector")
-		-- end
-		-- damage = damage + 0.0003*caster:GetStrength()/10*ability.r_4_level*damage
-		local particleName = "particles/roshpit/mystic_assassin/grand_fissure_explosion.vpcf"
-		local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-		ParticleManager:SetParticleControl( particle1, 0, position )
-		Timers:CreateTimer(4, 
-		function()
-			ParticleManager:DestroyParticle( particle1, false )
-		end)	
-		EmitSoundOnLocationWithCaster(position, "MysticAssasin.FissureExplosion", caster)
+	local stun_duration = 1.5
+	damage = damage * amp
+	-- if not ability.r_4_level then
+	-- ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "mountain_protector")
+	-- end
+	-- damage = damage + 0.0003*caster:GetStrength()/10*ability.r_4_level*damage
+	local particleName = "particles/roshpit/mystic_assassin/grand_fissure_explosion.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(particle1, 0, position)
+	Timers:CreateTimer(4, function()
+		ParticleManager:DestroyParticle(particle1, false)
+	end)
+	EmitSoundOnLocationWithCaster(position, "MysticAssasin.FissureExplosion", caster)
 
-		local targetFlag = 0
-		local damageType = DAMAGE_TYPE_MAGICAL
-		if caster:HasModifier("modifier_mountain_protector_glyph_3_1") then
-			damageType = DAMAGE_TYPE_PURE
-			targetFlag = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
-		end
+	local targetFlag = 0
+	local damageType = DAMAGE_TYPE_MAGICAL
+	if caster:HasModifier("modifier_mountain_protector_glyph_3_1") then
+		damageType = DAMAGE_TYPE_PURE
+		targetFlag = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+	end
 
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, targetFlag, FIND_ANY_ORDER, false )
-		if #enemies > 0 then
-			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, BASE_ABILITY_R, RPC_ELEMENT_EARTH, RPC_ELEMENT_FIRE)
-				Filters:ApplyStun(caster, stun_duration+a_c_stun_duration, enemy)
-				if ability.r_1_level > 0 then
-					local a_d_damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.3*ability.r_1_level
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_d_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
-					local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, caster )
-					ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT, "attach_hitloc", caster:GetAbsOrigin()+Vector(0,0,80), true)
-					ParticleManager:SetParticleControlEnt(pfx, 1, enemy, PATTACH_POINT, "attach_hitloc", enemy:GetAbsOrigin()+Vector(0,0,80), true)
-					Timers:CreateTimer(2.0, function() 
-					  ParticleManager:DestroyParticle( pfx, false )
-					end) 
-				end
-				if canBD then
-					if ability.r_2_level > 0 then
-						local b_d_duration = Filters:GetAdjustedBuffDuration(caster, 20, false)
-						local runeAbility = caster.runeUnit2:FindAbilityByName("mountain_protector_rune_r_2")
-						runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_mountain_protector_rune_r_2_visible", {duration = b_d_duration})
-						local currentStacks = caster:GetModifierStackCount("modifier_mountain_protector_rune_r_2_visible", caster.runeUnit2)
-						local stacksCount = min(currentStacks + 1, constants.R2_MAX_STACKS)
-						caster:SetModifierStackCount("modifier_mountain_protector_rune_r_2_visible", caster.runeUnit2, stacksCount)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, targetFlag, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, BASE_ABILITY_R, RPC_ELEMENT_EARTH, RPC_ELEMENT_FIRE)
+			Filters:ApplyStun(caster, stun_duration + a_c_stun_duration, enemy)
+			if ability.r_1_level > 0 then
+				local a_d_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.3 * ability.r_1_level
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_d_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+				local pfx = ParticleManager:CreateParticle("particles/econ/events/ti5/dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, caster)
+				ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT, "attach_hitloc", caster:GetAbsOrigin() + Vector(0, 0, 80), true)
+				ParticleManager:SetParticleControlEnt(pfx, 1, enemy, PATTACH_POINT, "attach_hitloc", enemy:GetAbsOrigin() + Vector(0, 0, 80), true)
+				Timers:CreateTimer(2.0, function()
+					ParticleManager:DestroyParticle(pfx, false)
+				end)
+			end
+			if canBD then
+				if ability.r_2_level > 0 then
+					local b_d_duration = Filters:GetAdjustedBuffDuration(caster, 20, false)
+					local runeAbility = caster.runeUnit2:FindAbilityByName("mountain_protector_rune_r_2")
+					runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_mountain_protector_rune_r_2_visible", {duration = b_d_duration})
+					local currentStacks = caster:GetModifierStackCount("modifier_mountain_protector_rune_r_2_visible", caster.runeUnit2)
+					local stacksCount = min(currentStacks + 1, constants.R2_MAX_STACKS)
+					caster:SetModifierStackCount("modifier_mountain_protector_rune_r_2_visible", caster.runeUnit2, stacksCount)
 
-						runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_mountain_protector_rune_r_2_invisible", {duration = b_d_duration})
-						caster:SetModifierStackCount("modifier_mountain_protector_rune_r_2_invisible", caster.runeUnit2, stacksCount*ability.r_2_level)
-					end
+					runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_mountain_protector_rune_r_2_invisible", {duration = b_d_duration})
+					caster:SetModifierStackCount("modifier_mountain_protector_rune_r_2_invisible", caster.runeUnit2, stacksCount * ability.r_2_level)
 				end
 			end
-			local refreshChance = ability:GetSpecialValueFor("refresh_chance")
-			local luck = RandomInt(1, 100)
-			if luck <= refreshChance then
-				caster:GetAbilityByIndex(DOTA_E_SLOT):EndCooldown()
-			end
-		end 
-		if a_c_stun_duration > 0 then
-			local pfx = ParticleManager:CreateParticle( "particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			ParticleManager:SetParticleControl(pfx, 0, position)
-			ParticleManager:SetParticleControl(pfx, 5, Vector(0.9, 0.4, 0.1))
-			ParticleManager:SetParticleControl(pfx, 2, Vector(0.7,0.7,0.7))
-			Timers:CreateTimer(10, function() 
-			  ParticleManager:DestroyParticle( pfx, false )
-			  ParticleManager:ReleaseParticleIndex(pfx)
-			end)
 		end
+		local refreshChance = ability:GetSpecialValueFor("refresh_chance")
+		local luck = RandomInt(1, 100)
+		if luck <= refreshChance then
+			caster:GetAbilityByIndex(DOTA_E_SLOT):EndCooldown()
+		end
+	end
+	if a_c_stun_duration > 0 then
+		local pfx = ParticleManager:CreateParticle("particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(pfx, 0, position)
+		ParticleManager:SetParticleControl(pfx, 5, Vector(0.9, 0.4, 0.1))
+		ParticleManager:SetParticleControl(pfx, 2, Vector(0.7, 0.7, 0.7))
+		Timers:CreateTimer(10, function()
+			ParticleManager:DestroyParticle(pfx, false)
+			ParticleManager:ReleaseParticleIndex(pfx)
+		end)
+	end
 
 end
 
@@ -168,7 +166,7 @@ function glyph_7_1_damage(event)
 	local attacker = event.attacker
 	local caster = event.unit
 	if caster:HasModifier("modifier_energy_channel") or caster:HasModifier("modifier_steelforge_stance") then
-		local luck = RandomInt(1,10)
+		local luck = RandomInt(1, 10)
 		if luck <= 3 then
 			Filters:ApplyStun(caster, 1, attacker)
 		end

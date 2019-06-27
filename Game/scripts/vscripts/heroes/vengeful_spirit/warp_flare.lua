@@ -15,7 +15,7 @@ function warp_flare_start(event)
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target)
 	if distance > range then
 		local fv = WallPhysics:normalized_2d_vector(caster:GetAbsOrigin(), target)
-		target = caster:GetAbsOrigin() + fv*range
+		target = caster:GetAbsOrigin() + fv * range
 	end
 	distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target)
 	ability.total_distance_to_travel = distance
@@ -26,7 +26,7 @@ function warp_flare_start(event)
 	flareParticle(caster:GetAbsOrigin(), caster, ability)
 	-- StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.5})
 	ability.targetPoint = target
-	ability.fv = ((target - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	ability.fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	caster:RemoveModifierByName("modifier_lava_jumping")
 	if not ability.bandTable then
 		ability.bandTable = {}
@@ -42,7 +42,7 @@ function warp_flare_start(event)
 	end
 	pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
 	ability.particle = false
-	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,30) - ability.fv*30)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + Vector(0, 0, 30) - ability.fv * 30)
 	table.insert(ability.bandTable, pfx)
 	ability.currentBand = #ability.bandTable
 	EmitSoundOn("Solunia.WarpFlare", caster)
@@ -65,9 +65,9 @@ function reactivateBoomerangAbility(abilityName, caster)
 	if caster:HasAbility(abilityName) then
 		local ability = caster:FindAbilityByName(abilityName)
 		local maxBoomerangs = ability:GetSpecialValueFor("max_boomerangs")
-	    if caster:HasModifier("modifier_solunia_glyph_1_1") then
-	    	maxBoomerangs = maxBoomerangs + 2
-	    end
+		if caster:HasModifier("modifier_solunia_glyph_1_1") then
+			maxBoomerangs = maxBoomerangs + 2
+		end
 		if ability.boomerangTable then
 			if #ability.boomerangTable < maxBoomerangs then
 				ability:SetActivated(true)
@@ -81,25 +81,25 @@ end
 function warp_flare_flying_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
-    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
-    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+ability.fv*45), caster)
-    local forwardSpeed = 80
+	local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
+	local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + ability.fv * 45), caster)
+	local forwardSpeed = 80
 	if blockUnit then
 		forwardSpeed = 0
 		end_warp_phase(caster, ability)
 		return
 	end
 	ability.distance_travelled = ability.distance_travelled + forwardSpeed
-	caster:SetAbsOrigin(caster:GetAbsOrigin()+ability.fv*forwardSpeed)
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + ability.fv * forwardSpeed)
 	local groundHeight = GetGroundHeight(caster:GetAbsOrigin(), caster)
-	local liftVector = Vector(0,0,0)
+	local liftVector = Vector(0, 0, 0)
 	if caster:GetAbsOrigin().z - groundHeight < 300 then
-		liftVector = Vector(0,0,15)
+		liftVector = Vector(0, 0, 15)
 	end
-	caster:SetAbsOrigin(caster:GetAbsOrigin()+liftVector)
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + liftVector)
 	if ability.bandTable[ability.currentBand] then
-		ParticleManager:SetParticleControl(ability.bandTable[ability.currentBand], 1, caster:GetAbsOrigin()+Vector(0,0,30)+ability.fv*60)
+		ParticleManager:SetParticleControl(ability.bandTable[ability.currentBand], 1, caster:GetAbsOrigin() + Vector(0, 0, 30) + ability.fv * 60)
 	end
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.targetPoint)
 	if distance < 85 or ability.distance_travelled > ability.total_distance_to_travel then
@@ -130,7 +130,7 @@ function end_warp_phase(caster, ability)
 		maxFlares = maxFlares + 2
 	end
 	if ability.flareCount >= maxFlares then
-		end_warp_flare(ability,caster)
+		end_warp_flare(ability, caster)
 		max_flares_achieved(caster, ability)
 	else
 		ability:EndCooldown()
@@ -160,8 +160,8 @@ function inbetween_flare_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	ability.betweenFlareRotation = ability.betweenFlareRotation + 1
-	caster:SetAngles(0, ability.betweenFlareRotation*0.5+ability.startRotation, 0)
-	caster:SetAbsOrigin(caster:GetAbsOrigin()+math.cos(ability.betweenFlareRotation*math.pi/50)*1.2)
+	caster:SetAngles(0, ability.betweenFlareRotation * 0.5 + ability.startRotation, 0)
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + math.cos(ability.betweenFlareRotation * math.pi / 50) * 1.2)
 	-- caster:SetForwardVector(newFV)
 	-- Vector(1,0) = 0
 	-- Vector(1,1) = 45
@@ -171,7 +171,7 @@ function inbetween_flare_think(event)
 end
 
 function vectorToAngle(vector)
-	return math.atan2(vector.y, vector.x)*180/math.pi
+	return math.atan2(vector.y, vector.x) * 180 / math.pi
 end
 
 function inbetween_flare_start(event)
@@ -189,13 +189,13 @@ function inbetween_flare_end(event)
 		return false
 	end
 	caster:RemoveModifierByName("modifier_solunia_warp_flare_immortal_weapon_effect")
-	caster:SetAngles(0,0,0)
+	caster:SetAngles(0, 0, 0)
 	if not caster:HasModifier("modifier_solunia_flare_flying") then
-		end_warp_flare(ability,caster)
+		end_warp_flare(ability, caster)
 	end
 end
 
-function end_warp_flare(ability,caster)
+function end_warp_flare(ability, caster)
 	if not caster:HasModifier("modifier_channel_start") then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_warp_flare_falling", {duration = 4})
 	end
@@ -215,7 +215,7 @@ function end_warp_flare(ability,caster)
 		maxFlares = maxFlares + 2
 	end
 	-- if ability.flareCount < maxFlares then
-		Filters:ReduceECooldown(caster, ability, ability:GetCooldown(ability:GetLevel()), true)
+	Filters:ReduceECooldown(caster, ability, ability:GetCooldown(ability:GetLevel()), true)
 	-- end
 
 	ability.flareCount = false
@@ -238,18 +238,18 @@ end
 function after_flare_falling(event)
 	local caster = event.caster
 	local ability = event.ability
-	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,ability.fallVelocity))
+	caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, ability.fallVelocity))
 	ability.fallVelocity = ability.fallVelocity + 2
 	local groundHeight = GetGroundHeight(caster:GetAbsOrigin(), caster)
-	if caster:GetAbsOrigin().z - groundHeight < ability.fallVelocity/2 then
+	if caster:GetAbsOrigin().z - groundHeight < ability.fallVelocity / 2 then
 		caster:RemoveModifierByName("modifier_solunia_warp_flare_falling")
 		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
-		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_SPAWN, rate=1.8})
+		StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_SPAWN, rate = 1.8})
 	end
 end
 
 function rune_e_2_galaxy_nitro(caster, ability)
-	local b_c_level =  Runes:GetTotalRuneLevel(caster, 2, "e_2", "solunia")
+	local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "solunia")
 	if b_c_level > 0 then
 		local solarangAbility = caster:FindAbilityByName("solunia_solarang")
 		local lunarangAbility = caster:FindAbilityByName("solunia_lunarang")
@@ -273,25 +273,25 @@ function rune_e_2_galaxy_nitro(caster, ability)
 			if boomerang:HasModifier("boomerang_passive_lunar") then
 				particleName = "particles/roshpit/solunia/lunar_flare_explosion_immortal1.vpcf"
 			end
-		  	local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, boomerang.origCaster )
-		  	local origin = boomerang:GetAbsOrigin()
-		  	ParticleManager:SetParticleControl( particle1, 0, origin )
-		  	Timers:CreateTimer(3, function()
-		  		ParticleManager:DestroyParticle(particle1, false)
-		  	end)
-		  	EmitSoundOn("Solunia.SolarGlow.Impact", boomerang)
+			local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, boomerang.origCaster)
+			local origin = boomerang:GetAbsOrigin()
+			ParticleManager:SetParticleControl(particle1, 0, origin)
+			Timers:CreateTimer(3, function()
+				ParticleManager:DestroyParticle(particle1, false)
+			end)
+			EmitSoundOn("Solunia.SolarGlow.Impact", boomerang)
 			local damageType = DAMAGE_TYPE_MAGICAL
 			if caster:HasModifier("boomerang_passive_lunar") then
 				damageType = DAMAGE_TYPE_PURE
 			end
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), boomerang:GetAbsOrigin(), nil, 270, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), boomerang:GetAbsOrigin(), nil, 270, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
-				for _,enemy in pairs(enemies) do
+				for _, enemy in pairs(enemies) do
 					--print(caster.damage)
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, boomerang.damage*(1+(b_c_level*0.2)), damageType, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
-					Filters:ApplyStun(caster, b_c_level*0.08, enemy)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, boomerang.damage * (1 + (b_c_level * 0.2)), damageType, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+					Filters:ApplyStun(caster, b_c_level * 0.08, enemy)
 				end
-			end 
+			end
 		end
 	end
 end
@@ -300,7 +300,7 @@ function c_c_pit(caster, ability, targetPoint)
 	local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "solunia")
 	ability.e_3_level = c_c_level
 	if c_c_level > 0 then
-		local duration = 1 + 0.3*c_c_level
+		local duration = 1 + 0.3 * c_c_level
 		local modifierName = "modifier_solunia_warp_core_thinker"
 		duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 		--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(targetPoint, caster), modifierName, {duration = duration})
@@ -316,7 +316,7 @@ function rune_unit_4_think(event)
 	if totalLevel > 0 then
 		local stackCount = totalLevel
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_solunia_rune_e_4_effect", {})
-		hero:SetModifierStackCount( "modifier_solunia_rune_e_4_effect", ability, stackCount )
+		hero:SetModifierStackCount("modifier_solunia_rune_e_4_effect", ability, stackCount)
 	end
 end
 

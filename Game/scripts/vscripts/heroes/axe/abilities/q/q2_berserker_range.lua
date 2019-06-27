@@ -32,7 +32,7 @@ function attackLand(event, q2_think)
     local currentStacks = caster:GetModifierStackCount(visibleModifier, caster)
     local newStacks = math.min(currentStacks + stacksGain, maxStacksCount)
 
-    local halfOfStacks = math.floor(maxStacksCount/2)
+    local halfOfStacks = math.floor(maxStacksCount / 2)
     if q2_think then
         local modifier = caster:FindModifierByName("modifier_axe_rune_q_2_visible")
         local modifierDuration = 0
@@ -50,7 +50,7 @@ function attackLand(event, q2_think)
 
     ability:ApplyDataDrivenModifier(caster, caster, visibleModifier, {duration = duration})
     caster:SetModifierStackCount(visibleModifier, caster, newStacks)
-    local invisibleModifier =  "modifier_axe_rune_q_2_invisible"
+    local invisibleModifier = "modifier_axe_rune_q_2_invisible"
     ability:ApplyDataDrivenModifier(caster, caster, invisibleModifier, {duration = duration})
     caster:SetModifierStackCount(invisibleModifier, caster, newStacks * runesCount)
 end

@@ -27,24 +27,24 @@ end
 function zhonik_dashing(event)
 	local caster = event.caster
 	local ability = event.ability
-	
-	ability.moveDirection = (ability.point-caster:GetAbsOrigin()):Normalized()
 
-	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
-    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
-    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+ability.moveDirection*35), caster)
+	ability.moveDirection = (ability.point - caster:GetAbsOrigin()):Normalized()
 
-    local forwardSpeed = 70
+	local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
+	local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + ability.moveDirection * 35), caster)
+
+	local forwardSpeed = 70
 	if blockUnit then
 		forwardSpeed = 0
 		caster:RemoveModifierByName("modifier_temporal_field_dashing")
 		zhonik_dash_end(caster, ability)
 	end
-	local newPosition = caster:GetAbsOrigin() + ability.moveDirection*forwardSpeed
-	caster:SetAbsOrigin(Vector(newPosition.x, newPosition.y, 0) + Vector(0,0,GetGroundHeight(newPosition, caster)))
+	local newPosition = caster:GetAbsOrigin() + ability.moveDirection * forwardSpeed
+	caster:SetAbsOrigin(Vector(newPosition.x, newPosition.y, 0) + Vector(0, 0, GetGroundHeight(newPosition, caster)))
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.point)
 
-	if distance < forwardSpeed*1.5 then
+	if distance < forwardSpeed * 1.5 then
 		caster:RemoveModifierByName("modifier_temporal_field_dashing")
 		zhonik_dash_end(caster, ability)
 	end
@@ -53,7 +53,7 @@ end
 function zhonik_dash_end(caster, ability)
 	Timers:CreateTimer(0.03, function()
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.7})
+		StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1.7})
 	end)
 	local point = ability.point
 	local particleName = "particles/roshpit/zhonik/temporal_field.vpcf"
@@ -63,7 +63,7 @@ function zhonik_dash_end(caster, ability)
 	end
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx, 0, point)
-	ParticleManager:SetParticleControl(pfx, 1, Vector(550,550,550))
+	ParticleManager:SetParticleControl(pfx, 1, Vector(550, 550, 550))
 	EmitSoundOnLocationWithCaster(point, "Zonik.TemporalField.Start", caster)
 	ability.pfx = pfx
 
@@ -80,10 +80,10 @@ function zhonik_dash_end(caster, ability)
 			ability:ApplyDataDrivenModifier(caster, ability.auraDummy, "modifier_temporal_dummy_aura", {duration = 10})
 		else
 			local modifier = ability.auraDummy:FindModifierByName("modifier_temporal_dummy_aura")
-			modifier:SetDuration(10,false)
+			modifier:SetDuration(10, false)
 		end
 	end
-	
+
 end
 
 function field_end(event)
@@ -102,16 +102,16 @@ function zhonik_sliding(event)
 	local caster = event.caster
 	local ability = event.ability
 	ability.slideSpeed = math.max(ability.slideSpeed - 1, 0)
-	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
-    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
-    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+ability.moveDirection*35), caster)
+	local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
+	local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + ability.moveDirection * 35), caster)
 
-    local forwardSpeed = ability.slideSpeed 
+	local forwardSpeed = ability.slideSpeed
 	if blockUnit then
 		forwardSpeed = 0
 	end
-	local newPosition = caster:GetAbsOrigin() + ability.moveDirection*forwardSpeed
-	caster:SetAbsOrigin(Vector(newPosition.x, newPosition.y, 0) + Vector(0,0,GetGroundHeight(newPosition, caster)))
+	local newPosition = caster:GetAbsOrigin() + ability.moveDirection * forwardSpeed
+	caster:SetAbsOrigin(Vector(newPosition.x, newPosition.y, 0) + Vector(0, 0, GetGroundHeight(newPosition, caster)))
 end
 
 function sliding_end(event)
@@ -131,7 +131,7 @@ function temporal_field_enter(event)
 		target:RemoveModifierByName("modifier_dummy_aura1_effect_zhonik")
 		target:RemoveModifierByName("modifier_zonik_temporal_field_cap")
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_dummy_aura1_effect_zhonik", {})
-		caster:AddNewModifier( caster, ability, "modifier_zonik_temporal_field_cap", {duration = duration} )
+		caster:AddNewModifier(caster, ability, "modifier_zonik_temporal_field_cap", {duration = duration})
 	end
 	if event.create == 1 then
 		if target:GetTeamNumber() == caster:GetTeamNumber() then
@@ -148,16 +148,16 @@ function temporal_field_leave(event)
 	local target = event.target
 
 	if not target:HasModifier("modifier_temporal_field_dashing") then
-			target:RemoveModifierByName("modifier_dummy_aura1_effect_zhonik")
-			target:RemoveModifierByName("modifier_zonik_temporal_field_cap")
+		target:RemoveModifierByName("modifier_dummy_aura1_effect_zhonik")
+		target:RemoveModifierByName("modifier_zonik_temporal_field_cap")
 	end
 	target:RemoveModifierByName("modifier_dummy_aura_effect_enemy")
 	target:RemoveModifierByName("modifier_dummy_aura_effect_enemy_a_c_visible")
 	target:RemoveModifierByName("modifier_dummy_aura_effect_enemy_a_c_invisible")
 	if ability.e_4_level > 0 then
-		local duration = Filters:GetAdjustedBuffDuration(caster, ZHONIK_E4_ARCANA_MS_STICKY_DURATION*ability.e_4_level, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonik_temporal_field_cap", {duration = duration})	
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dummy_aura1_effect_zhonik", {duration = duration})	
+		local duration = Filters:GetAdjustedBuffDuration(caster, ZHONIK_E4_ARCANA_MS_STICKY_DURATION * ability.e_4_level, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonik_temporal_field_cap", {duration = duration})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dummy_aura1_effect_zhonik", {duration = duration})
 	end
 end
 
@@ -175,7 +175,7 @@ function zhonik_aura_thinker(event)
 			target:SetModifierStackCount("modifier_zhonic_arcana_c_c_visible", caster, newStacks)
 
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_zhonic_arcana_c_c_invisible", {})
-			target:SetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", caster, newStacks*ability.e_3_level)
+			target:SetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", caster, newStacks * ability.e_3_level)
 		end
 	end
 end
@@ -190,11 +190,11 @@ function enemy_in_field_think(event)
 		target:SetModifierStackCount("modifier_dummy_aura_effect_enemy_a_c_visible", caster, newStacks)
 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_dummy_aura_effect_enemy_a_c_invisible", {})
-		target:SetModifierStackCount("modifier_dummy_aura_effect_enemy_a_c_invisible", caster, newStacks*ability.e_1_level)
+		target:SetModifierStackCount("modifier_dummy_aura_effect_enemy_a_c_invisible", caster, newStacks * ability.e_1_level)
 	end
 	if ability.e_2_level > 0 then
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.e_2_level*ZHONIK_E2_ARCANA_DMG_PCT/100
-		CustomAbilities:QuickParticleAtPoint("particles/econ/items/dazzle/dazzle_darkclaw/dazzle_darkclaw_poison_touch_launch_flash.vpcf", target:GetAbsOrigin()+Vector(0,0,80), 1)
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ability.e_2_level * ZHONIK_E2_ARCANA_DMG_PCT / 100
+		CustomAbilities:QuickParticleAtPoint("particles/econ/items/dazzle/dazzle_darkclaw/dazzle_darkclaw_poison_touch_launch_flash.vpcf", target:GetAbsOrigin() + Vector(0, 0, 80), 1)
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 	end
 end
@@ -204,9 +204,9 @@ function c_c_think(event)
 	local ability = event.ability
 	local loseRate = ability:GetSpecialValueFor("lose_rate")
 	if not caster:HasModifier("modifier_temporal_dummy_aura_effect") and not caster:HasModifier("modifier_temporal_field_dashing") then
-		for i=1,loseRate,1 do
-			local newStacks = caster:GetModifierStackCount("modifier_zhonic_arcana_c_c_visible", caster)-1
-			local newStacks_inv = newStacks*ability.e_3_level
+		for i = 1, loseRate, 1 do
+			local newStacks = caster:GetModifierStackCount("modifier_zhonic_arcana_c_c_visible", caster) - 1
+			local newStacks_inv = newStacks * ability.e_3_level
 			if newStacks > 0 then
 				caster:SetModifierStackCount("modifier_zhonic_arcana_c_c_visible", caster, newStacks)
 				caster:SetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", caster, newStacks_inv)
