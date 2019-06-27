@@ -9,13 +9,13 @@ function modifier_arkimus_speed_dash:DeclareFunctions()
     return funcs
 end
 
-function modifier_arkimus_speed_dash:GetModifierMoveSpeed_Max( params )
-	local cap = 1300
+function modifier_arkimus_speed_dash:GetModifierMoveSpeed_Max(params)
+    local cap = 1300
     return cap
 end
 
-function modifier_arkimus_speed_dash:GetModifierMoveSpeed_Limit( params )
-	local cap = 1300
+function modifier_arkimus_speed_dash:GetModifierMoveSpeed_Limit(params)
+    local cap = 1300
     return cap
 end
 

@@ -9,18 +9,18 @@ function modifier_dinath_passive_ms_cap:DeclareFunctions()
     return funcs
 end
 
-function modifier_dinath_passive_ms_cap:GetModifierMoveSpeed_Max( params )
+function modifier_dinath_passive_ms_cap:GetModifierMoveSpeed_Max(params)
     local cap = 600
     if self:GetAbility().w_3_level then
-    	cap = 600 + self:GetAbility().w_3_level*5
+        cap = 600 + self:GetAbility().w_3_level * 5
     end
     return cap
 end
 
-function modifier_dinath_passive_ms_cap:GetModifierMoveSpeed_Limit( params )
+function modifier_dinath_passive_ms_cap:GetModifierMoveSpeed_Limit(params)
     local cap = 600
     if self:GetAbility().w_3_level then
-    	cap = 600 + self:GetAbility().w_3_level*5
+        cap = 600 + self:GetAbility().w_3_level * 5
     end
     return cap
 end

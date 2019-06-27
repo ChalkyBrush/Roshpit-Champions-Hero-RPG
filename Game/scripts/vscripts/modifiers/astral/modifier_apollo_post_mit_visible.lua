@@ -3,7 +3,7 @@ modifier_apollo_post_mit_visible = class({})
 function modifier_apollo_post_mit_visible:DeclareFunctions()
 	local funcs = {
 
-}
+	}
 	return funcs
 end
 

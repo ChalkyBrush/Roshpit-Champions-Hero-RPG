@@ -10,26 +10,26 @@ function modifier_chernobog_d_c_arcana2:DeclareFunctions()
     return funcs
 end
 
-function modifier_chernobog_d_c_arcana2:GetModifierMoveSpeed_Max( params )
+function modifier_chernobog_d_c_arcana2:GetModifierMoveSpeed_Max(params)
     local cap = 550
     if self:GetAbility().e_4_level then
-    	cap = cap + self:GetAbility().e_4_level*6
+        cap = cap + self:GetAbility().e_4_level * 6
     end
     return cap
 end
 
-function modifier_chernobog_d_c_arcana2:GetModifierMoveSpeed_Limit( params )
+function modifier_chernobog_d_c_arcana2:GetModifierMoveSpeed_Limit(params)
     local cap = 550
     if self:GetAbility().e_4_level then
-    	cap = cap + self:GetAbility().e_4_level*6
+        cap = cap + self:GetAbility().e_4_level * 6
     end
     return cap
 end
 
-function modifier_chernobog_d_c_arcana2:GetModifierMoveSpeedBonus_Constant( params )
+function modifier_chernobog_d_c_arcana2:GetModifierMoveSpeedBonus_Constant(params)
     local bonus = 0
     if self:GetAbility().e_4_level then
-        bonus = self:GetAbility().e_4_level*6
+        bonus = self:GetAbility().e_4_level * 6
     end
     return bonus
 end

@@ -1,12 +1,12 @@
 modifier_draghor_shapeshift_hawk_lua = class({})
 
 function modifier_draghor_shapeshift_hawk_lua:DeclareFunctions()
-    local funcs = {
-        MODIFIER_PROPERTY_MODEL_SCALE,
-        MODIFIER_PROPERTY_MODEL_CHANGE
-    }
+	local funcs = {
+		MODIFIER_PROPERTY_MODEL_SCALE,
+		MODIFIER_PROPERTY_MODEL_CHANGE
+	}
 
-    return funcs
+	return funcs
 end
 
 function modifier_draghor_shapeshift_hawk_lua:GetModifierModelChange()
@@ -18,6 +18,6 @@ function modifier_draghor_shapeshift_hawk_lua:GetModifierModelChange()
 	return birdModel
 end
 
-function modifier_draghor_shapeshift_hawk_lua:GetModifierModelScale( params )
-    return 45
+function modifier_draghor_shapeshift_hawk_lua:GetModifierModelScale(params)
+	return 45
 end
