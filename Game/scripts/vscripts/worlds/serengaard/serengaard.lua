@@ -5,16 +5,16 @@ end
 DEBUG_WAVE = 29
 
 function Serengaard:Debug()
-  -- CustomGameEventManager:Send_ServerToAllClients("serengaardWaveSpawn", {} )
-  -- Serengaard.wave = 20
-  -- Serengaard:TimerEnd()
-  -- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient)
-  -- Serengaard:SubmitStats()
-  --print("SERENGAARD DEBUG")
-  --print(MAIN_HERO_TABLE[1]:GetUnitName())
-  -- RPCItems:DropSynthesisVessel(MAIN_HERO_TABLE[1]:GetAbsOrigin())
-  -- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient:GetAbsOrigin())
-  -- RPCItems:RollSunCrystal(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 200)
+	-- CustomGameEventManager:Send_ServerToAllClients("serengaardWaveSpawn", {} )
+	-- Serengaard.wave = 20
+	-- Serengaard:TimerEnd()
+	-- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient)
+	-- Serengaard:SubmitStats()
+	--print("SERENGAARD DEBUG")
+	--print(MAIN_HERO_TABLE[1]:GetUnitName())
+	-- RPCItems:DropSynthesisVessel(MAIN_HERO_TABLE[1]:GetAbsOrigin())
+	-- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient:GetAbsOrigin())
+	-- RPCItems:RollSunCrystal(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 200)
 end
 
 function Serengaard:Debug2()
@@ -30,12 +30,12 @@ function Serengaard:Debug2()
 end
 
 function Serengaard:Init()
- --print("Initialize Redfall")
-      Dungeons.phoenixCollision = false
-      RPCItems.DROP_LOCATION = Vector(0,0)
-      Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
-      Events.GameMaster:AddAbility("town_portal"):SetLevel(1)
-      Events.GameMaster:RemoveModifierByName("modifier_portal")
+	--print("Initialize Redfall")
+	Dungeons.phoenixCollision = false
+	RPCItems.DROP_LOCATION = Vector(0, 0)
+	Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
+	Events.GameMaster:AddAbility("town_portal"):SetLevel(1)
+	Events.GameMaster:RemoveModifierByName("modifier_portal")
 
 	Serengaard.ZFLOAT = Serengaard:GetZFLOAT()
 

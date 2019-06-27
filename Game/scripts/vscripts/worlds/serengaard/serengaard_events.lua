@@ -240,7 +240,7 @@ function use_sunstone(event)
 			Timers:CreateTimer(1, function()
 				Serengaard.wave = 31
 				for i = 1, 20, 1 do
-					Timers:CreateTimer(i/2, function()
+					Timers:CreateTimer(i / 2, function()
 						Serengaard:UpdateTowers()
 					end)
 				end
@@ -282,7 +282,7 @@ function use_hyperstone(event)
 			Timers:CreateTimer(1, function()
 				Serengaard.wave = 31
 				for i = 1, 20, 1 do
-					Timers:CreateTimer(i/2, function()
+					Timers:CreateTimer(i / 2, function()
 						Serengaard:UpdateTowers()
 					end)
 				end
