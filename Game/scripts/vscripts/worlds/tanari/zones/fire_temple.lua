@@ -600,7 +600,7 @@ function Tanari:SpawnFireTempleWaveUnit(unitName, spawnPoint, quantity, itemLeve
       		unit:SetRenderColor(255, 140, 0)
       	end
       else
-      	for i = 1, #unit, 1 do
+      	for i = 1, #unit.buddiesTable, 1 do
       		unit.buddiesTable[i].itemLevel = itemLevel
       		unit.buddiesTable[i]:AddAbility("fire_temple_wave_room_ability"):SetLevel(1)
       		unit.buddiesTable[i]:SetAcquisitionRange(3000)
@@ -1132,7 +1132,7 @@ function Tanari:SpawnSpiritFireWaveUnit(unitName, spawnPoint, quantity, itemLeve
 		unit.autoAbilityCD = 2 
 		unit.modelScale = 0.95
       else
-        for i = 1, #unit, 1 do
+        for i = 1, #unit.buddiesTable, 1 do
           unit.buddiesTable[i].aggro = true
           unit.buddiesTable[i].itemLevel = itemLevel
           Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_fire_temple_modifier", {})
@@ -1405,7 +1405,7 @@ function Tanari:SpawnSpiritFireWaveUnit3(unitName, spawnPoint, quantity, itemLev
 		unit.modelScale = 0.95
 		Tanari:LaunchWaveUnit3(unit)
       else
-        for i = 1, #unit, 1 do
+        for i = 1, #unit.buddiesTable, 1 do
           unit.buddiesTable[i].aggro = true
           unit.buddiesTable[i].itemLevel = itemLevel
           Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_fire_temple_modifier", {})

@@ -927,7 +927,7 @@ function Serengaard:SpawnWaveUnit(unitName, spawnPoint, quantity, itemLevel, del
 				unit.itemLevel = itemLevel
 				Serengaard:AdjustUnit(unit)
 			else
-				for i = 1, #unit, 1 do
+				for i = 1, #unit.buddiesTable, 1 do
 					unit.buddiesTable[i].dominion = true
 					unit.buddiesTable[i].itemLevel = itemLevel
 					Serengaard:AdjustUnit(unit.buddiesTable[i])

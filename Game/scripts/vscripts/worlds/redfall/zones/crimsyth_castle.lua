@@ -402,7 +402,7 @@ function Redfall:SpawnOutsideCastleWaveUnit(unitName, spawnPoint, quantity, item
           unit:SetRenderColor(255, 60, 60)
         end
       else
-        for i = 1, #unit, 1 do
+        for i = 1, #unit.buddiesTable, 1 do
           unit.buddiesTable[i].aggro = true
           unit.buddiesTable[i].itemLevel = itemLevel
           unit.buddiesTable[i].dominion = true
@@ -739,7 +739,7 @@ function Redfall:SpawnTortureWaveUnit(unitName, spawnPoint, quantity, itemLevel,
           Redfall:ColorWearables(unit, Vector(255, 20, 20))
         end
       else
-        for i = 1, #unit, 1 do
+        for i = 1, #unit.buddiesTable, 1 do
           unit.buddiesTable[i].aggro = true
           unit.buddiesTable[i].dominion = true
           unit.buddiesTable[i].itemLevel = itemLevel
@@ -1221,7 +1221,7 @@ function Redfall:SpawnCrystalRoomWaveUnit(unitName, spawnPoint, quantity, itemLe
           Redfall:ColorWearables(unit, Vector(255, 60, 60))
         end
       else
-        for i = 1, #unit, 1 do
+        for i = 1, #unit.buddiesTable, 1 do
           unit.buddiesTable[i].aggro = true
           unit.buddiesTable[i].itemLevel = itemLevel
           Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit.buddiesTable[i], "modifier_castle_unit_generic", {})
@@ -1874,7 +1874,7 @@ function Redfall:SpawnElthezunWaveUnit(unitName, spawnPoint, quantity, itemLevel
           Redfall:ColorWearables(unit, Vector(255, 60, 60))
         end
       else
-        for i = 1, #unit, 1 do
+        for i = 1, #unit.buddiesTable, 1 do
           unit.buddiesTable[i].aggro = true
           unit.buddiesTable[i].itemLevel = itemLevel
           Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit.buddiesTable[i], "modifier_castle_unit_generic", {})

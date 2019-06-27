@@ -557,7 +557,7 @@ function Redfall:SpawnShipyardWaveUnit(unitName, spawnPoint, quantity, itemLevel
 			Redfall:ColorWearables(unit, Vector(100,40,40))
       	end
       else
-      	for i = 1, #unit, 1 do
+      	for i = 1, #unit.buddiesTable, 1 do
       		unit.buddiesTable[i].aggro = true
       		unit.buddiesTable[i].itemLevel = itemLevel
       		Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit.buddiesTable[i], "modifier_shipyard_wave_unit", {})
