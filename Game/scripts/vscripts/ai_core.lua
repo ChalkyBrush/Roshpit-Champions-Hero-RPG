@@ -1,8 +1,8 @@
 --[[
 Tower Defense AI
-
+ 
 These are the valid orders, in case you want to use them (easier here than to find them in the C code):
-
+ 
 DOTA_UNIT_ORDER_NONE
 DOTA_UNIT_ORDER_MOVE_TO_POSITION 
 DOTA_UNIT_ORDER_MOVE_TO_TARGET 
@@ -34,23 +34,23 @@ DOTA_UNIT_ORDER_CAST_RUNE
 
 AICore = {}
 
-function AICore:RandomEnemyHeroInRange( entity, range )
-	local enemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, entity:GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
+function AICore:RandomEnemyHeroInRange(entity, range)
+	local enemies = FindUnitsInRadius(DOTA_TEAM_BADGUYS, entity:GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
 	if #enemies > 0 then
-		local index = RandomInt( 1, #enemies )
+		local index = RandomInt(1, #enemies)
 		return enemies[index]
 	else
 		return nil
 	end
 end
 
-function AICore:WeakestEnemyHeroInRange( entity, range )
-	local enemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, entity:GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
+function AICore:WeakestEnemyHeroInRange(entity, range)
+	local enemies = FindUnitsInRadius(DOTA_TEAM_BADGUYS, entity:GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
 
 	local minHP = nil
 	local target = nil
 
-	for _,enemy in pairs(enemies) do
+	for _, enemy in pairs(enemies) do
 		local distanceToEnemy = (entity:GetOrigin() - enemy:GetOrigin()):Length()
 		local HP = enemy:GetHealth()
 		if enemy:IsAlive() and (minHP == nil or HP < minHP) and distanceToEnemy < range then
@@ -62,7 +62,7 @@ function AICore:WeakestEnemyHeroInRange( entity, range )
 	return target
 end
 
-function AICore:CreateBehaviorSystem( behaviors )
+function AICore:CreateBehaviorSystem(behaviors)
 	local BehaviorSystem = {}
 
 	BehaviorSystem.possibleBehaviors = behaviors
@@ -72,13 +72,12 @@ function AICore:CreateBehaviorSystem( behaviors )
 	BehaviorSystem.currentBehavior =
 	{
 		endTime = 0,
-		order = { OrderType = DOTA_UNIT_ORDER_NONE }
-	}
+	order = {OrderType = DOTA_UNIT_ORDER_NONE}}
 
 	function BehaviorSystem:Think()
 		if GameRules:GetGameTime() >= self.currentBehavior.endTime then
 			local newBehavior = self:ChooseNextBehavior()
-			if newBehavior == nil then 
+			if newBehavior == nil then
 				-- Do nothing here... this covers possible problems with ChooseNextBehavior
 			elseif newBehavior == self.currentBehavior then
 				self.currentBehavior:Continue()
@@ -96,7 +95,7 @@ function AICore:CreateBehaviorSystem( behaviors )
 				self.previousOrderPosition ~= self.currentBehavior.order.Position then
 
 				-- Keep sending the order repeatedly, in case we forgot >.<
-				ExecuteOrderFromTable( self.currentBehavior.order )
+				ExecuteOrderFromTable(self.currentBehavior.order)
 				self.previousOrderType = self.currentBehavior.order.OrderType
 				self.previousOrderTarget = self.currentBehavior.order.TargetIndex
 				self.previousOrderPosition = self.currentBehavior.order.Position
@@ -111,7 +110,7 @@ function AICore:CreateBehaviorSystem( behaviors )
 	function BehaviorSystem:ChooseNextBehavior()
 		local result = nil
 		local bestDesire = nil
-		for _,behavior in pairs( self.possibleBehaviors ) do
+		for _, behavior in pairs(self.possibleBehaviors) do
 			local thisDesire = behavior:Evaluate()
 			if bestDesire == nil or thisDesire > bestDesire then
 				result = behavior

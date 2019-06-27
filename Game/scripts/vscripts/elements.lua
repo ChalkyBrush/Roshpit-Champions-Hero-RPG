@@ -1,7 +1,7 @@
 require('/global_constants')
 
 if Elements == nil then
-  Elements = class({})
+	Elements = class({})
 end
 
 function Elements:GetElementIndexByString(element_name)
@@ -108,31 +108,31 @@ function Elements:GetElementNameAndColorByCode(elementCode)
 end
 
 function Elements:hex2rgb(hex)
-    hex = hex:gsub("#","")
-    return tonumber("0x"..hex:sub(1,2)), tonumber("0x"..hex:sub(3,4)), tonumber("0x"..hex:sub(5,6))
+	hex = hex:gsub("#", "")
+	return tonumber("0x"..hex:sub(1, 2)), tonumber("0x"..hex:sub(3, 4)), tonumber("0x"..hex:sub(5, 6))
 end
 
 function Elements:RollElementAttribute(item, element_code, rollMult, minRoll, maxRoll, attributeSlot)
-	local luck = RandomInt(0,110)
+	local luck = RandomInt(0, 110)
 	local maxFactor = RPCItems:GetMaxFactor()
 	local value = 0
 	local prefixLevel = 1
-	local maxRoll = math.ceil(rollMult*1.5)
+	local maxRoll = math.ceil(rollMult * 1.5)
 	local name, color = Elements:GetElementNameAndColorByCode(element_code)
-	value, prefixLevel = RPCItems:RollAttribute(100, minRoll, maxRoll, 0, 0, item.rarity, false, maxFactor*rollMult)
+	value, prefixLevel = RPCItems:RollAttribute(100, minRoll, maxRoll, 0, 0, item.rarity, false, maxFactor * rollMult)
 	value = math.floor(value)
 	--print("[Elements:RollElementAttribute] "..name)
 	if attributeSlot == 1 then
 		item.newItemTable.property1name = name
-		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color,  1)
+		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color, 1)
 	elseif attributeSlot == 2 then
 		item.newItemTable.property2name = name
-		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color,  2)
+		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color, 2)
 	elseif attributeSlot == 3 then
 		item.newItemTable.property3name = name
-		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color,  3)
+		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color, 3)
 	elseif attributeSlot == 4 then
 		item.newItemTable.property4name = name
-		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color,  4)
+		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color, 4)
 	end
 end

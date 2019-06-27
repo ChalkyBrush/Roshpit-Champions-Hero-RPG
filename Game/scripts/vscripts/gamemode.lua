@@ -1,13 +1,12 @@
 -- This is the primary barebones gamemode script and should be used to assist in initializing your game mode
 
-
 -- Set this to true if you want to see a complete debug output of all events/processes done by barebones
 -- You can also change the cvar 'barebones_spew' at any time to 1 or 0 for output/no output
-BAREBONES_DEBUG_SPEW = false 
+BAREBONES_DEBUG_SPEW = false
 
 if GameMode == nil then
-    DebugPrint( '[BAREBONES] creating barebones game mode' )
-    _G.GameMode = class({})
+  DebugPrint('[BAREBONES] creating barebones game mode')
+  _G.GameMode = class({})
 end
 if Events == nil then
   Events = class({})
@@ -35,68 +34,64 @@ require('internal/os')
 require('settings')
 -- events.lua is where you can specify the actions to be taken when any event occurs and is one of the core barebones files.
 require('events')
-require( 'ai_core' )
-require( 'items')
-require( 'precache')
-require( 'custom_abilities')
-require( 'challenges')
-require( 'stars')
-require( 'custom_attributes')
+require('ai_core')
+require('items')
+require('precache')
+require('custom_abilities')
+require('challenges')
+require('stars')
+require('custom_attributes')
 require('logger')
-
 
 Statistics = require('statistic')
 
-
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
-
+ 
   In this function, place all of your PrecacheItemByNameAsync and PrecacheUnitByNameAsync.  These calls will be made
   after all players have loaded in, but before they have selected their heroes. PrecacheItemByNameAsync can also
   be used to precache dynamically-added datadriven abilities instead of items.  PrecacheUnitByNameAsync will 
   precache the precache{} block statement of the unit and all precache{} block statements for every Ability# 
   defined on the unit.
-
+ 
   This function should only be called once.  If you want to/need to precache more items/abilities/units at a later
   time, you can call the functions individually (for example if you want to precache units in a new wave of
   holdout).
-
+ 
   This function should generally only be used if the Precache() function in addon_game_mode.lua is not working.
 ]]
 function GameMode:PostLoadPrecache()
-  DebugPrint("[BAREBONES] Performing Post-Load precache")    
+  DebugPrint("[BAREBONES] Performing Post-Load precache")
   --PrecacheItemByNameAsync("item_example_item", function(...) end)
   --PrecacheItemByNameAsync("example_ability", function(...) end)
 
   --PrecacheUnitByNameAsync("npc_dota_hero_viper", function(...) end)
   --PrecacheUnitByNameAsync("npc_dota_hero_enigma", function(...) end)
-  
+
   if GameState:IsWorld1() then
     Timers:CreateTimer(3, function()
       local unitTable = {"dark_fighter", "icy_venge", "sorc_water_elemental", "time_walker", "rabid_walker", "npc_dota_creature_basic_zombie_exploding", "gargoyle", "hook_flinger", "human_rifleman", "blood_jumper", "mekanoid_disruptor", "epoch_summon", "furion_brute", "freeze_fiend", "the_butcher", "forest_broodmother", "spiderling", "spiderling2", "rare_ghost", "rolling_earth_spirit", "little_meepo", "furion_mystic", "twitch_lone_druid", "doomguard_a", "doomguard_b", "doomguard_c", "obsidian_golem", "depth_demon", "arabor_cultist", "exploding_warrior", "forest_boss", "rockjaw", "wastelands_archer", "desert_ghost", "goremaw_brute", "goremaw_shaman", "bone_horror", "wandering_mage", "scarab", "skittering_beetle", "satyr_doctor", "hammersaur", "alpha_wolf", "general_wolfenstein", "wolf_ally", "mountain_destroyer", "desert_warlord", "blood_fiend", "dune_crasher", "experimenter_jonuous", "twisted_soldier", "experimental_minion", "tortured_beast", "abomination", "hell_hound", "chaos_warrior", "raging_shaman", "crawler", "crafter", "nibohg", "satyr_behemoth", "firebat", "dire_ranged", "dire_melee", "minion_of_twilight", "spectral_assassin", "shadow_hunter", "betrayer_of_time", "arabor_spellweaver", "mines_boss"}
       for i = 1, #unitTable, 1 do
-        Timers:CreateTimer(i*0, 
-        function()
+        Timers:CreateTimer(i * 0, function()
           --print("precaching: "..unitTable[i])
-          PrecacheUnitByNameAsync(unitTable[i], function(...) end)      
-          end)
+          PrecacheUnitByNameAsync(unitTable[i], function(...) end)
+        end)
       end
     end)
   else
     Timers:CreateTimer(3, function()
-        local unitTable = {"dark_fighter", "icy_venge", "sorc_water_elemental", "time_walker", "rabid_walker", "npc_dota_creature_basic_zombie_exploding", "gargoyle", "hook_flinger", "human_rifleman", "blood_jumper", "mekanoid_disruptor", "epoch_summon", "furion_brute", "freeze_fiend", "the_butcher", "forest_broodmother", "spiderling", "spiderling2", "rare_ghost", "rolling_earth_spirit", "little_meepo", "furion_mystic", "twitch_lone_druid"}
-        for i = 1, #unitTable, 1 do
-          Timers:CreateTimer(i*0, 
-          function()
-            --print("precaching: "..unitTable[i])
-            PrecacheUnitByNameAsync(unitTable[i], function(...) end)      
-            end)
-        end
-      end)
-    end
+      local unitTable = {"dark_fighter", "icy_venge", "sorc_water_elemental", "time_walker", "rabid_walker", "npc_dota_creature_basic_zombie_exploding", "gargoyle", "hook_flinger", "human_rifleman", "blood_jumper", "mekanoid_disruptor", "epoch_summon", "furion_brute", "freeze_fiend", "the_butcher", "forest_broodmother", "spiderling", "spiderling2", "rare_ghost", "rolling_earth_spirit", "little_meepo", "furion_mystic", "twitch_lone_druid"}
+      for i = 1, #unitTable, 1 do
+        Timers:CreateTimer(i * 0, function()
+          --print("precaching: "..unitTable[i])
+          PrecacheUnitByNameAsync(unitTable[i], function(...) end)
+        end)
+      end
+    end)
+  end
   Timers:CreateTimer(1, function()
     Precache:items()
-    
+
   end)
   if GameState:IsWorld1() then
     Timers:CreateTimer(8, function()
@@ -151,7 +146,7 @@ function GameMode:PostLoadPrecache()
       Precache:tanari_crater()
     end)
     Timers:CreateTimer(35, function()
-        Precache:tanariExpansion()
+      Precache:tanariExpansion()
     end)
   end
   if GameState:IsRPCArena() then
@@ -164,7 +159,7 @@ function GameMode:PostLoadPrecache()
     Timers:CreateTimer(20, function()
       Precache:pit_of_trials_1()
     end)
-	Timers:CreateTimer(25, function()
+    Timers:CreateTimer(25, function()
       Precache:pit_of_trials_2()
     end)
   end
@@ -180,7 +175,7 @@ function GameMode:PostLoadPrecache()
       Precache:abandoned_shipyard()
     end)
     Timers:CreateTimer(15, function()
-       Precache:crimsyth_castle()
+      Precache:crimsyth_castle()
     end)
   end
   if GameState:IsSerengaard() then
@@ -203,11 +198,10 @@ end
 function superPrecache()
   local unitTable = {"crow_eater"}
   for i = 1, #unitTable, 1 do
-    Timers:CreateTimer(i*2, 
-    function()
+    Timers:CreateTimer(i * 2, function()
       --print("precaching: "..unitTable[i])
-      PrecacheUnitByNameAsync(unitTable[i], function(...) end)      
-      end)
+      PrecacheUnitByNameAsync(unitTable[i], function(...) end)
+    end)
   end
 end
 
@@ -220,21 +214,21 @@ function GameMode:OnFirstPlayerLoaded()
 end
 
 function GameMode:OnPlayerReconnect(msg)
-   if SaveLoad.key1 then
+  if SaveLoad.key1 then
     if SaveLoad:GetAllowSaving() then
-      CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
+      CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {})
     end
-  end 
+  end
 end
 
 function GameMode:PlayerConnect(msg)
- --print(msg)
+  --print(msg)
   if DIFFICULTY_FACTOR then
-    CustomGameEventManager:Send_ServerToAllClients("update_selected_difficulty", {difficulty = DIFFICULTY_FACTOR} )
+    CustomGameEventManager:Send_ServerToAllClients("update_selected_difficulty", {difficulty = DIFFICULTY_FACTOR})
   end
   if SaveLoad.key1 then
     if SaveLoad:GetAllowSaving() then
-      CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
+      CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {})
     end
   end
 end
@@ -243,23 +237,23 @@ end
   This function is called once and only once after all players have loaded into the game, right as the hero selection time begins.
   It can be used to initialize non-hero player state or adjust the hero selection (i.e. force random etc)
 ]]
-    
+
 function GameMode:OnAllPlayersLoaded()
   DebugPrint("[BAREBONES] All Players have loaded into the game")
-  CustomNetTables:SetTableValue("player_stats", "diff", {difficulty = DIFFICULTY_FACTOR} )
+  CustomNetTables:SetTableValue("player_stats", "diff", {difficulty = DIFFICULTY_FACTOR})
   Events.MapName = GetMapName()
-  
+
   Events.DifficultyFactor = GameState:SetDifficultyFactor()
   Events.WaveNumber = 0
   Dungeons.itemLevel = 0
   Events.HEROKV = LoadKeyValues("scripts/npc/npc_heroes_custom.txt")
   Events:InitGameEntities()
   VectorTarget:Init()
- --print("ALL PLAYERS LOADED")
-  CustomGameEventManager:Send_ServerToAllClients("update_selected_difficulty", {difficulty = DIFFICULTY_FACTOR} )
-  CustomNetTables:SetTableValue("hero_index", "taken_heroes", {} )
+  --print("ALL PLAYERS LOADED")
+  CustomGameEventManager:Send_ServerToAllClients("update_selected_difficulty", {difficulty = DIFFICULTY_FACTOR})
+  CustomNetTables:SetTableValue("hero_index", "taken_heroes", {})
 
-  Events:SpawnGamemaster(Vector(0,0))
+  Events:SpawnGamemaster(Vector(0, 0))
   -- SaveLoad:GetKey()
   if GameState:IsWorld1() then
     -- Events:initializeTown()
@@ -274,7 +268,7 @@ function GameMode:OnAllPlayersLoaded()
   elseif GameState:IsRPCArena() then
     require('worlds/arena/arena')
     -- Timers:CreateTimer(3, function()
-    --   Arena:Init()    
+    --   Arena:Init()
     -- end)
   elseif GameState:IsRedfallRidge() then
     require('worlds/redfall/redfall')
@@ -301,7 +295,7 @@ end
   This function is called once and only once for every player when they spawn into the game for the first time.  It is also called
   if the player's hero is replaced with a new hero for any reason.  This function is useful for initializing heroes, such as adding
   levels, changing the starting gold, removing/adding abilities, adding physics, etc.
-
+ 
   The hero parameter is the hero entity that just spawned in
 ]]
 function GameMode:OnHeroInGame(hero)
@@ -319,7 +313,7 @@ function GameMode:OnHeroInGame(hero)
 
   --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
     --with the "example_ability" ability
-
+ 
   local abil = hero:GetAbilityByIndex(DOTA_W_SLOT)
   hero:RemoveAbility(abil:GetAbilityName())
   hero:AddAbility("example_ability")]]
@@ -333,18 +327,18 @@ end
 function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
   Events:beginQuests()
-  --Timers:CreateTimer(90, 
+  --Timers:CreateTimer(90,
   --  function()
   --    --Events:championChance()
   --    RPCItems:ClearItems()
-  --    return 90 
+  --    return 90
   --  end)
-  -- Timers:CreateTimer(5, 
+  -- Timers:CreateTimer(5,
   --   function()
   --       Events:adjustStats()
   --     return 0.3
   --   end)
-  
+
 end
 
 -- This function initializes the game mode and is called before anyone loads into the game
@@ -359,7 +353,7 @@ function GameMode:InitGameMode()
   GameMode:_InitGameMode()
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
-  Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
+  Convars:RegisterCommand("command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT)
   LinkLuaModifier("modifier_movespeed_cap", "modifiers/modifier_movespeed_cap", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_movespeed_cap_super", "modifiers/modifier_movespeed_cap_super", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_movespeed_cap_glyph", "modifiers/modifier_movespeed_cap_glyph", LUA_MODIFIER_MOTION_NONE)
@@ -369,7 +363,7 @@ function GameMode:InitGameMode()
   LinkLuaModifier("modifier_hood_of_lords_lua", "modifiers/modifier_hood_of_lords_lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_trapper_immo3_effect", "modifiers/trapper/modifier_trapper_immo3_effect", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_black_portal_shrink", "modifiers/modifier_black_portal_shrink", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_rpc_attributes", "modifiers/modifier_rpc_attributes.lua", LUA_MODIFIER_MOTION_NONE )
+  LinkLuaModifier("modifier_rpc_attributes", "modifiers/modifier_rpc_attributes.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_epsilon", "modifiers/modifier_epsilon", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_duskbringer_ghost_form_active", "modifiers/duskbringer/modifier_duskbringer_ghost_form_active", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_paladin_q4_shield", "modifiers/paladin/modifier_paladin_q4_shield", LUA_MODIFIER_MOTION_NONE)
@@ -377,13 +371,12 @@ function GameMode:InitGameMode()
   LinkLuaModifier("modifier_attack_land_basic", "modifiers/modifier_attack_land_basic", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_master_movespeed", "modifiers/modifier_master_movespeed", LUA_MODIFIER_MOTION_NONE)
 
-
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
 end
 
 -- This is an example console command
 function GameMode:ExampleConsoleCommand()
- --print( '******* Example Console Command ***************' )
+  --print( '******* Example Console Command ***************' )
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then
     local playerID = cmdPlayer:GetPlayerID()
@@ -393,5 +386,5 @@ function GameMode:ExampleConsoleCommand()
     end
   end
 
- --print( '*********************************************' )
+  --print( '*********************************************' )
 end
