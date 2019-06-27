@@ -10,25 +10,24 @@ function general_hero_think(event)
 	local manaRegen = (target:GetBaseManaRegen() + target:GetBonusManaRegen())
 	-- magaRegen = manaRegen + (manaRegen*target:GetManaRegenMultiplier())/100
 
-
 	local movespeedBase = target:GetBaseMoveSpeed()
 	local movespeed = target:GetMoveSpeedModifier(movespeedBase, false)
-	CustomNetTables:SetTableValue("hero_index", tostring(target:GetEntityIndex().."_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), primaryAttribute = tostring(primaryAttribute), healthRegen = tostring(healthRegen), manaRegen = tostring(manaRegen), movespeed = tostring(movespeed)} )
+	CustomNetTables:SetTableValue("hero_index", tostring(target:GetEntityIndex() .. "_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), primaryAttribute = tostring(primaryAttribute), healthRegen = tostring(healthRegen), manaRegen = tostring(manaRegen), movespeed = tostring(movespeed)})
 	for i = 0, 5, 1 do
 		local playerID = target:GetPlayerOwnerID()
-		local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..tostring(i))
+		local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(i))
 		if itemEntity then
 			if itemEntity.itemIndex == -1 then
 			else
 				local item = EntIndexToHScript(itemEntity.itemIndex)
 				if IsValidEntity(item) then
 				else
-					CustomNetTables:SetTableValue("equipment", tostring(playerID).."-"..tostring(i), {itemIndex = -1} )
+					CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(i), {itemIndex = -1})
 					CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_inventory", {})
 				end
 			end
 		else
-			CustomNetTables:SetTableValue("equipment", tostring(playerID).."-"..tostring(i), {itemIndex = -1} )
+			CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(i), {itemIndex = -1})
 			CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_inventory", {})
 		end
 
@@ -48,19 +47,19 @@ function hero_aura_apply(event)
 	local caster = event.target
 	local pickUpPlayer = nil
 	if caster.active and caster:HasModifier("arcane_cystal_passive") then
-		local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, event.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
+		local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, event.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 		if #allies > 0 then
 			pickUpPlayer = allies[1]
 			if #allies > 1 then
 				for i = 2, #allies, 1 do
 					if pickUpPlayer.crystalsPickedUp then
-						if pickUpPlayer.crystalsPickedUp > pickUpPlayer.maxCrystals*Events.ResourceBonus then
+						if pickUpPlayer.crystalsPickedUp > pickUpPlayer.maxCrystals * Events.ResourceBonus then
 							pickUpPlayer = allies[i]
 						end
 					end
 				end
 			end
-			if pickUpPlayer.crystalsPickedUp < pickUpPlayer.maxCrystals*Events.ResourceBonus then
+			if pickUpPlayer.crystalsPickedUp < pickUpPlayer.maxCrystals * Events.ResourceBonus then
 				caster.pickUpPlayer = pickUpPlayer
 				caster.active = false
 				caster.moveSpeed = 25
@@ -69,7 +68,7 @@ function hero_aura_apply(event)
 				end
 				caster:FindAbilityByName("arcane_crystal_ability"):ApplyDataDrivenModifier(caster, caster, "arcane_crystal_moving_to_target", {})
 			end
-		end  
+		end
 	end
 end
 
@@ -82,25 +81,25 @@ function crystal_moving_to_target(event)
 				caster.scale = math.max(caster.scale - 0.06, 0.2)
 				caster:SetModelScale(caster.scale)
 			end
-			local moveToDirection = pickUpPlayer:GetAbsOrigin()-caster:GetAbsOrigin()
+			local moveToDirection = pickUpPlayer:GetAbsOrigin() - caster:GetAbsOrigin()
 			moveToDirection = moveToDirection:Normalized()
 			moveToDirection = moveToDirection:Normalized()
-			caster:SetAbsOrigin(caster:GetAbsOrigin()+moveToDirection*caster.moveSpeed)
+			caster:SetAbsOrigin(caster:GetAbsOrigin() + moveToDirection * caster.moveSpeed)
 			caster.moveSpeed = caster.moveSpeed + 1
 			-- local newPos = caster:GetAbsOrigin()*moveToDirection*40
 			-- caster:SetAbsOrigin(newPos)
 			local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), caster.pickUpPlayer:GetAbsOrigin())
-			if distance < (caster.moveSpeed+3) then
+			if distance < (caster.moveSpeed + 3) then
 				caster.pickupLock = true
-				local crystalAmount = caster.quantity*Events.ResourceBonus
+				local crystalAmount = caster.quantity * Events.ResourceBonus
 
 				PopupArcaneCrystals(pickUpPlayer, crystalAmount)
 				local particleName = "particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal_core.vpcf"
-		    	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, pickUpPlayer )
-				ParticleManager:SetParticleControlEnt( pfx, 0, pickUpPlayer, PATTACH_POINT_FOLLOW, "attach_hitloc", pickUpPlayer:GetAbsOrigin(), true )
-				Timers:CreateTimer(1, function() 
-				  ParticleManager:DestroyParticle( pfx, false )
-				end)	
+				local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, pickUpPlayer)
+				ParticleManager:SetParticleControlEnt(pfx, 0, pickUpPlayer, PATTACH_POINT_FOLLOW, "attach_hitloc", pickUpPlayer:GetAbsOrigin(), true)
+				Timers:CreateTimer(1, function()
+					ParticleManager:DestroyParticle(pfx, false)
+				end)
 				pickUpPlayer.crystalsPickedUp = pickUpPlayer.crystalsPickedUp + crystalAmount
 				if crystalAmount == 1 then
 					EmitSoundOnLocationWithCaster(pickUpPlayer:GetAbsOrigin(), "Glyphs.ArcaneCrystalCollect2", pickUpPlayer)
@@ -108,11 +107,11 @@ function crystal_moving_to_target(event)
 					EmitSoundOnLocationWithCaster(pickUpPlayer:GetAbsOrigin(), "Glyphs.ArcaneCrystalCollect", pickUpPlayer)
 				end
 				CustomGameEventManager:Send_ServerToPlayer(pickUpPlayer:GetPlayerOwner(), "collect_arcane", {gain = pickUpPlayer.crystalsPickedUp})
-				CustomGameEventManager:Send_ServerToPlayer(pickUpPlayer:GetPlayerOwner(), "update_resources_increment", {increment = pickUpPlayer.crystalsPickedUp, resource="arcane"})
+				CustomGameEventManager:Send_ServerToPlayer(pickUpPlayer:GetPlayerOwner(), "update_resources_increment", {increment = pickUpPlayer.crystalsPickedUp, resource = "arcane"})
 				if pickUpPlayer:HasModifier("modifier_arcane_charm") then
-					local healPercent = (caster.quantity/100)*0.01
-					Filters:ApplyHeal(pickUpPlayer, pickUpPlayer, pickUpPlayer:GetMaxHealth()*healPercent, true)
-					pickUpPlayer:GiveMana(pickUpPlayer:GetMaxMana()*healPercent)
+					local healPercent = (caster.quantity / 100) * 0.01
+					Filters:ApplyHeal(pickUpPlayer, pickUpPlayer, pickUpPlayer:GetMaxHealth() * healPercent, true)
+					pickUpPlayer:GiveMana(pickUpPlayer:GetMaxMana() * healPercent)
 				end
 				UTIL_Remove(caster)
 			end
@@ -137,21 +136,21 @@ function mithril_shard_think(event)
 				playerTable[i].shardsPickedUp = 0
 			end
 			table.insert(caster.rewardsTable, {playerTable[i], 0})
-		end 
+		end
 	end
 	if caster.falling then
 		caster.fallVelocity = caster.fallVelocity - 1
-	  	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,caster.fallVelocity))
+		caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, caster.fallVelocity))
 		if caster.fallVelocity <= 0 then
 			caster.falling = false
 			caster.dispersion = true
 		end
 	end
-	local newFV = WallPhysics:rotateVector(caster:GetForwardVector(), math.pi/100)
+	local newFV = WallPhysics:rotateVector(caster:GetForwardVector(), math.pi / 100)
 	caster:SetForwardVector(newFV)
 	caster.interval = caster.interval + 1
 	if caster.dispersion then
-		if caster.interval%10 == 0 then
+		if caster.interval % 10 == 0 then
 			caster.interval = 0
 			local collectionAmount = 1
 			if caster.reward > 50000 then
@@ -173,8 +172,8 @@ function mithril_shard_think(event)
 			elseif caster.reward > 10 then
 				collectionAmount = 5
 			end
-			local sizePerCrystal = caster.modelScale/caster.reward
-			local newModelScale = caster.modelScale - (sizePerCrystal*collectionAmount)
+			local sizePerCrystal = caster.modelScale / caster.reward
+			local newModelScale = caster.modelScale - (sizePerCrystal * collectionAmount)
 			caster.modelScale = newModelScale
 			caster:SetModelScale(newModelScale)
 			for i = 1, #caster.winnerTable, 1 do
@@ -185,17 +184,17 @@ function mithril_shard_think(event)
 					local stars = hero.grandTotalStars
 					local mith_mult = 1
 					if STARS_INCREASE_MITHRIL_ADDITIVE then
-						mith_mult = (1+stars*MITHRIL_INCREASE_PER_STAR_PCT/100)
+						mith_mult = (1 + stars * MITHRIL_INCREASE_PER_STAR_PCT / 100)
 					else
-						mith_mult = (1+MITHRIL_INCREASE_PER_STAR_PCT/100)^stars
+						mith_mult = (1 + MITHRIL_INCREASE_PER_STAR_PCT / 100) ^ stars
 					end
-					collectionAmount = math.floor(collectionAmount*mith_mult)
+					collectionAmount = math.floor(collectionAmount * mith_mult)
 				end
-				createCollectionBeam(caster:GetAbsOrigin()+Vector(0,0,150), caster.winnerTable[i]:GetAbsOrigin())
+				createCollectionBeam(caster:GetAbsOrigin() + Vector(0, 0, 150), caster.winnerTable[i]:GetAbsOrigin())
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_blue_coreglow02.vpcf", caster.winnerTable[i], 0.5)
 				caster.winnerTable[i].shardsPickedUp = caster.winnerTable[i].shardsPickedUp + collectionAmount
 				CustomGameEventManager:Send_ServerToPlayer(caster.winnerTable[i]:GetPlayerOwner(), "collect_mithril", {gain = caster.winnerTable[i].shardsPickedUp})
-				CustomGameEventManager:Send_ServerToPlayer(caster.winnerTable[i]:GetPlayerOwner(), "update_resources_increment", {increment = caster.winnerTable[i].shardsPickedUp, resource="mithril"})
+				CustomGameEventManager:Send_ServerToPlayer(caster.winnerTable[i]:GetPlayerOwner(), "update_resources_increment", {increment = caster.winnerTable[i].shardsPickedUp, resource = "mithril"})
 				collectionAmount = save_collectionAmount
 			end
 			for i = 1, #caster.rewardsTable, 1 do
@@ -206,11 +205,11 @@ function mithril_shard_think(event)
 					local stars = hero.grandTotalStars
 					local mith_mult = 1
 					if STARS_INCREASE_MITHRIL_ADDITIVE then
-						mith_mult = (1+stars*MITHRIL_INCREASE_PER_STAR_PCT/100)
+						mith_mult = (1 + stars * MITHRIL_INCREASE_PER_STAR_PCT / 100)
 					else
-						mith_mult = (1+MITHRIL_INCREASE_PER_STAR_PCT/100)^stars
+						mith_mult = (1 + MITHRIL_INCREASE_PER_STAR_PCT / 100) ^ stars
 					end
-					collectionAmount = math.floor(collectionAmount*mith_mult)
+					collectionAmount = math.floor(collectionAmount * mith_mult)
 				end
 				caster.rewardsTable[i][2] = caster.rewardsTable[i][2] + collectionAmount
 				collectionAmount = save_collectionAmount
@@ -233,7 +232,7 @@ function mithril_shard_think(event)
 	end
 	if caster.leaving then
 		caster.fallVelocity = caster.fallVelocity + 1
-		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,caster.fallVelocity))
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, caster.fallVelocity))
 		if caster.fallVelocity >= 45 then
 			caster.leaving = false
 			Challenges:SaveMithrilShards(caster.rewardsTable)
@@ -243,13 +242,13 @@ function mithril_shard_think(event)
 end
 
 function createCollectionBeam(attachPointA, attachPointB)
-      local particleName = "particles/items_fx/mithril_collect.vpcf"
-      local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster) 
-      ParticleManager:SetParticleControl(lightningBolt,0,Vector(attachPointA.x,attachPointA.y,attachPointA.z))   
-      ParticleManager:SetParticleControl(lightningBolt,1,Vector(attachPointB.x,attachPointB.y,attachPointB.z))
-      Timers:CreateTimer(2, function()
-        ParticleManager:DestroyParticle(lightningBolt, false)
-      end)
+	local particleName = "particles/items_fx/mithril_collect.vpcf"
+	local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+	ParticleManager:SetParticleControl(lightningBolt, 0, Vector(attachPointA.x, attachPointA.y, attachPointA.z))
+	ParticleManager:SetParticleControl(lightningBolt, 1, Vector(attachPointB.x, attachPointB.y, attachPointB.z))
+	Timers:CreateTimer(2, function()
+		ParticleManager:DestroyParticle(lightningBolt, false)
+	end)
 end
 
 function ability_1_position_think(event)
@@ -260,17 +259,17 @@ function ability_1_position_think(event)
 		return false
 	end
 	if castAbility:IsFullyCastable() then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 940, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false )	
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 940, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			local castPoint = enemies[1]:GetAbsOrigin()
 			local newOrder = {
-					UnitIndex = caster:entindex(),
-					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-					AbilityIndex = castAbility:entindex(),
-					Position = castPoint
-			 	}
-			 
-			ExecuteOrderFromTable(newOrder)			
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+				AbilityIndex = castAbility:entindex(),
+				Position = castPoint
+			}
+
+			ExecuteOrderFromTable(newOrder)
 		end
 	end
 end
@@ -287,24 +286,24 @@ function ability_1_target_think(event)
 	local radius = caster.targetRadius
 	local minRadius = caster.minRadius
 	local castAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-	local cooldown = caster.targetAbilityCD*2
+	local cooldown = caster.targetAbilityCD * 2
 	local targetFindOrder = caster.targetFindOrder
-	if caster.interval%cooldown == 0 and caster.aggro then
+	if caster.interval % cooldown == 0 and caster.aggro then
 		if castAbility:IsFullyCastable() then
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, targetFindOrder, false )	
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, targetFindOrder, false)
 			if #enemies > 0 then
 				local castPoint = enemies[1]:GetAbsOrigin()
 				local newOrder = {
-				 		UnitIndex = caster:entindex(), 
-				 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-				 		TargetIndex = enemies[1]:entindex(),
-				 		AbilityIndex = castAbility:entindex(),
-			 	}
-				 
-				ExecuteOrderFromTable(newOrder)	
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+					TargetIndex = enemies[1]:entindex(),
+					AbilityIndex = castAbility:entindex(),
+				}
+
+				ExecuteOrderFromTable(newOrder)
 				if caster.castAnimation then
-					StartAnimation(caster, {duration=1, activity=caster.castAnimation, rate=1})
-				end		
+					StartAnimation(caster, {duration = 1, activity = caster.castAnimation, rate = 1})
+				end
 			end
 		end
 	end
@@ -333,22 +332,22 @@ function ability_1_no_target_ai(event)
 		caster.autoAbilityCD = 1
 		--print("ability_1_no_target_ai caster.autoAbilityCD")
 		return
-	end	
-	local cooldown = caster.autoAbilityCD*2
-	if caster.interval%cooldown == 0 and caster.aggro then
+	end
+	local cooldown = caster.autoAbilityCD * 2
+	if caster.interval % cooldown == 0 and caster.aggro then
 		if castAbility:IsFullyCastable() then
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false )	
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				local castPoint = enemies[1]:GetAbsOrigin()
 				local newOrder = {
-				 		UnitIndex = caster:entindex(), 
-				 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-				 		AbilityIndex = castAbility:entindex(),
-			 	}
-				 
-				ExecuteOrderFromTable(newOrder)		
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+					AbilityIndex = castAbility:entindex(),
+				}
+
+				ExecuteOrderFromTable(newOrder)
 				if caster.castSound then
-					EmitSoundOn(caster.castSound, caster)	
+					EmitSoundOn(caster.castSound, caster)
 				end
 			end
 		end
@@ -369,11 +368,11 @@ function ability_1_position_think_generic(event)
 		return false
 	end
 	local castAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-	
+
 	local radius = caster.targetRadius
 	if not radius or type(radius) ~= "float" then
 		radius = 450
-	end	
+	end
 	local minRadius = caster.minRadius
 	if not caster.targetAbilityCD then
 		caster.aggro = true
@@ -381,27 +380,27 @@ function ability_1_position_think_generic(event)
 		--print("ability_1_position_think_generic caster.targetAbilityCD")
 		return
 	end
-	local cooldown = caster.targetAbilityCD*2
+	local cooldown = caster.targetAbilityCD * 2
 	local targetFindOrder = caster.targetFindOrder
-	if caster.interval%cooldown == 0 and caster.aggro then
+	if caster.interval % cooldown == 0 and caster.aggro then
 		if castAbility:IsFullyCastable() then
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, targetFindOrder, false )	
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, targetFindOrder, false)
 			if #enemies > 0 then
 				local castPoint = enemies[1]:GetAbsOrigin()
 				if caster.randomMissMin then
 					castPoint = castPoint + RandomVector(RandomInt(caster.randomMissMin, caster.randomMissMax))
 				end
 				local newOrder = {
-						UnitIndex = caster:entindex(),
-						OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-						AbilityIndex = castAbility:entindex(),
-						Position = castPoint
-				 	}
-				 
-				ExecuteOrderFromTable(newOrder)		
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = castAbility:entindex(),
+					Position = castPoint
+				}
+
+				ExecuteOrderFromTable(newOrder)
 				if caster.castSound then
-					EmitSoundOn(caster.castSound, caster)	
-				end	
+					EmitSoundOn(caster.castSound, caster)
+				end
 			end
 		end
 	end
@@ -423,29 +422,29 @@ function hero_summon_think(event)
 end
 
 function SorcWaterElementalThink(caster)
-  local sorcPosition = caster.creator:GetAbsOrigin()
-  local aspectPosition = caster:GetAbsOrigin()
-  local position = sorcPosition + caster.creator:GetForwardVector()*300 + RandomVector(RandomInt(0, 80))
-  if WallPhysics:GetDistance(sorcPosition, aspectPosition) > 650 then
-    caster:MoveToPosition(position)
-  else
-    caster:MoveToPositionAggressive(position)
-  end
+	local sorcPosition = caster.creator:GetAbsOrigin()
+	local aspectPosition = caster:GetAbsOrigin()
+	local position = sorcPosition + caster.creator:GetForwardVector() * 300 + RandomVector(RandomInt(0, 80))
+	if WallPhysics:GetDistance(sorcPosition, aspectPosition) > 650 then
+		caster:MoveToPosition(position)
+	else
+		caster:MoveToPositionAggressive(position)
+	end
 end
 
 function jex_thundershroom_think(caster)
-  local sorcPosition = caster.summoner:GetAbsOrigin()
-  local aspectPosition = caster:GetAbsOrigin()
-  local position = sorcPosition + caster.summoner:GetForwardVector()*300 + RandomVector(RandomInt(0, 80))
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC+DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false )	
+	local sorcPosition = caster.summoner:GetAbsOrigin()
+	local aspectPosition = caster:GetAbsOrigin()
+	local position = sorcPosition + caster.summoner:GetForwardVector() * 300 + RandomVector(RandomInt(0, 80))
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		return false
 	end
-  if WallPhysics:GetDistance(sorcPosition, aspectPosition) > 1000 then
-    caster:MoveToPosition(position)
-  else
-    caster:MoveToPositionAggressive(position)
-  end
+	if WallPhysics:GetDistance(sorcPosition, aspectPosition) > 1000 then
+		caster:MoveToPosition(position)
+	else
+		caster:MoveToPositionAggressive(position)
+	end
 end
 
 function hero_summon_on(event)
@@ -500,39 +499,39 @@ function world1_wave_unit_die(event)
 		GameRules.Quest.Subwave = 0
 
 	end
-    GameRules.Quest.UnitsKilled = GameRules.Quest.UnitsKilled + 1
-    GameRules.Quest.UnitsKilledPart = GameRules.Quest.UnitsKilledPart + 1
+	GameRules.Quest.UnitsKilled = GameRules.Quest.UnitsKilled + 1
+	GameRules.Quest.UnitsKilledPart = GameRules.Quest.UnitsKilledPart + 1
 
-          if GameRules.Quest.UnitsKilledPart == GameRules.Quest.KillLimit1 and GameRules.Quest.Subwave == 0 then
-                Events:wave_redirect()
-                GameRules.Quest.UnitsKilledPart = 0
-                GameRules.Quest.Subwave =  GameRules.Quest.Subwave + 1
-          end
-          if GameRules.Quest.UnitsKilledPart == GameRules.Quest.KillLimit2 and GameRules.Quest.Subwave == 1 then
-                Events:wave_redirect()
-                GameRules.Quest.UnitsKilledPart = 0
-                GameRules.Quest.Subwave =  GameRules.Quest.Subwave + 1
-          end
-          if GameRules.Quest.UnitsKilledPart == GameRules.Quest.KillLimit3 and GameRules.Quest.Subwave == 2 then
-                Events:wave_redirect()
-                GameRules.Quest.UnitsKilledPart = 0
-                GameRules.Quest.Subwave =  GameRules.Quest.Subwave + 1
-          end
-          if GameRules.Quest.UnitsKilled == GameRules.Quest.KillLimit then
+	if GameRules.Quest.UnitsKilledPart == GameRules.Quest.KillLimit1 and GameRules.Quest.Subwave == 0 then
+		Events:wave_redirect()
+		GameRules.Quest.UnitsKilledPart = 0
+		GameRules.Quest.Subwave = GameRules.Quest.Subwave + 1
+	end
+	if GameRules.Quest.UnitsKilledPart == GameRules.Quest.KillLimit2 and GameRules.Quest.Subwave == 1 then
+		Events:wave_redirect()
+		GameRules.Quest.UnitsKilledPart = 0
+		GameRules.Quest.Subwave = GameRules.Quest.Subwave + 1
+	end
+	if GameRules.Quest.UnitsKilledPart == GameRules.Quest.KillLimit3 and GameRules.Quest.Subwave == 2 then
+		Events:wave_redirect()
+		GameRules.Quest.UnitsKilledPart = 0
+		GameRules.Quest.Subwave = GameRules.Quest.Subwave + 1
+	end
+	if GameRules.Quest.UnitsKilled == GameRules.Quest.KillLimit then
 
-              EmitGlobalSound("Tutorial.Quest.complete_01")
-              Notifications:TopToAll({image="file://{images}/custom_game/text/wave-clear-simple.png", duration=4.0})
-              Timers:CreateTimer(3,               function()
-                GameRules.Quest:CompleteQuest()
-                GameRules.Quest.UnitsKilled = -100
-                GameRules.Quest.KillLimit = -1000
-                Beacons:WaveClear(Events.WaveNumber)
-              end)  
-              --Timers:CreateTimer(8,
-              --  function() 
-              --  Events:killOffWave()
-              --  end)          
-          end
+		EmitGlobalSound("Tutorial.Quest.complete_01")
+		Notifications:TopToAll({image = "file://{images}/custom_game/text/wave-clear-simple.png", duration = 4.0})
+		Timers:CreateTimer(3, function()
+			GameRules.Quest:CompleteQuest()
+			GameRules.Quest.UnitsKilled = -100
+			GameRules.Quest.KillLimit = -1000
+			Beacons:WaveClear(Events.WaveNumber)
+		end)
+		--Timers:CreateTimer(8,
+		--  function()
+		--  Events:killOffWave()
+		--  end)
+	end
 end
 
 function dungeon_thinker_activate(event)
@@ -558,7 +557,7 @@ function ms_thinker(event)
 	unit:RemoveModifierByName("modifier_master_movespeed")
 	local baseSpeed = unit:GetBaseMoveSpeed()
 	local modifier = unit:GetMoveSpeedModifier(baseSpeed, false)
-	local modifier2 =unit:GetMoveSpeedModifier(0, false)
+	local modifier2 = unit:GetMoveSpeedModifier(0, false)
 	local ideal = unit:GetIdealSpeed()
 	local max_ms = CustomAttributes:MSCap(unit)
 	if modifier2 > 100 and max_ms > 550 then
