@@ -266,19 +266,27 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 				print("[RPCItems:SynthCheckCombination] Error itemData is null")
 				return
 			end
-			Weapons:UpdateWeaponXP(2000000000)
-			if true then
-				return
-			end
-			RPCItems.LevelRoll = itemData.minLevel
-			local newItem = RPCItems:RerollArcanaItem(targetItem:GetAbilityName(), itemData, position, 50)
-			RPCItems.LevelRoll = nil
-			if newItem and IsValidEntity(newItem) then
-				newItem.pickedUp = true
-				newItem.newItemTable.minLevel = itemData.minLevel				
-				newItem.newItemTable.validator = itemData.validator
-				RPCItems:ItemUpdateCustomNetTables(newItem)
-				return newItem
+			if itemData.level and itemData.maxLevel and itemData.level < itemData.maxLevel then
+				local weaponAdditionalLevels = itemData.maxLevel - itemData.level
+				print("[RPCItems:SynthCheckCombination] weaponAdditionalLevels:"..tostring(weaponAdditionalLevels))
+				RPCItems.LevelRoll = newMinLevel
+				local newItem = Weapons:RollLegendWeaponVariantWithAbilityName(targetItem:GetAbilityName(), itemData.maxLevel, position, true)
+				RPCItems.LevelRoll = nil
+
+
+				if newItem and IsValidEntity(newItem) then
+					newItem.pickedUp = true
+					newItem.newItemTable.minLevel = itemData.minLevel				
+					newItem.newItemTable.validator = itemData.validator
+
+					RPCItems:ItemUpdateCustomNetTables(newItem)
+					for i=1,weaponAdditionalLevels do
+						Weapons:LevelUpWeapon(nil, targetItem, true)
+					end
+					RPCItems:ItemUpdateCustomNetTables(targetItem)
+
+
+
 			else
 				return false
 			end

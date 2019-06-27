@@ -339,45 +339,50 @@ function Weapons:UpdateWeaponXPPerHero(heroNumber, xpBounty)
 	end
 end
 
-function Weapons:LevelUpWeapon(hero, weapon)
-	DeepPrintTable(weapon)
+function Weapons:LevelUpWeapon(hero, weapon, doNotEquip)
+	--DeepPrintTable(weapon)
 	if not weapon.newItemTable then
 		print("[Error] Weapons:LevelUpWeapon - newItemTable is null")
 		return
 	end
-    if weapon.newItemTable.level == 2 then
-    	if type(weapon.newItemTable.property1) == "number" and weapon.newItemTable.property1 > 8000 then
-    		return false
-    	end
-    end
-	if weapon.newItemTable.property1 == "★" then
-    else
-		weapon.newItemTable.property1 = weapon.newItemTable.property1+math.ceil(weapon.newItemTable.property1*0.1)
+	if weapon.newItemTable.level == 2 then
+		if type(weapon.newItemTable.property1) == "number" and weapon.newItemTable.property1 > 8000 then
+			return false
+		end
 	end
-    if weapon.newItemTable.property2 then
-	    if weapon.newItemTable.propertyName2 == "#item_bonus_attack_damage" then
-	    	weapon.newItemTable.property2 = weapon.newItemTable.property2+math.ceil(weapon.newItemTable.property2*0.1)
-	    else
-	    	weapon.newItemTable.property2 = weapon.newItemTable.property2+math.ceil(weapon.newItemTable.property2*0.1)
-	    end
-    end
-    if weapon.newItemTable.property3 then
-	    if weapon.newItemTable.propertyName3 == "#item_bonus_attack_damage" then
-	    	weapon.newItemTable.property3 = weapon.newItemTable.property3+math.ceil(weapon.newItemTable.property3*0.1)
-	    else
-	    	weapon.newItemTable.property3 = weapon.newItemTable.property3+1
-	    end
-    end
-    if weapon.newItemTable.property4 then
-	    if weapon.newItemTable.propertyName4 == "#item_bonus_attack_damage" then
-	    	weapon.newItemTable.property4 = weapon.newItemTable.property4+math.ceil(weapon.newItemTable.property4*0.1)
-	    else
-	    	weapon.newItemTable.property4 = weapon.newItemTable.property4+1
-	    end
-    end
-    Weapons:Equip(hero, weapon)
-	if weapon.newItemTable.rarity =="immortal" then
-		Stars:StarEventPlayer("weapon", hero)
+	if weapon.newItemTable.property1 and type(weapon.newItemTable.property1) == "number" then
+		if weapon.newItemTable.propertyName1 == "#item_bonus_attack_damage" then
+			weapon.newItemTable.property1 = weapon.newItemTable.property1 + math.ceil(weapon.newItemTable.property1 * 0.1)
+		else
+			weapon.newItemTable.property1 = weapon.newItemTable.property1 + math.ceil(weapon.newItemTable.property1 * 0.1)
+		end
+	end
+	if weapon.newItemTable.property2 and type(weapon.newItemTable.property2) == "number" then
+		if weapon.newItemTable.propertyName2 == "#item_bonus_attack_damage" then
+			weapon.newItemTable.property2 = weapon.newItemTable.property2 + math.ceil(weapon.newItemTable.property2 * 0.1)
+		else
+			weapon.newItemTable.property2 = weapon.newItemTable.property2 + math.ceil(weapon.newItemTable.property2 * 0.1)
+		end
+	end
+	if weapon.newItemTable.property3 and type(weapon.newItemTable.property3) == "number" then
+		if weapon.newItemTable.propertyName3 == "#item_bonus_attack_damage" then
+			weapon.newItemTable.property3 = weapon.newItemTable.property3 + math.ceil(weapon.newItemTable.property3 * 0.1)
+		else
+			weapon.newItemTable.property3 = weapon.newItemTable.property3 + 1
+		end
+	end
+	if weapon.newItemTable.property4 and type(weapon.newItemTable.property4) == "number" then
+		if weapon.newItemTable.propertyName4 == "#item_bonus_attack_damage" then
+			weapon.newItemTable.property4 = weapon.newItemTable.property4 + math.ceil(weapon.newItemTable.property4 * 0.1)
+		else
+			weapon.newItemTable.property4 = weapon.newItemTable.property4 + 1
+		end
+	end
+	if not doNotEquip then
+		Weapons:Equip(hero, weapon)
+		if weapon.newItemTable.rarity == "immortal" then
+			Stars:StarEventPlayer("weapon", hero)
+		end
 	end
 end
 
