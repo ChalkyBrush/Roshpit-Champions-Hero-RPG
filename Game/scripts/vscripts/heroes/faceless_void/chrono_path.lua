@@ -10,14 +10,14 @@ function omniro_chrono_path_start(event)
 
 	local chrono_base_radius = OMNIRO_CHRONO_PATH_RADIUS
 	local chrono_duration = OMNIRO_CHRONO_PATH_DURATION
-	StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.6})
+	StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.6})
 	local path_length = 5
 	if caster:HasModifier("modifier_omniro_glyph_2_1") then
 		path_length = path_length + OMNIRO_GLYPH_2_PATH_INCREASE
 	end
 	for i = 1, path_length, 1 do
-		local randomColor = Vector(RandomInt(30, 255), RandomInt(30, 255), RandomInt(30, 255))/255
-		local position = caster:GetAbsOrigin()+caster:GetForwardVector()*(chrono_base_radius*1.5)*i - caster:GetForwardVector()*100
+		local randomColor = Vector(RandomInt(30, 255), RandomInt(30, 255), RandomInt(30, 255)) / 255
+		local position = caster:GetAbsOrigin() + caster:GetForwardVector() * (chrono_base_radius * 1.5) * i - caster:GetForwardVector() * 100
 		position = GetGroundPosition(position, caster)
 		local dummy = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, caster:GetTeamNumber())
 		dummy:SetAbsOrigin(position)
@@ -63,11 +63,11 @@ function omniro_path_flying_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	local target = event.target
-	local newPos = caster:GetAbsOrigin()+caster:GetForwardVector()*70
+	local newPos = caster:GetAbsOrigin() + caster:GetForwardVector() * 70
 	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin())
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos, caster)
 	if blockUnit then
-		caster:SetAbsOrigin(caster:GetAbsOrigin()-caster:GetForwardVector()*60)
+		caster:SetAbsOrigin(caster:GetAbsOrigin() - caster:GetForwardVector() * 60)
 		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 		caster:RemoveModifierByName("modifier_omniro_in_chrono_path_flying_portion")
 	end
