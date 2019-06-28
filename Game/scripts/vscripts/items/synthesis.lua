@@ -273,26 +273,25 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 				local newItem = Weapons:RollLegendWeaponVariantWithAbilityName(targetItem:GetAbilityName(), itemData.maxLevel, position, true)
 				RPCItems.LevelRoll = nil
 
-
-				if newItem and IsValidEntity(newItem) then
+				if newItem and IsValidEntity(newItem) and weaponAdditionalLevels > 0 and weaponAdditionalLevels < 50 then
 					newItem.pickedUp = true
-					newItem.newItemTable.minLevel = itemData.minLevel				
-					newItem.newItemTable.validator = itemData.validator
-
+					newItem.newItemTable = itemData
 					RPCItems:ItemUpdateCustomNetTables(newItem)
 					for i=1,weaponAdditionalLevels do
-						Weapons:LevelUpWeapon(nil, targetItem, true)
+						Weapons:LevelUpWeapon(nil, newItem, true)
 					end
-					RPCItems:ItemUpdateCustomNetTables(targetItem)
+					newItem.newItemTable.xp = 0
+					newItem.newItemTable.level = itemData.maxLevel
+					newItem.newItemTable.xpNeeded = Weapons.XP_PER_LEVEL_TABLE[newItem.newItemTable.level]
+					RPCItems:ItemUpdateCustomNetTables(newItem)
 
-
-
+					return newItem
+				else
+					return false
+				end
 			else
 				return false
 			end
-
-
-				
 		elseif (item1:GetAbilityName() == "item_rpc_currency_reroll" and item2.newItemTable.rarity == "arcana" and (item2.newItemTable.gear == 1 or item2.newItemTable.gear == true)) 
 			or (item2:GetAbilityName() == "item_rpc_currency_reroll" and item1.newItemTable.rarity == "arcana" and (item1.newItemTable.gear == 1 or item1.newItemTable.gear == true)) then
 			local currencyItem = item1
