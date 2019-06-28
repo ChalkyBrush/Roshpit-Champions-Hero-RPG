@@ -371,7 +371,7 @@ function FindClosestUnitInTable(attacker, targetsTable)
 end
 
 function Serengaard:Forfeit()
-	if Serengaard then
+	if Serengaard.mainAncient then
 		Serengaard.mainAncient:ForceKill(false)
 	end
 end
