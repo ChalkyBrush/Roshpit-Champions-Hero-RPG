@@ -320,23 +320,48 @@ function serengaard_ancient_moveback(event)
 end
 
 function enemy_near_ancient_think(event)
+	print("[enemy_near_ancient_think] start")
 	local unit = event.target
 	local caster = event.caster
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-	local aliveHero = false
-	if #enemies > 0 then
-		for i = 1, #enemies, 1 do
-			if enemies[i]:IsAlive() then
-				aliveHero = true
+	local enemies = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	local players = {}
+	for i=1,#MAIN_HERO_TABLE do
+		if MAIN_HERO_TABLE[i]:IsAlive() then
+			print("[enemy_near_ancient_think] Alive players:"..tostring(i))
+			table.insert(players, MAIN_HERO_TABLE[i])
+		end
+	end
+	if #players > 0 then
+		print("[enemy_near_ancient_think] TEST1:"..tostring(#enemies))
+		for i=1,#enemies do
+			print("[enemy_near_ancient_think] Enemy think:"..tostring(i))
+			local target = FindClosestUnit(enemies[i], players)
+			if target then
+				print("[enemy_near_ancient_think] Enemy attacking player:"..tostring(target:GetUnitName()))
+				enemies[i]:Stop()
+				enemies[i]:MoveToTargetToAttack(target)
+			else
+				print("[enemy_near_ancient_think] Enemy attacking ancient:"..tostring(target:GetUnitName()))
+				enemies[i]:Stop()
+				enemies[i]:MoveToTargetToAttack(caster)
 			end
 		end
-		if aliveHero then
-			unit:Stop()
-			unit:MoveToTargetToAttack(enemies[1])
-		else
-			unit:MoveToTargetToAttack(caster)
-		end
 	else
-		unit:MoveToTargetToAttack(caster)
+		print("[enemy_near_ancient_think] Enemy attacking ancient !")
+		-- unit:Stop()
+		-- unit:MoveToTargetToAttack(caster)
 	end
+end
+
+function FindClosestUnit(attacker, targetsTable)
+	local minDistance = 99999999
+	local closestUnit = nil
+	for i=1,#targetsTable do
+		local newDistance = CalcDistanceBetweenEntityOBB(attacker, targetsTable[i])
+		if minDistance > newDistance then
+			minDistance = newDistance
+			closestUnit = targetsTable[i]
+		end
+	end
+	return closestUnit
 end
