@@ -264,7 +264,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			local itemData = CustomNetTables:GetTableValue("item_basics", tostring(targetItem:GetEntityIndex()))
 			if not itemData then
 				print("[RPCItems:SynthCheckCombination] Error itemData is null")
-				return
+				return false
 			end
 			if itemData.level and itemData.maxLevel and itemData.level < itemData.maxLevel then
 				local weaponAdditionalLevels = itemData.maxLevel - itemData.level
@@ -303,7 +303,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			local itemData = CustomNetTables:GetTableValue("item_basics", tostring(targetItem:GetEntityIndex()))
 			if not itemData then
 				print("[RPCItems:SynthCheckCombination] Error itemData is null")
-				return
+				return false
 			end
 			RPCItems.LevelRoll = itemData.minLevel
 			local newItem = RPCItems:RerollArcanaItem(targetItem:GetAbilityName(), itemData, position, 50)
