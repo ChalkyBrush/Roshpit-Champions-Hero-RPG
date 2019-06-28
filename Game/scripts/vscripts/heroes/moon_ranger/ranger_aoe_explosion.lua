@@ -52,7 +52,7 @@ function ranger_aoe_explosion_damage(event)
     local ability = event.ability
     local damage = ability.damage
     local caster = ability.origCaster
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 end
 
 function rune_r_2_strike(event)
@@ -65,7 +65,7 @@ function rune_r_2_strike(event)
     duration = 3.5
   end
   ability:ApplyDataDrivenModifier(caster, target, "modifier_backstab_jumping", {duration = 0.09})
-  Filters:TakeArgumentsAndApplyDamage(target, ability.origCaster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+  Filters:TakeArgumentsAndApplyDamage(target, ability.origCaster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
   Filters:ApplyStun(caster, duration, target)
 end
 
@@ -283,7 +283,7 @@ function dropStar(enemy, caster, damage, ability, hit_mult)
                 ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall_a_d_visible", {duration = 7})
                 local newStacks = enemy:GetModifierStackCount("modifier_starfall_a_d_visible", caster)
                 enemy:SetModifierStackCount("modifier_starfall_a_d_visible", caster, newStacks+1)
-                Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+                Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
           end
           if caster:GetRuneValue("r",2)>0 then
             r_2_quake(damage, ability, caster, caster:GetRuneValue("r",2), enemy)
@@ -319,7 +319,7 @@ function r_2_quake(damage, ability, caster, r_2_level, target)
   end
   local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
   for _,enemy in pairs(enemies) do
-    Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+    Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
     Filters:ApplyStun(caster, ASTRAL_R2_STUN_DURATION, target)
   end
 end

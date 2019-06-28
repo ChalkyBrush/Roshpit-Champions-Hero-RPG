@@ -139,7 +139,7 @@ function rend_start(event)
 		EmitSoundOn("Draghor.Wolf.RendHitBasic", enemies[1])
 		local bBloodSound = false	
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, element1, element2)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, element1, element2)
 
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_stack", {duration = 8})
 			local rendStacks = enemy:GetModifierStackCount("modifier_wolf_rend_stack", caster)

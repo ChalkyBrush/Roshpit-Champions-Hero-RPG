@@ -587,7 +587,7 @@ function Tanari:SpawnFireTempleWaveUnit(unitName, spawnPoint, quantity, itemLeve
         unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
     	Events:AdjustDeathXP(unit)
       end
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
       	unit.itemLevel = itemLevel
       	unit:AddAbility("fire_temple_wave_room_ability"):SetLevel(1)
       	unit:SetAcquisitionRange(3000)
@@ -600,11 +600,11 @@ function Tanari:SpawnFireTempleWaveUnit(unitName, spawnPoint, quantity, itemLeve
       		unit:SetRenderColor(255, 140, 0)
       	end
       else
-      	for i = 1, #unit, 1 do
-      		unit[i].itemLevel = itemLevel
-      		unit[i]:AddAbility("fire_temple_wave_room_ability"):SetLevel(1)
-      		unit[i]:SetAcquisitionRange(3000)
-      		unit[i].dominion = true
+      	for i = 1, #unit.buddiesTable, 1 do
+      		unit.buddiesTable[i].itemLevel = itemLevel
+      		unit.buddiesTable[i]:AddAbility("fire_temple_wave_room_ability"):SetLevel(1)
+      		unit.buddiesTable[i]:SetAcquisitionRange(3000)
+      		unit.buddiesTable[i].dominion = true
       	end
       end
     end)
@@ -892,7 +892,6 @@ function Tanari:SpawnFireLord(kolthun)
 	local bossAbility = boss:FindAbilityByName("firelord_ability_ai")
 	StartAnimation(boss, {duration=3, activity=ACT_DOTA_CAST_ABILITY_6, rate=1})
 	bossAbility:ApplyDataDrivenModifier(boss, boss, "modifier_firelord_intro", {duration = 3})
-	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth()})
 	Timers:CreateTimer(0.2, function()
 		ScreenShake(boss:GetAbsOrigin(), 700, 3, 3, 9000, 0, true)
 	  Tanari:CreateLavaBlast(boss:GetAbsOrigin())
@@ -1118,7 +1117,7 @@ function Tanari:SpawnSpiritFireWaveUnit(unitName, spawnPoint, quantity, itemLeve
       Events:AdjustDeathXP(unit)
       end
 
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
         unit.itemLevel = itemLevel
         unit.dominion = true
         Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit, "tanari_fire_temple_modifier", {})
@@ -1133,19 +1132,19 @@ function Tanari:SpawnSpiritFireWaveUnit(unitName, spawnPoint, quantity, itemLeve
 		unit.autoAbilityCD = 2 
 		unit.modelScale = 0.95
       else
-        for i = 1, #unit, 1 do
-          unit[i].aggro = true
-          unit[i].itemLevel = itemLevel
-          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit[i], "tanari_fire_temple_modifier", {})
-          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit[i], "tanari_mountain_specter_ai", {})
-          unit[i].code = 0
-          unit[i]:SetAcquisitionRange(5000)
-          unit[i].dominion = true
-          CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_batrider/batrider_firefly_startflash.vpcf", unit[i], 2)
-          Events:SetPositionCastArgs(unit[i], 1000, 0, 1, FIND_ANY_ORDER)
-		  unit[i].targetRadius = 300
-		  unit[i].autoAbilityCD = 2 
-		  unit[i].modelScale = 0.95
+        for i = 1, #unit.buddiesTable, 1 do
+          unit.buddiesTable[i].aggro = true
+          unit.buddiesTable[i].itemLevel = itemLevel
+          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_fire_temple_modifier", {})
+          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_mountain_specter_ai", {})
+          unit.buddiesTable[i].code = 0
+          unit.buddiesTable[i]:SetAcquisitionRange(5000)
+          unit.buddiesTable[i].dominion = true
+          CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_batrider/batrider_firefly_startflash.vpcf", unit.buddiesTable[i], 2)
+          Events:SetPositionCastArgs(unit.buddiesTable[i], 1000, 0, 1, FIND_ANY_ORDER)
+		  unit.buddiesTable[i].targetRadius = 300
+		  unit.buddiesTable[i].autoAbilityCD = 2 
+		  unit.buddiesTable[i].modelScale = 0.95
         end
       end
     end)
@@ -1390,7 +1389,7 @@ function Tanari:SpawnSpiritFireWaveUnit3(unitName, spawnPoint, quantity, itemLev
       Events:AdjustDeathXP(unit)
       end
 
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
         unit.itemLevel = itemLevel
         unit.dominion = true
         Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit, "tanari_fire_temple_modifier", {})
@@ -1406,20 +1405,20 @@ function Tanari:SpawnSpiritFireWaveUnit3(unitName, spawnPoint, quantity, itemLev
 		unit.modelScale = 0.95
 		Tanari:LaunchWaveUnit3(unit)
       else
-        for i = 1, #unit, 1 do
-          unit[i].aggro = true
-          unit[i].itemLevel = itemLevel
-          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit[i], "tanari_fire_temple_modifier", {})
-          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit[i], "tanari_mountain_specter_ai", {})
-          unit[i].code = 1
-          unit[i]:SetAcquisitionRange(5000)
-          unit[i].dominion = true
-          CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_batrider/batrider_firefly_startflash.vpcf", unit[i], 2)
-          Events:SetPositionCastArgs(unit[i], 1000, 0, 1, FIND_ANY_ORDER)
-		  unit[i].targetRadius = 300
-		  unit[i].autoAbilityCD = 2 
-		  unit[i].modelScale = 0.95
-		  Tanari:LaunchWaveUnit3(unit[i])
+        for i = 1, #unit.buddiesTable, 1 do
+          unit.buddiesTable[i].aggro = true
+          unit.buddiesTable[i].itemLevel = itemLevel
+          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_fire_temple_modifier", {})
+          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_mountain_specter_ai", {})
+          unit.buddiesTable[i].code = 1
+          unit.buddiesTable[i]:SetAcquisitionRange(5000)
+          unit.buddiesTable[i].dominion = true
+          CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_batrider/batrider_firefly_startflash.vpcf", unit.buddiesTable[i], 2)
+          Events:SetPositionCastArgs(unit.buddiesTable[i], 1000, 0, 1, FIND_ANY_ORDER)
+		  unit.buddiesTable[i].targetRadius = 300
+		  unit.buddiesTable[i].autoAbilityCD = 2 
+		  unit.buddiesTable[i].modelScale = 0.95
+		  Tanari:LaunchWaveUnit3(unit.buddiesTable[i])
         end
       end
     end)
@@ -1475,8 +1474,7 @@ function Tanari:SpawnFireSpiritFinalBoss()
 	Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, guardian, "tanari_mountain_specter_ai", {})
 	-- local guardian = CreateUnitByName("wind_temple_spirit_boss", Vector(12992, 1536), false, nil, nil, DOTA_TEAM_NEUTRALS)
 	guardian:SetForwardVector(Vector(0,-1))
-	Events:AdjustBossPower(guardian, 12, 12, false)
-	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = guardian:GetUnitName(), bossMaxHealth = guardian:GetMaxHealth()})
+	Events:AdjustBossPower(guardian, 12, 12, true)
 	-- local bossAbility = guardian:FindAbilityByName("water_spirit_main_boss_ability")
     local properties =  {
       roll = 0,

@@ -44,7 +44,7 @@ function arcana1_b_b_spin(caster, ability, amp)
 			increment_d_b_stacks(caster, #enemies, ability)
 			EmitSoundOn("Hydroxis.Arcana.SpinImpact", enemies[1])
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_WATER, RPC_ELEMENT_FIRE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_WATER, RPC_ELEMENT_FIRE)
 			end				
 		end 		
 	else
@@ -114,7 +114,7 @@ end
 function mist_death(event)
 	local caster = event.caster
 	local ability = event.ability
-	print(" THIS SHIZ?")
+	--print(" THIS SHIZ?")
 	Timers:CreateTimer(0.03, function()
 		caster:RemoveModifierByName("modifier_hydroxis_mist")
 	end)

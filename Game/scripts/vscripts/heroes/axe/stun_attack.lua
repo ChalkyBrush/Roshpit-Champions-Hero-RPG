@@ -43,7 +43,7 @@ function StunAttack( keys )
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), targetUnit:GetAbsOrigin(), nil, base_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then
         for _,enemy in pairs(enemies) do
-            Filters:TakeArgumentsAndApplyDamage(enemy, caster, aoe_damage, DAMAGE_TYPE_PHYSICAL, 1, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+            Filters:TakeArgumentsAndApplyDamage(enemy, caster, aoe_damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_Q, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
             Filters:ApplyStun(caster, stun_duration, enemy)
             --ability:ApplyDataDrivenModifier(caster, targetUnit, "modifier_stun_explosion", {})
         end
@@ -86,7 +86,7 @@ function rune_q_3(event)
         -- ability.runeUnit = runeUnit
         -- ability.fv = caster:GetForwardVector()
         -- ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_axe_rune_q_3_jump", {duration = 10})
-        print("C_A GO!")
+       --print("C_A GO!")
         local zDifferential = GetGroundPosition(jumpPosition, caster).z - caster:GetAbsOrigin().z 
         local liftBonus = math.min(zDifferential/10, 10)
         liftBonus = math.max(liftBonus, 0)
@@ -105,7 +105,7 @@ function jumpThink(event)
     local currentPos = target:GetAbsOrigin()
     local zFactor = 0
     local totalTicks = ability.duration/0.03
-    print("IS THIS REAL LIFE??")
+   --print("IS THIS REAL LIFE??")
     if ability.thinks < (totalTicks/2) then
         zFactor = 16 - (ability.thinks*1)
         if zFactor < 3 then
@@ -114,7 +114,7 @@ function jumpThink(event)
     else
         zFactor = -ability.thinks*1.5/ability.duration+totalTicks/1.5/ability.duration
     end
-    -- print("zFactor: "..zFactor)
+    --print("zFactor: "..zFactor)
     ability.thinks = ability.thinks + 1
     local newpos = currentPos + ability.fv*(15) + Vector(0,0,zFactor)
     local checkpos =  currentPos + caster:GetForwardVector()*(15)
@@ -124,14 +124,14 @@ function jumpThink(event)
         if target:HasModifier("modifier_whirlwind") then
         else
             target:SetAbsOrigin(newpos)
-            print("MOVE FORWARD")
+           --print("MOVE FORWARD")
         end
     else 
         target:SetAbsOrigin(currentPos+Vector(0,0,zFactor))
     end
     local skullBasher = target:FindAbilityByName("stun_attack")
     skullBasher:ApplyDataDrivenModifier(target, target, "modifier_stun_attack", {duration = skullBasher:GetDuration()})
-    -- print("GroundPos Diff: "..newpos.z - GetGroundPosition(newpos, target).z)
+    --print("GroundPos Diff: "..newpos.z - GetGroundPosition(newpos, target).z)
     if (newpos.z - GetGroundPosition(newpos, target).z < 30) and zFactor < 0 then
         StartAnimation(target, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.5})
     end

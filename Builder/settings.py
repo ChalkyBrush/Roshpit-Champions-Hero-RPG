@@ -7,7 +7,7 @@ data = {
     "constants": [
         "heroes/.*/.*constants.*\.lua",
         "items/constants/.*\.lua",
-        "elements.lua",
+        "global_constants.lua",
     ],
     "replaces": [
         "heroes/.*/npc/.*\.txt",

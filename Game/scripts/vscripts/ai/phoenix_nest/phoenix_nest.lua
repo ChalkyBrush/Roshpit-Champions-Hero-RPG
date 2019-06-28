@@ -195,8 +195,8 @@ end
 
 function phoenix_mob_die(event)
 	Dungeons.phoenixMobsKilled = Dungeons.phoenixMobsKilled + 1
-	print("KILLED "..Dungeons.phoenixMobsKilled)
-	print("Thresh "..Dungeons.phoenixMobsThreshold)
+	--print("KILLED "..Dungeons.phoenixMobsKilled)
+	--print("Thresh "..Dungeons.phoenixMobsThreshold)
 	if Dungeons.phoenixMobsKilled == Dungeons.phoenixMobsThreshold then
 		Dungeons:IncrementPhoenixWave()
 	end
@@ -211,7 +211,7 @@ function kriggus_follower_think(event)
 	-- 	local forwardMovement = caster:GetForwardVector()*Vector(1,1,0)
 	-- 	local bGround = true
 	-- 	if position.z < forwardGroundPosition.z-20 then
-	-- 		print("CLIMB!")
+	-- 		--print("CLIMB!")
 	-- 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_kriggus_climbing", {})
 	-- 	else
 	-- 		caster:RemoveModifierByName("modifier_kriggus_climbing")
@@ -518,27 +518,34 @@ function electron_projectile(event, fv)
 	local end_radius = 140
 	local range = 800
 	local speed = 400 + RandomInt(0, 250)
+	
+	if not ability.lightnings then
+		ability.lightnings = 0
+	end
+	if ability.lightnings < 16 then
+		ability.lightnings = ability.lightnings + 1
 		local info = 
 		{
-				Ability = ability,
-	        	EffectName = projectileParticle,
-	        	vSpawnOrigin = projectileOrigin+Vector(0,0,60),
-	        	fDistance = range,
-	        	fStartRadius = start_radius,
-	        	fEndRadius = end_radius,
-	        	Source = caster,
-	        	StartPosition = "attach_attack1",
-	        	bHasFrontalCone = true,
-	        	bReplaceExisting = false,
-	        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-	        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-	        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-	        	fExpireTime = GameRules:GetGameTime() + 4.0,
+			Ability = ability,
+	        EffectName = projectileParticle,
+	        vSpawnOrigin = projectileOrigin+Vector(0,0,60),
+	        fDistance = range,
+	        fStartRadius = start_radius,
+	        fEndRadius = end_radius,
+	        Source = caster,
+	        StartPosition = "attach_attack1",
+	        bHasFrontalCone = true,
+	        bReplaceExisting = false,
+	        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+	        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+	        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+	        fExpireTime = GameRules:GetGameTime() + 4.0,
 			bDeleteOnHit = false,
 			vVelocity = fv * speed,
 			bProvidesVision = false,
 		}
 		projectile = ProjectileManager:CreateLinearProjectile(info)
+	end
 end
 
 function electron_projectile_hit(event)
@@ -549,6 +556,14 @@ function electron_projectile_hit(event)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)/1000
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 	PopupDamage(target, damage)
+end
+
+function electron_think(event)
+	local ability = event.ability
+	if not ability then
+		return
+	end
+	ability.lightnings = 0
 end
 
 function phoenix_begin_hatch(event)
@@ -661,7 +676,7 @@ function phoenix_boss_think(event)
 			end			
 		end
 		caster.interval = caster.interval + 1
-		print(caster.interval)
+		--print(caster.interval)
 		if caster.interval >= 106 then
 			caster.interval = -20
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_phoenix_boss_pyromaniac", {duration = 4})
@@ -823,7 +838,7 @@ function bringBossFromPentagram(bossName, location, index, rootDuration, forward
 	if index == 1 then
 		Dungeons.subbossA = subboss
 	elseif index == 2 then
-		print("DUNGEONS.SUBBOSSB WTF!!")
+		--print("DUNGEONS.SUBBOSSB WTF!!")
 		Dungeons.subbossB = subboss
 	elseif index == 3 then
 		Dungeons.subbossC = subboss

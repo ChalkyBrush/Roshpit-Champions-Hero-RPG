@@ -102,7 +102,7 @@ function modifier_chernobog_ult_freeze_special:locked_unit_attack(event)
 	local attacker = event.attacker
 	local ability = event.ability
 	local target = event.target
-	print("HELLO?")
+	--print("HELLO?")
 	if not IsValidEntity(ability) then
 		return false
 	end

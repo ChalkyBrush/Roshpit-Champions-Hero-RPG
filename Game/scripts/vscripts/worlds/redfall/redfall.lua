@@ -12,12 +12,12 @@ require('worlds/redfall/zones/crimsyth_castle')
 
 function Redfall:Debug()
     if MAIN_HERO_TABLE[1] then
-      MAIN_HERO_TABLE[1]:SetBaseStrength(25000)
-      MAIN_HERO_TABLE[1]:SetBaseAgility(25000)
-      MAIN_HERO_TABLE[1]:SetBaseIntellect(25000)
-      MAIN_HERO_TABLE[1]:SetBaseDamageMax(50000)
-      MAIN_HERO_TABLE[1]:SetBaseDamageMin(50000)
-      MAIN_HERO_TABLE[1]:CalculateStatBonus()
+      --MAIN_HERO_TABLE[1]:SetBaseStrength(25000)
+      --MAIN_HERO_TABLE[1]:SetBaseAgility(25000)
+      --MAIN_HERO_TABLE[1]:SetBaseIntellect(25000)
+      --MAIN_HERO_TABLE[1]:SetBaseDamageMax(50000)
+      --MAIN_HERO_TABLE[1]:SetBaseDamageMin(50000)
+      --MAIN_HERO_TABLE[1]:CalculateStatBonus()
       -- local hero = MAIN_HERO_TABLE[1]
       -- hero.runeUnit2.amulet.e_2 = hero.runeUnit2.amulet.e_2 + 1500
       -- Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.e_2, "rune_e_2", hero)
@@ -32,9 +32,15 @@ function Redfall:Debug()
       -- hero.runeUnit3.amulet.r_3 = hero.runeUnit3.amulet.r_3 + 500
       -- Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.r_3, "rune_r_3", hero)
     end
+	Redfall.Castle = {}
+	Redfall.Castle.BossStatuesActivated = 2 
+	Redfall.Castle.FinalSwitchPressed = true
+	Redfall.Shipyard = {}
+	Redfall:SpawnBossRoom()
     local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
     local drop = CreateItemOnPositionSync(Vector(-15168, -14976), item )
     local position = Vector(-15168, -14976)
+	Redfall:DropEnchantedLeaf(position)
     RPCItems:DropItem(item, Vector(-15168, -14976))
     -- Dungeons.itemLevel = 300
     RPCItems:RollWorldTreesFlowerCache(Vector(-15168, -14976))
@@ -50,7 +56,7 @@ function Redfall:Debug()
     Weapons:RollLegendWeapon3(Vector(-15168, -14976), "sephyr")
     RPCItems:RollWindDeityCrown(Vector(-15168, -14976), true, 7)
     -- Redfall:GiveVermillionBundle(MAIN_HERO_TABLE[1], Vector(-15168, -14976))
-    -- Redfall:GiveShipyardKey(MAIN_HERO_TABLE[1], Vector(-15168, -14976)) 
+     Redfall:GiveShipyardKey(MAIN_HERO_TABLE[1], Vector(-15168, -14976)) 
     -- Redfall:GiveDemonRelic(MAIN_HERO_TABLE[1], Vector(-15168, -14976))
     -- RPCItems:RollStormcrackHelm(Vector(-15168, -14976), false)
     -- RPCItems:RollHalcyonSoulGlove(Vector(-15168, -14976))
@@ -156,7 +162,7 @@ function Redfall:Debug2()
   -- Paragon:SpawnParagonUnit("shipyard_armored_bear_guard", Vector(-15168, -14976))
   -- DeepPrintTable(GameState.HeroPlayerTable)
   -- local hero = GameState:GetHeroByPlayerID(0)
-  -- print(hero:GetEntityIndex())
+  ----print(hero:GetEntityIndex())
   -- local caster = MAIN_HERO_TABLE[1].shredder
   --   local shredderAbility = caster:FindAbilityByName("redfall_friendly_shredder_passive" )
   --   shredderAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shredder_lumber", {})
@@ -165,10 +171,10 @@ function Redfall:Debug2()
 
   -- local hero = MAIN_HERO_TABLE[1]
   -- for i = 0, 11, 1 do
-  --   print("-----loop----"..i)
+  --  --print("-----loop----"..i)
   --   local item = hero:GetItemInSlot(i)
   --   if IsValidEntity(item) then
-  --     print(item:GetAbilityName())
+  --    --print(item:GetAbilityName())
   --   end
   -- end
 
@@ -371,7 +377,7 @@ function Redfall:QuestComplete(hero, questIndex)
 end
 
 function Redfall:InitCamp()
-  print("Initialize Redfall")
+ --print("Initialize Redfall")
       Dungeons.phoenixCollision = true
       RPCItems.DROP_LOCATION = Vector(6656,-16128)
       Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
@@ -731,14 +737,14 @@ function Redfall:CreateAutumnParticlesForRegion(region)
   -- local yLoops = math.ceil((region[2].y - region[1].y)/1000)
   -- for i = 1, xLoops, 1 do
   --   for j = 1, yLoops, 1 do
-  --         print("----LOOP----")
-  --         print(i)
-  --         print(j)
+  --        --print("----LOOP----")
+  --        --print(i)
+  --        --print(j)
   --         local particleName = "particles/rain_fx/autumn_terrain.vpcf"
   --         local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-  --         print("POSITION:")
+  --        --print("POSITION:")
   --         local position = Vector(region[1].x + (i-1)*1000, region[1].y + (j-1)*1000, 1000+Redfall.ZFLOAT)
-  --         print(position)
+  --        --print(position)
   --         ParticleManager:SetParticleControl(pfx,0,position)   
   --         ParticleManager:SetParticleControl(pfx,1,position)  
   --         table.insert(Redfall.WeatherParticles, pfx)
@@ -747,9 +753,9 @@ function Redfall:CreateAutumnParticlesForRegion(region)
   for i = 1, #region, 1 do
     local particleName = "particles/rain_fx/autumn_terrain.vpcf"
     local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-    -- print("POSITION:")
+    ----print("POSITION:")
     -- local position = Vector(region[1].x + (i-1)*1000, region[1].y + (j-1)*1000, 1000+Redfall.ZFLOAT)
-    -- print(position)
+    ----print(position)
     local position = region[i] + Vector(1300, 1300, 1000+Redfall.ZFLOAT)
     ParticleManager:SetParticleControl(pfx,0,position)   
     ParticleManager:SetParticleControl(pfx,1,position)  
@@ -897,60 +903,85 @@ function Redfall:CreateSpiritAmbience()
 end
 
 function Redfall:SpawnAncientTree()
-  local positionTable = {Vector(-7445, -12153), Vector(-9543, -8506), Vector(-820, -6181), Vector(-8064, -4352)}
-  local position = positionTable[RandomInt(1, #positionTable)]
-  Dungeons:CreateBasicCameraLock(position, 7.5)
-  AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 700, 300, false)
-  Timers:CreateTimer(0.8, function()
-    local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_overgrowth_cast.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-    ParticleManager:SetParticleControl(pfx, 0, GetGroundPosition(position, Events.GameMaster))
-    EmitSoundOnLocationWithCaster(position, "Redfall.AncientTree.Spawn", Events.GameMaster)
-    Timers:CreateTimer(5, function()
-      ParticleManager:DestroyParticle(pfx, false)
-    end)
-  end)
+	local positionTable = {Vector(-7445, -12153), Vector(-9543, -8506), Vector(-820, -6181), Vector(-8064, -4352)}
+	local position = positionTable[RandomInt(1, #positionTable)]
+	Dungeons:CreateBasicCameraLock(position, 7.5)
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 700, 300, false)
+	Timers:CreateTimer(0.8, function()
+		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_overgrowth_cast.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+		ParticleManager:SetParticleControl(pfx, 0, GetGroundPosition(position, Events.GameMaster))
+		EmitSoundOnLocationWithCaster(position, "Redfall.AncientTree.Spawn", Events.GameMaster)
+		Timers:CreateTimer(5, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
+	end)
   
-  Timers:CreateTimer(2.0, function()
-    
-    local stone = Redfall:SpawnDungeonUnit("redfall_ancient_tree", position, 3, 5, "Redfall.AncientTree.Aggro", Vector(0,-1), false)
-    stone:SetRenderColor(255, 170, 170)
-    Events:ColorWearables(stone, Vector(255, 170, 170))
-    stone:SetModelScale(0.05)
-    stone.summonCount = 0
-    local stoneAbility = stone:FindAbilityByName("ancient_tree_passive")
-    stoneAbility:ApplyDataDrivenModifier(stone, stone, "modifier_ancient_tree_cinematic", {duration = 6.5})
-    for i = 1, 120, 1 do
-      Timers:CreateTimer(i*0.03, function()
-        stone:SetModelScale(0.05+i*0.02)
-      end)
-    end
-    stone.itemLevel = 96
-    Events:AdjustBossPower(stone, 10, 10, true)
-    Timers:CreateTimer(0.05, function()
-      StartAnimation(stone, {duration=6, activity=ACT_DOTA_TELEPORT, rate=0.5})
-    end)
-    for j = 0, 3, 1 do
-      Timers:CreateTimer(j*0.8, function()
-        local particleName = "particles/econ/items/lina/lina_ti7/lina_spell_light_strike_array_ti7.vpcf"
-        local pfxB = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, stone)
-        ParticleManager:SetParticleControl(pfxB, 0, stone:GetAbsOrigin()+Vector(0,0,50))
-        ParticleManager:SetParticleControl(pfxB, 1, Vector(300+j*100, 1, 2))
-        ScreenShake(stone:GetAbsOrigin(), 130, 0.9, 0.9, 9000, 0, true)
-        Timers:CreateTimer(2.8, function()
-          ParticleManager:DestroyParticle(pfxB, false)
-        end)
-      end)
-    end
+	Timers:CreateTimer(2.0, function()
+		local creepFunction = function(unit) 
+			unit:SetRenderColor(255, 170, 170)
+			Events:ColorWearables(unit, Vector(255, 170, 170))
+			unit:SetModelScale(0.05)
+			unit.summonCount = 0
+			local unitAbility = unit:FindAbilityByName("ancient_tree_passive")
+			unitAbility:ApplyDataDrivenModifier(unit, unit, "modifier_ancient_tree_cinematic", {duration = 6.5})
+			for i = 1, 120, 1 do
+				Timers:CreateTimer(i * 0.03, function()
+					unit:SetModelScale(0.05 + i * 0.02)
+				end)
+			end
+			Events:AdjustBossPower(unit, 10, 10, true)
+			Timers:CreateTimer(0.05, function()
+				StartAnimation(unit, {duration=6, activity=ACT_DOTA_TELEPORT, rate=0.5})
+			end)
+			for j = 0, 3, 1 do
+				Timers:CreateTimer(j*0.8, function()
+					local particleName = "particles/econ/items/lina/lina_ti7/lina_spell_light_strike_array_ti7.vpcf"
+					local pfxB = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, unit)
+					ParticleManager:SetParticleControl(pfxB, 0, unit:GetAbsOrigin()+Vector(0,0,50))
+					ParticleManager:SetParticleControl(pfxB, 1, Vector(300+j*100, 1, 2))
+					ScreenShake(unit:GetAbsOrigin(), 130, 0.9, 0.9, 9000, 0, true)
+					Timers:CreateTimer(2.8, function()
+						ParticleManager:DestroyParticle(pfxB, false)
+					end)
+				end)
+			end
 
-    Timers:CreateTimer(1, function()
-      EmitSoundOn("Redfall.AncientTree.Spawn.VO", stone)
-    end)
-  end)
+			Timers:CreateTimer(1, function()
+				EmitSoundOn("Redfall.AncientTree.Spawn.VO", unit)
+			end)
+		end
+		local unit = Spawning:SpawnUnit{
+			unitName = "redfall_ancient_tree",
+			spawnPoint = position,
+			minDrops = 3, 
+			maxDrops = 5, 
+			itemLevel = 96, 
+			aggroSound = "Redfall.AncientTree.Aggro",
+			fv = Vector(0,-1), 
+			isAggro = false, 
+			deathModifier = nil, 
+			enemyType = ENEMY_TYPE_MAJOR_BOSS, 
+			creepFunction = creepFunction
+		}
+	end)
 end
 
 function Redfall:SpawnAncientTreeSummon(position, fv)
-  local shroom = Redfall:SpawnDungeonUnit("redfall_ancient_tree_summon", position, 0, 0, nil, fv, true)
-  shroom:SetDeathXP(0)
-  -- shroom.dominion = true
-  return shroom
+	local creepFunction = function(unit) 
+		unit:SetDeathXP(0)
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_ancient_tree_summon",
+		spawnPoint = position,
+		minDrops = 0, 
+		maxDrops = 0, 
+		itemLevel = 0, 
+		aggroSound = "Redfall.SkeletonSpawn.Aggro",
+		fv = fv, 
+		isAggro = true, 
+		deathModifier = nil, 
+		enemyType = ENEMY_TYPE_WEAK_CREEP, 
+		creepFunction = creepFunction
+	}
+  return unit
 end

@@ -63,7 +63,7 @@ function TeleportUnit(unit, position, ability, caster, delay)
         end)
       Timers:CreateTimer(delay+0.6,
       function()
-         print('prepare camera lock')
+        --print('prepare camera lock')
          StopSoundEvent( "Hero_Chen.TeleportLoop", unit )
         unit:SetAbsOrigin(position)
         ability:ApplyDataDrivenModifier(caster, unit, "modifier_teleported", {})

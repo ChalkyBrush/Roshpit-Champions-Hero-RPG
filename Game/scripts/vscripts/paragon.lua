@@ -14,18 +14,23 @@ function Paragon:SpawnParagonPack(unit_name, location)
 	end
 	local paragonUnitTable = {}
 	local affixIndexTable = Paragon:GetUniqueAffixIndexTable(GameState:GetDifficultyFactor())
+	local paragonDummy = CreateUnitByName("npc_dummy_unit", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+	paragonDummy:NoHealthBar()
 	for i = 1, packSize, 1 do
-      local unit = CreateUnitByName(unit_name, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
-      Events:AdjustDeathXP(unit)
-      Paragon:AdjustParagonPower(unit)
-      unit.packSize = packSize
-      unit.affixes = {}
-      unit.buddiesSlain = 0
-      unit.bossStatus = true
-      unit.solo = false
-      unit.paragon = true
-      table.insert(paragonUnitTable, unit)
+		local unit = CreateUnitByName(unit_name, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
+		FindClearSpaceForUnit(unit, location, false)
+		Events:AdjustDeathXP(unit)
+		Paragon:AdjustParagonPower(unit)
+		unit.packSize = packSize
+		unit.affixes = {}
+		unit.buddiesSlain = 0
+		unit.bossStatus = true
+		unit.solo = false
+		unit.paragon = true
+		unit.paragonDummy = paragonDummy
+		table.insert(paragonUnitTable, unit)
 	end
+	paragonDummy.buddiesTable = paragonUnitTable
 	for j = 1, #paragonUnitTable, 1 do
 		local paragonUnit = paragonUnitTable[j]
 		local paragonAbility = paragonUnit:AddAbility("paragon_abilities")
@@ -36,10 +41,10 @@ function Paragon:SpawnParagonPack(unit_name, location)
                 table.insert(paragonUnit.affixes, Paragon.affixModifierTable[affixIndexTable[i]])
 			end
 		end)
-		paragonAbility:ApplyDataDrivenModifier(paragonUnit, paragonUnit, "modifier_paragon", {})
-		paragonUnit.buddiesTable = paragonUnitTable
+		paragonAbility:ApplyDataDrivenModifier(paragonUnit, paragonUnit, "modifier_paragon_pack", {})
+		paragonAbility:ApplyDataDrivenModifier(paragonUnit, paragonUnit, "modifier_paragon_pack_visual", {})
 	end
-    return paragonUnitTable
+    return paragonDummy
 
 end
 
@@ -64,7 +69,7 @@ function Paragon:GetUniqueAffixIndexTable(difficulty)
 		end
 		table.insert(affixIndexTable, affixIndex)
 	end
-	DeepPrintTable(affixIndexTable)
+	--DeepPrintTable(affixIndexTable)
 	return affixIndexTable
 end
 
@@ -126,13 +131,12 @@ function Paragon:SpawnParagonUnit(unit_name, location)
 	paragonAbility:SetLevel(1)
 	Timers:CreateTimer(0.5, function()
 		for i = 1, #affixIndexTable, 1 do
-			print("APPLY??")
-			print(Paragon.affixModifierTable[affixIndexTable[i]])
 			paragonAbility:ApplyDataDrivenModifier(unit, unit, Paragon.affixModifierTable[affixIndexTable[i]], {})
             table.insert(unit.affixes, Paragon.affixModifierTable[affixIndexTable[i]])
 		end
 	end)
 	paragonAbility:ApplyDataDrivenModifier(unit, unit, "modifier_paragon_solo", {})
+	paragonAbility:ApplyDataDrivenModifier(unit, unit, "modifier_paragon_solo_visual", {})
 	return unit
 end
 
@@ -148,13 +152,14 @@ function Paragon:AddParagonUnit(unit)
 	paragonAbility:SetLevel(1)
 	Timers:CreateTimer(0.5, function()
 		for i = 1, #affixIndexTable, 1 do
-			print("APPLY??")
-			print(Paragon.affixModifierTable[affixIndexTable[i]])
+			--print("APPLY??")
+			--print(Paragon.affixModifierTable[affixIndexTable[i]])
 			paragonAbility:ApplyDataDrivenModifier(unit, unit, Paragon.affixModifierTable[affixIndexTable[i]], {})
             table.insert(unit.affixes, Paragon.affixModifierTable[affixIndexTable[i]])
 		end
 	end)
 	paragonAbility:ApplyDataDrivenModifier(unit, unit, "modifier_paragon_solo", {})
+	paragonAbility:ApplyDataDrivenModifier(unit, unit, "modifier_paragon_solo_visual", {})
 end
 
 function Paragon:AdjustParagonPowerSolo(unit)

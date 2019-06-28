@@ -87,7 +87,7 @@ function flareImpact(caster, ability, damage, element2, damageType, position, st
 				local stacks = enemy:GetModifierStackCount("modifier_boomerang_magic_marker", caster)
 				damage = damage + stacks*0.2*damage
 			end
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, 1, RPC_ELEMENT_COSMOS, element2)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, BASE_ABILITY_Q, RPC_ELEMENT_COSMOS, element2)
 			Filters:ApplyStun(caster, stun_duration, enemy)
 			if ability.q_3_level > 0 then
 				if sun_moon == "sun" then

@@ -15,7 +15,7 @@ function RPCItems:InitiateTrade(msg)
 			local tradeTime = (20*heroFrom.tradeSendCount)
 			if heroFrom.lastTrade < GameRules:GetGameTime()-tradeTime then
 				heroFrom.lastTrade = GameRules:GetGameTime()
-				print("Trading with: "..heroTo:GetUnitName())
+				--print("Trading with: "..heroTo:GetUnitName())
 
 				heroFrom.tradeTable = {-1, -1, -1, -1, -1, -1}
 				heroTo.tradeTable = {-1, -1, -1, -1, -1, -1}
@@ -175,9 +175,9 @@ function RPCItems:ItemRemoveFromTrade(msg)
 	local otherHero = EntIndexToHScript(droppingHero.tradingWith)
 
 	
-	print(msg.bReturnItem)
-	print("RETURN ITEM BOYS")
-	print(droppingHero.tradeTable[slot])
+	--print(msg.bReturnItem)
+	--print("RETURN ITEM BOYS")
+	--print(droppingHero.tradeTable[slot])
 	if droppingHero.tradeTable[slot] == -1 then
 	else
 		droppingHero.tradeTable[slot] = -1

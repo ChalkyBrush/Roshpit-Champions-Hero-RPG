@@ -141,7 +141,7 @@ function jex_thunderblossom_attack_land(event)
 			local enemy = target
 			if IsValidEntity(enemy) and enemy:IsAlive() then
 				EmitSoundOn("Jex.LightningWrathGO", enemy)
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NATURE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NATURE)
 				local pfx = ParticleManager:CreateParticle( "particles/econ/items/sven/sven_warcry_ti5/hyper_visor.vpcf", PATTACH_CUSTOMORIGIN, enemy )
 				ParticleManager:SetParticleControl( pfx, 0, enemy:GetAbsOrigin())
 				ParticleManager:SetParticleControl( pfx, 1, Vector(100, 0, 0) )		

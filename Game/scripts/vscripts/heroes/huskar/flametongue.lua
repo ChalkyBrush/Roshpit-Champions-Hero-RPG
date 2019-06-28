@@ -66,10 +66,10 @@ function flametongue_attack_land(event)
 	damage = damage*mult
 	EmitSoundOn("SpiritWarrior.FlametongueImpact", target)
 	CustomAbilities:QuickAttachParticle("particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_c.vpcf", target, 1)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-	print(ability.q_1_level)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	--print(ability.q_1_level)
 	if ability.q_1_level > 0 then
-		print("FIRE EFFECT?")
+		--print("FIRE EFFECT?")
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flametongue_a_a_rune", {duration = 5})
 		local stacks = target:GetModifierStackCount("modifier_flametongue_a_a_rune", caster)
 		local newStacks = math.min(stacks+1, 50)

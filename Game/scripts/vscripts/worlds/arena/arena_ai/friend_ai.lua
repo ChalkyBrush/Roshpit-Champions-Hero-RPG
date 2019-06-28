@@ -66,13 +66,13 @@ function league_assistant_think(event)
 			local destinationPoint = Vector(-8128, -2368)
 			caster:MoveToPosition(destinationPoint)
 			local distance = WallPhysics:GetDistance(destinationPoint, caster:GetAbsOrigin()*Vector(1,1,0))
-			print(distance)
+			--print(distance)
 			if distance < 200 then
 				Arena.ChampionsLeague.state = 4
 				caster:MoveToPosition(caster:GetAbsOrigin()+Vector(0,-10,0))
 			end
 		elseif Arena.ChampionsLeague.state == 4 then
-			print("state 4?")
+			--print("state 4?")
 			local units = GetNearbyHeroes(250, caster)
 			if #units > 0 then
 				Arena.ChampionsLeague.state = 5

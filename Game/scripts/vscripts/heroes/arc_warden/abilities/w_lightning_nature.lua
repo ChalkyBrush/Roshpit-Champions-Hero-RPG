@@ -92,5 +92,5 @@ function thunderleaf_impact(event)
 	Timers:CreateTimer(0.3, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NATURE, RPC_ELEMENT_LIGHTNING)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_NATURE, RPC_ELEMENT_LIGHTNING)
 end

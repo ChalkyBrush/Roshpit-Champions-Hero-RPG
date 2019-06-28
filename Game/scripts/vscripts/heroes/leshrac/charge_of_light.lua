@@ -9,7 +9,7 @@ function startChannel(event)
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
 	local wallAbility = caster:FindAbilityByName("leshrac_wall")
 	wallAbility.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "bahamut")
-	print(ability.r_3_level)
+	--print(ability.r_3_level)
 end
 
 function set_c_d_level(event)
@@ -230,7 +230,7 @@ function projectileStrike(event)
 	damage = damage
 	local ability = event.ability
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_backstab_jumping", {duration = 0.2})
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	caster:RemoveModifierByName("modifier_backstab_jumping")
 	local point = target:GetAbsOrigin()
 	local modifierKnockback =

@@ -52,7 +52,7 @@ function begin_backshock(event)
 			whirlwind.e_4_extra_fire = math.max(whirlwind.e_4_extra_fire, 1)
 		end
 		local fireballsShot = math.min(whirlwind.e_4_extra_fire + 1, currentStacks)
-		print(fireballsShot)
+		--print(fireballsShot)
 		for i = 1, fireballsShot, 1 do
 			local j = i - 1
 			local dc_fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*j/(15*fireballsShot))
@@ -142,7 +142,7 @@ function heel_stomp(caster, ability, totalLevel)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 				if w_4_level > 0 then
 					Filters:ApplyStun(caster, 0.01*w_4_level, enemy)
 				end
@@ -238,7 +238,7 @@ function shock_strike(event)
 	end
     local w_4_level = caster:GetRuneValue("w", 4)
     damage = damage + 0.0003*caster:GetStrength()/10*w_4_level*damage
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 
 	-- if ability.w_3_level > 0 then
 	-- 	tracking_c_b_projectile(caster, target, ability)

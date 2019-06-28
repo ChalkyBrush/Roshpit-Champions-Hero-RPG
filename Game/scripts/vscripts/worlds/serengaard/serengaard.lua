@@ -5,16 +5,16 @@ end
 DEBUG_WAVE = 29
 
 function Serengaard:Debug()
-	-- CustomGameEventManager:Send_ServerToAllClients("serengaardWaveSpawn", {} )
-	-- Serengaard.wave = 20
-	-- Serengaard:TimerEnd()
-	-- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient)
-	-- Serengaard:SubmitStats()
-	-- print("SERENGAARD DEBUG")
-	-- print(MAIN_HERO_TABLE[1]:GetUnitName())
-	-- RPCItems:DropSynthesisVessel(MAIN_HERO_TABLE[1]:GetAbsOrigin())
-	-- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient:GetAbsOrigin())
-	-- RPCItems:RollSunCrystal(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 200)
+  -- CustomGameEventManager:Send_ServerToAllClients("serengaardWaveSpawn", {} )
+  -- Serengaard.wave = 20
+  -- Serengaard:TimerEnd()
+  -- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient)
+  -- Serengaard:SubmitStats()
+  --print("SERENGAARD DEBUG")
+  --print(MAIN_HERO_TABLE[1]:GetUnitName())
+  -- RPCItems:DropSynthesisVessel(MAIN_HERO_TABLE[1]:GetAbsOrigin())
+  -- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient:GetAbsOrigin())
+  -- RPCItems:RollSunCrystal(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 200)
 end
 
 function Serengaard:Debug2()
@@ -30,12 +30,12 @@ function Serengaard:Debug2()
 end
 
 function Serengaard:Init()
-	print("Initialize Redfall")
-	Dungeons.phoenixCollision = false
-	RPCItems.DROP_LOCATION = Vector(0, 0)
-	Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
-	Events.GameMaster:AddAbility("town_portal"):SetLevel(1)
-	Events.GameMaster:RemoveModifierByName("modifier_portal")
+ --print("Initialize Redfall")
+      Dungeons.phoenixCollision = false
+      RPCItems.DROP_LOCATION = Vector(0,0)
+      Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
+      Events.GameMaster:AddAbility("town_portal"):SetLevel(1)
+      Events.GameMaster:RemoveModifierByName("modifier_portal")
 
 	Serengaard.ZFLOAT = Serengaard:GetZFLOAT()
 
@@ -143,7 +143,7 @@ function Serengaard:LinewarIncomeFunction(timerActivate)
 			end
 		end)
 	end
-	print("MAKE VOTE?")
+	--print("MAKE VOTE?")
 	Serengaard.SkipVotes = 0
 	if Beacons.cheats then
 		CustomGameEventManager:Send_ServerToAllClients("serengaard_vote_skip", {playerCount = 3})
@@ -170,7 +170,7 @@ end
 
 function Serengaard:Vote(msg)
 	local player = PlayerResource:GetPlayer(msg.player)
-	print("SERENGAARD VOTE???")
+	--print("SERENGAARD VOTE???")
 	Serengaard.SkipVotes = Serengaard.SkipVotes + 1
 	if Serengaard.SkipVotes > RPCItems:GetConnectedPlayerCount() / 2 then
 		Serengaard.IncomeTimer = 0
@@ -275,8 +275,8 @@ function Serengaard:TimerEnd()
 end
 
 function Serengaard:NextWave()
-	print("WAVE!!")
-	print(Serengaard.wave)
+	--print("WAVE!!")
+	--print(Serengaard.wave)
 	if Serengaard.wave == 1 then
 		Serengaard.wave = Serengaard.wave + 1
 		Serengaard.waveProgress = 0
@@ -809,7 +809,7 @@ INFINITE_UNIT_TABLE = {"dark_fighter_serengaard", "serengaard_freeze_fiend", "se
 PIT_MOBS = {"arena_boss_spectre_summon", "champion_gladiator", "arena_pit_quizmaster", "arena_pit_soul_revenant", "arena_pit_conquest_mire_keeper", "arena_pit_conquest_mountain_behemoth", "arena_pit_conquest_cragnataur", "arena_pit_conquest_mountain_spider", "arena_pit_conquest_spider", "arena_pit_conquest_priest_of_karzhun", "arena_pit_conquest_helob", "arena_conquest_ruins_guardian", "arena_pit_conquest_temple_explorer", "arena_conquest_temple_witch_doctor", "arena_conquest_temple_repeller", "arena_conquest_skeletal_mage", "arena_conquest_temple_shifter", "pit_conquest_dragon", "arena_pit_conquest_mire_boss", "pit_conquest_forest_soldier", "pit_conquest_woods_titan", "pit_conquest_forest_mage", "arena_lies_castle_light_absorber", "arena_lies_spark_beetle", "arena_lies_lich", "arena_lies_samurai", "lies_golden_skullbone", "lies_trickster_mage", "tanari_angry_fish", "arena_lies_castle_enigma", "arena_lies_razor_miniboss", "arena_descent_exiled_spirit", "arena_descent_passage_keeper", "arena_descent_horror_construct", "arena_descent_death_seeker", "arena_descent_zombie", "arena_descent_terror_striker", "arena_descent_gargoyle", "arena_descent_goo_beetle", "arena_descent_zombie_critter", "arena_descent_razor_guard"}
 
 function Serengaard:InfiniteWave()
-	print("SPAWN INFINITE WAVE!")
+	--print("SPAWN INFINITE WAVE!")
 	if Serengaard.gameOver then
 		return false
 	end
@@ -922,15 +922,15 @@ function Serengaard:SpawnWaveUnit(unitName, spawnPoint, quantity, itemLevel, del
 				unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
 
 			end
-			if IsValidEntity(unit) then
+			if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
 				unit.dominion = true
 				unit.itemLevel = itemLevel
 				Serengaard:AdjustUnit(unit)
 			else
-				for i = 1, #unit, 1 do
-					unit[i].dominion = true
-					unit[i].itemLevel = itemLevel
-					Serengaard:AdjustUnit(unit[i])
+				for i = 1, #unit.buddiesTable, 1 do
+					unit.buddiesTable[i].dominion = true
+					unit.buddiesTable[i].itemLevel = itemLevel
+					Serengaard:AdjustUnit(unit.buddiesTable[i])
 				end
 			end
 		end)
@@ -1236,7 +1236,7 @@ end
 function Serengaard:SubmitStats()
 	local url = ""
 	for i, v in pairs(Serengaard.CachedPlayers) do
-		print("Players: "..i.." "..v[1] .. " "..v[2] .. " "..v[3] .. " "..v[4])
+		--print("Players: "..i.." "..v[1] .. " "..v[2] .. " "..v[3] .. " "..v[4])
 	end
 	if Serengaard.InfiniteWaveCount and SaveLoad:GetAllowSaving() then
 		url = ROSHPIT_URL.."/champions/save_serengaard?"
@@ -1249,32 +1249,32 @@ function Serengaard:SubmitStats()
 			local steamID = Serengaard.CachedPlayers[i][2]
 			local playerName = Serengaard.CachedPlayers[i][3]
 			local steamIDlong = Serengaard.CachedPlayers[i][4]
-			print(steamIDlong)
+			--print(steamIDlong)
 			url = url.."&steam_id"..i.."="..steamID
 			url = url.."&hero"..i.."="..heroName
 			url = url.."&steam_name"..i.."="..playerName
 			url = url.."&steam_id_long"..i.."="..steamIDlong
 		end
 		CreateHTTPRequestScriptVM("POST", url):Send(function(result)
-			print("POST" .. " response infWaves:")
+			--print("POST" .. " response infWaves:")
 			if result.StatusCode then
-				print(result.StatusCode)
+				--print(result.StatusCode)
 			end
 		end)
 	end
 	Timers:CreateTimer(5, function()
 		url = ROSHPIT_URL.."/champions/get_serengaard?"
-		print("serengaard url: "..url)
+		--print("serengaard url: "..url)
 		CreateHTTPRequestScriptVM("GET", url):Send(function(result)
-			print("GET" .. " response stats:")
+			--print("GET" .. " response stats:")
 			local resultTable = {}
 			if result.StatusCode then
-				print(result.StatusCode)
+				--print(result.StatusCode)
 			end
 			for k, v in pairs(result) do
-				print(string.format("%s : %s\n", k, v))
+				--print(string.format("%s : %s\n", k, v))
 			end
-			print("Done.")
+			--print("Done.")
 			local resultTable = JSON:decode(result.Body)
 			CustomGameEventManager:Send_ServerToAllClients("serengaard_leaderboard", {resultTable = resultTable})
 		end)

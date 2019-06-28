@@ -786,7 +786,7 @@ function Dungeons:CastleBossFightStart()
   	boss.slowPools = 0
   	Dungeons.entryPoint = Vector(-5225, 13180, 940) 
   	boss:SetAbsOrigin(Dungeons.castleCenter+boss.circlePos*Dungeons.castleRadius)
-  	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth()})
+  	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth(), bossId = tostring(boss)})
 	boss:SetForwardVector(Vector(-1,-1))
 	EmitGlobalSound("abaddon_abad_attack_11")
 	EmitGlobalSound("abaddon_abad_attack_11")
@@ -1616,9 +1616,9 @@ function Dungeons:AggroUnit(caster)
 	end
 	if caster.specialAggro then
 		Dungeons:SpecialAggro(caster)
-		print("SHOULD AGGRO")
-		print("SHOULD AGGRO")
-		print("SHOULD AGGRO")
+		--print("SHOULD AGGRO")
+		--print("SHOULD AGGRO")
+		--print("SHOULD AGGRO")
 	end
 	caster:SetAcquisitionRange(3500)
 	caster:RemoveModifierByName("modifier_dungeon_thinker_creep")
@@ -1640,7 +1640,7 @@ function Dungeons:AggroUnit(caster)
 	end
 	if caster.special then
 		if caster.special == "gazbinAlch" then
-			print("lets fire this skill")
+			--print("lets fire this skill")
 			EmitSoundOn("alchemist_alch_laugh_04", caster)
 			EmitSoundOn("alchemist_alch_laugh_04", caster)
 			EmitSoundOn("alchemist_alch_laugh_04", caster)
@@ -1666,7 +1666,7 @@ end
 
 function Dungeons:SpecialAggro(caster)
 	if caster.specialAggro == "keyholder" then
-		print("CHANGE ATTACK!")
+		--print("CHANGE ATTACK!")
 		caster:SetBaseHealthRegen(2)
 		caster:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
 		caster:RemoveAbility("invis_dungeon_creep")

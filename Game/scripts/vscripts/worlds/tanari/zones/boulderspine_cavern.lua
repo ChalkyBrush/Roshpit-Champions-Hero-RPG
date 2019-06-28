@@ -96,7 +96,7 @@ function Tanari:SpawnWaveUnit(unitName, spawnPoint, quantity, itemLevel, bSound)
     	end        
     	Events:AdjustDeathXP(unit)
       end
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
       	unit.itemLevel = itemLevel
       	unit:AddAbility("tanari_cave_counter"):SetLevel(1)
       	unit.dominion = true
@@ -108,12 +108,12 @@ function Tanari:SpawnWaveUnit(unitName, spawnPoint, quantity, itemLevel, bSound)
       		unit:AddNewModifier(unit, nil, "modifier_animation_translate", {translate="run"})
       	end
       else
-      	for i = 1, #unit, 1 do
-      		unit[i].itemLevel = itemLevel
-      		unit[i].dominion = true
-      		unit[i]:AddAbility("tanari_cave_counter"):SetLevel(1)
-	      	if unit[i]:GetUnitName() == "boulderspine_dimension_warper" or unit[i]:GetUnitName() == "boulderspine_dimension_jumper" then
-	      		unit[i]:AddNewModifier(unit[i], nil, "modifier_animation_translate", {translate="run"})
+      	for i = 1, #unit.buddiesTable, 1 do
+      		unit.buddiesTable[i].itemLevel = itemLevel
+      		unit.buddiesTable[i].dominion = true
+      		unit.buddiesTable[i]:AddAbility("tanari_cave_counter"):SetLevel(1)
+	      	if unit.buddiesTable[i]:GetUnitName() == "boulderspine_dimension_warper" or unit.buddiesTable[i]:GetUnitName() == "boulderspine_dimension_jumper" then
+	      		unit.buddiesTable[i]:AddNewModifier(unit.buddiesTable[i], nil, "modifier_animation_translate", {translate="run"})
 	      	end      		
       	end
       end
@@ -444,7 +444,7 @@ function Tanari:SpawnLindworm()
 		Timers:CreateTimer(0.03*i, function()
 			dragon:SetAbsOrigin(dragon:GetAbsOrigin()+moveDirection*14+(Vector(0,0,-3.7)*(math.cos(i*2*math.pi/80)+1)))
 			AddFOWViewer(DOTA_TEAM_GOODGUYS, dragon:GetAbsOrigin()+Vector(0,0,100), 240, 2, false)
-			print(dragon:GetAbsOrigin())
+			--print(dragon:GetAbsOrigin())
 		end)
 	end
 	dragon.itemLevel = 62

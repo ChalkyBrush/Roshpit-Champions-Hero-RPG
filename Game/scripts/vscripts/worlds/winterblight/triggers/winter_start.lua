@@ -202,7 +202,7 @@ function PlatformSpawnTrigger(trigger)
 end
 
 function AltarOfIceTrigger(trigger)
-	print("ICE TRIGGER")
+	--print("ICE TRIGGER")
 	local hero = trigger.activator
 	if Winterblight.AltarDisabled then
 		return false

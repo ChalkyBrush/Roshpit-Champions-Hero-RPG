@@ -14,8 +14,8 @@ function penance_start(event)
 		ability.w_4_level = caster:GetRuneValue("w", 4)
 		dummyAbility = caster.InventoryUnit:AddAbility("paladin_penance_dummy")
 		dummyAbility.creationTime = GameRules:GetGameTime()
-		print("---------")
-		print(dummyAbility.creationTime)
+		--print("-----")
+		--print(dummyAbility.creationTime)
 		if not dummyAbility then
 			local remove = caster.InventoryUnit:FindAbilityByName("paladin_penance_dummy")
 			UTIL_Remove(remove)
@@ -24,12 +24,12 @@ function penance_start(event)
 		if not ability.projectileCount then
 			ability.projectileCount = 0
 		end
-		print(ability.projectileCount)
+		--print(ability.projectileCount)
 		penance_dummy_checker(caster, ability)
 		if ability.projectileCount >= 10 then
 			ability:SetActivated(false)
 		end
-		print(ability.projectileCount)
+		--print(ability.projectileCount)
 		dummyAbility:SetLevel(ability:GetLevel())
 		dummyAbility.penanceProcs = Runes:Procs(ability.w_4_level, 10, 1)
 	else
@@ -59,7 +59,7 @@ function penance_start(event)
 	}
 	projectile = ProjectileManager:CreateTrackingProjectile(info)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin()+RandomVector(RandomInt(1,400)), "Paladin.PenanceLaunch", caster)
-	print(ability.projectileCount)
+	--print(ability.projectileCount)
 	ability.w_1_level = caster:GetRuneValue("w", 1)
 	ability.w_2_level = caster:GetRuneValue("w", 2)
 	ability.w_3_level = caster:GetRuneValue("w", 3)
@@ -131,10 +131,10 @@ function penance_dummy_checker(caster, ability)
 				end
 			end
 		end
-		print("-----P-----")
+		--print("---P---")
 		ability.projectileCount = penanceCount
 		set_penance_projectiles(ability, caster)
-		print(penanceCount)
+		--print(penanceCount)
 		
 	end
 end
@@ -143,7 +143,7 @@ function set_penance_projectiles(ability, caster)
 	
 	if ability.projectileCount > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_penance_projectiles", {})
-		print(ability.projectileCount)
+		--print(ability.projectileCount)
 		caster:SetModifierStackCount("modifier_penance_projectiles", caster, ability.projectileCount)
 	else
 		caster:RemoveModifierByName("modifier_penance_projectiles")
@@ -183,7 +183,7 @@ function penance_impact(event)
 		--ally effect
 	else
 		if ability.w_1_level > 0 then
-			print("ATTACK??")
+			--print("ATTACK??")
 			if not target.dummy then
 				caster:AddNewModifier( caster, ability, "modifier_paladin_penance_attack_lua", {} )
 				caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
@@ -209,7 +209,7 @@ function penance_impact(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_GHOST)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_GHOST)
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_paladin_glyph_1_2_effect", {duration = 8})
 		end
 	end 
@@ -234,7 +234,7 @@ function penance_impact(event)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 					if not enemy:HasModifier("modifeir_paladin_c_b_disarm_immunity") then
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_paladin_c_b_disarm", {duration = 1})
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifeir_paladin_c_b_disarm_immunity", {duration = 1.5})
@@ -255,7 +255,7 @@ function penance_impact(event)
 	if dummyAbility then
 		if dummyAbility.penanceProcs then
 			if dummyAbility.penanceProcs > 0 then
-				print("BOUNCE?")
+				--print("BOUNCE?")
 				local remove = true
 				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 650, DOTA_UNIT_TARGET_TEAM_ENEMY+DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 				if #enemies > 0 then

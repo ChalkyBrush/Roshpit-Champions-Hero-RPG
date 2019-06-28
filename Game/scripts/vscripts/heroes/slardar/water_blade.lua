@@ -135,7 +135,7 @@ function bombImpact(caster, ability)
 	local damage = caster.damage
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 			caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, enemy, "modifier_water_bomb_slow", {duration = caster.slow_duration})
 		end
 		if caster.w_2_level > 0 then
@@ -198,9 +198,9 @@ function hydroxis_attack_land(event)
 				-- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2)
 				-- local targetAngle = ((enemy:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 				-- local angleDifferential = math.acos(fv:Dot(targetAngle, fv))
-				-- print(angleDifferential)
+				--print(angleDifferential)
 				-- if angleDifferential < math.pi/2 then
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 					if crit then
 						local pfx2 = ParticleManager:CreateParticle( "particles/econ/items/kunkka/kunkka_tidebringer_base/kunkka_spell_tidebringer.vpcf", PATTACH_CUSTOMORIGIN, caster )
 						ParticleManager:SetParticleControlEnt(pfx2, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
@@ -211,7 +211,7 @@ function hydroxis_attack_land(event)
 						end) 	
 						-- CustomAbilities:QuickAttachParticle("particles/econ/items/kunkka/kunkka_tidebringer_base/kunkka_spell_tidebringer.vpcf", enemy, 1)
 						local glyphDamage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*4
-						Filters:TakeArgumentsAndApplyDamage(enemy, attacker, glyphDamage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+						Filters:TakeArgumentsAndApplyDamage(enemy, attacker, glyphDamage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 					end
 					-- ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
 				-- end
@@ -223,10 +223,10 @@ end
 
 function weapon_particle_buff(event)
 	local caster = event.caster
-	print("WEAPON PARTICLE BUFF")
+	--print("WEAPON PARTICLE BUFF")
 	local ability = event.ability
 	if not ability.w_2_particle then
-		print("ATTACH PARTICLE")
+		--print("ATTACH PARTICLE")
 	    local index = ParticleManager:CreateParticle("particles/roshpit/hydroxis/b_b_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	    ParticleManager:SetParticleControlEnt(index, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 	    ParticleManager:SetParticleControlEnt(index, 1, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)

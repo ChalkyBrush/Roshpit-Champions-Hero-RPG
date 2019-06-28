@@ -172,7 +172,7 @@ function c_d_apply(event)
 	EmitSoundOn("Hero_Omniknight.GuardianAngel", caster)
 	caster:SetRangedProjectileName("particles/units/heroes/hero_skywrath_mage/skywrath_mage_base_attack.vpcf")
 	caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
-	print("APPLY AVATAR BROOO")
+	--print("APPLY AVATAR BROOO")
 end
 
 function c_d_attack_start(event)

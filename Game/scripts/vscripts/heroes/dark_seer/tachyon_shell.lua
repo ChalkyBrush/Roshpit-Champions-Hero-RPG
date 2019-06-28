@@ -33,7 +33,7 @@ function tachyon_create(event)
 			radius = math.floor(radius + radius*ZHONIK_GLYPH_1_1_TACHYON_SHELL_RADIUS/100)
 		end
 	end
-	print(radius)
+	--print(radius)
 	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))
 	target.tachyonPFX = pfx
 end
@@ -73,7 +73,7 @@ function tachyon_shield_think(event)
 			if enemy:GetEntityIndex() == target:GetEntityIndex() then
 				if caster:HasModifier("modifier_zonik_glyph_2_1") then
 					local glyphDamage = damage + damage*ZHONIK_GLYPH_2_1_DAMAGE/100
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, glyphDamage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, glyphDamage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 					if ability.q_3_level > 0 then
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_tachyon_amp", {duration = 0.4})
 						enemy:SetModifierStackCount("modifier_tachyon_amp", caster, ability.q_3_level)
@@ -82,7 +82,7 @@ function tachyon_shield_think(event)
 					ability:ApplyDataDrivenModifier(caster, target, "modifier_tachyon_slow", {duration = 0.25})
 				end
 			else
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 				local pfx = ParticleManager:CreateParticle("particles/roshpit/zonik/tachyon_damage.vpcf", PATTACH_POINT_FOLLOW, caster )
 				ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 				ParticleManager:SetParticleControlEnt(pfx, 1, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)

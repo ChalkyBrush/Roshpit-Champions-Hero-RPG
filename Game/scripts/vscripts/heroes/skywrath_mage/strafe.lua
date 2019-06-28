@@ -113,7 +113,7 @@ function boomerang_think(event)
 	    		if e_3_level > 0 then
 	    			damage = damage + boomerang.caster:GetAgility() * E3_AGILITY_ADDED_TO_DAMAGE * e_3_level
 	    		end
-	    		Filters:TakeArgumentsAndApplyDamage(boomerang.target, boomerang.caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+	    		Filters:TakeArgumentsAndApplyDamage(boomerang.target, boomerang.caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 	    		ability:ApplyDataDrivenModifier(boomerang, boomerang.target, "modifier_boomerang_disarm", {duration = 0.5})
 	    	end
     		boomerang.current_bounces = boomerang.current_bounces + 1
@@ -167,13 +167,13 @@ function boomerang_think(event)
     			UTIL_Remove(boomerang)
     			reindexBoomerangs(strafe)
     			if strafe.countPFX then	    		
-	    			print("IN HERE?")
-	    			print(#strafe.boomerangTable)
-	    			print("&&&&&&&&&&&&&&&&&&&")
+	    			--print("IN HERE?")
+	    			--print(#strafe.boomerangTable)
+	    			--print("&&&&&&&&&&&&&&&&&&&")
 				    if #strafe.boomerangTable > 0 then
 						ParticleManager:SetParticleControl(strafe.countPFX, 1, Vector(0, #strafe.boomerangTable, #strafe.boomerangTable))
 				    else
-				    	print("DESTRY IT")
+				    	--print("DESTRY IT")
 		    			ParticleManager:DestroyParticle(strafe.countPFX, false)
 		    			strafe.countPFX = false
 				    end

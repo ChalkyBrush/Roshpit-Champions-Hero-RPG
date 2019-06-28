@@ -12,7 +12,7 @@ function omni_orb_charge_procced(event, basic_damage)
 	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	    if #enemies > 0 then    
 	        for _,enemy in pairs(enemies) do
-	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 	        end
 	    end		
 	    Timers:CreateTimer(0.5, function()
@@ -34,7 +34,7 @@ function omni_orb_charge_procced(event, basic_damage)
 	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), origin, nil, OMNIRO_ORB_FIRE_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	    if #enemies > 0 then    
 	        for _,enemy in pairs(enemies) do
-	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 	        end
 	    end	
 		Timers:CreateTimer(1, function() 
@@ -55,7 +55,7 @@ function omni_orb_charge_procced(event, basic_damage)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius+5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
 				Filters:ApplyStun(caster, stun_duration, enemy)	
 			end
 		end 
@@ -74,7 +74,7 @@ function omni_orb_charge_procced(event, basic_damage)
 				local enemy = chain.enemies[i]
 				if IsValidEntity(enemy) and enemy:IsAlive() then
 					EmitSoundOn("Omniro.Orb.Lightning", enemy)
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 					local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
 					local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_CUSTOMORIGIN, nil)
 					local attach_unit_1 = caster
@@ -128,7 +128,7 @@ function omni_orb_charge_procced(event, basic_damage)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 			end
 		end
 		local allies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
@@ -149,7 +149,7 @@ function omni_orb_charge_procced(event, basic_damage)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, comet_damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, comet_damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 				end
 			end
 			CustomAbilities:QuickParticleAtPoint("particles/roshpit/omniro/cosmic_orb_impact.vpcf", position, 3)
@@ -186,7 +186,7 @@ function omni_orb_charge_procced(event, basic_damage)
 	        for _,enemy in pairs(enemies) do
 				mace_ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ice_debuff", {duration = duration})
 				enemy:SetModifierStackCount("modifier_ice_debuff", caster, caster.omniro_data[RPC_ELEMENT_ICE]["level"])	
-	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
 	        end
 	    end
 	elseif caster.active_element == RPC_ELEMENT_ARCANE then
@@ -205,7 +205,7 @@ function omni_orb_charge_procced(event, basic_damage)
 						if enemy and IsValidEntity(enemy) then
 							local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/omni_mace.vpcf", enemy, 0.4)
 							ParticleManager:SetParticleControl(pfx, 1, mace_hit_data["color"])
-							Filters:TakeArgumentsAndApplyDamage(enemy, caster, basic_damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+							Filters:TakeArgumentsAndApplyDamage(enemy, caster, basic_damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 							EmitSoundOn("Omniro.Orb.Arcane.Sub", enemy)
 						end
 					end)
@@ -232,7 +232,7 @@ function omni_orb_charge_procced(event, basic_damage)
 	    if #enemies > 0 then    
 	        for _,enemy in pairs(enemies) do
 				mace_ability:ApplyDataDrivenModifier(caster, enemy, "modifier_omniro_shadow_debuff", {duration = duration})
-	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+	            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 	        end
 	    end
 	elseif caster.active_element == RPC_ELEMENT_WIND then
@@ -303,7 +303,7 @@ function omni_orb_charge_procced(event, basic_damage)
 						end
 					end
 				end
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 			end
 		end
 	elseif caster.active_element == RPC_ELEMENT_DEMON then
@@ -311,13 +311,13 @@ function omni_orb_charge_procced(event, basic_damage)
 		CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/omniro_demon_orb.vpcf", target, 3)
 		EmitSoundOn("Omniro.Orb.Demon", target)
 		caster.ignore_steadfast = true
-		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
 	elseif caster.active_element == RPC_ELEMENT_NATURE then
 		EmitSoundOn("Omniro.Orb.Nature", target)
 		local max_shield_stacks = OMNIRO_NATURE_SHIELD_BASE_MAX_STACKS + orb_ability:GetSpecialValueFor("nature_orb_b")*caster.omniro_data[RPC_ELEMENT_NATURE]["level"]
 		local current_stacks = caster:GetModifierStackCount("modifier_omniro_nature_shield", caster)
 		local additional_stacks = Runes:Procs(caster.omniro_data[RPC_ELEMENT_NATURE]["level"], orb_ability:GetSpecialValueFor("nature_orb_a"), 1)
-		print(additional_stacks)
+		--print(additional_stacks)
 		local final_new_stacks = math.min(current_stacks+additional_stacks, max_shield_stacks)
 
 		local shield_duration = Filters:GetAdjustedBuffDuration(caster, OMNIRO_NATURE_SHIELD_DURATION, false)
@@ -390,7 +390,7 @@ function omni_rune_undead_projectile_hit(event)
 	local damage = orb_ability.undead_orb_damage
 	local enemy = event.target
 	local mace_hit_data = omni_mace_basic_element_data(RPC_ELEMENT_UNDEAD)
-	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 	ability:ApplyDataDrivenModifier(caster, enemy,"modifier_omnimace_undead_debuff", {duration = OMNIRO_UNDEAD_SPECIAL_DURATION})
 end
 
@@ -400,7 +400,7 @@ function omni_rune_wind_projectile_hit(event)
 	local damage = ability.wind_orb_damage
 	local enemy = event.target
 	local mace_hit_data = omni_mace_basic_element_data(RPC_ELEMENT_WIND)
-	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 	if enemy.pushLock then
 	else
 		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wind_orb_pushback", {duration = 1})
@@ -438,7 +438,7 @@ function omniro_time_effect_end(event)
 	local mace_hit_data = omni_mace_basic_element_data(RPC_ELEMENT_TIME)
 	local damage = (ability:GetSpecialValueFor("time_orb_a")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*caster.omniro_data[RPC_ELEMENT_TIME]["level"]
 	CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/timelock.vpcf", target, 3)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, mace_hit_data["damage_type"], 2, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 	EmitSoundOn("Omniro.Orb.Time.Pop", target)
 end
 

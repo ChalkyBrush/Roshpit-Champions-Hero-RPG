@@ -38,7 +38,7 @@ local queue = class({}) -- sparse queue implementation
 -- call this in your Precache() function to precache vector targeting particles
 function VectorTarget:Precache(context)
     if self.initializedPrecache then return end
-    print("[VECTORTARGET] precaching assets")
+   --print("[VECTORTARGET] precaching assets")
     --PrecacheResource("particle", "particles/vector_target_ring.vpcf", context)
     PrecacheResource("particle", "particles/vector_target/vector_target_range_finder_line.vpcf", context)
     self.initializedPrecache = true
@@ -47,9 +47,9 @@ end
 
 -- call this in your init function to initialize for default use-case behavior
 function VectorTarget:Init(opts)
-    print("[VECTORTARGET] initializing")
+   --print("[VECTORTARGET] initializing")
     if not self.initializedPrecache then
-        print("[VECTORTARGET] warning: VectorTarget:Precache was not called before Init.")
+       --print("[VECTORTARGET] warning: VectorTarget:Precache was not called before Init.")
     end
     opts = opts or { }
     if not opts.noEventListeners then
@@ -67,7 +67,7 @@ end
 -- call this in your init function to start listening to events
 function VectorTarget:InitEventListeners()
     if self.initializedEventListeners then return end
-    print("[VECTORTARGET] registering event listeners")
+   --print("[VECTORTARGET] registering event listeners")
     -- Note: wrapping the calls in an anonymous function allows reloading to work properly
     --ListenToGameEvent("npc_spawned", function(...) self:_OnNpcSpawned(...) end, {})
     CustomGameEventManager:RegisterListener("vector_target_order_cancel", function(...) self:_OnVectorTargetOrderCancel(...) end)
@@ -79,7 +79,7 @@ end
 -- call this in your init code to initialize the library's SetExecuteOrderFilter
 function VectorTarget:InitOrderFilter()
     -- if self.initializedOrderFilter then return end
-    -- print("[VECTORTARGET] registering ExecuteOrderFilter (use noOrderFilter option to prevent this)")
+    --print("[VECTORTARGET] registering ExecuteOrderFilter (use noOrderFilter option to prevent this)")
     -- local mode = GameRules:GetGameModeEntity()
     -- mode:ClearExecuteOrderFilter()
     -- mode:SetExecuteOrderFilter(function(_, data) return self:OrderFilter(data) end, {}) -- Note: wrapping the call in an anonymous function allows reloading to work properly
@@ -99,7 +99,7 @@ function VectorTarget:LoadKV(kvList, forgetSource)
         elseif type(kv) ~= "table" then
             error("[VECTORTARGET] LoadKV: expected string or table but got " .. type(kv) .. ": " .. tostring(kv))
         end
-        print("[VECTORTARGET] Loading KV data from: " .. (kvFile or tostring(kv)))
+       --print("[VECTORTARGET] Loading KV data from: " .. (kvFile or tostring(kv)))
         for name, keys in pairs(kv) do
             if type(keys) == "table" then
                 keys = keys["VectorTarget"]
@@ -110,7 +110,7 @@ function VectorTarget:LoadKV(kvList, forgetSource)
                     self.abilityKeys[name] = keys
                 end
             else
-                print("[VECTORTARGET] Warning: Expected a table for ability definition " .. name .. " but got " .. type(keys) .. " instead.")
+               --print("[VECTORTARGET] Warning: Expected a table for ability definition " .. name .. " but got " .. type(keys) .. " instead.")
             end
         end
         if not forgetSource then
@@ -224,7 +224,7 @@ function VectorTarget:WrapAbility(abil, reloading)
     local abiName = abil:GetAbilityName()
     local cName = abil:GetClassname()
     if "ability_lua" ~= cName and "item_lua" ~= cName then
-        print("[VECTORTARGET] Warning: " .. abiName .. " is not a Lua ability/item and cannot be vector targeted.")
+       --print("[VECTORTARGET] Warning: " .. abiName .. " is not a Lua ability/item and cannot be vector targeted.")
         return
     end
     if not reloading and abil.isVectorTarget then
@@ -617,7 +617,7 @@ end
 function queue.push(q, value, seqN)
     --print("push", q.first, q.last, q.len)
     --[[if q:length() >= MAX_ORDER_QUEUE then
-        print("[VECTORTARGET] warning: order queue has reached limit of " .. MAX_ORDER_QUEUE)
+       --print("[VECTORTARGET] warning: order queue has reached limit of " .. MAX_ORDER_QUEUE)
         return
     end]]
     if seqN == nil then

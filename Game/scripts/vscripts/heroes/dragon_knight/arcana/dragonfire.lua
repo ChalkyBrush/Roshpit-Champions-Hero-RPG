@@ -163,7 +163,7 @@ function flame_proj_hit(event)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_dragonflame_armor_shred", {duration = 0.5})
 	local stacks = target:GetModifierStackCount("modifier_dragonflame_armor_shred", caster)
 	target:SetModifierStackCount("modifier_dragonflame_armor_shred", caster, stacks + 1)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
 function dragon_attack(event)

@@ -101,8 +101,8 @@ function demon_flight_end_thinking(event)
 			if not caster:HasModifier("modifier_super_ascendency_trigger") then
 				caster:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
 			end
-			print("MODEL BACK!!")
-			print("#$#@$#$#")
+			--print("MODEL BACK!!")
+			--print("#$#@$#$#")
 			Timers:CreateTimer(0.06, function()
 				if not caster:HasModifier("modifier_nights_procession_caster_lifting") then
 					StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.3, translate="wraith_spin"})
@@ -111,7 +111,7 @@ function demon_flight_end_thinking(event)
 				end
 			end)
 		end
-		if caster:GetAbilityByIndex(2):GetAbilityName() == "chernobog_demon_warp" then
+		if caster:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_warp" then
 			CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_warp", "chernobog_demon_flight", 2)
 		end
 		caster:RemoveModifierByName("modifier_demon_warp_freecast")
@@ -274,7 +274,7 @@ function demon_walk_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	if caster:HasModifier("modifier_chernobog_arcana2") then
-		if caster:GetAbilityByIndex(2):GetAbilityName() == "chernobog_demon_warp" then
+		if caster:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_warp" then
 			if caster:HasModifier("modifier_chernobog_demon_form") then
 				CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_warp", "chernobog_demon_walk", 2)
 			else

@@ -255,7 +255,7 @@ end
 function ability_1_position_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local castAbility = caster:GetAbilityByIndex(0)
+	local castAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
 	if caster.castLock then
 		return false
 	end
@@ -289,7 +289,7 @@ function ability_1_target_think(event)
 	end
 	local radius = caster.targetRadius
 	local minRadius = caster.minRadius
-	local castAbility = caster:GetAbilityByIndex(0)
+	local castAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
 	local cooldown = caster.targetAbilityCD*2
 	local targetFindOrder = caster.targetFindOrder
 	if caster.interval%cooldown == 0 and caster.aggro then
@@ -330,11 +330,11 @@ function ability_1_no_target_ai(event)
 	if not radius or type(radius) ~= "float" then
 		radius = 450
 	end
-	local castAbility = caster:GetAbilityByIndex(0)
+	local castAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
 	if not caster.autoAbilityCD then
 		caster.aggro = true
 		caster.autoAbilityCD = 1
-		print("ability_1_no_target_ai caster.autoAbilityCD")
+		--print("ability_1_no_target_ai caster.autoAbilityCD")
 		return
 	end	
 	local cooldown = caster.autoAbilityCD*2
@@ -371,7 +371,7 @@ function ability_1_position_think_generic(event)
 	if caster.castLock then
 		return false
 	end
-	local castAbility = caster:GetAbilityByIndex(0)
+	local castAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
 	
 	local radius = caster.targetRadius
 	if not radius or type(radius) ~= "float" then
@@ -381,7 +381,7 @@ function ability_1_position_think_generic(event)
 	if not caster.targetAbilityCD then
 		caster.aggro = true
 		caster.targetAbilityCD = 1
-		print("ability_1_position_think_generic caster.targetAbilityCD")
+		--print("ability_1_position_think_generic caster.targetAbilityCD")
 		return
 	end
 	local cooldown = caster.targetAbilityCD*2
@@ -474,7 +474,7 @@ function hero_summon_off(event)
 		caster.conjuror.bIsAIonEARTH = false
 	elseif caster:GetUnitName() == "fire_aspect" and caster:GetHealth() > 0 then
 		caster.conjuror.bIsAIonFIRE = false
-		print("here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+		--print("here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 	elseif caster:GetUnitName() == "shadow_aspect" and caster:GetHealth() > 0 then
 		caster.conjuror.bIsAIonSHADOW = false
 	end
@@ -540,7 +540,7 @@ end
 
 function dungeon_thinker_activate(event)
 	local caster = event.caster
-	print("DUNGEON THINKER ACTIVATE")
+	--print("DUNGEON THINKER ACTIVATE")
 	if caster.name == "crimsythCastleSwitch" then
 		Redfall:CastleWaterRoomSwitch(caster)
 	elseif caster.name == "waterTempleSnakeSwitch" then

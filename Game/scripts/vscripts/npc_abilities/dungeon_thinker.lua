@@ -218,7 +218,7 @@ function typeRedirect(caster, position, units)
 end
 
 function grizzlyFallsCaveEntrance(position)
-	print("CAVE SOUDNS?!?!?")
+	--print("CAVE SOUDNS?!?!?")
 	EmitGlobalSound("Ambient.CaveEntrance")
 	if Dungeons.grizzlyStatus >= 1 then
 		if not Dungeons.tank_ally:IsNull() then
@@ -278,7 +278,7 @@ function InitializeHermit(caster)
 	caster.jumpEnd = "hermit"
 	Timers:CreateTimer(1, function()
 		local fv = (Vector(9280, -9728) - hermit:GetAbsOrigin()):Normalized()
-		print(fv)
+		--print(fv)
 		StartAnimation(hermit, {duration=3, activity=ACT_DOTA_SPAWN, rate=0.6})
 		WallPhysics:Jump(hermit, fv, 66, 50, 30, 1)
 		for i = 1, 45, 1 do
@@ -966,7 +966,7 @@ function spikeTrap(caster, position, units)
 					if #enemies > 0 then
 						for _,enemy in pairs(enemies) do
 							local damage = 0
-							print(enemy:GetName())
+							--print(enemy:GetName())
 							if enemy:GetUnitName() == "unreal_terror" then
 								damage = 150000
 								ApplyDamage({ victim = enemy, attacker = MAIN_HERO_TABLE[RandomInt(1, #MAIN_HERO_TABLE)], damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
@@ -1176,7 +1176,7 @@ function sand_boss(caster)
 	sandBoss:RemoveModifierByName("modifier_tomb_boss_ability_prefight")
 	sandBossAbility:ApplyDataDrivenModifier(sandBoss, sandBoss, "modifier_tomb_boss_growing", {duration = 6.5})
 	Timers:CreateTimer(0.5, function()
-		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = sandBoss:GetUnitName(), bossMaxHealth = sandBoss:GetMaxHealth()})
+		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = sandBoss:GetUnitName(), bossMaxHealth = sandBoss:GetMaxHealth(), bossId = tostring(sandBoss)})
 		EmitGlobalSound("shop_jbrice_01.stinger.dire_lose")
 	end)
 end

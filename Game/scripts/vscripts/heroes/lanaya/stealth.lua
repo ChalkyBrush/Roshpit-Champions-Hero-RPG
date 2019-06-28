@@ -170,10 +170,10 @@ if caster:IsAlive() then
   	-- end
   	-- local stealth = caster:FindAbilityByName("trapper_stealth")
   	-- backstab:SetLevel(stealth:GetLevel())
-  	-- backstab:SetAbilityIndex(DOTA_ULTIMATE_SLOT)
-  	-- stealth:SetAbilityIndex(DOTA_ULTIMATE_SLOT) 
+  	-- backstab:SetAbilityIndex(DOTA_R_SLOT)
+  	-- stealth:SetAbilityIndex(DOTA_R_SLOT) 
   	-- caster:SwapAbilities("trapper_stealth", "trapper_backstab", false, true)
-  	CustomAbilities:AddAndOrSwapSkill(caster, "trapper_stealth", "trapper_backstab", DOTA_ULTIMATE_SLOT)
+  	CustomAbilities:AddAndOrSwapSkill(caster, "trapper_stealth", "trapper_backstab", DOTA_R_SLOT)
 
     if caster:HasModifier("modifier_trapper_arcana1") then
     	caster.w_4_arcana_level = caster:GetRuneValue("w", 4)
@@ -248,9 +248,9 @@ function switchOutOfStealth(caster)
 
 	-- local level = caster:FindAbilityByName("trapper_backstab"):GetLevel()
  --  	caster:FindAbilityByName("trapper_stealth"):SetLevel(level)
- --  	caster:FindAbilityByName("trapper_stealth"):SetAbilityIndex(DOTA_ULTIMATE_SLOT)
+ --  	caster:FindAbilityByName("trapper_stealth"):SetAbilityIndex(DOTA_R_SLOT)
  --  	caster:SwapAbilities("trapper_stealth", "trapper_backstab", true, false)
- 	CustomAbilities:AddAndOrSwapSkill(caster, "trapper_backstab", "trapper_stealth", DOTA_ULTIMATE_SLOT)
+ 	CustomAbilities:AddAndOrSwapSkill(caster, "trapper_backstab", "trapper_stealth", DOTA_R_SLOT)
   	CustomGameEventManager:Send_ServerToPlayer(caster:GetPlayerOwner(), "ability_tree_upgrade", {})
 
     if caster:HasModifier("modifier_trapper_arcana1") then
@@ -277,7 +277,7 @@ function backstab_channel_succeed(event)
 	Filters:CastSkillArguments(4, caster)
 	local moveToPosition = target:GetAbsOrigin() - target:GetForwardVector()*110
 	local casterFV = (target:GetAbsOrigin()*Vector(1,1,0) - moveToPosition*Vector(1,1,0)):Normalized()*Vector(1,1,0)
-	print(casterFV)
+	--print(casterFV)
 	caster:SetForwardVector(casterFV)
 	caster:SetAbsOrigin(moveToPosition)
 	WallPhysics:Jump(caster, caster:GetForwardVector(), 0, 40, 10, 0.3)
@@ -299,7 +299,7 @@ function backstab_channel_succeed(event)
 			end)
 			EmitSoundOn("Trapper.BackstabStrike", target)			
 			caster:RemoveModifierByName("modifier_trapper_stealth")	
-			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 			PopupDamage(target, damage)
 			if a_d_level > 0 then
 				rune_r_1(caster, ability, target:GetAbsOrigin())
@@ -350,7 +350,7 @@ function trapper_a_d_projectile_strike(event)
 	local target = event.target
 	local ability = event.ability
 	local damage = ability.r_1_damage
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 
 	local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
 	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
@@ -384,7 +384,7 @@ function backstab_target_check(event)
 	local caster = event.caster
 	local target = event.target
 	if caster:GetTeamNumber() == target:GetTeamNumber() then
-		print(target:GetUnitName())
+		--print(target:GetUnitName())
 		if target:GetUnitName() == "lanaya_decoy" then
 			Timers:CreateTimer(1.6, function()
 				target:RemoveModifierByName("modifier_decoy_effect")

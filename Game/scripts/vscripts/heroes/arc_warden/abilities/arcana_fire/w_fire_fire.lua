@@ -70,7 +70,7 @@ function jex_w_fire_thinker(event)
 								local enemies = FindUnitsInRadius( caster:GetTeamNumber(), missle.lockPoint, nil, 250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 								if #enemies > 0 then
 									for _,enemy in pairs(enemies) do
-										Filters:TakeArgumentsAndApplyDamage(enemy, caster, ability.damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+										Filters:TakeArgumentsAndApplyDamage(enemy, caster, ability.damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 										if ability.w_4_level > 0 then
 											ability:ApplyDataDrivenModifier(caster, enemy, "modifier_w_fire_fire_as_slow", {duration = 4})
 										end

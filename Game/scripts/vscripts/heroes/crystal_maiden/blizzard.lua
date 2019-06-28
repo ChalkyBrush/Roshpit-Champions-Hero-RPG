@@ -150,7 +150,7 @@ function BlizzardWave( event )
 		Timers:CreateTimer(0.35,function()
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_blizzard_slow", {duration = event.slow_duration})
 					if caster:HasModifier("modifier_sorceress_glyph_1_1") then
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_sorceress_glyph_1_1_effect", {duration = event.slow_duration})
@@ -193,8 +193,8 @@ function BlizzardWave( event )
 							table.insert(newTable, dummy)
 						end
 					end
-					print("---#NEWTABLE----")
-					print(#newTable)
+					--print("---#NEWTABLE--")
+					--print(#newTable)
 					if #newTable == 0 then
 						StopSoundEvent("hero_Crystal.freezingField.wind", caster)
 					end

@@ -15,12 +15,14 @@ function Amulet:AdjustAttackPowerBonus(hero, value)
 end
 
 function Amulet:add_modifiers(hero, inventory_unit, item)
-	print("[Amulet:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	--print("[Amulet:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	--DeepPrintTable(item)
 	if not item.newItemTable then
-		print("[Error] Amulet:add_modifiers item.newItemTable is null")
+		--print("[Error] Amulet:add_modifiers item.newItemTable is null")
 		RPCItems:ItemUTIL_Remove(item)
 		return
 	end
+	--print("[Amulet:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
 	local trinket_ability = inventory_unit:FindAbilityByName("trinket_slot")
 	trinket_ability.strength = 0
 	trinket_ability.agility = 0
@@ -66,9 +68,9 @@ end
 
 
 function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinket_ability, item)
-	print("[Amulet:action] propertyName:"..tostring(propertyName))
+	--print("[Amulet:action] propertyName:"..tostring(propertyName))
 	if type(propertyValue) == "string" then
-		print("[action] type(propertyValue) == string")
+		--print("[action] type(propertyValue) == string")
 		propertyValue = 1
 	end
 	if propertyName == "strength" then
@@ -277,7 +279,7 @@ function Amulet:runeProperty(propertyName, propertyValue, hero)
 		end
 	end
 	if type(propertyValue) == "string" then
-		print("[Amulet:runeProperty] propertyValue:"..propertyValue)
+		--print("[Amulet:runeProperty] propertyValue:"..propertyValue)
 		return
 	end
 	if propertyName == "rune_q_1" then
@@ -344,12 +346,12 @@ AVAILABLE_RUNE_TABLE = {"rune_q_1", "rune_w_1", "rune_e_1", "rune_r_1", "rune_q_
 
 function Amulet:setRuneBonusNetTable(value, rune, hero)
 	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_"..rune.."_amulet", {bonus = value} )
-	print("Setting Rune Net Table: ")
-	print(tostring(hero:GetEntityIndex()).."_"..rune.."_amulet")
+	--print("Setting Rune Net Table: ")
+	--print(tostring(hero:GetEntityIndex()).."_"..rune.."_amulet")
 end
 
 function Amulet:addBasicModifier(propertyValue, hero, inventory_unit, modifier_name, trinket_ability)
-	print(inventory_unit)
+	--print(inventory_unit)
 	--local stacks = hero:GetModifierStackCount(modifierName, inventory_unit)
 	local amulet_ability = inventory_unit:FindAbilityByName("trinket_slot")
 	amulet_ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})

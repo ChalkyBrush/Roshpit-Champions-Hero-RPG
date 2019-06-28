@@ -2,7 +2,7 @@
 	"auriun_rune_q_1_arcana2"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -39,7 +39,7 @@
 	"auriun_rune_q_2_arcana2"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -60,7 +60,7 @@
 	"auriun_rune_q_3_arcana2"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -81,7 +81,7 @@
 	"auriun_rune_q_4_arcana2"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"

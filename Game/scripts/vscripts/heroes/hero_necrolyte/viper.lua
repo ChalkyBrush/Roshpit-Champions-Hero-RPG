@@ -134,7 +134,7 @@ function attack_land(event)
                 end
             end
         else
-            Filters:TakeArgumentsAndApplyDamage(target, creator, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
+            Filters:TakeArgumentsAndApplyDamage(target, creator, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
         end
 
     end

@@ -8,11 +8,11 @@ function RPCItems:RollBlaster(xpBounty, deathLocation, rarity, isShop, type, her
 	local blaster_variant = BASE_BLASTER_TABLE[randomHelm]
     local item = RPCItems:CreateItem(blaster_variant, nil, nil)
     item.newItemTable.rarity = rarity
-    print("rarity:")
-    print(rarity)
+   --print("rarity:")
+   --print(rarity)
     local rarityValue = RPCItems:GetRarityFactor(rarity)
-    print("rarityValue:")
-    print(rarityValue)
+   --print("rarityValue:")
+   --print(rarityValue)
     if blaster_variant == "item_fire_blaster" then
         item_name = "Fire Cannon"
         item.newItemTable.type = "fire"
@@ -29,7 +29,7 @@ function RPCItems:RollBlaster(xpBounty, deathLocation, rarity, isShop, type, her
     local suffix = RPCItems:RollBlasterProperty1(item, xpBounty)
     if rarityValue >= 2 then
     	prefix = RPCItems:RollBlasterProperty2(item, xpBounty)
-    	print(prefix)
+    	--print(prefix)
     else
     	prefix = ""
     end

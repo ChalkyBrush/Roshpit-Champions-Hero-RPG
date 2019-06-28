@@ -826,7 +826,7 @@ function Winterblight:SpawnCaveWaveUnit(unitName, spawnPoint, quantity, delay, b
         unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
       Events:AdjustDeathXP(unit)
       end
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
         unit.dominion = true
         unit.deathCode = 1
         Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_winterblight_wave_unit", {})
@@ -835,14 +835,14 @@ function Winterblight:SpawnCaveWaveUnit(unitName, spawnPoint, quantity, delay, b
         unit.aggro = true
         Winterblight:AdjustWaveUnit(unit)
       else
-        for i = 1, #unit, 1 do
-          unit[i].aggro = true
-          unit[i].dominion = true
-          unit[i]:SetAcquisitionRange(3000)
-          unit[i].deathCode = 1
-          Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit[i], "modifier_winterblight_wave_unit", {})
-          CustomAbilities:QuickAttachParticle("particles/econ/items/winter_wyvern/winter_wyvern_ti7/wyvern_cold_embrace_ti7buff_beams.vpcf", unit[i], 2)
-          Winterblight:AdjustWaveUnit(unit[i])
+        for i = 1, #unit.buddiesTable, 1 do
+          unit.buddiesTable[i].aggro = true
+          unit.buddiesTable[i].dominion = true
+          unit.buddiesTable[i]:SetAcquisitionRange(3000)
+          unit.buddiesTable[i].deathCode = 1
+          Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit.buddiesTable[i], "modifier_winterblight_wave_unit", {})
+          CustomAbilities:QuickAttachParticle("particles/econ/items/winter_wyvern/winter_wyvern_ti7/wyvern_cold_embrace_ti7buff_beams.vpcf", unit.buddiesTable[i], 2)
+          Winterblight:AdjustWaveUnit(unit.buddiesTable[i])
         end
       end
     end)
@@ -931,7 +931,7 @@ function Winterblight:FinishCaveWaves()
     	if Winterblight.caveSpawnRotateAccel > 0 then
     		return FrameTime()
     	else
-    		print("REMOVE PARTICLES")
+    		--print("REMOVE PARTICLES")
     		for i = 1, #Winterblight.CaveSpawnParticleTable, 1 do
     			ParticleManager:DestroyParticle(Winterblight.CaveSpawnParticleTable[i], false)
     		end
@@ -1728,7 +1728,7 @@ function Winterblight:StartOrbSequence()
 			Timers:CreateTimer(0.3*(i-1) + (j-1)*3, function()
 				local orbPos = GetGroundPosition(basePos + Vector(differenceI*(i-0.5)+RandomInt(-200, 200), differenceJ*(j-0.5)+RandomInt(-400, 400)), Events.GameMaster) 
 				local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
-				print(orbPos)
+				--print(orbPos)
 				local startHeight = 900+RandomInt(0, 200)
 				local endHeight = 380+RandomInt(0, 210)
 				ParticleManager:SetParticleControl(pfx, 0, orbPos + Vector(0,0,startHeight))
@@ -1792,7 +1792,7 @@ function Winterblight:SpawnAzaleaWaveUnit(unitName, spawnPoint, quantity, delay,
         unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
       Events:AdjustDeathXP(unit)
       end
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
         unit.dominion = true
         unit.deathCode = 2
         Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_winterblight_wave_unit", {})
@@ -1802,15 +1802,15 @@ function Winterblight:SpawnAzaleaWaveUnit(unitName, spawnPoint, quantity, delay,
         Winterblight:AdjustWaveUnit(unit)
         Winterblight:UnitDescendFromOrb(unit, spawnPoint)
       else
-        for i = 1, #unit, 1 do
-          unit[i].aggro = true
-          unit[i].dominion = true
-          unit[i]:SetAcquisitionRange(5000)
-          unit[i].deathCode = 2
-          Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit[i], "modifier_winterblight_wave_unit", {})
-          CustomAbilities:QuickAttachParticle("particles/econ/items/winter_wyvern/winter_wyvern_ti7/wyvern_cold_embrace_ti7buff_beams.vpcf", unit[i], 2)
-          Winterblight:AdjustWaveUnit(unit[i])
-          Winterblight:UnitDescendFromOrb(unit[i], spawnPoint)
+        for i = 1, #unit.buddiesTable, 1 do
+          unit.buddiesTable[i].aggro = true
+          unit.buddiesTable[i].dominion = true
+          unit.buddiesTable[i]:SetAcquisitionRange(5000)
+          unit.buddiesTable[i].deathCode = 2
+          Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit.buddiesTable[i], "modifier_winterblight_wave_unit", {})
+          CustomAbilities:QuickAttachParticle("particles/econ/items/winter_wyvern/winter_wyvern_ti7/wyvern_cold_embrace_ti7buff_beams.vpcf", unit.buddiesTable[i], 2)
+          Winterblight:AdjustWaveUnit(unit.buddiesTable[i])
+          Winterblight:UnitDescendFromOrb(unit.buddiesTable[i], spawnPoint)
         end
       end
     end)
@@ -1909,7 +1909,7 @@ function Winterblight:StatueSlotStart(statue_index)
 	local delay = 0
 	local colorRotats = 25+RandomInt(1, 6)
 	local delay = 0
-	DeepPrintTable(potentialColors)
+	--DeepPrintTable(potentialColors)
 	for i = 1, colorRotats, 1 do
 		delay = delay + 0.03*i 
 		Timers:CreateTimer(delay, function()

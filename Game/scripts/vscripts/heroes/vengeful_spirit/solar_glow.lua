@@ -136,7 +136,7 @@ function flareImpact(caster, ability)
 					damage = damage + (enemy:GetMaxHealth()-enemy:GetHealth())*0.004*caster.q_3_level
 				end
 			end
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage, damageType, 1, RPC_ELEMENT_COSMOS, element2)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage, damageType, BASE_ABILITY_Q, RPC_ELEMENT_COSMOS, element2)
 			Filters:ApplyStun(caster.origCaster, caster.stun_duration, enemy)
 			b_a_stack_gain = b_a_stack_gain + 1
 		end
@@ -313,12 +313,12 @@ function a_a_projectile_hit(event)
 	end
 	local targetPoint = ability.targetPoint
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_solunia_a_a_root", {duration = 0.6})
-	print("TARGET HIT")
+	--print("TARGET HIT")
 	local distanceToPoint = WallPhysics:GetDistance2d(targetPoint, target:GetAbsOrigin())
 	local pushVector = (((targetPoint+ability.baseFV*200)-target:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	local divider = math.max(4000 - ability.rune_q_1_level*10, 1500)
 	target.solunia_a_a_push_vector = pushVector*(distanceToPoint/divider)*100
-	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.q_1_damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.q_1_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 end
 
 function a_a_push_end(event)

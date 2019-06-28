@@ -121,7 +121,7 @@ function hyperbeam_orb_thinking(event)
 			end
 			if #enemies > 0 then	
 				for _,enemy in pairs(enemies) do
-					-- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+					-- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 					local immunityStacks = enemy:GetModifierStackCount("modifier_hyperbeam_immunity", caster)
 					if not enemy:HasModifier("modifier_hyperbeam_freeze") then
 						EmitSoundOn("Dinath.HyperBeam.Freeze", enemy)
@@ -186,7 +186,7 @@ function hyperbeam_jolt(caster, hyperbeam, enemy)
         ParticleManager:DestroyParticle(lightningBolt, false)
         ParticleManager:ReleaseParticleIndex(lightningBolt)
       end)
-      Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_DRAGON, RPC_ELEMENT_LIGHTNING)
+      Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_DRAGON, RPC_ELEMENT_LIGHTNING)
     end
 end
 

@@ -63,7 +63,7 @@ function slipfinn_main_thinker(event)
 		caster:RemoveModifierByName("modifier_jump_not_attackable")
 	end
 	caster.speed = math.min(caster.speed + speedGain, caster.max_slip_speed)
-	-- print(caster.speed)
+	--print(caster.speed)
 	if distance > 300 then
 		caster.speed = 0
 	end
@@ -92,9 +92,9 @@ function slipfinn_main_thinker(event)
 				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 			end
 		end
-		-- print(caster.direction*caster.speed)
+		--print(caster.direction*caster.speed)
 		local angleDiff = math.abs(AngleDiff(WallPhysics:vectorToAngle(caster.direction), WallPhysics:vectorToAngle(caster:GetForwardVector())))
-		-- print(angleDiff)
+		--print(angleDiff)
 		if AngleDiff(WallPhysics:vectorToAngle(caster.direction), WallPhysics:vectorToAngle(caster:GetForwardVector())) > 15 and onGround then
 		else
 			local newPos = caster:GetAbsOrigin()+caster.direction*caster.speed
@@ -192,7 +192,7 @@ function slipfinn_jump_start(event)
 					caster.jumpPhase = 0
 					caster.speed = caster.speed*HIGH_JUMP_MULT
 					caster.highJump = true
-					print("HIGH JUMP!")
+					--print("HIGH JUMP!")
 					EmitSoundOn("Slipfinn.HighJump.VO", caster)
 				end
 			end
@@ -200,7 +200,7 @@ function slipfinn_jump_start(event)
 		jump_force(caster, ability, event.bog_roll)
 		ability.consecutive_bounces = 0
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_basic_jump", {duration = 6})
-		print("YO JUMPING DUDE")
+		--print("YO JUMPING DUDE")
 		caster.jumpPhase = caster.jumpPhase + 1	
 		caster.jumpLock = true
 		Filters:CastSkillArguments(2, caster)
@@ -210,7 +210,7 @@ function slipfinn_jump_start(event)
 end
 
 function jump_force(caster, ability, bog_roll)
-	print(caster.jumpPhase)
+	--print(caster.jumpPhase)
 	local jumpDelay = 0
 	if caster:HasModifier("modifier_slipfinn_prone") then
 		caster:RemoveModifierByName("modifier_slipfinn_prone")
@@ -304,8 +304,8 @@ function jump_force(caster, ability, bog_roll)
 
 	end)
 
-	print("JUMP FORCE")
-	print(caster.jump_force)
+	--print("JUMP FORCE")
+	--print(caster.jump_force)
 end
 
 function slipfinn_jump_think(event)
@@ -330,11 +330,11 @@ function slipfinn_jump_think(event)
 			for _,enemy in pairs(enemies) do
 				if enemy:HasModifier("modifier_possession_enemy_lock") then
 				else
-					print(enemy:GetBoundingMaxs().z)
+					--print(enemy:GetBoundingMaxs().z)
 					local headPos = enemy:GetAbsOrigin().z + enemy:GetBoundingMaxs().z
 					if (height > (headPos - 50)) and (height < (headPos+ 50)) then
 						jumpEnemy = enemy
-						print("FOUND ENEMY")
+						--print("FOUND ENEMY")
 						break
 					end
 				end
@@ -359,7 +359,7 @@ function slipfinn_jump_think(event)
 				caster.jump_force = math.max(math.min(caster.jump_force + 40+ability.consecutive_bounces*4 + glyphBonus, 40+ability.consecutive_bounces*4 + glyphBonus), 10)
 				caster.direction = caster:GetForwardVector()
 				caster.speed = caster.speed + 0.5
-				print(caster.speed)
+				--print(caster.speed)
 				caster.speed = math.max(1, caster.speed)
 				EmitSoundOn("Slipfinn.Bounce", jumpEnemy)
 				local animation_duration = 1.9
@@ -390,7 +390,7 @@ function slipfinn_jump_think(event)
 					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), jumpEnemy:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 					if #enemies > 0 then
 						for _,enemy in pairs(enemies) do
-							Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_b_damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_SHADOW, RPC_ELEMENT_WATER)
+							Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_b_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_SHADOW, RPC_ELEMENT_WATER)
 							if ability.w_2_level > 0 then
 								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_slipfinn_gloomshade_visible", {duration = 10})
 								local newStacks = enemy:GetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster) + 1
@@ -433,7 +433,7 @@ function slipfinn_jump_think(event)
 end
 
 function jump_land(caster, ability)
-	print("LAND")
+	--print("LAND")
 	caster:RemoveModifierByName("modifier_slipfinn_basic_jump")
 	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 	caster.max_slip_speed = MAX_SLIP_SPEED
@@ -465,16 +465,16 @@ function jump_land(caster, ability)
 		else
 			EmitSoundOn("Slipfinn.Ground3", caster)
 		end
-		print("HEAVY")
+		--print("HEAVY")
 	elseif caster.jump_force < -35 then
 		if caster:HasModifier("slipfinn_bog_roller_lua") then
 			EmitSoundOn("Slipfinn.BogRoller.CollisionLand2", caster)
 		else
 			EmitSoundOn("Slipfinn.Ground2", caster)
 		end
-		print("MED")
+		--print("MED")
 	else
-		print("LIGHT")
+		--print("LIGHT")
 		if caster:HasModifier("slipfinn_bog_roller_lua") then
 			EmitSoundOn("Slipfinn.BogRoller.CollisionLand1", caster)
 		else
@@ -487,7 +487,7 @@ function jump_land(caster, ability)
 	end
 	caster.jumpLock = false
 	EndAnimation(caster)	
-	print(caster.jumpPhase)
+	--print(caster.jumpPhase)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_jump_phase", {duration = 0.8})
 	caster:RemoveModifierByName("modifier_jump_not_attackable")
 end
@@ -504,7 +504,7 @@ function bog_roller_e_4_explosion(caster, radius)
 			for _,enemy in pairs(enemies) do
 				local stun_duration = SLIPFINN_E4_STUN_DURATION*e_4_level
 				local damage = (SLIPFINN_E4_DAMAGE_ATK_POWER_PCT/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)*e_4_level
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WATER, RPC_ELEMENT_SHADOW)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_WATER, RPC_ELEMENT_SHADOW)
 				Filters:ApplyStun(caster, stun_duration, enemy)	
 			end
 		end 

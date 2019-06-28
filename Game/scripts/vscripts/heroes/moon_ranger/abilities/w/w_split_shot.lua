@@ -129,7 +129,7 @@ function projectileHit(event)
     local target = event.target
     local caster = event.caster
     local damage = event.ability.damage
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
     AstralSteal.projectileHit(event)
     ClusterArrow.projectileHit(event)
 end

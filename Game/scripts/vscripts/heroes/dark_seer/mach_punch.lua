@@ -18,7 +18,7 @@ function mach_punch_cancel(event)
 	local caster = event.caster
 	local ability = event.ability
 	EndAnimation(caster)
-	print("punch cancel")
+	--print("punch cancel")
 	if ability.pfx1 then
 		ParticleManager:DestroyParticle(ability.pfx1, false)
 		ParticleManager:ReleaseParticleIndex(ability.pfx1)
@@ -45,7 +45,7 @@ function mach_punch_cast(event)
 	local damageMult = event.damage_mult
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*damageMult/100
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_mach_punch_amp", {duration = 0.2})	
-	print("MACH PUNCH GO!")
+	--print("MACH PUNCH GO!")
 	if caster:HasModifier("modifier_temporal_discharge") then
 		local stacks = caster:GetModifierStackCount("modifier_temporal_discharge", caster)
 		local w_2_level = caster:GetRuneValue("w", 2)
@@ -55,7 +55,7 @@ function mach_punch_cast(event)
 	if event.arcana_missle_amp then
 		damage = damage*event.arcana_missle_amp
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_TIME)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_TIME)
 	local w_1_level = caster:GetRuneValue("w", 1)
 	if w_1_level > 0 then
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/zonik/sonic_boom_fallback_mid_egset.vpcf", PATTACH_CUSTOMORIGIN, caster )
@@ -64,7 +64,7 @@ function mach_punch_cast(event)
 		local particleRadius2 = 270
 		local searchRadius = 300
 		if caster:HasModifier("modifier_zonik_glyph_4_1") then
-			print('glyphed')
+			--print('glyphed')
 			particleRadius = particleRadius*(1+ZHONIK_GLYPH_4_1_SONIC_RADIUS/100)
 			searchRadius = searchRadius*(1+ZHONIK_GLYPH_4_1_SONIC_RADIUS/100)
 			particleRadius2 = particleRadius2*(1+ZHONIK_GLYPH_4_1_SONIC_RADIUS/100)
@@ -80,7 +80,7 @@ function mach_punch_cast(event)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_b_damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_TIME)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_b_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_TIME)
 
 			end
 		end 		
@@ -101,7 +101,7 @@ function mach_punch_cast(event)
 							eventTable.cancelAnim = true
 							eventTable.ability = caster:FindAbilityByName("zonik_mach_punch")
 							eventTable.damage_mult = eventTable.ability:GetLevelSpecialValueFor("damage_mult", eventTable.ability:GetLevel())
-							print(eventTable.damage_mult)
+							--print(eventTable.damage_mult)
 							eventTable.stun_duration = eventTable.ability:GetLevelSpecialValueFor("stun_duration", eventTable.ability:GetLevel())
 							Timers:CreateTimer(0.1, function()
 								mach_punch_cast(eventTable)
@@ -166,7 +166,7 @@ function mach_punch_think(event)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, c_b_damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, c_b_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 					Filters:ApplyStun(caster, stun_duration, enemy)
 				end
 			end 
@@ -189,8 +189,8 @@ function mach_punch_attack_land(event)
 				target.zonikEcho = 0
 			end
 			target.zonikEcho = target.zonikEcho + attack_damage*w_4_level*ZHONIK_W4_ECHO_DMG_PCT/100
-			print(target.zonikEcho)
-			print(target:GetEntityIndex())
+			--print(target.zonikEcho)
+			--print(target:GetEntityIndex())
 		end
 	end
 end
@@ -203,7 +203,7 @@ function zonik_echo_end(event)
 	end
 	if target:IsAlive() then
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_backstab_jumping", {duration = 0.2})
-		Filters:TakeArgumentsAndApplyDamage(target, caster, target.zonikEcho, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, target.zonikEcho, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 		caster:RemoveModifierByName("modifier_backstab_jumping")
 		target.zonikEcho = false
 		CustomAbilities:QuickAttachParticleWithPointFollow("particles/roshpit/zonik/echo.vpcf", target, 2.6, "attach_hitloc")

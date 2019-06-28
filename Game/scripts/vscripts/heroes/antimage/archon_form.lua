@@ -136,7 +136,7 @@ function a_d_field_thinker_think(event)
         for _,enemy in pairs(enemies) do
         	-- if enemy.dummy then
         	-- else
-        		Filters:TakeArgumentsAndApplyDamage(enemy, caster, dividedDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+        		Filters:TakeArgumentsAndApplyDamage(enemy, caster, dividedDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
         	-- end
         end
     end 

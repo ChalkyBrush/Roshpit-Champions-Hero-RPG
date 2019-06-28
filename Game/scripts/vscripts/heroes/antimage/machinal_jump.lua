@@ -53,7 +53,7 @@ function arkimus_jump_think(event)
 	-- end
 	local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
 	if height < math.abs(ability.liftVelocity) then
-		print(height)
+		--print(height)
 		if not ability.rising then
 			caster:RemoveModifierByName("modifier_machinal_jump")
 		end
@@ -96,7 +96,7 @@ function jump_end(event)
 	        	CreateZonisBeam(caster:GetAbsOrigin(), enemy:GetAbsOrigin()+Vector(0,0,50))
 	        	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_stun", {duration = 0.2})
 	        	Filters:ApplyStun(caster, 0.2, enemy)
-	        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_ARCANE, RPC_ELEMENT_LIGHTNING)
+	        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_ARCANE, RPC_ELEMENT_LIGHTNING)
 	        end
 	    else
 	    	for i = 1, 3, 1 do
@@ -158,7 +158,7 @@ function jump_passive_think_2(event)
 		if manaDifferential > 0 then
 
 			local heal = manaDifferential * e_2_level
-			print("HEAL: "..heal)
+			--print("HEAL: "..heal)
 			Filters:ApplyHeal(caster, caster, heal, true,false)
 		end
 		ability.lastMana = caster:GetMana()

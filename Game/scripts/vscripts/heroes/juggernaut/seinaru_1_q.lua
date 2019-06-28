@@ -111,7 +111,7 @@ function gust_impact(event)
 		target:SetModifierStackCount("modifier_seinaru_rune_q_3_postmitigation_take", caster, ability.q_3_level)
 	end
 
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 end
 
 function kaze_pushback_think(event)

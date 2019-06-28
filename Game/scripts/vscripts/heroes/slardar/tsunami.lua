@@ -47,9 +47,9 @@ function channel_complete(event)
 
 			local hydroxis_tsunami_ability_LVL = hydroxis_tsunami_ability:GetLevel()-1
 
-			-- print("hydroxis / "..hydroxis_tsunami_ability:GetLevelSpecialValueFor("strength_damage", hydroxis_tsunami_ability_LVL))
-			-- print("hydroxis / "..hydroxis_tsunami_ability:GetLevelSpecialValueFor("stun_duration", hydroxis_tsunami_ability_LVL))
-			-- print("hydroxis / "..hydroxis_tsunami_ability:GetLevelSpecialValueFor("slow_duration", hydroxis_tsunami_ability_LVL))
+			----print("hydroxis / "..hydroxis_tsunami_ability:GetLevelSpecialValueFor("strength_damage", hydroxis_tsunami_ability_LVL))
+			----print("hydroxis / "..hydroxis_tsunami_ability:GetLevelSpecialValueFor("stun_duration", hydroxis_tsunami_ability_LVL))
+			----print("hydroxis / "..hydroxis_tsunami_ability:GetLevelSpecialValueFor("slow_duration", hydroxis_tsunami_ability_LVL))
 
 			damage = hydroxis_tsunami_ability:GetLevelSpecialValueFor("strength_damage", hydroxis_tsunami_ability_LVL)*caster:GetStrength()
 			stunDuration = hydroxis_tsunami_ability:GetLevelSpecialValueFor("stun_duration", hydroxis_tsunami_ability_LVL)
@@ -60,7 +60,7 @@ function channel_complete(event)
 			damage = damage * (1 + HYDROXIS_R1_BAD_PCT_PER_ARMOR * r_1_level * caster:GetPhysicalArmorValue(false))
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_WATER, RPC_ELEMENT_EARTH)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_WATER, RPC_ELEMENT_EARTH)
 					Filters:ApplyStun(caster, stunDuration, enemy)
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ocean_quake_slowed", {duration = slow_duration})
 					if r_1_level > 0 then
@@ -222,8 +222,8 @@ function tsunami_impact(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local damage = 85000*ability.r_2_level * (1 + HYDROXIS_R1_BAD_PCT_PER_ARMOR * ability.r_1_level * caster:GetPhysicalArmorValue(false)) * HYDROXIS_R1_RUNE_MULT
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+	local damage = 85000 * ability.r_2_level * (1 + HYDROXIS_R1_BAD_PCT_PER_ARMOR * ability.r_1_level * caster:GetPhysicalArmorValue(false)) * HYDROXIS_R1_RUNE_MULT
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 	local slow_duration = event.slow_duration
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_ocean_quake_slowed", {duration = slow_duration})
 end
@@ -287,5 +287,5 @@ function poseidon_wrath_attack_hit(event)
 	if caster:HasModifier("modifier_hydroxis_immortal_weapon_1") then
 		damage = damage*2
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 end

@@ -52,7 +52,7 @@ function RPCItems:CombineItems(msg)
 				Notifications:Top(playerID, {text="Item Not Found", duration=5, style={color="#EE2211"}, continue=true})
 				return false
 			end	
-			print(vessel.itemTable[i]:GetAbilityName())
+			--print(vessel.itemTable[i]:GetAbilityName())
 		end
 		Events.reroll = true
 		local newItem = nil
@@ -80,11 +80,11 @@ function RPCItems:CombineItems(msg)
 end
 
 function RPCItems:SynthCheckCombination2(item1, item2, position)
-	print("-------")
+	--print("-----")
 	local core_of_fire_table = {"item_tanari_core_of_fire_normal", "item_tanari_core_of_fire_elite", "item_tanari_core_of_fire_legend"}
 	local jex_weapon_table = {"item_rpc_jex_immortal_weapon_1", "item_rpc_jex_immortal_weapon_2", "item_rpc_jex_immortal_weapon_3"}
 	if (WallPhysics:DoesTableHaveValue(core_of_fire_table, item1:GetAbilityName()) and WallPhysics:DoesTableHaveValue(jex_weapon_table, item2:GetAbilityName())) or (WallPhysics:DoesTableHaveValue(core_of_fire_table, item2:GetAbilityName()) and WallPhysics:DoesTableHaveValue(jex_weapon_table, item1:GetAbilityName())) then
-		print("WE'RE IN")
+		--print("WE'RE IN")
 		local newItem = nil
 		local maxWeaponLevel = 50
 		if WallPhysics:DoesTableHaveValue(jex_weapon_table, item1:GetAbilityName()) then
@@ -341,11 +341,11 @@ function RPCItems:UseArcanaCache(caster, item)
 		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 			if result.StatusCode == 200 then
-				print( "POST response:\n" )
+				--print( "POST response:\n" )
 				for k,v in pairs( result ) do
-					print( string.format( "%s : %s\n", k, v ) )
+					--print( string.format( "%s : %s\n", k, v ) )
 				end
-				print( "Done." )
+				--print( "Done." )
 				local resultTable = JSON:decode(result.Body)
 				if resultTable.success == 1 then
 					RPCItems.LevelRoll = radiance

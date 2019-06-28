@@ -73,7 +73,7 @@ function zap_field_modifier_thinker(event)
 	        	end
 	        	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_stun_arcana1", {duration = 0.2})
 	        	Filters:ApplyStun(caster, 0.2, enemy)
-	        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_ARCANE, RPC_ELEMENT_LIGHTNING)
+	        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_ARCANE, RPC_ELEMENT_LIGHTNING)
 	        end
 	    end 
 	end

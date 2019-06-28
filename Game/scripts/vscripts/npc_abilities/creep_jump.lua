@@ -86,7 +86,7 @@ function slide_think(keys)
 	if not caster.holy_slide_velocity then
 		caster.holy_slide_velocity = 75
 	end
-	print(caster.holy_slide_velocity)
+	--print(caster.holy_slide_velocity)
 	local newPosition = origin+ability.forwardVector*caster.holy_slide_velocity
 	caster.holy_slide_velocity = math.max(caster.holy_slide_velocity - 9, 0)
 	caster:SetAbsOrigin(newPosition)

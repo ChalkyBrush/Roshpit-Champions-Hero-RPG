@@ -92,7 +92,7 @@ function hawk_screech_hit(event)
 
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_bear_roar_taunt", {duration = duration})
 	target:MoveToTargetToAttack(caster)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_TIME, RPC_ELEMENT_NATURE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_TIME, RPC_ELEMENT_NATURE)
 end
 
 function rend_start(event)
@@ -124,7 +124,7 @@ function rend_start(event)
 		EmitSoundOn("Draghor.Wolf.RendHitBasic", enemies[1])
 		local bBloodSound = false	
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, element1, element2)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, element1, element2)
 
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_stack", {duration = 8})
 			local rendStacks = enemy:GetModifierStackCount("modifier_wolf_rend_stack", caster)
@@ -222,7 +222,7 @@ function tornado_hit(event)
 	if ability.w_3_level > 0 then
 		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*ability.w_3_level
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NATURE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_WIND, RPC_ELEMENT_NATURE)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_hawk_tornado_debuff", {duration = 7})
 	if caster:HasModifier("modifier_djanghor_immortal_weapon_3") then
 		target:SetModifierStackCount("modifier_hawk_tornado_debuff", caster, 2)
@@ -234,7 +234,7 @@ function tornado_hit(event)
 	local rendStacks = enemy:GetModifierStackCount("modifier_wolf_rend_stack", caster)
 	local newStacks = math.min(2, rendStacks+1)
 	enemy:SetModifierStackCount("modifier_wolf_rend_stack", caster, newStacks)
-	print("RUN THIS??")
+	--print("RUN THIS??")
 
 	local armorLoss = (enemy:GetPhysicalArmorValue(false)+enemy:GetModifierStackCount("modifier_wolf_rend_armor_loss", caster))*0.5
 	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_armor_loss", {duration = 8})
@@ -357,7 +357,7 @@ end
 function sprint_end(event)
 	local ability = event.ability
 	local caster = event.caster
-	if caster:GetAbilityByIndex(2):GetAbilityName() == "draghor_year_beast_leap" then
+	if caster:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "draghor_year_beast_leap" then
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_year_beast_leap", "djanghor_year_beast_charge", 2)
 	end
 end
@@ -376,11 +376,11 @@ function charge_slide_think(event)
 	if ability.slideVelocity > 0 then
 		ability.slideVelocity = ability.slideVelocity - 2
 	end
-	print("slide think")
+	--print("slide think")
 end
 
 function charge_slide_end(event)
-	print("slide END")
+	--print("slide END")
 	local caster = event.caster
 	caster.EFV = nil
 end
@@ -502,7 +502,7 @@ function jump_think(event)
 	-- end
 	local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
 	if height < math.abs(ability.liftVelocity) then
-		print(height)
+		--print(height)
 		if not ability.rising then
 			caster:RemoveModifierByName("modifier_monkey_jump")
 		end
@@ -566,7 +566,7 @@ function jump_end(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_NATURE, RPC_ELEMENT_EARTH)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_NATURE, RPC_ELEMENT_EARTH)
 			Filters:ApplyStun(caster, stun_duration, enemy)
 		end
 	end 

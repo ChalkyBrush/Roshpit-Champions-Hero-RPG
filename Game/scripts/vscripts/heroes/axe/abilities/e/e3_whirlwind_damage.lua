@@ -4,7 +4,7 @@ local function damageEnemies(caster, enemies)
         local damage = caster.e_3_level * OverflowProtectedGetAverageTrueAttackDamage(caster)  * RED_GENERAL_E3_DAMAGE_PERCENT/100
         for _,enemy in pairs(enemies) do
             local damageWithWeapon = damage * ImmortalWeapon2.getAmp(caster, enemy)
-            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damageWithWeapon, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damageWithWeapon, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
             EmitSoundOn("RedGeneral.HitSpin", enemy)
             CustomAbilities:QuickParticleAtPoint("particles/roshpit/solunia/boomerang_impact.vpcf", enemy:GetAbsOrigin()+Vector(0,0,100), 0.5)
         end

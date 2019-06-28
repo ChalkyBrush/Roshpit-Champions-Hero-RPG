@@ -769,7 +769,7 @@ function challenger16ai(caster)
 	local stompAbility = caster:FindAbilityByName("fire_temple_hoof_stomp")
 	if stompAbility:IsFullyCastable() then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
-		DeepPrintTable(enemies)
+		--DeepPrintTable(enemies)
 		if #enemies > 0 then
 			local newOrder = {
 					UnitIndex = caster:entindex(),
@@ -818,7 +818,7 @@ function challenger15ai(caster)
 	local stompAbility = caster:FindAbilityByName("arena_riki_ult")
 	if stompAbility:IsFullyCastable() then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
-		DeepPrintTable(enemies)
+		--DeepPrintTable(enemies)
 		if #enemies > 0 then
 			local newOrder = {
 					UnitIndex = caster:entindex(),
@@ -863,7 +863,7 @@ function challenger14ai(caster)
 	end
 
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
-	DeepPrintTable(enemies)
+	--DeepPrintTable(enemies)
 	if #enemies > 0 then
 		local maxBound = 2
 		if caster:GetHealth() < caster:GetMaxHealth()*0.6 then
@@ -1062,9 +1062,9 @@ function challenger8ai(caster)
 		caster.interval = 0
 	end
 	caster.interval = caster.interval + 1
-	print(caster.interval)
+	--print(caster.interval)
 	if caster.interval == 42 then
-		print("AXE MODE!")
+		--print("AXE MODE!")
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 3500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		caster.axeEnemy = enemies[1]
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_war_rally_axe_throwing", {duration = 5})
@@ -1183,7 +1183,7 @@ function challenger6ai(caster)
 					end
 					Arena.Nightmare = true
 					Arena:InitArenaNightmare(caster, enemies[1], Arena.scoreR)
-					print("NIGHTMARED!!")
+					--print("NIGHTMARED!!")
 				end
 			end)	
 		end
@@ -1366,7 +1366,7 @@ function challenger2ai(caster)
 			ExecuteOrderFromTable(newOrder)	
 		end
 	end
-	print("HELLO?")
+	--print("HELLO?")
 	local boltAbility = caster:FindAbilityByName("arena_challenger_2_sword_dash")
 	if boltAbility:IsFullyCastable() then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	

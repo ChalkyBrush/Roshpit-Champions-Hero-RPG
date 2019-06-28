@@ -6,7 +6,7 @@ local function applyShield(caster, ability)
             procChance = T62_SHIELD_CHANCE_PERCENT
         end
         local shieldsCount = Runes:Procs(caster.e_4_level, procChance, 1)
-        print("runes count " .. caster.e_4_level)
+       --print("runes count " .. caster.e_4_level)
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_r_3_shield", {duration = duration})
         caster:SetModifierStackCount("modifier_axe_rune_r_3_shield", caster, shieldsCount)
     end

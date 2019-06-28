@@ -7,7 +7,7 @@ function prepareAxeLaunchPhaseStart(event)
 	local targetDirection = ((event.target_ponts[1] - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	if caster:HasModifier("modifier_warlord_ice_sprint") or caster:HasModifier("modifier_warlord_jumping") or caster:HasModifier("modifier_warlord_jumping_fire") then
 		caster:SetForwardVector(targetDirection)
-		local axeThrow = caster:GetAbilityByIndex(1)
+		local axeThrow = caster:GetAbilityByIndex(DOTA_W_SLOT)
 		axeThrow.castPoint = axeThrow:GetCastPoint()
 		axeThrow:SetOverrideCastPoint(0.01)
 		Timers:CreateTimer(0.03, function()
@@ -180,8 +180,8 @@ function axe_moving_think(event)
 	local ability = event.ability
 	local target = event.target
 	local distance = WallPhysics:GetDistance(target.original_position, target:GetAbsOrigin())
-	print("AXE THROWING: ")
-	print(target:GetAbsOrigin())
+	--print("AXE THROWING: ")
+	--print(target:GetAbsOrigin())
 	-- if target.downShot then
 		if target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target) < 20 then
 			event.target = target
@@ -261,8 +261,8 @@ function earthAxeStrike(event)
 	EmitSoundOn("Warlord.EarthAxeImpact", target)
 	
 
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_EARTH, RPC_ELEMENT_NORMAL)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_EARTH, RPC_ELEMENT_NORMAL)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_EARTH, RPC_ELEMENT_NORMAL)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_EARTH, RPC_ELEMENT_NORMAL)
 	glyph_4_1(caster, ability, target)
 
 	local eventTable = {}
@@ -288,8 +288,8 @@ function earthAxeStrike(event)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then	
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_EARTH, RPC_ELEMENT_NORMAL)
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, pureDamage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_EARTH, RPC_ELEMENT_NORMAL)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_EARTH, RPC_ELEMENT_NORMAL)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, pureDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_EARTH, RPC_ELEMENT_NORMAL)
 				Filters:ApplyStun(caster, stunDuration, enemy)
 			end
 		end	
@@ -329,10 +329,10 @@ function rune_w_1(caster, target, ability, element)
 	    local totalLevel = abilityLevel + bonusLevel
 	    local projectile = "particles/units/heroes/hero_troll_warlord/warlord_range_axe_earth.vpcf"
 	    if totalLevel > 0 then
-	    	print("past first if")
+	    	--print("past first if")
 	        local procs = Runes:Procs(totalLevel, 10, 1)
 	        if procs>0 then
-	        	print("past procs")
+	        	--print("past procs")
 	        	if element == "earth" then
 	        		projectile = "particles/units/heroes/hero_troll_warlord/warlord_range_axe_earth.vpcf"
 	        	elseif element == "fire" then
@@ -341,7 +341,7 @@ function rune_w_1(caster, target, ability, element)
 	        		projectile = "particles/units/heroes/elemental_warlord/warlord_range_axe_ice.vpcf"
 	        	end
 	        	for i =1, procs, 1 do
-	        		print("fire some axes")
+	        		--print("fire some axes")
 	        		local randomDirection = RandomVector(1)
 	        		local launchPosition = target:GetAbsOrigin() + randomDirection*40
 	        		launchAxe(ability, caster, projectile, randomDirection, launchPosition, false)
@@ -399,8 +399,8 @@ function iceAxeStrike(event)
 				end
 			end
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ice_axe_slow", {duration = duration})
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_ICE, RPC_ELEMENT_NORMAL)
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, pureDamage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_ICE, RPC_ELEMENT_NORMAL)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_ICE, RPC_ELEMENT_NORMAL)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, pureDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_ICE, RPC_ELEMENT_NORMAL)
 
 		end
 	end
@@ -452,8 +452,8 @@ function fireAxeStrike(event)
 	if #enemies > 0 then	
 		for _,enemy in pairs(enemies) do
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_fire_armor_sear", {duration = duration})
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NORMAL)
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, pureDamage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NORMAL)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NORMAL)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, pureDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NORMAL)
 		end
 	end
 	glyph_4_1(caster, ability, target)
@@ -477,9 +477,9 @@ end
 
 function glyph_4_1(caster, ability, target)
 	if not caster:HasModifier("modifier_warlord_glyph_4_1_cooldown") then
-		print("IN HERE?")
+		--print("IN HERE?")
 		if caster:HasModifier("modifier_warlord_glyph_4_1") then
-			print("IN THERE!")
+			--print("IN THERE!")
 			if IsValidEntity(target) then
 				local earthAxeAbility = caster:FindAbilityByName("axe_throw_earth")
 				local glyphDuration = Filters:GetAdjustedBuffDuration(caster, 3, false)

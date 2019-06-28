@@ -70,7 +70,7 @@ function shadow_slam_end(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )	
 	if #enemies > 0 then	
 		for i = 1, #enemies, 1 do
-			Filters:TakeArgumentsAndApplyDamage(enemies[i], caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_SHADOW)
+			Filters:TakeArgumentsAndApplyDamage(enemies[i], caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_GHOST, RPC_ELEMENT_SHADOW)
 			Filters:ApplyStun(caster, stunDuration, enemies[i])
 			if w_3_level > 0 then
 				increment_duskfire_stacks(caster, enemies[i], stacksCount)

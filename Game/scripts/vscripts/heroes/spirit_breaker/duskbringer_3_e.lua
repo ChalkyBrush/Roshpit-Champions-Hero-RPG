@@ -119,11 +119,11 @@ function charge_slide_think(event)
 	if ability.slideVelocity > 0 then
 		ability.slideVelocity = ability.slideVelocity - 2
 	end
-	print("slide think")
+	--print("slide think")
 end
 
 function charge_slide_end(event)
-	print("slide END")
+	--print("slide END")
 	local caster = event.caster
 	caster.EFV = nil
 end

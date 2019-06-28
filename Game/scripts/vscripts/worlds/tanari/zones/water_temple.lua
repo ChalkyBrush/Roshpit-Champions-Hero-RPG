@@ -404,7 +404,7 @@ function Tanari:LowerWaterTempleWall(movementZ, wallName, wallPosition, blockerN
 				end
 			end
 		end)
-		print(bGeneric)
+		--print(bGeneric)
 		Timers:CreateTimer(2.6, function()
 			if bOpen then
 				local blockers = Entities:FindAllByNameWithin(blockerName, blockerPosition, blockerSearchRadius)
@@ -418,15 +418,15 @@ function Tanari:LowerWaterTempleWall(movementZ, wallName, wallPosition, blockerN
 					end
 				end
 				-- if bGeneric then
-				-- 	print("IN B GENERIC")
-				-- 	print(Vector(wallPosition.x,wallPosition.y, 128))
-				-- 	print(blockerSearchRadius)
+				-- 	--print("IN B GENERIC")
+				-- 	--print(Vector(wallPosition.x,wallPosition.y, 128))
+				-- 	--print(blockerSearchRadius)
 				-- 	blockers = Entities:FindAllByClassnameWithin("point_simple_obstruction", Vector(wallPosition.x,wallPosition.y, 128), blockerSearchRadius)
 				-- end
-				print("blockers")
-				print(blockers)
+				--print("blockers")
+				--print(blockers)
 				for i = 1, #blockers, 1 do
-					print(blockers[i]:GetClassname())
+					--print(blockers[i]:GetClassname())
 					if blockers[i]:GetClassname() == "point_simple_obstruction" then
 						UTIL_Remove(blockers[i])
 					end
@@ -445,8 +445,8 @@ function Tanari:LowerWaterTempleWall(movementZ, wallName, wallPosition, blockerN
 			end
 			
 			for i = -2, 2, 1 do
-				print("SPAWN BLOCKERS AT VV")
-				print(Vector(wallPosition.x,wallPosition.y+(i*128), 128))
+				--print("SPAWN BLOCKERS AT VV")
+				--print(Vector(wallPosition.x,wallPosition.y+(i*128), 128))
 				local entity = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = Vector(wallPosition.x,wallPosition.y+(i*128), 128), name ="MazeBlocker"})
 				if wallPosition.y == 14540 then				
 					table.insert(Tanari.WaterTemple.mazeEntrance1Blockers, entity)
@@ -1200,7 +1200,7 @@ function Tanari:SpawnWaterTempleWaveUnit(unitName, spawnPoint, quantity, itemLev
         unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
     	Events:AdjustDeathXP(unit)
       end
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
       	unit.itemLevel = itemLevel
       	unit:AddAbility("water_temple_wave_room_ability"):SetLevel(1)
       	if unit:GetUnitName() == "water_temple_serpent_sleeper" then
@@ -1213,11 +1213,11 @@ function Tanari:SpawnWaterTempleWaveUnit(unitName, spawnPoint, quantity, itemLev
       	unit:SetAcquisitionRange(4000)
       	unit.dominion = true
       else
-      	for i = 1, #unit, 1 do
-      		unit[i].itemLevel = itemLevel
-      		unit[i]:AddAbility("water_temple_wave_room_ability"):SetLevel(1)
-      		unit[i]:SetAcquisitionRange(4000)
-      		unit[i].dominion = true
+      	for i = 1, #unit.buddiesTable, 1 do
+      		unit.buddiesTable[i].itemLevel = itemLevel
+      		unit.buddiesTable[i]:AddAbility("water_temple_wave_room_ability"):SetLevel(1)
+      		unit.buddiesTable[i]:SetAcquisitionRange(4000)
+      		unit.buddiesTable[i].dominion = true
       	end
       end
     end)
@@ -1595,8 +1595,7 @@ function Tanari:BeginBossSpawnSequence()
 	Timers:CreateTimer(10, function()
 		local boss = Events:SpawnBoss("water_temple_boss", Vector(-5056, 10650, 78))
 		boss:SetRenderColor(150, 150, 255)
-		Events:AdjustBossPower(boss, 8, 8)
-		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth()})
+		Events:AdjustBossPower(boss, 8, 8, true)
 		boss:SetAbsOrigin(Vector(-5056, 10650, -400))
 		Timers:CreateTimer(0.4, function()
 
@@ -1921,7 +1920,7 @@ function Tanari:SpiritWaterSection2()
 	  thinker:FindAbilityByName("dungeon_thinker2"):SetLevel(1)
 	  thinker:FindAbilityByName("dungeon_thinker2"):ApplyDataDrivenModifier(thinker, thinker, "modifier_dungeon_thinker2", {})
 	  if thinker:HasAbility("modifier_dungeon_thinker2") then
-	  	print("HAS DUNGEON THINKER")
+	  	--print("HAS DUNGEON THINKER")
 	  end
 	  thinker.statue = Entities:FindByNameNearest("SerpentStatue1", Vector(-12129+((i-1)*580), 10549), 1000)
 	  table.insert(Tanari.WaterTemple.SerpentSwitchTable, thinker)
@@ -2233,7 +2232,7 @@ function Tanari:SpawnSpiritWaterWaveUnit(unitName, spawnPoint, quantity, itemLev
       Events:AdjustDeathXP(unit)
       end
 
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
         unit.itemLevel = itemLevel
         unit.dominion = true
         Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit, "tanari_water_temple_modifier", {})
@@ -2257,20 +2256,20 @@ function Tanari:SpawnSpiritWaterWaveUnit(unitName, spawnPoint, quantity, itemLev
         --   Redfall:ColorWearables(unit, Vector(255, 60, 60))
         -- end
       else
-        for i = 1, #unit, 1 do
-          unit[i].aggro = true
-          unit[i].itemLevel = itemLevel
-          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit[i], "tanari_water_temple_modifier", {})
-          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit[i], "tanari_mountain_specter_ai", {})
-          unit[i].code = 0
-          unit[i]:SetAcquisitionRange(3000)
-          unit[i].dominion = true
-          CustomAbilities:QuickAttachParticle("particles/econ/events/ti7/shivas_guard_active_ti7_flash.vpcf", unit[i], 2)
-			if unit[i]:GetUnitName() == "water_temple_faceless_water_elemental" then
-			  Events:SetPositionCastArgs(unit[i], 1200, 0, 1, FIND_ANY_ORDER)
+        for i = 1, #unit.buddiesTable, 1 do
+          unit.buddiesTable[i].aggro = true
+          unit.buddiesTable[i].itemLevel = itemLevel
+          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_water_temple_modifier", {})
+          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_mountain_specter_ai", {})
+          unit.buddiesTable[i].code = 0
+          unit.buddiesTable[i]:SetAcquisitionRange(3000)
+          unit.buddiesTable[i].dominion = true
+          CustomAbilities:QuickAttachParticle("particles/econ/events/ti7/shivas_guard_active_ti7_flash.vpcf", unit.buddiesTable[i], 2)
+			if unit.buddiesTable[i]:GetUnitName() == "water_temple_faceless_water_elemental" then
+			  Events:SetPositionCastArgs(unit.buddiesTable[i], 1200, 0, 1, FIND_ANY_ORDER)
         	elseif unit:GetUnitName() == "water_temple_prison_guard" then
-				unit[i].targetRadius = 300
-				unit[i].autoAbilityCD = 2 
+				unit.buddiesTable[i].targetRadius = 300
+				unit.buddiesTable[i].autoAbilityCD = 2 
 			end
           -- if unit[i]:GetUnitName() == "redfall_autumn_monster" then
           --   unit[i].targetRadius = 800
@@ -2400,7 +2399,7 @@ function Tanari:InitializeRubicksPuzzle()
 		table.insert(Tanari.WaterTemple.RubicksPuzzleColors, RandomInt(1,4))
 	end
 	local shuffledTable = Tanari:shuffTable(Tanari.WaterTemple.RubicksPuzzleColors)
-	DeepPrintTable(shuffledTable)
+	--DeepPrintTable(shuffledTable)
 	Tanari.WaterTemple.RubicksPuzzleColors = shuffledTable
 	Tanari:SetupRubicksSwitches()
 	Tanari:RecolorPuzzleBlocks()
@@ -2441,7 +2440,7 @@ function Tanari:SetupRubicksSwitches()
 		thinker:FindAbilityByName("dungeon_thinker2"):SetLevel(1)
 		thinker:FindAbilityByName("dungeon_thinker2"):ApplyDataDrivenModifier(thinker, thinker, "modifier_dungeon_thinker2", {})
 		if thinker:HasAbility("modifier_dungeon_thinker2") then
-			print("HAS DUNGEON THINKER")
+			--print("HAS DUNGEON THINKER")
 		end
 		table.insert(Tanari.WaterTemple.RubicksSwitchTable, thinker)
 	end
@@ -2461,7 +2460,7 @@ function Tanari:SetupRubicksSwitches()
 		thinker:FindAbilityByName("dungeon_thinker2"):SetLevel(1)
 		thinker:FindAbilityByName("dungeon_thinker2"):ApplyDataDrivenModifier(thinker, thinker, "modifier_dungeon_thinker2", {})
 		if thinker:HasAbility("modifier_dungeon_thinker2") then
-			print("HAS DUNGEON THINKER")
+			--print("HAS DUNGEON THINKER")
 		end
 		table.insert(Tanari.WaterTemple.RubicksSwitchTable, thinker)
 	end
@@ -2494,7 +2493,7 @@ function Tanari:WaterTempleRubicksSwitch(switch)
 			elseif switch.side == 1 then
 				local newRowTable = {}
 				local row = switch.index + 1
-				print("Row: "..row)
+				--print("Row: "..row)
 				for i = 0, 3, 1 do
 					local addition = i
 					if i == 0 then
@@ -2826,8 +2825,7 @@ function Tanari:SpawnWaterSpiritFinalBoss()
 	Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, guardian, "tanari_mountain_specter_ai", {})
 	-- local guardian = CreateUnitByName("wind_temple_spirit_boss", Vector(12992, 1536), false, nil, nil, DOTA_TEAM_NEUTRALS)
 	guardian:SetForwardVector(Vector(0,-1))
-	Events:AdjustBossPower(guardian, 12, 12, false)
-	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = guardian:GetUnitName(), bossMaxHealth = guardian:GetMaxHealth()})
+	Events:AdjustBossPower(guardian, 12, 12, true)
 	local bossAbility = guardian:FindAbilityByName("water_spirit_main_boss_ability")
 	bossAbility:ApplyDataDrivenModifier(guardian, guardian, "modifier_main_boss_entering", {})
       local properties =  {

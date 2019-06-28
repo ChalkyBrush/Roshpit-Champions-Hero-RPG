@@ -141,7 +141,7 @@ function PVP:GameEnd(LosingTeam)
 end
 
 function PVP:VoteSubmit(msg)
-  print(msg)
+ --print(msg)
   if not PVP.PVPVoteTable then
     PVP.PVPVoteTable = {}
     PVP.DeathMatchCount = 0
@@ -275,7 +275,7 @@ function PVP:InitiateLineBuilders()
   end
 
   PVP.TanariBuilder = builder
-  print(PVP.TanariBuilder:GetMainControllingPlayer())
+ --print(PVP.TanariBuilder:GetMainControllingPlayer())
   --BAD BUILDER
   local position = Vector(3588, 3392)
   if GameState:IsPVPLineWarWork() then
@@ -293,21 +293,21 @@ function PVP:InitiateLineBuilders()
   end
 
   PVP.TanariBuilderBad = builder
-  print(PVP.TanariBuilderBad:GetMainControllingPlayer())
+ --print(PVP.TanariBuilderBad:GetMainControllingPlayer())
 end
 
 function PVP:InitiateHero(heroEntity)
-  print("INITAITE PVP HERO")
+ --print("INITAITE PVP HERO")
   if PVP.TanariBuilder then
     if GameState:NoOracle() then
       local maxFood = math.floor(48/PlayerResource:GetPlayerCountForTeam(heroEntity:GetTeamNumber()))
       CustomNetTables:SetTableValue("premium_pass", "line_war_food_cap_"..heroEntity:GetPlayerOwnerID(), {currentFood = 0, maxFood = maxFood} )
       if heroEntity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
         PVP.TanariBuilder:SetControllableByPlayer(heroEntity:GetPlayerOwnerID(), false)
-        print("GIVE GOODGUY CONTROL")
+       --print("GIVE GOODGUY CONTROL")
       elseif heroEntity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
         PVP.TanariBuilderBad:SetControllableByPlayer(heroEntity:GetPlayerOwnerID(), false)
-        print("GIVE BADGUY CONTROL")
+       --print("GIVE BADGUY CONTROL")
       end
       heroEntity.linewarIncome = 50
       PlayerResource:ModifyGold(heroEntity:GetPlayerOwnerID(), 200, true, 0)

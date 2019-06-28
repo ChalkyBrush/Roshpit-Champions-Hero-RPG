@@ -148,7 +148,7 @@ function lightbomb_cast(event)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), bombPos, nil, 480, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_HOLY, RPC_ELEMENT_WIND)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_HOLY, RPC_ELEMENT_WIND)
 				if q_2_level > 0 then
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lightbomb_postmit", {duration = 7})
 					enemy:SetModifierStackCount("modifier_lightbomb_postmit", caster, q_2_level)

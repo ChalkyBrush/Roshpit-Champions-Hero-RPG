@@ -73,14 +73,14 @@ function jex_thundershroom_attack_land(event)
 	if ability.w_4_level then
 		damage = damage + damage*(event.w_4_lightning_damage_increase/100)*ability.w_4_level
 	end
-	print("HELLO?")
+	--print("HELLO?")
 	if luck <= 3 then
 		for i = 1, targets_to_hit, 1 do
 			Timers:CreateTimer((i-1)*0.15, function()
 				local enemy = chain.enemies[i]
 				if IsValidEntity(enemy) and enemy:IsAlive() then
 					EmitSoundOn("Jex.Thundershroom.Lightning", enemy)
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NATURE)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NATURE)
 					local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
 					local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_CUSTOMORIGIN, nil)
 					local attach_unit_1 = attacker

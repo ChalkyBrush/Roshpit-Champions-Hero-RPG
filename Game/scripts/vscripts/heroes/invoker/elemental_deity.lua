@@ -110,7 +110,7 @@ function deity_a_d_attack_land(event)
 			-- local targetAngle = ((enemy:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 			-- local angleDifferential = math.acos(fv:Dot(targetAngle, fv))
 			-- if angleDifferential < math.pi/2 then
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster.conjuror, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster.conjuror, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 				-- ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
 			-- end
 		end
@@ -149,7 +149,7 @@ function terra_blast_explosion(caster, position, damage, explosionAOE, ability, 
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster.conjuror, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster.conjuror, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
 			Filters:ApplyStun(caster.conjuror, stun_duration, enemy)
 		end
 	end 

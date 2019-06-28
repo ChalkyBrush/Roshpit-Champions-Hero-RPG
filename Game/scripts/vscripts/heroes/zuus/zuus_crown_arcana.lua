@@ -102,7 +102,7 @@ function heavens_shield_spark_hit(event)
 	local ability = event.ability
 	local caster = event.caster
 	local damage = ability.q_1_level*30000 + 50000
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 end
 
 function start_shadow_arcana(event)
@@ -138,7 +138,7 @@ function shadow_trap_think(event)
 		local damage = 50000 + ability.q_1_level*30000
 		CustomAbilities:QuickAttachParticle("particles/roshpit/auriun/shadow_rain_attack.vpcf", target, 3.5)
 		Timers:CreateTimer(0.45, function()
-			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 			EmitSoundOn("Auriun.ShadowMeteor", target)
 		end)
 	end

@@ -105,7 +105,7 @@ function ice_think(event)
 		end
 		local distanceFromGround = caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster)
 		caster.iceSpeed = math.min(caster.iceSpeed + speedGain, caster.ice_speed_slip_max)
-		-- print(caster.iceSpeed)
+		--print(caster.iceSpeed)
 		if distance > 300 then
 			caster.iceSpeed = 0
 		end
@@ -133,9 +133,9 @@ function ice_think(event)
 					FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 				end
 			end
-			-- print(caster.iceDirection*caster.iceSpeed)
+			--print(caster.iceDirection*caster.iceSpeed)
 			local angleDiff = math.abs(AngleDiff(WallPhysics:vectorToAngle(caster.iceDirection), WallPhysics:vectorToAngle(caster:GetForwardVector())))
-			-- print(angleDiff)
+			--print(angleDiff)
 			if AngleDiff(WallPhysics:vectorToAngle(caster.iceDirection), WallPhysics:vectorToAngle(caster:GetForwardVector())) > 15 and onGround then
 			else
 				local newPos = caster:GetAbsOrigin()+caster.iceDirection*caster.iceSpeed

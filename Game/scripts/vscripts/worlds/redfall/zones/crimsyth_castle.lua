@@ -84,7 +84,7 @@ function Redfall:InitiateCastleTiles()
   while tileIndex1 == tileIndex2 do
     tileIndex2 = RandomInt(1, #tilePositionTable)
   end
-  print(tilePositionTable[tileIndex1])
+ --print(tilePositionTable[tileIndex1])
   tile1:SetAbsOrigin(tilePositionTable[tileIndex1]+Vector(0,0,-127))
   tile2:SetAbsOrigin(tilePositionTable[tileIndex2]+Vector(0,0,-127))
   Redfall.Castle.TileLocationTable = {tileIndex1, tileIndex2}
@@ -377,7 +377,7 @@ function Redfall:SpawnOutsideCastleWaveUnit(unitName, spawnPoint, quantity, item
       Events:AdjustDeathXP(unit)
       end
       local sorcAbility = Redfall.CastleSorceress:FindAbilityByName("redfall_crimsyth_sorceress_ai")
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
         unit.itemLevel = itemLevel
         unit.dominion = true
         sorcAbility:ApplyDataDrivenModifier(Redfall.CastleSorceress, unit, "modifier_sorceress_wave_unit", {})
@@ -402,18 +402,18 @@ function Redfall:SpawnOutsideCastleWaveUnit(unitName, spawnPoint, quantity, item
           unit:SetRenderColor(255, 60, 60)
         end
       else
-        for i = 1, #unit, 1 do
-          unit[i].aggro = true
-          unit[i].itemLevel = itemLevel
-          unit[i].dominion = true
-          sorcAbility:ApplyDataDrivenModifier(Redfall.CastleSorceress, unit[i], "modifier_sorceress_wave_unit", {})
-          unit[i]:SetAcquisitionRange(3000)
-          CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/castle_spawn.vpcf", unit[i], 2)
-          if unit[i]:GetUnitName() == "redfall_autumn_monster" then
-            unit[i].targetRadius = 800
-            unit[i].autoAbilityCD = 1
-          elseif unit[i]:GetUnitName() == "crimsyth_bombadier" then
-            Events:SetPositionCastArgs(unit[i], 1200, 0, 1, FIND_ANY_ORDER)
+        for i = 1, #unit.buddiesTable, 1 do
+          unit.buddiesTable[i].aggro = true
+          unit.buddiesTable[i].itemLevel = itemLevel
+          unit.buddiesTable[i].dominion = true
+          sorcAbility:ApplyDataDrivenModifier(Redfall.CastleSorceress, unit.buddiesTable[i], "modifier_sorceress_wave_unit", {})
+          unit.buddiesTable[i]:SetAcquisitionRange(3000)
+          CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/castle_spawn.vpcf", unit.buddiesTable[i], 2)
+          if unit.buddiesTable[i]:GetUnitName() == "redfall_autumn_monster" then
+            unit.buddiesTable[i].targetRadius = 800
+            unit.buddiesTable[i].autoAbilityCD = 1
+          elseif unit.buddiesTable[i]:GetUnitName() == "crimsyth_bombadier" then
+            Events:SetPositionCastArgs(unit.buddiesTable[i], 1200, 0, 1, FIND_ANY_ORDER)
           end
         end
       end
@@ -718,7 +718,7 @@ function Redfall:SpawnTortureWaveUnit(unitName, spawnPoint, quantity, itemLevel,
         unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
       Events:AdjustDeathXP(unit)
       end
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit)  and unit:GetUnitName() ~= "npc_dummy_unit" then
         unit.dominion = true
         unit.itemLevel = itemLevel
         unit.code = 2
@@ -739,14 +739,14 @@ function Redfall:SpawnTortureWaveUnit(unitName, spawnPoint, quantity, itemLevel,
           Redfall:ColorWearables(unit, Vector(255, 20, 20))
         end
       else
-        for i = 1, #unit, 1 do
-          unit[i].aggro = true
-          unit[i].dominion = true
-          unit[i].itemLevel = itemLevel
-          Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit[i], "modifier_castle_unit_generic", {})
-          unit[i]:SetAcquisitionRange(3000)
-          unit[i].code = 2
-          CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/castle_spawn.vpcf", unit[i], 2)
+        for i = 1, #unit.buddiesTable, 1 do
+          unit.buddiesTable[i].aggro = true
+          unit.buddiesTable[i].dominion = true
+          unit.buddiesTable[i].itemLevel = itemLevel
+          Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit.buddiesTable[i], "modifier_castle_unit_generic", {})
+          unit.buddiesTable[i]:SetAcquisitionRange(3000)
+          unit.buddiesTable[i].code = 2
+          CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/castle_spawn.vpcf", unit.buddiesTable[i], 2)
 
         end
       end
@@ -917,7 +917,7 @@ function Redfall:WaterPlatformRoom()
   Redfall:SpawnCrimsonSamurai(Vector(-64, 8926), Vector(1,0))
   Redfall:SpawnCrimsonSamurai(Vector(-1279, 8917), Vector(1,0))
   Redfall:SpawnCrimsonSamurai(Vector(-1152, 10048), Vector(1,0))
-  DeepPrintTable(Redfall.Castle.WaterPlatformColorTable)
+  --DeepPrintTable(Redfall.Castle.WaterPlatformColorTable)
   Timers:CreateTimer(2, function()
     local basePosition = Vector(448, 9664)
     for i = 1, 3, 1 do
@@ -1198,7 +1198,7 @@ function Redfall:SpawnCrystalRoomWaveUnit(unitName, spawnPoint, quantity, itemLe
         unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
       Events:AdjustDeathXP(unit)
       end
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit)  and unit:GetUnitName() ~= "npc_dummy_unit" then
         unit.itemLevel = itemLevel
         unit.code = 6
         unit.dominion = true
@@ -1221,14 +1221,14 @@ function Redfall:SpawnCrystalRoomWaveUnit(unitName, spawnPoint, quantity, itemLe
           Redfall:ColorWearables(unit, Vector(255, 60, 60))
         end
       else
-        for i = 1, #unit, 1 do
-          unit[i].aggro = true
-          unit[i].itemLevel = itemLevel
-          Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit[i], "modifier_castle_unit_generic", {})
-          unit[i]:SetAcquisitionRange(3000)
-          unit[i].code = 6
-          unit[i].dominion = true
-          CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lone_druid/lone_druid_loadout.vpcf", unit[i], 2)
+        for i = 1, #unit.buddiesTable, 1 do
+          unit.buddiesTable[i].aggro = true
+          unit.buddiesTable[i].itemLevel = itemLevel
+          Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit.buddiesTable[i], "modifier_castle_unit_generic", {})
+          unit.buddiesTable[i]:SetAcquisitionRange(3000)
+          unit.buddiesTable[i].code = 6
+          unit.buddiesTable[i].dominion = true
+          CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lone_druid/lone_druid_loadout.vpcf", unit.buddiesTable[i], 2)
         end
       end
     end)
@@ -1617,8 +1617,8 @@ function Redfall:SpawnFortuneRoom()
   Redfall.Castle.FortuneChestsOpened = 0
   
 
-  print("FORTUNE CHEST INDEX!")
-  print(Redfall.Castle.FortuneChestBoss)
+ --print("FORTUNE CHEST INDEX!")
+ --print(Redfall.Castle.FortuneChestBoss)
 end
 
 function Redfall:SpawnFortuneRoomChest(position, i, j)
@@ -1854,7 +1854,7 @@ function Redfall:SpawnElthezunWaveUnit(unitName, spawnPoint, quantity, itemLevel
       Events:AdjustDeathXP(unit)
       end
 
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit)  and unit:GetUnitName() ~= "npc_dummy_unit" then
         unit.itemLevel = itemLevel
         unit.dominion = true
         Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit, "modifier_castle_unit_generic", {})
@@ -1874,19 +1874,19 @@ function Redfall:SpawnElthezunWaveUnit(unitName, spawnPoint, quantity, itemLevel
           Redfall:ColorWearables(unit, Vector(255, 60, 60))
         end
       else
-        for i = 1, #unit, 1 do
-          unit[i].aggro = true
-          unit[i].itemLevel = itemLevel
-          Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit[i], "modifier_castle_unit_generic", {})
-          unit[i].code = 10
-          unit[i]:SetAcquisitionRange(3000)
-          unit[i].dominion = true
-          CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/castle_spawn.vpcf", unit[i], 2)
-          if unit[i]:GetUnitName() == "redfall_autumn_monster" then
-            unit[i].targetRadius = 800
-            unit[i].autoAbilityCD = 1
-          elseif unit[i]:GetUnitName() == "crimsyth_bombadier" then
-            Events:SetPositionCastArgs(unit[i], 1200, 0, 1, FIND_ANY_ORDER)
+        for i = 1, #unit.buddiesTable, 1 do
+          unit.buddiesTable[i].aggro = true
+          unit.buddiesTable[i].itemLevel = itemLevel
+          Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit.buddiesTable[i], "modifier_castle_unit_generic", {})
+          unit.buddiesTable[i].code = 10
+          unit.buddiesTable[i]:SetAcquisitionRange(3000)
+          unit.buddiesTable[i].dominion = true
+          CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/castle_spawn.vpcf", unit.buddiesTable[i], 2)
+          if unit.buddiesTable[i]:GetUnitName() == "redfall_autumn_monster" then
+            unit.buddiesTable[i].targetRadius = 800
+            unit.buddiesTable[i].autoAbilityCD = 1
+          elseif unit.buddiesTable[i]:GetUnitName() == "crimsyth_bombadier" then
+            Events:SetPositionCastArgs(unit.buddiesTable[i], 1200, 0, 1, FIND_ANY_ORDER)
           end
         end
       end
@@ -2088,8 +2088,8 @@ function Redfall:ActivateBossStatue(position)
         Timers:CreateTimer(5.0, function()
           EmitSoundOnLocationWithCaster(Vector(-2154, 3249), "Redfall.TreeHealed", Events.GameMaster)
           local blockers = Entities:FindAllByNameWithin("BossBlocker", Vector(-1408, 3264, 263+Redfall.ZFLOAT), 2400)
-          print(#blockers)
-          print("NUM BLOCKERS")
+         --print(#blockers)
+         --print("NUM BLOCKERS")
           for i = 1, #blockers, 1 do
             UTIL_Remove(blockers[i])
           end

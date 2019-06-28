@@ -49,7 +49,7 @@ function WallAllyBuff(event)
 					if distance <= 270 then
 						table.insert(acceptable_particle_thinkers, wallThinker)
 					end
-					print(wallThinker.index)
+					--print(wallThinker.index)
 				end
 				local wallCenter = ability.wallCenter
 				local wallNinety = ability.ninetyDegrees
@@ -73,7 +73,7 @@ function WallAllyBuff(event)
 		end
 		if a_d_level then
 			if a_d_level > 0 and hasChargingOrSlide(caster, event.guarantee) then
-				print("GOT IN CONDITION!")
+				--print("GOT IN CONDITION!")
 				local hyperStateDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_charge_of_light_hyper_state", {duration = hyperStateDuration})
 				caster:SetModifierStackCount( "modifier_charge_of_light_hyper_state", ability, a_d_level )
@@ -97,7 +97,7 @@ function WallAllyBuff(event)
 					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 					if #enemies > 0 then	
 						for _,enemy in pairs(enemies) do
-							Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+							Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 							Filters:ApplyStun(caster, 1, enemy)
 							local particleName = "particles/units/heroes/hero_leshrac/bahamut_nova.vpcf"
 							local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
@@ -207,7 +207,7 @@ function leshrac_attack_land(event)
 			Timers:CreateTimer(2.5, function() 
 			  ParticleManager:DestroyParticle( pfx, false )
 			end) 	
-			Filters:TakeArgumentsAndApplyDamage(target, caster, damage*4, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(target, caster, damage*4, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		end
 	end
 	
@@ -250,14 +250,14 @@ function d_d_shell_think(event)
 		local modifier = modifiers[i]
 		local modifierMaker = modifier:GetCaster()
 		
-		if modifier:GetName() == "modifier_bahamut_rune_r_4_shell" or modifier:GetName() == "modifier_charge_of_light_sliding" then
+		if modifier:GetName() == "modifier_bahamut_rune_r_4_shell" or modifier:GetName() == "modifier_charge_of_light_sliding" or modifier:GetName() == "modifier_attack_land_basic" or modifier:GetName() == "modifier_client_setting" then
 		else
 			if modifierMaker:GetEntityIndex() == caster:GetEntityIndex() or modifierMaker:GetEntityIndex() == caster.InventoryUnit:GetEntityIndex() then
 
 				local durationRemaining = modifier:GetRemainingTime()
 				if durationRemaining > 0 then
-					print("INCREASING:")
-					print(modifier:GetName())
+					--print("INCREASING:")
+					--print(modifier:GetName())
 					modifier:SetDuration(durationRemaining + 0.1, true)
 				end
 			end

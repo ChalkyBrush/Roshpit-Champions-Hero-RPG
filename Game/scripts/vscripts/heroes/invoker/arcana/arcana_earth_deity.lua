@@ -126,7 +126,7 @@ function earth_deity_sandstorm_thinking(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ability.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, origCaster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, origCaster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
 		end
 	end	
 end
@@ -188,7 +188,7 @@ function fire_earth_shock(position, caster, radius, ability, damage, slow_durati
 	local damageReduceDuration = 10
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_EARTH, RPC_ELEMENT_LIGHTNING)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_EARTH, RPC_ELEMENT_LIGHTNING)
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_earth_shock_slow", {duration = 0.9})
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_earth_shock_attack_reduce", {duration = damageReduceDuration})
 			if q_4_level > 0 then

@@ -83,7 +83,7 @@ function voltex_overcharge_onattacklanded( keys )
                 ParticleManager:DestroyParticle(lightningBolt, true)
             end)    
         end
-        Filters:TakeArgumentsAndApplyDamage(unit, hero, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+        Filters:TakeArgumentsAndApplyDamage(unit, hero, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 
         targets_shocked = targets_shocked + 1
 		voltex_q_3(attacker, unit, hero)
@@ -119,7 +119,7 @@ function voltex_q_3(attacker, target, hero)
         local luck = RandomInt(1, 10)
         if luck <= 3 then
             local q3damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * 0.5 * q_3_level
-            Filters:TakeArgumentsAndApplyDamage(target, hero, q3damage, DAMAGE_TYPE_PHYSICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+            Filters:TakeArgumentsAndApplyDamage(target, hero, q3damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_Q, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
         end
     end
 end

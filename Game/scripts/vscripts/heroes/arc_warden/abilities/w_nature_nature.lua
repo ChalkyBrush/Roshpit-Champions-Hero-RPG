@@ -32,7 +32,7 @@ function jex_root_weave_start(event)
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_jex_root_immunity", {duration = root_duration + 3})
 					end)
 				end
-				-- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+				-- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			end
 		end 
 		if sound then

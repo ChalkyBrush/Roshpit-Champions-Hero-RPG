@@ -1,21 +1,21 @@
 function equip_item(event)
-	print("[equip_item] start")
+	--print("[equip_item] start")
 	local item = event.ability
 	local itemIndex = item:GetEntityIndex()
 	local itemTable = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
-	-- print("[equip_item] 1caster")
-	-- print(event.caster)
-	-- print("[equip_item] 2caster")
+	--print("[equip_item] 1caster")
+	--print(event.caster)
+	--print("[equip_item] 2caster")
 	-- DeepPrintTable(event.caster)
-	-- print("[equip_item] 3caster")
+	--print("[equip_item] 3caster")
 	if not itemTable then
-		print("[equip_item] err itemTable")
+		--print("[equip_item] err itemTable")
 		return false
 	end
 	item.newItemTable = itemTable
 	
 	local caster = event.caster
-	print("[equip_item] GetUnitName:"..tostring(caster:GetUnitName()))
+	--print("[equip_item] GetUnitName:"..tostring(caster:GetUnitName()))
 	if caster:HasModifier("modifier_cant_equip") then
 		return false
 	end

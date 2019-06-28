@@ -80,7 +80,7 @@ function heavens_shield_take_damage(event)
 		end
 		local returnDamage = OverflowProtectedGetAverageTrueAttackDamage(target)*(1+0.15*ability.q_1_level)
 		local victim = event.attacker
-		Filters:TakeArgumentsAndApplyDamage(victim, caster, returnDamage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(victim, caster, returnDamage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		EmitSoundOn("Auriun.ShieldHit", target)
 		local particleName = "particles/econ/items/antimage/antimage_weapon_basher_ti5/auriun_a_a.vpcf"
 		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, victim )

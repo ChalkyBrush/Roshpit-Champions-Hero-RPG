@@ -52,7 +52,7 @@ function new_lock(units, target_location, caster, damage, duration, ability, stu
   EmitSoundOn("Epoch.UltiExplode", caster)
 
     for _,unit in ipairs(units) do
-      Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+      Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
       local knockVector = ((unit:GetAbsOrigin()-target_location)*Vector(1,1,0)):Normalized()
       ability:ApplyDataDrivenModifier(caster, unit, "modifier_time_ult_flailing", {duration = 0.6})
       for i = 1, 20, 1 do
@@ -226,7 +226,7 @@ function epoch_r_3_crackle_think(event)
   local caster = event.caster
   local ability = event.ability
   local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.r_3_level*EPOCH_R3_DMG_MULTI_PCT/100
-  Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+  Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
   CustomAbilities:QuickAttachParticle("particles/econ/items/morphling/morphling_crown_of_tears/morphling_crown_waveform_dmg_flash.vpcf", target, 1)
 end
 
@@ -252,9 +252,9 @@ end
 
 function immortal_weapon_2_die(event)
   local caster = event.unit
-  local ulti = caster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
+  local ulti = caster:GetAbilityByIndex(DOTA_R_SLOT)
   local respawnPoint = caster:GetAbsOrigin()
-  print("IMMO DIE: "..ulti:GetCooldownTimeRemaining())
+ --print("IMMO DIE: "..ulti:GetCooldownTimeRemaining())
   if ulti:GetCooldownTimeRemaining() == 0 then
     if ulti:GetAbilityName() == "eternity_flood" then
       local eventTable = {}

@@ -206,7 +206,7 @@ function rune_e_1_damage(event)
             runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_flamewaker_rune_e_4", {duration = 4})
             target:SetModifierStackCount( "modifier_flamewaker_rune_e_4", runeAbility, e_4_level )
         end
-        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, 3, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_E, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
     end
 
 end
@@ -432,7 +432,7 @@ end
     Stop a sound.
 ]]
 function StopSound( event )
-    print("CALLED?")
+   --print("CALLED?")
     StopSoundEvent( event.sound_name, event.caster )
 end
 
@@ -564,7 +564,7 @@ function flame_ray_damage(event)
     local target = event.target
     local caster = event.caster
     local damage = event.damage
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
 function dragon_rage_b_c_think(event)
@@ -574,7 +574,7 @@ function dragon_rage_b_c_think(event)
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then    
         for _,enemy in pairs(enemies) do
-            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
             CustomAbilities:QuickAttachParticle("particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_c.vpcf", enemy, 1)
         end
     end

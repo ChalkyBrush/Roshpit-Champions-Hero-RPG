@@ -52,7 +52,7 @@ function tanari_ancient_think(event)
 end
 
 function water_shield_attack(event)
-	print("ATTACKED SHIELD")
+	--print("ATTACKED SHIELD")
 	local caster = event.caster
 	local ability = event.ability
 	if not caster.attackCount then
@@ -403,8 +403,8 @@ end
 
 
 function pressButtonAndLowerWall(wallPosition, buttonPosition1, buttonPosition2, wallIndex)
-	print(Tanari.WaterTemple.wallDown)
-	print("-^^_WALLDOWN_^^-")
+	--print(Tanari.WaterTemple.wallDown)
+	--print("-^^_WALLDOWN_^^-")
 	Tanari.WaterTemple.wallDropping = true
 	Timers:CreateTimer(2.65, function()
 		Tanari.WaterTemple.wallDropping = false
@@ -420,9 +420,9 @@ function pressButtonAndLowerWall(wallPosition, buttonPosition1, buttonPosition2,
 		Tanari:LowerWaterTempleWall(6, "WaterTempleMazeDoor", wallPositionA, "MazeBlocker", wallPositionA+Vector(0,0,96+1228), 380, false, true)
 		moveButtons(buttonPosition1A, buttonPosition2A, false)
 	end
-	print("NOW DO WALLDOWN")
+	--print("NOW DO WALLDOWN")
 	Tanari.WaterTemple.wallDown = wallIndex
-	print(Tanari.WaterTemple.wallDown)
+	--print(Tanari.WaterTemple.wallDown)
 	
 end
 
@@ -557,7 +557,7 @@ function faceless_elemental_think(event)
 	if not caster.interval then
 		caster.interval = 1
 	end
-	local castAbility = caster:GetAbilityByIndex(0)
+	local castAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
 	
 	local radius = caster.targetRadius
 	local minRadius = caster.minRadius
@@ -745,7 +745,7 @@ function water_emperor_think(event)
 	if #enemies > 0 then
 		if caster:HasModifier("modifier_water_emperor_submerged") then
 			caster:RemoveModifierByName("modifier_water_emperor_submerged")
-			print("RISE!")
+			--print("RISE!")
 			local animationDuration = 1
 			if caster:GetUnitName() == "seafortress_swamp_lady" then
 				animationDuration = 2
@@ -797,7 +797,7 @@ function water_emperor_think(event)
 	else
 		if not caster:HasModifier("modifier_water_emperor_submerged") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_water_emperor_submerged", {})
-			print("FALL!")
+			--print("FALL!")
 			StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_6, rate=1}) 
 			for i = 1, 17, 1 do
 				Timers:CreateTimer(0.03*i, function()
@@ -1250,8 +1250,8 @@ function boss_statue_hit_final(event)
 				statue.startingAngle = statue.startingAngle + 1
 				statue:SetAngles(0, statue.startingAngle, 0)
 				statue:SetAbsOrigin(statue:GetAbsOrigin()-Vector(0,0,2))
-				print("STATUE POSITION:")
-				print(statue:GetAbsOrigin())
+				--print("STATUE POSITION:")
+				--print(statue:GetAbsOrigin())
 			end)
 		end
 	end
@@ -1320,7 +1320,7 @@ function water_temple_boss_think(event)
 		return false
 	end
 	if caster:HasModifier("modifier_whirlpooling") then
-		print("WHIRLPOOL STAAAHP!")
+		--print("WHIRLPOOL STAAAHP!")
 		return false
 	end
 	if Tanari.FloodRobeBattle then
@@ -1407,10 +1407,10 @@ function whirlpool_think(event)
 	Timers:CreateTimer(0.03, function()
 		StartAnimation(caster, {duration=0.27, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.7})
 	end)
-	print("WHIRLPOOL THINK!")
+	--print("WHIRLPOOL THINK!")
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
-		print("ENEMIES!!")
+		--print("ENEMIES!!")
 		for i = 1, #enemies, 1 do
 			ability:ApplyDataDrivenModifier(caster, enemies[i], "modifier_whirlpool_effect", {duration = 0.33})
 		end
@@ -1554,7 +1554,7 @@ function water_temple_boss_die_begin(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_water_temple_boss_dying_effect", {})
 	local bossOrigin = caster:GetAbsOrigin()
 	Timers:CreateTimer(8, function()
-		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 		caster:RemoveModifierByName("modifier_water_temple_boss_dying")
 		Timers:CreateTimer(0.1, function()
 			StartAnimation(caster, {duration=8, activity=ACT_DOTA_DIE, rate=0.25})
@@ -1591,7 +1591,7 @@ function rare_wrath_think(event)
 	if not caster.interval then
 		caster.interval = 1
 	end
-	local castAbility = caster:GetAbilityByIndex(0)
+	local castAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
 	caster.interval = caster.interval + 1
 	if caster.interval%2 == 0 and caster.aggro then
 	 	local start_radius = 400
@@ -1682,7 +1682,7 @@ function rare_construct_think(event)
 	if not caster.interval then
 		caster.interval = 1
 	end
-	local castAbility = caster:GetAbilityByIndex(0)
+	local castAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
 	caster.interval = caster.interval + 1
 	if caster.interval%2 == 0 and caster.aggro then
 	 	local start_radius = 400
@@ -1966,7 +1966,7 @@ function water_bomb_explode(bomb)
 	flareParticle(position)
 	local radius = 400
 	local enemies = FindUnitsInRadius( bomb:GetTeamNumber(), bomb:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY+DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )
-	print(#enemies)
+	--print(#enemies)
 	for _,enemy in pairs(enemies) do
 		local damage = enemy:GetMaxHealth()*0.1
 		if enemy:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
@@ -1974,7 +1974,7 @@ function water_bomb_explode(bomb)
 		end
 		Filters:ApplyStun(bomb, 1.5, enemy)
 		ApplyDamage({ victim = enemy, attacker = bomb, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
-		print(enemy:GetEntityIndex())
+		--print(enemy:GetEntityIndex())
 		if enemy:HasModifier("modifier_frozen_stone") then
 			enemy:RemoveModifierByName("modifier_frozen_stone")
 			EmitSoundOn("Tanari.WindKeyHolderStoneForm", enemy)
@@ -2463,7 +2463,7 @@ function water_temple_unit_die(event)
 end
 
 function WaterTempleBigDoorTrigger(trigger)
-	print("HIT TRIGGER")
+	--print("HIT TRIGGER")
 	if Tanari.WaterTemple.SwitchesActive then
 		Tanari:ActivateSwitchGeneric(Vector(-15512, 3860, 280), "WaterSwitch", true)
 		Tanari:ActivateSwitchGeneric(Vector(-11950, 4800, 380), "WaterSwitch", true)
@@ -2914,12 +2914,12 @@ function water_temple_spirit_boss_die_begin(event)
 	end
 	Timers:CreateTimer(3, function()
 	  	local itemName = "item_tanari_spirit_stones_"..Tanari:ConvertDifficultyNumberToName(GameState:GetDifficultyFactor())
-	  	print(itemName)
+	  	--print(itemName)
 	    local stones = RPCItems:CreateConsumable(itemName, "immortal", "tanari_spirit_stones", "consumable", false, "Consumable", itemName.."_desc")
 	    CreateItemOnPositionSync(bossOrigin, stones)
 	    --stones:LaunchLoot(false, RandomInt(100,600), 0.75, bossOrigin)
 		RPCItems:LaunchLoot(stones, RandomInt(100,600), 0.5, bossOrigin, bossOrigin)
-	    print("STONES DROPPED")
+	   --print("STONES DROPPED")
 
 	    local luck = RandomInt(1,3)
 	    if luck == 1 then
@@ -2942,7 +2942,7 @@ function water_temple_spirit_boss_die_begin(event)
 		end
 	end)
 	Timers:CreateTimer(8, function()
-		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 		caster:RemoveModifierByName("modifier_wind_temple_boss_dying")
 		Timers:CreateTimer(0.1, function()
 			StartAnimation(caster, {duration=8, activity=ACT_DOTA_DIE, rate=1})

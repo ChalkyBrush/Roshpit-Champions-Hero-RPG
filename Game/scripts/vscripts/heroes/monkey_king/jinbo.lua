@@ -15,7 +15,7 @@ function jinbo_phase(event)
 		elseif caster:HasModifier("modifier_mark_of_the_talon") then
 			colorVector = Vector(0, 0, 255)
 		end
-		print(colorVector)
+		--print(colorVector)
 		local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/dreghor/jinbo_precast.vpcf", caster, 3)
 		ParticleManager:SetParticleControl(pfx, 8, colorVector)
 		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_MK_STRIKE, rate=1.4})
@@ -37,7 +37,7 @@ function jinbo_start(event)
 		if #enemies > 0 then
 			EmitSoundOn("Draghor.JinboNormalImpact", enemies[1])	
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 
 				local impactPoint = enemy:GetAbsOrigin()
 				local pushVector = ((impactPoint - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
@@ -68,10 +68,10 @@ function jinbo_start(event)
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				Filters:ApplyStun(caster, event.stun_duration, enemy)	
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_NATURE, RPC_ELEMENT_NORMAL)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_NATURE, RPC_ELEMENT_NORMAL)
 			end
 			if caster:HasModifier("modifier_djanghor_glyph_1_1") then
-				caster:GetAbilityByIndex(2):EndCooldown()
+				caster:GetAbilityByIndex(DOTA_E_SLOT):EndCooldown()
 			end
 			local e_2_level = caster:GetRuneValue("e", 2)
 			if e_2_level > 0 then

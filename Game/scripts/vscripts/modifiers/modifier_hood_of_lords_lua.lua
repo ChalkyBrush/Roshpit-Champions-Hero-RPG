@@ -1,9 +1,9 @@
 modifier_hood_of_lords_lua = class({})
 
 function modifier_hood_of_lords_lua:OnCreated(event)
-	print(self:GetParent():GetUnitName())
-	-- print(self:GetCaster():GetUnitName())
-	-- print(self.hero:GetUnitName())
+	--print(self:GetParent():GetUnitName())
+	--print(self:GetCaster():GetUnitName())
+	--print(self.hero:GetUnitName())
     -- self.disable_turning = event.disable_turning == 1 and 1 or 0
     -- self.magic_immune = event.magic_immune == 1
     -- self.deniable = event.deniable == 1

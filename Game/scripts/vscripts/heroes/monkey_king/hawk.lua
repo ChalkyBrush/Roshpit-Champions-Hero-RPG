@@ -75,7 +75,7 @@ function hawk_screech_hit(event)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_draghor_hawk_screech", {duration = debuff_duration})
 	target:SetModifierStackCount("modifier_draghor_hawk_screech", caster, ability:GetLevel())
 
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_TIME, RPC_ELEMENT_NATURE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_TIME, RPC_ELEMENT_NATURE)
 end
 
 function tornado_phase(event)
@@ -156,7 +156,7 @@ function tornado_hit(event)
 	if ability.w_3_level > 0 then
 		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*ability.w_3_level
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NATURE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_WIND, RPC_ELEMENT_NATURE)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_hawk_tornado_debuff", {duration = 7})
 	if caster:HasModifier("modifier_djanghor_immortal_weapon_3") then
 		target:SetModifierStackCount("modifier_hawk_tornado_debuff", caster, 2)

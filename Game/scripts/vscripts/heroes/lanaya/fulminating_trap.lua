@@ -130,7 +130,7 @@ function trap_start_poison(event)
 		trapAbility.poisonDamage = q_1_level*TRAPPER_Q1_DAMAGE
 	    local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
 	    trapAbility.poisonDamage = trapAbility.poisonDamage + 0.004*caster:GetIntellect()/10*q_4_level*trapAbility.poisonDamage
-		print("poison damage " .. trapAbility.poisonDamage)
+		--print("poison damage " .. trapAbility.poisonDamage)
 		if caster:HasModifier("modifier_trapper_glyph_5_a") then
 	    	trapAbility.poisonDamage = trapAbility.poisonDamage * T5A_DAMAGE_AMPLIFY
 	    end
@@ -175,7 +175,7 @@ function trap_think(event)
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then    
         for _,enemy in pairs(enemies) do
-        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
             ability:ApplyDataDrivenModifier(trap, enemy, "modifier_fulminating_burn_effect", {duration = 0.5})
             CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_leshrac/fulminating_effect.vpcf", enemy, 0.5)
             if q_3_level > 0 then
@@ -444,7 +444,7 @@ function torrent_trap_think(event)
 					end
 	            	EmitSoundOn("Trapper.TorrentImpact", enemy)
 	            	ability:ApplyDataDrivenModifier(trap, enemy, "modifier_torrent_trap_slowed_effect", {duration = 2})
-	            	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+	            	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 	            	enemy:SetModifierStackCount("modifier_torrent_trap_slowed_effect", ability, ability.q_2_level)
 	            	ability:ApplyDataDrivenModifier(trap, enemy, "modifier_torrent_trap_immunity", {duration = 1})
 	            	-- CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_morphling/morphling_adaptive_strike.vpcf", enemy, 1)

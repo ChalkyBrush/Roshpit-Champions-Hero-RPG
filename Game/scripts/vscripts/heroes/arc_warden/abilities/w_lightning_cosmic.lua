@@ -116,6 +116,6 @@ function ion_cannon_impact(caster, ability, projectile, target, e_4_split_search
 		end 
 		
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_LIGHTNING)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_LIGHTNING)
 	disable_projectile(caster, ability, projectile)
 end

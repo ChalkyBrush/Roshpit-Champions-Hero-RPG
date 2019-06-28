@@ -200,9 +200,9 @@ function arena_challenger_17(caster, units)
 	basic_dialogue(caster, units, "#arena_champions_17_1", 2, 5, -10)
 	Events:SoftFloat(4, 2.5, 0.1, caster)
 	EmitSoundOn("Arena.Champion17.Grunt", caster)
-	print("WTF?")
+	--print("WTF?")
 	Timers:CreateTimer(3.1, function()
-		print("WTF2?")
+		--print("WTF2?")
 
 		basic_dialogue(caster, units, "#arena_champions_17_2", 8, 5, -10)
 		EmitSoundOn("Arena.Champion17.Summon", caster)
@@ -222,7 +222,7 @@ function arena_challenger_17(caster, units)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_brewmaster/brewmaster_dispel_magic.vpcf", earthElement, 2)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_brewmaster/brewmaster_dispel_magic.vpcf", airElement, 2)
 		Timers:CreateTimer(7, function()
-			print("WTF3?")
+			--print("WTF3?")
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arena.Champion17.SummonEffectEnd", Events.GameMaster)
 			for i = 1, #elementTable, 1 do
 				local pfx = ParticleManager:CreateParticle( "particles/generic_gameplay/illusion_killed.vpcf", PATTACH_CUSTOMORIGIN, caster )
@@ -235,7 +235,7 @@ function arena_challenger_17(caster, units)
 
 		end)
 		Timers:CreateTimer(10, function()
-			print("WTF4?")
+			--print("WTF4?")
 			caster.animating = false
 		end)
 	end)
@@ -264,7 +264,7 @@ end
 
 function blacksmith(caster, units)
 	--MERCHANT_OPEN_SOUND_TABLE = {"secretshop_secretshop_welcome_04", "secretshop_secretshop_whatyoubuying_01", "secretshop_secretshop_whatyoubuying_02"}
-	print("call how many")
+	--print("call how many")
 	local time = 5
 	local speechSlot = findEmptyDialogSlot()
 	if speechSlot < 4 then

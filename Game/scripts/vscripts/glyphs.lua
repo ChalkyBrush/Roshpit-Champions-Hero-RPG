@@ -7,7 +7,7 @@ Glyphs.ArcaneCrystalTable = {}
 
 function Glyphs:DropArcaneCrystals(position, quantityScale)
 	if GameMode.VoteSystem.crystal_loot_disabled then	
-		-- print("crystal_loot_disabled")
+		--print("crystal_loot_disabled")
 		return
 	end
 
@@ -162,11 +162,11 @@ function Glyphs:SaveResources()
 				CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 					--SaveLoad:NewKey()
 					local resultTable = {}
-					print( "GET response:\n" )
+					--print( "GET response:\n" )
 					for k,v in pairs( result ) do
-						print( string.format( "%s : %s\n", k, v ) )
+						--print( string.format( "%s : %s\n", k, v ) )
 					end
-					print( "Done." )
+					--print( "Done." )
 					local resultTable = JSON:decode(result.Body)
 					hero.crystalsToSave = 0
 					if resultTable then
@@ -180,7 +180,7 @@ function Glyphs:SaveResources()
 						Statistics.dispatch("crystals:change", {playerID = playerID});
 					end
 				end )	
-				print("SAVING HERO CRYSTALS: "..hero.crystalsToSave)
+				--print("SAVING HERO CRYSTALS: "..hero.crystalsToSave)
 			end
 		end
 	end
@@ -194,11 +194,11 @@ function Glyphs:GetPlayerResources(playerID)
 	url = url.."steam_id="..steamID
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		local resultTable = {}
-		print( "GET response:\n" )
+		--print( "GET response:\n" )
 		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 		-- resultTable = Quests:GetQuestDataFromJSON(resultTable)
 		local arcaneCrystals = resultTable.arcane_crystals
@@ -296,21 +296,21 @@ function Glyphs:PlaceGlyphInSlot(msg)
 	local item = EntIndexToHScript(msg.itemIndex)
 	local glyphSlot = msg.glyphSlot
 	hero:Stop()
-	print("[Glyphs:PlaceGlyphInSlot] +++++++++++++++++++++++++++++++++++++++++++++")
-	DeepPrintTable(msg)
-	print(msg.heroIndex)
-	print('glyph SLOT'..msg.glyphSlot)
+	--print("[Glyphs:PlaceGlyphInSlot] +++++++++++++++++++++++++++++++++++++++++++++")
+	--DeepPrintTable(msg)
+	--print(msg.heroIndex)
+	--print('glyph SLOT'..msg.glyphSlot)
 	if item.newItemTable.glyph then
-		print("PlaceGlyphInSlot 1")
+		--print("PlaceGlyphInSlot 1")
 		local applicable = Glyphs:CheckApplicable(item, hero)
 		if applicable == 1 then
-			print("PlaceGlyphInSlot 2")
+			--print("PlaceGlyphInSlot 2")
 			hero:TakeItem(item)
-			print(tostring(msg.heroIndex).."-glyph-"..tostring(glyphSlot))
+			--print(tostring(msg.heroIndex).."-glyph-"..tostring(glyphSlot))
 			Glyphs:ApplyGlyph(hero, glyphSlot, msg.itemIndex)
 			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "new_glyph_inserted", {glyphSlot = glyphSlot})
 		else
-			print("PlaceGlyphInSlot 3")
+			--print("PlaceGlyphInSlot 3")
 			Timers:CreateTimer(0.03, function()
 				hero:Stop()
 			end)
@@ -320,9 +320,9 @@ function Glyphs:PlaceGlyphInSlot(msg)
 end
 
 function Glyphs:CheckApplicable(glyph, hero)
-	print("[Glyphs:CheckApplicable] +++++++++++++++++++++++++")
-	print(hero:GetUnitName())
-	print(glyph.newItemTable.requiredHero)
+	--print("[Glyphs:CheckApplicable] +++++++++++++++++++++++++")
+	--print(hero:GetUnitName())
+	--print(glyph.newItemTable.requiredHero)
 	local modifierToFind = ""
 	if glyph.newItemTable.property1 then
 		modifierToFind = glyph.newItemTable.property1
@@ -462,7 +462,7 @@ function Glyphs:RemoveGlyphBonusesAndRecalculateAll(heroEntity)
 	local MAX_GLYPHS = 3
 	for i = 1, #Glyphs.GLYPH_MODIFIER_TABLE, 1 do
 		heroEntity:RemoveModifierByName(Glyphs.GLYPH_MODIFIER_TABLE[i])
-		print(Glyphs.GLYPH_MODIFIER_TABLE[i])
+		--print(Glyphs.GLYPH_MODIFIER_TABLE[i])
 	end
 	for j = 1, MAX_GLYPHS, 1 do
 		local glyph = CustomNetTables:GetTableValue("skill_tree", tostring(heroEntity:GetPlayerOwnerID()).."-glyph-"..tostring(j))
@@ -495,11 +495,11 @@ function Glyphs:UpgradeArcaneTier(msg)
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 			--SaveLoad:NewKey()
 			local resultTable = {}
-			print( "GET response:\n" )
+			--print( "GET response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			-- resultTable = Quests:GetQuestDataFromJSON(resultTable)
 			local arcaneCrystals = resultTable.arcane_crystals
@@ -579,11 +579,11 @@ function Glyphs:GlyphPurchase(msg)
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 			--SaveLoad:NewKey()
 			local resultTable = {}
-			print( "GET response:\n" )
+			--print( "GET response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			-- resultTable = Quests:GetQuestDataFromJSON(resultTable)
 			local arcaneCrystals = resultTable.arcane_crystals
@@ -598,7 +598,7 @@ function Glyphs:GlyphPurchase(msg)
 		end )
 	end
 	
-	print("spend "..cost.." crystals to buy "..glyphName)
+	--print("spend "..cost.." crystals to buy "..glyphName)
 end
 
 function Glyphs:GetGlyphCostByTier(tier, column, heroName)
@@ -629,22 +629,22 @@ end
 
 function Glyphs:RollGlyphAll(variantName, position, heroIndex)
 	local nameLength = string.len(variantName)
-	print(string.sub(variantName, nameLength-2, nameLength-2))
+	--print(string.sub(variantName, nameLength-2, nameLength-2))
 	local tier = tonumber(string.sub(variantName, nameLength-2, nameLength-2))
-	print(tier)
+	--print(tier)
 	local index = string.sub(variantName, nameLength, nameLength)
 	local rarityName = Glyphs:GetRarityFromGlyphTier(tier, index)
-	print(rarityName)
+	--print(rarityName)
 	local itemName = "Basic Glyph"
 	local slotText = "Glyph"
 	local useDescription = variantName.."_description"
 	local minLevel = tier*15
 	local rpcName = variantName:gsub("item_rpc_", "")
 	rpcName = rpcName:gsub(string.sub(rpcName, string.len(rpcName)-9), "")
-	print(rpcName)
+	--print(rpcName)
 	local tooltipName = HerosCustom:ConvertRPCNameToStringHeroName(rpcName)
 	local modifierName = variantName:gsub("item_rpc", "modifier")
-	print(modifierName)
+	--print(modifierName)
 
 	local glyph = Glyphs:CreateGlyphItem(variantName, rarityName, nil, slotText, useDescription, position, tooltipName, minLevel, modifierName, heroIndex)
 	RPCItems:ItemUpdateCustomNetTables(glyph)
@@ -682,11 +682,11 @@ function Glyphs:ReanimationPurchase(msg)
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 			--SaveLoad:NewKey()
 			local resultTable = {}
-			print( "GET response:\n" )
+			--print( "GET response:\n" )
 			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			-- resultTable = Quests:GetQuestDataFromJSON(resultTable)
 			local arcaneCrystals = resultTable.arcane_crystals
@@ -726,7 +726,7 @@ function Glyphs:DebugArchivistGlyph(position)
 	local heroTable = HerosCustom:GetHeroNameTable()
 	for i= 2, #heroTable, 1 do
 		local heroName = heroTable[i]
-		print(heroname)
+		--print(heroname)
 		local variantName = "item_rpc_"..heroName.."_glyph_5_a"
 		Glyphs:RollGlyphAll(variantName, position, 0)
 	end
@@ -752,16 +752,16 @@ function Glyphs:GetGlyphAvailability(msg)
 	url = url.."&hero="..heroName
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		local resultTable = {}
-		print( "GET response:\n" )
+		--print( "GET response:\n" )
 		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 		-- resultTable = Quests:GetQuestDataFromJSON(resultTable)
-		print(resultTable)
+		--print(resultTable)
 		local recipeResults = Glyphs:FormatRecipeResults(resultTable)
-		DeepPrintTable(recipeResults)
+		--DeepPrintTable(recipeResults)
 		if not hero.glyphRecipes then
 			hero.glyphRecipes = {}
 		end
@@ -789,7 +789,7 @@ function Glyphs:GetGlyphAvailability(msg)
 				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "glyph_recipes_loaded", {heroName = heroName, data=recipeResults, glyphDisplay=hero.loadedGlyphDisplay})
 			end
 		end)
-		DeepPrintTable(hero.glyphRecipes)
+		--DeepPrintTable(hero.glyphRecipes)
 	end )
 end
 
@@ -797,7 +797,7 @@ function Glyphs:FormatRecipeResults(resultTable)
 	if not resultTable then
 		return {}
 	end
-	DeepPrintTable(resultTable)
+	--DeepPrintTable(resultTable)
 	if next(resultTable) == nil then
 		return {}
 	end

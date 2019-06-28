@@ -21,7 +21,9 @@
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_5_a.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_1_1.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_5_1.png"/>
+
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_7_1.png"/> -->
+
 <!-- <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/winterblight_glacier_stone.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_ruby_ring.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/wraps_of_the_grand_arcanist.png"/>

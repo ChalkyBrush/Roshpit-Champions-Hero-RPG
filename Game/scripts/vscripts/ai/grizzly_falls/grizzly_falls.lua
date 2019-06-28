@@ -233,7 +233,7 @@ function grizzly_falls_boss_arrow_hit(event)
 	local caster = event.caster
 	local target = event.target
 	local damage = Events:GetAdjustedAbilityDamage(600, 12000, 20000)
-	print("arrow hit")
+	--print("arrow hit")
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 end
 

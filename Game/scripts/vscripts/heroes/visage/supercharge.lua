@@ -189,7 +189,7 @@ function supercharge_enemy(caster, target, ability)
 	Timers:CreateTimer(0.2, function()
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.03})
 		local finalSwarmDamage = swarmDamage*0.02*b_d_level
-		Filters:TakeArgumentsAndApplyDamage(target, caster, finalSwarmDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_DEMON)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, finalSwarmDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_DEMON)
 		EmitSoundOn("Ekkan.ScourgeSwarm", target)
 		CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan/scourge_swarm.vpcf", target, 5)
 	end)
@@ -207,7 +207,7 @@ function super_skeleton_think(event)
 		local enemies = FindUnitsInRadius( hero:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for i = 1, caster.numTargets, 1 do
-				Filters:TakeArgumentsAndApplyDamage(enemies[i], hero, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_LIGHTNING)
+				Filters:TakeArgumentsAndApplyDamage(enemies[i], hero, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_LIGHTNING)
 				Events:CreateLightningBeam(caster:GetAbsOrigin()+Vector(0,0,180), enemies[i]:GetAbsOrigin()+Vector(0,0,90))
 			end
 			EmitSoundOn("Ekkan.SuperchargeSkeleton.Beam", caster)

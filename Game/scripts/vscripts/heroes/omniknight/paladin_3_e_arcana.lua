@@ -70,7 +70,7 @@ function comet_think(event)
 		caster:RemoveModifierByName("modifier_comet_storming")
 	elseif caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 340 then
 		if not ability.landAnimated then
-			print("ANIMATE")
+			--print("ANIMATE")
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Paladin.CometLand", caster)
 			ability.landAnimated = true
 			StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_ATTACK, rate=1.3})
@@ -92,7 +92,7 @@ function comet_storm_end(event)
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), landPoint, nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then
         for _,enemy in pairs(enemies) do
-        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
         end
     end 	
     Timers:CreateTimer(5, function()

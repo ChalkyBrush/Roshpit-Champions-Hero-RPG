@@ -35,7 +35,7 @@ function begin_pulse(event)
 		EmitSoundOnLocationWithCaster(point, "Hero_Leshrac.Diabolic_Edict", caster)
 		EmitSoundOnLocationWithCaster(point, "Hero_Leshrac.Diabolic_Edict", caster)
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 			local particleName = "particles/units/heroes/hero_leshrac/bahamut_nova_strike.vpcf"
 			local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
 			ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)

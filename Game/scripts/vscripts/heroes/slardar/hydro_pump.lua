@@ -59,7 +59,7 @@ function begin_hydro_pump(event)
 									end
 								end
 							end
-							Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+							Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 							if ability.q_3_level > 0 then
 								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_hydroxis_c_a_magic_resist_lost", {duration = 8})
 								enemy:SetModifierStackCount("modifier_hydroxis_c_a_magic_resist_lost", caster, ability.q_3_level)
@@ -115,7 +115,7 @@ function begin_hydro_pump(event)
 			slow_duration = slow_duration + stunDuration
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_WATER, RPC_ELEMENT_EARTH)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_WATER, RPC_ELEMENT_EARTH)
 					Filters:ApplyStun(caster, stunDuration, enemy)
 					oceanQuake:ApplyDataDrivenModifier(caster, enemy, "modifier_ocean_quake_slowed", {duration = slow_duration})
 				end

@@ -190,7 +190,7 @@ function fire_ray_casting_thinker2(event)
 				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), beam.position, nil, 80, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 				if #enemies > 0 then
 					for _,enemy in pairs(enemies) do
-						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 					end
 				end	
 				local allies = FindUnitsInRadius( caster:GetTeamNumber(), beam.position, nil, 80, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
@@ -207,7 +207,7 @@ function fire_ray_casting_thinker2(event)
 				if beam.target:GetTeamNumber() == caster:GetTeamNumber() then
 					ally_beam_hit(heal_pct, caster, ability, beam.target)
 				else
-					Filters:TakeArgumentsAndApplyDamage(beam.target, caster, damage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+					Filters:TakeArgumentsAndApplyDamage(beam.target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 				end			
 			end
 			beam.interval = beam.interval + 1
@@ -263,7 +263,7 @@ function fire_buff_attack_land(event)
 	local target = event.target
 	local mult = ability:GetLevel()
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * mult
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_doom_bringer/doom_infernal_blade_impact_d.vpcf", target, 0.5)
 end
 
@@ -308,9 +308,9 @@ function fire_deity_spell_impact(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local mult = caster.conjuror:GetAbilityByIndex(1):GetLevel()
+	local mult = caster.conjuror:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster.conjuror)*mult
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
 function conjuror_arcana2_passive_thinker(event)

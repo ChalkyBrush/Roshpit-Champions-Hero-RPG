@@ -413,9 +413,9 @@ function RPCItems:RollMagebaneRuneProperty()
         propertyName = "rune_r_2"
         tier = 2
     end
-    -- print("VALUE".. value)
+    ----print("VALUE".. value)
     value = value + RandomInt(math.floor(maxFactor/15), math.floor(maxFactor/7))
-    -- print("ADJUSTED VALUE".. value)
+    ----print("ADJUSTED VALUE".. value)
     return tier, value, propertyName
 end
 
@@ -4128,7 +4128,7 @@ function RPCItems:RollChainsOfOrthok(deathLocation)
     item.newItemTable.property1 = 1
     item.newItemTable.property1name = "orthok"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_chains_of_orthok", "#E8F43F",  1, "#property_chains_of_orthok_description")
-    print("ORTHOK??")
+   --print("ORTHOK??")
     item.newItemTable.hasRunePoints = true
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
     item.newItemTable.property2 = math.floor(value*1.5)
@@ -5445,7 +5445,7 @@ function RPCItems:RollTemporalWarpBoots(deathLocation)
     item.newItemTable.property1 = 1
     item.newItemTable.property1name = "temporal_warp"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_temporal_warp", "#A1F442",  1, "#property_temporal_warp_description")
-    print("TEMPORAL WARP BOOTS")
+   --print("TEMPORAL WARP BOOTS")
     local luck = RandomInt(1,3)
     if luck == 1 then
         local evasionValue = RandomInt(12, 20)
@@ -5665,14 +5665,14 @@ function RPCItems:RollWinterblightSkullRing(deathLocation)
     -- else
     --     item.newItemTable.requiredHero = glyphName[2]
     -- end
-    -- print(item.newItemTable.requiredHero)
+    ----print(item.newItemTable.requiredHero)
     local glyphTitle = "#DOTA_Tooltip_ability_"..glyphName[1]
     local glyphDescrip = "#"..glyphName[1].."_description"
     RPCItems:SetPropertyValuesSpecial(item, "★", glyphTitle, "#b383d1",  1, glyphDescrip)
     item.newItemTable.hasRunePoints = true
 
     Elements:RollElementAttribute(item, RPC_ELEMENT_UNDEAD, 3.2, 2, 24, 2)
-    -- print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    ----print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
     -- item.newItemTable.requiredHero = glyphName[2]
     -- DeepPrintTable(glyphName)
 
@@ -6878,7 +6878,7 @@ function RPCItems:RollRingOfNobility(deathLocation)
     item.newItemTable.property1name = "nobility"
     item.newItemTable.property1 = 0
 
-    RPCItems:SetPropertyValuesSpecial(item, 0, "#item_property_nobility", "#FFFFFF",  1, "#property_nobility_description")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_nobility", "#FFFFFF",  1, "#property_nobility_description")
 
     local value = math.ceil(RPCItems:GetMinLevel()/2)
     item.newItemTable.property2 = value*5
@@ -7493,8 +7493,8 @@ function RPCItems:RollChampionsGearHelm(deathLocation)
     local drop = CreateItemOnPositionSync( deathLocation, item )
     local position = deathLocation
     RPCItems:DropItem(item, position)
-    print(item:GetEntityIndex())
-    print(item:GetContainer():GetAbsOrigin())
+   --print(item:GetEntityIndex())
+   --print(item:GetContainer():GetAbsOrigin())
     return item
 end
 
@@ -7791,7 +7791,7 @@ end
 function RPCItems:RollImmortalByName(itemName, position)
     local deathLocation = position
     local newItem = nil
-    print(immortalName)
+   --print(immortalName)
     if itemName == "item_rpc_magebane_gloves" then
         newItem = RPCItems:RollMageBaneGloves(deathLocation)
     elseif itemName == "item_rpc_berserker_gloves" then
@@ -8153,7 +8153,7 @@ function RPCItems:RollImmortalByName(itemName, position)
     elseif itemName == "item_rpc_epsilons_eyeglass" then
         newItem = RPCItems:RollEpsilonsEyeglass(deathLocation)
     elseif itemName == "item_rpc_heroic_conqueror_vestments" then
-        print("GIMME DAT")
+       --print("GIMME DAT")
         newItem = RPCItems:RollHeroicConquerorVestments(deathLocation, 1)
     elseif itemName == "item_rpc_autumn_sleeper_mask" then
         newItem = RPCItems:RollAutumnSleeperMask(deathLocation, isShop)
@@ -8344,9 +8344,9 @@ function RPCItems:RollImmortalByName(itemName, position)
 end
 
 function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, slotLock4, itemLevel, oldItemProperties)
-    print("[RPCItems:RerollImmortal]")
+   --print("[RPCItems:RerollImmortal]")
     local itemName = item:GetAbilityName()
-    -- print(itemName)
+    ----print(itemName)
     local newItem = false
     local isShop = false
     local giveBackOldItem = false
@@ -8357,7 +8357,7 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
     end
     RPCItems.LevelRoll = itemLevel
     newItem = RPCItems:RollImmortalByName(itemName, deathLocation)
-    print(newItem)
+   --print(newItem)
     if newItem then
     else
         newItem = false
@@ -8442,7 +8442,7 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         end
         
         if item:GetAbilityName() == newItem:GetAbilityName() then
-            print("NEW ITEM IS ACCEPTABLE")
+           --print("NEW ITEM IS ACCEPTABLE")
             
         end
         if IsValidEntity(newItem) then

@@ -23,7 +23,7 @@ function begin_dash(keys)
   end
   ability:ApplyDataDrivenModifier(hero, hero, modifierName, {duration = 1.5})
   ability:ApplyDataDrivenModifier(hero, hero, "modifier_whirlwind_flying_portion", {duration = 4.0})
-  print("BEGIN WHIRLWIND")
+ --print("BEGIN WHIRLWIND")
 end
 
 function dash_think(event)
@@ -91,7 +91,7 @@ function dash_damage_and_knockback(ability,caster,position,damage_percent,distan
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then
         for _,enemy in pairs(enemies) do
-          Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 3, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+          Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_E, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
         end
     end 
 end
@@ -101,7 +101,7 @@ function dash_end(event)
   local ability = event.ability
   hero.EFV = false
   -- if ability.e_2_level > 0 then
-  --   print("APPLY BC AGAIN")
+  --  --print("APPLY BC AGAIN")
   --   ability:ApplyDataDrivenModifier(hero, hero, "modifier_axe_rune_e_2_tornado", {duration = 2})
   -- end
   if not hero:HasModifier("modfier_axe_jumping") then
@@ -290,7 +290,7 @@ function d_c_projectile_hit(event)
   local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
   if #enemies > 0 then  
     for _,enemy in pairs(enemies) do
-      Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+      Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
     end
   end
 end

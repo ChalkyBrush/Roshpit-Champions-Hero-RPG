@@ -53,16 +53,16 @@ function CustomAbilities:EpochTimeTravelGlyph(victim)
 	glyph:ApplyDataDrivenModifier(glyphUnit, victim, "modifier_epoch_glyph_5_a_cooldown", {duration = 15})
 	glyph:ApplyDataDrivenModifier(glyphUnit, victim, "modifier_epoch_glyph_5_a_little_shield", {duration = 2})
 
-	print("EpochTimeTravelGlyph shield trigger - custom abilities")			
+	--print("EpochTimeTravelGlyph shield trigger - custom abilities")			
 	EmitSoundOn("RPC.MagicImmuneBreakAttacker", victim)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_faceless_void/faceless_void_backtrack.vpcf", victim, 2)
 	ProjectileManager:ProjectileDodge(victim)
 	victim:SetHealth(victim:GetMaxHealth())
     victim:SetMana(victim:GetMaxMana())
-    victim:GetAbilityByIndex(0):EndCooldown()
-    victim:GetAbilityByIndex(1):EndCooldown()
-    victim:GetAbilityByIndex(2):EndCooldown()
-    victim:GetAbilityByIndex(DOTA_ULTIMATE_SLOT):EndCooldown()
+    victim:GetAbilityByIndex(DOTA_Q_SLOT):EndCooldown()
+    victim:GetAbilityByIndex(DOTA_W_SLOT):EndCooldown()
+    victim:GetAbilityByIndex(DOTA_E_SLOT):EndCooldown()
+    victim:GetAbilityByIndex(DOTA_R_SLOT):EndCooldown()
 end
 
 function CustomAbilities:UpdateAuriunCursorPosition(msg)
@@ -98,13 +98,13 @@ function CustomAbilities:AxeSunder(caster, ability, damage, damageAmp, particleN
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), slamPoint, nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage*damageAmp, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage*damageAmp, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 			if r_4_level > 0 then
 				local runeAbility = caster.runeUnit4:FindAbilityByName("axe_rune_r_4")
 				runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_axe_rune_r_4_visible", {duration = 7})
 				local current_stacks = enemy:GetModifierStackCount( "modifier_axe_rune_r_4_visible", runeAbility )
 				local newStacks = current_stacks + 1
-				print(newStacks)
+				--print(newStacks)
 				enemy:SetModifierStackCount( "modifier_axe_rune_r_4_visible", runeAbility, newStacks )
 
 				runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_axe_rune_r_4_invisible", {duration = 7})
@@ -250,8 +250,8 @@ function CustomAbilities:QuickAttachThinker(ability, caster, position, thinkerNa
 		end)
 		return thinker
 	else
-		print("Err CustomAbilities:QuickAttachThinker")	
-		print(thinkerName)	
+		--print("Err CustomAbilities:QuickAttachThinker")	
+		--print(thinkerName)	
 	end
 end
 
@@ -297,7 +297,7 @@ end
 function CustomAbilities:Warlord_Ambush(caster, warlord_ambush_target)
 	if IsValidEntity(warlord_ambush_target) then
 		if warlord_ambush_target:IsAlive() then
-			print("blockMAIN")
+			--print("blockMAIN")
 			EmitSoundOn("Hero_Beastmaster.Attack", warlord_ambush_target)
 			local target = warlord_ambush_target
 
@@ -406,8 +406,8 @@ end
 function CustomAbilities:ChernobogDemonHunter(victim, damage)
 	local ability = victim:FindAbilityByName("chernobog_demon_hunter")
 	local threshold = ability:GetSpecialValueFor("max_damage_taken_percent_of_health")
-	print("THRESHOLD!!")
-	print(threshold)
+	--print("THRESHOLD!!")
+	--print(threshold)
 	if victim:HasModifier("modifier_chernobog_immortal_weapon_1") then
 		threshold = threshold - 2
 	end
@@ -671,9 +671,9 @@ function CustomAbilities:SephyrBoomerang(caster, ability, enemy, bWindDeity)
     if not ability.boomerangTable then
     	ability.boomerangTable = {}
     end
-    print("##########")
-    print(#ability.boomerangTable)
-    print("#######")
+   --print("##########")
+   --print(#ability.boomerangTable)
+   --print("#######")
     if #ability.boomerangTable < max_boomerangs then
     	for i = 0, pucks-1, 1 do
     		Timers:CreateTimer(i*0.4, function()

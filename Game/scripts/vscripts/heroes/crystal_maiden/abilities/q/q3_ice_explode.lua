@@ -25,7 +25,7 @@ local function cast(caster, target, ability, damage)
                 Immune.addEffectDuration(caster, enemy, ability, 'modifier_ice_lance', freezeDuration)
                 ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ice_lance_frozen", {duration = freezeDuration})
             end
-            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
         end
     end
 end

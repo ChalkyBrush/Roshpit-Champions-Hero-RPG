@@ -43,14 +43,14 @@ function lava_prisoner_think(event)
 	local ability = event.ability
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_FARTHEST, false )
 	if not ability then
-		print("[error] lava_prisoner_think ability")
+		--print("[error] lava_prisoner_think ability")
 		return
 	end
 	if #enemies > 0 then
 		if caster:HasModifier("modifier_lava_prisoner_submerged") then
 			caster:RemoveModifierByName("modifier_lava_prisoner_submerged")
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_beast_fighting", {})
-			print("RISE!")
+			--print("RISE!")
 			StartAnimation(caster, {duration=1, activity=ACT_DOTA_SPAWN, rate=1}) 
 			-- for i = 1, 30, 1 do
 			-- 	Timers:CreateTimer(0.03*i, function()
@@ -70,7 +70,7 @@ function lava_prisoner_think(event)
 		if not caster:HasModifier("modifier_lava_prisoner_submerged") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_lava_prisoner_submerged", {})
 			caster:RemoveModifierByName("modifier_beast_fighting")
-			print("FALL!")
+			--print("FALL!")
 			StartAnimation(caster, {duration=1, activity=ACT_DOTA_SPAWN, rate=1}) 
 			
 				-- Timers:CreateTimer(0.03*i, function()
@@ -505,7 +505,7 @@ function fire_wave_room_unit_die(event)
 	    for i = 1, #sunPieces, 1 do
 	      sunPieces[i]:SetAbsOrigin(newSunPos)
 	    end
-	    print(newSunPos)
+	   --print(newSunPos)
 	    local moonDirection = Vector(0,1)
 	    local newMoonDirection = WallPhysics:rotateVector(moonDirection, -degrees*math.pi/180)
 	    newMoonDirection = newMoonDirection:Normalized()
@@ -520,7 +520,7 @@ function fire_wave_room_unit_die(event)
 	    local greenDif = 4/90
 	    local blueDif = -47/90
 	    floorEnt:SetRenderColor(103+redDif*degrees, 93+greenDif*degrees, 144+blueDif*degrees)
-		-- print("MOVE SUN STUFF?")
+		--print("MOVE SUN STUFF?")
 	end
 end
 
@@ -836,7 +836,7 @@ function kolthun_battle_begin(event)
 	Timers:CreateTimer(2.3, function()
 		EmitGlobalSound("Tanari.FireTemple.KolthunLaugh2")
 	end)
-	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = caster:GetUnitName(), bossMaxHealth = caster:GetMaxHealth()})
+	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = caster:GetUnitName(), bossMaxHealth = caster:GetMaxHealth(), bossId = tostring(caster)})
 	local rockFallTable = {Vector(7424, -9536, 400), Vector(8000, -8256, 400), Vector(5824, -8000, 400), Vector(7040, -8000, 400), Vector(7488, -10176, 400), Vector(6016, -9344, 400)}
 	Tanari.FireTemple.rockfallIndex = 1
 	Timers:CreateTimer(4, function()
@@ -881,7 +881,7 @@ function kolthun_main_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if caster:HasModifier("modifier_kolthun_dashing") then
-		print("DASHING NOW")
+		--print("DASHING NOW")
 	end
 	if caster:HasModifier("modifier_kolthun_phase_1_death") then
 		return
@@ -997,9 +997,9 @@ function kolthun_main_think(event)
 				local aggroOrigin = aggroTarget:GetAbsOrigin()
 				local pathDistance = GridNav:FindPathLength(casterOrigin, aggroOrigin)
 				local crowDistance = WallPhysics:GetDistance(casterOrigin, aggroOrigin)
-				print("DISTANCES---")
-				print(pathDistance)
-				print(crowDistance)
+				--print("DISTANCES---")
+				--print(pathDistance)
+				--print(crowDistance)
 				if pathDistance > crowDistance + 300 or pathDistance == -1 then
 						local forceDirection = ((aggroOrigin-casterOrigin)*Vector(1,1,0)):Normalized()
 						StartAnimation(caster, {duration=0.66, activity=ACT_DOTA_CAST_TORNADO, rate=1})
@@ -1087,7 +1087,7 @@ function kolthun_buffing_think(event)
 	else
 		caster.interval = true
 	end
-	print("BUFFING UP?")
+	--print("BUFFING UP?")
       local particleName = "particles/items_fx/fire_temple_beam.vpcf"
       local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, Events.GameMaster) 
       -- ParticleManager:SetParticleControl(lightningBolt,0,Vector(8119, -9083, 870)) 
@@ -1102,7 +1102,7 @@ function kolthun_buffing_think(event)
         ParticleManager:DestroyParticle(lightningBolt, false)
       end)
       caster:Heal(caster:GetMaxHealth()*0.02, caster)
-      CustomGameEventManager:Send_ServerToAllClients("update_boss_health", {current_health = caster:GetHealth()})
+      CustomGameEventManager:Send_ServerToAllClients("update_boss_health", {current_health = caster:GetHealth(), bossId = tostring(caster)})
 end
 
 function kolthun_phase_1_death_think(event)
@@ -1245,7 +1245,7 @@ function firelord_think(event)
 	end
 	if not caster:HasModifier("modifier_firelord_intro") then
 		if caster:HasModifier("modifier_kolthun_dashing") then
-			print("DASHING NOW")
+			--print("DASHING NOW")
 		end
 
 			if caster:GetHealth() < 1000 and not caster:HasModifier("modifier_kolthun_phase_1_death") then
@@ -1375,9 +1375,9 @@ function firelord_think(event)
 					local aggroOrigin = aggroTarget:GetAbsOrigin()
 					-- local pathDistance = GridNav:FindPathLength(casterOrigin, aggroOrigin)
 					local crowDistance = WallPhysics:GetDistance(casterOrigin, aggroOrigin)
-					print("DISTANCES---")
-					print(pathDistance)
-					print(crowDistance)
+					--print("DISTANCES---")
+					--print(pathDistance)
+					--print(crowDistance)
 					if crowDistance > 700 then
 							local forceDirection = ((aggroOrigin-casterOrigin)*Vector(1,1,0)):Normalized()
 							StartAnimation(caster, {duration=0.66, activity=ACT_DOTA_FLAIL, rate=1, translate = "forcestaff_friendly"})
@@ -1464,7 +1464,7 @@ function fire_temple_boss_die(caster, ability)
 	end)
 	local bossOrigin = caster:GetAbsOrigin()
 	Timers:CreateTimer(8, function()
-		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fire_temple_boss_dying_final", {})
 		caster:RemoveModifierByName("modifier_fire_temple_boss_dying")
 		Timers:CreateTimer(0.1, function()
@@ -1810,7 +1810,7 @@ function begin_specter_rush_two(event)
 	local duration = distance/chargeSpeed
 	StartAnimation(caster, {duration=duration+0.39, activity=ACT_DOTA_RUN, rate=1.4, translate="charge"})
 	ability.fv = ((target-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-	print("charge wind up")
+	--print("charge wind up")
 	-- caster:MoveToPosition(caster:GetAbsOrigin() + ability.fv*800)
 	local soundTable = {"spirit_breaker_spir_anger_05", "spirit_breaker_spir_laugh_07", "spirit_breaker_spir_move_03"}
 	EmitSoundOn(soundTable[RandomInt(1,#soundTable)], caster)
@@ -1884,11 +1884,11 @@ function charge_slide_think(event)
 		ability.slideVelocity = ability.slideVelocity - 2
 	end
 	caster:RemoveModifierByName("modifier_charging_fire_create")
-	print("slide think")
+	--print("slide think")
 end
 
 function charge_slide_end(event)
-	print("slide END")
+	--print("slide END")
 	local caster = event.caster
 	caster.EFV = nil
 end
@@ -1935,7 +1935,7 @@ function fire_temple_unit_die(event)
 		if unit.code == 0 then
 			local delay = 1.1
 			Tanari.FireTemple.SpiritWaveUnitsSlain = Tanari.FireTemple.SpiritWaveUnitsSlain + 1
-			print(Tanari.FireTemple.SpiritWaveUnitsSlain)
+			--print(Tanari.FireTemple.SpiritWaveUnitsSlain)
 			local spawnPositionTable = {Vector(11328, -12872, 274), Vector(12160, -11008, 274), Vector(13366, -12902, 297), Vector(13397, -11074, 300), Vector(15428, -12976, 364), Vector(14464, -11074)}
 			if Tanari.FireTemple.SpiritWaveUnitsSlain == 22 then
 				for i = 1, #spawnPositionTable, 1 do
@@ -2315,9 +2315,9 @@ function unit_on_platform_moving_end(event)
 					LavaJump(hero, hero:GetForwardVector(), RandomInt(10, 13), 27, 25, 1)
 					ability:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_lava_flailing", {duration = 4})
 				end)
-			print("LaVA TOUCH!------------")
+			--print("LaVA TOUCH!------")
 			ability:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_lava_hit", {duration = 4})
-			print("TOUCHING LAVA!!")
+			--print("TOUCHING LAVA!!")
 		end
 	end
 end
@@ -2363,23 +2363,23 @@ function LavaJump(unit, forwardVector, propulsion, liftForce, liftDuration, grav
 					newPosition = newPosition-(forwardVector*propulsion)
 				end
 				unit:SetOrigin(newPosition)
-				-- print("NEWPOSITION.Z:")
-				-- print(newPosition.z)
+				--print("NEWPOSITION.Z:")
+				--print(newPosition.z)
 
 				if newPosition.z - GetGroundPosition(newPosition, unit).z < 10 then
-					print("z1")
+					--print("z1")
 					unit:RemoveModifierByName(jumpingModifier)
 					FindClearSpaceForUnit(unit, newPosition, false)
 					WallPhysics:UnitLand(unit)
 					unit:RemoveModifierByName("modifier_lava_jumping")
-					print (currentPosition.z)
+					--print (currentPosition.z)
 					if (currentPosition.z <= 252) then
 						local triggerTable = {}
 						triggerTable.activator = unit
 						EnterLava(triggerTable)
 					end
 				elseif newPosition.z <= 252 then
-					print("z2")
+					--print("z2")
 					unit:RemoveModifierByName(jumpingModifier)
 					-- FindClearSpaceForUnit(unit, newPosition, false)
 					WallPhysics:UnitLand(unit)
@@ -2737,12 +2737,12 @@ function fire_temple_spirit_boss_die_begin(event)
 	end
 	Timers:CreateTimer(3, function()
 	  	local itemName = "item_tanari_spirit_stones_"..Tanari:ConvertDifficultyNumberToName(GameState:GetDifficultyFactor())
-	  	print(itemName)
+	  	--print(itemName)
 	    local stones = RPCItems:CreateConsumable(itemName, "immortal", "tanari_spirit_stones", "consumable", false, "Consumable", itemName.."_desc")
 	    CreateItemOnPositionSync(bossOrigin, stones)
 	    --stones:LaunchLoot(false, RandomInt(100,600), 0.75, bossOrigin)
 		RPCItems:LaunchLoot(stones, RandomInt(100,600), 0.5, bossOrigin, bossOrigin)
-	    print("STONES DROPPED")
+	   --print("STONES DROPPED")
 
 	    local luck = RandomInt(1,3)
 	    if luck == 1 then
@@ -2765,7 +2765,7 @@ function fire_temple_spirit_boss_die_begin(event)
 		end
 	end)
 	Timers:CreateTimer(8, function()
-		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 		caster:RemoveModifierByName("modifier_wind_temple_boss_dying")
 		Timers:CreateTimer(0.1, function()
 			StartAnimation(caster, {duration=8, activity=ACT_DOTA_DIE, rate=1})

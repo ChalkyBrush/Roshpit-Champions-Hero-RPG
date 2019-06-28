@@ -14,7 +14,7 @@ function begin_ultimate_jump(event)
     local targetPoint = event.target_points[1]
     local distance = WallPhysics:GetDistance(targetPoint*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
     local jumpFV = ((targetPoint-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-    print(jumpFV)
+   --print(jumpFV)
     ability.jump_velocity = distance/30 + 15
     ability.jumpFV = jumpFV
     ability.distance = distance
@@ -43,7 +43,7 @@ function earth_aspect_jumping_think(event)
 	end
 	caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,ability.jump_velocity)+ability.jumpFV*forwardSpeed)
 	ability.jump_velocity = ability.jump_velocity - 3.3
-	print(ability.jumpFV)
+	--print(ability.jumpFV)
 	if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 10 and not ability.lifting then
 		caster:RemoveModifierByName("modfier_earth_aspect_jumping")
 	end

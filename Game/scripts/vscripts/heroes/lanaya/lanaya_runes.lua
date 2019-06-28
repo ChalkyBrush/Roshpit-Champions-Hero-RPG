@@ -19,7 +19,7 @@ function CheckAngles(keys)
 	local caster = keys.attacker
 	local target = keys.target
 	local ability = keys.ability
-	print("ATTACK PSI!!!")
+	--print("ATTACK PSI!!!")
 	-- Notes the origin of the first target to be the center of the findunits radius
 	local first_target_origin = target:GetAbsOrigin()
 	-- Notes the damage the first target takes to apply to the other targets
@@ -28,7 +28,7 @@ function CheckAngles(keys)
 	ability.origCaster = caster
 
 	if caster:HasModifier("modifier_trapper_glyph_2_2") then
-		Filters:TakeArgumentsAndApplyDamage(target, caster, ability.line_damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, ability.line_damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 	end
 	-- Gets the caster's origin difference from the target
 	local caster_origin_difference = caster:GetAbsOrigin() - first_target_origin 
@@ -95,5 +95,5 @@ function DealDamage_c_c(keys)
 	local ability = keys.ability
 	local caster = ability.origCaster
 	-- Applies the damage to the attack target
-	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.line_damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.line_damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 end

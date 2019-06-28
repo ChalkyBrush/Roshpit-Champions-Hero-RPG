@@ -157,7 +157,7 @@ function kraken_king_think(event)
 	if caster:HasAbility("king_kraken_aoe_ability") then
 		local aoeAbility = caster:FindAbilityByName("king_kraken_aoe_ability")
 		if aoeAbility:IsFullyCastable() then
-			print("AOE AIBLITY IS CASTABLE")
+			--print("AOE AIBLITY IS CASTABLE")
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )	
 			if #enemies > 0 then
 				local newOrder = {
@@ -440,7 +440,7 @@ function tanari_hydra_think(event)
 		if caster:HasModifier("modifier_tanari_hydra_submerged") then
 			caster:RemoveModifierByName("modifier_tanari_hydra_submerged")
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_beast_fighting", {})
-			print("RISE!")
+			--print("RISE!")
 			StartAnimation(caster, {duration=1, activity=ACT_DOTA_SPAWN, rate=1}) 
 			for i = 1, 20, 1 do
 				Timers:CreateTimer(0.03*i, function()
@@ -490,7 +490,7 @@ function tanari_hydra_think(event)
 		if not caster:HasModifier("modifier_tanari_hydra_submerged") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_tanari_hydra_submerged", {})
 			caster:RemoveModifierByName("modifier_beast_fighting")
-			print("FALL!")
+			--print("FALL!")
 			StartAnimation(caster, {duration=1, activity=ACT_DOTA_SPAWN, rate=1}) 
 			caster.sinking = true
 			Timers:CreateTimer(0.6, function()

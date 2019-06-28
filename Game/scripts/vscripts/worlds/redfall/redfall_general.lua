@@ -338,7 +338,7 @@ function ancient_tree_main_think(event)
 			Statistics.dispatch("redfall_ridge:kill:world_tree");
 			caster.deathStart = true
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_dying_generic", {duration = 20})
-			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 			caster.deathStart = true
 			StartAnimation(caster, {duration=7, activity=ACT_DOTA_FLAIL, rate=1})
 			Timers:CreateTimer(0.5, function()
@@ -536,7 +536,7 @@ function tree_summon_die(event)
 	end
 	origCaster.summonTable = newTable
 	for i = 1, #origCaster.summonTable, 1 do
-		print(origCaster.summonTable[i]:GetUnitName())
+		--print(origCaster.summonTable[i]:GetUnitName())
 	end
 end
 
@@ -618,7 +618,7 @@ function summon_leech_seed_heal(event)
 	if target:GetUnitName() == "redfall_ancient_tree" then
 		healAmount = target:GetMaxHealth()*0.06
 	end
-	print(healAmount)
+	--print(healAmount)
 	Filters:ApplyHeal(target, target, healAmount, true)
 end
 

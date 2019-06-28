@@ -53,7 +53,7 @@ function immolate(fireAspect, radius, caster, damage)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), aspectPosition, nil, radius+5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 		end
 	end 	
 end
@@ -93,7 +93,7 @@ function arc_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local damage = event.damage/3
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 	local runeUnit = caster.runeUnit2
 	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_w_2")
 	local w_2_level = get_w_2_level(caster)
@@ -123,7 +123,7 @@ function fire_aspect_attack_land(event)
 	-- 	end
 	-- 	return false
 	-- end
-	print("aspect_attack")
+	--print("aspect_attack")
 	local luck = RandomInt(1, 10)
 	if luck <= 3 then
 		local w_3_level = 0
@@ -132,15 +132,15 @@ function fire_aspect_attack_land(event)
 		else
 			w_3_level = attacker:GetRuneValue("w", 3)
 		end
-		print("luck passed")
+		--print("luck passed")
 		if w_3_level > 0 then
-			print("w_3_level is good lets go")
+			--print("w_3_level is good lets go")
 			local critmult = 0.45
 			if attacker.fireDeity then
 				critmult = 0.6
 			end
 			local bonusDamage = attack_damage*(w_3_level*critmult)
-			-- Filters:TakeArgumentsAndApplyDamage(target, attacker, bonusDamage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)--obsolete
+			-- Filters:TakeArgumentsAndApplyDamage(target, attacker, bonusDamage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)--obsolete
 			PopupDamage(target, bonusDamage+attack_damage)
 			EmitSoundOn("Hero_Batrider.Flamebreak", target)
 			if attacker.conjuror then
@@ -197,7 +197,7 @@ function fire_breath_strike(event)
 	local ability = event.ability
 	local target = event.target
 
-	Filters:TakeArgumentsAndApplyDamage(target, ability.conjuror, ability.flamebreathDamage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, ability.conjuror, ability.flamebreathDamage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
 function get_w_3_level(caster)

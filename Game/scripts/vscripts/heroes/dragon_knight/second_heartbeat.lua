@@ -43,7 +43,7 @@ function second_heartbeat_damage(event)
 	    local stacks = math.min(current_stack+additional_armorLoss, 10000)
 	    target:SetModifierStackCount( "modifier_searing_heat", ability, stacks )
     end
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
 function fire_projectile(abilityLevel, caster, fv, casterOrigin, event, rangeblast)
@@ -237,7 +237,7 @@ function begin_dragon_wrath(caster, ability, target)
     local distance = WallPhysics:GetDistance(targetPoint*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
     if distance <= 1800 then
 	    local jumpFV = ((targetPoint-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-	    print(jumpFV)
+	   --print(jumpFV)
 	    ability.jump_velocity = distance/30 + 15
 	    local groundDifferential = GetGroundHeight(target:GetAbsOrigin(), target) - GetGroundHeight(caster:GetAbsOrigin(), caster)
 	    ability.jump_velocity = distance/30 + 15 + groundDifferential/30
@@ -266,7 +266,7 @@ function dragon_wrath_jumping_think(event)
 	caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,ability.jump_velocity)+ability.jumpFV*forwardSpeed)
 	caster:SetForwardVector(((ability.target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized())
 	ability.jump_velocity = ability.jump_velocity - 6.6
-	print(ability.jumpFV)
+	--print(ability.jumpFV)
 	if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 10 and not ability.lifting then
 		caster:RemoveModifierByName("modfier_dragon_wrath_jumping")
 	end
@@ -280,7 +280,7 @@ function drop_end(keys)
 	EndAnimation(caster)
 	if IsValidEntity(caster.flamewaker_d_b_target) then
 		if caster.flamewaker_d_b_target:IsAlive() then
-			print("blockMAIN")
+			--print("blockMAIN")
 			EmitSoundOn("Flamewaker.SpecialCrit", caster.flamewaker_d_b_target)
 			local target = caster.flamewaker_d_b_target
 

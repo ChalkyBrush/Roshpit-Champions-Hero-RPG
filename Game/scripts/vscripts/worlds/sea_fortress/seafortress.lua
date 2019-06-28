@@ -95,7 +95,7 @@ function Seafortress:InitPaladinGolems()
 end
 
 function Seafortress:Init()
-  print("Initialize Sea Fortress")
+ --print("Initialize Sea Fortress")
       Dungeons.phoenixCollision = true
       RPCItems.DROP_LOCATION = Vector(6656,-16128)
       Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
@@ -234,8 +234,8 @@ end
 
 function Seafortress:Music()
   Timers:CreateTimer(3, function()
-    print("MUSIC??")
-    print(Seafortress.AllBossesSlainEffect)
+   --print("MUSIC??")
+   --print(Seafortress.AllBossesSlainEffect)
     if Seafortress.AllBossesSlainEffect then
     else
       	 for i = 1, #MAIN_HERO_TABLE, 1 do
@@ -1988,7 +1988,7 @@ function Seafortress:CheckJailConditions()
   for i = 1, #Seafortress.CellCompleteTable, 1 do
     sum = sum + Seafortress.CellCompleteTable[i]
   end 
-  print(sum)
+ --print(sum)
   if sum == #Seafortress.CellCompleteTable then
     --JAIL CELLS COMPLETE
     Timers:CreateTimer(1, function()
@@ -2061,7 +2061,7 @@ function Seafortress:CreateBlackPortalUnit(position, bStart)
   EmitSoundOnLocationWithCaster(portalUnit:GetAbsOrigin(), "Seafortress.PortalTouch", portalUnit)
   if bStart then
     Seafortress.RoomsMoved = Seafortress.RoomsMoved + 1
-    print("crash1?")
+   --print("crash1?")
     local portalIndex = Seafortress.blackPortalRoomTable[Seafortress.RoomsMoved]
     if Seafortress.RoomsMoved > 10 then
       portalUnit.portToPosition = Vector(5632, -2240)
@@ -2073,7 +2073,7 @@ function Seafortress:CreateBlackPortalUnit(position, bStart)
     Seafortress.lastFromPos = portalUnit:GetAbsOrigin()
     Seafortress:InitAPortalRoom(Seafortress.blackPortalRoomTable[Seafortress.RoomsMoved])
   else
-    print("crash2?")
+   --print("crash2?")
     if Seafortress.RoomsMoved == 1 then
       portalUnit.portToPosition = Vector(15432, -5342) 
     -- elseif Seafortress.RoomsMoved == 10 then
@@ -2098,7 +2098,7 @@ function Seafortress:SpawnAfterJailRoom()
   Seafortress.RoomsMoved = 0
   Seafortress.lastPortToPos = Vector(15432, -5342)
   Seafortress:CreateBlackPortalUnit(Vector(15432, -5342), true)
-  DeepPrintTable(Seafortress.blackPortalRoomTable)
+  --DeepPrintTable(Seafortress.blackPortalRoomTable)
   -- Seafortress:InitAPortalRoom(Seafortress.RoomsMoved, Seafortress.blackPortalRoomTable[Seafortress.RoomsMoved])
 end
 
@@ -3089,7 +3089,7 @@ function Seafortress:SpawnFloodWaveUnit(unitName, spawnPoint, quantity, delay, b
         unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
       Events:AdjustDeathXP(unit)
       end
-      if IsValidEntity(unit) then
+      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
         unit.dominion = true
         unit.deathCode = 14
         Seafortress.MasterAbility:ApplyDataDrivenModifier(Seafortress.Master, unit, "modifier_sea_fortress_ai", {})
@@ -3098,14 +3098,14 @@ function Seafortress:SpawnFloodWaveUnit(unitName, spawnPoint, quantity, delay, b
         unit.aggro = true
         Seafortress:AdjustWaveUnit(unit)
       else
-        for i = 1, #unit, 1 do
-          unit[i].aggro = true
-          unit[i].dominion = true
-          unit[i]:SetAcquisitionRange(3000)
-          unit[i].deathCode = 14
-          Seafortress.MasterAbility:ApplyDataDrivenModifier(Seafortress.Master, unit[i], "modifier_sea_fortress_ai", {})
-          CustomAbilities:QuickAttachParticle("particles/econ/events/ti7/blink_dagger_start_ti7_splash.vpcf", unit[i], 2)
-          Seafortress:AdjustWaveUnit(unit[i])
+        for i = 1, #unit.buddiesTable, 1 do
+          unit.buddiesTable[i].aggro = true
+          unit.buddiesTable[i].dominion = true
+          unit.buddiesTable[i]:SetAcquisitionRange(3000)
+          unit.buddiesTable[i].deathCode = 14
+          Seafortress.MasterAbility:ApplyDataDrivenModifier(Seafortress.Master, unit.buddiesTable[i], "modifier_sea_fortress_ai", {})
+          CustomAbilities:QuickAttachParticle("particles/econ/events/ti7/blink_dagger_start_ti7_splash.vpcf", unit.buddiesTable[i], 2)
+          Seafortress:AdjustWaveUnit(unit.buddiesTable[i])
         end
       end
     end)
@@ -3915,7 +3915,7 @@ function Seafortress:SpawnGhostSeal(position, fv)
 end
 
 function Seafortress:all_graves_lit()
-  print("ALL GRAVES LIT")
+ --print("ALL GRAVES LIT")
   local colossus = Seafortress:SpawnBarnacleColossus(Vector(5069, 8975), Vector(0,-1))
   colossus:SetAbsOrigin(Vector(5069, 8975, -1000+Seafortress.ZFLOAT))
   colossus.jumpEnd = "hermit"

@@ -72,9 +72,9 @@ end
 function auriun_channel_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	print("CHANNEL THINK??")
+	--print("CHANNEL THINK??")
 	if ability.initialized == 1 then
-		print("SOUND?")
+		--print("SOUND?")
 		ability.initialized = 0
 		StartSoundEvent("Auriun.UltFinish", caster)
 	end
@@ -129,13 +129,13 @@ function auriun_ult_attack_land(event)
 	local r_1_level = attacker:GetRuneValue("r", 1)
 	if r_1_level > 0 then
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * AURIUN_R1_HOLY_DMG_PER_ATT * r_1_level
-		Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
+		Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
 		if attacker:HasModifier("modifier_auriun_glyph_7_1") then
 			local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, AURIUN_GLYPH7_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			CustomAbilities:QuickAttachParticle("particles/roshpit/auriun/auriun_glyph_7.vpcf", target, 0.5)
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
-					Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
+					Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
 				end
 			end 
 		end
