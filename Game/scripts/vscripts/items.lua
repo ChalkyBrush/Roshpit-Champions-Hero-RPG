@@ -232,7 +232,7 @@ function RPCItems:RollItemtype(xpBounty, deathLocation, rarityValue, unitLevel)
 		-- print("junk_loot_disabled other rarity: "..rarity)
 		return
 	end
-	if luck > 0 and luck < 200 then
+	if luck >= 0 and luck < 200 then
 		RPCItems:RollBasicPotion(xpBounty+50, deathLocation, rarity, unitLevel)
 	elseif luck >= 200 and luck < 265 then
 		RPCItems:RollHood(xpBounty, deathLocation, rarity, false, 0, nil, unitLevel)

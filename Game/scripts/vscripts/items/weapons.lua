@@ -284,9 +284,9 @@ function Weapons:UpdateWeaponXPPerHero(heroNumber, xpBounty)
 			return
 		else
 			if itemProperties.item_slot and itemProperties.item_slot == "weapon" then
-				print("[UpdateWeaponXPPerHero] alright its a weapon")
+				-- print("[UpdateWeaponXPPerHero] alright its a weapon")
 			else
-				print("[UpdateWeaponXPPerHero] it is not a weapon")
+				-- print("[UpdateWeaponXPPerHero] it is not a weapon")
 				Weapons:weaponRedirect(hero)
 				return
 			end
@@ -297,7 +297,7 @@ function Weapons:UpdateWeaponXPPerHero(heroNumber, xpBounty)
 			return
 		else
 			if itemProperties.level == itemProperties.maxLevel then
-				print("[UpdateWeaponXPPerHero] max level")
+				-- print("[UpdateWeaponXPPerHero] max level")
 				return
 			end
 		end
