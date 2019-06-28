@@ -52517,12 +52517,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"element_one"			"12"
+				"element_one"			"0"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"element_two"			"9"
+				"element_two"			"0"
 			}
 		}
 	}
@@ -52595,12 +52595,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"element_one"			"4"
+				"element_one"			"0"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"element_two"			"12"
+				"element_two"			"0"
 			}
 		}
 	}
@@ -52667,12 +52667,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"element_one"			"14"
+				"element_one"			"0"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"element_two"			"9"
+				"element_two"			"0"
 			}
 		}
 	}
@@ -53193,12 +53193,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"element_one"			"2"
+				"element_one"			"0"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"element_two"			"12"
+				"element_two"			"0"
 			}
 		}
 		"OnSpellStart"
