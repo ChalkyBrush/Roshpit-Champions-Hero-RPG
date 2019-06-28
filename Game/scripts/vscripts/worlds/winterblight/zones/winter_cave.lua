@@ -142,6 +142,17 @@ function Winterblight:FrozenFoyer1(msg)
 		local unit = Winterblight:SpawnWinterRunner(positionTable[i], fv)
 		Winterblight:SetCavernUnit(unit, 1, positionTable[i], true, true, msg.chamber)
 	end
+	Timers:CreateTimer(2, function()
+		local positionTable = {Vector(-8704, 5888), Vector(-9728, 6400), Vector(-11520, 7936), Vector(-6784, 8704), Vector(-4992, 9600), Vector(-4608, 9856), Vector(-4736, 10240), Vector(-6794, 10496), Vector(-8704, 11264), Vector(-9728, 11008)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.1, function()
+				local fv = RandomVector(1)
+				local unit = Winterblight:SpawnManaNull(positionTable[i], fv)
+				Winterblight:SetCavernUnit(unit, 1, positionTable[i], true, true, msg.chamber)
+			end)
+		end
+	end)
+	-- count:3 + 10
 end
 
 
@@ -164,6 +175,21 @@ function Winterblight:SpawnWinterRunner(position, fv)
 	stone:SetRenderColor(170, 200, 255)
 	stone.dominion = true
 	return stone
+end
+
+function Winterblight:SpawnManaNull(position, fv, level_stack)
+	local stone = Winterblight:SpawnDungeonUnit("azalea_mana_null", position, 1, 2, "Winterblight.Cavern.ManaNull.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 50
+	stone:SetRenderColor(170, 200, 255)
+	stone.dominion = true
+	if Winterblight.Stones >= 3 then
+		stone:AddAbility("creature_pure_strike"):SetLevel(3)
+	end
+	stone.cast_offset = RandomInt(500,1500)
+	Winterblight:SetPositionCastArgs(stone, 2000, 0, 1, FIND_ANY_ORDER)
+	return stone
+
 end
 
 function Winterblight:IsWithinChamber(unit, chamber_id)

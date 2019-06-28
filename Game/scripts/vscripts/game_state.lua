@@ -3914,6 +3914,12 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_zefnar_passive") then
 		filterTable["damage"] = Winterblight:ZefnarTakeDamage(victim, filterTable["damage"])
 	end
+	if victim:HasModifier("modifier_mana_null") then
+		if victim:GetMana() > 0 then
+			filterTable["damage"] = 0
+			victim:SetMana(victim:GetMana() - 1)
+		end
+	end
 	if victim:HasModifier("modifier_dummy_active") and applyEffects then
 		if attacker == Events.GameMaster then
 		else

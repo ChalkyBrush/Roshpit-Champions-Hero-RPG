@@ -466,3 +466,92 @@ function winter_cavern_hero_die(event)
 		end
 	end
 end
+
+function spirit_warp_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target_points[1]
+	target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
+	local invisible_duration = 3
+	ability.fv = ((target - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	ability.targetPoint = target
+	local warpDuration = 3.0
+	ability.fallVelocity = 1
+	ability.forwardVelocity = 22
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spirit_warp_flying", {duration = warpDuration})
+	if ability.pfx then
+		ParticleManager:DestroyParticle(ability.pfx, true)
+		ability.pfx = false
+	end
+	caster:RemoveModifierByName("modifier_end_spirit_warp_falling")
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spirit_warp_invisible", {duration = invisible_duration})
+
+    EmitSoundOn("Winterblight.Cavern.ManaNull.Float", caster)
+    local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/mana_null_flare.vpcf", caster, 1)
+    ability.pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/float_particle_.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    ParticleManager:SetParticleControlEnt(ability.pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControl(ability.pfx, 15, Vector(100, 220, 100))
+    Filters:CastSkillArguments(3, caster)
+end
+
+function spirit_warping_think(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	ability.forwardVelocity = ability.forwardVelocity + 0.5
+
+	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
+    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+ability.fv*45), caster)
+    local forwardSpeed = ability.forwardVelocity
+	if blockUnit then
+		forwardSpeed = 0
+	end
+	
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + ability.fv*forwardSpeed + Vector(0,0,3))
+	local distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
+	if distance < 100 then
+		caster:RemoveModifierByName("modifier_spirit_warp_flying")
+		caster:RemoveModifierByName("modifier_spirit_warp_invisible")
+		if ability.pfx then
+			ParticleManager:DestroyParticle(ability.pfx, false)
+			ability.pfx = false
+		end
+	end
+end
+
+function mana_null_after_warp_falling(event)
+	local caster = event.caster
+	local ability = event.ability
+	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,ability.fallVelocity))
+	ability.fallVelocity = ability.fallVelocity + 2
+	local groundHeight = GetGroundHeight(caster:GetAbsOrigin(), caster)
+	if caster:GetAbsOrigin().z - groundHeight < ability.fallVelocity/2 then
+		caster:RemoveModifierByName("modifier_end_spirit_warp_falling")
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_SPAWN, rate=1})
+	end
+end
+
+function mana_null_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local mana_burn = (event.mana_drain_percent/100)*target:GetMana()
+	EmitSoundOn("Winterblight.Cavern.ManaNull.Atk", target)
+	ability.particleLock = false
+	if not ability.particleLock then
+		ability.particleLock = true
+		local particleName = "particles/units/heroes/hero_leshrac/leshrac_lightning_impact.vpcf"
+		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
+		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_CUSTOMORIGIN, "attach_hitloc", target:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin())
+		Timers:CreateTimer(0.5, function() 
+		  ParticleManager:DestroyParticle( pfx, false )
+		  ability.particleLock = false
+		end) 	
+	end
+	local burnDamage = math.min(target:GetMana(), mana_burn)*10
+	target:ReduceMana(mana_burn)
+	ApplyDamage({ victim = target, attacker = caster, damage = burnDamage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+end
