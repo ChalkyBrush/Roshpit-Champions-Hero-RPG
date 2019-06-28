@@ -196,12 +196,8 @@ function dinosaur_projectile_hit(event)
 end
 
 function redfall_canyon_dinosaur_die(event)
-	print("redfall_canyon_dinosaur_die")
 	local unit = event.unit
-	print("Unit: "..unit:GetUnitName())
 	Timers:CreateTimer(1.5, function()
-		--print("GO!")
-		print("Spawning Lizard at: "..tostring(unit:GetAbsOrigin()))
 		Redfall.RedLizard = CreateUnitByName("redfall_lzard_guide", unit:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_GOODGUYS)
 		Redfall.RedLizard:SetDayTimeVisionRange(500)
 		Redfall.RedLizard:SetNightTimeVisionRange(500)
@@ -639,9 +635,9 @@ function autumn_blink_debuff_end(event)
 end
 
 function autumn_mage_boss_die(event)
-	local caster = event.caster
+	local unit = event.unit
 	local ability = event.ability
-	EmitSoundOn("Redfall.AutumnMageBoss.Die", caster)
+	EmitSoundOn("Redfall.AutumnMageBoss.Die", unit)
 	Timers:CreateTimer(3, function()
 		local walls = Entities:FindAllByNameWithin("CaveBossWall", Vector(-12459, 11567, 270 + Redfall.ZFLOAT), 2000)
 		Redfall:Walls(false, walls, true, 4.5)
@@ -655,7 +651,7 @@ function autumn_mage_boss_die(event)
 
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollAutumnrockBracers(caster:GetAbsOrigin())
+		RPCItems:RollAutumnrockBracers(unit:GetAbsOrigin())
 	end
 	for i = 1, #Redfall.spawnPortalTable, 1 do
 		ParticleManager:DestroyParticle(Redfall.spawnPortalTable[i], false)
@@ -688,8 +684,8 @@ function autumn_mage_boss_die(event)
 				end
 				if j == 180 then
 					local particle = "particles/roshpit/redfall/tree_healed.vpcf"
-					local pfxA = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, caster)
-					FindClearSpaceForUnit(caster, position, false)
+					local pfxA = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, unit)
+					FindClearSpaceForUnit(unit, position, false)
 					ParticleManager:SetParticleControl(pfxA, 0, position)
 					ParticleManager:SetParticleControl(pfxA, 1, position)
 					ParticleManager:SetParticleControl(pfxA, 2, Vector(0, 1))
@@ -1163,7 +1159,7 @@ end
 function feronia_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local starstorm = caster:FindAbilityByName("redfall_mirana_starfall")
+	local starstorm = caster:FindAbilityByName("redfall_feronia_starfall")
 	if starstorm:IsFullyCastable() then
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 480, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
@@ -1174,11 +1170,10 @@ function feronia_think(event)
 			}
 
 			ExecuteOrderFromTable(newOrder)
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_feronia_shield", {duration = 2})
 			return true
 		end
 	end
-	local arrow = caster:FindAbilityByName("redfall_mirana_arrow")
+	local arrow = caster:FindAbilityByName("redfall_feronia_arrow")
 	if arrow:IsFullyCastable() then
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
@@ -1189,15 +1184,21 @@ function feronia_think(event)
 				AbilityIndex = arrow:entindex(),
 				Position = castPoint
 			}
-
 			ExecuteOrderFromTable(newOrder)
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_feronia_shield", {duration = 1.5})
 		end
 		return true
 	end
 end
 
-function redfall_canyon_feronia_die(event)
+function redfall_feronia_on_spell_cast(event)
+	local castedAbility = event.event_ability
+	local ability = event.ability
 	local caster = event.caster
-	RPCItems:RollGuardOfFeronia(caster:GetAbsOrigin())
+	local duration = 2
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_feronia_shield", {duration = duration})
+end
+
+function redfall_canyon_feronia_die(event)
+	local unit = event.unit
+	RPCItems:RollGuardOfFeronia(unit:GetAbsOrigin())
 end

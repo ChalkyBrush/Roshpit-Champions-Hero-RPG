@@ -694,8 +694,8 @@ function forest_ranger_attack_land(event)
 end
 
 function forest_ranger_die(event)
-	local caster = event.caster
-	if not caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+	local unit = event.unit
+	if not unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 		return false
 	end
 	if not Redfall then
@@ -1055,7 +1055,6 @@ function cultist_entering_think(event)
 end
 
 function redfall_crimsyth_cultist_die(event)
-	print("-------------------redfall_crimsyth_cultist_die-------------------")
 	local unit = event.unit
 	local ability = event.ability
 	if not unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
@@ -1383,11 +1382,8 @@ function ash_tree_think(event)
 end
 
 function redfall_red_raven_die(event)
-	print("redfall_red_raven_die triggered")
 	local unit = event.unit
 	if unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
-		print("Unit: "..unit:GetUnitName())
-		print("Position: "..tostring(unit:GetAbsOrigin()))
 		local position = unit:GetAbsOrigin()
 		Redfall:DropEnchantedLeaf(position)
 	end
@@ -1843,7 +1839,6 @@ function redfall_fenrir_die(event)
 	if not event.unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 		return false
 	end
-	local caster = event.caster
 	local ability = event.ability
 	for i = 1, #MAIN_HERO_TABLE, 1 do
 		MAIN_HERO_TABLE[i].RedfallQuests[6].state = 1
