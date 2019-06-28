@@ -257,7 +257,7 @@
 			<Panel class="serengaard_hero_container">
 				<DOTAAvatarImage id="player_avatar"></DOTAAvatarImage>
 				<Panel id="hero_other_data_container">
-					<DOTAHeroImage class="hero_portrait" id="hero_portrait" heroid="5" />
+					<Image class="hero_portrait" id="hero_portrait" heroid="5" />
 					<Label class="dota_player_name" id="dota_player_name" text="playername"/>
 				</Panel>
 			</Panel>

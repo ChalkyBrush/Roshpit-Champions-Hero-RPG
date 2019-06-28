@@ -320,40 +320,44 @@ function serengaard_ancient_moveback(event)
 end
 
 function enemy_near_ancient_think(event)
-	print("[enemy_near_ancient_think] start")
 	local unit = event.target
 	local caster = event.caster
-	local enemies = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+
 	local players = {}
 	for i=1,#MAIN_HERO_TABLE do
-		if MAIN_HERO_TABLE[i]:IsAlive() then
-			print("[enemy_near_ancient_think] Alive players:"..tostring(i))
+		local distance = CalcDistanceBetweenEntityOBB(caster, MAIN_HERO_TABLE[i])
+		-- print("distance:"..tostring(distance))
+		if MAIN_HERO_TABLE[i]:IsAlive() and distance < 1600 then
 			table.insert(players, MAIN_HERO_TABLE[i])
 		end
 	end
-	if #players > 0 then
-		print("[enemy_near_ancient_think] TEST1:"..tostring(#enemies))
-		for i=1,#enemies do
-			print("[enemy_near_ancient_think] Enemy think:"..tostring(i))
-			local target = FindClosestUnit(enemies[i], players)
+	-- print("[enemy_near_ancient_think] Alive players near ancient:"..tostring(#players))
+
+	local enemies = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	for i=1,#enemies do
+		-- print("[enemy_near_ancient_think] Enemy think:"..tostring(i))
+		if #players > 0 then
+			local target = FindClosestUnitInTable(enemies[i], players)
 			if target then
-				print("[enemy_near_ancient_think] Enemy attacking player:"..tostring(target:GetUnitName()))
+				-- print("[enemy_near_ancient_think] Enemy attacking player:"..tostring(target:GetUnitName()))
 				enemies[i]:Stop()
 				enemies[i]:MoveToTargetToAttack(target)
 			else
-				print("[enemy_near_ancient_think] Enemy attacking ancient:"..tostring(target:GetUnitName()))
+				-- print("[enemy_near_ancient_think] Enemy attacking ancient1")
 				enemies[i]:Stop()
-				enemies[i]:MoveToTargetToAttack(caster)
+				-- enemies[i]:MoveToTargetToAttack(caster)
+				enemies[i]:MoveToPositionAggressive(caster:GetAbsOrigin())
 			end
+		else
+			-- print("[enemy_near_ancient_think] Enemy attacking ancient2")
+			enemies[i]:Stop()
+			-- enemies[i]:MoveToTargetToAttack(caster)
+			enemies[i]:MoveToPositionAggressive(caster:GetAbsOrigin())
 		end
-	else
-		print("[enemy_near_ancient_think] Enemy attacking ancient !")
-		-- unit:Stop()
-		-- unit:MoveToTargetToAttack(caster)
 	end
 end
 
-function FindClosestUnit(attacker, targetsTable)
+function FindClosestUnitInTable(attacker, targetsTable)
 	local minDistance = 99999999
 	local closestUnit = nil
 	for i=1,#targetsTable do
@@ -364,4 +368,10 @@ function FindClosestUnit(attacker, targetsTable)
 		end
 	end
 	return closestUnit
+end
+
+function Serengaard:Forfeit()
+	if Serengaard then
+		Serengaard.mainAncient:ForceKill(false)
+	end
 end
