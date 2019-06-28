@@ -324,8 +324,8 @@ function ability_1_no_target_ai(event)
 		return false
 	end
 	local radius = caster.targetRadius
-	if not radius or type(radius) ~= "float" then
-		radius = 450
+	if not radius then
+		radius = 800
 	end
 	local castAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
 	if not caster.autoAbilityCD then
@@ -371,8 +371,8 @@ function ability_1_position_think_generic(event)
 	local castAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
 	
 	local radius = caster.targetRadius
-	if not radius or type(radius) ~= "float" then
-		radius = 450
+	if not radius then
+		radius = 800
 	end	
 	local minRadius = caster.minRadius
 	if not caster.targetAbilityCD then
