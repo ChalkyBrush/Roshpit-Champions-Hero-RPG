@@ -186,8 +186,10 @@ function Winterblight:SpawnManaNull(position, fv, level_stack)
 	if Winterblight.Stones >= 3 then
 		stone:AddAbility("creature_pure_strike"):SetLevel(3)
 	end
-	stone.cast_offset = RandomInt(500,1500)
-	Winterblight:SetPositionCastArgs(stone, 2000, 0, 1, FIND_ANY_ORDER)
+	stone.randomMissMin = 500
+	stone.randomMissMax = 1200
+	Winterblight:SetPositionCastArgs(stone, 2000, 300, 1, FIND_ANY_ORDER)
+
 	return stone
 
 end
