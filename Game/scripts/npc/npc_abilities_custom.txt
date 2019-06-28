@@ -53788,7 +53788,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"0"
+				"element_one"			"4"
 			}
 			"04"
 			{
@@ -53864,7 +53864,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"0"
+				"element_one"			"4"
 			}
 		}
 	}
@@ -53943,7 +53943,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"0"
+				"element_one"			"4"
 			}
 		}
 	}
@@ -54040,7 +54040,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"0"
+				"element_one"			"4"
 			}
 		}
 		"Modifiers"
@@ -54083,7 +54083,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"0"
+				"element_one"			"4"
 			}
 		}
 	}
@@ -54147,7 +54147,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"0"
+				"element_one"			"4"
 			}
 		}
 	}
@@ -54181,7 +54181,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"0"
+				"element_one"			"4"
 			}
 			"05"
 			{
@@ -69484,7 +69484,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"0"
+				"element_one"			"7"
 			}
 		}
 	}
@@ -69520,7 +69520,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"0"
+				"element_one"			"7"
 			}
 		}
 		"Modifiers"
@@ -69650,12 +69650,12 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"		"0"
+				"element_one"		"7"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_two"		"0"
+				"element_two"		"2"
 			}
 		}
 	}
@@ -69707,7 +69707,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"0"
+				"element_one"			"7"
 			}
 		}
 	}
@@ -69840,7 +69840,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"		"0"
+				"element_one"		"7"
 			}
 		}
 		"Modifiers"
@@ -69903,7 +69903,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"0"
+				"element_one"			"7"
 			}
 		}
 	}
@@ -69991,7 +69991,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"0"
+				"element_one"			"7"
 			}
 		}
 	}
@@ -70355,7 +70355,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"0"
+				"element_one"			"7"
 			}
 		}
 	}

@@ -8395,7 +8395,7 @@
     	"property_seinaru_arcana2_description"								"用炎阳冲锋替换 @Ability3 及其全部符文。"
 
     	"DOTA_Tooltip_ability_seinaru_sunstrider"						"炎阳冲锋"
-    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"在太阳的祝福下，神圣剑客朝着目标位置神圣冲锋. 神圣冲锋范围内的敌人在0.06秒内都将受到神圣剑客额外伤害加成的打击. 每次攻击都会产生AOE伤害，在目标周围造成<font color='<font color='#ccff66'>0</font>'>神圣</font> 伤害."
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"在太阳的祝福下，神圣剑客朝着目标位置神圣冲锋. 神圣冲锋范围内的敌人在0.06秒内都将受到神圣剑客额外伤害加成的打击. 每次攻击都会产生AOE伤害，在目标周围造成<font color='#F6FFB5'>神圣</font> 伤害."
     	"DOTA_Tooltip_ability_seinaru_sunstrider_cast_range"			"施法距离:"
     	"DOTA_Tooltip_ability_seinaru_sunstrider_targets_count"			"最大目标数:"
     	"DOTA_Tooltip_ability_seinaru_sunstrider_att_to_dmg"			"伤害基于总攻击力:"

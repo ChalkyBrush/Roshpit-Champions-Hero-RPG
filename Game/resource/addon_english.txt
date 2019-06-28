@@ -8676,7 +8676,7 @@
     	"property_seinaru_arcana2_description"								"Replaces @Ability3 and all of its runes with Sunstrider."
 
     	"DOTA_Tooltip_ability_seinaru_sunstrider"						"Sunstrider"
-    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"With the blessing of the sun, Seinaru blazes towards the target location. Enemies within the cast area of the ability are attacked by Seinaru in 0.06 second intervals with bonus attack power. Each attack echoes, dealing intense <font color='<font color='#ccff66'>0</font>'>Holy</font> damage in a small area around the target."
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"With the blessing of the sun, Seinaru blazes towards the target location. Enemies within the cast area of the ability are attacked by Seinaru in 0.06 second intervals with bonus attack power. Each attack echoes, dealing intense <font color='#F6FFB5'>Holy</font> damage in a small area around the target."
     	"DOTA_Tooltip_ability_seinaru_sunstrider_cast_range"			"CAST RANGE:"
     	"DOTA_Tooltip_ability_seinaru_sunstrider_targets_count"			"MAXIMUM TARGETS:"
     	"DOTA_Tooltip_ability_seinaru_sunstrider_att_to_dmg"			"DAMAGE FROM TOTAL ATTACK POWER:"
