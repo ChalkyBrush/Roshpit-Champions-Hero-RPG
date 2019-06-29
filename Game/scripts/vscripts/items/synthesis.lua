@@ -562,7 +562,7 @@ function RPCItems:UseArcanaCache(caster, item)
 	end
 end
 
-function RPCItems:RollHyperstone(wave_bonus)
+function RPCItems:RollHyperstone(wave_bonus, position)
   local item = RPCItems:CreateConsumable("item_serengaard_hyperstone", "immortal", "Serengaard Hyperstone", "consumable", false, "Consumable", "item_serengaard_hyperstone_desc")
   item.newItemTable.stashable = true
   item.newItemTable.consumable = true
@@ -572,5 +572,8 @@ function RPCItems:RollHyperstone(wave_bonus)
   item.newItemTable.property1tooltip = "serengaard_hyperstone_property"
   RPCItems:SetPropertyValuesSpecial(item, item.newItemTable.property1, item.newItemTable.property1tooltip, item.newItemTable.property1color,  1, "#item_serengaard_hyperstone_desc")
   RPCItems:ItemUpdateCustomNetTables(item)
+  if position then
+  	RPCItems:BasicDropItem(position, item)
+  end
   return item
 end
