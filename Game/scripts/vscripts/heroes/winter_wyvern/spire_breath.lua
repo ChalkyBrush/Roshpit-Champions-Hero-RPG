@@ -3,22 +3,22 @@ LinkLuaModifier("modifier_dinath_passive_ms_cap", "modifiers/dinath/modifier_din
 function spire_toggle_on(event)
 	local caster = event.caster
 	local ability = event.ability
-	StartAnimation(caster, {duration=1.2, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.0})
+	StartAnimation(caster, {duration = 1.2, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1.0})
 	EmitSoundOn("Dinath.Spire.ToggleVO", caster)
 	local flight_stacks = math.max(caster:GetModifierStackCount("modifier_dinath_postflight_zheight", caster) + 50, 96)
 	local w_3_level = caster:GetRuneValue("w", 3)
 	if w_3_level > 0 then
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/dinath/w_inhale.vpcf", PATTACH_CUSTOMORIGIN, nil)
-		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+caster:GetForwardVector()*300+Vector(0,0,flight_stacks+50))
-		ParticleManager:SetParticleControl(pfx, 1, caster:GetForwardVector()*-300)
-		
+		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + caster:GetForwardVector() * 300 + Vector(0, 0, flight_stacks + 50))
+		ParticleManager:SetParticleControl(pfx, 1, caster:GetForwardVector() *- 300)
+
 		Timers:CreateTimer(1, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 	end
-	
-	local speedStacks = w_3_level*8
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spire_breath_speed_burst", {duration = speedStacks*0.03})
+
+	local speedStacks = w_3_level * 8
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spire_breath_speed_burst", {duration = speedStacks * 0.03})
 	caster:SetModifierStackCount("modifier_spire_breath_speed_burst", caster, speedStacks)
 	Filters:CastSkillArguments(2, caster)
 end
@@ -26,22 +26,22 @@ end
 function spire_toggle_off(event)
 	local caster = event.caster
 	local ability = event.ability
-	StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.2})
+	StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.2})
 	EmitSoundOn("Dinath.Spire.ToggleOffVO", caster)
 	local flight_stacks = math.max(caster:GetModifierStackCount("modifier_dinath_postflight_zheight", caster) + 50, 96)
 	local w_3_level = caster:GetRuneValue("w", 3)
 	if w_3_level > 0 then
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/dinath/w_inhale.vpcf", PATTACH_CUSTOMORIGIN, nil)
-		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+caster:GetForwardVector()*-50+Vector(0,0,flight_stacks))
-		ParticleManager:SetParticleControl(pfx, 1, caster:GetForwardVector()*300)
+		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + caster:GetForwardVector() *- 50 + Vector(0, 0, flight_stacks))
+		ParticleManager:SetParticleControl(pfx, 1, caster:GetForwardVector() * 300)
 		Timers:CreateTimer(1, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 	end
 	ability:StartCooldown(1)
-	
-	local speedStacks = w_3_level*8
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spire_breath_speed_burst", {duration = speedStacks*0.03})
+
+	local speedStacks = w_3_level * 8
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spire_breath_speed_burst", {duration = speedStacks * 0.03})
 	caster:SetModifierStackCount("modifier_spire_breath_speed_burst", caster, speedStacks)
 	Filters:CastSkillArguments(2, caster)
 end
@@ -62,12 +62,12 @@ function spire_breath_attack_land(event)
 	if target.dummy then
 		return false
 	end
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*(event.damage_mult/100)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * (event.damage_mult / 100)
 
 	if attacker:HasModifier("modifier_dinath_glyph_7_1") then
-		local mana_restore = attacker:GetMaxMana()*0.01
+		local mana_restore = attacker:GetMaxMana() * 0.01
 		attacker:GiveMana(mana_restore)
-		damage = damage + attacker:GetMana()*1000
+		damage = damage + attacker:GetMana() * 1000
 		PopupMana(caster, mana_restore)
 	end
 	local ability = event.ability
@@ -91,17 +91,17 @@ function spire_attack_start(event)
 		return false
 	end
 	EmitSoundOn("Dinath.BreathSound", caster)
-	local lock_duration = 1/attacker:GetAttacksPerSecond()
+	local lock_duration = 1 / attacker:GetAttacksPerSecond()
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_breath_lock", {duration = lock_duration})
 	local radius = 800
 	local w_4_level = caster:GetRuneValue("w", 4)
-	radius = radius + w_4_level*8
+	radius = radius + w_4_level * 8
 	local splits = event.splits
 	splits = splits + Runes:Procs(w_4_level, 10, 1)
 	local count = 0
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES+DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false)
 	if #enemies > 0 then
-		for _,enemy in pairs(enemies) do
+		for _, enemy in pairs(enemies) do
 			if enemy.dummy or enemy == target then
 			else
 				if count < splits then
@@ -112,7 +112,7 @@ function spire_attack_start(event)
 				end
 			end
 		end
-	end 
+	end
 end
 
 function spire_breath_speed_burst_think(event)
@@ -120,7 +120,7 @@ function spire_breath_speed_burst_think(event)
 	local ability = event.ability
 	local stacks = caster:GetModifierStackCount("modifier_spire_breath_speed_burst", caster)
 	if stacks > 1 then
-		caster:SetModifierStackCount("modifier_spire_breath_speed_burst", caster, stacks-1)
+		caster:SetModifierStackCount("modifier_spire_breath_speed_burst", caster, stacks - 1)
 	else
 		caster:RemoveModifierByName("modifier_spire_breath_speed_burst")
 	end
@@ -138,7 +138,7 @@ function spire_passive_think(event)
 	end
 	ability.w_3_level = caster:GetRuneValue("w", 3)
 	if ability.w_3_level > 0 then
-		caster:AddNewModifier( caster, ability, "modifier_dinath_passive_ms_cap", {duration = duration} )
+		caster:AddNewModifier(caster, ability, "modifier_dinath_passive_ms_cap", {duration = duration})
 	else
 		caster:RemoveModifierByName("modifier_dinath_passive_ms_cap")
 	end

@@ -1,4 +1,4 @@
---[[ 
+--[[
     AUTHOR: Adam Curtis, Copyright 2015
     CONTACT: kallisti.dev@gmail.com
     WEBSITE: https://github.com/kallisti-dev/vector_target
@@ -17,41 +17,40 @@ VECTOR_TARGET_DEBUG_NONE = 0     -- no logging
 VECTOR_TARGET_DEBUG_DEFAULT = 1  -- default logging of important events
 VECTOR_TARGET_DEBUG_ALL = 2      -- detailed debug info
 ]]
-local reloading = false 
+local reloading = false
 if VectorTarget == nil then
     VectorTarget = {
-        inProgressOrders = { }, -- a table of vector orders currently in-progress, indexed by player ID
-        abilityKeys = { }, -- data loaded from KV files, indexed by ability name
-        kvSources = { }, -- a list of filenames / tables that were passed to LoadKV, used during reloading
-        castQueues = { }, -- table of cast queues indexed by castQueues[unit ID][ability ID]
-        userIds = { } -- user id -> player id
+        inProgressOrders = {}, -- a table of vector orders currently in-progress, indexed by player ID
+        abilityKeys = {}, -- data loaded from KV files, indexed by ability name
+        kvSources = {}, -- a list of filenames / tables that were passed to LoadKV, used during reloading
+        castQueues = {}, -- table of cast queues indexed by castQueues[unit ID][ability ID]
+        userIds = {} -- user id -> player id
         --debugMode = VECTOR_TARGET_DEBUG_ALL, -- debug output mode
     }
 else
     reloading = true
 end
 
-VectorTarget.VERSION = {0,3,0};
+VectorTarget.VERSION = {0, 3, 0};
 
 local queue = class({}) -- sparse queue implementation
 
 -- call this in your Precache() function to precache vector targeting particles
 function VectorTarget:Precache(context)
     if self.initializedPrecache then return end
-   --print("[VECTORTARGET] precaching assets")
+    --print("[VECTORTARGET] precaching assets")
     --PrecacheResource("particle", "particles/vector_target_ring.vpcf", context)
     PrecacheResource("particle", "particles/vector_target/vector_target_range_finder_line.vpcf", context)
     self.initializedPrecache = true
 end
 
-
 -- call this in your init function to initialize for default use-case behavior
 function VectorTarget:Init(opts)
-   --print("[VECTORTARGET] initializing")
+    --print("[VECTORTARGET] initializing")
     if not self.initializedPrecache then
-       --print("[VECTORTARGET] warning: VectorTarget:Precache was not called before Init.")
+        --print("[VECTORTARGET] warning: VectorTarget:Precache was not called before Init.")
     end
-    opts = opts or { }
+    opts = opts or {}
     if not opts.noEventListeners then
         self:InitEventListeners()
     end
@@ -67,7 +66,7 @@ end
 -- call this in your init function to start listening to events
 function VectorTarget:InitEventListeners()
     if self.initializedEventListeners then return end
-   --print("[VECTORTARGET] registering event listeners")
+    --print("[VECTORTARGET] registering event listeners")
     -- Note: wrapping the calls in an anonymous function allows reloading to work properly
     --ListenToGameEvent("npc_spawned", function(...) self:_OnNpcSpawned(...) end, {})
     CustomGameEventManager:RegisterListener("vector_target_order_cancel", function(...) self:_OnVectorTargetOrderCancel(...) end)
@@ -88,7 +87,7 @@ end
 
 -- Loads vector target KV values from a file, or a table with the same format as one returned by LoadKeyValues()
 function VectorTarget:LoadKV(kvList, forgetSource)
-    for _, kv in ipairs(kvList or { }) do
+    for _, kv in ipairs(kvList or {}) do
         local kvFile
         if type(kv) == "string" then
             kvFile = kv
@@ -99,18 +98,18 @@ function VectorTarget:LoadKV(kvList, forgetSource)
         elseif type(kv) ~= "table" then
             error("[VECTORTARGET] LoadKV: expected string or table but got " .. type(kv) .. ": " .. tostring(kv))
         end
-       --print("[VECTORTARGET] Loading KV data from: " .. (kvFile or tostring(kv)))
+        --print("[VECTORTARGET] Loading KV data from: " .. (kvFile or tostring(kv)))
         for name, keys in pairs(kv) do
             if type(keys) == "table" then
                 keys = keys["VectorTarget"]
                 if keys and keys ~= "false" and keys ~= "0" and (type(keys) ~= "number" or keys ~= 0) then
                     if type(keys) ~= "table" then
-                        keys = { }
+                        keys = {}
                     end
                     self.abilityKeys[name] = keys
                 end
             else
-               --print("[VECTORTARGET] Warning: Expected a table for ability definition " .. name .. " but got " .. type(keys) .. " instead.")
+                --print("[VECTORTARGET] Warning: Expected a table for ability definition " .. name .. " but got " .. type(keys) .. " instead.")
             end
         end
         if not forgetSource then
@@ -121,11 +120,11 @@ end
 
 function VectorTarget:ReloadAllKV(deletePrevious)
     --[[ Reloads KV from files/tables passed via VectorTarget:LoadKV
-
+ 
         If the first argument is false, prevents deletion of previous KV data before reloading
     ]]
     --WTF IS THIS
-    
+
     -- if deletePrevious ~= false then
     --     self.abilityKeys = { }
     -- end
@@ -143,7 +142,7 @@ function VectorTarget:GetInProgressForUnit(unitId)
         
         Since multiple players could have in-progress orders on the same unit, this method returns an array of orders indexed by issuer's player ID
     ]]
-    local out = { }
+    local out = {}
     for playerId, order in ipairs(self.inProgressOrders) do
         if order.unitId == unitId then
             out[playerId] = order
@@ -157,7 +156,7 @@ function VectorTarget:GetInProgressForAbility(abilId)
         
         Since multiple players could have in-progress orders on the same unit, this method returns an array of orders indexed by issuer's player ID.
     ]]
-    local out = { }
+    local out = {}
     for playerId, order in ipairs(self.inProgressOrders) do
         if order.abilId == abilId then
             out[playerId] = order
@@ -171,7 +170,7 @@ function VectorTarget:GetCastQueue(unitId, abilId)
     local queues = self.castQueues
     local unitTable = queues[unitId]
     if not unitTable then
-        unitTable = { }
+        unitTable = {}
         queues[unitId] = unitTable
     end
     local q = unitTable[abilId]
@@ -185,7 +184,7 @@ end
 -- given an array of unit ids, clear all cast queues associated with those units
 function VectorTarget:ClearQueuesForUnits(units)
     for _, unitId in pairs(units) do
-        for _, q in pairs(self.castQueues[unitId] or { }) do
+        for _, q in pairs(self.castQueues[unitId] or {}) do
             if q then
                 q:clear()
             end
@@ -196,7 +195,7 @@ end
 -- get the largest sequence number for vector target orders issued on this unit
 function VectorTarget:GetMaxSequenceNumber(unitId)
     local out = -1
-    for _, q in pairs(self.castQueues[unitId] or { }) do
+    for _, q in pairs(self.castQueues[unitId] or {}) do
         if q and q.last > out then
             out = q.last
         end
@@ -206,7 +205,7 @@ end
 
 -- call this on a unit to add vector target functionality to its abilities
 function VectorTarget:WrapUnit(unit)
-    for i=0, unit:GetAbilityCount()-1 do
+    for i = 0, unit:GetAbilityCount() - 1 do
         local abil = unit:GetAbilityByIndex(i)
         if abil ~= nil then
             self:WrapAbility(abil)
@@ -224,18 +223,18 @@ function VectorTarget:WrapAbility(abil, reloading)
     local abiName = abil:GetAbilityName()
     local cName = abil:GetClassname()
     if "ability_lua" ~= cName and "item_lua" ~= cName then
-       --print("[VECTORTARGET] Warning: " .. abiName .. " is not a Lua ability/item and cannot be vector targeted.")
+        --print("[VECTORTARGET] Warning: " .. abiName .. " is not a Lua ability/item and cannot be vector targeted.")
         return
     end
     if not reloading and abil.isVectorTarget then
         return
     end
-    
+
     --initialize members
     abil.isVectorTarget = true -- use this to test if an ability has vector targeting
     abil._vectorTargetKeys = {
-        initialPosition = nil,                      -- initial position of vector input
-        terminalPosition = nil,                     -- terminal position of vector input
+        initialPosition = nil, -- initial position of vector input
+        terminalPosition = nil, -- terminal position of vector input
         minDistance = keys.MinDistance,
         maxDistance = keys.MaxDistance,
         pointOfCast = keys.PointOfCast or "initial",
@@ -243,40 +242,39 @@ function VectorTarget:WrapAbility(abil, reloading)
         cpMap = keys.ControlPoints or DEFAULT_VECTOR_TARGET_CONTROL_POINTS,
         distance3D = keys.Distance3D
     }
-    
+
     function abil:GetInitialPosition()
         return self._vectorTargetKeys.initialPosition
     end
-    
+
     function abil:SetInitialPosition(v)
         if type(v) == "table" then
             v = Vector(v.x, v.y, v.z)
         end
         self._vectorTargetKeys.initialPosition = v
     end
-    
+
     function abil:GetTerminalPosition()
         return self._vectorTargetKeys.terminalPosition
     end
-    
+
     function abil:SetTerminalPosition(v)
         if type(v) == "table" then
             v = Vector(v.x, v.y, v.z)
         end
         self._vectorTargetKeys.terminalPosition = v
     end
-    
+
     function abil:GetMidpointPosition()
         return VectorTarget._CalcMidPoint(self:GetInitialPosition(), self:GetTerminalPosition())
     end
-    
+
     function abil:GetTargetVector()
         local i = self:GetInitialPosition()
         local j = self:GetTerminalPosition()
         return Vector(j.x - i.x, j.y - i.y, j.z - i.z)
     end
-    
-    
+
     function abil:GetDirectionVector()
         return self:GetTargetVector():Normalized()
     end
@@ -295,8 +293,6 @@ function VectorTarget:WrapAbility(abil, reloading)
         end
     end
 
-
-    
     if not abil.GetMinDistance then
         function abil:GetMinDistance()
             local min = self._vectorTargetKeys.minDistance
@@ -305,7 +301,7 @@ function VectorTarget:WrapAbility(abil, reloading)
             end
         end
     end
-    
+
     if not abil.GetMaxDistance then
         function abil:GetMaxDistance()
             local max = self._vectorTargetKeys.maxDistance
@@ -321,32 +317,32 @@ function VectorTarget:WrapAbility(abil, reloading)
             return (min == nil or d >= min) and (max == nil or d <= max)
         end
     end
-    
+
     if not abil.GetPointOfCast then
         function abil:GetPointOfCast()
             return VectorTarget._CalcPointOfCast(abil._vectorTargetKeys.pointOfCast, abil:GetInitialPosition(), abil:GetTerminalPosition())
         end
     end
-    
+
     if not abil.GetVectorTargetParticleName then
         function abil:GetVectorTargetParticleName()
             return self._vectorTargetKeys.particleName
         end
     end
-    
+
     if not abil.GetVectorTargetControlPoints then
         function abil:GetVectorTargetControlPoints()
             return self._vectorTargetKeys.cpMap
         end
     end
-    
+
     --override GetBehavior
     local _GetBehavior = abil.GetBehavior
     function abil:GetBehavior()
         local b = _GetBehavior(self)
         return bit.bor(b, DOTA_ABILITY_BEHAVIOR_POINT)
     end
-    
+
     --override OnAbilityPhaseStart
     local _OnAbilityPhaseStart = abil.OnAbilityPhaseStart
     function abil:OnAbilityPhaseStart()
@@ -379,7 +375,7 @@ function VectorTarget:OrderFilter(data)
     local abilId = data.entindex_ability
     local inProgress = self.inProgressOrders[playerId] -- retrieve any in-progress orders for this player
     local seqNum = data.sequence_number_const
-    local units = { }
+    local units = {}
     local nUnits = 0
     for i, unitId in pairs(data.units) do
         if seqNum > self:GetMaxSequenceNumber(unitId) then
@@ -424,12 +420,12 @@ function VectorTarget:OrderFilter(data)
                     elseif data.queue == 0 then -- if not shift queued, clear cast queue before we add to it
                         self:ClearQueuesForUnits(units)
                     end
-                    
+
                     inProgress.terminalPosition = targetPos
-                    
+
                     --temporarily set initial/terminal on the ability so we can call (a possibly overriden) abil:GetPointOfCast
-                    local p = VectorTarget._WithPoints(abil, inProgress.initialPosition, inProgress.terminalPosition, function() 
-                            return abil:GetPointOfCast()
+                    local p = VectorTarget._WithPoints(abil, inProgress.initialPosition, inProgress.terminalPosition, function()
+                        return abil:GetPointOfCast()
                     end)
                     data.position_x = p.x
                     data.position_y = p.y
@@ -503,8 +499,8 @@ end
 
 function VectorTarget._GetAbilitySpecials(abil, t, lvl)
     lvl = lvl or abil:GetLevel()
-    local out = { }
-    for _,str in pairs(t) do
+    local out = {}
+    for _, str in pairs(t) do
         for _, field in ipairs(VectorTarget._StringSplit(str)) do
             if VectorTarget:_IsSpecialField(field) then
                 local name = VectorTarget:_ParseSpecialName(field)
@@ -549,7 +545,7 @@ function VectorTarget._CalcPointOfCast(mode, initial, terminal)
 end
 
 function VectorTarget._CalcMidPoint(a, b)
-    return Vector((a.x + b.x)/2, (a.y + b.y)/2, (a.z + b.z)/2)
+    return Vector((a.x + b.x) / 2, (a.y + b.y) / 2, (a.z + b.z) / 2)
 end
 
 -- helper to temporarily set targeting information
@@ -650,7 +646,6 @@ function queue.popLast(q)
     q.last = q.first - 1 --empty
     return value
 end
-
 
 function queue.popFirst(q)
     --print("pop", q.first, q.last, q.len)

@@ -34,7 +34,7 @@ function target_dummy_take_damage(event)
 	if ability.moveMomentum then
 		ability.moveMomentum = math.min(ability.moveMomentum + 10, 60)
 		ability.sway = ability.sway + ability.moveMomentum
-		local actualSway = math.sin(math.pi*(ability.sway/60))*45
+		local actualSway = math.sin(math.pi * (ability.sway / 60)) * 45
 		caster:SetAngles(actualSway, caster.angle, 0)
 	end
 end
@@ -47,13 +47,13 @@ function target_dummy_attack_think(event)
 			dummy.attackInterval = 0
 		end
 		local modulos = 1
-		if dummy.attack_input/0.03 % 1 > 0.5 then
-			modulos = math.ceil(dummy.attack_input/0.03)
+		if dummy.attack_input / 0.03 % 1 > 0.5 then
+			modulos = math.ceil(dummy.attack_input / 0.03)
 		else
-			modulos = math.floor(dummy.attack_input/0.03)
+			modulos = math.floor(dummy.attack_input / 0.03)
 		end
 		dummy.attackInterval = dummy.attackInterval + 1
-		if dummy.attackInterval%modulos == 0 then
+		if dummy.attackInterval % modulos == 0 then
 			Filters:PerformAttackSpecial(dummy, hero, true, true, true, false, true, false, false)
 		end
 		if dummy.attackInterval >= 1000 then
@@ -83,8 +83,8 @@ function target_dummy_rapid_think(event)
 	local targetPosition = caster.targetPosition
 	local distance = WallPhysics:GetDistance(targetPosition, caster:GetAbsOrigin())
 	if distance > 5 then
-		local moveVector = (targetPosition - caster:GetAbsOrigin())/30
-		caster:SetAbsOrigin(caster:GetAbsOrigin()+moveVector)
+		local moveVector = (targetPosition - caster:GetAbsOrigin()) / 30
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + moveVector)
 	end
 	moveDummyTowardCenter(caster, ability)
 end
@@ -97,8 +97,8 @@ function moveDummyTowardCenter(caster, ability)
 	elseif ability.moveMomentum < 10 then
 		baseMaxSway = 15
 	end
-	baseMaxSway = math.ceil((ability.moveMomentum/60)*40)+15
-	ability.moveMomentum = ability.moveMomentum*0.98
+	baseMaxSway = math.ceil((ability.moveMomentum / 60) * 40) + 15
+	ability.moveMomentum = ability.moveMomentum * 0.98
 	ability.sway = ability.sway + ability.moveMomentum
 
 	if ability.moveMomentum < 1.2 then
@@ -109,16 +109,16 @@ function moveDummyTowardCenter(caster, ability)
 				else
 					ability.sway = ability.sway + 1.8
 				end
-				local actualSway = math.sin(math.pi*(ability.sway/90))*baseMaxSway
+				local actualSway = math.sin(math.pi * (ability.sway / 90)) * baseMaxSway
 				caster:SetAngles(actualSway, caster.angle, 0)
 			end
 		end
 		return
 	end
 	-- local intervalChecker = math.max(math.floor(30-ability.moveMomentum*2), 1)
-	if angleVector.x > baseMaxSway*0.7 then
+	if angleVector.x > baseMaxSway * 0.7 then
 		if not ability.soundLock then
-			local soundIndex = ability.moveMomentum/15
+			local soundIndex = ability.moveMomentum / 15
 			soundIndex = math.max(soundIndex, 1)
 			soundIndex = math.min(soundIndex, 3)
 			ability.soundLock = true
@@ -129,7 +129,7 @@ function moveDummyTowardCenter(caster, ability)
 		end
 	end
 	if angleVector.x > 0 or angleVector.x < 0 then
-		local actualSway = math.sin(math.pi*(ability.sway/90))*baseMaxSway
+		local actualSway = math.sin(math.pi * (ability.sway / 90)) * baseMaxSway
 		caster:SetAngles(actualSway, caster.angle, 0)
 	end
 end

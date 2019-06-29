@@ -4,14 +4,14 @@ function vision_node_think(event)
 	if not caster.takeOver then
 		caster.takeOver = 0
 	end
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
-	local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+	local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 	if #enemies > #allies then
 		caster.takeOver = caster.takeOver + #enemies - #allies
 	else
 		caster.takeOver = math.max(caster.takeOver - 0.5, 0)
-	end	
-	caster:SetRenderColor(255, 255-caster.takeOver*10, 255-caster.takeOver*10)
+	end
+	caster:SetRenderColor(255, 255 - caster.takeOver * 10, 255 - caster.takeOver * 10)
 	if caster.takeOver > 22 then
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "PVP.NodeSwap", Events.GameMaster)
 		caster.takeOver = 0
@@ -99,16 +99,16 @@ function line_unit_die(event)
 	local newFood = tonumber(foodInfo.currentFood) - 1
 	CustomNetTables:SetTableValue("premium_pass", "line_war_food_cap_"..playerID, {currentFood = tostring(newFood), maxFood = foodInfo.maxFood})
 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "updateLineWarFoodCap", {})
-	local allyXP = caster:GetDeathXP()*0.25
+	local allyXP = caster:GetDeathXP() * 0.25
 
-	local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+	local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 	if #allies > 0 then
 		for i = 1, #allies, 1 do
 			allies[i]:AddExperience(allyXP, 0, false, true)
 		end
-	end	
+	end
 	if GameState:NoOracle() then
-		local luck = RandomInt(1,28)
+		local luck = RandomInt(1, 28)
 		if luck == 1 then
 			PVP:RollRandomGlyph(caster:GetAbsOrigin())
 		end
@@ -123,11 +123,11 @@ function pvp_line_tower_attack_hit(event)
 		EmitSoundOn("Redfall.Stone.HurlBoulder.Impact", target)
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Redfall.StoneAttack", attacker)
 		target:AddNewModifier(attacker, nil, "modifier_stunned", {duration = 1.0})
-		target.pushVector = ((target:GetAbsOrigin() - attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		target.pushVector = ((target:GetAbsOrigin() - attacker:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 		target.pushVelocity = 30
 		ability:ApplyDataDrivenModifier(attacker, target, "modifier_heavy_boulder_pushback", {duration = 1.5})
 	else
-		ApplyDamage({ victim = target, attacker = attacker, damage = target:GetMaxHealth()*0.2, damage_type = DAMAGE_TYPE_PURE })
+		ApplyDamage({victim = target, attacker = attacker, damage = target:GetMaxHealth() * 0.2, damage_type = DAMAGE_TYPE_PURE})
 		if target:HasModifier("modifier_line_unit_passive") then
 			target:MoveToTargetToAttack(attacker)
 		end
@@ -145,7 +145,7 @@ function heavy_boulder_pushback(event)
 	if blockUnit then
 		fv = 0
 	end
-	local groundPosition = GetGroundPosition(target:GetAbsOrigin() + fv*target.pushVelocity, target)
+	local groundPosition = GetGroundPosition(target:GetAbsOrigin() + fv * target.pushVelocity, target)
 	target:SetAbsOrigin(groundPosition)
 	target.pushVelocity = math.max(target.pushVelocity - 1, 0)
 

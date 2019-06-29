@@ -10,18 +10,18 @@ function RPCItems:InitiateTrade(msg)
 	local distance = WallPhysics:GetDistance(heroFrom:GetAbsOrigin(), heroTo:GetAbsOrigin())
 	if distance < 500 then
 		if heroTo.trading or heroFrom.trading then
-			Notifications:Top(heroFrom:GetPlayerOwnerID(), {text="Busy", duration=2, style={color="red"}, continue=true})
+			Notifications:Top(heroFrom:GetPlayerOwnerID(), {text = "Busy", duration = 2, style = {color = "red"}, continue = true})
 		else
-			local tradeTime = (20*heroFrom.tradeSendCount)
-			if heroFrom.lastTrade < GameRules:GetGameTime()-tradeTime then
+			local tradeTime = (20 * heroFrom.tradeSendCount)
+			if heroFrom.lastTrade < GameRules:GetGameTime() - tradeTime then
 				heroFrom.lastTrade = GameRules:GetGameTime()
 				--print("Trading with: "..heroTo:GetUnitName())
 
 				heroFrom.tradeTable = {-1, -1, -1, -1, -1, -1}
 				heroTo.tradeTable = {-1, -1, -1, -1, -1, -1}
 
-				CustomGameEventManager:Send_ServerToPlayer(heroFrom:GetPlayerOwner(), "trade_begin", {playerFrom=heroFrom:GetPlayerOwnerID(), playerTo=heroTo:GetPlayerOwnerID()})
-				CustomGameEventManager:Send_ServerToPlayer(heroTo:GetPlayerOwner(), "trade_begin", {playerFrom=heroTo:GetPlayerOwnerID(), playerTo=heroFrom:GetPlayerOwnerID()})
+				CustomGameEventManager:Send_ServerToPlayer(heroFrom:GetPlayerOwner(), "trade_begin", {playerFrom = heroFrom:GetPlayerOwnerID(), playerTo = heroTo:GetPlayerOwnerID()})
+				CustomGameEventManager:Send_ServerToPlayer(heroTo:GetPlayerOwner(), "trade_begin", {playerFrom = heroTo:GetPlayerOwnerID(), playerTo = heroFrom:GetPlayerOwnerID()})
 				heroFrom.trading = true
 				heroTo.trading = true
 
@@ -36,12 +36,12 @@ function RPCItems:InitiateTrade(msg)
 				CustomGameEventManager:Send_ServerToPlayer(heroTo:GetPlayerOwner(), "close_blacksmith", {})
 				Statistics.dispatch("trade:start");
 			else
-				local timeUntilCanTrade = math.floor(tradeTime-(GameRules:GetGameTime() - heroFrom.lastTrade))
-				Notifications:Top(heroFrom:GetPlayerOwnerID(), {text="Can't trade for "..timeUntilCanTrade.."s", duration=2, style={color="red"}, continue=true})
+				local timeUntilCanTrade = math.floor(tradeTime - (GameRules:GetGameTime() - heroFrom.lastTrade))
+				Notifications:Top(heroFrom:GetPlayerOwnerID(), {text = "Can't trade for "..timeUntilCanTrade.."s", duration = 2, style = {color = "red"}, continue = true})
 			end
 		end
 	else
-		Notifications:Top(heroFrom:GetPlayerOwnerID(), {text="Too Far Away", duration=2, style={color="red"}, continue=true})
+		Notifications:Top(heroFrom:GetPlayerOwnerID(), {text = "Too Far Away", duration = 2, style = {color = "red"}, continue = true})
 	end
 end
 
@@ -173,8 +173,8 @@ function RPCItems:ItemRemoveFromTrade(msg)
 	local item = EntIndexToHScript(itemIndex)
 	local droppingHero = GameState:GetHeroByPlayerID(droppingPlayerID)
 	local otherHero = EntIndexToHScript(droppingHero.tradingWith)
-
 	
+
 	--print(msg.bReturnItem)
 	--print("RETURN ITEM BOYS")
 	--print(droppingHero.tradeTable[slot])
@@ -192,7 +192,7 @@ function RPCItems:ItemRemoveFromTrade(msg)
 		otherHero.tradeLock = 0
 		CustomGameEventManager:Send_ServerToPlayer(droppingHero:GetPlayerOwner(), "trade_lock_updated", {leftLock = droppingHero.tradeLock, rightLock = otherHero.tradeLock})
 		CustomGameEventManager:Send_ServerToPlayer(otherHero:GetPlayerOwner(), "trade_lock_updated", {leftLock = otherHero.tradeLock, rightLock = droppingHero.tradeLock})
-		
+
 	end
 end
 

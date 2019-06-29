@@ -1,48 +1,48 @@
 modifier_chernobog_ult_aura = class({})
 
-function modifier_chernobog_ult_aura:IsAura( params )
-    return true
+function modifier_chernobog_ult_aura:IsAura(params)
+	return true
 end
 
 function modifier_chernobog_ult_aura:IsPurgable()
-    return false
+	return false
 end
 
-function modifier_chernobog_ult_aura:GetModifierAura( params )
-    return "modifier_chernobog_ult_freeze_special"
+function modifier_chernobog_ult_aura:GetModifierAura(params)
+	return "modifier_chernobog_ult_freeze_special"
 end
 
-function modifier_chernobog_ult_aura:GetAuraSearchFlags( params )
-    return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+function modifier_chernobog_ult_aura:GetAuraSearchFlags(params)
+	return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
 end
 
-function modifier_chernobog_ult_aura:GetAuraSearchTeam( params )
-    return DOTA_UNIT_TARGET_TEAM_ENEMY
+function modifier_chernobog_ult_aura:GetAuraSearchTeam(params)
+	return DOTA_UNIT_TARGET_TEAM_ENEMY
 end
 
-function modifier_chernobog_ult_aura:GetAuraRadius( params )
+function modifier_chernobog_ult_aura:GetAuraRadius(params)
 	local radius = self:GetAbility():GetSpecialValueFor("radius")
 	radius = radius + self:GetAbility().r_4_level * 6
-    return radius
+	return radius
 end
 
 function modifier_chernobog_ult_aura:GetAuraSearchType()
-    return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
 end
 
-function modifier_chernobog_ult_aura:GetAuraDuration( params )
-    return 0.5
+function modifier_chernobog_ult_aura:GetAuraDuration(params)
+	return 0.5
 end
 
 modifier_chernobog_ult_freeze_special = class({})
 
 function modifier_chernobog_ult_freeze_special:CheckState()
 	local state = {
-	[MODIFIER_STATE_FROZEN] = true,
-	[MODIFIER_STATE_ROOTED] = true,
-	[MODIFIER_STATE_STUNNED] = true,
+		[MODIFIER_STATE_FROZEN] = true,
+		[MODIFIER_STATE_ROOTED] = true,
+		[MODIFIER_STATE_STUNNED] = true,
 	}
- 
+
 	return state
 end
 
@@ -68,7 +68,7 @@ function modifier_chernobog_ult_freeze_special:DeclareFunctions()
 	local funcs = {
 		MODIFIER_EVENT_ON_ATTACKED
 	}
- 
+
 	return funcs
 end
 
@@ -82,7 +82,7 @@ function modifier_chernobog_ult_freeze_special:freeze_start(caster, ability, tar
 	end
 	if ability.r_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_nights_procession_a_d_rune", {duration = 6})
-		target:SetModifierStackCount("modifier_nights_procession_a_d_rune",caster, ability.r_1_level)
+		target:SetModifierStackCount("modifier_nights_procession_a_d_rune", caster, ability.r_1_level)
 	end
 	if ability.r_2_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_nights_procession_illusion", {duration = 8})
@@ -108,8 +108,8 @@ function modifier_chernobog_ult_freeze_special:locked_unit_attack(event)
 	end
 	if ability.r_3_level > 0 then
 		for i = 1, #ability.trappedUnitTable, 1 do
-			local damage = event.attack_damage*0.03*ability.r_3_level
-			ApplyDamage({ victim = ability.trappedUnitTable[i], attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+			local damage = event.attack_damage * 0.03 * ability.r_3_level
+			ApplyDamage({victim = ability.trappedUnitTable[i], attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE})
 		end
 	end
 end
@@ -120,7 +120,7 @@ function modifier_chernobog_ult_freeze_special:OnAttacked(params)
 end
 
 function modifier_chernobog_ult_freeze_special:IsPurgable()
-    return false
+	return false
 end
 
 function modifier_chernobog_ult_freeze_special:GetStatusEffectName()

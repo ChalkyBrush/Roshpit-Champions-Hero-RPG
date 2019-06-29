@@ -160,7 +160,6 @@ function farmland_spawner_think(event)
 		table.insert(caster.summonTable, zombie)
 	end
 
-
 end
 
 function FarmlandsCornTrigger1(event)

@@ -1,5 +1,5 @@
 if Arena == nil then
-  Arena = class({})
+	Arena = class({})
 end
 
 require('/worlds/arena/champions_league')
@@ -9,49 +9,49 @@ require('/worlds/arena/pit_of_trials/pit_of_trials')
 
 function Arena:Debug()
 	-- Arena:SpawnCragnataur(MAIN_HERO_TABLE[1]:GetAbsOrigin(), Vector(1,0))
-    if MAIN_HERO_TABLE[1] then
- --      MAIN_HERO_TABLE[1]:SetBaseStrength(40000)
- --      MAIN_HERO_TABLE[1]:SetBaseAgility(25000)
- --      MAIN_HERO_TABLE[1]:SetBaseIntellect(25000)
- --      MAIN_HERO_TABLE[1]:SetBaseDamageMax(1500000)
- --      MAIN_HERO_TABLE[1]:SetBaseDamageMin(1500000)
- --      MAIN_HERO_TABLE[1]:CalculateStatBonus()
- --      local hero = MAIN_HERO_TABLE[1]
-	-- 	hero.runeUnit2.amulet.e_2 = hero.runeUnit2.amulet.e_2 + 1500
-	-- 	Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.e_2, "rune_e_2", hero)
-	-- 	hero.runeUnit3.amulet.w_3 = hero.runeUnit3.amulet.w_3 + 500
-	-- 	Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.w_3, "rune_w_3", hero)
-	-- 	hero.runeUnit2.amulet.q_2 = hero.runeUnit2.amulet.q_2 + 500
-	-- 	Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.q_2, "rune_q_2", hero)
-	-- 	hero.runeUnit.amulet.q_1 = hero.runeUnit.amulet.q_1 + 500
-	-- 	Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.q_1, "rune_q_1", hero)
-    end
+	if MAIN_HERO_TABLE[1] then
+		--      MAIN_HERO_TABLE[1]:SetBaseStrength(40000)
+		--      MAIN_HERO_TABLE[1]:SetBaseAgility(25000)
+		--      MAIN_HERO_TABLE[1]:SetBaseIntellect(25000)
+		--      MAIN_HERO_TABLE[1]:SetBaseDamageMax(1500000)
+		--      MAIN_HERO_TABLE[1]:SetBaseDamageMin(1500000)
+		--      MAIN_HERO_TABLE[1]:CalculateStatBonus()
+		--      local hero = MAIN_HERO_TABLE[1]
+		-- hero.runeUnit2.amulet.e_2 = hero.runeUnit2.amulet.e_2 + 1500
+		-- Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.e_2, "rune_e_2", hero)
+		-- hero.runeUnit3.amulet.w_3 = hero.runeUnit3.amulet.w_3 + 500
+		-- Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.w_3, "rune_w_3", hero)
+		-- hero.runeUnit2.amulet.q_2 = hero.runeUnit2.amulet.q_2 + 500
+		-- Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.q_2, "rune_q_2", hero)
+		-- hero.runeUnit.amulet.q_1 = hero.runeUnit.amulet.q_1 + 500
+		-- Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.q_1, "rune_q_1", hero)
+	end
 	-- -- Arena:BeginBattle(MAIN_HERO_TABLE[1])
-    local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
-    local drop = CreateItemOnPositionSync( Vector(-3136, -11200), item )
-    local position = Vector(-3136, -11200)
-    RPCItems:DropItem(item, Vector(-3136, -11200))
- --    MAIN_HERO_TABLE[1].ChampionsLeague = {}
- --    MAIN_HERO_TABLE[1].ChampionsLeague.rank = 14
+	local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
+	local drop = CreateItemOnPositionSync(Vector(-3136, -11200), item)
+	local position = Vector(-3136, -11200)
+	RPCItems:DropItem(item, Vector(-3136, -11200))
+	--    MAIN_HERO_TABLE[1].ChampionsLeague = {}
+	--    MAIN_HERO_TABLE[1].ChampionsLeague.rank = 14
 
-			-- local lockoutStatus = os:ServerTimeToTable()
-			-- local hero = MAIN_HERO_TABLE[1]
-			-- hero.pit = {}
-			-- hero.pit.pit_level = 7
-			-- if Arena.PitActive or Arena.PitLocked then
-			-- 	lockoutStatus = 2
-			-- end
-			-- CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "pit_terminal", {pitData=hero.pit, heroName=hero:GetUnitName(), lockoutStatus = lockoutStatus})
+	-- local lockoutStatus = os:ServerTimeToTable()
+	-- local hero = MAIN_HERO_TABLE[1]
+	-- hero.pit = {}
+	-- hero.pit.pit_level = 7
+	-- if Arena.PitActive or Arena.PitLocked then
+	-- lockoutStatus = 2
+	-- end
+	-- CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "pit_terminal", {pitData=hero.pit, heroName=hero:GetUnitName(), lockoutStatus = lockoutStatus})
 
-    -- Arena.ChampionsLeague = {}
-    -- Arena.ChampionsLeague.state = 14
-    -- Arena:ChampionsLeagueRegisterForBattle(MAIN_HERO_TABLE[1], 14)
+	-- Arena.ChampionsLeague = {}
+	-- Arena.ChampionsLeague.state = 14
+	-- Arena:ChampionsLeagueRegisterForBattle(MAIN_HERO_TABLE[1], 14)
 
-    -- Arena:SpawnTrainingDummies()
-    -- Weapons:RollWeapon(Vector(-3136, -11200))
-    -- RPCItems:RollNeptunesWaterGliders(Vector(-3136, -11200))
-    -- Arena.PitLevel = 5
-    -- Weapons:RollLegendWeapon1(Vector(-3136, -11200), "chernobog")
+	-- Arena:SpawnTrainingDummies()
+	-- Weapons:RollWeapon(Vector(-3136, -11200))
+	-- RPCItems:RollNeptunesWaterGliders(Vector(-3136, -11200))
+	-- Arena.PitLevel = 5
+	-- Weapons:RollLegendWeapon1(Vector(-3136, -11200), "chernobog")
 end
 
 function Arena:Debug2()
@@ -61,7 +61,7 @@ function Arena:Debug2()
 	-- Arena.PitLevel = 7
 	-- Weapons:RollRandomLegendWeapon1(Vector(-3136, -11200))
 	-- Arena.PitColor = "blue"
-	
+
 	-- RPCItems:RollGiantHunterBoots(Vector(-3136, -11200))
 	-- RPCItems:RollSacredTrialsArmor(Vector(-3136, -11200))
 	-- RPCItems:RollHeroicConquerorVestments(Vector(-3136, -11200), 3)
@@ -78,139 +78,139 @@ function Arena:Debug2()
 	-- RPCItems:RollConquestStoneFalcon(Vector(-3136, -11200))
 	-- Weapons:RollLegendWeapon1(Vector(-3136, -11200), "auriun")
 	-- Arena.widow = Arena:SpawnGrievingWidow(Vector(10624, 8000), Vector(1,0))
-	-- 	Arena.widowCorpse = CreateUnitByName("npc_dummy_unit", Vector(10874, 7830), false, nil, nil, DOTA_TEAM_GOODGUYS)
-	-- 	Arena.widowCorpse:SetAbsOrigin(Vector(10874, 7830, 210+Arena.ZFLOAT))
-	-- 	Arena.widowCorpse:RemoveAbility("dummy_unit")
-	-- 	Arena.widowCorpse:RemoveModifierByName("dummy_unit")
-	-- 	Arena.widowCorpse:SetOriginalModel("models/heroes/abaddon/abaddon.vmdl")
-	-- 	Arena.widowCorpse:SetModel("models/heroes/abaddon/abaddon.vmdl")
-	-- 	Arena.widowCorpse:SetModelScale(1.2)
-	-- 	Arena.widowCorpse:SetAngles(-90, 270, 0)
-	-- 	local corpseAbility = Arena.widowCorpse:AddAbility("arena_descent_corpse_ability")
-	-- 	corpseAbility:ApplyDataDrivenModifier(Arena.widowCorpse, Arena.widowCorpse, "modifier_corpse_start", {})
-	-- 	Timers:CreateTimer(1, function()
-	-- 		corpseAbility:ApplyDataDrivenModifier(Arena.widowCorpse, Arena.widowCorpse, "modifier_corpse_frozen", {})
-	-- 	end)
-	-- 	corpseAbility:SetLevel(1)
+	-- Arena.widowCorpse = CreateUnitByName("npc_dummy_unit", Vector(10874, 7830), false, nil, nil, DOTA_TEAM_GOODGUYS)
+	-- Arena.widowCorpse:SetAbsOrigin(Vector(10874, 7830, 210+Arena.ZFLOAT))
+	-- Arena.widowCorpse:RemoveAbility("dummy_unit")
+	-- Arena.widowCorpse:RemoveModifierByName("dummy_unit")
+	-- Arena.widowCorpse:SetOriginalModel("models/heroes/abaddon/abaddon.vmdl")
+	-- Arena.widowCorpse:SetModel("models/heroes/abaddon/abaddon.vmdl")
+	-- Arena.widowCorpse:SetModelScale(1.2)
+	-- Arena.widowCorpse:SetAngles(-90, 270, 0)
+	-- local corpseAbility = Arena.widowCorpse:AddAbility("arena_descent_corpse_ability")
+	-- corpseAbility:ApplyDataDrivenModifier(Arena.widowCorpse, Arena.widowCorpse, "modifier_corpse_start", {})
+	-- Timers:CreateTimer(1, function()
+	-- corpseAbility:ApplyDataDrivenModifier(Arena.widowCorpse, Arena.widowCorpse, "modifier_corpse_frozen", {})
+	-- end)
+	-- corpseAbility:SetLevel(1)
 
-	-- 	local distance = (Arena.widow:GetAbsOrigin().z - GetGroundHeight(Arena.widow:GetAbsOrigin(), Arena.widow))/90
-	-- 	for i = 1, 90, 1 do
-	-- 		Timers:CreateTimer(i*0.03, function()
-	-- 			Arena.widow:SetAbsOrigin(Arena.widow:GetAbsOrigin()-Vector(0,0,distance))
-	-- 		end)
-	-- 	end
-	-- 	Timers:CreateTimer(2.75, function()
-	-- 		local widowAbility = Arena.widow:FindAbilityByName("arena_descent_grieving_widow_ability")
-	-- 		widowAbility:ApplyDataDrivenModifier(Arena.widow, Arena.widow, "modifier_widow_soul_steal_aura", {})
-	-- 		StartAnimation(Arena.widow, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.1})
-	-- 		Arena.widow:RemoveModifierByName("modifier_grieving_widow_start")
-	-- 		widowAbility:ApplyDataDrivenModifier(Arena.widow, Arena.widow, "modifier_widow_scream", {})
-	-- 		if Arena.PitLevel > 3 then
-	-- 			Arena.widow:AddAbility("arena_magic_immune_breakable_ability"):SetLevel(1)
-	-- 		end
-	-- 	end)
+	-- local distance = (Arena.widow:GetAbsOrigin().z - GetGroundHeight(Arena.widow:GetAbsOrigin(), Arena.widow))/90
+	-- for i = 1, 90, 1 do
+	-- Timers:CreateTimer(i*0.03, function()
+	-- Arena.widow:SetAbsOrigin(Arena.widow:GetAbsOrigin()-Vector(0,0,distance))
+	-- end)
+	-- end
+	-- Timers:CreateTimer(2.75, function()
+	-- local widowAbility = Arena.widow:FindAbilityByName("arena_descent_grieving_widow_ability")
+	-- widowAbility:ApplyDataDrivenModifier(Arena.widow, Arena.widow, "modifier_widow_soul_steal_aura", {})
+	-- StartAnimation(Arena.widow, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.1})
+	-- Arena.widow:RemoveModifierByName("modifier_grieving_widow_start")
+	-- widowAbility:ApplyDataDrivenModifier(Arena.widow, Arena.widow, "modifier_widow_scream", {})
+	-- if Arena.PitLevel > 3 then
+	-- Arena.widow:AddAbility("arena_magic_immune_breakable_ability"):SetLevel(1)
+	-- end
+	-- end)
 	-- Arena:ConquestTemplePart3()
 	-- Arena:InitTrialOfConquest()
 	-- Arena:SpawnRoom1()
 	-- Arena:SpawnRoom1()
-        -- RPCItems:RollChampionsGearHelm(MAIN_HERO_TABLE[1]:GetAbsOrigin())
-        -- RPCItems:RollChampionsGearGauntlet(MAIN_HERO_TABLE[1]:GetAbsOrigin())
-        -- RPCItems:RollChampionsGearMail(MAIN_HERO_TABLE[1]:GetAbsOrigin())
-        -- RPCItems:RollChampionsGearBoots(MAIN_HERO_TABLE[1]:GetAbsOrigin())
-        -- RPCItems:RollLumaGuard(MAIN_HERO_TABLE[1]:GetAbsOrigin(), false)
+	-- RPCItems:RollChampionsGearHelm(MAIN_HERO_TABLE[1]:GetAbsOrigin())
+	-- RPCItems:RollChampionsGearGauntlet(MAIN_HERO_TABLE[1]:GetAbsOrigin())
+	-- RPCItems:RollChampionsGearMail(MAIN_HERO_TABLE[1]:GetAbsOrigin())
+	-- RPCItems:RollChampionsGearBoots(MAIN_HERO_TABLE[1]:GetAbsOrigin())
+	-- RPCItems:RollLumaGuard(MAIN_HERO_TABLE[1]:GetAbsOrigin(), false)
 	-- if Arena.Nightmare then
-	-- 	return false
+	-- return false
 	-- end
 	-- local hero = MAIN_HERO_TABLE[1]
 	-- -- hero.ChampionsLeague = {}
 	-- -- hero.ChampionsLeague.rank = 10
 	-- if hero.ChampionsLeague and (Arena.ChampionsLeague.state == 8 or Arena.ChampionsLeague.state == 7) then
-	-- 	Arena.ChampionsLeague.state = 9
-	-- 	Timers:CreateTimer(2.5, function()
-	-- 		Arena.Coach:MoveToPosition(Vector(-9884, -1024))
-	-- 		Timers:CreateTimer(0.5, function()
-	-- 			Timers:CreateTimer(0.5, function()
-	-- 				CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})	
-	-- 			end)
-	-- 			basic_dialogue(Arena.Coach, nil, "#champion_assistant_dialogue_10", 7, 5, -80)
-	-- 			Timers:CreateTimer(7, function()
-	-- 				basic_dialogue(Arena.Coach, nil, "#champion_assistant_dialogue_11", 10, 5, -80)
-	-- 				Timers:CreateTimer(4, function()
-	-- 					Arena.ChampionsLeague.state = 10
-	-- 				end)
-	-- 			end)
-	-- 		end)
-	-- 	end)
+	-- Arena.ChampionsLeague.state = 9
+	-- Timers:CreateTimer(2.5, function()
+	-- Arena.Coach:MoveToPosition(Vector(-9884, -1024))
+	-- Timers:CreateTimer(0.5, function()
+	-- Timers:CreateTimer(0.5, function()
+	-- CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})
+	-- end)
+	-- basic_dialogue(Arena.Coach, nil, "#champion_assistant_dialogue_10", 7, 5, -80)
+	-- Timers:CreateTimer(7, function()
+	-- basic_dialogue(Arena.Coach, nil, "#champion_assistant_dialogue_11", 10, 5, -80)
+	-- Timers:CreateTimer(4, function()
+	-- Arena.ChampionsLeague.state = 10
+	-- end)
+	-- end)
+	-- end)
+	-- end)
 	-- end
 	-- if Arena.ChampionsLeague.state == 18 then
-	-- 	Arena.ChampionsLeague.state = 19
-	-- 	Arena:OgreSequence(hero)
-	-- 	return false
+	-- Arena.ChampionsLeague.state = 19
+	-- Arena:OgreSequence(hero)
+	-- return false
 	-- end
 	-- if Arena.ChampionsLeague.state == 19 then
-	-- 	return false
+	-- return false
 	-- end
 	-- if hero.ChampionsLeague then
-	-- 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_terminal", {ChampionsLeague=hero.ChampionsLeague, heroName=hero:GetUnitName(), ArenaChampions=Arena.ChampionsLeague})
+	-- CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_terminal", {ChampionsLeague=hero.ChampionsLeague, heroName=hero:GetUnitName(), ArenaChampions=Arena.ChampionsLeague})
 	-- end
 	-- local hero = MAIN_HERO_TABLE[1]
 	-- hero.ChampionsLeague = {}
 	-- hero.ChampionsLeague.rank = 21
 	-- hero.roshpitID = 1
 	-- Arena:SaveChampionsLeagueData(hero, 20, 200)
-	
+
 end
 
 function Arena:Init()
- --print("Initialize Arena")
-  Arena.ChampionsLeague = {}
-  Arena.ZFLOAT = 200
-      Dungeons.phoenixCollision = true
-      RPCItems.DROP_LOCATION = Vector(-11584,-11712)
-      Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
-      Events.GameMaster:AddAbility("town_portal"):SetLevel(1)
-      Events.GameMaster:RemoveModifierByName("modifier_portal")
+	--print("Initialize Arena")
+	Arena.ChampionsLeague = {}
+	Arena.ZFLOAT = 200
+	Dungeons.phoenixCollision = true
+	RPCItems.DROP_LOCATION = Vector(-11584, -11712)
+	Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
+	Events.GameMaster:AddAbility("town_portal"):SetLevel(1)
+	Events.GameMaster:RemoveModifierByName("modifier_portal")
 
-      Arena.ArenaMaster = CreateUnitByName("rune_unit", RPCItems.DROP_LOCATION, true, nil, nil, DOTA_TEAM_GOODGUYS)
-      Arena.ArenaMaster:AddAbility("arena_master_ability"):SetLevel(1)
-      Arena.ArenaMasterAbility = Arena.ArenaMaster:FindAbilityByName("arena_master_ability")
-      Arena.ArenaMaster:AddAbility("dummy_unit"):SetLevel(1)
+	Arena.ArenaMaster = CreateUnitByName("rune_unit", RPCItems.DROP_LOCATION, true, nil, nil, DOTA_TEAM_GOODGUYS)
+	Arena.ArenaMaster:AddAbility("arena_master_ability"):SetLevel(1)
+	Arena.ArenaMasterAbility = Arena.ArenaMaster:FindAbilityByName("arena_master_ability")
+	Arena.ArenaMaster:AddAbility("dummy_unit"):SetLevel(1)
 
-  Events.TownPosition = Vector(-2752, -10816)
-  Events.isTownActive = true
-  Events.Dialog0 = false
-  Events.Dialog1 = false
-  Events.Dialog2 = false
-  Events.Dialog3 = false
-  Dungeons.itemLevel = 1
-  Timers:CreateTimer(3, function()
-      -- local blacksmith = Events:SpawnTownNPC(Vector(-5443, 2606), "red_fox", Vector(0.2, -1), "models/props_gameplay/shopkeeper_fountain/shopkeeper_fountain.vmdl", nil, nil, 1.1, false, "blacksmith")
-      -- StartAnimation(blacksmith, {duration=99999, activity=ACT_DOTA_IDLE, rate=1.0})
-      local oracle = Events:SpawnOracle(Vector(-2432, -10496), Vector(-0.7, -1))
-      -- Events.GlyphEnchanter = Events:SpawnGlyphEnchanter(Vector(-5184, 1521), Vector(1, 1))
-      Arena:StartingMusic()
-      Arena:SpawnChampionsCoach()
-  end)
+	Events.TownPosition = Vector(-2752, -10816)
+	Events.isTownActive = true
+	Events.Dialog0 = false
+	Events.Dialog1 = false
+	Events.Dialog2 = false
+	Events.Dialog3 = false
+	Dungeons.itemLevel = 1
+	Timers:CreateTimer(3, function()
+		-- local blacksmith = Events:SpawnTownNPC(Vector(-5443, 2606), "red_fox", Vector(0.2, -1), "models/props_gameplay/shopkeeper_fountain/shopkeeper_fountain.vmdl", nil, nil, 1.1, false, "blacksmith")
+		-- StartAnimation(blacksmith, {duration=99999, activity=ACT_DOTA_IDLE, rate=1.0})
+		local oracle = Events:SpawnOracle(Vector(-2432, -10496), Vector(-0.7, -1))
+		-- Events.GlyphEnchanter = Events:SpawnGlyphEnchanter(Vector(-5184, 1521), Vector(1, 1))
+		Arena:StartingMusic()
+		Arena:SpawnChampionsCoach()
+	end)
 
-  Arena.NumPlayers = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
- --print(Arena.NumPlayers)
-  Timers:CreateTimer(9, function()
-  	 Arena:SpawnArenaOutsideEntities()
-  end)
-  -- Timers:CreateTimer(10, function()
-  --   CalculateHeroZones()
-  --   return 10
-  -- end)
-  -- Timers:CreateTimer(5, function()
-  --   Tanari:RareSpawns()
-  -- end)
+	Arena.NumPlayers = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+	--print(Arena.NumPlayers)
+	Timers:CreateTimer(9, function()
+		Arena:SpawnArenaOutsideEntities()
+	end)
+	-- Timers:CreateTimer(10, function()
+	--   CalculateHeroZones()
+	--   return 10
+	-- end)
+	-- Timers:CreateTimer(5, function()
+	--   Tanari:RareSpawns()
+	-- end)
 	Arena:InitArenaDoors()
 	Timers:CreateTimer(7, function()
 		Arena:CreateArenaWalls(true, true, true, true)
 		Arena:RaiseWalls(true, {Arena.Door1, Arena.Door4, Arena.Door3, Arena.Door2}, false)
 	end)
 	Timers:CreateTimer(15, function()
-		Arena.WaterMagician = Events:SpawnTownNPC(Vector(-10304, -6731), "arena_aquatarium_magician", Vector(1, 0), nil, nil, nil, 1.2, false, nil)	
+		Arena.WaterMagician = Events:SpawnTownNPC(Vector(-10304, -6731), "arena_aquatarium_magician", Vector(1, 0), nil, nil, nil, 1.2, false, nil)
 		Arena.WaterMagician:SetRenderColor(90, 90, 255)
 	end)
 	Timers:CreateTimer(22, function()
@@ -232,7 +232,7 @@ function Arena:StartingMusic()
 end
 
 function Arena:BattleMusic()
-	
+
 	Timers:CreateTimer(0, function()
 		if Arena.ChampionsLeague.battlePrep then
 			EmitSoundOnLocationWithCaster(Vector(-2816, -10306, 256), "Arena.Battle.Music", Events.GameMaster)
@@ -262,8 +262,6 @@ function Arena:SpawnArenaOutsideEntities()
 	local attendant = Events:SpawnTownNPC(Vector(-1728, -10752), "arena_attendee_one", Vector(-1, -1), nil, nil, nil, 1.0, true, "arena_attendant")
 	table.insert(Arena.OutsideEntitiesTable, attendant)
 
-
-
 	Timers:CreateTimer(3, function()
 		local unit = Events:SpawnTownNPC(Vector(-2944, -8088), "arena_entrance_fan", Vector(0, -1), nil, nil, nil, 1.0, true, "arena_fan")
 		table.insert(Arena.OutsideEntitiesTable, unit)
@@ -272,7 +270,7 @@ function Arena:SpawnArenaOutsideEntities()
 		Arena:AddPatrolArguments(unit, 0, 10, 300, {Vector(-1072, -7328), Vector(-2240, -8576)})
 		table.insert(Arena.OutsideEntitiesTable, unit)
 		Timers:CreateTimer(0.05, function()
-			unit:MoveToPosition(unit:GetAbsOrigin()+Vector(-5,-5))
+			unit:MoveToPosition(unit:GetAbsOrigin() + Vector(-5, -5))
 		end)
 
 		Arena.ChampionsLeagueAttendant = Events:SpawnTownNPC(Vector(-3648, -6932), "champions_league_attendant", Vector(0, -1), nil, nil, nil, 1.16, false, nil)
@@ -283,18 +281,18 @@ function Arena:SpawnArenaOutsideEntities()
 
 		Arena.ChallengerAttendant = Events:SpawnTownNPC(Vector(-1728, -6932), "challenger_attendant", Vector(0, -1), nil, nil, nil, 1.2, false, nil)
 		table.insert(Arena.OutsideEntitiesTable, Arena.ChallengerAttendant)
-		
+
 	end)
 	Timers:CreateTimer(5, function()
 		Arena.NewbieGuardTable = {}
 		local unit = Events:SpawnTownNPC(Vector(-8414, -2700), "arena_guard", Vector(1, 0), nil, nil, nil, 0.85, false, nil)
 		unit.basePos = unit:GetAbsOrigin()
-		unit.origFv = Vector(1,0)
+		unit.origFv = Vector(1, 0)
 		table.insert(Arena.OutsideEntitiesTable, unit)
 		table.insert(Arena.NewbieGuardTable, unit)
 		local unit = Events:SpawnTownNPC(Vector(-8414, -2048), "arena_guard", Vector(1, 0), nil, nil, nil, 0.85, false, nil)
 		unit.basePos = unit:GetAbsOrigin()
-		unit.origFv = Vector(1,0)
+		unit.origFv = Vector(1, 0)
 		table.insert(Arena.OutsideEntitiesTable, unit)
 		table.insert(Arena.NewbieGuardTable, unit)
 		Arena:SpawnNewbeeLounge()
@@ -309,32 +307,32 @@ function Arena:SpawnArenaOutsideEntities()
 		local unit = Events:SpawnTownNPC(Vector(-5376, -6336), "arena_hall_of_heroes_npc", Vector(-1, -1), nil, nil, nil, 1.1, true, "hall_of_champions_dialogue")
 		Arena:AddPatrolArguments(unit, 32, 10, 150, {Vector(-6016, -6400), Vector(-5953, -5735), Vector(-6016, -6400), Vector(-5376, -6336)})
 		table.insert(Arena.OutsideEntitiesTable, unit)
-	
+
 		local unit = Events:SpawnTownNPC(Vector(-7232, -4352), "arena_entrance_fan", Vector(0, -1), nil, nil, nil, 1.0, false, nil)
 		Arena:AddPatrolArguments(unit, 0, 5, 150, {Vector(-6080, -6336), Vector(-6720, -4992), Vector(-7104, -5760), Vector(-7232, -4352)})
 		table.insert(Arena.OutsideEntitiesTable, unit)
 
 		local blacksmith = Events:SpawnTownNPC(Vector(-320, -6016), "red_fox", Vector(0, -1), "models/props_gameplay/shopkeeper_fountain/shopkeeper_fountain.vmdl", nil, nil, 1.1, false, "blacksmith")
-		StartAnimation(blacksmith, {duration=99999, activity=ACT_DOTA_IDLE, rate=1.0})
+		StartAnimation(blacksmith, {duration = 99999, activity = ACT_DOTA_IDLE, rate = 1.0})
 		table.insert(Arena.OutsideEntitiesTable, blacksmith)
 		Events.GlyphEnchanter = Events:SpawnGlyphEnchanter(Vector(1469, -6527), Vector(0, 1))
 		table.insert(Arena.OutsideEntitiesTable, Events.GlyphEnchanter)
 
-		local curator = Events:SpawnCurator(Vector(-896, -6848), Vector(0,-1))
+		local curator = Events:SpawnCurator(Vector(-896, -6848), Vector(0, -1))
 		table.insert(Arena.OutsideEntitiesTable, curator)
 	end)
-	
+
 	Timers:CreateTimer(24, function()
 		Arena:SpawnMajorLeagueLounge()
 		Arena.MajorGuardTable = {}
 		local unit = Events:SpawnTownNPC(Vector(-7719, 3968), "arena_guard", Vector(1, -1), nil, nil, nil, 0.85, false, nil)
 		unit.basePos = unit:GetAbsOrigin()
-		unit.origFv = Vector(1,-1)
+		unit.origFv = Vector(1, -1)
 		table.insert(Arena.OutsideEntitiesTable, unit)
 		table.insert(Arena.MajorGuardTable, unit)
 		local unit = Events:SpawnTownNPC(Vector(-7360, 4352), "arena_guard", Vector(0, -1), nil, nil, nil, 0.85, false, nil)
 		unit.basePos = unit:GetAbsOrigin()
-		unit.origFv = Vector(0,-1)
+		unit.origFv = Vector(0, -1)
 		table.insert(Arena.OutsideEntitiesTable, unit)
 		table.insert(Arena.MajorGuardTable, unit)
 	end)
@@ -343,12 +341,12 @@ function Arena:SpawnArenaOutsideEntities()
 		Arena.AllstarGuardTable = {}
 		local unit = Events:SpawnTownNPC(Vector(-3200, 4032), "arena_guard", Vector(0, -1), nil, nil, nil, 0.85, false, nil)
 		unit.basePos = unit:GetAbsOrigin()
-		unit.origFv = Vector(0,-1)
+		unit.origFv = Vector(0, -1)
 		table.insert(Arena.OutsideEntitiesTable, unit)
 		table.insert(Arena.AllstarGuardTable, unit)
 		local unit = Events:SpawnTownNPC(Vector(-2304, 4032), "arena_guard", Vector(0, -1), nil, nil, nil, 0.85, false, nil)
 		unit.basePos = unit:GetAbsOrigin()
-		unit.origFv = Vector(0,-1)
+		unit.origFv = Vector(0, -1)
 		table.insert(Arena.OutsideEntitiesTable, unit)
 		table.insert(Arena.AllstarGuardTable, unit)
 	end)
@@ -444,7 +442,6 @@ function Arena:SpawnAllStarLounge()
 	rubick1:SetNightTimeVisionRange(0)
 	table.insert(Arena.OutsideEntitiesTable, rubick1)
 
-
 	local rubick2 = Events:SpawnTownNPC(Vector(-2240, 6336), "champion_league_challenger_3_b", Vector(0, -1), nil, nil, nil, 1.0, true, "arena_challenger_3")
 	rubick2:SetDayTimeVisionRange(0)
 	rubick2:SetNightTimeVisionRange(0)
@@ -466,11 +463,11 @@ function Arena:SpawnAllStarLounge()
 end
 
 function Arena:ColorKingJette(unit)
-	for k, v in pairs(unit:GetChildren()) do 
+	for k, v in pairs(unit:GetChildren()) do
 		if v:GetClassname() == "dota_item_wearable" then
 			v:SetRenderColor(200, 200, 20)
-		end 
-	end 
+		end
+	end
 end
 
 function Arena:AddPatrolArguments(unit, patrolSlow, phaseIntervals, patrolPointRandom, patrolPositionTable)
@@ -484,7 +481,7 @@ end
 function Arena:GenerateCrowd(size)
 	Arena.Crowd = {}
 	for i = 1, size, 1 do
-		Timers:CreateTimer(i*0.3, function()
+		Timers:CreateTimer(i * 0.3, function()
 			local unitName, modelName, modelScale, cheerAnimation1 = Arena:GetRandomCrowdFan()
 			local position, fv = Arena:GetCrowdPositionAndFV()
 			local unit = Arena:CreateCrowdFan(position, unitName, fv, modelName, modelScale, cheerAnimation1, 1)
@@ -494,7 +491,7 @@ function Arena:GenerateCrowd(size)
 end
 
 function Arena:GetRandomCrowdFan()
-	local luck = RandomInt(1,17)
+	local luck = RandomInt(1, 17)
 	local unitName = ""
 	local modelName = ""
 	local modelScale = 0
@@ -520,7 +517,7 @@ function Arena:GetRandomCrowdFan()
 		modelScale = 1.2
 		cheerAnimation1 = ACT_DOTA_IDLE_RARE
 	elseif luck == 5 then
-		local luck2 = RandomInt(1,2)
+		local luck2 = RandomInt(1, 2)
 		if luck2 == 1 then
 			modelName = "models/items/wards/smeevil_ward/smeevil_ward_blue.vmdl"
 		else
@@ -548,7 +545,7 @@ function Arena:GetRandomCrowdFan()
 		unitName = "arena_crowd_fan"
 		modelName = "models/items/courier/vigilante_fox_green/vigilante_fox_green.vmdl"
 		modelScale = 1.2
-		cheerAnimation1 = ACT_DOTA_IDLE_RARE	
+		cheerAnimation1 = ACT_DOTA_IDLE_RARE
 	elseif luck == 10 then
 		unitName = "arena_crowd_fan"
 		modelName = "models/items/courier/bucktooth_jerry/bucktooth_jerry.vmdl"
@@ -590,7 +587,7 @@ function Arena:GetRandomCrowdFan()
 		modelScale = 1.0
 		cheerAnimation1 = ACT_DOTA_VICTORY
 	end
-	
+
 	return unitName, modelName, modelScale, cheerAnimation1
 end
 
@@ -602,78 +599,78 @@ function Arena:CreateCrowdFan(position, unitName, fv, modelName, modelScale, che
 	fan:SetModelScale(modelScale)
 	fan.cheerAnimation1 = cheerAnimation1
 	fan:AddAbility("arena_crowd_ability"):SetLevel(1)
-	fan:SetRenderColor(RandomInt(100,255), RandomInt(100,255), RandomInt(100,255))
-	StartAnimation(fan, {duration=99999, activity=ACT_DOTA_IDLE, rate=1.0})
+	fan:SetRenderColor(RandomInt(100, 255), RandomInt(100, 255), RandomInt(100, 255))
+	StartAnimation(fan, {duration = 99999, activity = ACT_DOTA_IDLE, rate = 1.0})
 	return fan
 end
 
 function Arena:GetCrowdPositionAndFV()
-	local quadrant = RandomInt(1,16)
-	local position = Vector(0,0)
-	local fv = Vector(0,0)
+	local quadrant = RandomInt(1, 16)
+	local position = Vector(0, 0)
+	local fv = Vector(0, 0)
 	if quadrant == 1 or quadrant == 2 then
 		local randomX = RandomInt(-4224, -1576)
 		local randomY = RandomInt(-5952, -5206)
 		position = Vector(randomX, randomY)
-		fv = Vector(0,1)
+		fv = Vector(0, 1)
 	elseif quadrant == 3 or quadrant == 4 then
 		local basePos = Vector(-1320, -5910)
-		local slope = Vector(1,1)
+		local slope = Vector(1, 1)
 		local randomY = RandomInt(1, 900)
-		local randomSlopeMult = RandomInt(1,2000)
-		position = basePos+slope*randomSlopeMult+Vector(0,randomY)
-		fv = Vector(-1,1)
+		local randomSlopeMult = RandomInt(1, 2000)
+		position = basePos + slope * randomSlopeMult + Vector(0, randomY)
+		fv = Vector(-1, 1)
 	elseif quadrant == 5 then
 		local randomX = RandomInt(128, 1055)
 		local randomY = RandomInt(-3293, -2560)
 		position = Vector(randomX, randomY)
-		fv = Vector(-1,0)		
+		fv = Vector(-1, 0)
 	elseif quadrant == 6 then
 		local randomX = RandomInt(170, 1040)
 		local randomY = RandomInt(-1856, -1120)
 		position = Vector(randomX, randomY)
-		fv = Vector(-1,0)
+		fv = Vector(-1, 0)
 	elseif quadrant == 7 or quadrant == 8 then
 		local basePos = Vector(128, -1152)
-		local slope = Vector(-1,1)
+		local slope = Vector(-1, 1)
 		local randomX = RandomInt(1, 900)
-		local randomSlopeMult = RandomInt(1,2000)
-		position = basePos+slope*randomSlopeMult+Vector(randomX,0)
-		fv = Vector(-1,-1)
+		local randomSlopeMult = RandomInt(1, 2000)
+		position = basePos + slope * randomSlopeMult + Vector(randomX, 0)
+		fv = Vector(-1, -1)
 	elseif quadrant == 9 then
 		local randomX = RandomInt(-2304, -1344)
 		local randomY = RandomInt(404, 1280)
 		position = Vector(randomX, randomY)
-		fv = Vector(0,-1)
+		fv = Vector(0, -1)
 	elseif quadrant == 10 then
 		local randomX = RandomInt(-3968, -3072)
 		local randomY = RandomInt(448, 1280)
 		position = Vector(randomX, randomY)
-		fv = Vector(0,-1)
+		fv = Vector(0, -1)
 	elseif quadrant == 11 or quadrant == 12 then
 		local basePos = Vector(-5760, -1280)
-		local slope = Vector(1,1)
+		local slope = Vector(1, 1)
 		local randomY = RandomInt(1, 900)
-		local randomSlopeMult = RandomInt(1,2000)
-		position = basePos+slope*randomSlopeMult+Vector(0,randomY)
-		fv = Vector(1,-1)
+		local randomSlopeMult = RandomInt(1, 2000)
+		position = basePos + slope * randomSlopeMult + Vector(0, randomY)
+		fv = Vector(1, -1)
 	elseif quadrant == 13 then
 		local randomX = RandomInt(-6589, -5760)
 		local randomY = RandomInt(-1891, -1408)
 		position = Vector(randomX, randomY)
-		fv = Vector(1,0)
+		fv = Vector(1, 0)
 	elseif quadrant == 14 then
 		local randomX = RandomInt(-6592, -5824)
 		local randomY = RandomInt(-3392, -2752)
 		position = Vector(randomX, randomY)
-		fv = Vector(1,0)
+		fv = Vector(1, 0)
 	elseif quadrant == 15 or quadrant == 16 then
 		local basePos = Vector(-4416, -5950)
-		local slope = Vector(-1,1)
+		local slope = Vector(-1, 1)
 		local randomY = RandomInt(1, 900)
-		local randomSlopeMult = RandomInt(1,2000)
-		position = basePos+slope*randomSlopeMult+Vector(0,randomY)
-		fv = Vector(1,1)
+		local randomSlopeMult = RandomInt(1, 2000)
+		position = basePos + slope * randomSlopeMult + Vector(0, randomY)
+		fv = Vector(1, 1)
 	end
 	return position, fv
 end
@@ -682,17 +679,17 @@ function Arena:AnimateCheers()
 	if Arena.Crowd then
 		for i = 1, #Arena.Crowd, 1 do
 			local fan = Arena.Crowd[i]
-			StartAnimation(fan, {duration=4.5, activity=fan.cheerAnimation1, rate=1.0})
+			StartAnimation(fan, {duration = 4.5, activity = fan.cheerAnimation1, rate = 1.0})
 			Timers:CreateTimer(4.7, function()
-				StartAnimation(fan, {duration=40, activity=ACT_DOTA_IDLE, rate=1.0})
+				StartAnimation(fan, {duration = 40, activity = ACT_DOTA_IDLE, rate = 1.0})
 			end)
 		end
 	end
 end
 
 function Arena:CreateShowCombatants()
-	local fighter1 = Arena:CreateShowCombatant("dragon_knight", DOTA_TEAM_BADGUYS, Vector(-3072, -2432), Vector(1,0))
-	local fighter2 = Arena:CreateShowCombatant("pudge", DOTA_TEAM_NEUTRALS, Vector(-2304, -2432), Vector(-1,0))
+	local fighter1 = Arena:CreateShowCombatant("dragon_knight", DOTA_TEAM_BADGUYS, Vector(-3072, -2432), Vector(1, 0))
+	local fighter2 = Arena:CreateShowCombatant("pudge", DOTA_TEAM_NEUTRALS, Vector(-2304, -2432), Vector(-1, 0))
 	fighter1.opponent = fighter2
 	fighter2.opponent = fighter1
 	fighter1.jumpAnimation = ACT_DOTA_CAST_ABILITY_1
@@ -705,9 +702,9 @@ end
 
 function Arena:CreateShowCombatant(fighter, team, position, fv)
 	local fighterName = ""
-	if fighter=="dragon_knight" then
+	if fighter == "dragon_knight" then
 		figherName = "arena_show_fighter_one"
-	elseif fighter=="pudge" then
+	elseif fighter == "pudge" then
 		figherName = "arena_show_fighter_two"
 	end
 	local fighter = CreateUnitByName(figherName, position, true, nil, nil, team)
@@ -716,7 +713,7 @@ function Arena:CreateShowCombatant(fighter, team, position, fv)
 	fighter:SetForwardVector(fv)
 	local abilityCount = fighter:GetAbilityCount()
 	for i = 1, abilityCount, 1 do
-		local ability = fighter:GetAbilityByIndex(i-1)
+		local ability = fighter:GetAbilityByIndex(i - 1)
 		if ability then
 			ability:SetLevel(1)
 		end
@@ -733,53 +730,51 @@ end
 
 function Arena:SpawnChampionsCoach()
 	Arena.Coach = CreateUnitByName("champions_league_assistant", Vector(-7237, -3072), true, nil, nil, DOTA_TEAM_GOODGUYS)
-	Arena.Coach:SetForwardVector(Vector(-1,-1))
+	Arena.Coach:SetForwardVector(Vector(-1, -1))
 	Arena.ArenaMasterAbility:ApplyDataDrivenModifier(Arena.ArenaMaster, Arena.Coach, "modifier_champions_league_assistant_ai", {})
 end
-
-
 
 function Arena:basic_dialogue(caster, units, dialogueName, time, xOffset, yOffset)
 	Quests:ShowDialogueText(units, caster, dialogueName, time, false)
 end
 
 function Arena:GetMithrilPrize(position, hero, mithrilReward)
-  Timers:CreateTimer(5, function()
+	Timers:CreateTimer(5, function()
 
-        local crystal = CreateUnitByName("arcane_crystal", position+Vector(0,0,1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
-        crystal:SetAbsOrigin(crystal:GetAbsOrigin()+Vector(0,0,1300))
-        local crystalAbility = crystal:AddAbility("mithril_shard_ability")
-        crystalAbility:SetLevel(1)
-        local fv = RandomVector(1)
-        crystal:SetOriginalModel("models/props_gameplay/rune_doubledamage01.vmdl")
-        crystal:SetModel("models/props_gameplay/rune_doubledamage01.vmdl")
-        crystal.reward = mithrilReward
-        crystal.reward = math.floor(crystal.reward*(1+GameState:GetPlayerPremiumStatusCount()*0.1))*Events.ResourceBonus
-        crystal.distributed = 0
-        local baseModelSize = math.min(2.9, 1.2 + crystal.reward/200)
-        crystal.modelScale = baseModelSize
-        crystal:SetModelScale(baseModelSize)
-        crystal.fallVelocity = 45
-        crystal.falling = true
-        crystal.winnerTable = {hero}
-        -- local potentialWinnerTable = RPCItems:GetConnectedPlayerTable()
-        -- for i = 1, #potentialWinnerTable, 1 do
-        --  local completedTable = CustomNetTables:GetTableValue("player_stats", tostring(potentialWinnerTable[i]:GetPlayerOwnerID()).."-challenge")
-        --  local completed = completedTable.completed
-        --  if completed == 0 then
-        --    potentialWinnerTable[i].shardsPickedUp = 0
-        --    table.insert(crystal.winnerTable, potentialWinnerTable[i])
-        --  end
-        -- end
-        if #crystal.winnerTable > 0 then
-          -- for i = 1, #crystal.winnerTable, 1 do
-          --   crystal.winnerTable[i].shardsPickedUp = 0
-          -- end
-          Timers:CreateTimer(1.4, function()
-            EmitSoundOn("Resource.MithrilShardEnter", crystal)
-          end)
-        end
-  end)
+		local crystal = CreateUnitByName("arcane_crystal", position + Vector(0, 0, 1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
+		crystal:SetAbsOrigin(crystal:GetAbsOrigin() + Vector(0, 0, 1300))
+		local crystalAbility = crystal:AddAbility("mithril_shard_ability")
+		crystalAbility:SetLevel(1)
+		local fv = RandomVector(1)
+		crystal:SetOriginalModel("models/props_gameplay/rune_doubledamage01.vmdl")
+		crystal:SetModel("models/props_gameplay/rune_doubledamage01.vmdl")
+		crystal.reward = mithrilReward
+		crystal.reward = math.floor(crystal.reward * (1 + GameState:GetPlayerPremiumStatusCount() * 0.1)) * Events.ResourceBonus
+		crystal.distributed = 0
+		local baseModelSize = math.min(2.9, 1.2 + crystal.reward / 200)
+		crystal.modelScale = baseModelSize
+		crystal:SetModelScale(baseModelSize)
+		crystal.fallVelocity = 45
+		crystal.falling = true
+		crystal.winnerTable = {hero}
+		-- local potentialWinnerTable = RPCItems:GetConnectedPlayerTable()
+		-- for i = 1, #potentialWinnerTable, 1 do
+		--  local completedTable = CustomNetTables:GetTableValue("player_stats", tostring(potentialWinnerTable[i]:GetPlayerOwnerID()).."-challenge")
+		--  local completed = completedTable.completed
+		--  if completed == 0 then
+		--    potentialWinnerTable[i].shardsPickedUp = 0
+		--    table.insert(crystal.winnerTable, potentialWinnerTable[i])
+		--  end
+		-- end
+		if #crystal.winnerTable > 0 then
+			-- for i = 1, #crystal.winnerTable, 1 do
+			--   crystal.winnerTable[i].shardsPickedUp = 0
+			-- end
+			Timers:CreateTimer(1.4, function()
+				EmitSoundOn("Resource.MithrilShardEnter", crystal)
+			end)
+		end
+	end)
 end
 
 function Arena:ArenaDialogue(msg)
@@ -802,11 +797,11 @@ function Arena:ArenaDialogue(msg)
 			end
 		elseif npc == "arena_aquatarium_magician" then
 			if Arena.WaterMagician.gameStart then
-				CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})	
+				CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})
 				return
 			end
 			if intattr == 0 then
-				CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})	
+				CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})
 				Arena:WaterGameStart(hero)
 			end
 		elseif npc == "arena_terminal" then
@@ -823,7 +818,7 @@ function Arena:ArenaDialogue(msg)
 		elseif npc == "arena_pit_conquest_shrine_of_karzhun" then
 			--print("GO?")
 			Arena:PitConquestKarzhun(hero)
-			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})	
+			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})
 		end
 	end
 end
@@ -840,8 +835,8 @@ function Arena:DummyFromClient(playerID, hero, msg)
 		dummy.timerDamage = 0
 		--print("DUMMY TIMER START")
 		for i = 1, 35, 1 do
-			Timers:CreateTimer(i*0.2, function()
-				local DPS = math.floor(dummy.timerDamage/(i*0.2))
+			Timers:CreateTimer(i * 0.2, function()
+				local DPS = math.floor(dummy.timerDamage / (i * 0.2))
 				CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "updateDPSLabel", {dps = DPS})
 			end)
 		end
@@ -854,34 +849,34 @@ function Arena:DummyFromClient(playerID, hero, msg)
 end
 
 function Arena:SpawnChampionsLeagueEnemy(unit_name, location, fv, damageAdjust, healthAdjust, damageReduc)
-  local unit = CreateUnitByName(unit_name, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
-  unit:SetForwardVector(fv)
-  Events:AdjustDeathXP(unit)
-  Events:AdjustBossPower(unit, damageAdjust, healthAdjust)
-  unit.damageReduc = damageReduc
-  Arena.ArenaMasterAbility:ApplyDataDrivenModifier(Arena.ArenaMaster, unit, "modifier_arena_enemy", {})
-  local gameMasterAbil = Events.GameMaster:FindAbilityByName("npc_abilities")
-  gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_command_restric_player", {duration = 10})
-  return unit
+	local unit = CreateUnitByName(unit_name, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
+	unit:SetForwardVector(fv)
+	Events:AdjustDeathXP(unit)
+	Events:AdjustBossPower(unit, damageAdjust, healthAdjust)
+	unit.damageReduc = damageReduc
+	Arena.ArenaMasterAbility:ApplyDataDrivenModifier(Arena.ArenaMaster, unit, "modifier_arena_enemy", {})
+	local gameMasterAbil = Events.GameMaster:FindAbilityByName("npc_abilities")
+	gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_command_restric_player", {duration = 10})
+	return unit
 end
 
 function Arena:SpawnTrainingDummies()
 	local positionTable = {Vector(576, -4856), Vector(854, -4587), Vector(1139, -4267), Vector(1450, -3974)}
-	for i =1, #positionTable, 1 do
+	for i = 1, #positionTable, 1 do
 		local dummy = CreateUnitByName("arena_training_dummy", positionTable[i], true, nil, nil, DOTA_TEAM_NEUTRALS)
-		dummy:SetForwardVector(Vector(1,-1))
+		dummy:SetForwardVector(Vector(1, -1))
 		dummy.targetPosition = dummy:GetAbsOrigin()
 		dummy.pushLock = true
 		-- AddFOWViewer(DOTA_TEAM_GOODGUYS, dummy.targetPosition, 500, 4, false)
 		Timers:CreateTimer(6, function()
 			-- if IsValidEntity(dummy) then
-			-- 	local dummyAbility = dummy:FindAbilityByName("training_dummy_ability")
-			-- 	dummyAbility:ApplyDataDrivenModifier(dummy, dummy, "modifier_dummy_freeze", {})
+			-- local dummyAbility = dummy:FindAbilityByName("training_dummy_ability")
+			-- dummyAbility:ApplyDataDrivenModifier(dummy, dummy, "modifier_dummy_freeze", {})
 			-- end
 		end)
 		table.insert(Arena.OutsideEntitiesTable, dummy)
 	end
-	
+
 end
 
 function Arena:RollPrizebox(rank, score, hero)
@@ -896,34 +891,34 @@ function Arena:RollPrizebox(rank, score, hero)
 	else
 		baseLevel = 60
 	end
-	local scoreBonus = math.floor(score/8)
+	local scoreBonus = math.floor(score / 8)
 	local itemLevel = baseLevel + scoreBonus
 	local prizeLevel = RPCItems:GetLogarithmicVarianceValue(itemLevel, 0, 0, 0, 0)
 	if GameState:GetPlayerPremiumStatus(hero:GetPlayerOwnerID()) then
-		prizeLevel = math.ceil(prizeLevel*1.35)
+		prizeLevel = math.ceil(prizeLevel * 1.35)
 	end
 	if prizeLevel > 40 and prizeLevel < 120 then
 		rarity = "rare"
 	elseif prizeLevel >= 120 then
 		rarity = "mythical"
 	end
-    local item = RPCItems:CreateVariantWithMin("item_rpc_arena_prizebox", rarity, "Prizebox", false, false, "Consumable", 0, nil, nil)
-    item.newItemTable.property1 = prizeLevel
-    item.newItemTable.property1name = "prize_level"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#arena_prizebox_level", "#D1D1D1",  1) 
-    Arena:RollPrizeBoxProperty2(item, prizeLevel)
-    if rarity == "rare" or rarity == "mythical" then
-    	Arena:RollPrizeBoxProperty3(item, prizeLevel)
-    end
-    if rarity == "mythical" then
-    	Arena:RollPrizeBoxProperty4(item, prizeLevel)
-    end
+	local item = RPCItems:CreateVariantWithMin("item_rpc_arena_prizebox", rarity, "Prizebox", false, false, "Consumable", 0, nil, nil)
+	item.newItemTable.property1 = prizeLevel
+	item.newItemTable.property1name = "prize_level"
+	RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#arena_prizebox_level", "#D1D1D1", 1)
+	Arena:RollPrizeBoxProperty2(item, prizeLevel)
+	if rarity == "rare" or rarity == "mythical" then
+		Arena:RollPrizeBoxProperty3(item, prizeLevel)
+	end
+	if rarity == "mythical" then
+		Arena:RollPrizeBoxProperty4(item, prizeLevel)
+	end
 
-    RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+	RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
 end
 
 function Arena:RollPrizeBoxProperty2(item, itemLevel)
-	local luck = RandomInt(1,itemLevel)
+	local luck = RandomInt(1, itemLevel)
 	local qualities = "rare"
 	if luck >= 10 then
 		qualities = "mythical"
@@ -931,14 +926,14 @@ function Arena:RollPrizeBoxProperty2(item, itemLevel)
 	if luck >= 25 then
 		qualities = "immortal"
 	end
-	local quantity = math.min(RandomInt(1, itemLevel/30), 2)
+	local quantity = math.min(RandomInt(1, itemLevel / 30), 2)
 	item.newItemTable.property2 = quantity
 	item.newItemTable.property2name = qualities
-	RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_rarity_"..qualities, RPCItems:GetRarityColor(qualities),  2) 
+	RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_rarity_"..qualities, RPCItems:GetRarityColor(qualities), 2)
 end
 
 function Arena:RollPrizeBoxProperty3(item, itemLevel)
-	local luck = RandomInt(1,itemLevel)
+	local luck = RandomInt(1, itemLevel)
 	local qualities = "rare"
 	if luck >= 30 then
 		qualities = "mythical"
@@ -947,19 +942,19 @@ function Arena:RollPrizeBoxProperty3(item, itemLevel)
 		qualities = "immortal"
 	end
 	if luck >= 20 and luck <= 28 then
-		item.newItemTable.property3 = RandomInt(140, 140+itemLevel)
+		item.newItemTable.property3 = RandomInt(140, 140 + itemLevel)
 		item.newItemTable.property3name = "arcane_crystals"
-		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#tooltip_arcane_crystals", "#C363D4",  3) 
+		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#tooltip_arcane_crystals", "#C363D4", 3)
 		return
 	end
-	local quantity = math.min(RandomInt(1, itemLevel/30), 3)
+	local quantity = math.min(RandomInt(1, itemLevel / 30), 3)
 	item.newItemTable.property3 = quantity
 	item.newItemTable.property3name = qualities
-	RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_rarity_"..qualities, RPCItems:GetRarityColor(qualities),  3) 
+	RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_rarity_"..qualities, RPCItems:GetRarityColor(qualities), 3)
 end
 
 function Arena:RollPrizeBoxProperty4(item, itemLevel)
-	local luck = RandomInt(1,itemLevel)
+	local luck = RandomInt(1, itemLevel)
 	local qualities = "rare"
 	if luck >= 30 then
 		qualities = "mythical"
@@ -968,21 +963,21 @@ function Arena:RollPrizeBoxProperty4(item, itemLevel)
 		qualities = "immortal"
 	end
 	if luck >= 20 and luck <= 29 then
-		item.newItemTable.property4 = RandomInt(200, 260+itemLevel)
+		item.newItemTable.property4 = RandomInt(200, 260 + itemLevel)
 		item.newItemTable.property4name = "arcane_crystals"
-		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#tooltip_arcane_crystals", "#C363D4",  4) 
+		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#tooltip_arcane_crystals", "#C363D4", 4)
 		return
 	end
 	if luck >= 88 and luck <= 102 then
 		item.newItemTable.property4 = 1
 		item.newItemTable.property4name = "champions_gear"
-		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#arena_prizebox_champions", "#D11D59",  4) 
+		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#arena_prizebox_champions", "#D11D59", 4)
 		return
 	end
-	local quantity = math.min(RandomInt(1, itemLevel/30), 5)
+	local quantity = math.min(RandomInt(1, itemLevel / 30), 5)
 	item.newItemTable.property4 = quantity
 	item.newItemTable.property4name = qualities
-	RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#item_rarity_"..qualities, RPCItems:GetRarityColor(qualities),  4) 
+	RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#item_rarity_"..qualities, RPCItems:GetRarityColor(qualities), 4)
 end
 
 function Arena:SaveChampionsLeagueData(hero, battleRank, score)
@@ -1000,11 +995,11 @@ function Arena:SaveChampionsLeagueData(hero, battleRank, score)
 	url = url.."&hero_name="..hero:GetUnitName()
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	if Arena:DetermineIfSaveIsNecessary(hero, battleRank, score) then
-		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+		CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 			--SaveLoad:NewKey()
 			local resultTable = {}
 			--print( "GET response:\n" )
-			for k,v in pairs( result ) do
+			for k, v in pairs(result) do
 				--print( string.format( "%s : %s\n", k, v ) )
 			end
 			--print( "Done." )
@@ -1012,7 +1007,7 @@ function Arena:SaveChampionsLeagueData(hero, battleRank, score)
 			Timers:CreateTimer(16, function()
 				Arena:LoadChampionsLeagueData(hero, resultTable)
 			end)
-		end )	
+		end)
 	end
 end
 
@@ -1022,10 +1017,10 @@ function Arena:ResetArenaData(hero)
 	url = url.."steam_id="..steamID
 	url = url.."&hero_id="..hero.roshpitID
 	url = url.."&hero_name="..hero:GetUnitName()
-	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		local resultTable = {}
 		--print( "GET response:\n" )
-		for k,v in pairs( result ) do
+		for k, v in pairs(result) do
 			--print( string.format( "%s : %s\n", k, v ) )
 		end
 		--print( "Done." )
@@ -1033,7 +1028,7 @@ function Arena:ResetArenaData(hero)
 		Timers:CreateTimer(8, function()
 			Arena:LoadChampionsLeagueData(hero, resultTable)
 		end)
-	end )
+	end)
 end
 
 function Arena:LoadChampionsLeagueData(hero, results)
@@ -1092,16 +1087,16 @@ function Arena:LoadChampionsLeagueData(hero, results)
 			return
 		end
 		url = url.."hero_id="..hero.roshpitID
-		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+		CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 			local resultTable = {}
 			--print( "GET response:\n" )
-			for k,v in pairs( result ) do
+			for k, v in pairs(result) do
 				--print( string.format( "%s : %s\n", k, v ) )
 			end
 			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			Arena:LoadChampionsLeagueData(hero, resultTable)
-		end )	
+		end)
 
 	end
 end

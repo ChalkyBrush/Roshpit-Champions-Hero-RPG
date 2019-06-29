@@ -3,7 +3,7 @@ require('/heroes/huskar/constants_spirit_warrior')
 function start_channel(event)
 	local caster = event.caster
 	local soundTable = {"SpiritWarrior.SpiritYell1", "SpiritWarrior.SpiritYell2", "SpiritWarrior.SpiritYell3"}
-	EmitSoundOn(soundTable[RandomInt(1,3)], caster)
+	EmitSoundOn(soundTable[RandomInt(1, 3)], caster)
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "spirit_warrior")
 	caster.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "spirit_warrior")
 	StartSoundEvent("SpiritWarrior.AncientVigorChannel", caster)
@@ -29,8 +29,8 @@ function vigor_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_vigor", {duration = duration})
 	-- local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "spirit_warrior")
 	-- if a_d_level > 0 then
-	-- 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_vigor_regen", {duration = duration})
-	-- 	caster:SetModifierStackCount("modifier_ancient_vigor_regen", caster, a_d_level)
+	-- ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_vigor_regen", {duration = duration})
+	-- caster:SetModifierStackCount("modifier_ancient_vigor_regen", caster, a_d_level)
 	-- end
 	local b_d_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "spirit_warrior")
 	if b_d_level > 0 then
@@ -64,7 +64,7 @@ function vigor_start(event)
 	Timers:CreateTimer(0.1, function()
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "SpiritWarrior.AncientVigorStart2", caster)
 	end)
-	StartAnimation(caster, {duration=1, activity=ACT_DOTA_TELEPORT_END, rate=1})
+	StartAnimation(caster, {duration = 1, activity = ACT_DOTA_TELEPORT_END, rate = 1})
 end
 
 function vigor_passive_think(event)
@@ -86,15 +86,15 @@ function vigor_deal_damage(event)
 		ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 2, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-		Timers:CreateTimer(0.5, function() 
-		  ParticleManager:DestroyParticle( pfx, false )
+		Timers:CreateTimer(0.5, function()
+			ParticleManager:DestroyParticle(pfx, false)
 		end)
-		local trollBloodDuration = Filters:GetAdjustedBuffDuration(caster, 5, false) 
+		local trollBloodDuration = Filters:GetAdjustedBuffDuration(caster, 5, false)
 		local trollBloodHeal = damage * 0.003 * r_1_level
 		if #ability.healInstances > 0 and ability.healInstances[#ability.healInstances].duration == trollBloodDuration then
 			ability.healInstances[#ability.healInstances].heal = ability.healInstances[#ability.healInstances].heal + trollBloodHeal / trollBloodDuration / 10
 		else
-			table.insert(ability.healInstances, { heal = trollBloodHeal / trollBloodDuration / 10, duration = trollBloodDuration})
+			table.insert(ability.healInstances, {heal = trollBloodHeal / trollBloodDuration / 10, duration = trollBloodDuration})
 		end
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_vigor_troll_blood", {duration = trollBloodDuration})
 
@@ -108,7 +108,7 @@ function troll_blood_start(event)
 	ability.trollBloodPFX = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControlEnt(ability.trollBloodPFX, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 	local weight = 0.1
-	ParticleManager:SetParticleControl(ability.trollBloodPFX, 14, Vector(1, 1*weight, weight))
+	ParticleManager:SetParticleControl(ability.trollBloodPFX, 14, Vector(1, 1 * weight, weight))
 	ParticleManager:SetParticleControl(ability.trollBloodPFX, 15, Vector(129, 201, 165))
 end
 
@@ -126,8 +126,8 @@ function troll_blood_think(event)
 	end
 	totalHeal = math.ceil(totalHeal + 1)
 	totalHeal = math.min(totalHeal, caster:GetMaxHealth())
-	local weight = math.min(totalHeal/caster:GetMaxHealth(), 1)
-	ParticleManager:SetParticleControl(ability.trollBloodPFX, 14, Vector(1, 1*weight, weight))
+	local weight = math.min(totalHeal / caster:GetMaxHealth(), 1)
+	ParticleManager:SetParticleControl(ability.trollBloodPFX, 14, Vector(1, 1 * weight, weight))
 	Filters:ApplyHeal(caster, caster, totalHeal, true)
 end
 

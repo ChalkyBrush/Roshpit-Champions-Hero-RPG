@@ -29,75 +29,74 @@ function beginCharge(event)
 	ability.fv = caster:GetForwardVector()
 	ability.slideSpeed = 25
 	ability.interval = 0
-	ability.point = caster:GetAbsOrigin()+caster:GetForwardVector()*900
+	ability.point = caster:GetAbsOrigin() + caster:GetForwardVector() * 900
 	Timers:CreateTimer(0.05, function()
-		StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_RUN, rate=1.5})
+		StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_RUN, rate = 1.5})
 	end)
 	EmitSoundOn("Hero_Terrorblade.Metamorphosis", caster)
 	Filters:CastSkillArguments(4, caster)
-	
-  if caster:HasModifier("modifier_bahamut_glyph_2_1") then
-	ability.wallPoint = caster:GetAbsOrigin()+ability.fv*360
-	ability.ninetyDegrees = WallPhysics:rotateVector(ability.fv, math.pi/2)
-  	createWallParticle(caster, 500, true, ability)
-  end
-  caster:RemoveModifierByName("modifier_bahamut_rune_r_4_buff_visible")
-  caster:RemoveModifierByName("modifier_bahamut_rune_r_4_buff_invisible")
+
+	if caster:HasModifier("modifier_bahamut_glyph_2_1") then
+		ability.wallPoint = caster:GetAbsOrigin() + ability.fv * 360
+		ability.ninetyDegrees = WallPhysics:rotateVector(ability.fv, math.pi / 2)
+		createWallParticle(caster, 500, true, ability)
+	end
+	caster:RemoveModifierByName("modifier_bahamut_rune_r_4_buff_visible")
+	caster:RemoveModifierByName("modifier_bahamut_rune_r_4_buff_invisible")
 end
 
 function charge_think(event)
-  local caster = event.caster
-  local ability = event.ability
-  local position = caster:GetAbsOrigin()
-  local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.point)
-  local orb = caster:FindAbilityByName("bahamut_arcana_orb")
-  
-  ability.interval = ability.interval+1
-  position = GetGroundPosition( position, caster )
+	local caster = event.caster
+	local ability = event.ability
+	local position = caster:GetAbsOrigin()
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.point)
+	local orb = caster:FindAbilityByName("bahamut_arcana_orb")
 
-  local speed = 30
-  if caster:HasModifier("modifier_bahamut_sphere_of_divinity") then 
-  	speed = 0 
-  	orb.lockPoint = true
-  	ability.point = orb.point
-  end
-  local newPosition = caster:GetAbsOrigin()+(ability.point-caster:GetAbsOrigin()):Normalized()*speed
+	ability.interval = ability.interval + 1
+	position = GetGroundPosition(position, caster)
 
-  local obstruction = WallPhysics:FindNearestObstruction(newPosition)
-  local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, caster)
-  -- if ability.interval%3 == 0 then
-  -- 	iceSprintBlast(caster, newPosition, event.radius, event.damage, ability)
-  -- end
-  if not blockUnit then
-    caster:SetOrigin(newPosition)
-  else
-  	caster:RemoveModifierByName("modifier_light_charging")
-  end
-  if distance < 50 then caster:RemoveModifierByName("modifier_light_charging") end
-  if caster:HasModifier("modifier_bahamut_glyph_2_1") then
-  	ability.wallPoint = caster:GetAbsOrigin()+ability.fv*40
-  	createWallParticle(caster, 500, false, ability)
-  end
+	local speed = 30
+	if caster:HasModifier("modifier_bahamut_sphere_of_divinity") then
+		speed = 0
+		orb.lockPoint = true
+		ability.point = orb.point
+	end
+	local newPosition = caster:GetAbsOrigin() + (ability.point - caster:GetAbsOrigin()):Normalized() * speed
+
+	local obstruction = WallPhysics:FindNearestObstruction(newPosition)
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, caster)
+	-- if ability.interval%3 == 0 then
+	-- iceSprintBlast(caster, newPosition, event.radius, event.damage, ability)
+	-- end
+	if not blockUnit then
+		caster:SetOrigin(newPosition)
+	else
+		caster:RemoveModifierByName("modifier_light_charging")
+	end
+	if distance < 50 then caster:RemoveModifierByName("modifier_light_charging") end
+	if caster:HasModifier("modifier_bahamut_glyph_2_1") then
+		ability.wallPoint = caster:GetAbsOrigin() + ability.fv * 40
+		createWallParticle(caster, 500, false, ability)
+	end
 end
 
 function slide_think(event)
-  local caster = event.caster
-  local ability = event.ability
-  local position = caster:GetAbsOrigin()
-  
-  position = GetGroundPosition( position, caster )
+	local caster = event.caster
+	local ability = event.ability
+	local position = caster:GetAbsOrigin()
 
+	position = GetGroundPosition(position, caster)
 
-  local newPosition = position+ability.fv*ability.slideSpeed
-  local obstruction = WallPhysics:FindNearestObstruction(newPosition)
-  local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, caster)
-  ability.slideSpeed = ability.slideSpeed - 1
-  -- if ability.interval%3 == 0 then
-  -- 	iceSprintBlast(caster, newPosition, event.radius, event.damage, ability)
-  -- end
-  if not blockUnit then
-    caster:SetOrigin(newPosition)
-  end
+	local newPosition = position + ability.fv * ability.slideSpeed
+	local obstruction = WallPhysics:FindNearestObstruction(newPosition)
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, caster)
+	ability.slideSpeed = ability.slideSpeed - 1
+	-- if ability.interval%3 == 0 then
+	-- iceSprintBlast(caster, newPosition, event.radius, event.damage, ability)
+	-- end
+	if not blockUnit then
+		caster:SetOrigin(newPosition)
+	end
 end
 
 function slide_end(event)
@@ -117,7 +116,7 @@ function charge_end(event)
 	end
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
 	local fv = caster:GetForwardVector()
-	
+
 	if caster:HasModifier("modifier_bahamut_arcana_w4_amp") and caster:HasModifier("modifier_bahamut_sphere_of_divinity") then
 		local orb = caster:FindAbilityByName("bahamut_arcana_orb")
 		local stacks = caster:GetModifierStackCount("modifier_bahamut_arcana_w4_amp", caster)
@@ -126,26 +125,26 @@ function charge_end(event)
 	end
 	caster:RemoveModifierByName("modifier_bahamut_arcana_w4_amp")
 	local particle = "particles/units/heroes/hero_warlock/charge_of_light.vpcf"
-	local pfx = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, caster )
+	local pfx = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, caster)
 	WallPhysics:ClearSpaceForUnit(caster, position)
-	ParticleManager:SetParticleControl( pfx, 0, position )
-	ParticleManager:SetParticleControl( pfx, 1, position )
-	ParticleManager:SetParticleControl( pfx, 2, fv )
+	ParticleManager:SetParticleControl(pfx, 0, position)
+	ParticleManager:SetParticleControl(pfx, 1, position)
+	ParticleManager:SetParticleControl(pfx, 2, fv)
 	Timers:CreateTimer(2.5, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	--
-	
+
 	local particle = "particles/units/heroes/hero_chen/chen_teleport_flash.vpcf"
-	local pfx2 = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, caster )
-	ParticleManager:SetParticleControl( pfx2, 0, position )
+	local pfx2 = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx2, 0, position)
 	Timers:CreateTimer(2.5, function()
 		ParticleManager:DestroyParticle(pfx2, false)
 	end)
 
 	local particle = "particles/units/heroes/hero_silencer/silencer_last_word_trigger.vpcf"
-	local pfx3 = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, caster )
-	ParticleManager:SetParticleControl( pfx3, 0, position )
+	local pfx3 = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx3, 0, position)
 	Timers:CreateTimer(2.5, function()
 		ParticleManager:DestroyParticle(pfx3, false)
 	end)
@@ -154,13 +153,13 @@ function charge_end(event)
 	caster:RemoveModifierByName("modifier_bahamut_rune_r_4_buff_visible")
 	caster:RemoveModifierByName("modifier_bahamut_rune_r_4_buff_invisible")
 	for i = -16, 16, 1 do
-		local rotatedVec = WallPhysics:rotateVector(fv, math.pi/16*i)
+		local rotatedVec = WallPhysics:rotateVector(fv, math.pi / 16 * i)
 		fireProjectile(ability, caster, "particles/units/heroes/hero_alchemist/charge_of_light_linear_projectile_concoction_projectile_linear.vpcf", rotatedVec, position, range)
 		-- Timers:CreateTimer(0.1, function()
-		-- 	fireProjectile(ability, caster, "particles/units/heroes/hero_alchemist/charge_of_light_linear_projectile_concoction_projectile_linear.vpcf", rotatedVec, position)
+		-- fireProjectile(ability, caster, "particles/units/heroes/hero_alchemist/charge_of_light_linear_projectile_concoction_projectile_linear.vpcf", rotatedVec, position)
 		-- end)
 		-- Timers:CreateTimer(0.2, function()
-		-- 	fireProjectile(ability, caster, "particles/units/heroes/hero_alchemist/charge_of_light_linear_projectile_concoction_projectile_linear.vpcf", rotatedVec, position)
+		-- fireProjectile(ability, caster, "particles/units/heroes/hero_alchemist/charge_of_light_linear_projectile_concoction_projectile_linear.vpcf", rotatedVec, position)
 		-- end)
 	end
 	if caster:HasModifier("modifier_bahamut_glyph_2_1") then
@@ -195,31 +194,29 @@ function fireProjectile(ability, caster, particle, fv, startPoint, range)
 	local end_radius = 120
 	local speed = 1100
 
+	local casterOrigin = caster:GetAbsOrigin()
 
-		
-		local casterOrigin = caster:GetAbsOrigin()
-
-		local info = 
-		{
-				Ability = ability,
-	        	EffectName = particle,
-	        	vSpawnOrigin = startPoint+Vector(0,0,120),
-	        	fDistance = range,
-	        	fStartRadius = start_radius,
-	        	fEndRadius = end_radius,
-	        	Source = caster,
-	        	StartPosition = "attach_hitloc",
-	        	bHasFrontalCone = true,
-	        	bReplaceExisting = false,
-	        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-	        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-	        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-	        	fExpireTime = GameRules:GetGameTime() + 5.0,
-			bDeleteOnHit = false,
-			vVelocity = fv*Vector(1,1,0) * speed,
-			bProvidesVision = false,
-		}
-		projectile = ProjectileManager:CreateLinearProjectile(info)
+	local info =
+	{
+		Ability = ability,
+		EffectName = particle,
+		vSpawnOrigin = startPoint + Vector(0, 0, 120),
+		fDistance = range,
+		fStartRadius = start_radius,
+		fEndRadius = end_radius,
+		Source = caster,
+		StartPosition = "attach_hitloc",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
+		bDeleteOnHit = false,
+		vVelocity = fv * Vector(1, 1, 0) * speed,
+		bProvidesVision = false,
+	}
+	projectile = ProjectileManager:CreateLinearProjectile(info)
 end
 
 function projectileStrike(event)
@@ -243,12 +240,12 @@ function projectileStrike(event)
 		knockback_distance = 0,
 		knockback_height = 250
 	}
-    target:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
-    local judgementAbility = caster:FindAbilityByName("leshrac_nuke")
-    if judgementAbility then
-    	if judgementAbility.w_2_level then
+	target:AddNewModifier(caster, nil, "modifier_knockback", modifierKnockback)
+	local judgementAbility = caster:FindAbilityByName("leshrac_nuke")
+	if judgementAbility then
+		if judgementAbility.w_2_level then
 			if judgementAbility.w_2_level > 0 then
-				judgementAbility:ApplyDataDrivenModifier(caster, target, "modifier_leshrac_nuke_judged", {duration = 5}) 
+				judgementAbility:ApplyDataDrivenModifier(caster, target, "modifier_leshrac_nuke_judged", {duration = 5})
 			end
 		end
 	end
@@ -259,40 +256,40 @@ function createWallParticle(caster, wallLength, bInitial, ability)
 	local fv = ability.fv
 	local point = ability.wallPoint
 	local ninetyDegrees = ability.ninetyDegrees
-	local wallPoint1 = point - ninetyDegrees*wallLength/2
-	local wallPoint2 = point + ninetyDegrees*wallLength/2
+	local wallPoint1 = point - ninetyDegrees * wallLength / 2
+	local wallPoint2 = point + ninetyDegrees * wallLength / 2
 	local particle = "particles/units/heroes/hero_dark_seer/leshrac_wallof_replica.vpcf"
 
-	local pfx2 = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, caster )
+	local pfx2 = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, caster)
 
-	ParticleManager:SetParticleControl( pfx2, 0, wallPoint1 )
-	ParticleManager:SetParticleControl( pfx2, 1, wallPoint2 )
-	
+	ParticleManager:SetParticleControl(pfx2, 0, wallPoint1)
+	ParticleManager:SetParticleControl(pfx2, 1, wallPoint2)
+
 	Timers:CreateTimer(0.5, function()
 		ParticleManager:DestroyParticle(pfx2, false)
-	end)	
+	end)
 
 end
 
 function createWall(caster, wallLength, ability)
 	local casterOrigin = caster:GetAbsOrigin()
 	local fv = ability.fv
-	local point = ability.wallPoint-fv*100
+	local point = ability.wallPoint - fv * 100
 	local ninetyDegrees = ability.ninetyDegrees
-	local wallPoint1 = point - ninetyDegrees*wallLength/2
-	local wallPoint2 = point + ninetyDegrees*wallLength/2
+	local wallPoint1 = point - ninetyDegrees * wallLength / 2
+	local wallPoint2 = point + ninetyDegrees * wallLength / 2
 	local particle = "particles/units/heroes/hero_dark_seer/leshrac_wallof_replica.vpcf"
 
-	local pfx2 = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, caster )
+	local pfx2 = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, caster)
 
-	ParticleManager:SetParticleControl( pfx2, 0, wallPoint1 )
-	ParticleManager:SetParticleControl( pfx2, 1, wallPoint2 )
+	ParticleManager:SetParticleControl(pfx2, 0, wallPoint1)
+	ParticleManager:SetParticleControl(pfx2, 1, wallPoint2)
 
 	-- local obstructionTable = {}
-	local loopCount = WallPhysics:round(-wallLength/200, 0)
+	local loopCount = WallPhysics:round(-wallLength / 200, 0)
 	local reduceLoop = 0
 
-	if wallLength%50 == 0 then
+	if wallLength % 50 == 0 then
 		reduceLoop = 1
 	end
 
@@ -303,8 +300,8 @@ function createWall(caster, wallLength, ability)
 	wallAbility.wallCenter = point
 	wallAbility.wallLength = wallLength
 	wallAbility.ninetyDegrees = ninetyDegrees
-	for i = loopCount, -loopCount-reduceLoop, 1 do
-		local obstructionPoint = point+ninetyDegrees*i*100
+	for i = loopCount, -loopCount - reduceLoop, 1 do
+		local obstructionPoint = point + ninetyDegrees * i * 100
 		-- local obstruction = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = obstructionPoint, Name ="wallObstruction"})
 		--wallAbility:ApplyDataDrivenThinker(caster, obstructionPoint, "modifier_leshrac_wall_thinker", {})
 		CustomAbilities:QuickAttachThinker(wallAbility, caster, obstructionPoint, "modifier_leshrac_wall_thinker", {duration = 8})
@@ -313,13 +310,13 @@ function createWall(caster, wallLength, ability)
 		-- table.insert(obstructionTable, obstruction)
 		AddFOWViewer(caster:GetTeamNumber(), obstructionPoint, 250, 8, false)
 	end
-	
+
 	Timers:CreateTimer(8, function()
 		ParticleManager:DestroyParticle(pfx2, false)
 		-- for k,obstruction in pairs(obstructionTable) do
-		-- 	UTIL_Remove(obstruction)
+		-- UTIL_Remove(obstruction)
 		-- end
-	end)	
+	end)
 
 end
 
@@ -332,17 +329,17 @@ function c_d_channel_think(event)
 		local particle = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
 		local radius = 600
 		ParticleManager:SetParticleControl(particle, 0, position)
-		ParticleManager:SetParticleControl(particle, 1, Vector(radius,radius,radius))
+		ParticleManager:SetParticleControl(particle, 1, Vector(radius, radius, radius))
 		Timers:CreateTimer(1.5, function()
 			ParticleManager:DestroyParticle(particle, false)
 		end)
-		
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
-			for _,enemy in pairs(enemies) do
+			for _, enemy in pairs(enemies) do
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_bahamut_rune_r_3_effect", {duration = 3})
-				enemy:SetModifierStackCount( "modifier_bahamut_rune_r_3_effect", ability, ability.r_3_level )
+				enemy:SetModifierStackCount("modifier_bahamut_rune_r_3_effect", ability, ability.r_3_level)
 			end
-		end 
+		end
 	end
 end

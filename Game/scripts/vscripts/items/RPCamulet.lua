@@ -2,14 +2,12 @@ BASE_AMULET_TABLE = {"item_rpc_talisman", "item_rpc_ruby_ring", "item_rpc_steel_
 BASE_AMULET_NAME_TABLE = {"Talisman", "Ring", "Loop"}
 
 function RPCItems:RollAmulet(xpBounty, deathLocation, rarity, isShop, type, hero, unitLevel)
-	local randomHelm = RandomInt(1, 3)
+    local randomHelm = RandomInt(1, 3)
     if isShop then
         randomHelm = type
     end
-	local itemVariant = BASE_AMULET_TABLE[randomHelm]
+    local itemVariant = BASE_AMULET_TABLE[randomHelm]
     local item = RPCItems:CreateItem(itemVariant, nil, nil)
-
-
 
     item.newItemTable.rarity = rarity
     local rarityValue = RPCItems:GetRarityFactor(rarity)
@@ -20,7 +18,7 @@ function RPCItems:RollAmulet(xpBounty, deathLocation, rarity, isShop, type, hero
     item.newItemTable.gear = true
     if rarityValue == 5 then
         if RPCItems:AmuletLegendary(itemVariant, deathLocation) then
-			RPCItems:ItemUTIL_Remove(item)
+            RPCItems:ItemUTIL_Remove(item)
             return nil
         end
     end
@@ -35,7 +33,7 @@ function RPCItems:RollAmulet(xpBounty, deathLocation, rarity, isShop, type, hero
     if tier > 0 then
         item.newItemTable.property1 = value
         item.newItemTable.property1name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "rune", "#7DFF12",  1)
+        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "rune", "#7DFF12", 1)
     end
 
     if rarityValue >= 2 then
@@ -50,23 +48,23 @@ function RPCItems:RollAmulet(xpBounty, deathLocation, rarity, isShop, type, hero
         if tier > 0 then
             item.newItemTable.property2 = value
             item.newItemTable.property2name = propertyName
-            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12",  2)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
         end
     end
-    if rarityValue>=3 then
+    if rarityValue >= 3 then
         local tier, value, propertyName = RPCItems:RollSkillProperty()
         if tier > 0 then
             item.newItemTable.property3 = value
             item.newItemTable.property3name = propertyName
-            RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12",  3)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
         end
     end
-    if rarityValue>=4 then
+    if rarityValue >= 4 then
         local tier, value, propertyName = RPCItems:RollSkillProperty()
         if tier > 0 then
             item.newItemTable.property4 = value
             item.newItemTable.property4name = propertyName
-            RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12",  4)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
         end
     end
 
@@ -74,8 +72,8 @@ function RPCItems:RollAmulet(xpBounty, deathLocation, rarity, isShop, type, hero
     if isShop then
         RPCItems:GiveItemToHero(hero, item)
     else
-    	local drop = CreateItemOnPositionSync( deathLocation, item )
-    	local position = deathLocation
+        local drop = CreateItemOnPositionSync(deathLocation, item)
+        local position = deathLocation
         RPCItems:DropItem(item, position)
     end
 end
@@ -176,9 +174,9 @@ function RPCItems:AmuletPickup(heroEntity, itemEntity)
     if itemEntity.newItemTable.requiredHero then
         heroName = itemEntity.newItemTable.requiredHero
     end
-   --print("[RPCItems:AmuletPickup] name:"..tostring(heroName))
+    --print("[RPCItems:AmuletPickup] name:"..tostring(heroName))
     local rarityFactor = RPCItems:GetRarityFactor(itemEntity.newItemTable.rarity)
-   --print("[RPCItems:AmuletPickup] show correct runes!")
+    --print("[RPCItems:AmuletPickup] show correct runes!")
     local rpcName = HerosCustom:GetInternalHeroNameMain(heroName)
     local runePrefix = "#DOTA_Tooltip_ability_"..rpcName.."_"
     for i = 1, rarityFactor, 1 do
@@ -214,7 +212,6 @@ function RPCItems:SkillTranslateFlamewaker(heroEntity, itemEntity, slot)
         propertyValue = itemEntity.newItemTable.property4
     end
 
-
     if propertyValue < 1 then
         propertyValue = 1
     end
@@ -231,8 +228,8 @@ function RPCItems:SkillTranslateFlamewaker(heroEntity, itemEntity, slot)
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
         runeName = "#DOTA_Tooltip_ability_flamewaker_"..propertyName
-        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12",  slot)
-    end 
+        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12", slot)
+    end
 end
 
 function RPCItems:SkillTranslateVoltex(heroEntity, itemEntity, slot)
@@ -270,8 +267,8 @@ function RPCItems:SkillTranslateVoltex(heroEntity, itemEntity, slot)
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
         runeName = "#DOTA_Tooltip_ability_voltex_"..propertyName
-        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12",  slot)
-    end 
+        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12", slot)
+    end
 end
 
 function RPCItems:SkillTranslateVenomort(heroEntity, itemEntity, slot)
@@ -309,8 +306,8 @@ function RPCItems:SkillTranslateVenomort(heroEntity, itemEntity, slot)
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
         runeName = "#DOTA_Tooltip_ability_venomort_"..propertyName
-        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12",  slot)
-    end 
+        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12", slot)
+    end
 end
 
 function RPCItems:SkillTranslateAxe(heroEntity, itemEntity, slot)
@@ -348,8 +345,8 @@ function RPCItems:SkillTranslateAxe(heroEntity, itemEntity, slot)
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
         runeName = "#DOTA_Tooltip_ability_axe_"..propertyName
-        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12",  slot)
-    end 
+        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12", slot)
+    end
 end
 
 function RPCItems:SkillTranslateAstral(heroEntity, itemEntity, slot)
@@ -387,8 +384,8 @@ function RPCItems:SkillTranslateAstral(heroEntity, itemEntity, slot)
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
         runeName = "#DOTA_Tooltip_ability_astral_"..propertyName
-        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12",  slot)
-    end 
+        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12", slot)
+    end
 end
 
 function RPCItems:SkillTranslateEpoch(heroEntity, itemEntity, slot)
@@ -425,8 +422,8 @@ function RPCItems:SkillTranslateEpoch(heroEntity, itemEntity, slot)
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
         runeName = "#DOTA_Tooltip_ability_epoch_"..propertyName
-        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12",  slot)
-    end 
+        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12", slot)
+    end
 end
 
 function RPCItems:SkillTranslatePaladin(heroEntity, itemEntity, slot)
@@ -464,8 +461,8 @@ function RPCItems:SkillTranslatePaladin(heroEntity, itemEntity, slot)
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
         runeName = "#DOTA_Tooltip_ability_paladin_"..propertyName
-        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12",  slot)
-    end 
+        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12", slot)
+    end
 end
 
 function RPCItems:SkillTranslateSorceress(heroEntity, itemEntity, slot)
@@ -503,8 +500,8 @@ function RPCItems:SkillTranslateSorceress(heroEntity, itemEntity, slot)
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
         runeName = "#DOTA_Tooltip_ability_sorceress_"..propertyName
-        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12",  slot)
-    end 
+        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12", slot)
+    end
 end
 
 function RPCItems:SkillTranslateConjuror(heroEntity, itemEntity, slot)
@@ -542,8 +539,8 @@ function RPCItems:SkillTranslateConjuror(heroEntity, itemEntity, slot)
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
         runeName = "#DOTA_Tooltip_ability_conjuror_"..propertyName
-        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12",  slot)
-    end 
+        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12", slot)
+    end
 end
 
 function RPCItems:SkillTranslateMonk(heroEntity, itemEntity, slot)
@@ -581,8 +578,8 @@ function RPCItems:SkillTranslateMonk(heroEntity, itemEntity, slot)
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
         runeName = "#DOTA_Tooltip_ability_seinaru_"..propertyName
-        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12",  slot)
-    end 
+        RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12", slot)
+    end
 end
 
 function RPCItems:SkillTranslateBasic(heroEntity, itemEntity, slot, tooltipName)
@@ -618,18 +615,17 @@ function RPCItems:SkillTranslateBasic(heroEntity, itemEntity, slot, tooltipName)
         itemEntity.newItemTable.property4 = propertyValue
     end
     if propertyName == nil then
-       --print("[RPCItems:SkillTranslateBasic] propertyName == nil")
+        --print("[RPCItems:SkillTranslateBasic] propertyName == nil")
         return
     end
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
         -- runeName = tooltipName..propertyName
         runeName = propertyName
-       --print(runeName)
+        --print(runeName)
         RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12", slot)
-    end 
+    end
 end
-
 
 SUFFIX_TIER_1_SKILL_TABLE = {"of Temperament", "of the Twilight Gaze", "of Heroes", "of Champions", "of the Light"}
 SUFFIX_TIER_2_SKILL_TABLE = {"of the Dark Arts", "of the Old Master", "of the Wild Reach", "of the Silent Watch", "of the Secret Order"}
@@ -638,34 +634,34 @@ PREFIX_TIER_1_SKILL_TABLE = {"Ivory", "Spirit", "Sanctified", "Dire", "Radiant"}
 PREFIX_TIER_2_SKILL_TABLE = {"Stormsoul", "Bloodstone", "Goldstone", "Red Sky", "Wildtouch"}
 
 function RPCItems:RollAmuletProperty1(item, xpBounty, randomHelm)
-    local statOrSkill = RandomInt(0,100)
+    local statOrSkill = RandomInt(0, 100)
     if statOrSkill < 80 then
-    local maxFactor = RPCItems:GetMaxFactor()
-    local luck = RandomInt(0,100)
+        local maxFactor = RPCItems:GetMaxFactor()
+        local luck = RandomInt(0, 100)
         local value = 0
         local suffixLevel = ""
         local prefix = ""
         if luck < 34 then
-        	local bonus = RPCItems:GetHeadBonusRoll(randomHelm, 3, 4)
-            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 4+bonus, 0, 0, item.newItemTable.rarity, false, maxFactor*10)
+            local bonus = RPCItems:GetHeadBonusRoll(randomHelm, 3, 4)
+            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 4 + bonus, 0, 0, item.newItemTable.rarity, false, maxFactor * 10)
             item.newItemTable.property1 = value
             item.newItemTable.property1name = "strength"
             suffix = SUFFIX_HOOD_STRENGTH_TABLE[suffixLevel]
-            RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_strength", "#CC0000",  1)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_strength", "#CC0000", 1)
         elseif luck >= 34 and luck < 67 then
-        	local bonus = RPCItems:GetHeadBonusRoll(randomHelm, 2, 4)
-            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 4+bonus, 0, 0, item.newItemTable.rarity, false, maxFactor*10)
+            local bonus = RPCItems:GetHeadBonusRoll(randomHelm, 2, 4)
+            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 4 + bonus, 0, 0, item.newItemTable.rarity, false, maxFactor * 10)
             item.newItemTable.property1 = value
             item.newItemTable.property1name = "agility"
             suffix = SUFFIX_HOOD_AGILITY_TABLE[suffixLevel]
-            RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_agility", "#2EB82E",  1)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_agility", "#2EB82E", 1)
         elseif luck >= 67 then
-        	local bonus = RPCItems:GetHeadBonusRoll(randomHelm, 1, 4)
-            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 4+bonus, 0, 0, item.newItemTable.rarity, false, maxFactor*10)
+            local bonus = RPCItems:GetHeadBonusRoll(randomHelm, 1, 4)
+            value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 4 + bonus, 0, 0, item.newItemTable.rarity, false, maxFactor * 10)
             item.newItemTable.property1 = value
             item.newItemTable.property1name = "intelligence"
             suffix = SUFFIX_HOOD_INTELLIGENCE_TABLE[suffixLevel]
-            RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_intelligence", "#33CCFF",  1)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_intelligence", "#33CCFF", 1)
         end
         return 0, value, item.newItemTable.property1name
     else
@@ -674,40 +670,40 @@ function RPCItems:RollAmuletProperty1(item, xpBounty, randomHelm)
 end
 
 function RPCItems:RollAmuletProperty2(item, xpBounty, randomHelm)
-    local statOrSkill = RandomInt(0,100)
+    local statOrSkill = RandomInt(0, 100)
     if statOrSkill < 70 then
-    local maxFactor = RPCItems:GetMaxFactor()
-    local luck = RandomInt(0,120)
+        local maxFactor = RPCItems:GetMaxFactor()
+        local luck = RandomInt(0, 120)
         local value = 0
         local prefixLevel = ""
         local prefix = ""
         if luck < 34 then
             local bonus = 2
-            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 6+bonus, 0, 0, item.newItemTable.rarity, false, maxFactor*10)
+            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 6 + bonus, 0, 0, item.newItemTable.rarity, false, maxFactor * 10)
             item.newItemTable.property2 = value
             item.newItemTable.property2name = "strength"
             prefix = PREFIX_HOOD_STRENGTH_TABLE[prefixLevel]
-            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000",  2)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
         elseif luck >= 34 and luck < 67 then
             local bonus = 2
-            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 6+bonus, 0, 0, item.newItemTable.rarity, false, maxFactor*10)
+            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 6 + bonus, 0, 0, item.newItemTable.rarity, false, maxFactor * 10)
             item.newItemTable.property2 = value
             item.newItemTable.property2name = "agility"
             prefix = PREFIX_HOOD_AGILITY_TABLE[prefixLevel]
-            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E",  2)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E", 2)
         elseif luck >= 67 and luck < 100 then
             local bonus = 2
-            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 6+bonus, 0, 0, item.newItemTable.rarity, false, maxFactor*10)
+            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 6 + bonus, 0, 0, item.newItemTable.rarity, false, maxFactor * 10)
             item.newItemTable.property2 = value
             item.newItemTable.property2name = "intelligence"
             prefix = PREFIX_HOOD_INTELLIGENCE_TABLE[prefixLevel]
-            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF",  2)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
         elseif luck >= 100 then
-            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 14, 0, 0, item.newItemTable.rarity, false, math.floor(maxFactor/3))
+            value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 14, 0, 0, item.newItemTable.rarity, false, math.floor(maxFactor / 3))
             item.newItemTable.property2 = value
             item.newItemTable.property2name = "base_ability"
             prefix = PREFIX_HOOD_INTELLIGENCE_TABLE[prefixLevel]
-            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_base_ability", "#7AB4CC",  2)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_base_ability", "#7AB4CC", 2)
         end
         return 0, value, item.newItemTable.property2name
     else
@@ -716,7 +712,7 @@ function RPCItems:RollAmuletProperty2(item, xpBounty, randomHelm)
 end
 
 function RPCItems:RollSkillProperty()
-    local luck = RandomInt(0,905)
+    local luck = RandomInt(0, 905)
     local luck2 = RandomInt(1, 100)
     local propertyName = ""
     local propertyTitle = ""
@@ -758,9 +754,6 @@ function RPCItems:RollSkillProperty()
         propertyName = "rune_r_2"
         tier = 2
     end
-    value = value + RandomInt(0, math.floor(maxFactor/4))
+    value = value + RandomInt(0, math.floor(maxFactor / 4))
     return tier, value, propertyName
 end
-
-
-

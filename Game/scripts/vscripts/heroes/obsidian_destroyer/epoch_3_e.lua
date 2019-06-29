@@ -17,7 +17,7 @@ function onWarpFire(event)
 		caster:StartGesture(ACT_DOTA_ATTACK)
 		ability.forwardVector = caster:GetForwardVector()
 		ability.castLocation = caster:GetAbsOrigin()
-		local targetPoint = ability.castLocation + ability.forwardVector*300
+		local targetPoint = ability.castLocation + ability.forwardVector * 300
 		fireOrb(ability:GetLevel(), caster, targetPoint, ability.castLocation, ability, e_4_level)
 		EmitSoundOn("Hero_Oracle.FalsePromise.Cast", caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_warp", nil)
@@ -33,17 +33,17 @@ function onWarpFire(event)
 end
 
 function fireOrb(abilityLevel, caster, targetPoint, casterOrigin, ability, e_4_level)
-  	local dummy = CreateUnitByName("npc_dummy_unit", casterOrigin+ability.forwardVector*100, true, caster, caster, caster:GetTeamNumber())
-  	dummy.owner = caster:GetPlayerOwnerID()
-  	dummy:AddAbility("time_warp_dummy")
-  	dummy:NoHealthBar()
-  	dummy:AddAbility("dummy_unit")
-  	dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+	local dummy = CreateUnitByName("npc_dummy_unit", casterOrigin + ability.forwardVector * 100, true, caster, caster, caster:GetTeamNumber())
+	dummy.owner = caster:GetPlayerOwnerID()
+	dummy:AddAbility("time_warp_dummy")
+	dummy:NoHealthBar()
+	dummy:AddAbility("dummy_unit")
+	dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
 
-  	local blast = dummy:FindAbilityByName("time_warp_dummy")
-  	blast.e_4_level = e_4_level
-  	blast.origCaster = caster
-  	blast:SetLevel(abilityLevel)
+	local blast = dummy:FindAbilityByName("time_warp_dummy")
+	blast.e_4_level = e_4_level
+	blast.origCaster = caster
+	blast:SetLevel(abilityLevel)
 	local order =
 	{
 		UnitIndex = dummy:GetEntityIndex(),
@@ -53,9 +53,9 @@ function fireOrb(abilityLevel, caster, targetPoint, casterOrigin, ability, e_4_l
 		Queue = true
 	}
 	ExecuteOrderFromTable(order)
-	  Timers:CreateTimer(5, 	  function()
-		dummy:RemoveSelf() 
-	  end)
+	Timers:CreateTimer(5, function()
+		dummy:RemoveSelf()
+	end)
 end
 
 function fire_main_orb(event)
@@ -66,33 +66,33 @@ function fire_main_orb(event)
 	local radius = event.radius
 	local range = event.range
 	local point = event.target_points[1]
-	local fv = (point-caster:GetAbsOrigin()):Normalized()
-	fv = fv*Vector(1,1,0)
+	local fv = (point - caster:GetAbsOrigin()):Normalized()
+	fv = fv * Vector(1, 1, 0)
 	if origCaster:HasModifier("modifier_epoch_glyph_2_1") then
 		speed = speed * 1.6
 		range = range * 1.6
 	end
-    local info = 
-    {
-        Ability = ability,
-          EffectName = "particles/units/heroes/hero_puck/time_warp.vpcf",
-          vSpawnOrigin = caster:GetAbsOrigin(),
-          fDistance = range,
-          fStartRadius = start_radius,
-          fEndRadius = end_radius,
-          Source = caster,
-          StartPosition = "attach_attack1",
-          bHasFrontalCone = true,
-          bReplaceExisting = false,
-          iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-          iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-          iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-          fExpireTime = GameRules:GetGameTime() + 5.0,
-      bDeleteOnHit = false,
-      vVelocity = fv*speed,
-      bProvidesVision = false,
-    }
-    projectile = ProjectileManager:CreateLinearProjectile(info) 
+	local info =
+	{
+		Ability = ability,
+		EffectName = "particles/units/heroes/hero_puck/time_warp.vpcf",
+		vSpawnOrigin = caster:GetAbsOrigin(),
+		fDistance = range,
+		fStartRadius = start_radius,
+		fEndRadius = end_radius,
+		Source = caster,
+		StartPosition = "attach_attack1",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
+		bDeleteOnHit = false,
+		vVelocity = fv * speed,
+		bProvidesVision = false,
+	}
+	projectile = ProjectileManager:CreateLinearProjectile(info)
 end
 
 function jaunt(ability, caster)
@@ -102,19 +102,19 @@ function jaunt(ability, caster)
 	if ability.orb_distance then
 		ProjectileManager:ProjectileDodge(caster)
 		EmitSoundOn("Hero_ElderTitan.AncestralSpirit.Cast", caster)
-		local newPosition = ability.castLocation + ability.forwardVector*ability.orb_distance
+		local newPosition = ability.castLocation + ability.forwardVector * ability.orb_distance
 		newPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), newPosition, caster)
-				--particle block
-			  local particleName = "particles/units/heroes/hero_oracle/oracle_false_promise_cast.vpcf"
-		      local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-		      ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin())
-		      local particle2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-		      ParticleManager:SetParticleControl( particle2, 0, newPosition )
-		      Timers:CreateTimer(2, 		      function()
-		        ParticleManager:DestroyParticle( particle1, false )
-		        ParticleManager:DestroyParticle( particle2, false )
-		      end)
-		      --end particle block
+		--particle block
+		local particleName = "particles/units/heroes/hero_oracle/oracle_false_promise_cast.vpcf"
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(particle1, 0, caster:GetAbsOrigin())
+		local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(particle2, 0, newPosition)
+		Timers:CreateTimer(2, function()
+			ParticleManager:DestroyParticle(particle1, false)
+			ParticleManager:DestroyParticle(particle2, false)
+		end)
+		--end particle block
 		caster:SetAbsOrigin(newPosition)
 		caster:RemoveModifierByName("modifier_time_warp_7_1_phased")
 		FindClearSpaceForUnit(caster, newPosition, true)
@@ -138,7 +138,7 @@ function getProjectilePosition(event)
 	local ability = event.ability
 	local distanceAmount = 23
 	if caster:HasModifier("modifier_epoch_glyph_2_1") then
-		distanceAmount = distanceAmount*1.6
+		distanceAmount = distanceAmount * 1.6
 	end
 	if ability.orb_distance then
 		ability.orb_distance = ability.orb_distance + distanceAmount
@@ -152,10 +152,10 @@ function onProjectileHit(event)
 	local target = event.target
 	local damage = event.damage
 	local ability = event.ability
-	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.e_4_level*EPOCH_E4_DMG_MULTI_PCT/100
+	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * ability.e_4_level * EPOCH_E4_DMG_MULTI_PCT / 100
 	if target:HasModifier("modifier_time_bound") or target:HasModifier("modifier_time_bind") or target:HasModifier("modifier_space_link") or target:HasModifier("modifier_epoch_arcana_root") then
 		--print("damage x2!!!")
-		damage = damage*2
+		damage = damage * 2
 		if target:HasModifier("modifier_epoch_immortal_weapon_3") then
 			Filters:ApplyStun(caster, 0.8, target)
 		end
@@ -165,30 +165,30 @@ function onProjectileHit(event)
 end
 
 function epoch_e_1(caster)
-  local runeUnit = caster.runeUnit
-  local ability = runeUnit:FindAbilityByName("epoch_rune_e_1")
-  local e_1_level = caster:GetRuneValue("e", 1)
-  if e_1_level > 0 then
-  	local e_1_duration = Filters:GetAdjustedBuffDuration(caster, 0.4+e_1_level*EPOCH_E1_DURATION, false)
-  	if caster:HasModifier("modifier_epoch_glyph_2_1") then
-  		e_1_duration = e_1_duration * 2 
-  	end
-  	--print("e_1_duration "..e_1_duration)
-    ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_rune_e_1", {duration = e_1_duration})
-  end
+	local runeUnit = caster.runeUnit
+	local ability = runeUnit:FindAbilityByName("epoch_rune_e_1")
+	local e_1_level = caster:GetRuneValue("e", 1)
+	if e_1_level > 0 then
+		local e_1_duration = Filters:GetAdjustedBuffDuration(caster, 0.4 + e_1_level * EPOCH_E1_DURATION, false)
+		if caster:HasModifier("modifier_epoch_glyph_2_1") then
+			e_1_duration = e_1_duration * 2
+		end
+		--print("e_1_duration "..e_1_duration)
+		ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_rune_e_1", {duration = e_1_duration})
+	end
 end
 
 function epoch_e_3(caster)
-  local runeUnit = caster.runeUnit3
-  local ability = runeUnit:FindAbilityByName("epoch_rune_e_3")
-  local e_3_level = caster:GetRuneValue("e", 3)
-  if e_3_level > 0 then
-  	local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 6, false)
-    ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_rune_e_3", {duration = c_c_duration})
-    ability.origCaster = caster
-    ability.damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
-    ability.e_3_level = e_3_level
-  end
+	local runeUnit = caster.runeUnit3
+	local ability = runeUnit:FindAbilityByName("epoch_rune_e_3")
+	local e_3_level = caster:GetRuneValue("e", 3)
+	if e_3_level > 0 then
+		local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 6, false)
+		ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_rune_e_3", {duration = c_c_duration})
+		ability.origCaster = caster
+		ability.damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
+		ability.e_3_level = e_3_level
+	end
 end
 
 function epoch_e_3_attack_start(event)
@@ -199,42 +199,41 @@ function epoch_e_3_attack_start(event)
 	ability.e_3_level = caster:GetRuneValue("e", 3)
 	local radius = 600
 	local targetPoint = target:GetAbsOrigin()
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local projectileCount = 0
 	local projectileSpeed = caster:GetProjectileSpeed()
 	if #enemies > 0 then
-		for _,enemy in pairs(enemies) do
+		for _, enemy in pairs(enemies) do
 			local projectileEffect = "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_base_attack.vpcf"
 			local q_3_damage = epoch_q_3_get_damage(caster, caster.runeUnit3)
 			if q_3_damage then
 				projectileEffect = "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf"
 				ability.q_3_damage = q_3_damage
 			end
-			local info = 
+			local info =
 			{
 				Target = enemy,
 				Source = caster,
-				Ability = ability,	
+				Ability = ability,
 				EffectName = projectileEffect,
 				StartPosition = "attach_attack1",
-				bDrawsOnMinimap = false, 
-			    bDodgeable = true,
-			    bIsAttack = true, 
-			    bVisibleToEnemies = true,
-			    bReplaceExisting = false,
-			    flExpireTime = GameRules:GetGameTime() + 4,
+				bDrawsOnMinimap = false,
+				bDodgeable = true,
+				bIsAttack = true,
+				bVisibleToEnemies = true,
+				bReplaceExisting = false,
+				flExpireTime = GameRules:GetGameTime() + 4,
 				bProvidesVision = true,
 				iVisionRadius = 0,
 				iMoveSpeed = projectileSpeed,
-				iVisionTeamNumber = caster:GetTeamNumber()
-			}
+			iVisionTeamNumber = caster:GetTeamNumber()}
 			projectile = ProjectileManager:CreateTrackingProjectile(info)
 			projectileCount = projectileCount + 1
 			if projectileCount == ability.e_3_level + 2 then
 				break
 			end
 		end
-	end 
+	end
 end
 
 function epoch_e_3_projectile_land(event)
@@ -267,7 +266,7 @@ function epoch_e_3_projectile_land(event)
 		eventTable.caster = caster
 		arcana_attack(eventTable)
 	end
-	Filters:ApplyDamageBasic(target,caster,damage,DAMAGE_TYPE_PHYSICAL)
+	Filters:ApplyDamageBasic(target, caster, damage, DAMAGE_TYPE_PHYSICAL)
 	-- ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
 end
 
@@ -282,23 +281,23 @@ function epoch_e_2(caster, ability)
 			numOrbs = 36
 		end
 		for i = 0, numOrbs, 1 do
-			local rotatedVector = rotateVector(forwardVector, (math.pi/30)*i)
+			local rotatedVector = rotateVector(forwardVector, (math.pi / 30) * i)
 			epoch_e_2_projectile(caster, ability, caster:GetAbsOrigin(), rotatedVector)
-			local rotatedVector = rotateVector(forwardVector, (math.pi/30)*i*-1)
+			local rotatedVector = rotateVector(forwardVector, (math.pi / 30) * i *- 1)
 			epoch_e_2_projectile(caster, ability, caster:GetAbsOrigin(), rotatedVector)
 		end
 	end
 end
 
 function epoch_e_2_projectile(caster, ability, position, fv)
-    local start_radius = 130
-    local end_radius = 130
-    local speed = 700
-    local info = 
-    {
+	local start_radius = 130
+	local end_radius = 130
+	local speed = 700
+	local info =
+	{
 		Ability = ability,
 		EffectName = "particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf",
-		vSpawnOrigin = position+Vector(0,0,100),
+		vSpawnOrigin = position + Vector(0, 0, 100),
 		fDistance = 1000,
 		fStartRadius = start_radius,
 		fEndRadius = end_radius,
@@ -311,10 +310,10 @@ function epoch_e_2_projectile(caster, ability, position, fv)
 		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		fExpireTime = GameRules:GetGameTime() + 5.0,
 		bDeleteOnHit = false,
-		vVelocity = fv*speed,
+		vVelocity = fv * speed,
 		bProvidesVision = false,
-    }
-    projectile = ProjectileManager:CreateLinearProjectile(info) 
+	}
+	projectile = ProjectileManager:CreateLinearProjectile(info)
 
 end
 
@@ -323,9 +322,9 @@ function epoch_e_2_projectile_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local damage = ability.e_2_damage
-	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.e_4_level*EPOCH_E4_DMG_MULTI_PCT/100
+	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * ability.e_4_level * EPOCH_E4_DMG_MULTI_PCT / 100
 	if target:HasModifier("modifier_time_bound") or target:HasModifier("modifier_time_bind") or target:HasModifier("modifier_space_link") or target:HasModifier("modifier_epoch_arcana_root") then
-		damage = damage*2
+		damage = damage * 2
 		if caster:HasModifier("modifier_epoch_immortal_weapon_3") then
 			Filters:ApplyStun(caster, 0.8, target)
 		end
@@ -337,15 +336,15 @@ function epoch_e_2_projectile_hit(event)
 end
 
 function rotateVector(vector, radians)
-   XX = vector.x	
-   YY = vector.y
-   
-   Xprime = math.cos(radians)*XX -math.sin(radians)*YY
-   Yprime = math.sin(radians)*XX +math.cos(radians)*YY
+	XX = vector.x
+	YY = vector.y
 
-   vectorX = Vector(1,0,0)*Xprime
-   vectorY = Vector(0,1,0)*Yprime
-   rotatedVector = vectorX + vectorY
-   return rotatedVector
-   
+	Xprime = math.cos(radians) * XX - math.sin(radians) * YY
+	Yprime = math.sin(radians) * XX + math.cos(radians) * YY
+
+	vectorX = Vector(1, 0, 0) * Xprime
+	vectorY = Vector(0, 1, 0) * Yprime
+	rotatedVector = vectorX + vectorY
+	return rotatedVector
+
 end

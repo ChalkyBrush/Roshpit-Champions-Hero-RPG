@@ -14211,11 +14211,11 @@
 		"DOTA_Tooltip_ability_redfall_feronia_passive"					"费奥南的守卫"
 		"DOTA_Tooltip_ability_redfall_feronia_passive_Description"		"施放法术后，获得一个盾牌，减少100%的伤害1.5秒."
 
-		"DOTA_Tooltip_ability_redfall_mirana_starfall"					"神圣的箭头"
-		"DOTA_Tooltip_ability_redfall_mirana_starfall_Description"		"发射一个箭头，伤害和击晕敌人."	
+		"DOTA_Tooltip_ability_redfall_feronia_starfall"					"神圣的箭头"
+		"DOTA_Tooltip_ability_redfall_feronia_starfall_Description"		"发射一个箭头，伤害和击晕敌人."	
 
-		"DOTA_Tooltip_ability_redfall_mirana_starfall"					"神圣的箭头"
-		"DOTA_Tooltip_ability_redfall_mirana_starfall_Description"		"发射一个箭头，伤害和击晕敌人."
+		"DOTA_Tooltip_ability_redfall_feronia_arrow"					"神圣的箭头"
+		"DOTA_Tooltip_ability_redfall_feronia_arrow_Description"		"发射一个箭头，伤害和击晕敌人."
 
 		"redfall_fenrir"												"芬里尔"
 

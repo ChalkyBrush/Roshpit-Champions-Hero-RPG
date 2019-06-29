@@ -23,7 +23,7 @@ function startCast(event)
 
     Blink.cast(caster, ability)
     clearCast(caster, ability)
-    ability.amp = 1 + event.amp/100
+    ability.amp = 1 + event.amp / 100
 
     if not caster:HasModifier("modifier_sorceress_immortal_ice_avatar") and not caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
         WaterElemental.summon(caster, ability, newPosition)
@@ -33,8 +33,7 @@ function startCast(event)
     ProjectileManager:ProjectileDodge(event.caster)
 end
 
-
-function endCast( event )
+function endCast(event)
     event.caster:RemoveNoDraw()
     event.caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_GROUND)
 end

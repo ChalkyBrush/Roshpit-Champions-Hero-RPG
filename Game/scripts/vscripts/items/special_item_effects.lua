@@ -4863,7 +4863,6 @@ function sea_oracle_attack_land(event)
 		local newStacks = currentStacks + armorReduce
 		target:SetModifierStackCount("modifier_sea_oracle_armor_loss", caster, newStacks)
 
-
 	end
 end
 

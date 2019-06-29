@@ -4,9 +4,9 @@ LinkLuaModifier("modifier_apollo_c_b_proc_visible", "modifiers/astral/modifier_a
 LinkLuaModifier("modifier_apollo_c_b_proc_invisible", "modifiers/astral/modifier_apollo_c_b_proc_invisible", LUA_MODIFIER_MOTION_NONE)
 
 function modifier_apollo_outgoing_shots:DeclareFunctions()
-	local funcs = { MODIFIER_EVENT_ON_ATTACK_LANDED,
+	local funcs = {MODIFIER_EVENT_ON_ATTACK_LANDED,
 
-}
+	}
 	return funcs
 end
 
@@ -26,24 +26,24 @@ function modifier_apollo_outgoing_shots:OnAttackLanded()
 				ability.shots = ability.shots - 1
 				if ability.w_3_level > 0 then
 					local empyralArrowsProcChance
-				    if caster:HasModifier("modifier_astral_glyph_3_1") then
-				        empyralArrowsProcChance = getProcChance(caster, T31_PROC_CHANCE)
-				    else
-				        empyralArrowsProcChance = getProcChance(caster, W3_PROC_CHANCE)
-				    end
-				    local procChance = math.ceil(getProcChance(caster, empyralArrowsProcChance))
-				    local luck = RandomInt(1, 100)
-				    if luck <= procChance then
+					if caster:HasModifier("modifier_astral_glyph_3_1") then
+						empyralArrowsProcChance = getProcChance(caster, T31_PROC_CHANCE)
+					else
+						empyralArrowsProcChance = getProcChance(caster, W3_PROC_CHANCE)
+					end
+					local procChance = math.ceil(getProcChance(caster, empyralArrowsProcChance))
+					local luck = RandomInt(1, 100)
+					if luck <= procChance then
 						CustomAbilities:QuickAttachParticle("particles/roshpit/astral/apollo_proc_start_ti7_lvl2.vpcf", target, 1)
-						local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.12*ability.w_3_level
+						local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.12 * ability.w_3_level
 						Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 						target:AddNewModifier(caster, ability, "modifier_apollo_c_b_proc_visible", {duration = 10})
 						local newStacks = target:GetModifierStackCount("modifier_apollo_c_b_proc_visible", caster) + 1
 						target:SetModifierStackCount("modifier_apollo_c_b_proc_visible", caster, newStacks)
 						target:AddNewModifier(caster, ability, "modifier_apollo_c_b_proc_invisible", {duration = 10})
-						target:SetModifierStackCount("modifier_apollo_c_b_proc_invisible", caster, newStacks*ability.w_3_level)
+						target:SetModifierStackCount("modifier_apollo_c_b_proc_invisible", caster, newStacks * ability.w_3_level)
 						EmitSoundOn("Astral.ApolloProc", target)
-				    end
+					end
 				end
 			end
 		else

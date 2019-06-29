@@ -1,7 +1,6 @@
 if Hand == nil then
-  Hand = class({})
+	Hand = class({})
 end
-
 
 function Hand:add_modifiers(hero, inventory_unit, item)
 	--print("[Hand:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
@@ -48,7 +47,6 @@ function Hand:add_modifiers(hero, inventory_unit, item)
 		Hand:runeProperty(item.newItemTable.property4name, item.newItemTable.property4, hero)
 	end
 end
-
 
 function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_ability, item)
 	--print("[Hand:action] propertyName:"..tostring(propertyName))
@@ -110,7 +108,7 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 	elseif propertyName == "scorched_gauntlet" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_hand_scorched_earth", item)
 	elseif propertyName == "pride" then
-		Hand:addBasicModifier(1, hero, inventory_unit, "modifier_hand_pride", hand_ability)		
+		Hand:addBasicModifier(1, hero, inventory_unit, "modifier_hand_pride", hand_ability)
 	elseif propertyName == "azinoth" then
 		Hand:addBasicModifier(1, hero, inventory_unit, "modifier_hand_azinoth", hand_ability)
 	elseif propertyName == "divine_purity" then
@@ -254,7 +252,7 @@ end
 function Hand:addItemModifier(propertyValue, hero, inventory_unit, modifier_name, hand_ability)
 	hand_ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
 	if propertyValue > 0 then
-		hero:SetModifierStackCount( modifier_name, hand_ability, propertyValue )
+		hero:SetModifierStackCount(modifier_name, hand_ability, propertyValue)
 	end
 end
 
@@ -322,7 +320,7 @@ function Hand:runeProperty(propertyName, propertyValue, hero)
 end
 
 function Hand:setRuneBonusNetTable(value, rune, hero)
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_"..rune.."_hand", {bonus = value} )
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_"..rune.."_hand", {bonus = value})
 	--print("Setting Rune Net Table: ")
 	--print(tostring(hero:GetEntityIndex()).."_"..rune.."_hand")
 end
@@ -333,7 +331,7 @@ function Hand:addBasicModifier(propertyValue, hero, inventory_unit, modifier_nam
 	hand_ability = inventory_unit:FindAbilityByName("hand_slot")
 	hand_ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
 	--hero:SetModifierStackCount( modifier_name, hand_ability, (propertyValue+stacks) )
-	hero:SetModifierStackCount( modifier_name, hand_ability, propertyValue )
+	hero:SetModifierStackCount(modifier_name, hand_ability, propertyValue)
 end
 
 function Hand:remove_modifiers(hero)

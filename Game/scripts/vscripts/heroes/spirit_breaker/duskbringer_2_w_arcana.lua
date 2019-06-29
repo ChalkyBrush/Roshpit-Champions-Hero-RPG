@@ -16,9 +16,9 @@ function shadow_slam_start(event)
 	caster:RemoveModifierByName("modifier_terrorize_animation")
 	caster:RemoveModifierByName("modifier_terrorize_thinking")
 	caster:RemoveModifierByName("modifier_name_after_terrorize_falling")
-	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_TELEPORT_END, rate=1.2})
+	StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_TELEPORT_END, rate = 1.2})
 	Filters:CastSkillArguments(2, caster)
-	ability.moveVector = ((newPosition-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	ability.moveVector = ((newPosition - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	EmitSoundOn("Duskbringer.Arcana1.VO", caster)
 end
 
@@ -26,20 +26,20 @@ function shadow_slam_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local moveSpeed = 30
-	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
-    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
-    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+ability.moveVector*30), caster)
+	local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
+	local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + ability.moveVector * 30), caster)
 	if blockUnit then
 		moveSpeed = 0
 	end
-	local newPosition = GetGroundPosition(caster:GetAbsOrigin()+ability.moveVector*moveSpeed, caster)
+	local newPosition = GetGroundPosition(caster:GetAbsOrigin() + ability.moveVector * moveSpeed, caster)
 	-- if caster:HasModifier("modifier_terrorize_thinking") or caster:HasModifier("modifier_name_after_terrorize_falling") then
-		newPosition = caster:GetAbsOrigin()+ability.moveVector*moveSpeed
-		local downspeed = 40
-		if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + downspeed then
-			downspeed = 0
-		end
-		newPosition = newPosition - Vector(0,0,downspeed)
+	newPosition = caster:GetAbsOrigin() + ability.moveVector * moveSpeed
+	local downspeed = 40
+	if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + downspeed then
+		downspeed = 0
+	end
+	newPosition = newPosition - Vector(0, 0, downspeed)
 	-- end
 	caster:SetAbsOrigin(newPosition)
 	duskbringer_rune_e_1_think(event)
@@ -66,9 +66,9 @@ function shadow_slam_end(event)
 	local w_3_level = caster:GetRuneValue("w", 3)
 	local w_4_level = caster:GetRuneValue("w", 4)
 	local stacksCount = Runes:Procs(w_3_level, DUSKBRINGER_ARCANA_W3_PROC_CHANCE, 1)
-					
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )	
-	if #enemies > 0 then	
+
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
 		for i = 1, #enemies, 1 do
 			Filters:TakeArgumentsAndApplyDamage(enemies[i], caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_GHOST, RPC_ELEMENT_SHADOW)
 			Filters:ApplyStun(caster, stunDuration, enemies[i])
@@ -81,14 +81,14 @@ function shadow_slam_end(event)
 		local w_2_duration = Filters:GetAdjustedBuffDuration(caster, DUSKBRINGER_ARCANA_W2_BASE_DUR, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_arcana_rune_w_2", {duration = w_2_duration})
 		caster:SetModifierStackCount("modifier_duskbringer_arcana_rune_w_2", caster, w_2_level)
-	end	
+	end
 	if w_4_level > 0 then
 		if not caster:HasModifier("modifier_duskbringer_arcana_rune_w_4") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifer_duskbringer_d_b_charging_up", {duration = 0.8})
 			Timers:CreateTimer(0.3, function()
 				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Duskbringer.Arcana1.DB", caster)
 			end)
-			StartAnimation(caster, {duration=1.1, activity=ACT_DOTA_VICTORY, rate=1.2})
+			StartAnimation(caster, {duration = 1.1, activity = ACT_DOTA_VICTORY, rate = 1.2})
 			Timers:CreateTimer(0.8, function()
 				local w_4_duration = Filters:GetAdjustedBuffDuration(caster, DUSKBRINGER_ARCANA_W4_BASE_DUR, false)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_arcana_rune_w_4", {duration = w_4_duration})

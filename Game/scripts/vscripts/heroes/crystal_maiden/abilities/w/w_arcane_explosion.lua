@@ -14,43 +14,42 @@ function cast(event)
     Helper.initializeAbilityRunes(caster, 'sorceress', 'r')
 
     local currentMana = caster:GetMana()
-    local damage = event.damage/100 * currentMana
+    local damage = event.damage / 100 * currentMana
     if caster.w_4_level > 0 then
-        damage = damage * (1 + SORCERESS_W4_AMPLIFY_PERCENT/100 * caster.w_4_level)
+        damage = damage * (1 + SORCERESS_W4_AMPLIFY_PERCENT / 100 * caster.w_4_level)
     end
 
     if caster:HasModifier("modifier_sorceress_glyph_7_2") then
         damage = damage * T72_DAMAGE_AMPLIFY
-        caster:ReduceMana(caster:GetMaxMana() * T72_MANA_DRAIN_PERCENT/100)
+        caster:ReduceMana(caster:GetMaxMana() * T72_MANA_DRAIN_PERCENT / 100)
     end
 
     ability.damage = damage
 
     Filters:CastSkillArguments(2, caster)
 
-    StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_1, rate=2.4})
+    StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_1, rate = 2.4})
     local radius = event.radius
     local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
-    local particle2 = ParticleManager:CreateParticle( particleNameS, PATTACH_WORLDORIGIN, caster )
-    ParticleManager:SetParticleControl( particle2, 0, caster:GetAbsOrigin() )
-    ParticleManager:SetParticleControl( particle2, 1, Vector(radius,radius,radius) )
-    ParticleManager:SetParticleControl( particle2, 2, Vector(1.1, 1.1, 1.1) )
+    local particle2 = ParticleManager:CreateParticle(particleNameS, PATTACH_WORLDORIGIN, caster)
+    ParticleManager:SetParticleControl(particle2, 0, caster:GetAbsOrigin())
+    ParticleManager:SetParticleControl(particle2, 1, Vector(radius, radius, radius))
+    ParticleManager:SetParticleControl(particle2, 2, Vector(1.1, 1.1, 1.1))
     if not caster:HasModifier("modifier_ice_avatar") then
-        ParticleManager:SetParticleControl( particle2, 4, Vector(255, 90, 255) )
+        ParticleManager:SetParticleControl(particle2, 4, Vector(255, 90, 255))
     else
-        ParticleManager:SetParticleControl( particle2, 4, Vector(90, 130, 255) )
+        ParticleManager:SetParticleControl(particle2, 4, Vector(90, 130, 255))
     end
-    Timers:CreateTimer(1.5,
-        function()
-            ParticleManager:DestroyParticle( particle2, false )
-        end
-    )
-    ArcaneShell.cast(caster, 1)
-    if caster:HasModifier("modifier_sorceress_arcana2") then
-        RingOfFire.tryToCast(caster, ability, false)
-    else
-        FrostNova.tryToCast(caster, ability, false)
+    Timers:CreateTimer(1.5, function()
+        ParticleManager:DestroyParticle(particle2, false)
     end
+)
+ArcaneShell.cast(caster, 1)
+if caster:HasModifier("modifier_sorceress_arcana2") then
+    RingOfFire.tryToCast(caster, ability, false)
+else
+    FrostNova.tryToCast(caster, ability, false)
+end
 end
 
 function projectileHit(event)

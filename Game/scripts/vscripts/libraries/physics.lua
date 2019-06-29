@@ -96,7 +96,6 @@
 --     collider.unit.oColliders[collider.name] = nil
 --   end
 
-
 --   self.Colliders[name] = nil
 -- end
 
@@ -126,7 +125,7 @@
 --     if (bUseGameTime and GameRules:GetGameTime() > v.endTime) or (not bUseGameTime and Time() > v.endTime) then
 --       -- Remove from timers list
 --       Physics.timers[k] = nil
-      
+
 --       -- Run the callback
 --       local status, nextCall = pcall(v.callback, Physics, v)
 
@@ -204,7 +203,6 @@
 --                      --print('[PHYSICS] Collision postaction Failure!: ' .. action)
 --                     end
 --                   end
-
 
 --                   --unit.nNextCollide = now + collider.recollideTime
 --                   --v.nNextCollide = now + v.collider.recollideTime
@@ -329,7 +327,7 @@
 --               if (pos.x >= box.xMin and pos.x <= box.xMax and
 --                   pos.y >= box.yMin and pos.y <= box.yMax and
 --                   pos.z >= box.zMin and pos.z <= box.zMax) then
-                
+
 --                 --inside
 --                 local status, test = pcall(collider.test, collider, v)
 
@@ -578,13 +576,13 @@
 --     unit.vSlideVelocity = Vector(0,0,0)
 --     unit.bStarted = true
 --   end
-  
+
 --   function unit:SetPhysicsVelocity (velocity)
 --     unit.vVelocity = velocity / 30
 --     if unit.nVelocityMax > 0 and unit.vVelocity:Length() > unit.nVelocityMax then
 --       unit.vVelocity = unit.vVelocity:Normalized() * unit.nVelocityMax
 --     end
-    
+
 --     if unit.bStarted and unit.bHibernating then
 --       Physics.timers[unit.PhysicsTimerName] = unit.PhysicsTimer
 --       unit.PhysicsTimer.endTime = GameRules:GetGameTime()
@@ -600,7 +598,7 @@
 --     if unit.nVelocityMax > 0 and unit.vVelocity:Length() > unit.nVelocityMax then
 --       unit.vVelocity = unit.vVelocity:Normalized() * unit.nVelocityMax
 --     end
-    
+
 --     if unit.bStarted and unit.bHibernating then
 --       Physics.timers[unit.PhysicsTimerName] = unit.PhysicsTimer
 --       unit.PhysicsTimer.endTime = GameRules:GetGameTime()
@@ -611,17 +609,17 @@
 --       unit.bHibernating = false
 --     end
 --   end
-  
+
 --   function unit:SetPhysicsVelocityMax (velocityMax)
 --     unit.nVelocityMax = velocityMax / 30
 --   end
 --   function unit:GetPhysicsVelocityMax ()
 --     return unit.vVelocity * 30
 --   end
-  
+
 --   function unit:SetPhysicsAcceleration (acceleration)
 --     unit.vAcceleration = acceleration / 900
-    
+
 --     if unit.bStarted and unit.bHibernating then
 --       Physics.timers[unit.PhysicsTimerName] = unit.PhysicsTimer
 --       unit.PhysicsTimer.endTime = GameRules:GetGameTime()
@@ -634,7 +632,7 @@
 --   end
 --   function unit:AddPhysicsAcceleration (acceleration)
 --     unit.vAcceleration = unit.vAcceleration + acceleration / 900
-    
+
 --     if unit.bStarted and unit.bHibernating then
 --       Physics.timers[unit.PhysicsTimerName] = unit.PhysicsTimer
 --       unit.PhysicsTimer.endTime = GameRules:GetGameTime()
@@ -645,11 +643,11 @@
 --       unit.bHibernating = false
 --     end
 --   end
-  
+
 --   function unit:SetPhysicsFriction (friction)
 --     unit.fFriction = friction
 --   end
-  
+
 --   function unit:GetPhysicsVelocity ()
 --     return unit.vVelocity  * 30
 --   end
@@ -659,31 +657,31 @@
 --   function unit:GetPhysicsFriction ()
 --     return unit.fFriction
 --   end
-  
+
 --   function unit:FollowNavMesh (follow)
 --     unit.bFollowNavMesh = follow
 --   end
 --   function unit:IsFollowNavMesh ()
 --     return unit.bFollowNavMesh
 --   end
-  
+
 --   function unit:SetGroundBehavior (ground)
 --     unit.nLockToGround = ground
 --   end
 --   function unit:GetGroundBehavior ()
 --     return unit.nLockToGround
 --   end
-  
+
 --   function unit:SetSlideMultiplier (slideMultiplier)
 --     unit.fSlideMultiplier = slideMultiplier
 --   end
 --   function unit:GetSlideMultiplier ()
 --     return unit.fSlideMultiplier
 --   end
-  
+
 --   function unit:Slide (slide)
 --     unit.bSlide = slide
-    
+
 --     if unit.bStarted and unit.bHibernating then
 --       Physics.timers[unit.PhysicsTimerName] = unit.PhysicsTimer
 --       unit.PhysicsTimer.endTime = GameRules:GetGameTime()
@@ -697,7 +695,7 @@
 --   function unit:IsSlide ()
 --     return unit.bSlide
 --   end
-  
+
 --   function unit:PreventDI (prevent)
 --     unit.bPreventDI = prevent
 --     if not prevent and unit:HasModifier("modifier_rooted") then
@@ -707,39 +705,39 @@
 --   function unit:IsPreventDI ()
 --     return unit.bPreventDI
 --   end
-  
+
 --   function unit:SetNavCollisionType (collisionType)
 --     unit.nNavCollision = collisionType
 --   end
 --   function unit:GetNavCollisionType ()
 --     return unit.nNavCollision
 --   end
-  
+
 --   function unit:OnPhysicsFrame(fun)
 --     unit.PhysicsFrameCallback = fun
 --   end
-  
+
 --   function unit:SetVelocityClamp (clamp)
 --     unit.fVelocityClamp = clamp / 30
 --   end
-  
+
 --   function unit:GetVelocityClamp ()
 --     return unit.fVelocityClamp * 30
 --   end
-  
+
 --   function unit:Hibernate (hibernate)
 --     unit.bHibernate = hibernate
 --   end
-  
+
 --   function unit:IsHibernate ()
 --     return unit.bHibernate
 --   end
-  
+
 --   function unit:DoHibernate ()
 --     Physics.timers[unit.PhysicsTimerName] = nil
 --     unit.bHibernating = true
 --   end
-  
+
 --   function unit:OnHibernate(fun)
 --     unit.PhysicsHibernateCallback = fun
 --   end
@@ -763,37 +761,37 @@
 --   function unit:AdaptiveNavGridLookahead (adaptive)
 --     unit.bAdaptiveNavGridLookahead = adaptive
 --   end
-  
+
 --   function unit:IsAdaptiveNavGridLookahead ()
 --     return unit.bAdaptiveNavGridLookahead
 --   end
-  
+
 --   function unit:SetNavGridLookahead (lookahead)
 --     unit.nNavGridLookahead = lookahead
 --   end
-  
+
 --   function unit:GetNavGridLookahead ()
 --     return unit.nNavGridLookahead
 --   end
-  
+
 --   function unit:SkipSlide (frames)
 --     unit.nSkipSlide = frames or 1
 --   end
-  
+
 --   function unit:SetRebounceFrames ( rebounce )
 --     unit.nMaxRebounce = rebounce
 --     unit.nRebounceFrames = 0
 --   end
-  
+
 --   function unit:GetRebounceFrames ()
 --     unit.nRebounceFrames = 0
 --     return unit.nMaxRebounce
 --   end
-  
+
 --   function unit:GetLastGoodPosition ()
 --     return unit.vLastGoodPosition
 --   end
-  
+
 --   function unit:SetStuckTimeout (timeout)
 --     unit.nStuckTimeout = timeout
 --     unit.nStuckFrames = 0
@@ -802,7 +800,7 @@
 --     unit.nStuckFrames = 0
 --     return unit.nStuckTimeout
 --   end
-  
+
 --   function unit:SetAutoUnstuck (unstuck)
 --     unit.bAutoUnstuck = unstuck
 --   end
@@ -871,7 +869,7 @@
 --   function unit:SetMass(mass)
 --     unit.fMass = mass
 --   end
-  
+
 --   unit.PhysicsTimerName = DoUniqueString('phys')
 --   Physics:CreateTimer(unit.PhysicsTimerName, {
 --     endTime = GameRules:GetGameTime(),
@@ -891,25 +889,25 @@
 
 --       unit.PhysicsLastTime = curTime
 --       unit.PhysicsLastPosition = position
-      
+
 --       if unit.bPreventDI and not unit:HasModifier("modifier_rooted") then
 --         unit:AddNewModifier(unit, nil, "modifier_rooted", {})
 --       end
-      
+
 --       if unit.bSlide and unit.nSkipSlide <= 0 then
 --         slideVelocity = ((position - prevPosition) - lastVelocity + unit.vSlideVelocity) * unit.fSlideMultiplier
 --       else
 --         --print(unit.nSkipSlide)
 --         unit.vSlideVelocity = Vector(0,0,0)
 --       end
-      
+
 --       unit.nSkipSlide = unit.nSkipSlide - 1
-      
+
 --       -- Adjust velocity
 --       local newVelocity = unit.vVelocity + unit.vAcceleration + (-1 * unit.fFriction * unit.vVelocity) + slideVelocity
-      
+
 --       --print('vel: ' .. tostring(unit.vVelocity:Length()) .. ' -- svel: ' .. tostring(slideVelocity:Length()) .. " -- nvel: " .. tostring(newVelocity:Length()))
-      
+
 --       -- Calculate new position
 --       local newPos = position + unit.vVelocity
 --       if unit.nLockToGround == PHYSICS_GROUND_LOCK then
@@ -923,9 +921,9 @@
 --           newVelocity.z = 0
 --         end
 --       end
-      
+
 --       local newVelLength = newVelocity:Length()
-      
+
 --       local blockedPos = not GridNav:IsTraversable(position) or GridNav:IsBlocked(position)
 --       if not blockedPos then
 --         unit.vLastGoodPosition = position
@@ -933,7 +931,7 @@
 --       else
 --         unit.nStuckFrames = unit.nStuckFrames + 1
 --       end
-      
+
 --       if unit.nVelocityMax > 0 and newVelLength > unit.nVelocityMax then
 --         newVelocity = newVelocity:Normalized() * unit.nVelocityMax
 --       end
@@ -967,7 +965,7 @@
 --           end
 --           return
 --         end
-        
+
 --         local ent = Entities:FindInSphere(nil, position, 35)
 --         local blocked = false
 --         while ent ~= nil and not blocked do
@@ -981,11 +979,10 @@
 --           FindClearSpaceForUnit(unit, position, true)
 --           unit.nSkipSlide = 1
 --           --print('FCS nothib lowv + blocked')
---         end 
+--         end
 --         --return curTime
 --       end
-      
-      
+
 --       if unit.vVelocity ~= Vector(0,0,0) or slideVelocity ~= Vector(0,0,0) then
 --         if unit.bFollowNavMesh then
 --           local diff = unit.vVelocity:Normalized()
@@ -998,9 +995,9 @@
 --           elseif unit.GetBoundingMaxs then
 --             bound = math.max(unit:GetBoundingMaxs().x, unit:GetBoundingMaxs().y)
 --           end
-          
+
 --           local connect = newPos-- + diff * bound
---           local navConnect = not GridNav:IsTraversable(connect) or GridNav:IsBlocked(connect) 
+--           local navConnect = not GridNav:IsTraversable(connect) or GridNav:IsBlocked(connect)
 --           local lookaheadNum = unit.nNavGridLookahead
 --           if unit.bAdaptiveNavGridLookahead then
 --             lookaheadNum = math.ceil(unit.vVelocity:Length() / 32)
@@ -1010,7 +1007,7 @@
 --           local index = 1
 --           while not navConnect and index < tot do
 --             connect = newPos + unit.vVelocity * (div * index) + diff * bound
---             navConnect = not GridNav:IsTraversable(connect) or GridNav:IsBlocked(connect) 
+--             navConnect = not GridNav:IsTraversable(connect) or GridNav:IsBlocked(connect)
 --             index = index + 1
 --           end
 --           --or not GridNav:IsTraversable(newPos + unit.vVelocity * .5) -- diff * unit.nNavGridLookahead
@@ -1019,12 +1016,12 @@
 --             newVelocity = Vector(0,0,0)
 --             FindClearSpaceForUnit(unit, newPos, true)
 --             unit.nSkipSlide = 1
---           elseif unit.nNavCollision == PHYSICS_NAV_SLIDE and navConnect then        
+--           elseif unit.nNavCollision == PHYSICS_NAV_SLIDE and navConnect then
 --             local navX = GridNav:WorldToGridPosX(connect.x)
 --             local navY = GridNav:WorldToGridPosY(connect.y)
 --             local navPos = Vector(GridNav:GridPosToWorldCenterX(navX), GridNav:GridPosToWorldCenterY(navY), 0)
 --             --unit.nRebounceFrames = unit.nMaxRebounce
-            
+
 --             local normal = nil
 --             local anggrid = self.anggrid
 --             local offX = self.offsetX
@@ -1035,7 +1032,7 @@
 --               local angY = navY + offY
 
 --               --print(offX .. ' -- ' .. angX .. ' == ' .. angY .. ' -- ' .. offY)
-              
+
 --               local angle = anggrid[angX][angY]
 --               if angle ~= -1 then
 --                 angle = angle
@@ -1045,11 +1042,11 @@
 --                 --print('------')
 --               end
 --             end
-            
+
 --             local dir = navPos - position
 --             if normal == nil then
 --               --local face = navPos - position
---               --print("face: " .. tostring(face)) 
+--               --print("face: " .. tostring(face))
 --               dir.z = 0
 --               dir = dir:Normalized()
 --               -- Nav bounce checks
@@ -1165,7 +1162,7 @@
 
 --             unit.nSkipSlide = 1
 --             unit:SetAbsOrigin(navPos + Vector(scalar*ndir.x, scalar*ndir.y, position.z))
-            
+
 --             if unit.PhysicsOnSlide then
 --               local status, nextCall = pcall(unit.PhysicsOnSlide, unit, normal)
 --               if not status then
@@ -1177,7 +1174,7 @@
 --             local navY = GridNav:WorldToGridPosY(connect.y)
 --             local navPos = Vector(GridNav:GridPosToWorldCenterX(navX), GridNav:GridPosToWorldCenterY(navY), 0)
 --             unit.nRebounceFrames = unit.nMaxRebounce
-            
+
 --             local normal = nil
 --             local anggrid = self.anggrid
 --             local offX = self.offsetX
@@ -1188,7 +1185,7 @@
 --               local angY = navY + offY
 
 --               --print(offX .. ' -- ' .. angX .. ' == ' .. angY .. ' -- ' .. offY)
-              
+
 --               local angle = anggrid[angX][angY]
 --               if angle ~= -1 then
 --                 angle = angle
@@ -1197,7 +1194,7 @@
 --                 --print('------')
 --               end
 --             end
-            
+
 --             if normal == nil then
 --               --local face = navPos - position
 --               --print("face: " .. tostring(face))
@@ -1323,17 +1320,17 @@
 --           unit:SetAbsOrigin(newPos)
 --         end
 --       end
-      
+
 --       unit.nRebounceFrames = unit.nRebounceFrames - 1
 --       unit.vVelocity = newVelocity
-      
+
 --       if unit.PhysicsFrameCallback ~= nil then
 --         local status, nextCall = pcall(unit.PhysicsFrameCallback, unit)
 --         if not status then
 --          --print('[PHYSICS] Failed FrameCallback: ' .. nextCall)
 --         end
 --       end
-      
+
 --       if unit.bAutoUnstuck and unit.nStuckFrames >= unit.nStuckTimeout then
 --         unit.nStuckFrames = 0
 --         unit.nSkipSlide = 1
@@ -1350,7 +1347,7 @@
 --           local angY = navY + offY
 
 --           --print(offX .. ' -- ' .. angX .. ' == ' .. angY .. ' -- ' .. offY)
-          
+
 --           local angle = anggrid[angX][angY]
 --           if angle ~= -1 then
 --             local normal = RotatePosition(Vector(0,0,0), QAngle(0,angle,0), Vector(1,0,0))
@@ -1365,11 +1362,11 @@
 --           unit:SetAbsOrigin(unit.vLastGoodPosition)
 --         end
 --       end
-      
+
 --       return curTime
 --     end
 --   })
-  
+
 --   unit.PhysicsTimer = Physics.timers[unit.PhysicsTimerName]
 --   unit.vVelocity = Vector(0,0,0)
 --   unit.vLastVelocity = Vector(0,0,0)
@@ -1404,7 +1401,6 @@
 --   unit.oColliders = {}
 --   unit.fMass = 100
 -- end
-
 
 -- Physics.testUnitNum = 0
 -- Physics.testUnits = {}
@@ -1449,7 +1445,7 @@
 --     GridNav:RegrowAllTrees()
 --   end
 
---   if string.find(text, "^unstuck") then    
+--   if string.find(text, "^unstuck") then
 --     hero:SetAutoUnstuck(not hero:GetAutoUnstuck())
 --    --print(hero:GetAutoUnstuck())
 --   end
@@ -1461,7 +1457,7 @@
 
 --   local bmult1 = string.match(text, "^bouncemult%s+(-?%d+)")
 --   if bmult1 ~= nil then
---     hero:SetBounceMultiplier(bmult1 / 100) 
+--     hero:SetBounceMultiplier(bmult1 / 100)
 --   end
 
 --   local stuckTimeout1 = string.match(text, "^stuckframes%s+(%d+)")
@@ -1473,7 +1469,7 @@
 --   if rebounce1 ~= nil then
 --     hero:SetRebounceFrames(rebounce1)
 --   end
-  
+
 --   local lookahead1 = string.match(text, "^lookahead%s+(%d+)")
 --   if lookahead1 ~= nil then
 --     hero:SetNavGridLookahead(lookahead1)
@@ -1604,7 +1600,7 @@
 --   if string.find(text, "^anggrid") then
 --     Physics:GenerateAngleGrid()
 --   end
-  
+
 --   local ap = abilPoints
 
 --   local fname = string.match(text, "^angsave%s+(.+)")
@@ -1651,12 +1647,12 @@
 --     if m ~= nil then
 --       Physics.testUnitNum = Physics.testUnitNum + m
 --      --print (Physics.testUnitNum)
---       for i=1,m do 
+--       for i=1,m do
 --         local unit = CreateUnitByName('npc_dummy_blank', hero:GetAbsOrigin(), true, hero, hero, hero:GetTeamNumber())
 --         unit:AddNewModifier(unit, nil, "modifier_phased", {})
 --         unit:SetModel('models/heroes/lycan/lycan_wolf.vmdl')
 --         unit:SetOriginalModel('models/heroes/lycan/lycan_wolf.vdl')
-        
+
 --         Physics:Unit(unit)
 --         unit:SetPhysicsFriction(0)
 --         unit:SetPhysicsVelocity(RandomVector(2000))
@@ -1664,8 +1660,7 @@
 --       end
 --     end
 --   end
-  
-  
+
 --   if string.find(text, "^hibtest") then
 --     local m = string.match(text, "(%d+)")
 --     if m ~= nil and m == "0" then
@@ -1679,52 +1674,52 @@
 --             local unit = units[RandomInt(1, #units)]
 --             unit:AddPhysicsVelocity(RandomVector(RandomInt(1000,2000)))
 --           end
-          
+
 --           return GameRules:GetGameTime() + 1
 --         end
 --       })
 --     elseif m ~= nil then
 --       Physics.testUnitNum = Physics.testUnitNum + m
 --      --print (Physics.testUnitNum)
---       for i=1,m do 
+--       for i=1,m do
 --         local unit = CreateUnitByName('npc_dummy_blank', hero:GetAbsOrigin(), true, hero, hero, hero:GetTeamNumber())
 --         unit:AddNewModifier(unit, nil, "modifier_phased", {})
 --         unit:SetModel('models/heroes/lycan/lycan_wolf.vmdl')
 --         unit:SetOriginalModel('models/heroes/lycan/lycan_wolf.vmdl')
-        
+
 --         Physics:Unit(unit)
 --         unit:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-        
+
 --         Physics.testUnits[#Physics.testUnits + 1] = unit
 --       end
 --     end
 --   end
-  
+
 --   local vel1,vel2,vel3 = string.match(text, "^vel%s+(-?%d+)%s+(-?%d+)%s+(-?%d+)")
 --   if vel1 ~= nil and vel2 ~= nil and vel3 ~= nil then
 --     hero:AddPhysicsVelocity(Vector(tonumber(vel1), tonumber(vel2), tonumber(vel3)))
 --   end
-  
+
 --   local velmax1 = string.match(text, "^velmax%s+(%d+)")
 --   if velmax1 ~= nil then
 --     hero:SetPhysicsVelocityMax(tonumber(velmax1))
 --   end
-  
+
 --   local acc1,acc2,acc3 = string.match(text, "^acc%s+(-?%d+)%s+(-?%d+)%s+(-?%d+)")
 --   if acc1 ~= nil and acc2 ~= nil and acc3 ~= nil then
 --     hero:SetPhysicsAcceleration(Vector(tonumber(acc1), tonumber(acc2), tonumber(acc3)))
 --   end
-  
+
 --   local fric1 = string.match(text, "^fric%s+(-?%d+)")
 --   if fric1 ~= nil then
 --     hero:SetPhysicsFriction(tonumber(fric1) / 100 )
 --   end
-  
+
 --   local slide1 = string.match(text, "^slidemult%s+(-?%d+)")
 --   if slide1 ~= nil then
 --     hero:SetSlideMultiplier(tonumber(slide1) / 100 )
 --   end
-  
+
 --   if string.find(text, "^prevent") then
 --     hero:PreventDI(not hero:IsPreventDI())
 --    --print(hero:IsPreventDI())
@@ -1733,34 +1728,34 @@
 --   if string.find(text, "^phys") and hero.IsSlide == nil then
 --     Physics:Unit(hero)
 --   end
-  
+
 --   if string.find(text, "^onframe") then
 --     hero:OnPhysicsFrame(function(unit)
 --       --PrintTable(unit)
 --       --print('--------')
 --     end)
 --   end
-  
+
 --   if string.find(text, "^slide$") then
 --     hero:Slide(not hero:IsSlide())
 --    --print(hero:IsSlide())
 --   end
-  
+
 --   if string.find(text, "^nav$") then
 --     hero:FollowNavMesh(not hero:IsFollowNavMesh())
 --    --print(hero:IsFollowNavMesh())
 --   end
-  
+
 --   local clamp1 = string.match(text, "^clamp%s+(%d+)")
 --   if clamp1 ~= nil then
 --     hero:SetVelocityClamp( tonumber(clamp1))
 --   end
-  
+
 --   if string.find(text, "^hibernate") then
 --     hero:Hibernate(not hero:IsHibernate())
 --    --print(hero:IsHibernate())
 --   end
-  
+
 --   if string.find(text, "^navtype") then
 --       local navType = hero:GetNavCollisionType()
 --       navType = (navType + 1) % 4
@@ -1777,7 +1772,7 @@
 --      --print('navtype: ' .. navStr)
 --       hero:SetNavCollisionType(navType)
 --   end
-  
+
 --   if string.find(text, "^ground") then
 --     local ground = hero:GetGroundBehavior()
 --     ground = (ground + 1) % 3
@@ -1972,10 +1967,9 @@
 --   return box
 -- end
 
-
 -- Physics:start()
 
--- Physics:CreateColliderProfile("blocker", 
+-- Physics:CreateColliderProfile("blocker",
 --   {
 --     type = COLLIDER_SPHERE,
 --     radius = 100,
@@ -1996,7 +1990,7 @@
 --     end
 --   })
 
--- Physics:CreateColliderProfile("delete", 
+-- Physics:CreateColliderProfile("delete",
 --   {
 --     type = COLLIDER_SPHERE,
 --     radius = 100,
@@ -2020,7 +2014,7 @@
 --     end
 --   })
 
--- Physics:CreateColliderProfile("gravity", 
+-- Physics:CreateColliderProfile("gravity",
 --   {
 --     type = COLLIDER_SPHERE,
 --     radius = 100,
@@ -2058,7 +2052,7 @@
 --     end
 --   })
 
--- Physics:CreateColliderProfile("repel", 
+-- Physics:CreateColliderProfile("repel",
 --   {
 --     type = COLLIDER_SPHERE,
 --     radius = 100,
@@ -2096,8 +2090,7 @@
 --     end
 --   })
 
-
--- Physics:CreateColliderProfile("reflect", 
+-- Physics:CreateColliderProfile("reflect",
 --   {
 --     type = COLLIDER_SPHERE,
 --     radius = 100,
@@ -2134,7 +2127,7 @@
 --     end
 --   })
 
--- Physics:CreateColliderProfile("momentum", 
+-- Physics:CreateColliderProfile("momentum",
 --   {
 --     type = COLLIDER_SPHERE,
 --     radius = 100,
@@ -2157,15 +2150,15 @@
 --         local vMass = v:GetMass()
 --         --dir.z = 0
 --         dir = dir:Normalized()
-        
+
 --         local neg = -1 * dir
-        
+
 --         local dot = dir:Dot(unit:GetTotalVelocity())
 --         local dot2 = dir:Dot(v:GetTotalVelocity())
 
 --         local v1 = (self.elasticity * vMass * (dot2 - dot) + (mass * dot) + (vMass * dot2)) / (mass + vMass)
 --         local v2 = (self.elasticity * mass * (dot - dot2) + (mass * dot) + (vMass * dot2)) / (mass + vMass)
-        
+
 --         --if dot < 1 and dot2 < 1 then
 --           --return
 --         --end
@@ -2186,7 +2179,7 @@
 --     end
 --   })
 
--- Physics:CreateColliderProfile("boxblocker", 
+-- Physics:CreateColliderProfile("boxblocker",
 --   {
 --     type = COLLIDER_BOX,
 --     box = {Vector(0,0,0), Vector(200,100,500), Vector(0,100,0)},
@@ -2287,7 +2280,7 @@
 --     end
 --   })
 
--- Physics:CreateColliderProfile("boxreflect", 
+-- Physics:CreateColliderProfile("boxreflect",
 --   {
 --     type = COLLIDER_BOX,
 --     box = {Vector(0,0,0), Vector(200,100,500), Vector(0,100,0)},
@@ -2393,7 +2386,7 @@
 --     end
 --   })
 
--- Physics:CreateColliderProfile("aaboxblocker", 
+-- Physics:CreateColliderProfile("aaboxblocker",
 --   {
 --     type = COLLIDER_AABOX,
 --     box = {Vector(0,0,0), Vector(200,100,500)},
@@ -2495,8 +2488,7 @@
 --     end
 --   })
 
-
--- Physics:CreateColliderProfile("aaboxreflect", 
+-- Physics:CreateColliderProfile("aaboxreflect",
 --   {
 --     type = COLLIDER_AABOX,
 --     box = {Vector(0,0,0), Vector(200,100,500)},
@@ -2600,6 +2592,6 @@
 --         return
 --       end
 
---       unit:SetPhysicsVelocity(((-2 * newVelocity:Dot(normal) * normal) + newVelocity) * self.multiplier * 30)      
+--       unit:SetPhysicsVelocity(((-2 * newVelocity:Dot(normal) * normal) + newVelocity) * self.multiplier * 30)
 --     end
 --   })

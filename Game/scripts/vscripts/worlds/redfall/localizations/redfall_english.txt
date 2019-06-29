@@ -277,13 +277,13 @@
 		"DOTA_Tooltip_ability_redfall_fenrir_ability_attacK_damage_increase"	"ATTACK DAMAGE BONUS %:"
 
 		"DOTA_Tooltip_ability_redfall_feronia_passive"					"Guard of Feronia"
-		"DOTA_Tooltip_ability_redfall_feronia_passive_Description"		"After casting a spell, gain a shield that reduces damage taken by 100% for 1.5 seconds."
+		"DOTA_Tooltip_ability_redfall_feronia_passive_Description"		"After casting a spell, gain a shield that reduces damage taken by 100% for 2 seconds."
 
-		"DOTA_Tooltip_ability_redfall_mirana_starfall"					"Starfall"
-		"DOTA_Tooltip_ability_redfall_mirana_starfall_Description"		"Drops stars on nearby enemies"	
+		"DOTA_Tooltip_ability_redfall_feronia_starfall"					"Starfall"
+		"DOTA_Tooltip_ability_redfall_feronia_starfall_Description"		"Drops stars on nearby enemies"	
 
-		"DOTA_Tooltip_ability_redfall_mirana_starfall"					"Sacred Arrow"
-		"DOTA_Tooltip_ability_redfall_mirana_starfall_Description"		"Fires an arrow that damages and stuns enemies that it strikes."
+		"DOTA_Tooltip_ability_redfall_feronia_arrow"					"Sacred Arrow"
+		"DOTA_Tooltip_ability_redfall_feronia_arrow_Description"		"Fires an arrow that damages and stuns enemies that it strikes."
 
 		"DOTA_Tooltip_ability_redfall_student_of_ashara_leap"			"Forest Leap"	
 		"DOTA_Tooltip_ability_redfall_student_of_ashara_leap_Description"	"Target a unit and leap towards them."

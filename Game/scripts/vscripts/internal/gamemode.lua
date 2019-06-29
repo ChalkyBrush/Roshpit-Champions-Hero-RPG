@@ -1,11 +1,10 @@
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 
-
 function GameMode:SetTeamData(playersPerTeam)
   local custom_team_player_count = {}
   custom_team_player_count[DOTA_TEAM_GOODGUYS] = playersPerTeam
-  custom_team_player_count[DOTA_TEAM_BADGUYS]  = playersPerTeam
+  custom_team_player_count[DOTA_TEAM_BADGUYS] = playersPerTeam
   custom_team_player_count[DOTA_TEAM_CUSTOM_1] = 0
   custom_team_player_count[DOTA_TEAM_CUSTOM_2] = 0
   custom_team_player_count[DOTA_TEAM_CUSTOM_3] = 0
@@ -16,7 +15,7 @@ function GameMode:SetTeamData(playersPerTeam)
   custom_team_player_count[DOTA_TEAM_CUSTOM_8] = 0
 
   local count = 0
-  for team,number in pairs(custom_team_player_count) do
+  for team, number in pairs(custom_team_player_count) do
     if count >= 2 then
       GameRules:SetCustomGameTeamMaxPlayers(team, 0)
     else
@@ -28,44 +27,43 @@ end
 
 function GameMode:_InitGameMode()
   -- Setup rules
- --print("init game mode")
-  GameRules:SetHeroRespawnEnabled( ENABLE_HERO_RESPAWN )
-  GameRules:SetUseUniversalShopMode( UNIVERSAL_SHOP_MODE )
-  GameRules:SetSameHeroSelectionEnabled( ALLOW_SAME_HERO_SELECTION )
-  GameRules:SetHeroSelectionTime( 5 )
+  --print("init game mode")
+  GameRules:SetHeroRespawnEnabled(ENABLE_HERO_RESPAWN)
+  GameRules:SetUseUniversalShopMode(UNIVERSAL_SHOP_MODE)
+  GameRules:SetSameHeroSelectionEnabled(ALLOW_SAME_HERO_SELECTION)
+  GameRules:SetHeroSelectionTime(5)
   GameRules:EnableCustomGameSetupAutoLaunch(true)
   if GameState:IsPVPAlphaEarlyCheck() then
     if GameState:NoOracleEarlyCheck() then
-      GameRules:SetPreGameTime( 5 )
+      GameRules:SetPreGameTime(5)
     else
-      GameRules:SetPreGameTime( 20 )
+      GameRules:SetPreGameTime(20)
     end
   elseif GameState:IsSerengaardEarlyCheck() then
-    GameRules:SetPreGameTime( 0)
+    GameRules:SetPreGameTime(0)
   else
-    GameRules:SetPreGameTime( 20)
+    GameRules:SetPreGameTime(20)
   end
-  GameRules:SetPostGameTime( POST_GAME_TIME )
-  GameRules:SetTreeRegrowTime( TREE_REGROW_TIME )
- GameRules:SetUseCustomHeroXPValues ( USE_CUSTOM_XP_VALUES )
+  GameRules:SetPostGameTime(POST_GAME_TIME)
+  GameRules:SetTreeRegrowTime(TREE_REGROW_TIME)
+  GameRules:SetUseCustomHeroXPValues (USE_CUSTOM_XP_VALUES)
   GameRules:SetGoldPerTick(GOLD_PER_TICK)
   GameRules:SetGoldTickTime(GOLD_TICK_TIME)
   GameRules:SetRuneSpawnTime(RUNE_SPAWN_TIME)
   GameRules:SetUseBaseGoldBountyOnHeroes(USE_STANDARD_HERO_GOLD_BOUNTY)
-  GameRules:SetHeroMinimapIconScale( MINIMAP_ICON_SIZE )
-  GameRules:SetCreepMinimapIconScale( MINIMAP_CREEP_ICON_SIZE )
-  GameRules:SetRuneMinimapIconScale( MINIMAP_RUNE_ICON_SIZE )
+  GameRules:SetHeroMinimapIconScale(MINIMAP_ICON_SIZE)
+  GameRules:SetCreepMinimapIconScale(MINIMAP_CREEP_ICON_SIZE)
+  GameRules:SetRuneMinimapIconScale(MINIMAP_RUNE_ICON_SIZE)
 
-  GameRules:SetFirstBloodActive( ENABLE_FIRST_BLOOD )
-  GameRules:SetHideKillMessageHeaders( HIDE_KILL_BANNERS )
+  GameRules:SetFirstBloodActive(ENABLE_FIRST_BLOOD)
+  GameRules:SetHideKillMessageHeaders(HIDE_KILL_BANNERS)
   GameRules:SetUseUniversalShopMode(false)
-
 
   -- This is multiteam configuration stuff
   if USE_AUTOMATIC_PLAYERS_PER_TEAM then
     local num = math.floor(10 / MAX_NUMBER_OF_TEAMS)
     local count = 0
-    for team,number in pairs(TEAM_COLORS) do
+    for team, number in pairs(TEAM_COLORS) do
       if count >= MAX_NUMBER_OF_TEAMS then
         GameRules:SetCustomGameTeamMaxPlayers(team, 0)
       else
@@ -74,7 +72,7 @@ function GameMode:_InitGameMode()
       count = count + 1
     end
   else
-   --print(GameState:IsPVPAlpha())
+    --print(GameState:IsPVPAlpha())
     if GameState:IsPVPAlphaEarlyCheck() then
       if GameState:IsPVPAlpha3v3EarlyCheck() then
         GameMode:SetTeamData(3)
@@ -86,7 +84,7 @@ function GameMode:_InitGameMode()
       if GameState:IsSeaEarlyCheck() then
         CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_GOODGUYS] = 5
       end
-      for team,number in pairs(CUSTOM_TEAM_PLAYER_COUNT) do
+      for team, number in pairs(CUSTOM_TEAM_PLAYER_COUNT) do
         if count >= MAX_NUMBER_OF_TEAMS then
           GameRules:SetCustomGameTeamMaxPlayers(team, 0)
         else
@@ -141,44 +139,42 @@ function GameMode:_InitGameMode()
   ListenToGameEvent("dota_player_selected_custom_team", Dynamic_Wrap(GameMode, 'OnPlayerSelectedCustomTeam'), self)
   ListenToGameEvent("dota_npc_goal_reached", Dynamic_Wrap(GameMode, 'OnNPCGoalReached'), self)
 
-  CustomGameEventManager:RegisterListener( "level_up_ability", Dynamic_Wrap(Events, "LevelUpAbility"))
-  CustomGameEventManager:RegisterListener( "level_up_rune", Dynamic_Wrap(Events, "LevelUpRune"))
-  CustomGameEventManager:RegisterListener( "level_up_rune_max", Dynamic_Wrap(Events, "LevelUpRuneMax"))
-  CustomGameEventManager:RegisterListener( "change_rune_state", Dynamic_Wrap(Events, "ChangeRuneState"))
-  
-  CustomGameEventManager:RegisterListener( "DungeonsvoteYesJS", Dynamic_Wrap(Dungeons, "voteYesLua"))
-  CustomGameEventManager:RegisterListener( "DungeonsvoteNoJS", Dynamic_Wrap(Dungeons, "voteNoLua"))
+  CustomGameEventManager:RegisterListener("level_up_ability", Dynamic_Wrap(Events, "LevelUpAbility"))
+  CustomGameEventManager:RegisterListener("level_up_rune", Dynamic_Wrap(Events, "LevelUpRune"))
+  CustomGameEventManager:RegisterListener("level_up_rune_max", Dynamic_Wrap(Events, "LevelUpRuneMax"))
+  CustomGameEventManager:RegisterListener("change_rune_state", Dynamic_Wrap(Events, "ChangeRuneState"))
 
-  CustomGameEventManager:RegisterListener( "accept_item", Dynamic_Wrap(RPCItems, "AcceptNewItem"))
-  CustomGameEventManager:RegisterListener( "reject_item", Dynamic_Wrap(RPCItems, "RejectNewItem"))
-  CustomGameEventManager:RegisterListener( "buy_item", Dynamic_Wrap(RPCItems, "BuyItem"))
+  CustomGameEventManager:RegisterListener("DungeonsvoteYesJS", Dynamic_Wrap(Dungeons, "voteYesLua"))
+  CustomGameEventManager:RegisterListener("DungeonsvoteNoJS", Dynamic_Wrap(Dungeons, "voteNoLua"))
 
-  CustomGameEventManager:RegisterListener( "weapon_upgrade", Dynamic_Wrap(Weapons, "WeaponUpgrade"))
+  CustomGameEventManager:RegisterListener("accept_item", Dynamic_Wrap(RPCItems, "AcceptNewItem"))
+  CustomGameEventManager:RegisterListener("reject_item", Dynamic_Wrap(RPCItems, "RejectNewItem"))
+  CustomGameEventManager:RegisterListener("buy_item", Dynamic_Wrap(RPCItems, "BuyItem"))
 
-  CustomGameEventManager:RegisterListener( "recalculate_stats", Dynamic_Wrap(RPCItems, "RecalculateStats"))
+  CustomGameEventManager:RegisterListener("weapon_upgrade", Dynamic_Wrap(Weapons, "WeaponUpgrade"))
 
-  CustomGameEventManager:RegisterListener( "vote_roll", Dynamic_Wrap(RPCItems, "ItemVote"))
+  CustomGameEventManager:RegisterListener("recalculate_stats", Dynamic_Wrap(RPCItems, "RecalculateStats"))
 
+  CustomGameEventManager:RegisterListener("vote_roll", Dynamic_Wrap(RPCItems, "ItemVote"))
 
-  CustomGameEventManager:RegisterListener( "save_menu", Dynamic_Wrap(SaveLoad, "GetPlayerCharacters"))
-  CustomGameEventManager:RegisterListener( "save_slot", Dynamic_Wrap(SaveLoad, "SaveCharacter"))
-  CustomGameEventManager:RegisterListener( "load_from_slot", Dynamic_Wrap(SaveLoad, "LoadCharacter"))
-  CustomGameEventManager:RegisterListener( "stash_open", Dynamic_Wrap(SaveLoad, "StashOpen"))
-  CustomGameEventManager:RegisterListener( "item_dragged_to_stash", Dynamic_Wrap(SaveLoad, "DraggedToStash"))
-  CustomGameEventManager:RegisterListener( "item_dragged_from_stash_to_inventory", Dynamic_Wrap(SaveLoad, "DraggedFromStash"))
+  CustomGameEventManager:RegisterListener("save_menu", Dynamic_Wrap(SaveLoad, "GetPlayerCharacters"))
+  CustomGameEventManager:RegisterListener("save_slot", Dynamic_Wrap(SaveLoad, "SaveCharacter"))
+  CustomGameEventManager:RegisterListener("load_from_slot", Dynamic_Wrap(SaveLoad, "LoadCharacter"))
+  CustomGameEventManager:RegisterListener("stash_open", Dynamic_Wrap(SaveLoad, "StashOpen"))
+  CustomGameEventManager:RegisterListener("item_dragged_to_stash", Dynamic_Wrap(SaveLoad, "DraggedToStash"))
+  CustomGameEventManager:RegisterListener("item_dragged_from_stash_to_inventory", Dynamic_Wrap(SaveLoad, "DraggedFromStash"))
 
-  CustomGameEventManager:RegisterListener( "keybank_open", Dynamic_Wrap(SaveLoad, "OpenKeyBank"))
-  CustomGameEventManager:RegisterListener( "keybank_deposit", Dynamic_Wrap(SaveLoad, "DepositKey"))
-  CustomGameEventManager:RegisterListener( "keybank_withdraw", Dynamic_Wrap(SaveLoad, "WithdrawKey"))
+  CustomGameEventManager:RegisterListener("keybank_open", Dynamic_Wrap(SaveLoad, "OpenKeyBank"))
+  CustomGameEventManager:RegisterListener("keybank_deposit", Dynamic_Wrap(SaveLoad, "DepositKey"))
+  CustomGameEventManager:RegisterListener("keybank_withdraw", Dynamic_Wrap(SaveLoad, "WithdrawKey"))
 
-  CustomGameEventManager:RegisterListener( "ruins_button_press", Dynamic_Wrap(Dungeons, "RuinsButtonPress"))
+  CustomGameEventManager:RegisterListener("ruins_button_press", Dynamic_Wrap(Dungeons, "RuinsButtonPress"))
 
-  CustomGameEventManager:RegisterListener( "client_crusader", Dynamic_Wrap(Quests, "ReceiveQuestmenuStatusFromClient"))
-  CustomGameEventManager:RegisterListener( "delete_quest", Dynamic_Wrap(Quests, "DeleteQuest"))
+  CustomGameEventManager:RegisterListener("client_crusader", Dynamic_Wrap(Quests, "ReceiveQuestmenuStatusFromClient"))
+  CustomGameEventManager:RegisterListener("delete_quest", Dynamic_Wrap(Quests, "DeleteQuest"))
 
-  CustomGameEventManager:RegisterListener( "flash_heal", Dynamic_Wrap(CustomAbilities, "UpdateAuriunCursorPosition"))
-  CustomGameEventManager:RegisterListener( "tutorial", Dynamic_Wrap(Events, "TutorialEvent"))
-
+  CustomGameEventManager:RegisterListener("flash_heal", Dynamic_Wrap(CustomAbilities, "UpdateAuriunCursorPosition"))
+  CustomGameEventManager:RegisterListener("tutorial", Dynamic_Wrap(Events, "TutorialEvent"))
 
   -- CustomGameEventManager:RegisterListener( "tradeRequest", Dynamic_Wrap(RPCItems, "InitiateTrade"))
   -- CustomGameEventManager:RegisterListener( "cancel_trade", Dynamic_Wrap(RPCItems, "CancelTrade"))
@@ -186,64 +182,63 @@ function GameMode:_InitGameMode()
   -- CustomGameEventManager:RegisterListener( "item_removed_from_trade", Dynamic_Wrap(RPCItems, "ItemRemoveFromTrade"))
   -- CustomGameEventManager:RegisterListener( "update_trade_lock", Dynamic_Wrap(RPCItems, "UpdateLock"))
 
-  CustomGameEventManager:RegisterListener( "glyph_in_slot", Dynamic_Wrap(Glyphs, "PlaceGlyphInSlot"))
-  CustomGameEventManager:RegisterListener( "upgrade_arcane_tier", Dynamic_Wrap(Glyphs, "UpgradeArcaneTier"))
-  CustomGameEventManager:RegisterListener( "glyph_purchase", Dynamic_Wrap(Glyphs, "GlyphPurchase"))
-  CustomGameEventManager:RegisterListener( "purchase_reanimation_stone", Dynamic_Wrap(Glyphs, "ReanimationPurchase"))
-  CustomGameEventManager:RegisterListener( "get_glyph_availability", Dynamic_Wrap(Glyphs, "GetGlyphAvailability"))
+  CustomGameEventManager:RegisterListener("glyph_in_slot", Dynamic_Wrap(Glyphs, "PlaceGlyphInSlot"))
+  CustomGameEventManager:RegisterListener("upgrade_arcane_tier", Dynamic_Wrap(Glyphs, "UpgradeArcaneTier"))
+  CustomGameEventManager:RegisterListener("glyph_purchase", Dynamic_Wrap(Glyphs, "GlyphPurchase"))
+  CustomGameEventManager:RegisterListener("purchase_reanimation_stone", Dynamic_Wrap(Glyphs, "ReanimationPurchase"))
+  CustomGameEventManager:RegisterListener("get_glyph_availability", Dynamic_Wrap(Glyphs, "GetGlyphAvailability"))
 
-  CustomGameEventManager:RegisterListener( "collect_mithril_income", Dynamic_Wrap(Challenges, "CollectMithrilIncome"))
-  CustomGameEventManager:RegisterListener( "clicked_chisel_gear", Dynamic_Wrap(Challenges, "ChiselableGearClicked"))
-  CustomGameEventManager:RegisterListener( "final_chisel", Dynamic_Wrap(Challenges, "ChiselItem"))
+  CustomGameEventManager:RegisterListener("collect_mithril_income", Dynamic_Wrap(Challenges, "CollectMithrilIncome"))
+  CustomGameEventManager:RegisterListener("clicked_chisel_gear", Dynamic_Wrap(Challenges, "ChiselableGearClicked"))
+  CustomGameEventManager:RegisterListener("final_chisel", Dynamic_Wrap(Challenges, "ChiselItem"))
 
-  CustomGameEventManager:RegisterListener( "drag_into_reroll_slot", Dynamic_Wrap(Challenges, "DragIntoRerollSlot"))
-  CustomGameEventManager:RegisterListener( "return_reroll", Dynamic_Wrap(Challenges, "ReturnReroll"))
-  CustomGameEventManager:RegisterListener( "final_reroll", Dynamic_Wrap(Challenges, "FinalReroll"))
+  CustomGameEventManager:RegisterListener("drag_into_reroll_slot", Dynamic_Wrap(Challenges, "DragIntoRerollSlot"))
+  CustomGameEventManager:RegisterListener("return_reroll", Dynamic_Wrap(Challenges, "ReturnReroll"))
+  CustomGameEventManager:RegisterListener("final_reroll", Dynamic_Wrap(Challenges, "FinalReroll"))
 
-  CustomGameEventManager:RegisterListener( "drag_item_to_tanari_doctor_slot", Dynamic_Wrap(Quests, "SpiritItemPlace"))
-  CustomGameEventManager:RegisterListener( "close_witch_doctor", Dynamic_Wrap(Quests, "CloseWitchDoctor"))
-  CustomGameEventManager:RegisterListener( "final_tanari_combine", Dynamic_Wrap(Quests, "WitchDoctorCombine"))
-  
-  CustomGameEventManager:RegisterListener( "town_portal", Dynamic_Wrap(Quests, "TownPortal"))
-   CustomGameEventManager:RegisterListener("respawn_flag", Dynamic_Wrap(Quests, "RespawnFlag"))
+  CustomGameEventManager:RegisterListener("drag_item_to_tanari_doctor_slot", Dynamic_Wrap(Quests, "SpiritItemPlace"))
+  CustomGameEventManager:RegisterListener("close_witch_doctor", Dynamic_Wrap(Quests, "CloseWitchDoctor"))
+  CustomGameEventManager:RegisterListener("final_tanari_combine", Dynamic_Wrap(Quests, "WitchDoctorCombine"))
 
-  CustomGameEventManager:RegisterListener( "arena_dialogue", Dynamic_Wrap(Quests, "ArenaDialogue"))
-  
-  CustomGameEventManager:RegisterListener( "npc_dialogue", Dynamic_Wrap(Quests, "NPCDialogue"))
+  CustomGameEventManager:RegisterListener("town_portal", Dynamic_Wrap(Quests, "TownPortal"))
+  CustomGameEventManager:RegisterListener("respawn_flag", Dynamic_Wrap(Quests, "RespawnFlag"))
 
-  CustomGameEventManager:RegisterListener( "quest_log", Dynamic_Wrap(Quests, "QuestLog"))
-  CustomGameEventManager:RegisterListener( "quest_log_complete", Dynamic_Wrap(Quests, "QuestLogComplete"))
+  CustomGameEventManager:RegisterListener("arena_dialogue", Dynamic_Wrap(Quests, "ArenaDialogue"))
 
-  CustomGameEventManager:RegisterListener( "item_drag_from_backpack", Dynamic_Wrap(GameState, "ItemDragFromBackpack"))
+  CustomGameEventManager:RegisterListener("npc_dialogue", Dynamic_Wrap(Quests, "NPCDialogue"))
 
-  CustomGameEventManager:RegisterListener( "pvp_vote", Dynamic_Wrap(Events, "PVPVote"))
-  CustomGameEventManager:RegisterListener( "pvp_build", Dynamic_Wrap(Events, "PVPBuild"))
+  CustomGameEventManager:RegisterListener("quest_log", Dynamic_Wrap(Quests, "QuestLog"))
+  CustomGameEventManager:RegisterListener("quest_log_complete", Dynamic_Wrap(Quests, "QuestLogComplete"))
 
-  CustomGameEventManager:RegisterListener( "serengaard_vote", Dynamic_Wrap(Events, "SerengaardVote"))
+  CustomGameEventManager:RegisterListener("item_drag_from_backpack", Dynamic_Wrap(GameState, "ItemDragFromBackpack"))
 
-  CustomGameEventManager:RegisterListener( "hero_selection_event", Dynamic_Wrap(SaveLoad, "HeroSelectOption"))
-  CustomGameEventManager:RegisterListener( "processed_key", Dynamic_Wrap(SaveLoad, "ProcessedKey"))
+  CustomGameEventManager:RegisterListener("pvp_vote", Dynamic_Wrap(Events, "PVPVote"))
+  CustomGameEventManager:RegisterListener("pvp_build", Dynamic_Wrap(Events, "PVPBuild"))
 
+  CustomGameEventManager:RegisterListener("serengaard_vote", Dynamic_Wrap(Events, "SerengaardVote"))
 
-  CustomGameEventManager:RegisterListener( "stars_menu", Dynamic_Wrap(Stars, "ActivateStarsMenu"))
+  CustomGameEventManager:RegisterListener("hero_selection_event", Dynamic_Wrap(SaveLoad, "HeroSelectOption"))
+  CustomGameEventManager:RegisterListener("processed_key", Dynamic_Wrap(SaveLoad, "ProcessedKey"))
 
-  CustomGameEventManager:RegisterListener( "difficulty_select", Dynamic_Wrap(GameState, "DifficultySelect"))
+  CustomGameEventManager:RegisterListener("stars_menu", Dynamic_Wrap(Stars, "ActivateStarsMenu"))
 
-  CustomGameEventManager:RegisterListener( "curate", Dynamic_Wrap(Curator, "Curate"))
-  CustomGameEventManager:RegisterListener( "curator_client", Dynamic_Wrap(Curator, "FinishGettingClientData"))
-  CustomGameEventManager:RegisterListener( "curateHero", Dynamic_Wrap(Curator, "ClientDataHero"))
-  CustomGameEventManager:RegisterListener( "curateAbility", Dynamic_Wrap(Curator, "ClientDataAbility"))
-  CustomGameEventManager:RegisterListener( "curateGlyph", Dynamic_Wrap(Curator, "ClientDataGlyph"))
-  CustomGameEventManager:RegisterListener( "stop_unit", Dynamic_Wrap(Curator, "StopUnit"))
+  CustomGameEventManager:RegisterListener("difficulty_select", Dynamic_Wrap(GameState, "DifficultySelect"))
+
+  CustomGameEventManager:RegisterListener("curate", Dynamic_Wrap(Curator, "Curate"))
+  CustomGameEventManager:RegisterListener("curator_client", Dynamic_Wrap(Curator, "FinishGettingClientData"))
+  CustomGameEventManager:RegisterListener("curateHero", Dynamic_Wrap(Curator, "ClientDataHero"))
+  CustomGameEventManager:RegisterListener("curateAbility", Dynamic_Wrap(Curator, "ClientDataAbility"))
+  CustomGameEventManager:RegisterListener("curateGlyph", Dynamic_Wrap(Curator, "ClientDataGlyph"))
+  CustomGameEventManager:RegisterListener("stop_unit", Dynamic_Wrap(Curator, "StopUnit"))
 
   CustomGameEventManager:RegisterListener("stats_hover", Dynamic_Wrap(CustomAttributes, "ActivateStatsTooltip"))
-  
-  CustomGameEventManager:RegisterListener( "drag_item_to_synthesis_slot", Dynamic_Wrap(RPCItems, "SynthesisItemPlaced"))
-  CustomGameEventManager:RegisterListener( "synth_combine_items", Dynamic_Wrap(RPCItems, "CombineItems"))
-  CustomGameEventManager:RegisterListener( "close_altar", Dynamic_Wrap(Quests, "CloseAltarOfIce"))
-  CustomGameEventManager:RegisterListener( "ice_crystal_placed", Dynamic_Wrap(Quests, "PlaceIceCrystal"))
 
-  CustomGameEventManager:RegisterListener( "units_special", Dynamic_Wrap(CustomAbilities, "UnitsSpecial"))
+  CustomGameEventManager:RegisterListener("drag_item_to_synthesis_slot", Dynamic_Wrap(RPCItems, "SynthesisItemPlaced"))
+  CustomGameEventManager:RegisterListener("synth_combine_items", Dynamic_Wrap(RPCItems, "CombineItems"))
+  CustomGameEventManager:RegisterListener("close_altar", Dynamic_Wrap(Quests, "CloseAltarOfIce"))
+  CustomGameEventManager:RegisterListener("ice_crystal_placed", Dynamic_Wrap(Quests, "PlaceIceCrystal"))
+
+  CustomGameEventManager:RegisterListener("units_special", Dynamic_Wrap(CustomAbilities, "UnitsSpecial"))
 
   -- GameMode:SetTrackingProjectileFilter( Dynamic_Wrap( Attacks, "FilterProjectile" ), self )
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)
@@ -275,8 +270,6 @@ function GameMode:_InitGameMode()
   -- Initialized tables for tracking state
   self.bSeenWaitForPlayers = false
 
-  
-
   DebugPrint('[BAREBONES] Done loading Roshpit gamemode!\n\n')
   SendToServerConsole("sv_cheats 1")
   SendToServerConsole("dota_wait_for_players_to_load_timeout 240")
@@ -296,49 +289,49 @@ mode = nil
 function GameMode:_CaptureGameMode()
   if mode == nil then
     -- Set GameMode parameters
-    mode = GameRules:GetGameModeEntity()        
-    mode:SetRecommendedItemsDisabled( RECOMMENDED_BUILDS_DISABLED )
-    mode:SetCameraDistanceOverride( CAMERA_DISTANCE_OVERRIDE )
-    mode:SetCustomBuybackCostEnabled( CUSTOM_BUYBACK_COST_ENABLED )
-    mode:SetCustomBuybackCooldownEnabled( CUSTOM_BUYBACK_COOLDOWN_ENABLED )
-    mode:SetBuybackEnabled( BUYBACK_ENABLED )
+    mode = GameRules:GetGameModeEntity()
+    mode:SetRecommendedItemsDisabled(RECOMMENDED_BUILDS_DISABLED)
+    mode:SetCameraDistanceOverride(CAMERA_DISTANCE_OVERRIDE)
+    mode:SetCustomBuybackCostEnabled(CUSTOM_BUYBACK_COST_ENABLED)
+    mode:SetCustomBuybackCooldownEnabled(CUSTOM_BUYBACK_COOLDOWN_ENABLED)
+    mode:SetBuybackEnabled(BUYBACK_ENABLED)
     --mode:SetTopBarTeamValuesOverride ( USE_CUSTOM_TOP_BAR_VALUES )
     --mode:SetTopBarTeamValuesVisible( TOP_BAR_VISIBLE )
-    mode:SetUseCustomHeroLevels ( USE_CUSTOM_HERO_LEVELS )
-    mode:SetCustomHeroMaxLevel ( MAX_LEVEL )
+    mode:SetUseCustomHeroLevels (USE_CUSTOM_HERO_LEVELS)
+    mode:SetCustomHeroMaxLevel (MAX_LEVEL)
 
-    mode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
+    mode:SetCustomXPRequiredToReachNextLevel(XP_PER_LEVEL_TABLE)
 
-    mode:SetBotThinkingEnabled( USE_STANDARD_DOTA_BOT_THINKING )
-    mode:SetTowerBackdoorProtectionEnabled( ENABLE_TOWER_BACKDOOR_PROTECTION )
+    mode:SetBotThinkingEnabled(USE_STANDARD_DOTA_BOT_THINKING)
+    mode:SetTowerBackdoorProtectionEnabled(ENABLE_TOWER_BACKDOOR_PROTECTION)
 
     mode:SetFogOfWarDisabled(false)
     mode:SetUnseenFogOfWarEnabled(true)
-    mode:SetGoldSoundDisabled( DISABLE_GOLD_SOUNDS )
-    mode:SetRemoveIllusionsOnDeath( REMOVE_ILLUSIONS_ON_DEATH )
+    mode:SetGoldSoundDisabled(DISABLE_GOLD_SOUNDS)
+    mode:SetRemoveIllusionsOnDeath(REMOVE_ILLUSIONS_ON_DEATH)
 
-    mode:SetAlwaysShowPlayerInventory( SHOW_ONLY_PLAYER_INVENTORY )
-    mode:SetAnnouncerDisabled( DISABLE_ANNOUNCER )
+    mode:SetAlwaysShowPlayerInventory(SHOW_ONLY_PLAYER_INVENTORY)
+    mode:SetAnnouncerDisabled(DISABLE_ANNOUNCER)
     if FORCE_PICKED_HERO ~= nil then
-      mode:SetCustomGameForceHero( FORCE_PICKED_HERO )
+      mode:SetCustomGameForceHero(FORCE_PICKED_HERO)
     end
     mode:SetCustomGameForceHero("npc_dota_hero_wisp")
-    mode:SetFixedRespawnTime( FIXED_RESPAWN_TIME ) 
-    mode:SetFountainConstantManaRegen( FOUNTAIN_CONSTANT_MANA_REGEN )
-    mode:SetFountainPercentageHealthRegen( FOUNTAIN_PERCENTAGE_HEALTH_REGEN )
-    mode:SetFountainPercentageManaRegen( FOUNTAIN_PERCENTAGE_MANA_REGEN )
-    mode:SetLoseGoldOnDeath( LOSE_GOLD_ON_DEATH )
-    mode:SetMaximumAttackSpeed( MAXIMUM_ATTACK_SPEED )
-    mode:SetMinimumAttackSpeed( MINIMUM_ATTACK_SPEED )
-    mode:SetStashPurchasingDisabled ( DISABLE_STASH_PURCHASING )
+    mode:SetFixedRespawnTime(FIXED_RESPAWN_TIME)
+    mode:SetFountainConstantManaRegen(FOUNTAIN_CONSTANT_MANA_REGEN)
+    mode:SetFountainPercentageHealthRegen(FOUNTAIN_PERCENTAGE_HEALTH_REGEN)
+    mode:SetFountainPercentageManaRegen(FOUNTAIN_PERCENTAGE_MANA_REGEN)
+    mode:SetLoseGoldOnDeath(LOSE_GOLD_ON_DEATH)
+    mode:SetMaximumAttackSpeed(MAXIMUM_ATTACK_SPEED)
+    mode:SetMinimumAttackSpeed(MINIMUM_ATTACK_SPEED)
+    mode:SetStashPurchasingDisabled (DISABLE_STASH_PURCHASING)
 
-    mode:SetDamageFilter( Dynamic_Wrap( GameState, "FilterDamage" ), self )
-    mode:SetExecuteOrderFilter( Dynamic_Wrap( GameState, "OrderFilter" ), self )
-    mode:SetModifyGoldFilter( Dynamic_Wrap( GameState, "GoldEarnFilter" ), self )
+    mode:SetDamageFilter(Dynamic_Wrap(GameState, "FilterDamage"), self)
+    mode:SetExecuteOrderFilter(Dynamic_Wrap(GameState, "OrderFilter"), self)
+    mode:SetModifyGoldFilter(Dynamic_Wrap(GameState, "GoldEarnFilter"), self)
     for rune, spawn in pairs(ENABLED_RUNES) do
       mode:SetRuneEnabled(rune, spawn)
     end
 
     self:OnFirstPlayerLoaded()
-  end 
+  end
 end

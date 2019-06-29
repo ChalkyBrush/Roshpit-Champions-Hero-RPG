@@ -5,7 +5,6 @@ local function summon(caster, ability, origin)
         return
     end
 
-
     local baseDamage = E2_BASE_DAMAGE + runesCount * E2_ADD_DAMAGE
     local summonPosition = origin
     local health = E2_HEALTH_AMPLIFY * caster:GetMaxHealth()
@@ -35,7 +34,7 @@ local function summon(caster, ability, origin)
     -- aspectAbility:ApplyDataDrivenModifier(caster.earthAspect, caster.earthAspect, "modifier_aspect_main", {})
 
     local waterParticle = "particles/units/heroes/hero_morphling/morphling_adaptive_strike.vpcf"
-    local pfx = ParticleManager:CreateParticle( waterParticle, PATTACH_CUSTOMORIGIN, caster.waterElemental )
+    local pfx = ParticleManager:CreateParticle(waterParticle, PATTACH_CUSTOMORIGIN, caster.waterElemental)
     ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster.waterElemental:GetAbsOrigin(), true)
 
     EmitSoundOn("Hero_Morphling.AdaptiveStrike.Cast", caster.waterElemental)
@@ -73,21 +72,21 @@ function attack(event)
     local target = event.target
     local creator = attacker.creator
     local particleName = "particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_explode_ti5.vpcf"
-    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+    local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
     local origin = target:GetAbsOrigin()
-    ParticleManager:SetParticleControl( particle1, 0, origin )
-    ParticleManager:SetParticleControl( particle1, 1, origin )
+    ParticleManager:SetParticleControl(particle1, 0, origin)
+    ParticleManager:SetParticleControl(particle1, 1, origin)
     Timers:CreateTimer(3, function()
         ParticleManager:DestroyParticle(particle1, false)
     end)
     -- EmitSoundOn("Hero_Ancient_Apparition.IceBlast.Target", caster)
     local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
     if creator.e_4_level then
-        damage = damage * (1 + E4_AMPLIFY_PERCENT/100 * OverflowProtectedGetAverageTrueAttackDamage(creator) * creator.e_4_level)
+        damage = damage * (1 + E4_AMPLIFY_PERCENT / 100 * OverflowProtectedGetAverageTrueAttackDamage(creator) * creator.e_4_level)
     end
     local frozenDamage = damage
     if creator.e_3_level > 0 then
-        frozenDamage = damage * (1 + E3_AMPLIFY_PERCENT/100 * creator.e_3_level)
+        frozenDamage = damage * (1 + E3_AMPLIFY_PERCENT / 100 * creator.e_3_level)
     end
 
     local attacksFreeze = false
@@ -96,11 +95,11 @@ function attack(event)
     end
 
     local radius = 390
-    local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+    local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     local slowDuration = 1.2
     local ability = attacker:FindAbilityByName('sorc_elemental_ability')
     if #enemies > 0 then
-        for _,enemy in pairs(enemies) do
+        for _, enemy in pairs(enemies) do
             local luck = RandomInt(1, 100)
             if attacksFreeze and luck <= T12_CHANCE then
                 ability:ApplyDataDrivenModifier(attacker, enemy, "modifier_elemental_freeze", {duration = SORCERESS_T12_DURATION})
@@ -117,7 +116,7 @@ function attack(event)
     if creator.e_4_level > 0 then
         local luck = RandomInt(1, 100)
         if luck < creator.e_4_level then
-            StartAnimation(attacker, {duration=0.6, activity=ACT_DOTA_ATTACK, rate=1.8})
+            StartAnimation(attacker, {duration = 0.6, activity = ACT_DOTA_ATTACK, rate = 1.8})
             Timers:CreateTimer(0.24, function()
                 Filters:PerformAttackSpecial(attacker, target, true, true, true, false, true, false, false)
             end)
@@ -128,14 +127,14 @@ function attack(event)
 end
 
 function createProjectile(attacker, enemy, ability)
-    StartAnimation(attacker, {duration=0.6, activity=ACT_DOTA_ATTACK, rate=1.8})
+    StartAnimation(attacker, {duration = 0.6, activity = ACT_DOTA_ATTACK, rate = 1.8})
     local info =
     {
         Target = enemy,
         Source = attacker,
         Ability = ability,
         EffectName = "particles/units/heroes/hero_morphling/morphling_base_attack.vpcf",
-        vSourceLoc= attacker:GetAbsOrigin(),
+        vSourceLoc = attacker:GetAbsOrigin(),
         bDrawsOnMinimap = false,
         bDodgeable = true,
         bIsAttack = false,
@@ -145,8 +144,7 @@ function createProjectile(attacker, enemy, ability)
         bProvidesVision = true,
         iVisionRadius = 0,
         iMoveSpeed = 1400,
-        iVisionTeamNumber = attacker:GetTeamNumber()
-    }
+    iVisionTeamNumber = attacker:GetTeamNumber()}
     ProjectileManager:CreateTrackingProjectile(info)
 end
 

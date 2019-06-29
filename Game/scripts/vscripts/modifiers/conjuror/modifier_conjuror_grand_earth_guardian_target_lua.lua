@@ -11,23 +11,23 @@ function modifier_conjuror_grand_earth_guardian_target_lua:DeclareFunctions()
     return funcs
 end
 
-function modifier_conjuror_grand_earth_guardian_target_lua:GetModifierIgnoreCastAngle( params )
-	return 100
+function modifier_conjuror_grand_earth_guardian_target_lua:GetModifierIgnoreCastAngle(params)
+    return 100
 end
 
-function modifier_conjuror_grand_earth_guardian_target_lua:GetModifierModelScale( params )
-	local target = self:GetParent()
-	if target:GetUnitName() == "earth_deity" then
-    	return 290
+function modifier_conjuror_grand_earth_guardian_target_lua:GetModifierModelScale(params)
+    local target = self:GetParent()
+    if target:GetUnitName() == "earth_deity" then
+        return 290
     else
-    	return -100
+        return - 100
     end
 end
 
-function modifier_conjuror_grand_earth_guardian_target_lua:GetModifierCastRangeBonus( params )
+function modifier_conjuror_grand_earth_guardian_target_lua:GetModifierCastRangeBonus(params)
     return 1500
 end
 
-function modifier_conjuror_grand_earth_guardian_target_lua:GetModifierDisableTurning( params )
-	return 100
+function modifier_conjuror_grand_earth_guardian_target_lua:GetModifierDisableTurning(params)
+    return 100
 end

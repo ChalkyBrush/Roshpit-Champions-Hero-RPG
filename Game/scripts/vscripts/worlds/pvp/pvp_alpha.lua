@@ -13,36 +13,32 @@ function PVP:Debug()
 end
 
 function PVP:InitGame()
-      Dungeons.phoenixCollision = true
-      RPCItems.DROP_LOCATION = Vector(6656,-16128)
-      Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
-      Events.GameMaster:AddAbility("town_portal"):SetLevel(1)
-      Events.GameMaster:RemoveModifierByName("modifier_portal")
+  Dungeons.phoenixCollision = true
+  RPCItems.DROP_LOCATION = Vector(6656, -16128)
+  Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
+  Events.GameMaster:AddAbility("town_portal"):SetLevel(1)
+  Events.GameMaster:RemoveModifierByName("modifier_portal")
 
-
-      PVP.ZFLOAT = PVP:GetPVPAlphaZFLOAT()
-    
+  PVP.ZFLOAT = PVP:GetPVPAlphaZFLOAT()
 
   Events.TownPosition = Vector(-15168, -14976)
   Events.isTownActive = true
   if GameState:NoOracle() then
   else
-      local oracle = Events:SpawnOracle(Vector(-1344, -1024), Vector(0, -1))
-      local oracle2 = Events:SpawnOracle(Vector(3200, 4160), Vector(0, -1))
+    local oracle = Events:SpawnOracle(Vector(-1344, -1024), Vector(0, -1))
+    local oracle2 = Events:SpawnOracle(Vector(3200, 4160), Vector(0, -1))
   end
 
-
   -- Redfall:VillageMusic()
-  
 
-      PVP.PVPMaster = CreateUnitByName("rune_unit", RPCItems.DROP_LOCATION, true, nil, nil, DOTA_TEAM_GOODGUYS)
-      -- Redfall.RedfallMaster:AddAbility("redfall_ability"):SetLevel(GameState:GetDifficultyFactor())
-      -- Redfall.RedfallMasterAbility = Redfall.RedfallMaster:FindAbilityByName("redfall_ability")
-      PVP.PVPMaster:AddAbility("dummy_unit"):SetLevel(1)
+  PVP.PVPMaster = CreateUnitByName("rune_unit", RPCItems.DROP_LOCATION, true, nil, nil, DOTA_TEAM_GOODGUYS)
+  -- Redfall.RedfallMaster:AddAbility("redfall_ability"):SetLevel(GameState:GetDifficultyFactor())
+  -- Redfall.RedfallMasterAbility = Redfall.RedfallMaster:FindAbilityByName("redfall_ability")
+  PVP.PVPMaster:AddAbility("dummy_unit"):SetLevel(1)
 end
 
 function PVP:GetPVPAlphaZFLOAT()
-    return 0
+  return 0
 end
 
 function PVP:Respawn(npc)
@@ -64,40 +60,40 @@ function PVP:Respawn(npc)
 end
 
 function PVP:PlayerKill(killerEntity, killedUnit)
-    -- PlayerResource:IncrementKills(killerEntity:GetPlayerOwnerID(), 1)
-    if killedUnit:HasModifier("modifier_paladin_rune_e_1_revivable") or killedUnit:HasModifier("modifier_phoenix_rebirthing") then
-      return false
+  -- PlayerResource:IncrementKills(killerEntity:GetPlayerOwnerID(), 1)
+  if killedUnit:HasModifier("modifier_paladin_rune_e_1_revivable") or killedUnit:HasModifier("modifier_phoenix_rebirthing") then
+    return false
+  end
+  if killedUnit:IsHero() then
+    Timers:CreateTimer(0.06, function()
+      local respawnTime = 5
+      respawnTime = math.floor(respawnTime + killedUnit:GetLevel() * 0.1)
+      killedUnit:SetTimeUntilRespawn(respawnTime)
+    end)
+    if killerEntity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+      PVP.TeamAKills = PVP.TeamAKills + 1
+    elseif killerEntity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+      PVP.TeamBKills = PVP.TeamBKills + 1
     end
-    if killedUnit:IsHero() then
-      Timers:CreateTimer(0.06, function()
-        local respawnTime = 5
-        respawnTime = math.floor(respawnTime + killedUnit:GetLevel()*0.1)
-        killedUnit:SetTimeUntilRespawn(respawnTime)
-      end)
-      if killerEntity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-        PVP.TeamAKills = PVP.TeamAKills + 1
-      elseif killerEntity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-        PVP.TeamBKills = PVP.TeamBKills + 1
+    if PVP.GameMode == PVP.GAME_MODE_DEATH_MATCH then
+      if PVP.TeamAKills == PVP.KillThreshold then
+        PVP:GameEnd(DOTA_TEAM_BADGUYS)
       end
-      if PVP.GameMode == PVP.GAME_MODE_DEATH_MATCH then
-        if PVP.TeamAKills == PVP.KillThreshold then
-          PVP:GameEnd(DOTA_TEAM_BADGUYS)
-        end
-        if PVP.TeamBKills == PVP.KillThreshold then    
-          PVP:GameEnd(DOTA_TEAM_GOODGUYS)
-        end
-      elseif PVP.GameMode == PVP.GAME_MODE_LINE_WAR then
-        if not killerEntity:IsHero() then
-          for i = 1, #MAIN_HERO_TABLE, 1 do
-            if not MAIN_HERO_TABLE[i] == killedUnit:GetTeamNumber() then
-              local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
-              PlayerResource:ModifyGold(playerID, killedUnit:GetLevel()*5, true, 0)
-              PlayerResource:SetGold(playerID, 0, false)
-            end
+      if PVP.TeamBKills == PVP.KillThreshold then
+        PVP:GameEnd(DOTA_TEAM_GOODGUYS)
+      end
+    elseif PVP.GameMode == PVP.GAME_MODE_LINE_WAR then
+      if not killerEntity:IsHero() then
+        for i = 1, #MAIN_HERO_TABLE, 1 do
+          if not MAIN_HERO_TABLE[i] == killedUnit:GetTeamNumber() then
+            local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
+            PlayerResource:ModifyGold(playerID, killedUnit:GetLevel() * 5, true, 0)
+            PlayerResource:SetGold(playerID, 0, false)
           end
         end
       end
     end
+  end
 end
 
 function PVP:InitiateVisionNodes()
@@ -118,13 +114,13 @@ function PVP:SpawnVisionNode(teamNumber, position)
     visionNode = CreateUnitByName("rpc_pvp_vision_node", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
     visionNode:FindAbilityByName("dummy_unit"):SetLevel(1)
     visionNode:FindAbilityByName("pvp_vision_node_ability"):SetLevel(1)
-    local fv = ((centerView - visionNode:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+    local fv = ((centerView - visionNode:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
     visionNode:SetForwardVector(fv)
   else
     visionNode = CreateUnitByName("rpc_pvp_vision_node_bad", position, false, nil, nil, DOTA_TEAM_BADGUYS)
     visionNode:FindAbilityByName("dummy_unit"):SetLevel(1)
     visionNode:FindAbilityByName("pvp_vision_node_ability"):SetLevel(1)
-    local fv = ((centerView - visionNode:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+    local fv = ((centerView - visionNode:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
     visionNode:SetForwardVector(fv)
   end
   return visionNode
@@ -141,7 +137,7 @@ function PVP:GameEnd(LosingTeam)
 end
 
 function PVP:VoteSubmit(msg)
- --print(msg)
+  --print(msg)
   if not PVP.PVPVoteTable then
     PVP.PVPVoteTable = {}
     PVP.DeathMatchCount = 0
@@ -180,8 +176,8 @@ function PVP:SetPvpRules()
         monsterPower = monsterPower + personalVote.power
       end
     end
-    avgKills = killCount/#PVP.PVPVoteTable
-    avgPower = monsterPower/#PVP.PVPVoteTable
+    avgKills = killCount / #PVP.PVPVoteTable
+    avgPower = monsterPower / #PVP.PVPVoteTable
   end
   PVP.TeamAKills = 0
   PVP.TeamBKills = 0
@@ -196,7 +192,7 @@ function PVP:SetPvpRules()
     PVP.GameMode = PVP.GAME_MODE_LINE_WAR
   end
   if PVP.GameMode == PVP.GAME_MODE_DEATH_MATCH then
-    CustomGameEventManager:Send_ServerToAllClients("createPVPGoal", {killThreshold = PVP.KillThreshold} )
+    CustomGameEventManager:Send_ServerToAllClients("createPVPGoal", {killThreshold = PVP.KillThreshold})
     PVP:InitiateVisionNodes()
   elseif PVP.GameMode == PVP.GAME_MODE_LINE_WAR then
     Events.DifficultyFactor = 1
@@ -243,14 +239,14 @@ function PVP:SpawnTower(teamNumber, position)
   local visionNode = nil
   if teamNumber == DOTA_TEAM_GOODGUYS then
     visionNode = CreateUnitByName("rpc_pvp_line_tower_good", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
-    local fv = ((centerView - visionNode:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+    local fv = ((centerView - visionNode:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
     visionNode:SetForwardVector(fv)
     visionNode:FindAbilityByName("pvp_line_tower_ability"):SetLevel(1)
   else
     visionNode = CreateUnitByName("rpc_pvp_line_tower_bad", position, false, nil, nil, DOTA_TEAM_BADGUYS)
     visionNode:FindAbilityByName("pvp_line_tower_ability"):SetLevel(1)
-    local fv = ((centerView - visionNode:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-    visionNode:SetForwardVector(fv*-1)
+    local fv = ((centerView - visionNode:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+    visionNode:SetForwardVector(fv *- 1)
     visionNode:FindAbilityByName("pvp_line_tower_ability"):SetLevel(1)
   end
   Events:AdjustDeathXP(visionNode)
@@ -264,7 +260,7 @@ function PVP:InitiateLineBuilders()
     position = Vector(-1600, -1728)
   end
   local builder = CreateUnitByName("rpc_pvp_tanari_builder", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
-  local fv = ((centerView - builder:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+  local fv = ((centerView - builder:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
   builder:SetForwardVector(fv)
   -- builder:FindAbilityByName("pvp_tanari_builder_open_menu"):SetLevel(1)
   PlayerResource:SetGold(builder:GetPlayerOwnerID(), 99999, true)
@@ -275,14 +271,14 @@ function PVP:InitiateLineBuilders()
   end
 
   PVP.TanariBuilder = builder
- --print(PVP.TanariBuilder:GetMainControllingPlayer())
+  --print(PVP.TanariBuilder:GetMainControllingPlayer())
   --BAD BUILDER
   local position = Vector(3588, 3392)
   if GameState:IsPVPLineWarWork() then
     position = Vector(4408, 4793)
   end
   local builder = CreateUnitByName("rpc_pvp_tanari_builder", position, false, nil, nil, DOTA_TEAM_BADGUYS)
-  local fv = ((centerView - builder:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+  local fv = ((centerView - builder:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
   builder:SetForwardVector(fv)
   -- builder:FindAbilityByName("pvp_tanari_builder_open_menu"):SetLevel(1)
   PlayerResource:SetGold(builder:GetPlayerOwnerID(), 99999, true)
@@ -293,27 +289,27 @@ function PVP:InitiateLineBuilders()
   end
 
   PVP.TanariBuilderBad = builder
- --print(PVP.TanariBuilderBad:GetMainControllingPlayer())
+  --print(PVP.TanariBuilderBad:GetMainControllingPlayer())
 end
 
 function PVP:InitiateHero(heroEntity)
- --print("INITAITE PVP HERO")
+  --print("INITAITE PVP HERO")
   if PVP.TanariBuilder then
     if GameState:NoOracle() then
-      local maxFood = math.floor(48/PlayerResource:GetPlayerCountForTeam(heroEntity:GetTeamNumber()))
-      CustomNetTables:SetTableValue("premium_pass", "line_war_food_cap_"..heroEntity:GetPlayerOwnerID(), {currentFood = 0, maxFood = maxFood} )
+      local maxFood = math.floor(48 / PlayerResource:GetPlayerCountForTeam(heroEntity:GetTeamNumber()))
+      CustomNetTables:SetTableValue("premium_pass", "line_war_food_cap_"..heroEntity:GetPlayerOwnerID(), {currentFood = 0, maxFood = maxFood})
       if heroEntity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
         PVP.TanariBuilder:SetControllableByPlayer(heroEntity:GetPlayerOwnerID(), false)
-       --print("GIVE GOODGUY CONTROL")
+        --print("GIVE GOODGUY CONTROL")
       elseif heroEntity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
         PVP.TanariBuilderBad:SetControllableByPlayer(heroEntity:GetPlayerOwnerID(), false)
-       --print("GIVE BADGUY CONTROL")
+        --print("GIVE BADGUY CONTROL")
       end
       heroEntity.linewarIncome = 50
       PlayerResource:ModifyGold(heroEntity:GetPlayerOwnerID(), 200, true, 0)
       PlayerResource:SetGold(heroEntity:GetPlayerOwnerID(), 0, false)
       -- PlayerResource:SetGold(heroEntity:GetPlayerOwnerID(), 300, true)
-      CustomNetTables:SetTableValue("premium_pass", "line_war_income_"..heroEntity:GetEntityIndex(), {income = heroEntity.linewarIncome} )
+      CustomNetTables:SetTableValue("premium_pass", "line_war_income_"..heroEntity:GetEntityIndex(), {income = heroEntity.linewarIncome})
     end
   end
 end

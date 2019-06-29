@@ -20,18 +20,18 @@ function redfall_tyrant_quake(event)
 	local position = ability.position
 	local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
 	local damage = event.damage
-	local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
-	ParticleManager:SetParticleControl( pfx, 0, position )
-	ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
+	local pfx = ParticleManager:CreateParticle(splitEarthParticle, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, position)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))
 	EmitSoundOn("Redfall.TyrantQuake", caster)
 	-- FindClearSpaceForUnit(caster, position, false)
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius+5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius + 5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
-		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
+		for _, enemy in pairs(enemies) do
+			ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 			enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 2})
 		end
-	end 		
+	end
 end
 
 function CanyonRoom2Trigger()
@@ -44,16 +44,15 @@ function alpha_dash(event)
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_redfall_alpha_charging", {duration = 5})
 	ability.damage = event.damage
-	local moveDirection = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-	local distance = WallPhysics:GetDistance(target:GetAbsOrigin()*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
-	local targetPosition = caster:GetAbsOrigin()+moveDirection*distance*2
+	local moveDirection = ((target:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+	local distance = WallPhysics:GetDistance(target:GetAbsOrigin() * Vector(1, 1, 0), caster:GetAbsOrigin() * Vector(1, 1, 0))
+	local targetPosition = caster:GetAbsOrigin() + moveDirection * distance * 2
 	caster:MoveToPosition(targetPosition)
 	ability.targetPosition = targetPosition
 	caster.attacked = false
-	caster:AddNewModifier( caster, nil, 'modifier_movespeed_cap', nil )
+	caster:AddNewModifier(caster, nil, 'modifier_movespeed_cap', nil)
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_ms_thinker", {})
 end
-
 
 function alpha_dash_think(event)
 	local caster = event.caster
@@ -61,12 +60,12 @@ function alpha_dash_think(event)
 	if caster.attacked then
 		return
 	end
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 160, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 160, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		local enemy = enemies[1]
 		EmitSoundOn("Redfall.AlphaPanda.ChargeImpact", enemy)
 		caster:PerformAttack(enemy, true, true, false, true, false, false, false)
-		StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_ATTACK, rate=2.0})
+		StartAnimation(caster, {duration = 0.8, activity = ACT_DOTA_ATTACK, rate = 2.0})
 		caster.attacked = true
 		CustomAbilities:QuickAttachParticle("particles/econ/items/brewmaster/brewmaster_offhand_elixir/brewmaster_thunder_clap_fire_b_elixir.vpcf", enemy, 4)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/axe/axe_cinder/axe_cinder_battle_hunger_start.vpcf", enemy, 1)
@@ -75,14 +74,14 @@ function alpha_dash_think(event)
 		Timers:CreateTimer(1.2, function()
 			caster:RemoveModifierByName("modifier_redfall_alpha_charging")
 		end)
-		ApplyDamage({ victim = enemy, attacker = caster, damage = event.ability.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+		ApplyDamage({victim = enemy, attacker = caster, damage = event.ability.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 	end
 	if WallPhysics:GetDistance(caster:GetAbsOrigin(), event.ability.targetPosition) < 170 then
 		caster:RemoveModifierByName("modifier_redfall_alpha_charging")
 	end
 	--print(caster:GetAbsOrigin().z)
 	--print((caster:GetAbsOrigin()+caster:GetForwardVector()*200).z)
-	if caster:GetAbsOrigin().z < (caster:GetAbsOrigin()+caster:GetForwardVector()*200).z - 20 then
+	if caster:GetAbsOrigin().z < (caster:GetAbsOrigin() + caster:GetForwardVector() * 200).z - 20 then
 		--print("REMOVE FLIGHT")
 		caster.attacked = true
 		caster:RemoveModifierByName("modifier_redfall_alpha_charging")
@@ -115,10 +114,10 @@ function armored_crab_beast_ability_start(event)
 	local ability = event.ability
 	local target = event.target
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_crab_beast_burrowwing", {duration = 2.83})
-	StartAnimation(caster, {duration=2.83, activity=ACT_DOTA_TAUNT, rate=1.0})
+	StartAnimation(caster, {duration = 2.83, activity = ACT_DOTA_TAUNT, rate = 1.0})
 	for i = 1, 30, 1 do
-		Timers:CreateTimer(i*0.03, function()
-			caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,2))
+		Timers:CreateTimer(i * 0.03, function()
+			caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, 2))
 		end)
 	end
 	EmitSoundOn("Redfall.CanyonBurrow", caster)
@@ -129,8 +128,8 @@ function armored_crab_beast_ability_start(event)
 		local targetPosition = target:GetAbsOrigin() + RandomVector(240)
 		FindClearSpaceForUnit(caster, targetPosition, false)
 		for i = 1, 26, 1 do
-			Timers:CreateTimer(i*0.03, function()
-				caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,2))
+			Timers:CreateTimer(i * 0.03, function()
+				caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 2))
 			end)
 		end
 		local pfx2 = ParticleManager:CreateParticle("particles/econ/items/sand_king/sandking_barren_crown/sandking_rubyspire_burrowstrike.vpcf", PATTACH_CUSTOMORIGIN, caster)
@@ -156,28 +155,28 @@ function dinosaur_passive_think(event)
 		EmitSoundOn("Redfall.FireballPassive", caster)
 		local randomFireballHeight = RandomInt(70, 130)
 		for i = 1, fireBalls, 1 do
-			local fv = WallPhysics:rotateVector(baseFV, 2*i*math.pi/fireBalls)
+			local fv = WallPhysics:rotateVector(baseFV, 2 * i * math.pi / fireBalls)
 			local projectileParticle = "particles/roshpit/warlord/fire_ulti_linear.vpcf"
 			local start_radius = 150
 			local end_radius = 150
 			local range = 1500
 			local speed = 1200
-			local info = 
+			local info =
 			{
-					Ability = ability,
-		        	EffectName = projectileParticle,
-		        	vSpawnOrigin = caster:GetAbsOrigin()+Vector(0,0,randomFireballHeight),
-		        	fDistance = range,
-		        	fStartRadius = start_radius,
-		        	fEndRadius = end_radius,
-		        	Source = caster,
-		        	StartPosition = "attach_origin",
-		        	bHasFrontalCone = true,
-		        	bReplaceExisting = false,
-		        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-		        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		        	fExpireTime = GameRules:GetGameTime() + 4.0,
+				Ability = ability,
+				EffectName = projectileParticle,
+				vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, randomFireballHeight),
+				fDistance = range,
+				fStartRadius = start_radius,
+				fEndRadius = end_radius,
+				Source = caster,
+				StartPosition = "attach_origin",
+				bHasFrontalCone = true,
+				bReplaceExisting = false,
+				iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+				iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+				iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+				fExpireTime = GameRules:GetGameTime() + 4.0,
 				bDeleteOnHit = false,
 				vVelocity = fv * speed,
 				bProvidesVision = false,
@@ -197,12 +196,8 @@ function dinosaur_projectile_hit(event)
 end
 
 function redfall_canyon_dinosaur_die(event)
-	print("redfall_canyon_dinosaur_die")
 	local unit = event.unit
-	print("Unit: "..unit:GetUnitName())
 	Timers:CreateTimer(1.5, function()
-		--print("GO!")
-		print("Spawning Lizard at: "..tostring(unit:GetAbsOrigin()))
 		Redfall.RedLizard = CreateUnitByName("redfall_lzard_guide", unit:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_GOODGUYS)
 		Redfall.RedLizard:SetDayTimeVisionRange(500)
 		Redfall.RedLizard:SetNightTimeVisionRange(500)
@@ -215,19 +210,19 @@ function redfall_canyon_dinosaur_die(event)
 		EmitSoundOn("Redfall.FireballPassive", Redfall.RedLizard)
 		WallPhysics:Jump(Redfall.RedLizard, unit:GetForwardVector(), 10, 24, 35, 1)
 		local particleName = "particles/units/heroes/hero_doom_bringer/doom_loadout.vpcf"
-	    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Redfall.RedLizard)
-	    ParticleManager:SetParticleControl(pfx,0,Redfall.RedLizard:GetAbsOrigin())   
+		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Redfall.RedLizard)
+		ParticleManager:SetParticleControl(pfx, 0, Redfall.RedLizard:GetAbsOrigin())
 		Timers:CreateTimer(2.5, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 		Timers:CreateTimer(0.2, function()
-			StartAnimation(Redfall.RedLizard, {duration=1.2, activity=ACT_DOTA_SPAWN, rate=0.5})
+			StartAnimation(Redfall.RedLizard, {duration = 1.2, activity = ACT_DOTA_SPAWN, rate = 0.5})
 		end)
 		Timers:CreateTimer(1.7, function()
 			local particleName = "particles/units/heroes/hero_doom_bringer/doom_loadout.vpcf"
-		    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Redfall.RedLizard)
-		    ParticleManager:SetParticleControl(pfx,0,Redfall.RedLizard:GetAbsOrigin())   
-		    EmitSoundOn("Arena.ForestSwitchLand", Redfall.RedLizard)
+			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Redfall.RedLizard)
+			ParticleManager:SetParticleControl(pfx, 0, Redfall.RedLizard:GetAbsOrigin())
+			EmitSoundOn("Arena.ForestSwitchLand", Redfall.RedLizard)
 			Redfall.RedLizard.aiState = 0
 
 			Timers:CreateTimer(2.5, function()
@@ -253,7 +248,7 @@ function redfall_guide_think(event)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_temporary_flying", {duration = 1.1})
 		end
 		ability.lastPos = caster:GetAbsOrigin()
-		local distanceToTarget = WallPhysics:GetDistance(caster:GetAbsOrigin()*Vector(1,1,0), Vector(-14272, 2880))
+		local distanceToTarget = WallPhysics:GetDistance(caster:GetAbsOrigin() * Vector(1, 1, 0), Vector(-14272, 2880))
 		if distanceToTarget < 80 then
 			caster.lock = true
 			Timers:CreateTimer(2, function()
@@ -274,10 +269,10 @@ function redfall_guide_think(event)
 		end
 	elseif caster.aiState == 1 then
 		caster:MoveToPosition(caster.targetPoint)
-		local distance = WallPhysics:GetDistance(caster:GetAbsOrigin()*Vector(1,1,0), caster.targetPoint)
-		local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 180, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
-		if #allies > 0 then	
-			for _,ally in pairs(allies) do
+		local distance = WallPhysics:GetDistance(caster:GetAbsOrigin() * Vector(1, 1, 0), caster.targetPoint)
+		local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 180, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+		if #allies > 0 then
+			for _, ally in pairs(allies) do
 				if not ally:HasModifier("modifier_inside_lizard") and not ally:HasModifier("modifier_lizard_immunity") then
 					ability:ApplyDataDrivenModifier(caster, caster, "modifier_lizard_carrying", {})
 					if not ability.carryPFX then
@@ -340,9 +335,9 @@ function allyPickupStart(event)
 	local ability = event.ability
 	local target = event.target
 	local particleName = "particles/units/heroes/hero_doom_bringer/doom_loadout.vpcf"
-    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
-    ParticleManager:SetParticleControl(pfx,0,target:GetAbsOrigin())   
-    EmitSoundOn("Redfall.FireballPassive", target)
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin())
+	EmitSoundOn("Redfall.FireballPassive", target)
 
 	Timers:CreateTimer(2.5, function()
 		ParticleManager:DestroyParticle(pfx, false)
@@ -366,7 +361,7 @@ function barbarian_passive_think(event)
 
 	caster.interval = caster.interval + 1
 	if caster.interval == 50 then
-		StartAnimation(caster, {duration=0.78, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.0})
+		StartAnimation(caster, {duration = 0.78, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.0})
 		caster.interval = 1
 		EmitSoundOn("Redfall.Barbarian.AxeSlam", caster)
 		Timers:CreateTimer(0.5, function()
@@ -379,22 +374,22 @@ function barbarian_passive_think(event)
 			local end_radius = 240
 			local range = 1200
 			local speed = 600
-			local info = 
+			local info =
 			{
 				Ability = ability,
-		        EffectName = projectileParticle,
-		        vSpawnOrigin = caster:GetAbsOrigin()+Vector(0,0,10),
-		        fDistance = range,
-		        fStartRadius = start_radius,
-		        fEndRadius = end_radius,
-		        Source = caster,
-		        StartPosition = "attach_origin",
-		        bHasFrontalCone = true,
-		        bReplaceExisting = false,
-		        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-		        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		        fExpireTime = GameRules:GetGameTime() + 4.0,
+				EffectName = projectileParticle,
+				vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 10),
+				fDistance = range,
+				fStartRadius = start_radius,
+				fEndRadius = end_radius,
+				Source = caster,
+				StartPosition = "attach_origin",
+				bHasFrontalCone = true,
+				bReplaceExisting = false,
+				iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+				iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+				iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+				fExpireTime = GameRules:GetGameTime() + 4.0,
 				bDeleteOnHit = false,
 				vVelocity = fv * speed,
 				bProvidesVision = false,
@@ -411,52 +406,51 @@ function redfall_canyon_barbarian_die(event)
 	local targetPosition = Vector(-13440, 8768)
 	EmitSoundOn("Redfall.FireballPassive", unit)
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, targetPosition, 600, 30, true)
-	local fv = (targetPosition - unit:GetAbsOrigin()*Vector(1,1,0)):Normalized()
+	local fv = (targetPosition - unit:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
 	local projectileParticle = "particles/roshpit/warlord/fire_ulti_linear.vpcf"
 	local start_radius = 0
 	local end_radius = 0
-	local range = WallPhysics:GetDistance(unit:GetAbsOrigin()*Vector(1,1,0), targetPosition)
+	local range = WallPhysics:GetDistance(unit:GetAbsOrigin() * Vector(1, 1, 0), targetPosition)
 	local speed = 1200
-	local info = 
+	local info =
 	{
 		Ability = ability,
-        EffectName = projectileParticle,
-        vSpawnOrigin = unit:GetAbsOrigin()+Vector(0,0,80),
-        fDistance = range,
-        fStartRadius = start_radius,
-        fEndRadius = end_radius,
-        Source = unit,
-        StartPosition = "attach_origin",
-        bHasFrontalCone = true,
-        bReplaceExisting = false,
-        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_NONE,
-        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        fExpireTime = GameRules:GetGameTime() + 4.0,
+		EffectName = projectileParticle,
+		vSpawnOrigin = unit:GetAbsOrigin() + Vector(0, 0, 80),
+		fDistance = range,
+		fStartRadius = start_radius,
+		fEndRadius = end_radius,
+		Source = unit,
+		StartPosition = "attach_origin",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_NONE,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 4.0,
 		bDeleteOnHit = false,
 		vVelocity = fv * speed,
 		bProvidesVision = false,
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 
-	Timers:CreateTimer(range/speed, function()
+	Timers:CreateTimer(range / speed, function()
 		EmitSoundOnLocationWithCaster(targetPosition, "Redfall.RocksExplode", Redfall.RedfallMaster)
 		local particle = "particles/units/heroes/hero_warlock/warlock_rain_of_chaos.vpcf"
-		local pfx = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, unit )
+		local pfx = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, unit)
 		local particlePosition = GetGroundPosition(targetPosition, Events.GameMaster)
-		ParticleManager:SetParticleControl( pfx, 0, particlePosition )
-		ParticleManager:SetParticleControl( pfx, 1, particlePosition )
-		ParticleManager:SetParticleControl( pfx, 2, fv )
+		ParticleManager:SetParticleControl(pfx, 0, particlePosition)
+		ParticleManager:SetParticleControl(pfx, 1, particlePosition)
+		ParticleManager:SetParticleControl(pfx, 2, fv)
 		Timers:CreateTimer(3.5, function()
 			ParticleManager:DestroyParticle(pfx, false)
-		end)		
+		end)
 
-
-		local blockers = Entities:FindAllByNameWithin("CanyonCaveBlocker", Vector(-13376, 8630, 128+Redfall.ZFLOAT), 3000)
+		local blockers = Entities:FindAllByNameWithin("CanyonCaveBlocker", Vector(-13376, 8630, 128 + Redfall.ZFLOAT), 3000)
 		for i = 1, #blockers, 1 do
 			UTIL_Remove(blockers[i])
 		end
-		local rocks = Entities:FindAllByNameWithin("CanyonCaveRocks", Vector(-13376, 8630, 128+Redfall.ZFLOAT), 3000)
+		local rocks = Entities:FindAllByNameWithin("CanyonCaveRocks", Vector(-13376, 8630, 128 + Redfall.ZFLOAT), 3000)
 		for i = 1, #rocks, 1 do
 			UTIL_Remove(rocks[i])
 		end
@@ -474,7 +468,7 @@ function AutmnMistCaveTrigger()
 			Timers:CreateTimer(2, function()
 				for i = 1, #spawnPositionTable, 1 do
 					local pfx = ParticleManager:CreateParticle("particles/roshpit/redfall/spawn_portal_counter.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
-					ParticleManager:SetParticleControl(pfx, 0, spawnPositionTable[i]+Vector(0,0,150+Redfall.ZFLOAT))
+					ParticleManager:SetParticleControl(pfx, 0, spawnPositionTable[i] + Vector(0, 0, 150 + Redfall.ZFLOAT))
 					table.insert(Redfall.spawnPortalTable, pfx)
 					EmitSoundOnLocationWithCaster(spawnPositionTable[i], "Redfall.CaveUnitPortals", Redfall.RedfallMaster)
 				end
@@ -534,7 +528,7 @@ function autumn_mist_cave_die()
 				Redfall:SpawnCaveWaveUnit("redfall_mist_knight", spawnPositionTable[i], 13, 33, delay, true)
 			end
 
-		end		
+		end
 	elseif Redfall.CaveDungeonTally == 112 then
 		local spawnPositionTable = {Vector(-14729, 10916), Vector(-13820, 10916), Vector(-11921, 9947)}
 		for i = 1, #spawnPositionTable, 1 do
@@ -551,7 +545,7 @@ function autumn_mist_cave_die()
 			else
 				Redfall:SpawnCaveWaveUnit("redfall_mist_assassin", spawnPositionTable[i], 13, 33, delay, true)
 			end
-		end	
+		end
 	elseif Redfall.CaveDungeonTally == 150 then
 		local spawnPositionTable = {Vector(-14729, 10916), Vector(-13820, 10916), Vector(-11921, 9947)}
 		for i = 1, #spawnPositionTable, 1 do
@@ -568,7 +562,7 @@ function autumn_mist_cave_die()
 			else
 				Redfall:SpawnCaveWaveUnit("redfall_mist_assassin", spawnPositionTable[i], 13, 33, delay, true)
 			end
-		end	
+		end
 	elseif Redfall.CaveDungeonTally == 190 then
 		local spawnPositionTable = {Vector(-14729, 10916), Vector(-13820, 10916), Vector(-11921, 9947)}
 		for i = 1, #spawnPositionTable, 1 do
@@ -585,15 +579,13 @@ function autumn_mist_cave_die()
 			else
 				Redfall:SpawnCaveWaveUnit("redfall_ashfall_knight", spawnPositionTable[i], 13, 33, delay, true)
 			end
-		end	
+		end
 	elseif Redfall.CaveDungeonTally == 228 then
-		local boss = Redfall:SpawnAutumnMageBoss(Vector(-13820, 10916), Vector(0,-1))
+		local boss = Redfall:SpawnAutumnMageBoss(Vector(-13820, 10916), Vector(0, -1))
 		EmitSoundOnLocationWithCaster(Vector(-13820, 10916), "Redfall.CaveUnitSpawn", Redfall.RedfallMaster)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lone_druid/lone_druid_loadout.vpcf", boss, 2)
 	end
 end
-
-
 
 function autumn_mage_attack_hit(event)
 	local damage = event.damage
@@ -604,10 +596,10 @@ function autumn_mage_attack_hit(event)
 	EmitSoundOn("Redfall.AutumnMage.StarStart", target)
 	Timers:CreateTimer(0.6, function()
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_doom_bringer/doom_loadout.vpcf", target, 3)
-	    EmitSoundOn("Redfall.FireballPassive", target)
-		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
+		EmitSoundOn("Redfall.FireballPassive", target)
+		ApplyDamage({victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 		ability:ApplyDataDrivenModifier(attacker, target, "modifier_autumn_mage_debuff", {duration = 3})
-		
+
 	end)
 end
 
@@ -627,13 +619,13 @@ function autumn_blink_debuff_end(event)
 	local particleName = "particles/econ/events/ti6/blink_dagger_end_ti6_lvl2.vpcf"
 	local pfx1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx1, 0, caster:GetAbsOrigin())
-    local target = caster:GetAbsOrigin() + RandomVector(RandomInt(560, 1000))
-    local casterOrigin = caster:GetAbsOrigin()
-    target = WallPhysics:WallSearch(casterOrigin, target, caster)
-    -- local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_loadout.vpcf", PATTACH_ABSORIGIN, event.caster )
-    --     ParticleManager:SetParticleControl( pfx, 0, position )
-    local newPosition = target
-    FindClearSpaceForUnit(caster, newPosition, false)
+	local target = caster:GetAbsOrigin() + RandomVector(RandomInt(560, 1000))
+	local casterOrigin = caster:GetAbsOrigin()
+	target = WallPhysics:WallSearch(casterOrigin, target, caster)
+	-- local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_loadout.vpcf", PATTACH_ABSORIGIN, event.caster )
+	--     ParticleManager:SetParticleControl( pfx, 0, position )
+	local newPosition = target
+	FindClearSpaceForUnit(caster, newPosition, false)
 	local pfx2 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx2, 0, newPosition)
 	Timers:CreateTimer(4, function()
@@ -643,31 +635,31 @@ function autumn_blink_debuff_end(event)
 end
 
 function autumn_mage_boss_die(event)
-	local caster = event.caster
+	local unit = event.unit
 	local ability = event.ability
-	EmitSoundOn("Redfall.AutumnMageBoss.Die", caster)
+	EmitSoundOn("Redfall.AutumnMageBoss.Die", unit)
 	Timers:CreateTimer(3, function()
-		local walls = Entities:FindAllByNameWithin("CaveBossWall", Vector(-12459, 11567, 270+Redfall.ZFLOAT), 2000)
+		local walls = Entities:FindAllByNameWithin("CaveBossWall", Vector(-12459, 11567, 270 + Redfall.ZFLOAT), 2000)
 		Redfall:Walls(false, walls, true, 4.5)
 		Timers:CreateTimer(4.7, function()
-			local blockers = Entities:FindAllByNameWithin("CanyonCaveEndBlocker", Vector(-12480, 11529, 104+Redfall.ZFLOAT), 3000)
+			local blockers = Entities:FindAllByNameWithin("CanyonCaveEndBlocker", Vector(-12480, 11529, 104 + Redfall.ZFLOAT), 3000)
 			for i = 1, #blockers, 1 do
 				UTIL_Remove(blockers[i])
 			end
-		end)		
+		end)
 	end)
 
-	local luck = RandomInt(1,4)
+	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollAutumnrockBracers(caster:GetAbsOrigin())
+		RPCItems:RollAutumnrockBracers(unit:GetAbsOrigin())
 	end
 	for i = 1, #Redfall.spawnPortalTable, 1 do
 		ParticleManager:DestroyParticle(Redfall.spawnPortalTable[i], false)
 	end
 
-	local position = Vector(-14822, 14269, 118+Redfall.ZFLOAT)
+	local position = Vector(-14822, 14269, 118 + Redfall.ZFLOAT)
 	local pfx = ParticleManager:CreateParticle("particles/rain_fx/econ_weather_ash.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
-	ParticleManager:SetParticleControl(pfx, 0, position+Vector(0,0,150))
+	ParticleManager:SetParticleControl(pfx, 0, position + Vector(0, 0, 150))
 	local bossTree = Entities:FindByNameNearest("VermillionTreeCorrupted", position, 1200)
 
 	local pfx2 = ParticleManager:CreateParticle("particles/dire_fx/avernus_eye_smoke.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
@@ -676,30 +668,30 @@ function autumn_mage_boss_die(event)
 		ParticleManager:DestroyParticle(pfx2, false)
 	end)
 	Timers:CreateTimer(2.5, function()
-		local moveVector = Vector(0,0,700)/180
+		local moveVector = Vector(0, 0, 700) / 180
 		for j = 1, 180, 1 do
-			Timers:CreateTimer(j*0.03, function()
+			Timers:CreateTimer(j * 0.03, function()
 
-				bossTree:SetAbsOrigin(bossTree:GetAbsOrigin()+moveVector)
-				if j%30 == 0 then
+				bossTree:SetAbsOrigin(bossTree:GetAbsOrigin() + moveVector)
+				if j % 30 == 0 then
 					ScreenShake(position, 130, 0.9, 0.9, 9000, 0, true)
 					EmitSoundOnLocationWithCaster(position, "Redfall.TreeRising", Redfall.RedfallMaster)
 					local pfxX = ParticleManager:CreateParticle("particles/dire_fx/dire_lfr_smoke_19sec.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
 					ParticleManager:SetParticleControl(pfxX, 0, position)
 					Timers:CreateTimer(10, function()
 						ParticleManager:DestroyParticle(pfxX, false)
-					end)				
+					end)
 				end
 				if j == 180 then
 					local particle = "particles/roshpit/redfall/tree_healed.vpcf"
-					local pfxA = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, caster )
-					FindClearSpaceForUnit(caster, position, false)
-					ParticleManager:SetParticleControl( pfxA, 0, position )
-					ParticleManager:SetParticleControl( pfxA, 1, position )
-					ParticleManager:SetParticleControl( pfxA, 2, Vector(0,1) )
+					local pfxA = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, unit)
+					FindClearSpaceForUnit(unit, position, false)
+					ParticleManager:SetParticleControl(pfxA, 0, position)
+					ParticleManager:SetParticleControl(pfxA, 1, position)
+					ParticleManager:SetParticleControl(pfxA, 2, Vector(0, 1))
 					Timers:CreateTimer(7.5, function()
 						ParticleManager:DestroyParticle(pfxA, false)
-					end)			
+					end)
 					Redfall.CanyonLastTreeReady = true
 				end
 			end)
@@ -723,8 +715,8 @@ function autumn_mage_boss_think(event)
 			length = 4
 		end
 		for i = 1, length, 1 do
-			local fv = WallPhysics:rotateVector(Vector(1,0), 2*math.pi*ability.rotateIndex/16)
-			local position = caster:GetAbsOrigin() + fv*i*280
+			local fv = WallPhysics:rotateVector(Vector(1, 0), 2 * math.pi * ability.rotateIndex / 16)
+			local position = caster:GetAbsOrigin() + fv * i * 280
 			autumn_mage_boss_explosion(caster, position, damage, 160, ability)
 		end
 		ability.rotateIndex = ability.rotateIndex + 1
@@ -735,26 +727,24 @@ function autumn_mage_boss_think(event)
 end
 
 function autumn_mage_boss_explosion(caster, position, damage, explosionAOE, ability)
-		local stun_duration = 1.5
+	local stun_duration = 1.5
 
+	local particleName = "particles/econ/items/centaur/centaur_ti6/centaur_ti6_warstomp.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(particle1, 0, position)
+	ParticleManager:SetParticleControl(particle1, 1, Vector(explosionAOE, 5, explosionAOE * 2))
+	Timers:CreateTimer(4, function()
+		ParticleManager:DestroyParticle(particle1, false)
+	end)
+	EmitSoundOnLocationWithCaster(position, "Redfall.AutumnMage.Quake", caster)
 
-		local particleName = "particles/econ/items/centaur/centaur_ti6/centaur_ti6_warstomp.vpcf"
-		local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-		ParticleManager:SetParticleControl( particle1, 0, position )
-		ParticleManager:SetParticleControl( particle1, 1, Vector(explosionAOE, 5, explosionAOE*2) )
-		Timers:CreateTimer(4, 
-		function()
-			ParticleManager:DestroyParticle( particle1, false )
-		end)	
-		EmitSoundOnLocationWithCaster(position, "Redfall.AutumnMage.Quake", caster)
-
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-		if #enemies > 0 then
-			for _,enemy in pairs(enemies) do
-				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
-				enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = stun_duration})
-			end
-		end 
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+			enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = stun_duration})
+		end
+	end
 end
 
 function CanyonEndTree(trigger)
@@ -763,7 +753,7 @@ function CanyonEndTree(trigger)
 			Redfall.LastCanyonTreeActivated = true
 			local hero = trigger.activator
 			local position = hero:GetAbsOrigin()
-			local tree = Entities:FindByNameNearest("VermillionTreeCorrupted", Vector(position.x, position.y, 130+Redfall.ZFLOAT), 1200)
+			local tree = Entities:FindByNameNearest("VermillionTreeCorrupted", Vector(position.x, position.y, 130 + Redfall.ZFLOAT), 1200)
 			if tree then
 				EndTreeInitiate(tree)
 			end
@@ -773,9 +763,9 @@ end
 
 function EndTreeInitiate(tree)
 	local particleName = "particles/dark_smoke_test.vpcf"
-    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
-    ParticleManager:SetParticleControl(pfx,0,tree:GetAbsOrigin())   
-    EmitSoundOnLocationWithCaster(tree:GetAbsOrigin(), "Redfall.CorruptedTreeStart", Redfall.RedfallMaster)
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, tree:GetAbsOrigin())
+	EmitSoundOnLocationWithCaster(tree:GetAbsOrigin(), "Redfall.CorruptedTreeStart", Redfall.RedfallMaster)
 	local treeDummy = CreateUnitByName("npc_dummy_unit", tree:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_NEUTRALS)
 	treeDummy.cultistsSlain = 0
 	treeDummy.cultistsTarget = 15
@@ -785,8 +775,8 @@ function EndTreeInitiate(tree)
 	treeDummy.boss = true
 	Timers:CreateTimer(3.5, function()
 		for i = 1, 20, 1 do
-			Timers:CreateTimer(i*0.6, function()
-				local cultist = Redfall:SpawnCrimsythCultist(tree:GetAbsOrigin(), Vector(0,-1), tree:GetAbsOrigin())
+			Timers:CreateTimer(i * 0.6, function()
+				local cultist = Redfall:SpawnCrimsythCultist(tree:GetAbsOrigin(), Vector(0, -1), tree:GetAbsOrigin())
 				cultist.treeDummy = treeDummy
 			end)
 		end
@@ -801,10 +791,10 @@ function canyon_boss_think(event)
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 100, 2, false)
 	local bossPosition = caster:GetAbsOrigin()
 	if timeWalk:IsFullyCastable() then
-		if bossPosition.x < -15712 
-			or bossPosition.y > 15136 
-			or (bossPosition.x < -15520 and bossPosition.y > 14944) 
-			or (bossPosition.x > -13664 and bossPosition.y > 14944) 
+		if bossPosition.x < -15712
+			or bossPosition.y > 15136
+			or (bossPosition.x < -15520 and bossPosition.y > 14944)
+			or (bossPosition.x > -13664 and bossPosition.y > 14944)
 			or (bossPosition.x > -13216 and bossPosition.y > 14752)
 			or (bossPosition.x > -12896 and bossPosition.y > 14432)
 			or (bossPosition.x > -12448 and bossPosition.y > 13984)
@@ -812,48 +802,47 @@ function canyon_boss_think(event)
 			or bossPosition.y < 12000
 			or (bossPosition.x < -15521 and bossPosition.y < 12702)
 			then
-				print("Going back to middle!")
-				local castPoint = Vector(-14114, 13688, 1024)
+			print("Going back to middle!")
+			local castPoint = Vector(-14114, 13688, 1024)
+			local newOrder = {
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+				AbilityIndex = timeWalk:entindex(),
+				Position = castPoint
+			}
+
+			ExecuteOrderFromTable(newOrder)
+		else
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				local castPoint = enemies[1]:GetAbsOrigin() + RandomVector(240)
 				local newOrder = {
 					UnitIndex = caster:entindex(),
 					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
 					AbilityIndex = timeWalk:entindex(),
 					Position = castPoint
-			 	}
-			 
-				ExecuteOrderFromTable(newOrder)	
-		else	
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
-			if #enemies > 0 then
-				local castPoint = enemies[1]:GetAbsOrigin() + RandomVector(240)
-				local newOrder = {
-						UnitIndex = caster:entindex(),
-						OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-						AbilityIndex = timeWalk:entindex(),
-						Position = castPoint
-			 		}
-			 
-				ExecuteOrderFromTable(newOrder)			
+				}
+
+				ExecuteOrderFromTable(newOrder)
 			end
 		end
 	end
 	if caster:HasAbility("canyon_boss_lightning") then
 		--print("CAST MJOO!")
 		local mjollAbility = caster:FindAbilityByName("canyon_boss_lightning")
-		local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )	
-		if #allies > 0 then	
+		local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #allies > 0 then
 			local newOrder = {
-			 		UnitIndex = caster:entindex(), 
-			 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-			 		TargetIndex = allies[1]:entindex(),
-			 		AbilityIndex = mjollAbility:entindex(),
-		 	}
-			 
-			ExecuteOrderFromTable(newOrder)		
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+				TargetIndex = allies[1]:entindex(),
+				AbilityIndex = mjollAbility:entindex(),
+			}
+
+			ExecuteOrderFromTable(newOrder)
 		end
 	end
 end
-
 
 function canyon_boss_blink_start(event)
 	local caster = event.caster
@@ -866,14 +855,14 @@ function canyon_boss_blink_start(event)
 	if distance > maxRange then
 		print("Distance: "..distance)
 		print("Previous target Vector: "..tostring(jumpToPosition))
-		print("Multiplying direction ("..tostring(direction)..") with maxRange ("..maxRange..")")
+		print("Multiplying direction ("..tostring(direction) .. ") with maxRange ("..maxRange..")")
 		jumpToPosition = boss:GetAbsOrigin() + maxRange * direction
 		jumpToPosition.z = 1024
 		print("New target Vector: "..tostring(jumpToPosition))
 	end
-	local moveVector = (jumpToPosition - boss:GetAbsOrigin())/25
+	local moveVector = (jumpToPosition - boss:GetAbsOrigin()) / 25
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_walking", {duration = 2.1})
-	StartAnimation(boss, {duration=1.9, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.5})
+	StartAnimation(boss, {duration = 1.9, activity = ACT_DOTA_CAST_ABILITY_1, rate = 0.5})
 	EmitSoundOn("Redfall.CanyonBoss.LeapIntro", boss)
 	for i = 1, 33, 1 do
 		local targetPosition = boss:GetAbsOrigin() + moveVector * i
@@ -882,16 +871,15 @@ function canyon_boss_blink_start(event)
 		if blockUnit == true then
 			break
 		else
-			Timers:CreateTimer(i*0.03, function()
+			Timers:CreateTimer(i * 0.03, function()
 				boss:SetAbsOrigin(targetPosition)
 			end)
 		end
 	end
 	Timers:CreateTimer(1.95, function()
 		FindClearSpaceForUnit(boss, boss:GetAbsOrigin(), false)
-		StartAnimation(boss, {duration=0.27, activity=ACT_DOTA_CAST_ABILITY_1_END, rate=1.0})
+		StartAnimation(boss, {duration = 0.27, activity = ACT_DOTA_CAST_ABILITY_1_END, rate = 1.0})
 	end)
-
 
 end
 
@@ -902,18 +890,18 @@ function boss_explosion_pushback(event)
 	if not target.pushVector then
 		target.pushVelocity = 32
 		local impactPoint = target:GetAbsOrigin()
-		local pushVector = ((impactPoint - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		local pushVector = ((impactPoint - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 		target.pushVector = pushVector
 		EmitSoundOn("Redfall.StoneAttack", target)
 	end
-	local obstruction = WallPhysics:FindNearestObstruction(target:GetAbsOrigin()+target.pushVector*30)
-	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, target:GetAbsOrigin()+target.pushVector*30, target)
+	local obstruction = WallPhysics:FindNearestObstruction(target:GetAbsOrigin() + target.pushVector * 30)
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, target:GetAbsOrigin() + target.pushVector * 30, target)
 	local fv = target.pushVector
 	if blockUnit then
 		fv = 0
 	end
 
-	target:SetAbsOrigin(target:GetAbsOrigin() + fv*target.pushVelocity)
+	target:SetAbsOrigin(target:GetAbsOrigin() + fv * target.pushVelocity)
 	target.pushVelocity = math.max(target.pushVelocity - 1, 0)
 end
 
@@ -931,7 +919,7 @@ function redfall_canyon_boss_death_check(event)
 		if caster:GetHealth() < 50 then
 			if caster.paragonDummy == nil or caster.buddiesSlain + 1 == caster.packSize then
 				redfall_canyon_boss_kill_clones(caster)
-				StartAnimation(caster, {duration=7, activity=ACT_DOTA_FLAIL, rate=1})
+				StartAnimation(caster, {duration = 7, activity = ACT_DOTA_FLAIL, rate = 1})
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_dying_generic", {duration = 20})
 				CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 				caster.deathStart = true
@@ -964,14 +952,14 @@ function CanyonBossDeath(caster, ability)
 	end)
 	Timers:CreateTimer(1.5, function()
 		EmitGlobalSound("Loot_Drop_Stinger_Arcana")
-		Notifications:TopToAll({text="Dungeon Clear!", duration=8.0})
-		local luck = RandomInt(1,4)
+		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
+		local luck = RandomInt(1, 4)
 		if luck == 1 then
 			RPCItems:RollEyeOfSeasons(caster:GetAbsOrigin(), false)
 		end
 	end)
 	for i = 1, 14, 1 do
-		Timers:CreateTimer(0.5*i, function()
+		Timers:CreateTimer(0.5 * i, function()
 			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
 		end)
 	end
@@ -981,14 +969,14 @@ function CanyonBossDeath(caster, ability)
 		caster:RemoveModifierByName("modifier_dying_generic")
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_cant_die_disabled", {duration = 20})
 		Timers:CreateTimer(0.1, function()
-			StartAnimation(caster, {duration=8, activity=ACT_DOTA_DIE, rate=0.15})
+			StartAnimation(caster, {duration = 8, activity = ACT_DOTA_DIE, rate = 0.15})
 			EmitSoundOn("Redfall.CanyonBoss.Death2", caster)
 			-- for i = 1, 120, 1 do
-			-- 	Timers:CreateTimer(i*0.05, function()
-			-- 		if IsValidEntity(caster) then
-			-- 			caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,-5))
-			-- 		end
-			-- 	end)
+			-- Timers:CreateTimer(i*0.05, function()
+			-- if IsValidEntity(caster) then
+			-- caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,-5))
+			-- end
+			-- end)
 			-- end
 			Timers:CreateTimer(5.7, function()
 				UTIL_Remove(caster)
@@ -997,14 +985,13 @@ function CanyonBossDeath(caster, ability)
 		end)
 	end)
 
-
 	local treeDummy = Redfall.CanyonTreeDummy
 	Timers:CreateTimer(8, function()
 
 		local position = treeDummy.tree:GetAbsOrigin()
 		local pfx = ParticleManager:CreateParticle("particles/rain_fx/econ_weather_ash.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
-		ParticleManager:SetParticleControl(pfx, 0, position+Vector(0,0,150))
-		local healedTree = Entities:FindByNameNearest("VermillionTreeHealed", treeDummy:GetAbsOrigin()-Vector(0,0,700), 1200)
+		ParticleManager:SetParticleControl(pfx, 0, position + Vector(0, 0, 150))
+		local healedTree = Entities:FindByNameNearest("VermillionTreeHealed", treeDummy:GetAbsOrigin() - Vector(0, 0, 700), 1200)
 
 		local pfx2 = ParticleManager:CreateParticle("particles/dire_fx/avernus_eye_smoke.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
 		ParticleManager:SetParticleControl(pfx2, 0, position)
@@ -1012,35 +999,35 @@ function CanyonBossDeath(caster, ability)
 			ParticleManager:DestroyParticle(pfx2, false)
 		end)
 		Timers:CreateTimer(2.5, function()
-			local moveVector = (position - healedTree:GetAbsOrigin())/180
+			local moveVector = (position - healedTree:GetAbsOrigin()) / 180
 			for j = 1, 180, 1 do
-				Timers:CreateTimer(j*0.03, function()
+				Timers:CreateTimer(j * 0.03, function()
 
-					healedTree:SetAbsOrigin(healedTree:GetAbsOrigin()+moveVector)
-					if j%30 == 0 then
+					healedTree:SetAbsOrigin(healedTree:GetAbsOrigin() + moveVector)
+					if j % 30 == 0 then
 						ScreenShake(position, 130, 0.9, 0.9, 9000, 0, true)
 						EmitSoundOnLocationWithCaster(position, "Redfall.TreeRising", Redfall.RedfallMaster)
 						local pfxX = ParticleManager:CreateParticle("particles/dire_fx/dire_lfr_smoke_19sec.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
 						ParticleManager:SetParticleControl(pfxX, 0, position)
 						Timers:CreateTimer(10, function()
 							ParticleManager:DestroyParticle(pfxX, false)
-						end)				
+						end)
 					end
 					if j == 180 then
 						EmitSoundOnLocationWithCaster(position, "Redfall.TreeHealedMain", Events.GameMaster)
 						EmitSoundOnLocationWithCaster(position, "Redfall.TreeHealed", Redfall.RedfallMaster)
 						local particle = "particles/roshpit/redfall/tree_healed.vpcf"
-						local pfxA = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, caster )
+						local pfxA = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, caster)
 						FindClearSpaceForUnit(caster, position, false)
-						ParticleManager:SetParticleControl( pfxA, 0, position )
-						ParticleManager:SetParticleControl( pfxA, 1, position )
-						ParticleManager:SetParticleControl( pfxA, 2, Vector(0,1) )
+						ParticleManager:SetParticleControl(pfxA, 0, position)
+						ParticleManager:SetParticleControl(pfxA, 1, position)
+						ParticleManager:SetParticleControl(pfxA, 2, Vector(0, 1))
 						Timers:CreateTimer(7.5, function()
 							ParticleManager:DestroyParticle(pfxA, false)
 						end)
-						Timers:CreateTimer(1, function()	
+						Timers:CreateTimer(1, function()
 							for i = 1, #MAIN_HERO_TABLE, 1 do
-								Redfall:GiveVermillionBundle(MAIN_HERO_TABLE[i], position+Vector(0,0,550))
+								Redfall:GiveVermillionBundle(MAIN_HERO_TABLE[i], position + Vector(0, 0, 550))
 							end
 						end)
 					end
@@ -1048,8 +1035,8 @@ function CanyonBossDeath(caster, ability)
 			end
 		end)
 		for k = 1, 100, 1 do
-			Timers:CreateTimer(k*0.03, function()
-				treeDummy.tree:SetModelScale(1-(k/100))
+			Timers:CreateTimer(k * 0.03, function()
+				treeDummy.tree:SetModelScale(1 - (k / 100))
 				if k == 100 then
 					UTIL_Remove(treeDummy.tree)
 					ParticleManager:DestroyParticle(treeDummy.pfx, false)
@@ -1060,21 +1047,20 @@ function CanyonBossDeath(caster, ability)
 	end)
 end
 
-
 function death_animation(keys)
 	local caster = keys.caster
-    CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/boss_death_ntimage_manavoid_ti_5.vpcf", caster, 3)
-    EmitSoundOn("Redfall.CanyonBoss.Dying", caster)
+	CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/boss_death_ntimage_manavoid_ti_5.vpcf", caster, 3)
+	EmitSoundOn("Redfall.CanyonBoss.Dying", caster)
 
-    if caster:GetUnitName() == "redfall_canyon_boss" then
-		local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 5000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )	
-		if #allies > 0 then	
+	if caster:GetUnitName() == "redfall_canyon_boss" then
+		local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 5000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #allies > 0 then
 			for i = 1, #allies, 1 do
-				-- ApplyDamage({ victim = enemies[i], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
-				ApplyDamage({ victim = allies[i], attacker = caster, damage = allies[i]:GetMaxHealth()*20, damage_type = DAMAGE_TYPE_PURE })	
+				-- ApplyDamage({ victim = enemies[i], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+				ApplyDamage({victim = allies[i], attacker = caster, damage = allies[i]:GetMaxHealth() * 20, damage_type = DAMAGE_TYPE_PURE})
 			end
 		end
-    end
+	end
 end
 
 function AsharaShrineTrigger(trigger)
@@ -1092,25 +1078,25 @@ function spirit_of_ashara_think(event)
 	if not caster:IsAlive() then
 		return false
 	end
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
-		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
+		for _, enemy in pairs(enemies) do
+			ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 			local particleName = "particles/roshpit/redfall/ashara_moonbeam_lucent_beam_impact_shared_ti_5_gold.vpcf"
-			local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
+			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, enemy)
 			for i = 1, 8, 1 do
 				ParticleManager:SetParticleControlEnt(pfx, i, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", enemy:GetAbsOrigin(), true)
 			end
-			ParticleManager:SetParticleControl(pfx, 2, Vector(0,0,1000))
+			ParticleManager:SetParticleControl(pfx, 2, Vector(0, 0, 1000))
 			for i = 3, 12, 1 do
 				ParticleManager:SetParticleControlEnt(pfx, i, enemy, PATTACH_CUSTOMORIGIN, "attach_origin", enemy:GetAbsOrigin(), true)
 			end
-			EmitSoundOn("Redfall.SpiritAshara.BeamImpact", enemy)	
+			EmitSoundOn("Redfall.SpiritAshara.BeamImpact", enemy)
 			Timers:CreateTimer(4, function()
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
 		end
-	end 
+	end
 end
 
 function redfall_spirit_of_ashara_die(event)
@@ -1122,25 +1108,25 @@ function redfall_spirit_of_ashara_die(event)
 	for i = 1, #MAIN_HERO_TABLE, 1 do
 		print("Adding modifier to hero "..i)
 		MAIN_HERO_TABLE[i].RedfallQuests[5].objective = "redfall_quest_5_objective_3"
-		CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "newQuest", {} )
+		CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "newQuest", {})
 		Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, MAIN_HERO_TABLE[i], "modifier_blessing_of_ashara", {})
 		print("Hero has modifier? "..tostring(MAIN_HERO_TABLE[i]:HasModifier("modifier_blessing_of_ashara")))
 		createSummonParticle(unit:GetAbsOrigin(), unit, MAIN_HERO_TABLE[i])
-	end  
+	end
 
 	Redfall.AsharaExitPortalActive = true
 	EmitGlobalSound("ui.set_applied")
-	Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(-9762, 15336, -50+Redfall.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
+	Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(-9762, 15336, -50 + Redfall.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
 end
 
 function createSummonParticle(position, caster, target)
 	local particleName = "particles/roshpit/redfall/red_beam.vpcf"
-    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
-    ParticleManager:SetParticleControl(pfx,0,caster:GetAbsOrigin()+Vector(0,0,200))   
-    ParticleManager:SetParticleControl(pfx,1,target:GetAbsOrigin()+Vector(0,0,422))
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + Vector(0, 0, 200))
+	ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin() + Vector(0, 0, 422))
 	Timers:CreateTimer(3.5, function()
 		ParticleManager:DestroyParticle(pfx, false)
-	end)	
+	end)
 end
 
 function AsharaExitPortal(trigger)
@@ -1157,57 +1143,62 @@ function ashara_explosion_pushback(event)
 	local target = event.target
 	if not target.pushVector then
 		target.pushVelocity = 32
-		target.pushVector = Vector(0,-1)
+		target.pushVector = Vector(0, -1)
 	end
-	local obstruction = WallPhysics:FindNearestObstruction(target:GetAbsOrigin()+target.pushVector*30)
-	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, target:GetAbsOrigin()+target.pushVector*30, target)
+	local obstruction = WallPhysics:FindNearestObstruction(target:GetAbsOrigin() + target.pushVector * 30)
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, target:GetAbsOrigin() + target.pushVector * 30, target)
 	local fv = target.pushVector
 	if blockUnit then
 		fv = 0
 	end
 
-	target:SetAbsOrigin(GetGroundPosition(target:GetAbsOrigin() + fv*target.pushVelocity, target))
+	target:SetAbsOrigin(GetGroundPosition(target:GetAbsOrigin() + fv * target.pushVelocity, target))
 	target.pushVelocity = math.max(target.pushVelocity - 1, 0)
 end
 
 function feronia_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local starstorm = caster:FindAbilityByName("redfall_mirana_starfall")
+	local starstorm = caster:FindAbilityByName("redfall_feronia_starfall")
 	if starstorm:IsFullyCastable() then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 480, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 480, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			local newOrder = {
-			 		UnitIndex = caster:entindex(), 
-			 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-			 		AbilityIndex = starstorm:entindex(),
-		 	}
-			 
-			ExecuteOrderFromTable(newOrder)	
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_feronia_shield", {duration = 2})	
-			return true	
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+				AbilityIndex = starstorm:entindex(),
+			}
+
+			ExecuteOrderFromTable(newOrder)
+			return true
 		end
-	end	
-	local arrow = caster:FindAbilityByName("redfall_mirana_arrow")
+	end
+	local arrow = caster:FindAbilityByName("redfall_feronia_arrow")
 	if arrow:IsFullyCastable() then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			local castPoint = enemies[1]:GetAbsOrigin()
 			local newOrder = {
-					UnitIndex = caster:entindex(),
-					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-					AbilityIndex = arrow:entindex(),
-					Position = castPoint
-			 	}
-			 
-			ExecuteOrderFromTable(newOrder)	
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_feronia_shield", {duration = 1.5})		
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+				AbilityIndex = arrow:entindex(),
+				Position = castPoint
+			}
+			ExecuteOrderFromTable(newOrder)
 		end
 		return true
 	end
 end
 
-function redfall_canyon_feronia_die(event)
+function redfall_feronia_on_spell_cast(event)
+	local castedAbility = event.event_ability
+	local ability = event.ability
 	local caster = event.caster
-	RPCItems:RollGuardOfFeronia(caster:GetAbsOrigin())
+	local duration = 2
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_feronia_shield", {duration = duration})
+end
+
+function redfall_canyon_feronia_die(event)
+	local unit = event.unit
+	RPCItems:RollGuardOfFeronia(unit:GetAbsOrigin())
 end

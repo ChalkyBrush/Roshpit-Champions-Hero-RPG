@@ -2,14 +2,14 @@ ATTACHMENTS_VERSION = "0.84"
 
 --[[
   Lua-controlled Frankenstein Attachments Library by BMD
-
+ 
   Installation
   -"require" this file inside your code in order to gain access to the Attachments global table.
   -Optionally require "libraries/notifications" before this file so that the Attachment Configuration GUI can display messages via the Notifications library.
   -Additionally, ensure that this file is placed in the vscripts/libraries path
   -Additionally, ensure that you have the barebones_attachments.xml, barebones_attachments.js, and barebones_attachments.css files in your panorama content folder to use the GUI.
   -Finally, include the "attachments.txt" in your scripts directory if you have a pre-build database of attachment settings.
-
+ 
   Library Usage
   -The library when required in loads in the "scripts/attachments.txt" file containing the attachment properties database for use during your game mode.
   -Attachment properties are specified as a 3-tuple of unit model name, attachment point string, and attachment prop model name.
@@ -35,7 +35,7 @@ ATTACHMENTS_VERSION = "0.84"
     -Ex: local prop = Attachments:AttachProp(unit, "attach_hitloc")
     -Calling prop:RemoveSelf() will automatically detach the prop from the unit
   -To access the loaded Attachment database directly (for reading properties directly), you can call Attachments:GetAttachmentDatabase()
-
+ 
   Attachment Configuration Usage
   -In tools-mode, execute "attachment_configure <ADDON_NAME>" to activate the attachment configuration GUI for setting up the attachment database.
   -See https://www.youtube.com/watch?v=PS1XmHGP3sw for an example of how to generally use the GUI
@@ -44,29 +44,29 @@ ATTACHMENTS_VERSION = "0.84"
   -The Save button will save the current properties as well as any other adjusted properties in the attachment database to disk.  
   -Databases will be saved to the scripts/attachments.txt file of the addon you set when calling the attachment_configure <ADDON_NAME> command.
   -More detail to come...
-
+ 
   Notes
   -"attach_origin" can be used as the attachment string for attaching a prop do the origin of the unit, even if that unit has no attachment point named "attach_origin"
   -Attached props will automatically scale when the parent unit/models are scaled, so rescaling individual props after attachment is not necessary.
   -This library requires that the "libraries/timers.lua" be present in your vscripts directory.
-
+ 
   Examples:
   --Attach an Axe axe model to the "attach_hitloc" to a given unit at a 1.0 Scale.
     Attachments:AttachProp(unit, "attach_hitloc", "models/items/axe/weapon_heavy_cutter.vmdl", 1.0)
-
+ 
   --For GUI use, see https://www.youtube.com/watch?v=PS1XmHGP3sw
-
+ 
 ]]
 
 --BMD IS A BOSS
 
 --LinkLuaModifier( "modifier_animation_freeze", "libraries/modifiers/modifier_animation_freeze.lua", LUA_MODIFIER_MOTION_NONE )
 
-LinkLuaModifier( "modifier_animation_freeze_stun", "libraries/attachments.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_animation_freeze_stun", "libraries/attachments.lua", LUA_MODIFIER_MOTION_NONE)
 
 modifier_animation_freeze_stun = class({})
 
-function modifier_animation_freeze_stun:OnCreated(keys) 
+function modifier_animation_freeze_stun:OnCreated(keys)
 
 end
 
@@ -78,15 +78,15 @@ function modifier_animation_freeze_stun:IsHidden()
   return true
 end
 
-function modifier_animation_freeze_stun:IsDebuff() 
+function modifier_animation_freeze_stun:IsDebuff()
   return false
 end
 
-function modifier_animation_freeze_stun:IsPurgable() 
+function modifier_animation_freeze_stun:IsPurgable()
   return false
 end
 
-function modifier_animation_freeze_stun:CheckState() 
+function modifier_animation_freeze_stun:CheckState()
   local state = {
     [MODIFIER_STATE_FROZEN] = true,
     [MODIFIER_STATE_STUNNED] = true,
@@ -102,14 +102,13 @@ end
 
 require('libraries/timers')
 
-
 local Notify = function(player, msg, duration)
   duration = duration or 2
   if Notifications then
-    local table = {text=msg, duration=duration, style={color="red"}}
+    local table = {text = msg, duration = duration, style = {color = "red"}}
     Notifications:Bottom(player, table)
   else
-   --print('[Attachments.lua] ' .. msg)
+    --print('[Attachments.lua] ' .. msg)
   end
 end
 
@@ -120,19 +119,19 @@ function WriteKV(file, firstLine, t, indent, done)
   done[t] = true
   indent = indent or 1
 
-  file:write(string.rep ("\t", indent-1) .. "\"" .. firstLine .. "\"\n")
-  file:write(string.rep ("\t", indent-1) .. "{\n")
-  for k,value in pairs(t) do
+  file:write(string.rep ("\t", indent - 1) .. "\"" .. firstLine .. "\"\n")
+  file:write(string.rep ("\t", indent - 1) .. "{\n")
+  for k, value in pairs(t) do
     if type(value) == "table" and not done[value] then
-        done [value] = true
-        WriteKV (file, k, value, indent + 1, done)
-      elseif type(value) == "userdata" and not done[value] then
-        --skip userdata
-      else
-        file:write(string.rep ("\t", indent) .. "\"" .. tostring(k) .. "\"\t\t\"" .. tostring(value) .. "\"\n")
-      end
+      done [value] = true
+      WriteKV (file, k, value, indent + 1, done)
+    elseif type(value) == "userdata" and not done[value] then
+      --skip userdata
+    else
+      file:write(string.rep ("\t", indent) .. "\"" .. tostring(k) .. "\"\t\t\"" .. tostring(value) .. "\"\n")
+    end
   end
-  file:write(string.rep ("\t", indent-1) .. "}\n")
+  file:write(string.rep ("\t", indent - 1) .. "}\n")
 end
 
 if not Attachments then
@@ -140,8 +139,8 @@ if not Attachments then
 end
 
 function Attachments:start()
-  Convars:RegisterCommand( "attachment_configure", Dynamic_Wrap(Attachments, 'ActivateAttachmentSetup'), "Attachment Setup: attachment_configure <ADDON_NAME>  (e.g. attachment_configure barebones)", FCVAR_CHEAT )
-  
+  Convars:RegisterCommand("attachment_configure", Dynamic_Wrap(Attachments, 'ActivateAttachmentSetup'), "Attachment Setup: attachment_configure <ADDON_NAME>  (e.g. attachment_configure barebones)", FCVAR_CHEAT)
+
   self.activated = false
   self.dbFilePath = nil
   self.currentAttach = {}
@@ -153,18 +152,18 @@ end
 
 function Attachments:ActivateAttachmentSetup(addon)
   if addon == nil or addon == "" then
-   --print("[Attachments.lua] Addon name must be specified.")
+    --print("[Attachments.lua] Addon name must be specified.")
     return
   end
 
   if not io then
-   --print("[Attachments.lua] Attachments Setup is only available in tools mode.")
+    --print("[Attachments.lua] Attachments Setup is only available in tools mode.")
     return
   end
   if not Attachments.activated then
-    local file = io.open("../../dota_addons/" .. addon ..  "/scripts/attachments.txt", 'r')
+    local file = io.open("../../dota_addons/" .. addon .. "/scripts/attachments.txt", 'r')
     if not file and Attachments.dbFilePath == nil then
-     --print("[Attachments.lua] Cannot find file 'dota_addons/" .. addon .. "/scripts/attachments.txt'.  Re-execute the console command to force create the file.")
+      --print("[Attachments.lua] Cannot find file 'dota_addons/" .. addon .. "/scripts/attachments.txt'.  Re-execute the console command to force create the file.")
       Attachments.dbFilePath = ""
       return
     end
@@ -174,10 +173,9 @@ function Attachments:ActivateAttachmentSetup(addon)
     if not file then
       file = io.open(Attachments.dbFilePath, 'w')
       WriteKV(file, "Attachments", {})
-     --print("[Attachments.lua] Created file: 'dota_addons/" .. addon .. "/scripts/attachments.txt'.")
+      --print("[Attachments.lua] Created file: 'dota_addons/" .. addon .. "/scripts/attachments.txt'.")
     end
     file:close()
-    
 
     CustomGameEventManager:RegisterListener("Attachment_DoSphere", Dynamic_Wrap(Attachments, "Attachment_DoSphere"))
     CustomGameEventManager:RegisterListener("Attachment_DoAttach", Dynamic_Wrap(Attachments, "Attachment_DoAttach"))
@@ -227,7 +225,7 @@ function Attachments:Attachment_Freeze(args)
 
   if args.freeze == 1 then
     unit:AddNewModifier(unit, nil, "modifier_animation_freeze_stun", {})
-    unit:SetForwardVector(Vector(0,-1,0))
+    unit:SetForwardVector(Vector(0, -1, 0))
     --unit:AddNewModifier(unit, nil, "modifier_stunned", {})
   else
     unit:RemoveModifierByName("modifier_animation_freeze_stun")
@@ -244,7 +242,7 @@ function Attachments:Attachment_UpdateAttach(args)
     Notify(args.PlayerID, "Invalid Unit.")
     return
   end
-  
+
   local properties = args.properties
   local unitModel = unit:GetModelName()
   local attach = properties.attach
@@ -269,13 +267,12 @@ function Attachments:Attachment_UpdateAttach(args)
   local oldProperties = db[unitModel][attach][model] or {}
 
   -- update old properties
-  for k,v in pairs(properties) do
+  for k, v in pairs(properties) do
     oldProperties[k] = v
   end
 
   properties = oldProperties
   db[unitModel][attach][model] = properties
-  
 
   if not Attachments.currentAttach[args.index] then Attachments.currentAttach[args.index] = {} end
   local prop = Attachments.currentAttach[args.index][attach]
@@ -295,7 +292,7 @@ function Attachments:Attachment_SaveAttach(args)
     Notify(args.PlayerID, "Invalid Unit.")
     return
   end
-  
+
   local properties = args.properties
   local unitModel = unit:GetModelName()
   local attach = properties.attach
@@ -304,12 +301,12 @@ function Attachments:Attachment_SaveAttach(args)
   Attachments:Attachment_UpdateAttach(args)
 
   if not io then
-   --print("[Attachments.lua] Attachments Setup is only available in tools mode.")
+    --print("[Attachments.lua] Attachments Setup is only available in tools mode.")
     return
   end
 
   if Attachments.dbFilePath == nil or Attachments.dbFilePath == "" then
-   --print("[Attachments.lua] Attachments database file must be set.")
+    --print("[Attachments.lua] Attachments database file must be set.")
     return
   end
 
@@ -334,7 +331,7 @@ function Attachments:Attachment_LoadAttach(args)
   local model = properties.model
 
   if not io then
-   --print("[Attachments.lua] Attachments Setup is only available in tools mode.")
+    --print("[Attachments.lua] Attachments Setup is only available in tools mode.")
     return
   end
 
@@ -348,7 +345,7 @@ function Attachments:Attachment_LoadAttach(args)
 
   local ply = PlayerResource:GetPlayer(args.PlayerID)
   local properties = {}
-  for k,v in pairs(db[unitModel][attach][model]) do
+  for k, v in pairs(db[unitModel][attach][model]) do
     properties[k] = v
   end
   properties.attach = attach
@@ -365,7 +362,7 @@ function Attachments:Attachment_HideAttach(args)
     Notify(args.PlayerID, "Invalid Unit.")
     return
   end
-  
+
   local properties = args.properties
   local attach = properties.attach
 
@@ -393,14 +390,14 @@ function Attachments:Attachment_UpdateUnit(args)
   end
 
   local cosmetics = {}
-  for i,child in ipairs(unit:GetChildren()) do
+  for i, child in ipairs(unit:GetChildren()) do
     if child:GetClassname() == "dota_item_wearable" and child:GetModelName() ~= "" then
       table.insert(cosmetics, child:GetModelName())
     end
   end
 
   --DebugPrintTable(cosmetics)
-  CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(args.PlayerID), "attachment_cosmetic_list", cosmetics )
+  CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(args.PlayerID), "attachment_cosmetic_list", cosmetics)
 end
 
 function Attachments:Attachment_HideCosmetic(args)
@@ -414,9 +411,9 @@ function Attachments:Attachment_HideCosmetic(args)
   end
 
   local model = args.model;
-  
+
   local cosmetics = {}
-  for i,child in ipairs(unit:GetChildren()) do
+  for i, child in ipairs(unit:GetChildren()) do
     if child:GetClassname() == "dota_item_wearable" and child:GetModelName() == model then
       local hiddenCosmetics = Attachments.hiddenCosmetics[args.index]
       if not hiddenCosmetics then
@@ -435,8 +432,6 @@ function Attachments:Attachment_HideCosmetic(args)
   end
 end
 
-
-
 function Attachments:GetAttachmentDatabase()
   return Attachments.attachDB
 end
@@ -449,105 +444,102 @@ end
 
 function Attachments:AttachProp(unit, attachPoint, model, scale, properties)
 
-    local unitModel = unit:GetModelName()
-    local propModel = model
+  local unitModel = unit:GetModelName()
+  local propModel = model
 
-    local db = Attachments.attachDB
-    if propModel.GetModelName then propModel = propModel:GetModelName() end
-    if not properties then
-      if not db[unitModel] or not db[unitModel][attachPoint] or not db[unitModel][attachPoint][propModel] then
-       --print("[Attachments.lua] No attach found in attachment database for '" .. unitModel .. "', '" .. attachPoint .. "', '" .. propModel .. "'")
-        return
-      end
+  local db = Attachments.attachDB
+  if propModel.GetModelName then propModel = propModel:GetModelName() end
+  if not properties then
+    if not db[unitModel] or not db[unitModel][attachPoint] or not db[unitModel][attachPoint][propModel] then
+      --print("[Attachments.lua] No attach found in attachment database for '" .. unitModel .. "', '" .. attachPoint .. "', '" .. propModel .. "'")
+      return
     end
+  end
 
-    local attach = unit:ScriptLookupAttachment(attachPoint)
-    local scale = scale or db[unitModel][attachPoint][propModel]['scale'] or 1.0
+  local attach = unit:ScriptLookupAttachment(attachPoint)
+  local scale = scale or db[unitModel][attachPoint][propModel]['scale'] or 1.0
 
-    properties = properties or db[unitModel][attachPoint][propModel]
-    local pitch = tonumber(properties.pitch)
-    local yaw = tonumber(properties.yaw)
-    local roll = tonumber(properties.roll)
-    --local angleSpace = QAngle(properties.QX, properties.QY, properties.QZ)
-    local offset = Vector(tonumber(properties.XPos), tonumber(properties.YPos), tonumber(properties.ZPos)) * scale * unit:GetModelScale()
-    local animation = properties.Animation
-    
-    --offset = RotatePosition(Vector(0,0,0), RotationDelta(angleSpace, QAngle(0,0,0)), offset)
+  properties = properties or db[unitModel][attachPoint][propModel]
+  local pitch = tonumber(properties.pitch)
+  local yaw = tonumber(properties.yaw)
+  local roll = tonumber(properties.roll)
+  --local angleSpace = QAngle(properties.QX, properties.QY, properties.QZ)
+  local offset = Vector(tonumber(properties.XPos), tonumber(properties.YPos), tonumber(properties.ZPos)) * scale * unit:GetModelScale()
+  local animation = properties.Animation
 
-    --local new_prop = Entities:CreateByClassname("prop_dynamic")
-    local prop = nil
-    if model.GetName and IsValidEntity(model) then
-      prop = model
+  --offset = RotatePosition(Vector(0,0,0), RotationDelta(angleSpace, QAngle(0,0,0)), offset)
+
+  --local new_prop = Entities:CreateByClassname("prop_dynamic")
+  local prop = nil
+  if model.GetName and IsValidEntity(model) then
+    prop = model
+  else
+    prop = SpawnEntityFromTableSynchronous("prop_dynamic", {model = propModel, DefaultAnim = animation})
+    prop:SetModelScale(scale * unit:GetModelScale())
+  end
+
+  local angles = unit:GetAttachmentAngles(attach)
+
+  angles = QAngle(angles.x, angles.y, angles.z)
+  --angles = RotationDelta(angles,QAngle(pitch, yaw, roll))
+  --print(prop:GetAngles())
+  --print(angles)
+  --print(RotationDelta(RotationDelta(angles,QAngle(pitch, yaw, roll)),QAngle(0,0,0)))
+  --angles = QAngle(pitch, yaw, roll)
+
+  if not Attachments.doAttach then angles = QAngle(pitch, yaw, roll) end
+  angles = RotateOrientation(angles, RotationDelta(QAngle(pitch, yaw, roll), QAngle(0, 0, 0)))
+
+  --print('angleSpace = QAngle(' .. angles.x .. ', ' .. angles.y .. ', ' .. angles.z .. ')')
+
+  local attach_pos = unit:GetAttachmentOrigin(attach)
+  --attach_pos = attach_pos + RotatePosition(Vector(0,0,0), QAngle(angles.x,angles.y,angles.z), offset)
+  attach_pos = attach_pos + RotatePosition(Vector(0, 0, 0), angles, offset)
+
+  prop:SetAbsOrigin(attach_pos)
+  prop:SetAngles(angles.x, angles.y, angles.z)
+
+  -- Attach and store it
+  if Attachments.doAttach then
+    if attachPoint == "attach_origin" then
+      prop:SetParent(unit, "")
     else
-      prop = SpawnEntityFromTableSynchronous("prop_dynamic", {model = propModel, DefaultAnim=animation})
-      prop:SetModelScale(scale * unit:GetModelScale())
+      prop:SetParent(unit, attachPoint)
     end
+  end
 
-    local angles = unit:GetAttachmentAngles(attach)
+  -- From Noya
+  local particle_data = nil
+  if db['Particles'] then particle_data = db['Particles'][propModel] end
+  if particle_data then
+    local particleName = particle_data['EffectName']
+    --print("Found particle",particleName)
+    prop.fx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN, prop)
 
-    
-    angles = QAngle(angles.x, angles.y, angles.z)
-    --angles = RotationDelta(angles,QAngle(pitch, yaw, roll))
-    --print(prop:GetAngles())
-    --print(angles)
-    --print(RotationDelta(RotationDelta(angles,QAngle(pitch, yaw, roll)),QAngle(0,0,0)))
-    --angles = QAngle(pitch, yaw, roll)
+    -- Loop through the Control Point Entities
+    local control_points = particle_data['ControlPointEntities']
+    for k, ent_point in pairs(control_points) do
+      --print("Making Particle",particleName,prop.fx,k,prop,ent_point)
+      ParticleManager:SetParticleControlEnt(prop.fx, tonumber(k), prop, PATTACH_POINT_FOLLOW, ent_point, prop:GetAbsOrigin(), true)
+    end
+  end
 
-    if not Attachments.doAttach then angles = QAngle(pitch, yaw, roll) end
-    angles = RotateOrientation(angles,RotationDelta(QAngle(pitch, yaw, roll), QAngle(0,0,0)))
-
-    --print('angleSpace = QAngle(' .. angles.x .. ', ' .. angles.y .. ', ' .. angles.z .. ')')
-
-    local attach_pos = unit:GetAttachmentOrigin(attach)
-    --attach_pos = attach_pos + RotatePosition(Vector(0,0,0), QAngle(angles.x,angles.y,angles.z), offset)
-    attach_pos = attach_pos + RotatePosition(Vector(0,0,0), angles, offset)
-
-    prop:SetAbsOrigin(attach_pos)
-    prop:SetAngles(angles.x,angles.y,angles.z)
-
-    -- Attach and store it
-    if Attachments.doAttach then
-      if attachPoint == "attach_origin" then
-        prop:SetParent(unit, "")
-      else        
-        prop:SetParent(unit, attachPoint)
+  if Attachments.timer then
+    Timers:RemoveTimer(Attachments.timer)
+  end
+  Attachments.timer = Timers:CreateTimer(function()
+    if Attachments.doSphere then
+      if unit and IsValidEntity(unit) then
+        DebugDrawSphere(unit:GetAttachmentOrigin(attach), Vector(255, 255, 255), 100, 15, true, .03)
+      end
+      if prop and IsValidEntity(prop) then
+        DebugDrawSphere(prop:GetAbsOrigin(), Vector(0, 0, 0), 100, 15, true, .03)
       end
     end
+    return .03
+  end)
 
-
-    -- From Noya
-    local particle_data = nil
-    if db['Particles']  then particle_data = db['Particles'][propModel] end
-    if particle_data then
-      local particleName = particle_data['EffectName']
-      --print("Found particle",particleName)
-      prop.fx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN, prop)
-
-      -- Loop through the Control Point Entities
-      local control_points = particle_data['ControlPointEntities']
-      for k,ent_point in pairs(control_points) do
-        --print("Making Particle",particleName,prop.fx,k,prop,ent_point)
-        ParticleManager:SetParticleControlEnt(prop.fx, tonumber(k), prop, PATTACH_POINT_FOLLOW, ent_point, prop:GetAbsOrigin(), true)
-      end
-    end
-
-
-    if Attachments.timer then
-      Timers:RemoveTimer(Attachments.timer)
-    end
-    Attachments.timer = Timers:CreateTimer(function()
-      if Attachments.doSphere then
-        if unit and IsValidEntity(unit) then
-          DebugDrawSphere(unit:GetAttachmentOrigin(attach), Vector(255,255,255), 100, 15, true, .03)
-        end
-        if prop and IsValidEntity(prop) then
-          DebugDrawSphere(prop:GetAbsOrigin(), Vector(0,0,0), 100, 15, true, .03)
-        end
-      end
-      return .03
-    end)
-
-    return prop
+  return prop
 end
 
 if not Attachments.attachDB then Attachments:start() end

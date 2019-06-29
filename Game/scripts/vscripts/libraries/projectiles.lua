@@ -11,13 +11,13 @@
 
 --   if self.thinkEnt == nil then
 --     self.timers = {}
-    
+
 --     self.thinkEnt = Entities:CreateByClassname("info_target")
 --     --self.treeCutter = CreateUnitByName('npc_dummy_unit', Vector(0,0,0) , true, nil, nil, DOTA_TEAM_NOTEAM)
 --     --self.treeCutter:FindAbilityByName("reflex_dummy_unit"):SetLevel(1)
 --     --self.treeCutter:AddAbility("tree_cutter")
 --     --self.treeCutter:FindAbilityByName("tree_cutter"):SetLevel(1)
-    
+
 --     self.thinkEnt:SetThink("Think", self, "projectiles", PROJECTILES_THINK)
 --   end
 -- end
@@ -43,7 +43,7 @@
 --       if bUseGameTime and GameRules:GetGameTime() > v.endTime then
 --         -- Remove from timers list
 --         Projectiles.timers[k] = nil
-        
+
 --         -- Run the callback
 --         local status, nextCall = pcall(v.callback, Projectiles, v)
 
@@ -59,7 +59,7 @@
 --          --print('[PROJECTILES] Timer error:' .. nextCall)
 --         end
 --       end
---     end  
+--     end
 --   end
 
 --   return PROJECTILES_THINK
@@ -84,7 +84,7 @@
 --   local f = GetGroundPosition(pos + dir, unit)
 --   local b = GetGroundPosition(pos - dir, unit)
 
---   return (f - b):Normalized() 
+--   return (f - b):Normalized()
 -- end
 
 -- function Projectiles:CalcNormal(pos, unit, scale)
@@ -133,8 +133,7 @@
 --   projectile.OnGroundHit = projectile.OnGroundHit or function() return end
 --   projectile.OnFinish = projectile.OnFinish or nil
 
-
---   --[[if projectile.TreeBehavior == PROJECTILES_BOUNCE or projectile.WallBehavior == PROJECTILES_BOUNCE 
+--   --[[if projectile.TreeBehavior == PROJECTILES_BOUNCE or projectile.WallBehavior == PROJECTILES_BOUNCE
 --     or projectile.GroundBehavior == PROJECTILES_BOUNCE or projectile.GroundBehavior == PROJECTILES_FOLLOW then
 --     projectile.bDynamic = true
 --   elseif projectile.bDynamic == nil then
@@ -253,11 +252,11 @@
 --         end
 --         return
 --       end
-      
+
 --       -- update values
 --       local radius = projectile.radius
 --       local rad2 = radius * radius
-      
+
 --       -- debug draw
 --       if projectile.draw then
 --         local alpha = 1
@@ -454,7 +453,7 @@
 
 --             elseif projectile.GroundBehavior == PROJECTILES_FOLLOW and projectile.changes > 0 and curTime >= projectile.changeTime then
 --               -- follow calculation
-              
+
 --               local slope = Projectiles:CalcSlope(ground, projectile.Source, vel)
 --               local dir = vel:Normalized()
 --               --projectile.fGroundOffset = projectile.fGroundOffset - 10

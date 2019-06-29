@@ -16,7 +16,7 @@ function jex_activate_q_lightning_cosmic(event)
 	local invokePFX = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_invoker/invoker_death_end.vpcf", caster, 4)
 	ParticleManager:SetParticleControl(invokePFX, 1, Vector(10, 10, 100))
 
-	caster:SetModifierStackCount("modifier_jex_lightning_cosmic_shield", caster, tech_level*stacks_per_tech)
+	caster:SetModifierStackCount("modifier_jex_lightning_cosmic_shield", caster, tech_level * stacks_per_tech)
 
 	local w_4_level = caster:GetRuneValue("w", 4)
 	if w_4_level > 0 then
@@ -27,8 +27,8 @@ function jex_activate_q_lightning_cosmic(event)
 	if e_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_cosmic_shield_e_4", {duration = duration})
 		caster:SetModifierStackCount("modifier_cosmic_shield_e_4", caster, e_4_level)
-	end	
-	
+	end
+
 	Filters:CastSkillArguments(1, caster)
 end
 

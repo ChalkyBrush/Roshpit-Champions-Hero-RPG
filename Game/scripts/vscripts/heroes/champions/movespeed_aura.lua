@@ -1,4 +1,4 @@
-function ApplyAura( event )
+function ApplyAura(event)
 	-- Variables
 	local attacker = event.attacker
 	local target = event.target
