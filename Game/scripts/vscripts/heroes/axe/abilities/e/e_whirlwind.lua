@@ -6,7 +6,7 @@ local WhirlwindDamage = require('heroes/axe/abilities/e/e3_whirlwind_damage')
 local ImmortalWeapon2 = require('heroes/axe/weapons/immortal_weapon_2')
 
 function start(event)
-    local hero =  event.caster
+    local hero = event.caster
     local ability = event.ability
 
     Helper.initializeAbilityRunes(hero, 'axe', 'e')
@@ -18,12 +18,12 @@ function start(event)
     CycloneStorm.applyBuff(hero, ability)
     CyclonicShield.applyShield(hero, ability)
     if not hero:HasModifier("modfier_axe_jumping") then
-        StartAnimation(hero, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.1})
+        StartAnimation(hero, {duration = 1.0, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1.1})
     else
-        StartAnimation(hero, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.1})
+        StartAnimation(hero, {duration = 1.0, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1.1})
     end
 
-    ability:ApplyDataDrivenModifier(hero, hero, "modifier_whirlwind_attack_range",{duration = 1.5})
+    ability:ApplyDataDrivenModifier(hero, hero, "modifier_whirlwind_attack_range", {duration = 1.5})
     ability:ApplyDataDrivenModifier(hero, hero, "modifier_whirlwind", {duration = 1.5})
     ImmortalWeapon2.applyBuff(hero, 1.5)
     ability:ApplyDataDrivenModifier(hero, hero, "modifier_whirlwind_flying_portion", {duration = 4.0})
@@ -31,19 +31,18 @@ function start(event)
     Filters:CastSkillArguments(3, hero)
     local movespeedBase = hero:GetBaseMoveSpeed()
     local movespeed = hero:GetMoveSpeedModifier(movespeedBase, false)
-    ability.forwardVelocity = math.max(movespeed/21, 20)
+    ability.forwardVelocity = math.max(movespeed / 21, 20)
 
     ability.enemies = {}
-
 
 end
 
 local function onSpecificIntervalThink(ability, caster, position, heal)
     Filters:CleanseStuns(caster)
-    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, RED_GENERAL_E_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, RED_GENERAL_E_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
     ability.enemies = enemies
     if #enemies > 0 then
-        Filters:ApplyHeal(caster, caster, heal * #enemies, true,false)
+        Filters:ApplyHeal(caster, caster, heal * #enemies, true, false)
         WhirlwindDamage.damageEnemies(caster, enemies)
     end
 end
@@ -53,7 +52,7 @@ function think(event)
     local interval = ability.interval
     local hero = event.caster
     local position = hero:GetAbsOrigin()
-    position = GetGroundPosition( position, hero )
+    position = GetGroundPosition(position, hero)
 
     if ability.interval > 40 then
         ability.forwardVelocity = ability.forwardVelocity * 0.9
@@ -77,25 +76,25 @@ function think(event)
 
     if interval % 13 == 0 then
         if not hero:HasModifier("modfier_axe_jumping") then
-            StartAnimation(hero, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.1})
+            StartAnimation(hero, {duration = 1.0, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1.1})
         end
         -- hero:StartGesture(ACT_DOTA_CAST_ABILITY_3)
         EmitSoundOn("RedGeneral.Whirlwind", hero)
         CustomAbilities:QuickAttachParticle("particles/econ/items/axe/axe_weapon_bloodchaser/axe_attack_blur_counterhelix_bloodchaser.vpcf", hero, 2)
     end
     if hero:HasModifier("modifier_whirlwind_flying_portion") then
-       local newPosition = position+hero.EFV*40
-       local afterWallPosition = WallPhysics:WallSearch(hero:GetAbsOrigin(), newPosition, hero)
+        local newPosition = position + hero.EFV * 40
+        local afterWallPosition = WallPhysics:WallSearch(hero:GetAbsOrigin(), newPosition, hero)
         if newPosition.x == afterWallPosition.x and newPosition.y == afterWallPosition.y then
         else
-            hero:SetAbsOrigin(hero:GetAbsOrigin()-hero.EFV*50)
+            hero:SetAbsOrigin(hero:GetAbsOrigin() - hero.EFV * 50)
             hero:RemoveModifierByName("modifier_whirlwind_flying_portion")
         end
     end
     if not hero:HasModifier("modfier_axe_jumping") then
---        hero:SetOrigin(newPosition)
+        --        hero:SetOrigin(newPosition)
         if #ability.enemies > 0 then
-            for _,enemy in pairs(ability.enemies) do
+            for _, enemy in pairs(ability.enemies) do
                 if IsValidEntity(enemy) then
                     if not enemy.pushLock and not enemy.jumpLock then
                         local enemyPosition = enemy:GetAbsOrigin() + hero:GetAbsOrigin() - hero.oldEposition
@@ -107,7 +106,7 @@ function think(event)
     end
     hero.oldEposition = hero:GetAbsOrigin()
 
-    ability.forwardVec = ((ability.forwardVec*3+hero:GetForwardVector())/4):Normalized()
+    ability.forwardVec = ((ability.forwardVec * 3 + hero:GetForwardVector()) / 4):Normalized()
 
     ability.interval = ability.interval + 1
 end
@@ -121,7 +120,7 @@ function finish(event)
         FindClearSpaceForUnit(hero, hero:GetAbsOrigin(), true)
     end
     if #ability.enemies > 0 then
-        for _,enemy in pairs(ability.enemies) do
+        for _, enemy in pairs(ability.enemies) do
             if not enemy.pushLock and not enemy.jumpLock then
                 local enemyPosition = enemy:GetAbsOrigin()
                 local afterWallPosition = WallPhysics:WallSearch(hero:GetAbsOrigin(), enemyPosition, hero)

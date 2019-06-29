@@ -5,14 +5,14 @@ function RPCItems:RollBlaster(xpBounty, deathLocation, rarity, isShop, type, her
     if isShop then
         randomHelm = type
     end
-	local blaster_variant = BASE_BLASTER_TABLE[randomHelm]
+    local blaster_variant = BASE_BLASTER_TABLE[randomHelm]
     local item = RPCItems:CreateItem(blaster_variant, nil, nil)
     item.newItemTable.rarity = rarity
-    print("rarity:")
-    print(rarity)
+    --print("rarity:")
+    --print(rarity)
     local rarityValue = RPCItems:GetRarityFactor(rarity)
-    print("rarityValue:")
-    print(rarityValue)
+    --print("rarityValue:")
+    --print(rarityValue)
     if blaster_variant == "item_fire_blaster" then
         item_name = "Fire Cannon"
         item.newItemTable.type = "fire"
@@ -28,16 +28,16 @@ function RPCItems:RollBlaster(xpBounty, deathLocation, rarity, isShop, type, her
     end
     local suffix = RPCItems:RollBlasterProperty1(item, xpBounty)
     if rarityValue >= 2 then
-    	prefix = RPCItems:RollBlasterProperty2(item, xpBounty)
-    	print(prefix)
+        prefix = RPCItems:RollBlasterProperty2(item, xpBounty)
+        --print(prefix)
     else
-    	prefix = ""
+        prefix = ""
     end
-    if rarityValue>=3 then
-    	RPCItems:RollBlasterProperty3(item, xpBounty)
+    if rarityValue >= 3 then
+        RPCItems:RollBlasterProperty3(item, xpBounty)
     end
-    if rarityValue>=4 then
-    	local additionalPrefix = RPCItems:RollBlasterProperty4(item, xpBounty)
+    if rarityValue >= 4 then
+        local additionalPrefix = RPCItems:RollBlasterProperty4(item, xpBounty)
         item_name = additionalPrefix.." "..item_name
     end
 
@@ -45,7 +45,7 @@ function RPCItems:RollBlaster(xpBounty, deathLocation, rarity, isShop, type, her
     if isShop then
         RPCItems:GiveItemToHero(hero, item)
     else
-        local drop = CreateItemOnPositionSync( deathLocation, item )
+        local drop = CreateItemOnPositionSync(deathLocation, item)
         local position = deathLocation
         RPCItems:DropItem(item, position)
     end
@@ -64,31 +64,31 @@ SUFFIX_BLASTER_ROOT = {"of Rooting", "of Crippling", "of Debilitation", "of Grea
 SUFFIX_BLASTER_HEX = {"of Hexing", "of Greater Hexing", "of Voodoo", "of Strange Sorcery", "of the Voodoo Lord"}
 
 function RPCItems:RollBlasterProperty1(item, xpBounty)
-    local luck = RandomInt(0,100)
+    local luck = RandomInt(0, 100)
     if luck < 30 then
         value, suffixLevel = RPCItems:RollAttribute(xpBounty, 40, 80, 1, 3, item.newItemTable.rarity, false, nil)
         item.newItemTable.property1 = value
         item.newItemTable.property1name = "damage"
         suffix = SUFFIX_BLASTER_DAMAGE_TABLE[suffixLevel]
-        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_bonus_damage", "#E67607",  1)
+        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_bonus_damage", "#E67607", 1)
     elseif luck >= 30 and luck < 40 then
         value, suffixLevel = RPCItems:RollAttribute(xpBounty, 20, 50, 1, 1, item.newItemTable.rarity, false, 1000)
         item.newItemTable.property1 = value
         item.newItemTable.property1name = "radius"
         suffix = SUFFIX_BLASTER_RADIUS_TABLE[suffixLevel]
-        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_end_radius", "#D8ED1C",  1)
+        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_end_radius", "#D8ED1C", 1)
     elseif luck >= 40 and luck < 50 then
         value, suffixLevel = RPCItems:RollAttribute(xpBounty, 20, 60, 1, 1, item.newItemTable.rarity, false, 1000)
         item.newItemTable.property1 = value
         item.newItemTable.property1name = "range"
         suffix = SUFFIX_BLASTER_RANGE_TABLE[suffixLevel]
-        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_range_increase", "#D8ED1C",  1)
+        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_range_increase", "#D8ED1C", 1)
     elseif luck >= 50 and luck < 60 then
         value, suffixLevel = RPCItems:RollAttribute(xpBounty, 20, 60, 1, 1, item.newItemTable.rarity, true, nil)
         item.newItemTable.property1 = value
         item.newItemTable.property1name = "cooldown"
         suffix = SUFFIX_BLASTER_COOLDOWN_TABLE[suffixLevel]
-        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_cooldown_reduce", "#D1D1D1",  1)
+        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_cooldown_reduce", "#D1D1D1", 1)
     elseif luck >= 60 and luck < 70 then
         value, suffixLevel = RPCItems:RollAttribute(xpBounty, 5, 10, 1, 2, item.newItemTable.rarity, false, nil)
         item.newItemTable.property1 = value
@@ -106,7 +106,7 @@ function RPCItems:RollBlasterProperty1(item, xpBounty)
             suffix = SUFFIX_BLASTER_MODIFIER_MAGNITUDE_WIND_TABLE[suffixLevel]
             color = "#5CDB7A"
         end
-        RPCItems:SetPropertyValues(item, item.newItemTable.property1, description, color,  1) 
+        RPCItems:SetPropertyValues(item, item.newItemTable.property1, description, color, 1)
     elseif luck >= 70 and luck < 80 then
         value, suffixLevel = RPCItems:RollAttribute(xpBounty, 10, 50, 1, 1, item.newItemTable.rarity, true, nil)
         item.newItemTable.property1 = value
@@ -119,19 +119,19 @@ function RPCItems:RollBlasterProperty1(item, xpBounty)
         elseif item.newItemTable.type == "wind" then
             description = "#item_windshear_duration"
         end
-        RPCItems:SetPropertyValues(item, item.newItemTable.property1, description, "#1975FF",  1) 
+        RPCItems:SetPropertyValues(item, item.newItemTable.property1, description, "#1975FF", 1)
     elseif luck >= 80 and luck < 93 then
         value, suffixLevel = RPCItems:RollAttribute(xpBounty, 50, 100, 1, 3, item.newItemTable.rarity, false, nil)
         item.newItemTable.property1 = value
         item.newItemTable.property1name = "damage"
         suffix = SUFFIX_BLASTER_DAMAGE_TABLE[suffixLevel]
-        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_bonus_damage", "#E67607",  1)
+        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_bonus_damage", "#E67607", 1)
     else
         value, suffixLevel = RPCItems:RollAttribute(xpBounty, 10, 50, 1, 10, item.newItemTable.rarity, true, nil)
         item.newItemTable.property1 = value
         item.newItemTable.property1name = "root"
         suffix = SUFFIX_BLASTER_ROOT[suffixLevel]
-        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_root_duration", "#8907F2",  1)      
+        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_root_duration", "#8907F2", 1)
     end
     return suffix
 end
@@ -148,31 +148,31 @@ PREFIX_BLASTER_MOVESPEED_BUFF = {"Quickening", "Mad", "Crazy", "Berserker's", "E
 PREFIX_BLASTER_BLINK = {"Flickering", "Blinking", "Teleporting", "Time-Warping", "Space-Bending"}
 
 function RPCItems:RollBlasterProperty2(item, xpBounty)
-    local luck = RandomInt(0,100)
+    local luck = RandomInt(0, 100)
     if luck < 30 then
         value, prefixLevel = RPCItems:RollAttribute(xpBounty, 40, 90, 1, 4, item.newItemTable.rarity, false, nil)
         item.newItemTable.property2 = value
         item.newItemTable.property2name = "damage"
         prefix = PREFIX_BLASTER_DAMAGE_TABLE[prefixLevel]
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_damage", "#E67607",  2)
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_damage", "#E67607", 2)
     elseif luck >= 30 and luck < 40 then
         value, prefixLevel = RPCItems:RollAttribute(xpBounty, 20, 70, 1, 1, item.newItemTable.rarity, false, 1100)
         item.newItemTable.property2 = value
         item.newItemTable.property2name = "radius"
         prefix = PREFIX_BLASTER_RADIUS_TABLE[prefixLevel]
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_end_radius", "#D8ED1C",  2)
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_end_radius", "#D8ED1C", 2)
     elseif luck >= 40 and luck < 50 then
         value, prefixLevel = RPCItems:RollAttribute(xpBounty, 20, 70, 1, 1, item.newItemTable.rarity, false, 1100)
         item.newItemTable.property2 = value
         item.newItemTable.property2name = "range"
         prefix = PREFIX_BLASTER_RANGE_TABLE[prefixLevel]
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_range_increase", "#D8ED1C",  2)
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_range_increase", "#D8ED1C", 2)
     elseif luck >= 50 and luck < 60 then
         value, prefixLevel = RPCItems:RollAttribute(xpBounty, 20, 60, 1, 1, item.newItemTable.rarity, true, nil)
         item.newItemTable.property2 = value
         item.newItemTable.property2name = "cooldown"
         prefix = PREFIX_BLASTER_COOLDOWN_TABLE[prefixLevel]
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_cooldown_reduce", "#D1D1D1",  2)
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_cooldown_reduce", "#D1D1D1", 2)
     elseif luck >= 60 and luck < 70 then
         value, prefixLevel = RPCItems:RollAttribute(xpBounty, 5, 10, 1, 1, item.newItemTable.rarity, false, nil)
         item.newItemTable.property2 = value
@@ -190,7 +190,7 @@ function RPCItems:RollBlasterProperty2(item, xpBounty)
             prefix = PREFIX_BLASTER_MODIFIER_MAGNITUDE_WIND_TABLE[prefixLevel]
             color = "#5CDB7A"
         end
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, description, color,  2) 
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, description, color, 2)
     elseif luck >= 70 and luck < 80 then
         value, prefixLevel = RPCItems:RollAttribute(xpBounty, 10, 50, 1, 1, item.newItemTable.rarity, true, nil)
         item.newItemTable.property2 = value
@@ -203,28 +203,27 @@ function RPCItems:RollBlasterProperty2(item, xpBounty)
         elseif item.newItemTable.type == "wind" then
             description = "item_windshear_duration"
         end
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, description, "#1975FF",  2) 
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, description, "#1975FF", 2)
     elseif luck >= 80 and luck < 87 then
         value = 1
         item.newItemTable.property2 = value
         item.newItemTable.property2name = "extra_shots"
         prefix = "Double"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_extra_shots", "#FC0000",  2)
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_extra_shots", "#FC0000", 2)
     elseif luck >= 87 and luck < 101 then
         value, prefixLevel = RPCItems:RollAttribute(xpBounty, 30, 60, 1, 10, item.newItemTable.rarity, true, nil)
         item.newItemTable.property2 = value
         item.newItemTable.property2name = "movespeed"
         prefix = PREFIX_BLASTER_MOVESPEED_BUFF[prefixLevel]
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_movespeed_buff", "#07EBEB",  2)      
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_movespeed_buff", "#07EBEB", 2)
     else
         value, prefixLevel = RPCItems:RollAttribute(xpBounty, 60, 120, 1, 1, item.newItemTable.rarity, false, 1500)
         item.newItemTable.property2 = value
         item.newItemTable.property2name = "blink"
         prefix = PREFIX_BLASTER_BLINK[prefixLevel]
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_blink_distance", "#0094DE",  2)   
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_blink_distance", "#0094DE", 2)
     end
     return prefix
-
 
 end
 
@@ -233,7 +232,7 @@ BLASTER_NAME_TABLE_ICE = {"Deadly Ice Cannon", "Ruthless Ice Cannon", "Savage Ic
 BLASTER_NAME_TABLE_WIND = {"Deadly Wind Cannon", "Ruthless Wind Cannon", "Savage Wind Cannon", "Lethal Wind Cannon", "Bloodthirsty Wind Cannon"}
 
 function RPCItems:RollBlasterProperty3(item, xpBounty)
-    local luck = RandomInt(0,100)
+    local luck = RandomInt(0, 100)
     if luck < 40 then
         value, nameLevel = RPCItems:RollAttribute(xpBounty, 80, 110, 1, 2, item.newItemTable.rarity, false, nil)
         item.newItemTable.property3 = value
@@ -258,7 +257,7 @@ function RPCItems:RollBlasterProperty3(item, xpBounty)
             description = "#item_miss_chance"
             color = "#5CDB7A"
         end
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, description, color, 3) 
+        RPCItems:SetPropertyValues(item, item.newItemTable.property3, description, color, 3)
     elseif luck >= 65 and luck < 80 then
         value, nameLevel = RPCItems:RollAttribute(xpBounty, 10, 50, 1, 1, item.newItemTable.rarity, true, nil)
         item.newItemTable.property3 = value
@@ -270,17 +269,17 @@ function RPCItems:RollBlasterProperty3(item, xpBounty)
         elseif item.newItemTable.type == "wind" then
             description = "#item_windshear_duration"
         end
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, description, "#1975FF", 3) 
+        RPCItems:SetPropertyValues(item, item.newItemTable.property3, description, "#1975FF", 3)
     elseif luck >= 80 and luck < 87 then
         value, nameLevel = RPCItems:RollAttribute(xpBounty, 100, 300, 3, 8, item.newItemTable.rarity, false, nil)
         item.newItemTable.property3 = value
         item.newItemTable.property3name = "health_restore"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_cannon_health_restore", "#99FF66", 3)      
+        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_cannon_health_restore", "#99FF66", 3)
     else
         value, nameLevel = RPCItems:RollAttribute(xpBounty, 50, 150, 2, 4, item.newItemTable.rarity, false)
         item.newItemTable.property3 = value
         item.newItemTable.property3name = "mana_restore"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_cannon_mana_restore", "#1975FF", 3, nil)  
+        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_cannon_mana_restore", "#1975FF", 3, nil)
     end
     --if item.newItemTable.type == "fire" then
     --    name = BLASTER_NAME_TABLE_FIRE[nameLevel]
@@ -291,7 +290,6 @@ function RPCItems:RollBlasterProperty3(item, xpBounty)
     --end
     name = "debug"
     return name
-
 
 end
 
@@ -305,7 +303,7 @@ PREFIX_BLASTER_MOVESPEED_BUFF2 = {"Quickening ", "Mad ", "Crazy ", "Berserker's 
 PREFIX_BLASTER_BLINK2 = {"Flickering ", "Blinking ", "Teleporting ", "Time-Warping ", "Space-Bending "}
 
 function RPCItems:RollBlasterProperty4(item, xpBounty)
-    local luck = RandomInt(0,100)
+    local luck = RandomInt(0, 100)
     if luck < 40 then
         value, nameLevel = RPCItems:RollAttribute(xpBounty, 100, 120, 1, 2, item.newItemTable.rarity, false, nil)
         item.newItemTable.property4 = value
@@ -335,7 +333,7 @@ function RPCItems:RollBlasterProperty4(item, xpBounty)
             prefix2 = PREFIX_BLASTER_MODIFIER_MAGNITUDE_WIND_TABLE2[nameLevel]
             color = "#5CDB7A"
         end
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, description, color, 4) 
+        RPCItems:SetPropertyValues(item, item.newItemTable.property4, description, color, 4)
     elseif luck >= 65 and luck < 80 then
         value, nameLevel = RPCItems:RollAttribute(xpBounty, 10, 50, 1, 1, item.newItemTable.rarity, true, nil)
         item.newItemTable.property4 = value
@@ -350,20 +348,19 @@ function RPCItems:RollBlasterProperty4(item, xpBounty)
             description = "#item_windshear_duration"
             prefix2 = PREFIX_BLASTER_BLINK[nameLevel]
         end
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, description, "#1975FF", 4) 
+        RPCItems:SetPropertyValues(item, item.newItemTable.property4, description, "#1975FF", 4)
     elseif luck >= 80 and luck < 87 then
         item.newItemTable.property4 = 1
         item.newItemTable.property4name = "torrent"
         prefix2 = "Torrential"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#item_cannon_torrent", "#287EC9", 4)      
+        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#item_cannon_torrent", "#287EC9", 4)
     else
         item.newItemTable.property4 = 1
         item.newItemTable.property4name = "moon_shroud"
         prefix2 = "Lunar"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#item_cannon_moon_shroud", "#8060B3", 4)  
+        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#item_cannon_moon_shroud", "#8060B3", 4)
     end
     return prefix2
-
 
 end
 

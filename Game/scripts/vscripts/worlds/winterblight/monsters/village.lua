@@ -2,11 +2,11 @@ function winterblight_unit_die(event)
 	local unit = event.unit
 	if unit.deathCode == 1 then
 		-- if not Winterblight.TitansSlain then
-		-- 	Winterblight.TitansSlain = 0
+		-- Winterblight.TitansSlain = 0
 		-- end
 		-- Winterblight.TitansSlain = Winterblight.TitansSlain + 1
 		-- if Winterblight.TitansSlain == 3 then
-		-- 	Winterblight:StartOrbSequence()
+		-- Winterblight:StartOrbSequence()
 		-- end
 	elseif unit.deathCode == 2 and unit.mathUnit then
 		Winterblight:AzaleaMathUnitDie(unit)
@@ -18,22 +18,22 @@ function winterblight_unit_die(event)
 	if not Winterblight.AltarDisabled then
 		if Winterblight.WinterblightUnitsSlain >= 100 then
 			Winterblight.AltarDisabled = true
-			CustomGameEventManager:Send_ServerToAllClients("close_altar_of_ice", {} )
+			CustomGameEventManager:Send_ServerToAllClients("close_altar_of_ice", {})
 		end
 	end
 	if unit:GetDeathXP() > 0 then
 		local premiumCount = GameState:GetPlayerPremiumStatusCount()
-		local luck = RandomInt(1,13000-(1000*premiumCount))
+		local luck = RandomInt(1, 13000 - (1000 * premiumCount))
 		if luck == 1 then
 			RPCItems:RollHelmOfTheMountainGiant(unit:GetAbsOrigin(), false)
-	elseif luck == 2 then
+		elseif luck == 2 then
 			RPCItems:RollSwiftspikeBracer(unit:GetAbsOrigin())
 		elseif luck == 3 then
 			RPCItems:RollTatteredNoviceArmor(unit:GetAbsOrigin())
 		elseif luck == 4 then
 			RPCItems:RollFrostmawHuntersHood(unit:GetAbsOrigin())
 		end
-		local luck2 = RandomInt(1,10000-(500*premiumCount))
+		local luck2 = RandomInt(1, 10000 - (500 * premiumCount))
 		if luck2 == 1 then
 			Winterblight:DropBorealGraniteChunk(unit:GetAbsOrigin())
 		end
@@ -56,7 +56,7 @@ function village_snowball_hit(event)
 	local target = event.target
 	local caster = event.caster
 	EmitSoundOn("Villager.Laugh", caster)
-	StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_FLAIL, rate=1.8})
+	StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_FLAIL, rate = 1.8})
 end
 
 function ice_end(event)
@@ -86,7 +86,7 @@ function ice_think(event)
 			caster.iceDirection = caster:GetForwardVector()
 			caster.iceSpeed = 0
 			caster.ice_speed_slip_max = 9
-			caster.iceInterval =0
+			caster.iceInterval = 0
 			return false
 		end
 		if Filters:HasMovementModifier(caster) then
@@ -94,10 +94,10 @@ function ice_think(event)
 		end
 
 		local onGround = true
-		local differential = (caster:GetAbsOrigin()-caster.icePrevPosition)*Vector(1,1,0)
+		local differential = (caster:GetAbsOrigin() - caster.icePrevPosition) * Vector(1, 1, 0)
 		local direction = differential:Normalized()
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.icePrevPosition)
-		local speedGain = distance*0.02*slip_speed
+		local speedGain = distance * 0.02 * slip_speed
 		caster.differential = differential
 		if onGround then
 			caster.iceDirection = direction
@@ -105,49 +105,49 @@ function ice_think(event)
 		end
 		local distanceFromGround = caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster)
 		caster.iceSpeed = math.min(caster.iceSpeed + speedGain, caster.ice_speed_slip_max)
-		-- print(caster.iceSpeed)
+		--print(caster.iceSpeed)
 		if distance > 300 then
 			caster.iceSpeed = 0
 		end
-		local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
-	    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
-	    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+caster.iceDirection*caster.iceSpeed), caster)
-	    if blockUnit then
-	    	caster.iceSpeed = 0
-	    end
+		local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
+		local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+		local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + caster.iceDirection * caster.iceSpeed), caster)
+		if blockUnit then
+			caster.iceSpeed = 0
+		end
 		caster.iceInterval = caster.iceInterval + 1
 		if caster.iceInterval >= 25 and caster.iceSpeed > 0 then
-			StartAnimation(caster, {duration=0.75, activity=ACT_DOTA_RUN, rate=2.8})
+			StartAnimation(caster, {duration = 0.75, activity = ACT_DOTA_RUN, rate = 2.8})
 			caster.iceInterval = 0
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.IceSkate", Winterblight.Master)
 		end
-		if caster.iceInterval%8 == 0 and caster.iceSpeed > 0 then
-			CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/ice_slip_flash_c.vpcf", caster:GetAbsOrigin()-caster:GetForwardVector()*50, 1)
+		if caster.iceInterval % 8 == 0 and caster.iceSpeed > 0 then
+			CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/ice_slip_flash_c.vpcf", caster:GetAbsOrigin() - caster:GetForwardVector() * 50, 1)
 		end
 		if caster.iceSpeed > 0.5 then
 			local friction = 0.15
 			if onGround then
 				caster.iceSpeed = math.max(caster.iceSpeed - friction, 0)
-				caster.iceDirection = (caster.iceDirection + caster:GetForwardVector()*turn_rate):Normalized()
+				caster.iceDirection = (caster.iceDirection + caster:GetForwardVector() * turn_rate):Normalized()
 				if caster.iceSpeed == 0 then
 					FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 				end
 			end
-			-- print(caster.iceDirection*caster.iceSpeed)
+			--print(caster.iceDirection*caster.iceSpeed)
 			local angleDiff = math.abs(AngleDiff(WallPhysics:vectorToAngle(caster.iceDirection), WallPhysics:vectorToAngle(caster:GetForwardVector())))
-			-- print(angleDiff)
+			--print(angleDiff)
 			if AngleDiff(WallPhysics:vectorToAngle(caster.iceDirection), WallPhysics:vectorToAngle(caster:GetForwardVector())) > 15 and onGround then
 			else
-				local newPos = caster:GetAbsOrigin()+caster.iceDirection*caster.iceSpeed
+				local newPos = caster:GetAbsOrigin() + caster.iceDirection * caster.iceSpeed
 				if onGround then
 					newPos = GetGroundPosition(newPos, caster)
 				end
 
 				if math.abs(caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster)) < 60 then
-					caster:SetOrigin(caster:GetAbsOrigin()+caster.iceDirection*caster.iceSpeed)
+					caster:SetOrigin(caster:GetAbsOrigin() + caster.iceDirection * caster.iceSpeed)
 				else
 					caster.iceSpeed = 0
-					FindClearSpaceForUnit(caster, caster:GetAbsOrigin()-caster.iceDirection*30, false)
+					FindClearSpaceForUnit(caster, caster:GetAbsOrigin() - caster.iceDirection * 30, false)
 				end
 			end
 		else

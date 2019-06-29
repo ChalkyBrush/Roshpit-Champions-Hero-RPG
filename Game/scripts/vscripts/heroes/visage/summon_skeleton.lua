@@ -15,7 +15,7 @@ function corpse_maker_die(event)
 		for i = 1, corpses, 1 do
 			local position = unit:GetAbsOrigin()
 			if i > 1 then
-				position = position+RandomVector(90)
+				position = position + RandomVector(90)
 			end
 			local corpse = CreateUnitByName("ekkan_corpse", position, false, nil, nil, unit:GetTeamNumber())
 			ability:ApplyDataDrivenModifier(caster, corpse, "modifier_ekkan_skeleton_corpse", {duration = 30})
@@ -32,16 +32,16 @@ function cast_raise_skeleton(event)
 	local ability = event.ability
 	local target = event.target
 	local point = event.target_points[1]
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, 105, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, 105, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
-		for _,enemy in pairs(enemies) do
+		for _, enemy in pairs(enemies) do
 			if enemy:GetUnitName() == "ekkan_corpse" then
 				local target = enemy
 				local summonPosition = enemy:GetAbsOrigin()
 				Timers:CreateTimer(0.2, function()
 					UTIL_Remove(target)
 					local unitName = "castle_skeleton_warrior"
-					local attackDamage = OverflowProtectedGetAverageTrueAttackDamage(caster)*event.attack_mult
+					local attackDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * event.attack_mult
 					local luck = RandomInt(1, 10)
 					local applyTexture = true
 					local w_3_level = 0
@@ -50,7 +50,7 @@ function cast_raise_skeleton(event)
 					if luck <= 3 then
 						if w_1_level > 0 then
 							unitName = "ekkan_skeleton_archer"
-							attackDamage = OverflowProtectedGetAverageTrueAttackDamage(caster)*w_1_level*0.5
+							attackDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * w_1_level * 0.5
 							applyTexture = true
 						end
 					elseif luck <= 6 then
@@ -64,15 +64,15 @@ function cast_raise_skeleton(event)
 					local skeletonDuration = event.skeleton_duration
 					local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "ekkan")
 					if w_2_level > 0 then
-						skeletonDuration = skeletonDuration + 0.75*w_2_level
+						skeletonDuration = skeletonDuration + 0.75 * w_2_level
 					end
 					if caster:HasModifier("modifier_ekkan_glyph_3_1") then
-						skeletonDuration = skeletonDuration*2
+						skeletonDuration = skeletonDuration * 2
 					end
 
 					skeletonDuration = Filters:GetAdjustedBuffDuration(caster, skeletonDuration, false)
 					ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_skeleton_summon_unit", {duration = skeletonDuration})
-					local skeleArmor = caster:GetPhysicalArmorValue(false)*event.armor_mult
+					local skeleArmor = caster:GetPhysicalArmorValue(false) * event.armor_mult
 					skeleton:SetPhysicalArmorBaseValue(skeleArmor)
 					skeleton.w_1_level = w_1_level
 					skeleton:SetBaseDamageMin(attackDamage)
@@ -81,18 +81,18 @@ function cast_raise_skeleton(event)
 						ability.skeleTable = {}
 					end
 					local skeleton_health = event.skeleton_health
-				    skeleton:SetMaxHealth(skeleton_health)
-				    skeleton:SetBaseMaxHealth(skeleton_health)
-				    skeleton:SetHealth(skeleton_health)	
-				    skeleton.ekkan_unit = true
-				    skeleton.hero = caster
-				    skeleton.w_3_level = w_3_level
-				    skeleton.ekkan_dominion = true
-				    skeleton.dominion = true
-				    if w_4_level > 0 then
-				    	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, skeleton, "modifier_general_postmitigation", {})
-				    	skeleton:SetModifierStackCount("modifier_general_postmitigation", Events.GameMaster, w_4_level*15)
-				    end
+					skeleton:SetMaxHealth(skeleton_health)
+					skeleton:SetBaseMaxHealth(skeleton_health)
+					skeleton:SetHealth(skeleton_health)
+					skeleton.ekkan_unit = true
+					skeleton.hero = caster
+					skeleton.w_3_level = w_3_level
+					skeleton.ekkan_dominion = true
+					skeleton.dominion = true
+					if w_4_level > 0 then
+						Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, skeleton, "modifier_general_postmitigation", {})
+						skeleton:SetModifierStackCount("modifier_general_postmitigation", Events.GameMaster, w_4_level * 15)
+					end
 
 					table.insert(ability.skeleTable, skeleton)
 					local max_skeletons = event.max_skeletons
@@ -108,11 +108,11 @@ function cast_raise_skeleton(event)
 						ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_skeleton_summon_texture_effect", {})
 					end
 					reindexSkeleTable(ability)
-					StartAnimation(skeleton, {duration=0.6, activity=ACT_DOTA_SPAWN, rate=0.8})
+					StartAnimation(skeleton, {duration = 0.6, activity = ACT_DOTA_SPAWN, rate = 0.8})
 					ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_skeleton_spawning", {duration = 0.5})
 					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", skeleton, 3)
 					EmitSoundOn("Ekkan.SkeletonSpawn", skeleton)
-					
+
 					if w_4_level > 0 then
 						ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_ekkan_d_b_magic_resist", {})
 						skeleton:SetModifierStackCount("modifier_ekkan_d_b_magic_resist", caster, w_4_level)
@@ -156,9 +156,9 @@ function remove_corpse(event)
 	local target = event.target
 	target.disable = true
 	for i = 1, 30, 1 do
-		Timers:CreateTimer(i*0.03, function()
-			target:SetRenderColor(255-i*7, 255-i*7, 255-i*7)
-			target:SetAbsOrigin(target:GetAbsOrigin()-Vector(0,0,2.5))
+		Timers:CreateTimer(i * 0.03, function()
+			target:SetRenderColor(255 - i * 7, 255 - i * 7, 255 - i * 7)
+			target:SetAbsOrigin(target:GetAbsOrigin() - Vector(0, 0, 2.5))
 		end)
 	end
 	Timers:CreateTimer(1, function()
@@ -170,8 +170,8 @@ function skeleton_die(event)
 	local ability = event.ability
 	local caster = event.caster
 	reindexSkeleTable(ability)
-	print("SKELETON DIE")
-	print(#ability.skeleTable)
+	--print("SKELETON DIE")
+	--print(#ability.skeleTable)
 	if #ability.skeleTable > 0 then
 		caster:SetModifierStackCount("modifier_summon_skeleton_counter", caster, #ability.skeleTable)
 	else
@@ -185,8 +185,8 @@ function skeleton_expire(event)
 	local caster = event.caster
 	local ability = event.ability
 	reindexSkeleTable(ability)
-	print("SKELETON DIE")
-	print(#ability.skeleTable)
+	--print("SKELETON DIE")
+	--print(#ability.skeleTable)
 	if #ability.skeleTable > 0 then
 		caster:SetModifierStackCount("modifier_summon_skeleton_counter", caster, #ability.skeleTable)
 	else
@@ -208,22 +208,22 @@ function mage_blast_target_point(event)
 	if not caster.w_3_level then
 		caster.w_3_level = Runes:GetTotalRuneLevel(caster.hero, 3, "w_3", "ekkan")
 	end
-	local damage = caster.w_3_level*0.4*OverflowProtectedGetAverageTrueAttackDamage(caster)
+	local damage = caster.w_3_level * 0.4 * OverflowProtectedGetAverageTrueAttackDamage(caster)
 	EmitSoundOnLocationWithCaster(point, "Ekkan.SkeletonMage.PreBlast", caster)
 	Timers:CreateTimer(delay, function()
 		EmitSoundOnLocationWithCaster(point, "Ekkan.SkeletonMage.Blast", caster)
 		local blastParticle = ParticleManager:CreateParticle("particles/roshpit/ekkan/mage_blast.vpcf", PATTACH_CUSTOMORIGIN, hero)
 		ParticleManager:SetParticleControl(blastParticle, 0, point)
 		ParticleManager:SetParticleControl(blastParticle, 1, Vector(radius, delay, radius))
-		local enemies = FindUnitsInRadius( hero:GetTeamNumber(), point, nil, radius+20, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius(hero:GetTeamNumber(), point, nil, radius + 20, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
-			for _,enemy in pairs(enemies) do
-				-- Filters:TakeArgumentsAndApplyDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
-				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR, ability = ability  })
+			for _, enemy in pairs(enemies) do
+				-- Filters:TakeArgumentsAndApplyDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
+				ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR, ability = ability})
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_mage_blast_slow", {duration = 5})
 				enemy:SetModifierStackCount("modifier_mage_blast_slow", caster, caster.w_3_level)
 			end
-		end 	
+		end
 		Timers:CreateTimer(5, function()
 			ParticleManager:DestroyParticle(preParticle, false)
 			ParticleManager:DestroyParticle(blastParticle, false)
@@ -242,7 +242,7 @@ function ekkan_think(event)
 	else
 		caster:RemoveModifierByName("modifier_ekkan_d_b_magic_resist")
 	end
-	
+
 end
 
 function use_stance_modifier(event)
@@ -281,7 +281,7 @@ function ekkan_immortal_weapon_aura_start(event)
 			UTIL_Remove(target)
 			if not caster.immortalSoulsPFX then
 				caster.immortalSoulsPFX = ParticleManager:CreateParticle("particles/units/heroes/hero_visage/visage_soul_overhead.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
-				ParticleManager:SetParticleControlEnt(caster.immortalSoulsPFX, 0, caster, PATTACH_OVERHEAD_FOLLOW, "follow_overhead", caster:GetAbsOrigin()+Vector(0,0,200), true)
+				ParticleManager:SetParticleControlEnt(caster.immortalSoulsPFX, 0, caster, PATTACH_OVERHEAD_FOLLOW, "follow_overhead", caster:GetAbsOrigin() + Vector(0, 0, 200), true)
 			end
 			for i = 1, 6, 1 do
 				if caster.immortalSouls >= i then

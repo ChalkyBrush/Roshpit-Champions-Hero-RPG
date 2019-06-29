@@ -2,7 +2,7 @@ function cleanse(event)
 	local caster = event.target
 	local procs = 1
 	local particle = false
-	print("CLEANSE")
+	--print("CLEANSE")
 	local modifiers = caster:FindAllModifiers()
 	for j = 1, #modifiers, 1 do
 		local modifier = modifiers[j]
@@ -14,7 +14,7 @@ function cleanse(event)
 				break
 			end
 		end
-	end				
+	end
 
 	if particle then
 		EmitSoundOn("Draghor.Cleanse", caster)

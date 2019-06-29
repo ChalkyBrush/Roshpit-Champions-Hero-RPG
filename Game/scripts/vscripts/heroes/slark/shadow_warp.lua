@@ -2,7 +2,6 @@ LinkLuaModifier("slipfinn_shadow_warping", "modifiers/slipfinn/slipfinn_shadow_w
 require('heroes/slark/constants')
 require('heroes/slark/jump')
 
-
 function shadow_warp_start(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -21,7 +20,7 @@ function shadow_warp_start(event)
 		EmitSoundOn("Slipfinn.ShadowWarp", caster)
 		target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
 		if caster:HasModifier("modifier_slipfinn_immortal_weapon_1") then
-			target = target+Vector(0,0,SLIPFINN_IMMORTAL_WEAPON_1_HEIGHT)
+			target = target + Vector(0, 0, SLIPFINN_IMMORTAL_WEAPON_1_HEIGHT)
 			caster:SetAbsOrigin(target)
 			event.guarantee = true
 			event.ability = caster:FindAbilityByName("slipfinn_jump")
@@ -39,7 +38,7 @@ function shadow_warp_start(event)
 		shadow_SizeChange(caster, 0.1, ability.shadowScale, 6)
 	end)
 	local c_c_level = caster:GetRuneValue("e", 3)
-	local c_c_duration = Filters:GetAdjustedBuffDuration(caster, c_c_level*SLIPFINN_E3_DURATION, false)
+	local c_c_duration = Filters:GetAdjustedBuffDuration(caster, c_c_level * SLIPFINN_E3_DURATION, false)
 	if c_c_level > 0 then
 		local shadowRush = caster:FindAbilityByName("slipfinn_shadow_rush")
 		shadowRush:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_shadow_cloak", {duration = c_c_duration})
@@ -48,10 +47,10 @@ function shadow_warp_start(event)
 end
 
 function shadow_SizeChange(object, startSize, endSize, ticks)
-  -- local growth = (endSize-startSize)/ticks
-  -- for i = 0, ticks, 1 do
-  --   Timers:CreateTimer(i*0.03, function()
-  --     object:SetModelScale(startSize + growth*i)
-  --   end)
-  -- end
+	-- local growth = (endSize-startSize)/ticks
+	-- for i = 0, ticks, 1 do
+	--   Timers:CreateTimer(i*0.03, function()
+	--     object:SetModelScale(startSize + growth*i)
+	--   end)
+	-- end
 end

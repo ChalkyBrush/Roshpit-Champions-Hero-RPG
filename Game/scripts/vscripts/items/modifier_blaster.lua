@@ -2,12 +2,12 @@ modifier_blaster_flame_lua = class({})
 modifier_blaster_wind_lua = class({})
 modifier_blaster_ice_lua = class({})
 modifier_blaster_hex_lua = class({})
---------------------------------------------------------------------------------
+----------------------------------------
 function modifier_blaster_ice_lua:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
 	}
- 
+
 	return funcs
 end
 

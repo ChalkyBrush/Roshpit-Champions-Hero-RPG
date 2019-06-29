@@ -1,9 +1,9 @@
 function pure_strike_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*0.03
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * 0.03
 	local ability = event.ability
-	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
+	ApplyDamage({victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 	CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_manaburn_basher_ti_5_gold.vpcf", target, 1)
 end
 
@@ -15,15 +15,15 @@ function ritual_healing(event)
 	if target.paragon then
 		healMult = 0.005
 	end
-	local healAmount = target:GetMaxHealth()*healMult
+	local healAmount = target:GetMaxHealth() * healMult
 	target:Heal(healAmount, caster)
 	PopupHealing(target, healAmount)
-		local particleName = "particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal.vpcf"
-    	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, target )
-		ParticleManager:SetParticleControlEnt( pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true )
-		Timers:CreateTimer(1, function() 
-		  ParticleManager:DestroyParticle( pfx, false )
-		end)		
+	local particleName = "particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal.vpcf"
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
+	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+	Timers:CreateTimer(1, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/duskbringer_c_a_heal_break_heal.vpcf", caster, 1)
 end
 
@@ -33,34 +33,34 @@ function ritual_healing_think(event)
 	if IsValidEntity(ability) then
 		if ability:IsFullyCastable() and caster.aggro then
 			local target_teams = DOTA_UNIT_TARGET_TEAM_FRIENDLY
-			local target_types = DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC
-    		local target_flags = DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS
+			local target_types = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+			local target_flags = DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS
 			local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 940, target_teams, target_types, target_flags, FIND_ANY_ORDER, false)
 			if #allies > 0 then
 				for i = 1, #allies, 1 do
 					if allies[i]:GetHealth() < (allies[i]:GetMaxHealth()) then
 						local newOrder = {
-					 		UnitIndex = caster:entindex(), 
-					 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-					 		TargetIndex = allies[i]:entindex(),
-					 		AbilityIndex = ability:entindex(),
-					 	}
-						ExecuteOrderFromTable(newOrder)						
+							UnitIndex = caster:entindex(),
+							OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+							TargetIndex = allies[i]:entindex(),
+							AbilityIndex = ability:entindex(),
+						}
+						ExecuteOrderFromTable(newOrder)
 						break
 					end
 				end
 			end
 		end
 		if caster.aggro then
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 480, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 480, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
-				local sumVector = Vector(0,0)
+				local sumVector = Vector(0, 0)
 				for i = 1, #enemies, 1 do
 					sumVector = sumVector + enemies[i]:GetAbsOrigin()
 				end
-				local avgVector = sumVector/#enemies
-				local runDirection = ((caster:GetAbsOrigin() - avgVector)*Vector(1,1,0)):Normalized()
-				caster:MoveToPosition(caster:GetAbsOrigin()+runDirection*300)
+				local avgVector = sumVector / #enemies
+				local runDirection = ((caster:GetAbsOrigin() - avgVector) * Vector(1, 1, 0)):Normalized()
+				caster:MoveToPosition(caster:GetAbsOrigin() + runDirection * 300)
 			end
 		end
 	end
@@ -71,21 +71,21 @@ function high_priest_think(event)
 	local caster = event.caster
 	if ability:IsFullyCastable() and caster.aggro then
 		local target_teams = DOTA_UNIT_TARGET_TEAM_FRIENDLY
-		local target_types = DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC
+		local target_types = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
 		local target_flags = DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS
 		local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 940, target_teams, target_types, target_flags, FIND_ANY_ORDER, false)
 		if #allies > 0 then
 			for i = 1, #allies, 1 do
 				if allies[i]:GetHealth() < allies[i]:GetMaxHealth() then
 					local newOrder = {
-				 		UnitIndex = caster:entindex(), 
-				 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-				 		TargetIndex = allies[i]:entindex(),
-				 		AbilityIndex = ability:entindex(),
-				 	}
-					ExecuteOrderFromTable(newOrder)	
-				end	
-			end				
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+						TargetIndex = allies[i]:entindex(),
+						AbilityIndex = ability:entindex(),
+					}
+					ExecuteOrderFromTable(newOrder)
+				end
+			end
 		end
 	end
 end
@@ -94,7 +94,7 @@ function bat_move(event)
 	local caster = event.caster
 	if not caster.aggro then
 		local basePos = Vector(4928, 8064)
-		local randomX = RandomInt(1,500)
+		local randomX = RandomInt(1, 500)
 		local randomY = RandomInt(1, 1600)
 		local moveVector = Vector(basePos.x + randomX, basePos.y + randomY)
 		caster:MoveToPosition(moveVector)
@@ -105,11 +105,11 @@ function bat_attack_land(event)
 	local caster = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local manaDrainMult = event.mana_drain_percent/100
-	local manaDrain = math.min(target:GetMana(), target:GetMaxMana()*manaDrainMult)
+	local manaDrainMult = event.mana_drain_percent / 100
+	local manaDrain = math.min(target:GetMana(), target:GetMaxMana() * manaDrainMult)
 	target:ReduceMana(manaDrain)
-	ApplyDamage({ victim = target, attacker = caster, damage = manaDrain, damage_type = DAMAGE_TYPE_PURE, ability = ability})
-	CustomAbilities:QuickAttachParticle("particles/generic_gameplay/generic_manaburn.vpcf", target, 1)	
+	ApplyDamage({victim = target, attacker = caster, damage = manaDrain, damage_type = DAMAGE_TYPE_PURE, ability = ability})
+	CustomAbilities:QuickAttachParticle("particles/generic_gameplay/generic_manaburn.vpcf", target, 1)
 end
 
 function thicket_bat_egg_think(event)
@@ -120,7 +120,7 @@ function thicket_bat_egg_think(event)
 			egg.movement = 0
 			egg.position = caster:GetAbsOrigin()
 		end
-		local newDistance = WallPhysics:GetDistance(egg.position*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
+		local newDistance = WallPhysics:GetDistance(egg.position * Vector(1, 1, 0), caster:GetAbsOrigin() * Vector(1, 1, 0))
 		newDistance = math.min(newDistance, 500)
 		egg.movement = math.floor(egg.movement + newDistance)
 		egg.position = caster:GetAbsOrigin()
@@ -128,9 +128,9 @@ function thicket_bat_egg_think(event)
 			egg.hatching = true
 			egg:ApplyDataDrivenModifier(caster, caster, "modifier_egg_hatching", {duration = 2})
 			for i = 1, 60, 1 do
-				Timers:CreateTimer(i*0.03, function()
+				Timers:CreateTimer(i * 0.03, function()
 					if not caster:IsRooted() then
-						caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,2.5))
+						caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 2.5))
 					end
 				end)
 			end
@@ -158,9 +158,9 @@ function friend_bat_move(event)
 	local hero = caster.hero
 	local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), caster:GetAbsOrigin())
 	if distance < 700 then
-		caster:MoveToPositionAggressive(hero:GetAbsOrigin()+RandomVector(RandomInt(1, 340)))
+		caster:MoveToPositionAggressive(hero:GetAbsOrigin() + RandomVector(RandomInt(1, 340)))
 	else
-		caster:MoveToPosition(hero:GetAbsOrigin()+RandomVector(RandomInt(1, 340)))
+		caster:MoveToPosition(hero:GetAbsOrigin() + RandomVector(RandomInt(1, 340)))
 	end
 end
 
@@ -168,8 +168,8 @@ function friend_bat_attack(event)
 	local attacker = event.attacker
 	local target = event.target
 	local hero = attacker.hero
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*20
-	ApplyDamage({ victim = target, attacker = hero, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * 20
+	ApplyDamage({victim = target, attacker = hero, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
 end
 
 function growth_detected_enemy(event)
@@ -186,8 +186,8 @@ function growth_detected_enemy(event)
 	EmitSoundOnLocationWithCaster(position, "Tanari.ThicketWatcher.AggroCrash", caster)
 	CustomAbilities:QuickAttachParticle("particles/world_destruction_fx/dire_tree004b_destruction.vpcf", caster, 4)
 	local animationTable = {ACT_DOTA_CAST_ABILITY_1, ACT_DOTA_CAST_ABILITY_4}
-	local animation = animationTable[RandomInt(1,#animationTable)]
-	StartAnimation(caster, {duration=1.5, activity=animation, rate=1.3})
+	local animation = animationTable[RandomInt(1, #animationTable)]
+	StartAnimation(caster, {duration = 1.5, activity = animation, rate = 1.3})
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 300, 5, false)
 end
 
@@ -200,7 +200,7 @@ function watcher_enemy_attack(event)
 			local stun_duration = event.stun_duration
 			local damage = event.damage
 			EmitSoundOn("Tanari.ThicketWatcher.Bash", target)
-			ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
+			ApplyDamage({victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
 			Filters:ApplyStun(attacker, stun_duration, target)
 			ability:StartCooldown(4.0)
 		end

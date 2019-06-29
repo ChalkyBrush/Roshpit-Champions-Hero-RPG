@@ -55423,7 +55423,7 @@
         "Ability1"              "canyon_boss_time_walk"
         "Ability2"              "canyon_boss_ai"
         "Ability3"              "boss_health"
-        "Ability4"              "redfall_cant_die"
+        "Ability4"              "redfall_canyon_boss_passive"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -56072,8 +56072,8 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"          "redfall_mirana_starfall"
-        "Ability2"          "redfall_mirana_arrow"
+        "Ability1"          "redfall_feronia_starfall"
+        "Ability2"          "redfall_feronia_arrow"
         "Ability3"          "redfall_feronia_passive"
         "Ability4"          "fire_temple_steadfast"
         "Ability5"          "dungeon_creep"
@@ -59546,7 +59546,7 @@
         "Ability3"  "shipyard_boss_ai"
         "Ability4"  "shipyard_boss_chemical_rage"
         "Ability5"  "boss_health"
-        "Ability6"  "redfall_cant_die"
+        "Ability6"  "redfall_shipyard_boss_passive"
         "Ability7"  "dungeon_creep"
         "Creature"
         {
@@ -61105,7 +61105,7 @@
         "Ability4"      "redfall_crimsyth_boss_passive"
         "Ability5"      "crimsyth_final_boss_fire_blast"
         "Ability6"      "boss_health"
-        "Ability7"      "redfall_cant_die"
+        "Ability7"      "redfall_crimsyth_castle_boss_passive"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Creature"
@@ -84718,7 +84718,7 @@
         "PathfindingSearchDepthScale" "0.2"
 
         // Abilities
-        //----------------------------------------------------------------
+        //--------------------------------
         
         "Ability1"                  "winterblight_ice_magic_immune_ability"   
         "Ability2"                  "dungeon_creep"       
@@ -84730,12 +84730,12 @@
         "Ability8"                  ""          
 
         // Armor
-        //----------------------------------------------------------------
+        //--------------------------------
         "ArmorPhysical"             "5"         // Physical protection.
         "MagicalResistance"         "30"        // Magical protection.
 
         // Attack
-        //----------------------------------------------------------------
+        //--------------------------------
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "20"
@@ -84749,49 +84749,49 @@
 
 
         // Bounty
-        //----------------------------------------------------------------
+        //--------------------------------
         "BountyXP"                  "30"   
         "BountyGoldMin"             "30"     
         "BountyGoldMax"             "40"    
 
         // Bounds
-        //----------------------------------------------------------------
+        //--------------------------------
         "RingRadius"                "60"
         "HealthBarOffset"           "200"
         "BoundsHullName"            "DOTA_HULL_SIZE_HERO"  
         "CollisionSize"             "120"
 
         // Movement
-        //----------------------------------------------------------------
+        //--------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
         "MovementSpeed"             "280"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
-        //----------------------------------------------------------------
+        //--------------------------------
         "StatusHealth"              "24400"       // Base health.
         "StatusHealthRegen"         "1"      // Health regeneration rate.
         "StatusMana"                "500"         // Base mana.
         "StatusManaRegen"           "50"         // Mana regeneration rate.
 
         // Team
-        //----------------------------------------------------------------
+        //--------------------------------
         "TeamName"                  "DOTA_TEAM_NEUTRALS"         // Team name.
         "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         
         // Vision
-        //----------------------------------------------------------------
+        //--------------------------------
         "VisionDaytimeRange"        "1400"      // Range of vision during day light.
         "VisionNighttimeRange"      "1400"      // Range of vision at night time.
 
         // Creature Data
-        //----------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------
         "Creature"
         {   
             //Basic AI State
-            //-----------------------------------------------------------------
+            //---------------------------------
             "DefaultState"              "Invade"
             
             "States"
@@ -90562,7 +90562,7 @@
             "particle"      "particles/units/heroes/hero_visage/visage_stone_form.vpcf"
         }
         // Abilities
-        //----------------------------------------------------------------
+        //--------------------------------
         
         "Ability1"                  "visage_summon_familiars_stone_form"   
         "Ability2"                  "armor_break"
@@ -90571,12 +90571,12 @@
         "Ability5"                  "dungeon_creep"         
 
         // Armor
-        //----------------------------------------------------------------
+        //--------------------------------
         "ArmorPhysical"             "10"         // Physical protection.
         "MagicalResistance"         "33"        // Magical protection.
 
         // Attack
-        //----------------------------------------------------------------
+        //--------------------------------
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "3000"
@@ -90590,48 +90590,48 @@
 
 
         // Bounty
-        //----------------------------------------------------------------
+        //--------------------------------
         "BountyXP"                  "396"   
         "BountyGoldMin"             "110"     
         "BountyGoldMax"             "140"    
 
         // Bounds
-        //----------------------------------------------------------------
+        //--------------------------------
         "RingRadius"                "60"
         "HealthBarOffset"           "200"
         "BoundsHullName"            "DOTA_HULL_SIZE_SMALL"  
 
         // Movement
-        //----------------------------------------------------------------
+        //--------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"    
         "ShouldDoFlyHeightVisual"   "1"
         "MovementSpeed"             "400"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
-        //----------------------------------------------------------------
+        //--------------------------------
         "StatusHealth"              "86000"       // Base health.
         "StatusHealthRegen"         "10"      // Health regeneration rate.
         "StatusMana"                "0"         // Base mana.
         "StatusManaRegen"           "0"         // Mana regeneration rate.
 
         // Team
-        //----------------------------------------------------------------
+        //--------------------------------
         "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         
         // Vision
-        //----------------------------------------------------------------
+        //--------------------------------
         "VisionDaytimeRange"        "1400"      // Range of vision during day light.
         "VisionNighttimeRange"      "1400"      // Range of vision at night time.
 
         // Creature Data
-        //----------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------
         "Creature"
         {   
             //Basic AI State
-            //-----------------------------------------------------------------
+            //---------------------------------
             "DefaultState"              "Invade"
             
             "States"
@@ -91056,7 +91056,7 @@
             "particle"  "particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet_frozen.vpcf"
         }
         // Abilities
-        //----------------------------------------------------------------
+        //--------------------------------
         
         "Ability1"                  "winterblight_azalea_triple_boss_ability"   
         "Ability2"                  "torphet_ice_vortex"      
@@ -91066,12 +91066,12 @@
         "Ability6"                  "dungeon_creep"         
 
         // Armor
-        //----------------------------------------------------------------
+        //--------------------------------
         "ArmorPhysical"             "5"         // Physical protection.
         "MagicalResistance"         "30"        // Magical protection.
 
         // Attack
-        //----------------------------------------------------------------
+        //--------------------------------
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "20"
@@ -91085,45 +91085,45 @@
 
 
         // Bounty
-        //----------------------------------------------------------------
+        //--------------------------------
         "BountyXP"                  "30"   
         "BountyGoldMin"             "30"     
         "BountyGoldMax"             "40"    
 
         // Bounds
-        //----------------------------------------------------------------
+        //--------------------------------
         "RingRadius"                "60"
         "HealthBarOffset"           "200"
         "BoundsHullName"            "DOTA_HULL_SIZE_HERO"  
         "CollisionSize"             "120"
 
         // Movement
-        //----------------------------------------------------------------
+        //--------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
         "MovementSpeed"             "280"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
-        //----------------------------------------------------------------
+        //--------------------------------
         "StatusHealth"              "24400"       // Base health.
         "StatusHealthRegen"         "1"      // Health regeneration rate.
         "StatusMana"                "500"         // Base mana.
         "StatusManaRegen"           "50"         // Mana regeneration rate.
 
         // Team
-        //----------------------------------------------------------------
+        //--------------------------------
         "TeamName"                  "DOTA_TEAM_NEUTRALS"         // Team name.
         "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         
         // Vision
-        //----------------------------------------------------------------
+        //--------------------------------
         "VisionDaytimeRange"        "1400"      // Range of vision during day light.
         "VisionNighttimeRange"      "1400"      // Range of vision at night time.
 
         // Creature Data
-        //----------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------
         "Creature"
         {
             "AttachWearables"
@@ -92011,7 +92011,7 @@
         "PathfindingSearchDepthScale" "0.2"
 
         // Abilities
-        //----------------------------------------------------------------
+        //--------------------------------
         
         "Ability1"                  ""   
         "Ability2"                  ""       
@@ -92023,12 +92023,12 @@
         "Ability8"                  ""          
 
         // Armor
-        //----------------------------------------------------------------
+        //--------------------------------
         "ArmorPhysical"             "5"         // Physical protection.
         "MagicalResistance"         "30"        // Magical protection.
 
         // Attack
-        //----------------------------------------------------------------
+        //--------------------------------
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "20"
@@ -92042,45 +92042,45 @@
 
 
         // Bounty
-        //----------------------------------------------------------------
+        //--------------------------------
         "BountyXP"                  "30"   
         "BountyGoldMin"             "30"     
         "BountyGoldMax"             "40"    
 
         // Bounds
-        //----------------------------------------------------------------
+        //--------------------------------
         "RingRadius"                "60"
         "HealthBarOffset"           "200"
         "BoundsHullName"            "DOTA_HULL_SIZE_HERO"  
         "CollisionSize"             "120"
 
         // Movement
-        //----------------------------------------------------------------
+        //--------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
         "MovementSpeed"             "280"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
-        //----------------------------------------------------------------
+        //--------------------------------
         "StatusHealth"              "24400"       // Base health.
         "StatusHealthRegen"         "1"      // Health regeneration rate.
         "StatusMana"                "500"         // Base mana.
         "StatusManaRegen"           "50"         // Mana regeneration rate.
 
         // Team
-        //----------------------------------------------------------------
+        //--------------------------------
         "TeamName"                  "DOTA_TEAM_NEUTRALS"         // Team name.
         "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         
         // Vision
-        //----------------------------------------------------------------
+        //--------------------------------
         "VisionDaytimeRange"        "1400"      // Range of vision during day light.
         "VisionNighttimeRange"      "1400"      // Range of vision at night time.
 
         // Creature Data
-        //----------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -92988,7 +92988,7 @@
         }
 
         // Abilities
-        //----------------------------------------------------------------
+        //--------------------------------
         
         "Ability1"                  "tutorial_elemental_ability"
         "Ability2"                  "dungeon_creep"         
@@ -93000,12 +93000,12 @@
         "Ability8"                  ""          
 
         // Armor
-        //----------------------------------------------------------------
+        //--------------------------------
         "ArmorPhysical"             "2"         // Physical protection.
         "MagicalResistance"         "20"        // Magical protection.
 
         // Attack
-        //----------------------------------------------------------------
+        //--------------------------------
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "300"
@@ -93019,49 +93019,49 @@
 
 
         // Bounty
-        //----------------------------------------------------------------
+        //--------------------------------
         "BountyXP"                  "1000"   
         "BountyGoldMin"             "180"     
         "BountyGoldMax"             "220"    
 
         // Bounds
-        //----------------------------------------------------------------
+        //--------------------------------
         "RingRadius"                "60"
         "HealthBarOffset"           "200"
         "BoundsHullName"            "DOTA_HULL_SIZE_HERO"  
         "CollisionSize"             "120"
 
         // Movement
-        //----------------------------------------------------------------
+        //--------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
         "MovementSpeed"             "310"        // Speed
         "MovementTurnRate"          "0.5"       // Turning rate.
 
         // Status
-        //----------------------------------------------------------------
+        //--------------------------------
         "StatusHealth"              "25000"       // Base health.
         "StatusHealthRegen"         "1"      // Health regeneration rate.
         "StatusMana"                "500"         // Base mana.
         "StatusManaRegen"           "50"         // Mana regeneration rate.
 
         // Team
-        //----------------------------------------------------------------
+        //--------------------------------
         "TeamName"                  "DOTA_TEAM_NEUTRALS"         // Team name.
         "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         
         // Vision
-        //----------------------------------------------------------------
+        //--------------------------------
         "VisionDaytimeRange"        "1400"      // Range of vision during day light.
         "VisionNighttimeRange"      "1400"      // Range of vision at night time.
 
         // Creature Data
-        //----------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------
         "Creature"
         {   
             //Basic AI State
-            //-----------------------------------------------------------------
+            //---------------------------------
             "DefaultState"              "Invade"
             
             "States"

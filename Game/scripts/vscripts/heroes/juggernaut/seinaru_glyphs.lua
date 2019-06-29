@@ -5,25 +5,25 @@ function lifesteal_glyph(event)
     local attacker = event.attacker
     local damage = event.attack_damage
     local lifesteal = math.floor(damage * SEINARU_GLYPH1_LIFESTEAL)
-    local overheal = math.max(attacker:GetHealth() + lifesteal - attacker:GetMaxHealth(),0)
+    local overheal = math.max(attacker:GetHealth() + lifesteal - attacker:GetMaxHealth(), 0)
 
     Filters:ApplyHeal(attacker, attacker, lifesteal, true)
     local particleName = "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
-    local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, attacker )
+    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, attacker)
     ParticleManager:SetParticleControlEnt(pfx, 0, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControlEnt( pfx, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin()+Vector(0,0,70), true )
+    ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin() + Vector(0, 0, 70), true)
     Timers:CreateTimer(1, function()
-        ParticleManager:DestroyParticle( pfx, false )
+        ParticleManager:DestroyParticle(pfx, false)
     end)
 
     local w_ability = attacker:FindAbilityByName('seinaru_hands_of_hikari')
     if overheal and w_ability then
         local w3_level = attacker:GetRuneValue("w", 3)
         if w3_level > 0 then
-            if not  attacker.seinaru_c_b_absorb then
+            if not attacker.seinaru_c_b_absorb then
                 attacker.seinaru_c_b_absorb = 0
             end
-            attacker.seinaru_c_b_absorb = math.min( attacker.seinaru_c_b_absorb + overheal, attacker:GetAgility() * w3_level * SEINARU_W3_SHIELD_PER_AGI)
+            attacker.seinaru_c_b_absorb = math.min(attacker.seinaru_c_b_absorb + overheal, attacker:GetAgility() * w3_level * SEINARU_W3_SHIELD_PER_AGI)
             w_ability:ApplyDataDrivenModifier(attacker, attacker, "modifier_seinaru_rune_w_3_shield", {duration = SEINARU_W3_DUR_BASE})
         end
 

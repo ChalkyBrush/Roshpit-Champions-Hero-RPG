@@ -18,15 +18,15 @@ function supercharge_start(event)
 		EmitSoundOn("Ekkan.SuperCharge.VO", caster)
 		Timers:CreateTimer(0.25, function()
 			EmitSoundOn("Ekkan.SuperCharge.BuffTarget", target)
-			
+
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_ekkan_supercharge", {duration = buffDuration})
 		end)
 		Timers:CreateTimer(0.1, function()
-			StartAnimation(caster, {duration=0.85, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.1})
+			StartAnimation(caster, {duration = 0.85, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1.1})
 		end)
 		local beamPFX = ParticleManager:CreateParticle("particles/roshpit/ekkan/cast_beams_beams.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(beamPFX, 0, caster:GetAbsOrigin())
-		ParticleManager:SetParticleControl(beamPFX, 1, target:GetAbsOrigin()+Vector(0,0,30))
+		ParticleManager:SetParticleControl(beamPFX, 1, target:GetAbsOrigin() + Vector(0, 0, 30))
 		Timers:CreateTimer(3, function()
 			ParticleManager:DestroyParticle(beamPFX, false)
 			ParticleManager:ReleaseParticleIndex(beamPFX)
@@ -37,7 +37,7 @@ function supercharge_start(event)
 		if procs > 0 then
 			ability.origChain = target
 			for i = 1, procs, 1 do
-				Timers:CreateTimer(0.3*i, function()
+				Timers:CreateTimer(0.3 * i, function()
 					superchargeChain(caster, ability, event)
 				end)
 			end
@@ -46,7 +46,7 @@ function supercharge_start(event)
 		if target:GetUnitName() == "ekkan_corpse" then
 			local beamPFX = ParticleManager:CreateParticle("particles/roshpit/ekkan/cast_beams_beams.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControl(beamPFX, 0, caster:GetAbsOrigin())
-			ParticleManager:SetParticleControl(beamPFX, 1, target:GetAbsOrigin()+Vector(0,0,30))
+			ParticleManager:SetParticleControl(beamPFX, 1, target:GetAbsOrigin() + Vector(0, 0, 30))
 			Timers:CreateTimer(3, function()
 				ParticleManager:DestroyParticle(beamPFX, false)
 				ParticleManager:ReleaseParticleIndex(beamPFX)
@@ -58,18 +58,18 @@ function supercharge_start(event)
 				EmitSoundOn("Ekkan.SuperCharge.BuffTarget", target)
 				local superSkeleton = CreateUnitByName("ekkan_supercharged_skeleton", target:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 				superSkeleton.hero = caster
-				superSkeleton.damage = target.attackpower*0.25*c_d_level
+				superSkeleton.damage = target.attackpower * 0.25 * c_d_level
 				superSkeleton.numTargets = 1
-			    if caster:HasModifier("modifier_ekkan_glyph_7_1") then
-			    	superSkeleton.numTargets = 3
-			    end
+				if caster:HasModifier("modifier_ekkan_glyph_7_1") then
+					superSkeleton.numTargets = 3
+				end
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", superSkeleton, 3)
 				EmitSoundOn("Ekkan.SkeletonSpawn", superSkeleton)
 				UTIL_Remove(target)
 			end)
 			Timers:CreateTimer(0.1, function()
-				StartAnimation(caster, {duration=0.85, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.1})
-			end)	
+				StartAnimation(caster, {duration = 0.85, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1.1})
+			end)
 		else
 			supercharge_enemy(caster, target, ability)
 		end
@@ -90,7 +90,7 @@ function superchargeChain(caster, ability, event)
 	local buffDuration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Ekkan.SuperCharge.Buff", caster)
 
-	local allies = FindUnitsInRadius( caster:GetTeamNumber(), ability.origChain:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local allies = FindUnitsInRadius(caster:GetTeamNumber(), ability.origChain:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local newTarget = false
 	if #allies > 0 then
 		for i = 1, #allies, 1 do
@@ -101,7 +101,7 @@ function superchargeChain(caster, ability, event)
 				end
 			end
 		end
-	end 
+	end
 	if newTarget then
 		Timers:CreateTimer(0.25, function()
 			EmitSoundOn("Ekkan.SuperCharge.BuffTarget", newTarget)
@@ -109,7 +109,7 @@ function superchargeChain(caster, ability, event)
 		end)
 		local beamPFX = ParticleManager:CreateParticle("particles/roshpit/ekkan/cast_beams_beams.vpcf", PATTACH_CUSTOMORIGIN, ability.origChain)
 		ParticleManager:SetParticleControl(beamPFX, 0, ability.origChain:GetAbsOrigin())
-		ParticleManager:SetParticleControl(beamPFX, 1, newTarget:GetAbsOrigin()+Vector(0,0,30))
+		ParticleManager:SetParticleControl(beamPFX, 1, newTarget:GetAbsOrigin() + Vector(0, 0, 30))
 		Timers:CreateTimer(3, function()
 			ParticleManager:DestroyParticle(beamPFX, false)
 			ParticleManager:ReleaseParticleIndex(beamPFX)
@@ -133,13 +133,13 @@ function supercharge_attack_land(event)
 		caster:RemoveModifierByName("modifier_supercharge_lifesteal_particle")
 		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_supercharge_lifesteal_particle", {duration = 0.7})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_supercharge_lifesteal_particle", {duration = 0.7})
-		local healAmount = math.max(event.attack_damage*0.005*ability.r_1_level, 1)
+		local healAmount = math.max(event.attack_damage * 0.005 * ability.r_1_level, 1)
 		local casterHeal = math.min(caster:GetMaxHealth(), healAmount)
 		local creepHeal = math.min(attacker:GetMaxHealth(), healAmount)
 		Filters:ApplyHeal(caster, caster, casterHeal, true)
-		-- PopupHealing(caster, healAmount)	
-		Filters:ApplyHeal(caster, attacker, creepHeal, true)	
-		-- PopupHealing(attacker, healAmount)	
+		-- PopupHealing(caster, healAmount)
+		Filters:ApplyHeal(caster, attacker, creepHeal, true)
+		-- PopupHealing(attacker, healAmount)
 	end
 end
 
@@ -177,7 +177,7 @@ function supercharge_enemy(caster, target, ability)
 	for i = 1, #unitTable, 1 do
 		local beamPFX = ParticleManager:CreateParticle("particles/roshpit/ekkan/cast_beams_beams.vpcf", PATTACH_CUSTOMORIGIN, unitTable[i])
 		ParticleManager:SetParticleControl(beamPFX, 0, unitTable[i]:GetAbsOrigin())
-		ParticleManager:SetParticleControl(beamPFX, 1, target:GetAbsOrigin()+Vector(0,0,30))
+		ParticleManager:SetParticleControl(beamPFX, 1, target:GetAbsOrigin() + Vector(0, 0, 30))
 		Timers:CreateTimer(3, function()
 			ParticleManager:DestroyParticle(beamPFX, false)
 			ParticleManager:ReleaseParticleIndex(beamPFX)
@@ -188,8 +188,8 @@ function supercharge_enemy(caster, target, ability)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Ekkan.Dominion.Launch", caster)
 	Timers:CreateTimer(0.2, function()
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.03})
-		local finalSwarmDamage = swarmDamage*0.02*b_d_level
-		Filters:TakeArgumentsAndApplyDamage(target, caster, finalSwarmDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_DEMON)
+		local finalSwarmDamage = swarmDamage * 0.02 * b_d_level
+		Filters:TakeArgumentsAndApplyDamage(target, caster, finalSwarmDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_DEMON)
 		EmitSoundOn("Ekkan.ScourgeSwarm", target)
 		CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan/scourge_swarm.vpcf", target, 5)
 	end)
@@ -204,14 +204,14 @@ function super_skeleton_think(event)
 		caster.interval = 0
 	end
 	if caster.interval <= 40 then
-		local enemies = FindUnitsInRadius( hero:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius(hero:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for i = 1, caster.numTargets, 1 do
-				Filters:TakeArgumentsAndApplyDamage(enemies[i], hero, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_LIGHTNING)
-				Events:CreateLightningBeam(caster:GetAbsOrigin()+Vector(0,0,180), enemies[i]:GetAbsOrigin()+Vector(0,0,90))
+				Filters:TakeArgumentsAndApplyDamage(enemies[i], hero, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_LIGHTNING)
+				Events:CreateLightningBeam(caster:GetAbsOrigin() + Vector(0, 0, 180), enemies[i]:GetAbsOrigin() + Vector(0, 0, 90))
 			end
 			EmitSoundOn("Ekkan.SuperchargeSkeleton.Beam", caster)
-		end 
+		end
 	end
 	caster.interval = caster.interval + 1
 	if caster.interval == 40 then
@@ -228,5 +228,5 @@ end
 
 function super_skeleton_idle_end(event)
 	local caster = event.caster
-	StartAnimation(caster, {duration=10, activity=ACT_DOTA_DIE, rate=1.0})
+	StartAnimation(caster, {duration = 10, activity = ACT_DOTA_DIE, rate = 1.0})
 end

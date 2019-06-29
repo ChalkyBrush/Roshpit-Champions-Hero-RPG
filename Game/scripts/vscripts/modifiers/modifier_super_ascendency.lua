@@ -12,15 +12,15 @@ function modifier_super_ascendency_lua:DeclareFunctions()
     return funcs
 end
 
-function modifier_super_ascendency_lua:GetModifierModelScale( params )
+function modifier_super_ascendency_lua:GetModifierModelScale(params)
     return 20
 end
 
-function modifier_super_ascendency_lua:GetModifierAttackRangeBonus( params )
+function modifier_super_ascendency_lua:GetModifierAttackRangeBonus(params)
     return 0
 end
 
-function modifier_super_ascendency_lua:GetModifierProjectileSpeedBonus( params )
+function modifier_super_ascendency_lua:GetModifierProjectileSpeedBonus(params)
     return 500
 end
 
@@ -29,11 +29,11 @@ end
 -- end
 
 -- function modifier_chernobog_demonform_lua:GetModifierAttackPointConstant( params )
--- 	return -0.1
+-- return -0.1
 -- end
 
-function modifier_super_ascendency_lua:GetAttackSound( params )
-	return "RPCItem.Ascendancy.Attack"
+function modifier_super_ascendency_lua:GetAttackSound(params)
+    return "RPCItem.Ascendancy.Attack"
 end
 
 function modifier_super_ascendency_lua:IsHidden()

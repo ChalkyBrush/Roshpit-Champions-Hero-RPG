@@ -1,47 +1,8 @@
+require('/global_constants')
+
 if Elements == nil then
-  Elements = class({})
+	Elements = class({})
 end
-
-RPC_ELEMENT_COUNT = 18
-
-RPC_ELEMENT_NONE = -1
-RPC_ELEMENT_NORMAL = 1
-RPC_ELEMENT_FIRE = 2
-RPC_ELEMENT_EARTH = 3
-RPC_ELEMENT_LIGHTNING = 4
-RPC_ELEMENT_POISON = 5
-RPC_ELEMENT_TIME = 6
-RPC_ELEMENT_HOLY = 7
-RPC_ELEMENT_COSMOS = 8
-RPC_ELEMENT_ICE = 9
-RPC_ELEMENT_ARCANE = 10
-RPC_ELEMENT_SHADOW = 11
-RPC_ELEMENT_WIND = 12
-RPC_ELEMENT_GHOST = 13
-RPC_ELEMENT_WATER = 14
-RPC_ELEMENT_DEMON = 15
-RPC_ELEMENT_NATURE = 16
-RPC_ELEMENT_UNDEAD = 17
-RPC_ELEMENT_DRAGON = 18
-
-RPC_ELEMENT_NORMAL_COLOR = "#DDDDDD"
-RPC_ELEMENT_FIRE_COLOR = "#EF4126"
-RPC_ELEMENT_EARTH_COLOR = "#AF843D"
-RPC_ELEMENT_LIGHTNING_COLOR = "#5CCDF9"
-RPC_ELEMENT_POISON_COLOR = "#37DD3D"
-RPC_ELEMENT_TIME_COLOR = "#B5FFB7"
-RPC_ELEMENT_HOLY_COLOR = "#F6FFB5"
-RPC_ELEMENT_COSMOS_COLOR = "#C25DFC"
-RPC_ELEMENT_ICE_COLOR = "#87D9FF"
-RPC_ELEMENT_ARCANE_COLOR = "#E1A2E8"
-RPC_ELEMENT_SHADOW_COLOR = "#7F4F84"
-RPC_ELEMENT_WIND_COLOR = "#7AE2A7"
-RPC_ELEMENT_GHOST_COLOR = "#9ACCD1"
-RPC_ELEMENT_WATER_COLOR = "#3894FF"
-RPC_ELEMENT_DEMON_COLOR = "#5B648C"
-RPC_ELEMENT_NATURE_COLOR = "#69BC71"
-RPC_ELEMENT_UNDEAD_COLOR = "#5C776E"
-RPC_ELEMENT_DRAGON_COLOR = "#3289C7"
 
 function Elements:GetElementIndexByString(element_name)
 	local element_number = 0
@@ -147,31 +108,31 @@ function Elements:GetElementNameAndColorByCode(elementCode)
 end
 
 function Elements:hex2rgb(hex)
-    hex = hex:gsub("#","")
-    return tonumber("0x"..hex:sub(1,2)), tonumber("0x"..hex:sub(3,4)), tonumber("0x"..hex:sub(5,6))
+	hex = hex:gsub("#", "")
+	return tonumber("0x"..hex:sub(1, 2)), tonumber("0x"..hex:sub(3, 4)), tonumber("0x"..hex:sub(5, 6))
 end
 
 function Elements:RollElementAttribute(item, element_code, rollMult, minRoll, maxRoll, attributeSlot)
-	local luck = RandomInt(0,110)
+	local luck = RandomInt(0, 110)
 	local maxFactor = RPCItems:GetMaxFactor()
 	local value = 0
 	local prefixLevel = 1
-	local maxRoll = math.ceil(rollMult*1.5)
+	local maxRoll = math.ceil(rollMult * 1.5)
 	local name, color = Elements:GetElementNameAndColorByCode(element_code)
-	value, prefixLevel = RPCItems:RollAttribute(100, minRoll, maxRoll, 0, 0, item.rarity, false, maxFactor*rollMult)
+	value, prefixLevel = RPCItems:RollAttribute(100, minRoll, maxRoll, 0, 0, item.rarity, false, maxFactor * rollMult)
 	value = math.floor(value)
-	print("[Elements:RollElementAttribute] "..name)
+	--print("[Elements:RollElementAttribute] "..name)
 	if attributeSlot == 1 then
 		item.newItemTable.property1name = name
-		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color,  1)
+		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color, 1)
 	elseif attributeSlot == 2 then
 		item.newItemTable.property2name = name
-		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color,  2)
+		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color, 2)
 	elseif attributeSlot == 3 then
 		item.newItemTable.property3name = name
-		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color,  3)
+		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color, 3)
 	elseif attributeSlot == 4 then
 		item.newItemTable.property4name = name
-		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color,  4)
+		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color, 4)
 	end
 end

@@ -28,7 +28,6 @@
 --     planet1:SetOriginalModel('models/props_gameplay/rune_doubledamage01.vmdl')
 --     Physics:Unit(planet1)
 
-
 --     planet2 = CreateUnitByName('npc_dummy_unit', Vector(0,0,0), true, hero, hero, hero:GetTeamNumber())
 --     planet2:FindAbilityByName("reflex_dummy_unit"):SetLevel(1)
 --     planet2:SetModel('models/props_gameplay/rune_haste01.vmdl')
@@ -122,12 +121,11 @@
 --     return IsPhysicsUnit(collided) or (collided.IsRealHero and collided:IsRealHero())
 --   end
 --   collider.postaction = function(self, collider, collided)
---     print("post: " .. collided:GetName() .. " -- " .. VectorDistance(collider:GetAbsOrigin(), collided:GetAbsOrigin()))
+--    --print("post: " .. collided:GetName() .. " -- " .. VectorDistance(collider:GetAbsOrigin(), collided:GetAbsOrigin()))
 --   end
 --   collider.preaction = function(self, collider, collided)
---     print("pre: " .. collided:GetName() .. " -- " .. VectorDistance(collider:GetAbsOrigin(), collided:GetAbsOrigin()))
+--    --print("pre: " .. collided:GetName() .. " -- " .. VectorDistance(collider:GetAbsOrigin(), collided:GetAbsOrigin()))
 --   end
-
 
 --   Physics:RemoveCollider("testbox")
 --   boxcollider = Physics:AddCollider("testbox", Physics:ColliderFromProfile("boxblocker"))
@@ -204,8 +202,8 @@
 -- if testCount == 4 then
 --   Physics:RemoveCollider("testbox")
 --   boxcollider = Physics:AddCollider("testbox", Physics:ColliderFromProfile("boxreflect"))
---   boxcollider.box = {Vector(-100,550,0), 
---     RotatePosition(Vector(-100,550,0), QAngle(0,-15,0), Vector(-100,350,0)), 
+--   boxcollider.box = {Vector(-100,550,0),
+--     RotatePosition(Vector(-100,550,0), QAngle(0,-15,0), Vector(-100,350,0)),
 --     RotatePosition(Vector(-100,550,0), QAngle(0,-15,0), Vector(1000,550,0)) + Vector(0,0,500)}
 --   boxcollider.test = function(self, unit)
 --     return IsPhysicsUnit(unit)
@@ -352,18 +350,17 @@
 --   end
 -- end
 
-
--- print(testCount)
+--print(testCount)
 -- testCount = testCount + 1
 
 -- --PrintTable(Physics.Colliders)
 
--- print('0----0')
+--print('0--0')
 -- --print(testUnit:GetModelRadius())
 -- --print(testUnit:BoundingRadius2D())
 -- --print(testUnit:GetHullRadius())
 -- --print(testUnit:GetPaddedCollisionRadius())
 -- PrintTable(Physics.Colliders)
--- print('0----0')
+--print('0--0')
 
 -- hero:Hibernate(false)

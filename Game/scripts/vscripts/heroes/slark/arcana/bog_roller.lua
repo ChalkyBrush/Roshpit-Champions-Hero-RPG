@@ -7,7 +7,7 @@ function turn_toggle_on(event)
 	EndAnimation(caster)
 	caster:StartGesture(ACT_DOTA_SLARK_POUNCE)
 	-- Timers:CreateTimer(0.03, function()
-	-- 	StartAnimation(caster, {duration=0.45, activity=ACT_DOTA_SLARK_POUNCE, rate=1.1})
+	-- StartAnimation(caster, {duration=0.45, activity=ACT_DOTA_SLARK_POUNCE, rate=1.1})
 	-- end)
 	EmitSoundOn("Slipfinn.BogRoller.Start", caster)
 	local soundChance = RandomInt(1, 3)
@@ -18,11 +18,11 @@ function turn_toggle_on(event)
 		if caster:HasModifier("modifier_slipfinn_bog_roller") then
 			EndAnimation(caster)
 
-			caster:AddNewModifier( caster, ability, "slipfinn_bog_roller_lua", {} )
+			caster:AddNewModifier(caster, ability, "slipfinn_bog_roller_lua", {})
 			StartSoundEvent("Slipfinn.BogRoller.LP", caster)
 			StartSoundEvent("Slipfinn.BogRoller.LP2", caster)
 			Timers:CreateTimer(0.03, function()
-				StartAnimation(caster, {duration=99999, activity=ACT_DOTA_RUN, rate=1})
+				StartAnimation(caster, {duration = 99999, activity = ACT_DOTA_RUN, rate = 1})
 			end)
 			ProjectileManager:ProjectileDodge(caster)
 			Filters:CastSkillArguments(3, caster)
@@ -33,7 +33,7 @@ function turn_toggle_on(event)
 	caster:SetRenderColor(50, 120, 250)
 	ability.fv = caster:GetForwardVector()
 	ability.fall_speed = 0
-	
+
 	ability.rollspeed = caster.speed
 	local e_2_level = caster:GetRuneValue("e", 2)
 	if e_2_level > 0 then
@@ -65,7 +65,7 @@ function bog_roller_think(event)
 	if caster:HasModifier("modifier_bog_roller_collision") then
 		caster:SetForwardVector(ability.collisionFV)
 		if not caster:HasModifier("modifier_slipfinn_basic_jump") then
-			caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,ability.collisionJumpForce))
+			caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, ability.collisionJumpForce))
 			ability.collisionJumpForce = ability.collisionJumpForce - 2.5
 		else
 			caster:RemoveModifierByName("modifier_bog_roller_collision")
@@ -84,7 +84,7 @@ function bog_roller_think(event)
 			else
 				caster:RemoveModifierByName("modifier_bog_roller_speedburst")
 			end
-			speedBonus = speedBonus/10
+			speedBonus = speedBonus / 10
 		end
 		ability.rollspeed = math.min(ability.rollspeed + 1 + speedBonus, 25 + speedBonus)
 		local rollSpeed = ability.rollspeed
@@ -92,17 +92,17 @@ function bog_roller_think(event)
 		if caster:HasModifier("modifier_slipfinn_basic_jump") then
 			rollSpeed = 0
 		end
-		local new_fv = (caster:GetForwardVector() + ability.fv*0.16):Normalized()
+		local new_fv = (caster:GetForwardVector() + ability.fv * 0.16):Normalized()
 		caster:SetForwardVector(new_fv)
 		local fv = caster:GetForwardVector()
-		local new_position = caster:GetAbsOrigin() + fv*rollSpeed 
+		local new_position = caster:GetAbsOrigin() + fv * rollSpeed
 
 		local obstruction = WallPhysics:FindNearestObstruction(new_position)
 		local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, new_position, caster)
 		local groundClimb = false
 		local ground_new_pos = GetGroundPosition(new_position, caster)
 		if ground_new_pos.z - 100 > caster:GetAbsOrigin().z then
-			blockUnit = true 
+			blockUnit = true
 		elseif ground_new_pos.z - 2 > caster:GetAbsOrigin().z then
 			groundClimb = true
 		elseif ground_new_pos.z + 2 < caster:GetAbsOrigin().z then
@@ -111,12 +111,12 @@ function bog_roller_think(event)
 			else
 				ability.fall_speed = ability.fall_speed + 2.5
 			end
-			new_position = new_position - Vector(0,0,ability.fall_speed)
+			new_position = new_position - Vector(0, 0, ability.fall_speed)
 		else
 			ability.fall_speed = 0
-			local pfx = ParticleManager:CreateParticle( "particles/econ/items/lion/fish_stick/fish_stick_splash.vpcf", PATTACH_CUSTOMORIGIN, caster )
-			ParticleManager:SetParticleControl( pfx, 0, caster:GetAbsOrigin() )
-			ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+			local pfx = ParticleManager:CreateParticle("particles/econ/items/lion/fish_stick/fish_stick_splash.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+			ParticleManager:SetParticleControl(pfx, 1, Vector(200, 200, 200))
 			Timers:CreateTimer(2, function()
 				ParticleManager:DestroyParticle(pfx, false)
 				ParticleManager:ReleaseParticleIndex(pfx)
@@ -130,7 +130,7 @@ function bog_roller_think(event)
 		else
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_bog_roller_collision", {duration = 1})
 			EmitSoundOn("Slipfinn.BogRoller.Collision", caster)
-			ability.collisionFV = fv*-1
+			ability.collisionFV = fv *- 1
 			ability.collisionJumpForce = 30
 			caster:RemoveModifierByName("modifier_bog_roller_speedburst")
 			caster:Stop()
@@ -142,7 +142,7 @@ function bog_roller_think(event)
 	ability.interval = ability.interval + 1
 	if ability.interval == 2 then
 		ability.interval = 0
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 		if #enemies > 0 then
 			local target = enemies[1]
 			if target:HasModifier("slipfinn_possessed_lua") and #enemies == 1 then
@@ -153,7 +153,7 @@ function bog_roller_think(event)
 			if target then
 				Filters:PerformAttackSpecial(caster, target, true, true, true, false, true, false, false)
 			end
-		end 
+		end
 	end
 end
 
@@ -181,7 +181,7 @@ function bog_roller_end(event)
 	end
 	Timers:CreateTimer(0.03, function()
 		ProjectileManager:ProjectileDodge(caster)
-		StartAnimation(caster, {duration=1, activity=ACT_DOTA_SLARK_POUNCE, rate=1})
+		StartAnimation(caster, {duration = 1, activity = ACT_DOTA_SLARK_POUNCE, rate = 1})
 	end)
 	caster:RemoveModifierByName("modifier_bog_roller_attack_dmg_pct")
 	caster:RemoveModifierByName("modifier_slipfinn_bog_roller_e3")
@@ -206,7 +206,7 @@ function bog_roller_passive_attack_land(event)
 	local ability = event.ability
 	local armor_break_percent = event.armor_break_percent
 	local current_stacks = target:GetModifierStackCount("modifier_slipfinn_bog_roller_armor_break", caster)
-	local stacks = (target:GetPhysicalArmorValue(false)+current_stacks)*(armor_break_percent/100)
+	local stacks = (target:GetPhysicalArmorValue(false) + current_stacks) * (armor_break_percent / 100)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_slipfinn_bog_roller_armor_break", {duration = 10})
 	target:SetModifierStackCount("modifier_slipfinn_bog_roller_armor_break", caster, stacks)
 	if target.dummy then
@@ -215,21 +215,21 @@ function bog_roller_passive_attack_land(event)
 	if not ability.particle_count then
 		ability.particle_count = 0
 	end
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.shadow_damage_on_attack/100)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (event.shadow_damage_on_attack / 100)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 	if ability.particle_count <= 10 then
 		CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/shadow_shank.vpcf", target, 0.4)
 		ability.particle_count = ability.particle_count + 1
 	end
 	local e_2_level = caster:GetRuneValue("e", 2)
-	
+
 	if e_2_level > 0 then
 		if ability.particle_count <= 15 then
 			ability.particle_count = ability.particle_count + 1
 			CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/bog_mystic_dagger.vpcf", target, 2)
 		end
-		local e_2_damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(SLIPFINN_E2_WATER_DAMAGE_ATK_POWER_PCT/100)*e_2_level
-		Filters:TakeArgumentsAndApplyDamage(target, caster, e_2_damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+		local e_2_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (SLIPFINN_E2_WATER_DAMAGE_ATK_POWER_PCT / 100) * e_2_level
+		Filters:TakeArgumentsAndApplyDamage(target, caster, e_2_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 	end
 	Timers:CreateTimer(1, function()
 		ability.particle_count = ability.particle_count - 1
@@ -241,10 +241,10 @@ function bog_roller_razor(event)
 	local caster = event.caster
 	local ability = event.ability
 	local radius = 300
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(SLIPFINN_E1_RAZOR/100)*ability.e_1_level
-	for _,enemy in pairs(enemies) do
-		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_SHADOW, RPC_ELEMENT_WATER)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (SLIPFINN_E1_RAZOR / 100) * ability.e_1_level
+	for _, enemy in pairs(enemies) do
+		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_SHADOW, RPC_ELEMENT_WATER)
 	end
 end
 

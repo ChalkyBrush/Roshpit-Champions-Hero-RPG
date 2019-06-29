@@ -1140,8 +1140,8 @@
 		// Special Mobs
 		//------------------------		
 
-		"DOTA_Tooltip_modifier_paragon"								"Монстр Парагона"
-		"DOTA_Tooltip_modifier_paragon_Description"					"Мощное элитное существо"
+		"DOTA_Tooltip_modifier_paragon_pack"								"Монстр Парагона"
+		"DOTA_Tooltip_modifier_paragon_pack_Description"					"Мощное элитное существо"
 
 		"DOTA_Tooltip_modifier_paragon_solo"						"Монстр Парагона"
 		"DOTA_Tooltip_modifier_paragon_solo_Description"			"Мощное легендарное существо"
@@ -3953,7 +3953,7 @@
 		"DOTA_Tooltip_ability_summon_earth_aspect_aspect_health"			"ЗДОРОВЬЕ ЭЛЕМЕНТАЛЯ ЗЕМЛИ:"
 		
 		"DOTA_Tooltip_ability_earthquake"									"Earthquake"
-		"DOTA_Tooltip_ability_earthquake_Description"						"Стихия: <font color=\"#AF843D\">Земля</font><br>Создаёт мощное землетрясение в указанной области и под элементалем земли, который раскалывает землю под ногами врагов. После первого удара, есть ещё 1,5 секунды для создания дополнительных толчков."
+		"DOTA_Tooltip_ability_earthquake_Description"						"Стихия: <font color=\"#AF843D\">Земля</font><br>Раскалывает землю в указанной области и под элементалем земли. Дополнительные расколы можно кастовать без перезарядки еще 1.5 секунды после прочтения."
 		"DOTA_Tooltip_ability_earthquake_Lore"								""
 		"DOTA_Tooltip_ability_earthquake_damage"							"УРОН:"
 		"DOTA_Tooltip_ability_earthquake_stun_duration"						"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
@@ -3963,13 +3963,13 @@
 		"DOTA_Tooltip_modifier_free_quake_description"						"Свободное создание Earthquake, пока этот эффект активен."
 		
 		"DOTA_Tooltip_earth_aspect_a_a_ability"								"Earth Guardian"
-		"DOTA_Tooltip_earth_aspect_a_a_ability_Description"					"Earth Aspect absorbs 50% of all damage taken by the caster. Each Q1 rune makes Earth Aspect provide armor to itself and all nearby friendly units."
+		"DOTA_Tooltip_earth_aspect_a_a_ability_Description"					"Элементаль земли поглощает 50% всего получаемого призывателем урона. Каждая руна Q1  увеличивает броню союзных юнитов поблизости."
 
 		"DOTA_Tooltip_modifier_earth_guardian"								"Earth Aspect"
 		"DOTA_Tooltip_modifier_earth_guardian_Description"					"50%% полученного урона получит элементаль земли"
 		
 		"DOTA_Tooltip_ability_conjuror_rune_q_1"							"[Q1] Earth Guardian"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_1_Description"				"Элементаль Земли увеличивает здоровье и броню себе и всем ближайшим дружественным юнитам. Дополнительно увеличивает максимальный запас здоровья элементалей."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_Description"				"Элементаль Земли увеличивает броню себе и всем ближайшим дружественным юнитам. Дополнительно увеличивает максимальный запас здоровья элементалей."
     	"DOTA_Tooltip_ability_conjuror_rune_q_1_property_one"				"Макс. здоровье элементалей"
     	"DOTA_Tooltip_ability_conjuror_rune_q_1_suffix"						"%"
     	"DOTA_Tooltip_ability_conjuror_rune_q_1_property_two"				"Броня"
@@ -3981,15 +3981,15 @@
 		"DOTA_Tooltip_ability_earth_aspect_q_1_ability_Description"			"Повышает броню ближайшим союзникам"															   
 		
 		"DOTA_Tooltip_ability_conjuror_rune_q_2"							"[Q2] Thunder Clap"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_2_Description"				"При получении элементалем Земли урона, он с 15% шансом применяет умение [Q2] Thunder Clap, нанося большой урон по области, в зависимости от его текущего здоровья и замедляя всех задетых врагов. Прочтение (Q) Earthquake также провоцирует применение этой способности."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_Description"				"При получении элементалем Земли урона, он с 15% шансом ударит по земле, нанося большой урон по области, в зависимости от его текущего здоровья и замедляя всех задетых врагов. Прочтение (Q) Earthquake также провоцирует применение этой способности."
     	"DOTA_Tooltip_ability_conjuror_rune_q_2_property_one"				"Урон"
     	"DOTA_Tooltip_ability_conjuror_rune_q_2_suffix"						"% от текущего здоровья элементаля Земли"
 		
 		"DOTA_Tooltip_ability_earth_aspect_rune_q_2_clap"					"Thunder Clap"		
-		"DOTA_Tooltip_ability_earth_aspect_rune_q_2_clap_Description"		"Стихия: <font color=\"#AF843D\">Земля</font><br>С некоторым шансом при получении элементалем урона, он применит умение [Q2] Thunder Clap, наносящее урон в небольшой области и замедляющее задетых врагов."
+		"DOTA_Tooltip_ability_earth_aspect_rune_q_2_clap_Description"		"Стихия: <font color=\"#AF843D\">Земля</font><br>С некоторым шансом при получении элементалем урона, он применит умение Thunder Clap, наносящее урон в небольшой области и замедляющее задетых врагов."
 		
 		"DOTA_Tooltip_ability_conjuror_rune_q_3"							"[Q3] Earth Well"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_3_Description"				"Когда элементаль Земли получает урон, герой на 1.5 секунды увеличивает реген. здоровья."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_Description"				"Когда элементаль Земли получает урон, герой на 1.5 секунды увеличивает регенерацию здоровья."
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_property_one"				"Доп. реген. здоровья"
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_suffix"						""
 		
@@ -9489,7 +9489,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_sorceress_immortal_weapon_3"            "Fire Queen Staff"
         "item_property_sorceress_immortal_weapon3"                             "Fire Avatar"
-        "property_sorceress_immortal_weapon3_description"                      "С прочтением (R) @Ability4 призывается копия Sorveress с текущими значениями (R) @Ability4 и (E) @Ability3. На призыв копии потратится 50% от макс. маны."
+        "property_sorceress_immortal_weapon3_description"                      "С прочтением (R) @Ability4 призывается копия Sorceress с текущими значениями (R) @Ability4 и (E) @Ability3. На призыв копии потратится 50% от макс. маны."
 		
 
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue"			"Flameblood Weapon"
@@ -14327,11 +14327,11 @@
 		"DOTA_Tooltip_ability_redfall_feronia_passive"					"Guard of Feronia"
 		"DOTA_Tooltip_ability_redfall_feronia_passive_Description"		"После прочтения любого умения наделяется щитом, поглощающим 100% входящего урона на 1.5 секунды."
 
-		"DOTA_Tooltip_ability_redfall_mirana_starfall"					"Sacred Arrow"
-		"DOTA_Tooltip_ability_redfall_mirana_starfall_Description"		"Бросает священную стрелу, которая оглушает и наносит урон всем задетым врагам."	
+		"DOTA_Tooltip_ability_redfall_feronia_starfall"					"Sacred Arrow"
+		"DOTA_Tooltip_ability_redfall_feronia_starfall_Description"		"Бросает священную стрелу, которая оглушает и наносит урон всем задетым врагам."	
 
-		"DOTA_Tooltip_ability_redfall_mirana_starfall"					"Sacred Arrow"
-		"DOTA_Tooltip_ability_redfall_mirana_starfall_Description"		"Бросает священную стрелу, которая оглушает и наносит урон всем задетым врагам."
+		"DOTA_Tooltip_ability_redfall_feronia_arrow"					"Sacred Arrow"
+		"DOTA_Tooltip_ability_redfall_feronia_arrow_Description"		"Бросает священную стрелу, которая оглушает и наносит урон всем задетым врагам."
 
 		"DOTA_Tooltip_ability_redfall_student_of_ashara_leap"			"Forest Leap"	
 		"DOTA_Tooltip_ability_redfall_student_of_ashara_leap_Description"	"Прыгает в сторону выбранного юнита."
@@ -16023,9 +16023,9 @@
         "serengaard_night_invader"   			 "Nightscape Invader"
         "phoenix_siege_dragon"  				  "Siege Drake"
 
-		//---------------------------
+		//---------------
 		// Tanari Jungle
-		//---------------------------
+		//---------------
 
 		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_normal"			"Ключ Дворца ветров"
 		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_elite"				"Ключ Дворца ветров"

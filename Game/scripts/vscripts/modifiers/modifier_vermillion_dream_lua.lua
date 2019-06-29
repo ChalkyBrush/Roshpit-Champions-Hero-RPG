@@ -8,12 +8,12 @@ function modifier_vermillion_dream_lua:DeclareFunctions()
     return funcs
 end
 
-function modifier_vermillion_dream_lua:GetModifierCastRangeBonus( params )
-	local hero = self:GetParent()
-	local range = 420
-	if hero:HasModifier("modifier_hood_of_lords_lua") then
-		range = range + 140
-	end
+function modifier_vermillion_dream_lua:GetModifierCastRangeBonus(params)
+    local hero = self:GetParent()
+    local range = 420
+    if hero:HasModifier("modifier_hood_of_lords_lua") then
+        range = range + 140
+    end
     return range
 end
 

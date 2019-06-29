@@ -12,16 +12,16 @@ function shadow_walk_start(event)
 	if not caster:HasModifier("modifier_chernobog_demon_form") then
 		caster:SetModel("models/heroes/nightstalker/nightstalker_night.vmdl")
 		caster:SetOriginalModel("models/heroes/nightstalker/nightstalker_night.vmdl")
-		StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_NIGHTSTALKER_TRANSITION, rate=1})
+		StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_NIGHTSTALKER_TRANSITION, rate = 1})
 	else
-		StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_ATTACK, rate=2})
+		StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_ATTACK, rate = 2})
 	end
 	EmitSoundOn("Chernobog.ShadowWalkStart", caster)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit.vpcf", caster, 4)
-	
+
 	local abilityLevel = ability:GetLevel()
-	caster:AddNewModifier( caster, nil, 'modifier_movespeed_cap_shadow_walk_'..abilityLevel, {} )
-	
+	caster:AddNewModifier(caster, nil, 'modifier_movespeed_cap_shadow_walk_'..abilityLevel, {})
+
 
 	local rune_e_1_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "chernobog")
 	ability.e_2_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "chernobog")
@@ -30,19 +30,19 @@ function shadow_walk_start(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_e_1", {})
 		caster:SetModifierStackCount("modifier_chernobog_rune_e_1", caster, rune_e_1_level)
 	end
-    if ability.e_2_level > 0 then
-    	ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_e_2", {})
-    	caster:SetModifierStackCount("modifier_chernobog_rune_e_2", caster, ability.e_2_level)
-    end
-    if caster:HasModifier("modifier_chernobog_glyph_2_1") then
-    	ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_night_vision", {})
-    end
+	if ability.e_2_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_e_2", {})
+		caster:SetModifierStackCount("modifier_chernobog_rune_e_2", caster, ability.e_2_level)
+	end
+	if caster:HasModifier("modifier_chernobog_glyph_2_1") then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_night_vision", {})
+	end
 	local rune_e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "chernobog")
 	if rune_e_4_level > 0 then
 		caster:RemoveModifierByName("modifier_chernobog_rune_e_4")
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_e_4", {})
 	end
-    Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(3, caster)
 end
 
 function shadow_walk_end(event)
@@ -52,7 +52,7 @@ function shadow_walk_end(event)
 		caster:SetModel("models/heroes/nightstalker/nightstalker.vmdl")
 		caster:SetOriginalModel("models/heroes/nightstalker/nightstalker.vmdl")
 	end
-	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_SPAWN, rate=1.5})
+	StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_SPAWN, rate = 1.5})
 	EmitSoundOn("Chernobog.Untoggle", caster)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit.vpcf", caster, 4)
 	caster:RemoveModifierByName("modifier_movespeed_cap_shadow_walk_1")
@@ -67,7 +67,7 @@ function shadow_walk_end(event)
 	caster:RemoveModifierByName("modifier_chernobog_night_vision")
 	local rune_e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "chernobog")
 	if rune_e_4_level > 0 then
-		local d_c_duration = 0.7 + 0.2*rune_e_4_level
+		local d_c_duration = 0.7 + 0.2 * rune_e_4_level
 		d_c_duration = Filters:GetAdjustedBuffDuration(caster, d_c_duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_e_4", {duration = d_c_duration})
 	end
@@ -81,13 +81,13 @@ function shadow_walk_think(event)
 	if not caster:HasModifier("modifier_disable_player") and not caster:HasModifier("modifier_nights_procession_caster_lifting") and not caster:HasModifier("modifier_command_restric_player") then
 		if caster:IsAlive() then
 			local drain_per_second = event.drain_per_second
-			drain_per_second = drain_per_second/100
-			if not caster:HasModifier("modifier_chernobog_glyph_5_1") or caster:GetHealth()/caster:GetMaxHealth() > CHERNOBOG_GLYPH51_DRAIN_HP_CAP_PCT then
-				local healthDrain = caster:GetMaxHealth()*drain_per_second
-				local newHealth = math.max(caster:GetHealth()-healthDrain, 1)
+			drain_per_second = drain_per_second / 100
+			if not caster:HasModifier("modifier_chernobog_glyph_5_1") or caster:GetHealth() / caster:GetMaxHealth() > CHERNOBOG_GLYPH51_DRAIN_HP_CAP_PCT then
+				local healthDrain = caster:GetMaxHealth() * drain_per_second
+				local newHealth = math.max(caster:GetHealth() - healthDrain, 1)
 				caster:SetHealth(newHealth)
 			end
-			local manaDrain = caster:GetMaxMana()*drain_per_second
+			local manaDrain = caster:GetMaxMana() * drain_per_second
 			caster:ReduceMana(manaDrain)
 		end
 	end
@@ -97,7 +97,7 @@ function rune_e_2_illusion(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.e_2_level*0.5
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ability.e_2_level * 0.5
 	if not ability.e2_strike_current then
 		ability.e2_strike_current = -1
 		ability.e2_base_strikes = -1;
@@ -111,13 +111,13 @@ function rune_e_2_illusion(event)
 		particle_animation_rate = 1.7
 		damage_delay = 0.3
 	end
-	local strike_current = math.floor(ability.e2_base_strikes/intervalsForAtt)
+	local strike_current = math.floor(ability.e2_base_strikes / intervalsForAtt)
 	if strike_current > ability.e2_strike_current then
 		local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/nights_procession_illusion.vpcf", target, CHERNOBOG_SHADOWS_ATT_INTERVAL_BASE * intervalsForAtt)
 		ParticleManager:SetParticleControl(pfx, 1, Vector(particle_animation_rate, 0, 0))
 		Timers:CreateTimer(damage_delay, function()
 			EmitSoundOn("Chernobog.BC.Hit", target)
-			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
 		end)
 		ability.e2_strike_current = strike_current
 	end

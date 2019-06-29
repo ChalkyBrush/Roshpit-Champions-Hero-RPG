@@ -1,15 +1,15 @@
 function demon_hunter_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local healthPercent = caster:GetHealth()/caster:GetMaxHealth()
+	local healthPercent = caster:GetHealth() / caster:GetMaxHealth()
 	-- caster:SetModel("models/heroes/nightstalker/nightstalker_night.vmdl")
 	-- caster:SetOriginalModel("models/heroes/nightstalker/nightstalker_night.vmdl")
 	EmitSoundOn("Chernobog.DemonHunterStart", caster)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/demon_hunter.vpcf", caster, 4)
 	if not caster:HasModifier("modifier_chernobog_demon_form") then
-		StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_NIGHTSTALKER_TRANSITION, rate=1})
+		StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_NIGHTSTALKER_TRANSITION, rate = 1})
 	else
-		StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
+		StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1})
 	end
 	local rune_w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "chernobog")
 	local rune_w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "chernobog")
@@ -30,7 +30,7 @@ function demon_hunter_start(event)
 		end
 	end
 	Timers:CreateTimer(0.03, function()
-		caster:SetHealth(caster:GetMaxHealth()*healthPercent)
+		caster:SetHealth(caster:GetMaxHealth() * healthPercent)
 	end)
 	caster:SetRangedProjectileName("particles/units/heroes/hero_nevermore/nevermore_base_attack.vpcf")
 	Filters:CastSkillArguments(2, caster)
@@ -39,7 +39,7 @@ end
 function demon_hunter_end(event)
 	local caster = event.caster
 	local ability = event.ability
-	local healthPercent = caster:GetHealth()/caster:GetMaxHealth()
+	local healthPercent = caster:GetHealth() / caster:GetMaxHealth()
 	-- caster:SetModel("models/heroes/nightstalker/nightstalker.vmdl")
 	-- caster:SetOriginalModel("models/heroes/nightstalker/nightstalker.vmdl")
 	local rune_w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "chernobog")
@@ -62,15 +62,15 @@ function demon_hunter_end(event)
 		end
 	end
 	if not caster:HasModifier("modifier_chernobog_demon_form") then
-		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_SPAWN, rate=1.5})
+		StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_SPAWN, rate = 1.5})
 	else
-		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_ATTACK, rate=1.5})
+		StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_ATTACK, rate = 1.5})
 	end
 	caster:SetRangedProjectileName("particles/roshpit/chernobog/demon_form_attack.vpcf")
 	EmitSoundOn("Chernobog.Untoggle", caster)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/demon_hunter.vpcf", caster, 4)
 	Timers:CreateTimer(0.03, function()
-		caster:SetHealth(caster:GetMaxHealth()*healthPercent)
+		caster:SetHealth(caster:GetMaxHealth() * healthPercent)
 	end)
 end
 
@@ -81,11 +81,11 @@ function demon_hunter_attack(event)
 	attacker:ReduceMana(mana_drain_per_attack)
 	local magic_damage_bonus = event.magic_damage_bonus
 	local damage_dealt = event.damage_dealt
-	local demonHunterDamage = damage_dealt*(magic_damage_bonus/100)
-	local healthdrain = (event.health_cost_percent/100)*attacker:GetMaxHealth()
-	local newHealth = math.max(attacker:GetHealth()-healthdrain, 1)
+	local demonHunterDamage = damage_dealt * (magic_damage_bonus / 100)
+	local healthdrain = (event.health_cost_percent / 100) * attacker:GetMaxHealth()
+	local newHealth = math.max(attacker:GetHealth() - healthdrain, 1)
 	attacker:SetHealth(newHealth)
-	Filters:TakeArgumentsAndApplyDamage(target, attacker, demonHunterDamage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, attacker, demonHunterDamage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
 	CustomAbilities:QuickAttachParticle("particles/chernobog/demon_hunter_timedialate.vpcf", target, 2)
 	CustomAbilities:ChernobogDemonHunterManaReduced(attacker)
 end
@@ -101,13 +101,13 @@ function demon_hunter_a_b_attack(event)
 	if rune_w_1_level > 0 then
 		if attacker:HasModifier("modifier_demon_hunter") or attacker:HasModifier("modifier_chernobog_glyph_5_a") then
 			CustomAbilities:QuickAttachParticle("particles/chernobog/chernobog_a_b_timedialate.vpcf", target, 2)
-			local extraDamage = rune_w_1_level*500*mana_drain_per_attack
-			print(extraDamage)
-			Filters:TakeArgumentsAndApplyDamage(target, attacker, extraDamage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+			local extraDamage = rune_w_1_level * 500 * mana_drain_per_attack
+			--print(extraDamage)
+			Filters:TakeArgumentsAndApplyDamage(target, attacker, extraDamage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
 		end
 		if not attacker:HasModifier("modifier_demon_hunter") or attacker:HasModifier("modifier_chernobog_glyph_5_a") then
 			CustomAbilities:QuickAttachParticle("particles/chernobog/chernobog_a_b_timedialate.vpcf", attacker, 2)
-			Filters:ApplyHeal(attacker, attacker, 500*rune_w_1_level, true,false)
+			Filters:ApplyHeal(attacker, attacker, 500 * rune_w_1_level, true, false)
 		end
 	end
 	if rune_w_3_level > 0 then
@@ -117,7 +117,7 @@ function demon_hunter_a_b_attack(event)
 				else
 					attacker:RemoveModifierByName("modifier_chernobog_rune_w_3_fervor_self_visible")
 					attacker:RemoveModifierByName("modifier_chernobog_rune_w_3_fervor_self_invisible")
-					local existingTarget =ability.fervorTarget
+					local existingTarget = ability.fervorTarget
 					if IsValidEntity(existingTarget) then
 						existingTarget:RemoveModifierByName("modifier_chernobog_rune_w_3_fervor_enemy_visible")
 						existingTarget:RemoveModifierByName("modifier_chernobog_rune_w_3_fervor_enemy_invisible")
@@ -128,19 +128,19 @@ function demon_hunter_a_b_attack(event)
 		ability.fervorTarget = target
 		local stackGain = 1
 		local fervorSelfDuration = Filters:GetAdjustedBuffDuration(caster, 9, false)
-		if attacker:HasModifier("modifier_demon_hunter") or  attacker:HasModifier("modifier_chernobog_glyph_5_a") then
+		if attacker:HasModifier("modifier_demon_hunter") or attacker:HasModifier("modifier_chernobog_glyph_5_a") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_w_3_fervor_self_visible", {duration = fervorSelfDuration})
 			local stackCount = caster:GetModifierStackCount("modifier_chernobog_rune_w_3_fervor_self_visible", caster) + stackGain
 			caster:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_self_visible", caster, stackCount)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_w_3_fervor_self_invisible", {duration = fervorSelfDuration})
-			caster:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_self_invisible", caster, stackCount*rune_w_3_level)
+			caster:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_self_invisible", caster, stackCount * rune_w_3_level)
 		end
-		if not attacker:HasModifier("modifier_demon_hunter") or  attacker:HasModifier("modifier_chernobog_glyph_5_a") then
+		if not attacker:HasModifier("modifier_demon_hunter") or attacker:HasModifier("modifier_chernobog_glyph_5_a") then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_chernobog_rune_w_3_fervor_enemy_visible", {duration = 90})
 			local stackCount = target:GetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_visible", caster) + stackGain
 			target:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_visible", caster, stackCount)
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_chernobog_rune_w_3_fervor_enemy_invisible", {duration = 90})
-			target:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_invisible", caster, stackCount*rune_w_3_level)
+			target:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_invisible", caster, stackCount * rune_w_3_level)
 		end
 	end
 end
@@ -150,7 +150,7 @@ function chernobog_always_think(event)
 	local ability = event.ability
 	if not caster:IsAlive() then
 		if caster:GetTimeUntilRespawn() == 0 then
-			print("KILL!")
+			--print("KILL!")
 			caster:SetHealth(10)
 			caster:ForceKill(true)
 		end

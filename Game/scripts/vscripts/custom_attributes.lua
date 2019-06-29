@@ -1,5 +1,5 @@
 if CustomAttributes == nil then
-  CustomAttributes = class({})
+	CustomAttributes = class({})
 end
 
 local hero_values = {
@@ -27,7 +27,6 @@ CustomAttributes.MANA_PER_INT = 5
 CustomAttributes.MANA_REGEN_PER_INT = 0.1
 
 CustomAttributes.ATK_DMG_PER_PRIMARY = 2
-
 
 CustomAttributes.FLAMEWAKER_R3_STRENGTH = 260
 CustomAttributes.CONJUROR_E1_AGI = 25
@@ -293,7 +292,7 @@ function CustomAttributes:SetAttributes(hero)
 	local heroName = hero:GetUnitName()
 	if hero:HasModifier("modifier_flamewaker_rune_r_3") then
 		local stacks = hero:GetModifierStackCount("modifier_flamewaker_rune_r_3", hero)
-		str_bonus = str_bonus + CustomAttributes.FLAMEWAKER_R3_STRENGTH*stacks
+		str_bonus = str_bonus + CustomAttributes.FLAMEWAKER_R3_STRENGTH * stacks
 	end
 	if hero:HasModifier("modifier_voltex_glyph_2_1_effect_invisible") then
 		local stacks = hero:GetModifierStackCount("modifier_voltex_glyph_2_1_effect_invisible", hero)
@@ -307,9 +306,9 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_apollo_stats_invisible") then
 		local stacks = hero:GetModifierStackCount("modifier_apollo_stats_invisible", hero)
-		str_bonus = str_bonus + stacks*CustomAttributes.ASTRAL_W1_ARCANA2_STATS
-		agi_bonus = agi_bonus + stacks*CustomAttributes.ASTRAL_W1_ARCANA2_STATS
-		int_bonus = int_bonus + stacks*CustomAttributes.ASTRAL_W1_ARCANA2_STATS
+		str_bonus = str_bonus + stacks * CustomAttributes.ASTRAL_W1_ARCANA2_STATS
+		agi_bonus = agi_bonus + stacks * CustomAttributes.ASTRAL_W1_ARCANA2_STATS
+		int_bonus = int_bonus + stacks * CustomAttributes.ASTRAL_W1_ARCANA2_STATS
 	end
 	if hero:HasModifier("modifier_epoch_rune_w_3_invisible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_w_3_invisible", EPOCH_W3_INT)
@@ -319,15 +318,15 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_warlord_rune_w_2") then
 		local stacks = hero:GetModifierStackCount("modifier_warlord_rune_w_2", hero)
-		str_bonus = str_bonus + stacks*CustomAttributes.WARLORD_W2_STATS
-		agi_bonus = agi_bonus + stacks*CustomAttributes.WARLORD_W2_STATS
-		int_bonus = int_bonus + stacks*CustomAttributes.WARLORD_W2_STATS
+		str_bonus = str_bonus + stacks * CustomAttributes.WARLORD_W2_STATS
+		agi_bonus = agi_bonus + stacks * CustomAttributes.WARLORD_W2_STATS
+		int_bonus = int_bonus + stacks * CustomAttributes.WARLORD_W2_STATS
 	end
 	if hero:HasModifier("modifier_hailstorm_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hailstorm_strength", CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH)
 	end
 	if hero:HasModifier("modifier_chernobog_rune_w_4_inactive") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_inactive", CustomAttributes.CHERNOBOG_W4_STR_OR_AGI)	
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_inactive", CustomAttributes.CHERNOBOG_W4_STR_OR_AGI)
 	end
 	if hero:HasModifier("modifier_chernobog_rune_w_4_active") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_active", CustomAttributes.CHERNOBOG_W4_STR_OR_AGI)
@@ -340,10 +339,10 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_basin_d_d", CustomAttributes.HYDROXIS_ARC2_R4_INT)
 	end
 	if hero:HasModifier("modifier_speedball_d_d_strength") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_speedball_d_d_strength", CustomAttributes.ZHONIK_R4_STR)	
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_speedball_d_d_strength", CustomAttributes.ZHONIK_R4_STR)
 	end
 	if hero:HasModifier("modifier_arcana_missles_d_d_agility") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arcana_missles_d_d_agility", CustomAttributes.ZHONIK_ARCANA_R4_AGI)	
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arcana_missles_d_d_agility", CustomAttributes.ZHONIK_ARCANA_R4_AGI)
 	end
 	if hero:HasModifier("modifier_arkimus_arcana1_q4") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arkimus_arcana1_q4", ARKIMUS_ARCANA_Q4_AGI)
@@ -376,9 +375,9 @@ function CustomAttributes:SetAttributes(hero)
 			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
 		end
 		if hero:HasModifier("modifier_shapeshift_yearbeast_d_d") then
-			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS )
-			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS )
-			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS )
+			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
+			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
+			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
 		end
 	end
 	if hero:HasModifier("modifier_seinaru_arcana_agility_buff") then
@@ -389,18 +388,18 @@ function CustomAttributes:SetAttributes(hero)
 
 	if hero:HasModifier("modifier_axe_rune_e_1_invisible") then
 		local stacks = CustomAttributes:GetStackWithNoCaster(hero, "modifier_axe_rune_e_1_invisible")
-		str_bonus = str_bonus + stacks*CustomAttributes.AXE_Q3_STATS
-		agi_bonus = agi_bonus + stacks*CustomAttributes.AXE_Q3_STATS
-		int_bonus = int_bonus + stacks*CustomAttributes.AXE_Q3_STATS
+		str_bonus = str_bonus + stacks * CustomAttributes.AXE_Q3_STATS
+		agi_bonus = agi_bonus + stacks * CustomAttributes.AXE_Q3_STATS
+		int_bonus = int_bonus + stacks * CustomAttributes.AXE_Q3_STATS
 	end
 	if hero:HasModifier("modifier_astral_d_c_visible") then
 		local stacks = CustomAttributes:GetStackWithNoCaster(hero, "modifier_astral_d_c_visible")
-		str_bonus = str_bonus + stacks*CustomAttributes.ASTRAL_E4_STATS
-		agi_bonus = agi_bonus + stacks*CustomAttributes.ASTRAL_E4_STATS
-		int_bonus = int_bonus + stacks*CustomAttributes.ASTRAL_E4_STATS
+		str_bonus = str_bonus + stacks * CustomAttributes.ASTRAL_E4_STATS
+		agi_bonus = agi_bonus + stacks * CustomAttributes.ASTRAL_E4_STATS
+		int_bonus = int_bonus + stacks * CustomAttributes.ASTRAL_E4_STATS
 	end
 	-- if hero:HasModifier("modifier_arcane_intellect_visible") then
-	-- 	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INTELLECT)
+	-- int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INTELLECT)
 	-- end
 	if heroName == "npc_dota_hero_beastmaster" then
 		if hero:HasModifier("modifier_warlord_rune_q_4_strength") then
@@ -532,7 +531,7 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_omnimace_wind_buff") then
 		local ability = hero:FindAbilityByName("omniro_omni_mace")
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_omnimace_wind_buff", ability:GetSpecialValueFor("wind_special_a"))	
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_omnimace_wind_buff", ability:GetSpecialValueFor("wind_special_a"))
 	end
 
 	-- BASIC ITEMS STATS --
@@ -542,11 +541,11 @@ function CustomAttributes:SetAttributes(hero)
 
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hand_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hand_agility", 1)
-	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hand_intelligence", 1)	
+	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hand_intelligence", 1)
 
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_foot_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_foot_agility", 1)
-	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_foot_intelligence", 1)	
+	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_foot_intelligence", 1)
 
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_body_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_body_agility", 1)
@@ -624,7 +623,7 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_aqua_lily_intelligence_bonus", CustomAttributes.TANARI_FLOWER_STATS)
 	end
 	if hero:HasModifier("modifier_fire_blossom_strength_bonus") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", CustomAttributes.TANARI_FLOWER_STATS)	
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", CustomAttributes.TANARI_FLOWER_STATS)
 	end
 	if hero:HasModifier("modifier_solunia_d_d_stats") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", CustomAttributes.SOLUNIA_R4_STATS)
@@ -662,21 +661,21 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_glyph_5_a", CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A)
 	end
 	if hero:HasModifier("modifier_red_divinex_amulet") then
-		local stat_bonus =  hero:GetBaseStrength()
+		local stat_bonus = hero:GetBaseStrength()
 		local modifier = hero:FindModifierByName('modifier_red_divinex_amulet')
 		modifier.stat_bonus = stat_bonus
 		str_bonus = str_bonus + stat_bonus
 		agi_bonus = 0
 		int_bonus = 0
 	elseif hero:HasModifier("modifier_green_divinex_amulet") then
-		local stat_bonus =  hero:GetBaseAgility()
+		local stat_bonus = hero:GetBaseAgility()
 		local modifier = hero:FindModifierByName('modifier_green_divinex_amulet')
 		modifier.stat_bonus = stat_bonus
 		agi_bonus = agi_bonus + stat_bonus
 		str_bonus = 0
 		int_bonus = 0
 	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
-		local stat_bonus =  hero:GetBaseIntellect()
+		local stat_bonus = hero:GetBaseIntellect()
 		local modifier = hero:FindModifierByName('modifier_blue_divinex_amulet')
 		modifier.stat_bonus = stat_bonus
 		int_bonus = int_bonus + stat_bonus
@@ -684,14 +683,13 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = 0
 	end
 
-
 	strength = math.max(strength + str_bonus, 0)
 	agility = math.max(agility + agi_bonus, 0)
 	intelligence = math.max(intelligence + int_bonus, 0)
 	hero.str_bonus = str_bonus
 	hero.agi_bonus = agi_bonus
 	hero.int_bonus = int_bonus
-	CustomNetTables:SetTableValue("hero_index", tostring(hero:GetEntityIndex().."_custom_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence)} )
+	CustomNetTables:SetTableValue("hero_index", tostring(hero:GetEntityIndex() .. "_custom_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence)})
 end
 
 function CustomAttributes:AddStatsBonusFromStacks(hero, caster, modifierName, statPerStack)
@@ -703,7 +701,7 @@ function CustomAttributes:AddStatsBonusFromStacks(hero, caster, modifierName, st
 	end
 	local stacks = hero:GetModifierStackCount(modifierName, caster)
 	stacks = math.max(stacks, 1)
-	return stacks*statPerStack
+	return stacks * statPerStack
 end
 
 function CustomAttributes:GetStackWithNoCaster(hero, modifierName)
@@ -720,7 +718,7 @@ function CustomAttributes:AddStatsBonusFromAbility(hero, caster, modifierName, a
 	if ability then
 		local stacks = hero:GetModifierStackCount(modifierName, caster)
 		stacks = math.max(stacks, 1)
-		bonus = ability:GetLevelSpecialValueFor(specialName, ability:GetLevel())*stacks
+		bonus = ability:GetLevelSpecialValueFor(specialName, ability:GetLevel()) * stacks
 	end
 	return bonus
 end
@@ -730,7 +728,7 @@ function CustomAttributes:CalcMovespeed(unit)
 		unit:RemoveModifierByName("modifier_master_movespeed")
 		local baseSpeed = unit:GetBaseMoveSpeed()
 		local modifier = unit:GetMoveSpeedModifier(baseSpeed, false)
-		local modifier2 =unit:GetMoveSpeedModifier(0, false)
+		local modifier2 = unit:GetMoveSpeedModifier(0, false)
 		local ideal = unit:GetIdealSpeed()
 		if modifier2 > 100 then
 			unit.master_move_speed = modifier2 + baseSpeed
@@ -761,10 +759,10 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 		end
 		local healthStacks = CustomAttributes:GetMaxHealth(hero)
 		if not hero:GetModifierStackCount("modifier_strength_health", caster) == healthStacks then
-			local healthPercentFreeze = hero:GetHealth()/hero:GetMaxHealth()
+			local healthPercentFreeze = hero:GetHealth() / hero:GetMaxHealth()
 			Timers:CreateTimer(0.03, function()
 				if hero:IsAlive() then
-					hero:SetHealth(math.max(hero:GetMaxHealth()*healthPercentFreeze, 1))
+					hero:SetHealth(math.max(hero:GetMaxHealth() * healthPercentFreeze, 1))
 				else
 					if hero:GetHealth() == 0 then
 						hero:ForceKill(false)
@@ -777,35 +775,35 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	if not hero:HasModifier("modifier_strength_health_regen") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health_regen", {})
 	end
-	hero:SetModifierStackCount("modifier_strength_health_regen", caster, strength*CustomAttributes.HEALTH_REGEN_PER_STR*halcyon)
+	hero:SetModifierStackCount("modifier_strength_health_regen", caster, strength * CustomAttributes.HEALTH_REGEN_PER_STR * halcyon)
 
 	if not hero:HasModifier("modifier_agility_attackspeed") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_attackspeed", {})
 	end
-	hero:SetModifierStackCount("modifier_agility_attackspeed", caster, agility*CustomAttributes.ATTACKSPEED_PER_AGI*halcyon)
+	hero:SetModifierStackCount("modifier_agility_attackspeed", caster, agility * CustomAttributes.ATTACKSPEED_PER_AGI * halcyon)
 
 	-- if not hero:HasModifier("modifier_agility_armor") then
-	-- 	ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_armor", {})
+	-- ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_armor", {})
 	-- end
 	-- hero:SetModifierStackCount("modifier_agility_armor", caster, agility*CustomAttributes.ARMOR_PER_AGI)
-	local armor = agility*CustomAttributes.ARMOR_PER_AGI*halcyon + 10
+	local armor = agility * CustomAttributes.ARMOR_PER_AGI * halcyon + 10
 	hero:SetPhysicalArmorBaseValue(armor)
 
 	if not hero:HasModifier("modifier_int_mana") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_int_mana", {})
 	end
-	hero:SetModifierStackCount("modifier_int_mana", caster, intelligence*CustomAttributes.MANA_PER_INT*halcyon)
+	hero:SetModifierStackCount("modifier_int_mana", caster, intelligence * CustomAttributes.MANA_PER_INT * halcyon)
 
 	if not hero:HasModifier("modifier_int_mana_regen") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_int_mana_regen", {})
 	end
-	hero:SetModifierStackCount("modifier_int_mana_regen", caster, intelligence*CustomAttributes.MANA_REGEN_PER_INT*halcyon)
+	hero:SetModifierStackCount("modifier_int_mana_regen", caster, intelligence * CustomAttributes.MANA_REGEN_PER_INT * halcyon)
 
-	local damage_from_primary = Filters:GetPrimaryAttributeMultiple(hero, CustomAttributes.ATK_DMG_PER_PRIMARY*halcyon)
+	local damage_from_primary = Filters:GetPrimaryAttributeMultiple(hero, CustomAttributes.ATK_DMG_PER_PRIMARY * halcyon)
 	if not hero:HasModifier("modifier_primary_attribute_damage") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_primary_attribute_damage", {})
 	end
-	hero:SetModifierStackCount("modifier_primary_attribute_damage", caster, damage_from_primary)	
+	hero:SetModifierStackCount("modifier_primary_attribute_damage", caster, damage_from_primary)
 	hero:CalculateStatBonus()
 end
 
@@ -866,7 +864,7 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	end
 	if excludedModifier ~= "modifier_omnimace_cosmic_buff" and hero:HasModifier("modifier_omnimace_cosmic_buff") then
 		local ability = hero:FindAbilityByName("omniro_omni_mace")
-		flatHealthBonus = flatHealthBonus + ability:GetSpecialValueFor("cosmic_special_a")*hero.omniro_data[RPC_ELEMENT_COSMOS]["level"]
+		flatHealthBonus = flatHealthBonus + ability:GetSpecialValueFor("cosmic_special_a") * hero.omniro_data[RPC_ELEMENT_COSMOS]["level"]
 	end
 	return flatHealthBonus
 end
@@ -887,13 +885,13 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	local unit = EntIndexToHScript(msg.queryunit)
 	local player = PlayerResource:GetPlayer(msg.playerID)
 	local tableData = {}
-	tableData.phys = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL))*100
-	tableData.magic = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL))*100
-	tableData.pure = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE))*100
+	tableData.phys = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL)) * 100
+	tableData.magic = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL)) * 100
+	tableData.pure = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE)) * 100
 
-	tableData.phys = tostring(tableData.phys - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL) - 1)*100)
-	tableData.magic = tostring(tableData.magic - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL) - 1)*100)
-	tableData.pure = tostring(tableData.pure - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1)*100)
+	tableData.phys = tostring(tableData.phys - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL) - 1) * 100)
+	tableData.magic = tostring(tableData.magic - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL) - 1) * 100)
+	tableData.pure = tostring(tableData.pure - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1) * 100)
 	local level = unit:GetLevel()
 	if unit:IsHero() then
 		unit.q_4_level = unit:GetRuneValue("q", 4)
@@ -902,18 +900,18 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 		unit.r_4_level = unit:GetRuneValue("r", 4)
 	else
 		if unit.itemLevel then
-			level = math.ceil(unit.itemLevel/4)
+			level = math.ceil(unit.itemLevel / 4)
 		else
 			level = 20
 		end
-		level = math.min(level + (GameState:GetDifficultyFactor()-1)*35, 120)
+		level = math.min(level + (GameState:GetDifficultyFactor() - 1) * 35, 120)
 		if unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
-			GameState:FilterDamage({ entindex_victim_const = unit:GetEntityIndex(), entindex_attacker_const = Events.GameMaster:GetEntityIndex(), damage = 10000000000, damagetype_const = DAMAGE_TYPE_PHYSICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex() })
-			GameState:FilterDamage({ entindex_victim_const = unit:GetEntityIndex(), entindex_attacker_const = Events.GameMaster:GetEntityIndex(), damage = 10000000000, damagetype_const = DAMAGE_TYPE_MAGICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex() })
-			GameState:FilterDamage({ entindex_victim_const = unit:GetEntityIndex(), entindex_attacker_const = Events.GameMaster:GetEntityIndex(), damage = 10000000000, damagetype_const = DAMAGE_TYPE_PURE, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex() })
-			tableData.phys = tostring(unit.resist_phys*100)
-			tableData.magic = tostring(unit.resist_mag*100)
-			tableData.pure = tostring(unit.resist_pure*100)
+			GameState:FilterDamage({entindex_victim_const = unit:GetEntityIndex(), entindex_attacker_const = Events.GameMaster:GetEntityIndex(), damage = 10000000000, damagetype_const = DAMAGE_TYPE_PHYSICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})
+			GameState:FilterDamage({entindex_victim_const = unit:GetEntityIndex(), entindex_attacker_const = Events.GameMaster:GetEntityIndex(), damage = 10000000000, damagetype_const = DAMAGE_TYPE_MAGICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})
+			GameState:FilterDamage({entindex_victim_const = unit:GetEntityIndex(), entindex_attacker_const = Events.GameMaster:GetEntityIndex(), damage = 10000000000, damagetype_const = DAMAGE_TYPE_PURE, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})
+			tableData.phys = tostring(unit.resist_phys * 100)
+			tableData.magic = tostring(unit.resist_mag * 100)
+			tableData.pure = tostring(unit.resist_pure * 100)
 		end
 	end
 	local victim = unit
@@ -926,51 +924,51 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	end
 	tableData.elements = {}
 	local damageDealt = 1000
-	local damageNORMAL = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageNORMAL/damageDealt))
-	local damageFIRE = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageFIRE/damageDealt))
-	local damageEARTH = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageEARTH/damageDealt))
-	local damageLIGHTNING = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageLIGHTNING/damageDealt))
-	local damagePOISON = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damagePOISON/damageDealt))
-	local damageTIME = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageTIME/damageDealt))
-	local damageHOLY = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageHOLY/damageDealt))
-	local damageCOSMOS = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageCOSMOS/damageDealt))
-	local damageICE = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageICE/damageDealt))
-	local damageARCANE = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageARCANE/damageDealt))
-	local damageSHADOW = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageSHADOW/damageDealt))
-	local damageWIND = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageWIND/damageDealt))
-	local damageGHOST = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageGHOST/damageDealt))
-	local damageWATER = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageWATER/damageDealt))
-	local damageDEMON = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageDEMON/damageDealt))
-	local damageNATURE = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageNATURE/damageDealt))
-	local damageUNDEAD = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageUNDEAD/damageDealt))
-	local damageDragon = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_DRAGON, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageDragon/damageDealt))
+	local damageNORMAL = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageNORMAL / damageDealt))
+	local damageFIRE = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageFIRE / damageDealt))
+	local damageEARTH = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageEARTH / damageDealt))
+	local damageLIGHTNING = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageLIGHTNING / damageDealt))
+	local damagePOISON = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damagePOISON / damageDealt))
+	local damageTIME = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageTIME / damageDealt))
+	local damageHOLY = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageHOLY / damageDealt))
+	local damageCOSMOS = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageCOSMOS / damageDealt))
+	local damageICE = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageICE / damageDealt))
+	local damageARCANE = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageARCANE / damageDealt))
+	local damageSHADOW = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageSHADOW / damageDealt))
+	local damageWIND = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageWIND / damageDealt))
+	local damageGHOST = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageGHOST / damageDealt))
+	local damageWATER = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageWATER / damageDealt))
+	local damageDEMON = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageDEMON / damageDealt))
+	local damageNATURE = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageNATURE / damageDealt))
+	local damageUNDEAD = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageUNDEAD / damageDealt))
+	local damageDragon = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_DRAGON, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageDragon / damageDealt))
 	tableData.halcyon = 0
 	if IsEnemy then
-		for k,v in pairs(tableData.elements) do
-			tableData.elements[k] = -(v-100)
+		for k, v in pairs(tableData.elements) do
+			tableData.elements[k] = -(v - 100)
 		end
 	end
-	GameState:FilterDamage({ entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_PHYSICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex() })
-	GameState:FilterDamage({ entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_MAGICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex() })
-	GameState:FilterDamage({ entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_PURE, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex() })
+	GameState:FilterDamage({entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_PHYSICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})
+	GameState:FilterDamage({entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_MAGICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})
+	GameState:FilterDamage({entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_PURE, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})
 	if victim.physical_damage_mult then
 		tableData.phys_post_mit = victim.physical_damage_mult
 	else
@@ -986,7 +984,7 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	else
 		tableData.pure_post_mit = 100
 	end
-	tableData.item_damage = Filters:AdjustItemDamage(attacker, 1000000000, victim)/10000000
+	tableData.item_damage = Filters:AdjustItemDamage(attacker, 1000000000, victim) / 10000000
 	if unit:HasModifier("modifier_halcyon_soul_glove") then
 		tableData.halcyon = 1
 	end
@@ -995,44 +993,44 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	end
 	tableData.level = level
 	local baseDamage = 100000
-	local qDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-	tableData.qAmp = math.floor((qDamage/baseDamage)*100)
-	local wDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-	tableData.wAmp = math.floor((wDamage/baseDamage)*100)
-	local eDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-	tableData.eAmp = math.floor((eDamage/baseDamage)*100)
-	local rDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-	tableData.rAmp = math.floor((rDamage/baseDamage)*100)
-	CustomGameEventManager:Send_ServerToPlayer(player, "attribute_tooltip", {unit = msg.queryunit, playerID = msg.playerID, extraData = tableData, IsEnemy = IsEnemy} )
+	local qDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
+	tableData.qAmp = math.floor((qDamage / baseDamage) * 100)
+	local wDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
+	tableData.wAmp = math.floor((wDamage / baseDamage) * 100)
+	local eDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
+	tableData.eAmp = math.floor((eDamage / baseDamage) * 100)
+	local rDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
+	tableData.rAmp = math.floor((rDamage / baseDamage) * 100)
+	CustomGameEventManager:Send_ServerToPlayer(player, "attribute_tooltip", {unit = msg.queryunit, playerID = msg.playerID, extraData = tableData, IsEnemy = IsEnemy})
 	Events:TutorialServerEvent(unit, "1_3", 0)
 end
 
 CustomAttributes.MS_CAP_MODIFIERS = {modifier_arkimus_speed_dash = 1300,
-modifier_axe_immortal_weapon_2_cap = 820,
-modifier_chernobog_d_c_arcana2 = "modifier_chernobog_d_c_arcana2",
-modifier_movespeed_cap_shadow_walk_1 = 550,
-modifier_movespeed_cap_shadow_walk_2 = 575,
-modifier_movespeed_cap_shadow_walk_3 = 600,
-modifier_movespeed_cap_shadow_walk_4 = 625,
-modifier_movespeed_cap_shadow_walk_5 = 650,
-modifier_movespeed_cap_shadow_walk_6 = 675,
-modifier_movespeed_cap_shadow_walk_7 = 700,
-modifier_dinath_passive_ms_cap = "modifier_dinath_passive_ms_cap",
-modifier_draghor_feral_sprint = "modifier_draghor_feral_sprint",
-modifier_movespeed_cap = 1400,
-modifier_movespeed_cap_glyph = 620,
-modifier_movespeed_cap_heat_wave = 640,
-modifier_movespeed_cap_sonic = 750,
-modifier_movespeed_cap_super = 5200,
-modifier_movespeed_cap_shadow_walk_1 = 640,
-modifier_disciple_bonus_movespeed = 800,
-modifier_seinaru_glyph_t21_movespeed_cap = "modifier_seinaru_glyph_t21_movespeed_cap",
-slipfinn_shadow_rush_lua = "slipfinn_shadow_rush_lua",
-modifier_zonik_lightspeed_cap = "modifier_zonik_lightspeed_cap",
-modifier_zonik_speedball_cap = "modifier_zonik_speedball_cap",
-modifier_zonik_temporal_field_cap = "modifier_zonik_temporal_field_cap",
-modifier_chernobog_d_c_arcana2 = 6
-} 
+	modifier_axe_immortal_weapon_2_cap = 820,
+	modifier_chernobog_d_c_arcana2 = "modifier_chernobog_d_c_arcana2",
+	modifier_movespeed_cap_shadow_walk_1 = 550,
+	modifier_movespeed_cap_shadow_walk_2 = 575,
+	modifier_movespeed_cap_shadow_walk_3 = 600,
+	modifier_movespeed_cap_shadow_walk_4 = 625,
+	modifier_movespeed_cap_shadow_walk_5 = 650,
+	modifier_movespeed_cap_shadow_walk_6 = 675,
+	modifier_movespeed_cap_shadow_walk_7 = 700,
+	modifier_dinath_passive_ms_cap = "modifier_dinath_passive_ms_cap",
+	modifier_draghor_feral_sprint = "modifier_draghor_feral_sprint",
+	modifier_movespeed_cap = 1400,
+	modifier_movespeed_cap_glyph = 620,
+	modifier_movespeed_cap_heat_wave = 640,
+	modifier_movespeed_cap_sonic = 750,
+	modifier_movespeed_cap_super = 5200,
+	modifier_movespeed_cap_shadow_walk_1 = 640,
+	modifier_disciple_bonus_movespeed = 800,
+	modifier_seinaru_glyph_t21_movespeed_cap = "modifier_seinaru_glyph_t21_movespeed_cap",
+	slipfinn_shadow_rush_lua = "slipfinn_shadow_rush_lua",
+	modifier_zonik_lightspeed_cap = "modifier_zonik_lightspeed_cap",
+	modifier_zonik_speedball_cap = "modifier_zonik_speedball_cap",
+	modifier_zonik_temporal_field_cap = "modifier_zonik_temporal_field_cap",
+	modifier_chernobog_d_c_arcana2 = 6
+}
 
 function CustomAttributes:MSCap(unit)
 	local buffs = unit:FindAllModifiers()
@@ -1046,44 +1044,44 @@ function CustomAttributes:MSCap(unit)
 			elseif type(ms_cap_modifier) == "string" then
 				local modifier_ability = modifier:GetAbility()
 				if ms_cap_modifier == "modifier_chernobog_d_c_arcana2" then
-					max_ms = math.max(max_ms, modifier_ability.e_4_level*3)
+					max_ms = math.max(max_ms, modifier_ability.e_4_level * 3)
 				elseif ms_cap_modifier == "modifier_dinath_passive_ms_cap" then
-					max_ms = math.max(max_ms, modifier_ability.w_3_level*5 + max_ms)
+					max_ms = math.max(max_ms, modifier_ability.w_3_level * 5 + max_ms)
 				elseif ms_cap_modifier == "modifier_draghor_feral_sprint" then
 					max_ms = math.max(max_ms, modifier_ability:GetSpecialValueFor("movespeed_cap"))
 				elseif ms_cap_modifier == "modifier_seinaru_glyph_t21_movespeed_cap" then
-			    	local q2_level = unit:GetRuneValue("q", 2)
-			    	max_ms = math.max(max_ms, 550 + q2_level * SEINARU_GLYPH2_MOVESPEED_CAP_PER_Q2	)
-			    elseif ms_cap_modifier == "slipfinn_shadow_rush_lua" then
-					local decay = modifier:GetRemainingTime()/unit.baseShadowRushDuration
+					local q2_level = unit:GetRuneValue("q", 2)
+					max_ms = math.max(max_ms, 550 + q2_level * SEINARU_GLYPH2_MOVESPEED_CAP_PER_Q2)
+				elseif ms_cap_modifier == "slipfinn_shadow_rush_lua" then
+					local decay = modifier:GetRemainingTime() / unit.baseShadowRushDuration
 					local msBonus = unit:FindAbilityByName("slipfinn_shadow_rush"):GetLevelSpecialValueFor("ms_bonus_and_max", modifier:GetAbility():GetLevel())
-				    max_ms = math.max(msBonus*decay, max_ms)
+					max_ms = math.max(msBonus * decay, max_ms)
 				elseif ms_cap_modifier == "modifier_zonik_lightspeed_cap" then
-				    local cap = 600
-			    	cap = modifier:GetAbility():GetSpecialValueFor("movespeed_cap") + modifier_ability.e_4_level*ZHONIK_E4_MS_CAP_INCREASE
-			        if unit:HasModifier("modifier_zonik_speedball") then
-			            cap = cap + 600
-			        end
-			        if unit:HasModifier("modifier_zonik_glyph_5_1") then
-			            cap = cap + 200
-			        end	
-			        max_ms = math.max(cap, max_ms)
-			    elseif ms_cap_modifier == "modifier_zonik_speedball_cap" then
+					local cap = 600
+					cap = modifier:GetAbility():GetSpecialValueFor("movespeed_cap") + modifier_ability.e_4_level * ZHONIK_E4_MS_CAP_INCREASE
+					if unit:HasModifier("modifier_zonik_speedball") then
+						cap = cap + 600
+					end
+					if unit:HasModifier("modifier_zonik_glyph_5_1") then
+						cap = cap + 200
+					end
+					max_ms = math.max(cap, max_ms)
+				elseif ms_cap_modifier == "modifier_zonik_speedball_cap" then
 					local cap = 550 + modifier_ability:GetSpecialValueFor("movespeed_cap")
-				    if unit:HasModifier("modifier_zonik_lightspeed") then
-				        cap = cap + unit:FindAbilityByName("zonik_lightspeed"):GetSpecialValueFor("movespeed_cap")-550
-				    end
-				    if unit:FindAbilityByName("zonik_lightspeed") and unit:FindAbilityByName("zonik_lightspeed").e_4_level and unit:HasModifier("modifier_zonik_lightspeed") then
-				        cap = cap + ZHONIK_E4_MS_CAP_INCREASE*unit:FindAbilityByName("zonik_lightspeed").e_4_level
-				    end
-				    if unit:HasModifier("modifier_zonik_lightspeed") and unit:HasModifier("modifier_zonik_glyph_5_1") then
-				        cap = cap + 200
-				    end	
-				    max_ms = math.max(cap, max_ms)	
+					if unit:HasModifier("modifier_zonik_lightspeed") then
+						cap = cap + unit:FindAbilityByName("zonik_lightspeed"):GetSpecialValueFor("movespeed_cap") - 550
+					end
+					if unit:FindAbilityByName("zonik_lightspeed") and unit:FindAbilityByName("zonik_lightspeed").e_4_level and unit:HasModifier("modifier_zonik_lightspeed") then
+						cap = cap + ZHONIK_E4_MS_CAP_INCREASE * unit:FindAbilityByName("zonik_lightspeed").e_4_level
+					end
+					if unit:HasModifier("modifier_zonik_lightspeed") and unit:HasModifier("modifier_zonik_glyph_5_1") then
+						cap = cap + 200
+					end
+					max_ms = math.max(cap, max_ms)
 				elseif ms_cap_modifier == "modifier_zonik_temporal_field_cap" then
-					max_ms = math.max(modifier_ability:GetSpecialValueFor("movespeed_cap"), max_ms)	  
+					max_ms = math.max(modifier_ability:GetSpecialValueFor("movespeed_cap"), max_ms)
 				elseif ms_cap_modifier == "modifier_chernobog_d_c_arcana2" then
-					max_ms = math.max(550 + modifier:GetStackCount()*6, max_ms)	    			
+					max_ms = math.max(550 + modifier:GetStackCount() * 6, max_ms)
 				end
 			end
 		end

@@ -224,10 +224,10 @@ function ghost_necro_think(event)
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, gravePos, 700, 300, false)
 		StartAnimation(caster, {duration=5, activity=ACT_DOTA_TELEPORT, rate=0.9})
 		local motionVector = gravePos-casterPos+Vector(0,0,700)
-		print(casterPos)
-		print(gravePos)
-		print("MOTION VECTOR")
-		print(motionVector)
+		--print(casterPos)
+		--print(gravePos)
+		--print("MOTION VECTOR")
+		--print(motionVector)
 		Timers:CreateTimer(0.9, function()
 			EmitGlobalSound("necrolyte_necr_deny_10")
 			EmitGlobalSound("necrolyte_necr_deny_10")
@@ -651,11 +651,11 @@ function ruins_key_pickup(event)
 	if not Dungeons.ruinsKeyCount then
 		Dungeons.ruinsKeyCount = 0
 	end
-	print(Dungeons.delayFire)
+	--print(Dungeons.delayFire)
 	if not Dungeons.delayFire then
 		Dungeons.delayFire = true
-		print("RUINS KEY COUNT")
-		print(Dungeons.ruinsKeyCount)
+		--print("RUINS KEY COUNT")
+		--print(Dungeons.ruinsKeyCount)
 		local visionTracer = CreateUnitByName("npc_flying_dummy_vision", Vector(6218, 14450), true, nil, nil, DOTA_TEAM_GOODGUYS)
 		visionTracer:AddAbility("dummy_unit"):SetLevel(1)
 		visionTracer:AddNewModifier( visionTracer, nil, 'modifier_movespeed_cap', nil )
@@ -738,7 +738,7 @@ function ruins_key_holder_die(event)
 	local item = RPCItems:CreateItem("item_ruins_key", nil, nil)
 	local drop = CreateItemOnPositionSync( caster:GetAbsOrigin(), item )
 	-- item:LaunchLoot(true, 0, 0, caster:GetAbsOrigin())
-	print("key_holder_die")
+	--print("key_holder_die")
 end
 
 function ruins_boss_think(event)
@@ -764,7 +764,7 @@ function ruins_boss_think(event)
 end
 
 function ruins_boss_throw_spear_attack(caster, ability)
-	print("THROW SPEAR BEGIN")
+	--print("THROW SPEAR BEGIN")
 	local throwingSpearPoints = {Vector(1344, 13120), Vector(1344, 14973), Vector(2280, 14009), Vector(2280, 14409)}
 	local soundTable = {"huskar_husk_ability_lifebrk_06", "huskar_husk_ability_lifebrk_07", "huskar_husk_ability_brnspear_01", "huskar_husk_ability_brnspear_06"}
 	local campPoint = throwingSpearPoints[RandomInt(1,4)]

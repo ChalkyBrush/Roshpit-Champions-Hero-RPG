@@ -4,30 +4,30 @@ function blackguard_cultist_think(event)
 	local shackle = caster:FindAbilityByName("blackguard_shackles")
 	if caster.aggro then
 		if shackle:IsFullyCastable() then
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				local newOrder = {
-				 		UnitIndex = caster:entindex(), 
-				 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-				 		TargetIndex = enemies[1]:entindex(),
-				 		AbilityIndex = shackle:entindex(),
-			 	}
-				 
-				ExecuteOrderFromTable(newOrder)	
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+					TargetIndex = enemies[1]:entindex(),
+					AbilityIndex = shackle:entindex(),
+				}
+
+				ExecuteOrderFromTable(newOrder)
 				return
 			end
 		end
 		if brainSap:IsFullyCastable() and not caster:IsChanneling() then
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 650, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 650, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				local newOrder = {
-				 		UnitIndex = caster:entindex(), 
-				 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-				 		TargetIndex = enemies[1]:entindex(),
-				 		AbilityIndex = brainSap:entindex(),
-			 	}
-				 
-				ExecuteOrderFromTable(newOrder)	
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+					TargetIndex = enemies[1]:entindex(),
+					AbilityIndex = brainSap:entindex(),
+				}
+
+				ExecuteOrderFromTable(newOrder)
 				return
 			end
 		end
@@ -41,27 +41,27 @@ end
 function lava_prisoner_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_FARTHEST, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_FARTHEST, false)
 	if not ability then
-		print("[error] lava_prisoner_think ability")
+		--print("[error] lava_prisoner_think ability")
 		return
 	end
 	if #enemies > 0 then
 		if caster:HasModifier("modifier_lava_prisoner_submerged") then
 			caster:RemoveModifierByName("modifier_lava_prisoner_submerged")
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_beast_fighting", {})
-			print("RISE!")
-			StartAnimation(caster, {duration=1, activity=ACT_DOTA_SPAWN, rate=1}) 
+			--print("RISE!")
+			StartAnimation(caster, {duration = 1, activity = ACT_DOTA_SPAWN, rate = 1})
 			-- for i = 1, 30, 1 do
-			-- 	Timers:CreateTimer(0.03*i, function()
-			-- 		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,25))
-			-- 	end)
+			-- Timers:CreateTimer(0.03*i, function()
+			-- caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,25))
+			-- end)
 			-- end
-			caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,396))
+			caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 396))
 			Timers:CreateTimer(0.18, function()
-		      Tanari:CreateLavaBlast(caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,20))
-		      EmitSoundOn("Tanari.LavaSplash", caster)
-		
+				Tanari:CreateLavaBlast(caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, 20))
+				EmitSoundOn("Tanari.LavaSplash", caster)
+
 			end)
 		else
 			caster:MoveToTargetToAttack(enemies[1])
@@ -70,24 +70,24 @@ function lava_prisoner_think(event)
 		if not caster:HasModifier("modifier_lava_prisoner_submerged") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_lava_prisoner_submerged", {})
 			caster:RemoveModifierByName("modifier_beast_fighting")
-			print("FALL!")
-			StartAnimation(caster, {duration=1, activity=ACT_DOTA_SPAWN, rate=1}) 
-			
-				-- Timers:CreateTimer(0.03*i, function()
-				-- 	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,25))
-				-- end)
-				for i = 1, 33, 1 do
-					Timers:CreateTimer(i*0.03, function()
-						if IsValidEntity(caster) then
-							caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,12))
-						end
-					end)
-				end
+			--print("FALL!")
+			StartAnimation(caster, {duration = 1, activity = ACT_DOTA_SPAWN, rate = 1})
 
-				Timers:CreateTimer(0.18, function()
-			      Tanari:CreateLavaBlast(caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,20))
-			      EmitSoundOn("Tanari.LavaSplash", caster)
+			-- Timers:CreateTimer(0.03*i, function()
+			-- caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,25))
+			-- end)
+			for i = 1, 33, 1 do
+				Timers:CreateTimer(i * 0.03, function()
+					if IsValidEntity(caster) then
+						caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, 12))
+					end
 				end)
+			end
+
+			Timers:CreateTimer(0.18, function()
+				Tanari:CreateLavaBlast(caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, 20))
+				EmitSoundOn("Tanari.LavaSplash", caster)
+			end)
 
 		end
 	end
@@ -97,8 +97,8 @@ function volcano_drake_death(event)
 	local caster = event.caster
 	local fv = caster:GetForwardVector()
 	for i = 1, 60, 1 do
-		Timers:CreateTimer(i*0.03, function()
-			caster:SetAbsOrigin(caster:GetAbsOrigin()+fv*i+Vector(0,0,i))
+		Timers:CreateTimer(i * 0.03, function()
+			caster:SetAbsOrigin(caster:GetAbsOrigin() + fv * i + Vector(0, 0, i))
 		end)
 	end
 end
@@ -108,32 +108,30 @@ function molten_knight_think(event)
 	if caster:IsStunned() then
 		local ability = event.ability
 		local radius = 750
-	      local particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
-	      local particle2 = ParticleManager:CreateParticle( particleName, PATTACH_WORLDORIGIN, caster )
-	      ParticleManager:SetParticleControl( particle2, 0, caster:GetAbsOrigin() )
-	      ParticleManager:SetParticleControl( particle2, 1, Vector(radius,radius,radius) )
-	      ParticleManager:SetParticleControl( particle2, 2, Vector(2.0, 2.0, 2.0) )
-	      ParticleManager:SetParticleControl( particle2, 4, Vector(255, 90, 20) )
-	      Timers:CreateTimer(1.5, 
-	      function()
-	        ParticleManager:DestroyParticle( particle2, false )
-	      end)
-	      EmitSoundOn("Tanari.VolcanoPharoah.LivingBombExplode", caster)
-	      local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
-	      local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-	      ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin() )
-	      
-	      Timers:CreateTimer(2, 
-	      function()
-	        ParticleManager:DestroyParticle( particle1, false )
-	      end)
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
-			if #enemies > 0 then
-				for _,enemy in pairs(enemies) do
-						ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
-						enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = 0.4})	
-				end
-			end 
+		local particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+		local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+		ParticleManager:SetParticleControl(particle2, 0, caster:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle2, 1, Vector(radius, radius, radius))
+		ParticleManager:SetParticleControl(particle2, 2, Vector(2.0, 2.0, 2.0))
+		ParticleManager:SetParticleControl(particle2, 4, Vector(255, 90, 20))
+		Timers:CreateTimer(1.5, function()
+			ParticleManager:DestroyParticle(particle2, false)
+		end)
+		EmitSoundOn("Tanari.VolcanoPharoah.LivingBombExplode", caster)
+		local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(particle1, 0, caster:GetAbsOrigin())
+
+		Timers:CreateTimer(2, function()
+			ParticleManager:DestroyParticle(particle1, false)
+		end)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				ApplyDamage({victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+				enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = 0.4})
+			end
+		end
 	end
 end
 
@@ -142,7 +140,7 @@ function armor_gain_on_attack_attacked(event)
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_fire_temple_armor_gain_stacks", {duration = 7})
 	local currentStacks = caster:GetModifierStackCount("modifier_fire_temple_armor_gain_stacks", caster)
-	caster:SetModifierStackCount("modifier_fire_temple_armor_gain_stacks", caster, currentStacks+1)
+	caster:SetModifierStackCount("modifier_fire_temple_armor_gain_stacks", caster, currentStacks + 1)
 end
 
 function FireTempleRoom1Trigger1(event)
@@ -197,14 +195,14 @@ function flamebous_think(event)
 		local vectorTable = {Vector(1984, -6592), Vector(2624, -7134), Vector(3059, -8148), Vector(1768, -7552), Vector(1575, -8537), Vector(2770, -8912)}
 		caster:MoveToPosition(vectorTable[caster.phase])
 		if caster.phase == 6 then
-			local distance = WallPhysics:GetDistance(Vector(2770, -8912), caster:GetAbsOrigin()*Vector(1,1,0))
+			local distance = WallPhysics:GetDistance(Vector(2770, -8912), caster:GetAbsOrigin() * Vector(1, 1, 0))
 			if distance < 50 then
 				EmitSoundOnLocationWithCaster(Vector(2770, -8912), "Tanari.TerrasicCrater.FlameSpitThink", Events.GameMaster)
 				UTIL_Remove(caster)
 				Timers:CreateTimer(0.2, function()
 					local particleName = "particles/dire_fx/fire_ambience.vpcf"
-		         	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-		          	ParticleManager:SetParticleControl(particle1,0,Vector(2735, -8947, 512)+Vector(0,0,400))
+					local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+					ParticleManager:SetParticleControl(particle1, 0, Vector(2735, -8947, 512) + Vector(0, 0, 400))
 				end)
 				Tanari:Room1Run()
 			end
@@ -216,20 +214,20 @@ end
 function red_dragon_blood_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 	if #enemies == 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fire_temple_red_dragon_blood_effect", {duration = 0.65})
 	else
 		if caster.aggro then
 			local castAbility = caster:FindAbilityByName("fire_temple_flame_ring")
 			if castAbility:IsFullyCastable() then
-					local newOrder = {
-					 		UnitIndex = caster:entindex(), 
-					 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-					 		AbilityIndex = castAbility:entindex(),
-				 	}
-					 
-					ExecuteOrderFromTable(newOrder)	
+				local newOrder = {
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+					AbilityIndex = castAbility:entindex(),
+				}
+
+				ExecuteOrderFromTable(newOrder)
 			end
 		else
 			local castAbility = caster:FindAbilityByName("fire_temple_flame_ring")
@@ -241,11 +239,10 @@ end
 function fire_temple_flame_ring(event)
 	local caster = event.caster
 
-
 	local ability = event.ability
 	local fv = caster:GetForwardVector()
 	for i = -3, 3, 1 do
-		local rotatedVector = WallPhysics:rotateVector(fv, 2*math.pi/7*i)
+		local rotatedVector = WallPhysics:rotateVector(fv, 2 * math.pi / 7 * i)
 		fire_temple_flame_ring_projectile(ability, caster, rotatedVector)
 	end
 
@@ -259,22 +256,22 @@ function fire_temple_flame_ring_projectile(ability, caster, fv)
 
 	local projectileParticle = "particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
 
-	local info = 
+	local info =
 	{
-			Ability = ability,
-        	EffectName = projectileParticle,
-        	vSpawnOrigin = caster:GetAbsOrigin(),
-        	fDistance = range,
-        	fStartRadius = start_radius,
-        	fEndRadius = end_radius,
-        	Source = caster,
-        	StartPosition = "attach_origin",
-        	bHasFrontalCone = true,
-        	bReplaceExisting = false,
-        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        	fExpireTime = GameRules:GetGameTime() + 5.0,
+		Ability = ability,
+		EffectName = projectileParticle,
+		vSpawnOrigin = caster:GetAbsOrigin(),
+		fDistance = range,
+		fStartRadius = start_radius,
+		fEndRadius = end_radius,
+		Source = caster,
+		StartPosition = "attach_origin",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
 		bDeleteOnHit = false,
 		vVelocity = fv * speed,
 		bProvidesVision = false,
@@ -287,19 +284,19 @@ function shadow_strike_cast(event)
 	local ability = event.ability
 	local target = event.target
 	-- CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf", caster, 3)
-	      local particle1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf", PATTACH_CUSTOMORIGIN, target )
-	      ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin() )
-	      Timers:CreateTimer(4, function()
-	      	ParticleManager:DestroyParticle(particle1, false)
-	      end)
-	      ability:ApplyDataDrivenModifier(caster, caster, "modifier_shadow_walk_transition", {duration = 1})
+	local particle1 = ParticleManager:CreateParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf", PATTACH_CUSTOMORIGIN, target)
+	ParticleManager:SetParticleControl(particle1, 0, caster:GetAbsOrigin())
+	Timers:CreateTimer(4, function()
+		ParticleManager:DestroyParticle(particle1, false)
+	end)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shadow_walk_transition", {duration = 1})
 	caster:AddNoDraw()
 	EmitSoundOn("Hero_BountyHunter.WindWalk", caster)
 	Timers:CreateTimer(1, function()
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf", caster, 4)
 		caster:RemoveNoDraw()
 		-- EmitSoundOn("Hero_BountyHunter.Jinada", target)
-		FindClearSpaceForUnit(caster, target:GetAbsOrigin()-target:GetForwardVector()*110, false)
+		FindClearSpaceForUnit(caster, target:GetAbsOrigin() - target:GetForwardVector() * 110, false)
 		caster:MoveToTargetToAttack(target)
 	end)
 end
@@ -316,17 +313,17 @@ function relic_seeker_think(event)
 	local targetFindOrder = FIND_FARTHEST
 	if caster.aggro then
 		if castAbility:IsFullyCastable() then
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, targetFindOrder, false )	
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, targetFindOrder, false)
 			if #enemies > 0 then
 				local castPoint = enemies[1]:GetAbsOrigin()
 				local newOrder = {
-				 		UnitIndex = caster:entindex(), 
-				 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-				 		TargetIndex = enemies[1]:entindex(),
-				 		AbilityIndex = castAbility:entindex(),
-			 	}
-				 
-				ExecuteOrderFromTable(newOrder)		
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+					TargetIndex = enemies[1]:entindex(),
+					AbilityIndex = castAbility:entindex(),
+				}
+
+				ExecuteOrderFromTable(newOrder)
 			end
 		end
 	end
@@ -378,64 +375,64 @@ function yojimbo_think(event)
 	local activateFireRemnant = caster:FindAbilityByName("ember_spirit_activate_fire_remnant")
 	-- FIRE REMNANT CAUSING CRASHES
 	-- if #caster.remnantTable > 0 and activateFireRemnant:IsFullyCastable() then
-	-- 		local newOrder = {
-	-- 				UnitIndex = caster:entindex(),
-	-- 				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-	-- 				AbilityIndex = activateFireRemnant:entindex(),
-	-- 				Position = caster.remnantTable[1]
-	-- 		 	}
-			 
-	-- 		ExecuteOrderFromTable(newOrder)			
-	-- 		if #caster.remnantTable > 1 then
-	-- 			local newTable = {}
-	-- 			for i = 2, #caster.remnantTable, 1 do
-	-- 				table.insert(newTable, caster.remnantTable[i])
-	-- 			end
-	-- 			caster.remnantTable = newTable
-	-- 		else
-	-- 			caster.remnantTable = {}
-	-- 		end
+	-- local newOrder = {
+	-- UnitIndex = caster:entindex(),
+	-- OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+	-- AbilityIndex = activateFireRemnant:entindex(),
+	-- Position = caster.remnantTable[1]
+	--  }
+
+	-- ExecuteOrderFromTable(newOrder)
+	-- if #caster.remnantTable > 1 then
+	-- local newTable = {}
+	-- for i = 2, #caster.remnantTable, 1 do
+	-- table.insert(newTable, caster.remnantTable[i])
+	-- end
+	-- caster.remnantTable = newTable
+	-- else
+	-- caster.remnantTable = {}
+	-- end
 	-- end
 	if flameGuard:IsFullyCastable() then
 		local newOrder = {
-		 		UnitIndex = caster:entindex(), 
-		 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-		 		AbilityIndex = flameGuard:entindex(),
-	 	}
-		 
-		ExecuteOrderFromTable(newOrder)		
+			UnitIndex = caster:entindex(),
+			OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+			AbilityIndex = flameGuard:entindex(),
+		}
+
+		ExecuteOrderFromTable(newOrder)
 		return
 	end
 	if searingChains:IsFullyCastable() then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			local newOrder = {
-			 		UnitIndex = caster:entindex(), 
-			 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-			 		AbilityIndex = searingChains:entindex(),
-		 	}
-			 
-			ExecuteOrderFromTable(newOrder)	
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+				AbilityIndex = searingChains:entindex(),
+			}
+
+			ExecuteOrderFromTable(newOrder)
 			return
 		end
 	end
 	-- FIRE REMNANT CAUSING CRASHES
-	-- local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+	-- local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 	-- if #enemies > 0 then
-	-- 	if fireRemnant:IsFullyCastable() then
-	-- 		local castPoint = enemies[1]:GetAbsOrigin()-enemies[1]:GetForwardVector()*100
-	-- 		local newOrder = {
-	-- 				UnitIndex = caster:entindex(),
-	-- 				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-	-- 				AbilityIndex = fireRemnant:entindex(),
-	-- 				Position = castPoint
-	-- 		 	}
-			 
-	-- 		ExecuteOrderFromTable(newOrder)	
-	-- 		activateFireRemnant:StartCooldown(3)
-	-- 		table.insert(caster.remnantTable, castPoint)
-	-- 		return
-	-- 	end
+	-- if fireRemnant:IsFullyCastable() then
+	-- local castPoint = enemies[1]:GetAbsOrigin()-enemies[1]:GetForwardVector()*100
+	-- local newOrder = {
+	-- UnitIndex = caster:entindex(),
+	-- OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+	-- AbilityIndex = fireRemnant:entindex(),
+	-- Position = castPoint
+	--  }
+
+	-- ExecuteOrderFromTable(newOrder)
+	-- activateFireRemnant:StartCooldown(3)
+	-- table.insert(caster.remnantTable, castPoint)
+	-- return
+	-- end
 	-- end
 
 end
@@ -465,17 +462,17 @@ function agility_aura_think(event)
 	local omni_slash = caster:FindAbilityByName("fire_temple_omni_slash")
 	if omni_slash and caster.aggro then
 		if omni_slash:IsFullyCastable() then
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 620, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_FARTHEST, false )	
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 620, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_FARTHEST, false)
 			if #enemies > 0 then
 				local castPoint = enemies[1]:GetAbsOrigin()
 				local newOrder = {
-				 		UnitIndex = caster:entindex(), 
-				 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-				 		TargetIndex = enemies[1]:entindex(),
-				 		AbilityIndex = omni_slash:entindex(),
-			 	}
-				 
-				ExecuteOrderFromTable(newOrder)	
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+					TargetIndex = enemies[1]:entindex(),
+					AbilityIndex = omni_slash:entindex(),
+				}
+
+				ExecuteOrderFromTable(newOrder)
 				EmitSoundOn("Tanari.FireTemple.CrazyJuggCast", caster)
 			end
 		end
@@ -491,59 +488,57 @@ function fire_wave_room_unit_die(event)
 		Tanari.FireTemple.FireWaveRoomKills = 0
 	end
 	Tanari.FireTemple.FireWaveRoomKills = Tanari.FireTemple.FireWaveRoomKills + 1
-	if Tanari.FireTemple.FireWaveRoomKills%28 == 0 then
-		Tanari:WaveRoomPhase(Tanari.FireTemple.FireWaveRoomKills/28)
+	if Tanari.FireTemple.FireWaveRoomKills % 28 == 0 then
+		Tanari:WaveRoomPhase(Tanari.FireTemple.FireWaveRoomKills / 28)
 	end
-	if Tanari.FireTemple.FireWaveRoomKills%1 == 0 then
-	    local circleCenter = Vector(6750, -16000, 776)
-	    local sunDirection = Vector(-1,0)
-	    local degrees = Tanari.FireTemple.FireWaveRoomKills/(7/3)
-	    local newSunDirection = WallPhysics:rotateVector(sunDirection, -degrees*math.pi/180)
-	    newSunDirection = newSunDirection:Normalized()
-	    local newSunPos = circleCenter+newSunDirection*2000
-	    local sunPieces = Entities:FindAllByNameWithin("FireTempleSun", newSunPos, 1200)
-	    for i = 1, #sunPieces, 1 do
-	      sunPieces[i]:SetAbsOrigin(newSunPos)
-	    end
-	    print(newSunPos)
-	    local moonDirection = Vector(0,1)
-	    local newMoonDirection = WallPhysics:rotateVector(moonDirection, -degrees*math.pi/180)
-	    newMoonDirection = newMoonDirection:Normalized()
-	    local newMoonPos = circleCenter+newMoonDirection*2000
-	    local moonPieces = Entities:FindAllByNameWithin("FireTempleMoon", newMoonPos-Vector(0,0,4), 1200)
-	    for i = 1, #moonPieces, 1 do
-	      moonPieces[i]:SetAbsOrigin(newMoonPos)
-	    end
-	    local floor = Entities:FindAllByNameWithin("FireTempleSunFloor", Vector(6708, -14184, 385), 800)
-	    local floorEnt = floor[1]
-	    local redDif = 30/90
-	    local greenDif = 4/90
-	    local blueDif = -47/90
-	    floorEnt:SetRenderColor(103+redDif*degrees, 93+greenDif*degrees, 144+blueDif*degrees)
-		-- print("MOVE SUN STUFF?")
+	if Tanari.FireTemple.FireWaveRoomKills % 1 == 0 then
+		local circleCenter = Vector(6750, -16000, 776)
+		local sunDirection = Vector(-1, 0)
+		local degrees = Tanari.FireTemple.FireWaveRoomKills / (7 / 3)
+		local newSunDirection = WallPhysics:rotateVector(sunDirection, -degrees * math.pi / 180)
+		newSunDirection = newSunDirection:Normalized()
+		local newSunPos = circleCenter + newSunDirection * 2000
+		local sunPieces = Entities:FindAllByNameWithin("FireTempleSun", newSunPos, 1200)
+		for i = 1, #sunPieces, 1 do
+			sunPieces[i]:SetAbsOrigin(newSunPos)
+		end
+		--print(newSunPos)
+		local moonDirection = Vector(0, 1)
+		local newMoonDirection = WallPhysics:rotateVector(moonDirection, -degrees * math.pi / 180)
+		newMoonDirection = newMoonDirection:Normalized()
+		local newMoonPos = circleCenter + newMoonDirection * 2000
+		local moonPieces = Entities:FindAllByNameWithin("FireTempleMoon", newMoonPos - Vector(0, 0, 4), 1200)
+		for i = 1, #moonPieces, 1 do
+			moonPieces[i]:SetAbsOrigin(newMoonPos)
+		end
+		local floor = Entities:FindAllByNameWithin("FireTempleSunFloor", Vector(6708, -14184, 385), 800)
+		local floorEnt = floor[1]
+		local redDif = 30 / 90
+		local greenDif = 4 / 90
+		local blueDif = -47 / 90
+		floorEnt:SetRenderColor(103 + redDif * degrees, 93 + greenDif * degrees, 144 + blueDif * degrees)
+		--print("MOVE SUN STUFF?")
 	end
 end
 
 function hulk_swipe_hit(event)
 	local caster = event.attacker
 	local target = event.target
-      local particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
-      local particle2 = ParticleManager:CreateParticle( particleName, PATTACH_WORLDORIGIN, caster )
-      ParticleManager:SetParticleControl( particle2, 0, target:GetAbsOrigin() )
-      ParticleManager:SetParticleControl( particle2, 1, Vector(100,100,100) )
-      ParticleManager:SetParticleControl( particle2, 2, Vector(2.0, 2.0, 2.0) )
-      ParticleManager:SetParticleControl( particle2, 4, Vector(255, 90, 20) )
-      Timers:CreateTimer(1.5, 
-      function()
-        ParticleManager:DestroyParticle( particle2, false )
-      end)
-      local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
-      local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-      ParticleManager:SetParticleControl( particle1, 0, target:GetAbsOrigin() )
-      Timers:CreateTimer(2, 
-      function()
-        ParticleManager:DestroyParticle( particle1, false )
-      end)
+	local particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+	local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+	ParticleManager:SetParticleControl(particle2, 0, target:GetAbsOrigin())
+	ParticleManager:SetParticleControl(particle2, 1, Vector(100, 100, 100))
+	ParticleManager:SetParticleControl(particle2, 2, Vector(2.0, 2.0, 2.0))
+	ParticleManager:SetParticleControl(particle2, 4, Vector(255, 90, 20))
+	Timers:CreateTimer(1.5, function()
+		ParticleManager:DestroyParticle(particle2, false)
+	end)
+	local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(particle1, 0, target:GetAbsOrigin())
+	Timers:CreateTimer(2, function()
+		ParticleManager:DestroyParticle(particle1, false)
+	end)
 end
 
 function nuclear_solos_think(event)
@@ -553,39 +548,37 @@ function nuclear_solos_think(event)
 	local randomDistance = RandomInt(1, radius)
 	local randomDirection = RandomVector(1)
 	local centerPoint = caster:GetAbsOrigin()
-	local arrayPoint = centerPoint+randomDirection*randomDistance
+	local arrayPoint = centerPoint + randomDirection * randomDistance
 	local damage = event.damage
 
 	EmitSoundOnLocationWithCaster(arrayPoint, "Tanari.FireTemple.NuclearSolosPresound", caster)
 
-      local particleName = "particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray.vpcf"
-      local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-      ParticleManager:SetParticleControl( particle1, 0, arrayPoint )
-      ParticleManager:SetParticleControl( particle1, 1, Vector(280, 0, 0) )
-      ParticleManager:SetParticleControl( particle1, 3, Vector(0, 0, 0) )
-      Timers:CreateTimer(4, 
-      function()
-        ParticleManager:DestroyParticle( particle1, false )
-      end)
-	
+	local particleName = "particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(particle1, 0, arrayPoint)
+	ParticleManager:SetParticleControl(particle1, 1, Vector(280, 0, 0))
+	ParticleManager:SetParticleControl(particle1, 3, Vector(0, 0, 0))
+	Timers:CreateTimer(4, function()
+		ParticleManager:DestroyParticle(particle1, false)
+	end)
+
 	Timers:CreateTimer(0.5, function()
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), arrayPoint, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
-		if #enemies > 0 then	
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), arrayPoint, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
 			for i = 1, #enemies, 1 do
-				ApplyDamage({ victim = enemies[i], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
-				enemies[i]:AddNewModifier(caster, nil, "modifier_stunned", {duration = 1.0})	
+				ApplyDamage({victim = enemies[i], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+				enemies[i]:AddNewModifier(caster, nil, "modifier_stunned", {duration = 1.0})
 			end
 		end
 		EmitSoundOnLocationWithCaster(arrayPoint, "Tanari.FireTemple.NuclearSolosHitSound", caster)
-	      local particleName = "particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
-	      local particle2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-	      ParticleManager:SetParticleControl( particle2, 0, arrayPoint )
-	      ParticleManager:SetParticleControl( particle2, 1, Vector(280, 0, 0) )
-	      ParticleManager:SetParticleControl( particle2, 3, Vector(0, 0, 0) )
-	      Timers:CreateTimer(4, 
-	      function()
-	        ParticleManager:DestroyParticle( particle2, false )
-	      end)
+		local particleName = "particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+		local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(particle2, 0, arrayPoint)
+		ParticleManager:SetParticleControl(particle2, 1, Vector(280, 0, 0))
+		ParticleManager:SetParticleControl(particle2, 3, Vector(0, 0, 0))
+		Timers:CreateTimer(4, function()
+			ParticleManager:DestroyParticle(particle2, false)
+		end)
 	end)
 
 end
@@ -600,33 +593,31 @@ function combustion_cast(event)
 	local caster = event.caster
 	local damage = event.damage
 	local ability = event.ability
-		local radius = 500
-	      local particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
-	      local particle2 = ParticleManager:CreateParticle( particleName, PATTACH_WORLDORIGIN, target )
-	      ParticleManager:SetParticleControl( particle2, 0, target:GetAbsOrigin() )
-	      ParticleManager:SetParticleControl( particle2, 1, Vector(radius,radius,radius) )
-	      ParticleManager:SetParticleControl( particle2, 2, Vector(2.0, 2.0, 2.0) )
-	      ParticleManager:SetParticleControl( particle2, 4, Vector(255, 90, 20) )
-	      Timers:CreateTimer(1.5, 
-	      function()
-	        ParticleManager:DestroyParticle( particle2, false )
-	      end)
-	      EmitSoundOn("Tanari.VolcanoPharoah.LivingBombExplode", target)
-	      local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
-	      local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
-	      ParticleManager:SetParticleControl( particle1, 0, target:GetAbsOrigin() )
-	      
-	      Timers:CreateTimer(2, 
-	      function()
-	        ParticleManager:DestroyParticle( particle1, false )
-	      end)
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )
-			if #enemies > 0 then
-				for _,enemy in pairs(enemies) do
-					ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
-					enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = 1.5})	
-				end
-			end 	
+	local radius = 500
+	local particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+	local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, target)
+	ParticleManager:SetParticleControl(particle2, 0, target:GetAbsOrigin())
+	ParticleManager:SetParticleControl(particle2, 1, Vector(radius, radius, radius))
+	ParticleManager:SetParticleControl(particle2, 2, Vector(2.0, 2.0, 2.0))
+	ParticleManager:SetParticleControl(particle2, 4, Vector(255, 90, 20))
+	Timers:CreateTimer(1.5, function()
+		ParticleManager:DestroyParticle(particle2, false)
+	end)
+	EmitSoundOn("Tanari.VolcanoPharoah.LivingBombExplode", target)
+	local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
+	ParticleManager:SetParticleControl(particle1, 0, target:GetAbsOrigin())
+
+	Timers:CreateTimer(2, function()
+		ParticleManager:DestroyParticle(particle1, false)
+	end)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			ApplyDamage({victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+			enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = 1.5})
+		end
+	end
 end
 
 function fire_mage_think(event)
@@ -634,7 +625,7 @@ function fire_mage_think(event)
 	local curse = caster:FindAbilityByName("fire_temple_curse_of_combustion")
 	if caster.aggro then
 		if curse:IsFullyCastable() then
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				local targetIndex = 0
 				for i = 1, #enemies, 1 do
@@ -644,30 +635,30 @@ function fire_mage_think(event)
 				end
 				if targetIndex > 0 then
 					local newOrder = {
-					 		UnitIndex = caster:entindex(), 
-					 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-					 		TargetIndex = enemies[targetIndex]:entindex(),
-					 		AbilityIndex = curse:entindex(),
-				 	}
-					 
-					ExecuteOrderFromTable(newOrder)	
-					return 
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+						TargetIndex = enemies[targetIndex]:entindex(),
+						AbilityIndex = curse:entindex(),
+					}
+
+					ExecuteOrderFromTable(newOrder)
+					return
 				end
 			end
 		end
 		local dragonAbility = caster:FindAbilityByName("fire_temple_dragon_slave")
 		if dragonAbility:IsFullyCastable() then
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				local castPoint = enemies[1]:GetAbsOrigin()
 				local newOrder = {
-						UnitIndex = caster:entindex(),
-						OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-						AbilityIndex = dragonAbility:entindex(),
-						Position = castPoint
-				 	}
-				 
-				ExecuteOrderFromTable(newOrder)			
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = dragonAbility:entindex(),
+					Position = castPoint
+				}
+
+				ExecuteOrderFromTable(newOrder)
 			end
 		end
 	end
@@ -679,23 +670,23 @@ end
 
 function FireTempleLavaSpawnsTrigger()
 	local positionsTable = {Vector(7716, -10428), Vector(7465, -10292), Vector(7212, -10022), Vector(6927, -9766), Vector(6730, -9766)}
-	local fvTable = {Vector(-1,-0.2), Vector(-1,-0.2), Vector(-1,-0.2), Vector(0.7,-1), Vector(0.6,-1)}
+	local fvTable = {Vector(-1, -0.2), Vector(-1, -0.2), Vector(-1, -0.2), Vector(0.7, -1), Vector(0.6, -1)}
 	for i = 1, 13, 1 do
-		Timers:CreateTimer(i*0.4, function()
+		Timers:CreateTimer(i * 0.4, function()
 			local luck = RandomInt(1, #positionsTable)
 			local dummy = CreateUnitByName("npc_dummy_unit", positionsTable[luck], false, nil, nil, DOTA_TEAM_NEUTRALS)
 			dummy:AddAbility("ability_red_effect"):SetLevel(1)
-			WallPhysics:Jump(dummy, fvTable[luck], RandomInt(11,13), RandomInt(36,40), RandomInt(26,30), 1.2)
+			WallPhysics:Jump(dummy, fvTable[luck], RandomInt(11, 13), RandomInt(36, 40), RandomInt(26, 30), 1.2)
 			Timers:CreateTimer(4.5, function()
-				local luck = RandomInt(1,5)
+				local luck = RandomInt(1, 5)
 				local unit = true
 				if luck <= 2 then
 					unit = Tanari:SpawnVolcanicAsh(dummy:GetAbsOrigin(), RandomVector(1))
 				else
-					unit = Tanari:SpawnMoltenEntity(dummy:GetAbsOrigin(),  RandomVector(1))
+					unit = Tanari:SpawnMoltenEntity(dummy:GetAbsOrigin(), RandomVector(1))
 				end
 				Dungeons:AggroUnit(unit)
-				-- StartAnimation(unit, {duration=1, activity=ACT_DOTA_SPAWN, rate=1}) 
+				-- StartAnimation(unit, {duration=1, activity=ACT_DOTA_SPAWN, rate=1})
 				UTIL_Remove(dummy)
 			end)
 		end)
@@ -708,22 +699,21 @@ end
 
 function temple_protector_die(event)
 	local caster = event.caster
-	local healPercent = event.heal_percent/100
+	local healPercent = event.heal_percent / 100
 	EmitSoundOn("Tanari.FireTemple.ProtectiveSpiritDie", caster)
 	-- CustomAbilities:QuickAttachParticle("particles/items_fx/protector_death.vpcf", caster, 3)
-	      local particleName = "particles/items_fx/protector_death.vpcf"
-	      local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-	      ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin() )
-	      ParticleManager:SetParticleControl( particle1, 1, caster:GetAbsOrigin() )
-	      
-	      Timers:CreateTimer(2, 
-	      function()
-	        ParticleManager:DestroyParticle( particle1, false )
-	      end)
+	local particleName = "particles/items_fx/protector_death.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(particle1, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(particle1, 1, caster:GetAbsOrigin())
+
+	Timers:CreateTimer(2, function()
+		ParticleManager:DestroyParticle(particle1, false)
+	end)
 	Timers:CreateTimer(0.05, function()
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Tanari.FireTemple.ProtectiveSpiritDieSpell", caster)
 	end)
-	local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #allies > 0 then
 		for i = 1, #allies, 1 do
 			if allies[i]:GetUnitName() == "fire_temple_protective_spirit" then
@@ -731,10 +721,10 @@ function temple_protector_die(event)
 				local buffAbility = allies[i]:FindAbilityByName("fire_temple_protector_death_ability")
 				buffAbility:ApplyDataDrivenModifier(allies[i], allies[i], "modifier_death_ability_buff", {})
 				local currentStack = allies[i]:GetModifierStackCount("modifier_death_ability_buff", allies[i])
-				allies[i]:SetModifierStackCount("modifier_death_ability_buff", allies[i], currentStack+1)
-				allies[i].modelScale = allies[i].modelScale+0.07
+				allies[i]:SetModifierStackCount("modifier_death_ability_buff", allies[i], currentStack + 1)
+				allies[i].modelScale = allies[i].modelScale + 0.07
 				allies[i]:SetModelScale(allies[i].modelScale)
-				allies[i]:Heal(allies[i]:GetMaxHealth()*healPercent, allies[i])
+				allies[i]:Heal(allies[i]:GetMaxHealth() * healPercent, allies[i])
 			end
 		end
 	end
@@ -761,40 +751,40 @@ function flame_wraith_lord_think(event)
 	local lavaBurst = caster:FindAbilityByName("fire_temple_lava_burst")
 
 	if lavaBurst:IsFullyCastable() then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			local newOrder = {
-			 		UnitIndex = caster:entindex(), 
-			 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-			 		TargetIndex = enemies[1]:entindex(),
-			 		AbilityIndex = lavaBurst:entindex(),
-		 	}
-			 
-			ExecuteOrderFromTable(newOrder)	
-			return 
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+				TargetIndex = enemies[1]:entindex(),
+				AbilityIndex = lavaBurst:entindex(),
+			}
+
+			ExecuteOrderFromTable(newOrder)
+			return
 		end
 	end
 
-	local dragonAbility= caster:FindAbilityByName("fire_temple_dragon_slave")
+	local dragonAbility = caster:FindAbilityByName("fire_temple_dragon_slave")
 	if dragonAbility:IsFullyCastable() then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			local castPoint = enemies[1]:GetAbsOrigin()
 			local newOrder = {
-					UnitIndex = caster:entindex(),
-					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-					AbilityIndex = dragonAbility:entindex(),
-					Position = castPoint
-			 	}
-			 
-			ExecuteOrderFromTable(newOrder)		
-			return	
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+				AbilityIndex = dragonAbility:entindex(),
+				Position = castPoint
+			}
+
+			ExecuteOrderFromTable(newOrder)
+			return
 		end
-	end	
+	end
 end
 
 function kolthun_intro_think(event)
-	
+
 	local caster = event.caster
 	if caster.interval then
 		caster.interval = false
@@ -805,38 +795,38 @@ function kolthun_intro_think(event)
 		caster.animate = 1
 	end
 	if caster.animate == 1 then
-		StartAnimation(caster, {duration=8, activity=ACT_DOTA_TELEPORT, rate=1}) 
+		StartAnimation(caster, {duration = 8, activity = ACT_DOTA_TELEPORT, rate = 1})
 	end
 	caster.animate = caster.animate + 1
-	if caster.animate>=82 then
+	if caster.animate >= 82 then
 		caster.animate = 1
 	end
-      local particleName = "particles/items_fx/fire_temple_beam.vpcf"
-      local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, Events.GameMaster) 
-      -- ParticleManager:SetParticleControl(lightningBolt,0,Vector(8119, -9083, 870)) 
-      ParticleManager:SetParticleControlEnt(lightningBolt, 0, Tanari.FireTemple.flameOrb, PATTACH_POINT_FOLLOW, "attach_origin", Tanari.FireTemple.flameOrb:GetAbsOrigin(), true) 
+	local particleName = "particles/items_fx/fire_temple_beam.vpcf"
+	local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, Events.GameMaster)
+	-- ParticleManager:SetParticleControl(lightningBolt,0,Vector(8119, -9083, 870))
+	ParticleManager:SetParticleControlEnt(lightningBolt, 0, Tanari.FireTemple.flameOrb, PATTACH_POINT_FOLLOW, "attach_origin", Tanari.FireTemple.flameOrb:GetAbsOrigin(), true)
 
-      local attach = "attach_attack1"
-      if caster.interval then
-      	attach = "attach_attack2"
-      end
-      ParticleManager:SetParticleControlEnt(lightningBolt, 1, caster, PATTACH_POINT_FOLLOW, attach, caster:GetAbsOrigin(), true)
-      Timers:CreateTimer(1, function()
-        ParticleManager:DestroyParticle(lightningBolt, false)
-      end)
+	local attach = "attach_attack1"
+	if caster.interval then
+		attach = "attach_attack2"
+	end
+	ParticleManager:SetParticleControlEnt(lightningBolt, 1, caster, PATTACH_POINT_FOLLOW, attach, caster:GetAbsOrigin(), true)
+	Timers:CreateTimer(1, function()
+		ParticleManager:DestroyParticle(lightningBolt, false)
+	end)
 end
 
 function kolthun_battle_begin(event)
 
 	local caster = event.caster
-	
+
 	EndAnimation(caster)
 	caster:RemoveModifierByName("modifier_kolthun_intro")
 	EmitGlobalSound("Tanari.FireTemple.KolthunLaugh1")
 	Timers:CreateTimer(2.3, function()
 		EmitGlobalSound("Tanari.FireTemple.KolthunLaugh2")
 	end)
-	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = caster:GetUnitName(), bossMaxHealth = caster:GetMaxHealth()})
+	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = caster:GetUnitName(), bossMaxHealth = caster:GetMaxHealth(), bossId = tostring(caster)})
 	local rockFallTable = {Vector(7424, -9536, 400), Vector(8000, -8256, 400), Vector(5824, -8000, 400), Vector(7040, -8000, 400), Vector(7488, -10176, 400), Vector(6016, -9344, 400)}
 	Tanari.FireTemple.rockfallIndex = 1
 	Timers:CreateTimer(4, function()
@@ -847,7 +837,7 @@ function kolthun_battle_begin(event)
 		local rockfallParticle = "particles/dire_fx/dire_lava_falling_rocks.vpcf"
 		local position = rockFallTable[Tanari.FireTemple.rockfallIndex]
 		local pfx = ParticleManager:CreateParticle(rockfallParticle, PATTACH_CUSTOMORIGIN, Events.GameMaster)
-		ParticleManager:SetParticleControl( pfx, 0, position )
+		ParticleManager:SetParticleControl(pfx, 0, position)
 		Tanari.FireTemple.rockfallIndex = Tanari.FireTemple.rockfallIndex + 1
 		if Tanari.FireTemple.rockfallIndex > #rockFallTable then
 			Tanari.FireTemple.rockfallIndex = 1
@@ -861,19 +851,19 @@ function kolthun_battle_begin(event)
 			return 3.5
 		end
 	end)
-	
+
 	StopSoundEvent("Tanari.FireTemple.Music", Events.GameMaster)
 	Tanari.FireTemple.BossBattleBegun = true
 	EmitSoundOnLocationWithCaster(Vector(6848, -9427), "Tanari.LightRockFall", Events.GameMaster)
-		Timers:CreateTimer(3.5, function()
-			if not Tanari.FireTemple.KolthunBattleEnd then
-				EmitSoundOnLocationWithCaster(Vector(6648, -9227), "Tanari.FireTemple.KolthunMusic", Events.GameMaster)
-				Timers:CreateTimer(40, function()
-					EmitSoundOnLocationWithCaster(Vector(6648, -9227), "Tanari.FireTemple.KolthunMusic2", Events.GameMaster)
-				end)
-				return 80
-			end
-		end)
+	Timers:CreateTimer(3.5, function()
+		if not Tanari.FireTemple.KolthunBattleEnd then
+			EmitSoundOnLocationWithCaster(Vector(6648, -9227), "Tanari.FireTemple.KolthunMusic", Events.GameMaster)
+			Timers:CreateTimer(40, function()
+				EmitSoundOnLocationWithCaster(Vector(6648, -9227), "Tanari.FireTemple.KolthunMusic2", Events.GameMaster)
+			end)
+			return 80
+		end
+	end)
 
 end
 
@@ -881,7 +871,7 @@ function kolthun_main_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if caster:HasModifier("modifier_kolthun_dashing") then
-		print("DASHING NOW")
+		--print("DASHING NOW")
 	end
 	if caster:HasModifier("modifier_kolthun_phase_1_death") then
 		return
@@ -904,61 +894,61 @@ function kolthun_main_think(event)
 		local ringAbility = caster:FindAbilityByName("fire_temple_fire_ring")
 		if ringAbility:IsFullyCastable() then
 			local newOrder = {
-			 		UnitIndex = caster:entindex(), 
-			 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-			 		AbilityIndex = ringAbility:entindex(),
-		 	}
-			ExecuteOrderFromTable(newOrder)	
-			StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_SUN_STRIKE, rate=1}) 
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+				AbilityIndex = ringAbility:entindex(),
+			}
+			ExecuteOrderFromTable(newOrder)
+			StartAnimation(caster, {duration = 0.8, activity = ACT_DOTA_CAST_SUN_STRIKE, rate = 1})
 		end
 		if luck == 1 then
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), casterOrigin, nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 			if #enemies > 0 and not caster:HasModifier("modifier_jumping") and not caster:IsStunned() and not caster:IsRooted() then
-				local sumVector = Vector(0,0,0)
+				local sumVector = Vector(0, 0, 0)
 				for i = 1, #enemies, 1 do
 					sumVector = sumVector + enemies[i]:GetAbsOrigin()
 				end
-				local avgVector = sumVector/#enemies
-				local forceDirection = ((casterOrigin-avgVector)*Vector(1,1,0)):Normalized()
+				local avgVector = sumVector / #enemies
+				local forceDirection = ((casterOrigin - avgVector) * Vector(1, 1, 0)):Normalized()
 				if caster:HasModifier("modifier_kolthun_dashing") then
 					EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
 				else
 					EmitSoundOn("Tanari.FireTemple.KolthunJumpSmall", caster)
 				end
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_kolthun_dashing", {duration = 0.66})
-				StartAnimation(caster, {duration=0.66, activity=ACT_DOTA_CAST_TORNADO, rate=1}) 
-				local luck2 = RandomInt(1,3)
+				StartAnimation(caster, {duration = 0.66, activity = ACT_DOTA_CAST_TORNADO, rate = 1})
+				local luck2 = RandomInt(1, 3)
 				if luck2 == 3 then
 					EmitSoundOn("Tanari.FireTemple.KolthunDodge", caster)
 				end
 				for i = 1, 22, 1 do
-					Timers:CreateTimer(i*0.03, function()
-						caster:SetAbsOrigin(caster:GetAbsOrigin()+forceDirection*24)
+					Timers:CreateTimer(i * 0.03, function()
+						caster:SetAbsOrigin(caster:GetAbsOrigin() + forceDirection * 24)
 					end)
 				end
 				Timers:CreateTimer(0.66, function()
 					FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-				end)	
+				end)
 			end
 		end
 		if luck == 2 then
 			local flameAbility = caster:FindAbilityByName("kolthun_dragon_slave")
 			if flameAbility:IsFullyCastable() then
-				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, 1800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), casterOrigin, nil, 1800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 				if #enemies > 0 then
 					local castPoint = enemies[1]:GetAbsOrigin()
 					local newOrder = {
-							UnitIndex = caster:entindex(),
-							OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-							AbilityIndex = flameAbility:entindex(),
-							Position = castPoint
-					 	}
-					local luck3 = RandomInt(1,4)
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+						AbilityIndex = flameAbility:entindex(),
+						Position = castPoint
+					}
+					local luck3 = RandomInt(1, 4)
 					if luck3 == 1 then
 						EmitSoundOn("Tanari.FireTemple.KolthunCast", caster)
 					end
-					ExecuteOrderFromTable(newOrder)	
-					StartAnimation(caster, {duration=1.3, activity=ACT_DOTA_CAST_CHAOS_METEOR, rate=0.6}) 	
+					ExecuteOrderFromTable(newOrder)
+					StartAnimation(caster, {duration = 1.3, activity = ACT_DOTA_CAST_CHAOS_METEOR, rate = 0.6})
 				end
 			end
 		end
@@ -971,25 +961,25 @@ function kolthun_main_think(event)
 			end
 		end
 		if casterOrigin.y > -6876 and not caster:HasModifier("modifier_jumping") then
-			StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_TORNADO, rate=1}) 
-			WallPhysics:Jump(caster, Vector(0,-1), 32, 30, 44, 1.4)
+			StartAnimation(caster, {duration = 2, activity = ACT_DOTA_CAST_TORNADO, rate = 1})
+			WallPhysics:Jump(caster, Vector(0, -1), 32, 30, 44, 1.4)
 			EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
 		elseif casterOrigin.x < 4759 and not caster:HasModifier("modifier_jumping") then
-			StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_TORNADO, rate=1}) 
-			WallPhysics:Jump(caster, Vector(1,0), 32, 30, 44, 1.4)
+			StartAnimation(caster, {duration = 2, activity = ACT_DOTA_CAST_TORNADO, rate = 1})
+			WallPhysics:Jump(caster, Vector(1, 0), 32, 30, 44, 1.4)
 			EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
 		elseif casterOrigin.y < -10838 and not caster:HasModifier("modifier_jumping") then
-			StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_TORNADO, rate=1}) 
-			WallPhysics:Jump(caster, Vector(0,1), 32, 30, 44, 1.4)
+			StartAnimation(caster, {duration = 2, activity = ACT_DOTA_CAST_TORNADO, rate = 1})
+			WallPhysics:Jump(caster, Vector(0, 1), 32, 30, 44, 1.4)
 			EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
 		elseif casterOrigin.x > 9152 and not caster:HasModifier("modifier_jumping") then
-			StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_TORNADO, rate=1}) 
-			WallPhysics:Jump(caster, Vector(-1,0), 32, 30, 44, 1.4)
+			StartAnimation(caster, {duration = 2, activity = ACT_DOTA_CAST_TORNADO, rate = 1})
+			WallPhysics:Jump(caster, Vector(-1, 0), 32, 30, 44, 1.4)
 			EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
 		end
 	end
 	if not caster:HasModifier("modifier_jumping") and not caster:HasModifier("modifier_kolthun_falling") and not caster:IsStunned() and not caster:IsRooted() then
-		local luck = RandomInt(1,5)
+		local luck = RandomInt(1, 5)
 		if luck == 1 then
 			local casterOrigin = caster:GetAbsOrigin()
 			local aggroTarget = caster:GetAggroTarget()
@@ -997,26 +987,26 @@ function kolthun_main_think(event)
 				local aggroOrigin = aggroTarget:GetAbsOrigin()
 				local pathDistance = GridNav:FindPathLength(casterOrigin, aggroOrigin)
 				local crowDistance = WallPhysics:GetDistance(casterOrigin, aggroOrigin)
-				print("DISTANCES---")
-				print(pathDistance)
-				print(crowDistance)
+				--print("DISTANCES---")
+				--print(pathDistance)
+				--print(crowDistance)
 				if pathDistance > crowDistance + 300 or pathDistance == -1 then
-						local forceDirection = ((aggroOrigin-casterOrigin)*Vector(1,1,0)):Normalized()
-						StartAnimation(caster, {duration=0.66, activity=ACT_DOTA_CAST_TORNADO, rate=1})
-						if caster:HasModifier("modifier_kolthun_dashing") then
-							EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
-						else
-							EmitSoundOn("Tanari.FireTemple.KolthunJumpSmall", caster)
-						end 
-						for i = 1, 22, 1 do
-							Timers:CreateTimer(i*0.03, function()
-								caster:SetAbsOrigin(caster:GetAbsOrigin()+forceDirection*24)
-							end)
-						end		
-						ability:ApplyDataDrivenModifier(caster, caster, "modifier_kolthun_dashing", {duration = 0.66})
-						Timers:CreateTimer(0.66, function()
-							FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-						end)	
+					local forceDirection = ((aggroOrigin - casterOrigin) * Vector(1, 1, 0)):Normalized()
+					StartAnimation(caster, {duration = 0.66, activity = ACT_DOTA_CAST_TORNADO, rate = 1})
+					if caster:HasModifier("modifier_kolthun_dashing") then
+						EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
+					else
+						EmitSoundOn("Tanari.FireTemple.KolthunJumpSmall", caster)
+					end
+					for i = 1, 22, 1 do
+						Timers:CreateTimer(i * 0.03, function()
+							caster:SetAbsOrigin(caster:GetAbsOrigin() + forceDirection * 24)
+						end)
+					end
+					ability:ApplyDataDrivenModifier(caster, caster, "modifier_kolthun_dashing", {duration = 0.66})
+					Timers:CreateTimer(0.66, function()
+						FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+					end)
 				end
 			end
 		end
@@ -1027,7 +1017,7 @@ function prepare_kolthun_phase_2(ability, caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_kolthun_phase_1_death", {})
 	EndAnimation(caster)
 	Timers:CreateTimer(0.1, function()
-		StartAnimation(caster, {duration=30, activity=ACT_DOTA_DIE, rate=0.1})
+		StartAnimation(caster, {duration = 30, activity = ACT_DOTA_DIE, rate = 0.1})
 	end)
 	EmitGlobalSound("Tanari.FireTemple.KolthunPain")
 end
@@ -1036,7 +1026,7 @@ function prepare_kolthun_phase_3(ability, caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_kolthun_phase_2_death", {})
 	EndAnimation(caster)
 	Timers:CreateTimer(0.1, function()
-		StartAnimation(caster, {duration=30, activity=ACT_DOTA_DIE, rate=0.1})
+		StartAnimation(caster, {duration = 30, activity = ACT_DOTA_DIE, rate = 0.1})
 	end)
 	EmitGlobalSound("Tanari.FireTemple.KolthunPain")
 end
@@ -1044,21 +1034,21 @@ end
 function kolthun_falling(event)
 	local caster = event.caster
 	caster.fallVelocity = caster.fallVelocity + 1
-	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,caster.fallVelocity))
+	caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, caster.fallVelocity))
 end
 
 function kolthun_fall_end(event)
 	local caster = event.caster
-	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_TELEPORT_END, rate=1})
+	StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_TELEPORT_END, rate = 1})
 	caster.fallVelocity = 0
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 end
 
 function fire_ring_think(event)
 	local caster = event.caster
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
-		local enemies2 = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 370, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		local enemies2 = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 370, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		local validBurnTable = {}
 		for i = 1, #enemies, 1 do
 			local validBurn = true
@@ -1087,22 +1077,22 @@ function kolthun_buffing_think(event)
 	else
 		caster.interval = true
 	end
-	print("BUFFING UP?")
-      local particleName = "particles/items_fx/fire_temple_beam.vpcf"
-      local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, Events.GameMaster) 
-      -- ParticleManager:SetParticleControl(lightningBolt,0,Vector(8119, -9083, 870)) 
-      ParticleManager:SetParticleControlEnt(lightningBolt, 0, Tanari.FireTemple.flameOrb, PATTACH_POINT_FOLLOW, "attach_origin", Tanari.FireTemple.flameOrb:GetAbsOrigin(), true) 
+	--print("BUFFING UP?")
+	local particleName = "particles/items_fx/fire_temple_beam.vpcf"
+	local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, Events.GameMaster)
+	-- ParticleManager:SetParticleControl(lightningBolt,0,Vector(8119, -9083, 870))
+	ParticleManager:SetParticleControlEnt(lightningBolt, 0, Tanari.FireTemple.flameOrb, PATTACH_POINT_FOLLOW, "attach_origin", Tanari.FireTemple.flameOrb:GetAbsOrigin(), true)
 
-      local attach = "attach_attack1"
-      if caster.interval then
-      	attach = "attach_attack2"
-      end
-      ParticleManager:SetParticleControlEnt(lightningBolt, 1, caster, PATTACH_POINT_FOLLOW, attach, caster:GetAbsOrigin(), true)
-      Timers:CreateTimer(1, function()
-        ParticleManager:DestroyParticle(lightningBolt, false)
-      end)
-      caster:Heal(caster:GetMaxHealth()*0.02, caster)
-      CustomGameEventManager:Send_ServerToAllClients("update_boss_health", {current_health = caster:GetHealth()})
+	local attach = "attach_attack1"
+	if caster.interval then
+		attach = "attach_attack2"
+	end
+	ParticleManager:SetParticleControlEnt(lightningBolt, 1, caster, PATTACH_POINT_FOLLOW, attach, caster:GetAbsOrigin(), true)
+	Timers:CreateTimer(1, function()
+		ParticleManager:DestroyParticle(lightningBolt, false)
+	end)
+	caster:Heal(caster:GetMaxHealth() * 0.02, caster)
+	CustomGameEventManager:Send_ServerToAllClients("update_boss_health", {current_health = caster:GetHealth(), bossId = tostring(caster)})
 end
 
 function kolthun_phase_1_death_think(event)
@@ -1115,15 +1105,15 @@ function kolthun_phase_1_death_think(event)
 	local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), Vector(8319, -9383, 820))
 
 	if GetGroundHeight(caster:GetAbsOrigin(), caster) > caster:GetAbsOrigin().z then
-		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,10))
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 10))
 	end
 	if not caster:HasModifier("modifier_kolthun_phase_1_buffing_up") then
-		local motionVector = (Vector(8319, -9383, 820)-caster:GetAbsOrigin()):Normalized()
-		caster:SetAbsOrigin(caster:GetAbsOrigin()+motionVector*15)
+		local motionVector = (Vector(8319, -9383, 820) - caster:GetAbsOrigin()):Normalized()
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + motionVector * 15)
 	end
 	if distance <= 90 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_kolthun_phase_1_buffing_up", {duration = 5})
-		local fv =  ((Vector(8119, -9083, 270)-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		local fv = ((Vector(8119, -9083, 270) - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 		caster:SetForwardVector(fv)
 		Timers:CreateTimer(5, function()
 			caster:RemoveModifierByName("modifier_kolthun_phase_1_buffing_up")
@@ -1167,27 +1157,27 @@ function kolthun_phase_2_death_think(event)
 	local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), Vector(8395, -10101, 600))
 
 	if GetGroundHeight(caster:GetAbsOrigin(), caster) > caster:GetAbsOrigin().z then
-		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,10))
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 10))
 	end
 	if not caster:HasModifier("modifier_kolthun_phase_1_buffing_up") then
-		local motionVector = (Vector(8395, -10101, 600)-caster:GetAbsOrigin()):Normalized()
-		caster:SetAbsOrigin(caster:GetAbsOrigin()+motionVector*15)
+		local motionVector = (Vector(8395, -10101, 600) - caster:GetAbsOrigin()):Normalized()
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + motionVector * 15)
 	end
 	caster:RemoveModifierByName("modifier_boss_health")
 	caster:RemoveAbility("boss_health")
 	if distance <= 90 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_kolthun_phase_3", {})
 		for i = 1, 25, 1 do
-			Timers:CreateTimer(i*0.03, function()
-				caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,20+i))
+			Timers:CreateTimer(i * 0.03, function()
+				caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, 20 + i))
 			end)
 		end
 		Timers:CreateTimer(0.6, function()
-		      Tanari:CreateLavaBlast(Vector(8395, -10101, 100))
-		      EmitSoundOn("Tanari.LavaSplash", caster)
-		      Timers:CreateTimer(3, function()
-		      	Tanari:SpawnFireLord(caster)
-		      end)
+			Tanari:CreateLavaBlast(Vector(8395, -10101, 100))
+			EmitSoundOn("Tanari.LavaSplash", caster)
+			Timers:CreateTimer(3, function()
+				Tanari:SpawnFireLord(caster)
+			end)
 		end)
 	end
 end
@@ -1198,34 +1188,34 @@ function kolthun_phase_3_think(event)
 		if not caster.threeThink then
 			caster.threeThink = 1
 		end
-		caster:SetAbsOrigin(caster.boss:GetAbsOrigin()+Vector(0,0,90))
+		caster:SetAbsOrigin(caster.boss:GetAbsOrigin() + Vector(0, 0, 90))
 		caster:SetForwardVector(caster.boss:GetForwardVector())
 		caster.threeThink = caster.threeThink + 1
-		if caster.threeThink%5 == 0 then
-		      local particleName = "particles/items_fx/fire_temple_beam.vpcf"
-		      local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, Events.GameMaster) 
-		      -- ParticleManager:SetParticleControl(lightningBolt,0,Vector(8119, -9083, 870)) 
-		      local attachC = "attach_arm_L"
-		      if caster.cInterval then
-		      	attachC = "attach_arm_R"
-		      	caster.cInterval = false
-		      else
-		      	caster.cInterval = true
-		      end
+		if caster.threeThink % 5 == 0 then
+			local particleName = "particles/items_fx/fire_temple_beam.vpcf"
+			local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, Events.GameMaster)
+			-- ParticleManager:SetParticleControl(lightningBolt,0,Vector(8119, -9083, 870))
+			local attachC = "attach_arm_L"
+			if caster.cInterval then
+				attachC = "attach_arm_R"
+				caster.cInterval = false
+			else
+				caster.cInterval = true
+			end
 
-		      ParticleManager:SetParticleControlEnt(lightningBolt, 0,	caster.boss, PATTACH_POINT_FOLLOW, attachC, caster.boss:GetAbsOrigin(), true) 
+			ParticleManager:SetParticleControlEnt(lightningBolt, 0, caster.boss, PATTACH_POINT_FOLLOW, attachC, caster.boss:GetAbsOrigin(), true)
 
-		      local attach = "attach_attack1"
-		      if caster.interval then
-		      	attach = "attach_attack2"
-		      	caster.interval = false
-		      else
-		      	caster.interval = true
-		      end
-		      ParticleManager:SetParticleControlEnt(lightningBolt, 1, caster, PATTACH_POINT_FOLLOW, attach, caster:GetAbsOrigin(), true)
-		      Timers:CreateTimer(1, function()
-		        ParticleManager:DestroyParticle(lightningBolt, false)
-		      end)
+			local attach = "attach_attack1"
+			if caster.interval then
+				attach = "attach_attack2"
+				caster.interval = false
+			else
+				caster.interval = true
+			end
+			ParticleManager:SetParticleControlEnt(lightningBolt, 1, caster, PATTACH_POINT_FOLLOW, attach, caster:GetAbsOrigin(), true)
+			Timers:CreateTimer(1, function()
+				ParticleManager:DestroyParticle(lightningBolt, false)
+			end)
 		end
 		if caster.threeThink > 20 then
 			caster.threeThink = 0
@@ -1236,7 +1226,7 @@ end
 function firelord_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	if caster.dying then 
+	if caster.dying then
 		return
 	end
 	if caster:GetHealth() < 1000 then
@@ -1245,129 +1235,129 @@ function firelord_think(event)
 	end
 	if not caster:HasModifier("modifier_firelord_intro") then
 		if caster:HasModifier("modifier_kolthun_dashing") then
-			print("DASHING NOW")
+			--print("DASHING NOW")
 		end
 
-			if caster:GetHealth() < 1000 and not caster:HasModifier("modifier_kolthun_phase_1_death") then
-				-- if caster.phase == 1 then
-				-- 	prepare_kolthun_phase_2(ability, caster)
-				-- elseif caster.phase == 2 then
-				-- 	if not caster:HasModifier("modifier_kolthun_phase_2_death") then
-				-- 		prepare_kolthun_phase_3(ability, caster)
-				-- 	end
-				-- end
-			end
-			local luck = RandomInt(1, 6)
-			local casterOrigin = caster:GetAbsOrigin()
-			local ringAbility = caster:FindAbilityByName("fire_temple_fire_ring")
-			if ringAbility:IsFullyCastable() then
-				local newOrder = {
-				 		UnitIndex = caster:entindex(), 
-				 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-				 		AbilityIndex = ringAbility:entindex(),
-			 	}
-				ExecuteOrderFromTable(newOrder)	
-				StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_SUN_STRIKE, rate=1}) 
-			end
-			if luck == 1 then
-				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
-				if #enemies > 0 and not caster:HasModifier("modifier_jumping") and not caster:IsStunned() and not caster:IsRooted() then
-					local sumVector = Vector(0,0,0)
-					for i = 1, #enemies, 1 do
-						sumVector = sumVector + enemies[i]:GetAbsOrigin()
-					end
-					local avgVector = sumVector/#enemies
-					local forceDirection = ((casterOrigin-avgVector)*Vector(1,1,0)):Normalized()
-					if caster:HasModifier("modifier_kolthun_dashing") then
-						EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
-					else
-						EmitSoundOn("Tanari.FireTemple.KolthunJumpSmall", caster)
-					end
-					ability:ApplyDataDrivenModifier(caster, caster, "modifier_kolthun_dashing", {duration = 0.66})
-					StartAnimation(caster, {duration=0.66, activity=ACT_DOTA_TELEPORT_END, rate=1}) 
-					local luck2 = RandomInt(1,3)
-					if luck2 == 3 then
-						EmitSoundOn("Tanari.FireTemple.NeverlordJump", caster)
-					end
-					for i = 1, 22, 1 do
-						Timers:CreateTimer(i*0.03, function()
-							caster:SetAbsOrigin(caster:GetAbsOrigin()+forceDirection*34)
-						end)
-					end
-					Timers:CreateTimer(0.66, function()
-						FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-					end)	
+		if caster:GetHealth() < 1000 and not caster:HasModifier("modifier_kolthun_phase_1_death") then
+			-- if caster.phase == 1 then
+			-- prepare_kolthun_phase_2(ability, caster)
+			-- elseif caster.phase == 2 then
+			-- if not caster:HasModifier("modifier_kolthun_phase_2_death") then
+			-- prepare_kolthun_phase_3(ability, caster)
+			-- end
+			-- end
+		end
+		local luck = RandomInt(1, 6)
+		local casterOrigin = caster:GetAbsOrigin()
+		local ringAbility = caster:FindAbilityByName("fire_temple_fire_ring")
+		if ringAbility:IsFullyCastable() then
+			local newOrder = {
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+				AbilityIndex = ringAbility:entindex(),
+			}
+			ExecuteOrderFromTable(newOrder)
+			StartAnimation(caster, {duration = 0.8, activity = ACT_DOTA_CAST_SUN_STRIKE, rate = 1})
+		end
+		if luck == 1 then
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), casterOrigin, nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			if #enemies > 0 and not caster:HasModifier("modifier_jumping") and not caster:IsStunned() and not caster:IsRooted() then
+				local sumVector = Vector(0, 0, 0)
+				for i = 1, #enemies, 1 do
+					sumVector = sumVector + enemies[i]:GetAbsOrigin()
 				end
-			end
-			if luck == 2 then
-				local flameAbility = caster:FindAbilityByName("kolthun_dragon_slave")
-				if flameAbility:IsFullyCastable() then
-					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, 1800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
-					if #enemies > 0 then
-						local castPoint = enemies[1]:GetAbsOrigin()
-						local newOrder = {
-								UnitIndex = caster:entindex(),
-								OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-								AbilityIndex = flameAbility:entindex(),
-								Position = castPoint
-						 	}
-						local luck3 = RandomInt(1,4)
-						if luck3 == 1 then
-							EmitSoundOn("Tanari.FireTemple.NeverlordCast", caster)
-						end
-						ExecuteOrderFromTable(newOrder)	
-						StartAnimation(caster, {duration=1.3, activity=ACT_DOTA_RAZE_1, rate=0.8}) 	
-					end
-				end
-			end
-			if luck == 3 then
-				local razeAbility = caster:FindAbilityByName("neverlord_raze")
-				if razeAbility:IsFullyCastable() then
-					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
-					if #enemies > 0 then
-						local castPoint = enemies[1]:GetAbsOrigin()
-						local newOrder = {
-								UnitIndex = caster:entindex(),
-								OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-								AbilityIndex = razeAbility:entindex(),
-								Position = castPoint
-						 	}
-						local luck3 = RandomInt(1,4)
-						if luck3 == 1 then
-							EmitSoundOn("Tanari.FireTemple.NeverlordCast", caster)
-						end
-						ExecuteOrderFromTable(newOrder)	
-						-- StartAnimation(caster, {duration=1.3, activity=ACT_DOTA_RAZE_1, rate=0.8}) 	
-					end
-				end
-			end
-			if not caster:HasModifier("modifier_jumping") then
-				local groundDifferential = casterOrigin.z - GetGroundHeight(casterOrigin, caster)
-				if groundDifferential > 30 then
-					ability:ApplyDataDrivenModifier(caster, caster, "modifier_kolthun_falling", {duration = 1})
+				local avgVector = sumVector / #enemies
+				local forceDirection = ((casterOrigin - avgVector) * Vector(1, 1, 0)):Normalized()
+				if caster:HasModifier("modifier_kolthun_dashing") then
+					EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
 				else
-					caster:RemoveModifierByName("modifier_kolthun_falling")
+					EmitSoundOn("Tanari.FireTemple.KolthunJumpSmall", caster)
+				end
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_kolthun_dashing", {duration = 0.66})
+				StartAnimation(caster, {duration = 0.66, activity = ACT_DOTA_TELEPORT_END, rate = 1})
+				local luck2 = RandomInt(1, 3)
+				if luck2 == 3 then
+					EmitSoundOn("Tanari.FireTemple.NeverlordJump", caster)
+				end
+				for i = 1, 22, 1 do
+					Timers:CreateTimer(i * 0.03, function()
+						caster:SetAbsOrigin(caster:GetAbsOrigin() + forceDirection * 34)
+					end)
+				end
+				Timers:CreateTimer(0.66, function()
+					FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+				end)
+			end
+		end
+		if luck == 2 then
+			local flameAbility = caster:FindAbilityByName("kolthun_dragon_slave")
+			if flameAbility:IsFullyCastable() then
+				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), casterOrigin, nil, 1800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+				if #enemies > 0 then
+					local castPoint = enemies[1]:GetAbsOrigin()
+					local newOrder = {
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+						AbilityIndex = flameAbility:entindex(),
+						Position = castPoint
+					}
+					local luck3 = RandomInt(1, 4)
+					if luck3 == 1 then
+						EmitSoundOn("Tanari.FireTemple.NeverlordCast", caster)
+					end
+					ExecuteOrderFromTable(newOrder)
+					StartAnimation(caster, {duration = 1.3, activity = ACT_DOTA_RAZE_1, rate = 0.8})
 				end
 			end
-			if casterOrigin.y > -6876 and not caster:HasModifier("modifier_jumping") then
-				StartAnimation(caster, {duration=2, activity=ACT_DOTA_FLAIL, rate=1, translate = "forcestaff_friendly"}) 
-				WallPhysics:Jump(caster, Vector(0,-1), 32, 30, 44, 1.4)
-				EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
-			elseif casterOrigin.x < 4759 and not caster:HasModifier("modifier_jumping") then
-				StartAnimation(caster, {duration=2, activity=ACT_DOTA_FLAIL, rate=1, translate = "forcestaff_friendly"}) 
-				WallPhysics:Jump(caster, Vector(1,0), 32, 30, 44, 1.4)
-				EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
-			elseif casterOrigin.y < -10838 and not caster:HasModifier("modifier_jumping") then
-				StartAnimation(caster,{duration=2, activity=ACT_DOTA_FLAIL, rate=1, translate = "forcestaff_friendly"})  
-				WallPhysics:Jump(caster, Vector(0,1), 32, 30, 44, 1.4)
-				EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
-			elseif casterOrigin.x > 9152 and not caster:HasModifier("modifier_jumping") then
-				StartAnimation(caster, {duration=2, activity=ACT_DOTA_FLAIL, rate=1, translate = "forcestaff_friendly"}) 
-				WallPhysics:Jump(caster, Vector(-1,0), 32, 30, 44, 1.4)
-				EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
+		end
+		if luck == 3 then
+			local razeAbility = caster:FindAbilityByName("neverlord_raze")
+			if razeAbility:IsFullyCastable() then
+				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), casterOrigin, nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+				if #enemies > 0 then
+					local castPoint = enemies[1]:GetAbsOrigin()
+					local newOrder = {
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+						AbilityIndex = razeAbility:entindex(),
+						Position = castPoint
+					}
+					local luck3 = RandomInt(1, 4)
+					if luck3 == 1 then
+						EmitSoundOn("Tanari.FireTemple.NeverlordCast", caster)
+					end
+					ExecuteOrderFromTable(newOrder)
+					-- StartAnimation(caster, {duration=1.3, activity=ACT_DOTA_RAZE_1, rate=0.8})
+				end
 			end
+		end
+		if not caster:HasModifier("modifier_jumping") then
+			local groundDifferential = casterOrigin.z - GetGroundHeight(casterOrigin, caster)
+			if groundDifferential > 30 then
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_kolthun_falling", {duration = 1})
+			else
+				caster:RemoveModifierByName("modifier_kolthun_falling")
+			end
+		end
+		if casterOrigin.y > -6876 and not caster:HasModifier("modifier_jumping") then
+			StartAnimation(caster, {duration = 2, activity = ACT_DOTA_FLAIL, rate = 1, translate = "forcestaff_friendly"})
+			WallPhysics:Jump(caster, Vector(0, -1), 32, 30, 44, 1.4)
+			EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
+		elseif casterOrigin.x < 4759 and not caster:HasModifier("modifier_jumping") then
+			StartAnimation(caster, {duration = 2, activity = ACT_DOTA_FLAIL, rate = 1, translate = "forcestaff_friendly"})
+			WallPhysics:Jump(caster, Vector(1, 0), 32, 30, 44, 1.4)
+			EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
+		elseif casterOrigin.y < -10838 and not caster:HasModifier("modifier_jumping") then
+			StartAnimation(caster, {duration = 2, activity = ACT_DOTA_FLAIL, rate = 1, translate = "forcestaff_friendly"})
+			WallPhysics:Jump(caster, Vector(0, 1), 32, 30, 44, 1.4)
+			EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
+		elseif casterOrigin.x > 9152 and not caster:HasModifier("modifier_jumping") then
+			StartAnimation(caster, {duration = 2, activity = ACT_DOTA_FLAIL, rate = 1, translate = "forcestaff_friendly"})
+			WallPhysics:Jump(caster, Vector(-1, 0), 32, 30, 44, 1.4)
+			EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
+		end
 		if not caster:HasModifier("modifier_jumping") and not caster:HasModifier("modifier_kolthun_falling") and not caster:IsStunned() and not caster:IsRooted() then
-			local luck = RandomInt(1,6)
+			local luck = RandomInt(1, 6)
 			if luck == 1 then
 				local casterOrigin = caster:GetAbsOrigin()
 				local aggroTarget = caster:GetAggroTarget()
@@ -1375,26 +1365,26 @@ function firelord_think(event)
 					local aggroOrigin = aggroTarget:GetAbsOrigin()
 					-- local pathDistance = GridNav:FindPathLength(casterOrigin, aggroOrigin)
 					local crowDistance = WallPhysics:GetDistance(casterOrigin, aggroOrigin)
-					print("DISTANCES---")
-					print(pathDistance)
-					print(crowDistance)
+					--print("DISTANCES---")
+					--print(pathDistance)
+					--print(crowDistance)
 					if crowDistance > 700 then
-							local forceDirection = ((aggroOrigin-casterOrigin)*Vector(1,1,0)):Normalized()
-							StartAnimation(caster, {duration=0.66, activity=ACT_DOTA_FLAIL, rate=1, translate = "forcestaff_friendly"})
-							if caster:HasModifier("modifier_kolthun_dashing") then
-								EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
-							else
-								EmitSoundOn("Tanari.FireTemple.KolthunJumpSmall", caster)
-							end 
-							for i = 1, 22, 1 do
-								Timers:CreateTimer(i*0.03, function()
-									caster:SetAbsOrigin(caster:GetAbsOrigin()+forceDirection*34)
-								end)
-							end		
-							ability:ApplyDataDrivenModifier(caster, caster, "modifier_kolthun_dashing", {duration = 0.66})
-							Timers:CreateTimer(0.66, function()
-								FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-							end)	
+						local forceDirection = ((aggroOrigin - casterOrigin) * Vector(1, 1, 0)):Normalized()
+						StartAnimation(caster, {duration = 0.66, activity = ACT_DOTA_FLAIL, rate = 1, translate = "forcestaff_friendly"})
+						if caster:HasModifier("modifier_kolthun_dashing") then
+							EmitSoundOn("Tanari.FireTemple.KolthunJumpBig", caster)
+						else
+							EmitSoundOn("Tanari.FireTemple.KolthunJumpSmall", caster)
+						end
+						for i = 1, 22, 1 do
+							Timers:CreateTimer(i * 0.03, function()
+								caster:SetAbsOrigin(caster:GetAbsOrigin() + forceDirection * 34)
+							end)
+						end
+						ability:ApplyDataDrivenModifier(caster, caster, "modifier_kolthun_dashing", {duration = 0.66})
+						Timers:CreateTimer(0.66, function()
+							FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+						end)
 					end
 				end
 			end
@@ -1410,24 +1400,23 @@ function neverlord_raze_cast(event)
 	createRazeAtPosition(caster, point, ability, event.damage)
 	local forward = caster:GetForwardVector()
 	for i = 1, 4, 1 do
-		local rotatedForward = WallPhysics:rotateVector(forward, math.pi*i/2)
-		local newPosition = point+rotatedForward*180
+		local rotatedForward = WallPhysics:rotateVector(forward, math.pi * i / 2)
+		local newPosition = point + rotatedForward * 180
 		createRazeAtPosition(caster, newPosition, ability, event.damage)
 	end
 end
 
 function createRazeAtPosition(caster, point, ability, damage)
 	local particleName = "particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_shadowraze.vpcf"
-	local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-	ParticleManager:SetParticleControl( particle1, 0, point )
-	Timers:CreateTimer(2, 
-	function()
-		ParticleManager:DestroyParticle( particle1, false )
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(particle1, 0, point)
+	Timers:CreateTimer(2, function()
+		ParticleManager:DestroyParticle(particle1, false)
 	end)
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 180, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )	
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 180, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for i = 1, #enemies, 1 do
-			ApplyDamage({ victim = enemies[i], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+			ApplyDamage({victim = enemies[i], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 		end
 	end
 end
@@ -1442,38 +1431,38 @@ function fire_temple_boss_die(caster, ability)
 	Timers:CreateTimer(11, function()
 		Dungeons.lootLaunch = false
 	end)
-	StartAnimation(kolthun, {duration=20, activity=ACT_DOTA_DIE, rate=0.25})
+	StartAnimation(kolthun, {duration = 20, activity = ACT_DOTA_DIE, rate = 0.25})
 	Timers:CreateTimer(0.5, function()
 		EmitSoundOn("Tanari.FireTemple.NeverlordDefeat", caster)
 	end)
 	Timers:CreateTimer(1.5, function()
 		EmitGlobalSound("Loot_Drop_Stinger_Arcana")
-		Notifications:TopToAll({text="Dungeon Clear!", duration=8.0})
+		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 	end)
 	local casterOrigin = caster:GetAbsOrigin()
 	for i = 1, 18, 1 do
-		Timers:CreateTimer(0.5*i, function()
+		Timers:CreateTimer(0.5 * i, function()
 			RPCItems:RollItemtype(300, casterOrigin, 1, 0)
 		end)
 	end
 	Timers:CreateTimer(4, function()
-		local luck = RandomInt(1,4)
+		local luck = RandomInt(1, 4)
 		if luck == 1 then
 			RPCItems:RollFirelockPendant(casterOrigin)
 		end
 	end)
 	local bossOrigin = caster:GetAbsOrigin()
 	Timers:CreateTimer(8, function()
-		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fire_temple_boss_dying_final", {})
 		caster:RemoveModifierByName("modifier_fire_temple_boss_dying")
 		Timers:CreateTimer(0.1, function()
-			StartAnimation(caster, {duration=8, activity=ACT_DOTA_DIE, rate=0.25})
+			StartAnimation(caster, {duration = 8, activity = ACT_DOTA_DIE, rate = 0.25})
 			EmitSoundOn("Tanari.FireTemple.NeverlordJump", caster)
 			for i = 1, 120, 1 do
-				Timers:CreateTimer(i*0.05, function()
+				Timers:CreateTimer(i * 0.05, function()
 					if IsValidEntity(caster) then
-						caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,-2))
+						caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, -2))
 					end
 				end)
 			end
@@ -1490,7 +1479,7 @@ function fire_temple_boss_dying_think(event)
 	local caster = event.caster
 	if not caster.flailEffect then
 		caster.flailEffect = true
-		StartAnimation(caster, {duration=5.5, activity=ACT_DOTA_FLAIL, rate=1.0})
+		StartAnimation(caster, {duration = 5.5, activity = ACT_DOTA_FLAIL, rate = 1.0})
 	end
 	CustomAbilities:QuickAttachParticleWithPoint("particles/radiant_fx2/good_ancient001_dest_gobjglow.vpcf", caster, 4, "attach_hitloc")
 	EmitSoundOn("Tanari.WindTemple.BossDying", caster)
@@ -1505,8 +1494,8 @@ end
 function conflag_carapace_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local randomRotat = RandomInt(1,360)
-	local fv = WallPhysics:rotateVector(caster:GetForwardVector(), (math.pi/180)*randomRotat)
+	local randomRotat = RandomInt(1, 360)
+	local fv = WallPhysics:rotateVector(caster:GetForwardVector(), (math.pi / 180) * randomRotat)
 
 	local projectileParticle = "particles/units/heroes/hero_jakiro/fireball.vpcf"
 
@@ -1515,22 +1504,22 @@ function conflag_carapace_think(event)
 	local range = 1300
 	local speed = 1100
 	local casterOrigin = caster:GetAbsOrigin()
-	local info = 
+	local info =
 	{
-			Ability = ability,
-        	EffectName = projectileParticle,
-        	vSpawnOrigin = casterOrigin+Vector(0,0,80),
-        	fDistance = range,
-        	fStartRadius = start_radius,
-        	fEndRadius = end_radius,
-        	Source = caster,
-        	StartPosition = "attach_hitloc",
-        	bHasFrontalCone = true,
-        	bReplaceExisting = false,
-        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        	fExpireTime = GameRules:GetGameTime() + 5.0,
+		Ability = ability,
+		EffectName = projectileParticle,
+		vSpawnOrigin = casterOrigin + Vector(0, 0, 80),
+		fDistance = range,
+		fStartRadius = start_radius,
+		fEndRadius = end_radius,
+		Source = caster,
+		StartPosition = "attach_hitloc",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
 		bDeleteOnHit = true,
 		vVelocity = fv * speed,
 		bProvidesVision = false,
@@ -1546,30 +1535,28 @@ function conflag_carapace_impact(event)
 	local damage = event.damage
 	local radius = 240
 	local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
-	local particle2 = ParticleManager:CreateParticle( particleNameS, PATTACH_WORLDORIGIN, target )
-	ParticleManager:SetParticleControl( particle2, 0, target:GetAbsOrigin() )
-	ParticleManager:SetParticleControl( particle2, 1, Vector(radius,radius,radius) )
-	ParticleManager:SetParticleControl( particle2, 2, Vector(2.0, 2.0, 2.0) )
-	ParticleManager:SetParticleControl( particle2, 4, Vector(255, 90, 20) )
-	Timers:CreateTimer(1.5, 
-		function()
-		ParticleManager:DestroyParticle( particle2, false )
+	local particle2 = ParticleManager:CreateParticle(particleNameS, PATTACH_WORLDORIGIN, target)
+	ParticleManager:SetParticleControl(particle2, 0, target:GetAbsOrigin())
+	ParticleManager:SetParticleControl(particle2, 1, Vector(radius, radius, radius))
+	ParticleManager:SetParticleControl(particle2, 2, Vector(2.0, 2.0, 2.0))
+	ParticleManager:SetParticleControl(particle2, 4, Vector(255, 90, 20))
+	Timers:CreateTimer(1.5, function()
+		ParticleManager:DestroyParticle(particle2, false)
 	end)
 
 	local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
-	local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
-	ParticleManager:SetParticleControl( particle1, 0, target:GetAbsOrigin() )
-	Timers:CreateTimer(2, 
-		function()
-		ParticleManager:DestroyParticle( particle1, false )
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
+	ParticleManager:SetParticleControl(particle1, 0, target:GetAbsOrigin())
+	Timers:CreateTimer(2, function()
+		ParticleManager:DestroyParticle(particle1, false)
 	end)
 	EmitSoundOn("Tanari.FireTemple.ConflagShellHit", target)
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
-		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+		for _, enemy in pairs(enemies) do
+			ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 		end
-	end 
+	end
 end
 
 function lava_forge_die(event)
@@ -1581,7 +1568,7 @@ end
 function fire_spirit_thinking(event)
 	local caster = event.caster
 	local ability = event.ability
-	if caster:GetHealth() < caster:GetMaxHealth()*0.5 then
+	if caster:GetHealth() < caster:GetMaxHealth() * 0.5 then
 		if not caster:HasModifier("modifier_fire_spirit_enraged") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_fire_spirit_enraged", {})
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Tanari.FireSpirit.BuffApplyVO", caster)
@@ -1595,7 +1582,7 @@ function fire_spirit_attack_land(event)
 	local target = event.target
 	local caster = event.caster
 	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf", PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin()+Vector(0,0,60))
+	ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin() + Vector(0, 0, 60))
 	ParticleManager:SetParticleControl(pfx, 1, Vector(200, 2, 200))
 	EmitSoundOn("Tanari.FireSpirit.AttackLand", target)
 	Timers:CreateTimer(2, function()
@@ -1609,12 +1596,12 @@ function fire_spirit_die(event)
 	Tanari:SpiritFireTempleStart()
 	EmitSoundOn("Tanari.FireSpirit.Death", caster)
 	local pfx = ParticleManager:CreateParticle("particles/radiant_fx/epoch_rune_c_b_ranged001_lvl3_disintegrate.vpcf", PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,60))
-	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,60))
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + Vector(0, 0, 60))
+	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin() + Vector(0, 0, 60))
 
 	local pfx2 = ParticleManager:CreateParticle("particles/radiant_fx/good_barracks_melee002_lvl3_hit.vpcf", PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControl(pfx2, 0, caster:GetAbsOrigin()+Vector(0,0,20))
-	ParticleManager:SetParticleControl(pfx2, 1, caster:GetAbsOrigin()+Vector(0,0,20))
+	ParticleManager:SetParticleControl(pfx2, 0, caster:GetAbsOrigin() + Vector(0, 0, 20))
+	ParticleManager:SetParticleControl(pfx2, 1, caster:GetAbsOrigin() + Vector(0, 0, 20))
 
 	Dungeons.respawnPoint = Vector(9664, -15104)
 
@@ -1624,7 +1611,7 @@ function fire_spirit_die(event)
 	end)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Tanari.SpiritRealmEpic", caster)
 
-	local walls = Entities:FindAllByNameWithin("FireTempleSpiritWall", Vector(9846, -15492, 900+Tanari.ZFLOAT), 1200)
+	local walls = Entities:FindAllByNameWithin("FireTempleSpiritWall", Vector(9846, -15492, 900 + Tanari.ZFLOAT), 1200)
 	if #walls > 0 then
 		Timers:CreateTimer(0.1, function()
 			for i = 1, #walls, 1 do
@@ -1633,8 +1620,8 @@ function fire_spirit_die(event)
 		end)
 		for i = 1, 180, 1 do
 			for j = 1, #walls, 1 do
-				Timers:CreateTimer(i*0.03, function()
-					walls[j]:SetAbsOrigin(walls[j]:GetAbsOrigin()+Vector(0,0,-5))
+				Timers:CreateTimer(i * 0.03, function()
+					walls[j]:SetAbsOrigin(walls[j]:GetAbsOrigin() + Vector(0, 0, -5))
 					if j == 1 then
 						ScreenShake(walls[j]:GetAbsOrigin(), 160, 0.1, 0.1, 9000, 0, true)
 					end
@@ -1643,10 +1630,10 @@ function fire_spirit_die(event)
 		end
 	end
 	Timers:CreateTimer(3.5, function()
-        local blockers = Entities:FindAllByNameWithin("FireTempleSpiritBlocker", Vector(9846, -15492, 900+Tanari.ZFLOAT), 2400)
-        for i = 1, #blockers, 1 do
-          UTIL_Remove(blockers[i])
-        end
+		local blockers = Entities:FindAllByNameWithin("FireTempleSpiritBlocker", Vector(9846, -15492, 900 + Tanari.ZFLOAT), 2400)
+		for i = 1, #blockers, 1 do
+			UTIL_Remove(blockers[i])
+		end
 	end)
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
@@ -1661,36 +1648,36 @@ function fire_shaman_think(event)
 		return false
 	end
 	local fv = caster:GetForwardVector()
-	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_SPAWN, rate=1.5}) 
+	StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_SPAWN, rate = 1.5})
 	EmitSoundOn("Tanari.OrchidFireLaunch", caster)
 	local projectiles = GameState:GetDifficultyFactor() + 4
-	for i = 0, projectiles-1, 1 do
-		local rotatedFv = WallPhysics:rotateVector(fv, i*math.pi*2/projectiles)
-	    local start_radius = 130
-	    local end_radius = 130
-	    local speed = 500
-	    local position = caster:GetAbsOrigin()
-	    local info = 
-	    {
-	        Ability = ability,
-	          EffectName = "particles/units/heroes/hero_jakiro/fireball.vpcf",
-	          vSpawnOrigin = position+Vector(0,0,105),
-	          fDistance = 1000,
-	          fStartRadius = start_radius,
-	          fEndRadius = end_radius,
-	          Source = caster,
-	          StartPosition = "attach_attack1",
-	          bHasFrontalCone = true,
-	          bReplaceExisting = false,
-	          iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-	          iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-	          iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-	          fExpireTime = GameRules:GetGameTime() + 5.0,
-	      bDeleteOnHit = false,
-	      vVelocity = rotatedFv*speed,
-	      bProvidesVision = false,
-	    }
-	    projectile = ProjectileManager:CreateLinearProjectile(info) 
+	for i = 0, projectiles - 1, 1 do
+		local rotatedFv = WallPhysics:rotateVector(fv, i * math.pi * 2 / projectiles)
+		local start_radius = 130
+		local end_radius = 130
+		local speed = 500
+		local position = caster:GetAbsOrigin()
+		local info =
+		{
+			Ability = ability,
+			EffectName = "particles/units/heroes/hero_jakiro/fireball.vpcf",
+			vSpawnOrigin = position + Vector(0, 0, 105),
+			fDistance = 1000,
+			fStartRadius = start_radius,
+			fEndRadius = end_radius,
+			Source = caster,
+			StartPosition = "attach_attack1",
+			bHasFrontalCone = true,
+			bReplaceExisting = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			fExpireTime = GameRules:GetGameTime() + 5.0,
+			bDeleteOnHit = false,
+			vVelocity = rotatedFv * speed,
+			bProvidesVision = false,
+		}
+		projectile = ProjectileManager:CreateLinearProjectile(info)
 	end
 end
 
@@ -1740,8 +1727,8 @@ function fire_spawner_think(event)
 		FindClearSpaceForUnit(zombie, zombie:GetAbsOrigin(), false)
 		table.insert(caster.summonTable, zombie)
 	end
-
 	
+
 end
 
 function fire_spawner_die(event)
@@ -1751,9 +1738,9 @@ function fire_spawner_die(event)
 		EmitSoundOn("Tanari.FireTemple.YojimboDiscipleShatter", caster)
 	end)
 	for i = 1, 70, 1 do
-		Timers:CreateTimer(i*0.03, function()
+		Timers:CreateTimer(i * 0.03, function()
 			if IsValidEntity(caster) then
-				caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,3.5))
+				caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, 3.5))
 			end
 		end)
 	end
@@ -1767,7 +1754,7 @@ function gorthos_die(event)
 	for i = 1, 75, 1 do
 		Timers:CreateTimer(0.06, function()
 			for j = 1, #wallProps, 1 do
-				wallProps[j]:SetRenderColor((146*i)/75, (108*i)/75, (108*i)/75)
+				wallProps[j]:SetRenderColor((146 * i) / 75, (108 * i) / 75, (108 * i) / 75)
 			end
 		end)
 	end
@@ -1782,8 +1769,8 @@ function gorthos_die(event)
 			end)
 			for i = 1, 180, 1 do
 				for j = 1, #walls, 1 do
-					Timers:CreateTimer(i*0.03, function()
-						walls[j]:SetAbsOrigin(walls[j]:GetAbsOrigin()+Vector(0,0,-5))
+					Timers:CreateTimer(i * 0.03, function()
+						walls[j]:SetAbsOrigin(walls[j]:GetAbsOrigin() + Vector(0, 0, -5))
 						if j == 1 then
 							ScreenShake(walls[j]:GetAbsOrigin(), 160, 0.1, 0.1, 9000, 0, true)
 						end
@@ -1792,10 +1779,10 @@ function gorthos_die(event)
 			end
 		end
 		Timers:CreateTimer(3.5, function()
-	        local blockers = Entities:FindAllByNameWithin("SpiritWallObstruction", Vector(14912, -13264, 600+Tanari.ZFLOAT), 2400)
-	        for i = 1, #blockers, 1 do
-	          UTIL_Remove(blockers[i])
-	        end
+			local blockers = Entities:FindAllByNameWithin("SpiritWallObstruction", Vector(14912, -13264, 600 + Tanari.ZFLOAT), 2400)
+			for i = 1, #blockers, 1 do
+				UTIL_Remove(blockers[i])
+			end
 		end)
 	end)
 end
@@ -1806,14 +1793,14 @@ function begin_specter_rush_two(event)
 	local ability = event.ability
 	local target = event.target_points[1]
 	local chargeSpeed = 1000
-	local distance = WallPhysics:GetDistance2d(target,caster:GetAbsOrigin())
-	local duration = distance/chargeSpeed
-	StartAnimation(caster, {duration=duration+0.39, activity=ACT_DOTA_RUN, rate=1.4, translate="charge"})
-	ability.fv = ((target-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-	print("charge wind up")
+	local distance = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())
+	local duration = distance / chargeSpeed
+	StartAnimation(caster, {duration = duration + 0.39, activity = ACT_DOTA_RUN, rate = 1.4, translate = "charge"})
+	ability.fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+	--print("charge wind up")
 	-- caster:MoveToPosition(caster:GetAbsOrigin() + ability.fv*800)
 	local soundTable = {"spirit_breaker_spir_anger_05", "spirit_breaker_spir_laugh_07", "spirit_breaker_spir_move_03"}
-	EmitSoundOn(soundTable[RandomInt(1,#soundTable)], caster)
+	EmitSoundOn(soundTable[RandomInt(1, #soundTable)], caster)
 	ability.interval = 0
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_specter_rush_charging", {duration = duration})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_charging_fire_create", {duration = duration})
@@ -1822,18 +1809,18 @@ end
 function specter_rush_thinking(event)
 	local ability = event.ability
 	local caster = event.caster
-	local movement = 1000*0.03
+	local movement = 1000 * 0.03
 	caster.EFV = ability.fv
-	local newPos = GetGroundPosition(caster:GetAbsOrigin() + ability.fv*movement, caster)
-	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin()*Vector(1,1,0))
-	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos*Vector(1,1,0), caster)
+	local newPos = GetGroundPosition(caster:GetAbsOrigin() + ability.fv * movement, caster)
+	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin() * Vector(1, 1, 0))
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos * Vector(1, 1, 0), caster)
 	if not blockUnit then
 		caster:SetAbsOrigin(newPos)
 	end
 
-	if ability.interval%9==0 then
+	if ability.interval % 9 == 0 then
 		local casterOrigin = caster:GetAbsOrigin()
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), casterOrigin, nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		local modifierKnockback =
 		{
 			center_x = casterOrigin.x,
@@ -1847,17 +1834,17 @@ function specter_rush_thinking(event)
 		if #enemies > 0 then
 			EmitSoundOn("Hero_Spirit_Breaker.GreaterBash", caster)
 			local damage = event.damage
-			for _,enemy in pairs(enemies) do
+			for _, enemy in pairs(enemies) do
 				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf", PATTACH_CUSTOMORIGIN, caster)
-				ParticleManager:SetParticleControl(pfx, 0, enemy:GetAbsOrigin()+Vector(0,0,60))
+				ParticleManager:SetParticleControl(pfx, 0, enemy:GetAbsOrigin() + Vector(0, 0, 60))
 				ParticleManager:SetParticleControl(pfx, 1, Vector(200, 2, 200))
 				EmitSoundOn("Tanari.FireSpirit.AttackLand", enemy)
 				Timers:CreateTimer(2, function()
 					ParticleManager:DestroyParticle(pfx, false)
 					ParticleManager:ReleaseParticleIndex(pfx)
-				end)	
+				end)
 			end
-		end 			
+		end
 	end
 	ability.interval = ability.interval + 1
 end
@@ -1872,23 +1859,23 @@ end
 function charge_slide_think(event)
 	local ability = event.ability
 	local caster = event.caster
-	local newPos = GetGroundPosition(caster:GetAbsOrigin() + ability.fv*ability.slideVelocity, caster)
-	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin()*Vector(1,1,0))
-	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos*Vector(1,1,0), caster)
+	local newPos = GetGroundPosition(caster:GetAbsOrigin() + ability.fv * ability.slideVelocity, caster)
+	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin() * Vector(1, 1, 0))
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos * Vector(1, 1, 0), caster)
 	if not blockUnit then
 		FindClearSpaceForUnit(caster, newPos, false)
 	else
 		ability.slideVelocity = 0
-	end	
+	end
 	if ability.slideVelocity > 0 then
 		ability.slideVelocity = ability.slideVelocity - 2
 	end
 	caster:RemoveModifierByName("modifier_charging_fire_create")
-	print("slide think")
+	--print("slide think")
 end
 
 function charge_slide_end(event)
-	print("slide END")
+	--print("slide END")
 	local caster = event.caster
 	caster.EFV = nil
 end
@@ -1904,8 +1891,8 @@ function FireSpiritTrigger(event)
 		Timers:CreateTimer(2, function()
 			for i = 1, #spawnPositionTable, 1 do
 				local pfx = ParticleManager:CreateParticle("particles/econ/events/ti4/teleport_end_counter_ti4.vpcf", PATTACH_WORLDORIGIN, Tanari.TanariMaster)
-				ParticleManager:SetParticleControl(pfx, 0, spawnPositionTable[i]+Vector(0,0,420+Tanari.ZFLOAT))
-				ParticleManager:SetParticleControl(pfx, 1, spawnPositionTable[i]+Vector(0,0,420+Tanari.ZFLOAT))
+				ParticleManager:SetParticleControl(pfx, 0, spawnPositionTable[i] + Vector(0, 0, 420 + Tanari.ZFLOAT))
+				ParticleManager:SetParticleControl(pfx, 1, spawnPositionTable[i] + Vector(0, 0, 420 + Tanari.ZFLOAT))
 
 				table.insert(Tanari.fireSpawnPortalTable, pfx)
 				EmitSoundOnLocationWithCaster(spawnPositionTable[i], "Tanari.FireEvent", Tanari.TanariMaster)
@@ -1935,7 +1922,7 @@ function fire_temple_unit_die(event)
 		if unit.code == 0 then
 			local delay = 1.1
 			Tanari.FireTemple.SpiritWaveUnitsSlain = Tanari.FireTemple.SpiritWaveUnitsSlain + 1
-			print(Tanari.FireTemple.SpiritWaveUnitsSlain)
+			--print(Tanari.FireTemple.SpiritWaveUnitsSlain)
 			local spawnPositionTable = {Vector(11328, -12872, 274), Vector(12160, -11008, 274), Vector(13366, -12902, 297), Vector(13397, -11074, 300), Vector(15428, -12976, 364), Vector(14464, -11074)}
 			if Tanari.FireTemple.SpiritWaveUnitsSlain == 22 then
 				for i = 1, #spawnPositionTable, 1 do
@@ -1990,25 +1977,25 @@ function fire_temple_unit_die(event)
 			end
 			Tanari.FireTemple.FireSpiritThroneWaveKills = Tanari.FireTemple.FireSpiritThroneWaveKills + 1
 			if Tanari.FireTemple.FireSpiritThroneWaveKills == 8 then
-				Tanari:SpawnSpiritFireWaveUnit3("tanari_fire_crab_beast", Vector(1,1), 5, 110, 2.5, false)
-				Tanari:SpawnSpiritFireWaveUnit3("tanari_flame_beast", Vector(1,1), 5, 110, 2.5, false)
+				Tanari:SpawnSpiritFireWaveUnit3("tanari_fire_crab_beast", Vector(1, 1), 5, 110, 2.5, false)
+				Tanari:SpawnSpiritFireWaveUnit3("tanari_flame_beast", Vector(1, 1), 5, 110, 2.5, false)
 			elseif Tanari.FireTemple.FireSpiritThroneWaveKills == 18 then
-				Tanari:SpawnSpiritFireWaveUnit3("fire_temple_protective_spirit", Vector(1,1), 5, 110, 1.5, false)
-				Tanari:SpawnSpiritFireWaveUnit3("fire_temple_protective_spirit", Vector(1,1), 5, 110, 1.5, false)
+				Tanari:SpawnSpiritFireWaveUnit3("fire_temple_protective_spirit", Vector(1, 1), 5, 110, 1.5, false)
+				Tanari:SpawnSpiritFireWaveUnit3("fire_temple_protective_spirit", Vector(1, 1), 5, 110, 1.5, false)
 			elseif Tanari.FireTemple.FireSpiritThroneWaveKills == 28 then
-				Tanari:SpawnSpiritFireWaveUnit3("fire_temple_lava_caller", Vector(1,1), 5, 110, 2.5, false)
-				Tanari:SpawnSpiritFireWaveUnit3("fire_temple_flame_wraith", Vector(1,1), 3, 110, 3.5, false)
+				Tanari:SpawnSpiritFireWaveUnit3("fire_temple_lava_caller", Vector(1, 1), 5, 110, 2.5, false)
+				Tanari:SpawnSpiritFireWaveUnit3("fire_temple_flame_wraith", Vector(1, 1), 3, 110, 3.5, false)
 			elseif Tanari.FireTemple.FireSpiritThroneWaveKills == 34 then
-				Tanari:SpawnSpiritFireWaveUnit3("fire_temple_flame_shaman", Vector(1,1), 4, 110, 2.5, false)
-				Tanari:SpawnSpiritFireWaveUnit3("fire_temple_flame_shaman", Vector(1,1), 4, 110, 2.5, false)
+				Tanari:SpawnSpiritFireWaveUnit3("fire_temple_flame_shaman", Vector(1, 1), 4, 110, 2.5, false)
+				Tanari:SpawnSpiritFireWaveUnit3("fire_temple_flame_shaman", Vector(1, 1), 4, 110, 2.5, false)
 			elseif Tanari.FireTemple.FireSpiritThroneWaveKills == 41 then
-				Tanari:SpawnSpiritFireWaveUnit3("tanari_lava_spectre", Vector(1,1), 4, 110, 2.5, false)
-				Tanari:SpawnSpiritFireWaveUnit3("fire_temple_ogre", Vector(1,1), 4, 110, 2.5, false)
+				Tanari:SpawnSpiritFireWaveUnit3("tanari_lava_spectre", Vector(1, 1), 4, 110, 2.5, false)
+				Tanari:SpawnSpiritFireWaveUnit3("fire_temple_ogre", Vector(1, 1), 4, 110, 2.5, false)
 			elseif Tanari.FireTemple.FireSpiritThroneWaveKills == 49 then
-				Tanari:SpawnSpiritFireWaveUnit3("tanari_flame_beast", Vector(1,1), 5, 110, 2.5, false)
-				Tanari:SpawnSpiritFireWaveUnit3("tanari_flame_beast", Vector(1,1), 5, 110, 2.5, false)
+				Tanari:SpawnSpiritFireWaveUnit3("tanari_flame_beast", Vector(1, 1), 5, 110, 2.5, false)
+				Tanari:SpawnSpiritFireWaveUnit3("tanari_flame_beast", Vector(1, 1), 5, 110, 2.5, false)
 			elseif Tanari.FireTemple.FireSpiritThroneWaveKills == 60 then
-				local demon = Tanari:SpawnDemonWatcher(Vector(-13238, -6806), Vector(-1,0))
+				local demon = Tanari:SpawnDemonWatcher(Vector(-13238, -6806), Vector(-1, 0))
 				Tanari:LaunchWaveUnit3(demon)
 			end
 		end
@@ -2033,7 +2020,7 @@ end
 function lava_bully_take_damage(event)
 	local target = event.unit
 	local attacker = event.attacker
-	target.pushVector = ((target:GetAbsOrigin()-attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	target.pushVector = ((target:GetAbsOrigin() - attacker:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	if not target.pushVelocity then
 		target.pushVelocity = 0
 	end
@@ -2052,7 +2039,7 @@ function lava_bully_pushback_think(event)
 	local target = event.target
 	local fv = target.pushVector
 
-	target:SetAbsOrigin(target:GetAbsOrigin() + fv*target.pushVelocity)
+	target:SetAbsOrigin(target:GetAbsOrigin() + fv * target.pushVelocity)
 	target.pushVelocity = math.max(target.pushVelocity - 1, 0)
 	if target.pushVelocity <= 0.5 then
 		target:RemoveModifierByName("modifier_lava_bully_pushback")
@@ -2066,14 +2053,13 @@ function lava_bully_pushback_think(event)
 		target:SetAbsOrigin(GetGroundPosition(target:GetAbsOrigin(), target))
 		ability:ApplyDataDrivenModifier(target, target, "modifier_lava_bully_drowning", {})
 		local particleName = "particles/addons_gameplay/small_lava_splash_blast.vpcf"
-		target.pushVelocity = target.pushVelocity/2
-		local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
-		ParticleManager:SetParticleControl( particle1, 0, target:GetAbsOrigin()-Vector(0,0,80) )
+		target.pushVelocity = target.pushVelocity / 2
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
+		ParticleManager:SetParticleControl(particle1, 0, target:GetAbsOrigin() - Vector(0, 0, 80))
 		EmitSoundOn("Tanari.LavaSplash", target)
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Tanari.LavaBully.Death", target)
-		Timers:CreateTimer(7, 
-			function()
-			ParticleManager:DestroyParticle( particle1, false )
+		Timers:CreateTimer(7, function()
+			ParticleManager:DestroyParticle(particle1, false)
 		end)
 	end
 end
@@ -2083,7 +2069,7 @@ function lava_bully_drowning(event)
 	local ability = event.ability
 	local target = event.target
 
-	target:SetAbsOrigin(target:GetAbsOrigin()-Vector(0,0,4))
+	target:SetAbsOrigin(target:GetAbsOrigin() - Vector(0, 0, 4))
 	if not target.drowningIndex then
 		target.drowningIndex = 0
 	end
@@ -2094,12 +2080,11 @@ function lava_bully_drowning(event)
 	end
 	if target.drowningIndex == 40 then
 		local particleName = "particles/addons_gameplay/small_lava_splash_blast.vpcf"
-		local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
-		ParticleManager:SetParticleControl( particle1, 0, target:GetAbsOrigin()-Vector(0,0,80) )
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
+		ParticleManager:SetParticleControl(particle1, 0, target:GetAbsOrigin() - Vector(0, 0, 80))
 		EmitSoundOn("Tanari.LavaSplash", target)
-		Timers:CreateTimer(7, 
-			function()
-			ParticleManager:DestroyParticle( particle1, false )
+		Timers:CreateTimer(7, function()
+			ParticleManager:DestroyParticle(particle1, false)
 		end)
 	end
 	if target.drowningIndex > drownAmount then
@@ -2117,13 +2102,13 @@ function lava_bully_die(event)
 	if Tanari.FireTemple.LavaBullyDeaths == 3 then
 		Timers:CreateTimer(1.5, function()
 			for i = 1, 4, 1 do
-				Timers:CreateTimer(i*0.5, function()
+				Timers:CreateTimer(i * 0.5, function()
 					local centerPoint = Vector(-13817, -14545)
 					local spawnPosition = centerPoint + RandomVector(RandomInt(200, 650))
 					local bully = Tanari:SpawnLavaBully(spawnPosition, RandomVector(1))
 					bully.jumpEnd = "lava_legion"
-					bully:SetAbsOrigin(bully:GetAbsOrigin()+Vector(0,0,1000))
-					WallPhysics:Jump(bully, Vector(0,0), 0, 30, 1, 1.2)
+					bully:SetAbsOrigin(bully:GetAbsOrigin() + Vector(0, 0, 1000))
+					WallPhysics:Jump(bully, Vector(0, 0), 0, 30, 1, 1.2)
 					Dungeons:AggroUnit(bully)
 				end)
 			end
@@ -2131,13 +2116,13 @@ function lava_bully_die(event)
 	elseif Tanari.FireTemple.LavaBullyDeaths == 7 then
 		Timers:CreateTimer(1.5, function()
 			for i = 1, 5, 1 do
-				Timers:CreateTimer(i*0.5, function()
+				Timers:CreateTimer(i * 0.5, function()
 					local centerPoint = Vector(-13817, -14545)
 					local spawnPosition = centerPoint + RandomVector(RandomInt(200, 650))
 					local bully = Tanari:SpawnLavaBully(spawnPosition, RandomVector(1))
 					bully.jumpEnd = "lava_legion"
-					bully:SetAbsOrigin(bully:GetAbsOrigin()+Vector(0,0,1000))
-					WallPhysics:Jump(bully, Vector(0,0), 0, 30, 1, 1.2)
+					bully:SetAbsOrigin(bully:GetAbsOrigin() + Vector(0, 0, 1000))
+					WallPhysics:Jump(bully, Vector(0, 0), 0, 30, 1, 1.2)
 					Dungeons:AggroUnit(bully)
 				end)
 			end
@@ -2145,13 +2130,13 @@ function lava_bully_die(event)
 	elseif Tanari.FireTemple.LavaBullyDeaths == 12 then
 		Timers:CreateTimer(1.5, function()
 			for i = 1, 6, 1 do
-				Timers:CreateTimer(i*0.5, function()
+				Timers:CreateTimer(i * 0.5, function()
 					local centerPoint = Vector(-13817, -14545)
 					local spawnPosition = centerPoint + RandomVector(RandomInt(200, 650))
 					local bully = Tanari:SpawnLavaBully(spawnPosition, RandomVector(1))
 					bully.jumpEnd = "lava_legion"
-					bully:SetAbsOrigin(bully:GetAbsOrigin()+Vector(0,0,1000))
-					WallPhysics:Jump(bully, Vector(0,0), 0, 30, 1, 1.2)
+					bully:SetAbsOrigin(bully:GetAbsOrigin() + Vector(0, 0, 1000))
+					WallPhysics:Jump(bully, Vector(0, 0), 0, 30, 1, 1.2)
 					Dungeons:AggroUnit(bully)
 				end)
 			end
@@ -2162,8 +2147,8 @@ function lava_bully_die(event)
 			local spawnPosition = centerPoint + RandomVector(RandomInt(200, 650))
 			local bully = Tanari:SpawnLavaBullyBig(spawnPosition, RandomVector(1))
 			bully.jumpEnd = "lava_legion"
-			bully:SetAbsOrigin(bully:GetAbsOrigin()+Vector(0,0,1000))
-			WallPhysics:Jump(bully, Vector(0,0), 0, 30, 1, 1.2)
+			bully:SetAbsOrigin(bully:GetAbsOrigin() + Vector(0, 0, 1000))
+			WallPhysics:Jump(bully, Vector(0, 0), 0, 30, 1, 1.2)
 			Dungeons:AggroUnit(bully)
 			bully:SetModelScale(1.8)
 			bully.big = true
@@ -2172,8 +2157,8 @@ function lava_bully_die(event)
 		Timers:CreateTimer(1, function()
 			local portalPlatform = Entities:FindByNameNearest("FirePortalPlatform", Vector(-13826, -14515, 500), 1000)
 			for i = 1, 30, 1 do
-				Timers:CreateTimer(i*0.03, function()
-					portalPlatform:SetAbsOrigin(portalPlatform:GetAbsOrigin()+Vector(0,0,50/30))
+				Timers:CreateTimer(i * 0.03, function()
+					portalPlatform:SetAbsOrigin(portalPlatform:GetAbsOrigin() + Vector(0, 0, 50 / 30))
 				end)
 			end
 			Timers:CreateTimer(0.9, function()
@@ -2204,7 +2189,7 @@ function mountain_pass_guardian_attack_land(event)
 			knockback_duration = 1,
 			knockback_distance = 350,
 			knockback_height = 200
-		}     
+		}
 		if attacker.big then
 			modifierKnockback =
 			{
@@ -2215,15 +2200,15 @@ function mountain_pass_guardian_attack_land(event)
 				knockback_duration = 1,
 				knockback_distance = 500,
 				knockback_height = 200
-			}  
+			}
 		end
-		target:AddNewModifier( attacker, nil, "modifier_knockback", modifierKnockback )
+		target:AddNewModifier(attacker, nil, "modifier_knockback", modifierKnockback)
 		EmitSoundOn("Tanari.LegionLand", attacker)
-		local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, target )
-		ParticleManager:SetParticleControl( pfx, 0, target:GetAbsOrigin() )
-		ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
-		local bonusDamage = target:GetMaxHealth()*0.05
-		ApplyDamage({ victim = target, attacker = attacker, damage = bonusDamage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+		local pfx = ParticleManager:CreateParticle("particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, target)
+		ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin())
+		ParticleManager:SetParticleControl(pfx, 1, Vector(200, 200, 200))
+		local bonusDamage = target:GetMaxHealth() * 0.05
+		ApplyDamage({victim = target, attacker = attacker, damage = bonusDamage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 		PopupDamage(target, bonusDamage)
 		Timers:CreateTimer(2, function()
 			ParticleManager:DestroyParticle(pfx, false)
@@ -2243,12 +2228,10 @@ function FireSpiritPortal1a(trigger)
 	end
 end
 
-
-
 function moving_platform_think(event)
 	local caster = event.caster
 	if caster.state == 0 then
-		local newPosition = caster.platform:GetAbsOrigin() + caster.movementVector*1.6*(math.sin(caster.movementTicks*math.pi/240))
+		local newPosition = caster.platform:GetAbsOrigin() + caster.movementVector * 1.6 * (math.sin(caster.movementTicks * math.pi / 240))
 		caster.platform:SetAbsOrigin(newPosition)
 		caster:SetAbsOrigin(newPosition)
 		caster.movementTicks = caster.movementTicks + 1
@@ -2263,7 +2246,7 @@ function moving_platform_think(event)
 			caster.movementTicks = 0
 		end
 	elseif caster.state == 2 then
-		local newPosition = caster.platform:GetAbsOrigin() - caster.movementVector*1.6*(math.sin(caster.movementTicks*math.pi/240))
+		local newPosition = caster.platform:GetAbsOrigin() - caster.movementVector * 1.6 * (math.sin(caster.movementTicks * math.pi / 240))
 		caster.platform:SetAbsOrigin(newPosition)
 		caster:SetAbsOrigin(newPosition)
 		caster.movementTicks = caster.movementTicks + 1
@@ -2289,9 +2272,9 @@ function unit_on_moving_platform_think(event)
 			return false
 		end
 		if caster.state == 0 then
-			target:SetAbsOrigin(target:GetAbsOrigin()+caster.movementVector*1.6*(math.sin(caster.movementTicks*math.pi/240)))
+			target:SetAbsOrigin(target:GetAbsOrigin() + caster.movementVector * 1.6 * (math.sin(caster.movementTicks * math.pi / 240)))
 		elseif caster.state == 2 then
-			target:SetAbsOrigin(target:GetAbsOrigin()-caster.movementVector*1.6*(math.sin(caster.movementTicks*math.pi/240)))
+			target:SetAbsOrigin(target:GetAbsOrigin() - caster.movementVector * 1.6 * (math.sin(caster.movementTicks * math.pi / 240)))
 		end
 	end
 end
@@ -2309,15 +2292,15 @@ function unit_on_platform_moving_end(event)
 				return false
 			end
 			EmitSoundOn("Env.LavaHit", hero)
-			StartAnimation(hero, {duration=4, activity=ACT_DOTA_FLAIL, rate=1.4})
-				hero:RemoveModifierByName("modifier_lava_jumping")
-				Timers:CreateTimer(0.03, function()
-					LavaJump(hero, hero:GetForwardVector(), RandomInt(10, 13), 27, 25, 1)
-					ability:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_lava_flailing", {duration = 4})
-				end)
-			print("LaVA TOUCH!------------")
+			StartAnimation(hero, {duration = 4, activity = ACT_DOTA_FLAIL, rate = 1.4})
+			hero:RemoveModifierByName("modifier_lava_jumping")
+			Timers:CreateTimer(0.03, function()
+				LavaJump(hero, hero:GetForwardVector(), RandomInt(10, 13), 27, 25, 1)
+				ability:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_lava_flailing", {duration = 4})
+			end)
+			--print("LaVA TOUCH!------")
 			ability:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_lava_hit", {duration = 4})
-			print("TOUCHING LAVA!!")
+			--print("TOUCHING LAVA!!")
 		end
 	end
 end
@@ -2328,58 +2311,58 @@ function LavaJump(unit, forwardVector, propulsion, liftForce, liftDuration, grav
 	local jumpingModifier = "modifier_lava_jumping"
 	gameMasterAbil:ApplyDataDrivenModifier(gameMaster, unit, jumpingModifier, {duration = 5})
 	for i = 1, liftDuration, 1 do
-		Timers:CreateTimer(0.03*i, function()
+		Timers:CreateTimer(0.03 * i, function()
 			if IsValidEntity(unit) then
 				local currentPosition = unit:GetAbsOrigin()
-				local newPosition = currentPosition+forwardVector*propulsion+Vector(0,0,liftForce-i*gravity)
-				local obstruction = WallPhysics:FindNearestObstruction(newPosition*Vector(1,1,0))
-				local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (newPosition)*Vector(1,1,0), unit)
+				local newPosition = currentPosition + forwardVector * propulsion + Vector(0, 0, liftForce - i * gravity)
+				local obstruction = WallPhysics:FindNearestObstruction(newPosition * Vector(1, 1, 0))
+				local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (newPosition) * Vector(1, 1, 0), unit)
 				if not blockUnit then
 					if GetGroundPosition(newPosition, unit).z > currentPosition.z + 180 then
-						newPosition = newPosition-(forwardVector*propulsion)
+						newPosition = newPosition - (forwardVector * propulsion)
 					end
 				else
-					newPosition = newPosition-(forwardVector*propulsion)
+					newPosition = newPosition - (forwardVector * propulsion)
 				end
 				unit:SetOrigin(newPosition)
 			end
 		end)
 	end
 	local fallLoop = 0
-	Timers:CreateTimer(0.03*liftDuration+0.03, function()
-		Timers:CreateTimer(0.03*fallLoop, function()
+	Timers:CreateTimer(0.03 * liftDuration + 0.03, function()
+		Timers:CreateTimer(0.03 * fallLoop, function()
 			if IsValidEntity(unit) then
 				fallLoop = fallLoop + 1
 				local currentPosition = unit:GetAbsOrigin()
-				local newPosition = currentPosition+forwardVector*propulsion-Vector(0,0,fallLoop*gravity)
+				local newPosition = currentPosition + forwardVector * propulsion - Vector(0, 0, fallLoop * gravity)
 
-				local obstruction = WallPhysics:FindNearestObstruction(newPosition*Vector(1,1,0))
-				local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (newPosition)*Vector(1,1,0), unit)
+				local obstruction = WallPhysics:FindNearestObstruction(newPosition * Vector(1, 1, 0))
+				local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (newPosition) * Vector(1, 1, 0), unit)
 				if not blockUnit then
 					if GetGroundPosition(newPosition, unit).z > currentPosition.z + 180 then
-						newPosition = newPosition-(forwardVector*propulsion)
+						newPosition = newPosition - (forwardVector * propulsion)
 					end
 				else
-					newPosition = newPosition-(forwardVector*propulsion)
+					newPosition = newPosition - (forwardVector * propulsion)
 				end
 				unit:SetOrigin(newPosition)
-				-- print("NEWPOSITION.Z:")
-				-- print(newPosition.z)
+				--print("NEWPOSITION.Z:")
+				--print(newPosition.z)
 
 				if newPosition.z - GetGroundPosition(newPosition, unit).z < 10 then
-					print("z1")
+					--print("z1")
 					unit:RemoveModifierByName(jumpingModifier)
 					FindClearSpaceForUnit(unit, newPosition, false)
 					WallPhysics:UnitLand(unit)
 					unit:RemoveModifierByName("modifier_lava_jumping")
-					print (currentPosition.z)
+					--print (currentPosition.z)
 					if (currentPosition.z <= 252) then
 						local triggerTable = {}
 						triggerTable.activator = unit
 						EnterLava(triggerTable)
 					end
 				elseif newPosition.z <= 252 then
-					print("z2")
+					--print("z2")
 					unit:RemoveModifierByName(jumpingModifier)
 					-- FindClearSpaceForUnit(unit, newPosition, false)
 					WallPhysics:UnitLand(unit)
@@ -2399,24 +2382,23 @@ function lava_skin_take_damage(event)
 	local attacker = event.attacker
 	local ability = event.ability
 	if ability:GetCooldownTimeRemaining() <= 0.01 then
-		local info = 
+		local info =
 		{
 			Target = attacker,
 			Source = caster,
-			Ability = ability,	
+			Ability = ability,
 			EffectName = "particles/units/heroes/hero_lina/lina_base_attack.vpcf",
 			StartPosition = "attach_attack1",
-			bDrawsOnMinimap = false, 
-		        bDodgeable = true,
-		        bIsAttack = false, 
-		        bVisibleToEnemies = true,
-		        bReplaceExisting = false,
-		        flExpireTime = GameRules:GetGameTime() + 5,
+			bDrawsOnMinimap = false,
+			bDodgeable = true,
+			bIsAttack = false,
+			bVisibleToEnemies = true,
+			bReplaceExisting = false,
+			flExpireTime = GameRules:GetGameTime() + 5,
 			bProvidesVision = false,
 			iVisionRadius = 0,
 			iMoveSpeed = 1500,
-			iVisionTeamNumber = caster:GetTeamNumber()
-		}
+		iVisionTeamNumber = caster:GetTeamNumber()}
 		projectile = ProjectileManager:CreateTrackingProjectile(info)
 		ability:StartCooldown(0.15)
 	end
@@ -2428,8 +2410,8 @@ function fire_siege_hulker_die(event)
 		for i = 1, #Tanari.FireTemple.MovingPlatformTable, 1 do
 			Tanari:CreateLavaBlast(Tanari.FireTemple.MovingPlatformTable[i].platform:GetAbsOrigin())
 			for j = 1, 40, 1 do
-				Timers:CreateTimer(j*0.03, function()
-					Tanari.FireTemple.MovingPlatformTable[i].platform:SetAbsOrigin(Tanari.FireTemple.MovingPlatformTable[i].platform:GetAbsOrigin()-Vector(0,0,5))
+				Timers:CreateTimer(j * 0.03, function()
+					Tanari.FireTemple.MovingPlatformTable[i].platform:SetAbsOrigin(Tanari.FireTemple.MovingPlatformTable[i].platform:GetAbsOrigin() - Vector(0, 0, 5))
 				end)
 			end
 			Timers:CreateTimer(1.3, function()
@@ -2510,7 +2492,7 @@ function demon_watcher_think(event)
 	local ability = event.ability
 	local baseFV = caster:GetForwardVector()
 	for i = 1, 7, 1 do
-		local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/7)
+		local fv = WallPhysics:rotateVector(baseFV, 2 * math.pi * i / 7)
 		fire_temple_flame_ring_projectile(ability, caster, fv)
 	end
 end
@@ -2583,22 +2565,22 @@ function fire_spirit_boss_burn_damage(event)
 	local ability = event.ability
 	local caster = event.caster
 	local stacks = target:GetModifierStackCount("modifier_spirit_boss_burn", caster)
-	ApplyDamage({ victim = target, attacker = caster, damage = burn_damage*stacks, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+	ApplyDamage({victim = target, attacker = caster, damage = burn_damage * stacks, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 end
 
 function fire_breath_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_fire_breathing", {duration = 3})
-	StartAnimation(caster, {duration=3, activity=ACT_DOTA_CAST_ABILITY_1, rate=1}) 
+	StartAnimation(caster, {duration = 3, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1})
 	EmitSoundOn("Tanari.FireSpiritBoss.BreatheFireStart", caster)
-	local lengthBonus = (1-(caster:GetHealth()/caster:GetMaxHealth()))*2000 + 300
+	local lengthBonus = (1 - (caster:GetHealth() / caster:GetMaxHealth())) * 2000 + 300
 	local fv = caster:GetForwardVector()
 	Timers:CreateTimer(1.3, function()
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Tanari.FireSpiritBoss.BreatheFire", caster)
 		for i = -10, 5, 1 do
-			Timers:CreateTimer((i+10)*0.1, function()
-				local rotatedFV = WallPhysics:rotateVector(fv, 2*math.pi*i/60)
+			Timers:CreateTimer((i + 10) * 0.1, function()
+				local rotatedFV = WallPhysics:rotateVector(fv, 2 * math.pi * i / 60)
 				fire_temple_fire_breath_projectile(ability, caster, rotatedFV, lengthBonus)
 			end)
 		end
@@ -2613,29 +2595,28 @@ function fire_temple_fire_breath_projectile(ability, caster, fv, length)
 
 	local projectileParticle = "particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
 
-	local info = 
+	local info =
 	{
-			Ability = ability,
-        	EffectName = projectileParticle,
-        	vSpawnOrigin = caster:GetAbsOrigin()+fv*100+Vector(0,0,150),
-        	fDistance = range,
-        	fStartRadius = start_radius,
-        	fEndRadius = end_radius,
-        	Source = caster,
-        	StartPosition = "attach_origin",
-        	bHasFrontalCone = true,
-        	bReplaceExisting = false,
-        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        	fExpireTime = GameRules:GetGameTime() + 5.0,
+		Ability = ability,
+		EffectName = projectileParticle,
+		vSpawnOrigin = caster:GetAbsOrigin() + fv * 100 + Vector(0, 0, 150),
+		fDistance = range,
+		fStartRadius = start_radius,
+		fEndRadius = end_radius,
+		Source = caster,
+		StartPosition = "attach_origin",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
 		bDeleteOnHit = false,
 		vVelocity = fv * speed,
 		bProvidesVision = false,
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 end
-
 
 function fire_spirit_boss_think(event)
 	local caster = event.caster
@@ -2656,64 +2637,62 @@ function fire_spirit_boss_think(event)
 	caster.interval = caster.interval + 1
 	local fireAbility = caster:FindAbilityByName("fire_spirit_breath")
 	if fireAbility:IsFullyCastable() then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			local newOrder = {
-					UnitIndex = caster:entindex(),
-					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-					AbilityIndex = fireAbility:entindex(),
-					Position = enemies[1]:GetAbsOrigin()
-			 	}
-			 
-			ExecuteOrderFromTable(newOrder)	
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+				AbilityIndex = fireAbility:entindex(),
+			Position = enemies[1]:GetAbsOrigin()}
+
+			ExecuteOrderFromTable(newOrder)
 			return false
 		end
 	end
 	local modulos = 50
-	if caster:GetHealth()/caster:GetMaxHealth() < 0.9 then
+	if caster:GetHealth() / caster:GetMaxHealth() < 0.9 then
 		modulos = 40
-	elseif caster:GetHealth()/caster:GetMaxHealth() < 0.8 then
+	elseif caster:GetHealth() / caster:GetMaxHealth() < 0.8 then
 		modulos = 35
-	elseif caster:GetHealth()/caster:GetMaxHealth() < 0.7 then
+	elseif caster:GetHealth() / caster:GetMaxHealth() < 0.7 then
 		modulos = 30
-	elseif caster:GetHealth()/caster:GetMaxHealth() < 0.6 then
+	elseif caster:GetHealth() / caster:GetMaxHealth() < 0.6 then
 		modulos = 25
-	elseif caster:GetHealth()/caster:GetMaxHealth() < 0.5 then
+	elseif caster:GetHealth() / caster:GetMaxHealth() < 0.5 then
 		modulos = 20
-	elseif caster:GetHealth()/caster:GetMaxHealth() < 0.4 then
+	elseif caster:GetHealth() / caster:GetMaxHealth() < 0.4 then
 		modulos = 15
-	elseif caster:GetHealth()/caster:GetMaxHealth() < 0.3 then
+	elseif caster:GetHealth() / caster:GetMaxHealth() < 0.3 then
 		modulos = 10
 	end
 	if not caster:HasModifier("modifier_spirit_boss_enrage") then
-		if caster:GetHealth() < caster:GetMaxHealth()*0.5 then
+		if caster:GetHealth() < caster:GetMaxHealth() * 0.5 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_spirit_boss_enrage", {})
-			caster:AddNewModifier( caster, nil, 'modifier_movespeed_cap_sonic', {} )
+			caster:AddNewModifier(caster, nil, 'modifier_movespeed_cap_sonic', {})
 			Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_ms_thinker", {})
 			EmitSoundOn("Tanari.FireSpiritBoss.Enrage", caster)
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Tanari.FireSpiritBoss.EnrageBlast", caster)
-			StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_3, rate=1})
-			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_warlock/warlock_rain_of_chaos.vpcf", caster, 8) 
+			StartAnimation(caster, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1})
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_warlock/warlock_rain_of_chaos.vpcf", caster, 8)
 		end
 	else
-		if caster.interval%7 == 0 then
-			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_warlock/warlock_rain_of_chaos.vpcf", caster, 8) 
+		if caster.interval % 7 == 0 then
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_warlock/warlock_rain_of_chaos.vpcf", caster, 8)
 		end
 	end
 	local inferno = caster:FindAbilityByName("fire_temple_inferno2")
-	if caster.interval%modulos == 0 then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 3400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+	if caster.interval % modulos == 0 then
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 3400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			local newOrder = {
-					UnitIndex = caster:entindex(),
-					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-					AbilityIndex = inferno:entindex(),
-					Position = enemies[1]:GetAbsOrigin()
-			 	}
-			 
-			ExecuteOrderFromTable(newOrder)	
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+				AbilityIndex = inferno:entindex(),
+			Position = enemies[1]:GetAbsOrigin()}
+
+			ExecuteOrderFromTable(newOrder)
 			return false
-		end		
+		end
 	end
 	if caster.interval > 100 then
 		caster.interval = 0
@@ -2731,27 +2710,27 @@ function fire_temple_spirit_boss_die_begin(event)
 
 	local bossOrigin = caster:GetAbsOrigin()
 	for i = 1, 12, 1 do
-		Timers:CreateTimer(0.5*i, function()
+		Timers:CreateTimer(0.5 * i, function()
 			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
 		end)
 	end
 	Timers:CreateTimer(3, function()
-	  	local itemName = "item_tanari_spirit_stones_"..Tanari:ConvertDifficultyNumberToName(GameState:GetDifficultyFactor())
-	  	print(itemName)
-	    local stones = RPCItems:CreateConsumable(itemName, "immortal", "tanari_spirit_stones", "consumable", false, "Consumable", itemName.."_desc")
-	    CreateItemOnPositionSync(bossOrigin, stones)
-	    --stones:LaunchLoot(false, RandomInt(100,600), 0.75, bossOrigin)
-		RPCItems:LaunchLoot(stones, RandomInt(100,600), 0.5, bossOrigin, bossOrigin)
-	    print("STONES DROPPED")
+		local itemName = "item_tanari_spirit_stones_"..Tanari:ConvertDifficultyNumberToName(GameState:GetDifficultyFactor())
+		--print(itemName)
+		local stones = RPCItems:CreateConsumable(itemName, "immortal", "tanari_spirit_stones", "consumable", false, "Consumable", itemName.."_desc")
+		CreateItemOnPositionSync(bossOrigin, stones)
+		--stones:LaunchLoot(false, RandomInt(100,600), 0.75, bossOrigin)
+		RPCItems:LaunchLoot(stones, RandomInt(100, 600), 0.5, bossOrigin, bossOrigin)
+		--print("STONES DROPPED")
 
-	    local luck = RandomInt(1,3)
-	    if luck == 1 then
-	    	RPCItems:RollBlazingFuryArmor(bossOrigin)
-	    elseif luck == 2 then
-	    	RPCItems:RollDemonfireGauntlet(bossOrigin)
-	    elseif luck == 3 then
-	    	RPCItems:RollBurningSpiritHelmet(bossOrigin)
-	    end
+		local luck = RandomInt(1, 3)
+		if luck == 1 then
+			RPCItems:RollBlazingFuryArmor(bossOrigin)
+		elseif luck == 2 then
+			RPCItems:RollDemonfireGauntlet(bossOrigin)
+		elseif luck == 3 then
+			RPCItems:RollBurningSpiritHelmet(bossOrigin)
+		end
 	end)
 	Timers:CreateTimer(4, function()
 		local maxRoll = 200
@@ -2765,17 +2744,17 @@ function fire_temple_spirit_boss_die_begin(event)
 		end
 	end)
 	Timers:CreateTimer(8, function()
-		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 		caster:RemoveModifierByName("modifier_wind_temple_boss_dying")
 		Timers:CreateTimer(0.1, function()
-			StartAnimation(caster, {duration=8, activity=ACT_DOTA_DIE, rate=1})
+			StartAnimation(caster, {duration = 8, activity = ACT_DOTA_DIE, rate = 1})
 			EmitSoundOn("Tanari.FireSpiritBoss.Enrage", caster)
 			for i = 1, 120, 1 do
-				Timers:CreateTimer(i*0.05, function()
+				Timers:CreateTimer(i * 0.05, function()
 					if IsValidEntity(caster) then
-						caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,-5))
+						caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, -5))
 					end
-					if i%30 == 1 then
+					if i % 30 == 1 then
 						Tanari:CreateLavaBlast(bossOrigin)
 					end
 				end)

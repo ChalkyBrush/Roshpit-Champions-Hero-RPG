@@ -27,7 +27,6 @@ function sorceress_avatar_think(event)
 	local avatar = event.target
 	local caster = avatar.origCaster
 
-
 	local casterBlizzAbility = caster:FindAbilityByName("blizzard")
 	local casterLanceAbility = caster:FindAbilityByName("blizzard")
 	if not casterBlizzAbility then
@@ -53,10 +52,10 @@ function sorceress_avatar_think(event)
 	end
 	FindClearSpaceForUnit(avatar, avatar:GetAbsOrigin(), false)
 	if blizzAbility:IsFullyCastable() or lanceAbility:IsFullyCastable() or blinkAbility:IsFullyCastable() then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			if blizzAbility:IsFullyCastable() then
-				local targetPoint = enemies[1]:GetOrigin() + RandomVector(RandomInt(0, 100))			
+				local targetPoint = enemies[1]:GetOrigin() + RandomVector(RandomInt(0, 100))
 				local order =
 				{
 					UnitIndex = avatar:entindex(),
@@ -73,7 +72,7 @@ function sorceress_avatar_think(event)
 			end
 			if not avatar:HasModifier("modifier_clear_cast") then
 				if blinkAbility:IsFullyCastable() then
-					local targetPoint = caster:GetOrigin() + RandomVector(RandomInt(200, 500))			
+					local targetPoint = caster:GetOrigin() + RandomVector(RandomInt(200, 500))
 					local order =
 					{
 						UnitIndex = avatar:entindex(),
@@ -82,12 +81,12 @@ function sorceress_avatar_think(event)
 						Position = targetPoint
 					}
 					ExecuteOrderFromTable(order)
-					return false								
+					return false
 				end
 			end
 			if lanceAbility:IsFullyCastable() then
-				print("CAST LANCE?")
-				local targetPoint = enemies[1]:GetOrigin()			
+				--print("CAST LANCE?")
+				local targetPoint = enemies[1]:GetOrigin()
 				local order =
 				{
 					UnitIndex = avatar:entindex(),
@@ -107,7 +106,7 @@ function sorceress_avatar_think(event)
 	end
 	if not avatar:HasModifier("modifier_clear_cast") then
 		if blinkAbility:IsFullyCastable() then
-			local targetPoint = caster:GetOrigin() + RandomVector(RandomInt(200, 500))			
+			local targetPoint = caster:GetOrigin() + RandomVector(RandomInt(200, 500))
 			local order =
 			{
 				UnitIndex = avatar:entindex(),
@@ -116,17 +115,17 @@ function sorceress_avatar_think(event)
 				Position = targetPoint
 			}
 			ExecuteOrderFromTable(order)
-			return false			
+			return false
 		end
 	end
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), avatar:GetAbsOrigin())
 	if distance > 500 and distance < 1500 then
 		if not avatar:IsChanneling() then
-			avatar:MoveToPosition(caster:GetAbsOrigin()+RandomVector(240))
+			avatar:MoveToPosition(caster:GetAbsOrigin() + RandomVector(240))
 		end
 	elseif distance >= 1500 then
 		CustomAbilities:QuickAttachParticle("particles/econ/items/meepo/meepo_colossal_crystal_chorus/sorceress_blink.vpcf", caster, 3)
-		avatar:SetAbsOrigin(caster:GetAbsOrigin()+RandomVector(240))
+		avatar:SetAbsOrigin(caster:GetAbsOrigin() + RandomVector(240))
 	end
 end
 
@@ -151,10 +150,10 @@ function sorceress_avatar_think_fire(event)
 	end
 	FindClearSpaceForUnit(avatar, avatar:GetAbsOrigin(), false)
 	if coreAbility:IsFullyCastable() or fireballAbility:IsFullyCastable() or blinkAbility:IsFullyCastable() then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			if coreAbility:IsFullyCastable() then
-				local targetPoint = enemies[1]:GetOrigin() + RandomVector(RandomInt(0, 80))			
+				local targetPoint = enemies[1]:GetOrigin() + RandomVector(RandomInt(0, 80))
 				local order =
 				{
 					UnitIndex = avatar:entindex(),
@@ -170,7 +169,7 @@ function sorceress_avatar_think_fire(event)
 				return false
 			end
 			if fireballAbility:IsFullyCastable() then
-				local targetPoint = enemies[1]:GetOrigin()			
+				local targetPoint = enemies[1]:GetOrigin()
 				local order =
 				{
 					UnitIndex = avatar:entindex(),
@@ -187,7 +186,7 @@ function sorceress_avatar_think_fire(event)
 			end
 			if not avatar:HasModifier("modifier_clear_cast") then
 				if blinkAbility:IsFullyCastable() then
-					local targetPoint = caster:GetOrigin() + RandomVector(RandomInt(200, 500))			
+					local targetPoint = caster:GetOrigin() + RandomVector(RandomInt(200, 500))
 					local order =
 					{
 						UnitIndex = avatar:entindex(),
@@ -196,14 +195,14 @@ function sorceress_avatar_think_fire(event)
 						Position = targetPoint
 					}
 					ExecuteOrderFromTable(order)
-					return false								
+					return false
 				end
 			end
 		end
 	end
 	if not avatar:HasModifier("modifier_clear_cast") then
 		if blinkAbility:IsFullyCastable() then
-			local targetPoint = caster:GetOrigin() + RandomVector(RandomInt(200, 500))			
+			local targetPoint = caster:GetOrigin() + RandomVector(RandomInt(200, 500))
 			local order =
 			{
 				UnitIndex = avatar:entindex(),
@@ -212,17 +211,17 @@ function sorceress_avatar_think_fire(event)
 				Position = targetPoint
 			}
 			ExecuteOrderFromTable(order)
-			return false			
+			return false
 		end
 	end
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), avatar:GetAbsOrigin())
 	if distance > 500 and distance < 1500 then
 		if not avatar:IsChanneling() then
-			avatar:MoveToPosition(caster:GetAbsOrigin()+RandomVector(240))
+			avatar:MoveToPosition(caster:GetAbsOrigin() + RandomVector(240))
 		end
 	elseif distance >= 1500 then
 		CustomAbilities:QuickAttachParticle("particles/econ/items/meepo/meepo_colossal_crystal_chorus/sorceress_blink.vpcf", caster, 3)
-		avatar:SetAbsOrigin(caster:GetAbsOrigin()+RandomVector(240))
+		avatar:SetAbsOrigin(caster:GetAbsOrigin() + RandomVector(240))
 	end
 end
 
@@ -233,7 +232,7 @@ end
 
 function seinaru_immortal_2_start(event)
 	local target = event.target
-	target:AddNewModifier( target, nil, 'modifier_movespeed_cap_sonic', {} )
+	target:AddNewModifier(target, nil, 'modifier_movespeed_cap_sonic', {})
 end
 
 function seinaru_immo_3_think(event)
@@ -261,7 +260,7 @@ end
 function trapper_immortal_3_start(event)
 	local target = event.target
 	local caster = event.caster
-	target:AddNewModifier( caster, nil, 'modifier_trapper_immo3_effect', nil )
+	target:AddNewModifier(caster, nil, 'modifier_trapper_immo3_effect', nil)
 end
 
 function trapper_immortal_3_end(event)
@@ -278,22 +277,22 @@ function spirit_warrior_immo3_attack_start(event)
 		event.ability:ApplyDataDrivenModifier(event.caster, attacker, "modifier_attack_split_lock", {duration = attackTime})
 		Timers:CreateTimer(attackTime, function()
 			local radius = attacker:Script_GetAttackRange()
-			local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+			local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 			local max = 2
 			local counter = 0
 			if #enemies > 0 then
-				print(#enemies)
-				for _,enemy in pairs(enemies) do
+				--print(#enemies)
+				for _, enemy in pairs(enemies) do
 					if enemy:GetEntityIndex() == target:GetEntityIndex() then
 					else
 						if counter < max then
 							counter = counter + 1
-							print("PERFORM ATTACK")
+							--print("PERFORM ATTACK")
 							Filters:PerformAttackSpecial(attacker, enemy, true, true, true, false, true, false, false)
 						end
 					end
 				end
-			end 
+			end
 		end)
 	end
 end
@@ -313,18 +312,18 @@ end
 function cherno_immo3_attack_land(event)
 	local attacker = event.attacker
 
-    local heal = attacker:GetMaxHealth()*0.0065
-    attacker:SetHealth(attacker:GetHealth() + heal)
- 
-    local particleName = "particles/roshpit/chernobog/cherno_immo3_lifesteal.vpcf"
-        local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, attacker )
-        ParticleManager:SetParticleControlEnt(pfx, 0, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
-        ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
-        ParticleManager:SetParticleControlEnt(pfx, 2, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
-        ParticleManager:SetParticleControlEnt(pfx, 3, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
-        Timers:CreateTimer(1, function() 
-          ParticleManager:DestroyParticle( pfx, false )
-        end)  
+	local heal = attacker:GetMaxHealth() * 0.0065
+	attacker:SetHealth(attacker:GetHealth() + heal)
+
+	local particleName = "particles/roshpit/chernobog/cherno_immo3_lifesteal.vpcf"
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, attacker)
+	ParticleManager:SetParticleControlEnt(pfx, 0, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt(pfx, 2, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt(pfx, 3, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
+	Timers:CreateTimer(1, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
 end
 
 function ekkan_immo2_gargoyle_attack_land(event)
@@ -333,5 +332,5 @@ function ekkan_immo2_gargoyle_attack_land(event)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
 	local source = attacker.hero
 	CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan/immo2_gargoyle_hit.vpcf", target, 1.2)
-	Filters:ApplyItemDamage(target,source,damage,DAMAGE_TYPE_PURE,event.ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
+	Filters:ApplyItemDamage(target, source, damage, DAMAGE_TYPE_PURE, event.ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 end

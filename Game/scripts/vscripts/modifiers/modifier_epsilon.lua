@@ -1,22 +1,22 @@
 modifier_epsilon = class({})
 
 function modifier_epsilon:DeclareFunctions()
-    local funcs = {
-        MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND,
-        MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS,
-    }
+	local funcs = {
+		MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND,
+		MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS,
+	}
 
-    return funcs
+	return funcs
 end
 
-function modifier_epsilon:GetModifierProjectileSpeedBonus( params )
-    return 700
+function modifier_epsilon:GetModifierProjectileSpeedBonus(params)
+	return 700
 end
 
-function modifier_epsilon:GetAttackSound( params )
+function modifier_epsilon:GetAttackSound(params)
 	return "RPC.Epsilon.AttackSound"
 end
 
 function modifier_epsilon:IsHidden()
-    return true
+	return true
 end

@@ -13,6 +13,7 @@ require('quests')
 require('glyphs')
 require('paragon')
 require('elements')
+require('spawning')
 
 Beacons.cheats = false
 
@@ -132,12 +133,12 @@ function GameMode:OnGameRulesStateChange(keys)
 
 	local newState = GameRules:State_Get()
 
-	print("---------NEW STATE---------")
-	print(newState)
-	print(DOTA_GAMERULES_STATE_GAME_IN_PROGRESS)
+	--print("---------NEW STATE---------")
+	--print(newState)
+	--print(DOTA_GAMERULES_STATE_GAME_IN_PROGRESS)
 	if newState == 2 then
 		local msg = {}
-		print("GAME SETUP SET DIFFICULTY")
+		--print("GAME SETUP SET DIFFICULTY")
 		msg.difficulty = GameState:GetDefaultDifficulty()
 		msg.playerID = -10
 		GameState:DifficultySelect(msg)
@@ -209,7 +210,7 @@ function GameMode:OnNPCSpawned(keys)
 			end
 		end
 		RPCItems:RecalculateStatsBasic(npc)
-		print("RESPAWNING AND MOVING")
+		--print("RESPAWNING AND MOVING")
 	end
 end
 
@@ -273,7 +274,7 @@ function GameMode:CorrectRespawn(npc)
 		duration = duration + durationIncrease
 		npc:RemoveModifierByName("modifier_crusader_a_c_extension")
 	end
-	print("RESPAWN DURATION: "..duration)
+	--print("RESPAWN DURATION: "..duration)
 	respawnAbility:ApplyDataDrivenModifier(Events.GameMaster, npc, "modifier_recently_respawned", {duration = duration})
 end
 
@@ -302,11 +303,11 @@ end
 
 -- An item was picked up off the ground
 function GameMode:OnItemPickedUp(keys)
-	print("[GameMode:OnItemPickedUp]")
-	print(keys)
-	DeepPrintTable(keys)
-	-- DebugPrint( '[BAREBONES] OnItemPickedUp' )
-	-- DebugPrintTable(keys)
+	--print("[GameMode:OnItemPickedUp]")
+	--print(keys)
+	--DeepPrintTable(keys)
+	--DebugPrint('[BAREBONES] OnItemPickedUp')
+	--DebugPrintTable(keys)
 
 	local heroEntity = EntIndexToHScript(keys.HeroEntityIndex)
 	local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
@@ -329,7 +330,7 @@ function GameMode:OnItemPickedUp(keys)
 end
 
 function Events:PickUpTest(heroEntity, itemEntity, itemname)
-	print("[Events:PickUpTest]")
+	--print("[Events:PickUpTest]")
 	if itemEntity.newItemTable.gear then
 		if itemEntity.newItemTable.slot == "amulet" then
 			RPCItems:AmuletPickup(heroEntity, itemEntity)
@@ -342,7 +343,7 @@ function Events:PickUpTest(heroEntity, itemEntity, itemname)
 		itemEntity.pickedUp = true
 	end
 	if itemname == "item_bag_of_gold" then
-		DeepPrintTable(itemEntity)
+		--DeepPrintTable(itemEntity)
 		-- local r = RandomInt(100, Events.WaveNumber*30) + RandomInt(0, 100)
 		local r = itemEntity.gold_amount
 		local owner = heroEntity:GetPlayerOwner()
@@ -353,11 +354,11 @@ function Events:PickUpTest(heroEntity, itemEntity, itemname)
 		RPCItems:ItemUTIL_Remove(itemEntity)
 	end
 	if itemEntity.newItemTable.rarity and not itemEntity.pickedUp then
-		print("RARITY")
+		--print("RARITY")
 		itemEntity.pickedUp = true
 
 		local rarityFactor = RPCItems:GetRarityFactor(itemEntity.newItemTable.rarity)
-		print("[Events:PickUpTest] rarityFactor:"..tostring(rarityFactor))
+		--print("[Events:PickUpTest] rarityFactor:"..tostring(rarityFactor))
 		if rarityFactor > 2 then
 			local soundString = ""
 			if rarityFactor >= 5 then
@@ -433,28 +434,16 @@ end
 function GameMode:OnPlayerChat(keys)
 	local text = string.lower(keys.text)
 	-- if string.match(text, "-gold") or string.match(text, "-lvlup") or string.match(text, "-respawn") or string.match(text, "-createhero") or string.match(text, "-refresh") or string.match(text, "-item") or string.match(text, "-allvision") or string.match(text, "-wtf") or string.match(text, "-respawn") or string.match(text, "-teleport") then
-	--   print("CHEATS ENABLED")
+	--  --print("CHEATS ENABLED")
 	--   GameState:CheatCommandUsed()
 	-- end
-	-- local playerAsd = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+	local playerAsd = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 
 	-- if string.match(text, "crash_client") then
-	-- print("boom")
+	-- --print("boom")
 	-- PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():HasModifier(nil)
 	-- end
 	if string.match(text, "dbg") then
-		-- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient:GetAbsOrigin())
-		-- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient:GetAbsOrigin())
-		-- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient:GetAbsOrigin())
-		-- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient:GetAbsOrigin())
-		-- local caster = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-		-- -- local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-		-- local enemies = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-		-- print(#enemies)
-		-- for i=1,#enemies do
-		-- 	print("ForceKill:"..tostring(i))
-		-- 	enemies[i]:ForceKill(false)
-		-- end
 		-- local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
 		-- RPCItems:RollFlamewakerArcana1(vector)
 		-- RPCItems.DROP_LOCATION = vector
@@ -466,7 +455,6 @@ function GameMode:OnPlayerChat(keys)
 		-- RPCItems:ItemUpdateCustomNetTables(key)
 		--    RPCItems:GiveItemToHeroWithSlotCheck(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero(), key)
 	end
-
 	if string.match(text, "debug_entities") then
 		local entityesToLog = {"dota_item_wearable", "ability_datadriven", "npc_dota_creature", "npc_dota_thinker", "item_datadriven", "dota_item_drop"}
 		local textNotif = ""
@@ -476,57 +464,6 @@ function GameMode:OnPlayerChat(keys)
 		end
 		Notifications:Bottom(keys.playerid, {text = textNotif, duration = 15.0})
 	end
-	-- if string.match(text, "superdebug11") then
-	--   Redfall:Debug()
-	-- end
-	--  local mapName = GetMapName()
-	--  local position
-	--  if mapName == "rpc_roshpit_arena" then
-	--    position = Vector(-3136, -11200)
-	--  elseif mapName == "rpc_redfall_ridge" then
-	--    position = Vector(-15168, -14976)
-	--  elseif mapName == "rpc_tanari_jungle" then
-	--    position = Vector(-4928, 2048)
-	--  elseif mapName == "rpc_sea_fortress" then
-	--    position = Vector(844, -15488)
-	--  end
-	--  if string.match(text, "debug boss") then
-	--    if mapName == "rpc_roshpit_arena" then
-	--      Arena:OpenPit(7)
-	--      Arena.PitLevel = 7
-	--      Arena:SpawnPitFinalBoss()
-	--    elseif mapName == "rpc_redfall_ridge" then
-	--      Redfall:SpawnAncientTree()
-	--    elseif mapName == "rpc_tanari_jungle" then
-	--      Tanari:DebugSpawnBoss()
-	--    elseif mapName == "rpc_sea_fortress" then
-	--      Seafortress:SpawnFinalBoss()
-	--    end
-	--  end
-	--
-	--  if string.match(text, "debug main") then
-	--    local item = CreateItem("item_debug_blink", nil, nil)
-	--    local drop = CreateItemOnPositionSync( position, item )
-	--    RPCItems:DropItem(item, position)
-	--    RPCItems:RollReanimationStone(position)
-	--    RPCItems:RollDuskbringerArcana1(position)
-	--  end
-	--
-	--  if string.match(text, "debug items") then
-	--    RPCItems:RollVoyagerBoots(position)
-	--  end
-	--
-	--  if string.match(text, "debug glyphs") then
-	--    local heroName = 'duskbringer'
-	--    Glyphs:RollGlyphAll("item_rpc_" .. heroName .. "_glyph_5_a", position, 0)
-	--    for tier = 1,7 do
-	--      for rowItem = 1,2 do
-	--        local glyphName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..rowItem
-	--        Glyphs:RollGlyphAll(glyphName, position, 0)
-	--      end
-	--    end
-	--  end
-
 	if string.match(text, "spawnunit") then
 		if Beacons.cheats then
 			local position = MAIN_HERO_TABLE[1]:GetAbsOrigin() + MAIN_HERO_TABLE[1]:GetForwardVector() * 600
@@ -677,24 +614,52 @@ function GameMode:OnPlayerChat(keys)
 		if Beacons.cheats then
 			local damageValue = string.gsub(text, "-physical ", "")
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_PHYSICAL, BASE_ITEM, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
 		end
 	elseif string.match(text, "-magical") then
 		if Beacons.cheats then
 			local damageValue = string.gsub(text, "-magical ", "")
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
 		end
 	elseif string.match(text, "-pure") then
 		if Beacons.cheats then
 			local damageValue = string.gsub(text, "-pure ", "")
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
 		end
 	elseif string.match(text, "-immunitybreak") then
 		if Beacons.cheats then
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 			Filters:MagicImmuneBreak(hero, hero)
+		end
+	elseif string.match(text, "-position") then
+		if Beacons.cheats then
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			local text = "Position: "..tostring(hero:GetAbsOrigin())
+			Notifications:Bottom(keys.playerid, {text = text, duration = 15.0})
+			--print(text)
+			local text2 = "Forward Vector: "..tostring(hero:GetForwardVector())
+			Notifications:Bottom(keys.playerid, {text = text2, duration = 15.0})
+			--print(text2)
+		end
+	elseif string.match(text, "-bossparagon") then
+		if Beacons.cheats then
+			Beacons.paragon = true
+			Beacons.packs = false
+			local unit = Redfall:SpawnCanyonBossParagonTest()
+		end
+	elseif string.match(text, "-bosspack") then
+		if Beacons.cheats then
+			Beacons.paragon = false
+			Beacons.packs = true
+			local unit = Redfall:SpawnCanyonBossParagonTest()
+		end
+	elseif string.match(text, "-bossnormal") then
+		if Beacons.cheats then
+			Beacons.paragon = false
+			Beacons.packs = false
+			local unit = Redfall:SpawnCanyonBossParagonTest()
 		end
 	elseif string.match(text, "-log") then
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid), "error_logger_open", {})
@@ -703,7 +668,6 @@ function GameMode:OnPlayerChat(keys)
 		if string.match(text, "-crystal") and not GameMode.VoteSystem.crystal_loot_disabled then
 			Events:LootDisableCrystal(playerid)
 		end
-
 		if (string.match(text, "-disable_junk_loot") or string.match(text, "-junk")) and not GameMode.VoteSystem.junk_loot_disabled then
 			Events:LootDisableJunk(playerid)
 		end
@@ -717,7 +681,7 @@ function Events:LootDisableCrystal(playerid)
 	local connectedPlayerCount = RPCItems:GetConnectedPlayerCount()
 	if not Events:TableContainsValue(GameMode.VoteSystem.disable_crystal_loot, PlayerResource:GetSteamAccountID(playerid)) then
 		table.insert(GameMode.VoteSystem.disable_crystal_loot, PlayerResource:GetSteamAccountID(playerid))
-		print("added player vote..")
+		--print("added player vote..")
 		local stringToShow = "Disable crystal loot votes: "..#GameMode.VoteSystem.disable_crystal_loot.." / "..connectedPlayerCount
 		-- Notifications:TopToAll({text=stringToShow, duration=5.0})
 		Notifications:BottomToAll({text = stringToShow, duration = 5.0})
@@ -725,7 +689,7 @@ function Events:LootDisableCrystal(playerid)
 
 	if #GameMode.VoteSystem.disable_crystal_loot >= connectedPlayerCount then
 		GameMode.VoteSystem.crystal_loot_disabled = true
-		print("crystal_loot_disabled")
+		--print("crystal_loot_disabled")
 		Timers:CreateTimer(5.1, function()
 			Notifications:BottomToAll({text = "Crystal loot disabled", duration = 5.0})
 		end)
@@ -739,7 +703,7 @@ function Events:LootDisableJunk(playerid)
 	local connectedPlayerCount = RPCItems:GetConnectedPlayerCount()
 	if not Events:TableContainsValue(GameMode.VoteSystem.disable_junk_loot, PlayerResource:GetSteamAccountID(playerid)) then
 		table.insert(GameMode.VoteSystem.disable_junk_loot, PlayerResource:GetSteamAccountID(playerid))
-		print("added player vote..")
+		--print("added player vote..")
 		local stringToShow = "Disable junk loot votes: "..#GameMode.VoteSystem.disable_junk_loot.." / "..connectedPlayerCount
 		-- Notifications:TopToAll({text=stringToShow, duration=5.0})
 		Notifications:BottomToAll({text = stringToShow, duration = 5.0})
@@ -747,7 +711,7 @@ function Events:LootDisableJunk(playerid)
 
 	if #GameMode.VoteSystem.disable_junk_loot >= connectedPlayerCount then
 		GameMode.VoteSystem.junk_loot_disabled = true
-		print("junk_loot_disabled")
+		--print("junk_loot_disabled")
 		Timers:CreateTimer(5.1, function()
 			Notifications:BottomToAll({text = "Junk loot disabled", duration = 5.0})
 		end)
@@ -765,7 +729,7 @@ end
 
 function Events:DebugCalls()
 	if not GameRules.DebugCalls then
-		print("Starting DebugCalls")
+		--print("Starting DebugCalls")
 		GameRules.DebugCalls = true
 
 		debug.sethook(function(...)
@@ -773,11 +737,11 @@ function Events:DebugCalls()
 			local src = tostring(info.short_src)
 			local name = tostring(info.name)
 			if name ~= "__index" then
-				print("Call: " .. src .. " -- " .. name)
+				--print("Call: ".. src .. " -- " .. name)
 			end
 		end, "c")
 	else
-		print("Stopped DebugCalls")
+		--print("Stopped DebugCalls")
 		GameRules.DebugCalls = false
 		debug.sethook(nil, "c")
 	end
@@ -982,7 +946,7 @@ function GameMode:OnPlayerPickHero(keys)
 end
 
 function Events:BGMmanager(player, hero)
-	print("WHAT?")
+	--print("WHAT?")
 	Timers:CreateTimer(3, function()
 		if GameState:IsRPCArena() then
 			CustomGameEventManager:Send_ServerToPlayer(player, "BGMstart", {songName = "Arena.StartingMusic"})
@@ -992,8 +956,8 @@ function Events:BGMmanager(player, hero)
 			end
 			hero.bgm = "Music.Redfall.Village"
 		elseif GameState:IsWinterblight() then
-			print("72SEARCH")
-			print(GameRules:GetGameTime())
+			--print("72SEARCH")
+			--print(GameRules:GetGameTime())
 			if GameRules:GetGameTime() > 30 then
 				CustomGameEventManager:Send_ServerToPlayer(player, "BGMstart", {songName = "Music.Winterblight.Start"})
 			end
@@ -1128,7 +1092,7 @@ function Events:ChangeRuneState(msg)
 	local player = PlayerResource:GetPlayer(playerid)
 	local ability = EntIndexToHScript(msg.ability)
 	local unit = EntIndexToHScript(msg.unit)
-	print("CHANGE RUNE STATE")
+	--print("CHANGE RUNE STATE")
 	local bAllow = true
 	if not unit:GetPlayerOwnerID() == PlayerID then
 		if unit:IsHero() then
@@ -1152,7 +1116,7 @@ function Events:LevelUpRune(keys)
 	local player = PlayerResource:GetPlayer(PlayerID)
 	local ability = EntIndexToHScript(keys.ability)
 	local unit = EntIndexToHScript(keys.unit)
-	print("LEVELUP RUNE")
+	--print("LEVELUP RUNE")
 	local player_stats = CustomNetTables:GetTableValue("player_stats", tostring(player:GetPlayerID()))
 	local current_rune_points = player_stats.runePoints
 	local current_skill_points = player_stats.skillPoints
@@ -1163,8 +1127,8 @@ function Events:LevelUpRune(keys)
 			bAllow = false
 		end
 	end
-	print(unit:GetPlayerOwnerID())
-	print(PlayerID)
+	--print(unit:GetPlayerOwnerID())
+	--print(PlayerID)
 	if current_rune_points > 0 and ability:GetLevel() < 20 and hero:IsAlive() and bAllow then
 		CustomNetTables:SetTableValue("player_stats", tostring(PlayerID), {skillPoints = current_skill_points, runePoints = current_rune_points - 1})
 		local newLevel = ability:GetLevel() + 1
@@ -1193,8 +1157,8 @@ function Events:LevelUpRuneMax(keys)
 			bAllow = false
 		end
 	end
-	print(unit:GetPlayerOwnerID())
-	print(PlayerID)
+	--print(unit:GetPlayerOwnerID())
+	--print(PlayerID)
 	if current_rune_points > 0 and ability:GetLevel() < 20 and hero:IsAlive() and bAllow then
 		local levelsToSet = math.min(current_rune_points, 20 - ability:GetLevel())
 		CustomNetTables:SetTableValue("player_stats", tostring(PlayerID), {skillPoints = current_skill_points, runePoints = current_rune_points - levelsToSet})
@@ -1306,15 +1270,15 @@ function Events:SetupHeroes(heroEntity)
 	heroEntity.crystalsPickedUp = 0
 	heroEntity.crystalsToSave = 0
 	heroEntity.baseAttackCapability = heroEntity:GetAttackCapability()
-	print(heroEntity:GetUnitName())
+	--print(heroEntity:GetUnitName())
 	Timers:CreateTimer(14, function()
 		if Events.HEROKV then
 			heroEntity.originalProjectile = Events.HEROKV[heroEntity:GetUnitName()]["ProjectileModel"]
 			heroEntity.baseProjectileSpeed = heroEntity:GetProjectileSpeed()
 		end
 	end)
-	heroEntity.castPointQ = heroEntity:GetAbilityByIndex(0):GetCastPoint()
-	heroEntity.castPointW = heroEntity:GetAbilityByIndex(1):GetCastPoint()
+	heroEntity.castPointQ = heroEntity:GetAbilityByIndex(DOTA_Q_SLOT):GetCastPoint()
+	heroEntity.castPointW = heroEntity:GetAbilityByIndex(DOTA_W_SLOT):GetCastPoint()
 	-- Timers:CreateTimer(6, function()
 	CustomNetTables:SetTableValue("player_stats", tostring(ownerID), {skillPoints = 0, runePoints = 3})
 	Events:CreateRuneUnits(heroEntity, ownerID)
@@ -1342,7 +1306,7 @@ function Events:SetupHeroes(heroEntity)
 		Redfall:InitializeHero(heroEntity)
 	end
 	if GameState:IsTutorial() then
-		print("RG55342")
+		--print("RG55342")
 		Tutorial:GetTutorialFromServer(heroEntity)
 	end
 	if Events.GameMaster then
@@ -1371,7 +1335,7 @@ end
 function Events:PremiumPlayerLoaded(heroEntity)
 	local playerID = heroEntity:GetPlayerOwnerID()
 	if GameState:GetPlayerPremiumStatus(playerID) then
-		print("update_premium")
+		--print("update_premium")
 		CustomNetTables:SetTableValue("premium_pass", tostring(playerID), {pass = 1})
 	else
 		CustomNetTables:SetTableValue("premium_pass", tostring(playerID), {pass = 0})
@@ -1714,7 +1678,7 @@ function CDOTA_BaseNPC:ClearParticles()
 end
 
 function Events:beginQuests()
-	-- print("BEGINQUESTS IS HAPPENING")
+	----print("BEGINQUESTS IS HAPPENING")
 	if Beacons.cheats or Convars:GetBool("developer") then
 		Beacons:DEBUG()
 	end
@@ -1726,7 +1690,7 @@ function Events:InitGameEntities()
 end
 
 function Events:initializeTown()
-	print("initialize world 1")
+	--print("initialize world 1")
 	GameState:InitializeGameState()
 	-- Beacons:MakeBeacon(Vector(-6443,-5282), "wave", "forestForest", 0)
 	Timers:CreateTimer(5, function()
@@ -1815,8 +1779,8 @@ function Events:SpawnGamemaster(position)
 		Events.GameMaster:SetAbsOrigin(position)
 	end
 	Events.GameMaster = CreateUnitByName("rune_unit", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
-	print("GAME MASTER")
-	print(Events.GameMaster)
+	--print("GAME MASTER")
+	--print(Events.GameMaster)
 	local abil = Events.GameMaster:AddAbility("npc_abilities")
 	abil:SetLevel(1)
 	Events.GameMaster:AddAbility("premium_abilities"):SetLevel(1)
@@ -2055,7 +2019,7 @@ function Events:conjurorMinions(unit, position, ability, caster, delay)
 end
 
 function Events:wave_redirect()
-	print("WAVENUMBER: "..Events.WaveNumber)
+	--print("WAVENUMBER: "..Events.WaveNumber)
 	if Events.WaveNumber == 0 then
 		Events:wave1()
 	end
@@ -2393,29 +2357,57 @@ end
 
 function Events:AdjustBossPower(unit, damageFactor, healthFactor, bHealthbar)
 	local difficulty = GameState:GetDifficultyFactor()
-	local minDamage = unit:GetBaseDamageMin()
-	local maxDamage = unit:GetBaseDamageMax()
-	local damageAdjustment = damageFactor * 80000 * (difficulty - 1)
-	unit:SetBaseDamageMin(math.min(minDamage + damageAdjustment, 2 ^ 30))
-	unit:SetBaseDamageMax(math.min(maxDamage + damageAdjustment, 2 ^ 30))
-	local healthAdjustment = healthFactor * 800000 * (difficulty - 1)
-	if difficulty > 2 then
-		healthAdjustment = healthAdjustment + healthFactor * 1600000
-		local armor = unit:GetPhysicalArmorValue(false)
-		unit:SetPhysicalArmorBaseValue(armor + 40 * healthFactor)
-		unit:SetPhysicalArmorBaseValue(unit:GetPhysicalArmorBaseValue() * difficulty + (healthFactor * (difficulty - 1) * 3))
+	if IsValidEntity(unit) then
+		local minDamage = unit:GetBaseDamageMin()
+		local maxDamage = unit:GetBaseDamageMax()
+		local damageAdjustment = damageFactor * 80000 * (difficulty - 1)
+		unit:SetBaseDamageMin(math.min(minDamage + damageAdjustment, 2 ^ 30))
+		unit:SetBaseDamageMax(math.min(maxDamage + damageAdjustment, 2 ^ 30))
+		local healthAdjustment = healthFactor * 800000 * (difficulty - 1)
+		if difficulty > DIFFICULTY_ELITE then
+			healthAdjustment = healthAdjustment + healthFactor * 1600000
+			local armor = unit:GetPhysicalArmorValue(false)
+			unit:SetPhysicalArmorBaseValue(armor + 40 * healthFactor)
+			unit:SetPhysicalArmorBaseValue(unit:GetPhysicalArmorBaseValue() * difficulty + (healthFactor * (difficulty - 1) * 3))
+		end
+		local newHealth = unit:GetMaxHealth() + healthAdjustment
+		newHealth = math.min(newHealth, (2 ^ 30) - 10)
+		unit:SetMaxHealth(newHealth)
+		unit:SetBaseMaxHealth(newHealth)
+		unit:SetHealth(newHealth)
+		unit:Heal(newHealth, unit)
+		if bHealthbar then
+			CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = unit:GetUnitName(), bossMaxHealth = unit:GetMaxHealth(), bossId = tostring(unit)})
+			unit.mainBoss = true
+		end
+		unit.bossStatus = true
+	else
+		for i = 1, #unit, 1 do
+			local minDamage = unit[i]:GetBaseDamageMin()
+			local maxDamage = unit[i]:GetBaseDamageMax()
+			local damageAdjustment = damageFactor * 80000 * (difficulty - 1)
+			unit[i]:SetBaseDamageMin(math.min(minDamage + damageAdjustment, 2 ^ 30))
+			unit[i]:SetBaseDamageMax(math.min(maxDamage + damageAdjustment, 2 ^ 30))
+			local healthAdjustment = healthFactor * 800000 * (difficulty - 1)
+			if difficulty > DIFFICULTY_ELITE then
+				healthAdjustment = healthAdjustment + healthFactor * 1600000
+				local armor = unit[i]:GetPhysicalArmorValue(false)
+				unit[i]:SetPhysicalArmorBaseValue(armor + 40 * healthFactor)
+				unit[i]:SetPhysicalArmorBaseValue(unit[i]:GetPhysicalArmorBaseValue() * difficulty + (healthFactor * (difficulty - 1) * 3))
+			end
+			local newHealth = unit[i]:GetMaxHealth() + healthAdjustment
+			newHealth = math.min(newHealth, (2 ^ 30) - 10)
+			unit[i]:SetMaxHealth(newHealth)
+			unit[i]:SetBaseMaxHealth(newHealth)
+			unit[i]:SetHealth(newHealth)
+			unit[i]:Heal(newHealth, unit[i])
+			if bHealthbar then
+				CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = unit[i]:GetUnitName(), bossMaxHealth = unit[i]:GetMaxHealth(), bossId = tostring(unit[i])})
+				unit[i].mainBoss = true
+			end
+			unit[i].bossStatus = true
+		end
 	end
-	local newHealth = unit:GetMaxHealth() + healthAdjustment
-	newHealth = math.min(newHealth, (2 ^ 30) - 10)
-	unit:SetMaxHealth(newHealth)
-	unit:SetBaseMaxHealth(newHealth)
-	unit:SetHealth(newHealth)
-	unit:Heal(newHealth, unit)
-	if bHealthbar then
-		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = unit:GetUnitName(), bossMaxHealth = unit:GetMaxHealth()})
-		unit.mainBoss = true
-	end
-	unit.bossStatus = true
 end
 
 function Events:spawnUnit(unitName, spawnPoint, quantity)
@@ -2449,7 +2441,7 @@ function Events:SpawnBoss(unitName, spawnPoint)
 	local boss = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
 	Events:AdjustDeathXP(boss)
 	boss.mainBoss = true
-	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth()})
+	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth(), bossId = tostring(boss)})
 	return boss
 end
 
@@ -2600,7 +2592,7 @@ function Events:wave6()
 	Events:spawnUnit("rabid_walker", SPAWN_POINT_FOREST_6, 8)
 	-- 26 units
 
-	print("wave6 spawned")
+	--print("wave6 spawned")
 end
 
 function Events:wave6a()
@@ -2618,7 +2610,7 @@ function Events:wave6a()
 	Events:spawnUnitSpecial("rare_ghost", SPAWN_POINT_FOREST_6, 1)
 	-- 26 units
 
-	print("wave6a spawned")
+	--print("wave6a spawned")
 end
 
 function Events:wave7()
@@ -2643,7 +2635,7 @@ function Events:wave7()
 	Events:spawnUnit("time_walker", SPAWN_POINT_FOREST_6, 6)
 	Events:spawnUnit("time_walker", SPAWN_POINT_FOREST_7, 6)
 	-- 26 units
-	print("wave7 spawned")
+	--print("wave7 spawned")
 end
 
 function Events:wave7a()
@@ -2676,7 +2668,7 @@ function Events:wave8()
 	Events:spawnUnit("npc_dota_creature_basic_zombie_exploding", SPAWN_POINT_GRAVEYARD_2, 4)
 	Events:spawnUnit("npc_dota_creature_basic_zombie_exploding", SPAWN_POINT_GRAVEYARD_3, 4)
 
-	print("wave8 spawned")
+	--print("wave8 spawned")
 end
 
 function Events:wave9()
@@ -2699,7 +2691,7 @@ function Events:wave9()
 	Events:spawnUnit("npc_dota_creature_basic_zombie_exploding", SPAWN_POINT_GRAVEYARD_2, 4)
 	Events:spawnUnit("npc_dota_creature_basic_zombie_exploding", SPAWN_POINT_GRAVEYARD_1, 4)
 
-	print("wave9 spawned")
+	--print("wave9 spawned")
 end
 
 function Events:wave10()
@@ -2727,7 +2719,7 @@ function Events:wave10()
 	EmitGlobalSound("pudge_pud_spawn_09")
 	EmitGlobalSound("pudge_pud_spawn_09")
 
-	print("wave10 spawned")
+	--print("wave10 spawned")
 end
 
 function Events:wave11()
@@ -2778,7 +2770,7 @@ function Events:wave12()
 	Events:spawnUnit("npc_dota_broodmother_web", SPAWN_POINT_FOREST_5 + Vector(-400, -400), 1)
 	Events:spawnUnit("npc_dota_broodmother_web", SPAWN_POINT_FOREST_6 + Vector(-400, -400), 1)
 
-	print("wave12 spawned")
+	--print("wave12 spawned")
 end
 
 function Events:wave13()
@@ -2792,7 +2784,7 @@ function Events:wave13()
 	Events:spawnUnit("forest_broodmother", SPAWN_POINT_FOREST_6, 4)
 	Events:spawnUnit("little_ice", SPAWN_POINT_CAVE_2, 10)
 	Events:spawnUnit("little_ice", SPAWN_POINT_CAVE_3, 10)
-	print("wave13 spawned")
+	--print("wave13 spawned")
 end
 
 function Events:wave14()
@@ -2813,7 +2805,7 @@ function Events:wave14()
 	Events:spawnUnit("npc_dota_creature_basic_zombie_exploding", SPAWN_POINT_GRAVEYARD_2, 3)
 	Events:spawnUnit("exploding_warrior", SPAWN_POINT_FOREST_2, 1)
 
-	print("wave14 spawned")
+	--print("wave14 spawned")
 end
 
 function Events:wave15()
@@ -2835,7 +2827,7 @@ function Events:wave15()
 	Events:spawnUnit("little_ice", SPAWN_POINT_CAVE_1, 10)
 	Events:spawnUnit("little_ice", SPAWN_POINT_CAVE_1, 10)
 
-	print("wave15 spawned")
+	--print("wave15 spawned")
 end
 
 function Events:wave16()
@@ -2857,7 +2849,7 @@ function Events:wave16()
 	Events:spawnUnit("hook_flinger", SPAWN_POINT_CAVE_1, 2)
 	Events:spawnUnit("hook_flinger", SPAWN_POINT_CAVE_1, 2)
 
-	print("wave16 spawned")
+	--print("wave16 spawned")
 end
 
 function Events:wave17()
@@ -2880,7 +2872,7 @@ function Events:wave17()
 	Events:spawnUnit("furion_mystic", SPAWN_POINT_CAVE_4, 5)
 	Events:spawnUnit("furion_mystic", SPAWN_POINT_OPEN_1, 5)
 
-	print("wave17 spawned")
+	--print("wave17 spawned")
 end
 
 function Events:wave18()
@@ -2915,7 +2907,7 @@ function Events:wave19()
 	Events:spawnUnit("big_mud", SPAWN_POINT_CAVE_4, 2)
 	Events:spawnUnit("big_mud", SPAWN_POINT_CAVE_5, 2)
 
-	print("wave19 spawned")
+	--print("wave19 spawned")
 end
 
 function Events:wave20()
@@ -2939,7 +2931,7 @@ function Events:wave20()
 	Events:spawnUnit("big_mud", SPAWN_POINT_CAVE_4, 2)
 	Events:spawnUnit("big_mud", SPAWN_POINT_CAVE_5, 2)
 
-	print("wave20 spawned")
+	--print("wave20 spawned")
 end
 
 function Events:wave21()
@@ -2951,7 +2943,7 @@ function Events:wave21()
 	EmitGlobalSound("nevermore_nev_spawn_09")
 	EmitGlobalSound("nevermore_nev_spawn_09")
 	Events:prepare_boss_quest("#quest_forest_boss")
-	print("wave20 spawned")
+	--print("wave20 spawned")
 end
 
 SPAWN_POINT_DESERT_1 = Vector(4160, -7550)
@@ -2973,7 +2965,7 @@ function Events:wave22()
 	Events:spawnUnit("wastelands_archer", SPAWN_POINT_DESERT_2, 5)
 	Events:spawnUnit("rockjaw", SPAWN_POINT_DESERT_3, 7)
 	Events:spawnUnit("goremaw_brute", SPAWN_POINT_DESERT_4, 2)
-	print("wave22 spawned")
+	--print("wave22 spawned")
 end
 
 function Events:wave23()
@@ -2987,7 +2979,7 @@ function Events:wave23()
 	Events:spawnUnit("rockjaw", SPAWN_POINT_DESERT_3, 7)
 	Events:spawnUnit("dune_crasher", SPAWN_POINT_DESERT_4, 5)
 
-	print("wave23 spawned")
+	--print("wave23 spawned")
 end
 
 function Events:wave24()
@@ -2998,7 +2990,7 @@ function Events:wave24()
 	Events:spawnUnit("goremaw_brute", SPAWN_POINT_DESERT_1, 5)
 	Events:spawnUnit("goremaw_brute", SPAWN_POINT_DESERT_4, 5)
 
-	print("wave24 spawned")
+	--print("wave24 spawned")
 end
 
 function Events:wave25()
@@ -3014,7 +3006,7 @@ function Events:wave25()
 		Events:spawnUnit("wandering_mage", SPAWN_POINT_DESERT_1, 5)
 	end
 
-	print("wave25 spawned")
+	--print("wave25 spawned")
 end
 
 function Events:wave26()
@@ -3028,7 +3020,7 @@ function Events:wave26()
 	Events:spawnUnit("skittering_beetle", SPAWN_POINT_DESERT_2, 7)
 	Events:spawnUnit("scarab", SPAWN_POINT_DESERT_1, 7)
 
-	print("wave26 spawned")
+	--print("wave26 spawned")
 end
 
 function Events:wave27()
@@ -3042,7 +3034,7 @@ function Events:wave27()
 	end
 	Events:spawnUnit("satyr_doctor", SPAWN_POINT_DESERT_2, 5)
 
-	print("wave27 spawned")
+	--print("wave27 spawned")
 end
 
 function Events:wave28()
@@ -3055,7 +3047,7 @@ function Events:wave28()
 	end
 	Events:spawnUnit("goremaw_brute", SPAWN_POINT_DESERT_4, 9)
 
-	print("wave28 spawned")
+	--print("wave28 spawned")
 end
 
 function Events:wave29()
@@ -3069,7 +3061,7 @@ function Events:wave29()
 	Events:spawnUnit("wolf_ally", SPAWN_POINT_DESERT_3, 8)
 	Events:spawnUnit("wolf_ally", SPAWN_POINT_DESERT_4, 8)
 
-	print("wave29 spawned")
+	--print("wave29 spawned")
 end
 
 function Events:wave30()
@@ -3083,7 +3075,7 @@ function Events:wave30()
 	Events:spawnUnit("wandering_mage", SPAWN_POINT_DESERT_3, 8)
 	Events:spawnUnit("wandering_mage", SPAWN_POINT_DESERT_4, 8)
 
-	print("wave30 spawned")
+	--print("wave30 spawned")
 end
 
 function Events:wave31()
@@ -3096,7 +3088,7 @@ function Events:wave31()
 	Events:spawnUnit("npc_dota_creature_desert_zombie", SPAWN_POINT_DESERT_GRAVEYARD, 6)
 	Events:spawnUnit("alpha_wolf", SPAWN_POINT_DESERT_4, 8)
 
-	print("wave31 spawned")
+	--print("wave31 spawned")
 end
 
 function Events:wave32()
@@ -3110,7 +3102,7 @@ function Events:wave32()
 	Events:spawnUnit("scarab", SPAWN_POINT_DESERT_4, 5)
 	Events:spawnUnit("satyr_doctor", SPAWN_POINT_DESERT_2, 10)
 
-	print("wave32 spawned")
+	--print("wave32 spawned")
 end
 
 function Events:wave33()
@@ -3124,7 +3116,7 @@ function Events:wave33()
 	Events:spawnUnit("bone_horror", SPAWN_POINT_DESERT_4, 6)
 	Events:spawnUnit("satyr_doctor", SPAWN_POINT_DESERT_2, 6)
 
-	print("wave33 spawned")
+	--print("wave33 spawned")
 end
 
 function Events:wave34()
@@ -3212,7 +3204,7 @@ function Events:wave34()
 		UTIL_Remove(jonuous)
 	end)
 
-	print("wave34 spawned")
+	--print("wave34 spawned")
 end
 
 function Events:wave35()
@@ -3272,7 +3264,7 @@ function Events:wave38()
 	EmitGlobalSound("tinker_tink_respawn_13")
 	EmitGlobalSound("tinker_tink_respawn_13")
 	Events:prepare_boss_quest("#quest_desert_boss")
-	print("wave38 spawned")
+	--print("wave38 spawned")
 end
 
 SPAWN_POINT_MINES_1 = Vector(3008, 6656)
@@ -3292,7 +3284,7 @@ function Events:wave40()
 	Events:DoomOrder(doom1, doom2, doom3)
 	Events:DoomOrder(doom2, doom1, doom3)
 	Events:DoomOrder(doom3, doom1, doom2)
-	print("wave30 spawned")
+	--print("wave30 spawned")
 end
 
 function Events:DoomOrder(mainDoom, secondDoom, thirdDoom)
@@ -3354,7 +3346,7 @@ function Events:wave44()
 	Events:spawnUnit("chaos_warrior", SPAWN_POINT_MINES_2, 12)
 	Events:spawnUnit("chaos_warrior", SPAWN_POINT_MINES_3, 12)
 	Events:spawnUnit("depth_demon", SPAWN_POINT_MINES_4, 10)
-	print("wave44 spawned")
+	--print("wave44 spawned")
 end
 
 function Events:wave45()
@@ -3367,7 +3359,7 @@ function Events:wave45()
 	Events:spawnZombie("mine_zombie", SPAWN_POINT_MINES_2, 10, "zombie_green")
 	Events:spawnZombie("mine_zombie", SPAWN_POINT_MINES_3, 10, "zombie_green")
 	Events:spawnZombie("mine_zombie", SPAWN_POINT_MINES_4, 10, "zombie_green")
-	print("wave45 spawned")
+	--print("wave45 spawned")
 end
 
 function Events:wave46()
@@ -3377,7 +3369,7 @@ function Events:wave46()
 	Events:spawnUnit("hell_hound", SPAWN_POINT_MINES_4, 12)
 	Events:spawnUnit("crow_eater", SPAWN_POINT_MINES_5, 6)
 	Events:spawnUnit("crow_eater", SPAWN_POINT_MINES_5, 6)
-	print("wave46 spawned")
+	--print("wave46 spawned")
 end
 
 function Events:wave47()
@@ -3391,7 +3383,7 @@ function Events:wave47()
 	Events:spawnUnit("hell_hound", SPAWN_POINT_MINES_3, 8)
 	Events:spawnUnit("arabor_cultist", SPAWN_POINT_MINES_4, 8)
 	Events:spawnUnit("obsidian_golem", SPAWN_POINT_MINES_5, 4)
-	print("wave46 spawned")
+	--print("wave46 spawned")
 end
 
 function Events:wave48()
@@ -3401,7 +3393,7 @@ function Events:wave48()
 	Events:spawnUnit("crawler", SPAWN_POINT_MINES_3, 6)
 	Events:spawnUnit("crafter", SPAWN_POINT_MINES_4, 6)
 	Events:spawnUnit("nibohg", SPAWN_POINT_MINES_5, 6)
-	print("wave48 spawned")
+	--print("wave48 spawned")
 end
 
 function Events:wave49()
@@ -3414,7 +3406,7 @@ function Events:wave49()
 	Events:spawnUnit("satyr_behemoth", SPAWN_POINT_MINES_3, 4)
 	Events:spawnUnit("firebat", SPAWN_POINT_MINES_4, 8)
 	Events:spawnUnit("firebat", SPAWN_POINT_MINES_5, 8)
-	print("wave49 spawned")
+	--print("wave49 spawned")
 end
 
 function Events:wave50()
@@ -3430,7 +3422,7 @@ function Events:wave50()
 		Events:spawnUnit("dire_ranged", SPAWN_POINT_MINES_5, 2)
 		Events:spawnUnit("dire_melee", SPAWN_POINT_MINES_5, 2)
 	end
-	print("wave50 spawned")
+	--print("wave50 spawned")
 end
 
 function Events:wave51()
@@ -3447,7 +3439,7 @@ function Events:wave51()
 	Events:spawnUnit("nibohg", SPAWN_POINT_MINES_5, 4)
 	Events:spawnUnit("raging_shaman", SPAWN_POINT_MINES_5, 8)
 	Events:spawnUnit("obsidian_golem", SPAWN_POINT_MINES_2, 4)
-	print("wave51 spawned")
+	--print("wave51 spawned")
 end
 
 function Events:wave52()
@@ -3461,7 +3453,7 @@ function Events:wave52()
 	Events:spawnUnit("minion_of_twilight", SPAWN_POINT_MINES_2, 6)
 	Events:spawnUnit("minion_of_twilight", SPAWN_POINT_MINES_3, 6)
 	Events:spawnUnit("minion_of_twilight", SPAWN_POINT_MINES_5, 6)
-	print("wave52 spawned")
+	--print("wave52 spawned")
 end
 
 function Events:wave53()
@@ -3503,7 +3495,7 @@ end
 function Events:wave56()
 	Events:MinesBossSummon()
 	Events:prepare_boss_quest("#quest_mines_boss")
-	print("wave38 spawned")
+	--print("wave38 spawned")
 end
 
 function Events:GetPlayerCount()

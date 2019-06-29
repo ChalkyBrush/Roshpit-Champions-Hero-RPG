@@ -1,9 +1,9 @@
 modifier_apollo_stats_visible = class({})
 
 function modifier_apollo_stats_visible:DeclareFunctions()
-	local funcs = { 
+	local funcs = {
 
-}
+	}
 	return funcs
 end
 

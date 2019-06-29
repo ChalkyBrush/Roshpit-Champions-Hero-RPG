@@ -1519,8 +1519,8 @@
 		// Special Mobs
 		//------------------------		
 
-		"DOTA_Tooltip_modifier_paragon"								"精英怪"
-		"DOTA_Tooltip_modifier_paragon_Description"					"强大的精英怪"
+		"DOTA_Tooltip_modifier_paragon_pack"								"精英怪"
+		"DOTA_Tooltip_modifier_paragon_pack_Description"					"强大的精英怪"
 
 		"DOTA_Tooltip_modifier_paragon_solo"						"精英首领"
 		"DOTA_Tooltip_modifier_paragon_solo_Description"			"强大的精英首领"
@@ -14217,11 +14217,11 @@
 		"DOTA_Tooltip_ability_redfall_feronia_passive"					"费奥南的守卫"
 		"DOTA_Tooltip_ability_redfall_feronia_passive_Description"		"施放法术后，获得一个盾牌，减少100%的伤害1.5秒."
 
-		"DOTA_Tooltip_ability_redfall_mirana_starfall"					"神圣的箭头"
-		"DOTA_Tooltip_ability_redfall_mirana_starfall_Description"		"发射一个箭头，伤害和击晕敌人."	
+		"DOTA_Tooltip_ability_redfall_feronia_starfall"					"神圣的箭头"
+		"DOTA_Tooltip_ability_redfall_feronia_starfall_Description"		"发射一个箭头，伤害和击晕敌人."	
 
-		"DOTA_Tooltip_ability_redfall_mirana_starfall"					"神圣的箭头"
-		"DOTA_Tooltip_ability_redfall_mirana_starfall_Description"		"发射一个箭头，伤害和击晕敌人."
+		"DOTA_Tooltip_ability_redfall_feronia_arrow"					"神圣的箭头"
+		"DOTA_Tooltip_ability_redfall_feronia_arrow_Description"		"发射一个箭头，伤害和击晕敌人."
 
 		"redfall_fenrir"												"芬里尔"
 
@@ -15734,9 +15734,9 @@
 		"DOTA_Tooltip_ability_serengaard_midnight_pulse_damage_percent"			"DAMAGE % OF MAX HEALTH:"
 
 
-		//---------------------------
+		//---------------
 		// Tanari Jungle
-		//---------------------------
+		//---------------
 
 		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_normal"			"风之神殿钥匙 (普通)"
 		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_elite"				"风之神殿钥匙 (精英)"

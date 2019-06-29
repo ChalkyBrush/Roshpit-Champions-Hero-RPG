@@ -1,6 +1,6 @@
 function base_cannon_phase(event)
 	local caster = event.caster
-	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_ATTACK2, rate=2})
+	StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_ATTACK2, rate = 2})
 end
 
 function base_cannon_shoot(event)
@@ -26,24 +26,23 @@ function base_cannon_shoot(event)
 		projectileModel = "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 		sound = "Jex.FireCannon.Shoot"
 	end
-	local info = 
+	local info =
 	{
 		Target = target,
 		Source = caster,
-		Ability = ability,  
-		EffectName =  projectileModel,
+		Ability = ability,
+		EffectName = projectileModel,
 		StartPosition = "attach_attack2",
-		bDrawsOnMinimap = false, 
-			bDodgeable = true,
-			bIsAttack = false, 
-			bVisibleToEnemies = true,
-			bReplaceExisting = false,
-			flExpireTime = GameRules:GetGameTime() + 8,
+		bDrawsOnMinimap = false,
+		bDodgeable = true,
+		bIsAttack = false,
+		bVisibleToEnemies = true,
+		bReplaceExisting = false,
+		flExpireTime = GameRules:GetGameTime() + 8,
 		bProvidesVision = true,
 		iVisionRadius = 0,
 		iMoveSpeed = speed,
-		iVisionTeamNumber = caster:GetTeamNumber()
-	}
+	iVisionTeamNumber = caster:GetTeamNumber()}
 	projectile = ProjectileManager:CreateTrackingProjectile(info)
 	EmitSoundOn(sound, caster)
 	Filters:CastSkillArguments(1, caster)
@@ -72,5 +71,5 @@ function base_cannon_impact(event)
 	end
 	local damage = event.damage
 	EmitSoundOn(sound, target)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, damage_element, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, damage_element, RPC_ELEMENT_NONE)
 end

@@ -5,13 +5,13 @@ local function applyBuff(caster, duration)
         local ability = caster:FindModifierByName("modifier_axe_immortal_weapon_2"):GetAbility()
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_immortal_weapon_2_bonus_movespeed", {duration = duration})
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_immortal_weapon_2_cap", {duration = duration})
-        caster:AddNewModifier( caster, ability, "modifier_axe_immortal_weapon_2_cap", {duration = duration} )
+        caster:AddNewModifier(caster, ability, "modifier_axe_immortal_weapon_2_cap", {duration = duration})
     end
 end
 local function getAmp(caster, target)
     if caster:HasModifier("modifier_axe_immortal_weapon_2") then
         if target.mainBoss or target.bossStatus or target.paragon then
-            return 1 + SEA_WEAPON_1_AMPLIFY_PERCENT/100
+            return 1 + SEA_WEAPON_1_AMPLIFY_PERCENT / 100
         else
             return 1
         end

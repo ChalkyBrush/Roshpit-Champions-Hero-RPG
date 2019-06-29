@@ -5,7 +5,6 @@ function flood_basin_start_channel(event)
 	local ability = event.ability
 	EmitSoundOn("Hydroxis.Ultimate.Voice", caster)
 
-
 	if caster:HasModifier("modifier_hydroxis_glyph_6_1") then
 		flood_basin_start(event)
 		caster:Stop()
@@ -13,7 +12,6 @@ function flood_basin_start_channel(event)
 		StartSoundEvent("Hydroxis.Arcana2.Basin.Channel", caster)
 	end
 end
-
 
 function flood_basin_start(event)
 	local caster = event.caster
@@ -23,16 +21,16 @@ function flood_basin_start(event)
 	end
 	ability.r_1_level = caster:GetRuneValue("r", 1)
 	local castLoops = 0
-    if caster:HasModifier("modifier_hydroxis_glyph_1_1") then
-      castLoops = 1
-    end
-    if event.alt_particle then
-    	castLoops = 0
-    end
-    ability.r_3_level = caster:GetRuneValue("r", 3)
-    for i = 0, castLoops, 1 do
-    	Timers:CreateTimer(i*2, function()
-    		local target_position = event.target_position
+	if caster:HasModifier("modifier_hydroxis_glyph_1_1") then
+		castLoops = 1
+	end
+	if event.alt_particle then
+		castLoops = 0
+	end
+	ability.r_3_level = caster:GetRuneValue("r", 3)
+	for i = 0, castLoops, 1 do
+		Timers:CreateTimer(i * 2, function()
+			local target_position = event.target_position
 			if not target_position then
 				target_position = caster:GetAbsOrigin()
 			end
@@ -52,7 +50,7 @@ function flood_basin_start(event)
 			basin_dummy:SetDayTimeVisionRange(event.radius + 100)
 			local baseDuration = 15
 			local b_d_level = caster:GetRuneValue("r", 2)
-			local basin_duration = baseDuration + b_d_level*0.25
+			local basin_duration = baseDuration + b_d_level * 0.25
 			if event.alt_particle then
 				ability:ApplyDataDrivenModifier(caster, basin_dummy, "modifier_flood_basin_aura_small", {duration = basin_duration})
 				ability:ApplyDataDrivenModifier(caster, basin_dummy, "modifier_flood_basin_enemy_aura_small", {duration = basin_duration})
@@ -62,7 +60,7 @@ function flood_basin_start(event)
 			end
 			table.insert(ability.basin_table, basin_dummy)
 			EmitSoundOnLocationWithCaster(target_position, "Hydroxis.Arcana2.BasinStart", caster)
-			StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.8})
+			StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_CAST_ABILITY_2, rate = 0.8})
 			Filters:CastSkillArguments(4, caster)
 		end)
 	end
@@ -72,9 +70,9 @@ function flood_basin_aura_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local a_d_level = ability.r_1_level
-	print("AURA START")
+	--print("AURA START")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_flood_basin_mana_regen", {})
-	caster:AddNewModifier( caster, ability, "modifier_flood_basin_lua", {} )
+	caster:AddNewModifier(caster, ability, "modifier_flood_basin_lua", {})
 	if a_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_flood_basin_a_d", {})
 		caster:SetModifierStackCount("modifier_flood_basin_a_d", caster, a_d_level)
@@ -99,7 +97,6 @@ function reindex_flood_basin(ability)
 	ability.basin_table = newBasinTable
 end
 
-
 function flood_basin_aura_end(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -113,7 +110,7 @@ end
 function slippery_tail_arcana(caster, target, e_ability)
 	local ability = caster:FindAbilityByName("hydroxis_spellbound_flood_basin")
 	if ability.basin_table and #ability.basin_table > 0 then
-		print("BASIN?")
+		--print("BASIN?")
 		local closest_basin = ability.basin_table[1]
 		for i = 1, #ability.basin_table, 1 do
 			local distance = WallPhysics:GetDistance2d(ability.basin_table[i]:GetAbsOrigin(), target)
@@ -127,15 +124,15 @@ function slippery_tail_arcana(caster, target, e_ability)
 			e_ability:StartCooldown(0.3)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_flood_basin_transport", {duration = 0.4})
 			caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
-			StartAnimation(caster, {duration=0.15, activity=ACT_DOTA_VERSUS, rate=1.1})
+			StartAnimation(caster, {duration = 0.15, activity = ACT_DOTA_VERSUS, rate = 1.1})
 			local pfx = ParticleManager:CreateParticle("particles/roshpit/hydroxis/water_bomb_water_explosion_splash_fxset.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()-Vector(0,0,200))
+			ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() - Vector(0, 0, 200))
 			Timers:CreateTimer(2, function()
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
 			for i = 1, 6, 1 do
-				Timers:CreateTimer(i*0.03, function()
-					caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,60))
+				Timers:CreateTimer(i * 0.03, function()
+					caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, 60))
 				end)
 			end
 			EmitSoundOnLocationWithCaster(target, "Hydroxis.Arcana2.Basin.Splash2", caster)
@@ -143,12 +140,12 @@ function slippery_tail_arcana(caster, target, e_ability)
 				EmitSoundOn("Hydroxis.Arcana2.Basin.Splash", caster)
 			end)
 			Timers:CreateTimer(0.2, function()
-				StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_TELEPORT_END, rate=1.5})
+				StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_TELEPORT_END, rate = 1.5})
 				target = WallPhysics:WallSearch(target, caster:GetAbsOrigin(), caster)
 				FindClearSpaceForUnit(caster, target, false)
 				Filters:CastSkillArguments(3, caster)
 				local pfx = ParticleManager:CreateParticle("particles/roshpit/hydroxis/water_bomb_water_explosion_splash_fxset.vpcf", PATTACH_CUSTOMORIGIN, caster)
-				ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()-Vector(0,0,200))
+				ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() - Vector(0, 0, 200))
 				Timers:CreateTimer(2, function()
 					ParticleManager:DestroyParticle(pfx, false)
 				end)
@@ -168,7 +165,7 @@ function flood_basin_enemy_start(event)
 	local target = event.target
 	if ability.r_3_level > 0 then
 		EmitSoundOn("Hydroxis.Arcana2.Basin.Root", target)
-		local root_duration = 1 + 0.15*ability.r_3_level
+		local root_duration = 1 + 0.15 * ability.r_3_level
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flood_basin_enemy_root", {duration = root_duration})
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flood_basin_enemy_inside_water_stacks", {})
 		target:SetModifierStackCount("modifier_flood_basin_enemy_inside_water_stacks", caster, ability.r_3_level)
@@ -201,7 +198,7 @@ function flood_root_init(event)
 	local target = event.target
 	local ability = event.ability
 	if ability.basin_table and #ability.basin_table > 0 then
-		print("BASIN?")
+		--print("BASIN?")
 		local closest_basin = ability.basin_table[1]
 		for i = 1, #ability.basin_table, 1 do
 			local distance = WallPhysics:GetDistance2d(ability.basin_table[i]:GetAbsOrigin(), target:GetAbsOrigin())
@@ -220,14 +217,14 @@ function floot_root_think(event)
 	local target = event.target
 	local ability = event.ability
 	if target.flood_basin and IsValidEntity(target.flood_basin) then
-		local fv = ((target.flood_basin:GetAbsOrigin() - target:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-		fv = WallPhysics:rotateVector(fv, 2*math.pi/6)
-		target:SetAbsOrigin(target:GetAbsOrigin()+fv*6)
+		local fv = ((target.flood_basin:GetAbsOrigin() - target:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+		fv = WallPhysics:rotateVector(fv, 2 * math.pi / 6)
+		target:SetAbsOrigin(target:GetAbsOrigin() + fv * 6)
 	end
 end
 
 function flood_root_end(event)
-	local target =event.target
+	local target = event.target
 	Timers:CreateTimer(0.03, function()
 		FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
 	end)

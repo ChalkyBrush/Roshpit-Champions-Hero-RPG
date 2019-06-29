@@ -1,80 +1,78 @@
 --[[
-
+ 
   -- A timer running every second that starts immediately on the next frame, respects pauses
   Timers:CreateTimer(function()
-      print ("Hello. I'm running immediately and then every second thereafter.")
+     --print ("Hello. I'm running immediately and then every second thereafter.")
       return 1.0
     end
   )
-
+ 
   -- A timer running every second that starts 5 seconds in the future, respects pauses
   Timers:CreateTimer(5, function()
-      print ("Hello. I'm running 5 seconds after you called me and then every second thereafter.")
+     --print ("Hello. I'm running 5 seconds after you called me and then every second thereafter.")
       return 1.0
     end
   )
-
+ 
   -- 10 second delayed, run once using gametime (respect pauses)
   Timers:CreateTimer({
     endTime = 10, -- when this timer should first execute, you can omit this if you want it to run first on the next frame
     callback = function()
-      print ("Hello. I'm running 10 seconds after when I was started.")
+     --print ("Hello. I'm running 10 seconds after when I was started.")
     end
   })
-
+ 
   -- 10 second delayed, run once regardless of pauses
   Timers:CreateTimer({
     useGameTime = false,
     endTime = 10, -- when this timer should first execute, you can omit this if you want it to run first on the next frame
     callback = function()
-      print ("Hello. I'm running 10 seconds after I was started even if someone paused the game.")
+     --print ("Hello. I'm running 10 seconds after I was started even if someone paused the game.")
     end
   })
-
-
+ 
+ 
   -- A timer running every second that starts after 2 minutes regardless of pauses
   Timers:CreateTimer("uniqueTimerString3", {
     useGameTime = false,
     endTime = 120,
     callback = function()
-      print ("Hello. I'm running after 2 minutes and then every second thereafter.")
+     --print ("Hello. I'm running after 2 minutes and then every second thereafter.")
       return 1
     end
   })
-
-
+ 
+ 
   -- A timer using the old style to repeat every second starting 5 seconds ahead
   Timers:CreateTimer("uniqueTimerString3", {
     useOldStyle = true,
     endTime = GameRules:GetGameTime() + 5,
     callback = function()
-      print ("Hello. I'm running after 5 seconds and then every second thereafter.")
+     --print ("Hello. I'm running after 5 seconds and then every second thereafter.")
       return GameRules:GetGameTime() + 1
     end
   })
-
+ 
 ]]
-
-
 
 TIMERS_THINK = 0.01
 
 if Timers == nil then
-  print ( '[Timers] creating Timers' )
+  --print ( '[Timers] creating Timers' )
   Timers = {}
   Timers.__index = Timers
 end
 
-function Timers:new( o )
+function Timers:new(o)
   o = o or {}
-  setmetatable( o, Timers )
+  setmetatable(o, Timers)
   return o
 end
 
 function Timers:start()
   Timers = self
   self.timers = {}
-  
+
   local ent = Entities:CreateByClassname("info_target") -- Entities:FindByClassname(nil, 'CWorld')
   ent:SetThink("Think", self, "timers", TIMERS_THINK)
 end
@@ -88,7 +86,7 @@ function Timers:Think()
   local now = GameRules:GetGameTime()
 
   -- Process timers
-  for k,v in pairs(Timers.timers) do
+  for k, v in pairs(Timers.timers) do
     local bUseGameTime = true
     if v.useGameTime ~= nil and v.useGameTime == false then
       bUseGameTime = false
@@ -110,7 +108,7 @@ function Timers:Think()
     if now >= v.endTime then
       -- Remove from timers list
       Timers.timers[k] = nil
-      
+
       -- Run the callback
       local status, nextCall = pcall(v.callback, GameRules:GetGameModeEntity(), v)
 
@@ -142,7 +140,7 @@ function Timers:Think()
 end
 
 function Timers:HandleEventError(name, event, err)
-  print(err)
+  --print(err)
 
   -- Ensure we have data
   name = tostring(name or 'unknown')
@@ -172,7 +170,7 @@ function Timers:CreateTimer(name, args)
     name = DoUniqueString("timer")
   end
   if not args.callback then
-    print("Invalid timer created: "..name)
+    --print("Invalid timer created: "..name)
     return
   end
 
@@ -189,7 +187,7 @@ function Timers:CreateTimer(name, args)
     args.endTime = now + args.endTime
   end
 
-  Timers.timers[name] = args 
+  Timers.timers[name] = args
 
   return name
 end
@@ -202,7 +200,7 @@ function Timers:RemoveTimers(killAll)
   local timers = {}
 
   if not killAll then
-    for k,v in pairs(Timers.timers) do
+    for k, v in pairs(Timers.timers) do
       if v.persist then
         timers[k] = v
       end
@@ -212,7 +210,7 @@ function Timers:RemoveTimers(killAll)
   Timers.timers = timers
 end
 
-function Timers:ResetTimer(newTime ,name)
+function Timers:ResetTimer(newTime, name)
   local timer = nil
   if type(newTime) == "number" then
     timer = Timers.timers[name]

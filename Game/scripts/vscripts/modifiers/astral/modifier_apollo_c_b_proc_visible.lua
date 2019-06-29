@@ -3,7 +3,7 @@ modifier_apollo_c_b_proc_visible = class({})
 function modifier_apollo_c_b_proc_visible:DeclareFunctions()
 	local funcs = {
 
-}
+	}
 	return funcs
 end
 

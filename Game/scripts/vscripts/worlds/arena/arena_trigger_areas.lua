@@ -15,12 +15,12 @@ function LobbyTrigger(trigger)
 	end
 	if not Arena.EntranceVision then
 		Timers:CreateTimer(0.5, function()
-			AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-2670,-2445,420), 4050, 99999, false)
+			AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-2670, -2445, 420), 4050, 99999, false)
 		end)
 		Arena.EntranceVision = true
 		Timers:CreateTimer(26, function()
 			if not Arena.ChampionsLeague.battlePrep then
-				local randomSound = RandomInt(1,2)
+				local randomSound = RandomInt(1, 2)
 				EmitSoundOnLocationWithCaster(Vector(-2670, -2445), "Arena.Cheer"..randomSound, Events.GameMaster)
 				Arena:AnimateCheers()
 				return RandomInt(15, 26)
@@ -71,13 +71,13 @@ function DonationsBoard(trigger)
 	-- url = url.."&hero_slot="..saveSlot
 	-- url = url.."&equip_slot="..itemSlot
 	-- url = url.."&cost="..cost
-	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		local resultTable = {}
-		print( "GET response:\n" )
-		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+		--print( "GET response:\n" )
+		for k, v in pairs(result) do
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		if result.StatusCode == 200 then
 			local resultTable = JSON:decode(result.Body)
 			-- local newTable = {}
@@ -86,12 +86,12 @@ function DonationsBoard(trigger)
 			local size = #resultTable
 			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "donations_loaded", {resultTable = resultTable, resultSize = size})
 		end
-	end )		
+	end)
 end
 
 function LeftLeaderboardExit(trigger)
 	local hero = trigger.activator
-	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})	
+	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})
 end
 
 function BehindCounter1(trigger)
@@ -103,15 +103,15 @@ function BehindCounter1(trigger)
 	if deskGirl.dontMove then
 		return
 	end
-	StartAnimation(deskGirl, {duration=1.7, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.6})
-	EmitSoundOn("Arena.ChampionsAttendantSign", deskGirl) 
+	StartAnimation(deskGirl, {duration = 1.7, activity = ACT_DOTA_CAST_ABILITY_2, rate = 0.6})
+	EmitSoundOn("Arena.ChampionsAttendantSign", deskGirl)
 	basic_dialogue(deskGirl, {activator}, "arena_behind_counter_1", 6, 5, -30, true)
-	local fv = ((activator:GetAbsOrigin()-deskGirl:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	local fv = ((activator:GetAbsOrigin() - deskGirl:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	deskGirl:SetForwardVector(fv)
 	deskGirl.dontMove = true
 	Timers:CreateTimer(4.5, function()
 		deskGirl.dontMove = false
-		deskGirl:SetForwardVector(Vector(0,-1))
+		deskGirl:SetForwardVector(Vector(0, -1))
 	end)
 end
 
@@ -124,15 +124,15 @@ function BehindCounter2(trigger)
 	if deskGirl.dontMove then
 		return
 	end
-	StartAnimation(deskGirl, {duration=1.7, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.6})
-	-- EmitSoundOn("Arena.ChampionsAttendantSign", deskGirl) 
+	StartAnimation(deskGirl, {duration = 1.7, activity = ACT_DOTA_CAST_ABILITY_2, rate = 0.6})
+	-- EmitSoundOn("Arena.ChampionsAttendantSign", deskGirl)
 	basic_dialogue(deskGirl, {activator}, "arena_behind_counter_2", 6, 5, -30, true)
-	local fv = ((activator:GetAbsOrigin()-deskGirl:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	local fv = ((activator:GetAbsOrigin() - deskGirl:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	deskGirl:SetForwardVector(fv)
 	deskGirl.dontMove = true
 	Timers:CreateTimer(4.5, function()
 		deskGirl.dontMove = false
-		deskGirl:SetForwardVector(Vector(0,-1))
+		deskGirl:SetForwardVector(Vector(0, -1))
 	end)
 end
 
@@ -145,15 +145,15 @@ function BehindCounter3(trigger)
 	if deskGirl.dontMove then
 		return
 	end
-	StartAnimation(deskGirl, {duration=1.7, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.6})
-	-- EmitSoundOn("Arena.ChampionsAttendantSign", deskGirl) 
+	StartAnimation(deskGirl, {duration = 1.7, activity = ACT_DOTA_CAST_ABILITY_5, rate = 0.6})
+	-- EmitSoundOn("Arena.ChampionsAttendantSign", deskGirl)
 	basic_dialogue(deskGirl, {activator}, "arena_behind_counter_3", 6, 5, -30, true)
-	local fv = ((activator:GetAbsOrigin()-deskGirl:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	local fv = ((activator:GetAbsOrigin() - deskGirl:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	deskGirl:SetForwardVector(fv)
 	deskGirl.dontMove = true
 	Timers:CreateTimer(4.5, function()
 		deskGirl.dontMove = false
-		deskGirl:SetForwardVector(Vector(0,-1))
+		deskGirl:SetForwardVector(Vector(0, -1))
 	end)
 end
 
@@ -168,11 +168,11 @@ function LeagueAttendant(trigger)
 		local messageText = "arena_league_attendant_player_restriction"
 		local bDialogue = 0
 		local bAltCondition = 0
-		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_npc_dialogue", {portraitHero=portraitHero, headerText=headerText, messageText = messageText, bDialogue = bDialogue, bAltCondition = bAltCondition})
+		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_npc_dialogue", {portraitHero = portraitHero, headerText = headerText, messageText = messageText, bDialogue = bDialogue, bAltCondition = bAltCondition})
 		return false
 	end
 	if not Arena.ChampionsLeague.state then
-		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "champions_league_attendant", {numPlayers=Arena.NumPlayers, leagueData=Arena.ChampionsLeague})	
+		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "champions_league_attendant", {numPlayers = Arena.NumPlayers, leagueData = Arena.ChampionsLeague})
 		basic_dialogue(Arena.ChampionsLeagueAttendant, {hero}, "arena_league_attendant_greeting", 6, 5, -30)
 	elseif Arena.ChampionsLeague.state == 0 then
 		basic_dialogue(Arena.ChampionsLeagueAttendant, {hero}, "arena_league_attendant_waiting_for_coach", 6, 5, -30)
@@ -181,32 +181,32 @@ end
 
 function LeagueAttendantLeave(trigger)
 	local hero = trigger.activator
-	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})	
+	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})
 end
 
 function Sign1(trigger)
 	local hero = trigger.activator
-	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_view_sign", {sign="sign_hall_of_champions"})	
+	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_view_sign", {sign = "sign_hall_of_champions"})
 end
 
 function Sign2(trigger)
 	local hero = trigger.activator
-	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_view_sign", {sign="sign_aquatarium"})
+	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_view_sign", {sign = "sign_aquatarium"})
 end
 
 function Sign3(trigger)
 	local hero = trigger.activator
-	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_view_sign", {sign="sign_minor_locker_room"})
+	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_view_sign", {sign = "sign_minor_locker_room"})
 end
 
 function Sign4(trigger)
 	local hero = trigger.activator
-	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_view_sign", {sign="sign_major_locker_room"})
+	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_view_sign", {sign = "sign_major_locker_room"})
 end
 
 function Sign5(trigger)
 	local hero = trigger.activator
-	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_view_sign", {sign="sign_allstar"})
+	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_view_sign", {sign = "sign_allstar"})
 end
 
 function PVPAttendant(trigger)
@@ -219,7 +219,7 @@ function PVPAttendant(trigger)
 	local messageText = "pvp_league_attendant_message"
 	local bDialogue = 0
 	local bAltCondition = 0
-	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_npc_dialogue", {portraitHero=portraitHero, headerText=headerText, messageText = messageText, bDialogue = bDialogue, bAltCondition = bAltCondition})	
+	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_npc_dialogue", {portraitHero = portraitHero, headerText = headerText, messageText = messageText, bDialogue = bDialogue, bAltCondition = bAltCondition})
 	basic_dialogue(Arena.PVPAttendant, {hero}, "pvp_league_attendant_greeting", 6, 5, -30)
 end
 
@@ -233,7 +233,7 @@ function ChallengerAttendant(trigger)
 	local messageText = "challenger_league_attendant_message"
 	local bDialogue = 0
 	local bAltCondition = 0
-	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_npc_dialogue", {portraitHero=portraitHero, headerText=headerText, messageText = messageText, bDialogue = bDialogue, bAltCondition = bAltCondition})	
+	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_npc_dialogue", {portraitHero = portraitHero, headerText = headerText, messageText = messageText, bDialogue = bDialogue, bAltCondition = bAltCondition})
 	basic_dialogue(Arena.ChallengerAttendant, {hero}, "challenger_league_attendant_greeting", 6, 5, -30)
 end
 
@@ -260,16 +260,16 @@ function ArenaWaterMage(trigger)
 		bAltCondition = true
 		bDialogue = 0
 		messageText = "aquatarium_greeting_alt"
-		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_npc_dialogue", {portraitHero=portraitHero, headerText=headerText, messageText = messageText, bDialogue = bDialogue, bAltCondition = bAltCondition})	
+		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_npc_dialogue", {portraitHero = portraitHero, headerText = headerText, messageText = messageText, bDialogue = bDialogue, bAltCondition = bAltCondition})
 	else
-		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_npc_dialogue", {portraitHero=portraitHero, headerText=headerText, messageText = messageText, bDialogue = bDialogue, subLabel = subLabel, labelCost = labelCost, bAltCondition = bAltCondition, bAltmessage = altMessage, intattr = intattr, option1=option1, option2=option2})	
+		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_npc_dialogue", {portraitHero = portraitHero, headerText = headerText, messageText = messageText, bDialogue = bDialogue, subLabel = subLabel, labelCost = labelCost, bAltCondition = bAltCondition, bAltmessage = altMessage, intattr = intattr, option1 = option1, option2 = option2})
 		basic_dialogue(Arena.WaterMagician, {hero}, "aquatarium_greeting_bubble", 6, 5, -30)
 	end
 end
 
 function ArenaWaterMageExit(trigger)
 	local hero = trigger.activator
-	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})	
+	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})
 end
 
 function TerminalNewbie(trigger)
@@ -286,7 +286,7 @@ function TerminalNewbie(trigger)
 			Arena.Coach:MoveToPosition(Vector(-9884, -1024))
 			Timers:CreateTimer(0.5, function()
 				Timers:CreateTimer(0.5, function()
-					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})	
+					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})
 				end)
 				basic_dialogue(Arena.Coach, {hero}, "#champion_assistant_dialogue_10", 7, 5, -80)
 				Timers:CreateTimer(7, function()
@@ -307,58 +307,58 @@ function TerminalNewbie(trigger)
 		return false
 	end
 	if hero.ChampionsLeague then
-		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_terminal", {ChampionsLeague=hero.ChampionsLeague, heroName=hero:GetUnitName(), ArenaChampions=Arena.ChampionsLeague})
+		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "arena_terminal", {ChampionsLeague = hero.ChampionsLeague, heroName = hero:GetUnitName(), ArenaChampions = Arena.ChampionsLeague})
 	end
-
 	
+
 end
 
 function NewbieLoungeEnter(trigger)
 	local hero = trigger.activator
-	print("enterLounge")
+	--print("enterLounge")
 	if not hero.ChampionsLeague then
-		local angryGuard = Arena.NewbieGuardTable[RandomInt(1,#Arena.NewbieGuardTable)]
+		local angryGuard = Arena.NewbieGuardTable[RandomInt(1, #Arena.NewbieGuardTable)]
 		local guardAbility = angryGuard:FindAbilityByName("arena_guard_ability")
 		guardAbility:ApplyDataDrivenModifier(angryGuard, hero, "modifier_arena_guard_lock", {})
-		local fv = ((hero:GetAbsOrigin()-angryGuard:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		local fv = ((hero:GetAbsOrigin() - angryGuard:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 		angryGuard:SetForwardVector(fv)
-		angryGuard.pushToPosition = Vector(-7936, -2496)+Vector(0,0,GetGroundHeight(Vector(-7936, -2496), angryGuard))
+		angryGuard.pushToPosition = Vector(-7936, -2496) + Vector(0, 0, GetGroundHeight(Vector(-7936, -2496), angryGuard))
 		Timers:CreateTimer(2.5, function()
 			guardAbility:ApplyDataDrivenModifier(angryGuard, hero, "modifier_arena_guard_moving", {})
 		end)
-	end	
+	end
 end
 
 function MajorLoungeEnter(trigger)
 	local hero = trigger.activator
-	print("enterLounge")
+	--print("enterLounge")
 	if not hero.ChampionsLeague or hero.ChampionsLeague.rank > 10 then
-		local angryGuard = Arena.MajorGuardTable[RandomInt(1,#Arena.MajorGuardTable)]
+		local angryGuard = Arena.MajorGuardTable[RandomInt(1, #Arena.MajorGuardTable)]
 		local guardAbility = angryGuard:FindAbilityByName("arena_guard_ability")
 		guardAbility:ApplyDataDrivenModifier(angryGuard, hero, "modifier_arena_guard_lock", {})
-		local fv = ((hero:GetAbsOrigin()-angryGuard:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		local fv = ((hero:GetAbsOrigin() - angryGuard:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 		angryGuard:SetForwardVector(fv)
-		angryGuard.pushToPosition = Vector(-7040, 3328)+Vector(0,0,GetGroundHeight(Vector(-7040, 3328), angryGuard))
+		angryGuard.pushToPosition = Vector(-7040, 3328) + Vector(0, 0, GetGroundHeight(Vector(-7040, 3328), angryGuard))
 		Timers:CreateTimer(2.5, function()
 			guardAbility:ApplyDataDrivenModifier(angryGuard, hero, "modifier_arena_guard_moving", {})
 		end)
-	end	
+	end
 end
 
 function AllStarLoungeEnter(trigger)
 	local hero = trigger.activator
-	print("enterLounge")
+	--print("enterLounge")
 	if not hero.ChampionsLeague or hero.ChampionsLeague.rank > 10 then
-		local angryGuard = Arena.AllstarGuardTable[RandomInt(1,#Arena.AllstarGuardTable)]
+		local angryGuard = Arena.AllstarGuardTable[RandomInt(1, #Arena.AllstarGuardTable)]
 		local guardAbility = angryGuard:FindAbilityByName("arena_guard_ability")
 		guardAbility:ApplyDataDrivenModifier(angryGuard, hero, "modifier_arena_guard_lock", {})
-		local fv = ((hero:GetAbsOrigin()-angryGuard:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		local fv = ((hero:GetAbsOrigin() - angryGuard:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 		angryGuard:SetForwardVector(fv)
-		angryGuard.pushToPosition = Vector(-2688, 3712)+Vector(0,0,GetGroundHeight(Vector(-2688, 3712), angryGuard))
+		angryGuard.pushToPosition = Vector(-2688, 3712) + Vector(0, 0, GetGroundHeight(Vector(-2688, 3712), angryGuard))
 		Timers:CreateTimer(2.5, function()
 			guardAbility:ApplyDataDrivenModifier(angryGuard, hero, "modifier_arena_guard_moving", {})
 		end)
-	end	
+	end
 end
 
 function ArenaBattleStartArea(trigger)
@@ -392,16 +392,16 @@ function use_prizebox(event)
 		if item.newItemTable.property4name == "arcane_crystals" then
 			dropArcaneCrystalsPrizeBox(caster:GetAbsOrigin(), item.newItemTable.property4)
 		elseif item.newItemTable.property4name == "champions_gear" then
-			local luck = RandomInt(1,4)
+			local luck = RandomInt(1, 4)
 			if luck == 1 then
-	        	RPCItems:RollChampionsGearHelm(caster:GetAbsOrigin())
-	        elseif luck == 2 then
-	        	RPCItems:RollChampionsGearGauntlet(caster:GetAbsOrigin())
-	        elseif luck == 3 then
-	        	RPCItems:RollChampionsGearMail(caster:GetAbsOrigin())
-	        elseif luck == 4 then
-	        	RPCItems:RollChampionsGearBoots(caster:GetAbsOrigin())		
-	        end	
+				RPCItems:RollChampionsGearHelm(caster:GetAbsOrigin())
+			elseif luck == 2 then
+				RPCItems:RollChampionsGearGauntlet(caster:GetAbsOrigin())
+			elseif luck == 3 then
+				RPCItems:RollChampionsGearMail(caster:GetAbsOrigin())
+			elseif luck == 4 then
+				RPCItems:RollChampionsGearBoots(caster:GetAbsOrigin())
+			end
 		else
 			for i = 1, item.newItemTable.property4, 1 do
 				rollArenaPrizeItem(caster:GetAbsOrigin(), item.newItemTable.property4name)
@@ -431,40 +431,40 @@ end
 
 function dropArcaneCrystalsPrizeBox(position, crystalQuantity)
 	local connectedPlayerCount = RPCItems:GetConnectedPlayerCount()
-	local crystalsPerPlayer = math.floor(crystalQuantity/connectedPlayerCount)
+	local crystalsPerPlayer = math.floor(crystalQuantity / connectedPlayerCount)
 	Glyphs.glyphDropIndex = Glyphs.glyphDropIndex + 1
 	for i = 1, #MAIN_HERO_TABLE, 1 do
 		MAIN_HERO_TABLE[i].maxCrystals = MAIN_HERO_TABLE[i].maxCrystals + crystalsPerPlayer
 	end
-	local greatestCrystalQuantity = math.max((crystalQuantity-80)/20,0)
-	crystalQuantity = crystalQuantity - greatestCrystalQuantity*20
-	local greatCrystalQuantity = math.max((crystalQuantity-30)/10,0)
-	crystalQuantity = crystalQuantity - greatCrystalQuantity*10
-	local largeCrystalQuantity = math.max((crystalQuantity-5)/5,0)
-	crystalQuantity = crystalQuantity - largeCrystalQuantity*5
+	local greatestCrystalQuantity = math.max((crystalQuantity - 80) / 20, 0)
+	crystalQuantity = crystalQuantity - greatestCrystalQuantity * 20
+	local greatCrystalQuantity = math.max((crystalQuantity - 30) / 10, 0)
+	crystalQuantity = crystalQuantity - greatCrystalQuantity * 10
+	local largeCrystalQuantity = math.max((crystalQuantity - 5) / 5, 0)
+	crystalQuantity = crystalQuantity - largeCrystalQuantity * 5
 	local smallCrystalQuantity = crystalQuantity
 	for i = 1, largeCrystalQuantity, 1 do
-		Timers:CreateTimer(0.12*i, function()
+		Timers:CreateTimer(0.12 * i, function()
 			Glyphs:CreateIndividualCrystal(position, 5)
 		end)
 	end
 	Timers:CreateTimer(0.53, function()
 		for i = 1, greatCrystalQuantity, 1 do
-			Timers:CreateTimer(0.12*i, function()
+			Timers:CreateTimer(0.12 * i, function()
 				Glyphs:CreateIndividualCrystal(position, 10)
 			end)
 		end
 	end)
 	Timers:CreateTimer(2.03, function()
 		for i = 1, greatestCrystalQuantity, 1 do
-			Timers:CreateTimer(0.12*i, function()
+			Timers:CreateTimer(0.12 * i, function()
 				Glyphs:CreateIndividualCrystal(position, 20)
 			end)
 		end
 	end)
 	Timers:CreateTimer(1.06, function()
 		for i = 1, smallCrystalQuantity, 1 do
-			Timers:CreateTimer(0.12*i, function()
+			Timers:CreateTimer(0.12 * i, function()
 				Glyphs:CreateIndividualCrystal(position, 1)
 			end)
 		end

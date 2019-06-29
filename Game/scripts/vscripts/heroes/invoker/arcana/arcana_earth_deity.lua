@@ -4,51 +4,51 @@ LinkLuaModifier("modifier_conjuror_grand_earth_guardian_target_lua", "modifiers/
 function earth_deity(event)
 	local caster = event.caster
 	local ability = event.ability
-	local summonPosition = caster:GetAbsOrigin() + caster:GetForwardVector()*340
+	local summonPosition = caster:GetAbsOrigin() + caster:GetForwardVector() * 340
 	caster.earthAspect = CreateUnitByName("earth_deity", summonPosition, true, caster, caster, caster:GetTeamNumber())
 	ability:ApplyDataDrivenModifier(caster, caster.earthAspect, "modifier_aspect_invulnerable", {duration = 1})
 	caster.earthAspect.conjuror = caster
 	caster.earthAspect.owner = caster:GetPlayerOwnerID()
 	caster.earthAspect:SetOwner(caster)
-    caster.earthAspect:SetControllableByPlayer(caster:GetPlayerID(), true)
+	caster.earthAspect:SetControllableByPlayer(caster:GetPlayerID(), true)
 	local aspectAbility = caster.earthAspect:FindAbilityByName("aspect_abilities")
 	aspectAbility:SetLevel(1)
 	if caster.bIsAIonEARTH == true or caster.bIsAIonEARTH == nil then
 		aspectAbility:ToggleAbility()
-    end
+	end
 	caster.earthAspect:FindAbilityByName("earth_deity_grand_guardian"):SetLevel(ability:GetLevel())
 	caster.earthAspect.aspect = true
 	caster.earthAspect.earthDeity = true
 	-- aspectAbility:ApplyDataDrivenModifier(caster.earthAspect, caster.earthAspect, "modifier_aspect_main", {})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_earth_guardian", {})
-    local earthParticle = "particles/units/heroes/hero_earth_spirit/espirit_bouldersmash_caster.vpcf"
-	local pfx = ParticleManager:CreateParticle( earthParticle, PATTACH_CUSTOMORIGIN, caster.earthAspect )
-	ParticleManager:SetParticleControl( pfx, 0, summonPosition )
-	ParticleManager:SetParticleControl( pfx, 1, summonPosition )
-	ParticleManager:SetParticleControl( pfx, 2, summonPosition )
-	ParticleManager:SetParticleControl( pfx, 3, summonPosition )
+	local earthParticle = "particles/units/heroes/hero_earth_spirit/espirit_bouldersmash_caster.vpcf"
+	local pfx = ParticleManager:CreateParticle(earthParticle, PATTACH_CUSTOMORIGIN, caster.earthAspect)
+	ParticleManager:SetParticleControl(pfx, 0, summonPosition)
+	ParticleManager:SetParticleControl(pfx, 1, summonPosition)
+	ParticleManager:SetParticleControl(pfx, 2, summonPosition)
+	ParticleManager:SetParticleControl(pfx, 3, summonPosition)
 	Timers:CreateTimer(3, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/conjuror/earth_shock.vpcf", caster.earthAspect:GetAbsOrigin(), 3)
 	EmitSoundOn("Hero_EarthSpirit.RollingBoulder.Destroy", caster.earthAspect)
-  	local earthquake = caster:FindAbilityByName("arcana_earth_shock")
-  	if not earthquake then
-  		earthquake = caster:AddAbility("arcana_earth_shock")
-  		earthquake:SetAbilityIndex(0)
-  	end
-  	earthquake:SetLevel(ability:GetLevel())
-  	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
-  		caster.earthAspect:AddAbility("fire_temple_steadfast"):SetLevel(1)
-  	end
+	local earthquake = caster:FindAbilityByName("arcana_earth_shock")
+	if not earthquake then
+		earthquake = caster:AddAbility("arcana_earth_shock")
+		earthquake:SetAbilityIndex(0)
+	end
+	earthquake:SetLevel(ability:GetLevel())
+	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
+		caster.earthAspect:AddAbility("fire_temple_steadfast"):SetLevel(1)
+	end
 	caster:SwapAbilities("summon_earth_deity", "arcana_earth_shock", false, true)
 	ability:ApplyDataDrivenModifier(caster, caster.earthAspect, "modifier_earth_aspect_health", {})
 	local aspectHealth = event.aspect_health
 	if caster.aspectHealthAbility then
-		aspectHealth = aspectHealth + caster:GetModifierStackCount( "modifier_weapon_aspect_health", caster.aspectHealthAbility )
+		aspectHealth = aspectHealth + caster:GetModifierStackCount("modifier_weapon_aspect_health", caster.aspectHealthAbility)
 	end
 	if caster:HasModifier("modifier_conjuror_glyph_2_1") then
-		aspectHealth = aspectHealth*1.8
+		aspectHealth = aspectHealth * 1.8
 	end
 	-- local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "conjuror")
 	-- aspectHealth = aspectHealth*(1+q_1_level*0.05)
@@ -60,7 +60,7 @@ function earth_deity(event)
 		caster.earthAspect:SetBaseMaxHealth(aspectHealth)
 		caster.earthAspect:SetHealth(aspectHealth)
 		caster.earthAspect:Heal(aspectHealth, caster.earthAspect)
-		StartAnimation(caster.earthAspect, {duration=2.05, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.8})
+		StartAnimation(caster.earthAspect, {duration = 2.05, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1.8})
 		common_aspect_effects(caster, ability, caster.earthAspect)
 	end)
 	glyph_5_a(caster, ability, caster.earthAspect)
@@ -69,7 +69,7 @@ function earth_deity(event)
 		local sandstormLevel = ability:GetLevel()
 		caster.earthAspect:AddAbility("earth_deity_sandstorm"):SetLevel(sandstormLevel)
 	end
-	Events:ColorWearablesAndBase(caster.earthAspect, Vector(200,255,120))
+	Events:ColorWearablesAndBase(caster.earthAspect, Vector(200, 255, 120))
 end
 
 function earth_deity_sandstorm_start(event)
@@ -83,7 +83,7 @@ function earth_deity_sandstorm_start(event)
 	ability.radius = ability.q_1_level * CONJUROR_ARCANA_Q1_RADIUS_SCALE + CONJUROR_ARCANA_Q1_RADIUS_BASE
 	ability.sandPFX = ParticleManager:CreateParticle(particle_name, PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(ability.sandPFX, 0, caster:GetAbsOrigin())
-	ParticleManager:SetParticleControl(ability.sandPFX, 1, Vector(ability.radius,ability.radius,ability.radius))
+	ParticleManager:SetParticleControl(ability.sandPFX, 1, Vector(ability.radius, ability.radius, ability.radius))
 	EmitSoundOn("Conjuror.EarthDeity.SandstormStart", caster)
 	StartSoundEvent("Conjuror.EarthDeity.SandstormLP", caster)
 	ability.interval = 0
@@ -107,7 +107,7 @@ function earth_deity_sandstorm_thinking(event)
 	local origCaster = caster.conjuror
 	local ability = event.ability
 	local damage_mult = event.damage_mult
-	local damage = caster:GetMaxHealth()*(CONJUROR_ARCANA_Q1_DMG_PERCENT_MAX_HEALTH/100)*ability.q_1_level
+	local damage = caster:GetMaxHealth() * (CONJUROR_ARCANA_Q1_DMG_PERCENT_MAX_HEALTH / 100) * ability.q_1_level
 	local manaCost = 3
 	if caster:GetMana() < manaCost then
 		ability:ToggleAbility()
@@ -117,25 +117,25 @@ function earth_deity_sandstorm_thinking(event)
 	if ability.sandPFX then
 		ParticleManager:SetParticleControl(ability.sandPFX, 0, caster:GetAbsOrigin())
 	end
-	if ability.interval%9 == 0 then
+	if ability.interval % 9 == 0 then
 		if not caster:HasModifier("modifier_deity_grand_guardian") then
-			StartAnimation(caster, {duration=2.05, activity=ACT_DOTA_CAST_ABILITY_3, rate=0.9})
+			StartAnimation(caster, {duration = 2.05, activity = ACT_DOTA_CAST_ABILITY_3, rate = 0.9})
 		end
 	end
 	ability.interval = ability.interval + 1
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ability.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ability.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
-		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, origCaster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+		for _, enemy in pairs(enemies) do
+			Filters:TakeArgumentsAndApplyDamage(enemy, origCaster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
 		end
-	end	
+	end
 end
 
 function earthshock_precast(event)
 	local caster = event.caster
 	if caster.earthAspect then
 		if not caster:HasModifier("modifier_sandstorm_on") then
-			StartAnimation(caster.earthAspect, {duration=1, activity=ACT_DOTA_CAST_ABILITY_2, rate=2.3})
+			StartAnimation(caster.earthAspect, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_2, rate = 2.3})
 		end
 	end
 end
@@ -145,14 +145,14 @@ function earthshock_cast(event)
 	local ability = event.ability
 	local point = event.target_points[1]
 	local radius = event.radius
-	
+
 	local duration = 3.0
-    if caster:HasModifier("modifier_conjuror_glyph_5_1") then
-    	duration = duration + 1.5
-    	radius = radius + 80
-    end
-    duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
-    local damage = event.damage
+	if caster:HasModifier("modifier_conjuror_glyph_5_1") then
+		duration = duration + 1.5
+		radius = radius + 80
+	end
+	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
+	local damage = event.damage
 	if not caster:HasModifier("modifier_free_quake") then
 		if not caster:HasModifier("modifier_grand_guardian_in_deity") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_free_quake", {duration = duration})
@@ -178,17 +178,17 @@ function fire_earth_shock(position, caster, radius, ability, damage, slow_durati
 	end
 	local q_3_level = caster:GetRuneValue("q", 3)
 	if q_3_level > 0 then
-		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*(CONJUROR_ARCANA_Q3_ATTACK_DMG_TO_EARTH_SHOCK_PCT/100)*q_3_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * (CONJUROR_ARCANA_Q3_ATTACK_DMG_TO_EARTH_SHOCK_PCT / 100) * q_3_level
 	end
 	local q_4_level = caster:GetRuneValue("q", 4)
 	CustomAbilities:QuickParticleAtPoint(particleName, position, 3)
 	EmitSoundOnLocationWithCaster(position, "Conjuror.EarthShockOverlay", caster)
 	EmitSoundOnLocationWithCaster(position, "Conjuror.EarthShock", caster)
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local damageReduceDuration = 10
 	if #enemies > 0 then
-		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_EARTH, RPC_ELEMENT_LIGHTNING)
+		for _, enemy in pairs(enemies) do
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_EARTH, RPC_ELEMENT_LIGHTNING)
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_earth_shock_slow", {duration = 0.9})
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_earth_shock_attack_reduce", {duration = damageReduceDuration})
 			if q_4_level > 0 then
@@ -196,7 +196,7 @@ function fire_earth_shock(position, caster, radius, ability, damage, slow_durati
 				enemy:SetModifierStackCount("modifier_earthshock_damage_reduce", caster, q_4_level)
 			end
 		end
-	end	
+	end
 end
 
 function earth_deity_grand_guardian(event)
@@ -218,14 +218,14 @@ function earth_deity_grand_guardian(event)
 			end
 		end
 	end
-	local fv = ((target:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	local fv = ((target:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	EmitSoundOn("Conjuror.GrandGuardianStart", caster)
 	local particle_name = "particles/units/heroes/hero_earth_spirit/espirit_rollingboulder.vpcf"
 	local pfx = ParticleManager:CreateParticle(particle_name, PATTACH_OVERHEAD_FOLLOW, target)
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), false)
-	ParticleManager:SetParticleControl(pfx, 10, Vector(2,2,2))
+	ParticleManager:SetParticleControl(pfx, 10, Vector(2, 2, 2))
 	ability.pfx = pfx
-	StartAnimation(caster, {duration=1.05, activity=ACT_DOTA_CAST_ABILITY_3, rate=0.8})
+	StartAnimation(caster, {duration = 1.05, activity = ACT_DOTA_CAST_ABILITY_3, rate = 0.8})
 	ability.target = target
 	ability:ApplyDataDrivenModifier(caster, ability.target, "modifier_deity_guardian_taxi_effect", {duration = 6})
 	Timers:CreateTimer(0.3, function()
@@ -250,13 +250,13 @@ function earth_deity_main_thinker(event)
 	local target = ability.target
 	if ability.phase == 0 then
 		if caster:IsAlive() then
-			local move_direction = ((caster:GetAbsOrigin()+Vector(0,0,240))-target:GetAbsOrigin()):Normalized()
-			target:SetAbsOrigin(target:GetAbsOrigin() + move_direction*80)
-			local distance = WallPhysics:GetDistance(target:GetAbsOrigin(), caster:GetAbsOrigin()+Vector(0,0,240))
+			local move_direction = ((caster:GetAbsOrigin() + Vector(0, 0, 240)) - target:GetAbsOrigin()):Normalized()
+			target:SetAbsOrigin(target:GetAbsOrigin() + move_direction * 80)
+			local distance = WallPhysics:GetDistance(target:GetAbsOrigin(), caster:GetAbsOrigin() + Vector(0, 0, 240))
 			if distance < 90 then
 				target:SetAbsOrigin(target:GetAbsOrigin())
 				ability.phase = 1
-				target:RemoveModifierByName("modifier_deity_guardian_taxi_effect")		
+				target:RemoveModifierByName("modifier_deity_guardian_taxi_effect")
 				if ability.pfx then
 					ParticleManager:DestroyParticle(ability.pfx, false)
 					ability.pfx = false
@@ -284,9 +284,9 @@ function earth_deity_main_thinker(event)
 		end
 	elseif ability.phase == 1 then
 		if not target:HasModifier("modifier_deity_guardian_taxi_bowling") then
-			local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), caster:GetAbsOrigin()+Vector(0,0,240))
+			local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), caster:GetAbsOrigin() + Vector(0, 0, 240))
 			if distance > 120 then
-				target:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,240))
+				target:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 240))
 			end
 		end
 	end
@@ -340,16 +340,16 @@ function earth_deity_bowl(event)
 	caster:RemoveModifierByName("modifier_deity_grand_guardian")
 	ability.point = point
 	ability.phase = 2
-	local fv = ((point - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	local fv = ((point - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	caster:SetForwardVector(fv)
 	local particle_name = "particles/units/heroes/hero_earth_spirit/espirit_rollingboulder.vpcf"
 	local pfx = ParticleManager:CreateParticle(particle_name, PATTACH_OVERHEAD_FOLLOW, target)
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), false)
-	ParticleManager:SetParticleControl(pfx, 10, Vector(2,2,2))
+	ParticleManager:SetParticleControl(pfx, 10, Vector(2, 2, 2))
 	ability.pfx = pfx
-	StartAnimation(caster, {duration=1.55, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.2})
-	local perpVector = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi/4)
-	target:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin()+perpVector*220+caster:GetForwardVector()*120, target))
+	StartAnimation(caster, {duration = 1.55, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1.2})
+	local perpVector = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi / 4)
+	target:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin() + perpVector * 220 + caster:GetForwardVector() * 120, target))
 	EmitSoundOn("Conjuror.RollingBoulderStart", target)
 	StartSoundEvent("Conjuror.RollingBoulderLP", target)
 	Timers:CreateTimer(0.6, function()
@@ -362,9 +362,9 @@ function bowling_think(event)
 	local target = event.target
 	local ability = event.ability
 	local point = ability.point
-	local move_direction = (point-target:GetAbsOrigin()):Normalized()
+	local move_direction = (point - target:GetAbsOrigin()):Normalized()
 
-	local newPosition = target:GetAbsOrigin() + move_direction*80
+	local newPosition = target:GetAbsOrigin() + move_direction * 80
 	local obstruction = WallPhysics:FindNearestObstruction(newPosition)
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, target)
 	if not blockUnit then

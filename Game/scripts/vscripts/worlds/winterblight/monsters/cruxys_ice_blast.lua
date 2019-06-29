@@ -2,12 +2,11 @@ ice_blast_target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
 ice_blast_target_type = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
 ice_blast_target_flag = DOTA_UNIT_TARGET_FLAG_NONE
 
-
-function cruxal_ice_blast_launch( keys )
-	local caster = keys.caster	
+function cruxal_ice_blast_launch(keys)
+	local caster = keys.caster
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
-	print("GREETER")
+	--print("GREETER")
 	local main_ability_name = keys.main_ability_name
 	local sub_ability_name = keys.sub_ability_name
 
@@ -15,12 +14,12 @@ function cruxal_ice_blast_launch( keys )
 	local target_point = keys.target_points[1]
 	local direction = (target_point - caster_location):Normalized()
 	caster.ice_blast_ability = ability
-	StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.3})
+	StartAnimation(caster, {duration = 1.5, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.3})
 	-- Tracer
 	local radius_min = ability:GetLevelSpecialValueFor("radius_min", ability_level)
 	local radius_grow = ability:GetLevelSpecialValueFor("radius_grow", ability_level)
 	local radius_max = ability:GetLevelSpecialValueFor("radius_max", ability_level)
-	local speed = ability:GetLevelSpecialValueFor("speed", ability_level) * 1/30
+	local speed = ability:GetLevelSpecialValueFor("speed", ability_level) * 1 / 30
 	local target_sight_radius = ability:GetLevelSpecialValueFor("target_sight_radius", ability_level)
 
 	local tracer_modifier = keys.tracer_modifier
@@ -34,11 +33,10 @@ function cruxal_ice_blast_launch( keys )
 	local travel_vision_duration = ability:GetLevelSpecialValueFor("travel_vision_duration", ability_level)
 	local area_vision = ability:GetLevelSpecialValueFor("area_vision", ability_level)
 	local area_vision_duration = ability:GetLevelSpecialValueFor("area_vision_duration", ability_level)
-	
+
 	local projectile_particle = keys.projectile_particle
 
 	-- Ability swap
-
 
 	-- Tracer dummy
 	ability.ice_blast_tracer = CreateUnitByName("npc_dummy_unit", caster_location, false, caster, caster, caster:GetTeam())
@@ -57,37 +55,37 @@ function cruxal_ice_blast_launch( keys )
 	-- If its not within the map boundaries then it kills the dummy and reverts the abilities
 	if caster.ice_blast_target then
 		local distance = WallPhysics:GetDistance2d(caster.ice_blast_target, caster:GetAbsOrigin())
-		local delay = distance/900
+		local delay = distance / 900
 		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_initial.vpcf", PATTACH_CUSTOMORIGIN, nil)
-		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,80))
-		ParticleManager:SetParticleControl(pfx, 1, direction*speed*30)
+		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + Vector(0, 0, 80))
+		ParticleManager:SetParticleControl(pfx, 1, direction * speed * 30)
 		Timers:CreateTimer(delay, function()
 			ParticleManager:DestroyParticle(pfx, false)
 			local pfx2 = ParticleManager:CreateParticle("particles/roshpit/winterblight/cruxal_marker.vpcf", PATTACH_CUSTOMORIGIN, nil)
-			ParticleManager:SetParticleControl(pfx2, 0,ability.ice_blast_tracer_location)
-			ParticleManager:SetParticleControl(pfx2, 1,ability.ice_blast_tracer_location)
-			ParticleManager:SetParticleControl(pfx2, 3,ability.ice_blast_tracer_location)
-			Timers:CreateTimer(distance/650, function()
+			ParticleManager:SetParticleControl(pfx2, 0, ability.ice_blast_tracer_location)
+			ParticleManager:SetParticleControl(pfx2, 1, ability.ice_blast_tracer_location)
+			ParticleManager:SetParticleControl(pfx2, 3, ability.ice_blast_tracer_location)
+			Timers:CreateTimer(distance / 650, function()
 				ParticleManager:DestroyParticle(pfx2, false)
-			end)			
+			end)
 			caster.ice_blast_ability.ice_blast_tracer_traveling = false
 		end)
 	end
 	Timers:CreateTimer(function()
-		if ability.ice_blast_tracer_traveling and 
-		(ability.ice_blast_tracer_location.x < GetWorldMaxX() and ability.ice_blast_tracer_location.x > GetWorldMinX()) and
-		(ability.ice_blast_tracer_location.y < GetWorldMaxY() and ability.ice_blast_tracer_location.y > GetWorldMinY()) then
+		if ability.ice_blast_tracer_traveling and
+			(ability.ice_blast_tracer_location.x < GetWorldMaxX() and ability.ice_blast_tracer_location.x > GetWorldMinX()) and
+			(ability.ice_blast_tracer_location.y < GetWorldMaxY() and ability.ice_blast_tracer_location.y > GetWorldMinY()) then
 
 			-- Calculate the new location
 			ability.ice_blast_tracer_location = ability.ice_blast_tracer_location + Vector(speed * direction.x, speed * direction.y, 0)
 			-- Set the proper height
-			ability.ice_blast_tracer_location = GetGroundPosition(ability.ice_blast_tracer_location, ability.ice_blast_tracer) + Vector(0,0,128)
+			ability.ice_blast_tracer_location = GetGroundPosition(ability.ice_blast_tracer_location, ability.ice_blast_tracer) + Vector(0, 0, 128)
 			ability.ice_blast_tracer:SetAbsOrigin(ability.ice_blast_tracer_location)
 			tracer_distance_traveled = tracer_distance_traveled + speed
 
-			return 1/30
+			return 1 / 30
 
-		-- If the tracer is within the map boundaries but not traveling	
+			-- If the tracer is within the map boundaries but not traveling
 		elseif not ability.ice_blast_tracer_traveling then
 			-- Swap out the abilities
 			-- Calculate the projectile speed according to the minimum time
@@ -107,34 +105,34 @@ function cruxal_ice_blast_launch( keys )
 			caster_location = caster:GetAbsOrigin()
 			local hail_location = caster_location
 			local hail_traveled_distance = 0
-			local hail_speed = projectile_speed * 1/30 -- This is the distance per frame
+			local hail_speed = projectile_speed * 1 / 30 -- This is the distance per frame
 			local distance = (ability.ice_blast_tracer_location - caster_location):Length2D()
 			local projectile_direction = (ability.ice_blast_tracer_location - caster_location):Normalized()
 
 			-- Launch the projectile
-			print("LAUNCH")
-			print(projectile_particle)
-			ProjectileManager:CreateLinearProjectile( {
-				Ability				= ability,
-				EffectName			= "particles/roshpit/winterblight/cruxys_ice_blast.vpcf",
-				vSpawnOrigin		= caster_location,
-				fDistance			= distance,
-				fStartRadius		= path_radius,
-				fEndRadius			= path_radius,
-				Source				= caster,
+			--print("LAUNCH")
+			--print(projectile_particle)
+			ProjectileManager:CreateLinearProjectile({
+				Ability = ability,
+				EffectName = "particles/roshpit/winterblight/cruxys_ice_blast.vpcf",
+				vSpawnOrigin = caster_location,
+				fDistance = distance,
+				fStartRadius = path_radius,
+				fEndRadius = path_radius,
+				Source = caster,
 				StartPosition = "attach_attack1",
-				bHasFrontalCone		= true,
-				bReplaceExisting	= false,
-				iUnitTargetTeam		= ice_blast_target_team,
-				iUnitTargetFlags	= ice_blast_target_flag,
-				iUnitTargetType		= ice_blast_target_type,
-				--fExpireTime			= GameRules:GetGameTime() + 2,
-				bDeleteOnHit		= false,
-				vVelocity			= Vector(projectile_direction.x * projectile_speed, projectile_direction.y * projectile_speed, 0),
-				bProvidesVision		= tfalse,
-				iVisionRadius		= travel_vision,
-				iVisionTeamNumber	= caster:GetTeamNumber(),
-			} )
+				bHasFrontalCone = true,
+				bReplaceExisting = false,
+				iUnitTargetTeam = ice_blast_target_team,
+				iUnitTargetFlags = ice_blast_target_flag,
+				iUnitTargetType = ice_blast_target_type,
+				--fExpireTime= GameRules:GetGameTime() + 2,
+				bDeleteOnHit = false,
+				vVelocity = Vector(projectile_direction.x * projectile_speed, projectile_direction.y * projectile_speed, 0),
+				bProvidesVision = tfalse,
+				iVisionRadius = travel_vision,
+				iVisionTeamNumber = caster:GetTeamNumber(),
+			})
 			-- Timer to calculate the movement of the hail projectile so that we create the vision along the path
 			Timers:CreateTimer(function()
 				if hail_traveled_distance < distance then
@@ -142,22 +140,22 @@ function cruxal_ice_blast_launch( keys )
 					hail_traveled_distance = hail_traveled_distance + hail_speed
 
 					AddFOWViewer(caster:GetTeamNumber(), hail_location, travel_vision, travel_vision_duration, false)
-					return 1/30
+					return 1 / 30
 				else
 					-- End path area vision
-					print("TRACERINO")
+					--print("TRACERINO")
 					ability.ice_blast_tracer:RemoveSelf()
 					AddFOWViewer(caster:GetTeamNumber(), hail_location, area_vision, area_vision_duration, false)
-					ice_blast_explode( keys )
+					ice_blast_explode(keys)
 					return nil
 				end
 			end)
 
 			return nil
-		-- This triggers when the projectile reached the map boundaries
+			-- This triggers when the projectile reached the map boundaries
 		else
 			-- Swap out the abilities
-			
+
 			ability.ice_blast_tracer_traveling = false
 			ability.ice_blast_tracer:RemoveSelf()
 			return nil
@@ -166,19 +164,18 @@ function cruxal_ice_blast_launch( keys )
 end
 
 -- Stops the tracer from traveling
-function cruxal_ice_blast_release( keys )
+function cruxal_ice_blast_release(keys)
 	local caster = keys.caster
 
 	caster.ice_blast_ability.ice_blast_tracer_traveling = false
 end
 
-
 --[[ Author: Pizzalol
-	Date: 13.10.2015.
-	Triggers when the hail projectile reaches the end point
-	Applies the frostbite debuff and deals damage in an area
-	Radius is calculated according to the distance that the tracer traveled]]
-function ice_blast_explode( keys )
+Date: 13.10.2015.
+Triggers when the hail projectile reaches the end point
+Applies the frostbite debuff and deals damage in an area
+Radius is calculated according to the distance that the tracer traveled]]
+function ice_blast_explode(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
@@ -187,7 +184,7 @@ function ice_blast_explode( keys )
 	local modifier = keys.modifier
 	local sound = keys.sound
 	local explosion_particle = keys.explosion_particle
-	print("EXPLOSE")
+	--print("EXPLOSE")
 	local damage_table = {}
 	damage_table.attacker = caster
 	damage_table.damage_type = ability:GetAbilityDamageType()
@@ -206,7 +203,7 @@ function ice_blast_explode( keys )
 
 	local units_to_damage = FindUnitsInRadius(caster:GetTeam(), ability.ice_blast_tracer_location, nil, ability.ice_blast_radius, ice_blast_target_team, ice_blast_target_type, ice_blast_target_flag, FIND_CLOSEST, false)
 
-	for _,v in pairs(units_to_damage) do
+	for _, v in pairs(units_to_damage) do
 		-- Apply the frostbite modifier only to heroes
 		if v:IsConsideredHero() then
 			ability:ApplyDataDrivenModifier(caster, v, modifier, {duration = duration})
@@ -218,11 +215,11 @@ function ice_blast_explode( keys )
 end
 
 --[[Author: Pizzalol
-	Date: 21.02.2015.
-	Triggers whenever the unit takes damage
-	Checks the HP of the unit and if its below the threshold then it kills the target
-	and grants the kill credit to the attacker]]
-function cruxal_ice_blast_frostbite( keys )
+Date: 21.02.2015.
+Triggers whenever the unit takes damage
+Checks the HP of the unit and if its below the threshold then it kills the target
+and grants the kill credit to the attacker]]
+function cruxal_ice_blast_frostbite(keys)
 	local caster = keys.caster
 	local attacker = keys.attacker
 	local unit = keys.unit

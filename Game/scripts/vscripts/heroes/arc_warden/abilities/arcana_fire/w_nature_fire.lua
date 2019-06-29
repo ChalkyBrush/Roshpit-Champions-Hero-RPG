@@ -21,16 +21,16 @@ function jex_living_bomb_explode(event)
 	end
 	local w_4_level = caster:GetRuneValue("w", 4)
 	local q_4_level = caster:GetRuneValue("q", 4)
-	local damage = event.base_damage + (event.attack_damage_of_target_per_tech*OverflowProtectedGetAverageTrueAttackDamage(target))/100*tech_level + w_4_level*(target:GetMaxHealth()/100)*event.w_4_damage_increase_from_target_max_health
-	local base_stun_duration = event.q_4_stun_duration*q_4_level
+	local damage = event.base_damage + (event.attack_damage_of_target_per_tech * OverflowProtectedGetAverageTrueAttackDamage(target)) / 100 * tech_level + w_4_level * (target:GetMaxHealth() / 100) * event.w_4_damage_increase_from_target_max_health
+	local base_stun_duration = event.q_4_stun_duration * q_4_level
 	EmitSoundOn("Jex.LivingBomb.Explode", target)
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
-		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-			local distance_portion = 1 - (WallPhysics:GetDistance2d(enemy:GetAbsOrigin(), target:GetAbsOrigin())/radius)
-			local stun_duration = base_stun_duration*distance_portion
+		for _, enemy in pairs(enemies) do
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			local distance_portion = 1 - (WallPhysics:GetDistance2d(enemy:GetAbsOrigin(), target:GetAbsOrigin()) / radius)
+			local stun_duration = base_stun_duration * distance_portion
 			Filters:ApplyStun(caster, stun_duration, enemy)
 		end
-	end 	
+	end
 end

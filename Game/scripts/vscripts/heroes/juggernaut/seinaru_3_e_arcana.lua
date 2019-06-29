@@ -23,12 +23,12 @@ function sunstrider_start(event)
 
 	local maxTargets = targets_count + math.ceil(SEINARU_ARCANA_E1_TARGETS * a_c_level)
 	local targetsCounter = 0
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target, nil, 440, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target, nil, 440, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for i = 1, #enemies, 1 do
 			if targetsCounter < maxTargets then
 				targetsCounter = targetsCounter + 1
-				Timers:CreateTimer(i*0.06, function()
+				Timers:CreateTimer(i * 0.06, function()
 					local enemy = enemies[i]
 					CustomAbilities:QuickAttachParticle("particles/roshpit/seinaru/sunblade.vpcf", enemy, 0.6)
 					local eventTable = {
@@ -56,7 +56,7 @@ function sunstrider_start(event)
 				end)
 			end
 		end
-		local travelDurationIncrease = (#enemies - 8)*0.06
+		local travelDurationIncrease = (#enemies - 8) * 0.06
 		if travelDurationIncrease > 0 then
 			travelTime = travelTime + travelDurationIncrease
 		end
@@ -70,7 +70,7 @@ function sunstrider_start(event)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Seinaru.Sunstrider.Launch", caster)
 	ability.point = target
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_sunstrider_in_air", {duration = travelTime})
-    Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(3, caster)
 	if caster:HasModifier("modifier_sunstrider_freecast") then
 		ability:EndCooldown()
 		local newStacks = caster:GetModifierStackCount("modifier_sunstrider_freecast", caster) - 1
@@ -79,40 +79,40 @@ function sunstrider_start(event)
 		else
 			caster:RemoveModifierByName("modifier_sunstrider_freecast")
 		end
-	end   
+	end
 
 end
 
 function sunstrider_projectile(caster, ability, point, travelTime)
-		local start_radius = 0
-		local end_radius = 0
-		local range = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), point)*0.95
-		local speed = range/travelTime
-		local casterOrigin = caster:GetAbsOrigin()
-		local fv = ((point - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-		local info = 
-		{
-				Ability = ability,
-	        	EffectName = "particles/roshpit/seinaru/sunstrider_movement.vpcf",
-	        	vSpawnOrigin = caster:GetAbsOrigin(),
-	        	fDistance = range,
-	        	fStartRadius = start_radius,
-	        	fEndRadius = end_radius,
-	        	Source = caster,
-	        	StartPosition = "attach_origin",
-	        	bHasFrontalCone = false,
-	        	bReplaceExisting = false,
-	        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-	        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-	        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-	        	fExpireTime = GameRules:GetGameTime() + 5.0,
-			bDeleteOnHit = false,
-			vVelocity = fv * speed,
-			bProvidesVision = true,
-			iVisionTeamNumber = caster:GetTeamNumber()
+	local start_radius = 0
+	local end_radius = 0
+	local range = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), point) * 0.95
+	local speed = range / travelTime
+	local casterOrigin = caster:GetAbsOrigin()
+	local fv = ((point - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+	local info =
+	{
+		Ability = ability,
+		EffectName = "particles/roshpit/seinaru/sunstrider_movement.vpcf",
+		vSpawnOrigin = caster:GetAbsOrigin(),
+		fDistance = range,
+		fStartRadius = start_radius,
+		fEndRadius = end_radius,
+		Source = caster,
+		StartPosition = "attach_origin",
+		bHasFrontalCone = false,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
+		bDeleteOnHit = false,
+		vVelocity = fv * speed,
+		bProvidesVision = true,
+		iVisionTeamNumber = caster:GetTeamNumber()
 
-		}
-		projectile = ProjectileManager:CreateLinearProjectile(info)
+	}
+	projectile = ProjectileManager:CreateLinearProjectile(info)
 end
 
 function sunstrider_end(event)
@@ -156,24 +156,24 @@ function vengeance_hit(event)
 	local target = event.target
 	local att_to_dmg = event.att_to_dmg
 
-    local particleName = "particles/roshpit/seinaru/sunwarrior_vengeance_cowlofice.vpcf"
-    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
-    local origin = target:GetAbsOrigin()
-    ParticleManager:SetParticleControl( particle1, 0, origin+Vector(0,0,20) )
-    ParticleManager:SetParticleControl( particle1, 1, Vector(480, 2, 1000) )
-    ParticleManager:SetParticleControl( particle1, 3, Vector(480, 480, 480) )
-    Timers:CreateTimer(3, function()
-        ParticleManager:DestroyParticle(particle1, false)
-    end)
-    local damage = att_to_dmg * OverflowProtectedGetAverageTrueAttackDamage(caster)
-    EmitSoundOn("Seinaru.Sunstrider.Vengeance", target)
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local particleName = "particles/roshpit/seinaru/sunwarrior_vengeance_cowlofice.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
+	local origin = target:GetAbsOrigin()
+	ParticleManager:SetParticleControl(particle1, 0, origin + Vector(0, 0, 20))
+	ParticleManager:SetParticleControl(particle1, 1, Vector(480, 2, 1000))
+	ParticleManager:SetParticleControl(particle1, 3, Vector(480, 480, 480))
+	Timers:CreateTimer(3, function()
+		ParticleManager:DestroyParticle(particle1, false)
+	end)
+	local damage = att_to_dmg * OverflowProtectedGetAverageTrueAttackDamage(caster)
+	EmitSoundOn("Seinaru.Sunstrider.Vengeance", target)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for i = 1, #enemies, 1 do
 			local enemy = enemies[i]
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		end
-	end 
+	end
 end
 
 function passive_think(event)

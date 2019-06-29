@@ -1,13 +1,12 @@
 require('heroes/hero_necrolyte/constants')
 
-
 function ghost_warp_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target_points[1]
 	target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
 	local invisible_duration = event.invisible_duration
-	ability.fv = ((target - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	ability.fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	ability.targetPoint = target
 	local warpDuration = 3.0
 	ability.fallVelocity = 1
@@ -26,12 +25,12 @@ function ghost_warp_start(event)
 
 	end
 
-    EmitSoundOn("Venomort.GhostWarp", caster)
-    local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/venomort/ghost_warp_flare.vpcf", caster, 1)
-    ability.pfx = ParticleManager:CreateParticle("particles/econ/courier/courier_polycount_01/courier_trail_polycount_01.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-    ParticleManager:SetParticleControlEnt(ability.pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControl(ability.pfx, 15, Vector(100, 220, 100))
-    Filters:CastSkillArguments(3, caster)
+	EmitSoundOn("Venomort.GhostWarp", caster)
+	local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/venomort/ghost_warp_flare.vpcf", caster, 1)
+	ability.pfx = ParticleManager:CreateParticle("particles/econ/courier/courier_polycount_01/courier_trail_polycount_01.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	ParticleManager:SetParticleControlEnt(ability.pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControl(ability.pfx, 15, Vector(100, 220, 100))
+	Filters:CastSkillArguments(3, caster)
 end
 
 function ghost_warping_think(event)
@@ -40,15 +39,15 @@ function ghost_warping_think(event)
 
 	ability.forwardVelocity = ability.forwardVelocity + 0.5
 
-	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
-    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
-    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+ability.fv*45), caster)
-    local forwardSpeed = ability.forwardVelocity
+	local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
+	local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + ability.fv * 45), caster)
+	local forwardSpeed = ability.forwardVelocity
 	if blockUnit then
 		forwardSpeed = 0
 	end
-	
-	caster:SetAbsOrigin(caster:GetAbsOrigin() + ability.fv*forwardSpeed + Vector(0,0,3))
+
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + ability.fv * forwardSpeed + Vector(0, 0, 3))
 	local distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
 	if distance < 100 then
 		caster:RemoveModifierByName("modifier_ghost_warp_flying")
@@ -62,13 +61,13 @@ end
 function after_warp_falling(event)
 	local caster = event.caster
 	local ability = event.ability
-	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,ability.fallVelocity))
+	caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, ability.fallVelocity))
 	ability.fallVelocity = ability.fallVelocity + 2
 	local groundHeight = GetGroundHeight(caster:GetAbsOrigin(), caster)
-	if caster:GetAbsOrigin().z - groundHeight < ability.fallVelocity/2 then
+	if caster:GetAbsOrigin().z - groundHeight < ability.fallVelocity / 2 then
 		caster:RemoveModifierByName("modifier_end_ghost_warp_falling")
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_SPAWN, rate=1})
+		StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_SPAWN, rate = 1})
 	end
 end
 
@@ -89,33 +88,31 @@ function ghost_warp_take_damage(event)
 		return
 	end
 	if has_weapon3 then
-		e2_damage = e2_damage + e2_level * WEAPON3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT/100 * caster:GetHealth()
-	    local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/viper_channel_flare.vpcf", attacker:GetAbsOrigin()+Vector(0,0,attacker:GetBoundingMaxs().z), 1)
-	    ParticleManager:SetParticleControl(pfx, 1, Vector(40,40,40))
-	    ParticleManager:SetParticleControl(pfx, 2, Vector(18,18,18))
+		e2_damage = e2_damage + e2_level * WEAPON3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT / 100 * caster:GetHealth()
+		local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/viper_channel_flare.vpcf", attacker:GetAbsOrigin() + Vector(0, 0, attacker:GetBoundingMaxs().z), 1)
+		ParticleManager:SetParticleControl(pfx, 1, Vector(40, 40, 40))
+		ParticleManager:SetParticleControl(pfx, 2, Vector(18, 18, 18))
 	end
-
 
 	if caster:HasModifier("modifier_venomort_glyph_3_2") then
 		if ability.previous_health then
 			local currentHealth = caster:GetHealth()
-			if math.floor(ability.previous_health * T32_HEALTH_THRESHOLD_PERCENT/caster:GetMaxHealth()) - math.floor(currentHealth * T32_HEALTH_THRESHOLD_PERCENT/caster:GetMaxHealth()) > 0 then
+			if math.floor(ability.previous_health * T32_HEALTH_THRESHOLD_PERCENT / caster:GetMaxHealth()) - math.floor(currentHealth * T32_HEALTH_THRESHOLD_PERCENT / caster:GetMaxHealth()) > 0 then
 				e2_damage = e2_damage * VENOMORT_T32_AMPLIFY
-				print('E2 amplify apply')
+				--print('E2 amplify apply')
 			end
 		end
 		ability.previous_health = caster:GetHealth()
 	end
-
 
 	ability.e2_level = e2_level
 	ability.e2_damage = e2_damage
 
 	if caster:HasModifier("modifier_venomort_glyph_2_2") then
 		local radius = T22_RADIUS
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), attacker:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), attacker:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 		if #enemies > 0 then
-			for _,enemy in pairs(enemies) do
+			for _, enemy in pairs(enemies) do
 				apply_e2(caster, ability, enemy, duration, has_weapon3)
 			end
 		end
@@ -137,7 +134,6 @@ function e2_think(event)
 	local ability = event.ability
 	local target = event.target
 
-
 	Filters:ApplyDotDamage(caster, ability, target, ability.e2_damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
 end
 function e3_think(event)
@@ -151,8 +147,8 @@ function e3_think(event)
 		return
 	end
 
-	local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
-	for _,ally in pairs(allies) do
+	local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+	for _, ally in pairs(allies) do
 		ability:ApplyDataDrivenModifier(caster, ally, "modifier_venomort_bonus_attack_damage_ally", {duration = duration})
 		local modifier = ally:FindModifierByName('modifier_venomort_bonus_attack_damage_ally')
 		modifier:SetStackCount(ability.e3_level)
@@ -170,7 +166,6 @@ function apply_e4_stacks(event)
 		bossesCountAs = T21_BOSSES_COUNT_AS_ENEMIES
 		paragonsCountAs = T21_PARAGONS_COUNT_AS_ENEMIES
 	end
-
 
 	local duration = VENOMORT_E4_DURATION + E4_DELAY
 
@@ -218,7 +213,6 @@ function recalculate_e4_stacks(event)
 		duration = T42_DURATION
 	end
 
-
 	local new_e4_data = {}
 	local totalStacks = 0
 	if not ability.e4_data then
@@ -226,8 +220,8 @@ function recalculate_e4_stacks(event)
 	end
 	for i = 1, #ability.e4_data, 1 do
 		if GameRules:GetGameTime() - ability.e4_data[i].createdAt >= duration then
-			else
-				table.insert(new_e4_data, ability.e4_data[i])
+		else
+			table.insert(new_e4_data, ability.e4_data[i])
 			totalStacks = totalStacks + ability.e4_data[i].value
 		end
 	end

@@ -16,21 +16,21 @@ function begin_holy_blink(event)
 end
 
 function lift_think(keys)
-	
+
 	local caster = keys.caster
 	local ability = keys.ability
 	local modifier = caster:FindModifierByName("modifier_creep_jump_lift")
 	local origin = caster:GetAbsOrigin()
-	
+
 	if not caster.holy_lift_velocity then
 		caster.holy_lift_velocity = 30
 	end
-	local newPosition = origin+Vector(0,0,caster.holy_lift_velocity)+ability.forwardVector*30
+	local newPosition = origin + Vector(0, 0, caster.holy_lift_velocity) + ability.forwardVector * 30
 	caster.holy_lift_velocity = math.max(caster.holy_lift_velocity - 5, 10)
 	caster:SetAbsOrigin(newPosition)
-	ability.blink_position = newPosition + ability.forwardVector*400*Vector(1,1,0)
+	ability.blink_position = newPosition + ability.forwardVector * 400 * Vector(1, 1, 0)
 	--if origin.z - groundPosition.z > -200 then
-	--	caster:SetAbsOrigin(groundPosition)
+	--caster:SetAbsOrigin(groundPosition)
 	--end
 end
 
@@ -47,11 +47,11 @@ function drop_think(keys)
 	local caster = keys.caster
 	local modifier = caster:FindModifierByName("modifier_creep_jump_drop")
 	local origin = caster:GetAbsOrigin()
-	
+
 	if not caster.holy_lift_velocity then
 		caster.holy_lift_velocity = 0
 	end
-	local newPosition = origin+Vector(0,0,-caster.holy_lift_velocity)+ability.forwardVector*40
+	local newPosition = origin + Vector(0, 0, -caster.holy_lift_velocity) + ability.forwardVector * 40
 	caster.holy_lift_velocity = math.min(caster.holy_lift_velocity + 5, 40)
 	caster:SetAbsOrigin(newPosition)
 	--value = newPosition.z - GetGroundPosition(newPosition, caster).z
@@ -69,12 +69,12 @@ function drop_end(keys)
 	local newLoc = GetGroundPosition(location, caster)
 	caster:SetOrigin(newLoc)
 	--FindClearSpaceForUnit(caster, newLoc, true)
-  	--Timers:CreateTimer(0.5,     function()
-    --  caster:RemoveGesture(ACT_DOTA_CAST_ABILITY_1)
-    --end)
+	--Timers:CreateTimer(0.5, function()
+	--  caster:RemoveGesture(ACT_DOTA_CAST_ABILITY_1)
+	--end)
 	caster.holy_slide_velocity = 75
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_creep_jump_slide", nil)
-	
+
 end
 
 function slide_think(keys)
@@ -82,12 +82,12 @@ function slide_think(keys)
 	local caster = keys.caster
 	local modifier = caster:FindModifierByName("modifier_creep_jump_slide")
 	local origin = caster:GetAbsOrigin()
-	
+
 	if not caster.holy_slide_velocity then
 		caster.holy_slide_velocity = 75
 	end
-	print(caster.holy_slide_velocity)
-	local newPosition = origin+ability.forwardVector*caster.holy_slide_velocity
+	--print(caster.holy_slide_velocity)
+	local newPosition = origin + ability.forwardVector * caster.holy_slide_velocity
 	caster.holy_slide_velocity = math.max(caster.holy_slide_velocity - 9, 0)
 	caster:SetAbsOrigin(newPosition)
 
@@ -99,8 +99,8 @@ function slide_end(keys)
 	local newLoc = GetGroundPosition(location, caster)
 	caster:SetOrigin(newLoc)
 	FindClearSpaceForUnit(caster, newLoc, true)
-  	Timers:CreateTimer(0.5,     function()
-      caster:RemoveGesture(ACT_DOTA_CAST_ABILITY_1)
-    end)
-	
+	Timers:CreateTimer(0.5, function()
+		caster:RemoveGesture(ACT_DOTA_CAST_ABILITY_1)
+	end)
+
 end

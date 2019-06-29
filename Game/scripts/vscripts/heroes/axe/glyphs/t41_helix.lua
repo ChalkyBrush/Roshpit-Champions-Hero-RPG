@@ -3,13 +3,13 @@ local function cast(caster, ability)
         return
     end
 
-    StartAnimation(caster, {duration=0.24, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.3, translate="blood_chaser"})
-    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+    StartAnimation(caster, {duration = 0.24, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1.3, translate = "blood_chaser"})
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     local abilityLevel = ability:GetLevel()
-    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * T41_DAMAGE_PROCENT/100 * abilityLevel
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * T41_DAMAGE_PROCENT / 100 * abilityLevel
     if #enemies > 0 then
-        for _,enemy in pairs(enemies) do
-            Filters:ApplyDamageBasic(enemy,caster,damage,DAMAGE_TYPE_PHYSICAL)
+        for _, enemy in pairs(enemies) do
+            Filters:ApplyDamageBasic(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL)
         end
     end
     EmitSoundOn("RedGeneral.Helix", caster)

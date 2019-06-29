@@ -6,7 +6,7 @@ function DebugPrint(...)
   end
 
   if spew == 1 then
-    print(...)
+    --print(...)
   end
 end
 
@@ -43,17 +43,17 @@ function PrintTable(t, indent, done)
 
       if type(value) == "table" and not done[value] then
         done [value] = true
-        print(string.rep ("\t", indent)..tostring(v)..":")
+        --print(string.rep ("\t", indent)..tostring(v)..":")
         PrintTable (value, indent + 2, done)
       elseif type(value) == "userdata" and not done[value] then
         done [value] = true
-        print(string.rep ("\t", indent)..tostring(v)..": "..tostring(value))
+        --print(string.rep ("\t", indent)..tostring(v)..": "..tostring(value))
         PrintTable ((getmetatable(value) and getmetatable(value).__index) or getmetatable(value), indent + 2, done)
       else
         if t.FDesc and t.FDesc[v] then
-          print(string.rep ("\t", indent)..tostring(t.FDesc[v]))
+          --print(string.rep ("\t", indent)..tostring(t.FDesc[v]))
         else
-          print(string.rep ("\t", indent)..tostring(v)..": "..tostring(value))
+          --print(string.rep ("\t", indent)..tostring(v)..": "..tostring(value))
         end
       end
     end

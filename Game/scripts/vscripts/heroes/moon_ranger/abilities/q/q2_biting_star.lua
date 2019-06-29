@@ -34,37 +34,37 @@ function attackLand(event)
     if q_2_level == nil or q_2_level <= 0 then
         return false
     end
-    
+
     procChance = getProcChance(caster, procChance)
 
     local luck = RandomInt(1, 100)
     if luck <= procChance then
         local ability = event.ability
-        local pureDamage = damage*(q_2_level*damageMultiply)
+        local pureDamage = damage * (q_2_level * damageMultiply)
         local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
-        local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
+        local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
         ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
         Timers:CreateTimer(0.6, function()
-            ParticleManager:DestroyParticle( pfx, false )
+            ParticleManager:DestroyParticle(pfx, false)
         end)
-        Timers:CreateTimer(0.45,             function()
-                if target:IsAlive() then
-                    if caster:HasModifier("modifier_astral_arcana1") then
-                        baseAbilityFor = 1
-                    end
-                    print(baseAbilityFor)
-                    Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, baseAbilityFor, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
-                    EmitSoundOn("Ability.StarfallImpact", target)
-                    if caster:HasModifier("modifier_astral_arcana1") then
-                        ability = caster:FindAbilityByName("astral_arcana_ability")
-                        ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_b_a_arcana_armor_loss", {duration = 6})
-                        target:SetModifierStackCount("modifier_astral_b_a_arcana_armor_loss", ability, q_2_level)
-                    else
-                        ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_b_a_armor_loss", {duration = 6})
-                        target:SetModifierStackCount("modifier_astral_b_a_armor_loss", ability, q_2_level)
-                    end
+        Timers:CreateTimer(0.45, function()
+            if target:IsAlive() then
+                if caster:HasModifier("modifier_astral_arcana1") then
+                    baseAbilityFor = 1
                 end
-            end)
+                --print(baseAbilityFor)
+                Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, baseAbilityFor, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+                EmitSoundOn("Ability.StarfallImpact", target)
+                if caster:HasModifier("modifier_astral_arcana1") then
+                    ability = caster:FindAbilityByName("astral_arcana_ability")
+                    ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_b_a_arcana_armor_loss", {duration = 6})
+                    target:SetModifierStackCount("modifier_astral_b_a_arcana_armor_loss", ability, q_2_level)
+                else
+                    ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_b_a_armor_loss", {duration = 6})
+                    target:SetModifierStackCount("modifier_astral_b_a_armor_loss", ability, q_2_level)
+                end
+            end
+        end)
     end
 end
 return {

@@ -7,13 +7,31 @@
 		<include src="file://{resources}/scripts/custom_game/boss_health.js" />
 	</scripts>
 	<Panel class="boss_health_container" hittest="false">
-
-		<Panel id="boss_health_outer" class="invisible" hittest="false">
-			<Panel id="boss_current_health" hittest="false">
-
-			</Panel>
-			<Label id="boss_name" text="boss_name" />
+		<Panel id="boss_health_outer" class="invisible boss_health_outer" hittest="false">
+			<Panel id="boss_current_health" class="boss_current_health" hittest="false" />
+			<Label id="boss_name" class="boss_name" text="boss_name" />
+      <Label id="boss_id" text="boss_id" class="invisible "/>
 		</Panel>
+    <Panel id="boss_health_outer2" class="invisible boss_health_outer" hittest="false">
+      <Panel id="boss_current_health2" class="boss_current_health" hittest="false" />
+      <Label id="boss_name2" class="boss_name" text="boss_name" />
+      <Label id="boss_id2" text="boss_id" class="invisible "/>
+    </Panel>
+    <Panel id="boss_health_outer3" class="invisible boss_health_outer" hittest="false">
+      <Panel id="boss_current_health3" class="boss_current_health" hittest="false" />
+      <Label id="boss_name3" class="boss_name" text="boss_name" />
+      <Label id="boss_id3" text="boss_id" class="invisible "/>
+    </Panel>
+    <Panel id="boss_health_outer4" class="invisible boss_health_outer" hittest="false">
+      <Panel id="boss_current_health4" class="boss_current_health" hittest="false" />
+      <Label id="boss_name4" class="boss_name" text="boss_name" />
+      <Label id="boss_id4" text="boss_id" class="invisible "/>
+    </Panel>
+    <Panel id="boss_health_outer5" class="invisible boss_health_outer" hittest="false">
+      <Panel id="boss_current_health5" class="boss_current_health" hittest="false" />
+      <Label id="boss_name5" class="boss_name" text="boss_name" />
+      <Label id="boss_id5" text="boss_id" class="invisible "/>
+    </Panel>
 	</Panel>
 
 </root>

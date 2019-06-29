@@ -13,11 +13,11 @@ function think(event)
     local partOfIncomingDamage = GameState:IncomingDamageDecrease(caster, nil, false)
     local stacksCount = 1
     if partOfIncomingDamage ~= 0 then
-        stacksCount = math.ceil( math.log( 1 / partOfIncomingDamage) / math.log(2))
+        stacksCount = math.ceil(math.log(1 / partOfIncomingDamage) / math.log(2))
     end
 
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_r_4_visible", {})
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_r_4_invisible", {})
     caster:SetModifierStackCount("modifier_axe_rune_r_4_visible", caster, stacksCount)
-    caster:SetModifierStackCount("modifier_axe_rune_r_4_invisible", caster, runesCount*stacksCount)
+    caster:SetModifierStackCount("modifier_axe_rune_r_4_invisible", caster, runesCount * stacksCount)
 end

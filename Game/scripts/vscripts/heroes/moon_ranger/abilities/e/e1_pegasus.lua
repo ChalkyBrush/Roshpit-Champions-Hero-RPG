@@ -10,13 +10,13 @@ function createPegasus(caster, ability, startPoint, endPoint, delay)
     ability.runesCount = runesCount
     ability.duration = E1_START_DURATION + runesCount * E1_ADD_DURATION
     if caster:HasModifier("modifier_astral_glyph_4_1") then
-        ability.duration = ability.duration*(1-ASTRAL_T41_DURATION_REDUCTION_PCT/100)
+        ability.duration = ability.duration * (1 - ASTRAL_T41_DURATION_REDUCTION_PCT / 100)
     end
 
     for travelIndex = 1, travelsCount, 1 do
         local projectileDelay = delay * (travelIndex - 1)
         Timers:CreateTimer(projectileDelay, function()
-            if travelIndex%2 == 1 then
+            if travelIndex % 2 == 1 then
                 createPegasusProjectile(caster, ability, startPoint, endPoint)
             else
                 createPegasusProjectile(caster, ability, endPoint, startPoint)
@@ -33,7 +33,7 @@ end
 function createPegasusProjectile(caster, ability, startPoint, endPoint)
     local range = WallPhysics:GetDistance2d(startPoint, endPoint)
     local forwardVector = getForwardVector(startPoint, endPoint)
-    if forwardVector == Vector(0,0) then
+    if forwardVector == Vector(0, 0) then
         forwardVector = caster:GetForwardVector()
     end
     local speed = math.max(range * E1_SPEED_FROM_RANGE, 300)
@@ -61,15 +61,15 @@ function createPegasusProjectile(caster, ability, startPoint, endPoint)
     }
     ProjectileManager:CreateLinearProjectile(info)
 
-  local pegasusVisual = ParticleManager:CreateParticle("particles/roshpit/astral/pegasus.vpcf", PATTACH_WORLDORIGIN, nil)
-  ParticleManager:SetParticleControl(pegasusVisual, 0, startPoint)
-  ParticleManager:SetParticleControl(pegasusVisual, 1, forwardVector*speed)
-  ParticleManager:SetParticleControl(pegasusVisual, 3, startPoint)
-  ParticleManager:SetParticleControl(pegasusVisual, 8, Vector(1,1,1))
-  ParticleManager:SetParticleControl(pegasusVisual, 10, Vector(range/speed,range/speed,range/speed))
-  Timers:CreateTimer(range/speed, function()
-    ParticleManager:DestroyParticle(pegasusVisual, false)
-  end)
+    local pegasusVisual = ParticleManager:CreateParticle("particles/roshpit/astral/pegasus.vpcf", PATTACH_WORLDORIGIN, nil)
+    ParticleManager:SetParticleControl(pegasusVisual, 0, startPoint)
+    ParticleManager:SetParticleControl(pegasusVisual, 1, forwardVector * speed)
+    ParticleManager:SetParticleControl(pegasusVisual, 3, startPoint)
+    ParticleManager:SetParticleControl(pegasusVisual, 8, Vector(1, 1, 1))
+    ParticleManager:SetParticleControl(pegasusVisual, 10, Vector(range / speed, range / speed, range / speed))
+    Timers:CreateTimer(range / speed, function()
+        ParticleManager:DestroyParticle(pegasusVisual, false)
+    end)
 end
 
 function projectileHit(event)
@@ -87,12 +87,12 @@ end
 
 function getForwardVector(startPoint, endPoint)
     local netVector = endPoint - startPoint
-    return (netVector*Vector(1,1,0)):Normalized()
+    return (netVector * Vector(1, 1, 0)):Normalized()
 end
 
-function getDistance(a,b)
-    local x, y, z = a.x-b.x, a.y-b.y, a.z-b.z
-    return math.sqrt(x*x+y*y+z*z)
+function getDistance(a, b)
+    local x, y, z = a.x - b.x, a.y - b.y, a.z - b.z
+    return math.sqrt(x * x + y * y + z * z)
 end
 
 local module = {}

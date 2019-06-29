@@ -20,7 +20,7 @@ function epoch_attack_start(event)
 end
 
 function epoch_attack(event)
-	print("epoch_attack_start triggered")
+	--print("epoch_attack_start triggered")
 	local caster = event.attacker
 	local ability = event.ability
 	local target = event.target
@@ -38,30 +38,29 @@ function epoch_attack(event)
 		local radius = 600
 		local e_3_level = caster:GetRuneValue("e", 3)
 		local targetPoint = target:GetAbsOrigin()
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		local projectileCount = 0
 		local projectileSpeed = caster:GetProjectileSpeed()
 		if #enemies > 0 then
-			for _,enemy in pairs(enemies) do
+			for _, enemy in pairs(enemies) do
 				if enemy ~= event.target then
-					local info = 
+					local info =
 					{
 						Target = enemy,
 						Source = caster,
-						Ability = ability,	
+						Ability = ability,
 						EffectName = projectileEffect,
 						StartPosition = "attach_attack1",
-						bDrawsOnMinimap = false, 
+						bDrawsOnMinimap = false,
 						bDodgeable = true,
-						bIsAttack = true, 
+						bIsAttack = true,
 						bVisibleToEnemies = true,
 						bReplaceExisting = false,
 						flExpireTime = GameRules:GetGameTime() + 4,
 						bProvidesVision = true,
 						iVisionRadius = 0,
 						iMoveSpeed = projectileSpeed,
-						iVisionTeamNumber = caster:GetTeamNumber()
-					}
+					iVisionTeamNumber = caster:GetTeamNumber()}
 					projectile = ProjectileManager:CreateTrackingProjectile(info)
 					projectileCount = projectileCount + 1
 					if projectileCount == e_3_level * EPOCH_E3_TARGETS + EPOCH_E3_TARGETS_BASE then
@@ -69,7 +68,7 @@ function epoch_attack(event)
 					end
 				end
 			end
-		end 
+		end
 	end
 end
 
@@ -101,5 +100,5 @@ function epoch_attack_land(event)
 		eventTable.caster = caster
 		epoch_arcana_q_3_strike(eventTable)
 	end
-	Filters:ApplyDamageBasic(target,caster,damage,DAMAGE_TYPE_PHYSICAL)
+	Filters:ApplyDamageBasic(target, caster, damage, DAMAGE_TYPE_PHYSICAL)
 end

@@ -1,22 +1,22 @@
 if Challenges == nil then
-  Challenges = class({})
+	Challenges = class({})
 end
 
 function Challenges:InitializeChallenges()
 	Challenges:InitializeChallengeVariables()
 	local url = ROSHPIT_URL.."/champions/getChallenge"
 
-	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		local resultTable = {}
-		print( "GET response:\n" )
-		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+		--print( "GET response:\n" )
+		for k, v in pairs(result) do
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
-		print(resultTable)
+		--print(resultTable)
 		Challenges:CommitChallengeToGame(resultTable)
-	end )	
+	end)
 
 end
 
@@ -28,17 +28,17 @@ function Challenges:ChiselItem(msg)
 	local itemIndex = msg.itemIndex
 	local item = nil
 	local itemSlot = msg.slot
-	-- print("Challenges:ChiselItem:"..tostring(itemSlot))
-	-- print("Challenges:ChiselItem:stats")
+	----print("Challenges:ChiselItem:"..tostring(itemSlot))
+	----print("Challenges:ChiselItem:stats")
 	-- DeepPrintTable(msg)
 	if not itemSlot then
-		print("[Error] Challenges:ChiselItem no itemSlot")
+		--print("[Error] Challenges:ChiselItem no itemSlot")
 		return false
 	end
 	if not SaveLoad:GetAllowSaving() then
 		return false
 	end
-	local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..tostring(itemSlot))
+	local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(itemSlot))
 	if itemEntity.itemIndex == itemIndex then
 		item = EntIndexToHScript(itemEntity.itemIndex)
 	else
@@ -49,74 +49,74 @@ function Challenges:ChiselItem(msg)
 	end
 
 	-- if itemSlot == 1 then
-	-- 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
-	-- 	return false
+	-- CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
+	-- return false
 	-- end
 	--SaveLoad:NewKey()
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_cant_equip", {duration = 6})
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local cost = math.max(msg.cost, 1)
-	CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {} )
+	CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {})
 	local url = ROSHPIT_URL.."/champions/chiselItem?"
 	url = url.."steam_id="..steamID
 	url = url.."&hero_slot="..saveSlot
 	url = url.."&equip_slot="..itemSlot
 	url = url.."&cost="..cost
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 		--SaveLoad:NewKey()
 		local resultTable = {}
-		print( "GET response:\n" )
-		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+		--print( "GET response:\n" )
+		for k, v in pairs(result) do
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		if result.StatusCode == 200 then
 			local resultTable = JSON:decode(result.Body)
 			local shards = resultTable.mithril_shards
-			CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-mithril", {mithril = shards})
-			CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player=playerID} )
+			CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = shards})
+			CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player = playerID})
 			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 			hero:RemoveModifierByName("modifier_cant_equip")
 			Weapons:UnequipItem(hero, item, itemSlot)
 			Statistics.dispatch('items:chisel')
 			Events:TutorialServerEvent(hero, "3_2", 0)
 		end
-	end )		
+	end)
 end
 
 function Challenges:FinalReroll(msg)
-	print("[Challenges:FinalReroll] msg")
-	DeepPrintTable(msg)
+	--print("[Challenges:FinalReroll] msg")
+	--DeepPrintTable(msg)
 	local playerID = msg.playerID
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	local player = hero:GetPlayerOwner()
 	local itemIndex = msg.itemIndex
 	local itemProperties = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
 	if not itemProperties then
-		print("[Challenges:FinalReroll] item custom net table is null")
+		--print("[Challenges:FinalReroll] item custom net table is null")
 		return
 	end
 	local item = EntIndexToHScript(itemIndex)
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local minLevel = itemProperties.minLevel
 	minLevel = math.max(math.min(minLevel, 100), 1)
-	CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {} )
+	CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {})
 	Events.reroll = true
 	local newItem = nil
 	if (msg.lock1 + msg.lock2 + msg.lock3 + msg.lock4) > 2 then
 		return false
 	end
-	local costMult = math.max(1, (msg.lock1+msg.lock2+msg.lock3+msg.lock4)*2)
-	local cost = minLevel*3*costMult
-	local amount = math.min(cost*(-1), -1)
-	
-	local shards = CustomNetTables:GetTableValue("player_stats", tostring(playerID).."-mithril").mithril
+	local costMult = math.max(1, (msg.lock1 + msg.lock2 + msg.lock3 + msg.lock4) * 2)
+	local cost = minLevel * 3 * costMult
+	local amount = math.min(cost * (-1), -1)
+
+	local shards = CustomNetTables:GetTableValue("player_stats", tostring(playerID) .. "-mithril").mithril
 	if shards < cost then
 		return false
 	end
-	print("[Challenges:FinalReroll] shards:"..tostring(shards))
-	print("[Challenges:FinalReroll] cost:"..tostring(cost))
+	--print("[Challenges:FinalReroll] shards:"..tostring(shards))
+	--print("[Challenges:FinalReroll] cost:"..tostring(cost))
 	if Challenges:CheckIfHeroHasItemByItemIndex(hero, item:GetEntityIndex()) then
 		if IsValidEntity(item:GetContainer()) then
 			CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
@@ -147,35 +147,35 @@ function Challenges:FinalReroll(msg)
 	Events.reroll = false
 
 	Statistics.dispatch('items:reroll')
-	
+
 	-- DeepPrintTable(msg)
 	if newItem then
 		local url = ROSHPIT_URL.."/champions/modifyMithrilShards?"
 		url = url.."steam_id="..steamID
 		url = url.."&amount="..amount
-		url = url.."&reason=".."reroll"
+		url = url.."&reason=" .. "reroll"
 		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-		
+
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "playerReceivedItem", {})
-		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+		CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 			--SaveLoad:NewKey()
 			local resultTable = {}
-			print( "GET response:\n" )
-			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+			--print( "GET response:\n" )
+			for k, v in pairs(result) do
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 			if result.StatusCode == 200 then
 				local resultTable = JSON:decode(result.Body)
 				local shardsFromJson = resultTable.mithril_shards
-				print("[Challenges:FinalReroll] shardsFromJson:"..tostring(shardsFromJson))
-				CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-mithril", {mithril = shardsFromJson})
-				CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shardsFromJson, player=playerID} )
+				--print("[Challenges:FinalReroll] shardsFromJson:"..tostring(shardsFromJson))
+				CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = shardsFromJson})
+				CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shardsFromJson, player = playerID})
 
 				if Challenges:CheckIfHeroHasItemByItemIndex(hero, newItem:GetEntityIndex()) then
 					Timers:CreateTimer(0, function()
-						CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith_after_reroll", 
-							{itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
+						CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith_after_reroll",
+						{itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
 					end)
 					-- CustomGameEventManager:Send_ServerToPlayer(player, "lockSlotsFromServerCall", {itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
 
@@ -189,12 +189,12 @@ function Challenges:FinalReroll(msg)
 				-- rerollTable.heroIndex = hero:GetEntityIndex()
 				-- rerollTable.itemIndex = newItem:GetEntityIndex()
 				-- rerollTable.ignoreLock = 1
-				-- Challenges:DragIntoRerollSlot(rerollTable)	
+				-- Challenges:DragIntoRerollSlot(rerollTable)
 			else
 				CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
-			end	
-		end )
-    end
+			end
+		end)
+	end
 end
 
 function Challenges:ModifyMithril(amount, hero, reason)
@@ -206,20 +206,20 @@ function Challenges:ModifyMithril(amount, hero, reason)
 	url = url.."&amount="..amount
 	url = url.."&reason="..reason
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 		--SaveLoad:NewKey()
 		local resultTable = {}
-		print( "GET response:\n" )
-		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+		--print( "GET response:\n" )
+		for k, v in pairs(result) do
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 		local shards = resultTable.mithril_shards
 		Statistics.dispatch("mithril:change", {playerID = playerID});
-		CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-mithril", {mithril = shards})
-		CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player=playerID})
-	end )
+		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = shards})
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player = playerID})
+	end)
 end
 
 function Challenges:OpenBlacksmith(playerID)
@@ -228,7 +228,7 @@ function Challenges:OpenBlacksmith(playerID)
 	if hero:HasModifier("modifier_equip_ui_open") then
 	else
 		CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {})
-		CustomGameEventManager:Send_ServerToPlayer(player, "open_blacksmith", {player=playerID} )
+		CustomGameEventManager:Send_ServerToPlayer(player, "open_blacksmith", {player = playerID})
 	end
 end
 
@@ -237,7 +237,7 @@ function Challenges:ChiselableGearClicked(msg)
 	local itemIndex = msg.itemIndex
 	local slot = msg.slot
 	local player = PlayerResource:GetPlayer(playerID)
-	CustomGameEventManager:Send_ServerToPlayer(player, "chiselable_gear_clicked", {itemIndex = itemIndex, slot=slot} )
+	CustomGameEventManager:Send_ServerToPlayer(player, "chiselable_gear_clicked", {itemIndex = itemIndex, slot = slot})
 end
 
 function Challenges:CollectMithrilIncome(msg)
@@ -248,30 +248,30 @@ function Challenges:CollectMithrilIncome(msg)
 	local url = ROSHPIT_URL.."/champions/modifyMithrilShards?"
 	url = url.."steam_id="..steamID
 	url = url.."&amount="..amount
-	url = url.."&reason=".."income"
+	url = url.."&reason=" .. "income"
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 		--SaveLoad:NewKey()
 		local resultTable = {}
-		print( "GET response:\n" )
-		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
+		--print( "GET response:\n" )
+		for k, v in pairs(result) do
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		print( "Done." )
+		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 		local shards = resultTable.mithril_shards
-		CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-mithril", {mithril = shards})
-		CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-income", {available = 0})
-		CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player=playerID} )
+		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = shards})
+		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-income", {available = 0})
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player = playerID})
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 
 		Statistics.dispatch("mithril:change", {playerID = playerID});
 		for i = 1, 5, 1 do
-			Timers:CreateTimer(0.1*i, function()
+			Timers:CreateTimer(0.1 * i, function()
 				EmitSoundOnClient("Resource.MithrilShardEnter", player)
 			end)
 		end
-	end )	
+	end)
 end
 
 function Challenges:CheckIfHeroHasItemByItemIndex(hero, itemIndex)
@@ -311,7 +311,7 @@ function Challenges:DragIntoRerollSlot(msg)
 	local item = EntIndexToHScript(itemIndex)
 	local player = hero:GetPlayerOwner()
 	-- if IsValidEntity(item:GetContainer()) then
-	-- 	UTIL_Remove(item:GetContainer())
+	-- UTIL_Remove(item:GetContainer())
 	-- end
 	if item.newItemTable.item_slot == "weapon" then
 		return false
@@ -321,17 +321,17 @@ function Challenges:DragIntoRerollSlot(msg)
 	end)
 	if Challenges:CheckIfHeroHasItemByItemIndex(hero, itemIndex) then
 		-- if IsValidEntity(item:GetContainer()) then
-		-- 	return false
+		-- return false
 		-- end
 		hero.rerollItem = item
 		-- Timers:CreateTimer(0.5, function()
-		-- 	if IsValidEntity(item:GetContainer()) then
-		-- 		UTIL_Remove(item:GetContainer())
-		-- 	end
+		-- if IsValidEntity(item:GetContainer()) then
+		-- UTIL_Remove(item:GetContainer())
+		-- end
 		-- end)
-		print("LOAD ITEM INTO REROLL SLOT")
-		DeepPrintTable(msg)
-		CustomGameEventManager:Send_ServerToPlayer(player, "load_item_for_reroll", {itemIndex = itemIndex, player=playerID, ignoreLock=ignoreLock, lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4} )
+		--print("LOAD ITEM INTO REROLL SLOT")
+		--DeepPrintTable(msg)
+		CustomGameEventManager:Send_ServerToPlayer(player, "load_item_for_reroll", {itemIndex = itemIndex, player = playerID, ignoreLock = ignoreLock, lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
 	end
 end
 
@@ -340,9 +340,9 @@ function Challenges:ReturnReroll(msg)
 	local itemIndex = msg.itemIndex
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	-- if hero.rerollItem then
-	-- 	local item = EntIndexToHScript(itemIndex)
-	-- 	RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
-	-- 	hero.rerollItem = nil
+	-- local item = EntIndexToHScript(itemIndex)
+	-- RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+	-- hero.rerollItem = nil
 	-- end
 end
 
@@ -369,7 +369,7 @@ function Challenges:CommitChallengeToGame(resultTable)
 	-- Challenges.challenge.disallowed_hero = resultTable.disallowed_hero
 	-- Challenges.challenge.no_deaths = resultTable.no_deaths
 	-- Challenges.challenge.reward = resultTable.reward
-	DeepPrintTable(Challenges.challenge)
+	--DeepPrintTable(Challenges.challenge)
 end
 
 function Challenges:InitializeChallengeVariables()
@@ -394,7 +394,7 @@ function Challenges:StartDungeonTimer(dungeonName)
 			CustomGameEventManager:Send_ServerToAllClients("start_challenge_timer", {seconds = Challenges.challenge.time_constraint})
 			Timers:CreateTimer(1, function()
 				local timeElapsed = GameRules:GetGameTime() - Challenges.timerStart
-				CustomGameEventManager:Send_ServerToAllClients("update_challenge_timer", {seconds = (Challenges.challenge.time_constraint-timeElapsed)})
+				CustomGameEventManager:Send_ServerToAllClients("update_challenge_timer", {seconds = (Challenges.challenge.time_constraint - timeElapsed)})
 				if Challenges.timerEnd == 0 then
 					return 1
 				end
@@ -406,7 +406,7 @@ end
 function Challenges:BossDie(bossName, bossPosition)
 	Challenges.timerEnd = GameRules:GetGameTime()
 	if Challenges.challenge.enemy_objective_name then
-		print("DEBUG: ENEMY OBJECTIVE TRUE")
+		--print("DEBUG: ENEMY OBJECTIVE TRUE")
 		if Challenges.challenge.enemy_objective_name == bossName then
 			if bossName == "phoenix_boss" and Challenges.challenge.quantity then
 				if (Dungeons.phoenixWave - 10) >= Challenges.challenge.quantity then
@@ -429,7 +429,7 @@ function Challenges:IsTimeConditionSatisfied()
 		if timeElapsed < Challenges.challenge.time_constraint then
 			return true
 		else
-			Notifications:TopToAll({text="Missed Challenge by"..math.floor(timeElapsed).." seconds", duration=8.0})
+			Notifications:TopToAll({text = "Missed Challenge by"..math.floor(timeElapsed) .. " seconds", duration = 8.0})
 			return false
 		end
 	else
@@ -514,7 +514,7 @@ function Challenges:ParagonKilled(affixTable, deathPosition)
 		end
 		for i = 1, #newTable, 1 do
 			if newTable[i] == Challenges.challenge.paragon_affix then
-				print("PARAGON WITH AFFIX INCREASE")
+				--print("PARAGON WITH AFFIX INCREASE")
 				Challenges.paragonsWithKeyAffixKilled = Challenges.paragonsWithKeyAffixKilled + 1
 			end
 		end
@@ -535,41 +535,41 @@ function Challenges:CompleteChallenge(position)
 	if not Challenges.completed_this_session then
 		if Challenges:IsAbilityConditionSatisfied() and Challenges:AreSoloAndNoDeathSatisfied() and Challenges:IsHeroBanSatisfied() and Challenges:IsTimeConditionSatisfied() then
 			Challenges.completed_this_session = true
-		  	local crystal = CreateUnitByName("arcane_crystal", position+Vector(0,0,1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
-		  	crystal:SetAbsOrigin(crystal:GetAbsOrigin()+Vector(0,0,1300))
-		  	local crystalAbility = crystal:AddAbility("mithril_shard_ability")
-		  	crystalAbility:SetLevel(1)
-		  	local fv = RandomVector(1)
-		  	crystal:SetOriginalModel("models/props_gameplay/rune_doubledamage01.vmdl")
-		  	crystal:SetModel("models/props_gameplay/rune_doubledamage01.vmdl")
-		  	crystal.reward = Challenges.challenge.reward*Challenges:GetDifficultyMultipler()
-		  	crystal.reward = math.floor(crystal.reward*(1+GameState:GetPlayerPremiumStatusCount()*0.1))
-		  	crystal.distributed = 0
-		  	local baseModelSize = math.min(2.9, 1.2 + crystal.reward/200)
-		  	crystal.modelScale = baseModelSize
-		  	crystal:SetModelScale(baseModelSize)
-		  	crystal.fallVelocity = 45
-		  	crystal.falling = true
-		  	crystal.winnerTable = MAIN_HERO_TABLE
-		  	-- local potentialWinnerTable = RPCItems:GetConnectedPlayerTable()
-		  	-- for i = 1, #potentialWinnerTable, 1 do
-		  	-- 	local completedTable = CustomNetTables:GetTableValue("player_stats", tostring(potentialWinnerTable[i]:GetPlayerOwnerID()).."-challenge")
-		  	-- 	local completed = completedTable.completed
-		  	-- 	if completed == 0 then
-		  	-- 		potentialWinnerTable[i].shardsPickedUp = 0
-		  	-- 		table.insert(crystal.winnerTable, potentialWinnerTable[i])
-		  	-- 	end
-		  	-- end
-		  	if #crystal.winnerTable > 0 then
-			  	for i = 1, #crystal.winnerTable, 1 do
-			  		crystal.winnerTable[i].shardsPickedUp = 0
-			  		EmitSoundOn("Challenge.ChallengeComplete", crystal.winnerTable[i])
-			  		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_legion_commander/legion_commander_duel_victory.vpcf", crystal.winnerTable[i], 5)
-			  	end
-			  	Timers:CreateTimer(1.4, function()
-			  		EmitSoundOn("Resource.MithrilShardEnter", crystal)
-			  	end)
-		  	end
+			local crystal = CreateUnitByName("arcane_crystal", position + Vector(0, 0, 1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
+			crystal:SetAbsOrigin(crystal:GetAbsOrigin() + Vector(0, 0, 1300))
+			local crystalAbility = crystal:AddAbility("mithril_shard_ability")
+			crystalAbility:SetLevel(1)
+			local fv = RandomVector(1)
+			crystal:SetOriginalModel("models/props_gameplay/rune_doubledamage01.vmdl")
+			crystal:SetModel("models/props_gameplay/rune_doubledamage01.vmdl")
+			crystal.reward = Challenges.challenge.reward * Challenges:GetDifficultyMultipler()
+			crystal.reward = math.floor(crystal.reward * (1 + GameState:GetPlayerPremiumStatusCount() * 0.1))
+			crystal.distributed = 0
+			local baseModelSize = math.min(2.9, 1.2 + crystal.reward / 200)
+			crystal.modelScale = baseModelSize
+			crystal:SetModelScale(baseModelSize)
+			crystal.fallVelocity = 45
+			crystal.falling = true
+			crystal.winnerTable = MAIN_HERO_TABLE
+			-- local potentialWinnerTable = RPCItems:GetConnectedPlayerTable()
+			-- for i = 1, #potentialWinnerTable, 1 do
+			-- local completedTable = CustomNetTables:GetTableValue("player_stats", tostring(potentialWinnerTable[i]:GetPlayerOwnerID()).."-challenge")
+			-- local completed = completedTable.completed
+			-- if completed == 0 then
+			-- potentialWinnerTable[i].shardsPickedUp = 0
+			-- table.insert(crystal.winnerTable, potentialWinnerTable[i])
+			-- end
+			-- end
+			if #crystal.winnerTable > 0 then
+				for i = 1, #crystal.winnerTable, 1 do
+					crystal.winnerTable[i].shardsPickedUp = 0
+					EmitSoundOn("Challenge.ChallengeComplete", crystal.winnerTable[i])
+					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_legion_commander/legion_commander_duel_victory.vpcf", crystal.winnerTable[i], 5)
+				end
+				Timers:CreateTimer(1.4, function()
+					EmitSoundOn("Resource.MithrilShardEnter", crystal)
+				end)
+			end
 		end
 	end
 end
@@ -597,20 +597,20 @@ function Challenges:SaveMithrilShards(winnerTable)
 				local url = ROSHPIT_URL.."/champions/modifyMithrilShards?"
 				url = url.."steam_id="..steamID
 				url = url.."&amount="..amount
-				url = url.."&reason=".."challenge"
+				url = url.."&reason=" .. "challenge"
 				url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 				hero.shardsPickedUp = hero.shardsPickedUp - amount
-				CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+				CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 					--SaveLoad:NewKey()
 					local resultTable = {}
-					print( "GET response:\n" )
-					for k,v in pairs( result ) do
-						print( string.format( "%s : %s\n", k, v ) )
+					--print( "GET response:\n" )
+					for k, v in pairs(result) do
+						--print( string.format( "%s : %s\n", k, v ) )
 					end
-					print( "Done." )
+					--print( "Done." )
 					if result.StatusCode == 200 then
 						local resultTable = JSON:decode(result.Body)
-						
+
 						local shards = resultTable.mithril_shards
 						if hero.shardsPickedUp <= 1 then
 							CustomGameEventManager:Send_ServerToAllClients("arcane_out", {})
@@ -619,11 +619,11 @@ function Challenges:SaveMithrilShards(winnerTable)
 						end
 
 						Statistics.dispatch("mithril:change", {playerID = playerID});
-						CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-mithril", {mithril = shards})
-						CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-challenge", {completed = resultTable.challenge_completed})
-						CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player=playerID} )
+						CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = shards})
+						CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-challenge", {completed = resultTable.challenge_completed})
+						CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player = playerID})
 					end
-				end )
+				end)
 			end
 		end
 	end

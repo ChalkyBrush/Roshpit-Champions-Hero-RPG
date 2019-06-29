@@ -6,7 +6,7 @@ function wolf_howl_pre(event)
 	local caster = event.caster
 	EmitSoundOn("Draghor.WolfHowl", caster)
 
-	StartAnimation(caster, {duration=2.3, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.4})
+	StartAnimation(caster, {duration = 2.3, activity = ACT_DOTA_CAST_ABILITY_2, rate = 0.4})
 
 end
 
@@ -18,11 +18,11 @@ function wolf_howl(event)
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lycan/lycan_howl_cast.vpcf", caster, 3)
 	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin())
-	ParticleManager:SetParticleControl(pfx, 2, caster:GetAbsOrigin()+caster:GetForwardVector()*200)
-	local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )
+	ParticleManager:SetParticleControl(pfx, 2, caster:GetAbsOrigin() + caster:GetForwardVector() * 200)
+	local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
 	if #allies > 0 then
 		EmitSoundOn("Draghor.WolfHowl.Activate", caster)
-		for _,ally in pairs(allies) do
+		for _, ally in pairs(allies) do
 			local modifierName = "modifier_wolf_howl_ally"
 			if ally:GetEntityIndex() == caster:GetEntityIndex() or ally:GetOwner() == caster:GetOwner() then
 				modifierName = "modifier_wolf_howl"
@@ -38,7 +38,7 @@ function wolf_howl(event)
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion_wave.vpcf", caster, 1.2)
-	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_lone_druid/hermit_roar.vpcf", caster:GetAbsOrigin()+Vector(0,0,20), 1.2)
+	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_lone_druid/hermit_roar.vpcf", caster:GetAbsOrigin() + Vector(0, 0, 20), 1.2)
 	Filters:CastSkillArguments(1, caster)
 end
 
@@ -48,48 +48,48 @@ function wolf_sprint(event)
 	local duration = event.duration
 	local d_c_level = caster:GetRuneValue("e", 4)
 	if d_c_level > 0 then
-		duration = duration + d_c_level*DJANGHOR_E4_DURATION_INCREASE
+		duration = duration + d_c_level * DJANGHOR_E4_DURATION_INCREASE
 	end
-	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.5})
+	StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.5})
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_wolf_sprint", {duration = duration})
-	caster:AddNewModifier( caster, ability, "modifier_draghor_feral_sprint", {duration = duration} )
+	caster:AddNewModifier(caster, ability, "modifier_draghor_feral_sprint", {duration = duration})
 	EmitSoundOn("Draghor.Wolf.FeralHaste", caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_wolf_slide_burst", {duration = 1.0})
 	caster:SetModifierStackCount("modifier_wolf_slide_burst", caster, 200)
-      local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
-      ParticleManager:SetParticleControl( pfx, 0, caster:GetAbsOrigin())
-      ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
-      Timers:CreateTimer(2, function()
-        ParticleManager:DestroyParticle(pfx, false)
-      end)
+	local pfx = ParticleManager:CreateParticle("particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 1, Vector(200, 200, 200))
+	Timers:CreateTimer(2, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
 
-      local pfx2 = ParticleManager:CreateParticle( "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
-      ParticleManager:SetParticleControl( pfx2, 0, caster:GetAbsOrigin()+caster:GetForwardVector()*80)
-      ParticleManager:SetParticleControl( pfx2, 1, Vector(200, 200, 200) )
-      Timers:CreateTimer(2, function()
-        ParticleManager:DestroyParticle(pfx2, false)
-      end)
-      for i = 1, 5, 1 do
-      	Timers:CreateTimer(0.25*i, function()
-		  local pfxExtra = ParticleManager:CreateParticle( "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
-		  ParticleManager:SetParticleControl( pfxExtra, 0, caster:GetAbsOrigin())
-		  ParticleManager:SetParticleControl( pfxExtra, 1, Vector(200, 200, 200) )
-		  Timers:CreateTimer(2, function()
-		    ParticleManager:DestroyParticle(pfxExtra, false)
-		  end)
+	local pfx2 = ParticleManager:CreateParticle("particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+	ParticleManager:SetParticleControl(pfx2, 0, caster:GetAbsOrigin() + caster:GetForwardVector() * 80)
+	ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
+	Timers:CreateTimer(2, function()
+		ParticleManager:DestroyParticle(pfx2, false)
+	end)
+	for i = 1, 5, 1 do
+		Timers:CreateTimer(0.25 * i, function()
+			local pfxExtra = ParticleManager:CreateParticle("particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+			ParticleManager:SetParticleControl(pfxExtra, 0, caster:GetAbsOrigin())
+			ParticleManager:SetParticleControl(pfxExtra, 1, Vector(200, 200, 200))
+			Timers:CreateTimer(2, function()
+				ParticleManager:DestroyParticle(pfxExtra, false)
+			end)
 		end)
-      end
-      Filters:CastSkillArguments(3, caster)
+	end
+	Filters:CastSkillArguments(3, caster)
 end
 
 function wolf_sprint_think(event)
 	local caster = event.caster
-	local newPos = caster:GetAbsOrigin()+caster:GetForwardVector()*70
+	local newPos = caster:GetAbsOrigin() + caster:GetForwardVector() * 70
 	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin())
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos, caster)
 	if blockUnit then
-		caster:SetAbsOrigin(caster:GetAbsOrigin()-caster:GetForwardVector()*60)
+		caster:SetAbsOrigin(caster:GetAbsOrigin() - caster:GetForwardVector() * 60)
 		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 		caster:RemoveModifierByName("modifier_wolf_free_pathing")
 	end
@@ -108,7 +108,7 @@ function rend_phase(event)
 
 	CustomAbilities:QuickAttachParticle("particles/roshpit/draghor/wolf_rend_preb.vpcf", caster, 3)
 	EmitSoundOn("Draghor.Wolf.RendSwing", caster)
-	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=2.0})
+	StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_ATTACK, rate = 2.0})
 end
 
 function rend_start(event)
@@ -116,41 +116,41 @@ function rend_start(event)
 	local ability = event.ability
 
 	local position = caster:GetAbsOrigin()
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.damage_mult/100)
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin()+caster:GetForwardVector()*180, nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (event.damage_mult / 100)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin() + caster:GetForwardVector() * 180, nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	local element1 = RPC_ELEMENT_NORMAL
 	local element2 = RPC_ELEMENT_NONE
 	if caster:HasModifier("modifier_djanghor_immortal_weapon_1") then
-        local pfx = ParticleManager:CreateParticle( "particles/roshpit/dreghor/jinbo_heavy.vpcf", PATTACH_POINT, caster )
-        ParticleManager:SetParticleControl(0, pfx, caster:GetAbsOrigin())
-        -- ParticleManager:SetParticleControl(1, pfx, caster:GetAbsOrigin()+endFV*range)
-        ParticleManager:SetParticleControl(2, pfx, Vector(range, 0, 0))
-		Timers:CreateTimer(4, function() 
-		  ParticleManager:DestroyParticle( pfx, false )
+		local pfx = ParticleManager:CreateParticle("particles/roshpit/dreghor/jinbo_heavy.vpcf", PATTACH_POINT, caster)
+		ParticleManager:SetParticleControl(0, pfx, caster:GetAbsOrigin())
+		-- ParticleManager:SetParticleControl(1, pfx, caster:GetAbsOrigin()+endFV*range)
+		ParticleManager:SetParticleControl(2, pfx, Vector(range, 0, 0))
+		Timers:CreateTimer(4, function()
+			ParticleManager:DestroyParticle(pfx, false)
 		end)
 		element1 = RPC_ELEMENT_NATURE
 		element2 = RPC_ELEMENT_NONE
 		local endFV = caster:GetForwardVector()
 		local range = 1200
 		EmitSoundOn("Draghor.RendRange", caster)
-		enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin()+endFV*range, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)		
+		enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin() + endFV * range, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
 	end
 	if #enemies > 0 then
 		EmitSoundOn("Draghor.Wolf.RendHitBasic", enemies[1])
-		local bBloodSound = false	
-		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, element1, element2)
+		local bBloodSound = false
+		for _, enemy in pairs(enemies) do
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, element1, element2)
 
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_stack", {duration = 8})
 			local rendStacks = enemy:GetModifierStackCount("modifier_wolf_rend_stack", caster)
-			local newStacks = math.min(2, rendStacks+1)
+			local newStacks = math.min(2, rendStacks + 1)
 			enemy:SetModifierStackCount("modifier_wolf_rend_stack", caster, newStacks)
 
-			local armorLoss = (enemy:GetPhysicalArmorValue(false)+enemy:GetModifierStackCount("modifier_wolf_rend_armor_loss", caster))*0.5
+			local armorLoss = (enemy:GetPhysicalArmorValue(false) + enemy:GetModifierStackCount("modifier_wolf_rend_armor_loss", caster)) * 0.5
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_armor_loss", {duration = 8})
-			enemy:SetModifierStackCount("modifier_wolf_rend_armor_loss", caster, armorLoss*newStacks)
+			enemy:SetModifierStackCount("modifier_wolf_rend_armor_loss", caster, armorLoss * newStacks)
 			if rendStacks == 2 then
-				enemy.rendBleed = event.bleed_damage*damage/100
+				enemy.rendBleed = event.bleed_damage * damage / 100
 				ability.w_2_level = caster:GetRuneValue("w", 2)
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_bleed", {duration = 12})
 				if not ability.bloodCount then
@@ -159,7 +159,7 @@ function rend_start(event)
 				if ability.bloodCount < 9 then
 					ability.bloodCount = ability.bloodCount + 1
 					local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
-					local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, enemy )
+					local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, enemy)
 					ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", enemy:GetAbsOrigin(), true)
 					ParticleManager:SetParticleControlEnt(pfx, 1, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", enemy:GetAbsOrigin(), true)
 					ParticleManager:SetParticleControlEnt(pfx, 2, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", enemy:GetAbsOrigin(), true)
@@ -170,11 +170,11 @@ function rend_start(event)
 				end
 				bBloodSound = true
 			end
-		end	
+		end
 		if bBloodSound then
 			EmitSoundOnLocationWithCaster(enemies[1]:GetAbsOrigin(), "Draghor.Wolf.RendBleed", caster)
-		end			
-	end 
+		end
+	end
 	Filters:CastSkillArguments(2, caster)
 end
 
@@ -190,14 +190,14 @@ function lifesteal_attack(event)
 	local attacker = event.attacker
 	local ability = event.ability
 	local damage = event.attack_damage
-	local lifesteal = math.floor(damage*0.05)
+	local lifesteal = math.floor(damage * 0.05)
 
 	Filters:ApplyHeal(attacker, attacker, lifesteal, true)
 	local particleName = "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
-	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, attacker )
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, attacker)
 	ParticleManager:SetParticleControlEnt(pfx, 0, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
-	ParticleManager:SetParticleControlEnt( pfx, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin()+Vector(0,0,70), true )
-	Timers:CreateTimer(1, function() 
-	  ParticleManager:DestroyParticle( pfx, false )
-	end)  	
+	ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin() + Vector(0, 0, 70), true)
+	Timers:CreateTimer(1, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
 end

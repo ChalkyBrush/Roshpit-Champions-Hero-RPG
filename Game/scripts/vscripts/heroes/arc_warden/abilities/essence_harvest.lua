@@ -36,31 +36,31 @@ function get_onibi(caster)
 	url = url.."&steam_id="..PlayerResource:GetSteamAccountID(playerID)
 	url = url.."&championcharacter_id="..roshpit_id
 	--print(url)
-	CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
+	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			print( "GET response:\n" )
-			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+			--print( "GET response:\n" )
+			for k, v in pairs(result) do
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
+			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			load_onibi_data(caster, resultTable)
 		else
 			local resultTable = {}
-			print( "GET response:\n" )
-			for k,v in pairs( result ) do
-				print( string.format( "%s : %s\n", k, v ) )
+			--print( "GET response:\n" )
+			for k, v in pairs(result) do
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
 			caster.onibi_searching = false
 		end
-	end )
+	end)
 end
 
 function get_onibi_essences(caster, onibi)
 	local essences = {}
 	for i = 1, 2, 1 do
-		local ability = onibi:GetAbilityByIndex(i+2)
+		local ability = onibi:GetAbilityByIndex(i + 2)
 		if ability:GetAbilityName() == "onibi_nature_"..i then
 			essences[i] = "nature"
 		elseif ability:GetAbilityName() == "onibi_lightning_"..i then
@@ -85,13 +85,13 @@ function essence_aura_unit_die(event)
 	local actual_essence = essence_possibilities[RandomInt(1, #essence_possibilities)]
 	local level = get_level_by_sum_exp(caster.onibi.stats_table[actual_essence]["exp"])
 	if xp > 0 and level < 100 then
-	    local essence_value = math.ceil(xp/10)
-		local essence_point = GetGroundPosition(unit:GetAbsOrigin(), unit)+RandomVector(RandomInt(0, 300))
+		local essence_value = math.ceil(xp / 10)
+		local essence_point = GetGroundPosition(unit:GetAbsOrigin(), unit) + RandomVector(RandomInt(0, 300))
 		local essence_unit = CreateUnitByName("jex_essence", essence_point, false, nil, nil, DOTA_TEAM_GOODGUYS)
 		essence_unit:FindAbilityByName("jex_essence_ability"):SetLevel(1)
 		local essence_data = {}
 		essence_unit:SetForwardVector(RandomVector(1))
-		print(actual_essence)
+		--print(actual_essence)
 		if actual_essence == "nature" then
 			essence_data.model = "models/props_nature/desert/succulent_fat.vmdl"
 			essence_data.model_scale = 0.8
@@ -124,18 +124,18 @@ function essence_aura_unit_die(event)
 		essence_unit:SetOriginalModel(essence_data.model)
 		essence_unit:SetModel(essence_data.model)
 		essence_unit.modelScale = essence_data.model_scale
-		essence_unit:SetAbsOrigin(GetGroundPosition(essence_unit:GetAbsOrigin(), unit)+Vector(0,0,essence_data.z_offset))
+		essence_unit:SetAbsOrigin(GetGroundPosition(essence_unit:GetAbsOrigin(), unit) + Vector(0, 0, essence_data.z_offset))
 		local spawnPFX = CustomAbilities:QuickAttachParticle("particles/roshpit/jex/essence_spawn.vpcf", essence_unit, 2)
-		ParticleManager:SetParticleControl(spawnPFX, 1, essence_data.spawn_particle_vector/255)
+		ParticleManager:SetParticleControl(spawnPFX, 1, essence_data.spawn_particle_vector / 255)
 		local modifierName = "jex_essence_"..actual_essence
 		essence_unit:FindAbilityByName("jex_essence_ability"):ApplyDataDrivenModifier(essence_unit, essence_unit, modifierName, nil)
 		essence_unit:FindAbilityByName("jex_essence_ability"):ApplyDataDrivenModifier(essence_unit, essence_unit, "jex_essence_spawning", {duration = 0.42})
 		essence_unit:FindAbilityByName("jex_essence_ability"):ApplyDataDrivenModifier(essence_unit, essence_unit, "modifier_jex_essence_despawn", {duration = 180})
 		essence_unit.essence_value = math.ceil(RPCItems:GetMaxFactor())
 		if essence_unit.itemLevel then
-			essence_unit.essence_value = essence_unit.essence_value + essence_unit.itemLevel*2
+			essence_unit.essence_value = essence_unit.essence_value + essence_unit.itemLevel * 2
 		end
-		essence_unit.essence_value = math.min(essence_unit.essence_value, caster:GetLevel()*10)
+		essence_unit.essence_value = math.min(essence_unit.essence_value, caster:GetLevel() * 10)
 		essence_unit.essence_unit = true
 		essence_unit.essence = actual_essence
 		essence_unit.resource_proportion_to_extract = 4
@@ -151,9 +151,9 @@ end
 
 function jex_essence_spawning(event)
 	local caster = event.caster
-	local new_model_scale = caster:GetModelScale() + caster.modelScale/14
+	local new_model_scale = caster:GetModelScale() + caster.modelScale / 14
 	if caster.phase_out then
-		new_model_scale = caster:GetModelScale() - caster.modelScale/14
+		new_model_scale = caster:GetModelScale() - caster.modelScale / 14
 	end
 	caster:SetModelScale(new_model_scale)
 end
@@ -167,20 +167,20 @@ function start_channel(event)
 	ability.radius = radius
 	StartSoundEvent("Jex.Harvest", caster)
 	ability.harvested = 0
-	print("ESSENCE HARVEST ANIMATION")
-	StartAnimation(caster, {duration=3, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.4})
+	--print("ESSENCE HARVEST ANIMATION")
+	StartAnimation(caster, {duration = 3, activity = ACT_DOTA_CAST_ABILITY_1, rate = 0.4})
 	ability.casted = false
 	-- local allies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	-- local flowers = {}
 	-- for i = 1, #allies, 1 do
-	-- 	local unit = allies[i]
-	-- 	if unit.essence_unit then
-	-- 		table.insert(flowers, unit)
-	-- 	end
+	-- local unit = allies[i]
+	-- if unit.essence_unit then
+	-- table.insert(flowers, unit)
+	-- end
 	-- end
 	-- allies = nil
 	-- for i = 1, #flowers, 1 do
-	-- 	local flower = flowers[i]
+	-- local flower = flowers[i]
 
 	-- end
 end
@@ -190,11 +190,11 @@ function harvest_channel_thinking(event)
 	local ability = event.ability
 	local point = ability.point
 	local radius = ability.radius
-	local allies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
+	local allies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 	local flowers = {}
 	for i = 1, #allies, 1 do
 		local unit = allies[i]
-		print(unit:GetUnitName())
+		--print(unit:GetUnitName())
 		if unit.essence_unit then
 			table.insert(flowers, unit)
 		end
@@ -202,16 +202,16 @@ function harvest_channel_thinking(event)
 	allies = nil
 	for i = 1, #flowers, 1 do
 		local flower = flowers[i]
-		print("FLOWERS")
+		--print("FLOWERS")
 		if flower.resource_proportion_to_extract > 0 then
 			if not flower.extraction_pfx then
-				print("Make pfx")
+				--print("Make pfx")
 				local pfx = ParticleManager:CreateParticle("particles/roshpit/jex/essence_harvest.vpcf", PATTACH_CUSTOMORIGIN, nil)
 				ParticleManager:SetParticleControlEnt(pfx, 0, flower, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", flower:GetAbsOrigin(), true)
 				ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 				flower.extraction_pfx = pfx
 			end
-			local resources_to_extract = flower.essence_value/flower.resource_proportion_to_extract
+			local resources_to_extract = flower.essence_value / flower.resource_proportion_to_extract
 			flower.essence_value = flower.essence_value - resources_to_extract
 			flower.resource_proportion_to_extract = flower.resource_proportion_to_extract - 1
 			ability.harvested = ability.harvested + 1
@@ -251,7 +251,7 @@ function essence_harvest_channel_end(event)
 		point = ability.point
 		radius = ability.radius
 	end
-	local allies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
+	local allies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 	local flowers = {}
 	if not event.glyph then
 		EndAnimation(caster)
@@ -267,7 +267,7 @@ function essence_harvest_channel_end(event)
 		local flower = flowers[i]
 		if event.glyph then
 			if not flower.extraction_pfx then
-				print("Make pfx")
+				--print("Make pfx")
 				local pfx = ParticleManager:CreateParticle("particles/roshpit/jex/essence_harvest.vpcf", PATTACH_CUSTOMORIGIN, nil)
 				ParticleManager:SetParticleControlEnt(pfx, 0, flower, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", flower:GetAbsOrigin(), true)
 				ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
@@ -289,7 +289,7 @@ function essence_harvest_channel_end(event)
 		end
 		if event.glyph then
 			flower.resource_proportion_to_extract = 1
-			add_resources_to_hero(caster, flower.essence, flower.essence_value/2)
+			add_resources_to_hero(caster, flower.essence, flower.essence_value / 2)
 		end
 		if flower.resource_proportion_to_extract <= 1 then
 			flower:FindAbilityByName("jex_essence_ability"):ApplyDataDrivenModifier(flower, flower, "jex_essence_spawning", {duration = 0.42})
@@ -363,16 +363,16 @@ function transfer_to_onibi(caster, ability)
 			intensity = 5
 		end
 		EmitSoundOn("Jex.HarvestEnd"..intensity, caster)
-		StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_ATTACK, rate=1.4})
-		StartAnimation(caster.onibi, {duration=0.5, activity=ACT_DOTA_DIE, rate=0.8})
+		StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_ATTACK, rate = 1.4})
+		StartAnimation(caster.onibi, {duration = 0.5, activity = ACT_DOTA_DIE, rate = 0.8})
 	end
 	local total_harvested = 0
 	if caster.jex_resources then
 		for k, v in pairs(caster.jex_resources) do
-		  local resource_type = k
-		  local amount = v
-		  add_resources_to_onibi(caster, resource_type, amount)
-		  total_harvested = total_harvested + amount
+			local resource_type = k
+			local amount = v
+			add_resources_to_onibi(caster, resource_type, amount)
+			total_harvested = total_harvested + amount
 		end
 		for k, v in pairs(caster.jex_resources) do
 			caster.jex_resources[k] = 0
@@ -400,9 +400,9 @@ end
 function add_resources_to_onibi(caster, element, amount)
 	amount = math.floor(amount)
 	if amount > 0 then
-		print("ONIBI GETS "..amount.." of "..element)
+		--print("ONIBI GETS "..amount.." of "..element)
 		local player = caster:GetPlayerOwner()
-		DeepPrintTable(caster.onibi.stats_table[element])
+		--DeepPrintTable(caster.onibi.stats_table[element])
 		local level = get_level_by_sum_exp(caster.onibi.stats_table[element]["exp"])
 		if level < 100 then
 			caster.onibi.stats_table[element]["exp"] = caster.onibi.stats_table[element]["exp"] + amount

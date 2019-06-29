@@ -160,7 +160,6 @@ function farmland_spawner_think(event)
 		table.insert(caster.summonTable, zombie)
 	end
 
-
 end
 
 function FarmlandsCornTrigger1(event)
@@ -736,7 +735,7 @@ end
 function demon_farmer_die(event)
 	local caster = event.caster
 	Timers:CreateTimer(1.5, function()
-		print("GO!")
+		--print("GO!")
 		local ghostMeepo = CreateUnitByName("redfall_meepo_farmer", caster:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_GOODGUYS)
 		ghostMeepo:SetAbsOrigin(ghostMeepo:GetAbsOrigin() + Vector(0, 0, 160))
 		ghostMeepo:SetDayTimeVisionRange(500)

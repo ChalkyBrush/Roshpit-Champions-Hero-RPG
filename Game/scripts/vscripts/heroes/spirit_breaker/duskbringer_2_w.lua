@@ -9,13 +9,13 @@ function begin_ghost_hallow(event)
 	EmitSoundOnLocationWithCaster(target, "Duskbringer.GhostHallow", caster)
 	--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(target, caster), "ghost_hallow", {duration = 6})
 	CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(target, caster), "ghost_hallow", {duration = 6})
-	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=2.1})
+	StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_ATTACK, rate = 2.1})
 
 	EmitSoundOn("Hero_Spirit_Breaker.PreAttack", caster)
 end
 
 function ghost_trap_enter(event)
-	-- print("test duskbringer w1")
+	--print("test duskbringer w1")
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
@@ -25,7 +25,7 @@ function ghost_trap_enter(event)
 		target.ghost_hallow_think_interval = target.ghost_hallow_think_interval + 1
 	end
 	if not target:HasModifier("modifier_ghost_trap_immune") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_trap_immune", {duration = duration+3})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_trap_immune", {duration = duration + 3})
 		ability:ApplyDataDrivenModifier(caster, target, "ghost_hallow_stun", {duration = duration})
 		local w_2_level = caster:GetRuneValue("w", 2)
 		if w_2_level > 0 then
@@ -36,13 +36,13 @@ function ghost_trap_enter(event)
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_hallow_disarm", {duration = duration})
 		end
 	end
-	if target.ghost_hallow_think_interval%10 == 0 or event.apply == 1 then
+	if target.ghost_hallow_think_interval % 10 == 0 or event.apply == 1 then
 		local w_1_level = caster:GetRuneValue("w", 1)
 		ghost_trap_a_b_thinker(event)
 		if w_1_level > 0 then
 			if not target.duskABparticle then
 				target.duskABparticle = CustomAbilities:QuickAttachParticle("particles/roshpit/duskbringer/duskbringer_rune_a_b.vpcf", target, 10)
-				ParticleManager:SetParticleControl(target.duskABparticle, 1, target:GetForwardVector()*150)
+				ParticleManager:SetParticleControl(target.duskABparticle, 1, target:GetForwardVector() * 150)
 			end
 		end
 	end
@@ -54,13 +54,13 @@ function ghost_trap_end(event)
 	if target.duskABparticle then
 		ParticleManager:DestroyParticle(target.duskABparticle, true)
 		target.duskABparticle = nil
-		local pfx = ParticleManager:CreateParticle( "particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf", PATTACH_CUSTOMORIGIN, caster)
-		ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin()+Vector(0,0,20))
+		local pfx = ParticleManager:CreateParticle("particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin() + Vector(0, 0, 20))
 		ParticleManager:SetParticleControl(pfx, 5, Vector(0.5, 1, 1))
-		ParticleManager:SetParticleControl(pfx, 2, Vector(0.1,0.1,0.1))
-		Timers:CreateTimer(1, function() 
-		  ParticleManager:DestroyParticle( pfx, false )
-		  ParticleManager:ReleaseParticleIndex(pfx)
+		ParticleManager:SetParticleControl(pfx, 2, Vector(0.1, 0.1, 0.1))
+		Timers:CreateTimer(1, function()
+			ParticleManager:DestroyParticle(pfx, false)
+			ParticleManager:ReleaseParticleIndex(pfx)
 		end)
 	end
 	target.ghost_hallow_think_interval = nil
@@ -75,8 +75,8 @@ function ghost_trap_a_b_thinker(event)
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * w_1_level * DUSKBRINGER_W1_DMG_PER_ATT
 		Timers:CreateTimer(0.15, function()
 			if target:IsAlive() then
-				CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", target:GetAbsOrigin()+Vector(0,0,40), 0.2)
-				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
+				CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", target:GetAbsOrigin() + Vector(0, 0, 40), 0.2)
+				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
 				EmitSoundOn("Duskbringer.GhostHallowAB", target)
 			end
 

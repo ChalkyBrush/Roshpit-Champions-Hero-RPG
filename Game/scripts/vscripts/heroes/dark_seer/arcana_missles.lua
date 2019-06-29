@@ -16,30 +16,30 @@ function start_channel(event)
 	StartSoundEvent("Zonik.ArcanaMissles.Channel", caster)
 	EmitSoundOn("Zonik.ArcanaMissles.StartVO", caster)
 
-    local radius = 160
-    local particleNameS = "particles/roshpit/zhonik/test/cube_explosion.vpcf"
-    local particle2 = ParticleManager:CreateParticle( particleNameS, PATTACH_WORLDORIGIN, caster )
-    ParticleManager:SetParticleControl( particle2, 0, caster:GetAbsOrigin() )
-    ParticleManager:SetParticleControl( particle2, 1, Vector(radius,radius,radius) )
-    ParticleManager:SetParticleControl( particle2, 2, Vector(1.1, 1.1, 1.1) )
-    ParticleManager:SetParticleControl( particle2, 4, Vector(100, 255, 100) )
-    Timers:CreateTimer(2.5, function()
-    	ParticleManager:DestroyParticle(particle2, false)
-    end)
-    if caster:HasModifier("modifier_iron_treads_of_destruction") then
-    	for i = 1, 10, 1 do
-    		create_zonik_arcana_missle(caster, ability, 300)
-    	end
-    end
+	local radius = 160
+	local particleNameS = "particles/roshpit/zhonik/test/cube_explosion.vpcf"
+	local particle2 = ParticleManager:CreateParticle(particleNameS, PATTACH_WORLDORIGIN, caster)
+	ParticleManager:SetParticleControl(particle2, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(particle2, 1, Vector(radius, radius, radius))
+	ParticleManager:SetParticleControl(particle2, 2, Vector(1.1, 1.1, 1.1))
+	ParticleManager:SetParticleControl(particle2, 4, Vector(100, 255, 100))
+	Timers:CreateTimer(2.5, function()
+		ParticleManager:DestroyParticle(particle2, false)
+	end)
+	if caster:HasModifier("modifier_iron_treads_of_destruction") then
+		for i = 1, 10, 1 do
+			create_zonik_arcana_missle(caster, ability, 300)
+		end
+	end
 end
 
 function arcana_missles_channel_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	
+
 	ability.interval = ability.interval + 1
-	local creationInterval = 13-ability:GetLevel()
-	if ability.interval%creationInterval == 0 and ability.interval > 12 then
+	local creationInterval = 13 - ability:GetLevel()
+	if ability.interval % creationInterval == 0 and ability.interval > 12 then
 		create_zonik_arcana_missle(caster, ability, 0)
 	end
 	if ability.interval == 66 then
@@ -47,41 +47,41 @@ function arcana_missles_channel_think(event)
 		EmitSoundOn("Zonik.ArcanaMissles.ShieldApply", caster)
 	end
 	if ability.interval == 37 then
-		StartAnimation(caster, {duration=3.1, activity=ACT_DOTA_VERSUS, rate=1})
+		StartAnimation(caster, {duration = 3.1, activity = ACT_DOTA_VERSUS, rate = 1})
 	end
-	caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,ability.liftSpeed))
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, ability.liftSpeed))
 	ability.liftSpeed = math.max(ability.liftSpeed - 0.3, 1)
 end
 
 function create_zonik_arcana_missle(caster, ability, zOff)
 	local missle = {}
 	missle.velocity = RandomInt(200, 350)
-	local baseZ = math.max(50-ability.interval, 0)
-	local projectileFV = (RandomVector(1) + Vector(0,0,RandomInt(baseZ, 100)/100)):Normalized()
+	local baseZ = math.max(50 - ability.interval, 0)
+	local projectileFV = (RandomVector(1) + Vector(0, 0, RandomInt(baseZ, 100) / 100)):Normalized()
 	missle.fv = projectileFV
 	local pfx = ParticleManager:CreateParticle("particles/roshpit/zhonik/timewarp_missle.vpcf", PATTACH_CUSTOMORIGIN, caster)
-	missle.position = caster:GetAbsOrigin()+Vector(0,0,80)
-	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,80+zOff))
-	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+projectileFV*1300)
+	missle.position = caster:GetAbsOrigin() + Vector(0, 0, 80)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + Vector(0, 0, 80 + zOff))
+	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin() + projectileFV * 1300)
 	ParticleManager:SetParticleControl(pfx, 2, Vector(missle.velocity, missle.velocity, missle.velocity))
 
 	missle.pfx = pfx
-	table.insert(ability.missleTable, missle)	
+	table.insert(ability.missleTable, missle)
 	Timers:CreateTimer(3.5, function()
 		missle.locked = true
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			local lockEnemy = enemies[RandomInt(1, #enemies)]
 			missle.lockEnemy = lockEnemy
 			AddFOWViewer(caster:GetTeamNumber(), lockEnemy:GetAbsOrigin(), 300, 5, false)
-			ParticleManager:SetParticleControl(pfx, 1, lockEnemy:GetAbsOrigin()+Vector(0,0,50))
+			ParticleManager:SetParticleControl(pfx, 1, lockEnemy:GetAbsOrigin() + Vector(0, 0, 50))
 			ParticleManager:SetParticleControl(pfx, 2, Vector(1400, 1400, 1400))
 			EmitSoundOnLocationWithCaster(missle.position, "Zonik.ArcanaMissles.Launch", caster)
 		else
 			EmitSoundOnLocationWithCaster(missle.position, "Zonik.ArcanaMissles.Fizzle", caster)
 			ParticleManager:DestroyParticle(missle.pfx, false)
-		end 			
-	end)	
+		end
+	end)
 end
 
 function missles_channel_end(event)
@@ -92,7 +92,7 @@ function missles_channel_end(event)
 	local animDuration = 2
 	EndAnimation(caster)
 	Timers:CreateTimer(0.1, function()
-		StartAnimation(caster, {duration=animDuration, activity=ACT_DOTA_VICTORY, rate=2.8})
+		StartAnimation(caster, {duration = animDuration, activity = ACT_DOTA_VICTORY, rate = 2.8})
 		EmitSoundOn("Zonik.ArcanaMissles.LaunchVO", caster)
 	end)
 	Timers:CreateTimer(2.0, function()
@@ -116,7 +116,7 @@ function passive_think(event)
 	local damage = event.damage
 	local baseMS = caster:GetBaseMoveSpeed()
 	local actualMS = caster:GetMoveSpeedModifier(baseMS, false)
-	damage = damage*actualMS
+	damage = damage * actualMS
 	if not ability.r_4_interval then
 		ability.r_4_interval = 0
 	end
@@ -127,31 +127,31 @@ function passive_think(event)
 			if not missle.locked then
 				missle.velocity = math.max(missle.velocity - 6, 0)
 				ParticleManager:SetParticleControl(missle.pfx, 2, Vector(missle.velocity, missle.velocity, missle.velocity))
-				missle.position = missle.position + missle.velocity*0.03*missle.fv
+				missle.position = missle.position + missle.velocity * 0.03 * missle.fv
 			else
 				if not missle.exploded then
 					if missle.lockEnemy then
-						ParticleManager:SetParticleControl(missle.pfx, 1, missle.lockEnemy:GetAbsOrigin()+Vector(0,0,50))
-						local fv = (missle.lockEnemy:GetAbsOrigin()+Vector(0,0,50) - missle.position):Normalized()
-						missle.position = missle.position + fv*1400*0.03
-						local distance = WallPhysics:GetDistance(missle.position, missle.lockEnemy:GetAbsOrigin()+Vector(0,0,50))
+						ParticleManager:SetParticleControl(missle.pfx, 1, missle.lockEnemy:GetAbsOrigin() + Vector(0, 0, 50))
+						local fv = (missle.lockEnemy:GetAbsOrigin() + Vector(0, 0, 50) - missle.position):Normalized()
+						missle.position = missle.position + fv * 1400 * 0.03
+						local distance = WallPhysics:GetDistance(missle.position, missle.lockEnemy:GetAbsOrigin() + Vector(0, 0, 50))
 						if distance < 40 then
 							EmitSoundOnLocationWithCaster(missle.position, "Zonik.ArcanaMissles.Impact", caster)
 							missle.exploded = true
 							ParticleManager:DestroyParticle(missle.pfx, false)
-							
-							Filters:TakeArgumentsAndApplyDamage(missle.lockEnemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+
+							Filters:TakeArgumentsAndApplyDamage(missle.lockEnemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 							Filters:ApplyStun(caster, 0.1, missle.lockEnemy)
 							local r_1_level = caster:GetRuneValue("r", 1)
 							if r_1_level > 0 then
 								CustomAbilities:QuickAttachParticle("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_land_force.vpcf", missle.lockEnemy, 3)
-								local enemies = FindUnitsInRadius( caster:GetTeamNumber(), missle.lockEnemy:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-							    if #enemies > 0 then
-							    	local aoeDamage = damage*r_1_level*ZHONIK_R1_ARCANA_AOE_DMG_PCT/100
-							        for _,enemy in pairs(enemies) do
-							        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, aoeDamage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
-							        end
-							    end
+								local enemies = FindUnitsInRadius(caster:GetTeamNumber(), missle.lockEnemy:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+								if #enemies > 0 then
+									local aoeDamage = damage * r_1_level * ZHONIK_R1_ARCANA_AOE_DMG_PCT / 100
+									for _, enemy in pairs(enemies) do
+										Filters:TakeArgumentsAndApplyDamage(enemy, caster, aoeDamage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+									end
+								end
 							end
 							local r_2_level = caster:GetRuneValue("r", 2)
 							if r_2_level > 0 then
@@ -176,11 +176,11 @@ function passive_think(event)
 								missle.lockEnemy:SetModifierStackCount("modifier_tempo_flux_visible", caster, newStacks)
 
 								ability:ApplyDataDrivenModifier(caster, missle.lockEnemy, "modifier_tempo_flux_invisible", {duration = 14})
-								missle.lockEnemy:SetModifierStackCount("modifier_tempo_flux_invisible", caster, newStacks*r_3_level)								
+								missle.lockEnemy:SetModifierStackCount("modifier_tempo_flux_invisible", caster, newStacks * r_3_level)
 							end
 							if caster:HasModifier("modifier_zonik_immortal_weapon_3") then
 								if caster:HasAbility("tachyon_shell") then
-									print("HERE?")
+									--print("HERE?")
 									local eventTable = {}
 									eventTable.caster = caster
 									eventTable.target = missle.lockEnemy
@@ -205,7 +205,7 @@ function passive_think(event)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_arcana_missles_d_d_agility", {})
 			caster:SetModifierStackCount("modifier_arcana_missles_d_d_agility", caster, d_d_level)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_arcana_missles_d_d_attack_power", {})
-			caster:SetModifierStackCount("modifier_arcana_missles_d_d_attack_power", caster, d_d_level*0.5*caster:GetAgility())
+			caster:SetModifierStackCount("modifier_arcana_missles_d_d_attack_power", caster, d_d_level * 0.5 * caster:GetAgility())
 		else
 			caster:RemoveModifierByName("modifier_arcana_missles_d_d_agility")
 			caster:RemoveModifierByName("modifier_arcana_missles_d_d_attack_power")
@@ -216,27 +216,27 @@ end
 function missle_falling_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,ability.fallSpeed))
+	caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, ability.fallSpeed))
 	ability.fallSpeed = ability.fallSpeed + 1
 	if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < ability.fallSpeed then
 		caster:RemoveModifierByName("modifier_missle_falling")
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 		local position = caster:GetAbsOrigin()
-		local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, caster )
-		ParticleManager:SetParticleControl( pfx, 0, position )
-		ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+		local pfx = ParticleManager:CreateParticle("particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(pfx, 0, position)
+		ParticleManager:SetParticleControl(pfx, 1, Vector(200, 200, 200))
 		Timers:CreateTimer(2, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
-	    local radius = 160
-	    local particleNameS = "particles/roshpit/zhonik/test/cube_explosion.vpcf"
-	    local particle2 = ParticleManager:CreateParticle( particleNameS, PATTACH_WORLDORIGIN, caster )
-	    ParticleManager:SetParticleControl( particle2, 0, caster:GetAbsOrigin() )
-	    ParticleManager:SetParticleControl( particle2, 1, Vector(radius,radius,radius) )
-	    ParticleManager:SetParticleControl( particle2, 2, Vector(1.1, 1.1, 1.1) )
-	    ParticleManager:SetParticleControl( particle2, 4, Vector(100, 255, 100) )
-	    Timers:CreateTimer(2.5, function()
-	    	ParticleManager:DestroyParticle(particle2, false)
-	    end)
+		local radius = 160
+		local particleNameS = "particles/roshpit/zhonik/test/cube_explosion.vpcf"
+		local particle2 = ParticleManager:CreateParticle(particleNameS, PATTACH_WORLDORIGIN, caster)
+		ParticleManager:SetParticleControl(particle2, 0, caster:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle2, 1, Vector(radius, radius, radius))
+		ParticleManager:SetParticleControl(particle2, 2, Vector(1.1, 1.1, 1.1))
+		ParticleManager:SetParticleControl(particle2, 4, Vector(100, 255, 100))
+		Timers:CreateTimer(2.5, function()
+			ParticleManager:DestroyParticle(particle2, false)
+		end)
 	end
 end

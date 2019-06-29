@@ -8,20 +8,18 @@ function modifier_jex_cosmic_surge_lua:DeclareFunctions()
     return funcs
 end
 
-function modifier_jex_cosmic_surge_lua:GetModifierIgnoreMovespeedLimit( params )
+function modifier_jex_cosmic_surge_lua:GetModifierIgnoreMovespeedLimit(params)
     return 1
 end
 
-function modifier_jex_cosmic_surge_lua:GetModifierMoveSpeed_AbsoluteMin( params )
-	local ability = self:GetAbility()
-	if ability.tech_level then
-		return ability.tech_level*25 + 400
-	else
-		return 400
+function modifier_jex_cosmic_surge_lua:GetModifierMoveSpeed_AbsoluteMin(params)
+    local ability = self:GetAbility()
+    if ability.tech_level then
+        return ability.tech_level * 25 + 400
+    else
+        return 400
     end
 end
-
-
 
 function modifier_jex_cosmic_surge_lua:IsHidden()
     return true

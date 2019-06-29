@@ -10,16 +10,16 @@ function slipfinn_bog_roller_lua:DeclareFunctions()
     return funcs
 end
 
-function slipfinn_bog_roller_lua:GetModifierModelChange( params )
-	return "models/heroes/pangolier/pangolier_gyroshell2_rubick.vmdl"
+function slipfinn_bog_roller_lua:GetModifierModelChange(params)
+    return "models/heroes/pangolier/pangolier_gyroshell2_rubick.vmdl"
 end
 
-function slipfinn_bog_roller_lua:GetModifierTurnRate_Percentage( params )
-	return -300
+function slipfinn_bog_roller_lua:GetModifierTurnRate_Percentage(params)
+    return - 300
 end
 
-function slipfinn_bog_roller_lua:GetModifierModelScale( params )
-	return 0.65
+function slipfinn_bog_roller_lua:GetModifierModelScale(params)
+    return 0.65
 end
 
 function slipfinn_bog_roller_lua:IsHidden()

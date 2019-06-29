@@ -41,25 +41,25 @@ end
 function start(event)
     local caster = event.caster
     local ability = event.ability
-    local location = caster:GetOrigin() - caster:GetForwardVector()*Vector(-100, -100, 0)
+    local location = caster:GetOrigin() - caster:GetForwardVector() * Vector(-100, -100, 0)
     local abilityLevel = ability:GetLevel()
 
     Helper.initializeAbilityRunes(caster, 'axe', 'w')
 
     ability.speed = event.speed
     ability.damage = event.damage * ThunderFoot.getAmplify(caster) * WAmplify.getAmplify(caster)
-    Helix.cast(caster,ability)
+    Helix.cast(caster, ability)
 
     local backVector = WallPhysics:rotateVector(caster:GetForwardVector(), math.pi)
 
     if caster:HasModifier("modifier_axe_glyph_2_1") then
         for i = -4, 4, 1 do
-            local shockVector = WallPhysics:rotateVector(backVector, (math.pi/4.5)*i)
+            local shockVector = WallPhysics:rotateVector(backVector, (math.pi / 4.5) * i)
             createProjectile(ability, caster, shockVector, location)
         end
     else
         for i = -1, 1, 1 do
-            local shockVector = WallPhysics:rotateVector(backVector, (math.pi/6)*i)
+            local shockVector = WallPhysics:rotateVector(backVector, (math.pi / 6) * i)
             createProjectile(ability, caster, shockVector, location)
         end
     end
@@ -85,5 +85,5 @@ function projectileHit(event)
     if caster:HasModifier("modifier_axe_glyph_1_2") then
         Filters:ApplyStun(caster, T12_STUN_DURATION, target)
     end
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 end

@@ -2,7 +2,7 @@ require('heroes/hero_necrolyte/constants')
 
 function necrofusion_precast(event)
     local caster = event.caster
-    StartAnimation(caster, {duration=0.2, activity=ACT_DOTA_CAST_ABILITY_4, rate=2.3})
+    StartAnimation(caster, {duration = 0.2, activity = ACT_DOTA_CAST_ABILITY_4, rate = 2.3})
 end
 
 function cast_necrofusion(event)
@@ -14,22 +14,22 @@ function cast_necrofusion(event)
     local origin = caster:GetAbsOrigin()
     local direction = caster:GetForwardVector()
 
-    local spellOrigin = origin+direction*80
+    local spellOrigin = origin + direction * 80
     local range = event.range
 
     if caster:HasModifier("modifier_venomort_glyph_5_2") then
-        range = range * (1 + T52_RANGE_INCREASE_PERCENT/100)
+        range = range * (1 + T52_RANGE_INCREASE_PERCENT / 100)
     end
-    local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/viper_channel_flare.vpcf", caster:GetAbsOrigin()+Vector(0,0,100), 1)
-    ParticleManager:SetParticleControl(pfx, 1, Vector(40,40,40))
-    ParticleManager:SetParticleControl(pfx, 2, Vector(18,18,18))
+    local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/viper_channel_flare.vpcf", caster:GetAbsOrigin() + Vector(0, 0, 100), 1)
+    ParticleManager:SetParticleControl(pfx, 1, Vector(40, 40, 40))
+    ParticleManager:SetParticleControl(pfx, 2, Vector(18, 18, 18))
     local count = 1
     if caster:HasModifier("modifier_venomort_immortal_weapon_2") then
         count = WEAPON2_FUSIONS_COUNT
     end
 
-    for i = -(count - 1)/2,(count - 1)/2 do
-        local fv = WallPhysics:rotateVector(caster:GetForwardVector(),2 * math.pi * i/18)
+    for i = -(count - 1) / 2, (count - 1) / 2 do
+        local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi * i / 18)
         local info =
         {
             Ability = ability,
@@ -55,13 +55,12 @@ function cast_necrofusion(event)
 
     local w1_level = caster:GetRuneValue("w", 1)
     if w1_level then
-        damage = damage + w1_level * W1_DAMAGE_PER_HP_PERCENT/100 * caster:GetHealth()
+        damage = damage + w1_level * W1_DAMAGE_PER_HP_PERCENT / 100 * caster:GetHealth()
     end
     ability.w_damage = damage
 
     local w3_level = caster:GetRuneValue("w", 3)
     ability.w3_level = w3_level
-
 
     if caster:HasModifier("modifier_venomort_glyph_5_1") then
         ability.w3_level = ability.w3_level * T51_AMPLIFY_W3
@@ -72,13 +71,11 @@ function cast_necrofusion(event)
 
     local modifier = caster:FindModifierByName("modifier_venomort_glyph_1_2")
     if modifier then
-        w2_duration = w2_duration * (1 + T12_DURATION_INCREASE_PERCENT/100)
+        w2_duration = w2_duration * (1 + T12_DURATION_INCREASE_PERCENT / 100)
     end
 
     ability.w2_level = w2_level
     ability.w2_duration = w2_duration
-
-
 
     Filters:CastSkillArguments(2, caster)
 
@@ -95,10 +92,10 @@ function projectile_hit(event)
     if caster:HasModifier("modifier_venomort_immortal_weapon_2") then
         Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_POISON, RPC_ELEMENT_GHOST)
     else
-        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_POISON, RPC_ELEMENT_GHOST)
+        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_POISON, RPC_ELEMENT_GHOST)
     end
     if ability.w2_level > 0 then
-        local luck = RandomInt(1,100)
+        local luck = RandomInt(1, 100)
         if luck < W2_CHANCE then
             demoralize(caster, ability, target, ability.w2_duration)
         end
@@ -119,8 +116,8 @@ end
 function demoralize_think(event)
     local caster = event.target
     local position = caster:GetAbsOrigin()
-    local randomPosition = position+RandomVector(1000)
-    caster:MoveToPosition( randomPosition )
+    local randomPosition = position + RandomVector(1000)
+    caster:MoveToPosition(randomPosition)
 end
 
 function demoralize_end(event)

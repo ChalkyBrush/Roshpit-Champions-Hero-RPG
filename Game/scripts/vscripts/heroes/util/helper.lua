@@ -1,7 +1,7 @@
 local function updateStackModifier(target, caster, ability, modifierName, duration, maxStacksCount, multiplyForInvisibleModifier)
     local visibleModifier = "modifier_" .. modifierName .. "_visible"
     local newStacks = 0
-    if maxStacksCount ~=1 then
+    if maxStacksCount ~= 1 then
         newStacks = math.min(target:GetModifierStackCount(visibleModifier, caster) + 1, maxStacksCount)
     else
         newStacks = 1
@@ -14,7 +14,7 @@ local function updateStackModifier(target, caster, ability, modifierName, durati
         return
     end
 
-    local invisibleModifier =  "modifier_" .. modifierName .. "_invisible"
+    local invisibleModifier = "modifier_" .. modifierName .. "_invisible"
     ability:ApplyDataDrivenModifier(caster, target, invisibleModifier, {duration = duration})
     target:SetModifierStackCount(invisibleModifier, caster, newStacks * multiplyForInvisibleModifier)
 end

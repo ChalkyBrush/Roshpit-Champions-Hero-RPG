@@ -3,13 +3,13 @@ function drake_ring_cast(event)
 	local ability = event.ability
 	local point = event.target_points[1]
 
-	StartAnimation(caster, {duration=1.2, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.0})
+	StartAnimation(caster, {duration = 1.2, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.0})
 	EmitSoundOn("Dinath.DrakeRing.CastVO", caster)
 	local flight_stacks = math.max(caster:GetModifierStackCount("modifier_dinath_postflight_zheight", caster) + 50, 96)
 	local pfx = ParticleManager:CreateParticle("particles/roshpit/dinath/ring_cast.vpcf", PATTACH_CUSTOMORIGIN, nil)
-	local startPoint = caster:GetAbsOrigin()+Vector(0,0,flight_stacks)
+	local startPoint = caster:GetAbsOrigin() + Vector(0, 0, flight_stacks)
 	if caster:HasModifier("modifier_dinath_diving") then
-		startPoint = caster:GetAbsOrigin()+Vector(0,0,flight_stacks) + caster:GetForwardVector()*300
+		startPoint = caster:GetAbsOrigin() + Vector(0, 0, flight_stacks) + caster:GetForwardVector() * 300
 	end
 	ParticleManager:SetParticleControl(pfx, 1, point)
 	ParticleManager:SetParticleControl(pfx, 0, startPoint)
@@ -36,7 +36,7 @@ function drake_ring_cast(event)
 		local drake_ring = CreateUnitByName("npc_dummy_unit", point, false, nil, nil, caster:GetTeamNumber())
 		local radius = event.radius
 		local w_4_level = caster:GetRuneValue("w", 4)
-		radius = radius + w_4_level*4
+		radius = radius + w_4_level * 4
 		local ring_duration = 30
 		drake_ring:SetDayTimeVisionRange(radius)
 		drake_ring:SetNightTimeVisionRange(radius)
@@ -44,19 +44,19 @@ function drake_ring_cast(event)
 		drake_ring.radius = radius
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/dinath/drake_ring_ring.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, drake_ring:GetAbsOrigin())
-		ParticleManager:SetParticleControl(pfx, 3, Vector(1,0,radius*2+10))
+		ParticleManager:SetParticleControl(pfx, 3, Vector(1, 0, radius * 2 + 10))
 		drake_ring.pfx = pfx
 		drake_ring.interval = 0
 		ability.ring = drake_ring
 		ability:ApplyDataDrivenModifier(caster, drake_ring, "modifier_dinath_drake_ring", {duration = ring_duration})
 		local w_3_level = caster:GetRuneValue("w", 3)
 		if w_3_level > 0 then
-			local rootDuration = 0.3 + 0.1*w_3_level
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), drake_ring:GetAbsOrigin(), nil, drake_ring.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-			for _,enemy in pairs(enemies) do
+			local rootDuration = 0.3 + 0.1 * w_3_level
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), drake_ring:GetAbsOrigin(), nil, drake_ring.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			for _, enemy in pairs(enemies) do
 				if not enemy:HasModifier("modifier_drake_ring_root_immune") then
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_drake_ring_root_immune", {duration = rootDuration + 2})
-					ability:ApplyDataDrivenModifier(caster, enemy,  "modifier_drake_ring_root", {duration = rootDuration})
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_drake_ring_root", {duration = rootDuration})
 				end
 			end
 		end
@@ -69,27 +69,27 @@ function drake_ring_thinker(event)
 	local ability = event.ability
 	local drake_ring = target
 	drake_ring.interval = drake_ring.interval + 1
-	local modulos = math.ceil((1/caster:GetAttacksPerSecond())/0.03)
-	if drake_ring.interval%modulos == 0 then
-		if WallPhysics:GetDistance2d(caster:GetAbsOrigin(), drake_ring:GetAbsOrigin()) <= (caster:Script_GetAttackRange() + drake_ring.radius/2) then
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), drake_ring:GetAbsOrigin(), nil, drake_ring.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES+DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false )
+	local modulos = math.ceil((1 / caster:GetAttacksPerSecond()) / 0.03)
+	if drake_ring.interval % modulos == 0 then
+		if WallPhysics:GetDistance2d(caster:GetAbsOrigin(), drake_ring:GetAbsOrigin()) <= (caster:Script_GetAttackRange() + drake_ring.radius / 2) then
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), drake_ring:GetAbsOrigin(), nil, drake_ring.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				EmitSoundOn("Dinath.DrakeRing.AutoAttack", caster)
-				StartAnimation(caster, {duration=1.2, activity=ACT_DOTA_ATTACK, rate=1.0})
-				for _,enemy in pairs(enemies) do
+				StartAnimation(caster, {duration = 1.2, activity = ACT_DOTA_ATTACK, rate = 1.0})
+				for _, enemy in pairs(enemies) do
 					if enemy.dummy then
 					else
 						Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
 					end
 				end
-			end 
+			end
 		end
 	end
-	if drake_ring.interval%15 == 1 then
+	if drake_ring.interval % 15 == 1 then
 		local w_2_level = caster:GetRuneValue("w", 2)
 		if w_2_level > 0 then
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), drake_ring:GetAbsOrigin(), nil, drake_ring.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-			for _,enemy in pairs(enemies) do
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), drake_ring:GetAbsOrigin(), nil, drake_ring.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			for _, enemy in pairs(enemies) do
 				if w_2_level > 0 then
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_drake_ring_postmit", {duration = 0.5})
 					enemy:SetModifierStackCount("modifier_drake_ring_postmit", caster, w_2_level)

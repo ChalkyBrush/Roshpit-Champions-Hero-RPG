@@ -5,12 +5,12 @@ local function projectileHit(event)
     local caster = event.caster
     local duration = 0
     if caster:HasModifier("modifier_astral_glyph_1_1") then
-    	duration = ASTRAL_T11_DURATION
+        duration = ASTRAL_T11_DURATION
     else
-    	duration = ASTRAL_W1_DURATION
+        duration = ASTRAL_W1_DURATION
     end
 
-    local runesCount = caster:GetRuneValue("w",1)
+    local runesCount = caster:GetRuneValue("w", 1)
 
     if not runesCount or runesCount <= 0 then
         return

@@ -2,7 +2,7 @@
 	"duskbringer_arcana_terrorize"
 	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
@@ -22,15 +22,15 @@
 		"AbilityCastPoint"				"0"
 
 		// Time
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"AbilityCooldown"				"8 7.5 7 6.5 6 5.5 5"
 
 		// Cost
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
 
 		// Special
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"AbilitySpecial"
 		{
             "01"
@@ -164,7 +164,7 @@
     "duskbringer_arcana_terrorize_phantom_plasma"
     {
         // General
-        //-------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------
         "BaseClass"                     "ability_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
         "FightRecapLevel"               "1"
@@ -184,15 +184,15 @@
         "AbilityCastPoint"              "0"
 
         // Time
-        //-------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------
         "AbilityCooldown"               "0.3"
 
         // Cost
-        //-------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------
         "AbilityManaCost"               "0"
 
         // Special
-        //-------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------
         "AbilitySpecial"
         {
             "01"
@@ -277,7 +277,7 @@
     "duskbringer_rune_q_1_arcana2"
     {
         // General
-        //-------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------
         "BaseClass"             "ability_datadriven"
         "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_YES"
@@ -319,7 +319,7 @@
     "duskbringer_rune_q_2_arcana2"
     {
         // General
-        //-------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------
         "BaseClass"             "ability_datadriven"
         "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_YES"
@@ -340,7 +340,7 @@
     "duskbringer_rune_q_3_arcana2"
     {
         // General
-        //-------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------
         "BaseClass"             "ability_datadriven"
         "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_YES"
@@ -361,7 +361,7 @@
     "duskbringer_rune_q_4_arcana2"
     {
         // General
-        //-------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------
         "BaseClass"             "ability_datadriven"
         "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_YES"

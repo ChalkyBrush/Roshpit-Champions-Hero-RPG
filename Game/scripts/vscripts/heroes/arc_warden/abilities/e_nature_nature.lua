@@ -7,7 +7,7 @@ function jex_activate_nature_e(event)
 	local tech_level = onibi_get_total_tech_level(caster, "nature", "nature", "E")
 	ability.tech_level = tech_level
 
-	local radius = event.radius_base + event.radius_per_tech*tech_level
+	local radius = event.radius_base + event.radius_per_tech * tech_level
 	ability.radius = radius
 	if ability.plantsTable then
 		for i = 1, #ability.plantsTable, 1 do
@@ -20,18 +20,18 @@ function jex_activate_nature_e(event)
 		ability.nature_aura_dummy = nil
 	end
 	ability.plantsTable = {}
-	local plantCount = radius/10
+	local plantCount = radius / 10
 	local bushTable = {"maps/journey_assets/props/foliage/bush_journey_00.vmdl", "maps/journey_assets/props/foliage/bush_journey_01.vmdl", "maps/summer_assets/bushes/bush_dire_summer_01.vmdl", "maps/summer_assets/bushes/bush_dire_summer_02.vmdl", "models/props_nature/bush_spring_01.vmdl"}
 	for i = 0, plantCount, 1 do
-		local position = caster:GetAbsOrigin()+RandomVector(RandomInt(100, radius-50))
+		local position = caster:GetAbsOrigin() + RandomVector(RandomInt(100, radius - 50))
 		position = GetGroundPosition(position, caster)
 		if not GridNav:IsTraversable(position) then
-			position = GetGroundPosition(caster:GetAbsOrigin()+RandomVector(RandomInt(0, 200)), caster)
+			position = GetGroundPosition(caster:GetAbsOrigin() + RandomVector(RandomInt(0, 200)), caster)
 		end
 		local plant = SpawnEntityFromTableSynchronous("prop_dynamic", {origin = position})
-  		plant:SetModel(bushTable[RandomInt(1, #bushTable)])
-  		plant:SetAngles(0, RandomInt(0, 360), 0)
-  		table.insert(ability.plantsTable, plant)
+		plant:SetModel(bushTable[RandomInt(1, #bushTable)])
+		plant:SetAngles(0, RandomInt(0, 360), 0)
+		table.insert(ability.plantsTable, plant)
 	end
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Jex.RootsCast", caster)
 	local particleName = "particles/roshpit/jex/root_weave.vpcf"
@@ -44,7 +44,7 @@ function jex_activate_nature_e(event)
 	end)
 	if ability.pfx then
 		ParticleManager:DestroyParticle(ability.pfx, false)
-		ability.pfx = nil		
+		ability.pfx = nil
 	end
 
 	ability.pfx = ParticleManager:CreateParticle("particles/roshpit/jex/natures_path_pfx_portrait.vpcf", PATTACH_CUSTOMORIGIN, nil)
@@ -63,7 +63,7 @@ function jex_activate_nature_e(event)
 	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then
 		local cd = ability:GetCooldownTimeRemaining()
-		local new_cd = cd - event.q_4_cooldown_reduce*q_4_level
+		local new_cd = cd - event.q_4_cooldown_reduce * q_4_level
 		ability:EndCooldown()
 		ability:StartCooldown(new_cd)
 	end
@@ -74,7 +74,7 @@ function nature_path_think(event)
 	local ability = event.ability
 	local target = event.target
 
-	local allies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, ability.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local allies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, ability.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for i = 1, #allies, 1 do
 		if allies[i]:GetEntityIndex() == caster:GetEntityIndex() then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_natures_path_base_flying_buff", {})
@@ -119,11 +119,11 @@ end
 
 function path_flying_think(event)
 	local caster = event.caster
-	local newPos = caster:GetAbsOrigin()+caster:GetForwardVector()*70
+	local newPos = caster:GetAbsOrigin() + caster:GetForwardVector() * 70
 	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin())
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos, caster)
 	if blockUnit then
-		caster:SetAbsOrigin(caster:GetAbsOrigin()-caster:GetForwardVector()*60)
+		caster:SetAbsOrigin(caster:GetAbsOrigin() - caster:GetForwardVector() * 60)
 		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 		caster:RemoveModifierByName("modifier_natures_path_base_flying_buff")
 	end

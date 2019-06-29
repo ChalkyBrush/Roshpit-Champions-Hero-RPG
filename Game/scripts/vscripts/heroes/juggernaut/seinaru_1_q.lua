@@ -10,7 +10,7 @@ function begin_kaze_gust(event)
 	EmitSoundOn("Seinaru.KazeYell", caster)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Seinaru.KazeGust", caster)
 
-	local fv = ((target-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	local fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	ability.fv = fv
 
 	caster:RemoveModifierByName("modifier_seinaru_rune_q_1")
@@ -35,37 +35,36 @@ function begin_kaze_gust(event)
 		ability.damage = ability.damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * SEINARU_Q4_ADD_DMG_PER_ATT * q_4_level
 	end
 
+	-- EmitSoundOn("Hero_TrollWarlord.PreAttack", caster)
 
-		-- EmitSoundOn("Hero_TrollWarlord.PreAttack", caster)
-		
-		local casterOrigin = caster:GetAbsOrigin()
+	local casterOrigin = caster:GetAbsOrigin()
 
-		local info = 
-		{
-				Ability = ability,
-	        	EffectName = particle,
-	        	vSpawnOrigin = startPoint+Vector(0,0,50),
-	        	fDistance = range,
-	        	fStartRadius = start_radius,
-	        	fEndRadius = end_radius,
-	        	Source = caster,
-	        	StartPosition = "attach_attack1",
-	        	bHasFrontalCone = true,
-	        	bReplaceExisting = false,
-	        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-	        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-	        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-	        	fExpireTime = GameRules:GetGameTime() + 5.0,
-			bDeleteOnHit = false,
-			vVelocity = fv * speed,
-			bProvidesVision = false,
-		}
-		projectile = ProjectileManager:CreateLinearProjectile(info)
+	local info =
+	{
+		Ability = ability,
+		EffectName = particle,
+		vSpawnOrigin = startPoint + Vector(0, 0, 50),
+		fDistance = range,
+		fStartRadius = start_radius,
+		fEndRadius = end_radius,
+		Source = caster,
+		StartPosition = "attach_attack1",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
+		bDeleteOnHit = false,
+		vVelocity = fv * speed,
+		bProvidesVision = false,
+	}
+	projectile = ProjectileManager:CreateLinearProjectile(info)
 
 	Filters:CastSkillArguments(1, caster)
 	if caster:HasModifier("modifier_seinaru_immortal_weapon_2") then
 		local CD = ability:GetCooldownTimeRemaining()
-		local newCD = CD*0.4
+		local newCD = CD * 0.4
 		ability:EndCooldown()
 		ability:StartCooldown(newCD)
 	end
@@ -81,17 +80,16 @@ function gust_impact(event)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_kaze_gust_flail", {duration = stun_duration})
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_kaze_gust_blind", {duration = blind_duration})
 
-
 	local particleName = "particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_gold.vpcf"
-	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, target )
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 2, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	-- for i = 3, 9, 1 do
-	-- 	ParticleManager:SetParticleControl(pfx, i, Vector(200,200,200))
+	-- ParticleManager:SetParticleControl(pfx, i, Vector(200,200,200))
 	-- end
-	Timers:CreateTimer(0.5, function() 
-	  ParticleManager:DestroyParticle( pfx, false )
+	Timers:CreateTimer(0.5, function()
+		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	if ability.q_1_level > 0 then
 		local a_a_duration = Filters:GetAdjustedBuffDuration(caster, SEINARU_Q1_DUR_BASE, false)
@@ -111,7 +109,7 @@ function gust_impact(event)
 		target:SetModifierStackCount("modifier_seinaru_rune_q_3_postmitigation_take", caster, ability.q_3_level)
 	end
 
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 end
 
 function kaze_pushback_think(event)
@@ -121,9 +119,9 @@ function kaze_pushback_think(event)
 	end
 	local ability = event.ability
 	local fv = ability.fv
-	local distance = WallPhysics:GetDistance(target:GetAbsOrigin()*Vector(1,1,0), ability.castPosition)
-	local pushSpeed = math.max((1500 - distance)/35, 3)
-	target:SetAbsOrigin(target:GetAbsOrigin()+fv*pushSpeed)
+	local distance = WallPhysics:GetDistance(target:GetAbsOrigin() * Vector(1, 1, 0), ability.castPosition)
+	local pushSpeed = math.max((1500 - distance) / 35, 3)
+	target:SetAbsOrigin(target:GetAbsOrigin() + fv * pushSpeed)
 end
 
 function kaze_pushback_end(event)

@@ -1033,8 +1033,8 @@
 		// Special Mobs
 		//------------------------		
 
-		"DOTA_Tooltip_modifier_paragon"								"Paragon Unit"
-		"DOTA_Tooltip_modifier_paragon_Description"					"Powerful Elite Creature"
+		"DOTA_Tooltip_modifier_paragon_pack"								"Paragon Unit"
+		"DOTA_Tooltip_modifier_paragon_pack_Description"					"Powerful Elite Creature"
 
 		"DOTA_Tooltip_modifier_paragon_solo"						"Paragon Hero"
 		"DOTA_Tooltip_modifier_paragon_solo_Description"			"Powerful Legendary Creature"
@@ -14365,13 +14365,13 @@
 		"DOTA_Tooltip_ability_redfall_fenrir_ability_attacK_damage_increase"	"ATTACK DAMAGE BONUS %:"
 
 		"DOTA_Tooltip_ability_redfall_feronia_passive"					"Guard of Feronia"
-		"DOTA_Tooltip_ability_redfall_feronia_passive_Description"		"After casting a spell, gain a shield that reduces damage taken by 100% for 1.5 seconds."
+		"DOTA_Tooltip_ability_redfall_feronia_passive_Description"		"After casting a spell, gain a shield that reduces damage taken by 100% for 2 seconds."
 
-		"DOTA_Tooltip_ability_redfall_mirana_starfall"					"Starfall"
-		"DOTA_Tooltip_ability_redfall_mirana_starfall_Description"		"Drops stars on nearby enemies"	
+		"DOTA_Tooltip_ability_redfall_feronia_starfall"					"Starfall"
+		"DOTA_Tooltip_ability_redfall_feronia_starfall_Description"		"Drops stars on nearby enemies"	
 
-		"DOTA_Tooltip_ability_redfall_mirana_starfall"					"Sacred Arrow"
-		"DOTA_Tooltip_ability_redfall_mirana_starfall_Description"		"Fires an arrow that damages and stuns enemies that it strikes."
+		"DOTA_Tooltip_ability_redfall_feronia_arrow"					"Sacred Arrow"
+		"DOTA_Tooltip_ability_redfall_feronia_arrow_Description"		"Fires an arrow that damages and stuns enemies that it strikes."
 
 		"DOTA_Tooltip_ability_redfall_student_of_ashara_leap"			"Forest Leap"	
 		"DOTA_Tooltip_ability_redfall_student_of_ashara_leap_Description"	"Target a unit and leap towards them."
@@ -16119,9 +16119,9 @@
 		"item_serengaard_hyperstone_desc"									"Use before the first wave in the Battle of Serengaard to skip to this infinite wave level on Legend."
 		"serengaard_hyperstone_property"									"Infinite Wave Number"
 
-		//---------------------------
+		//---------------
 		// Tanari Jungle
-		//---------------------------
+		//---------------
 
 		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_normal"			"Wind Temple Key"
 		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_elite"				"Wind Temple Key"

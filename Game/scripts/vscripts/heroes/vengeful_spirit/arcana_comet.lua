@@ -11,9 +11,9 @@ function begin_arcana_comet(event)
 	ability.q_2_level = q_2_level
 	ability.q_3_level = caster:GetRuneValue("q", 3)
 	if ability.q_3_level > 0 then
-		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.02*ability.q_3_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.02 * ability.q_3_level
 	end
-	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.8})
+	StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.8})
 	local starParticle = "particles/roshpit/solunia/comet_sun_attack.vpcf"
 	local explodeParticle = "particles/units/heroes/hero_invoker/invoker_sun_strike.vpcf"
 	local castParticle = "particles/roshpit/solunia/comet_cast_sun.vpcf"
@@ -26,7 +26,7 @@ function begin_arcana_comet(event)
 		explodeParticle = "particles/roshpit/solunia/lunar_flare_explosion_immortal1.vpcf"
 		starParticle = "particles/roshpit/solunia/comet_moon_attack_attack.vpcf"
 	end
-	local cast_direction = ((target - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	local cast_direction = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	local pfx = ParticleManager:CreateParticle(castParticle, PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
 	Timers:CreateTimer(4, function()
@@ -76,18 +76,18 @@ function flareImpact(caster, ability, damage, element2, damageType, position, st
 		damageType = DAMAGE_TYPE_PURE
 		element2 = RPC_ELEMENT_ICE
 	end
-    if caster:HasModifier("modifier_solunia_glyph_3_1") then
-    	stun_duration = stun_duration + 1
-    end
-    local adjustedBuffDuration = Filters:GetAdjustedBuffDuration(caster, 60, false)
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	if caster:HasModifier("modifier_solunia_glyph_3_1") then
+		stun_duration = stun_duration + 1
+	end
+	local adjustedBuffDuration = Filters:GetAdjustedBuffDuration(caster, 60, false)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
-		for _,enemy in pairs(enemies) do
+		for _, enemy in pairs(enemies) do
 			if enemy:HasModifier("modifier_boomerang_magic_marker") then
 				local stacks = enemy:GetModifierStackCount("modifier_boomerang_magic_marker", caster)
-				damage = damage + stacks*0.2*damage
+				damage = damage + stacks * 0.2 * damage
 			end
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, 1, RPC_ELEMENT_COSMOS, element2)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, BASE_ABILITY_Q, RPC_ELEMENT_COSMOS, element2)
 			Filters:ApplyStun(caster, stun_duration, enemy)
 			if ability.q_3_level > 0 then
 				if sun_moon == "sun" then
@@ -96,18 +96,18 @@ function flareImpact(caster, ability, damage, element2, damageType, position, st
 					enemy:SetModifierStackCount("modifier_solar_compression_visible", caster, newStacks)
 
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_solar_compression_invisible", {duration = adjustedBuffDuration})
-					enemy:SetModifierStackCount("modifier_solar_compression_invisible", caster, newStacks*ability.q_3_level)
+					enemy:SetModifierStackCount("modifier_solar_compression_invisible", caster, newStacks * ability.q_3_level)
 				elseif sun_moon == "moon" then
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lunar_compression_visible", {duration = adjustedBuffDuration})
 					local newStacks = math.min(enemy:GetModifierStackCount("modifier_lunar_compression_visible", caster) + 1, 10)
 					enemy:SetModifierStackCount("modifier_lunar_compression_visible", caster, newStacks)
 
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lunar_compression_invisible", {duration = adjustedBuffDuration})
-					enemy:SetModifierStackCount("modifier_lunar_compression_invisible", caster, newStacks*ability.q_3_level)
+					enemy:SetModifierStackCount("modifier_lunar_compression_invisible", caster, newStacks * ability.q_3_level)
 				end
 			end
 		end
-	end 
+	end
 end
 
 function flareParticle(position, caster, particleName)
@@ -156,12 +156,12 @@ function arcana_passive_think(event)
 		if not caster:HasModifier("modifier_polythea_damage") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_polythea_damage", {})
 		end
-		local damageStacks = ability.q_2_level*0.05*caster:GetHealth()
+		local damageStacks = ability.q_2_level * 0.05 * caster:GetHealth()
 		caster:SetModifierStackCount("modifier_polythea_damage", caster, damageStacks)
 	else
 		caster:RemoveModifierByName("modifier_polythea_damage")
 	end
-	
+
 end
 
 function apply_arcana_comet_stacks(event)

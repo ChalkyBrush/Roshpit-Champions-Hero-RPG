@@ -1,12 +1,12 @@
 if Body == nil then
-  Body = class({})
+	Body = class({})
 end
 
-
 function Body:add_modifiers(hero, inventory_unit, item)
-	print("[Body:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	--print("[Body:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
+	--DeepPrintTable(item)
 	if not item.newItemTable then
-		print("[Error] Body:add_modifiers item.newItemTable is null")
+		--print("[Error] Body:add_modifiers item.newItemTable is null")
 		RPCItems:ItemUTIL_Remove(item)
 		return
 	end
@@ -50,11 +50,10 @@ function Body:add_modifiers(hero, inventory_unit, item)
 	end
 end
 
-
 function Body:action(propertyName, propertyValue, hero, inventory_unit, body_ability, item)
-	print("[Body:action] propertyName:"..tostring(propertyName))
+	--print("[Body:action] propertyName:"..tostring(propertyName))
 	if type(propertyValue) == "string" then
-		print("[action] type(propertyValue) == string")
+		--print("[action] type(propertyValue) == string")
 		propertyValue = 1
 	end
 	if propertyName == "strength" then
@@ -70,7 +69,7 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 		body_ability.strength = body_ability.strength + propertyValue
 		Body:addBasicModifier(body_ability.strength, hero, inventory_unit, "modifier_body_strength", body_ability)
 		body_ability.agility = body_ability.agility + propertyValue
-		Body:addBasicModifier(body_ability.agility, hero, inventory_unit, "modifier_body_agility", body_ability)		
+		Body:addBasicModifier(body_ability.agility, hero, inventory_unit, "modifier_body_agility", body_ability)
 		body_ability.intelligence = body_ability.intelligence + propertyValue
 		Body:addBasicModifier(body_ability.intelligence, hero, inventory_unit, "modifier_body_intelligence", body_ability)
 	elseif propertyName == "magic_resist" then
@@ -133,7 +132,7 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 	elseif propertyName == "watcher3" then
 		Body:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_watcher_three", body_ability)
 	elseif propertyName == "watcher4" then
-		Body:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_watcher_four", body_ability)	
+		Body:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_watcher_four", body_ability)
 	elseif propertyName == "sorcerer" then
 		Body:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_sorcerers_regalia", body_ability)
 	elseif propertyName == "spellslinger" then
@@ -218,7 +217,7 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 	elseif propertyName == "mystic_mana" then
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_mystic_mana_wall", item)
 	elseif propertyName == "vermillion_dream" then
-		hero:AddNewModifier( inventory_unit, nil, 'modifier_vermillion_dream_lua', nil )
+		hero:AddNewModifier(inventory_unit, nil, 'modifier_vermillion_dream_lua', nil)
 	elseif propertyName == "bahamut_arcana1" then
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_bahamut_arcana1", item)
 	elseif propertyName == "baron_storm" then
@@ -255,7 +254,7 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 		RPCItems:PreacheArcanaResources(item)
 		local suffix = propertyName:gsub("!arcana!_", "")
 		local modifierName = "modifier_"..suffix
-		print(modifierName)
+		--print(modifierName)
 		Head:addItemModifier(0, hero, inventory_unit, modifierName, item)
 	elseif propertyName == "atlantis" then
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_armor_of_atlantis", item)
@@ -297,10 +296,9 @@ end
 function Body:addItemModifier(propertyValue, hero, inventory_unit, modifier_name, head_ability)
 	head_ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
 	if propertyValue > 0 then
-		hero:SetModifierStackCount( modifier_name, head_ability, propertyValue )
+		hero:SetModifierStackCount(modifier_name, head_ability, propertyValue)
 	end
 end
-
 
 function Body:runeProperty(propertyName, propertyValue, hero)
 	if hero:HasModifier("modifier_puzzlers_locket") then
@@ -311,7 +309,7 @@ function Body:runeProperty(propertyName, propertyValue, hero)
 		end
 	end
 	if type(propertyValue) == "string" then
-		print("[Body:runeProperty] propertyValue:"..propertyValue)
+		--print("[Body:runeProperty] propertyValue:"..propertyValue)
 		return
 	end
 	if propertyName == "rune_q_1" then
@@ -381,18 +379,18 @@ function Body:runeProperty(propertyName, propertyValue, hero)
 end
 
 function Body:setRuneBonusNetTable(value, rune, hero)
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_"..rune.."_body", {bonus = value} )
-	print("Setting Rune Net Table: ")
-	print(tostring(hero:GetEntityIndex()).."_"..rune.."_body")
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_"..rune.."_body", {bonus = value})
+	--print("Setting Rune Net Table: ")
+	--print(tostring(hero:GetEntityIndex()).."_"..rune.."_body")
 end
 
 function Body:addBasicModifier(propertyValue, hero, inventory_unit, modifier_name, body_ability)
-	print(inventory_unit)
+	--print(inventory_unit)
 	--local stacks = hero:GetModifierStackCount(modifierName, inventory_unit)
 	body_ability = inventory_unit:FindAbilityByName("body_slot")
 	body_ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
 	--hero:SetModifierStackCount( modifier_name, body_ability, (propertyValue+stacks) )
-	hero:SetModifierStackCount( modifier_name, body_ability, propertyValue )
+	hero:SetModifierStackCount(modifier_name, body_ability, propertyValue)
 end
 
 function Body:remove_modifiers(hero)
