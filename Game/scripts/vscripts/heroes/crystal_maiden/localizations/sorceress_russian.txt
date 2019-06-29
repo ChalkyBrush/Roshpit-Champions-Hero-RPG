@@ -391,5 +391,5 @@
 
         "DOTA_Tooltip_ability_item_rpc_sorceress_immortal_weapon_3"            "Fire Queen Staff"
         "item_property_sorceress_immortal_weapon3"                             "Fire Avatar"
-        "property_sorceress_immortal_weapon3_description"                      "С прочтением (R) @Ability4 призывается копия Sorveress с текущими значениями (R) @Ability4 и (E) @Ability3. На призыв копии потратится 50% от макс. маны."
+        "property_sorceress_immortal_weapon3_description"                      "С прочтением (R) @Ability4 призывается копия Sorceress с текущими значениями (R) @Ability4 и (E) @Ability3. На призыв копии потратится 50% от макс. маны."
 		
