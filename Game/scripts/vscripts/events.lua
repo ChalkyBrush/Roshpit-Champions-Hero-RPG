@@ -115,6 +115,7 @@ function GameMode:OnGameRulesStateChange(keys)
 	GameMode.VoteSystem = {}
 	GameMode.VoteSystem.junk_loot_disabled = false
 	GameMode.VoteSystem.crystal_loot_disabled = false
+	GameMode.VoteSystem.serengaard_forfeit = false
 
 	if not GameMode.GlobalThinkers then
 		GameMode.GlobalThinkers = {}
@@ -203,12 +204,12 @@ function GameMode:OnNPCSpawned(keys)
 	end
 	if npc:IsRealHero() and Events.gameLoaded then
 		GameMode:CorrectRespawn(npc)
-		if GameState:IsSerengaard() then
-			if Serengaard.gameOver then
-				local gameMasterAbil = Events.GameMaster:FindAbilityByName("npc_abilities")
-				gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, npc, "modifier_disable_player", {})
-			end
-		end
+		-- if GameState:IsSerengaard() then
+			-- if Serengaard.gameOver then
+				-- local gameMasterAbil = Events.GameMaster:FindAbilityByName("npc_abilities")
+				-- gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, npc, "modifier_disable_player", {})
+			-- end
+		-- end
 		RPCItems:RecalculateStatsBasic(npc)
 		--print("RESPAWNING AND MOVING")
 	end
@@ -444,6 +445,17 @@ function GameMode:OnPlayerChat(keys)
 	-- PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():HasModifier(nil)
 	-- end
 	if string.match(text, "dbg") then
+		-- Serengaard:KillAllNeutrals()
+		-- local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+		-- RPCItems:RollHyperstone(10, position)
+		-- for i=1,5 do
+		-- 	RPCItems:CreateCurrencyReroll(position)
+		-- 	RPCItems:CreateCurrencyWhetstone(position)
+		-- 	RPCItems:RollFlamewakerArcana1(position)
+		-- 	Weapons:RollLegendWeapon1(position, "flamewaker")
+		-- 	Weapons:RollLegendWeapon3(position, "flamewaker")
+		-- 	RPCItems:DropSynthesisVessel(position)
+		-- end
 		-- local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
 		-- RPCItems:RollFlamewakerArcana1(vector)
 		-- RPCItems.DROP_LOCATION = vector
@@ -671,6 +683,32 @@ function GameMode:OnPlayerChat(keys)
 		if (string.match(text, "-disable_junk_loot") or string.match(text, "-junk")) and not GameMode.VoteSystem.junk_loot_disabled then
 			Events:LootDisableJunk(playerid)
 		end
+		if Serengaard and Serengaard.mainAncient and string.match(text, "-forfeit") and not GameMode.VoteSystem.serengaard_forfeit_complete then
+			Events:SerengaardForfeit(playerid)
+		end
+	end
+end
+
+function Events:SerengaardForfeit(playerid)
+	if not GameMode.VoteSystem.serengaard_forfeit then
+		GameMode.VoteSystem.serengaard_forfeit = {}
+	end
+	local connectedPlayerCount = RPCItems:GetConnectedPlayerCount()
+	if not Events:TableContainsValue(GameMode.VoteSystem.serengaard_forfeit, PlayerResource:GetSteamAccountID(playerid)) then
+		table.insert(GameMode.VoteSystem.serengaard_forfeit, PlayerResource:GetSteamAccountID(playerid))
+		--print("added player vote..")
+		local stringToShow = "Serengaard forfeit votes: "..#GameMode.VoteSystem.serengaard_forfeit.." / "..connectedPlayerCount
+		-- Notifications:TopToAll({text=stringToShow, duration=5.0})
+		Notifications:BottomToAll({text = stringToShow, duration = 5.0})
+	end
+
+	if #GameMode.VoteSystem.serengaard_forfeit >= connectedPlayerCount then
+		GameMode.VoteSystem.serengaard_forfeit_complete = true
+		--print("crystal_loot_disabled")
+		Timers:CreateTimer(5.1, function()
+			Notifications:BottomToAll({text = "Serengaard Forfeit", duration = 5.0})
+			Serengaard:Forfeit()
+		end)
 	end
 end
 
