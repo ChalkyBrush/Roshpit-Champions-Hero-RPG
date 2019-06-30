@@ -1014,7 +1014,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 				RPCItems:ItemUpdateCustomNetTables(item)
 				return item
 			elseif string.match(gearTable.item_variant, "galactic_arcana_cache") then
-				local item = RPCItems:CreateConsumable(gearTable.item_variant, "immortal", "Arcana Cache Part", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
+				local item = RPCItems:CreateConsumable(gearTable.item_variant, "arcana", "Arcana Cache Part", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
 				SaveLoad:RemoveProperties(item)
 				SaveLoad:RemoveAdditionalData(item, false, false)
 				item.newItemTable.stashable = true
