@@ -650,3 +650,11 @@
 .active_chamber_label{
 	color: #21db55;
 }
+
+.chamber-main-button-active{
+	border:3px solid #21db55;
+}
+
+.chamber-main-button-active:hover{
+	border:3px solid #21db55;
+}

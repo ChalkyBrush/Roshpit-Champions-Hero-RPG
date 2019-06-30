@@ -16,7 +16,7 @@
 					<Panel class="winterblight_chamber_row" id="chamber-row-1">
 						<Panel class="chamber-button-container">
 							<Button class="winterblight_chamber_button" id="chamber-button-1">
-								<Image class="chamber-button-image" src="file://{images}/custom_game/ui/winterblight/frozen_foyer.jpg"/>
+								<Image class="chamber-button-image" id="chamber-button-image-1" src="file://{images}/custom_game/ui/winterblight/frozen_foyer.jpg"/>
 								<Label class="chamber-button-label" text="winterblight_cavern_room1"/>
 								<Label class="chamber-button-number-label" text="1."/>
 							</Button>
@@ -24,7 +24,7 @@
 						</Panel>
 						<Panel class="chamber-button-container">
 							<Button class="winterblight_chamber_button" id="chamber-button-2">
-								<Image class="chamber-button-image" src="file://{images}/custom_game/ui/winterblight/aurora_passage.jpg"/>
+								<Image class="chamber-button-image" id="chamber-button-image-2" src="file://{images}/custom_game/ui/winterblight/aurora_passage.jpg"/>
 								<Label class="chamber-button-label" text="winterblight_cavern_room2"/>
 								<Label class="chamber-button-number-label" text="2."/>
 							</Button>
@@ -34,7 +34,7 @@
 					<Panel class="winterblight_chamber_row" id="chamber-row-2">
 						<Panel class="chamber-button-container">
 							<Button class="winterblight_chamber_button" id="chamber-button-3">
-								<Image class="chamber-button-image" src="file://{images}/custom_game/ui/winterblight/crystarium.jpg"/>
+								<Image class="chamber-button-image" id="chamber-button-image-3" src="file://{images}/custom_game/ui/winterblight/crystarium.jpg"/>
 								<Label class="chamber-button-label" text="winterblight_cavern_room3"/>
 								<Label class="chamber-button-number-label" text="3."/>
 							</Button>
@@ -42,7 +42,7 @@
 						</Panel>
 						<Panel class="chamber-button-container">
 							<Button class="winterblight_chamber_button" id="chamber-button-4">
-								<Image class="chamber-button-image" src="file://{images}/custom_game/ui/winterblight/edge_of_winter.jpg"/>
+								<Image class="chamber-button-image" id="chamber-button-image-4" src="file://{images}/custom_game/ui/winterblight/edge_of_winter.jpg"/>
 								<Label class="chamber-button-label" text="winterblight_cavern_room4"/>
 								<Label class="chamber-button-number-label" text="4."/>
 							</Button>

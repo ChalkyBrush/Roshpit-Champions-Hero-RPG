@@ -29,6 +29,7 @@ function OpenWinterblightCavernUi(msg, bIgnoreFade){
 		}else if(status == 1){
 			cavern_ui_panel.FindChildTraverse('chamber-status-label-'+i).text = $.Localize("winterblight_cavern_status_prefix") + " " + $.Localize("winterblight_cavern_status_active")
 			cavern_ui_panel.FindChildTraverse('chamber-status-label-'+i).AddClass('active_chamber_label')
+			cavern_ui_panel.FindChildTraverse('chamber-button-'+i).AddClass('chamber-main-button-active')
 		}
 	}
 }
