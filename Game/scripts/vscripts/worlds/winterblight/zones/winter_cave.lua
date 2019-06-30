@@ -226,6 +226,7 @@ function Winterblight:SpawnBloodWraith(position, fv)
 	Events:AdjustBossPower(stone, 5, 3, false)
 	stone.itemLevel = 50
 	stone:SetRenderColor(130, 180, 255)
+	stone.dominion = true
 	Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_CLOSEST)
 	return stone
 end

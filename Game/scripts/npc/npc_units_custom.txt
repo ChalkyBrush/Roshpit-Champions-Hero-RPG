@@ -93644,6 +93644,117 @@
         "Ability4"      "use_ability_1_target_ai"
         "Ability5"      "dungeon_creep"
     }
+
+    "winterblight_cavern_ultra_ice"
+    {
+        "BaseClass"                 "npc_dota_creature" 
+        "Model"                     "models/heroes/ancient_apparition/ancient_apparition.vmdl"
+        "SoundSet"                  "Ancient_apparition"
+        "ModelScale"                "1.5"
+        "Level"                     "1"
+        "PathfindingSearchDepthScale" "0.2"
+        "precache"
+        {
+            "particle"  "particles/units/heroes/hero_arc_warden/arc_warden_tempest_buff.vpcf"
+            "particle"  "particles/econ/items/ancient_apparition/ancient_apparation_ti8/ancient_ice_vortex_ti8.vpcf"
+            "particle"  "particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet.vpcf"
+            "particle"  "particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet_frozen.vpcf"
+        }
+        // Abilities
+        //--------------------------------
+        
+        "Ability1"                  "winterblight_azalea_triple_boss_ability"   
+        "Ability2"                  "torphet_ice_vortex"      
+        "Ability3"                  "torphet_cold_feet"         
+        "Ability4"                  "redfall_mega_steadfast"  
+        "Ability5"                  "armor_break"      
+        "Ability6"                  "dungeon_creep"         
+
+        // Armor
+        //--------------------------------
+        "ArmorPhysical"             "5"         // Physical protection.
+        "MagicalResistance"         "30"        // Magical protection.
+
+        // Attack
+        //--------------------------------
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "20"
+        "AttackDamageMax"   "30"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.37"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "500"
+        "ProjectileModel"   "particles/units/heroes/hero_ancient_apparition/ancient_apparition_base_attack.vpcf"
+        "ProjectileSpeed"   "900"
+
+
+        // Bounty
+        //--------------------------------
+        "BountyXP"                  "30"   
+        "BountyGoldMin"             "30"     
+        "BountyGoldMax"             "40"    
+
+        // Bounds
+        //--------------------------------
+        "RingRadius"                "60"
+        "HealthBarOffset"           "200"
+        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"  
+        "CollisionSize"             "120"
+
+        // Movement
+        //--------------------------------
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
+        "MovementSpeed"             "340"        // Speed
+        "MovementTurnRate"          "0.4"       // Turning rate.
+
+        // Status
+        //--------------------------------
+        "StatusHealth"              "3024400"       // Base health.
+        "StatusHealthRegen"         "1"      // Health regeneration rate.
+        "StatusMana"                "500"         // Base mana.
+        "StatusManaRegen"           "50"         // Mana regeneration rate.
+
+        // Team
+        //--------------------------------
+        "TeamName"                  "DOTA_TEAM_NEUTRALS"         // Team name.
+        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        
+        // Vision
+        //--------------------------------
+        "VisionDaytimeRange"        "1400"      // Range of vision during day light.
+        "VisionNighttimeRange"      "1400"      // Range of vision at night time.
+
+        // Creature Data
+        //------------------------------------------------------------
+        "Creature"
+        {
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12572"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "12571"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "12570"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "12569"
+                }
+            }
+        }
+    }
     
 
     "tutorial_master"
