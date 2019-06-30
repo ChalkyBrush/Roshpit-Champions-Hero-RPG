@@ -1165,6 +1165,7 @@ function kolthun_phase_2_death_think(event)
 	end
 	caster:RemoveModifierByName("modifier_boss_health")
 	caster:RemoveAbility("boss_health")
+	CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 	if distance <= 90 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_kolthun_phase_3", {})
 		for i = 1, 25, 1 do

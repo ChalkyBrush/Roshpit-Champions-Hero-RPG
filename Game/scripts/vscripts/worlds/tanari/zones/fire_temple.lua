@@ -879,11 +879,12 @@ function Tanari:SpawnFireLord(kolthun)
 	boss.fallVelocity = 0
 	kolthun.phase3active = true
 	kolthun.boss = boss
+	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth(), bossId = tostring(boss)})
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, boss:GetAbsOrigin(), 1000, 900, false)
 	kolthun:SetModelScale(1.16)
 	local bossAbility = boss:FindAbilityByName("firelord_ability_ai")
 	StartAnimation(boss, {duration = 3, activity = ACT_DOTA_CAST_ABILITY_6, rate = 1})
-	bossAbility:ApplyDataDrivenModifier(boss, boss, "modifier_firelord_intro", {duration = 3})
+	bossAbility:ApplyDataDrivenModifier(boss, boss, "modifier_firelord_intro", {duration = 3.2})
 	Timers:CreateTimer(0.2, function()
 		ScreenShake(boss:GetAbsOrigin(), 700, 3, 3, 9000, 0, true)
 		Tanari:CreateLavaBlast(boss:GetAbsOrigin())

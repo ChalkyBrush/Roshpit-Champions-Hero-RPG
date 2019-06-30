@@ -24,10 +24,17 @@ function Tanari:Debug()
         MAIN_HERO_TABLE[1]:CalculateStatBonus()
         -- Runes:EquipArcana(MAIN_HERO_TABLE[1], 2)
     end
-    Tanari.FireTemple = {}
-    Tanari:SpawnFireSpiritFinalBoss()
-    Tanari:SpawnWaterSpiritFinalBoss()
-    Tanari:SpawnWindTempleSpiritBoss()
+
+	Tanari:InitializeFireTemple()
+	--
+    --Tanari:SpawnFireSpiritFinalBoss()
+    --Tanari:SpawnWaterSpiritFinalBoss()
+	--Tanari.WaterTemple = {}
+	--Tanari:BeginBossSpawnSequence()
+	--Tanari.WindTemple = {}
+	--Tanari:SpawnWindBossStaff()
+    --Tanari:SpawnWindTempleSpiritBoss()
+
     -- RPCItems:RollAxeArcana2(Vector(-4928, 2048))
     -- RPCItems:RollHarvesterBoots(Vector(-4928, 2048))
     -- RPCItems:RollSkulldiggerGloves(Vector(-4928, 2048))
@@ -266,7 +273,7 @@ function Tanari:Debug()
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
     ---------MAX CURATION----------
-    Curator:FullCurateHero(MAIN_HERO_TABLE[1])
+    --Curator:FullCurateHero(MAIN_HERO_TABLE[1])
     -- Timers:CreateTimer(40, function()
     --     Curator:CurateAllGlyphsForHero("neutral")
     -- end)
