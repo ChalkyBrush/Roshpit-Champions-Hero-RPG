@@ -107,6 +107,10 @@ function Winterblight:ProcessChamberStart(msg)
 	Winterblight.CavernData.Chambers[msg.chamber]["hero"] = hero:GetEntityIndex()
 	Winterblight.CavernData.Chambers[msg.chamber]["events"][msg.event_number]["status"] = 1
 
+	if not Winterblight.CavernUnits then
+		Winterblight.CavernUnits = {}
+	end
+	Winterblight.CavernUnits[msg.chamber] = {}
 	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, hero, "modifier_winterblight_cavern_fighter", {})
 	
 	StartAnimation(Winterblight.CavernGuide, {duration=4, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.6})
@@ -123,7 +127,7 @@ function Winterblight:ProcessChamberStart(msg)
 	local player = hero:GetPlayerOwner()
 	local playerID = hero:GetPlayerOwnerID()
 	Winterblight.CavernData.Chambers[msg.chamber]["steam_id_long"] = tostring(PlayerResource:GetSteamID(playerID))
-	CustomGameEventManager:Send_ServerToPlayer(player, "cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers})
+	CustomGameEventManager:Send_ServerToAllClients("cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers})
 end
 
 function Winterblight:FrozenFoyer(msg)
@@ -135,12 +139,13 @@ end
 function Winterblight:FrozenFoyer1(msg)
 	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 100
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
+	local chamber_id = msg.chamber
 	local unitsTable = {}
 	local positionTable = {Vector(-7040, 7552), Vector(-6809, 7936), Vector(-6519, 8320)}
 	for i = 1, #positionTable, 1 do
 		local fv = ((Vector(-5622, 6912) - positionTable[i])*Vector(1,1,0)):Normalized()
 		local unit = Winterblight:SpawnWinterRunner(positionTable[i], fv)
-		Winterblight:SetCavernUnit(unit, 1, positionTable[i], true, true, msg.chamber)
+		Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
 	end
 	Timers:CreateTimer(2, function()
 		local positionTable = {Vector(-8704, 5888), Vector(-9728, 6400), Vector(-11520, 7936), Vector(-6784, 8704), Vector(-4992, 9600), Vector(-4608, 9856), Vector(-4736, 10240), Vector(-6794, 10496), Vector(-8704, 11264), Vector(-9728, 11008)}
@@ -148,17 +153,38 @@ function Winterblight:FrozenFoyer1(msg)
 			Timers:CreateTimer(i*0.1, function()
 				local fv = RandomVector(1)
 				local unit = Winterblight:SpawnManaNull(positionTable[i], fv)
-				Winterblight:SetCavernUnit(unit, 1, positionTable[i], true, true, msg.chamber)
+				Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
 			end)
 		end
+	end)
+	Timers:CreateTimer(2.5, function()
+		local positionTable = {Vector(-12416, 8960), Vector(-8832, 5888), Vector(-5760, 9856), Vector(-10624, 11008)}
+	    for i = 1, #positionTable, 1 do
+	      Timers:CreateTimer(i*1.2, function()
+	        local patrolPositionTable = {}
+	        for j = 1, #positionTable, 1 do
+	          local index = i + j
+	          if index > #positionTable then
+	            index = index - #positionTable
+	          end
+	          table.insert(patrolPositionTable, positionTable[index])
+	        end
+	        for j = 0, 1, 1 do
+	          Timers:CreateTimer(j*0.8, function()
+	            local elemental = Winterblight:SpawnBloodWraith(positionTable[i]+RandomVector(RandomInt(1,180)), RandomVector(1))
+	            Winterblight:AddPatrolArguments(elemental, 12, 12, 220, patrolPositionTable)
+	            Winterblight:SetCavernUnit(elemental, elemental:GetAbsOrigin(), true, true, chamber_id)
+	          end)
+	        end
+	      end)
+	    end
 	end)
 	-- count:3 + 10
 end
 
 
-function Winterblight:SetCavernUnit(unit, chamber_id, original_position, bDeaggro, bParticle, chamber_index)
+function Winterblight:SetCavernUnit(unit, original_position, bDeaggro, bParticle, chamber_index)
 	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_winterblight_cavern_unit", {})
-	unit.chamber_id = chamber_id
 	unit.deaggro = bDeaggro
 	unit.original_position = original_position
 	unit.chamber = chamber_index
@@ -166,6 +192,7 @@ function Winterblight:SetCavernUnit(unit, chamber_id, original_position, bDeaggr
 		CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", unit:GetAbsOrigin(), 4)
 		EmitSoundOn("Winterblight.GuideCaveIntro", unit)
 	end
+	table.insert(Winterblight.CavernUnits[chamber_index], unit)
 end
 
 function Winterblight:SpawnWinterRunner(position, fv)
@@ -192,6 +219,15 @@ function Winterblight:SpawnManaNull(position, fv, level_stack)
 
 	return stone
 
+end
+
+function Winterblight:SpawnBloodWraith(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_blood_wraith", position, 1, 3, "Winterblight.Cavern.BloodWraith.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 3, false)
+	stone.itemLevel = 50
+	stone:SetRenderColor(130, 180, 255)
+	Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_CLOSEST)
+	return stone
 end
 
 function Winterblight:IsWithinChamber(unit, chamber_id)
@@ -341,4 +377,7 @@ end
 
 function Winterblight:ResetChamber(hero, chamber)
 	
+end
+
+function Winterblight:CompleteChamberEvent(chamber)
 end

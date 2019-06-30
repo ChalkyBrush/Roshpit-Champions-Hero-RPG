@@ -59,7 +59,7 @@
 		<snippet name="winter_cavern_chamber">
 			<Panel class="winter_cavern_chamber_root">
 				<Panel id="winterblight_cavern_main_ui_bg" hittest="false"/>
-				<Button id="winterblight_cavern_back_button" hittest="true" onactivate='CavernBack()'>
+				<Button id="winterblight_cavern_back_button" hittest="true">
 					<Label id="back_button_label" text="←"/>
 				</Button>
 				<Panel id="winterblight_cavern_main_ui_container" hittest="false">

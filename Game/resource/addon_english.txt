@@ -8676,7 +8676,7 @@
     	"property_seinaru_arcana2_description"								"Replaces @Ability3 and all of its runes with Sunstrider."
 
     	"DOTA_Tooltip_ability_seinaru_sunstrider"						"Sunstrider"
-    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"With the blessing of the sun, Seinaru blazes towards the target location. Enemies within the cast area of the ability are attacked by Seinaru in 0.06 second intervals with bonus attack power. Each attack echoes, dealing intense <font color='<font color='#ccff66'>0</font>'>Holy</font> damage in a small area around the target."
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"With the blessing of the sun, Seinaru blazes towards the target location. Enemies within the cast area of the ability are attacked by Seinaru in 0.06 second intervals with bonus attack power. Each attack echoes, dealing intense <font color='#F6FFB5'>Holy</font> damage in a small area around the target."
     	"DOTA_Tooltip_ability_seinaru_sunstrider_cast_range"			"CAST RANGE:"
     	"DOTA_Tooltip_ability_seinaru_sunstrider_targets_count"			"MAXIMUM TARGETS:"
     	"DOTA_Tooltip_ability_seinaru_sunstrider_att_to_dmg"			"DAMAGE FROM TOTAL ATTACK POWER:"
@@ -19013,6 +19013,7 @@
 
 		"winterblight_cavern_status_prefix"								"Status:"
 		"winterblight_cavern_status_inactive"								"Inactive"
+		"winterblight_cavern_status_active"								"Active"
 
 		"winterblight_cavern_fragments"								"Relic Fragments:"
 
@@ -19030,5 +19031,12 @@
 		"cavern_record_yours_all"									"Your Best Overall Record"
 		"cavern_record_global_hero"									"Global Record as"	
 		"cavern_record_global_all"									"Global Record"						
+
+		"DOTA_Tooltip_ability_winterblight_blood_might_passive"		"Blood Might"
+		"DOTA_Tooltip_ability_winterblight_blood_might_passive_Description"		"Gain attack damage for each missing point of health of nearby enemies. Gain % bonus attack damage for each % of current health of the nearby highest health enemy."
+		"DOTA_Tooltip_ability_winterblight_blood_might_passive_attack_damage_pct_pct_of_current_health"	"% ATTACK DAMAGE FROM HIGHEST HEALTH NEARBY ENEMY:"
+		"DOTA_Tooltip_ability_winterblight_blood_might_passive_attack_damage_per_missing_health"			"ATTACK DAMAGE BONUS FOR EACH MISSING POINT OF HP OF ALL NEARBY ENEMIES:"
+		"DOTA_Tooltip_modifier_blood_might_health_pct_bonus"			"Blood Might"
+		"DOTA_Tooltip_modifier_blood_might_health_pct_bonus_Description"	"Gaining attack damage based on the health of nearby enemies."
 	}	
 }

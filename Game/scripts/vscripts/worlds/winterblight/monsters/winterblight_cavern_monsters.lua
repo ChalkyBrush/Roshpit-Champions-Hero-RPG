@@ -387,6 +387,7 @@ function merkurio_think(event)
 				Timers:CreateTimer(1.2, function()
 					caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="walk"})
 					Dungeons:DeaggroUnit(caster)
+					caster:Stop()
 				end)
 				caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="walk"})
 				local luck = RandomInt(1, 2)
@@ -447,7 +448,7 @@ end
 
 function winter_cavern_unit_think(event)
 	local target = event.target
-	if Winterblight:IsWithinChamber(target, target.chamber_id) then
+	if Winterblight:IsWithinChamber(target, target.chamber) then
 	else
 		EmitSoundOn("Winterblight.Cavern.PopBack", target)
 		CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_lone_druid/lone_druid_loadout.vpcf", target:GetAbsOrigin(), 3)
@@ -554,4 +555,65 @@ function mana_null_attack_land(event)
 	local burnDamage = math.min(target:GetMana(), mana_burn)*10
 	target:ReduceMana(mana_burn)
 	ApplyDamage({ victim = target, attacker = caster, damage = burnDamage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+end
+
+function blood_might_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local radius = event.radius
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+    if #enemies > 0 then    
+    	local highest_full_health_pct = 0
+    	local total_missing_health = 0
+        for _,enemy in pairs(enemies) do
+        	local full_health_pct = (enemy:GetHealth()/enemy:GetMaxHealth())*100
+        	highest_full_health_pct = math.max(full_health_pct, highest_full_health_pct)
+        	total_missing_health = total_missing_health + (enemy:GetMaxHealth() - enemy:GetHealth())
+        end
+        if total_missing_health > 0 then
+        	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bloodmight_attack_dmg", {})
+        	caster:SetModifierStackCount("modifier_bloodmight_attack_dmg", caster, total_missing_health)
+        else
+        	caster:RemoveModifierByName("modifier_bloodmight_attack_dmg")
+        end
+        if highest_full_health_pct > 0 then
+        	ability:ApplyDataDrivenModifier(caster, caster, "modifier_blood_might_health_pct_bonus", {})
+        	caster:SetModifierStackCount("modifier_blood_might_health_pct_bonus", caster, highest_full_health_pct)
+        else
+        	caster:RemoveModifierByName("modifier_blood_might_health_pct_bonus")
+        end
+    else
+    	caster:RemoveModifierByName("modifier_blood_might_health_pct_bonus")
+    	caster:RemoveModifierByName("modifier_bloodmight_attack_dmg")
+    end
+end
+
+function curse_of_belial_start(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_curse_of_belial", {duration = event.duration})
+	EmitSoundOn("Winterblight.Cavern.CurseOfBelial", target)
+	local damage_reduction_pct = event.base_attack_damage_reduction
+	local damage_redcution = target:GetAttackDamage()*(damage_reduction_pct/100)
+	ability:ApplyDataDrivenModifier(caster, target, "curse_of_belial_attack_damage_reduce", {duration = event.duration})
+end
+
+function curse_of_belial_cast(event)
+	local caster = event.unit
+	local pct_health_loss = event.pct_damage_on_spell_cast/100
+	local beginningHealth = caster:GetHealth()
+	local newHealth = math.max(caster:GetHealth() - caster:GetMaxHealth() * pct_health_loss, 1)
+	caster:SetHealth(newHealth)
+	CustomAbilities:QuickAttachParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf", caster, 0.7)
+end
+
+function cavern_unit_die(event)
+	local unit = event.unit
+	local chamber = unit.chamber
+	Winterblight.CavernData.Chambers[chamber]["progress"] = Winterblight.CavernData.Chambers[chamber]["progress"] + 1
+	CustomGameEventManager:Send_ServerToAllClients("cavern_summary_update", {chamber_data = Winterblight.CavernData.Chambers, chamber = chamber})
+	if Winterblight.CavernData.Chambers[chamber]["progress"] > Winterblight.CavernData.Chambers[chamber]["goal"] then
+		Winterblight:CompleteChamberEvent(chamber)
+	end
 end

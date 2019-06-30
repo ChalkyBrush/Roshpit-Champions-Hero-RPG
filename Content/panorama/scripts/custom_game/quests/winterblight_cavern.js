@@ -4,7 +4,7 @@ room_mapping = ["frozen_foyer", "aurora_passage", "crystarium", "edge_of_winter"
 event_count = 4
 mChamberMax = 0
 
-function OpenWinterblightCavernUi(bIgnoreFade){
+function OpenWinterblightCavernUi(msg, bIgnoreFade){
 	InitCavernUI()
 	$('#winterblight_cavern_main_ui').RemoveClass('invisible')
 	$('#winterblight_cavern_main_ui').RemoveClass('animateMainFadeIn')
@@ -20,19 +20,22 @@ function OpenWinterblightCavernUi(bIgnoreFade){
 	button.SetPanelEvent('onactivate', function Open() {
 		CloseWinterCavern();
 	});
-	cavern_ui_panel.FindChildTraverse('chamber-status-label-1').text = $.Localize("winterblight_cavern_status_prefix") + " " + $.Localize("winterblight_cavern_status_inactive")
-	cavern_ui_panel.FindChildTraverse('chamber-status-label-2').text = $.Localize("winterblight_cavern_status_prefix") + " " + $.Localize("winterblight_cavern_status_inactive")
-	cavern_ui_panel.FindChildTraverse('chamber-status-label-3').text = $.Localize("winterblight_cavern_status_prefix") + " " + $.Localize("winterblight_cavern_status_inactive")
-	cavern_ui_panel.FindChildTraverse('chamber-status-label-4').text = $.Localize("winterblight_cavern_status_prefix") + " " + $.Localize("winterblight_cavern_status_inactive")
 	for (var i = 1; i <= 4; i++) {
-		var chamber_button = cavern_ui_panel.FindChildTraverse('chamber-button-'+i)
-		setChamberButtonActivate(chamber_button, i)
+		var status = parseInt(msg.winterblight_cavern.Chambers[i]["status"])
+		if (status == 0){
+			cavern_ui_panel.FindChildTraverse('chamber-status-label-'+i).text = $.Localize("winterblight_cavern_status_prefix") + " " + $.Localize("winterblight_cavern_status_inactive")
+			var chamber_button = cavern_ui_panel.FindChildTraverse('chamber-button-'+i)
+			setChamberButtonActivate(chamber_button, i, msg)
+		}else if(status == 1){
+			cavern_ui_panel.FindChildTraverse('chamber-status-label-'+i).text = $.Localize("winterblight_cavern_status_prefix") + " " + $.Localize("winterblight_cavern_status_active")
+			cavern_ui_panel.FindChildTraverse('chamber-status-label-'+i).AddClass('active_chamber_label')
+		}
 	}
 }
 
-function setChamberButtonActivate(button, index){
+function setChamberButtonActivate(button, index, msg){
 	button.SetPanelEvent('onactivate', function Chamber() {
-		ChamberButtonActivate(index);
+		ChamberButtonActivate(index, msg);
 	});
 }
 
@@ -43,7 +46,7 @@ function getChamberEvents(chamber_name)
 	}
 }
 
-function ChamberButtonActivate(index){
+function ChamberButtonActivate(index, msg){
 	$('#winterblight_cavern_main_ui').RemoveAndDeleteChildren()
 	var cavern_ui_panel = $.CreatePanel("Panel", $('#winterblight_cavern_main_ui'), "cavern_ui")
 	$.GetContextPanel.cavern_ui_panel = cavern_ui_panel
@@ -59,6 +62,11 @@ function ChamberButtonActivate(index){
 		var cavern_event_button = cavern_event_button_panel.FindChildTraverse('winter_cavern_event_button')
 		setChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_container, cavern_event_button, i, index)
 	}
+	var backBtn = cavern_ui_panel.FindChildTraverse('winterblight_cavern_back_button')
+	backBtn.SetPanelEvent('onactivate', function Back() {
+		$.Msg("CLICKADOO")
+		CavernBack(msg)
+	});
 }
 
 function setChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_container, button, index, chamber_index){
@@ -94,7 +102,6 @@ function ChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_contai
 
 	var level_selected = cavern_ui_panel.FindChildTraverse('max_level_input').value
 	set_start_button(start_button, chamber_index, index, cavern_ui_panel)
-	
 	// NumberEntry.max( integer integer_1 )
 }
 
@@ -130,9 +137,9 @@ function InitCavernUI(){
 	}
 }
 
-function CavernBack()
+function CavernBack(msg)
 {
-	OpenWinterblightCavernUi(1)
+	OpenWinterblightCavernUi(msg, 1)
 }
 
 function CloseWinterCavern(){
@@ -237,6 +244,8 @@ function get_event_difficulty_max(difficulty, stones)
 	}
 }
 
+mChamberSummary = []
+
 function CavernSummaryInit(msg)
 {
 	$('#winterblight_cavern_summary_container').RemoveClass('invisible')
@@ -258,6 +267,7 @@ function CavernSummaryInit(msg)
 	expander_button.SetPanelEvent('onactivate', function Open() {
 		expander_buttom_event(cavern_ui_panel, expander_button, expander_label, expander_header, attacher)
 	});
+	mChamberSummary = []
 	for (var i = 1; i <= 4; i++) {
 		var chamber_data = msg.chamber_data[i]
 		$.Msg(chamber_data)
@@ -273,13 +283,26 @@ function CavernSummaryInit(msg)
 			event_parent.FindChildTraverse('winter_event_event_name').text = $.Localize("winterblight_cavern_room"+chamber_index+"_event"+event_index)
 			event_parent.FindChildTraverse('winter_event_event_level').text = "LV"+chamber_data["level"]
 			event_parent.FindChildTraverse('event-progress-bar-label').text = chamber_data["progress"] + "/" + chamber_data["goal"]
+			mChamberSummary.push(event_parent)
 		}
 	}	
 }
 
-// function update_summary(event_parent, chamber_data){
+function CavernSummaryUpdate(msg){
+	var chamber_data = msg.chamber_data[msg.chamber]
+	$.Msg(chamber_data)
+	if (chamber_data["status"] == 1){
+		var chamber_index = msg.chamber
+		var event_index = chamber_data["event"]
+		var event_parent = mChamberSummary[chamber_index-1]
+		event_parent.FindChildTraverse('event-progress-bar-label').text = chamber_data["progress"] + "/" + chamber_data["goal"]
+		var completion_percentage = chamber_data["progress"]*100/chamber_data["goal"]
+		var fill_bar = event_parent.FindChildTraverse('event-progress-bar-fill')
+		fill_bar.style.width = completion_percentage+"%"
+	}
+}
 
-// }
+
 
 function construct_chamber_info(){
 
@@ -312,4 +335,5 @@ function expander_buttom_event(cavern_ui_panel, expander_button, cavern_expander
 	GameEvents.Subscribe( "open_winterblight_cavern_ui", OpenWinterblightCavernUi);
 	GameEvents.Subscribe( "load_winterblight_cavern_records", CavernRecordsLoaded)
 	GameEvents.Subscribe( "cavern_summary_init", CavernSummaryInit)
+	GameEvents.Subscribe( "cavern_summary_update", CavernSummaryUpdate)
 })();

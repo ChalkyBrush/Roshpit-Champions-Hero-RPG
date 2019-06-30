@@ -641,3 +641,12 @@
 	color:white;
 	font-size:16px;
 }
+
+#event-progress-bar-fill{
+	height:100%;
+	background-color: gradient( linear, 0px 0%, 50px 0%, from( #1C4FA0 ), to( #0d326d ) );
+}
+
+.active_chamber_label{
+	color: #21db55;
+}

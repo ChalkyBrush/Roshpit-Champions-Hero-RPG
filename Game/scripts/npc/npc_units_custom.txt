@@ -93497,8 +93497,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1200"
-        "AttackDamageMax"   "2200" 
+        "AttackDamageMin"   "113600"
+        "AttackDamageMax"   "116000" 
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -93559,6 +93559,90 @@
         "Ability3"      "winterblight_crystal_meditation"
         "Ability3"      "use_ability_1_position_ai"
         "Ability4"      "dungeon_creep"
+    }
+
+    "winterblight_blood_wraith"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/grimstroke/grimstroke.vmdl"
+        "ModelScale"    "0.87"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_grimstroke.vsndevts"
+        }
+        "HasInventory"  "0"
+        "SoundSet"              "Hero_Grimstroke"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "ArmorPhysical" "1"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "100200"
+        "AttackDamageMax"   "200200" 
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "750"
+        "ProjectileModel"   "particles/units/heroes/hero_grimstroke/grimstroke_base_attack.vpcf"
+        "ProjectileSpeed"   "1200"
+        "BountyXP" "620"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "420"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "1300000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "100"
+        "StatusManaRegen"   "0"
+        "VisionDaytimeRange"    "2400"
+        "VisionNighttimeRange"  "2400"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "664"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "667"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "668"
+                }
+            }
+        }
+        "Ability1"      "curse_of_belial"
+        "Ability2"      "winterblight_blood_might_passive"
+        "Ability3"      "fire_temple_steadfast"
+        "Ability4"      "use_ability_1_target_ai"
+        "Ability5"      "dungeon_creep"
     }
     
 

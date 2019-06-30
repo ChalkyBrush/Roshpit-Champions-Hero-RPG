@@ -8161,7 +8161,7 @@
     	"property_seinaru_arcana2_description"								"Заменяет (E) @Ability3 и все соответствующие руны на (E) Sunstrider."
 
     	"DOTA_Tooltip_ability_seinaru_sunstrider"						"Sunstrider"
-    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"С благословления самого солнца, Seinaru совершает мощный рывок в выбранную точку. Противники внутри зоны поражения атакуются Seinaru каждые 0.06 секунды с бонусом к атаке. Каждая удар расщепляется на пучок <font color='<font color='#ccff66'>0</font>'>Света</font> в небольшой зоне вокруг цели."
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"С благословления самого солнца, Seinaru совершает мощный рывок в выбранную точку. Противники внутри зоны поражения атакуются Seinaru каждые 0.06 секунды с бонусом к атаке. Каждая удар расщепляется на пучок <font color='#F6FFB5'>Света</font> в небольшой зоне вокруг цели."
     	"DOTA_Tooltip_ability_seinaru_sunstrider_cast_range"			"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
 		"DOTA_Tooltip_ability_seinaru_sunstrider_targets_count"			"КОЛИЧЕСТВО ЦЕЛЕЙ:"
     	"DOTA_Tooltip_ability_seinaru_sunstrider_att_to_dmg"			"УРОНА ОТ АТАКИ:"
