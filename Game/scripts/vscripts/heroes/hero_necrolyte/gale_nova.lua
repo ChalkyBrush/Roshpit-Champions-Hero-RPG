@@ -8,7 +8,7 @@ function cast(event)
 	local radius = Q_RANGE
 	local duration = Q_DEBUFF_DURATION
 
-	StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.3})
+	StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.3})
 	Filters:CastSkillArguments(1, caster)
 
 	if caster:HasModifier("modifier_venomort_glyph_1_1") then
@@ -27,22 +27,22 @@ function cast(event)
 
 	local q3_level = caster:GetRuneValue("q", 3)
 
-	local q4_level =  caster:GetRuneValue("q", 4)
+	local q4_level = caster:GetRuneValue("q", 4)
 	if q4_level > 0 then
 		radius = radius + q4_level * Q4_RANGE
 	end
-	
+
 
 	-- for i = 1,1 do
-	-- 	local pfx_highlight = ParticleManager:CreateParticle("particles/roshpit/venomort/venomous_gale.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-	-- 	ParticleManager:SetParticleControl(pfx_highlight, 0, caster:GetAbsOrigin())
-	-- 	ParticleManager:SetParticleControl(pfx_highlight, 1, Vector(radius, 0, 0))
+	-- local pfx_highlight = ParticleManager:CreateParticle("particles/roshpit/venomort/venomous_gale.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+	-- ParticleManager:SetParticleControl(pfx_highlight, 0, caster:GetAbsOrigin())
+	-- ParticleManager:SetParticleControl(pfx_highlight, 1, Vector(radius, 0, 0))
 	-- end
 	local pfx = ParticleManager:CreateParticle("particles/roshpit/venomort/spreading_plague_marker.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 0, 0))
 	ParticleManager:SetParticleControl(pfx, 2, Vector(radius, 0, 0))
-	ParticleManager:SetParticleControl(pfx, 3, Vector(radius*0.7, 0, 0))
+	ParticleManager:SetParticleControl(pfx, 3, Vector(radius * 0.7, 0, 0))
 	Timers:CreateTimer(3, function()
 		ParticleManager:DestroyParticle(pfx, false)
 		ParticleManager:ReleaseParticleIndex(pfx)
@@ -57,7 +57,6 @@ function cast(event)
 		paragonsCountAs = T21_PARAGONS_COUNT_AS_ENEMIES
 	end
 
-
 	local apply_demoralize = false
 	local demoralize_duration = 0
 	local w_ability = caster:FindAbilityByName('nether_blaster')
@@ -66,15 +65,13 @@ function cast(event)
 		local w2_level = caster:GetRuneValue("w", 2)
 		if w2_level > 0 then
 			apply_demoralize = true
-			demoralize_duration =  w2_level * W2_DURATION * (1 + T12_DURATION_INCREASE_PERCENT/100)
+			demoralize_duration = w2_level * W2_DURATION * (1 + T12_DURATION_INCREASE_PERCENT / 100)
 		end
 	end
 
-
-
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 	if #enemies > 0 then
-		for _,enemy in pairs(enemies) do
+		for _, enemy in pairs(enemies) do
 			if enemy.mainBoss then
 				bossesCount = bossesCount + 1
 			end
@@ -87,7 +84,7 @@ function cast(event)
 				modifier:SetStackCount(q3_level)
 			end
 			if apply_demoralize then
-				local luck = RandomInt(1,100)
+				local luck = RandomInt(1, 100)
 				if luck < W2_CHANCE then
 					demoralize(caster, w_ability, enemy, demoralize_duration)
 				end
@@ -99,7 +96,7 @@ function cast(event)
 	end
 	if q1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_gale_nova_bad", {duration = q1_duration})
-		caster:SetModifierStackCount( "modifier_gale_nova_bad", caster, q1_level * (#enemies + bossesCount * (bossesCountAs - 1) + paragonsCount * (paragonsCountAs - 1)))
+		caster:SetModifierStackCount("modifier_gale_nova_bad", caster, q1_level * (#enemies + bossesCount * (bossesCountAs - 1) + paragonsCount * (paragonsCountAs - 1)))
 	end
 
 end

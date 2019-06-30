@@ -1,13 +1,13 @@
 if Amulet == nil then
-  Amulet = class({})
+	Amulet = class({})
 end
 
 function Amulet:AdjustAttackPowerBonus(hero, value)
 	if hero:GetUnitName() == "npc_dota_hero_winter_wyvern" then
 		-- local b_c_level = hero:GetRuneValue("e", 2)
 		-- if hero:HasModifier("modifier_recently_respawned") then
-		-- 	local ability = hero:FindAbilityByName("dinath_dragon_dive")
-		-- 	b_c_level = ability.e_2_level
+		-- local ability = hero:FindAbilityByName("dinath_dragon_dive")
+		-- b_c_level = ability.e_2_level
 		-- end
 		-- value = value + value*0.15*b_c_level
 	end
@@ -66,7 +66,6 @@ function Amulet:add_modifiers(hero, inventory_unit, item)
 	end
 end
 
-
 function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinket_ability, item)
 	--print("[Amulet:action] propertyName:"..tostring(propertyName))
 	if type(propertyValue) == "string" then
@@ -115,7 +114,7 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 	elseif propertyName == "blacksmith" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_blacksmiths_tablet", item)
 		local playerID = hero:GetPlayerOwnerID()
-		local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..tostring(1))
+		local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(1))
 		if itemEntity then
 			local item = EntIndexToHScript(itemEntity.itemIndex)
 			if IsValidEntity(item) then
@@ -126,7 +125,7 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		trinket_ability.strength = trinket_ability.strength + propertyValue
 		Amulet:addBasicModifier(trinket_ability.strength, hero, inventory_unit, "modifier_trinket_strength", trinket_ability)
 		trinket_ability.agility = trinket_ability.agility + propertyValue
-		Amulet:addBasicModifier(trinket_ability.agility, hero, inventory_unit, "modifier_trinket_agility", trinket_ability)		
+		Amulet:addBasicModifier(trinket_ability.agility, hero, inventory_unit, "modifier_trinket_agility", trinket_ability)
 		trinket_ability.intelligence = trinket_ability.intelligence + propertyValue
 		Amulet:addBasicModifier(trinket_ability.intelligence, hero, inventory_unit, "modifier_trinket_intelligence", trinket_ability)
 	elseif propertyName == "sapphire_lotus" then
@@ -266,7 +265,7 @@ end
 function Amulet:addItemModifier(propertyValue, hero, inventory_unit, modifier_name, amulet_ability)
 	amulet_ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
 	if propertyValue > 0 then
-		hero:SetModifierStackCount( modifier_name, amulet_ability, propertyValue )
+		hero:SetModifierStackCount(modifier_name, amulet_ability, propertyValue)
 	end
 end
 
@@ -345,7 +344,7 @@ end
 AVAILABLE_RUNE_TABLE = {"rune_q_1", "rune_w_1", "rune_e_1", "rune_r_1", "rune_q_2", "rune_w_2", "rune_e_2", "rune_r_2", "rune_q_3", "rune_w_3", "rune_e_3", "rune_r_3"}
 
 function Amulet:setRuneBonusNetTable(value, rune, hero)
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_"..rune.."_amulet", {bonus = value} )
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_"..rune.."_amulet", {bonus = value})
 	--print("Setting Rune Net Table: ")
 	--print(tostring(hero:GetEntityIndex()).."_"..rune.."_amulet")
 end
@@ -356,7 +355,7 @@ function Amulet:addBasicModifier(propertyValue, hero, inventory_unit, modifier_n
 	local amulet_ability = inventory_unit:FindAbilityByName("trinket_slot")
 	amulet_ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
 	--hero:SetModifierStackCount( modifier_name, trinket_ability, (propertyValue+stacks) )
-	hero:SetModifierStackCount( modifier_name, amulet_ability, propertyValue )
+	hero:SetModifierStackCount(modifier_name, amulet_ability, propertyValue)
 end
 
 function Amulet:remove_modifiers(hero)
@@ -450,8 +449,8 @@ function Amulet:remove_modifiers(hero)
 	hero.runeUnit3.amulet.e_3 = 0
 	hero.runeUnit3.amulet.r_3 = 0
 	hero.runeUnit4.amulet.q_4 = 0
-	hero.runeUnit4.amulet.w_4 = 0 
-	hero.runeUnit4.amulet.e_4 = 0 
+	hero.runeUnit4.amulet.w_4 = 0
+	hero.runeUnit4.amulet.e_4 = 0
 	hero.runeUnit4.amulet.r_4 = 0
 	Runes:ResetRuneBonuses(hero, "amulet")
 end

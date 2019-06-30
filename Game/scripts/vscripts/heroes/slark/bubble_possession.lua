@@ -28,21 +28,20 @@ function bubble_possession_channel_thinking(event)
 	local ability = event.ability
 
 	if ability.target then
-		local directionToTarget = ((ability.target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		local directionToTarget = ((ability.target:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 		caster:SetForwardVector(directionToTarget)
 		ability.interval = ability.interval + 1
 		-- local cosValue = math.cos(2*math.pi*ability.interval/30)*10
 		-- local cosValue2 = math.sin(2*math.pi*ability.interval/60)*15
 		-- local cosVector = Vector(cosValue, cosValue, 0)
-		local intensity = math.min(ability.interval, CHANNEL_INTERVALS)/CHANNEL_INTERVALS
-		local cosVector = WallPhysics:rotateVector(ability.fv, 2*math.pi*ability.interval/25)*25*intensity
-		local movementVector = caster:GetAbsOrigin()-directionToTarget*7+Vector(0,0,4)+Vector(0,0,math.sin(10*ability.interval*2*math.pi/CHANNEL_INTERVALS)+1) + cosVector
+		local intensity = math.min(ability.interval, CHANNEL_INTERVALS) / CHANNEL_INTERVALS
+		local cosVector = WallPhysics:rotateVector(ability.fv, 2 * math.pi * ability.interval / 25) * 25 * intensity
+		local movementVector = caster:GetAbsOrigin() - directionToTarget * 7 + Vector(0, 0, 4) + Vector(0, 0, math.sin(10 * ability.interval * 2 * math.pi / CHANNEL_INTERVALS) + 1) + cosVector
 		local movementVector2 = WallPhysics:WallSearch(caster:GetAbsOrigin(), movementVector, caster)
 		caster:SetAbsOrigin(movementVector2)
 	end
 
 end
-
 
 function channel_interrupt(event)
 	local caster = event.caster
@@ -68,9 +67,9 @@ function bubble_possess_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_possession_moving_toward_target", {duration = 10})
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/possession_begin_flight_tart.vpcf", caster:GetAbsOrigin(), 1)
 	ability.moveInterval = 0
-	ability.speed = WallPhysics:GetDistance(caster:GetAbsOrigin(), target:GetAbsOrigin())/12
+	ability.speed = WallPhysics:GetDistance(caster:GetAbsOrigin(), target:GetAbsOrigin()) / 12
 	Timers:CreateTimer(0.03, function()
-		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_SLARK_POUNCE, rate=2})
+		StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_SLARK_POUNCE, rate = 2})
 	end)
 	local luck = RandomInt(1, 3)
 	if luck == 1 then
@@ -85,8 +84,8 @@ function possession_moving_towards_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local duration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
-	local directionToTarget = ((ability.target:GetAbsOrigin()-caster:GetAbsOrigin())):Normalized()
-	local facingTarget = ((ability.target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	local directionToTarget = ((ability.target:GetAbsOrigin() - caster:GetAbsOrigin())):Normalized()
+	local facingTarget = ((ability.target:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	if not ability.speed then
 		return false
 	end
@@ -95,28 +94,28 @@ function possession_moving_towards_think(event)
 	end
 	caster:SetForwardVector(facingTarget)
 	local heightVsTargetHeight = math.max(caster:GetAbsOrigin().z - ability.target:GetAbsOrigin().z, 0)
-	caster:SetAbsOrigin(caster:GetAbsOrigin()+directionToTarget*ability.speed)
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + directionToTarget * ability.speed)
 	local distanceToTarget = WallPhysics:GetDistance(caster:GetAbsOrigin(), ability.target:GetAbsOrigin())
-	if distanceToTarget < ability.speed*1.1 then
+	if distanceToTarget < ability.speed * 1.1 then
 		if IsValidEntity(ability.target) and ability.target:IsAlive() then
 			if ability.target.dominion then
 				ability.lockedTarget = ability.target
 				CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_bubble_possession", "slipfinn_release_possess", DOTA_R_SLOT)
 				ability.enemyMovementPhase = 0
 				ability:ApplyDataDrivenModifier(caster, ability.target, "modifier_possession_enemy_lock", {duration = duration})
-				ability.target:AddNewModifier( caster, ability, "slipfinn_possessed_lua", {duration = duration} )
+				ability.target:AddNewModifier(caster, ability, "slipfinn_possessed_lua", {duration = duration})
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_enemy_locked", {duration = duration})
 				local d_d_level = caster:GetRuneValue("r", 4)
 				if d_d_level > 0 then
-					local attackPowerGain = ability.lockedTarget:GetAttackDamage()*SLIPFINN_R4_ATTACK_POWER_STEAL*d_d_level
+					local attackPowerGain = ability.lockedTarget:GetAttackDamage() * SLIPFINN_R4_ATTACK_POWER_STEAL * d_d_level
 					ability:ApplyDataDrivenModifier(caster, caster, "modifier_possession_attack_power", {})
 					caster:SetModifierStackCount("modifier_possession_attack_power", caster, attackPowerGain)
 				end
 				if ability.lockedTarget:IsAlive() then
-					collect_abilities(caster, ability, ability.lockedTarget)	
-				end		
+					collect_abilities(caster, ability, ability.lockedTarget)
+				end
 			else
-				Notifications:Top(caster:GetPlayerOwnerID(), {text="slipfinn_possession_cant_possess", duration=5, style={color="#FF1111"}, continue=true})
+				Notifications:Top(caster:GetPlayerOwnerID(), {text = "slipfinn_possession_cant_possess", duration = 5, style = {color = "#FF1111"}, continue = true})
 				if caster:HasModifier("modifier_slipfinn_glyph_6_1") then
 					ability.fallFromHeight = ability.target:GetAbsOrigin().z
 					ability.target:RemoveModifierByName("modifier_possession_enemy_lock")
@@ -126,7 +125,7 @@ function possession_moving_towards_think(event)
 				end
 			end
 		else
-			Notifications:Top(caster:GetPlayerOwnerID(), {text="slipfinn_possession_target_dead", duration=5, style={color="#FF1111"}, continue=true})
+			Notifications:Top(caster:GetPlayerOwnerID(), {text = "slipfinn_possession_target_dead", duration = 5, style = {color = "#FF1111"}, continue = true})
 		end
 		ability.TargetToAddToTable = ability.target
 		EndAnimation(caster)
@@ -140,18 +139,18 @@ function possession_moving_towards_think(event)
 				slipfinn_jump_start(event)
 			end)
 		end
-		local pfx = ParticleManager:CreateParticle("particles/roshpit/slipfinn/possession_start_choslam_start.vpcf", PATTACH_CUSTOMORIGIN, nil )
-		ParticleManager:SetParticleControl(pfx, 0,ability.target:GetAbsOrigin()+Vector(0,0,50))
-		ParticleManager:SetParticleControl(pfx, 1,Vector(150, 2, 150))
+		local pfx = ParticleManager:CreateParticle("particles/roshpit/slipfinn/possession_start_choslam_start.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(pfx, 0, ability.target:GetAbsOrigin() + Vector(0, 0, 50))
+		ParticleManager:SetParticleControl(pfx, 1, Vector(150, 2, 150))
 		Timers:CreateTimer(2.5, function()
 			ParticleManager:DestroyParticle(pfx, false)
 			ParticleManager:ReleaseParticleIndex(pfx)
 		end)
 		if ability.r_2_level > 0 then
-			local stun_duration = SLIPFINN_R2_STUN_DURATION*ability.r_2_level
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), ability.lockedTarget:GetAbsOrigin(), nil, 440, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			local stun_duration = SLIPFINN_R2_STUN_DURATION * ability.r_2_level
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), ability.lockedTarget:GetAbsOrigin(), nil, 440, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
-				for _,enemy in pairs(enemies) do
+				for _, enemy in pairs(enemies) do
 					Filters:ApplyStun(caster, stun_duration, enemy)
 				end
 			end
@@ -167,7 +166,7 @@ function possession_moving_towards_think(event)
 	ability.moveInterval = ability.moveInterval + 1
 	if ability.moveInterval == 13 then
 		ability.moveInterval = 0
-		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_SLARK_POUNCE, rate=2})
+		StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_SLARK_POUNCE, rate = 2})
 	end
 
 end
@@ -176,22 +175,21 @@ function enemy_lock_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local liftVector = Vector(0,0,0)
+	local liftVector = Vector(0, 0, 0)
 
 	local floatHeight = target:GetBoundingMaxs().z + 120
 	if ability.enemyMovementPhase >= 0 then
-		liftVector = Vector(0,0,10)
+		liftVector = Vector(0, 0, 10)
 		ability.enemyMovementPhase = ability.enemyMovementPhase + 1
-		target:SetAbsOrigin(caster:GetAbsOrigin()+liftVector*ability.enemyMovementPhase)
+		target:SetAbsOrigin(caster:GetAbsOrigin() + liftVector * ability.enemyMovementPhase)
 	else
-		liftVector = Vector(0,0,floatHeight)
-		target:SetAbsOrigin(caster:GetAbsOrigin()+liftVector)
+		liftVector = Vector(0, 0, floatHeight)
+		target:SetAbsOrigin(caster:GetAbsOrigin() + liftVector)
 	end
-	
+
 	if target:GetAbsOrigin().z - caster:GetAbsOrigin().z > floatHeight then
 		ability.enemyMovementPhase = -1
 	end
-
 
 end
 
@@ -224,7 +222,7 @@ function enemy_locked_end(event)
 						caster:RemoveModifierByName(modifier:GetName())
 					end
 				end
-			end	
+			end
 		end
 
 		local abilitiesToRemove = ability.abilitiesTable
@@ -237,9 +235,9 @@ function enemy_locked_end(event)
 		if IsValidEntity(ability.lockedTarget) then
 			if ability.lockedTarget:IsAlive() then
 				if ability.r_2_level > 0 then
-					local stun_duration = SLIPFINN_R2_STUN_DURATION*ability.r_2_level
+					local stun_duration = SLIPFINN_R2_STUN_DURATION * ability.r_2_level
 					if caster:HasModifier("modifier_slipfinn_glyph_6_1") then
-						stun_duration = stun_duration*SLIPFINN_GLYPH_6_1_STUN_MULT
+						stun_duration = stun_duration * SLIPFINN_GLYPH_6_1_STUN_MULT
 					end
 					Filters:ApplyStun(caster, stun_duration, ability.lockedTarget)
 					ability:ApplyDataDrivenModifier(caster, ability.lockedTarget, "modifier_slipfinn_release_immunity", {duration = 6.0})
@@ -252,9 +250,9 @@ function enemy_locked_end(event)
 				ability:ApplyDataDrivenModifier(caster, ability.lockedTarget, "modifier_release_falling", {duration = 1})
 				ability.lockedTarget.possessionFallSpeed = 3
 
-				local pfx = ParticleManager:CreateParticle("particles/roshpit/slipfinn/possession_release_choslam_start.vpcf", PATTACH_CUSTOMORIGIN, nil )
-				ParticleManager:SetParticleControl(pfx, 0,ability.lockedTarget:GetAbsOrigin()+Vector(0,0,50))
-				ParticleManager:SetParticleControl(pfx, 1,Vector(150, 2, 150))
+				local pfx = ParticleManager:CreateParticle("particles/roshpit/slipfinn/possession_release_choslam_start.vpcf", PATTACH_CUSTOMORIGIN, nil)
+				ParticleManager:SetParticleControl(pfx, 0, ability.lockedTarget:GetAbsOrigin() + Vector(0, 0, 50))
+				ParticleManager:SetParticleControl(pfx, 1, Vector(150, 2, 150))
 				Timers:CreateTimer(2.5, function()
 					ParticleManager:DestroyParticle(pfx, false)
 					ParticleManager:ReleaseParticleIndex(pfx)
@@ -287,7 +285,7 @@ function collect_abilities(caster, ability, target)
 			UTIL_Remove(caster:FindAbilityByName(abilitiesTable[i]:GetAbilityName()))
 		end
 		local newAbil = caster:AddAbility(abilitiesTable[i]:GetAbilityName())
-		newAbil:SetAbilityIndex(DOTA_R_SLOT+i)
+		newAbil:SetAbilityIndex(DOTA_R_SLOT + i)
 		newAbil.possessionAbility = true
 		newAbil:SetLevel(level)
 		table.insert(slarkAbilitiesTable, newAbil)
@@ -301,7 +299,7 @@ function release_falling_think(event)
 	if target.possessionFallSpeed == 3 then
 		target:SetAbsOrigin(Vector(target:GetAbsOrigin().x, target:GetAbsOrigin().y, ability.fallFromHeight))
 	else
-		target:SetAbsOrigin(target:GetAbsOrigin()-Vector(0,0,target.possessionFallSpeed))
+		target:SetAbsOrigin(target:GetAbsOrigin() - Vector(0, 0, target.possessionFallSpeed))
 	end
 	target.possessionFallSpeed = target.possessionFallSpeed + 1
 	--print(target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target))
@@ -314,9 +312,9 @@ end
 function release_fall_end(event)
 	local target = event.target
 	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
-	local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, target )
-	ParticleManager:SetParticleControl( pfx, 0, target:GetAbsOrigin() )
-	ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+	local pfx = ParticleManager:CreateParticle("particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, target)
+	ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 1, Vector(200, 200, 200))
 	Timers:CreateTimer(2, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
@@ -332,7 +330,7 @@ function spell_precast(event)
 	local executedAbility = event.event_ability
 	if executedAbility.possessionAbility then
 		local animationDuration = executedAbility:GetCastPoint() - 0.03
-		StartAnimation(caster, {duration=animationDuration, activity=ACT_DOTA_SPAWN, rate=1.5})
+		StartAnimation(caster, {duration = animationDuration, activity = ACT_DOTA_SPAWN, rate = 1.5})
 	end
 end
 
@@ -342,7 +340,7 @@ function spell_cast(event)
 	local target = event.unit
 	local executedAbility = event.event_ability
 	if executedAbility.possessionAbility then
-		StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.2})
+		StartAnimation(caster, {duration = 0.8, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.2})
 	end
 end
 
@@ -351,7 +349,7 @@ function enemy_6_1_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if caster:GetAbsOrigin().z > target:GetAbsOrigin().z then
-		target:SetAbsOrigin(target:GetAbsOrigin() + Vector(0,0,4))
+		target:SetAbsOrigin(target:GetAbsOrigin() + Vector(0, 0, 4))
 	end
 end
 
@@ -360,8 +358,8 @@ function enemy_6_1_start(event)
 	local caster = event.caster
 	EmitSoundOn("Slipfinn.Glyph61", target)
 	local pfx = ParticleManager:CreateParticle("particles/roshpit/slipfinn/glyph_6_1_link_electric_vortex.vpcf", PATTACH_CUSTOMORIGIN, nil)
-	ParticleManager:SetParticleControlEnt( pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true )
-	ParticleManager:SetParticleControlEnt( pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true )
+	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	target.slipfinn_6_1_link_pfx = pfx
 end
 

@@ -1,5 +1,5 @@
 if Stars == nil then
-  Stars = class({})
+	Stars = class({})
 end
 
 function Stars:ActivateStarsMenu(msg)
@@ -11,7 +11,7 @@ function Stars:ActivateStarsMenu(msg)
 	local herosTable = HerosCustom:GetAvailableHerosTable()
 	-- starsData.categories = {}
 	-- for i = 1, #herosTable, 1 do
-	-- 	table.insert(starsData.categories, {herosTable[i], 1, 2, 3, 1, 2, 3, 1, 2, 3, 0})
+	-- table.insert(starsData.categories, {herosTable[i], 1, 2, 3, 1, 2, 3, 1, 2, 3, 0})
 	-- end
 	local starsData = Stars:GetOrganizedStarData(playerID)
 	--DeepPrintTable(starsData)
@@ -31,7 +31,7 @@ end
 
 function Stars:StarEventSolo(starEventName, hero)
 	-- if not SaveLoad:GetAllowSaving() then
-	-- 	return false
+	-- return false
 	-- end
 	if #MAIN_HERO_TABLE == 1 then
 		local heroTable = HerosCustom:GetAvailableHerosTable()
@@ -49,7 +49,7 @@ function Stars:StarEventSolo(starEventName, hero)
 					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = "solo_stars"})
 					Stars:UpdateStarsOnServer("solo_stars", starEventName, starAmount, hero:GetPlayerOwnerID())
 				end)
-			end 
+			end
 		elseif starEventName == "shipyard" then
 			starAmount = getStarAmountForBasicBossKill()
 			if categoryData.shipyard < starAmount then
@@ -101,7 +101,7 @@ function Stars:StarEventSolo(starEventName, hero)
 			if categoryData.pitoftrials < starAmount then
 				CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = "solo_stars"})
 				Stars:UpdateStarsOnServer("solo_stars", starEventName, starAmount, hero:GetPlayerOwnerID())
-			end 
+			end
 		elseif starEventName == "weapon" then
 			if GameState:IsTanariJungle() then
 				if Tanari.GodDefeated then
@@ -116,7 +116,7 @@ function Stars:StarEventSolo(starEventName, hero)
 				if categoryData.weapon < starAmount then
 					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = "solo_stars"})
 					Stars:UpdateStarsOnServer("solo_stars", starEventName, starAmount, hero:GetPlayerOwnerID())
-				end 
+				end
 			end
 		elseif starEventName == "azalea" then
 			starAmount = 1
@@ -129,7 +129,7 @@ function Stars:StarEventSolo(starEventName, hero)
 			if categoryData.azalea < starAmount then
 				CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = "solo_stars"})
 				Stars:UpdateStarsOnServer("solo_stars", starEventName, starAmount, hero:GetPlayerOwnerID())
-			end 
+			end
 		elseif starEventName == "valdun" then
 			starAmount = 1
 			if GameRules:GetDOTATime(false, false) <= 2700 then
@@ -141,7 +141,7 @@ function Stars:StarEventSolo(starEventName, hero)
 			if categoryData.valdun < starAmount then
 				CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = "solo_stars"})
 				Stars:UpdateStarsOnServer("solo_stars", starEventName, starAmount, hero:GetPlayerOwnerID())
-			end 
+			end
 		end
 	end
 	if starEventName == "champleague" then
@@ -183,7 +183,7 @@ function Stars:StarEventPlayer(starEventName, hero)
 		if starData then
 			if starEventName == "power_up" then
 				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
-				starAmount = math.floor(hero:GetLevel()/40)
+				starAmount = math.floor(hero:GetLevel() / 40)
 				if categoryData.power_up < starAmount then
 					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = hero:GetUnitName()})
 					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
@@ -194,7 +194,7 @@ function Stars:StarEventPlayer(starEventName, hero)
 				if categoryData.autumnmist < starAmount then
 					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = hero:GetUnitName()})
 					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
-				end 
+				end
 				Stars:StarEventSolo(starEventName, hero)
 			elseif starEventName == "shipyard" then
 				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
@@ -202,7 +202,7 @@ function Stars:StarEventPlayer(starEventName, hero)
 				if categoryData.shipyard < starAmount then
 					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = hero:GetUnitName()})
 					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
-				end 
+				end
 				Stars:StarEventSolo(starEventName, hero)
 			elseif starEventName == "castle" then
 				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
@@ -210,7 +210,7 @@ function Stars:StarEventPlayer(starEventName, hero)
 				if categoryData.castle < starAmount then
 					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = hero:GetUnitName()})
 					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
-				end 
+				end
 				Stars:StarEventSolo(starEventName, hero)
 			elseif starEventName == "wind" then
 				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
@@ -218,7 +218,7 @@ function Stars:StarEventPlayer(starEventName, hero)
 				if categoryData.wind < starAmount then
 					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = hero:GetUnitName()})
 					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
-				end 
+				end
 				Stars:StarEventSolo(starEventName, hero)
 			elseif starEventName == "water" then
 				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
@@ -226,7 +226,7 @@ function Stars:StarEventPlayer(starEventName, hero)
 				if categoryData.water < starAmount then
 					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = hero:GetUnitName()})
 					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
-				end 
+				end
 				Stars:StarEventSolo(starEventName, hero)
 			elseif starEventName == "fire" then
 				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
@@ -234,7 +234,7 @@ function Stars:StarEventPlayer(starEventName, hero)
 				if categoryData.fire < starAmount then
 					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = hero:GetUnitName()})
 					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
-				end 
+				end
 				Stars:StarEventSolo(starEventName, hero)
 			elseif starEventName == "serengaard" then
 				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
@@ -249,7 +249,7 @@ function Stars:StarEventPlayer(starEventName, hero)
 				if categoryData.serengaard < starAmount then
 					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = hero:GetUnitName()})
 					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
-				end 
+				end
 			elseif starEventName == "serengaard_infinite" then
 				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
 				if Serengaard.InfiniteWaveCount == 10 then
@@ -262,7 +262,7 @@ function Stars:StarEventPlayer(starEventName, hero)
 				if categoryData.serengaard_infinite < starAmount then
 					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = hero:GetUnitName()})
 					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
-				end 
+				end
 			elseif starEventName == "champleague" then
 				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
 				if hero.ChampionsLeague.rank == 1 then
@@ -275,7 +275,7 @@ function Stars:StarEventPlayer(starEventName, hero)
 				if categoryData.champleague < starAmount then
 					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = hero:GetUnitName()})
 					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
-				end 
+				end
 			elseif starEventName == "pitoftrials" then
 				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
 				if Arena.PitLevel == 7 then
@@ -288,7 +288,7 @@ function Stars:StarEventPlayer(starEventName, hero)
 				if categoryData.pitoftrials < starAmount then
 					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = hero:GetUnitName()})
 					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
-				end 
+				end
 				Stars:StarEventSolo(starEventName, hero)
 			elseif starEventName == "weapon" and hero.weapon then
 				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
@@ -316,7 +316,7 @@ function Stars:StarEventPlayer(starEventName, hero)
 				if categoryData.azalea < starAmount then
 					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = hero:GetUnitName()})
 					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
-				end 
+				end
 				Stars:StarEventSolo(starEventName, hero)
 			elseif starEventName == "valdun" then
 				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
@@ -330,13 +330,13 @@ function Stars:StarEventPlayer(starEventName, hero)
 				if categoryData.valdun < starAmount then
 					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = hero:GetUnitName()})
 					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
-				end  
+				end
 				Stars:StarEventSolo(starEventName, hero)
 			end
-		--else
-		--	Timers:CreateTimer(10, function()
-		--		Stars:StarEventPlayer(starEventName, hero)
-		--	end)
+			--else
+			--Timers:CreateTimer(10, function()
+			--Stars:StarEventPlayer(starEventName, hero)
+			--end)
 		end
 	end
 end
@@ -365,11 +365,11 @@ function Stars:UpdateStarsOnServer(heroName, type, starAmount, playerID)
 	url = url.."&hero_name="..heroName
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	--print(url)
-	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		if result.StatusCode == 200 then
 			local resultTable = {}
 			--print( "GET response:\n" )
-			for k,v in pairs( result ) do
+			for k, v in pairs(result) do
 				--print( string.format( "%s : %s\n", k, v ) )
 			end
 			--print( "Done." )
@@ -377,7 +377,7 @@ function Stars:UpdateStarsOnServer(heroName, type, starAmount, playerID)
 			local resultTable = JSON:decode(result.Body)
 			Stars:parseHeroData(player, resultTable)
 		end
-	end )	
+	end)
 end
 
 function Stars:parseHeroData(player, resultTable)
@@ -408,7 +408,7 @@ end
 
 function Stars:GetPlayerStars(playerID)
 	-- if not Beacons.cheats then
-	-- 	return false
+	-- return false
 	-- end
 	--print("GET STARS!!")
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
@@ -416,12 +416,12 @@ function Stars:GetPlayerStars(playerID)
 	local url = ROSHPIT_URL.."/champions/getStars?"
 	url = url.."steam_id="..steamID
 	--print(url)
-	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		if result.StatusCode == 200 then
 			local resultTable = {}
 			--print( "GET response:\n" )
 			-- for k,v in pairs( result ) do
-			-- 	--print( string.format( "%s : %s\n", k, v ) )
+			-- --print( string.format( "%s : %s\n", k, v ) )
 			-- end
 			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
@@ -430,5 +430,5 @@ function Stars:GetPlayerStars(playerID)
 				Stars:StarEventPlayer("power_up", GameState:GetHeroByPlayerID(playerID))
 			end)
 		end
-	end )	
+	end)
 end

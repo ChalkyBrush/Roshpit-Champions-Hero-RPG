@@ -28,7 +28,6 @@
 --     planet1:SetOriginalModel('models/props_gameplay/rune_doubledamage01.vmdl')
 --     Physics:Unit(planet1)
 
-
 --     planet2 = CreateUnitByName('npc_dummy_unit', Vector(0,0,0), true, hero, hero, hero:GetTeamNumber())
 --     planet2:FindAbilityByName("reflex_dummy_unit"):SetLevel(1)
 --     planet2:SetModel('models/props_gameplay/rune_haste01.vmdl')
@@ -128,7 +127,6 @@
 --    --print("pre: " .. collided:GetName() .. " -- " .. VectorDistance(collider:GetAbsOrigin(), collided:GetAbsOrigin()))
 --   end
 
-
 --   Physics:RemoveCollider("testbox")
 --   boxcollider = Physics:AddCollider("testbox", Physics:ColliderFromProfile("boxblocker"))
 --   boxcollider.box = {Vector(-200,0,0), Vector(0,0,0), Vector(-200,1000,500)}
@@ -204,8 +202,8 @@
 -- if testCount == 4 then
 --   Physics:RemoveCollider("testbox")
 --   boxcollider = Physics:AddCollider("testbox", Physics:ColliderFromProfile("boxreflect"))
---   boxcollider.box = {Vector(-100,550,0), 
---     RotatePosition(Vector(-100,550,0), QAngle(0,-15,0), Vector(-100,350,0)), 
+--   boxcollider.box = {Vector(-100,550,0),
+--     RotatePosition(Vector(-100,550,0), QAngle(0,-15,0), Vector(-100,350,0)),
 --     RotatePosition(Vector(-100,550,0), QAngle(0,-15,0), Vector(1000,550,0)) + Vector(0,0,500)}
 --   boxcollider.test = function(self, unit)
 --     return IsPhysicsUnit(unit)
@@ -351,7 +349,6 @@
 --     return IsPhysicsUnit(collided) or (collided.IsRealHero and collided:IsRealHero())
 --   end
 -- end
-
 
 --print(testCount)
 -- testCount = testCount + 1

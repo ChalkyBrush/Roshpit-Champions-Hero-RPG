@@ -1,5 +1,5 @@
 if Runes == nil then
-  Runes = class({})
+	Runes = class({})
 end
 
 function Runes:RedirectRunes(hero, runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID)
@@ -64,219 +64,217 @@ function Runes:RedirectRunes(hero, runeUnit, runeUnit2, runeUnit3, runeUnit4, pl
 		local roshpit_name = HerosCustom:GetInternalHeroName(heroName)
 		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, roshpit_name)
 	end
-	
-    runeUnit:AddAbility("town_unit"):SetLevel(1)
-    runeUnit2:AddAbility("town_unit"):SetLevel(1) 
-    runeUnit3:AddAbility("town_unit"):SetLevel(1)
-    runeUnit4:AddAbility("town_unit"):SetLevel(1)
-    runeUnit.hero = hero
-    runeUnit2.hero = hero
-    runeUnit3.hero = hero
-    runeUnit4.hero = hero
-    runeUnit.owner = playerID
-    runeUnit2.owner = playerID
-    runeUnit3.owner = playerID
-    runeUnit4.owner = playerID
-    setRunesBonuses(runeUnit, runeUnit2, runeUnit3, runeUnit4)
-    Runes:ResetRuneBonuses(hero, "amulet")
-    Runes:ResetRuneBonuses(hero, "hand")
-    Runes:ResetRuneBonuses(hero, "body")
+
+	runeUnit:AddAbility("town_unit"):SetLevel(1)
+	runeUnit2:AddAbility("town_unit"):SetLevel(1)
+	runeUnit3:AddAbility("town_unit"):SetLevel(1)
+	runeUnit4:AddAbility("town_unit"):SetLevel(1)
+	runeUnit.hero = hero
+	runeUnit2.hero = hero
+	runeUnit3.hero = hero
+	runeUnit4.hero = hero
+	runeUnit.owner = playerID
+	runeUnit2.owner = playerID
+	runeUnit3.owner = playerID
+	runeUnit4.owner = playerID
+	setRunesBonuses(runeUnit, runeUnit2, runeUnit3, runeUnit4)
+	Runes:ResetRuneBonuses(hero, "amulet")
+	Runes:ResetRuneBonuses(hero, "hand")
+	Runes:ResetRuneBonuses(hero, "body")
 end
 
 function setRunesBonuses(runeUnit, runeUnit2, runeUnit3, runeUnit4)
-    runeUnit.amulet = {}
-    runeUnit.amulet.q_1 = 0
-    runeUnit.amulet.w_1 = 0
-    runeUnit.amulet.e_1 = 0
-    runeUnit.amulet.r_1 = 0
-    runeUnit2.amulet = {}
-    runeUnit2.amulet.q_2 = 0
-    runeUnit2.amulet.w_2 = 0
-    runeUnit2.amulet.e_2 = 0
-    runeUnit2.amulet.r_2 = 0
-    runeUnit3.amulet = {}
-    runeUnit3.amulet.q_3 = 0
-    runeUnit3.amulet.w_3 = 0
-    runeUnit3.amulet.e_3 = 0
-    runeUnit3.amulet.r_3 = 0
-    runeUnit4.amulet = {}
-    runeUnit4.amulet.q_4 = 0
-    runeUnit4.amulet.w_4 = 0
-    runeUnit4.amulet.e_4 = 0
-    runeUnit4.amulet.r_4 = 0
+	runeUnit.amulet = {}
+	runeUnit.amulet.q_1 = 0
+	runeUnit.amulet.w_1 = 0
+	runeUnit.amulet.e_1 = 0
+	runeUnit.amulet.r_1 = 0
+	runeUnit2.amulet = {}
+	runeUnit2.amulet.q_2 = 0
+	runeUnit2.amulet.w_2 = 0
+	runeUnit2.amulet.e_2 = 0
+	runeUnit2.amulet.r_2 = 0
+	runeUnit3.amulet = {}
+	runeUnit3.amulet.q_3 = 0
+	runeUnit3.amulet.w_3 = 0
+	runeUnit3.amulet.e_3 = 0
+	runeUnit3.amulet.r_3 = 0
+	runeUnit4.amulet = {}
+	runeUnit4.amulet.q_4 = 0
+	runeUnit4.amulet.w_4 = 0
+	runeUnit4.amulet.e_4 = 0
+	runeUnit4.amulet.r_4 = 0
 
-    runeUnit.hand = {}
-    runeUnit.hand.q_1 = 0
-    runeUnit.hand.w_1 = 0
-    runeUnit.hand.e_1 = 0
-    runeUnit.hand.r_1 = 0
-    runeUnit2.hand = {}
-    runeUnit2.hand.q_2 = 0
-    runeUnit2.hand.w_2 = 0
-    runeUnit2.hand.e_2 = 0
-    runeUnit2.hand.r_2 = 0
-    runeUnit3.hand = {}
-    runeUnit3.hand.q_3 = 0
-    runeUnit3.hand.w_3 = 0
-    runeUnit3.hand.e_3 = 0
-    runeUnit3.hand.r_3 = 0
-    runeUnit4.hand = {}
-    runeUnit4.hand.q_4 = 0
-    runeUnit4.hand.w_4 = 0
-    runeUnit4.hand.e_4 = 0
-    runeUnit4.hand.r_4 = 0
+	runeUnit.hand = {}
+	runeUnit.hand.q_1 = 0
+	runeUnit.hand.w_1 = 0
+	runeUnit.hand.e_1 = 0
+	runeUnit.hand.r_1 = 0
+	runeUnit2.hand = {}
+	runeUnit2.hand.q_2 = 0
+	runeUnit2.hand.w_2 = 0
+	runeUnit2.hand.e_2 = 0
+	runeUnit2.hand.r_2 = 0
+	runeUnit3.hand = {}
+	runeUnit3.hand.q_3 = 0
+	runeUnit3.hand.w_3 = 0
+	runeUnit3.hand.e_3 = 0
+	runeUnit3.hand.r_3 = 0
+	runeUnit4.hand = {}
+	runeUnit4.hand.q_4 = 0
+	runeUnit4.hand.w_4 = 0
+	runeUnit4.hand.e_4 = 0
+	runeUnit4.hand.r_4 = 0
 
+	runeUnit.body = {}
+	runeUnit.body.q_1 = 0
+	runeUnit.body.w_1 = 0
+	runeUnit.body.e_1 = 0
+	runeUnit.body.r_1 = 0
+	runeUnit2.body = {}
+	runeUnit2.body.q_2 = 0
+	runeUnit2.body.w_2 = 0
+	runeUnit2.body.e_2 = 0
+	runeUnit2.body.r_2 = 0
+	runeUnit3.body = {}
+	runeUnit3.body.q_3 = 0
+	runeUnit3.body.w_3 = 0
+	runeUnit3.body.e_3 = 0
+	runeUnit3.body.r_3 = 0
+	runeUnit4.body = {}
+	runeUnit4.body.q_4 = 0
+	runeUnit4.body.w_4 = 0
+	runeUnit4.body.e_4 = 0
+	runeUnit4.body.r_4 = 0
 
-    runeUnit.body = {}
-    runeUnit.body.q_1 = 0
-    runeUnit.body.w_1 = 0
-    runeUnit.body.e_1 = 0
-    runeUnit.body.r_1 = 0
-    runeUnit2.body = {}
-    runeUnit2.body.q_2 = 0
-    runeUnit2.body.w_2 = 0
-    runeUnit2.body.e_2 = 0
-    runeUnit2.body.r_2 = 0
-    runeUnit3.body = {}
-    runeUnit3.body.q_3 = 0
-    runeUnit3.body.w_3 = 0
-    runeUnit3.body.e_3 = 0
-    runeUnit3.body.r_3 = 0
-    runeUnit4.body = {}
-    runeUnit4.body.q_4 = 0
-    runeUnit4.body.w_4 = 0
-    runeUnit4.body.e_4 = 0
-    runeUnit4.body.r_4 = 0
+	runeUnit.head = {}
+	runeUnit.head.q_1 = 0
+	runeUnit.head.w_1 = 0
+	runeUnit.head.e_1 = 0
+	runeUnit.head.r_1 = 0
+	runeUnit2.head = {}
+	runeUnit2.head.q_2 = 0
+	runeUnit2.head.w_2 = 0
+	runeUnit2.head.e_2 = 0
+	runeUnit2.head.r_2 = 0
+	runeUnit3.head = {}
+	runeUnit3.head.q_3 = 0
+	runeUnit3.head.w_3 = 0
+	runeUnit3.head.e_3 = 0
+	runeUnit3.head.r_3 = 0
+	runeUnit4.head = {}
+	runeUnit4.head.q_4 = 0
+	runeUnit4.head.w_4 = 0
+	runeUnit4.head.e_4 = 0
+	runeUnit4.head.r_4 = 0
 
-    runeUnit.head = {}
-    runeUnit.head.q_1 = 0
-    runeUnit.head.w_1 = 0
-    runeUnit.head.e_1 = 0
-    runeUnit.head.r_1 = 0
-    runeUnit2.head = {}
-    runeUnit2.head.q_2 = 0
-    runeUnit2.head.w_2 = 0
-    runeUnit2.head.e_2 = 0
-    runeUnit2.head.r_2 = 0
-    runeUnit3.head = {}
-    runeUnit3.head.q_3 = 0
-    runeUnit3.head.w_3 = 0
-    runeUnit3.head.e_3 = 0
-    runeUnit3.head.r_3 = 0
-    runeUnit4.head = {}
-    runeUnit4.head.q_4 = 0
-    runeUnit4.head.w_4 = 0
-    runeUnit4.head.e_4 = 0
-    runeUnit4.head.r_4 = 0
+	runeUnit.weapon = {}
+	runeUnit.weapon.q_1 = 0
+	runeUnit.weapon.w_1 = 0
+	runeUnit.weapon.e_1 = 0
+	runeUnit.weapon.r_1 = 0
+	runeUnit2.weapon = {}
+	runeUnit2.weapon.q_2 = 0
+	runeUnit2.weapon.w_2 = 0
+	runeUnit2.weapon.e_2 = 0
+	runeUnit2.weapon.r_2 = 0
+	runeUnit3.weapon = {}
+	runeUnit3.weapon.q_3 = 0
+	runeUnit3.weapon.w_3 = 0
+	runeUnit3.weapon.e_3 = 0
+	runeUnit3.weapon.r_3 = 0
+	runeUnit4.weapon = {}
+	runeUnit4.weapon.q_4 = 0
+	runeUnit4.weapon.w_4 = 0
+	runeUnit4.weapon.e_4 = 0
+	runeUnit4.weapon.r_4 = 0
 
-    runeUnit.weapon = {}
-    runeUnit.weapon.q_1 = 0
-    runeUnit.weapon.w_1 = 0
-    runeUnit.weapon.e_1 = 0
-    runeUnit.weapon.r_1 = 0
-    runeUnit2.weapon = {}
-    runeUnit2.weapon.q_2 = 0
-    runeUnit2.weapon.w_2 = 0
-    runeUnit2.weapon.e_2 = 0
-    runeUnit2.weapon.r_2 = 0
-    runeUnit3.weapon = {}
-    runeUnit3.weapon.q_3 = 0
-    runeUnit3.weapon.w_3 = 0
-    runeUnit3.weapon.e_3 = 0
-    runeUnit3.weapon.r_3 = 0
-    runeUnit4.weapon = {}
-    runeUnit4.weapon.q_4 = 0
-    runeUnit4.weapon.w_4 = 0
-    runeUnit4.weapon.e_4 = 0
-    runeUnit4.weapon.r_4 = 0
-
-    runeUnit.foot = {}
-    runeUnit.foot.q_1 = 0
-    runeUnit.foot.w_1 = 0
-    runeUnit.foot.e_1 = 0
-    runeUnit.foot.r_1 = 0
-    runeUnit2.foot = {}
-    runeUnit2.foot.q_2 = 0
-    runeUnit2.foot.w_2 = 0
-    runeUnit2.foot.e_2 = 0
-    runeUnit2.foot.r_2 = 0
-    runeUnit3.foot = {}
-    runeUnit3.foot.q_3 = 0
-    runeUnit3.foot.w_3 = 0
-    runeUnit3.foot.e_3 = 0
-    runeUnit3.foot.r_3 = 0
-    runeUnit4.foot = {}
-    runeUnit4.foot.q_4 = 0
-    runeUnit4.foot.w_4 = 0
-    runeUnit4.foot.e_4 = 0
-    runeUnit4.foot.r_4 = 0
+	runeUnit.foot = {}
+	runeUnit.foot.q_1 = 0
+	runeUnit.foot.w_1 = 0
+	runeUnit.foot.e_1 = 0
+	runeUnit.foot.r_1 = 0
+	runeUnit2.foot = {}
+	runeUnit2.foot.q_2 = 0
+	runeUnit2.foot.w_2 = 0
+	runeUnit2.foot.e_2 = 0
+	runeUnit2.foot.r_2 = 0
+	runeUnit3.foot = {}
+	runeUnit3.foot.q_3 = 0
+	runeUnit3.foot.w_3 = 0
+	runeUnit3.foot.e_3 = 0
+	runeUnit3.foot.r_3 = 0
+	runeUnit4.foot = {}
+	runeUnit4.foot.q_4 = 0
+	runeUnit4.foot.w_4 = 0
+	runeUnit4.foot.e_4 = 0
+	runeUnit4.foot.r_4 = 0
 end
 
 function Runes:RunesOnRespawn(hero)
 	if hero:HasModifier("modifier_neutral_glyph_3_1") then
-		hero:AddNewModifier( hero, nil, 'modifier_movespeed_cap_glyph', nil )
+		hero:AddNewModifier(hero, nil, 'modifier_movespeed_cap_glyph', nil)
 	end
 	local heroName = hero:GetName()
 	if heroName == "npc_dota_hero_crystal_maiden" then
-		  -- local runeUnit = hero.runeUnit2
-		  -- local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_q_2")
-		  -- local abilityLevel = runeAbility:GetLevel()
-		  -- local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_2")
-		  -- local totalLevel = abilityLevel + bonusLevel
-		  -- if totalLevel > 0 then
-		  -- 	runeAbility:ApplyDataDrivenModifier(runeUnit, hero, "modifier_frost_nova_up", {})
-		  -- 	hero:RemoveModifierByName("modifier_frost_nova_down")
-		  -- end
-		  -- runeUnit = hero.runeUnit3
-		  -- runeAbility = runeUnit:FindAbilityByName("sorceress_rune_r_3")
-		  -- abilityLevel = runeAbility:GetLevel()
-		  -- bonusLevel = Runes:GetTotalBonus(runeUnit, "r_3")
-		  -- totalLevel = abilityLevel + bonusLevel
-		  -- if totalLevel > 0 then
-		  -- 	runeAbility:ApplyDataDrivenModifier(runeUnit, hero, "modifier_ring_of_fire_up", {})
-		  -- 	hero:RemoveModifierByName("modifier_ring_of_fire_down")
-		  -- end
+		-- local runeUnit = hero.runeUnit2
+		-- local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_q_2")
+		-- local abilityLevel = runeAbility:GetLevel()
+		-- local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_2")
+		-- local totalLevel = abilityLevel + bonusLevel
+		-- if totalLevel > 0 then
+		-- runeAbility:ApplyDataDrivenModifier(runeUnit, hero, "modifier_frost_nova_up", {})
+		-- hero:RemoveModifierByName("modifier_frost_nova_down")
+		-- end
+		-- runeUnit = hero.runeUnit3
+		-- runeAbility = runeUnit:FindAbilityByName("sorceress_rune_r_3")
+		-- abilityLevel = runeAbility:GetLevel()
+		-- bonusLevel = Runes:GetTotalBonus(runeUnit, "r_3")
+		-- totalLevel = abilityLevel + bonusLevel
+		-- if totalLevel > 0 then
+		-- runeAbility:ApplyDataDrivenModifier(runeUnit, hero, "modifier_ring_of_fire_up", {})
+		-- hero:RemoveModifierByName("modifier_ring_of_fire_down")
+		-- end
 	end
 	if heroName == "npc_dota_hero_omniknight" then
-		  -- local runeUnit = hero.runeUnit3
-		  -- local runeAbility = runeUnit:FindAbilityByName("paladin_rune_q_3")
-		  -- local abilityLevel = runeAbility:GetLevel()
-		  -- local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_3")
-		  -- local totalLevel = abilityLevel + bonusLevel
-		  -- if totalLevel > 0 then
-		  -- 	runeAbility:ApplyDataDrivenModifier(runeUnit, hero, "modifier_paladin_rune_q_3", {})
-		  -- 	hero:RemoveModifierByName("modifier_paladin_rune_q_3_cooling_down")
-		  -- end
+		-- local runeUnit = hero.runeUnit3
+		-- local runeAbility = runeUnit:FindAbilityByName("paladin_rune_q_3")
+		-- local abilityLevel = runeAbility:GetLevel()
+		-- local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_3")
+		-- local totalLevel = abilityLevel + bonusLevel
+		-- if totalLevel > 0 then
+		-- runeAbility:ApplyDataDrivenModifier(runeUnit, hero, "modifier_paladin_rune_q_3", {})
+		-- hero:RemoveModifierByName("modifier_paladin_rune_q_3_cooling_down")
+		-- end
 	end
 	if heroName == "npc_dota_hero_juggernaut" then
 		-- if hero:HasAbility("odachi_rush") then
-		-- 	hero:SwapAbilities("seinaru_odachi_leap", "odachi_rush", true, false)	
+		-- hero:SwapAbilities("seinaru_odachi_leap", "odachi_rush", true, false)
 		-- end
 		-- if hero:HasAbility("monk_ultima_blade_heal_alt") then
-		-- 	hero:SwapAbilities("monk_ultima_blade", "monk_ultima_blade_heal_alt", true, false)
+		-- hero:SwapAbilities("monk_ultima_blade", "monk_ultima_blade_heal_alt", true, false)
 		-- end
 	end
 end
 
 function Runes:ResetRuneBonuses(hero, slotName)
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_rune_q_1_"..slotName, {bonus = 0} )
-    CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_rune_w_1_"..slotName, {bonus = 0} )
-    CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_rune_e_1_"..slotName, {bonus = 0} )
-    CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_rune_r_1_"..slotName, {bonus = 0} )
-    CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_rune_q_2_"..slotName, {bonus = 0} )
-    CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_rune_w_2_"..slotName, {bonus = 0} )
-    CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_rune_e_2_"..slotName, {bonus = 0} )
-    CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_rune_r_2_"..slotName, {bonus = 0} )
-    CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_rune_q_3_"..slotName, {bonus = 0} )
-    CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_rune_w_3_"..slotName, {bonus = 0} )
-    CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_rune_e_3_"..slotName, {bonus = 0} )
-    CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_rune_r_3_"..slotName, {bonus = 0} )
-    CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_rune_q_4_"..slotName, {bonus = 0} )
-    CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_rune_w_4_"..slotName, {bonus = 0} )
-    CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_rune_e_4_"..slotName, {bonus = 0} )
-    CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_rune_r_4_"..slotName, {bonus = 0} )
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_1_"..slotName, {bonus = 0})
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_1_"..slotName, {bonus = 0})
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_1_"..slotName, {bonus = 0})
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_1_"..slotName, {bonus = 0})
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_2_"..slotName, {bonus = 0})
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_2_"..slotName, {bonus = 0})
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_2_"..slotName, {bonus = 0})
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_2_"..slotName, {bonus = 0})
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_3_"..slotName, {bonus = 0})
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_3_"..slotName, {bonus = 0})
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_3_"..slotName, {bonus = 0})
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_3_"..slotName, {bonus = 0})
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_4_"..slotName, {bonus = 0})
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_4_"..slotName, {bonus = 0})
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_4_"..slotName, {bonus = 0})
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_4_"..slotName, {bonus = 0})
 end
-
 
 function Runes:GetTotalBonus(RuneUnit, rune)
 	if rune == "q_1" then
@@ -292,21 +290,21 @@ function Runes:GetTotalBonus(RuneUnit, rune)
 	elseif rune == "w_2" then
 		return RuneUnit.amulet.w_2 + RuneUnit.hand.w_2 + RuneUnit.body.w_2 + RuneUnit.head.w_2 + RuneUnit.weapon.w_2 + RuneUnit.foot.w_2
 	elseif rune == "e_2" then
-		return RuneUnit.amulet.e_2 + RuneUnit.hand.e_2 + RuneUnit.body.e_2 + RuneUnit.head.e_2 + RuneUnit.weapon.e_2 + RuneUnit.foot.e_2 
+		return RuneUnit.amulet.e_2 + RuneUnit.hand.e_2 + RuneUnit.body.e_2 + RuneUnit.head.e_2 + RuneUnit.weapon.e_2 + RuneUnit.foot.e_2
 	elseif rune == "r_2" then
 		return RuneUnit.amulet.r_2 + RuneUnit.hand.r_2 + RuneUnit.body.r_2 + RuneUnit.head.r_2 + RuneUnit.weapon.r_2 + RuneUnit.foot.r_2
 	elseif rune == "q_3" then
-		return RuneUnit.amulet.q_3 + RuneUnit.hand.q_3 + RuneUnit.body.q_3 + RuneUnit.head.q_3 + RuneUnit.weapon.q_3 + RuneUnit.foot.q_3  
+		return RuneUnit.amulet.q_3 + RuneUnit.hand.q_3 + RuneUnit.body.q_3 + RuneUnit.head.q_3 + RuneUnit.weapon.q_3 + RuneUnit.foot.q_3
 	elseif rune == "w_3" then
-		return RuneUnit.amulet.w_3 + RuneUnit.hand.w_3 + RuneUnit.body.w_3 + RuneUnit.head.w_3 + RuneUnit.weapon.w_3 + RuneUnit.foot.w_3   
+		return RuneUnit.amulet.w_3 + RuneUnit.hand.w_3 + RuneUnit.body.w_3 + RuneUnit.head.w_3 + RuneUnit.weapon.w_3 + RuneUnit.foot.w_3
 	elseif rune == "e_3" then
 		return RuneUnit.amulet.e_3 + RuneUnit.hand.e_3 + RuneUnit.body.e_3 + RuneUnit.head.e_3 + RuneUnit.weapon.e_3 + RuneUnit.foot.e_3
 	elseif rune == "r_3" then
 		return RuneUnit.amulet.r_3 + RuneUnit.hand.r_3 + RuneUnit.body.r_3 + RuneUnit.head.r_3 + RuneUnit.weapon.r_3 + RuneUnit.foot.r_3
 	elseif rune == "q_4" then
-		return RuneUnit.amulet.q_4 + RuneUnit.hand.q_4 + RuneUnit.body.q_4 + RuneUnit.head.q_4 + RuneUnit.weapon.q_4 + RuneUnit.foot.q_4  
+		return RuneUnit.amulet.q_4 + RuneUnit.hand.q_4 + RuneUnit.body.q_4 + RuneUnit.head.q_4 + RuneUnit.weapon.q_4 + RuneUnit.foot.q_4
 	elseif rune == "w_4" then
-		return RuneUnit.amulet.w_4 + RuneUnit.hand.w_4 + RuneUnit.body.w_4 + RuneUnit.head.w_4 + RuneUnit.weapon.w_4 + RuneUnit.foot.w_4   
+		return RuneUnit.amulet.w_4 + RuneUnit.hand.w_4 + RuneUnit.body.w_4 + RuneUnit.head.w_4 + RuneUnit.weapon.w_4 + RuneUnit.foot.w_4
 	elseif rune == "e_4" then
 		return RuneUnit.amulet.e_4 + RuneUnit.hand.e_4 + RuneUnit.body.e_4 + RuneUnit.head.e_4 + RuneUnit.weapon.e_4 + RuneUnit.foot.e_4
 	elseif rune == "r_4" then
@@ -337,10 +335,10 @@ function Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playe
 end
 
 function Runes:Procs(runeLevel, chancePerLevel, mod)
-	chancePerLevel = chancePerLevel/mod
-	local procs = ((runeLevel*chancePerLevel)-((runeLevel*chancePerLevel)%100))/100
+	chancePerLevel = chancePerLevel / mod
+	local procs = ((runeLevel * chancePerLevel) - ((runeLevel * chancePerLevel) % 100)) / 100
 	local lucky = RandomInt(0, 100)
-	if lucky < (runeLevel*chancePerLevel)%100 then
+	if lucky < (runeLevel * chancePerLevel) % 100 then
 		procs = procs + 1
 	end
 
@@ -475,7 +473,7 @@ function Runes:apply_runes(ability, unit, PlayerID)
 			ability:ApplyDataDrivenModifier(unit, hero, "modifier_venomort_rune_e_2", {})
 		end
 		-- if ability:GetName() == "venomort_rune_q_2" then
-		-- 	ability:ApplyDataDrivenModifier(unit, hero, "modifier_venomort_rune_q_2", {})
+		-- ability:ApplyDataDrivenModifier(unit, hero, "modifier_venomort_rune_q_2", {})
 		-- end
 		if ability:GetName() == "paladin_rune_e_1" and not hero:HasModifier("modifier_paladin_rune_e_1_revive_cooldown") then
 			ability:ApplyDataDrivenModifier(unit, hero, "modifier_paladin_rune_e_1_revivable", {})
@@ -493,8 +491,8 @@ function Runes:apply_runes(ability, unit, PlayerID)
 		end
 	end
 	-- if hero:GetUnitName() == "npc_dota_hero_faceless_void" then
-	-- 	local player = hero:GetPlayerOwner()
-	-- 	CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = hero.omniro_data, omniro = hero:GetEntityIndex(), reconstruct = true})
+	-- local player = hero:GetPlayerOwner()
+	-- CustomGameEventManager:Send_ServerToPlayer(player, "update_omniro", {omniro_data = hero.omniro_data, omniro = hero:GetEntityIndex(), reconstruct = true})
 	-- end
 end
 
@@ -580,7 +578,7 @@ function Runes:EquipArcana(hero, index)
 			else
 				Runes:EasySwapArcanaSkills(hero, 2, "seinaru_odachi_leap", "seinaru_sunstrider", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 			end
-			
+
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_leshrac" then
 		if index == 1 then
@@ -856,10 +854,10 @@ function Runes:EquipArcana(hero, index)
 			local heavensCharge = hero:FindAbilityByName("voltex_rune_e_3_heavens_charge")
 			if heavensCharge then
 				if hero.chargeActive then
-				  	local azure_leap = hero:FindAbilityByName("voltex_azure_leap")
-				  	azure_leap:SetLevel(heavensCharge:GetLevel())
-				  	hero:SwapAbilities("voltex_rune_e_3_heavens_charge", "voltex_azure_leap", false, true)
-				  	azure_leap:SetAbilityIndex(2)
+					local azure_leap = hero:FindAbilityByName("voltex_azure_leap")
+					azure_leap:SetLevel(heavensCharge:GetLevel())
+					hero:SwapAbilities("voltex_rune_e_3_heavens_charge", "voltex_azure_leap", false, true)
+					azure_leap:SetAbilityIndex(2)
 					hero:RemoveAbility("voltex_rune_e_3_heavens_charge")
 				else
 					hero:RemoveAbility("voltex_rune_e_3_heavens_charge")
@@ -885,10 +883,10 @@ function Runes:EquipArcana(hero, index)
 			local fireball = hero:FindAbilityByName("fireball")
 			if fireball then
 				if hero:HasModifier("modifier_pyro_cooldown") then
-				  	local pyroblast = hero:FindAbilityByName("pyroblast")
-				  	pyroblast:SetLevel(fireball:GetLevel())
-				  	hero:SwapAbilities("fireball", "pyroblast", false, true)
-				  	pyroblast:SetAbilityIndex(DOTA_R_SLOT)
+					local pyroblast = hero:FindAbilityByName("pyroblast")
+					pyroblast:SetLevel(fireball:GetLevel())
+					hero:SwapAbilities("fireball", "pyroblast", false, true)
+					pyroblast:SetAbilityIndex(DOTA_R_SLOT)
 					hero:RemoveAbility("fireball")
 				else
 					hero:RemoveAbility("fireball")
@@ -900,10 +898,10 @@ function Runes:EquipArcana(hero, index)
 			local ice_lance = hero:FindAbilityByName("ice_lance")
 			if ice_lance then
 				if hero:HasModifier("modifier_blizzard_cooldown") then
-				  	local blizzard = hero:FindAbilityByName("blizzard")
-				  	blizzard:SetLevel(ice_lance:GetLevel())
-				  	hero:SwapAbilities("ice_lance", "blizzard", false, true)
-				  	blizzard:SetAbilityIndex(DOTA_R_SLOT)
+					local blizzard = hero:FindAbilityByName("blizzard")
+					blizzard:SetLevel(ice_lance:GetLevel())
+					hero:SwapAbilities("ice_lance", "blizzard", false, true)
+					blizzard:SetAbilityIndex(DOTA_R_SLOT)
 					hero:RemoveAbility("ice_lance")
 				else
 					hero:RemoveAbility("ice_lance")
@@ -1038,19 +1036,19 @@ function Runes:EquipArcana(hero, index)
 			if hero.onibi then
 				if index == 1 then
 					local abilityCheck = hero:GetAbilityByIndex(DOTA_W_SLOT)
-					if abilityCheck:GetAbilityName() ~= "jex_base_cannon_lightning" then 
+					if abilityCheck:GetAbilityName() ~= "jex_base_cannon_lightning" then
 						CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_lightning", 1)
 					end
 					local abilityCheck = hero:GetAbilityByIndex(DOTA_Q_SLOT)
-					if abilityCheck:GetAbilityName() ~= "jex_base_cannon_nature" then 
+					if abilityCheck:GetAbilityName() ~= "jex_base_cannon_nature" then
 						CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_nature", 0)
 					end
 					local abilityCheck = hero:GetAbilityByIndex(DOTA_E_SLOT)
-					if abilityCheck:GetAbilityName() ~= "jex_base_cannon_cosmic" then 
+					if abilityCheck:GetAbilityName() ~= "jex_base_cannon_cosmic" then
 						CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_cosmic", 2)
 					end
 					hero:RemoveModifierByName("modifier_jex_vortex_w")
-					
+
 					local abilities_to_remove_table = {"jex_thunder_thunder_q", "jex_lightning_cosmic_q", "jex_lightning_nature_q", "jex_lightning_lightning_w", "jex_lightning_nature_w", "jex_lightning_cosmic_w", "jex_lightning_nature_e", "jex_lightning_lightning_e", "jex_lightning_cosmic_e"}
 					for i = 1, #abilities_to_remove_table, 1 do
 						local ability_name = abilities_to_remove_table[i]
@@ -1084,7 +1082,7 @@ function Runes:EquipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_slark" then
 		if index == 1 then
 			local abilityCheck = hero:GetAbilityByIndex(DOTA_E_SLOT)
-			if abilityCheck:GetAbilityName() ~= "slipfinn_shadow_rush" then 
+			if abilityCheck:GetAbilityName() ~= "slipfinn_shadow_rush" then
 				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "slipfinn_shadow_rush", 2)
 			end
 			hero:RemoveModifierByName("modifier_slipfinn_b_c_health")
@@ -1097,7 +1095,7 @@ end
 
 local keep_modifiers = {
 	"modifier_draghor_main_passive"
-	}
+}
 
 function Runes:EasySwapArcanaSkills(hero, abilityIndex, oldAbility, newAbility, internalName, rune_suffix)
 	local origAbility = hero:GetAbilityByIndex(abilityIndex)
@@ -1107,7 +1105,7 @@ function Runes:EasySwapArcanaSkills(hero, abilityIndex, oldAbility, newAbility, 
 		abilitySlot = 3
 	end
 	local modifiers = hero:FindAllModifiers()
-	for _,modifier in pairs(modifiers) do
+	for _, modifier in pairs(modifiers) do
 		if modifier:GetAbility() == origAbility and not WallPhysics:DoesTableHaveValue(keep_modifiers, modifier:GetName()) then
 			hero:RemoveModifierByName(modifier:GetName())
 		end
@@ -1126,7 +1124,7 @@ function Runes:EasySwapArcanaSkills(hero, abilityIndex, oldAbility, newAbility, 
 	elseif abilitySlot == 2 then
 		letter = "e"
 	elseif abilitySlot == 3 then
-		letter ="r"
+		letter = "r"
 	end
 	hero.runeUnit:RemoveAbility(internalName.."_rune_"..letter.."_1")
 	hero.runeUnit2:RemoveAbility(internalName.."_rune_"..letter.."_2")
@@ -1159,7 +1157,7 @@ function Runes:EasyRevertArcanaSkills(hero, abilityIndex, origAbility, arcanaAbi
 	local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(abilitySlot):GetLevel()
 	local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(abilitySlot):GetLevel()
 	local modifiers = hero:FindAllModifiers()
-	for _,modifier in pairs(modifiers) do
+	for _, modifier in pairs(modifiers) do
 		if modifier:GetAbility() == existingAbility and not WallPhysics:DoesTableHaveValue(keep_modifiers, modifier:GetName()) then
 			hero:RemoveModifierByName(modifier:GetName())
 		end
@@ -1175,9 +1173,9 @@ function Runes:EasyRevertArcanaSkills(hero, abilityIndex, origAbility, arcanaAbi
 	elseif abilitySlot == 2 then
 		letter = "e"
 	elseif abilitySlot == 3 then
-		letter ="r"
+		letter = "r"
 	end
-	
+
 	hero.runeUnit:RemoveAbility(internalName.."_rune_"..letter.."_1_"..rune_suffix)
 	hero.runeUnit2:RemoveAbility(internalName.."_rune_"..letter.."_2_"..rune_suffix)
 	hero.runeUnit3:RemoveAbility(internalName.."_rune_"..letter.."_3_"..rune_suffix)
@@ -1432,21 +1430,21 @@ function Runes:UnequipArcana(hero, index)
 			if hero:HasAbility("fire_arcana_ability") then
 				hero:RemoveAbility("fire_arcana_ability")
 			end
-			Runes:EasyRevertArcanaSkills(hero, 1,"summon_fire_aspect", "summon_fire_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasyRevertArcanaSkills(hero, 1, "summon_fire_aspect", "summon_fire_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		elseif index == 3 then
 			if hero.earthAspect then
 				if IsValidEntity(hero.earthAspect) then
 					hero.earthAspectResummonForbidden = true
 					hero.forceFireReset = true
 					hero.earthAspect:SetHealth(10)
-					hero.earthAspect:ForceKill(true)					
+					hero.earthAspect:ForceKill(true)
 				end
 			end
 			hero:RemoveModifierByName("modifier_earth_deity_q_2")
 			if hero:HasAbility("arcana_earth_shock") then
 				hero:RemoveAbility("arcana_earth_shock")
 			end
-			Runes:EasyRevertArcanaSkills(hero, 0,"summon_earth_aspect", "summon_earth_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
+			Runes:EasyRevertArcanaSkills(hero, 0, "summon_earth_aspect", "summon_earth_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
 		elseif index == 4 then
 			if hero.shadowAspect then
 				if IsValidEntity(hero.shadowAspect) then
@@ -1460,7 +1458,7 @@ function Runes:UnequipArcana(hero, index)
 			end
 			hero:RemoveModifierByName("shadow_deity_passive")
 			hero:RemoveModifierByName("shadow_deity_agility_from_gear")
-			Runes:EasyRevertArcanaSkills(hero, 2,"summon_shadow_aspect", "summon_shadow_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana4")
+			Runes:EasyRevertArcanaSkills(hero, 2, "summon_shadow_aspect", "summon_shadow_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana4")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_templar_assassin" then
 		if index == 1 then
@@ -1522,7 +1520,7 @@ function Runes:UnequipArcana(hero, index)
 		elseif index == 3 then
 			hero:RemoveModifierByName("modifier_rockfall_passive")
 			local abilityCheck = hero:GetAbilityByIndex(DOTA_E_SLOT)
-			if abilityCheck:GetAbilityName() == "mountain_protector_volcanic_glissade" then 
+			if abilityCheck:GetAbilityName() == "mountain_protector_volcanic_glissade" then
 				CustomAbilities:AddAndOrSwapSkill(hero, "mountain_protector_volcanic_glissade", "mountain_protector_rockfall", 2)
 			end
 			if hero:HasAbility("mountain_protector_volcanic_glissade") then
@@ -1586,10 +1584,10 @@ function Runes:UnequipArcana(hero, index)
 			local sun_lance = hero:FindAbilityByName("sorceress_sun_lance")
 			if sun_lance then
 				if hero.sunlance then
-				  	local incinerate = hero:FindAbilityByName("sorceress_fire_arcana_q")
-				  	incinerate:SetLevel(sun_lance:GetLevel())
-				  	hero:SwapAbilities("sorceress_sun_lance", "sorceress_fire_arcana_q", false, true)
-				  	incinerate:SetAbilityIndex(0)
+					local incinerate = hero:FindAbilityByName("sorceress_fire_arcana_q")
+					incinerate:SetLevel(sun_lance:GetLevel())
+					hero:SwapAbilities("sorceress_sun_lance", "sorceress_fire_arcana_q", false, true)
+					incinerate:SetAbilityIndex(0)
 					hero:RemoveAbility("sorceress_sun_lance")
 				else
 					hero:RemoveAbility("sorceress_sun_lance")
@@ -1648,7 +1646,7 @@ function Runes:UnequipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_vengefulspirit" then
 		if index == 1 then
-			--print(hero.sunMoon)		
+			--print(hero.sunMoon)
 			hero:RemoveModifierByName("modifier_solar_comet_free_cast")
 			hero:RemoveModifierByName("modifier_lunar_comet_free_cast")
 			hero:RemoveModifierByName("modifier_solar_comet_passive")
@@ -1714,30 +1712,30 @@ function Runes:UnequipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_arc_warden" then
 		if index == 1 then
 			local abilityCheck = hero:GetAbilityByIndex(DOTA_W_SLOT)
-			if abilityCheck:GetAbilityName() ~= "jex_base_cannon_fire" then 
+			if abilityCheck:GetAbilityName() ~= "jex_base_cannon_fire" then
 				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_fire", 1)
 			end
 			local abilityCheck = hero:GetAbilityByIndex(DOTA_Q_SLOT)
-			if abilityCheck:GetAbilityName() ~= "jex_base_cannon_nature" then 
+			if abilityCheck:GetAbilityName() ~= "jex_base_cannon_nature" then
 				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_nature", 0)
 			end
 			local abilityCheck = hero:GetAbilityByIndex(DOTA_E_SLOT)
-			if abilityCheck:GetAbilityName() ~= "jex_base_cannon_cosmic" then 
+			if abilityCheck:GetAbilityName() ~= "jex_base_cannon_cosmic" then
 				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_cosmic", 2)
 			end
 			if hero:HasAbility("jex_fire_cosmic_w") then
 				if hero:HasModifier("modifier_jex_orbital_flame_effect") then
 					local fire_cosmic_w = hero:FindAbilityByName("jex_fire_cosmic_w")
-				    for i = 1, #fire_cosmic_w.flameTable, 1 do
-				    	if fire_cosmic_w.flameTable[i]:HasModifier("modifier_orbital_flame_thinker") then
-				    		fire_cosmic_w.flameTable[i]:RemoveModifierByName("modifier_orbital_flame_thinker")
-				    	end
-				    end
-				    hero:RemoveModifierByName("modifier_jex_orbital_flame_effect")
+					for i = 1, #fire_cosmic_w.flameTable, 1 do
+						if fire_cosmic_w.flameTable[i]:HasModifier("modifier_orbital_flame_thinker") then
+							fire_cosmic_w.flameTable[i]:RemoveModifierByName("modifier_orbital_flame_thinker")
+						end
+					end
+					hero:RemoveModifierByName("modifier_jex_orbital_flame_effect")
 				end
 			end
-			
-			
+
+
 			local abilities_to_remove_table = {"jex_fire_fire_q", "jex_fire_cosmic_q", "jex_nature_fire_q", "jex_fire_fire_w", "jex_fire_cosmic_w", "jex_nature_fire_w", "jex_fire_fire_e", "jex_fire_cosmic_e", "jex_nature_fire_e"}
 			for i = 1, #abilities_to_remove_table, 1 do
 				local ability_name = abilities_to_remove_table[i]
@@ -1760,7 +1758,7 @@ function Runes:UnequipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_slark" then
 		if index == 1 then
 			local abilityCheck = hero:GetAbilityByIndex(DOTA_E_SLOT)
-			if abilityCheck:GetAbilityName() ~= "slipfinn_bog_roller" then 
+			if abilityCheck:GetAbilityName() ~= "slipfinn_bog_roller" then
 				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "slipfinn_bog_roller", 2)
 			end
 			hero:RemoveModifierByName("modifier_bog_roller_passive")
@@ -1768,6 +1766,6 @@ function Runes:UnequipArcana(hero, index)
 			Runes:EasyRevertArcanaSkills(hero, 2, "slipfinn_shadow_rush", "slipfinn_bog_roller", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end
 	end
-	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "ability_tree_upgrade", {playerId=hero:GetPlayerOwnerID()})
+	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "ability_tree_upgrade", {playerId = hero:GetPlayerOwnerID()})
 end
 

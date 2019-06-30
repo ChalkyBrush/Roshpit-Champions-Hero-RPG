@@ -1,7 +1,6 @@
 if Foot == nil then
-  Foot = class({})
+	Foot = class({})
 end
-
 
 function Foot:add_modifiers(hero, inventory_unit, item)
 	--print("[Foot:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
@@ -48,7 +47,6 @@ function Foot:add_modifiers(hero, inventory_unit, item)
 		Foot:runeProperty(item.newItemTable.property4name, item.newItemTable.property4, hero)
 	end
 end
-
 
 function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_ability, item)
 	--print("[Foot:action] propertyName:"..tostring(propertyName))
@@ -227,7 +225,7 @@ end
 function Foot:addItemModifier(propertyValue, hero, inventory_unit, modifier_name, foot_ability)
 	foot_ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
 	if propertyValue > 0 then
-		hero:SetModifierStackCount( modifier_name, foot_ability, propertyValue )
+		hero:SetModifierStackCount(modifier_name, foot_ability, propertyValue)
 	end
 end
 
@@ -237,7 +235,7 @@ function Foot:addBasicModifier(propertyValue, hero, inventory_unit, modifier_nam
 	foot_ability = inventory_unit:FindAbilityByName("foot_slot")
 	foot_ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
 	--hero:SetModifierStackCount( modifier_name, foot_ability, (propertyValue+stacks) )
-	hero:SetModifierStackCount( modifier_name, foot_ability, propertyValue )
+	hero:SetModifierStackCount(modifier_name, foot_ability, propertyValue)
 end
 
 function Foot:remove_modifiers(hero)
@@ -388,7 +386,7 @@ function Foot:runeProperty(propertyName, propertyValue, hero)
 end
 
 function Foot:setRuneBonusNetTable(value, rune, hero)
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_"..rune.."_foot", {bonus = value} )
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_"..rune.."_foot", {bonus = value})
 	--print("Setting Rune Net Table: ")
 	--print(tostring(hero:GetEntityIndex()).."_"..rune.."_foot")
 end

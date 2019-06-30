@@ -11,7 +11,7 @@ function arcana_zap_field_start(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.4, translate="slasher_mask"})
+	StartAnimation(caster, {duration = 0.8, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.4, translate = "slasher_mask"})
 	Timers:CreateTimer(0.25, function()
 		local avatarDuration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_zap_field", {duration = avatarDuration})
@@ -32,7 +32,7 @@ function zap_field_modifier_start(event)
 		local arkimus_arcana1_pfx = ParticleManager:CreateParticle("particles/roshpit/arkimus/arcana_zap_field.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(arkimus_arcana1_pfx, 0, caster:GetAbsOrigin())
 		ParticleManager:SetParticleControl(arkimus_arcana1_pfx, 1, Vector(500, 10, 500))
-		ParticleManager:SetParticleControl(arkimus_arcana1_pfx, 2, caster:GetAbsOrigin()+Vector(0,0,160))
+		ParticleManager:SetParticleControl(arkimus_arcana1_pfx, 2, caster:GetAbsOrigin() + Vector(0, 0, 160))
 		ParticleManager:SetParticleControl(arkimus_arcana1_pfx, 5, caster:GetAbsOrigin())
 		caster.arkimus_arcana1_pfx = arkimus_arcana1_pfx
 	end
@@ -60,25 +60,25 @@ function zap_field_modifier_thinker(event)
 		ability.interval = 0
 		local damage = event.damage + event.int_damage * caster:GetIntellect()
 		local searchRadius = 500
-	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	    if #enemies > 0 then
-	    	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arkimus.ZonisLightning", caster)
-	        for _,enemy in pairs(enemies) do
-	        	if ability.particleCount < 5 then
-	        		ability.particleCount = ability.particleCount + 1
-	        		CreateZonisBeam(caster:GetAbsOrigin()+Vector(0,0,120), enemy:GetAbsOrigin()+Vector(0,0,50))
-	        		Timers:CreateTimer(0.5, function()
-	        			ability.particleCount = ability.particleCount - 1
-	        		end)
-	        	end
-	        	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_stun_arcana1", {duration = 0.2})
-	        	Filters:ApplyStun(caster, 0.2, enemy)
-	        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_ARCANE, RPC_ELEMENT_LIGHTNING)
-	        end
-	    end 
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arkimus.ZonisLightning", caster)
+			for _, enemy in pairs(enemies) do
+				if ability.particleCount < 5 then
+					ability.particleCount = ability.particleCount + 1
+					CreateZonisBeam(caster:GetAbsOrigin() + Vector(0, 0, 120), enemy:GetAbsOrigin() + Vector(0, 0, 50))
+					Timers:CreateTimer(0.5, function()
+						ability.particleCount = ability.particleCount - 1
+					end)
+				end
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_stun_arcana1", {duration = 0.2})
+				Filters:ApplyStun(caster, 0.2, enemy)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_ARCANE, RPC_ELEMENT_LIGHTNING)
+			end
+		end
 	end
 	ParticleManager:SetParticleControl(caster.arkimus_arcana1_pfx, 0, caster:GetAbsOrigin())
-	ParticleManager:SetParticleControl(caster.arkimus_arcana1_pfx, 2, caster:GetAbsOrigin()+Vector(0,0,160))
+	ParticleManager:SetParticleControl(caster.arkimus_arcana1_pfx, 2, caster:GetAbsOrigin() + Vector(0, 0, 160))
 	ParticleManager:SetParticleControl(caster.arkimus_arcana1_pfx, 5, caster:GetAbsOrigin())
 end
 

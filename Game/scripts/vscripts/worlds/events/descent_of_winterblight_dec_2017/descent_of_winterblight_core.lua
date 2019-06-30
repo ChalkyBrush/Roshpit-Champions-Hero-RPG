@@ -4,14 +4,14 @@ function Events:GetWinterblightPositions()
 			if SaveLoad.key1 then
 				local url = ROSHPIT_URL.."/champions/winterblight_positions?"
 				url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-				CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
+				CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 					if result.StatusCode == 200 then
 						local resultTable = JSON:decode(result.Body)
 						Events:ProcessWinterblight(resultTable)
 					else
 
 					end
-				end )
+				end)
 				return 120
 			else
 				return 20
@@ -87,20 +87,20 @@ function Events:WinterblightBossFlee(boss)
 		Events:smoothSizeChange(boss, boss:GetModelScale(), 0.5, 60)
 		for i = 1, 60, 1 do
 			Timers:CreateTimer(0.03, function()
-				boss:SetAbsOrigin(boss:GetAbsOrigin()+Vector(0,0,6))
+				boss:SetAbsOrigin(boss:GetAbsOrigin() + Vector(0, 0, 6))
 			end)
 		end
 		Timers:CreateTimer(1.9, function()
 			EmitSoundOnLocationWithCaster(boss:GetAbsOrigin(), "Winterblight.BossOut", boss)
-	        local pfx = ParticleManager:CreateParticle( "particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
-	        ParticleManager:SetParticleControl(pfx, 0, boss:GetAbsOrigin())
-	        ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.8, 0.7))
-	        ParticleManager:SetParticleControl(pfx, 2, Vector(0.6,0.6,0.6))
-	        Timers:CreateTimer(10, function() 
-	          ParticleManager:DestroyParticle( pfx, false )
-	          ParticleManager:ReleaseParticleIndex(pfx)
-	        end)
-	        ScreenShake(boss:GetAbsOrigin(), 800, 1.0, 1.0, 9000, 0, true)
+			local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+			ParticleManager:SetParticleControl(pfx, 0, boss:GetAbsOrigin())
+			ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.8, 0.7))
+			ParticleManager:SetParticleControl(pfx, 2, Vector(0.6, 0.6, 0.6))
+			Timers:CreateTimer(10, function()
+				ParticleManager:DestroyParticle(pfx, false)
+				ParticleManager:ReleaseParticleIndex(pfx)
+			end)
+			ScreenShake(boss:GetAbsOrigin(), 800, 1.0, 1.0, 9000, 0, true)
 			UTIL_Remove(boss)
 		end)
 	end
@@ -131,72 +131,71 @@ function Events:SpawnOzubu(position)
 	Timers:CreateTimer(8, function()
 		Events.Ozubu = Events:SpawnDescentOfWinterblightDungeonUnit("descent_of_winterblight_ozubu", position, 9, 12, "Winterblight.Ozubu.Aggro", RandomVector(1), false)
 		Events.Ozubu:SetRenderColor(200, 200, 255)
-		Events.Ozubu.maxSummons = (1 - (Events.Ozubu:GetHealth()/Events.Ozubu:GetMaxHealth()))*23 + 2
-    	if GameState:GetDifficultyFactor() == 3 then
-    		unit.reduc = 0.000002
-    	end
+		Events.Ozubu.maxSummons = (1 - (Events.Ozubu:GetHealth() / Events.Ozubu:GetMaxHealth())) * 23 + 2
+		if GameState:GetDifficultyFactor() == 3 then
+			unit.reduc = 0.000002
+		end
 	end)
 end
 
 function Events:SpawnDescentOfWinterblightDungeonUnit(unitName, spawnPoint, minDrops, maxDrops, aggroSound, fv, isAggro)
 	local unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
 	Events:AdjustDeathXP(unit)
-    local ability = unit:FindAbilityByName("dungeon_creep")
-    if ability then
-      ability:SetLevel(1)
-      ability:ApplyDataDrivenModifier(unit, unit, "modifier_dungeon_thinker_creep", {})
-    end
-    if aggroSound then
-      unit.aggroSound = aggroSound
-    end
-    unit.minDungeonDrops = minDrops
-    unit.maxDungeonDrops = maxDrops
-    -- Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit, "modifier_redfall_unit", {})
-    if fv then
-      unit:SetForwardVector(fv)
-    end
-    if isAggro then
-      Dungeons:AggroUnit(unit)
-    end
-    Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit,"modifier_sea_fortress_ai", {})
-    -- unit.reduc = 0
-    if GameState:GetDifficultyFactor() == 3 then
-    	unit.reduc = 0.00005
-    elseif GameState:GetDifficultyFactor() == 2 then
-    	unit.reduc = 0.5
-    end
-    return unit
+	local ability = unit:FindAbilityByName("dungeon_creep")
+	if ability then
+		ability:SetLevel(1)
+		ability:ApplyDataDrivenModifier(unit, unit, "modifier_dungeon_thinker_creep", {})
+	end
+	if aggroSound then
+		unit.aggroSound = aggroSound
+	end
+	unit.minDungeonDrops = minDrops
+	unit.maxDungeonDrops = maxDrops
+	-- Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit, "modifier_redfall_unit", {})
+	if fv then
+		unit:SetForwardVector(fv)
+	end
+	if isAggro then
+		Dungeons:AggroUnit(unit)
+	end
+	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_sea_fortress_ai", {})
+	-- unit.reduc = 0
+	if GameState:GetDifficultyFactor() == 3 then
+		unit.reduc = 0.00005
+	elseif GameState:GetDifficultyFactor() == 2 then
+		unit.reduc = 0.5
+	end
+	return unit
 end
 
 function Events:MithrilReward(position, amount)
-  Timers:CreateTimer(5, function()
-        local mithrilReward = amount*Events.ResourceBonus
-        local crystal = CreateUnitByName("arcane_crystal", position+Vector(0,0,1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
-        crystal:SetAbsOrigin(crystal:GetAbsOrigin()+Vector(0,0,1300))
-        local crystalAbility = crystal:AddAbility("mithril_shard_ability")
-        crystalAbility:SetLevel(1)
-        local fv = RandomVector(1)
-        crystal:SetOriginalModel("models/props_gameplay/rune_doubledamage01.vmdl")
-        crystal:SetModel("models/props_gameplay/rune_doubledamage01.vmdl")
-        crystal.reward = mithrilReward
-        crystal.reward = math.floor(crystal.reward*(1+GameState:GetPlayerPremiumStatusCount()*0.1))
-        crystal.distributed = 0
-        local baseModelSize = math.min(2.9, 1.2 + crystal.reward/200)
-        crystal.modelScale = baseModelSize
-        crystal:SetModelScale(baseModelSize)
-        crystal.fallVelocity = 45
-        crystal.falling = true
-        crystal.winnerTable = RPCItems:GetConnectedPlayerTable()
+	Timers:CreateTimer(5, function()
+		local mithrilReward = amount * Events.ResourceBonus
+		local crystal = CreateUnitByName("arcane_crystal", position + Vector(0, 0, 1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
+		crystal:SetAbsOrigin(crystal:GetAbsOrigin() + Vector(0, 0, 1300))
+		local crystalAbility = crystal:AddAbility("mithril_shard_ability")
+		crystalAbility:SetLevel(1)
+		local fv = RandomVector(1)
+		crystal:SetOriginalModel("models/props_gameplay/rune_doubledamage01.vmdl")
+		crystal:SetModel("models/props_gameplay/rune_doubledamage01.vmdl")
+		crystal.reward = mithrilReward
+		crystal.reward = math.floor(crystal.reward * (1 + GameState:GetPlayerPremiumStatusCount() * 0.1))
+		crystal.distributed = 0
+		local baseModelSize = math.min(2.9, 1.2 + crystal.reward / 200)
+		crystal.modelScale = baseModelSize
+		crystal:SetModelScale(baseModelSize)
+		crystal.fallVelocity = 45
+		crystal.falling = true
+		crystal.winnerTable = RPCItems:GetConnectedPlayerTable()
 
+		if #crystal.winnerTable > 0 then
+			-- for i = 1, #crystal.winnerTable, 1 do
+			--   crystal.winnerTable[i].shardsPickedUp = 0
+			-- end
+			Timers:CreateTimer(1.4, function()
+				EmitSoundOn("Resource.MithrilShardEnter", crystal)
+			end)
+		end
 
-      if #crystal.winnerTable > 0 then
-          -- for i = 1, #crystal.winnerTable, 1 do
-          --   crystal.winnerTable[i].shardsPickedUp = 0
-          -- end
-          Timers:CreateTimer(1.4, function()
-            EmitSoundOn("Resource.MithrilShardEnter", crystal)
-          end)
-        end
-
-  end)
+	end)
 end

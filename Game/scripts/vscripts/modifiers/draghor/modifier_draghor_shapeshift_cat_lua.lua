@@ -1,15 +1,15 @@
 modifier_draghor_shapeshift_cat_lua = class({})
 
 function modifier_draghor_shapeshift_cat_lua:DeclareFunctions()
-    local funcs = {
-        MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND,
-        MODIFIER_PROPERTY_MODEL_CHANGE
-    }
+	local funcs = {
+		MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND,
+		MODIFIER_PROPERTY_MODEL_CHANGE
+	}
 
-    return funcs
+	return funcs
 end
 
-function modifier_draghor_shapeshift_cat_lua:GetAttackSound( params )
+function modifier_draghor_shapeshift_cat_lua:GetAttackSound(params)
 	return "Draghor.Wolf.AttackSound"
 end
 
@@ -23,5 +23,5 @@ function modifier_draghor_shapeshift_cat_lua:GetModifierModelChange()
 end
 
 function modifier_draghor_shapeshift_cat_lua:IsHidden()
-    return true
+	return true
 end

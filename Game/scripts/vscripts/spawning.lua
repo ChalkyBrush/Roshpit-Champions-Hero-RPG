@@ -1,5 +1,5 @@
 if Spawning == nil then
-  Spawning = class({})
+	Spawning = class({})
 end
 
 function Spawning:SetDropModifier(unit, deathModifier)
@@ -167,7 +167,7 @@ function Spawning:SpawnNormalCreep(unitName, spawnPoint, minDrops, maxDrops, ite
 		end
 		unit.minDungeonDrops = minDrops
 		unit.maxDungeonDrops = maxDrops
-			Spawning:SetModifiers(unit, deathModifier)
+		Spawning:SetModifiers(unit, deathModifier)
 		if fv then
 			unit:SetForwardVector(fv)
 		end

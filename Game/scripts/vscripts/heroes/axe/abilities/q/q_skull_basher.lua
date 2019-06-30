@@ -18,21 +18,20 @@ function start(event)
     EmitSoundOn("Hero_Axe.BerserkersCall.Item.Shoutmask", caster)
     EmitSoundOn("Hero_Axe.BerserkersCall.Item.Shoutmask", caster)
 
-
     local targetPoint = event.target_points[1]
-    local distance = WallPhysics:GetDistance2d(targetPoint*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
-    ability.jumpFV = ((targetPoint-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+    local distance = WallPhysics:GetDistance2d(targetPoint * Vector(1, 1, 0), caster:GetAbsOrigin() * Vector(1, 1, 0))
+    ability.jumpFV = ((targetPoint - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
     if distance >= 300 then
         ability:ApplyDataDrivenModifier(caster, caster, "modfier_axe_jumping", {duration = 8})
     else
         drop(event)
     end
 
-    local animationTime = math.min(500/distance, 1)
-    StartAnimation(caster, {duration=jumpDuration, activity=ACT_DOTA_FLAIL, rate=animationTime, translate="forcestaff_friendly"})
+    local animationTime = math.min(500 / distance, 1)
+    StartAnimation(caster, {duration = jumpDuration, activity = ACT_DOTA_FLAIL, rate = animationTime, translate = "forcestaff_friendly"})
 
     local extraHeight = math.max(GetGroundHeight(targetPoint, caster) - caster:GetAbsOrigin().z, 0)
-    ability.jump_velocity = math.max(distance/30 + 5 + extraHeight/14, 15)
+    ability.jump_velocity = math.max(distance / 30 + 5 + extraHeight / 14, 15)
     if caster:HasModifier("modifier_whirlwind") then
         ability.jump_velocity = ability.jump_velocity + 5
     end
@@ -43,7 +42,7 @@ function start(event)
     Timers:CreateTimer(0.3, function()
         ability.lifting = false
     end)
-   --print("--NEW JUMP--")
+    --print("--NEW JUMP--")
 
     if caster:HasModifier("modifier_axe_glyph_7_1") then
         local newCD = 1.5
@@ -56,11 +55,10 @@ function heroic_leap_think(event)
     local caster = event.caster
     local ability = event.ability
 
-    local forwardSpeed = math.max(20, ability.distance/55 + 24)
+    local forwardSpeed = math.max(20, ability.distance / 55 + 24)
     if caster.q_3_level > 0 then
-        forwardSpeed = math.max(20, ability.distance/45 + 9)
+        forwardSpeed = math.max(20, ability.distance / 45 + 9)
     end
-    
 
     if caster:HasModifier("modifier_axe_rune_q_2_invisible") then
         local modifierDuration = caster:FindModifierByName("modifier_axe_rune_q_2_visible"):GetRemainingTime()
@@ -69,10 +67,10 @@ function heroic_leap_think(event)
     end
     CycloneStorm.refreshBuff(caster)
 
-    local jumpToPosition = caster:GetAbsOrigin()+Vector(0,0,ability.jump_velocity)+(ability.jumpFV*forwardSpeed)
+    local jumpToPosition = caster:GetAbsOrigin() + Vector(0, 0, ability.jump_velocity) + (ability.jumpFV * forwardSpeed)
     local afterWallPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), jumpToPosition, caster)
     if afterWallPosition ~= jumpToPosition then
-        jumpToPosition = caster:GetAbsOrigin()+Vector(0,0,ability.jump_velocity)
+        jumpToPosition = caster:GetAbsOrigin() + Vector(0, 0, ability.jump_velocity)
     end
     caster:SetOrigin(jumpToPosition)
     caster:SetForwardVector(ability.jumpFV)
@@ -82,13 +80,13 @@ function heroic_leap_think(event)
         caster:RemoveModifierByName("modfier_axe_jumping")
         caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
         -- elseif caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 54 and not ability.lifting then
-        -- 	if not ability.jumpAnimated then
-        -- 		EndAnimation(caster)
-        -- 		Timers:CreateTimer(0.03, function()
-        -- 			StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_FORCESTAFF_END, rate=1.0})
-        -- 		end)
-        -- 		ability.jumpAnimated = true
-        -- 	end
+        -- if not ability.jumpAnimated then
+        -- EndAnimation(caster)
+        -- Timers:CreateTimer(0.03, function()
+        -- StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_FORCESTAFF_END, rate=1.0})
+        -- end)
+        -- ability.jumpAnimated = true
+        -- end
     end
 end
 
@@ -108,7 +106,7 @@ function drop(event)
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_stun_attack", {duration = skullBasherDuration})
 
     if not HeroicLeap.cast(caster, ability) then
-        StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_FORCESTAFF_END, rate=1})
+        StartAnimation(caster, {duration = 0.4, activity = ACT_DOTA_FORCESTAFF_END, rate = 1})
     end
     FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 end
@@ -125,15 +123,15 @@ function attackLand(event)
     local aoe_damage = event.aoe_damage
     aoe_damage = aoe_damage + BrutalExpansion.getAdditionalDamage(caster);
     if caster:HasModifier("modifier_axe_glyph_5_1") then
-        aoe_damage = aoe_damage*3
+        aoe_damage = aoe_damage * 3
         stun_duration = 0.03
     end
     local base_radius = event.base_radius
 
-    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), targetUnit:GetAbsOrigin(), nil, base_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), targetUnit:GetAbsOrigin(), nil, base_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     if #enemies > 0 then
         local dealDamage = not caster:HasModifier("modifier_axe_glyph_7_1")
-        for _,enemy in pairs(enemies) do
+        for _, enemy in pairs(enemies) do
             Filters:ApplyStun(caster, stun_duration, enemy)
             if dealDamage then
                 Filters:TakeArgumentsAndApplyDamage(enemy, caster, aoe_damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_Q, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)

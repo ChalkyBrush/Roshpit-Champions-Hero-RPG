@@ -1,28 +1,27 @@
 
-
 function init_solunia(event)
-	 local caster = event.caster
-	 if not caster.initiated then
-		  for k, v in pairs(caster:GetChildren()) do 
-		    if v:GetClassname() == "dota_item_wearable" then
-		      local model = v:GetModelName()
-		      caster.weaponFX = v
-		      caster.weaponFXname = model
-		     --print(caster.weaponFX:GetModelName())
-		      break
-		    end 
-		  end 
-		  caster.baseAttackRange = caster:Script_GetAttackRange()
-		  caster.initiated = true
+	local caster = event.caster
+	if not caster.initiated then
+		for k, v in pairs(caster:GetChildren()) do
+			if v:GetClassname() == "dota_item_wearable" then
+				local model = v:GetModelName()
+				caster.weaponFX = v
+				caster.weaponFXname = model
+				--print(caster.weaponFX:GetModelName())
+				break
+			end
+		end
+		caster.baseAttackRange = caster:Script_GetAttackRange()
+		caster.initiated = true
 	else
 		caster:FindAbilityByName("solunia_solar_glow"):SetActivated(true)
 		if caster:HasAbility("solunia_lunar_glow") then
 			caster:FindAbilityByName("solunia_lunar_glow"):SetActivated(true)
-		end	
-		caster:FindAbilityByName("solunia_solarang"):SetActivated(true)	
+		end
+		caster:FindAbilityByName("solunia_solarang"):SetActivated(true)
 		if caster:HasAbility("solunia_lunarang") then
 			caster:FindAbilityByName("solunia_lunarang"):SetActivated(true)
-		end		
+		end
 	end
 end
 
@@ -39,7 +38,7 @@ end
 function boomerang_phase_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_ATTACK, rate=1, translate="loadout"})
+	StartAnimation(caster, {duration = 0.6, activity = ACT_DOTA_ATTACK, rate = 1, translate = "loadout"})
 	EmitSoundOn("Selethas.Throw.VO", caster)
 end
 
@@ -56,70 +55,70 @@ function solarang_start(event)
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_disarm_weapon", {duration = 0.6})
 	EmitSoundOn("Selethas.Boomerang.Throw", caster)
-    local target = event.target_points[1]
-    Filters:CastSkillArguments(2, caster)
-    local fv = (target*Vector(1,1,0)-caster:GetAbsOrigin()*Vector(1,1,0)):Normalized()
-    local boomerang = CreateUnitByName("selethas_boomerang", caster:GetAbsOrigin()+Vector(0,0,100), false, caster, nil, caster:GetTeamNumber())
-    if not ability.boomerangTable then
-    	ability.boomerangTable = {}
-    end
-    
-    table.insert(ability.boomerangTable, boomerang)
-    ability.boomerang = boomerang
-    boomerang:SetAngles(0, 0, 0)
+	local target = event.target_points[1]
+	Filters:CastSkillArguments(2, caster)
+	local fv = (target * Vector(1, 1, 0) - caster:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
+	local boomerang = CreateUnitByName("selethas_boomerang", caster:GetAbsOrigin() + Vector(0, 0, 100), false, caster, nil, caster:GetTeamNumber())
+	if not ability.boomerangTable then
+		ability.boomerangTable = {}
+	end
 
-    boomerang.fv = fv
-    boomerang:AddAbility("boomerang_dummy_ability"):SetLevel(1)
-    local boomerangAbility = boomerang:FindAbilityByName("boomerang_dummy_ability")
-    boomerangAbility:ApplyDataDrivenModifier(boomerang, boomerang, "modifier_boomerang_motion", {})
-    boomerangAbility:ApplyDataDrivenModifier(boomerang, boomerang, "boomerang_passive_solar", {})
-    boomerang.origCaster = caster
-    boomerang.origAbility = ability
-    boomerang.damage = event.damage
-    boomerang.throwPosition = caster:GetAbsOrigin()
-    boomerang.spinAngularVelocity = WallPhysics:rotateVector(fv, math.pi/2)
-    boomerang.rotationAngle = 0
-    boomerang.interval = 0
-    boomerang:SetModelScale(0)
-    boomerang.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "solunia")
-    boomerang.w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "solunia")
-    boomerang.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "solunia")
-    boomerang:SetAbsOrigin(boomerang:GetAbsOrigin()+Vector(0,0,90)+fv*58-boomerang.spinAngularVelocity*28)
+	table.insert(ability.boomerangTable, boomerang)
+	ability.boomerang = boomerang
+	boomerang:SetAngles(0, 0, 0)
 
-    boomerang.throwPower = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())/30 + 6
-    boomerang:SetRenderColor(200, 200, 0)
+	boomerang.fv = fv
+	boomerang:AddAbility("boomerang_dummy_ability"):SetLevel(1)
+	local boomerangAbility = boomerang:FindAbilityByName("boomerang_dummy_ability")
+	boomerangAbility:ApplyDataDrivenModifier(boomerang, boomerang, "modifier_boomerang_motion", {})
+	boomerangAbility:ApplyDataDrivenModifier(boomerang, boomerang, "boomerang_passive_solar", {})
+	boomerang.origCaster = caster
+	boomerang.origAbility = ability
+	boomerang.damage = event.damage
+	boomerang.throwPosition = caster:GetAbsOrigin()
+	boomerang.spinAngularVelocity = WallPhysics:rotateVector(fv, math.pi / 2)
+	boomerang.rotationAngle = 0
+	boomerang.interval = 0
+	boomerang:SetModelScale(0)
+	boomerang.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "solunia")
+	boomerang.w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "solunia")
+	boomerang.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "solunia")
+	boomerang:SetAbsOrigin(boomerang:GetAbsOrigin() + Vector(0, 0, 90) + fv * 58 - boomerang.spinAngularVelocity * 28)
 
-    local damage = event.damage
-    boomerang.damage = damage
-    boomerangAbility:ApplyDataDrivenModifier(boomerang, boomerang, "modifier_boomerang_damage_think", {})
+	boomerang.throwPower = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin()) / 30 + 6
+	boomerang:SetRenderColor(200, 200, 0)
 
-    a_c_prep(caster, boomerang)
-    c_b_prep(caster, boomerang)
-    d_b_prep(caster, boomerang, ability)
+	local damage = event.damage
+	boomerang.damage = damage
+	boomerangAbility:ApplyDataDrivenModifier(boomerang, boomerang, "modifier_boomerang_damage_think", {})
 
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_outgoing_solarang", {})
-    caster:SetModifierStackCount("modifier_outgoing_solarang", caster, #ability.boomerangTable)
-    local max_boomerangs = event.max_boomerangs
-    if caster:HasModifier("modifier_solunia_glyph_1_1") then
-    	max_boomerangs = max_boomerangs + 2
-    end
-    if #ability.boomerangTable >= max_boomerangs then
-    	ability:SetActivated(false)
-    end
+	a_c_prep(caster, boomerang)
+	c_b_prep(caster, boomerang)
+	d_b_prep(caster, boomerang, ability)
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_outgoing_solarang", {})
+	caster:SetModifierStackCount("modifier_outgoing_solarang", caster, #ability.boomerangTable)
+	local max_boomerangs = event.max_boomerangs
+	if caster:HasModifier("modifier_solunia_glyph_1_1") then
+		max_boomerangs = max_boomerangs + 2
+	end
+	if #ability.boomerangTable >= max_boomerangs then
+		ability:SetActivated(false)
+	end
 end
 
 function a_c_prep(caster, boomerang)
-    if caster:HasModifier("modifier_solunia_rune_e_1_ready") then
-	    local currentStacks = caster:GetModifierStackCount("modifier_solunia_rune_e_1_ready", caster)
-	    if currentStacks > 1 then
-	        caster:SetModifierStackCount("modifier_solunia_rune_e_1_ready", caster, currentStacks-1)
-	    else
-	        caster:RemoveModifierByName("modifier_solunia_rune_e_1_ready")
-	    end
-	    boomerang.e_1_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "solunia")
-    else
-    	boomerang.e_1_level = 0
-    end
+	if caster:HasModifier("modifier_solunia_rune_e_1_ready") then
+		local currentStacks = caster:GetModifierStackCount("modifier_solunia_rune_e_1_ready", caster)
+		if currentStacks > 1 then
+			caster:SetModifierStackCount("modifier_solunia_rune_e_1_ready", caster, currentStacks - 1)
+		else
+			caster:RemoveModifierByName("modifier_solunia_rune_e_1_ready")
+		end
+		boomerang.e_1_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "solunia")
+	else
+		boomerang.e_1_level = 0
+	end
 end
 
 function boomerang_thinking(event)
@@ -127,21 +126,21 @@ function boomerang_thinking(event)
 	local ability = event.ability
 	local spinAngularVelocity = caster.spinAngularVelocity
 	if not spinAngularVelocity then
-		caster.spinAngularVelocity = WallPhysics:rotateVector(caster.fv, math.pi/60)
+		caster.spinAngularVelocity = WallPhysics:rotateVector(caster.fv, math.pi / 60)
 	end
 	if caster.interval < 25 then
-		caster:SetModelScale(caster.interval*0.04)
+		caster:SetModelScale(caster.interval * 0.04)
 	end
 
 	-- caster.spinAngularVelocity = WallPhysics:rotateVector(spinAngularVelocity, math.pi/60)
-	local processionTorque = WallPhysics:rotateVector(spinAngularVelocity, math.pi/2)
+	local processionTorque = WallPhysics:rotateVector(spinAngularVelocity, math.pi / 2)
 	-- local targetPointFV = ((caster.origCaster:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 
-	local targetPointFV = ((caster.origCaster:GetAbsOrigin() + spinAngularVelocity*math.max((240-caster.interval*2), 0) - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	local targetPointFV = ((caster.origCaster:GetAbsOrigin() + spinAngularVelocity * math.max((240 - caster.interval * 2), 0) - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 
 	caster.throwPower = math.max(caster.throwPower - 0.4, 18)
-	local finalMoveVector = (caster.fv*caster.throwPower + targetPointFV*0.2*(caster.interval^1.1))
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	local finalMoveVector = (caster.fv * caster.throwPower + targetPointFV * 0.2 * (caster.interval ^ 1.1))
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
 	local stickToTarget = nil
 	if #enemies > 0 then
@@ -158,21 +157,21 @@ function boomerang_thinking(event)
 	else
 		caster:SetAbsOrigin(caster:GetAbsOrigin() + finalMoveVector)
 	end
-
 	
-	if caster.interval%15 == 0 then
+
+	if caster.interval % 15 == 0 then
 		EmitSoundOn("Selethas.Boomerang.Spinning", caster)
 	end
 
 	local height = GetGroundHeight(caster:GetAbsOrigin(), caster)
 	if caster:GetAbsOrigin().z - height > 100 then
-		caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,10))
+		caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, 10))
 	elseif caster:GetAbsOrigin().z - height < 60 then
-		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,10))
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 10))
 	end
 	caster.rotationAngle = caster.rotationAngle + 45
 	caster:SetAngles(0, caster.rotationAngle, 0)
- 	if caster.rotationAngle == 360 then
+	if caster.rotationAngle == 360 then
 		caster.rotationAngle = 0
 	end
 	local origAbility = caster.origAbility
@@ -188,7 +187,7 @@ function boomerang_thinking(event)
 		end
 		if distance < distanceThreshold then
 			caster.origAbility.boomerang = false
-			StartAnimation(caster.origCaster, {duration=0.5, activity=ACT_DOTA_SPAWN, rate=2.5})
+			StartAnimation(caster.origCaster, {duration = 0.5, activity = ACT_DOTA_SPAWN, rate = 2.5})
 			caster:RemoveModifierByName("modifier_boomerang_motion")
 			boomerangFinishAll(caster)
 			if caster.damagedEnemy then
@@ -240,13 +239,13 @@ function boomerangFinishAll(caster)
 		if #caster.origAbility.boomerangTable == 1 then
 			caster.origCaster:RemoveModifierByName("modifier_outgoing_solarang")
 		else
-			caster.origCaster:SetModifierStackCount("modifier_outgoing_solarang", caster.origCaster, #caster.origAbility.boomerangTable-1)
+			caster.origCaster:SetModifierStackCount("modifier_outgoing_solarang", caster.origCaster, #caster.origAbility.boomerangTable - 1)
 		end
 	else
 		if #caster.origAbility.boomerangTable == 1 then
 			caster.origCaster:RemoveModifierByName("modifier_outgoing_lunarang")
 		else
-			caster.origCaster:SetModifierStackCount("modifier_outgoing_lunarang", caster.origCaster, #caster.origAbility.boomerangTable-1)
+			caster.origCaster:SetModifierStackCount("modifier_outgoing_lunarang", caster.origCaster, #caster.origAbility.boomerangTable - 1)
 		end
 	end
 end
@@ -259,27 +258,27 @@ function a_c_explosion(caster, finalMoveVector)
 		if caster:HasModifier("boomerang_passive_lunar") then
 			particleName = "particles/roshpit/solunia/eclipse.vpcf"
 		end
-	  	local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster.origCaster )
-	  	local origin = caster:GetAbsOrigin()
-	  	ParticleManager:SetParticleControl( particle1, 0, origin+Vector(0,0,-70) )
-	  	ParticleManager:SetParticleControl( particle1, 1, Vector(550, 2, 1000) )
-	  	ParticleManager:SetParticleControl( particle1, 3, Vector(550, 550, 550) )
-	  	Timers:CreateTimer(3, function()
-	  		ParticleManager:DestroyParticle(particle1, false)
-	  	end)
-	  	EmitSoundOn("Solunia.SolarGlow.Impact", caster)
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster.origCaster)
+		local origin = caster:GetAbsOrigin()
+		ParticleManager:SetParticleControl(particle1, 0, origin + Vector(0, 0, -70))
+		ParticleManager:SetParticleControl(particle1, 1, Vector(550, 2, 1000))
+		ParticleManager:SetParticleControl(particle1, 3, Vector(550, 550, 550))
+		Timers:CreateTimer(3, function()
+			ParticleManager:DestroyParticle(particle1, false)
+		end)
+		EmitSoundOn("Solunia.SolarGlow.Impact", caster)
 		local damageType = DAMAGE_TYPE_MAGICAL
 		if caster:HasModifier("boomerang_passive_lunar") then
 			damageType = DAMAGE_TYPE_PURE
 		end
-		local enemies = FindUnitsInRadius( caster.origCaster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius(caster.origCaster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
-			for _,enemy in pairs(enemies) do
+			for _, enemy in pairs(enemies) do
 				--print(caster.damage)
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, caster.damage*(1+caster.e_1_level*0.5), damageType, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
-				Filters:ApplyStun(caster.origCaster, caster.e_1_level*0.05, enemy)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, caster.damage * (1 + caster.e_1_level * 0.5), damageType, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+				Filters:ApplyStun(caster.origCaster, caster.e_1_level * 0.05, enemy)
 			end
-		end 
+		end
 		boomerangFinishAll(caster)
 		caster:RemoveModifierByName("modifier_boomerang_motion")
 		local origAbility = caster.origAbility
@@ -292,13 +291,13 @@ function a_c_explosion(caster, finalMoveVector)
 end
 
 function reindexBoomerangs(ability)
-    local tempTable = {}
-    for i = 1, #ability.boomerangTable, 1 do
-        if IsValidEntity(ability.boomerangTable[i]) then
-            table.insert(tempTable, ability.boomerangTable[i])
-        end
-    end 
-    ability.boomerangTable = tempTable
+	local tempTable = {}
+	for i = 1, #ability.boomerangTable, 1 do
+		if IsValidEntity(ability.boomerangTable[i]) then
+			table.insert(tempTable, ability.boomerangTable[i])
+		end
+	end
+	ability.boomerangTable = tempTable
 end
 
 function lunarang_start(event)
@@ -308,56 +307,56 @@ function lunarang_start(event)
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_disarm_weapon", {duration = 0.6})
 	EmitSoundOn("Selethas.Boomerang.Throw", caster)
-    local target = event.target_points[1]
-    Filters:CastSkillArguments(2, caster)
-    local fv = (target*Vector(1,1,0)-caster:GetAbsOrigin()*Vector(1,1,0)):Normalized()
-    local boomerang = CreateUnitByName("selethas_boomerang", caster:GetAbsOrigin()+Vector(0,0,100), false, caster, nil, caster:GetTeamNumber())
-    if not ability.boomerangTable then
-    	ability.boomerangTable = {}
-    end
-    table.insert(ability.boomerangTable, boomerang)
-    ability.boomerang = boomerang
-    boomerang:SetAngles(0, 0, 0)
-    
-    boomerang.fv = fv
-    boomerang:AddAbility("boomerang_dummy_ability"):SetLevel(1)
-    local boomerangAbility = boomerang:FindAbilityByName("boomerang_dummy_ability")
-    boomerangAbility:ApplyDataDrivenModifier(boomerang, boomerang, "modifier_boomerang_motion", {})
-    boomerangAbility:ApplyDataDrivenModifier(boomerang, boomerang, "boomerang_passive_lunar", {})
-    boomerang.origCaster = caster
-    boomerang.origAbility = ability
-    boomerang.damage = event.damage
+	local target = event.target_points[1]
+	Filters:CastSkillArguments(2, caster)
+	local fv = (target * Vector(1, 1, 0) - caster:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
+	local boomerang = CreateUnitByName("selethas_boomerang", caster:GetAbsOrigin() + Vector(0, 0, 100), false, caster, nil, caster:GetTeamNumber())
+	if not ability.boomerangTable then
+		ability.boomerangTable = {}
+	end
+	table.insert(ability.boomerangTable, boomerang)
+	ability.boomerang = boomerang
+	boomerang:SetAngles(0, 0, 0)
 
-    boomerang.throwPosition = caster:GetAbsOrigin()
-    boomerang.spinAngularVelocity = WallPhysics:rotateVector(fv, math.pi/2)
-    boomerang.rotationAngle = 0
-    boomerang.interval = 0
-    boomerang:SetModelScale(0)
-    boomerang.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "solunia")
-    boomerang.w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "solunia")
-    boomerang.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "solunia")
-    boomerang:SetAbsOrigin(boomerang:GetAbsOrigin()+Vector(0,0,90)+fv*58-boomerang.spinAngularVelocity*28)
+	boomerang.fv = fv
+	boomerang:AddAbility("boomerang_dummy_ability"):SetLevel(1)
+	local boomerangAbility = boomerang:FindAbilityByName("boomerang_dummy_ability")
+	boomerangAbility:ApplyDataDrivenModifier(boomerang, boomerang, "modifier_boomerang_motion", {})
+	boomerangAbility:ApplyDataDrivenModifier(boomerang, boomerang, "boomerang_passive_lunar", {})
+	boomerang.origCaster = caster
+	boomerang.origAbility = ability
+	boomerang.damage = event.damage
 
-    boomerang.throwPower = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())/30 + 6
-    boomerang:SetRenderColor(0, 100, 255)
+	boomerang.throwPosition = caster:GetAbsOrigin()
+	boomerang.spinAngularVelocity = WallPhysics:rotateVector(fv, math.pi / 2)
+	boomerang.rotationAngle = 0
+	boomerang.interval = 0
+	boomerang:SetModelScale(0)
+	boomerang.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "solunia")
+	boomerang.w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "solunia")
+	boomerang.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "solunia")
+	boomerang:SetAbsOrigin(boomerang:GetAbsOrigin() + Vector(0, 0, 90) + fv * 58 - boomerang.spinAngularVelocity * 28)
 
-    local damage = event.damage
-    boomerang.damage = damage
-    boomerangAbility:ApplyDataDrivenModifier(boomerang, boomerang, "modifier_boomerang_damage_think", {})
+	boomerang.throwPower = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin()) / 30 + 6
+	boomerang:SetRenderColor(0, 100, 255)
 
-    a_c_prep(caster, boomerang)
-    c_b_prep(caster, boomerang)
-    d_b_prep(caster, boomerang, ability)
+	local damage = event.damage
+	boomerang.damage = damage
+	boomerangAbility:ApplyDataDrivenModifier(boomerang, boomerang, "modifier_boomerang_damage_think", {})
 
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_outgoing_lunarang", {})
-    caster:SetModifierStackCount("modifier_outgoing_lunarang", caster, #ability.boomerangTable)
-    local max_boomerangs = event.max_boomerangs
-    if caster:HasModifier("modifier_solunia_glyph_1_1") then
-    	max_boomerangs = max_boomerangs + 2
-    end
-    if #ability.boomerangTable >= max_boomerangs then
-    	ability:SetActivated(false)
-    end
+	a_c_prep(caster, boomerang)
+	c_b_prep(caster, boomerang)
+	d_b_prep(caster, boomerang, ability)
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_outgoing_lunarang", {})
+	caster:SetModifierStackCount("modifier_outgoing_lunarang", caster, #ability.boomerangTable)
+	local max_boomerangs = event.max_boomerangs
+	if caster:HasModifier("modifier_solunia_glyph_1_1") then
+		max_boomerangs = max_boomerangs + 2
+	end
+	if #ability.boomerangTable >= max_boomerangs then
+		ability:SetActivated(false)
+	end
 end
 
 function red_widow_end(event)
@@ -371,17 +370,17 @@ function boomerang_damager_thinker(event)
 	local ability = event.ability
 	local enemies = nil
 	if caster:HasModifier("boomerang_passive_lunar") then
-		enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	else
-		enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 120, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 120, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	end
 
 	if #enemies > 0 then
 		caster.damagedEnemy = true
-		for _,enemy in pairs(enemies) do
+		for _, enemy in pairs(enemies) do
 			boomerang_impact(caster, ability, enemy)
 		end
-	end 
+	end
 end
 
 function boomerang_impact(caster, ability, target)
@@ -392,35 +391,35 @@ function boomerang_impact(caster, ability, target)
 		end
 		local damage = caster.damage
 		if caster.w_1_level > 0 then
-			local luck = RandomInt(1,1000)
+			local luck = RandomInt(1, 1000)
 			if luck <= (150 + caster.w_1_level) then
 				EmitSoundOn("Solunia.BoomerangCrit", caster)
-				damage = damage*caster.w_1_level*0.12 + damage
-				local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
+				damage = damage * caster.w_1_level * 0.12 + damage
+				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 				ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", target:GetAbsOrigin(), true)
 				ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", target:GetAbsOrigin(), true)
-				Timers:CreateTimer(5, function() 
-				  ParticleManager:DestroyParticle( pfx, false )
-				  ParticleManager:ReleaseParticleIndex(pfx)
-				end) 	
+				Timers:CreateTimer(5, function()
+					ParticleManager:DestroyParticle(pfx, false)
+					ParticleManager:ReleaseParticleIndex(pfx)
+				end)
 				PopupDamage(target, math.floor(damage))
 				if caster.origCaster:HasModifier("modifier_solunia_immortal_weapon_2") then
 					local particleName = "particles/units/heroes/hero_lich/lich_frost_nova.vpcf"
-			      	local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
-			      	local origin = target:GetAbsOrigin()
-			      	ParticleManager:SetParticleControl( particle1, 0, origin )
-			      	ParticleManager:SetParticleControl( particle1, 1, origin )
-			      	Timers:CreateTimer(1, function()
-			      		ParticleManager:DestroyParticle(particle1, false)
-			      	end)
-			      	EmitSoundOn("Solunia.Cryoshock", target)
-					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+					local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
+					local origin = target:GetAbsOrigin()
+					ParticleManager:SetParticleControl(particle1, 0, origin)
+					ParticleManager:SetParticleControl(particle1, 1, origin)
+					Timers:CreateTimer(1, function()
+						ParticleManager:DestroyParticle(particle1, false)
+					end)
+					EmitSoundOn("Solunia.Cryoshock", target)
+					local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 					if #enemies > 0 then
-						for _,enemy in pairs(enemies) do
+						for _, enemy in pairs(enemies) do
 							caster.origCaster.weapon:ApplyDataDrivenModifier(caster.origCaster.InventoryUnit, enemy, "modifier_solunia_cryoshock", {duration = 1.5})
 						end
-					end 
-			      	
+					end
+
 				end
 			end
 		end
@@ -442,40 +441,40 @@ function boomerang_impact(caster, ability, target)
 	end
 end
 
-function MarkerParticle( event )
-  local target = event.target
-  local location = target:GetAbsOrigin()
-  if target.markerParticle then
-  	ParticleManager:DestroyParticle(target.markerParticle,false)
-  	target.markerParticle = false
-  end
-  local particleName = "particles/roshpit/solunia/magic_marker_shield.vpcf"
+function MarkerParticle(event)
+	local target = event.target
+	local location = target:GetAbsOrigin()
+	if target.markerParticle then
+		ParticleManager:DestroyParticle(target.markerParticle, false)
+		target.markerParticle = false
+	end
+	local particleName = "particles/roshpit/solunia/magic_marker_shield.vpcf"
 
--- Particle. Need to wait one frame for the older particle to be destroyed
-  Timers:CreateTimer(0.01, function() 
-    target.markerParticle = ParticleManager:CreateParticle(particleName, PATTACH_OVERHEAD_FOLLOW, target)
-    ParticleManager:SetParticleControl(target.markerParticle, 0, target:GetAbsOrigin())
-    ParticleManager:SetParticleControl(target.markerParticle, 1, target:GetAbsOrigin())
-    ParticleManager:SetParticleControl(target.markerParticle, 2, target:GetAbsOrigin())
+	-- Particle. Need to wait one frame for the older particle to be destroyed
+	Timers:CreateTimer(0.01, function()
+		target.markerParticle = ParticleManager:CreateParticle(particleName, PATTACH_OVERHEAD_FOLLOW, target)
+		ParticleManager:SetParticleControl(target.markerParticle, 0, target:GetAbsOrigin())
+		ParticleManager:SetParticleControl(target.markerParticle, 1, target:GetAbsOrigin())
+		ParticleManager:SetParticleControl(target.markerParticle, 2, target:GetAbsOrigin())
 
-    ParticleManager:SetParticleControlEnt(target.markerParticle, 1, target, PATTACH_OVERHEAD_FOLLOW, "attach_overhead", target:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControlEnt(target.markerParticle, 2, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-  end)
+		ParticleManager:SetParticleControlEnt(target.markerParticle, 1, target, PATTACH_OVERHEAD_FOLLOW, "attach_overhead", target:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(target.markerParticle, 2, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+	end)
 end
 
 -- Destroys the particle when the modifier is destroyed
-function EndMarkerParticle( event )
-  local target = event.target
-  if target.markerParticle then
-  	ParticleManager:DestroyParticle(target.markerParticle,false)
-  	target.markerParticle = false
-  end
+function EndMarkerParticle(event)
+	local target = event.target
+	if target.markerParticle then
+		ParticleManager:DestroyParticle(target.markerParticle, false)
+		target.markerParticle = false
+	end
 end
 
 function c_b_prep(caster, boomerang)
 	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "solunia")
 	if w_3_level > 0 then
-		boomerang.damage = boomerang.damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.06*w_3_level
+		boomerang.damage = boomerang.damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.06 * w_3_level
 	end
 end
 
@@ -496,7 +495,7 @@ function d_b_prep(caster, boomerang, ability)
 				ParticleManager:DestroyParticle(pfx, false)
 				ParticleManager:ReleaseParticleIndex(pfx)
 			end)
-			local duration = boomerang.w_4_level*0.35 + 3
+			local duration = boomerang.w_4_level * 0.35 + 3
 			duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 			local solarangAbility = caster:FindAbilityByName("solunia_solarang")
 			solarangAbility:ApplyDataDrivenModifier(caster, caster, "modifier_black_widow_invisible_damage_buff", {duration = duration})
@@ -504,7 +503,7 @@ function d_b_prep(caster, boomerang, ability)
 			solarangAbility:ApplyDataDrivenModifier(caster, caster, "modifier_black_widow", {duration = duration})
 
 			solarangAbility:ApplyDataDrivenModifier(caster, caster, "modifier_black_widow_invis_range_debuff", {duration = duration})
-			caster:SetModifierStackCount("modifier_black_widow_invis_range_debuff", caster, (caster.baseAttackRange-180))
+			caster:SetModifierStackCount("modifier_black_widow_invis_range_debuff", caster, (caster.baseAttackRange - 180))
 		end
 	end
 end
@@ -525,7 +524,7 @@ end
 function black_widow_bleed(event)
 	local caster = event.caster
 	local target = event.target
-	ApplyDamage({ victim = target, attacker = caster, damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.8, damage_type = DAMAGE_TYPE_MAGICAL })
+	ApplyDamage({victim = target, attacker = caster, damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.8, damage_type = DAMAGE_TYPE_MAGICAL})
 end
 
 function black_widow_attack_land(event)
@@ -534,11 +533,11 @@ function black_widow_attack_land(event)
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(attacker, target, "modifier_black_widow_bleed", {duration = 3})
 	EmitSoundOn("Solunia.BoomerangCrit", attacker)
-	local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", target:GetAbsOrigin(), true)
-	Timers:CreateTimer(5, function() 
-	  ParticleManager:DestroyParticle( pfx, false )
-	  ParticleManager:ReleaseParticleIndex(pfx)
-	end) 	
+	Timers:CreateTimer(5, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		ParticleManager:ReleaseParticleIndex(pfx)
+	end)
 end

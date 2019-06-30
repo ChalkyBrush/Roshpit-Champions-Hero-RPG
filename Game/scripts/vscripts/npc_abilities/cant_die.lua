@@ -23,13 +23,13 @@ function death_check(event)
 			elseif caster:GetUnitName() == "chaos_chieftain" then
 				town_siege_boss_die(caster)
 			elseif caster:GetUnitName() == "castle_boss" then
-				castle_boss_die(caster)			
+				castle_boss_die(caster)
 			elseif caster:GetUnitName() == "swamp_boss" then
-				swamp_boss_die(caster)			
+				swamp_boss_die(caster)
 			elseif caster:GetUnitName() == "ruins_boss" then
-				ruins_boss_die(caster)			
-			elseif caster:GetUnitName() == "grizzly_falls_boss" then	
-				grizzly_boss_die(caster)		
+				ruins_boss_die(caster)
+			elseif caster:GetUnitName() == "grizzly_falls_boss" then
+				grizzly_boss_die(caster)
 			elseif caster:GetUnitName() == "phoenix_boss" then
 				phoenix_boss_die(caster)
 			end
@@ -58,19 +58,19 @@ end
 
 function death_animation(keys)
 	caster = keys.caster
-    local particleName = EXPLOSION_PARTICLE_TABLE[RandomInt(1, 1)]
-    local particleVector = caster:GetAbsOrigin()
-    pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, caster )
-    ParticleManager:SetParticleControlEnt( pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", particleVector, true )
-    local sound = EXPLOSION_SOUND_TABLE[RandomInt(1, 2)]
-    EmitSoundOn(sound, caster)
+	local particleName = EXPLOSION_PARTICLE_TABLE[RandomInt(1, 1)]
+	local particleVector = caster:GetAbsOrigin()
+	pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
+	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", particleVector, true)
+	local sound = EXPLOSION_SOUND_TABLE[RandomInt(1, 2)]
+	EmitSoundOn(sound, caster)
 end
 
 function graveyard_boss_die(caster)
 	caster:RemoveModifierByName("modifier_graveyard_boss_blast")
 	local casterOrigin = caster:GetAbsOrigin()
 	for i = 0, 9, 1 do
-		Timers:CreateTimer(0.4*i, function()
+		Timers:CreateTimer(0.4 * i, function()
 			RPCItems:RollItemtype(300, casterOrigin, 1, 0)
 		end)
 	end
@@ -79,7 +79,7 @@ function graveyard_boss_die(caster)
 	EmitSoundOn("skeleton_king_wraith_death_long_01", caster)
 	EmitSoundOn("skeleton_king_wraith_death_long_01", caster)
 	EmitSoundOn("skeleton_king_wraith_death_long_01", caster)
-	StartAnimation(caster, {duration=4.9, activity=ACT_DOTA_FLAIL, rate=1})
+	StartAnimation(caster, {duration = 4.9, activity = ACT_DOTA_FLAIL, rate = 1})
 	local luck = RandomInt(1, 3)
 	if luck == 3 then
 		RPCItems:RollBoneguardGauntlets(casterOrigin)
@@ -87,15 +87,15 @@ function graveyard_boss_die(caster)
 
 	Timers:CreateTimer(1.5, function()
 		EmitGlobalSound("Loot_Drop_Stinger_Arcana")
-		Notifications:TopToAll({text="Dungeon Clear!", duration=8.0})
+		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 	end)
 	Timers:CreateTimer(5, function()
-		StartAnimation(caster, {duration=5.5, activity=ACT_DOTA_DIE, rate=0.27})
+		StartAnimation(caster, {duration = 5.5, activity = ACT_DOTA_DIE, rate = 0.27})
 		EmitSoundOn("skeleton_king_wraith_death_long_09", caster)
 		EmitSoundOn("skeleton_king_wraith_death_long_09", caster)
 	end)
 	Timers:CreateTimer(10, function()
-		Beacons:CreatePortal(Vector(-6784,-12160), Vector(-5248, -7360), "graveyard", nil, true)
+		Beacons:CreatePortal(Vector(-6784, -12160), Vector(-5248, -7360), "graveyard", nil, true)
 		UTIL_Remove(caster)
 	end)
 	Beacons:CreateBeacons()
@@ -106,7 +106,7 @@ function lumber_mill_boss_die(caster)
 	caster.dying = true
 	Dungeons.itemLevel = 25
 	for i = 0, 10, 1 do
-		Timers:CreateTimer(0.4*i, function()
+		Timers:CreateTimer(0.4 * i, function()
 			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
 		end)
 	end
@@ -116,19 +116,19 @@ function lumber_mill_boss_die(caster)
 	EmitSoundOn("batrider_bat_death_01", caster)
 	EmitSoundOn("batrider_bat_death_01", caster)
 	EmitSoundOn("batrider_bat_death_01", caster)
-	StartAnimation(caster, {duration=4.9, activity=ACT_DOTA_FLAIL, rate=1})
+	StartAnimation(caster, {duration = 4.9, activity = ACT_DOTA_FLAIL, rate = 1})
 	Timers:CreateTimer(1.5, function()
 		EmitGlobalSound("Loot_Drop_Stinger_Arcana")
-		Notifications:TopToAll({text="Dungeon Clear!", duration=8.0})
+		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 	end)
 	Timers:CreateTimer(5, function()
-		StartAnimation(caster, {duration=5.5, activity=ACT_DOTA_DIE, rate=0.25})
+		StartAnimation(caster, {duration = 5.5, activity = ACT_DOTA_DIE, rate = 0.25})
 		EmitSoundOn("batrider_bat_death_07", caster)
 		EmitSoundOn("batrider_bat_death_07", caster)
 		EmitSoundOn("batrider_bat_death_07", caster)
 	end)
 	Timers:CreateTimer(10, function()
-		Beacons:CreatePortal(Vector(-10816,-7872), Vector(-7104, -6464), "lumbermill", nil, true)
+		Beacons:CreatePortal(Vector(-10816, -7872), Vector(-7104, -6464), "lumbermill", nil, true)
 		UTIL_Remove(caster)
 		Dungeons.itemLevel = 17
 	end)
@@ -140,7 +140,7 @@ function sand_tomb_boss_die(caster)
 	caster.dying = true
 	Dungeons.itemLevel = 50
 	for i = 0, 12, 1 do
-		Timers:CreateTimer(0.4*i, function()
+		Timers:CreateTimer(0.4 * i, function()
 			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
 		end)
 	end
@@ -154,19 +154,19 @@ function sand_tomb_boss_die(caster)
 	EmitSoundOn("venomancer_venm_death_01", caster)
 	EmitSoundOn("venomancer_venm_death_01", caster)
 	EmitSoundOn("venomancer_venm_death_01", caster)
-	StartAnimation(caster, {duration=4.9, activity=ACT_DOTA_FLAIL, rate=1})
+	StartAnimation(caster, {duration = 4.9, activity = ACT_DOTA_FLAIL, rate = 1})
 	Timers:CreateTimer(1.5, function()
 		EmitGlobalSound("Loot_Drop_Stinger_Arcana")
-		Notifications:TopToAll({text="Dungeon Clear!", duration=8.0})
+		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 	end)
 	Timers:CreateTimer(5, function()
-		StartAnimation(caster, {duration=5.5, activity=ACT_DOTA_DIE, rate=0.25})
+		StartAnimation(caster, {duration = 5.5, activity = ACT_DOTA_DIE, rate = 0.25})
 		EmitSoundOn("venomancer_venm_death_08", caster)
 		EmitSoundOn("venomancer_venm_death_08", caster)
 		EmitSoundOn("venomancer_venm_death_08", caster)
 	end)
 	Timers:CreateTimer(10, function()
-		Beacons:CreatePortal(Vector(12907,-4480), Vector(7300, -2485), "sandtomb", nil, true)
+		Beacons:CreatePortal(Vector(12907, -4480), Vector(7300, -2485), "sandtomb", nil, true)
 		UTIL_Remove(caster)
 		Dungeons.itemLevel = 30
 	end)
@@ -181,30 +181,30 @@ function town_siege_boss_die(caster)
 	caster.dying = true
 	Dungeons.itemLevel = 8
 	for i = 0, 9, 1 do
-		Timers:CreateTimer(0.4*i, function()
+		Timers:CreateTimer(0.4 * i, function()
 			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
 		end)
 	end
-	StartAnimation(Dungeons.commander, {duration=3.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.7})
+	StartAnimation(Dungeons.commander, {duration = 3.5, activity = ACT_DOTA_CAST_ABILITY_4, rate = 0.7})
 	GameState:ChieftainDefeat()
 	Dungeons.cleared.townsiege = true
 	EmitSoundOn("chaos_knight_chaknight_death_05", caster)
 	EmitSoundOn("chaos_knight_chaknight_death_05", caster)
 	EmitSoundOn("chaos_knight_chaknight_death_05", caster)
-	StartAnimation(caster, {duration=4.9, activity=ACT_DOTA_FLAIL, rate=1})
+	StartAnimation(caster, {duration = 4.9, activity = ACT_DOTA_FLAIL, rate = 1})
 	Timers:CreateTimer(1.5, function()
 		EmitGlobalSound("Loot_Drop_Stinger_Arcana")
-		Notifications:TopToAll({text="Dungeon Clear!", duration=8.0})
+		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 	end)
 	Timers:CreateTimer(5, function()
-		StartAnimation(caster, {duration=5.5, activity=ACT_DOTA_DIE, rate=0.25})
+		StartAnimation(caster, {duration = 5.5, activity = ACT_DOTA_DIE, rate = 0.25})
 		EmitSoundOn("chaos_knight_chaknight_death_01", caster)
 		EmitSoundOn("chaos_knight_chaknight_death_01", caster)
 		EmitSoundOn("chaos_knight_chaknight_death_01", caster)
 	end)
 	Timers:CreateTimer(10, function()
-		Beacons:CreatePortal(Vector(-5504,2176), Vector(-14074, 13888), "townsiege", nil, true)
-		AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-5504,2176), 600, 99999, false)
+		Beacons:CreatePortal(Vector(-5504, 2176), Vector(-14074, 13888), "townsiege", nil, true)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-5504, 2176), 600, 99999, false)
 		UTIL_Remove(caster)
 		Dungeons.itemLevel = 5
 	end)
@@ -222,14 +222,14 @@ function town_siege_boss_die(caster)
 	end)
 	Beacons:CreateBeacons()
 	-- for i = 1, #Dungeons.entityTable, 1 do
-	-- 	UTIL_Remove(Dungeons.entityTable[i])
+	-- UTIL_Remove(Dungeons.entityTable[i])
 	-- end
 end
 
 function mines_boss_die(caster)
 	caster.dying = true
 	for i = 0, 20, 1 do
-		Timers:CreateTimer(0.2*i, function()
+		Timers:CreateTimer(0.2 * i, function()
 			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
 		end)
 	end
@@ -238,14 +238,14 @@ function mines_boss_die(caster)
 	EmitGlobalSound("razor_raz_death_04")
 	EmitGlobalSound("razor_raz_death_04")
 	Events:updateKillQuest(caster)
-	StartAnimation(caster, {duration=4.9, activity=ACT_DOTA_FLAIL, rate=1})
+	StartAnimation(caster, {duration = 4.9, activity = ACT_DOTA_FLAIL, rate = 1})
 	Events:EarnKey("mines")
 	Timers:CreateTimer(1.5, function()
 		EmitGlobalSound("Loot_Drop_Stinger_Arcana")
-		Notifications:TopToAll({text="Act 3 Clear!", duration=8.0})
+		Notifications:TopToAll({text = "Act 3 Clear!", duration = 8.0})
 	end)
 	Timers:CreateTimer(5, function()
-		StartAnimation(caster, {duration=10.5, activity=ACT_DOTA_DIE, rate=0.25})
+		StartAnimation(caster, {duration = 10.5, activity = ACT_DOTA_DIE, rate = 0.25})
 		EmitSoundOn("razor_raz_death_05", caster)
 		EmitSoundOn("razor_raz_death_05", caster)
 		EmitSoundOn("razor_raz_death_05", caster)
@@ -274,7 +274,7 @@ function vault_boss_die(caster)
 	caster.dying = true
 	Dungeons.itemLevel = 78
 	for i = 0, 10, 1 do
-		Timers:CreateTimer(0.7*i, function()
+		Timers:CreateTimer(0.7 * i, function()
 			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
 		end)
 	end
@@ -290,26 +290,26 @@ function vault_boss_die(caster)
 	EmitSoundOn("antimage_anti_lose_01", caster)
 	EmitSoundOn("antimage_anti_lose_01", caster)
 	EmitSoundOn("antimage_anti_lose_01", caster)
-	StartAnimation(caster, {duration=4.9, activity=ACT_DOTA_FLAIL, rate=1})
+	StartAnimation(caster, {duration = 4.9, activity = ACT_DOTA_FLAIL, rate = 1})
 	Timers:CreateTimer(1.5, function()
 		EmitGlobalSound("Loot_Drop_Stinger_Arcana")
-		Notifications:TopToAll({text="Dungeon Clear!", duration=8.0})
+		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 	end)
 	Timers:CreateTimer(5, function()
-		StartAnimation(caster, {duration=5.5, activity=ACT_DOTA_DIE, rate=0.25})
+		StartAnimation(caster, {duration = 5.5, activity = ACT_DOTA_DIE, rate = 0.25})
 		EmitSoundOn("antimage_anti_death_04", caster)
 		EmitSoundOn("antimage_anti_death_04", caster)
 		EmitSoundOn("antimage_anti_death_04", caster)
 	end)
 	Timers:CreateTimer(10, function()
-		Beacons:CreatePortal(Vector(9007,2368), Vector(7236, -1846), "vault", nil, true)
+		Beacons:CreatePortal(Vector(9007, 2368), Vector(7236, -1846), "vault", nil, true)
 		UTIL_Remove(caster)
 		Dungeons.itemLevel = 48
 	end)
 	Dungeons.entryPoint = nil
 	Timers:CreateTimer(30, function()
 		for i = 1, #Dungeons.entityTable, 1 do
-			Timers:CreateTimer(1*i, function()
+			Timers:CreateTimer(1 * i, function()
 				if not Dungeons.entityTable[i]:IsNull() then
 					UTIL_Remove(Dungeons.entityTable[i])
 				end
@@ -324,8 +324,8 @@ function lowerWall(wall)
 	local wallOrigin = wall:GetAbsOrigin()
 	ScreenShake(wallOrigin, 200, 0.5, 1, 9000, 0, true)
 	for i = 1, 60, 1 do
-		Timers:CreateTimer(i*0.05, function()
-			wall:SetAbsOrigin(wallOrigin - Vector(0,0,4)*i)
+		Timers:CreateTimer(i * 0.05, function()
+			wall:SetAbsOrigin(wallOrigin - Vector(0, 0, 4) * i)
 		end)
 	end
 	Timers:CreateTimer(3, function()
@@ -333,7 +333,7 @@ function lowerWall(wall)
 		EmitSoundOn("Visage_Familar.StoneForm.Cast", wall)
 	end)
 	-- Timers:CreateTimer(5, function()
-	-- 	UTIL_Remove(wall)
+	-- UTIL_Remove(wall)
 	-- end)
 end
 
@@ -356,11 +356,11 @@ end
 function castle_boss_die(caster)
 	caster.dying = true
 	Dungeons.itemLevel = 90
-	Dungeons.lootLaunch = caster:GetAbsOrigin() + caster:GetForwardVector()*800*Vector(1,1,0)
+	Dungeons.lootLaunch = caster:GetAbsOrigin() + caster:GetForwardVector() * 800 * Vector(1, 1, 0)
 	local casterOrigin = caster:GetAbsOrigin()
 	for i = 0, 13, 1 do
-		Timers:CreateTimer(0.2*i, function()
-			RPCItems:RollItemtype(300, casterOrigin*Vector(1, 1, 0)+700, 1, 0)
+		Timers:CreateTimer(0.2 * i, function()
+			RPCItems:RollItemtype(300, casterOrigin * Vector(1, 1, 0) + 700, 1, 0)
 		end)
 	end
 	UTIL_Remove(Dungeons.eyeDummy)
@@ -381,13 +381,13 @@ function castle_boss_die(caster)
 	EmitGlobalSound("abaddon_abad_death_01")
 	EmitGlobalSound("abaddon_abad_death_01")
 	EmitGlobalSound("abaddon_abad_death_01")
-	StartAnimation(caster, {duration=4.9, activity=ACT_DOTA_FLAIL, rate=1})
+	StartAnimation(caster, {duration = 4.9, activity = ACT_DOTA_FLAIL, rate = 1})
 	Timers:CreateTimer(1.5, function()
 		EmitGlobalSound("Loot_Drop_Stinger_Arcana")
-		Notifications:TopToAll({text="Dungeon Clear!", duration=8.0})
+		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 	end)
 	Timers:CreateTimer(5, function()
-		StartAnimation(caster, {duration=10.5, activity=ACT_DOTA_DIE, rate=0.25})
+		StartAnimation(caster, {duration = 10.5, activity = ACT_DOTA_DIE, rate = 0.25})
 		EmitSoundOn("abaddon_abad_death_08", caster)
 		EmitSoundOn("abaddon_abad_death_08", caster)
 		EmitSoundOn("abaddon_abad_death_08", caster)
@@ -398,19 +398,19 @@ function castle_boss_die(caster)
 		UTIL_Remove(caster)
 		Dungeons.lootLaunch = nil
 		Dungeons.itemLevel = 60
-		Beacons:CreatePortal(Vector(-5250,11935), Vector(827,2796), "castle", nil, true)
-		local mode = GameRules:GetGameModeEntity()        
-  		mode:SetCameraDistanceOverride( CAMERA_DISTANCE_OVERRIDE )
+		Beacons:CreatePortal(Vector(-5250, 11935), Vector(827, 2796), "castle", nil, true)
+		local mode = GameRules:GetGameModeEntity()
+		mode:SetCameraDistanceOverride(CAMERA_DISTANCE_OVERRIDE)
 	end)
 	Timers:CreateTimer(120, function()
 		for i = 1, #Dungeons.castleEntityTable, 1 do
-			Timers:CreateTimer(0.2*i, function()
+			Timers:CreateTimer(0.2 * i, function()
 				if not Dungeons.castleEntityTable[i]:IsNull() then
 					UTIL_Remove(Dungeons.castleEntityTable[i])
 				end
 			end)
 		end
-		Timers:CreateTimer(0.4*#Dungeons.castleEntityTable, function()
+		Timers:CreateTimer(0.4 * #Dungeons.castleEntityTable, function()
 			Dungeons.castleEntityTable = false
 		end)
 	end)
@@ -428,7 +428,7 @@ function swamp_boss_die(caster)
 	caster.dying = true
 	Dungeons.itemLevel = 78
 	for i = 0, 10, 1 do
-		Timers:CreateTimer(0.4*i, function()
+		Timers:CreateTimer(0.4 * i, function()
 			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
 		end)
 	end
@@ -438,20 +438,20 @@ function swamp_boss_die(caster)
 	EmitSoundOn("earth_spirit_earthspi_death_01", caster)
 	EmitSoundOn("earth_spirit_earthspi_death_01", caster)
 	EmitSoundOn("earth_spirit_earthspi_death_01", caster)
-	StartAnimation(caster, {duration=4.9, activity=ACT_DOTA_FLAIL, rate=1})
+	StartAnimation(caster, {duration = 4.9, activity = ACT_DOTA_FLAIL, rate = 1})
 	Timers:CreateTimer(1.5, function()
 		EmitGlobalSound("Loot_Drop_Stinger_Arcana")
-		Notifications:TopToAll({text="Dungeon Clear!", duration=8.0})
+		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 	end)
 	Timers:CreateTimer(5, function()
-		StartAnimation(caster, {duration=5.5, activity=ACT_DOTA_DIE, rate=0.25})
+		StartAnimation(caster, {duration = 5.5, activity = ACT_DOTA_DIE, rate = 0.25})
 		EmitSoundOn("earth_spirit_earthspi_death_07", caster)
 		EmitSoundOn("earth_spirit_earthspi_death_07", caster)
 		EmitSoundOn("earth_spirit_earthspi_death_07", caster)
 	end)
 	Timers:CreateTimer(10, function()
-		Beacons:CreatePortal(Vector(14494,5659), Vector(4480,4454), "swamp", nil, true)
-		AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(14494,5659), 600, 99999, false)
+		Beacons:CreatePortal(Vector(14494, 5659), Vector(4480, 4454), "swamp", nil, true)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(14494, 5659), 600, 99999, false)
 		UTIL_Remove(caster)
 	end)
 	Dungeons.entryPoint = nil
@@ -472,7 +472,7 @@ function ruins_boss_die(caster)
 	caster.dying = true
 	Dungeons.itemLevel = 66
 	for i = 0, 10, 1 do
-		Timers:CreateTimer(0.4*i, function()
+		Timers:CreateTimer(0.4 * i, function()
 			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
 		end)
 	end
@@ -482,10 +482,10 @@ function ruins_boss_die(caster)
 	EmitSoundOn("huskar_husk_death_01", caster)
 	EmitSoundOn("huskar_husk_death_01", caster)
 	EmitSoundOn("huskar_husk_death_01", caster)
-	StartAnimation(caster, {duration=4.9, activity=ACT_DOTA_FLAIL, rate=1})
+	StartAnimation(caster, {duration = 4.9, activity = ACT_DOTA_FLAIL, rate = 1})
 	Timers:CreateTimer(1.5, function()
 		EmitGlobalSound("Loot_Drop_Stinger_Arcana")
-		Notifications:TopToAll({text="Dungeon Clear!", duration=8.0})
+		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 		local luck = RandomInt(1, 5)
 		if luck == 5 then
 			RPCItems:RollRadiantRuinsLeather(caster:GetAbsOrigin())
@@ -495,7 +495,7 @@ function ruins_boss_die(caster)
 		MAIN_HERO_TABLE[j].ruinsBossSpecial = false
 	end
 	Timers:CreateTimer(5, function()
-		StartAnimation(caster, {duration=5.5, activity=ACT_DOTA_DIE, rate=0.65})
+		StartAnimation(caster, {duration = 5.5, activity = ACT_DOTA_DIE, rate = 0.65})
 		EmitSoundOn("huskar_husk_death_11", caster)
 		EmitSoundOn("huskar_husk_death_11", caster)
 		EmitSoundOn("huskar_husk_death_11", caster)
@@ -526,7 +526,7 @@ function grizzly_boss_die(caster)
 	caster.dying = true
 	Dungeons.itemLevel = 38
 	for i = 0, 10, 1 do
-		Timers:CreateTimer(0.4*i, function()
+		Timers:CreateTimer(0.4 * i, function()
 			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
 		end)
 	end
@@ -536,17 +536,17 @@ function grizzly_boss_die(caster)
 	EmitSoundOn("medusa_medus_death_01", caster)
 	EmitSoundOn("medusa_medus_death_01", caster)
 	EmitSoundOn("medusa_medus_death_01", caster)
-	StartAnimation(caster, {duration=4.9, activity=ACT_DOTA_FLAIL, rate=1})
+	StartAnimation(caster, {duration = 4.9, activity = ACT_DOTA_FLAIL, rate = 1})
 	Timers:CreateTimer(1.5, function()
 		EmitGlobalSound("Loot_Drop_Stinger_Arcana")
-		Notifications:TopToAll({text="Dungeon Clear!", duration=8.0})
+		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 		local luck = RandomInt(1, 4)
 		if luck == 1 then
 			RPCItems:RollTwilightVestments(caster:GetAbsOrigin())
 		end
 	end)
 	Timers:CreateTimer(5, function()
-		StartAnimation(caster, {duration=5.5, activity=ACT_DOTA_DIE, rate=0.65})
+		StartAnimation(caster, {duration = 5.5, activity = ACT_DOTA_DIE, rate = 0.65})
 		EmitSoundOn("medusa_medus_death_14", caster)
 		EmitSoundOn("medusa_medus_death_14", caster)
 		EmitSoundOn("medusa_medus_death_14", caster)
@@ -604,12 +604,12 @@ end
 
 function phoenix_boss_die(caster)
 	caster.active = false
-	CustomGameEventManager:Send_ServerToAllClients("phoenixBossEndMusic", {} )
-	CustomGameEventManager:Send_ServerToAllClients("special_event_close", {} )
+	CustomGameEventManager:Send_ServerToAllClients("phoenixBossEndMusic", {})
+	CustomGameEventManager:Send_ServerToAllClients("special_event_close", {})
 	caster.dying = true
-	local lootDrops = math.ceil((Dungeons.phoenixWave-9)/2)+5
+	local lootDrops = math.ceil((Dungeons.phoenixWave - 9) / 2) + 5
 	for i = 0, lootDrops, 1 do
-		Timers:CreateTimer(0.4*i, function()
+		Timers:CreateTimer(0.4 * i, function()
 			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
 		end)
 	end
@@ -622,18 +622,18 @@ function phoenix_boss_die(caster)
 	EmitSoundOn("doom_bringer_doom_lose_01", caster)
 	EmitSoundOn("doom_bringer_doom_lose_01", caster)
 	EmitSoundOn("doom_bringer_doom_lose_01", caster)
-	StartAnimation(caster, {duration=4.9, activity=ACT_DOTA_FLAIL, rate=1})
+	StartAnimation(caster, {duration = 4.9, activity = ACT_DOTA_FLAIL, rate = 1})
 	Timers:CreateTimer(1.5, function()
 		EmitGlobalSound("Loot_Drop_Stinger_Arcana")
-		Notifications:TopToAll({text="Dungeon Clear!", duration=8.0})
-		local luck = RandomInt(1,6)
+		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
+		local luck = RandomInt(1, 6)
 		if luck == 1 then
 			local waveBonus = math.min(Dungeons.phoenixWave, 60)
 			RPCItems:RollDemonMask(deathLoc, false, waveBonus)
 		end
 	end)
 	Timers:CreateTimer(5, function()
-		StartAnimation(caster, {duration=5.5, activity=ACT_DOTA_DIE, rate=0.65})
+		StartAnimation(caster, {duration = 5.5, activity = ACT_DOTA_DIE, rate = 0.65})
 		EmitSoundOn("doom_bringer_doom_death_03", caster)
 		EmitSoundOn("doom_bringer_doom_death_03", caster)
 		EmitSoundOn("doom_bringer_doom_death_03", caster)
@@ -652,14 +652,14 @@ function phoenix_boss_die(caster)
 	end)
 	Dungeons.entryPoint = nil
 	-- Timers:CreateTimer(60, function()
-	-- 	for i = 1, #Dungeons.ruinsEntityTable, 1 do
-	-- 		local unit = Dungeons.ruinsEntityTable[i]
-	-- 		if unit then
-	-- 			if not unit:IsNull() then
-	-- 				UTIL_Remove(Dungeons.ruinsEntityTable[i])
-	-- 			end
-	-- 		end
-	-- 	end
+	-- for i = 1, #Dungeons.ruinsEntityTable, 1 do
+	-- local unit = Dungeons.ruinsEntityTable[i]
+	-- if unit then
+	-- if not unit:IsNull() then
+	-- UTIL_Remove(Dungeons.ruinsEntityTable[i])
+	-- end
+	-- end
+	-- end
 	-- end)
 	Beacons:CreateBeacons()
 	ParticleManager:DestroyParticle(Dungeons.pentagramParticle, false)

@@ -3,7 +3,7 @@ LinkLuaModifier("modifier_disciple_bonus_movespeed", "modifiers/paladin/modifier
 function knights_disciple_cast(event)
 	local caster = event.caster
 	local ability = event.ability
-	local spawnPosition = caster:GetAbsOrigin()-caster:GetForwardVector()*200+RandomVector(150)
+	local spawnPosition = caster:GetAbsOrigin() - caster:GetForwardVector() * 200 + RandomVector(150)
 	local summon = CreateUnitByName("paladin_disciple", spawnPosition, false, caster, caster, caster:GetTeamNumber())
 	summon:FindAbilityByName("paladin_disciple_ability"):SetLevel(1)
 	local summonAbility = summon:FindAbilityByName("paladin_disciple_ability")
@@ -19,15 +19,15 @@ function knights_disciple_cast(event)
 	local healAbility = summon:FindAbilityByName("knights_disciple_heal")
 	healAbility:SetLevel(ability:GetLevel())
 	healAbility.paladin = caster
-	local pfx = ParticleManager:CreateParticle( "particles/econ/items/omniknight/hammer_ti6_immortal/omniknight_purification_ti6_immortal.vpcf", PATTACH_CUSTOMORIGIN, target )
+	local pfx = ParticleManager:CreateParticle("particles/econ/items/omniknight/hammer_ti6_immortal/omniknight_purification_ti6_immortal.vpcf", PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControlEnt(pfx, 0, summon, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", summon:GetAbsOrigin(), true)
-	ParticleManager:SetParticleControl(pfx, 1, Vector(300,1,300))
+	ParticleManager:SetParticleControl(pfx, 1, Vector(300, 1, 300))
 	ParticleManager:SetParticleControl(pfx, 2, summon:GetForwardVector())
 	summon.paladin = caster
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, summon, "modifier_ms_thinker", {})
-	Timers:CreateTimer(4, function() 
-	  ParticleManager:DestroyParticle( pfx, false )
-	end) 	
+	Timers:CreateTimer(4, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
 	healAbility.r_2_level = caster:GetRuneValue("r", 2)
 	ability.r_1_level = caster:GetRuneValue("r", 1)
 	if ability.r_1_level > 0 then
@@ -65,20 +65,20 @@ function disciple_think(event)
 	if paladin == summon then
 		return
 	end
-	local distance = WallPhysics:GetDistance(paladin:GetAbsOrigin()*Vector(1,1,0), summon:GetAbsOrigin()*Vector(1,1,0))
+	local distance = WallPhysics:GetDistance(paladin:GetAbsOrigin() * Vector(1, 1, 0), summon:GetAbsOrigin() * Vector(1, 1, 0))
 	local ability = paladin:FindAbilityByName("knights_disciple")
 	if summon.casting then
 		summon.casting = false
 		return
 	end
 	if distance > 2000 then
-		local movePosition = paladin:GetAbsOrigin()-paladin:GetForwardVector()*400+RandomVector(150)
+		local movePosition = paladin:GetAbsOrigin() - paladin:GetForwardVector() * 400 + RandomVector(150)
 		FindClearSpaceForUnit(summon, movePosition, false)
-		local pfx = ParticleManager:CreateParticle( "particles/econ/items/omniknight/hammer_ti6_immortal/omniknight_purification_ti6_immortal.vpcf", PATTACH_CUSTOMORIGIN, target )
+		local pfx = ParticleManager:CreateParticle("particles/econ/items/omniknight/hammer_ti6_immortal/omniknight_purification_ti6_immortal.vpcf", PATTACH_CUSTOMORIGIN, target)
 		ParticleManager:SetParticleControlEnt(pfx, 0, summon, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", summon:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControl(pfx, 1, Vector(300,1,300))
+		ParticleManager:SetParticleControl(pfx, 1, Vector(300, 1, 300))
 		ParticleManager:SetParticleControl(pfx, 2, summon:GetForwardVector())
-		StartAnimation(summon, {duration=1, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
+		StartAnimation(summon, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1})
 		local summonAbility = summon:FindAbilityByName("paladin_disciple_ability")
 		summonAbility:ApplyDataDrivenModifier(summon, summon, "modifier_disple_leaving", {duration = 1})
 		return true
@@ -88,7 +88,7 @@ function disciple_think(event)
 				return
 			end
 		end
-		local movePosition = paladin:GetAbsOrigin()-paladin:GetForwardVector()*400+RandomVector(150)
+		local movePosition = paladin:GetAbsOrigin() - paladin:GetForwardVector() * 400 + RandomVector(150)
 		summon:MoveToPosition(movePosition)
 	end
 	if paladin:HasModifier("modifier_paladin_glyph_3_1") then
@@ -105,20 +105,20 @@ function disciple_think(event)
 			local enemies = FindUnitsInRadius(summon:GetTeamNumber(), summon:GetAbsOrigin(), nil, 750, target_teams, target_types, target_flags, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				local newOrder = {
-			 		UnitIndex = summon:entindex(), 
-			 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-			 		TargetIndex = enemies[1]:entindex(),
-			 		AbilityIndex = boltAbility:entindex(),
-			 	}
-				ExecuteOrderFromTable(newOrder)	
+					UnitIndex = summon:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+					TargetIndex = enemies[1]:entindex(),
+					AbilityIndex = boltAbility:entindex(),
+				}
+				ExecuteOrderFromTable(newOrder)
 				summon.casting = true
-				Timers:CreateTimer(boltAbility:GetCastPoint()+0.1, function()
+				Timers:CreateTimer(boltAbility:GetCastPoint() + 0.1, function()
 					summon.casting = false
-				end)	
+				end)
 
-				return false	
-			end		
-		end		
+				return false
+			end
+		end
 	end
 	if paladin:GetRuneValue("r", 3) > 0 and summon:HasAbility("knights_disciple_bolt") then
 		local boltAbility = summon:FindAbilityByName("knights_disciple_bolt")
@@ -129,19 +129,19 @@ function disciple_think(event)
 			local enemies = FindUnitsInRadius(summon:GetTeamNumber(), summon:GetAbsOrigin(), nil, 1000, target_teams, target_types, target_flags, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				local newOrder = {
-			 		UnitIndex = summon:entindex(), 
-			 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-			 		TargetIndex = enemies[1]:entindex(),
-			 		AbilityIndex = boltAbility:entindex(),
-			 	}
-				ExecuteOrderFromTable(newOrder)	
+					UnitIndex = summon:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+					TargetIndex = enemies[1]:entindex(),
+					AbilityIndex = boltAbility:entindex(),
+				}
+				ExecuteOrderFromTable(newOrder)
 				summon.casting = true
-				Timers:CreateTimer(boltAbility:GetCastPoint()+0.1, function()
+				Timers:CreateTimer(boltAbility:GetCastPoint() + 0.1, function()
 					summon.casting = false
-				end)	
-				return false			
-			end	
-		end	
+				end)
+				return false
+			end
+		end
 	end
 	local healAbility = summon:FindAbilityByName("knights_disciple_heal")
 	if healAbility:IsFullyCastable() then
@@ -153,7 +153,7 @@ function disciple_think(event)
 			local ally = allies[1]
 			if #allies >= 2 then
 				for i = 2, #allies, 1 do
-					if (allies[i]:GetHealth()/allies[i]:GetMaxHealth()) < (ally:GetHealth()/ally:GetMaxHealth()) then
+					if (allies[i]:GetHealth() / allies[i]:GetMaxHealth()) < (ally:GetHealth() / ally:GetMaxHealth()) then
 						if allies[i]:HasModifier("modifier_paladin_rune_r_2_effect_visible") or allies[i]:GetEntityIndex() == caster:GetEntityIndex() then
 						else
 							if allies[i]:IsAlive() then
@@ -181,18 +181,18 @@ function disciple_think(event)
 			end
 			if IsValidEntity(ally) then
 				local newOrder = {
-			 		UnitIndex = summon:entindex(), 
-			 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-			 		TargetIndex = ally:entindex(),
-			 		AbilityIndex = healAbility:entindex(),
-			 	}
-				ExecuteOrderFromTable(newOrder)	
+					UnitIndex = summon:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+					TargetIndex = ally:entindex(),
+					AbilityIndex = healAbility:entindex(),
+				}
+				ExecuteOrderFromTable(newOrder)
 				summon.casting = true
-				Timers:CreateTimer(healAbility:GetCastPoint()+0.1, function()
+				Timers:CreateTimer(healAbility:GetCastPoint() + 0.1, function()
 					summon.casting = false
-				end)	
-				return	
-			end			
+				end)
+				return
+			end
 		end
 	end
 end
@@ -204,8 +204,8 @@ function disciple_duration_end(event)
 	caster.velocity = 10
 	Timers:CreateTimer(1.2, function()
 		for i = 1, 90, 1 do
-			Timers:CreateTimer(0.03*i, function()
-				caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,caster.velocity))
+			Timers:CreateTimer(0.03 * i, function()
+				caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, caster.velocity))
 				caster.velocity = caster.velocity + 0.5
 			end)
 		end
@@ -213,14 +213,14 @@ function disciple_duration_end(event)
 	EmitSoundOn("Paladin.DiscipleLeave", caster)
 	Timers:CreateTimer(1.3, function()
 		EmitSoundOn("Paladin.DiscipleLeaveSound", caster)
-		local pfx = ParticleManager:CreateParticle( "particles/econ/items/omniknight/hammer_ti6_immortal/omniknight_purification_ti6_immortal.vpcf", PATTACH_CUSTOMORIGIN, target )
+		local pfx = ParticleManager:CreateParticle("particles/econ/items/omniknight/hammer_ti6_immortal/omniknight_purification_ti6_immortal.vpcf", PATTACH_CUSTOMORIGIN, target)
 		ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControl(pfx, 1, Vector(300,1,300))
+		ParticleManager:SetParticleControl(pfx, 1, Vector(300, 1, 300))
 		ParticleManager:SetParticleControl(pfx, 2, caster:GetForwardVector())
 		caster.paladin = caster
-		Timers:CreateTimer(4, function() 
-		  ParticleManager:DestroyParticle( pfx, false )
-		end) 	
+		Timers:CreateTimer(4, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
 	end)
 	Timers:CreateTimer(4, function()
 		UTIL_Remove(caster)
@@ -234,13 +234,13 @@ function disciple_heal_start(event)
 	-- CustomAbilities:QuickAttachParticle("particles/roshpit/paladin/disciple_heal_cast.vpcf", caster, 1)
 	-- CustomAbilities:QuickAttachParticle("particles/roshpit/paladin/disciple_heal_cast.vpcf", target, 1)
 	local particleName = "particles/roshpit/paladin_aegis_zap.vpcf"
-	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, victim )
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_POINT, victim)
 	ParticleManager:SetParticleControlEnt(pfx, 0, victim, PATTACH_POINT, "attach_hitloc", victim:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT, "attach_hitloc", attacker:GetAbsOrigin(), true)
 	EmitSoundOn("Paladin.DiscipleHealCast", attacker)
-	Timers:CreateTimer(1.0, function() 
-	  ParticleManager:DestroyParticle( pfx, false )
-	end) 
+	Timers:CreateTimer(1.0, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
 
 	event.ability:ApplyDataDrivenModifier(attacker, victim, "modifier_paladin_rune_r_2_hidden_block", {duration = 16})
 	if attacker:HasModifier("modifier_disciple_cooldown_reduction") then
@@ -276,8 +276,8 @@ function disciple_heal_think(event)
 	end
 
 	local target = event.target
-	local healPercent= event.heal_pct
-	local healAmount = math.floor(target:GetMaxHealth()*(healPercent/100))	
+	local healPercent = event.heal_pct
+	local healAmount = math.floor(target:GetMaxHealth() * (healPercent / 100))
 	Filters:ApplyHeal(caster, target, healAmount, true)
 end
 
@@ -302,9 +302,9 @@ function disciple_bolt_start(event)
 	Filters:TakeArgumentsAndApplyDamage(target, paladin, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	Filters:ApplyStun(paladin, 0.1, target)
 	local particle = ParticleManager:CreateParticle("particles/roshpit/paladin/crusader_bolt_lightning_bolt.vpcf", PATTACH_WORLDORIGIN, target)
-	ParticleManager:SetParticleControl(particle, 0, Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))
-	ParticleManager:SetParticleControl(particle, 1, Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z+1500))
-	ParticleManager:SetParticleControl(particle, 2, Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))
+	ParticleManager:SetParticleControl(particle, 0, Vector(target:GetAbsOrigin().x, target:GetAbsOrigin().y, target:GetAbsOrigin().z + target:GetBoundingMaxs().z))
+	ParticleManager:SetParticleControl(particle, 1, Vector(target:GetAbsOrigin().x, target:GetAbsOrigin().y, target:GetAbsOrigin().z + 1500))
+	ParticleManager:SetParticleControl(particle, 2, Vector(target:GetAbsOrigin().x, target:GetAbsOrigin().y, target:GetAbsOrigin().z + target:GetBoundingMaxs().z))
 	if paladin:HasModifier("modifier_paladin_glyph_5_a") then
 		Timers:CreateTimer(0.3, function()
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 520, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS, FIND_ANY_ORDER, false)
@@ -315,9 +315,9 @@ function disciple_bolt_start(event)
 					Filters:TakeArgumentsAndApplyDamage(enemy, paladin, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 					Filters:ApplyStun(paladin, 0.1, enemy)
 					local particle = ParticleManager:CreateParticle("particles/roshpit/paladin/crusader_bolt_lightning_bolt.vpcf", PATTACH_WORLDORIGIN, enemy)
-					ParticleManager:SetParticleControl(particle, 0, Vector(enemy:GetAbsOrigin().x,enemy:GetAbsOrigin().y,enemy:GetAbsOrigin().z))
-					ParticleManager:SetParticleControl(particle, 1, Vector(enemy:GetAbsOrigin().x,enemy:GetAbsOrigin().y,enemy:GetAbsOrigin().z+1500))
-					ParticleManager:SetParticleControl(particle, 2, Vector(enemy:GetAbsOrigin().x,enemy:GetAbsOrigin().y,enemy:GetAbsOrigin().z))
+					ParticleManager:SetParticleControl(particle, 0, Vector(enemy:GetAbsOrigin().x, enemy:GetAbsOrigin().y, enemy:GetAbsOrigin().z))
+					ParticleManager:SetParticleControl(particle, 1, Vector(enemy:GetAbsOrigin().x, enemy:GetAbsOrigin().y, enemy:GetAbsOrigin().z + 1500))
+					ParticleManager:SetParticleControl(particle, 2, Vector(enemy:GetAbsOrigin().x, enemy:GetAbsOrigin().y, enemy:GetAbsOrigin().z))
 				end
 			end
 		end)
@@ -338,24 +338,23 @@ function purifying_spark_start(event)
 	EmitSoundOn("Paladin.PurifyingLaunch", caster)
 	ability.split = true
 	ability.sound = true
-	local info = 
+	local info =
 	{
 		Target = target,
 		Source = caster,
-		Ability = ability,	
+		Ability = ability,
 		EffectName = "particles/econ/items/keeper_of_the_light/kotl_weapon_arcane_staff/keeper_base_attack_arcane_staff.vpcf",
-		vSourceLoc= caster:GetAbsOrigin(),
-		bDrawsOnMinimap = false, 
-	        bDodgeable = true,
-	        bIsAttack = false, 
-	        bVisibleToEnemies = true,
-	        bReplaceExisting = false,
-	        flExpireTime = GameRules:GetGameTime() + 10,
+		vSourceLoc = caster:GetAbsOrigin(),
+		bDrawsOnMinimap = false,
+		bDodgeable = true,
+		bIsAttack = false,
+		bVisibleToEnemies = true,
+		bReplaceExisting = false,
+		flExpireTime = GameRules:GetGameTime() + 10,
 		bProvidesVision = true,
 		iVisionRadius = 0,
 		iMoveSpeed = 900,
-		iVisionTeamNumber = caster:GetTeamNumber()
-	}
+	iVisionTeamNumber = caster:GetTeamNumber()}
 	projectile = ProjectileManager:CreateTrackingProjectile(info)
 	if caster:HasModifier("modifier_disciple_cooldown_reduction") then
 		local cd = ability:GetCooldownTimeRemaining()
@@ -371,8 +370,8 @@ function purifying_spark_hit(event)
 	else
 		return true
 	end
-
 	
+
 	local ability = event.ability
 	local paladin = caster.paladin
 	local target = event.target
@@ -388,24 +387,23 @@ function purifying_spark_hit(event)
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 520, target_teams, target_types, target_flags, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for i = 1, #enemies, 1 do
-				local info = 
+				local info =
 				{
 					Target = enemies[i],
 					Source = target,
-					Ability = ability,	
+					Ability = ability,
 					EffectName = "particles/econ/items/keeper_of_the_light/kotl_weapon_arcane_staff/keeper_base_attack_arcane_staff.vpcf",
-					vSourceLoc= target:GetAbsOrigin(),
-					bDrawsOnMinimap = false, 
-				        bDodgeable = true,
-				        bIsAttack = false, 
-				        bVisibleToEnemies = true,
-				        bReplaceExisting = false,
-				        flExpireTime = GameRules:GetGameTime() + 10,
+					vSourceLoc = target:GetAbsOrigin(),
+					bDrawsOnMinimap = false,
+					bDodgeable = true,
+					bIsAttack = false,
+					bVisibleToEnemies = true,
+					bReplaceExisting = false,
+					flExpireTime = GameRules:GetGameTime() + 10,
 					bProvidesVision = true,
 					iVisionRadius = 0,
 					iMoveSpeed = 900,
-					iVisionTeamNumber = caster:GetTeamNumber()
-				}
+				iVisionTeamNumber = caster:GetTeamNumber()}
 				projectile = ProjectileManager:CreateTrackingProjectile(info)
 			end
 		end

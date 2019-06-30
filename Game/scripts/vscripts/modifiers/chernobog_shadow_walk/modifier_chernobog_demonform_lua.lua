@@ -13,28 +13,28 @@ function modifier_chernobog_demonform_lua:DeclareFunctions()
     return funcs
 end
 
-function modifier_chernobog_demonform_lua:GetModifierModelScale( params )
+function modifier_chernobog_demonform_lua:GetModifierModelScale(params)
     return 50
 end
 
-function modifier_chernobog_demonform_lua:GetModifierAttackRangeBonus( params )
+function modifier_chernobog_demonform_lua:GetModifierAttackRangeBonus(params)
     return 700
 end
 
-function modifier_chernobog_demonform_lua:GetModifierProjectileSpeedBonus( params )
+function modifier_chernobog_demonform_lua:GetModifierProjectileSpeedBonus(params)
     return 500
 end
 
-function modifier_chernobog_demonform_lua:GetModifierBaseAttackTimeConstant( params )
+function modifier_chernobog_demonform_lua:GetModifierBaseAttackTimeConstant(params)
     return 0.9
 end
 
 -- function modifier_chernobog_demonform_lua:GetModifierAttackPointConstant( params )
--- 	return -0.1
+-- return -0.1
 -- end
 
-function modifier_chernobog_demonform_lua:GetAttackSound( params )
-	return "Chernobog.DemonForm.Attack"
+function modifier_chernobog_demonform_lua:GetAttackSound(params)
+    return "Chernobog.DemonForm.Attack"
 end
 
 function modifier_chernobog_demonform_lua:IsHidden()

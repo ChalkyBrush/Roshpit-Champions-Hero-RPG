@@ -7,7 +7,7 @@ function modifier_blaster_ice_lua:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
 	}
- 
+
 	return funcs
 end
 

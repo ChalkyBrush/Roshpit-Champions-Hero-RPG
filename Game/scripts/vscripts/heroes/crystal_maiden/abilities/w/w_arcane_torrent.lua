@@ -19,16 +19,16 @@ function calculateDamage(event)
     Filters:CastSkillArguments(2, caster)
 
     local arcane_explosion_damage = caster:FindAbilityByName("arcane_explosion"):GetLevelSpecialValueFor("damage", ability:GetLevel())
-    arcane_explosion_damage = arcane_explosion_damage * T51_AMPLIFY * caster:GetMaxMana()/100
+    arcane_explosion_damage = arcane_explosion_damage * T51_AMPLIFY * caster:GetMaxMana() / 100
 
     if caster.w_4_level > 0 then
-        arcane_explosion_damage = arcane_explosion_damage * (1 + SORCERESS_W4_AMPLIFY_PERCENT/100 * caster.w_4_level)
+        arcane_explosion_damage = arcane_explosion_damage * (1 + SORCERESS_W4_AMPLIFY_PERCENT / 100 * caster.w_4_level)
     end
 
-    ability.manacost = event.mana_drain/5
+    ability.manacost = event.mana_drain / 5
     if caster:HasModifier("modifier_sorceress_glyph_7_2") then
         arcane_explosion_damage = arcane_explosion_damage * T72_DAMAGE_AMPLIFY
-        ability.manacost = ability.manacost + caster:GetMaxMana() * T72_MANA_DRAIN_PERCENT/100
+        ability.manacost = ability.manacost + caster:GetMaxMana() * T72_MANA_DRAIN_PERCENT / 100
     end
     ability.damage = arcane_explosion_damage * T51_AMPLIFY
 end
@@ -58,7 +58,6 @@ function think(event)
         ability:ToggleAbility()
     end
 
-
     local caster = event.caster
     local arc_exp_ability = caster:FindAbilityByName("arcane_explosion")
     if IsValidEntity(arc_exp_ability) then
@@ -69,7 +68,7 @@ function think(event)
         end
     end
 
-    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), origin, nil, 1400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), origin, nil, 1400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 
     if #enemies == 0 then
         return
@@ -77,7 +76,7 @@ function think(event)
 
     local target = enemies[1]
 
-    ArcaneShell.cast(caster, ability:GetLevel()/7)
+    ArcaneShell.cast(caster, ability:GetLevel() / 7)
 
     EmitSoundOn("Sorceress.ArcaneTorrentLaunch", caster)
     local info =
@@ -96,8 +95,7 @@ function think(event)
         bProvidesVision = false,
         iVisionRadius = 0,
         iMoveSpeed = 800,
-        iVisionTeamNumber = caster:GetTeamNumber()
-    }
+    iVisionTeamNumber = caster:GetTeamNumber()}
 
     ProjectileManager:CreateTrackingProjectile(info)
 
@@ -107,7 +105,7 @@ function projectileHit(event)
     local caster = event.caster
     local ability = event.ability
     local target = event.target
-    local damage = ability.damage * caster:GetMana()/caster:GetMaxMana()
+    local damage = ability.damage * caster:GetMana() / caster:GetMaxMana()
 
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
     CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal_core.vpcf", target, 0.5)

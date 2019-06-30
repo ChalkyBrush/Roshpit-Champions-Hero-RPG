@@ -5,24 +5,23 @@ function dominion_bolt_fire(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local info = 
+	local info =
 	{
 		Target = target,
 		Source = caster,
-		Ability = ability,  
-		EffectName =  "particles/roshpit/ekkan/dominion_bolt_bolt3.vpcf",
+		Ability = ability,
+		EffectName = "particles/roshpit/ekkan/dominion_bolt_bolt3.vpcf",
 		StartPosition = "attach_hitloc",
-		bDrawsOnMinimap = false, 
-			bDodgeable = true,
-			bIsAttack = false, 
-			bVisibleToEnemies = true,
-			bReplaceExisting = false,
-			flExpireTime = GameRules:GetGameTime() + 8,
+		bDrawsOnMinimap = false,
+		bDodgeable = true,
+		bIsAttack = false,
+		bVisibleToEnemies = true,
+		bReplaceExisting = false,
+		flExpireTime = GameRules:GetGameTime() + 8,
 		bProvidesVision = true,
 		iVisionRadius = 0,
 		iMoveSpeed = 750,
-		iVisionTeamNumber = caster:GetTeamNumber()
-	}
+	iVisionTeamNumber = caster:GetTeamNumber()}
 	caster.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "ekkan")
 	projectile = ProjectileManager:CreateTrackingProjectile(info)
 	EmitSoundOn("Ekkan.Dominion.Launch", caster)
@@ -72,7 +71,7 @@ function dominion_debuff_death(event)
 	if unit.dominion then
 		local fv = unit:GetForwardVector()
 		local summonPosition = unit:GetAbsOrigin()
-		unit:SetAbsOrigin(summonPosition-Vector(0,0,800))
+		unit:SetAbsOrigin(summonPosition - Vector(0, 0, 800))
 		local summon = CreateUnitByName(unit:GetUnitName(), summonPosition, false, nil, nil, caster:GetTeamNumber())
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", summon, 3)
 		ability:ApplyDataDrivenModifier(caster, summon, "modifier_ekkan_dominion_unit", {})
@@ -82,7 +81,7 @@ function dominion_debuff_death(event)
 		local hp = unit:GetMaxHealth()
 		local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "ekkan")
 		if q_2_level > 0 then
-			hp = hp + hp*0.06*q_2_level
+			hp = hp + hp * 0.06 * q_2_level
 			hp = math.min(hp, 2000000000)
 		end
 		local armor = unit:GetPhysicalArmorBaseValue()
@@ -95,7 +94,7 @@ function dominion_debuff_death(event)
 		summon:SetPhysicalArmorBaseValue(armor)
 		summon:SetBaseMoveSpeed(movespeed)
 		summon:SetBaseDamageMin(attackDamage)
-		summon:SetBaseDamageMax(attackDamage) 
+		summon:SetBaseDamageMax(attackDamage)
 		summon.attackDamage = attackDamage
 		summon.armor = armor
 		summon.aggro = true
@@ -144,10 +143,10 @@ function dominion_debuff_death(event)
 		end
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dominion_counter", {})
 		caster:SetModifierStackCount("modifier_dominion_counter", caster, #ability.dominionTable)
-		
+
 		if caster:HasModifier("modifier_ekkan_glyph_5_a") and dominion_allowed_selfcasted_units(summon:GetUnitName()) then
 			event.attacker = summon
-			for i=1,EKKAN_GLYPH_5_a_STACKS do
+			for i = 1, EKKAN_GLYPH_5_a_STACKS do
 				dominion_unit_kill(event)
 				if event.unit.dominionLock then
 					event.unit.dominionLock = false
@@ -174,8 +173,8 @@ function dominion_debuff_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local burnPercent = event.burn_damage/100
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*burnPercent
+	local burnPercent = event.burn_damage / 100
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(target) * burnPercent
 	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_DEMON)
 end
 
@@ -192,7 +191,7 @@ function dominion_unit_think(event)
 		end
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin())
 		if distance > leashDistance then
-			FindClearSpaceForUnit(target, caster:GetAbsOrigin()+RandomVector(180), false)
+			FindClearSpaceForUnit(target, caster:GetAbsOrigin() + RandomVector(180), false)
 			Timers:CreateTimer(0.1, function()
 				CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan/unit_teleport_loadout.vpcf", target, 3)
 			end)
@@ -201,47 +200,47 @@ function dominion_unit_think(event)
 		if target.stance == "passive" then
 			return false
 		elseif target.stance == "follow" then
-			target:MoveToPosition(caster:GetAbsOrigin()+RandomVector(180))
+			target:MoveToPosition(caster:GetAbsOrigin() + RandomVector(180))
 			return false
 		else
 			if distance > 800 then
-				local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+				local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 				if #enemies == 0 then
-					target:MoveToPosition(caster:GetAbsOrigin()+RandomVector(180))
+					target:MoveToPosition(caster:GetAbsOrigin() + RandomVector(180))
 				end
 			end
 			if target:HasAbility("ekkan_mage_blast") then
-				local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, 750, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )	
+				local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, 750, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 				if #enemies > 0 then
 					local castPoint = enemies[1]:GetAbsOrigin()
 					local castAbility = target:FindAbilityByName("ekkan_mage_blast")
 					if castAbility:IsFullyCastable() then
 						local newOrder = {
-								UnitIndex = target:entindex(),
-								OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-								AbilityIndex = castAbility:entindex(),
-								Position = castPoint
-						 	}
-						 
-						ExecuteOrderFromTable(newOrder)		
-					end	
+							UnitIndex = target:entindex(),
+							OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+							AbilityIndex = castAbility:entindex(),
+							Position = castPoint
+						}
+
+						ExecuteOrderFromTable(newOrder)
+					end
 				end
 			end
 			if target:HasAbility("ekkan_familiar_stoneform") then
-				if target:GetHealth() <= target:GetMaxHealth()*0.7 then
-					local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )	
+				if target:GetHealth() <= target:GetMaxHealth() * 0.7 then
+					local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 					if #enemies > 0 then
 						target:MoveToPosition(enemies[1]:GetAbsOrigin())
 						Timers:CreateTimer(0.8, function()
 							local castAbility = target:FindAbilityByName("ekkan_familiar_stoneform")
 							if castAbility:IsFullyCastable() then
 								local newOrder = {
-										UnitIndex = target:entindex(),
-										OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-										AbilityIndex = castAbility:entindex(),
-								 	}
-								 
-								ExecuteOrderFromTable(newOrder)		
+									UnitIndex = target:entindex(),
+									OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+									AbilityIndex = castAbility:entindex(),
+								}
+
+								ExecuteOrderFromTable(newOrder)
 							end
 						end)
 					end
@@ -261,12 +260,12 @@ function dominion_unit_kill(event)
 		local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "ekkan")
 		if unit:GetDeathXP() > 10 then
 			if q_3_level > 0 then
-				attacker.armor = attacker.armor + q_3_level*4
+				attacker.armor = attacker.armor + q_3_level * 4
 				local damageGainMult = 1200
-				attacker.attackDamage = attacker.attackDamage + q_3_level*damageGainMult
+				attacker.attackDamage = attacker.attackDamage + q_3_level * damageGainMult
 				attacker:SetPhysicalArmorBaseValue(attacker.armor)
 				attacker:SetBaseDamageMin(attacker.attackDamage)
-				attacker:SetBaseDamageMax(attacker.attackDamage) 
+				attacker:SetBaseDamageMax(attacker.attackDamage)
 				EmitSoundOn("Ekkan.DarkJourney", attacker)
 				CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan_super_charge_buff_circle_flash.vpcf", attacker, 2)
 				local beamPFX = ParticleManager:CreateParticle("particles/roshpit/ekkan/cast_beams_beams.vpcf", PATTACH_CUSTOMORIGIN, attacker)
@@ -288,7 +287,7 @@ function dominion_zombie_strike_attack(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local luck = RandomInt(1,20)
+	local luck = RandomInt(1, 20)
 	local origCaster = event.caster.hero
 	if origCaster:GetRuneValue("q", 1) == 0 then --q1
 		return
@@ -296,10 +295,10 @@ function dominion_zombie_strike_attack(event)
 	ability.attack_damage = event.attack_damage
 	if luck == 1 then
 		EmitSoundOn("Ekkan.ZombieStrike", attacker)
-		local fv = ((target:GetAbsOrigin()-attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		local fv = ((target:GetAbsOrigin() - attacker:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 		local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), attacker:GetAbsOrigin())
-		local speed = distance*2
-		local info = 
+		local speed = distance * 2
+		local info =
 		{
 			Ability = ability,
 			EffectName = "particles/units/heroes/hero_vengeful/vengeful_wave_of_terror.vpcf",
@@ -330,7 +329,7 @@ function dominion_zombie_strike_hit(event)
 	local caster = event.caster.hero
 	local target = event.target
 	local ability = event.ability
-	local damage = caster.q_1_level*0.12*ability.attack_damage
+	local damage = caster.q_1_level * 0.12 * ability.attack_damage
 	ability:ApplyDataDrivenModifier(event.caster, target, "modifier_hit_by_zombie_strike", {duration = 0.3})
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 end

@@ -8,20 +8,18 @@ function modifier_master_movespeed:DeclareFunctions()
     return funcs
 end
 
-function modifier_master_movespeed:GetModifierIgnoreMovespeedLimit( params )
+function modifier_master_movespeed:GetModifierIgnoreMovespeedLimit(params)
     return 1
 end
 
-function modifier_master_movespeed:GetModifierMoveSpeed_AbsoluteMin( params )
-	local target = self:GetParent()
-	if target.master_move_speed then
-		return target.master_move_speed
-	else
-		return 100
+function modifier_master_movespeed:GetModifierMoveSpeed_AbsoluteMin(params)
+    local target = self:GetParent()
+    if target.master_move_speed then
+        return target.master_move_speed
+    else
+        return 100
     end
 end
-
-
 
 function modifier_master_movespeed:IsHidden()
     return true

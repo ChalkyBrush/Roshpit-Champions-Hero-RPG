@@ -643,23 +643,50 @@ function GameMode:OnPlayerChat(keys)
 			Notifications:Bottom(keys.playerid, {text = text2, duration = 15.0})
 			--print(text2)
 		end
-	elseif string.match(text, "-bossparagon") then
+	elseif string.match(text, "-boss_canyon_paragon") then
 		if Beacons.cheats then
 			Beacons.paragon = true
 			Beacons.packs = false
 			local unit = Redfall:SpawnCanyonBossParagonTest()
 		end
-	elseif string.match(text, "-bosspack") then
+	elseif string.match(text, "-boss_canyon_pack") then
 		if Beacons.cheats then
 			Beacons.paragon = false
 			Beacons.packs = true
 			local unit = Redfall:SpawnCanyonBossParagonTest()
 		end
-	elseif string.match(text, "-bossnormal") then
+	elseif string.match(text, "-boss_canyon_normal") then
 		if Beacons.cheats then
 			Beacons.paragon = false
 			Beacons.packs = false
 			local unit = Redfall:SpawnCanyonBossParagonTest()
+		end
+	elseif string.match(text, "-boss_fire_normal") then
+		if Beacons.cheats then
+			if not Tanari.FireTemple then
+				Tanari.FireTemple = {}
+			end
+			Beacons.paragon = false
+			Beacons.packs = false
+			Tanari:FireTempleFinalBossSpawn()
+		end
+	elseif string.match(text, "-boss_fire_paragon") then
+		if Beacons.cheats then
+			if not Tanari.FireTemple then
+				Tanari.FireTemple = {}
+			end
+			Beacons.paragon = true
+			Beacons.packs = false
+			Tanari:FireTempleFinalBossSpawn()
+		end
+	elseif string.match(text, "-boss_fire_pack") then
+		if Beacons.cheats then
+			if not Tanari.FireTemple then
+				Tanari.FireTemple = {}
+			end
+			Beacons.paragon = false
+			Beacons.packs = true
+			Tanari:FireTempleFinalBossSpawn()
 		end
 	elseif string.match(text, "-log") then
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid), "error_logger_open", {})

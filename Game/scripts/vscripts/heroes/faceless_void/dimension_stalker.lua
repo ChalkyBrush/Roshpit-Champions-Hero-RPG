@@ -4,7 +4,7 @@ function dimension_stalker_channel_start(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.6})
+	StartAnimation(caster, {duration = 2.0, activity = ACT_DOTA_CAST_ABILITY_1, rate = 0.6})
 
 	ability.liftspeed = 14.5
 	ability.anim = 0
@@ -26,13 +26,11 @@ function dimension_stalker_channel_start(event)
 	EmitSoundOn("Omniro.Ulti.Charge", caster)
 end
 
-
-
 function dimension_stalker_channel_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 600 then
-		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,ability.liftspeed))
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, ability.liftspeed))
 	end
 	ability.anim = ability.anim + 1
 	ability.liftspeed = math.max(ability.liftspeed - 0.5, 0)
@@ -48,7 +46,6 @@ function dimension_stalker_channel_end(event)
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dimension_stalker_channel_end", {duration = 4})
 
-
 end
 
 function dimension_stalker_channel_end_think(event)
@@ -58,15 +55,15 @@ function dimension_stalker_channel_end_think(event)
 	-- caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,ability.fallSpeed))
 	local landPoint = GetGroundPosition(caster:GetAbsOrigin(), caster)
 	if landPoint.z + 10 < caster:GetAbsOrigin().z then
-		
-		caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,ability.fallSpeed))
+
+		caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, ability.fallSpeed))
 	end
-	
+
 	if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 10 then
 		caster:RemoveModifierByName("modifier_dimension_stalker_channel_end")
 		Timers:CreateTimer(0.03, function()
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-			StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_1_END, rate=1.1})
+			StartAnimation(caster, {duration = 0.4, activity = ACT_DOTA_CAST_ABILITY_1_END, rate = 1.1})
 		end)
 	end
 end
@@ -95,10 +92,10 @@ function fire_dimension_stalker(event)
 	end
 
 	local interval_between_strikes = 0.06
-    local duration = max_targets*interval_between_strikes + interval_between_strikes
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_dimension_stalker_active", {duration = duration})
-   	EmitSoundOn("Omniro.DimensionStalk.Success.VO", caster)
-   	ability.enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	local duration = max_targets * interval_between_strikes + interval_between_strikes
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dimension_stalker_active", {duration = duration})
+	EmitSoundOn("Omniro.DimensionStalk.Success.VO", caster)
+	ability.enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	Filters:CastSkillArguments(4, caster)
 end
 
@@ -106,21 +103,21 @@ function dimension_stalker_active_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local radius = event.radius
-    local enemies = ability.enemies
+	local enemies = ability.enemies
 
-    if #enemies > 0 then    
-    	local target = enemies[RandomInt(1, #enemies)]
-   		if target and IsValidEntity(target) then
-   			if not target.dummy then
-   				CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/dimension_stalk_attack.vpcf", target, 3)
-   				Timers:CreateTimer(0.1, function()
-   					Filters:PerformAttackSpecial(caster, target, false, true, true, false, false, false, true)
-   				end)
-   			end
-   		end
-    end	
+	if #enemies > 0 then
+		local target = enemies[RandomInt(1, #enemies)]
+		if target and IsValidEntity(target) then
+			if not target.dummy then
+				CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/dimension_stalk_attack.vpcf", target, 3)
+				Timers:CreateTimer(0.1, function()
+					Filters:PerformAttackSpecial(caster, target, false, true, true, false, false, false, true)
+				end)
+			end
+		end
+	end
 	-- if ability.aoePFX then
-	-- 	ParticleManager:SetParticleControl(ability.aoePFX, 0, caster:GetAbsOrigin())
+	-- ParticleManager:SetParticleControl(ability.aoePFX, 0, caster:GetAbsOrigin())
 	-- end
 end
 

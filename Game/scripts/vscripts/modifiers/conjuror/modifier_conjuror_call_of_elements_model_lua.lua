@@ -1,14 +1,14 @@
 modifier_conjuror_call_of_elements_model_lua = class({})
 
 function modifier_conjuror_call_of_elements_model_lua:DeclareFunctions()
-    local funcs = {
-        MODIFIER_PROPERTY_MODEL_SCALE
-    }
+	local funcs = {
+		MODIFIER_PROPERTY_MODEL_SCALE
+	}
 
-    return funcs
+	return funcs
 end
 
-function modifier_conjuror_call_of_elements_model_lua:GetModifierModelScale( params )
+function modifier_conjuror_call_of_elements_model_lua:GetModifierModelScale(params)
 	local size = 20
 	local ability = self:GetAbility()
 	if ability then
@@ -22,5 +22,5 @@ function modifier_conjuror_call_of_elements_model_lua:GetModifierModelScale( par
 end
 
 function modifier_conjuror_call_of_elements_model_lua:IsHidden()
-    return true
+	return true
 end

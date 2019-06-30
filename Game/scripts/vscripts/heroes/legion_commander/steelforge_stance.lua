@@ -28,10 +28,10 @@ function energy_shield_create(event)
 		caster:SetModifierStackCount("modifier_protector_rune_w4_bonus_damage", caster, bonus_damage)
 	end
 
-	caster.mountainGuardianMagic = 1+(w_2_level*0.04)
+	caster.mountainGuardianMagic = 1 + (w_2_level * 0.04)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_energy_channel_animating", {duration = 6})
 	Timers:CreateTimer(0.05, function()
-		EmitSoundOn("MysticAssasin.ShieldYell"..RandomInt(1,2), caster)
+		EmitSoundOn("MysticAssasin.ShieldYell"..RandomInt(1, 2), caster)
 	end)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "MountainProtector.SteelForm", caster)
 	Timers:CreateTimer(0.1, function()
@@ -42,28 +42,27 @@ function energy_shield_create(event)
 		StopSoundEvent("MountainProtector.SteelFormLoop", caster)
 	end)
 	CustomAbilities:QuickAttachParticleWithPointFollow("particles/roshpit/mountain_protector/steelforge_start_teleport_ti7_out.vpcf", caster, 3, "attach_origin")
-	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_TELEPORT_END, rate=1.4})
+	StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_TELEPORT_END, rate = 1.4})
 
 	local w_1_level = caster:GetRuneValue("w", 1)
 	if w_1_level > 0 then
 		local position = caster:GetAbsOrigin()
 		local particleName = "particles/roshpit/mountain_protector/steelforge_explosion.vpcf"
-		local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-		ParticleManager:SetParticleControl( particle1, 0, position )
-		Timers:CreateTimer(4, 
-		function()
-			ParticleManager:DestroyParticle( particle1, false )
-		end)	
-		local damage = w_1_level*OverflowProtectedGetAverageTrueAttackDamage(caster)*0.50 + w_1_level*caster:GetStrength()*10
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(particle1, 0, position)
+		Timers:CreateTimer(4, function()
+			ParticleManager:DestroyParticle(particle1, false)
+		end)
+		local damage = w_1_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.50 + w_1_level * caster:GetStrength() * 10
 		EmitSoundOnLocationWithCaster(position, "MysticAssasin.FissureExplosion", caster)
 		local explosionAOE = 800
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
-			for _,enemy in pairs(enemies) do
+			for _, enemy in pairs(enemies) do
 				Filters:ApplyStun(caster, 0.5, enemy)
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_EARTH, RPC_ELEMENT_ICE)
 			end
-		end 
+		end
 	end
 	ability.w_3_level = caster:GetRuneValue("w", 3)
 	ability.w_4_level = caster:GetRuneValue("w", 4)
@@ -91,11 +90,10 @@ end
 
 function energy_shield_end(event)
 	local caster = event.caster
-	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_TELEPORT_END, rate=1.4})
+	StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_TELEPORT_END, rate = 1.4})
 	caster:RemoveModifierByName("modifier_protector_rune_w_3_aura")
 	caster:RemoveModifierByName("modifier_protector_rune_w4_bonus_damage")
 	caster:RemoveModifierByName("modifier_protector_steelforge_regen")
-
 
 end
 
@@ -118,18 +116,18 @@ function steelforge_take_damage(event)
 				end
 				if ability.w_3_particles < 10 then
 					ability.w_3_particles = ability.w_3_particles + 1
-					local c_b_damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*constants.ARCANA1_W3_DAMAGE_PERCENT/100 * ability.w_3_level
+					local c_b_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * constants.ARCANA1_W3_DAMAGE_PERCENT / 100 * ability.w_3_level
 					Filters:TakeArgumentsAndApplyDamage(target, caster, c_b_damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_ICE)
-					local pfx = ParticleManager:CreateParticle( "particles/roshpit/mountain_protector/blue_steel_dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, caster )
-					ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT, "attach_hitloc", caster:GetAbsOrigin()+Vector(0,0,80), true)
-					ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,80), true)
-					Timers:CreateTimer(2.0, function() 
-					  ParticleManager:DestroyParticle( pfx, false )
-					  ability.w_3_particles = ability.w_3_particles - 1
-					end) 	
+					local pfx = ParticleManager:CreateParticle("particles/roshpit/mountain_protector/blue_steel_dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, caster)
+					ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT, "attach_hitloc", caster:GetAbsOrigin() + Vector(0, 0, 80), true)
+					ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin() + Vector(0, 0, 80), true)
+					Timers:CreateTimer(2.0, function()
+						ParticleManager:DestroyParticle(pfx, false)
+						ability.w_3_particles = ability.w_3_particles - 1
+					end)
 				end
 			end
 
-		end	
+		end
 	end
 end

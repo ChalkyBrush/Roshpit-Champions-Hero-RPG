@@ -1,5 +1,5 @@
 blaster_lua = class({})
-LinkLuaModifier( "modifier_blaster_ice_lua", "items/modifier_blaster.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_blaster_ice_lua", "items/modifier_blaster.lua", LUA_MODIFIER_MOTION_NONE)
 
 function useBlaster(event)
 	local caster = event.caster
@@ -138,7 +138,7 @@ function blink(propertyValue, ability)
 end
 
 function heal(amount, caster)
- 	caster:Heal( amount, caster)
+	caster:Heal(amount, caster)
 	PopupHealing(caster, amount)
 end
 
@@ -158,26 +158,26 @@ end
 function createProjectile(caster, ability)
 	local fv = ability.fv
 	local origin = caster:GetAbsOrigin()
-	local spellOrigin = origin+fv*80
+	local spellOrigin = origin + fv * 80
 	--A Liner Projectile must have a table with projectile info
-	
 
-	local info = 
+
+	local info =
 	{
-			Ability = ability,
-        	EffectName = ability.particle,
-        	vSpawnOrigin = spellOrigin,
-        	fDistance = ability.distance,
-        	fStartRadius = ability.startRadius,
-        	fEndRadius = ability.endRadius,
-        	Source = caster,
-        	StartPosition = "attach_origin",
-        	bHasFrontalCone = true,
-        	bReplaceExisting = false,
-        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        	fExpireTime = GameRules:GetGameTime() + 5.0,
+		Ability = ability,
+		EffectName = ability.particle,
+		vSpawnOrigin = spellOrigin,
+		fDistance = ability.distance,
+		fStartRadius = ability.startRadius,
+		fEndRadius = ability.endRadius,
+		Source = caster,
+		StartPosition = "attach_origin",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
 		bDeleteOnHit = false,
 		vVelocity = fv * 700,
 		bProvidesVision = false,
@@ -187,11 +187,10 @@ function createProjectile(caster, ability)
 	EmitSoundOn(ability.sound, caster)
 
 	if ability.extra_shots then
-	  Timers:CreateTimer(1, 
-	    function()
+		Timers:CreateTimer(1, function()
 			projectile = ProjectileManager:CreateLinearProjectile(info)
 			EmitSoundOn(ability.sound, caster)
-	    end)
+		end)
 	end
 	if ability.caster_knockback then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_blaster_knockback", {duration = 0.6})
@@ -201,7 +200,7 @@ function createProjectile(caster, ability)
 	end
 	if ability.caster_blink then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_blaster_blink", {duration = 0.7})
-		local blink_pos = origin + fv*ability.caster_blink_value
+		local blink_pos = origin + fv * ability.caster_blink_value
 		caster:SetAbsOrigin(blink_pos)
 	end
 	if ability.torrent then
@@ -212,46 +211,43 @@ function createProjectile(caster, ability)
 	end
 end
 
-
-
 function targetHit(event)
-local caster = event.caster
-local ability = event.ability
-local target = event.target
-local damageTable = {
-	victim = target,
-	attacker = caster,
-	damage = ability.damage,
-	damage_type = DAMAGE_TYPE_PURE,
-}
- 
-ApplyDamage(damageTable)
-if ability.type == "fire" then
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_fire_blaster", {duration = ability.debuff_duration})
-elseif ability.type == "ice" then
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_ice_blaster", {duration = ability.debuff_duration})
-	target:SetModifierStackCount( "modifier_ice_blaster", ability, ability.modifier_magnitude )
-elseif ability.type == "wind" then
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_wind_blaster", {duration = ability.debuff_duration})
-	target:SetModifierStackCount( "modifier_wind_blaster", ability, ability.modifier_magnitude )
-end
-if ability.blaster_root then
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_blaster_root", {duration = ability.blaster_root_duration})
-end
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local damageTable = {
+		victim = target,
+		attacker = caster,
+		damage = ability.damage,
+		damage_type = DAMAGE_TYPE_PURE,
+	}
 
+	ApplyDamage(damageTable)
+	if ability.type == "fire" then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_fire_blaster", {duration = ability.debuff_duration})
+	elseif ability.type == "ice" then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ice_blaster", {duration = ability.debuff_duration})
+		target:SetModifierStackCount("modifier_ice_blaster", ability, ability.modifier_magnitude)
+	elseif ability.type == "wind" then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_wind_blaster", {duration = ability.debuff_duration})
+		target:SetModifierStackCount("modifier_wind_blaster", ability, ability.modifier_magnitude)
+	end
+	if ability.blaster_root then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_blaster_root", {duration = ability.blaster_root_duration})
+	end
 
 end
 
 function FireBlasterBurn(event)
-local target = event.target
-local ability = event.ability
-local damageTable = {
+	local target = event.target
+	local ability = event.ability
+	local damageTable = {
 		victim = target,
 		attacker = event.caster,
 		damage = 20,
 		damage_type = DAMAGE_TYPE_PURE,
-	   }
-		ApplyDamage(damageTable)
+	}
+	ApplyDamage(damageTable)
 end
 
 function knockback_interval(keys)
@@ -260,19 +256,19 @@ function knockback_interval(keys)
 	local modifier = caster:FindModifierByName("modifier_blaster_knockback")
 	local origin = caster:GetAbsOrigin()
 	local fv = ability.fv
-	local deceleration = ability.caster_knockback_distance/120
-	
+	local deceleration = ability.caster_knockback_distance / 120
+
 	if not ability.kb_velocity then
-		ability.kb_velocity = ability.caster_knockback_distance/6 
+		ability.kb_velocity = ability.caster_knockback_distance / 6
 	end
-	local obstruction = WallPhysics:FindNearestObstruction(origin*Vector(1,1,0))
-    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, origin*Vector(1,1,0))
-    if blockUnit then
-    	ability.kb_velocity = 0
-    end
-	local newPosition = origin-(fv*ability.kb_velocity)
+	local obstruction = WallPhysics:FindNearestObstruction(origin * Vector(1, 1, 0))
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, origin * Vector(1, 1, 0))
+	if blockUnit then
+		ability.kb_velocity = 0
+	end
+	local newPosition = origin - (fv * ability.kb_velocity)
 	ability.kb_velocity = math.max(ability.kb_velocity - deceleration, 0)
-	groundPosition = GetGroundPosition( newPosition, caster )
+	groundPosition = GetGroundPosition(newPosition, caster)
 	if origin.z - groundPosition.z > -200 then
 		caster:SetAbsOrigin(groundPosition)
 	end
@@ -283,21 +279,21 @@ function modifier_knockback_on_destroy(keys)
 	local ability = keys.ability
 	local origin = caster:GetAbsOrigin()
 	FindClearSpaceForUnit(caster, origin, true)
-	ability.kb_velocity = nil	
+	ability.kb_velocity = nil
 end
 
 function create_dummy_ability(location, caster, abilityName, abilityLevel)
 	--print(abilityName)
-  	local dummy = CreateUnitByName("npc_dummy_unit", location, true, caster, caster, caster:GetTeamNumber())
-  	dummy.owner = caster:GetPlayerOwnerID()
+	local dummy = CreateUnitByName("npc_dummy_unit", location, true, caster, caster, caster:GetTeamNumber())
+	dummy.owner = caster:GetPlayerOwnerID()
 
-  	dummy:AddAbility(abilityName)
-  	dummy:NoHealthBar()
-  	dummy:AddAbility("dummy_unit")
-  	dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+	dummy:AddAbility(abilityName)
+	dummy:NoHealthBar()
+	dummy:AddAbility("dummy_unit")
+	dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
 
-  	local blast = dummy:FindAbilityByName(abilityName)
-  	blast:SetLevel(abilityLevel)
+	local blast = dummy:FindAbilityByName(abilityName)
+	blast:SetLevel(abilityLevel)
 	local order =
 	{
 		UnitIndex = dummy:GetEntityIndex(),
@@ -307,7 +303,7 @@ function create_dummy_ability(location, caster, abilityName, abilityLevel)
 		Queue = true
 	}
 	ExecuteOrderFromTable(order)
-	  Timers:CreateTimer(8, 	  function()
-		dummy:RemoveSelf() 
-	  end)	
+	Timers:CreateTimer(8, function()
+		dummy:RemoveSelf()
+	end)
 end

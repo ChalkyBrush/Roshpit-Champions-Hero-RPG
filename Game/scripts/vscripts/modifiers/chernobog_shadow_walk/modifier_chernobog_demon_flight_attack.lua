@@ -11,16 +11,16 @@ function modifier_chernobog_demon_flight_attack:DeclareFunctions()
     return funcs
 end
 
-function modifier_chernobog_demon_flight_attack:GetModifierAttackRangeBonus( params )
+function modifier_chernobog_demon_flight_attack:GetModifierAttackRangeBonus(params)
     return 700
 end
 
-function modifier_chernobog_demon_flight_attack:GetModifierProjectileSpeedBonus( params )
+function modifier_chernobog_demon_flight_attack:GetModifierProjectileSpeedBonus(params)
     return 500
 end
 
-function modifier_chernobog_demon_flight_attack:GetAttackSound( params )
-	return "Chernobog.DemonFlight.Attack"
+function modifier_chernobog_demon_flight_attack:GetAttackSound(params)
+    return "Chernobog.DemonFlight.Attack"
 end
 
 function modifier_chernobog_demon_flight_attack:IsHidden()

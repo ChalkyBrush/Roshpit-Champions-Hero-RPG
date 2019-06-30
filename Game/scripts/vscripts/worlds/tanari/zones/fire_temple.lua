@@ -9,51 +9,51 @@ function Tanari:InitializeFireTemple()
 	Timers:CreateTimer(7, function()
 		EmitGlobalSound("Tanari.TempleStart")
 	end)
-		Timers:CreateTimer(15, function()
-			if not Tanari.FireTemple.BossBattleBegun then
-				EmitSoundOnLocationWithCaster(Vector(1344, -7872, 200), "Tanari.FireTemple.Music", Events.GameMaster)
-				Timers:CreateTimer(112, function()
-					local heroLocTable = {}
-					for i = 1, #MAIN_HERO_TABLE, 1 do
-						local heroPos = MAIN_HERO_TABLE[i]:GetAbsOrigin()
-						if heroPos.x > -1266 and heroPos.y < -4928 then
-							table.insert(heroLocTable, heroPos)
-						end
+	Timers:CreateTimer(15, function()
+		if not Tanari.FireTemple.BossBattleBegun then
+			EmitSoundOnLocationWithCaster(Vector(1344, -7872, 200), "Tanari.FireTemple.Music", Events.GameMaster)
+			Timers:CreateTimer(112, function()
+				local heroLocTable = {}
+				for i = 1, #MAIN_HERO_TABLE, 1 do
+					local heroPos = MAIN_HERO_TABLE[i]:GetAbsOrigin()
+					if heroPos.x > -1266 and heroPos.y < -4928 then
+						table.insert(heroLocTable, heroPos)
 					end
-					if #heroLocTable > 0 then
-						local totalVector = Vector(0,0,0)
-						for j = 1, #heroLocTable, 1 do
-							totalVector = totalVector+heroLocTable[j]
-						end
-						local avgVector = totalVector/#heroLocTable
-						if not Tanari.FireTemple.BossBattleBegun then
-							EmitSoundOnLocationWithCaster(avgVector, "Tanari.FireTemple.Music", Events.GameMaster)
-						end
+				end
+				if #heroLocTable > 0 then
+					local totalVector = Vector(0, 0, 0)
+					for j = 1, #heroLocTable, 1 do
+						totalVector = totalVector + heroLocTable[j]
 					end
-					EmitSoundOnLocationWithCaster(Vector(-13825, -14515), "Tanari.FireTemple.Music", Events.GameMaster)
-					EmitSoundOnLocationWithCaster(Vector(-14184, -8668), "Tanari.FireTemple.Music", Events.GameMaster)
+					local avgVector = totalVector / #heroLocTable
 					if not Tanari.FireTemple.BossBattleBegun then
-						return 112
+						EmitSoundOnLocationWithCaster(avgVector, "Tanari.FireTemple.Music", Events.GameMaster)
 					end
-				end)
-			end
-		end)
+				end
+				EmitSoundOnLocationWithCaster(Vector(-13825, -14515), "Tanari.FireTemple.Music", Events.GameMaster)
+				EmitSoundOnLocationWithCaster(Vector(-14184, -8668), "Tanari.FireTemple.Music", Events.GameMaster)
+				if not Tanari.FireTemple.BossBattleBegun then
+					return 112
+				end
+			end)
+		end
+	end)
 
 end
 
 function Tanari:FireTempleWalls()
 	local movementZ = -4.00
-	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-563,-9344,420), 1000, 900, false)
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-563, -9344, 420), 1000, 900, false)
 	Timers:CreateTimer(5, function()
-		local walls = Entities:FindAllByNameWithin("FireTempleEntranceWall", Vector(-563,-9344,220), 600)
+		local walls = Entities:FindAllByNameWithin("FireTempleEntranceWall", Vector(-563, -9344, 220), 600)
 		Timers:CreateTimer(0.1, function()
 			EmitSoundOnLocationWithCaster(walls[1]:GetAbsOrigin(), "Tanari.WallOpen", Events.GameMaster)
 		end)
 		for i = 1, 90, 1 do
 			for j = 1, #walls, 1 do
-				Timers:CreateTimer(i*0.03, function()
-					walls[j]:SetAbsOrigin(walls[j]:GetAbsOrigin()+Vector(0,0,movementZ))
-					walls[j]:SetAbsOrigin(walls[j]:GetAbsOrigin()+Vector(0,0,movementZ))
+				Timers:CreateTimer(i * 0.03, function()
+					walls[j]:SetAbsOrigin(walls[j]:GetAbsOrigin() + Vector(0, 0, movementZ))
+					walls[j]:SetAbsOrigin(walls[j]:GetAbsOrigin() + Vector(0, 0, movementZ))
 					if j == 1 then
 						ScreenShake(walls[j]:GetAbsOrigin(), 200, 0.1, 0.1, 9000, 0, true)
 					end
@@ -62,16 +62,16 @@ function Tanari:FireTempleWalls()
 		end
 	end)
 	Timers:CreateTimer(5.3, function()
-		local blockers = Entities:FindAllByNameWithin("FireTempleEntranceBlocker", Vector(-768,-9472,-25), 1100)
+		local blockers = Entities:FindAllByNameWithin("FireTempleEntranceBlocker", Vector(-768, -9472, -25), 1100)
 		for i = 1, #blockers, 1 do
 			UTIL_Remove(blockers[i])
 		end
 	end)
-		local particleName = "particles/dire_fx/fire_ambience.vpcf"
-         local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-          ParticleManager:SetParticleControl(particle1,0,Vector(-794, -10074, 925))
-         local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-          ParticleManager:SetParticleControl(particle2,0,Vector(-929, -9004, 904))
+	local particleName = "particles/dire_fx/fire_ambience.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+	ParticleManager:SetParticleControl(particle1, 0, Vector(-794, -10074, 925))
+	local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+	ParticleManager:SetParticleControl(particle2, 0, Vector(-929, -9004, 904))
 end
 
 function Tanari:SpawnBlackguard(position, fv)
@@ -101,18 +101,18 @@ end
 
 function Tanari:FireTempleInitMobs()
 	for i = 1, 2, 1 do
-		local unit = Tanari:SpawnBlackguard(Vector(320, -7360), Vector(1,0))
+		local unit = Tanari:SpawnBlackguard(Vector(320, -7360), Vector(1, 0))
 		unit.patrolPositionTable = {Vector(256, -8704), Vector(320, -7360)}
 		unit:AddAbility("monster_patrol"):SetLevel(1)
 	end
-	Tanari:SpawnBlackguard(Vector(501, -8704), Vector(-1,-1))
-	Tanari:SpawnBlackguard(Vector(647, -9216), Vector(-1,-0.1))
+	Tanari:SpawnBlackguard(Vector(501, -8704), Vector(-1, -1))
+	Tanari:SpawnBlackguard(Vector(647, -9216), Vector(-1, -0.1))
 
-	Tanari:SpawnBlackguardCultist(Vector(126, -9938), Vector(0,1))
-	Tanari:SpawnBlackguardCultist(Vector(704, -9765), Vector(-1,0.3))
+	Tanari:SpawnBlackguardCultist(Vector(126, -9938), Vector(0, 1))
+	Tanari:SpawnBlackguardCultist(Vector(704, -9765), Vector(-1, 0.3))
 	Timers:CreateTimer(3, function()
 		for i = 1, 2, 1 do
-			local unit = Tanari:SpawnBlackguardCultist(Vector(512, -6400), Vector(1,0))
+			local unit = Tanari:SpawnBlackguardCultist(Vector(512, -6400), Vector(1, 0))
 			unit.patrolPositionTable = {Vector(512, -9472), Vector(512, -6400)}
 			unit:AddAbility("monster_patrol"):SetLevel(1)
 		end
@@ -127,15 +127,15 @@ function Tanari:FireTempleInitMobs()
 		local particleName = "particles/dire_fx/fire_ambience.vpcf"
 		local vectorTable = {Vector(969, -10094, 260), Vector(929, -9241, 260), Vector(667, -8476, 256), Vector(668, -7525, 223), Vector(1054, -6677, 329)}
 		for i = 1, #vectorTable, 1 do
-         	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-          ParticleManager:SetParticleControl(particle1,0,vectorTable[i]+Vector(0,0,400))
+			local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+			ParticleManager:SetParticleControl(particle1, 0, vectorTable[i] + Vector(0, 0, 400))
 		end
 	end)
 end
 
 function Tanari:SpawnVolcanoDragon(position, fv)
 	local stone = Tanari:SpawnDungeonUnit("fire_temple_volcano_dragon", position, 0, 2, "Tanari.BlackDrake.Aggro", fv, false)
-	stone:SetRenderColor(255,0,0)
+	stone:SetRenderColor(255, 0, 0)
 	Events:AdjustBossPower(stone, 1, 1, false)
 	stone.itemLevel = 84
 	stone.dominion = true
@@ -144,7 +144,7 @@ end
 
 function Tanari:SpawnBlackguardDoombringer(position, fv)
 	local stone = Tanari:SpawnDungeonUnit("fire_temple_blackguard_doombringer", position, 2, 3, "Tanari.FireTemple.BlackguardDoombringerAggro", fv, false)
-	stone:SetRenderColor(255,200,200)
+	stone:SetRenderColor(255, 200, 200)
 	Events:AdjustBossPower(stone, 3, 3, false)
 	stone.itemLevel = 87
 	stone.dominion = true
@@ -159,9 +159,9 @@ function Tanari:FireTempleSpawnFirstLavaArea()
 	flamebousAbility:ApplyDataDrivenModifier(Tanari.FireTemple.flameDummy, Tanari.FireTemple.flameDummy, "modifier_flamebous_fly_height", {})
 	-- local zDifference = math.max(0, 700- GetGroundHeight(Tanari.FireTemple.flameDummy:GetAbsOrigin(), Tanari.FireTemple.flameDummy))
 	Tanari.FireTemple.flameDummy:SetModifierStackCount("modifier_flamebous_fly_height", Tanari.FireTemple.flameDummy, 400)
-	Tanari.FireTemple.flameDummy.zDifference = 400	
+	Tanari.FireTemple.flameDummy.zDifference = 400
 	Tanari.FireTemple.flameDummy.targetZ = 400
-	
+
 	local patrolFairyTable = {}
 	local fairy = Tanari:SpawnVolcanoDragon(Vector(1999, -6208), RandomVector(1))
 	fairy.patrolPositionTable = {Vector(2880, -7008), Vector(1999, -6208)}
@@ -179,46 +179,46 @@ function Tanari:FireTempleSpawnFirstLavaArea()
 			local baseVector = Vector(1663, -8917)
 			local randomX = RandomInt(1, 1400)
 			local randomY = RandomInt(1, 1200)
-			local patrolPoint1 = baseVector+Vector(randomX, randomY)
+			local patrolPoint1 = baseVector + Vector(randomX, randomY)
 			randomX = RandomInt(1, 1400)
 			randomY = RandomInt(1, 1200)
-			local patrolPoint2 = baseVector+Vector(randomX, randomY)
-			fairy = Tanari:SpawnVolcanoDragon(patrolPoint1, Vector(0,1))
+			local patrolPoint2 = baseVector + Vector(randomX, randomY)
+			fairy = Tanari:SpawnVolcanoDragon(patrolPoint1, Vector(0, 1))
 			fairy.patrolPositionTable = {patrolPoint2, patrolPoint1}
-			table.insert(patrolFairyTable, fairy)		
+			table.insert(patrolFairyTable, fairy)
 		end
 
-		for i =1, #patrolFairyTable, 1 do
+		for i = 1, #patrolFairyTable, 1 do
 			patrolFairyTable[i].patrolSlow = 45
 			patrolFairyTable[i].phaseIntervals = 4
 			patrolFairyTable[i].patrolPointRandom = 320
-			
+
 			patrolFairyTable[i]:AddAbility("monster_patrol"):SetLevel(1)
 		end
 	end)
-	Tanari:SpawnBlackguardDoombringer(Vector(1985, -6532), Vector(-1,0))
+	Tanari:SpawnBlackguardDoombringer(Vector(1985, -6532), Vector(-1, 0))
 	Timers:CreateTimer(1, function()
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(1985, -6532), 500, 10, false)
 	end)
 	Timers:CreateTimer(4, function()
-		Tanari:SpawnBlackguardDoombringer(Vector(1792, -7488), Vector(1,-0.3))
+		Tanari:SpawnBlackguardDoombringer(Vector(1792, -7488), Vector(1, -0.3))
 	end)
 	Timers:CreateTimer(3, function()
-		Tanari:SpawnLavaPrisoner(Vector(-1,0), Vector(3172, -7395))
-		Tanari:SpawnLavaPrisoner(Vector(0,1), Vector(2004, -8105))
+		Tanari:SpawnLavaPrisoner(Vector(-1, 0), Vector(3172, -7395))
+		Tanari:SpawnLavaPrisoner(Vector(0, 1), Vector(2004, -8105))
 	end)
 	-- Timers:CreateTimer(3.5, function()
-	-- 	Tanari:SpawnTerrasicStoneGiant(Vector(0,-1), Vector(2523, -7309))
+	-- Tanari:SpawnTerrasicStoneGiant(Vector(0,-1), Vector(2523, -7309))
 	-- end)
 	Timers:CreateTimer(8, function()
-		Tanari:SpawnMoltenWarKnight(Vector(-1,0.3), Vector(2560, -8950))
+		Tanari:SpawnMoltenWarKnight(Vector(-1, 0.3), Vector(2560, -8950))
 	end)
 end
 
 function Tanari:SpawnLavaPrisoner(fv, position)
 	local beast = Tanari:SpawnEnemyUnit("fire_temple_burning_prisoner", position, fv)
 	beast:SetRenderColor(255, 170, 170)
-	beast:SetAbsOrigin(beast:GetAbsOrigin()-Vector(0,0,700))
+	beast:SetAbsOrigin(beast:GetAbsOrigin() - Vector(0, 0, 700))
 	beast.itemLevel = 88
 	local ability = beast:FindAbilityByName("fire_temple_lava_prisoner_ai")
 	ability:ApplyDataDrivenModifier(beast, beast, "modifier_lava_prisoner_submerged", {})
@@ -244,12 +244,12 @@ function Tanari:Room1Run()
 	end)
 	local rockFallTable = {Vector(2048, -9216, 400), Vector(2048, -8064, 400), Vector(2112, -7104, 400), Vector(3200, -6976, 400), Vector(2048, -9216, 400), Vector(2048, -8064, 400), Vector(2112, -7104, 400), Vector(3200, -6976, 400), Vector(2048, -9216, 400), Vector(2048, -8064, 400), Vector(2112, -7104, 400), Vector(3200, -6976, 400)}
 	for k = 1, #rockFallTable, 1 do
-		Timers:CreateTimer(4*k, function()
+		Timers:CreateTimer(4 * k, function()
 			ScreenShake(rockFallTable[k], 500, 2, 5, 9000, 0, true)
 			local rockfallParticle = "particles/dire_fx/dire_lava_falling_rocks.vpcf"
 			local position = rockFallTable[k]
 			local pfx = ParticleManager:CreateParticle(rockfallParticle, PATTACH_CUSTOMORIGIN, Events.GameMaster)
-			ParticleManager:SetParticleControl( pfx, 0, position )
+			ParticleManager:SetParticleControl(pfx, 0, position)
 			Timers:CreateTimer(12, function()
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
@@ -269,7 +269,7 @@ function Tanari:Room1Run()
 	table.insert(blackguardTable, black1)
 	Timers:CreateTimer(0.2, function()
 		for i = 1, #blackguardTable, 1 do
-			WallPhysics:Jump(blackguardTable[i], Vector(0,-1), RandomInt(12,14), RandomInt(12, 16), 18, 1)
+			WallPhysics:Jump(blackguardTable[i], Vector(0, -1), RandomInt(12, 14), RandomInt(12, 16), 18, 1)
 		end
 	end)
 	Timers:CreateTimer(3, function()
@@ -285,7 +285,7 @@ end
 
 function Tanari:SpawnShadowOfDavion(position, fv)
 	local stone = Tanari:SpawnDungeonUnit("fire_temple_lost_shadow_of_davion", position, 2, 4, "Tanari.FireTemple.DavionAggro", fv, false)
-	stone:SetRenderColor(20,20,20)
+	stone:SetRenderColor(20, 20, 20)
 	Events:AdjustBossPower(stone, 5, 5, false)
 	stone.itemLevel = 90
 	stone.dominion = true
@@ -294,7 +294,7 @@ end
 
 function Tanari:SpawnPassageSkeleton(position, fv)
 	local stone = Tanari:SpawnDungeonUnit("fire_temple_passage_skeleton", position, 0, 1, "Tanari.FireTemple.PassageSkeletonAggro", fv, false)
-	stone:SetRenderColor(180,0,0)
+	stone:SetRenderColor(180, 0, 0)
 	stone.itemLevel = 78
 	stone.dominion = true
 	return stone
@@ -304,8 +304,8 @@ function Tanari:SpawnFireTempleRoom1Part2()
 	local particleName = "particles/dire_fx/fire_ambience.vpcf"
 	local vectorTable = {Vector(1177, -9433, 256), Vector(1181, -9876, 265), Vector(2111, -9537, 151), Vector(2429, -9547, 149), Vector(2746, -9547, 147), Vector(3098, -9928, 129), Vector(3098, -10374, 129), Vector(2980, -11649, 166), Vector(1822, -11441.8, 192), Vector(2101, -13379, 576), Vector(1951, -15744, 414), Vector(738, -13618, 384), Vector(484, -13880, 393)}
 	for i = 1, #vectorTable, 1 do
-      local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-      ParticleManager:SetParticleControl(particle1,0,vectorTable[i]+Vector(0,0,400))
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+		ParticleManager:SetParticleControl(particle1, 0, vectorTable[i] + Vector(0, 0, 400))
 	end
 	Tanari:SpawnShadowOfDavion(Vector(2816, -9664), Vector(-1, 0))
 
@@ -314,13 +314,13 @@ function Tanari:SpawnFireTempleRoom1Part2()
 		for i = 1, 18, 1 do
 			local randomX = RandomInt(1, 1200)
 			local randomY = RandomInt(1, 320)
-			Tanari:SpawnPassageSkeleton(baseVector+Vector(randomX, randomY), RandomVector(1))
+			Tanari:SpawnPassageSkeleton(baseVector + Vector(randomX, randomY), RandomVector(1))
 		end
 	end)
 	Timers:CreateTimer(9, function()
-		Tanari:SpawnRelicHunter(Vector(3008, -10752), Vector(0,1))
-		Tanari:SpawnRelicHunter(Vector(1008, -11840), Vector(1,0.3))
-		Tanari:SpawnRelicHunter(Vector(1536, -12032), Vector(0.5,1))
+		Tanari:SpawnRelicHunter(Vector(3008, -10752), Vector(0, 1))
+		Tanari:SpawnRelicHunter(Vector(1008, -11840), Vector(1, 0.3))
+		Tanari:SpawnRelicHunter(Vector(1536, -12032), Vector(0.5, 1))
 	end)
 end
 
@@ -332,7 +332,7 @@ end
 
 function Tanari:SpawnRelicHunter(position, fv)
 	local stone = Tanari:SpawnDungeonUnit("fire_temple_relic_seeker", position, 2, 4, "Tanari.FireTemple.RelicSeekerAggro", fv, false)
-	stone:SetRenderColor(255,120,100)
+	stone:SetRenderColor(255, 120, 100)
 	Events:AdjustBossPower(stone, 3, 3, false)
 	stone.itemLevel = 88
 	stone.dominion = true
@@ -341,7 +341,7 @@ end
 
 function Tanari:SpawnSecretFanatic(position, fv)
 	local stone = Tanari:SpawnDungeonUnit("fire_temple_secret_fanatic", position, 2, 4, "Tanari.FireTemple.SecretFanaticAggro", fv, false)
-	stone:SetRenderColor(255,100,90)
+	stone:SetRenderColor(255, 100, 90)
 	Events:AdjustBossPower(stone, 3, 3, false)
 	stone.itemLevel = 91
 	stone.dominion = true
@@ -355,8 +355,8 @@ function Tanari:Steadfast(damage, victim)
 	elseif GameState:GetDifficultyFactor() == 3 then
 		thresh = 0.03
 	end
-	if damage > victim:GetMaxHealth()*thresh then
-		damage = victim:GetMaxHealth()*thresh
+	if damage > victim:GetMaxHealth() * thresh then
+		damage = victim:GetMaxHealth() * thresh
 	end
 	return damage
 end
@@ -366,12 +366,12 @@ function Tanari:InitiateYojimboSequence()
 		Tanari.FireTemple = {}
 	end
 	local particlePosition = Vector(2469, -14965, 640)
-	local pfx = ParticleManager:CreateParticle( "particles/customgames/capturepoints/cp_fire_captured.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
-	ParticleManager:SetParticleControl( pfx, 10, particlePosition )
-	ParticleManager:SetParticleControl( pfx, 0, particlePosition )
-	ParticleManager:SetParticleControl( pfx, 1, particlePosition )
-	ParticleManager:SetParticleControl( pfx, 2, particlePosition )
-	ParticleManager:SetParticleControl( pfx, 3, particlePosition )
+	local pfx = ParticleManager:CreateParticle("particles/customgames/capturepoints/cp_fire_captured.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+	ParticleManager:SetParticleControl(pfx, 10, particlePosition)
+	ParticleManager:SetParticleControl(pfx, 0, particlePosition)
+	ParticleManager:SetParticleControl(pfx, 1, particlePosition)
+	ParticleManager:SetParticleControl(pfx, 2, particlePosition)
+	ParticleManager:SetParticleControl(pfx, 3, particlePosition)
 	Timers:CreateTimer(0.2, function()
 		EmitGlobalSound("Tanari.FireTemple.ChineseGong")
 	end)
@@ -379,18 +379,18 @@ function Tanari:InitiateYojimboSequence()
 		Tanari.FireTemple.yojimboDummy = CreateUnitByName("npc_flying_dummy_vision", Vector(2876, -14966, 500), false, nil, nil, DOTA_TEAM_NEUTRALS)
 		local flamebousAbility = Tanari.FireTemple.yojimboDummy:AddAbility("fire_temple_statue_light_dummy")
 		flamebousAbility:SetLevel(1)
-
 		
+
 		for i = 1, 60, 1 do
-			Timers:CreateTimer(i*0.03, function()
-				Tanari.FireTemple.yojimboDummy:SetAbsOrigin(Tanari.FireTemple.yojimboDummy:GetAbsOrigin()+Vector(0,0,4))
+			Timers:CreateTimer(i * 0.03, function()
+				Tanari.FireTemple.yojimboDummy:SetAbsOrigin(Tanari.FireTemple.yojimboDummy:GetAbsOrigin() + Vector(0, 0, 4))
 			end)
 		end
 		Timers:CreateTimer(2.4, function()
 			local vectorTable = {Vector(1475, -13695, 278), Vector(2408, -14089, 278), Vector(2468, -15570, 278), Vector(1523, -15396, 278), Vector(930, -14748, 278), Vector(2879, -15099, 285)}
-			local fvTable = {Vector(0,-1), Vector(-1, -0.2), Vector(0.3, 1), Vector(1, -0.5), Vector(1, 0), Vector(-1,0)}
+			local fvTable = {Vector(0, -1), Vector(-1, -0.2), Vector(0.3, 1), Vector(1, -0.5), Vector(1, 0), Vector(-1, 0)}
 			for i = 1, #vectorTable, 1 do
-				Timers:CreateTimer(12*(i-1), function()
+				Timers:CreateTimer(12 * (i - 1), function()
 					local bBoss = false
 					if i == #vectorTable then
 						bBoss = true
@@ -407,14 +407,14 @@ function Tanari:StatueActivation(position, fv, bBoss)
 	local walls = Entities:FindAllByNameWithin("YojimboStatue", position, 600)
 	if #walls > 0 then
 		-- Timers:CreateTimer(0.1, function()
-		-- 	EmitSoundOnLocationWithCaster(walls[1]:GetAbsOrigin(), "Tanari.WallOpen", Events.GameMaster)
+		-- EmitSoundOnLocationWithCaster(walls[1]:GetAbsOrigin(), "Tanari.WallOpen", Events.GameMaster)
 		-- end)
 		for i = 1, 30, 1 do
 			for j = 1, #walls, 1 do
-				Timers:CreateTimer(i*0.3, function()
-					walls[j]:SetRenderColor(0, i*8, i*8)
+				Timers:CreateTimer(i * 0.3, function()
+					walls[j]:SetRenderColor(0, i * 8, i * 8)
 					if j == 1 then
-						Tanari:CreateCollectionBeam(Tanari.FireTemple.yojimboDummy:GetAbsOrigin()+Vector(0,0,100), position+Vector(0,0,530))
+						Tanari:CreateCollectionBeam(Tanari.FireTemple.yojimboDummy:GetAbsOrigin() + Vector(0, 0, 100), position + Vector(0, 0, 530))
 					end
 				end)
 			end
@@ -468,30 +468,30 @@ function Tanari:FireTempleRoom3()
 	local particleName = "particles/dire_fx/fire_ambience.vpcf"
 	local vectorTable = {Vector(3818, -14779, 513), Vector(4958, -13908, 587), Vector(4374, -13909, 576), Vector(4957, -13058, 586), Vector(4395, -13064, 590), Vector(4385, -12224, 590), Vector(4957, -12221, 590), Vector(5480, -11475, 613), Vector(6686, -11992, 640)}
 	for i = 1, #vectorTable, 1 do
-      local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-      ParticleManager:SetParticleControl(particle1,0,vectorTable[i]+Vector(0,0,400))
-	end	
-	Tanari:SpawnTemperedWarrior(Vector(4416, -15040), Vector(-1,0))
-	Tanari:SpawnTemperedWarrior(Vector(4480, -15552), Vector(-1,0.5))
-	Tanari:SpawnTemperedWarrior(Vector(4544, -14272), Vector(0,-1))
-	Tanari:SpawnSecretFanatic(Vector(4864, -14400), Vector(-0.5,-1))
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+		ParticleManager:SetParticleControl(particle1, 0, vectorTable[i] + Vector(0, 0, 400))
+	end
+	Tanari:SpawnTemperedWarrior(Vector(4416, -15040), Vector(-1, 0))
+	Tanari:SpawnTemperedWarrior(Vector(4480, -15552), Vector(-1, 0.5))
+	Tanari:SpawnTemperedWarrior(Vector(4544, -14272), Vector(0, -1))
+	Tanari:SpawnSecretFanatic(Vector(4864, -14400), Vector(-0.5, -1))
 
-	Tanari:SpawnRelicHunter(Vector(4544, -12992), Vector(0,-1))
-	Tanari:SpawnRelicHunter(Vector(4672, -13184), Vector(0,-1))
-	Tanari:SpawnRelicHunter(Vector(4800, -12992), Vector(0,-1))
+	Tanari:SpawnRelicHunter(Vector(4544, -12992), Vector(0, -1))
+	Tanari:SpawnRelicHunter(Vector(4672, -13184), Vector(0, -1))
+	Tanari:SpawnRelicHunter(Vector(4800, -12992), Vector(0, -1))
 
 	Timers:CreateTimer(3, function()
-		Tanari:SpawnCrazyJugg(Vector(4672, -12288), Vector(0,-1))
+		Tanari:SpawnCrazyJugg(Vector(4672, -12288), Vector(0, -1))
 	end)
 	Timers:CreateTimer(10, function()
-		Tanari:SpawnLumosAscender(Vector(6784, -13504), Vector(0.4,1))
+		Tanari:SpawnLumosAscender(Vector(6784, -13504), Vector(0.4, 1))
 	end)
 	Timers:CreateTimer(5, function()
 		if Tanari.RareLavaForge then
-			Tanari:SpawnRareLavaForgeMaster(Vector(6400, -12416), Vector(-1,0.2))
+			Tanari:SpawnRareLavaForgeMaster(Vector(6400, -12416), Vector(-1, 0.2))
 		end
 	end)
-	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(4480,-15232,420), 500, 30, false)
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(4480, -15232, 420), 500, 30, false)
 end
 
 function Tanari:SpawnTemperedWarrior(position, fv)
@@ -506,7 +506,7 @@ function Tanari:SpawnTemperedWarrior(position, fv)
 end
 
 function Tanari:SpawnCrazyJugg(position, fv)
-	local stone = Tanari:SpawnDungeonUnit( "fire_temple_mad_rito", position, 2, 4, "Tanari.FireTemple.CrazyJuggAggro", fv, false)
+	local stone = Tanari:SpawnDungeonUnit("fire_temple_mad_rito", position, 2, 4, "Tanari.FireTemple.CrazyJuggAggro", fv, false)
 	Events:AdjustBossPower(stone, 5, 5, false)
 	stone:SetRenderColor(255, 255, 60)
 	stone.itemLevel = 106
@@ -515,18 +515,16 @@ function Tanari:SpawnCrazyJugg(position, fv)
 end
 
 function Tanari:SpawnLumosAscender(position, fv)
-	local stone = Tanari:SpawnDungeonUnit( "fire_temple_lumos_ascender", position, 3, 4, "Tanari.FireTemple.LumosAggro", fv, false)
+	local stone = Tanari:SpawnDungeonUnit("fire_temple_lumos_ascender", position, 3, 4, "Tanari.FireTemple.LumosAggro", fv, false)
 	Events:AdjustBossPower(stone, 5, 5, false)
 	stone:SetRenderColor(100, 60, 180)
 	stone.itemLevel = 109
 	stone.targetRadius = 550
-	stone.minRadius	= 0
+	stone.minRadius = 0
 	stone.targetAbilityCD = 1
 	stone.targetFindOrder = FIND_FARTHEST
 	return stone
 end
-
-
 
 function Tanari:FireTempleWaveTrigger()
 	if not Tanari.FireTemple then
@@ -546,7 +544,7 @@ function Tanari:FireTempleWaveTrigger()
 	table.insert(Tanari.FireTemple.wavePFXTable, pfx)
 	pfx = Tanari:CreateFireTempleWavePortal(Vector(6373, -15236, 600))
 	table.insert(Tanari.FireTemple.wavePFXTable, pfx)
-	
+
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(6633, -15236), 700, 900, false)
 	Timers:CreateTimer(3, function()
 		Tanari:SpawnFireTempleWaveUnit("fire_temple_sky_guardian", portal1loc, 10, 100, 2.3, true)
@@ -556,75 +554,74 @@ function Tanari:FireTempleWaveTrigger()
 end
 
 function Tanari:CreateFireTempleWavePortal(position)
-	local particleName =  "particles/econ/events/league_teleport_2014/teleport_end_league.vpcf"
+	local particleName = "particles/econ/events/league_teleport_2014/teleport_end_league.vpcf"
 	local colorVector = Vector(255, 255, 255)
-	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, Events.GameMaster )
-	ParticleManager:SetParticleControl( pfx, 0, position+Vector(0,0,600) )
-	ParticleManager:SetParticleControl( pfx, 1, colorVector )
-	ParticleManager:SetParticleControl( pfx, 2, colorVector )
-	ParticleManager:SetParticleControl( pfx, 3, colorVector )
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, Events.GameMaster)
+	ParticleManager:SetParticleControl(pfx, 0, position + Vector(0, 0, 600))
+	ParticleManager:SetParticleControl(pfx, 1, colorVector)
+	ParticleManager:SetParticleControl(pfx, 2, colorVector)
+	ParticleManager:SetParticleControl(pfx, 3, colorVector)
 	return pfx
 end
 
 function Tanari:SpawnFireTempleWaveUnit(unitName, spawnPoint, quantity, itemLevel, delay, bSound)
 
-  local unit = false
-  for i = 0, quantity-1, 1 do
-    Timers:CreateTimer(i*delay, 
-    function()
-		if bSound then
-			EmitSoundOnLocationWithCaster(spawnPoint, "Tanari.FireTemple.WaveSpawn", Events.GameMaster)
-		end
-      local luck = RandomInt(1, 222)
-      if Events.SpiritRealm then
-      	luck = RandomInt(1, 80)
-      end
-      if luck == 1 then
-        unit = Paragon:SpawnParagonPack(unitName, spawnPoint)
-      elseif luck == 2 then
-        unit = Paragon:SpawnParagonUnit(unitName, spawnPoint)
-      else
-        unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
-    	Events:AdjustDeathXP(unit)
-      end
-      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
-      	unit.itemLevel = itemLevel
-      	unit:AddAbility("fire_temple_wave_room_ability"):SetLevel(1)
-      	unit:SetAcquisitionRange(3000)
-      	unit.dominion = true
-      	if unit:GetUnitName() == "fire_temple_dimension_seeker" then
-      		unit:SetRenderColor(255, 100, 0)
-      	elseif unit:GetUnitName() == "fire_temple_passage_skeleton" then
-      		unit:SetRenderColor(255, 0, 0)
-      	elseif unit:GetUnitName() == "fire_temple_skeleton_archer" then
-      		unit:SetRenderColor(255, 140, 0)
-      	end
-      else
-      	for i = 1, #unit.buddiesTable, 1 do
-      		unit.buddiesTable[i].itemLevel = itemLevel
-      		unit.buddiesTable[i]:AddAbility("fire_temple_wave_room_ability"):SetLevel(1)
-      		unit.buddiesTable[i]:SetAcquisitionRange(3000)
-      		unit.buddiesTable[i].dominion = true
-      	end
-      end
-    end)
-  end
+	local unit = false
+	for i = 0, quantity - 1, 1 do
+		Timers:CreateTimer(i * delay, function()
+			if bSound then
+				EmitSoundOnLocationWithCaster(spawnPoint, "Tanari.FireTemple.WaveSpawn", Events.GameMaster)
+			end
+			local luck = RandomInt(1, 222)
+			if Events.SpiritRealm then
+				luck = RandomInt(1, 80)
+			end
+			if luck == 1 then
+				unit = Paragon:SpawnParagonPack(unitName, spawnPoint)
+			elseif luck == 2 then
+				unit = Paragon:SpawnParagonUnit(unitName, spawnPoint)
+			else
+				unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
+				Events:AdjustDeathXP(unit)
+			end
+			if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
+				unit.itemLevel = itemLevel
+				unit:AddAbility("fire_temple_wave_room_ability"):SetLevel(1)
+				unit:SetAcquisitionRange(3000)
+				unit.dominion = true
+				if unit:GetUnitName() == "fire_temple_dimension_seeker" then
+					unit:SetRenderColor(255, 100, 0)
+				elseif unit:GetUnitName() == "fire_temple_passage_skeleton" then
+					unit:SetRenderColor(255, 0, 0)
+				elseif unit:GetUnitName() == "fire_temple_skeleton_archer" then
+					unit:SetRenderColor(255, 140, 0)
+				end
+			else
+				for i = 1, #unit.buddiesTable, 1 do
+					unit.buddiesTable[i].itemLevel = itemLevel
+					unit.buddiesTable[i]:AddAbility("fire_temple_wave_room_ability"):SetLevel(1)
+					unit.buddiesTable[i]:SetAcquisitionRange(3000)
+					unit.buddiesTable[i].dominion = true
+				end
+			end
+		end)
+	end
 end
 
 function Tanari:WaveRoomPhase(phase)
 	local portal1loc = Vector(6884, -15236)
 	local portal2loc = Vector(6633, -15236)
 	local portal3loc = Vector(6373, -15236)
-    if phase >= 8 then
-    	return
-    end
+	if phase >= 8 then
+		return
+	end
 	local torchVectorLocTable = {Vector(5703, -14055, 632), Vector(5866, -13647, 624), Vector(6179, -13317, 623), Vector(6686, -13131, 623), Vector(7237, -13309, 622), Vector(7579, -13647, 622), Vector(7786, -14023, 620)}
 	local particleName = "particles/dire_fx/fire_ambience.vpcf"
-    local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
 
-    ParticleManager:SetParticleControl(particle1,0,torchVectorLocTable[phase]+Vector(0,0,400))
-    EmitSoundOnLocationWithCaster(torchVectorLocTable[phase], "Tanari.TerrasicCrater.FlameSpitThink", Events.GameMaster)
-    if phase == 1 then
+	ParticleManager:SetParticleControl(particle1, 0, torchVectorLocTable[phase] + Vector(0, 0, 400))
+	EmitSoundOnLocationWithCaster(torchVectorLocTable[phase], "Tanari.TerrasicCrater.FlameSpitThink", Events.GameMaster)
+	if phase == 1 then
 		Tanari:SpawnFireTempleWaveUnit("terrasic_volcanic_legion", portal1loc, 10, 100, 2.3, true)
 		Tanari:SpawnFireTempleWaveUnit("fire_temple_dimension_seeker", portal2loc, 10, 100, 2.3, false)
 		Tanari:SpawnFireTempleWaveUnit("fire_temple_fireling", portal3loc, 10, 100, 2.3, false)
@@ -635,15 +632,15 @@ function Tanari:WaveRoomPhase(phase)
 	elseif phase == 3 then
 		Tanari:SpawnFireTempleWaveUnit("fire_temple_passage_skeleton", portal1loc, 10, 100, 2.3, false)
 		Tanari:SpawnFireTempleWaveUnit("terrasic_volcanic_legion", portal2loc, 10, 100, 2.3, true)
-		Tanari:SpawnFireTempleWaveUnit("fire_temple_passage_skeleton", portal3loc, 10, 100, 2.3, false)	
+		Tanari:SpawnFireTempleWaveUnit("fire_temple_passage_skeleton", portal3loc, 10, 100, 2.3, false)
 	elseif phase == 4 then
 		Tanari:SpawnFireTempleWaveUnit("fire_temple_skeleton_archer", portal1loc, 10, 100, 2.3, false)
 		Tanari:SpawnFireTempleWaveUnit("fire_temple_dimension_seeker", portal2loc, 10, 100, 2.3, true)
-		Tanari:SpawnFireTempleWaveUnit("fire_temple_skeleton_archer", portal3loc, 10, 100, 2.3, false)	
+		Tanari:SpawnFireTempleWaveUnit("fire_temple_skeleton_archer", portal3loc, 10, 100, 2.3, false)
 	elseif phase == 5 then
 		Tanari:SpawnFireTempleWaveUnit("fire_temple_fireling", portal1loc, 10, 100, 2.3, false)
 		Tanari:SpawnFireTempleWaveUnit("volcanic_ash", portal2loc, 10, 100, 2.3, true)
-		Tanari:SpawnFireTempleWaveUnit("fire_temple_blackguard", portal3loc, 10, 100, 2.3, false)	
+		Tanari:SpawnFireTempleWaveUnit("fire_temple_blackguard", portal3loc, 10, 100, 2.3, false)
 	elseif phase == 6 then
 		Tanari:SpawnFireTempleWaveUnit("fire_temple_final_wave_mob", portal1loc, 10, 100, 2.3, false)
 		Tanari:SpawnFireTempleWaveUnit("fire_temple_final_wave_mob", portal2loc, 10, 100, 2.3, true)
@@ -656,35 +653,34 @@ function Tanari:WaveRoomPhase(phase)
 			end
 		end)
 		Timers:CreateTimer(8, function()
-			 local particleName = "particles/generic_hero_status/hero_levelup.vpcf"
-		      local particle2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-		      ParticleManager:SetParticleControl( particle2, 0, Vector(6714, -13964, 786) )
-		      ParticleManager:SetParticleControl( particle2, 1, Vector(6714, -13964, 3300) )
-		      Timers:CreateTimer(4, 
-		      function()
-		        ParticleManager:DestroyParticle( particle2, false )
-		      end)
-		      local boss = Tanari:SpawnSeerOfSolos(Vector(6714, -13964, 386), Vector(0,1))
-		      boss:SetAbsOrigin(boss:GetAbsOrigin()+Vector(0,0,2400))
-		      local bossAbility = boss:FindAbilityByName("fire_temple_solos_ai")
-		      bossAbility:ApplyDataDrivenModifier(boss, boss, "modifier_solos_entrance", {duration = 4})
-		      WallPhysics:Jump(boss, Vector(0,0), 0, 30, 1, 2.0)
-		      boss.jumpEnd = "ruins_boss"
-		      Timers:CreateTimer(3, function()
-		      	boss.jumpEnd = false
-		      	StartAnimation(boss, {duration=1, activity=ACT_DOTA_SPAWN, rate=1})
-		      end)
-		      Timers:CreateTimer(5, function()
-		      	local spearAbility = boss:FindAbilityByName("solos_burning_spear")
-		      	spearAbility:ToggleAutoCast()
-		      end)
+			local particleName = "particles/generic_hero_status/hero_levelup.vpcf"
+			local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(particle2, 0, Vector(6714, -13964, 786))
+			ParticleManager:SetParticleControl(particle2, 1, Vector(6714, -13964, 3300))
+			Timers:CreateTimer(4, function()
+				ParticleManager:DestroyParticle(particle2, false)
+			end)
+			local boss = Tanari:SpawnSeerOfSolos(Vector(6714, -13964, 386), Vector(0, 1))
+			boss:SetAbsOrigin(boss:GetAbsOrigin() + Vector(0, 0, 2400))
+			local bossAbility = boss:FindAbilityByName("fire_temple_solos_ai")
+			bossAbility:ApplyDataDrivenModifier(boss, boss, "modifier_solos_entrance", {duration = 4})
+			WallPhysics:Jump(boss, Vector(0, 0), 0, 30, 1, 2.0)
+			boss.jumpEnd = "ruins_boss"
+			Timers:CreateTimer(3, function()
+				boss.jumpEnd = false
+				StartAnimation(boss, {duration = 1, activity = ACT_DOTA_SPAWN, rate = 1})
+			end)
+			Timers:CreateTimer(5, function()
+				local spearAbility = boss:FindAbilityByName("solos_burning_spear")
+				spearAbility:ToggleAutoCast()
+			end)
 
 		end)
-    end
+	end
 end
 
 function Tanari:SpawnSeerOfSolos(position, fv)
-	local stone = Tanari:SpawnDungeonUnit( "fire_temple_seer_of_solos", position, 4, 5, "Tanari.FireTemple.LumosAggro", fv, false)
+	local stone = Tanari:SpawnDungeonUnit("fire_temple_seer_of_solos", position, 4, 5, "Tanari.FireTemple.LumosAggro", fv, false)
 	Events:AdjustBossPower(stone, 6, 6, false)
 	stone:SetRenderColor(240, 40, 0)
 	stone.itemLevel = 115
@@ -710,25 +706,23 @@ function Tanari:FireTemplePart4()
 	local particleName = "particles/dire_fx/fire_ambience.vpcf"
 	local vectorTable = {Vector(8618, -14784, 624), Vector(8705, -13448, 624), Vector(8622, -14784, 550)}
 	for i = 1, #vectorTable, 1 do
-      local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-      ParticleManager:SetParticleControl(particle1,0,vectorTable[i]+Vector(0,0,400))
-	end	
-	Tanari:SpawnFireMage(Vector(8512, -15040), Vector(1,-1))
-	Tanari:SpawnFireMage(Vector(9088, -14848), Vector(-0.3,-1))
-	Tanari:SpawnTemperedWarrior(Vector(9536, -15488), Vector(-1,1))
-	Tanari:SpawnLavaCaller(Vector(8896, -13824), Vector(0.8,-1))
-	Tanari:SpawnLavaCaller(Vector(9408, -13696), Vector(-0.5,-1))
-	Tanari:SpawnFireMage(Vector(8789, -14189), Vector(1,0))
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+		ParticleManager:SetParticleControl(particle1, 0, vectorTable[i] + Vector(0, 0, 400))
+	end
+	Tanari:SpawnFireMage(Vector(8512, -15040), Vector(1, -1))
+	Tanari:SpawnFireMage(Vector(9088, -14848), Vector(-0.3, -1))
+	Tanari:SpawnTemperedWarrior(Vector(9536, -15488), Vector(-1, 1))
+	Tanari:SpawnLavaCaller(Vector(8896, -13824), Vector(0.8, -1))
+	Tanari:SpawnLavaCaller(Vector(9408, -13696), Vector(-0.5, -1))
+	Tanari:SpawnFireMage(Vector(8789, -14189), Vector(1, 0))
 	if Tanari.BlackCentaur then
-		Tanari:SpawnRareBlackCentaur(Vector(9141, -12843), Vector(0,-1))
+		Tanari:SpawnRareBlackCentaur(Vector(9141, -12843), Vector(0, -1))
 	end
 
 	if Events.SpiritRealm then
-		Tanari:SpawnFireSpirit(Vector(9664, -15104), Vector(-1,0))
+		Tanari:SpawnFireSpirit(Vector(9664, -15104), Vector(-1, 0))
 	end
 end
-
-
 
 function Tanari:FireTempleFinalRoomSpawn()
 	if not Tanari.FireTemple then
@@ -737,34 +731,32 @@ function Tanari:FireTempleFinalRoomSpawn()
 	local particleName = "particles/dire_fx/fire_ambience.vpcf"
 	local vectorTable = {Vector(7515, -12404, 477), Vector(5480, -9719, 170), Vector(5399, -7491, 128), Vector(6021, -7985, 128), Vector(6888, -7985, 128), Vector(6936, -8882, 128), Vector(6016, -8862, 128)}
 	for i = 1, #vectorTable, 1 do
-      local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-      ParticleManager:SetParticleControl(particle1,0,vectorTable[i]+Vector(0,0,400))
-	end	
-	Tanari:SpawnLavaCaller(Vector(8576, -13053), Vector(1,0))
-	Tanari:SpawnFireMage(Vector(8972, -12582), Vector(0.2,-1))
-	Tanari:SpawnTemperedWarrior(Vector(8704, -12736), Vector(1,-1))
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+		ParticleManager:SetParticleControl(particle1, 0, vectorTable[i] + Vector(0, 0, 400))
+	end
+	Tanari:SpawnLavaCaller(Vector(8576, -13053), Vector(1, 0))
+	Tanari:SpawnFireMage(Vector(8972, -12582), Vector(0.2, -1))
+	Tanari:SpawnTemperedWarrior(Vector(8704, -12736), Vector(1, -1))
 	local spiritBasePos = Vector(7780, -12160)
 	for i = 0, 2, 1 do
 		for j = 0, 2, 1 do
-			Tanari:SpawnProtectiveSpirit(spiritBasePos+Vector(145*i, 200*j), Vector(0,-1))
+			Tanari:SpawnProtectiveSpirit(spiritBasePos + Vector(145 * i, 200 * j), Vector(0, -1))
 		end
 	end
 	Timers:CreateTimer(10, function()
-		Tanari:SpawnLavaCaller(Vector(6144, -10176), Vector(1,0))
-		Tanari:SpawnLavaCaller(Vector(6144, -10010), Vector(1,0))
+		Tanari:SpawnLavaCaller(Vector(6144, -10176), Vector(1, 0))
+		Tanari:SpawnLavaCaller(Vector(6144, -10010), Vector(1, 0))
 		local basePos = Vector(5824, -10210)
 		for i = 0, 1 do
 			for j = 0, 2 do
-				Tanari:SpawnProtectiveSpirit(basePos+Vector(120*i, 100*j), Vector(1,0))
+				Tanari:SpawnProtectiveSpirit(basePos + Vector(120 * i, 100 * j), Vector(1, 0))
 			end
 		end
 	end)
 	Timers:CreateTimer(13, function()
-		Tanari:SpawnBlackguardDoombringer(Vector(5120, -10112), Vector(1,0))
+		Tanari:SpawnBlackguardDoombringer(Vector(5120, -10112), Vector(1, 0))
 	end)
 end
-
-
 
 function Tanari:SpawnLavaCaller(position, fv)
 	local ancient = Tanari:SpawnDungeonUnit("fire_temple_lava_caller", position, 2, 3, "Tanari.FireTemple.LavaCallerAggro", fv, false)
@@ -792,14 +784,14 @@ function Tanari:SpawnProtectiveSpirit(position, fv)
 end
 
 function Tanari:FireTempleLastRoomTrigger()
-	Tanari:SpawnBlackguardDoombringer(Vector(5120, -7232), Vector(0,-1))
-	Tanari:SpawnFlameWraith(Vector(5015, -8832), Vector(0,-1))
-	Tanari:SpawnFlameWraith(Vector(5184, -8832), Vector(0,-1))
-	Tanari:SpawnFlameWraith(Vector(5015, -8640), Vector(0,-1))
-	Tanari:SpawnFlameWraith(Vector(5184, -8640), Vector(0,-1))
-	Tanari:SpawnFireMage(Vector(5119, -8448), Vector(0,-1))
+	Tanari:SpawnBlackguardDoombringer(Vector(5120, -7232), Vector(0, -1))
+	Tanari:SpawnFlameWraith(Vector(5015, -8832), Vector(0, -1))
+	Tanari:SpawnFlameWraith(Vector(5184, -8832), Vector(0, -1))
+	Tanari:SpawnFlameWraith(Vector(5015, -8640), Vector(0, -1))
+	Tanari:SpawnFlameWraith(Vector(5184, -8640), Vector(0, -1))
+	Tanari:SpawnFireMage(Vector(5119, -8448), Vector(0, -1))
 	Timers:CreateTimer(2, function()
-		Tanari:SpawnFlameWraithLord(Vector(6485, -8384), Vector(0,1))
+		Tanari:SpawnFlameWraithLord(Vector(6485, -8384), Vector(0, 1))
 	end)
 end
 
@@ -826,7 +818,7 @@ function Tanari:SpawnKelthas()
 	Events:AdjustDeathXP(boss)
 	boss:SetRenderColor(255, 30, 0)
 	Events:AdjustBossPower(boss, 8, 8)
-	boss:SetForwardVector(Vector(-1,1))
+	boss:SetForwardVector(Vector(-1, 1))
 	return boss
 end
 
@@ -873,39 +865,40 @@ function Tanari:SpawnFireLord(kolthun)
 	boss:SetAbsOrigin(Vector(8395, -10101, -400))
 	boss:SetRenderColor(255, 30, 0)
 	Events:AdjustDeathXP(boss)
-	
+
 	Events:AdjustBossPower(boss, 10, 10)
 	if GameState:GetDifficultyFactor() == 3 then
-		local newHealth = 2^24
-	    boss:SetMaxHealth(newHealth)
-	    boss:SetBaseMaxHealth(newHealth)
-	    boss:SetHealth(newHealth)
-	    boss:Heal(newHealth, unit)
+		local newHealth = 2 ^ 24
+		boss:SetMaxHealth(newHealth)
+		boss:SetBaseMaxHealth(newHealth)
+		boss:SetHealth(newHealth)
+		boss:Heal(newHealth, unit)
 	end
-	boss:SetForwardVector(Vector(-1,0))
+	boss:SetForwardVector(Vector(-1, 0))
 	boss.kolthun = kolthun
 	boss.fallVelocity = 0
 	kolthun.phase3active = true
 	kolthun.boss = boss
+	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth(), bossId = tostring(boss)})
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, boss:GetAbsOrigin(), 1000, 900, false)
 	kolthun:SetModelScale(1.16)
 	local bossAbility = boss:FindAbilityByName("firelord_ability_ai")
-	StartAnimation(boss, {duration=3, activity=ACT_DOTA_CAST_ABILITY_6, rate=1})
-	bossAbility:ApplyDataDrivenModifier(boss, boss, "modifier_firelord_intro", {duration = 3})
+	StartAnimation(boss, {duration = 3, activity = ACT_DOTA_CAST_ABILITY_6, rate = 1})
+	bossAbility:ApplyDataDrivenModifier(boss, boss, "modifier_firelord_intro", {duration = 3.2})
 	Timers:CreateTimer(0.2, function()
 		ScreenShake(boss:GetAbsOrigin(), 700, 3, 3, 9000, 0, true)
-	  Tanari:CreateLavaBlast(boss:GetAbsOrigin())
-      EmitSoundOn("Tanari.LavaSplash", boss)
+		Tanari:CreateLavaBlast(boss:GetAbsOrigin())
+		EmitSoundOn("Tanari.LavaSplash", boss)
 	end)
-		local particleName = "particles/dire_fx/fire_ambience.vpcf"
-         local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-          ParticleManager:SetParticleControl(particle1,0,Vector(8120, -9084, 849))
+	local particleName = "particles/dire_fx/fire_ambience.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+	ParticleManager:SetParticleControl(particle1, 0, Vector(8120, -9084, 849))
 	Timers:CreateTimer(0.6, function()
 		EmitGlobalSound("Tanari.FireTemple.NeverlordSpawn")
 	end)
 	for i = 1, 40, 1 do
-		Timers:CreateTimer(0.03*i, function()
-			boss:SetAbsOrigin(boss:GetAbsOrigin()+Vector(0,0,20))
+		Timers:CreateTimer(0.03 * i, function()
+			boss:SetAbsOrigin(boss:GetAbsOrigin() + Vector(0, 0, 20))
 		end)
 	end
 	Timers:CreateTimer(3.2, function()
@@ -921,7 +914,6 @@ function Tanari:SpawnFireLord(kolthun)
 	return boss
 end
 
-
 function Tanari:SpawnRareBlackCentaur(position, fv)
 	local ancient = Tanari:SpawnDungeonUnit("fire_temple_rare_blackguard_centaur", position, 3, 5, "Tanari.FireTemple.CentaurBossAggro", fv, false)
 	Events:AdjustBossPower(ancient, 10, 10, false)
@@ -930,7 +922,7 @@ function Tanari:SpawnRareBlackCentaur(position, fv)
 	ancient.targetRadius = 300
 	ancient.autoAbilityCD = 1
 	return ancient
-	
+
 end
 
 function Tanari:SpawnRareLavaForgeMaster(position, fv)
@@ -941,7 +933,7 @@ function Tanari:SpawnRareLavaForgeMaster(position, fv)
 	ancient.targetRadius = 900
 	ancient.autoAbilityCD = 2
 	return ancient
-	
+
 end
 
 function Tanari:SpawnFireSpirit(position, fv)
@@ -962,55 +954,55 @@ function Tanari:SpawnFireShaman(position, fv)
 end
 
 function Tanari:SpiritFireTempleStart()
-	Tanari:SpawnFireShaman(Vector(11072, -14782), Vector(0,-1))
-	Tanari:SpawnFireShaman(Vector(11008, -15488), Vector(-1,0))
-	Tanari:SpawnFireShaman(Vector(11456, -15360), Vector(-1,-0.2))
-	Tanari:SpawnFireShaman(Vector(11840, -15185), Vector(-1,-0.5))
+	Tanari:SpawnFireShaman(Vector(11072, -14782), Vector(0, -1))
+	Tanari:SpawnFireShaman(Vector(11008, -15488), Vector(-1, 0))
+	Tanari:SpawnFireShaman(Vector(11456, -15360), Vector(-1, -0.2))
+	Tanari:SpawnFireShaman(Vector(11840, -15185), Vector(-1, -0.5))
 
 	Timers:CreateTimer(2, function()
 		Tanari:SpawnFireSpawner(Vector(10688, -15040), RandomVector(1), Vector(10810, -15040))
 		Tanari:SpawnFireSpawner(Vector(12906, -14464), RandomVector(1), Vector(12906, -14594))
 	end)
 	Timers:CreateTimer(4, function()
-		Tanari:SpawnLavaSpecter(Vector(12416, -14976), Vector(-1,-1))
-		Tanari:SpawnLavaSpecter(Vector(13420, -14976), Vector(-1,0.2))
-		Tanari:SpawnLavaSpecter(Vector(13926, -15258), Vector(-1,0.7))
-		Tanari:SpawnLavaSpecter(Vector(14072, -15258), Vector(-1,0))
+		Tanari:SpawnLavaSpecter(Vector(12416, -14976), Vector(-1, -1))
+		Tanari:SpawnLavaSpecter(Vector(13420, -14976), Vector(-1, 0.2))
+		Tanari:SpawnLavaSpecter(Vector(13926, -15258), Vector(-1, 0.7))
+		Tanari:SpawnLavaSpecter(Vector(14072, -15258), Vector(-1, 0))
 		Tanari:SpawnFireSpawner(Vector(15490, -15543), RandomVector(1), Vector(15389, -15358))
-		Tanari:SpawnFireShaman(Vector(15448, -15309), Vector(-1,0.1))
-		Tanari:SpawnFireShaman(Vector(13952, -15397), Vector(0,1))
+		Tanari:SpawnFireShaman(Vector(15448, -15309), Vector(-1, 0.1))
+		Tanari:SpawnFireShaman(Vector(13952, -15397), Vector(0, 1))
 	end)
 
 	Timers:CreateTimer(6, function()
-		Tanari:SpawnFlameriderGorthos(Vector(14976, -13632), Vector(0,-1))
-		Tanari:SpawnLavaSpecter(Vector(14852, -14232), Vector(0,-1))
-		Tanari:SpawnLavaSpecter(Vector(15104, -14193), Vector(-0.3,-1))
-		Tanari:SpawnLavaSpecter(Vector(14979, -14016), Vector(0,-1))
+		Tanari:SpawnFlameriderGorthos(Vector(14976, -13632), Vector(0, -1))
+		Tanari:SpawnLavaSpecter(Vector(14852, -14232), Vector(0, -1))
+		Tanari:SpawnLavaSpecter(Vector(15104, -14193), Vector(-0.3, -1))
+		Tanari:SpawnLavaSpecter(Vector(14979, -14016), Vector(0, -1))
 	end)
 	Timers:CreateTimer(8, function()
-		Tanari:SpawnLavaPrisoner(Vector(0,-1), Vector(14976, -15040))
-		Tanari:SpawnLavaPrisoner(Vector(0,-1), Vector(12997, -15181))
+		Tanari:SpawnLavaPrisoner(Vector(0, -1), Vector(14976, -15040))
+		Tanari:SpawnLavaPrisoner(Vector(0, -1), Vector(12997, -15181))
 		if GameState:GetDifficultyFactor() > 1 then
-			Tanari:SpawnLavaPrisoner(Vector(0,-1), Vector(14400, -15040))
+			Tanari:SpawnLavaPrisoner(Vector(0, -1), Vector(14400, -15040))
 		end
 	end)
 end
 
 function Tanari:SpawnFireSpawner(position, fv, summonCenter)
-	local stone = Tanari:SpawnDungeonUnit( "tanari_fire_temple_spawner", position, 2, 4, nil, fv, false)
-	stone:SetRenderColor(40,0,0)
+	local stone = Tanari:SpawnDungeonUnit("tanari_fire_temple_spawner", position, 2, 4, nil, fv, false)
+	stone:SetRenderColor(40, 0, 0)
 	Events:AdjustBossPower(stone, 3, 3, false)
 	stone.itemLevel = 80
 	stone.summonCenter = summonCenter
 	Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, stone, "tanari_mountain_specter_ai", {})
-	StartAnimation(stone, {duration=99999, activity=ACT_DOTA_CAPTURE, rate=1})
-	stone:AddNewModifier(stone, nil, "modifier_animation_translate", {translate="level2"})
+	StartAnimation(stone, {duration = 99999, activity = ACT_DOTA_CAPTURE, rate = 1})
+	stone:AddNewModifier(stone, nil, "modifier_animation_translate", {translate = "level2"})
 	return stone
 end
 
 function Tanari:SpawnFireSpawnerUnit(position, fv, itemRoll, bAggro)
 	local stone = Tanari:SpawnDungeonUnit("molten_entity", position, itemRoll, itemRoll, nil, fv, bAggro)
-	stone:SetRenderColor(233,100,100)
+	stone:SetRenderColor(233, 100, 100)
 	stone.itemLevel = 90
 	stone.dominion = true
 	Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, stone, "tanari_mountain_specter_ai", {})
@@ -1058,20 +1050,20 @@ function Tanari:SpawnFireTempleOgre(position, fv)
 end
 
 function Tanari:SpawnFireSpiritArea2()
-	Tanari:SpawnFlameBeast(Vector(14528, -12992), Vector(1,0))
-	Tanari:SpawnFlameBeast(Vector(14702, -12416), Vector(1,-1))
-	Tanari:SpawnFlameBeast(Vector(15480, -11902), Vector(-1,-0.6))
+	Tanari:SpawnFlameBeast(Vector(14528, -12992), Vector(1, 0))
+	Tanari:SpawnFlameBeast(Vector(14702, -12416), Vector(1, -1))
+	Tanari:SpawnFlameBeast(Vector(15480, -11902), Vector(-1, -0.6))
 
 	Tanari:SpawnFireShaman(Vector(14976, -12800), Vector(0, -1))
 	Tanari:SpawnFireShaman(Vector(15143, -12096), Vector(0, -1))
 	Tanari:SpawnFireShaman(Vector(14532, -11595), Vector(0, -1))
 
-	Tanari:SpawnFireSpawner(Vector(15424, -11520), Vector(-1,-1), Vector(15242, -11720))
+	Tanari:SpawnFireSpawner(Vector(15424, -11520), Vector(-1, -1), Vector(15242, -11720))
 
 	Timers:CreateTimer(2, function()
 		for i = 0, 1, 1 do
 			for j = 0, 2, 1 do
-				Tanari:SpawnLavaSpecter(Vector(13440, -12096)+Vector(i*320, j*220), Vector(1,0))
+				Tanari:SpawnLavaSpecter(Vector(13440, -12096) + Vector(i * 320, j * 220), Vector(1, 0))
 			end
 		end
 	end)
@@ -1081,88 +1073,87 @@ function Tanari:SpawnFireSpiritArea2()
 		Tanari:SpawnFireTempleOgre(Vector(11520, -12217), Vector(1, 0))
 		Tanari:SpawnFireTempleOgre(Vector(12352, -11520), Vector(1, -1))
 
-		Tanari:SpawnFlameBeast(Vector(12352, -12131), Vector(1,1))
-		Tanari:SpawnFlameBeast(Vector(11902, -12317), Vector(1,0.5))
-		Tanari:SpawnFlameBeast(Vector(11840, -11380), Vector(1,-1))
+		Tanari:SpawnFlameBeast(Vector(12352, -12131), Vector(1, 1))
+		Tanari:SpawnFlameBeast(Vector(11902, -12317), Vector(1, 0.5))
+		Tanari:SpawnFlameBeast(Vector(11840, -11380), Vector(1, -1))
 
 		Timers:CreateTimer(2, function()
 			Tanari:SpawnFireShaman(Vector(11776, -11759), Vector(1, 0))
 			Tanari:SpawnFireShaman(Vector(12608, -11776), Vector(1, 0))
-			Tanari:SpawnFireSpawner(Vector(11840, -10892), Vector(0.2,-1), Vector(11840, -11050))
-			Tanari:SpawnFireSpawner(Vector(11264, -12434), Vector(1,0), Vector(11500, -12434))
-			Tanari:SpawnFireSpawner(Vector(12416, -12800), Vector(1,1), Vector(12416, -12500))
+			Tanari:SpawnFireSpawner(Vector(11840, -10892), Vector(0.2, -1), Vector(11840, -11050))
+			Tanari:SpawnFireSpawner(Vector(11264, -12434), Vector(1, 0), Vector(11500, -12434))
+			Tanari:SpawnFireSpawner(Vector(12416, -12800), Vector(1, 1), Vector(12416, -12500))
 		end)
 	end)
 end
 
 function Tanari:SpawnSpiritFireWaveUnit(unitName, spawnPoint, quantity, itemLevel, delay, bSound)
 
-  local unit = false
-  for i = 0, quantity-1, 1 do
-    Timers:CreateTimer(i*delay, 
-    function()
-	    if bSound then
-	      EmitSoundOnLocationWithCaster(spawnPoint, "Tanari.SpiritWater.Spawn", Events.GameMaster)
-	    end
-      local luck = RandomInt(1, 222)
-      if Events.SpiritRealm then
-        luck = RandomInt(1, 66)
-      end
-      if luck == 1 then
-        unit = Paragon:SpawnParagonPack(unitName, spawnPoint)
-      elseif luck == 2 then
-        unit = Paragon:SpawnParagonUnit(unitName, spawnPoint)
-      else
-        unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
-      Events:AdjustDeathXP(unit)
-      end
+	local unit = false
+	for i = 0, quantity - 1, 1 do
+		Timers:CreateTimer(i * delay, function()
+			if bSound then
+				EmitSoundOnLocationWithCaster(spawnPoint, "Tanari.SpiritWater.Spawn", Events.GameMaster)
+			end
+			local luck = RandomInt(1, 222)
+			if Events.SpiritRealm then
+				luck = RandomInt(1, 66)
+			end
+			if luck == 1 then
+				unit = Paragon:SpawnParagonPack(unitName, spawnPoint)
+			elseif luck == 2 then
+				unit = Paragon:SpawnParagonUnit(unitName, spawnPoint)
+			else
+				unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
+				Events:AdjustDeathXP(unit)
+			end
 
-      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
-        unit.itemLevel = itemLevel
-        unit.dominion = true
-        Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit, "tanari_fire_temple_modifier", {})
-        Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit, "tanari_mountain_specter_ai", {})
-        unit.code = 0
+			if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
+				unit.itemLevel = itemLevel
+				unit.dominion = true
+				Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit, "tanari_fire_temple_modifier", {})
+				Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit, "tanari_mountain_specter_ai", {})
+				unit.code = 0
 
-        unit:SetAcquisitionRange(5000)
-        CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_batrider/batrider_firefly_startflash.vpcf", unit, 2)
-        unit.aggro = true
-        Events:SetPositionCastArgs(unit, 1000, 0, 1, FIND_ANY_ORDER)
-		unit.targetRadius = 300
-		unit.autoAbilityCD = 2 
-		unit.modelScale = 0.95
-      else
-        for i = 1, #unit.buddiesTable, 1 do
-          unit.buddiesTable[i].aggro = true
-          unit.buddiesTable[i].itemLevel = itemLevel
-          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_fire_temple_modifier", {})
-          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_mountain_specter_ai", {})
-          unit.buddiesTable[i].code = 0
-          unit.buddiesTable[i]:SetAcquisitionRange(5000)
-          unit.buddiesTable[i].dominion = true
-          CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_batrider/batrider_firefly_startflash.vpcf", unit.buddiesTable[i], 2)
-          Events:SetPositionCastArgs(unit.buddiesTable[i], 1000, 0, 1, FIND_ANY_ORDER)
-		  unit.buddiesTable[i].targetRadius = 300
-		  unit.buddiesTable[i].autoAbilityCD = 2 
-		  unit.buddiesTable[i].modelScale = 0.95
-        end
-      end
-    end)
-  end
+				unit:SetAcquisitionRange(5000)
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_batrider/batrider_firefly_startflash.vpcf", unit, 2)
+				unit.aggro = true
+				Events:SetPositionCastArgs(unit, 1000, 0, 1, FIND_ANY_ORDER)
+				unit.targetRadius = 300
+				unit.autoAbilityCD = 2
+				unit.modelScale = 0.95
+			else
+				for i = 1, #unit.buddiesTable, 1 do
+					unit.buddiesTable[i].aggro = true
+					unit.buddiesTable[i].itemLevel = itemLevel
+					Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_fire_temple_modifier", {})
+					Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_mountain_specter_ai", {})
+					unit.buddiesTable[i].code = 0
+					unit.buddiesTable[i]:SetAcquisitionRange(5000)
+					unit.buddiesTable[i].dominion = true
+					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_batrider/batrider_firefly_startflash.vpcf", unit.buddiesTable[i], 2)
+					Events:SetPositionCastArgs(unit.buddiesTable[i], 1000, 0, 1, FIND_ANY_ORDER)
+					unit.buddiesTable[i].targetRadius = 300
+					unit.buddiesTable[i].autoAbilityCD = 2
+					unit.buddiesTable[i].modelScale = 0.95
+				end
+			end
+		end)
+	end
 end
 
 function Tanari:FireSpiritPortalRoom()
-	Tanari:SpawnFireTempleOgre(Vector(12096, -9472), Vector(-1,0))
-	Tanari:SpawnFireTempleOgre(Vector(13054, -9472), Vector(-1,0))
-	Tanari:SpawnFireTempleOgre(Vector(14976, -9472), Vector(-1,0))
+	Tanari:SpawnFireTempleOgre(Vector(12096, -9472), Vector(-1, 0))
+	Tanari:SpawnFireTempleOgre(Vector(13054, -9472), Vector(-1, 0))
+	Tanari:SpawnFireTempleOgre(Vector(14976, -9472), Vector(-1, 0))
 
-	Tanari:SpawnInfernODemon(Vector(12032, -8832), Vector(0,-1))
-	Tanari:SpawnInfernODemon(Vector(13568, -8832), Vector(0,-1))
-	Tanari:SpawnInfernODemon(Vector(15040, -8832), Vector(0,-1))
+	Tanari:SpawnInfernODemon(Vector(12032, -8832), Vector(0, -1))
+	Tanari:SpawnInfernODemon(Vector(13568, -8832), Vector(0, -1))
+	Tanari:SpawnInfernODemon(Vector(15040, -8832), Vector(0, -1))
 
 	Timers:CreateTimer(2, function()
-		Tanari:SpawnFireSpawner(Vector(12864, -9216), Vector(0,-1), Vector(12864, -9500))
-		Tanari:SpawnFireSpawner(Vector(14388, -9751), Vector(0,1), Vector(14388, -9500))
+		Tanari:SpawnFireSpawner(Vector(12864, -9216), Vector(0, -1), Vector(12864, -9500))
+		Tanari:SpawnFireSpawner(Vector(14388, -9751), Vector(0, 1), Vector(14388, -9500))
 	end)
 
 	Timers:CreateTimer(4, function()
@@ -1221,18 +1212,18 @@ function Tanari:SpawnLavaBullyBig(position, fv)
 	-- Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, mage, "modifier_tanari_red", {})
 	return mage
 end
- 
+
 function Tanari:InitPortal1Room()
 	Tanari.FireTemple.Portal1Activated = true
 	Timers:CreateTimer(2.5, function()
 		for i = 1, 3, 1 do
-			Timers:CreateTimer(i*0.5, function()
+			Timers:CreateTimer(i * 0.5, function()
 				local centerPoint = Vector(-13817, -14545)
 				local spawnPosition = centerPoint + RandomVector(RandomInt(200, 650))
 				local bully = Tanari:SpawnLavaBully(spawnPosition, RandomVector(1))
 				bully.jumpEnd = "lava_legion"
-				bully:SetAbsOrigin(bully:GetAbsOrigin()+Vector(0,0,1000))
-				WallPhysics:Jump(bully, Vector(0,0), 0, 30, 1, 1.2)
+				bully:SetAbsOrigin(bully:GetAbsOrigin() + Vector(0, 0, 1000))
+				WallPhysics:Jump(bully, Vector(0, 0), 0, 30, 1, 1.2)
 				Dungeons:AggroUnit(bully)
 			end)
 		end
@@ -1246,35 +1237,35 @@ function Tanari:InitPortal2Room()
 	local platform4 = Tanari:CreateMovingPlatform(Vector(-12416, -8872), Vector(-12416, -8256))
 	Tanari.FireTemple.MovingPlatformTable = {platform1, platform2, platform3, platform4}
 
-	Tanari:SpawnFireCrabBeast(Vector(-12800, -10816), Vector(0.4,-1))
-	Tanari:SpawnFireCrabBeast(Vector(-12102, -10880), Vector(-0.6,-1))
-	Tanari:SpawnFireCrabBeast(Vector(-12515, -10560), Vector(0,-1))
+	Tanari:SpawnFireCrabBeast(Vector(-12800, -10816), Vector(0.4, -1))
+	Tanari:SpawnFireCrabBeast(Vector(-12102, -10880), Vector(-0.6, -1))
+	Tanari:SpawnFireCrabBeast(Vector(-12515, -10560), Vector(0, -1))
 
 	Timers:CreateTimer(1, function()
 		Tanari:SpawnFireTempleOgre(Vector(-12224, -10240), Vector(-0.5, -1))
 		Tanari:SpawnFireTempleOgre(Vector(-12992, -10240), Vector(1, -0.2))
 	end)
 	Timers:CreateTimer(3, function()
-		Tanari:SpawnInfernODemon(Vector(-13248, -11456), Vector(0,1))
+		Tanari:SpawnInfernODemon(Vector(-13248, -11456), Vector(0, 1))
 		for i = 0, 4, 1 do
-			Tanari:SpawnFireSpawner(Vector(-15424, -11917)+Vector(500*i, 0), Vector(0,1), Vector(-15424, -12217)+Vector(500*i, 240))
+			Tanari:SpawnFireSpawner(Vector(-15424, -11917) + Vector(500 * i, 0), Vector(0, 1), Vector(-15424, -12217) + Vector(500 * i, 240))
 		end
-		Tanari:SpawnFlameBeast(Vector(-13184, -11016), Vector(0,1))
-		Tanari:SpawnFlameBeast(Vector(-13440, -10880), Vector(1,1))
+		Tanari:SpawnFlameBeast(Vector(-13184, -11016), Vector(0, 1))
+		Tanari:SpawnFlameBeast(Vector(-13440, -10880), Vector(1, 1))
 	end)
 
 	Timers:CreateTimer(5, function()
-		
+
 		local positionTable = {Vector(-13824, -11968), Vector(-14400, -11968), Vector(-14976, -11968)}
 		for i = 1, #positionTable, 1 do
-			Tanari:SpawnLavaSpecter(positionTable[i], Vector(1,0))
+			Tanari:SpawnLavaSpecter(positionTable[i], Vector(1, 0))
 		end
-		Tanari:SpawnInfernODemon(Vector(-15936, -11712), Vector(1,-1))
+		Tanari:SpawnInfernODemon(Vector(-15936, -11712), Vector(1, -1))
 
-		Tanari:SpawnLavaPrisoner(Vector(0,-1), Vector(-14976, -9536))
-		Tanari:SpawnLavaPrisoner(Vector(0,-1), Vector(-13918, -9019))
+		Tanari:SpawnLavaPrisoner(Vector(0, -1), Vector(-14976, -9536))
+		Tanari:SpawnLavaPrisoner(Vector(0, -1), Vector(-13918, -9019))
 		if GameState:GetDifficultyFactor() > 1 then
-			Tanari:SpawnLavaPrisoner(Vector(1,0), Vector(-13046, -8617))
+			Tanari:SpawnLavaPrisoner(Vector(1, 0), Vector(-13046, -8617))
 		end
 	end)
 	Timers:CreateTimer(4, function()
@@ -1306,33 +1297,33 @@ function Tanari:InitPortal2Room()
 	Timers:CreateTimer(10, function()
 		local positionTable = {Vector(-14400, -10240), Vector(-15079, -10240), Vector(-15744, -10240)}
 		for i = 1, #positionTable, 1 do
-			Tanari:SpawnFlameBeast(positionTable[i], Vector(0,1))
-		end	
-		Tanari:SpawnFireCrabBeast(Vector(-15744, -9664), Vector(0,-1))
-		Tanari:SpawnLavaSiegeHulker(Vector(-12224, -7616), Vector(0,-1))
+			Tanari:SpawnFlameBeast(positionTable[i], Vector(0, 1))
+		end
+		Tanari:SpawnFireCrabBeast(Vector(-15744, -9664), Vector(0, -1))
+		Tanari:SpawnLavaSiegeHulker(Vector(-12224, -7616), Vector(0, -1))
 	end)
-
 	
-	Tanari:SpawnFireShaman(Vector(-15744, -8367), Vector(0,-1))
-	Tanari:SpawnFlameBeast(Vector(-15296, -8367), Vector(0,-1))
-	Tanari:SpawnLavaSpecter(Vector(-12416, -9316), Vector(1,0))
-	Tanari:SpawnInfernODemon(Vector(-12416, -8900), Vector(0,-1))
+
+	Tanari:SpawnFireShaman(Vector(-15744, -8367), Vector(0, -1))
+	Tanari:SpawnFlameBeast(Vector(-15296, -8367), Vector(0, -1))
+	Tanari:SpawnLavaSpecter(Vector(-12416, -9316), Vector(1, 0))
+	Tanari:SpawnInfernODemon(Vector(-12416, -8900), Vector(0, -1))
 end
 
 function Tanari:CreateMovingPlatform(position, target)
-    local platformThinker = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
-    -- platformThinker:SetAbsOrigin(position+Vector(0,0,platformThinker.headOffset))
-    platformThinker:AddAbility("tanari_moving_platform_ability"):SetLevel(1)
-    platformThinker:RemoveAbility("dummy_unit")
-    platformThinker:RemoveModifierByName("dummy_unit")
-    
-    local platform = Entities:FindByNameNearest("FireTempleMovingPlatform", position, 800)
-    platformThinker:SetAbsOrigin(platform:GetAbsOrigin())
-    platformThinker.platform = platform
-    platformThinker.state = 0
-    platformThinker.movementTicks = 0
-    platformThinker.movementVector = (target - platform:GetAbsOrigin()*Vector(1,1,0))/240
-    return platformThinker
+	local platformThinker = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+	-- platformThinker:SetAbsOrigin(position+Vector(0,0,platformThinker.headOffset))
+	platformThinker:AddAbility("tanari_moving_platform_ability"):SetLevel(1)
+	platformThinker:RemoveAbility("dummy_unit")
+	platformThinker:RemoveModifierByName("dummy_unit")
+
+	local platform = Entities:FindByNameNearest("FireTempleMovingPlatform", position, 800)
+	platformThinker:SetAbsOrigin(platform:GetAbsOrigin())
+	platformThinker.platform = platform
+	platformThinker.state = 0
+	platformThinker.movementTicks = 0
+	platformThinker.movementVector = (target - platform:GetAbsOrigin() * Vector(1, 1, 0)) / 240
+	return platformThinker
 end
 
 function Tanari:SpawnFireCrabBeast(position, fv)
@@ -1358,87 +1349,85 @@ end
 
 function Tanari:InitPortal3Room()
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-13824, -6825), 700, 600, false)
-	Tanari:SpawnInfernODemon(Vector(-15067, -6377), Vector(0,-1))
-	Tanari:SpawnInfernODemon(Vector(-15067, -7213), Vector(0,1))
-	Tanari:SpawnInfernODemon(Vector(-14080, -6848), Vector(-1,0))
+	Tanari:SpawnInfernODemon(Vector(-15067, -6377), Vector(0, -1))
+	Tanari:SpawnInfernODemon(Vector(-15067, -7213), Vector(0, 1))
+	Tanari:SpawnInfernODemon(Vector(-14080, -6848), Vector(-1, 0))
 	Timers:CreateTimer(5, function()
-		Tanari:SpawnSpiritFireWaveUnit3("tanari_fire_crab_beast", Vector(1,1), 5, 110, 2.5, false)
-		Tanari:SpawnSpiritFireWaveUnit3("tanari_flame_beast", Vector(1,1), 5, 110, 2.5, false)
+		Tanari:SpawnSpiritFireWaveUnit3("tanari_fire_crab_beast", Vector(1, 1), 5, 110, 2.5, false)
+		Tanari:SpawnSpiritFireWaveUnit3("tanari_flame_beast", Vector(1, 1), 5, 110, 2.5, false)
 	end)
 end
 
 function Tanari:SpawnSpiritFireWaveUnit3(unitName, spawnPoint, quantity, itemLevel, delay, bSound)
-	spawnPoint = Vector(-13356, -7037)+Vector(RandomInt(0, 150), RandomInt(0, 370))
-  local unit = false
-  for i = 0, quantity-1, 1 do
-    Timers:CreateTimer(i*delay, 
-    function()
-	    if bSound then
-	      EmitSoundOnLocationWithCaster(spawnPoint, "Tanari.SpiritWater.Spawn", Events.GameMaster)
-	    end
-      local luck = RandomInt(1, 222)
-      if Events.SpiritRealm then
-        luck = RandomInt(1, 66)
-      end
-      if luck == 1 then
-        unit = Paragon:SpawnParagonPack(unitName, spawnPoint)
-      elseif luck == 2 then
-        unit = Paragon:SpawnParagonUnit(unitName, spawnPoint)
-      else
-        unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
-      Events:AdjustDeathXP(unit)
-      end
+	spawnPoint = Vector(-13356, -7037) + Vector(RandomInt(0, 150), RandomInt(0, 370))
+	local unit = false
+	for i = 0, quantity - 1, 1 do
+		Timers:CreateTimer(i * delay, function()
+			if bSound then
+				EmitSoundOnLocationWithCaster(spawnPoint, "Tanari.SpiritWater.Spawn", Events.GameMaster)
+			end
+			local luck = RandomInt(1, 222)
+			if Events.SpiritRealm then
+				luck = RandomInt(1, 66)
+			end
+			if luck == 1 then
+				unit = Paragon:SpawnParagonPack(unitName, spawnPoint)
+			elseif luck == 2 then
+				unit = Paragon:SpawnParagonUnit(unitName, spawnPoint)
+			else
+				unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
+				Events:AdjustDeathXP(unit)
+			end
 
-      if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
-        unit.itemLevel = itemLevel
-        unit.dominion = true
-        Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit, "tanari_fire_temple_modifier", {})
-        Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit, "tanari_mountain_specter_ai", {})
-        unit.code = 1
+			if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
+				unit.itemLevel = itemLevel
+				unit.dominion = true
+				Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit, "tanari_fire_temple_modifier", {})
+				Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit, "tanari_mountain_specter_ai", {})
+				unit.code = 1
 
-        unit:SetAcquisitionRange(5000)
-        CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_batrider/batrider_firefly_startflash.vpcf", unit, 2)
-        unit.aggro = true
-        Events:SetPositionCastArgs(unit, 1000, 0, 1, FIND_ANY_ORDER)
-		unit.targetRadius = 300
-		unit.autoAbilityCD = 2 
-		unit.modelScale = 0.95
-		Tanari:LaunchWaveUnit3(unit)
-      else
-        for i = 1, #unit.buddiesTable, 1 do
-          unit.buddiesTable[i].aggro = true
-          unit.buddiesTable[i].itemLevel = itemLevel
-          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_fire_temple_modifier", {})
-          Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_mountain_specter_ai", {})
-          unit.buddiesTable[i].code = 1
-          unit.buddiesTable[i]:SetAcquisitionRange(5000)
-          unit.buddiesTable[i].dominion = true
-          CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_batrider/batrider_firefly_startflash.vpcf", unit.buddiesTable[i], 2)
-          Events:SetPositionCastArgs(unit.buddiesTable[i], 1000, 0, 1, FIND_ANY_ORDER)
-		  unit.buddiesTable[i].targetRadius = 300
-		  unit.buddiesTable[i].autoAbilityCD = 2 
-		  unit.buddiesTable[i].modelScale = 0.95
-		  Tanari:LaunchWaveUnit3(unit.buddiesTable[i])
-        end
-      end
-    end)
-  end
+				unit:SetAcquisitionRange(5000)
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_batrider/batrider_firefly_startflash.vpcf", unit, 2)
+				unit.aggro = true
+				Events:SetPositionCastArgs(unit, 1000, 0, 1, FIND_ANY_ORDER)
+				unit.targetRadius = 300
+				unit.autoAbilityCD = 2
+				unit.modelScale = 0.95
+				Tanari:LaunchWaveUnit3(unit)
+			else
+				for i = 1, #unit.buddiesTable, 1 do
+					unit.buddiesTable[i].aggro = true
+					unit.buddiesTable[i].itemLevel = itemLevel
+					Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_fire_temple_modifier", {})
+					Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit.buddiesTable[i], "tanari_mountain_specter_ai", {})
+					unit.buddiesTable[i].code = 1
+					unit.buddiesTable[i]:SetAcquisitionRange(5000)
+					unit.buddiesTable[i].dominion = true
+					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_batrider/batrider_firefly_startflash.vpcf", unit.buddiesTable[i], 2)
+					Events:SetPositionCastArgs(unit.buddiesTable[i], 1000, 0, 1, FIND_ANY_ORDER)
+					unit.buddiesTable[i].targetRadius = 300
+					unit.buddiesTable[i].autoAbilityCD = 2
+					unit.buddiesTable[i].modelScale = 0.95
+					Tanari:LaunchWaveUnit3(unit.buddiesTable[i])
+				end
+			end
+		end)
+	end
 end
 
 function Tanari:LaunchWaveUnit3(unit)
-	unit:SetForwardVector(Vector(-1,0))
+	unit:SetForwardVector(Vector(-1, 0))
 	Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, unit, "modifier_tanari_red", {})
-	unit:SetAbsOrigin(unit:GetAbsOrigin()-Vector(0,0,200))
+	unit:SetAbsOrigin(unit:GetAbsOrigin() - Vector(0, 0, 200))
 	local particleName = "particles/addons_gameplay/small_lava_splash_blast.vpcf"
-	local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, uni )
-	ParticleManager:SetParticleControl( particle1, 0, unit:GetAbsOrigin()+Vector(0,0,80) )
-	Timers:CreateTimer(3, 
-		function()
-		ParticleManager:DestroyParticle( particle1, false )
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, uni)
+	ParticleManager:SetParticleControl(particle1, 0, unit:GetAbsOrigin() + Vector(0, 0, 80))
+	Timers:CreateTimer(3, function()
+		ParticleManager:DestroyParticle(particle1, false)
 	end)
 	EmitSoundOn("Tanari.LavaSplash", unit)
-	WallPhysics:Jump(unit, Vector(-1,0), RandomInt(14,22), RandomInt(24, 26), RandomInt(26, 32), 1)
-	StartAnimation(unit, {duration=1, activity=ACT_DOTA_SPAWN, rate=1})
+	WallPhysics:Jump(unit, Vector(-1, 0), RandomInt(14, 22), RandomInt(24, 26), RandomInt(26, 32), 1)
+	StartAnimation(unit, {duration = 1, activity = ACT_DOTA_SPAWN, rate = 1})
 end
 
 function Tanari:SpawnDemonWatcher(position, fv)
@@ -1468,29 +1457,29 @@ function Tanari:SpawnFireSpiritFinalBoss()
 	if Tanari.FireTemple.FinalSpiritBoss then
 		UTIL_Remove(Tanari.FireTemple.FinalSpiritBoss)
 	end
-	local guardian = Events:SpawnBoss("tanari_fire_spirit_boss", Vector(-14375,-2126))
+	local guardian = Events:SpawnBoss("tanari_fire_spirit_boss", Vector(-14375, -2126))
 	guardian.pushLock = true
 	guardian.jumpLock = true
 	Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, guardian, "tanari_mountain_specter_ai", {})
 	-- local guardian = CreateUnitByName("wind_temple_spirit_boss", Vector(12992, 1536), false, nil, nil, DOTA_TEAM_NEUTRALS)
-	guardian:SetForwardVector(Vector(0,-1))
+	guardian:SetForwardVector(Vector(0, -1))
 	Events:AdjustBossPower(guardian, 12, 12, true)
 	-- local bossAbility = guardian:FindAbilityByName("water_spirit_main_boss_ability")
-    local properties =  {
-      roll = 0,
-      pitch = 0,
-      yaw = 0,
-      XPos = 30,
-      YPos = 0,
-      ZPos = -160,
-    }
-    local prop = Attachments:AttachProp(guardian, "attach_hitloc", "models/items/axe/shout_mask/shout_mask.vmdl", 2.4, properties)
-    prop:SetRenderColor(255, 40, 40)
+	local properties = {
+		roll = 0,
+		pitch = 0,
+		yaw = 0,
+		XPos = 30,
+		YPos = 0,
+		ZPos = -160,
+	}
+	local prop = Attachments:AttachProp(guardian, "attach_hitloc", "models/items/axe/shout_mask/shout_mask.vmdl", 2.4, properties)
+	prop:SetRenderColor(255, 40, 40)
 
-      Tanari.FireTemple.FinalSpiritBoss = guardian
+	Tanari.FireTemple.FinalSpiritBoss = guardian
 
-    local bossAbility = guardian:FindAbilityByName("fire_spirit_main_boss_ability")
-    bossAbility:ApplyDataDrivenModifier(guardian, guardian, "modifier_fire_spirit_boss_waiting", {})
+	local bossAbility = guardian:FindAbilityByName("fire_spirit_main_boss_ability")
+	bossAbility:ApplyDataDrivenModifier(guardian, guardian, "modifier_fire_spirit_boss_waiting", {})
 
 end
 

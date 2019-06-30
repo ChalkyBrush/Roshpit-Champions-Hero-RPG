@@ -7,7 +7,6 @@ local packetSize = 50000
 local statsCollectUrl = 'https://roshpit.xyz/stats/collect/'
 local statsGetUtl = 'https://roshpit.xyz/stats/getData/'
 
-
 -- usual json:encode send data as array if it is possible
 local function jsonEncode(data)
     local jsonString
@@ -42,10 +41,10 @@ local function send(jsonStats, repeatCount)
     request:SetHTTPRequestGetOrPostParameter("data", jsonStats)
     request:Send(function(result)
         if result.StatusCode ~= 200 then
-           --print("[STATS] Server connection failure, code", result.StatusCode)
+            --print("[STATS] Server connection failure, code", result.StatusCode)
 
             if repeatCount ~= nil and repeatCount > 0 then
-               --print("[STATS] Repeating in 3 seconds")
+                --print("[STATS] Repeating in 3 seconds")
                 Timers:CreateTimer(3, function() send(jsonStats, repeatCount - 1) end)
             end
         end
@@ -58,7 +57,6 @@ local function forceSend(eventInfo)
     data = {}
 end
 
-
 local function collect(eventInfo)
     table.insert(data, eventInfo)
     local jsonData = jsonEncode(data)
@@ -70,7 +68,6 @@ local function collect(eventInfo)
     data = {}
 end
 
-
 local function dispatch(event, data)
     if listeners[event] == nil then
         return
@@ -80,7 +77,7 @@ local function dispatch(event, data)
     end
 
     data['event'] = event
-   --print("event dispatched " .. event)
+    --print("event dispatched " .. event)
 
     for k, listener in pairs(listeners[event]) do
         local status, exception = pcall(function()
@@ -112,9 +109,9 @@ local function getMatchId(eventInfo, repeatCount)
     request:SetHTTPRequestGetOrPostParameter("type", "getInitialMatchId")
     request:Send(function(result)
         if result.StatusCode ~= 200 then
-           --print("[STATS] Get initial match id. Server connection failure, code", result.StatusCode)
+            --print("[STATS] Get initial match id. Server connection failure, code", result.StatusCode)
             if repeatCount ~= nil and repeatCount > 0 then
-               --print("[STATS] Repeating in 3 seconds")
+                --print("[STATS] Repeating in 3 seconds")
                 Timers:CreateTimer(3, function() getMatchId(eventInfo, repeatCount - 1) end)
             end
         else
@@ -233,8 +230,8 @@ local function getCurrentEquippedItems(hero)
     local gearTable = {}
     local playerId = hero:GetPlayerOwnerID()
     for gearSlot = 0, 5, 1 do
-        local item = CustomNetTables:GetTableValue("equipment", tostring(playerId).."-"..tostring(gearSlot))
-        gearTable[item['itemIndex']] =  item
+        local item = CustomNetTables:GetTableValue("equipment", tostring(playerId) .. "-"..tostring(gearSlot))
+        gearTable[item['itemIndex']] = item
     end
     return getItemsByIndexes(gearTable)
 end
@@ -246,7 +243,7 @@ local function getCurrentBackpackItems(hero)
         if backpackItem then
             local item = {}
             item.itemIndex = backpackItem:GetEntityIndex()
-            table.insert(backpackItems , item)
+            table.insert(backpackItems, item)
         end
     end
     return getItemsByIndexes(backpackItems)
@@ -308,13 +305,13 @@ end
 
 local function mithrilChange(eventInfo)
     local eventData = getBaseGameData(eventInfo)
-    eventData['count'] = CustomNetTables:GetTableValue("player_stats", tostring(eventInfo.playerID).."-mithril").mithril
+    eventData['count'] = CustomNetTables:GetTableValue("player_stats", tostring(eventInfo.playerID) .. "-mithril").mithril
     collect(eventData)
 end
 
 local function crystalsChange(eventInfo)
     local eventData = getBaseGameData(eventInfo)
-    eventData['count'] = CustomNetTables:GetTableValue("player_stats", tostring(eventInfo.playerID).."-resources").arcane
+    eventData['count'] = CustomNetTables:GetTableValue("player_stats", tostring(eventInfo.playerID) .. "-resources").arcane
     collect(eventData)
 end
 

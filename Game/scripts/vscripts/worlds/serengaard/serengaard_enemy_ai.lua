@@ -834,5 +834,3 @@ function razor_boss_die(event)
 	end
 	Serengaard:Mithril("baron", Serengaard.mainAncient:GetAbsOrigin(), 100)
 end
-
-

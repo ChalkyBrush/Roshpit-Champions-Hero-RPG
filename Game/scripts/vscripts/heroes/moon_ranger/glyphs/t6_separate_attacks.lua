@@ -18,18 +18,18 @@ function attackLand(event)
         arrowParticle = "particles/units/heroes/hero_drow/astral_c_a_particle_attackfrost_arrow.vpcf"
     end
 
-    local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, T61_ENEMIES_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC+DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE+DOTA_UNIT_TARGET_FLAG_NO_INVIS+DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+    local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, T61_ENEMIES_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
     if #enemies > 0 then
         local count = 0
-        for _,enemy in pairs(enemies) do
+        for _, enemy in pairs(enemies) do
             if count > maxCount then
                 break
             end
             if target == enemy then
             elseif enemy.dummy then
             else
-                createArrow(attacker,damage,enemy, target, ability, arrowParticle)
-                count = count+1
+                createArrow(attacker, damage, enemy, target, ability, arrowParticle)
+                count = count + 1
             end
         end
     end
@@ -38,7 +38,7 @@ end
 function projectileHit(event)
     local ability = event.ability
 
-   --print(ability.damage)
+    --print(ability.damage)
     Filters:TakeArgumentsAndApplyDamage(event.target, ability.attacker, ability.damage, DAMAGE_TYPE_PHYSICAL, BASE_ITEM, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
     local eventTable = {}
     eventTable.attacker = ability.attacker
@@ -58,7 +58,7 @@ function createArrow(attacker, damage, enemy, target, ability, arrowParticle)
         Source = target,
         Ability = ability,
         EffectName = arrowParticle,
-        vSourceLoc= target:GetAbsOrigin(),
+        vSourceLoc = target:GetAbsOrigin(),
         bDrawsOnMinimap = false,
         bDodgeable = true,
         bIsAttack = false,
@@ -68,7 +68,6 @@ function createArrow(attacker, damage, enemy, target, ability, arrowParticle)
         bProvidesVision = true,
         iVisionRadius = 0,
         iMoveSpeed = 900,
-        iVisionTeamNumber = attacker:GetTeamNumber()
-    }
+    iVisionTeamNumber = attacker:GetTeamNumber()}
     projectile = ProjectileManager:CreateTrackingProjectile(info)
 end

@@ -5,8 +5,8 @@ function begin_dive(event)
 	local ability = event.ability
 	abilityLevel = ability:GetLevel()
 	location = caster:GetOrigin()
-	StartAnimation(caster, {duration=1, activity=ACT_DOTA_FLAIL, rate=0.5, translate="forcestaff_friendly"})
-	EmitSoundOn(CAST_SOUND_TABLE[RandomInt(1,6)], caster)
+	StartAnimation(caster, {duration = 1, activity = ACT_DOTA_FLAIL, rate = 0.5, translate = "forcestaff_friendly"})
+	EmitSoundOn(CAST_SOUND_TABLE[RandomInt(1, 6)], caster)
 end
 
 function slide_think(keys)
@@ -15,11 +15,11 @@ function slide_think(keys)
 	local modifier = caster:FindModifierByName("modifier_holy_blink_slide")
 	local origin = caster:GetAbsOrigin()
 	ability.forwardVector = caster:GetForwardVector()
-	
+
 	caster.holy_slide_velocity = 30
-	local newPosition = origin+ability.forwardVector*caster.holy_slide_velocity
+	local newPosition = origin + ability.forwardVector * caster.holy_slide_velocity
 	caster.holy_slide_velocity = math.max(caster.holy_slide_velocity - 1, 0)
-	groundPosition = GetGroundPosition( newPosition, caster )
+	groundPosition = GetGroundPosition(newPosition, caster)
 	caster:SetAbsOrigin(groundPosition)
 
 end
@@ -30,5 +30,5 @@ function slide_end(keys)
 	local newLoc = GetGroundPosition(location, caster)
 	caster:SetOrigin(newLoc)
 	FindClearSpaceForUnit(caster, newLoc, true)
-	StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_FORCESTAFF_END, rate=0.5})
+	StartAnimation(caster, {duration = 0.6, activity = ACT_DOTA_FORCESTAFF_END, rate = 0.5})
 end

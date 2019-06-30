@@ -1,6 +1,6 @@
 --[[
     Usage
-
+ 
     KV
     "OnSpellStart"
     {
@@ -11,18 +11,17 @@
             "damage"        "%damage"
         }
     }
-
+ 
     LUA
     function PrintNumbers( keys )
         PopupDamage(keys.target_points[1], keys.damage)
     end
         
-
+ 
 ]]
 
-
 local popup = {}
- 
+
 POPUP_SYMBOL_PRE_PLUS = 0
 POPUP_SYMBOL_PRE_MINUS = 1
 POPUP_SYMBOL_PRE_SADFACE = 2
@@ -42,7 +41,6 @@ POPUP_SYMBOL_POST_SKULL = 5
 POPUP_SYMBOL_POST_EYE = 6
 POPUP_SYMBOL_POST_SHIELD = 7
 POPUP_SYMBOL_POST_POINTFIVE = 8
-
 
 function PopupArcaneCrystals(target, amount)
     PopupNumbers(target, "miss", Vector(150, 20, 230), 1.5, amount, nil, POPUP_SYMBOL_POST_LIGHTNING)

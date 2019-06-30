@@ -5,15 +5,15 @@ function firestorm_precast(event)
 	local ability = event.ability
 	-- caster:AddNewModifier(caster, nil, "modifier_animation", {translate="freeze", duration=0.2})
 	-- caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="wardstaff", duration=0.2})
-	StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.0, translate="wardstaff"})
+	StartAnimation(caster, {duration = 1.5, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1.0, translate = "wardstaff"})
 	CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/firestorm_precast.vpcf", caster, 2.5)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_firestorm_precast", {duration = 1})
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'q')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'w')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'e')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'r')
-    caster.q_3_level = caster:GetRuneValue("q", 3)
-    EmitSoundOn("Sorceress.FirestormPrecast.VO", caster)
+	Helper.initializeAbilityRunes(caster, 'sorceress', 'q')
+	Helper.initializeAbilityRunes(caster, 'sorceress', 'w')
+	Helper.initializeAbilityRunes(caster, 'sorceress', 'e')
+	Helper.initializeAbilityRunes(caster, 'sorceress', 'r')
+	caster.q_3_level = caster:GetRuneValue("q", 3)
+	EmitSoundOn("Sorceress.FirestormPrecast.VO", caster)
 end
 
 function begin_firestorm(event)
@@ -27,7 +27,7 @@ function begin_firestorm(event)
 	local particleName = "particles/items_fx/dagon.vpcf"
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_POINT, caster)
 	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
-	ParticleManager:SetParticleControl(pfx, 1, position+Vector(0,0,40))
+	ParticleManager:SetParticleControl(pfx, 1, position + Vector(0, 0, 40))
 	Timers:CreateTimer(2, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
@@ -89,43 +89,43 @@ function firestorm_channel_think(event)
 		ability.soundInterval = ability.soundInterval + 1
 		soundInterval = ability.soundInterval
 		if soundInterval == 1 then
-			StartAnimation(caster, {duration=3.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.0, translate="wardstaff"})
+			StartAnimation(caster, {duration = 3.5, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.0, translate = "wardstaff"})
 		end
-		if soundInterval%3 == 1 then
+		if soundInterval % 3 == 1 then
 			local particleName = "particles/items_fx/dagon.vpcf"
 			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_POINT, caster)
 			ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
-			ParticleManager:SetParticleControl(pfx, 1, position+Vector(0,0,40))
+			ParticleManager:SetParticleControl(pfx, 1, position + Vector(0, 0, 40))
 			Timers:CreateTimer(2, function()
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
 			-- EmitSoundOn("Sorceress.Firestorm.Cast2", caster)
 		end
 	end
-	if soundInterval%3 == 1 then
+	if soundInterval % 3 == 1 then
 		EmitSoundOnLocationWithCaster(position, "Sorceress.Firestorm.Cast", target)
 	end
 	local pfx2 = ParticleManager:CreateParticle("particles/roshpit/sorceress/firestorm_aoe_circle.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx2, 0, position)
-	ParticleManager:SetParticleControl(pfx2, 1, Vector(1,1,1)*radius)
-	ParticleManager:SetParticleControl(pfx2, 2, Vector(1,1,1)*(radius*1.2))
+	ParticleManager:SetParticleControl(pfx2, 1, Vector(1, 1, 1) * radius)
+	ParticleManager:SetParticleControl(pfx2, 2, Vector(1, 1, 1) * (radius * 1.2))
 	Timers:CreateTimer(3, function()
 		ParticleManager:DestroyParticle(pfx2, false)
 	end)
 	local pfx = ParticleManager:CreateParticle("particles/roshpit/sorceress/firestorm_indicator_2_immortal1.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, position)
-	ParticleManager:SetParticleControl(pfx, 1, Vector(1,1,1)*radius)
-	ParticleManager:SetParticleControl(pfx, 2, Vector(1,1,1)*radius)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(1, 1, 1) * radius)
+	ParticleManager:SetParticleControl(pfx, 2, Vector(1, 1, 1) * radius)
 	ParticleManager:SetParticleControl(pfx, 3, position)
-	ParticleManager:SetParticleControl(pfx, 7, Vector(radius,radius,radius))
+	ParticleManager:SetParticleControl(pfx, 7, Vector(radius, radius, radius))
 	Timers:CreateTimer(3, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	for i = 0, 5, 1 do
-		Timers:CreateTimer(i*0.5, function()
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		Timers:CreateTimer(i * 0.5, function()
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
-				for _,enemy in pairs(enemies) do
+				for _, enemy in pairs(enemies) do
 					if enemy:HasModifier("modifier_sorceress_firestorm") then
 					else
 						CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/firestorm_precast.vpcf", enemy, 2.5)
@@ -140,7 +140,7 @@ function firestorm_channel_think(event)
 						end
 					end
 					if caster:HasModifier("modifier_sorceress_glyph_1_1") then
-						damage = damage*2
+						damage = damage * 2
 					end
 					if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
 						Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
@@ -149,7 +149,7 @@ function firestorm_channel_think(event)
 					end
 					CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/firestorm_impact.vpcf", enemy, 1)
 				end
-			end 
+			end
 		end)
 	end
 end
@@ -169,7 +169,7 @@ function sorceress_firestorm_debuff_think(event)
 			end
 		end
 		if caster:HasModifier("modifier_sorceress_glyph_1_1") then
-			damage = damage*2
+			damage = damage * 2
 		end
 		sorceress_firestorm_impact(caster, target, ability, damage, false, 1)
 	end
@@ -177,14 +177,14 @@ end
 
 function sorceress_firestorm_impact(caster, target, ability, damage, bBurn, amp)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/firestorm_impact.vpcf", target, 3)
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 160, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 160, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		EmitSoundOn("Sorceress.Firestorm.Impact", target)
-		for _,enemy in pairs(enemies) do
+		for _, enemy in pairs(enemies) do
 			if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage*amp, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage * amp, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			else
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage*amp, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage * amp, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			end
 			if bBurn then
 				local burnDuration = Q3_BASE_DURATION + (caster.q_3_level * Q3_ADD_DURATION)
@@ -192,20 +192,20 @@ function sorceress_firestorm_impact(caster, target, ability, damage, bBurn, amp)
 				sunLance:ApplyDataDrivenModifier(caster, target, "modifier_sun_lance_burn", {duration = burnDuration})
 			end
 		end
-	end 
+	end
 end
 
 function fire_avatar_start(event)
 	-- local caster = event.caster
 	-- local ability = event.ability
 	-- if not ability.wingsPFX then
-	-- 	local avatarDuration = Filters:GetAdjustedBuffDuration(caster, 7 + 0.2*ability.r_4_level, false)
-	-- 	ability.wingsPFX = ParticleManager:CreateParticle("particles/roshpit/sorceress/fire_avatar_wings_omni_omni.vpcf", PATTACH_POINT_FOLLOW, caster)
-	-- 	for i = 0, 4, 1 do
-	-- 		ParticleManager:SetParticleControlEnt(ability.wingsPFX, i, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-	-- 	end
-	-- 	ParticleManager:SetParticleControlEnt(ability.wingsPFX, 5, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-	-- 	ParticleManager:SetParticleControl(ability.wingsPFX, 7, Vector(avatarDuration, avatarDuration, avatarDuration))
+	-- local avatarDuration = Filters:GetAdjustedBuffDuration(caster, 7 + 0.2*ability.r_4_level, false)
+	-- ability.wingsPFX = ParticleManager:CreateParticle("particles/roshpit/sorceress/fire_avatar_wings_omni_omni.vpcf", PATTACH_POINT_FOLLOW, caster)
+	-- for i = 0, 4, 1 do
+	-- ParticleManager:SetParticleControlEnt(ability.wingsPFX, i, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+	-- end
+	-- ParticleManager:SetParticleControlEnt(ability.wingsPFX, 5, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+	-- ParticleManager:SetParticleControl(ability.wingsPFX, 7, Vector(avatarDuration, avatarDuration, avatarDuration))
 	-- end
 end
 
@@ -213,9 +213,9 @@ function fire_avatar_end(event)
 	-- local caster = event.caster
 	-- local ability = event.ability
 	-- if ability.wingsPFX then
-	-- 	ParticleManager:DestroyParticle(ability.wingsPFX, false)
-	-- 	ParticleManager:ReleaseParticleIndex(ability.wingsPFX)
-	-- 	ability.wingsPFX = false
+	-- ParticleManager:DestroyParticle(ability.wingsPFX, false)
+	-- ParticleManager:ReleaseParticleIndex(ability.wingsPFX)
+	-- ability.wingsPFX = false
 	-- end
 end
 

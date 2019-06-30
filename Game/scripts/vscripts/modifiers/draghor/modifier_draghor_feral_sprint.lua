@@ -9,12 +9,12 @@ function modifier_draghor_feral_sprint:DeclareFunctions()
     return funcs
 end
 
-function modifier_draghor_feral_sprint:GetModifierMoveSpeed_Max( params )
+function modifier_draghor_feral_sprint:GetModifierMoveSpeed_Max(params)
     cap = self:GetAbility():GetSpecialValueFor("movespeed_cap")
     return cap
 end
 
-function modifier_draghor_feral_sprint:GetModifierMoveSpeed_Limit( params )
+function modifier_draghor_feral_sprint:GetModifierMoveSpeed_Limit(params)
     cap = self:GetAbility():GetSpecialValueFor("movespeed_cap")
     return cap
 end

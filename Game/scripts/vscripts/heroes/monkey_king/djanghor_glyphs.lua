@@ -14,7 +14,7 @@ function cleanse(event)
 				break
 			end
 		end
-	end				
+	end
 
 	if particle then
 		EmitSoundOn("Draghor.Cleanse", caster)
