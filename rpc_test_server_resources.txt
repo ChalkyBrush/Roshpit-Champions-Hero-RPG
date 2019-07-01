@@ -4,61 +4,59 @@ end
 function Stars:UpdateStarsOnServer(heroName, type, starAmount, playerID)
 end
 
-
-
 function GameState:GetDifficultyFactor()
-    return 3
+	return 3
 end
 
 function RPCItems:GetMaxFactor()
-    return 300
+	return 300
 end
 
 function RPCItems:RollSkillProperty()
-    local luck = RandomInt(0,905)
-    local luck2 = RandomInt(1, 100)
-    local propertyName = ""
-    local propertyTitle = ""
-    local tier = 0
-    local maxFactor = RPCItems:GetMaxFactor()
-    if luck2 < 20 then
-        value = RandomInt(1, 3)
-    elseif luck2 < 50 then
-        value = RandomInt(2, 4)
-    elseif luck2 < 80 then
-        value = RandomInt(3, 5)
-    elseif luck2 < 95 then
-        value = RandomInt(4, 7)
-    elseif luck2 <= 100 then
-        value = RandomInt(4, 10)
-    end
-    if luck < 120 then
-        propertyName = "rune_q_1"
-        tier = 1
-    elseif luck < 240 then
-        propertyName = "rune_w_1"
-        tier = 1
-    elseif luck < 360 then
-        propertyName = "rune_e_1"
-        tier = 1
-    elseif luck < 485 then
-        propertyName = "rune_r_1"
-        tier = 1
-    elseif luck < 590 then
-        propertyName = "rune_q_2"
-        tier = 2
-    elseif luck < 695 then
-        propertyName = "rune_w_2"
-        tier = 2
-    elseif luck < 800 then
-        propertyName = "rune_e_2"
-        tier = 2
-    elseif luck < 910 then
-        propertyName = "rune_r_2"
-        tier = 2
-    end
-    value = value + RandomInt(0, math.floor(maxFactor/4))
-    return tier, 85, propertyName
+	local luck = RandomInt(0, 905)
+	local luck2 = RandomInt(1, 100)
+	local propertyName = ""
+	local propertyTitle = ""
+	local tier = 0
+	local maxFactor = RPCItems:GetMaxFactor()
+	if luck2 < 20 then
+		value = RandomInt(1, 3)
+	elseif luck2 < 50 then
+		value = RandomInt(2, 4)
+	elseif luck2 < 80 then
+		value = RandomInt(3, 5)
+	elseif luck2 < 95 then
+		value = RandomInt(4, 7)
+	elseif luck2 <= 100 then
+		value = RandomInt(4, 10)
+	end
+	if luck < 120 then
+		propertyName = "rune_q_1"
+		tier = 1
+	elseif luck < 240 then
+		propertyName = "rune_w_1"
+		tier = 1
+	elseif luck < 360 then
+		propertyName = "rune_e_1"
+		tier = 1
+	elseif luck < 485 then
+		propertyName = "rune_r_1"
+		tier = 1
+	elseif luck < 590 then
+		propertyName = "rune_q_2"
+		tier = 2
+	elseif luck < 695 then
+		propertyName = "rune_w_2"
+		tier = 2
+	elseif luck < 800 then
+		propertyName = "rune_e_2"
+		tier = 2
+	elseif luck < 910 then
+		propertyName = "rune_r_2"
+		tier = 2
+	end
+	value = value + RandomInt(0, math.floor(maxFactor / 4))
+	return tier, 85, propertyName
 end
 
 function Challenges:ChiselItem(msg)
@@ -70,7 +68,7 @@ function Challenges:ChiselItem(msg)
 	local item = nil
 	local itemSlot = msg.slot
 
-	local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..tostring(itemSlot))
+	local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(itemSlot))
 	if itemEntity.itemIndex == itemIndex then
 		item = EntIndexToHScript(itemEntity.itemIndex)
 	else
@@ -91,84 +89,84 @@ function Challenges:ChiselItem(msg)
 end
 
 function Challenges:FinalReroll(msg)
-    print("[Challenges:FinalReroll] msg")
-    DeepPrintTable(msg)
-    local playerID = msg.playerID
-    local hero = GameState:GetHeroByPlayerID(playerID)
-    local player = hero:GetPlayerOwner()
-    local itemIndex = msg.itemIndex
-    local itemProperties = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
-    if not itemProperties then
-        print("[Challenges:FinalReroll] item custom net table is null")
-        return
-    end
-    local item = EntIndexToHScript(itemIndex)
-    local steamID = PlayerResource:GetSteamAccountID(playerID)
-    local minLevel = itemProperties.minLevel
-    minLevel = math.max(math.min(minLevel, 100), 1)
-    CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {} )
-    Events.reroll = true
-    local newItem = nil
-    if (msg.lock1 + msg.lock2 + msg.lock3 + msg.lock4) > 2 then
-        return false
-    end
-    local costMult = math.max(1, (msg.lock1+msg.lock2+msg.lock3+msg.lock4)*2)
-    local cost = minLevel*3*costMult
-    local amount = math.min(cost*(-1), -1)
-    
-    local shards = CustomNetTables:GetTableValue("player_stats", tostring(playerID).."-mithril").mithril
-    if shards < cost then
-        return false
-    end
-    print("[Challenges:FinalReroll] shards:"..tostring(shards))
-    print("[Challenges:FinalReroll] cost:"..tostring(cost))
-    if Challenges:CheckIfHeroHasItemByItemIndex(hero, item:GetEntityIndex()) then
-        if IsValidEntity(item:GetContainer()) then
-            CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
-            return false
-        end
-    else
-        CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
-        return false
-    end
-    if IsValidEntity(item) then
-        newItem = RPCItems:RerollImmortal(hero, item, msg.lock1, msg.lock2, msg.lock3, msg.lock4, minLevel, itemProperties)
-        if newItem then
-            if IsValidEntity(newItem) then
-                newItem:StartCooldown(2)
-                hero:TakeItem(item)
-                RPCItems:ItemUTIL_Remove(item)
-                RPCItems:GiveItemToHeroWithSlotCheck(hero, newItem)
-            else
-                CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
-            end
-        else
-            CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
-        end
-    else
-        CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
-        return false
-    end
-    Events.reroll = false
+	print("[Challenges:FinalReroll] msg")
+	DeepPrintTable(msg)
+	local playerID = msg.playerID
+	local hero = GameState:GetHeroByPlayerID(playerID)
+	local player = hero:GetPlayerOwner()
+	local itemIndex = msg.itemIndex
+	local itemProperties = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
+	if not itemProperties then
+		print("[Challenges:FinalReroll] item custom net table is null")
+		return
+	end
+	local item = EntIndexToHScript(itemIndex)
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	local minLevel = itemProperties.minLevel
+	minLevel = math.max(math.min(minLevel, 100), 1)
+	CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {})
+	Events.reroll = true
+	local newItem = nil
+	if (msg.lock1 + msg.lock2 + msg.lock3 + msg.lock4) > 2 then
+		return false
+	end
+	local costMult = math.max(1, (msg.lock1 + msg.lock2 + msg.lock3 + msg.lock4) * 2)
+	local cost = minLevel * 3 * costMult
+	local amount = math.min(cost * (-1), -1)
 
-    Statistics.dispatch('items:reroll')
-    
-    -- DeepPrintTable(msg)
-    if newItem then
-        if true then
+	local shards = CustomNetTables:GetTableValue("player_stats", tostring(playerID) .. "-mithril").mithril
+	if shards < cost then
+		return false
+	end
+	print("[Challenges:FinalReroll] shards:"..tostring(shards))
+	print("[Challenges:FinalReroll] cost:"..tostring(cost))
+	if Challenges:CheckIfHeroHasItemByItemIndex(hero, item:GetEntityIndex()) then
+		if IsValidEntity(item:GetContainer()) then
+			CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+			return false
+		end
+	else
+		CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+		return false
+	end
+	if IsValidEntity(item) then
+		newItem = RPCItems:RerollImmortal(hero, item, msg.lock1, msg.lock2, msg.lock3, msg.lock4, minLevel, itemProperties)
+		if newItem then
+			if IsValidEntity(newItem) then
+				newItem:StartCooldown(2)
+				hero:TakeItem(item)
+				RPCItems:ItemUTIL_Remove(item)
+				RPCItems:GiveItemToHeroWithSlotCheck(hero, newItem)
+			else
+				CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+			end
+		else
+			CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+		end
+	else
+		CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+		return false
+	end
+	Events.reroll = false
 
-            if Challenges:CheckIfHeroHasItemByItemIndex(hero, newItem:GetEntityIndex()) then
-                Timers:CreateTimer(0, function()
-                    CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith_after_reroll", 
-                        {itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
-                end)
-            else
-                CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
-            end
-        else
-            CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
-        end 
-    end
+	Statistics.dispatch('items:reroll')
+
+	-- DeepPrintTable(msg)
+	if newItem then
+		if true then
+
+			if Challenges:CheckIfHeroHasItemByItemIndex(hero, newItem:GetEntityIndex()) then
+				Timers:CreateTimer(0, function()
+					CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith_after_reroll",
+					{itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
+				end)
+			else
+				CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+			end
+		else
+			CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+		end
+	end
 end
 
 function Challenges:ModifyMithril(amount, hero, reason)
@@ -181,875 +179,883 @@ function Challenges:SaveMithrilShards(winnerTable)
 end
 
 function ChatDropItems(keys)
-  local text = string.lower(keys.text)
-  Dungeons.itemLevel = 3000
-  local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
-  if string.match(text, "-championsgear") then
-    RPCItems:RollChampionsGearHelm(vector)
-    RPCItems:RollChampionsGearGauntlet(vector)
-    RPCItems:RollChampionsGearMail(vector)
-    RPCItems:RollChampionsGearBoots(vector)
-  end
-  if string.match(text, "weapon_lvl") then
-    for i=1,50 do
-      Timers:CreateTimer(i/5, function()
-        Weapons:UpdateWeaponXP(2000000000)
-      end)
-    end
-  end
-  if string.match(text, "-synthesis") then
-    RPCItems:DropSynthesisVessel(vector)
-  end
-  if string.match(text, "-arcanas") then    
-    local timer = 1
-    Timers:CreateTimer(timer, function() RPCItems:RollFlamewakerArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollSeinaruArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollSeinaruArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollPaladinArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollAstralArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollBahamutArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollDuskbringerArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana3(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana4(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollTrapperArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollSpiritWarriorArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollSpiritWarriorArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollSpiritWarriorArcana3(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollMountainProtectorArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollMountainProtectorArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollMountainProtectorArcana3(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollVenomortArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollVenomortArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollChernobogArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollChernobogArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollAuriunArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollAuriunArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollVoltexArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollPaladinArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollSorceressArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollEpochArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollAxeArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollAxeArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollWarlordArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollEkkanArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollSoluniaArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollSoluniaArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollArkimusArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollArkimusArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollZhonikArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollZhonikArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollHydroxisArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollBahamutArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollSorceressArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollDjanghorArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollFlamewakerArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollAstralArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollAstralArcana3(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollSephyrArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollHydroxisArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollVoltexArcana2(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollDinathArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollJexArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollSlipfinnArcana1(vector) end) timer = timer + 1
-    Timers:CreateTimer(timer, function() RPCItems:RollDuskbringerArcana2(vector) end) timer = timer + 1
-  end
+	local text = string.lower(keys.text)
+	Dungeons.itemLevel = 3000
+	local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+	if string.match(text, "-championsgear") then
+		RPCItems:RollChampionsGearHelm(vector)
+		RPCItems:RollChampionsGearGauntlet(vector)
+		RPCItems:RollChampionsGearMail(vector)
+		RPCItems:RollChampionsGearBoots(vector)
+	end
+	if string.match(text, "weapon_lvl") then
+		for i = 1, 50 do
+			Timers:CreateTimer(i / 5, function()
+				Weapons:UpdateWeaponXP(2000000000)
+			end)
+		end
+	end
+	if string.match(text, "-synthesis") then
+		RPCItems:DropSynthesisVessel(vector)
+	end
+	if string.match(text, "-arcanas") then
+		local timer = 1
+		Timers:CreateTimer(timer, function() RPCItems:RollFlamewakerArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollSeinaruArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollSeinaruArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollPaladinArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollAstralArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollBahamutArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollDuskbringerArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana3(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana4(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollTrapperArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollSpiritWarriorArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollSpiritWarriorArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollSpiritWarriorArcana3(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollMountainProtectorArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollMountainProtectorArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollMountainProtectorArcana3(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollVenomortArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollVenomortArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollChernobogArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollChernobogArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollAuriunArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollAuriunArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollVoltexArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollPaladinArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollSorceressArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollEpochArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollAxeArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollAxeArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollWarlordArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollEkkanArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollSoluniaArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollSoluniaArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollArkimusArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollArkimusArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollZhonikArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollZhonikArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollHydroxisArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollBahamutArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollSorceressArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollDjanghorArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollFlamewakerArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollAstralArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollAstralArcana3(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollSephyrArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollHydroxisArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollVoltexArcana2(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollDinathArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollJexArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollSlipfinnArcana1(vector) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:RollDuskbringerArcana2(vector) end) timer = timer + 1
+	end
 
-  if string.match(text, "-legendaries1") or string.match(text, "-gloves") then
-    RPCItems:RollMageBaneGloves(vector)
-    RPCItems:RollBerserkerGloves(vector)
-    RPCItems:RollShadowArmlet(vector)
-    RPCItems:RollMalachiteShadeBracer(vector)
-    RPCItems:RollHeavyEchoGauntlet(vector)
-    RPCItems:RollBoneguardGauntlets(vector)
-    RPCItems:RollScorchedGauntlets(vector)
-    RPCItems:RollHandOfMidas(vector)
-    RPCItems:RollProudGloves(vector)
-    RPCItems:RollClawOfAzinoth(vector)
-    RPCItems:RollBuzukisFinger(vector)
-    RPCItems:RollSwiftspikeBracer(vector)
-    RPCItems:RollDivinePurityGauntlets(vector)
-    RPCItems:RollMarauderGloves(vector)
-    RPCItems:RollSkulldiggerGloves(vector)
-    RPCItems:RollElderGrasp(vector)
-    RPCItems:RollScarecrowGloves(vector)
-    RPCItems:RollChitinousLobsterClaw(vector)
-    RPCItems:RollDarkEmissaryGlove(vector)
-    RPCItems:RollDepthDemonClaw(vector)
-    RPCItems:RollGlovesOfSweepingWind(vector)
-    RPCItems:RollLivingGauntlet(vector)
-    RPCItems:RollSilverspringGloves(vector)
-    RPCItems:RollMordiggusGauntlet(vector)
-    RPCItems:RollIronboundGloves(vector)
-    RPCItems:RollFarSeersEnchantedGloves(vector)
-    RPCItems:RollShadowflameFist(vector)
-    RPCItems:RollMasterGloves(vector)
-    RPCItems:RollPhoenixGloves(vector)
-    RPCItems:RollEternalEssenceGauntlet(vector)
-    RPCItems:RollSpiritGlove(vector)
-    RPCItems:RollFrostburnGauntlets(vector)
-    RPCItems:RollHalcyonSoulGlove(vector)
-    RPCItems:RollGreensandCopperGauntlets(vector)
-    RPCItems:RollGloveOfTheForgottenGhost(vector)
-    RPCItems:RollGravekeepersGauntlet(vector)
-    RPCItems:RollBlueRainGauntlet(vector)
-    RPCItems:RollSpiritualEmpowermentGlove(vector)
-    RPCItems:RollMountainVambraces(vector)
-    RPCItems:RollAutumnrockBracers(vector)
-    RPCItems:RollGrandArcanist(vector)
-    RPCItems:RollBladeforgeGauntlet(vector)
-    RPCItems:RollRoyalWristguards(vector)
-    RPCItems:RollAquasteelBracers(vector)
-    RPCItems:RollDemonfireGauntlet(vector)
-    RPCItems:RollCytopianLaserGloves(vector)
-    RPCItems:RollClawOfTheEtherealRevenant(vector)
-    RPCItems:RollEnergyWhipGlove(vector)
-    RPCItems:RollStormclothBracer(vector)
-    RPCItems:RollPowerRangerGloves(vector)
-    RPCItems:RollSpellfireGloves(vector, true)
-  end
+	if string.match(text, "-legendaries1") or string.match(text, "-gloves") then
+		RPCItems:RollMageBaneGloves(vector)
+		RPCItems:RollBerserkerGloves(vector)
+		RPCItems:RollShadowArmlet(vector)
+		RPCItems:RollMalachiteShadeBracer(vector)
+		RPCItems:RollHeavyEchoGauntlet(vector)
+		RPCItems:RollBoneguardGauntlets(vector)
+		RPCItems:RollScorchedGauntlets(vector)
+		RPCItems:RollHandOfMidas(vector)
+		RPCItems:RollProudGloves(vector)
+		RPCItems:RollClawOfAzinoth(vector)
+		RPCItems:RollBuzukisFinger(vector)
+		RPCItems:RollSwiftspikeBracer(vector)
+		RPCItems:RollDivinePurityGauntlets(vector)
+		RPCItems:RollMarauderGloves(vector)
+		RPCItems:RollSkulldiggerGloves(vector)
+		RPCItems:RollElderGrasp(vector)
+		RPCItems:RollScarecrowGloves(vector)
+		RPCItems:RollChitinousLobsterClaw(vector)
+		RPCItems:RollDarkEmissaryGlove(vector)
+		RPCItems:RollDepthDemonClaw(vector)
+		RPCItems:RollGlovesOfSweepingWind(vector)
+		RPCItems:RollLivingGauntlet(vector)
+		RPCItems:RollSilverspringGloves(vector)
+		RPCItems:RollMordiggusGauntlet(vector)
+		RPCItems:RollIronboundGloves(vector)
+		RPCItems:RollFarSeersEnchantedGloves(vector)
+		RPCItems:RollShadowflameFist(vector)
+		RPCItems:RollMasterGloves(vector)
+		RPCItems:RollPhoenixGloves(vector)
+		RPCItems:RollEternalEssenceGauntlet(vector)
+		RPCItems:RollSpiritGlove(vector)
+		RPCItems:RollFrostburnGauntlets(vector)
+		RPCItems:RollHalcyonSoulGlove(vector)
+		RPCItems:RollGreensandCopperGauntlets(vector)
+		RPCItems:RollGloveOfTheForgottenGhost(vector)
+		RPCItems:RollGravekeepersGauntlet(vector)
+		RPCItems:RollBlueRainGauntlet(vector)
+		RPCItems:RollSpiritualEmpowermentGlove(vector)
+		RPCItems:RollMountainVambraces(vector)
+		RPCItems:RollAutumnrockBracers(vector)
+		RPCItems:RollGrandArcanist(vector)
+		RPCItems:RollBladeforgeGauntlet(vector)
+		RPCItems:RollRoyalWristguards(vector)
+		RPCItems:RollAquasteelBracers(vector)
+		RPCItems:RollDemonfireGauntlet(vector)
+		RPCItems:RollCytopianLaserGloves(vector)
+		RPCItems:RollClawOfTheEtherealRevenant(vector)
+		RPCItems:RollEnergyWhipGlove(vector)
+		RPCItems:RollStormclothBracer(vector)
+		RPCItems:RollPowerRangerGloves(vector)
+		RPCItems:RollSpellfireGloves(vector, true)
+	end
 
-  if string.match(text, "-legendaries2") or string.match(text, "-chest") then
-    RPCItems:RollHurricaneVest(vector)
-    RPCItems:VermillionDreamRobes(vector)
-    RPCItems:RollBaronsStormArmor(vector)
-    RPCItems:RollFloodRobe(vector)
-    RPCItems:RollAvalanchePlate(vector)
-    RPCItems:RollSeaGiantsPlate(vector)
-    RPCItems:RollKnightCrusherArmor(vector)
-    RPCItems:RollTerrasicStonePlate(vector)
-    RPCItems:RollCaptainsVest(vector)
-    RPCItems:RollBorealGraniteVest(vector)
-    RPCItems:RollVioletGuardArmor(vector)
-    RPCItems:RollTwilightVestments(vector)
-    RPCItems:RollRadiantRuinsLeather(vector)
-    RPCItems:RollBladestormVest(vector)
-    RPCItems:RollSacredTrialsArmor(vector)
-    RPCItems:RollHermitSpikeShell(vector)
-    RPCItems:RollSoulVest(vector)
-    RPCItems:RollTanariWindArmor(vector)
-    RPCItems:RollEmpyrealSunriseRobe(vector)
-    RPCItems:RollMageplate(vector)
-    RPCItems:RollGoldenWarPlate(vector)
-    RPCItems:RollWaterMageRobes(vector)
-    RPCItems:RollWatcherPlate(vector)
-    RPCItems:RollSorcererRegalia(vector)
-    RPCItems:RollSpellslingerCoat(vector)
-    RPCItems:RollDoomplate(vector)
-    RPCItems:RollOceanTempestPallium(vector)
-    RPCItems:RollSavagePlateOfOgthun(vector)
-    RPCItems:RollIceQuillCarapace(vector)
-    RPCItems:RollDepthCrestArmor(vector)
-    RPCItems:RollFeatherwhiteArmor(vector)
-    RPCItems:RollDragonCeremonyVestments(vector)
-    RPCItems:RollSecretTempleArmor(vector)
-    RPCItems:RollVampiricBreastplate(vector)
-    RPCItems:RollGuardOfFeronia(vector)
-    RPCItems:RollMysticManaWall(vector)
-    RPCItems:RollSkyforgeFlurryPlate(vector)
-    RPCItems:RollDarkArtsVestments(vector)
-    RPCItems:RollSapphireDragonScaleArmor(vector)
-    RPCItems:RollTopazDragonScaleArmor(vector)
-    RPCItems:RollBlazingFuryArmor(vector)
-    RPCItems:RollRubyDragonScaleArmor(vector)
-    RPCItems:RollLegionVestments(vector)
-    RPCItems:RollNightmareRiderMantle(vector)
-    RPCItems:RollGoldPlateOfLeon(vector)
-    RPCItems:RollSpaceTechVest(vector)
-    RPCItems:RollStormshieldCloak(vector)
-    RPCItems:RollDirewolfBulkwark(vector)
-    RPCItems:RollInfernalPrison(vector)
-    RPCItems:RollEnchantedSolarCape(vector)
-    RPCItems:RollGildedSoulCage(vector)
-    RPCItems:RollOutlandStoneCuirass(vector)
-    RPCItems:RollArmorOfAtlantis(vector)
-    RPCItems:RollBluestarArmor(vector)
-    RPCItems:RollTatteredNoviceArmor(vector)
-    RPCItems:RollWindsteelArmor(vector)
-    RPCItems:RollLightSeersRobes(vector)
-    RPCItems:RollHeroicConquerorVestments(vector, 7)
-  end
+	if string.match(text, "-legendaries2") or string.match(text, "-chest") then
+		RPCItems:RollHurricaneVest(vector)
+		RPCItems:VermillionDreamRobes(vector)
+		RPCItems:RollBaronsStormArmor(vector)
+		RPCItems:RollFloodRobe(vector)
+		RPCItems:RollAvalanchePlate(vector)
+		RPCItems:RollSeaGiantsPlate(vector)
+		RPCItems:RollKnightCrusherArmor(vector)
+		RPCItems:RollTerrasicStonePlate(vector)
+		RPCItems:RollCaptainsVest(vector)
+		RPCItems:RollBorealGraniteVest(vector)
+		RPCItems:RollVioletGuardArmor(vector)
+		RPCItems:RollTwilightVestments(vector)
+		RPCItems:RollRadiantRuinsLeather(vector)
+		RPCItems:RollBladestormVest(vector)
+		RPCItems:RollSacredTrialsArmor(vector)
+		RPCItems:RollHermitSpikeShell(vector)
+		RPCItems:RollSoulVest(vector)
+		RPCItems:RollTanariWindArmor(vector)
+		RPCItems:RollEmpyrealSunriseRobe(vector)
+		RPCItems:RollMageplate(vector)
+		RPCItems:RollGoldenWarPlate(vector)
+		RPCItems:RollWaterMageRobes(vector)
+		RPCItems:RollWatcherPlate(vector)
+		RPCItems:RollSorcererRegalia(vector)
+		RPCItems:RollSpellslingerCoat(vector)
+		RPCItems:RollDoomplate(vector)
+		RPCItems:RollOceanTempestPallium(vector)
+		RPCItems:RollSavagePlateOfOgthun(vector)
+		RPCItems:RollIceQuillCarapace(vector)
+		RPCItems:RollDepthCrestArmor(vector)
+		RPCItems:RollFeatherwhiteArmor(vector)
+		RPCItems:RollDragonCeremonyVestments(vector)
+		RPCItems:RollSecretTempleArmor(vector)
+		RPCItems:RollVampiricBreastplate(vector)
+		RPCItems:RollGuardOfFeronia(vector)
+		RPCItems:RollMysticManaWall(vector)
+		RPCItems:RollSkyforgeFlurryPlate(vector)
+		RPCItems:RollDarkArtsVestments(vector)
+		RPCItems:RollSapphireDragonScaleArmor(vector)
+		RPCItems:RollTopazDragonScaleArmor(vector)
+		RPCItems:RollBlazingFuryArmor(vector)
+		RPCItems:RollRubyDragonScaleArmor(vector)
+		RPCItems:RollLegionVestments(vector)
+		RPCItems:RollNightmareRiderMantle(vector)
+		RPCItems:RollGoldPlateOfLeon(vector)
+		RPCItems:RollSpaceTechVest(vector)
+		RPCItems:RollStormshieldCloak(vector)
+		RPCItems:RollDirewolfBulkwark(vector)
+		RPCItems:RollInfernalPrison(vector)
+		RPCItems:RollEnchantedSolarCape(vector)
+		RPCItems:RollGildedSoulCage(vector)
+		RPCItems:RollOutlandStoneCuirass(vector)
+		RPCItems:RollArmorOfAtlantis(vector)
+		RPCItems:RollBluestarArmor(vector)
+		RPCItems:RollTatteredNoviceArmor(vector)
+		RPCItems:RollWindsteelArmor(vector)
+		RPCItems:RollLightSeersRobes(vector)
+		RPCItems:RollHeroicConquerorVestments(vector, 7)
+	end
 
-  if string.match(text, "-legendaries3") or string.match(text, "-helm") then
-    RPCItems:RollWhiteMageHat(vector)
-    RPCItems:RollBasiliskPlagueHelm(vector)
-    RPCItems:RollHoodOfTheSeaOracle(vector)
-    RPCItems:RollFrostmawHuntersHood(vector)
-    RPCItems:RollOceanHelmOfValdun(vector)
-    RPCItems:RollTwistedMaskOfAhnqhirBlue(vector)
-    RPCItems:RollTwistedMaskOfAhnqhirYellow(vector)
-    RPCItems:RollTwistedMaskOfAhnqhirPurple(vector)
-    RPCItems:RollShipyardVeil1(vector)
-    RPCItems:RollHyperVisor(vector)
-    RPCItems:RollBurningSpiritHelmet(vector)
-    RPCItems:RollRubyDragonCrown(vector)
-    RPCItems:RollCentaurHorns(vector)
-    RPCItems:RollHoodOfChosen(vector)
-    RPCItems:RollDeathWhisperHelm(vector)
-    RPCItems:RollGuardOfGrithault(vector)
-    RPCItems:RollHoodOfBlackMage(vector)
-    RPCItems:RollCapOfWildNature(vector)
-    RPCItems:RollLumaGuard(vector)
-    RPCItems:RollBrazenKabuto(vector)
-    RPCItems:RollOdinHelmet(vector)
-    RPCItems:RollStormcrackHelm(vector)
-    RPCItems:RollWraithCrown(vector)
-    RPCItems:RollIronColossus(vector)
-    RPCItems:RollMugatoMask(vector)
-    RPCItems:RollWitchHat(vector)
-    RPCItems:RollExcavatorsFocusHat(vector)
-    RPCItems:RollTricksterMask(vector)
-    RPCItems:RollDemonMask(vector, false, 200)
-    RPCItems:RollCrestOfTheUmbralSentinel(vector)
-    RPCItems:RollCarbuncleHelm(vector)
-    RPCItems:RollWraithHuntersSteelHelm(vector)
-    RPCItems:RollEmeraldDouli(vector)
-    RPCItems:RollMaskOfTyrius(vector)
-    RPCItems:RollAutumnSleeperMask(vector)
-    RPCItems:RollIgneousCanineHelm(vector)
-    RPCItems:RollCrimsonSkullCap(vector)
-    RPCItems:RollEyeOfSeasons(vector)
-    RPCItems:RollCeruleanHighguard(vector)
-    RPCItems:RollBlackfeatherCrown(vector)
-    RPCItems:RollSuperAscendency(vector)
-    RPCItems:RollPhantomSorcererMask(vector)
-    RPCItems:RollHelmOfSilentTemplar(vector)
-    RPCItems:RollChainsOfOrthok(vector)
-    RPCItems:RollArcaneCascadeHat(vector)
-    RPCItems:RollSamuraiHelmet(vector)
-    RPCItems:RollScourgeKnightHelm(vector)
-    RPCItems:RollHoodOfDefiler(vector)
-    RPCItems:RollDarkReefSharkHelmet(vector)
-    RPCItems:RollNecromancerMask(vector)
-    RPCItems:RollUndertakersHood(vector)
-    RPCItems:RollEternalNightShroud(vector)
-    RPCItems:RollHelmOfTheMountainGiant(vector)
-    RPCItems:RollDruidsSpiritHelm(vector)
-    RPCItems:RollGlintOfOnu(vector)
-    RPCItems:RollLavaForgeCrown(vector)
-    RPCItems:RollRoknarEmperor(vector)
-    RPCItems:RollSwampDoctorMask(vector)
-    RPCItems:RollHoodOfLords(vector, true)
-    RPCItems:RollWindDeityCrown(vector, false, 0)
-    RPCItems:RollWaterDeityCrown(vector, false, 0)
-    RPCItems:RollFireDeityCrown(vector, false, 0)
-  end
+	if string.match(text, "-legendaries3") or string.match(text, "-helm") then
+		RPCItems:RollWhiteMageHat(vector)
+		RPCItems:RollBasiliskPlagueHelm(vector)
+		RPCItems:RollHoodOfTheSeaOracle(vector)
+		RPCItems:RollFrostmawHuntersHood(vector)
+		RPCItems:RollOceanHelmOfValdun(vector)
+		RPCItems:RollTwistedMaskOfAhnqhirBlue(vector)
+		RPCItems:RollTwistedMaskOfAhnqhirYellow(vector)
+		RPCItems:RollTwistedMaskOfAhnqhirPurple(vector)
+		RPCItems:RollShipyardVeil1(vector)
+		RPCItems:RollHyperVisor(vector)
+		RPCItems:RollBurningSpiritHelmet(vector)
+		RPCItems:RollRubyDragonCrown(vector)
+		RPCItems:RollCentaurHorns(vector)
+		RPCItems:RollHoodOfChosen(vector)
+		RPCItems:RollDeathWhisperHelm(vector)
+		RPCItems:RollGuardOfGrithault(vector)
+		RPCItems:RollHoodOfBlackMage(vector)
+		RPCItems:RollCapOfWildNature(vector)
+		RPCItems:RollLumaGuard(vector)
+		RPCItems:RollBrazenKabuto(vector)
+		RPCItems:RollOdinHelmet(vector)
+		RPCItems:RollStormcrackHelm(vector)
+		RPCItems:RollWraithCrown(vector)
+		RPCItems:RollIronColossus(vector)
+		RPCItems:RollMugatoMask(vector)
+		RPCItems:RollWitchHat(vector)
+		RPCItems:RollExcavatorsFocusHat(vector)
+		RPCItems:RollTricksterMask(vector)
+		RPCItems:RollDemonMask(vector, false, 200)
+		RPCItems:RollCrestOfTheUmbralSentinel(vector)
+		RPCItems:RollCarbuncleHelm(vector)
+		RPCItems:RollWraithHuntersSteelHelm(vector)
+		RPCItems:RollEmeraldDouli(vector)
+		RPCItems:RollMaskOfTyrius(vector)
+		RPCItems:RollAutumnSleeperMask(vector)
+		RPCItems:RollIgneousCanineHelm(vector)
+		RPCItems:RollCrimsonSkullCap(vector)
+		RPCItems:RollEyeOfSeasons(vector)
+		RPCItems:RollCeruleanHighguard(vector)
+		RPCItems:RollBlackfeatherCrown(vector)
+		RPCItems:RollSuperAscendency(vector)
+		RPCItems:RollPhantomSorcererMask(vector)
+		RPCItems:RollHelmOfSilentTemplar(vector)
+		RPCItems:RollChainsOfOrthok(vector)
+		RPCItems:RollArcaneCascadeHat(vector)
+		RPCItems:RollSamuraiHelmet(vector)
+		RPCItems:RollScourgeKnightHelm(vector)
+		RPCItems:RollHoodOfDefiler(vector)
+		RPCItems:RollDarkReefSharkHelmet(vector)
+		RPCItems:RollNecromancerMask(vector)
+		RPCItems:RollUndertakersHood(vector)
+		RPCItems:RollEternalNightShroud(vector)
+		RPCItems:RollHelmOfTheMountainGiant(vector)
+		RPCItems:RollDruidsSpiritHelm(vector)
+		RPCItems:RollGlintOfOnu(vector)
+		RPCItems:RollLavaForgeCrown(vector)
+		RPCItems:RollRoknarEmperor(vector)
+		RPCItems:RollSwampDoctorMask(vector)
+		RPCItems:RollHoodOfLords(vector, true)
+		RPCItems:RollWindDeityCrown(vector, false, 0)
+		RPCItems:RollWaterDeityCrown(vector, false, 0)
+		RPCItems:RollFireDeityCrown(vector, false, 0)
+	end
 
-  if string.match(text, "-legendaries4") or string.match(text, "-boots") then
-    RPCItems:RollDunetreadBoots(vector)
-    RPCItems:RollEmeraldSpeedRunners(vector)
-    RPCItems:RollCrystallineSlippers(vector)
-    RPCItems:RollAlaranaIceBoot(vector)
-    RPCItems:RollGiantHunterBoots(vector)
-    RPCItems:RollVoyagerBoots(vector)
-    RPCItems:RollRedrockFootwear(vector)
-    RPCItems:RollResonantPathfinderBoots(vector)
-    RPCItems:RollNeptunesWaterGliders(vector)
-    RPCItems:RollVioletTreads(vector)
-    RPCItems:RollGuardianGreaves(vector)
-    RPCItems:RollHarvesterBoots(vector)
-    RPCItems:RollAblecoreGreaves(vector)
-    RPCItems:RollBlueDragonGreaves(vector)
-    RPCItems:RollSangeBoots(vector)
-    RPCItems:RollOceanrunnerBoots(vector)
-    RPCItems:RollBootsOfOldWisdom(vector)
-    RPCItems:RollResplendantRubberBoots(vector)
-    RPCItems:RollTerrasicLavaBoots(vector)
-    RPCItems:RollYashaBoots(vector)
-    RPCItems:RollSteamboots(vector)
-    RPCItems:RollTranquilBoots(vector)
-    RPCItems:RollFireWalkers(vector)
-    RPCItems:RollRedfallRunners(vector)
-    RPCItems:RollRedOctoberBoots(vector)
-    RPCItems:RollBootsOfAshara(vector)
-    RPCItems:RollGravelfootTreads(vector)
-    RPCItems:RollIceFloeSlippers(vector)
-    RPCItems:RollIronTreadsOfDestruction(vector)
-    RPCItems:RollBloodstoneBoots(vector)
-    RPCItems:RollBootsOfGreatFortune(vector)
-    RPCItems:RollSandstreamSlippers(vector)
-    RPCItems:RollManaStriders(vector)
-    RPCItems:RollBootsOfPureWaters(vector)
-    RPCItems:RollMoonTechs(vector)
-    RPCItems:RollTemporalWarpBoots(vector)
-    RPCItems:RollSonicBoots(vector)
-    RPCItems:RollFalconBoots(vector)
-    RPCItems:RollCrusaderBoots(vector)
-    RPCItems:RollArcanysSlipper(vector)
-    RPCItems:RollAdmiralBoot(vector)
-    RPCItems:RollRootedFeet(vector)
-    RPCItems:SlingerBoots(vector)
-  end
+	if string.match(text, "-legendaries4") or string.match(text, "-boots") then
+		RPCItems:RollDunetreadBoots(vector)
+		RPCItems:RollEmeraldSpeedRunners(vector)
+		RPCItems:RollCrystallineSlippers(vector)
+		RPCItems:RollAlaranaIceBoot(vector)
+		RPCItems:RollGiantHunterBoots(vector)
+		RPCItems:RollVoyagerBoots(vector)
+		RPCItems:RollRedrockFootwear(vector)
+		RPCItems:RollResonantPathfinderBoots(vector)
+		RPCItems:RollNeptunesWaterGliders(vector)
+		RPCItems:RollVioletTreads(vector)
+		RPCItems:RollGuardianGreaves(vector)
+		RPCItems:RollHarvesterBoots(vector)
+		RPCItems:RollAblecoreGreaves(vector)
+		RPCItems:RollBlueDragonGreaves(vector)
+		RPCItems:RollSangeBoots(vector)
+		RPCItems:RollOceanrunnerBoots(vector)
+		RPCItems:RollBootsOfOldWisdom(vector)
+		RPCItems:RollResplendantRubberBoots(vector)
+		RPCItems:RollTerrasicLavaBoots(vector)
+		RPCItems:RollYashaBoots(vector)
+		RPCItems:RollSteamboots(vector)
+		RPCItems:RollTranquilBoots(vector)
+		RPCItems:RollFireWalkers(vector)
+		RPCItems:RollRedfallRunners(vector)
+		RPCItems:RollRedOctoberBoots(vector)
+		RPCItems:RollBootsOfAshara(vector)
+		RPCItems:RollGravelfootTreads(vector)
+		RPCItems:RollIceFloeSlippers(vector)
+		RPCItems:RollIronTreadsOfDestruction(vector)
+		RPCItems:RollBloodstoneBoots(vector)
+		RPCItems:RollBootsOfGreatFortune(vector)
+		RPCItems:RollSandstreamSlippers(vector)
+		RPCItems:RollManaStriders(vector)
+		RPCItems:RollBootsOfPureWaters(vector)
+		RPCItems:RollMoonTechs(vector)
+		RPCItems:RollTemporalWarpBoots(vector)
+		RPCItems:RollSonicBoots(vector)
+		RPCItems:RollFalconBoots(vector)
+		RPCItems:RollCrusaderBoots(vector)
+		RPCItems:RollArcanysSlipper(vector)
+		RPCItems:RollAdmiralBoot(vector)
+		RPCItems:RollRootedFeet(vector)
+		RPCItems:SlingerBoots(vector)
+	end
 
-  if string.match(text, "-legendaries5") or string.match(text, "-trinket") then
-    RPCItems:RollPuzzlersLocket(vector)
-    RPCItems:RollWinterblightSkullRing(vector)
-    RPCItems:RollArcaneCharm(vector)
-    RPCItems:RollMonkeyPaw(vector)
-    RPCItems:RollFrozenHeart(vector)
-    RPCItems:RollBlacksmithsTablet(vector)
-    RPCItems:RollAquastoneRing(vector)
-    RPCItems:RollStoneOfGordon(vector, 10)
-    RPCItems:RollSapphireLotus(vector)
-    RPCItems:RollArborDragonfly(vector)
-    RPCItems:RollTokenOfOceanis(vector)
-    RPCItems:RollAncientTanariWaterstone(vector)
-    RPCItems:RollAntiqueManaRelic(vector)
-    RPCItems:RollFrostGem(vector)
-    RPCItems:RollTwigOfEnlightened(vector)
-    RPCItems:RollLifesourceVessel(vector)
-    RPCItems:RollTomeOfChaos(vector)
-    RPCItems:RollAerithsTear(vector)
-    RPCItems:RollTorchOfGengar(vector)
-    RPCItems:RollRuinfallSkullToken(vector)
-    RPCItems:RollRavenIdol(vector)
-    RPCItems:RollConquestStoneFalcon(vector)
-    RPCItems:RollFortunesTalismanOfTruth(vector)
-    RPCItems:RollEpsilonsEyeglass(vector)
-    RPCItems:RollOmegaRuby(vector)
-    RPCItems:RollFenrirFang(vector)
-    RPCItems:RollPhoenixEmblem(vector)
-    RPCItems:RollHopeOfSaytaru(vector)
-    RPCItems:RollFuchsiaRing(vector)
-    RPCItems:RollAnkhOfAncients(vector)
-    RPCItems:RollWorldTreesFlowerCache(vector)
-    RPCItems:RollGalaxyOrb(vector)
-    RPCItems:RollVolcanoOrb(vector)
-    RPCItems:RollFractionalEnhancementGeode(vector)
-    RPCItems:RollRingOfNobility(vector)
-    RPCItems:RollAzureEmpire(vector)
-    RPCItems:RollTempestFalconRing(vector)
-    RPCItems:RollFirelockPendant(vector)
-    RPCItems:RollStargazersSphere(vector)
-    RPCItems:RollEmeraldNullificationRing(vector)
-    RPCItems:RollGarnetWarfareRing(vector)
-    RPCItems:RollRedDivinexAmulet(vector)
-    RPCItems:RollGreenDivinexAmulet(vector)
-    RPCItems:RollBlueDivinexAmulet(vector)
-    RPCItems:RollCobaltSerenityRing(vector)
-    RPCItems:RollWindOrchid(vector)
-    RPCItems:RollFireBlossom(vector)
-    RPCItems:RollAquaLily(vector)
-    RPCItems:RollSunCrystal(vector, 999)
-    RPCItems:RollSignusCharm(vector)
-    RPCItems:RollEyeOfAvernus(vector)
-  end
+	if string.match(text, "-legendaries5") or string.match(text, "-trinket") then
+		RPCItems:RollPuzzlersLocket(vector)
+		RPCItems:RollWinterblightSkullRing(vector)
+		RPCItems:RollArcaneCharm(vector)
+		RPCItems:RollMonkeyPaw(vector)
+		RPCItems:RollFrozenHeart(vector)
+		RPCItems:RollBlacksmithsTablet(vector)
+		RPCItems:RollAquastoneRing(vector)
+		RPCItems:RollStoneOfGordon(vector, 10)
+		RPCItems:RollSapphireLotus(vector)
+		RPCItems:RollArborDragonfly(vector)
+		RPCItems:RollTokenOfOceanis(vector)
+		RPCItems:RollAncientTanariWaterstone(vector)
+		RPCItems:RollAntiqueManaRelic(vector)
+		RPCItems:RollFrostGem(vector)
+		RPCItems:RollTwigOfEnlightened(vector)
+		RPCItems:RollLifesourceVessel(vector)
+		RPCItems:RollTomeOfChaos(vector)
+		RPCItems:RollAerithsTear(vector)
+		RPCItems:RollTorchOfGengar(vector)
+		RPCItems:RollRuinfallSkullToken(vector)
+		RPCItems:RollRavenIdol(vector)
+		RPCItems:RollConquestStoneFalcon(vector)
+		RPCItems:RollFortunesTalismanOfTruth(vector)
+		RPCItems:RollEpsilonsEyeglass(vector)
+		RPCItems:RollOmegaRuby(vector)
+		RPCItems:RollFenrirFang(vector)
+		RPCItems:RollPhoenixEmblem(vector)
+		RPCItems:RollHopeOfSaytaru(vector)
+		RPCItems:RollFuchsiaRing(vector)
+		RPCItems:RollAnkhOfAncients(vector)
+		RPCItems:RollWorldTreesFlowerCache(vector)
+		RPCItems:RollGalaxyOrb(vector)
+		RPCItems:RollVolcanoOrb(vector)
+		RPCItems:RollFractionalEnhancementGeode(vector)
+		RPCItems:RollRingOfNobility(vector)
+		RPCItems:RollAzureEmpire(vector)
+		RPCItems:RollTempestFalconRing(vector)
+		RPCItems:RollFirelockPendant(vector)
+		RPCItems:RollStargazersSphere(vector)
+		RPCItems:RollEmeraldNullificationRing(vector)
+		RPCItems:RollGarnetWarfareRing(vector)
+		RPCItems:RollRedDivinexAmulet(vector)
+		RPCItems:RollGreenDivinexAmulet(vector)
+		RPCItems:RollBlueDivinexAmulet(vector)
+		RPCItems:RollCobaltSerenityRing(vector)
+		RPCItems:RollWindOrchid(vector)
+		RPCItems:RollFireBlossom(vector)
+		RPCItems:RollAquaLily(vector)
+		RPCItems:RollSunCrystal(vector, 999)
+		RPCItems:RollSignusCharm(vector)
+		RPCItems:RollEyeOfAvernus(vector)
+	end
 
-  if string.match(text, "-blacksmith") then
-    local playerid = keys.playerid
-    local hero = GameState:GetHeroByPlayerID(playerid)
-    local player = hero:GetPlayerOwner()
-    CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
-  end
+	if string.match(text, "-blacksmith") then
+		local playerid = keys.playerid
+		local hero = GameState:GetHeroByPlayerID(playerid)
+		local player = hero:GetPlayerOwner()
+		CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+	end
 
-  if string.match(text, "-potions") then
-    local max = 30
-    if string.match(text, "-potions ") then
-      str1 = string.gsub(text, "-potions ", "")
-      max = tonumber(str1)
-    end
-    for i=1,max do
-      Timers:CreateTimer((max-i)/50, function()
-        RPCItems:RollBasicPotion(5000, vector, "mythical", 100)
-      end)
-    end
-  end
-  --TO DO
-  local wepClass
-  wepClass = "conjuror" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "flamewaker" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "voltex" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "venomort" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "axe" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "astral" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "epoch" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "paladin" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "sorceress" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "seinaru" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "warlord" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "bahamut" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "auriun" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "duskbringer" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "trapper" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "spirit_warrior" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "mountain_protector" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "chernobog" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "solunia" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "hydroxis" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "ekkan" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "zonik" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "arkimus" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "djanghor" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "slipfinn" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "sephyr" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "dinath" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "jex" if string.match(text, "-"..wepClass) and not string.match(text, "2a") then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
-  wepClass = "jex" 
-    if string.match(text, "-"..wepClass) and string.match(text, "2a") then
-        for i=1,10 do
-            Weapons:RollJexLegendWeapon2a(vector, false)
-        end      
-    end
-  wepClass = "omniro" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	if string.match(text, "-potions") then
+		local max = 30
+		if string.match(text, "-potions ") then
+			str1 = string.gsub(text, "-potions ", "")
+			max = tonumber(str1)
+		end
+		for i = 1, max do
+			Timers:CreateTimer((max - i) / 50, function()
+				RPCItems:RollBasicPotion(5000, vector, "mythical", 100)
+			end)
+		end
+	end
+	--TO DO
+	local wepClass
+	wepClass = "conjuror" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "flamewaker" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "voltex" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "venomort" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "axe" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "astral" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "epoch" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "paladin" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "sorceress" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "seinaru" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "warlord" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "bahamut" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "auriun" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "duskbringer" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "trapper" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "spirit_warrior" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "mountain_protector" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "chernobog" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "solunia" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "hydroxis" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "ekkan" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "zonik" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "arkimus" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "djanghor" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "slipfinn" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "sephyr" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "dinath" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "jex" if string.match(text, "-"..wepClass) and not string.match(text, "2a") then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
+	wepClass = "jex"
+	if string.match(text, "-"..wepClass) and string.match(text, "2a") then
+		for i = 1, 10 do
+			Weapons:RollJexLegendWeapon2a(vector, false)
+		end
+	end
+	wepClass = "omniro" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
 end
 
 function StringSplit(inputstr, sep)
-  if sep == nil then
-    sep = "%s"
-  end
-  local t={} ; i=1
-  for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
-    t[i] = str
-    i = i + 1
-  end
-  return t
+	if sep == nil then
+		sep = "%s"
+	end
+	local t = {}; i = 1
+	for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+		t[i] = str
+		i = i + 1
+	end
+	return t
 end
 
 function LoadCharacterDev(playerID, slot, steamID)
-  local url = ROSHPIT_URL.."/champions/loadCharacter?"
-  url = url.."steam_id="..steamID
-  url = url.."&slot="..slot
-  CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
-    local resultTable = {}
-    PrintTable(resultTable)
-    print( "GET response:\n" )
-    for k,v in pairs( result ) do
-      print( string.format( "%s : %s\n", k, v ) )
-    end
-    print( "Done." )
-    local resultTable = JSON:decode(result.Body)
-    PlayerResource:ReplaceHeroWith(playerID, resultTable.character.hero_name, 0, 0)
-    Timers:CreateTimer(7, function()
-      hero = GameState:GetHeroByPlayerID(playerID)
-      SaveLoad:ApplyDataToHero(resultTable.character, playerID)
-      for i = 1, 6, 1 do
-        Timers:CreateTimer(0.5+(0.5*i), function()
-          SaveLoad:LoadGear(resultTable.gear[i], playerID, 1)
-        end)
-      end
-      Timers:CreateTimer(1, function()
-        SaveLoad:LoadGlyphs(resultTable.character, hero)
-      end)
-      Timers:CreateTimer(3, function()
-        SaveLoad:LoadPortalKeys(resultTable.character, hero)
-      end)
-      if GameState:IsRPCArena() then
-        Arena:LoadChampionsLeagueData(hero, nil)
-      end
-      Timers:CreateTimer(5, function()
-        Statistics.dispatch('hero:oracle:load')
-      end)
-    end)
-  end )
+	local url = ROSHPIT_URL.."/champions/loadCharacter?"
+	url = url.."steam_id="..steamID
+	url = url.."&slot="..slot
+	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
+		local resultTable = {}
+		PrintTable(resultTable)
+		print("GET response:\n")
+		for k, v in pairs(result) do
+			print(string.format("%s : %s\n", k, v))
+		end
+		print("Done.")
+		local resultTable = JSON:decode(result.Body)
+		PlayerResource:ReplaceHeroWith(playerID, resultTable.character.hero_name, 0, 0)
+		Timers:CreateTimer(7, function()
+			hero = GameState:GetHeroByPlayerID(playerID)
+			SaveLoad:ApplyDataToHero(resultTable.character, playerID)
+			for i = 1, 6, 1 do
+				Timers:CreateTimer(0.5 + (0.5 * i), function()
+					SaveLoad:LoadGear(resultTable.gear[i], playerID, 1)
+				end)
+			end
+			Timers:CreateTimer(1, function()
+				SaveLoad:LoadGlyphs(resultTable.character, hero)
+			end)
+			Timers:CreateTimer(3, function()
+				SaveLoad:LoadPortalKeys(resultTable.character, hero)
+			end)
+			if GameState:IsRPCArena() then
+				Arena:LoadChampionsLeagueData(hero, nil)
+			end
+			Timers:CreateTimer(5, function()
+				Statistics.dispatch('hero:oracle:load')
+			end)
+		end)
+	end)
 end
 
 function ChatDropWep(str, vector, text)
-    if text and string.match(text, "@") then
-        local classAndAmount = StringSplit(text, "@")
-        if classAndAmount[1] and classAndAmount[2] then
-            local class = string.gsub(classAndAmount[1], "%D", "")
-            class = tonumber(class)
-            local numberOfWepsToDrop = string.gsub(classAndAmount[2], "%D", "")
-            numberOfWepsToDrop = tonumber(numberOfWepsToDrop)
-            print(type(class))
-            print(type(numberOfWepsToDrop))
-            --    -conjuror 2@1
-            if class == 1 then
-                for i=1,numberOfWepsToDrop do
-                    Weapons:RollLegendWeapon1(vector, str, 50)
-                end         
-            elseif class == 2 then
-                for i=1,numberOfWepsToDrop do
-                    Weapons:RollLegendWeapon2(vector, str, 50)
-                end     
-            elseif class == 3 then
-                for i=1,numberOfWepsToDrop do
-                    Weapons:RollLegendWeapon3(vector, str, 50)
-                end     
-            end
-        end
-    else
-        Weapons:RollLegendWeapon1(vector, str, 50)
-        Weapons:RollLegendWeapon2(vector, str, 50)
-        Weapons:RollLegendWeapon3(vector, str, 50)
-    end
+	if text and string.match(text, "@") then
+		local classAndAmount = StringSplit(text, "@")
+		if classAndAmount[1] and classAndAmount[2] then
+			local class = string.gsub(classAndAmount[1], "%D", "")
+			class = tonumber(class)
+			local numberOfWepsToDrop = string.gsub(classAndAmount[2], "%D", "")
+			numberOfWepsToDrop = tonumber(numberOfWepsToDrop)
+			print(type(class))
+			print(type(numberOfWepsToDrop))
+			--    -conjuror 2@1
+			if class == 1 then
+				for i = 1, numberOfWepsToDrop do
+					Weapons:RollLegendWeapon1(vector, str, 50)
+				end
+			elseif class == 2 then
+				for i = 1, numberOfWepsToDrop do
+					Weapons:RollLegendWeapon2(vector, str, 50)
+				end
+			elseif class == 3 then
+				for i = 1, numberOfWepsToDrop do
+					Weapons:RollLegendWeapon3(vector, str, 50)
+				end
+			end
+		end
+	else
+		Weapons:RollLegendWeapon1(vector, str, 50)
+		Weapons:RollLegendWeapon2(vector, str, 50)
+		Weapons:RollLegendWeapon3(vector, str, 50)
+	end
 end
 
 function GameMode:OnPlayerChat(keys)
-  local text = string.lower(keys.text)
-  if string.match(text, "dbg") then
-    local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
-    for i=1,10 do
-        RPCItems:RollDuskbringerArcana2(vector)
-    end
-  end
-    if string.match(text, "-allglyph") then
-        local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-        local name = HerosCustom:GetInternalHeroName(hero:GetUnitName())
-        Glyphs:DebugRollHeroGlyphs(name, hero:GetAbsOrigin())
-    end
+	local text = string.lower(keys.text)
+	if string.match(text, "dbg") then
+		local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+		for i = 1, 10 do
+			RPCItems:RollDuskbringerArcana2(vector)
+		end
+	end
+	if string.match(text, "-mountain_protector weapon2 stacks") then
+		local textToParse = string.gsub(text, "-mountain_protector weapon2 stacks", "")
+		local finalStacks = tonumber(textToParse)
+		local caster = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+		local attacker = caster
+		caster.weapon:ApplyDataDrivenModifier(caster, attacker, "modifier_immortal_weapon_2_stacks", {})
+		attacker:SetModifierStackCount("modifier_immortal_weapon_2_stacks", caster, finalStacks)
+	end
+	if string.match(text, "-allglyph") then
+		local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+		local name = HerosCustom:GetInternalHeroName(hero:GetUnitName())
+		Glyphs:DebugRollHeroGlyphs(name, hero:GetAbsOrigin())
+	end
 
-  if string.match(text, "-serengaard") then
-    local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-    local waveMsg = string.gsub(text, "-serengaard ", "")
-    local InfiniteWave = tonumber(waveMsg)
-    if GameState:GetDifficultyFactor() < 3 then
-        EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
-        return
-    end
-    if Serengaard.wave == 0 then
-        CustomGameEventManager:Send_ServerToAllClients("BGMend", {})
-        CustomGameEventManager:Send_ServerToAllClients("BGMstart", {songName = "Serengaard.UseStone"})
-        
-        Serengaard.timerBlock = true
-        CustomGameEventManager:Send_ServerToAllClients("sunstone_activate", {} )
+	if string.match(text, "-serengaard") then
+		local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+		local waveMsg = string.gsub(text, "-serengaard ", "")
+		local InfiniteWave = tonumber(waveMsg)
+		if GameState:GetDifficultyFactor() < 3 then
+			EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
+			return
+		end
+		if Serengaard.wave == 0 then
+			CustomGameEventManager:Send_ServerToAllClients("BGMend", {})
+			CustomGameEventManager:Send_ServerToAllClients("BGMstart", {songName = "Serengaard.UseStone"})
 
-        Serengaard.InfiniteWaveCount = InfiniteWave
+			Serengaard.timerBlock = true
+			CustomGameEventManager:Send_ServerToAllClients("sunstone_activate", {})
 
-        Timers:CreateTimer(3, function()
-            Serengaard.timerBlock = false
-            Serengaard:LinewarIncomeFunction(90)
-        end)
-        Timers:CreateTimer(7, function()
-            Serengaard.wave = 31
-            for i = 1, 20, 1 do
-                Timers:CreateTimer(i, function()
-                    Serengaard:UpdateTowers()
-                end)
-            end
-        end)
-    else
-        EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
-    end
-  end  
-  if string.match(text, "debug_entities") then
-    local entityesToLog = { "dota_item_wearable", "ability_datadriven", "npc_dota_creature", "npc_dota_thinker", "item_datadriven", "dota_item_drop" }
-    local textNotif = ""
-    for i=1,#entityesToLog do
-      local ent = Entities:FindAllByClassname(entityesToLog[i])
-      textNotif = textNotif.."["..entityesToLog[i]..": "..#ent.."]"
-    end
-    Notifications:Bottom(keys.playerid, {text=textNotif, duration=15.0})
-  end      
-  if string.match(text, "-kill ") then---kill earth_deity
-    local direUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS,Vector(0, 0, 0),nil,FIND_UNITS_EVERYWHERE,DOTA_UNIT_TARGET_TEAM_FRIENDLY,DOTA_UNIT_TARGET_ALL,DOTA_UNIT_TARGET_FLAG_NONE,FIND_ANY_ORDER,false)
-    strKill = string.gsub(text, "-kill ", "")
-    for i=1,#direUnits do
-        if direUnits[i]:GetUnitName() == strKill then
-            direUnits[i]:ForceKill(false)
-        end
-    end
-  end
-  if string.match(text, "-tutorial_shroomling") and GameState:IsTutorial() then
-    for i = 1, 10, 1 do
-        local rotatedVector = WallPhysics:rotateVector(Vector(1,0), 2*math.pi*i/10)
-        local shroomling = CreateUnitByName("tutorial_shroomling2", Vector(-576, 1984)+rotatedVector*300, false, nil, nil, DOTA_TEAM_NEUTRALS)
-        shroomling:SetForwardVector(Vector(1,0))
-        AddFOWViewer(DOTA_TEAM_GOODGUYS, shroomling:GetAbsOrigin(), 300, 180, false)
-        shroomling.damage_code = 1
-        Tutorial:ApplyTutorialModifier("modifier_tutorial_unit", shroomling, 0)
-        local ability = shroomling:FindAbilityByName("dungeon_creep")
-        if ability then
-            ability:SetLevel(1)
-            ability:ApplyDataDrivenModifier(shroomling, shroomling, "modifier_dungeon_thinker_creep", {})
-        end
-    end
-  end
-  if string.match(text, "-load") then--example "-load 1@111481062"
-    str = string.gsub(text, "-load ", "")
-    strn = StringSplit(str, "@")
-    local playerid = keys.playerid
-    local steamID = PlayerResource:GetSteamAccountID(playerid)
-    LoadCharacterDev(playerid, strn[1], strn[2])
-  end
+			Serengaard.InfiniteWaveCount = InfiniteWave
 
-  if string.match(text, "jex_add_resources_to_onibi") then
-    for i=1,#MAIN_HERO_TABLE do
-      if MAIN_HERO_TABLE[i]:GetUnitName() == "npc_dota_hero_arc_warden" then
-        local res = require('heroes/arc_warden/abilities/essence_harvest')
-        add_resources_to_onibi(MAIN_HERO_TABLE[i], "nature", 500000000)
-        add_resources_to_onibi(MAIN_HERO_TABLE[i], "lightning", 500000000)
-        add_resources_to_onibi(MAIN_HERO_TABLE[i], "cosmic", 500000000)
-        add_resources_to_onibi(MAIN_HERO_TABLE[i], "fire", 500000000)
-      end
-    end
-  end
+			Timers:CreateTimer(3, function()
+				Serengaard.timerBlock = false
+				Serengaard:LinewarIncomeFunction(90)
+			end)
+			Timers:CreateTimer(7, function()
+				Serengaard.wave = 31
+				for i = 1, 20, 1 do
+					Timers:CreateTimer(i, function()
+						Serengaard:UpdateTowers()
+					end)
+				end
+			end)
+		else
+			EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
+		end
+	end
+	if string.match(text, "debug_entities") then
+		local entityesToLog = {"dota_item_wearable", "ability_datadriven", "npc_dota_creature", "npc_dota_thinker", "item_datadriven", "dota_item_drop"}
+		local textNotif = ""
+		for i = 1, #entityesToLog do
+			local ent = Entities:FindAllByClassname(entityesToLog[i])
+			textNotif = textNotif.."["..entityesToLog[i] .. ": "..#ent.."]"
+		end
+		Notifications:Bottom(keys.playerid, {text = textNotif, duration = 15.0})
+	end
+	if string.match(text, "-kill ") then---kill earth_deity
+		local direUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+		strKill = string.gsub(text, "-kill ", "")
+		for i = 1, #direUnits do
+			if direUnits[i]:GetUnitName() == strKill then
+				direUnits[i]:ForceKill(false)
+			end
+		end
+	end
+	if string.match(text, "-tutorial_shroomling") and GameState:IsTutorial() then
+		for i = 1, 10, 1 do
+			local rotatedVector = WallPhysics:rotateVector(Vector(1, 0), 2 * math.pi * i / 10)
+			local shroomling = CreateUnitByName("tutorial_shroomling2", Vector(-576, 1984) + rotatedVector * 300, false, nil, nil, DOTA_TEAM_NEUTRALS)
+			shroomling:SetForwardVector(Vector(1, 0))
+			AddFOWViewer(DOTA_TEAM_GOODGUYS, shroomling:GetAbsOrigin(), 300, 180, false)
+			shroomling.damage_code = 1
+			Tutorial:ApplyTutorialModifier("modifier_tutorial_unit", shroomling, 0)
+			local ability = shroomling:FindAbilityByName("dungeon_creep")
+			if ability then
+				ability:SetLevel(1)
+				ability:ApplyDataDrivenModifier(shroomling, shroomling, "modifier_dungeon_thinker_creep", {})
+			end
+		end
+	end
+	if string.match(text, "-load") then--example "-load 1@111481062"
+		str = string.gsub(text, "-load ", "")
+		strn = StringSplit(str, "@")
+		local playerid = keys.playerid
+		local steamID = PlayerResource:GetSteamAccountID(playerid)
+		LoadCharacterDev(playerid, strn[1], strn[2])
+	end
 
-  if string.match(text, "map_keys") then
-    local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
-    local item = CreateItem("item_debug_blink", nil, nil)
-    local drop = CreateItemOnPositionSync( vector, item )
-    local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-    if GameState:IsRedfallRidge() then
-      Redfall:GiveSpiritRuby(hero, vector)
-      Redfall:GiveVermillionBundle(hero, vector)
-      Redfall:GiveShipyardKey(hero, vector)
-      Redfall:GiveDemonRelic(hero, vector)
-    elseif GameState:IsWinterblight() then
-      for i=1,3 do
-        Winterblight:DropGlacierStone(vector)
-      end
-    elseif GameState:IsSerengaard() then
-      Serengaard:GiveSunstone(hero, Serengaard.mainAncient:GetAbsOrigin())
-    end
-  end
-  if string.match(text, "rpc_redfall_ridge") and GameState:IsRedfallRidge() then
-    Timers:CreateTimer(1, function()
-      Redfall:InitiateCrimsythCastle()
-      local blockers = Entities:FindAllByNameWithin("drawbridge_blocker", Vector(5376, 11520, 128+Redfall.ZFLOAT), 4000)
-      for i = 1, #blockers, 1 do
-        UTIL_Remove(blockers[i])
-      end
-    end)    
-  end
+	if string.match(text, "jex_add_resources_to_onibi") then
+		for i = 1, #MAIN_HERO_TABLE do
+			if MAIN_HERO_TABLE[i]:GetUnitName() == "npc_dota_hero_arc_warden" then
+				local res = require('heroes/arc_warden/abilities/essence_harvest')
+				add_resources_to_onibi(MAIN_HERO_TABLE[i], "nature", 500000000)
+				add_resources_to_onibi(MAIN_HERO_TABLE[i], "lightning", 500000000)
+				add_resources_to_onibi(MAIN_HERO_TABLE[i], "cosmic", 500000000)
+				add_resources_to_onibi(MAIN_HERO_TABLE[i], "fire", 500000000)
+			end
+		end
+	end
 
-  if GetMapName() == "rpc_sea_fortress" then
-    if string.match(text, "-sea swen") then
-      Seafortress:SpawnFinalBoss()
-    end
-    if string.match(text, "-sea archon") then
-      Seafortress:InitArchon()
-    end
-    if string.match(text, "-sea paladin") then
-      Seafortress.PaladinGolems = 0
-      Seafortress.PaladinArcana = true
-      Seafortress:SpawnPaladinArcanaGolems()   
-    end
-    if string.match(text, "-sea bahamut") then
-      Seafortress:SpawnShadowOfBahamut()
-    end       
-    if string.match(text, "-sea olspiny") then
-      local random_position = Vector(RandomInt(-14000, 14000), RandomInt(-14000, 14000))
-      AddFOWViewer(DOTA_TEAM_GOODGUYS, random_position, 8000, 30000, false)
-      Seafortress:SpawnOlSpiny(random_position, RandomVector(1))
-    end 
-    if string.match(text, "-sea beast_tyrant") then 
-        PrecacheUnitByNameAsync("seafortress_beast_tyrant", function(...) end)
-        local statuePos = Vector(-1306, 13709, 256)
-        local new_beast = Seafortress:SpawnDungeonUnit("seafortress_beast_tyrant", statuePos, 10, 10, "Seafortress.TyrantGhost.Aggro", Vector(0,-1), false)
-        new_beast:SetModelScale(3)
-        new_beast.reduc = 0.0000018
-        new_beast.isBossFFS = true
-        new_beast:SetAbsOrigin(statuePos)
-        local new_beast_ability = new_beast:FindAbilityByName("seafortress_beast_tryant_passive")
-        new_beast_ability:ApplyDataDrivenModifier(new_beast, new_beast, "modifier_beast_tyrant_combat_ai", {})
-        AddFOWViewer(DOTA_TEAM_GOODGUYS, statuePos, 8000, 30000, false)
-    end
-    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-14272, 13696), 8000, 30000, false)
-    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(4416, 15744), 8000, 30000, false) 
-    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(12032, 9920), 8000, 30000, false)
-    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-1280, 11392), 8000, 30000, false)
-    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-1124, 9315), 8000, 30000, false)
+	if string.match(text, "map_keys") then
+		local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+		local item = CreateItem("item_debug_blink", nil, nil)
+		local drop = CreateItemOnPositionSync(vector, item)
+		local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+		if GameState:IsRedfallRidge() then
+			Redfall:GiveSpiritRuby(hero, vector)
+			Redfall:GiveVermillionBundle(hero, vector)
+			Redfall:GiveShipyardKey(hero, vector)
+			Redfall:GiveDemonRelic(hero, vector)
+		elseif GameState:IsWinterblight() then
+			for i = 1, 3 do
+				Winterblight:DropGlacierStone(vector)
+			end
+		elseif GameState:IsSerengaard() then
+			Serengaard:GiveSunstone(hero, Serengaard.mainAncient:GetAbsOrigin())
+		end
+	end
+	if string.match(text, "rpc_redfall_ridge") and GameState:IsRedfallRidge() then
+		Timers:CreateTimer(1, function()
+			Redfall:InitiateCrimsythCastle()
+			local blockers = Entities:FindAllByNameWithin("drawbridge_blocker", Vector(5376, 11520, 128 + Redfall.ZFLOAT), 4000)
+			for i = 1, #blockers, 1 do
+				UTIL_Remove(blockers[i])
+			end
+		end)
+	end
 
-    if string.match(text, "-sea1") then
-      local boss1 = Seafortress:SpawnOceanGiantBoss(Vector(-3456, 9344, -418+Seafortress.ZFLOAT), Vector(0,-1))
-      boss1:RemoveModifierByName("modifier_disable_player")
-    end
-    if string.match(text, "-sea2") then
-      local boss2 = Seafortress:SpawnSiltbreakerBoss(Vector(-1124, 9315, -418+Seafortress.ZFLOAT), Vector(0,-1))
-      boss2:RemoveModifierByName("modifier_disable_player")
-    end
-    if string.match(text, "-sea3") then
-      local boss3 = Seafortress:SpawnOracleOfSea(Vector(1181, 9312, -418+Seafortress.ZFLOAT), Vector(0,-1))
-      boss3:RemoveModifierByName("modifier_disable_player")
-    end
-    if string.match(text, "-sea") then
-      local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
-      local item = CreateItem("item_debug_blink", nil, nil)
-      local drop = CreateItemOnPositionSync( vector, item )
-    end
-  end
-  ChatDropItems(keys)
-  -- if string.match(text, "-gold") or string.match(text, "-lvlup") or string.match(text, "-respawn") or string.match(text, "-createhero") or string.match(text, "-refresh") or string.match(text, "-item") or string.match(text, "-allvision") or string.match(text, "-wtf") or string.match(text, "-respawn") or string.match(text, "-teleport") then
-  --   print("CHEATS ENABLED")
-  --   GameState:CheatCommandUsed()
-  -- end
-  if string.match(text, "-suicide") then
-    -- DeepPrintTable(keys)
-    -- local playerHandle = EntIndexToHScript(keys.userid)
-    -- local hero = player:GetAssignedHero()
-    -- hero:ForceKill(false)
+	if GetMapName() == "rpc_sea_fortress" then
+		if string.match(text, "-sea swen") then
+			Seafortress:SpawnFinalBoss()
+		end
+		if string.match(text, "-sea archon") then
+			Seafortress:InitArchon()
+		end
+		if string.match(text, "-sea paladin") then
+			Seafortress.PaladinGolems = 0
+			Seafortress.PaladinArcana = true
+			Seafortress:SpawnPaladinArcanaGolems()
+		end
+		if string.match(text, "-sea bahamut") then
+			Seafortress:SpawnShadowOfBahamut()
+		end
+		if string.match(text, "-sea olspiny") then
+			local random_position = Vector(RandomInt(-14000, 14000), RandomInt(-14000, 14000))
+			AddFOWViewer(DOTA_TEAM_GOODGUYS, random_position, 8000, 30000, false)
+			Seafortress:SpawnOlSpiny(random_position, RandomVector(1))
+		end
+		if string.match(text, "-sea beast_tyrant") then
+			PrecacheUnitByNameAsync("seafortress_beast_tyrant", function(...) end)
+			local statuePos = Vector(-1306, 13709, 256)
+			local new_beast = Seafortress:SpawnDungeonUnit("seafortress_beast_tyrant", statuePos, 10, 10, "Seafortress.TyrantGhost.Aggro", Vector(0, -1), false)
+			new_beast:SetModelScale(3)
+			new_beast.reduc = 0.0000018
+			new_beast.isBossFFS = true
+			new_beast:SetAbsOrigin(statuePos)
+			local new_beast_ability = new_beast:FindAbilityByName("seafortress_beast_tryant_passive")
+			new_beast_ability:ApplyDataDrivenModifier(new_beast, new_beast, "modifier_beast_tyrant_combat_ai", {})
+			AddFOWViewer(DOTA_TEAM_GOODGUYS, statuePos, 8000, 30000, false)
+		end
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-14272, 13696), 8000, 30000, false)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(4416, 15744), 8000, 30000, false)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(12032, 9920), 8000, 30000, false)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-1280, 11392), 8000, 30000, false)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-1124, 9315), 8000, 30000, false)
 
-  end
-  -- if string.match(text, "superdebug11") then
-  --   Redfall:Debug()
-  -- end
---  local mapName = GetMapName()
---  local position
---  if mapName == "rpc_roshpit_arena" then
---    position = Vector(-3136, -11200)
---  elseif mapName == "rpc_redfall_ridge" then
---    position = Vector(-15168, -14976)
---  elseif mapName == "rpc_tanari_jungle" then
---    position = Vector(-4928, 2048)
---  elseif mapName == "rpc_sea_fortress" then
---    position = Vector(844, -15488)
---  end
---  if string.match(text, "debug boss") then
---    if mapName == "rpc_roshpit_arena" then
---      Arena:OpenPit(7)
---      Arena.PitLevel = 7
---      Arena:SpawnPitFinalBoss()
---    elseif mapName == "rpc_redfall_ridge" then
---      Redfall:SpawnAncientTree()
---    elseif mapName == "rpc_tanari_jungle" then
---      Tanari:DebugSpawnBoss()
---    elseif mapName == "rpc_sea_fortress" then
---      Seafortress:SpawnFinalBoss()
---    end
---  end
---
---  if string.match(text, "debug main") then
---    local item = CreateItem("item_debug_blink", nil, nil)
---    local drop = CreateItemOnPositionSync( position, item )
---    RPCItems:DropItem(item, position)
---    RPCItems:RollReanimationStone(position)
---    RPCItems:RollDuskbringerArcana1(position)
---  end
---
---  if string.match(text, "debug items") then
---    RPCItems:RollVoyagerBoots(position)
---  end
---
---  if string.match(text, "debug glyphs") then
---    local heroName = 'duskbringer'
---    Glyphs:RollGlyphAll("item_rpc_" .. heroName .. "_glyph_5_a", position, 0)
---    for tier = 1,7 do
---      for rowItem = 1,2 do
---        local glyphName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..rowItem
---        Glyphs:RollGlyphAll(glyphName, position, 0)
---      end
---    end
---  end
+		if string.match(text, "-sea1") then
+			local boss1 = Seafortress:SpawnOceanGiantBoss(Vector(-3456, 9344, -418 + Seafortress.ZFLOAT), Vector(0, -1))
+			boss1:RemoveModifierByName("modifier_disable_player")
+		end
+		if string.match(text, "-sea2") then
+			local boss2 = Seafortress:SpawnSiltbreakerBoss(Vector(-1124, 9315, -418 + Seafortress.ZFLOAT), Vector(0, -1))
+			boss2:RemoveModifierByName("modifier_disable_player")
+		end
+		if string.match(text, "-sea3") then
+			local boss3 = Seafortress:SpawnOracleOfSea(Vector(1181, 9312, -418 + Seafortress.ZFLOAT), Vector(0, -1))
+			boss3:RemoveModifierByName("modifier_disable_player")
+		end
+		if string.match(text, "-sea") then
+			local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+			local item = CreateItem("item_debug_blink", nil, nil)
+			local drop = CreateItemOnPositionSync(vector, item)
+		end
+	end
+	ChatDropItems(keys)
+	-- if string.match(text, "-gold") or string.match(text, "-lvlup") or string.match(text, "-respawn") or string.match(text, "-createhero") or string.match(text, "-refresh") or string.match(text, "-item") or string.match(text, "-allvision") or string.match(text, "-wtf") or string.match(text, "-respawn") or string.match(text, "-teleport") then
+	--   print("CHEATS ENABLED")
+	--   GameState:CheatCommandUsed()
+	-- end
+	if string.match(text, "-suicide") then
+		-- DeepPrintTable(keys)
+		-- local playerHandle = EntIndexToHScript(keys.userid)
+		-- local hero = player:GetAssignedHero()
+		-- hero:ForceKill(false)
 
-  if string.match(text, "spawnunit") then
-       if Beacons.cheats then
-          local position = MAIN_HERO_TABLE[1]:GetAbsOrigin() + MAIN_HERO_TABLE[1]:GetForwardVector()*600
-          local unitName = string.gsub(text, "spawnunit ", '')
-          local unit = CreateUnitByName(unitName, position, true, nil, nil, DOTA_TEAM_NEUTRALS)
-          Events:AdjustDeathXP(unit)     
-          unit.targetRadius = 800
-          unit.minRadius = 0
-          unit.targetAbilityCD = 1
-          unit.targetFindOrder = FIND_ANY_ORDER     
-          unit.targetRadius = 620
-          unit.autoAbilityCD = 1
-          unit.aggro = true
-       end
-  elseif string.match(text, "tanari") then
-        if Beacons.cheats then
-          Tanari:Debug()
-        end
-  elseif string.match(text, "arena") then
-        if Beacons.cheats then
-          Arena:Debug()
-        end
-  elseif string.match(text, "redfall") then
-        if Beacons.cheats then
-          Redfall:Debug()
-        end
-  elseif string.match(text, "serengaard") then
-        if Beacons.cheats then
-          Serengaard:Debug()
-        end
-  elseif string.match(text, "seafort") then
-        if Beacons.cheats then
-          Seafortress:Debug()
-        end    
-  elseif string.match(text, "winter") then
-        if Beacons.cheats then
-          Winterblight:Debug()
-        end    
-  elseif string.match(text, "ladder") then
-    if GameState:IsRedfallRidge() then
-        if Beacons.cheats then
-          Redfall:Debug2()
-        end
-    elseif GameState:IsTanariJungle() then
-        if Beacons.cheats then
-          Tanari:Debug2()
-        end
-    elseif GameState:IsSerengaard() then
-        if Beacons.cheats then
-          Serengaard:Debug2()
-        end
-    elseif GameState:IsRPCArena() then
-        if Beacons.cheats then
-          Arena:Debug2()
-        end
-    elseif GameState:IsSeaFortress() then
-        if Beacons.cheats then
-          Seafortress:Debug2()
-        end
-    elseif GameState:IsWinterblight() then
-        if Beacons.cheats then
-          Winterblight:Debug2()
-        end
-    end
-  elseif string.match(text, "special") then
-    if Beacons.cheats then
-      Events:SpecialDebug()
-    end
-  elseif string.match(text, "pvp") then
-    PVP:Debug()
-  elseif string.match(text, "-hero") then
-    if Beacons.cheats then
-      local hero = string.gsub(text, "-hero ", "")
-      hero = "npc_dota_hero_"..hero
-      local playerid = keys.playerid
-      PlayerResource:ReplaceHeroWith(playerid, hero, 0, 0)
-    end
-  elseif string.match(text, "-immo") then
-    if Beacons.cheats then
-      local name = string.gsub(text, "-immo ", "")
-      name = "item_rpc_"..name
-      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-      RPCItems:RollImmortalByName(name, hero:GetAbsOrigin())
-    end
-  elseif string.match(text, "-arc") then
-    if Beacons.cheats then
-      local name = string.gsub(text, "-arc ", "")
-      name = "item_rpc_"..name
-      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-      RPCItems:RollArcanaByName(name, hero:GetAbsOrigin())
-    end
-  elseif string.match(text, "-curatehero") then
-    if Beacons.cheats then
-      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-      Curator:FullCurateHero(hero)
-    end
-  elseif string.match(text, "-iweap1") then
-    if Beacons.cheats then
-      local name = string.gsub(text, "-iweap1 ", "")
-      name = "npc_dota_hero_"..name
-      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-      Weapons:RollLegendWeapon1WithDotaName(name, hero:GetAbsOrigin())
-    end
-  elseif string.match(text, "-iweap2") then
-  if Beacons.cheats then
-    local name = string.gsub(text, "-iweap2 ", "")
-    name = "npc_dota_hero_"..name
-    local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-    Weapons:RollLegendWeapon2WithDotaName(name, hero:GetAbsOrigin())
-  end
-  elseif string.match(text, "-iweap3") then
-  if Beacons.cheats then
-    local name = string.gsub(text, "-iweap3 ", "")
-    name = "npc_dota_hero_"..name
-    local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-    Weapons:RollLegendWeapon3WithDotaName(name, hero:GetAbsOrigin())
-  end
-  elseif GameState:GetDifficultyFactor() == 3 then
-    local playerid = keys.playerid
-    if (string.match(text, "-crystal") or string.match(text, "-crystals")) and not GameMode.VoteSystem.crystal_loot_disabled then
-      Events:LootDisableCrystal(playerid)
-    end
+	end
+	-- if string.match(text, "superdebug11") then
+	--   Redfall:Debug()
+	-- end
+	--  local mapName = GetMapName()
+	--  local position
+	--  if mapName == "rpc_roshpit_arena" then
+	--    position = Vector(-3136, -11200)
+	--  elseif mapName == "rpc_redfall_ridge" then
+	--    position = Vector(-15168, -14976)
+	--  elseif mapName == "rpc_tanari_jungle" then
+	--    position = Vector(-4928, 2048)
+	--  elseif mapName == "rpc_sea_fortress" then
+	--    position = Vector(844, -15488)
+	--  end
+	--  if string.match(text, "debug boss") then
+	--    if mapName == "rpc_roshpit_arena" then
+	--      Arena:OpenPit(7)
+	--      Arena.PitLevel = 7
+	--      Arena:SpawnPitFinalBoss()
+	--    elseif mapName == "rpc_redfall_ridge" then
+	--      Redfall:SpawnAncientTree()
+	--    elseif mapName == "rpc_tanari_jungle" then
+	--      Tanari:DebugSpawnBoss()
+	--    elseif mapName == "rpc_sea_fortress" then
+	--      Seafortress:SpawnFinalBoss()
+	--    end
+	--  end
+	--
+	--  if string.match(text, "debug main") then
+	--    local item = CreateItem("item_debug_blink", nil, nil)
+	--    local drop = CreateItemOnPositionSync( position, item )
+	--    RPCItems:DropItem(item, position)
+	--    RPCItems:RollReanimationStone(position)
+	--    RPCItems:RollDuskbringerArcana1(position)
+	--  end
+	--
+	--  if string.match(text, "debug items") then
+	--    RPCItems:RollVoyagerBoots(position)
+	--  end
+	--
+	--  if string.match(text, "debug glyphs") then
+	--    local heroName = 'duskbringer'
+	--    Glyphs:RollGlyphAll("item_rpc_" .. heroName .. "_glyph_5_a", position, 0)
+	--    for tier = 1,7 do
+	--      for rowItem = 1,2 do
+	--        local glyphName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..rowItem
+	--        Glyphs:RollGlyphAll(glyphName, position, 0)
+	--      end
+	--    end
+	--  end
 
-    if (string.match(text, "-disable_junk_loot") or string.match(text, "-junk")) and not GameMode.VoteSystem.junk_loot_disabled then
-      Events:LootDisableJunk(playerid)
-    end
-  end
+	if string.match(text, "spawnunit") then
+		if Beacons.cheats then
+			local position = MAIN_HERO_TABLE[1]:GetAbsOrigin() + MAIN_HERO_TABLE[1]:GetForwardVector() * 600
+			local unitName = string.gsub(text, "spawnunit ", '')
+			local unit = CreateUnitByName(unitName, position, true, nil, nil, DOTA_TEAM_NEUTRALS)
+			Events:AdjustDeathXP(unit)
+			unit.targetRadius = 800
+			unit.minRadius = 0
+			unit.targetAbilityCD = 1
+			unit.targetFindOrder = FIND_ANY_ORDER
+			unit.targetRadius = 620
+			unit.autoAbilityCD = 1
+			unit.aggro = true
+		end
+	elseif string.match(text, "tanari") then
+		if Beacons.cheats then
+			Tanari:Debug()
+		end
+	elseif string.match(text, "arena") then
+		if Beacons.cheats then
+			Arena:Debug()
+		end
+	elseif string.match(text, "redfall") then
+		if Beacons.cheats then
+			Redfall:Debug()
+		end
+	elseif string.match(text, "serengaard") then
+		if Beacons.cheats then
+			Serengaard:Debug()
+		end
+	elseif string.match(text, "seafort") then
+		if Beacons.cheats then
+			Seafortress:Debug()
+		end
+	elseif string.match(text, "winter") then
+		if Beacons.cheats then
+			Winterblight:Debug()
+		end
+	elseif string.match(text, "ladder") then
+		if GameState:IsRedfallRidge() then
+			if Beacons.cheats then
+				Redfall:Debug2()
+			end
+		elseif GameState:IsTanariJungle() then
+			if Beacons.cheats then
+				Tanari:Debug2()
+			end
+		elseif GameState:IsSerengaard() then
+			if Beacons.cheats then
+				Serengaard:Debug2()
+			end
+		elseif GameState:IsRPCArena() then
+			if Beacons.cheats then
+				Arena:Debug2()
+			end
+		elseif GameState:IsSeaFortress() then
+			if Beacons.cheats then
+				Seafortress:Debug2()
+			end
+		elseif GameState:IsWinterblight() then
+			if Beacons.cheats then
+				Winterblight:Debug2()
+			end
+		end
+	elseif string.match(text, "special") then
+		if Beacons.cheats then
+			Events:SpecialDebug()
+		end
+	elseif string.match(text, "pvp") then
+		PVP:Debug()
+	elseif string.match(text, "-hero") then
+		if Beacons.cheats then
+			local hero = string.gsub(text, "-hero ", "")
+			hero = "npc_dota_hero_"..hero
+			local playerid = keys.playerid
+			PlayerResource:ReplaceHeroWith(playerid, hero, 0, 0)
+		end
+	elseif string.match(text, "-immo") then
+		if Beacons.cheats then
+			local name = string.gsub(text, "-immo ", "")
+			name = "item_rpc_"..name
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			RPCItems:RollImmortalByName(name, hero:GetAbsOrigin())
+		end
+	elseif string.match(text, "-arc") then
+		if Beacons.cheats then
+			local name = string.gsub(text, "-arc ", "")
+			name = "item_rpc_"..name
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			RPCItems:RollArcanaByName(name, hero:GetAbsOrigin())
+		end
+	elseif string.match(text, "-curatehero") then
+		if Beacons.cheats then
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			Curator:FullCurateHero(hero)
+		end
+	elseif string.match(text, "-iweap1") then
+		if Beacons.cheats then
+			local name = string.gsub(text, "-iweap1 ", "")
+			name = "npc_dota_hero_"..name
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			Weapons:RollLegendWeapon1WithDotaName(name, hero:GetAbsOrigin())
+		end
+	elseif string.match(text, "-iweap2") then
+		if Beacons.cheats then
+			local name = string.gsub(text, "-iweap2 ", "")
+			name = "npc_dota_hero_"..name
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			Weapons:RollLegendWeapon2WithDotaName(name, hero:GetAbsOrigin())
+		end
+	elseif string.match(text, "-iweap3") then
+		if Beacons.cheats then
+			local name = string.gsub(text, "-iweap3 ", "")
+			name = "npc_dota_hero_"..name
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			Weapons:RollLegendWeapon3WithDotaName(name, hero:GetAbsOrigin())
+		end
+	elseif GameState:GetDifficultyFactor() == 3 then
+		local playerid = keys.playerid
+		if (string.match(text, "-crystal") or string.match(text, "-crystals")) and not GameMode.VoteSystem.crystal_loot_disabled then
+			Events:LootDisableCrystal(playerid)
+		end
+
+		if (string.match(text, "-disable_junk_loot") or string.match(text, "-junk")) and not GameMode.VoteSystem.junk_loot_disabled then
+			Events:LootDisableJunk(playerid)
+		end
+	end
 end
 
 function Glyphs:SaveResources()
@@ -1061,59 +1067,59 @@ function Glyphs:GlyphPurchase(msg)
 	local column = tonumber(msg.column)
 	local glyphName = msg.glyphName
 	local cost = Glyphs:GetGlyphCostByTier(tier, column, msg.glyphHero)
-	local crystalReduce = cost*-1
+	local crystalReduce = cost *- 1
 	local glyphHero = HerosCustom:GetInternalHeroName(msg.glyphHero)
 	if hero.glyphRecipes[glyphHero] then
 		if column == 2 then
 			if hero.glyphRecipes[glyphHero][2][tier] == 0 then
-				Notifications:Top(hero:GetPlayerOwnerID(), {text="Not Learned", duration=3, style={color="red"}, continue=true})
+				Notifications:Top(hero:GetPlayerOwnerID(), {text = "Not Learned", duration = 3, style = {color = "red"}, continue = true})
 				return false
 			end
 		end
 	end
 	local playerID = hero:GetPlayerOwnerID()
-			Glyphs:RollGlyphAll(glyphName, Vector(0, 0), msg.heroIndex)
-			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_glyph_shop", {})
+	Glyphs:RollGlyphAll(glyphName, Vector(0, 0), msg.heroIndex)
+	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_glyph_shop", {})
 end
 
 function Glyphs:ReanimationPurchase(msg)
 	local playerID = msg.playerID
-		
-		local steamID = PlayerResource:GetSteamAccountID(playerID)
-		local player = PlayerResource:GetPlayer(playerID)
-		local hero = player:GetAssignedHero()
-			RPCItems:GiveReanimationStoneToHero(hero)
-			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_glyph_shop", {})
+
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	local player = PlayerResource:GetPlayer(playerID)
+	local hero = player:GetAssignedHero()
+	RPCItems:GiveReanimationStoneToHero(hero)
+	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_glyph_shop", {})
 end
 
 function RPCItems:RollAttribute(xpBounty, minBase, maxBase, bountyFactorMin, bountyFactorMax, itemRarity, isFloat, maximumValue)
 	local rarityFactor = RPCItems:GetRarityFactor(itemRarity)
-	local waveFactor = math.floor(RPCItems:GetMaxFactor()/4)
+	local waveFactor = math.floor(RPCItems:GetMaxFactor() / 4)
 	local suffixLevel = 0
 	local value = 0
 	local maxFactor = RPCItems:GetMaxFactor()
-	local minMultiplier = math.max(math.floor(maxFactor/5),1)
+	local minMultiplier = math.max(math.floor(maxFactor / 5), 1)
 	if GameState:GetDifficultyFactor() == 2 then
-		minBase = math.max(minBase*1.2, math.floor(maxBase/2.1))
+		minBase = math.max(minBase * 1.2, math.floor(maxBase / 2.1))
 	elseif GameState:GetDifficultyFactor() == 1 then
-		minBase = math.max(minBase*1.2, math.floor(maxBase/2.1))
+		minBase = math.max(minBase * 1.2, math.floor(maxBase / 2.1))
 	else
-		minBase = math.max(minBase*1.2, math.floor(maxBase/2.1))
+		minBase = math.max(minBase * 1.2, math.floor(maxBase / 2.1))
 	end
 	if Events.reroll then
 	else
 		if Events.MapName == "rpc_sea_fortress" then
-			minBase = minBase*1.8
+			minBase = minBase * 1.8
 		end
 	end
 
 	minBase = math.floor(minBase)
 	if Dungeons.phoenixWave then
 		if Dungeons.phoenixWave > 10 then
-			minMultiplier = math.floor(math.min(minMultiplier+(Dungeons.phoenixWave-10)/2), maxFactor/3)
+			minMultiplier = math.floor(math.min(minMultiplier + (Dungeons.phoenixWave - 10) / 2), maxFactor / 3)
 			if Dungeons.phoenixWave > 50 then
-				minMultiplier = math.floor(math.min(minMultiplier+(Dungeons.phoenixWave-10)/2), maxFactor/2)
-				minBase = math.max(minBase, math.floor(maxBase/1.6))
+				minMultiplier = math.floor(math.min(minMultiplier + (Dungeons.phoenixWave - 10) / 2), maxFactor / 2)
+				minBase = math.max(minBase, math.floor(maxBase / 1.6))
 			end
 		end
 	end
@@ -1122,31 +1128,31 @@ function RPCItems:RollAttribute(xpBounty, minBase, maxBase, bountyFactorMin, bou
 		waveFactor = 1
 	end
 	if Dungeons.itemLevel > 0 then
-		waveFactor = RPCItems:GetMaxFactor()/4
+		waveFactor = RPCItems:GetMaxFactor() / 4
 	end
 	if minBase <= 1 then
 		minBase = 1
 	end
-	local luck = RandomInt(1,100)
+	local luck = RandomInt(1, 100)
 	local divisor = 1
 	if luck < 60 then
-		value = RandomInt(minBase, maxBase)*RandomInt(minMultiplier, (rarityFactor+waveFactor)/divisor) + round(xpBounty/4, 0)*RandomInt(bountyFactorMin, bountyFactorMax)
+		value = RandomInt(minBase, maxBase) * RandomInt(minMultiplier, (rarityFactor + waveFactor) / divisor) + round(xpBounty / 4, 0) * RandomInt(bountyFactorMin, bountyFactorMax)
 		suffixLevel = 1
 	elseif luck >= 60 and luck < 80 then
-		value = RandomInt(minBase*2, maxBase*2)*RandomInt(minMultiplier, (rarityFactor+waveFactor)/divisor) + round(xpBounty/4, 0)*RandomInt(bountyFactorMin, bountyFactorMax*2)
+		value = RandomInt(minBase * 2, maxBase * 2) * RandomInt(minMultiplier, (rarityFactor + waveFactor) / divisor) + round(xpBounty / 4, 0) * RandomInt(bountyFactorMin, bountyFactorMax * 2)
 		suffixLevel = 2
 	elseif luck >= 80 and luck < 92 then
-		value = RandomInt(minBase*2, maxBase*3)*RandomInt(minMultiplier, (rarityFactor+waveFactor)/divisor) + round(xpBounty/4, 0)*RandomInt(bountyFactorMin*2, bountyFactorMax*3)
+		value = RandomInt(minBase * 2, maxBase * 3) * RandomInt(minMultiplier, (rarityFactor + waveFactor) / divisor) + round(xpBounty / 4, 0) * RandomInt(bountyFactorMin * 2, bountyFactorMax * 3)
 		suffixLevel = 3
 	elseif luck >= 92 and luck < 98 then
-		value = RandomInt(minBase*2, maxBase*4)*RandomInt(minMultiplier, (rarityFactor+waveFactor)/divisor) + round(xpBounty/4, 0)*RandomInt(bountyFactorMin*3, bountyFactorMax*4)
+		value = RandomInt(minBase * 2, maxBase * 4) * RandomInt(minMultiplier, (rarityFactor + waveFactor) / divisor) + round(xpBounty / 4, 0) * RandomInt(bountyFactorMin * 3, bountyFactorMax * 4)
 		suffixLevel = 4
 	elseif luck >= 98 then
-		value = RandomInt(minBase*3, maxBase*5)*RandomInt(minMultiplier, (rarityFactor+waveFactor)/divisor) + round(xpBounty/4, 0)*RandomInt(bountyFactorMin*4, bountyFactorMax*5)
+		value = RandomInt(minBase * 3, maxBase * 5) * RandomInt(minMultiplier, (rarityFactor + waveFactor) / divisor) + round(xpBounty / 4, 0) * RandomInt(bountyFactorMin * 4, bountyFactorMax * 5)
 		suffixLevel = 5
 	end
 	if value <= 0 then
-		value = RandomInt(1, maxBase*3)*RandomInt(minMultiplier, rarityFactor+waveFactor) 
+		value = RandomInt(1, maxBase * 3) * RandomInt(minMultiplier, rarityFactor + waveFactor)
 		suffixLevel = RandomInt(1, 3)
 	end
 	if value <= 0 then
@@ -1159,11 +1165,11 @@ function RPCItems:RollAttribute(xpBounty, minBase, maxBase, bountyFactorMin, bou
 	end
 	if isFloat then
 		if luck < 50 then
-			value = RandomInt(10, 30)/10
+			value = RandomInt(10, 30) / 10
 		elseif luck < 80 then
-			value = RandomInt(10, 60)/10
+			value = RandomInt(10, 60) / 10
 		else
-			value = RandomInt(30, 80)/10
+			value = RandomInt(30, 80) / 10
 		end
 		value = round(value, 0)
 	end
@@ -1176,167 +1182,165 @@ function RPCItems:RollAttribute(xpBounty, minBase, maxBase, bountyFactorMin, bou
 end
 
 function RPCItems:GetLogarithmicVarianceValue(baseValue, varianceUpPercent, varianceDownPercent, topTightness, bonusInput)
-	baseValue = math.ceil(baseValue*1.35)
-	baseValue = math.ceil(baseValue*1.1)
+	baseValue = math.ceil(baseValue * 1.35)
+	baseValue = math.ceil(baseValue * 1.1)
 	return baseValue
 end
 
 function RPCItems:RollMagebaneRuneProperty()
-    local luck = RandomInt(0,905)
-    local luck2 = RandomInt(1, 100)
-    local propertyName = ""
-    local propertyTitle = ""
-    local tier = 0
-    local maxFactor = RPCItems:GetMaxFactor()
-    if luck2 < 20 then
-        value = RandomInt(3, 4)
-    elseif luck2 < 50 then
-        value = RandomInt(4, 5)
-    elseif luck2 < 80 then
-        value = RandomInt(5, 6)
-    elseif luck2 < 95 then
-        value = RandomInt(6, 7)
-    elseif luck2 <= 100 then
-        value = RandomInt(7, 10)
-    end
-    if luck < 140 then
-        propertyName = "rune_q_1"
-        tier = 1
-    elseif luck < 240 then
-        propertyName = "rune_w_1"
-        tier = 1
-    elseif luck < 360 then
-        propertyName = "rune_e_1"
-        tier = 1
-    elseif luck < 485 then
-        propertyName = "rune_r_1"
-        tier = 1
-    elseif luck < 590 then
-        propertyName = "rune_q_2"
-        tier = 2
-    elseif luck < 695 then
-        propertyName = "rune_w_2"
-        tier = 2
-    elseif luck < 800 then
-        propertyName = "rune_e_2"
-        tier = 2
-    elseif luck < 910 then
-        propertyName = "rune_r_2"
-        tier = 2
-    end
-    -- print("VALUE".. value)
-    value = value + RandomInt(math.floor(maxFactor/15), math.floor(maxFactor/7))
-    -- print("ADJUSTED VALUE".. value)
-    return tier, 52, propertyName
+	local luck = RandomInt(0, 905)
+	local luck2 = RandomInt(1, 100)
+	local propertyName = ""
+	local propertyTitle = ""
+	local tier = 0
+	local maxFactor = RPCItems:GetMaxFactor()
+	if luck2 < 20 then
+		value = RandomInt(3, 4)
+	elseif luck2 < 50 then
+		value = RandomInt(4, 5)
+	elseif luck2 < 80 then
+		value = RandomInt(5, 6)
+	elseif luck2 < 95 then
+		value = RandomInt(6, 7)
+	elseif luck2 <= 100 then
+		value = RandomInt(7, 10)
+	end
+	if luck < 140 then
+		propertyName = "rune_q_1"
+		tier = 1
+	elseif luck < 240 then
+		propertyName = "rune_w_1"
+		tier = 1
+	elseif luck < 360 then
+		propertyName = "rune_e_1"
+		tier = 1
+	elseif luck < 485 then
+		propertyName = "rune_r_1"
+		tier = 1
+	elseif luck < 590 then
+		propertyName = "rune_q_2"
+		tier = 2
+	elseif luck < 695 then
+		propertyName = "rune_w_2"
+		tier = 2
+	elseif luck < 800 then
+		propertyName = "rune_e_2"
+		tier = 2
+	elseif luck < 910 then
+		propertyName = "rune_r_2"
+		tier = 2
+	end
+	-- print("VALUE".. value)
+	value = value + RandomInt(math.floor(maxFactor / 15), math.floor(maxFactor / 7))
+	-- print("ADJUSTED VALUE".. value)
+	return tier, 52, propertyName
 end
 
 function RPCItems:RollHarvesterBoots(deathLocation)
-    local item = RPCItems:CreateVariant("item_rpc_harvester_boots", "immortal", "Harvester Boots", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-    
-    item.newItemTable.hasRunePoints = true
+	local item = RPCItems:CreateVariant("item_rpc_harvester_boots", "immortal", "Harvester Boots", "feet", true, "Slot: Feet")
+	local maxFactor = RPCItems:GetMaxFactor()
 
-    local luck = 3
-    if luck == 3 then
-        local letter = RPCItems:GetRandomRuneLetter(1, 4)
-        runeName = "rune_"..letter.."_1"
-        runeValue = math.floor(RPCItems:GetLogarithmicVarianceValue(maxFactor/5, 0, 0, 0, 0))
+	item.newItemTable.hasRunePoints = true
 
-        item.newItemTable.property1name = runeName
-        item.newItemTable.property1 = runeValue
-        RPCItems:SetPropertyValues(item, item.newItemTable.property1, "rune", "#7DFF12",  1)
-    else
-        RPCItems:RollFootProperty1(item, 0)
-        local itemBonus = RPCItems:GetLogarithmicVarianceNoRounding(1.0)
-        itemBonus = math.min(itemBonus, 1.35)
-        local value = math.ceil(item.newItemTable.property1*itemBonus)
-        value = math.ceil(value)
-        item.newItemTable.property1 = value
-        item.newItemTable.hasRunePoints = true
-    end
+	local luck = 3
+	if luck == 3 then
+		local letter = RPCItems:GetRandomRuneLetter(1, 4)
+		runeName = "rune_"..letter.."_1"
+		runeValue = math.floor(RPCItems:GetLogarithmicVarianceValue(maxFactor / 5, 0, 0, 0, 0))
 
-    local luck = 3
-    if luck == 3 then
-        local letter = RPCItems:GetRandomRuneLetter(1, 4)
-        runeName = "rune_"..letter.."_2"
-        runeValue = math.floor(RPCItems:GetLogarithmicVarianceValue(maxFactor/5, 0, 0, 0, 0))
+		item.newItemTable.property1name = runeName
+		item.newItemTable.property1 = runeValue
+		RPCItems:SetPropertyValues(item, item.newItemTable.property1, "rune", "#7DFF12", 1)
+	else
+		RPCItems:RollFootProperty1(item, 0)
+		local itemBonus = RPCItems:GetLogarithmicVarianceNoRounding(1.0)
+		itemBonus = math.min(itemBonus, 1.35)
+		local value = math.ceil(item.newItemTable.property1 * itemBonus)
+		value = math.ceil(value)
+		item.newItemTable.property1 = value
+		item.newItemTable.hasRunePoints = true
+	end
 
-        item.newItemTable.property2name = runeName
-        item.newItemTable.property2 = math.floor(runeValue)
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12",  2)
-    else
-        RPCItems:RollFootProperty2(item, 0)
-        local itemBonus = RPCItems:GetLogarithmicVarianceNoRounding(1.0)
-        itemBonus = math.min(itemBonus, 1.35)
-        local value = math.ceil(item.newItemTable.property2*itemBonus)
-        value = math.ceil(value)
-        item.newItemTable.property2 = value
-        item.newItemTable.hasRunePoints = true
-    end
+	local luck = 3
+	if luck == 3 then
+		local letter = RPCItems:GetRandomRuneLetter(1, 4)
+		runeName = "rune_"..letter.."_2"
+		runeValue = math.floor(RPCItems:GetLogarithmicVarianceValue(maxFactor / 5, 0, 0, 0, 0))
 
-    local luck = 3
-    if luck == 3 and maxFactor >= 150 then
-        local letter = RPCItems:GetRandomRuneLetter(1, 4)
-        runeName = "rune_"..letter.."_3"
-        runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/10, 0, 0, 0, 0)
+		item.newItemTable.property2name = runeName
+		item.newItemTable.property2 = math.floor(runeValue)
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+	else
+		RPCItems:RollFootProperty2(item, 0)
+		local itemBonus = RPCItems:GetLogarithmicVarianceNoRounding(1.0)
+		itemBonus = math.min(itemBonus, 1.35)
+		local value = math.ceil(item.newItemTable.property2 * itemBonus)
+		value = math.ceil(value)
+		item.newItemTable.property2 = value
+		item.newItemTable.hasRunePoints = true
+	end
 
-        item.newItemTable.property3name = runeName
-        item.newItemTable.property3 = math.floor(runeValue)
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12",  3)
-    else
-        RPCItems:RollFootProperty3(item, 0)
-        local itemBonus = RPCItems:GetLogarithmicVarianceNoRounding(1.0)
-        itemBonus = math.min(itemBonus, 1.35)
-        local value = math.ceil(item.newItemTable.property3*itemBonus)
-        value = math.ceil(value)
-        item.newItemTable.property3 = value
-        item.newItemTable.hasRunePoints = true
-    end
+	local luck = 3
+	if luck == 3 and maxFactor >= 150 then
+		local letter = RPCItems:GetRandomRuneLetter(1, 4)
+		runeName = "rune_"..letter.."_3"
+		runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor / 10, 0, 0, 0, 0)
 
-    local luck = 4
-    if luck == 4 and maxFactor >= 270 then
-        local letter = RPCItems:GetRandomRuneLetter(1, 4)
-        runeName = "rune_"..letter.."_4"
-        runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/30, 0, 0, 0, 0)
+		item.newItemTable.property3name = runeName
+		item.newItemTable.property3 = math.floor(runeValue)
+		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
+	else
+		RPCItems:RollFootProperty3(item, 0)
+		local itemBonus = RPCItems:GetLogarithmicVarianceNoRounding(1.0)
+		itemBonus = math.min(itemBonus, 1.35)
+		local value = math.ceil(item.newItemTable.property3 * itemBonus)
+		value = math.ceil(value)
+		item.newItemTable.property3 = value
+		item.newItemTable.hasRunePoints = true
+	end
 
-        item.newItemTable.property4name = runeName
-        item.newItemTable.property4 = math.floor(runeValue)
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12",  4)
-    else
-        RPCItems:RollFootProperty4(item, 0)
-        local itemBonus = RPCItems:GetLogarithmicVarianceNoRounding(1.0)
-        itemBonus = math.min(itemBonus, 1.35)
-        local value = math.ceil(item.newItemTable.property4*itemBonus)
-        value = math.ceil(value)
-        item.newItemTable.property4 = value
-        item.newItemTable.hasRunePoints = true
-    end
-    local drop = CreateItemOnPositionSync( deathLocation, item )
-    local position = deathLocation
+	local luck = 4
+	if luck == 4 and maxFactor >= 270 then
+		local letter = RPCItems:GetRandomRuneLetter(1, 4)
+		runeName = "rune_"..letter.."_4"
+		runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor / 30, 0, 0, 0, 0)
 
-    item.pickedUp = true    
-    
-    RPCItems:DropItem(item, position)
-    return item
+		item.newItemTable.property4name = runeName
+		item.newItemTable.property4 = math.floor(runeValue)
+		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
+	else
+		RPCItems:RollFootProperty4(item, 0)
+		local itemBonus = RPCItems:GetLogarithmicVarianceNoRounding(1.0)
+		itemBonus = math.min(itemBonus, 1.35)
+		local value = math.ceil(item.newItemTable.property4 * itemBonus)
+		value = math.ceil(value)
+		item.newItemTable.property4 = value
+		item.newItemTable.hasRunePoints = true
+	end
+	local drop = CreateItemOnPositionSync(deathLocation, item)
+	local position = deathLocation
+
+	item.pickedUp = true
+
+	RPCItems:DropItem(item, position)
+	return item
 end
 
-
 function nobility_kill(event)
-    local attacker = event.attacker
-    local ability = event.ability
-    local nextValue = ability.newItemTable.property1 + 1
-    local upgradeThreshold = 1
-    if nextValue >= upgradeThreshold then
-        RPCItems:CreateAugmentedRingOfNobility(attacker, ability)
-        Notifications:Top(attacker:GetPlayerOwnerID(), {text="Ring of Nobility Upgraded", duration=5, style={color="white"}, continue=true})
-        CustomAbilities:QuickAttachParticle("particles/econ/items/legion/legion_weapon_voth_domosh/legion_duel_start_endcap_arcana.vpcf", attacker, 3)
-        CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_legion_commander/legion_commander_duel_winner_rays.vpcf", attacker, 3)
-        
-        EmitSoundOn("Items.NobilityUpgrade", attacker)
-    else
-        ability.newItemTable.property1 = nextValue
-        RPCItems:SetPropertyValuesSpecial(ability, ability.newItemTable.property1, "#item_property_nobility", "#FFFFFF",  1, "#property_nobility_description")
-        RPCItems:ItemUpdateCustomNetTables(ability)
-    end
-     
+	local attacker = event.attacker
+	local ability = event.ability
+	local nextValue = ability.newItemTable.property1 + 1
+	local upgradeThreshold = 1
+	if nextValue >= upgradeThreshold then
+		RPCItems:CreateAugmentedRingOfNobility(attacker, ability)
+		Notifications:Top(attacker:GetPlayerOwnerID(), {text = "Ring of Nobility Upgraded", duration = 5, style = {color = "white"}, continue = true})
+		CustomAbilities:QuickAttachParticle("particles/econ/items/legion/legion_weapon_voth_domosh/legion_duel_start_endcap_arcana.vpcf", attacker, 3)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_legion_commander/legion_commander_duel_winner_rays.vpcf", attacker, 3)
+
+		EmitSoundOn("Items.NobilityUpgrade", attacker)
+	else
+		ability.newItemTable.property1 = nextValue
+		RPCItems:SetPropertyValuesSpecial(ability, ability.newItemTable.property1, "#item_property_nobility", "#FFFFFF", 1, "#property_nobility_description")
+		RPCItems:ItemUpdateCustomNetTables(ability)
+	end
 end
