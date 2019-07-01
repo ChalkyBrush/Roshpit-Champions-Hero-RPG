@@ -81143,7 +81143,7 @@
 		// General
 		//-------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -81158,7 +81158,7 @@
 		// Casting
 		//-------------------------------------------------------
 		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0"
+		"AbilityCastPoint"				"0.2"
 
 		// Time
 		//-------------------------------------------------------
@@ -81212,7 +81212,7 @@
 			"modifier_curse_of_belial"
 			{
 				"Passive"			"0"
-				"IsHidden"			"1"
+				"IsHidden"			"0"
 				"IsDebuff"			"1"
 				"EffectName"		"particles/units/heroes/hero_grimstroke/grimstroke_soulchain_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"

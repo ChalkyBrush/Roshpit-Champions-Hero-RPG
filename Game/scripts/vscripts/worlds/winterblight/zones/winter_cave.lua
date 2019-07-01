@@ -112,6 +112,10 @@ function Winterblight:ProcessChamberStart(msg)
 	Winterblight.CavernData.Chambers[msg.chamber]["event"] = msg.event_number
 	Winterblight.CavernData.Chambers[msg.chamber]["hero"] = hero:GetEntityIndex()
 	Winterblight.CavernData.Chambers[msg.chamber]["events"][msg.event_number]["status"] = 1
+	if not Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"] then
+		Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"] = 0
+	end
+	Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"] = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"] + 1
 	-- if Beacons.cheats then
 	-- 	Winterblight.CavernData.Chambers[msg.chamber]["status"] = 0
 	-- end
@@ -144,7 +148,16 @@ function Winterblight:FrozenFoyer(msg)
 	end
 end
 
+function Winterblight:ShouldSpawnCaveUnit(chamber, spawnphase)
+	if Winterblight.CavernData.Chambers[chamber]["spawnphase"] == spawnphase and Winterblight.CavernData.Chambers[chamber]["status"] == 1 then
+		return true
+	else
+		return false
+	end
+end
+
 function Winterblight:FrozenFoyer1(msg)
+	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
 	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 100
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local chamber_id = msg.chamber
@@ -153,15 +166,19 @@ function Winterblight:FrozenFoyer1(msg)
 	for i = 1, #positionTable, 1 do
 		local fv = ((Vector(-5622, 6912) - positionTable[i])*Vector(1,1,0)):Normalized()
 		local unit = Winterblight:SpawnWinterRunner(positionTable[i], fv)
-		Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+		if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+			Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+		end
 	end
 	Timers:CreateTimer(2, function()
 		local positionTable = {Vector(-8704, 5888), Vector(-9728, 6400), Vector(-11520, 7936), Vector(-6784, 8704), Vector(-4992, 9600), Vector(-4608, 9856), Vector(-4736, 10240), Vector(-6794, 10496), Vector(-8704, 11264), Vector(-9728, 11008)}
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.1, function()
-				local fv = RandomVector(1)
-				local unit = Winterblight:SpawnManaNull(positionTable[i], fv)
-				Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local fv = RandomVector(1)
+					local unit = Winterblight:SpawnManaNull(positionTable[i], fv)
+					Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+				end
 			end)
 		end
 	end)
@@ -179,25 +196,31 @@ function Winterblight:FrozenFoyer1(msg)
 	        end
 	        for j = 0, 1, 1 do
 	          Timers:CreateTimer(j*0.8, function()
-	            local elemental = Winterblight:SpawnBloodWraith(positionTable[i]+RandomVector(RandomInt(1,180)), RandomVector(1))
-	            Winterblight:AddPatrolArguments(elemental, 12, 10, 220, patrolPositionTable)
-	            Winterblight:SetCavernUnit(elemental, elemental:GetAbsOrigin(), true, true, chamber_id)
+	          	if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+		            local elemental = Winterblight:SpawnBloodWraith(positionTable[i]+RandomVector(RandomInt(1,180)), RandomVector(1))
+		            Winterblight:AddPatrolArguments(elemental, 12, 10, 220, patrolPositionTable)
+		            Winterblight:SetCavernUnit(elemental, elemental:GetAbsOrigin(), true, true, chamber_id)
+		        end
 	          end)
 	        end
 	      end)
 	    end
 	end)
 	Timers:CreateTimer(1, function()
-		local ultra_ice = Winterblight:SpawnUltraIce(Vector(-9033, 8320), RandomVector(1))
-		Winterblight:SetCavernUnit(ultra_ice, ultra_ice:GetAbsOrigin(), true, true, chamber_id)
+		if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+			local ultra_ice = Winterblight:SpawnUltraIce(Vector(-9033, 8320), RandomVector(1))
+			Winterblight:SetCavernUnit(ultra_ice, ultra_ice:GetAbsOrigin(), true, true, chamber_id)
+		end
 	end)
 	Timers:CreateTimer(5, function()
 		local positionTable = {Vector(-11904, 9600), Vector(-11555, 9998), Vector(-11264, 10436), Vector(-10880, 10834), Vector(-10481, 11290)}
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.1, function()
-				local fv = Vector(1, -0.4)
-				local unit = Winterblight:SpawnDrillDigger(positionTable[i], fv)
-				Winterblight:SetCavernUnit(unit, unit:GetAbsOrigin(), true, true, chamber_id)
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local fv = Vector(1, -0.4)
+					local unit = Winterblight:SpawnDrillDigger(positionTable[i], fv)
+					Winterblight:SetCavernUnit(unit, unit:GetAbsOrigin(), true, true, chamber_id)
+				end
 			end)
 		end
 	end)
@@ -215,9 +238,11 @@ function Winterblight:FrozenFoyer1(msg)
 	        end
 	        for j = 0, 1, 1 do
 	          Timers:CreateTimer(j*0.9, function()
-	          	local elemental = Winterblight:SpawnCavernBat(positionTable[i]+RandomVector(RandomInt(1,280)), RandomVector(1))
-	            Winterblight:AddPatrolArguments(elemental, 20, 4, 320, patrolPositionTable)
-	            Winterblight:SetCavernUnit(elemental, elemental:GetAbsOrigin(), true, true, chamber_id)
+	          	if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+		          	local elemental = Winterblight:SpawnCavernBat(positionTable[i]+RandomVector(RandomInt(1,280)), RandomVector(1))
+		            Winterblight:AddPatrolArguments(elemental, 20, 4, 320, patrolPositionTable)
+		            Winterblight:SetCavernUnit(elemental, elemental:GetAbsOrigin(), true, true, chamber_id)
+		        end
 	          end)
 	        end
 	      end)
@@ -227,90 +252,112 @@ function Winterblight:FrozenFoyer1(msg)
 		local positionTable = {Vector(-12899, 8939), Vector(-12959, 9216), Vector(-13184, 9515), Vector(-12928, 9783)}
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.1, function()
-				local fv = Vector(0.7, -1)
-				local unit = Winterblight:SpawnPantheonKnight(positionTable[i], fv)
-				Winterblight:SetCavernUnit(unit, unit:GetAbsOrigin(), true, true, chamber_id)
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local fv = Vector(0.7, -1)
+					local unit = Winterblight:SpawnPantheonKnight(positionTable[i], fv)
+					Winterblight:SetCavernUnit(unit, unit:GetAbsOrigin(), true, true, chamber_id)
+				end
 			end)
 		end
 		local positionTable = {Vector(-8508, 5120), Vector(-8704, 5353), Vector(-8374, 5376)}
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.2, function()
-				local fv = Vector(0, 1)
-				local unit = Winterblight:SpawnPantheonKnight(positionTable[i], fv)
-				Winterblight:SetCavernUnit(unit, unit:GetAbsOrigin(), true, true, chamber_id)
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local fv = Vector(0, 1)
+					local unit = Winterblight:SpawnPantheonKnight(positionTable[i], fv)
+					Winterblight:SetCavernUnit(unit, unit:GetAbsOrigin(), true, true, chamber_id)
+				end
 			end)
 		end
 		local positionTable = {Vector(-7808, 7808), Vector(-9151, 7086), Vector(-10227, 7710), Vector(-9803, 9842)}
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.3, function()
-				local fv = RandomVector(1)
-				local unit = Winterblight:SpawnPantheonKnight(positionTable[i], fv)
-				Winterblight:SetCavernUnit(unit, unit:GetAbsOrigin(), true, true, chamber_id)
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local fv = RandomVector(1)
+					local unit = Winterblight:SpawnPantheonKnight(positionTable[i], fv)
+					Winterblight:SetCavernUnit(unit, unit:GetAbsOrigin(), true, true, chamber_id)
+				end
 			end)
 		end
 	end)	
 	Timers:CreateTimer(6.5, function()
-		local positionTable = {Vector(-8704, 9472), Vector(-8704, 10112), Vector(-8192, 10112), Vector(-8192, 9472)}
-		for i = 1, #positionTable, 1 do
-			local fv = Vector(0,-1)
-			local unit = Winterblight:SpawnWinterRunner(positionTable[i], fv)
-			Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+		if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+			local positionTable = {Vector(-8704, 9472), Vector(-8704, 10112), Vector(-8192, 10112), Vector(-8192, 9472)}
+			for i = 1, #positionTable, 1 do
+				local fv = Vector(0,-1)
+				local unit = Winterblight:SpawnWinterRunner(positionTable[i], fv)
+				Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+			end
 		end
 	end)
 	Timers:CreateTimer(8.5, function()
 		local positionTable = {Vector(-11804, 9088), Vector(-12288, 8832), Vector(-11804, 8532), Vector(-12224, 8448)}
 		for i = 1, #positionTable, 1 do
-			local fv = Vector(0,-1)
-			local unit = Winterblight:SpawnColdSeer(positionTable[i], fv)
-			Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+			if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+				local fv = Vector(0,-1)
+				local unit = Winterblight:SpawnColdSeer(positionTable[i], fv)
+				Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+			end
 		end
 	end)
 	Timers:CreateTimer(9.5, function()
 		local positionTable = {Vector(-10619, 7925), Vector(-11008, 8064), Vector(-10958, 8520), Vector(-10496, 8615), Vector(-10240, 8261)}
 		for i = 1, #positionTable, 1 do
-			local fv = (positionTable[i] - Vector(-10618, 8347)):Normalized()
-			local unit = Winterblight:SpawnShineMegmus(positionTable[i], fv)
-			Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+			if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+				local fv = (positionTable[i] - Vector(-10618, 8347)):Normalized()
+				local unit = Winterblight:SpawnShineMegmus(positionTable[i], fv)
+				Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+			end
 		end
 	end)
 	Timers:CreateTimer(11.5, function()
 		local positionTable = {Vector(-7296, 10112), Vector(-7028, 9607), Vector(-6692, 9088), Vector(-6272, 9291), Vector(-5851, 9421)}
 		for i = 1, #positionTable, 1 do
-			local fv = (positionTable[i] - Vector(-6418, 9856)):Normalized()
-			local unit = Winterblight:SpawnIceHaunter(positionTable[i], fv)
-			Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+			if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+				local fv = (positionTable[i] - Vector(-6418, 9856)):Normalized()
+				local unit = Winterblight:SpawnIceHaunter(positionTable[i], fv)
+				Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+			end
 		end
 	end)
 	Timers:CreateTimer(12.5, function()
 		local positionTable = {Vector(-10245, 10490), Vector(-10315, 10092), Vector(-10624, 10012)}
 		for i = 1, #positionTable, 1 do
-			local fv = RandomVector(1)
-			local unit = Winterblight:SpawnChillingColossus(positionTable[i], fv)
-			Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+			if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+				local fv = RandomVector(1)
+				local unit = Winterblight:SpawnChillingColossus(positionTable[i], fv)
+				Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+			end
 		end
 	end)
 	Timers:CreateTimer(14.5, function()
-		for i = 1, 8, 1 do
-			local position = Vector(-10368, 6924) + RandomVector(RandomInt(1, 410))
-			local fv = RandomVector(1)
-			local unit = Winterblight:SpawnMountainBeetle(position, fv)
-			Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+		if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+			for i = 1, 8, 1 do
+				local position = Vector(-10368, 6924) + RandomVector(RandomInt(1, 410))
+				local fv = RandomVector(1)
+				local unit = Winterblight:SpawnMountainBeetle(position, fv)
+				Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+			end
 		end
 	end)
 	Timers:CreateTimer(11.5, function()
-		local positionTable = {Vector(-7448, 10496), Vector(-7934, 10624), Vector(-8320, 10880), Vector(-7808, 11108), Vector(-672, 10352), Vector(-5927, 10471), Vector(-5519, 10240), Vector(-4608, 10240), Vector(-4720, 10674)}
-		for i = 1, #positionTable, 1 do
-			local fv = RandomVector(1)
-			local unit = Winterblight:SpawnBarbedHusker(positionTable[i], fv)
-			Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+		if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+			local positionTable = {Vector(-7448, 10496), Vector(-7934, 10624), Vector(-8320, 10880), Vector(-7808, 11108), Vector(-672, 10352), Vector(-5927, 10471), Vector(-5519, 10240), Vector(-4608, 10240), Vector(-4720, 10674)}
+			for i = 1, #positionTable, 1 do
+				local fv = RandomVector(1)
+				local unit = Winterblight:SpawnBarbedHusker(positionTable[i], fv)
+				Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+			end
 		end
 	end)
 	Timers:CreateTimer(18.5, function()
-		local positionTable = {Vector(-10481, 11771), Vector(-10816, 11557), Vector(-11008, 11264)}
-		for i = 1, #positionTable, 1 do
-			local fv = RandomVector(1)
-			local unit = Winterblight:SpawnBarbedHusker(positionTable[i], fv)
-			Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+		if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+			local positionTable = {Vector(-10481, 11771), Vector(-10816, 11557), Vector(-11008, 11264)}
+			for i = 1, #positionTable, 1 do
+				local fv = RandomVector(1)
+				local unit = Winterblight:SpawnBarbedHusker(positionTable[i], fv)
+				Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+			end
 		end
 	end)
 end
@@ -569,8 +616,29 @@ function Winterblight:GetVertices(chamber_id)
 end
 
 function Winterblight:ResetChamber(hero, chamber)
-	
+	if Winterblight.CavernData.Chambers[chamber]["status"] == 1 then
+		Winterblight.CavernData.Chambers[chamber]["status"] = 2
+		CustomGameEventManager:Send_ServerToAllClients("cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers})
+		EmitSoundOn("Winterblight.Cavern.EventLose", hero)
+		for i = 1, #Winterblight.CavernUnits[chamber], 1 do
+			Timers:CreateTimer(i*0.03, function()
+				local unit = Winterblight.CavernUnits[chamber][i]
+				if IsValidEntity(unit) then
+					CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", unit:GetAbsOrigin(), 4)
+					EmitSoundOn("Winterblight.GuideCaveIntro", unit)
+					UTIL_Remove(unit)
+				end
+			end)
+		end
+		local time = #Winterblight.CavernUnits[chamber]*0.03 + 6
+		Timers:CreateTimer(time, function()
+			Winterblight.CavernData.Chambers[chamber]["status"] = 0
+			CustomGameEventManager:Send_ServerToAllClients("cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers})
+		end)
+	end
 end
 
 function Winterblight:CompleteChamberEvent(chamber)
+	if Winterblight.CavernData.Chambers[chamber]["status"] == 1 then
+	end
 end

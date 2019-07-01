@@ -269,10 +269,12 @@ function CavernSummaryInit(msg)
 		expander_buttom_event(cavern_ui_panel, expander_button, expander_label, expander_header, attacher)
 	});
 	mChamberSummary = []
+	var chamber_count = 0
 	for (var i = 1; i <= 4; i++) {
 		var chamber_data = msg.chamber_data[i]
 		$.Msg(chamber_data)
 		if (chamber_data["status"] == 1){
+			chamber_count = chamber_count + 1
 			var chamber_index = i
 			var event_index = chamber_data["event"]
 			var event_parent = $.CreatePanel("Panel", attacher, "cavern_summary_event_"+i)
@@ -285,8 +287,30 @@ function CavernSummaryInit(msg)
 			event_parent.FindChildTraverse('winter_event_event_level').text = "LV"+chamber_data["level"]
 			event_parent.FindChildTraverse('event-progress-bar-label').text = chamber_data["progress"] + "/" + chamber_data["goal"]
 			mChamberSummary.push(event_parent)
+		}else if(chamber_data["status"] == 2){
+			chamber_count = chamber_count + 1
+			var chamber_index = i
+			var event_index = chamber_data["event"]
+			var event_parent = $.CreatePanel("Panel", attacher, "cavern_summary_event_"+i)
+			event_parent.BLoadLayoutSnippet('cavern_summary_item')
+			event_parent.FindChildTraverse('winter_event_chamber_name').text = $.Localize("winterblight_cavern_room"+i) + " - "
+			var hero_name = Entities.GetUnitName( chamber_data["hero"] )
+			event_parent.FindChildTraverse('event_hero_portrait').SetImage("file://{images}/heroes/" + hero_name + ".png")
+			event_parent.FindChildTraverse('event_player_name').steamid = chamber_data["steam_id_long"]
+			event_parent.FindChildTraverse('winter_event_event_name').text = $.Localize("winterblight_cavern_room"+chamber_index+"_event"+event_index)
+			event_parent.FindChildTraverse('winter_event_event_level').text = "LV"+chamber_data["level"]
+			event_parent.FindChildTraverse('event-progress-bar-label').text = $.Localize('cavern_ui_failed')
+			var fill_bar = event_parent.FindChildTraverse('event-progress-bar-fill')
+			fill_bar.style.width = "100%"
+			fill_bar.AddClass("fill_fail")
+			fill_bar.RemoveClass("event-progress-bar-fill-class")
+			mChamberSummary.push(event_parent)
 		}
-	}	
+	}
+	if (chamber_count == 0){
+		$('#winterblight_cavern_summary_container').RemoveAndDeleteChildren()
+		bInit2 = false
+	}
 }
 
 function CavernSummaryUpdate(msg){

@@ -3214,6 +3214,9 @@ function GameState:FilterDamage(filterTable)
 		if not Winterblight:IsWithinChamber(attacker, victim.chamber) then
 			filterTable["damage"] = 0
 		end
+		if Winterblight.CavernData.Chambers[victim.chamber]["status"] ~= 1 then
+			filterTable["damage"] = 0
+		end
 		filterTable["damage"] = filterTable["damage"]*reduction
 		local allowed_player = EntIndexToHScript(Winterblight.CavernData.Chambers[victim.chamber]["hero"]):GetPlayerOwnerID()
 		if attacker:GetPlayerOwnerID() ~= allowed_player then
@@ -3994,11 +3997,11 @@ function GameState:FilterDamage(filterTable)
 	-- filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
 	if Beacons.cheats then
-		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if victim:IsHero() then
-				filterTable["damage"] = 0
-			end
-		end
+		-- if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+		-- 	if victim:IsHero() then
+		-- 		filterTable["damage"] = 0
+		-- 	end
+		-- end
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if attacker:IsHero() then
 				if not victim:HasModifier("modifier_disable_player") then

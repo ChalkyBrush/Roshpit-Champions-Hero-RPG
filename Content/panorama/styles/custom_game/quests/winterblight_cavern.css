@@ -644,6 +644,9 @@
 
 #event-progress-bar-fill{
 	height:100%;
+}
+
+.event-progress-bar-fill-class{
 	background-color: gradient( linear, 0px 0%, 50px 0%, from( #1C4FA0 ), to( #0d326d ) );
 }
 
@@ -657,4 +660,8 @@
 
 .chamber-main-button-active:hover{
 	border:3px solid #21db55;
+}
+
+.fill_fail{
+	background-color: gradient( linear, 0px 0%, 50px 0%, from( #a82c3a ), to( #78111c ) );
 }
