@@ -132,9 +132,9 @@ function InitCavernUI(){
 	if (!(bInit)){
 		bInit = true
 		Game.EmitSound("Winterblight.FirstCaveUIOpen")
-		$.Schedule(2.7, function(){
-			Game.EmitSound("Winterblight.CaveGuide.WelcomeUiFirst")
-		});
+		// $.Schedule(2.7, function(){
+		// 	Game.EmitSound("Winterblight.CaveGuide.WelcomeUiFirst")
+		// });
 	}
 }
 

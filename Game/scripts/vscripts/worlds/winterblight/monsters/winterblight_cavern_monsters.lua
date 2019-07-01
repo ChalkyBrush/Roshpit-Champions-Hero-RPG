@@ -621,6 +621,9 @@ end
 function ultra_ice_think(event)
 	local caster = event.caster
 	local ability = event.ability
+	if not caster:IsAlive() then
+		return false
+	end
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then    
     	EmitSoundOn("Winterblight.Cavern.UltraIce.PassiveThink", caster)
@@ -899,5 +902,64 @@ function drill_digger_quake(caster, ability, target, radius, damage_pct_attack_p
 			ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 			enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = 2})
 		end
+	end
+end
+
+function pantheon_strike(event)
+	local attacker = event.attacker
+	local target = event.target
+	local ability = event.ability
+	local particle_name = "particles/units/heroes/hero_phantom_lancer/phantom_lancer_death.vpcf"
+	local luck = RandomInt(1, 5)
+	if luck == 1 then
+		EmitSoundOn("PantheonKnight.Proc", target)
+		local duration = event.disarm_duration
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*(event.damage_atk_pwr_pct/100)
+		CustomAbilities:QuickAttachParticle(particle_name, target, 4)
+		ability:ApplyDataDrivenModifier(attacker, target, "modifier_deceptive_light", {duration = duration})
+	end
+end
+
+function cavern_dig_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local point = event.target_points[1]
+	local particleName = "particles/econ/events/ti9/shovel_revealed_nothing.vpcf"
+	local ground_pos = GetGroundPosition(caster:GetAbsOrigin(), caster)
+	CustomAbilities:QuickParticleAtPoint("particles/econ/events/ti9/shovel_revealed_nothing.vpcf", ground_pos, 4)
+	EmitSoundOn("Cavern.Husker.Dig", caster)
+	ability.digging = true
+	ability.targetPoint = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
+	local duration = RandomInt(35, 45)/10
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_husker_dig_thinker", {duration = duration})
+	StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
+end
+
+function husker_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	if ability.digging then
+		caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0,0,20))
+	else
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,0,20))
+		StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_TELEPORT_END, rate=1})
+		if GetGroundHeight(caster:GetAbsOrigin(), caster) < caster:GetAbsOrigin().z then
+			caster:RemoveModifierByName("modifier_husker_dig_thinker")
+		end
+	end
+end
+
+function husker_digger_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	if ability.digging then
+		ability.digging = false
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_husker_dig_thinker", {})
+		local groundTarget = GetGroundPosition(ability.targetPoint, caster)
+		caster:SetAbsOrigin(groundTarget-Vector(0,0,200))
+		EmitSoundOn("Cavern.Husker.Dig", caster)
+		CustomAbilities:QuickParticleAtPoint("particles/econ/events/ti9/shovel_revealed_nothing.vpcf", ability.targetPoint, 4)
+	else
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 	end
 end
