@@ -682,8 +682,8 @@ function GameMode:OnPlayerChat(keys)
 			RPCItems:RollDuskbringerArcana2(vector)
 		end
 	end
-	if string.match(text, "-mountain_protector weapon2 stacks") then
-		local textToParse = string.gsub(text, "-mountain_protector weapon2 stacks", "")
+	if string.match(text, "-mp weapon2 stacks") then
+		local textToParse = string.gsub(text, "-mp weapon2 stacks", "")
 		local finalStacks = tonumber(textToParse)
 		local caster = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 		local attacker = caster
