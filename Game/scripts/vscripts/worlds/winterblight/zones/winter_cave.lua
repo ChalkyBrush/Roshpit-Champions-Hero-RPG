@@ -1,4 +1,8 @@
 function Winterblight:CaveGuideSpawn()
+	if not Winterblight.CavernPrecached then
+		Winterblight.CavernPrecached = true
+		Precache:WinterblightCavern()
+	end
 	if not Winterblight.CaveGuideSpawned then
 	-- 	if Winterblight.CaveGuideReady then
 			if not Winterblight.CavernPrecached then
@@ -27,7 +31,7 @@ function Winterblight:CaveGuideSpawn()
 			local ability = guide:FindAbilityByName("winterblight_cave_guide_ability")
 			ability:ApplyDataDrivenModifier(guide, guide, "modifier_guide_entering", {duration = 60})
 	-- 	end
-	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-9033, 8320, 500), 10000, 10000, true)
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-9033, 8320, 500), 10000, 10000, false)
 	end
 end
 
@@ -185,12 +189,12 @@ function Winterblight:FrozenFoyer1(msg)
 		Winterblight:SetCavernUnit(ultra_ice, ultra_ice:GetAbsOrigin(), true, true, chamber_id)
 	end)
 	Timers:CreateTimer(5, function()
-		local positionTable = {Vector(-11904, 9600), Vector(-11555, 9998), Vector(-12264, 10436), Vector(-10880, 10834), Vector(-10481, 11290)}
+		local positionTable = {Vector(-11904, 9600), Vector(-11555, 9998), Vector(-11264, 10436), Vector(-10880, 10834), Vector(-10481, 11290)}
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.1, function()
 				local fv = Vector(-1, -0.8)
-				local unit = Winterblight:SpawnManaNull(positionTable[i], fv)
-				Winterblight:SpawnDrillDigger(unit, positionTable[i], true, true, chamber_id)
+				local unit = Winterblight:SpawnDrillDigger(positionTable[i], fv)
+				Winterblight:SetCavernUnit(unit, unit:GetAbsOrigin(), true, true, chamber_id)
 			end)
 		end
 	end)

@@ -852,10 +852,12 @@ function drill_digger_attack_land(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-
-	caster:ApplyAndIncrementStack(ability, caster, "modifier_drill_digger_stack", 1, 3, 6)
+	if caster:GetUnitName() == "drill_digger" then
+		EmitSoundOn("DrillDigger.Attacker", target)
+	end
 	if caster:GetModifierStackCount("modifier_drill_digger_stack", caster) == 3 then
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), icePoint, nil, event.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+		caster:RemoveModifierByName("modifier_drill_digger_stack")
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, event.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 		if #enemies > 0 then
 			for i = 1, #enemies, 1 do
 				if i <= event.max_quakes then
@@ -865,7 +867,20 @@ function drill_digger_attack_land(event)
 				end
 			end
 		end
-		
+		if caster.counter_pfx then
+			ParticleManager:DestroyParticle(caster.counter_pfx, false)
+			caster.counter_pfx = nil
+		end
+		return false
+	end
+	if not target:IsStunned() then
+		caster:ApplyAndIncrementStack(ability, caster, "modifier_drill_digger_stack", 1, 3, 6)
+		local stacks = caster:GetModifierStackCount("modifier_drill_digger_stack", caster)
+		if not caster.counter_pfx then
+			caster.counter_pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/drill_digger_counter.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+			ParticleManager:SetParticleControlEnt(caster.counter_pfx, 0, caster, PATTACH_OVERHEAD_FOLLOW, "follow_overhead", caster:GetAbsOrigin(), true)
+		end
+		ParticleManager:SetParticleControl(caster.counter_pfx, 1, Vector(0, stacks % 10, stacks))
 	end
 end
 

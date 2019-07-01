@@ -10266,6 +10266,7 @@
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
             "particle"  "particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf"
+            "particle"  "particles/roshpit/winterblight/drill_digger_counter.vpcf"
         }
         "HasInventory"  "0"
         "SelectionGroup"    "Dark_Fighter"
@@ -10281,7 +10282,7 @@
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
-        "AttackRange"   "195"
+        "AttackRange"   "215"
         "BountyGoldMin" "150"
         "BountyGoldMax" "200"
         "BountyXP" "2500"
