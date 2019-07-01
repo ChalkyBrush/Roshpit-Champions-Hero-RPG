@@ -617,3 +617,272 @@ function cavern_unit_die(event)
 		Winterblight:CompleteChamberEvent(chamber)
 	end
 end
+
+function ultra_ice_think(event)
+	local caster = event.caster
+	local ability = event.ability
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+    if #enemies > 0 then    
+    	EmitSoundOn("Winterblight.Cavern.UltraIce.PassiveThink", caster)
+        for _,enemy in pairs(enemies) do
+			local info =
+			{
+				Target = enemy,
+				Source = caster,
+				Ability = ability,
+				EffectName = "particles/roshpit/winterblight/torturok_projectile_base_attack.vpcf",
+				StartPosition = "attach_hitloc",
+				bDrawsOnMinimap = false,
+				bDodgeable = true,
+				bIsAttack = false,
+				bVisibleToEnemies = true,
+				bReplaceExisting = false,
+				flExpireTime = GameRules:GetGameTime() + 5,
+				bProvidesVision = false,
+				iVisionRadius = 0,
+				iMoveSpeed = 600,
+				iVisionTeamNumber = caster:GetTeamNumber()
+			}
+			local projectile = ProjectileManager:CreateTrackingProjectile(info)
+		end
+	end
+	if not caster.spawnPhase then
+		if caster:GetHealth() < 1000 then
+			caster.spawnPhase = 0
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {})
+			EmitSoundOn("Winterblight.Cavern.UltraIce.PhaseChange", caster)
+			Timers:CreateTimer(1.5, function()
+				local targetPoint = Vector(-9088, 8192, 500+Winterblight.ZFLOAT)
+				caster.movementVector = (targetPoint - caster:GetAbsOrigin())/60
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_ultra_ice_quick_think", {})
+				Events:smoothSizeChange(caster, caster:GetModelScale(), 1.0, 60)
+			end)
+		end
+	end
+	if caster.spawnPhase == 0 then
+	elseif caster.spawnPhase == 1 then
+		caster.spawnPhase = 2
+		for k = 1, 4, 1 do
+			Timers:CreateTimer((k-1)*1.5, function()
+				if Winterblight.CavernData.Chambers[caster.chamber]["status"] == 1 then
+					for i = 1, 4, 1 do
+						local spawn = Winterblight:SpawnFrostiok(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+						Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), true, false, caster.chamber)
+						Dungeons:AggroUnit(spawn)
+						ultra_ice_spawn_effect(caster, spawn)
+					end
+				end
+			end)
+		end
+	elseif caster.spawnPhase == 3 then
+		caster.spawnPhase = 4
+		for k = 1, 4, 1 do
+			Timers:CreateTimer((k-1)*1.5, function()
+				if Winterblight.CavernData.Chambers[caster.chamber]["status"] == 1 then
+					for i = 1, 4, 1 do
+						local spawn = nil
+						if i%2 == 0 then
+							spawn = Winterblight:SpawnMountainOgre(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+						else
+							spawn = Winterblight:Snowshaker(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+						end
+						Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), true, false, caster.chamber)
+						Dungeons:AggroUnit(spawn)
+						ultra_ice_spawn_effect(caster, spawn)
+					end
+				end
+			end)
+		end
+	elseif caster.spawnPhase == 5 then
+		caster.spawnPhase = 6
+		for k = 1, 4, 1 do
+			Timers:CreateTimer((k-1)*1.2, function()
+				if Winterblight.CavernData.Chambers[caster.chamber]["status"] == 1 then
+					for i = 1, 8, 1 do
+						local spawn = Winterblight:SpawnLivingIce(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+						Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), true, false, caster.chamber)
+						Dungeons:AggroUnit(spawn)
+						ultra_ice_spawn_effect(caster, spawn)
+					end
+				end
+			end)
+		end
+	elseif caster.spawnPhase == 7 then
+		caster.spawnPhase = 8
+		for k = 1, 4, 1 do
+			Timers:CreateTimer((k-1)*1.5, function()
+				if Winterblight.CavernData.Chambers[caster.chamber]["status"] == 1 then
+					for i = 1, 3, 1 do
+						local spawn = nil
+						if i == 1 then
+							spawn = Winterblight:SpawnWinterRunner(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+						elseif i == 2 then
+							spawn = Winterblight:SpawnManaNull(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+						elseif i == 3 then
+							spawn = Winterblight:SpawnBloodWraith(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+						end
+						Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), true, false, caster.chamber)
+						Dungeons:AggroUnit(spawn)
+						ultra_ice_spawn_effect(caster, spawn)
+					end
+				end
+			end)
+		end
+	end
+end
+
+function ultra_ice_spawn_effect(caster, unit)
+	local particleName = "particles/roshpit/winterblight/blue_beam_attack_light_ti_5.vpcf"
+	EmitSoundOn("Winterblight.Cavern.UltraIce.Spawn", unit)
+    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+    ParticleManager:SetParticleControl(pfx,0,caster:GetAbsOrigin()+Vector(0,0,200))   
+    ParticleManager:SetParticleControl(pfx,1,unit:GetAbsOrigin()+Vector(0,0,322))
+	Timers:CreateTimer(3.5, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	local ability = caster:FindAbilityByName("winterblight_ultra_ice_passive")
+	ability:ApplyDataDrivenModifier(caster, unit, "modifier_ultra_ice_spawned_unit", {})
+end
+
+function ultra_ice_projectile_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	ApplyDamage({victim = target, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_PURE})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_chilled", {duration = 3})
+	EmitSoundOn("Torturok.ProjectileHit", target)
+
+	local icePoint = target:GetAbsOrigin()
+	local radius = 240
+	EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", caster)
+	local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+	local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, icePoint)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius * 2))
+	Timers:CreateTimer(2.5, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_chilled", {duration = 3})
+			ApplyDamage({victim = victim, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_PURE})
+		end
+	end
+end
+
+function ultra_ice_quick_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.spawnPhase == 0 then
+		if not caster.move_ticks then
+			caster.move_ticks = 0
+		end
+		caster:SetAbsOrigin(caster:GetAbsOrigin()+caster.movementVector)
+		caster.move_ticks = caster.move_ticks + 1
+		if caster.move_ticks >= 60 then
+			caster:RemoveModifierByName("modifier_ultra_ice_quick_think")
+			caster.spawnPhase = 1
+			caster:SetForwardVector(Vector(0,-1))
+		end
+	elseif caster.spawnPhase == 9 then
+		caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,10))
+		if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 20 then
+			caster:RemoveModifierByName("modifier_ultra_ice_quick_think")
+			caster.spawnPhase = 10
+			EmitSoundOn("Winterblight.Cavern.UltraIce.Aggro", caster)
+			caster:RemoveModifierByName("modifier_disable_player")
+			caster:RemoveModifierByName("modifier_ultra_ice_invulnerable")
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_ultra_ice_enraged", {})
+		end
+	end
+end
+
+function ultra_ice_spawn_unit_die(event)
+	local unit = event.unit
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.spawnUnitsSlain then
+		caster.spawnUnitsSlain = 0
+	end
+	caster.spawnUnitsSlain = caster.spawnUnitsSlain + 1
+	print(caster.spawnUnitsSlain)
+	if caster.spawnPhase == 2 and caster.spawnUnitsSlain == 16 then
+		caster.spawnPhase = 3
+		caster.spawnUnitsSlain = 0
+	elseif caster.spawnPhase == 4 and caster.spawnUnitsSlain == 16 then
+		caster.spawnPhase = 5
+		caster.spawnUnitsSlain = 0
+	elseif caster.spawnPhase == 6 and caster.spawnUnitsSlain == 32 then
+		caster.spawnPhase = 7
+		caster.spawnUnitsSlain = 0
+	elseif caster.spawnPhase == 8 and caster.spawnUnitsSlain == 12 then
+		caster.spawnPhase = 9
+		EmitSoundOn("Winterblight.Cavern.UltraIce.PhaseChange", caster)
+		Events:smoothSizeChange(caster, 1.0, 1.8, 40)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ultra_ice_quick_think", {})
+	end
+end
+
+function ultra_ice_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	EmitSoundOn("Winterblight.Cavern.UltraIce.Death", caster)
+
+	local icePoint = caster:GetAbsOrigin()
+	local radius = 800
+	EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", caster)
+	local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+	local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, icePoint)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius * 2))
+	Timers:CreateTimer(2.5, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_chilled", {duration = 6})
+			ApplyDamage({victim = victim, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_PURE})
+		end
+	end
+end
+
+function drill_digger_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	caster:ApplyAndIncrementStack(ability, caster, "modifier_drill_digger_stack", 1, 3, 6)
+	if caster:GetModifierStackCount("modifier_drill_digger_stack", caster) == 3 then
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), icePoint, nil, event.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+		if #enemies > 0 then
+			for i = 1, #enemies, 1 do
+				if i <= event.max_quakes then
+					drill_digger_quake(caster, ability, enemies[i], event.quake_radius, event.damage_pct_attack_power)
+				else
+					break
+				end
+			end
+		end
+		
+	end
+end
+
+function drill_digger_quake(caster, ability, target, radius, damage_pct_attack_power)
+	local position = target:GetAbsOrigin()
+	local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
+	local pfx = ParticleManager:CreateParticle(splitEarthParticle, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, position)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))
+	EmitSoundOn("DrillDigger.Quake", target)
+	-- FindClearSpaceForUnit(caster, position, false)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(damage_pct_attack_power/100)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+			enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = 2})
+		end
+	end
+end

@@ -10482,7 +10482,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"pct_damage_on_spell_cast"			"3 4 5"
+				"pct_damage_on_spell_cast"			"4 6 8"
 			}
 			"02"
 			{
@@ -10547,4 +10547,239 @@
 			}
 		}
 
+	}
+
+	"winterblight_ultra_ice_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"sorceress/sorceress_rune_r_2_arcana1"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"100 5000 500000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-100 -150 -200"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_loss"			"-60 -140 -340"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+				"Function"		"ultra_ice_projectile_hit"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ultra_ice_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"ultra_ice_think"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"ultra_ice_die"
+					}
+				}
+			}
+			"modifier_ultra_ice_invulnerable"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+			}
+			"modifier_chilled"
+			{
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+				}
+			}
+			"modifier_ultra_ice_quick_think"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"ultra_ice_quick_think"
+					}
+				}
+			}
+			"modifier_disable_player"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"EffectName"	"particles/roshpit/winterblight/immunity_shield.vpcf"
+				"EffectAttachType" "attach_hitloc"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "5"
+				}
+
+			}
+			"modifier_ultra_ice_spawned_unit"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"ultra_ice_spawn_unit_die"
+					}
+				}
+			}
+			"modifier_ultra_ice_enraged"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "600"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "100" 
+				}
+			}
+		}
+
+	}
+
+	"drill_digger_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"redfall/autumn_spawner"
+		"AOERadius"				"1000"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_pct_attack_power"			"30 60 90"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"quake_radius"			"300"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"1000"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_pwr_bonus_per_stack"			"90"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_quakes"			"5"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_blood_might_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"drill_digger_attack_land"
+						"radius"		"%radius"
+						"damage_pct_attack_power"	"%damage_pct_attack_power"
+						"quake_radius"	"%quake_radius"
+						"max_quakes"	"%max_quakes"
+					}
+				}
+			}
+			"modifier_drill_digger_stack"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_pwr_bonus_per_stack"
+				}
+			}
+		}
+	}
+
+	"drill_crusher"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"redfall/autumn_spawner"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+
+		}
+		"Modifiers"
+		{
+			"modifier_drill_crusher"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+			}
+		}
 	}

@@ -27,6 +27,7 @@ function Winterblight:CaveGuideSpawn()
 			local ability = guide:FindAbilityByName("winterblight_cave_guide_ability")
 			ability:ApplyDataDrivenModifier(guide, guide, "modifier_guide_entering", {duration = 60})
 	-- 	end
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-9033, 8320, 500), 10000, 10000, true)
 	end
 end
 
@@ -179,6 +180,20 @@ function Winterblight:FrozenFoyer1(msg)
 	      end)
 	    end
 	end)
+	Timers:CreateTimer(1, function()
+		local ultra_ice = Winterblight:SpawnUltraIce(Vector(-9033, 8320), RandomVector(1))
+		Winterblight:SetCavernUnit(ultra_ice, ultra_ice:GetAbsOrigin(), true, true, chamber_id)
+	end)
+	Timers:CreateTimer(5, function()
+		local positionTable = {Vector(-11904, 9600), Vector(-11555, 9998), Vector(-12264, 10436), Vector(-10880, 10834), Vector(-10481, 11290)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.1, function()
+				local fv = Vector(-1, -0.8)
+				local unit = Winterblight:SpawnManaNull(positionTable[i], fv)
+				Winterblight:SpawnDrillDigger(unit, positionTable[i], true, true, chamber_id)
+			end)
+		end
+	end)
 	-- count:3 + 10
 end
 
@@ -204,7 +219,7 @@ function Winterblight:SpawnWinterRunner(position, fv)
 	return stone
 end
 
-function Winterblight:SpawnManaNull(position, fv, level_stack)
+function Winterblight:SpawnManaNull(position, fv)
 	local stone = Winterblight:SpawnDungeonUnit("azalea_mana_null", position, 1, 2, "Winterblight.Cavern.ManaNull.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 4, 4, false)
 	stone.itemLevel = 50
@@ -230,6 +245,26 @@ function Winterblight:SpawnBloodWraith(position, fv)
 	Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_CLOSEST)
 	return stone
 end
+
+function Winterblight:SpawnUltraIce(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_cavern_ultra_ice", position, 1, 3, "Winterblight.Cavern.UltraIce.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 6, false)
+	stone.itemLevel = 60
+	stone:SetRenderColor(150, 190, 255)
+	-- Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_CLOSEST)
+	return stone
+end
+
+function Winterblight:SpawnDrillDigger(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("drill_digger", position, 1, 3, "DrillDigger.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 6, false)
+	stone.itemLevel = 55
+	stone:SetRenderColor(150, 190, 255)
+	-- Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_CLOSEST)
+	return stone
+end
+
+
 
 function Winterblight:IsWithinChamber(unit, chamber_id)
 	local compare_position = unit:GetAbsOrigin()

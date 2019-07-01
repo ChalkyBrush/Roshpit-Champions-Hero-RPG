@@ -93655,17 +93655,15 @@
         "PathfindingSearchDepthScale" "0.2"
         "precache"
         {
-            "particle"  "particles/units/heroes/hero_arc_warden/arc_warden_tempest_buff.vpcf"
-            "particle"  "particles/econ/items/ancient_apparition/ancient_apparation_ti8/ancient_ice_vortex_ti8.vpcf"
-            "particle"  "particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet.vpcf"
-            "particle"  "particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet_frozen.vpcf"
+            "particle"  "particles/roshpit/winterblight/blue_beam_attack_light_ti_5.vpcf"
+            "particle"  "particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf"
         }
         // Abilities
         //--------------------------------
         
-        "Ability1"                  "winterblight_azalea_triple_boss_ability"   
-        "Ability2"                  "torphet_ice_vortex"      
-        "Ability3"                  "torphet_cold_feet"         
+        "Ability1"                  "winterblight_ultra_ice_passive" 
+        "Ability2"                  "creature_pure_strike"      
+        "Ability3"                  "winterblight_crystal_meditation"         
         "Ability4"                  "redfall_mega_steadfast"  
         "Ability5"                  "armor_break"      
         "Ability6"                  "dungeon_creep"         
@@ -93685,7 +93683,7 @@
         "AttackAnimationPoint"  "0.37"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "500"
-        "ProjectileModel"   "particles/units/heroes/hero_ancient_apparition/ancient_apparition_base_attack.vpcf"
+        "ProjectileModel"   "particles/roshpit/winterblight/azalea_base_attack_large.vpcf"
         "ProjectileSpeed"   "900"
 
 
@@ -93751,6 +93749,101 @@
                 "Wearable4"
                 {
                     "ItemDef"   "12569"
+                }
+            }
+        }
+    }
+
+    "drill_digger"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/magnataur/magnataur.vmdl"
+        "ModelScale"    "1.2"
+        "Level" "1"
+        "HealthBarOffset"   "180"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
+            "particle"  "particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_Magnatuar"
+        "ArmorPhysical" "25"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "865000"
+        "AttackDamageMax"   "955000"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "195"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "2500"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "340"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "1600400"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"      "drill_digger_passive" //quake on every 3rd attack
+        "Ability2"      "drill_crusher"        //attacks ignore armor
+        "Ability3"      "winterblight_azalea_dragoon_passive" //cant be damaged from distance
+        "Ability4"      "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "8675"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "9971"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "9972"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "9974"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "9973"
                 }
             }
         }

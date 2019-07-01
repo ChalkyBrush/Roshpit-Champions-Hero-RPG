@@ -1841,7 +1841,7 @@ function GameState:FilterDamage(filterTable)
 	local abs = math.abs
 	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
 		local armor = victim:GetPhysicalArmorValue(false)
-		if attacker:HasModifier("modifier_hand_marauder") and armor >= 0 then
+		if (attacker:HasModifier("modifier_hand_marauder") or attacker:HasModifier("modifier_drill_crusher")) and armor >= 0 then
 			armor = 0
 		end
 		if victim:HasModifier("modifier_omniro_shadow_debuff") and armor >= 0 then
