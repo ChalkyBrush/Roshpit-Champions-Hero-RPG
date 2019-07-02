@@ -773,6 +773,7 @@ function Serengaard:NextWave()
 			if Serengaard.InfiniteWaveCount % 5 == 0 then
 				Serengaard:LinewarIncomeFunction(60)
 				if Serengaard.InfiniteWaveCount % 10 == 0 then
+					Serengaard:KillAllNeutrals()
 					local mithril = 140 + math.min(Serengaard.InfiniteWaveCount * 10, 500)
 					Serengaard:Mithril("infinite", Serengaard.mainAncient:GetAbsOrigin(), mithril)
 					for i = 1, #MAIN_HERO_TABLE, 1 do
@@ -826,7 +827,7 @@ function Serengaard:InfiniteWave()
 	Serengaard.InfiniteWaveCount = Serengaard.InfiniteWaveCount + 1
 
 	Serengaard.waveProgress = 0
-	Serengaard.waveMax = 80
+	Serengaard.waveMax = 75
 	if Serengaard.InfiniteWaveCount == 1 then
 		Serengaard.waveMax = 70
 	end
@@ -1094,6 +1095,7 @@ function Serengaard:SpawnTeleporter(position)
 end
 
 function Serengaard:UpdateTowers()
+	local maxValue = 250000000
 	for i = 1, #Serengaard.SerengaardBarracksTable, 1 do
 		if IsValidEntity(Serengaard.SerengaardBarracksTable[i]) then
 			local tower = Serengaard.SerengaardBarracksTable[i]
@@ -1102,7 +1104,9 @@ function Serengaard:UpdateTowers()
 				local armor = math.floor(tower:GetPhysicalArmorBaseValue() * (1.05))
 				local attackDamage = math.floor(tower:GetAttackDamage() * (1.05))
 				local hp = math.floor(tower:GetMaxHealth() * (1.05))
-				hp = math.min(hp, 2 ^ 28)
+				armor = math.min(armor, maxValue)
+				attackDamage = math.min(attackDamage, maxValue)
+				hp = math.min(hp, maxValue)
 				tower:SetMaxHealth(hp)
 				tower:SetBaseMaxHealth(hp)
 				tower:SetHealth(hp * hpPercentage)
@@ -1121,7 +1125,9 @@ function Serengaard:UpdateTowers()
 				local armor = math.floor(tower:GetPhysicalArmorBaseValue() * (1.05))
 				local attackDamage = math.floor(tower:GetAttackDamage() * (1.05))
 				local hp = math.floor(tower:GetMaxHealth() * (1.05))
-				hp = math.min(hp, 2 ^ 28)
+				armor = math.min(armor, maxValue)
+				attackDamage = math.min(attackDamage, maxValue)
+				hp = math.min(hp, maxValue)
 				tower:SetMaxHealth(hp)
 				tower:SetBaseMaxHealth(hp)
 				tower:SetHealth(hp * hpPercentage)
@@ -1140,7 +1146,9 @@ function Serengaard:UpdateTowers()
 				local armor = math.floor(tower:GetPhysicalArmorBaseValue() * (1.05))
 				local attackDamage = math.floor(tower:GetAttackDamage() * (1.05))
 				local hp = math.floor(tower:GetMaxHealth() * (1.05))
-				hp = math.min(hp, 2 ^ 28)
+				armor = math.min(armor, maxValue)
+				attackDamage = math.min(attackDamage, maxValue)
+				hp = math.min(hp, maxValue)
 				tower:SetMaxHealth(hp)
 				tower:SetBaseMaxHealth(hp)
 				tower:SetHealth(hp * hpPercentage)
@@ -1159,7 +1167,9 @@ function Serengaard:UpdateTowers()
 				local armor = math.floor(tower:GetPhysicalArmorBaseValue() * (1.05))
 				local attackDamage = math.floor(tower:GetAttackDamage() * (1.05))
 				local hp = math.floor(tower:GetMaxHealth() * (1.05))
-				hp = math.min(hp, 2 ^ 28)
+				armor = math.min(armor, maxValue)
+				attackDamage = math.min(attackDamage, maxValue)
+				hp = math.min(hp, maxValue)
 				tower:SetMaxHealth(hp)
 				tower:SetBaseMaxHealth(hp)
 				tower:SetHealth(hp * hpPercentage)
@@ -1177,7 +1187,7 @@ function Serengaard:UpdateTowers()
 			local armor = math.min(math.floor(tower:GetPhysicalArmorBaseValue() * (1.05)), 8000)
 			local attackDamage = math.floor(tower:GetAttackDamage() * (1.05))
 			local hp = math.floor(tower:GetMaxHealth() * (1.05))
-			hp = math.min(hp, 2 ^ 28)
+			hp = math.min(hp, maxValue)
 			tower:SetMaxHealth(hp)
 			tower:SetBaseMaxHealth(hp)
 			tower:SetHealth(hp * hpPercentage)

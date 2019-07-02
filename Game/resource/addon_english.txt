@@ -783,6 +783,12 @@
 		"DOTA_Tooltip_ability_item_rpc_galactic_arcana_cache"			"Galactic Arcana Cache"
 		"item_rpc_galactic_arcana_cache_desc"							"Use: Drops 3 random arcanas at your feet. Their levels are determined by the cache's Radiance value."
 
+		"DOTA_Tooltip_ability_item_rpc_currency_reroll"				"Currency Reroll Placeholder"
+		"item_rpc_currency_reroll_desc"								"Use: Reforges arcana item stat values, keeping only better rolls."
+
+		"DOTA_Tooltip_ability_item_rpc_currency_whetstone"			"Currency Whetstone Placeholder"
+		"item_rpc_currency_whetstone_desc"							"Use: Fully updates weapon level."
+
 		"cache_radiance"									"Radiance"
 
 		"item_row"					"Glyph Tier"

@@ -1278,6 +1278,12 @@
 		"DOTA_Tooltip_ability_item_rpc_galactic_arcana_cache"			"银河至宝珍藏"
 		"item_rpc_galactic_arcana_cache_desc"							"使用: 在你脚下掉落三件完全随机的至宝。至宝的强度完全取决于你的欧气。"
 
+		"DOTA_Tooltip_ability_item_rpc_currency_reroll"				"Currency Reroll Placeholder"
+		"item_rpc_currency_reroll_desc"								"Use: Reforges arcana item stat values, keeping only better rolls."
+
+		"DOTA_Tooltip_ability_item_rpc_currency_whetstone"			"Currency Whetstone Placeholder"
+		"item_rpc_currency_whetstone_desc"							"Use: Fully updates weapon level."
+
 		"cache_radiance"									"光辉"
 
 		"item_row"					"雕文等级"
