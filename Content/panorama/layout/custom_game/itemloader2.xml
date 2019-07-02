@@ -11,7 +11,8 @@
 <Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/loading_screen/tutorial_load.jpg"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/ui/tutorial/tutorial_header.jpg"/>
 
-<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/currency/currency_reroll.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/currency/currency_whetstone.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_6_1.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_4_1.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_3_1.png"/>

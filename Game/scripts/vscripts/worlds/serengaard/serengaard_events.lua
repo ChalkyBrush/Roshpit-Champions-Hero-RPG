@@ -208,7 +208,7 @@ function ancient_die(event)
 
 	Serengaard:KillAllNeutrals()
 
-	local stringToShow = "Ancient destroyed. Players failed, world is not saved!"
+	local stringToShow = "The Ancient has been destroyed. Serengaard waits for a new protector."
 	Notifications:TopToAll({text = stringToShow, duration = 5.0})
 
 	Timers:CreateTimer(6, function()
