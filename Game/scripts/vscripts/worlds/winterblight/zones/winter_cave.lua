@@ -640,5 +640,7 @@ end
 
 function Winterblight:CompleteChamberEvent(chamber)
 	if Winterblight.CavernData.Chambers[chamber]["status"] == 1 then
+		Winterblight.CavernData.Chambers[chamber]["status"] = 3
+		CustomGameEventManager:Send_ServerToAllClients("cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers})		
 	end
 end
