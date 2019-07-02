@@ -9,21 +9,21 @@
 
 		<Panel class="invisible">
 <Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/loading_screen/tutorial_load.jpg"/>
-<!-- <Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/ui/winterblight/aurora_passage.jpg"/>
-<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/ui/winterblight/frozen_foyer.jpg"/>
-<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/ui/winterblight/edge_of_winter.jpg"/>
-<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/ui/winterblight/crystarium.jpg"/> -->
-<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/ui/winterblight/relic_fragments.png"/>
-<!-- <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/ui/tutorial/tutorial_header.jpg"/>
+
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_2_1.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_6_1.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_4_1.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_3_1.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_5_a.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_1_1.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_5_1.png"/>
-
-<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_7_1.png"/> -->
-
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_7_1.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_weak_creep.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_normal_creep.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_mini_boss.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_boss.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_major_boss.png"/>
 <!-- <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/winterblight_glacier_stone.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_ruby_ring.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/wraps_of_the_grand_arcanist.png"/>

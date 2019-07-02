@@ -52410,6 +52410,7 @@
 			"modifier_ancient_range_aura"
 			{
 				"IsHidden"	"1"
+				"Passive"	"1"
 				"ThinkInterval"  "5.0"
 				"OnIntervalThink"
 				{

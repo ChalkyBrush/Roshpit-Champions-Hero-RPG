@@ -32,11 +32,11 @@ require('curator')
 -- @param item entity handle
 function RPCItems:ItemUTIL_Remove(item)
 	if not item then
-		--print("[Error] RPCItems:ItemUTIL_Remove item is null")
+		print("[Error] RPCItems:ItemUTIL_Remove item is null")
 		return
 	end
 	if not IsValidEntity(item) then
-		--print("[Error] RPCItems:ItemUTIL_Remove entity is not valid")
+		print("[Error] RPCItems:ItemUTIL_Remove entity is not valid")
 		return
 	end
 	UTIL_Remove(item)
@@ -59,12 +59,12 @@ end
 -- @param item entity handle
 function RPCItems:CustomNetTablesItemRemoving(item)
 	if not item then
-		--print("[Error] RPCItems:CustomNetTablesItemRemoving item is null")
+		print("[Error] RPCItems:CustomNetTablesItemRemoving item is null")
 		return
 	end
 	local itemIndex = item:GetEntityIndex()
 	if not itemIndex then
-		--print("[Error] RPCItems:CustomNetTablesItemRemoving itemIndex is null")
+		print("[Error] RPCItems:CustomNetTablesItemRemoving itemIndex is null")
 		return
 	end
 
@@ -225,10 +225,10 @@ function RPCItems:RollItemtype(xpBounty, deathLocation, rarityValue, unitLevel)
 		end
 	end
 	if GameMode.VoteSystem.junk_loot_disabled and (rarity == "common" or rarity == "uncommon" or rarity == "rare" or rarity == "mythical") and luck >= 200 then
-		----print("junk_loot_disabled other rarity: "..rarity)
+		-- print("junk_loot_disabled other rarity: "..rarity)
 		return
 	end
-	if luck > 0 and luck < 200 then
+	if luck >= 0 and luck < 200 then
 		RPCItems:RollBasicPotion(xpBounty + 50, deathLocation, rarity, unitLevel)
 	elseif luck >= 200 and luck < 265 then
 		RPCItems:RollHood(xpBounty, deathLocation, rarity, false, 0, nil, unitLevel)
@@ -567,8 +567,8 @@ function RPCItems:RollAttribute(xpBounty, minBase, maxBase, bountyFactorMin, bou
 		end
 		value = round(value, 0)
 	end
-	--print("value: "..value)
-	--print(value)
+	print("value: "..value)
+	print(value)
 	return value, suffixLevel
 end
 
@@ -836,15 +836,14 @@ function RPCItems:SetTableValues(item, itemName, consumableBoolean, description,
 		item.newItemTable.minLevel = minLevel
 	end
 
-
-	--print("MIN LEVEL BEFORE ADJUST"..item.newItemTable.minLevel)
+	print("MIN LEVEL BEFORE ADJUST"..item.newItemTable.minLevel)
 	--
 	if not item.newItemTable.validator then
 		item.newItemTable.validator = RPCItems:GetRandomKey(13)
 	end
 
-	----print("consumableBoolean")
-	----print(consumableBoolean)
+	-- print("consumableBoolean")
+	-- print(consumableBoolean)
 	-- if not consumableBoolean then
 	-- consumableBoolean = nil
 	-- end
@@ -911,20 +910,20 @@ end
 -- @param item entity handle
 function RPCItems:ItemUpdateCustomNetTables(item)
 	if not item then
-		--print("[Error] RPCItems:ItemUpdateCustomNetTables item is null")
+		print("[Error] RPCItems:ItemUpdateCustomNetTables item is null")
 		return
 	end
 	if item:IsNull() then
-		--print("[Error] RPCItems:ItemUpdateCustomNetTables IsNull")
+		print("[Error] RPCItems:ItemUpdateCustomNetTables IsNull")
 		return
 	end
 	local itemIndex = item:GetEntityIndex()
 	if not itemIndex then
-		--print("[Error] RPCItems:ItemUpdateCustomNetTables item index is null")
+		print("[Error] RPCItems:ItemUpdateCustomNetTables item index is null")
 		return
 	end
 	if not item.newItemTable then
-		--print("[Error] RPCItems:ItemUpdateCustomNetTables newItemTable is null")
+		print("[Error] RPCItems:ItemUpdateCustomNetTables newItemTable is null")
 		return
 	end
 
@@ -968,27 +967,27 @@ function RPCItems:SetPropertyValuesSpecial(item, propertyValue, propertyName, pr
 		item.newItemTable = {}
 	end
 	if propertyName and type(propertyName) == "string" and propertyName == "rune" then
-		--print("rune swap start")
-		--print("debug rune1:"..tostring(propertyName))
+		print("rune swap start")
+		print("debug rune1:"..tostring(propertyName))
 		if propertyNumber == 1 and item.newItemTable.property1name and type(item.newItemTable.property1name) == "string" and item.newItemTable.property1name:sub(1, 5) == "rune_" then
 			propertyName = item.newItemTable.property1name
-			--print(item.newItemTable.property1name)
-			--print("debug rune2:"..tostring(propertyName))
+			print(item.newItemTable.property1name)
+			print("debug rune2:"..tostring(propertyName))
 		elseif propertyNumber == 2 and item.newItemTable.property2name and type(item.newItemTable.property2name) == "string" and item.newItemTable.property2name:sub(1, 5) == "rune_" then
 			propertyName = item.newItemTable.property2name
-			--print(item.newItemTable.property2name)
-			--print("debug rune3:"..tostring(propertyName))
+			print(item.newItemTable.property2name)
+			print("debug rune3:"..tostring(propertyName))
 		elseif propertyNumber == 3 and item.newItemTable.property3name and type(item.newItemTable.property3name) == "string" and item.newItemTable.property3name:sub(1, 5) == "rune_" then
 			propertyName = item.newItemTable.property3name
-			--print(item.newItemTable.property3name)
-			--print("debug rune4:"..tostring(propertyName))
+			print(item.newItemTable.property3name)
+			print("debug rune4:"..tostring(propertyName))
 		elseif propertyNumber == 4 and item.newItemTable.property4name and type(item.newItemTable.property4name) == "string" and item.newItemTable.property4name:sub(1, 5) == "rune_" then
 			propertyName = item.newItemTable.property4name
-			--print(item.newItemTable.property4name)
-			--print("debug rune5:"..tostring(propertyName))
+			print(item.newItemTable.property4name)
+			print("debug rune5:"..tostring(propertyName))
 		end
-		--print("debug rune6:"..tostring(propertyName))
-		--print("rune swap end ------------------------------------")
+		print("debug rune6:"..tostring(propertyName))
+		print("rune swap end ------------------------------------")
 	end
 	if propertyNumber == 1 then
 		item.newItemTable.property1 = propertyValue
@@ -1090,14 +1089,14 @@ function RPCItems:GetRarityParticle(rarityName)
 end
 
 function RPCItems:GearPickup(heroEntity, itemEntity)
-	--print("[RPCItems:GearPickup] start")
+	print("[RPCItems:GearPickup] start")
 	local player = heroEntity:GetPlayerOwner()
 	local slot = RPCItems:getGearSlot(itemEntity.newItemTable.item_slot)
 	local oldGearTable = CustomNetTables:GetTableValue("equipment", tostring(player:GetPlayerID()) .. "-"..tostring(slot))
 	local oldGear = false
 	local itemIndexNew = itemEntity:GetEntityIndex()
-	--print("[RPCItems:GearPickup] slot: "..slot)
-	--print("[RPCItems:GearPickup] itemIndexNew: "..itemIndexNew)
+	print("[RPCItems:GearPickup] slot: "..slot)
+	print("[RPCItems:GearPickup] itemIndexNew: "..itemIndexNew)
 	if oldGearTable then
 		if oldGearTable.itemIndex == -1 then
 			oldGear = false
@@ -1106,7 +1105,7 @@ function RPCItems:GearPickup(heroEntity, itemEntity)
 		end
 	end
 	if oldGear then
-		--print("[RPCItems:GearPickup] oldGear")
+		print("[RPCItems:GearPickup] oldGear")
 		heroEntity:TakeItem(itemEntity)
 		if IsValidEntity(itemEntity:GetContainer()) then
 			UTIL_Remove(itemEntity:GetContainer())
@@ -1115,7 +1114,7 @@ function RPCItems:GearPickup(heroEntity, itemEntity)
 		CustomGameEventManager:Send_ServerToPlayer(player, "new_item_with_slot", {newItem = itemIndexNew, oldItem = oldGear:GetEntityIndex()})
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, heroEntity, "modifier_equip_ui_open", {})
 	else
-		--print("[RPCItems:GearPickup] NO oldGear")
+		print("[RPCItems:GearPickup] NO oldGear")
 		local playerID = heroEntity:GetPlayerID()
 		local heroId = heroEntity:GetClassname()
 		-- CustomGameEventManager:Send_ServerToPlayer(player, "InitializeEquipment", {item=itemIndexNew} )
@@ -1133,853 +1132,855 @@ function RPCItems:GearPickup(heroEntity, itemEntity)
 		if slot == 1 then
 			hero.weapon = itemEntity
 			Weapons:SetWeaponTable(itemEntity)
-			CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()),
-				{xp = itemEntity.newItemTable.xp,
-					level = itemEntity.newItemTable.level,
-					xpNeeded = Weapons.XP_PER_LEVEL_TABLE[itemEntity.newItemTable.level],
-					maxLevel = itemEntity.newItemTable.maxLevel,
-				requiredHero = itemEntity.newItemTable.requiredHero})
-			end
-		end
-		Statistics.dispatch('items:equip')
-	end
-
-	function RPCItems:EquipItem(slot, hero, inventory_unit, itemEntity)
-		--print("[RPCItems:EquipItem]1@@@@@@@@@@@@@@@@@@")
-		--print(itemEntity)
-		-- DeepPrintTable(itemEntity)
-		--print("slot:"..slot)
-		--print("[RPCItems:EquipItem]2@@@@@@@@@@@@@@@@@@")
-		Events:TutorialServerEvent(hero, "3_1", 0)
-		Weapons:ValidateGear(hero)
-		if slot == 0 then
-			Head:remove_modifiers(hero)
-			Head:add_modifiers(hero, inventory_unit, itemEntity)
-		elseif slot == 1 then
-			Weaponmodifiers:remove_modifiers(hero)
-			Weaponmodifiers:add_modifiers(hero, inventory_unit, itemEntity)
-		elseif slot == 2 then
-			Hand:remove_modifiers(hero)
-			Hand:add_modifiers(hero, inventory_unit, itemEntity)
-		elseif slot == 3 then
-			Foot:remove_modifiers(hero)
-			Foot:add_modifiers(hero, inventory_unit, itemEntity)
-		elseif slot == 4 then
-			Body:remove_modifiers(hero)
-			Body:add_modifiers(hero, inventory_unit, itemEntity)
-		elseif slot == 5 then
-			Amulet:remove_modifiers(hero)
-			Amulet:add_modifiers(hero, inventory_unit, itemEntity)
-		end
-		Timers:CreateTimer(1.5, function()
-			CustomGameEventManager:Send_ServerToAllClients("update_runes", {})
-		end)
-	end
-
-	function RPCItems:RemoveItemStats(slot, hero)
-		if slot == 0 then
-			Head:remove_modifiers(hero)
-		end
-		if slot == 1 then
-			Weaponmodifiers:remove_modifiers(hero)
-		end
-		if slot == 2 then
-			Hand:remove_modifiers(hero)
-		end
-		if slot == 3 then
-			Foot:remove_modifiers(hero)
-		end
-		if slot == 4 then
-			Body:remove_modifiers(hero)
-		end
-		if slot == 5 then
-			Amulet:remove_modifiers(hero)
-		end
-		Timers:CreateTimer(1.5, function()
-			CustomGameEventManager:Send_ServerToAllClients("update_runes", {})
-		end)
-	end
-
-	function RPCItems:FindPickupSlot(itemEntity, inventory_unit)
-		local gear0 = inventory_unit:GetItemInSlot(0)
-		local gear1 = inventory_unit:GetItemInSlot(1)
-		local gear2 = inventory_unit:GetItemInSlot(2)
-		local gear3 = inventory_unit:GetItemInSlot(3)
-		local gear4 = inventory_unit:GetItemInSlot(4)
-		local gear5 = inventory_unit:GetItemInSlot(5)
-		if gear0 == itemEntity then
-			return 0
-		elseif gear1 == itemEntity then
-			return 1
-		elseif gear2 == itemEntity then
-			return 2
-		elseif gear3 == itemEntity then
-			return 3
-		elseif gear4 == itemEntity then
-			return 4
-		elseif gear5 == itemEntity then
-			return 5
+			CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), {xp = itemEntity.newItemTable.xp, level = itemEntity.newItemTable.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[itemEntity.newItemTable.level], maxLevel = itemEntity.newItemTable.maxLevel, requiredHero = itemEntity.newItemTable.requiredHero})
 		end
 	end
+	Statistics.dispatch('items:equip')
+end
 
-	function RPCItems:getGearSlot(gearType)
-		if gearType == "head" then
-			return 0
-		elseif gearType == "weapon" then
-			return 1
-		elseif gearType == "hands" then
-			return 2
-		elseif gearType == "feet" then
-			return 3
-		elseif gearType == "body" then
-			return 4
-		elseif gearType == "amulet" then
-			return 5
-		else
-			return - 1
-		end
+function RPCItems:EquipItem(slot, hero, inventory_unit, itemEntity)
+	print("[RPCItems:EquipItem]1@@@@@@@@@@@@@@@@@@")
+	print(itemEntity)
+	-- DeepPrintTable(itemEntity)
+	print("slot:"..slot)
+	print("[RPCItems:EquipItem]2@@@@@@@@@@@@@@@@@@")
+	Events:TutorialServerEvent(hero, "3_1", 0)
+	Weapons:ValidateGear(hero)
+	if slot == 0 then
+		Head:remove_modifiers(hero)
+		Head:add_modifiers(hero, inventory_unit, itemEntity)
+	elseif slot == 1 then
+		Weaponmodifiers:remove_modifiers(hero)
+		Weaponmodifiers:add_modifiers(hero, inventory_unit, itemEntity)
+	elseif slot == 2 then
+		Hand:remove_modifiers(hero)
+		Hand:add_modifiers(hero, inventory_unit, itemEntity)
+	elseif slot == 3 then
+		Foot:remove_modifiers(hero)
+		Foot:add_modifiers(hero, inventory_unit, itemEntity)
+	elseif slot == 4 then
+		Body:remove_modifiers(hero)
+		Body:add_modifiers(hero, inventory_unit, itemEntity)
+	elseif slot == 5 then
+		Amulet:remove_modifiers(hero)
+		Amulet:add_modifiers(hero, inventory_unit, itemEntity)
 	end
+	Timers:CreateTimer(1.5, function()
+		CustomGameEventManager:Send_ServerToAllClients("update_runes", {})
+	end)
+end
 
-	function RPCItems:GetGearSlotName(gearSlot)
-		local slotName = ""
-		if gearSlot == 0 then
-			slotName = "head"
-		elseif gearSlot == 1 then
-			slotName = "weapon"
-		elseif gearSlot == 2 then
-			slotName = "hands"
-		elseif gearSlot == 3 then
-			slotName = "feet"
-		elseif gearSlot == 4 then
-			slotName = "body"
-		elseif gearSlot == 5 then
-			slotName = "amulet"
-		else
-			slotName = ""
-		end
-		--print(slotName)
-		return slotName
+function RPCItems:RemoveItemStats(slot, hero)
+	if slot == 0 then
+		Head:remove_modifiers(hero)
 	end
-
-	function RPCItems:RecalculateStatsBasic(hero)
-		--print("[RPCItems:RecalculateStatsBasic] ASDF")
-		local playerID = hero:GetPlayerOwnerID()
-		--print(hero:GetUnitName())
-		--print(hero)
-		local respawnAbility = Events.GameMaster:FindAbilityByName("respawn_abilities")
-		respawnAbility:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_respawned_equip", {duration = 2})
-		for i = 0, 5, 1 do
-			Timers:CreateTimer(0.2 * i, function()
-				local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(i))
-				if itemEntity then
-					local item = EntIndexToHScript(itemEntity.itemIndex)
-					if IsValidEntity(item) then
-						RPCItems:EquipItem(i, hero, hero.InventoryUnit, item)
-						-- if item.rarity == "arcana" then
-						-- else
-						-- RPCItems:EquipItem(i, hero, hero.InventoryUnit, item)
-						-- end
-					end
-				end
-			end)
-		end
-		Timers:CreateTimer(3.0, function()
-			hero:CalculateStatBonus()
-		end)
+	if slot == 1 then
+		Weaponmodifiers:remove_modifiers(hero)
 	end
+	if slot == 2 then
+		Hand:remove_modifiers(hero)
+	end
+	if slot == 3 then
+		Foot:remove_modifiers(hero)
+	end
+	if slot == 4 then
+		Body:remove_modifiers(hero)
+	end
+	if slot == 5 then
+		Amulet:remove_modifiers(hero)
+	end
+	Timers:CreateTimer(1.5, function()
+		CustomGameEventManager:Send_ServerToAllClients("update_runes", {})
+	end)
+end
 
-	function RPCItems:RecalculateStats(keys)
-		--print("[RPCItems:RecalculateStats] ASDF")
-		local playerID = keys.playerId
-		local player = PlayerResource:GetPlayer(playerID)
-		local hero = GameState:GetHeroByPlayerID(playerID)
-		--print(hero:GetUnitName())
-		--print(hero)
-		for i = 0, 5, 1 do
-			Timers:CreateTimer(0.8 * i, function()
-				local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(i))
-				if itemEntity then
-					local item = EntIndexToHScript(itemEntity.itemIndex)
+function RPCItems:FindPickupSlot(itemEntity, inventory_unit)
+	local gear0 = inventory_unit:GetItemInSlot(0)
+	local gear1 = inventory_unit:GetItemInSlot(1)
+	local gear2 = inventory_unit:GetItemInSlot(2)
+	local gear3 = inventory_unit:GetItemInSlot(3)
+	local gear4 = inventory_unit:GetItemInSlot(4)
+	local gear5 = inventory_unit:GetItemInSlot(5)
+	if gear0 == itemEntity then
+		return 0
+	elseif gear1 == itemEntity then
+		return 1
+	elseif gear2 == itemEntity then
+		return 2
+	elseif gear3 == itemEntity then
+		return 3
+	elseif gear4 == itemEntity then
+		return 4
+	elseif gear5 == itemEntity then
+		return 5
+	end
+end
+
+function RPCItems:getGearSlot(gearType)
+	if gearType == "head" then
+		return 0
+	elseif gearType == "weapon" then
+		return 1
+	elseif gearType == "hands" then
+		return 2
+	elseif gearType == "feet" then
+		return 3
+	elseif gearType == "body" then
+		return 4
+	elseif gearType == "amulet" then
+		return 5
+	else
+		return - 1
+	end
+end
+
+function RPCItems:GetGearSlotName(gearSlot)
+	local slotName = ""
+	if gearSlot == 0 then
+		slotName = "head"
+	elseif gearSlot == 1 then
+		slotName = "weapon"
+	elseif gearSlot == 2 then
+		slotName = "hands"
+	elseif gearSlot == 3 then
+		slotName = "feet"
+	elseif gearSlot == 4 then
+		slotName = "body"
+	elseif gearSlot == 5 then
+		slotName = "amulet"
+	else
+		slotName = ""
+	end
+	print(slotName)
+	return slotName
+end
+
+function RPCItems:RecalculateStatsBasic(hero)
+	print("[RPCItems:RecalculateStatsBasic] ASDF")
+	local playerID = hero:GetPlayerOwnerID()
+	print(hero:GetUnitName())
+	print(hero)
+	local respawnAbility = Events.GameMaster:FindAbilityByName("respawn_abilities")
+	respawnAbility:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_respawned_equip", {duration = 2})
+	for i = 0, 5, 1 do
+		Timers:CreateTimer(0.2 * i, function()
+			local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(i))
+			if itemEntity then
+				local item = EntIndexToHScript(itemEntity.itemIndex)
+				if IsValidEntity(item) then
 					RPCItems:EquipItem(i, hero, hero.InventoryUnit, item)
+					-- if item.rarity == "arcana" then
+					-- else
+					-- RPCItems:EquipItem(i, hero, hero.InventoryUnit, item)
+					-- end
 				end
-			end)
-		end
-		Timers:CreateTimer(5.0, function()
-			hero:CalculateStatBonus()
+			end
 		end)
 	end
+	Timers:CreateTimer(3.0, function()
+		hero:CalculateStatBonus()
+	end)
+end
 
-	function RPCItems:AcceptNewItem(keys)
-		--print("[RPCItems:AcceptNewItem] ++++++++++++++++++++++++++++++++++++++++++++")
-		local playerID = keys.PlayerID
-		local oldItem = EntIndexToHScript(keys.oldItem)
-		----print("[RPCItems:AcceptNewItem] old:")
-		-- DeepPrintTable(oldItem)
-		local newItem = EntIndexToHScript(keys.newItem)
-		----print("[RPCItems:AcceptNewItem] new:")
-		-- DeepPrintTable(newItem)
-		local hero, inventory_unit = RPCItems:GetHeroAndInventoryByID(keys.PlayerID)
-		hero.cant_use_items = true
-		Timers:CreateTimer(0.75, function()
-			hero.cant_use_items = false
+function RPCItems:RecalculateStats(keys)
+	print("[RPCItems:RecalculateStats] ASDF")
+	local playerID = keys.playerId
+	local player = PlayerResource:GetPlayer(playerID)
+	local hero = GameState:GetHeroByPlayerID(playerID)
+	print(hero:GetUnitName())
+	print(hero)
+	for i = 0, 5, 1 do
+		Timers:CreateTimer(0.8 * i, function()
+			local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(i))
+			if itemEntity then
+				local item = EntIndexToHScript(itemEntity.itemIndex)
+				RPCItems:EquipItem(i, hero, hero.InventoryUnit, item)
+			end
 		end)
-		--DeepPrintTable(keys)
-		local slot = RPCItems:getGearSlot(newItem.newItemTable.item_slot)
-		CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(slot), {itemIndex = newItem:GetEntityIndex()})
-		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "update_inventory", {})
+	end
+	Timers:CreateTimer(5.0, function()
+		hero:CalculateStatBonus()
+	end)
+end
 
-		if oldItem then
-			UTIL_Remove(oldItem)
+function RPCItems:AcceptNewItem(keys)
+	print("[RPCItems:AcceptNewItem] ++++++++++++++++++++++++++++++++++++++++++++")
+	local playerID = keys.PlayerID
+	local oldItem = EntIndexToHScript(keys.oldItem)
+	-- print("[RPCItems:AcceptNewItem] old:")
+	-- DeepPrintTable(oldItem)
+	local newItem = EntIndexToHScript(keys.newItem)
+	-- print("[RPCItems:AcceptNewItem] new:")
+	-- DeepPrintTable(newItem)
+	local hero, inventory_unit = RPCItems:GetHeroAndInventoryByID(keys.PlayerID)
+	hero.cant_use_items = true
+	Timers:CreateTimer(0.75, function()
+		hero.cant_use_items = false
+	end)
+	DeepPrintTable(keys)
+	local slot = RPCItems:getGearSlot(newItem.newItemTable.item_slot)
+	CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(slot), {itemIndex = newItem:GetEntityIndex()})
+	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "update_inventory", {})
+
+	if oldItem then
+		UTIL_Remove(oldItem)
+	end
+	hero:RemoveModifierByName("modifier_equip_ui_open")
+	EmitGlobalSound("RPC.EquipItem")
+	local player = hero:GetPlayerOwner()
+	local heroId = hero:GetClassname()
+	if newItem then
+		CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = newItem:GetEntityIndex(), heroId = heroId, playerId = playerID, pickup = "equip", rarity = newItem.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(newItem.newItemTable.rarity)})
+		RPCItems:EquipItem(slot, hero, inventory_unit, newItem)
+	end
+	if slot == 1 then
+		hero.weapon = newItem
+		Weapons:SetWeaponTable(newItem)
+		CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), {xp = newItem.xp, level = newItem.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[newItem.level], maxLevel = newItem.maxLevel, requiredHero = newItem.requiredHero})
+	end
+end
+
+function RPCItems:RejectNewItem(keys)
+	local playerID = keys.PlayerID
+	local oldItem = EntIndexToHScript(keys.oldItem)
+	local newItem = EntIndexToHScript(keys.newItem)
+	UTIL_Remove(newItem)
+	local hero, inventory_unit = RPCItems:GetHeroAndInventoryByID(keys.PlayerID)
+	hero:RemoveModifierByName("modifier_equip_ui_open")
+	print("item rejected")
+end
+
+function RPCItems:GetHeroAndInventoryByID(playerID)
+	local hero = GameState:GetHeroByPlayerID(playerID)
+
+	return hero, hero.InventoryUnit
+
+end
+
+function RPCItems:GiveItemToHero(hero, item)
+	hero:AddItem(item)
+	Events:PickUpTest(hero, item)
+end
+
+function RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+	if hero:HasAnyAvailableInventorySpace() then
+		hero:AddItem(item)
+		Events:PickUpTest(hero, item)
+	else
+		if IsValidEntity(item:GetContainer()) then
+			item:GetContainer():SetAbsOrigin(hero:GetAbsOrigin() + RandomVector(50))
+		else
+			CreateItemOnPositionSync(hero:GetAbsOrigin() + RandomVector(50), item)
 		end
-		hero:RemoveModifierByName("modifier_equip_ui_open")
-		EmitGlobalSound("RPC.EquipItem")
-		local player = hero:GetPlayerOwner()
-		local heroId = hero:GetClassname()
-		if newItem then
-			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = newItem:GetEntityIndex(), heroId = heroId, playerId = playerID, pickup = "equip", rarity = newItem.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(newItem.newItemTable.rarity)})
-			RPCItems:EquipItem(slot, hero, inventory_unit, newItem)
+	end
+end
+
+function RPCItems:BuyItem(keys)
+	local playerID = keys.playerID
+	local player = PlayerResource:GetPlayer(playerID)
+	local itemtype = keys.itemtype
+	local price = keys.price
+	local rarity = keys.rarity
+	local hero, inventory_unit = RPCItems:GetHeroAndInventoryByID(playerID)
+	print(itemtype)
+	print("BUY ITEM")
+	local gold = PlayerResource:GetGold(playerID)
+	print(price)
+	if gold < price then
+		EmitSoundOnClient("General.NoGold", player)
+		Notifications:Top(playerID, {text = "Not Enough Gold", duration = 2, style = {color = "red"}, continue = true})
+	elseif not hero:HasAnyAvailableInventorySpace() then
+		EmitSoundOnClient("General.NoGold", player)
+		Notifications:Top(playerID, {text = "Need Inventory Space", duration = 2, style = {color = "red"}, continue = true})
+	else
+		print(price)
+		local newGold = gold - price
+		PlayerResource:SetGold(playerID, newGold, false)
+		EmitSoundOnClient("General.Buy", player)
+		if itemtype == 1 then
+			RPCItems:RollHood(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 2, hero)
+		elseif itemtype == 2 then
+			RPCItems:RollHood(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 3, hero)
+		elseif itemtype == 3 then
+			RPCItems:RollHood(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 1, hero)
+		elseif itemtype == 4 then
+			RPCItems:RollBody(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 2, hero)
+		elseif itemtype == 5 then
+			RPCItems:RollBody(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 3, hero)
+		elseif itemtype == 6 then
+			RPCItems:RollBody(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 1, hero)
+		elseif itemtype == 7 then
+			RPCItems:RollFoot(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 2, hero)
+		elseif itemtype == 8 then
+			RPCItems:RollFoot(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 3, hero)
+		elseif itemtype == 9 then
+			RPCItems:RollFoot(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 1, hero)
+		elseif itemtype == 10 then
+			RPCItems:RollHand(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 2, hero)
+		elseif itemtype == 11 then
+			RPCItems:RollHand(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 3, hero)
+		elseif itemtype == 12 then
+			RPCItems:RollHand(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 1, hero)
+		elseif itemtype == 13 then
+			RPCItems:RollBlaster(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 2, hero)
+		elseif itemtype == 14 then
+			RPCItems:RollBlaster(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 3, hero)
+		elseif itemtype == 15 then
+			RPCItems:RollBlaster(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 1, hero)
+		elseif itemtype == "immortal_helm" then
+			RPCItems.vendorHero = hero
+			RPCItems:RollHood(300, hero:GetAbsOrigin(), rarity, true, RandomInt(1, 3), hero, 0)
+			hero.legendHelm = true
+			CustomGameEventManager:Send_ServerToPlayer(player, "CloseRareShop", {player = playerID})
 		end
-		if slot == 1 then
-			hero.weapon = newItem
-			Weapons:SetWeaponTable(newItem)
-			CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()),
-				{xp = newItem.xp,
-					level = newItem.level,
-					xpNeeded = Weapons.XP_PER_LEVEL_TABLE[newItem.level],
-					maxLevel = newItem.maxLevel,
-				requiredHero = newItem.requiredHero})
+	end
+end
+
+function RPCItems:LegendaryPickup(itemEntity, heroEntity)
+	--GT 147
+	-- CustomGameEventManager:RegisterListener( "item_vote", Dynamic_Wrap(RPCItems, "ItemVote"))
+	-- print("[RPCItems:LegendaryPickup]1")
+	local itemIndex = itemEntity:GetEntityIndex()
+	if not RPCItems.item_roll_queue then
+		RPCItems.item_roll_queue = {}
+		RPCItems.item_roll_1 = false
+		RPCItems.item_roll_2 = false
+		RPCItems.item_roll_3 = false
+		RPCItems.indexesRolled = {}
+	end
+	if #MAIN_HERO_TABLE > 1 then
+		if heroEntity then
+			heroEntity:TakeItem(itemEntity)
+			if IsValidEntity(itemEntity:GetContainer()) then
+				UTIL_Remove(itemEntity:GetContainer())
 			end
 		end
+		local rollSlot = RPCItems:GetFreeRollSlot(itemEntity)
+		if rollSlot == 0 then
+			table.insert(RPCItems.item_roll_queue, itemEntity)
+		else
+			-- print("[RPCItems:LegendaryPickup]2")
+			CustomGameEventManager:Send_ServerToAllClients("item_roll", {item = itemEntity:GetEntityIndex(), rollSlot = rollSlot, minLevel = itemEntity.newItemTable.minLevel})
 
-		function RPCItems:RejectNewItem(keys)
-			local playerID = keys.PlayerID
-			local oldItem = EntIndexToHScript(keys.oldItem)
-			local newItem = EntIndexToHScript(keys.newItem)
-			UTIL_Remove(newItem)
-			local hero, inventory_unit = RPCItems:GetHeroAndInventoryByID(keys.PlayerID)
-			hero:RemoveModifierByName("modifier_equip_ui_open")
-			--print("item rejected")
+			Timers:CreateTimer(33, function()
+				Logger:Watch(RPCItems.EndRoll, RPCItems, rollSlot, itemIndex)
+			end)
 		end
+	end
+end
 
-		function RPCItems:GetHeroAndInventoryByID(playerID)
-			local hero = GameState:GetHeroByPlayerID(playerID)
+function RPCItems:GetFreeRollSlot(itemEntity)
+	local slot = 0
+	if not RPCItems.item_roll_1 then
+		RPCItems.item_roll_1 = {}
+		RPCItems.item_roll_1.item = itemEntity
+		slot = 1
+	elseif not RPCItems.item_roll_2 then
+		RPCItems.item_roll_2 = {}
+		RPCItems.item_roll_2.item = itemEntity
+		slot = 2
+	elseif not RPCItems.item_roll_3 then
+		RPCItems.item_roll_3 = {}
+		RPCItems.item_roll_3.item = itemEntity
+		slot = 3
+	end
+	return slot
+end
 
-			return hero, hero.InventoryUnit
-
-		end
-
-		function RPCItems:GiveItemToHero(hero, item)
-			hero:AddItem(item)
-			Events:PickUpTest(hero, item)
-		end
-
-		function RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
-			if hero:HasAnyAvailableInventorySpace() then
-				hero:AddItem(item)
-				Events:PickUpTest(hero, item)
-			else
-				if IsValidEntity(item:GetContainer()) then
-					item:GetContainer():SetAbsOrigin(hero:GetAbsOrigin() + RandomVector(50))
-				else
-					CreateItemOnPositionSync(hero:GetAbsOrigin() + RandomVector(50), item)
+function RPCItems:EndRoll(rollSlot, itemIndex)
+	-- print("[RPCItems:EndRoll]")
+	local oldIndex = itemIndex
+	local itemProperties = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
+	if itemProperties and itemProperties.validator then
+		itemIndex = itemProperties.validator
+		-- print("[RPCItems:EndRoll] itemValidator:"..tostring(itemIndex))
+	else
+		-- print("[RPCItems:EndRoll] no itemValidator:")
+	end
+	if not RPCItems.indexesRolled[itemIndex] then
+		local item = EntIndexToHScript(oldIndex)
+		if not IsValidEntity(item) then
+			CustomGameEventManager:Send_ServerToAllClients("empty_roll_slot", {rollSlot = rollSlot})
+			if #RPCItems.item_roll_queue > 0 then
+				RPCItems:LegendaryPickup(RPCItems.item_roll_queue[1], false)
+				local newQueue = {}
+				for i = 2, #RPCItems.item_roll_queue, 1 do
+					table.insert(newQueue, RPCItems.item_roll_queue[i])
 				end
+				RPCItems.item_roll_queue = newQueue
+			end
+			return false
+		end
+		local winningRoll = nil
+		local winningPlayer = nil
+		local rollType = nil
+		RPCItems.indexesRolled[itemIndex] = true
+		if rollSlot == 1 then
+			winningRoll, winningPlayer, rollType = ProcessRollEnd(RPCItems.item_roll_1)
+			RPCItems.item_roll_1 = false
+		elseif rollSlot == 2 then
+			winningRoll, winningPlayer, rollType = ProcessRollEnd(RPCItems.item_roll_2)
+			RPCItems.item_roll_2 = false
+		elseif rollSlot == 3 then
+			winningRoll, winningPlayer, rollType = ProcessRollEnd(RPCItems.item_roll_3)
+			RPCItems.item_roll_3 = false
+		end
+		print("WHAT KIND OF DATA DID WE GET?")
+		print(winningRoll)
+		print(winningPlayer)
+		print(rollType)
+		local hero = nil
+		local heroId = nil
+		local playerID = nil
+		if winningPlayer then
+			hero = GameState:GetHeroByPlayerID(winningPlayer)
+			--GameState:GetHeroByPlayerID returns -1 if no hero found
+			if type(hero) ~= "number" then
+				heroId = hero:GetClassname()
+				playerID = winningPlayer
 			end
 		end
-
-		function RPCItems:BuyItem(keys)
-			local playerID = keys.playerID
-			local player = PlayerResource:GetPlayer(playerID)
-			local itemtype = keys.itemtype
-			local price = keys.price
-			local rarity = keys.rarity
-			local hero, inventory_unit = RPCItems:GetHeroAndInventoryByID(playerID)
-			--print(itemtype)
-			--print("BUY ITEM")
-			local gold = PlayerResource:GetGold(playerID)
-			--print(price)
-			if gold < price then
-				EmitSoundOnClient("General.NoGold", player)
-				Notifications:Top(playerID, {text = "Not Enough Gold", duration = 2, style = {color = "red"}, continue = true})
-			elseif not hero:HasAnyAvailableInventorySpace() then
-				EmitSoundOnClient("General.NoGold", player)
-				Notifications:Top(playerID, {text = "Need Inventory Space", duration = 2, style = {color = "red"}, continue = true})
-			else
-				--print(price)
-				local newGold = gold - price
-				PlayerResource:SetGold(playerID, newGold, false)
-				EmitSoundOnClient("General.Buy", player)
-				if itemtype == 1 then
-					RPCItems:RollHood(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 2, hero)
-				elseif itemtype == 2 then
-					RPCItems:RollHood(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 3, hero)
-				elseif itemtype == 3 then
-					RPCItems:RollHood(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 1, hero)
-				elseif itemtype == 4 then
-					RPCItems:RollBody(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 2, hero)
-				elseif itemtype == 5 then
-					RPCItems:RollBody(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 3, hero)
-				elseif itemtype == 6 then
-					RPCItems:RollBody(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 1, hero)
-				elseif itemtype == 7 then
-					RPCItems:RollFoot(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 2, hero)
-				elseif itemtype == 8 then
-					RPCItems:RollFoot(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 3, hero)
-				elseif itemtype == 9 then
-					RPCItems:RollFoot(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 1, hero)
-				elseif itemtype == 10 then
-					RPCItems:RollHand(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 2, hero)
-				elseif itemtype == 11 then
-					RPCItems:RollHand(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 3, hero)
-				elseif itemtype == 12 then
-					RPCItems:RollHand(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 1, hero)
-				elseif itemtype == 13 then
-					RPCItems:RollBlaster(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 2, hero)
-				elseif itemtype == 14 then
-					RPCItems:RollBlaster(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 3, hero)
-				elseif itemtype == 15 then
-					RPCItems:RollBlaster(5 + Events.WaveNumber * 5, hero:GetAbsOrigin(), rarity, true, 1, hero)
-				elseif itemtype == "immortal_helm" then
-					RPCItems.vendorHero = hero
-					RPCItems:RollHood(300, hero:GetAbsOrigin(), rarity, true, RandomInt(1, 3), hero, 0)
-					hero.legendHelm = true
-					CustomGameEventManager:Send_ServerToPlayer(player, "CloseRareShop", {player = playerID})
-				end
-			end
-		end
-
-		function RPCItems:LegendaryPickup(itemEntity, heroEntity)
-			--GT 147
-			-- CustomGameEventManager:RegisterListener( "item_vote", Dynamic_Wrap(RPCItems, "ItemVote"))
-			----print("[RPCItems:LegendaryPickup]1")
-			local itemIndex = itemEntity:GetEntityIndex()
-			if not RPCItems.item_roll_queue then
-				RPCItems.item_roll_queue = {}
-				RPCItems.item_roll_1 = false
-				RPCItems.item_roll_2 = false
-				RPCItems.item_roll_3 = false
-				RPCItems.indexesRolled = {}
-			end
-			if #MAIN_HERO_TABLE > 1 then
-				if heroEntity then
-					heroEntity:TakeItem(itemEntity)
-					if IsValidEntity(itemEntity:GetContainer()) then
-						UTIL_Remove(itemEntity:GetContainer())
-					end
-				end
-				local rollSlot = RPCItems:GetFreeRollSlot(itemEntity)
-				if rollSlot == 0 then
-					table.insert(RPCItems.item_roll_queue, itemEntity)
-				else
-					----print("[RPCItems:LegendaryPickup]2")
-					CustomGameEventManager:Send_ServerToAllClients("item_roll", {item = itemEntity:GetEntityIndex(), rollSlot = rollSlot, minLevel = itemEntity.newItemTable.minLevel})
-
-					Timers:CreateTimer(33, function()
-						Logger:Watch(RPCItems.EndRoll, RPCItems, rollSlot, itemIndex)
-					end)
-				end
-			end
-		end
-
-		function RPCItems:GetFreeRollSlot(itemEntity)
-			local slot = 0
-			if not RPCItems.item_roll_1 then
-				RPCItems.item_roll_1 = {}
-				RPCItems.item_roll_1.item = itemEntity
-				slot = 1
-			elseif not RPCItems.item_roll_2 then
-				RPCItems.item_roll_2 = {}
-				RPCItems.item_roll_2.item = itemEntity
-				slot = 2
-			elseif not RPCItems.item_roll_3 then
-				RPCItems.item_roll_3 = {}
-				RPCItems.item_roll_3.item = itemEntity
-				slot = 3
-			end
-			return slot
-		end
-
-		function RPCItems:EndRoll(rollSlot, itemIndex)
-			----print("[RPCItems:EndRoll]")
-			local oldIndex = itemIndex
-			local itemProperties = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
-			if itemProperties and itemProperties.validator then
-				itemIndex = itemProperties.validator
-				----print("[RPCItems:EndRoll] itemValidator:"..tostring(itemIndex))
-			else
-				----print("[RPCItems:EndRoll] no itemValidator:")
-			end
-			if not RPCItems.indexesRolled[itemIndex] then
-				local item = EntIndexToHScript(oldIndex)
-				if not IsValidEntity(item) then
-					CustomGameEventManager:Send_ServerToAllClients("empty_roll_slot", {rollSlot = rollSlot})
-					if #RPCItems.item_roll_queue > 0 then
-						RPCItems:LegendaryPickup(RPCItems.item_roll_queue[1], false)
-						local newQueue = {}
-						for i = 2, #RPCItems.item_roll_queue, 1 do
-							table.insert(newQueue, RPCItems.item_roll_queue[i])
-						end
-						RPCItems.item_roll_queue = newQueue
-					end
-					return false
-				end
-				local winningRoll = nil
-				local winningPlayer = nil
-				local rollType = nil
-				RPCItems.indexesRolled[itemIndex] = true
-				if rollSlot == 1 then
-					winningRoll, winningPlayer, rollType = ProcessRollEnd(RPCItems.item_roll_1)
-					RPCItems.item_roll_1 = false
-				elseif rollSlot == 2 then
-					winningRoll, winningPlayer, rollType = ProcessRollEnd(RPCItems.item_roll_2)
-					RPCItems.item_roll_2 = false
-				elseif rollSlot == 3 then
-					winningRoll, winningPlayer, rollType = ProcessRollEnd(RPCItems.item_roll_3)
-					RPCItems.item_roll_3 = false
-				end
-				--print("WHAT KIND OF DATA DID WE GET?")
-				--print(winningRoll)
-				--print(winningPlayer)
-				--print(rollType)
-				local hero = nil
-				local heroId = nil
-				local playerID = nil
-				if winningPlayer then
-					hero = GameState:GetHeroByPlayerID(winningPlayer)
-					--GameState:GetHeroByPlayerID returns -1 if no hero found
-					if type(hero) ~= "number" then
-						heroId = hero:GetClassname()
-						playerID = winningPlayer
-					end
-				end
-				if type(hero) == "number" then
-					if MAIN_HERO_TABLE and #MAIN_HERO_TABLE > 0 then
-						local newTable = MAIN_HERO_TABLE
-						local index = RandomInt(1, #newTable)
-						hero = newTable[index]
-						playerID = hero:GetPlayerID()
-						while not RPCItems:GetIsPlayerConnected(playerID) do
-							table.remove(newTable, index)
-							if #newTable < 1 then
-								rolltype = "pass"
-								break
-							end
-							index = RandomInt(1, #newTable)
-							hero = newTable[index]
-							playerID = hero:GetPlayerID()
-						end
-						if rolltype ~= "pass" then
-							heroId = hero:GetClassname()
-							playerID = hero:GetPlayerID()
-							Notifications:TopToAll({text = "Winner not found, new random player is selected", duration = 5.0})
-						end
-					else
+		if type(hero) == "number" then
+			if MAIN_HERO_TABLE and #MAIN_HERO_TABLE > 0 then
+				local newTable = MAIN_HERO_TABLE
+				local index = RandomInt(1, #newTable)
+				hero = newTable[index]
+				playerID = hero:GetPlayerID()
+				while not RPCItems:GetIsPlayerConnected(playerID) do
+					table.remove(newTable, index)
+					if #newTable < 1 then
 						rolltype = "pass"
+						break
 					end
+					index = RandomInt(1, #newTable)
+					hero = newTable[index]
+					playerID = hero:GetPlayerID()
 				end
-				if rolltype == "pass" then
-					if item then
-						if IsValidEntity(item:GetContainer()) then
-							UTIL_Remove(item:GetContainer())
-						end
-						if IsValidEntity(item) then
-							RPCItems:ItemUTIL_Remove(item)
-						end
-					end
-				elseif rollType == "greed" then
-					CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = oldIndex, heroId = heroId, playerId = playerID, pickup = "greed", roll = winningRoll, rarity = item.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(item.newItemTable.rarity)})
-					if hero:HasAnyAvailableInventorySpace() then
-						if IsValidEntity(item) then
-							RPCItems:GiveItemToHero(hero, item)
-						end
-					else
-						local position = hero:GetAbsOrigin()
-						if IsValidEntity(item:GetContainer()) then
-							item:GetContainer():SetAbsOrigin(position)
-						else
-							local drop = CreateItemOnPositionSync(position, item)
-						end
-						local particleName = RPCItems:GetRarityParticle(item.rarity)
-						item.particle = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, item)
-						ParticleManager:SetParticleControl(item.particle, 0, position)
-						item.expiryTime = Time() + 260
-					end
-				elseif rollType == "need" then
-					CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = oldIndex, heroId = heroId, playerId = playerID, pickup = "need", roll = winningRoll, rarity = item.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(item.newItemTable.rarity)})
-					local slot = RPCItems:getGearSlot(item.slot)
-					--print("WEAPON EQUIP OUTSIDE BLOCK NEED")
-					--print(slot)
-					if slot == 1 then
-						--print('WEAPON EQUIP')
-						hero.weapon = item
-						Weapons:SetWeaponTable(item)
-						CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()),
-							{xp = item.newItemTable.xp,
-								level = item.newItemTable.level,
-								xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.newItemTable.level],
-								maxLevel = item.newItemTable.maxLevel,
-							requiredHero = item.newItemTable.requiredHero})
-						end
-						Weapons:Equip(hero, item)
-					end
-					CustomGameEventManager:Send_ServerToAllClients("empty_roll_slot", {rollSlot = rollSlot})
-					if #RPCItems.item_roll_queue > 0 then
-						RPCItems:LegendaryPickup(RPCItems.item_roll_queue[1], false)
-						local newQueue = {}
-						for i = 2, #RPCItems.item_roll_queue, 1 do
-							table.insert(newQueue, RPCItems.item_roll_queue[i])
-						end
-						RPCItems.item_roll_queue = newQueue
-					end
+				if rolltype ~= "pass" then
+					heroId = hero:GetClassname()
+					playerID = hero:GetPlayerID()
+					Notifications:TopToAll({text = "Winner not found, new random player is selected", duration = 5.0})
+				end
+			else
+				rolltype = "pass"
+			end
+		end
+		if rolltype == "pass" then
+			if item then
+				if IsValidEntity(item:GetContainer()) then
+					UTIL_Remove(item:GetContainer())
+				end
+				if IsValidEntity(item) then
+					RPCItems:ItemUTIL_Remove(item)
+				end
+			end
+		elseif rollType == "greed" then
+			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = oldIndex, heroId = heroId, playerId = playerID, pickup = "greed", roll = winningRoll, rarity = item.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(item.newItemTable.rarity)})
+			if hero:HasAnyAvailableInventorySpace() then
+				if IsValidEntity(item) then
+					RPCItems:GiveItemToHero(hero, item)
+				end
+			else
+				local position = hero:GetAbsOrigin()
+				if IsValidEntity(item:GetContainer()) then
+					item:GetContainer():SetAbsOrigin(position)
 				else
-					error("This item was already rolled")
+					local drop = CreateItemOnPositionSync(position, item)
 				end
+				local particleName = RPCItems:GetRarityParticle(item.rarity)
+				item.particle = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, item)
+				ParticleManager:SetParticleControl(item.particle, 0, position)
+				item.expiryTime = Time() + 260
 			end
-
-			function ProcessRollEnd(rollTable)
-				rollTable.winningPlayerID = nil
-				rollTable.highestType = "pass"
-				rollTable.winningRoll = 0
-
-				--there is no "need" option anymore, sorting, first maximum - out
-				local everyonePassedOrNoWinner = true
-				for i = 1, #rollTable do
-					local vote = rollTable[i]
-					if vote[2] == "greed" and vote[3] > rollTable.winningRoll then
-						local hero = GameState:GetHeroByPlayerID(vote[1])
-						local continueFlag = false
-						if not hero or hero == -1 then
-							--print("ProcessRollEnd Wrong hero ID?")
-							continueFlag = true
-						end
-						if hero and PlayerResource:GetConnectionState(hero:GetPlayerOwnerID()) == 1 or PlayerResource:GetConnectionState(hero:GetPlayerOwnerID()) == 3 then
-							--print("ProcessRollEnd Player dc?")
-							continueFlag = true
-						end
-						if not continueFlag then
-							rollTable.winningPlayerID = vote[1]
-							rollTable.highestType = vote[2]
-							rollTable.winningRoll = vote[3]
-							everyonePassedOrNoWinner = false
-						end
-					end
-				end
-
-				if everyonePassedOrNoWinner then
-					return false, false, rollTable.highestType
-				end
-				return rollTable.winningRoll, rollTable.winningPlayerID, rollTable.highestType
+		elseif rollType == "need" then
+			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = oldIndex, heroId = heroId, playerId = playerID, pickup = "need", roll = winningRoll, rarity = item.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(item.newItemTable.rarity)})
+			local slot = RPCItems:getGearSlot(item.slot)
+			print("WEAPON EQUIP OUTSIDE BLOCK NEED")
+			print(slot)
+			if slot == 1 then
+				print('WEAPON EQUIP')
+				hero.weapon = item
+				Weapons:SetWeaponTable(item)
+				CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), {xp = item.newItemTable.xp, level = item.newItemTable.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.newItemTable.level], maxLevel = item.newItemTable.maxLevel, requiredHero = item.newItemTable.requiredHero})
 			end
-
-			function RPCItems:ItemVote(keys)
-				local index = keys.index
-				local rollType = keys.type
-				local playerID = keys.playerID
-				local itemIndex = keys.itemIndex
-
-				if not itemIndex or not EntIndexToHScript(itemIndex) or not IsValidEntity(EntIndexToHScript(itemIndex)) then
-					--print("Maybe item is not valid anymore?")
-					return
-				end
-				local vote = {}
-				if rollType == "pass" then
-					table.insert(vote, playerID)
-					table.insert(vote, rollType)
-					table.insert(vote, 0)
-					CustomGameEventManager:Send_ServerToAllClients("register_roll", {playerID = playerID, roll = roll, rollIndex = index, rollType = rollType})
-				else
-					table.insert(vote, playerID)
-					table.insert(vote, rollType)
-					local roll = RandomInt(1, 100)
-					table.insert(vote, roll)
-					CustomGameEventManager:Send_ServerToAllClients("register_roll", {playerID = playerID, roll = roll, rollIndex = index, rollType = rollType})
-				end
-				if index == 1 then
-					table.insert(RPCItems.item_roll_1, vote)
-					if #RPCItems.item_roll_1 >= RPCItems:GetConnectedPlayerCount() then
-						--print("END ROLL")
-						Logger:Watch(RPCItems.EndRoll, RPCItems, 1, itemIndex)
-					end
-				elseif index == 2 then
-					table.insert(RPCItems.item_roll_2, vote)
-					if #RPCItems.item_roll_2 >= RPCItems:GetConnectedPlayerCount() then
-						--print("END ROLL")
-						Logger:Watch(RPCItems.EndRoll, RPCItems, 2, itemIndex)
-					end
-				elseif index == 3 then
-					table.insert(RPCItems.item_roll_3, vote)
-					if #RPCItems.item_roll_3 >= RPCItems:GetConnectedPlayerCount() then
-						--print("END ROLL")
-						Logger:Watch(RPCItems.EndRoll, RPCItems, 3, itemIndex)
-					end
-				end
+			Weapons:Equip(hero, item)
+		end
+		CustomGameEventManager:Send_ServerToAllClients("empty_roll_slot", {rollSlot = rollSlot})
+		if #RPCItems.item_roll_queue > 0 then
+			RPCItems:LegendaryPickup(RPCItems.item_roll_queue[1], false)
+			local newQueue = {}
+			for i = 2, #RPCItems.item_roll_queue, 1 do
+				table.insert(newQueue, RPCItems.item_roll_queue[i])
 			end
+			RPCItems.item_roll_queue = newQueue
+		end
+	else
+		error("This item was already rolled")
+	end
+end
 
-			function RPCItems:GetConnectedPlayerCount()
-				local disconnected_count = 0
-				for i = 1, #MAIN_HERO_TABLE, 1 do
-					if MAIN_HERO_TABLE[i]:GetPlayerOwnerID() then
-						if (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 2) or (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 1) then
-							if MAIN_HERO_TABLE[i]:GetUnitName() == "npc_dota_hero_wisp" then
-								disconnected_count = disconnected_count + 1
-							end
-						else
-							disconnected_count = disconnected_count + 1
-						end
-					end
-				end
-				return #MAIN_HERO_TABLE - disconnected_count
+function ProcessRollEnd(rollTable)
+	rollTable.winningPlayerID = nil
+	rollTable.highestType = "pass"
+	rollTable.winningRoll = 0
+
+	--there is no "need" option anymore, sorting, first maximum - out
+	local everyonePassedOrNoWinner = true
+	for i = 1, #rollTable do
+		local vote = rollTable[i]
+		if vote[2] == "greed" and vote[3] > rollTable.winningRoll then
+			local hero = GameState:GetHeroByPlayerID(vote[1])
+			local continueFlag = false
+			if not hero or hero == -1 then
+				print("ProcessRollEnd Wrong hero ID?")
+				continueFlag = true
 			end
-
-			function RPCItems:GetIsPlayerConnected(playerID)
-				if (PlayerResource:GetConnectionState(playerID) == 2) or (PlayerResource:GetConnectionState(playerID) == 1) then
-					return true
-				else
-					return false
-				end
+			if hero and PlayerResource:GetConnectionState(hero:GetPlayerOwnerID()) == 1 or PlayerResource:GetConnectionState(hero:GetPlayerOwnerID()) == 3 then
+				print("ProcessRollEnd Player dc?")
+				continueFlag = true
 			end
-
-			function RPCItems:GetConnectedPlayerTable()
-				local connectedPlayerTable = {}
-				for i = 1, #MAIN_HERO_TABLE, 1 do
-					if (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 2) or (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 1) then
-						table.insert(connectedPlayerTable, MAIN_HERO_TABLE[i])
-					end
-				end
-				return connectedPlayerTable
+			if not continueFlag then
+				rollTable.winningPlayerID = vote[1]
+				rollTable.highestType = vote[2]
+				rollTable.winningRoll = vote[3]
+				everyonePassedOrNoWinner = false
 			end
+		end
+	end
 
-			function RPCItems:GetMaxFactor()
-				local maxFactor = 0
-				if RPCItems.LevelRoll then
-					maxFactor = math.floor(RPCItems.LevelRoll * 3.2)
-					if RPCItems.LevelRoll >= 100 then
-						return 300
-					end
-				else
-					if Dungeons.itemLevel > 0 then
-						maxFactor = Dungeons.itemLevel
-					else
-						maxFactor = Events.WaveNumber
-					end
-					local difficulty = GameState:GetDifficultyFactor()
-					maxFactor = maxFactor + (difficulty - 1) * 80
-					if difficulty == 1 then
-						if maxFactor < 30 then
-							maxFactor = maxFactor + 3
-						else
-							maxFactor = maxFactor + 12
-						end
-					end
-					if Events.SpiritRealm then
-						maxFactor = maxFactor + 50
-					end
-					if Quests.itemLevel then
-						maxFactor = Quests.itemLevel
-					end
-					if Arena then
-						if Arena.PitLevel then
-							maxFactor = maxFactor + 8 * Arena.PitLevel
-						end
-					end
-					if Winterblight then
-						if Winterblight.Stones then
-							maxFactor = maxFactor + 45 * Winterblight.Stones
-						end
-					end
-					if RPCItems.StrictItemLevel then
-						maxFactor = RPCItems.StrictItemLevel
-					end
+	if everyonePassedOrNoWinner then
+		return false, false, rollTable.highestType
+	end
+	return rollTable.winningRoll, rollTable.winningPlayerID, rollTable.highestType
+end
+
+function RPCItems:ItemVote(keys)
+	local index = keys.index
+	local rollType = keys.type
+	local playerID = keys.playerID
+	local itemIndex = keys.itemIndex
+
+	if not itemIndex or not EntIndexToHScript(itemIndex) or not IsValidEntity(EntIndexToHScript(itemIndex)) then
+		print("Maybe item is not valid anymore?")
+		return
+	end
+	local vote = {}
+	if rollType == "pass" then
+		table.insert(vote, playerID)
+		table.insert(vote, rollType)
+		table.insert(vote, 0)
+		CustomGameEventManager:Send_ServerToAllClients("register_roll", {playerID = playerID, roll = roll, rollIndex = index, rollType = rollType})
+	else
+		table.insert(vote, playerID)
+		table.insert(vote, rollType)
+		local roll = RandomInt(1, 100)
+		table.insert(vote, roll)
+		CustomGameEventManager:Send_ServerToAllClients("register_roll", {playerID = playerID, roll = roll, rollIndex = index, rollType = rollType})
+	end
+	if index == 1 then
+		table.insert(RPCItems.item_roll_1, vote)
+		if #RPCItems.item_roll_1 >= RPCItems:GetConnectedPlayerCount() then
+			print("END ROLL")
+			Logger:Watch(RPCItems.EndRoll, RPCItems, 1, itemIndex)
+		end
+	elseif index == 2 then
+		table.insert(RPCItems.item_roll_2, vote)
+		if #RPCItems.item_roll_2 >= RPCItems:GetConnectedPlayerCount() then
+			print("END ROLL")
+			Logger:Watch(RPCItems.EndRoll, RPCItems, 2, itemIndex)
+		end
+	elseif index == 3 then
+		table.insert(RPCItems.item_roll_3, vote)
+		if #RPCItems.item_roll_3 >= RPCItems:GetConnectedPlayerCount() then
+			print("END ROLL")
+			Logger:Watch(RPCItems.EndRoll, RPCItems, 3, itemIndex)
+		end
+	end
+end
+
+function RPCItems:GetConnectedPlayerCount()
+	local disconnected_count = 0
+	for i = 1, #MAIN_HERO_TABLE, 1 do
+		if MAIN_HERO_TABLE[i]:GetPlayerOwnerID() then
+			if (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 2) or (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 1) then
+				if MAIN_HERO_TABLE[i]:GetUnitName() == "npc_dota_hero_wisp" then
+					disconnected_count = disconnected_count + 1
 				end
-				-- local randomNumber = RandomInt(-100,50)
-				-- local randomPercentage = randomNumber/100
-				-- local randomScale = randomPercentage * 0.1
-				maxFactor = RPCItems:GetLogarithmicVarianceValue(maxFactor, 0, 0, 0, 0)
-				maxFactor = math.min(maxFactor, 300)
-				return math.floor(maxFactor)
+			else
+				disconnected_count = disconnected_count + 1
 			end
+		end
+	end
+	return #MAIN_HERO_TABLE - disconnected_count
+end
 
-			function RPCItems:RollReanimationStone(deathLocation)
+function RPCItems:GetIsPlayerConnected(playerID)
+	if (PlayerResource:GetConnectionState(playerID) == 2) or (PlayerResource:GetConnectionState(playerID) == 1) then
+		return true
+	else
+		return false
+	end
+end
 
-				local item = RPCItems:CreateConsumable("item_reanimation_stone", "mythical", "Reanimation Stone", "consumable", false, "Consumable", "reanimation_stone_desc")
-				local drop = CreateItemOnPositionSync(deathLocation, item)
-				local position = deathLocation
-				RPCItems:DropItem(item, position)
+function RPCItems:GetConnectedPlayerTable()
+	local connectedPlayerTable = {}
+	for i = 1, #MAIN_HERO_TABLE, 1 do
+		if (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 2) or (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 1) then
+			table.insert(connectedPlayerTable, MAIN_HERO_TABLE[i])
+		end
+	end
+	return connectedPlayerTable
+end
+
+function RPCItems:GetMaxFactor()
+	local maxFactor = 0
+	if RPCItems.LevelRoll then
+		maxFactor = math.floor(RPCItems.LevelRoll * 3.2)
+		if RPCItems.LevelRoll >= 100 then
+			return 300
+		end
+	else
+		if Dungeons.itemLevel > 0 then
+			maxFactor = Dungeons.itemLevel
+		else
+			maxFactor = Events.WaveNumber
+		end
+		local difficulty = GameState:GetDifficultyFactor()
+		maxFactor = maxFactor + (difficulty - 1) * 80
+		if difficulty == 1 then
+			if maxFactor < 30 then
+				maxFactor = maxFactor + 3
+			else
+				maxFactor = maxFactor + 12
 			end
-
-			function RPCItems:GiveReanimationStoneToHero(hero)
-				local item = RPCItems:CreateConsumable("item_reanimation_stone", "mythical", "Reanimation Stone", "consumable", false, "Consumable", "reanimation_stone_desc")
-				item.pickedUp = true
-				RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+		end
+		if Events.SpiritRealm then
+			maxFactor = maxFactor + 50
+		end
+		if Quests.itemLevel then
+			maxFactor = Quests.itemLevel
+		end
+		if Arena then
+			if Arena.PitLevel then
+				maxFactor = maxFactor + 8 * Arena.PitLevel
 			end
-
-			function RPCItems:GetLogarithmicVarianceValue(baseValue, varianceUpPercent, varianceDownPercent, topTightness, bonusInput)
-				local RNG = RandomInt(1, 100)
-				if RNG < 5 then
-					baseValue = math.ceil(baseValue * 0.7)
-				elseif RNG < 10 then
-					baseValue = math.ceil(baseValue * 0.75)
-				elseif RNG < 20 then
-					baseValue = math.ceil(baseValue * 0.8)
-				elseif RNG < 30 then
-					baseValue = math.ceil(baseValue * 0.85)
-				elseif RNG < 40 then
-					baseValue = math.ceil(baseValue * 0.9)
-				elseif RNG < 50 then
-					baseValue = math.ceil(baseValue * 1.0)
-				elseif RNG < 60 then
-					baseValue = math.ceil(baseValue * 1.05)
-				elseif RNG < 70 then
-					baseValue = math.ceil(baseValue * 1.1)
-				elseif RNG < 80 then
-					baseValue = math.ceil(baseValue * 1.15)
-				elseif RNG < 85 then
-					baseValue = math.ceil(baseValue * 1.2)
-				elseif RNG < 90 then
-					baseValue = math.ceil(baseValue * 1.25)
-				elseif RNG < 95 then
-					baseValue = math.ceil(baseValue * 1.3)
-				elseif RNG < 98 then
-					baseValue = math.ceil(baseValue * 1.35)
-				elseif RNG >= 98 then
-					baseValue = math.ceil(baseValue * 0.65)
-				end
-				local finalRoll = RandomInt(1, 5)
-				if finalRoll == 1 then
-					baseValue = math.ceil(baseValue * 0.9)
-				elseif finalRoll == 5 then
-					baseValue = math.ceil(baseValue * 1.1)
-				end
-				return baseValue
+		end
+		if Winterblight then
+			if Winterblight.Stones then
+				maxFactor = maxFactor + 45 * Winterblight.Stones
 			end
+		end
+		if RPCItems.StrictItemLevel then
+			maxFactor = RPCItems.StrictItemLevel
+		end
+	end
+	-- local randomNumber = RandomInt(-100,50)
+	-- local randomPercentage = randomNumber/100
+	-- local randomScale = randomPercentage * 0.1
+	maxFactor = RPCItems:GetLogarithmicVarianceValue(maxFactor, 0, 0, 0, 0)
+	maxFactor = math.min(maxFactor, 300)
+	return math.floor(maxFactor)
+end
 
-			function RPCItems:GetLogarithmicVarianceNoRounding(baseValue)
-				local RNG = RandomInt(1, 100)
-				if RNG < 5 then
-					baseValue = baseValue * 0.7
-				elseif RNG < 10 then
-					baseValue = baseValue * 0.75
-				elseif RNG < 20 then
-					baseValue = baseValue * 0.8
-				elseif RNG < 30 then
-					baseValue = baseValue * 0.85
-				elseif RNG < 40 then
-					baseValue = baseValue * 0.9
-				elseif RNG < 50 then
-					baseValue = baseValue * 1.0
-				elseif RNG < 60 then
-					baseValue = baseValue * 1.05
-				elseif RNG < 70 then
-					baseValue = baseValue * 1.1
-				elseif RNG < 80 then
-					baseValue = baseValue * 1.15
-				elseif RNG < 85 then
-					baseValue = baseValue * 1.2
-				elseif RNG < 90 then
-					baseValue = baseValue * 1.25
-				elseif RNG < 95 then
-					baseValue = baseValue * 1.3
-				elseif RNG < 100 then
-					baseValue = baseValue * 1.35
-				end
-				local finalRoll = RandomInt(1, 5)
-				if finalRoll == 1 then
-					baseValue = baseValue * 0.9
-				elseif finalRoll == 5 then
-					baseValue = baseValue * 1.1
-				end
-				return baseValue
-			end
+function RPCItems:RollReanimationStone(deathLocation)
 
-			function RPCItems:GetRandomRuneLetter(min, max)
-				local luck = RandomInt(min, max)
-				local letter = ""
-				if luck == 1 then
-					letter = "q"
-				elseif luck == 2 then
-					letter = "w"
-				elseif luck == 3 then
-					letter = "e"
-				elseif luck == 4 then
-					letter = "r"
-				end
-				return letter
-			end
+	local item = RPCItems:CreateConsumable("item_reanimation_stone", "mythical", "Reanimation Stone", "consumable", false, "Consumable", "reanimation_stone_desc")
+	local drop = CreateItemOnPositionSync(deathLocation, item)
+	local position = deathLocation
+	RPCItems:DropItem(item, position)
+end
 
-			function RPCItems:AdjustAttributeValue(hero, value)
-				if hero:GetUnitName() == "npc_dota_hero_zuus" and type(value) == "number" then
-					local b_d_level = hero:GetRuneValue("r", 2)
-					value = value + value * 0.005 * b_d_level
-				end
-				return value
-			end
+function RPCItems:GiveReanimationStoneToHero(hero)
+	local item = RPCItems:CreateConsumable("item_reanimation_stone", "mythical", "Reanimation Stone", "consumable", false, "Consumable", "reanimation_stone_desc")
+	item.pickedUp = true
+	RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+end
 
-			function RPCItems:BasicDropItem(position, item)
-				local drop = CreateItemOnPositionSync(position, item)
-				RPCItems:DropItem(item, position)
-			end
+function RPCItems:GetLogarithmicVarianceValue(baseValue, varianceUpPercent, varianceDownPercent, topTightness, bonusInput)
+	local RNG = RandomInt(1, 100)
+	if RNG < 5 then
+		baseValue = math.ceil(baseValue * 0.7)
+	elseif RNG < 10 then
+		baseValue = math.ceil(baseValue * 0.75)
+	elseif RNG < 20 then
+		baseValue = math.ceil(baseValue * 0.8)
+	elseif RNG < 30 then
+		baseValue = math.ceil(baseValue * 0.85)
+	elseif RNG < 40 then
+		baseValue = math.ceil(baseValue * 0.9)
+	elseif RNG < 50 then
+		baseValue = math.ceil(baseValue * 1.0)
+	elseif RNG < 60 then
+		baseValue = math.ceil(baseValue * 1.05)
+	elseif RNG < 70 then
+		baseValue = math.ceil(baseValue * 1.1)
+	elseif RNG < 80 then
+		baseValue = math.ceil(baseValue * 1.15)
+	elseif RNG < 85 then
+		baseValue = math.ceil(baseValue * 1.2)
+	elseif RNG < 90 then
+		baseValue = math.ceil(baseValue * 1.25)
+	elseif RNG < 95 then
+		baseValue = math.ceil(baseValue * 1.3)
+	elseif RNG < 98 then
+		baseValue = math.ceil(baseValue * 1.35)
+	elseif RNG >= 98 then
+		baseValue = math.ceil(baseValue * 0.65)
+	end
+	local finalRoll = RandomInt(1, 5)
+	if finalRoll == 1 then
+		baseValue = math.ceil(baseValue * 0.9)
+	elseif finalRoll == 5 then
+		baseValue = math.ceil(baseValue * 1.1)
+	end
+	return baseValue
+end
 
-			function RPCItems:CreateBasicConsumable(position, itemName, fullName, rarity, bDrop)
-				local item = RPCItems:CreateConsumable(itemName, rarity, fullName, "consumable", false, "Consumable", itemName.."_desc")
-				item.newItemTable.stashable = true
-				item.newItemTable.consumable = true
-				item.newItemTable.basicConsumable = true
-				if bDrop then
-					RPCItems:BasicDropItem(position, item)
-				end
-				return item
-			end
+function RPCItems:GetLogarithmicVarianceNoRounding(baseValue)
+	local RNG = RandomInt(1, 100)
+	if RNG < 5 then
+		baseValue = baseValue * 0.7
+	elseif RNG < 10 then
+		baseValue = baseValue * 0.75
+	elseif RNG < 20 then
+		baseValue = baseValue * 0.8
+	elseif RNG < 30 then
+		baseValue = baseValue * 0.85
+	elseif RNG < 40 then
+		baseValue = baseValue * 0.9
+	elseif RNG < 50 then
+		baseValue = baseValue * 1.0
+	elseif RNG < 60 then
+		baseValue = baseValue * 1.05
+	elseif RNG < 70 then
+		baseValue = baseValue * 1.1
+	elseif RNG < 80 then
+		baseValue = baseValue * 1.15
+	elseif RNG < 85 then
+		baseValue = baseValue * 1.2
+	elseif RNG < 90 then
+		baseValue = baseValue * 1.25
+	elseif RNG < 95 then
+		baseValue = baseValue * 1.3
+	elseif RNG < 100 then
+		baseValue = baseValue * 1.35
+	end
+	local finalRoll = RandomInt(1, 5)
+	if finalRoll == 1 then
+		baseValue = baseValue * 0.9
+	elseif finalRoll == 5 then
+		baseValue = baseValue * 1.1
+	end
+	return baseValue
+end
 
-			function RPCItems:GetEquippedItemsBelowRarity(hero, rarity)
-				local count = 0
-				if hero.body and IsValidEntity(hero.body) then
-					if RPCItems:GetRarityFactor(hero.body.newItemTable.rarity) < rarity then
-						count = count + 1
-					end
-				else
-					count = count + 1
-				end
+function RPCItems:GetRandomRuneLetter(min, max)
+	local luck = RandomInt(min, max)
+	local letter = ""
+	if luck == 1 then
+		letter = "q"
+	elseif luck == 2 then
+		letter = "w"
+	elseif luck == 3 then
+		letter = "e"
+	elseif luck == 4 then
+		letter = "r"
+	end
+	return letter
+end
 
-				if hero.amulet and IsValidEntity(hero.amulet) then
-					if RPCItems:GetRarityFactor(hero.amulet.newItemTable.rarity) < rarity then
-						count = count + 1
-					end
-				else
-					count = count + 1
-				end
+function RPCItems:AdjustAttributeValue(hero, value)
+	if hero:GetUnitName() == "npc_dota_hero_zuus" and type(value) == "number" then
+		local b_d_level = hero:GetRuneValue("r", 2)
+		value = value + value * 0.005 * b_d_level
+	end
+	return value
+end
 
-				if hero.foot and IsValidEntity(hero.foot) then
-					if RPCItems:GetRarityFactor(hero.foot.newItemTable.rarity) < rarity then
-						count = count + 1
-					end
-				else
-					count = count + 1
-				end
+function RPCItems:BasicDropItem(position, item)
+	local drop = CreateItemOnPositionSync(position, item)
+	RPCItems:DropItem(item, position)
+end
 
-				if hero.handItem and IsValidEntity(hero.handItem) then
-					if RPCItems:GetRarityFactor(hero.handItem.newItemTable.rarity) < rarity then
-						count = count + 1
-					end
-				else
-					count = count + 1
-				end
+function RPCItems:CreateBasicConsumable(position, itemName, fullName, rarity, bDrop)
+	local item = RPCItems:CreateConsumable(itemName, rarity, fullName, "consumable", false, "Consumable", itemName.."_desc")
+	item.newItemTable.stashable = true
+	item.newItemTable.consumable = true
+	item.newItemTable.basicConsumable = true
+	RPCItems:ItemUpdateCustomNetTables(item)
+	if bDrop then
+		RPCItems:BasicDropItem(position, item)
+	end
+	return item
+end
 
-				if hero.headItem and IsValidEntity(hero.headItem) then
-					if RPCItems:GetRarityFactor(hero.headItem.newItemTable.rarity) < rarity then
-						count = count + 1
-					end
-				else
-					count = count + 1
-				end
+function RPCItems:GetEquippedItemsBelowRarity(hero, rarity)
+	local count = 0
+	if hero.body and IsValidEntity(hero.body) then
+		if RPCItems:GetRarityFactor(hero.body.newItemTable.rarity) < rarity then
+			count = count + 1
+		end
+	else
+		count = count + 1
+	end
 
-				if hero.weapon and IsValidEntity(hero.weapon) then
-					if RPCItems:GetRarityFactor(hero.weapon.newItemTable.rarity) < rarity then
-						count = count + 1
-					end
-				else
-					count = count + 1
-				end
+	if hero.amulet and IsValidEntity(hero.amulet) then
+		if RPCItems:GetRarityFactor(hero.amulet.newItemTable.rarity) < rarity then
+			count = count + 1
+		end
+	else
+		count = count + 1
+	end
 
-				return count
-			end
+	if hero.foot and IsValidEntity(hero.foot) then
+		if RPCItems:GetRarityFactor(hero.foot.newItemTable.rarity) < rarity then
+			count = count + 1
+		end
+	else
+		count = count + 1
+	end
 
-		
+	if hero.handItem and IsValidEntity(hero.handItem) then
+		if RPCItems:GetRarityFactor(hero.handItem.newItemTable.rarity) < rarity then
+			count = count + 1
+		end
+	else
+		count = count + 1
+	end
+
+	if hero.headItem and IsValidEntity(hero.headItem) then
+		if RPCItems:GetRarityFactor(hero.headItem.newItemTable.rarity) < rarity then
+			count = count + 1
+		end
+	else
+		count = count + 1
+	end
+
+	if hero.weapon and IsValidEntity(hero.weapon) then
+		if RPCItems:GetRarityFactor(hero.weapon.newItemTable.rarity) < rarity then
+			count = count + 1
+		end
+	else
+		count = count + 1
+	end
+
+	return count
+end
+
+function RPCItems:CreateCurrencyReroll(position)
+	if position then
+		RPCItems:CreateBasicConsumable(position, "item_rpc_currency_reroll", "Currency Reroll Placeholder", "arcana", true)
+	else
+		RPCItems:CreateBasicConsumable(nil, "item_rpc_currency_reroll", "Currency Reroll Placeholder", "arcana", false)
+	end
+end
+
+function RPCItems:CreateCurrencyWhetstone(position)
+	if position then
+		RPCItems:CreateBasicConsumable(position, "item_rpc_currency_whetstone", "Currency Whetstone Placeholder", "arcana", true)
+	else
+		RPCItems:CreateBasicConsumable(nil, "item_rpc_currency_whetstone", "Currency Whetstone Placeholder", "arcana", false)
+	end
+end
+
+

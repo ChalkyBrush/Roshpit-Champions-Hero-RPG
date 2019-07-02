@@ -200,11 +200,17 @@ function ancient_die(event)
 	-- CustomAbilities:QuickAttachParticle("particles/dire_fx/tower_bad_destroy.vpcf", caster, 4)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Serengaard.TowerDie", Events.GameMaster)
 	CustomGameEventManager:Send_ServerToAllClients("BGMstart", {songName = "Serengaard.Music.Lose"})
-	Dungeons:CreateBasicCameraLock(Vector(0, 0, 0), 30)
+	-- Dungeons:CreateBasicCameraLock(Vector(0, 0, 0), 30)
 	Serengaard.gameOver = true
 	Timers:CreateTimer(0.3, function()
 		UTIL_Remove(caster)
 	end)
+
+	Serengaard:KillAllNeutrals()
+
+	local stringToShow = "The Ancient has been destroyed. Serengaard waits for a new protector."
+	Notifications:TopToAll({text = stringToShow, duration = 5.0})
+
 	Timers:CreateTimer(6, function()
 		Serengaard:SubmitStats()
 	end)
@@ -322,21 +328,43 @@ end
 function enemy_near_ancient_think(event)
 	local unit = event.target
 	local caster = event.caster
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-	local aliveHero = false
-	if #enemies > 0 then
-		for i = 1, #enemies, 1 do
-			if enemies[i]:IsAlive() then
-				aliveHero = true
-			end
+	local enemies = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	for i = 1, #enemies do
+		local distance = CalcDistanceBetweenEntityOBB(enemies[i], caster)
+		if distance >= 1600 then
+			enemies[i]:Stop()
+			enemies[i]:MoveToPositionAggressive(caster:GetAbsOrigin())
+			-- print("MoveToPositionAggressive, mob:"..tostring(enemies[i]:GetUnitName()))
+			-- print("Distance:"..tostring(distance))
+			-- else
+			-- print("Out of range, mob:"..tostring(enemies[i]:GetUnitName()))
+			-- print("Distance:"..tostring(distance))
 		end
-		if aliveHero then
-			unit:Stop()
-			unit:MoveToTargetToAttack(enemies[1])
-		else
-			unit:MoveToTargetToAttack(caster)
+	end
+end
+
+function FindClosestUnitInTable(attacker, targetsTable)
+	local minDistance = 99999999
+	local closestUnit = nil
+	for i = 1, #targetsTable do
+		local newDistance = CalcDistanceBetweenEntityOBB(attacker, targetsTable[i])
+		if minDistance > newDistance then
+			minDistance = newDistance
+			closestUnit = targetsTable[i]
 		end
-	else
-		unit:MoveToTargetToAttack(caster)
+	end
+	return closestUnit
+end
+
+function Serengaard:Forfeit()
+	if Serengaard.mainAncient then
+		Serengaard.mainAncient:ForceKill(false)
+	end
+end
+
+function Serengaard:KillAllNeutrals()
+	local enemies = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	for i = 1, #enemies do
+		enemies[i]:ForceKill(false)
 	end
 end
