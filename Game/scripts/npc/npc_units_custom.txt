@@ -92920,7 +92920,7 @@
         }
         "Ability1"  "relict_monkey_leap"
         "Ability2"  "seafortress_ghost_seal_ability"
-        "Ability3"  "fire_temple_steadfast"
+        "Ability3"  "normal_steadfast"
         "Ability4"  "dungeon_creep"
         "Ability5"  "use_ability_1_position_ai"
 
@@ -92972,7 +92972,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"              "winterblight_raxxus_passive"
-        "Ability2"              "fire_temple_steadfast"
+        "Ability2"              "normal_steadfast"
         "Ability3"              "ursa_overpower"
         "Ability4"              "winterblight_damage_sap"
         "Ability5"              "dungeon_creep"  
@@ -93221,7 +93221,7 @@
         "Ability1"      "monkey_king_boundless_strike"
         "Ability2"      "winterblight_azalea_dragoon_passive"
         "Ability3"      "winterblight_merkurio_passive"
-        "Ability4"      "redfall_mega_steadfast"
+        "Ability4"      "mega_steadfast"
         "Ability5"      "draghor_monkey_leap"
         "Ability6"      "dungeon_creep"
         "Ability7"      "cast_ability_1_position_ai"
@@ -93473,7 +93473,7 @@
         "Ability1"  "seafortress_hoof_stomp"
         "Ability2"  "seafortress_stun_regen"
         "Ability3"  "winter_centaur_stampede"
-        "Ability4"  "fire_temple_steadfast"
+        "Ability4"  "normal_steadfast"
         "Ability5"  "dungeon_creep"
         "Ability6"  "use_ability_1_no_target_ai"
     }
@@ -93642,7 +93642,7 @@
         }
         "Ability1"      "curse_of_belial"
         "Ability2"      "winterblight_blood_might_passive"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "use_ability_1_target_ai"
         "Ability5"      "dungeon_creep"
     }
@@ -93666,7 +93666,7 @@
         "Ability1"                  "winterblight_ultra_ice_passive" 
         "Ability2"                  "creature_pure_strike"      
         "Ability3"                  "winterblight_crystal_meditation"         
-        "Ability4"                  "redfall_mega_steadfast"  
+        "Ability4"                  "mega_steadfast"  
         "Ability5"                  "armor_break"      
         "Ability6"                  "dungeon_creep"         
 
