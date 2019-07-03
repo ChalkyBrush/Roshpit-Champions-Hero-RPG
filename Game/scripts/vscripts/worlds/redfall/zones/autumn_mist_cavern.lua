@@ -779,7 +779,9 @@ function Redfall:SpawnCanyonBossParagonTest()
 			unit.currentThreshold = 0.8
 		end
 		unit.baseSize = 2
-		unit.currentSize = 2
+		unit.currentSize = unit.baseSize
+		unit.baseHullSize = unit:GetHullRadius()
+		unit.currentHullSize = unit.baseHullSize
 		unit.render = 0
 		Redfall:ColorWearables(unit, Vector(255, 135, 0))
 		local jumpToPosition = Vector(-14208, 13680, 240 + Redfall.ZFLOAT)
@@ -851,7 +853,10 @@ function Redfall:CanyonBossTakeDamage(victim, damage)
 	local percentOfHealth = damage / victim:GetMaxHealth()
 	if victim.currentSize < victim.baseSize * 1.7 then
 		victim.currentSize = math.min(victim.currentSize + math.ceil(victim.baseSize * 0.7 * percentOfHealth / victim.threshold * 100) / 100, victim.baseSize * 1.7)
+		victim.currentHullSize = victim.baseHullSize * victim.currentSize / victim.baseSize
 		victim:SetModelScale(victim.currentSize)
+		victim:SetHullRadius(victim.currentHullSize)
+		print("New Hull Radius: "..victim:GetHullRadius())
 	end
 	if victim.render < 255 then
 		victim.render = math.min(victim.render + math.ceil(255 * percentOfHealth / victim.threshold), 255)
@@ -868,7 +873,10 @@ function Redfall:CanyonBossTakeDamage(victim, damage)
 		for i = 1, 33, 1 do
 			Timers:CreateTimer(i * 0.03, function()
 				victim.currentSize = victim.currentSize - victimSizeReduce
+				victim.currentHullSize = victim.baseHullSize * victim.currentSize / victim.baseSize
 				victim:SetModelScale(victim.currentSize)
+				victim:SetHullRadius(victim.currentHullSize)
+				print("New Hull Radius: "..victim:GetHullRadius())
 			end)
 		end
 		local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
@@ -946,6 +954,8 @@ function Redfall:SpawnBossMinions(boss, previousGeneration)
 			end
 			unit.baseSize = 2 - unit.generation * 0.2
 			unit.currentSize = unit.baseSize
+			unit.baseHullSize = unit:GetHullRadius()
+			unit.currentHullSize = unit.baseHullSize
 			unit.render = 0
 			Redfall:ColorWearables(unit, Vector(255, 100, 0))
 			local jumpToPosition = basePosition + WallPhysics:rotateVector(fv, 2 * math.pi * i / clonesToSpawn) * 440

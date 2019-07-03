@@ -81,7 +81,7 @@ function begin_deity(event)
 	summon:SetHealth(health)
 	summon:Heal(health, summon)
 	common_aspect_effects(caster, ability, summon)
-	summon:AddAbility("fire_temple_steadfast"):SetLevel(3)
+	summon:AddAbility("normal_steadfast"):SetLevel(3)
 	Filters:CastSkillArguments(4, caster)
 end
 

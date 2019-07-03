@@ -977,10 +977,10 @@ function Serengaard:AdjustUnit(unit)
 		unit:SetHealth(newHealth)
 		unit:Heal(newHealth, unit)
 	end
-	if unit:HasAbility("redfall_mega_steadfast") then
-		unit:RemoveAbility("redfall_mega_steadfast")
+	if unit:HasAbility("mega_steadfast") then
+		unit:RemoveAbility("mega_steadfast")
 		unit:RemoveModifierByName("modifier_mega_steadfast")
-		unit:AddAbility("fire_temple_steadfast")
+		unit:AddAbility("normal_steadfast")
 	end
 	if unit:GetUnitName() == "serengaard_hook_flinger" then
 		unit.targetRadius = 1200

@@ -38,7 +38,7 @@ function shadow_deity(event)
 		shadowGate:SetAbilityIndex(2)
 	end
 	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
-		caster.shadowAspect:AddAbility("fire_temple_steadfast"):SetLevel(1)
+		caster.shadowAspect:AddAbility("normal_steadfast"):SetLevel(1)
 	end
 	caster.shadowAspect:FindAbilityByName("shadow_deity_cloak_of_shadows"):SetLevel(ability:GetLevel())
 	shadowGate:SetLevel(ability:GetLevel())

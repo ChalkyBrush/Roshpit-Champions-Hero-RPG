@@ -1516,9 +1516,9 @@ function Winterblight:SpawnChrolonus(position, fv)
 	stone.itemLevel = 45
 	if GameState:GetDifficultyFactor() == 3 then
 		stone:AddAbility("ability_mega_haste"):SetLevel(3)
-		stone:RemoveAbility("fire_temple_steadfast")
+		stone:RemoveAbility("normal_steadfast")
 		stone:RemoveModifierByName("modifier_steadfast")
-		stone:AddAbility("redfall_mega_steadfast"):SetLevel(3)
+		stone:AddAbility("mega_steadfast"):SetLevel(3)
 		if Winterblight.Stones > 0 then
 			stone:AddAbility("armor_break_ultra"):SetLevel(Winterblight.Stones)
 		end
@@ -1536,7 +1536,7 @@ function Winterblight:SpawnCrystalRunner(position, fv)
 	stone.dominion = true
 	Events:ColorWearablesAndBase(stone, Vector(80, 100, 255))
 	if Winterblight.Stones >= 2 then
-		stone:AddAbility("fire_temple_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+		stone:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 	end
 	if Winterblight.Stones == 3 then
 		stone:AddAbility("creature_pure_strike"):SetLevel(GameState:GetDifficultyFactor())
@@ -3695,7 +3695,7 @@ function Winterblight:SpawnRuptholdGhost(position, fv)
 	stone.itemLevel = 44
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_tusk/tusk_walruspunch_start.vpcf", stone, 5)
 	if Winterblight.Stones >= 2 then
-		stone:AddAbility("fire_temple_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+		stone:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 	end
 	if Winterblight.Stones >= 3 then
 		stone:AddAbility("creature_pure_strike"):SetLevel(GameState:GetDifficultyFactor())
@@ -3922,8 +3922,8 @@ function Winterblight:SpawnTriBoss(bossName)
 	local ability = stone:FindAbilityByName("winterblight_azalea_triple_boss_ability")
 	ability:ApplyDataDrivenModifier(stone, stone, "modifier_azalea_triple_boss_frozen", {})
 	if Winterblight.Stones >= 1 then
-		stone:RemoveAbility("fire_temple_steadfast")
-		stone:AddAbility("redfall_mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+		stone:RemoveAbility("normal_steadfast")
+		stone:AddAbility("mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 	end
 end
 
@@ -3985,7 +3985,7 @@ function Winterblight:TriBossPhaser(index)
 		return false
 	end
 	local unitTable = {"winterblight_crystal_malefor", "azalea_grave_summoner", "winterblight_bladewielder", "azalea_shrine_megmus", "winterblight_demon_spirit", "azalea_knife_scraper", "azalea_dragoon", "winterblight_syphist", "winterblight_azalea_secret_keeper", "frostiok", "azalea_ghost_striker", "winterblight_azalea_mindbreaker", "winterblight_azalea_highguard", "azalea_armored_knight", "winterblight_softwalker", "winterblight_cold_seer", "winterblight_source_revenant", "winterblight_maiden_of_azalea", "winterblight_rider_of_azalea", "winterblight_mistral_assassin", "winterblight_frost_frigid_hulk", "winterblight_frost_elemental", "winterblight_frost_avatar", "winterblight_ice_summoner", "winterblight_snow_shaker", "winterblight_frigid_growth", "winterblight_chilling_colossus", "winterblight_dashing_swordsman", "winterblight_azalean_priest", "winterblight_azalea_archer"}
-	local abilityTable = {"fire_temple_steadfast", "ability_mega_haste", "winterblight_generic_chill_attack_passive", "winterblight_wolf_ability", "winterblight_ogre_armor", "winterblight_frostiok_passive", "winterblight_frost_colossus_passive", "winterblight_snowshaker_passive", "winterblight_bear_passive", "winterblight_stun_regen", "winterblight_frostbite_attack", "luna_taskmaster_shield", "winterblight_dimension_spear", "winterblight_speed_softening", "winterblight_armor_softening"}
+	local abilityTable = {"normal_steadfast", "ability_mega_haste", "winterblight_generic_chill_attack_passive", "winterblight_wolf_ability", "winterblight_ogre_armor", "winterblight_frostiok_passive", "winterblight_frost_colossus_passive", "winterblight_snowshaker_passive", "winterblight_bear_passive", "winterblight_stun_regen", "winterblight_frostbite_attack", "luna_taskmaster_shield", "winterblight_dimension_spear", "winterblight_speed_softening", "winterblight_armor_softening"}
 	local strAbilitiesTable = {"winterblight_ogre_armor", "winterblight_armor_softening", "winterblight_speed_softening", "winterblight_frost_colossus_passive", "creature_pure_strike"}
 	if GameState:GetDifficultyFactor() >= 2 then
 		table.insert(abilityTable, "seafortress_golden_shell")
@@ -3994,7 +3994,7 @@ function Winterblight:TriBossPhaser(index)
 		table.insert(abilityTable, "creature_pure_strike")
 	end
 	if Winterblight.Stones >= 1 then
-		table.insert(abilityTable, "redfall_mega_steadfast")
+		table.insert(abilityTable, "mega_steadfast")
 	end
 	local buzukiTable = {"multiplier", "powerup"}
 	local selectedBuzuki = buzukiTable[RandomInt(1, #buzukiTable)]
@@ -4685,9 +4685,9 @@ function Winterblight:SpawnStargazerOrin(position, fv)
 		stone:AddAbility("ability_magic_immune_break"):SetLevel(GameState:GetDifficultyFactor())
 	end
 	if Winterblight.Stones > 0 then
-		stone:RemoveAbility("fire_temple_steadfast")
+		stone:RemoveAbility("normal_steadfast")
 		stone:RemoveModifierByName("modifier_steadfast")
-		stone:AddAbility("redfall_mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+		stone:AddAbility("mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 	end
 	if GameState:GetDifficultyFactor() == 3 and Winterblight.Stones >= 3 then
 		stone:AddAbility("seafortress_golden_shell"):SetLevel(3)
@@ -5029,8 +5029,8 @@ function Winterblight:SpawnGigaIceRevenant(position, fv)
 	stone.itemLevel = 55
 	-- stone.dominion = true
 	if Winterblight.Stones >= 1 then
-		stone:RemoveAbility("fire_temple_steadfast")
-		stone:AddAbility("redfall_mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+		stone:RemoveAbility("normal_steadfast")
+		stone:AddAbility("mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 	end
 	Events:ColorWearablesAndBase(stone, Vector(150, 255, 145))
 	return stone

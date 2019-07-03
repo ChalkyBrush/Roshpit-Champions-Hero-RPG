@@ -111,8 +111,8 @@ function dominion_debuff_death(event)
 			ability:ApplyDataDrivenModifier(caster, summon, "modifier_black_dominion_d_a_aura", {})
 		end
 
-		if not summon:HasAbility("fire_temple_steadfast") then
-			summon:AddAbility("fire_temple_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+		if not summon:HasAbility("normal_steadfast") then
+			summon:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 		end
 		table.insert(ability.dominionTable, summon)
 		local max_summons = event.max_summons

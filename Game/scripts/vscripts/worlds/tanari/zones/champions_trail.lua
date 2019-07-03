@@ -274,7 +274,7 @@ function Tanari:InitiateKrakenKing()
 	end)
 	if GameState:GetDifficultyFactor() > 1 then
 		if TANARI_V2 then
-			king:AddAbility("fire_temple_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+			king:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 			king:AddAbility("king_kraken_aoe_ability"):SetLevel(GameState:GetDifficultyFactor())
 		end
 	end

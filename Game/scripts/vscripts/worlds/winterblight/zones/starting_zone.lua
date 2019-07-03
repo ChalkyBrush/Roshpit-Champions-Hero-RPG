@@ -18,7 +18,7 @@ end
 function Winterblight:SpawnWinterSeal(position, fv)
 	local stone = Winterblight:SpawnDungeonUnit("winterblight_seal", position, 1, 1, "Seafortress.Seal.Aggro", fv, false)
 	if GameState:GetDifficultyFactor() >= 3 then
-		stone:AddAbility("fire_temple_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+		stone:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 	end
 	-- stone:SetRenderColor(180,180,255)
 	Events:AdjustBossPower(stone, 1, 2, false)
