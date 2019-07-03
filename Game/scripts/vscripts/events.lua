@@ -673,6 +673,24 @@ function GameMode:OnPlayerChat(keys)
 			Beacons.packs = false
 			local unit = Redfall:SpawnCanyonBossParagonTest()
 		end
+	elseif string.match(text, "-boss_tree_paragon") then
+		if Beacons.cheats then
+			Beacons.paragon = true
+			Beacons.packs = false
+			local unit = Redfall:SpawnAncientTree()
+		end
+	elseif string.match(text, "-boss_tree_pack") then
+		if Beacons.cheats then
+			Beacons.paragon = false
+			Beacons.packs = true
+			local unit = Redfall:SpawnAncientTree()
+		end
+	elseif string.match(text, "-boss_tree_normal") then
+		if Beacons.cheats then
+			Beacons.paragon = false
+			Beacons.packs = false
+			local unit = Redfall:SpawnAncientTree()
+		end
 	elseif string.match(text, "-boss_fire_normal") then
 		if Beacons.cheats then
 			if not Tanari.FireTemple then
