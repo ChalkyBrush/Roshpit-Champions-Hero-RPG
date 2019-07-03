@@ -80,7 +80,7 @@ function cast(event)
     EmitSoundOn("Venomort.Viper.Spawn", viper)
     EmitSoundOn("Venomort.Viper.SpawnVO", viper)
     if caster:HasModifier("modifier_venomort_glyph_6_2") then
-        viper:AddAbility("fire_temple_steadfast"):SetLevel(1)
+        viper:AddAbility("normal_steadfast"):SetLevel(1)
     end
 
     Events:smoothSizeChange(viper, 0, 0.65, 20)

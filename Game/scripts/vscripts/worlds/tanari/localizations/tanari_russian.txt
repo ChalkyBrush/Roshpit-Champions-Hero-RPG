@@ -1118,9 +1118,9 @@
 		"DOTA_Tooltip_ability_fire_temple_shadow_strike_Description"			"Мгновенно перемещается за спину цели и наносит дополнительный магический урон."
 		"DOTA_Tooltip_ability_fire_temple_shadow_strike_damage"				"ДОП.МАГ.УРОН:"
 
-		"DOTA_Tooltip_ability_fire_temple_steadfast"							"Стойкость"
-		"DOTA_Tooltip_ability_fire_temple_steadfast_Description"				"Любой полученный урон не может нанести больше, чем определенный % от макс. здоровья."
-		"DOTA_Tooltip_ability_fire_temple_steadfast_max_damage"				"МАКСИМАЛЬНЫЙ УРОН НЕ БОЛЕЕ % ОТ МАКС ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_normal_steadfast"							"Стойкость"
+		"DOTA_Tooltip_ability_normal_steadfast_Description"				"Любой полученный урон не может нанести больше, чем определенный % от макс. здоровья."
+		"DOTA_Tooltip_ability_normal_steadfast_max_damage"				"МАКСИМАЛЬНЫЙ УРОН НЕ БОЛЕЕ % ОТ МАКС ЗДОРОВЬЯ:"
 
 		"DOTA_Tooltip_ability_fire_temple_frenzy"								"Безумие"
 		"DOTA_Tooltip_ability_fire_temple_frenzy_Description"					"Каждая успешная атака по цели добавляет заряд способности. Каждый заряд увеличивает скорость атаки и передвижения."	

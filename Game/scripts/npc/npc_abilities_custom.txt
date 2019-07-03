@@ -109985,7 +109985,7 @@
 
 	}
 
-	"fire_temple_steadfast"
+	"normal_steadfast"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
@@ -132540,7 +132540,7 @@
 		}
 	}
 
-	"redfall_mega_steadfast"
+	"mega_steadfast"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"

@@ -599,7 +599,7 @@
         "Ability2"     "torturok_comet"
         "Ability3"      "torturok_aura"
         "Ability4"      "ability_stun_immunity"
-        "Ability5"      "redfall_mega_steadfast"
+        "Ability5"      "mega_steadfast"
         "Ability6"      "ability_magic_immune_break"
         "Ability7"      "ogre_magi_bloodlust"
         "Ability8"      "dungeon_creep"
@@ -708,7 +708,7 @@
         "Ability1"      "winterblight_ozubu_ice_venom"
         "Ability2"      "ozubu_passive"
         "Ability3"      "armor_break"
-        "Ability4"      "fire_temple_steadfast"
+        "Ability4"      "normal_steadfast"
         "Ability5"          "ability_mega_haste"
         "Ability6"          "ability_magic_immune_break"
         "Ability7"      "creature_pure_strike"
@@ -1388,7 +1388,7 @@
             }
         }
         "Ability1"  "mountain_glissade"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "winterblight_mountain_dweller_passive"
         "Ability4"  "dungeon_creep"
     }
@@ -1573,7 +1573,7 @@
         "Ability1"  "creature_black_king_bar"
         "Ability2"  "fire_temple_frenzy"
         "Ability3"  "armor_break"
-        "Ability4"  "fire_temple_steadfast"
+        "Ability4"  "normal_steadfast"
         "Ability5"  "winterblight_marauder_passive"
         "Ability6"  "dungeon_creep"
     }
@@ -1628,7 +1628,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "frost_colossus_ground_slam"
         "Ability2"      "winterblight_frost_colossus_passive"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "dungeon_creep"
         "Ability5"      "use_ability_1_target_ai"
         "Creature"
@@ -1725,7 +1725,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"              "purging_ice"
-        "Ability2"              "fire_temple_steadfast"
+        "Ability2"              "normal_steadfast"
         "Ability3"              "winterblight_norgok_passive"
         "Ability4"              "dungeon_creep"
         "Ability5"              "use_ability_1_target_ai"
@@ -1886,7 +1886,7 @@
         }
         "Ability1"  "frigid_growth_charge"
         "Ability2"  "winterblight_frigid_growth_passive"
-        "Ability3"  "fire_temple_steadfast"
+        "Ability3"  "normal_steadfast"
         "Ability4"  "dungeon_creep"
         "Ability5"  "use_ability_1_no_target_ai"
         "Ability6"  ""
@@ -2461,7 +2461,7 @@
         }
 
         "Ability1"  "winterblight_bear_passive"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "dungeon_creep"
     }
 
@@ -3039,7 +3039,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "winterblight_frost_elemental_passive"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "ability_magic_immune_break"
         "Ability4"      ""
         "Ability5"      "dungeon_creep"
@@ -3132,7 +3132,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "ice_hulk_passive"
-        "Ability2"      "redfall_mega_steadfast"
+        "Ability2"      "mega_steadfast"
         "Ability3"      ""
         "Ability4"      ""
         "Ability5"      "dungeon_creep"
@@ -3303,7 +3303,7 @@
 
         "Ability1"          "frost_titan_ice_blast"
         "Ability2"          "frost_titan_passive"
-        "Ability3"          "fire_temple_steadfast"
+        "Ability3"          "normal_steadfast"
         "Ability4"          "sven_great_cleave"
         "Ability5"          "use_ability_1_target_ai"
         "Ability6"          "dungeon_creep"
@@ -3719,7 +3719,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"              "winterblight_zealot_blast"
         "Ability2"              "winterblight_azalea_zealot_passive"
-        "Ability3"              "fire_temple_steadfast"
+        "Ability3"              "normal_steadfast"
         "Ability4"              "dungeon_creep"
         "Ability5"              "use_ability_1_position_ai"
         "Creature"
@@ -3805,7 +3805,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"  "winterblight_soulfire_storm"
         "Ability2"  "use_ability_1_position_ai"
-        "Ability4"  "fire_temple_steadfast"
+        "Ability4"  "normal_steadfast"
         "Ability5"  "dungeon_creep"
         "Creature"
         {
@@ -4470,7 +4470,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "winterblight_skating_passive"
         "Ability2"      "armor_break"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "winterblight_suicidal_skater"
         "Ability5"      "dungeon_creep"
         "Creature"
@@ -4646,7 +4646,7 @@
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
-        "Ability1"      "fire_temple_steadfast"
+        "Ability1"      "normal_steadfast"
         "Ability2"      "luna_taskmaster_shield"
         "Ability3"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -5062,7 +5062,7 @@
 
         }
         "Ability1"  "thorcrux_passive"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "ability_mega_haste"
         "Ability4"  "dungeon_creep"
     }
@@ -5154,7 +5154,7 @@
 
         "Ability1"  "armor_break"
         "Ability2"  "winterblight_generic_chill_attack_passive"
-        "Ability3"  "fire_temple_steadfast"
+        "Ability3"  "normal_steadfast"
         "Ability4"  "dungeon_creep"
     }
 
@@ -5289,7 +5289,7 @@
         "VisionNighttimeRange"  "800"
 
         "Ability1"          "winterblight_armor_softening"
-        "Ability2"          "fire_temple_steadfast"
+        "Ability2"          "normal_steadfast"
         "Ability3"          "sven_great_cleave"
         "Ability4"          "ability_magic_immune_break"
         "Ability5"          "dungeon_creep"
@@ -5437,7 +5437,7 @@
         }
         "Ability1"          "chrolonus_dash"
         "Ability2"          "winterblight_chrolonus_passive"
-        "Ability3"          "fire_temple_steadfast"
+        "Ability3"          "normal_steadfast"
         "Ability4"          "fire_temple_frenzy"
         "Ability5"          "winterblight_generic_chill_attack_passive"
         "Ability6"          "dungeon_creep"
@@ -5664,7 +5664,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "creature_black_king_bar"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -5970,7 +5970,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"          "creature_roknar"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -6044,7 +6044,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"  "redfall_sorceress_fire_spray"
-        "Ability2"  "redfall_mega_steadfast"
+        "Ability2"  "mega_steadfast"
         "Ability3"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -6397,7 +6397,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "winterblight_cruxal_passive"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "luna_taskmaster_shield"
         "Ability4"      "cruxal_ice_blast"
         "Ability5"      "dungeon_creep"
@@ -6874,7 +6874,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "winterblight_rupthold_passive"
-        "Ability2"      "redfall_mega_steadfast"
+        "Ability2"      "mega_steadfast"
         "Ability3"      "slardar_bash"
         "Ability4"      "dungeon_creep"
         "Creature"
@@ -7445,7 +7445,7 @@
         "Ability1"  "winterblight_azalea_triple_boss_ability"
         "Ability2"  "buzuki_hex"
         "Ability3"  "winterblight_buzuki_passive"
-        "Ability4"  "fire_temple_steadfast"
+        "Ability4"  "normal_steadfast"
         "Ability5"  "regression_strike"
         "Ability6"  "dungeon_creep"
     }
@@ -7470,7 +7470,7 @@
         "Ability1"  "winterblight_azalea_triple_boss_ability"
         "Ability2"  "winterblight_ice_orb"
         "Ability3"  "winterblight_summoner_blink"
-        "Ability4"  "fire_temple_steadfast"
+        "Ability4"  "normal_steadfast"
         "Ability5"  "ability_magic_immune_break"
         "Ability6"  "dungeon_creep"
         "Ability7"  ""
@@ -7562,7 +7562,7 @@
         "Ability1"                  "winterblight_azalea_triple_boss_ability"   
         "Ability2"                  "torphet_ice_vortex"      
         "Ability3"                  "torphet_cold_feet"         
-        "Ability4"                  "fire_temple_steadfast"  
+        "Ability4"                  "normal_steadfast"  
         "Ability5"                  "armor_break"      
         "Ability6"                  "dungeon_creep"         
 
@@ -7736,7 +7736,7 @@
         }
         "Ability1"  "winterblight_fencer_opportunity"
         "Ability2"  "armor_break"
-        "Ability3"  "fire_temple_steadfast"
+        "Ability3"  "normal_steadfast"
         "Ability4"  "dungeon_creep"
     }
 
@@ -8226,7 +8226,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"              "winterblight_stargazer_passive"
         "Ability2"              "stargazer_glissade"
-        "Ability3"              "fire_temple_steadfast"
+        "Ability3"              "normal_steadfast"
         "Ability4"              "dungeon_creep"
         "Creature"
         {
@@ -8383,7 +8383,7 @@
         "VisionNighttimeRange"  "800"
         "Ability1"              "azalea_boss_passive"
         "Ability2"              "ability_stun_immunity"
-        "Ability3"              "redfall_mega_steadfast"
+        "Ability3"              "mega_steadfast"
         "Ability4"              "boss_health"
         "Ability5"              "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -8498,7 +8498,7 @@
         "Ability1"  "winterblight_giga_ice_revenant_passive"
         "Ability2"  "armor_break"
         "Ability3"  "ability_mega_haste"
-        "Ability4"  "fire_temple_steadfast"
+        "Ability4"  "normal_steadfast"
         "Ability5"  "dungeon_creep"
     }
 
@@ -8745,7 +8745,7 @@
         "VisionNighttimeRange"  "800"
 
         "Ability1"          "winterblight_mountain_god_passive"
-        "Ability2"          "fire_temple_steadfast"
+        "Ability2"          "normal_steadfast"
         "Ability3"          "ability_magic_immune_break"
         "Ability4"          "dungeon_creep"
         "TeamName"           "DOTA_TEAM_NEUTRALS"
@@ -8985,7 +8985,7 @@
         "VisionNighttimeRange"  "800"
         "Ability1"      "creature_pure_strike"
         "Ability2"      "armor_break_ultra"
-        "Ability3"      "redfall_mega_steadfast"
+        "Ability3"      "mega_steadfast"
         "Ability4"      "orthok_ai_ability"
         "Ability5"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -9140,7 +9140,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"  "stalacorr_ice_blast"
         "Ability2"  "grand_stalacorr_passive"
-        "Ability3"  "redfall_mega_steadfast"
+        "Ability3"  "mega_steadfast"
         "Ability4"  "ability_stun_immunity"
         "Ability5"  "dungeon_creep"
         "Ability6"  "use_ability_1_target_ai"

@@ -57,7 +57,7 @@ function fire_deity(event)
 		common_aspect_effects(caster, ability, caster.fireAspect)
 	end)
 	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
-		caster.fireAspect:AddAbility("fire_temple_steadfast"):SetLevel(1)
+		caster.fireAspect:AddAbility("normal_steadfast"):SetLevel(1)
 	end
 
 	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "conjuror")

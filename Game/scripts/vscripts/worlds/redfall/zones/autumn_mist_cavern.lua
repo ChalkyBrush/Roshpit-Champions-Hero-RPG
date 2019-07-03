@@ -758,7 +758,8 @@ end
 function Redfall:SpawnCanyonBossParagonTest()
 	local spawnPoint = Vector(-14826, 14310)
 	Redfall.BossBattle = true
-	local creepFunction = function(unit)
+	Redfall.CanyonBossClones = {}
+	local creepFunction = function(unit) 
 		Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_disable_player", {duration = 4.2})
 		unit:SetAbsOrigin(Vector(-14826, 14310, 440 + Redfall.ZFLOAT))
 		Events:AdjustDeathXP(unit)
@@ -778,9 +779,10 @@ function Redfall:SpawnCanyonBossParagonTest()
 			unit.currentThreshold = 0.8
 		end
 		unit.baseSize = 2
-		unit.currentSize = 2
+		unit.currentSize = unit.baseSize
+		unit.baseHullSize = unit:GetHullRadius()
+		unit.currentHullSize = unit.baseHullSize
 		unit.render = 0
-		unit.children = {}
 		Redfall:ColorWearables(unit, Vector(255, 135, 0))
 		local jumpToPosition = Vector(-14208, 13680, 240 + Redfall.ZFLOAT)
 		local timeWalk = unit:FindAbilityByName("canyon_boss_time_walk")
@@ -829,9 +831,6 @@ function Redfall:CanyonBossTakeDamage(victim, damage)
 	if not Redfall.BossBattle then
 		return damage
 	end
-	if victim.parentDead == true then
-		return damage
-	end
 	if victim.immortal == true then
 		return 0
 	end
@@ -854,7 +853,10 @@ function Redfall:CanyonBossTakeDamage(victim, damage)
 	local percentOfHealth = damage / victim:GetMaxHealth()
 	if victim.currentSize < victim.baseSize * 1.7 then
 		victim.currentSize = math.min(victim.currentSize + math.ceil(victim.baseSize * 0.7 * percentOfHealth / victim.threshold * 100) / 100, victim.baseSize * 1.7)
+		victim.currentHullSize = victim.baseHullSize * victim.currentSize / victim.baseSize
 		victim:SetModelScale(victim.currentSize)
+		victim:SetHullRadius(victim.currentHullSize)
+		print("New Hull Radius: "..victim:GetHullRadius())
 	end
 	if victim.render < 255 then
 		victim.render = math.min(victim.render + math.ceil(255 * percentOfHealth / victim.threshold), 255)
@@ -871,7 +873,10 @@ function Redfall:CanyonBossTakeDamage(victim, damage)
 		for i = 1, 33, 1 do
 			Timers:CreateTimer(i * 0.03, function()
 				victim.currentSize = victim.currentSize - victimSizeReduce
+				victim.currentHullSize = victim.baseHullSize * victim.currentSize / victim.baseSize
 				victim:SetModelScale(victim.currentSize)
+				victim:SetHullRadius(victim.currentHullSize)
+				print("New Hull Radius: "..victim:GetHullRadius())
 			end)
 		end
 		local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
@@ -905,60 +910,83 @@ function Redfall:CanyonBossTakeDamage(victim, damage)
 end
 
 function Redfall:SpawnBossMinions(boss, previousGeneration)
+	Redfall:ReindexRedfallCanyonBossClones()
 	local basePosition = boss:GetAbsOrigin()
 	local fv = boss:GetForwardVector()
-	for i = 1, 3, 1 do
-		local unit = CreateUnitByName("redfall_canyon_boss_miniature", basePosition, true, nil, nil, DOTA_TEAM_NEUTRALS)
-		if boss.paragon == true then
-			if boss:HasModifier("modifier_paragon_solo_visual") then
-				local paragonAbility = boss:FindModifierByName("modifier_paragon_solo_visual"):GetAbility()
-				paragonAbility:ApplyDataDrivenModifier(unit, unit, "modifier_paragon_solo_visual", {})
-			elseif boss:HasModifier("modifier_paragon_pack_visual") then
-				local paragonAbility = boss:FindModifierByName("modifier_paragon_pack_visual"):GetAbility()
-				paragonAbility:ApplyDataDrivenModifier(unit, unit, "modifier_paragon_pack_visual", {})
+	if previousGeneration > 0 then
+		boss = boss.boss
+	end
+	local clonesToSpawn = 3
+	if #Redfall.CanyonBossClones >= 20 and #Redfall.CanyonBossClones < 30 then
+		clonesToSpawn = 2
+	elseif #Redfall.CanyonBossClones >= 30 and #Redfall.CanyonBossClones < 40 then
+		clonesToSpawn = 1
+	elseif #Redfall.CanyonBossClones >= 40 then
+		clonesToSpawn = 0
+	end
+	if clonesToSpawn > 0 then
+		for i = 1, clonesToSpawn, 1 do
+			local unit = CreateUnitByName("redfall_canyon_boss_miniature", basePosition, true, nil, nil, DOTA_TEAM_NEUTRALS)
+			if boss.paragon == true then
+				if boss:HasModifier("modifier_paragon_solo_visual") then
+					local paragonAbility = boss:FindModifierByName("modifier_paragon_solo_visual"):GetAbility()
+					paragonAbility:ApplyDataDrivenModifier(unit, unit, "modifier_paragon_solo_visual", {})
+				elseif boss:HasModifier("modifier_paragon_pack_visual") then
+					local paragonAbility = boss:FindModifierByName("modifier_paragon_pack_visual"):GetAbility()
+					paragonAbility:ApplyDataDrivenModifier(unit, unit, "modifier_paragon_pack_visual", {})
+				end
 			end
-		end
-		if previousGeneration == 0 then
 			unit.boss = boss
-		else
-			unit.boss = boss.boss
-		end
-		table.insert(unit.boss.children, unit)
-		unit.generation = previousGeneration + 1
-		Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_disable_player", {duration = 1.6})
-		unit:SetAbsOrigin(basePosition + Vector(0, 0, 200))
-		Events:AdjustDeathXP(unit)
-		Events:AdjustBossPower(unit, 5 - unit.generation, 5 - unit.generation, false)
-		unit:SetModelScale(0.01)
-		unit:SetRenderColor(255, 255, 0)
-		if unit.generation == 1 or unit.generation == 2 then
-			unit.threshold = 0.5
-			unit.currentThreshold = 0.5
-		else
-			unit.threshold = 1
-			unit.currentThreshold = 0
-		end
-		unit.baseSize = 2 - unit.generation * 0.2
-		unit.render = 0
-		Redfall:ColorWearables(unit, Vector(255, 100, 0))
-		local jumpToPosition = basePosition + WallPhysics:rotateVector(fv, 2 * math.pi * i / 3) * 440
-		local timeWalk = unit:FindAbilityByName("canyon_boss_time_walk")
-		timeWalk:ApplyDataDrivenModifier(unit, unit, "modifier_time_walking", {duration = 2.1})
-		local moveVector = (jumpToPosition - unit:GetAbsOrigin()) / 43
-		StartAnimation(unit, {duration = 1.9, activity = ACT_DOTA_CAST_ABILITY_1, rate = 0.5})
-		EmitSoundOn("Redfall.CanyonBoss.LeapIntro", unit)
-		for i = 1, 43, 1 do
-			Timers:CreateTimer(i * 0.03, function()
-				unit:SetModelScale(0.01 + 0.024 * i)
-				unit.currentSize = 0.01 + 0.024 * i
-				unit:SetAbsOrigin(unit:GetAbsOrigin() + moveVector)
+			table.insert(Redfall.CanyonBossClones, unit)
+			unit.generation = previousGeneration + 1
+			Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_disable_player", {duration = 1.6})
+			unit:SetAbsOrigin(basePosition + Vector(0, 0, 200))
+			Events:AdjustDeathXP(unit)
+			Events:AdjustBossPower(unit, 5 - unit.generation, 5 - unit.generation, false)
+			unit:SetModelScale(0.01)
+			unit:SetRenderColor(255, 255, 0)
+			if unit.generation == 1 or unit.generation == 2 then
+				unit.threshold = 0.5
+				unit.currentThreshold = 0.5
+			else
+				unit.threshold = 1
+				unit.currentThreshold = 0
+			end
+			unit.baseSize = 2 - unit.generation * 0.2
+			unit.currentSize = unit.baseSize
+			unit.baseHullSize = unit:GetHullRadius()
+			unit.currentHullSize = unit.baseHullSize
+			unit.render = 0
+			Redfall:ColorWearables(unit, Vector(255, 100, 0))
+			local jumpToPosition = basePosition + WallPhysics:rotateVector(fv, 2 * math.pi * i / clonesToSpawn) * 440
+			local timeWalk = unit:FindAbilityByName("canyon_boss_time_walk")
+			timeWalk:ApplyDataDrivenModifier(unit, unit, "modifier_time_walking", {duration = 2.1})
+			local moveVector = (jumpToPosition - unit:GetAbsOrigin()) / 43
+			StartAnimation(unit, {duration = 1.9, activity = ACT_DOTA_CAST_ABILITY_1, rate = 0.5})
+			EmitSoundOn("Redfall.CanyonBoss.LeapIntro", unit)
+			for i = 1, 43, 1 do
+				Timers:CreateTimer(i * 0.03, function()
+					unit:SetModelScale(0.01 + 0.024 * i)
+					unit.currentSize = 0.01 + 0.024 * i
+					unit:SetAbsOrigin(unit:GetAbsOrigin() + moveVector)
+				end)
+			end
+			Timers:CreateTimer(1.45, function()
+				FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)
+				StartAnimation(unit, {duration = 0.27, activity = ACT_DOTA_CAST_ABILITY_1_END, rate = 1.0})
 			end)
 		end
-		Timers:CreateTimer(1.45, function()
-			FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)
-			StartAnimation(unit, {duration = 0.27, activity = ACT_DOTA_CAST_ABILITY_1_END, rate = 1.0})
-		end)
 	end
+end
+
+function Redfall:ReindexRedfallCanyonBossClones()
+	local newTable = {}
+	for i = 1, #Redfall.CanyonBossClones, 1 do
+		if IsValidEntity(Redfall.CanyonBossClones[i]) and Redfall.CanyonBossClones[i]:IsAlive() then
+			table.insert(newTable, Redfall.CanyonBossClones[i])
+		end
+	end
+	Redfall.CanyonBossClones = newTable
 end
 
 function Redfall:SpawnFeronia(position, fv)

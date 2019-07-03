@@ -927,9 +927,9 @@
 		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega_Description"	"Grants magic immunity. Magic immune shield can be broken after attacks."	
 		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega_stacks"		"CHARGES:"
 
-		"DOTA_Tooltip_ability_redfall_mega_steadfast"							"Mega Steadfast"
-		"DOTA_Tooltip_ability_redfall_mega_steadfast_Description"				"Each instance of damage can not deal more than a % of max health."
-		"DOTA_Tooltip_ability_redfall_mega_steadfast_max_damage"				"HEALTH % MAX:"
+		"DOTA_Tooltip_ability_mega_steadfast"							"Mega Steadfast"
+		"DOTA_Tooltip_ability_mega_steadfast_Description"				"Each instance of damage can not deal more than a % of max health."
+		"DOTA_Tooltip_ability_mega_steadfast_max_damage"				"HEALTH % MAX:"
 		"DOTA_Tooltip_modifier_mega_steadfast"									"Mega Steadfast"
 		"DOTA_Tooltip_modifier_mega_steadfast_Description"						"Each instance of damage can not deal more than a % of max health."
 

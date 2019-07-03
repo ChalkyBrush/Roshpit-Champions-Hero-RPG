@@ -1278,11 +1278,11 @@
 		"DOTA_Tooltip_ability_item_rpc_galactic_arcana_cache"			"银河至宝珍藏"
 		"item_rpc_galactic_arcana_cache_desc"							"使用: 在你脚下掉落三件完全随机的至宝。至宝的强度完全取决于你的欧气。"
 
-		"DOTA_Tooltip_ability_item_rpc_currency_reroll"				"Arcana Plasma"
-		"item_rpc_currency_reroll_desc"								"Use: Combine with an Arcana item in a Synthesis Vessel to transmogrify its properties, keeping only better rolls."
+		"DOTA_Tooltip_ability_item_rpc_currency_reroll"				"至纯宝玉"
+		"item_rpc_currency_reroll_desc"								"使用: 与一件至宝在合成圣器中合成可以重铸其属性，仅保留更高值."
 
-		"DOTA_Tooltip_ability_item_rpc_currency_whetstone"			"Ultraforger"
-		"item_rpc_currency_whetstone_desc"							"Use: Combine with a Weapon in a Synthesis Vessel to upgrade it to its max level."
+		"DOTA_Tooltip_ability_item_rpc_currency_whetstone"			"赫淮斯托斯极锻石"
+		"item_rpc_currency_whetstone_desc"							"使用: 与一件武器在合成圣器中合成可以将其提升至最高等级."
 
 		"cache_radiance"									"光辉"
 
@@ -14719,9 +14719,9 @@
 		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega_Description"	"授予免疫魔法。魔法免疫盾可以在攻击后破坏."	
 		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega_stacks"		"充能:"
 
-		"DOTA_Tooltip_ability_redfall_mega_steadfast"							"高级坚定"
-		"DOTA_Tooltip_ability_redfall_mega_steadfast_Description"				"每个伤害的实例不能超过最大生命值的百分之一."
-		"DOTA_Tooltip_ability_redfall_mega_steadfast_max_damage"				"血量 % 最大:"
+		"DOTA_Tooltip_ability_mega_steadfast"							"高级坚定"
+		"DOTA_Tooltip_ability_mega_steadfast_Description"				"每个伤害的实例不能超过最大生命值的百分之一."
+		"DOTA_Tooltip_ability_mega_steadfast_max_damage"				"血量 % 最大:"
 
 		"redfall_crimsyth_castle_grounds_guardian"						"城堡地面监护人"
 
@@ -16853,9 +16853,9 @@
 		"DOTA_Tooltip_ability_fire_temple_shadow_strike_Description"			"闪现到敌人背后发动突袭，附加额外魔法伤害."
 		"DOTA_Tooltip_ability_fire_temple_shadow_strike_damage"				"魔法伤害附加:"
 
-		"DOTA_Tooltip_ability_fire_temple_steadfast"							"坚定"
-		"DOTA_Tooltip_ability_fire_temple_steadfast_Description"				"受到的单次攻击不会超过最大生命值的某个百分比."
-		"DOTA_Tooltip_ability_fire_temple_steadfast_max_damage"				"最大生命值百分比:"
+		"DOTA_Tooltip_ability_normal_steadfast"							"坚定"
+		"DOTA_Tooltip_ability_normal_steadfast_Description"				"受到的单次攻击不会超过最大生命值的某个百分比."
+		"DOTA_Tooltip_ability_normal_steadfast_max_damage"				"最大生命值百分比:"
 
 		"DOTA_Tooltip_ability_fire_temple_frenzy"								"狂热"
 		"DOTA_Tooltip_ability_fire_temple_frenzy_Description"					"每一次成功的攻击都会增加攻击移动速度."	

@@ -1120,9 +1120,9 @@
 		"DOTA_Tooltip_ability_fire_temple_shadow_strike_Description"			"Teleports behind an enemy unit and slices them with bonus magic damage."
 		"DOTA_Tooltip_ability_fire_temple_shadow_strike_damage"				"BONUS MAGIC DAMAGE:"
 
-		"DOTA_Tooltip_ability_fire_temple_steadfast"							"Steadfast"
-		"DOTA_Tooltip_ability_fire_temple_steadfast_Description"				"Each instance of damage can not deal more than a % of max health."
-		"DOTA_Tooltip_ability_fire_temple_steadfast_max_damage"				"HEALTH % MAX:"
+		"DOTA_Tooltip_ability_normal_steadfast"							"Steadfast"
+		"DOTA_Tooltip_ability_normal_steadfast_Description"				"Each instance of damage can not deal more than a % of max health."
+		"DOTA_Tooltip_ability_normal_steadfast_max_damage"				"HEALTH % MAX:"
 
 		"DOTA_Tooltip_ability_fire_temple_frenzy"								"Frenzy"
 		"DOTA_Tooltip_ability_fire_temple_frenzy_Description"					"Each successive outgoing attack adds a stack that increases movespeed and attack speed."	

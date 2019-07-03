@@ -42,7 +42,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "soul_ferrier_passive"
-        "Ability2"		"redfall_mega_steadfast"
+        "Ability2"		"mega_steadfast"
         "Ability3"		"armor_break_ultra"
         "Ability4"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
