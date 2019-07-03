@@ -31,10 +31,16 @@ function Spawning:SpawnUnit(args)
 	if not args.canBeParagon and args.canBeParagon ~= false then
 		args.canBeParagon = true
 	end
-	--1:300 in normal, 1:100 in normal SpiritRealm
-	--1:225 in elite,  1:75 in elite SpiritRealm
-	--1:150 in legend, 1:50 in legend SpiritRealm
-	local maxluck = 300 - (difficulty - 1) * 75
+	if not args.canBeParagonSolo and args.canBeParagonSolo ~= false then
+		args.canBeParagonSolo = true
+	end
+	if not args.canBeParagonPack and args.canBeParagonPack ~= false then
+		args.canBeParagonPack = true
+	end
+	--1:600 in normal, 1:200 in normal SpiritRealm
+	--1:450 in elite,  1:150 in elite SpiritRealm
+	--1:300 in legend, 1:100 in legend SpiritRealm
+	local maxluck = 600 - (difficulty - 1) * 150
 	if Events.SpiritRealm then
 		maxluck = maxluck / 3
 	end
@@ -46,9 +52,9 @@ function Spawning:SpawnUnit(args)
 		luck = 2
 	end
 	local unit = ""
-	if luck == 1 and args.canBeParagon then
+	if luck == 1 and args.canBeParagon and args.canBeParagonSolo then
 		unit = Paragon:SpawnParagonUnit(args.unitName, args.spawnPoint)
-	elseif luck == 2 and args.canBeParagon then
+	elseif luck == 2 and args.canBeParagon and args.canBeParagonPack then
 		unit = Paragon:SpawnParagonPack(args.unitName, args.spawnPoint)
 	else
 		unit = CreateUnitByName(args.unitName, args.spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)

@@ -15958,7 +15958,7 @@
         "Ability1"      "skeleton_king_mortal_strike"
         "Ability2"      "skeleton_king_vampiric_aura"
         "Ability3"      "wraithguard_ai"
-        "Ability4"      "fire_temple_steadfast"
+        "Ability4"      "normal_steadfast"
         "Ability5"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -16052,7 +16052,7 @@
         "Ability1"      "skeleton_king_mortal_strike"
         "Ability2"      "skeleton_king_vampiric_aura"
         "Ability3"      "wraithguard_ai"
-        "Ability4"      "redfall_mega_steadfast"
+        "Ability4"      "mega_steadfast"
         "Ability5"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -21194,7 +21194,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "dungeon_creep"
-        "Ability2"      "redfall_mega_steadfast"
+        "Ability2"      "mega_steadfast"
         "Ability3"      "tiny_craggy_exterior"
         "Ability4"      "ancient_ruby_giant_ai"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -26111,7 +26111,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "dungeon_creep"
         "Ability2"      "tanari_mountain_pass_guardian_ai"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -28583,7 +28583,7 @@
         "Ability1"              "dungeon_creep"
         "Ability2"              "wind_temple_master_of_storms_ai"
         "Ability3"              "master_of_storms_flare"
-        "Ability4"              "fire_temple_steadfast"
+        "Ability4"              "normal_steadfast"
         "Ability5"              "redfall_garden_watcher_passive"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -28839,7 +28839,7 @@
         "VisionDaytimeRange"    "6000"
         "VisionNighttimeRange"  "6000"
         "Ability1"              "wind_temple_boss_ai"
-        "Ability2"              "fire_temple_steadfast"
+        "Ability2"              "normal_steadfast"
         "Ability3"              "dungeon_creep"
         "Ability4"              "boss_health"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -31084,7 +31084,7 @@
         "Ability1"          "water_keyholder_torrent"
         "Ability2"          "water_keyholder_ensnare"
         "Ability3"          "water_temple_keyholder_ai"
-        "Ability4"          "fire_temple_steadfast"
+        "Ability4"          "normal_steadfast"
     }
 
     //WATER TEMPLE
@@ -32641,7 +32641,7 @@
         "Ability1"      "water_temple_water_emperor_jet"
         "Ability2"      "water_temple_aqua_emperor_ai"
         "Ability3"      "water_temple_water_emperor_jet_2"
-        "Ability4"      "fire_temple_steadfast"
+        "Ability4"      "normal_steadfast"
         "Ability5"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -36007,7 +36007,7 @@
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
-        "Ability1"      "fire_temple_steadfast"
+        "Ability1"      "normal_steadfast"
         "Ability2"      "fire_temple_frenzy"
         "Ability3"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -36229,7 +36229,7 @@
         "Ability4"  "yojimbo_fire_remnant"
         "Ability5"  "ember_spirit_activate_fire_remnant"
         "Ability6"  "fire_temple_yojimbo_ai"
-        "Ability7"  "redfall_mega_steadfast"
+        "Ability7"  "mega_steadfast"
     }
 
     "fire_temple_tempered_warrior"
@@ -36961,7 +36961,7 @@
         "Ability1"              "fire_temple_nuclear_solos"
         "Ability2"              "solos_burning_spear"
         "Ability3"              "fire_temple_strength_aura"
-        "Ability4"              "fire_temple_steadfast"
+        "Ability4"              "normal_steadfast"
         "Ability5"              "fire_temple_solos_ai"
         "Ability6"              "use_ability_1_no_target_ai"
         "Ability7"              "dungeon_creep"
@@ -37462,7 +37462,7 @@
         "Ability1"  "fire_temple_dragon_slave"
         "Ability2"  "fire_temple_lava_burst"
         "Ability3"  "fire_temple_flame_wraith_ability"
-        "Ability4"  "fire_temple_steadfast"
+        "Ability4"  "normal_steadfast"
         "Ability5"  "fire_temple_flame_wraith_lord_ai"
         "Ability6"  "dungeon_creep"
     }
@@ -37843,7 +37843,7 @@
 
         }
         "Ability1"  "fire_temple_hoof_stomp"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "fire_temple_centaur_warcry" 
         "Ability4"  "use_ability_1_no_target_ai"
         "Ability5"  "dungeon_creep"
@@ -40087,7 +40087,7 @@
 
         }
         "Ability1"  "fire_temple_hoof_stomp"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "arena_challenger_16_warcry"
     }
 
@@ -40824,7 +40824,7 @@
         "Ability1"  "meepo_geostrike"
         "Ability2"  "arena_dodge_ability"
         "Ability3"  "arena_challenger_12_axe_throw"
-        "Ability4"  "fire_temple_steadfast"
+        "Ability4"  "normal_steadfast"
         "Ability5"  "arena_challenger_12_passive"
     }
 
@@ -40976,7 +40976,7 @@
         "Ability1"      "arena_challenger_10_wraithfire"
         "Ability2"      "arena_challenger_10_passive"
         "Ability3"      "arena_dodge_ability"
-        "Ability4"      "fire_temple_steadfast"
+        "Ability4"      "normal_steadfast"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Creature"
@@ -43339,7 +43339,7 @@
             }
         }
         "Ability1"  "arena_mire_keeper_passive"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "dungeon_creep"
     }
 
@@ -43398,7 +43398,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "arena_mountain_crush"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "use_ability_1_target_ai"
         "Ability4"      "dungeon_creep"
         "Creature"
@@ -43949,7 +43949,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "arena_conquest_helob_venomous_bite"
         "Ability2"      "armor_break"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "dungeon_creep"
         "Creature"
         {
@@ -45097,7 +45097,7 @@
         }
         "Ability1"  "arena_conquest_impale"
         "Ability2"  "arena_mire_keeper_passive"
-        "Ability3"  "fire_temple_steadfast"
+        "Ability3"  "normal_steadfast"
         "Ability4"  "use_ability_1_position_ai"
         "Ability5"  "dungeon_creep"
     }
@@ -45853,7 +45853,7 @@
         }
 
         "Ability1"  "doombringer_searing_chains"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "dungeon_creep"
         "Ability4"  "use_ability_1_no_target_ai"
     }
@@ -46608,7 +46608,7 @@
         }
 
         "Ability1"  "creature_meat_hook"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "tomb_pudge"
         "Ability4"  "dungeon_creep"
 
@@ -46984,7 +46984,7 @@
         "Ability2"      "fire_temple_shadow_strike"
         "Ability3"      "arena_lies_boss_magic_immune_ability"
         "Ability4"      "arena_lies_boss_illusion_ability"
-        "Ability5"      "fire_temple_steadfast"
+        "Ability5"      "normal_steadfast"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Creature"
@@ -47240,7 +47240,7 @@
         "VisionNighttimeRange"  "800"
         "Ability1"      "water_temple_vault_master_storm_bolt"
         "Ability2"      "water_temple_vault_master_ai"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -47908,7 +47908,7 @@
         "VisionNighttimeRange"  "800"
         "Ability1"              "arena_pit_grave_chill"
         "Ability2"              "arena_summon_gargoyles"
-        "Ability3"              "fire_temple_steadfast"
+        "Ability3"              "normal_steadfast"
         "Ability4"              "use_ability_1_target_ai"
         "Ability5"              "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -48130,7 +48130,7 @@
 
         }
         "Ability1"  "arena_conquest_impale"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "use_ability_1_position_ai"
         "Ability4"  "dungeon_creep"
     }
@@ -48186,7 +48186,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"              "arena_descent_beetle_passive"
-        "Ability2"              "fire_temple_steadfast"
+        "Ability2"              "normal_steadfast"
         "Ability3"              "dungeon_creep"
         "Creature"
         {
@@ -48565,7 +48565,7 @@
         }
 
         "Ability1"  "doom_custom"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "dungeon_creep"
         "Ability4"  "use_ability_1_target_ai"
     }
@@ -48615,7 +48615,7 @@
         "Ability1"      "descent_boss_ai"
         "Ability2"      "arena_descent_boss_ravage"
         "Ability3"      "arena_descent_boss_fist_slam"
-        "Ability4"      "fire_temple_steadfast"
+        "Ability4"      "normal_steadfast"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Creature"
@@ -48708,7 +48708,7 @@
         "Ability1"  "arena_pit_pit_guardian_ai"
         "Ability2"  "creature_pure_strike_2"
         "Ability3"  "antimage_blink_custom"
-        "Ability4"  "fire_temple_steadfast"
+        "Ability4"  "normal_steadfast"
         "Ability5"  "dungeon_creep"
     }
 
@@ -49755,7 +49755,7 @@
 
             }
         }
-        "Ability1"  "fire_temple_steadfast"
+        "Ability1"  "normal_steadfast"
         "Ability2"  "dungeon_creep"
     }
 
@@ -50874,7 +50874,7 @@
             "particle"  "particles/roshpit/heart_strike_manaburn_basher_ti_5.vpcf"
         }
         "Ability1"      "creature_heart_spike"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "dungeon_creep"
         "HealthBarOffset"   "200"
         "HasInventory"  "0"
@@ -51512,7 +51512,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"  "crimsith_cult_master_pull"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "use_ability_1_target_ai"
         "Ability4"  "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -51984,7 +51984,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "redfall_bigwave"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "use_ability_1_position_ai"
         "Ability4"      "dungeon_creep"
         "Creature"
@@ -52433,7 +52433,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "redfall_dinosaur_passive"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "dungeon_creep"
         "Creature"
         {
@@ -52667,7 +52667,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "redfall_barbarian_passive"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -53119,7 +53119,7 @@
         "Ability1"              "redfall_autumn_mage_blink"
         "Ability2"              "redfall_autumn_mage_passive"
         "Ability3"              "redfall_autumn_mage_boss_passive"
-        "Ability4"              "fire_temple_steadfast" 
+        "Ability4"              "normal_steadfast" 
         "Ability5"              "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -53226,6 +53226,7 @@
         "Ability2"              "canyon_boss_ai"
         "Ability3"              "boss_health"
         "Ability4"              "redfall_canyon_boss_passive"
+		"Ability5"				"normal_steadfast"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -53320,6 +53321,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"              "canyon_boss_time_walk"
         "Ability2"              "canyon_boss_ai"
+		"Ability3"				"normal_steadfast"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -53383,7 +53385,7 @@
         }
         "Ability1"  "ash_tree_overgrowth"
         "Ability2"  "redfall_ash_tree_aura"
-        "Ability3"  "fire_temple_steadfast"
+        "Ability3"  "normal_steadfast"
         "Ability4"  "dungeon_creep"
         "Ability5"  ""
         "Ability6"  ""
@@ -53519,7 +53521,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"          "redfall_spirit_of_ashara_passive"
         "Ability2"          "redfall_autumn_mage_passive"
-        "Ability3"          "fire_temple_steadfast"
+        "Ability3"          "normal_steadfast"
         "Ability4"          "dungeon_creep"
         "Creature"
         {
@@ -53818,7 +53820,7 @@
         }
         "Ability1"  "redfall_fenrir_ability"
         "Ability2"  "alpha_wolf_critical_strike"
-        "Ability3"  "fire_temple_steadfast"
+        "Ability3"  "normal_steadfast"
         "Ability4"  "dungeon_creep"
 
     }
@@ -53877,7 +53879,7 @@
         "Ability1"          "redfall_feronia_starfall"
         "Ability2"          "redfall_feronia_arrow"
         "Ability3"          "redfall_feronia_passive"
-        "Ability4"          "fire_temple_steadfast"
+        "Ability4"          "normal_steadfast"
         "Ability5"          "dungeon_creep"
         "Creature"
         {
@@ -54529,7 +54531,7 @@
         "VisionNighttimeRange"  "800"
         "Ability1"      "farmland_shredder_blade"
         "Ability2"      "redfall_shredder_whirling_death"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -55250,7 +55252,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "redfall_demon_farmer_mark"
         "Ability2"      "redfall_demon_farmer_passive"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "dungeon_creep"
         "Creature"
         {
@@ -55316,7 +55318,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "redfall_bloodhunter_summon_wolves"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -55734,7 +55736,7 @@
         "VisionNighttimeRange"  "800"
         "Ability1"      "redfall_skeleton_boss_arrow"
         "Ability2"      "redfall_skeleton_archer_ai"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "use_ability_1_position_ai"
         "Ability5"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -56181,7 +56183,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"              "redfall_void_task_shield"
-        "Ability2"              "fire_temple_steadfast"
+        "Ability2"              "normal_steadfast"
         "Ability3"              "fire_temple_armor_gain_on_attack"
         "Ability4"              "dungeon_creep"
 
@@ -56278,7 +56280,7 @@
         "Ability1"      "shipyard_gatekeeper_explosion"
         "Ability2"      "redfall_shipyard_gatekeeper_skulldigger"
         "Ability3"      "skeleton_king_mortal_strike"
-        "Ability4"      "fire_temple_steadfast"
+        "Ability4"      "normal_steadfast"
         "Ability5"      "dungeon_creep"
         "Ability6"      "use_ability_1_no_target_ai"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -56754,7 +56756,7 @@
         "VisionNighttimeRange"  "800"
         "Ability1"      "arena_magic_immune_breakable_ability"
         "Ability2"      "spirit_breaker_greater_bash"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -56997,7 +56999,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "redfall_shipyard_soul_collector_passive"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -57152,7 +57154,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"              "fire_temple_chaos_knight_bolt"
         "Ability2"              "redfall_void_task_shield"
-        "Ability3"              "fire_temple_steadfast"
+        "Ability3"              "normal_steadfast"
         "Ability4"              "fire_temple_armor_gain_on_attack"
         "Ability5"              "dungeon_creep"
 
@@ -57247,7 +57249,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"              "fire_temple_chaos_knight_bolt"
         "Ability2"              "redfall_void_task_shield"
-        "Ability3"              "fire_temple_steadfast"
+        "Ability3"              "normal_steadfast"
         "Ability4"              "redfall_farm_panda_immolation"
         "Ability5"              "fire_temple_armor_gain_on_attack"
         "Ability6"              "dungeon_creep"
@@ -57344,7 +57346,7 @@
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"  "shipyard_boss_acid_spray"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "shipyard_boss_ai"
         "Ability4"  "shipyard_boss_chemical_rage"
         "Ability5"  "boss_health"
@@ -58243,7 +58245,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"  "redfall_bombadier_ability"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "use_ability_1_position_ai"
         "Ability4"  "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -58343,7 +58345,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"  "redfall_bombadier_rooted_ability"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "use_ability_1_position_ai"
         "Ability4"  "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -58414,7 +58416,7 @@
             "particle"  "particles/units/heroes/hero_treant/treant_overgrowth_cast.vpcf"
         }
         "Ability1"  "redfall_gnarl_tree_aura"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "dungeon_creep"
         "Ability5"  ""
         "Ability6"  ""
@@ -58643,7 +58645,7 @@
         "Ability2"      "castle_sorceress_light_strike_array"
         "Ability3"      "redfall_sorceress_fire_spray"
         "Ability4"      "castle_sorceress_blink_ability"
-        "Ability5"      "redfall_mega_steadfast"
+        "Ability5"      "mega_steadfast"
         "Ability6"      "lina_fiery_soul"
         "Ability7"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -58710,7 +58712,7 @@
         "Ability1"  "ancient_tree_passive"
         "Ability2"  "ancient_tree_summon"
         "Ability3"  "ancient_tree_ground_slam"
-        "Ability4"  "redfall_mega_steadfast"
+        "Ability4"  "mega_steadfast"
         "Ability5"  "dungeon_creep"
         "Ability6"  "boss_health"
         "Ability7"  ""
@@ -58848,7 +58850,7 @@
         }
         "Ability1"  "ancient_tree_summon_leech_seed"
         "Ability2"  "ancient_tree_summon_passive"
-        "Ability3"  "fire_temple_steadfast"
+        "Ability3"  "normal_steadfast"
         "Ability4"  "use_ability_1_target_ai"
         "Ability5"  "dungeon_creep"
 
@@ -58903,7 +58905,7 @@
         "VisionNighttimeRange"  "800"
         "Ability1"      "redfall_crimsyth_castle_boss_ai"
         "Ability2"      "crimsyth_boss_illusion_ability"
-        "Ability3"      "redfall_mega_steadfast"
+        "Ability3"      "mega_steadfast"
         "Ability4"      "redfall_crimsyth_boss_passive"
         "Ability5"      "crimsyth_final_boss_fire_blast"
         "Ability6"      "boss_health"
@@ -59362,7 +59364,7 @@
         }
         "Ability1"  "redfall_hawk_knight_lock_on"
         "Ability2"  "redfall_crimsyth_hawk_soldier_ability"
-        "Ability3"  "fire_temple_steadfast"
+        "Ability3"  "normal_steadfast"
         "Ability4"  "use_ability_1_target_ai"
         "Ability5"  "dungeon_creep"
     }
@@ -60163,7 +60165,7 @@
         "VisionNighttimeRange"  "800"
         "Ability1"  "redfall_erakor_the_sadist_passive"
         "Ability2"  "sadist_blood_bath"
-        "Ability3"  "fire_temple_steadfast"
+        "Ability3"  "normal_steadfast"
         "Ability4"  "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -60310,7 +60312,7 @@
         }
 
         "Ability1"  "redfall_torture_puppet_ai"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "dungeon_creep"
     }
 
@@ -60714,7 +60716,7 @@
         "VisionNighttimeRange"  "800"
         "Ability1"      "redfall_moloth_bombs"
         "Ability2"      "redfall_moloth_passive"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -60998,7 +61000,7 @@
             }
         }
         "Ability1"  "slardar_bash"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "dungeon_creep"
 
     }
@@ -61400,7 +61402,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"  "arena_conquest_frost_bolt"
         "Ability2"  "use_ability_1_target_ai"
-        "Ability3"  "fire_temple_steadfast"
+        "Ability3"  "normal_steadfast"
         "Ability4"  "dungeon_creep"
         "Creature"
         {
@@ -61504,7 +61506,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"              "loki_the_mad_passive"
         "Ability2"              "creature_pure_strike"
-        "Ability3"              "redfall_mega_steadfast"
+        "Ability3"              "mega_steadfast"
         "Ability4"              "dungeon_creep"
         "Creature"
         {
@@ -61826,7 +61828,7 @@
         "DrawParticlesWhileHidden" "1"
         "Ability1"      "creature_black_king_bar"
         "Ability2"      "crimsyth_mage_ability"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -62005,7 +62007,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "red_mist_berserkers_call"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "red_mist_counter_helix"
         "Ability4"      "use_ability_1_no_target_ai"
         "Ability5"      "dungeon_creep"
@@ -62097,7 +62099,7 @@
         "VisionNighttimeRange"  "800"
         "Ability1"      "raging_shaman_passive"
         "Ability2"      "armor_break"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -62194,7 +62196,7 @@
         "Ability2"          "perdition_cold_snap"
         "Ability3"          "creature_black_king_bar"
         "Ability4"          "perdition_raise_dead"
-        "Ability5"          "redfall_mega_steadfast" 
+        "Ability5"          "mega_steadfast" 
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Creature"
@@ -62375,7 +62377,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"              "fortunis_effigy_static_remnant"
         "Ability2"              "redfall_fortunis_passive"
-        "Ability3"              "fire_temple_steadfast"
+        "Ability3"              "normal_steadfast"
         "Ability4"              "use_ability_1_no_target_ai"
         "Ability5"              "dungeon_creep"
         "Creature"
@@ -62649,7 +62651,7 @@
             }
 
         }
-        "Ability1"  "redfall_mega_steadfast"
+        "Ability1"  "mega_steadfast"
         "Ability2"  "slardar_bash"
         "Ability3"  "dungeon_creep"
     }
@@ -62699,7 +62701,7 @@
         "VisionNighttimeRange"  "800"
         "Ability1"      "redfall_crimsyth_guardian_passive"
         "Ability2"      "crimsyth_guardian_sven_warcry"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "dungeon_creep"
 
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -63028,7 +63030,7 @@
         "Ability2"  "antimage_blink_custom"
         "Ability3"  "redfall_garden_watcher_passive"
         "Ability4"  "majinaq_mana_break"
-        "Ability5"  "fire_temple_steadfast"
+        "Ability5"  "normal_steadfast"
         "Ability6"  "dungeon_creep"
     }
 
@@ -63354,7 +63356,7 @@
         "VisionNighttimeRange"  "800"
         "Ability1"      "redfall_wild_leap_demon_knight"
         "Ability2"      "redfall_crimsyth_demon_knight_passive"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "use_ability_1_target_ai"
         "Ability5"      "dungeon_creep"
 
@@ -63508,7 +63510,7 @@
         "Ability1"  "redfall_torture_puppet_ai"
         "Ability2"  "chef_meat_hook"
         "Ability3"  "redfall_crimsyth_cannibal_ai"
-        "Ability4"  "fire_temple_steadfast"
+        "Ability4"  "normal_steadfast"
         "Ability5"  "dungeon_creep"
     }
 
@@ -63659,7 +63661,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "lava_behemoth_fissure"
         "Ability2"      "redfall_lava_behemoth_passive"
-        "Ability3"      "redfall_mega_steadfast"
+        "Ability3"      "mega_steadfast"
         "Ability4"      "use_ability_1_position_ai"
         "Ability5"      "dungeon_creep"
         "Creature"
@@ -63889,7 +63891,7 @@
         "MinimapIcon"               "minimap_tower90"
         "MinimapIconSize"           "320"
         "Ability1"  "serengaard_tower_ability"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "serengaard_structure"
         "Ability4"  ""
         "Ability5"  ""
@@ -64118,7 +64120,7 @@
         "MinimapIcon"               "minimap_racks90"
         "MinimapIconSize"           "320"
         "Ability1"  "serengaard_barracks_ability"
-        "Ability2"  "redfall_mega_steadfast"
+        "Ability2"  "mega_steadfast"
         "Ability3"  "serengaard_structure"
         "Ability4"  ""
         "Ability5"  ""
@@ -64347,7 +64349,7 @@
         "MinimapIcon"               "minimap_ancient"
         "MinimapIconSize"           "320"
         "Ability1"  "serengaard_ancient_ability"
-        "Ability2"  "redfall_mega_steadfast"
+        "Ability2"  "mega_steadfast"
 
         "Ability3"  "serengaard_structure"
         "Ability4"  ""
@@ -65078,7 +65080,7 @@
         "Ability1"  "serengaard_boss_mega_raze"
         "Ability2"  "forest_boss_dive"
         "Ability3"  "serengaard_boss_ai"
-        "Ability4"  "redfall_mega_steadfast"
+        "Ability4"  "mega_steadfast"
     }
 
     "serengaard_siege_archer"
@@ -65497,7 +65499,7 @@
         "Ability2"  "mines_boss_dive"
         "Ability3"  "mines_boss_thunder_storm"
         "Ability4"  "mines_boss_illusions"
-        "Ability5"  "redfall_mega_steadfast"
+        "Ability5"  "mega_steadfast"
     }
 
     "serengaard_engima_raider"
@@ -66282,7 +66284,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "serengaard_final_boss_ability"
         "Ability2"      "serengaard_boss_light_strike_array"
-        "Ability3"      "redfall_mega_steadfast"
+        "Ability3"      "mega_steadfast"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -66530,7 +66532,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "barnacle_ground_slam"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "use_ability_1_target_ai"
         "Ability4"      "dungeon_creep"
         "Creature"
@@ -66685,7 +66687,7 @@
         "VisionNighttimeRange"  "800"
         "Ability1"      "sea_temple_sea_god_attack"
         "Ability2"      "creature_pure_strike"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "water_temple_drowned_sorrrow_ability"
         "Ability5"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -66824,7 +66826,7 @@
         }
         "Ability1"      "sea_fortress_hydrogren_field"
         "Ability2"      "use_ability_1_position_ai"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "dungeon_creep"
     }
 
@@ -66848,7 +66850,7 @@
            "particle"       "particles/items2_fx/smoke_of_deceit.vpcf"
         }
         "Ability1"  "sea_fortress_tree_ability"
-        "Ability2"  "redfall_mega_steadfast"
+        "Ability2"  "mega_steadfast"
         "Ability3"  "dungeon_creep"
         "Ability4"  ""
         "Ability5"  ""
@@ -66988,7 +66990,7 @@
 
         }
         "Ability1"  "sea_fortress_leaflet_passive"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "dungeon_creep"
 
     }
@@ -67063,7 +67065,7 @@
 
         }
         "Ability1"  "sea_fortress_leaflet_passive"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "dungeon_creep"
 
     }
@@ -67121,7 +67123,7 @@
         "Ability1"          "sea_fortress_gust"
         "Ability2"          "use_ability_1_position_ai"
         "Ability3"          "creature_pure_strike"
-        "Ability4"          "fire_temple_steadfast"
+        "Ability4"          "normal_steadfast"
         "Ability5"          "dungeon_creep"
         "Creature"
         {
@@ -67206,7 +67208,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"          "creature_pure_strike"
-        "Ability2"          "fire_temple_steadfast"
+        "Ability2"          "normal_steadfast"
         "Ability3"          "dungeon_creep"
         "Creature"
         {
@@ -67384,7 +67386,7 @@
         }
         "Ability1"  "sea_fortress_scorcher_passive"
         "Ability2"  "ability_stun_immunity"
-        "Ability3"  "fire_temple_steadfast"
+        "Ability3"  "normal_steadfast"
         "Ability4"  "dungeon_creep"
     }
 
@@ -67527,7 +67529,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"              "sea_fortress_mountain_beast_ability"
-        "Ability2"              "redfall_mega_steadfast"
+        "Ability2"              "mega_steadfast"
         "Ability3"              "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -67755,7 +67757,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"  "ability_quake_path"
         "Ability2"  "ability_avalanche_skin"
-        "Ability3"  "redfall_mega_steadfast"
+        "Ability3"  "mega_steadfast"
         "Ability4"  "wind_crusher_defense"
         "Ability5"  "use_ability_1_position_ai"
         "Ability6"  "dungeon_creep"
@@ -68066,7 +68068,7 @@
         "Ability3"          "ol_spiny_passive"
         "Ability4"          "ability_mega_haste"
         "Ability5"          "armor_break_ultra"
-        "Ability6"          "redfall_mega_steadfast"
+        "Ability6"          "mega_steadfast"
         "Ability7"          "furbolg_blade_mail"
         "Ability8"          "dungeon_creep"
     }
@@ -68119,7 +68121,7 @@
         "Ability2"      "creature_pure_strike"
         "Ability3"      "seven_visions"
         "Ability4"      "spirit_breaker_greater_bash"
-        "Ability5"      "redfall_mega_steadfast"
+        "Ability5"      "mega_steadfast"
         "Ability6"      "duskbringer_arcana_terrorize_phantom_plasma"
         "Ability7"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -68227,7 +68229,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "dragon_regen"
         "Ability2"      "ability_stun_immunity"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "dungeon_creep"
         "Creature"
         {
@@ -68483,7 +68485,7 @@
         "Ability1"      "tanari_soul_arrows"
         "Ability2"      "water_temple_drowned_sorrrow_ability"
         "Ability3"      "swamp_lady_passive"
-        "Ability4"      "redfall_mega_steadfast"
+        "Ability4"      "mega_steadfast"
         "Ability5"      "swamp_lady_shield"
         "Ability6"      "dungeon_creep"
         "Creature"
@@ -68745,7 +68747,7 @@
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "tanari_soul_arrows"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "swamp_lady_summoner_passive"
         "Ability4"      "dungeon_creep"
         "Creature"
@@ -68883,7 +68885,7 @@
         "Ability1"  "sea_fortress_revenant_passive"
         "Ability2"  "ability_mega_haste"
         "Ability3"  "armor_break_ultra"
-        "Ability4"  "fire_temple_steadfast"
+        "Ability4"  "normal_steadfast"
         "Ability5"  "dungeon_creep"
     }
 
@@ -69098,7 +69100,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "seafortress_golden_shell"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "dungeon_creep"
         "Creature"
         {
@@ -69187,7 +69189,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "seafortress_exiler_ability"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -69565,7 +69567,7 @@
         "Ability2"              "use_ability_1_no_target_ai"
         "Ability3"              "ursa_overpower"
         "Ability4"              "seafortress_ancient_ursan_passive"
-        "Ability5"              "redfall_mega_steadfast"
+        "Ability5"              "mega_steadfast"
         "Ability6"              "dungeon_creep"
         "Creature"
         {
@@ -69666,7 +69668,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "tanari_soul_arrows"
         "Ability2"      "water_medusa_passive"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "dungeon_creep"
         "Creature"
         {
@@ -69854,7 +69856,7 @@
         "Ability1"      "zharkaz_passive"
         "Ability2"      "zharkaz_jump_crush"
         "Ability3"      "ability_stun_immunity"
-        "Ability4"      "redfall_mega_steadfast"
+        "Ability4"      "mega_steadfast"
         "Ability5"      "dungeon_creep"
         "Creature"
         {
@@ -69960,7 +69962,7 @@
         "Ability1"      "prison_guard_water_chanel"
         "Ability2"      "use_ability_1_no_target_ai"
         "Ability3"      "slardar_bash"
-        "Ability4"      "fire_temple_steadfast"
+        "Ability4"      "normal_steadfast"
         "Ability5"      "dungeon_creep"
         "Creature"
         {
@@ -70441,7 +70443,7 @@
         "Ability1"  "seafortress_generic_summon"
         "Ability2"  "use_ability_1_no_target_ai"
         "Ability3"  "seafortress_borrowed_time_passive"
-        "Ability4"  "fire_temple_steadfast"
+        "Ability4"  "normal_steadfast"
         "Ability5"  "dungeon_creep"
         "Creature"
         {
@@ -70541,7 +70543,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"  "seafortress_sea_rider_passive"
         "Ability2"  "ability_mega_haste"
-        "Ability3"  "redfall_mega_steadfast"
+        "Ability3"  "mega_steadfast"
         "Ability4"  "dungeon_creep"
 
 
@@ -70641,7 +70643,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"  "chef_meat_hook"
-        "Ability2"  "redfall_mega_steadfast"
+        "Ability2"  "mega_steadfast"
         "Ability3"  "seafortress_jailer_passive"
         "Ability4"  "redfall_garden_watcher_passive"
 
@@ -70746,7 +70748,7 @@
         "Ability1"      "seafortress_infernal_jailer_passive"
         "Ability2"      "slardar_bash"
         "Ability3"      "ability_magic_immune_break"
-        "Ability4"      "fire_temple_steadfast"
+        "Ability4"      "normal_steadfast"
         "Ability5"      "dungeon_creep"
         "Creature"
         {
@@ -70921,7 +70923,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "mekanoid_battery_assault"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "dungeon_creep"
         "Creature"
         {
@@ -71195,7 +71197,7 @@
         "VisionNighttimeRange"  "800"
         "Ability1"      "sea_fortress_overwhelming_odds"
         "Ability2"      "arena_master_duelist_passive"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "seafortress_duel"
         "Ability5"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -71293,7 +71295,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "arena_magic_immune_breakable_ability"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "seafortress_rock_breaker_passive"
         "Ability4"      "armor_break_ultra"
         "Ability5"      "dungeon_creep"
@@ -71420,7 +71422,7 @@
             }
 
         }
-        "Ability1"          "redfall_mega_steadfast"
+        "Ability1"          "mega_steadfast"
         "Ability2"          "armor_break_ultra"
         "Ability3"          "slardar_bash"
         "Ability4"          "dungeon_creep"
@@ -71475,7 +71477,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "seafortress_explosive_skin_passive"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "armor_break"
         "Ability4"      "dungeon_creep"
         "Creature"
@@ -71658,7 +71660,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"  "seafortress_plasma_field"
         "Ability2"  "seafortress_zot_passive"
-        "Ability3"  "fire_temple_steadfast"
+        "Ability3"  "normal_steadfast"
         "Ability4"  "dungeon_creep"
         "Creature"
         {
@@ -72068,7 +72070,7 @@
         }
         "Ability1"  "seafortress_hoof_stomp"
         "Ability2"  "seafortress_stun_regen"
-        "Ability3"  "fire_temple_steadfast"
+        "Ability3"  "normal_steadfast"
         "Ability4"  "use_ability_1_no_target_ai"
         "Ability5"  "dungeon_creep"
     }
@@ -72315,7 +72317,7 @@
         "Ability2"              "solos_burning_spear"
         "Ability3"              "seafortress_heart_spike"
         "Ability4"              "troll_warlord_fervor"
-        "Ability5"              "fire_temple_steadfast"
+        "Ability5"              "normal_steadfast"
         "Ability6"              "use_ability_1_position_ai"
         "Ability7"              "dungeon_creep"
 
@@ -72477,7 +72479,7 @@
         
         "Ability1"                  "seafortress_giga_ocean_elemental_ability"  
         "Ability2"                  "ability_elemental_resistance"         
-        "Ability3"                  "redfall_mega_steadfast"         
+        "Ability3"                  "mega_steadfast"         
         "Ability4"                  "dungeon_creep"          
         "Ability5"                  ""         
         "Ability6"                  ""          
@@ -72899,7 +72901,7 @@
         "VisionNighttimeRange"  "2000"
         "Ability1"              "seafortress_sea_prophet_whirlpool"
         "Ability2"              "seafortress_starfall_aura"
-        "Ability3"              "fire_temple_steadfast"
+        "Ability3"              "normal_steadfast"
         "Ability4"              "use_ability_1_position_ai"
         "Ability5"              "dungeon_creep"
         "Ability6"              "seafortress_sea_prophet_passive"
@@ -73434,7 +73436,7 @@
         }
         "Ability1"  "seafortress_thunder_quake"
         "Ability2"  "shield_block"
-        "Ability3"  "fire_temple_steadfast"
+        "Ability3"  "normal_steadfast"
         "Ability4"  "use_ability_1_position_ai"
         "Ability5"  "dungeon_creep"
     }
@@ -73484,7 +73486,7 @@
         "Ability1"      "seafortress_poseidon_dash"
         "Ability2"      "creature_black_king_bar"
         "Ability3"      "ability_magic_immune_break"
-        "Ability4"      "fire_temple_steadfast"
+        "Ability4"      "normal_steadfast"
         "Ability5"      "monkey_king_boundless_strike"
         "Ability6"      "creature_pure_strike"
         "Ability7"      "use_ability_1_position_ai"
@@ -73724,7 +73726,7 @@
         "Ability1"  "seafortress_ahn_qhir_passive"
         "Ability2"  "seafortress_ahn_khir_dash"
         "Ability3"  "juggernaut_blade_dance"
-        "Ability4"  "fire_temple_steadfast"
+        "Ability4"  "normal_steadfast"
         "Ability5"  "dungeon_creep"
     }
 
@@ -73959,7 +73961,7 @@
         "Ability1"              "seafortress_sapphire_dragon_passive"
         "Ability2"              "ability_magic_immune_break"
         "Ability3"              "armor_break_ultra"
-        "Ability4"              "fire_temple_steadfast"
+        "Ability4"              "normal_steadfast"
         "Ability5"              "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -74129,7 +74131,7 @@
 
         "Ability1"  "dragon_warrior_passive"
         "Ability2"  "ability_mega_haste"
-        "Ability3"  "redfall_mega_steadfast"
+        "Ability3"  "mega_steadfast"
         "Ability4"  "troll_warlord_fervor"
         "Ability5"  "armor_break"
         "Ability6"  "dungeon_creep"
@@ -74216,7 +74218,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"  "seafortress_dark_spirit_passive"
         "Ability2"  "armor_break_ultra"
-        "Ability3"  "redfall_mega_steadfast"
+        "Ability3"  "mega_steadfast"
         "Ability4"  "dungeon_creep"
         "Creature"
         {
@@ -74312,7 +74314,7 @@
         "VisionNighttimeRange"  "800"
         "Ability1"      "arena_conquest_impale"
         "Ability2"      "seafortress_undead_pirate_aura"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "use_ability_1_position_ai"
         "Ability5"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -74485,7 +74487,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "barnacle_ground_slam"
         "Ability2"      "seafortress_colossus_ability"
-        "Ability3"      "redfall_mega_steadfast"
+        "Ability3"      "mega_steadfast"
         "Ability4"      "ability_stun_immunity"
         "Ability5"      "use_ability_1_target_ai"
         "Ability6"      "dungeon_creep"
@@ -74816,7 +74818,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"  "stalacor_stone_toss_ability"
         "Ability2"  "stalacorr_passive"
-        "Ability3"  "redfall_mega_steadfast"
+        "Ability3"  "mega_steadfast"
         "Ability4"  "ability_stun_immunity"
         "Ability5"  "dungeon_creep"
         "Ability6"  "use_ability_1_target_ai"
@@ -74993,7 +74995,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"              "seafortress_ghost_seal_ability"
-        "Ability2"              "fire_temple_steadfast"
+        "Ability2"              "normal_steadfast"
         "Ability3"              "dungeon_creep"  
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -75059,7 +75061,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "furbolg_blade_mail"
-        "Ability2"      "redfall_mega_steadfast"
+        "Ability2"      "mega_steadfast"
         "Ability3"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -75132,7 +75134,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "dark_reef_guard_channel"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -75217,7 +75219,7 @@
         "Ability1"      "slithereen_royal_guard_gush"
         "Ability2"      "dark_reef_guard_channel"
         "Ability3"      "creature_black_king_bar"
-        "Ability4"      "fire_temple_steadfast"
+        "Ability4"      "normal_steadfast"
         "Ability5"      "dungeon_creep"
         "Ability6"      "use_ability_1_target_ai"
         "Creature"
@@ -75402,7 +75404,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"     "naga_summoner_ability"
         "Ability2"     "dark_reef_guard_channel"
-        "Ability3"     "redfall_mega_steadfast"
+        "Ability3"     "mega_steadfast"
         "Ability4"     "ability_stun_immunity"
         "Ability5"     "slardar_bash"
         "Creature"
@@ -75478,7 +75480,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "seafortress_centaur_slam"
-        "Ability2"     "redfall_mega_steadfast"
+        "Ability2"     "mega_steadfast"
         "Ability3"      "use_ability_1_target_ai"
         "Ability4"     "dungeon_creep"
         "Creature"
@@ -75554,7 +75556,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "seafortress_hoof_stomp"
-        "Ability2"     "redfall_mega_steadfast"
+        "Ability2"     "mega_steadfast"
         "Ability3"      "seafortress_centaur_slam"
         "Ability4"      "creature_black_king_bar"
         "Ability5"     "dungeon_creep"
@@ -75641,7 +75643,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"     "seafortress_siltbreaker_passive"
         "Ability2"     "siltbreaker_channel"
-        "Ability3"      "redfall_mega_steadfast"
+        "Ability3"      "mega_steadfast"
         "Ability4"      "siltbreaker_whirlpool"
         "Ability5"      "siltbreaker_amplify_damage"
         "Ability6"      "slardar_bash"
@@ -75721,7 +75723,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"     "sea_giant_boss_passive"
         "Ability2"     "sea_giant_split_earth"
-        "Ability3"     "redfall_mega_steadfast"
+        "Ability3"     "mega_steadfast"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -75896,7 +75898,7 @@
         "Ability2"          "armor_break_ultra"
         "Ability3"          "sea_oracle_attack_buff"
         "Ability4"          "sea_oracle_wave_push" 
-        "Ability5"          "fire_temple_steadfast"
+        "Ability5"          "normal_steadfast"
         "Ability6"          "ability_stun_immunity"
         "Ability7"          "ability_magic_immune_break"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -76244,7 +76246,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "archon_golem_ground_slam"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "use_ability_1_target_ai"
         "Ability4"      "dungeon_creep"
         "Creature"
@@ -76314,7 +76316,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"     "seafortress_crusader_comet"
         "Ability2"     "ability_mega_haste"
-        "Ability3"     "redfall_mega_steadfast"
+        "Ability3"     "mega_steadfast"
         "Ability4"     "use_ability_1_position_ai"
         "Ability5"     "dungeon_creep"
         "Creature"
@@ -76396,7 +76398,7 @@
         "Ability1"          "seafortress_final_boss_passive"
         "Ability2"          "seafortress_final_boss_jump"
         "Ability3"          "ability_stun_immunity"
-        "Ability4"          "fire_temple_steadfast"
+        "Ability4"          "normal_steadfast"
         "Ability5"          "armor_break_ultra"
         "Ability6"          "boss_health"
         "Ability7"          "dungeon_creep"
@@ -76797,7 +76799,7 @@
             "particle"  "particles/generic_hero_status/status_invisibility_start.vpcf"
         }
         "Ability1"  "thicket_growth_ability"
-        "Ability2"  "fire_temple_steadfast"
+        "Ability2"  "normal_steadfast"
         "Ability3"  "dungeon_creep"
         "Ability4"  ""
         "Ability5"  ""
@@ -76924,7 +76926,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"              "tanari_wind_spirit_passive"
-        "Ability2"              "fire_temple_steadfast"
+        "Ability2"              "normal_steadfast"
         "Ability3"              "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -77632,7 +77634,7 @@
         "Ability1"  "wind_temple_leech_seed"
         "Ability2"  "use_ability_1_target_ai"
         "Ability3"  "wind_crystal_tree_passive"
-        "Ability4"  "redfall_mega_steadfast"
+        "Ability4"  "mega_steadfast"
         "Ability5"  "dungeon_creep"
         "Ability6"  ""
         "Ability7"  ""
@@ -77929,7 +77931,7 @@
         "Ability1"      "wind_demon_static_storm"
         "Ability2"      "tanari_wind_demon_passive"
         "Ability3"      "use_ability_1_position_ai"
-        "Ability4"      "redfall_mega_steadfast"
+        "Ability4"      "mega_steadfast"
         "Ability5"      "dungeon_creep"
         "Creature"
         {
@@ -79259,7 +79261,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "tanari_korlazeen_shield"
         "Ability2"      "water_temple_boss_world_crush"
-        "Ability3"      "fire_temple_steadfast"
+        "Ability3"      "normal_steadfast"
         "Ability4"      "dungeon_creep"
         "Creature"
         {
@@ -79681,7 +79683,7 @@
         }
         "Ability1"          "tanari_ice_queen_passive"
         "Ability2"          "creature_pure_strike"
-        "Ability3"          "fire_temple_steadfast"
+        "Ability3"          "normal_steadfast"
         "Ability4"          "dungeon_creep"
     }
 
@@ -79786,7 +79788,7 @@
         }
         "Ability1"  "water_spirit_main_boss_ability"
         "Ability2"  "water_spirit_main_boss_charged"
-        "Ability3"  "fire_temple_steadfast"
+        "Ability3"  "normal_steadfast"
         "Ability4"  "boss_health"
         "Ability5"  ""
         "Ability6"  ""
@@ -79877,7 +79879,7 @@
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
-        "Ability1"      "fire_temple_steadfast"
+        "Ability1"      "normal_steadfast"
         "Ability2"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -80327,7 +80329,7 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"              "fire_temple_steadfast"
+        "Ability1"              "normal_steadfast"
         "Ability2"              "gorthos_passive"
         "Ability3"              "redfall_farm_panda_immolation"
         "Ability4"              "dungeon_creep"
@@ -80417,7 +80419,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "tanari_flame_charge"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "use_ability_1_position_ai"
         "Ability4"      "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -80775,7 +80777,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "fire_temple_inferno"
-        "Ability2"      "fire_temple_steadfast"
+        "Ability2"      "normal_steadfast"
         "Ability3"      "use_ability_1_position_ai"
         "Ability4"      "dungeon_creep"
         "Creature"
@@ -80991,7 +80993,7 @@
         }
         "Ability1"      "fire_temple_siege_hulker_passive"
         "Ability2"      "redfall_farm_panda_immolation"
-        "Ability3"      "redfall_mega_steadfast"
+        "Ability3"      "mega_steadfast"
         "Ability4"      "dungeon_creep"
 
     }
@@ -81067,7 +81069,7 @@
         "Ability1"  "fire_temple_demon_watcher_passive"
         "Ability2"  "creature_pure_strike_2"
         "Ability3"  "redfall_farm_panda_immolation"
-        "Ability4"  "fire_temple_steadfast"
+        "Ability4"  "normal_steadfast"
         "Ability5"  "dungeon_creep"
     }
 
@@ -81142,7 +81144,7 @@
         "Ability2"  "fire_spirit_breath"
         "Ability3"  "fire_temple_inferno2"
         "Ability4"  "roshan_bash"
-        "Ability5"  "fire_temple_steadfast"
+        "Ability5"  "normal_steadfast"
         "Ability6"  "boss_health"
     }
 

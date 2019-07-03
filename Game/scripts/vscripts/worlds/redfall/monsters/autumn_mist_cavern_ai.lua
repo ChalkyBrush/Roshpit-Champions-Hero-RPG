@@ -918,14 +918,13 @@ function redfall_canyon_boss_death_check(event)
 	else
 		if caster:GetHealth() < 50 then
 			if caster.paragonDummy == nil or caster.buddiesSlain + 1 == caster.packSize then
-				redfall_canyon_boss_kill_clones(caster)
+				redfall_canyon_boss_kill_clones()
 				StartAnimation(caster, {duration = 7, activity = ACT_DOTA_FLAIL, rate = 1})
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_dying_generic", {duration = 20})
 				CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 				caster.deathStart = true
 				CanyonBossDeath(caster, ability)
 			else
-				redfall_canyon_boss_kill_clones(caster)
 				CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 				caster:ForceKill(false)
 			end
@@ -933,12 +932,11 @@ function redfall_canyon_boss_death_check(event)
 	end
 end
 
-function redfall_canyon_boss_kill_clones(boss)
-	if #boss.children > 0 then
-		for i = 1, #boss.children, 1 do
-			if IsValidEntity(boss.children[i]) then
-				boss.children[i].parentDead = true
-				boss.children[i]:ForceKill(false)
+function redfall_canyon_boss_kill_clones()
+	if #Redfall.CanyonBossClones > 0 then
+		for i = 1, #Redfall.CanyonBossClones, 1 do
+			if IsValidEntity(Redfall.CanyonBossClones[i]) then
+				Redfall.CanyonBossClones[i]:ForceKill(false)
 			end
 		end
 	end

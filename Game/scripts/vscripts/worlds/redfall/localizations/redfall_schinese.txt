@@ -761,9 +761,9 @@
 		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega_Description"	"授予免疫魔法。魔法免疫盾可以在攻击后破坏."	
 		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega_stacks"		"充能:"
 
-		"DOTA_Tooltip_ability_redfall_mega_steadfast"							"高级坚定"
-		"DOTA_Tooltip_ability_redfall_mega_steadfast_Description"				"每个伤害的实例不能超过最大生命值的百分之一."
-		"DOTA_Tooltip_ability_redfall_mega_steadfast_max_damage"				"血量 % 最大:"
+		"DOTA_Tooltip_ability_mega_steadfast"							"高级坚定"
+		"DOTA_Tooltip_ability_mega_steadfast_Description"				"每个伤害的实例不能超过最大生命值的百分之一."
+		"DOTA_Tooltip_ability_mega_steadfast_max_damage"				"血量 % 最大:"
 
 		"redfall_crimsyth_castle_grounds_guardian"						"城堡地面监护人"
 

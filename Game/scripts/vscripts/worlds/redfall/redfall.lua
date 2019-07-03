@@ -958,6 +958,7 @@ function Redfall:SpawnAncientTree()
       isAggro = false,
       deathModifier = nil,
       enemyType = ENEMY_TYPE_MAJOR_BOSS,
+	  canBeParagonPack = false,
       creepFunction = creepFunction
     }
   end)
@@ -978,6 +979,7 @@ function Redfall:SpawnAncientTreeSummon(position, fv)
     isAggro = true,
     deathModifier = nil,
     enemyType = ENEMY_TYPE_WEAK_CREEP,
+	canBeParagonPack = false,
     creepFunction = creepFunction
   }
   return unit

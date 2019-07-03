@@ -39,7 +39,7 @@ function earth_deity(event)
 	end
 	earthquake:SetLevel(ability:GetLevel())
 	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
-		caster.earthAspect:AddAbility("fire_temple_steadfast"):SetLevel(1)
+		caster.earthAspect:AddAbility("normal_steadfast"):SetLevel(1)
 	end
 	caster:SwapAbilities("summon_earth_deity", "arcana_earth_shock", false, true)
 	ability:ApplyDataDrivenModifier(caster, caster.earthAspect, "modifier_earth_aspect_health", {})
