@@ -258,24 +258,25 @@ function CavernRecordsLoaded(msg){
 	}else{
 		right_record_panel.BLoadLayoutSnippet("winter_cavern_no_record")
 	}
-	var global_hero_record = 0
+	var global_overall_record = 0
 	if (!(msg.wb_data[chamber_index][event_index]["world_record"] === undefined)){
-		global_hero_record = msg.wb_data[chamber_index][event_index]["world_record"]["level"]
+		global_overall_record = msg.wb_data[chamber_index][event_index]["world_record"]["level"]
 	}
 	cavern_ui_panel.FindChildTraverse('chamber-record-bottom2').RemoveAndDeleteChildren()
 	var right_record_panel_bottom = $.CreatePanel("Panel", cavern_ui_panel.FindChildTraverse('chamber-record-bottom2'), "cavern_records_right2")
-	if (global_hero_record > 0){
+	if (global_overall_record > 0){
 		right_record_panel_bottom.BLoadLayoutSnippet("winter_cavern_individual_record")
 		var steam_id_long = msg.wb_data[chamber_index][event_index]["world_record"]["steam_id_long"]
 		var hero_name = msg.wb_data[chamber_index][event_index]["world_record"]["hero_name"]
+		right_record_panel_bottom.FindChildTraverse('hero_portrait').SetImage("file://{images}/heroes/" + hero_name + ".png")
+		right_record_panel_bottom.FindChildTraverse('player_avatar').steamid = steam_id_long
+		right_record_panel_bottom.FindChildTraverse('dota_player_name').steamid = steam_id_long
+		right_record_panel_bottom.FindChildTraverse('record_label').text = $.Localize("arena_prizebox_level") + ": " + global_overall_record
 	}else{
 		right_record_panel_bottom.BLoadLayoutSnippet("winter_cavern_no_record")
 	}
 	
-	right_record_panel_bottom.FindChildTraverse('hero_portrait').SetImage("file://{images}/heroes/" + hero_name + ".png")
-	right_record_panel_bottom.FindChildTraverse('player_avatar').steamid = steam_id_long
-	right_record_panel_bottom.FindChildTraverse('dota_player_name').steamid = steam_id_long
-	right_record_panel_bottom.FindChildTraverse('record_label').text = $.Localize("arena_prizebox_level") + ": " + global_overall_record
+
 }
 
 function get_event_difficulty_max(difficulty, stones)
