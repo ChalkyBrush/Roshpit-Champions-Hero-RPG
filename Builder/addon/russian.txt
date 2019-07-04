@@ -902,8 +902,8 @@
 		"DOTA_Tooltip_ability_item_reanimation_stone"	"Reanimation Stone"
 		"reanimation_stone_desc"	"Сбрасывает все уровни Рун и Умений в изначальное состояние, возвращая все очки для повторного распределения."
 
-		"DOTA_Tooltip_ability_item_rpc_synthesis_vessel"	"Синтезирующий сосуд"
-		"synthesis_vessel_desc"								"Использование: Соедините 2 предмета, чтобы получить новый. В случае неудачного синтеза сосуд не будет потрачен."
+		"DOTA_Tooltip_ability_item_rpc_synthesis_vessel"	"Синтезирующий Сосуд"
+		"synthesis_vessel_desc"								"Соедините 2 предмета, чтобы получить новый. В случае неудачного синтеза сосуд не будет потрачен."
 		"synthesize_button"									"Синтезировать"
 
 		"DOTA_Tooltip_ability_item_rpc_galactic_arcana_cache_piece_1"	"Галактический кейс с арканами часть 1"
@@ -915,10 +915,10 @@
 		"item_rpc_galactic_arcana_cache_desc"							"Использование: выбрасывает 3 случайных арканы к вашим ногам. Уровень предмета зависит от уровня Излучения кейса."
 
 		"DOTA_Tooltip_ability_item_rpc_currency_reroll"				"Arcana Plasma"
-		"item_rpc_currency_reroll_desc"								"Use: Combine with an Arcana item in a Synthesis Vessel to transmogrify its properties, keeping only better rolls."
+		"item_rpc_currency_reroll_desc"								"Используйте в Синтезирующем Сосуде вместе с предметом-Арканой, чтобы модифицировать показатели на ней. Показатели гарантированно улучшаются или остаются прежними."
 
 		"DOTA_Tooltip_ability_item_rpc_currency_whetstone"			"Ultraforger"
-		"item_rpc_currency_whetstone_desc"							"Use: Combine with a Weapon in a Synthesis Vessel to upgrade it to its max level."
+		"item_rpc_currency_whetstone_desc"							"Используйте в Синтезирующем Сосуде вместе с Оружием, чтобы сразу же поднять его до максимального уровня."
 		
 		"cache_radiance"									"Излучение"
 
@@ -1018,68 +1018,68 @@
 
 		"dialogue_glyph_shop_one"	"Я могу обменять твои Темные Кристаллы на нечто большее..."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_1"	"(T1) Глиф Малой Силы"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_1"	"(T1) Glyph of Lesser Strength"
 		"item_rpc_neutral_glyph_1_1_description" 			"Увеличивает Силу на @glyph_property1"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_1"	"(T2) Глиф Снаряжения"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_1"	"(T2) Glyph of Items"
 		"item_rpc_neutral_glyph_2_1_description" 			"Увеличивает урон, напрямую наносимый предметами на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_1"	"(T3) Глиф Полёта"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_1"	"(T3) Glyph of Flight"
 		"item_rpc_neutral_glyph_3_1_description"			"Максимальная скорость передвижения увеличена до @glyph_property1"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_1"	"(T4) Глиф Обновления"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_1"	"(T4) Glyph of Renewal"
 		"item_rpc_neutral_glyph_4_1_description" 			"Снижает время возрождения на @glyph_property1%, а герой возрождается на месте своей смерти. Если герой повторно умирает в течении @glyph_property2 секунд, местом возрождения станет установленный Флаг возрождения или место на карте по умолчанию."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_1"	"(T5) Глиф Возведения Стены"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_1"	"(T5) Glyph of Walling"
 		"item_rpc_neutral_glyph_5_1_description" 			"Сокращает ВЕСЬ получаемый урон на @glyph_property1% и уменьшает весь наносимый урон на @glyph_property2%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_1"	"(T6) Глиф Войны"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_1"	"(T6) Glyph of War"
 		"item_rpc_neutral_glyph_6_1_description" 			"Увеличивает основной урон на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_1"	"(T7) Глиф Высшей Силы"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_1"	"(T7) Glyph of Grand Strength"
 		"item_rpc_neutral_glyph_7_1_description" 			"Увеличивает Cилу на @glyph_property2% или на @glyph_property1, в зависимости от того, какое число выше."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"(T1) Глиф Малой Ловкости"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"(T1) Glyph of Lesser Agility"
 		"item_rpc_neutral_glyph_1_2_description" 			"Увеличивает Ловкость на @glyph_property1"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_2"	"(T2) Глиф Способности"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_2"	"(T2) Glyph of Ability"
 		"item_rpc_neutral_glyph_2_2_description" 			"Увеличивает базовый урон способностей на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_2"	"(T3) Глиф Уворота"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_2"	"(T3) Glyph of Avoidance"
 		"item_rpc_neutral_glyph_3_2_description" 			"Увеличивает уклонение на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_2"	"(T4) Глиф Убийцы Гигантов"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_2"	"(T4) Glyph of the Giant Slayer"
 		"item_rpc_neutral_glyph_4_2_description" 			"Увеличивает урон против существ со свойством 'Стойкость' и 'Мега стойкость'. Граница для 'Стойкости' снижается до @glyph_property1% от их макс. здоровья (от 3%), граница 'Мега стойкости' снижается до @glyph_property2% (от 0.5%). Все бонусы к пост-резистному урону снижаются против этих врагов до @glyph_property3% от общего значения против 'Стойкость' и @glyph_property4% против 'Мега стойкости'. (Стойкость древних не подвергается этому эффекту.). Дополнительно, весь урон против врагов без стойкости снижается на @glyph_property5%."
 
 		
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_2"	"(T5) Глиф Берсерка"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_2"	"(T5) Glyph of Berserking"
 		"item_rpc_neutral_glyph_5_2_description" 			"Увеличивает ВЕСЬ получаемый урон на @glyph_property1% и увеличивает весь наносимый урон на @glyph_property2%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_2"	"(T6) Глиф Предрасположенности"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_2"	"(T6) Glyph of Aptitude"
 		"item_rpc_neutral_glyph_6_2_description" 			"Увеличивает основной урон Нормальной стихии на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_2"	"(T7) Глиф Высшей Ловкости"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_2"	"(T7) Glyph of Grand Agility"
 		"item_rpc_neutral_glyph_7_2_description" 			"Увеличивает Ловкость на @glyph_property2% или на @glyph_property1, в зависимости от того, какое число выше."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"(T1) Глиф Малой Мудрости"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"(T1) Glyph of Lesser Intelligence"
 		"item_rpc_neutral_glyph_1_3_description" 			"Увеличивает Интеллект на @glyph_property1"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_3"	"(T2) Глиф Стихий"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_3"	"(Т2) Glyph of Elements"
 		"item_rpc_neutral_glyph_2_3_description" 			"Увеличивает весь стихийный урон на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_3"	"(T3) Глиф Скорохода"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_3"	"(T3) Glyph of Fleeting"
 		"item_rpc_neutral_glyph_3_3_description" 			"Уменьшает время перезарядки (E) @Ability3 на @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"(T4) Глиф Гурмана"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"(T4) Glyph of the Gourmand"
 		"item_rpc_neutral_glyph_4_3_description" 			"Эффекты всех зелий при использовании увеличиваются на @glyph_property1%. Дополнительно позволяет герою автоматически подбирать и использовать зелья в радиусе 400 каждые 0.5 секунды."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_3"	"(T5) Глиф Варварства"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_3"	"(T5) Glyph of Barbarism"
 		"item_rpc_neutral_glyph_5_3_description" 			"Увеличивает ВЕСЬ наносимый физический урон на @glyph_property1%, но уменьшает весь наносимый магический урон на @glyph_property2%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_3"	"(T6) Глиф Волшебства"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_3"	"(T6) Glyph of Sorcery"
 		"item_rpc_neutral_glyph_6_3_description" 			"Увеличивает весь наносимый магический урон на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"(T7) Глиф Высшего Интеллекта"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"(T7) Glyph of Grand Intelligence"
 		"item_rpc_neutral_glyph_7_3_description" 			"Увеличивает Интеллект на @glyph_property2% или на @glyph_property1, в зависимости от того, какое число выше."
 
 		//FLAMEWAKER
