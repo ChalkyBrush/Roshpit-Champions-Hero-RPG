@@ -147,6 +147,11 @@
 				</Panel>						
 			</Panel>
 		</snippet>
+		<snippet name="winter_cavern_no_record">
+			<Panel class="winter_cavern_no_record_container">
+					<Label id="no_record_label" text="cavern_ui_no_record" />
+			</Panel>
+		</snippet>
 		<snippet name="winter_cavern_event">
 			<Panel class="winter_cavern_event_root">
 					<Button id="winter_cavern_event_button" class="winter_cavern_button_not_highlighted">

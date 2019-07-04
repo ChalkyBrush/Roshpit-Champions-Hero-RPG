@@ -669,6 +669,7 @@ function Winterblight:CompleteChamberEvent(chamber, position)
 		local reward = Winterblight.CavernData.Chambers[chamber]["events"][event_index]["relic_fragments_reward"]
 		local hero_index = Winterblight.CavernData.Chambers[chamber]["hero"]
 		local hero = EntIndexToHScript(hero_index)
+		Winterblight.CavernData.Chambers[chamber]["events"][event_index]["status"] = 1
 		Winterblight:DisperseRelicFragments(position, reward, hero, chamber, event_index)
 		ClearChamberUnits(chamber)
 		Timers:CreateTimer(1, function()

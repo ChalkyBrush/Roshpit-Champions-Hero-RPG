@@ -61,7 +61,16 @@ function ChamberButtonActivate(index, msg){
 		cavern_event_button_panel.BLoadLayoutSnippet("winter_cavern_event")
 		cavern_event_button_panel.FindChildTraverse('winter_event_button_label').text = i
 		var cavern_event_button = cavern_event_button_panel.FindChildTraverse('winter_cavern_event_button')
-		setChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_container, cavern_event_button, i, index)
+
+		var fragments = parseInt(msg.winterblight_cavern.Chambers[index]["events"][i]["relic_fragments_rewarded"])
+
+		setChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_container, cavern_event_button, i, index, fragments)
+		var status = parseInt(msg.winterblight_cavern.Chambers[index]["events"][i]["status"])
+		if (status == 1){
+			cavern_event_button.FindChildTraverse('winter_event_button_label').AddClass("green_text")
+		}else{
+			cavern_event_button.FindChildTraverse('winter_event_button_label').AddClass("white_text")
+		}
 	}
 	var backBtn = cavern_ui_panel.FindChildTraverse('winterblight_cavern_back_button')
 	backBtn.SetPanelEvent('onactivate', function Back() {
@@ -70,13 +79,13 @@ function ChamberButtonActivate(index, msg){
 	});
 }
 
-function setChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_container, button, index, chamber_index){
+function setChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_container, button, index, chamber_index, fragments){
 	button.SetPanelEvent('onactivate', function ChamberEvent() {
-		ChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_container, button, index, chamber_index);
+		ChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_container, button, index, chamber_index, fragments);
 	});
 }
 
-function ChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_container, button, index, chamber_index){
+function ChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_container, button, index, chamber_index, fragments){
 	cavern_ui_panel.FindChildTraverse('chamber_event_start_container2').AddClass('invisible')
 	for (var i = 1; i <= event_count; i++) {
 		if (i == index){
@@ -92,6 +101,12 @@ function ChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_contai
 	cavern_ui_panel.FindChildTraverse('winterblight_chamber_event_title').text = $.Localize("winterblight_cavern_room"+chamber_index+"_event"+index)
 	cavern_ui_panel.FindChildTraverse('winterblight_chamber_event_description').text = $.Localize("winterblight_cavern_room"+chamber_index+"_event"+index+"_description")
 	var fragments_gained = "???"
+	if (fragments > 0){
+		fragments_gained = fragments
+		cavern_ui_panel.FindChildTraverse('chamber_event_fragments_container').AddClass('chamber_event_fragments_container_completed')
+	}else{
+		cavern_ui_panel.FindChildTraverse('chamber_event_fragments_container').RemoveClass('chamber_event_fragments_container_completed')
+	}
 	cavern_ui_panel.FindChildTraverse('winterblight_chamber_event_fragments').text = $.Localize("winterblight_cavern_fragments") + " " + fragments_gained
 
 	cavern_ui_panel.event_index = index
@@ -102,7 +117,12 @@ function ChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_contai
 	var start_button = cavern_ui_panel.FindChildTraverse('start_event_button')
 
 	var level_selected = cavern_ui_panel.FindChildTraverse('max_level_input').value
-	set_start_button(start_button, chamber_index, index, cavern_ui_panel)
+	if (fragments > 0){
+		start_button.AddClass('invisible')
+		cavern_ui_panel.FindChildTraverse('max_level_input').AddClass('invisible')
+	}else{
+		set_start_button(start_button, chamber_index, index, cavern_ui_panel)
+	}
 	// NumberEntry.max( integer integer_1 )
 }
 
@@ -156,7 +176,10 @@ function CavernRecordsLoaded(msg){
 	var event_index = cavern_ui_panel.event_index
 	var chamber_index = cavern_ui_panel.chamber_index
 	$.Msg(msg.wb_data[chamber_index][event_index])
-	var your_hero_record = msg.wb_data[chamber_index][event_index][steam_id]["hero_record"]["level"]
+	var your_hero_record = 0
+	if (!(msg.wb_data[chamber_index][event_index][steam_id]["hero_record"] === undefined)){
+		your_hero_record = msg.wb_data[chamber_index][event_index][steam_id]["hero_record"]["level"]
+	}
 	var your_hero_max = parseInt(your_hero_record) + 1
 	var difficulty_max = get_event_difficulty_max(msg.difficulty, msg.stones)
 
@@ -175,11 +198,13 @@ function CavernRecordsLoaded(msg){
 	cavern_ui_panel.FindChildTraverse('your-max-level-label').text = your_hero_max
 
 	//FILL RECORDS
+	cavern_ui_panel.FindChildTraverse('chamber-record-top1').RemoveAndDeleteChildren()
 
 	var left_record_panel = $.CreatePanel("Panel", cavern_ui_panel.FindChildTraverse('chamber-record-top1'), "cavern_records_left")
 
 	var yourHero = Players.GetPlayerHeroEntityIndex( Game.GetLocalPlayerID())
-	var hero_name = msg.wb_data[chamber_index][event_index][steam_id]["hero_record"]["hero_name"]
+
+	var hero_name = Entities.GetUnitName( yourHero )
 	var hero_image_name = "file://{images}/heroes/" + hero_name + ".png"
 	cavern_ui_panel.FindChildTraverse('loading-records-left').AddClass('invisible')
 	cavern_ui_panel.FindChildTraverse('loading-records-right').AddClass('invisible')
@@ -187,41 +212,66 @@ function CavernRecordsLoaded(msg){
 	cavern_ui_panel.FindChildTraverse('records-title-bottom-left').text = $.Localize('cavern_record_yours_all')
 	cavern_ui_panel.FindChildTraverse('records-title-top-right').text = $.Localize('cavern_record_global_hero') + " " + $.Localize(hero_name)
 	cavern_ui_panel.FindChildTraverse('records-title-bottom-right').text = $.Localize('cavern_record_global_all')
-
-	left_record_panel.BLoadLayoutSnippet("winter_cavern_individual_record")
-	var steam_id_long = msg.steam_id_long
-	left_record_panel.FindChildTraverse('hero_portrait').SetImage(hero_image_name)
-	left_record_panel.FindChildTraverse('player_avatar').steamid = steam_id_long
-	left_record_panel.FindChildTraverse('dota_player_name').steamid = steam_id_long
-	left_record_panel.FindChildTraverse('record_label').text = $.Localize("arena_prizebox_level") + ": " + your_hero_record
-
+	if (your_hero_record > 0){
+		left_record_panel.BLoadLayoutSnippet("winter_cavern_individual_record")
+		var steam_id_long = msg.steam_id_long
+		left_record_panel.FindChildTraverse('hero_portrait').SetImage(hero_image_name)
+		left_record_panel.FindChildTraverse('player_avatar').steamid = steam_id_long
+		left_record_panel.FindChildTraverse('dota_player_name').steamid = steam_id_long
+		left_record_panel.FindChildTraverse('record_label').text = $.Localize("arena_prizebox_level") + ": " + your_hero_record
+	}else{
+		left_record_panel.BLoadLayoutSnippet("winter_cavern_no_record")
+	}
+	cavern_ui_panel.FindChildTraverse('chamber-record-bottom1').RemoveAndDeleteChildren()
+	var your_overall_record = 0
+	if (!(msg.wb_data[chamber_index][event_index][steam_id]["account_record"] === undefined)){
+		your_overall_record = msg.wb_data[chamber_index][event_index][steam_id]["account_record"]["level"]
+	}
 	var left_record_panel_bottom = $.CreatePanel("Panel", cavern_ui_panel.FindChildTraverse('chamber-record-bottom1'), "cavern_records_left2")
-	left_record_panel_bottom.BLoadLayoutSnippet("winter_cavern_individual_record")
-	var steam_id_long = msg.steam_id_long
-	var hero_name = msg.wb_data[chamber_index][event_index][steam_id]["account_record"]["hero_name"]
-	var your_overall_record = msg.wb_data[chamber_index][event_index][steam_id]["account_record"]["level"]
-	left_record_panel_bottom.FindChildTraverse('hero_portrait').SetImage("file://{images}/heroes/" + hero_name + ".png")
-	left_record_panel_bottom.FindChildTraverse('player_avatar').steamid = steam_id_long
-	left_record_panel_bottom.FindChildTraverse('dota_player_name').steamid = steam_id_long
-	left_record_panel_bottom.FindChildTraverse('record_label').text = $.Localize("arena_prizebox_level") + ": " + your_overall_record
+	if (your_overall_record > 0){
+		left_record_panel_bottom.BLoadLayoutSnippet("winter_cavern_individual_record")
+		var steam_id_long = msg.steam_id_long
+		var hero_name = msg.wb_data[chamber_index][event_index][steam_id]["account_record"]["hero_name"]
 
-
+		left_record_panel_bottom.FindChildTraverse('hero_portrait').SetImage("file://{images}/heroes/" + hero_name + ".png")
+		left_record_panel_bottom.FindChildTraverse('player_avatar').steamid = steam_id_long
+		left_record_panel_bottom.FindChildTraverse('dota_player_name').steamid = steam_id_long
+		left_record_panel_bottom.FindChildTraverse('record_label').text = $.Localize("arena_prizebox_level") + ": " + your_overall_record
+	}else{
+		left_record_panel_bottom.BLoadLayoutSnippet("winter_cavern_no_record")
+	}
+	cavern_ui_panel.FindChildTraverse('chamber-record-top2').RemoveAndDeleteChildren()
 	var right_record_panel = $.CreatePanel("Panel", cavern_ui_panel.FindChildTraverse('chamber-record-top2'), "cavern_records_right")
 	var hero_name = Entities.GetUnitName( yourHero )
-	right_record_panel.BLoadLayoutSnippet("winter_cavern_individual_record")
-	var steam_id_long = msg.wb_data[chamber_index][event_index][hero_name]["steam_id_long"]
-	var hero_name = msg.wb_data[chamber_index][event_index][hero_name]["hero_name"]
-	var global_hero_record = msg.wb_data[chamber_index][event_index][hero_name]["level"]
-	right_record_panel.FindChildTraverse('hero_portrait').SetImage(hero_image_name)
-	right_record_panel.FindChildTraverse('player_avatar').steamid = steam_id_long
-	right_record_panel.FindChildTraverse('dota_player_name').steamid = steam_id_long
-	right_record_panel.FindChildTraverse('record_label').text = $.Localize("arena_prizebox_level") + ": " + global_hero_record
-
+	var global_hero_record = 0
+	if (!(msg.wb_data[chamber_index][event_index][hero_name] === undefined)){
+		global_hero_record = msg.wb_data[chamber_index][event_index][hero_name]["level"]
+	}
+	if (global_hero_record > 0){
+		right_record_panel.BLoadLayoutSnippet("winter_cavern_individual_record")
+		var steam_id_long = msg.wb_data[chamber_index][event_index][hero_name]["steam_id_long"]
+		var hero_name = msg.wb_data[chamber_index][event_index][hero_name]["hero_name"]
+		right_record_panel.FindChildTraverse('hero_portrait').SetImage(hero_image_name)
+		right_record_panel.FindChildTraverse('player_avatar').steamid = steam_id_long
+		right_record_panel.FindChildTraverse('dota_player_name').steamid = steam_id_long
+		right_record_panel.FindChildTraverse('record_label').text = $.Localize("arena_prizebox_level") + ": " + global_hero_record
+	}else{
+		right_record_panel.BLoadLayoutSnippet("winter_cavern_no_record")
+	}
+	var global_hero_record = 0
+	if (!(msg.wb_data[chamber_index][event_index]["world_record"] === undefined)){
+		global_hero_record = msg.wb_data[chamber_index][event_index]["world_record"]["level"]
+	}
+	cavern_ui_panel.FindChildTraverse('chamber-record-bottom2').RemoveAndDeleteChildren()
 	var right_record_panel_bottom = $.CreatePanel("Panel", cavern_ui_panel.FindChildTraverse('chamber-record-bottom2'), "cavern_records_right2")
-	right_record_panel_bottom.BLoadLayoutSnippet("winter_cavern_individual_record")
-	var steam_id_long = msg.wb_data[chamber_index][event_index]["world_record"]["steam_id_long"]
-	var hero_name = msg.wb_data[chamber_index][event_index]["world_record"]["hero_name"]
-	var global_overall_record = msg.wb_data[chamber_index][event_index]["world_record"]["level"]
+	if (global_hero_record > 0){
+		right_record_panel_bottom.BLoadLayoutSnippet("winter_cavern_individual_record")
+		var steam_id_long = msg.wb_data[chamber_index][event_index]["world_record"]["steam_id_long"]
+		var hero_name = msg.wb_data[chamber_index][event_index]["world_record"]["hero_name"]
+	}else{
+		right_record_panel_bottom.BLoadLayoutSnippet("winter_cavern_no_record")
+	}
+	
 	right_record_panel_bottom.FindChildTraverse('hero_portrait').SetImage("file://{images}/heroes/" + hero_name + ".png")
 	right_record_panel_bottom.FindChildTraverse('player_avatar').steamid = steam_id_long
 	right_record_panel_bottom.FindChildTraverse('dota_player_name').steamid = steam_id_long

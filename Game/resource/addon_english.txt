@@ -19038,7 +19038,8 @@
 		"cavern_record_global_hero"									"Global Record as"	
 		"cavern_record_global_all"									"Global Record"
 		"cavern_ui_failed"											"Failed"		
-		"cavern_ui_completed"										"Complete"				
+		"cavern_ui_completed"										"Complete"	
+		"cavern_ui_no_record"										"No Record"			
 
 		"DOTA_Tooltip_ability_winterblight_blood_might_passive"		"Blood Might"
 		"DOTA_Tooltip_ability_winterblight_blood_might_passive_Description"		"Gain attack damage for each missing point of health of nearby enemies. Gain % bonus attack damage for each % of current health of the nearby highest health enemy."

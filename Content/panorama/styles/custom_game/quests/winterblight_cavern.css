@@ -159,7 +159,6 @@
 }
 
 #winter_event_button_label{
-	color:#FFFFFF;
 	font-size:20px;
 	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
 	padding:10px;
@@ -691,3 +690,28 @@
 	background-color: gradient( linear, 0px 0%, 50px 0%, from( #2f9c63 ), to( #135934 ) );
 }
 
+.green_text{
+	color: #29b349;
+}
+
+.white_text{
+	color:#FFFFFF;
+}
+
+.chamber_event_fragments_container_completed{
+	border: 1px solid #29b349;
+}
+
+#no_record_label{
+	color:#FFFFFF;
+	font-size:14px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	margin-top:25px;
+	horizontal-align:center;
+	text-align: center;
+	width:400px;
+}
+
+.winter_cavern_no_record_container{
+	horizontal-align:center;
+}
