@@ -216,7 +216,8 @@ function Winterblight:Debug2()
     -- Winterblight:InitAzaleaMazeRoom()
     -- Winterblight:AzaleaSummonerRoomInit()
     -- Winterblight:LastAzaleaRoomStart()
-
+    
+    Winterblight:CompleteChamberEvent(1, MAIN_HERO_TABLE[1]:GetAbsOrigin())
 end
 
 function Winterblight:CalculateHeroZones()

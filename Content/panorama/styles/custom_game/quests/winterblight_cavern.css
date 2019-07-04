@@ -525,6 +525,27 @@
 
 }
 
+#cavern_summary_header_relics_container{
+	horizontal-align:left;
+	flow-children:right;
+	height:100%;
+	margin-left:5px;
+}
+
+.chamber_event_fragments_icon_summary{
+	width:20px;
+	height:20px;
+	margin-top:5px;
+}
+
+#winterblight_summary_fragments{
+	color:#FFFFFF;
+	font-size:18px;
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
+	horizontal-align:center;
+	margin-top:4px;
+}
+
 @keyframes 'slideClosed'{
   0%   { position: 0px 0px 0px; }
   100% { position: -360px 0px 0px; }
@@ -665,3 +686,8 @@
 .fill_fail{
 	background-color: gradient( linear, 0px 0%, 50px 0%, from( #a82c3a ), to( #78111c ) );
 }
+
+.fill_win{
+	background-color: gradient( linear, 0px 0%, 50px 0%, from( #2f9c63 ), to( #135934 ) );
+}
+

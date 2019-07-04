@@ -208,6 +208,20 @@
 					}
 				}
 			}
+			"modifier_relic_fragment_think"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"cavern_relic_fragment_think"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 

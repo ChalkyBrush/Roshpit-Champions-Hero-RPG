@@ -66,14 +66,18 @@ function Winterblight:InitCavernData()
 	Winterblight:GetCaveMetaData()
 	Winterblight.CavernData = {}
 	Winterblight.CavernData.Chambers = {}
+	Winterblight.CavernData.RelicsFragments = 0
 	for i = 1, 4, 1 do
 		Winterblight.CavernData.Chambers[i] = {}
 		Winterblight.CavernData.Chambers[i]["status"] = 0
-		Winterblight.CavernData.Chambers[i]["relic_fragments_reward"] = 100
+		-- Winterblight.CavernData.Chambers[i]["relic_fragments_reward"] = 100
 		Winterblight.CavernData.Chambers[i]["events"] = {}
 		for j = 1, 4, 1 do
 			Winterblight.CavernData.Chambers[i]["events"][j] = {}
 			Winterblight.CavernData.Chambers[i]["events"][j]["status"] = 0
+			Winterblight.CavernData.Chambers[i]["events"][j]["relic_fragments_reward"] = 1000
+			Winterblight.CavernData.Chambers[i]["events"][j]["relic_fragments_rewarded"] = 0
+			-- update reward calcs
 		end
 	end
 	Winterblight.CavernChamberVertices = {}
@@ -139,7 +143,7 @@ function Winterblight:ProcessChamberStart(msg)
 	local player = hero:GetPlayerOwner()
 	local playerID = hero:GetPlayerOwnerID()
 	Winterblight.CavernData.Chambers[msg.chamber]["steam_id_long"] = tostring(PlayerResource:GetSteamID(playerID))
-	CustomGameEventManager:Send_ServerToAllClients("cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers})
+	CustomGameEventManager:Send_ServerToAllClients("cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers, fragments = Winterblight.CavernData.RelicsFragments})
 end
 
 function Winterblight:FrozenFoyer(msg)
@@ -158,7 +162,7 @@ end
 
 function Winterblight:FrozenFoyer1(msg)
 	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
-	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 100
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 176
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local chamber_id = msg.chamber
 	local unitsTable = {}
@@ -280,6 +284,18 @@ function Winterblight:FrozenFoyer1(msg)
 			end)
 		end
 	end)	
+	Timers:CreateTimer(4, function()
+		local positionTable = {}
+		for j = 1, 10, 1 do
+			local randomPos = Vector(-9600+RandomInt(0,1150), 7680+RandomInt(0, 900))
+			table.insert(positionTable, randomPos)
+		end
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				Winterblight:SpawnSkatingZealot(positionTable[i], RandomVector(1), Vector(-9600, 1150), 1150, 900)
+			end)
+		end
+	end)
 	Timers:CreateTimer(6.5, function()
 		if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
 			local positionTable = {Vector(-8704, 9472), Vector(-8704, 10112), Vector(-8192, 10112), Vector(-8192, 9472)}
@@ -618,29 +634,76 @@ end
 function Winterblight:ResetChamber(hero, chamber)
 	if Winterblight.CavernData.Chambers[chamber]["status"] == 1 then
 		Winterblight.CavernData.Chambers[chamber]["status"] = 2
-		CustomGameEventManager:Send_ServerToAllClients("cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers})
+		CustomGameEventManager:Send_ServerToAllClients("cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers, fragments = Winterblight.CavernData.RelicsFragments})
 		EmitSoundOn("Winterblight.Cavern.EventLose", hero)
-		for i = 1, #Winterblight.CavernUnits[chamber], 1 do
-			Timers:CreateTimer(i*0.03, function()
-				local unit = Winterblight.CavernUnits[chamber][i]
-				if IsValidEntity(unit) then
-					CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", unit:GetAbsOrigin(), 4)
-					EmitSoundOn("Winterblight.GuideCaveIntro", unit)
-					UTIL_Remove(unit)
-				end
-			end)
-		end
+		ClearChamberUnits(chamber)
 		local time = #Winterblight.CavernUnits[chamber]*0.03 + 6
 		Timers:CreateTimer(time, function()
 			Winterblight.CavernData.Chambers[chamber]["status"] = 0
-			CustomGameEventManager:Send_ServerToAllClients("cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers})
+			CustomGameEventManager:Send_ServerToAllClients("cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers, fragments = Winterblight.CavernData.RelicsFragments})
 		end)
 	end
 end
 
-function Winterblight:CompleteChamberEvent(chamber)
+function ClearChamberUnits(chamber)
+	for i = 1, #Winterblight.CavernUnits[chamber], 1 do
+		Timers:CreateTimer(i*0.03, function()
+			local unit = Winterblight.CavernUnits[chamber][i]
+			if IsValidEntity(unit) then
+				CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", unit:GetAbsOrigin(), 4)
+				EmitSoundOn("Winterblight.GuideCaveIntro", unit)
+				UTIL_Remove(unit)
+			end
+		end)
+	end
+end
+
+function Winterblight:CompleteChamberEvent(chamber, position)
 	if Winterblight.CavernData.Chambers[chamber]["status"] == 1 then
+		EmitSoundOnLocationWithCaster(position, "Winterblight.Cavern.RelicPop", Events.GameMaster)
+
 		Winterblight.CavernData.Chambers[chamber]["status"] = 3
-		CustomGameEventManager:Send_ServerToAllClients("cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers})		
+		CustomGameEventManager:Send_ServerToAllClients("cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers, fragments = Winterblight.CavernData.RelicsFragments})
+
+		local event_index = Winterblight.CavernData.Chambers[chamber]["event"]
+		local reward = Winterblight.CavernData.Chambers[chamber]["events"][event_index]["relic_fragments_reward"]
+		local hero_index = Winterblight.CavernData.Chambers[chamber]["hero"]
+		local hero = EntIndexToHScript(hero_index)
+		Winterblight:DisperseRelicFragments(position, reward, hero, chamber, event_index)
+		ClearChamberUnits(chamber)
+		Timers:CreateTimer(1, function()
+			EmitSoundOnLocationWithCaster(position, "Winterblight.Cavern.Win", Events.GameMaster)
+		end)
+		Timers:CreateTimer(10, function()
+			Winterblight.CavernData.Chambers[chamber]["status"] = 0
+			CustomGameEventManager:Send_ServerToAllClients("cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers, fragments = Winterblight.CavernData.RelicsFragments})
+		end)	
+	end
+end
+
+function Winterblight:DisperseRelicFragments(position, crystal_reward, hero, chamber, event_index)
+	local relic_dummy_count = math.ceil(crystal_reward/100)
+	for i = 1, relic_dummy_count, 1 do
+		local crystal = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+		crystal:SetModelScale(0.9)
+		crystal:SetOriginalModel("models/props_gameplay/rune_illusion01.vmdl")
+		crystal:SetModel("models/props_gameplay/rune_illusion01.vmdl")
+		local displacementVector = WallPhysics:rotateVector(Vector(1,1), 2*math.pi*i/relic_dummy_count)
+		crystal:SetAbsOrigin(position+displacementVector*120)
+
+		Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, crystal, "modifier_relic_fragment_think", {})
+		crystal:FindAbilityByName("dummy_unit"):SetLevel(1)	
+		local targetDirection = ((crystal:GetAbsOrigin()-hero:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		-- targetDirection = (targetDirection*24 + RandomVector(1)):Normalized()
+		CustomAbilities:QuickParticleAtPoint("particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_anim_goldbreath.vpcf", crystal:GetAbsOrigin()+Vector(0,0,30), 4)
+		crystal.phase = 0
+		crystal.direction = targetDirection
+		crystal.pushForce = 16
+		crystal.liftForce = 18
+		crystal.hero = hero
+		crystal.relics = crystal_reward/relic_dummy_count
+		crystal.chamber = chamber
+		crystal.event_index = event_index
+		StartAnimation(crystal, {duration=100, activity=ACT_DOTA_IDLE, rate=1})
 	end
 end

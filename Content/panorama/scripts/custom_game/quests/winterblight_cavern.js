@@ -26,7 +26,7 @@ function OpenWinterblightCavernUi(msg, bIgnoreFade){
 			cavern_ui_panel.FindChildTraverse('chamber-status-label-'+i).text = $.Localize("winterblight_cavern_status_prefix") + " " + $.Localize("winterblight_cavern_status_inactive")
 			var chamber_button = cavern_ui_panel.FindChildTraverse('chamber-button-'+i)
 			setChamberButtonActivate(chamber_button, i, msg)
-		}else if(status == 1){
+		}else if(status == 1 || status == 2 || status == 3){
 			cavern_ui_panel.FindChildTraverse('chamber-status-label-'+i).text = $.Localize("winterblight_cavern_status_prefix") + " " + $.Localize("winterblight_cavern_status_active")
 			cavern_ui_panel.FindChildTraverse('chamber-status-label-'+i).AddClass('active_chamber_label')
 			cavern_ui_panel.FindChildTraverse('chamber-button-'+i).AddClass('chamber-main-button-active')
@@ -246,7 +246,7 @@ function get_event_difficulty_max(difficulty, stones)
 }
 
 mChamberSummary = []
-
+cavern_summary_panel = null
 function CavernSummaryInit(msg)
 {
 	$('#winterblight_cavern_summary_container').RemoveClass('invisible')
@@ -268,7 +268,9 @@ function CavernSummaryInit(msg)
 	expander_button.SetPanelEvent('onactivate', function Open() {
 		expander_buttom_event(cavern_ui_panel, expander_button, expander_label, expander_header, attacher)
 	});
+	cavern_ui_panel.FindChildTraverse('winterblight_summary_fragments').text = msg.fragments
 	mChamberSummary = []
+	cavern_summary_panel = cavern_ui_panel
 	var chamber_count = 0
 	for (var i = 1; i <= 4; i++) {
 		var chamber_data = msg.chamber_data[i]
@@ -305,6 +307,24 @@ function CavernSummaryInit(msg)
 			fill_bar.AddClass("fill_fail")
 			fill_bar.RemoveClass("event-progress-bar-fill-class")
 			mChamberSummary.push(event_parent)
+		}else if(chamber_data["status"] == 3){
+			chamber_count = chamber_count + 1
+			var chamber_index = i
+			var event_index = chamber_data["event"]
+			var event_parent = $.CreatePanel("Panel", attacher, "cavern_summary_event_"+i)
+			event_parent.BLoadLayoutSnippet('cavern_summary_item')
+			event_parent.FindChildTraverse('winter_event_chamber_name').text = $.Localize("winterblight_cavern_room"+i) + " - "
+			var hero_name = Entities.GetUnitName( chamber_data["hero"] )
+			event_parent.FindChildTraverse('event_hero_portrait').SetImage("file://{images}/heroes/" + hero_name + ".png")
+			event_parent.FindChildTraverse('event_player_name').steamid = chamber_data["steam_id_long"]
+			event_parent.FindChildTraverse('winter_event_event_name').text = $.Localize("winterblight_cavern_room"+chamber_index+"_event"+event_index)
+			event_parent.FindChildTraverse('winter_event_event_level').text = "LV"+chamber_data["level"]
+			event_parent.FindChildTraverse('event-progress-bar-label').text = $.Localize('cavern_ui_completed')
+			var fill_bar = event_parent.FindChildTraverse('event-progress-bar-fill')
+			fill_bar.style.width = "100%"
+			fill_bar.AddClass("fill_win")
+			fill_bar.RemoveClass("event-progress-bar-fill-class")
+			mChamberSummary.push(event_parent)
 		}
 	}
 	if (chamber_count == 0){
@@ -314,8 +334,13 @@ function CavernSummaryInit(msg)
 }
 
 function CavernSummaryUpdate(msg){
+	if (!(msg.fragments === undefined)){
+		cavern_summary_panel.FindChildTraverse('winterblight_summary_fragments').text = msg.fragments
+		return false
+	}
 	var chamber_data = msg.chamber_data[msg.chamber]
 	$.Msg(chamber_data)
+
 	if (chamber_data["status"] == 1){
 		var chamber_index = msg.chamber
 		var event_index = chamber_data["event"]

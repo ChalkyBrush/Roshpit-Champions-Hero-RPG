@@ -161,6 +161,10 @@
 					<Button id="cavern_summary_expander">
 						<Label id="cavern_expander_label" text="-" />
 					</Button>
+					<Panel id="cavern_summary_header_relics_container">
+						<Image class="chamber_event_fragments_icon_summary" src="file://{images}/custom_game/ui/winterblight/relic_fragments.png"/>
+						<Label id="winterblight_summary_fragments" text="0"/>
+					</Panel>
 				</Panel>
 				<Panel id="cavern_summary_contents" hittest="false">
 					<Panel id="cavern_summary_bg" hittest="false"/>

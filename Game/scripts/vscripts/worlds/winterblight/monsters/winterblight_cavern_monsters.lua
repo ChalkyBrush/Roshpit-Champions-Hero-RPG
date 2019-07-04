@@ -614,7 +614,8 @@ function cavern_unit_die(event)
 	Winterblight.CavernData.Chambers[chamber]["progress"] = Winterblight.CavernData.Chambers[chamber]["progress"] + 1
 	CustomGameEventManager:Send_ServerToAllClients("cavern_summary_update", {chamber_data = Winterblight.CavernData.Chambers, chamber = chamber})
 	if Winterblight.CavernData.Chambers[chamber]["progress"] > Winterblight.CavernData.Chambers[chamber]["goal"] then
-		Winterblight:CompleteChamberEvent(chamber)
+		local position = unit:GetAbsOrigin()
+		Winterblight:CompleteChamberEvent(chamber, position)
 	end
 end
 
@@ -655,7 +656,7 @@ function ultra_ice_think(event)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {})
 			EmitSoundOn("Winterblight.Cavern.UltraIce.PhaseChange", caster)
 			Timers:CreateTimer(1.5, function()
-				local targetPoint = Vector(-9088, 8192, 500+Winterblight.ZFLOAT)
+				local targetPoint = Vector(-9088, 8192, 700+Winterblight.ZFLOAT)
 				caster.movementVector = (targetPoint - caster:GetAbsOrigin())/60
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_ultra_ice_quick_think", {})
 				Events:smoothSizeChange(caster, caster:GetModelScale(), 1.0, 60)
@@ -962,4 +963,36 @@ function husker_digger_end(event)
 	else
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 	end
+end
+
+function cavern_relic_fragment_think(event)
+	local target = event.target
+	if target.phase == 0 then
+		target:SetAbsOrigin(target:GetAbsOrigin()+target.direction*target.pushForce+Vector(0,0,target.liftForce))
+		target.liftForce = target.liftForce - 1.5
+		if (GetGroundPosition(target:GetAbsOrigin(),target).z + 30 > target:GetAbsOrigin().z) and target.liftForce < -1 then
+			target.phase = 1
+			Timers:CreateTimer(3, function()
+				target.phase = 2
+			end)
+		end
+	elseif target.phase == 2 then
+		local targetPosition = target.hero:GetAbsOrigin()
+		local direction = (targetPosition - target:GetAbsOrigin()):Normalized()
+		target:SetAbsOrigin(target:GetAbsOrigin() + direction*60)
+		if WallPhysics:GetDistance2d(target:GetAbsOrigin(), targetPosition) < 50 then
+			local relics_gain = target.relics
+			EmitSoundOn("Winterblight.Cavern.RelicCollect", target)
+			CustomAbilities:QuickParticleAtPoint("particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_anim_goldbreath.vpcf", target:GetAbsOrigin()+Vector(0,0,150), 4)
+
+			Winterblight.CavernData.Chambers[target.chamber]["events"][target.event_index]["relic_fragments_rewarded"] = Winterblight.CavernData.Chambers[target.chamber]["events"][target.event_index]["relic_fragments_rewarded"] + relics_gain
+			Winterblight.CavernData.RelicsFragments = Winterblight.CavernData.RelicsFragments + relics_gain
+			CustomGameEventManager:Send_ServerToAllClients("cavern_summary_update", {fragments = Winterblight.CavernData.RelicsFragments})
+			UTIL_Remove(target)
+		end
+	end
+		-- crystal.phase = 0
+		-- crystal.direction = targetDirection
+		-- crystal.pushForce = 18
+		-- crystal.liftForce = 10
 end
