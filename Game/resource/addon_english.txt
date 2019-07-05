@@ -19017,6 +19017,9 @@
 		"winterblight_cavern_room1_event1"							"Standard"
 		"winterblight_cavern_room1_event1_description"				"The chamber is populated with non aggro mobs."
 
+		"winterblight_cavern_room1_event2"							"Ultra Ice Showdown"
+		"winterblight_cavern_room1_event2_description"				"A dozen Ultra Ices patrol the chamber."
+
 		"winterblight_cavern_status_prefix"								"Status:"
 		"winterblight_cavern_status_inactive"								"Inactive"
 		"winterblight_cavern_status_active"								"Active"

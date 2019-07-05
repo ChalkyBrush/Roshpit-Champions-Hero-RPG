@@ -656,7 +656,7 @@ function ultra_ice_think(event)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {})
 			EmitSoundOn("Winterblight.Cavern.UltraIce.PhaseChange", caster)
 			Timers:CreateTimer(1.5, function()
-				local targetPoint = Vector(-9088, 8192, 700+Winterblight.ZFLOAT)
+				local targetPoint = caster:GetAbsOrigin()*Vector(1,1,0) + Vector(0, 0, 700+Winterblight.ZFLOAT)
 				caster.movementVector = (targetPoint - caster:GetAbsOrigin())/60
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_ultra_ice_quick_think", {})
 				Events:smoothSizeChange(caster, caster:GetModelScale(), 1.0, 60)
@@ -666,11 +666,21 @@ function ultra_ice_think(event)
 	if caster.spawnPhase == 0 then
 	elseif caster.spawnPhase == 1 then
 		caster.spawnPhase = 2
-		for k = 1, 4, 1 do
+		for k = 1, 2*caster.spawnMult, 1 do
+			local luck1 = RandomInt(1, 4)
 			Timers:CreateTimer((k-1)*1.5, function()
 				if Winterblight.CavernData.Chambers[caster.chamber]["status"] == 1 then
 					for i = 1, 4, 1 do
-						local spawn = Winterblight:SpawnFrostiok(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+						local spawn = nil
+						if luck1 == 1 then
+							spawn = Winterblight:SpawnFrostiok(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+						elseif luck1 == 2 then
+							spawn = Winterblight:SpawnSourceRevenant(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+						elseif luck1 == 3 then
+							spawn = Winterblight:SpawnDashingSwordsman(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+						elseif luck1 == 4 then
+							spawn = Winterblight:SpawnFrostAvatar(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+						end
 						Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), true, false, caster.chamber)
 						Dungeons:AggroUnit(spawn)
 						ultra_ice_spawn_effect(caster, spawn)
@@ -680,26 +690,39 @@ function ultra_ice_think(event)
 		end
 	elseif caster.spawnPhase == 3 then
 		caster.spawnPhase = 4
-		for k = 1, 4, 1 do
+		local luck = RandomInt(1, 2)
+		for k = 1, 2*caster.spawnMult, 1 do
 			Timers:CreateTimer((k-1)*1.5, function()
 				if Winterblight.CavernData.Chambers[caster.chamber]["status"] == 1 then
 					for i = 1, 4, 1 do
-						local spawn = nil
-						if i%2 == 0 then
-							spawn = Winterblight:SpawnMountainOgre(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+						if luck == 1 then
+							local spawn = nil
+							if i%2 == 0 then
+								spawn = Winterblight:SpawnMountainOgre(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+							else
+								spawn = Winterblight:Snowshaker(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+							end
+							Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), true, false, caster.chamber)
+							Dungeons:AggroUnit(spawn)
+							ultra_ice_spawn_effect(caster, spawn)
 						else
-							spawn = Winterblight:Snowshaker(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+							local spawn = nil
+							if i%2 == 0 then
+								spawn = Winterblight:SpawnFrostElemental(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+							else
+								spawn = Winterblight:SpawnFrostHulk(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+							end
+							Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), true, false, caster.chamber)
+							Dungeons:AggroUnit(spawn)
+							ultra_ice_spawn_effect(caster, spawn)
 						end
-						Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), true, false, caster.chamber)
-						Dungeons:AggroUnit(spawn)
-						ultra_ice_spawn_effect(caster, spawn)
 					end
 				end
 			end)
 		end
 	elseif caster.spawnPhase == 5 then
 		caster.spawnPhase = 6
-		for k = 1, 4, 1 do
+		for k = 1, 2*caster.spawnMult, 1 do
 			Timers:CreateTimer((k-1)*1.2, function()
 				if Winterblight.CavernData.Chambers[caster.chamber]["status"] == 1 then
 					for i = 1, 8, 1 do
@@ -713,21 +736,36 @@ function ultra_ice_think(event)
 		end
 	elseif caster.spawnPhase == 7 then
 		caster.spawnPhase = 8
-		for k = 1, 4, 1 do
+		for k = 1, 2*caster.spawnMult, 1 do
+			local luck = RandomInt(1, 2)
 			Timers:CreateTimer((k-1)*1.5, function()
 				if Winterblight.CavernData.Chambers[caster.chamber]["status"] == 1 then
 					for i = 1, 3, 1 do
-						local spawn = nil
-						if i == 1 then
-							spawn = Winterblight:SpawnWinterRunner(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
-						elseif i == 2 then
-							spawn = Winterblight:SpawnManaNull(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
-						elseif i == 3 then
-							spawn = Winterblight:SpawnBloodWraith(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+						if luck == 1 then
+							local spawn = nil
+							if i == 1 then
+								spawn = Winterblight:SpawnWinterRunner(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+							elseif i == 2 then
+								spawn = Winterblight:SpawnManaNull(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+							elseif i == 3 then
+								spawn = Winterblight:SpawnBloodWraith(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+							end
+							Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), true, false, caster.chamber)
+							Dungeons:AggroUnit(spawn)
+							ultra_ice_spawn_effect(caster, spawn)
+						else
+							local spawn = nil
+							if i == 1 then
+								spawn = Winterblight:SpawnDrillDigger(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+							elseif i == 2 then
+								spawn = Winterblight:SpawnBarbedHusker(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+							elseif i == 3 then
+								spawn = Winterblight:SpawnPantheonKnight(caster:GetAbsOrigin()+RandomVector(RandomInt(50, 1000)), Vector(0,-1))
+							end
+							Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), true, false, caster.chamber)
+							Dungeons:AggroUnit(spawn)
+							ultra_ice_spawn_effect(caster, spawn)
 						end
-						Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), true, false, caster.chamber)
-						Dungeons:AggroUnit(spawn)
-						ultra_ice_spawn_effect(caster, spawn)
 					end
 				end
 			end)

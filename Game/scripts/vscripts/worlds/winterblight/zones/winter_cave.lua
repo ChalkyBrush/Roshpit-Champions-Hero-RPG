@@ -149,6 +149,8 @@ end
 function Winterblight:FrozenFoyer(msg)
 	if msg.event_number == 1 then
 		Winterblight:FrozenFoyer1(msg)
+	elseif msg.event_number == 2 then
+		Winterblight:FrozenFoyer2(msg)
 	end
 end
 
@@ -213,7 +215,7 @@ function Winterblight:FrozenFoyer1(msg)
 	Timers:CreateTimer(1, function()
 		if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
 			local ultra_ice = Winterblight:SpawnUltraIce(Vector(-9033, 8320), RandomVector(1))
-			Winterblight:SetCavernUnit(ultra_ice, ultra_ice:GetAbsOrigin(), true, true, chamber_id)
+			Winterblight:SetCavernUnit(ultra_ice, ultra_ice:GetAbsOrigin(), true, true, chamber_id, 2)
 		end
 	end)
 	Timers:CreateTimer(5, function()
@@ -381,6 +383,35 @@ function Winterblight:FrozenFoyer1(msg)
 	end)
 end
 
+function Winterblight:FrozenFoyer2(msg)
+	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 468
+	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
+	local chamber_id = msg.chamber
+	local unitsTable = {}
+	local positionTable = {Vector(-8832, 5888), Vector(-10281, 7509), Vector(-11837, 8406), Vector(-10805, 8535), Vector(-8704, 8182), Vector(-7004, 8602), Vector(-5860, 9984), Vector(-8064, 9984), Vector(-9216, 10539), Vector(-10319, 9487), Vector(-11166, 10144), Vector(-6418, 9856)}
+	for i = 1, 12, 1 do
+		positionTable[i] = positionTable[i] + RandomVector(RandomInt(0, 400))
+	end
+    for i = 1, #positionTable, 1 do
+      Timers:CreateTimer(i*0.5, function()
+        local patrolPositionTable = {}
+        for j = 1, #positionTable, 1 do
+          local index = i + j
+          if index > #positionTable then
+            index = index - #positionTable
+          end
+          table.insert(patrolPositionTable, positionTable[index])
+        end
+      	if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+            local elemental = Winterblight:SpawnUltraIce(positionTable[i]+RandomVector(RandomInt(1,180)), RandomVector(1), 1)
+            Winterblight:AddPatrolArguments(elemental, 12, 5, 220, patrolPositionTable)
+            Winterblight:SetCavernUnit(elemental, elemental:GetAbsOrigin(), true, true, chamber_id)
+        end
+      end)
+    end
+end
+
 function Winterblight:SpawnCavernBat(position, fv)
 	local stone = Winterblight:SpawnDungeonUnit("winter_cavern_bat", position, 1, 1, "Winterblight.CavernBat.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 4, 4, false)
@@ -453,11 +484,13 @@ function Winterblight:SpawnBloodWraith(position, fv)
 	return stone
 end
 
-function Winterblight:SpawnUltraIce(position, fv)
+function Winterblight:SpawnUltraIce(position, fv, spawnMult)
 	local stone = Winterblight:SpawnDungeonUnit("winterblight_cavern_ultra_ice", position, 1, 5, "Winterblight.Cavern.UltraIce.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 5, 6, false)
 	stone.itemLevel = 60
 	stone:SetRenderColor(150, 190, 255)
+	stone.spawnPos = stone:GetAbsOrigin()
+	stone.spawnMult = spawnMult
 	-- Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_CLOSEST)
 	return stone
 end
@@ -633,6 +666,13 @@ function Winterblight:GetVertices(chamber_id)
 		local bl_vertex = origin-Vector(width/2, height/2)
 		local tr_vertex = origin+Vector(width/2, height/2)
 		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 1152
+		local width = 568
+		local origin = Vector(-7993, 6080)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
 	end
 	return vertices
 end
@@ -683,7 +723,7 @@ function Winterblight:CompleteChamberEvent(chamber, position)
 		Timers:CreateTimer(1, function()
 			EmitSoundOnLocationWithCaster(position, "Winterblight.Cavern.Win", Events.GameMaster)
 		end)
-		Timers:CreateTimer(7.0, function()
+		Timers:CreateTimer(6.2, function()
 			EmitSoundOnLocationWithCaster(hero:GetAbsOrigin(), "Winterblight.GuideCaveIntro2", Events.GameMaster)
 			CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", hero, 4)
 		end)
