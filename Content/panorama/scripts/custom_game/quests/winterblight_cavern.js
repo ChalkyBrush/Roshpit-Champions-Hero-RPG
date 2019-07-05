@@ -121,6 +121,8 @@ function ChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_contai
 		start_button.AddClass('invisible')
 		cavern_ui_panel.FindChildTraverse('max_level_input').AddClass('invisible')
 	}else{
+		start_button.RemoveClass('invisible')
+		cavern_ui_panel.FindChildTraverse('max_level_input').RemoveClass('invisible')
 		set_start_button(start_button, chamber_index, index, cavern_ui_panel)
 	}
 	// NumberEntry.max( integer integer_1 )
@@ -177,8 +179,10 @@ function CavernRecordsLoaded(msg){
 	var chamber_index = cavern_ui_panel.chamber_index
 	$.Msg(msg.wb_data[chamber_index][event_index])
 	var your_hero_record = 0
-	if (!(msg.wb_data[chamber_index][event_index][steam_id]["hero_record"] === undefined)){
-		your_hero_record = msg.wb_data[chamber_index][event_index][steam_id]["hero_record"]["level"]
+	if (!(msg.wb_data[chamber_index][event_index][steam_id] === undefined)){
+		if (!(msg.wb_data[chamber_index][event_index][steam_id]["hero_record"] === undefined)){
+			your_hero_record = msg.wb_data[chamber_index][event_index][steam_id]["hero_record"]["level"]
+		}
 	}
 	var your_hero_max = parseInt(your_hero_record) + 1
 	var difficulty_max = get_event_difficulty_max(msg.difficulty, msg.stones)
@@ -189,6 +193,9 @@ function CavernRecordsLoaded(msg){
 	}
 	if (your_hero_max <= 20 && difficulty_max == -1){
 		overall_max = 20
+	}
+	if (your_hero_max <= 20 && difficulty_max != -1){
+		overall_max = difficulty_max
 	}
 	mChamberMax = overall_max
 	// var number_entry = cavern_ui_panel.FindChildTraverse('max_level_input')

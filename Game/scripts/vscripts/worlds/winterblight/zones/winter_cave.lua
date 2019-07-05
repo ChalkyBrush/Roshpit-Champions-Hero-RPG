@@ -292,7 +292,10 @@ function Winterblight:FrozenFoyer1(msg)
 		end
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.3, function()
-				Winterblight:SpawnSkatingZealot(positionTable[i], RandomVector(1), Vector(-9600, 1150), 1150, 900)
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local unit = Winterblight:SpawnSkatingZealot(positionTable[i], RandomVector(1), Vector(-9600, 7680), 1150, 900)
+					Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+				end
 			end)
 		end
 	end)
@@ -520,6 +523,9 @@ function Winterblight:ValidateChamberMaxLevel(hero, chamber_index, event_index, 
 	else
 		overall_max = math.max(your_hero_max, 20)
 	end
+	if your_hero_max <= 20 and game_settings_max ~= -1 then
+		overall_max = game_settings_max
+	end
 	if overall_max >= level and level > 0 then
 		return true
 	else
@@ -669,11 +675,17 @@ function Winterblight:CompleteChamberEvent(chamber, position)
 		local reward = Winterblight.CavernData.Chambers[chamber]["events"][event_index]["relic_fragments_reward"]
 		local hero_index = Winterblight.CavernData.Chambers[chamber]["hero"]
 		local hero = EntIndexToHScript(hero_index)
+		local level = Winterblight.CavernData.Chambers[chamber]["level"]
 		Winterblight.CavernData.Chambers[chamber]["events"][event_index]["status"] = 1
 		Winterblight:DisperseRelicFragments(position, reward, hero, chamber, event_index)
+		Winterblight:CavernCompletionToServer(hero, chamber, event_index, level)
 		ClearChamberUnits(chamber)
 		Timers:CreateTimer(1, function()
 			EmitSoundOnLocationWithCaster(position, "Winterblight.Cavern.Win", Events.GameMaster)
+		end)
+		Timers:CreateTimer(7.0, function()
+			EmitSoundOnLocationWithCaster(hero:GetAbsOrigin(), "Winterblight.GuideCaveIntro2", Events.GameMaster)
+			CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", hero, 4)
 		end)
 		Timers:CreateTimer(10, function()
 			Winterblight.CavernData.Chambers[chamber]["status"] = 0
@@ -707,4 +719,35 @@ function Winterblight:DisperseRelicFragments(position, crystal_reward, hero, cha
 		crystal.event_index = event_index
 		StartAnimation(crystal, {duration=100, activity=ACT_DOTA_IDLE, rate=1})
 	end
+end
+
+function Winterblight:CavernCompletionToServer(hero, chamber, event_index, level)
+	local url = ROSHPIT_URL.."/champions/update_winterblight_cavern?winterblight=1"
+
+
+	local hero_name = hero:GetUnitName()
+	local playerID = hero:GetPlayerOwnerID()
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	local steam_id_long = tostring(PlayerResource:GetSteamID(playerID))
+
+	url = url.."&steam_id".."="..steamID
+	url = url.."&steam_id_long".."="..steam_id_long
+	url = url.."&hero_name".."="..hero_name
+	url = url.."&event_index".."="..event_index
+	url = url.."&chamber_index".."="..chamber
+	url = url.."&level".."="..level
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
+	print(url)
+	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+		if result.StatusCode == 200 then
+			local resultTable = {}
+			print( "GET response:\n" )
+			for k,v in pairs( result ) do
+				print( string.format( "%s : %s\n", k, v ) )
+			end
+			print( "Done." )
+			local resultTable = JSON:decode(result.Body)
+			Winterblight:GetCaveMetaData()
+		end
+	end )
 end
