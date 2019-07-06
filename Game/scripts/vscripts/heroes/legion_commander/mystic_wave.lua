@@ -27,7 +27,7 @@ function begin_mystic_wave(event)
 	if caster:HasModifier("modifier_emberstone_wave") then
 		local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "mountain_protector")
 		caster:RemoveModifierByName("modifier_emberstone_wave")
-		ability.e_3_amp = 0.30 * c_c_level
+		ability.e_3_amp = MOUNTAIN_PROTECTOR_E3_AMP_PCT/100 * c_c_level
 		particle = "particles/roshpit/mystic_assassin/protector_shockwave_red.vpcf"
 	end
 	local speed = 900
