@@ -295,12 +295,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4400"
+				"property_one"			"<% SPIRIT_WARRIOR_E1_DMG %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"property_two"			"<% SPIRIT_WARRIOR_E1_BONUS_WINDSRIKE_PCT %>"
 			}
 			"02"
 			{
@@ -413,17 +413,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6000"
+				"property_one"			"<% SPIRIT_WARRIOR_E3_DPS %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.15"
+				"property_two"			"<% SPIRIT_WARRIOR_E3_DURATION %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two_base"			"4"
+				"property_two_base"			"<% SPIRIT_WARRIOR_E3_DURATION_BASE %>"
 			}
 			"04"
 			{
