@@ -157,7 +157,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"<% BAHAMUT_W1_BONUS_DMG_AND_BAD_PCT %>"
 			}
 		}
 		"Modifiers"

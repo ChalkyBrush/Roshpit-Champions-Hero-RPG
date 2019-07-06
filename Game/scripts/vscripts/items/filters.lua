@@ -14,6 +14,7 @@ require('/heroes/omniknight/paladin_constants')
 require('/heroes/phantom_assassin/voltex_constants')
 require('/heroes/juggernaut/seinaru_constants')
 require('/heroes/lanaya/trapper_constants')
+require('/heroes/leshrac/bahamut_constants')
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/spirit_breaker/duskbringer_constants')
 require('/heroes/zuus/auriun_constants')
@@ -1308,7 +1309,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_bahamut_a_b_buff") then
             local current_stack = attacker:GetModifierStackCount("modifier_bahamut_a_b_buff", attacker.runeUnit:FindAbilityByName("bahamut_rune_w_1"))
-            damageMult = damageMult + 0.12 * current_stack
+            damageMult = damageMult + BAHAMUT_W1_BONUS_DMG_AND_BAD_PCT/100 * current_stack
         end
         if attacker:HasModifier("modifier_venomort_rune_r_4") then
             local current_stack = attacker:GetModifierStackCount("modifier_venomort_rune_r_4", attacker.runeUnit4:FindAbilityByName("venomort_rune_r_4"))
