@@ -2446,7 +2446,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_waterheart_weapon") then
 		local waterheart = attacker:FindModifierByName("modifier_waterheart_weapon"):GetAbility()
 		if waterheart then
-			mult = mult + 0.03 * waterheart.r_3_level
+			mult = mult + SPIRIT_WARRIOR_ARCANA_R3_POST_MITI_PCT/100 * waterheart.r_3_level
 		end
 	end
 	if attacker:HasModifier("modifier_bahamut_charge_of_light_postmitigation") then
