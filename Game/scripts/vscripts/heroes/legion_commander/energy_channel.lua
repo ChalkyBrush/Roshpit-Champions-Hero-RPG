@@ -68,7 +68,7 @@ function protector_c_b_zap(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	local c_b_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.25 * ability.w_3_level
+	local c_b_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * MOUNTAIN_PROTECTOR_W3_PCT/100 * ability.w_3_level
 	Filters:TakeArgumentsAndApplyDamage(target, caster, c_b_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_EARTH)
 	local pfx = ParticleManager:CreateParticle("particles/econ/events/ti5/dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, caster)
 	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT, "attach_hitloc", caster:GetAbsOrigin() + Vector(0, 0, 80), true)
