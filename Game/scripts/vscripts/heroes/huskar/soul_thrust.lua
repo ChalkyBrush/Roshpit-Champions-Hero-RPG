@@ -171,7 +171,7 @@ function spirit_warrior_thinking(event)
 		if w_1_level > 0 then
 			local runeAbility = caster.runeUnit:FindAbilityByName("spirit_warrior_rune_w_1")
 			runeAbility:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_spirit_warrior_rune_w_1", {})
-			local damageStacks = math.floor(manaDifferential * 0.08 * w_1_level)
+			local damageStacks = math.floor(manaDifferential * SPIRIT_WARRIOR_W1_BASE_DMG_PER_MANA * w_1_level)
 			caster:SetModifierStackCount("modifier_spirit_warrior_rune_w_1", caster.runeUnit, damageStacks)
 		end
 	else

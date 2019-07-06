@@ -1,4 +1,4 @@
-require('/heroes/huskar/constants_SPIRIT_WARRIOR')
+require('/heroes/huskar/spirit_warrior_constants')
 
 function windstrike_phase_start(event)
 	local caster = event.caster

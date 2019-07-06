@@ -3,7 +3,7 @@ if GameState == nil then
 end
 
 require('/heroes/dark_seer/zhonik_constants')
-require('/heroes/huskar/constants_SPIRIT_WARRIOR')
+require('/heroes/huskar/spirit_warrior_constants')
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/juggernaut/seinaru_constants')
 require('/heroes/nightstalker/chernobog_constants')

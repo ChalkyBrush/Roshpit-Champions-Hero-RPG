@@ -1,3 +1,4 @@
+require('heroes/huskar/spirit_warrior_constants')
 function flametongue_phase_start(event)
 	local caster = event.caster
 	local target = event.target

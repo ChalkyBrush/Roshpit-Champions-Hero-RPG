@@ -8,7 +8,7 @@ local heroes = {
 mountain_protector = require('/heroes/legion_commander/constants')}
 
 require('/heroes/dark_seer/zhonik_constants')
-require('/heroes/huskar/constants_SPIRIT_WARRIOR')
+require('/heroes/huskar/spirit_warrior_constants')
 require('items/special_item_effects')
 require('/heroes/omniknight/paladin_constants')
 require('/heroes/phantom_assassin/voltex_constants')

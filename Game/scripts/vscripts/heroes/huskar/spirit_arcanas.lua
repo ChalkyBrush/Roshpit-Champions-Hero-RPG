@@ -1,7 +1,7 @@
 require('/heroes/huskar/flametongue')
 require('/heroes/huskar/windstrike')
 require('/heroes/huskar/waterheart')
-require('/heroes/huskar/constants_SPIRIT_WARRIOR')
+require('/heroes/huskar/spirit_warrior_constants')
 --WATER
 
 function start_channel(event)
