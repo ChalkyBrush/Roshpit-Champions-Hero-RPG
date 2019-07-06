@@ -420,12 +420,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% FLAMEWAKER_E3_BONUS_DMG_PCT %>"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"12"
+				"property_two"			"<% FLAMEWAKER_E3_ATT_SPEED %>"
 			}
 		}
 		"Modifiers"
@@ -562,7 +562,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"<% FLAMEWAKER_R1_BONUS_ATT_DMG_PCT %>"
 			}
 		}
 	}
