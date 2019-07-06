@@ -337,7 +337,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_R1_PCT %>"
 			}
 			"02"
 			{
