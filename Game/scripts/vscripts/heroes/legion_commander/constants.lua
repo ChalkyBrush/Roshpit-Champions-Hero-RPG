@@ -1,6 +1,6 @@
 local module = {
     W1_HP_REGEN_PERCENT = 0.7,
-
+	MOUNTAIN_PROTECTOR_Q2_DMG_PCT = 10
     R2_MAX_STACKS = 10,
     R2_STRENGTH_PER_STACK = 20,
 

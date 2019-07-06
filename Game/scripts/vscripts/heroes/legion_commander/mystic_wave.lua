@@ -132,7 +132,7 @@ function mystic_wave_impact(event)
 					local stacks = target:GetModifierStackCount("modifier_mountain_protector_q_2_invisible", caster)
 					--print("---ORIG DAMAGE:---")
 					--print(damage)
-					damage = damage + damage * 0.1 * stacks
+					damage = damage + damage * MOUNTAIN_PROTECTOR_Q2_DMG_PCT/100 * stacks
 					--print("STACKS:")
 					--print(stacks)
 					--print("NEW DAMAGE:")
