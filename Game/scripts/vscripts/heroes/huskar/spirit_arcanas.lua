@@ -270,7 +270,7 @@ function blazing_javelin_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local w_1_level = caster:GetRuneValue("w", 1)
-	local damageBonus = (caster:GetMaxHealth() - caster:GetHealth()) * 0.12 * w_1_level
+	local damageBonus = (caster:GetMaxHealth() - caster:GetHealth()) * SPIRIT_WARRIOR_W1_ARCANA_BASE_DMG_PER_HP * w_1_level
 	if damageBonus > 1 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_spirit_warrior_arcana2_attack_damage", {})
 		caster:SetModifierStackCount("modifier_spirit_warrior_arcana2_attack_damage", caster, damageBonus)
