@@ -413,7 +413,7 @@ function Winterblight:FrozenFoyer2(msg)
 end
 
 function Winterblight:SpawnCavernBat(position, fv)
-	local stone = Winterblight:SpawnDungeonUnit("winter_cavern_bat", position, 1, 1, "Winterblight.CavernBat.Aggro", fv, false)
+	local stone = Winterblight:SpawnDungeonUnit("winter_cavern_bat", position, 0, 1, "Winterblight.CavernBat.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 4, 4, false)
 	stone.itemLevel = 50
 	stone:SetRenderColor(170, 200, 255)

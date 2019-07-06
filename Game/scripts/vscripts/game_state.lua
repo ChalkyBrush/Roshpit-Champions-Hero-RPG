@@ -3210,7 +3210,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_winterblight_cavern_unit") then
 		local chamber_level = Winterblight.CavernData.Chambers[victim.chamber]["level"]
-		local reduction = 0.95^chamber_level
+		local reduction = 0.5^chamber_level
 		if not Winterblight:IsWithinChamber(attacker, victim.chamber) then
 			filterTable["damage"] = 0
 		end
