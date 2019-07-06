@@ -326,7 +326,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "30"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%< ARKIMUS_W3_BONUS_DMG >%"
 				}
 			}
 			"modifier_arkimus_c_b_sprinting"
