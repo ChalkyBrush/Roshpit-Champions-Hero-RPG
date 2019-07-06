@@ -453,7 +453,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"45"
+				"property_one"			"<% CONJUROR_W3_CRIT_DMG_PCT %>	"
 			}
 			"02"
 			{
