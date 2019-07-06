@@ -156,7 +156,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"<% ARKIMUS_W3_BONUS_DMG %>"
 			}
 		}
 	}
@@ -296,7 +296,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% ARKIMUS_R1_BONUS_DMG %>"
 			}
 			"02"
 			{
