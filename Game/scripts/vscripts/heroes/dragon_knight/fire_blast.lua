@@ -1,3 +1,4 @@
+require('heroes/dragon_knight/flamewaker_constants')
 function Vacuum(keys)
     local caster = keys.caster
     local target = keys.target
@@ -117,7 +118,7 @@ function eruption_damage(event)
             local d_a_duration = Filters:GetAdjustedBuffDuration(caster, 5, false)
             seismicFlare.q_4_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_flamewaker_rune_q_4", {duration = d_a_duration})
             local current_stack = caster:GetModifierStackCount("modifier_flamewaker_rune_q_4", seismicFlare.q_4_ability)
-            local stackBonus = math.floor(damage * 0.001 * seismicFlare.q_4_level / 10)
+            local stackBonus = math.floor(damage * FLAMEWAKER_Q4_BASE_DMG_PER_DAMAGE * seismicFlare.q_4_level / 10)
             caster:SetModifierStackCount("modifier_flamewaker_rune_q_4", seismicFlare.q_4_ability, current_stack + stackBonus)
         end
     end
