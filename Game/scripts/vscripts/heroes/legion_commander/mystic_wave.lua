@@ -20,7 +20,7 @@ function begin_mystic_wave(event)
 	local range = range
 	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "mountain_protector")
 	if q_4_level > 0 then
-		range = range + 20 * q_4_level
+		range = range + MOUNTAIN_PROTECTOR_Q4_DIST * q_4_level
 	end
 	ability.q_4_level = q_4_level
 	ability.e_3_amp = 0
