@@ -266,12 +266,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% BAHAMUT_W4_DMG_OF_MANA_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.02"
+				"property_two"			"<% BAHAMUT_W4_MANA_DRAIN_PCT %>"
 			}
 		}
 	}
