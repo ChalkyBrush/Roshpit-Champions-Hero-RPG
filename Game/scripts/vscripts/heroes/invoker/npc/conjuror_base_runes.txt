@@ -246,12 +246,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2510"
+				"property_one"			"<% CONJUROR_W1_DMG %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"600"
+				"property_one_base"		"<% CONJUROR_W1_DMG_BASE %>"
 			}
 			"03"
 			{
@@ -371,7 +371,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% CONJUROR_W2_BONUS_DMG_PCT %>"
 			}
 			"01"
 			{
@@ -404,7 +404,7 @@
 				"IsHidden"			"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% CONJUROR_W2_BONUS_DMG_PCT %>"
 				}
 			}
 			"modifier_soul_sear_visible_enemy"

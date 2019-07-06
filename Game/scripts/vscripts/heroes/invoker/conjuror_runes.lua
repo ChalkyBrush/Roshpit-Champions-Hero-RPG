@@ -115,7 +115,7 @@ function immolation_think(event)
 	local caster = target.conjuror
 	local ability = event.ability
 	local radius = 300
-	local damage = ability.totalLevel * 2510 + 600
+	local damage = ability.totalLevel * CONJUROR_W1_DMG + CONJUROR_W1_DMG_BASE
 	local healthGain = 0
 	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
