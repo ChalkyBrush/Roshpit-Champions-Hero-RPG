@@ -120,7 +120,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"50000"
+				"property_two"			"<% ARKIMUS_W1_BASE_DMG %>"
 			}
 		}
 	}

@@ -2343,7 +2343,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                     local w_1_level = attacker:GetRuneValue("w", 1)
                     if w_1_level > 0 then
                         local specialDamage = damage * mult
-                        local damageBoost = math.min(specialDamage * 0.002 * w_1_level, w_1_level * 50000)
+                        local damageBoost = math.min(specialDamage * 0.002 * w_1_level, w_1_level * ARKIMUS_W1_BASE_DMG)
                         local stormAbility = attacker:FindAbilityByName("arkimus_storm_weapon")
                         stormAbility:ApplyDataDrivenModifier(attacker, attacker, "modifier_damage_boost_a_a_visible", {duration = 15})
                         stormAbility:ApplyDataDrivenModifier(attacker, attacker, "modifier_damage_boost_a_a_invisible", {duration = 15})
