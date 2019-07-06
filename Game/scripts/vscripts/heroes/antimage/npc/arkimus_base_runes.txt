@@ -255,7 +255,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"<% ARKIMUS_E3_POST_MITI %>"
 			}
 		}
 	}
