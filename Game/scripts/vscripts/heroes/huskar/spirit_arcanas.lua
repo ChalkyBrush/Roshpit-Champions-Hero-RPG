@@ -220,7 +220,7 @@ function javelin_hit(event)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NORMAL)
 	local w_2_level = ability.w_2_level
 	if w_2_level > 0 then
-		local mult = w_2_level * 0.04
+		local mult = w_2_level * SPIRIT_WARRIOR_W2_ARCANA_PCT/100
 		if caster:HasModifier("modifier_flametongue") then
 			local eventTable = {}
 			eventTable.caster = caster

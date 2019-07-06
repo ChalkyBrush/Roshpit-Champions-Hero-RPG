@@ -39,7 +39,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"<% SPIRIT_WARRIOR_W2_ARCANA_PCT %>"
 			}
 		}
 	}
