@@ -145,7 +145,7 @@ function leshrac_take_damage(event)
 	if luck > 1 then
 		local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "bahamut")
 		if a_c_level > 0 then
-			local healAmount = math.ceil(damage * 0.01 * a_c_level)
+			local healAmount = math.ceil(damage * BAHAMUT_E1_CHANCE/100 * a_c_level)
 			Filters:ApplyHeal(caster, caster, healAmount, true)
 			ability.healParticle = true
 			CustomAbilities:QuickAttachParticle("particles/econ/items/tinker/boots_of_travel/teleport_end_bots_ground_glow.vpcf", caster, 2)

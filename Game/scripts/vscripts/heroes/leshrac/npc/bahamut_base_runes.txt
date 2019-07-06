@@ -292,7 +292,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% BAHAMUT_E1_CHANCE %>"
 			}
 		}
 	}
