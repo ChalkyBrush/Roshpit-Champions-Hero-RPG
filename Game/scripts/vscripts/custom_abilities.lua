@@ -285,10 +285,12 @@ end
 function CustomAbilities:QuickParticleAtPoint(particleName, position, destroyTime)
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, Events.GameMaster)
 	ParticleManager:SetParticleControl(pfx, 0, position)
-	Timers:CreateTimer(destroyTime, function()
-		ParticleManager:DestroyParticle(pfx, false)
-		ParticleManager:ReleaseParticleIndex(pfx)
-	end)
+	if destroyTime > 0 then
+		Timers:CreateTimer(destroyTime, function()
+			ParticleManager:DestroyParticle(pfx, false)
+			ParticleManager:ReleaseParticleIndex(pfx)
+		end)
+	end
 	return pfx
 end
 

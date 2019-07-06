@@ -35,8 +35,8 @@ function Winterblight:Debug()
     -- Winterblight:DropBorealGraniteChunk(Vector(-15424,-2560))
     -- RPCItems:RollSeinaruArcana1(Vector(-15424,-2560))
     -- RPCItems:RollSeinaruArcana1(Vector(-15424,-2560))
-    RPCItems:RollPuzzlersLocket(Vector(-15424,-2560))
-    Winterblight:CandyCrushRoom()
+    -- RPCItems:RollPuzzlersLocket(Vector(-15424,-2560))
+    -- Winterblight:CandyCrushRoom()
 
 end
 
@@ -218,6 +218,7 @@ function Winterblight:Debug2()
     -- Winterblight:LastAzaleaRoomStart()
     
     Winterblight:CompleteChamberEvent(1, MAIN_HERO_TABLE[1]:GetAbsOrigin())
+     -- Winterblight:SpawnCloakedPhantasm(MAIN_HERO_TABLE[1]:GetAbsOrigin()+Vector(0,-300), Vector(0,-1))
 end
 
 function Winterblight:CalculateHeroZones()

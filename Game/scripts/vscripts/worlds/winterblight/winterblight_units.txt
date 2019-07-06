@@ -10620,9 +10620,9 @@
     {
         "BaseClass" "npc_dota_creature"
         "Model" "models/heroes/razor/razor.vmdl"
-        "ModelScale"    "1.65"
+        "ModelScale"    "1.12"
         "Level" "1"
-        "HealthBarOffset"   "150"
+        "HealthBarOffset"   "210"
         "HasInventory"  "0"
         "SelectionGroup"    "mines_boss"
         "DefaultState"  "Invade"
@@ -10642,7 +10642,7 @@
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "550"
-        "ProjectileModel"   "particles/units/heroes/hero_shadow_demon/shadow_demon_base_attack.vpcf"
+        "ProjectileModel"   "particles/units/heroes/hero_winter_wyvern/winter_wyvern_base_attack.vpcf"
         "ProjectileSpeed"   "1000"
         "BountyGoldMin" "400"
         "BountyGoldMax" "500"
@@ -10690,8 +10690,181 @@
             }
 
         }
-        "Ability1"  "redfall_ethereal_revenant_passive"
-        "Ability2"  "magic_immune_breakable_ability_mega"
-        "Ability3"  "armor_break_ultra"
-        "Ability4"  "dungeon_creep"
+        "Ability1"  "heartfreezer_blink"
+        "Ability2"  "armor_break"
+        "Ability3"  "orthok_split_attack"
+        "Ability4"  "normal_steadfast"
+        "Ability5"  "use_ability_1_position_ai"
+        "Ability6"  "dungeon_creep"
+    }
+
+    "winterblight_boar"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/items/beastmaster/boar/legacy_of_the_nords_battle_boar/legacy_of_the_nords_battle_boar.vmdl"
+        "ModelScale"    "0.8"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "precache"
+        {
+            "particle"  "particles/roshpit/winterblight/wolf_aura.vpcf"
+        }
+
+        "ArmorPhysical" "3"
+        "MagicalResistance" "30"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "32148"
+        "AttackDamageMax"   "35188"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "1"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "140"
+        "BountyGoldMin" "50"
+        "BountyGoldMax" "60"
+        "BountyXP" "155"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "BuildTime" "0"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "4850"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+          
+            }
+
+        }
+        "Ability1"  "dungeon_creep"
+        "Ability2"  "winterblight_tanky"
+        "Ability3"  "winterblight_stun_regen"
+
+    }
+
+    "winterblight_corporeal_revenant"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/lycan/lycan.vmdl"
+        "ModelScale"    "1.0"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"      "Hero_Lycan"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts"
+            "particle"  "particles/roshpit/winterblight/ghost_arcanist_projectile_concoction_projectile_linear.vpcf"
+        }
+        "ArmorPhysical" "6"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "132000"
+        "AttackDamageMax"   "140000"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "115"
+        "BountyGoldMin" "30"
+        "BountyGoldMax" "40"
+        "BountyXP" "700"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "370"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "1280000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "500"
+        "StatusManaRegen"   "100"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"      "heartfreezer_blink"
+        "Ability2"      "winter_cavern_spark"
+        "Ability3"      "normal_steadfast"
+        "Ability4"      "use_ability_1_position_ai"
+        "Ability5"      "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12895"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12898"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12894"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "12897"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "12575"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+                "Ability1"
+                {
+                    "Name"                "winter_cavern_spark"
+                }         
+            }
+
+        }
     }

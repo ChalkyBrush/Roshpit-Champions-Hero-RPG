@@ -617,6 +617,10 @@ function cavern_unit_die(event)
 		local position = unit:GetAbsOrigin()
 		Winterblight:CompleteChamberEvent(chamber, position)
 	end
+	if chamber == 1 and Winterblight.CavernData.Chambers[chamber]["event"] == 3 then
+		Winterblight.Foyer3Kills = Winterblight.Foyer3Kills + 1
+		Winterblight:Foyer3WaveRedirect(Winterblight.Foyer3Kills)
+	end
 end
 
 function ultra_ice_think(event)
@@ -1033,4 +1037,85 @@ function cavern_relic_fragment_think(event)
 		-- crystal.direction = targetDirection
 		-- crystal.pushForce = 18
 		-- crystal.liftForce = 10
+end
+
+function cavern_spark_phase(event)
+	local caster = event.caster
+	StartAnimation(caster, {duration = 0.4, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.8})
+	EmitSoundOn("Winterblight.Cavern.WraithSpark.Pre", caster)
+end
+
+function cavern_spark_throw(event)
+	local caster = event.caster
+	local ability = event.ability
+	local spark_count = 3
+
+	local base_damage = event.base_damage
+	ability.damage = base_damage * OverflowProtectedGetAverageTrueAttackDamage(caster)
+
+	ability.paralyze_duration = 0.1
+	local particle = "particles/roshpit/winterblight/ghost_arcanist_projectile_concoction_projectile_linear.vpcf"
+	local range = 1000
+	local divisor = 15
+	if spark_count == 3 then
+		divisor = 17
+	elseif spark_count == 4 then
+		divisor = 18
+	elseif spark_count == 5 then
+		divisor = 22
+	end
+	EmitSoundOn("Winterblight.Cavern.WraithSpark.Throw", caster)
+	for i = 1, spark_count, 1 do
+		local rotation_adjustment = spark_count / 2
+		local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi * (i - rotation_adjustment) / divisor)
+		local speed = 1500
+		local info =
+		{
+			Ability = ability,
+			EffectName = particle,
+			vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 20),
+			fDistance = range,
+			fStartRadius = 170,
+			fEndRadius = 170,
+			Source = caster,
+			StartPosition = "attach_attack1",
+			bHasFrontalCone = true,
+			bReplaceExisting = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			fExpireTime = GameRules:GetGameTime() + 5.0,
+			bDeleteOnHit = false,
+			vVelocity = fv * speed,
+			bProvidesVision = false,
+		}
+		projectile = ProjectileManager:CreateLinearProjectile(info)
+	end
+
+	Filters:CastSkillArguments(2, caster)
+end
+
+function cavern_spark_impact(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local paralyze_duration = ability.paralyze_duration
+
+	local current_stacks = target:GetModifierStackCount("modifier_cavern_spark_paralyze_immunity", target)
+	local paralyze_immunity = 1
+	if current_stacks <= 5 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_cavern_spark_paralyze_immunity", {duration = paralyze_immunity})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_cavern_spark_paralyze", {duration = paralyze_duration})
+		target:SetModifierStackCount("modifier_cavern_spark_paralyze_immunity", caster, current_stacks + 1)
+	end
+	StartAnimation(target, {duration = paralyze_duration, activity = ACT_DOTA_FLAIL, rate = 2.2})
+	EmitSoundOn("Winterblight.Cavern.WraithSpark.Hit", target)
+	local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin() + Vector(0, 0, target:GetBoundingMaxs().z + 40))
+	ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin() + Vector(0, 0, target:GetBoundingMaxs().z + 60))
+	Timers:CreateTimer(0.3, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_NATURE, RPC_ELEMENT_LIGHTNING)
 end

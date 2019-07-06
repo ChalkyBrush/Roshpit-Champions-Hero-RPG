@@ -70916,6 +70916,15 @@
 					}
 				}
 			}
+			"modifier_foyer_3_regen"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "1"
+				}
+			}
 		}
 	}
 
@@ -81620,6 +81629,117 @@
 
 	}
 
+	"winterblight_tanky"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"hydroxis/hydroxis_q_2"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_block"			"50 80 99"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_water_jailer_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+	}
+
+	"winter_cavern_spark"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/invoked_abilities/cavern_spark"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0.5"
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"100"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"base_damage"			"1 2 3"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+				"Function"		"cavern_spark_phase"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+				"Function"		"cavern_spark_throw"
+				"base_damage"			"%base_damage"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+				"Function"		"cavern_spark_impact"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_cavern_spark_paralyze"
+			{
+				"IsHidden"	"0"
+				"States"
+				{
+					"ACT_DOTA_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
+				"StatusEffectPriority"	"120"
+			}
+			"modifier_cavern_spark_paralyze_immunity"
+			{
+				"IsHidden"	"1"
+			}
+		}
+	}
 
 
 	"soul_ferrier_passive"

@@ -775,7 +775,7 @@ function Precache:Winterblight()
 end
 
 function Precache:WinterblightCavern()
-	local unitTable = {"winterblight_scouring_sherpa", "winterblight_skating_zealot", "winterblight_relict", "ferocious_polar_bear", "ice_haunter", "winterblight_stone_guardian", "winterblight_merkurio", "winterblight_cavern_guide", "winterblight_cavern_centaur", "azalea_mana_null", "winterblight_blood_wraith", "winterblight_cavern_ultra_ice", "drill_digger", "winter_cavern_bat", "cavern_pantheon_knight", "barbed_husker"}
+	local unitTable = {"winterblight_scouring_sherpa", "winterblight_skating_zealot", "winterblight_relict", "ferocious_polar_bear", "ice_haunter", "winterblight_stone_guardian", "winterblight_merkurio", "winterblight_cavern_guide", "winterblight_cavern_centaur", "azalea_mana_null", "winterblight_blood_wraith", "winterblight_cavern_ultra_ice", "drill_digger", "winter_cavern_bat", "cavern_pantheon_knight", "barbed_husker", "winterblight_cloaked_phantasm", "winterblight_boar"}
 	local i = 1 
 	local function precache_function()
 		--print("done precaching: "..unitTable[i])

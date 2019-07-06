@@ -119,6 +119,11 @@ function Winterblight:ProcessChamberStart(msg)
 	if not Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"] then
 		Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"] = 0
 	end
+	if not Winterblight.CavernData.Chambers[msg.chamber]["events"][msg.event_number]["attempt"] then
+		Winterblight.CavernData.Chambers[msg.chamber]["events"][msg.event_number]["attempt"] = 1
+	else
+		Winterblight.CavernData.Chambers[msg.chamber]["events"][msg.event_number]["attempt"] = Winterblight.CavernData.Chambers[msg.chamber]["events"][msg.event_number]["attempt"] + 1
+	end
 	Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"] = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"] + 1
 	-- if Beacons.cheats then
 	-- 	Winterblight.CavernData.Chambers[msg.chamber]["status"] = 0
@@ -126,6 +131,10 @@ function Winterblight:ProcessChamberStart(msg)
 	if not Winterblight.CavernUnits then
 		Winterblight.CavernUnits = {}
 	end
+	if not Winterblight.CavernPFXs then
+		Winterblight.CavernPFXs = {}
+	end
+	Winterblight.CavernPFXs[msg.chamber] = {}
 	Winterblight.CavernUnits[msg.chamber] = {}
 	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, hero, "modifier_winterblight_cavern_fighter", {})
 	
@@ -151,6 +160,8 @@ function Winterblight:FrozenFoyer(msg)
 		Winterblight:FrozenFoyer1(msg)
 	elseif msg.event_number == 2 then
 		Winterblight:FrozenFoyer2(msg)
+	elseif msg.event_number == 3 then
+		Winterblight:FrozenFoyer3(msg)
 	end
 end
 
@@ -430,6 +441,11 @@ function Winterblight:SetCavernUnit(unit, original_position, bDeaggro, bParticle
 		CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", unit:GetAbsOrigin(), 4)
 		EmitSoundOn("Winterblight.GuideCaveIntro", unit)
 	end
+	local event_index = Winterblight.CavernData.Chambers[chamber_index]["event"]
+	if Winterblight.CavernData.Chambers[chamber_index]["events"][event_index]["attempt"] ~= 1 then
+		unit.minDungeonDrops = 0
+		unit.maxDungeonDrops = 0
+	end
 	table.insert(Winterblight.CavernUnits[chamber_index], unit)
 end
 
@@ -535,7 +551,7 @@ function Winterblight:ValidateChamberMaxLevel(hero, chamber_index, event_index, 
 	local chamber_index = tostring(chamber_index)
 	local event_index = tostring(event_index)
 	if Winterblight.CavernMetaData[chamber_index][event_index][steam_id] and Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"] and Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"]["level"] then
-		your_hero_max = Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"]["level"] + 1
+		your_hero_max = Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"]["level"] + 5
 	end
 	local game_settings_max = 1
 	local difficulty = GameState:GetDifficultyFactor()
@@ -702,6 +718,9 @@ function ClearChamberUnits(chamber)
 			end
 		end)
 	end
+	for i = 1, #Winterblight.CavernPFXs[chamber], 1 do
+		ParticleManager:DestroyParticle(Winterblight.CavernPFXs[chamber][i], false)
+	end
 end
 
 function Winterblight:CompleteChamberEvent(chamber, position)
@@ -709,6 +728,7 @@ function Winterblight:CompleteChamberEvent(chamber, position)
 		EmitSoundOnLocationWithCaster(position, "Winterblight.Cavern.RelicPop", Events.GameMaster)
 
 		Winterblight.CavernData.Chambers[chamber]["status"] = 3
+
 		CustomGameEventManager:Send_ServerToAllClients("cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers, fragments = Winterblight.CavernData.RelicsFragments})
 
 		local event_index = Winterblight.CavernData.Chambers[chamber]["event"]
@@ -716,7 +736,12 @@ function Winterblight:CompleteChamberEvent(chamber, position)
 		local hero_index = Winterblight.CavernData.Chambers[chamber]["hero"]
 		local hero = EntIndexToHScript(hero_index)
 		local level = Winterblight.CavernData.Chambers[chamber]["level"]
+
 		Winterblight.CavernData.Chambers[chamber]["events"][event_index]["status"] = 1
+		if Beacons.cheats then
+			Winterblight.CavernData.Chambers[chamber]["events"][event_index]["status"] = 0
+		end
+
 		Winterblight:DisperseRelicFragments(position, reward, hero, chamber, event_index)
 		Winterblight:CavernCompletionToServer(hero, chamber, event_index, level)
 		ClearChamberUnits(chamber)
@@ -790,4 +815,262 @@ function Winterblight:CavernCompletionToServer(hero, chamber, event_index, level
 			Winterblight:GetCaveMetaData()
 		end
 	end )
+end
+
+function Winterblight:SpawnCloakedPhantasm(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_cloaked_phantasm", position, 0, 2, "Winterblight.CloakedPhantasm.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 5, false)
+	stone.itemLevel = 55
+	stone:SetRenderColor(170, 200, 255)
+	stone.dominion = true
+	stone.randomMissMin = 100
+	stone.randomMissMax = 500
+	Winterblight:SetPositionCastArgs(stone, 2000, 300, 1, FIND_ANY_ORDER)
+	if Winterblight.Stones >= 3 then
+		stone:AddAbility("arena_magic_immune_breakable_ability"):SetLevel(GameState:GetDifficultyFactor())
+	end
+	return stone
+end
+
+function Winterblight:SpawnBoar(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_boar", position, 0, 0, "Winterblight.Boar.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 52
+	stone:SetRenderColor(220, 200, 255)
+	stone.dominion = true
+	return stone
+end
+
+function Winterblight:FrozenFoyer3(msg)
+	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 242
+	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
+	Winterblight.Foyer3Kills = 0
+	local chamber_id = msg.chamber
+	local unitsTable = {}
+	local portalPosTable = {Vector(-12397, 9093), Vector(-10618, 8347), Vector(-8960, 6912), Vector(-8415, 9743), Vector(-5258, 10071)}
+	for i = 1, #portalPosTable, 1 do
+		local groundPos = GetGroundPosition(portalPosTable[i], Events.GameMaster)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, groundPos, 500, 10, false)
+		local portalPFX = CustomAbilities:QuickParticleAtPoint("particles/econ/events/ti9/teleport_end_ti9.vpcf", groundPos, 0)
+		ParticleManager:SetParticleControl(portalPFX, 3, groundPos)
+		ParticleManager:SetParticleControl(portalPFX, 15, groundPos)
+		table.insert(Winterblight.CavernPFXs[chamber_id], portalPFX)
+	end
+	Winterblight:Foyer3WaveRedirect(0)
+end
+
+function Winterblight:Foyer3WaveRedirect(kills)
+	local chamber_id = 1
+	local spawnphase = Winterblight.CavernData.Chambers[chamber_id]["spawnphase"]
+	local portalPosTable = {Vector(-12397, 9093), Vector(-10618, 8347), Vector(-8960, 6912), Vector(-8415, 9743), Vector(-5258, 10071)}
+	if kills == 0 then
+		for k = 1, 8, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = Winterblight:SpawnBoar(position, RandomVector(1))
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Foyer3SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 30 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						if i%2 == 0 then
+							local spawn = Winterblight:SpawnCloakedPhantasm(position, RandomVector(1))
+							Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), false, false, chamber_id)
+							Winterblight:Foyer3SpawnEffect(spawn)
+						else
+							local spawn = Winterblight:SpawnBloodWraith(position, RandomVector(1))
+							Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), false, false, chamber_id)
+							Winterblight:Foyer3SpawnEffect(spawn)
+						end
+					end		
+				end
+			end)
+		end
+	elseif kills == 50 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local spawn = Winterblight:SpawnCorporealRevenant(position, RandomVector(1))
+						Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Foyer3SpawnEffect(spawn)
+					end		
+				end
+			end)
+		end
+	elseif kills == 70 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local spawn = nil
+						if k == 1 then
+							spawn = Winterblight:SpawnCorporealRevenant(position, RandomVector(1))
+						elseif k == 2 then
+							spawn = Winterblight:SpawnHeartFreezer(position, RandomVector(1))
+						elseif k == 3 then
+							spawn = Winterblight:SpawnManaNull(position, RandomVector(1))
+						elseif k == 4 then
+							spawn = Winterblight:SpawnWinterRunner(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Foyer3SpawnEffect(spawn)
+					end		
+				end
+			end)
+		end
+	elseif kills == 90 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local spawn =  Winterblight:SpawnWinterRunner(position, RandomVector(1))
+						Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Foyer3SpawnEffect(spawn)
+					end		
+				end
+			end)
+		end
+	elseif kills == 110 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						if i%2 == 0 then
+							local spawn = Winterblight:SpawnScouringSharpa(position, RandomVector(1))
+							Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), false, false, chamber_id)
+							Winterblight:Foyer3SpawnEffect(spawn)
+						else
+							local spawn = Winterblight:SpawnPolarBear(position, RandomVector(1))
+							Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), false, false, chamber_id)
+							Winterblight:Foyer3SpawnEffect(spawn)
+						end
+					end		
+				end
+			end)
+		end
+	elseif kills == 130 then
+		for k = 1, 5, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local spawn =  Winterblight:SpawnIceHaunter(position, RandomVector(1))
+						Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Foyer3SpawnEffect(spawn)
+					end		
+				end
+			end)
+		end
+	elseif kills == 155 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local spawn =  Winterblight:SpawnAzaleaSorceress(position, RandomVector(1))
+						Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Foyer3SpawnEffect(spawn)
+					end		
+				end
+			end)
+		end
+	elseif kills == 175 then
+		for k = 1, 5, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local spawn =  Winterblight:SpawnFrostWhelpling(position, RandomVector(1))
+						Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Foyer3SpawnEffect(spawn)
+					end		
+				end
+			end)
+		end
+	elseif kills == 200 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local spawn = nil
+						if k == 1 then
+							spawn = Winterblight:SpawnDrillDigger(position, RandomVector(1))
+						elseif k == 2 then
+							spawn = Winterblight:SpawnBarbedHusker(position, RandomVector(1))
+						elseif k == 3 then
+							spawn = Winterblight:SpawnBarbedHusker(position, RandomVector(1))
+						elseif k == 4 then
+							spawn = Winterblight:SpawnCloakedPhantasm(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Foyer3SpawnEffect(spawn)
+					end		
+				end
+			end)
+		end
+	elseif kills == 220 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local spawn = nil
+						if k == 1 then
+							spawn = Winterblight:SpawnCorporealRevenant(position, RandomVector(1))
+						elseif k == 2 then
+							spawn = Winterblight:SpawnCorporealRevenant(position, RandomVector(1))
+						elseif k == 3 then
+							spawn = Winterblight:SpawnWinterAssasin(position, RandomVector(1))
+						elseif k == 4 then
+							spawn = Winterblight:SpawnWinterAssasin(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(spawn, spawn:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Foyer3SpawnEffect(spawn)
+					end		
+				end
+			end)
+		end
+	end
+end
+
+function Winterblight:Foyer3SpawnEffect(unit)
+	local level = Winterblight.CavernData.Chambers[1]["level"]
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/portal_spawn.vpcf", unit:GetAbsOrigin()+Vector(0,0,60), 2.5)
+	EmitSoundOn("Winterblight.Foyer3.Spawn", unit)
+	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_foyer_3_regen", {})
+	local stacks = math.min(level, 20)
+	unit:SetModifierStackCount("modifier_foyer_3_regen", Winterblight.Master, stacks)
+	Dungeons:AggroUnit(unit)
+	unit:SetAcquisitionRange(8000)
+end
+
+function Winterblight:SpawnCorporealRevenant(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_corporeal_revenant", position, 0, 2, "Winterblight.Cavern.CorporealRevenant.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 5, false)
+	stone.itemLevel = 55
+	Events:ColorWearablesAndBase(stone, Vector(150, 180, 255))
+	stone.dominion = true
+	stone.randomMissMin = 300
+	stone.randomMissMax = 800
+	Winterblight:SetPositionCastArgs(stone, 1600, 300, 1, FIND_ANY_ORDER)
+	if Winterblight.Stones >= 3 then
+		stone:AddAbility("armor_break_ultra"):SetLevel(GameState:GetDifficultyFactor())
+	end
+	return stone
 end

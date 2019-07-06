@@ -2492,12 +2492,8 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = filterTable["damage"] * 1.2
 	end
 	if victim:HasModifier("modifier_water_jailer_passive") then
-		local reduc = 0.1
-		if GameState:GetDifficultyFactor() == 2 then
-			reduc = 0.5
-		elseif GameState:GetDifficultyFactor() == 3 then
-			reduc = 0.98
-		end
+		local abil = victim:FindModifierByName("modifier_water_jailer_passive"):GetAbility()
+		local reduc = abil:GetSpecialValueFor("damage_block")/100
 		filterTable["damage"] = filterTable["damage"] * (1 - reduc)
 	end
 	if victim:HasModifier("modifier_wind_temple_key_stone_form") then

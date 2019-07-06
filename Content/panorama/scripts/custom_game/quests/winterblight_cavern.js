@@ -184,7 +184,7 @@ function CavernRecordsLoaded(msg){
 			your_hero_record = msg.wb_data[chamber_index][event_index][steam_id]["hero_record"]["level"]
 		}
 	}
-	var your_hero_max = parseInt(your_hero_record) + 1
+	var your_hero_max = parseInt(your_hero_record) + 5
 	var difficulty_max = get_event_difficulty_max(msg.difficulty, msg.stones)
 
 	var overall_max = your_hero_max

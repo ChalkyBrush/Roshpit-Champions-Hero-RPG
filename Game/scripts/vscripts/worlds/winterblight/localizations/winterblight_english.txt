@@ -761,6 +761,9 @@
 		"winterblight_cavern_room1_event2"							"Ultra Ice Showdown"
 		"winterblight_cavern_room1_event2_description"				"A dozen Ultra Ices patrol the chamber."
 
+		"winterblight_cavern_room1_event3"							"Dimensional Portals"
+		"winterblight_cavern_room1_event3_description"				"Waves of enemies spawn from dimensional portals. All creatures have 1% health regen per event level, up to a max of 20%."
+
 		"winterblight_cavern_status_prefix"								"Status:"
 		"winterblight_cavern_status_inactive"								"Inactive"
 		"winterblight_cavern_status_active"								"Active"
