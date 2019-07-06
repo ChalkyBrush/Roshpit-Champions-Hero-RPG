@@ -368,7 +368,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"400"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_R2_BASE_DMG %>"
 			}
 			"02"
 			{
@@ -389,6 +389,11 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%property_one"
+				}
 			}
 		}
 	}
