@@ -215,17 +215,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3020"
+				"property_one"			"<% BAHAMUT_W3_DMG %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"5000"
+				"property_one_base"		"<% BAHAMUT_W3_BASE_DMG %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_two"			"<% BAHAMUT_W3_ATTACK_TO_DMG_PCT %>"
 			}
 			"04"
 			{
