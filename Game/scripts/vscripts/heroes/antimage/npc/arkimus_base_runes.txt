@@ -273,7 +273,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"250"
+				"property_one"			"<% ARKIMUS_E4_AGI %>"
 			}
 			"02"
 			{
