@@ -210,17 +210,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_E1_DMG_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"100"
+				"property_one_base"		"<% MOUNTAIN_PROTECTOR_E1_BASE %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_two"			"<% MOUNTAIN_PROTECTOR_E1_STUN_DURATION %>"
 			}
 			"04"
 			{
