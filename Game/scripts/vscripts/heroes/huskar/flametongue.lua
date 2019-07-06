@@ -92,7 +92,7 @@ function a_a_damage(event)
 	local target = event.target
 	local caster = event.caster
 	local stacks = target:GetModifierStackCount("modifier_flametongue_a_a_rune", caster)
-	local burnDamage = (220 + 285 * ability.q_1_level) * stacks
+	local burnDamage = (SPIRIT_WARRIOR_Q1_BASE + SPIRIT_WARRIOR_Q1_DMG * ability.q_1_level) * stacks
 	if target:GetPhysicalArmorValue(false) < 0 then
 		burnDamage = burnDamage + (event.negative_armor_amp / 100) * math.abs(target:GetPhysicalArmorValue(false)) * burnDamage
 	end

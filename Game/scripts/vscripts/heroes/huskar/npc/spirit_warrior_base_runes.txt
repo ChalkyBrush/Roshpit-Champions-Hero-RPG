@@ -16,12 +16,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"285"
+				"property_one"			"<% SPIRIT_WARRIOR_Q1_DMG %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"220"
+				"property_one_base"		"<% SPIRIT_WARRIOR_Q1_BASE %>"
 			}
 			"03"
 			{
