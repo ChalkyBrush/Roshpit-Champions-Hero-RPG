@@ -23,7 +23,7 @@ function energy_shield_create(event)
 	if ability.w_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_protector_rune_w_4_aura", {})
 	end
-	caster.mountainGuardianMagic = 1 + (w_2_level * 0.04)
+	caster.mountainGuardianMagic = 1 + (w_2_level * MOUNTAIN_PROTECTOR_W2_MAGIC_AMP_PCT/100)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_energy_channel_animating", {duration = 6})
 	StartAnimation(caster, {duration = 7, activity = ACT_DOTA_TELEPORT, rate = 0.8, translate = "fallen_legion"})
 	EmitSoundOn("MysticAssasin.ShieldYell"..RandomInt(1, 2), caster)
