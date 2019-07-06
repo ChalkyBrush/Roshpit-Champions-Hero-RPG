@@ -16,7 +16,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8800"
+				"property_one"			"<% SPIRIT_WARRIOR_E1_ARCANA_DMG %>"
 			}
 			"02"
 			{
@@ -74,17 +74,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12000"
+				"property_one"			"<% SPIRIT_WARRIOR_E3_ARCANA_DPS %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.12"
+				"property_two"			"<% SPIRIT_WARRIOR_E3_ARCANA_DURATION %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two_base"			"3"
+				"property_two_base"			"<% SPIRIT_WARRIOR_E3_ARCANA_DURATION_BASE %>"
 			}
 			"04"
 			{

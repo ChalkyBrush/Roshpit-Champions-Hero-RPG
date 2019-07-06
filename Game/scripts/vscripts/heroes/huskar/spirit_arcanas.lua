@@ -471,7 +471,7 @@ function reachSpirit(caster, ability, spiritPosition)
 				end)
 				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), spiritPosition, nil, 410, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 				if #enemies > 0 then
-					local damage = 8800 * a_c_level
+					local damage = SPIRIT_WARRIOR_E1_ARCANA_DMG * a_c_level
 					for _, enemy in pairs(enemies) do
 						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 					end
@@ -482,7 +482,7 @@ function reachSpirit(caster, ability, spiritPosition)
 	local c_c_level = caster:GetRuneValue("e", 3)
 	if c_c_level > 0 then
 		EmitSoundOnLocationWithCaster(spiritPosition, "SpiritWarrior.TempestHaze", caster)
-		local duration = 3 + c_c_level * 0.12
+		local duration = SPIRIT_WARRIOR_E3_ARCANA_DURATION_BASE + c_c_level * SPIRIT_WARRIOR_E3_ARCANA_DURATION
 		local stormParticle = ParticleManager:CreateParticle("particles/roshpit/spirit_warrior/tempest_haze_storm.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(stormParticle, 0, spiritPosition)
 		ParticleManager:SetParticleControl(stormParticle, 1, Vector(800, 2, 2))
@@ -492,7 +492,7 @@ function reachSpirit(caster, ability, spiritPosition)
 		--ability:ApplyDataDrivenThinker(caster, spiritPosition, "modifier_tempest_haze_aura_thinker_friendly", {duration = duration})
 		CustomAbilities:QuickAttachThinker(ability, caster, spiritPosition, "modifier_tempest_haze_aura_thinker_friendly", {duration = duration})
 
-		ability.e_3_damage_tick = 12000 * c_c_level * 0.5
+		ability.e_3_damage_tick = SPIRIT_WARRIOR_E3_ARCANA_DPS * c_c_level * 0.5
 	end
 	-- "particles/roshpit/spirit_warrior/tempest_haze_storm.vpcf"
 
