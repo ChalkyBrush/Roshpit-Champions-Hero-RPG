@@ -194,7 +194,7 @@ function leshrac_attack_land(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local damage = ability.w_2_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.05
+	local damage = ability.w_2_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * BAHAMUT_W2_DAMAGE_PCT/100
 	if caster:HasModifier("modifier_bahamut_immortal_weapon_1") then
 		local luck = RandomInt(1, 5)
 		if luck == 1 then

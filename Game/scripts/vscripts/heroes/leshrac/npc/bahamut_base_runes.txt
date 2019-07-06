@@ -193,7 +193,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"<% BAHAMUT_W2_DAMAGE_PCT %>"
 			}
 		}
 	}
