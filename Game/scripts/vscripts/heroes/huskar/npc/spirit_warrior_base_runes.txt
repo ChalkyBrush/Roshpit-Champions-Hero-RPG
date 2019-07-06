@@ -181,7 +181,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"640"
+				"property_one"			"<% SPIRIT_WARRIOR_W2_BASE_DMG %>"
 			}
 		}
 		"Modifiers"
