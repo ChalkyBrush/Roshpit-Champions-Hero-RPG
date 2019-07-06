@@ -287,7 +287,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"50"
+				"property_one"			"<% FLAMEWAKER_W4_BONUS_DMG_PCT %>"
 			}
 		}
 		"Modifiers"
@@ -300,7 +300,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "50"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% FLAMEWAKER_W4_BONUS_DMG_PCT %>"
 				}
 			}
 			"modifier_flamewaker_rune_w_4_cooldown"
