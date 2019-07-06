@@ -55,7 +55,7 @@ function archon_form_thinking(event)
 	local caster = event.caster
 	local ability = event.ability
 	if ability.r_2_level > 0 then
-		local atkPower = 0.05 * caster:GetMana() * ability.r_2_level
+		local atkPower = ARKIMUS_ARCANA2_R2_BASE_DMG/100 * caster:GetMana() * ability.r_2_level
 		caster:SetModifierStackCount("modifier_archone_b_d_attack_power", caster, atkPower)
 	end
 end
