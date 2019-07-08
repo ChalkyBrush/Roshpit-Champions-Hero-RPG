@@ -698,6 +698,8 @@ end
 function Winterblight:ResetChamber(hero, chamber)
 	if Winterblight.CavernData.Chambers[chamber]["status"] == 1 then
 		Winterblight.CavernData.Chambers[chamber]["status"] = 2
+		local event_index = Winterblight.CavernData.Chambers[chamber]["event"]
+		Winterblight.CavernData.Chambers[chamber]["events"][event_index]["status"] = 0
 		CustomGameEventManager:Send_ServerToAllClients("cavern_summary_init", {chamber_data = Winterblight.CavernData.Chambers, fragments = Winterblight.CavernData.RelicsFragments})
 		EmitSoundOn("Winterblight.Cavern.EventLose", hero)
 		ClearChamberUnits(chamber)
@@ -739,7 +741,7 @@ function Winterblight:CompleteChamberEvent(chamber, position)
 		local hero = EntIndexToHScript(hero_index)
 		local level = Winterblight.CavernData.Chambers[chamber]["level"]
 
-		Winterblight.CavernData.Chambers[chamber]["events"][event_index]["status"] = 1
+		Winterblight.CavernData.Chambers[chamber]["events"][event_index]["status"] = 2
 		if Beacons.cheats then
 			Winterblight.CavernData.Chambers[chamber]["events"][event_index]["status"] = 0
 		end
@@ -1100,7 +1102,7 @@ function Winterblight:MerkurioEventThink(caster)
 	if not caster.event_phase then
 		caster.event_phase = 0
 		EmitSoundOn("Winterblight.Merkurio.EventStart", caster)
-		StartAnimation(guide, {duration=5, activity=ACT_DOTA_CAST_ABILITY4_STATUE, rate=0.8})
+		StartAnimation(caster, {duration=5, activity=ACT_DOTA_CAST_ABILITY4_STATUE, rate=0.8})
 	end
 	if caster.event_phase == 0 then
 		caster.event_phase = 1
@@ -1222,7 +1224,7 @@ function Winterblight:MerkurioSpawnEffect(caster, unit)
 end
 
 function Winterblight:SpawnMerkurioCrystal(position, type_index)
-	local position = Vector(11158, -11456, 802 + Winterblight.ZFLOAT)
+	local position = GetGroundPosition(position, Events.GameMaster) + Vector(0,0,300)
 	local crystal = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
 	local yaw = RandomInt(0, 345)
 

@@ -365,13 +365,19 @@ function merkurio_think(event)
 		caster:MoveToPosition(Vector(-5082, 7595))
 		caster.state = 9
 		Winterblight.CaveGuideReady = true
+		caster.moveAdjust = true
 	elseif caster.state == 9 then
 		if Winterblight.CavernData and Winterblight.CavernData.Chambers[1] and Winterblight.CavernData.Chambers[1]["event"] == 4 and Winterblight.CavernData.Chambers[1]["status"] == 1 then
 			Winterblight:MerkurioEventThink(caster)
 		else
+			caster.event_phase = nil
+			caster.summon_phase = nil
 			local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(-5082, 7595))
 			if distance > 300 then
 				caster.state = 8
+			elseif caster.moveAdjust then
+				caster.moveAdjust = false
+				caster:MoveToPosition(caster:GetAbsOrigin()+Vector(-1,0))
 			end
 		end
 	end

@@ -66,7 +66,7 @@ function ChamberButtonActivate(index, msg){
 
 		setChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_container, cavern_event_button, i, index, fragments)
 		var status = parseInt(msg.winterblight_cavern.Chambers[index]["events"][i]["status"])
-		if (status == 1){
+		if (status == 2){
 			cavern_event_button.FindChildTraverse('winter_event_button_label').AddClass("green_text")
 		}else{
 			cavern_event_button.FindChildTraverse('winter_event_button_label').AddClass("white_text")
