@@ -365,6 +365,15 @@ function merkurio_think(event)
 		caster:MoveToPosition(Vector(-5082, 7595))
 		caster.state = 9
 		Winterblight.CaveGuideReady = true
+	elseif caster.state == 9 then
+		if Winterblight.CavernData and Winterblight.CavernData.Chambers[1] and Winterblight.CavernData.Chambers[1]["event"] == 4 and Winterblight.CavernData.Chambers[1]["status"] == 1 then
+			Winterblight:MerkurioEventThink(caster)
+		else
+			local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(-5082, 7595))
+			if distance > 300 then
+				caster.state = 8
+			end
+		end
 	end
 	if not caster:HasModifier("modifier_disable_player") then
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(-7252, 4283))
@@ -1118,4 +1127,45 @@ function cavern_spark_impact(event)
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_NATURE, RPC_ELEMENT_LIGHTNING)
+end
+
+function merkurio_crystal_think(event)
+	local caster = event.caster
+	if not caster.interval then
+		caster.interval = 0
+	end
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 2) * math.cos(2 * math.pi * caster.interval / 180))
+	caster.interval = caster.interval + 1
+	local rotatedFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi / 180)
+	caster:SetForwardVector(rotatedFV)
+	if caster.interval == 180 then
+		caster.interval = 0
+	end
+
+	local crystal = caster
+	crystal:SetAbsOrigin(crystal:GetAbsOrigin() + Vector(0, 0, 0.8) * math.cos(2 * math.pi * caster.interval / 180))
+	local rotatedFV = WallPhysics:rotateVector(crystal:GetForwardVector(), 2 * math.pi / 180)
+	crystal:SetForwardVector(rotatedFV)
+
+end
+
+function merkurio_crystal_take_damage(event)
+end
+
+function disappearing_act_cast(event)
+	local caster = event.caster
+	local ability = event.ability
+	local duration = event.duration
+
+	local pfx2 = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", caster, 3)
+	ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_invisibility_datadriven", {duration = duration})
+	caster:AddNewModifier(caster, ability, "modifier_persistent_invisibility", {duration = duration})
+
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.Beguiler.DisappearingAct", caster)
+	if caster:GetUnitName() == "winterblight_cavern_beguiler" then
+		Timers:CreateTimer(0.5, function()
+			EmitSoundOn("Winterblight.Beguiler.DisappearingAct.Highlight", caster)
+		end)
+	end
 end

@@ -162,6 +162,8 @@ function Winterblight:FrozenFoyer(msg)
 		Winterblight:FrozenFoyer2(msg)
 	elseif msg.event_number == 3 then
 		Winterblight:FrozenFoyer3(msg)
+	elseif msg.event_number == 4 then
+		Winterblight:FrozenFoyer4(msg)
 	end
 end
 
@@ -860,6 +862,25 @@ function Winterblight:FrozenFoyer3(msg)
 	Winterblight:Foyer3WaveRedirect(0)
 end
 
+function Winterblight:FrozenFoyer4(msg)
+	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 242
+	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
+	local chamber_id = msg.chamber
+	local unitsTable = {}
+	local crystalPosTable = {Vector(-12397, 9093), Vector(-10618, 8347), Vector(-8960, 6912), Vector(-8415, 9743), Vector(-5258, 10071)}
+	for i = 1, #crystalPosTable, 1 do
+		local groundPos = GetGroundPosition(crystalPosTable[i], Events.GameMaster)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, groundPos, 500, 10, false)
+		local crystal = Winterblight:SpawnMerkurioCrystal(groundPos, i)
+		table.insert(Winterblight.CavernUnits[chamber_id], crystal)
+		local portalPFX = CustomAbilities:QuickParticleAtPoint("particles/econ/events/ti9/teleport_end_ti9.vpcf", groundPos, 0)
+		ParticleManager:SetParticleControl(portalPFX, 3, groundPos)
+		ParticleManager:SetParticleControl(portalPFX, 15, groundPos)
+		table.insert(Winterblight.CavernPFXs[chamber_id], portalPFX)
+	end
+end
+
 function Winterblight:Foyer3WaveRedirect(kills)
 	local chamber_id = 1
 	local spawnphase = Winterblight.CavernData.Chambers[chamber_id]["spawnphase"]
@@ -1072,5 +1093,173 @@ function Winterblight:SpawnCorporealRevenant(position, fv)
 	if Winterblight.Stones >= 3 then
 		stone:AddAbility("armor_break_ultra"):SetLevel(GameState:GetDifficultyFactor())
 	end
+	return stone
+end
+
+function Winterblight:MerkurioEventThink(caster)
+	if not caster.event_phase then
+		caster.event_phase = 0
+		EmitSoundOn("Winterblight.Merkurio.EventStart", caster)
+		StartAnimation(guide, {duration=5, activity=ACT_DOTA_CAST_ABILITY4_STATUE, rate=0.8})
+	end
+	if caster.event_phase == 0 then
+		caster.event_phase = 1
+	elseif caster.event_phase == 1 then
+		local targetPos = Vector(-6788, 9237)
+		caster:MoveToPosition(targetPos)
+		local distance = WallPhysics:GetDistance2d(targetPos, caster:GetAbsOrigin())
+		if distance < 100 then
+			caster.summon_phase = 0
+			caster.event_phase = 2
+			EmitSoundOn("Winterblight.Merkurio.Laugh", caster)
+		end
+	elseif caster.event_phase == 2 then
+		if caster.summon_phase <= 6 then
+			StartAnimation(caster, {duration=5, activity=ACT_DOTA_ATTACK, rate=1})
+			EmitSoundOn("Winterblight.Merkurio.GustEvent", caster)
+			for i = 1, 5, 1 do
+				local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*i/5)
+				local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_drow/drow_silence_wave.vpcf", caster:GetAbsOrigin(), 4)
+				ParticleManager:SetParticleControl(pfx, 1, fv*1000)
+				ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin()+fv*1000)
+			end
+			local baseFV = RandomVector(1)
+			caster.summon_phase = caster.summon_phase + 1
+			if caster.summon_phase%2 == 1 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnPolarBear(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			else
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnRelict(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			end
+		elseif caster.summon_phase == 7 then
+			if Winterblight.CavernData.Chambers[1]["progress"] >= 10 then
+				caster.event_phase = 3
+				EmitSoundOn("Winterblight.Merkurio.Laugh", caster)
+			end
+		end
+	elseif caster.event_phase == 3 then
+		local targetPos = Vector(-5864, 10226)
+		caster:MoveToPosition(targetPos)
+		local distance = WallPhysics:GetDistance2d(targetPos, caster:GetAbsOrigin())
+		if distance < 100 then
+			caster.summon_phase = 0
+			caster.event_phase = 4
+		end		
+	elseif caster.event_phase == 4 then
+		if caster.summon_phase <= 6 then
+			StartAnimation(caster, {duration=5, activity=ACT_DOTA_ATTACK, rate=1})
+			EmitSoundOn("Winterblight.Merkurio.GustEvent", caster)
+			for i = 1, 5, 1 do
+				local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*i/5)
+				local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_drow/drow_silence_wave.vpcf", caster:GetAbsOrigin(), 4)
+				ParticleManager:SetParticleControl(pfx, 1, fv*1000)
+				ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin()+fv*1000)
+			end
+			local baseFV = RandomVector(1)
+			caster.summon_phase = caster.summon_phase + 1
+			if caster.summon_phase == 1 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnBeguiler(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase == 2 then
+				for i = 1, 2, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnDrillDigger(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase > 2 then
+				for i = 1, 2, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnIceHaunter(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			end
+		elseif caster.summon_phase == 7 then
+			if Winterblight.CavernData.Chambers[1]["progress"] >= 38 then
+				caster.event_phase = 5
+				EmitSoundOn("Winterblight.Merkurio.Laugh", caster)
+			end
+		end
+	elseif caster.event_phase == 5 then
+		local targetPos = Vector(-8265, 10092)
+		caster:MoveToPosition(targetPos)
+		local distance = WallPhysics:GetDistance2d(targetPos, caster:GetAbsOrigin())
+		if distance < 100 then
+			caster.summon_phase = 0
+			caster.event_phase = 5
+		end
+	end
+end
+
+function Winterblight:MerkurioSpawnEffect(caster, unit)
+	local particleName = "particles/roshpit/winterblight/blue_beam_attack_light_ti_5.vpcf"
+    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+    ParticleManager:SetParticleControl(pfx,0,caster:GetAttachmentOrigin(0)+Vector(0,0,90))   
+    ParticleManager:SetParticleControl(pfx,1,unit:GetAbsOrigin()+Vector(0,0,322))
+	Timers:CreateTimer(3.5, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/portal_spawn.vpcf", unit:GetAbsOrigin()+Vector(0,0,60), 2.5)
+end
+
+function Winterblight:SpawnMerkurioCrystal(position, type_index)
+	local position = Vector(11158, -11456, 802 + Winterblight.ZFLOAT)
+	local crystal = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+	local yaw = RandomInt(0, 345)
+
+	crystal:SetAngles(0, yaw, 0)
+
+	crystal:SetModelScale(1.5)
+	crystal:SetOriginalModel("models/winterblight/azalea_crystal.vmdl")
+	crystal:SetModel("models/winterblight/azalea_crystal.vmdl")
+	crystal:SetAbsOrigin(position)
+
+	crystal:RemoveAbility("dummy_unit")
+	crystal:RemoveModifierByName("dummy_unit")
+	crystal.basePosition = position
+
+	crystal.yaw = yaw
+	crystal:AddAbility("winterblight_merkurio_event_crystal"):SetLevel(1)
+	crystal.pushLock = true
+	crystal.dummy = true
+	crystal.jumpLock = true
+	local colorTable = {"red", "blue", "yellow", "purple", "orange"}
+	if Winterblight.MasterCrystalColor == "red" then
+		crystal:SetRenderColor(220, 100, 100)
+	elseif Winterblight.MasterCrystalColor == "blue" then
+		crystal:SetRenderColor(100, 100, 220)
+	elseif Winterblight.MasterCrystalColor == "yellow" then
+		crystal:SetRenderColor(220, 220, 100)
+	end
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_wisp/wisp_death.vpcf", crystal, 3)
+	return crystal
+end
+
+function Winterblight:SpawnBeguiler(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_cavern_beguiler", position, 0, 2, "Winterblight.Beguiler.DisappearingAct.Highlight", fv, false)
+	Events:AdjustBossPower(stone, 5, 5, false)
+	stone.itemLevel = 55
+	Events:ColorWearablesAndBase(stone, Vector(150, 180, 255))
+	stone.dominion = true
+	Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_ANY_ORDER)
 	return stone
 end

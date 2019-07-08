@@ -94369,6 +94369,111 @@
 
         }
     }
+
+    "winterblight_cavern_beguiler"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/rikimaru/rikimaru.vmdl"
+        "ModelScale"    "1.08"
+        "Level" "1"
+        "HealthBarOffset"   "240"
+        "HasInventory"  "0"
+        "SelectionGroup"    "doomguard"
+        "DefaultState"  "Invade"
+        "SoundSet"      "Hero_Riki"
+        "PathfindingSearchDepthScale" "0.2"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"
+            "particle"  "particles/units/heroes/hero_siren/siren_net.vpcf"
+            "particle"  "particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf"
+        }
+        "ArmorPhysical" "4"
+        "MagicalResistance" "20"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "32500"
+        "AttackDamageMax"   "38620"
+        "AttackRate"    "1.1"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "160"
+        "BountyGoldMin" "400"
+        "BountyGoldMax" "500"
+        "BountyXP" "920"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "360"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "800000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "561"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "322"
+                }   
+                "Wearable3"
+                {
+                    "ItemDef"   "5327"
+                }  
+                "Wearable4"
+                {
+                    "ItemDef"   "7976"
+                }    
+                "Wearable5"
+                {
+                    "ItemDef"   "7332"
+                }     
+                "Wearable6"
+                {
+                    "ItemDef"   "7331"
+                }                
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "600.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+                "Ability1"
+                {
+                    "Name"                "winterblight_disappearing_act"
+                }          
+            }
+
+        }
+        "Ability1"  "winterblight_ensnare"
+        "Ability2"  "winterblight_disappearing_act"
+        "Ability3"  "use_ability_1_target_ai"
+        "Ability4"  "dungeon_creep"
+    }
     
 
     "tutorial_master"
