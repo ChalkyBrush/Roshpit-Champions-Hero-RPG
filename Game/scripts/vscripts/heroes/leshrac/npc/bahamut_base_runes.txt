@@ -408,12 +408,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"<% BAHAMUT_R1_ATTACKSPEED %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"<% BAHAMUT_R1_MOVESPEED %>"
 			}
 		}
 	}
@@ -435,12 +435,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"<% BAHAMUT R2_DAMAGE_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"100"
+				"property_one_base"		"<% BAHAMUT_R2_BASE DAMAGE_PCT %>"
 			}
 			"03"
 			{
@@ -455,7 +455,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"property_two"			"<% BAHAMUT_R2_POST_MITI_PCT %>"
 			}
 		}
 	}
