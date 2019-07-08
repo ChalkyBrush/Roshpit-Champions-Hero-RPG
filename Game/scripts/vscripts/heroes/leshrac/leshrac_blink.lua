@@ -60,7 +60,7 @@ function HideCaster(event)
 	-- StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.9})
 	ability.e_2_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "bahamut")
 	if ability.e_2_level > 0 then
-		ability.e_2_duration = ability.e_2_level * 0.05
+		ability.e_2_duration = ability.e_2_level * BAHAMUT_E2_PARALYZE_DURATION
 		b_c_sequence(caster, position, fv, ability)
 	end
 	caster:RemoveModifierByName("modifier_pulse_slow")

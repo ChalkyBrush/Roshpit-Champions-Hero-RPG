@@ -314,7 +314,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"<% BAHAMUT_E2_MAX_DAMAGE_INCREASE_PCT %>"
 			}
 			"02"
 			{
@@ -329,7 +329,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.05"
+				"property_two"			"<% BAHAMUT_E2_PARALYZE_DURATION %>"
 			}
 		}
 	}
@@ -351,12 +351,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6100"
+				"property_one"			"<% BAHAMUT_E3_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"3000"
+				"property_one_base"		"<% BAHAMUT_E3_BASE_DAMAGE %>"
 			}
 			"03"
 			{
