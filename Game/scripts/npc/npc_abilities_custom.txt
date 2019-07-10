@@ -81778,17 +81778,51 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"modifier_crystal_finished"
+			"modifier_merkurio_crystal_red"
 			{
-				"IsHidden"	"1"
-				"States"
+				"IsHidden"	"0"
+				"Properties"
 				{
-					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "500"
 				}
 			}
-
+			"modifier_merkurio_crystal_blue"
+			{
+				"IsHidden"	"0"
+			}
+			"modifier_merkurio_crystal_yellow"
+			{
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"100"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"300"
+				}
+			}
+			"modifier_merkurio_crystal_green"
+			{
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "10"
+				}
+			}
+			"modifier_merkurio_crystal_purple"
+			{
+				"IsHidden"	"0"
+			}
+			"modifier_merkurio_crystal_disabled"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"merkurio_crystal_reactivate"
+					}
+				}
+			}
 		}
 
 	}

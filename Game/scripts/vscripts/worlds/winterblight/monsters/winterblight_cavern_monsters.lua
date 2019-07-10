@@ -1137,8 +1137,12 @@ end
 
 function merkurio_crystal_think(event)
 	local caster = event.caster
+	local ability = event.ability
 	if not caster.interval then
 		caster.interval = 0
+	end
+	if not caster.apply_interval then
+		caster.apply_interval = 0
 	end
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 2) * math.cos(2 * math.pi * caster.interval / 180))
 	caster.interval = caster.interval + 1
@@ -1152,10 +1156,92 @@ function merkurio_crystal_think(event)
 	crystal:SetAbsOrigin(crystal:GetAbsOrigin() + Vector(0, 0, 0.8) * math.cos(2 * math.pi * caster.interval / 180))
 	local rotatedFV = WallPhysics:rotateVector(crystal:GetForwardVector(), 2 * math.pi / 180)
 	crystal:SetForwardVector(rotatedFV)
+	caster.apply_interval = caster.apply_interval + 1
+	if caster.apply_interval == 30 then
+		caster.apply_interval = 0
+		if not caster:HasModifier("modifier_merkurio_crystal_disabled") then
+			apply_merkurio_crystal_buffs(caster, ability)
+		end
+	end
+end
 
+function apply_merkurio_crystal_buffs(caster, ability)
+	if caster.crystal_color == "red" then
+		for i = 1, #Winterblight.CavernUnits[1], 1 do
+			local unit = Winterblight.CavernUnits[1][i]
+			if not unit:GetUnitName() == "npc_dummy_unit" then
+				ability:ApplyDataDrivenModifier(caster, unit, "modifier_merkurio_crystal_red", {})
+			end
+		end
+	elseif caster.crystal_color == "blue" then
+		for i = 1, #Winterblight.CavernUnits[1], 1 do
+			local unit = Winterblight.CavernUnits[1][i]
+			if not unit:GetUnitName() == "npc_dummy_unit" then
+				ability:ApplyDataDrivenModifier(caster, unit, "modifier_merkurio_crystal_blue", {})
+			end
+	elseif caster.crystal_color == "yellow" then
+		for i = 1, #Winterblight.CavernUnits[1], 1 do
+			local unit = Winterblight.CavernUnits[1][i]
+			if not unit:GetUnitName() == "npc_dummy_unit" then
+				ability:ApplyDataDrivenModifier(caster, unit, "modifier_merkurio_crystal_yellow", {})
+			end
+		end
+	elseif caster.crystal_color == "green" then
+		for i = 1, #Winterblight.CavernUnits[1], 1 do
+			local unit = Winterblight.CavernUnits[1][i]
+			if not unit:GetUnitName() == "npc_dummy_unit" then
+				ability:ApplyDataDrivenModifier(caster, unit, "modifier_merkurio_crystal_green", {})
+			end
+		end
+	elseif caster.crystal_color == "purple" then
+		for i = 1, #Winterblight.CavernUnits[1], 1 do
+			local unit = Winterblight.CavernUnits[1][i]
+			if not unit:GetUnitName() == "npc_dummy_unit" then
+				ability:ApplyDataDrivenModifier(caster, unit, "modifier_merkurio_crystal_purple", {})
+				unit:SetModifierStackCount("modifier_merkurio_crystal_purple", caster, 3)
+			end
+		end
+	end
 end
 
 function merkurio_crystal_take_damage(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster:HasModifier("modifier_merkurio_crystal_disabled") then
+		caster:SetRenderColor(50, 50, 50)
+		ability:ApplyDataDrivenModifier(caster, unit, "modifier_merkurio_crystal_disabled", {duration = 15})
+		local color = caster.crystal_color
+		for i = 1, #Winterblight.CavernUnits[1], 1 do
+			local unit = Winterblight.CavernUnits[1][i]
+			if not unit:GetUnitName() == "npc_dummy_unit" then
+				unit:RemoveModifierByName("modifier_merkurio_crystal_"..color)
+			end
+		end
+	end
+end
+
+function merkurio_crystal_reactivate(event)
+	local caster = event.caster
+	local ability = event.ability
+	local crystal = caster
+	if Winterblight.CavernData.Chambers[1]["status"] == 1 then
+		apply_merkurio_crystal_buffs(caster, ability)
+		local crystal_color = caster.crystal_color
+
+		if crystal_color == "red" then
+			crystal:SetRenderColor(220, 100, 100)
+		elseif crystal_color == "blue" then
+			crystal:SetRenderColor(100, 100, 220)
+		elseif crystal_color == "yellow" then
+			crystal:SetRenderColor(220, 220, 100)
+		elseif crystal_color == "green" then
+			crystal:SetRenderColor(100, 220, 100)
+		elseif crystal_color == "purple" then
+			crystal:SetRenderColor(220, 100, 220)
+		end
+		crystal.crystal_color = crystal_color
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_wisp/wisp_death.vpcf", crystal, 3)
+	end
 end
 
 function disappearing_act_cast(event)

@@ -3213,9 +3213,22 @@ function GameState:FilterDamage(filterTable)
 		if Winterblight.CavernData.Chambers[victim.chamber]["status"] ~= 1 then
 			filterTable["damage"] = 0
 		end
+		if victim:HasModifier("modifier_merkurio_crystal_blue") then
+			filterTable["damage"] =	filterTable["damage"]*0.1
+		end
 		filterTable["damage"] = filterTable["damage"]*reduction
 		local allowed_player = EntIndexToHScript(Winterblight.CavernData.Chambers[victim.chamber]["hero"]):GetPlayerOwnerID()
 		if attacker:GetPlayerOwnerID() ~= allowed_player then
+			filterTable["damage"] = 0
+		end
+		if victim:HasModifier("modifier_merkurio_crystal_purple") and filterTable["damage"] > 0 then
+			local caster = victim:FindModifierByName("modifier_merkurio_crystal_purple"):GetCaster()
+			local stacks = victim:GetModifierStackCount("modifier_merkurio_crystal_purple", caster) - 1
+			if stacks > 0 then
+				victim:SetModifierStackCount("modifier_merkurio_crystal_purple", caster, stacks)
+			else
+				victim:RemoveModifierByName("modifier_merkurio_crystal_purple")
+			end
 			filterTable["damage"] = 0
 		end
 	elseif attacker:HasModifier("modifier_winterblight_cavern_unit") then

@@ -868,6 +868,8 @@ function Winterblight:FrozenFoyer4(msg)
 	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
 	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 242
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
+	local color_table = {"red", "blue", "yellow", "green", "purple"}
+	Winterblight.MerkurioCrystalTable = WallPhysics:ShuffleTable(color_table)
 	local chamber_id = msg.chamber
 	local unitsTable = {}
 	local crystalPosTable = {Vector(-12397, 9093), Vector(-10618, 8347), Vector(-8960, 6912), Vector(-8415, 9743), Vector(-5258, 10071)}
@@ -1244,14 +1246,20 @@ function Winterblight:SpawnMerkurioCrystal(position, type_index)
 	crystal.pushLock = true
 	crystal.dummy = true
 	crystal.jumpLock = true
-	local colorTable = {"red", "blue", "yellow", "purple", "orange"}
-	if Winterblight.MasterCrystalColor == "red" then
+	local crystal_color = Winterblight.MerkurioCrystalTable[type_index]
+
+	if crystal_color == "red" then
 		crystal:SetRenderColor(220, 100, 100)
-	elseif Winterblight.MasterCrystalColor == "blue" then
+	elseif crystal_color == "blue" then
 		crystal:SetRenderColor(100, 100, 220)
-	elseif Winterblight.MasterCrystalColor == "yellow" then
+	elseif crystal_color == "yellow" then
 		crystal:SetRenderColor(220, 220, 100)
+	elseif crystal_color == "green" then
+		crystal:SetRenderColor(100, 220, 100)
+	elseif crystal_color == "purple" then
+		crystal:SetRenderColor(220, 100, 220)
 	end
+	crystal.crystal_color = crystal_color
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_wisp/wisp_death.vpcf", crystal, 3)
 	return crystal
 end
