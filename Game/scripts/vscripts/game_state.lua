@@ -2248,7 +2248,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_nights_procession_a_d_rune") then
 		if attacker:GetUnitName() == "npc_dota_hero_night_stalker" then
-			local multBonus = victim:GetModifierStackCount("modifier_nights_procession_a_d_rune", attacker) * 0.07
+			local multBonus = victim:GetModifierStackCount("modifier_nights_procession_a_d_rune", attacker) * CHERNOBOG_R1_AMP_PCT/100
 			mult = mult + multBonus
 		end
 	end

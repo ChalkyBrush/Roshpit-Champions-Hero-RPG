@@ -316,7 +316,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
+				"property_one"			"<% CHERNOBOG_R1_AMP_PCT %>"
 			}
 
 		}
