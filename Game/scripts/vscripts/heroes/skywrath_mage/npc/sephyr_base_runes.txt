@@ -104,7 +104,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.5"
+				"property_one"			"<% SEPHYR_W1_INT_TO_MANA_REGEN_PCT %>"
 			}
 		}
 	}
@@ -124,7 +124,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"20"
+				"property_one"			"<% SEPHYR_W2_CRIT_BONUS_PCT %>"
 			}
 		}
 	}
@@ -144,7 +144,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% W3_AD_TO_W_DAMAGE_PERCENT %>"
+				"property_one"			"<% SEPHYR_W3_ATTACK_TO_DAMAGE_PCT %>"
 			}
 		}
 	}
@@ -164,7 +164,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.12"
+				"property_one"			"<% SEPHYR_W4_WIND_AMP_PCT %>"
 			}
 		}
 	}

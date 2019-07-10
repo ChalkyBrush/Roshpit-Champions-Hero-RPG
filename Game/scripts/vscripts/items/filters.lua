@@ -2447,12 +2447,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_sephyr_arcana1") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
                 if w_4_level > 0 then
-                    mult = mult + 0.0015 * (attacker:GetIntellect() + attacker:GetStrength() + attacker:GetAgility()) / 10 * w_4_level
+                    mult = mult + SEPHYR_ARCANA_W4_WIND_AMP_PCT/100 * (attacker:GetIntellect() + attacker:GetStrength() + attacker:GetAgility()) / 10 * w_4_level
                 end
             else
                 local w_4_level = attacker:GetRuneValue("w", 4)
                 if w_4_level > 0 then
-                    mult = mult + 0.0012 * attacker:GetIntellect() / 10 * w_4_level
+                    mult = mult + SEPHYR_W4_WIND_AMP_PCT/100 * attacker:GetIntellect() / 10 * w_4_level
                 end
             end
         end
