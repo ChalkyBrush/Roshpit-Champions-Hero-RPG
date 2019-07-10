@@ -13,7 +13,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"<% CHERNOBOG_ARCANA_R1_DAMAGE_PCT %>"
 			}
 			"02"
 			{
@@ -41,12 +41,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"<% CHERNOBOG_ARCANA_R2_ATT_SLOW %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
+				"property_two"			"<% CHERNOBOG_ARCANA_R2_MS_SLOW %>"
 			}
 		}
 	}
@@ -64,7 +64,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"<% CHERNOBOG_ARCANA_R3_SPLIT_PCT %>"
 			}
 		}
 	}
@@ -82,12 +82,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"<% CHERNOBOG_ARCANA_R4_DURATION_INC %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"<% CHERNOBOG_ARCANA_R4_POST_MITI_PCT %>"
 			}
 		}
 	}

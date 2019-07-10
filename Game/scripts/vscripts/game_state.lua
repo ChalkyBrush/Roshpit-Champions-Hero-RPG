@@ -2266,7 +2266,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_chernobog_demon_form") then
 		local demonForm = attacker:FindAbilityByName("chernobog_demon_morph")
 		if demonForm then
-			mult = mult + 0.1 * demonForm.r_4_level
+			mult = mult + CHERNOBOG_ARCANA_R4_POST_MITI_PCT/100 * demonForm.r_4_level
 		end
 	end
 	modifier = victim:FindModifierByName("modifier_chernobog_rune_e_3_postmit")
