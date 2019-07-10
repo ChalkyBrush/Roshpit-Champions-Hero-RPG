@@ -1029,7 +1029,6 @@ CustomAttributes.MS_CAP_MODIFIERS = {modifier_arkimus_speed_dash = 1300,
 	modifier_zonik_lightspeed_cap = "modifier_zonik_lightspeed_cap",
 	modifier_zonik_speedball_cap = "modifier_zonik_speedball_cap",
 	modifier_zonik_temporal_field_cap = "modifier_zonik_temporal_field_cap",
-	modifier_chernobog_d_c_arcana2 = 6
 }
 
 function CustomAttributes:MSCap(unit)
@@ -1044,7 +1043,7 @@ function CustomAttributes:MSCap(unit)
 			elseif type(ms_cap_modifier) == "string" then
 				local modifier_ability = modifier:GetAbility()
 				if ms_cap_modifier == "modifier_chernobog_d_c_arcana2" then
-					max_ms = math.max(max_ms, modifier_ability.e_4_level * 3)
+					max_ms = math.max(max_ms, modifier_ability.e_4_level * 6 + max_ms)
 				elseif ms_cap_modifier == "modifier_dinath_passive_ms_cap" then
 					max_ms = math.max(max_ms, modifier_ability.w_3_level * 5 + max_ms)
 				elseif ms_cap_modifier == "modifier_draghor_feral_sprint" then
@@ -1080,8 +1079,6 @@ function CustomAttributes:MSCap(unit)
 					max_ms = math.max(cap, max_ms)
 				elseif ms_cap_modifier == "modifier_zonik_temporal_field_cap" then
 					max_ms = math.max(modifier_ability:GetSpecialValueFor("movespeed_cap"), max_ms)
-				elseif ms_cap_modifier == "modifier_chernobog_d_c_arcana2" then
-					max_ms = math.max(550 + modifier:GetStackCount() * 6, max_ms)
 				end
 			end
 		end
