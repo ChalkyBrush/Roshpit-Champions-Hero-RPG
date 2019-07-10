@@ -36,7 +36,7 @@ function swap_to_demon_warp(caster, ability, base_name)
 	local a_c_level = caster:GetRuneValue("e", 1)
 	if a_c_level > 0 then
 		CustomAbilities:AddAndOrSwapSkill(caster, base_name, "chernobog_demon_warp", 2)
-		local procs = Runes:Procs(a_c_level, 5, 1)
+		local procs = Runes:Procs(a_c_level, CHERNOBOG_ARCANA_E1_STACKS_CHANCE, 1)
 		if procs > 0 then
 			local warp_ability = caster:FindAbilityByName("chernobog_demon_warp")
 			warp_ability:ApplyDataDrivenModifier(caster, caster, "modifier_demon_warp_freecast", {})
@@ -177,7 +177,7 @@ function demon_warp_start(event)
 	local newPosition = target
 	local direction = ((newPosition - casterOrigin) * Vector(1, 1, 0)):Normalized()
 	local distance = WallPhysics:GetDistance2d(casterOrigin, newPosition)
-	local maxDistance = 600 + a_c_level * 4
+	local maxDistance = CHERNOBOG_ARCANA_E1_CLAMP_BASE + a_c_level * CHERNOBOG_ARCANA_E1_CLAMP
 	if distance > maxDistance then
 		newPosition = WallPhysics:WallSearch(casterOrigin, casterOrigin + direction * maxDistance, caster)
 	end
