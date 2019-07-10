@@ -295,7 +295,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"<% SEPHYR_R1_HP_REGEN_PER_LVL %>"
 			}
 		}
 	}
@@ -315,12 +315,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-8"
+				"property_one"			"<% SEPHYR_R2_ATT_SPEED_SLOW %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-10"
+				"property_two"			"<% SEPHYR_R2_MS_SPEED_SLOW %>"
 			}
 		}
 	}
@@ -340,12 +340,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% SEPHYR_R3_MOVESPEED %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.12"
+				"property_two"			"<% SEPHYR_R3_STRAFE_SPEED %>"
 			}
 		}
 	}
@@ -365,12 +365,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"500"
+				"property_one"			"<% SEPHYR_R4_BONUS_INT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"500"
+				"property_two"			"<% SEPHYR_R4_BONUS_AGI %>"
 			}
 		}
 	}

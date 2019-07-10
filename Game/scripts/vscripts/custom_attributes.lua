@@ -56,7 +56,6 @@ CustomAttributes.AXE_E1_STATS = 10
 CustomAttributes.AXE_ARCANA2_W2_STRENGTH = 100
 CustomAttributes.SORCERESS_ARCANE_INT = 50
 CustomAttributes.TRAPPER_R4_AGI = 1000
-CustomAttributes.SEPHYR_R4_AGI_INT = 500
 CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH = 330
 
 CustomAttributes.RING_OF_NOBILITY = 30
@@ -450,8 +449,8 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_lightbomb_q_1", SEPHYR_Q1_INT_BONUS)
 	end
 	if hero:HasModifier("modifier_nefali_d_d") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_nefali_d_d", CustomAttributes.SEPHYR_R4_AGI_INT)
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_nefali_d_d", CustomAttributes.SEPHYR_R4_AGI_INT)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_nefali_d_d", SEPHYR_R4_BONUS_AGI)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_nefali_d_d", SEPHYR_R4_BONUS_INT)
 	end
 	if hero:HasModifier("modifier_venomort_bonus_stats") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", W3_BONUS_ATTRIBUTES)

@@ -36,7 +36,7 @@ function strafe_thinking(event)
 	end
 	if caster:HasModifier("modifier_nefali_c_d_speed") then
 		local stacks = caster:GetModifierStackCount("modifier_nefali_c_d_speed", caster)
-		forwardSpeed = forwardSpeed + R3_STRAFE_SPEED * stacks
+		forwardSpeed = forwardSpeed + SEPHYR_R3_STRAFE_SPEED * stacks
 	end
 	-- make scale with level
 	if blockUnit then
