@@ -388,12 +388,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"<% CHERNOBOG_R4_CLAW_RANGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"500"
+				"property_one_base"		"<% CHERNOBOG_R4_CLAW_RANGE_BASE %>"
 			}
 		}
 	}

@@ -51,7 +51,7 @@ function begin_nights_procession(event)
 		clawEvent.ability = caster:FindAbilityByName("chernobog_charons_claw")
 		clawEvent.target_points = {}
 		clawEvent.target_points[1] = ability.targetPoint
-		clawEvent.range = 500 + d_d_level * 50
+		clawEvent.range = CHERNOBOG_R4_CLAW_RANGE_BASE + d_d_level * CHERNOBOG_R4_CLAW_RANGE
 		clawEvent.damage = clawEvent.ability:GetAbilityDamage()
 		charons_claw_cast(clawEvent)
 	end
