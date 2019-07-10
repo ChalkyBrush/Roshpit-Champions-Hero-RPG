@@ -232,12 +232,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"<% CHERNOBOG_E2_ILLUSION_DAMAGE_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
+				"property_two"			"<% CHERNOBOG_E2_ARMOR %>"
 			}
 			"03"
 			{
@@ -265,12 +265,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"CHERNOBOG_E3_RANGE"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"400"
+				"property_one_base"		"CHERNOBOG_E3_BASE_RANGE"
 			}
 			"03"
 			{
@@ -293,12 +293,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"<% CHERNOBOG_E4_EVASION_LINGER %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"0.5"
+				"property_one_base"			"<% CHERNOBOG_E4_EVASION_LINGER_BASE %>"
 			}
 		}
 	}

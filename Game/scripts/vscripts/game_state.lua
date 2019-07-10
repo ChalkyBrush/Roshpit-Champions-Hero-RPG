@@ -1084,7 +1084,7 @@ function GameState:OrderFilter(orderTable)
 								if orderTable.entindex_target == 0 then
 								else
 									local distance = WallPhysics:GetDistance2d(enemy:GetAbsOrigin(), unit:GetAbsOrigin())
-									if distance < ability.e_3_level * 12 + 400 then
+									if distance < ability.e_3_level * CHERNOBOG_E3_RANGE + CHERNOBOG_E3_BASE_RANGE then
 										if enemy.dummy then
 										elseif enemy:GetClassname() == "dota_item_drop" then
 										elseif enemy:GetTeamNumber() == unit:GetTeamNumber() then

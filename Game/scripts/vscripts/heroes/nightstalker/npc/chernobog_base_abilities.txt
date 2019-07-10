@@ -686,7 +686,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% CHERNOBOG_E2_ARMOR %>"
 				}
 			}
 			"modifier_chernobog_rune_e_3_postmit"
