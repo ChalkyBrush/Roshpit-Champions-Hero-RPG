@@ -159,7 +159,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% CHERNOBOG_ARCANA_E2_BONUS_DAMAGE_PCT %>"
 				}
 			}
 			"modifier_demonflight_b_c_visible"
