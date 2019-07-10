@@ -108,7 +108,7 @@ function claw_path_apply(event)
 		if ability.q_4_level > 0 then
 
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_q_4_attack", {})
-			local bonusAttack = 0.1 * caster:GetAgility() * ability.q_4_level
+			local bonusAttack = CHERNOBOG_Q4_ADD_BASE_DAMAGE * caster:GetAgility() * ability.q_4_level
 			caster:SetModifierStackCount("modifier_chernobog_rune_q_4_attack", caster, bonusAttack)
 
 		end
@@ -169,7 +169,7 @@ function charons_claw_enemy_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	if ability.q_2_level > 0 then
-		local damage = ability.q_2_level * 7000
+		local damage = ability.q_2_level * CHERNOBOG_Q2_DMG
 		CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit_body_flash.vpcf", target, 2)
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_DEMON, RPC_ELEMENT_SHADOW)
 	end

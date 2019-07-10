@@ -239,7 +239,7 @@
 				"IsBuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "3.5"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "<% CHERNOBOG_Q1_AMP %>"
 				}
 				"OnUnitMoved"
 				{
@@ -272,7 +272,7 @@
 				"TextureName"	"chernobog/chernobog_rune_q_3"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "15"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% CHERNOBOG_Q3_BONUS_ATTACK_DMG %>"
 				}
 			}
 			"modifier_chernobog_rune_q_4_attack"
