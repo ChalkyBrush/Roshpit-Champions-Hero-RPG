@@ -10,6 +10,7 @@ require('/heroes/antimage/arkimus_constants')
 require('/heroes/juggernaut/seinaru_constants')
 require('/heroes/dark_seer/zhonik_constants')
 require('/heroes/hero_necrolyte/constants')
+require('/heroes/nightstalker/chernobog_constants')
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -32,7 +33,6 @@ CustomAttributes.FLAMEWAKER_R3_STRENGTH = 260
 CustomAttributes.CONJUROR_E1_AGI = 25
 CustomAttributes.WARLORD_W2_STATS = 60
 CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH = 250
-CustomAttributes.CHERNOBOG_W4_STR_OR_AGI = 450
 CustomAttributes.HYDROXIS_E4_AGI_INT = 350
 
 CustomAttributes.ZHONIK_R4_STR = ZHONIK_R4_BONUS_STR
@@ -326,10 +326,10 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hailstorm_strength", CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH)
 	end
 	if hero:HasModifier("modifier_chernobog_rune_w_4_inactive") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_inactive", CustomAttributes.CHERNOBOG_W4_STR_OR_AGI)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_inactive", CHERNOBOG_W4_BONUS_STR)
 	end
 	if hero:HasModifier("modifier_chernobog_rune_w_4_active") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_active", CustomAttributes.CHERNOBOG_W4_STR_OR_AGI)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_active", CHERNOBOG_W4_BONUS_AGI)
 	end
 	if hero:HasModifier("modifier_hydroxis_d_c") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", CustomAttributes.HYDROXIS_E4_AGI_INT)

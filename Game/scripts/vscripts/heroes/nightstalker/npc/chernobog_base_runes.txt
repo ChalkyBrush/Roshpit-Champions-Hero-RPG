@@ -111,12 +111,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"500"
+				"property_one"			"<% CHERNOBOG_W1_HEAL %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"100"
+				"property_two"			"<% CHERNOBOG_W1_DAMAGE_PER_MANA_SPENT %>"
 			}
 			"03"
 			{
@@ -144,12 +144,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"<% CHERNOBOG_W2_ARMOR %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3600"
+				"property_two"			"<% CHERNOBOG_W2_BASE_DAMAGE %>"
 			}
 		}
 	}
@@ -167,12 +167,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-15"
+				"property_one"			"<% CHERNOBOG_W3_ARMOR_RED %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"200"
+				"property_two"			"<% CHERNOBOG_W3_BASE_DAMAGE_STACK %>"
 			}
 		}
 	}
@@ -190,12 +190,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"450"
+				"property_one"			"<% CHERNOBOG_W4_BONUS_STR %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"450"
+				"property_two"			"<% CHERNOBOG_W4_BONUS_AGI %>"
 			}
 		}
 	}

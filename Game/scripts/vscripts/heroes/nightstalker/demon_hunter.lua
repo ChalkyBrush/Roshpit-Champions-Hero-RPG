@@ -101,13 +101,13 @@ function demon_hunter_a_b_attack(event)
 	if rune_w_1_level > 0 then
 		if attacker:HasModifier("modifier_demon_hunter") or attacker:HasModifier("modifier_chernobog_glyph_5_a") then
 			CustomAbilities:QuickAttachParticle("particles/chernobog/chernobog_a_b_timedialate.vpcf", target, 2)
-			local extraDamage = rune_w_1_level * 500 * mana_drain_per_attack
+			local extraDamage = rune_w_1_level * CHERNOBOG_W1_DAMAGE_PER_MANA_SPENT * mana_drain_per_attack
 			--print(extraDamage)
 			Filters:TakeArgumentsAndApplyDamage(target, attacker, extraDamage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
 		end
 		if not attacker:HasModifier("modifier_demon_hunter") or attacker:HasModifier("modifier_chernobog_glyph_5_a") then
 			CustomAbilities:QuickAttachParticle("particles/chernobog/chernobog_a_b_timedialate.vpcf", attacker, 2)
-			Filters:ApplyHeal(attacker, attacker, 500 * rune_w_1_level, true, false)
+			Filters:ApplyHeal(attacker, attacker, CHERNOBOG_W1_HEAL * rune_w_1_level, true, false)
 		end
 	end
 	if rune_w_3_level > 0 then
