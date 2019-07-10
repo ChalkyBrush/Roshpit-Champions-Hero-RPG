@@ -32,7 +32,7 @@ function strafe_thinking(event)
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + fv * 30), caster)
 	local forwardSpeed = event.strafe_speed
 	if ability.e_4_level > 0 then
-		forwardSpeed = forwardSpeed + 0.15 * ability.e_4_level
+		forwardSpeed = forwardSpeed + SEPHYR_E4_STRAFE_SPEED * ability.e_4_level
 	end
 	if caster:HasModifier("modifier_nefali_c_d_speed") then
 		local stacks = caster:GetModifierStackCount("modifier_nefali_c_d_speed", caster)
@@ -105,13 +105,13 @@ function boomerang_think(event)
 		end
 		if distance < (boomerang.speed + 5) or not IsValidEntity(boomerang.target) or not boomerang.target:IsAlive() then
 			if IsValidEntity(boomerang.target) then
-				local damage = boomerang.e_1_level * 1500
+				local damage = boomerang.e_1_level * SEPHYR_E1_DAMAGE
 				if boomerang.e_2_level > 0 then
-					damage = damage + boomerang.e_2_level * 0.15 * OverflowProtectedGetAverageTrueAttackDamage(boomerang.caster)
+					damage = damage + boomerang.e_2_level * SEPHYR_E2_ATTACK_TO_DAMAGE_PCT/100 * OverflowProtectedGetAverageTrueAttackDamage(boomerang.caster)
 				end
 				local e_3_level = boomerang.caster:GetRuneValue("e", 3)
 				if e_3_level > 0 then
-					damage = damage + boomerang.caster:GetAgility() * E3_AGILITY_ADDED_TO_DAMAGE * e_3_level
+					damage = damage + boomerang.caster:GetAgility() * SEPHYR_E3_BONUS_PUCK_DAMAGE_PER_AGI * e_3_level
 				end
 				Filters:TakeArgumentsAndApplyDamage(boomerang.target, boomerang.caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 				ability:ApplyDataDrivenModifier(boomerang, boomerang.target, "modifier_boomerang_disarm", {duration = 0.5})
@@ -202,7 +202,7 @@ function strafe_passive_think(event)
 	local e_3_level = caster:GetRuneValue("e", 3)
 	if e_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_strafe_attack_damage", {})
-		local bonusAttack = caster:GetAgility() * 0.2 * e_3_level
+		local bonusAttack = caster:GetAgility() * SEPHYR_E3_BASE_ATTACK_DAMAGE_PER_AGI * e_3_level
 		caster:SetModifierStackCount("modifier_strafe_attack_damage", caster, bonusAttack)
 	else
 		caster:RemoveModifierByName("modifier_strafe_attack_damage")

@@ -185,12 +185,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% SEPHYR_E1_BOUNCE_CHANCE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1500"
+				"property_two"			"<% SEPHYR_E1_DAMAGE %>"
 			}
 			"03"
 			{
@@ -220,12 +220,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"800"
+				"property_one"			"<% SEPHYR_E2_BONUS_ATTACK_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"property_two"			"<% SEPHYR_E2_ATTACK_TO_DAMAGE_PCT %>"
 			}
 		}
 	}
@@ -245,12 +245,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"<% SEPHYR_E3_BASE_ATTACK_DAMAGE_PER_AGI %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1.5"
+				"property_two"			"<% SEPHYR_E3_BONUS_PUCK_DAMAGE_PER_AGI %>"
 			}
 		}
 	}
@@ -270,12 +270,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"<% SEPHYR_E4_STRAFE_SPEED %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"6"
+				"property_two"			"<% SEPHYR_E4_STRAFE_DISTANCE %>"
 			}
 		}
 	}

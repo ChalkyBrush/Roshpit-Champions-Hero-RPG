@@ -898,7 +898,7 @@ function GameState:OrderFilter(orderTable)
 						--print(abilityDistance)
 						local e_4_level = unit:GetRuneValue("e", 4)
 						if e_4_level > 0 then
-							abilityDistance = abilityDistance + e_4_level * 6
+							abilityDistance = abilityDistance + e_4_level * SEPHYR_E4_STRAFE_DISTANCE
 						end
 						strafe.e_4_level = e_4_level
 						local manaReduce = strafe:GetLevelSpecialValueFor("mana_percent_use", strafe:GetLevel()) / 100
