@@ -20,6 +20,7 @@ require('/heroes/spirit_breaker/duskbringer_constants')
 require('/heroes/zuus/auriun_constants')
 require('/heroes/legion_commander/mountain_protector_constants')
 require('/heroes/faceless_void/omniro_constants')
+require('/heroes/skywrath_mage/constants')
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -2160,7 +2161,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_skywrath_mage" then
             if attacker:HasModifier("modifier_sephyr_holy_amp") then
                 local stacks = attacker:GetModifierStackCount("modifier_sephyr_holy_amp", caster)
-                mult = mult + stacks * 1
+                mult = mult + stacks * SEPHYR_Q4_HOLY_AMP_PCT/100
             end
             if attacker:HasModifier("modifier_lightbomb_freecast") then
                 local stacks = attacker:GetModifierStackCount("modifier_lightbomb_freecast", caster)

@@ -79,12 +79,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"<% SEPHYR_Q4_HOLY_AMP_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.5"
+				"property_two"			"<% SEPHYR_Q4_HOLY_TO_ATT_BONUS_PCT %>"
 			}
 		}
 	}

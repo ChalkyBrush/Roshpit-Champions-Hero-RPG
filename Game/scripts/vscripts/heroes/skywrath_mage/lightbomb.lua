@@ -201,7 +201,7 @@ function sephyr_passive_think(event)
 		local damageHOLY = Filters:ElementalDamage(Events.GameMaster, caster, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
 		local holyAmp = math.floor(damageHOLY / damageDealt)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sephyr_d_d_attack_damage", {})
-		local attack_percent = (holyAmp / 200) * q_4_level
+		local attack_percent = (holyAmp * SEPHYR_Q4_HOLY_TO_ATT_BONUS_PCT/100) * q_4_level
 		caster:SetModifierStackCount("modifier_sephyr_d_d_attack_damage", caster, attack_percent)
 	else
 		caster:RemoveModifierByName("modifier_sephyr_d_d_attack_damage")
