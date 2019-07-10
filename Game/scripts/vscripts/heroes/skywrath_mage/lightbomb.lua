@@ -183,7 +183,7 @@ function lightbomb_cast(event)
 			ability:EndCooldown()
 		else
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_lightbomb_freecast", {})
-			caster:SetModifierStackCount("modifier_lightbomb_freecast", caster, freeStacks + q_3_level)
+			caster:SetModifierStackCount("modifier_lightbomb_freecast", caster, freeStacks + q_3_level*SEPHYR_Q3_STACKS)
 		end
 	end
 	Filters:CastSkillArguments(1, caster)
