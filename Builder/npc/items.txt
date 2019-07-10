@@ -1472,7 +1472,7 @@
 		}
 	}
 
-	"item_rpc_currency_reroll"
+	"item_rpc_currency_arcana_reroll"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"

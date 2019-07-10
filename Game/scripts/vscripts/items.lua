@@ -1967,19 +1967,19 @@ function RPCItems:GetEquippedItemsBelowRarity(hero, rarity)
 	return count
 end
 
-function RPCItems:CreateCurrencyReroll(position)
+function RPCItems:CreateCurrencyArcanaReroll(position)
 	if position then
-		RPCItems:CreateBasicConsumable(position, "item_rpc_currency_reroll", "Currency Reroll Placeholder", "arcana", true)
+		return RPCItems:CreateBasicConsumable(position, "item_rpc_currency_arcana_reroll", "Arcana Plasma", "arcana", true)
 	else
-		RPCItems:CreateBasicConsumable(nil, "item_rpc_currency_reroll", "Currency Reroll Placeholder", "arcana", false)
+		return RPCItems:CreateBasicConsumable(nil, "item_rpc_currency_arcana_reroll", "Arcana Plasma", "arcana", false)
 	end
 end
 
 function RPCItems:CreateCurrencyWhetstone(position)
 	if position then
-		RPCItems:CreateBasicConsumable(position, "item_rpc_currency_whetstone", "Currency Whetstone Placeholder", "arcana", true)
+		return RPCItems:CreateBasicConsumable(position, "item_rpc_currency_whetstone", "Ultraforger", "arcana", true)
 	else
-		RPCItems:CreateBasicConsumable(nil, "item_rpc_currency_whetstone", "Currency Whetstone Placeholder", "arcana", false)
+		return RPCItems:CreateBasicConsumable(nil, "item_rpc_currency_whetstone", "Ultraforger", "arcana", false)
 	end
 end
 
