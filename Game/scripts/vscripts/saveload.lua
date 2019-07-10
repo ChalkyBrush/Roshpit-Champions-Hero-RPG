@@ -1048,6 +1048,22 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 				end
 				RPCItems:ItemUpdateCustomNetTables(item)
 				return item
+			elseif string.match(gearTable.item_variant, "item_rpc_currency_whetstone") then
+				local item = RPCItems:CreateCurrencyWhetstone()
+				item.pickedUp = true
+				if gearTable.validator then
+					item.newItemTable.validator = gearTable.validator
+				end
+				RPCItems:ItemUpdateCustomNetTables(item)
+				return item
+			elseif string.match(gearTable.item_variant, "item_rpc_currency_arcana_reroll") then
+				local item = RPCItems:CreateCurrencyArcanaReroll()
+				item.pickedUp = true
+				if gearTable.validator then
+					item.newItemTable.validator = gearTable.validator
+				end
+				RPCItems:ItemUpdateCustomNetTables(item)
+				return item
 			end
 		end
 	end

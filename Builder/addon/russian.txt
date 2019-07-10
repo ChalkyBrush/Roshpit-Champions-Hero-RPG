@@ -914,8 +914,8 @@
 		"DOTA_Tooltip_ability_item_rpc_galactic_arcana_cache"			"Галактический кейс с арканами"
 		"item_rpc_galactic_arcana_cache_desc"							"Использование: выбрасывает 3 случайных арканы к вашим ногам. Уровень предмета зависит от уровня Излучения кейса."
 
-		"DOTA_Tooltip_ability_item_rpc_currency_reroll"				"Arcana Plasma"
-		"item_rpc_currency_reroll_desc"								"Используйте в Синтезирующем Сосуде вместе с предметом-Арканой, чтобы модифицировать показатели на ней. Показатели гарантированно улучшаются или остаются прежними."
+		"DOTA_Tooltip_ability_item_rpc_currency_arcana_reroll"				"Arcana Plasma"
+		"item_rpc_currency_arcana_reroll_desc"								"Используйте в Синтезирующем Сосуде вместе с предметом-Арканой, чтобы модифицировать показатели на ней. Показатели гарантированно улучшаются или остаются прежними."
 
 		"DOTA_Tooltip_ability_item_rpc_currency_whetstone"			"Ultraforger"
 		"item_rpc_currency_whetstone_desc"							"Используйте в Синтезирующем Сосуде вместе с Оружием, чтобы сразу же поднять его до максимального уровня."
