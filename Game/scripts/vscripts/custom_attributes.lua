@@ -11,6 +11,7 @@ require('/heroes/juggernaut/seinaru_constants')
 require('/heroes/dark_seer/zhonik_constants')
 require('/heroes/hero_necrolyte/constants')
 require('/heroes/nightstalker/chernobog_constants')
+require('/heroes/skywrath_mage/constants')
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -55,7 +56,6 @@ CustomAttributes.AXE_E1_STATS = 10
 CustomAttributes.AXE_ARCANA2_W2_STRENGTH = 100
 CustomAttributes.SORCERESS_ARCANE_INT = 50
 CustomAttributes.TRAPPER_R4_AGI = 1000
-CustomAttributes.SEPHYR_Q1_INT = 125
 CustomAttributes.SEPHYR_R4_AGI_INT = 500
 CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH = 330
 
@@ -447,7 +447,7 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "shadow_deity_agility_from_gear", 1)
 	end
 	if hero:HasModifier("modifier_lightbomb_q_1") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_lightbomb_q_1", CustomAttributes.SEPHYR_Q1_INT)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_lightbomb_q_1", SEPHYR_Q1_INT_BONUS)
 	end
 	if hero:HasModifier("modifier_nefali_d_d") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_nefali_d_d", CustomAttributes.SEPHYR_R4_AGI_INT)

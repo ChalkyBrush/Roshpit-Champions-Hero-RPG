@@ -14,7 +14,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"125"
+				"property_one"			"<% SEPHYR_Q1_INT_BONUS %>"
 			}
 		}
 	}
