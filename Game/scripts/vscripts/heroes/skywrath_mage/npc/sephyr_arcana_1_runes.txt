@@ -79,7 +79,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"<% SEPHYR_ARCANA_W4_WIND_AMP_PCT %>"
 			}
 		}
 	}
