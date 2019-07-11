@@ -783,8 +783,8 @@
 		"DOTA_Tooltip_ability_item_rpc_galactic_arcana_cache"			"Galactic Arcana Cache"
 		"item_rpc_galactic_arcana_cache_desc"							"Use: Drops 3 random arcanas at your feet. Their levels are determined by the cache's Radiance value."
 
-		"DOTA_Tooltip_ability_item_rpc_currency_reroll"				"Arcana Plasma"
-		"item_rpc_currency_reroll_desc"								"Use: Combine with an Arcana item in a Synthesis Vessel to transmogrify its properties, keeping only better rolls."
+		"DOTA_Tooltip_ability_item_rpc_currency_arcana_reroll"				"Arcana Plasma"
+		"item_rpc_currency_arcana_reroll_desc"								"Use: Combine with an Arcana item in a Synthesis Vessel to transmogrify its properties, keeping only better rolls."
 
 		"DOTA_Tooltip_ability_item_rpc_currency_whetstone"			"Ultraforger"
 		"item_rpc_currency_whetstone_desc"							"Use: Combine with a Weapon in a Synthesis Vessel to upgrade it to its max level."
