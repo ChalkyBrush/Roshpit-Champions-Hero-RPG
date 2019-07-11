@@ -628,7 +628,7 @@ function cavern_unit_die(event)
 	local chamber = unit.chamber
 	Winterblight.CavernData.Chambers[chamber]["progress"] = Winterblight.CavernData.Chambers[chamber]["progress"] + 1
 	CustomGameEventManager:Send_ServerToAllClients("cavern_summary_update", {chamber_data = Winterblight.CavernData.Chambers, chamber = chamber})
-	if Winterblight.CavernData.Chambers[chamber]["progress"] > Winterblight.CavernData.Chambers[chamber]["goal"] then
+	if Winterblight.CavernData.Chambers[chamber]["progress"] >= Winterblight.CavernData.Chambers[chamber]["goal"] then
 		local position = unit:GetAbsOrigin()
 		Winterblight:CompleteChamberEvent(chamber, position)
 	end
