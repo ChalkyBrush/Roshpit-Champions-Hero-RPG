@@ -228,13 +228,13 @@ function supernova_burn_think(event)
 	elseif ability:GetAbilityName() == "solunia_lunar_alpha_spark" then
 		local damage = target.SoluniaBurnLunar
 		if dualBurn then
-			damage = damage + 0.05 * ability.r_2_level * damage
+			damage = damage + SOLUNIA_ARCANA_R2_DUAL_BURN_PCT/100 * ability.r_2_level * damage
 		end
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
 	elseif ability:GetAbilityName() == "solunia_solar_alpha_spark" then
 		local damage = target.SoluniaBurnSolar
 		if dualBurn then
-			damage = damage + 0.05 * ability.r_2_level * damage
+			damage = damage + SOLUNIA_ARCANA_R2_DUAL_BURN_PCT/100 * ability.r_2_level * damage
 		end
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
 	end
@@ -369,7 +369,7 @@ end
 function arcana2runes(caster, ability)
 	local a_d_level = caster:GetRuneValue("r", 1)
 	if a_d_level > 0 then
-		local healthStacks = RandomInt(1 * a_d_level, 1000 * a_d_level)
+		local healthStacks = RandomInt(SOLUNIA_ARCANA_R1_MIN/10 * a_d_level, SOLUNIA_ARCANA_R1_MAX/10 * a_d_level)
 		local healAmount = healthStacks * 10
 		Filters:ApplyHeal(caster, caster, healAmount, true)
 		local duration = Filters:GetAdjustedBuffDuration(caster, 20, false)

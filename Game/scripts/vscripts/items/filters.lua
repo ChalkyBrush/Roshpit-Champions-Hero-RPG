@@ -78,11 +78,11 @@ function Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, damage_
         if b_d_level > 0 then
             local modified_damage = Filters:ElementalDamage(victim, attacker, damage, damage_type, nil, element1, element2, true)
             if attacker.sunMoon == "moon" then
-                victim.SoluniaBurnLunar = modified_damage * 0.01 * b_d_level
+                victim.SoluniaBurnLunar = modified_damage * SOLUNIA_ARCANA_R2_BURN_PCT/100 * b_d_level
                 local alphaAbility = attacker:FindAbilityByName("solunia_lunar_alpha_spark")
                 alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_lunar_burn", {duration = 8})
             else
-                victim.SoluniaBurnSolar = modified_damage * 0.01 * b_d_level
+                victim.SoluniaBurnSolar = modified_damage * SOLUNIA_ARCANA_R2_BURN_PCT/100 * b_d_level
                 local alphaAbility = attacker:FindAbilityByName("solunia_solar_alpha_spark")
                 alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_solar_burn", {duration = 8})
             end
