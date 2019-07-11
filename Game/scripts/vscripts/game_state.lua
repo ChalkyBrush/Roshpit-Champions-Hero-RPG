@@ -2462,7 +2462,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_hydroxis_basin_d_d") then
 		local stacks = attacker:GetModifierStackCount("modifier_hydroxis_basin_d_d", attacker)
-		mult = mult + 0.1 * stacks
+		mult = mult + HYDROXIS_ARCANA_R4_POST_MITI_PCT/100 * stacks
 	end
 	if attacker:HasModifier("modifier_apollo_post_mit_invisible") then
 		if attacker:HasAbility("shot_of_apollo") then

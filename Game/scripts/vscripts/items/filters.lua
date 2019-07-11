@@ -1303,7 +1303,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_flood_basin_a_d") then
             local current_stack = attacker:GetModifierStackCount("modifier_flood_basin_a_d", attacker)
-            damageMult = damageMult + 0.075 * current_stack
+            damageMult = damageMult + HYDROXIS_ARCANA_R1_BAD_PCT/100 * current_stack
         end
         if attacker:HasModifier("modifier_swiftspike_bad") then
             local current_stack = attacker:GetModifierStackCount("modifier_swiftspike_bad", attacker.InventoryUnit)
@@ -2550,7 +2550,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("modifier_flood_basin_enemy_inside_water_stacks") then
             local modifier = victim:FindModifierByName("modifier_flood_basin_enemy_inside_water_stacks")
-            local multIncrease = modifier:GetStackCount() * 0.3
+            local multIncrease = modifier:GetStackCount() * HYDROXIS_ARCANA_R3_WATER_AMP_PCT/100
             waterMult = waterMult + multIncrease
         end
         if waterMult > 50 and attacker:HasModifier("modifier_water_deity_crown") then

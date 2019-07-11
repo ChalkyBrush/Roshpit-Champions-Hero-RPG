@@ -278,7 +278,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING" "15"
+					"MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING" "<% HYDROXIS_ARCANA_R1_RANGE %>"
 				}
 			}
 			"modifier_hydroxis_basin_d_d"
