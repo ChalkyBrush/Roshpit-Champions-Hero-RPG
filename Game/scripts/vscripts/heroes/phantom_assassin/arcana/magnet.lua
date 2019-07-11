@@ -17,7 +17,7 @@ function blazing_magnet_cast(event)
 
 	local range = event.cast_range
 	if caster:HasModifier("modifier_voltex_glyph_5_a") then
-		range = range * ((100 + VOLTEX_5_A_DURATION_INCREASE_PCT) / 100)
+		range = range * ((100 + VOLTEX_GLYPH_5_A_DURATION_INCREASE_PCT) / 100)
 	end
 	local q_3_level = caster:GetRuneValue("q", 3)
 	local procs = Runes:Procs(q_3_level, 10, 1) + 1

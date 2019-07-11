@@ -292,11 +292,11 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			else
 				return false
 			end
-		elseif (item1:GetAbilityName() == "item_rpc_currency_reroll" and item2.newItemTable.rarity == "arcana" and (item2.newItemTable.gear == 1 or item2.newItemTable.gear == true))
-			or (item2:GetAbilityName() == "item_rpc_currency_reroll" and item1.newItemTable.rarity == "arcana" and (item1.newItemTable.gear == 1 or item1.newItemTable.gear == true)) then
+		elseif (item1:GetAbilityName() == "item_rpc_currency_arcana_reroll" and item2.newItemTable.rarity == "arcana" and (item2.newItemTable.gear == 1 or item2.newItemTable.gear == true))
+			or (item2:GetAbilityName() == "item_rpc_currency_arcana_reroll" and item1.newItemTable.rarity == "arcana" and (item1.newItemTable.gear == 1 or item1.newItemTable.gear == true)) then
 			local currencyItem = item1
 			local targetItem = item2
-			if item2:GetAbilityName() == "item_rpc_currency_reroll" then
+			if item2:GetAbilityName() == "item_rpc_currency_arcana_reroll" then
 				currencyItem = item2
 				targetItem = item1
 			end
