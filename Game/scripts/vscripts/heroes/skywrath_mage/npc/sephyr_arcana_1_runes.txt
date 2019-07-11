@@ -39,7 +39,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARCANA1_W2_AD_TO_W_DAMAGE_PERCENT %>"
+				"property_one"			"<% SEPHYR_ARCANA_W2_ATTACK_TO_DAMAGE_PCT %>"
 			}
 		}
 	}

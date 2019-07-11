@@ -13,7 +13,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_Q1_DMG_PER_ATT %>"
+				"property_one"			"<% SOLUNIA_Q1_DMG_PER_ATT_PCT %>"
 			}
 			"02"
 			{

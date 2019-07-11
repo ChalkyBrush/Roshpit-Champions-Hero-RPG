@@ -10329,7 +10329,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "30"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ARKIMUS_W3_BONUS_DMG >%"
 				}
 			}
 			"modifier_arkimus_c_b_sprinting"
@@ -23474,7 +23474,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"property_two"			"0"
 			}
 		}
 		"Modifiers"
@@ -27647,7 +27647,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% SPIRIT_WARRIOR_R2_BONUS_DMG_PCT %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
 				}
 			}
 		}
@@ -39242,6 +39242,11 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%property_one"
+				}
 			}
 		}
 	}
@@ -41096,7 +41101,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"15"
 			}
 			"02"
 			{
@@ -41133,7 +41138,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6100"
+				"property_one"			"3050"
 			}
 			"02"
 			{
@@ -47954,12 +47959,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"-2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
+				"property_two"			"-4"
 			}
 		}
 	}
@@ -48493,12 +48498,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"6"
+				"property_two"			"5"
 			}
 		}
 	}
@@ -49825,12 +49830,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"CHERNOBOG_E3_RANGE"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"400"
+				"property_one_base"		"CHERNOBOG_E3_BASE_RANGE"
 			}
 			"03"
 			{
@@ -49858,7 +49863,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"0.5"
+				"property_one_base"			"0.7"
 			}
 		}
 	}
@@ -62487,7 +62492,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.0"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -64446,7 +64451,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"3.0"
+				"property_two_base"		"3"
 			}
 		}
 	}
@@ -64604,7 +64609,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"2000"
+				"property_two"			"6000"
 			}
 		}
 	}
