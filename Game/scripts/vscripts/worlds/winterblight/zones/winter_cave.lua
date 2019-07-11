@@ -866,7 +866,7 @@ end
 
 function Winterblight:FrozenFoyer4(msg)
 	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
-	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 242
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 216
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local color_table = {"red", "blue", "yellow", "green", "purple"}
 	Winterblight.MerkurioCrystalTable = WallPhysics:ShuffleTable(color_table)
@@ -1290,7 +1290,7 @@ function Winterblight:MerkurioEventThink(caster)
 					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
 					Winterblight:MerkurioSpawnEffect(caster, spawn)
 				end
-			elseif caster.summon_phase > 2 then
+			elseif caster.summon_phase == 3 or caster.summon_phase == 4 then
 				for i = 1, 4, 1 do
 					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
 					local spawnPos = caster:GetAbsOrigin()+fv*320
@@ -1298,9 +1298,17 @@ function Winterblight:MerkurioEventThink(caster)
 					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
 					Winterblight:MerkurioSpawnEffect(caster, spawn)
 				end
+			elseif caster.summon_phase > 4 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnAzaleaSorceress(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
 			end
-		elseif caster.summon_phase == 4 then
-			if Winterblight.CavernData.Chambers[1]["progress"] >= 76 then
+		elseif caster.summon_phase > 6 then
+			if Winterblight.CavernData.Chambers[1]["progress"] >= 86 then
 				caster.event_phase = 9
 				EmitSoundOn("Winterblight.Merkurio.Laugh", caster)
 			end
@@ -1350,8 +1358,8 @@ function Winterblight:MerkurioEventThink(caster)
 					Winterblight:MerkurioSpawnEffect(caster, spawn)
 				end
 			end
-		elseif caster.summon_phase == 4 then
-			if Winterblight.CavernData.Chambers[1]["progress"] >= 96 then
+		elseif caster.summon_phase > 6 then
+			if Winterblight.CavernData.Chambers[1]["progress"] >= 106 then
 				caster.event_phase = 11
 				EmitSoundOn("Winterblight.Merkurio.Laugh", caster)
 			end
@@ -1401,7 +1409,7 @@ function Winterblight:MerkurioEventThink(caster)
 					Winterblight:MerkurioSpawnEffect(caster, spawn)
 				end
 			end
-		elseif caster.summon_phase == 7 then
+		elseif caster.summon_phase > 6 then
 			if Winterblight.CavernData.Chambers[1]["progress"] >= 136 then
 				caster.event_phase = 13
 				EmitSoundOn("Winterblight.Merkurio.Laugh", caster)
