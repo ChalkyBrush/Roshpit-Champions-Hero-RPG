@@ -1257,7 +1257,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if not ignore_effects and attacker:HasModifier("modifier_solunia_arcana1") then
             local q_2_level = attacker:GetRuneValue("q", 2)
             if q_2_level > 0 then
-                damage = damage + attacker:GetHealth() * 0.1 * q_2_level
+                damage = damage + attacker:GetHealth() * SOLUNIA_ARCANA_Q2_SPELL_DMG_FLAT_HP_PCT/100 * q_2_level
             end
         end
         if attacker:HasModifier("modifier_watcher_two") then
