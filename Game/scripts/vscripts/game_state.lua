@@ -3246,13 +3246,13 @@ function GameState:FilterDamage(filterTable)
 		modifier = victim:FindModifierByName("modifier_solar_compression_invisible")
 		local modifierCaster = modifier:GetCaster()
 		local stacks = victim:GetModifierStackCount("modifier_solar_compression_invisible", modifierCaster)
-		mult = mult + stacks * 0.003
+		mult = mult + stacks * SOLUNIA_ARCANA_Q3_POST_MITI_PCT/100
 	end
 	if victim:HasModifier("modifier_lunar_compression_invisible") then
 		modifier = victim:FindModifierByName("modifier_lunar_compression_invisible")
 		local modifierCaster = modifier:GetCaster()
 		local stacks = victim:GetModifierStackCount("modifier_lunar_compression_invisible", modifierCaster)
-		mult = mult + stacks * 0.003
+		mult = mult + stacks * SOLUNIA_ARCANA_Q3_POST_MITI_PCT/100
 	end
 	if victim:HasModifier("modifier_in_hydrogen_field") then
 		if filterTable["entindex_inflictor_const"] then
