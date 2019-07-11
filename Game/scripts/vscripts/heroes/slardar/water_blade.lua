@@ -180,7 +180,7 @@ function hydroxis_attack_land(event)
 		local fv = ((target:GetAbsOrigin() - attacker:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 		local damage = event.attack_damage * w_1_level * HYDROXIS_W1_SPLASH_PCT/100
 		if caster:HasAbility("hydroxis_arcana_ability_1") then
-			damage = event.attack_damage * w_1_level * 0.075
+			damage = event.attack_damage * w_1_level * HYDROXIS_ARCANA_W1_SPLASH_PCT/100
 		end
 		-- CustomAbilities:QuickAttachParticle("particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_weapon/kunkka_spell_tidebringer_fxset.vpcf", attacker, 2)
 		local pfx = ParticleManager:CreateParticle("particle/roshpit/hydroxis/hydroxis_a_b.vpcf", PATTACH_CUSTOMORIGIN, caster)

@@ -13,7 +13,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"7.5"
+				"property_one"			"<% HYDROXIS_ARCANA_W1_SPLASH_PCT %>"
 			}
 			"02"
 			{
@@ -42,7 +42,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% HYDROXIS_ARCANA_W2_ATTACK_TO_DMG %>"
 			}
 			"02"
 			{
@@ -75,7 +75,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"<% HYDROXIS_ARCANA_W3_POST_MITI_PCT %>"
 			}
 		}
 	}
@@ -93,17 +93,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"<% HYDROXIS_ARCANA_W4_MIST_DURATION %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"0.5"
+				"property_one_base"			"<% HYDROXIS_ARCANA_W4_MIST_DURATION_BASE %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2500"
+				"property_two"			"<% HYDROXIS_ARCANA_W4_BASE_ATTACK %>"
 			}
 		}
 	}

@@ -2498,7 +2498,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 if bIsRealDamage then
                     local w_4_level = attacker:GetRuneValue("w", 4)
                     if w_4_level > 0 then
-                        local duration = 0.5 + w_4_level * 0.15
+                        local duration = HYDROXIS_ARCANA_W4_MIST_DURATION_BASE + w_4_level * HYDROXIS_ARCANA_W4_MIST_DURATION
                         local mist_mod = victim:FindModifierByName("modifier_hydroxis_mist_debuff_timered")
                         if mist_mod then
                             duration = math.max(duration, mist_mod:GetRemainingTime())

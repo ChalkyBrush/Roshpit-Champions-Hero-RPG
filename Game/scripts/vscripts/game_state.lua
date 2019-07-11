@@ -3136,7 +3136,7 @@ function GameState:FilterDamage(filterTable)
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local w_3_level = attacker:GetRuneValue("w", 3)
 			if w_3_level > 0 then
-				mult = mult + 0.06 * w_3_level
+				mult = mult + HYDROXIS_ARCANA_W3_POST_MITI_PCT/100 * w_3_level
 			end
 		end
 	end
