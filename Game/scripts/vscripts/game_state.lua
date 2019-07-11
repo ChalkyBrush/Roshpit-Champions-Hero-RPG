@@ -14,6 +14,7 @@ require('/heroes/invoker/constants_CONJUROR')
 require("/heroes/moon_ranger/constants")
 require("/heroes/dragon_knight/flamewaker_constants")
 require("/heroes/spirit_breaker/duskbringer_constants")
+require('heroes/slardar/hydroxis_constants')
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -1703,7 +1704,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_drowning_pool_actual_effect") then
 		local modifier = victim:FindModifierByName("modifier_drowning_pool_actual_effect")
 		local stacks = modifier:GetStackCount()
-		local damageReduc = math.min(stacks * 0.015, 0.9)
+		local damageReduc = math.min(stacks * HYDROXIS_R4_DMG_RED_PCT/100, 0.9)
 		damage = damage - damage * damageReduc
 	end
 	if victim:HasModifier("modifier_steelforge_passive") then
@@ -2378,7 +2379,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_drowning_pool_actual_effect") then
 		modifier = attacker:FindModifierByName("modifier_drowning_pool_actual_effect")
 		local stacks = modifier:GetStackCount()
-		local damageIncrease = stacks * 0.2
+		local damageIncrease = stacks * HYDROXIS_R4_DMG_AMP_PCT/100
 		filterTable["damage"] = filterTable["damage"] + filterTable["damage"] * damageIncrease
 	end
 	if attacker:HasModifier("modifier_flamewaker_arcana1") then

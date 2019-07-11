@@ -25,17 +25,17 @@ end
 function water_bomb_throw(caster, ability, target, damage, damageAmp)
 	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "hydroxis")
 	if w_3_level > 0 then
-		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.08 * w_3_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * HYDROXIS_W3_ATTACK_TO_DMG_PCT/100 * w_3_level
 	end
 	local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "hydroxis")
 	local manaAmp = 1
 	if w_4_level > 0 then
-		local manaDrain = caster:GetMaxMana() * 0.03
+		local manaDrain = caster:GetMaxMana() * HYDROXIS_W4_MANA_DRAIN_PCT/100
 		if caster:GetMana() < manaDrain then
 			manaDrain = caster:GetMana()
 		end
 		caster:ReduceMana(manaDrain)
-		manaAmp = (manaDrain / 100) * 0.002 * w_4_level + 1
+		manaAmp = (manaDrain / 100) * HYDROXIS_W4_DMG_PER_MANA_PCT/100 * w_4_level + 1
 	else
 
 	end
@@ -178,7 +178,7 @@ function hydroxis_attack_land(event)
 			end
 		end
 		local fv = ((target:GetAbsOrigin() - attacker:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-		local damage = event.attack_damage * w_1_level * 0.05
+		local damage = event.attack_damage * w_1_level * HYDROXIS_W1_SPLASH_PCT/100
 		if caster:HasAbility("hydroxis_arcana_ability_1") then
 			damage = event.attack_damage * w_1_level * 0.075
 		end

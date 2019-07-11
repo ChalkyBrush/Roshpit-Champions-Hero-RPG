@@ -21,6 +21,7 @@ require('/heroes/zuus/auriun_constants')
 require('/heroes/legion_commander/mountain_protector_constants')
 require('/heroes/faceless_void/omniro_constants')
 require('/heroes/skywrath_mage/constants')
+require('heroes/slardar/hydroxis_constants')
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -2491,7 +2492,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         local waterMult = 0
         if unitName == "npc_dota_hero_slardar" then
             if attacker.e_4_level then
-                waterMult = waterMult + 0.001 * (attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.e_4_level
+                waterMult = waterMult + HYDROXIS_E4_WATER_AMP/100 * (attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.e_4_level
             end
             if attacker:HasAbility("hydroxis_arcana_ability_1") then
                 if bIsRealDamage then

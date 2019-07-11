@@ -12,6 +12,7 @@ require('/heroes/dark_seer/zhonik_constants')
 require('/heroes/hero_necrolyte/constants')
 require('/heroes/nightstalker/chernobog_constants')
 require('/heroes/skywrath_mage/constants')
+require('heroes/slardar/hydroxis_constants')
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -34,7 +35,6 @@ CustomAttributes.FLAMEWAKER_R3_STRENGTH = 260
 CustomAttributes.CONJUROR_E1_AGI = 25
 CustomAttributes.WARLORD_W2_STATS = 60
 CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH = 250
-CustomAttributes.HYDROXIS_E4_AGI_INT = 350
 
 CustomAttributes.ZHONIK_R4_STR = ZHONIK_R4_BONUS_STR
 CustomAttributes.ZHONIK_ARCANA_R4_AGI = ZHONIK_R4_ARCANA_BONUS_AGI
@@ -331,8 +331,8 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_active", CHERNOBOG_W4_BONUS_AGI)
 	end
 	if hero:HasModifier("modifier_hydroxis_d_c") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", CustomAttributes.HYDROXIS_E4_AGI_INT)
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", CustomAttributes.HYDROXIS_E4_AGI_INT)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", HYDROXIS_E4_BONUS_AGI_INT)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", HYDROXIS_E4_BONUS_AGI_INT)
 	end
 	if hero:HasModifier("modifier_hydroxis_basin_d_d") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_basin_d_d", CustomAttributes.HYDROXIS_ARC2_R4_INT)
