@@ -22,6 +22,7 @@ require('/heroes/legion_commander/mountain_protector_constants')
 require('/heroes/faceless_void/omniro_constants')
 require('/heroes/skywrath_mage/constants')
 require('heroes/slardar/hydroxis_constants')
+require('/heroes/vengeful_spirit/solunia_constants')
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -2216,9 +2217,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_vengefulspirit" then
             local q_4_level = attacker:GetRuneValue("q", 4)
-            local d_a_mult = 0.0008
+            local d_a_mult = SOLUNIA_Q4_COSMIC_AMP_PCT/100
             if attacker:HasModifier("modifier_solunia_arcana1") then
-                d_a_mult = 0.0016
+                d_a_mult = SOLUNIA_ARCANA_Q4_COSMIC_AMP_PCT/100
             end
             cosmosMult = cosmosMult + d_a_mult * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * q_4_level
             if attacker:HasModifier("modifier_solunia_arcana2") then

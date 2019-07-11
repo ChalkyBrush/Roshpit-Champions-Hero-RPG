@@ -130,7 +130,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "300"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% SOLUNIA_Q2_BASE_ATTACK %>"
 				}
 			}
 		}
@@ -322,7 +322,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% SOLUNIA_Q2_BONUS_ATTACK_PCT %>"
 				}
 			}
 		}
@@ -552,7 +552,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "120"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% SOLUNIA_W4_BONUS_DAMAGE_PCT %>"
 				}
 			}
 			"modifier_black_widow_invis_range_debuff"

@@ -13,12 +13,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_Q1_DMG_PER_ATT * 100 %>"
+				"property_one"			"<% SOLUNIA_Q1_DMG_PER_ATT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"<% SOLUNIA_Q1_PUSH_FORCE %>"
 			}
 			"03"
 			{
@@ -46,12 +46,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"300"
+				"property_one"			"<% SOLUNIA_Q2_BASE_ATTACK %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1"
+				"property_two"			"<% SOLUNIA_Q2_BONUS_ATTACK_PCT %>"
 			}
 		}
 	}
@@ -69,12 +69,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.4"
+				"property_one"			"<% SOLUNIA_Q3_CURRENT_HP_BONUS_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.4"
+				"property_two"			"<% SOLUNIA_Q3_MISSING_HP_BONUS_PCT %>"
 			}
 		}
 	}
@@ -95,7 +95,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"<% SOLUNIA_Q4_COSMIC_AMP_PCT %>"
 			}
 		}
 	}

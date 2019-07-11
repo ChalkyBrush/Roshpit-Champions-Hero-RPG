@@ -12,12 +12,12 @@ function start_channel(event)
 	--print(ability.startRotation)
 	caster:RemoveModifierByName("modifier_solunia_in_between_flare")
 	ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "solunia")
-	ability.r_3_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.05 * ability.r_3_level
+	ability.r_3_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * SOLUNIA_R3_WAVE_DMG_PCT/100 * ability.r_3_level
 	caster:RemoveModifierByName("modifier_solunia_warp_flare_falling")
 	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "solunia")
 	if d_d_level > 0 then
 		ability:EndCooldown()
-		ability:StartCooldown(ability:GetCooldown(ability:GetLevel()) - d_d_level * 0.2)
+		ability:StartCooldown(ability:GetCooldown(ability:GetLevel()) - d_d_level * SOLUNIA_R4_CD_RED)
 	end
 end
 
@@ -29,8 +29,8 @@ function supernova_a_d(caster, ability)
 	if not caster:HasModifier("modifier_solunia_arcana2") then
 		local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "solunia")
 		if a_d_level > 0 then
-			local healthRestore = a_d_level * 6000
-			local manaRestore = a_d_level * 2000
+			local healthRestore = a_d_level * SOLUNIA_R1_HP
+			local manaRestore = a_d_level * SOLUNIA_R1_MANA
 			Filters:ApplyHeal(caster, caster, healthRestore, true, false)
 			caster:GiveMana(manaRestore)
 			PopupHealing(caster, healthRestore)
@@ -57,7 +57,7 @@ function supernova_channeling_think(event)
 	if ability.r_3_level > 0 then
 		if ability.rotationIndex % 15 == 0 then
 			for i = 1, 8, 1 do
-				local range = 600 + 6 * ability.r_3_level
+				local range = SOLUNIA_R3_RANGE_BASE + SOLUNIA_R3_RANGE * ability.r_3_level
 				local speed = range
 				local casterOrigin = caster:GetAbsOrigin()
 				local fv = WallPhysics:rotateVector(caster:GetForwardVector(), math.pi * i * 2 / 8)

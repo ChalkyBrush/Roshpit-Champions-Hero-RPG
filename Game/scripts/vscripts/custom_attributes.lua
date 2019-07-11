@@ -13,6 +13,7 @@ require('/heroes/hero_necrolyte/constants')
 require('/heroes/nightstalker/chernobog_constants')
 require('/heroes/skywrath_mage/constants')
 require('heroes/slardar/hydroxis_constants')
+require('/heroes/vengeful_spirit/solunia_constants')
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -70,7 +71,6 @@ CustomAttributes.NEUTRAL_GLYPH_7 = 3500
 CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A = 5000
 CustomAttributes.ASTRAL_W1_ARCANA2_STATS = 0.8
 
-CustomAttributes.SOLUNIA_E4_MAX_HEALTH = 20000
 CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH = 6000
 CustomAttributes.OGTHUN_HEALTH = 10
 CustomAttributes.TYRIUS_HEALTH_PER_STR = 10
@@ -834,7 +834,7 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_e4_hero_bonus_invisible", E4_HP_PER_ENEMY)
 	end
 	if excludedModifier ~= "modifier_solunia_rune_e_4_effect" and hero:HasModifier("modifier_solunia_rune_e_4_effect") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_rune_e_4_effect", CustomAttributes.SOLUNIA_E4_MAX_HEALTH)
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_rune_e_4_effect", SOLUNIA_E4_HP)
 	end
 	if excludedModifier ~= "modifier_bear_b_d" and hero:HasModifier("modifier_bear_b_d") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bear_b_d", CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH)

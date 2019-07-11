@@ -15,6 +15,7 @@ require("/heroes/moon_ranger/constants")
 require("/heroes/dragon_knight/flamewaker_constants")
 require("/heroes/spirit_breaker/duskbringer_constants")
 require('heroes/slardar/hydroxis_constants')
+require('/heroes/vengeful_spirit/solunia_constants')
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -2139,12 +2140,12 @@ function GameState:FilterDamage(filterTable)
 
 		if victim:HasModifier("modifier_solunia_warp_core_aura_solar") then
 			modifier = victim:FindModifierByName("modifier_solunia_warp_core_aura_solar")
-			mult = mult + modifier:GetAbility().e_3_level * 0.05
+			mult = mult + modifier:GetAbility().e_3_level * SOLUNIA_E3_POST_MITI_PCT/100
 		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_solunia_warp_core_aura_lunar") then
 			modifier = victim:FindModifierByName("modifier_solunia_warp_core_aura_lunar")
-			mult = mult + modifier:GetAbility().e_3_level * 0.05
+			mult = mult + modifier:GetAbility().e_3_level * SOLUNIA_E3_POST_MITI_PCT/100
 		end
 
 	end
