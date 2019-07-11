@@ -141,6 +141,7 @@ function EventStartButtonPress(chamber_index, event_index, cavern_ui_panel){
 		GameEvents.SendCustomGameEventToServer( "units_special", {winterblight: 1, level: level_selected, chamber: chamber_index, event_number: event_index, start_event: 1} );
 		Game.EmitSound("Winterblight.UI.ChamberEventStart")
 		Game.EmitSound("Winterblight.UI.ChamberSelect")
+		Game.EmitSound("Winterblight.UI.SelectChallenge")
 		CloseWinterCavern()
 	}else{
 		var color_container = cavern_ui_panel.FindChildTraverse('chamber_event_start_container')

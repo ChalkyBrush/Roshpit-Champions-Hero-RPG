@@ -1169,34 +1169,36 @@ function apply_merkurio_crystal_buffs(caster, ability)
 	if caster.crystal_color == "red" then
 		for i = 1, #Winterblight.CavernUnits[1], 1 do
 			local unit = Winterblight.CavernUnits[1][i]
-			if not unit:GetUnitName() == "npc_dummy_unit" then
+			if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
+				print("apply modifier")
 				ability:ApplyDataDrivenModifier(caster, unit, "modifier_merkurio_crystal_red", {})
 			end
 		end
 	elseif caster.crystal_color == "blue" then
 		for i = 1, #Winterblight.CavernUnits[1], 1 do
 			local unit = Winterblight.CavernUnits[1][i]
-			if not unit:GetUnitName() == "npc_dummy_unit" then
+			if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
 				ability:ApplyDataDrivenModifier(caster, unit, "modifier_merkurio_crystal_blue", {})
 			end
+		end
 	elseif caster.crystal_color == "yellow" then
 		for i = 1, #Winterblight.CavernUnits[1], 1 do
 			local unit = Winterblight.CavernUnits[1][i]
-			if not unit:GetUnitName() == "npc_dummy_unit" then
+			if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
 				ability:ApplyDataDrivenModifier(caster, unit, "modifier_merkurio_crystal_yellow", {})
 			end
 		end
 	elseif caster.crystal_color == "green" then
 		for i = 1, #Winterblight.CavernUnits[1], 1 do
 			local unit = Winterblight.CavernUnits[1][i]
-			if not unit:GetUnitName() == "npc_dummy_unit" then
+			if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
 				ability:ApplyDataDrivenModifier(caster, unit, "modifier_merkurio_crystal_green", {})
 			end
 		end
 	elseif caster.crystal_color == "purple" then
 		for i = 1, #Winterblight.CavernUnits[1], 1 do
 			local unit = Winterblight.CavernUnits[1][i]
-			if not unit:GetUnitName() == "npc_dummy_unit" then
+			if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
 				ability:ApplyDataDrivenModifier(caster, unit, "modifier_merkurio_crystal_purple", {})
 				unit:SetModifierStackCount("modifier_merkurio_crystal_purple", caster, 3)
 			end
@@ -1209,14 +1211,18 @@ function merkurio_crystal_take_damage(event)
 	local ability = event.ability
 	if not caster:HasModifier("modifier_merkurio_crystal_disabled") then
 		caster:SetRenderColor(50, 50, 50)
-		ability:ApplyDataDrivenModifier(caster, unit, "modifier_merkurio_crystal_disabled", {duration = 15})
+		EmitSoundOn("Winterblight.MerkurioCrystal.Deactivate", caster)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_merkurio_crystal_disabled", {duration = 15})
 		local color = caster.crystal_color
 		for i = 1, #Winterblight.CavernUnits[1], 1 do
 			local unit = Winterblight.CavernUnits[1][i]
-			if not unit:GetUnitName() == "npc_dummy_unit" then
-				unit:RemoveModifierByName("modifier_merkurio_crystal_"..color)
+			if IsValidEntity(unit) then
+				if unit:GetUnitName() ~= "npc_dummy_unit" then
+					unit:RemoveModifierByName("modifier_merkurio_crystal_"..color)
+				end
 			end
 		end
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_wisp/wisp_death.vpcf", caster, 3)
 	end
 end
 
@@ -1241,6 +1247,7 @@ function merkurio_crystal_reactivate(event)
 		end
 		crystal.crystal_color = crystal_color
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_wisp/wisp_death.vpcf", crystal, 3)
+		EmitSoundOn("Winterblight.MerkurioCrystal.Reactivate", crystal)
 	end
 end
 

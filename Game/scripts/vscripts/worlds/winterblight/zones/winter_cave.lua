@@ -1104,7 +1104,7 @@ function Winterblight:MerkurioEventThink(caster)
 	if not caster.event_phase then
 		caster.event_phase = 0
 		EmitSoundOn("Winterblight.Merkurio.EventStart", caster)
-		StartAnimation(caster, {duration=5, activity=ACT_DOTA_CAST_ABILITY4_STATUE, rate=0.8})
+		StartAnimation(caster, {duration=5, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.8})
 	end
 	if caster.event_phase == 0 then
 		caster.event_phase = 1
@@ -1209,7 +1209,396 @@ function Winterblight:MerkurioEventThink(caster)
 		local distance = WallPhysics:GetDistance2d(targetPos, caster:GetAbsOrigin())
 		if distance < 100 then
 			caster.summon_phase = 0
-			caster.event_phase = 5
+			caster.event_phase = 6
+		end
+	elseif caster.event_phase == 6 then
+		if caster.summon_phase <= 6 then
+			StartAnimation(caster, {duration=5, activity=ACT_DOTA_ATTACK, rate=1})
+			EmitSoundOn("Winterblight.Merkurio.GustEvent", caster)
+			for i = 1, 5, 1 do
+				local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*i/5)
+				local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_drow/drow_silence_wave.vpcf", caster:GetAbsOrigin(), 4)
+				ParticleManager:SetParticleControl(pfx, 1, fv*1000)
+				ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin()+fv*1000)
+			end
+			local baseFV = RandomVector(1)
+			caster.summon_phase = caster.summon_phase + 1
+			if caster.summon_phase == 1 then
+				for i = 1, 8, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnFrostWhelpling(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase == 2 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnPantheonKnight(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase > 2 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnCloakedPhantasm(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			end
+		elseif caster.summon_phase == 7 then
+			if Winterblight.CavernData.Chambers[1]["progress"] >= 56 then
+				caster.event_phase = 7
+				EmitSoundOn("Winterblight.Merkurio.Laugh", caster)
+			end
+		end
+	elseif caster.event_phase == 7 then
+		local targetPos = Vector(-9096, 8392)
+		caster:MoveToPosition(targetPos)
+		local distance = WallPhysics:GetDistance2d(targetPos, caster:GetAbsOrigin())
+		if distance < 100 then
+			caster.summon_phase = 0
+			caster.event_phase = 8
+		end
+	elseif caster.event_phase == 8 then
+		if caster.summon_phase <= 6 then
+			StartAnimation(caster, {duration=5, activity=ACT_DOTA_ATTACK, rate=1})
+			EmitSoundOn("Winterblight.Merkurio.GustEvent", caster)
+			for i = 1, 5, 1 do
+				local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*i/5)
+				local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_drow/drow_silence_wave.vpcf", caster:GetAbsOrigin(), 4)
+				ParticleManager:SetParticleControl(pfx, 1, fv*1000)
+				ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin()+fv*1000)
+			end
+			local baseFV = RandomVector(1)
+			caster.summon_phase = caster.summon_phase + 1
+			if caster.summon_phase == 1 then
+				for i = 1, 8, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnFrostiok(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase == 2 then
+				for i = 1, 8, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:Snowshaker(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase > 2 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnManaNull(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			end
+		elseif caster.summon_phase == 4 then
+			if Winterblight.CavernData.Chambers[1]["progress"] >= 76 then
+				caster.event_phase = 9
+				EmitSoundOn("Winterblight.Merkurio.Laugh", caster)
+			end
+		end
+	elseif caster.event_phase == 9 then
+		local targetPos = Vector(-11044, 10194)
+		caster:MoveToPosition(targetPos)
+		local distance = WallPhysics:GetDistance2d(targetPos, caster:GetAbsOrigin())
+		if distance < 100 then
+			caster.summon_phase = 0
+			caster.event_phase = 10
+		end
+	elseif caster.event_phase == 10 then
+		if caster.summon_phase <= 6 then
+			StartAnimation(caster, {duration=5, activity=ACT_DOTA_ATTACK, rate=1})
+			EmitSoundOn("Winterblight.Merkurio.GustEvent", caster)
+			for i = 1, 5, 1 do
+				local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*i/5)
+				local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_drow/drow_silence_wave.vpcf", caster:GetAbsOrigin(), 4)
+				ParticleManager:SetParticleControl(pfx, 1, fv*1000)
+				ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin()+fv*1000)
+			end
+			local baseFV = RandomVector(1)
+			caster.summon_phase = caster.summon_phase + 1
+			if caster.summon_phase == 1 then
+				for i = 1, 8, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnFrostElemental(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase == 2 then
+				for i = 1, 8, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnFrostAvatar(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase > 2 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnBloodWraith(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			end
+		elseif caster.summon_phase == 4 then
+			if Winterblight.CavernData.Chambers[1]["progress"] >= 96 then
+				caster.event_phase = 11
+				EmitSoundOn("Winterblight.Merkurio.Laugh", caster)
+			end
+		end
+	elseif caster.event_phase == 11 then
+		local targetPos = Vector(-11908, 9380)
+		caster:MoveToPosition(targetPos)
+		local distance = WallPhysics:GetDistance2d(targetPos, caster:GetAbsOrigin())
+		if distance < 100 then
+			caster.summon_phase = 0
+			caster.event_phase = 12
+		end
+	elseif caster.event_phase == 12 then
+		if caster.summon_phase <= 6 then
+			StartAnimation(caster, {duration=5, activity=ACT_DOTA_ATTACK, rate=1})
+			EmitSoundOn("Winterblight.Merkurio.GustEvent", caster)
+			for i = 1, 5, 1 do
+				local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*i/5)
+				local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_drow/drow_silence_wave.vpcf", caster:GetAbsOrigin(), 4)
+				ParticleManager:SetParticleControl(pfx, 1, fv*1000)
+				ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin()+fv*1000)
+			end
+			local baseFV = RandomVector(1)
+			caster.summon_phase = caster.summon_phase + 1
+			if caster.summon_phase == 1 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnDrillDigger(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase == 2 then
+				for i = 1, 8, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnBarbedHusker(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase > 2 then
+				for i = 1, 2, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnBeguiler(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			end
+		elseif caster.summon_phase == 7 then
+			if Winterblight.CavernData.Chambers[1]["progress"] >= 136 then
+				caster.event_phase = 13
+				EmitSoundOn("Winterblight.Merkurio.Laugh", caster)
+			end
+		end
+	elseif caster.event_phase == 13 then
+		local targetPos = Vector(-9350, 6863)
+		caster:MoveToPosition(targetPos)
+		local distance = WallPhysics:GetDistance2d(targetPos, caster:GetAbsOrigin())
+		if distance < 100 then
+			caster.summon_phase = 0
+			caster.event_phase = 14
+		end
+	elseif caster.event_phase == 14 then
+		if caster.summon_phase <= 6 then
+			StartAnimation(caster, {duration=5, activity=ACT_DOTA_ATTACK, rate=1})
+			EmitSoundOn("Winterblight.Merkurio.GustEvent", caster)
+			for i = 1, 5, 1 do
+				local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*i/5)
+				local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_drow/drow_silence_wave.vpcf", caster:GetAbsOrigin(), 4)
+				ParticleManager:SetParticleControl(pfx, 1, fv*1000)
+				ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin()+fv*1000)
+			end
+			local baseFV = RandomVector(1)
+			caster.summon_phase = caster.summon_phase + 1
+			if caster.summon_phase == 1 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnCloakedPhantasm(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase == 2 then
+				for i = 1, 8, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnShineMegmus(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase > 2 then
+				for i = 1, 2, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnCorporealRevenant(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			end
+		elseif caster.summon_phase == 7 then
+			if Winterblight.CavernData.Chambers[1]["progress"] >= 156 then
+				caster.event_phase = 15
+				EmitSoundOn("Winterblight.Merkurio.Laugh", caster)
+			end
+		end
+	elseif caster.event_phase == 15 then
+		local targetPos = Vector(-7136, 8125)
+		caster:MoveToPosition(targetPos)
+		local distance = WallPhysics:GetDistance2d(targetPos, caster:GetAbsOrigin())
+		if distance < 100 then
+			caster.summon_phase = 0
+			caster.event_phase = 16
+		end
+	elseif caster.event_phase == 16 then
+		if caster.summon_phase <= 6 then
+			StartAnimation(caster, {duration=5, activity=ACT_DOTA_ATTACK, rate=1})
+			EmitSoundOn("Winterblight.Merkurio.GustEvent", caster)
+			for i = 1, 5, 1 do
+				local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*i/5)
+				local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_drow/drow_silence_wave.vpcf", caster:GetAbsOrigin(), 4)
+				ParticleManager:SetParticleControl(pfx, 1, fv*1000)
+				ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin()+fv*1000)
+			end
+			local baseFV = RandomVector(1)
+			caster.summon_phase = caster.summon_phase + 1
+			if caster.summon_phase == 1 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnCloakedPhantasm(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase == 2 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnBloodWraith(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase == 3 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnCorporealRevenant(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase == 4 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnManaNull(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase == 5 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnBeguiler(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase == 6 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnDrillDigger(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			end
+		elseif caster.summon_phase == 7 then
+			if Winterblight.CavernData.Chambers[1]["progress"] >= 186 then
+				caster.event_phase = 17
+				EmitSoundOn("Winterblight.Merkurio.Laugh", caster)
+			end
+		end
+	elseif caster.event_phase == 17 then
+		if caster.summon_phase <= 6 then
+			StartAnimation(caster, {duration=5, activity=ACT_DOTA_ATTACK, rate=1})
+			EmitSoundOn("Winterblight.Merkurio.GustEvent", caster)
+			for i = 1, 5, 1 do
+				local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*i/5)
+				local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_drow/drow_silence_wave.vpcf", caster:GetAbsOrigin(), 4)
+				ParticleManager:SetParticleControl(pfx, 1, fv*1000)
+				ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin()+fv*1000)
+			end
+			local baseFV = RandomVector(1)
+			caster.summon_phase = caster.summon_phase + 1
+			if caster.summon_phase == 1 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:DrillDigger(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase == 2 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnWinterRunner(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase == 3 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnWinterRunner(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase == 4 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnManaNull(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase == 5 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnBeguiler(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			elseif caster.summon_phase == 6 then
+				for i = 1, 4, 1 do
+					local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+					local spawnPos = caster:GetAbsOrigin()+fv*320
+					local spawn = Winterblight:SpawnSourceRevenant(spawnPos, fv)
+					Winterblight:SetCavernUnit(spawn, spawnPos, false, false, 1)
+					Winterblight:MerkurioSpawnEffect(caster, spawn)
+				end
+			end
+		elseif caster.summon_phase == 7 then
+			if Winterblight.CavernData.Chambers[1]["progress"] >= 206 then
+				caster.event_phase = 18
+				EmitSoundOn("Winterblight.Merkurio.Laugh", caster)
+			end
 		end
 	end
 end

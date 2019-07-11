@@ -11116,6 +11116,8 @@
 			"modifier_merkurio_crystal_purple"
 			{
 				"IsHidden"	"0"
+				"EffectName"	"particles/roshpit/auriun/heavens_shield_shadow_oval_highlight.vpcf"
+				"EffectAttachType"	"attach_hitloc"
 			}
 			"modifier_merkurio_crystal_disabled"
 			{

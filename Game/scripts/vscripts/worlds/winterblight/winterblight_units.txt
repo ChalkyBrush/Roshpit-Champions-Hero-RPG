@@ -10887,6 +10887,7 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"
             "particle"  "particles/units/heroes/hero_siren/siren_net.vpcf"
             "particle"  "particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf"
+            "particle"  "particles/roshpit/auriun/heavens_shield_shadow_oval_highlight.vpcf"
         }
         "ArmorPhysical" "4"
         "MagicalResistance" "20"
