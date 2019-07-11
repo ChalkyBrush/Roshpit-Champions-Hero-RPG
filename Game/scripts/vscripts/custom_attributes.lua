@@ -52,7 +52,6 @@ CustomAttributes.AURIUN_E2_INT = 120
 CustomAttributes.AURIUN_E3_STATS = 60
 CustomAttributes.MOUNTAIN_PROTECTOR_E2_STR = 180
 CustomAttributes.MOUNTAIN_PROTECTOR_R2_STR = hero_values.mountain_protector.R2_STRENGTH_PER_STACK
-CustomAttributes.SOLUNIA_R4_STATS = 200
 CustomAttributes.AXE_E1_STATS = 10
 CustomAttributes.AXE_ARCANA2_W2_STRENGTH = 100
 CustomAttributes.SORCERESS_ARCANE_INT = 50
@@ -624,9 +623,9 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", CustomAttributes.TANARI_FLOWER_STATS)
 	end
 	if hero:HasModifier("modifier_solunia_d_d_stats") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", CustomAttributes.SOLUNIA_R4_STATS)
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", CustomAttributes.SOLUNIA_R4_STATS)
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", CustomAttributes.SOLUNIA_R4_STATS)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
 	end
 	if hero:HasModifier("modifier_arcane_intellect_visible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INT)

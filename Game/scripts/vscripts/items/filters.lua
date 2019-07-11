@@ -1951,7 +1951,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_vengefulspirit" then
             if attacker:HasModifier("modifier_solunia_arcana2") then
                 local d_d_level = attacker:GetRuneValue("r", 4)
-                fireMult = fireMult + 0.0005 * attacker:GetStrength() / 10 * d_d_level
+                fireMult = fireMult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT/100 * attacker:GetStrength() / 10 * d_d_level
             end
         end
         if attacker:HasModifier("modifier_trinket_fire") then
@@ -2224,7 +2224,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             cosmosMult = cosmosMult + d_a_mult * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * q_4_level
             if attacker:HasModifier("modifier_solunia_arcana2") then
                 local d_d_level = attacker:GetRuneValue("r", 4)
-                cosmosMult = cosmosMult + 0.0005 * attacker:GetIntellect() / 10 * d_d_level
+                cosmosMult = cosmosMult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT/100 * attacker:GetIntellect() / 10 * d_d_level
             end
         end
         if attacker:HasModifier("modifier_body_cosmos") then
@@ -2297,7 +2297,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_vengefulspirit" then
             if attacker:HasModifier("modifier_solunia_arcana2") then
                 local d_d_level = attacker:GetRuneValue("r", 4)
-                mult = mult + 0.0005 * attacker:GetAgility() / 10 * d_d_level
+                mult = mult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT/100 * attacker:GetAgility() / 10 * d_d_level
             end
         elseif unitName == "npc_dota_hero_winter_wyvern" then
             if attacker:HasModifier("modifier_dinath_arcana1") then

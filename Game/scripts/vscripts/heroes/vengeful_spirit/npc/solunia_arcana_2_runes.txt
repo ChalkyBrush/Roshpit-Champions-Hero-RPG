@@ -87,12 +87,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"<% SOLUNIA_ARCANA_R4_ELEM_AMP_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"200"
+				"property_two"			"<% SOLUNIA_ARCANA_R4_ATTRIBUTES %>"
 			}
 		}
 	}
