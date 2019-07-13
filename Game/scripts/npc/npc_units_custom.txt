@@ -94556,6 +94556,104 @@
             }
         }
     }
+
+    "crystarium_heart_slayer"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/medusa/medusa.vmdl"
+        "ModelScale"    "1.04"
+        "Level" "1"
+        "HealthBarOffset"   "270"
+        "SoundSet"          "Hero_Medusa"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "ArmorPhysical" "4"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "26000"
+        "AttackDamageMax"   "28000"
+        "AttackRate"    "1.12"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "ProjectileSpeed"           "1200"
+        "ProjectileModel"           "particles/units/heroes/hero_medusa/medusa_base_attack.vpcf"
+        "AttackRange"   "940"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "170"
+        "BountyXP" "405"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "70"
+        "FormationRank" "2"
+
+        "BuildTime" "26"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "520"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "926000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"      "winterblight_tweaking_arrow"
+        "Ability2"      "tanari_soul_arrows"
+        "Ability3"      "drill_crusher"
+        "Ability4"      "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "5097"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "8196"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12623"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "8194"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "7911"
+                }
+                "Wearable6"
+                {
+                    "ItemDef"   "531"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+        }
+    }
+
     
 
     "tutorial_master"

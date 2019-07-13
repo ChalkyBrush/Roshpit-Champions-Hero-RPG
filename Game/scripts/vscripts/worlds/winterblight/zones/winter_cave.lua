@@ -1803,4 +1803,39 @@ function Winterblight:Crystarium1(msg)
 			Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
 		end
 	end
+
+	Timers:CreateTimer(1.5, function()
+		local positionTable = {Vector(-14336, 7296), Vector(-15152, 5248), Vector(-14848, 3840), Vector(-12672, 4608), Vector(-11008, 4992), Vector(-10240, 3456)}
+	    for i = 1, #positionTable, 1 do
+	      Timers:CreateTimer(i*1.2, function()
+	        local patrolPositionTable = {}
+	        for j = 1, #positionTable, 1 do
+	          local index = i + j
+	          if index > #positionTable then
+	            index = index - #positionTable
+	          end
+	          table.insert(patrolPositionTable, positionTable[index])
+	        end
+	        for j = 0, 1, 1 do
+	          Timers:CreateTimer(j*0.8, function()
+	          	if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+		            local elemental = Winterblight:SpawnHeartSlayer(positionTable[i]+RandomVector(RandomInt(1,180)), RandomVector(1))
+		            Winterblight:AddPatrolArguments(elemental, 12, 10, 220, patrolPositionTable)
+		            Winterblight:SetCavernUnit(elemental, elemental:GetAbsOrigin(), true, true, chamber_id)
+		        end
+	          end)
+	        end
+	      end)
+	    end
+	end)
 end
+
+function Winterblight:SpawnHeartSlayer(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("crystarium_heart_slayer", position, 0, 2, "Winterblight.HeartStriker.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 5, false)
+	stone.itemLevel = 55
+	Events:ColorWearablesAndBase(stone, Vector(150, 180, 255))
+	stone.dominion = true
+	return stone
+end
+

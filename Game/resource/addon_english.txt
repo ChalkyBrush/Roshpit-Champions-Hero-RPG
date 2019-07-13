@@ -19064,6 +19064,9 @@
 		"DOTA_Tooltip_ability_winterblight_confusional_spores_Description"	"Cover an area with pyschotropic spores that confuses all enemies that come into contact. Confused enemies have their move orders inverted."
 		"DOTA_Tooltip_ability_winterblight_confusional_spores_duration"		"DURATION:"
 
+		"DOTA_Tooltip_ability_winterblight_tweaking_arrow"			"Tweaking Arrow"
+		"DOTA_Tooltip_ability_winterblight_tweaking_arrow_Description"	"Attacking an enemy whose E ability is off cooldown will force them to cast it."
+
 		"DOTA_Tooltip_modifier_confusional_spores"					"Confusional Spores"
 		"DOTA_Tooltip_modifier_confusional_spores_Description"		"Move orders are inverted"
 

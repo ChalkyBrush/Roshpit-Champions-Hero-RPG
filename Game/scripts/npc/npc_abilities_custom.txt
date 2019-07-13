@@ -81962,6 +81962,32 @@
 		}
 	}
 
+	"winterblight_tweaking_arrow"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AOERadius"			"1300 1600 1900"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"medusa_split_shot"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_tweaking_arrow_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"tweaking_arrow_hit"
+					}
+				}
+			}
+		}
+	}
+
 
 	"soul_ferrier_passive"
 	{

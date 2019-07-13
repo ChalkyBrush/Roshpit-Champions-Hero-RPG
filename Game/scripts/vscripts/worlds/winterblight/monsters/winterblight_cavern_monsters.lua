@@ -1291,3 +1291,48 @@ function cast_confusional_spores(event)
 	end)
 
 end
+
+function tweaking_arrow_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local target_ability = target:GetAbilityByIndex(DOTA_E_SLOT)
+	if target_ability and target_ability:IsFullyCastable() then
+		local behavior = target_ability:GetBehavior()
+		if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
+			local order =
+			{
+				UnitIndex = target:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+				AbilityIndex = target_ability:entindex(),
+				Queue = true
+			}
+			target:Stop()
+			ExecuteOrderFromTable(order)
+			--print("IN HERE")
+		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
+			local order = {
+				UnitIndex = target:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+				TargetIndex = caster:entindex(),
+				AbilityIndex = target_ability:entindex(),
+				Queue = true
+			}
+			target:Stop()
+			--print("HERE?")
+			ExecuteOrderFromTable(order)
+		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT then
+			local order =
+			{
+				UnitIndex = target:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+				AbilityIndex = target_ability:entindex(),
+				Position = caster:GetAbsOrigin(),
+				Queue = true
+			}
+			target:Stop()
+			ExecuteOrderFromTable(order)
+		end		
+	end
+end
