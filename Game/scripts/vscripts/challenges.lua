@@ -57,32 +57,38 @@ function Challenges:ChiselItem(msg)
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local cost = math.max(msg.cost, 1)
 	CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {})
-	local url = ROSHPIT_URL.."/champions/chiselItem?"
-	url = url.."steam_id="..steamID
-	url = url.."&hero_slot="..saveSlot
-	url = url.."&equip_slot="..itemSlot
-	url = url.."&cost="..cost
-	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
-		--SaveLoad:NewKey()
-		local resultTable = {}
-		--print( "GET response:\n" )
-		for k, v in pairs(result) do
-			--print( string.format( "%s : %s\n", k, v ) )
-		end
-		--print( "Done." )
-		if result.StatusCode == 200 then
-			local resultTable = JSON:decode(result.Body)
-			local shards = resultTable.mithril_shards
-			CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = shards})
-			CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player = playerID})
-			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
-			hero:RemoveModifierByName("modifier_cant_equip")
-			Weapons:UnequipItem(hero, item, itemSlot)
-			Statistics.dispatch('items:chisel')
-			Events:TutorialServerEvent(hero, "3_2", 0)
-		end
-	end)
+	if Beacons.cheats then
+		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
+		hero:RemoveModifierByName("modifier_cant_equip")
+		Weapons:UnequipItem(hero, item, itemSlot)
+	else
+		local url = ROSHPIT_URL.."/champions/chiselItem?"
+		url = url.."steam_id="..steamID
+		url = url.."&hero_slot="..saveSlot
+		url = url.."&equip_slot="..itemSlot
+		url = url.."&cost="..cost
+		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
+		CreateHTTPRequestScriptVM("POST", url):Send(function(result)
+			--SaveLoad:NewKey()
+			local resultTable = {}
+			--print( "GET response:\n" )
+			for k, v in pairs(result) do
+				--print( string.format( "%s : %s\n", k, v ) )
+			end
+			--print( "Done." )
+			if result.StatusCode == 200 then
+				local resultTable = JSON:decode(result.Body)
+				local shards = resultTable.mithril_shards
+				CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = shards})
+				CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player = playerID})
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
+				hero:RemoveModifierByName("modifier_cant_equip")
+				Weapons:UnequipItem(hero, item, itemSlot)
+				Statistics.dispatch('items:chisel')
+				Events:TutorialServerEvent(hero, "3_2", 0)
+			end
+		end)
+	end
 end
 
 function Challenges:FinalReroll(msg)
@@ -150,50 +156,66 @@ function Challenges:FinalReroll(msg)
 
 	-- DeepPrintTable(msg)
 	if newItem then
-		local url = ROSHPIT_URL.."/champions/modifyMithrilShards?"
-		url = url.."steam_id="..steamID
-		url = url.."&amount="..amount
-		url = url.."&reason=" .. "reroll"
-		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
+		if Beacons.cheats then
+			local resultTable = JSON:decode(result.Body)
+			local shardsFromJson = resultTable.mithril_shards
+			CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = shardsFromJson})
+			CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shardsFromJson, player = playerID})
 
-		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "playerReceivedItem", {})
-		CreateHTTPRequestScriptVM("POST", url):Send(function(result)
-			--SaveLoad:NewKey()
-			local resultTable = {}
-			--print( "GET response:\n" )
-			for k, v in pairs(result) do
-				--print( string.format( "%s : %s\n", k, v ) )
-			end
-			--print( "Done." )
-			if result.StatusCode == 200 then
-				local resultTable = JSON:decode(result.Body)
-				local shardsFromJson = resultTable.mithril_shards
-				--print("[Challenges:FinalReroll] shardsFromJson:"..tostring(shardsFromJson))
-				CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = shardsFromJson})
-				CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shardsFromJson, player = playerID})
-
-				if Challenges:CheckIfHeroHasItemByItemIndex(hero, newItem:GetEntityIndex()) then
-					Timers:CreateTimer(0, function()
-						CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith_after_reroll",
-						{itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
-					end)
-					-- CustomGameEventManager:Send_ServerToPlayer(player, "lockSlotsFromServerCall", {itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
-
-				else
-					CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
-				end
-
-				Statistics.dispatch("mithril:change", {playerID = playerID});
-				-- local rerollTable = {}
-				-- rerollTable.playerID = playerID
-				-- rerollTable.heroIndex = hero:GetEntityIndex()
-				-- rerollTable.itemIndex = newItem:GetEntityIndex()
-				-- rerollTable.ignoreLock = 1
-				-- Challenges:DragIntoRerollSlot(rerollTable)
+			if Challenges:CheckIfHeroHasItemByItemIndex(hero, newItem:GetEntityIndex()) then
+				Timers:CreateTimer(0, function()
+					CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith_after_reroll",
+					{itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
+				end)
 			else
 				CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
 			end
-		end)
+		else
+			local url = ROSHPIT_URL.."/champions/modifyMithrilShards?"
+			url = url.."steam_id="..steamID
+			url = url.."&amount="..amount
+			url = url.."&reason=" .. "reroll"
+			url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
+
+			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "playerReceivedItem", {})
+			CreateHTTPRequestScriptVM("POST", url):Send(function(result)
+				--SaveLoad:NewKey()
+				local resultTable = {}
+				--print( "GET response:\n" )
+				for k, v in pairs(result) do
+					--print( string.format( "%s : %s\n", k, v ) )
+				end
+				--print( "Done." )
+				if result.StatusCode == 200 then
+					local resultTable = JSON:decode(result.Body)
+					local shardsFromJson = resultTable.mithril_shards
+					--print("[Challenges:FinalReroll] shardsFromJson:"..tostring(shardsFromJson))
+					CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = shardsFromJson})
+					CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shardsFromJson, player = playerID})
+
+					if Challenges:CheckIfHeroHasItemByItemIndex(hero, newItem:GetEntityIndex()) then
+						Timers:CreateTimer(0, function()
+							CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith_after_reroll",
+							{itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
+						end)
+						-- CustomGameEventManager:Send_ServerToPlayer(player, "lockSlotsFromServerCall", {itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
+
+					else
+						CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+					end
+
+					Statistics.dispatch("mithril:change", {playerID = playerID});
+					-- local rerollTable = {}
+					-- rerollTable.playerID = playerID
+					-- rerollTable.heroIndex = hero:GetEntityIndex()
+					-- rerollTable.itemIndex = newItem:GetEntityIndex()
+					-- rerollTable.ignoreLock = 1
+					-- Challenges:DragIntoRerollSlot(rerollTable)
+				else
+					CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+				end
+			end)
+		end
 	end
 end
 
