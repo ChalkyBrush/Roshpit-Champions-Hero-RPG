@@ -229,16 +229,16 @@ function FinalForgeActivate() {
         var cost = null;
         var itemIndex = null;
         if (GameUI.CustomUIConfig().chisel === 1) {
-            cost = forgeButton.chiselCost;
-            var slot = forgeButton.chiselSlot;
+            cost = GameUI.CustomUIConfig().blacksmithChiselCost
+            var slot = GameUI.CustomUIConfig().blacksmithChiselEquipmentSlot;
             if (mShards >= cost) {
                 //Complete Chiseling
                 GameUI.CustomUIConfig().blacksmithLock = 1;
                 $('#final_forge_button_label').text = $.Localize('#tooltip_forge_in_process');
-                forgeButton.RemoveClass('forge_button_color_main');
-                forgeButton.AddClass('forge_button_deactivated');
+                //forgeButton.RemoveClass('forge_button_color_main');
+                //forgeButton.AddClass('forge_button_deactivated');
 
-                itemIndex = forgeButton.chiselItemIndex;
+                itemIndex = GameUI.CustomUIConfig().blacksmithChiselItemIndex;
                 Game.EmitSound("ui.crafting_confirm_socket");
                 GameEvents.SendCustomGameEventToServer("final_chisel", { playerID: Game.GetLocalPlayerID(), itemIndex: itemIndex, cost: cost, slot: slot });
             } else {
@@ -444,7 +444,7 @@ function InitializeItemDisplay(detail_parent) {
         detail_parent.FindChildTraverse('forge_price_label').text = $.Localize('#message_chisel_price')
         detail_parent.FindChildTraverse('forge_price_label_value').text = chiselPrice
         forgeButton.chiselItemIndex = mItemIndex
-        forgeButton.chiselCost = chiselPrice
+        forgeButton.blacksmithChiselCost = GameUI.CustomUIConfig().blacksmithChiselCost
         if (detail_parent.shards >= chiselPrice) {
             forgeButton.AddClass('forge_button_color_main')
             forgeButton.RemoveClass('forge_button_deactivated')
