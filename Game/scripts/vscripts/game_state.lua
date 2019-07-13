@@ -638,6 +638,16 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
+		if unit:HasModifier("modifier_confusional_spores") then
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE then
+				local target_point = Vector(orderTable.position_x, orderTable.position_y)
+				local distance = WallPhysics:GetDistance2d(unit:GetAbsOrigin(), target_point)
+				local forward_vector = ((target_point - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+				local newPos = unit:GetAbsOrigin() - forward_vector*distance
+				orderTable.position_x = newPos.x
+				orderTable.position_y = newPos.y
+			end
+		end
 		if unit:HasModifier("modifier_stormcloth_bracer") then
 			--print(orderTable.order_type)
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET or orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then

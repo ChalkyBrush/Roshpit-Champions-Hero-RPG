@@ -94475,6 +94475,87 @@
         "Ability3"  "use_ability_1_target_ai"
         "Ability4"  "dungeon_creep"
     }
+
+    "winterblight_fungal_shaman"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/shadowshaman/shadowshaman.vmdl"
+        "ModelScale"    "1.1"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "17500"
+        "AttackDamageMax"   "19000"
+        "AttackRate"    "1.5"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "ProjectileSpeed"           "1400"
+        "ProjectileModel"           "particles/units/heroes/hero_shadowshaman/shadow_shaman_ward_base_attack.vpcf"
+        "AttackRange"   "450"
+        "BountyGoldMin" "50"
+        "BountyGoldMax" "70"
+        "BountyXP" "1100"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "70"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "33 0"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "975000"
+        "StatusHealthRegen" "10"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"      "winterblight_confusional_spores"
+        "Ability2"      "armor_break"
+        "Ability3"      "use_ability_1_no_target_ai"
+        "Ability4"      "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "9907"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9909"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "9908"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "251"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+        }
+    }
     
 
     "tutorial_master"

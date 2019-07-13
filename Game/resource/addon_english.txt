@@ -19026,6 +19026,9 @@
 		"winterblight_cavern_room1_event4"							"Merkurio's Crystal Clash"
 		"winterblight_cavern_room1_event4_description"				"5 Crystals buff all minions summoned by Merkurio. Damaging a crystal deactives it for 20 seconds."
 
+		"winterblight_cavern_room3_event1"							"Standard"
+		"winterblight_cavern_room3_event1_description"				"The chamber is populated with non aggro mobs."
+
 		"winterblight_cavern_status_prefix"								"Status:"
 		"winterblight_cavern_status_inactive"								"Inactive"
 		"winterblight_cavern_status_active"								"Active"
@@ -19057,6 +19060,13 @@
 		"DOTA_Tooltip_modifier_blood_might_health_pct_bonus"			"Blood Might"
 		"DOTA_Tooltip_modifier_blood_might_health_pct_bonus_Description"	"Gaining attack damage based on the health of nearby enemies."
 
+		"DOTA_Tooltip_ability_winterblight_confusional_spores"		"Confusional Spores"
+		"DOTA_Tooltip_ability_winterblight_confusional_spores_Description"	"Cover an area with pyschotropic spores that confuses all enemies that come into contact. Confused enemies have their move orders inverted."
+		"DOTA_Tooltip_ability_winterblight_confusional_spores_duration"		"DURATION:"
+
+		"DOTA_Tooltip_modifier_confusional_spores"					"Confusional Spores"
+		"DOTA_Tooltip_modifier_confusional_spores_Description"		"Move orders are inverted"
+
 		"DOTA_Tooltip_modifier_merkurio_crystal_red"				"Red Crystal"
 		"DOTA_Tooltip_modifier_merkurio_crystal_red_Description"	"Increases all Frozen Foyer monsters attack power by 500%%."
 
@@ -19071,5 +19081,7 @@
 
 		"DOTA_Tooltip_modifier_merkurio_crystal_purple"				"Purple Crystal"
 		"DOTA_Tooltip_modifier_merkurio_crystal_purple_Description"	"Every 0.9 seconds, gain 3 stacks of a shield that reduce damage taken to 0."
+
+
 	}	
 }

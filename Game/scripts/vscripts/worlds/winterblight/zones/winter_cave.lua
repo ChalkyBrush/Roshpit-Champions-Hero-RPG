@@ -32,7 +32,7 @@ function Winterblight:CaveGuideSpawn()
 				EmitSoundOnLocationWithCaster(spawnPos, "Winterblight.GuideCave.Magical", caster)
 			end)
 	-- 	end
-	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-9033, 8320, 500), 10000, 10000, false)
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-12800, 4736, 500), 10000, 10000, false)
 	end
 end
 
@@ -81,7 +81,9 @@ function Winterblight:InitCavernData()
 		end
 	end
 	Winterblight.CavernChamberVertices = {}
-	Winterblight.CavernChamberVertices[1] = Winterblight:GetVertices(1)
+	for j = 1, 4, 1 do
+		Winterblight.CavernChamberVertices[j] = Winterblight:GetVertices(j)
+	end
 end
 
 function Winterblight:ProcessUIMessage(msg)
@@ -147,6 +149,12 @@ function Winterblight:ProcessChamberStart(msg)
 	EmitSoundOn("Winterblight.CavernGuide.EventStart.VO", Winterblight.CavernGuide)
 	if msg.chamber == 1 then
 		Winterblight:FrozenFoyer(msg)
+	elseif msg.chamber == 2 then
+		Winterblight:AuroraPassage(msg)
+	elseif msg.chamber == 3 then
+		Winterblight:Crystarium(msg)
+	elseif msg.chamber == 4 then
+		Winterblight:EdgeOfWinter(msg)
 	end
 
 	local player = hero:GetPlayerOwner()
@@ -164,6 +172,42 @@ function Winterblight:FrozenFoyer(msg)
 		Winterblight:FrozenFoyer3(msg)
 	elseif msg.event_number == 4 then
 		Winterblight:FrozenFoyer4(msg)
+	end
+end
+
+function Winterblight:AuroraPassage(msg)
+	if msg.event_number == 1 then
+		Winterblight:AuroraPassage1(msg)
+	elseif msg.event_number == 2 then
+		Winterblight:AuroraPassage2(msg)
+	elseif msg.event_number == 3 then
+		Winterblight:AuroraPassage3(msg)
+	elseif msg.event_number == 4 then
+		Winterblight:AuroraPassage4(msg)
+	end
+end
+
+function Winterblight:Crystarium(msg)
+	if msg.event_number == 1 then
+		Winterblight:Crystarium1(msg)
+	elseif msg.event_number == 2 then
+		Winterblight:Crystarium2(msg)
+	elseif msg.event_number == 3 then
+		Winterblight:Crystarium3(msg)
+	elseif msg.event_number == 4 then
+		Winterblight:Crystarium4(msg)
+	end
+end
+
+function Winterblight:EdgeOfWinter(msg)
+	if msg.event_number == 1 then
+		Winterblight:EdgeOfWinter1(msg)
+	elseif msg.event_number == 2 then
+		Winterblight:EdgeOfWinter2(msg)
+	elseif msg.event_number == 3 then
+		Winterblight:EdgeOfWinter3(msg)
+	elseif msg.event_number == 4 then
+		Winterblight:EdgeOfWinter4(msg)
 	end
 end
 
@@ -688,6 +732,69 @@ function Winterblight:GetVertices(chamber_id)
 		local height = 1152
 		local width = 568
 		local origin = Vector(-7993, 6080)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+	elseif chamber_id == 3 then
+		local height = 7140
+		local width = 2000
+		local origin = Vector(-15079, 4444)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 874
+		local width = 1975
+		local origin = Vector(-14032, 8116)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 5776
+		local width = 640
+		local origin = Vector(-12736, 5175)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 5432
+		local width = 1152
+		local origin = Vector(-13632, 4964)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 4925
+		local width = 896
+		local origin = Vector(-12096, 5089)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 3228
+		local width = 768
+		local origin = Vector(-10496, 4301)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 2932
+		local width = 477
+		local origin = Vector(-9873, 4154)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 2471
+		local width = 703
+		local origin = Vector(-9376, 3805)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 2018
+		local width = 860
+		local origin = Vector(-8657, 3611)
 		local bl_vertex = origin-Vector(width/2, height/2)
 		local tr_vertex = origin+Vector(width/2, height/2)
 		table.insert(vertices, {bl_vertex, tr_vertex})
@@ -1669,4 +1776,31 @@ function Winterblight:SpawnBeguiler(position, fv)
 	stone.dominion = true
 	Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_ANY_ORDER)
 	return stone
+end
+
+function Winterblight:SpawnFungalShaman(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_fungal_shaman", position, 0, 2, "Winterblight.FungalShaman.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 5, false)
+	stone.itemLevel = 55
+	Events:ColorWearablesAndBase(stone, Vector(150, 180, 255))
+	stone.dominion = true
+	stone.targetRadius = 550
+	stone.autoAbilityCD = 1
+	return stone
+end
+
+function Winterblight:Crystarium1(msg)
+	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 176
+	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
+	local chamber_id = msg.chamber
+	local unitsTable = {}
+	local positionTable = {Vector(-12434, 7040), Vector(-13312, 6873), Vector(-12695, 6528), Vector(-13192, 6003)}
+	for i = 1, #positionTable, 1 do
+		if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+			local fv = ((Vector(-11520, 6912) - positionTable[i])*Vector(1,1,0)):Normalized()
+			local unit = Winterblight:SpawnFungalShaman(positionTable[i], fv)
+			Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+		end
+	end
 end

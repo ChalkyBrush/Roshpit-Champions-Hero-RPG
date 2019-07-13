@@ -1268,3 +1268,26 @@ function disappearing_act_cast(event)
 		end)
 	end
 end
+
+function cast_confusional_spores(event)
+	local caster = event.caster
+	local ability = event.ability
+	local duration = event.duration
+	if caster:GetUnitName() == "winterblight_fungal_shaman" then
+		EmitSoundOn("Winterblight.FungalShaman.Laugh", caster)
+	end
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.FungalShaman.DropSpores", caster)
+	local spellPoint = caster:GetAbsOrigin() + caster:GetForwardVector() * 200
+	local particleName = "particles/roshpit/winterblight/confusional_spores.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(particle1, 0, spellPoint)
+	ParticleManager:SetParticleControl(particle1, 1, Vector(400, 100, 1))
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), spellPoint, nil, 420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	for i = 1, #enemies, 1 do
+		ability:ApplyDataDrivenModifier(caster, enemies[i], "modifier_confusional_spores", {duration = duration})
+	end
+	Timers:CreateTimer(2.5, function()
+		ParticleManager:DestroyParticle(particle1, false)
+	end)
+
+end
