@@ -30,11 +30,18 @@ function relict_jump_pre_start(event)
 	local caster = event.caster
 
 	local distance = WallPhysics:GetDistance2d(event.target_points[1], caster:GetAbsOrigin())
-
-	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.Relict.Jump", caster)
-
-	EndAnimation(caster)
-	StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_3_END, rate=1})
+	if caster:GetUnitName() == "winterblight_relict" then
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.Relict.Jump", caster)
+		EndAnimation(caster)
+		StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_3_END, rate=1})
+	elseif caster:GetUnitName() == "winterblight_skull_hunter" then
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.SkullHunter.Pain", caster)
+		EndAnimation(caster)
+		StartAnimation(caster, {duration=1, activity=ACT_DOTA_TELEPORT_END, rate=1})
+	else
+		EndAnimation(caster)
+		StartAnimation(caster, {duration=1, activity=ACT_DOTA_TELEPORT_END, rate=1})
+	end
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_monkey_king/monkey_king_spring_channel_rings.vpcf", caster:GetAbsOrigin()+Vector(0,0,20), 0.6)
 	-- StartAnimation(caster, {duration=0.44, activity=ACT_DOTA_MK_SPRING_CAST, rate=1.2})
 end
@@ -83,7 +90,10 @@ function relict_jump_think(event)
 	if blockUnit then
 		fv = Vector(0,0)
 	end
-	caster:SetAbsOrigin(caster:GetAbsOrigin() + fv*ability.jumpVelocity + Vector(0,0,ability.liftVelocity))
+	if blockUnit then
+	else
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + fv*ability.jumpVelocity + Vector(0,0,ability.liftVelocity))
+	end
 	ability.liftVelocity = ability.liftVelocity - 2
 	if ability.liftVelocity <= 0 then
 		ability.rising = false
@@ -1334,5 +1344,15 @@ function tweaking_arrow_hit(event)
 			target:Stop()
 			ExecuteOrderFromTable(order)
 		end		
+	end
+end
+
+function fungal_minion_think(event)
+	local caster = event.caster
+	if caster.aggro then
+		local ability = event.ability
+		local position = caster:GetAbsOrigin()
+		--ability:ApplyDataDrivenThinker(caster, position, "modifier_poison_cloud_thinker", {})
+		CustomAbilities:QuickAttachThinker(ability, caster, position, "modifier_poison_cloud_thinker", {})
 	end
 end

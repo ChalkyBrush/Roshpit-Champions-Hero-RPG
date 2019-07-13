@@ -1835,6 +1835,41 @@ function Winterblight:Crystarium1(msg)
 	      end)
 	    end
 	end)
+
+	Timers:CreateTimer(0.5, function()
+		for i = 1, 12, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local fv = RandomVector(1)
+					local position = Vector(-10496, 4964) + RandomVector(RandomInt(0, 480))
+					local unit = Winterblight:SpawnFungusMinion(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+	Timers:CreateTimer(1.5, function()
+		for i = 1, 12, 1 do
+			Timers:CreateTimer(i*0.2, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local fv = RandomVector(1)
+					local position = Vector(-13859, 3875) + RandomVector(RandomInt(0, 480))
+					local unit = Winterblight:SpawnFungusMinion(position, fv)		
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+	Timers:CreateTimer(2.8, function()
+		local positionTable = {Vector(-14336, 8064), Vector(-13952, 8317), Vector(-13638, 7936), Vector(-15376, 7552), Vector(-15585, 7136), Vector(-10465, 5519), Vector(-10178, 5224), Vector(-9856, 4974), Vector(-14848, 2821), Vector(-14393, 3098)}
+		for i = 1, #positionTable, 1 do
+			if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+				local fv = ((Vector(-11520, 6912) - positionTable[i])*Vector(1,1,0)):Normalized()
+				local unit = Winterblight:SpawnSkullHunter(positionTable[i], fv)
+				Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+			end
+		end
+	end)
 end
 
 function Winterblight:SpawnHeartSlayer(position, fv)
@@ -1846,3 +1881,27 @@ function Winterblight:SpawnHeartSlayer(position, fv)
 	return stone
 end
 
+function Winterblight:SpawnFungusMinion(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("fungal_minion", position, 0, 2, "Winterblight.FungalMinion.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 50
+	Events:ColorWearablesAndBase(stone, Vector(150, 180, 255))
+	stone.dominion = true
+	return stone
+
+end
+
+function Winterblight:SpawnSkullHunter(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_skull_hunter", position, 0, 2, "Winterblight.SkullHunter.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 50
+	stone:SetRenderColor(40, 180, 255)
+	stone.dominion = true
+	if Winterblight.Stones >= 3 then
+		stone:AddAbility("ability_mega_haste"):SetLevel(3)
+	end
+	stone.randomMissMin = 100
+	stone.randomMissMax = 600
+	Winterblight:SetPositionCastArgs(stone, 1500, 300, 1, FIND_ANY_ORDER)
+	return stone
+end

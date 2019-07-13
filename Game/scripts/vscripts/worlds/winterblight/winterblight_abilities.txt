@@ -9761,7 +9761,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1.5"
+		"AbilityCooldown"				"2.4"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -11292,4 +11292,88 @@
 				}
 			}
 		}
+	}
+
+	"winterblight_fungal_minion"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"treant_eyes_in_the_forest"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"poison_damage"			"3000 15000 200000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_fungal_overlord_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"ThinkInterval"  	"3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"fungal_minion_think"
+					}
+				}
+
+			}
+			"modifier_poison_cloud_thinker"
+			{
+				"Aura"					"poison_cloud_aura"
+				"Aura_Radius"			"180"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"4"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_riki/bog_monster_poison_cloud.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "200 1 1"
+							"15" "155 160 240"
+							"16" "1 0 0"
+						}
+					}
+				}
+			}
+			"poison_cloud_aura"
+			{
+				"IsDebuff"		"1"
+				"IsHidden"		"0"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-240"
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-100"
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"ai/swamp/swamp.lua"
+						"Function"		"bog_monster_poison_cloud"
+						"target"		"TARGET"
+						"poison_damage"	"%poison_damage"
+					}
+				}
+
+			}
+		}
+
 	}
