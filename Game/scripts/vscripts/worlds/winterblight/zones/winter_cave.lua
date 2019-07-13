@@ -798,6 +798,13 @@ function Winterblight:GetVertices(chamber_id)
 		local bl_vertex = origin-Vector(width/2, height/2)
 		local tr_vertex = origin+Vector(width/2, height/2)
 		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 3282
+		local width = 1887
+		local origin = Vector(-11115, 4457)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
 	end
 	return vertices
 end
