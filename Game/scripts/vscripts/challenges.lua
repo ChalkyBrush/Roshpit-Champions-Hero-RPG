@@ -157,11 +157,6 @@ function Challenges:FinalReroll(msg)
 	-- DeepPrintTable(msg)
 	if newItem then
 		if Beacons.cheats then
-			local resultTable = JSON:decode(result.Body)
-			local shardsFromJson = resultTable.mithril_shards
-			CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = shardsFromJson})
-			CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shardsFromJson, player = playerID})
-
 			if Challenges:CheckIfHeroHasItemByItemIndex(hero, newItem:GetEntityIndex()) then
 				Timers:CreateTimer(0, function()
 					CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith_after_reroll",
