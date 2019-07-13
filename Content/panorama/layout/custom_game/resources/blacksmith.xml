@@ -38,6 +38,16 @@
 				</Button>								
 			</Panel>
 		</snippet>
+    <snippet name="blacksmith_reroll_prescreen">
+        <Panel class="reroll_prescreen_root" hittest="false">
+          <DOTAItemImage hittest="true" id="item_image" class="white_glow"/>
+          <Label id="item_placement_tip" text="item_name" html="true">
+          </Label>
+          <Panel id="reroll_tip_container">
+            <Label id="reroll_other_tip" text="reroll_tip" html="true"></Label>
+          </Panel>
+        </Panel>
+    </snippet>
 	</snippets>
 	<Panel class="blacksmith_root" hittest="false">
 		<Panel id="blacksmith_main_container" hittest="false">
