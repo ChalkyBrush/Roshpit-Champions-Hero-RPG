@@ -265,12 +265,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"CHERNOBOG_E3_RANGE"
+				"property_one"			"<% CHERNOBOG_E3_RANGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"CHERNOBOG_E3_BASE_RANGE"
+				"property_one_base"		"<% CHERNOBOG_E3_BASE_RANGE %>"
 			}
 			"03"
 			{

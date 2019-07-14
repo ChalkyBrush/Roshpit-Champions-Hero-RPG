@@ -10329,7 +10329,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ARKIMUS_W3_BONUS_DMG >%"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "30"
 				}
 			}
 			"modifier_arkimus_c_b_sprinting"
@@ -49830,12 +49830,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"CHERNOBOG_E3_RANGE"
+				"property_one"			"12"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"CHERNOBOG_E3_BASE_RANGE"
+				"property_one_base"		"400"
 			}
 			"03"
 			{
