@@ -162,7 +162,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% FLAMEWAKER_Q4_BASE_DMG_PER_DAMAGE %>"
+				"property_two"			"<% FLAMEWAKER_Q4_BASE_DMG_PER_DAMAGE * 10 %>"
 			}
 		}
 		"Modifiers"

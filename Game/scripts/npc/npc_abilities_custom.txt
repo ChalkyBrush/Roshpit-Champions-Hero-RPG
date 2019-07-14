@@ -23474,7 +23474,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0"
+				"property_two"			"0.01"
 			}
 		}
 		"Modifiers"
