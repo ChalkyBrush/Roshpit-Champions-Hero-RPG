@@ -33,7 +33,7 @@ function supercharge_start(event)
 		end)
 		ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "ekkan")
 		local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "ekkan")
-		local procs = Runes:Procs(d_d_level, 10, 1)
+		local procs = Runes:Procs(d_d_level, EKKAN_R4_MULTICAST_CHANCE, 1)
 		if procs > 0 then
 			ability.origChain = target
 			for i = 1, procs, 1 do
@@ -58,7 +58,7 @@ function supercharge_start(event)
 				EmitSoundOn("Ekkan.SuperCharge.BuffTarget", target)
 				local superSkeleton = CreateUnitByName("ekkan_supercharged_skeleton", target:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 				superSkeleton.hero = caster
-				superSkeleton.damage = target.attackpower * 0.25 * c_d_level
+				superSkeleton.damage = target.attackpower * EKKAN_R3_DAMAGE * c_d_level
 				superSkeleton.numTargets = 1
 				if caster:HasModifier("modifier_ekkan_glyph_7_1") then
 					superSkeleton.numTargets = 3
@@ -133,7 +133,7 @@ function supercharge_attack_land(event)
 		caster:RemoveModifierByName("modifier_supercharge_lifesteal_particle")
 		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_supercharge_lifesteal_particle", {duration = 0.7})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_supercharge_lifesteal_particle", {duration = 0.7})
-		local healAmount = math.max(event.attack_damage * 0.005 * ability.r_1_level, 1)
+		local healAmount = math.max(event.attack_damage * EKKAN_R1_LIFESTEAL * ability.r_1_level, 1)
 		local casterHeal = math.min(caster:GetMaxHealth(), healAmount)
 		local creepHeal = math.min(attacker:GetMaxHealth(), healAmount)
 		Filters:ApplyHeal(caster, caster, casterHeal, true)
@@ -188,7 +188,7 @@ function supercharge_enemy(caster, target, ability)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Ekkan.Dominion.Launch", caster)
 	Timers:CreateTimer(0.2, function()
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.03})
-		local finalSwarmDamage = swarmDamage * 0.02 * b_d_level
+		local finalSwarmDamage = swarmDamage * EKKAN_R2_DAMAGE * b_d_level
 		Filters:TakeArgumentsAndApplyDamage(target, caster, finalSwarmDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_DEMON)
 		EmitSoundOn("Ekkan.ScourgeSwarm", target)
 		CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan/scourge_swarm.vpcf", target, 5)

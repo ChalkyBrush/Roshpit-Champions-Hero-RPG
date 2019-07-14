@@ -13,7 +13,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"<% EKKAN_Q1_DAMAGE * 100 %>"
 			}
 			"02"
 			{
@@ -41,7 +41,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"<% EKKAN_Q2_BONUS_HP * 100 %>"
 			}
 		}
 	}
@@ -59,12 +59,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1200"
+				"property_one"			"<% EKKAN_Q3_BASE_ATTACK_DAMAGE_ADDED %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
+				"property_two"			"<% EKKAN_Q3_ARMOR_ADDED %>"
 			}
 		}
 	}
@@ -82,12 +82,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"<% EKKAN_Q4_BONUS_MOVESPEED %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
+				"property_two"			"<% EKKAN_Q4_BONUS_ATTACK_SPEED %>"
 			}
 		}
 	}
@@ -106,12 +106,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"<% EKKAN_W1_ATTACK_POWER_MULTIPLE * 100 %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"<% EKKAN_W1_CRIT_DMG * 100 %>"
 			}
 			"03"
 			{
@@ -144,12 +144,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.75"
+				"property_one"			"<% EKKAN_W2_DURATION %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"8"
+				"property_two"			"<% EKKAN_W2_UNDEAD_AMP * 100 %>"
 			}
 		}
 	}
@@ -168,12 +168,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"<% EKKAN_W3_BLAST_DAMAGE * 100 %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"				"-5"
+				"property_two"				"-<% EKKAN_W3_MOVESPEED_SLOW %>"
 			}
 			"03"
 			{
@@ -201,12 +201,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
+				"property_one"			"<% EKKAN_W4_MAGIC_RESIST %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"property_two"			"<% EKKAN_W4_SKELETON_POST_MITI %>"
 			}
 		}
 	}
@@ -225,17 +225,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"<% EKKAN_E1_CORPSE_HP_TO_EXPLOSION * 100 %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"<% EKKAN_E1_RANGE %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"700"
+				"property_two_base"		"<% EKKAN_E1_RANGE_BASE %>"
 			}
 			"04"
 			{
@@ -264,12 +264,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"<% EKKAN_E2_FAMILIAR_ATTACK * 100 %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"				"10"
+				"property_two"				"<% EKKAN_E2_FAMILIAR_ARMOR * 100 %>"
 			}
 		}
 	}
@@ -287,7 +287,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-100"
+				"property_one"			"-<% EKKAN_E3_ARMOR_REDUCTION %>"
 			}
 		}
 	}
@@ -305,12 +305,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.25"
+				"property_one"			"<% EKKAN_E4_STUN_DURATION %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.5"
+				"property_two"			"<% EKKAN_E4_HP_REGEN * 100 %>"
 			}
 		}
 	}
@@ -381,7 +381,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"<% EKKAN_R3_DAMAGE * 100 %>"
 			}
 			"02"
 			{
@@ -414,7 +414,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% EKKAN_R4_MULTICAST_CHANCE %>"
 			}
 		}
 	}

@@ -23,6 +23,7 @@ require('/heroes/faceless_void/omniro_constants')
 require('/heroes/skywrath_mage/constants')
 require('heroes/slardar/hydroxis_constants')
 require('/heroes/vengeful_spirit/solunia_constants')
+require("/heroes/visage/ekkan_constants")
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -2635,7 +2636,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 local w_2_level = attacker:GetRuneValue("w", 2)
                 local raise_skeletons = attacker:FindAbilityByName("ekkan_summon_skeleton")
                 if raise_skeletons.skeleTable then
-                    mult = mult + #raise_skeletons.skeleTable * w_2_level * 0.08
+                    mult = mult + #raise_skeletons.skeleTable * w_2_level * EKKAN_W2_UNDEAD_AMP
                 end
             end
         end

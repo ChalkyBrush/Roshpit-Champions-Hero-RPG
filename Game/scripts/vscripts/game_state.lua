@@ -16,6 +16,7 @@ require("/heroes/dragon_knight/flamewaker_constants")
 require("/heroes/spirit_breaker/duskbringer_constants")
 require('heroes/slardar/hydroxis_constants')
 require('/heroes/vengeful_spirit/solunia_constants')
+require("/heroes/visage/ekkan_constants")
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -1856,7 +1857,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:GetUnitName() == "ekkan_skeleton_archer" then
 			local luck = RandomInt(1, 10)
 			if luck <= 3 then
-				filterTable.damage = filterTable.damage * (1 + attacker.w_1_level * 0.1)
+				filterTable.damage = filterTable.damage * (1 + attacker.w_1_level * EKKAN_W1_CRIT_DMG)
 				local damage = Filters:TakeArgumentsAndApplyDamage(victim, attacker.hero, filterTable.damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE, true, nil)
 				filterTable["damage"] = damage
 				armor = 0
@@ -2362,7 +2363,7 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = filterTable["damage"] - (filterTable["damage"] * math.min((CONJUROR_ARCANA_Q4_DAMAGE_REDUCE_PCT / 100) * stacks, 0.9))
 	end
 	if victim:HasModifier("modifier_swarm_effect") then
-		local multIncrease = victim:GetModifierStackCount("modifier_swarm_effect", victim.umbral) * 0.06
+		local multIncrease = victim:GetModifierStackCount("modifier_swarm_effect", victim.umbral) * EKKAN_ARCANA_Q2_POST_MITI
 		mult = mult + multIncrease
 	end
 	if victim:HasModifier("modifier_witch_hat_damage_amp") then
@@ -3212,7 +3213,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_ekkan_dominion_unit") then
 		if attacker.hero:HasModifier("modifier_ekkan_immortal_weapon_3") then
 			if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-				filterTable["damage"] = filterTable["damage"] * 5000
+				filterTable["damage"] = filterTable["damage"] * EKKAN_IMMORTAL_WEAPON_3_AMP
 			end
 		end
 	end

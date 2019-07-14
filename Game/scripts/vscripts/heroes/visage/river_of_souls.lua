@@ -72,8 +72,8 @@ function river_of_souls_start(event)
 		EmitSoundOn("Ekkan.CorpseExplosion.Cast", caster)
 		local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "ekkan")
 		local targetCorpse = EntIndexToHScript(caster.corpseExplosionIndex)
-		ability.corpseDamage = targetCorpse.hp * 0.05 * a_c_level
-		local range = 700 + a_c_level * 5
+		ability.corpseDamage = targetCorpse.hp * EKKAN_E1_CORPSE_HP_TO_EXPLOSION * a_c_level
+		local range = EKKAN_E1_RANGE_BASE + a_c_level * EKKAN_E1_RANGE
 		local beamPFX = ParticleManager:CreateParticle("particles/roshpit/ekkan/cast_beams_beams.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(beamPFX, 0, caster:GetAbsOrigin())
 		ParticleManager:SetParticleControl(beamPFX, 1, targetCorpse:GetAbsOrigin())
@@ -109,9 +109,9 @@ function SummonFamiliar(caster, ability, portalPosition, b_c_level)
 	familiar:SetControllableByPlayer(caster:GetPlayerOwnerID(), false)
 	familiar:SetOwner(caster)
 
-	local familiarArmor = caster:GetPhysicalArmorValue(false) * 0.1 * b_c_level
+	local familiarArmor = caster:GetPhysicalArmorValue(false) * EKKAN_E2_FAMILIAR_ARMOR * b_c_level
 	familiar:SetPhysicalArmorBaseValue(familiarArmor)
-	local attackDamage = math.min(OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.2 * b_c_level, (2 ^ 31) - 10)
+	local attackDamage = math.min(OverflowProtectedGetAverageTrueAttackDamage(caster) * EKKAN_E2_FAMILIAR_ATTACK * b_c_level, (2 ^ 31) - 10)
 
 	familiar:SetBaseDamageMin(attackDamage)
 	familiar:SetBaseDamageMax(attackDamage)
@@ -306,7 +306,7 @@ end
 function familiar_stone_form(event)
 	local ability = event.ability
 	local caster = event.caster
-	local stun_duration = caster.e_4_level * 0.25
+	local stun_duration = caster.e_4_level * EKKAN_E4_STUN_DURATION
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_familiar_stoneform_effect", {duration = 6.2})
 	StartAnimation(caster, {duration = 6.2, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.0})
 	Timers:CreateTimer(0.7, function()
