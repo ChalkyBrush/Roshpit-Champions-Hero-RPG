@@ -84,7 +84,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% EKKAN_ARCANA_Q3_ARMOR >%"
+				"property_two"			"<% EKKAN_ARCANA_Q3_ARMOR %>"
 			}
 		}
 	}

@@ -14,6 +14,7 @@ require('/heroes/nightstalker/chernobog_constants')
 require('/heroes/skywrath_mage/constants')
 require('heroes/slardar/hydroxis_constants')
 require('/heroes/vengeful_spirit/solunia_constants')
+require("/heroes/winter_wyvern/dinath_constants")
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -1043,7 +1044,7 @@ function CustomAttributes:MSCap(unit)
 				if ms_cap_modifier == "modifier_chernobog_d_c_arcana2" then
 					max_ms = math.max(max_ms, modifier_ability.e_4_level * 3)
 				elseif ms_cap_modifier == "modifier_dinath_passive_ms_cap" then
-					max_ms = math.max(max_ms, modifier_ability.w_3_level * 5 + max_ms)
+					max_ms = math.max(max_ms, modifier_ability.w_3_level * DINATH_ARCANA_W3_MOVESPEED_CAP_BONUS + max_ms)
 				elseif ms_cap_modifier == "modifier_draghor_feral_sprint" then
 					max_ms = math.max(max_ms, modifier_ability:GetSpecialValueFor("movespeed_cap"))
 				elseif ms_cap_modifier == "modifier_seinaru_glyph_t21_movespeed_cap" then

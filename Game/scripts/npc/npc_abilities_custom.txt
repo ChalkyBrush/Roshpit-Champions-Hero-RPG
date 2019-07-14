@@ -7578,7 +7578,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
+				"property_one"			"12"
 			}
 			"02"
 			{
@@ -8611,7 +8611,7 @@
 
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-4"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-5"
 				}
 			}
 		}

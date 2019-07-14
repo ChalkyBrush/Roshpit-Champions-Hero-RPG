@@ -1,3 +1,4 @@
+require("/heroes/winter_wyvern/dinath_constants")
 function drake_ring_cast(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -36,7 +37,7 @@ function drake_ring_cast(event)
 		local drake_ring = CreateUnitByName("npc_dummy_unit", point, false, nil, nil, caster:GetTeamNumber())
 		local radius = event.radius
 		local w_4_level = caster:GetRuneValue("w", 4)
-		radius = radius + w_4_level * 4
+		radius = radius + w_4_level * DINATH_W4_RADUIS
 		local ring_duration = 30
 		drake_ring:SetDayTimeVisionRange(radius)
 		drake_ring:SetNightTimeVisionRange(radius)
@@ -51,7 +52,7 @@ function drake_ring_cast(event)
 		ability:ApplyDataDrivenModifier(caster, drake_ring, "modifier_dinath_drake_ring", {duration = ring_duration})
 		local w_3_level = caster:GetRuneValue("w", 3)
 		if w_3_level > 0 then
-			local rootDuration = 0.3 + 0.1 * w_3_level
+			local rootDuration = DINATH_W3_ROOT_BASE + DINATH_W3_ROOT * w_3_level
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), drake_ring:GetAbsOrigin(), nil, drake_ring.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			for _, enemy in pairs(enemies) do
 				if not enemy:HasModifier("modifier_drake_ring_root_immune") then

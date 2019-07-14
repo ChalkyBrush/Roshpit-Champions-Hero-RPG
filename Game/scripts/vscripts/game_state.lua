@@ -17,6 +17,7 @@ require("/heroes/spirit_breaker/duskbringer_constants")
 require('heroes/slardar/hydroxis_constants')
 require('/heroes/vengeful_spirit/solunia_constants')
 require("/heroes/visage/ekkan_constants")
+require("/heroes/winter_wyvern/dinath_constants")
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -2066,7 +2067,7 @@ function GameState:FilterDamage(filterTable)
 		if victim:HasModifier("modifier_drake_ring_postmit") then
 			if attacker:GetUnitName() == "npc_dota_hero_winter_wyvern" then
 				local stacks = victim:GetModifierStackCount("modifier_drake_ring_postmit", attacker)
-				mult = mult + 0.1 * stacks
+				mult = mult + DINATH_W2_POST_MITI_MAGIC * stacks
 				--print("STACK INCREASE")
 				--print(stacks)
 			end
@@ -2674,7 +2675,7 @@ function GameState:FilterDamage(filterTable)
 		modifier = victim:FindModifierByName("modifier_hyperbeam_postmit")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			mult = mult + 0.09 * stacks
+			mult = mult + DINATH_R2_POST_MITI * stacks
 		end
 	end
 	if victim:HasModifier("modifier_slipfinn_gloomshade_invisible") then

@@ -1,3 +1,4 @@
+require("/heroes/winter_wyvern/dinath_constants")
 LinkLuaModifier("modifier_dinath_passive_ms_cap", "modifiers/dinath/modifier_dinath_passive_ms_cap", LUA_MODIFIER_MOTION_NONE)
 
 function spire_toggle_on(event)
@@ -17,7 +18,7 @@ function spire_toggle_on(event)
 		end)
 	end
 
-	local speedStacks = w_3_level * 8
+	local speedStacks = w_3_level * DINATH_ARCANA_W3_MOVESPEED_BONUS
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spire_breath_speed_burst", {duration = speedStacks * 0.03})
 	caster:SetModifierStackCount("modifier_spire_breath_speed_burst", caster, speedStacks)
 	Filters:CastSkillArguments(2, caster)
@@ -40,7 +41,7 @@ function spire_toggle_off(event)
 	end
 	ability:StartCooldown(1)
 
-	local speedStacks = w_3_level * 8
+	local speedStacks = w_3_level * DINATH_ARCANA_W3_MOVESPEED_BONUS
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spire_breath_speed_burst", {duration = speedStacks * 0.03})
 	caster:SetModifierStackCount("modifier_spire_breath_speed_burst", caster, speedStacks)
 	Filters:CastSkillArguments(2, caster)
@@ -95,9 +96,9 @@ function spire_attack_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_breath_lock", {duration = lock_duration})
 	local radius = 800
 	local w_4_level = caster:GetRuneValue("w", 4)
-	radius = radius + w_4_level * 8
+	radius = radius + w_4_level * DINATH_ARCANA_W4_ATTACK_RADIUS_INCREASE
 	local splits = event.splits
-	splits = splits + Runes:Procs(w_4_level, 10, 1)
+	splits = splits + Runes:Procs(w_4_level, DINATH_ARCANA_W4_CHANCE_FOR_TARGET, 1)
 	local count = 0
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false)
 	if #enemies > 0 then
