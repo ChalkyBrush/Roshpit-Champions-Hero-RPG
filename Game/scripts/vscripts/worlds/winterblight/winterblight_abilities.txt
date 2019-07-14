@@ -11270,8 +11270,7 @@
 
 	"winterblight_tweaking_arrow"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AOERadius"			"1300 1600 1900"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"medusa_split_shot"
 		"MaxLevel"	"3"
@@ -11376,4 +11375,127 @@
 			}
 		}
 
+	}
+
+	"winterblight_distance_cap_aura"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AOERadius"			"2000"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"medusa_split_shot"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range_cap"			"300"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_distance_cap_aura"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/winterblight/distance_cap_aura_ring.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Aura"          	"modifier_distance_cap_effect"
+				"Aura_Radius"   	"2000"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_distance_cap_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
+		}
+	}
+
+	"winterblight_spirit_ring"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/fire/fire_fire_q"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AOERadius"				"800"
+
+		// Precache
+		//-------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"2.8"
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"10000 100000 400000"
+			}	
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_and_silence_duration"				"0.6"
+			}	
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+				"Function"		"activate_spirit_ring"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_spirit_ring_thinker"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"spirit_ring_thinker"
+						"duration"		"%slow_and_silence_duration"
+					}
+				}
+			}
+			"modifier_spirit_ring_slow"
+			{
+				"IsHidden" "0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-150" 
+				}
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
 	}

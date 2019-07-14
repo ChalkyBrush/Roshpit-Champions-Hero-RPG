@@ -1356,3 +1356,90 @@ function fungal_minion_think(event)
 		CustomAbilities:QuickAttachThinker(ability, caster, position, "modifier_poison_cloud_thinker", {})
 	end
 end
+
+function activate_spirit_ring(event)
+	local caster = event.caster
+	local ability = event.ability
+
+
+	local damage = event.damage
+	local radius = 1000
+	ability.damage = damage
+
+	if not ability.ring_table then
+		ability.ring_table = {}
+
+	end
+	local new_ring = {}
+	new_ring.active = true
+	new_ring.pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/spirit_ring_reduced_flash.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	table.insert(ability.ring_table, new_ring)
+	local ringDuration = 0
+	local speed = radius * 1
+	ability.speed = speed
+	ability.radius = radius
+	new_ring.distance_from_center = 0
+	new_ring.interval = 0
+	new_ring.attachmentUnit = caster
+	ParticleManager:SetParticleControl(new_ring.pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(new_ring.pfx, 1, Vector(speed, radius, 600))
+	Timers:CreateTimer(ringDuration + (radius / speed), function()
+		new_ring.retracing = true
+		ParticleManager:SetParticleControl(new_ring.pfx, 1, Vector(speed, -radius, 600))
+		Timers:CreateTimer(radius / speed, function()
+			new_ring.active = false
+			ParticleManager:DestroyParticle(new_ring.pfx, false)
+			ParticleManager:ReleaseParticleIndex(new_ring.pfx)
+			reindex_spirit_ring_table(caster, ability)
+		end)
+	end)
+	EmitSoundOn("Winterblight.Mundugu.SpiritRing", caster)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spirit_ring_thinker", {})
+end
+
+function reindex_spirit_ring_table(caster, ability)
+	local new_table = {}
+	for i = 1, #ability.ring_table, 1 do
+		if ability.ring_table[i].active then
+			table.insert(new_table, ability.ring_table[i])
+		end
+	end
+	ability.ring_table = new_table
+	if #ability.ring_table == 0 then
+		caster:RemoveModifierByName("modifier_spirit_ring_thinker")
+	end
+end
+
+function spirit_ring_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	for i = 1, #ability.ring_table, 1 do
+		local ring = ability.ring_table[i]
+		if ring.active then
+			ParticleManager:SetParticleControl(ring.pfx, 0, caster:GetAbsOrigin())
+			if ring.retracing then
+				ring.distance_from_center = ring.distance_from_center - ability.speed * 0.03
+			else
+				ring.distance_from_center = ring.distance_from_center + ability.speed * 0.03
+			end
+			ring.interval = ring.interval + 1
+			if ring.interval % 3 == 0 then
+				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ring.distance_from_center + 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+				local enemies_exclude = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ring.distance_from_center - 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+				if #enemies > 0 then
+					for _, enemy in pairs(enemies) do
+						if WallPhysics:DoesTableHaveValue(enemies_exclude, enemy) then
+						else
+							local damage = ability.damage
+							EmitSoundOn("Winterblight.Mundugu.SpiritRing.Hit", enemy)
+							Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
+							CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dark_willow/dark_willow_wisp_spell_flash_light.vpcf", enemy, 2)
+							ability:ApplyDataDrivenModifier(caster, enemy, "modifier_spirit_ring_slow", {duration = event.duration})
+						end
+					end
+				end
+			end
+		end
+	end
+end
+

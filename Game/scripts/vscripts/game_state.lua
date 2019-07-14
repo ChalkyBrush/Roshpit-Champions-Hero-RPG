@@ -1153,6 +1153,19 @@ function GameState:OrderFilter(orderTable)
 					end
 				end
 			end
+			if unit:HasModifier("modifier_distance_cap_effect") then
+				if orderTable.order_type == DOTA_UNIT_ORDER_CAST_POSITION then
+					local target_point = Vector(orderTable.position_x, orderTable.position_y)
+					local distance = WallPhysics:GetDistance2d(unit:GetAbsOrigin(), target_point)
+					local forward_vector = ((target_point - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+					local newPos = target_point
+					if distance > 400 then
+						newPos = unit:GetAbsOrigin() + forward_vector*400
+					end
+					orderTable.position_x = newPos.x
+					orderTable.position_y = newPos.y
+				end
+			end
 			if unit:GetUnitName() == "npc_dota_hero_beastmaster" then
 				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
 				if IsValidEntity(orderAbility) then

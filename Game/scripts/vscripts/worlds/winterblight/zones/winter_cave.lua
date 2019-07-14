@@ -1870,6 +1870,16 @@ function Winterblight:Crystarium1(msg)
 			end
 		end
 	end)
+	Timers:CreateTimer(4, function()
+		local positionTable = {Vector(-15256, 7295), Vector(-15005, 2197), Vector(-13273, 4037), Vector(-9829, 4244)}
+		for i = 1, #positionTable, 1 do
+			if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+				local fv = ((Vector(-11520, 6912) - positionTable[i])*Vector(1,1,0)):Normalized()
+				local unit = Winterblight:SpawnMundugu(positionTable[i], fv)
+				Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+			end
+		end
+	end)
 end
 
 function Winterblight:SpawnHeartSlayer(position, fv)
@@ -1904,4 +1914,14 @@ function Winterblight:SpawnSkullHunter(position, fv)
 	stone.randomMissMax = 600
 	Winterblight:SetPositionCastArgs(stone, 1500, 300, 1, FIND_ANY_ORDER)
 	return stone
+end
+
+function Winterblight:SpawnMundugu(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("reclusive_mundunugu", position, 0, 2, "Winterblight.Mundugu.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 50
+	Events:ColorWearablesAndBase(stone, Vector(150, 180, 255))
+	stone.dominion = true
+	return stone
+
 end
