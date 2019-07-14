@@ -11499,3 +11499,196 @@
 
         }
     }
+
+    "winterblight_crystalist"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/nerubian_assassin/nerubian_assassin.vmdl"
+        "ModelScale"    "1.15"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "SoundSet"          "Hero_NyxAssassin"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+             "particle"  "particles/units/heroes/hero_nyx_assassin/nyx_assassin_impale.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "MagicalResistance" "65"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "24000"
+        "AttackDamageMax"   "28000"
+        "AttackRate"    "1.1"
+        "AttackAnimationPoint"  "0.6"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "140"
+        "BountyGoldMin" "140"
+        "BountyGoldMax" "150"
+        "BountyXP" "270"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "350"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "327260"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"              "arena_conquest_impale"
+        "Ability2"              "use_ability_1_position_ai"
+        "Ability3"              "winterblight_aeon_shield"
+        "Ability4"              "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+
+                "Wearable1"
+                {
+                    "ItemDef"   "12245"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "5926"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12957"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "8832"
+                }
+
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+          
+            }
+
+        }
+    }
+
+    "winterblight_zect_rider"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/disruptor/disruptor.vmdl"
+        "ModelScale"    "0.95"
+        "Level" "1"
+        "HealthBarOffset"   "220"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_disruptor.vsndevts"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
+            "particle"  "particles/units/heroes/hero_disruptor/disruptor_thunder_strike_buff.vpcf"
+            "particle"  "particles/units/heroes/hero_disruptor/disruptor_thunder_strike_bolt.vpcf"
+            "particle"  "particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf"
+            "particle"  "particles/units/heroes/hero_zuus/zuus_lightning_bolt_start.vpcf"
+            "particle"  "particles/units/heroes/hero_zuus/zuus_lightning_bolt.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_Disruptor"
+        "ArmorPhysical" "4"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "ProjectileModel"   "particles/units/heroes/hero_disruptor/disruptor_base_attack.vpcf"
+        "ProjectileSpeed"   "600"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1200.0"
+        "AttackDamageMax"   "1500.0"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "400"
+        "BountyGoldMin" "60"
+        "BountyGoldMax" "80"
+        "BountyXP" "9440"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "550"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "120000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "80"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "7779"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9381"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "8055"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "6948"
+                }
+            }
+        }
+        "Ability1"          "zect_rider_thunder_strike"
+        "Ability2"          "zect_rider_arc_lightning"
+        "Ability3"          "zect_rider_lightning_bolt"
+        "Ability4"          "zect_rider_passive"
+        "Ability5"          "dungeon_creep"
+    }

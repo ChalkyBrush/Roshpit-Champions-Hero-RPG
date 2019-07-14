@@ -328,6 +328,8 @@ function GameMode:_CaptureGameMode()
     mode:SetDamageFilter(Dynamic_Wrap(GameState, "FilterDamage"), self)
     mode:SetExecuteOrderFilter(Dynamic_Wrap(GameState, "OrderFilter"), self)
     mode:SetModifyGoldFilter(Dynamic_Wrap(GameState, "GoldEarnFilter"), self)
+    mode:SetModifierGainedFilter(Dynamic_Wrap(GameState, "ModifierGainedFilter"), self)
+    mode:SetAbilityTuningValueFilter(Dynamic_Wrap(GameState, "AbilityTuningValueFilter"), self)
     for rune, spawn in pairs(ENABLED_RUNES) do
       mode:SetRuneEnabled(rune, spawn)
     end

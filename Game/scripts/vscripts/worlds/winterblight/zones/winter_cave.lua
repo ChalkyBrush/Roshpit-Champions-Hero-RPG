@@ -562,6 +562,7 @@ function Winterblight:SpawnDrillDigger(position, fv)
 	Events:AdjustBossPower(stone, 5, 6, false)
 	stone.itemLevel = 55
 	stone:SetRenderColor(150, 190, 255)
+	stone.dominion = true
 	-- Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_CLOSEST)
 	return stone
 end
@@ -573,6 +574,7 @@ function Winterblight:SpawnBarbedHusker(position, fv)
 	stone:SetRenderColor(150, 190, 255)
 	stone.randomMissMin = 240
 	stone.randomMissMax = 400
+	stone.dominion = true
 	Winterblight:SetPositionCastArgs(stone, 1500, 300, 1, FIND_ANY_ORDER)
 	return stone
 end
@@ -1802,7 +1804,7 @@ function Winterblight:Crystarium1(msg)
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local chamber_id = msg.chamber
 	local unitsTable = {}
-	local positionTable = {Vector(-12434, 7040), Vector(-13312, 6873), Vector(-12695, 6528), Vector(-13192, 6003)}
+	local positionTable = {Vector(-12434, 7040), Vector(-13312, 6873), Vector(-12695, 6528), Vector(-13192, 6003), Vector(-14873, 4480), Vector(-14395, 4096), Vector(-14657, 3727)}
 	for i = 1, #positionTable, 1 do
 		if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
 			local fv = ((Vector(-11520, 6912) - positionTable[i])*Vector(1,1,0)):Normalized()
@@ -1880,6 +1882,32 @@ function Winterblight:Crystarium1(msg)
 			end
 		end
 	end)
+
+	Timers:CreateTimer(5, function()
+		local positionTable = {Vector(-8832, 3712), Vector(-8960, 3456), Vector(-9344, 3328), Vector(-10624, 3459), Vector(-11136, 3328), Vector(-14902, 1543), Vector(-15232, 1474), Vector(-15488, 1664), Vector(-15574, 3036), Vector(-15699, 2754)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.15, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local fv = ((Vector(-11520, 6912) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnCrystalist(positionTable[i], fv)
+					Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+
+	Timers:CreateTimer(6, function()
+		local positionTable = {Vector(-15340, 6400), Vector(-15104, 6668), Vector(-15488, 6784), Vector(-13580, 5632), Vector(-13291, 5120), Vector(-13703, 4791), Vector(-11486, 5267), Vector(-10034, 4610)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.2, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local fv = ((Vector(-11520, 6912) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnZectRider(positionTable[i], fv)
+					Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+				end
+			end)
+		end
+	end)
 end
 
 function Winterblight:SpawnHeartSlayer(position, fv)
@@ -1920,6 +1948,26 @@ function Winterblight:SpawnMundugu(position, fv)
 	local stone = Winterblight:SpawnDungeonUnit("reclusive_mundunugu", position, 0, 2, "Winterblight.Mundugu.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 4, 4, false)
 	stone.itemLevel = 50
+	Events:ColorWearablesAndBase(stone, Vector(150, 180, 255))
+	stone.dominion = true
+	return stone
+
+end
+
+function Winterblight:SpawnCrystalist(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_crystalist", position, 0, 2, "Winterblight.Crystalist.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 54
+	stone:SetRenderColor(40, 180, 255)
+	stone.dominion = true
+	Winterblight:SetPositionCastArgs(stone, 800, 300, 1, FIND_ANY_ORDER)
+	return stone
+end
+
+function Winterblight:SpawnZectRider(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_zect_rider", position, 0, 2, "Winterblight.ZectRider.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 5, false)
+	stone.itemLevel = 54
 	Events:ColorWearablesAndBase(stone, Vector(150, 180, 255))
 	stone.dominion = true
 	return stone

@@ -515,6 +515,23 @@ function GameState:GoldEarnFilter(goldEarnTable)
 	return true
 end
 
+function GameState:ModifierGainedFilter(modifierGainedTable)
+   -- entindex_parent_const           	= 796 (number)
+   -- entindex_ability_const          	= 607 (number)
+   -- duration                        	= -1 (number)
+   -- entindex_caster_const           	= 606 (number)
+   -- name_const                      	= "modifier_name" (string)
+	return true
+end
+
+function GameState:AbilityTuningValueFilter(abilityTuneTable)
+   -- value                           	= 300 (number)
+   -- entindex_ability_const          	= 821 (number)
+   -- value_name_const                	= "attack_damage_base" (string)
+   -- entindex_caster_const           	= 820 (number)
+	return true
+end
+
 function GameState:OrderFilter(orderTable)
 	local unitNumber = -1
 	for _, unitNum in pairs(orderTable.units) do
@@ -3230,7 +3247,8 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_winterblight_cavern_unit") then
 		local chamber_level = Winterblight.CavernData.Chambers[victim.chamber]["level"]
 		local reduction = 0.5^chamber_level
-		if not Winterblight:IsWithinChamber(attacker, victim.chamber) then
+		if Winterblight:IsWithinChamber(attacker, victim.chamber) then
+		else
 			filterTable["damage"] = 0
 		end
 		if Winterblight.CavernData.Chambers[victim.chamber]["status"] ~= 1 then
@@ -3689,6 +3707,26 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_damage_immunity") then
 		filterTable["damage"] = 0
 	end
+	if victim:HasModifier("modifier_aeon_shield_passive") then
+		if victim:HasModifier("modifier_aeon_shield_active") then
+			filterTable["damage"] = 0
+		else
+			if victim:HasModifier("modifier_aeon_shield_charges") then
+				local charges = victim:FindModifierByName("modifier_aeon_shield_charges"):GetStackCount()
+				if (victim:GetHealth()-filterTable["damage"])/victim:GetMaxHealth() < charges*0.195 then
+					local new_charges = charges - 1
+					filterTable["damage"] = victim:GetHealth() - victim:GetMaxHealth()*charges*0.195
+					if new_charges > 0 then
+						victim:SetModifierStackCount("modifier_aeon_shield_charges", victim, new_charges)
+					else
+						victim:RemoveModifierByName("modifier_aeon_shield_charges")
+					end
+					local ability = victim:FindModifierByName("modifier_aeon_shield_passive"):GetAbility()
+					ability:ApplyDataDrivenModifier(victim, victim, "modifier_aeon_shield_active", {duration = 2.5})
+				end
+			end
+		end
+	end
 	if victim:HasModifier("modifier_beast_tyrant_combat_ai") then
 		if attacker:HasModifier("modifier_beast_tyrant_in_blue") and damagetype == DAMAGE_TYPE_MAGICAL then
 		elseif attacker:HasModifier("modifier_beast_tyrant_in_red") and damagetype == DAMAGE_TYPE_PHYSICAL then
@@ -4037,9 +4075,11 @@ function GameState:FilterDamage(filterTable)
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if attacker:IsHero() then
 				if not victim:HasModifier("modifier_disable_player") then
-					-- if filterTable["damage"] > 0 then
-						filterTable["damage"] = 9999999999
-					-- end
+					if not victim:HasModifier("modifier_aeon_shield_passive") then
+						if filterTable["damage"] > 0 then
+							filterTable["damage"] = 9999999999
+						end
+					end
 				end
 			end
 		end

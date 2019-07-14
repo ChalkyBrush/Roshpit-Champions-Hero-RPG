@@ -1443,3 +1443,56 @@ function spirit_ring_thinker(event)
 	end
 end
 
+function aeon_shield_init(event)
+	local caster = event.caster
+	local ability = event.ability
+	local initial_stacks = 5
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_aeon_shield_charges", {})
+	caster:SetModifierStackCount("modifier_aeon_shield_charges", caster, initial_stacks)
+end
+
+function aeon_shield_stack_gain(event)
+	local caster = event.caster
+	local ability = event.ability
+	caster:ApplyAndIncrementStack(ability, caster, "modifier_aeon_shield_charges", 1, 5, 0)
+end
+
+function aeon_sheild_activated(event)
+	local caster = event.caster
+	local ability = event.ability
+	local pfx = CustomAbilities:QuickAttachParticle("particles/items4_fx/combo_breaker_buff.vpcf", caster, 2.6)
+	for i = 1, 5, 1 do
+		ParticleManager:SetParticleControlEnt(pfx, i, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+	end
+end
+
+function zect_rider_think(event)
+	local caster = event.caster
+	if caster.aggro then
+		local ability_to_cast = nil
+		local ability1 = caster:FindAbilityByName("zect_rider_thunder_strike")
+		local ability2 = caster:FindAbilityByName("zect_rider_lightning_bolt")
+		local ability3 = caster:FindAbilityByName("zect_rider_arc_lightning")
+		
+		if ability1:IsFullyCastable() then
+			ability_to_cast = ability1
+		elseif ability2:IsFullyCastable() then
+			ability_to_cast = ability2
+		elseif ability3:IsFullyCastable() then
+			ability_to_cast = ability3
+		end
+		if ability_to_cast then
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				local newOrder = {
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+					TargetIndex = enemies[1]:entindex(),
+					AbilityIndex = ability_to_cast:entindex(),
+				}
+
+				ExecuteOrderFromTable(newOrder)
+			end
+		end
+	end
+end
