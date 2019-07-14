@@ -521,7 +521,24 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
    -- duration                        	= -1 (number)
    -- entindex_caster_const           	= 606 (number)
    -- name_const                      	= "modifier_name" (string)
-	return true
+	local target = EntIndexToHScript(modifierGainedTable["entindex_parent_const"])
+	if target:HasModifier("modifier_radium_spores") then
+		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
+		if modifierGainedTable["entindex_ability_const"] then
+			local ability = target:FindModifierByName("modifier_radium_spores"):GetAbility()
+			if IsValidEntity(ability) then
+				local duration_modifier = ability:GetSpecialValueFor("modifier_duration_reduction")
+				local slow_duration = ability:GetSpecialValueFor("slow")
+				if target == caster and modifierGainedTable["duration"] > 0 then
+					modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
+					local modifier_caster = ability:GetCaster()
+					ability:ApplyDataDrivenModifier(modifier_caster, target, "radium_spores_slow", {duration = slow_duration})
+					EmitSoundOn("Winterblight.RadiumSpores.Trigger", target)
+				end
+			end
+		end
+	end
+   return true
 end
 
 function GameState:AbilityTuningValueFilter(abilityTuneTable)

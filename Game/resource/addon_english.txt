@@ -19064,6 +19064,18 @@
 		"DOTA_Tooltip_ability_winterblight_confusional_spores_Description"	"Cover an area with pyschotropic spores that confuses all enemies that come into contact. Confused enemies have their move orders inverted."
 		"DOTA_Tooltip_ability_winterblight_confusional_spores_duration"		"DURATION:"
 
+		"DOTA_Tooltip_ability_radium_spores"						"Radium Spores"
+		"DOTA_Tooltip_ability_radium_spores_Description"			"Apply a debuff to an enemy that causes their buffs to have reduced duration."
+		"DOTA_Tooltip_ability_radium_spores_modifier_duration_reduction"	"% FRIENDLY BUFF DURATION REDUCTION:"
+		"DOTA_Tooltip_ability_radium_spores_slow"							"SLOW DURATION ON BUFF APPLY:"
+		"DOTA_Tooltip_ability_radium_spores_curse_duration"					"SPORE DURATION:"
+
+		"DOTA_Tooltip_modifier_radium_spores"						"Radium Spores"
+		"DOTA_Tooltip_modifier_radium_spores_Description"			"Self Applied buffs have reduced duration"
+
+		"DOTA_Tooltip_radium_spores_slow"						"Radium Spores Slow"
+		"DOTA_Tooltip_radium_spores_slow_Description"			"Reduced attack damage, movespeed and attackspeed"
+
 		"DOTA_Tooltip_ability_winterblight_tweaking_arrow"			"Tweaking Arrow"
 		"DOTA_Tooltip_ability_winterblight_tweaking_arrow_Description"	"Attacking an enemy whose E ability is off cooldown will force them to cast it."
 

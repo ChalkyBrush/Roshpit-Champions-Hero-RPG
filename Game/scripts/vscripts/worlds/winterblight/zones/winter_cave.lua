@@ -1908,6 +1908,19 @@ function Winterblight:Crystarium1(msg)
 			end)
 		end
 	end)
+
+	Timers:CreateTimer(8, function()
+		local positionTable = {Vector(-15275, 5156), Vector(-15477, 4772), Vector(-15616, 4388), Vector(-14361, 6247), Vector(-14663, 5836), Vector(-14217, 5490), Vector(-12675, 4797), Vector(-11515, 5712), Vector(-11672, 4186)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.2, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local fv = ((Vector(-11520, 6912) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnMushroomPixie(positionTable[i], fv)
+					Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+				end
+			end)
+		end
+	end)
 end
 
 function Winterblight:SpawnHeartSlayer(position, fv)
@@ -1972,4 +1985,14 @@ function Winterblight:SpawnZectRider(position, fv)
 	stone.dominion = true
 	return stone
 
+end
+
+function Winterblight:SpawnMushroomPixie(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_mushroom_pixie", position, 0, 2, "Winterblight.MushroomPixie.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 3, false)
+	stone.itemLevel = 50
+	stone:SetRenderColor(130, 180, 255)
+	stone.dominion = true
+	Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_CLOSEST)
+	return stone
 end

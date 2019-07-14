@@ -218,14 +218,14 @@ function Winterblight:Debug2()
     -- Winterblight:LastAzaleaRoomStart()
     
     -- Winterblight:CompleteChamberEvent(1, MAIN_HERO_TABLE[1]:GetAbsOrigin())
-     -- Winterblight:SpawnCloakedPhantasm(MAIN_HERO_TABLE[1]:GetAbsOrigin()+Vector(0,-300), Vector(0,-1))
-    local merkurio = Winterblight:SpawnMerkurio(Vector(-6656, 8064), Vector(0,1))
-    merkurio.state = 9
-    local ability = merkurio:FindAbilityByName("winterblight_merkurio_passive")
-    ability:ApplyDataDrivenModifier(merkurio, merkurio, "modifier_disable_player", {duration = 0})
-    Timers:CreateTimer(5, function()
-      ability:ApplyDataDrivenModifier(merkurio, merkurio, "modifier_disable_player", {})
-    end)
+     Winterblight:SpawnMushroomPixie(MAIN_HERO_TABLE[1]:GetAbsOrigin()+Vector(0,-300), Vector(0,-1))
+    -- local merkurio = Winterblight:SpawnMerkurio(Vector(-6656, 8064), Vector(0,1))
+    -- merkurio.state = 9
+    -- local ability = merkurio:FindAbilityByName("winterblight_merkurio_passive")
+    -- ability:ApplyDataDrivenModifier(merkurio, merkurio, "modifier_disable_player", {duration = 0})
+    -- Timers:CreateTimer(5, function()
+    --   ability:ApplyDataDrivenModifier(merkurio, merkurio, "modifier_disable_player", {})
+    -- end)
 end
 
 function Winterblight:CalculateHeroZones()

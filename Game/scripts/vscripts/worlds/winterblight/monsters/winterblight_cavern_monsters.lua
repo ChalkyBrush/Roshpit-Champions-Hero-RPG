@@ -1496,3 +1496,11 @@ function zect_rider_think(event)
 		end
 	end
 end
+
+function radium_spores_start(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_radium_spores", {duration = event.duration})
+	EmitSoundOn("Winterblight.RadiumSpores.Apply", target)
+end
