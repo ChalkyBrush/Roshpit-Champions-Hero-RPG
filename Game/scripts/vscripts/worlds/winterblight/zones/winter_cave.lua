@@ -1804,7 +1804,7 @@ function Winterblight:Crystarium1(msg)
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local chamber_id = msg.chamber
 	local unitsTable = {}
-	local positionTable = {Vector(-12434, 7040), Vector(-13312, 6873), Vector(-12695, 6528), Vector(-13192, 6003), Vector(-14873, 4480), Vector(-14395, 4096), Vector(-14657, 3727)}
+	local positionTable = {Vector(-12434, 7040), Vector(-13312, 6873), Vector(-12695, 6528), Vector(-13192, 6003), Vector(-14873, 4480), Vector(-14395, 4096), Vector(-14657, 3727), Vector(-15472, 6197), Vector(-15616, 5760)}
 	for i = 1, #positionTable, 1 do
 		if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
 			local fv = ((Vector(-11520, 6912) - positionTable[i])*Vector(1,1,0)):Normalized()
@@ -1921,6 +1921,32 @@ function Winterblight:Crystarium1(msg)
 			end)
 		end
 	end)
+
+	Timers:CreateTimer(11, function()
+		local positionTable = {Vector(-12800, 3584), Vector(-12416, 3714), Vector(-12646, 3968), Vector(-12293, 4096), Vector(-12160, 3800), Vector(-11904, 4096), Vector(-11681, 3712), Vector(-15467, 2838), Vector(-15249, 2538), Vector(-13976, 7611), Vector(-14396, 7808), Vector(-14720, 7752), Vector(-14336, 7402)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.2, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local fv = ((Vector(-11520, 6912) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnCrystariumSpider(positionTable[i], fv)
+					Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+	Timers:CreateTimer(13, function()
+		local positionTable = {Vector(-12160, 6365), Vector(-11776, 6016), Vector(-15488, 1536), Vector(-15488, 1792), Vector(-14243, 2609), Vector(-13996, 2824), Vector(-11648, 3712), Vector(-11264, 3830), Vector(-10880, 3917), Vector(-10624, 4168), Vector(-10459, 3917), Vector(-9088, 4405), Vector(-8809, 4174)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.12, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local fv = ((Vector(-11520, 6912) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnIcixel(positionTable[i], fv)
+					Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+
 end
 
 function Winterblight:SpawnHeartSlayer(position, fv)
@@ -1994,5 +2020,25 @@ function Winterblight:SpawnMushroomPixie(position, fv)
 	stone:SetRenderColor(130, 180, 255)
 	stone.dominion = true
 	Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_CLOSEST)
+	return stone
+end
+
+function Winterblight:SpawnCrystariumSpider(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("crystarium_brood_spider", position, 0, 2, "Winterblight.CrystariumSpider.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 60
+	stone:SetRenderColor(80, 180, 255)
+	stone.dominion = true
+	Winterblight:SetPositionCastArgs(stone, 800, 300, 1, FIND_ANY_ORDER)
+	return stone
+end
+
+function Winterblight:SpawnIcixel(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_icixel", position, 0, 2, "Winterblight.Icixle.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 60
+	stone:SetRenderColor(80, 180, 255)
+	stone.dominion = true
+	Winterblight:SetPositionCastArgs(stone, 800, 300, 1, FIND_ANY_ORDER)
 	return stone
 end
