@@ -304,7 +304,7 @@ function get_event_difficulty_max(difficulty, stones)
 	}
 }
 
-mChamberSummary = []
+mChamberSummary = [null, null, null, null]
 cavern_summary_panel = null
 function CavernSummaryInit(msg)
 {
@@ -328,7 +328,7 @@ function CavernSummaryInit(msg)
 		expander_buttom_event(cavern_ui_panel, expander_button, expander_label, expander_header, attacher)
 	});
 	cavern_ui_panel.FindChildTraverse('winterblight_summary_fragments').text = msg.fragments
-	mChamberSummary = []
+	mChamberSummary = [null, null, null, null]
 	cavern_summary_panel = cavern_ui_panel
 	var chamber_count = 0
 	for (var i = 1; i <= 4; i++) {
@@ -347,7 +347,10 @@ function CavernSummaryInit(msg)
 			event_parent.FindChildTraverse('winter_event_event_name').text = $.Localize("winterblight_cavern_room"+chamber_index+"_event"+event_index)
 			event_parent.FindChildTraverse('winter_event_event_level').text = "LV"+chamber_data["level"]
 			event_parent.FindChildTraverse('event-progress-bar-label').text = chamber_data["progress"] + "/" + chamber_data["goal"]
-			mChamberSummary.push(event_parent)
+			var completion_percentage = chamber_data["progress"]*100/chamber_data["goal"]
+			var fill_bar = event_parent.FindChildTraverse('event-progress-bar-fill')
+			fill_bar.style.width = completion_percentage+"%"
+			mChamberSummary[i-1] = event_parent
 		}else if(chamber_data["status"] == 2){
 			chamber_count = chamber_count + 1
 			var chamber_index = i
@@ -365,7 +368,7 @@ function CavernSummaryInit(msg)
 			fill_bar.style.width = "100%"
 			fill_bar.AddClass("fill_fail")
 			fill_bar.RemoveClass("event-progress-bar-fill-class")
-			mChamberSummary.push(event_parent)
+			mChamberSummary[i-1] = event_parent
 		}else if(chamber_data["status"] == 3){
 			chamber_count = chamber_count + 1
 			var chamber_index = i
@@ -383,7 +386,7 @@ function CavernSummaryInit(msg)
 			fill_bar.style.width = "100%"
 			fill_bar.AddClass("fill_win")
 			fill_bar.RemoveClass("event-progress-bar-fill-class")
-			mChamberSummary.push(event_parent)
+			mChamberSummary[i-1] = event_parent
 		}
 	}
 	if (chamber_count == 0){

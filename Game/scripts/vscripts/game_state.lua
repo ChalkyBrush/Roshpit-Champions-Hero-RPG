@@ -4092,11 +4092,11 @@ function GameState:FilterDamage(filterTable)
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if attacker:IsHero() then
 				if not victim:HasModifier("modifier_disable_player") then
-					if not victim:HasModifier("modifier_aeon_shield_passive") then
+					-- if not victim:HasModifier("modifier_aeon_shield_passive") then
 						if filterTable["damage"] > 0 then
 							filterTable["damage"] = 9999999999
 						end
-					end
+					-- end
 				end
 			end
 		end

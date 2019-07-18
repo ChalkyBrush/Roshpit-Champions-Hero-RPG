@@ -1800,7 +1800,7 @@ end
 
 function Winterblight:Crystarium1(msg)
 	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
-	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 176
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 112
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local chamber_id = msg.chamber
 	local unitsTable = {}
