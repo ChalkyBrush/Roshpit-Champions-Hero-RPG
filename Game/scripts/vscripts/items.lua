@@ -39,6 +39,10 @@ function RPCItems:ItemUTIL_Remove(item)
 		print("[Error] RPCItems:ItemUTIL_Remove entity is not valid")
 		return
 	end
+	CustomNetTables:SetTableValue("item_basics", tostring(item:GetEntityIndex()), nil)
+	if item.newItemTable then
+		item.newItemTable = nil
+	end
 	UTIL_Remove(item)
 end
 

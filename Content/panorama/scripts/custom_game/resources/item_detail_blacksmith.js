@@ -142,6 +142,22 @@ function populateItem()
 	var itemName = Abilities.GetAbilityName( mItemIndex);
 
 	var itemValues = CustomNetTables.GetTableValue( "item_basics", mItemIndex.toString() )
+
+    var chiselCost = 1
+    if (itemValues.minLevel){
+        chiselCost = itemValues.minLevel
+    }
+    GameUI.CustomUIConfig().blacksmithChiselCost = Math.floor(chiselCost * 1)
+    $.Msg("DEBUG blacksmithChiselCost")
+    $.Msg(GameUI.CustomUIConfig().blacksmithChiselCost)
+	
+    GameUI.CustomUIConfig().blacksmithChiselItemIndex = mItemIndex
+    $.Msg("DEBUG blacksmithChiselItemIndex")
+    $.Msg(GameUI.CustomUIConfig().blacksmithChiselItemIndex)
+	
+    GameUI.CustomUIConfig().blacksmithChiselEquipmentSlot = mSlot
+    $.Msg("DEBUG blacksmithChiselEquipmentSlot")
+    $.Msg(GameUI.CustomUIConfig().blacksmithChiselEquipmentSlot)
 	
 	var rarityColor = itemValues.qualityColor
 	$('#item_name').text = "<font color='"+rarityColor+"'>"+$.Localize("#DOTA_Tooltip_Ability_"+itemName)+"</font>"
