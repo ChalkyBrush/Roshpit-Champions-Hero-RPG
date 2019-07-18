@@ -1504,3 +1504,59 @@ function radium_spores_start(event)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_radium_spores", {duration = event.duration})
 	EmitSoundOn("Winterblight.RadiumSpores.Apply", target)
 end
+
+function icicle_barrage_start(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	local stacks = target:GetModifierStackCount("modifier_icicle_barrage_stacks", caster)
+	local projectile_count = stacks + 1
+	for i = 1, projectile_count, 1 do
+		Timers:CreateTimer((i-1)*0.2, function()
+			EmitSoundOn("Winterblight.IcicleBarrage.Launch", caster)
+			local info =
+			{
+				Target = target,
+				Source = caster,
+				Ability = ability,
+				EffectName = "particles/units/heroes/hero_winter_wyvern/wyvern_splinter_blast.vpcf",
+				StartPosition = "attach_hitloc",
+				bDrawsOnMinimap = false,
+				bDodgeable = true,
+				bIsAttack = false,
+				bVisibleToEnemies = true,
+				bReplaceExisting = false,
+				flExpireTime = GameRules:GetGameTime() + 8,
+				bProvidesVision = true,
+				iVisionRadius = 0,
+				iMoveSpeed = 800,
+			iVisionTeamNumber = caster:GetTeamNumber()}
+			projectile = ProjectileManager:CreateTrackingProjectile(info)
+		end)
+	end
+end
+
+function icicle_barrage_impact(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	target:ApplyAndIncrementStack(ability, caster, "modifier_icicle_barrage_stacks", 1, 0, 5)	
+	local damage = event.damage
+	local icePoint = target:GetAbsOrigin()
+	local radius = 240
+	EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", target)
+	local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+	local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, icePoint)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius * 2))
+	Timers:CreateTimer(2.5, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_chilled", {duration = 3})
+			ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+		end
+	end
+end

@@ -2039,6 +2039,6 @@ function Winterblight:SpawnIcixel(position, fv)
 	stone.itemLevel = 60
 	stone:SetRenderColor(80, 180, 255)
 	stone.dominion = true
-	Winterblight:SetPositionCastArgs(stone, 800, 300, 1, FIND_ANY_ORDER)
+	Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_CLOSEST)
 	return stone
 end

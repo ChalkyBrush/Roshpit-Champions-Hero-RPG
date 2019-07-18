@@ -11894,6 +11894,7 @@
         "precache"
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
+            "particle"  "particles/units/heroes/hero_winter_wyvern/wyvern_splinter_blast.vpcf"
         }
         "ArmorPhysical" "10"
         "MagicalResistance" "25"
@@ -11954,9 +11955,8 @@
             }
 
         }
-        "Ability1"  "redfall_armored_crab_beast_ability"
-        "Ability2"  "use_ability_1_target_ai"
-        "Ability3"  "fire_temple_lava_skin"
-        "Ability4"  "redfall_farm_panda_immolation"
-        "Ability5"  "dungeon_creep"
+        "Ability1"  "icicle_barrage"
+        "Ability2"  "winterblight_frost_colossus_passive"
+        "Ability3"  "use_ability_1_target_ai"
+        "Ability4"  "dungeon_creep"
     }
