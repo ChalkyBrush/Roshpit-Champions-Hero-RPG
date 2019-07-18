@@ -1,10 +1,11 @@
 
 "DOTAHeroes"
 {
-	"npc_dota_hero_dragon_knight"
+	"flamewaker"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_dragon_knight"
+		"UnitLabel"		"npc_dota_hero_dragon_knight"
 		"Ability1"	"seismic_flare"
 		"Ability2"	"second_heartbeat"
 		"Ability3"	"heat_wave"
@@ -49,7 +50,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_phantom_assassin"
+	"voltex"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_phantom_assassin"
@@ -97,7 +98,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_necrolyte"
+	"venomort"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_necrolyte"
@@ -143,7 +144,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_axe"
+	"axe"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_axe"
@@ -191,7 +192,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_drow_ranger"
+	"astral_ranger"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_drow_ranger"
@@ -237,7 +238,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_obsidian_destroyer"
+	"epoch_guardian"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_obsidian_destroyer"
@@ -282,7 +283,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_omniknight"
+	"paladin"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_omniknight"
@@ -329,7 +330,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_crystal_maiden"
+	"sorceress"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_crystal_maiden"
@@ -374,7 +375,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_invoker"
+	"conjuror"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_invoker"
@@ -420,7 +421,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_juggernaut"
+	"seinaru"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_juggernaut"
@@ -468,7 +469,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_beastmaster"
+	"warlord"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_beastmaster"
@@ -516,7 +517,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_leshrac"
+	"bahamut"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_leshrac"
@@ -564,7 +565,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_spirit_breaker"
+	"duskbringer"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_spirit_breaker"
@@ -611,7 +612,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_zuus"
+	"auriun"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_zuus"
@@ -659,7 +660,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_templar_assassin"
+	"trapper"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_templar_assassin"
@@ -707,7 +708,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_huskar"
+	"spirit_warrior"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_huskar"
@@ -752,7 +753,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_legion_commander"
+	"mountain_protector"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_legion_commander"
@@ -799,7 +800,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_night_stalker"
+	"chernobog"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_night_stalker"
@@ -845,7 +846,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_vengefulspirit"
+	"solunia"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_vengefulspirit"
@@ -890,7 +891,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_slardar"
+	"hydroxis"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_slardar"
@@ -937,7 +938,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_visage"
+	"ekkan"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_visage"
@@ -974,7 +975,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_wisp"
+	"hero_selection"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_wisp"
@@ -1022,7 +1023,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_dark_seer"
+	"zhonik"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_dark_seer"
@@ -1071,7 +1072,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_antimage"
+	"arkimus"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_antimage"
@@ -1120,7 +1121,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_monkey_king"
+	"djanghor"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_monkey_king"
@@ -1169,7 +1170,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_slark"
+	"slipfinn"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_slark"
@@ -1219,7 +1220,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_skywrath_mage"
+	"sephyr"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_skywrath_mage"
@@ -1266,7 +1267,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_winter_wyvern"
+	"dinath"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_winter_wyvern"
@@ -1313,7 +1314,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_arc_warden"
+	"jex"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_arc_warden"
@@ -1359,7 +1360,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"npc_dota_hero_faceless_void"
+	"omniro"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_faceless_void"
