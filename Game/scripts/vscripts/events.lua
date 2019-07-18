@@ -444,7 +444,15 @@ function GameMode:OnPlayerChat(keys)
 	-- --print("boom")
 	-- PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():HasModifier(nil)
 	-- end
+	if string.match(text, "seren o") then
+		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetPlayerOwner(), "serengaard_upgrades_open", {})
+	end
+	if string.match(text, "seren c") then
+		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetPlayerOwner(), "serengaard_upgrades_close", {})
+	end
 	if string.match(text, "dbg") then
+		-- CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetPlayerOwner(), "serengaard_upgrades_open", {})
+
 		-- Serengaard:KillAllNeutrals()
 		-- local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
 		-- RPCItems:RollHyperstone(10, position)
@@ -994,7 +1002,7 @@ end
 
 -- A player picked a hero
 function GameMode:OnPlayerPickHero(keys)
-	DebugPrint('[BAREBONES] OnPlayerPickHero')
+	print('[BAREBONES] OnPlayerPickHero')
 	DebugPrintTable(keys)
 
 	local heroClass = keys.hero

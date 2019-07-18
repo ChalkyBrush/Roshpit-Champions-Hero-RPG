@@ -1,0 +1,29 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/serengaard/serengaard_upgrades.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/serengaard/serengaard_upgrades.js" />
+	</scripts>
+	<snippets>
+		<snippet name="basic_dialogue">
+			<Panel class="basic_dialogue_container" hittest="false">
+				<Panel class="basic_dialogue_main_bg" hittest="false">
+				</Panel>
+				<Panel id="dialogue_contents">
+					<DOTAQueryUnitPortraitContainer id="dialogue_portrait_scene" class="HeroButton">
+					</DOTAQueryUnitPortraitContainer>
+					<Panel id="name_and_dialogue_container">
+						<Label id="dialoge_name_label"></Label>
+						<Label id="dialogue_text"></Label>
+					</Panel>
+				</Panel>
+		</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="hud_dialogue_content" hittest="false">
+		<Panel id="hud_dialogue_container" hittest="false">
+
+		</Panel>
+	</Panel>
+</root>

@@ -92,5 +92,7 @@
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/units_special.xml" /> 
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/heroes_special.xml" /> 
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/error_logger.xml" />
+
+    <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/serengaard/serengaard_upgrades.xml" />
   </Panel>
 </root>
