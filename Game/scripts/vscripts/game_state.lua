@@ -1,6 +1,7 @@
 if GameState == nil then
 	GameState = class({})
 end
+require('/event_bus')
 
 require('/heroes/dark_seer/zhonik_constants')
 require('/heroes/huskar/constants_SPIRIT_WARRIOR')
@@ -3936,6 +3937,20 @@ function GameState:FilterDamage(filterTable)
 				end
 			end
 		end
+	end
+
+	filterTable['damage'] = EventBus:trigger('none', 'creature:takeDamage', {
+		victim = victim,
+		attacker = attacker,
+	}, filterTable['damage'], EVENTBUS_PRIORITY_LOW_5)
+
+	if applyEffects and filterTable["damage"] >= victim:GetHealth() then
+		print('target entity index is '..victim:GetEntityIndex())
+
+		filterTable['damage'] = EventBus:trigger(victim:GetEntityIndex(), 'creature:beforeDeath', {
+			victim = victim,
+			attacker = attacker,
+		}, filterTable['damage'])
 	end
 
 	local inflictor = filterTable["entindex_inflictor_const"]

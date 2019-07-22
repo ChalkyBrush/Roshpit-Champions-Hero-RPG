@@ -1,0 +1,6 @@
+-- Name: Explode
+-- Description: When have 10% hp explode and deal massive damage in radius
+--  Base values:
+--      Radius: 100(can be increase by imp amplify, maximum 1300)
+--      Damage: 1000, 4 000, 40 000(can be increase by imp amplify)
+--      Damage type: Pure

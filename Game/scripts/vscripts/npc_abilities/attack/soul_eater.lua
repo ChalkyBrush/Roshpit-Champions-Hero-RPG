@@ -1,0 +1,17 @@
+-- Name: soul eater
+-- Description: After small delay eat souls of enemies in range. Enemies without soul take increasen damage can't heal and can't use shields and deal less damage. Increase attack speed, cooldown reduce and movespeed for each soul
+-- Base values:
+--  Range: 1000
+--  Cast time: 2s (can't be prevent)
+--  Without soul debuff
+--      Duration: 30
+--      Can't heal
+--      Can't use shields
+--      Take 500% additional postmitigation damage
+--      Take 15% of max hp every second
+--  Boss improve for each soul
+--      +50 bonus movespeed
+--      +100 attack speed
+--      2% of max hp regen
+--      15% cast time reduce
+--      Duration: 20

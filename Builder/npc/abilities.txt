@@ -199,7 +199,10 @@
 
 
 	##TUTORIAL_ABILITIES##
-	
+
+	##DURABLE##
+	##INFERNO_PORTAL##
+
 
 	"oracle_ability"
 	{

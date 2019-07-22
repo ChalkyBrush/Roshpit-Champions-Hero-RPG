@@ -1,0 +1,9 @@
+-- name: Blood wind
+-- description: create 5 blood huricane that road in the arena. They have high speed and always go to heroes(no more than 2 hurricane per hero). If hero near hurricane his stats  and attack damage start reduce
+-- Base values:
+--   Movespeed: 450/550/650
+--   Stat reduce speed: 10/150/1500 per second
+--   Min stats after hurricane: 20
+--   Debuff duration: 30s
+--   Cooldown: 180s
+--   Max hurricanes in game: 10
