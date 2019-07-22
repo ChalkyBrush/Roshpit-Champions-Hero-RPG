@@ -1,0 +1,7 @@
+-- Name: Shield Breaker
+-- Description: Apply debuff to all enemies that attacked the caster during last 3 seconds. While debuff active all taken damage ignore part of any damage reduction
+-- Base values:
+--      Ignore part: 10/15/20%
+--      Duration: 2/3/4 seconds
+--      Cast time: 1 second(can be interrupted)
+--      Cooldown: 12/10/8 seconds

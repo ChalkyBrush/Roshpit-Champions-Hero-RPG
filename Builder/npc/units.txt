@@ -62,7 +62,7 @@
 
     ##ARENA_UNITS##
 
-
+    ##CHAOS_LORDS_SUMMONS##
 
 
 	"npc_dummy_unit"

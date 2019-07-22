@@ -1,0 +1,6 @@
+-- Name: Fireball
+-- Description: Send fireball to nearest enemy.
+--  Base values:
+--      Count: 1(can be increase by imp amplify, maximum 36 fireballs)
+--      Damage: 300, 1 000, 10 000(can be increase by imp amplify)
+--      Damage type: Pure

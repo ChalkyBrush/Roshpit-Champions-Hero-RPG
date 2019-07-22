@@ -1,0 +1,1 @@
+-- Name: summon chaos army(general and archers). The lord can't die while member or army alive
