@@ -2254,7 +2254,7 @@ function Winterblight:Crystarium2WaveRedirect(kills)
 						if k == 1 then
 							boar = Winterblight:SpawnHeartSlayer(position, RandomVector(1))
 						elseif k == 2 then
-							boar = Winterblight:SpawnHeartFreezer(position, RandomVector(1))
+							boar = Winterblight:SpawnCrystalist(position, RandomVector(1))
 						elseif k == 3 then
 							boar = Winterblight:SpawnIcixel(position, RandomVector(1))
 						elseif k == 4 then

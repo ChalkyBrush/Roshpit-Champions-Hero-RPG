@@ -1627,3 +1627,20 @@ function in_procured_shroom_cloud_think(event)
 	local target = event.target
 	ApplyDamage({ victim = target, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 end
+
+function cavern_player_hero_think(event)
+	local hero = event.target
+	if Winterblight.CavernData.Chambers[3]["status"] == 1 and Winterblight.CavernData.Chambers[3]["event"] == 3 then
+		if hero:HasModifier("modifier_confusional_spores") then
+			if Winterblight:IsWithinChamber(hero, 3) then
+			else
+				hero:RemoveModifierByName("modifier_confusional_spores")
+			end
+		else
+			if Winterblight:IsWithinChamber(hero, 3) then
+				Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, crystal, "modifier_confusional_spores", {})
+			end
+		end
+	end
+end
+
