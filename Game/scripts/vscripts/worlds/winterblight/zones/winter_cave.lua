@@ -2045,7 +2045,7 @@ end
 
 function Winterblight:Crystarium2(msg)
 	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
-	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 242
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 290
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	Winterblight.Crystarium2Kills = 0
 	local chamber_id = msg.chamber
@@ -2063,7 +2063,7 @@ function Winterblight:Crystarium2(msg)
 end
 
 function Winterblight:Crystarium2WaveRedirect(kills)
-	local chamber_id = 1
+	local chamber_id = 3
 	local spawnphase = Winterblight.CavernData.Chambers[chamber_id]["spawnphase"]
 	local portalPosTable = {Vector(-15256, 7295), Vector(-15005, 2197), Vector(-13273, 4037), Vector(-12855, 6823), Vector(-9829, 4244)}
 	if kills == 0 then
@@ -2080,7 +2080,214 @@ function Winterblight:Crystarium2WaveRedirect(kills)
 			end)
 		end
 	elseif kills == 38 then
-
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = Winterblight:SpawnTokiToki(position, RandomVector(1))
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Crystarium2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 57 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k%2 == 0 then
+							boar = Winterblight:SpawnFungalShaman(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnIcixel(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Crystarium2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end	
+	elseif kills == 77 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k%2 == 0 then
+							boar = Winterblight:SpawnFungalShaman(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnMushroomPixie(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Crystarium2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end	
+	elseif kills == 97 then
+		for k = 1, 8, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k%2 == 0 then
+							boar = Winterblight:SpawnBoar(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnFungusMinion(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Crystarium2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end		
+	elseif kills == 137 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k == 1 then
+							boar = Winterblight:SpawnMundugu(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnZectRider(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Crystarium2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end		
+	elseif kills == 157 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k == 1 then
+							boar = Winterblight:SpawnZectRider(position, RandomVector(1))
+						elseif k == 2 then
+							boar = Winterblight:SpawnDrillDigger(position, RandomVector(1))
+						elseif k == 3 then
+							boar = Winterblight:SpawnTokiToki(position, RandomVector(1))
+						elseif k == 4 then
+							boar = Winterblight:SpawnMushroomPixie(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Crystarium2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end	
+	elseif kills == 177 then
+		for k = 1, 6, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k%2 == 0 then
+							boar = Winterblight:SpawnCavernBat(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnCrystariumSpider(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Crystarium2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end	
+	elseif kills == 207 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k%2 == 0 then
+							boar = Winterblight:SpawnSkullHunter(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnHeartSlayer(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Crystarium2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end	
+	elseif kills == 227 then	
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k == 1 then
+							boar = Winterblight:SpawnSkullHunter(position, RandomVector(1))
+						elseif k == 2 then
+							boar = Winterblight:SpawnCrystariumSpider(position, RandomVector(1))
+						elseif k == 3 then
+							boar = Winterblight:SpawnFungalShaman(position, RandomVector(1))
+						elseif k == 4 then
+							boar = Winterblight:SpawnCorporealRevenant(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Crystarium2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end	
+	elseif kills == 247 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k == 1 then
+							boar = Winterblight:SpawnHeartSlayer(position, RandomVector(1))
+						elseif k == 2 then
+							boar = Winterblight:SpawnHeartFreezer(position, RandomVector(1))
+						elseif k == 3 then
+							boar = Winterblight:SpawnIcixel(position, RandomVector(1))
+						elseif k == 4 then
+							boar = Winterblight:SpawnCloakedPhantasm(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Crystarium2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end	
+	elseif kills == 267 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k == 1 then
+							boar = Winterblight:SpawnTokiToki(position, RandomVector(1))
+						elseif k == 2 then
+							boar = Winterblight:SpawnTokiToki(position, RandomVector(1))
+						elseif k == 3 then
+							boar = Winterblight:SpawnFungalShaman(position, RandomVector(1))
+						elseif k == 4 then
+							boar = Winterblight:SpawnMushroomPixie(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Crystarium2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end		
 	end
 end
 
