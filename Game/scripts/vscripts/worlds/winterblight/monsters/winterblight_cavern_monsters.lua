@@ -646,8 +646,8 @@ function cavern_unit_die(event)
 		Winterblight.Foyer3Kills = Winterblight.Foyer3Kills + 1
 		Winterblight:Foyer3WaveRedirect(Winterblight.Foyer3Kills)
 	elseif chamber == 3 and Winterblight.CavernData.Chambers[chamber]["event"] == 2 then
-		Winterblight.Crystarium3Kills = Winterblight.Crystarium3Kills + 1
-		Winterblight:Crystarium3WaveRedirect(Winterblight.Crystarium3Kills)
+		Winterblight.Crystarium2Kills = Winterblight.Crystarium2Kills + 1
+		Winterblight:Crystarium2WaveRedirect(Winterblight.Crystarium2Kills)
 	end
 end
 

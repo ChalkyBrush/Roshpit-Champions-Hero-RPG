@@ -2043,11 +2043,11 @@ function Winterblight:SpawnIcixel(position, fv)
 	return stone
 end
 
-function Winterblight:Crystarium3(msg)
+function Winterblight:Crystarium2(msg)
 	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
 	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 242
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
-	Winterblight.Crystarium3Kills = 0
+	Winterblight.Crystarium2Kills = 0
 	local chamber_id = msg.chamber
 	local unitsTable = {}
 	local portalPosTable = {Vector(-15256, 7295), Vector(-15005, 2197), Vector(-13273, 4037), Vector(-12855, 6823), Vector(-9829, 4244)}
@@ -2059,10 +2059,10 @@ function Winterblight:Crystarium3(msg)
 		ParticleManager:SetParticleControl(portalPFX, 15, groundPos)
 		table.insert(Winterblight.CavernPFXs[chamber_id], portalPFX)
 	end
-	Winterblight:Crystarium3WaveRedirect(0)
+	Winterblight:Crystarium2WaveRedirect(0)
 end
 
-function Winterblight:Crystarium3WaveRedirect(kills)
+function Winterblight:Crystarium2WaveRedirect(kills)
 	local chamber_id = 1
 	local spawnphase = Winterblight.CavernData.Chambers[chamber_id]["spawnphase"]
 	local portalPosTable = {Vector(-15256, 7295), Vector(-15005, 2197), Vector(-13273, 4037), Vector(-12855, 6823), Vector(-9829, 4244)}
@@ -2074,7 +2074,7 @@ function Winterblight:Crystarium3WaveRedirect(kills)
 						local position = portalPosTable[i]
 						local boar = Winterblight:SpawnFungusMinion(position, RandomVector(1))
 						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
-						Winterblight:Crystarium3SpawnEffect(boar)
+						Winterblight:Crystarium2SpawnEffect(boar)
 					end		
 				end
 			end)
@@ -2084,7 +2084,7 @@ function Winterblight:Crystarium3WaveRedirect(kills)
 	end
 end
 
-function Winterblight:Crystarium3SpawnEffect(unit)
+function Winterblight:Crystarium2SpawnEffect(unit)
 	local level = Winterblight.CavernData.Chambers[3]["level"]
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/portal_spawn.vpcf", unit:GetAbsOrigin()+Vector(0,0,60), 2.5)
 	EmitSoundOn("Winterblight.Foyer3.Spawn", unit)
