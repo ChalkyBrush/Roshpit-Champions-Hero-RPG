@@ -672,7 +672,7 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
-		if unit:HasModifier("modifier_confusional_spores") then
+		if unit:HasModifier("modifier_confusional_spores") or unit:HasModifier("modifier_shroom_procure_aura") then
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE then
 				local target_point = Vector(orderTable.position_x, orderTable.position_y)
 				local distance = WallPhysics:GetDistance2d(unit:GetAbsOrigin(), target_point)

@@ -82663,6 +82663,110 @@
 
 	}
 
+	"winterblight_shroom_procurement"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tiny_craggy_exterior"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_per_tick"			"3000 30000 300000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"		"3.0 4.0 5.0"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_shroom_procurement_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"shroom_procure_think"
+					}
+				}
+
+			}
+			"modifier_shroom_procurement_spawned"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"procured_shroom_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_shroom_procure_thinker"
+			{
+				"Aura"					"modifier_shroom_procure_aura"
+				"Aura_Radius"			"330"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"5"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/roshpit/winterblight/shroom_procure.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "360 360 360"
+							"15" "255 160 160"
+							"16" "1 0 0"
+						}
+					}
+				}
+			}
+			"modifier_shroom_procure_aura"
+			{
+				"IsDebuff"		"1"
+				"TextureName"	"itemicons/moon_tech"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"in_procured_shroom_cloud_think"
+						"target"		"TARGET"
+						"damage"		"%damage_per_tick"
+					}
+				}
+			}
+		}
+	}
+
 
 	"soul_ferrier_passive"
 	{

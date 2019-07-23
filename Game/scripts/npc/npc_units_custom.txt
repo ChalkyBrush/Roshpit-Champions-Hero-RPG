@@ -95462,6 +95462,98 @@
         "Ability4"  "dungeon_creep"
     }
 
+    "winterblight_toki_toki"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/witchdoctor/witchdoctor.vmdl"
+        "ModelScale"    "0.97"
+        "SoundSet"              "Hero_WitchDoctor"
+        "precache"
+        {
+            "particle"        "particles/roshpit/winterblight/shroom_procure.vpcf"
+            "model"           "maps/cavern_assets/models/spores/spores_cavern_01.vmdl"
+        }
+        "Level" "1"
+        "HealthBarOffset"   "160"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "ArmorPhysical" "7"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "12000"
+        "AttackDamageMax"   "14000"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0.25"
+        "AttackAcquisitionRange"    "0"
+        "AttackRate"    "1.3"
+        "AttackRange"   "550"
+        "ProjectileModel"   "particles/units/heroes/hero_witchdoctor/witchdoctor_base_attack.vpcf"
+        "ProjectileSpeed"   "860"
+        "BountyGoldMin" "140"
+        "BountyGoldMax" "160"
+        "BountyXP" "2200"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "390"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "3250000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "1000"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+
+                "Wearable1"
+                {
+                    "ItemDef"   "9937"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9934"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "9935"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "9933"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "9936"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+        "Ability1"          "winterblight_shroom_procurement"
+        "Ability2"          "luna_taskmaster_shield"
+        "Ability3"          "dungeon_creep"
+    }
     
 
     "tutorial_master"

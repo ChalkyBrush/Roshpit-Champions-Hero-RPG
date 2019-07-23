@@ -2042,3 +2042,64 @@ function Winterblight:SpawnIcixel(position, fv)
 	Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_CLOSEST)
 	return stone
 end
+
+function Winterblight:Crystarium3(msg)
+	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 242
+	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
+	Winterblight.Crystarium3Kills = 0
+	local chamber_id = msg.chamber
+	local unitsTable = {}
+	local portalPosTable = {Vector(-15256, 7295), Vector(-15005, 2197), Vector(-13273, 4037), Vector(-12855, 6823), Vector(-9829, 4244)}
+	for i = 1, #portalPosTable, 1 do
+		local groundPos = GetGroundPosition(portalPosTable[i], Events.GameMaster)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, groundPos, 500, 10, false)
+		local portalPFX = CustomAbilities:QuickParticleAtPoint("particles/econ/events/ti9/teleport_end_ti9.vpcf", groundPos, 0)
+		ParticleManager:SetParticleControl(portalPFX, 3, groundPos)
+		ParticleManager:SetParticleControl(portalPFX, 15, groundPos)
+		table.insert(Winterblight.CavernPFXs[chamber_id], portalPFX)
+	end
+	Winterblight:Crystarium3WaveRedirect(0)
+end
+
+function Winterblight:Crystarium3WaveRedirect(kills)
+	local chamber_id = 1
+	local spawnphase = Winterblight.CavernData.Chambers[chamber_id]["spawnphase"]
+	local portalPosTable = {Vector(-15256, 7295), Vector(-15005, 2197), Vector(-13273, 4037), Vector(-12855, 6823), Vector(-9829, 4244)}
+	if kills == 0 then
+		for k = 1, 8, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = Winterblight:SpawnFungusMinion(position, RandomVector(1))
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:Crystarium3SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 38 then
+
+	end
+end
+
+function Winterblight:Crystarium3SpawnEffect(unit)
+	local level = Winterblight.CavernData.Chambers[3]["level"]
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/portal_spawn.vpcf", unit:GetAbsOrigin()+Vector(0,0,60), 2.5)
+	EmitSoundOn("Winterblight.Foyer3.Spawn", unit)
+	-- Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_foyer_3_regen", {})
+	-- local stacks = math.min(level, 20)
+	-- unit:SetModifierStackCount("modifier_foyer_3_regen", Winterblight.Master, stacks)
+	Dungeons:AggroUnit(unit)
+	unit:SetAcquisitionRange(8000)
+end
+
+function Winterblight:SpawnTokiToki(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_toki_toki", position, 0, 2, "Winterblight.TokiToki.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 60
+	stone:SetRenderColor(80, 180, 255)
+	stone.dominion = true
+	return stone
+end

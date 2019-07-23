@@ -645,6 +645,9 @@ function cavern_unit_die(event)
 	if chamber == 1 and Winterblight.CavernData.Chambers[chamber]["event"] == 3 then
 		Winterblight.Foyer3Kills = Winterblight.Foyer3Kills + 1
 		Winterblight:Foyer3WaveRedirect(Winterblight.Foyer3Kills)
+	elseif chamber == 3 and Winterblight.CavernData.Chambers[chamber]["event"] == 2 then
+		Winterblight.Crystarium3Kills = Winterblight.Crystarium3Kills + 1
+		Winterblight:Crystarium3WaveRedirect(Winterblight.Crystarium3Kills)
 	end
 end
 
@@ -1559,4 +1562,68 @@ function icicle_barrage_impact(event)
 			ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 		end
 	end
+end
+
+function shroom_procure_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local position = caster:GetAbsOrigin() + RandomVector(RandomInt(200, 900))
+	local shroom = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, caster:GetTeamNumber())
+	shroom:SetModelScale(0.01)
+	shroom:SetOriginalModel("maps/cavern_assets/models/spores/spores_cavern_01.vmdl")
+	shroom:SetModel("maps/cavern_assets/models/spores/spores_cavern_01.vmdl")
+	shroom:FindAbilityByName("dummy_unit"):SetLevel(1)	
+	shroom.phase = 0
+	shroom.state = 0
+	EmitSoundOn("Winterblight.ShroomProcure.Spawn", shroom)
+	ability:ApplyDataDrivenModifier(caster, shroom, "modifier_shroom_procurement_spawned", {duration = 30})
+end
+
+function procured_shroom_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	if target.state == 0 then
+		target:SetModelScale(target:GetModelScale()+0.005)
+		if target.phase == 100 then
+			target.state = 1
+			target.phase = 0
+		end
+	elseif target.state == 1 then
+		local red_shading = 255 - target.phase*2
+		target:SetRenderColor(255, red_shading, red_shading)
+		if target.phase == 100 then
+			target.state = 2
+			target.phase = 0
+		end
+	elseif target.state == 2 then
+		if target.phase == 15 then
+			procured_shroom_explode(caster, ability, target:GetAbsOrigin())
+			UTIL_Remove(target)
+			return false
+		end
+	end
+	target.phase = target.phase + 1
+end
+
+function procured_shroom_explode(caster, ability, position)
+	local spellPoint = position
+	local particleName = "particles/roshpit/winterblight/confusional_spores.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(particle1, 0, spellPoint)
+	ParticleManager:SetParticleControl(particle1, 1, Vector(400, 100, 1))
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), spellPoint, nil, 420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	Timers:CreateTimer(2.5, function()
+		ParticleManager:DestroyParticle(particle1, false)
+	end)	
+	EmitSoundOnLocationWithCaster(position, "Winterblight.ShroomProcure.Explode", caster)
+	CustomAbilities:QuickAttachThinker(ability, caster, position, "modifier_shroom_procure_thinker", {duration = 5})
+end
+
+function in_procured_shroom_cloud_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	ApplyDamage({ victim = target, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 end
