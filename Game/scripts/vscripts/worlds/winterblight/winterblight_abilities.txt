@@ -231,6 +231,15 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "1"
 				}
 			}
+			"modifier_crystarium_2_atk_power"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
+				}
+			}
 		}
 	}
 

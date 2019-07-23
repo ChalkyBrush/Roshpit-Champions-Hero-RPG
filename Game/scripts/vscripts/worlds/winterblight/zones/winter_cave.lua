@@ -2295,9 +2295,9 @@ function Winterblight:Crystarium2SpawnEffect(unit)
 	local level = Winterblight.CavernData.Chambers[3]["level"]
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/portal_spawn.vpcf", unit:GetAbsOrigin()+Vector(0,0,60), 2.5)
 	EmitSoundOn("Winterblight.Foyer3.Spawn", unit)
-	-- Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_foyer_3_regen", {})
-	-- local stacks = math.min(level, 20)
-	-- unit:SetModifierStackCount("modifier_foyer_3_regen", Winterblight.Master, stacks)
+	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_crystarium_2_atk_power", {})
+	local stacks = level
+	unit:SetModifierStackCount("modifier_crystarium_2_atk_power", Winterblight.Master, stacks)
 	Dungeons:AggroUnit(unit)
 	unit:SetAcquisitionRange(8000)
 end
