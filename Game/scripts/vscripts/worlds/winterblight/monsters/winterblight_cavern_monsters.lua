@@ -1599,7 +1599,9 @@ function procured_shroom_think(event)
 		end
 	elseif target.state == 2 then
 		if target.phase == 15 then
-			procured_shroom_explode(caster, ability, target:GetAbsOrigin())
+			if IsValidEntity(caster) then
+				procured_shroom_explode(caster, ability, target:GetAbsOrigin())
+			end
 			UTIL_Remove(target)
 			return false
 		end
@@ -1638,7 +1640,7 @@ function cavern_player_hero_think(event)
 			end
 		else
 			if Winterblight:IsWithinChamber(hero, 3) then
-				Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, crystal, "modifier_confusional_spores", {})
+				Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, hero, "modifier_confusional_spores", {})
 			end
 		end
 	end

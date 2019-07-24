@@ -11010,7 +11010,7 @@
         "RingRadius"    "50"
         "CollisionSize" "70"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
-        "MovementSpeed" "33 0"
+        "MovementSpeed" "330"
         "MovementTurnRate"  "0.4"
         "StatusHealth"  "975000"
         "StatusHealthRegen" "10"

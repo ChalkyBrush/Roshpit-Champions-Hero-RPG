@@ -19029,6 +19029,12 @@
 		"winterblight_cavern_room3_event1"							"Standard"
 		"winterblight_cavern_room3_event1_description"				"The chamber is populated with non aggro mobs."
 
+		"winterblight_cavern_room3_event2"							"Dimensional Portals"
+		"winterblight_cavern_room3_event2_description"				"Waves of enemies spawn from dimensional portals. All creatures have 10% attack damage per level."
+
+		"winterblight_cavern_room3_event3"							"Mushroom Madness"
+		"winterblight_cavern_room3_event3_description"				"Demented mushrooms spawn throughout the Crystarium. The entire chamber is polluted with Confusional Spores."
+
 		"winterblight_cavern_status_prefix"								"Status:"
 		"winterblight_cavern_status_inactive"								"Inactive"
 		"winterblight_cavern_status_active"								"Active"

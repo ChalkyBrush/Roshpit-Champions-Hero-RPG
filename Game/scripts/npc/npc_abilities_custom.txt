@@ -70901,6 +70901,16 @@
 						"Function"		"winter_cavern_hero_die"
 					}
 				}
+				"ThinkInterval"  "1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"cavern_player_hero_think"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_relic_fragment_think"
 			{
@@ -70924,6 +70934,22 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "1"
 				}
+			}
+			"modifier_crystarium_2_atk_power"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
+				}
+			}
+			"modifier_confusional_spores"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/items_fx/dust_of_appearance_debuff.vpcf"
+				"EffectAttachType"	"attach_origin"
 			}
 		}
 	}
@@ -82763,6 +82789,44 @@
 						"damage"		"%damage_per_tick"
 					}
 				}
+			}
+		}
+	}
+
+	"winterblight_demented_mushroom_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tiny_craggy_exterior"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{
+
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+				"Function"		"demented_mushroom_die"
+			}
+		}		
+		"Modifiers"
+		{
+			"modifier_demented_mushroom_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"demented_mushroom_think"
+					}
+				}
+
 			}
 		}
 	}

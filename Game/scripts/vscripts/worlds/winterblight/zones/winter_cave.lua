@@ -858,9 +858,9 @@ function Winterblight:CompleteChamberEvent(chamber, position)
 		local level = Winterblight.CavernData.Chambers[chamber]["level"]
 
 		Winterblight.CavernData.Chambers[chamber]["events"][event_index]["status"] = 2
-		if Beacons.cheats then
-			Winterblight.CavernData.Chambers[chamber]["events"][event_index]["status"] = 0
-		end
+		-- if Beacons.cheats then
+		-- 	Winterblight.CavernData.Chambers[chamber]["events"][event_index]["status"] = 0
+		-- end
 
 		Winterblight:DisperseRelicFragments(position, reward, hero, chamber, event_index)
 		Winterblight:CavernCompletionToServer(hero, chamber, event_index, level)
@@ -2309,4 +2309,23 @@ function Winterblight:SpawnTokiToki(position, fv)
 	stone:SetRenderColor(80, 180, 255)
 	stone.dominion = true
 	return stone
+end
+
+function Winterblight:Crystarium3(msg)
+	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 290
+	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
+	Winterblight.Crystarium3Kills = 0
+	local chamber_id = msg.chamber
+	-- local unitsTable = {}
+	-- local portalPosTable = {Vector(-15256, 7295), Vector(-15005, 2197), Vector(-13273, 4037), Vector(-12855, 6823), Vector(-9829, 4244)}
+	-- for i = 1, #portalPosTable, 1 do
+	-- 	local groundPos = GetGroundPosition(portalPosTable[i], Events.GameMaster)
+	-- 	AddFOWViewer(DOTA_TEAM_GOODGUYS, groundPos, 500, 10, false)
+	-- 	local portalPFX = CustomAbilities:QuickParticleAtPoint("particles/econ/events/ti9/teleport_end_ti9.vpcf", groundPos, 0)
+	-- 	ParticleManager:SetParticleControl(portalPFX, 3, groundPos)
+	-- 	ParticleManager:SetParticleControl(portalPFX, 15, groundPos)
+	-- 	table.insert(Winterblight.CavernPFXs[chamber_id], portalPFX)
+	-- end
+	-- Winterblight:Crystarium3WaveRedirect(0)
 end
