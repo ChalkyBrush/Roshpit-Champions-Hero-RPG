@@ -1,7 +1,7 @@
-"inferno_portal"
+"invasion"
 {
     "BaseClass"     "ability_lua"
-    "ScriptFile"					"npc_abilities/attack/inferno_portal"
+    "ScriptFile"					"npc_abilities/attack/invasion"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "FightRecapLevel"				"1"
     "AbilityTextureName"			"omni_knight/adoring_wingfall/omniknight_purification"
@@ -38,6 +38,11 @@
         {
             "var_type"					"FIELD_INTEGER"
             "time_before_summon_imp"						"5"
+        }
+        "07"
+        {
+            "var_type"					"FIELD_INTEGER"
+            "spell_lifesteal"			"10 1000 10000"
         }
     }
 }
