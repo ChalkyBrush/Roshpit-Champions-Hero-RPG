@@ -1,4 +1,4 @@
-    -- Name: portal to inferno
+    -- Name: invasion
     -- Description: Create near every hero portal to inferno(total 5 portals, if less heroes create portals in random places)
     --  While hero stay in portal deal damage to him increased every second and heal boss based on hero taken damage
     --  If no hero in portal summon imp. Each next summoned imp stronger than previous. The summoner can't die while any imp alive
@@ -8,9 +8,9 @@
     --      Duration: 25
     --      Max imps count: 25
     --
-    --      Damage per second: 1 000/15 000/90 000
+    --      Damage per tick: 1 000/15 000/90 000
     --      Damage interval: 0.33
-    --      Damage increase per second: 1.5x
+    --      Damage increase per tick: 1.5x
     --      Imp stat multiply: 1.5x
     --      Spell Lifesteal: 10/1 000/10 000x(10k/15m/900m initial)
     -- Imp:
@@ -30,59 +30,73 @@
     local particlePortal = 'particles/portals/green_portal.vpcf'
     local portalRadius = 100
 
-    LinkLuaModifier("modifier_inferno_portal", "npc_abilities/attack/inferno_portal", LUA_MODIFIER_MOTION_NONE)
-    LinkLuaModifier("modifier_inferno_portal_place", "npc_abilities/attack/inferno_portal", LUA_MODIFIER_MOTION_NONE)
+    LinkLuaModifier("modifier_invasion_passive", "npc_abilities/attack/invasion", LUA_MODIFIER_MOTION_NONE)
+    LinkLuaModifier("modifier_invasion_portal", "npc_abilities/attack/invasion", LUA_MODIFIER_MOTION_NONE)
 
     local eventId
 
     require('/npc_abilities/base_ability')
     require('/npc_abilities/base_modifier')
 
-    inferno_portal = setmetatable(class({}), npc_base_ability)
-    modifier_inferno_portal = setmetatable(class({}), npc_base_modifier)
-    modifier_inferno_portal_place = setmetatable(class({}), npc_base_modifier)
+    invasion = class({}, nil, npc_base_ability)
+    modifier_invasion_passive = class(npc_base_modifier, nil, npc_base_modifier)
+    modifier_invasion_portal = class(npc_base_modifier, nil, npc_base_modifier)
 
 
-    local modifierClass = modifier_inferno_portal
-    local abilityClass = inferno_portal
-    local modifierPortalClass = modifier_inferno_portal_place
+    local passive = modifier_invasion_passive
+    local abilityClass = invasion
+    local portal = modifier_invasion_portal
 
+    function passive:OnCreated()
+        self.imps = {}
+    end
+    function passive:IsBuff()
+        return true
+    end
+    function passive:GetLethalCheck(data)
+        local ability = self:GetAbility()
+        for id, imp in pairs(ability.imps) do
+            if imp == nil or imp:IsNull() or not imp:IsAlive() then
+                self.imps[id] = nil
+            else
+                return 0
+            end
+        end
+        return data.damage
+    end
+
+    function passive:OnLethal()
+        local ability = self:GetAbility()
+        ability.stopSpawn = true
+    end
 
     function abilityClass:OnSpellStart()
-        local caster = self:GetOwner()
+        if not self:Initialized() then
+            print('ability ' .. self:GetName() .. ' not initialized')
+            return
+        end
+
         self.impsPowerAmplify = 1
         self.imps = {}
         self.stopSpawn = false
-        caster:AddNewModifier(caster, self, 'modifier_inferno_portal', { duration = 1})
-        print('Castern entity index is ' .. caster:GetEntityIndex()  )
-        self.eventId = EventBus:on(caster:GetEntityIndex(), 'creature:beforeDeath', function(data, takenDamage)
-            for id,imp in pairs(self.imps) do
-                if imp == nil or imp:IsNull() or not imp:IsAlive() then
-                    self.imps[id] = nil
-                else
-                    return false
-                end
-            end
-            EventBus:unsubscribe(caster:GetEntityIndex(), 'creature:beforeDeath', EVENTBUS_PRIORITY_NORMAL, data.eventId)
-            return takenDamage
-        end, EVENTBUS_PRIORITY_NORMAL)
     end
 
-    function modifierClass:OnCreated()
-        self:CreatePortals()
-        self:Destroy();
+    function abilityClass:Init(arenaRadius, arenaCenter)
+        self.initialized = true
+        self.arenaRadius = arenaRadius
+        self.arenaCenter = arenaCenter
     end
 
-    function modifierClass:CreatePortals()
-        local ability = self:GetAbility()
+    function abilityClass:GetIntrinsicModifierName()
+        return 'modifier_invasion_passive'
+    end
+
+    function abilityClass:CreatePortals()
         local owner = self:GetCaster()
-        local portalsCount = 10--ability:GetSpecialValueFor('portals_count')
+        local portalsCount = self:GetSpecialValueFor('portals_count')
         local portalsCreated = 0
 
-        local centerOfArena = EventBus:trigger(owner, 'ability:ghost_arena:getCenter', {}, owner:GetAbsOrigin())
-        local radiusOfArena = EventBus:trigger(owner, 'ability:ghost_arena:getRadius', {}, 600)
-
-        local enemies = FindUnitsInRadius(owner:GetTeamNumber(), centerOfArena, nil, radiusOfArena, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+        local enemies = FindUnitsInRadius(owner:GetTeamNumber(), self.arenaCenter, nil, self.arenaRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 
         for _,enemy in pairs(enemies) do
             local enemyOrigin = enemy:GetAbsOrigin()
@@ -100,14 +114,13 @@
     end
 
     -- TODO: make great animation for portal
-    function modifierClass:CreatePortal(position)
-        local ability = self:GetAbility()
+    function abilityClass:CreatePortal(position)
         local owner = self:GetCaster()
-        local portalDuration = ability:GetSpecialValueFor('duration')
+        local portalDuration = self:GetSpecialValueFor('duration')
 
         local dummy = CreateUnitByName("dummy_unit_vulnerable", position, false, owner, owner, owner:GetTeam())
         dummy:AddAbility("dummy_unit"):SetLevel(1)
-        local modifier = dummy:AddNewModifier(owner, ability, 'modifier_inferno_portal_place', { duration = portalDuration })
+        local modifier = dummy:AddNewModifier(owner, self, 'modifier_invasion_portal', { duration = portalDuration })
         dummy.pfx = ParticleManager:CreateParticle(particlePortal, PATTACH_CUSTOMORIGIN, owner)
 
         modifier.dummy = dummy
@@ -117,7 +130,7 @@
         ParticleManager:SetParticleControl(dummy.pfx, 3, Vector(0.45, 0.45, 0.45))
     end
 
-    function modifierPortalClass:OnCreated()
+    function portal:OnCreated()
         local ability = self:GetAbility()
         self.interval = ability:GetSpecialValueFor('interval')
         self.powerUp = ability:GetSpecialValueFor('powerup')
@@ -128,15 +141,14 @@
         self:StartIntervalThink(self.interval)
     end
 
-    function modifierPortalClass:OnDestroy()
+    function portal:OnDestroy()
         local dummy = self.dummy
         ParticleManager:DestroyParticle(dummy.pfx, false)
         dummy:ForceKill(false)
     end
 
-    function modifierPortalClass:OnIntervalThink()
+    function portal:OnIntervalThink()
         local dummy = self.dummy
-        local ability = self:GetAbility()
         local enemies = FindUnitsInRadius(dummy:GetTeamNumber(), dummy:GetAbsOrigin(), nil, portalRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
         if #enemies > 0 then
             self.intervalsWithoutPlayerInIt = 0
@@ -154,7 +166,7 @@
 
     end
 
-    function modifierPortalClass:SummonImp()
+    function portal:SummonImp()
         local owner = self.dummy
         local position = owner:GetAbsOrigin()
         local ability = self:GetAbility()
@@ -164,7 +176,7 @@
         ability.impsPowerAmplify = ability.impsPowerAmplify * self.powerUp
     end
 
-    function modifierPortalClass:DealDamage(enemy)
+    function portal:DealDamage(enemy)
         local caster = self:GetCaster()
         local damage = self.damage ^ self.currentPowerUp
         self.currentPowerUp = self.currentPowerUp * self.powerUp
