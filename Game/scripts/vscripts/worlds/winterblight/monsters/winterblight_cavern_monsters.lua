@@ -1700,8 +1700,8 @@ function demented_mushroom_die(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	Winterblight:SpawnNextShroom()
-	
+	Winterblight:SpawnNextShroom(caster.spawnphase)
+
 	EmitSoundOn("Winterblight.DementedMushroom.VO.Die", caster)
 	EndAnimation(caster)
 	Timers:CreateTimer(0.03, function()
@@ -1714,14 +1714,14 @@ function demented_mushroom_die(event)
 
 	local particleName = "particles/roshpit/winterblight/confusional_spores.vpcf"
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControl(particle1, 0, spellPoint)
+	ParticleManager:SetParticleControl(particle1, 0, position)
 	ParticleManager:SetParticleControl(particle1, 1, Vector(400, 100, 1))
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), spellPoint, nil, 420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	Timers:CreateTimer(2.5, function()
 		ParticleManager:DestroyParticle(particle1, false)
 	end)	
 	EmitSoundOnLocationWithCaster(position, "Winterblight.ShroomProcure.Explode", caster)
-
+	local shroom_unit_spawn_index = RandomInt(1, 15)
 	Timers:CreateTimer(0.2, function()
 		local spawns = 8
 		for i = 1, spawns, 1 do
@@ -1731,7 +1731,7 @@ function demented_mushroom_die(event)
 			local dummyFV = WallPhysics:rotateVector(fv, (2 * math.pi / spawns) * i)
 			WallPhysics:Jump(dummy, dummyFV, 5 + RandomInt(1, 4), 5 + RandomInt(1, 4), 16, 0.45)
 			Timers:CreateTimer(4, function()
-				Winterblight:SpawnShroomUnit(caster, dummy:GetAbsOrigin())
+				Winterblight:SpawnShroomUnit(caster, dummy:GetAbsOrigin(), shroom_unit_spawn_index)
 				UTIL_Remove(dummy)
 			end)
 		end

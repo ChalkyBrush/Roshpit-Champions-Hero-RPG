@@ -2313,17 +2313,12 @@ end
 
 function Winterblight:Crystarium3(msg)
 	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
-	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 290
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 240
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	Winterblight.Crystarium3Kills = 0
 	local chamber_id = msg.chamber
 
-	for i = 1, 12, 1 do
-		Timers:CreateTimer(i*0.5, function()
-			local randomPos = Winterblight:RandomPointInChamber(chamber_id)
-			Winterblight:SpawnDementedMushroom(randomPos, RandomVector(1))
-		end)
-	end
+
 	local positionTable = {Vector(-15232, 1792), Vector(-14735, 2176), Vector(-15232, 2304), Vector(-15488, 2688), Vector(-14720, 2688), Vector(-15441, 3328), Vector(-14976, 3328), Vector(-14464, 3328), Vector(-13965, 3456), Vector(-13440, 3456), Vector(-12800, 3456),
 	Vector(-14464, 3840), Vector(-14976, 3840), Vector(-15488, 3840), Vector(-15488, 4608), Vector(-13965, 4096), Vector(-13440, 4096), Vector(-12800, 4096), Vector(-12288, 4096), Vector(-11401, 3584), Vector(-10752, 3584), Vector(-10112, 3584),
 	Vector(-9472, 3584), Vector(-8960, 3773), Vector(-9472, 4096), Vector(-10512, 4011), Vector(-11122, 4096), Vector(-11762, 4096), Vector(-14976, 4608), Vector(-14464, 4608), Vector(-13965, 4608), Vector(-13440, 4608),
@@ -2332,10 +2327,19 @@ function Winterblight:Crystarium3(msg)
 	Vector(-14848, 5888), Vector(-14377, 5888), Vector(-13824, 5888), Vector(-13298, 5888), Vector(-12800, 5760), Vector(-12288, 5760), Vector(-11648, 5760), Vector(-15488, 6272), Vector(-14848, 6272),
 	Vector(-14377, 6528), Vector(-13824, 6400), Vector(-13298, 6400), Vector(-12800, 6272), Vector(-12288, 6272), Vector(-11648, 6272), Vector(-12288, 6784), Vector(-15263, 6784), Vector(-15590, 7168),
 	Vector(-14859, 7257), Vector(-14464, 7257), Vector(-13952, 7424), Vector(-13440, 7168), Vector(-12928, 7168), Vector(-15222, 7680), Vector(-14464, 7808), Vector(-13952, 8192), Vector(-13952, 7808), Vector(-13440, 7728)}
+
+	Winterblight.ShroomSpawnTable = WallPhysics:ShuffleTable(positionTable)
+	Winterblight.ShroomsSpawned = 0
+
+	for i = 1, 12, 1 do
+		Timers:CreateTimer(i*0.5, function()
+			Winterblight:SpawnNextShroom(spawnphase)
+		end)
+	end
 end
 
 
-function Winterblight:SpawnDementedMushroom(position, fv)
+function Winterblight:SpawnDementedMushroom(position, fv, spawnphase)
 	local stone = Winterblight:SpawnDungeonUnit("winterblight_demented_mushroom", position, 0, 2, nil, fv, true)
 	Events:AdjustBossPower(stone, 4, 4, false)
 	stone.itemLevel = 60
@@ -2376,8 +2380,54 @@ function Winterblight:RandomPointInChamber(chamber_id)
 	return Vector(random_x, random_y)
 end
 
-function Winterblight:SpawnNextShroom()
+function Winterblight:SpawnNextShroom(spawnphase)
+	if Winterblight.CavernData.Chambers[3]["status"] == 1 then
+		Winterblight.ShroomsSpawned = Winterblight.ShroomsSpawned + 1
+		if Winterblight.ShroomsSpawned <= #Winterblight.ShroomSpawnTable then
+			local randomPos = Winterblight.ShroomSpawnTable[Winterblight.ShroomsSpawned]
+			local shroom = Winterblight:SpawnDementedMushroom(randomPos, RandomVector(1))
+			Winterblight:SetCavernUnit(shroom, randomPos, true, true, 3)
+			shroom.spawnphase = spawnphase
+		end
+	end
 end
 
-function Winterblight:SpawnShroomUnit(caster, position)
+function Winterblight:SpawnShroomUnit(caster, position, shroom_unit_spawn_index)
+	local spawnphase = caster.spawnphase
+	if Winterblight:ShouldSpawnCaveUnit(3, spawnphase) then
+		local unit = nil
+		if shroom_unit_spawn_index == 1 then
+			unit = Winterblight:SpawnZectRider(position, RandomVector(1))
+		elseif shroom_unit_spawn_index == 2 then
+			unit = Winterblight:SpawnFungalShaman(position, RandomVector(1))
+		elseif shroom_unit_spawn_index == 3 then
+			unit = Winterblight:SpawnFungusMinion(position, RandomVector(1))
+		elseif shroom_unit_spawn_index == 4 then
+			unit = Winterblight:SpawnIcixel(position, RandomVector(1))
+		elseif shroom_unit_spawn_index == 5 then
+			unit = Winterblight:SpawnCrystalist(position, RandomVector(1))
+		elseif shroom_unit_spawn_index == 6 then
+			unit = Winterblight:SpawnCrystariumSpider(position, RandomVector(1))
+		elseif shroom_unit_spawn_index == 7 then
+			unit = Winterblight:SpawnMushroomPixie(position, RandomVector(1))
+		elseif shroom_unit_spawn_index == 8 then
+			unit = Winterblight:SpawnTokiToki(position, RandomVector(1))
+		elseif shroom_unit_spawn_index == 9 then
+			unit = Winterblight:SpawnSkullHunter(position, RandomVector(1))
+		elseif shroom_unit_spawn_index == 10 then
+			unit = Winterblight:SpawnHeartSlayer(position, RandomVector(1))
+		elseif shroom_unit_spawn_index == 11 then
+			unit = Winterblight:SpawnCloakedPhantasm(position, RandomVector(1))
+		elseif shroom_unit_spawn_index == 12 then
+			unit = Winterblight:SpawnCorporealRevenant(position, RandomVector(1))
+		elseif shroom_unit_spawn_index == 13 then
+			unit = Winterblight:SpawnBarbedHusker(position, RandomVector(1))
+		elseif shroom_unit_spawn_index == 14 then
+			unit = Winterblight:SpawnBloodWraith(position, RandomVector(1))
+		else
+			unit = Winterblight:SpawnScouringSharpa(position, RandomVector(1))
+		end
+		Dungeons:AggroUnit(unit)
+		Winterblight:SetCavernUnit(unit, unit:GetAbsOrigin(), false, false, 3)
+	end
 end
