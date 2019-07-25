@@ -2329,3 +2329,27 @@ function Winterblight:Crystarium3(msg)
 	-- end
 	-- Winterblight:Crystarium3WaveRedirect(0)
 end
+
+function Winterblight:SpawnDementedMushroom(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_demented_mushroom", position, 0, 2, nil, fv, true)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 60
+	stone:SetRenderColor(80, 180, 255)
+	EmitSoundOn("Winterblight.DementedMushroom.VO.Spawn", stone)
+
+	Events:smoothSizeChange(stone, 0.01, 1.1, 40)
+	local ability = stone:FindAbilityByName("winterblight_shroom_procurement")
+	local spellPoint = stone:GetAbsOrigin()
+	local position = spellPoint
+	local particleName = "particles/roshpit/winterblight/confusional_spores.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, stone)
+	ParticleManager:SetParticleControl(particle1, 0, spellPoint)
+	ParticleManager:SetParticleControl(particle1, 1, Vector(400, 100, 1))
+	local enemies = FindUnitsInRadius(stone:GetTeamNumber(), spellPoint, nil, 420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	Timers:CreateTimer(2.5, function()
+		ParticleManager:DestroyParticle(particle1, false)
+	end)	
+	EmitSoundOnLocationWithCaster(position, "Winterblight.ShroomProcure.Explode", stone)
+	CustomAbilities:QuickAttachThinker(ability, stone, position, "modifier_shroom_procure_thinker", {duration = 5})
+	return stone
+end

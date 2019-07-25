@@ -473,13 +473,17 @@ end
 
 function winter_cavern_unit_think(event)
 	local target = event.target
-	if Winterblight:IsWithinChamber(target, target.chamber) then
+	if target.chamber == 0 then
+		return false
 	else
-		EmitSoundOn("Winterblight.Cavern.PopBack", target)
-		CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_lone_druid/lone_druid_loadout.vpcf", target:GetAbsOrigin(), 3)
-		FindClearSpaceForUnit(target, target.original_position, false)
-		if target.deaggro then
-			Dungeons:DeaggroUnit(target)
+		if Winterblight:IsWithinChamber(target, target.chamber) then
+		else
+			EmitSoundOn("Winterblight.Cavern.PopBack", target)
+			CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_lone_druid/lone_druid_loadout.vpcf", target:GetAbsOrigin(), 3)
+			FindClearSpaceForUnit(target, target.original_position, false)
+			if target.deaggro then
+				Dungeons:DeaggroUnit(target)
+			end
 		end
 	end
 end
@@ -1646,3 +1650,55 @@ function cavern_player_hero_think(event)
 	end
 end
 
+function demented_mushroom_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	EmitSoundOn("Winterblight.DementedMushroom.VO.SpellBurst", caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.DementedMushroom.SpellProjectile", caster)
+	local projectile_particle = "particles/econ/items/grimstroke/ti9_immortal/gs_ti9_artistry_proj.vpcf"
+	local projectile_count = 5
+	local baseFV = caster:GetForwardVector()
+	for i = 1, projectile_count, 1 do
+		local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*2/projectile_count)
+		local speed = 1500
+		local info =
+		{
+			Ability = ability,
+			EffectName = projectile_particle,
+			vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 20),
+			fDistance = range,
+			fStartRadius = 190,
+			fEndRadius = 190,
+			Source = caster,
+			StartPosition = "attach_attack1",
+			bHasFrontalCone = true,
+			bReplaceExisting = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			fExpireTime = GameRules:GetGameTime() + 5.0,
+			bDeleteOnHit = false,
+			vVelocity = fv * speed,
+			bProvidesVision = false,
+		}
+		projectile = ProjectileManager:CreateLinearProjectile(info)
+	end
+end
+
+function demented_mushroom_projectile_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local damage = event.damage
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_demented_mushroom_slow", {duration = 1})
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+	EmitSoundOn("Winterblight.DementedMushroom.SpellProjectile.Hit", target)
+end
+
+function demented_mushroom_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	EmitSoundOn("Winterblight.DementedMushroom.VO.Die", caster)
+	StartAnimation(caster, {duration=1, activity=ACT_DOTA_SPAWN, rate=0.8})
+	Events:smoothSizeChange(caster, 1.1, 0.1, 25)
+end

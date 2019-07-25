@@ -82801,7 +82801,11 @@
 		"MaxLevel"	"1"
 		"AbilitySpecial"
 		{
-
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"1550 14500 235000"
+			}
 		}
 		"OnOwnerDied"
 		{
@@ -82811,22 +82815,42 @@
 				"Function"		"demented_mushroom_die"
 			}
 		}		
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+				"Function"		"demented_mushroom_projectile_hit"
+				"target"		"TARGET"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_demented_mushroom_passive"
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"ThinkInterval"  "1.5"
+				"ThinkInterval"  "4.5"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 						"Function"		"demented_mushroom_think"
+						"damage"		"%damage"
 					}
 				}
 
+			}
+			"modifier_demented_mushroom_slow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-150" 
+				}
 			}
 		}
 	}
