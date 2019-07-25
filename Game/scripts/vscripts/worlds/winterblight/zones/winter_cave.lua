@@ -138,8 +138,13 @@ function Winterblight:ProcessChamberStart(msg)
 	end
 	Winterblight.CavernPFXs[msg.chamber] = {}
 	Winterblight.CavernUnits[msg.chamber] = {}
+
 	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, hero, "modifier_winterblight_cavern_fighter", {})
-	
+	hero.strength_custom = 20
+	hero.agility_custom = 20
+	hero.intellect_custom = 20
+	-- reset hero so rankings are fair w/o potions
+
 	StartAnimation(Winterblight.CavernGuide, {duration=4, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.6})
 	Timers:CreateTimer(1.0, function()
 		EmitSoundOnLocationWithCaster(Winterblight.CavernGuide:GetAbsOrigin(), "Winterblight.GuideCaveIntro2", Events.GameMaster)

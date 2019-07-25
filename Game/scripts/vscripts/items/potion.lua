@@ -57,16 +57,25 @@ end
 function add_strength(amount, caster)
 	caster.strength_custom = caster.strength_custom + amount
 	PopupStrTome(caster, amount)
+	if caster:HasModifier("modifier_winterblight_cavern_fighter") then
+		caster.strength_custom = 20
+	end
 end
 
 function add_agility(amount, caster)
 	caster.agility_custom = caster.agility_custom + amount
 	PopupAgiTome(caster, amount)
+	if caster:HasModifier("modifier_winterblight_cavern_fighter") then
+		caster.agility_custom = 20
+	end
 end
 
 function add_intelligence(amount, caster)
 	caster.intellect_custom = caster.intellect_custom + amount
 	PopupIntTome(caster, amount)
+	if caster:HasModifier("modifier_winterblight_cavern_fighter") then
+		caster.intellect_custom = 20
+	end
 end
 
 function add_exp(amount, caster)
