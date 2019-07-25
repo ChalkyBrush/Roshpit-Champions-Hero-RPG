@@ -1655,12 +1655,13 @@ function demented_mushroom_think(event)
 	local ability = event.ability
 	EmitSoundOn("Winterblight.DementedMushroom.VO.SpellBurst", caster)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.DementedMushroom.SpellProjectile", caster)
-	local projectile_particle = "particles/econ/items/grimstroke/ti9_immortal/gs_ti9_artistry_proj.vpcf"
+	local projectile_particle = "particles/roshpit/winterblight/demented_shroom_proj.vpcf"
 	local projectile_count = 5
 	local baseFV = caster:GetForwardVector()
 	for i = 1, projectile_count, 1 do
-		local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*2/projectile_count)
+		local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/projectile_count)
 		local speed = 1500
+		local range = 900
 		local info =
 		{
 			Ability = ability,
@@ -1698,7 +1699,43 @@ end
 function demented_mushroom_die(event)
 	local caster = event.caster
 	local ability = event.ability
+
+	Winterblight:SpawnNextShroom()
+	
 	EmitSoundOn("Winterblight.DementedMushroom.VO.Die", caster)
-	StartAnimation(caster, {duration=1, activity=ACT_DOTA_SPAWN, rate=0.8})
-	Events:smoothSizeChange(caster, 1.1, 0.1, 25)
+	EndAnimation(caster)
+	Timers:CreateTimer(0.03, function()
+		StartAnimation(caster, {duration=1, activity=ACT_DOTA_SPAWN, rate=0.8})
+	end)
+	Events:smoothSizeChange(caster, 2.0, 0.1, 25)
+
+	local position = caster:GetAbsOrigin()
+	local fv = caster:GetForwardVector()
+
+	local particleName = "particles/roshpit/winterblight/confusional_spores.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(particle1, 0, spellPoint)
+	ParticleManager:SetParticleControl(particle1, 1, Vector(400, 100, 1))
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), spellPoint, nil, 420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	Timers:CreateTimer(2.5, function()
+		ParticleManager:DestroyParticle(particle1, false)
+	end)	
+	EmitSoundOnLocationWithCaster(position, "Winterblight.ShroomProcure.Explode", caster)
+
+	Timers:CreateTimer(0.2, function()
+		local spawns = 8
+		for i = 1, spawns, 1 do
+			local dummy = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+			dummy:AddAbility("ability_blue_effect"):SetLevel(1)
+			dummy:SetAbsOrigin(dummy:GetAbsOrigin() + Vector(0, 0, 200))
+			local dummyFV = WallPhysics:rotateVector(fv, (2 * math.pi / spawns) * i)
+			WallPhysics:Jump(dummy, dummyFV, 5 + RandomInt(1, 4), 5 + RandomInt(1, 4), 16, 0.45)
+			Timers:CreateTimer(4, function()
+				Winterblight:SpawnShroomUnit(caster, dummy:GetAbsOrigin())
+				UTIL_Remove(dummy)
+			end)
+		end
+
+	end)
 end
+

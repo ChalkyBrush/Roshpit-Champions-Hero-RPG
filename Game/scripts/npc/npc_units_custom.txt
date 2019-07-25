@@ -95563,6 +95563,7 @@
         "Level" "1"
         "UnitLabel" "healing_ward"
         "ModelScale"    "1.26"
+        "HealthBarOffset"   "340"
         "Ability1"  "winterblight_demented_mushroom_passive"
         "Ability2"  "winterblight_shroom_procurement"
         "Ability3"  ""
@@ -95573,7 +95574,7 @@
         "Ability8"  ""
         "precache"
         {
-            "particle"  "particles/world_tower/tower_upgrade/ti7_radiant_tower_lvl2_dest.vpcf"
+            "particle"  "particles/roshpit/winterblight/demented_shroom_proj.vpcf"
         }
         "ArmorPhysical" "4"
         "MagicalResistance" "95"

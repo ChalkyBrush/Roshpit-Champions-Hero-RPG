@@ -2317,18 +2317,23 @@ function Winterblight:Crystarium3(msg)
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	Winterblight.Crystarium3Kills = 0
 	local chamber_id = msg.chamber
-	-- local unitsTable = {}
-	-- local portalPosTable = {Vector(-15256, 7295), Vector(-15005, 2197), Vector(-13273, 4037), Vector(-12855, 6823), Vector(-9829, 4244)}
-	-- for i = 1, #portalPosTable, 1 do
-	-- 	local groundPos = GetGroundPosition(portalPosTable[i], Events.GameMaster)
-	-- 	AddFOWViewer(DOTA_TEAM_GOODGUYS, groundPos, 500, 10, false)
-	-- 	local portalPFX = CustomAbilities:QuickParticleAtPoint("particles/econ/events/ti9/teleport_end_ti9.vpcf", groundPos, 0)
-	-- 	ParticleManager:SetParticleControl(portalPFX, 3, groundPos)
-	-- 	ParticleManager:SetParticleControl(portalPFX, 15, groundPos)
-	-- 	table.insert(Winterblight.CavernPFXs[chamber_id], portalPFX)
-	-- end
-	-- Winterblight:Crystarium3WaveRedirect(0)
+
+	for i = 1, 12, 1 do
+		Timers:CreateTimer(i*0.5, function()
+			local randomPos = Winterblight:RandomPointInChamber(chamber_id)
+			Winterblight:SpawnDementedMushroom(randomPos, RandomVector(1))
+		end)
+	end
+	local positionTable = {Vector(-15232, 1792), Vector(-14735, 2176), Vector(-15232, 2304), Vector(-15488, 2688), Vector(-14720, 2688), Vector(-15441, 3328), Vector(-14976, 3328), Vector(-14464, 3328), Vector(-13965, 3456), Vector(-13440, 3456), Vector(-12800, 3456),
+	Vector(-14464, 3840), Vector(-14976, 3840), Vector(-15488, 3840), Vector(-15488, 4608), Vector(-13965, 4096), Vector(-13440, 4096), Vector(-12800, 4096), Vector(-12288, 4096), Vector(-11401, 3584), Vector(-10752, 3584), Vector(-10112, 3584),
+	Vector(-9472, 3584), Vector(-8960, 3773), Vector(-9472, 4096), Vector(-10512, 4011), Vector(-11122, 4096), Vector(-11762, 4096), Vector(-14976, 4608), Vector(-14464, 4608), Vector(-13965, 4608), Vector(-13440, 4608),
+	Vector(-12800, 4608), Vector(-12288, 4608), Vector(-11763, 4608), Vector(-11122, 4608), Vector(-10512, 4480), Vector(-9658, 4480), Vector(-10112, 4864), Vector(-10512, 4864), Vector(-10678, 5248), Vector(-11123, 5248),
+	Vector(-11762, 5120), Vector(-12288, 5248), Vector(-12800, 5248), Vector(-13440, 5120), Vector(-13965, 5120), Vector(-14336, 5120), Vector(-14848, 5120), Vector(-15488, 5120), Vector(-15488, 5888),
+	Vector(-14848, 5888), Vector(-14377, 5888), Vector(-13824, 5888), Vector(-13298, 5888), Vector(-12800, 5760), Vector(-12288, 5760), Vector(-11648, 5760), Vector(-15488, 6272), Vector(-14848, 6272),
+	Vector(-14377, 6528), Vector(-13824, 6400), Vector(-13298, 6400), Vector(-12800, 6272), Vector(-12288, 6272), Vector(-11648, 6272), Vector(-12288, 6784), Vector(-15263, 6784), Vector(-15590, 7168),
+	Vector(-14859, 7257), Vector(-14464, 7257), Vector(-13952, 7424), Vector(-13440, 7168), Vector(-12928, 7168), Vector(-15222, 7680), Vector(-14464, 7808), Vector(-13952, 8192), Vector(-13952, 7808), Vector(-13440, 7728)}
 end
+
 
 function Winterblight:SpawnDementedMushroom(position, fv)
 	local stone = Winterblight:SpawnDungeonUnit("winterblight_demented_mushroom", position, 0, 2, nil, fv, true)
@@ -2337,7 +2342,7 @@ function Winterblight:SpawnDementedMushroom(position, fv)
 	stone:SetRenderColor(80, 180, 255)
 	EmitSoundOn("Winterblight.DementedMushroom.VO.Spawn", stone)
 
-	Events:smoothSizeChange(stone, 0.01, 1.1, 40)
+	Events:smoothSizeChange(stone, 0.01, 2.0, 40)
 	local ability = stone:FindAbilityByName("winterblight_shroom_procurement")
 	local spellPoint = stone:GetAbsOrigin()
 	local position = spellPoint
@@ -2351,5 +2356,28 @@ function Winterblight:SpawnDementedMushroom(position, fv)
 	end)	
 	EmitSoundOnLocationWithCaster(position, "Winterblight.ShroomProcure.Explode", stone)
 	CustomAbilities:QuickAttachThinker(ability, stone, position, "modifier_shroom_procure_thinker", {duration = 5})
+	StartAnimation(stone, {duration=99999, activity=ACT_DOTA_IDLE, rate=1.0})
 	return stone
+end
+
+function Winterblight:RandomPointInChamber(chamber_id)
+	local vertices = Winterblight.CavernChamberVertices[chamber_id]
+	local randomVertex = vertices[RandomInt(1, #vertices)]
+	local baseX = randomVertex[1].x
+	local baseY = randomVertex[1].y
+	local maxX = randomVertex[2].x
+	local maxY = randomVertex[2].y
+
+	local deltaX = maxX - baseX
+	local deltaY = maxY - baseY
+
+	local random_x = baseX + RandomInt(0, deltaX)
+	local random_y = baseY + RandomInt(0, deltaY)
+	return Vector(random_x, random_y)
+end
+
+function Winterblight:SpawnNextShroom()
+end
+
+function Winterblight:SpawnShroomUnit(caster, position)
 end
