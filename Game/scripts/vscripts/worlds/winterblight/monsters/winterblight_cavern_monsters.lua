@@ -652,6 +652,8 @@ function cavern_unit_die(event)
 	elseif chamber == 3 and Winterblight.CavernData.Chambers[chamber]["event"] == 2 then
 		Winterblight.Crystarium2Kills = Winterblight.Crystarium2Kills + 1
 		Winterblight:Crystarium2WaveRedirect(Winterblight.Crystarium2Kills)
+	elseif chamber == 3 and Winterblight.CavernData.Chambers[chamber]["event"] == 4 then
+		Winterblight:SpawnNextOceanOnslaughtUnit(unit.spawnphase)
 	end
 end
 
