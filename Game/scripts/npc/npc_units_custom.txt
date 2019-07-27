@@ -95609,6 +95609,82 @@
         "VisionNighttimeRange"  "0"
         "AttackDesire"  "1.5"
     }
+
+    "winterblight_ghost_of_aurora"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/vengeful/vengeful.vmdl"
+        "ModelScale"    "1.25"
+        "Level" "1"
+        "HealthBarOffset"   "570"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+
+        "SoundSet"              "Hero_Winter_Wyvern"
+        "precache"
+        {
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
+        }
+        "ArmorPhysical" "15"
+        "MagicalResistance" "15"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "ProjectileModel"   "particles/roshpit/winterblight/azalea_base_attack_large.vpcf"
+        "ProjectileSpeed"   "1000"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "15001"
+        "AttackDamageMax"   "17001"
+        "AttackRate"    "1.5"
+        "AttackAnimationPoint"  "0.33"
+        "AttackAcquisitionRange"    "100"
+        "AttackRange"   "1250"
+        "BountyGoldMin" "400"
+        "BountyGoldMax" "500"
+        "BountyXP" "4900"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "2310000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "azalea_boss_passive"
+        "Ability2"              "ability_stun_immunity"
+        "Ability3"              "mega_steadfast"
+        "Ability4"              "boss_health"
+        "Ability5"              "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "9891"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "8919"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "8918"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "7796"
+                }
+            }
+        }
+    }
     
 
     "tutorial_master"

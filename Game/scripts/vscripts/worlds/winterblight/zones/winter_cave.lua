@@ -2367,15 +2367,18 @@ end
 
 function Winterblight:OceanOnslaughtWaterProp(bDown)
 	local waterProp = Entities:FindByNameNearest("DeepOceanOnslaughtWater", Vector(-12136, 4874), 5000)
+	print(waterProp:GetEntityHandle())
 	local currentZ = waterProp:GetAbsOrigin().z
 	local targetZ = waterProp:GetAbsOrigin().z + 315
 	if bDown then
 		targetZ = waterProp:GetAbsOrigin().z - 315
 	end
 	local ticks = 400
-	local delta = targetZ - currentZ
+	local delta = (targetZ - currentZ)/ticks
 	for i = 1, ticks, 1 do
-		waterProp:SetAbsOrigin(waterProp:GetAbsOrigin()+Vector(0,0,delta))
+		Timers:CreateTimer(i*0.03, function()
+			waterProp:SetAbsOrigin(waterProp:GetAbsOrigin()+Vector(0,0,delta))
+		end)
 	end
 end
 
