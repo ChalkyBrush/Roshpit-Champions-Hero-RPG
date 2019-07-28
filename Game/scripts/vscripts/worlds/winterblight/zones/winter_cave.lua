@@ -3163,12 +3163,13 @@ function Winterblight:AuroraPassage3(msg)
 	Winterblight.Aurora3kills = 0
 	local chamber_id = msg.chamber
 
-	for i = 1, 100, 1 do
+	for i = 1, 120, 1 do
 		Timers:CreateTimer(0.1*i, function()
 			local position = Winterblight:RandomAuroraPassagePos()
 			local egg = Winterblight:SpawnThunderhideEgg(position, spawnphase, chamber_id)
 			CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", egg:GetAbsOrigin()+Vector(0,0,30), 4)
 			EmitSoundOn("Winterblight.GuideCaveIntro", egg)
+			table.insert(Winterblight.CavernUnits[chamber_id], egg)
 		end)
 	end
 end
