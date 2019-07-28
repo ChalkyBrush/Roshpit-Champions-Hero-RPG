@@ -1,5 +1,5 @@
--- LinkLuaModifier("modifier_chernobog_ult_aura", "modifiers/chernobog_shadow_walk/modifier_chernobog_ult_aura", LUA_MODIFIER_MOTION_NONE)
--- LinkLuaModifier("modifier_chernobog_ult_freeze_special", "modifiers/chernobog_shadow_walk/modifier_chernobog_ult_aura", LUA_MODIFIER_MOTION_NONE)
+-- LinkLuaModifier("modifier_chernobog_ult_aura", "modifiers/chernobog_1_e/modifier_chernobog_ult_aura", LUA_MODIFIER_MOTION_NONE)
+-- LinkLuaModifier("modifier_chernobog_ult_freeze_special", "modifiers/chernobog_1_e/modifier_chernobog_ult_aura", LUA_MODIFIER_MOTION_NONE)
 
 require('heroes/nightstalker/chernobog_constants')
 require('heroes/nightstalker/charons_claw')
@@ -191,7 +191,7 @@ function locked_unit_attack(event)
 			-- end
 			local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
 			local particle2 = ParticleManager:CreateParticle(particleNameS, PATTACH_WORLDORIGIN, caster)
-			local radius = 360
+			local radius = 200
 			ParticleManager:SetParticleControl(particle2, 0, target:GetAbsOrigin())
 			ParticleManager:SetParticleControl(particle2, 1, Vector(radius, radius, radius))
 			ParticleManager:SetParticleControl(particle2, 2, Vector(2.0, 2.0, 2.0))

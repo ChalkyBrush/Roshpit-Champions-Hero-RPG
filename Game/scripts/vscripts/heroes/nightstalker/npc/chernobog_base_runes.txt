@@ -31,12 +31,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_Q2_DMG %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CHERNOBOG_Q2_DEMON_AMP_PCT %>"
+				"property_one"			"<% CHERNOBOG_Q2_PER_LVL %>"
 			}
 			"03"
 			{

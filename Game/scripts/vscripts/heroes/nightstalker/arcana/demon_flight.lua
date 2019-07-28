@@ -1,7 +1,7 @@
 require('heroes/nightstalker/chernobog_constants')
 
-LinkLuaModifier("modifier_chernobog_demon_flight_attack", "modifiers/chernobog_shadow_walk/modifier_chernobog_demon_flight_attack", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_chernobog_d_c_arcana2", "modifiers/chernobog_shadow_walk/modifier_chernobog_d_c_arcana2", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_chernobog_demon_flight_attack", "modifiers/chernobog_1_e/modifier_chernobog_demon_flight_attack", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_chernobog_d_c_arcana2", "modifiers/chernobog_1_e/modifier_chernobog_d_c_arcana2", LUA_MODIFIER_MOTION_NONE)
 
 function demon_flight_start(event)
 	local caster = event.caster

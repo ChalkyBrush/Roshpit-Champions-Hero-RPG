@@ -87,11 +87,11 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_property_two"					"额外的敏捷值（开启时）"
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_suffix_two"					""
 		
-		"DOTA_Tooltip_ability_chernobog_shadow_walk"							"暗影追捕"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_Description"				"暗夜魔王突破空虚并且使自己的移动速度达到最高状态。当开启暗影追捕时，暗夜魔王每秒丢失魔法和生命值。同时在暗影追捕开启时在暗夜魔王周围300码内的敌人将被禁止治疗。"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_cap"				"移动速度上限："
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_bonus"			"移动速度提高:"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_drain_per_second"			"每秒汲取 % 最大生命值和最大魔法值："
+		"DOTA_Tooltip_ability_chernobog_1_e"							"暗影追捕"
+    	"DOTA_Tooltip_ability_chernobog_1_e_Description"				"暗夜魔王突破空虚并且使自己的移动速度达到最高状态。当开启暗影追捕时，暗夜魔王每秒丢失魔法和生命值。同时在暗影追捕开启时在暗夜魔王周围300码内的敌人将被禁止治疗。"
+    	"DOTA_Tooltip_ability_chernobog_1_e_movespeed_cap"				"移动速度上限："
+    	"DOTA_Tooltip_ability_chernobog_1_e_movespeed_bonus"			"移动速度提高:"
+    	"DOTA_Tooltip_ability_chernobog_1_e_drain_per_second"			"每秒汲取 % 最大生命值和最大魔法值："
 	"DOTA_Tooltip_modifier_shadow_walk_aura"                                "魔王降临"
         "DOTA_Tooltip_modifier_shadow_walk_aura_Description"                    "治疗被禁止"
 		

@@ -93,11 +93,11 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_property_two"					"Bonus Agility (Active)"
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_suffix_two"					""
 		
-		"DOTA_Tooltip_ability_chernobog_shadow_walk"							"Shadow Hunt"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_Description"				"Chernobog breaks through the void and can move beyond max speed. Chernobog loses mana and health each second while Shadow Hunt is active. Nearby enemies can't heal if they are with 300 range of Chernobog with Shadow Hunt active."
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_cap"				"MOVESPEED CAP:"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_bonus"			"MOVESPEED BONUS:"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_drain_per_second"			"HEALTH AND MANA DRAIN % PER SECOND:"
+		"DOTA_Tooltip_ability_chernobog_1_e"							"Shadow Hunt"
+    	"DOTA_Tooltip_ability_chernobog_1_e_Description"				"Chernobog breaks through the void and can move beyond max speed. Chernobog loses mana and health each second while Shadow Hunt is active. Nearby enemies can't heal if they are with 300 range of Chernobog with Shadow Hunt active."
+    	"DOTA_Tooltip_ability_chernobog_1_e_movespeed_cap"				"MOVESPEED CAP:"
+    	"DOTA_Tooltip_ability_chernobog_1_e_movespeed_bonus"			"MOVESPEED BONUS:"
+    	"DOTA_Tooltip_ability_chernobog_1_e_drain_per_second"			"HEALTH AND MANA DRAIN % PER SECOND:"
 
         "DOTA_Tooltip_modifier_shadow_walk_aura"                                "Chilling Presence"
         "DOTA_Tooltip_modifier_shadow_walk_aura_Description"                    "Healing Disabled"

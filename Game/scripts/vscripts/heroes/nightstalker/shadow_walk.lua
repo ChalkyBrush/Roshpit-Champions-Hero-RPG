@@ -1,10 +1,5 @@
-LinkLuaModifier("modifier_movespeed_cap_shadow_walk_1", "modifiers/chernobog_shadow_walk/modifier_movespeed_cap_shadow_walk_1", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_movespeed_cap_shadow_walk_2", "modifiers/chernobog_shadow_walk/modifier_movespeed_cap_shadow_walk_2", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_movespeed_cap_shadow_walk_3", "modifiers/chernobog_shadow_walk/modifier_movespeed_cap_shadow_walk_3", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_movespeed_cap_shadow_walk_4", "modifiers/chernobog_shadow_walk/modifier_movespeed_cap_shadow_walk_4", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_movespeed_cap_shadow_walk_5", "modifiers/chernobog_shadow_walk/modifier_movespeed_cap_shadow_walk_5", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_movespeed_cap_shadow_walk_6", "modifiers/chernobog_shadow_walk/modifier_movespeed_cap_shadow_walk_6", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_movespeed_cap_shadow_walk_7", "modifiers/chernobog_shadow_walk/modifier_movespeed_cap_shadow_walk_7", LUA_MODIFIER_MOTION_NONE)
+local prefix = '1_e_'
+
 
 function shadow_walk_start(event)
 	local caster = event.caster

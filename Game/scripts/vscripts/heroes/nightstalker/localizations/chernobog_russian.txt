@@ -93,11 +93,11 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_property_two"					"(Активно) Доп. очков Ловкости"
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_suffix_two"					""
 		
-		"DOTA_Tooltip_ability_chernobog_shadow_walk"							"Shadow Hunt"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_Description"				"Chernobog пробивается через пустоту, открывая для себя некоторые возможности. Пока активно это умение, герой ежесекундно теряет % от максимальных значений здоровья и маны, а противники в радиусе 300 не могут восполнять здоровье."
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_cap"				"ГРАНИЦА СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_bonus"			"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_drain_per_second"			"ЗАТРАТЫ ЗДОРОВЬЯ И МАНЫ В СЕКУНДУ, %:"
+		"DOTA_Tooltip_ability_chernobog_1_e"							"Shadow Hunt"
+    	"DOTA_Tooltip_ability_chernobog_1_e_Description"				"Chernobog пробивается через пустоту, открывая для себя некоторые возможности. Пока активно это умение, герой ежесекундно теряет % от максимальных значений здоровья и маны, а противники в радиусе 300 не могут восполнять здоровье."
+    	"DOTA_Tooltip_ability_chernobog_1_e_movespeed_cap"				"ГРАНИЦА СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+    	"DOTA_Tooltip_ability_chernobog_1_e_movespeed_bonus"			"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+    	"DOTA_Tooltip_ability_chernobog_1_e_drain_per_second"			"ЗАТРАТЫ ЗДОРОВЬЯ И МАНЫ В СЕКУНДУ, %:"
 		
 		"DOTA_Tooltip_ability_chernobog_rune_e_1"								"[E1] Dark Whisper"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_Description"					"Пока активно умение @Ability3, герой получает бонус к урону."
