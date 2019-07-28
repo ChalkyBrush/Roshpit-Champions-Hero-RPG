@@ -12549,3 +12549,186 @@
         "Ability2"  "dungeon_creep"
 
     }
+
+    "winterblight_servant_of_saturn"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/terrorblade/terrorblade.vmdl"
+        "ModelScale"    "1.37"
+        "Level" "1"
+        "HealthBarOffset"   "240"
+        "HasInventory"  "0"
+        "SelectionGroup"    "doomguard"
+        "DefaultState"  "Invade"
+        "SoundSet"      "Hero_Terrorblade"
+        "PathfindingSearchDepthScale" "0.2"
+        "precache"
+        {
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_terrorblade.vsndevts"
+            "particle"      "particles/econ/items/axe/axe_cinder/axe_cinder_battle_hunger_cast.vpcf"
+            "particle"      "particles/econ/items/batrider/burning_jack_bomber/burning_jack_bomber_lower.vpcf"
+        }
+        "ArmorPhysical" "20"
+        "MagicalResistance" "10"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "150000"
+        "AttackDamageMax"   "180000"
+        "AttackRate"    "1.1"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "140"
+        "BountyGoldMin" "600"
+        "BountyGoldMax" "900"
+        "BountyXP" "2020"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "470"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "3500000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "7035"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9499"
+                }   
+                "Wearable3"
+                {
+                    "ItemDef"   "8176"
+                }  
+                "Wearable4"
+                {
+                    "ItemDef"   "8178"
+                }             
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "600.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+         
+            }
+
+        }
+
+        "Ability1"  "creature_pure_strike"
+        "Ability2"  "winterblight_raxxus_passive"
+        "Ability3"  "normal_steadfast"
+        "Ability4"  "luna_taskmaster_shield"
+        "Ability5"  "seafortress_fragmenter_aura"
+        "Ability6"  "dungeon_creep"
+    }
+
+    "winterblight_zodiac_oracle"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/storm_spirit/storm_spirit.vmdl"
+        "ModelScale"    "1.15"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "champion"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"  "Hero_StormSpirit"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
+            "particle"  "particles/roshpit/omniro/chrono_path_sphere.vpcf"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1"
+        "AttackDamageMax"   "1"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "0.29"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "500"
+        "ProjectileModel"   "particles/units/heroes/hero_oracle/oracle_base_attack.vpcf"
+        "ProjectileSpeed"   "1400"
+        "BountyGoldMin" "300"
+        "BountyGoldMax" "500"
+        "BountyXP"  "1000"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "70"
+        "CollisionSize" "32"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "2175000"
+        "StatusHealthRegen" "3"
+        "StatusMana"    "100"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"              "winterblight_dome_of_aquarius"
+        "Ability2"              "creature_pure_strike"
+        "Ability3"              "use_ability_1_position_ai"
+        "Ability4"              "dungeon_creep"
+        "Creature"
+        {
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "8247"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "9799"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "12415"
+                }
+            }
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+            }
+        }
+    }

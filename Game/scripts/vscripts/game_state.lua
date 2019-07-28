@@ -3721,6 +3721,14 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_disable_player") then
 		filterTable["damage"] = 0
 	end
+	if victim:HasModifier("modifier_inside_aquarius_dome") then
+		local aquarius_caster = victim:FindModifierByName("modifier_inside_aquarius_dome"):GetCaster()
+		if victim:GetTeamNumber() == aquarius_caster:GetTeamNumber() then
+			if not attacker:HasModifier("modifier_inside_aquarius_dome") then
+				filterTable["damage"] = 0
+			end
+		end
+	end
 	if victim:HasModifier("modifier_damage_immunity") then
 		filterTable["damage"] = 0
 	end

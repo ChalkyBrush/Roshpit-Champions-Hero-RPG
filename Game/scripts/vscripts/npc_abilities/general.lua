@@ -262,6 +262,9 @@ function ability_1_position_think(event)
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 940, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			local castPoint = enemies[1]:GetAbsOrigin()
+			if caster.position_cast_self then
+				castPoint = caster:GetAbsOrigin()
+			end
 			if caster.cast_offset then
 				castPoint = castPoint + RandomVector(caster.cast_offset)
 			end

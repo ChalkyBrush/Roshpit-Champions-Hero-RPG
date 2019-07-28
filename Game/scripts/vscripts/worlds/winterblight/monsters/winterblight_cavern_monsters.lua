@@ -1820,8 +1820,10 @@ end
 function giant_snow_crab_init(event)
 	local caster = event.caster
 	local ability = event.ability	
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_giant_snow_crab_stacks", {})
-	caster:SetModifierStackCount("modifier_giant_snow_crab_stacks", caster, 10)
+	Timers:CreateTimer(0.03, function()
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_giant_snow_crab_stacks", {})
+		caster:SetModifierStackCount("modifier_giant_snow_crab_stacks", caster, 10)
+	end)
 end
 
 function giant_snow_crab_think(event)
@@ -1837,15 +1839,45 @@ function giant_snow_crab_hit(event)
 	if (caster:GetHealth()/caster:GetMaxHealth())*10 < current_stacks then
 		caster:SetModifierStackCount("modifier_giant_snow_crab_stacks", caster, current_stacks - 1)
 		EmitSoundOn("Winterblight.SpawnerSquish", caster)
-		for i = 1, 3, 1 do
-			local position = caster:GetAbsOrigin()
-			local zombie = Winterblight:SpawnSpawnerUnit(caster:GetAbsOrigin(), RandomVector(1), false, true)
-			zombie:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 100))
-			local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi * i / 3)
-			WallPhysics:Jump(zombie, fv, RandomInt(4, 16), RandomInt(10, 16), RandomInt(16, 24), 1)
-			zombie.jumpEnd = "crab_land"
-			EmitSoundOn("Winterblight.Crab.Spawn", zombie)
-			FindClearSpaceForUnit(zombie, zombie:GetAbsOrigin(), false)
-		end
+		Timers:CreateTimer(0.05, function()
+			for i = 1, 3, 1 do
+				local position = caster:GetAbsOrigin()
+				local zombie = Winterblight:SpawnSpawnerUnit(caster:GetAbsOrigin(), RandomVector(1), false, true)
+				zombie:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 100))
+				local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi * i / 3)
+				WallPhysics:Jump(zombie, fv, RandomInt(4, 16), RandomInt(10, 16), RandomInt(16, 24), 1)
+				zombie.jumpEnd = "crab_land"
+				EmitSoundOn("Winterblight.Crab.Spawn", zombie)
+			end
+		end)
 	end
+end
+
+function aquarius_dome_start(event)
+	local ability = event.ability
+	local caster = event.caster
+	EmitSoundOn("Winterblight.AcquariusDome", caster)
+
+	local particleName = "particles/roshpit/omniro/chrono_path_sphere.vpcf"
+	local position = event.target_points[1]
+	StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.6})
+
+	local color = Vector(30, 140, 255) / 255
+	position = GetGroundPosition(position, caster)
+	local dummy = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, caster:GetTeamNumber())
+	dummy:SetAbsOrigin(position)
+	dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+	dummy.pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(dummy.pfx, 0, position)
+	ParticleManager:SetParticleControl(dummy.pfx, 1, Vector(event.radius, event.radius, event.radius))
+	ParticleManager:SetParticleControl(dummy.pfx, 3, color)
+	ability:ApplyDataDrivenModifier(caster, dummy, "modifier_aquarius_dome_dummy", {duration = event.duration})
+end
+
+function aquarius_dome_dummy_end(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	ParticleManager:DestroyParticle(target.pfx, false)
+	UTIL_Remove(target)
 end

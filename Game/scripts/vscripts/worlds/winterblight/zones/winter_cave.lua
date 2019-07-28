@@ -2505,7 +2505,7 @@ end
 
 function Winterblight:AuroraPassage1(msg)
 	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
-	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 112
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 146
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local chamber_id = msg.chamber
 	local unitsTable = {}
@@ -2554,9 +2554,21 @@ function Winterblight:AuroraPassage1(msg)
 			end)
 		end
 	end)
-	
+	Timers:CreateTimer(1.5, function()
+		local positionTable = {Vector(-6656, 12659), Vector(-7040, 12800), Vector(-6659, 13706), Vector(-6321, 13824)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = ((Vector(-6618, 11772) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnManaNull(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)	
 	Timers:CreateTimer(3.5, function()
-		local positionTable = {Vector(-7296, 14208), Vector(-6912, 14336), Vector(-9339, 13866), Vector(-9600, 13568)}
+		local positionTable = {Vector(-7296, 14208), Vector(-6912, 14336), Vector(-9339, 13866), Vector(-9600, 13568), Vector(-3456, 13568)}
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.3, function()
 				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
@@ -2652,7 +2664,7 @@ function Winterblight:AuroraPassage1(msg)
 		end
 	end)
 	Timers:CreateTimer(10.5, function()
-		local positionTable = {Vector(-7168, 13312), Vector(-6784, 13185), Vector(-8899, 13579), Vector(-10387, 14515), Vector(-8923, 15561), Vector(-3788, 12657), Vector(-4909, 14932)}
+		local positionTable = {Vector(-7168, 13312), Vector(-6784, 13185), Vector(-8899, 13579), Vector(-10387, 14515), Vector(-8923, 15561), Vector(-3788, 12657), Vector(-4909, 14932), Vector(-2678, 14080)}
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.3, function()
 				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
@@ -2675,6 +2687,77 @@ function Winterblight:AuroraPassage1(msg)
 						fv = Vector(0,1)
 					end
 					local unit = Winterblight:SpawnGiantSnowCrab(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+	Timers:CreateTimer(12.5, function()
+		local positionTable = {Vector(-2991, 12789), Vector(-2991, 13393), Vector(-2678, 14720), Vector(-2678, 15360), Vector(-7168, 15616), Vector(-8420, 15616), Vector(-7808, 15616), Vector(-8576, 13056)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = Vector(0,-1)
+					if i == #positionTable then
+						fv = Vector(-0.3,1)
+					end
+					local unit = Winterblight:SpawnServantOfSaturn(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+	Timers:CreateTimer(13.5, function()
+		local positionTable = {Vector(-10325, 13420), Vector(-10624, 13440), Vector(-10429, 13293), Vector(-10598, 13137)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = ((Vector(-6618, 11772) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnIceHaunter(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+	Timers:CreateTimer(14.5, function()
+		local positionTable = {Vector(-8960, 13075), Vector(-9216, 13280), Vector(-7287, 15098), Vector(-7543, 14976), Vector(-7680, 15232), Vector(-7296, 15369), Vector(-7040, 15221), Vector(-10112, 15104), Vector(-10496, 14848), Vector(-9941, 14720), Vector(-10112, 14426)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = ((Vector(-6618, 11772) - positionTable[i])*Vector(1,1,0)):Normalized()
+					if i <=7 then
+						fv = Vector(1,1)
+					end
+					local unit = Winterblight:SpawnZodiacOracle(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+	Timers:CreateTimer(15.5, function()
+		local positionTable = {Vector(-4699, 12544), Vector(-4601, 12890), Vector(-4352, 12684), Vector(-4183, 13056)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = ((Vector(-6618, 11772) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnZodiacOracle(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+	Timers:CreateTimer(16.5, function()
+		local positionTable = {Vector(-6127, 15488), Vector(-5828, 15488), Vector(-5521, 15488), Vector(-5248, 15488)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = Vector(1,0)
+					local unit = Winterblight:SpawnWinterRunner(position, fv)
 					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
 				end
 			end)
@@ -2720,6 +2803,9 @@ function Winterblight:SpawnFrostOverwhelmer(position, fv)
 	stone.itemLevel = 50
 	stone:SetRenderColor(170, 200, 255)
 	stone.dominion = true
+	Timers:CreateTimer(0.03, function()
+		stone:AddNewModifier(stone, nil, "modifier_animation_translate", {translate="walk"})
+	end)
 	return stone
 end
 
@@ -2732,3 +2818,22 @@ function Winterblight:SpawnGiantSnowCrab(position, fv)
 	return stone
 end
 
+function Winterblight:SpawnServantOfSaturn(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_servant_of_saturn", position, 0, 2, "Winterblight.ServantOfSaturn.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 50
+	stone:SetRenderColor(170, 200, 255)
+	stone.dominion = true
+	return stone
+end
+
+function Winterblight:SpawnZodiacOracle(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_zodiac_oracle", position, 0, 2, "Winterblight.ZodiacOracle.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 50
+	stone:SetRenderColor(170, 200, 255)
+	stone.dominion = true
+	Winterblight:SetPositionCastArgs(stone, 1500, 300, 1, FIND_ANY_ORDER)
+	stone.position_cast_self = true
+	return stone
+end
