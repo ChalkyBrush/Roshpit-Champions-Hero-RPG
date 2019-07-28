@@ -899,6 +899,9 @@ function Winterblight:CompleteChamberEvent(chamber, position)
 		-- end
 
 		Winterblight:DisperseRelicFragments(position, reward, hero, chamber, event_index)
+
+		Winterblight:CavernEventWinItemDrop(level, position)
+
 		Winterblight:CavernCompletionToServer(hero, chamber, event_index, level)
 		ClearChamberUnits(chamber)
 		Timers:CreateTimer(1, function()
@@ -2338,6 +2341,17 @@ function Winterblight:Crystarium2SpawnEffect(unit)
 	unit:SetAcquisitionRange(8000)
 end
 
+function Winterblight:AuroraPassage2SpawnEffect(unit)
+	local level = Winterblight.CavernData.Chambers[2]["level"]
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/portal_spawn.vpcf", unit:GetAbsOrigin()+Vector(0,0,60), 2.5)
+	EmitSoundOn("Winterblight.Foyer3.Spawn", unit)
+	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_crystarium_2_atk_power", {})
+	local stacks = level
+	unit:SetModifierStackCount("modifier_crystarium_2_atk_power", Winterblight.Master, stacks)
+	Dungeons:AggroUnit(unit)
+	unit:SetAcquisitionRange(8000)
+end
+
 function Winterblight:SpawnTokiToki(position, fv)
 	local stone = Winterblight:SpawnDungeonUnit("winterblight_toki_toki", position, 0, 2, "Winterblight.TokiToki.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 4, 4, false)
@@ -2765,6 +2779,251 @@ function Winterblight:AuroraPassage1(msg)
 	end)
 end
 
+function Winterblight:AuroraPassage2(msg)
+	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 290
+	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
+	Winterblight.AuroraPassage2Kills = 0
+
+	local chamber_id = msg.chamber
+	local unitsTable = {}
+	local portalPosTable = {Vector(-10383, 14500), Vector(-8659, 14209), Vector(-6616, 12914), Vector(-4966, 15267), Vector(-2546, 14971)}
+	for i = 1, #portalPosTable, 1 do
+		local groundPos = GetGroundPosition(portalPosTable[i], Events.GameMaster)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, groundPos, 500, 10, false)
+		local portalPFX = CustomAbilities:QuickParticleAtPoint("particles/econ/events/ti9/teleport_end_ti9.vpcf", groundPos, 0)
+		ParticleManager:SetParticleControl(portalPFX, 3, groundPos)
+		ParticleManager:SetParticleControl(portalPFX, 15, groundPos)
+		table.insert(Winterblight.CavernPFXs[chamber_id], portalPFX)
+	end
+	Winterblight:AuroraPassage2WaveRedirect(0)
+end
+
+function Winterblight:AuroraPassage2WaveRedirect(kills)
+	local chamber_id = 2
+	local spawnphase = Winterblight.CavernData.Chambers[chamber_id]["spawnphase"]
+	local portalPosTable = {Vector(-10383, 14500), Vector(-8659, 14209), Vector(-6616, 12914), Vector(-4966, 15267), Vector(-2546, 14971)}
+	if kills == 0 then
+		for k = 1, 6, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = Winterblight:SpawnGhostOfAurora(position, RandomVector(1))
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:AuroraPassage2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 27 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if i == 1 then
+							boar = Winterblight:SpawnStarSeeker(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnZodiacOracle(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:AuroraPassage2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 46 then
+		for k = 1, 8, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if i%2 == 0 then
+							boar = Winterblight:SpawnBoar(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnCavernBat(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:AuroraPassage2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 84 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if i == 1 then
+							boar = Winterblight:SpawnIceStealer(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnCavernBovaur(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:AuroraPassage2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 102 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if i == 1 then
+							boar = Winterblight:SpawnFrostOverwhelmer(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnFrostiok(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:AuroraPassage2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 121 then
+		for k = 1, 3, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if i == 1 then
+							boar = Winterblight:SpawnFrostOverwhelmer(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnZodiacOracle(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:AuroraPassage2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 135 then
+		for k = 1, 5, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if i <= 2 then
+							boar = Winterblight:SpawnIceStealer(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnDrillDigger(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:AuroraPassage2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 159 then
+		for k = 1, 6, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if i > 4 then
+							boar = Winterblight:SpawnServantOfSaturn(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnGhostOfAurora(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:AuroraPassage2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 188 then
+		for k = 1, 3, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if i == 1 then
+							boar = Winterblight:SpawnFrostOverwhelmer(position, RandomVector(1))
+						elseif i == 2 then
+							boar = Winterblight:SpawnServantOfSaturn(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnIceStealer(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:AuroraPassage2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 200 then
+		for k = 1, 6, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if i == 1 then
+							boar = Winterblight:SpawnIcixel(position, RandomVector(1))
+						elseif i == 2 then
+							boar = Winterblight:SpawnCrystalist(position, RandomVector(1))
+						elseif i == 3 then
+							boar = Winterblight:SpawnZectRider(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnWinterRunner(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:AuroraPassage2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 230 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = Winterblight:SpawnGiantSnowCrab(position, RandomVector(1))
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:AuroraPassage2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 250 then
+		for k = 1, 5, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if i == 1 then
+							boar = Winterblight:SpawnFrostOverwhelmer(position, RandomVector(1))
+						elseif i == 2 then
+							boar = Winterblight:SpawnServantOfSaturn(position, RandomVector(1))
+						elseif i == 3 then
+							boar = Winterblight:SpawnIceStealer(position, RandomVector(1))
+						elseif i == 4 then
+							boar = Winterblight:SpawnCavernBovaur(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnZodiacOracle(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:AuroraPassage2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	end
+end
+
 function Winterblight:SpawnGhostOfAurora(position, fv)
 	local stone = Winterblight:SpawnDungeonUnit("winterblight_ghost_of_aurora", position, 0, 2, "Winterblight.GhostOfAurora.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 4, 4, false)
@@ -2836,4 +3095,32 @@ function Winterblight:SpawnZodiacOracle(position, fv)
 	Winterblight:SetPositionCastArgs(stone, 1500, 300, 1, FIND_ANY_ORDER)
 	stone.position_cast_self = true
 	return stone
+end
+
+function Winterblight:CavernEventWinItemDrop(level, position)
+	local luck = RandomInt(1, 100)
+	local item_drops = 0
+	if luck < 10 then
+		item_drops = 1
+	elseif luck < 30 then
+		item_drops = RandomInt(1, 2)
+	elseif luck < 60 then
+		item_drops = RandomInt(1, 3)
+	elseif luck < 90 then
+		item_drops = RandomInt(1, 4)
+	else
+		item_drops = RandomInt(1, 6)
+	end
+	if level >= 10 then
+		item_drops = item_drops + RandomInt(0, 2)
+	end
+	if level >= 20 then
+		item_drops = item_drops + RandomInt(1, 4)
+	end
+	if level >= 30 then
+		item_drops = item_drops + RandomInt(1, 4)
+	end
+	for i = 1, item_drops, 1 do
+		RPCItems:RollItemtype(400, position, 5, 300)
+	end
 end

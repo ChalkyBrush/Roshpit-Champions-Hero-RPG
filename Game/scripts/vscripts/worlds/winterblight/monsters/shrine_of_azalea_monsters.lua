@@ -2739,7 +2739,7 @@ function starseeker_think(event)
 	local starcast = caster:FindAbilityByName("winterblight_star_prophecy")
 	if caster.aggro then
 		local casting = false
-		if starcast:IsFullyCastable() then
+		if IsValidEntity(starcast) and starcast:IsFullyCastable() then
 			local target_teams = DOTA_UNIT_TARGET_TEAM_ENEMY
 			local target_types = DOTA_UNIT_TARGET_HERO
 			local target_flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
