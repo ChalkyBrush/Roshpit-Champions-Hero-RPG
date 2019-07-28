@@ -96256,8 +96256,8 @@
             "model"     "models/custom_egg.vmdl"
         }
 
-        "ArmorPhysical" "3"
-        "MagicalResistance" "30"
+        "ArmorPhysical" "125"
+        "MagicalResistance" "90"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"       "particles/neutral_fx/thunderlizard_base_attack.vpcf"
         "ProjectileSpeed"       "1500"
@@ -96312,7 +96312,6 @@
         }
         "Ability1"  "dungeon_creep"
         "Ability2"  "winterblight_tanky"
-        "Ability3"  "winterblight_stun_regen"
 
     }
     

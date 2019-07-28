@@ -1905,10 +1905,30 @@ function thunderhide_egg_hit(event)
 			end)
 		end
 		local position = caster:GetAbsOrigin()+Vector(0,0,50)
-
+		local size = caster:GetModelScale()/3.3
 		Timers:CreateTimer(1.25, function()
 			if Winterblight:ShouldSpawnCaveUnit(caster.chamber, caster.spawnphase) then
 				local lizard = Winterblight:SpawnThunderhide(caster:GetAbsOrigin(), RandomVector(1), caster.colorVector)
+				local luck = RandomInt(1, 2)
+				if luck == 1 then
+					lizard:SetModel("models/creeps/neutral_creeps/n_creep_thunder_lizard/n_creep_thunder_lizard_small.vmdl")
+					lizard:SetOriginalModel("models/creeps/neutral_creeps/n_creep_thunder_lizard/n_creep_thunder_lizard_small.vmdl")
+				end
+				local ability_list = {"winterblight_stun_regen", "creature_pure_strike", "ability_mega_haste", "ability_magic_immune_break", "fire_temple_frenzy", "winterblight_ogre_armor", "seafortress_ghost_seal_ability", "ability_stun_immunity", "ability_unshakable", "winterblight_frostiok_passive", "winterblight_frost_colossus_passive", "winterblight_snowshaker_passive", "armor_break_ultra", "luna_taskmaster_shield", "ice_hulk_passive", "winterblight_armor_softening", "normal_steadfast", "mega_steadfast"}
+				lizard:SetModelScale(size)
+				lizard:SetHullRadius(size*55)
+				local ability_count = 1
+				if Winterblight.CavernData.Chambers[2]["level"] >= 20 then
+					ability_count = 2
+				end
+				if Winterblight.CavernData.Chambers[2]["level"] >= 30 then
+					ability_count = 3
+				end				
+				for i = 1, ability_count, 1 do
+					local ability_name_to_add = ability_list[RandomInt(1, #ability_list)]
+					local new_ability = lizard:AddAbility(ability_name_to_add)
+					new_ability:SetLevel(GameState:GetDifficultyFactor())
+				end
 				CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/frostvenom_grasp.vpcf", position, 4)
 				Dungeons:AggroUnit(lizard)
 				Winterblight:SetCavernUnit(lizard, lizard:GetAbsOrigin(), true, false, caster.chamber)
@@ -1921,6 +1941,9 @@ function thunderhide_egg_hit(event)
 				eggShell:SetModelScale(currentScale)
 				eggShell:SetRenderColor(caster.colorVector.x, caster.colorVector.y, caster.colorVector.z)
 				UTIL_Remove(caster)
+				Timers:CreateTimer(0.03, function()
+					FindClearSpaceForUnit(lizard, lizard:GetAbsOrigin(), false)
+				end)
 				Timers:CreateTimer(60, function()
 					UTIL_Remove(eggShell)
 				end)

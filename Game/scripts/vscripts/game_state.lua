@@ -576,7 +576,7 @@ function GameState:OrderFilter(orderTable)
 			return false
 		end
 		if GameState:IsWinterblight() then
-			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET and EntIndexToHScript(orderTable.entindex_target).prop_id == 2 then
+			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET and EntIndexToHScript(orderTable.entindex_target).prop_id and EntIndexToHScript(orderTable.entindex_target).prop_id == 2 then
 				unit.Attacking_a_Cup = true
 			else
 				unit.Attacking_a_Cup = false

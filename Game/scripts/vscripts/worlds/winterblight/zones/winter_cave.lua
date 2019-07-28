@@ -3129,9 +3129,9 @@ function Winterblight:SpawnThunderhideEgg(position, spawnphase, chamber)
 	local egg = CreateUnitByName("boulderspine_viper_egg", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
 	egg:SetOriginalModel("models/custom_egg.vmdl")
 	egg:SetModel("models/custom_egg.vmdl")
-	local modelScale = RandomInt(300, 400) / 100
+	local modelScale = RandomInt(350, 700) / 100
 	egg:SetModelScale(modelScale)
-	local colorVector = Vector(RandomInt(30, 100), RandomInt(100, 150), RandomInt(180, 255))
+	local colorVector = Vector(RandomInt(100, 255), RandomInt(100, 255), RandomInt(120, 255))
 	egg:SetRenderColor(colorVector.x, colorVector.y, colorVector.z)
 	egg.colorVector = colorVector
 	egg:SetForwardVector(RandomVector(1))
@@ -3141,6 +3141,7 @@ function Winterblight:SpawnThunderhideEgg(position, spawnphase, chamber)
 	egg.spawnphase = spawnphase
 	egg.SetHullRadius(64)
 	egg:SetAbsOrigin(egg:GetAbsOrigin()-Vector(0,0,20))
+	egg.size = modelScale
 	return egg
 end
 
@@ -3166,7 +3167,7 @@ function Winterblight:AuroraPassage3(msg)
 		Timers:CreateTimer(0.1*i, function()
 			local position = Winterblight:RandomAuroraPassagePos()
 			local egg = Winterblight:SpawnThunderhideEgg(position, spawnphase, chamber_id)
-			CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", egg:GetAbsOrigin(), 4)
+			CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", egg:GetAbsOrigin()+Vector(0,0,30), 4)
 			EmitSoundOn("Winterblight.GuideCaveIntro", egg)
 		end)
 	end
