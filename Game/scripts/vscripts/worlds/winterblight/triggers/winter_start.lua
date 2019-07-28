@@ -279,7 +279,12 @@ end
 
 function ForestZoneTrigger(trigger)
 	local hero = trigger.activator
-	Winterblight:InitWinterForest()
+	if hero.actual_game_hero then
+		if not Winterblight.ForestAreaInitialized then
+			Winterblight.ForestAreaInitialized = true
+			Winterblight:InitWinterForest()
+		end
+	end
 end
 
 function OutsideCaveTrigger(trigger)

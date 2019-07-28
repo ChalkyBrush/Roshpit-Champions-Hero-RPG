@@ -2345,9 +2345,9 @@ function Winterblight:AuroraPassage2SpawnEffect(unit)
 	local level = Winterblight.CavernData.Chambers[2]["level"]
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/portal_spawn.vpcf", unit:GetAbsOrigin()+Vector(0,0,60), 2.5)
 	EmitSoundOn("Winterblight.Foyer3.Spawn", unit)
-	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_crystarium_2_atk_power", {})
+	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_aurora_passage_2_ms_as", {})
 	local stacks = level
-	unit:SetModifierStackCount("modifier_crystarium_2_atk_power", Winterblight.Master, stacks)
+	unit:SetModifierStackCount("modifier_aurora_passage_2_ms_as", Winterblight.Master, stacks)
 	Dungeons:AggroUnit(unit)
 	unit:SetAcquisitionRange(8000)
 end
@@ -3123,4 +3123,82 @@ function Winterblight:CavernEventWinItemDrop(level, position)
 	for i = 1, item_drops, 1 do
 		RPCItems:RollItemtype(400, position, 5, 300)
 	end
+end
+
+function Winterblight:SpawnThunderhideEgg(position, spawnphase, chamber)
+	local egg = CreateUnitByName("boulderspine_viper_egg", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+	egg:SetOriginalModel("models/custom_egg.vmdl")
+	egg:SetModel("models/custom_egg.vmdl")
+	local modelScale = RandomInt(300, 400) / 100
+	egg:SetModelScale(modelScale)
+	local colorVector = Vector(RandomInt(30, 100), RandomInt(100, 150), RandomInt(180, 255))
+	egg:SetRenderColor(colorVector.x, colorVector.y, colorVector.z)
+	egg.colorVector = colorVector
+	egg:SetForwardVector(RandomVector(1))
+	egg:AddAbility("winterblight_thunderhide_egg_ability"):SetLevel(1)
+	egg.jumpLock = true
+	egg.chamber = chamber
+	egg.spawnphase = spawnphase
+	egg.SetHullRadius(64)
+	egg:SetAbsOrigin(egg:GetAbsOrigin()-Vector(0,0,20))
+	return egg
+end
+
+function Winterblight:SpawnThunderhide(position, fv, colorVector)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_cavern_thunderhide", position, 0, 2, "Winterblight.Thunderhide.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 55
+	stone:SetRenderColor(colorVector.x, colorVector.y, colorVector.z)
+	stone.dominion = true
+	Winterblight:SetPositionCastArgs(stone, 1500, 300, 1, FIND_ANY_ORDER)
+	stone.position_cast_self = true
+	return stone
+end
+
+function Winterblight:AuroraPassage3(msg)
+	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 100
+	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
+	Winterblight.Aurora3kills = 0
+	local chamber_id = msg.chamber
+
+	for i = 1, 100, 1 do
+		Timers:CreateTimer(0.1*i, function()
+			local position = Winterblight:RandomAuroraPassagePos()
+			local egg = Winterblight:SpawnThunderhideEgg(position, spawnphase, chamber_id)
+			CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", egg:GetAbsOrigin(), 4)
+			EmitSoundOn("Winterblight.GuideCaveIntro", egg)
+		end)
+	end
+end
+
+function Winterblight:RandomAuroraPassagePos()
+	local luck = RandomInt(1, 352)
+	local position = Vector(0,0)
+	if luck <= 279 then
+		local height = 3410
+		local width = 8190
+		local origin = Vector(-6976, 14476)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		position = bl_vertex + Vector(RandomInt(0, width), RandomInt(0, height))
+	elseif luck <= 287 then
+		local height = 1129
+		local width = 5650
+		local origin = Vector(-6125, 12268)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		position = bl_vertex + Vector(RandomInt(0, width), RandomInt(0, height))
+	elseif luck <= 297 then	
+		local height = 660
+		local width = 1437
+		local origin = Vector(-9678, 12469)
+		local bl_vertex = origin-Vector(width/2, height/2)	
+		position = bl_vertex + Vector(RandomInt(0, width), RandomInt(0, height))
+	else
+		local height = 4189
+		local width = 1280
+		local origin = Vector(-2816, 14401)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		position = bl_vertex + Vector(RandomInt(0, width), RandomInt(0, height))
+	end
+	return position
 end

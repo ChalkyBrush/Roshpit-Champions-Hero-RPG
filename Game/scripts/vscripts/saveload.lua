@@ -1639,7 +1639,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 							PlayerResource:ReplaceHeroWith(playerID, heroName, 0, 0)
 							Timers:CreateTimer(1, function()
 								local hero = GameState:GetHeroByPlayerID(playerID)
-
+								hero.actual_game_hero = true
 								-- hero = EntIndexToHScript(hero)
 								hero.muteMusic = msg.muteMusic
 							end)

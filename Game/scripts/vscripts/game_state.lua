@@ -537,6 +537,17 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 				end
 			end
 		end
+	elseif target:HasModifier("modifier_unshakable") then
+		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
+		if modifierGainedTable["entindex_ability_const"] then
+			local ability = target:FindModifierByName("ability_unshakable"):GetAbility()
+			if IsValidEntity(ability) then
+				local duration_modifier = ability:GetSpecialValueFor("modifier_duration_reduction")
+				if target == caster and modifierGainedTable["duration"] > 0 then
+					modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
+				end
+			end
+		end	
 	end
    return true
 end

@@ -19030,7 +19030,10 @@
 		"winterblight_cavern_room2_event1_description"				"The chamber is populated with non aggro mobs."
 
 		"winterblight_cavern_room2_event2"							"Dimensional Portals"
-		"winterblight_cavern_room2_event2_description"				"Waves of enemies spawn from dimensional portals. All creatures have +10% attack damage per level."
+		"winterblight_cavern_room2_event2_description"				"Waves of enemies spawn from dimensional portals. All creatures have +10% movespeed and 5 attack speed per level."
+
+		"winterblight_cavern_room2_event3"							"Thunderhide Throwdown"
+		"winterblight_cavern_room2_event3_description"				"Large Thunderhide eggs fill the chamber. Hatched eggs reveal ultra-tanky Thunderhides with random passive abilities."
 
 		"winterblight_cavern_room3_event1"							"Standard"
 		"winterblight_cavern_room3_event1_description"				"The chamber is populated with non aggro mobs."

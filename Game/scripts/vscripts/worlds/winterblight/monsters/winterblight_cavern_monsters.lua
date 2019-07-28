@@ -1884,3 +1884,47 @@ function aquarius_dome_dummy_end(event)
 	ParticleManager:DestroyParticle(target.pfx, false)
 	UTIL_Remove(target)
 end
+
+function thunderhide_egg_hit(event)
+	local caster = event.unit
+	if not caster.hatching then
+		EmitSoundOn("Winterblight.Thunderhide.EggHit", caster)
+		caster.hatching = true
+		local baseColorVector = caster.colorVector
+		for i = 1, 20, 1 do
+			Timers:CreateTimer(i * 0.06, function()
+				if i % 2 == 0 then
+					caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(i, i, 0))
+					CustomAbilities:QuickParticleAtPoint("particles/roshpit/draghor/shapeshift_effect_white_base.vpcf", caster:GetAbsOrigin(), 4)
+				else
+					caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(i, i, 0))
+				end
+				baseColorVector = baseColorVector - Vector(5,5,5)
+				caster:SetRenderColor(math.max(baseColorVector.x, 0), math.max(baseColorVector.y, 0), math.max(baseColorVector.z, 0))
+				
+			end)
+		end
+		local position = caster:GetAbsOrigin()+Vector(0,0,50)
+
+		Timers:CreateTimer(1.25, function()
+			if Winterblight:ShouldSpawnCaveUnit(caster.chamber, caster.spawnphase) then
+				local lizard = Winterblight:SpawnThunderhide(caster:GetAbsOrigin(), RandomVector(1), caster.colorVector)
+				CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/frostvenom_grasp.vpcf", position, 4)
+				Dungeons:AggroUnit(lizard)
+				Winterblight:SetCavernUnit(lizard, lizard:GetAbsOrigin(), true, false, caster.chamber)
+				EmitSoundOn("Winterblight.ThunderhideEgg.Hatch", caster)
+				local currentScale = caster:GetModelScale()
+				local eggShell = SpawnEntityFromTableSynchronous("prop_dynamic", {origin = caster:GetAbsOrigin()})
+				local randomIndex = RandomInt(1, 4)
+				local modelName = "models/props_winter/egg_shatter_0"..randomIndex..".vmdl"
+				eggShell:SetModel(modelName)
+				eggShell:SetModelScale(currentScale)
+				eggShell:SetRenderColor(caster.colorVector.x, caster.colorVector.y, caster.colorVector.z)
+				UTIL_Remove(caster)
+				Timers:CreateTimer(60, function()
+					UTIL_Remove(eggShell)
+				end)
+			end
+		end)
+	end
+end
