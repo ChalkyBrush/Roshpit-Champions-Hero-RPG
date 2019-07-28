@@ -12160,3 +12160,357 @@
 			}
 		}
 	}
+
+	"three_perceptions"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rpc/seven_visions"
+
+		"AbilityCastRange"	"700"
+		"AbilityCastPoint"	"0.85"
+		"AbilityCooldown"	"7.0"
+		"AbilityChannelTime"	"0.5"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityDamage"	"%damage"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          "-5"
+
+		"LevelsBetweenUpgrades"  "10"
+		"MaxLevel"				 "3"
+		"precache"
+		{
+			"particle" "particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_charge_iron.vpcf"
+			"particle" "particles/units/heroes/hero_spirit_breaker/spirit_breaker_nether_strike_begin.vpcf"
+		}
+
+		"AbilityManaCost"	"0"
+		"SideShop"	"1"
+		"OnAbilityPhaseStart"
+		{
+
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+			"FireSound"
+			{
+				"EffectName"	"Winterblight.Bovaur.ThreePerceptions.Start"
+				"Target"	"CASTER"
+			}
+
+		}
+		"OnSpellStart"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+				"Function"		"three_perceptions_start"
+				"attack_count"	"%attacks"
+				"damage"		"%bonus_damage"
+			}
+
+		}
+
+		"Modifiers"
+		{
+			"modifier_channel_start"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"	"particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_charge_iron.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+						}
+
+					}
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_spirit_breaker/spirit_breaker_nether_strike_begin.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "CASTER"
+					}
+				}
+			}
+			"modifier_three_perceptions_striking"
+			{
+				"IsBuff"	"1"
+				"IsHidden"	"0"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.47"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"three_perceptions_think"
+						"damage"		"%bonus_damage"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"three_perceptions_end"
+					}
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"IsHidden"	"1"
+						"EffectName"	"particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_charge_iron.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+						}
+
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"attacks"	"3 3 3"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"bonus_damage"	"7000 24000 100000"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"1.0"
+			}
+		}
+	}
+
+	"winterblight_gravekeeper"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rpc/gravekeepers_gauntlet" //"gravekeepers_gauntlet"
+		"MaxLevel"				 "3"
+		"precache"
+		{
+			"particle"  "particles/roshpit/items/gravekeeper_gauntlet_tgt.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_gravekeeper_ability"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"gravekeeper_attack"
+					}
+				}
+			}
+			"modifier_gravekeeper_gauntlet_buff"
+			{
+				"TextureName"	"visage_gravekeepers_cloak"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/roshpit/items/gravekeeper_gauntlet_tgt.vpcf"
+						"EffectAttachType"  "attach_origin"
+						"Target"            "TARGET"
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+						}
+					}
+				}
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "3"
+				}
+			}
+			"modifier_gravekeeper_gauntlet_target"
+			{
+				"TextureName"	"visage_gravekeepers_cloak"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/roshpit/items/gravekeeper_gauntlet_tgt.vpcf"
+						"EffectAttachType"  "attach_origin"
+						"Target"            "TARGET"
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+						}
+					}
+				}
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-3"
+				}
+			}
+		}
+	}
+
+	"winterblight_frost_overwhelming"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AOERadius"			"500 700 900"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winter_wyvern_cold_embrace"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"600 800 1000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_frost_overwhelming_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"trigger_frost_overhwhelming"
+						"radius"		"%radius"
+					}
+				}
+			}
+			"modifier_colossus_restore"
+			{
+				"IsHidden"	"0"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+				"StatusEffectPriority"  "120"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"15"
+				}
+			}
+		}
+
+	}
+
+	"winterblight_giant_snow_crab_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winter_wyvern_cold_embrace"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"Modifiers"
+		{
+			"modifier_giant_snow_crab_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"giant_snow_crab_init"
+					}
+				}
+				"ThinkInterval"  "30"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"giant_snow_crab_think"
+					}
+				}
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"giant_snow_crab_hit"
+					}
+				}
+			}
+			"modifier_giant_snow_crab_stacks"
+			{
+				"IsHidden"	"1"
+			}
+		}
+
+	}

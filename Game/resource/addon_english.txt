@@ -19026,6 +19026,9 @@
 		"winterblight_cavern_room1_event4"							"Merkurio's Crystal Clash"
 		"winterblight_cavern_room1_event4_description"				"5 Crystals buff all minions summoned by Merkurio. Damaging a crystal deactives it for 20 seconds."
 
+		"winterblight_cavern_room2_event1"							"Standard"
+		"winterblight_cavern_room2_event1_description"				"The chamber is populated with non aggro mobs."
+
 		"winterblight_cavern_room3_event1"							"Standard"
 		"winterblight_cavern_room3_event1_description"				"The chamber is populated with non aggro mobs."
 

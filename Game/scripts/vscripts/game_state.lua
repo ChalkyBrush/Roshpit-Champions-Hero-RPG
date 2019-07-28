@@ -4094,7 +4094,7 @@ function GameState:FilterDamage(filterTable)
 				if not victim:HasModifier("modifier_disable_player") then
 					-- if not victim:HasModifier("modifier_aeon_shield_passive") then
 						if filterTable["damage"] > 0 then
-							filterTable["damage"] = 9999999999
+							filterTable["damage"] = 1000000
 						end
 					-- end
 				end

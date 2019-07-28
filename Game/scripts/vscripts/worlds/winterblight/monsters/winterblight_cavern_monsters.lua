@@ -5,7 +5,7 @@ function gang_up_think(event)
 	local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
 	local stacks = 0
 	for i = 1, #allies, 1 do
-		local ally = allies[1]
+		local ally = allies[i]
 		if ally:HasAbility(ability:GetAbilityName()) then
 			stacks = stacks + 1
 		end
@@ -465,7 +465,7 @@ function winter_stampede_start(event)
 	local ability = event.ability
 	local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
 	for i = 1, #allies, 1 do
-		local ally = allies[1]
+		local ally = allies[i]
 		ability:ApplyDataDrivenModifier(caster, ally, "modifier_winter_centaur_stampede", {duration = event.duration})
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_spirit_breaker/spirit_breaker_haste_owner.vpcf", ally, 1)
 	end
@@ -1741,3 +1741,111 @@ function demented_mushroom_die(event)
 	end)
 end
 
+function three_perceptions_start(event)
+	local ability = event.ability
+	local attacks = event.attack_count
+	local caster = event.caster
+	local damage = event.damage
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_three_perceptions_striking", {duration = (attacks - 1) * 0.5})
+	three_perceptions_strike(caster, caster:GetAbsOrigin(), damage, ability)
+end
+
+function three_perceptions_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	three_perceptions_strike(caster, caster:GetAbsOrigin(), damage, ability)
+end
+
+function three_perceptions_strike(caster, position, damage, ability)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	local enemy = enemies[RandomInt(1, #enemies)]
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
+	if #enemies > 0 then
+		caster:SetAbsOrigin(enemy:GetAbsOrigin() + RandomVector(120))
+		local fv = (enemy:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
+		local casterPos = caster:GetAbsOrigin()
+		caster:SetForwardVector(fv)
+		EmitSoundOn("Winterblight.Bovaur.ThreePerceptions.Hit", caster)
+		StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_ATTACK, rate = 2.0})
+		Timers:CreateTimer(0.2, function()
+			caster:PerformAttack(enemy, true, true, true, true, false, false, false)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_GHOST, RPC_ELEMENT_NORMAL)
+			EmitSoundOn("Hero_Spirit_Breaker.GreaterBash", enemy)
+			enemy:AddNewModifier(caster, nil, "modifier_knockback", modifierKnockback)
+			local particleName = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
+			EmitSoundOn("Hero_Spirit_Breaker.Attack", caster)
+			EmitSoundOn("Hero_Spirit_Breaker.Attack", caster)
+			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, enemy)
+			ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
+			Timers:CreateTimer(0.8, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
+		end)
+	end
+end
+
+function three_perceptions_end(event)
+	local caster = event.caster
+	EmitSoundOn("Winterblight.Bovaur.ThreePerceptions.End", caster)
+	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+end
+
+function trigger_frost_overhwhelming(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:GetUnitName() == "winterblight_cavern_overwhelmer" then
+		EmitSoundOn("Winterblight.FrostOverwhelm.Die", caster)
+	end
+	local particleName = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+	local radius = event.radius
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
+	local origin = caster:GetAbsOrigin()
+	ParticleManager:SetParticleControl(particle1, 0, origin + Vector(0, 0, 20))
+	ParticleManager:SetParticleControl(particle1, 1, Vector(radius, 1, 1000))
+	ParticleManager:SetParticleControl(particle1, 3, Vector(500, 500, 500))
+	Timers:CreateTimer(3, function()
+		ParticleManager:DestroyParticle(particle1, false)
+	end)
+	local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
+	for i = 1, #allies, 1 do
+		local ally = allies[i]
+		ability:ApplyDataDrivenModifier(caster, ally, "modifier_colossus_restore", {duration = 7})
+		EmitSoundOn("Winterblight.Restore", ally)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_borealis.vpcf", ally, 6)
+	end
+	EmitSoundOn("Winterblight.Megmus.Ability", caster)
+end
+
+function giant_snow_crab_init(event)
+	local caster = event.caster
+	local ability = event.ability	
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_giant_snow_crab_stacks", {})
+	caster:SetModifierStackCount("modifier_giant_snow_crab_stacks", caster, 10)
+end
+
+function giant_snow_crab_think(event)
+	local caster = event.caster
+	local ability = event.ability	
+	caster:ApplyAndIncrementStack(ability, caster, "modifier_giant_snow_crab_stacks", 1, 0, 10)
+end
+
+function giant_snow_crab_hit(event)
+	local caster = event.caster
+	local ability = event.ability	
+	local current_stacks = caster:GetModifierStackCount("modifier_giant_snow_crab_stacks", caster)
+	if (caster:GetHealth()/caster:GetMaxHealth())*10 < current_stacks then
+		caster:SetModifierStackCount("modifier_giant_snow_crab_stacks", caster, current_stacks - 1)
+		EmitSoundOn("Winterblight.SpawnerSquish", caster)
+		for i = 1, 3, 1 do
+			local position = caster:GetAbsOrigin()
+			local zombie = Winterblight:SpawnSpawnerUnit(caster:GetAbsOrigin(), RandomVector(1), false, true)
+			zombie:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 100))
+			local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi * i / 3)
+			WallPhysics:Jump(zombie, fv, RandomInt(4, 16), RandomInt(10, 16), RandomInt(16, 24), 1)
+			zombie.jumpEnd = "crab_land"
+			EmitSoundOn("Winterblight.Crab.Spawn", zombie)
+			FindClearSpaceForUnit(zombie, zombie:GetAbsOrigin(), false)
+		end
+	end
+end
