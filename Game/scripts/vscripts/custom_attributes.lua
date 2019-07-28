@@ -1003,7 +1003,8 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	Events:TutorialServerEvent(unit, "1_3", 0)
 end
 
-CustomAttributes.MS_CAP_MODIFIERS = {modifier_arkimus_speed_dash = 1300,
+CustomAttributes.MS_CAP_MODIFIERS = {
+	modifier_arkimus_speed_dash = 1300,
 	modifier_axe_immortal_weapon_2_cap = 820,
 	modifier_chernobog_d_c_arcana2 = "modifier_chernobog_d_c_arcana2",
 	modifier_movespeed_cap_shadow_walk_1 = 550,
@@ -1032,6 +1033,14 @@ CustomAttributes.MS_CAP_MODIFIERS = {modifier_arkimus_speed_dash = 1300,
 function CustomAttributes:MSCap(unit)
 	local buffs = unit:FindAllModifiers()
 	local max_ms = 550
+	for _,modifier in pairs(buffs) do
+		if modifier['GetModifierMoveSpeed_Max'] then
+			local local_max_ms = modifier['GetModifierMoveSpeed_Max'](modifier, {})
+			if local_max_ms ~= nil then
+				max_ms = math.max(max_ms,local_max_ms)
+			end
+		end
+	end
 	for i = 1, #buffs, 1 do
 		local modifier = buffs[i]
 		local ms_cap_modifier = CustomAttributes.MS_CAP_MODIFIERS[modifier:GetName()]
