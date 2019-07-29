@@ -96254,6 +96254,7 @@
             "model"     "models/props_winter/egg_shatter_03.vmdl"
             "model"     "models/props_winter/egg_shatter_04.vmdl"
             "model"     "models/custom_egg.vmdl"
+            "model"     "models/creeps/neutral_creeps/n_creep_thunder_lizard/n_creep_thunder_lizard_small.vmdl"
         }
 
         "ArmorPhysical" "125"

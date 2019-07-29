@@ -3100,25 +3100,26 @@ end
 function Winterblight:CavernEventWinItemDrop(level, position)
 	local luck = RandomInt(1, 100)
 	local item_drops = 0
-	if luck < 10 then
-		item_drops = 1
-	elseif luck < 30 then
-		item_drops = RandomInt(1, 2)
-	elseif luck < 60 then
-		item_drops = RandomInt(1, 3)
-	elseif luck < 90 then
-		item_drops = RandomInt(1, 4)
-	else
-		item_drops = RandomInt(1, 6)
-	end
+	-- if luck < 10 then
+	-- 	item_drops = 1
+	-- elseif luck < 30 then
+	-- 	item_drops = RandomInt(1, 2)
+	-- elseif luck < 60 then
+	-- 	item_drops = RandomInt(1, 3)
+	-- elseif luck < 90 then
+	-- 	item_drops = RandomInt(1, 4)
+	-- else
+	-- 	item_drops = RandomInt(1, 6)
+	-- end
+	item_drops = item_drops + RandomInt(0, 2)
 	if level >= 10 then
 		item_drops = item_drops + RandomInt(0, 2)
 	end
 	if level >= 20 then
-		item_drops = item_drops + RandomInt(1, 4)
+		item_drops = item_drops + RandomInt(1, 2)
 	end
 	if level >= 30 then
-		item_drops = item_drops + RandomInt(1, 4)
+		item_drops = item_drops + RandomInt(1, 2)
 	end
 	for i = 1, item_drops, 1 do
 		RPCItems:RollItemtype(400, position, 5, 300)
@@ -3150,7 +3151,8 @@ function Winterblight:SpawnThunderhide(position, fv, colorVector)
 	Events:AdjustBossPower(stone, 4, 4, false)
 	stone.itemLevel = 55
 	stone:SetRenderColor(colorVector.x, colorVector.y, colorVector.z)
-	stone.dominion = true
+	-- stone.dominion = true
+	-- dominion too buggy on this unit
 	Winterblight:SetPositionCastArgs(stone, 1500, 300, 1, FIND_ANY_ORDER)
 	stone.position_cast_self = true
 	return stone
@@ -3160,7 +3162,6 @@ function Winterblight:AuroraPassage3(msg)
 	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
 	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 100
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
-	Winterblight.Aurora3kills = 0
 	local chamber_id = msg.chamber
 
 	for i = 1, 120, 1 do
@@ -3172,6 +3173,13 @@ function Winterblight:AuroraPassage3(msg)
 			table.insert(Winterblight.CavernUnits[chamber_id], egg)
 		end)
 	end
+end
+
+function Winterblight:AuroraPassage4(msg)
+	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 100
+	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
+	local chamber_id = msg.chamber
 end
 
 function Winterblight:RandomAuroraPassagePos()
