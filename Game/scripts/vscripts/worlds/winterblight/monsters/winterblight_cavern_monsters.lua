@@ -2046,13 +2046,20 @@ function aurora_boss_think(event)
 				Timers:CreateTimer(delay, function()
 					caster.castLock = false
 				end)
-			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT and #enemies > 0 then
+			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT then
+				local point = caster:GetAbsOrigin()
+				if #enemies > 0 then
+					point = enemies[1]:GetAbsOrigin()
+				end
+				if cast_ability:GetAbilityName() == "winterblight_dome_of_aquarius" then
+					point = caster:GetAbsOrigin()
+				end
 				local order =
 				{
 					UnitIndex = caster:entindex(),
 					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
 					AbilityIndex = cast_ability:entindex(),
-					Position = enemies[1]:GetAbsOrigin(),
+					Position = point,
 					Queue = true
 				}
 				caster:Stop()
