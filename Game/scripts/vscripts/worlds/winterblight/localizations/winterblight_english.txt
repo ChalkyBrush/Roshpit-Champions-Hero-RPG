@@ -776,6 +776,13 @@
 		"winterblight_cavern_room2_event3"							"Thunderhide Throwdown"
 		"winterblight_cavern_room2_event3_description"				"Large Thunderhide eggs fill the chamber. Hatched eggs reveal ultra-tanky Thunderhides with random passive abilities."
 
+		"winterblight_cavern_room2_event4"							"Raging Giants"
+		"winterblight_cavern_room2_event4_description"				"Osyrus, Gunnolf, and Sweebern patrol the chamber."
+
+		"winterblight_aurora_boss_1"								"Osyrus"
+		"winterblight_aurora_boss_2"								"Gunnolf"
+		"winterblight_aurora_boss_3"								"Sweebern"
+
 		"winterblight_cavern_room3_event1"							"Standard"
 		"winterblight_cavern_room3_event1_description"				"The chamber is populated with non aggro mobs."
 

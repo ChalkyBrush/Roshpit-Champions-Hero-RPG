@@ -12308,6 +12308,51 @@
 
 					}
 				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_heavy_boulder_pushback"
+						"Target" 		"TARGET"
+						"Duration"		"0.6"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"seal_slap_start"
+					}
+					"FireSound"
+					{
+						"EffectName"	"Winterblight.ThreePerceptions.Strike"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_heavy_boulder_pushback"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"ThinkInterval" 	"0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"heavy_boulder_pushback"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"Function"		"heavy_boulder_push_end"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"

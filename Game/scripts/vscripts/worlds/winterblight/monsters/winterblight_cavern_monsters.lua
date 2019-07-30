@@ -1761,11 +1761,17 @@ function three_perceptions_think(event)
 end
 
 function three_perceptions_strike(caster, position, damage, ability)
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	local radius = 900
+	if caster:GetUnitName() == "winterblight_aurora_boss_1" then
+		radius = 1800
+	end
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	local enemy = enemies[RandomInt(1, #enemies)]
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
 	if #enemies > 0 then
+		CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_lone_druid/lone_druid_loadout.vpcf", caster:GetAbsOrigin()+Vector(0,0,40), 3)
 		caster:SetAbsOrigin(enemy:GetAbsOrigin() + RandomVector(120))
+		CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_lone_druid/lone_druid_loadout.vpcf", caster:GetAbsOrigin()+Vector(0,0,40), 3)
 		local fv = (enemy:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
 		local casterPos = caster:GetAbsOrigin()
 		caster:SetForwardVector(fv)
@@ -1989,10 +1995,15 @@ function aurora_boss_think(event)
 		return false
 	end
 	if caster:IsChanneling() then
+		print("IS CHANNELING")
 		return false
 	end
 	for i = 1, #ability_list, 1 do
 		local cast_ability = caster:FindAbilityByName(ability_list[i])
+		if cast_ability:GetAbilityName() == "winterblight_dome_of_aquarius" and cast_ability:GetCooldownTimeRemaining() > 4 then
+			cast_ability:EndCooldown()
+			cast_ability:StartCooldown(4)
+		end
 		if cast_ability and cast_ability:IsFullyCastable() and caster.aggro then
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			local behavior = cast_ability:GetBehavior()
@@ -2006,9 +2017,13 @@ function aurora_boss_think(event)
 				}
 				caster:Stop()
 				ExecuteOrderFromTable(order)
-				local delay = cast_ability:GetCastPoint() + 0.3
+				local delay = cast_ability:GetCastPoint() + 1
 				if cast_ability:GetAbilityName() == "winterblight_spirit_ring" then
 					delay = 1.0
+				end
+				if cast_ability:GetAbilityName() =="three_perceptions" then
+					StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
+					delay = 1.5
 				end
 				caster.castLock = true
 				Timers:CreateTimer(delay, function()
@@ -2048,12 +2063,6 @@ function aurora_boss_think(event)
 				Timers:CreateTimer(delay, function()
 					caster.castLock = false
 				end)
-				if cast_ability:GetAbilityName() == "winterblight_dome_of_aquarius" then
-					local dome = cast_ability
-					Timers:CreateTimer(3.5, function()
-						dome:EndCooldown()
-					end)
-				end
 			end		
 		end
 	end
