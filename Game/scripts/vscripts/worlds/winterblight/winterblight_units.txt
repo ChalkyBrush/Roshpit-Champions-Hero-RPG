@@ -13022,3 +13022,83 @@
 
         }
     }
+
+    "winterblight_space_shark"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/nightstalker/nightstalker.vmdl"
+        "ModelScale"    "1.2"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "mountain_destroyer"
+        "DefaultState"  "Invade"
+        "SoundSet"      "Hero_NightStalker"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_nightstalker.vsndevts"
+        }
+        "DrawParticlesWhileHidden" "1"
+        "ArmorPhysical" "18"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "40000"
+        "AttackDamageMax"   "50000"
+        "AttackRate"    "0.3"
+        "AttackAnimationPoint"  "0.7"
+        "AttackAcquisitionRange"    "100"
+        "AttackRange"   "180"
+        "BountyGoldMin" "30"
+        "BountyGoldMax" "80"
+        "BountyXP" "2300"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "80"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "370"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "3800000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "50"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12280"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12284"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12283"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "12281"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "5087"
+                }
+            }
+        }
+        "Ability1"          "icicle_barrage"
+        "Ability2"          "normal_steadfast"
+        "Ability3"          "magic_immune_break"
+        "Ability4"          "dungeon_creep"
+    }
