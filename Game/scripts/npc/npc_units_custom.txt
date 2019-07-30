@@ -96315,6 +96315,213 @@
         "Ability2"  "winterblight_tanky"
 
     }
+
+    "winterblight_aurora_boss_1"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/ice_biome/ogreseal/ogreseal_undead.vmdl"
+        "ModelScale"    "2.75"
+        "Level" "1"
+        "SoundSet"       "Hero_Undying"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
+        }
+        "HealthBarOffset"   "170"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "ArmorPhysical" "15"
+        "MagicalResistance" "25"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "404000"
+        "AttackDamageMax"   "504000"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "100"
+        "AttackRange"   "350"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "950"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "420"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "6450000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "winterblight_aurora_4_boss_passive"
+        "Ability2"              "three_perceptions"
+        "Ability3"              "winterblight_spirit_ring"
+        "Ability4"              "winterblight_ice_vortex_aoe"
+        "Ability5"              "normal_steadfast"
+        "Ability6"              "dungeon_creep"  
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
+    "winterblight_aurora_boss_2"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/knoll_1/werewolf_boss.vmdl"
+        "ModelScale"    "4.25"
+        "Level" "1"
+        "SoundSet"                  "Hero_Bloodseeker"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
+        }
+        "HealthBarOffset"   "170"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "ArmorPhysical" "15"
+        "MagicalResistance" "25"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "404000"
+        "AttackDamageMax"   "504000"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "100"
+        "AttackRange"   "220"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "950"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "420"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "4950000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "winterblight_aurora_4_boss_passive"
+        "Ability2"              "winterblight_mountain_god_passive"
+        "Ability3"              "curse_of_belial"
+        "Ability4"              "winterblight_blood_might_passive"
+        "Ability5"              "ability_mega_haste"
+        "Ability6"              "mega_steadfast"
+        "Ability7"              "dungeon_creep"  
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
+    "winterblight_aurora_boss_3"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/ice_biome/giant/ice_giant01.vmdl"
+        "ModelScale"    "4.00"
+        "Level" "1"
+        "precache"
+        {
+
+        }
+        "SoundSet"              "hero_Crystal"
+        "HealthBarOffset"   "170"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "ArmorPhysical" "15"
+        "MagicalResistance" "25"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "404000"
+        "AttackDamageMax"   "504000"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "100"
+        "AttackRange"   "1050"
+        "ProjectileModel" "particles/econ/items/crystal_maiden/ti7_immortal_shoulder/cm_ti7_immortal_base_attack.vpcf"
+        "ProjectileSpeed"   "700"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "950"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "420"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "6150000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "winterblight_aurora_4_boss_passive"
+        "Ability2"              "icicle_barrage"
+        "Ability3"              "winterblight_dome_of_aquarius"
+        "Ability4"              "creature_pure_strike"
+        "Ability5"              "mega_steadfast"
+        "Ability6"              "dungeon_creep"  
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
     
 
     "tutorial_master"

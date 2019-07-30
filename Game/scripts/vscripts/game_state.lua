@@ -3285,6 +3285,9 @@ function GameState:FilterDamage(filterTable)
 		if victim:HasModifier("modifier_merkurio_crystal_blue") then
 			filterTable["damage"] =	filterTable["damage"]*0.1
 		end
+		if victim:HasModifier("modifier_aurora_4_boss_passive") then
+			filterTable["damage"] =	filterTable["damage"]*0.01
+		end
 		filterTable["damage"] = filterTable["damage"]*reduction
 		local allowed_player = EntIndexToHScript(Winterblight.CavernData.Chambers[victim.chamber]["hero"]):GetPlayerOwnerID()
 		if attacker:GetPlayerOwnerID() ~= allowed_player then

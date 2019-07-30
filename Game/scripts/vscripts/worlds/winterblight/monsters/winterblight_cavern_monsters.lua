@@ -1951,3 +1951,110 @@ function thunderhide_egg_hit(event)
 		end)
 	end
 end
+
+function aurora_boss_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local ability_list = {}
+	if caster:GetUnitName() == "winterblight_aurora_boss_1" then
+		ability_list = {"three_perceptions", "winterblight_ice_vortex_aoe", "winterblight_spirit_ring"}
+		if not caster.lastPos then
+			caster.lastPos = caster:GetAbsOrigin()
+		end
+		if not caster.interval then
+			caster.interval = 0
+		end
+		local interval_mod = 3
+		if not caster.aggro then
+			interval_mod = 4
+		end
+		if WallPhysics:GetDistance2d(caster.lastPos, caster:GetAbsOrigin()) > 30 and caster.interval%interval_mod == 0 then
+            local pfx = ParticleManager:CreateParticle("particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+            ParticleManager:SetParticleControl(pfx, 0, GetGroundPosition(caster:GetAbsOrigin(), caster))
+            ParticleManager:SetParticleControl(pfx, 1, Vector(200, 200, 200))
+            Timers:CreateTimer(2, function()
+              ParticleManager:DestroyParticle(pfx, false)
+            end)			
+            EmitSoundOn("Winterblight.AuroraBosses.1.Moving", caster)
+            ScreenShake(caster:GetAbsOrigin(), 160, 0.3, 0.3, 2000, 0, true)
+		end
+		caster.interval = caster.interval + 1
+		caster.lastPos = caster:GetAbsOrigin()
+	elseif caster:GetUnitName() == "winterblight_aurora_boss_2" then
+		ability_list = {"curse_of_belial"}
+	elseif caster:GetUnitName() == "winterblight_aurora_boss_3" then
+		ability_list = {"winterblight_dome_of_aquarius", "icicle_barrage"}
+	end
+	if caster.castLock then
+		return false
+	end
+	if caster:IsChanneling() then
+		return false
+	end
+	for i = 1, #ability_list, 1 do
+		local cast_ability = caster:FindAbilityByName(ability_list[i])
+		if cast_ability and cast_ability:IsFullyCastable() and caster.aggro then
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			local behavior = cast_ability:GetBehavior()
+			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
+				local order =
+				{
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+					AbilityIndex = cast_ability:entindex(),
+					Queue = true
+				}
+				caster:Stop()
+				ExecuteOrderFromTable(order)
+				local delay = cast_ability:GetCastPoint() + 0.3
+				if cast_ability:GetAbilityName() == "winterblight_spirit_ring" then
+					delay = 1.0
+				end
+				caster.castLock = true
+				Timers:CreateTimer(delay, function()
+					caster.castLock = false
+				end)
+				--print("IN HERE")
+			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET and #enemies > 0 then
+				local order = {
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+					TargetIndex = enemies[1]:entindex(),
+					AbilityIndex = cast_ability:entindex(),
+					Queue = true
+				}
+				caster:Stop()
+				ExecuteOrderFromTable(order)
+
+				local delay = cast_ability:GetCastPoint() + 0.3
+				caster.castLock = true
+				Timers:CreateTimer(delay, function()
+					caster.castLock = false
+				end)
+			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT and #enemies > 0 then
+				local order =
+				{
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = cast_ability:entindex(),
+					Position = enemies[1]:GetAbsOrigin(),
+					Queue = true
+				}
+				caster:Stop()
+				ExecuteOrderFromTable(order)
+
+				local delay = cast_ability:GetCastPoint() + 0.3
+				caster.castLock = true
+				Timers:CreateTimer(delay, function()
+					caster.castLock = false
+				end)
+				if cast_ability:GetAbilityName() == "winterblight_dome_of_aquarius" then
+					local dome = cast_ability
+					Timers:CreateTimer(3.5, function()
+						dome:EndCooldown()
+					end)
+				end
+			end		
+		end
+	end
+end

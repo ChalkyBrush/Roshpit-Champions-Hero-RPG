@@ -3177,9 +3177,29 @@ end
 
 function Winterblight:AuroraPassage4(msg)
 	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
-	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 100
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 3
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local chamber_id = msg.chamber
+	local positionTable = {Vector(-3840, 15104), Vector(-7040, 12800), Vector(-10368, 15104)}
+	local boss_names = {"winterblight_aurora_boss_1", "winterblight_aurora_boss_2", "winterblight_aurora_boss_3"}
+    for i = 1, #positionTable, 1 do
+      Timers:CreateTimer(i*1.2, function()
+        local patrolPositionTable = {}
+        for j = 1, #positionTable, 1 do
+          local index = i + j
+          if index > #positionTable then
+            index = index - #positionTable
+          end
+          table.insert(patrolPositionTable, positionTable[index])
+        end
+      	if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+            local elemental = Winterblight:SpawnAuroraBoss(boss_names[i], positionTable[i], RandomVector(1))
+            Winterblight:AddPatrolArguments(elemental, 22, 10, 220, patrolPositionTable)
+            Winterblight:SetCavernUnit(elemental, elemental:GetAbsOrigin(), true, true, chamber_id)
+        end
+      end)
+    end
+	
 end
 
 function Winterblight:RandomAuroraPassagePos()
@@ -3211,4 +3231,23 @@ function Winterblight:RandomAuroraPassagePos()
 		position = bl_vertex + Vector(RandomInt(0, width), RandomInt(0, height))
 	end
 	return position
+end
+
+function Winterblight:SpawnAuroraBoss(unit_name, position, fv)
+	local aggro_sound = nil
+	if unit_name == "winterblight_aurora_boss_1" then
+		aggro_sound = "Winterblight.AuroraBosses.1.Aggro"
+	elseif unit_name == "winterblight_aurora_boss_2" then
+		aggro_sound = "Winterblight.AuroraBosses.2.Aggro"
+	elseif unit_name == "winterblight_aurora_boss_3" then
+		aggro_sound = "Winterblight.AuroraBosses.3.Aggro"
+	end
+	local stone = Winterblight:SpawnDungeonUnit(unit_name, position, 1, 2, aggro_sound, fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 75
+	stone:SetRenderColor(170, 200, 255)
+	stone.pushLock = true
+	stone.jumpLock = true
+	stone:SetHullRadius(190)
+	return stone
 end
