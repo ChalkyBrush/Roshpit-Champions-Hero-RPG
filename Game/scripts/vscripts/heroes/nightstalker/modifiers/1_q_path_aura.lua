@@ -15,6 +15,9 @@ function class:IsHidden()
 end
 function class:OnCreated()
     local target = self:GetParent()
+    if not IsServer() then
+        return
+    end
     self.particle = ParticleManager:CreateParticle("particles/roshpit/chernobog/charon_ground.vpcf", PATTACH_POINT_FOLLOW, target)
 
     --ParticleManager:SetParticleControlEnt(self.particle, 0, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)

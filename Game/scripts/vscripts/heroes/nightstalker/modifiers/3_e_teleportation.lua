@@ -1,11 +1,11 @@
 require('/npc_abilities/base_modifier')
 require('heroes/nightstalker/chernobog_constants')
-modifier_chernobog_1_e_teleportation = class(npc_base_modifier, nil, npc_base_modifier)
-local class = modifier_chernobog_1_e_teleportation
+modifier_chernobog_3_e_teleportation = class(npc_base_modifier, nil, npc_base_modifier)
+local class = modifier_chernobog_3_e_teleportation
 
 local modifiers = {
-    cooldown = 'modifier_chernobog_1_e_teleportation_cooldown',
-    enemyEffectE3 = 'modifier_chernobog_1_e_teleportation_enemy_effect_e3'
+    cooldown = 'modifier_chernobog_3_e_teleportation_cooldown',
+    enemyEffectE3 = 'modifier_chernobog_3_e_teleportation_enemy_effect_e3'
 }
 
 function class:IsDebuff()
@@ -38,7 +38,7 @@ function class:GetMaxDistance()
     if not self.baseDistance then
         self.baseDistance = self:GetAbility():GetSpecialValueFor('range')
     end
-    return self.baseDistance + CHERNOBOG_E3_DISTANCE * self:GetAbility().e3_level
+    return self.baseDistance + CHERNOBOG_E3_DISTANCE * self:GetCaster().e3_level
 end
 function class:OnIntervalThink()
     local caster = self.caster
@@ -53,6 +53,9 @@ function class:OnIntervalThink()
     end
 end
 function class:OnOrderFilter(data)
+    if not IsServer() then
+        return
+    end
     if not self.caster then
         return
     end
@@ -158,8 +161,8 @@ end
 function class:ApplyE3Debuff(target, position)
     local parent = self.caster
     local ability = self:GetAbility()
-    if ability.e3_level == nil
-            or ability.e3_level == 0
+    if parent.e3_level == nil
+            or parent.e3_level == 0
             or not parent
             or not parent['AddNewModifier']
             or not parent['HasModifier']

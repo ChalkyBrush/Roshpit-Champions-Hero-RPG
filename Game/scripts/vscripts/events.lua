@@ -2,7 +2,6 @@
 -- Do not remove the GameMode:_Function calls in these events as it will mess with the internal barebones systems.
 
 -- Cleanup a player when they leave
-
 require('runes')
 require('beacons')
 require('wallPhysics')
@@ -1188,6 +1187,10 @@ function Events:ChangeRuneState(msg)
 		else
 			ability:SetActivated(true)
 		end
+		local letter, tier = ability:GetName():match(".*_rune_(.)_(.)$")
+		if letter ~= nil and tier ~= nil then
+			Runes:OnRuneCountUpdate(unit, letter, tier)
+		end
 		Events:TutorialServerEvent(unit, "2_1", 2)
 	end
 	CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId = playerid})
@@ -1353,6 +1356,14 @@ function Events:SetupHeroes(heroEntity)
 	heroEntity.crystalsPickedUp = 0
 	heroEntity.crystalsToSave = 0
 	heroEntity.baseAttackCapability = heroEntity:GetAttackCapability()
+
+	local letters = {'q','w','e','r' }
+	for _,letter in pairs(letters) do
+		for tier = 1,4 do
+			heroEntity[letter .. tier .. '_level'] = 0
+		end
+	end
+
 	--print(heroEntity:GetUnitName())
 	Timers:CreateTimer(14, function()
 		if Events.HEROKV then

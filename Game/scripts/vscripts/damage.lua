@@ -17,7 +17,7 @@ function Damage:checkForbiddenEventUntilFinish(eventPreffix, eventType)
     }
 end
 
--- data{ attacker, victim, damage, damageType, elements, sourceType, source, ignoreSteadfast, augmented }
+-- data{ attacker, isFake, victim, damage, damageType, elements, sourceType, source, ignoreSteadfast, augmented }
 function Damage:Calculate(data)
     local attackerBuffs, attackerDebuffs = Util.Creature:GetBuffsAndDebuffs(data.attacker, npc_base_modifier)
     local victimBuffs, victimDebuffs = Util.Creature:GetBuffsAndDebuffs(data.victim, npc_base_modifier)
@@ -31,7 +31,7 @@ function Damage:Calculate(data)
         return 0
     end
 
-    if data.dot then
+    if data.isDot then
         data.damage = self:GetWithDot('Increase', attackerBuffs, victimDebuffs, data)
         data.damage = self:GetWithDot('Decrease', attackerDebuffs, victimBuffs, data)
         data.damage = self:GetWithDot('Amplify', attackerBuffs, victimDebuffs, data)
@@ -108,7 +108,7 @@ function Damage:Calculate(data)
 
     return data.damage
 end
--- data{ attacker, victim, damage, damageType, elements, sourceType, source, ignoreSteadfast }
+-- data{ attacker, isFake, victim, damage, damageType, elements, sourceType, source, ignoreSteadfast }
 function Damage:Apply(data)
     -- check data
     if not data.victim or not data.attacker then
@@ -118,7 +118,7 @@ function Damage:Apply(data)
         error('damage or damage type missed')
     end
 
-    if not data.sourceType then
+    if data.sourceType == nil then
         error('source type missed')
     end
     if data.elements == nil then
@@ -131,7 +131,9 @@ function Damage:Apply(data)
     local element1 = data.elements[1] or RPC_ELEMENT_NONE
     local element2 = data.elements[2] or RPC_ELEMENT_NONE
 
-    if data.dot then
+    if data.sourceType == BASE_ITEM then
+        Filters:ApplyItemDamage(data.victim, data.attacker, data.damage, data.damageType, data.source, element1, element2)
+    elseif data.isDot then
         if not data.source then
             error('dot damage can be applied only with source')
         end
@@ -176,208 +178,241 @@ local filter = function(modifiers, specialTypes)
     end, modifiers)
 end
 
-local getMethods = function(type, initialName)
-    if type == 'Amplify' then
-        return {
-            Get = function(modifier, data, mult)
-                local method = 'Get' .. initialName
-                if  modifier[method] == nil then
-                    return mult
-                end
-                local result = modifier[method](modifier, data)
-                if result ~= nil then
-                    return mult + result
-                end
-            end,
-            GetMultAfter = function(modifier, data, mult)
-                local method = 'GetMultAfter' .. initialName
-                if  modifier[method] == nil then
-                    return mult
-                end
-                local result = modifier[method](modifier, data, mult)
-                if result ~= nil then
-                    return result
-                end
-            end,
-            OnTry = function(modifier, data, mult)
-                local method = 'OnTry' .. initialName
-                if mult == 1 then
-                    return
-                end
-                if  modifier[method] == nil then
-                    return
-                end
-                modifier[method](modifier, data, mult)
-            end,
 
-        }
-    elseif type == 'Reduce' then
-        return {
-            Get = function(modifier, data, mult)
-                local method = 'Get' .. initialName
-                if  modifier[method] == nil then
-                    return mult
-                end
-                local result = modifier[method](modifier, data)
-                if result ~= nil then
-                    return (1 - result) * mult
-                end
-            end,
-            GetMultAfter = function(modifier, data, mult)
-                local method = 'GetMultAfter' .. initialName
-                if  modifier[method] == nil then
-                    return mult
-                end
-                local result = modifier[method](modifier, data, mult)
-                if result ~= nil then
-                    return result
-                end
-            end,
-            OnTry = function(modifier, data, mult)
-                local method = 'OnTry' .. initialName
-                if mult == 1 then
-                    return
-                end
-                if  modifier[method] == nil then
-                    return
-                end
-                modifier[method](modifier, data, mult)
-            end,
+    local getMethods = function(type, initialName)
+        if type == 'Amplify' then
+            return {
+                Get = function(modifier, data, mult)
+                    local method = 'Get' .. initialName
+                    if  modifier[method] == nil then
+                        return mult
+                    end
+                    local result = modifier[method](modifier, data)
+                    if result ~= nil then
+                        return mult + result
+                    end
+                end,
+                GetMultAfter = function(modifier, data, mult)
+                    local method = 'GetMultAfter' .. initialName
+                    if  modifier[method] == nil then
+                        return mult
+                    end
+                    local result = modifier[method](modifier, data, mult)
+                    if result ~= nil then
+                        return result
+                    end
+                end,
+                OnTry = function(modifier, data, mult)
+                    local method = 'OnTry' .. initialName
+                    if mult == 1 then
+                        return
+                    end
+                    if  modifier[method] == nil then
+                        return
+                    end
+                    modifier[method](modifier, data, mult)
+                end,
 
+            }
+        elseif type == 'Reduce' then
+            return {
+                Get = function(modifier, data, mult)
+                    local method = 'Get' .. initialName
+                    if  modifier[method] == nil then
+                        return mult
+                    end
+                    local result = modifier[method](modifier, data)
+                    if result ~= nil then
+                        return (1 - result) * mult
+                    end
+                end,
+                GetMultAfter = function(modifier, data, mult)
+                    local method = 'GetMultAfter' .. initialName
+                    if  modifier[method] == nil then
+                        return mult
+                    end
+                    local result = modifier[method](modifier, data, mult)
+                    if result ~= nil then
+                        return result
+                    end
+                end,
+                OnTry = function(modifier, data, mult)
+                    local method = 'OnTry' .. initialName
+                    if mult == 1 then
+                        return
+                    end
+                    if  modifier[method] == nil then
+                        return
+                    end
+                    modifier[method](modifier, data, mult)
+                end,
+
+            }
+        elseif type == 'Increase' then
+            return {
+                Get = function(modifier, data, mult)
+                    local method = 'Get' .. initialName
+                    if  modifier[method] == nil then
+                        return mult
+                    end
+                    local result = modifier[method](modifier, data)
+                    if result ~= nil then
+                        return mult + result
+                    end
+                end,
+                GetMultAfter = function(modifier, data, mult)
+                    local method = 'GetMultAfter' .. initialName
+                    if  modifier[method] == nil then
+                        return mult
+                    end
+                    local result = modifier[method](modifier, data, mult)
+                    if result ~= nil then
+                        return result
+                    end
+                end,
+                OnTry = function(modifier, data, mult)
+                    local method = 'OnTry' .. initialName
+                    if mult == 0 then
+                        return
+                    end
+                    if  modifier[method] == nil then
+                        return
+                    end
+                    modifier[method](modifier, data, mult)
+                end,
+            }
+        elseif type == 'Decrease' then
+            return {
+                Get = function(modifier, data, mult)
+                    local method = 'Get' .. initialName
+                    if  modifier[method] == nil then
+                        return mult
+                    end
+                    local result = modifier[method](modifier, data)
+                    if result ~= nil then
+                        return -mult + result
+                    end
+                end,
+                GetMultAfter = function(modifier, data, mult)
+                    local method = 'GetMultAfter' .. initialName
+                    if  modifier[method] == nil then
+                        return -mult
+                    end
+                    local result = modifier[method](modifier, data, -mult)
+                    if result ~= nil then
+                        return result
+                    end
+                end,
+                OnTry = function(modifier, data, mult)
+                    local method = 'OnTry' .. initialName
+                    if mult == 0 then
+                        return
+                    end
+                    if  modifier[method] == nil then
+                        return
+                    end
+                    modifier[method](modifier, data, mult)
+                end,
+            }
+        end
+
+    end
+    local mergeStrategies
+    local getMergeStrategy = function(type)
+        mergeStrategies = mergeStrategies or {
+            Add = function(mult, localMult)
+                return mult + localMult - 1
+            end,
+            Multiply = function(mult, localMult)
+                return mult * localMult
+            end,
+            DecreaseAndIncrease = function(mult, localMult)
+                return mult + localMult - 1
+            end,
+            Min = function(mult, localMult)
+                return math.min(mult, localMult)
+            end
         }
-    elseif type == 'Increase' then
-        return {
-            Get = function(modifier, data, mult)
-                local method = 'Get' .. initialName
-                if  modifier[method] == nil then
-                    return mult
-                end
-                local result = modifier[method](modifier, data)
-                if result ~= nil then
-                    return mult + result
-                end
-            end,
-            GetMultAfter = function(modifier, data, mult)
-                local method = 'GetMultAfter' .. initialName
-                if  modifier[method] == nil then
-                    return mult
-                end
-                local result = modifier[method](modifier, data, mult)
-                if result ~= nil then
-                    return result
-                end
-            end,
-            OnTry = function(modifier, data, mult)
-                local method = 'OnTry' .. initialName
-                if mult == 0 then
-                    return
-                end
-                if  modifier[method] == nil then
-                    return
-                end
-                modifier[method](modifier, data, mult)
-            end,
-        }
-    elseif type == 'Decrease' then
-        return {
-            Get = function(modifier, data, mult)
-                local method = 'Get' .. initialName
-                if  modifier[method] == nil then
-                    return mult
-                end
-                local result = modifier[method](modifier, data)
-                if result ~= nil then
-                    return -mult + result
-                end
-            end,
-            GetMultAfter = function(modifier, data, mult)
-                local method = 'GetMultAfter' .. initialName
-                if  modifier[method] == nil then
-                    return -mult
-                end
-                local result = modifier[method](modifier, data, -mult)
-                if result ~= nil then
-                    return result
-                end
-            end,
-            OnTry = function(modifier, data, mult)
-                local method = 'OnTry' .. initialName
-                if mult == 0 then
-                    return
-                end
-                if  modifier[method] == nil then
-                    return
-                end
-                modifier[method](modifier, data, mult)
-            end,
-        }
+        return mergeStrategies[type]
     end
 
-end
--- hard to understand and lazy for document function
-function Damage:StandardTemplateWith(type, template)
-    return function(modifiersPart1, modifiersPart2, data)
-        local modifierGroups = { modifiersPart1, modifiersPart2 }
-        local mult = 1
-        if (({Increase = true, Decrease = true})[type]) then
-            mult = 0
+    -- {modifiersPart1, modifiersPart2, template, type, specialTypes:nil, mult:nil, }
+    local function calcTypeDamageFromTemplate(data)
+        local getMethods = data.methodsFunc or getMethods
+        local mergeStrategyType = data.mergeStrategyType or nil
+        local type = data.type
+
+        if mergeStrategyType == nil then
+            if type == 'Amplify' then
+                mergeStrategyType = 'Add'
+            elseif type == 'Reduce' then
+                mergeStrategyType = 'Multiply'
+            elseif type == 'Decrease' or type == 'Increase' then
+                mergeStrategyType = 'DecreaseAndIncrease'
+            end
+
         end
-        for _,part in pairs(template) do
-            if part.isActive(data) then
-                local modifiersPart1 = modifiersPart1
-                local modifiersPart2 = modifiersPart2
-                if part.specialTypes ~= nil then
-                    modifiersPart1, modifiersPart2 = filter(modifiersPart1, part.specialTypes), filter(modifiersPart2, part.specialTypes)
+
+        local mergeStrategy = data.mergeStrategy or getMergeStrategy(mergeStrategyType)
+        local template = data.template
+        local baseMult = data.mult
+        return function (modifiersPart1, modifiersPart2, damageData)
+            local mult = baseMult
+            local childrenAfterMethod = data.childrenAfterMethod or 'Get'
+            if mult == nil then
+                mult = 1
+                if (({Increase = true, Decrease = true})[type]) then
+                    mult = 0
                 end
-                local methodsInfo = getMethods(type, part.name)
-                for methodName, method in pairs(methodsInfo) do
-                    for _,modifiers in pairs(modifierGroups) do
-                        for _,modifier in pairs(modifiers) do
-                            local result = method(modifier, data, mult)
-                            if result ~=nil then
-                                mult = result
+            end
+            local baseMult = mult
+            mult = nil
+            for _,damageTypeInfo in pairs(template) do
+                if damageTypeInfo.isActive(damageData) then
+                    local localMult = damageTypeInfo.mult or baseMult
+                    local modifiersPart1,modifiersPart2 = modifiersPart1,modifiersPart2
+
+                    if damageTypeInfo.specialTypes ~= nil then
+                        modifiersPart1, modifiersPart2 = filter(modifiersPart1, damageTypeInfo.specialTypes), filter(modifiersPart2, damageTypeInfo.specialTypes)
+                    end
+                    local modifierGroups = { modifiersPart1, modifiersPart2 }
+                    local allowedMethods = getMethods(type, damageTypeInfo.name)
+
+                    for methodName,method in pairs(allowedMethods) do
+                        for _,modifiers in pairs(modifierGroups) do
+                            for _,modifier in pairs(modifiers) do
+                                local result = method(modifier, damageData, localMult)
+                                if result ~=nil then
+                                    localMult = result
+                                end
                             end
+                        end
+                        if damageTypeInfo.children ~= nil and methodName == childrenAfterMethod then
+                            localMult = calcTypeDamageFromTemplate({
+                                type = type,
+                                mult = localMult,
+                                template = damageTypeInfo.children,
+                                getMethods = getMethods,
+                                mergeStrategy = damageTypeInfo.mergeStrategy or mergeStrategy,
+                                childrenAfterMethod = damageTypeInfo.childrenAfterMethod
+                            })(modifiersPart1, modifiersPart2, damageData)/damageData.damage
                         end
                     end
-                    if part.children ~= nil then
-                        local childMultsSum = 0
-                        local haveActiveChild = false
-                        for _,child in pairs(part.children) do
-                            if child.isActive(data) then
-                                haveActiveChild = true
-                                local childMult = mult
-                                local modifiersPart1 = modifiersPart1
-                                local modifiersPart2 = modifiersPart2
-                                if part.specialTypes ~= nil then
-                                    modifiersPart1, modifiersPart2 = filter(modifiersPart1, part.specialTypes), filter(modifiersPart2, part.specialTypes)
-                                end
-                                local method = getMethods(type, child.name)[methodName]
-
-                                for _,modifiers in pairs({modifiersPart1, modifiersPart2}) do
-                                    for _,modifier in pairs(modifiers) do
-                                        local result = method(modifier, data, mult)
-                                        if result ~=nil then
-                                            childMult = result
-                                        end
-                                    end
-                                end
-                                childMultsSum = childMultsSum + childMult
-                            end
-                        end
-                        if haveActiveChild then
-                            mult = childMultsSum
-                        end
+                    if mult == nil then
+                        mult = localMult
+                    else
+                        mult = mergeStrategy(mult, localMult)
                     end
                 end
             end
-        end
-        if (({Amplify = true, Reduce = true})[type]) then
-            return data.damage * mult
-        elseif (({Increase = true, Decrease = true})[type]) then
-            return math.max(data.damage + mult, 0)
+            if mult == nil then
+                mult = baseMult
+            end
+
+            return mult * damageData.damage
         end
     end
-end
+
 
 
 function Damage:GetWithSource(type, attackerBuffs, victimDebuffs, data)
@@ -398,22 +433,30 @@ function Damage:GetWithSource(type, attackerBuffs, victimDebuffs, data)
                 name = ability .. type,
             })
         end
-
-        self._getWithSource[type] = self:StandardTemplateWith(type, {
-            {
-                isActive = function(data)
-                    return data.sourceType == BASE_ITEM
-                end,
-                name = 'Item' .. type,
-                specialTypes = { MODIFIER_SPECIAL_TYPE_ITEMS },
-            },
-            {
-                isActive = function(data)
-                    return sourceTypeBaseAbility[data.sourceType]
-                end,
-                name = 'Abilities' .. type,
-                specialTypes = { MODIFIER_SPECIAL_TYPE_ABILITIES },
-                children = abilitiesChildren
+        local type = data.type
+        local mult = data.mult
+        local template = data.template
+        local damageData = data.data
+        local modifiersPart1 = data.modifiersPart1
+        local modifiersPart2 = data.modifiersPart2
+        self._getWithSource[type] = calcTypeDamageFromTemplate({
+            type = type,
+            template = {
+                {
+                    isActive = function(data)
+                        return data.sourceType == BASE_ITEM
+                    end,
+                    name = 'Item' .. type,
+                    specialTypes = { MODIFIER_SPECIAL_TYPE_ITEMS },
+                },
+                {
+                    isActive = function(data)
+                        return sourceTypeBaseAbility[data.sourceType]
+                    end,
+                    name = 'Abilities' .. type,
+                    specialTypes = { MODIFIER_SPECIAL_TYPE_ABILITIES },
+                    children = abilitiesChildren
+                }
             }
         })
     end
@@ -422,7 +465,7 @@ end
 
 function Damage:GetWithElement(type, attackerBuffs, victimDebuffs, data)
     self._getWithElement = self._getWithElement or {}
-    if self._getWithElement[type] == nil then
+    if true then
         local children = {}
         for elementId, elementName in pairs(elementsList) do
             table.insert(children, {
@@ -434,43 +477,52 @@ function Damage:GetWithElement(type, attackerBuffs, victimDebuffs, data)
                     end
                     return false
                 end,
-                name = 'Element' .. elementName .. type
+                name = elementName .. 'Element' .. type
             })
         end
 
-        self._getWithElement[type]['all'] = self:StandardTemplateWith(type, {
-            {
-                isActive = function(data)
-                    return #data.elements == 0
-                end,
-                name = 'ElementNone' .. type,
-                specialTypes = { MODIFIER_SPECIAL_TYPE_ELEMENTS },
-            },
-            {
-                isActive = function(data)
-                    return #data.elements > 0
-                end,
-                name = 'Elements' .. type,
-                specialTypes = { MODIFIER_SPECIAL_TYPE_ELEMENTS },
-                children = children
-            },
+        self._getWithElement[type] = calcTypeDamageFromTemplate({
+            type = type,
+            template = {
+                {
+                    isActive = function(data)
+                        return #data.elements == 0
+                    end,
+                    name = 'NoneElement' .. type,
+                    specialTypes = { MODIFIER_SPECIAL_TYPE_ELEMENTS },
+                },
+                {
+                    mult = 1,
+                    isActive = function(data)
+                        return #data.elements > 0
+                    end,
+                    name = 'Elements' .. type,
+                    specialTypes = { MODIFIER_SPECIAL_TYPE_ELEMENTS },
+                    children = children
+                },
+            }
         })
     end
-    return self._getWithElement[type](attackerBuffs, victimDebuffs, data)
+    local result = self._getWithElement[type](attackerBuffs, victimDebuffs, data)
+    print('change is ' .. result)
+    return result
 end
 
 function Damage:GetWithPremitigation(type, attackerBuffs, victimDebuffs, data)
     self._getWithPremitigation = self._getWithPremitigation or {}
     if self._getWithPremitigation[type] == nil then
 
-        self._getWithPremitigation[type] = self:StandardTemplateWith(type, {
-            {
-                isActive = function(data)
-                    return true
-                end,
-                name = 'Premitigation' .. type,
-                specialTypes = { MODIFIER_SPECIAL_TYPE_PREMITIGATION },
-            },
+        self._getWithPremitigation[type] = calcTypeDamageFromTemplate({
+            type = type,
+            template = {
+                {
+                    isActive = function(data)
+                        return true
+                    end,
+                    name = 'Premitigation' .. type,
+                    specialTypes = { MODIFIER_SPECIAL_TYPE_PREMITIGATION },
+                },
+            }
         })
     end
     return self._getWithPremitigation[type](attackerBuffs, victimDebuffs, data)
@@ -530,34 +582,37 @@ function Damage:GetWithPostmitigation(type, attackerBuffs, victimDebuffs, data)
     self._getWithPostmitigation = self._getWithPostmitigation or {}
     if true then
 
-        self._getWithPostmitigation[type] = self:StandardTemplateWith(type, {
-            {
-                isActive = function(data)
-                    return true
-                end,
-                name = 'Postmitigation' .. type,
-                specialTypes = { MODIFIER_SPECIAL_TYPE_POSTMITIGATION },
-                children = {
-                    {
-                        isActive = function(data)
-                            return data.damageType == DAMAGE_TYPE_MAGIC
-                        end,
-                        name = 'PostmitigationMagic' .. type,
-                    },
-                    {
-                        isActive = function(data)
-                            return data.damageType == DAMAGE_TYPE_PURE
-                        end,
-                        name = 'PostmitigationPure' .. type,
-                    },
-                    {
-                        isActive = function(data)
-                            return data.damageType == DAMAGE_TYPE_PHYSICAL
-                        end,
-                        name = 'PostmitigationPhysical' .. type,
-                    },
-                }
-            },
+        self._getWithPostmitigation[type] = calcTypeDamageFromTemplate({
+            type = type,
+            template = {
+                {
+                    isActive = function(data)
+                        return true
+                    end,
+                    name = 'Postmitigation' .. type,
+                    specialTypes = { MODIFIER_SPECIAL_TYPE_POSTMITIGATION },
+                    children = {
+                        {
+                            isActive = function(data)
+                                return data.damageType == DAMAGE_TYPE_MAGIC
+                            end,
+                            name = 'PostmitigationMagic' .. type,
+                        },
+                        {
+                            isActive = function(data)
+                                return data.damageType == DAMAGE_TYPE_PURE
+                            end,
+                            name = 'PostmitigationPure' .. type,
+                        },
+                        {
+                            isActive = function(data)
+                                return data.damageType == DAMAGE_TYPE_PHYSICAL
+                            end,
+                            name = 'PostmitigationPhysical' .. type,
+                        },
+                    }
+                },
+            }
         })
     end
     return self._getWithPostmitigation[type](attackerBuffs, victimDebuffs, data)
@@ -566,14 +621,17 @@ function Damage:GetWithExtraPostmitigation(type, attackerBuffs, victimDebuffs, d
     self._getWithExtraPostmitigation = self._getWithExtraPostmitigation or {}
     if true then
 
-        self._getWithExtraPostmitigation[type] = self:StandardTemplateWith(type, {
-            {
-                isActive = function(data)
-                    return true
-                end,
-                name = 'ExtraPostmitigation' .. type,
-                specialTypes = { MODIFIER_SPECIAL_TYPE_EXTRA_POSTMITIGATION },
-            },
+        self._getWithExtraPostmitigation[type] = calcTypeDamageFromTemplate({
+            type = type,
+            template = {
+                {
+                    isActive = function(data)
+                        return true
+                    end,
+                    name = 'ExtraPostmitigation' .. type,
+                    specialTypes = { MODIFIER_SPECIAL_TYPE_EXTRA_POSTMITIGATION },
+                },
+            }
         })
     end
     return self._getWithExtraPostmitigation[type](attackerBuffs, victimDebuffs, data)
@@ -582,14 +640,17 @@ function Damage:GetWithDot(type, attackerBuffs, victimDebuffs, data)
     self._getWithGetWithDot = self._getWithGetWithDot or {}
     if self._getWithGetWithDot then
 
-        self._getWithGetWithDot[type] = self:StandardTemplateWith(type, {
-            {
-                isActive = function(data)
-                    return true
-                end,
-                name = 'Dot' .. type,
-                specialTypes = { MODIFIER_SPECIAL_TYPE_DOT },
-            },
+        self._getWithGetWithDot[type] = calcTypeDamageFromTemplate({
+            type = type,
+            template = {
+                {
+                    isActive = function(data)
+                        return true
+                    end,
+                    name = 'Dot' .. type,
+                    specialTypes = { MODIFIER_SPECIAL_TYPE_DOT },
+                },
+            }
         })
     end
     return self._getWithGetWithDot[type](attackerBuffs, victimDebuffs, data)
@@ -673,14 +734,17 @@ function Damage:GetWithAugmented(attackerBuffs, victimDebuffs, data)
     self._getWithAugmented = self._getWithAugmented or {}
     if true then
 
-        self._getWithAugmented = self:StandardTemplateWith('Amplify', {
-            {
-                isActive = function(data)
-                    return true
-                end,
-                name = 'Augmented',
-                specialTypes = { MODIFIER_SPECIAL_TYPE_AUGMENTED },
-            },
+        self._getWithAugmented =calcTypeDamageFromTemplate({
+            type = 'Amplify',
+            template = {
+                {
+                    isActive = function(data)
+                        return true
+                    end,
+                    name = 'Augmented',
+                    specialTypes = { MODIFIER_SPECIAL_TYPE_AUGMENTED },
+                },
+            }
         })
     end
     return self._getWithAugmented[type](attackerBuffs, victimDebuffs, data)

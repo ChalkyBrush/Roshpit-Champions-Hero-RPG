@@ -1,0 +1,33 @@
+"npc_fireball"
+{
+    "BaseClass"     "ability_lua"
+    "ScriptFile"					"npc_abilities/attack/fireball"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "FightRecapLevel"				"1"
+    "AbilityTextureName"			"ogre_magi_fireblast"
+    "AbilityCooldown"	"2"
+    "MaxLevel"				 		"3"
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"					"FIELD_INTEGER"
+            "count"		"1"
+        }
+        "02"
+        {
+            "var_type"					"FIELD_INTEGER"
+            "speed"						"450"
+        }
+        "03"
+        {
+            "var_type"					"FIELD_INTEGER"
+            "damage"						"300 1000 20000"
+        }
+        "04"
+        {
+            "var_type"					"FIELD_INTEGER"
+            "aoe_radius"						"1700"
+        }
+    }
+}

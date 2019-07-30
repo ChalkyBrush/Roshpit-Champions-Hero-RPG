@@ -1,10 +1,10 @@
-"invasion"
+"npc_invasion"
 {
     "BaseClass"     "ability_lua"
     "ScriptFile"					"npc_abilities/attack/invasion"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "FightRecapLevel"				"1"
-    "AbilityTextureName"			"omni_knight/adoring_wingfall/omniknight_purification"
+    "AbilityTextureName"			"conjuror/conjuror_rune_e_2_arcana4"
     "AbilityCooldown"	"30"
     "MaxLevel"				 		"3"
     "AbilitySpecial"

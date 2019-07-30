@@ -256,7 +256,7 @@ function Hand:addItemModifier(propertyValue, hero, inventory_unit, modifier_name
 	end
 end
 
-function Hand:runeProperty(propertyName, propertyValue, hero)
+	function Hand:runeProperty(propertyName, propertyValue, hero)
 	if hero:HasModifier("modifier_puzzlers_locket") then
 		if string.match(propertyName, "_2") then
 			propertyName = string.gsub(propertyName, "_2", "_3")
@@ -316,6 +316,11 @@ function Hand:runeProperty(propertyName, propertyValue, hero)
 	elseif propertyName == "rune_r_4" then
 		hero.runeUnit4.hand.r_4 = hero.runeUnit4.hand.r_4 + propertyValue
 		Hand:setRuneBonusNetTable(hero.runeUnit4.hand.r_4, propertyName, hero)
+	end
+
+	local letter, tier = propertyName:match("rune_(.)_(.)")
+	if letter ~= nil and tier ~= nil then
+		Runes:OnRuneCountUpdate(hero, letter, tier)
 	end
 end
 

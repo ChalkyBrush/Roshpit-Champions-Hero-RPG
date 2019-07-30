@@ -20,6 +20,9 @@ function class:IsDebuff()
 end
 
 function class:OnCreated()
+    if not IsServer() then
+        return
+    end
     self.previousPosition = self:GetParent():GetAbsOrigin()
     self:StartIntervalThink(0.06)
 end

@@ -4,13 +4,16 @@ require('heroes/nightstalker/chernobog_constants')
 modifier_chernobog_shadows_enemy_effect = class(npc_base_modifier, nil, npc_base_modifier)
 local class = modifier_chernobog_shadows_enemy_effect
 local baseDamageDelay = 0.5
-local modifierShadowsInProcession = 'modifier_chernobog_shadows_procession_enemy_effect'
+local modifierShadowsInProcession = 'modifier_chernobog_4_r_shadows_enemy_effect'
 
 function class:OnCreated()
     local ability = self:GetAbility()
+    if not IsServer() then
+        return
+    end
     self.thinkInterval = ability.shadowsThinkInterval
     self.damagePercent = ability.shadowsDamagePercent
-    self:StartThinkInterval(self.thinkInterval)
+    self:StartIntervalThink(self.thinkInterval)
 end
 function class:CanAttack()
     return not self:GetParent():HasModifier(modifierShadowsInProcession)
@@ -27,6 +30,8 @@ function class:OnIntervalThink()
     local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/nights_procession_illusion.vpcf", target, self.thinkInterval)
     ParticleManager:SetParticleControl(pfx, 1, Vector(animationRate, 0, 0))
     Timers:CreateTimer(damageDelay, function()
+        print('damage is ' .. damage)
+
         EmitSoundOn("Chernobog.BC.Hit", target)
         Damage:Apply({
             attacker = caster,
@@ -37,8 +42,8 @@ function class:OnIntervalThink()
             damageType = DAMAGE_TYPE_MAGICAL,
             elements = {
                 RPC_ELEMENT_DEMON,
+                RPC_ELEMENT_SHADOW,
             },
-            dot = true
         })
         ParticleManager:DestroyParticle(pfx, false)
         ParticleManager:ReleaseParticleIndex(pfx)

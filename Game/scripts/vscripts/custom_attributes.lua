@@ -37,6 +37,8 @@ CustomAttributes.FLAMEWAKER_R3_STRENGTH = 260
 CustomAttributes.CONJUROR_E1_AGI = 25
 CustomAttributes.WARLORD_W2_STATS = 60
 CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH = 250
+CustomAttributes.CHERNOBOG_W4_STR_OR_AGI = CHERNOBOG_W4_AGI_AND_STR
+CustomAttributes.HYDROXIS_E4_AGI_INT = 350
 
 CustomAttributes.ZHONIK_R4_STR = ZHONIK_R4_BONUS_STR
 CustomAttributes.ZHONIK_ARCANA_R4_AGI = ZHONIK_R4_ARCANA_BONUS_AGI
@@ -1035,33 +1037,35 @@ function CustomAttributes:MSCap(unit)
 	local max_ms = 550
 	for _,modifier in pairs(buffs) do
 		if modifier['GetModifierMoveSpeed_Max'] then
-			local local_max_ms = modifier['GetModifierMoveSpeed_Max'](modifier, {})
-			if local_max_ms ~= nil then
+			-- Some GetModifierMoveSpeed_Max has errors now, it is for preven crash on calculate
+			local status, local_max_ms = pcall(modifier['GetModifierMoveSpeed_Max'], modifier, {})
+			if status and local_max_ms ~= nil then
 				max_ms = math.max(max_ms,local_max_ms)
 			end
 		end
 	end
+	local local_max_ms = 550
 	for i = 1, #buffs, 1 do
 		local modifier = buffs[i]
 		local ms_cap_modifier = CustomAttributes.MS_CAP_MODIFIERS[modifier:GetName()]
 		if ms_cap_modifier then
 			if type(ms_cap_modifier) == "number" then
-				max_ms = math.max(max_ms, ms_cap_modifier)
+				local_max_ms = math.max(local_max_ms, ms_cap_modifier)
 			elseif type(ms_cap_modifier) == "string" then
 				local modifier_ability = modifier:GetAbility()
 				if ms_cap_modifier == "modifier_chernobog_d_c_arcana2" then
-					max_ms = math.max(max_ms, modifier_ability.e_4_level * 6 + max_ms)
+					local_max_ms = math.max(local_max_ms, modifier_ability.e_4_level * 6 + local_max_ms)
 				elseif ms_cap_modifier == "modifier_dinath_passive_ms_cap" then
-					max_ms = math.max(max_ms, modifier_ability.w_3_level * DINATH_ARCANA_W3_MOVESPEED_CAP_BONUS + max_ms)
+					local_max_ms = math.max(local_max_ms, modifier_ability.w_3_level * DINATH_ARCANA_W3_MOVESPEED_CAP_BONUS + local_max_ms)
 				elseif ms_cap_modifier == "modifier_draghor_feral_sprint" then
-					max_ms = math.max(max_ms, modifier_ability:GetSpecialValueFor("movespeed_cap"))
+					local_max_ms = math.max(local_max_ms, modifier_ability:GetSpecialValueFor("movespeed_cap"))
 				elseif ms_cap_modifier == "modifier_seinaru_glyph_t21_movespeed_cap" then
 					local q2_level = unit:GetRuneValue("q", 2)
-					max_ms = math.max(max_ms, 550 + q2_level * SEINARU_GLYPH2_MOVESPEED_CAP_PER_Q2)
+					local_max_ms = math.max(local_max_ms, 550 + q2_level * SEINARU_GLYPH2_MOVESPEED_CAP_PER_Q2)
 				elseif ms_cap_modifier == "slipfinn_shadow_rush_lua" then
 					local decay = modifier:GetRemainingTime() / unit.baseShadowRushDuration
 					local msBonus = unit:FindAbilityByName("slipfinn_shadow_rush"):GetLevelSpecialValueFor("ms_bonus_and_max", modifier:GetAbility():GetLevel())
-					max_ms = math.max(msBonus * decay, max_ms)
+					local_max_ms = math.max(msBonus * decay, local_max_ms)
 				elseif ms_cap_modifier == "modifier_zonik_lightspeed_cap" then
 					local cap = 600
 					cap = modifier:GetAbility():GetSpecialValueFor("movespeed_cap") + modifier_ability.e_4_level * ZHONIK_E4_MS_CAP_INCREASE
@@ -1071,7 +1075,7 @@ function CustomAttributes:MSCap(unit)
 					if unit:HasModifier("modifier_zonik_glyph_5_1") then
 						cap = cap + 200
 					end
-					max_ms = math.max(cap, max_ms)
+					local_max_ms = math.max(cap, local_max_ms)
 				elseif ms_cap_modifier == "modifier_zonik_speedball_cap" then
 					local cap = 550 + modifier_ability:GetSpecialValueFor("movespeed_cap")
 					if unit:HasModifier("modifier_zonik_lightspeed") then
@@ -1083,12 +1087,13 @@ function CustomAttributes:MSCap(unit)
 					if unit:HasModifier("modifier_zonik_lightspeed") and unit:HasModifier("modifier_zonik_glyph_5_1") then
 						cap = cap + 200
 					end
-					max_ms = math.max(cap, max_ms)
+					local_max_ms = math.max(cap, local_max_ms)
 				elseif ms_cap_modifier == "modifier_zonik_temporal_field_cap" then
-					max_ms = math.max(modifier_ability:GetSpecialValueFor("movespeed_cap"), max_ms)
+					local_max_ms = math.max(modifier_ability:GetSpecialValueFor("movespeed_cap"), local_max_ms)
 				end
 			end
 		end
 	end
+	max_ms = math.max(local_max_ms, max_ms)
 	return max_ms
 end

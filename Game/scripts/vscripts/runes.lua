@@ -464,6 +464,7 @@ function Runes:ConvertTierAndIndexToRune(tier, index)
 end
 
 function Runes:apply_runes(ability, unit, PlayerID)
+	print('apply runes ' .. ability:GetName()	)
 	local hero = GameState:GetHeroByPlayerID(PlayerID)
 	if ability:GetLevel() > 0 then
 		if ability:GetName() == "venomort_rune_w_1" then
@@ -488,6 +489,10 @@ function Runes:apply_runes(ability, unit, PlayerID)
 		end
 		if ability:GetName() == "conjuror_rune_q_1" then
 			ability:ApplyDataDrivenModifier(unit, hero, "modifier_earth_guardian", {})
+        end
+		local letter, tier = ability:GetName():match(".*_rune_(.)_(.)$")
+		if letter ~= nil and tier ~= nil then
+			Runes:OnRuneCountUpdate(hero, letter, tier)
 		end
 	end
 	-- if hero:GetUnitName() == "npc_dota_hero_faceless_void" then
@@ -839,12 +844,12 @@ function Runes:EquipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_night_stalker" then
 		if index == 1 then
-			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "chernobog_nights_procession", "chernobog_demon_morph", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "chernobog_4_r", "chernobog_demon_morph", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
-			if hero:FindAbilityByName("chernobog_shadow_walk"):GetToggleState() then
-				hero:FindAbilityByName("chernobog_shadow_walk"):ToggleAbility()
+			if hero:FindAbilityByName("chernobog_3_e"):GetToggleState() then
+				hero:FindAbilityByName("chernobog_3_e"):ToggleAbility()
 			end
-			Runes:EasySwapArcanaSkills(hero, 2, "chernobog_shadow_walk", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, 2, "chernobog_3_e", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 			if hero:HasModifier("modifier_chernobog_demon_form") then
 				CustomAbilities:AddAndOrSwapSkill(hero, "chernobog_demon_flight", "chernobog_demon_walk", 2)
 			end
@@ -1546,16 +1551,16 @@ function Runes:UnequipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_night_stalker" then
 		if index == 1 then
-			Runes:EasyRevertArcanaSkills(hero, DOTA_R_SLOT, "chernobog_nights_procession", "chernobog_demon_morph", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasyRevertArcanaSkills(hero, DOTA_R_SLOT, "chernobog_4_r", "chernobog_demon_morph", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			--print("HERE?????????")
 			if hero:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_flight" then
-				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_shadow_walk", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_3_e", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 			elseif hero:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_walk" then
-				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_shadow_walk", "chernobog_demon_walk", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_3_e", "chernobog_demon_walk", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 				hero:RemoveAbility("chernobog_demon_flight")
 			elseif hero:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_warp" then
-				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_shadow_walk", "chernobog_demon_warp", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_3_e", "chernobog_demon_warp", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 				hero:RemoveAbility("chernobog_demon_flight")
 			end
 			hero:RemoveModifierByName("modifier_demon_warp_freecast")
@@ -1769,3 +1774,33 @@ function Runes:UnequipArcana(hero, index)
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "ability_tree_upgrade", {playerId = hero:GetPlayerOwnerID()})
 end
 
+function Runes:OnRuneCountUpdate(unit, letter, tier)
+	tier = tonumber(tier)
+	local newCount = unit:GetRuneValue(letter, tier)
+	local bigLetter = letter:upper()
+
+	local letterAndTier = letter .. tier .. '_level'
+
+
+	unit[letterAndTier] = newCount
+
+    print(letterAndTier .. ' new count is ' .. newCount)
+
+	local playerId = unit:GetPlayerOwnerID()
+	CustomNetTables:SetTableValue("hero_values", playerId .. '_rune_' .. letterAndTier, {count = newCount})
+	CustomNetTables:SetTableValue("hero_values", playerId .. '_last_set_rune', {
+		letterAndTier = letterAndTier,
+		time = GameRules:GetGameTime()
+	})
+
+
+	Util.Modifier:SimpleEvent(unit, 'OnRuneCountUpdate', { MODIFIER_SPECIAL_TYPE_RUNE }, {
+		letter = letter,
+		tier = tier,
+        count = newCount,
+	}, nil)
+
+	Util.Modifier:SimpleEvent(unit, 'OnRune'.. bigLetter .. tier .. 'CountUpdate', { MODIFIER_SPECIAL_TYPE_RUNE }, {
+		count = newCount,
+	}, nil)
+end

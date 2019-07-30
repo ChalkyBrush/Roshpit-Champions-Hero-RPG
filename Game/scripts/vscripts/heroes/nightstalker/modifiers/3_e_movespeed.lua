@@ -1,7 +1,7 @@
 require('/npc_abilities/base_modifier')
 require('heroes/nightstalker/chernobog_constants')
-modifier_chernobog_1_e_movespeed = class(npc_base_modifier, nil, npc_base_modifier)
-local class = modifier_chernobog_1_e_movespeed
+modifier_chernobog_3_e_movespeed = class(npc_base_modifier, nil, npc_base_modifier)
+local class = modifier_chernobog_3_e_movespeed
 
 function class:DeclareFunctions()
     local funcs = {
@@ -13,9 +13,12 @@ function class:DeclareFunctions()
     return funcs
 end
 function class:GetBonusMoveSpeed()
-    return CHERNOBOG_E1_MOVESPEED * self:GetAbility().e1_level
+    return CHERNOBOG_E1_MOVESPEED * self:GetCaster().e1_level
 end
 function class:GetModifierMoveSpeed_Max(params)
+    if not IsServer() then
+        return
+    end
     if not self.movespeed_max then
         self.movespeed_max = self:GetAbility():GetSpecialValueFor('movespeed_cap')
     end
@@ -26,6 +29,9 @@ function class:GetModifierMoveSpeed_Limit(params)
     return self:GetModifierMoveSpeed_Max(params)
 end
 function class:GetModifierMoveSpeedBonus_Constant(params)
+    if not IsServer() then
+        return
+    end
     if not self.movespeed_increase then
         self.movespeed_increase = self:GetAbility():GetSpecialValueFor('movespeed_bonus')
     end

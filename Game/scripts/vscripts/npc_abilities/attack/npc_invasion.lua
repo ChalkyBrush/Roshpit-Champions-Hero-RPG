@@ -30,22 +30,22 @@
     local particlePortal = 'particles/portals/green_portal.vpcf'
     local portalRadius = 100
 
-    LinkLuaModifier("modifier_invasion_passive", "npc_abilities/attack/invasion", LUA_MODIFIER_MOTION_NONE)
-    LinkLuaModifier("modifier_invasion_portal", "npc_abilities/attack/invasion", LUA_MODIFIER_MOTION_NONE)
+    LinkLuaModifier("modifier_npc_invasion_passive", "npc_abilities/attack/npc_invasion", LUA_MODIFIER_MOTION_NONE)
+    LinkLuaModifier("modifier_npc_invasion_portal", "npc_abilities/attack/npc_invasion", LUA_MODIFIER_MOTION_NONE)
 
     local eventId
 
     require('/npc_abilities/base_ability')
     require('/npc_abilities/base_modifier')
 
-    invasion = class({}, nil, npc_base_ability)
-    modifier_invasion_passive = class(npc_base_modifier, nil, npc_base_modifier)
-    modifier_invasion_portal = class(npc_base_modifier, nil, npc_base_modifier)
+    npc_invasion = class({}, nil, npc_base_ability)
+    modifier_npc_invasion_passive = class(npc_base_modifier, nil, npc_base_modifier)
+    modifier_npc_invasion_portal = class(npc_base_modifier, nil, npc_base_modifier)
 
 
-    local passive = modifier_invasion_passive
-    local abilityClass = invasion
-    local portal = modifier_invasion_portal
+    local passive = modifier_npc_invasion_passive
+    local abilityClass = npc_invasion
+    local portal = modifier_npc_invasion_portal
 
     function passive:OnCreated()
         self.imps = {}
@@ -88,7 +88,7 @@
     end
 
     function abilityClass:GetIntrinsicModifierName()
-        return 'modifier_invasion_passive'
+        return 'modifier_npc_invasion_passive'
     end
 
     function abilityClass:CreatePortals()
@@ -120,7 +120,7 @@
 
         local dummy = CreateUnitByName("dummy_unit_vulnerable", position, false, owner, owner, owner:GetTeam())
         dummy:AddAbility("dummy_unit"):SetLevel(1)
-        local modifier = dummy:AddNewModifier(owner, self, 'modifier_invasion_portal', { duration = portalDuration })
+        local modifier = dummy:AddNewModifier(owner, self, 'modifier_npc_invasion_portal', { duration = portalDuration })
         dummy.pfx = ParticleManager:CreateParticle(particlePortal, PATTACH_CUSTOMORIGIN, owner)
 
         modifier.dummy = dummy
@@ -148,6 +148,7 @@
     end
 
     function portal:OnIntervalThink()
+        local ability = self:GetAbility()
         local dummy = self.dummy
         local enemies = FindUnitsInRadius(dummy:GetTeamNumber(), dummy:GetAbsOrigin(), nil, portalRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
         if #enemies > 0 then
@@ -155,10 +156,11 @@
             for _,enemy in pairs(enemies) do
                 self:DealDamage(enemy)
             end
+            self.currentPowerUp = self.currentPowerUp * self.powerUp
         else
             self.intervalsWithoutPlayerInIt = self.intervalsWithoutPlayerInIt + 1
             self.currentPowerUp = 1
-            if self.interval * self.intervalsWithoutPlayerInIt > self.timeBeforeSummonImp and not self.stopSpawn then
+            if self.interval * self.intervalsWithoutPlayerInIt > self.timeBeforeSummonImp and not ability.stopSpawn then
                 self.intervalsWithoutPlayerInIt = 0
                 self:SummonImp()
             end
@@ -179,6 +181,12 @@
     function portal:DealDamage(enemy)
         local caster = self:GetCaster()
         local damage = self.damage ^ self.currentPowerUp
-        self.currentPowerUp = self.currentPowerUp * self.powerUp
-        Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+        Damage:Apply({
+            attacker = caster,
+            victim = enemy,
+            damage = damage,
+            damageType = DAMAGE_TYPE_PURE,
+            sourceType = BASE_ITEM,
+            elements = {}
+        })
     end

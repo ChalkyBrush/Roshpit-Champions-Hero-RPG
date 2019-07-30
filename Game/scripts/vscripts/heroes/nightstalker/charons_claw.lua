@@ -15,13 +15,10 @@ for modifierPath, modifier in pairs(modifiers) do
 end
 
 function charons_init_values(caster, ability)
-	for i = 1, 4 do
-		ability["q"..i.."_level"] = caster:GetRuneValue("q", i) or 0
-	end
 	ability.damage = ability:GetSpecialValueFor('damage')
 	ability.damage_and_movespeed_reduction = ability:GetSpecialValueFor('move_and_attack_slow')
-	ability.range = ability:GetSpecialValueFor('range') + ability.q4_level * CHERNOBOG_Q4_RANGE
-	ability.width = 150 + ability.q4_level * CHERNOBOG_Q4_WIDTH
+	ability.range = ability:GetSpecialValueFor('range') + caster.q4_level * CHERNOBOG_Q4_RANGE
+	ability.width = 150 + caster.q4_level * CHERNOBOG_Q4_WIDTH
 	ability.movespeed_amplify = ability:GetSpecialValueFor('move_speed_increase')
 end
 function charons_phase_start(event)
@@ -34,7 +31,9 @@ function charons_claw_cast(event)
 	local ability = event.ability
 	local target = event.target_points[1]
 	charons_init_values(caster, ability)
-	chenobog_make_right_cooldown(caster, ability, 'q')
+	if not event.fake_cast then
+		chenobog_make_right_cooldown(caster, ability, 'q')
+	end
 
 	EmitSoundOn("Chernobog.CharonsClaw", caster)
 

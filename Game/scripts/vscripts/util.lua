@@ -44,6 +44,33 @@ function Util.Ability:MakeRightCooldownRemainingTime(caster, ability, data)
     ability:EndCooldown()
     ability:StartCooldown(newCooldown)
 end
+function Util.Ability:WithCasterRunesOnClient(caster, func)
+    if IsClient() then
+        local playerId = caster:GetPlayerOwnerID()
+        caster.lastTimeRunesChange = caster.lastTimeRunesChange or false
+        local changeTable = CustomNetTables:GetTableValue("hero_values", playerId .. '_last_set_rune') or nil
+        local isChanged = caster.lastTimeRunesChange == false or (changeTable ~= nil and caster.lastTimeRunesChange < changeTable.time)
+        if isChanged then
+            for _,letter in pairs({'q','w','e','r'}) do
+                for tier = 1,4 do
+                    if changeTable == nil then
+                        caster[letter .. tier .. '_level'] = 0
+                    else
+                        local baseResult = CustomNetTables:GetTableValue("hero_values",  playerId .. '_rune_' .. letter .. tier .. '_level') or {}
+                        caster[letter .. tier .. '_level'] = baseResult.count or 0
+                    end
+                end
+            end
+            if changeTable ~= nil then
+                caster.lastTimeRunesChange = changeTable.time
+            else
+                caster.lastTimeRunesChange = 0
+            end
+
+        end
+    end
+    return func()
+end
 function Util.Ability:MakeRightCooldown(caster, ability, data)
     local cooldownIncrease = data.cooldownIncrease or 0
     local cooldownAmplify = data.cooldownAmplify or 1

@@ -339,6 +339,11 @@ function Amulet:runeProperty(propertyName, propertyValue, hero)
 			Amulet:runeProperty(runeTable[i], propertyValue, hero)
 		end
 	end
+
+	local letter, tier = propertyName:match("rune_(.)_(.)")
+	if letter ~= nil and tier ~= nil then
+		Runes:OnRuneCountUpdate(hero, letter, tier)
+	end
 end
 
 AVAILABLE_RUNE_TABLE = {"rune_q_1", "rune_w_1", "rune_e_1", "rune_r_1", "rune_q_2", "rune_w_2", "rune_e_2", "rune_r_2", "rune_q_3", "rune_w_3", "rune_e_3", "rune_r_3"}

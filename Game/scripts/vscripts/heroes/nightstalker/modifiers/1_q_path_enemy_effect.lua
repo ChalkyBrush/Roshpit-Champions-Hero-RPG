@@ -27,6 +27,3 @@ end
 function class:GetTexture()
     return 'chernobog/chernobog_rune_q_1'
 end
-function class:OnCreated()
-    local ability = self:GetAbility()
-end

@@ -1,5 +1,5 @@
 --Demon Awakening
-LinkLuaModifier("modifier_chernobog_demonform_lua", "modifiers/chernobog_1_e/modifier_chernobog_demonform_lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_chernobog_demonform_lua", "modifiers/chernobog_3_e/modifier_chernobog_demonform_lua", LUA_MODIFIER_MOTION_NONE)
 
 function start_channel(event)
 	local caster = event.caster

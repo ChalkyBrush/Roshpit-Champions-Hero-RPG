@@ -200,8 +200,9 @@
 
 	##TUTORIAL_ABILITIES##
 
-	##DURABLE##
-	##INFERNO_PORTAL##
+	##NPC_DURABLE##
+	##NPC_INVASION##
+	##NPC_FIREBALL##
 
 
 	"oracle_ability"

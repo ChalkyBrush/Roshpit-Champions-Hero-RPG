@@ -1,7 +1,8 @@
 if GameState == nil then
 	GameState = class({})
 end
-require('/event_bus')
+require('/util')
+require('/damage')
 
 require('/heroes/dark_seer/zhonik_constants')
 require('/heroes/huskar/spirit_warrior_constants')
@@ -33,6 +34,7 @@ mountain_protector = require('/heroes/legion_commander/constants')}
 VectorTarget:Init({noOrderFilter = true})
 
 GameState.PVP_REDUCTION = 0.01
+
 
 function OverflowProtectedGetAverageTrueAttackDamage(caster)
 	local averageTrueAttackDamage = caster:GetAverageTrueAttackDamage(caster)
@@ -542,6 +544,7 @@ function GameState:OrderFilter(orderTable)
 				unit.Attacking_a_Cup = false
 			end
 		end
+		Util.Modifier:SimpleEvent(unit, 'OnOrderFilter', { MODIFIER_SPECIAL_TYPE_ORDER_FILTER }, orderTable, nil)
 		if unit:HasModifier("modifier_neptunes_water_gliders") then
 			unit.lastOrder = orderTable.order_type
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
@@ -1073,32 +1076,6 @@ function GameState:OrderFilter(orderTable)
 							unit:Stop()
 							Events:TeleportUnit(unit, movementPosition, Events.GameMaster.portal, Events.GameMaster, 0.5)
 							return false
-						end
-					end
-				end
-			end
-		end
-		if unit:HasModifier("modifier_chernobog_shadow_walk") then
-			if orderTable.entindex_target then
-				if not unit:IsRooted() and not unit:HasModifier("modifier_chernobog_c_c_cooldown") then
-					local ability = unit:FindAbilityByName("chernobog_shadow_walk")
-					if ability.e_3_level then
-						if ability.e_3_level > 0 then
-							local enemy = EntIndexToHScript(orderTable.entindex_target)
-							if IsValidEntity(enemy) then
-								if orderTable.entindex_target == 0 then
-								else
-									local distance = WallPhysics:GetDistance2d(enemy:GetAbsOrigin(), unit:GetAbsOrigin())
-									if distance < ability.e_3_level * CHERNOBOG_E3_RANGE + CHERNOBOG_E3_BASE_RANGE then
-										if enemy.dummy then
-										elseif enemy:GetClassname() == "dota_item_drop" then
-										elseif enemy:GetTeamNumber() == unit:GetTeamNumber() then
-										else
-											CustomAbilities:ChernobogSuddenStrike(unit, enemy, ability)
-										end
-									end
-								end
-							end
 						end
 					end
 				end
@@ -1826,6 +1803,7 @@ end
 function GameState:FilterDamage(filterTable)
 	local victim_index = filterTable["entindex_victim_const"]
 	local attacker_index = filterTable["entindex_attacker_const"]
+
 	if not victim_index or not attacker_index then
 		return true
 	end
@@ -1842,6 +1820,27 @@ function GameState:FilterDamage(filterTable)
 	local difficultyDamageReduce = 1
 	local victim = EntIndexToHScript(victim_index)
 	local attacker = EntIndexToHScript(attacker_index)
+
+
+	local attackerBuffs, attackerDebuffs = Util.Creature:GetBuffsAndDebuffs(attacker, npc_base_modifier)
+	local victimBuffs, victimDebuffs = Util.Creature:GetBuffsAndDebuffs(victim, npc_base_modifier)
+
+	local elements = {}
+	if attacker.element1 then
+		table.insert(elements, attacker.element1)
+	end
+	if attacker.element2 then
+		table.insert(elements, attacker.element2)
+	end
+
+	local newDamageCalculatorData = {
+		victim = victim,
+		attacker = attacker,
+		damage = filterTable['damage'],
+		damageType = filterTable.damagetype_const,
+		ignoreSteadfast = attacker.ignore_steadfast or false,
+		elements = elements,
+	}
 
 	local abs = math.abs
 	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
@@ -1912,6 +1911,13 @@ function GameState:FilterDamage(filterTable)
 	local mult = 1
 	local divisor = 1
 	local modifier = nil
+
+	newDamageCalculatorData.damage = filterTable['damage']
+	mult = Damage:GetWithPostmitigation('Amplify', attackerBuffs, victimDebuffs, newDamageCalculatorData)/filterTable['damage']
+	newDamageCalculatorData.damage = filterTable['damage'] * mult
+
+	divisor = filterTable['damage'] * mult/Damage:GetWithPostmitigation('Reduce', attackerDebuffs, victimBuffs, newDamageCalculatorData)
+	newDamageCalculatorData.damage = filterTable['damage']
 
 	if attacker:IsHero() then
 		-- if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
@@ -2273,10 +2279,6 @@ function GameState:FilterDamage(filterTable)
 		if demonForm then
 			mult = mult + CHERNOBOG_ARCANA_R4_POST_MITI_PCT/100 * demonForm.r_4_level
 		end
-	end
-	modifier = victim:FindModifierByName("modifier_chernobog_rune_e_3_postmit")
-	if modifier and attacker:GetUnitName() == "npc_dota_hero_night_stalker" then
-		mult = mult + CHERNOBOG_E3_POSTMIT * modifier:GetStackCount()
 	end
 	if attacker:HasModifier("modifier_mordiggus_gauntlet") then
 		mult = mult + (1 - attacker:GetHealth() / attacker:GetMaxHealth()) * 4
@@ -3884,6 +3886,16 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_zefnar_passive") then
 		filterTable["damage"] = Winterblight:ZefnarTakeDamage(victim, filterTable["damage"])
 	end
+
+	newDamageCalculatorData.damage = filterTable["damage"]
+	filterTable['damage'] = Damage:GetWithExtraPostmitigation('Amplify', attackerBuffs, victimDebuffs, newDamageCalculatorData)
+	newDamageCalculatorData.damage = filterTable["damage"]
+	filterTable['damage'] = Damage:GetWithExtraPostmitigation('Reduce', attackerDebuffs, victimBuffs, newDamageCalculatorData)
+
+	if applyEffects and filterTable["damage"] >= victim:GetHealth() then
+		newDamageCalculatorData.damage = filterTable["damage"]
+		Damage:OnLethal(attackerDebuffs, victimBuffs, newDamageCalculatorData)
+	end
 	if victim:HasModifier("modifier_dummy_active") and applyEffects then
 		if attacker == Events.GameMaster then
 		else
@@ -3912,6 +3924,7 @@ function GameState:FilterDamage(filterTable)
 	if victim.dummy then
 		filterTable["damage"] = 0
 	end
+
 	if filterTable["damage"] > 0 and applyEffects then
 		if victim:HasModifier("modifier_golden_shell_passive") then
 			local ability = victim:FindModifierByName("modifier_golden_shell_passive"):GetAbility()
@@ -3943,20 +3956,6 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
-	filterTable['damage'] = EventBus:trigger('none', 'creature:takeDamage', {
-		victim = victim,
-		attacker = attacker,
-	}, filterTable['damage'], EVENTBUS_PRIORITY_LOW_5)
-
-	if applyEffects and filterTable["damage"] >= victim:GetHealth() then
-		print('target entity index is '..victim:GetEntityIndex())
-
-		filterTable['damage'] = EventBus:trigger(victim:GetEntityIndex(), 'creature:beforeDeath', {
-			victim = victim,
-			attacker = attacker,
-		}, filterTable['damage'])
-	end
-
 	local inflictor = filterTable["entindex_inflictor_const"]
 	if not applyEffects then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
@@ -3983,6 +3982,7 @@ function GameState:FilterDamage(filterTable)
 		end
 		filterTable["damage"] = 0
 	end
+
 	-- if attacker:HasModifier("modifier_line_unit_passive") then
 	-- filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
@@ -4007,6 +4007,7 @@ function GameState:FilterDamage(filterTable)
 	if (EntIndexToHScript(filterTable["entindex_attacker_const"]) == EntIndexToHScript(filterTable["entindex_victim_const"])) and (filterTable["damage"] > StartingDamage) then
 		filterTable["damage"] = StartingDamage
 	end
+
 
 	return true
 

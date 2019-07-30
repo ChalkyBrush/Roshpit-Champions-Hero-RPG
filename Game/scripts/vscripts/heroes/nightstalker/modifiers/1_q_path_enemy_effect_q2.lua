@@ -11,20 +11,22 @@ function class:IsDebuff()
     return true
 end
 function class:OnCreated()
-    print('test q2')
-    local ability = self:GetAbility()
-    local intervalThink = CHERNOBOG_Q2_INTERVAL_THINK /(1 + CHERNOBOG_Q4_BUFF_Q2_INTERVAL_THINK * ability.q4_level)
 
-    if ability.q2_level > 0 then
+    if not IsServer() then
+        return
+    end
+    local caster = self:GetCaster()
+    local intervalThink = CHERNOBOG_Q2_INTERVAL_THINK /(1 + CHERNOBOG_Q4_BUFF_Q2_INTERVAL_THINK * caster.q4_level)
+
+    if caster.q2_level > 0 then
         self:StartIntervalThink(intervalThink)
     end
 end
 function class:OnIntervalThink()
     local target = self:GetParent()
-    local ability = self:GetAbility()
     local caster = self:GetCaster()
-    if ability.q2_level > 0 then
-        local damage = ability.q2_level * CHERNOBOG_Q2_PER_LVL * caster:GetLevel()
+    if caster.q2_level > 0 then
+        local damage = caster.q2_level * CHERNOBOG_Q2_PER_LVL * caster:GetLevel()
         if caster:HasModifier('modifier_chernobog_glyph_4_1') then
             local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, self:GetRadius(CHERNOBOG_GLYPH_4_1_RADIUS), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
             for _,enemy in pairs(enemies) do
@@ -48,6 +50,6 @@ function class:ApplyDamage(damage, target)
             RPC_ELEMENT_DEMON,
             RPC_ELEMENT_SHADOW,
         },
-        dot = true
+        isDot = true
     })
 end

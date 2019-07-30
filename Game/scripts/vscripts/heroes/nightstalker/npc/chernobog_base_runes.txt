@@ -12,7 +12,11 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
+<<<<<<< HEAD
 				"property_one"			"<% CHERNOBOG_Q1_AMP %>"
+=======
+				"property_one"			"<% CHERNOBOG_Q1_EXTRA_POSTMIT_PCT %>"
+>>>>>>> Base q,w,e,r + damage system fix + lots other things
 			}
 		}
 	}
@@ -64,7 +68,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_Q3_BONUS_ATTACK_DMG %>"
+				"property_one"			"<% CHERNOBOG_Q3_ATT_AMP_PERCENT %>"
 			}
 		}
 	}
@@ -82,12 +86,32 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CHERNOBOG_Q4_DEMON_AMP_PCT %>"
+				"property_one"			"<% CHERNOBOG_Q4_BUFF_Q2_INTERVAL_THINK %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CHERNOBOG_Q4_ADD_BASE_DAMAGE %>"
+				"property_one_base"		"1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% CHERNOBOG_Q4_CD_REDUCTION_TIMES %>"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"		"1"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_three"		"<% CHERNOBOG_Q4_RANGE %>"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_four"		"<% CHERNOBOG_Q4_WIDTH %>"
 			}
 		}
 	}
@@ -111,7 +135,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CHERNOBOG_W1_DAMAGE_PER_MANA_SPENT %>"
+				"property_two"			"<% CHERNOBOG_W1_DMG_PER_MISSING_MP %>"
 			}
 			"03"
 			{
@@ -144,7 +168,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CHERNOBOG_W2_BASE_DAMAGE %>"
+				"property_two"			"<% CHERNOBOG_W2_ATT %>"
 			}
 		}
 	}
@@ -162,12 +186,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_W3_ARMOR_RED %>"
+				"property_one"			"<% CHERNOBOG_W3_ARMOR_REDUCE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CHERNOBOG_W3_BASE_DAMAGE_STACK %>"
+				"property_two"			"<% CHERNOBOG_W3_ATT %>"
 			}
 		}
 	}
@@ -185,12 +209,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_W4_BONUS_STR %>"
+				"property_one"			"<% CHERNOBOG_W4_AGI_AND_STR %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CHERNOBOG_W4_BONUS_AGI %>"
+				"property_two"			"<% CHERNOBOG_W4_AGI_AND_STR %>"
 			}
 		}
 	}
@@ -210,6 +234,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% CHERNOBOG_E1_ATT_PCT %>"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% CHERNOBOG_E1_MOVESPEED %>"
+			}
 		}
 	}
 
@@ -227,22 +256,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_E2_ILLUSION_DAMAGE_PCT %>"
+				"property_one"			"<% CHERNOBOG_E2_DMG_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CHERNOBOG_E2_ARMOR %>"
+				"base_ability"			"3"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
+				"element_one"			"<% RPC_ELEMENT_DEMON %>"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"15"
+				"element_two"			"<% RPC_ELEMENT_SHADOW %>"
 			}
 		}
 	}
@@ -260,14 +289,9 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_E3_RANGE %>"
+				"property_one"			"<% CHERNOBOG_E3_DISTANCE %>"
 			}
 			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% CHERNOBOG_E3_BASE_RANGE %>"
-			}
-			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_two"			"<% CHERNOBOG_E3_POSTMIT * 100 %>"
@@ -288,12 +312,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CHERNOBOG_E4_EVASION_LINGER %>"
+				"property_one"			"<% CHERNOGBOG_E4_DUR %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"<% CHERNOBOG_E4_EVASION_LINGER_BASE %>"
+				"property_one_base"			"<% CHERNOBOG_E4_BASE_DUR %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% CHRENOBOG_E4_SHADOWS_INTERVAL_SCALE %>"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"			"1"
 			}
 		}
 	}
@@ -311,7 +345,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_R1_AMP_PCT %>"
+				"property_one"			"<% CHERNOBOG_R1_POSTMIT * 100 %>"
 			}
 
 		}
@@ -331,7 +365,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_R2_DMG_PER_ATT * 100 %>"
+				"property_one"			"<% CHERNOBOG_R2_SHADOWS_AMP * 100 %>"
 			}
 			"02"
 			{
@@ -352,7 +386,7 @@
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"chernobog/chernobog_rune_r_3"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -360,9 +394,19 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_R3_DMG_PER_ATT * 100%>"
+				"property_one"			"<% CHERNOBOG_R3_DMG_PER_ATT * 100 %>"
 			}
 			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% CHERNOBOG_R3_DUR %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"			"<% CHERNOBOG_R3_DUR_BASE>"
+			}
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"15"
@@ -382,13 +426,33 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_R4_CLAW_RANGE %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% CHERNOBOG_R4_CAST_TIME_REDUCE_TIMES %>"
 			}
 			"02"
 			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"		"1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% CHERNOBOG_R4_COOLDOWN_REDUCE_TIMES %>"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"		"1"
+			}
+			"05"
+			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% CHERNOBOG_R4_CLAW_RANGE_BASE %>"
+				"property_three"		"<% CHERNOBOG_R4_RADIUS %>"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_four"		    "<% CHERNOBOG_R4_DEMON_AMP_PER_AGI_PCT * 10 %>"
 			}
 		}
 	}

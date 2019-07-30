@@ -5,7 +5,7 @@ npc_base_unit = class({})
 local className = npc_base_unit
 
 function className:_create(args)
-    self.special_type = 'lua_unit'
+    self.unit_special_type = NPC_LUA_UNIT
     self.damageReduction = 1
     local unit = CreateUnitByName(args.name, args.position, true, nil, nil, args.team)
     if (args.modifierName) then
@@ -25,7 +25,7 @@ function className:SetEffectiveHp(hp)
 
     hp = hp * (1 - reduction)
 
-    self.damageReduction = 1 - reduction
+    self.damageReduction = reduction
 
     self:SetMaxHealth(hp)
     self:SetBaseMaxHealth(hp)
@@ -35,7 +35,7 @@ function className:SetEffectiveHp(hp)
 end
 
 function className:ApplyEffectiveHeal(heal)
-    heal = heal * self.damageReduction
+    heal = heal * (1 - self.damageReduction)
     Filters:ApplyHeal(self, self, heal, true)
 end
 
@@ -52,7 +52,6 @@ end
 function className:SetSummoner(summoner)
     self.summoner = summoner
 end
-local merge_task = {}
 
 function className:_init(unit)
     local metaTable = getmetatable(unit)

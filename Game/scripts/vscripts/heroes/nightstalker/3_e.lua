@@ -8,14 +8,15 @@ local STATUSES = {
     ACTIVE_ATTACK = 1,
     ACTIVE_MOVE = 2,
 }
-local prefix = '1_e_'
+local prefix = '3_e_'
 local modifiers = {
-    teleportation = 'modifier_chernobog_1_e_teleportation',
-    teleportation_cooldown = 'modifier_chernobog_1_e_teleportation_cooldown',
-    teleportation_enemy_effect_e3 = 'modifier_chernobog_1_e_teleportation_enemy_effect_e3',
-    movespeed = 'modifier_chernobog_1_e_movespeed',
-    bonus_damage_e1 = 'modifier_chernobog_1_e_bonus_damge_e1',
-    evasion_e4 = 'modifier_chernobog_1_e_evasion_e4',
+    teleportation = 'modifier_chernobog_3_e_teleportation',
+    teleportation_cooldown = 'modifier_chernobog_3_e_teleportation_cooldown',
+    teleportation_enemy_effect_e3 = 'modifier_chernobog_3_e_teleportation_enemy_effect_e3',
+    movespeed = 'modifier_chernobog_3_e_movespeed',
+    evasion_e4 = 'modifier_chernobog_3_e_evasion_e4',
+    bonus_damage_e1 = 'modifier_chernobog_3_e_bonus_damage_e1',
+    passive = "modifier_chernobog_3_e_passive",
 }
 local shadowsModifiers = {
     aura = 'modifier_chernobog_shadows_aura',
@@ -28,16 +29,15 @@ for modifierPath, modifier in pairs(shadowsModifiers) do
     LinkLuaModifier(modifier, "heroes/nightstalker/modifiers/shadows_"..modifierPath, LUA_MODIFIER_MOTION_NONE)
 end
 
-chernobog_1_e = class(npc_base_ability, nil, npc_base_ability)
-local class = chernobog_1_e
+chernobog_3_e = class(npc_base_ability, nil, npc_base_ability)
+local class = chernobog_3_e
+
+function class:GetIntrinsicModifierName()
+    return modifiers.passive
+end
 
 function class:InitValues()
     self.status = self.status or 0
-
-    local caster = self:GetCaster()
-    for i = 1, 4 do
-        self["e"..i.."_level"] = caster:GetRuneValue("e", i) or 0
-    end
 
 end
 function class:SwapStatus()
@@ -55,12 +55,12 @@ function class:SetStatus(newStatus)
         self:ToggleAbility()
     end
     local playerId = self:GetCaster():GetPlayerOwnerID()
-    CustomNetTables:SetTableValue("hero_values", tostring(playerId) .. "-chernobog-1-e", {status = self.status})
+    CustomNetTables:SetTableValue("hero_values", tostring(playerId) .. "-chernobog-3-e", {status = self.status})
 end
 
 function class:GetAbilityTextureName()
     local playerId = self:GetCaster():GetPlayerOwnerID()
-    local abilityState = CustomNetTables:GetTableValue("hero_values", tostring(playerId) .. "-chernobog-1-e")
+    local abilityState = CustomNetTables:GetTableValue("hero_values", tostring(playerId) .. "-chernobog-3-e")
     local status = 0
     if abilityState then
         status = abilityState.status
@@ -77,7 +77,8 @@ end
 function class:OnToggle()
     self:InitValues()
     if not self.toggledSpecial then
-        if not self:GetCaster():IsAlive() then
+        local caster = self:GetCaster()
+        if not caster:IsAlive() then
             self:SetStatus(STATUSES.INACTIVE)
             return
         end
@@ -132,19 +133,19 @@ function class:DoStatusThings()
             end
             caster:RemoveModifierByName(modifiers.teleportation)
             caster:RemoveModifierByName(modifiers.movespeed)
-            if self.e1_level > 0 then
-                local modifier = caster:AddNewModifier(caster, self, modifiers.bonus_damage_e1, {})
-                modifier:SetStackCount(self.e1_level)
-            end
-            if self.e2_level > 0 then
+            if caster.e2_level > 0 then
                 init_shadows_values_for_ability({
                     ability = self,
                     radius = CHERNOBOG_E2_RADIUS,
-                    damagePercent =
+                    damagePercent = caster.e2_level * CHERNOBOG_E2_DMG_PCT,
+                    thinkInterval = CHERNOBOG_E2_INTERVAL / (1 + caster.e4_level * CHRENOBOG_E4_SHADOWS_INTERVAL_SCALE),
                 })
+                print(self.shadowsAuraRadius)
+                print(self.shadowsThinkInterval)
+                print(self.shadowsDamagePercent)
                 caster:AddNewModifier(caster, self, shadowsModifiers.aura, {})
             end
-            if self.e4_level > 0 then
+            if caster.e4_level > 0 then
                 caster:RemoveModifierByName(modifiers.evasion_e4)
                 caster:AddNewModifier(caster, self, modifiers.evasion_e4, {})
             end
@@ -161,10 +162,9 @@ function class:DoStatusThings()
             caster:RemoveModifierByName(shadowsModifiers.aura)
             caster:RemoveModifierByName(modifiers.teleportation)
             caster:RemoveModifierByName(modifiers.movespeed)
-            caster:RemoveModifierByName(modifiers.bonus_damage_e1)
             caster:AddNewModifier(caster, self, modifiers.movespeed, {})
-            if self.e4_level > 0 then
-                local duration = Filters:GetAdjustedBuffDuration(caster, CHERNOBOG_E4_BASE_DUR + self.e4_level * CHERNOGBOG_E4_DUR, false)
+            if caster.e4_level > 0 then
+                local duration = Filters:GetAdjustedBuffDuration(caster, CHERNOBOG_E4_BASE_DUR + caster.e4_level * CHERNOGBOG_E4_DUR, false)
                 caster:AddNewModifier(caster, self, modifiers.evasion_e4, { duration = duration })
             end
         end
