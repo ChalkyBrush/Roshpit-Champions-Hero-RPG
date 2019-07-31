@@ -12834,7 +12834,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"particles/status_fx/status_effect_gods_strength.vpcf"
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 						"Function"		"space_shark_buff_end"
 					}
 				}

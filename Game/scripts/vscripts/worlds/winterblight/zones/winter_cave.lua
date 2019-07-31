@@ -877,8 +877,8 @@ function Winterblight:GetVertices(chamber_id)
 		table.insert(vertices, {bl_vertex, tr_vertex})
 
 		local height = 528
-		local width = 604
-		local origin = Vector(-13496, 10560)
+		local width = 804
+		local origin = Vector(-13396, 10560)
 		local bl_vertex = origin-Vector(width/2, height/2)
 		local tr_vertex = origin+Vector(width/2, height/2)
 		table.insert(vertices, {bl_vertex, tr_vertex})
