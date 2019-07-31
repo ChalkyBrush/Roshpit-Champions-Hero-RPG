@@ -14,12 +14,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.12"
+				"property_one"			"<% SPIRIT_WARRIOR_W1_ARCANA_BASE_DMG_PER_HP %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2000"
+				"property_two"			"<% SPIRIT_WARRIOR_W1_ARCANA_BONUS_HP %>"
 			}
 		}
 	}
@@ -39,7 +39,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"<% SPIRIT_WARRIOR_W2_ARCANA_PCT %>"
 			}
 		}
 	}

@@ -20,14 +20,14 @@ function begin_mystic_wave(event)
 	local range = range
 	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "mountain_protector")
 	if q_4_level > 0 then
-		range = range + 20 * q_4_level
+		range = range + MOUNTAIN_PROTECTOR_Q4_DIST * q_4_level
 	end
 	ability.q_4_level = q_4_level
 	ability.e_3_amp = 0
 	if caster:HasModifier("modifier_emberstone_wave") then
 		local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "mountain_protector")
 		caster:RemoveModifierByName("modifier_emberstone_wave")
-		ability.e_3_amp = 0.30 * c_c_level
+		ability.e_3_amp = MOUNTAIN_PROTECTOR_E3_AMP_PCT/100 * c_c_level
 		particle = "particles/roshpit/mystic_assassin/protector_shockwave_red.vpcf"
 	end
 	local speed = 900
@@ -132,7 +132,7 @@ function mystic_wave_impact(event)
 					local stacks = target:GetModifierStackCount("modifier_mountain_protector_q_2_invisible", caster)
 					--print("---ORIG DAMAGE:---")
 					--print(damage)
-					damage = damage + damage * 0.1 * stacks
+					damage = damage + damage * MOUNTAIN_PROTECTOR_Q2_DMG_PCT/100 * stacks
 					--print("STACKS:")
 					--print(stacks)
 					--print("NEW DAMAGE:")

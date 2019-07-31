@@ -19,7 +19,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ARCANA1_W1_DAMAGE_PER_MANAREGEN %>"
+				"property_two"			"<% SEPHYR_ARCANA_W1_DAMAGE_PER_MANAREGEN %>"
 			}
 		}
 	}
@@ -39,7 +39,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARCANA1_W2_AD_TO_W_DAMAGE_PERCENT %>"
+				"property_one"			"<% SEPHYR_ARCANA_W2_ATTACK_TO_DAMAGE_PCT %>"
 			}
 		}
 	}
@@ -59,7 +59,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEPHYR_ARCANA1_W3_SHIELD_CHANCE %>"
+				"property_one"			"<% SEPHYR_ARCANA_W3_SHIELD_CHANCE %>"
 			}
 		}
 	}
@@ -79,7 +79,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"<% SEPHYR_ARCANA_W4_WIND_AMP_PCT %>"
 			}
 		}
 	}

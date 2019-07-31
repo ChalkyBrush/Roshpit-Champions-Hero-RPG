@@ -50,7 +50,7 @@ function flood_basin_start(event)
 			basin_dummy:SetDayTimeVisionRange(event.radius + 100)
 			local baseDuration = 15
 			local b_d_level = caster:GetRuneValue("r", 2)
-			local basin_duration = baseDuration + b_d_level * 0.25
+			local basin_duration = baseDuration + b_d_level * HYDROXIS_ARCANA_R2_DURATION_INC
 			if event.alt_particle then
 				ability:ApplyDataDrivenModifier(caster, basin_dummy, "modifier_flood_basin_aura_small", {duration = basin_duration})
 				ability:ApplyDataDrivenModifier(caster, basin_dummy, "modifier_flood_basin_enemy_aura_small", {duration = basin_duration})
@@ -165,7 +165,7 @@ function flood_basin_enemy_start(event)
 	local target = event.target
 	if ability.r_3_level > 0 then
 		EmitSoundOn("Hydroxis.Arcana2.Basin.Root", target)
-		local root_duration = 1 + 0.15 * ability.r_3_level
+		local root_duration = HYDROXIS_ARCANA_R3_ROOT_DUR_BASE + HYDROXIS_ARCANA_R3_ROOT_DUR * ability.r_3_level
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flood_basin_enemy_root", {duration = root_duration})
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flood_basin_enemy_inside_water_stacks", {})
 		target:SetModifierStackCount("modifier_flood_basin_enemy_inside_water_stacks", caster, ability.r_3_level)

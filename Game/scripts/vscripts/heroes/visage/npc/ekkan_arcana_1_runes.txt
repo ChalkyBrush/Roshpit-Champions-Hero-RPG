@@ -13,7 +13,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
+				"property_one"			"<% EKKAN_ARCANA_Q1_DAMAGE * 100 %>"
 			}
 			"02"
 			{
@@ -41,12 +41,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10000"
+				"property_one"			"<% EKKAN_ARCANA_Q2_BASE_ATTACK_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"6"
+				"property_two"			"<% EKKAN_ARCANA_Q2_POST_MITI * 100 %>"
 			}
 			"03"
 			{
@@ -79,12 +79,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5000"
+				"property_one"			"<% EKKAN_ARCANA_Q3_BASE_ATTACK_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"<% EKKAN_ARCANA_Q3_ARMOR %>"
 			}
 		}
 	}
@@ -102,12 +102,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"<% EKKAN_ARCANA_Q4_BONUS_DAMAGE_AURA * 100 %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"150"
+				"property_two"			"<% EKKAN_ARCANA_Q4_ARMOR_AURA %>"
 			}
 		}
 	}

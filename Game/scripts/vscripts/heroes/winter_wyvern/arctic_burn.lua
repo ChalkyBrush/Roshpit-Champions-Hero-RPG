@@ -1,3 +1,4 @@
+require("/heroes/winter_wyvern/dinath_constants")
 function arctic_burn_finish_channel(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -170,7 +171,7 @@ end
 
 function get_arctic_burn_fire_duration(caster)
 	local fireDuration = 6
-	fireDuration = fireDuration + (caster:GetRuneValue("q", 2)) * 0.08
+	fireDuration = fireDuration + (caster:GetRuneValue("q", 2)) * DINATH_Q2_FIRE_DURATION
 	return fireDuration
 end
 

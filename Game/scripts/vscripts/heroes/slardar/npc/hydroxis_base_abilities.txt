@@ -179,7 +179,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "12"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% HYDROXIS_Q2_ARMOR %>"
 				}
 			}
 			"modifier_hydroxis_c_a_magic_resist_lost"
@@ -189,7 +189,7 @@
 				"TextureName"	"leshrac_lightning_storm"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-1.5"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-<% HYDROXIS_Q3_MAGIC_RESIST %>"
 				}
 			}
 			"modifier_hydroxis_d_c"
@@ -323,7 +323,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "4"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% HYDROXIS_W2_BONUS_ATTACK_DMG_PCT %>"
 				}
 			}
 			"modifier_water_bomb_w_2_damage_buff_spillover"
@@ -578,7 +578,7 @@
 				"TextureName"		"slardar_bash"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "10"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% HYDROXIS_E3_ATTACK_SPEED %>"
 				}
 			}
 		}
@@ -749,7 +749,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-100"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% HYDROXIS_R1_ARMOR_RED %>"
 				}
 			}
 			"modifier_hydroxis_b_d"

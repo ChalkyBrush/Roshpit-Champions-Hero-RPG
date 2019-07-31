@@ -1,4 +1,4 @@
-require('/heroes/huskar/constants_spirit_warrior')
+require('/heroes/huskar/spirit_warrior_constants')
 
 function start_channel(event)
 	local caster = event.caster

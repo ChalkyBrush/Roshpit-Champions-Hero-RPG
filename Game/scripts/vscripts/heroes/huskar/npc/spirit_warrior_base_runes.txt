@@ -16,12 +16,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"285"
+				"property_one"			"<% SPIRIT_WARRIOR_Q1_DMG %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"220"
+				"property_one_base"		"<% SPIRIT_WARRIOR_Q1_BASE %>"
 			}
 			"03"
 			{
@@ -146,7 +146,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"<% SPIRIT_WARRIOR_W1_BASE_DMG_PER_MANA %>"
 			}
 		}
 		"Modifiers"
@@ -181,7 +181,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"640"
+				"property_one"			"<% SPIRIT_WARRIOR_W2_BASE_DMG %>"
 			}
 		}
 		"Modifiers"
@@ -295,12 +295,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4400"
+				"property_one"			"<% SPIRIT_WARRIOR_E1_DMG %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"property_two"			"<% SPIRIT_WARRIOR_E1_BONUS_WINDSRIKE_PCT %>"
 			}
 			"02"
 			{
@@ -413,17 +413,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6000"
+				"property_one"			"<% SPIRIT_WARRIOR_E3_DPS %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.15"
+				"property_two"			"<% SPIRIT_WARRIOR_E3_DURATION %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two_base"			"4"
+				"property_two_base"			"<% SPIRIT_WARRIOR_E3_DURATION_BASE %>"
 			}
 			"04"
 			{

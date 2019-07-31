@@ -1,3 +1,4 @@
+require("/heroes/winter_wyvern/dinath_constants")
 function hyperbeam_start_channel(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -41,7 +42,7 @@ function hyperbeam_start_channel(event)
 	end
 	if caster:HasModifier("modifier_iron_treads_of_destruction") then
 		local growth_rate = 2.5
-		growth_rate = growth_rate + growth_rate * 0.01 * hyperbeam.r_3_level
+		growth_rate = growth_rate + growth_rate * DINATH_R3_CHARGE_RATE * hyperbeam.r_3_level
 		hyperbeam.size = hyperbeam.size + growth_rate * 40
 		ParticleManager:SetParticleControl(hyperbeam.pfx, 2, Vector(hyperbeam.size, hyperbeam.size, hyperbeam.size))
 	end
@@ -154,7 +155,7 @@ function hyperbeam_orb_thinking(event)
 		local flightStacks = caster:GetModifierStackCount("modifier_dinath_postflight_zheight", caster)
 		hyperbeam:SetAbsOrigin(((caster:GetAbsOrigin() + caster:GetForwardVector() * 120) * Vector(1, 1, 0)) + Vector(0, 0, caster:GetAbsOrigin().z + 150 + flightStacks))
 		local growth_rate = 2.5
-		growth_rate = growth_rate + growth_rate * 0.01 * hyperbeam.r_3_level
+		growth_rate = growth_rate + growth_rate * DINATH_R3_CHARGE_RATE * hyperbeam.r_3_level
 		hyperbeam.size = hyperbeam.size + growth_rate
 		ParticleManager:SetParticleControl(hyperbeam.pfx, 2, Vector(hyperbeam.size, hyperbeam.size, hyperbeam.size))
 	end
@@ -173,7 +174,7 @@ end
 
 function hyperbeam_jolt(caster, hyperbeam, enemy)
 	if IsValidEntity(hyperbeam) then
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.05 * hyperbeam.r_1_level
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * DINATH_R1_ATTACK_TO_DAMAGE * hyperbeam.r_1_level
 		damage = damage * (hyperbeam.size / 100)
 		local particleName = "particles/roshpit/dinath/hyper_zap_beam.vpcf"
 		local attachPointA = hyperbeam:GetAbsOrigin()

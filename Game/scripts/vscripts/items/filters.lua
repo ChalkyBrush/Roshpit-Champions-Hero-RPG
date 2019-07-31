@@ -8,17 +8,23 @@ local heroes = {
 mountain_protector = require('/heroes/legion_commander/constants')}
 
 require('/heroes/dark_seer/zhonik_constants')
-require('/heroes/huskar/constants_SPIRIT_WARRIOR')
+require('/heroes/huskar/spirit_warrior_constants')
 require('items/special_item_effects')
 require('/heroes/omniknight/paladin_constants')
 require('/heroes/phantom_assassin/voltex_constants')
 require('/heroes/juggernaut/seinaru_constants')
 require('/heroes/lanaya/trapper_constants')
+require('/heroes/leshrac/bahamut_constants')
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/spirit_breaker/duskbringer_constants')
 require('/heroes/zuus/auriun_constants')
 require('/heroes/legion_commander/mountain_protector_constants')
 require('/heroes/faceless_void/omniro_constants')
+require('/heroes/skywrath_mage/constants')
+require('heroes/slardar/hydroxis_constants')
+require('/heroes/vengeful_spirit/solunia_constants')
+require("/heroes/visage/ekkan_constants")
+require("/heroes/winter_wyvern/dinath_constants")
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -74,11 +80,11 @@ function Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, damage_
         if b_d_level > 0 then
             local modified_damage = Filters:ElementalDamage(victim, attacker, damage, damage_type, nil, element1, element2, true)
             if attacker.sunMoon == "moon" then
-                victim.SoluniaBurnLunar = modified_damage * 0.01 * b_d_level
+                victim.SoluniaBurnLunar = modified_damage * SOLUNIA_ARCANA_R2_BURN_PCT/100 * b_d_level
                 local alphaAbility = attacker:FindAbilityByName("solunia_lunar_alpha_spark")
                 alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_lunar_burn", {duration = 8})
             else
-                victim.SoluniaBurnSolar = modified_damage * 0.01 * b_d_level
+                victim.SoluniaBurnSolar = modified_damage * SOLUNIA_ARCANA_R2_BURN_PCT/100 * b_d_level
                 local alphaAbility = attacker:FindAbilityByName("solunia_solar_alpha_spark")
                 alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_solar_burn", {duration = 8})
             end
@@ -1253,7 +1259,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if not ignore_effects and attacker:HasModifier("modifier_solunia_arcana1") then
             local q_2_level = attacker:GetRuneValue("q", 2)
             if q_2_level > 0 then
-                damage = damage + attacker:GetHealth() * 0.1 * q_2_level
+                damage = damage + attacker:GetHealth() * SOLUNIA_ARCANA_Q2_SPELL_DMG_FLAT_HP_PCT/100 * q_2_level
             end
         end
         if attacker:HasModifier("modifier_watcher_two") then
@@ -1300,7 +1306,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_flood_basin_a_d") then
             local current_stack = attacker:GetModifierStackCount("modifier_flood_basin_a_d", attacker)
-            damageMult = damageMult + 0.075 * current_stack
+            damageMult = damageMult + HYDROXIS_ARCANA_R1_BAD_PCT/100 * current_stack
         end
         if attacker:HasModifier("modifier_swiftspike_bad") then
             local current_stack = attacker:GetModifierStackCount("modifier_swiftspike_bad", attacker.InventoryUnit)
@@ -1308,7 +1314,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_bahamut_a_b_buff") then
             local current_stack = attacker:GetModifierStackCount("modifier_bahamut_a_b_buff", attacker.runeUnit:FindAbilityByName("bahamut_rune_w_1"))
-            damageMult = damageMult + 0.12 * current_stack
+            damageMult = damageMult + BAHAMUT_W1_BONUS_DMG_AND_BAD_PCT/100 * current_stack
         end
         if attacker:HasModifier("modifier_venomort_rune_r_4") then
             local current_stack = attacker:GetModifierStackCount("modifier_venomort_rune_r_4", attacker.runeUnit4:FindAbilityByName("venomort_rune_r_4"))
@@ -1947,7 +1953,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_vengefulspirit" then
             if attacker:HasModifier("modifier_solunia_arcana2") then
                 local d_d_level = attacker:GetRuneValue("r", 4)
-                fireMult = fireMult + 0.0005 * attacker:GetStrength() / 10 * d_d_level
+                fireMult = fireMult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT/100 * attacker:GetStrength() / 10 * d_d_level
             end
         end
         if attacker:HasModifier("modifier_trinket_fire") then
@@ -2159,12 +2165,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_skywrath_mage" then
             if attacker:HasModifier("modifier_sephyr_holy_amp") then
                 local stacks = attacker:GetModifierStackCount("modifier_sephyr_holy_amp", caster)
-                mult = mult + stacks * 1
+                mult = mult + stacks * SEPHYR_Q4_HOLY_AMP_PCT/100
             end
             if attacker:HasModifier("modifier_lightbomb_freecast") then
                 local stacks = attacker:GetModifierStackCount("modifier_lightbomb_freecast", caster)
                 local q_3_level = attacker:GetRuneValue("q", 3)
-                mult = mult + stacks * 0.1 * q_3_level
+                mult = mult + stacks * SEPHYR_Q3_HOLY_AMP_PCT/100 * q_3_level
             end
         elseif unitName == "npc_dota_hero_juggernaut" and attacker:HasAbility("seinaru_odachi_leap") then
             if victim:GetPhysicalArmorValue(false) < 0 then
@@ -2213,14 +2219,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_vengefulspirit" then
             local q_4_level = attacker:GetRuneValue("q", 4)
-            local d_a_mult = 0.0008
+            local d_a_mult = SOLUNIA_Q4_COSMIC_AMP_PCT/100
             if attacker:HasModifier("modifier_solunia_arcana1") then
-                d_a_mult = 0.0016
+                d_a_mult = SOLUNIA_ARCANA_Q4_COSMIC_AMP_PCT/100
             end
             cosmosMult = cosmosMult + d_a_mult * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * q_4_level
             if attacker:HasModifier("modifier_solunia_arcana2") then
                 local d_d_level = attacker:GetRuneValue("r", 4)
-                cosmosMult = cosmosMult + 0.0005 * attacker:GetIntellect() / 10 * d_d_level
+                cosmosMult = cosmosMult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT/100 * attacker:GetIntellect() / 10 * d_d_level
             end
         end
         if attacker:HasModifier("modifier_body_cosmos") then
@@ -2293,13 +2299,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_vengefulspirit" then
             if attacker:HasModifier("modifier_solunia_arcana2") then
                 local d_d_level = attacker:GetRuneValue("r", 4)
-                mult = mult + 0.0005 * attacker:GetAgility() / 10 * d_d_level
+                mult = mult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT/100 * attacker:GetAgility() / 10 * d_d_level
             end
         elseif unitName == "npc_dota_hero_winter_wyvern" then
             if attacker:HasModifier("modifier_dinath_arcana1") then
                 local movespeed = attacker:GetBaseMoveSpeed()
                 local actualMS = attacker:GetMoveSpeedModifier(movespeed, false)
-                mult = mult + actualMS * 0.001 * attacker:GetRuneValue("w", 2)
+                mult = mult + actualMS * DINATH_ARCANA_W2_MOVESPEED_TO_ICE_AMP_DIV_BY_100 * attacker:GetRuneValue("w", 2)
             end
         end
         if attacker:HasModifier("modifier_trinket_ice") then
@@ -2343,7 +2349,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                     local w_1_level = attacker:GetRuneValue("w", 1)
                     if w_1_level > 0 then
                         local specialDamage = damage * mult
-                        local damageBoost = math.min(specialDamage * 0.002 * w_1_level, w_1_level * 50000)
+                        local damageBoost = math.min(specialDamage * 0.002 * w_1_level, w_1_level * ARKIMUS_W1_BASE_DMG)
                         local stormAbility = attacker:FindAbilityByName("arkimus_storm_weapon")
                         stormAbility:ApplyDataDrivenModifier(attacker, attacker, "modifier_damage_boost_a_a_visible", {duration = 15})
                         stormAbility:ApplyDataDrivenModifier(attacker, attacker, "modifier_damage_boost_a_a_invisible", {duration = 15})
@@ -2445,12 +2451,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_sephyr_arcana1") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
                 if w_4_level > 0 then
-                    mult = mult + 0.0015 * (attacker:GetIntellect() + attacker:GetStrength() + attacker:GetAgility()) / 10 * w_4_level
+                    mult = mult + SEPHYR_ARCANA_W4_WIND_AMP_PCT/100 * (attacker:GetIntellect() + attacker:GetStrength() + attacker:GetAgility()) / 10 * w_4_level
                 end
             else
                 local w_4_level = attacker:GetRuneValue("w", 4)
                 if w_4_level > 0 then
-                    mult = mult + 0.0012 * attacker:GetIntellect() / 10 * w_4_level
+                    mult = mult + SEPHYR_W4_WIND_AMP_PCT/100 * attacker:GetIntellect() / 10 * w_4_level
                 end
             end
         end
@@ -2489,13 +2495,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         local waterMult = 0
         if unitName == "npc_dota_hero_slardar" then
             if attacker.e_4_level then
-                waterMult = waterMult + 0.001 * (attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.e_4_level
+                waterMult = waterMult + HYDROXIS_E4_WATER_AMP/100 * (attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.e_4_level
             end
             if attacker:HasAbility("hydroxis_arcana_ability_1") then
                 if bIsRealDamage then
                     local w_4_level = attacker:GetRuneValue("w", 4)
                     if w_4_level > 0 then
-                        local duration = 0.5 + w_4_level * 0.15
+                        local duration = HYDROXIS_ARCANA_W4_MIST_DURATION_BASE + w_4_level * HYDROXIS_ARCANA_W4_MIST_DURATION
                         local mist_mod = victim:FindModifierByName("modifier_hydroxis_mist_debuff_timered")
                         if mist_mod then
                             duration = math.max(duration, mist_mod:GetRemainingTime())
@@ -2547,7 +2553,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("modifier_flood_basin_enemy_inside_water_stacks") then
             local modifier = victim:FindModifierByName("modifier_flood_basin_enemy_inside_water_stacks")
-            local multIncrease = modifier:GetStackCount() * 0.3
+            local multIncrease = modifier:GetStackCount() * HYDROXIS_ARCANA_R3_WATER_AMP_PCT/100
             waterMult = waterMult + multIncrease
         end
         if waterMult > 50 and attacker:HasModifier("modifier_water_deity_crown") then
@@ -2561,12 +2567,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local demonMult = 0
             local q_4_level = Runes:GetTotalRuneLevel(attacker, 4, "q_4", "chernobog")
             if q_4_level > 0 then
-                demonMult = 0.001 * (attacker:GetAgility()) / 10 * q_4_level
+                demonMult = CHERNOBOG_Q4_DEMON_AMP_PCT/100 * (attacker:GetAgility()) / 10 * q_4_level
             end
             if victim:HasModifier("modifier_charons_claw_enemy") then
                 local q_2_level = attacker:GetRuneValue("q", 2)
                 if q_2_level > 0 then
-                    demonMult = demonMult + demonMult * 0.05 * q_2_level
+                    demonMult = demonMult + demonMult * CHERNOBOG_Q2_DEMON_AMP_PCT/100 * q_2_level
                 end
             end
             mult = mult + demonMult
@@ -2631,7 +2637,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 local w_2_level = attacker:GetRuneValue("w", 2)
                 local raise_skeletons = attacker:FindAbilityByName("ekkan_summon_skeleton")
                 if raise_skeletons.skeleTable then
-                    mult = mult + #raise_skeletons.skeleTable * w_2_level * 0.08
+                    mult = mult + #raise_skeletons.skeleTable * w_2_level * EKKAN_W2_UNDEAD_AMP
                 end
             end
         end
@@ -2639,7 +2645,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_DRAGON or element2 == RPC_ELEMENT_DRAGON then
         if unitName == "npc_dota_hero_winter_wyvern" then
             local d_d_level = attacker:GetRuneValue("r", 4)
-            mult = mult + 0.0015 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * d_d_level
+            mult = mult + DINATH_R4_DRAGON_AMP * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * d_d_level
             if bIsRealDamage then
                 if attacker:HasModifier("modifier_dinath_immortal_weapon_3") then
                     Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)

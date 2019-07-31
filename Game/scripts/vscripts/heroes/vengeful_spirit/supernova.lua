@@ -12,12 +12,12 @@ function start_channel(event)
 	--print(ability.startRotation)
 	caster:RemoveModifierByName("modifier_solunia_in_between_flare")
 	ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "solunia")
-	ability.r_3_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.05 * ability.r_3_level
+	ability.r_3_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * SOLUNIA_R3_WAVE_DMG_PCT/100 * ability.r_3_level
 	caster:RemoveModifierByName("modifier_solunia_warp_flare_falling")
 	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "solunia")
 	if d_d_level > 0 then
 		ability:EndCooldown()
-		ability:StartCooldown(ability:GetCooldown(ability:GetLevel()) - d_d_level * 0.2)
+		ability:StartCooldown(ability:GetCooldown(ability:GetLevel()) - d_d_level * SOLUNIA_R4_CD_RED)
 	end
 end
 
@@ -29,8 +29,8 @@ function supernova_a_d(caster, ability)
 	if not caster:HasModifier("modifier_solunia_arcana2") then
 		local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "solunia")
 		if a_d_level > 0 then
-			local healthRestore = a_d_level * 6000
-			local manaRestore = a_d_level * 2000
+			local healthRestore = a_d_level * SOLUNIA_R1_HP
+			local manaRestore = a_d_level * SOLUNIA_R1_MANA
 			Filters:ApplyHeal(caster, caster, healthRestore, true, false)
 			caster:GiveMana(manaRestore)
 			PopupHealing(caster, healthRestore)
@@ -57,7 +57,7 @@ function supernova_channeling_think(event)
 	if ability.r_3_level > 0 then
 		if ability.rotationIndex % 15 == 0 then
 			for i = 1, 8, 1 do
-				local range = 600 + 6 * ability.r_3_level
+				local range = SOLUNIA_R3_RANGE_BASE + SOLUNIA_R3_RANGE * ability.r_3_level
 				local speed = range
 				local casterOrigin = caster:GetAbsOrigin()
 				local fv = WallPhysics:rotateVector(caster:GetForwardVector(), math.pi * i * 2 / 8)
@@ -228,13 +228,13 @@ function supernova_burn_think(event)
 	elseif ability:GetAbilityName() == "solunia_lunar_alpha_spark" then
 		local damage = target.SoluniaBurnLunar
 		if dualBurn then
-			damage = damage + 0.05 * ability.r_2_level * damage
+			damage = damage + SOLUNIA_ARCANA_R2_DUAL_BURN_PCT/100 * ability.r_2_level * damage
 		end
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
 	elseif ability:GetAbilityName() == "solunia_solar_alpha_spark" then
 		local damage = target.SoluniaBurnSolar
 		if dualBurn then
-			damage = damage + 0.05 * ability.r_2_level * damage
+			damage = damage + SOLUNIA_ARCANA_R2_DUAL_BURN_PCT/100 * ability.r_2_level * damage
 		end
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
 	end
@@ -369,7 +369,7 @@ end
 function arcana2runes(caster, ability)
 	local a_d_level = caster:GetRuneValue("r", 1)
 	if a_d_level > 0 then
-		local healthStacks = RandomInt(1 * a_d_level, 1000 * a_d_level)
+		local healthStacks = RandomInt(SOLUNIA_ARCANA_R1_MIN/10 * a_d_level, SOLUNIA_ARCANA_R1_MAX/10 * a_d_level)
 		local healAmount = healthStacks * 10
 		Filters:ApplyHeal(caster, caster, healAmount, true)
 		local duration = Filters:GetAdjustedBuffDuration(caster, 20, false)

@@ -1,3 +1,4 @@
+require("/heroes/winter_wyvern/dinath_constants")
 function dinath_dive_precast(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -163,7 +164,7 @@ function dragon_height_z_thinker(event)
 		end
 	end
 	if ability.e_4_level > 0 then
-		local threshold = 450 - ability.e_4_level * 3
+		local threshold = DINATH_E4_Z_THRESHOLD_BASE - ability.e_4_level * DINATH_E4_Z_THRESHOLD_REDUCTION
 		if stacks >= threshold then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_dinath_dive_attack_immune", {})
 		else
@@ -181,7 +182,7 @@ function dinath_charge_passive_think(event)
 	if caster:IsAlive() then
 		local b_c_level = caster:GetRuneValue("e", 2)
 		local attack_damage_from_gear = caster:GetModifierStackCount("modifier_trinket_attack_damage", caster.InventoryUnit) + caster:GetModifierStackCount("modifier_body_attack_damage", caster.InventoryUnit) + caster:GetModifierStackCount("modifier_hand_attack_damage", caster.InventoryUnit) + caster:GetModifierStackCount("modifier_helm_attack_damage", caster.InventoryUnit) + caster:GetModifierStackCount("modifier_weapon_attack_damage", caster.InventoryUnit) + caster:GetModifierStackCount("modifier_hand_cooldown_reduce", caster.InventoryUnit)
-		local bonus_attack = attack_damage_from_gear * 0.15 * b_c_level
+		local bonus_attack = attack_damage_from_gear * DINATH_E2_GEAR_BASE_DAMAGE_AMP * b_c_level
 		if bonus_attack > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_dinath_b_c_attack_power", {})
 			caster:SetModifierStackCount("modifier_dinath_b_c_attack_power", caster, bonus_attack)

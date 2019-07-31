@@ -46,7 +46,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"5"
+				"property_two"			"<% ARKIMUS_ARCANA2_R2_BASE_DMG %>"
 			}
 		}
 	}

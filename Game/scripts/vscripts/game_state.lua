@@ -3,7 +3,7 @@ if GameState == nil then
 end
 
 require('/heroes/dark_seer/zhonik_constants')
-require('/heroes/huskar/constants_SPIRIT_WARRIOR')
+require('/heroes/huskar/spirit_warrior_constants')
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/juggernaut/seinaru_constants')
 require('/heroes/nightstalker/chernobog_constants')
@@ -14,6 +14,10 @@ require('/heroes/invoker/constants_CONJUROR')
 require("/heroes/moon_ranger/constants")
 require("/heroes/dragon_knight/flamewaker_constants")
 require("/heroes/spirit_breaker/duskbringer_constants")
+require('heroes/slardar/hydroxis_constants')
+require('/heroes/vengeful_spirit/solunia_constants')
+require("/heroes/visage/ekkan_constants")
+require("/heroes/winter_wyvern/dinath_constants")
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -898,7 +902,7 @@ function GameState:OrderFilter(orderTable)
 						--print(abilityDistance)
 						local e_4_level = unit:GetRuneValue("e", 4)
 						if e_4_level > 0 then
-							abilityDistance = abilityDistance + e_4_level * 6
+							abilityDistance = abilityDistance + e_4_level * SEPHYR_E4_STRAFE_DISTANCE
 						end
 						strafe.e_4_level = e_4_level
 						local manaReduce = strafe:GetLevelSpecialValueFor("mana_percent_use", strafe:GetLevel()) / 100
@@ -1084,7 +1088,7 @@ function GameState:OrderFilter(orderTable)
 								if orderTable.entindex_target == 0 then
 								else
 									local distance = WallPhysics:GetDistance2d(enemy:GetAbsOrigin(), unit:GetAbsOrigin())
-									if distance < ability.e_3_level * 12 + 400 then
+									if distance < ability.e_3_level * CHERNOBOG_E3_RANGE + CHERNOBOG_E3_BASE_RANGE then
 										if enemy.dummy then
 										elseif enemy:GetClassname() == "dota_item_drop" then
 										elseif enemy:GetTeamNumber() == unit:GetTeamNumber() then
@@ -1703,7 +1707,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_drowning_pool_actual_effect") then
 		local modifier = victim:FindModifierByName("modifier_drowning_pool_actual_effect")
 		local stacks = modifier:GetStackCount()
-		local damageReduc = math.min(stacks * 0.015, 0.9)
+		local damageReduc = math.min(stacks * HYDROXIS_R4_DMG_RED_PCT/100, 0.9)
 		damage = damage - damage * damageReduc
 	end
 	if victim:HasModifier("modifier_steelforge_passive") then
@@ -1854,7 +1858,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:GetUnitName() == "ekkan_skeleton_archer" then
 			local luck = RandomInt(1, 10)
 			if luck <= 3 then
-				filterTable.damage = filterTable.damage * (1 + attacker.w_1_level * 0.1)
+				filterTable.damage = filterTable.damage * (1 + attacker.w_1_level * EKKAN_W1_CRIT_DMG)
 				local damage = Filters:TakeArgumentsAndApplyDamage(victim, attacker.hero, filterTable.damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE, true, nil)
 				filterTable["damage"] = damage
 				armor = 0
@@ -2063,7 +2067,7 @@ function GameState:FilterDamage(filterTable)
 		if victim:HasModifier("modifier_drake_ring_postmit") then
 			if attacker:GetUnitName() == "npc_dota_hero_winter_wyvern" then
 				local stacks = victim:GetModifierStackCount("modifier_drake_ring_postmit", attacker)
-				mult = mult + 0.1 * stacks
+				mult = mult + DINATH_W2_POST_MITI_MAGIC * stacks
 				--print("STACK INCREASE")
 				--print(stacks)
 			end
@@ -2138,12 +2142,12 @@ function GameState:FilterDamage(filterTable)
 
 		if victim:HasModifier("modifier_solunia_warp_core_aura_solar") then
 			modifier = victim:FindModifierByName("modifier_solunia_warp_core_aura_solar")
-			mult = mult + modifier:GetAbility().e_3_level * 0.05
+			mult = mult + modifier:GetAbility().e_3_level * SOLUNIA_E3_POST_MITI_PCT/100
 		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_solunia_warp_core_aura_lunar") then
 			modifier = victim:FindModifierByName("modifier_solunia_warp_core_aura_lunar")
-			mult = mult + modifier:GetAbility().e_3_level * 0.05
+			mult = mult + modifier:GetAbility().e_3_level * SOLUNIA_E3_POST_MITI_PCT/100
 		end
 
 	end
@@ -2248,7 +2252,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_nights_procession_a_d_rune") then
 		if attacker:GetUnitName() == "npc_dota_hero_night_stalker" then
-			local multBonus = victim:GetModifierStackCount("modifier_nights_procession_a_d_rune", attacker) * 0.07
+			local multBonus = victim:GetModifierStackCount("modifier_nights_procession_a_d_rune", attacker) * CHERNOBOG_R1_AMP_PCT/100
 			mult = mult + multBonus
 		end
 	end
@@ -2266,7 +2270,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_chernobog_demon_form") then
 		local demonForm = attacker:FindAbilityByName("chernobog_demon_morph")
 		if demonForm then
-			mult = mult + 0.1 * demonForm.r_4_level
+			mult = mult + CHERNOBOG_ARCANA_R4_POST_MITI_PCT/100 * demonForm.r_4_level
 		end
 	end
 	modifier = victim:FindModifierByName("modifier_chernobog_rune_e_3_postmit")
@@ -2360,7 +2364,7 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = filterTable["damage"] - (filterTable["damage"] * math.min((CONJUROR_ARCANA_Q4_DAMAGE_REDUCE_PCT / 100) * stacks, 0.9))
 	end
 	if victim:HasModifier("modifier_swarm_effect") then
-		local multIncrease = victim:GetModifierStackCount("modifier_swarm_effect", victim.umbral) * 0.06
+		local multIncrease = victim:GetModifierStackCount("modifier_swarm_effect", victim.umbral) * EKKAN_ARCANA_Q2_POST_MITI
 		mult = mult + multIncrease
 	end
 	if victim:HasModifier("modifier_witch_hat_damage_amp") then
@@ -2378,7 +2382,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_drowning_pool_actual_effect") then
 		modifier = attacker:FindModifierByName("modifier_drowning_pool_actual_effect")
 		local stacks = modifier:GetStackCount()
-		local damageIncrease = stacks * 0.2
+		local damageIncrease = stacks * HYDROXIS_R4_DMG_AMP_PCT/100
 		filterTable["damage"] = filterTable["damage"] + filterTable["damage"] * damageIncrease
 	end
 	if attacker:HasModifier("modifier_flamewaker_arcana1") then
@@ -2400,7 +2404,7 @@ function GameState:FilterDamage(filterTable)
 		modifier = attacker:FindModifierByName("modifier_machinal_jump_c_c_amp")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			local multIncrease = 0.08 * stacks
+			local multIncrease = ARKIMUS_E3_POST_MITI/100 * stacks
 			mult = mult + multIncrease
 		end
 	end
@@ -2446,12 +2450,12 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_waterheart_weapon") then
 		local waterheart = attacker:FindModifierByName("modifier_waterheart_weapon"):GetAbility()
 		if waterheart then
-			mult = mult + 0.03 * waterheart.r_3_level
+			mult = mult + SPIRIT_WARRIOR_ARCANA_R3_POST_MITI_PCT/100 * waterheart.r_3_level
 		end
 	end
 	if attacker:HasModifier("modifier_bahamut_charge_of_light_postmitigation") then
 		local stacks = attacker:GetModifierStackCount("modifier_bahamut_charge_of_light_postmitigation", attacker)
-		mult = mult + 0.15 * stacks
+		mult = mult + BAHAMUT_R2_POST_MITI_PCT/100 * stacks
 	end
 
 	if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
@@ -2461,7 +2465,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_hydroxis_basin_d_d") then
 		local stacks = attacker:GetModifierStackCount("modifier_hydroxis_basin_d_d", attacker)
-		mult = mult + 0.1 * stacks
+		mult = mult + HYDROXIS_ARCANA_R4_POST_MITI_PCT/100 * stacks
 	end
 	if attacker:HasModifier("modifier_apollo_post_mit_invisible") then
 		if attacker:HasAbility("shot_of_apollo") then
@@ -2671,7 +2675,7 @@ function GameState:FilterDamage(filterTable)
 		modifier = victim:FindModifierByName("modifier_hyperbeam_postmit")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			mult = mult + 0.09 * stacks
+			mult = mult + DINATH_R2_POST_MITI * stacks
 		end
 	end
 	if victim:HasModifier("modifier_slipfinn_gloomshade_invisible") then
@@ -3135,7 +3139,7 @@ function GameState:FilterDamage(filterTable)
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local w_3_level = attacker:GetRuneValue("w", 3)
 			if w_3_level > 0 then
-				mult = mult + 0.06 * w_3_level
+				mult = mult + HYDROXIS_ARCANA_W3_POST_MITI_PCT/100 * w_3_level
 			end
 		end
 	end
@@ -3210,7 +3214,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_ekkan_dominion_unit") then
 		if attacker.hero:HasModifier("modifier_ekkan_immortal_weapon_3") then
 			if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-				filterTable["damage"] = filterTable["damage"] * 5000
+				filterTable["damage"] = filterTable["damage"] * EKKAN_IMMORTAL_WEAPON_3_AMP
 			end
 		end
 	end
@@ -3244,13 +3248,13 @@ function GameState:FilterDamage(filterTable)
 		modifier = victim:FindModifierByName("modifier_solar_compression_invisible")
 		local modifierCaster = modifier:GetCaster()
 		local stacks = victim:GetModifierStackCount("modifier_solar_compression_invisible", modifierCaster)
-		mult = mult + stacks * 0.003
+		mult = mult + stacks * SOLUNIA_ARCANA_Q3_POST_MITI_PCT/100
 	end
 	if victim:HasModifier("modifier_lunar_compression_invisible") then
 		modifier = victim:FindModifierByName("modifier_lunar_compression_invisible")
 		local modifierCaster = modifier:GetCaster()
 		local stacks = victim:GetModifierStackCount("modifier_lunar_compression_invisible", modifierCaster)
-		mult = mult + stacks * 0.003
+		mult = mult + stacks * SOLUNIA_ARCANA_Q3_POST_MITI_PCT/100
 	end
 	if victim:HasModifier("modifier_in_hydrogen_field") then
 		if filterTable["entindex_inflictor_const"] then

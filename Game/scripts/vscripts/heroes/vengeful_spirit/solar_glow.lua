@@ -127,13 +127,13 @@ function flareImpact(caster, ability)
 		for _, enemy in pairs(enemies) do
 			if enemy:HasModifier("modifier_boomerang_magic_marker") then
 				local stacks = enemy:GetModifierStackCount("modifier_boomerang_magic_marker", caster.origCaster)
-				damage = damage + stacks * 0.2 * damage
+				damage = damage + stacks * SOLUNIA_W2_DMG_AMP/100 * damage
 			end
 			if caster.q_3_level > 0 then
 				if caster.typeName == "sun" then
-					damage = damage + enemy:GetHealth() * 0.004 * caster.q_3_level
+					damage = damage + enemy:GetHealth() * SOLUNIA_Q3_CURRENT_HP_BONUS_PCT/100 * caster.q_3_level
 				else
-					damage = damage + (enemy:GetMaxHealth() - enemy:GetHealth()) * 0.004 * caster.q_3_level
+					damage = damage + (enemy:GetMaxHealth() - enemy:GetHealth()) * SOLUNIA_Q3_MISSING_HP_BONUS_PCT/100 * caster.q_3_level
 				end
 			end
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage, damageType, BASE_ABILITY_Q, RPC_ELEMENT_COSMOS, element2)
@@ -271,7 +271,7 @@ end
 function glow_rune_q_1(caster, ability, fv, range)
 	ability.rune_q_1_level = caster:GetRuneValue("q", 1)
 	if ability.rune_q_1_level > 0 then
-		ability.q_1_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * SOLUNIA_Q1_DMG_PER_ATT * ability.rune_q_1_level
+		ability.q_1_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * SOLUNIA_Q1_DMG_PER_ATT_PCT/100 * ability.rune_q_1_level
 		local speed = math.max(range / 2 + 200, 400)
 		local casterOrigin = caster:GetAbsOrigin()
 		local particleName = "particles/roshpit/solunia/a_a_wave_solar.vpcf"
@@ -315,7 +315,7 @@ function a_a_projectile_hit(event)
 	--print("TARGET HIT")
 	local distanceToPoint = WallPhysics:GetDistance2d(targetPoint, target:GetAbsOrigin())
 	local pushVector = (((targetPoint + ability.baseFV * 200) - target:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-	local divider = math.max(4000 - ability.rune_q_1_level * 10, 1500)
+	local divider = math.max(4000 - ability.rune_q_1_level * SOLUNIA_Q1_PUSH_FORCE * 10, 1500)
 	target.solunia_a_a_push_vector = pushVector * (distanceToPoint / divider) * 100
 	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.q_1_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 end

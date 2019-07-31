@@ -37,7 +37,7 @@ function begin_demon_morph(event)
 	end)
 	caster:AddNoDraw()
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_transitioning", {duration = 2.0})
-	local duration = event.duration + ability.r_4_level * 0.5
+	local duration = event.duration + ability.r_4_level * CHERNOBOG_ARCANA_R4_DURATION_INC
 	local morphDuration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	Timers:CreateTimer(2.0, function()
 		caster:RemoveNoDraw()
@@ -114,7 +114,7 @@ function demon_form_attack_land(event)
 	local ability = event.ability
 	local target = event.target
 	local damage = event.attack_damage
-	local splashDamage = damage * 0.02 * ability.r_1_level
+	local splashDamage = damage * CHERNOBOG_ARCANA_R1_DAMAGE_PCT/100 * ability.r_1_level
 	if ability.r_1_level > 0 then
 		-- if target:IsAlive() then
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -138,7 +138,7 @@ function demon_form_attack_start(event)
 	local target = event.target
 	if not caster:HasModifier("modifier_demon_form_dont_split") then
 		if ability.r_3_level > 0 then
-			local procs = Runes:Procs(ability.r_3_level, 15, 1)
+			local procs = Runes:Procs(ability.r_3_level, CHERNOBOG_ARCANA_R3_SPLIT_PCT, 1)
 			local splitCount = 0
 			--print(procs)
 			if procs > 0 then

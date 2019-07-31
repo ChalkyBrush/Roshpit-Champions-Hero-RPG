@@ -12,12 +12,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3000"
+				"property_one"			"<% SOLUNIA_ARCANA_Q1_HP_REGEN %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"property_two"			"<% SOLUNIA_ARCANA_Q1_BONUS_ATTACK_PCT %>"
 			}
 		}
 	}
@@ -35,12 +35,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"<% SOLUNIA_ARCANA_Q2_BASE_ATTACK_PER_HP %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"<% SOLUNIA_ARCANA_Q2_SPELL_DMG_FLAT_HP_PCT %>"
 			}
 		}
 	}
@@ -61,12 +61,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"<% SOLUNIA_ARCANA_Q3_POST_MITI_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2"
+				"property_two"			"<% SOLUNIA_ARCANA_Q3_ATTACK_TO_DMG_PCT %>"
 			}
 		}
 	}
@@ -87,7 +87,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.16"
+				"property_one"			"<% SOLUNIA_ARCANA_Q4_COSMIC_AMP_PCT %>"
 			}
 		}
 	}

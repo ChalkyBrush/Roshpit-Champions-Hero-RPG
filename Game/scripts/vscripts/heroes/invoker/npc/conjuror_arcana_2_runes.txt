@@ -68,7 +68,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"60"
+				"property_one"			"<% CONJUROR_ARCANA_W3_CRIT_DMG_PCT %>"
 			}
 			"03"
 			{

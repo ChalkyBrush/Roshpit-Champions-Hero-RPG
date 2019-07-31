@@ -275,8 +275,8 @@ function a_c_explosion(caster, finalMoveVector)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				--print(caster.damage)
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, caster.damage * (1 + caster.e_1_level * 0.5), damageType, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
-				Filters:ApplyStun(caster.origCaster, caster.e_1_level * 0.05, enemy)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, caster.damage * (SOLUNIA_E1_EXPLOSION_PCT_BASE/100 + caster.e_1_level * SOLUNIA_E1_EXPLOSION_PCT/100), damageType, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+				Filters:ApplyStun(caster.origCaster, caster.e_1_level * SOLUNIA_E1_STUN_DUR, enemy)
 			end
 		end
 		boomerangFinishAll(caster)
@@ -392,9 +392,9 @@ function boomerang_impact(caster, ability, target)
 		local damage = caster.damage
 		if caster.w_1_level > 0 then
 			local luck = RandomInt(1, 1000)
-			if luck <= (150 + caster.w_1_level) then
+			if luck <= (SOLUNIA_W1_CRIT_CHANCE_BASE + SOLUNIA_W1_CRIT_CHANCE * caster.w_1_level) * 10 then
 				EmitSoundOn("Solunia.BoomerangCrit", caster)
-				damage = damage * caster.w_1_level * 0.12 + damage
+				damage = damage * caster.w_1_level * SOLUNIA_W1_CRIT_DAMAGE_PCT/100 + damage
 				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 				ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", target:GetAbsOrigin(), true)
 				ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", target:GetAbsOrigin(), true)
@@ -474,7 +474,7 @@ end
 function c_b_prep(caster, boomerang)
 	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "solunia")
 	if w_3_level > 0 then
-		boomerang.damage = boomerang.damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.06 * w_3_level
+		boomerang.damage = boomerang.damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * SOLUNIA_W3_ATTACK_TO_DMG_PCT/100 * w_3_level
 	end
 end
 
@@ -495,7 +495,7 @@ function d_b_prep(caster, boomerang, ability)
 				ParticleManager:DestroyParticle(pfx, false)
 				ParticleManager:ReleaseParticleIndex(pfx)
 			end)
-			local duration = boomerang.w_4_level * 0.35 + 3
+			local duration = boomerang.w_4_level * SOLUNIA_W4_DURATION/100 + SOLUNIA_W4_DURATION_BASE
 			duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 			local solarangAbility = caster:FindAbilityByName("solunia_solarang")
 			solarangAbility:ApplyDataDrivenModifier(caster, caster, "modifier_black_widow_invisible_damage_buff", {duration = duration})

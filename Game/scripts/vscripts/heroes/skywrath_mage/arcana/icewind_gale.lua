@@ -22,15 +22,15 @@ function begin_icewind_gale(event)
 	end
 	local galeParticle = "particles/roshpit/sephyr/icewind_gale.vpcf"
 	local critParticle = "particles/roshpit/sephyr/icewind_crit.vpcf"
-	local range = 800
-	local speed = 2500
+	local range = SEPHYR_ARCANA_GALE_RANGE
+	local speed = SEPHYR_ARCANA_GALE_SPEED
 	local castAbility = ability
 	if caster:HasModifier("modifier_sephyr_glyph_4_1") then
-		range = 1200
-		speed = 3500
+		range = SEPHYR_ARCANA_GALE_RANGE_GLYPH41
+		speed = SEPHYR_ARCANA_GALE_SPEED_GLYPH41
 	end
 
-	local procChance = 15
+	local procChance = SEPHYR_ARCANA_GALE_CRIT_CHANCE
 	if caster:HasModifier("modifier_sephyr_immortal_weapon_1") then
 		procChance = procChance + 15
 	end
@@ -93,7 +93,7 @@ function begin_icewind_gale(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_gale_speed_burst", {duration = 0.8})
 	local w_3_level = caster:GetRuneValue("w", 3)
 	if w_3_level > 0 then
-		local shieldStacks = Runes:Procs(w_3_level, SEPHYR_ARCANA1_W3_SHIELD_CHANCE, 1)
+		local shieldStacks = Runes:Procs(w_3_level, SEPHYR_ARCANA_W3_SHIELD_CHANCE, 1)
 		if shieldStacks > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_icewind_shield", {duration = 7})
 			caster:SetModifierStackCount("modifier_icewind_shield", caster, shieldStacks)
@@ -147,7 +147,7 @@ function ice_gale_hit(event)
 	end
 	local w_2_level = caster:GetRuneValue("w", 2)
 	if w_2_level > 0 then
-		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * ARCANA1_W2_AD_TO_W_DAMAGE_PERCENT / 100 * w_2_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * SEPHYR_ARCANA_W2_ATTACK_TO_DAMAGE_PCT / 100 * w_2_level
 	end
 	if crit then
 		damage = damage + damage * (event.crit_mult / 100)
@@ -165,7 +165,7 @@ function sephyr_passive_think_icegale(event)
 		caster:SetModifierStackCount("modifier_icewind_mana_regen", caster, w_1_level)
 
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_icewind_attack_power", {})
-		local attackPower = caster:GetManaRegen() * w_1_level * ARCANA1_W1_DAMAGE_PER_MANAREGEN
+		local attackPower = caster:GetManaRegen() * w_1_level * SEPHYR_ARCANA_W1_DAMAGE_PER_MANAREGEN
 		caster:SetModifierStackCount("modifier_icewind_attack_power", caster, attackPower)
 
 	else

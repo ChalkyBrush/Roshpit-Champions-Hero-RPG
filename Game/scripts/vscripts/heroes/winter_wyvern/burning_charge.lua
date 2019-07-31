@@ -1,3 +1,4 @@
+require("/heroes/winter_wyvern/dinath_constants")
 require('heroes/winter_wyvern/arctic_burn')
 
 function burning_charge_start(event)
@@ -11,7 +12,7 @@ function burning_charge_start(event)
 	ability.fallVelocity = 1
 	ability.forwardVelocity = 42
 	local q_3_level = caster:GetRuneValue("q", 3)
-	local max_distance = 500 + q_3_level * 12
+	local max_distance = DINATH_Q3_CAST_RANGE_BASE + q_3_level * DINATH_Q3_CAST_RANGE
 	ability.max_distance = max_distance
 	ability.distance_travelled = 0
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dinath_scorch_charge_flying", {duration = warpDuration})

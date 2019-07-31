@@ -120,7 +120,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"50000"
+				"property_two"			"<% ARKIMUS_W1_BASE_DMG %>"
 			}
 		}
 	}
@@ -156,7 +156,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"<% ARKIMUS_W3_BONUS_DMG %>"
 			}
 		}
 	}
@@ -255,7 +255,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"<% ARKIMUS_E3_POST_MITI %>"
 			}
 		}
 	}
@@ -273,7 +273,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"250"
+				"property_one"			"<% ARKIMUS_E4_AGI %>"
 			}
 			"02"
 			{
@@ -296,7 +296,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% ARKIMUS_R1_BONUS_DMG %>"
 			}
 			"02"
 			{

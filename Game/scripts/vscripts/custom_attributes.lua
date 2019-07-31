@@ -10,6 +10,11 @@ require('/heroes/antimage/arkimus_constants')
 require('/heroes/juggernaut/seinaru_constants')
 require('/heroes/dark_seer/zhonik_constants')
 require('/heroes/hero_necrolyte/constants')
+require('/heroes/nightstalker/chernobog_constants')
+require('/heroes/skywrath_mage/constants')
+require('heroes/slardar/hydroxis_constants')
+require('/heroes/vengeful_spirit/solunia_constants')
+require("/heroes/winter_wyvern/dinath_constants")
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -32,8 +37,6 @@ CustomAttributes.FLAMEWAKER_R3_STRENGTH = 260
 CustomAttributes.CONJUROR_E1_AGI = 25
 CustomAttributes.WARLORD_W2_STATS = 60
 CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH = 250
-CustomAttributes.CHERNOBOG_W4_STR_OR_AGI = 450
-CustomAttributes.HYDROXIS_E4_AGI_INT = 350
 
 CustomAttributes.ZHONIK_R4_STR = ZHONIK_R4_BONUS_STR
 CustomAttributes.ZHONIK_ARCANA_R4_AGI = ZHONIK_R4_ARCANA_BONUS_AGI
@@ -50,13 +53,10 @@ CustomAttributes.AURIUN_E2_INT = 120
 CustomAttributes.AURIUN_E3_STATS = 60
 CustomAttributes.MOUNTAIN_PROTECTOR_E2_STR = 180
 CustomAttributes.MOUNTAIN_PROTECTOR_R2_STR = hero_values.mountain_protector.R2_STRENGTH_PER_STACK
-CustomAttributes.SOLUNIA_R4_STATS = 200
 CustomAttributes.AXE_E1_STATS = 10
 CustomAttributes.AXE_ARCANA2_W2_STRENGTH = 100
 CustomAttributes.SORCERESS_ARCANE_INT = 50
 CustomAttributes.TRAPPER_R4_AGI = 1000
-CustomAttributes.SEPHYR_Q1_INT = 125
-CustomAttributes.SEPHYR_R4_AGI_INT = 500
 CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH = 330
 
 CustomAttributes.RING_OF_NOBILITY = 30
@@ -71,7 +71,6 @@ CustomAttributes.NEUTRAL_GLYPH_7 = 3500
 CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A = 5000
 CustomAttributes.ASTRAL_W1_ARCANA2_STATS = 0.8
 
-CustomAttributes.SOLUNIA_E4_MAX_HEALTH = 20000
 CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH = 6000
 CustomAttributes.OGTHUN_HEALTH = 10
 CustomAttributes.TYRIUS_HEALTH_PER_STR = 10
@@ -79,7 +78,6 @@ CustomAttributes.REDROCK_HEALTH = 10
 CustomAttributes.SANGE_HEALTH = SANGE_HP_PER_AGI
 CustomAttributes.SAPPHIRE_LOTUS_HEALTH = SAPPHIRE_LOTUS_HP_PER_INT
 CustomAttributes.PALADIN_IMMO_3_HEALTH = 12
-CustomAttributes.HYDROXIS_ARC2_R4_INT = 500
 
 function CDOTA_BaseNPC_Hero:GetStrength()
 	local hero = self
@@ -326,17 +324,17 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hailstorm_strength", CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH)
 	end
 	if hero:HasModifier("modifier_chernobog_rune_w_4_inactive") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_inactive", CustomAttributes.CHERNOBOG_W4_STR_OR_AGI)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_inactive", CHERNOBOG_W4_BONUS_STR)
 	end
 	if hero:HasModifier("modifier_chernobog_rune_w_4_active") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_active", CustomAttributes.CHERNOBOG_W4_STR_OR_AGI)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_active", CHERNOBOG_W4_BONUS_AGI)
 	end
 	if hero:HasModifier("modifier_hydroxis_d_c") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", CustomAttributes.HYDROXIS_E4_AGI_INT)
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", CustomAttributes.HYDROXIS_E4_AGI_INT)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", HYDROXIS_E4_BONUS_AGI_INT)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", HYDROXIS_E4_BONUS_AGI_INT)
 	end
 	if hero:HasModifier("modifier_hydroxis_basin_d_d") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_basin_d_d", CustomAttributes.HYDROXIS_ARC2_R4_INT)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_basin_d_d", HYDROXIS_ARCANA_R4_INT_BONUS)
 	end
 	if hero:HasModifier("modifier_speedball_d_d_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_speedball_d_d_strength", CustomAttributes.ZHONIK_R4_STR)
@@ -447,11 +445,11 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "shadow_deity_agility_from_gear", 1)
 	end
 	if hero:HasModifier("modifier_lightbomb_q_1") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_lightbomb_q_1", CustomAttributes.SEPHYR_Q1_INT)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_lightbomb_q_1", SEPHYR_Q1_INT_BONUS)
 	end
 	if hero:HasModifier("modifier_nefali_d_d") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_nefali_d_d", CustomAttributes.SEPHYR_R4_AGI_INT)
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_nefali_d_d", CustomAttributes.SEPHYR_R4_AGI_INT)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_nefali_d_d", SEPHYR_R4_BONUS_AGI)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_nefali_d_d", SEPHYR_R4_BONUS_INT)
 	end
 	if hero:HasModifier("modifier_venomort_bonus_stats") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", W3_BONUS_ATTRIBUTES)
@@ -626,9 +624,9 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", CustomAttributes.TANARI_FLOWER_STATS)
 	end
 	if hero:HasModifier("modifier_solunia_d_d_stats") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", CustomAttributes.SOLUNIA_R4_STATS)
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", CustomAttributes.SOLUNIA_R4_STATS)
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", CustomAttributes.SOLUNIA_R4_STATS)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
 	end
 	if hero:HasModifier("modifier_arcane_intellect_visible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INT)
@@ -836,7 +834,7 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_e4_hero_bonus_invisible", E4_HP_PER_ENEMY)
 	end
 	if excludedModifier ~= "modifier_solunia_rune_e_4_effect" and hero:HasModifier("modifier_solunia_rune_e_4_effect") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_rune_e_4_effect", CustomAttributes.SOLUNIA_E4_MAX_HEALTH)
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_rune_e_4_effect", SOLUNIA_E4_HP)
 	end
 	if excludedModifier ~= "modifier_bear_b_d" and hero:HasModifier("modifier_bear_b_d") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bear_b_d", CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH)
@@ -1045,7 +1043,7 @@ function CustomAttributes:MSCap(unit)
 				if ms_cap_modifier == "modifier_chernobog_d_c_arcana2" then
 					max_ms = math.max(max_ms, modifier_ability.e_4_level * 6 + max_ms)
 				elseif ms_cap_modifier == "modifier_dinath_passive_ms_cap" then
-					max_ms = math.max(max_ms, modifier_ability.w_3_level * 5 + max_ms)
+					max_ms = math.max(max_ms, modifier_ability.w_3_level * DINATH_ARCANA_W3_MOVESPEED_CAP_BONUS + max_ms)
 				elseif ms_cap_modifier == "modifier_draghor_feral_sprint" then
 					max_ms = math.max(max_ms, modifier_ability:GetSpecialValueFor("movespeed_cap"))
 				elseif ms_cap_modifier == "modifier_seinaru_glyph_t21_movespeed_cap" then
