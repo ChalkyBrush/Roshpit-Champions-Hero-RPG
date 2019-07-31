@@ -13027,7 +13027,7 @@
     {
         "BaseClass" "npc_dota_creature"
         "Model" "models/heroes/nightstalker/nightstalker.vmdl"
-        "ModelScale"    "1.2"
+        "ModelScale"    "1.1"
         "Level" "1"
         "HealthBarOffset"   "140"
         "HasInventory"  "0"
@@ -13037,6 +13037,7 @@
         "precache"
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_nightstalker.vsndevts"
+            "particle"  "particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit.vpcf"
         }
         "DrawParticlesWhileHidden" "1"
         "ArmorPhysical" "18"
@@ -13045,7 +13046,7 @@
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "40000"
         "AttackDamageMax"   "50000"
-        "AttackRate"    "0.3"
+        "AttackRate"    "0.6"
         "AttackAnimationPoint"  "0.7"
         "AttackAcquisitionRange"    "100"
         "AttackRange"   "180"
@@ -13097,7 +13098,7 @@
                 }
             }
         }
-        "Ability1"          "icicle_barrage"
+        "Ability1"          "winterblight_space_shark_passive"
         "Ability2"          "normal_steadfast"
         "Ability3"          "magic_immune_break"
         "Ability4"          "dungeon_creep"

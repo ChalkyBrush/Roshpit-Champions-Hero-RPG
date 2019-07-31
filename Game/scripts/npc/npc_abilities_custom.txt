@@ -81512,6 +81512,14 @@
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_pwr_bonus_per_stack"
 				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"drill_digger_buff_end"
+					}
+				}
 			}
 		}
 	}
@@ -83461,6 +83469,96 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 						"Function"		"aurora_boss_think"
+					}
+				}
+			}
+		}
+
+	}
+
+	"winterblight_space_shark_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"axe_battle_hunger"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_bonus_per_stack"			"200"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"		"7"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_bonus_full_shark"			"20000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_space_shark_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"space_shark_attack_land"
+						"duration"		"%duration"
+					}
+				}
+			}
+			"modifier_space_shark_stacks"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%damage_bonus_per_stack"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"particles/status_fx/status_effect_gods_strength.vpcf"
+						"Function"		"space_shark_buff_end"
+					}
+				}
+			}
+			"modifier_space_shark_full"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"StatusEffectName" 		"particles/status_fx/status_effect_gods_strength.vpcf"
+				"StatusEffectPriority"  "80"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"space_shark_big_hit"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%damage_bonus_full_shark"
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_space_shark_size"
+						"Target" 		"CASTER"
 					}
 				}
 			}

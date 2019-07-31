@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_space_shark_size", "modifiers/neutrals/modifier_space_shark_size", LUA_MODIFIER_MOTION_NONE)
+
 function gang_up_think(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -964,6 +966,14 @@ function drill_digger_attack_land(event)
 			ParticleManager:SetParticleControlEnt(caster.counter_pfx, 0, caster, PATTACH_OVERHEAD_FOLLOW, "follow_overhead", caster:GetAbsOrigin(), true)
 		end
 		ParticleManager:SetParticleControl(caster.counter_pfx, 1, Vector(0, stacks % 10, stacks))
+	end
+end
+
+function drill_digger_buff_end(event)
+	local caster = event.caster
+	if caster.counter_pfx then
+		ParticleManager:DestroyParticle(caster.counter_pfx, false)
+		caster.counter_pfx = nil
 	end
 end
 
@@ -2072,5 +2082,44 @@ function aurora_boss_think(event)
 				end)
 			end		
 		end
+	end
+end
+
+function space_shark_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	caster:ApplyAndIncrementStack(ability, caster, "modifier_space_shark_stacks", 1, 5, event.duration)
+	local stacks = caster:GetModifierStackCount("modifier_space_shark_stacks", caster)
+	if not caster.counter_pfx then
+		caster.counter_pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/drill_digger_counter.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+		ParticleManager:SetParticleControlEnt(caster.counter_pfx, 0, caster, PATTACH_OVERHEAD_FOLLOW, "follow_overhead", caster:GetAbsOrigin(), true)
+	end
+	ParticleManager:SetParticleControl(caster.counter_pfx, 1, Vector(0, stacks % 10, stacks))
+	if stacks == 5 then
+		caster:RemoveModifierByName("modifier_space_shark_stacks")
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_space_shark_full", {duration = event.duration})
+		caster:AddNewModifier(caster, ability, "modifier_space_shark_size", {duration = event.duration})
+		EmitSoundOn("Winterblight.SpaceShark.PowerUp", caster)
+	end
+end
+
+function space_shark_buff_end(event)
+	local caster = event.caster
+	if caster.counter_pfx then
+		ParticleManager:DestroyParticle(caster.counter_pfx, false)
+		caster.counter_pfx = nil
+	end
+end
+
+function space_shark_big_hit(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	EmitSoundOn("Winterblight.SpaceShark.BigHit", target)
+	CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit.vpcf", target, 4)
+	if target:IsRealHero() then
+		target:SetHealth(10)
+		target:ForceKill(true)
 	end
 end

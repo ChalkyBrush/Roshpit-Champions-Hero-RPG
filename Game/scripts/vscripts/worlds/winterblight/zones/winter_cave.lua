@@ -32,7 +32,7 @@ function Winterblight:CaveGuideSpawn()
 				EmitSoundOnLocationWithCaster(spawnPos, "Winterblight.GuideCave.Magical", caster)
 			end)
 	-- 	end
-	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-6784, 14645, 500), 10000, 10000, false)
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-13952, 12800, 500), 10000, 10000, false)
 	end
 end
 
@@ -837,6 +837,48 @@ function Winterblight:GetVertices(chamber_id)
 		local height = 3282
 		local width = 1887
 		local origin = Vector(-11115, 4457)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+	elseif chamber_id == 4 then
+		local height = 8012
+		local width = 2538
+		local origin = Vector(-16010, 12250)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 7092
+		local width = 914
+		local origin = Vector(-14281, 12454)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 4497
+		local width = 2698
+		local origin = Vector(-12670, 14025)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 640
+		local width = 2048
+		local origin = Vector(-12800, 11456)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 640
+		local width = 1536
+		local origin = Vector(-13056, 10816)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 528
+		local width = 604
+		local origin = Vector(-13496, 10560)
 		local bl_vertex = origin-Vector(width/2, height/2)
 		local tr_vertex = origin+Vector(width/2, height/2)
 		table.insert(vertices, {bl_vertex, tr_vertex})
@@ -3249,5 +3291,30 @@ function Winterblight:SpawnAuroraBoss(unit_name, position, fv)
 	stone.pushLock = true
 	stone.jumpLock = true
 	stone:SetHullRadius(190)
+	return stone
+end
+
+function Winterblight:EdgeOfWinter1(msg)
+	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 176
+	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
+	local chamber_id = msg.chamber
+	local unitsTable = {}
+	local positionTable = {Vector(-13824, 10688), Vector(-13440, 10949), Vector(-12928, 11952), Vector(-12534, 12159), Vector(-12160, 12032)}
+	for i = 1, #positionTable, 1 do
+		local fv = ((Vector(-12288, 11136) - positionTable[i])*Vector(1,1,0)):Normalized()
+		local unit =  Winterblight:SpawnSpaceShark(positionTable[i], fv)
+		if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+			Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
+		end
+	end
+end
+
+function Winterblight:SpawnSpaceShark(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_space_shark", position, 0, 2, "Winterblight.SpaceShark.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 50
+	stone:SetRenderColor(170, 245, 185)
+	stone.dominion = true
 	return stone
 end
