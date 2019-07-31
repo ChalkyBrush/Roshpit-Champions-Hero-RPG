@@ -145,7 +145,7 @@
 				"TextureName"	"dinath/dinath_rune_e_3"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "15"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% DINATH_E3_ATTACK_RANGE %>"
 				}
 			}
 			"modifier_dinath_postdive_slide"
@@ -184,7 +184,7 @@
 				"TextureName"	"dinath/dinath_rune_e_1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "12"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% DINATH_E1_ATTACK_SPEED %>"
 				}
 			}
 			"modifier_dinath_dive_attack_immune"
@@ -483,7 +483,7 @@
 				"IsDebuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-5"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% DINATH_Q1_MOVESPEED_SLOW %>"
 				}
 			}
 			"modifier_arctic_burn_casttime"
@@ -492,7 +492,7 @@
 				"IsDebuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE"	"-1.5"
+					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE"	"-<% DINATH_Q4_CAST_RATE_REDUCTION %>"
 				}
 			}
 		}
@@ -636,7 +636,7 @@
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "6"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% DINATH_W1_BONUS_ATTACK_DAMAGE * 100 %>"
 				}
 			}
 			"modifier_drake_ring_root"

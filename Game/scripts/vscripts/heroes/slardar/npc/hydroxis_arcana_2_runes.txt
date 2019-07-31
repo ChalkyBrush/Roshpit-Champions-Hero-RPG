@@ -12,12 +12,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"<% HYDROXIS_ARCANA_R1_RANGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"7.5"
+				"property_two"			"<% HYDROXIS_ARCANA_R1_BAD_PCT %>"
 			}
 		}
 	}
@@ -35,7 +35,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.25"
+				"property_one"			"<% HYDROXIS_ARCANA_R2_DURATION_INC %>"
 			}
 		}
 	}
@@ -53,17 +53,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"			"1"
+				"property_one_base"			"<% HYDROXIS_ARCANA_R3_ROOT_DUR_BASE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"<% HYDROXIS_ARCANA_R3_ROOT_DUR %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"30"
+				"property_two"			"<% HYDROXIS_ARCANA_R3_WATER_AMP_PCT %>"
 			}
 		}
 	}
@@ -81,12 +81,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"500"
+				"property_one"			"<% HYDROXIS_ARCANA_R4_INT_BONUS %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"<% HYDROXIS_ARCANA_R4_POST_MITI_PCT %>"
 			}
 		}
 	}

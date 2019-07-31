@@ -164,10 +164,10 @@ function gale_hit(event)
 	end
 	local w_3_level = caster:GetRuneValue("w", 3)
 	if w_3_level > 0 then
-		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * W3_AD_TO_W_DAMAGE_PERCENT / 100 * w_3_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * SEPHYR_W3_ATTACK_TO_DAMAGE_PCT / 100 * w_3_level
 	end
 	if crit then
-		damage = damage + damage * 0.2 * ability.w_2_level
+		damage = damage + damage * SEPHYR_W2_CRIT_BONUS_PCT/100 * ability.w_2_level
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 end
@@ -178,7 +178,7 @@ function sephyr_passive_think_gale(event)
 	local w_1_level = caster:GetRuneValue("w", 1)
 	if w_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sephyr_mana_regen", {})
-		local manaRegen = caster:GetIntellect() * 0.025 * w_1_level
+		local manaRegen = caster:GetIntellect() * SEPHYR_W1_INT_TO_MANA_REGEN_PCT/100 * w_1_level
 		caster:SetModifierStackCount("modifier_sephyr_mana_regen", caster, manaRegen)
 	else
 		caster:RemoveModifierByName("modifier_sephyr_mana_regen")

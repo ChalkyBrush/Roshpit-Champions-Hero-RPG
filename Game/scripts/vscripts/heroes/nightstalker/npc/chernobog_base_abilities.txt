@@ -239,7 +239,7 @@
 				"IsBuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "3.5"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "<% CHERNOBOG_Q1_AMP %>"
 				}
 				"OnUnitMoved"
 				{
@@ -272,7 +272,7 @@
 				"TextureName"	"chernobog/chernobog_rune_q_3"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "15"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% CHERNOBOG_Q3_BONUS_ATTACK_DMG %>"
 				}
 			}
 			"modifier_chernobog_rune_q_4_attack"
@@ -463,7 +463,7 @@
 				"Passive"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "3600"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% CHERNOBOG_W2_BASE_DAMAGE %>"
 				}
 			}
 			"modifier_demon_hunter_w_2_inner_beast_inactive"
@@ -473,7 +473,7 @@
 				"Passive"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "200"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% CHERNOBOG_W2_ARMOR %>"
 				}
 			}
 			"modifier_chernobog_rune_w_3_fervor_enemy_visible"
@@ -491,7 +491,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% CHERNOBOG_W3_ARMOR_RED %>"
 				}
 			}
 			"modifier_chernobog_rune_w_3_fervor_self_visible"
@@ -509,7 +509,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "200"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% CHERNOBOG_W3_BASE_DAMAGE_STACK %>"
 				}
 			}
 			"modifier_chernobog_rune_w_4_active"
@@ -686,7 +686,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% CHERNOBOG_E2_ARMOR %>"
 				}
 			}
 			"modifier_chernobog_rune_e_3_postmit"

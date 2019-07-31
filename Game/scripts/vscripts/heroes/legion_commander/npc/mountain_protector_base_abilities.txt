@@ -313,7 +313,7 @@
 				"IsDebuff"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "150"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% MOUNTAIN_PROTECTOR_W4 %>"
 				}
 			}
 			"modifier_protector_w1_regen"

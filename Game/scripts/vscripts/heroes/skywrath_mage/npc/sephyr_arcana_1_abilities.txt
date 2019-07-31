@@ -135,7 +135,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "35"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "<% SEPHYR_ARCANA_W1_MANA_REGEN_FLAT %>"
 				}
 			}
 			"modifier_icewind_attack_power"

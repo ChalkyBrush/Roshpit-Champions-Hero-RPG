@@ -81,7 +81,7 @@ function dominion_debuff_death(event)
 		local hp = unit:GetMaxHealth()
 		local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "ekkan")
 		if q_2_level > 0 then
-			hp = hp + hp * 0.06 * q_2_level
+			hp = hp + hp * EKKAN_Q2_BONUS_HP * q_2_level
 			hp = math.min(hp, 2000000000)
 		end
 		local armor = unit:GetPhysicalArmorBaseValue()
@@ -260,8 +260,8 @@ function dominion_unit_kill(event)
 		local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "ekkan")
 		if unit:GetDeathXP() > 10 then
 			if q_3_level > 0 then
-				attacker.armor = attacker.armor + q_3_level * 4
-				local damageGainMult = 1200
+				attacker.armor = attacker.armor + q_3_level * EKKAN_Q3_ARMOR_ADDED
+				local damageGainMult = EKKAN_Q3_BASE_ATTACK_DAMAGE_ADDED
 				attacker.attackDamage = attacker.attackDamage + q_3_level * damageGainMult
 				attacker:SetPhysicalArmorBaseValue(attacker.armor)
 				attacker:SetBaseDamageMin(attacker.attackDamage)
@@ -329,7 +329,7 @@ function dominion_zombie_strike_hit(event)
 	local caster = event.caster.hero
 	local target = event.target
 	local ability = event.ability
-	local damage = caster.q_1_level * 0.12 * ability.attack_damage
+	local damage = caster.q_1_level * EKKAN_Q1_DAMAGE * ability.attack_damage
 	ability:ApplyDataDrivenModifier(event.caster, target, "modifier_hit_by_zombie_strike", {duration = 0.3})
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 end

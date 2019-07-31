@@ -45,7 +45,7 @@ function blast(caster, point, radius, damage, ability)
 	if #enemies > 0 then
 		Timers:CreateTimer(0.1, function()
 			for _, enemy in pairs(enemies) do
-				local damage_with_w_3 = damage + OverflowProtectedGetAverageTrueAttackDamage(enemy) * 0.2 * w_3_level
+				local damage_with_w_3 = damage + OverflowProtectedGetAverageTrueAttackDamage(enemy) * BAHAMUT_W3_ATTACK_TO_DMG_PCT/100 * w_3_level
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage_with_w_3, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_leshrac_nuke_judged", {duration = 5})
@@ -123,10 +123,10 @@ function c_b_strike(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = ability.origCaster
-	local damage = 5000 + ability.totalLevel * 3020
+	local damage = BAHAMUT_W3_BASE_DMG + ability.totalLevel * BAHAMUT_W3_DMG
 
 	local w_3_level = caster:GetRuneValue("w", 3)
-	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(target) * 0.2 * w_3_level
+	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(target) * BAHAMUT_W3_ATTACK_TO_DMG_PCT/100 * w_3_level
 	damage = damage * ability.damageAmp
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 

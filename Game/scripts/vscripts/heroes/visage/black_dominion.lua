@@ -273,8 +273,8 @@ function dominion_unit_kill(event)
 		local q_3_level = caster:GetRuneValue("q", 3)
 		if unit:GetDeathXP() > 10 then
 			if q_3_level > 0 then
-				attacker.armor = attacker.armor + q_3_level * 10
-				local damageGainMult = 5000
+				attacker.armor = attacker.armor + q_3_level * EKKAN_ARCANA_Q3_ARMOR
+				local damageGainMult = EKKAN_ARCANA_Q3_BASE_ATTACK_DAMAGE
 				attacker.attackDamage = attacker.attackDamage + q_3_level * damageGainMult
 				attacker:SetPhysicalArmorBaseValue(attacker.armor)
 				attacker:SetBaseDamageMin(attacker.attackDamage)
@@ -336,7 +336,7 @@ function dominion_zombie_strike_hit(event)
 	local caster = event.caster.hero
 	local target = event.target
 	local ability = event.ability
-	local damage = caster.q_1_level * 0.12 * ability.attack_damage
+	local damage = caster.q_1_level * EKKAN_Q1_DAMAGE * ability.attack_damage
 	ability:ApplyDataDrivenModifier(event.caster, target, "modifier_hit_by_zombie_strike", {duration = 0.3})
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 end
@@ -359,7 +359,7 @@ function black_dominion_lifesteal_think(event)
 	if q_1_level == 0 then
 		return
 	end
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.07 * q_1_level
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * EKKAN_ARCANA_Q1_DAMAGE * q_1_level
 	Filters:TakeArgumentsAndApplyDamage(target, origCaster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 	local heal = math.min(damage * 0.1, caster:GetMaxHealth() - caster:GetHealth())
 	if heal > 0 then

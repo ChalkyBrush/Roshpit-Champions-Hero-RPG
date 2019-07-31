@@ -13,12 +13,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_Q1_DMG_PER_ATT * 100 %>"
+				"property_one"			"<% SOLUNIA_Q1_DMG_PER_ATT_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"<% SOLUNIA_Q1_PUSH_FORCE %>"
 			}
 			"03"
 			{
@@ -46,12 +46,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"300"
+				"property_one"			"<% SOLUNIA_Q2_BASE_ATTACK %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1"
+				"property_two"			"<% SOLUNIA_Q2_BONUS_ATTACK_PCT %>"
 			}
 		}
 	}
@@ -69,12 +69,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.4"
+				"property_one"			"<% SOLUNIA_Q3_CURRENT_HP_BONUS_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.4"
+				"property_two"			"<% SOLUNIA_Q3_MISSING_HP_BONUS_PCT %>"
 			}
 		}
 	}
@@ -95,7 +95,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"<% SOLUNIA_Q4_COSMIC_AMP_PCT %>"
 			}
 		}
 	}
@@ -113,17 +113,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"<% SOLUNIA_W1_CRIT_CHANCE %>"
 			}	
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"			"15"
+				"property_one_base"			"<% SOLUNIA_W1_CRIT_CHANCE_BASE %>"
 			}			
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"12"
+				"property_two"			"<% SOLUNIA_W1_CRIT_DAMAGE_PCT %>"
 			}
 		}
 	}
@@ -141,7 +141,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"<% SOLUNIA_W2_DMG_AMP %>"
 			}
 		}
 	}
@@ -159,7 +159,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"<% SOLUNIA_W3_ATTACK_TO_DMG_PCT %>"
 			}
 		}
 	}
@@ -181,17 +181,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"120"
+				"property_one"			"<% SOLUNIA_W4_BONUS_DAMAGE_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.35"
+				"property_two"			"<% SOLUNIA_W4_DURATION %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"3.0"
+				"property_two_base"		"<% SOLUNIA_W4_DURATION_BASE %>"
 			}
 		}
 	}
@@ -209,17 +209,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"<% SOLUNIA_E1_EXPLOSION_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"100"
+				"property_one_base"		"<% SOLUNIA_E1_EXPLOSION_PCT_BASE %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.05"
+				"property_two"			"<% SOLUNIA_E1_STUN_DUR %>"
 			}
 			"04"
 			{
@@ -242,12 +242,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"<% SOLUNIA_E2_EXPLOSION_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.08"
+				"property_two"			"<% SOLUNIA_E2_STUN_DUR %>"
 			}
 			"03"
 			{
@@ -270,17 +270,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"1"
+				"property_one_base"			"<% SOLUNIA_E3_DUR_BASE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"<% SOLUNIA_E3_DUR %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"<% SOLUNIA_E3_POST_MITI_PCT %>"
 			}
 		}
 	}
@@ -302,7 +302,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20000"
+				"property_one"			"<% SOLUNIA_E4_HP %>"
 			}
 		}
 		"Modifiers"
@@ -344,12 +344,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6000"
+				"property_one"			"<% SOLUNIA_R1_HP %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"2000"
+				"property_two"			"<% SOLUNIA_R1_HP %>"
 			}
 		}
 	}
@@ -402,17 +402,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"<% SOLUNIA_R3_WAVE_DMG_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"6"
+				"property_two"			"<% SOLUNIA_R3_RANGE %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"600"
+				"property_two_base"		"<% SOLUNIA_R3_RANGE_BASE %>"
 			}
 			"04"
 			{

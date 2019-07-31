@@ -1,5 +1,4 @@
 require('heroes/axe/init')
-require('heroes/axe/red_general_constants')
 local CycloneStorm = require('heroes/axe/abilities/e/e2_cyclone_storm')
 local CyclonicShield = require('heroes/axe/abilities/e/e4_cyclonic_shield')
 local WhirlwindDamage = require('heroes/axe/abilities/e/e3_whirlwind_damage')

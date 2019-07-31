@@ -11,7 +11,7 @@ function begin_arcana_comet(event)
 	ability.q_2_level = q_2_level
 	ability.q_3_level = caster:GetRuneValue("q", 3)
 	if ability.q_3_level > 0 then
-		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.02 * ability.q_3_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * SOLUNIA_ARCANA_Q3_ATTACK_TO_DMG_PCT/100 * ability.q_3_level
 	end
 	StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.8})
 	local starParticle = "particles/roshpit/solunia/comet_sun_attack.vpcf"
@@ -156,7 +156,7 @@ function arcana_passive_think(event)
 		if not caster:HasModifier("modifier_polythea_damage") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_polythea_damage", {})
 		end
-		local damageStacks = ability.q_2_level * 0.05 * caster:GetHealth()
+		local damageStacks = ability.q_2_level * SOLUNIA_ARCANA_Q2_BASE_ATTACK_PER_HP * caster:GetHealth()
 		caster:SetModifierStackCount("modifier_polythea_damage", caster, damageStacks)
 	else
 		caster:RemoveModifierByName("modifier_polythea_damage")

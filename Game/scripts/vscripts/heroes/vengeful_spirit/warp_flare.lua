@@ -288,8 +288,8 @@ function rune_e_2_galaxy_nitro(caster, ability)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do
 					--print(caster.damage)
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, boomerang.damage * (1 + (b_c_level * 0.2)), damageType, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
-					Filters:ApplyStun(caster, b_c_level * 0.08, enemy)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, boomerang.damage * (1 + (b_c_level * SOLUNIA_E2_EXPLOSION_PCT/100)), damageType, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+					Filters:ApplyStun(caster, b_c_level * SOLUNIA_E2_STUN_DUR/100, enemy)
 				end
 			end
 		end
@@ -300,7 +300,7 @@ function c_c_pit(caster, ability, targetPoint)
 	local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "solunia")
 	ability.e_3_level = c_c_level
 	if c_c_level > 0 then
-		local duration = 1 + 0.3 * c_c_level
+		local duration = SOLUNIA_E3_DUR_BASE + SOLUNIA_E3_DUR * c_c_level
 		local modifierName = "modifier_solunia_warp_core_thinker"
 		duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 		--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(targetPoint, caster), modifierName, {duration = duration})

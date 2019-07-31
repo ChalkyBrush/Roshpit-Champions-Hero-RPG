@@ -76,7 +76,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"property_two"			"<% SPIRIT_WARRIOR_ARCANA_R3_POST_MITI_PCT %>"
 			}
 			"03"
 			{

@@ -27,7 +27,7 @@ function slippery_tail_start(event)
 	end
 	ability.e_1_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "hydroxis")
 	ability.e_2_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "hydroxis")
-	ability.e_2_damage = ability.e_2_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.1
+	ability.e_2_damage = ability.e_2_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * HYDROXIS_E2_ATTACK_TO_DMG_PCT/100
 	if caster:HasModifier("modifier_hydroxis_glyph_4_1") then
 		ability.e_2_damage = ability.e_2_damage * 3
 	end
@@ -98,9 +98,9 @@ function slippery_tail_think(event)
 			local waterBombAbility = caster:FindAbilityByName("hydroxis_water_blade")
 			if waterBombAbility then
 				local damage = waterBombAbility:GetSpecialValueFor("damage")
-				water_bomb_throw(caster, waterBombAbility, target, damage, ability.e_1_level * 0.1)
+				water_bomb_throw(caster, waterBombAbility, target, damage, ability.e_1_level * HYDROXIS_E1_PCT_OF_W/100)
 			elseif caster:HasAbility("hydroxis_arcana_ability_1") then
-				arcana1_b_b_spin(caster, caster:FindAbilityByName("hydroxis_arcana_ability_1"), ability.e_1_level * 0.1)
+				arcana1_b_b_spin(caster, caster:FindAbilityByName("hydroxis_arcana_ability_1"), ability.e_1_level * HYDROXIS_E1_PCT_OF_W/100)
 			end
 		end
 	end

@@ -145,8 +145,8 @@ function bomb_land(bomb, caster, ability)
             local aeonFracture = caster:FindAbilityByName("mountain_protector_aeon_fracture")
             aeonFracture.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "mountain_protector")
             local damage = aeonFracture:GetSpecialValueFor("damage")
-            local amp = 1 + (0.3 * a_c_level)
-            local stun_duration = 0.1 * a_c_level
+            local amp = MOUNTAIN_PROTECTOR_E1_BASE/100 + (MOUNTAIN_PROTECTOR_E1_DMG_PCT/100 * a_c_level)
+            local stun_duration = MOUNTAIN_PROTECTOR_E1_STUN_DURATION * a_c_level
             local explosionAOE = 300
             if not aeonFracture.r_1_level then
                 aeonFracture.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "mountain_protector")
@@ -158,8 +158,8 @@ function bomb_land(bomb, caster, ability)
         elseif caster:HasAbility("mountain_protector_hailstorm") then
             local aeonFracture = caster:FindAbilityByName("mountain_protector_hailstorm")
             local damage = aeonFracture:GetSpecialValueFor("damage") + aeonFracture:GetSpecialValueFor("damage_from_strength") * caster:GetStrength()
-            local amp = 1 + (0.3 * a_c_level)
-            local stun_duration = 0.1 * a_c_level
+            local amp = MOUNTAIN_PROTECTOR_E1_BASE/100 + (MOUNTAIN_PROTECTOR_E1_DMG_PCT/100 * a_c_level)
+            local stun_duration = MOUNTAIN_PROTECTOR_E1_STUN_DURATION * a_c_level
             local explosionAOE = 300
             hailstorm_explosion(caster, bomb:GetAbsOrigin(), damage, amp, explosionAOE, aeonFracture, false, stun_duration)
         end

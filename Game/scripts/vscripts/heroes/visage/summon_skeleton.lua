@@ -50,7 +50,7 @@ function cast_raise_skeleton(event)
 					if luck <= 3 then
 						if w_1_level > 0 then
 							unitName = "ekkan_skeleton_archer"
-							attackDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * w_1_level * 0.5
+							attackDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * w_1_level * EKKAN_W1_ATTACK_POWER_MULTIPLE
 							applyTexture = true
 						end
 					elseif luck <= 6 then
@@ -64,7 +64,7 @@ function cast_raise_skeleton(event)
 					local skeletonDuration = event.skeleton_duration
 					local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "ekkan")
 					if w_2_level > 0 then
-						skeletonDuration = skeletonDuration + 0.75 * w_2_level
+						skeletonDuration = skeletonDuration + EKKAN_W2_DURATION * w_2_level
 					end
 					if caster:HasModifier("modifier_ekkan_glyph_3_1") then
 						skeletonDuration = skeletonDuration * 2
@@ -91,7 +91,7 @@ function cast_raise_skeleton(event)
 					skeleton.dominion = true
 					if w_4_level > 0 then
 						Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, skeleton, "modifier_general_postmitigation", {})
-						skeleton:SetModifierStackCount("modifier_general_postmitigation", Events.GameMaster, w_4_level * 15)
+						skeleton:SetModifierStackCount("modifier_general_postmitigation", Events.GameMaster, w_4_level * EKKAN_W4_SKELETON_POST_MITI)
 					end
 
 					table.insert(ability.skeleTable, skeleton)
@@ -208,7 +208,7 @@ function mage_blast_target_point(event)
 	if not caster.w_3_level then
 		caster.w_3_level = Runes:GetTotalRuneLevel(caster.hero, 3, "w_3", "ekkan")
 	end
-	local damage = caster.w_3_level * 0.4 * OverflowProtectedGetAverageTrueAttackDamage(caster)
+	local damage = caster.w_3_level * EKKAN_W3_BLAST_DAMAGE * OverflowProtectedGetAverageTrueAttackDamage(caster)
 	EmitSoundOnLocationWithCaster(point, "Ekkan.SkeletonMage.PreBlast", caster)
 	Timers:CreateTimer(delay, function()
 		EmitSoundOnLocationWithCaster(point, "Ekkan.SkeletonMage.Blast", caster)

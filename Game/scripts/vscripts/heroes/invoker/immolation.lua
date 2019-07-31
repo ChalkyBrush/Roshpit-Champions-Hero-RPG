@@ -132,9 +132,9 @@ function fire_aspect_attack_land(event)
 		--print("luck passed")
 		if w_3_level > 0 then
 			--print("w_3_level is good lets go")
-			local critmult = 0.45
+			local critmult = CONJUROR_W3_CRIT_DMG_PCT/100
 			if attacker.fireDeity then
-				critmult = 0.6
+				critmult = CONJUROR_ARCANA_W3_CRIT_DMG_PCT/100
 			end
 			local bonusDamage = attack_damage * (w_3_level * critmult)
 			-- Filters:TakeArgumentsAndApplyDamage(target, attacker, bonusDamage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)--obsolete

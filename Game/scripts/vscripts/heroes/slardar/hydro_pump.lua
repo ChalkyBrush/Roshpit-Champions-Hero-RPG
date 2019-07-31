@@ -109,7 +109,7 @@ function begin_hydro_pump(event)
 
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), targetPoint, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			local oceanQuake = caster:FindAbilityByName("hydroxis_tsunami")
-			local damage = oceanQuake:GetSpecialValueFor("strength_damage") * caster:GetStrength() * ability.q_1_level * 0.08
+			local damage = oceanQuake:GetSpecialValueFor("strength_damage") * caster:GetStrength() * ability.q_1_level * HYDROXIS_Q1_DMG_PCT/100
 			local stunDuration = oceanQuake:GetSpecialValueFor("stun_duration")
 			local slow_duration = oceanQuake:GetSpecialValueFor("slow_duration")
 			slow_duration = slow_duration + stunDuration
@@ -186,7 +186,7 @@ function mystic_water_shield_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local stacks = caster:GetModifierStackCount("modifier_hydroxis_b_a_shield_visible", caster) + caster:GetModifierStackCount("modifier_hydroxis_b_a_shield_visible_glyphed", caster)
-	local healAmount = ability.q_2_level * 200 * stacks
+	local healAmount = ability.q_2_level * HYDROXIS_Q2_HEAL * stacks
 	Filters:ApplyHeal(caster, caster, healAmount, true)
 	-- PopupHealing(caster, healAmount)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/hydroxis/mystic_water_shield_heal.vpcf", caster, 1)

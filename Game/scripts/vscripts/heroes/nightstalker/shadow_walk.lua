@@ -67,7 +67,7 @@ function shadow_walk_end(event)
 	caster:RemoveModifierByName("modifier_chernobog_night_vision")
 	local rune_e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "chernobog")
 	if rune_e_4_level > 0 then
-		local d_c_duration = 0.7 + 0.2 * rune_e_4_level
+		local d_c_duration = CHERNOBOG_E4_EVASION_LINGER_BASE + CHERNOBOG_E4_EVASION_LINGER * rune_e_4_level
 		d_c_duration = Filters:GetAdjustedBuffDuration(caster, d_c_duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_e_4", {duration = d_c_duration})
 	end
@@ -97,7 +97,7 @@ function rune_e_2_illusion(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ability.e_2_level * 0.5
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ability.e_2_level * CHERNOBOG_E2_ILLUSION_DAMAGE_PCT/100
 	if not ability.e2_strike_current then
 		ability.e2_strike_current = -1
 		ability.e2_base_strikes = -1;

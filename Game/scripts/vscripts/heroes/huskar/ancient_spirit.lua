@@ -217,7 +217,7 @@ function reachSpirit(caster, ability, spiritPosition)
 				end)
 				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), spiritPosition, nil, 410, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 				if #enemies > 0 then
-					local damage = 4400 * a_c_level
+					local damage = SPIRIT_WARRIOR_E1_DMG * a_c_level
 					for _, enemy in pairs(enemies) do
 						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 						if caster:HasModifier("modifier_windstrike_weapon") then
@@ -226,7 +226,7 @@ function reachSpirit(caster, ability, spiritPosition)
 								windstrikeEvent.attacker = caster
 								windstrikeEvent.target = enemy
 								windstrikeEvent.ability = caster:FindAbilityByName("spirit_warrior_windstrike_weapon")
-								windstrikeEvent.mult = 0.03 * a_c_level
+								windstrikeEvent.mult = SPIRIT_WARRIOR_E1_BONUS_WINDSRIKE_PCT/100 * a_c_level
 								windstrike_attack_land(windstrikeEvent)
 							end
 						end
@@ -238,7 +238,7 @@ function reachSpirit(caster, ability, spiritPosition)
 	local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "spirit_warrior")
 	if c_c_level > 0 then
 		EmitSoundOnLocationWithCaster(spiritPosition, "SpiritWarrior.TempestHaze", caster)
-		local duration = 4 + c_c_level * 0.15
+		local duration = SPIRIT_WARRIOR_E3_DURATION_BASE + c_c_level * SPIRIT_WARRIOR_E3_DURATION
 		local stormParticle = ParticleManager:CreateParticle("particles/roshpit/spirit_warrior/tempest_haze_storm.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(stormParticle, 0, spiritPosition)
 		ParticleManager:SetParticleControl(stormParticle, 1, Vector(800, 2, 2))
@@ -248,7 +248,7 @@ function reachSpirit(caster, ability, spiritPosition)
 		--ability:ApplyDataDrivenThinker(caster, spiritPosition, "modifier_tempest_haze_aura_thinker_friendly", {duration = duration})
 		CustomAbilities:QuickAttachThinker(ability, caster, spiritPosition, "modifier_tempest_haze_aura_thinker_friendly", {duration = duration})
 
-		ability.e_3_damage_tick = 6000 * c_c_level * 0.5
+		ability.e_3_damage_tick = SPIRIT_WARRIOR_E3_DPS * c_c_level * 0.5
 	end
 	-- "particles/roshpit/spirit_warrior/tempest_haze_storm.vpcf"
 

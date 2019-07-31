@@ -157,12 +157,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"<% FLAMEWAKER_Q4_BASE_DMG_PER_HP %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"property_two"			"<% FLAMEWAKER_Q4_BASE_DMG_PER_DAMAGE * 10 %>"
 			}
 		}
 		"Modifiers"
@@ -287,7 +287,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"50"
+				"property_one"			"<% FLAMEWAKER_W4_BONUS_DMG_PCT %>"
 			}
 		}
 		"Modifiers"
@@ -300,7 +300,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "50"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% FLAMEWAKER_W4_BONUS_DMG_PCT %>"
 				}
 			}
 			"modifier_flamewaker_rune_w_4_cooldown"
@@ -420,12 +420,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% FLAMEWAKER_E3_BONUS_DMG_PCT %>"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"12"
+				"property_two"			"<% FLAMEWAKER_E3_ATT_SPEED %>"
 			}
 		}
 		"Modifiers"
@@ -562,7 +562,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"<% FLAMEWAKER_R1_BONUS_ATT_DMG_PCT %>"
 			}
 		}
 	}

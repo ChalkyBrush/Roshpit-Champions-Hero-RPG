@@ -67,7 +67,7 @@ function b_a_modifier_think(event)
 		local duration = Filters:GetAdjustedBuffDuration(caster, 4, false)
 		seismicFlare.q_4_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_flamewaker_rune_q_4", {duration = duration})
 		local current_stack = caster:GetModifierStackCount("modifier_flamewaker_rune_q_4", seismicFlare.q_4_ability)
-		local stackBonus = math.floor(amount * 0.05 * seismicFlare.q_4_level / 10)
+		local stackBonus = math.floor(amount * FLAMEWAKER_Q4_BASE_DMG_PER_HP * seismicFlare.q_4_level / 10)
 		caster:SetModifierStackCount("modifier_flamewaker_rune_q_4", seismicFlare.q_4_ability, current_stack + stackBonus)
 	end
 end

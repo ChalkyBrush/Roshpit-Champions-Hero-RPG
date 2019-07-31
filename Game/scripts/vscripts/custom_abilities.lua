@@ -1,4 +1,5 @@
 require('heroes/nightstalker/chernobog_constants')
+require('/heroes/skywrath_mage/constants')
 if CustomAbilities == nil then
 	CustomAbilities = class({})
 end
@@ -717,7 +718,7 @@ function CustomAbilities:SephyrPuck(caster, ability, enemy)
 	boomerang.target = enemy
 	boomerang.e_1_level = caster:GetRuneValue("e", 1)
 	boomerang.e_2_level = caster:GetRuneValue("e", 2)
-	local bounces = Runes:Procs(boomerang.e_1_level, 10, 1) + 1
+	local bounces = Runes:Procs(boomerang.e_1_level, SEPHYR_E1_BOUNCE_CHANCE, 1) + 1
 	boomerang.bounces = bounces
 	boomerang.current_bounces = 0
 	boomerang.speed = 30

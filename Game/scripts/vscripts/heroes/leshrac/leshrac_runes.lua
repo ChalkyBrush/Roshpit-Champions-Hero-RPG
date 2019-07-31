@@ -89,7 +89,7 @@ function WallAllyBuff(event)
 				local point = caster:GetAbsOrigin() + explosionForwardDirection * 200
 				local radius = 1100
 				local chargeAbility = caster:FindAbilityByName("charge_of_light")
-				local damage = chargeAbility:GetSpecialValueFor("damage") * (1 + b_d_level * 0.15)
+				local damage = chargeAbility:GetSpecialValueFor("damage") * (BAHAMUT_R2_BASE DAMAGE_PCT/100 + b_d_level * BAHAMUT R2_DAMAGE_PCT/100)
 				local post_mit_duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
 				chargeAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_charge_of_light_postmitigation", {duration = post_mit_duration})
 				caster:SetModifierStackCount("modifier_bahamut_charge_of_light_postmitigation", caster, b_d_level)
@@ -194,7 +194,7 @@ function leshrac_attack_land(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local damage = ability.w_2_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.05
+	local damage = ability.w_2_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * BAHAMUT_W2_DAMAGE_PCT/100
 	if caster:HasModifier("modifier_bahamut_immortal_weapon_1") then
 		local luck = RandomInt(1, 5)
 		if luck == 1 then
