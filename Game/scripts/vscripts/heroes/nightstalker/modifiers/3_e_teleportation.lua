@@ -110,6 +110,9 @@ function class:OnOrderAttack(data)
         return
     end
 
+    onBlink(parent, self:GetAbility(), parent:GetAbsOrigin(), afterWallPosition)
+
+
     self:Teleport(afterWallPosition)
     self:StartCooldown()
     Filters:CastSkillArguments(3, self:GetCaster())
@@ -132,6 +135,8 @@ function class:OnOrderMove(data)
         local clampedVector = WallPhysics:ClampedVector(parentOrigin, newPosition, maxDistance)
         newPosition = GetGroundPosition(clampedVector, parent)
     end
+    onBlink(parent, self:GetAbility(), parent:GetAbsOrigin(), newPosition)
+
     self:Teleport(newPosition)
     self:ApplyE3Debuff(nil, newPosition)
     self:StartCooldown()
@@ -174,7 +179,7 @@ function class:ApplyE3Debuff(target, position)
         if target ~= nil then
             position = target:GetAbsOrigin()
         end
-        local targets = FindUnitsInRadius(parent:GetTeamNumber(),position, nil, CHERNOBOG_GLYPH61_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+        local targets = FindUnitsInRadius(parent:GetTeamNumber(),position, nil, CHERNOBOG_T61_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
         for _, target in pairs(targets) do
             target:AddNewModifier(parent, ability, modifiers.enemyEffectE3, { duration = CHERNOBOG_E3_POSTMIT_DUR_BASE })
         end

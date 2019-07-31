@@ -27,6 +27,9 @@ function class:OnCreated()
     ParticleManager:SetParticleControl(self.particle, 16, Vector(1, 0, 0))
 end
 function class:OnDestroy()
+    if not IsServer() then
+        return
+    end
     ParticleManager:DestroyParticle(self.particle, false)
     ParticleManager:ReleaseParticleIndex(self.particle)
 end

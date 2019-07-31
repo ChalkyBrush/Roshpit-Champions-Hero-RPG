@@ -26,5 +26,6 @@ function class:GetAuraSearchFlags()
     return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
 end
 function class:GetAuraRadius()
-    return self:GetRadius(self:GetAbility().shadowsAuraRadius)
+    local ability = self:GetAbility()
+    return self:GetRadius(ability.shadowsAuraRadius)
 end

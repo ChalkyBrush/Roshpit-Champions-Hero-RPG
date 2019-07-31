@@ -12,11 +12,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-<<<<<<< HEAD
-				"property_one"			"<% CHERNOBOG_Q1_AMP %>"
-=======
 				"property_one"			"<% CHERNOBOG_Q1_EXTRA_POSTMIT_PCT %>"
->>>>>>> Base q,w,e,r + damage system fix + lots other things
 			}
 		}
 	}
@@ -312,7 +308,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CHERNOGBOG_E4_DUR %>"
+				"property_one"			"<% CHERNOBOG_E4_DUR %>"
 			}
 			"02"
 			{
@@ -322,7 +318,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CHRENOBOG_E4_SHADOWS_INTERVAL_SCALE %>"
+				"property_two"			"<% CHERNOBOG_E4_SHADOWS_INTERVAL_SCALE %>"
 			}
 			"04"
 			{

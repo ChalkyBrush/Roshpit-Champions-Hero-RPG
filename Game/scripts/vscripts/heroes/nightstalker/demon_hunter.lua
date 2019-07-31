@@ -140,14 +140,6 @@ function demon_hunter_a_b_attack(event)
 					stackCount = stackCount * (1 - CHERNOBOG_W3_STACK_LOSE_PCT/100)
 					caster:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_self_visible", caster, stackCount)
 					caster:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_self_invisible", caster, stackCount * caster.w3_level)
-					local existingTarget = ability.fervorTarget
-					if IsValidEntity(existingTarget) then
-						local stackCount = existingTarget:GetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_visible", caster)
-						stackCount = stackCount * (1 - CHERNOBOG_W3_STACK_LOSE_PCT/100)
-						ability.previous_fervor_target_stacks = ability.fervor_target_stacks
-						existingTarget:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_visible", caster, stackCount)
-						existingTarget:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_invisible", caster, stackCount * caster.w3_level)
-					end
 				end
 			end
 		end
@@ -163,15 +155,14 @@ function demon_hunter_a_b_attack(event)
 			caster:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_self_invisible", caster, stackCount * caster.w3_level)
 		end
 		if not attacker:HasModifier("modifier_demon_hunter") or attacker:HasModifier("modifier_chernobog_glyph_5_a") then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_chernobog_rune_w_3_fervor_enemy_visible", {duration = 90})
-			local stackCount = target:GetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_visible", caster) + stackGain
-			ability.fervor_target_stacks = stackCount
-			if stackCount < 2 then
-				stackCount = math.max(ability.previous_fervor_target_stacks or 0, stackCount)
+			local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, CHERNOBOG_W3_ARMOR_REDUCE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			for _,enemy in pairs(enemies) do
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_chernobog_rune_w_3_fervor_enemy_visible", {duration = 90})
+				local stackCount = enemy:GetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_visible", caster) + stackGain
+				enemy:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_visible", caster, stackCount)
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_chernobog_rune_w_3_fervor_enemy_invisible", {duration = 90})
+				enemy:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_invisible", caster, stackCount * caster.w3_level)
 			end
-			target:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_visible", caster, stackCount)
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_chernobog_rune_w_3_fervor_enemy_invisible", {duration = 90})
-			target:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_invisible", caster, stackCount * caster.w3_level)
 		end
 	end
 end

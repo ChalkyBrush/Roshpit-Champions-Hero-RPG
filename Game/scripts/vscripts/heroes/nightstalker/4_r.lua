@@ -46,6 +46,7 @@ function class:OnSpellStart()
     local caster = self:GetCaster()
     local casterOrigin = caster:GetAbsOrigin()
     if IsServer() then
+        onCastR(caster)
         StartSoundEvent("Chernobog.NightsProcessionChannelStart", caster)
         StartSoundEvent('Chernobog.NightsProcessionChannelling', caster)
 
@@ -160,14 +161,14 @@ function class:DoMainThings()
                     ability = self,
                     radius = CHERNOBOG_E2_RADIUS,
                     damagePercent = caster.e2_level * CHERNOBOG_E2_DMG_PCT * (1 + caster.r2_level * CHERNOBOG_R2_SHADOWS_AMP),
-                    thinkInterval = CHERNOBOG_E2_INTERVAL / (1 + caster.e4_level * CHRENOBOG_E4_SHADOWS_INTERVAL_SCALE),
+                    thinkInterval = CHERNOBOG_E2_INTERVAL / (1 + caster.e4_level * CHERNOBOG_E4_SHADOWS_INTERVAL_SCALE),
                 })
             else
                 canCreateAura = false
             end
         end
         if canCreateAura then
-            Util.Ability:MakeThinker(caster, self, modifiers.shadows_aura, self.endPoint, duration)
+            Util.Ability:MakeThinker(caster, self, modifiers.shadows_aura, self.endPoint, getShadowsDuration(caster, duration))
         end
     end
     if caster.r3_level > 0 then

@@ -1008,14 +1008,6 @@ end
 CustomAttributes.MS_CAP_MODIFIERS = {
 	modifier_arkimus_speed_dash = 1300,
 	modifier_axe_immortal_weapon_2_cap = 820,
-	modifier_chernobog_d_c_arcana2 = "modifier_chernobog_d_c_arcana2",
-	modifier_movespeed_cap_shadow_walk_1 = 550,
-	modifier_movespeed_cap_shadow_walk_2 = 575,
-	modifier_movespeed_cap_shadow_walk_3 = 600,
-	modifier_movespeed_cap_shadow_walk_4 = 625,
-	modifier_movespeed_cap_shadow_walk_5 = 650,
-	modifier_movespeed_cap_shadow_walk_6 = 675,
-	modifier_movespeed_cap_shadow_walk_7 = 700,
 	modifier_dinath_passive_ms_cap = "modifier_dinath_passive_ms_cap",
 	modifier_draghor_feral_sprint = "modifier_draghor_feral_sprint",
 	modifier_movespeed_cap = 1400,
@@ -1044,6 +1036,14 @@ function CustomAttributes:MSCap(unit)
 			end
 		end
 	end
+	for _,modifier in pairs(buffs) do -- New way for increase limit instead of set
+		if modifier['GetModifierMoveSpeed_Max_Increase'] then
+			local status, bonus_max_ms = pcall(modifier['GetModifierMoveSpeed_Max_Increase'], modifier, {})
+			if status and bonus_max_ms ~= nil then
+				max_ms = max_ms + bonus_max_ms
+			end
+		end
+	end
 	local local_max_ms = 550
 	for i = 1, #buffs, 1 do
 		local modifier = buffs[i]
@@ -1053,10 +1053,8 @@ function CustomAttributes:MSCap(unit)
 				local_max_ms = math.max(local_max_ms, ms_cap_modifier)
 			elseif type(ms_cap_modifier) == "string" then
 				local modifier_ability = modifier:GetAbility()
-				if ms_cap_modifier == "modifier_chernobog_d_c_arcana2" then
-					local_max_ms = math.max(local_max_ms, modifier_ability.e_4_level * 6 + local_max_ms)
-				elseif ms_cap_modifier == "modifier_dinath_passive_ms_cap" then
-					local_max_ms = math.max(local_max_ms, modifier_ability.w_3_level * DINATH_ARCANA_W3_MOVESPEED_CAP_BONUS + local_max_ms)
+				if ms_cap_modifier == "modifier_dinath_passive_ms_cap" then
+					local_max_ms = math.max(local_max_ms, modifier_ability.w_3_level * 5 + local_max_ms)
 				elseif ms_cap_modifier == "modifier_draghor_feral_sprint" then
 					local_max_ms = math.max(local_max_ms, modifier_ability:GetSpecialValueFor("movespeed_cap"))
 				elseif ms_cap_modifier == "modifier_seinaru_glyph_t21_movespeed_cap" then

@@ -138,11 +138,8 @@ function class:DoStatusThings()
                     ability = self,
                     radius = CHERNOBOG_E2_RADIUS,
                     damagePercent = caster.e2_level * CHERNOBOG_E2_DMG_PCT,
-                    thinkInterval = CHERNOBOG_E2_INTERVAL / (1 + caster.e4_level * CHRENOBOG_E4_SHADOWS_INTERVAL_SCALE),
+                    thinkInterval = CHERNOBOG_E2_INTERVAL / (1 + caster.e4_level * CHERNOBOG_E4_SHADOWS_INTERVAL_SCALE),
                 })
-                print(self.shadowsAuraRadius)
-                print(self.shadowsThinkInterval)
-                print(self.shadowsDamagePercent)
                 caster:AddNewModifier(caster, self, shadowsModifiers.aura, {})
             end
             if caster.e4_level > 0 then
@@ -164,7 +161,7 @@ function class:DoStatusThings()
             caster:RemoveModifierByName(modifiers.movespeed)
             caster:AddNewModifier(caster, self, modifiers.movespeed, {})
             if caster.e4_level > 0 then
-                local duration = Filters:GetAdjustedBuffDuration(caster, CHERNOBOG_E4_BASE_DUR + caster.e4_level * CHERNOGBOG_E4_DUR, false)
+                local duration = Filters:GetAdjustedBuffDuration(caster, CHERNOBOG_E4_BASE_DUR + caster.e4_level * CHERNOBOG_E4_DUR, false)
                 caster:AddNewModifier(caster, self, modifiers.evasion_e4, { duration = duration })
             end
         end

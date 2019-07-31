@@ -504,7 +504,6 @@ function Damage:GetWithElement(type, attackerBuffs, victimDebuffs, data)
         })
     end
     local result = self._getWithElement[type](attackerBuffs, victimDebuffs, data)
-    print('change is ' .. result)
     return result
 end
 

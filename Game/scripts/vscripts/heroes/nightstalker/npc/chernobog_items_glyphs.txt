@@ -261,12 +261,22 @@
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
+
+				"OnCreated"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"chernobog_glyph_7_1_think"
+						"ScriptFile"	"heroes/nightstalker/glyphs.lua"
+						"Function"		"glyph71Add"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/glyphs.lua"
+						"Function"		"glyph71Remove"
 						"target"		"TARGET"
 					}
 				}

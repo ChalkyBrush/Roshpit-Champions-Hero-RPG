@@ -1,4 +1,3 @@
-require('/event_bus')
 npc_base_ability = class({
     element1 = RPC_ELEMENT_NONE,
     element2 = RPC_ELEMENT_NONE,

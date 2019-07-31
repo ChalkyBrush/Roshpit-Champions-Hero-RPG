@@ -1,7 +1,23 @@
 require('heroes/nightstalker/chernobog_constants')
 
-LinkLuaModifier("modifier_chernobog_demon_flight_attack", "modifiers/chernobog_3_e/modifier_chernobog_demon_flight_attack", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_chernobog_d_c_arcana2", "modifiers/chernobog_3_e/modifier_chernobog_d_c_arcana2", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_chernobog_demon_flight_attack", "heroes/nightstalker/modifiers/modifier_chernobog_demon_flight_attack", LUA_MODIFIER_MOTION_NONE)
+
+
+local prefix = '3_e_arcana2_'
+local modifiers = {
+	movespeed = 'modifier_chernobog_3_e_arcana2_movespeed',
+}
+
+local shadowsModifiers = {
+	aura = 'modifier_chernobog_shadows_aura',
+	enemy_effect = 'modifier_chernobog_shadows_enemy_effect'
+}
+for modifierPath, modifier in pairs(modifiers) do
+	LinkLuaModifier(modifier, "heroes/nightstalker/modifiers/"..prefix..modifierPath, LUA_MODIFIER_MOTION_NONE)
+end
+for modifierPath, modifier in pairs(shadowsModifiers) do
+	LinkLuaModifier(modifier, "heroes/nightstalker/modifiers/shadows_"..modifierPath, LUA_MODIFIER_MOTION_NONE)
+end
 
 function demon_flight_start(event)
 	local caster = event.caster
@@ -14,6 +30,8 @@ function demon_flight_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_demonflight_attacks", {duration = duration + 5})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_night_vision", {duration = duration + 5})
 
+
+	caster:AddNewModifier(caster, ability, modifiers.movespeed, {duration = duration})
 	caster:AddNewModifier(caster, ability, "modifier_chernobog_demon_flight_attack", {duration = duration + 5})
 	caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate = "hunter_night"})
 	caster.flight_target = nil
@@ -33,10 +51,9 @@ function demon_flight_start(event)
 end
 
 function swap_to_demon_warp(caster, ability, base_name)
-	local a_c_level = caster:GetRuneValue("e", 1)
-	if a_c_level > 0 then
+	if caster.e1_level > 0 then
 		CustomAbilities:AddAndOrSwapSkill(caster, base_name, "chernobog_demon_warp", 2)
-		local procs = Runes:Procs(a_c_level, CHERNOBOG_ARCANA_E1_STACKS_CHANCE, 1)
+		local procs = Runes:Procs(caster.e1_level, CHERNOBOG_ARCANA2_E1_CHANCE, 1)
 		if procs > 0 then
 			local warp_ability = caster:FindAbilityByName("chernobog_demon_warp")
 			warp_ability:ApplyDataDrivenModifier(caster, caster, "modifier_demon_warp_freecast", {})
@@ -170,14 +187,13 @@ function demon_warp_start(event)
 	local target = event.target_points[1]
 	local casterOrigin = caster:GetAbsOrigin()
 	local heightStacks = caster:GetModifierStackCount("modifier_demonflight_z", caster)
-	local a_c_level = caster:GetRuneValue("e", 1)
 	CustomAbilities:QuickParticleAtPoint("particles/items_fx/blink_dagger_start.vpcf", caster:GetAbsOrigin() + Vector(0, 0, heightStacks), 3)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/spectre/spectre_transversant_soul/spectre_transversant_spectral_dagger_path_owner_impact.vpcf", caster, 3)
 	target = WallPhysics:WallSearch(casterOrigin, target, caster)
 	local newPosition = target
 	local direction = ((newPosition - casterOrigin) * Vector(1, 1, 0)):Normalized()
 	local distance = WallPhysics:GetDistance2d(casterOrigin, newPosition)
-	local maxDistance = CHERNOBOG_ARCANA_E1_CLAMP_BASE + a_c_level * CHERNOBOG_ARCANA_E1_CLAMP
+	local maxDistance = CHERNOBOG_ARCANA2_E1_RANGE_BASE + caster.e1_level * CHERNOBOG_ARCANA2_E1_RANGE
 	if distance > maxDistance then
 		newPosition = WallPhysics:WallSearch(casterOrigin, casterOrigin + direction * maxDistance, caster)
 	end
@@ -187,8 +203,9 @@ function demon_warp_start(event)
 	CustomAbilities:QuickParticleAtPoint("particles/econ/items/spectre/spectre_transversant_soul/spectre_transversant_spectral_dagger_path_owner_impact.vpcf", caster:GetAbsOrigin(), 3)
 	CustomAbilities:QuickParticleAtPoint("particles/items_fx/blink_dagger_start.vpcf", caster:GetAbsOrigin() + Vector(0, 0, heightStacks), 3)
 
-	StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1, translate = "hunter_night"})
+	onBlink(caster, ability, casterOrigin, newPosition)
 
+	StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1, translate = "hunter_night"})
 	if caster:HasModifier("modifier_demon_warp_freecast") then
 		local newStacks = caster:GetModifierStackCount("modifier_demon_warp_freecast", caster) - 1
 		if newStacks > 0 then
@@ -211,14 +228,13 @@ end
 function passive_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
-	local b_c_level = caster:GetRuneValue("e", 2)
-	if b_c_level > 0 then
+	if caster.e2_level > 0 then
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_demonflight_b_c_visible", {})
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_demonflight_b_c_invisible", {})
 			caster:SetModifierStackCount("modifier_demonflight_b_c_visible", caster, #enemies)
-			caster:SetModifierStackCount("modifier_demonflight_b_c_invisible", caster, #enemies * b_c_level)
+			caster:SetModifierStackCount("modifier_demonflight_b_c_invisible", caster, #enemies * caster.e2_level)
 		else
 			caster:RemoveModifierByName("modifier_demonflight_b_c_visible")
 			caster:RemoveModifierByName("modifier_demonflight_b_c_invisible")
@@ -227,24 +243,28 @@ function passive_thinker(event)
 		caster:RemoveModifierByName("modifier_demonflight_b_c_visible")
 		caster:RemoveModifierByName("modifier_demonflight_b_c_invisible")
 	end
-	local c_c_level = caster:GetRuneValue("e", 3)
-	if c_c_level > 0 then
+	if caster.e3_level > 0 then
 		local damageDealt = 10000
 		local damageDEMON = Filters:ElementalDamage(Events.GameMaster, caster, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, false)
 		local demonAmp = math.floor(damageDEMON / damageDealt)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_demonflight_c_c_attack", {})
-		local attack_dmg = (demonAmp) * c_c_level * CHERNOBOG_ARCANA2_E3_ATT_PER_DEMON_PCT
+		local attack_dmg = (demonAmp) * caster.e3_level * CHERNOBOG_ARCANA2_E3_ATT_PER_DEMON_PCT
 		caster:SetModifierStackCount("modifier_demonflight_c_c_attack", caster, attack_dmg)
 	else
 		caster:RemoveModifierByName("modifier_demonflight_c_c_attack")
 	end
-	local d_c_level = caster:GetRuneValue("e", 4)
-	ability.e_4_level = d_c_level
-	if d_c_level > 0 then
-		caster:AddNewModifier(caster, ability, "modifier_chernobog_d_c_arcana2", {})
-		caster:SetModifierStackCount("modifier_chernobog_d_c_arcana2", caster, d_c_level)
-	else
-		caster:RemoveModifierByName("modifier_chernobog_d_c_arcana2")
+	if ability.e4_level ~= caster.e4_level then
+		if caster.e4_level > 0 then
+			init_shadows_values_for_ability({
+				ability = ability,
+				radius = CHERNOBOG_ARCANA2_E4_RADIUS,
+				damagePercent = caster.e4_level * CHERNOBOG_ARCANA2_E4_DMG_PCT,
+				thinkInterval = CHERNOBOG_ARCANA2_E4_INTERVAL,
+			})
+			caster:AddNewModifier(caster, ability, shadowsModifiers.aura, {})
+			Util.Ability:MakeThinker(caster, ability, shadowsModifiers.aura,  caster:GetAbsOrigin(), getShadowsDuration(caster,0))
+		end
+		ability.e4_level = caster.e4_level
 	end
 end
 
@@ -253,6 +273,8 @@ function initialize_demon_walk(event)
 	local ability = event.ability
 	local duration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
 	caster:AddNewModifier(caster, nil, "modifier_persistent_invisibility", {duration = duration})
+	caster:AddNewModifier(caster, ability, modifiers.movespeed, {duration = duration})
+
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_demon_walk", {duration = duration})
 	Filters:CastSkillArguments(3, caster)
 	swap_to_demon_warp(caster, ability, "chernobog_demon_walk")

@@ -30,8 +30,6 @@ function class:OnIntervalThink()
     local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/nights_procession_illusion.vpcf", target, self.thinkInterval)
     ParticleManager:SetParticleControl(pfx, 1, Vector(animationRate, 0, 0))
     Timers:CreateTimer(damageDelay, function()
-        print('damage is ' .. damage)
-
         EmitSoundOn("Chernobog.BC.Hit", target)
         Damage:Apply({
             attacker = caster,

@@ -464,7 +464,6 @@ function Runes:ConvertTierAndIndexToRune(tier, index)
 end
 
 function Runes:apply_runes(ability, unit, PlayerID)
-	print('apply runes ' .. ability:GetName()	)
 	local hero = GameState:GetHeroByPlayerID(PlayerID)
 	if ability:GetLevel() > 0 then
 		if ability:GetName() == "venomort_rune_w_1" then
@@ -490,7 +489,7 @@ function Runes:apply_runes(ability, unit, PlayerID)
 		if ability:GetName() == "conjuror_rune_q_1" then
 			ability:ApplyDataDrivenModifier(unit, hero, "modifier_earth_guardian", {})
         end
-		local letter, tier = ability:GetName():match(".*_rune_(.)_(.)$")
+		local letter, tier = ability:GetName():match(".*_rune_(.)_(.)")
 		if letter ~= nil and tier ~= nil then
 			Runes:OnRuneCountUpdate(hero, letter, tier)
 		end
@@ -1774,6 +1773,7 @@ function Runes:UnequipArcana(hero, index)
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "ability_tree_upgrade", {playerId = hero:GetPlayerOwnerID()})
 end
 
+local runesUpdateCounter = 0
 function Runes:OnRuneCountUpdate(unit, letter, tier)
 	tier = tonumber(tier)
 	local newCount = unit:GetRuneValue(letter, tier)
@@ -1784,15 +1784,13 @@ function Runes:OnRuneCountUpdate(unit, letter, tier)
 
 	unit[letterAndTier] = newCount
 
-    print(letterAndTier .. ' new count is ' .. newCount)
-
 	local playerId = unit:GetPlayerOwnerID()
 	CustomNetTables:SetTableValue("hero_values", playerId .. '_rune_' .. letterAndTier, {count = newCount})
 	CustomNetTables:SetTableValue("hero_values", playerId .. '_last_set_rune', {
 		letterAndTier = letterAndTier,
-		time = GameRules:GetGameTime()
+		time = runesUpdateCounter
 	})
-
+	runesUpdateCounter = runesUpdateCounter + 1
 
 	Util.Modifier:SimpleEvent(unit, 'OnRuneCountUpdate', { MODIFIER_SPECIAL_TYPE_RUNE }, {
 		letter = letter,

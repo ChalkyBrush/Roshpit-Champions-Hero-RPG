@@ -88,6 +88,20 @@
 
 		"Modifiers"
 		{
+			"modifier_demon_morph_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "0.35"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/demon_morph"
+						"Function"		"passive_thinker"
+					}
+				}
+			}
 			"modifier_channel_start"
 			{
 				"IsHidden"	"1"
@@ -224,8 +238,8 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% CHERNOBOG_ARCANA_R2_ATT_SLOW %>"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" 	"<% CHERNOBOG_ARCANA_R2_MS_SLOW %>"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% CHERNOBOG_ARCANA1_R2_ATT_SLOW %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" 	"-<% CHERNOBOG_ARCANA1_R2_MS_SLOW %>"
 				}
 			}
 		}

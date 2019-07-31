@@ -93,7 +93,7 @@ function claw_projectile_hit(event)
 		local procession = caster:GetAbilityByIndex(DOTA_R_SLOT)
 		local cdRemaining = procession:GetCooldownTimeRemaining()
 		if cdRemaining > 0 then
-			local newCD = math.max(0, cdRemaining - 0.5)
+			local newCD = math.max(0, cdRemaining - CHERNOBOG_T31_CD_DEC)
 			procession:EndCooldown()
 			procession:StartCooldown(newCD)
 		end

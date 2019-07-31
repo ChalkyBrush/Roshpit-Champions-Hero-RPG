@@ -277,7 +277,7 @@
 		"item_rpc_chernobog_glyph_5_1_description" 				"Shadow Hunt не снижает здоровье если показатель здоровья равен или меньше <% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>% от максимума. Уменьшает весь урон способностей, кроме @Ability3 на <% 1 / CHERNOBOG_T51_BAD_MULT_EXCEPT_E%>x."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"(T6) Глиф тёмных преломлений"
-		"item_rpc_chernobog_glyph_6_1_description" 				"Sudden Strike накладывает метку на всех врагов в <% CHERNOBOG_GLYPH61_RADIUS %> радиусе от основной цели."
+		"item_rpc_chernobog_glyph_6_1_description" 				"Sudden Strike накладывает метку на всех врагов в <% CHERNOBOG_T61_RADIUS %> радиусе от основной цели."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"(T7) Глиф неукротимости"
 		"item_rpc_chernobog_glyph_7_1_description" 				"Снимает эффекты оглушения каждые 0.2 секунды."

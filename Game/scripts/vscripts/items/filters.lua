@@ -1773,9 +1773,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     divisor = damage * mult/Damage:GetWithElement('Reduce', attackerDebuffs, victimBuffs, newDamageCalculatorData)
     newDamageCalculatorData.damage = damage
 
-    print('element mult is' .. mult)
-    print('element divisor is' .. divisor)
-
     mult = mult + heroes.venomort.getElementBonus(victim, attacker, damage, damage_type, slot, element1, element2, bIsRealDamage)
 
     if bIsRealDamage then

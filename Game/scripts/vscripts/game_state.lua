@@ -2274,12 +2274,6 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_ablecore_greaves_effect") then
 		mult = mult + 6
 	end
-	if attacker:HasModifier("modifier_chernobog_demon_form") then
-		local demonForm = attacker:FindAbilityByName("chernobog_demon_morph")
-		if demonForm then
-			mult = mult + CHERNOBOG_ARCANA_R4_POST_MITI_PCT/100 * demonForm.r_4_level
-		end
-	end
 	if attacker:HasModifier("modifier_mordiggus_gauntlet") then
 		mult = mult + (1 - attacker:GetHealth() / attacker:GetMaxHealth()) * 4
 	end

@@ -1187,7 +1187,7 @@ function Events:ChangeRuneState(msg)
 		else
 			ability:SetActivated(true)
 		end
-		local letter, tier = ability:GetName():match(".*_rune_(.)_(.)$")
+		local letter, tier = ability:GetName():match(".*_rune_(.)_(.)")
 		if letter ~= nil and tier ~= nil then
 			Runes:OnRuneCountUpdate(unit, letter, tier)
 		end

@@ -1,6 +1,5 @@
 require('/npc_units/base_unit')
 require('/npc_abilities/base_modifier')
-require('/event_bus')
 chaos_lords__imp = class({}, nil, npc_base_unit)
 modifier_chaos_lords__imp = class(npc_base_modifier)
 

@@ -565,6 +565,7 @@ function ms_thinker(event)
 	local speed = baseSpeed
 	local mult = 1
 	for _,modifier in pairs(buffs) do
+
 		if modifier['GetModifierMoveSpeedBonus_Constant'] then
 			local localSpeed =  modifier['GetModifierMoveSpeedBonus_Constant'](modifier, {}) or 0
 			if localSpeed ~=  nil then
@@ -578,7 +579,7 @@ function ms_thinker(event)
 			end
 		end
 	end
-	speed = speed * mult
+	speed = math.max(speed * mult, baseSpeed + modifier2)
 	local movespeedMult = 1;
 
 	local ideal = unit:GetIdealSpeed()
