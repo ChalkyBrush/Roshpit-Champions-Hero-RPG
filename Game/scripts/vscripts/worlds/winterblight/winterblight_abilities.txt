@@ -12854,6 +12854,11 @@
 						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 						"Function"		"space_shark_big_hit"
 					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_space_shark_full"
+						"Target" 		"CASTER"
+					}
 				}
 				"Properties"
 				{
