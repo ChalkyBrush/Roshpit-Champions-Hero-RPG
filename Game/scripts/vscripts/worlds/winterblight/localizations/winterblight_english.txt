@@ -795,6 +795,9 @@
 		"winterblight_cavern_room3_event4"							"Deep Ocean Onslaught"
 		"winterblight_cavern_room3_event4_description"				"The chamber is flooded and invaded by creatures from a distance Sea Fortress. When a monster dies, another one spawns immediately."
 
+		"winterblight_cavern_room4_event1"							"Standard"
+		"winterblight_cavern_room4_event1_description"				"The chamber is populated with non aggro mobs."
+
 		"winterblight_cavern_status_prefix"								"Status:"
 		"winterblight_cavern_status_inactive"								"Inactive"
 		"winterblight_cavern_status_active"								"Active"

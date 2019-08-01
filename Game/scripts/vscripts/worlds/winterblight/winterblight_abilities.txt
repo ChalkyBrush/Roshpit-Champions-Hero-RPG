@@ -12911,7 +12911,7 @@
 				"Passive" 		"1"
 				"IsHidden"		"1"
 				"IsBuff"		"1"
-				"ThinkInterval"  "0.5"
+				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -12954,7 +12954,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_star_eater_passive"
+			"modifier_astral_weapon"
 			{
 				"IsPurgable"	"0"
 				"Passive" 		"1"
@@ -13013,6 +13013,57 @@
 						"damage"		"%damage"
 					}
 				}
+			}
+		}
+
+	}
+
+	"winterblight_galaxy_knight_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"sorceress/sorceress_rune_r_2_arcana1"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"10000 50000 800000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_galaxy_knight_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"EffectName"	"particles/econ/items/enigma/enigma_absolute_armour/enigma_absolute_armour_body_ambient.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"galaxy_knight_take_damage"
+					}
+				}
+			}
+			"modifier_galaxy_knight_freeze"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"StatusEffectName" 		"particles/status_fx/status_effect_enigma_malefice.vpcf"   
+				"StatusEffectPriority"  "12"
 			}
 		}
 

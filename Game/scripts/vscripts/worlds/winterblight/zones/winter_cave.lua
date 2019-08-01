@@ -3357,7 +3357,7 @@ function Winterblight:EdgeOfWinter1(msg)
 		end
 	end)
 	Timers:CreateTimer(2.1, function()
-		local positionTable = {Vector(-15519, 11136), Vector(-15519, 11392), Vector(-14905, 11351), Vector(-14593, 11264), Vector(-14814, 11566), Vector(-14464, 11520), Vector(-13952, 11776), Vector(-13890, 12032)}
+		local positionTable = {Vector(-15519, 10956), Vector(-15519, 11392), Vector(-14905, 11351), Vector(-14593, 11264), Vector(-14814, 11566), Vector(-14464, 11520), Vector(-13952, 11776), Vector(-13890, 12032)}
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.3, function()
 				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
@@ -3381,6 +3381,30 @@ function Winterblight:EdgeOfWinter1(msg)
 				end
 			end)
 		end
+	end)
+	Timers:CreateTimer(1.5, function()
+		local positionTable = {Vector(-15488, 9216), Vector(-14976, 11392), Vector(-15616, 12800), Vector(-14592, 14592), Vector(-12032, 15360), Vector(-13184, 13184)}
+	    for i = 1, #positionTable, 1 do
+	      Timers:CreateTimer(i*1.2, function()
+	        local patrolPositionTable = {}
+	        for j = 1, #positionTable, 1 do
+	          local index = i + j
+	          if index > #positionTable then
+	            index = index - #positionTable
+	          end
+	          table.insert(patrolPositionTable, positionTable[index])
+	        end
+	        for j = 0, 1, 1 do
+	          Timers:CreateTimer(j*0.8, function()
+	          	if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+		            local elemental = Winterblight:SpawnGalaxyKnight(positionTable[i]+RandomVector(RandomInt(1,180)), RandomVector(1))
+		            Winterblight:AddPatrolArguments(elemental, 12, 10, 220, patrolPositionTable)
+		            Winterblight:SetCavernUnit(elemental, elemental:GetAbsOrigin(), true, true, chamber_id)
+		        end
+	          end)
+	        end
+	      end)
+	    end
 	end)
 end
 
@@ -3419,7 +3443,16 @@ function Winterblight:SpawnStarEater(position, fv)
 	local stone = Winterblight:SpawnDungeonUnit("winterblight_star_eater", position, 0, 2, "Winterblight.StarEater.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 4, 4, false)
 	stone.itemLevel = 50
-	stone:SetRenderColor(170, 245, 185)
+	Events:ColorWearablesAndBase(stone, Vector(220, 140, 255))
+	stone.dominion = true
+	return stone
+end
+
+function Winterblight:SpawnGalaxyKnight(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_galaxy_knight", position, 0, 2, "Winterblight.GalaxyKnight.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 50
+	Events:ColorWearablesAndBase(stone, Vector(120, 140, 245))
 	stone.dominion = true
 	return stone
 end

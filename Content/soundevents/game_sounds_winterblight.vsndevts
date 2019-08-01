@@ -15085,11 +15085,11 @@
                             "value0"        "sounds/weapons/hero/tinker/laser.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.45000"  }
+                    "volume"            {   "value"     "0.15000"  }
                     "pitch_rand_min"    {   "value"     "-0.04000"  }
                     "pitch_rand_max"    {   "value"     "0.040000"  }
-                    "pitch"             {   "value"     "1.140000"  }
-                    "soundlevel"        {   "value"     "79.00000" }
+                    "pitch"             {   "value"     "1.240000"  }
+                    "soundlevel"        {   "value"     "74.00000" }
                     "distance_max"      {   "value"     "800.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
@@ -15155,6 +15155,70 @@
                     "pitch_rand_max"    {   "value"     "0.040000"  }
                     "pitch"             {   "value"     "0.970000"  }
                     "soundlevel"        {   "value"     "92.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.GalaxyKnight.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/vo/enigma/enig_pain_04.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.45000"  }
+                    "pitch_rand_min"    {   "value"     "-0.04000"  }
+                    "pitch_rand_max"    {   "value"     "0.040000"  }
+                    "pitch"             {   "value"     "1.120000"  }
+                    "soundlevel"        {   "value"     "92.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.GalaxyKnight.Freeze"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/weapons/hero/enigma/malefice.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.65000"  }
+                    "pitch_rand_min"    {   "value"     "-0.04000"  }
+                    "pitch_rand_max"    {   "value"     "0.040000"  }
+                    "pitch"             {   "value"     "1.220000"  }
+                    "soundlevel"        {   "value"     "79.00000" }
                     "distance_max"      {   "value"     "3400.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }

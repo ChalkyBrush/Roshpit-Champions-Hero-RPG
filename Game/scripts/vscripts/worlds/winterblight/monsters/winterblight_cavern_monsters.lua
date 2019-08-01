@@ -1484,7 +1484,7 @@ function aeon_sheild_activated(event)
 	local ability = event.ability
 	local pfx = CustomAbilities:QuickAttachParticle("particles/items4_fx/combo_breaker_buff.vpcf", caster, 2.6)
 	for i = 1, 5, 1 do
-		ParticleManager:SetParticleControlEnt(pfx, i, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(pfx, i, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin()+Vector(0,0,80), true)
 	end
 end
 
@@ -2129,14 +2129,24 @@ function bone_blister_think(event)
 	local target = event.target
 	local ability = event.ability
 	local position = caster:GetAbsOrigin()+RandomVector(RandomInt(120, 600))
-	CustomAbilities:QuickParticleAtPoint("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova.vpcf", position, 4)
-    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 210, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-    EmitSoundOnLocationWithCaster(position, "Winterblight.BoneBlister.Explode", caster)
-    if #enemies > 0 then    
-        for _,enemy in pairs(enemies) do
-        	ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
-        	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_chilled", {duration = 5})
-        end
+	if not ability.interval then
+		ability.interval = 0
+	end
+	ability.interval = ability.interval + 1
+	local health_div = math.floor((caster:GetHealth()/caster:GetMaxHealth())*10)
+	if ability.interval%health_div == 0 then
+		CustomAbilities:QuickParticleAtPoint("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova.vpcf", position, 4)
+	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 210, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	    EmitSoundOnLocationWithCaster(position, "Winterblight.BoneBlister.Explode", caster)
+	    if #enemies > 0 then    
+	        for _,enemy in pairs(enemies) do
+	        	ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+	        	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_chilled", {duration = 5})
+	        end
+	    end
+	end
+    if ability.interval == 100 then
+    	ability.interval = 0
     end
 end
 
@@ -2146,23 +2156,23 @@ function star_eat_passive_think(event)
 	if not ability.distance then
 		ability.distance = 200
 	end
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 1400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 	if #enemies > 0 then
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), enemies[1]:GetAbsOrigin())
 		if distance > ability.distance then
-			ability.distance = math.min(ability.distance + 25, 1500)
+			ability.distance = math.min(ability.distance + 20, 1500)
 		elseif distance < ability.distance then
-			ability.distance = math.max(ability.distance - 25, 150)
+			ability.distance = math.max(ability.distance - 20, 150)
 		end
 	end
 	if not ability.fv then
 		ability.fv = caster:GetForwardVector()
 	end
-	ability.fv = WallPhysics:rotateVector(ability.fv, 2*math.pi/24)
+	ability.fv = WallPhysics:rotateVector(ability.fv, 2*math.pi/32)
 	local spell_position = caster:GetAbsOrigin() + ability.fv*ability.distance
-	CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_arcana/rbck_arc_skywrath_mage_mystic_flare_ambient_hit", spell_position, 3)
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/star_eater_passive_ambient_hit.vpcf", spell_position, 3)
     local spell_enemies = FindUnitsInRadius( caster:GetTeamNumber(), spell_position, nil, 130, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
-    EmitSoundOnLocationWithCaster(position, "Winterblight.StarEater.PassiveExplode", caster)
+    EmitSoundOnLocationWithCaster(spell_position, "Winterblight.StarEater.PassiveExplode", caster)
     if #spell_enemies > 0 then    
         for _,enemy in pairs(spell_enemies) do
         	ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
@@ -2178,4 +2188,13 @@ function astral_weapon_hit(event)
 	local damage = target:GetMaxHealth()*(event.damage_pct_target_max_health/100)
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 	EmitSoundOn("Winterblight.StarEater.OrbHit", target)
+end
+
+function galaxy_knight_take_damage(event)
+	local caster = event.caster
+	local attacker = event.attacker
+	local ability = event.ability
+	print("NOT HAPPENMOING?")
+	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_galaxy_knight_freeze", {duration = 0.15})
+	EmitSoundOn("Winterblight.GalaxyKnight.Freeze", attacker)
 end
