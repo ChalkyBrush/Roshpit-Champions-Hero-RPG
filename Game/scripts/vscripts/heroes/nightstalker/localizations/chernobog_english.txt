@@ -263,15 +263,15 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_suffix"				" per 1% Demon damage bonus"
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2"						"[E4] Shadow Master"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"			"The shadows around Chernobog are permanently animated, and rip into all enemies within <% CHERNOBOG_ARCANA2_E4_RADIUS %> range every <% CHERNOBOG_ARCANA2_E4_INTERVAL %> seconds. Even when an enemy leaves this aura's effect, shadows will still cling to it for a short time, continuing to attack."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"			"The shadows around Chernobog are permanently animated, and rip into all enemies within <% CHERNOBOG_ARCANA2_E4_RADIUS %> range every <% CHERNOBOG_ARCANA2_E4_INTERVAL %> seconds. Chernobog leaves behind invisible zones of animated shadows as he moves, which will continue attacking enemies for a few brief instants even after he has left the area."
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_one"			"Shadow Damage"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix"				"% of Chernobog's attack power"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_two"			"Cling Duration"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_two"			"Zone Duration"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix_two"			" seconds"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"		"Glyph of Gloom"
-		"item_rpc_chernobog_glyph_1_1_description" 				"When you use any blink or teleport effect from @Ability3, Chernobog's shadows will lash out and attack all targets in a zone between the starting point and the destination. The radius of this zone is equal to the total distance moved * <% CHERNOBOG_T11_PART_OF_DISTANCE %>, and the zone lasts <% CHERNOBOG_T11_DURATION %> seconds."
+		"item_rpc_chernobog_glyph_1_1_description" 				"When you use any blink or teleport effect from @Ability3, Chernobog's shadows will lash out and attack all targets in zones created at the starting point and at the destination. The radius of these zones is equal to the total distance moved * <% CHERNOBOG_T11_PART_OF_DISTANCE %>, and the zone lasts <% CHERNOBOG_T11_DURATION %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"		"Glyph of Foreboding Presence"
 		"item_rpc_chernobog_glyph_2_1_description" 				"Increase shadows attack radius <% CHERNOBOG_T21_RADIUS_AMP %> times"
