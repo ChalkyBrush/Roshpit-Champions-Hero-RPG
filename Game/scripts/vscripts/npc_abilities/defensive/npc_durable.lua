@@ -1,8 +1,8 @@
 -- Name: durable
 -- Description: Set maximum taken damage per second as percent of maximum hp. The limit can be summed up in a few seconds. Nothing can increase taken damage per second
 -- Base Values:
---      maximum taken damage: 20/10/5% of maximum hp per second
---      sum up time: 2/4/8 seconds
+--      maximum taken damage: 35/7/2% of maximum hp per second
+--      sum up time: 3/9/20 seconds
 
 LinkLuaModifier("modifier_durable_passive", "npc_abilities/defensive/durable", LUA_MODIFIER_MOTION_NONE)
 
