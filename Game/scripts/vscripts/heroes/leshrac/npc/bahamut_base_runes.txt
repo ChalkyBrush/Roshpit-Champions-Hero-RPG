@@ -435,12 +435,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT R2_DAMAGE_PCT %>"
+				"property_one"			"<% BAHAMUT_R2_DAMAGE_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% BAHAMUT_R2_BASE DAMAGE_PCT %>"
+				"property_one_base"		"<% BAHAMUT_R2_BASE_DAMAGE_PCT %>"
 			}
 			"03"
 			{
