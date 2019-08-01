@@ -42,6 +42,7 @@
 		"precache"
 		{
 			"particle"  "particles/roshpit/chernobog/charons_clawpectral_dagger.vpcf"
+			"particle"	"particles/roshpit/chernobog/charons_clawpectral_dagger_test.vpcf"
 			"particle"	"particles/roshpit/chernobog/charons_clawhadow_path.vpcf"
 			"particle"	"particles/roshpit/chernobog/charons_clawhadow_path_fallback_mid.vpcf"
 			"particle"	"particles/roshpit/chernobog/charon_ground.vpcf"
