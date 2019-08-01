@@ -110,7 +110,7 @@ function demon_hunter_a_b_attack(event)
 	if caster.w1_level > 0 then
 		if attacker:HasModifier("modifier_demon_hunter") or attacker:HasModifier("modifier_chernobog_glyph_5_a") then
 			CustomAbilities:QuickAttachParticle("particles/chernobog/chernobog_a_b_timedialate.vpcf", target, 2)
-			local extraDamage = caster.w1_level * CHERNOBOG_W1_DMG_PER_MISSING_MP * (caster:GetMaxMana() - caster:GetMana())
+			local extraDamage = caster.w1_level * CHERNOBOG_W1_DMG_PER_MISSING_MP * (caster:GetMaxMana() - caster:GetMana() + mana_drain_per_attack)
 			local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, CHERNOBOG_W_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			for _,enemy in pairs(enemies) do
 				Damage:Apply({
