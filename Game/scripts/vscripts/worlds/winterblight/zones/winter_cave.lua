@@ -3308,6 +3308,20 @@ function Winterblight:EdgeOfWinter1(msg)
 			Winterblight:SetCavernUnit(unit, positionTable[i], true, true, chamber_id)
 		end
 	end
+
+	Timers:CreateTimer(0.5, function()
+		local positionTable = {Vector(-15488, 9344), Vector(-14720, 9472), Vector(-15616, 10752), Vector(-15104, 11904), Vector(-14080, 11520), Vector(-13696, 12288), Vector(-14976, 13056), Vector(-12672, 13952), Vector(-15744, 14592), Vector(-14592, 15232), Vector(-12928, 15232), Vector(-11904, 15232)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = ((Vector(-12288, 11136) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnBoneBlister(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
 end
 
 function Winterblight:SpawnSpaceShark(position, fv)
@@ -3317,4 +3331,14 @@ function Winterblight:SpawnSpaceShark(position, fv)
 	stone:SetRenderColor(170, 245, 185)
 	stone.dominion = true
 	return stone
+end
+
+function Winterblight:SpawnBoneBlister(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winter_bone_blister", position, 0, 2, "Winterblight.BoneBlister.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 50
+	stone:SetRenderColor(170, 245, 185)
+	stone.dominion = true
+	return stone
+
 end

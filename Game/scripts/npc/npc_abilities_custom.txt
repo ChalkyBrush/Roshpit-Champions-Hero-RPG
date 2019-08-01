@@ -83562,6 +83562,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%damage_bonus_full_shark"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"		"120"
 				}
 				"OnDestroy"
 				{
@@ -83570,6 +83571,66 @@
 						"ModifierName"	"modifier_space_shark_size"
 						"Target" 		"CASTER"
 					}
+				}
+			}
+		}
+
+	}
+
+	"winterblight_bone_blister_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"sorceress/sorceress_rune_r_2_arcana1"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"100 5000 500000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-100 -155 -210"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_loss"			"-60 -120 -320"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_bone_blister_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"bone_blister_think"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_chilled"
+			{
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
 				}
 			}
 		}

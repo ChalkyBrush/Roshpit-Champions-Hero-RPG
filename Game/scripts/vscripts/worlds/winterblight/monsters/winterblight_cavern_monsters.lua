@@ -2123,3 +2123,19 @@ function space_shark_big_hit(event)
 		target:ForceKill(true)
 	end
 end
+
+function bone_blister_think(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	local position = caster:GetAbsOrigin()+RandomVector(RandomInt(120, 600))
+	CustomAbilities:QuickParticleAtPoint("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova.vpcf", position, 4)
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 210, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+    EmitSoundOnLocationWithCaster(position, "Winterblight.BoneBlister.Explode", caster)
+    if #enemies > 0 then    
+        for _,enemy in pairs(enemies) do
+        	ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+        	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_chilled", {duration = 5})
+        end
+    end
+end
