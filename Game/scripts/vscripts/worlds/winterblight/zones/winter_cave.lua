@@ -882,6 +882,13 @@ function Winterblight:GetVertices(chamber_id)
 		local bl_vertex = origin-Vector(width/2, height/2)
 		local tr_vertex = origin+Vector(width/2, height/2)
 		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 896
+		local width = 867
+		local origin = Vector(-13746, 10581)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
 	end
 	return vertices
 end
@@ -3322,6 +3329,59 @@ function Winterblight:EdgeOfWinter1(msg)
 			end)
 		end
 	end)
+
+	Timers:CreateTimer(0.9, function()
+		local positionTable = {Vector(-15744, 8724), Vector(-15360, 8576), Vector(-14976, 8832)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = Vector(0,1)
+					local unit = Winterblight:SpawnSeaPortal(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+	Timers:CreateTimer(1.3, function()
+		local positionTable = {Vector(-11722, 13092), Vector(-11958, 12937), Vector(-11718, 12772), Vector(-19980, 12672), Vector(-12160, 12416), Vector(-11904, 12416)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = ((Vector(-12288, 11136) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnCloakedPhantasm(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+	Timers:CreateTimer(2.1, function()
+		local positionTable = {Vector(-15519, 11136), Vector(-15519, 11392), Vector(-14905, 11351), Vector(-14593, 11264), Vector(-14814, 11566), Vector(-14464, 11520), Vector(-13952, 11776), Vector(-13890, 12032)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = ((Vector(-12288, 11136) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnZodiacOracle(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+	Timers:CreateTimer(3.3, function()
+		local positionTable = {Vector(-15744, 11520), Vector(-15744, 11136), Vector(-15744, 10752), Vector(-15009, 12624), Vector(-14668, 12928), Vector(-14229, 13082), Vector(-12454, 14976), Vector(-12800, 14976), Vector(-14720, 15146), Vector(-14411, 15257), Vector(-14592, 9728)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = ((Vector(-12288, 11136) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnStarEater(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
 end
 
 function Winterblight:SpawnSpaceShark(position, fv)
@@ -3339,6 +3399,27 @@ function Winterblight:SpawnBoneBlister(position, fv)
 	stone.itemLevel = 50
 	stone:SetRenderColor(170, 245, 185)
 	stone.dominion = true
+	Winterblight:SetPositionCastArgs(stone, 1200, 300, 1, FIND_ANY_ORDER)
+	stone.randomMissMin = 340
+	stone.randomMissMax = 500
 	return stone
 
+end
+
+function Winterblight:SpawnSeaPortal(position, fv)
+  local queen = Winterblight:SpawnDungeonUnit("sea_fortress_sea_portal", position, 1, 3, "Seafortress.SeaPortal.Aggro", fv, false)
+  queen.dominion = true
+  queen:SetRenderColor(100, 140, 255)
+  Events:AdjustBossPower(queen, 8, 8, false)
+  Winterblight:SetPositionCastArgs(queen, 1400, 0, 1, FIND_ANY_ORDER)
+  return queen
+end
+
+function Winterblight:SpawnStarEater(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_star_eater", position, 0, 2, "Winterblight.StarEater.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 50
+	stone:SetRenderColor(170, 245, 185)
+	stone.dominion = true
+	return stone
 end

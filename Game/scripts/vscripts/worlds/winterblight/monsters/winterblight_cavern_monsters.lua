@@ -2139,3 +2139,43 @@ function bone_blister_think(event)
         end
     end
 end
+
+function star_eat_passive_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not ability.distance then
+		ability.distance = 200
+	end
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 1400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+	if #enemies > 0 then
+		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), enemies[1]:GetAbsOrigin())
+		if distance > ability.distance then
+			ability.distance = math.min(ability.distance + 25, 1500)
+		elseif distance < ability.distance then
+			ability.distance = math.max(ability.distance - 25, 150)
+		end
+	end
+	if not ability.fv then
+		ability.fv = caster:GetForwardVector()
+	end
+	ability.fv = WallPhysics:rotateVector(ability.fv, 2*math.pi/24)
+	local spell_position = caster:GetAbsOrigin() + ability.fv*ability.distance
+	CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_arcana/rbck_arc_skywrath_mage_mystic_flare_ambient_hit", spell_position, 3)
+    local spell_enemies = FindUnitsInRadius( caster:GetTeamNumber(), spell_position, nil, 130, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+    EmitSoundOnLocationWithCaster(position, "Winterblight.StarEater.PassiveExplode", caster)
+    if #spell_enemies > 0 then    
+        for _,enemy in pairs(spell_enemies) do
+        	ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+        end
+    end
+end
+
+function astral_weapon_hit(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+
+	local damage = target:GetMaxHealth()*(event.damage_pct_target_max_health/100)
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+	EmitSoundOn("Winterblight.StarEater.OrbHit", target)
+end
