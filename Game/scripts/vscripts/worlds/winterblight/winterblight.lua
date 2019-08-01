@@ -218,7 +218,7 @@ function Winterblight:Debug2()
     -- Winterblight:LastAzaleaRoomStart()
     
     -- Winterblight:CompleteChamberEvent(1, MAIN_HERO_TABLE[1]:GetAbsOrigin())
-     Winterblight:SpawnTokiToki(MAIN_HERO_TABLE[1]:GetAbsOrigin()+Vector(0,-300), Vector(0,-1))
+     Winterblight:SpawnFrozenKrow(MAIN_HERO_TABLE[1]:GetAbsOrigin()+Vector(0,-300), Vector(0,-1))
     -- local merkurio = Winterblight:SpawnMerkurio(Vector(-6656, 8064), Vector(0,1))
     -- merkurio.state = 9
     -- local ability = merkurio:FindAbilityByName("winterblight_merkurio_passive")

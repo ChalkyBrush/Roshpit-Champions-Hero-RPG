@@ -83768,6 +83768,86 @@
 
 	}
 
+	"ellipsis_wave"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"ancient_apparition_cold_feet"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"2000"
+		"precache"
+		{
+
+		}
+
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"5.0"
+
+		// Cost
+		//-------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"4000 90000 540000"
+			}
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"disarm_duration"		"0.5 1.0 2.0"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+        		"Function"		"ellipsis_wave_cast"
+        		"Target"			"POINT"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+        		"Function"		"ellipsis_wave_hit"
+        		"Target"			"TARGET"
+        		"damage"			"%damage"
+        		"disarm_duration"	"%disarm_duration"
+			}
+		}
+        "Modifiers"
+        {
+        	"modifier_ellipsis_wave_disarm"
+        	{
+        		"IsHidden"	"0"
+        		"EffectName"			"particles/items2_fx/heavens_halberd.vpcf"
+        		"EffectAttachType"		"attach_origin"
+        		"IsDebuff"				"1"
+        		"States"
+        		{
+        			"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+        	}
+        }
+	}
+
 
 	"soul_ferrier_passive"
 	{

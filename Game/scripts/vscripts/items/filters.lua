@@ -2945,7 +2945,7 @@ function Filters:WitchHat(caster)
     local fv = caster:GetForwardVector()
     local ability = caster.witchHat
     ability.caster = caster
-    local projectileParticle = "particles/econ/items/death_prophet/death_prophet_acherontia/death_prophet_acher_swarm.vpcf"
+    local projectileParticle = "particles/roshpit/winterblight/ellipsis_wave.vpcf"
     local projectileOrigin = caster:GetAbsOrigin() + fv * 10
     local start_radius = 120
     local end_radius = 400

@@ -3406,6 +3406,19 @@ function Winterblight:EdgeOfWinter1(msg)
 	      end)
 	    end
 	end)
+	Timers:CreateTimer(5.3, function()
+		local positionTable = {Vector(-14336, 12288), Vector(-14613, 12544), Vector(-14390, 13037), Vector(-14080, 13231), Vector(-14223, 15700), Vector(-13929, 15700), Vector(-13629, 15700), Vector(-13327, 15700)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = ((Vector(-12288, 11136) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnFrozenKrow(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
 end
 
 function Winterblight:SpawnSpaceShark(position, fv)
@@ -3455,4 +3468,13 @@ function Winterblight:SpawnGalaxyKnight(position, fv)
 	Events:ColorWearablesAndBase(stone, Vector(120, 140, 245))
 	stone.dominion = true
 	return stone
+end
+
+function Winterblight:SpawnFrozenKrow(position, fv)
+  local queen = Winterblight:SpawnDungeonUnit("winterblight_frozen_krow", position, 1, 3, "Winterblight.Krow.Aggro", fv, false)
+  queen.dominion = true
+  Events:ColorWearablesAndBase(queen, Vector(100, 140, 245))
+  Events:AdjustBossPower(queen, 8, 8, false)
+  Winterblight:SetPositionCastArgs(queen, 1700, 0, 1, FIND_ANY_ORDER)
+  return queen
 end

@@ -2198,3 +2198,44 @@ function galaxy_knight_take_damage(event)
 	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_galaxy_knight_freeze", {duration = 0.15})
 	EmitSoundOn("Winterblight.GalaxyKnight.Freeze", attacker)
 end
+
+function ellipsis_wave_cast(event)
+	local caster = event.caster
+	local ability = event.ability
+	local point = event.target_points[1]
+	EmitSoundOn("Winterblight.EllipsisWave", caster)
+	local fv = (point - caster:GetAbsOrigin())*Vector(1,1,0)
+	fv = fv:Normalized()
+	print("WAVE")
+	local info =
+	{
+		Ability = ability,
+		EffectName = "particles/roshpit/winterblight/ellipsis_wave.vpcf",
+		vSpawnOrigin = caster:GetAbsOrigin() + fv * 20,
+		fDistance = 1300,
+		fStartRadius = 250,
+		fEndRadius = 380,
+		Source = caster,
+		StartPosition = "attach_origin",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = 0,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
+		bDeleteOnHit = false,
+		vVelocity = fv * 900,
+		bProvidesVision = false,
+	}
+	projectile = ProjectileManager:CreateLinearProjectile(info)
+end
+
+function ellipsis_wave_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local damage = event.damage
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+	EmitSoundOn("Winterblight.EllipsisWave.Hit", target)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_ellipsis_wave_disarm", {duration = event.disarm_duration})
+end
