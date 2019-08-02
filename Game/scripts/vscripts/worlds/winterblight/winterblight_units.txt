@@ -13624,15 +13624,11 @@
             {
                 "Wearable1"
                 {
+                    "ItemDef"           "593"
+                }
+                "Wearable4"
+                {
                     "ItemDef"           "605"
-                }
-                "Wearable2"
-                {
-                    "ItemDef"           "9039"
-                }
-                "Wearable3"
-                {
-                    "ItemDef"           "9037"
                 }
             }
         }
