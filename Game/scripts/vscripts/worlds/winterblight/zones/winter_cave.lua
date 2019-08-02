@@ -3357,7 +3357,7 @@ function Winterblight:EdgeOfWinter1(msg)
 		end
 	end)
 	Timers:CreateTimer(2.1, function()
-		local positionTable = {Vector(-15519, 10956), Vector(-15519, 11392), Vector(-14905, 11351), Vector(-14593, 11264), Vector(-14814, 11566), Vector(-14464, 11520), Vector(-13952, 11776), Vector(-13890, 12032)}
+		local positionTable = {Vector(-15519, 10956), Vector(-15519, 11392), Vector(-14905, 11351), Vector(-14593, 11264), Vector(-14814, 11566), Vector(-14464, 11520), Vector(-13952, 11776), Vector(-13890, 12032), Vector(-15616, 9216), Vector(-15282, 9075), Vector(-15003, 9210), Vector(-14948, 9472)}
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.3, function()
 				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
@@ -3370,7 +3370,7 @@ function Winterblight:EdgeOfWinter1(msg)
 		end
 	end)
 	Timers:CreateTimer(3.3, function()
-		local positionTable = {Vector(-15744, 11520), Vector(-15744, 11136), Vector(-15744, 10752), Vector(-15009, 12624), Vector(-14668, 12928), Vector(-14229, 13082), Vector(-12454, 14976), Vector(-12800, 14976), Vector(-14720, 15146), Vector(-14411, 15257), Vector(-14592, 9728)}
+		local positionTable = {Vector(-15744, 11520), Vector(-15744, 11136), Vector(-15744, 10752), Vector(-15009, 12624), Vector(-14668, 12928), Vector(-14229, 13082), Vector(-12454, 14976), Vector(-12800, 14976), Vector(-14720, 15146), Vector(-14411, 15257), Vector(-14592, 9728), Vector(-14592, 9088)}
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.3, function()
 				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
@@ -3407,7 +3407,7 @@ function Winterblight:EdgeOfWinter1(msg)
 	    end
 	end)
 	Timers:CreateTimer(5.3, function()
-		local positionTable = {Vector(-14336, 12288), Vector(-14613, 12544), Vector(-14390, 13037), Vector(-14080, 13231), Vector(-14223, 15700), Vector(-13929, 15700), Vector(-13629, 15700), Vector(-13327, 15700)}
+		local positionTable = {Vector(-14336, 12288), Vector(-14613, 12544), Vector(-14390, 13037), Vector(-14080, 13231), Vector(-14223, 15700), Vector(-13929, 15700), Vector(-13629, 15700), Vector(-13327, 15700), Vector(-14026, 10240), Vector(-14139, 9984), Vector(-14208, 9472)}
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.3, function()
 				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
@@ -3453,6 +3453,32 @@ function Winterblight:EdgeOfWinter1(msg)
 					local position = positionTable[i]
 					local fv = ((Vector(-12288, 11136) - positionTable[i])*Vector(1,1,0)):Normalized()
 					local unit = Winterblight:SpawnWintertideMonk(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+	Timers:CreateTimer(11.3, function()
+		local positionTable = {Vector(-12416, 13440), Vector(-12081, 13440), Vector(-11776, 13440), Vector(-11776, 13696), Vector(-12081, 13696), Vector(-12416, 13696), Vector(-12081, 13952), Vector(-11776, 13952)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = ((Vector(-12288, 11136) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnGalaxyKnight(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+	Timers:CreateTimer(12.3, function()
+		local positionTable = {Vector(-13568, 13824), Vector(-13304, 13923), Vector(-13696, 14015), Vector(-13440, 14125), Vector(-13159, 14208), Vector(-13696, 14311)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = ((Vector(-12288, 11136) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnSpaceShark(position, fv)
 					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
 				end
 			end)
