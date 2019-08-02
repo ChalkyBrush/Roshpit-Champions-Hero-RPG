@@ -182,7 +182,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"magic_damage_bonus"		"160 200 240 280 320 360 400"
+				"magic_damage_bonus"		"200 300 400 500 600 700 800"
 			}
 		}
 		"OnToggleOn"
