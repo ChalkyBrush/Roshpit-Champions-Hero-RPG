@@ -13634,3 +13634,105 @@
         }
 
     }
+
+    "winterblight_winters_chieftain"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/alchemist/alchemist.vmdl"
+        "ModelScale"    "1.0"
+        "Level" "1"
+        "HealthBarOffset"   "190"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2" 
+        "SoundSet"              "Hero_Alchemist"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+        }
+
+        "ArmorPhysical" "5"
+        "MagicalResistance" "15"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "200000"
+        "AttackDamageMax"   "300000"
+        "AttackRate"    "1.7"
+        "AttackAnimationPoint"  "0.35"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "140"
+        "BountyGoldMin" "500"
+        "BountyGoldMax" "600"
+        "BountyXP" "3000"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "375"
+        "MovementTurnRate"  "0.2"
+        "StatusHealth"  "8000000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"  "shipyard_boss_acid_spray"
+        "Ability2"  "normal_steadfast"
+        "Ability3"  "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12703"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12702"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12699"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "12698"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "9315"
+                }
+                "Wearable6"
+                {
+                    "ItemDef"   "8532"
+                }
+                "Wearable7"
+                {
+                    "ItemDef"   "12697"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+   
+            }
+
+        }
+    }
