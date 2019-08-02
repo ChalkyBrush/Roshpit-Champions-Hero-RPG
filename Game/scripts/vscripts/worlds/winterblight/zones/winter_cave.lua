@@ -3344,7 +3344,7 @@ function Winterblight:EdgeOfWinter1(msg)
 		end
 	end)
 	Timers:CreateTimer(1.3, function()
-		local positionTable = {Vector(-11722, 13092), Vector(-11958, 12937), Vector(-11718, 12772), Vector(-19980, 12672), Vector(-12160, 12416), Vector(-11904, 12416)}
+		local positionTable = {Vector(-11722, 13092), Vector(-11958, 12937), Vector(-11718, 12772), Vector(-11980, 12672), Vector(-12160, 12416), Vector(-11904, 12416)}
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.3, function()
 				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
@@ -3433,13 +3433,26 @@ function Winterblight:EdgeOfWinter1(msg)
 		end
 	end)
 	Timers:CreateTimer(7.3, function()
-		local positionTable = {Vector(-14336, 12700), Vector(-14080, 12891), Vector(-13824, 13054), Vector(13457, 13157), Vector(-12544, 15488), Vector(-12160, 15640), Vector(-11776, 15640), Vector(-11776, 14720), Vector(-11904, 14336)}
+		local positionTable = {Vector(-14336, 12700), Vector(-14080, 12891), Vector(-13824, 13054), Vector(13457, 13157), Vector(-12544, 15488), Vector(-12160, 15640), Vector(-11776, 15640), Vector(-11776, 14720), Vector(-11904, 14336), Vector(-15252, 14336), Vector(-15360, 14585), Vector(-15699, 14464), Vector(-15532, 14208)}
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.3, function()
 				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
 					local position = positionTable[i]
 					local fv = ((Vector(-12288, 11136) - positionTable[i])*Vector(1,1,0)):Normalized()
 					local unit = Winterblight:SpawnMindChatterer(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+	Timers:CreateTimer(9.3, function()
+		local positionTable = {Vector(-15616, 12347), Vector(-15232, 12347), Vector(-15232, 12032), Vector(-15360, 11776), Vector(-15607, 12032), Vector(-14464, 11136), Vector(-14168, 11061), Vector(-13947, 10880), Vector(-13696, 12800), Vector(-13385, 12800), Vector(-13097, 12888), Vector(-12800, 13027), Vector(-13073, 13439), Vector(-13385, 13184), Vector(-13696, 13214)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = ((Vector(-12288, 11136) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnWintertideMonk(position, fv)
 					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
 				end
 			end)
@@ -3497,7 +3510,7 @@ function Winterblight:SpawnGalaxyKnight(position, fv)
 end
 
 function Winterblight:SpawnFrozenKrow(position, fv)
-  local queen = Winterblight:SpawnDungeonUnit("winterblight_frozen_krow", position, 1, 3, "Winterblight.Krow.Aggro", fv, false)
+  local queen = Winterblight:SpawnDungeonUnit("winterblight_frozen_krow", position, 0, 3, "Winterblight.Krow.Aggro", fv, false)
   queen.dominion = true
   Events:ColorWearablesAndBase(queen, Vector(100, 140, 245))
   Events:AdjustBossPower(queen, 8, 8, false)
@@ -3506,10 +3519,21 @@ function Winterblight:SpawnFrozenKrow(position, fv)
 end
 
 function Winterblight:SpawnMindChatterer(position, fv)
-  local queen = Winterblight:SpawnDungeonUnit("winterblight_mind_chatterer", position, 1, 3, "Winterblight.MindChatterer.Aggro", fv, false)
+  local queen = Winterblight:SpawnDungeonUnit("winterblight_mind_chatterer", position, 0, 3, "Winterblight.MindChatterer.Aggro", fv, false)
   queen.dominion = true
   Events:ColorWearablesAndBase(queen, Vector(100, 140, 245))
   Events:AdjustBossPower(queen, 8, 8, false)
   Winterblight:SetPositionCastArgs(queen, 1700, 0, 1, FIND_ANY_ORDER)
   return queen
+end
+
+function Winterblight:SpawnWintertideMonk(position, fv)
+	local queen = Winterblight:SpawnDungeonUnit("winterblight_wintertide_monk", position, 0, 3, "Winterblight.Wintertide.Aggro", fv, false)
+	queen.dominion = true
+	Events:ColorWearablesAndBase(queen, Vector(100, 140, 245))
+	Events:AdjustBossPower(queen, 8, 8, false)
+	Winterblight:SetPositionCastArgs(queen, 900, 0, 1, FIND_ANY_ORDER)
+	queen.randomMissMin = 200
+	queen.randomMissMax = 600
+	return queen
 end

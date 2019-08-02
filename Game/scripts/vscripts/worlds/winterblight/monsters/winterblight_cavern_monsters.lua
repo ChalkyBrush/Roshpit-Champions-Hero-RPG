@@ -2262,3 +2262,47 @@ function brain_freeze_cast(event)
 		UTIL_Remove(unit)
 	end)
 end
+
+function wintertide_totem_cast(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target_points[1]
+	local unit = CreateUnitByName("npc_dummy_unit", target, false, caster, caster, caster:GetTeamNumber())
+	EmitSoundOn("Winterblight.BrainFreeze.Cast", unit)
+	unit:SetMaxHealth(3)
+	unit:SetBaseMaxHealth(3)
+	unit:AddAbility("winterblight_wintertide_totem"):SetLevel(ability:GetLevel())
+	unit:SetModel("models/heroes/juggernaut/jugg_healing_ward.vmdl")
+	unit:SetOriginalModel("models/heroes/juggernaut/jugg_healing_ward.vmdl")
+	unit:SetForwardVector(caster:GetForwardVector())
+	-- unit.pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/ghost_tyrant_area_portrait.vpcf", PATTACH_CUSTOMORIGIN, unit)
+	-- local colorVector = Vector(120, 190, 255)
+
+	-- ParticleManager:SetParticleControl(unit.pfx, 0, unit:GetAbsOrigin() + Vector(0, 0, 30))
+	-- ParticleManager:SetParticleControl(unit.pfx, 4, colorVector/255)
+	local life_duration = event.duration
+	unit:SetOwner(caster)
+	unit.dieTime = life_duration
+	unit:AddAbility("ability_die_after_time_generic"):SetLevel(1)
+	unit.heal_pct = event.heal_percent
+	EmitSoundOnLocationWithCaster(target, "Winterblight.Wintertide.Cast", caster)
+	unit:SetRenderColor(80, 140, 255)
+	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_arc_warden/arc_warden_death.vpcf", unit:GetAbsOrigin(), 2)
+	Timers:CreateTimer(event.duration, function()
+		-- ParticleManager:DestroyParticle(unit.pfx, false)
+		UTIL_Remove(unit)
+	end)
+end
+
+function wintertide_totem_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #allies > 0 then
+		for _, ally in pairs(allies) do
+			local healAmount = math.floor(ally:GetMaxHealth() * (caster.heal_pct/100))
+			Filters:ApplyHeal(caster, ally, healAmount, true)
+		end
+	end
+end
+
