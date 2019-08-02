@@ -160,10 +160,10 @@
     	//b_d: Splash damage when striking a target in Night's Procession	
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_3"								"[R3] Black Cauldron"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_3_Description"					"Enemies attacked by chernobog in Night's Procession explode and deal damage to nearby enemies. The buff persist some time after @Ability4 end"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_3_property_one"					"Spillover Damage"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_3_suffix"						"% of attack damage"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_3_property_two"					"Duration"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_3_Description"					"Chernobog's attacks during @Ability4 eviscerate all enemies within <% CHERNOBOG_R3_RADIUS %> units of the primary target, dealing Pure damage. This buff persists for some time even after @Ability4 ends."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_3_property_one"					"Vorpal Damage"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_3_suffix"						"% of attack power"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_3_property_two"					"Extra Duration"
         "DOTA_Tooltip_ability_chernobog_rune_r_3_suffix_two"					"seconds"
 
     	//c_d: Illusion smacking affected enemies										
@@ -185,12 +185,12 @@
 		"item_property_chernobog_arcana1"										"Demonic Supremacy"
     	"property_chernobog_arcana1_description"								"Replaces @Ability4 and all of its runes with Demonic Supremacy."
 
-    	"DOTA_Tooltip_ability_chernobog_demon_morph"								"Demonic Supremacy"
+    	"DOTA_Tooltip_ability_chernobog_demon_morph"								"Metamorphosis"
     	"DOTA_Tooltip_ability_chernobog_demon_morph_Description"					"Chernobog briefly vanishes into the realm of shadows; he emerges in a deadly new form, with ranged attacks, increased attack damage, and a much faster 0.9 second Base Attack Time."
     	"DOTA_Tooltip_ability_chernobog_demon_morph_duration"					"DURATION:"
     	"DOTA_Tooltip_ability_chernobog_demon_morph_attack_damage_percent"		"BONUS ATTACK DAMAGE %:"
 
-    	"DOTA_Tooltip_modifier_chernobog_demon_form"							"Demonic Supremacy"
+    	"DOTA_Tooltip_modifier_chernobog_demon_form"							"Metamorphosis"
 
   		"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1"						"[R1] Dark Expanse"
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_Description"			"Attacks during Demonic Supremacy deal additional Pure damage to all enemies in a <% CHERNOBOG_ARCANA1_R1_RADIUS %> radius around the target."
@@ -277,7 +277,7 @@
 		"item_rpc_chernobog_glyph_2_1_description" 				"All effects that create zones or auras wherein enemies are attacked by Chernobog's shadows have their radius multiplied by <% CHERNOBOG_T21_RADIUS_AMP %>. This also applies to the radius of [R2]."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"		"Glyph of Nightmare's Grasp"
-		"item_rpc_chernobog_glyph_3_1_description" 				"Each enemy hit by @Ability1 reduces the cooldown of @Ability4 by <% CHERNOBOG_T31_CD_DEC %> seconds. Additionally, @Abiilty1 is cast for free after channeling @Ability4."
+		"item_rpc_chernobog_glyph_3_1_description" 				"Each enemy hit by @Ability1 reduces the cooldown of @Ability4 by <% CHERNOBOG_T31_CD_DEC %> seconds. Additionally, @Ability1 is cast for free after channeling @Ability4."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"		"Glyph of Murk"
 		"item_rpc_chernobog_glyph_4_1_description" 				"[Q2] deals its damage to all enemies within <% CHERNOBOG_T41_RADIUS %> range of each target struck."
