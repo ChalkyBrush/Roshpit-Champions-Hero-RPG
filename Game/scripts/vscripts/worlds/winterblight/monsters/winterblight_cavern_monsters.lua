@@ -2197,6 +2197,7 @@ function galaxy_knight_take_damage(event)
 	print("NOT HAPPENMOING?")
 	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_galaxy_knight_freeze", {duration = 0.15})
 	EmitSoundOn("Winterblight.GalaxyKnight.Freeze", attacker)
+	ApplyDamage({ victim = attacker, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 end
 
 function ellipsis_wave_cast(event)
@@ -2238,4 +2239,26 @@ function ellipsis_wave_hit(event)
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 	EmitSoundOn("Winterblight.EllipsisWave.Hit", target)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_ellipsis_wave_disarm", {duration = event.disarm_duration})
+end
+
+function brain_freeze_cast(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target_points[1]
+	local unit = CreateUnitByName("npc_dummy_unit", target, false, caster, caster, caster:GetTeamNumber())
+	EmitSoundOn("Winterblight.BrainFreeze.Cast", unit)
+	unit:AddAbility("brain_freeze_ring_dummy_area"):SetLevel(1)
+	unit:FindAbilityByName("dummy_unit"):SetLevel(1)
+	unit.pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/ghost_tyrant_area_portrait.vpcf", PATTACH_CUSTOMORIGIN, unit)
+	local colorVector = Vector(120, 190, 255)
+
+	ParticleManager:SetParticleControl(unit.pfx, 0, unit:GetAbsOrigin() + Vector(0, 0, 30))
+	ParticleManager:SetParticleControl(unit.pfx, 4, colorVector/255)
+	EmitSoundOnLocationWithCaster(target, "Seafortress.TyrantGhost.ColorsAbility.Effect", caster)
+
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/draghor/shapeshift_effect_white_base.vpcf", unit:GetAbsOrigin(), 2)
+	Timers:CreateTimer(event.duration, function()
+		ParticleManager:DestroyParticle(unit.pfx, false)
+		UTIL_Remove(unit)
+	end)
 end

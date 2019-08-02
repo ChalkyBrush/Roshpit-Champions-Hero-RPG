@@ -3419,6 +3419,32 @@ function Winterblight:EdgeOfWinter1(msg)
 			end)
 		end
 	end)
+	Timers:CreateTimer(6.3, function()
+		local positionTable = {Vector(-15533, 9639), Vector(-15686, 9838), Vector(-15686, 10112)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = ((Vector(-12288, 11136) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnSoftwalker(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+	Timers:CreateTimer(7.3, function()
+		local positionTable = {Vector(-14336, 12700), Vector(-14080, 12891), Vector(-13824, 13054), Vector(13457, 13157), Vector(-12544, 15488), Vector(-12160, 15640), Vector(-11776, 15640), Vector(-11776, 14720), Vector(-11904, 14336)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = ((Vector(-12288, 11136) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnMindChatterer(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
 end
 
 function Winterblight:SpawnSpaceShark(position, fv)
@@ -3472,6 +3498,15 @@ end
 
 function Winterblight:SpawnFrozenKrow(position, fv)
   local queen = Winterblight:SpawnDungeonUnit("winterblight_frozen_krow", position, 1, 3, "Winterblight.Krow.Aggro", fv, false)
+  queen.dominion = true
+  Events:ColorWearablesAndBase(queen, Vector(100, 140, 245))
+  Events:AdjustBossPower(queen, 8, 8, false)
+  Winterblight:SetPositionCastArgs(queen, 1700, 0, 1, FIND_ANY_ORDER)
+  return queen
+end
+
+function Winterblight:SpawnMindChatterer(position, fv)
+  local queen = Winterblight:SpawnDungeonUnit("winterblight_mind_chatterer", position, 1, 3, "Winterblight.MindChatterer.Aggro", fv, false)
   queen.dominion = true
   Events:ColorWearablesAndBase(queen, Vector(100, 140, 245))
   Events:AdjustBossPower(queen, 8, 8, false)

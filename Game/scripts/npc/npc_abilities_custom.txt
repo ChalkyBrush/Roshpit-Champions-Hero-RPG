@@ -83729,7 +83729,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"10000 50000 800000"
+				"damage"			"100 500 2000"
 			}
 		}
 		"Modifiers"
@@ -83749,6 +83749,7 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 						"Function"		"galaxy_knight_take_damage"
+						"damage"		"%damage"
 					}
 				}
 			}
@@ -83773,7 +83774,7 @@
 		// General
 		//-------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"ancient_apparition_cold_feet"
 		"RequiredLevel"          		"-5"
@@ -83846,6 +83847,95 @@
         		}
         	}
         }
+	}
+
+	"winterblight_brain_freeze"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"ancient_apparition_cold_feet"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastRange"				"1800"
+		"precache"
+		{
+
+		}
+
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"10.0"
+
+		// Cost
+		//-------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"duration"	"10"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+        		"Function"		"brain_freeze_cast"
+        		"Target"			"POINT"
+        		"duration"		"%duration"
+			}
+		}
+	}
+
+	"brain_freeze_ring_dummy_area"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_brain_freeze_dummy"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+			
+				"Aura"          	"modifier_brain_freeze"
+				"Aura_Radius"   	"300"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_brain_freeze"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"0"
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Winterblight.BrainFreeze.Start"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+		}
 	}
 
 
