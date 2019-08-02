@@ -30,7 +30,7 @@
     	"DOTA_Tooltip_modifier_charons_claw_c_a_Description"					"Increased attack damage in Charon's Claw"
 
     	"DOTA_Tooltip_ability_chernobog_rune_q_4"							"[Q4] Into Darkness"
-    	"DOTA_Tooltip_ability_chernobog_rune_q_4_Description"				"Increases the width and cast range of @Ability1. Additionally causes [Q2] to tick faster, and reduces the cooldown of @Ability1; the stated multiplier is applied to the base cooldown and tick rate."
+    	"DOTA_Tooltip_ability_chernobog_rune_q_4_Description"				"Increases the width and length of @Ability1. Additionally causes [Q2] to tick faster, and reduces the cooldown of @Ability1; the stated multiplier is applied to the base cooldown and tick rate."
     	"DOTA_Tooltip_ability_chernobog_rune_q_4_property_one"				"Q2 tick rate increase"
     	"DOTA_Tooltip_ability_chernobog_rune_q_4_suffix"					"x faster"
     	"DOTA_Tooltip_ability_chernobog_rune_q_4_property_two"				"Cooldown Reduction"
