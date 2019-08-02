@@ -42,6 +42,7 @@
 		"precache"
 		{
 			"particle"  "particles/roshpit/chernobog/charons_clawpectral_dagger.vpcf"
+			"particle"	"particles/roshpit/chernobog/charons_clawpectral_dagger_test.vpcf"
 			"particle"	"particles/roshpit/chernobog/charons_clawhadow_path.vpcf"
 			"particle"	"particles/roshpit/chernobog/charons_clawhadow_path_fallback_mid.vpcf"
 			"particle"	"particles/roshpit/chernobog/charon_ground.vpcf"
@@ -181,7 +182,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"magic_damage_bonus"		"160 200 240 280 320 360 400"
+				"magic_damage_bonus"		"200 300 400 500 600 700 800"
 			}
 		}
 		"OnToggleOn"

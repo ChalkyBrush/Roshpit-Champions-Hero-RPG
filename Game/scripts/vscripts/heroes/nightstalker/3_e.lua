@@ -82,18 +82,10 @@ function class:OnToggle()
             self:SetStatus(STATUSES.INACTIVE)
             return
         end
-        local currentCooldown = self:GetCooldownTimeRemaining()
-        if currentCooldown > 0 and self:GetCooldown(self:GetLevel() - 1) ~= currentCooldown then
-            self.toggledSpecial = true
-            self:ToggleAbility()
-            self:EndCooldown()
-            self:StartCooldown(currentCooldown)
-        else
             self:SwapStatus()
             self:DoStatusThings()
 
             Filters:CastSkillArguments(3, self:GetCaster())
-        end
     else
         self.toggledSpecial = false
     end
