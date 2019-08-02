@@ -13278,7 +13278,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"heal_percent"	"6 10 15"
+				"heal_percent"	"3 7 10"
 			}
 		}
 		"OnSpellStart"
