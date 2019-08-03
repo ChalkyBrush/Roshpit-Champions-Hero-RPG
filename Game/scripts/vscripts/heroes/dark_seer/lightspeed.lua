@@ -89,7 +89,11 @@ function lightspeed_think(event)
 		if ability.distanceMoved >= 60 then
 			local DistanceMult = (ability.distanceMoved - ability.distanceMoved % 60) / 60
 			ability.distanceMoved = ability.distanceMoved % 60
-			local manaDrain = 0.0075 * caster:GetMaxMana() * DistanceMult
+			local manaDrain = math.min(ZHONIK_E_MANA_DRAIN_PCT/100 * caster:GetMaxMana(), ZHONIK_E_MANA_DRAIN)
+			if DistanceMult > 30 then
+				DistanceMult = 0
+			end
+			manaDrain = manaDrain * DistanceMult
 			caster:ReduceMana(manaDrain)
 			if caster:GetMana() < 1 then
 				caster:RemoveModifierByName("modifier_zonik_lightspeed")
