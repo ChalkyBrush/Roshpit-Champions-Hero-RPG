@@ -43,7 +43,11 @@ function class:GetAuraRadius()
     return self.radius
 end
 function class:GetEffectName()
-    return 'particles/roshpit/chernobog/demon_form_slow_aura_spell_bloodbath_bubbles_.vpcf'
+    if self:GetCaster():HasModifier(modifiers.t2glyph) then
+        return 'particles/roshpit/chernobog/glyphed_demon_form_slow_aura_spell_bloodbath_bubbles_.vpcf'
+    else
+        return 'particles/roshpit/chernobog/demon_form_slow_aura_spell_bloodbath_bubbles_.vpcf'
+    end
 end
 function class:GetEffectAttachType()
     return 'attach_origin'

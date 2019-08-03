@@ -30,6 +30,8 @@
 			"particle"	"particles/units/heroes/hero_nevermore/nevermore_base_attack.vpcf"
 			"particle"	"particles/roshpit/chernobog/demon_form_splash.vpcf"
 			"particle"	"particles/roshpit/chernobog/demon_form_splash_red.vpcf"
+			"particle"	"particles/roshpit/chernobog/glyphed_demon_form_slow_aura_spell_bloodbath_bubbles_.vpcf"
+			"particle"	"particles/roshpit/chernobog/demon_form_slow_aura_spell_bloodbath_bubbles_.vpcf"
 		}
 		"OnSpellStart"
 		{

@@ -3993,11 +3993,11 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_property_two"					"额外的敏捷值（开启时）"
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_suffix_two"					""
 		
-		"DOTA_Tooltip_ability_chernobog_shadow_walk"							"暗影追捕"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_Description"				"暗夜魔王突破空虚并且使自己的移动速度达到最高状态。当开启暗影追捕时，暗夜魔王每秒丢失魔法和生命值。同时在暗影追捕开启时在暗夜魔王周围300码内的敌人将被禁止治疗。"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_cap"				"移动速度上限："
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_bonus"			"移动速度提高:"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_drain_per_second"			"每秒汲取 % 最大生命值和最大魔法值："
+		"DOTA_Tooltip_ability_chernobog_3_e"							"暗影追捕"
+    	"DOTA_Tooltip_ability_chernobog_3_e_Description"				"暗夜魔王突破空虚并且使自己的移动速度达到最高状态。当开启暗影追捕时，暗夜魔王每秒丢失魔法和生命值。同时在暗影追捕开启时在暗夜魔王周围300码内的敌人将被禁止治疗。"
+    	"DOTA_Tooltip_ability_chernobog_3_e_movespeed_cap"				"移动速度上限："
+    	"DOTA_Tooltip_ability_chernobog_3_e_movespeed_bonus"			"移动速度提高:"
+    	"DOTA_Tooltip_ability_chernobog_3_e_drain_per_second"			"每秒汲取 % 最大生命值和最大魔法值："
 	"DOTA_Tooltip_modifier_shadow_walk_aura"                                "魔王降临"
         "DOTA_Tooltip_modifier_shadow_walk_aura_Description"                    "治疗被禁止"
 		
@@ -4035,10 +4035,10 @@
     	"DOTA_Tooltip_modifier_chernobog_rune_e_4"								"日食"
     	"DOTA_Tooltip_modifier_chernobog_rune_e_4_Description"					"100%的闪避和30%的魔抗"
 		
-		"DOTA_Tooltip_ability_chernobog_nights_procession"						"暗夜游行"
-    	"DOTA_Tooltip_ability_chernobog_nights_procession_Description"			"暗夜魔王在目标位置召唤黑暗场，将敌人困住不能移动。"
-    	"DOTA_Tooltip_ability_chernobog_nights_procession_radius"				"半径范围："
-    	"DOTA_Tooltip_ability_chernobog_nights_procession_duration"				"持续时间："
+		"DOTA_Tooltip_ability_chernobog_4_r"						"暗夜游行"
+    	"DOTA_Tooltip_ability_chernobog_4_r_Description"			"暗夜魔王在目标位置召唤黑暗场，将敌人困住不能移动。"
+    	"DOTA_Tooltip_ability_chernobog_4_r_radius"				"半径范围："
+    	"DOTA_Tooltip_ability_chernobog_4_r_duration"				"持续时间："
 
     	"DOTA_Tooltip_modifier_chernobog_ult_freeze_special"					"暗夜游行"
     	"DOTA_Tooltip_modifier_chernobog_ult_freeze_special_Description"		"定身"

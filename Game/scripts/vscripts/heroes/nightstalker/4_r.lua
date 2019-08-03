@@ -50,7 +50,7 @@ function class:OnSpellStart()
         StartSoundEvent("Chernobog.NightsProcessionChannelStart", caster)
         StartSoundEvent('Chernobog.NightsProcessionChannelling', caster)
 
-        StartAnimation(caster, {duration = 1, activity = ACT_DOTA_TELEPORT, rate = 0.8})
+        StartAnimation(caster, {duration = 3, activity = ACT_DOTA_TELEPORT, rate = 0.8})
     end
 end
 function class:OnChannelFinish(interrupted)
@@ -117,6 +117,7 @@ end
 function class:LiftingDownStart()
     self.endPoint = WallPhysics:WallSearch(self.startPoint, self.endPoint, self:GetCaster())
     self.endPoint.z = self:GetCaster():GetOrigin().z
+    StartAnimation(self:GetCaster(), {duration = 3.5, activity = ACT_DOTA_VERSUS, rate = 1})
 end
 function class:LiftingDown(caster, currentLiftingInterval)
     caster:SetAbsOrigin(self.endPoint - Vector(0, 0, self.lifting_down_per_tick))
@@ -175,7 +176,10 @@ function class:DoMainThings()
         local duration = self:GetDuration('buff', CHERNOBOG_R_DURATION + CHERNOBOG_R3_DUR_BASE + caster.r3_level * CHERNOBOG_R3_DUR)
         caster:AddNewModifier(caster, self,  modifiers.attack_r3, { duration = duration })
     end
-    StartAnimation(caster, {duration = 1, activity = ACT_DOTA_TELEPORT_END, rate = 0.8})
+    EndAnimation(caster)
+    Timers:CreateTimer(0.03, function()
+     StartAnimation(caster, {duration = 1, activity = ACT_DOTA_TELEPORT_END, rate = 0.8})
+    end)
 end
 function class:LiftingEnd()
     local caster = self:GetCaster()
