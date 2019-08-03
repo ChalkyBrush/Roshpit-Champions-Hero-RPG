@@ -7380,16 +7380,22 @@ function RPCItems:RollSpellfireGloves(deathLocation, spiritRealm)
 
     item.newItemTable.hasRunePoints = true
 
-    local runeName = "rune_w_3"
+    local tier = 3
     if GameState:GetDifficultyFactor() > 1 then
         local luck = RandomInt(1, 5 - GameState:GetDifficultyFactor())
         if luck == 1 then
-            runeName = "rune_w_4"
+            tier = 4
         end
     end
+    local letters = {'q','w','e','r'}
+    local letter = letters[RandomInt(1,4)]
+    local runeName = 'rune_' .. letter .. '_' .. tier
     local bonus = 0
     if spiritRealm then
         bonus = 8
+    end
+    if tier == 3 then
+        bonus = bonus + 8
     end
     local runeValue = RPCItems:GetLogarithmicVarianceValue(14 + bonus, 0, 0, 0, 0)
     item.newItemTable.property2name = runeName
