@@ -24,16 +24,21 @@ function class:OnCreated()
         return
     end
     self.previousPosition = self:GetParent():GetAbsOrigin()
-    self:StartIntervalThink(0.06)
+    self:StartIntervalThink(0.03)
 end
 function class:OnIntervalThink()
     local parent = self:GetParent()
     local currentPosition = parent:GetAbsOrigin()
+    local distance = WallPhysics:GetDistance2d(self.previousPosition, currentPosition)
+    if distance > 150 then
+        self.previousPosition = currentPosition
+        return
+    end
     local afterWallPosition = WallPhysics:WallSearch(self.previousPosition, currentPosition, parent)
     if currentPosition ~= afterWallPosition then
         parent:SetAbsOrigin(afterWallPosition)
     end
-    self.previousPosition = currentPosition
+    self.previousPosition = afterWallPosition
 end
 function class:GetModifierMoveSpeedBonus_Percentage()
     return self:GetAbility().movespeed_amplify

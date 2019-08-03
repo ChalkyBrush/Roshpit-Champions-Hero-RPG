@@ -41,3 +41,7 @@ end
 function class:IsHidden()
     return true
 end
+
+function class:RemoveOnDeath()
+    return false
+end
