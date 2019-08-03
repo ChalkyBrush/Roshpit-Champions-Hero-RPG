@@ -13680,9 +13680,10 @@
 
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"  "shipyard_boss_acid_spray"
-        "Ability2"  "normal_steadfast"
-        "Ability3"  "dungeon_creep"
+        "Ability1"  "seafortress_golden_shell"
+        "Ability2"  "winterblight_ogre_armor"
+        "Ability3"  "normal_steadfast"
+        "Ability4"  "dungeon_creep"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"

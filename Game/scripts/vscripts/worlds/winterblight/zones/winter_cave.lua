@@ -3484,6 +3484,19 @@ function Winterblight:EdgeOfWinter1(msg)
 			end)
 		end
 	end)
+	Timers:CreateTimer(14.3, function()
+		local positionTable = {Vector(-15104, 14788), Vector(-14976, 14336), Vector(-14592, 14494), Vector(-14732, 14976)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = ((Vector(-12288, 11136) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnWintersChieftain(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
 end
 
 function Winterblight:SpawnSpaceShark(position, fv)
