@@ -8,6 +8,14 @@ local class = modifier_chernobog_4_r_passive
 local modifiers = {
     demon_amp_r4 = 'modifier_chernobog_4_r_demon_amp_r4',
 }
+function class:OnCreated()
+    if not IsServer() then
+        return
+    end
+    self:OnRuneR4CountUpdate({
+        count = self:GetCaster().r4_level
+    })
+end
 function class:OnRuneR4CountUpdate(data)
     local caster = self:GetCaster()
     if data.count > 0 and not self.added then
