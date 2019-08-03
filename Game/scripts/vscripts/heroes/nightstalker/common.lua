@@ -22,7 +22,6 @@ function init_shadows_values_for_ability(data)
 
 
     if data.ability:GetCaster():HasModifier('modifier_chernobog_glyph_2_1') then
-        print('radius amp')
         radius = radius * CHERNOBOG_T21_RADIUS_AMP
     end
 
