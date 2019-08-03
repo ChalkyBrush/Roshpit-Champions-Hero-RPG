@@ -13639,7 +13639,7 @@
     {
         "BaseClass" "npc_dota_creature"
         "Model" "models/heroes/alchemist/alchemist.vmdl"
-        "ModelScale"    "1.0"
+        "ModelScale"    "1.35"
         "Level" "1"
         "HealthBarOffset"   "190"
         "HasInventory"  "0"
@@ -13711,11 +13711,15 @@
                 }
                 "Wearable6"
                 {
-                    "ItemDef"   "8532"
+                    "ItemDef"   "124"
                 }
                 "Wearable7"
                 {
                     "ItemDef"   "12697"
+                }
+                "Wearable8"
+                {
+                    "ItemDef"   "123"
                 }
             }
             "States"
