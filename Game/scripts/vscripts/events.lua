@@ -14,7 +14,7 @@ require('paragon')
 require('elements')
 require('spawning')
 
-Beacons.cheats = true
+Beacons.cheats = false
 
 if Events == nil then
 	Events = class({})
