@@ -3599,3 +3599,260 @@ function Winterblight:SpawnWintersChieftain(position, fv)
   return queen
 end
 	
+function Winterblight:EdgeOfWinter2(msg)
+	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 275
+	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
+	Winterblight.EdgeOfWinter2Kills = 0
+
+	local chamber_id = msg.chamber
+	local unitsTable = {}
+	local portalPosTable = {Vector(-15372, 8850), Vector(-13179, 11682), Vector(-14955, 12527), Vector(-15503, 14832), Vector(-11833, 15277)}
+	for i = 1, #portalPosTable, 1 do
+		local groundPos = GetGroundPosition(portalPosTable[i], Events.GameMaster)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, groundPos, 500, 10, false)
+		local portalPFX = CustomAbilities:QuickParticleAtPoint("particles/econ/events/ti9/teleport_end_ti9.vpcf", groundPos, 0)
+		ParticleManager:SetParticleControl(portalPFX, 3, groundPos)
+		ParticleManager:SetParticleControl(portalPFX, 15, groundPos)
+		table.insert(Winterblight.CavernPFXs[chamber_id], portalPFX)
+	end
+	Winterblight:EdgeOfWinter2WaveRedirect(0)
+end
+
+function Winterblight:EdgeOfWinter2WaveRedirect(kills)
+	local chamber_id = 4
+	local spawnphase = Winterblight.CavernData.Chambers[chamber_id]["spawnphase"]
+	local portalPosTable = {Vector(-15372, 8850), Vector(-13179, 11682), Vector(-14955, 12527), Vector(-15503, 14832), Vector(-11833, 15277)}
+	if kills == 0 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = Winterblight:SpawnSpaceShark(position, RandomVector(1))
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:EdgeOfWinter2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 17 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k < 3 then
+							boar = Winterblight:SpawnBoneBlister(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnFrozenKrow(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:EdgeOfWinter2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 36 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k == 1 then
+							boar = Winterblight:SpawnZodiacOracle(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnStarEater(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:EdgeOfWinter2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 56 then
+		for k = 1, 6, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k == 1 then
+							boar = Winterblight:SpawnFrozenKrow(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnCorporealRevenant(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:EdgeOfWinter2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 85 then
+		for k = 1, 5, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k < 4 then
+							boar = Winterblight:SpawnGalaxyKnight(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnBoneBlister(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:EdgeOfWinter2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 110 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k < 3 then
+							boar = Winterblight:SpawnMindChatterer(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnStarEater(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:EdgeOfWinter2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 130 then
+		for k = 1, 5, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k < 3 then
+							boar = Winterblight:SpawnWintertideMonk(position, RandomVector(1))
+						else
+							boar = Winterblight:SpawnGalaxyKnight(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:EdgeOfWinter2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 155 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k < 3 then
+							boar = Winterblight:SpawnWintertideMonk(position, RandomVector(1))
+						elseif k == 3 then
+							boar = Winterblight:SpawnMindChatterer(position, RandomVector(1))
+						elseif k == 4 then
+							boar = Winterblight:SpawnWintersChieftain(position, RandomVector(1))
+						end
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:EdgeOfWinter2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 174 then
+		for k = 1, 6, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						boar = Winterblight:SpawnGalaxyKnight(position, RandomVector(1))
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:EdgeOfWinter2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 204 then
+		for k = 1, 4, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k < 3 then
+							boar = Winterblight:SpawnGhostOfAurora(position, RandomVector(1))
+						elseif k == 3 then
+							boar = Winterblight:SpawnMindChatterer(position, RandomVector(1))
+						elseif k == 4 then
+							boar = Winterblight:SpawnStarEater(position, RandomVector(1))
+						end
+						boar = Winterblight:SpawnGalaxyKnight(position, RandomVector(1))
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:EdgeOfWinter2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 224 then
+		for k = 1, 5, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k == 1 then
+							boar = Winterblight:SpawnWintertideMonk(position, RandomVector(1))
+						elseif k == 2 then
+							boar = Winterblight:SpawnMindChatterer(position, RandomVector(1))
+						elseif k == 3 then
+							boar = Winterblight:SpawnSpaceShark(position, RandomVector(1))
+						elseif k == 4 then
+							boar = Winterblight:SpawnWintersChieftain(position, RandomVector(1))
+						elseif k == 5 then
+							boar = Winterblight:SpawnFrozenKrow(position, RandomVector(1))
+						end
+						boar = Winterblight:SpawnGalaxyKnight(position, RandomVector(1))
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:EdgeOfWinter2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	elseif kills == 248 then
+		for k = 1, 5, 1 do
+			Timers:CreateTimer(k*1.5, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					for i = 1, #portalPosTable, 1 do
+						local position = portalPosTable[i]
+						local boar = nil
+						if k < 5 then
+							boar = Winterblight:SpawnWintersChieftain(position, RandomVector(1))
+						elseif k == 5 then
+							boar = Winterblight:SpawnWintertideMonk(position, RandomVector(1))
+						end
+						boar = Winterblight:SpawnGalaxyKnight(position, RandomVector(1))
+						Winterblight:SetCavernUnit(boar, boar:GetAbsOrigin(), false, false, chamber_id)
+						Winterblight:EdgeOfWinter2SpawnEffect(boar)
+					end		
+				end
+			end)
+		end
+	end
+end
+
+function Winterblight:EdgeOfWinter2SpawnEffect(unit)
+	local level = Winterblight.CavernData.Chambers[4]["level"]
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/portal_spawn.vpcf", unit:GetAbsOrigin()+Vector(0,0,60), 2.5)
+	EmitSoundOn("Winterblight.Foyer3.Spawn", unit)
+	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_aurora_passage_2_ms_as", {})
+	local stacks = level
+	unit:SetModifierStackCount("modifier_aurora_passage_2_ms_as", Winterblight.Master, stacks)
+	Dungeons:AggroUnit(unit)
+	unit:SetAcquisitionRange(8000)
+end

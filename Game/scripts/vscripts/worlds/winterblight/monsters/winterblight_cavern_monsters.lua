@@ -659,6 +659,9 @@ function cavern_unit_die(event)
 	elseif chamber == 2 and Winterblight.CavernData.Chambers[chamber]["event"] == 2 then
 		Winterblight.AuroraPassage2Kills = Winterblight.AuroraPassage2Kills + 1
 		Winterblight:AuroraPassage2WaveRedirect(Winterblight.AuroraPassage2Kills)
+	elseif chamber == 4 and Winterblight.CavernData.Chambers[chamber]["event"] == 2 then
+		Winterblight.EdgeOfWinter2Kills = Winterblight.EdgeOfWinter2Kills + 1
+		Winterblight:EdgeOfWinter2WaveRedirect(Winterblight.EdgeOfWinter2Kills)
 	end
 end
 
