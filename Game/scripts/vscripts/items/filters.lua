@@ -4120,23 +4120,27 @@ function Filters:FireDeity(attacker, victim, damage)
         damage = damage * 2.5
         local target = victim
         local radius = 220
-        local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
-        local particle2 = ParticleManager:CreateParticle(particleNameS, PATTACH_WORLDORIGIN, target)
-        ParticleManager:SetParticleControl(particle2, 0, target:GetAbsOrigin())
-        ParticleManager:SetParticleControl(particle2, 1, Vector(radius, radius, radius))
-        ParticleManager:SetParticleControl(particle2, 2, Vector(1.0, 1.0, 1.0))
-        ParticleManager:SetParticleControl(particle2, 4, Vector(255, 0, 0))
-        Timers:CreateTimer(1.5, function()
-            ParticleManager:DestroyParticle(particle2, false)
-        end)
 
-        local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
-        local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
-        ParticleManager:SetParticleControl(particle1, 0, target:GetAbsOrigin())
-        Timers:CreateTimer(2, function()
-            ParticleManager:DestroyParticle(particle1, false)
+        local limitKey = attacker:GetPlayerOwnerID() .. '_fire_deity'
+        Util.Common:LimitPerTime(4, 1, limitKey, function()
+            local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+            local particle2 = ParticleManager:CreateParticle(particleNameS, PATTACH_WORLDORIGIN, target)
+            ParticleManager:SetParticleControl(particle2, 0, target:GetAbsOrigin())
+            ParticleManager:SetParticleControl(particle2, 1, Vector(radius, radius, radius))
+            ParticleManager:SetParticleControl(particle2, 2, Vector(1.0, 1.0, 1.0))
+            ParticleManager:SetParticleControl(particle2, 4, Vector(255, 0, 0))
+            Timers:CreateTimer(1.5, function()
+                ParticleManager:DestroyParticle(particle2, false)
+            end)
+
+            local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
+            local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
+            ParticleManager:SetParticleControl(particle1, 0, target:GetAbsOrigin())
+            Timers:CreateTimer(2, function()
+                ParticleManager:DestroyParticle(particle1, false)
+            end)
+            EmitSoundOn("RoshpitItem.FireDeity", target)
         end)
-        EmitSoundOn("RoshpitItem.FireDeity", target)
         local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         if #enemies > 0 then
             for _, enemy in pairs(enemies) do

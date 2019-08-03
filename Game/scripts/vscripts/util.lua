@@ -118,3 +118,19 @@ function Util.Common.Filter(func, tbl)
     end
     return newtbl
 end
+function Util.Common:LimitPerTime(limit, time, key, func)
+    self.limitPerTimeStore = self.limitPerTimeStore or {}
+    local currentLimitInfo = self.limitPerTimeStore[key]
+    local currentTime = GameRules:GetGameTime()
+    if not currentLimitInfo or currentLimitInfo.worksUntil <= currentTime or currentLimitInfo.runTimes < limit then
+        if not currentLimitInfo or currentLimitInfo.worksUntil <= currentTime then
+            currentLimitInfo = {
+                worksUntil = currentTime + time,
+                runTimes = 0
+            }
+        end
+        currentLimitInfo.runTimes = currentLimitInfo.runTimes + 1
+        self.limitPerTimeStore[key] = currentLimitInfo
+        func()
+    end
+end
