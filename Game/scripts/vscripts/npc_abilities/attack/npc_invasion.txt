@@ -1,0 +1,48 @@
+"npc_invasion"
+{
+    "BaseClass"     "ability_lua"
+    "ScriptFile"					"npc_abilities/attack/invasion"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "FightRecapLevel"				"1"
+    "AbilityTextureName"			"conjuror/conjuror_rune_e_2_arcana4"
+    "AbilityCooldown"	"30"
+    "MaxLevel"				 		"3"
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"					"FIELD_INTEGER"
+            "portals_count"		"5"
+        }
+        "02"
+        {
+            "var_type"					"FIELD_INTEGER"
+            "duration"						"20"
+        }
+        "03"
+        {
+            "var_type"					"FIELD_FLOAT"
+            "interval"						"0.33"
+        }
+        "04"
+        {
+            "var_type"					"FIELD_FLOAT"
+            "powerup"						"1.5"
+        }
+        "05"
+        {
+            "var_type"					"FIELD_INTEGER"
+            "damage"						"1000 15000 90000"
+        }
+        "06"
+        {
+            "var_type"					"FIELD_INTEGER"
+            "time_before_summon_imp"						"5"
+        }
+        "07"
+        {
+            "var_type"					"FIELD_INTEGER"
+            "spell_lifesteal"			"10 1000 10000"
+        }
+    }
+}

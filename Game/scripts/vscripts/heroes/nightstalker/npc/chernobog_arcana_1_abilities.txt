@@ -88,6 +88,20 @@
 
 		"Modifiers"
 		{
+			"modifier_demon_morph_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "0.35"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/demon_morph"
+						"Function"		"passive_thinker"
+					}
+				}
+			}
 			"modifier_channel_start"
 			{
 				"IsHidden"	"1"
@@ -182,50 +196,6 @@
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_chernobog_demon_form_aura"
-			{
-				"IsHidden"	"1"
-				"Aura"          	"modifier_chernobog_demon_form_aura_effect"
-				"Aura_Radius"   	"600"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-				"EffectName"		"particles/roshpit/chernobog/demon_form_slow_aura_spell_bloodbath_bubbles_.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"Aura_ApplyToCaster" "0"
-			}
-			"modifier_chernobog_demon_form_aura_effect"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"TextureName"	"chernobog/chernobog_rune_r_2_arcana1"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/demon_morph.lua"
-						"Function"		"demon_aura_start"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_chernobog_demon_form_aura_stacks"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_chernobog_demon_form_aura_stacks"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% CHERNOBOG_ARCANA_R2_ATT_SLOW %>"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" 	"<% CHERNOBOG_ARCANA_R2_MS_SLOW %>"
 				}
 			}
 		}

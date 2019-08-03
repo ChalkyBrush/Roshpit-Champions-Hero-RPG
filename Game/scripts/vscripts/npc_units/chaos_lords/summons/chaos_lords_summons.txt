@@ -1,0 +1,64 @@
+"chaos_lords__imp"
+{
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/courier/imp/imp_flying.vmdl"
+        "ModelScale"    "1.05"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "mekanoid_disruptor"
+        "DefaultState"  "Invade"
+        "precache"
+        {
+           //TODO: add precache
+        }
+        "PathfindingSearchDepthScale" "0.2"
+        "ArmorPhysical" "50"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "70"
+        "AttackDamageMax"   "90"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "0.9"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "90"
+        "BountyGoldMin" "16"
+        "BountyGoldMax" "30"
+        "BountyXP" "40"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "450"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "1700"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+
+        "TeamName"  "DOTA_TEAM_GOODGUYS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+}

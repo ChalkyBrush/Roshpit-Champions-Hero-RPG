@@ -199,7 +199,11 @@
 
 
 	##TUTORIAL_ABILITIES##
-	
+
+	##NPC_DURABLE##
+	##NPC_INVASION##
+	##NPC_FIREBALL##
+
 
 	"oracle_ability"
 	{

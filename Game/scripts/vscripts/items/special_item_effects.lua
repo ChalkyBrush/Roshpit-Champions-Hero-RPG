@@ -495,14 +495,6 @@ function ankh_of_ancients_end(event)
 	caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ankh_of_ancients_cooldown", {duration = ankh_duration * cd_multiplier})
 end
 
-function chernobog_glyph_7_1_think(event)
-	local caster = event.target
-	local ability = event.ability
-	if caster:IsStunned() then
-		Filters:CleanseStuns(caster)
-	end
-end
-
 function wild_nature_struck(event)
 	local attacker = event.attacker
 	local ability = event.ability

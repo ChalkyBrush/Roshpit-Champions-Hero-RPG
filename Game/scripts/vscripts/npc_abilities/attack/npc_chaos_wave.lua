@@ -1,0 +1,7 @@
+-- Name: Waves of chaos
+-- Description: after short delay send slow wave of chaos in front of boss, will repeat the wave again afer 2 seconds with rotate by 40 degree. Will reapeat 9 times.
+-- Base values:
+--      Speed: 450
+--      Hp and max hp reduction: 1k/30k/200k -- if below 1  = die
+--      Reduction duration: 5 min
+--      Cooldown: 30s

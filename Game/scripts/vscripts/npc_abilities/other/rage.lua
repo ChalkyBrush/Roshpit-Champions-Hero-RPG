@@ -1,0 +1,10 @@
+-- Name: rage
+-- Description: increase taken damage, reduce base attack time, cooldowns, cast time and increase all abilities AOE(works only with new abilities). Cooldown start after effect expire
+-- Base values:
+--     Increase taken damage: 100/80/60%
+--     Base attack time: 0.8/0.6/0.4
+--     Cooldown reduce: 30/45/60%
+--     Cast time reduce: 30%
+--     Aoe increase: 30/45/60%
+--     Cooldown: 30/20/10 seconds
+--     Duration: 5/7/10 seconds

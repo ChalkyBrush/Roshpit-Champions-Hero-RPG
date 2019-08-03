@@ -747,5 +747,7 @@ function WallPhysics:RandomString(length)
 
 	if not length or length <= 0 then return '' end
 	return WallPhysics:RandomString(length - 1) .. charset[RandomInt(1, #charset)]
-
+end
+function WallPhysics:ClampedVector(startPos, endPos, maxDistance)
+	return startPos + maxDistance * (Vector(endPos.x, endPos.y, 0) - Vector(startPos.x, startPos.y, 0)):Normalized()
 end

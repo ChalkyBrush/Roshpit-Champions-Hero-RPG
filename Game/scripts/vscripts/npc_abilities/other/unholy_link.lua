@@ -1,0 +1,12 @@
+-- Name: Unholy link
+-- Description:
+--   For each unit:
+--      If there allies in {value} range
+--          Create links with them
+--      Else:
+--          Create link with current position on ground
+--  Link have {value} maximum distance. If link ragged stun allies and start cooldowns of all abilities after stun
+--      Range: 400/600/900
+--      Max Distance: 600, 800, 1000
+--      Stun duration: 1/1.5/2
+--      Min cooldowns:3/5/7

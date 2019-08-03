@@ -1,0 +1,8 @@
+-- Name: the divider of the world
+-- Description: use hammer and divide world by 3 parts. If you was on split line instantly die
+-- Movement between parts deal damage
+-- In red world boss take only magic damage and his magic damage pierce bkb and ignore 60% of magic resistance
+-- In blue world boss take only pure damage and his pure damage deal by 50% less damage, but 3 instance
+-- In green world boss take only phys damage and his physical damage reduce armor by 1000 per hit
+-- The move between worlds deal 500/10000/300k damage
+-- The move between worlds for boss restore hp by 5/10/15%
