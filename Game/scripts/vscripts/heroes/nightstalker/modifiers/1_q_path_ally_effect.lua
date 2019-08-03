@@ -29,6 +29,11 @@ end
 function class:OnIntervalThink()
     local parent = self:GetParent()
     local currentPosition = parent:GetAbsOrigin()
+    local distance = WallPhysics:GetDistance2d(self.previousPosition, currentPosition)
+    if distance > 150 then
+        self.previousPosition = currentPosition
+        return
+    end
     local afterWallPosition = WallPhysics:WallSearch(self.previousPosition, currentPosition, parent)
     if currentPosition ~= afterWallPosition then
         parent:SetAbsOrigin(afterWallPosition)
