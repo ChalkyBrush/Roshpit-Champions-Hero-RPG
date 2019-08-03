@@ -11400,7 +11400,7 @@
 
 
     	"DOTA_Tooltip_ability_zonik_lightspeed"								"Lightspeed"
-    	"DOTA_Tooltip_ability_zonik_lightspeed_Description"					"Activates the lightspeed buff on cast. The buff increases movespeed cap and allows Zhonik to walk over obstructions. Every 60 units of distance moved drains 0.75% of max mana. If mana reaches 0, lightspeed is cancelled."	
+    	"DOTA_Tooltip_ability_zonik_lightspeed_Description"					"Zhonik energizes himself, and begins moving at extreme speeds. This buff increases his movespeed cap and gives him free pathing, allowing him to run over most obstructions. Every 60 distance moved during this effect drains either <font color='#ccff66'>0.75</font> of his maximum mana, or <font color='#ccff66'>450</font>, whichever value is lower. If Zhonik has insufficient mana, Lightspeed is cancelled prematurely."
     	"DOTA_Tooltip_ability_zonik_lightspeed_movespeed_cap"				"MOVESPEED CAP:"
     	"DOTA_Tooltip_ability_zonik_lightspeed_duration"					"DURATION:"
 
