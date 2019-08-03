@@ -662,6 +662,8 @@ function cavern_unit_die(event)
 	elseif chamber == 4 and Winterblight.CavernData.Chambers[chamber]["event"] == 2 then
 		Winterblight.EdgeOfWinter2Kills = Winterblight.EdgeOfWinter2Kills + 1
 		Winterblight:EdgeOfWinter2WaveRedirect(Winterblight.EdgeOfWinter2Kills)
+	elseif chamber == 4 and Winterblight.CavernData.Chambers[chamber]["event"] == 3 then
+		Winterblight:SpawnNextChrolonus(unit.spawnphase)
 	end
 end
 

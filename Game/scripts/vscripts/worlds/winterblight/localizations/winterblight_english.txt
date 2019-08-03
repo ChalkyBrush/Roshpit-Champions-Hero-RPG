@@ -799,7 +799,10 @@
 		"winterblight_cavern_room4_event1_description"				"The chamber is populated with non aggro mobs."
 
 		"winterblight_cavern_room4_event2"							"Dimensional Portals"
-		"winterblight_cavern_room4_event2_description"				"Waves of enemies spawn from dimensional portals. All creatures have +10% attack damage per level."
+		"winterblight_cavern_room4_event2_description"				"Waves of enemies spawn from dimensional portals. All creatures have +100 armor and +2% evasion per level."
+
+		"winterblight_cavern_room4_event3"							"Revenge of Chrolonus"
+		"winterblight_cavern_room4_event3_description"				"Hundreds of Chrolonus clones spawn from the chamber's black stars. The amount of concurrent enemies increases by 1 for every 2 chamber levels."
 
 		"winterblight_cavern_status_prefix"								"Status:"
 		"winterblight_cavern_status_inactive"								"Inactive"

@@ -260,6 +260,16 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"5"
 				}
 			}
+			"modifier_edge_of_winter_2_armor_evasion"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"2"
+				}				
+			}
 			"modifier_confusional_spores"
 			{
 				"IsHidden"	"0"

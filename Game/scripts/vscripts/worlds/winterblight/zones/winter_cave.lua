@@ -3850,9 +3850,61 @@ function Winterblight:EdgeOfWinter2SpawnEffect(unit)
 	local level = Winterblight.CavernData.Chambers[4]["level"]
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/portal_spawn.vpcf", unit:GetAbsOrigin()+Vector(0,0,60), 2.5)
 	EmitSoundOn("Winterblight.Foyer3.Spawn", unit)
-	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_aurora_passage_2_ms_as", {})
+	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_edge_of_winter_2_armor_evasion", {})
 	local stacks = level
-	unit:SetModifierStackCount("modifier_aurora_passage_2_ms_as", Winterblight.Master, stacks)
+	unit:SetModifierStackCount("modifier_edge_of_winter_2_armor_evasion", Winterblight.Master, stacks)
 	Dungeons:AggroUnit(unit)
 	unit:SetAcquisitionRange(8000)
+end
+
+function Winterblight:EdgeOfWinter3(msg)
+
+	local chamber_id = msg.chamber
+	local spawnphase = Winterblight.CavernData.Chambers[chamber_id]["spawnphase"]
+	
+	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
+	local level = Winterblight.CavernData.Chambers[4]["level"]
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 200 + level*5
+	Winterblight.ChrolonusUnitsSpawned = 0
+	local amount = math.floor(6 + level*0.5)
+	for i = 1, amount, 1 do
+		Timers:CreateTimer(0.3*i, function()
+			Winterblight:SpawnNextChrolonus(spawnphase)
+		end)
+	end
+end
+
+function Winterblight:SpawnNextChrolonus(spawnphase)
+	local positionTable = {Vector(-14464, 11247, 188), Vector(-13042, 11776, 256), Vector(-13824, 12253, 512), Vector(-15104, 11520, 512), Vector(-14464, 12928, 188), Vector(-13440, 12928, 512), Vector(-13440, 13824, 512), Vector(-14592, 14931, 512), Vector(-12160, 14931, 512)}
+	local zBonus = 240
+	local position = positionTable[RandomInt(1, #positionTable)]
+	if Winterblight:ShouldSpawnCaveUnit(4, spawnphase) and Winterblight.ChrolonusUnitsSpawned < Winterblight.CavernData.Chambers[4]["goal"] then
+		local unit = Winterblight:SpawnCavernChrolonus(position, fv)
+		local descend_point = position + Vector(0,0,zBonus)
+		Winterblight:UnitDescendFromOrb(unit, descend_point)
+		unit:SetModelScale(0.01)
+		Dungeons:AggroUnit(unit)
+		Winterblight:SetCavernUnit(unit, unit:GetAbsOrigin(), false, false, 4)
+		Winterblight.ChrolonusUnitsSpawned = Winterblight.ChrolonusUnitsSpawned + 1
+		unit.spawnphase = spawnphase
+		unit.cavern_chronolus = true
+		Events:smoothSizeChange(unit, 0.01, 1.9, 30)
+	end
+end
+
+function Winterblight:SpawnCavernChrolonus(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_azalea_chrolonus", position, 0, 1, "Winterblight.CavernChrolonus.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 8, 8, false)
+	stone.itemLevel = 65
+	if GameState:GetDifficultyFactor() == 3 then
+		stone:AddAbility("ability_mega_haste"):SetLevel(3)
+		stone:RemoveAbility("normal_steadfast")
+		stone:RemoveModifierByName("modifier_steadfast")
+		stone:AddAbility("mega_steadfast"):SetLevel(3)
+		if Winterblight.Stones > 0 then
+			stone:AddAbility("armor_break_ultra"):SetLevel(Winterblight.Stones)
+		end
+	end
+
+	return stone
 end

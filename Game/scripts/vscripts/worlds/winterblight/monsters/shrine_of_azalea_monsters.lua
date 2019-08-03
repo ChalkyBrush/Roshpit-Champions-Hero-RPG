@@ -901,6 +901,9 @@ function chrolonus_die(event)
 	local caster = event.caster
 	local ability = event.ability
 	EmitSoundOn("Winterblight.Chrolonus.Death", caster)
+	if caster.cavern_chronolus then
+		return false
+	end
 	Timers:CreateTimer(1, function()
 		Winterblight.AzaleaBladesTable = {}
 		Winterblight:SpawnAzaleaColorBlade(Vector(7465, -15147, -147), 1)
