@@ -82,47 +82,47 @@ function class:OnChannelInterrupted()
 end
 function class:Lifting()
     local caster = self:GetCaster()
-    local liftingIntervalThink = 0.06/(1 + CHERNOBOG_R4_CAST_TIME_REDUCE_TIMES * self:GetCaster().r4_level)
+    local liftingIntervalThink = 0.03
     local currentLiftingInterval = 0
 
-    local liftingDownStartInterval = 30
-    local liftingCreateAuraInterval = 60
-    local liftingEndInterval = 61
+    local intervalIncrease = (1 + CHERNOBOG_R4_CAST_TIME_REDUCE_TIMES * self:GetCaster().r4_level)
+
+    local liftingDownStartInterval = 60
+    local liftingEndInterval = 120
     Timers:CreateTimer(function()
         if currentLiftingInterval == 0 then
             self:LiftingStart(caster)
             caster:AddNewModifier(caster, self,  modifiers.lifting, {})
         elseif currentLiftingInterval < liftingDownStartInterval then
-            self:LiftingUp(caster, currentLiftingInterval)
-        elseif currentLiftingInterval == liftingDownStartInterval then
+            self:LiftingUp(caster, currentLiftingInterval, intervalIncrease)
+        elseif currentLiftingInterval >= liftingDownStartInterval and currentLiftingInterval < liftingDownStartInterval + intervalIncrease then
             self:LiftingDownStart()
-        elseif currentLiftingInterval < liftingCreateAuraInterval then
-            self:LiftingDown(caster, currentLiftingInterval - liftingDownStartInterval)
-        elseif currentLiftingInterval == liftingCreateAuraInterval then
+        elseif currentLiftingInterval < liftingEndInterval then
+            self:LiftingDown(caster, currentLiftingInterval - liftingDownStartInterval, intervalIncrease)
+        elseif currentLiftingInterval >= liftingEndInterval then
             self:DoMainThings()
-        elseif currentLiftingInterval == liftingEndInterval then
             self:LiftingEnd()
             caster:RemoveModifierByName(modifiers.lifting)
             return
         end
-        currentLiftingInterval = currentLiftingInterval + 1
+        currentLiftingInterval = currentLiftingInterval + intervalIncrease
         return liftingIntervalThink
     end)
 end
 function class:LiftingStart()
 end
-function class:LiftingUp(caster, currentLiftingInterval)
-    caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, currentLiftingInterval * 4.8))
-    self.lifting_up_per_tick = self.lifting_up_per_tick +  currentLiftingInterval * 4.8
+function class:LiftingUp(caster, currentLiftingInterval, intervalIncrease)
+    caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, currentLiftingInterval * intervalIncrease))
+    self.lifting_up_per_tick = self.lifting_up_per_tick +  currentLiftingInterval * intervalIncrease
 end
 function class:LiftingDownStart()
     self.endPoint = WallPhysics:WallSearch(self.startPoint, self.endPoint, self:GetCaster())
     self.endPoint.z = self:GetCaster():GetOrigin().z
     StartAnimation(self:GetCaster(), {duration = 3.5, activity = ACT_DOTA_VERSUS, rate = 1})
 end
-function class:LiftingDown(caster, currentLiftingInterval)
+function class:LiftingDown(caster, currentLiftingInterval, intervalIncrease)
     caster:SetAbsOrigin(self.endPoint - Vector(0, 0, self.lifting_down_per_tick))
-    self.lifting_down_per_tick = self.lifting_down_per_tick +  currentLiftingInterval * 4.78
+    self.lifting_down_per_tick = self.lifting_down_per_tick +  currentLiftingInterval * (intervalIncrease - 0.02)
 end
 function class:CreateProcession()
     local caster = self:GetCaster()
