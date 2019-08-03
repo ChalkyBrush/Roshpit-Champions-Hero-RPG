@@ -75,6 +75,7 @@ function class:OnOrderFilter(data)
             or parent:IsFakeStunned()
             or parent:IsSilenced()
             or parent:IsFrozen()
+            or parent:IsRooted()
             or self:HasCooldown()
         then
         return

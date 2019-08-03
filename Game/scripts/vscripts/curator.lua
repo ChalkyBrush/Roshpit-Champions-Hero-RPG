@@ -614,9 +614,9 @@ function Curator:ClientDataGlyph(msg)
 	url = url.."&item_variant="..glyph:GetAbilityName()
 	url = url.."&localizedGlyphName="..localizedGlyphName
 	url = url.."&localizedGlyphDescription="..localizedGlyphDescription
-	url = url.."&reqLevel="..glyph.minLevel
-	url = url.."&reqHero="..glyph.requiredHero
-	url = url.."&rarity="..glyph.rarity
+	url = url.."&reqLevel="..glyph.newItemTable.minLevel
+	url = url.."&reqHero="..glyph.newItemTable.requiredHero
+	url = url.."&rarity="..glyph.newItemTable.rarity
 	url = url.."&glyphTexture="..msg.glyphTexture
 	----print(url)
 	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
