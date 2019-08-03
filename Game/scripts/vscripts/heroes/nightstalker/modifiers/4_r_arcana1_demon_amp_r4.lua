@@ -17,3 +17,6 @@ end
 function class:IsDebuff()
     return false
 end
+function class:RemoveOnDeath()
+    return false
+end

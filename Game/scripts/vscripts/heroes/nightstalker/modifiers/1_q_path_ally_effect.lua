@@ -33,7 +33,7 @@ function class:OnIntervalThink()
     if currentPosition ~= afterWallPosition then
         parent:SetAbsOrigin(afterWallPosition)
     end
-    self.previousPosition = currentPosition
+    self.previousPosition = afterWallPosition
 end
 function class:GetModifierMoveSpeedBonus_Percentage()
     return self:GetAbility().movespeed_amplify

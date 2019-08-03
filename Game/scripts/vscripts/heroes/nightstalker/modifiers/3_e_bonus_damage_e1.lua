@@ -18,3 +18,6 @@ end
 function class:IsHidden()
     return false
 end
+function class:RemoveOnDeath()
+    return false
+end
