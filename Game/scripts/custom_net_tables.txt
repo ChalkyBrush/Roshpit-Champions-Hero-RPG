@@ -14,6 +14,7 @@
 	  "portal_keys",
 	  "xp_table",
 	  //"min_level_reduction",
-	  "premium_pass"
+	  "premium_pass",
+	  "hero_values", // for save some hero based that should be send to client side
   ]
 }

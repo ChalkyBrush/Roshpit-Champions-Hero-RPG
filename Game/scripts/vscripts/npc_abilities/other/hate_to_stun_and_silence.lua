@@ -1,0 +1,10 @@
+-- Name: hate to stun and silence
+-- Description: The caster realy hate any stuns and silence. When you stun him all stuns duration greatly reduce. If he was stunned more than {value} during last {value} seconds he become invulnerable to stuns and deal massive damage when you try to stun him
+-- Base values:
+--   Max stun/silence duration: 2.1/0.7/0.25 seconds
+--   Total stun/silence duration before immune to stun: 10/5/1 seconds
+--   Time for check stun/silence duration: 20/10/2 seconds
+--   Immune to stun/silence duration: 10/5/5 seconds
+--   Damage for each try to stun/silence while immune: 5 000/150 000/1 000 000 pure
+--   Damage instances for each try to stun/silence while immune: 1/2/5
+--   Immunity cooldown(starts after immune expire) 40/20/10 seconds

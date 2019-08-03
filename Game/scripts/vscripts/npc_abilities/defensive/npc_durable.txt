@@ -1,0 +1,22 @@
+"durable"
+{
+    "BaseClass"     "ability_lua"
+    "ScriptFile"					"npc_abilities/defensive/durable"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "FightRecapLevel"				"1"
+    "AbilityTextureName"			"omni_knight/adoring_wingfall/omniknight_purification"
+    "MaxLevel"				 		"3"
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"					"FIELD_INTEGER"
+            "max_taken_damage_per_second"		"35 7 2"
+        }
+        "02"
+        {
+            "var_type"					"FIELD_INTEGER"
+            "sum_up_time"						"3 9 20"
+        }
+    }
+}

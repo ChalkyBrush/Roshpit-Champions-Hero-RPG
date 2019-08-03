@@ -1,6 +1,16 @@
 --Demon Awakening
-LinkLuaModifier("modifier_chernobog_demonform_lua", "modifiers/chernobog_shadow_walk/modifier_chernobog_demonform_lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_chernobog_demonform_lua", "heroes/nightstalker/modifiers/modifier_chernobog_demonform_lua", LUA_MODIFIER_MOTION_NONE)
+local prefix = '4_r_arcana1_'
+local modifiers = {
+	demon_amp_r4 = 'modifier_chernobog_4_r_arcana1_demon_amp_r4',
+	postmit_r3 = 'modifier_chernobog_4_r_arcana1_postmit_r3',
+	slow_aura_r2 = 'modifier_chernobog_4_r_arcana1_slow_aura_r2',
+	slow_aura_effect_r2 = 'modifier_chernobog_4_r_arcana1_slow_aura_effect_r2',
+}
 
+for modifierPath, modifier in pairs(modifiers) do
+	LinkLuaModifier(modifier, "heroes/nightstalker/modifiers/"..prefix..modifierPath, LUA_MODIFIER_MOTION_NONE)
+end
 function start_channel(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -21,10 +31,6 @@ end
 function begin_demon_morph(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.r_1_level = caster:GetRuneValue("r", 1)
-	ability.r_2_level = caster:GetRuneValue("r", 2)
-	ability.r_3_level = caster:GetRuneValue("r", 3)
-	ability.r_4_level = caster:GetRuneValue("r", 4)
 	local particleName = "particles/roshpit/chernobog/demon_form_transition.vpcf"
 	if caster:HasModifier("modifier_demon_hunter") then
 		particleName = "particles/units/heroes/hero_shadow_demon/shadow_demon_disruption.vpcf"
@@ -35,9 +41,11 @@ function begin_demon_morph(event)
 	Timers:CreateTimer(2.0, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
+	onCastR(caster)
+
 	caster:AddNoDraw()
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_transitioning", {duration = 2.0})
-	local duration = event.duration + ability.r_4_level * CHERNOBOG_ARCANA_R4_DURATION_INC
+	local duration = event.duration + caster.r4_level * CHERNOBOG_ARCANA1_R4_BONUS_DUR
 	local morphDuration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	Timers:CreateTimer(2.0, function()
 		caster:RemoveNoDraw()
@@ -51,8 +59,8 @@ function begin_demon_morph(event)
 		end
 
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_demon_form", {duration = morphDuration})
-		if ability.r_2_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_demon_form_aura", {duration = morphDuration})
+		if caster.r2_level > 0 then
+			caster:AddNewModifier(caster, ability, modifiers.slow_aura_r2, { duration = morphDuration })
 		end
 		if caster:HasModifier("modifier_chernobog_arcana2") then
 			if caster:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_flight" then
@@ -87,7 +95,7 @@ end
 
 function demon_form_end(event)
 	local caster = event.caster
-	caster:RemoveModifierByName("modifier_chernobog_demon_form_aura")
+	caster:RemoveModifierByName(modifiers.slow_aura_r2)
 	caster:RemoveModifierByName("modifier_chernobog_demonform_lua")
 	CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/demonform_start_start_ti7_lvl2.vpcf", caster, 3)
 	if caster:HasModifier("modifier_movespeed_cap_shadow_walk_1") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_2") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_3") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_4") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_5") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_6") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_7") then
@@ -114,10 +122,10 @@ function demon_form_attack_land(event)
 	local ability = event.ability
 	local target = event.target
 	local damage = event.attack_damage
-	local splashDamage = damage * CHERNOBOG_ARCANA_R1_DAMAGE_PCT/100 * ability.r_1_level
-	if ability.r_1_level > 0 then
+	local splashDamage = damage * CHERNOBOG_ARCANA1_R1_DMG_ATK_PCT/100 * caster.r1_level
+	if caster.r1_level > 0 then
 		-- if target:IsAlive() then
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, CHERNOBOG_ARCANA1_R1_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, splashDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
@@ -137,10 +145,9 @@ function demon_form_attack_start(event)
 	local ability = event.ability
 	local target = event.target
 	if not caster:HasModifier("modifier_demon_form_dont_split") then
-		if ability.r_3_level > 0 then
-			local procs = Runes:Procs(ability.r_3_level, CHERNOBOG_ARCANA_R3_SPLIT_PCT, 1)
+		if caster.r3_level > 0 then
+			local procs = Runes:Procs(caster.r3_level, CHERNOBOG_ARCANA1_R3_SPLIT_CHANCE, 1)
 			local splitCount = 0
-			--print(procs)
 			if procs > 0 then
 				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 				if #enemies > 0 then
@@ -154,18 +161,23 @@ function demon_form_attack_start(event)
 						end
 					end
 				end
-				ability:ApplyDataDrivenModifier(caster, caster, "modifier_demon_form_dont_split", {duration = 0.15})
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_demon_form_dont_split", {duration = CHERNOBOG_ARCANA1_R3_SPLIT_CD})
 			end
 		end
 	end
 end
 
-function demon_aura_start(event)
+function passive_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target
-	if ability.r_2_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_chernobog_demon_form_aura_stacks", {})
-		target:SetModifierStackCount("modifier_chernobog_demon_form_aura_stacks", caster, ability.r_2_level)
+	if caster.r3_level > 0 then
+		caster:AddNewModifier(caster, ability, modifiers.postmit_r3, {})
+	else
+		caster:RemoveModifierByName(modifiers.postmit_r3)
+	end
+	if caster.r4_level > 0 then
+		caster:AddNewModifier(caster, ability, modifiers.demon_amp_r4, {})
+	else
+		caster:RemoveModifierByName(modifiers.demon_amp_r4)
 	end
 end

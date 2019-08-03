@@ -1,0 +1,7 @@
+-- Name: team guard
+-- Description: when more than {count} creature with the ability take damage from the same target during 0.5s they take immune to attacks from the target
+-- Base values:
+--      Creatures count: 20/10/4
+--      Take damage interval: 0.5s
+--      Damage immune vs target: 4 seconds
+--      Damage immune cooldown: 10/8/6 seconds

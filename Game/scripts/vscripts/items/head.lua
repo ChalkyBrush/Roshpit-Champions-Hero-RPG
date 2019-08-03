@@ -342,6 +342,11 @@ function Head:runeProperty(propertyName, propertyValue, hero)
 		hero.runeUnit4.head.r_4 = hero.runeUnit4.head.r_4 + propertyValue
 		Head:setRuneBonusNetTable(hero.runeUnit4.head.r_4, propertyName, hero)
 	end
+
+	local letter, tier = propertyName:match("rune_(.)_(.)")
+	if letter ~= nil and tier ~= nil then
+		Runes:OnRuneCountUpdate(hero, letter, tier)
+	end
 end
 
 function Head:setRuneBonusNetTable(value, rune, hero)

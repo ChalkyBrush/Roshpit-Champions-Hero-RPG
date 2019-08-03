@@ -18,7 +18,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"8"
+		"AbilityCooldown"				"7.5"
 
 		// Cost
 		//-------------------------------------------------------
@@ -33,6 +33,11 @@
 				"var_type"					"FIELD_FLOAT"
 				"duration"					"4.2 4.5 4.8 5.1 5.4 5.7 6.0"
 			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed_bonus"					"150 170 190 210 230 250 270"
+			}
 		}
 		"precache"
 		{
@@ -45,7 +50,7 @@
 		{
 			"RunScript"
 			{
-        		"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+        		"ScriptFile"	"heroes/nightstalker/demon_flight"
         		"Function"		"demon_flight_start"
         		"duration"		"%duration"
 			}
@@ -61,9 +66,13 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+						"ScriptFile"	"heroes/nightstalker/demon_flight"
 						"Function"		"passive_thinker"
 					}
+				}
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
 				}
 			}
 			"modifier_chernobog_demon_flight"
@@ -76,7 +85,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+						"ScriptFile"	"heroes/nightstalker/demon_flight"
 						"Function"		"demon_flight_think"
 					}
 				}
@@ -84,13 +93,9 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+						"ScriptFile"	"heroes/nightstalker/demon_flight"
 						"Function"		"demon_flight_end"
 					}
-				}
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
 				}
 			}
 			"modifier_demon_flight_flying"
@@ -105,7 +110,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+						"ScriptFile"	"heroes/nightstalker/demon_flight"
 						"Function"		"flying_portion_think"
 					}
 				}
@@ -124,7 +129,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+						"ScriptFile"	"heroes/nightstalker/demon_flight"
 						"Function"		"demon_flight_end_thinking"
 					}
 				}				
@@ -145,7 +150,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+						"ScriptFile"	"heroes/nightstalker/demon_flight"
 						"Function"		"flight_attacks_think"
 					}
 				}
@@ -159,7 +164,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% CHERNOBOG_ARCANA_E2_BONUS_DAMAGE_PCT %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% CHERNOBOG_ARCANA2_E2_ATT_PCT %>"
 				}
 			}
 			"modifier_demonflight_b_c_visible"
@@ -256,12 +261,17 @@
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"5.0 5.3 5.6 5.9 6.2 6.5 6.8"
 			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed_bonus"			"30 50 70 90 110 130 150"
+			}
 		}
 		"OnSpellStart"
 		{
 			"RunScript"
 			{
-        		"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+        		"ScriptFile"	"heroes/nightstalker/demon_flight"
         		"Function"		"initialize_demon_walk"
         		"duration"		"%duration"
 			}
@@ -281,7 +291,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+						"ScriptFile"	"heroes/nightstalker/demon_flight"
 						"Function"		"demon_walk_end"
 					}
 					"RemoveModifier"
@@ -294,7 +304,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+						"ScriptFile"	"heroes/nightstalker/demon_flight"
 						"Function"		"demon_walk_apply_invis"
 					}
 				}
@@ -380,7 +390,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+				"ScriptFile"	"heroes/nightstalker/demon_flight"
 				"Function"		"warp_phase_start"
 			}
 		}
@@ -388,7 +398,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+				"ScriptFile"	"heroes/nightstalker/demon_flight"
 				"Function"		"demon_warp_start"
 				"target"		"POINT"
 			}

@@ -1203,6 +1203,12 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			Runes:apply_runes(hero.runeUnit3:GetAbilityByIndex(DOTA_E_SLOT), hero.runeUnit3, playerID)
 			Runes:apply_runes(hero.runeUnit3:GetAbilityByIndex(DOTA_D_SLOT), hero.runeUnit3, playerID)
 		end)
+		Timers:CreateTimer(1.5, function()
+			Runes:apply_runes(hero.runeUnit4:GetAbilityByIndex(DOTA_Q_SLOT), hero.runeUnit4, playerID)
+			Runes:apply_runes(hero.runeUnit4:GetAbilityByIndex(DOTA_W_SLOT), hero.runeUnit4, playerID)
+			Runes:apply_runes(hero.runeUnit4:GetAbilityByIndex(DOTA_E_SLOT), hero.runeUnit4, playerID)
+			Runes:apply_runes(hero.runeUnit4:GetAbilityByIndex(DOTA_D_SLOT), hero.runeUnit4, playerID)
+		end)
 	end
 
 	function SaveLoad:StashOpen(keys)

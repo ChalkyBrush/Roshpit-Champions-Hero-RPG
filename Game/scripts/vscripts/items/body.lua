@@ -376,6 +376,10 @@ function Body:runeProperty(propertyName, propertyValue, hero)
 			Body:runeProperty(runeTable[i], propertyValue, hero)
 		end
 	end
+	local letter, tier = propertyName:match("rune_(.)_(.)")
+	if letter ~= nil and tier ~= nil then
+		Runes:OnRuneCountUpdate(hero, letter, tier)
+	end
 end
 
 function Body:setRuneBonusNetTable(value, rune, hero)

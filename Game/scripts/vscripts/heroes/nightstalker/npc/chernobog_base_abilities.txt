@@ -42,6 +42,7 @@
 		"precache"
 		{
 			"particle"  "particles/roshpit/chernobog/charons_clawpectral_dagger.vpcf"
+			"particle"	"particles/roshpit/chernobog/charons_clawpectral_dagger_test.vpcf"
 			"particle"	"particles/roshpit/chernobog/charons_clawhadow_path.vpcf"
 			"particle"	"particles/roshpit/chernobog/charons_clawhadow_path_fallback_mid.vpcf"
 			"particle"	"particles/roshpit/chernobog/charon_ground.vpcf"
@@ -55,7 +56,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"7"
+		"AbilityCooldown"				"10"
 
 		// Cost
 		//-------------------------------------------------------
@@ -96,175 +97,6 @@
 		}
 		"Modifiers"
 		{
-			"modifier_charons_claw_path"
-			{
-				"Aura"					"modifier_charons_claw_path_effect"
-				"Aura_Radius"			"150"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"particles/roshpit/chernobog/charon_ground.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "150 1 1"
-							"15" "255 255 255"
-							"16" "1 0 0"
-						}
-					}
-				}
-			}
-			"modifier_charons_claw_path_effect"
-			{
-				"IsHidden"	"1"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/charons_claw.lua"
-						"Function"		"claw_path_apply"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/charons_claw.lua"
-						"Function"		"claw_path_end"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_charons_claw_caster"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_speed_increase"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnCreated"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_charons_claw_flying_portion"
-						"Target" 		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_charons_claw_flying_portion"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_charons_claw_flying_portion"
-			{
-				"IsHidden"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"ThinkInterval"  "0.06"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/charons_claw.lua"
-						"Function"		"flying_charons_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/charons_claw.lua"
-						"Function"		"flying_charons_end"
-					}
-				}
-			}
-			"modifier_charons_claw_enemy"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%move_and_attack_slow"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_and_attack_slow"
-				}
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/charons_claw.lua"
-						"Function"		"charons_claw_enemy_think"
-						"target"		"TARGET"
-					}
-				}
-			}
-
-			"modifier_charons_claw_path_impacted"
-			{
-				"IsHidden"	"0"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/charons_claw.lua"
-						"Function"		"charon_impacted_think"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_charons_claw_rune_q_1_effect"
-			{
-				"IsHidden"	"0"
-				"TextureName"	"chernobog/chernobog_rune_q_1"
-				"IsBuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "<% CHERNOBOG_Q1_AMP %>"
-				}
-				"OnUnitMoved"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/charons_claw.lua"
-						"Function"		"charons_claw_a_a_move"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_charons_claw_rune_q_1_waiting_to_stay_still"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/charons_claw.lua"
-						"Function"		"charons_claw_rune_q_1_stay_still_end"
-						"target"		"TARGET"
-					}
-				}
-			}
 			"modifier_charons_claw_c_a"
 			{
 				"IsHidden"	"0"
@@ -272,27 +104,7 @@
 				"TextureName"	"chernobog/chernobog_rune_q_3"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% CHERNOBOG_Q3_BONUS_ATTACK_DMG %>"
-				}
-			}
-			"modifier_chernobog_rune_q_4_attack"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"TextureName"		"chernobog/chernobog_rune_q_4"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
-				}
-			}
-			"modifier_charons_claw_glyph_4"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-40"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% CHERNOBOG_Q3_ATT_AMP_PERCENT %>"
 				}
 			}
 		}
@@ -360,7 +172,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"mana_drain_when_threshold_used"		"20 40 60 80 100 120 140"
+				"mana_drain_when_threshold_used"		"20 30 40 50 60 70 80"
 			}
 			"05"
 			{
@@ -370,7 +182,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"magic_damage_bonus"		"160 200 240 280 320 360 400"
+				"magic_damage_bonus"		"200 300 400 500 600 700 800"
 			}
 		}
 		"OnToggleOn"
@@ -463,7 +275,7 @@
 				"Passive"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% CHERNOBOG_W2_BASE_DAMAGE %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% CHERNOBOG_W2_ATT %>"
 				}
 			}
 			"modifier_demon_hunter_w_2_inner_beast_inactive"
@@ -491,7 +303,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% CHERNOBOG_W3_ARMOR_RED %>"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% CHERNOBOG_W3_ARMOR_REDUCE %>"
 				}
 			}
 			"modifier_chernobog_rune_w_3_fervor_self_visible"
@@ -509,7 +321,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% CHERNOBOG_W3_BASE_DAMAGE_STACK %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% CHERNOBOG_W3_ATT %>"
 				}
 			}
 			"modifier_chernobog_rune_w_4_active"
@@ -523,17 +335,16 @@
 		}
 	}
 
-	"chernobog_shadow_walk"
+	"chernobog_3_e"
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/nightstalker/3_e"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"night_stalker_hunter_in_the_night"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
-		"AOERadius"				"300"
 
 		// Precache
 		//-------------------------------------------------------
@@ -556,7 +367,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"0.3"
+		"AbilityCooldown"				"4.2 4 3.8 3.6 3.4 3.2 3"
 
 		// Cost
 		//-------------------------------------------------------
@@ -581,216 +392,24 @@
 				"var_type"					"FIELD_INTEGER"
 				"drain_per_second"			"5"
 			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"range"			            "650"
+			}
 
-		}
-		"OnToggleOn"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_chernobog_shadow_walk"
-				"Target" 		"CASTER"
-			}
-		}
-		"OnToggleOff"
-		{
-			"RemoveModifier"
-			{
-				"ModifierName"	"modifier_chernobog_shadow_walk"
-				"Target" 		"CASTER"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_chernobog_shadow_walk"
-			{
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
-						"Function"		"shadow_walk_start"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
-						"Function"		"shadow_walk_end"
-					}
-				}
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed_bonus"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
-						"Function"		"shadow_walk_think"
-						"target"		"TARGET"
-						"drain_per_second"	"%drain_per_second"
-					}
-				}
-				"Aura"          	"modifier_shadow_walk_aura"
-				"Aura_Radius"   	"300"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-				"Aura_ApplyToCaster" "0"
-			}
-			"modifier_shadow_walk_aura"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
-				}
-			}
-			"modifier_chernobog_rune_e_1"
-			{
-				"TextureName"		"chernobog/chernobog_rune_e_1"
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"EffectName"		"particles/roshpit/chernobog/chernobog_rune_a_c_ghosts_ambient.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% CHERNOBOG_E1_ATT_PCT %>"
-				}
-			}
-			"modifier_chernobog_rune_e_2"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"Aura"          	"modifier_chernobog_rune_e_2_illusion"
-				"Aura_Radius"   	"300"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% CHERNOBOG_E2_ARMOR %>"
-				}
-			}
-			"modifier_chernobog_rune_e_3_postmit"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"			"1"
-			}
-			"modifier_chernobog_c_c_cooldown"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"TextureName"	"chernobog/chernobog_rune_e_3"
-			}
-			"modifier_chernobog_rune_e_2_illusion"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"1"
-
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
-						"Function"		"rune_e_2_illusion"
-						"target"		"TARGET"
-					}
-				}
-				"ThinkInterval"  "<% CHERNOBOG_SHADOWS_ATT_INTERVAL_BASE %>"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
-						"Function"		"rune_e_2_illusion"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_chernobog_rune_e_4"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"chernobog/chernobog_rune_e_4"
-				"EffectName"	"particles/roshpit/chernobog/chernobog_rune_d_c.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "30"
-				    "MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
-				}
-			}
-			"modifier_chernobog_night_vision"
-			{
-				"IsHidden"	"0"
-				"Aura"          	"modifier_chernobog_night_vision_enemy"
-				"Aura_Radius"   	"1800"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-			}
-			"modifier_chernobog_night_vision_enemy"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-
-				"States"
-				{
-					"MODIFIER_STATE_PROVIDES_VISION"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
-						"Function"		"nightvision"
-						"target"		"TARGET"
-					}
-				}
-				"ThinkInterval"  "2.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
-						"Function"		"nightvision"
-						"target"		"TARGET"
-					}
-				}
-			}
 		}
 	}
-
-	"chernobog_nights_procession"
+	"chernobog_4_r"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
-		"BaseClass"	"ability_datadriven"
+		"BaseClass"	"ability_lua"
+		"ScriptFile" "heroes/nightstalker/4_r.lua"
 		"AbilityTextureName"	"night_stalker_void"
 		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"25"
-		"AbilityChannelTime"	"1.2"
-		"AbilityCastRange"				"900"
-		"AOERadius"						"450 475 500 525 550 575 600"
+		"AbilityCooldown"	"35 33 31 29 27 25 23"
+		"AbilityCastRange"			"1200"
+		"AOERadius"					"440"
 		"AbilityCastAnimation"	"ACT_DOTA_VICTORY"
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -811,240 +430,18 @@
 		}
 
 		"AbilityManaCost"	"0"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_channel_animation"
-				"Target" 		"CASTER"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/nightstalker/nights_procession.lua"
-				"Function"		"start_channel"
-				"target"		"POINT"
-				"radius"		"%radius"
-			}
-
-		}
-
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/nightstalker/nights_procession.lua"
-				"Function"		"begin_nights_procession"
-				"Target"			"POINT"
-				"radius"		"%radius"
-			}
-		}
-
-		"OnChannelFinish"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RemoveModifier"
-			{
-				"ModifierName"	"modifier_channel_animation"
-				"Target" 		"TARGET"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/nightstalker/nights_procession.lua"
-				"Function"		"night_ulti_channel_fail"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/nightstalker/nights_procession.lua"
-				"Function"		"channel_interrupt"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_channel_start"
-			{
-				"IsHidden"	"1"
-				"OnCreated"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Chernobog.NightsProcessionChannelling"
-						"Target" 		"TARGET"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"beginChannel"
-					}
-					"AttachEffect"
-					{
-						"EffectName"		"particles/roshpit/chernobog/channel_procession_ult.vpcf"
-						"EffectAttachType"	"attach_hitloc"
-						"Target"			"TARGET"
-
-						"ControlPoints"
-						{
-							"01"	"350 0 0"
-						}
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"endChannel"
-					}
-				}
-
-			}
-			"modifier_nights_procession_caster_lifting"
-			{
-				"IsHidden"			"1"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "-100"
-				}
-			}
-			"modifier_channel_animation"
-			{
-				"IsHidden" "1"
-				"OverrideAnimation"     "ACT_DOTA_TELEPORT"
-			}
-			"modifier_nights_procession_aura_thinker"
-			{
-				"Aura"					"modifier_nights_procession_freeze"
-				"Aura_Radius"			"%radius"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-			}
-			"modifier_nights_procession_freeze"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-
-				"StatusEffectName" 		"particles/status_fx/status_effect_faceless_chronosphere.vpcf"
-				"StatusEffectPriority"  "10"
-
-				"States"
-				{
-					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_faceless_void/faceless_void_backtrack.vpcf"
-						"EffectAttachType"  "attach_hitloc"
-						"Target"            "TARGET"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/nights_procession.lua"
-						"Function"		"freeze_start"
-						"target"		"TARGET"
-					}
-				}
-				"OnAttacked"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/nights_procession.lua"
-						"Function"		"locked_unit_attack"
-						"attack_damage"	"%attack_damage"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/nights_procession.lua"
-						"Function"		"freeze_end"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_nights_procession_a_d_rune"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"TextureName"	"chernobog/chernobog_rune_r_1"
-			}
-			"modifier_nights_procession_illusion"
-			{
-				"IsHidden"	"1"
-				"Passive"			"0"
-				"IsDebuff"			"1"
-
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/nights_procession.lua"
-						"Function"		"rune_r_2_illusion"
-						"target"		"TARGET"
-					}
-				}
-				"ThinkInterval"  "<% CHERNOBOG_SHADOWS_ATT_INTERVAL_BASE %>"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/nights_procession.lua"
-						"Function"		"rune_r_2_illusion"
-						"target"		"TARGET"
-					}
-				}
-			}
-		}
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"radius"	"450 475 500 525 550 575 600"
+				"radius"	"440"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"duration"	"6"
+				"duration"	"<% CHERNOBOG_R_DURATION %>"
 			}
 		}
 	}

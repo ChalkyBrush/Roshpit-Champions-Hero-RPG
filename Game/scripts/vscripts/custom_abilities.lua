@@ -431,39 +431,6 @@ function CustomAbilities:ChernobogDemonHunterManaReduced(victim)
 	end
 end
 
-function CustomAbilities:ChernobogSuddenStrike(unit, enemy, ability)
-	local shadowStrikeCD = CHERNOBOG_E3_CD_BASE
-	ability:ApplyDataDrivenModifier(unit, unit, "modifier_chernobog_c_c_cooldown", {duration = shadowStrikeCD})
-	if unit:HasModifier('modifier_chernobog_glyph_6_1') then
-		local targets = FindUnitsInRadius(unit:GetTeamNumber(), enemy:GetAbsOrigin(), nil, CHERNOBOG_GLYPH61_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-		if #targets > 0 then
-			for _, target in pairs(targets) do
-				ability:ApplyDataDrivenModifier(unit, target, "modifier_chernobog_rune_e_3_postmit", {duration = CHERNOBOG_E3_POSTMIT_DUR_BASE})
-				target:SetModifierStackCount("modifier_chernobog_rune_e_3_postmit", unit, ability.e_3_level)
-			end
-		end
-	else
-		ability:ApplyDataDrivenModifier(unit, enemy, "modifier_chernobog_rune_e_3_postmit", {duration = CHERNOBOG_E3_POSTMIT_DUR_BASE})
-		enemy:SetModifierStackCount("modifier_chernobog_rune_e_3_postmit", unit, ability.e_3_level)
-	end
-
-	local particleName = "particles/roshpit/chernobog/chernobog_rune_c_c.vpcf"
-	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControl(particle1, 0, unit:GetAbsOrigin() + Vector(0, 0, 40))
-
-	Timers:CreateTimer(0.15, function()
-		StartAnimation(unit, {duration = 0.3, activity = ACT_DOTA_ATTACK, rate = 3})
-		Filters:PerformAttackSpecial(unit, enemy, true, true, true, true, false, false, false)
-	end)
-	FindClearSpaceForUnit(unit, enemy:GetAbsOrigin() - enemy:GetForwardVector() * 90, false)
-	local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControl(particle2, 0, unit:GetAbsOrigin() + Vector(0, 0, 40))
-	Timers:CreateTimer(3, function()
-		ParticleManager:DestroyParticle(particle1, false)
-		ParticleManager:DestroyParticle(particle2, false)
-	end)
-end
-
 function CustomAbilities:HitTaskShield(victim, attacker)
 	local currentStacks = victim:GetModifierStackCount("modifier_task_armor", victim)
 	if currentStacks > 1 then

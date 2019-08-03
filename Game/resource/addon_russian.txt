@@ -3720,11 +3720,11 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_property_two"					"(Активно) Доп. очков Ловкости"
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_suffix_two"					""
 		
-		"DOTA_Tooltip_ability_chernobog_shadow_walk"							"Shadow Hunt"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_Description"				"Chernobog пробивается через пустоту, открывая для себя некоторые возможности. Пока активно это умение, герой ежесекундно теряет % от максимальных значений здоровья и маны, а противники в радиусе 300 не могут восполнять здоровье."
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_cap"				"ГРАНИЦА СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_bonus"			"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
-    	"DOTA_Tooltip_ability_chernobog_shadow_walk_drain_per_second"			"ЗАТРАТЫ ЗДОРОВЬЯ И МАНЫ В СЕКУНДУ, %:"
+		"DOTA_Tooltip_ability_chernobog_3_e"							"Shadow Hunt"
+    	"DOTA_Tooltip_ability_chernobog_3_e_Description"				"Chernobog пробивается через пустоту, открывая для себя некоторые возможности. Пока активно это умение, герой ежесекундно теряет % от максимальных значений здоровья и маны, а противники в радиусе 300 не могут восполнять здоровье."
+    	"DOTA_Tooltip_ability_chernobog_3_e_movespeed_cap"				"ГРАНИЦА СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+    	"DOTA_Tooltip_ability_chernobog_3_e_movespeed_bonus"			"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+    	"DOTA_Tooltip_ability_chernobog_3_e_drain_per_second"			"ЗАТРАТЫ ЗДОРОВЬЯ И МАНЫ В СЕКУНДУ, %:"
 		
 		"DOTA_Tooltip_ability_chernobog_rune_e_1"								"[E1] Dark Whisper"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_Description"					"Пока активно умение @Ability3, герой получает бонус к урону."
@@ -3742,7 +3742,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_suffix_two"					""
 
      	"DOTA_Tooltip_ability_chernobog_rune_e_3"								"[E3] Sudden Strike"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"Пока активно умение @Ability3, приказ атаковать цель телепортирует героя к ней за спину и поставит метку, заставляя цель получать увеличенный пост-резистный урон на <font color='#ccff66'>1</font>. Перезаряжается <font color='#ccff66'>0.4</font> секунды."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"Пока активно умение @Ability3, приказ атаковать цель телепортирует героя к ней за спину и поставит метку, заставляя цель получать увеличенный пост-резистный урон на <font color='#ccff66'>1</font>. Перезаряжается <font color='#ccff66'>0.6</font> секунды."
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"					"Макс. расстояние"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"						""
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"					"Усиление пост-резистного урона"
@@ -3762,10 +3762,10 @@
     	"DOTA_Tooltip_modifier_chernobog_rune_e_4"								"Eclipse"
     	"DOTA_Tooltip_modifier_chernobog_rune_e_4_Description"					"30%% сопротивление магии и 100%% уклонение."
 		
-		"DOTA_Tooltip_ability_chernobog_nights_procession"						"Night's Procession"
-    	"DOTA_Tooltip_ability_chernobog_nights_procession_Description"			"Chernobog образует купол тьмы в указанной точке, который полностью замораживает всех задетых врагов."
-    	"DOTA_Tooltip_ability_chernobog_nights_procession_radius"				"РАДИУС:"
-    	"DOTA_Tooltip_ability_chernobog_nights_procession_duration"				"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_chernobog_4_r"						"Night's Procession"
+    	"DOTA_Tooltip_ability_chernobog_4_r_Description"			"Chernobog образует купол тьмы в указанной точке, который полностью замораживает всех задетых врагов."
+    	"DOTA_Tooltip_ability_chernobog_4_r_radius"				"РАДИУС:"
+    	"DOTA_Tooltip_ability_chernobog_4_r_duration"				"ДЛИТЕЛЬНОСТЬ:"
 
     	"DOTA_Tooltip_modifier_chernobog_ult_freeze_special"					"Night's Procession"
     	"DOTA_Tooltip_modifier_chernobog_ult_freeze_special_Description"		"Заморожен"
@@ -3901,7 +3901,7 @@
 		"item_rpc_chernobog_glyph_4_1_description" 				"Распространяет эффект руны [Q1] на движущихся врагов и снижает их броню на @glyph_property1x уровень руны."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"(T5) Глиф ночного охотника"
-		"item_rpc_chernobog_glyph_5_1_description" 				"Shadow Hunt не снижает здоровье если показатель здоровья равен или меньше <font color='#ccff66'>50</font>% от максимума. Уменьшает весь урон способностей, кроме @Ability3 на <font color='#ccff66'>2</font>x."
+		"item_rpc_chernobog_glyph_5_1_description" 				"Shadow Hunt не снижает здоровье если показатель здоровья равен или меньше <font color='#ccff66'>50</font>% от максимума. Уменьшает весь урон способностей, кроме @Ability3 на <font color='#ccff66'>1</font>x."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"(T6) Глиф тёмных преломлений"
 		"item_rpc_chernobog_glyph_6_1_description" 				"Sudden Strike накладывает метку на всех врагов в <font color='#ccff66'>500</font> радиусе от основной цели."

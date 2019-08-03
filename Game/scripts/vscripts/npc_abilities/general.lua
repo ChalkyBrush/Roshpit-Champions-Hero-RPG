@@ -566,10 +566,33 @@ function ms_thinker(event)
 	local baseSpeed = unit:GetBaseMoveSpeed()
 	local modifier = unit:GetMoveSpeedModifier(baseSpeed, false)
 	local modifier2 = unit:GetMoveSpeedModifier(0, false)
+
+	local buffs = unit:FindAllModifiers()
+	local speed = baseSpeed
+	local mult = 1
+	for _,modifier in pairs(buffs) do
+
+		if modifier['GetModifierMoveSpeedBonus_Constant'] then
+			local localSpeed =  modifier['GetModifierMoveSpeedBonus_Constant'](modifier, {}) or 0
+			if localSpeed ~=  nil then
+				speed = speed + localSpeed
+			end
+		end
+		if modifier['GetModifierMoveSpeedBonus_Percentage'] then
+			local localMult = modifier['GetModifierMoveSpeedBonus_Percentage'](modifier, {})
+			if localMult ~= nil then
+				mult = mult + localMult/100
+			end
+		end
+	end
+	speed = math.max(speed * mult, baseSpeed + modifier2)
+	local movespeedMult = 1;
+
 	local ideal = unit:GetIdealSpeed()
 	local max_ms = CustomAttributes:MSCap(unit)
-	if modifier2 > 100 and max_ms > 550 then
-		unit.master_move_speed = math.min(modifier2 + baseSpeed, max_ms)
+	--speed = math.max(modifier2 + baseSpeed, speed)
+	if speed > 100 and max_ms > 550 then
+		unit.master_move_speed = math.min(speed, max_ms)
 		unit:AddNewModifier(unit, nil, "modifier_master_movespeed", {})
 	else
 		unit.master_move_speed = nil

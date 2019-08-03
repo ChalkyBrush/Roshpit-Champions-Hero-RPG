@@ -1,0 +1,6 @@
+-- Name: ungodly
+-- Description: When should take damage more than 10x of effective maximum hp ignore the instance of damage and deal damage to the attacker. Create one additional instance of damage for each 4x damage/hp
+-- Base values:
+--  Damage type: pure
+--  Damage: 2 000/30 000/200 000 per instance
+-- Coldown: 1 second, x2 for each use

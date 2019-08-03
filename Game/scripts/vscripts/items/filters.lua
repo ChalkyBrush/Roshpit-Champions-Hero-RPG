@@ -1454,7 +1454,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         damage = damage * (1 + damageMult)
         if attacker:HasModifier('modifier_chernobog_glyph_5_1') then
-            damage = damage * CHERNOBOG_GLYPH51_BAD_MULT_EXCEPT_E
+            damage = damage * CHERNOBOG_T51_BAD_MULT_EXCEPT_E
         end
         if not ignore_effects then
             local indirectProcQ = false
@@ -1533,7 +1533,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         damage = damage * (1 + damageMult)
         if attacker:HasModifier('modifier_chernobog_glyph_5_1') then
-            damage = damage * CHERNOBOG_GLYPH51_BAD_MULT_EXCEPT_E
+            damage = damage * CHERNOBOG_T51_BAD_MULT_EXCEPT_E
         end
         if not ignore_effects then
             local indirectProcW = false
@@ -1612,7 +1612,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
 
         damage = damage * (1 + damageMult)
         if attacker:HasModifier('modifier_chernobog_glyph_5_1') then
-            damage = damage * CHERNOBOG_GLYPH51_BAD_MULT_EXCEPT_E
+            damage = damage * CHERNOBOG_T51_BAD_MULT_EXCEPT_E
         end
         if not ignore_effects then
             local indirectProcR = false
@@ -1666,7 +1666,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
     end
-    if slot == 0 then
+    if slot == BASE_ITEM or slot == BASE_NONE then
         if not Is_solunia_b_d then
             Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, ability or 0)
         else
@@ -1741,7 +1741,8 @@ end
 function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, bIsRealDamage)
     local unitName = attacker:GetUnitName()
     local mult = 1
-    mult = mult + heroes.venomort.getElementBonus(victim, attacker, damage, damage_type, slot, element1, element2, bIsRealDamage)
+    local divisor = 1
+
     if bIsRealDamage then
         if attacker:HasModifier("modifier_depth_demon_claw") then
             element2 = RPC_ELEMENT_DEMON
@@ -1814,6 +1815,44 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
     end
+
+    local elements = {}
+    if element1 ~= RPC_ELEMENT_NONE then
+        table.insert(elements, element1)
+    end
+    if element2 ~= RPC_ELEMENT_NONE then
+        table.insert(elements, element2)
+    end
+    local newDamageCalculatorData = {
+        victim = victim,
+        attacker = attacker,
+        damage = damage,
+        damageType = damage_type,
+        sourceType = slot,
+        source = 'none', -- TODO get real source,
+        isFake = not bIsRealDamage,
+        ignoreSteadfast = attacker.ignore_steadfast or false,
+        elements = elements,
+    }
+
+
+    local attackerBuffs, attackerDebuffs = Util.Creature:GetBuffsAndDebuffs(attacker, npc_base_modifier)
+    local victimBuffs, victimDebuffs = Util.Creature:GetBuffsAndDebuffs(victim, npc_base_modifier)
+
+    newDamageCalculatorData.damage = damage
+    local localMult = 0
+    localMult = Damage:GetWithElement('Amplify', attackerBuffs, victimDebuffs, newDamageCalculatorData)/damage
+    newDamageCalculatorData.damage = damage * localMult
+
+    divisor = damage * localMult/Damage:GetWithElement('Reduce', attackerDebuffs, victimBuffs, newDamageCalculatorData)
+    newDamageCalculatorData.damage = damage
+
+    mult = mult + localMult - 1
+
+    mult = mult + heroes.venomort.getElementBonus(victim, attacker, damage, damage_type, slot, element1, element2, bIsRealDamage)
+
+
+
     if element2 == RPC_ELEMENT_NORMAL then
         if bIsRealDamage then
             if attacker:HasModifier("modifier_djanghor_glyph_5_a") then
@@ -2563,20 +2602,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         mult = mult + waterMult
     end
     if element1 == RPC_ELEMENT_DEMON or element2 == RPC_ELEMENT_DEMON then
-        if unitName == "npc_dota_hero_night_stalker" then
-            local demonMult = 0
-            local q_4_level = Runes:GetTotalRuneLevel(attacker, 4, "q_4", "chernobog")
-            if q_4_level > 0 then
-                demonMult = CHERNOBOG_Q4_DEMON_AMP_PCT/100 * (attacker:GetAgility()) / 10 * q_4_level
-            end
-            if victim:HasModifier("modifier_charons_claw_enemy") then
-                local q_2_level = attacker:GetRuneValue("q", 2)
-                if q_2_level > 0 then
-                    demonMult = demonMult + demonMult * CHERNOBOG_Q2_DEMON_AMP_PCT/100 * q_2_level
-                end
-            end
-            mult = mult + demonMult
-        end
         if attacker:HasModifier("modifier_hand_demon") then
             local stacks = attacker:GetModifierStackCount("modifier_hand_demon", attacker.InventoryUnit)
             mult = mult + stacks / 100
@@ -2656,7 +2681,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if bIsRealDamage then
         Filters:PostElementalDamage(victim, attacker, damage * mult, damage_type, slot, element1, element2, bIsRealDamage)
     end
-    damage = damage * mult
+    damage = damage * mult/divisor
     return damage, element1, element2
 end
 
@@ -4095,23 +4120,27 @@ function Filters:FireDeity(attacker, victim, damage)
         damage = damage * 2.5
         local target = victim
         local radius = 220
-        local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
-        local particle2 = ParticleManager:CreateParticle(particleNameS, PATTACH_WORLDORIGIN, target)
-        ParticleManager:SetParticleControl(particle2, 0, target:GetAbsOrigin())
-        ParticleManager:SetParticleControl(particle2, 1, Vector(radius, radius, radius))
-        ParticleManager:SetParticleControl(particle2, 2, Vector(1.0, 1.0, 1.0))
-        ParticleManager:SetParticleControl(particle2, 4, Vector(255, 0, 0))
-        Timers:CreateTimer(1.5, function()
-            ParticleManager:DestroyParticle(particle2, false)
-        end)
 
-        local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
-        local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
-        ParticleManager:SetParticleControl(particle1, 0, target:GetAbsOrigin())
-        Timers:CreateTimer(2, function()
-            ParticleManager:DestroyParticle(particle1, false)
+        local limitKey = attacker:GetPlayerOwnerID() .. '_fire_deity'
+        Util.Common:LimitPerTime(4, 1, limitKey, function()
+            local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+            local particle2 = ParticleManager:CreateParticle(particleNameS, PATTACH_WORLDORIGIN, target)
+            ParticleManager:SetParticleControl(particle2, 0, target:GetAbsOrigin())
+            ParticleManager:SetParticleControl(particle2, 1, Vector(radius, radius, radius))
+            ParticleManager:SetParticleControl(particle2, 2, Vector(1.0, 1.0, 1.0))
+            ParticleManager:SetParticleControl(particle2, 4, Vector(255, 0, 0))
+            Timers:CreateTimer(1.5, function()
+                ParticleManager:DestroyParticle(particle2, false)
+            end)
+
+            local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
+            local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
+            ParticleManager:SetParticleControl(particle1, 0, target:GetAbsOrigin())
+            Timers:CreateTimer(2, function()
+                ParticleManager:DestroyParticle(particle1, false)
+            end)
+            EmitSoundOn("RoshpitItem.FireDeity", target)
         end)
-        EmitSoundOn("RoshpitItem.FireDeity", target)
         local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         if #enemies > 0 then
             for _, enemy in pairs(enemies) do
