@@ -3303,7 +3303,7 @@ end
 
 function Winterblight:EdgeOfWinter1(msg)
 	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
-	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 176
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 126
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local chamber_id = msg.chamber
 	local unitsTable = {}
@@ -3492,6 +3492,19 @@ function Winterblight:EdgeOfWinter1(msg)
 					local position = positionTable[i]
 					local fv = ((Vector(-12288, 11136) - positionTable[i])*Vector(1,1,0)):Normalized()
 					local unit = Winterblight:SpawnWintersChieftain(position, fv)
+					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
+				end
+			end)
+		end
+	end)
+	Timers:CreateTimer(16.3, function()
+		local positionTable = {Vector(-13657, 14720), Vector(-13990, 14720), Vector(-14208, 14976), Vector(-13859, 14976)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i*0.3, function()
+				if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+					local position = positionTable[i]
+					local fv = ((Vector(-12288, 11136) - positionTable[i])*Vector(1,1,0)):Normalized()
+					local unit = Winterblight:SpawnGhostOfAurora(position, fv)
 					Winterblight:SetCavernUnit(unit, position, true, true, chamber_id)
 				end
 			end)

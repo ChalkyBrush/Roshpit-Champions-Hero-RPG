@@ -97140,7 +97140,7 @@
     {
         "BaseClass" "npc_dota_creature"
         "Model" "models/heroes/alchemist/alchemist.vmdl"
-        "ModelScale"    "1.35"
+        "ModelScale"    "1.4"
         "Level" "1"
         "HealthBarOffset"   "190"
         "HasInventory"  "0"
@@ -97153,7 +97153,7 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
         }
 
-        "ArmorPhysical" "5"
+        "ArmorPhysical" "15"
         "MagicalResistance" "15"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
