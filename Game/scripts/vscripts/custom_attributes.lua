@@ -326,10 +326,10 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hailstorm_strength", CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH)
 	end
 	if hero:HasModifier("modifier_chernobog_rune_w_4_inactive") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_inactive", CHERNOBOG_W4_BONUS_STR)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_inactive", CHERNOBOG_W4_AGI_AND_STR)
 	end
 	if hero:HasModifier("modifier_chernobog_rune_w_4_active") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_active", CHERNOBOG_W4_BONUS_AGI)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_active", CHERNOBOG_W4_AGI_AND_STR)
 	end
 	if hero:HasModifier("modifier_hydroxis_d_c") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", HYDROXIS_E4_BONUS_AGI_INT)

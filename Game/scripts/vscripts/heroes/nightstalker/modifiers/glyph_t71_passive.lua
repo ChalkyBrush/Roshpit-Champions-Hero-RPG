@@ -1,8 +1,8 @@
 require('/npc_abilities/base_modifier')
 require('heroes/nightstalker/chernobog_constants')
 -- merged q and q1 effects
-modifier_chernobog_glyph_7_1_passive = class(npc_base_modifier, nil, npc_base_modifier)
-local class = modifier_chernobog_glyph_7_1_passive
+modifier_chernobog_glyph_t71_passive = class(npc_base_modifier, nil, npc_base_modifier)
+local class = modifier_chernobog_glyph_t71_passive
 
 function class:OnCreated()
     if not IsServer() then
@@ -31,4 +31,7 @@ function class:GetPostmitigationAmplify(data)
 end
 function class:IsHidden()
     return true
+end
+function class:RemoveOnDeath()
+    return false
 end

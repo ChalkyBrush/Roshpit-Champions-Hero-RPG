@@ -3,7 +3,9 @@ LinkLuaModifier("modifier_chernobog_demonform_lua", "heroes/nightstalker/modifie
 local prefix = '4_r_arcana1_'
 local modifiers = {
 	demon_amp_r4 = 'modifier_chernobog_4_r_arcana1_demon_amp_r4',
-	postmit_r3 = 'modifier_chernobog_4_r_arcana1_postmit_r3'
+	postmit_r3 = 'modifier_chernobog_4_r_arcana1_postmit_r3',
+	slow_aura_r2 = 'modifier_chernobog_4_r_arcana1_slow_aura_r2',
+	slow_aura_effect_r2 = 'modifier_chernobog_4_r_arcana1_slow_aura_effect_r2',
 }
 
 for modifierPath, modifier in pairs(modifiers) do
@@ -58,7 +60,7 @@ function begin_demon_morph(event)
 
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_demon_form", {duration = morphDuration})
 		if caster.r2_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_demon_form_aura", {duration = morphDuration})
+			caster:AddNewModifier(caster, ability, modifiers.slow_aura_r2, { duration = morphDuration })
 		end
 		if caster:HasModifier("modifier_chernobog_arcana2") then
 			if caster:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_flight" then
@@ -93,7 +95,7 @@ end
 
 function demon_form_end(event)
 	local caster = event.caster
-	caster:RemoveModifierByName("modifier_chernobog_demon_form_aura")
+	caster:RemoveModifierByName(modifiers.slow_aura_r2)
 	caster:RemoveModifierByName("modifier_chernobog_demonform_lua")
 	CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/demonform_start_start_ti7_lvl2.vpcf", caster, 3)
 	if caster:HasModifier("modifier_movespeed_cap_shadow_walk_1") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_2") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_3") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_4") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_5") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_6") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_7") then
@@ -165,15 +167,6 @@ function demon_form_attack_start(event)
 	end
 end
 
-function demon_aura_start(event)
-	local caster = event.caster
-	local ability = event.ability
-	local target = event.target
-	if caster.r2_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_chernobog_demon_form_aura_stacks", {})
-		target:SetModifierStackCount("modifier_chernobog_demon_form_aura_stacks", caster, caster.r2_level)
-	end
-end
 function passive_thinker(event)
 	local caster = event.caster
 	local ability = event.ability

@@ -363,16 +363,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% CHERNOBOG_R2_SHADOWS_AMP * 100 %>"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"15"
-			}
 		}
 	}
 

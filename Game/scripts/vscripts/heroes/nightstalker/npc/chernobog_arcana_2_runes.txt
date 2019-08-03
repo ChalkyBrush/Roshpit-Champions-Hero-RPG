@@ -80,8 +80,24 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% CHERNOBOG_ARCANA2_E4_BONUS_TIME %>"
+			}
+
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_DEMON %>"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"<% RPC_ELEMENT_SHADOW %>"
 			}
 		}
 	}

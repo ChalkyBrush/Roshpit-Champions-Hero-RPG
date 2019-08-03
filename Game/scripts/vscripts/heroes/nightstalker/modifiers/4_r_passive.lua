@@ -11,10 +11,8 @@ local modifiers = {
 function class:OnRuneR4CountUpdate(data)
     local caster = self:GetCaster()
     if data.count > 0 and not self.added then
-        print('add demon amp')
         caster:AddNewModifier(caster, self, modifiers.demon_amp_r4, {})
     elseif data.count == 0 and self.added then
-        print('remove demon amp')
         self:OnDestroy()
     end
     self.added = data.count > 0
@@ -27,4 +25,7 @@ function class:OnDestroy()
 end
 function class:IsHidden()
     return true
+end
+function class:RemoveOnDeath()
+    return false
 end

@@ -153,7 +153,7 @@ function class:DoStatusThings()
             caster:RemoveModifierByName(modifiers.movespeed)
             caster:AddNewModifier(caster, self, modifiers.movespeed, {})
             if caster.e4_level > 0 then
-                local duration = Filters:GetAdjustedBuffDuration(caster, CHERNOBOG_E4_BASE_DUR + caster.e4_level * CHERNOBOG_E4_DUR, false)
+                local duration = self:GetDuration('buff', CHERNOBOG_E4_BASE_DUR + caster.e4_level * CHERNOBOG_E4_DUR)
                 caster:AddNewModifier(caster, self, modifiers.evasion_e4, { duration = duration })
             end
         end

@@ -75,9 +75,9 @@
 		"DOTA_Tooltip_ability_chernobog_rune_w_3"								"[W3] Fervor"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_Description"					"While @Ability2 is inactive, Chernobog's attacks lower the Armor of all enemies in a <% CHERNOBOG_W3_ARMOR_REDUCE_RADIUS %> radius around the target. While active, each attack adds 1 stack of base attack damage, but changing targets removes <% CHERNOBOG_W3_STACK_LOSE_PCT %>% of these stacks. (Armor reduction stacks on enemies will not be removed when switching targets.)"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_one"					"Armor Reduction (Inactive)"
-    	"DOTA_Tooltip_ability_chernobog_rune_w_3_suffix"						"per stack"
+    	"DOTA_Tooltip_ability_chernobog_rune_w_3_suffix"						" per stack"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_two"					"Increased Attack Damage (Active)"
-    	"DOTA_Tooltip_ability_chernobog_rune_w_3_suffix_two"					"per stack"
+    	"DOTA_Tooltip_ability_chernobog_rune_w_3_suffix_two"					" per stack"
 
     	"DOTA_Tooltip_modifier_chernobog_rune_w_3_fervor_enemy_visible"			"Fervor (Enemy)"
     	"DOTA_Tooltip_modifier_chernobog_rune_w_3_fervor_enemy_visible_Description"	"Reduced Armor"	
@@ -164,7 +164,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_property_one"					"Vorpal Damage"
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_suffix"						"% of attack power"
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_property_two"					"Extra Duration"
-        "DOTA_Tooltip_ability_chernobog_rune_r_3_suffix_two"					"seconds"
+        "DOTA_Tooltip_ability_chernobog_rune_r_3_suffix_two"					" seconds"
 
     	//c_d: Illusion smacking affected enemies										
 
