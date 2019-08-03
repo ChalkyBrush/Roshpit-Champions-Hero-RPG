@@ -107,6 +107,13 @@ function use_reanimation_stone(event)
 			ability:SetLevel(0)
 		end
 	end
+
+	local letters = {'q','w','e','r' }
+	for _,letter in pairs(letters) do
+		for tier = 1,4 do
+			caster[letter .. tier .. '_level'] = 0
+		end
+	end
 	local runePoints = (caster:GetLevel() - 1) * 2 + 3
 	local abilityPoints = math.floor(caster:GetLevel() / 5)
 	CustomNetTables:SetTableValue("player_stats", tostring(caster:GetPlayerOwnerID()), {skillPoints = abilityPoints, runePoints = runePoints})
