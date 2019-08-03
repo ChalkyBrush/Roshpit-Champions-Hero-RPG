@@ -24,7 +24,7 @@ function class:OnCreated()
         return
     end
     self.previousPosition = self:GetParent():GetAbsOrigin()
-    self:StartIntervalThink(0.06)
+    self:StartIntervalThink(0.03)
 end
 function class:OnIntervalThink()
     local parent = self:GetParent()
