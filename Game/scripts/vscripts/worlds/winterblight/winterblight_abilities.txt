@@ -277,6 +277,61 @@
 				"EffectName"	"particles/items_fx/dust_of_appearance_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
 			}
+			"modifier_wb_zero_g"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"zero_g_init"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"zero_g_end"
+						"target"		"TARGET"
+					}
+				}
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"zero_g_spell_cast"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_wb_zero_g_hero"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"zero_g_hero_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_wb_zero_g_flying"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "1"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"-0.5"
+				}
+			}			
 		}
 	}
 

@@ -3908,3 +3908,11 @@ function Winterblight:SpawnCavernChrolonus(position, fv)
 
 	return stone
 end
+
+function Winterblight:EdgeOfWinter4(msg)
+	local chamber_id = msg.chamber
+	local spawnphase = Winterblight.CavernData.Chambers[chamber_id]["spawnphase"]
+	
+	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 250
+end

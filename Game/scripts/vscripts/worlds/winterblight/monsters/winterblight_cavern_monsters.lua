@@ -1667,6 +1667,17 @@ function cavern_player_hero_think(event)
 				Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, hero, "modifier_confusional_spores", {})
 			end
 		end
+	elseif Winterblight.CavernData.Chambers[4]["status"] == 1 and Winterblight.CavernData.Chambers[4]["event"] == 4 then
+		if hero:HasModifier("modifier_wb_zero_g") then
+			if Winterblight:IsWithinChamber(hero, 4) then
+			else
+				hero:RemoveModifierByName("modifier_wb_zero_g")
+			end
+		else
+			if Winterblight:IsWithinChamber(hero, 4) then
+				Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, hero, "modifier_wb_zero_g", {})
+			end
+		end
 	end
 end
 
@@ -2313,3 +2324,63 @@ function wintertide_totem_think(event)
 	end
 end
 
+function zero_g_init(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if target:IsRealHero() then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_wb_zero_g_hero", {})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_wb_zero_g_flying", {})
+		target.zero_g_target = 200
+		target.zero_g_interval = 0
+	else
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_wb_zero_g_flying", {})
+		target:SetModifierStackCount("modifier_wb_zero_g_flying", caster, 200)
+	end
+end
+
+function zero_g_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	target:RemoveModifierByName("modifier_wb_zero_g_hero")
+	target:RemoveModifierByName("modifier_wb_zero_g_flying")
+end
+
+function zero_g_hero_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = event.target
+	local current_stacks = hero:GetModifierStackCount("modifier_wb_zero_g_flying", caster)
+	if not hero.zero_g_target then
+		hero.zero_g_target = 200
+		hero.zero_g_interval = 0
+	end
+	hero:SetModifierStackCount("modifier_wb_zero_g_flying", caster, hero.zero_g_target)
+	hero.zero_g_target = hero.zero_g_target + (2 * math.cos(2 * math.pi * hero.zero_g_interval / 180))
+	hero.zero_g_interval = hero.zero_g_interval + 1
+	if hero.zero_g_interval >= 180 then
+		hero.zero_g_interval = 0
+	end
+end
+
+function zero_g_spell_cast(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.unit
+	local executedAbility = event.event_ability
+	executedAbility:EndCooldown()
+	local cd = 1
+	if target:HasModifier("modifier_hood_of_lords_lua") then
+		cd = cd + 1
+	end
+	executedAbility:StartCooldown(cd)
+	if target:IsRealHero() then
+		Timers:CreateTimer(0.03, function()
+			if executedAbility:GetCooldownTimeRemaining() > 0.97 then
+				executedAbility:EndCooldown()
+				executedAbility:StartCooldown(cd)
+			end
+		end)
+	end
+end
