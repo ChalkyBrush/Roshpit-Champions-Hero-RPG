@@ -1743,38 +1743,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     local mult = 1
     local divisor = 1
 
-    local elements = {}
-    if element1 ~= RPC_ELEMENT_NONE then
-        table.insert(elements, element1)
-    end
-    if element2 ~= RPC_ELEMENT_NONE then
-        table.insert(elements, element2)
-    end
-    local newDamageCalculatorData = {
-        victim = victim,
-        attacker = attacker,
-        damage = damage,
-        damageType = damage_type,
-        sourceType = slot,
-        source = 'none', -- TODO get real source,
-        isFake = not bIsRealDamage,
-        ignoreSteadfast = attacker.ignore_steadfast or false,
-        elements = elements,
-    }
-
-
-    local attackerBuffs, attackerDebuffs = Util.Creature:GetBuffsAndDebuffs(attacker, npc_base_modifier)
-    local victimBuffs, victimDebuffs = Util.Creature:GetBuffsAndDebuffs(victim, npc_base_modifier)
-
-    newDamageCalculatorData.damage = damage
-    mult = Damage:GetWithElement('Amplify', attackerBuffs, victimDebuffs, newDamageCalculatorData)/damage
-    newDamageCalculatorData.damage = damage * mult
-
-    divisor = damage * mult/Damage:GetWithElement('Reduce', attackerDebuffs, victimBuffs, newDamageCalculatorData)
-    newDamageCalculatorData.damage = damage
-
-    mult = mult + heroes.venomort.getElementBonus(victim, attacker, damage, damage_type, slot, element1, element2, bIsRealDamage)
-
     if bIsRealDamage then
         if attacker:HasModifier("modifier_depth_demon_claw") then
             element2 = RPC_ELEMENT_DEMON
@@ -1847,6 +1815,44 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
     end
+
+    local elements = {}
+    if element1 ~= RPC_ELEMENT_NONE then
+        table.insert(elements, element1)
+    end
+    if element2 ~= RPC_ELEMENT_NONE then
+        table.insert(elements, element2)
+    end
+    local newDamageCalculatorData = {
+        victim = victim,
+        attacker = attacker,
+        damage = damage,
+        damageType = damage_type,
+        sourceType = slot,
+        source = 'none', -- TODO get real source,
+        isFake = not bIsRealDamage,
+        ignoreSteadfast = attacker.ignore_steadfast or false,
+        elements = elements,
+    }
+
+
+    local attackerBuffs, attackerDebuffs = Util.Creature:GetBuffsAndDebuffs(attacker, npc_base_modifier)
+    local victimBuffs, victimDebuffs = Util.Creature:GetBuffsAndDebuffs(victim, npc_base_modifier)
+
+    newDamageCalculatorData.damage = damage
+    local localMult = 0
+    localMult = Damage:GetWithElement('Amplify', attackerBuffs, victimDebuffs, newDamageCalculatorData)/damage
+    newDamageCalculatorData.damage = damage * localMult
+
+    divisor = damage * localMult/Damage:GetWithElement('Reduce', attackerDebuffs, victimBuffs, newDamageCalculatorData)
+    newDamageCalculatorData.damage = damage
+
+    mult = mult + localMult - 1
+
+    mult = mult + heroes.venomort.getElementBonus(victim, attacker, damage, damage_type, slot, element1, element2, bIsRealDamage)
+
+
+
     if element2 == RPC_ELEMENT_NORMAL then
         if bIsRealDamage then
             if attacker:HasModifier("modifier_djanghor_glyph_5_a") then
