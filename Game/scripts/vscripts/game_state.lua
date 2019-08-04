@@ -1822,8 +1822,22 @@ function GameState:FilterDamage(filterTable)
 	local attacker = EntIndexToHScript(attacker_index)
 
 
-	local attackerBuffs, attackerDebuffs = Util.Creature:GetBuffsAndDebuffs(attacker, npc_base_modifier)
-	local victimBuffs, victimDebuffs = Util.Creature:GetBuffsAndDebuffs(victim, npc_base_modifier)
+	local status, result = pcall(function()
+		local a,b = Util.Creature:GetBuffsAndDebuffs(attacker, npc_base_modifier)
+		return { a, b }
+	end)
+	local attackerBuffs, attackerDebuffs = {}, {}
+	if status then
+		attackerBuffs, attackerDebuffs = result[1], result[2]
+	end
+	status, result = pcall(function()
+		local a,b = Util.Creature:GetBuffsAndDebuffs(victim, npc_base_modifier)
+		return { a, b }
+	end)
+	local victimBuffs, victimDebuffs = {}, {}
+	if status then
+		victimBuffs, victimDebuffs = result[1], result[2]
+	end
 
 	local elements = {}
 	if attacker.element1 then
@@ -1913,10 +1927,20 @@ function GameState:FilterDamage(filterTable)
 	local modifier = nil
 
 	newDamageCalculatorData.damage = filterTable['damage']
-	mult = Damage:GetWithPostmitigation('Amplify', attackerBuffs, victimDebuffs, newDamageCalculatorData)/filterTable['damage']
+	status, result = pcall(function()
+		return Damage:GetWithPostmitigation('Amplify', attackerBuffs, victimDebuffs, newDamageCalculatorData)/filterTable['damage']
+	end)
+	if status then
+		mult = result
+	end
 	newDamageCalculatorData.damage = filterTable['damage'] * mult
 
-	divisor = filterTable['damage'] * mult/Damage:GetWithPostmitigation('Reduce', attackerDebuffs, victimBuffs, newDamageCalculatorData)
+	status, result = pcall(function()
+		return filterTable['damage'] * mult/Damage:GetWithPostmitigation('Reduce', attackerDebuffs, victimBuffs, newDamageCalculatorData)
+	end)
+	if status then
+		divisor = result
+	end
 	newDamageCalculatorData.damage = filterTable['damage']
 
 	if attacker:IsHero() then
@@ -3882,13 +3906,26 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	newDamageCalculatorData.damage = filterTable["damage"]
-	filterTable['damage'] = Damage:GetWithExtraPostmitigation('Amplify', attackerBuffs, victimDebuffs, newDamageCalculatorData)
+
+	status, result = pcall(function()
+		return Damage:GetWithExtraPostmitigation('Amplify', attackerBuffs, victimDebuffs, newDamageCalculatorData)
+	end)
+	if status then
+		filterTable['damage'] = result
+	end
 	newDamageCalculatorData.damage = filterTable["damage"]
-	filterTable['damage'] = Damage:GetWithExtraPostmitigation('Reduce', attackerDebuffs, victimBuffs, newDamageCalculatorData)
+	status, result = pcall(function()
+		return Damage:GetWithExtraPostmitigation('Reduce', attackerDebuffs, victimBuffs, newDamageCalculatorData)
+	end)
+	if status then
+		filterTable['damage'] = result
+	end
 
 	if applyEffects and filterTable["damage"] >= victim:GetHealth() then
 		newDamageCalculatorData.damage = filterTable["damage"]
-		Damage:OnLethal(attackerDebuffs, victimBuffs, newDamageCalculatorData)
+		status, result = pcall(function()
+			return Damage:OnLethal(attackerDebuffs, victimBuffs, newDamageCalculatorData)
+		end)
 	end
 	if victim:HasModifier("modifier_dummy_active") and applyEffects then
 		if attacker == Events.GameMaster then
