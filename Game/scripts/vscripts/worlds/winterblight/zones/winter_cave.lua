@@ -914,6 +914,9 @@ function ClearChamberUnits(chamber)
 		Timers:CreateTimer(i*0.03, function()
 			local unit = Winterblight.CavernUnits[chamber][i]
 			if IsValidEntity(unit) then
+				if unit.pfx then
+					ParticleManager:DestroyParticle(unit.pfx, false)
+				end
 				CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", unit:GetAbsOrigin(), 4)
 				EmitSoundOn("Winterblight.GuideCaveIntro", unit)
 				UTIL_Remove(unit)
@@ -3914,5 +3917,257 @@ function Winterblight:EdgeOfWinter4(msg)
 	local spawnphase = Winterblight.CavernData.Chambers[chamber_id]["spawnphase"]
 	
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
-	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 250
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 220
+	Winterblight.EdgeOfWinterBlackHoles = {}
+	Winterblight.BlackHolesKills = 0
+	local position = Winterblight:RandomPointInEdgeOfWinter()
+	Winterblight:SpawnGravityBlackHole(position, spawnphase)
+	Winterblight:GravityBlackHolesSpawns(Winterblight.BlackHolesKills)
+end
+
+function Winterblight:SpawnGravityBlackHole(position, spawnphase)
+	local black_hole = CreateUnitByName("npc_flying_dummy_vision", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+	black_hole:FindAbilityByName("dummy_unit"):SetLevel(1)	
+	black_hole:AddAbility("winterblight_black_hole_ability"):SetLevel(1)
+	table.insert(Winterblight.CavernUnits[4], black_hole)
+	black_hole.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_enigma/enigma_blackhole.vpcf", PATTACH_ABSORIGIN_FOLLOW, black_hole)
+	ParticleManager:SetParticleControl(black_hole.pfx, 0, black_hole:GetAbsOrigin())
+	table.insert(Winterblight.EdgeOfWinterBlackHoles, black_hole)
+	black_hole:SetBaseMoveSpeed(180)
+	black_hole.spawnphase = spawnphase
+end
+
+function Winterblight:GravityBlackHolesSpawns(kills)
+	if kills == 0 then
+		for i = 1, #Winterblight.EdgeOfWinterBlackHoles, 1 do
+			local black_hole = Winterblight.EdgeOfWinterBlackHoles[i]
+			local black_hole_unit_index = RandomInt(1, 75)
+			for k = 1, 4, 1 do
+				print("WE GONNA SPAWN?")
+				Timers:CreateTimer(k*0.2, function()
+					Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_index)
+				end)
+			end
+		end
+	elseif kills == 4 or kills == 12 or kills == 24 or kills == 40 or kills == 60 or kills == 84 or kills == 112 or kills == 144 or kills == 180 then
+		local position = Winterblight:RandomPointInEdgeOfWinter()
+		Winterblight:SpawnGravityBlackHole(position, Winterblight.CavernData.Chambers[4]["spawnphase"])
+		for i = 1, #Winterblight.EdgeOfWinterBlackHoles, 1 do
+			local black_hole = Winterblight.EdgeOfWinterBlackHoles[i]
+			local black_hole_unit_index = RandomInt(1, 75)
+			for k = 1, 4, 1 do
+				Timers:CreateTimer(k*1, function()
+					Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_index)
+				end)
+			end
+		end
+	end
+end
+
+function Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_index)
+	if Winterblight:ShouldSpawnCaveUnit(4, black_hole.spawnphase) then
+		local unit = nil
+		if black_hole_unit_index == 1 then
+			unit = Winterblight:SpawnMountainOgre(position, Vector(0,-1))
+		elseif black_hole_unit_index == 2 then
+			unit = Winterblight:SpawnFrostiok(position, Vector(0,-1))
+		elseif black_hole_unit_index == 3 then
+			unit = Winterblight:SpawnIceMarauader(position, Vector(0,-1))
+		elseif black_hole_unit_index == 4 then
+			unit = Winterblight:SpawnMountainDweller(position, Vector(0,-1))
+		elseif black_hole_unit_index == 5 then
+			unit = Winterblight:SpawnChillingColossus(position, Vector(0,-1))
+		elseif black_hole_unit_index == 6 then
+			unit = Winterblight:Snowshaker(position, Vector(0,-1))
+		elseif black_hole_unit_index == 7 then
+			unit = Winterblight:FrigidGrowth(position, Vector(0,-1))
+		elseif black_hole_unit_index == 8 then
+			unit = Winterblight:SpawnDashingSwordsman(position, Vector(0,-1))
+		elseif black_hole_unit_index == 9 then
+			unit = Winterblight:SpawnWinterAssasin(position, Vector(0,-1))
+		elseif black_hole_unit_index == 10 then
+			unit = Winterblight:SpawnRiderOfAzalea(position, Vector(0,-1))
+		elseif black_hole_unit_index == 11 then
+			unit = Winterblight:SpawnAzaleaArcher(position, Vector(0,-1))
+		elseif black_hole_unit_index == 12 then
+			unit = Winterblight:SpawnAzaleaSorceress(position, Vector(0,-1))
+		elseif black_hole_unit_index == 13 then
+			unit = Winterblight:SpawnFrostAvatar(position, Vector(0,-1))
+		elseif black_hole_unit_index == 14 then
+			unit = Winterblight:SpawnFrostElemental(position, Vector(0,-1))
+		elseif black_hole_unit_index == 15 then
+			unit = Winterblight:SpawnFrostHulk(position, Vector(0,-1))
+		elseif black_hole_unit_index == 16 then
+			unit = Winterblight:SpawnPriestOfAzalea(position, Vector(0,-1))
+		elseif black_hole_unit_index == 17 then
+			unit = Winterblight:SpawnSoftwalker(position, Vector(0,-1))
+		elseif black_hole_unit_index == 18 then
+			unit = Winterblight:SpawnFrostWhelpling(position, Vector(0,-1))
+		elseif black_hole_unit_index == 19 then
+			unit = Winterblight:SpawnHeartFreezer(position, Vector(0,-1))
+		elseif black_hole_unit_index == 20 then
+			unit = Winterblight:SpawnAzaleaMaiden(position, Vector(0,-1))
+		elseif black_hole_unit_index == 21 then
+			unit = Winterblight:SpawnSyphist(position, Vector(0,-1))
+		elseif black_hole_unit_index == 22 then
+			unit = Winterblight:SpawnSourceRevenant(position, Vector(0,-1))
+		elseif black_hole_unit_index == 23 then
+			unit = Winterblight:SpawnAzaleaHighguard(position, Vector(0,-1))
+		elseif black_hole_unit_index == 24 then
+			unit = Winterblight:SpawnAzaleaMindbreaker(position, Vector(0,-1))
+		elseif black_hole_unit_index == 25 then
+			unit = Winterblight:SpawnGhostStriker(position, Vector(0,-1))
+		elseif black_hole_unit_index == 26 then
+			unit = Winterblight:SpawnSecretKeeper(position, Vector(0,-1))
+		elseif black_hole_unit_index == 27 then
+			unit = Winterblight:SpawnArmoredKnight(position, Vector(0,-1))
+		elseif black_hole_unit_index == 28 then
+			unit = Winterblight:SpawnCrystalRunner(position, Vector(0,-1))
+		elseif black_hole_unit_index == 29 then
+			unit = Winterblight:SpawnDemonSpirit(position, Vector(0,-1))	
+		elseif black_hole_unit_index == 30 then
+			unit = Winterblight:SpawnBladeWielder(position, Vector(0,-1))	
+		elseif black_hole_unit_index == 31 then
+			unit = Winterblight:SpawnShineMegmus(position, Vector(0,-1))
+		elseif black_hole_unit_index == 32 then
+			unit = Winterblight:SpawnAzaleaDragoon(position, Vector(0,-1))
+		elseif black_hole_unit_index == 33 then
+			unit = Winterblight:SpawnKnifeScraper(position, Vector(0,-1))
+		elseif black_hole_unit_index == 34 then
+			unit = Winterblight:SpawnFencer(position, Vector(0,-1))
+		elseif black_hole_unit_index == 35 then
+			unit = Winterblight:SpawnRiftBreaker(position, Vector(0,-1))
+		elseif black_hole_unit_index == 36 then
+			unit = Winterblight:SpawnStarSeeker(position, Vector(0,-1))
+		elseif black_hole_unit_index == 37 then
+			unit = Winterblight:SpawnSpineSplitter(position, Vector(0,-1))
+		elseif black_hole_unit_index == 38 then
+			unit = Winterblight:SpawnScouringSharpa(position, Vector(0,-1))
+		elseif black_hole_unit_index == 39 then
+			unit = Winterblight:SpawnRelict(position, Vector(0,-1))
+		elseif black_hole_unit_index == 40 then
+			unit = Winterblight:SpawnPolarBear(position, Vector(0,-1))
+		elseif black_hole_unit_index == 41 then
+			unit = Winterblight:SpawnIceHaunter(position, Vector(0,-1))
+		elseif black_hole_unit_index == 42 then
+			unit = Winterblight:SpawnCavernBat(position, Vector(0,-1))
+		elseif black_hole_unit_index == 43 then
+			unit = Winterblight:SpawnWinterRunner(position, Vector(0,-1))
+		elseif black_hole_unit_index == 44 then
+			unit = Winterblight:SpawnPantheonKnight(position, Vector(0,-1))
+		elseif black_hole_unit_index == 45 then
+			unit = Winterblight:SpawnManaNull(position, Vector(0,-1))
+		elseif black_hole_unit_index == 46 then
+			unit = Winterblight:SpawnBloodWraith(position, Vector(0,-1))
+		elseif black_hole_unit_index == 47 then
+			unit = Winterblight:SpawnDrillDigger(position, Vector(0,-1))
+		elseif black_hole_unit_index == 48 then
+			unit = Winterblight:SpawnCloakedPhantasmh(position, Vector(0,-1))
+		elseif black_hole_unit_index == 49 then
+			unit = Winterblight:SpawnBoar(position, Vector(0,-1))
+		elseif black_hole_unit_index == 50 then
+			unit = Winterblight:SpawnCorporealRevenant(position, Vector(0,-1))
+		elseif black_hole_unit_index == 51 then
+			unit = Winterblight:SpawnBeguiler(position, Vector(0,-1))
+		elseif black_hole_unit_index == 52 then
+			unit = Winterblight:SpawnFungalShaman(position, Vector(0,-1))
+		elseif black_hole_unit_index == 53 then
+			unit = Winterblight:SpawnHeartSlayer(position, Vector(0,-1))
+		elseif black_hole_unit_index == 54 then
+			unit = Winterblight:SpawnSkullHunter(position, Vector(0,-1))
+		elseif black_hole_unit_index == 55 then
+			unit = Winterblight:SpawnMundugu(position, Vector(0,-1))
+		elseif black_hole_unit_index == 56 then
+			unit = Winterblight:SpawnCrystalist(position, Vector(0,-1))
+		elseif black_hole_unit_index == 57 then
+			unit = Winterblight:SpawnZectRider(position, Vector(0,-1))
+		elseif black_hole_unit_index == 58 then
+			unit = Winterblight:SpawnMushroomPixie(position, Vector(0,-1))
+		elseif black_hole_unit_index == 59 then
+			unit = Winterblight:SpawnCrystariumSpider(position, Vector(0,-1))
+		elseif black_hole_unit_index == 60 then
+			unit = Winterblight:SpawnIcixel(position, Vector(0,-1))
+		elseif black_hole_unit_index == 61 then
+			unit = Winterblight:SpawnGhostOfAurora(position, Vector(0,-1))
+		elseif black_hole_unit_index == 62 then
+			unit = Winterblight:SpawnCavernBovaur(position, Vector(0,-1))
+		elseif black_hole_unit_index == 63 then
+			unit = Winterblight:SpawnIceStealer(position, Vector(0,-1))
+		elseif black_hole_unit_index == 64 then
+			unit = Winterblight:SpawnFrostOverwhelmer(position, Vector(0,-1))
+		elseif black_hole_unit_index == 65 then
+			unit = Winterblight:SpawnGiantSnowCrab(position, Vector(0,-1))
+		elseif black_hole_unit_index == 66 then
+			unit = Winterblight:SpawnServantOfSaturn(position, Vector(0,-1))
+		elseif black_hole_unit_index == 67 then
+			unit =  Winterblight:SpawnZodiacOracle(position, Vector(0,-1))
+		elseif black_hole_unit_index == 68 then
+			unit = Winterblight:SpawnSpaceShark(position, Vector(0,-1))
+		elseif black_hole_unit_index == 69 then
+			unit = Winterblight:SpawnBoneBlister(position, Vector(0,-1))
+		elseif black_hole_unit_index == 70 then
+			unit = Winterblight:SpawnStarEater(position, Vector(0,-1))
+		elseif black_hole_unit_index == 71 then
+			unit = Winterblight:SpawnGalaxyKnight(position, Vector(0,-1))
+		elseif black_hole_unit_index == 72 then
+			unit = Winterblight:SpawnFrozenKrow(position, Vector(0,-1))
+		elseif black_hole_unit_index == 73 then
+			unit = Winterblight:SpawnMindChatterer(position, Vector(0,-1))
+		elseif black_hole_unit_index == 74 then
+			unit = Winterblight:SpawnWintertideMonk(position, Vector(0,-1))
+		elseif black_hole_unit_index == 75 then
+			unit = Winterblight:SpawnWintersChieftain(position, Vector(0,-1))
+		end
+		print("SPAWN")
+		EmitSoundOn("Winterblight.BlackHoleUnit.Spawn", unit)
+		local colorVector = Vector(0.8, 0.1, 0.8)
+		CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", unit, 4)
+		Winterblight:SetCavernUnit(unit, black_hole:GetAbsOrigin(), false, false, 4)
+		Dungeons:AggroUnit(unit)
+		Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_wb_zero_g", {})
+		unit:SetAcquisitionRange(7000)
+	end
+end
+
+function Winterblight:RandomPointInEdgeOfWinter()
+	local luck = RandomInt(1, 41635)
+	local position = Vector(0,0)
+	if luck <= 20304 then
+		local height = 8012
+		local width = 2538
+		local origin = Vector(-16010, 12250)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		position = bl_vertex + Vector(RandomInt(0, width), RandomInt(0, height))
+	elseif luck <= 26786 then
+		local height = 7092
+		local width = 914
+		local origin = Vector(-14281, 12454)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		position = bl_vertex + Vector(RandomInt(0, width), RandomInt(0, height))
+	elseif luck <= 38918 then
+		local height = 4497
+		local width = 2698
+		local origin = Vector(-12670, 14025)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		position = bl_vertex + Vector(RandomInt(0, width), RandomInt(0, height))
+	elseif luck <= 40228 then
+		local height = 640
+		local width = 2048
+		local origin = Vector(-12800, 11456)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		position = bl_vertex + Vector(RandomInt(0, width), RandomInt(0, height))
+	elseif luck <= 41211 then
+		local height = 640
+		local width = 1536
+		local origin = Vector(-13056, 10816)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		position = bl_vertex + Vector(RandomInt(0, width), RandomInt(0, height))
+	else
+		local height = 528
+		local width = 804
+		local origin = Vector(-13396, 10560)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		position = bl_vertex + Vector(RandomInt(0, width), RandomInt(0, height))
+	end
+	return position
 end

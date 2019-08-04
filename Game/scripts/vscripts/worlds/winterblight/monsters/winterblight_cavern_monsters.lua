@@ -664,6 +664,9 @@ function cavern_unit_die(event)
 		Winterblight:EdgeOfWinter2WaveRedirect(Winterblight.EdgeOfWinter2Kills)
 	elseif chamber == 4 and Winterblight.CavernData.Chambers[chamber]["event"] == 3 then
 		Winterblight:SpawnNextChrolonus(unit.spawnphase)
+	elseif chamber == 4 and Winterblight.CavernData.Chambers[chamber]["event"] == 4 then
+		Winterblight.BlackHolesKills = Winterblight.BlackHolesKills + 1
+		Winterblight:GravityBlackHolesSpawns(Winterblight.BlackHolesKills)
 	end
 end
 
@@ -2355,12 +2358,47 @@ function zero_g_hero_think(event)
 	if not hero.zero_g_target then
 		hero.zero_g_target = 200
 		hero.zero_g_interval = 0
+		
+	end
+	if not hero.black_hole_move_vector then
+		hero.black_hole_move_vector = Vector(0,0)
 	end
 	hero:SetModifierStackCount("modifier_wb_zero_g_flying", caster, hero.zero_g_target)
 	hero.zero_g_target = hero.zero_g_target + (2 * math.cos(2 * math.pi * hero.zero_g_interval / 180))
 	hero.zero_g_interval = hero.zero_g_interval + 1
 	if hero.zero_g_interval >= 180 then
 		hero.zero_g_interval = 0
+	end
+	local black_holes = Winterblight.EdgeOfWinterBlackHoles
+	local black_hole_count = 0
+	local max_pull_speed = 5
+	if GameState:GetDifficultyFactor() == 2 then
+		max_pull_speed = 7
+	elseif GameState:GetDifficultyFactor() == 3 then
+		max_pull_speed = 8
+	end
+	if #black_holes > 0 then
+		local total_move_vector = Vector(0,0)
+		local total_pull_speed = 0
+		for i = 1, #black_holes, 1 do
+			local black_hole = black_holes[i]
+			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), black_hole:GetAbsOrigin())
+			if distance < 1500 then
+				black_hole_count = black_hole_count + 1
+				local direction = WallPhysics:normalized_2d_vector(hero:GetAbsOrigin(), black_hole:GetAbsOrigin())
+				hero.black_hole_move_vector = hero.black_hole_move_vector + (direction*(1500-distance))/2500
+				total_pull_speed = math.max(total_pull_speed, (1500-distance/150))
+			end
+		end
+		if hero.black_hole_move_vector:Length2D() > max_pull_speed then
+			hero.black_hole_move_vector = (hero.black_hole_move_vector:Normalized())*max_pull_speed
+		end
+		total_pull_speed = math.min(total_pull_speed, 8)
+		total_pull_speed = math.max(total_pull_speed, 1)
+		hero:SetAbsOrigin(hero:GetAbsOrigin()+(hero.black_hole_move_vector))	
+	end
+	if black_hole_count == 0 then
+		hero.black_hole_move_vector = Vector(0,0)
 	end
 end
 
@@ -2382,5 +2420,21 @@ function zero_g_spell_cast(event)
 				executedAbility:StartCooldown(cd)
 			end
 		end)
+	end
+end
+
+function wb_black_hole_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	ParticleManager:SetParticleControl(caster.pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(caster.pfx, 1, caster:GetAbsOrigin())
+	if not caster.interval then
+		caster.interval = 0
+	end
+	caster.interval = caster.interval + 1
+	if caster.interval >= 500 then
+		local pos = Winterblight:RandomPointInEdgeOfWinter()
+		caster:MoveToPosition(pos)
+		caster.interval = 0
 	end
 end

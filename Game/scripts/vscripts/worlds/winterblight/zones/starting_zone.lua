@@ -2056,3 +2056,45 @@ function Winterblight:InitCaptainReynar()
 	local position = Vector(-8333, -8098) + Vector(RandomInt(0, 3400), RandomInt(0, 2000))
 	local captain = CreateUnitByName("winterblight_captain_reynar_ghost", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
 end
+
+function Winterblight:WorkingOnSomething()
+	if black_hole_unit_index == 1 then
+		unit = Winterblight:SpawnMountainOgre(position, Vector(0,-1))
+	elseif black_hole_unit_index == 2 then
+		unit = Winterblight:SpawnFrostiok(position, Vector(0,-1))
+	elseif black_hole_unit_index == 3 then
+		unit = Winterblight:SpawnIceMarauader(position, Vector(0,-1))
+	elseif black_hole_unit_index == 4 then
+		unit = Winterblight:SpawnMountainDweller(position, Vector(0,-1))
+	elseif black_hole_unit_index == 5 then
+		unit = Winterblight:SpawnChillingColossus(position, Vector(0,-1))
+	elseif black_hole_unit_index == 6 then
+		unit = Winterblight:Snowshaker(position, Vector(0,-1))
+	elseif black_hole_unit_index == 7 then
+		unit = Winterblight:FrigidGrowth(position, Vector(0,-1))
+	elseif black_hole_unit_index == 8 then
+		unit = Winterblight:SpawnDashingSwordsman(position, Vector(0,-1))
+	elseif black_hole_unit_index == 9 then
+		unit = Winterblight:SpawnWinterAssasin(position, Vector(0,-1))
+	elseif black_hole_unit_index == 10 then
+		unit = Winterblight:SpawnIceMarauader(position, Vector(0,-1))
+	elseif black_hole_unit_index == 11 then
+		unit = Winterblight:SpawnIceMarauader(position, Vector(0,-1))
+	elseif black_hole_unit_index == 12 then
+		unit = Winterblight:SpawnMountainDweller(position, Vector(0,-1))
+	elseif black_hole_unit_index == 13 then
+		unit = Winterblight:SpawnIceMarauader(position, Vector(0,-1))
+	elseif black_hole_unit_index == 14 then
+		unit = Winterblight:SpawnIceMarauader(position, Vector(0,-1))
+	elseif black_hole_unit_index == 15 then
+		unit = Winterblight:SpawnIceMarauader(position, Vector(0,-1))
+	elseif black_hole_unit_index == 16 then
+		unit = Winterblight:SpawnMountainDweller(position, Vector(0,-1))
+	elseif black_hole_unit_index == 17 then
+		unit = Winterblight:SpawnIceMarauader(position, Vector(0,-1))
+	elseif black_hole_unit_index == 18 then
+		unit = Winterblight:SpawnIceMarauader(position, Vector(0,-1))
+	elseif black_hole_unit_index == 19 then
+		unit = Winterblight:SpawnIceMarauader(position, Vector(0,-1))		
+	end
+end

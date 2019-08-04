@@ -5373,3 +5373,81 @@ function Winterblight:GetRandomOrthokPosition()
 	end
 	return position
 end
+
+function Winterblight:WorkingOnSomething()
+	if black_hole_unit_index == 1 then
+		unit = Winterblight:SpawnMountainOgre(position, Vector(0,-1))
+	elseif black_hole_unit_index == 2 then
+		unit = Winterblight:SpawnFrostiok(position, Vector(0,-1))
+	elseif black_hole_unit_index == 3 then
+		unit = Winterblight:SpawnIceMarauader(position, Vector(0,-1))
+	elseif black_hole_unit_index == 4 then
+		unit = Winterblight:SpawnMountainDweller(position, Vector(0,-1))
+	elseif black_hole_unit_index == 5 then
+		unit = Winterblight:SpawnChillingColossus(position, Vector(0,-1))
+	elseif black_hole_unit_index == 6 then
+		unit = Winterblight:Snowshaker(position, Vector(0,-1))
+	elseif black_hole_unit_index == 7 then
+		unit = Winterblight:FrigidGrowth(position, Vector(0,-1))
+	elseif black_hole_unit_index == 8 then
+		unit = Winterblight:SpawnDashingSwordsman(position, Vector(0,-1))
+	elseif black_hole_unit_index == 9 then
+		unit = Winterblight:SpawnWinterAssasin(position, Vector(0,-1))
+	elseif black_hole_unit_index == 10 then
+		unit = Winterblight:SpawnRiderOfAzalea(position, Vector(0,-1))
+	elseif black_hole_unit_index == 11 then
+		unit = Winterblight:SpawnAzaleaArcher(position, Vector(0,-1))
+	elseif black_hole_unit_index == 12 then
+		unit = Winterblight:SpawnAzaleaSorceress(position, Vector(0,-1))
+	elseif black_hole_unit_index == 13 then
+		unit = Winterblight:SpawnFrostAvatar(position, Vector(0,-1))
+	elseif black_hole_unit_index == 14 then
+		unit = Winterblight:SpawnFrostElemental(position, Vector(0,-1))
+	elseif black_hole_unit_index == 15 then
+		unit = Winterblight:SpawnFrostHulk(position, Vector(0,-1))
+	elseif black_hole_unit_index == 16 then
+		unit = Winterblight:SpawnPriestOfAzalea(position, Vector(0,-1))
+	elseif black_hole_unit_index == 17 then
+		unit = Winterblight:SpawnSoftwalker(position, Vector(0,-1))
+	elseif black_hole_unit_index == 18 then
+		unit = Winterblight:SpawnFrostWhelpling(position, Vector(0,-1))
+	elseif black_hole_unit_index == 19 then
+		unit = Winterblight:SpawnHeartFreezer(position, Vector(0,-1))
+	elseif black_hole_unit_index == 20 then
+		unit = Winterblight:SpawnAzaleaMaiden(position, Vector(0,-1))
+	elseif black_hole_unit_index == 21 then
+		unit = Winterblight:SpawnSyphist(position, Vector(0,-1))
+	elseif black_hole_unit_index == 22 then
+		unit = Winterblight:SpawnSourceRevenant(position, Vector(0,-1))
+	elseif black_hole_unit_index == 23 then
+		unit = Winterblight:SpawnAzaleaHighguard(position, Vector(0,-1))
+	elseif black_hole_unit_index == 24 then
+		unit = Winterblight:SpawnAzaleaMindbreaker(position, Vector(0,-1))
+	elseif black_hole_unit_index == 25 then
+		unit = Winterblight:SpawnGhostStriker(position, Vector(0,-1))
+	elseif black_hole_unit_index == 26 then
+		unit = Winterblight:SpawnSecretKeeper(position, Vector(0,-1))
+	elseif black_hole_unit_index == 27 then
+		unit = Winterblight:SpawnArmoredKnight(position, Vector(0,-1))
+	elseif black_hole_unit_index == 28 then
+		unit = Winterblight:SpawnCrystalRunner(position, Vector(0,-1))
+	elseif black_hole_unit_index == 29 then
+		unit = Winterblight:SpawnDemonSpirit(position, Vector(0,-1))	
+	elseif black_hole_unit_index == 30 then
+		unit = Winterblight:SpawnBladeWielder(position, Vector(0,-1))	
+	elseif black_hole_unit_index == 31 then
+		unit = Winterblight:SpawnShineMegmus(position, Vector(0,-1))
+	elseif black_hole_unit_index == 32 then
+		unit = Winterblight:SpawnAzaleaDragoon(position, Vector(0,-1))
+	elseif black_hole_unit_index == 33 then
+		unit = Winterblight:SpawnKnifeScraper(position, Vector(0,-1))
+	elseif black_hole_unit_index == 34 then
+		unit = Winterblight:SpawnFencer(position, Vector(0,-1))
+	elseif black_hole_unit_index == 35 then
+		unit = Winterblight:SpawnRiftBreaker(position, Vector(0,-1))
+	elseif black_hole_unit_index == 36 then
+		unit = Winterblight:SpawnStarSeeker(position, Vector(0,-1))
+	elseif black_hole_unit_index == 37 then
+		unit = Winterblight:SpawnSpineSplitter(position, Vector(0,-1))
+	end
+end
