@@ -1,4 +1,5 @@
 require('heroes/huskar/windstrike')
+require('/heroes/huskar/spirit_warrior_constants')
 
 function cast_ancient_spirit(event)
 	local caster = event.caster
