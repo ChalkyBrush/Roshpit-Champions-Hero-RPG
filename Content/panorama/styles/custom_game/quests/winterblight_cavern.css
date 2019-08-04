@@ -718,3 +718,27 @@
 .winter_cavern_no_record_container{
 	horizontal-align:center;
 }
+
+#winterblight_cavern_boss_button{
+	horizontal-align:center;
+	height:40px;
+	border:1px solid #666666;
+	margin-top:30px;
+	width:80%;
+	border-radius:4px;
+	background-color: #060606;
+}
+
+#winterblight_cavern_boss_button_label{
+	vertical-align: center;
+	horizontal-align: center;
+	color:#FFFFFF;
+	font-size:16px;
+	font-weight:lighter;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+}
+
+#winterblight_cavern_boss_button:hover{
+	border:1px solid #FFFFFF;
+	background-color: #111111;
+}

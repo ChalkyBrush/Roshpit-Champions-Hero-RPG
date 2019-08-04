@@ -32,6 +32,8 @@ function OpenWinterblightCavernUi(msg, bIgnoreFade){
 			cavern_ui_panel.FindChildTraverse('chamber-button-'+i).AddClass('chamber-main-button-active')
 		}
 	}
+	var boss_button = cavern_ui_panel.FindChildTraverse('winterblight_cavern_boss_button')
+	set_boss_menu_init(boss_button, msg)
 }
 
 function setChamberButtonActivate(button, index, msg){
@@ -45,6 +47,23 @@ function getChamberEvents(chamber_name)
 	if (chamber_name == "frozen_foyer"){
 		return ["standard", "something1", "something2", "something3"]
 	}
+}
+
+function set_boss_menu_init(boss_button, msg){
+	boss_button.SetPanelEvent('onactivate', function BossMenuLoad(){
+		init_boss_menu(msg)
+	});
+}
+
+function init_boss_menu(msg){
+	$('#winterblight_cavern_main_ui').RemoveAndDeleteChildren()
+	var cavern_ui_panel = $.CreatePanel("Panel", $('#winterblight_cavern_main_ui'), "cavern_ui")
+	cavern_ui_panel.BLoadLayoutSnippet("winter_cavern_boss_menu")
+	var backBtn = cavern_ui_panel.FindChildTraverse('winterblight_cavern_back_button')
+	Game.EmitSound("Winterblight.UI.ChamberSelect")
+	backBtn.SetPanelEvent('onactivate', function Back() {
+		CavernBack(msg)
+	});
 }
 
 function ChamberButtonActivate(index, msg){
@@ -74,7 +93,6 @@ function ChamberButtonActivate(index, msg){
 	}
 	var backBtn = cavern_ui_panel.FindChildTraverse('winterblight_cavern_back_button')
 	backBtn.SetPanelEvent('onactivate', function Back() {
-		$.Msg("CLICKADOO")
 		CavernBack(msg)
 	});
 }
