@@ -38,7 +38,11 @@ function class:OnIntervalThink()
     end
 end
 function class:ApplyDamage(damage, target)
-    CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit_body_flash.vpcf", target, 2)
+
+    local limitKey = self:GetCaster():GetPlayerOwnerID() .. '_chernobog_q2'
+    Util.Common:LimitPerTime(20, 1, limitKey, function()
+        CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit_body_flash.vpcf", target, 2)
+    end)
     Damage:Apply({
         attacker = self:GetCaster(),
         victim = target,
