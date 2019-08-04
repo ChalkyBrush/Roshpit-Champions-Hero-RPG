@@ -12,28 +12,15 @@ function class:OnCreated()
     if not IsServer() then
         return
     end
-    self:OnRuneR4CountUpdate({
-        count = self:GetCaster().r4_level
-    })
-end
-function class:OnRuneR4CountUpdate(data)
-    local caster = self:GetCaster()
-    if data.count > 0 and not self.added then
-        caster:AddNewModifier(caster, self, modifiers.demon_amp_r4, {})
-    elseif data.count == 0 and self.added then
-        self:OnDestroy()
-    end
-    self.added = data.count > 0
-end
-function class:OnDestroy()
-    if not IsServer() then
-        return
-    end
-    self:GetCaster():RemoveModifierByName(modifiers.demon_amp_r4)
+    self:SetSpecialTypes({ MODIFIER_SPECIAL_TYPE_ELEMENTS })
 end
 function class:IsHidden()
     return true
 end
 function class:RemoveOnDeath()
     return false
+end
+function class:GetDemonElementAmplify(data)
+    local caster = self:GetCaster()
+    return caster.r4_level * CHERNOBOG_R4_DEMON_AMP_PER_AGI_PCT/100 * caster:GetAgility()
 end

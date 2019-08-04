@@ -29,7 +29,7 @@ require('/items/constants/trinket')
 
 local heroes = {
 	venomort = require('/heroes/hero_necrolyte/scales'),
-mountain_protector = require('/heroes/legion_commander/constants')}
+mountain_protector = require('/heroes/legion_commander/mountain_protector_constants')}
 
 VectorTarget:Init({noOrderFilter = true})
 
@@ -1889,27 +1889,6 @@ function GameState:FilterDamage(filterTable)
 	local victim = EntIndexToHScript(victim_index)
 	local attacker = EntIndexToHScript(attacker_index)
 
-
-	local attackerBuffs, attackerDebuffs = Util.Creature:GetBuffsAndDebuffs(attacker, npc_base_modifier)
-	local victimBuffs, victimDebuffs = Util.Creature:GetBuffsAndDebuffs(victim, npc_base_modifier)
-
-	local elements = {}
-	if attacker.element1 then
-		table.insert(elements, attacker.element1)
-	end
-	if attacker.element2 then
-		table.insert(elements, attacker.element2)
-	end
-
-	local newDamageCalculatorData = {
-		victim = victim,
-		attacker = attacker,
-		damage = filterTable['damage'],
-		damageType = filterTable.damagetype_const,
-		ignoreSteadfast = attacker.ignore_steadfast or false,
-		elements = elements,
-	}
-
 	local abs = math.abs
 	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
 		local armor = victim:GetPhysicalArmorValue(false)
@@ -1980,13 +1959,6 @@ function GameState:FilterDamage(filterTable)
 	local divisor = 1
 	local modifier = nil
 
-	newDamageCalculatorData.damage = filterTable['damage']
-	mult = Damage:GetWithPostmitigation('Amplify', attackerBuffs, victimDebuffs, newDamageCalculatorData)/filterTable['damage']
-	newDamageCalculatorData.damage = filterTable['damage'] * mult
-
-	divisor = filterTable['damage'] * mult/Damage:GetWithPostmitigation('Reduce', attackerDebuffs, victimBuffs, newDamageCalculatorData)
-	newDamageCalculatorData.damage = filterTable['damage']
-
 	if attacker:IsHero() then
 		-- if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 		-- filterTable["damage"] = math.ceil(filterTable["damage"]/(1+((attacker:GetIntellect()/14)/100)))
@@ -2014,7 +1986,22 @@ function GameState:FilterDamage(filterTable)
 		-- end
 		-- end
 	end
-
+	modifier = attacker:FindModifierByName('modifier_chernobog_glyph_t71_passive')
+	if modifier then
+		mult = mult + modifier:GetPostmitigationAmplify({})
+	end
+	modifier = attacker:FindModifierByName('modifier_chernobog_4_r_arcana1_postmit_r3')
+	if modifier then
+		mult = mult + modifier:GetPostmitigationAmplify({ attacker = attacker })
+	end
+	modifier = victim:FindModifierByName('modifier_chernobog_4_r_procession_enemy_effect')
+	if modifier then
+		mult = mult + modifier:GetPostmitigationAmplify({ attacker = attacker })
+	end
+	modifier = victim:FindModifierByName('modifier_chernobog_3_e_teleportation_enemy_effect_e3')
+	if modifier then
+		mult = mult + modifier:GetPostmitigationAmplify({ attacker = attacker })
+	end
 	if victim:HasModifier("modifier_centaur_horns") then
 		if filterTable["entindex_inflictor_const"] then
 			if EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() ~= "item_rpc_centaur_horns" then
@@ -3562,7 +3549,10 @@ function GameState:FilterDamage(filterTable)
 			Filters:EarthGuardian(victim, filterTable["damage"])
 		end
 	end
-
+	modifier = victim:FindModifierByName('modifier_chernobog_1_q_path_enemy_effect_q1')
+	if modifier then
+		filterTable["damage"] = filterTable["damage"] * (1 + modifier:GetExtraPostmitigationAmplify())
+	end
 	if attacker:HasModifier("modifier_helm_odin") then
 		local proc = Filters:GetProc(attacker, 10)
 		if proc then
@@ -4020,17 +4010,6 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = 0
 			victim:SetMana(victim:GetMana() - 1)
 		end
-	end
-
-
-	newDamageCalculatorData.damage = filterTable["damage"]
-	filterTable['damage'] = Damage:GetWithExtraPostmitigation('Amplify', attackerBuffs, victimDebuffs, newDamageCalculatorData)
-	newDamageCalculatorData.damage = filterTable["damage"]
-	filterTable['damage'] = Damage:GetWithExtraPostmitigation('Reduce', attackerDebuffs, victimBuffs, newDamageCalculatorData)
-
-	if applyEffects and filterTable["damage"] >= victim:GetHealth() then
-		newDamageCalculatorData.damage = filterTable["damage"]
-		Damage:OnLethal(attackerDebuffs, victimBuffs, newDamageCalculatorData)
 	end
 	if victim:HasModifier("modifier_dummy_active") and applyEffects then
 		if attacker == Events.GameMaster then

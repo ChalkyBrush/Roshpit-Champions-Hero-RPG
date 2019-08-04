@@ -9,6 +9,7 @@ local modifiers = {
 	path_effect = 'modifier_chernobog_1_q_path_effect',
 	path_aura = 'modifier_chernobog_1_q_path_aura',
 	path_ally_effect = 'modifier_chernobog_1_q_path_ally_effect',
+	path_ally_flying_effect = 'modifier_chernobog_1_q_path_ally_flying_effect',
 }
 for modifierPath, modifier in pairs(modifiers) do
 	LinkLuaModifier(modifier, "heroes/nightstalker/modifiers/"..prefix..modifierPath, LUA_MODIFIER_MOTION_NONE)
