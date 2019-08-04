@@ -1327,7 +1327,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
 
         if attacker:HasAbility("mountain_protector_emberstone") then
             local e_4_level = attacker:GetRuneValue("e", 4)
-            damageMult = damageMult + MOUNTAIN_PROTECTOR_E4_BAD * e_4_level
+            damageMult = damageMult + heroes.mountain_protector.MOUNTAIN_PROTECTOR_E4_BAD * e_4_level
         end
         if attacker:HasModifier("modifier_infused_mageplate_stack") then
             local mageplateStacks = attacker:GetModifierStackCount("modifier_infused_mageplate_stack", attacker.body)

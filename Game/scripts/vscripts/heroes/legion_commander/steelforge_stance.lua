@@ -1,4 +1,4 @@
-local constants = require('/heroes/legion_commander/constants')
+local constants = require('/heroes/legion_commander/mountain_protector_constants')
 
 function energy_shield_create(event)
 	local caster = event.caster
