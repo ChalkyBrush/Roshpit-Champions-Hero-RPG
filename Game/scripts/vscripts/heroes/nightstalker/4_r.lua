@@ -12,7 +12,6 @@ local modifiers = {
     procession_enemy_effect = 'modifier_chernobog_4_r_procession_enemy_effect',
     attack_r3 = 'modifier_chernobog_4_r_attack_r3',
     passive = 'modifier_chernobog_4_r_passive',
-    demon_amp_r4 = 'modifier_chernobog_4_r_demon_amp_r4'
 }
 for modifierPath, modifier in pairs(modifiers) do
     LinkLuaModifier(modifier, "heroes/nightstalker/modifiers/"..prefix..modifierPath, LUA_MODIFIER_MOTION_NONE)
