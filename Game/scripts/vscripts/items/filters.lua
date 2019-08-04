@@ -5,7 +5,7 @@ end
 require('/heroes/antimage/arkimus_constants')
 local heroes = {
     venomort = require('/heroes/hero_necrolyte/scales'),
-mountain_protector = require('/heroes/legion_commander/constants')}
+mountain_protector = require('/heroes/legion_commander/mountain_protector_constants')}
 
 require('/heroes/dark_seer/zhonik_constants')
 require('/heroes/huskar/spirit_warrior_constants')

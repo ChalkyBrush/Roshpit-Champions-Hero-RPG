@@ -29,7 +29,7 @@ require('/items/constants/trinket')
 
 local heroes = {
 	venomort = require('/heroes/hero_necrolyte/scales'),
-mountain_protector = require('/heroes/legion_commander/constants')}
+mountain_protector = require('/heroes/legion_commander/mountain_protector_constants')}
 
 VectorTarget:Init({noOrderFilter = true})
 

@@ -3,7 +3,7 @@ if CustomAttributes == nil then
 end
 
 local hero_values = {
-	mountain_protector = require('/heroes/legion_commander/constants'),
+	mountain_protector = require('/heroes/legion_commander/mountain_protector_constants'),
 }
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/antimage/arkimus_constants')

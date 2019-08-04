@@ -1,6 +1,6 @@
 require("heroes/legion_commander/grand_fissure")
 require("heroes/legion_commander/hailstorm")
-
+local constants = require('/heroes/legion_commander/mountain_protector_constants')
 function begin_mystic_strike(event)
     local caster = event.caster
     local ability = event.ability
@@ -158,8 +158,8 @@ function bomb_land(bomb, caster, ability)
         elseif caster:HasAbility("mountain_protector_hailstorm") then
             local aeonFracture = caster:FindAbilityByName("mountain_protector_hailstorm")
             local damage = aeonFracture:GetSpecialValueFor("damage") + aeonFracture:GetSpecialValueFor("damage_from_strength") * caster:GetStrength()
-            local amp = MOUNTAIN_PROTECTOR_E1_BASE/100 + (MOUNTAIN_PROTECTOR_E1_DMG_PCT/100 * a_c_level)
-            local stun_duration = MOUNTAIN_PROTECTOR_E1_STUN_DURATION * a_c_level
+            local amp = constants.MOUNTAIN_PROTECTOR_E1_BASE/100 + (constants.MOUNTAIN_PROTECTOR_E1_DMG_PCT/100 * a_c_level)
+            local stun_duration = constants.MOUNTAIN_PROTECTOR_E1_STUN_DURATION * a_c_level
             local explosionAOE = 300
             hailstorm_explosion(caster, bomb:GetAbsOrigin(), damage, amp, explosionAOE, aeonFracture, false, stun_duration)
         end
