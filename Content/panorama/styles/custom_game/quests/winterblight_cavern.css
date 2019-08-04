@@ -750,7 +750,6 @@
 }
 
 .winter_cavern_boss_menu_root{
-	margin-top:20px;
 	width:100%;
 }
 
@@ -761,9 +760,37 @@
 	width:80%;
 	border-radius:4px;
 	background-color: #060606;
+	margin-top:20px;
 }
 
 #winterblight_inner_cavern_boss_button:hover{
 	border:1px solid #FFFFFF;
 	background-color: #111111;
+}
+
+.wb_boss_skull{
+	vertical-align: center;
+	margin-left:10px;
+	width:18px;
+	height:18px;
+}
+
+.boss_fragments_cost_container{
+	horizontal-align:right;
+	flow-children:right;
+	vertical-align: center;
+	margin-right:10px;
+}
+
+.winter_boss_fragments_icon{
+	width:18px;
+	height:18px;
+	margin-right:6px;
+}
+
+#winterblight_boss_fragments_cost{
+	font-size:14px;
+	font-weight:lighter;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color:white;
 }
