@@ -61,6 +61,18 @@ function init_boss_menu(msg){
 	cavern_ui_panel.BLoadLayoutSnippet("winter_cavern_boss_menu")
 	var backBtn = cavern_ui_panel.FindChildTraverse('winterblight_cavern_back_button')
 	Game.EmitSound("Winterblight.UI.ChamberSelect")
+	var fragments = parseInt(msg.winterblight_cavern.RelicsFragments)
+	cavern_ui_panel.FindChildTraverse('winterblight_chamber_event_fragments').text = $.Localize("winterblight_cavern_fragments") + " " + fragments
+	for (var i = 1; i <= 4; i++) {
+		var boss_button_attacher = cavern_ui_panel.FindChildTraverse('boss_button_attacher')
+		var cavern_event_button_panel = $.CreatePanel("Panel", boss_button_attacher, "cavern_boss_button_"+i)
+		cavern_event_button_panel.BLoadLayoutSnippet("winter_cavern_boss_button")
+		cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_button_label').text = $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])
+
+		// var status = parseInt(msg.winterblight_cavern.Chambers[index]["events"][i]["status"])
+
+	}
+
 	backBtn.SetPanelEvent('onactivate', function Back() {
 		CavernBack(msg)
 	});

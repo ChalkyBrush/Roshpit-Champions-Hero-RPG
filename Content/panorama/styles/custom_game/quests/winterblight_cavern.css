@@ -742,3 +742,28 @@
 	border:1px solid #FFFFFF;
 	background-color: #111111;
 }
+
+#boss_button_attacher{
+	flow-children:down;
+	width:100%;
+/*	height:400px;*/
+}
+
+.winter_cavern_boss_menu_root{
+	margin-top:20px;
+	width:100%;
+}
+
+#winterblight_inner_cavern_boss_button{
+	horizontal-align:center;
+	height:40px;
+	border:1px solid #666666;
+	width:80%;
+	border-radius:4px;
+	background-color: #060606;
+}
+
+#winterblight_inner_cavern_boss_button:hover{
+	border:1px solid #FFFFFF;
+	background-color: #111111;
+}

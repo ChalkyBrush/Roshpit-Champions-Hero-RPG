@@ -70,6 +70,7 @@ function Winterblight:InitCavernData()
 	for i = 1, 4, 1 do
 		Winterblight.CavernData.Chambers[i] = {}
 		Winterblight.CavernData.Chambers[i]["status"] = 0
+		Winterblight.CavernData.Chambers[i]["boss_status"] = 0
 		-- Winterblight.CavernData.Chambers[i]["relic_fragments_reward"] = 100
 		Winterblight.CavernData.Chambers[i]["events"] = {}
 		for j = 1, 4, 1 do
@@ -80,6 +81,11 @@ function Winterblight:InitCavernData()
 			-- update reward calcs
 		end
 	end
+	Winterblight.CavernData.Chambers[1]["boss_name"] = "descent_of_winterblight_torturok"
+	Winterblight.CavernData.Chambers[2]["boss_name"] = "descent_of_winterblight_aertega"
+	Winterblight.CavernData.Chambers[3]["boss_name"] = "descent_of_winterblight_ozubu"
+	Winterblight.CavernData.Chambers[4]["boss_name"] = "something_not_done"
+
 	Winterblight.CavernChamberVertices = {}
 	for j = 1, 4, 1 do
 		Winterblight.CavernChamberVertices[j] = Winterblight:GetVertices(j)

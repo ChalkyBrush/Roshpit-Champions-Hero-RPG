@@ -206,11 +206,22 @@
 				</Button>
 				<Panel id="winterblight_cavern_main_ui_container" hittest="false">
 					<Label id="winterblight_cavern_title" text="winterblight_cavern_boss_button_label"/>
-				</Panel>
-				<Panel id="boss_button_attacher" hittest="false">
+					<Panel id="chamber_event_fragments_container">
+						<Image class="chamber_event_fragments_icon" src="file://{images}/custom_game/ui/winterblight/relic_fragments.png"/>
+						<Label id="winterblight_chamber_event_fragments" text="winterblight_cavern_fragments"/>
+					</Panel>
+					<Panel id="boss_button_attacher" hittest="false">
+					</Panel>
 				</Panel>
 				<Button class="main_menu_button" id="winterblight_cavern_close_button" hittest="true" onactivate='CloseWinterCavern()'>
 					<Label id="winterblight_cavern_exit_label" text="arena_training_button_3"/>
+				</Button>
+			</Panel>
+		</snippet>
+		<snippet name="winter_cavern_boss_button">
+			<Panel class="winter_cavern_boss_menu_root" hittest="false">
+				<Button id="winterblight_inner_cavern_boss_button" hittest="true">
+					<Label id="winterblight_cavern_boss_button_label" text="winterblight_cavern_boss_button_label"/>
 				</Button>
 			</Panel>
 		</snippet>
