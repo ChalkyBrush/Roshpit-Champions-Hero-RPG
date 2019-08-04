@@ -10,6 +10,7 @@ local modifiers = {
     path_enemy_effect_q1 = 'modifier_chernobog_1_q_path_enemy_effect_q1',
     path_enemy_effect_q2 = 'modifier_chernobog_1_q_path_enemy_effect_q2',
     path_ally_effect = 'modifier_chernobog_1_q_path_ally_effect',
+    path_ally_flying_effect = 'modifier_chernobog_1_q_path_ally_flying_effect',
 }
 
 function class:OnCreated()
@@ -38,6 +39,7 @@ function class:OnCreated()
 
     if caster:GetTeamNumber() == target:GetTeamNumber() then
         target:AddNewModifier(caster, ability,  modifiers.path_ally_effect, {})
+        target:AddNewModifier(caster, ability,  modifiers.path_ally_flying_effect, {})
     else
         target:AddNewModifier(caster, ability,  modifiers.path_enemy_effect, {})
         if caster.q1_level > 0 then
@@ -61,6 +63,7 @@ function class:OnDestroy()
         return
     end
     target:RemoveModifierByName(modifiers.path_ally_effect)
+    target:RemoveModifierByName(modifiers.path_ally_flying_effect)
     target:RemoveModifierByName(modifiers.path_enemy_effect)
     target:RemoveModifierByName(modifiers.path_enemy_effect_q1)
     target:RemoveModifierByName(modifiers.path_enemy_effect_q2)

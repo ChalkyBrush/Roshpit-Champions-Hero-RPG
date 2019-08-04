@@ -9,37 +9,10 @@ function class:DeclareFunctions()
         MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     }
 end
-function class:CheckState()
-    return {
-        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-        [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
-    }
-end
 function class:IsDebuff()
     return false
 end
 
-function class:OnCreated()
-    if not IsServer() then
-        return
-    end
-    self.previousPosition = self:GetParent():GetAbsOrigin()
-    self:StartIntervalThink(0.03)
-end
-function class:OnIntervalThink()
-    local parent = self:GetParent()
-    local currentPosition = parent:GetAbsOrigin()
-    local distance = WallPhysics:GetDistance2d(self.previousPosition, currentPosition)
-    if distance > 150 then
-        self.previousPosition = currentPosition
-        return
-    end
-    local afterWallPosition = WallPhysics:WallSearch(self.previousPosition, currentPosition, parent)
-    if currentPosition ~= afterWallPosition then
-        parent:SetAbsOrigin(afterWallPosition)
-    end
-    self.previousPosition = afterWallPosition
-end
 function class:GetModifierMoveSpeedBonus_Percentage()
     return self:GetAbility().movespeed_amplify
 end
