@@ -753,6 +753,11 @@
 	width:100%;
 }
 
+.winter_cavern_boss_button_root{
+	width:100%;
+	flow-children:down;
+}
+
 #winterblight_inner_cavern_boss_button{
 	horizontal-align:center;
 	height:40px;
@@ -793,4 +798,13 @@
 	font-weight:lighter;
 	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
 	color:white;
+}
+
+#winterblight_cavern_boss_summary{
+	margin-top:4px;
+	font-size:14px;
+	font-weight:lighter;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color:white;
+	horizontal-align:center;	
 }

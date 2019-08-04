@@ -69,6 +69,8 @@ function init_boss_menu(msg){
 		cavern_event_button_panel.BLoadLayoutSnippet("winter_cavern_boss_button")
 		cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_button_label').text = $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])
 		cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = "2,000"
+		var boss_tip_text = $.Localize("winterblight_cavern_boss_summary").replace('@boss_name', $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])).replace('@chamber_name', $.Localize("winterblight_cavern_room"+i))
+		cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_summary').text = boss_tip_text
 		// var status = parseInt(msg.winterblight_cavern.Chambers[index]["events"][i]["status"])
 
 	}

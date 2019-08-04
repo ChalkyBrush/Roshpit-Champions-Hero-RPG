@@ -206,6 +206,7 @@
 				</Button>
 				<Panel id="winterblight_cavern_main_ui_container" hittest="false">
 					<Label id="winterblight_cavern_title" text="winterblight_cavern_boss_button_label"/>
+					<Label id="winterblight_help_1" text="winterblight_cavern_help4"/>
 					<Panel id="chamber_event_fragments_container">
 						<Image class="chamber_event_fragments_icon" src="file://{images}/custom_game/ui/winterblight/relic_fragments.png"/>
 						<Label id="winterblight_chamber_event_fragments" text="winterblight_cavern_fragments"/>
@@ -219,7 +220,7 @@
 			</Panel>
 		</snippet>
 		<snippet name="winter_cavern_boss_button">
-			<Panel class="winter_cavern_boss_menu_root" hittest="false">
+			<Panel class="winter_cavern_boss_button_root" hittest="false">
 				<Button id="winterblight_inner_cavern_boss_button" hittest="true">
 					<Image class="wb_boss_skull" src="file://{images}/custom_game/ui/pargagon-skull.png"/>
 					<Label id="winterblight_cavern_boss_button_label" text="winterblight_cavern_boss_button_label"/>
@@ -228,6 +229,7 @@
 						<Label id="winterblight_boss_fragments_cost" text="0"/>
 					</Panel>
 				</Button>
+				<Label id="winterblight_cavern_boss_summary" text="winterblight_cavern_boss_summary"/>
 			</Panel>
 		</snippet>
 	</snippets>
