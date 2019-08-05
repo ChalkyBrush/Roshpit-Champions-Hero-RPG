@@ -121,7 +121,7 @@
 		"item_property_super_ascendency"			"Super Ascension"
 		"property_super_ascendency_description"		"After casting @Ability4, you gain <% SUPER_ASCENDENCY_ATK_RANGE %> more attack range, <% SUPER_ASCENDENCY_ATK_PCT %>% bonus attack damage, <% SUPER_ASCENDENCY_ATK_SPD %> attack speed, and <% SUPER_ASCENDENCY_MOVE_SPD %> movespeed. Your attacks split to strike up to <% SUPER_ASCENDENCY_TARGETS %> targets at once, and each attack that hits an enemy during this effect will reduce the current cooldown of @Ability4 by <% SUPER_ASCENDENCY_CD_RED %> seconds. This buff has the same duration as @Ability4's cooldown, with a minimum of <% SUPER_ASCENDENCY_MIN_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<% SUPER_ASCENDENCY_ATK_RANGE %> more attack range, <% SUPER_ASCENDENCY_ATK_PCT %>%% bonus attack damage, <% SUPER_ASCENDENCY_ATK_SPD %> attack speed, and <% SUPER_ASCENDENCY_MOVE_SPD %> movespeed. Multishot for <% SUPER_ASCENDENCY_TARGETS - 1 %> additional targets. Hitting enemies reduces @Ability4's current cooldown."
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<% SUPER_ASCENDENCY_ATK_RANGE %> more attack range, <% SUPER_ASCENDENCY_ATK_PCT %>%% bonus attack damage, <% SUPER_ASCENDENCY_ATK_SPD %> attack speed, and <% SUPER_ASCENDENCY_MOVE_SPD %> movespeed. Multishot for <% SUPER_ASCENDENCY_TARGETS - 1 %> additional targets. Hitting enemies reduces your ultimate spell's current cooldown."
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
 		"item_property_phantom_sorcerer"			"Phantom Gaze"
