@@ -1,3 +1,137 @@
+    "item_rpc_super_ascendency_mask"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/super_ascendency_mask" //"super_ascendency_mask"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf"
+		}
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_super_ascendency"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_ascendency_projectile_speed_stacks"
+			{
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ascendency_projectile"
+					}
+				}
+			}
+			"modifier_ascendency_projectile_speed_stacks"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS" "1"
+				}
+			}
+			"modifier_super_ascendency_trigger"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"TextureName"	"itemicons/super_ascendency_mask"
+				"Orb"
+				{
+					"Priority"				"DOTA_ORB_PRIORITY_ITEM"
+					"ProjectileName"		"particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf"
+					"CastAttack"			"0"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+						"EffectAttachType"			"follow_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"255 227 105"
+						"EffectAlphaScale"			"1"
+					}
+					"FireSound"
+					{
+						"EffectName"	"Hero_Sven.GodsStrength"
+						"Target" 		"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"super_ascension_init"
+						"target"		"TARGET"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% SUPER_ASCENDENCY_ATK_PCT %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% SUPER_ASCENDENCY_MOVE_SPD %>"
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"<% SUPER_ASCENDENCY_ATK_SPD %>"
+				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"			"<% SUPER_ASCENDENCY_ATK_RANGE %>>"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"super_ascension_end"
+						"target"		"TARGET"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"super_ascension_attack"
+					}
+				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"super_ascension_attack_start"
+					}
+				}
+			}
+			"modifier_ascendency_dont_split"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+			}
+		}
+	}
 
 	"item_rpc_basilisk_plague_helm"
 	{

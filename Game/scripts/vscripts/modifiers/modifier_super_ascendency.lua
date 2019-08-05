@@ -1,3 +1,5 @@
+require('/items/constants/helm')
+
 modifier_super_ascendency_lua = class({})
 
 function modifier_super_ascendency_lua:DeclareFunctions()
@@ -21,7 +23,7 @@ function modifier_super_ascendency_lua:GetModifierAttackRangeBonus(params)
 end
 
 function modifier_super_ascendency_lua:GetModifierProjectileSpeedBonus(params)
-    return 500
+    return SUPER_ASCENDENCY_PROJECTILE_SPEED
 end
 
 -- function modifier_super_ascendency_lua:GetModifierBaseAttackTimeConstant( params )

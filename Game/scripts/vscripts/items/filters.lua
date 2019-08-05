@@ -3269,8 +3269,9 @@ end
 
 function Filters:AscensionTrigger(caster)
     local ability = caster.headItem
-    ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_super_ascendency_trigger", {duration = 12})
-    caster:AddNewModifier(caster, ability, "modifier_super_ascendency_lua", {duration = 12})
+    local duration = math.max(caster:GetAbilityByIndex(DOTA_R_SLOT):GetCooldownTimeRemaining(), SUPER_ASCENDENCY_MIN_DURATION)
+    ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_super_ascendency_trigger", {duration = duration})
+    caster:AddNewModifier(caster, ability, "modifier_super_ascendency_lua", {duration = duration})
 end
 
 function Filters:ScourgeKnight(caster)
@@ -3337,9 +3338,9 @@ function Filters:SetupSummonUnit(caster, position, damageMult, healthMult, lifeD
 end
 
 function Filters:CytopianLaser(caster)
-    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, CYTOPIAN_LASER_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     local abilityLevel = caster:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
-    local baseDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * abilityLevel * 3
+    local baseDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * abilityLevel * CYTOPIAN_LASER_DMG_PER_ATT
     if #enemies > 0 then
         local ability = caster.handItem
         EmitSoundOn("Hero_Tinker.Attack", enemies[1])
@@ -3359,7 +3360,7 @@ function Filters:CytopianLaser(caster)
                 ParticleManager:DestroyParticle(pfx, false)
             end)
             ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_cytopian_stacks", {duration = 4})
-            local newStacks = math.min(currentStacks + 1, 10)
+            local newStacks = math.min(currentStacks + 1, CYTOPIAN_LASER_MAX_STACKS)
             enemy:SetModifierStackCount("modifier_cytopian_stacks", caster.InventoryUnit, newStacks)
         end
     end
@@ -3541,14 +3542,17 @@ function Filters:DemonMask(caster, target, damage)
         --print("dmg test: "..damage)
         damage = damage * 15
         --print("dmg test: "..damage)
-        EmitSoundOn("RPCItem.DemonMask", target)
-        local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/demon_mask_3.vpcf", PATTACH_CUSTOMORIGIN, caster)
-        ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin() + Vector(0, 0, 115))
-        -- ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,100), true)
-        -- ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,100), true)
-        -- ParticleManager:SetParticleControlEnt(pfx, 3, target, PATTACH_ABSORIGIN, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,100), true)
-        Timers:CreateTimer(1.2, function()
-            ParticleManager:DestroyParticle(pfx, false)
+        local limitKey = caster:GetPlayerOwnerID() .. '_demon_mask'
+        Util.Common:LimitPerTime(4, 1, limitKey, function()
+            EmitSoundOn("RPCItem.DemonMask", target)
+            local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/demon_mask_3.vpcf", PATTACH_CUSTOMORIGIN, caster)
+            ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin() + Vector(0, 0, 115))
+            -- ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,100), true)
+            -- ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,100), true)
+            -- ParticleManager:SetParticleControlEnt(pfx, 3, target, PATTACH_ABSORIGIN, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,100), true)
+            Timers:CreateTimer(1.2, function()
+                ParticleManager:DestroyParticle(pfx, false)
+            end)
         end)
         local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 450, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         -- local damage = highestAttribute*40
