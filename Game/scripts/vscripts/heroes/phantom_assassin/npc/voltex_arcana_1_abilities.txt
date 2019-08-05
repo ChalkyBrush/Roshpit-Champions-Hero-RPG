@@ -10,7 +10,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityCastRange"				"1000 1125 1250 1375 1500 1625 1750"
+		"AbilityCastRange"				"1000 1050 1100 1150 1200 1250 1300"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 
 		// Precache
