@@ -159,8 +159,8 @@
     	"DOTA_Tooltip_ability_djanghor_rune_q_2_property_one"						"Howl Attack Damage Bonus"
     	"DOTA_Tooltip_ability_djanghor_rune_q_2_suffix"								""
 
-    	"DOTA_Tooltip_ability_djanghor_rune_q_3"									"[Q3] Oscillation"
-    	"DOTA_Tooltip_ability_djanghor_rune_q_3_Description"						"Casting Screech adds time to ALL of Djanghor's buffs applied to himself by his own abilities, runes, and items. An individual buff's duration can only be increased 3 times, at which point it will need to be applied again in order to benefit from this effect."
+    	"DOTA_Tooltip_ability_djanghor_rune_q_3"									"[Q3] Life Cycle"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_3_Description"						"Increases the duration of ALL friendly buffs Djanghor applies to himself with his own runes, abilities, and items."
     	"DOTA_Tooltip_ability_djanghor_rune_q_3_property_one"						"Duration Increase"
     	"DOTA_Tooltip_ability_djanghor_rune_q_3_suffix"								" seconds"
 

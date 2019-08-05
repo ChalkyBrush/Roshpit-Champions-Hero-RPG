@@ -58,7 +58,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"<% DJANGHOR_Q3_BUFF_DURATION_INCREASE %>"
 			}
 		}
 	}
