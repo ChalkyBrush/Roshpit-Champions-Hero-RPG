@@ -69,15 +69,33 @@ function init_boss_menu(msg){
 		cavern_event_button_panel.BLoadLayoutSnippet("winter_cavern_boss_button")
 		cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_button_label').text = $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])
 		cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = "2,000"
-		var boss_tip_text = $.Localize("winterblight_cavern_boss_summary").replace('@boss_name', $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])).replace('@chamber_name', $.Localize("winterblight_cavern_room"+i))
-		cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_summary').text = boss_tip_text
+		// var boss_tip_text = $.Localize("winterblight_cavern_boss_summary").replace('@boss_name', $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])).replace('@chamber_name', $.Localize("winterblight_cavern_room"+i))
+		// cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_summary').text = boss_tip_text
 		// var status = parseInt(msg.winterblight_cavern.Chambers[index]["events"][i]["status"])
-
+		var cavern_button = cavern_event_button_panel.FindChildTraverse('winterblight_inner_cavern_boss_button')
+		set_boss_button_events(cavern_button, msg, i)
+		// onmouseover="DOTAShowTextTooltip('#event_level_input')" onmouseout="DOTAHideTextTooltip()"
 	}
 
 	backBtn.SetPanelEvent('onactivate', function Back() {
 		CavernBack(msg)
 	});
+}
+
+function set_boss_button_events(cavern_button, msg, i)
+{
+	cavern_button.SetPanelEvent('onmouseover', function BossButtonMousevover() {
+		button_mouse_over_tooltip(cavern_button, msg, i)
+	});
+	cavern_button.SetPanelEvent('onmouseout', function BossButtonMouseout() {
+		$.DispatchEvent("DOTAHideTitleTextTooltip", cavern_button);
+	});
+}
+
+function button_mouse_over_tooltip(cavern_button, msg, i){
+	var title = $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])
+	var tooltip = $.Localize("winterblight_cavern_boss_summary").replace('@boss_name', $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])).replace('@chamber_name', $.Localize("winterblight_cavern_room"+i))
+	$.DispatchEvent("DOTAShowTitleTextTooltip", cavern_button, title, tooltip);
 }
 
 function ChamberButtonActivate(index, msg){

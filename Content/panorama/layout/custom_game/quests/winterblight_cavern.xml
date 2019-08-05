@@ -229,7 +229,7 @@
 						<Label id="winterblight_boss_fragments_cost" text="0"/>
 					</Panel>
 				</Button>
-				<Label id="winterblight_cavern_boss_summary" text="winterblight_cavern_boss_summary"/>
+<!-- 				<Label id="winterblight_cavern_boss_summary" text="winterblight_cavern_boss_summary"/> -->
 			</Panel>
 		</snippet>
 	</snippets>

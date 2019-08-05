@@ -765,7 +765,7 @@
 	width:80%;
 	border-radius:4px;
 	background-color: #060606;
-	margin-top:20px;
+	margin-top:10px;
 }
 
 #winterblight_inner_cavern_boss_button:hover{
@@ -803,6 +803,8 @@
 #winterblight_cavern_boss_summary{
 	margin-top:4px;
 	font-size:14px;
+	max-height:45px;
+	width:80%;
 	font-weight:lighter;
 	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
 	color:white;
