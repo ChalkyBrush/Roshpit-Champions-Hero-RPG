@@ -119,9 +119,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
 		"item_property_super_ascendency"			"Super Ascension"
-		"property_super_ascendency_description"		"After casting @Ability4 attacks gain <% SUPER_ASCENDENCY_ATK_RANGE %> attack range, <% SUPER_ASCENDENCY_ATK_PCT %>% Bonus Attack damage, <% SUPER_ASCENDENCY_ATK_SPD %> attack speed and gain <% SUPER_ASCENDENCY_MOVE_SPD %> movespeed. Attacks can hit <% SUPER_ASCENDENCY_TARGETS %> targets at once and each attack that hits reduces cooldown of @Ability4 by <% SUPER_ASCENDENCY_CD_RED %> seconds. Lasts @Ability4 cooldown, but not less than <% SUPER_ASCENDENCY_MIN_DURATION %> seconds."
+		"property_super_ascendency_description"		"After casting @Ability4, you gain <% SUPER_ASCENDENCY_ATK_RANGE %> more attack range, <% SUPER_ASCENDENCY_ATK_PCT %>% bonus attack damage, <% SUPER_ASCENDENCY_ATK_SPD %> attack speed, and <% SUPER_ASCENDENCY_MOVE_SPD %> movespeed. Your attacks split to strike up to <% SUPER_ASCENDENCY_TARGETS %> targets at once, and each attack that hits an enemy during this effect will reduce the current cooldown of @Ability4 by <% SUPER_ASCENDENCY_CD_RED %> seconds. This buff has the same duration as @Ability4's cooldown, with a minimum of <% SUPER_ASCENDENCY_MIN_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger_Descrtiption"	"<% SUPER_ASCENDENCY_ATK_RANGE %> bonus attack range, <% SUPER_ASCENDENCY_ATK_PCT %>%% bonus attack damage, <% SUPER_ASCENDENCY_ATK_SPD %> bonus attack speed and <% SUPER_ASCENDENCY_MOVE_SPD %> movespeed. Multishot for <% SUPER_ASCENDENCY_TARGETS - 1 %> additional targets. Each attack hit on enemy reduces R remaining cooldown."
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Descrtiption"	"<% SUPER_ASCENDENCY_ATK_RANGE %> more attack range, <% SUPER_ASCENDENCY_ATK_PCT %>%% bonus attack damage, <% SUPER_ASCENDENCY_ATK_SPD %> attack speed, and <% SUPER_ASCENDENCY_MOVE_SPD %> movespeed. Multishot for <% SUPER_ASCENDENCY_TARGETS - 1 %> additional targets. Hitting enemies reduces @Ability4's current cooldown."
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
 		"item_property_phantom_sorcerer"			"Phantom Gaze"
