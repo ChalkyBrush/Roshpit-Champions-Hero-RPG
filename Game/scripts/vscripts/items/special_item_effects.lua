@@ -4871,6 +4871,7 @@ function light_seer_channeling(event)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_light_seer_shield", {duration = 60})
 
 	local stacks = target:GetModifierStackCount("modifier_light_seer_shield", caster) + 1
+	stacks = math.min(stacks, TEMPLAR_LIGHT_SEER_MAX_STACKS)
 	target:SetModifierStackCount("modifier_light_seer_shield", caster, stacks)
 end
 
