@@ -1,4 +1,5 @@
 require('heroes/nightstalker/chernobog_constants')
+require('/items/constants/helm')
 
 LinkLuaModifier("modifier_chernobog_demon_flight_attack", "heroes/nightstalker/modifiers/modifier_chernobog_demon_flight_attack", LUA_MODIFIER_MOTION_NONE)
 
@@ -166,7 +167,7 @@ function flight_attacks_think(event)
 				for _, enemy in pairs(enemies) do
 					Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
 					count = count + 1
-					if count == 3 then
+					if count == SUPER_ASCENDENCY_TARGETS then
 						break
 					end
 				end

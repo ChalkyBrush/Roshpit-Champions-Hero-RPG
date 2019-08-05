@@ -1550,7 +1550,7 @@ function super_ascension_attack(event)
 	local ulti = target:GetAbilityByIndex(DOTA_R_SLOT)
 	local currentCD = ulti:GetCooldownTimeRemaining()
 	ulti:EndCooldown()
-	ulti:StartCooldown(currentCD - 0.05)
+	ulti:StartCooldown(currentCD - SUPER_ASCENDENCY_CD_RED)
 end
 
 function super_ascension_attack_start(event)
@@ -1559,9 +1559,9 @@ function super_ascension_attack_start(event)
 	local target = event.target
 	if not caster:HasModifier("modifier_ascendency_dont_split") then
 		local splitCount = 0
-		local procs = 2
+		local procs = SUPER_ASCENDENCY_TARGETS - 1
 		if procs > 0 then
-			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, SUPER_ASCENDENCY_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do
 					if enemy:GetEntityIndex() == target:GetEntityIndex() or enemy.dummy then
@@ -4871,6 +4871,7 @@ function light_seer_channeling(event)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_light_seer_shield", {duration = 60})
 
 	local stacks = target:GetModifierStackCount("modifier_light_seer_shield", caster) + 1
+	stacks = math.min(stacks, TEMPLAR_LIGHT_SEER_MAX_STACKS)
 	target:SetModifierStackCount("modifier_light_seer_shield", caster, stacks)
 end
 

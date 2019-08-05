@@ -48994,7 +48994,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"700"
+				"property_one"			"600"
 			}
 			"03"
 			{
@@ -49070,7 +49070,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_four"		"10"
+				"property_four"		"8"
 			}
 		}
 	}
@@ -49343,7 +49343,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"350"
+				"property_one"			"450"
 			}
 			"02"
 			{
@@ -51781,7 +51781,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityCastRange"				"1000 1125 1250 1375 1500 1625 1750"
+		"AbilityCastRange"				"1000 1050 1100 1150 1200 1250 1300"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 
 		// Precache
@@ -53614,7 +53614,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"150"
+				"property_one"			"210"
 			}
 			"02"
 			{

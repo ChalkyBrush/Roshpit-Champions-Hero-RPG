@@ -12192,7 +12192,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	
 		"property_light_seer"												"Light of Delphi"
-		"property_light_seer_Description"									"Heal @special_property1% of max health every 0.15 seconds while channeling @Ability4. Each tick additionally gain a stack of shield that absorbs an instance of damage. After channeling, a stack fades every second."
+		"property_light_seer_Description"									"Heal @special_property1% of max health every 0.15 seconds while channeling @Ability4. Each tick additionally grants a shield stack which absorbs a single instance of damage. Max <font color='#ccff66'>20</font> stacks. After channeling is finished, one shield stack fades every second."
 		"DOTA_Tooltip_modifier_light_seer_shield"							"Delphi Shield"
 		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"Each stack absorbs an instance of damage"
 		
@@ -12652,10 +12652,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
 		"item_property_super_ascendency"			"Super Ascension"
-		"property_super_ascendency_description"		"After casting @Ability4 attacks gain 500 attack range, 100% Bonus Attack damage, 240 attack speed and gain 100 movespeed. Attacks can hit 3 targets at once and each attack that hits reduces cooldown of @Ability4 by 0.05 seconds. Lasts 12 seconds."
+		"property_super_ascendency_description"		"After casting @Ability4, you gain <font color='#ccff66'>800</font> more attack range, <font color='#ccff66'>150</font>% bonus attack damage, <font color='#ccff66'>300</font> attack speed, and <font color='#ccff66'>200</font> movespeed. Your attacks split to strike up to <font color='#ccff66'>5</font> targets at once, and each attack that hits an enemy during this effect will reduce the current cooldown of @Ability4 by <font color='#ccff66'>0.05</font> seconds. This buff has the same duration as @Ability4's cooldown, with a minimum of <font color='#ccff66'>12</font> seconds."
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger_Descrtiption"	"500 bonus attack range, 100%% bonus attack damage, 240 bonus attack speed and 100 movespeed. Multishot for 2 additional targets. Each attack hit on enemy reduces R remaining cooldown."
-		
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>800</font> more attack range, <font color='#ccff66'>150</font>%% bonus attack damage, <font color='#ccff66'>300</font> attack speed, and <font color='#ccff66'>200</font> movespeed. Multishot for <font color='#ccff66'>4</font> additional targets. Hitting enemies reduces your ultimate spell's current cooldown."
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
 		"item_property_phantom_sorcerer"			"Phantom Gaze"

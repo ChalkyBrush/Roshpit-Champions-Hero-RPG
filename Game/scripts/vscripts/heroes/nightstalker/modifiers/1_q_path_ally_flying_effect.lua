@@ -23,7 +23,7 @@ function class:OnIntervalThink()
     local currentPosition = parent:GetAbsOrigin()
 
     local afterWallPosition = WallPhysics:WallSearch(self.previousPosition, currentPosition, parent)
-    if afterWallPosition ~= currentPosition then
+    if afterWallPosition ~= currentPosition or parent:IsRooted() then
         parent:RemoveModifierByName(self:GetName())
     else
         self.previousPosition = currentPosition
