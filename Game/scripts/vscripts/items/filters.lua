@@ -3269,8 +3269,9 @@ end
 
 function Filters:AscensionTrigger(caster)
     local ability = caster.headItem
-    ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_super_ascendency_trigger", {duration = 12})
-    caster:AddNewModifier(caster, ability, "modifier_super_ascendency_lua", {duration = 12})
+    local duration = math.max(caster:GetAbilityByIndex(DOTA_R_SLOT):GetCooldownTimeRemaining(), SUPER_ASCENDENCY_MIN_DURATION)
+    ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_super_ascendency_trigger", {duration = duration})
+    caster:AddNewModifier(caster, ability, "modifier_super_ascendency_lua", {duration = duration})
 end
 
 function Filters:ScourgeKnight(caster)
