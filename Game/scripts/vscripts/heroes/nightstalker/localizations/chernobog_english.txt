@@ -160,7 +160,7 @@
     	//b_d: Splash damage when striking a target in Night's Procession	
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_3"								"[R3] Black Cauldron"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_3_Description"					"Chernobog's attacks during @Ability4 eviscerate all enemies within <% CHERNOBOG_R3_RADIUS %> units of the primary target, dealing Pure damage. This buff persists for some time even after @Ability4 ends."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_3_Description"					"Chernobog's attacks during @Ability4 eviscerate all enemies within <% CHERNOBOG_R3_RADIUS %> units of the primary target, dealing Physical damage. This buff persists for some time even after @Ability4 ends."
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_property_one"					"Vorpal Damage"
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_suffix"						"% of attack power"
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_property_two"					"Extra Duration"
