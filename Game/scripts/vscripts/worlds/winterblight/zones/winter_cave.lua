@@ -32,7 +32,7 @@ function Winterblight:CaveGuideSpawn()
 				EmitSoundOnLocationWithCaster(spawnPos, "Winterblight.GuideCave.Magical", caster)
 			end)
 	-- 	end
-	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-13952, 12800, 500), 10000, 10000, false)
+	-- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-13952, 12800, 500), 10000, 10000, false)
 	end
 end
 
@@ -78,6 +78,7 @@ function Winterblight:InitCavernData()
 			Winterblight.CavernData.Chambers[i]["events"][j]["status"] = 0
 			Winterblight.CavernData.Chambers[i]["events"][j]["relic_fragments_reward"] = 1000
 			Winterblight.CavernData.Chambers[i]["events"][j]["relic_fragments_rewarded"] = 0
+			Winterblight.CavernData.Chambers[i]["events"][j]["level"] = 0
 			-- update reward calcs
 		end
 	end
@@ -97,6 +98,8 @@ function Winterblight:ProcessUIMessage(msg)
 		Winterblight:ProcessChamberStart(msg)
 	elseif msg.records == 1 then
 		Winterblight:ReturnRecordsToUI(msg)
+	elseif msg.boss == 1 then
+		Winterblight:CavernBossSummon(msg)
 	end
 end
 
@@ -952,6 +955,7 @@ function Winterblight:CompleteChamberEvent(chamber, position)
 		local level = Winterblight.CavernData.Chambers[chamber]["level"]
 
 		Winterblight.CavernData.Chambers[chamber]["events"][event_index]["status"] = 2
+		Winterblight.CavernData.Chambers[chamber]["events"][event_index]["level"] = level
 		-- if Beacons.cheats then
 		-- 	Winterblight.CavernData.Chambers[chamber]["events"][event_index]["status"] = 0
 		-- end
@@ -4176,4 +4180,47 @@ function Winterblight:RandomPointInEdgeOfWinter()
 		position = bl_vertex + Vector(RandomInt(0, width), RandomInt(0, height))
 	end
 	return position
+end
+
+function Winterblight:CavernBossSummon(msg)
+	local chamber = tonumber(msg.chamber)
+	Winterblight.CavernData.Chambers[chamber]["boss_status"] = 1
+	local cost = 2000
+	if Winterblight.CavernData.RelicsFragments < cost then
+		return false
+	end
+	Winterblight.CavernData.RelicsFragments = Winterblight.CavernData.RelicsFragments - cost
+	local boss = nil
+	if chamber == 1 then
+		local position = Vector(-9033, 8320)
+		boss = Events:SpawnTorturok(position)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 2000, 20, false)
+	end
+
+	EmitSoundOnLocationWithCaster(boss:GetAbsOrigin(), "Winterblight.BossOut", boss)
+	local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+	ParticleManager:SetParticleControl(pfx, 0, boss:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.6, 0.9))
+	ParticleManager:SetParticleControl(pfx, 2, Vector(0.6, 0.6, 0.6))
+	local pfx2 = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, boss)
+	ParticleManager:SetParticleControl(pfx2, 0, boss:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx2, 1, Vector(600, 2, 2))
+	Timers:CreateTimer(10, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		ParticleManager:ReleaseParticleIndex(pfx)
+		ParticleManager:DestroyParticle(pfx2, false)
+		ParticleManager:ReleaseParticleIndex(pfx2)
+	end)
+	ScreenShake(boss:GetAbsOrigin(), 800, 1.0, 1.0, 9000, 0, true)
+	local player = PlayerResource:GetPlayer(msg.PlayerID)
+	local hero = player:GetAssignedHero()
+	Dungeons:LockCameraToUnitForPlayers(boss, 2, {hero})
+	EmitSoundOn("Winterblight.CavernBoss.Spawn", boss)
+end
+
+function Events:SpawnTorturok(position)
+	local boss = Events:SpawnDescentOfWinterblightDungeonUnit("descent_of_winterblight_torturok", position, 9, 12, "Torturok.Aggro", RandomVector(1), false)
+	boss:SetRenderColor(100, 100, 255)
+	EmitSoundOn("Torturok.Spawn", boss)
+	return boss
 end

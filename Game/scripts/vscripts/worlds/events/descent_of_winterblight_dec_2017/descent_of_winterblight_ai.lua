@@ -173,7 +173,7 @@ function torturok_think(event)
 
 		local nova = caster:FindAbilityByName("torturok_comet")
 		if nova:IsFullyCastable() then
-			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				local fv = ((enemies[1]:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 				local order =
@@ -187,7 +187,7 @@ function torturok_think(event)
 			end
 		end
 		if caster:GetHealth() < caster:GetMaxHealth() * 0.5 then
-			local bloodlust = caster:FindAbilityByName(ogre_magi_bloodlust)
+			local bloodlust = caster:FindAbilityByName('ogre_magi_bloodlust')
 			if bloodlust:IsFullyCastable() then
 				local order =
 				{
@@ -291,7 +291,7 @@ function comet_storm_end(event)
 		ParticleManager:DestroyParticle(pfx2, false)
 	end)
 	EmitSoundOn("Torturok.Jump.Land", caster)
-
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 300, 3, false)
 	local damage = event.damage + 100
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), landPoint, nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
@@ -601,57 +601,58 @@ function winterblight_boss_dying_particle(event)
 	if caster.deathLock then
 		return false
 	end
-	if not caster.rewardMult then
-		return false
-	end
-	if caster:GetUnitName() == "descent_of_winterblight_aertega" then
-		if caster.rewardsGranted < 11 * caster.rewardMult then
-			if caster.rewardMult > 0 then
-				caster.rewardsGranted = caster.rewardsGranted + 1
-				for i = 1, caster.rewardMult, 1 do
-					RPCItems:RollItemtype(400, caster:GetAbsOrigin(), 5, 300)
-				end
-			end
-		else
-			caster.deathLock = true
-			winterblight_boss_final_death_animation(caster)
-		end
-	elseif caster:GetUnitName() == "descent_of_winterblight_torturok" then
-		if caster.rewardsGranted < 1 then
-			if caster.rewardMult > 0 then
-				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Torturok.Death", caster)
-				caster.rewardsGranted = 1
-				Events:MithrilReward(caster:GetAbsOrigin(), 12000 * caster.rewardMult)
-				Timers:CreateTimer(8, function()
-					caster.deathLock = true
-					winterblight_boss_final_death_animation(caster)
-				end)
-			end
-		end
-	elseif caster:GetUnitName() == "descent_of_winterblight_ozubu" then
-		if caster.rewardsGranted < 5 then
-			if caster.rewardMult > 0 then
-				caster.rewardsGranted = caster.rewardsGranted + 1
-				Glyphs:DropArcaneCrystals(caster:GetAbsOrigin(), 11 * caster.rewardMult)
-			end
-		else
-			caster.deathLock = true
-			winterblight_boss_final_death_animation(caster)
-		end
-	end
-	if caster.rewardMult > 0 then
-		local skullReward = math.ceil(GameState:GetPlayerPremiumStatusCount() / 3) + 1
-		if caster.skullRings < skullReward * caster.rewardMult then
-			caster.skullRings = caster.skullRings + 1
-			RPCItems:RollWinterblightSkullRing(caster:GetAbsOrigin())
-		end
-	end
+	-- if caster:GetUnitName() == "descent_of_winterblight_aertega" then
+	-- 	if caster.rewardsGranted < 11 * caster.rewardMult then
+	-- 		if caster.rewardMult > 0 then
+	-- 			caster.rewardsGranted = caster.rewardsGranted + 1
+	-- 			for i = 1, caster.rewardMult, 1 do
+	-- 				RPCItems:RollItemtype(400, caster:GetAbsOrigin(), 5, 300)
+	-- 			end
+	-- 		end
+	-- 	else
+	-- 		caster.deathLock = true
+	-- 		winterblight_boss_final_death_animation(caster)
+	-- 	end
+	-- elseif caster:GetUnitName() == "descent_of_winterblight_torturok" then
+	-- 	if caster.rewardsGranted < 1 then
+	-- 		if caster.rewardMult > 0 then
+	-- 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Torturok.Death", caster)
+	-- 			-- caster.rewardsGranted = 1
+	-- 			-- Events:MithrilReward(caster:GetAbsOrigin(), 12000 * caster.rewardMult)
+	-- 			Timers:CreateTimer(8, function()
+	-- 				caster.deathLock = true
+	-- 				winterblight_boss_final_death_animation(caster)
+	-- 			end)
+	-- 		end
+	-- 	end
+	-- elseif caster:GetUnitName() == "descent_of_winterblight_ozubu" then
+	-- 	if caster.rewardsGranted < 5 then
+	-- 		if caster.rewardMult > 0 then
+	-- 			caster.rewardsGranted = caster.rewardsGranted + 1
+	-- 			Glyphs:DropArcaneCrystals(caster:GetAbsOrigin(), 11 * caster.rewardMult)
+	-- 		end
+	-- 	else
+	-- 		caster.deathLock = true
+	-- 		winterblight_boss_final_death_animation(caster)
+	-- 	end
+	-- end
+	-- if caster.rewardMult > 0 then
+	-- 	local skullReward = math.ceil(GameState:GetPlayerPremiumStatusCount() / 3) + 1
+	-- 	if caster.skullRings < skullReward * caster.rewardMult then
+	-- 		caster.skullRings = caster.skullRings + 1
+	-- 		RPCItems:RollWinterblightSkullRing(caster:GetAbsOrigin())
+	-- 	end
+	-- end
+	Timers:CreateTimer(2, function()
+		caster.deathLock = true
+		winterblight_boss_final_death_animation(caster)		
+	end)
 end
 
 function winterblight_boss_final_death_animation(caster)
 	Events:smoothSizeChange(caster, caster:GetModelScale(), 0.5, 60)
 	for i = 1, 60, 1 do
-		Timers:CreateTimer(0.03, function()
+		Timers:CreateTimer(0.03*i, function()
 			caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 6))
 		end)
 	end
@@ -659,13 +660,20 @@ function winterblight_boss_final_death_animation(caster)
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.BossOut", caster)
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
 		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
-		ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.8, 0.7))
+		ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.6, 0.9))
 		ParticleManager:SetParticleControl(pfx, 2, Vector(0.6, 0.6, 0.6))
+
+		local pfx2 = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(pfx2, 0, caster:GetAbsOrigin())
+		ParticleManager:SetParticleControl(pfx2, 1, Vector(600, 2, 2))
 		Timers:CreateTimer(10, function()
 			ParticleManager:DestroyParticle(pfx, false)
 			ParticleManager:ReleaseParticleIndex(pfx)
+			ParticleManager:DestroyParticle(pfx2, false)
+			ParticleManager:ReleaseParticleIndex(pfx2)
 		end)
 		ScreenShake(caster:GetAbsOrigin(), 800, 1.0, 1.0, 9000, 0, true)
 		UTIL_Remove(caster)
+
 	end)
 end

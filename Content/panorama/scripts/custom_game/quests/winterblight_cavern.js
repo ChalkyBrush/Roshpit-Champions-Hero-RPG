@@ -73,8 +73,31 @@ function init_boss_menu(msg){
 		// cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_summary').text = boss_tip_text
 		// var status = parseInt(msg.winterblight_cavern.Chambers[index]["events"][i]["status"])
 		var cavern_button = cavern_event_button_panel.FindChildTraverse('winterblight_inner_cavern_boss_button')
+		var boss_level = calculate_boss_level(msg.winterblight_cavern, i)
+		var boss_status = msg.winterblight_cavern.Chambers[i]["boss_status"]
+		if (boss_level > 0){
+			cavern_button.AddClass('winterblight_cavern_boss_button_active')
+			cavern_button.FindChildTraverse('winterblight_cavern_boss_button_level').AddClass('cavern_boss_button_level_active')
+			cavern_button.FindChildTraverse('winterblight_cavern_boss_button_level').text = "LV "+boss_level
+		}else{
+			cavern_button.AddClass('winterblight_cavern_boss_button_inactive')
+			cavern_button.FindChildTraverse('winterblight_cavern_boss_button_level').AddClass('cavern_boss_button_level_inactive')
+		}
+		cavern_button.boss_level = boss_level
+		cavern_button.boss_status = boss_status
+		if (boss_status > 0){
+			cavern_button.FindChildTraverse('fragments_cost_icon').AddClass("invisible")
+			cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = $.Localize('winterblight_boss_status'+boss_status)
+		}
+		if (boss_status == 1){
+			cavern_button.RemoveClass('winterblight_cavern_boss_button_active')
+			cavern_button.AddClass('winterblight_cavern_boss_button_summoned')
+		}else if(boss_status == 2){
+			cavern_button.RemoveClass('winterblight_cavern_boss_button_active')
+			cavern_button.AddClass('winterblight_cavern_boss_button_slain')			
+		}
 		set_boss_button_events(cavern_button, msg, i)
-		// onmouseover="DOTAShowTextTooltip('#event_level_input')" onmouseout="DOTAHideTextTooltip()"
+		
 	}
 
 	backBtn.SetPanelEvent('onactivate', function Back() {
@@ -90,6 +113,35 @@ function set_boss_button_events(cavern_button, msg, i)
 	cavern_button.SetPanelEvent('onmouseout', function BossButtonMouseout() {
 		$.DispatchEvent("DOTAHideTitleTextTooltip", cavern_button);
 	});
+	cavern_button.SetPanelEvent('onactivate', function BossButtonClick() {
+		boss_button_click(cavern_button, msg, i)
+	});
+}
+
+function boss_button_click(cavern_button, msg, i){
+	var chamber = i
+	GameEvents.SendCustomGameEventToServer( "units_special", {winterblight: 1, chamber: chamber, boss: 1} );
+	Game.EmitSound("Winterblight.UI.ChamberBossStart")
+	Game.EmitSound("Winterblight.UI.ChamberSelect")
+	Game.EmitSound("Winterblight.UI.SelectChallenge")
+	CloseWinterCavern()
+}
+
+function calculate_boss_level(winterblight_cavern, index){
+	var level = 0
+	var divisor = 0
+	var chamber_total = 0
+	for (var j = 1; j <= event_count; j++) {
+		var event_level = winterblight_cavern.Chambers[index]["events"][j]["level"]
+		if (event_level > 0){
+			divisor = divisor + 1
+			chamber_total = chamber_total + event_level
+		}
+	}
+	if (divisor > 0){
+		level = Math.round(chamber_total/divisor)
+	}
+	return level
 }
 
 function button_mouse_over_tooltip(cavern_button, msg, i){

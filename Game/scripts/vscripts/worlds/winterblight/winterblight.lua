@@ -189,6 +189,9 @@ function Winterblight:DropGlacierStone(position)
 end
 
 function Winterblight:Debug2()
+  Winterblight.CavernData.Chambers[1]["events"][1]["level"] = 20
+  Winterblight.CavernData.Chambers[1]["events"][2]["level"] = 15
+  Winterblight.CavernData.RelicsFragments = 10000
  -- Winterblight:FinishCaveWaves()
  -- Winterblight:InitializeAzaleaSwords()
  -- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-15944, -13162), 23000, 23000, false)
@@ -218,7 +221,7 @@ function Winterblight:Debug2()
     -- Winterblight:LastAzaleaRoomStart()
     
     -- Winterblight:CompleteChamberEvent(1, MAIN_HERO_TABLE[1]:GetAbsOrigin())
-     Winterblight:SpawnWintertideMonk(MAIN_HERO_TABLE[1]:GetAbsOrigin()+Vector(0,-300), Vector(0,-1))
+     -- Winterblight:SpawnWintertideMonk(MAIN_HERO_TABLE[1]:GetAbsOrigin()+Vector(0,-300), Vector(0,-1))
     -- local merkurio = Winterblight:SpawnMerkurio(Vector(-6656, 8064), Vector(0,1))
     -- merkurio.state = 9
     -- local ability = merkurio:FindAbilityByName("winterblight_merkurio_passive")

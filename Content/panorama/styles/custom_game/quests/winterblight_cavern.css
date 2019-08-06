@@ -761,16 +761,35 @@
 #winterblight_inner_cavern_boss_button{
 	horizontal-align:center;
 	height:40px;
-	border:1px solid #666666;
 	width:80%;
 	border-radius:4px;
-	background-color: #060606;
 	margin-top:10px;
 }
 
-#winterblight_inner_cavern_boss_button:hover{
+
+.winterblight_cavern_boss_button_active{
+	background-color: #060606;
+	border:1px solid #666666;
+}
+
+.winterblight_cavern_boss_button_active:hover{
 	border:1px solid #FFFFFF;
 	background-color: #111111;
+}
+
+.winterblight_cavern_boss_button_inactive{
+	background-color: #0d0605;
+	border:1px solid #333333;
+}
+
+.winterblight_cavern_boss_button_summoned{
+	background-color: #141408;
+	border:1px solid #333333;
+}
+
+.winterblight_cavern_boss_button_slain{
+	background-color: #081408;
+	border:1px solid #333333;
 }
 
 .wb_boss_skull{
@@ -798,6 +817,7 @@
 	font-weight:lighter;
 	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
 	color:white;
+	margin-top:4px;
 }
 
 #winterblight_cavern_boss_summary{
@@ -809,4 +829,21 @@
 	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
 	color:white;
 	horizontal-align:center;	
+}
+
+#winterblight_cavern_boss_button_level{
+	font-size:14px;
+	font-weight:lighter;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	vertical-align: center;
+	margin-left:32px;
+	margin-top:4px;
+}
+
+.cavern_boss_button_level_inactive{
+	color:red;
+}
+
+.cavern_boss_button_level_active{
+	color:white;
 }

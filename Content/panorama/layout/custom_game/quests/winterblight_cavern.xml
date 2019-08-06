@@ -223,9 +223,10 @@
 			<Panel class="winter_cavern_boss_button_root" hittest="false">
 				<Button id="winterblight_inner_cavern_boss_button" hittest="true">
 					<Image class="wb_boss_skull" src="file://{images}/custom_game/ui/pargagon-skull.png"/>
+					<Label id="winterblight_cavern_boss_button_level" text="LV 0"/>
 					<Label id="winterblight_cavern_boss_button_label" text="winterblight_cavern_boss_button_label"/>
 					<Panel class="boss_fragments_cost_container">
-						<Image class="winter_boss_fragments_icon" src="file://{images}/custom_game/ui/winterblight/relic_fragments.png"/>
+						<Image id="fragments_cost_icon" class="winter_boss_fragments_icon" src="file://{images}/custom_game/ui/winterblight/relic_fragments.png"/>
 						<Label id="winterblight_boss_fragments_cost" text="0"/>
 					</Panel>
 				</Button>
