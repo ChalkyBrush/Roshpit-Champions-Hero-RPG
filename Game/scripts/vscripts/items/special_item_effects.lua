@@ -1116,9 +1116,12 @@ function sange_boots_think(event)
 	local caster = event.caster
 	if not target:HasModifier("modifier_rpc_sange_buff") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_rpc_sange_buff", {})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_rpc_sange_buff_mana", {})
 	end
 	local sangeStacks = math.min(target:GetAgility(), math.floor(10000000 / SANGE_HP_PER_AGI))
+	local sangeManaStacks = target:GetAgility() * SANGE_MP_PER_AGI
 	target:SetModifierStackCount("modifier_rpc_sange_buff", ability, sangeStacks)
+	target:SetModifierStackCount("modifier_rpc_sange_buff_mana", ability, sangeManaStacks)
 end
 
 function yasha_boots_think(event)
