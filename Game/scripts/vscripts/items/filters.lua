@@ -4604,7 +4604,7 @@ function Filters:JexNatureCostmicW(caster)
     end
     caster:ReduceMana(mana_usage)
 end
-function Filters:ExtendBuffsDurationOnTarget(target, keyName, bonusAmplify, increase)
+function Filters:ExtendBuffsDurationOnTarget(target, keyName, bonusAmplify, increase, checkFunc)
     if target:IsRooted() or target:IsStunned() then
         return
     end
@@ -4617,6 +4617,7 @@ function Filters:ExtendBuffsDurationOnTarget(target, keyName, bonusAmplify, incr
                 and not self:IsNonExtendableBuff(modifier)
                 and not modifier[keyName]
                 and durationRemaining > 0
+                and (checkFunc == nil or checkFunc(modifier))
         then
             modifier[keyName] = true
             modifier.duration_amplify = modifier.duration_amplify or 1

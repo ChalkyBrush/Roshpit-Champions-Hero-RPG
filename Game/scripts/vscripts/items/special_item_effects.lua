@@ -1296,8 +1296,10 @@ function sapphire_lotus_think(event)
 	local caster = event.caster
 	if not target:HasModifier("modifier_sapphire_lotus_buff") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_sapphire_lotus_buff", {})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_sapphire_lotus_buff_mana", {})
 	end
 	target:SetModifierStackCount("modifier_sapphire_lotus_buff", ability, target:GetIntellect())
+	target:SetModifierStackCount("modifier_sapphire_lotus_buff_mana", ability, SAPPHIRE_LOTUS_MP_PER_INT * target:GetIntellect())
 end
 
 function lifesource_vessel_think(event)
