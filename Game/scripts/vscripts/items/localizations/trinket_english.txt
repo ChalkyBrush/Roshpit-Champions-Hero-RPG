@@ -13,7 +13,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"Sapphire Lotus"
 		"item_property_sapphire_lotus"				"Sapphire Soul"
-		"property_sapphire_lotus_description"		"Each point of Intelligence additionally increases max health by <% SAPPHIRE_LOTUS_HP_PER_INT %>."
+		"property_sapphire_lotus_description"		"Each point of Intelligence additionally increases Max Health by <% SAPPHIRE_LOTUS_HP_PER_INT %> and your Max Mana by <% SAPPHIRE_LOTUS_MP_PER_INT %>."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon" 							"Conquest Stone Falcon"
