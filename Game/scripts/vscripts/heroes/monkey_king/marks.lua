@@ -32,7 +32,7 @@ function draghor_main_think(event)
 		for i = 1, #modifiers, 1 do
 			local modifier = modifiers[i]
 			local modifierMaker = modifier:GetCaster()
-			if not modifier.djanghorQ3Increase then
+			if not modifier.djanghorQ3Increase and modifier:GetName() ~= 'modifier_gravelfoot_buff' then
 				modifier.djanghorQ3Increase = true
 				if modifierMaker then
 					if (modifierMaker:GetEntityIndex() == caster:GetEntityIndex() or modifierMaker:GetEntityIndex() == caster.InventoryUnit:GetEntityIndex()) then
