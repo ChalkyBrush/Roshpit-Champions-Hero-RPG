@@ -493,6 +493,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
             	"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
             	"StatusEffectPriority"  "10"
             	"TextureName"		"crystal_maiden_crystal_nova"
@@ -576,6 +577,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
             	"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
             	"StatusEffectPriority"  "10"
             	"TextureName"		"crystal_maiden_crystal_nova"
@@ -701,6 +703,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"crystal_maiden_crystal_nova"
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -781,6 +784,7 @@
 			"modifier_chilled"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "20"
 				"Properties"
@@ -956,6 +960,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_debuff.vpcf"
 				"EffectAttachType" 	"follow_origin"
 				"ThinkInterval"  "0.03"
@@ -1040,6 +1045,7 @@
 			"modifier_chilled"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "20"
 				"Properties"
@@ -1162,6 +1168,7 @@
 			"modifier_chilled"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "20"
 				"Properties"
@@ -1218,6 +1225,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"ThinkInterval"  "0.1"
 				"EffectName"				"particles/neutral_fx/gnoll_poison_debuff.vpcf"
@@ -2023,6 +2031,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 		}
 
@@ -2040,6 +2049,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 		}
 
@@ -2559,6 +2569,7 @@
             "modifier_ice_sprint_slow"
             {
                 "IsDebuff"      "1"
+                "IsStunDebuff"      "1"
                 "IsHidden"      "1"
                 "Passive"       "0"
                 "StatusEffectName"      "particles/status_fx/status_effect_iceblast.vpcf"
@@ -2621,6 +2632,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 			"modifier_frigid_growth_shield"
 			{
@@ -2745,6 +2757,7 @@
 			"modifier_winterblight_chilled"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "20"
 				"Properties"
@@ -3000,6 +3013,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 			
 				"EffectName"		"particles/units/heroes/hero_lone_druid/lone_druid_savage_roar_debuff.vpcf"
 				"EffectAttachType"	"follow_overhead"
@@ -3198,6 +3212,7 @@
 			"modifier_frostbite_effect"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/winterblight/frostbite.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"Properties"
@@ -3472,6 +3487,7 @@
 			"modifier_winterblight_chilled"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "20"
 				"Properties"
@@ -3531,6 +3547,7 @@
 			"modifier_winterblight_chilled"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "20"
 				"Properties"
@@ -3648,6 +3665,7 @@
 			"modifier_curse_of_azalea"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/winterblight/frostbite.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"ThinkInterval"  "0.1"
@@ -3681,6 +3699,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -4365,6 +4384,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 			
 				"EffectName"		"particles/roshpit/winterblight/cold_seer_wave_burn.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -4724,6 +4744,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/winterblight/zefnar_root_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"ThinkInterval"  "0.1"
@@ -4834,6 +4855,7 @@
 			"modifier_syphist_negative"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"EffectName"	"particles/roshpit/winterblight/syphist_negative.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -4845,6 +4867,7 @@
 			"modifier_syphist_regen_opponent"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"EffectName"	"particles/roshpit/winterblight/syphist_negative.vpcf"
@@ -5015,6 +5038,7 @@
 			"modifier_chilled"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "20"
 				"Properties"
@@ -5189,6 +5213,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 		}
 	}
@@ -5266,6 +5291,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "-10"
@@ -5787,6 +5813,7 @@
 			{
 				"TextureName"	"invoker_deafening_blast"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OnDestroy"
 				{
 					"RunScript"
@@ -6112,6 +6139,7 @@
 			"modifier_cruxal_armor_loss"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsHidden"		"0"
 				"Properties"
 				{
@@ -6337,6 +6365,7 @@
 			"modifier_ice_blast_debuff_datadriven"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 
 				"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf" 	   
@@ -6815,6 +6844,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 			
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "20"
@@ -6910,6 +6940,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 			
 				"EffectName"		"particles/roshpit/winterblight/rupthold_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -6991,6 +7022,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 			
 				"EffectName"		"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_prison_start_top_ring.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -7015,11 +7047,13 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 			"modifier_ghost_aura_disarm"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -7454,6 +7488,7 @@
 			"modifier_ice_orb_freeze"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "20"
 				"Properties"
@@ -7568,6 +7603,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_pangolier/pangolier_heartpiercer_debuff.vpcf"
 				"EffectAttachType"	"follow_overhead"
 				"OnAttacked"
@@ -7974,6 +8010,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/winterblight/star_prophecy_indicator.vpcf"
 				"EffectAttachType"	"follow_overhead"
 				"OnAttackLanded"
@@ -8083,6 +8120,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 		}
 	}
@@ -8140,6 +8178,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
 				{
@@ -8367,6 +8406,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"States"
@@ -8385,6 +8425,7 @@
 			"modifier_giga_ice_chilled"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "20"
 				"Properties"
@@ -8396,6 +8437,7 @@
 			"modifier_giga_ice_pulling"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
@@ -8509,6 +8551,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
             	"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
             	"StatusEffectPriority"  "10"
             	"TextureName"		"crystal_maiden_crystal_nova"
@@ -8520,6 +8563,7 @@
 			"modifier_giga_ice_pulling"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
@@ -8549,6 +8593,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"States"
@@ -8815,6 +8860,7 @@
 			"modifier_ice_orb_freeze"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "20"
 				"Properties"
@@ -8913,6 +8959,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"States"
@@ -8933,6 +8980,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
             	"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
             	"StatusEffectPriority"  "10"
             	"TextureName"		"crystal_maiden_crystal_nova"
@@ -9135,6 +9183,7 @@
 			"modifier_chilled"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "20"
 				"Properties"

@@ -417,6 +417,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 			}
 			"modifier_auriun_immortal_phased"
 			{
@@ -562,6 +563,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"redfall/lich_dark_ritual"
 				"OnCreated"
 				{

@@ -160,6 +160,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.8"
 				"OnIntervalThink"
 				{

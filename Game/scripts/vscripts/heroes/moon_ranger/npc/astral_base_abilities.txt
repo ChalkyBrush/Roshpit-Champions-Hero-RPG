@@ -134,6 +134,7 @@
                 "IsHidden"  "0"
                 "Passive"   "0"
                 "IsDebuff"  "1"
+                "IsStunDebuff"  "1"
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-65"
@@ -159,6 +160,7 @@
             "modifier_moon_shroud"
             {
                 "IsDebuff"      "1"
+                "IsStunDebuff"      "1"
                 "ThinkInterval" "%tick_rate"
                 "Properties"
                 {
@@ -374,6 +376,7 @@
             "modifier_moon_shroud"
             {
                 "IsDebuff"      "1"
+                "IsStunDebuff"      "1"
                 "ThinkInterval" "%tick_rate"
                 "Properties"
                 {
@@ -627,6 +630,7 @@
                 "Passive"           "0"
                 "IsHidden"          "0"
                 "IsDebuff"          "1"
+                "IsStunDebuff"          "1"
                 "TextureName"       "rpc/astral_d_b"
 
                 "OnCreated"
@@ -829,6 +833,7 @@
 			"modifier_star_stun"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 
 				"EffectName"		"particles/generic_gameplay/generic_stunned.vpcf"
@@ -844,6 +849,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/econ/items/faceless_void/faceless_void_jewel_of_aeons/fv_time_walk_debuff_jewel.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -893,12 +899,14 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 			}
             "modifier_astral_rune_e_1_invisible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 			}
 
 			"modifier_astral_rune_e_2_visible"
@@ -1103,6 +1111,7 @@
                 {
                     "IsHidden"  "0"
                     "IsDebuff"  "1"
+                    "IsStunDebuff"  "1"
                     "TextureName"   "mirana_starfall"
                 }
                 "modifier_backstab_jumping"
@@ -1113,6 +1122,7 @@
                 {
                     "IsHidden"  "1"
                     "IsDebuff"  "1"
+                    "IsStunDebuff"  "1"
                 }
                 "modifier_starfall"
                 {

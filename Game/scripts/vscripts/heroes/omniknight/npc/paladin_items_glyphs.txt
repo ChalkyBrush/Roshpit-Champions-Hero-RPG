@@ -332,12 +332,14 @@
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"1"
 			}
 			"modifier_paladin_glyph_7_1_zeal_turn"
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"1"
 				"Properties"
 				{

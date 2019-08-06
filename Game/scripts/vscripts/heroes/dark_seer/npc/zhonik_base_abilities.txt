@@ -136,11 +136,13 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 			}
 			"modifier_tachyon_slow"
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_slow"
@@ -282,6 +284,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"zonik/zonik_rune_w_4"
 				"OnDestroy"
 				{
@@ -438,6 +441,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"zonik/zonik_rune_w_4"
 				"OnDestroy"
 				{
@@ -599,6 +603,7 @@
 				"IsHidden"					"0"
 				"IsPurgable"				"0"
 				"IsDebuff"					"1"
+				"IsStunDebuff"					"1"
 				"OnCreated"
 				{
 					"AttachEffect"

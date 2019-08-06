@@ -126,6 +126,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
@@ -167,6 +168,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
 			}
@@ -182,6 +184,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"sorceress/sorceress_rune_q_2_arcana2"
 				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
@@ -191,6 +194,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"TextureName"		"sorceress/sorceress_rune_q_2_arcana2"
@@ -214,6 +218,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"silencer/bts_silencer_ability/silencer_last_word"
 				"EffectName"		"particles/items2_fx/veil_of_discord_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -222,6 +227,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 			"modifier_ring_of_fire_ignite"
 			{
@@ -438,10 +444,12 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 			"modifier_blizzard_slow"
 			{
 				"IsDebuff" "1"
+				"IsStunDebuff" "1"
 				"IsHidden" "1"
 				"EffectName"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
 				"StatusEffectName"		"particles/status_fx/status_effect_frost_lich.vpcf"
@@ -468,6 +476,7 @@
 			"modifier_sorceress_glyph_1_1_effect"
 			{
 				"IsDebuff" "1"
+				"IsStunDebuff" "1"
 				"IsHidden" "0"
 				"Properties"
 				{
@@ -751,6 +760,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/generic_gameplay/generic_slowed_cold.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -765,6 +775,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"TextureName"		"rpc/sorceress_q_3_2"
@@ -779,12 +790,14 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 			}
 			"modifier_ice_lance_immune_stacks"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 			}
 			"modifier_ice_lance_start_cast"
 			{
@@ -1124,6 +1137,7 @@
 			"modifier_pyroblast_stun"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 
 				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
@@ -1168,6 +1182,7 @@
 			{
 				"IsHidden"	        "0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"lina_light_strike_array"
 			}
 		}
@@ -1293,6 +1308,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"silencer/bts_silencer_ability/silencer_last_word"
 				"EffectName"		"particles/items2_fx/veil_of_discord_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -1301,6 +1317,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 		}
 
@@ -1349,6 +1366,7 @@
 			{
 				"IsHidden" "0"
 				"IsDebuff" "1"
+				"IsStunDebuff" "1"
 				"EffectName"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
 				"EffectAttachType"		"follow_origin"
 				"Properties"
@@ -1361,6 +1379,7 @@
 			{
 				"IsHidden" "0"
 				"IsDebuff" "1"
+				"IsStunDebuff" "1"
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
 

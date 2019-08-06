@@ -200,6 +200,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"Properties"
 				{
@@ -414,6 +415,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 			}
@@ -422,6 +424,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"batrider_flaming_lasso"
 			}
 
@@ -561,6 +564,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 			"modifier_net_trap_immunity"
 			{
@@ -573,6 +577,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_meepo/meepo_earthbind.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"States"
@@ -591,6 +596,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -714,6 +720,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_dazzle/dazzle_poison_debuff.vpcf"
 				"EffectAttachType" 	"follow_origin"
 				"TextureName"		"rpc/poison_trap"
@@ -733,6 +740,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-1"
@@ -861,12 +869,14 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 			"modifier_torrent_trap_immunity"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"rpc/torrent_trap"
 			}
 			"modifier_torrent_trap_slowed_effect"
@@ -874,6 +884,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"rpc/torrent_trap"
 				"Properties"
 				{
@@ -1005,6 +1016,7 @@
 				"IsHidden"	"0"
 				"Passive"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -1510,6 +1522,7 @@
 			"modifier_backstab_flailing"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
 				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"

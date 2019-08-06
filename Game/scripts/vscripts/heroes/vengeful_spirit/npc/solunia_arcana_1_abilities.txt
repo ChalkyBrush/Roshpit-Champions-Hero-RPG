@@ -162,6 +162,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/solunia/solunia_compression_solar_heal.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"TextureName"	"solunia/solunia_rune_q_3_arcana1"
@@ -274,6 +275,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/solunia/solunia_compression_lunar_heal.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"TextureName"	"solunia/solunia_rune_q_3_arcana1"

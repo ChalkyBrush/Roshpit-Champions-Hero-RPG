@@ -4604,3 +4604,40 @@ function Filters:JexNatureCostmicW(caster)
     end
     caster:ReduceMana(mana_usage)
 end
+function Filters:ExtendBuffsDurationOnTarget(target, keyName, bonusAmplify, increase)
+    if target:IsRooted() or target:IsStunned() then
+        return
+    end
+    keyName = 'duration_buff_' .. keyName
+    local modifiers = target:FindAllModifiers()
+    for _,modifier in pairs(modifiers) do
+        local isDebuff = modifier:IsStunDebuff() or (modifier['IsDebuff'] and modifier:IsDebuff()) or false
+        if not isDebuff
+                and not self:IsNonExtendableBuff(modifier)
+                and not modifier[keyName]
+        then
+            modifier[keyName] = true
+            modifier.duration_amplify = modifier.duration_amplify or 1
+            modifier.duration_increase = modifier.duration_increase or 0
+
+            modifier.old_duration_amplify = modifier.duration_amplify
+            modifier.old_duration_increase = modifier.duration_increase
+
+            modifier.duration_amplify = modifier.duration_amplify + bonusAmplify
+            modifier.duration_increase = modifier.duration_increase + increase
+
+            local durationRemaining = modifier:GetRemainingTime()
+            if durationRemaining > 0 then
+                durationRemaining = (durationRemaining - modifier.old_duration_increase + modifier.duration_increase) * modifier.duration_amplify/modifier.old_duration_amplify
+                modifier:SetDuration(durationRemaining, true)
+            end
+        end
+    end
+end
+function Filters:IsNonExtendableBuff(modifier)
+    self.nonExtendableBuffs = self.nonExtendableBuffs or {
+        modifier_gravelfoot_buff = true,
+        modifier_animation = true,
+    }
+    return self.nonExtendableBuffs[modifier:GetName()] or isDebuff or false
+end

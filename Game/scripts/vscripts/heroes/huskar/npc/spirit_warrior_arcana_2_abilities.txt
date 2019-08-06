@@ -73,6 +73,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Passive"	"1"
 				"ThinkInterval"  "0.2"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"

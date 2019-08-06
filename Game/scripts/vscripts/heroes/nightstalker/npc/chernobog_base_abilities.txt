@@ -293,6 +293,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"chernobog/chernobog_rune_w_3"
 
 				"EffectName"		"particles/roshpit/chernobog/fervor.vpcf"
@@ -311,6 +312,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"chernobog/chernobog_rune_w_3"
 
 				"EffectName"		"particles/roshpit/chernobog/fervor.vpcf"

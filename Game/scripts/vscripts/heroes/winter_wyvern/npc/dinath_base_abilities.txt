@@ -355,6 +355,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/dinath/hyper_freeze.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"States"
@@ -371,6 +372,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"dinath/dinath_rune_r_2"
 			}
 		}
@@ -481,6 +483,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% DINATH_Q1_MOVESPEED_SLOW %>"
@@ -490,6 +493,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE"	"-<% DINATH_Q4_CAST_RATE_REDUCTION %>"
@@ -643,6 +647,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/dinath/drake_root_pnt.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"States"
@@ -750,6 +755,7 @@
 			"modifier_scorch_charge_cooldown"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 			}
 		}

@@ -115,6 +115,7 @@
 			"ghost_hallow_aura"
 			{
 			    "IsDebuff"  "1"
+			    "IsStunDebuff"  "1"
 				"IsHidden"	"0"
 				"TextureName"	"abyssal_underlord_pit_of_malice"
 				"OnCreated"
@@ -159,6 +160,7 @@
 				"IsHidden"	"0"
 				"TextureName"	"abyssal_underlord_pit_of_malice"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -188,6 +190,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -197,6 +200,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-<% DUSKBRINGER_W2_MAG_RES_RED %>"
@@ -415,6 +419,7 @@
 			{
 				"IsHidden"		"0"
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"Duration"		"1"
 				"Properties"
 				{

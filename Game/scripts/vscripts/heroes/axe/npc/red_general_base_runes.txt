@@ -307,11 +307,13 @@
 			"modifier_axe_rune_w_4_stacks"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"1"
 			}
 			"modifier_axe_rune_w_4_immunity"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"1"
 			}
 		}
