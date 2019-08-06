@@ -4612,9 +4612,11 @@ function Filters:ExtendBuffsDurationOnTarget(target, keyName, bonusAmplify, incr
     local modifiers = target:FindAllModifiers()
     for _,modifier in pairs(modifiers) do
         local isDebuff = modifier:IsStunDebuff() or (modifier['IsDebuff'] and modifier:IsDebuff()) or false
+        local durationRemaining = modifier:GetRemainingTime()
         if not isDebuff
                 and not self:IsNonExtendableBuff(modifier)
                 and not modifier[keyName]
+                and durationRemaining > 0
         then
             modifier[keyName] = true
             modifier.duration_amplify = modifier.duration_amplify or 1
@@ -4626,11 +4628,8 @@ function Filters:ExtendBuffsDurationOnTarget(target, keyName, bonusAmplify, incr
             modifier.duration_amplify = modifier.duration_amplify + bonusAmplify
             modifier.duration_increase = modifier.duration_increase + increase
 
-            local durationRemaining = modifier:GetRemainingTime()
-            if durationRemaining > 0 then
-                durationRemaining = (durationRemaining - modifier.old_duration_increase + modifier.duration_increase) * modifier.duration_amplify/modifier.old_duration_amplify
-                modifier:SetDuration(durationRemaining, true)
-            end
+            durationRemaining = (durationRemaining - modifier.old_duration_increase + modifier.duration_increase) * modifier.duration_amplify/modifier.old_duration_amplify
+            modifier:SetDuration(durationRemaining, true)
         end
     end
 end
