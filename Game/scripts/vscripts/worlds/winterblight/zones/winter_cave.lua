@@ -4216,6 +4216,13 @@ function Winterblight:CavernBossSummon(msg)
 	local hero = player:GetAssignedHero()
 	Dungeons:LockCameraToUnitForPlayers(boss, 2, {hero})
 	EmitSoundOn("Winterblight.CavernBoss.Spawn", boss)
+
+	StartAnimation(Winterblight.CavernGuide, {duration=4, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.6})
+	Timers:CreateTimer(1.0, function()
+		EmitSoundOnLocationWithCaster(Winterblight.CavernGuide:GetAbsOrigin(), "Winterblight.GuideCaveIntro2", Events.GameMaster)
+		CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", Winterblight.CavernGuide, 4)
+		CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", Winterblight.CavernGuide:GetAbsOrigin(), 4)
+	end)
 end
 
 function Events:SpawnTorturok(position)

@@ -643,17 +643,21 @@ function winterblight_boss_dying_particle(event)
 	-- 		RPCItems:RollWinterblightSkullRing(caster:GetAbsOrigin())
 	-- 	end
 	-- end
-	Timers:CreateTimer(2, function()
-		caster.deathLock = true
+	StartAnimation(caster, {duration = 3.4, activity = ACT_DOTA_FLAIL, rate = 0.4})
+	caster.deathLock = true
+	Timers:CreateTimer(3.5, function()
 		winterblight_boss_final_death_animation(caster)		
 	end)
 end
 
 function winterblight_boss_final_death_animation(caster)
-	Events:smoothSizeChange(caster, caster:GetModelScale(), 0.5, 60)
+	print("ANIMATION")
+	EndAnimation(caster)
+	StartAnimation(caster, {duration = 1.9, activity = ACT_DOTA_DIE, rate = 1.9})
+	Events:smoothSizeChange(caster, caster:GetModelScale(), 0.2, 60)
 	for i = 1, 60, 1 do
 		Timers:CreateTimer(0.03*i, function()
-			caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 6))
+			caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 10))
 		end)
 	end
 	Timers:CreateTimer(1.9, function()
