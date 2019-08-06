@@ -127,15 +127,15 @@ end
 function class:OnOrderMove(data)
     local parent = self:GetParent()
     local newPosition = GetGroundPosition(Vector(data.position_x, data.position_y, 0), parent)
-    local afterWallPosition = WallPhysics:WallSearch(parent:GetAbsOrigin(), newPosition, parent)
-    local parentOrigin = parent:GetAbsOrigin()
-    newPosition = afterWallPosition
     local distance = WallPhysics:GetDistance2d(parentOrigin, newPosition)
+    local parentOrigin = parent:GetAbsOrigin()
     local maxDistance = self:GetMaxDistance()
     if distance > maxDistance then
         local clampedVector = WallPhysics:ClampedVector(parentOrigin, newPosition, maxDistance)
         newPosition = GetGroundPosition(clampedVector, parent)
     end
+    local afterWallPosition = WallPhysics:WallSearch(parent:GetAbsOrigin(), newPosition, parent)
+    newPosition = afterWallPosition
     onBlink(parent, self:GetAbility(), parent:GetAbsOrigin(), newPosition)
 
     self:Teleport(newPosition)
