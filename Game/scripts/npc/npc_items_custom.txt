@@ -4447,6 +4447,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
                  "TextureName"            "rpc/axe_d_d"
                  "Properties"
                  {
@@ -15609,6 +15610,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
@@ -17690,7 +17692,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"7"
 			}
 		}
 	}
@@ -20932,6 +20934,7 @@
 			"modifier_epoch_glyph_5_a_cooldown"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"TextureName"	"weaver_time_lapse"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
@@ -22472,6 +22475,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
 				"StatusEffectPriority"	"10"
@@ -27189,6 +27193,7 @@
 			"modifier_solunia_glyph_5_a_cooldown"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"TextureName"	"mirana_starfall"
 			}
@@ -27697,6 +27702,7 @@
 			{
 				"TextureName"	"ancient_apparition_chilling_touch"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -29686,6 +29692,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 			}
 			"modifier_auriun_immortal_phased"
 			{
@@ -29831,6 +29838,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"redfall/lich_dark_ritual"
 				"OnCreated"
 				{
@@ -32705,6 +32713,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/units/heroes/hero_phoenix/phoenix_fire_spirit_burn_fire.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -32724,6 +32733,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/items_fx/blink_dagger_end.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -32746,6 +32756,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OverrideAnimation"	"ACT_DOTA_IDLE"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
@@ -32843,6 +32854,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -32857,6 +32869,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/items_fx/blink_dagger_end.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -32866,6 +32879,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/generic_gameplay/rune_haste.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -32880,6 +32894,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"States"
 				{
@@ -32890,6 +32905,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OverrideAnimation"	"ACT_DOTA_IDLE"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
@@ -32989,6 +33005,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -33003,6 +33020,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/items_fx/blink_dagger_end.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -33012,6 +33030,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/generic_gameplay/rune_haste.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -33026,6 +33045,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"States"
 				{
@@ -33036,6 +33056,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OverrideAnimation"	"ACT_DOTA_IDLE"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
@@ -33908,6 +33929,7 @@
 			"scorched_earth_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"ThinkInterval"	"1.0"
 				"OnIntervalThink"
@@ -34000,6 +34022,7 @@
 			"modifier_midas_freeze"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"TextureName"	"itemicons/midas_freeze"
 				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold.vpcf"
@@ -34784,6 +34807,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"  "1"
+				"IsStunDebuff"  "1"
 				"TextureName"	"itemicons/dark_emissary_cd"
 			}
 			"modifier_dark_emissary_invis"
@@ -35112,12 +35136,14 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"seafortress/oracle_of_the_sea_passive"
 			}
 			"modifier_sea_oracle_health_loss"
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "-1"
@@ -35127,6 +35153,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
@@ -36500,6 +36527,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"bloodseeker_rupture"
 				"Properties"
 				{
@@ -36510,6 +36538,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"bloodseeker_rupture"
 				"AttachEffect"
 				{
@@ -36850,6 +36879,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"itemicons/tanari_wind_armor"
 				"Properties"
 				{
@@ -37296,6 +37326,7 @@
 				"IsHidden"			"0"
 				"TextureName"		"doom_bringer_doom"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"Passive"			"0"
 			}
 		}
@@ -37559,6 +37590,7 @@
 				"EffectAttachType" 	"attach_origin"
 				"TextureName"		"dragon_knight_breathe_fire"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
@@ -37650,6 +37682,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"  "1"
+				"IsStunDebuff"  "1"
 				"TextureName"	"itemicons/centaur_horns"
 				"Properties"
 				{
@@ -38441,6 +38474,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName" "death_prophet_carrion_swarm_moth"
 			}
 		}
@@ -39002,6 +39036,7 @@
 			"modifier_flurry_aura_debuff"
 			{
 				"IsDebuff"				"1"
+				"IsStunDebuff"				"1"
 				"IsHidden"				"0"
 				"TextureName"			"itemicons/skyforge"
 				"IsPurgable"			"0"
@@ -41282,6 +41317,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"itemicons/water_mage_robes"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
@@ -41614,6 +41650,7 @@
 			"modifier_windsteel_cooldown"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"TextureName"	"itemicons/windsteel"
 			}
@@ -42444,6 +42481,7 @@
 				"TextureName"	"visage_gravekeepers_cloak"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -42469,6 +42507,7 @@
 				"TextureName"	"visage_gravekeepers_cloak"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -43229,6 +43268,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
             	"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
             	"StatusEffectPriority"  "10"
             	"TextureName"		"crystal_maiden_crystal_nova"
@@ -43334,6 +43374,7 @@
 				"IsHidden"	"0"
 				"TextureName"	"razor_static_link"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OnCreated"
 				{
 					"RunScript"
@@ -43550,6 +43591,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"crystal_maiden_crystal_nova"
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -44584,6 +44626,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"itemicons/redrock_footwear"
 				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"
 				"StatusEffectPriority"  "10"
@@ -44794,6 +44837,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"itemicons/boots_of_old_wisdom"
 				"OnCreated"
 				{
@@ -44866,6 +44910,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"itemicons/falcon_boots"
 				"States"
 				{
@@ -45121,6 +45166,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"itemicons/water_mage_robes"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
@@ -45584,6 +45630,7 @@
 			"fire_walker_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"ThinkInterval"	"0.5"
 				"OnIntervalThink"
@@ -45668,6 +45715,7 @@
 			"moon_tech_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"TextureName"	"itemicons/moon_tech"
 				"IsPurgable"	"0"
 				"Properties"
@@ -45847,6 +45895,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName" "itemicons/time_warp_cooldown"
 			}
 		}
@@ -46673,6 +46722,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"itemicons/gem_of_eternal_frost"
 				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
@@ -46708,6 +46758,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"crystal_maiden_crystal_nova"
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -46825,6 +46876,7 @@
 				"IsHidden"	"0"
 				"TextureName"	"mirana_starfall"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 			}
 			"modifier_stargazer_immunity"
@@ -47274,6 +47326,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"itemicons/tome_of_chaos"
 				"Duration"  "30"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
@@ -47669,6 +47722,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"redfall/autumn_spawner"
 			}
 			"modifier_ankh_of_ancients_shield"
@@ -48086,6 +48140,7 @@
 				"IsHidden"	"0"
 				"TextureName" "itemicons/ruinfall_skull_token"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Duration"  "40"
 			}
 
@@ -48279,6 +48334,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"TextureName"	"phoenix_supernova"
 			}
@@ -48537,6 +48593,7 @@
 			"modifier_crest_of_the_umbral_sentinel_effect_visible"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"TextureName"	"itemicons/crest_of_the_umbral_sentinel"
 				"OnCreated"
@@ -48554,6 +48611,7 @@
 			"modifier_crest_of_the_umbral_sentinel_effect_invisible"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"1"
 				"Properties"
 				{
@@ -48563,6 +48621,7 @@
 			"modifier_umbral_sentinel_magic_amp"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"1"
 			}
 		}
@@ -48645,6 +48704,7 @@
 			"modifier_carbuncles_helm_of_reflection_effect"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"TextureName"	"itemicons/carbuncle_buff"
 				"OnCreated"
@@ -48880,6 +48940,7 @@
 			"igneous_canine_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"ThinkInterval"	"0.5"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
@@ -49867,6 +49928,7 @@
 				"IsHidden"	"0"
 				"IsBuff"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"itemicons/ankh_ability"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
@@ -50526,6 +50588,7 @@
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.5"
 				"EffectName"	"particles/items2_fx/arcane_cascade.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -50673,6 +50736,7 @@
 				"IsHidden"	"0"
 				"TextureName"	"itemicons/wraith_crown"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 		}
 	}
@@ -51134,6 +51198,7 @@
 			"modifier_eternal_night_sleep"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 
 				"EffectName"	"particles/generic_gameplay/generic_sleep.vpcf"
@@ -51155,6 +51220,7 @@
 			"modifier_eternal_night_sleep_unwakable"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Passive"	"0"
 				"States"
 				{
@@ -51266,6 +51332,7 @@
 			"modifier_hood_of_defiler_effect_visible"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"TextureName"	"itemicons/hood_of_defiler"
 				"EffectName"	"particles/roshpit/items/hood_of_defiler.vpcf"
@@ -51282,6 +51349,7 @@
 			"modifier_hood_of_defiler_armor_loss"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"1"
 				"Properties"
 				{
@@ -51586,6 +51654,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"tanari/ancient_hero_water_god"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
@@ -52244,6 +52313,15 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 			}
+			"modifier_rpc_sange_buff_mana"
+			{
+			    "Passive"			"0"
+				"IsHidden"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS" "1"
+				}
+			}
 		}
 	}
 
@@ -52322,6 +52400,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"itemicons/hurrican_vest"
 				"Properties"
 				{
@@ -52423,12 +52502,14 @@
 				"IsHidden"	"0"
 				"TextureName"	"razor_electric_vortex"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 			"modifier_baron_storm_cooldown"
 			{
 				"IsHidden"	"0"
 				"TextureName"	"razor_electric_vortex"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
 				"StatusEffectPriority"	"10"
 			}
@@ -52491,6 +52572,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"tinker_laser"
 			}
 		}
@@ -52693,6 +52775,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"rpc/stormcloth_bracer"
 			}
 			"modifier_stormcloth_falling"
@@ -52912,6 +52995,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 		}
 	}
@@ -52969,6 +53053,7 @@
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"pudge_rot"
 				"Properties"
 				{
@@ -52994,6 +53079,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"pudge_rot"
 				"StatusEffectName" 		"particles/status_fx/status_effect_earth_spirit_petrify.vpcf"
 				"StatusEffectPriority"  "30"
@@ -53493,6 +53579,15 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_sapphire_lotus_buff_mana"
+			{
+			    "Passive"			"0"
+				"IsHidden"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS" "1"
+				}
 			}
 		}
 	}
@@ -54847,12 +54942,14 @@
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"1"
 			}
 			"modifier_paladin_glyph_7_1_zeal_turn"
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"1"
 				"Properties"
 				{
