@@ -316,7 +316,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% SORCERESS_E1_STACKS %>"
 			}
 		}
 		"Modifiers"
