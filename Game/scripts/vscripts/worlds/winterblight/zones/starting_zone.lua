@@ -624,6 +624,7 @@ end
 function Winterblight:SpawnFrostiok(position, fv)
 	local stone = Winterblight:SpawnDungeonUnit("frostiok", position, 1, 2, "Winterblight.Frostiok.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 2, 2, false)
+	stone.type = ENEMY_TYPE_MINI_BOSS
 	stone.itemLevel = 24
 	stone.dominion = true
 	return stone
@@ -661,6 +662,7 @@ end
 function Winterblight:SpawnNorgok(position, fv)
 	local stone = Winterblight:SpawnDungeonUnit("winterblight_norgok_the_ice_rider", position, 3, 5, "Winterblight.Norgok.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.type = ENEMY_TYPE_MINI_BOSS
 	stone.itemLevel = 38
 	stone:SetRenderColor(30, 90, 255)
 	Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_CLOSEST)
@@ -1707,6 +1709,7 @@ function Winterblight:SpawnFrostTitan(position, fv)
 	local stone = Winterblight:SpawnDungeonUnit("winterblight_azalea_frost_titan", position, 3, 5, "Winterblight.FrostTitan.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 3, 6, false)
 	stone.itemLevel = 46
+	stone.type = ENEMY_TYPE_MINI_BOSS
 	Events:ColorWearablesAndBase(stone, Vector(200, 210, 255))
 	Winterblight:SetTargetCastArgs(stone, 1000 + GameState:GetDifficultyFactor() * 500, 0, 1, FIND_ANY_ORDER)
 	local passive = stone:FindAbilityByName("frost_titan_passive")
@@ -1969,6 +1972,7 @@ function Winterblight:SpawnAzaleaZealot(position, fv)
 	local stone = Winterblight:SpawnDungeonUnit("winterblight_azalea_zealot", position, 3, 4, "Winterblight.AzaleanZealot.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 5, 5, false)
 	stone.itemLevel = 44
+	stone.type = ENEMY_TYPE_MINI_BOSS
 	Winterblight:SetPositionCastArgs(stone, 2000, 0, 3, FIND_ANY_ORDER)
 	if GameState:GetDifficultyFactor() == 3 then
 		stone:AddAbility("creature_pure_strike"):SetLevel(GameState:GetDifficultyFactor())

@@ -705,6 +705,7 @@ end
 
 function Winterblight:SpawnZefnar(position, fv)
 	local stone = Winterblight:SpawnDungeonUnit("winterblight_zefnar", position, 2, 4, "Winterblight.Zefnar.Aggro", fv, false)
+	stone.type = ENEMY_TYPE_MINI_BOSS
 	Events:AdjustBossPower(stone, 2, 3, false)
 	stone.itemLevel = 36
 	local health = 175
@@ -3916,6 +3917,7 @@ function Winterblight:SpawnTriBoss(bossName)
 
 	end
 	local stone = Winterblight:SpawnDungeonUnit(bossName, position, 0, 1, nil, fv, false)
+	stone.type = ENEMY_TYPE_MINI_BOSS
 	Events:AdjustBossPower(stone, 5, 3, false)
 	stone.itemLevel = 50
 	stone:SetRenderColor(colorVector.x, colorVector.y, colorVector.z)
@@ -4678,6 +4680,7 @@ end
 
 function Winterblight:SpawnStargazerOrin(position, fv)
 	local stone = Winterblight:SpawnDungeonUnit("stargazer_orin", position, 6, 8, "Winterblight.StarGazer.Aggro", fv, false)
+	stone.type = ENEMY_TYPE_MINI_BOSS
 	Events:AdjustBossPower(stone, 5, 5, false)
 	stone.itemLevel = 60
 	Events:ColorWearablesAndBase(stone, Vector(150, 255, 145))

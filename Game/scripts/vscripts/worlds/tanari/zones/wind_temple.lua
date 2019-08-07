@@ -998,6 +998,7 @@ end
 function Tanari:SpawnWindValleyGuardian(position, fv, delay)
 	local guardian = CreateUnitByName("wind_valley_guardian", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
 	guardian:SetForwardVector(fv)
+	guardian.type = ENEMY_TYPE_MINI_BOSS
 	Events:AdjustDeathXP(guardian)
 	Events:AdjustBossPower(guardian, 12, 12, false)
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 300, 600, false)

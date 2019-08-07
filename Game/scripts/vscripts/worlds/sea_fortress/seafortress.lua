@@ -2735,6 +2735,7 @@ end
 
 function Seafortress:SpawnSeaMaiden(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("seafortress_sea_maiden", position, 1, 4, "Seafortress.SeaMaiden.Aggro", fv, false)
+  queen.type = ENEMY_TYPE_MINI_BOSS
   queen:SetRenderColor(120, 255, 165)
   Events:ColorWearables(queen, Vector(120, 255, 165))
   Events:AdjustBossPower(queen, 8, 10, false)
@@ -2777,6 +2778,7 @@ end
 
 function Seafortress:SpawnOlaf(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("seabinder_olaf", position, 1, 4, "Seafortress.Olaf.Aggro", fv, false)
+  queen.type = ENEMY_TYPE_MINI_BOSS
   queen:SetRenderColor(120, 120, 255)
   Events:AdjustBossPower(queen, 8, 10, false)
   queen.dominion = true
