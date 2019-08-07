@@ -2,7 +2,7 @@
     	"DOTA_Tooltip_ability_chernobog_charons_claw"							"Charon's Claw"
     	"DOTA_Tooltip_ability_chernobog_charons_claw_Description"				"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#7F4F84\">Shadow</font><br>Flicks a stream of abyssal ichor along a straight path. Enemies within the darkness have reduced movespeed and total outgoing damage, while Chernobog and other allied units gain increased movespeed and free pathing."
     	"DOTA_Tooltip_ability_chernobog_charons_claw_range"						"PATH LENGTH:"
-    	"DOTA_Tooltip_ability_chernobog_charons_claw_move_and_attack_slow"		"MOVESPEED AND ATTACK DAMAGE REDUCTION (ENEMY):"
+    	"DOTA_Tooltip_ability_chernobog_charons_claw_move_and_attack_slow"		"MOVESPEED AND OUTGOING DAMAGE REDUCTION (ENEMY):"
     	"DOTA_Tooltip_ability_chernobog_charons_claw_move_speed_increase"		"MOVESPEED INCREASE (CASTER AND ALLIES):"
 
     	"DOTA_Tooltip_modifier_chernobog_1_q_path_ally_effect"								"Charon's Claw"
@@ -31,13 +31,13 @@
 
     	"DOTA_Tooltip_ability_chernobog_rune_q_4"							"[Q4] Into Darkness"
     	"DOTA_Tooltip_ability_chernobog_rune_q_4_Description"				"Increases the width and length of @Ability1. Additionally causes [Q2] to tick faster, and reduces the cooldown of @Ability1; the stated multiplier is applied to the base cooldown and tick rate."
-    	"DOTA_Tooltip_ability_chernobog_rune_q_4_property_one"				"Q2 tick rate increase"
+    	"DOTA_Tooltip_ability_chernobog_rune_q_4_property_one"				"Q2 Tick Rate Increase"
     	"DOTA_Tooltip_ability_chernobog_rune_q_4_suffix"					"x faster"
     	"DOTA_Tooltip_ability_chernobog_rune_q_4_property_two"				"Cooldown Reduction"
     	"DOTA_Tooltip_ability_chernobog_rune_q_4_suffix_two"					"x shorter"
-    	"DOTA_Tooltip_ability_chernobog_rune_q_4_property_three"			"Bonus range"
+    	"DOTA_Tooltip_ability_chernobog_rune_q_4_property_three"			"Bonus Length"
     	"DOTA_Tooltip_ability_chernobog_rune_q_4_suffix_three"					""
-    	"DOTA_Tooltip_ability_chernobog_rune_q_4_property_four"				"Bonus width"
+    	"DOTA_Tooltip_ability_chernobog_rune_q_4_property_four"				"Bonus Width"
     	"DOTA_Tooltip_ability_chernobog_rune_q_4_suffix_four"					""
 		
 		"DOTA_Tooltip_ability_chernobog_demon_hunter"							"Demon Hunter"
@@ -117,7 +117,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_suffix"						"% of Chernobog's Attack Power"
 
      	"DOTA_Tooltip_ability_chernobog_rune_e_3"								"[E3] Sudden Strike"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"After using @Ability3 to teleport behind an enemy unit, that target takes increased post-mitigation damage from Chernobog for <% CHERNOBOG_E3_POSTMIT_DUR_BASE %> second. Also increases @Ability3's teleportation ranges in both active states."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"Increases @Ability3's teleportation ranges in both active states.<br>Additionally, after using @Ability3's first active state to teleport behind an enemy unit, that target takes increased post-mitigation damage from Chernobog for <% CHERNOBOG_E3_POSTMIT_DUR_BASE %> second. "
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"					"Teleport Range Increase"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"						""
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"					"Post-Mitigation Amp"
@@ -160,7 +160,7 @@
     	//b_d: Splash damage when striking a target in Night's Procession	
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_3"								"[R3] Black Cauldron"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_3_Description"					"Chernobog's attacks during @Ability4 eviscerate all enemies within <% CHERNOBOG_R3_RADIUS %> units of the primary target, dealing Pure damage. This buff persists for some time even after @Ability4 ends."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_3_Description"					"Chernobog's attacks during @Ability4 eviscerate all enemies within <% CHERNOBOG_R3_RADIUS %> units of the primary target, dealing Physical damage. This buff persists for some time even after @Ability4 ends."
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_property_one"					"Vorpal Damage"
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_suffix"						"% of attack power"
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_property_two"					"Extra Duration"
