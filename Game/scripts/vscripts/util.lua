@@ -108,6 +108,20 @@ function Util.Modifier:SimpleEvent(creature, eventName, specialTypes, data, aggr
         end
     end
 end
+function Util.Modifier.SetIndependentlyStacks(caster, target, modifier, stacksCount, stacksDuration)
+    target.independentStacksInfo = target.independentStacksInfo or {}
+    local key = caster:GetEntityIndex() .. modifier:GetName()
+    target.independentStacksInfo[key] = target.independentStacksInfo[key] or 0
+    target.independentStacksInfo[key] = target.independentStacksInfo[key] + stacksCount
+    target:SetStackCount(target.independentStacksInfo[key])
+    Timers:CreateTimer(stacksDuration, function()
+        if not target:IsAlive() then
+            return
+        end
+        target.independentStacksInfo[key] = target.independentStacksInfo[key] - stacksCount
+        target:SetStackCount(target.independentStacksInfo[key])
+    end)
+end
 Util.Common = Util.Common or class({})
 function Util.Common.Filter(func, tbl)
     local newtbl= {}

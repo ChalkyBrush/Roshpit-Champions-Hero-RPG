@@ -43,7 +43,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
 		"item_property_ruby_dragon"					"Ruby Dragon"
-		"property_ruby_dragon_description"			"When you finish casting @Ability4 - summon a ruby dragon that breathes fire on enemies that deals @special_property1x your Strength on impact and @special_property2x your Strength every 0.5 seconds for 3 seconds as burn damage.<br>All damage dealt directly by items is enhanced by @special_property3% for each 10 points of Strength."
+		"property_ruby_dragon_description"			"When you finish casting @Ability4 - summon a ruby dragon that breathes fire on enemies that deals <% RUBY_DRAGON_IMPACT_DMG_PER_STR %>x your Strength on impact and <% RUBY_DRAGON_TICK_DMG_PER_STR %>x your Strength every <% RUBY_DRAGON_TICK_INTERVAL %> seconds for <% RUBY_DRAGON_TICK_DURATION %> seconds as burn damage. Each burn have his own duration and damage"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	

@@ -4329,7 +4329,7 @@ function new_ruby_dragon_think(event)
 		EmitSoundOn("Creature.FireBreath.Cast", caster)
 		projectile = ProjectileManager:CreateLinearProjectile(info)
 	end
-	if ability.interval == 12 then
+	if ability.interval == RUBY_DRAGON_DURATION then
 		ability:ApplyDataDrivenModifier(caster, caster, "ruby_dragon_cinematic", {duration = 1.5})
 		caster.entering = false
 		Timers:CreateTimer(1.5, function()
@@ -4343,10 +4343,20 @@ function ruby_dragon_flame_impact(event)
 	local caster = event.caster
 	local hero = caster.hero
 	local ability = event.ability
-	local damage = hero:GetStrength() * 150
+	local damage = hero:GetStrength() * RUBY_DRAGON_IMPACT_DMG_PER_STR
 	local target = event.target
-	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-	hero.headItem:ApplyDataDrivenModifier(hero.InventoryUnit, target, "ruby_dragon_burn", {duration = 3})
+	Damage:Apply({
+		attacker = hero,
+		victim = target,
+		source = ability,
+		sourceType = BASE_ITEM,
+		damage = damage,
+		damageType = DAMAGE_TYPE_MAGICAL,
+		elements = {
+			RPC_ELEMENT_FIRE
+		}
+	})
+	hero.headItem:ApplyDataDrivenModifier(hero.InventoryUnit, target, "ruby_dragon_burn", {duration = RUBY_DRAGON_TICK_DURATION})
 end
 
 function ruby_dragon_flame_think(event)
@@ -4354,8 +4364,22 @@ function ruby_dragon_flame_think(event)
 	local hero = caster.hero
 	local ability = event.ability
 	local target = event.target
-	local burnDamage = hero:GetStrength() * 50
-	Filters:ApplyDotDamage(hero, ability, target, burnDamage, DAMAGE_TYPE_MAGICAL, -1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	local burnDamage = hero:GetStrength() * RUBY_DRAGON_TICK_DMG_PER_STR
+	local stacksCount = target:FindModifierByName('ruby_dragon_burn'):GetStackCount()
+	for i = 1, stacksCount do
+		Damage:Apply({
+			attacker = hero,
+			victim = target,
+			source = ability,
+			sourceType = BASE_ITEM,
+			damage = burnDamage,
+			damageType = DAMAGE_TYPE_MAGICAL,
+			elements = {
+				RPC_ELEMENT_FIRE
+			},
+			dot = true
+		})
+	end
 end
 
 function ruby_dragon_entering_think(event)

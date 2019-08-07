@@ -52183,7 +52183,7 @@
 				"EffectAttachType" 	"attach_origin"
 				"IsDebuff"			"1"
 				"IsStunDebuff"			"1"
-				"ThinkInterval"  "0.5"
+				"ThinkInterval"  "<% RUBY_DRAGON_TICK_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
