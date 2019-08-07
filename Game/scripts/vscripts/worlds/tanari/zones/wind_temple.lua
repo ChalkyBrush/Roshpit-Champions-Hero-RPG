@@ -936,6 +936,7 @@ end
 
 function Tanari:SpawnWindDemon(position, fv)
 	local mage = Tanari:SpawnDungeonUnit("tanari_wind_demon", position, 3, 6, nil, fv, true)
+	mage.type = ENEMY_TYPE_MINI_BOSS
 	mage.itemLevel = 80
 	Events:AdjustBossPower(mage, 6, 6, false)
 	mage:SetRenderColor(0, 0, 0)

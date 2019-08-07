@@ -992,7 +992,6 @@ end
 
 function Redfall:SpawnFeronia(position, fv)
 	local creepFunction = function(unit)
-		unit.type = ENEMY_TYPE_MINI_BOSS
 		Events:AdjustBossPower(unit, 8, 8, false)
 		unit:SetRenderColor(255, 180, 80)
 		Redfall:ColorWearables(unit, Vector(255, 180, 80))

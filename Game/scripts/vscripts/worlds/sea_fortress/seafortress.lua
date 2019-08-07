@@ -526,6 +526,7 @@ function Seafortress:SpawnRoom2()
     local positionTable = {Vector(-5504, -11392), Vector(-5696, -10176), Vector(-6595, -8827), Vector(-3318, -8071)}
     Seafortress:AddPatrolArguments(tree, 0, 6, 140, positionTable)
     Seafortress.treeBoss = tree
+	tree.type = ENEMY_TYPE_MINI_BOSS
     tree.deathCode = 3
     tree.reduc = 0.3
   end)
@@ -884,6 +885,7 @@ end
 function Seafortress:SpawnSwampMedusa(position, fv)
   local lord = Seafortress:SpawnDungeonUnit("seafortress_swamp_lady", position, 2, 5, "Seafortress.SwampLady.Aggro", fv, false)
   Events:AdjustBossPower(lord, 10, 10, false)
+  lord.type = ENEMY_TYPE_MINI_BOSS
   lord:SetRenderColor(120, 180, 255)
   lord.deathCode = 6
   lord.pushLock = true
@@ -1479,6 +1481,7 @@ function Seafortress:SpawnLordZarkhaz(position, fv)
   queen:SetRenderColor(100, 165, 255)
   Events:ColorWearables(queen, Vector(100, 165, 255))
   Events:AdjustBossPower(queen, 8, 8, false)
+  queen.type = ENEMY_TYPE_MINI_BOSS
   queen.reduc = 0.01
   return queen
 
@@ -1789,6 +1792,7 @@ end
 
 function Seafortress:SpawnJailer(position, fv)
   local mage = Seafortress:SpawnDungeonUnit("seafortress_jailer", position, 0, 3, nil, fv, true)
+  mage.type = ENEMY_TYPE_MINI_BOSS
   mage:SetRenderColor(40, 190, 255)
   Events:AdjustBossPower(mage, 10, 10, false)
   mage.patrolImmunity = true
@@ -3844,6 +3848,7 @@ function Seafortress:SpawnBarnacleColossus(position, fv)
   queen.cantAggro = true
   -- queen:SetRenderColor(100, 230, 245)
   queen.reduc = 0.005
+  queen.type = ENEMY_TYPE_MINI_BOSS
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier(queen, nil, "modifier_movespeed_cap_super", {})
   Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, queen, "modifier_ms_thinker", {})
@@ -3998,6 +4003,7 @@ end
 
 function Seafortress:SpawnBigBlueFurbolg(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("seafortress_big_blue_furbolg", position, 2, 4, "Seafortress.Furbolg.Aggro", fv, false)
+  queen.type = ENEMY_TYPE_MINI_BOSS
   queen.dominion = true
   -- queen:SetRenderColor(100, 230, 245)
   queen.reduc = 0.07
@@ -4605,6 +4611,7 @@ end
 function Seafortress:SpawnArchonGolem(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("sea_fortress_archon_golem", position, 5, 6, "Seafortress.ArchonGolemSpawn", fv, true)
   queen.reduc = 0.00005
+  queen.type = ENEMY_TYPE_MINI_BOSS
   queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:SetRenderColor(207, 94, 255)
