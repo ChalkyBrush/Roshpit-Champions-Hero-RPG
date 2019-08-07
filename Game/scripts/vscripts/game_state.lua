@@ -3261,17 +3261,21 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_winterblight_cavern_unit") then
-		local chamber_level = Winterblight.CavernData.Chambers[victim.chamber]["level"]
+		local chamber_level = 1
 		if victim.chamber == 0 then
 			chamber_level = victim.boss_level
+		else
+			chamber_level = Winterblight.CavernData.Chambers[victim.chamber]["level"]
 		end
 		local reduction = 0.5^chamber_level
 		if Winterblight:IsWithinChamber(attacker, victim.chamber) then
 		else
 			filterTable["damage"] = 0
 		end
-		if Winterblight.CavernData.Chambers[victim.chamber]["status"] ~= 1 then
-			filterTable["damage"] = 0
+		if victim.chamber > 0 then
+			if Winterblight.CavernData.Chambers[victim.chamber]["status"] ~= 1 then
+				filterTable["damage"] = 0
+			end
 		end
 		if victim:HasModifier("modifier_merkurio_crystal_blue") then
 			filterTable["damage"] =	filterTable["damage"]*0.1
@@ -3280,9 +3284,11 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] =	filterTable["damage"]*0.01
 		end
 		filterTable["damage"] = filterTable["damage"]*reduction
-		local allowed_player = EntIndexToHScript(Winterblight.CavernData.Chambers[victim.chamber]["hero"]):GetPlayerOwnerID()
-		if attacker:GetPlayerOwnerID() ~= allowed_player then
-			filterTable["damage"] = 0
+		if victim.chamber > 0 then
+			local allowed_player = EntIndexToHScript(Winterblight.CavernData.Chambers[victim.chamber]["hero"]):GetPlayerOwnerID()
+			if attacker:GetPlayerOwnerID() ~= allowed_player then
+				filterTable["damage"] = 0
+			end
 		end
 		if victim:HasModifier("modifier_merkurio_crystal_purple") and filterTable["damage"] > 0 then
 			local caster = victim:FindModifierByName("modifier_merkurio_crystal_purple"):GetCaster()
@@ -3295,9 +3301,11 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = 0
 		end
 	elseif attacker:HasModifier("modifier_winterblight_cavern_unit") then
-		local chamber_level = Winterblight.CavernData.Chambers[attacker.chamber]["level"]
+		local chamber_level = 1
 		if attacker.chamber == 0 then
 			chamber_level = attacker.boss_level
+		else
+			chamber_level = Winterblight.CavernData.Chambers[attacker.chamber]["level"]
 		end
 		local damage_amp = 0.2*chamber_level
 		filterTable["damage"] = filterTable["damage"] + filterTable["damage"]*damage_amp

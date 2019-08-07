@@ -503,11 +503,13 @@ function winterblight_summon_ability(event)
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_broodmother/broodmother_spiderlings_spawn_b_lv.vpcf", spider, 2)
 				Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, spider, "modifier_sea_fortress_ai", {})
 				if GameState:GetDifficultyFactor() == 3 then
-					spider.reduc = 0.00001
+					spider.reduc = 0.1
 				end
+				Winterblight:SetCavernUnit(spider, spider:GetAbsOrigin(), false, false, 0)
 			end
 			Events:CreateLightningBeamWithParticle(caster:GetAbsOrigin() + Vector(0, 0, 80), spider:GetAbsOrigin(), "particles/units/heroes/hero_wisp/tether_green.vpcf", 0.9)
 			spider.origCaster = caster
+			spider.boss_level = caster.boss_level
 			caster.summonCount = caster.summonCount + 1
 			spider:AddAbility("seafortress_enemy_summon"):SetLevel(1)
 			StartAnimation(spider, {duration = 0.5, activity = ACT_DOTA_DISABLED, rate = 1.1})
@@ -652,7 +654,7 @@ end
 
 function winterblight_boss_final_death_animation(caster)
 	print("ANIMATION")
-	Winterblight.CavernData.Chambers[caster.chamber]["boss_status"] = 2
+	Winterblight.CavernData.Chambers[caster.boss_chamber]["boss_status"] = 2
 	EndAnimation(caster)
 	StartAnimation(caster, {duration = 1.9, activity = ACT_DOTA_DIE, rate = 1.9})
 	Events:smoothSizeChange(caster, caster:GetModelScale(), 0.2, 60)

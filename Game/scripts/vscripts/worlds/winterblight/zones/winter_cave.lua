@@ -501,12 +501,14 @@ function Winterblight:SetCavernUnit(unit, original_position, bDeaggro, bParticle
 		CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", unit:GetAbsOrigin(), 4)
 		EmitSoundOn("Winterblight.GuideCaveIntro", unit)
 	end
-	local event_index = Winterblight.CavernData.Chambers[chamber_index]["event"]
-	if Winterblight.CavernData.Chambers[chamber_index]["events"][event_index]["attempt"] ~= 1 then
-		unit.minDungeonDrops = 0
-		unit.maxDungeonDrops = 0
+	if chamber_index > 0 then
+		local event_index = Winterblight.CavernData.Chambers[chamber_index]["event"]
+		if Winterblight.CavernData.Chambers[chamber_index]["events"][event_index]["attempt"] ~= 1 then
+			unit.minDungeonDrops = 0
+			unit.maxDungeonDrops = 0
+		end
+		table.insert(Winterblight.CavernUnits[chamber_index], unit)
 	end
-	table.insert(Winterblight.CavernUnits[chamber_index], unit)
 end
 
 function Winterblight:SpawnWinterRunner(position, fv)
@@ -596,10 +598,14 @@ end
 function Winterblight:IsWithinChamber(unit, chamber_id)
 	local compare_position = unit:GetAbsOrigin()
 	local is_in_region = false
-	for i = 1, #Winterblight.CavernChamberVertices[chamber_id], 1 do
-		if WallPhysics:IsWithinRegionA(compare_position, Winterblight.CavernChamberVertices[chamber_id][i][1], Winterblight.CavernChamberVertices[chamber_id][i][2]) then
-			is_in_region = true
-			break
+	if chamber_id == 0 then
+		is_in_region = true
+	else
+		for i = 1, #Winterblight.CavernChamberVertices[chamber_id], 1 do
+			if WallPhysics:IsWithinRegionA(compare_position, Winterblight.CavernChamberVertices[chamber_id][i][1], Winterblight.CavernChamberVertices[chamber_id][i][2]) then
+				is_in_region = true
+				break
+			end
 		end
 	end
 	return is_in_region
@@ -4243,7 +4249,8 @@ function Winterblight:CavernBossSummon(msg)
 		CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", Winterblight.CavernGuide:GetAbsOrigin(), 4)
 	end)
 	boss.boss_level = boss_level
-	boss.chamber = chamber
+	boss.boss_chamber = chamber
+	boss.chamber = 0
 	Winterblight:SetCavernUnit(boss, boss:GetAbsOrigin(), false, false, 0)
 end
 

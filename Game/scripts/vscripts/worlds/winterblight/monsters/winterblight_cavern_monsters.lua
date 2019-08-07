@@ -642,31 +642,33 @@ end
 function cavern_unit_die(event)
 	local unit = event.unit
 	local chamber = unit.chamber
-	Winterblight.CavernData.Chambers[chamber]["progress"] = Winterblight.CavernData.Chambers[chamber]["progress"] + 1
-	CustomGameEventManager:Send_ServerToAllClients("cavern_summary_update", {chamber_data = Winterblight.CavernData.Chambers, chamber = chamber})
-	if Winterblight.CavernData.Chambers[chamber]["progress"] >= Winterblight.CavernData.Chambers[chamber]["goal"] then
-		local position = unit:GetAbsOrigin()
-		Winterblight:CompleteChamberEvent(chamber, position)
-	end
-	if chamber == 1 and Winterblight.CavernData.Chambers[chamber]["event"] == 3 then
-		Winterblight.Foyer3Kills = Winterblight.Foyer3Kills + 1
-		Winterblight:Foyer3WaveRedirect(Winterblight.Foyer3Kills)
-	elseif chamber == 3 and Winterblight.CavernData.Chambers[chamber]["event"] == 2 then
-		Winterblight.Crystarium2Kills = Winterblight.Crystarium2Kills + 1
-		Winterblight:Crystarium2WaveRedirect(Winterblight.Crystarium2Kills)
-	elseif chamber == 3 and Winterblight.CavernData.Chambers[chamber]["event"] == 4 then
-		Winterblight:SpawnNextOceanOnslaughtUnit(unit.spawnphase)
-	elseif chamber == 2 and Winterblight.CavernData.Chambers[chamber]["event"] == 2 then
-		Winterblight.AuroraPassage2Kills = Winterblight.AuroraPassage2Kills + 1
-		Winterblight:AuroraPassage2WaveRedirect(Winterblight.AuroraPassage2Kills)
-	elseif chamber == 4 and Winterblight.CavernData.Chambers[chamber]["event"] == 2 then
-		Winterblight.EdgeOfWinter2Kills = Winterblight.EdgeOfWinter2Kills + 1
-		Winterblight:EdgeOfWinter2WaveRedirect(Winterblight.EdgeOfWinter2Kills)
-	elseif chamber == 4 and Winterblight.CavernData.Chambers[chamber]["event"] == 3 then
-		Winterblight:SpawnNextChrolonus(unit.spawnphase)
-	elseif chamber == 4 and Winterblight.CavernData.Chambers[chamber]["event"] == 4 then
-		Winterblight.BlackHolesKills = Winterblight.BlackHolesKills + 1
-		Winterblight:GravityBlackHolesSpawns(Winterblight.BlackHolesKills)
+	if chamber > 0 then
+		Winterblight.CavernData.Chambers[chamber]["progress"] = Winterblight.CavernData.Chambers[chamber]["progress"] + 1
+		CustomGameEventManager:Send_ServerToAllClients("cavern_summary_update", {chamber_data = Winterblight.CavernData.Chambers, chamber = chamber})
+		if Winterblight.CavernData.Chambers[chamber]["progress"] >= Winterblight.CavernData.Chambers[chamber]["goal"] then
+			local position = unit:GetAbsOrigin()
+			Winterblight:CompleteChamberEvent(chamber, position)
+		end
+		if chamber == 1 and Winterblight.CavernData.Chambers[chamber]["event"] == 3 then
+			Winterblight.Foyer3Kills = Winterblight.Foyer3Kills + 1
+			Winterblight:Foyer3WaveRedirect(Winterblight.Foyer3Kills)
+		elseif chamber == 3 and Winterblight.CavernData.Chambers[chamber]["event"] == 2 then
+			Winterblight.Crystarium2Kills = Winterblight.Crystarium2Kills + 1
+			Winterblight:Crystarium2WaveRedirect(Winterblight.Crystarium2Kills)
+		elseif chamber == 3 and Winterblight.CavernData.Chambers[chamber]["event"] == 4 then
+			Winterblight:SpawnNextOceanOnslaughtUnit(unit.spawnphase)
+		elseif chamber == 2 and Winterblight.CavernData.Chambers[chamber]["event"] == 2 then
+			Winterblight.AuroraPassage2Kills = Winterblight.AuroraPassage2Kills + 1
+			Winterblight:AuroraPassage2WaveRedirect(Winterblight.AuroraPassage2Kills)
+		elseif chamber == 4 and Winterblight.CavernData.Chambers[chamber]["event"] == 2 then
+			Winterblight.EdgeOfWinter2Kills = Winterblight.EdgeOfWinter2Kills + 1
+			Winterblight:EdgeOfWinter2WaveRedirect(Winterblight.EdgeOfWinter2Kills)
+		elseif chamber == 4 and Winterblight.CavernData.Chambers[chamber]["event"] == 3 then
+			Winterblight:SpawnNextChrolonus(unit.spawnphase)
+		elseif chamber == 4 and Winterblight.CavernData.Chambers[chamber]["event"] == 4 then
+			Winterblight.BlackHolesKills = Winterblight.BlackHolesKills + 1
+			Winterblight:GravityBlackHolesSpawns(Winterblight.BlackHolesKills)
+		end
 	end
 end
 
