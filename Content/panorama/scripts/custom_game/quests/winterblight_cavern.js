@@ -85,6 +85,7 @@ function init_boss_menu(msg){
 		}
 		cavern_button.boss_level = boss_level
 		cavern_button.boss_status = boss_status
+		cavern_button.boss_cost = 2000
 		if (boss_status > 0){
 			cavern_button.FindChildTraverse('fragments_cost_icon').AddClass("invisible")
 			cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = $.Localize('winterblight_boss_status'+boss_status)
@@ -120,11 +121,23 @@ function set_boss_button_events(cavern_button, msg, i)
 
 function boss_button_click(cavern_button, msg, i){
 	var chamber = i
-	GameEvents.SendCustomGameEventToServer( "units_special", {winterblight: 1, chamber: chamber, boss: 1} );
-	Game.EmitSound("Winterblight.UI.ChamberBossStart")
-	Game.EmitSound("Winterblight.UI.ChamberSelect")
-	Game.EmitSound("Winterblight.UI.SelectChallenge")
-	CloseWinterCavern()
+	var level = cavern_button.boss_level
+	var boss_status = cavern_button.boss_status
+	var cost = cavern_button.boss_cost
+	if (level > 0 && boss_status == 0 && msg.winterblight_cavern.RelicsFragments >= cost){
+		GameEvents.SendCustomGameEventToServer( "units_special", {winterblight: 1, chamber: chamber, boss: 1} );
+		Game.EmitSound("Winterblight.UI.ChamberBossStart")
+		Game.EmitSound("Winterblight.UI.ChamberSelect")
+		Game.EmitSound("Winterblight.UI.SelectChallenge")
+		CloseWinterCavern()
+	}else if(boss_status==2){
+		
+	}else{
+		var color_container = cavern_button
+		color_container.RemoveClass('animate_red')
+		color_container.AddClass('animate_red')
+		Game.EmitSound("Winterblight.Cavern.EventStart.NotAllowed")		
+	}
 }
 
 function calculate_boss_level(winterblight_cavern, index){
