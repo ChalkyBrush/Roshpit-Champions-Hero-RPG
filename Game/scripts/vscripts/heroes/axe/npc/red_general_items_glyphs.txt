@@ -394,6 +394,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
                  "TextureName"            "rpc/axe_d_d"
                  "Properties"
                  {

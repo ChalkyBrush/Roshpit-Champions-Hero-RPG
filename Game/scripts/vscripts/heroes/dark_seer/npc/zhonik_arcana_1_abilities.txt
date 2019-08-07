@@ -98,6 +98,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"EffectName"		"particles/roshpit/zhonik/dash_fade.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"OverrideAnimation"     "ACT_DOTA_VERSUS"
@@ -209,6 +210,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%enemy_move_slow"
@@ -228,12 +230,14 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"zonik/zonik_rune_e_1_arcana1"
 			}
 			"modifier_dummy_aura_effect_enemy_a_c_invisible"
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 			"modifier_zhonic_arcana_c_c_invisible"
 			{

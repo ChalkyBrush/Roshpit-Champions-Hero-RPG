@@ -281,6 +281,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"Duration"			"1"
 				"OnCreated"
 				{
@@ -546,6 +547,7 @@
 			"modifier_odachi_gust"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -918,12 +920,14 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"seinaru/seinaru_r_2"
 			}
 			"modifier_gorudo_rune_r_1"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"seinaru/seinaru_r_1"
 
 				"OnCreated"

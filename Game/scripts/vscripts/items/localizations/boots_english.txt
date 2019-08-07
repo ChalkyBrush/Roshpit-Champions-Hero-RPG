@@ -6,7 +6,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_sange_boots"										"Sange Boots"
 		"item_property_sange"						"Combat Mastery S"
-		"property_sange_description"				"Each point of Agility additionally increases your Max Health by <% SANGE_HP_PER_AGI %>."
+		"property_sange_description"				"Each point of Agility additionally increases your Max Health by <% SANGE_HP_PER_AGI %> and your Max Mana by <% SANGE_MP_PER_AGI %>."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"Dunetreads"

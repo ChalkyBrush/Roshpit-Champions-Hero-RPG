@@ -166,6 +166,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"OnCreated"
 				{
 					"RunScript"

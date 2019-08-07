@@ -114,6 +114,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"EffectName"		"particles/roshpit/arkimus/channel_energy.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"OnDestroy"

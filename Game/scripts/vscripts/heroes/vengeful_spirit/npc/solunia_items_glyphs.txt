@@ -309,6 +309,7 @@
 			"modifier_solunia_glyph_5_a_cooldown"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"TextureName"	"mirana_starfall"
 			}

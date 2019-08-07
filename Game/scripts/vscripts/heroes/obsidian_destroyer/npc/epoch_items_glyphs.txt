@@ -324,6 +324,7 @@
 			"modifier_epoch_glyph_5_a_cooldown"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"TextureName"	"weaver_time_lapse"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"

@@ -1245,6 +1245,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_charge_of_darkness.vpcf"
 				"StatusEffectPriority"  "50"
 			}
@@ -1362,6 +1363,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
 				"StatusEffectPriority"	"110"
 				"Properties"
@@ -1873,6 +1875,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/roshpit/jex/equilibrium_shift_heal.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"States"
@@ -2446,6 +2449,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 		
 				"EffectName"		"particles/roshpit/jex/jex_root.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -3138,6 +3142,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 		}
 	}
@@ -3473,6 +3478,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.3"
 				"OnIntervalThink"
 				{

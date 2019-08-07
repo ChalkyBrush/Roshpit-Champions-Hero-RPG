@@ -104,6 +104,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
 				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
@@ -185,6 +186,7 @@
 			"modifier_hydroxis_c_a_magic_resist_lost"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"		"hydroxis/hydroxis_q_3"
 				"TextureName"	"leshrac_lightning_storm"
 				"Properties"
@@ -289,6 +291,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -716,6 +719,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -730,6 +734,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"OnCreated"
 				{
 					"RunScript"

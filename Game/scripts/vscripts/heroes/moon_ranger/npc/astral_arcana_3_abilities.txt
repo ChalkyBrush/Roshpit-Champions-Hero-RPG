@@ -224,6 +224,7 @@
             "crystal_arrow_ad_aura"
             {
                 "IsDebuff"  "1"
+                "IsStunDebuff"  "1"
                 "IsHidden"  "0"
                 "TextureName"           "astral_ranger/astral_rune_r_1_arcana3"
                 "OnCreated"
@@ -260,6 +261,7 @@
             "modifier_crystal_arrow_chilled"
             {
                 "IsDebuff"  "1"
+                "IsStunDebuff"  "1"
                 "StatusEffectName"      "particles/status_fx/status_effect_frost_lich.vpcf"
                 "StatusEffectPriority"  "20"
                 "TextureName"           "astral_ranger/astral_rune_r_4_arcana3"

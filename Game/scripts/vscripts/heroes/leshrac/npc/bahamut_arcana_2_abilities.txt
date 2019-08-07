@@ -127,6 +127,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/roshpit/bahamut/purity_freeze_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"

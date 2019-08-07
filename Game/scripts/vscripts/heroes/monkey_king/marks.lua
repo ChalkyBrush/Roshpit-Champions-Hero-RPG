@@ -20,6 +20,10 @@ function draghor_main_think(event)
 			crowAbility:SetActivated(false)
 		end
 	end
+	if caster.q3_level > 0 then
+		local durationIncrease = 0.3 + DJANGHOR_Q3_BUFF_DURATION_INCREASE * caster.q3_level
+		Filters:ExtendBuffsDurationOnTarget(caster, 'djanghor_rune_q3', 0, durationIncrease)
+	end
 end
 
 function mark_of_the_fang(event)

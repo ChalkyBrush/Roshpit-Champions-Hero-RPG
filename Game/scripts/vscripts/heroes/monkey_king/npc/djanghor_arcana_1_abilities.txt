@@ -358,6 +358,7 @@
         		"Passive"			"0"
         		"IsHidden"			"0"
         		"IsDebuff"			"1"
+        		"IsStunDebuff"			"1"
 
         		"EffectName"		"particles/roshpit/draghor/hawk_screech_debuff_knockback_debuff.vpcf"
         		"EffectAttachType"	"follow_origin"
@@ -367,6 +368,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_beserkers_call.vpcf"
 				"StatusEffectPriority"  "10"
 				"States"
@@ -524,6 +526,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 			}
 			"modifier_wolf_rend_armor_loss"
 			{
@@ -539,6 +542,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"djanghor/djanghor_rune_w_2"
 				"ThinkInterval"  "0.5"
 				"EffectName"	"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
@@ -563,6 +567,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
@@ -899,6 +904,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"djanghor/djanghor_rune_e_1"
 			}
 		}

@@ -33,6 +33,7 @@
             {
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
             }
 		}
 		"OnProjectileHitUnit"
@@ -137,6 +138,7 @@
 			"modifier_gale_nova_dot"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"		"<% Q_TICK_RATE %>"
 				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -159,6 +161,7 @@
 			"modifier_gale_nova_attack_slow"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% Q3_ATTACK_SPEED_SLOW %>"
@@ -299,6 +302,7 @@
 			"modifier_necrofusion_slowed"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_slow"
@@ -307,6 +311,7 @@
 		    "modifier_venomort_stats_give"
 		    {
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"  "1"
 				"OnCreated"
 				{

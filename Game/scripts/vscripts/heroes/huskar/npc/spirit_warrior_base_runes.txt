@@ -489,6 +489,7 @@
 			"modifier_spirit_glyph_root"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"OnCreated"
 				{

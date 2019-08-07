@@ -76,6 +76,7 @@ function class:OnChannelSucceeded()
     CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_antimage/antimage_manavoid.vpcf", caster, 4)
     EmitSoundOn("Chernobog.NightsProcessionChannelEnd", caster)
     self:Lifting()
+    Filters:CastSkillArguments(4, caster)
 end
 function class:OnChannelInterrupted()
 end

@@ -228,6 +228,7 @@
             {
                 "IsHidden"  "0"
                 "IsDebuff"  "1"
+                "IsStunDebuff"  "1"
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_slow_percent"
@@ -237,6 +238,7 @@
             {
                 "IsHidden"  "0"
                 "IsDebuff"  "1"
+                "IsStunDebuff"  "1"
                 "EffectName"    "particles/units/heroes/hero_demonartist/demonartist_soulchain_debuff.vpcf"
                 "EffectAttachType"  "attach_origin"
                 "TextureName"       "duskbringer/arcana2/duskbringer_rune_q_2_arcana2"
@@ -267,6 +269,7 @@
             "modifier_terrorize_panic_immune"
             {
                 "IsDebuff"  "1"
+                "IsStunDebuff"  "1"
                 "IsHidden"  "1"
             }
 

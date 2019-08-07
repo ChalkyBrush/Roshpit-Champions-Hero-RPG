@@ -75,6 +75,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/epoch/arcana_root.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"States"
@@ -87,6 +88,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"epoch/epoch_rune_q_1_arcana1"
 				"OnDestroy"
 				{

@@ -98,16 +98,19 @@
         	{
         		"IsHidden"	"0"
         		"IsDebuff"	"1"
+        		"IsStunDebuff"	"1"
         	}
         	"modifier_mountain_protector_q_2_invisible"
         	{
         		"IsHidden"	"1"
         		"IsDebuff"	"1"
+        		"IsStunDebuff"	"1"
         	}
         	"modifier_mountain_protector_q_3_daze"
         	{
         		"IsHidden"	"0"
         		"IsDebuff"	"1"
+        		"IsStunDebuff"	"1"
         		"TextureName"	"mountain_protector/mountain_protector_q_3"
         		"EffectName"	"particles/roshpit/mystic_assassin/generic_dazed.vpcf"
         		"EffectAttachType"	"follow_overhead"
@@ -263,6 +266,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
