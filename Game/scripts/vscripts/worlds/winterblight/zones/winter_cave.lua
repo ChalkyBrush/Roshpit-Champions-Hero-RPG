@@ -3814,8 +3814,10 @@ function Winterblight:EdgeOfWinter2WaveRedirect(kills)
 					for i = 1, #portalPosTable, 1 do
 						local position = portalPosTable[i]
 						local boar = nil
-						if k < 3 then
+						if k == 1 then
 							boar = Winterblight:SpawnGhostOfAurora(position, RandomVector(1))
+						elseif k == 2 then
+							boar = Winterblight:SpawnSpectralWitch(position, RandomVector(1))
 						elseif k == 3 then
 							boar = Winterblight:SpawnMindChatterer(position, RandomVector(1))
 						elseif k == 4 then
