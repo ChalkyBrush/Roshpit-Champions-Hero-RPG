@@ -130,8 +130,8 @@ function boss_button_click(cavern_button, msg, i){
 		Game.EmitSound("Winterblight.UI.ChamberSelect")
 		Game.EmitSound("Winterblight.UI.SelectChallenge")
 		CloseWinterCavern()
-	}else if(boss_status==2){
-		
+	}else if(boss_status > 0){
+
 	}else{
 		var color_container = cavern_button
 		color_container.RemoveClass('animate_red')

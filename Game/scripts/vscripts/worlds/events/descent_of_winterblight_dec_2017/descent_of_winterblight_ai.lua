@@ -429,7 +429,7 @@ function ozubu_take_damage(event)
 		return false
 	end
 	local attacker = event.attacker
-	local distance = WallPhysics:GetDistance2d(caster, attacker)
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), attacker:GetAbsOrigin())
 	if distance > 1000 then
 		CustomAbilities:QuickAttachParticle("particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf", caster, 3)
 		caster:SetAbsOrigin(attacker:GetAbsOrigin() + RandomVector(RandomInt(100, 400)))
@@ -546,48 +546,48 @@ function winterblight_boss_think(event)
 		end
 		Dungeons.itemLevel = math.max(Dungeons.itemLevel, 150)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_boss_dying", {})
-		local url = ROSHPIT_URL.."/champions/winterblight_update?"
-		url = url.."boss="..bossName
-		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-		url = url.."&mapname="..GetMapName()
-		CreateHTTPRequestScriptVM("POST", url):Send(function(result)
-			if result.StatusCode == 200 then
-				local resultTable = JSON:decode(result.Body)
-				--DeepPrintTable(resultTable)
-				caster.rewardMult = 1
-				caster.rewardsGranted = 0
-				if bossName == "ozubu" then
-					Events.OzubuSlain = true
-					if resultTable.ozubu_discovered == 1 then
-						caster.rewardMult = 4
-					elseif resultTable.ozubu_discovered < resultTable.torturok_discovered and resultTable.ozubu_discovered < resultTable.aertega_discovered then
-						caster.rewardMult = 2
-					end
-				elseif bossName == "torturok" then
-					Events.TorturokSlain = true
-					if resultTable.torturok_discovered == 1 then
-						caster.rewardMult = 4
-					elseif resultTable.torturok_discovered < resultTable.ozubu_discovered and resultTable.torturok_discovered < resultTable.aertega_discovered then
-						caster.rewardMult = 2
-					end
-				elseif bossName == "aertega" then
-					Events.AertegaSlain = true
-					if resultTable.aertega_discovered == 1 then
-						caster.rewardMult = 4
-					elseif resultTable.aertega_discovered < resultTable.ozubu_discovered and resultTable.aertega_discovered < resultTable.torturok_discovered then
-						caster.rewardMult = 2
-					end
-				end
-				if GameState:GetDifficultyFactor() == 2 then
-					caster.rewardMult = caster.rewardMult / 2
-				end
-				local max = 58 - GameState:GetPlayerPremiumStatusCount() * 2 - 15 * (caster.rewardMult - 1)
-				local luck = RandomInt(1, max)
-				if luck <= 1 then
-					RPCItems:RollVenomortArcana2(caster:GetAbsOrigin())
-				end
-			end
-		end)
+		-- local url = ROSHPIT_URL.."/champions/winterblight_update?"
+		-- url = url.."boss="..bossName
+		-- url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
+		-- url = url.."&mapname="..GetMapName()
+		-- CreateHTTPRequestScriptVM("POST", url):Send(function(result)
+		-- 	if result.StatusCode == 200 then
+		-- 		local resultTable = JSON:decode(result.Body)
+		-- 		--DeepPrintTable(resultTable)
+		-- 		caster.rewardMult = 1
+		-- 		caster.rewardsGranted = 0
+		-- 		if bossName == "ozubu" then
+		-- 			Events.OzubuSlain = true
+		-- 			if resultTable.ozubu_discovered == 1 then
+		-- 				caster.rewardMult = 4
+		-- 			elseif resultTable.ozubu_discovered < resultTable.torturok_discovered and resultTable.ozubu_discovered < resultTable.aertega_discovered then
+		-- 				caster.rewardMult = 2
+		-- 			end
+		-- 		elseif bossName == "torturok" then
+		-- 			Events.TorturokSlain = true
+		-- 			if resultTable.torturok_discovered == 1 then
+		-- 				caster.rewardMult = 4
+		-- 			elseif resultTable.torturok_discovered < resultTable.ozubu_discovered and resultTable.torturok_discovered < resultTable.aertega_discovered then
+		-- 				caster.rewardMult = 2
+		-- 			end
+		-- 		elseif bossName == "aertega" then
+		-- 			Events.AertegaSlain = true
+		-- 			if resultTable.aertega_discovered == 1 then
+		-- 				caster.rewardMult = 4
+		-- 			elseif resultTable.aertega_discovered < resultTable.ozubu_discovered and resultTable.aertega_discovered < resultTable.torturok_discovered then
+		-- 				caster.rewardMult = 2
+		-- 			end
+		-- 		end
+		-- 		if GameState:GetDifficultyFactor() == 2 then
+		-- 			caster.rewardMult = caster.rewardMult / 2
+		-- 		end
+		-- 		local max = 58 - GameState:GetPlayerPremiumStatusCount() * 2 - 15 * (caster.rewardMult - 1)
+		-- 		local luck = RandomInt(1, max)
+		-- 		if luck <= 1 then
+		-- 			RPCItems:RollVenomortArcana2(caster:GetAbsOrigin())
+		-- 		end
+		-- 	end
+		-- end)
 	end
 end
 
@@ -652,6 +652,7 @@ end
 
 function winterblight_boss_final_death_animation(caster)
 	print("ANIMATION")
+	Winterblight.CavernData.Chambers[caster.chamber]["boss_status"] = 2
 	EndAnimation(caster)
 	StartAnimation(caster, {duration = 1.9, activity = ACT_DOTA_DIE, rate = 1.9})
 	Events:smoothSizeChange(caster, caster:GetModelScale(), 0.2, 60)

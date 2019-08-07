@@ -751,6 +751,13 @@ function Winterblight:GetVertices(chamber_id)
 		local bl_vertex = origin-Vector(width/2, height/2)
 		local tr_vertex = origin+Vector(width/2, height/2)
 		table.insert(vertices, {bl_vertex, tr_vertex})
+
+		local height = 896
+		local width = 896
+		local origin = Vector(-9536, 6464)
+		local bl_vertex = origin-Vector(width/2, height/2)
+		local tr_vertex = origin+Vector(width/2, height/2)
+		table.insert(vertices, {bl_vertex, tr_vertex})
 	elseif chamber_id == 2 then
 		local height = 3410
 		local width = 8190
@@ -4189,11 +4196,23 @@ function Winterblight:CavernBossSummon(msg)
 	if Winterblight.CavernData.RelicsFragments < cost then
 		return false
 	end
+	local boss_level = Winterblight:calculate_cavern_boss_level(chamber)
+	if boss_level < 1 then
+		return false
+	end
 	Winterblight.CavernData.RelicsFragments = Winterblight.CavernData.RelicsFragments - cost
 	local boss = nil
 	if chamber == 1 then
 		local position = Vector(-9033, 8320)
-		boss = Events:SpawnTorturok(position)
+		boss = Winterblight:SpawnTorturok(position)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 2000, 20, false)
+	elseif chamber == 2 then
+		local position = Vector(-6784, 13824)
+		boss = Winterblight:SpawnAertega(position)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 2000, 20, false)
+	elseif chamber == 3 then
+		local position = Vector(-13515, 5120)
+		boss = Winterblight:SpawnOzubu(position)
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 2000, 20, false)
 	end
 
@@ -4223,11 +4242,50 @@ function Winterblight:CavernBossSummon(msg)
 		CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", Winterblight.CavernGuide, 4)
 		CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", Winterblight.CavernGuide:GetAbsOrigin(), 4)
 	end)
+	boss.boss_level = boss_level
+	boss.chamber = chamber
+	Winterblight:SetCavernUnit(boss, boss:GetAbsOrigin(), false, false, 0)
 end
 
-function Events:SpawnTorturok(position)
+function Winterblight:calculate_cavern_boss_level(chamber)
+	local level = 0
+	local divisor = 0
+	local chamber_total = 0
+	for j = 1, 4, 1 do
+		local event_level = Winterblight.CavernData.Chambers[chamber]["events"][j]["level"]
+		if event_level > 0 then
+			divisor = divisor + 1
+			chamber_total = chamber_total + event_level
+		end
+	end
+	if divisor > 0 then
+		level = math.ceil(chamber_total/divisor)
+	end
+	return level
+end
+
+function Winterblight:SpawnTorturok(position)
 	local boss = Events:SpawnDescentOfWinterblightDungeonUnit("descent_of_winterblight_torturok", position, 9, 12, "Torturok.Aggro", RandomVector(1), false)
 	boss:SetRenderColor(100, 100, 255)
 	EmitSoundOn("Torturok.Spawn", boss)
+	boss.reduc = 0.1
+	return boss
+end
+
+function Winterblight:SpawnAertega(position)
+	local boss = Events:SpawnDescentOfWinterblightDungeonUnit("descent_of_winterblight_aertega", position, 9, 12, "Events.DescentOfWinterblight.Aertega.Aggro", RandomVector(1), false)
+	boss:SetRenderColor(100, 100, 255)
+	boss.reduc = 0.15
+	EmitSoundOn("Events.DescentOfWinterblight.Aertega.Spawn", boss)
+	return boss
+end
+
+
+function Winterblight:SpawnOzubu(position)
+	local boss = Events:SpawnDescentOfWinterblightDungeonUnit("descent_of_winterblight_ozubu", position, 9, 12, "Winterblight.Ozubu.Aggro", RandomVector(1), false)
+	boss:SetRenderColor(200, 200, 255)
+	boss.maxSummons = (1 - (boss:GetHealth() / boss:GetMaxHealth())) * 23 + 2
+	boss.reduc = 0.05
+	EmitSoundOn("Winterblight.Ozubu.Spawn", boss)
 	return boss
 end

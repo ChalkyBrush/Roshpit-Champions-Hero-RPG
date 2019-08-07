@@ -19024,7 +19024,7 @@
 		"winterblight_cavern_boss_summary"							"@boss_name's level is determined by the average clear level for @chamber_name events. At least 1 event in this chamber must be cleared to summon the boss."
 
 		"winterblight_boss_status1"									"Summoned"
-		"winterblight_boss_status2"									"Slain"
+		"winterblight_boss_status2"									"Defeated"
 
 		"winterblight_cavern_room1_event1"							"Standard"
 		"winterblight_cavern_room1_event1_description"				"The chamber is populated with non aggro mobs."
