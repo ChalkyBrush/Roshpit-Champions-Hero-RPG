@@ -3980,7 +3980,7 @@ function Winterblight:GravityBlackHolesSpawns(kills)
 		Winterblight:SpawnGravityBlackHole(position, Winterblight.CavernData.Chambers[4]["spawnphase"])
 		for i = 1, #Winterblight.EdgeOfWinterBlackHoles, 1 do
 			local black_hole = Winterblight.EdgeOfWinterBlackHoles[i]
-			local black_hole_unit_index = RandomInt(1, 75)
+			local black_hole_unit_index = RandomInt(1, 76)
 			for k = 1, 4, 1 do
 				Timers:CreateTimer(k*1, function()
 					Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_index)
@@ -4143,6 +4143,8 @@ function Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_inde
 			unit = Winterblight:SpawnWintertideMonk(position, Vector(0,-1))
 		elseif black_hole_unit_index == 75 then
 			unit = Winterblight:SpawnWintersChieftain(position, Vector(0,-1))
+		elseif black_hole_unit_index == 76 then
+			unit = Winterblight:SpawnSpectralWitch(position, Vector(0,-1))
 		end
 		print("SPAWN")
 		EmitSoundOn("Winterblight.BlackHoleUnit.Spawn", unit)
