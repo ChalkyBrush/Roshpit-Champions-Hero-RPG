@@ -539,6 +539,7 @@ function Tanari:SpawnWindTempleBoss(position)
 	boss.jumpLock = true
 	boss.pushLock = true
 	Events:AdjustBossPower(boss, 4, 4, true)
+	boss.type = ENEMY_TYPE_BOSS
 	local bossAbility = boss:FindAbilityByName("wind_temple_boss_ai")
 	bossAbility:ApplyDataDrivenModifier(boss, boss, "modifier_wind_temple_boss_intro", {duration = 5.1})
 	boss:SetAbsOrigin(Vector(position.x, position.y, boss:GetAbsOrigin().z) + Vector(0, 0, -2800))
@@ -1015,6 +1016,7 @@ end
 function Tanari:SpawnWindTempleSpiritBoss()
 	local guardian = Events:SpawnBoss("wind_temple_spirit_boss", Vector(12992, 1536))
 	Tanari.WindTemple.SpiritBoss = guardian
+	guardian.type = ENEMY_TYPE_BOSS
 	Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, guardian, "tanari_mountain_specter_ai", {})
 	-- local guardian = CreateUnitByName("wind_temple_spirit_boss", Vector(12992, 1536), false, nil, nil, DOTA_TEAM_NEUTRALS)
 	guardian:SetForwardVector(Vector(0, 1))

@@ -5151,6 +5151,7 @@ function Winterblight:SpawnAzaleaBoss()
 
 			Winterblight.AzaleaBossStatue = nil
 			local boss = Events:SpawnBoss("azalea_boss", position)
+			boss.type = ENEMY_TYPE_BOSS
 			Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, boss, "modifier_Winterblight_unit", {})
 			boss:SetAcquisitionRange(5000)
 			position = boss:GetAbsOrigin()

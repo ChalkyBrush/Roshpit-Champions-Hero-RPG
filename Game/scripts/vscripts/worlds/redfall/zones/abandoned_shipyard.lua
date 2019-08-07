@@ -1506,6 +1506,7 @@ end
 
 function Redfall:ShipyardBossReadyForBattle()
 	local boss = Redfall.Shipyard.boss
+	boss.type = ENEMY_TYPE_BOSS
 
 	Timers:CreateTimer(1, function()
 		boss:RemoveModifierByName("modifier_disable_player")

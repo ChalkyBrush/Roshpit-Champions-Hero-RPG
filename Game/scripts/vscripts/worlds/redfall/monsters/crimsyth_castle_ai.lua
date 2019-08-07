@@ -4298,6 +4298,7 @@ function FinalBossTrigger()
 			Timers:CreateTimer(1.5, function()
 				local boss = CreateUnitByName("redfall_crimsyth_castle_boss", Vector(448, 2542), false, nil, nil, DOTA_TEAM_NEUTRALS)
 				Redfall.Castle.FinalBoss = boss
+				boss.type = ENEMY_TYPE_BOSS
 				boss:SetAbsOrigin(boss:GetAbsOrigin() - Vector(0, 0, 600))
 				boss:SetForwardVector(Vector(0, -1))
 				Events:AdjustBossPower(boss, 16, 16, false)
