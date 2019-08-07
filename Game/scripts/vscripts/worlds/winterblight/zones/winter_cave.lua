@@ -64,6 +64,8 @@ end
 
 function Winterblight:InitCavernData()
 	Winterblight:GetCaveMetaData()
+	local relics_table = {500, 500, 500, 500, 500, 800, 800, 1000, 1000, 1200, 1200, 1500, 2000, 2000, 3000, 3000}
+	relics_table = WallPhysics:ShuffleTable(relics_table)
 	Winterblight.CavernData = {}
 	Winterblight.CavernData.Chambers = {}
 	Winterblight.CavernData.RelicsFragments = 0
@@ -76,7 +78,8 @@ function Winterblight:InitCavernData()
 		for j = 1, 4, 1 do
 			Winterblight.CavernData.Chambers[i]["events"][j] = {}
 			Winterblight.CavernData.Chambers[i]["events"][j]["status"] = 0
-			Winterblight.CavernData.Chambers[i]["events"][j]["relic_fragments_reward"] = 1000
+			local relic_reward_index = (i-1)*4 + j
+			Winterblight.CavernData.Chambers[i]["events"][j]["relic_fragments_reward"] = relics_table[relic_reward_index]
 			Winterblight.CavernData.Chambers[i]["events"][j]["relic_fragments_rewarded"] = 0
 			Winterblight.CavernData.Chambers[i]["events"][j]["level"] = 0
 			-- update reward calcs
