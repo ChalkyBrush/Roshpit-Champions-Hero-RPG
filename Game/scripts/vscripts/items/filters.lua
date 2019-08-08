@@ -151,12 +151,6 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_mountain_vambraces") then
         mult = mult + 0.003 * (caster:GetStrength() / 10)
     end
-    if caster:HasModifier("modifier_ruby_dragon") then
-        mult = mult + 0.003 * (caster:GetStrength() / 10)
-    end
-    if caster:HasModifier("modifier_ruby_dragon") then
-        mult = mult + 0.003 * (caster:GetStrength() / 10)
-    end
     if caster:HasModifier("modifier_body_avalanche") then
         mult = mult + 0.003 * (caster:GetStrength() / 10)
     end
@@ -1911,7 +1905,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_crystal_maiden" then
             if attacker.r_4_level and not attacker:HasModifier("modifier_sorceress_arcana1") then
-                fireMult = fireMult + 0.0002 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
+                fireMult = fireMult + SORCERESS_R4_FIRE_AMP_PER_ATR_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
             end
             if attacker:HasModifier("modifier_fire_avatar") then
                 local stacks = attacker:GetModifierStackCount("modifier_fire_avatar", attacker)

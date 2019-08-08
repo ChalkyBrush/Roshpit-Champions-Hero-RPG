@@ -4311,9 +4311,9 @@ function new_ruby_dragon_think(event)
 			Ability = ability,
 			EffectName = projectileParticle,
 			vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 120),
-			fDistance = 700,
+			fDistance = RUBY_DRAGON_DISTANCE,
 			fStartRadius = 180,
-			fEndRadius = 260,
+			fEndRadius = 350,
 			Source = caster,
 			StartPosition = "attach_origin",
 			bHasFrontalCone = true,
@@ -4323,7 +4323,7 @@ function new_ruby_dragon_think(event)
 			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 			fExpireTime = GameRules:GetGameTime() + 5.0,
 			bDeleteOnHit = false,
-			vVelocity = fv * 700,
+			vVelocity = fv * RUBY_DRAGON_DISTANCE,
 			bProvidesVision = false,
 		}
 		EmitSoundOn("Creature.FireBreath.Cast", caster)
@@ -4357,6 +4357,8 @@ function ruby_dragon_flame_impact(event)
 		}
 	})
 	hero.headItem:ApplyDataDrivenModifier(hero.InventoryUnit, target, "ruby_dragon_burn", {duration = RUBY_DRAGON_TICK_DURATION})
+	local modifier = target:FindModifierByName('ruby_dragon_burn')
+	Util.Modifier:SetIndependentlyStacks(hero, target, modifier, 1, RUBY_DRAGON_TICK_DURATION)
 end
 
 function ruby_dragon_flame_think(event)
