@@ -3599,12 +3599,14 @@ function gravekeeper_attack(event)
 		EmitSoundOn("Item.GraveKeeper", target)
 	end
 	if ability.targetIndex == target:GetEntityIndex() then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_gravekeeper_gauntlet_target", {duration = 9})
-		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_gravekeeper_gauntlet_buff", {duration = 9})
-		local newTargetStacks = target:GetModifierStackCount("modifier_gravekeeper_gauntlet_target", caster) + 1
-		target:SetModifierStackCount("modifier_gravekeeper_gauntlet_target", caster, newTargetStacks)
-		local newAttackerStacks = attacker:GetModifierStackCount("modifier_gravekeeper_gauntlet_buff", caster) + 1
-		attacker:SetModifierStackCount("modifier_gravekeeper_gauntlet_buff", caster, newAttackerStacks)
+		Util.Common:LimitPerTime(GRAVEKEEPER_MAX_STACKS_PER_SEC, 1, function()
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_gravekeeper_gauntlet_target", {duration = 9})
+			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_gravekeeper_gauntlet_buff", {duration = 9})
+			local newTargetStacks = target:GetModifierStackCount("modifier_gravekeeper_gauntlet_target", caster) + 1
+			target:SetModifierStackCount("modifier_gravekeeper_gauntlet_target", caster, newTargetStacks)
+			local newAttackerStacks = attacker:GetModifierStackCount("modifier_gravekeeper_gauntlet_buff", caster) + 1
+			attacker:SetModifierStackCount("modifier_gravekeeper_gauntlet_buff", caster, newAttackerStacks)
+		end)
 	else
 		attacker:RemoveModifierByName("modifier_gravekeeper_gauntlet_target")
 		attacker:RemoveModifierByName("modifier_gravekeeper_gauntlet_buff")
