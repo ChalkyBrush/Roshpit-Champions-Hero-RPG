@@ -205,7 +205,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_gravekeepers_gauntlet"							"Gravekeeper's Gauntlet"
 		"item_property_gravekeeper_gauntlet"				"Gravekeeper"
-		"property_gravekeeper_gauntlet_description"		"Successive attacks on the same target increase all Pre-Mitigation damage you deal to it by 10%, and each stack also drains 3 movespeed from the unit. Changing attack targets restarts the effect."
+		"property_gravekeeper_gauntlet_description"		"Successive attacks on the same target sap its vitality while empowering you. Each stack increases all Pre-Mitigation damage you deal by 10%, while also draining 3 movespeed from it and giving it to you. Changing attack targets removes all existing stacks. Only <% GRAVEKEEPER_MAX_STACKS_PER_SEC %> stacks can be applied per second, no matter how quickly you attack."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"Grave Target"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"Losing movespeed and taking additional damage with each stack."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"Gravekeeper"

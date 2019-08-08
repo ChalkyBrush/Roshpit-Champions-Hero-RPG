@@ -316,7 +316,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% SORCERESS_E1_STACKS %>"
 			}
 		}
 		"Modifiers"
@@ -581,7 +581,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"<% SORCERESS_R4_FIRE_AMP_PER_ATR_PCT %>"
 			}
 		}
 	}

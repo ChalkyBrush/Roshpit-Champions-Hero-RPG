@@ -17,7 +17,7 @@ local function cast(caster, ability)
         caster:SetModifierStackCount("modifier_flicker_charges", ability, current_stack - stacksSpend)
     else
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_flicker_charges", {})
-        caster:SetModifierStackCount("modifier_flicker_charges", ability, current_stack + runesCount)
+        caster:SetModifierStackCount("modifier_flicker_charges", ability, current_stack + SORCERESS_E1_STACKS * runesCount)
     end
 end
 local module = {}

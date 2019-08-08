@@ -3599,12 +3599,14 @@ function gravekeeper_attack(event)
 		EmitSoundOn("Item.GraveKeeper", target)
 	end
 	if ability.targetIndex == target:GetEntityIndex() then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_gravekeeper_gauntlet_target", {duration = 9})
-		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_gravekeeper_gauntlet_buff", {duration = 9})
-		local newTargetStacks = target:GetModifierStackCount("modifier_gravekeeper_gauntlet_target", caster) + 1
-		target:SetModifierStackCount("modifier_gravekeeper_gauntlet_target", caster, newTargetStacks)
-		local newAttackerStacks = attacker:GetModifierStackCount("modifier_gravekeeper_gauntlet_buff", caster) + 1
-		attacker:SetModifierStackCount("modifier_gravekeeper_gauntlet_buff", caster, newAttackerStacks)
+		Util.Common:LimitPerTime(GRAVEKEEPER_MAX_STACKS_PER_SEC, 1, function()
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_gravekeeper_gauntlet_target", {duration = 9})
+			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_gravekeeper_gauntlet_buff", {duration = 9})
+			local newTargetStacks = target:GetModifierStackCount("modifier_gravekeeper_gauntlet_target", caster) + 1
+			target:SetModifierStackCount("modifier_gravekeeper_gauntlet_target", caster, newTargetStacks)
+			local newAttackerStacks = attacker:GetModifierStackCount("modifier_gravekeeper_gauntlet_buff", caster) + 1
+			attacker:SetModifierStackCount("modifier_gravekeeper_gauntlet_buff", caster, newAttackerStacks)
+		end)
 	else
 		attacker:RemoveModifierByName("modifier_gravekeeper_gauntlet_target")
 		attacker:RemoveModifierByName("modifier_gravekeeper_gauntlet_buff")
@@ -4311,9 +4313,9 @@ function new_ruby_dragon_think(event)
 			Ability = ability,
 			EffectName = projectileParticle,
 			vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 120),
-			fDistance = 700,
+			fDistance = RUBY_DRAGON_DISTANCE,
 			fStartRadius = 180,
-			fEndRadius = 260,
+			fEndRadius = 350,
 			Source = caster,
 			StartPosition = "attach_origin",
 			bHasFrontalCone = true,
@@ -4323,13 +4325,13 @@ function new_ruby_dragon_think(event)
 			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 			fExpireTime = GameRules:GetGameTime() + 5.0,
 			bDeleteOnHit = false,
-			vVelocity = fv * 700,
+			vVelocity = fv * RUBY_DRAGON_DISTANCE,
 			bProvidesVision = false,
 		}
 		EmitSoundOn("Creature.FireBreath.Cast", caster)
 		projectile = ProjectileManager:CreateLinearProjectile(info)
 	end
-	if ability.interval == 12 then
+	if ability.interval == RUBY_DRAGON_DURATION then
 		ability:ApplyDataDrivenModifier(caster, caster, "ruby_dragon_cinematic", {duration = 1.5})
 		caster.entering = false
 		Timers:CreateTimer(1.5, function()
@@ -4343,10 +4345,22 @@ function ruby_dragon_flame_impact(event)
 	local caster = event.caster
 	local hero = caster.hero
 	local ability = event.ability
-	local damage = hero:GetStrength() * 150
+	local damage = hero:GetStrength() * RUBY_DRAGON_IMPACT_DMG_PER_STR
 	local target = event.target
-	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-	hero.headItem:ApplyDataDrivenModifier(hero.InventoryUnit, target, "ruby_dragon_burn", {duration = 3})
+	Damage:Apply({
+		attacker = hero,
+		victim = target,
+		source = ability,
+		sourceType = BASE_ITEM,
+		damage = damage,
+		damageType = DAMAGE_TYPE_MAGICAL,
+		elements = {
+			RPC_ELEMENT_FIRE
+		}
+	})
+	hero.headItem:ApplyDataDrivenModifier(hero.InventoryUnit, target, "ruby_dragon_burn", {duration = RUBY_DRAGON_TICK_DURATION})
+	local modifier = target:FindModifierByName('ruby_dragon_burn')
+	Util.Modifier:SetIndependentlyStacks(hero, target, modifier, 1, RUBY_DRAGON_TICK_DURATION)
 end
 
 function ruby_dragon_flame_think(event)
@@ -4354,8 +4368,22 @@ function ruby_dragon_flame_think(event)
 	local hero = caster.hero
 	local ability = event.ability
 	local target = event.target
-	local burnDamage = hero:GetStrength() * 50
-	Filters:ApplyDotDamage(hero, ability, target, burnDamage, DAMAGE_TYPE_MAGICAL, -1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	local burnDamage = hero:GetStrength() * RUBY_DRAGON_TICK_DMG_PER_STR
+	local stacksCount = target:FindModifierByName('ruby_dragon_burn'):GetStackCount()
+	for i = 1, stacksCount do
+		Damage:Apply({
+			attacker = hero,
+			victim = target,
+			source = ability,
+			sourceType = BASE_ITEM,
+			damage = burnDamage,
+			damageType = DAMAGE_TYPE_MAGICAL,
+			elements = {
+				RPC_ELEMENT_FIRE
+			},
+			dot = true
+		})
+	end
 end
 
 function ruby_dragon_entering_think(event)
