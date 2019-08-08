@@ -197,8 +197,12 @@ function Winterblight:Debug2()
   Winterblight.CavernData.Chambers[3]["events"][1]["level"] = 18
   Winterblight.CavernData.Chambers[3]["events"][2]["level"] = 15
 
+  Winterblight.CavernData.Chambers[4]["events"][1]["level"] = 18
+  Winterblight.CavernData.Chambers[4]["events"][2]["level"] = 15
+
   Winterblight.CavernData.Chambers[2]["boss_status"] = 0
   Winterblight.CavernData.Chambers[3]["boss_status"] = 0
+  Winterblight.CavernData.Chambers[4]["boss_status"] = 0
   Winterblight.CavernData.RelicsFragments = 10000
  -- Winterblight:FinishCaveWaves()
  -- Winterblight:InitializeAzaleaSwords()

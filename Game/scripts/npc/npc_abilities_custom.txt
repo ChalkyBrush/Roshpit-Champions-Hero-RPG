@@ -83582,6 +83582,65 @@
 		}
 	}
 
+	"gigarraun_fissure"
+	{
+		// General
+		//-------------------------------------------------------
+		"ID"					"5023"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"1"
+		"BaseClass"						"earthshaker_fissure"
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastRange"				"3000"
+		"AbilityCastPoint"				"1.2"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"2.4"
+		"AbilityDuration"				"0.3 0.45 0.6"
+
+		// Damage.
+		//-------------------------------------------------------
+		"AbilityDamage"					"5000 75000 600000"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"fissure_range"				"3000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"fissure_duration"			"6"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"fissure_radius"				"225"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"0.3 0.45 0.6"
+			}
+		}
+	}
+
 
 	"soul_ferrier_passive"
 	{

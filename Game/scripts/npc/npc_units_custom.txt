@@ -97312,7 +97312,7 @@
     {
         "BaseClass" "npc_dota_creature"
         "Model" "models/heroes/earthshaker/earthshaker.vmdl"
-        "ModelScale"    "1.95"
+        "ModelScale"    "2.45"
         "Level" "1"
         "HealthBarOffset"   "265"
         "precache"
@@ -97357,7 +97357,7 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"      "snowshaker_fissure"
+        "Ability1"      "gigarraun_fissure"
         "Ability2"      "use_ability_1_position_ai"
         "Ability3"      "winterblight_distance_cap_aura"
         "Ability4"      "dungeon_creep"

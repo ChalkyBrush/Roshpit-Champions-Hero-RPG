@@ -546,9 +546,8 @@ function winterblight_boss_think(event)
 		elseif caster:GetUnitName() == "descent_of_winterblight_ozubu" then
 			EmitSoundOn("Ozubu.Death", caster)
 		elseif caster:GetUnitName() == "winterblight_cavern_gigarraun" then
-			Timers:CreateTimer(1.5, function()
-				EmitSoundOn("Winterblight.Gigarraun.Aggro", caster)
-			end)
+			bossName = "gigarraun"
+			EmitSoundOn("Winterblight.Gigarraun.Death1", caster)
 		end
 		Dungeons.itemLevel = math.max(Dungeons.itemLevel, 150)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_boss_dying", {})
@@ -667,6 +666,10 @@ function winterblight_boss_final_death_animation(caster)
 			caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 10))
 		end)
 	end
+	local gigarraun_death = false
+	if caster:GetUnitName() == "winterblight_cavern_gigarraun" then
+		gigarraun_death = true
+	end
 	Timers:CreateTimer(1.9, function()
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.BossOut", caster)
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
@@ -683,8 +686,13 @@ function winterblight_boss_final_death_animation(caster)
 			ParticleManager:DestroyParticle(pfx2, false)
 			ParticleManager:ReleaseParticleIndex(pfx2)
 		end)
+		local position = caster:GetAbsOrigin()
 		ScreenShake(caster:GetAbsOrigin(), 800, 1.0, 1.0, 9000, 0, true)
 		UTIL_Remove(caster)
-
+		if gigarraun_death then
+			Timers:CreateTimer(1, function()
+				EmitSoundOnLocationWithCaster(position, "Winterblight.Gigarraun.Aggro", Events.GameMaster)
+			end)
+		end
 	end)
 end

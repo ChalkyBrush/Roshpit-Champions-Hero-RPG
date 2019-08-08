@@ -4204,6 +4204,9 @@ end
 
 function Winterblight:CavernBossSummon(msg)
 	local chamber = tonumber(msg.chamber)
+	if Winterblight.CavernData.Chambers[chamber]["boss_status"] ~= 0 then
+		return false
+	end
 	Winterblight.CavernData.Chambers[chamber]["boss_status"] = 1
 	local cost = 2000
 	if Winterblight.CavernData.RelicsFragments < cost then
@@ -4228,7 +4231,7 @@ function Winterblight:CavernBossSummon(msg)
 		boss = Winterblight:SpawnOzubu(position)
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 2000, 20, false)
 	elseif chamber == 4 then
-		local position = Vector(-13440, 13184)
+		local position = Vector(-14440, 12584)
 		boss = Winterblight:SpawnGigarraun(position)
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 2000, 20, false)
 	end
