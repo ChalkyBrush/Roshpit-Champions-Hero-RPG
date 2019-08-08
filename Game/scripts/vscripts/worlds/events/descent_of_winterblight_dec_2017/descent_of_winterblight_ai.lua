@@ -545,6 +545,10 @@ function winterblight_boss_think(event)
 			bossName = "torturok"
 		elseif caster:GetUnitName() == "descent_of_winterblight_ozubu" then
 			EmitSoundOn("Ozubu.Death", caster)
+		elseif caster:GetUnitName() == "winterblight_cavern_gigarraun" then
+			Timers:CreateTimer(1.5, function()
+				EmitSoundOn("Winterblight.Gigarraun.Aggro", caster)
+			end)
 		end
 		Dungeons.itemLevel = math.max(Dungeons.itemLevel, 150)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_boss_dying", {})

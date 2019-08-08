@@ -88,7 +88,7 @@ function Winterblight:InitCavernData()
 	Winterblight.CavernData.Chambers[1]["boss_name"] = "descent_of_winterblight_torturok"
 	Winterblight.CavernData.Chambers[2]["boss_name"] = "descent_of_winterblight_aertega"
 	Winterblight.CavernData.Chambers[3]["boss_name"] = "descent_of_winterblight_ozubu"
-	Winterblight.CavernData.Chambers[4]["boss_name"] = "something_not_done"
+	Winterblight.CavernData.Chambers[4]["boss_name"] = "winterblight_cavern_gigarraun"
 
 	Winterblight.CavernChamberVertices = {}
 	for j = 1, 4, 1 do
@@ -4227,6 +4227,10 @@ function Winterblight:CavernBossSummon(msg)
 		local position = Vector(-13515, 5120)
 		boss = Winterblight:SpawnOzubu(position)
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 2000, 20, false)
+	elseif chamber == 4 then
+		local position = Vector(-13440, 13184)
+		boss = Winterblight:SpawnGigarraun(position)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 2000, 20, false)
 	end
 
 	EmitSoundOnLocationWithCaster(boss:GetAbsOrigin(), "Winterblight.BossOut", boss)
@@ -4303,3 +4307,13 @@ function Winterblight:SpawnOzubu(position)
 	EmitSoundOn("Winterblight.Ozubu.Spawn", boss)
 	return boss
 end
+
+function Winterblight:SpawnGigarraun(position)
+	local boss = Events:SpawnDescentOfWinterblightDungeonUnit("winterblight_cavern_gigarraun", position, 9, 12, "Winterblight.Gigarraun.Aggro", RandomVector(1), false)
+	Events:ColorWearablesAndBase(boss, Vector(100, 120, 255))
+	boss.reduc = 0.08
+	EmitSoundOn("Winterblight.Gigarraun.Spawn", boss)
+	Winterblight:SetPositionCastArgs(boss, 2000, 300, 1, FIND_ANY_ORDER)
+	return boss
+end
+

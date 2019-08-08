@@ -97307,6 +97307,101 @@
 
         }
     }
+
+    "winterblight_cavern_gigarraun"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/earthshaker/earthshaker.vmdl"
+        "ModelScale"    "1.95"
+        "Level" "1"
+        "HealthBarOffset"   "265"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+            "particle"  "particles/items_fx/immunity_sphere.vpcf"
+            "particle"  "particles/econ/items/earthshaker/earthshaker_gravelmaw/earthshaker_fissure_flash_b_gravelmaw.vpcf"
+            "particle"  "particles/units/heroes/hero_earthshaker/earthshaker_fissure.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_Earthshaker"
+        "ArmorPhysical" "25"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "66500"
+        "AttackDamageMax"   "72500"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "155"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "1550"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "340"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "3040000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"      "snowshaker_fissure"
+        "Ability2"      "use_ability_1_position_ai"
+        "Ability3"      "winterblight_distance_cap_aura"
+        "Ability4"      "dungeon_creep"
+        "Ability5"      "winterblight_descent_boss_ability"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12747"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "12745"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "12746"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "12744"
+                }
+
+            }
+        }
+    }
     
 
     "tutorial_master"

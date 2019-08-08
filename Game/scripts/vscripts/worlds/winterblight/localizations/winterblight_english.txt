@@ -759,6 +759,8 @@
 		"winterblight_cavern_boss_button_label"						"Boss Summoning"
 		"winterblight_cavern_boss_summary"							"@boss_name's level is determined by the average clear level for @chamber_name events. At least 1 event in this chamber must be cleared to summon the boss."
 
+		"winterblight_cavern_gigarraun"								"Gigarraun"
+
 		"winterblight_boss_status1"									"Summoned"
 		"winterblight_boss_status2"									"Defeated"
 
