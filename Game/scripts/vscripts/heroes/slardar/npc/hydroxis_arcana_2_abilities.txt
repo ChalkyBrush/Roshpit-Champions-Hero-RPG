@@ -209,6 +209,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"OnCreated"
 				{
@@ -224,6 +225,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/hydroxis/arcana/basin_root.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"TexureName"	"hydroxis/hydroxis_rune_r_3_arcana2"
@@ -264,6 +266,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 			"modifier_flood_basin_transport"
 			{

@@ -160,7 +160,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"<% DJANGHOR_GLYPH_4_1_SHIELD_STACKS %>"
 			}
 		}
 	}

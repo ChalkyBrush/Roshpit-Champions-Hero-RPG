@@ -129,6 +129,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 		}
 	}
@@ -186,6 +187,7 @@
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"pudge_rot"
 				"Properties"
 				{
@@ -211,6 +213,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"pudge_rot"
 				"StatusEffectName" 		"particles/status_fx/status_effect_earth_spirit_petrify.vpcf"
 				"StatusEffectPriority"  "30"
@@ -547,6 +550,65 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+	}
+
+	"item_rpc_crown_of_ruby_dragon"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/crown_of_ruby_dragon" //"crown_of_ruby_dragon"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"ruby_dragon_burn"
+			{
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType" 	"attach_origin"
+				"TextureName"		"dragon_knight_breathe_fire"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ruby_dragon_flame_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"		"<% RPC_ELEMENT_FIRE %>"
 			}
 		}
 	}

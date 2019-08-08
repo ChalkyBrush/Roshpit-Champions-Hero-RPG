@@ -372,6 +372,7 @@
 			"heatwave_fire_damage"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"ThinkInterval"	"1"
 				"OnIntervalThink"
@@ -576,6 +577,7 @@
 			"modifier_light_strike_array_datadriven"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 
 				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
@@ -650,6 +652,7 @@
 			"modifier_eruption_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"ThinkInterval"	"1.0"
 				"OnIntervalThink"
@@ -840,6 +843,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"		"abaddon_death_coil"
 				"EffectName"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
@@ -852,6 +856,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-120"
@@ -1106,6 +1111,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_shred"
@@ -1171,6 +1177,7 @@
 			"heatwave_fire_damage"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"ThinkInterval"	"1"
 				"OnIntervalThink"
@@ -1393,6 +1400,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"

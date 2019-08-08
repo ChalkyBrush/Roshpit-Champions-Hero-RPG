@@ -39,6 +39,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"tinker_laser"
 			}
 		}
@@ -241,6 +242,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"rpc/stormcloth_bracer"
 			}
 			"modifier_stormcloth_falling"

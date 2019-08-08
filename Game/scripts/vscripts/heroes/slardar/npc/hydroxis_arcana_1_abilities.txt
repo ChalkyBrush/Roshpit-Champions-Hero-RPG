@@ -193,6 +193,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -227,6 +228,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/hydroxis/hydroxis_mist_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"Properties"

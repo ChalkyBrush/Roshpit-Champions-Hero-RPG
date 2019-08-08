@@ -151,12 +151,6 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_mountain_vambraces") then
         mult = mult + 0.003 * (caster:GetStrength() / 10)
     end
-    if caster:HasModifier("modifier_ruby_dragon") then
-        mult = mult + 0.003 * (caster:GetStrength() / 10)
-    end
-    if caster:HasModifier("modifier_ruby_dragon") then
-        mult = mult + 0.003 * (caster:GetStrength() / 10)
-    end
     if caster:HasModifier("modifier_body_avalanche") then
         mult = mult + 0.003 * (caster:GetStrength() / 10)
     end
@@ -1911,7 +1905,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_crystal_maiden" then
             if attacker.r_4_level and not attacker:HasModifier("modifier_sorceress_arcana1") then
-                fireMult = fireMult + 0.0002 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
+                fireMult = fireMult + SORCERESS_R4_FIRE_AMP_PER_ATR_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
             end
             if attacker:HasModifier("modifier_fire_avatar") then
                 local stacks = attacker:GetModifierStackCount("modifier_fire_avatar", attacker)
@@ -4603,4 +4597,41 @@ function Filters:JexNatureCostmicW(caster)
         ability:ToggleAbility()
     end
     caster:ReduceMana(mana_usage)
+end
+function Filters:ExtendBuffsDurationOnTarget(target, keyName, bonusAmplify, increase, checkFunc)
+    if target:IsRooted() or target:IsStunned() then
+        return
+    end
+    keyName = 'duration_buff_' .. keyName
+    local modifiers = target:FindAllModifiers()
+    for _,modifier in pairs(modifiers) do
+        local isDebuff = modifier:IsStunDebuff() or (modifier['IsDebuff'] and modifier:IsDebuff()) or false
+        local durationRemaining = modifier:GetRemainingTime()
+        if not isDebuff
+                and not self:IsNonExtendableBuff(modifier)
+                and not modifier[keyName]
+                and durationRemaining > 0
+                and (checkFunc == nil or checkFunc(modifier))
+        then
+            modifier[keyName] = true
+            modifier.duration_amplify = modifier.duration_amplify or 1
+            modifier.duration_increase = modifier.duration_increase or 0
+
+            modifier.old_duration_amplify = modifier.duration_amplify
+            modifier.old_duration_increase = modifier.duration_increase
+
+            modifier.duration_amplify = modifier.duration_amplify + bonusAmplify
+            modifier.duration_increase = modifier.duration_increase + increase
+
+            durationRemaining = (durationRemaining - modifier.old_duration_increase + modifier.duration_increase) * modifier.duration_amplify/modifier.old_duration_amplify
+            modifier:SetDuration(durationRemaining, true)
+        end
+    end
+end
+function Filters:IsNonExtendableBuff(modifier)
+    self.nonExtendableBuffs = self.nonExtendableBuffs or {
+        modifier_gravelfoot_buff = true,
+        modifier_animation = true,
+    }
+    return self.nonExtendableBuffs[modifier:GetName()] or isDebuff or false
 end

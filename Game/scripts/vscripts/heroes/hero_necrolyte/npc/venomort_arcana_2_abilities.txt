@@ -70,6 +70,7 @@
 			"modifier_chilled"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "20"
@@ -83,6 +84,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
 				{
@@ -131,6 +133,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"venomort/venomort_rune_q_3_arcana2"
 			}
 		}

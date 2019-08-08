@@ -378,6 +378,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"
 				"StatusEffectPriority"  "10"
 				"EffectName"		"particles/items2_fx/satanic_buff.vpcf"
@@ -595,6 +596,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"chaos_knight_reality_rift"
 
 				"EffectName"		"particles/units/heroes/hero_templar_assassin/templar_assassin_ambient_electric.vpcf"
@@ -615,6 +617,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"Properties"
 				{
@@ -626,6 +629,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"axe/axe_rune_w_2"
 
 				"EffectName"		"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_facing_glow.vpcf"
@@ -1047,12 +1051,14 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"	        "1"
+				"IsStunDebuff"	        "1"
 			}
 			"modifier_axe_rune_q_4_visible"
 			{
 				"TextureName"		"rpc/axe_d_a"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 		}
 	}

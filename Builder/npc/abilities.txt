@@ -1340,6 +1340,7 @@
 			"create_acid_spray_armor_reduction_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"EffectName"	"particles/units/heroes/hero_alchemist/alchemist_acid_spray_debuff.vpcf"
 				"ThinkInterval"	"%tick_rate"
@@ -1524,6 +1525,7 @@
 			"create_acid_spray_armor_reduction_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"EffectName"	"particles/units/heroes/hero_alchemist/alchemist_acid_spray_debuff.vpcf"
 				"ThinkInterval"	"%tick_rate"
@@ -2304,6 +2306,7 @@
 			{
 				"Duration"		"%bolt_stun_duration"
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 
 				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
@@ -2527,6 +2530,7 @@
 			"modifier_champion_health_degen_effect"
 			{
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"EffectName"		"particles/units/heroes/hero_bristleback/bristleback_viscous_nasal_goo_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Properties"
@@ -3162,6 +3166,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Duration"	"5"
 				"OverrideAnimation"	"ACT_DOTA_IDLE"
 				"ThinkInterval"  "0.03"
@@ -3195,6 +3200,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Duration"	"0.33"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
@@ -3493,6 +3499,7 @@
 			{
 				"IsHidden" "0"
 				"IsDebuff"  "1"
+				"IsStunDebuff"  "1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_enigma_malefice.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -3538,6 +3545,7 @@
 			{
 				"IsHidden" "0"
 				"IsDebuff"  "1"
+				"IsStunDebuff"  "1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_enigma_malefice.vpcf"
 				"StatusEffectPriority"  "10"
 			}
@@ -3638,6 +3646,7 @@
 			{
 				"IsHidden" "0"
 				"IsDebuff"  "1"
+				"IsStunDebuff"  "1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -3898,6 +3907,7 @@
 				"IsHidden" "0"
 				"TextureName"	"obsidian_destroyer_essence_aura"
 				"IsDebuff"  "1"
+				"IsStunDebuff"  "1"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -3953,6 +3963,7 @@
 			{
 				"IsHidden" "1"
 				"IsDebuff"  "1"
+				"IsStunDebuff"  "1"
 				"OnCreated"
 				{
 					"FireEffect"
@@ -4953,6 +4964,7 @@
 			"modifier_treasurer_stun"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 
 				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
@@ -5062,6 +5074,7 @@
 			"modifier_henchman_burn_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"ThinkInterval"	"0.5"
 				"OnIntervalThink"
@@ -6196,6 +6209,7 @@
 			"modifier_animated_arms_slow"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-70"
@@ -6379,6 +6393,7 @@
 				"ThinkInterval"  "0.5"
 				"IsHidden"		"0"
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"AttachEffect"
 				{
 					"EffectName"        "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
@@ -6486,6 +6501,7 @@
 			"castle_boss_slow_effect"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"IsHidden"		"0"
 				"EffectName"		"particles/econ/items/warlock/warlock_staff_hellborn/venom_upheaval.vpcf"
@@ -6675,6 +6691,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Duration"  "99999"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
@@ -6687,6 +6704,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Duration"  "99999"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
@@ -6699,6 +6717,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Duration"  "99999"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
@@ -6707,6 +6726,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Duration"  "99999"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
@@ -7058,6 +7078,7 @@
 			"modifier_grove_ancestral_bear_armor_break"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss"
@@ -7093,6 +7114,7 @@
 			"modifier_swamp_boss_intro"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"States"
 				{
 					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -7503,6 +7525,7 @@
 			"poison_cloud_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsHidden"		"0"
 				"IsPurgable"	"0"
 				"Properties"
@@ -9474,6 +9497,7 @@
 			"scorched_earth_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"ThinkInterval"	"1.0"
 				"OnIntervalThink"
@@ -11976,6 +12000,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"ThinkInterval"  	"0.1"
 				"EffectName"		"particles/units/heroes/hero_riki/riki_backstab_hit_blood.vpcf"
 				"EffectAttachType"	"attach_hitloc"
@@ -12204,6 +12229,7 @@
 				"TextureName"	"buyback"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 			"modifier_dialogue_leash"
 			{
@@ -13044,6 +13070,7 @@
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_break"
@@ -13089,6 +13116,7 @@
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_break"
@@ -14239,6 +14267,7 @@
 			"shredder_max_thinker_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"ThinkInterval"	"0.5"
 				"OnIntervalThink"
@@ -14476,6 +14505,7 @@
 			"modifier_boss_attack_slow"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-300"
@@ -14575,6 +14605,7 @@
 			"modifier_mini_boss_attack_slow"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-200"
@@ -15437,6 +15468,7 @@
 			"modifier_blood_worshipper_debuff"
 			{
 				"IsDebuff" "1"
+				"IsStunDebuff" "1"
 				"IsHidden"	"0"
 				"Duration"	"4"
 				"Properties"
@@ -15775,6 +15807,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.5"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"OnIntervalThink"
@@ -16061,6 +16094,7 @@
 			"poison_cloud_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsHidden"		"0"
 				"IsPurgable"	"0"
 				"Properties"
@@ -16118,6 +16152,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.5"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"OnIntervalThink"
@@ -16632,6 +16667,7 @@
 			"modifier_grizzled_tank_debuff"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/items_fx/dust_of_appearance_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Properties"
@@ -17592,6 +17628,7 @@
 			"modifier_grizzly_falls_slow_debuff"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"OnCreated"
 				{
@@ -17631,6 +17668,7 @@
 			"modifier_grizzly_falls_disable_debuff"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
 				"States"
@@ -17685,6 +17723,7 @@
 			"modifier_grizzly_torrent_slow_debuff"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"Properties"
 			   {
@@ -18371,6 +18410,7 @@
 			"modifier_lich_boss_cold"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
 				"StatusEffectName"		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"	"7"
@@ -18853,6 +18893,7 @@
 			"modifier_lich_boss_cold"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
 				"StatusEffectName"		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"	"7"
@@ -19209,6 +19250,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
 
@@ -20077,6 +20119,7 @@
 			{
 				"Passive" 	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
 				"States"
 				{
@@ -20209,6 +20252,7 @@
 			"modifier_mountain_nomad_bleeding"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"EffectName"	"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
 				"EffectAttachType"	"attach_hitloc"
@@ -20350,6 +20394,7 @@
 			"modifier_sea_hydra_poison"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"ThinkInterval"  "0.5"
@@ -20414,6 +20459,7 @@
 			"modifier_wind_temple_keyholder_slow"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -21153,6 +21199,7 @@
 			"modifier_windspell"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"OnCreated"
@@ -21807,6 +21854,7 @@
 			"modifier_windspell"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"OnCreated"
@@ -22011,6 +22059,7 @@
 			"modifier_wind_boss_slow"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"Passive"	"0"
 				"OnCreated"
@@ -22062,6 +22111,7 @@
 			"modifier_wind_boss_trap"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"Passive"	"0"
 				"Properties"
@@ -22280,6 +22330,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_loss"
@@ -22533,6 +22584,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%mana_regen_loss"
@@ -22569,6 +22621,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "-2.5"
@@ -22613,6 +22666,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-15"
@@ -22786,6 +22840,7 @@
 			"modifier_firebat_on_fire"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"ThinkInterval"  "0.8"
@@ -22854,6 +22909,7 @@
 				"IsHidden"	"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_slow"
@@ -23132,6 +23188,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"States"
@@ -23187,6 +23244,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"States"
@@ -23850,6 +23908,7 @@
 			{
 				"IsHidden" "0"
 				"IsDebuff" "1"
+				"IsStunDebuff" "1"
 				"EffectName"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
 				"EffectAttachType"		"follow_origin"
 				"Properties"
@@ -23937,6 +23996,7 @@
 			{
 				"IsHidden" "0"
 				"IsDebuff" "1"
+				"IsStunDebuff" "1"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
 				"OnCreated"
 				{
@@ -24024,6 +24084,7 @@
 			{
 				"IsHidden" "0"
 				"IsDebuff" "1"
+				"IsStunDebuff" "1"
 				"OnCreated"
 				{
 					"RunScript"
@@ -24167,6 +24228,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 		}
 	}
@@ -24356,6 +24418,7 @@
 				"ThinkInterval"  "0.5"
 				"IsHidden"		"0"
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"AttachEffect"
 				{
 					"EffectName"        "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
@@ -24600,6 +24663,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -24676,6 +24740,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -24747,6 +24812,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_shield.vpcf"
 				"EffectAttachType"	"follow_overhead"
 				"OnAttacked"
@@ -24968,6 +25034,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -25324,6 +25391,7 @@
 			{
 				"IsBuff"				"0"
 				"IsDebuff"				"1"
+				"IsStunDebuff"				"1"
 				"sIHidden"				"0"
 				"IsPurgable"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
@@ -25504,6 +25572,7 @@
 			"modifier_water_temple_bubble_effect"
 			{
 				"IsDebuff"				"1"
+				"IsStunDebuff"				"1"
 				"IsHidden"				"0"
 				"IsPurgable"			"0"
 				"EffectName"		"particles/units/heroes/hero_earthshaker/water_temple_bubbles.vpcf"
@@ -25606,6 +25675,7 @@
 			{
 				"IsHidden"				"0"
 				"IsDebuff"				"1"
+				"IsStunDebuff"				"1"
 				"IsPurgable"			"0"
 				"EffectName"			"particles/units/heroes/hero_bounty_hunter/water_temple_rising_tide_shield_mark.vpcf"
 				"EffectAttachType" 		"follow_overhead"
@@ -25691,6 +25761,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
 				{
@@ -25861,6 +25932,7 @@
 			"modifier_flame_orchid_burn"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"ThinkInterval"  "0.5"
@@ -26114,6 +26186,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"ThinkInterval"  "1.0"
@@ -26248,6 +26321,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "1.0"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
@@ -26340,6 +26414,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
@@ -26587,6 +26662,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_shield.vpcf"
 				"EffectAttachType"	"follow_overhead"
@@ -26760,6 +26836,7 @@
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
@@ -26993,6 +27070,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
@@ -27098,6 +27176,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
@@ -27424,6 +27503,7 @@
 				"ThinkInterval"  "0.5"
 				"IsHidden"		"0"
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"Passive"		"0"
 				"OnIntervalThink"
 				{
@@ -27667,6 +27747,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_keeper_of_the_light/fire_temple_doombringer_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"Properties"
@@ -27728,6 +27809,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"1"
 				"Properties"
 				{
@@ -28622,6 +28704,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_keeper_of_the_light/fire_temple_agility_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
 			}
@@ -28784,6 +28867,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
@@ -28833,6 +28917,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"ThinkInterval"  "1.0"
@@ -28931,6 +29016,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/items_fx/darkness_aura_ring.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"Properties"
@@ -29063,6 +29149,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_keeper_of_the_light/fire_temple_doombringer_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
 			}
@@ -29228,6 +29315,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
@@ -29380,6 +29468,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/units/heroes/hero_jakiro/curse_of_combustion.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -29622,6 +29711,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/units/heroes/hero_keeper_of_the_light/fire_temple_doombringer_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -30155,6 +30245,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "1.0"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
@@ -31220,6 +31311,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ModifierTextureName"	"truth_dust"
 				"OnCreated"
 				{
@@ -31410,6 +31502,7 @@
 			"modifier_arena_guard_lock"
 			{
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"OverrideAnimation"     "ACT_DOTA_DISABLE"
 				"OnCreated"
 				{
@@ -31785,6 +31878,7 @@
 			"modifier_gorewreck_stun"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 
 				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
@@ -32163,6 +32257,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"Properties"
 				{
@@ -32185,6 +32280,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"OnCreated"
 				{
@@ -32533,6 +32629,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/items2_fx/radiance.vpcf"
 				"EffectAttachType" 	"follow_origin"
 				"ThinkInterval"  "1.0"
@@ -32755,6 +32852,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/arena/mana_drain_aura_effect.vpcf"
 				"EffectAttachType" 	"follow_origin"
 				"ThinkInterval"  "1.0"
@@ -33343,6 +33441,7 @@
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_fiendsgrip.vpcf"
 				"StatusEffectPriority"  "10"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
@@ -33804,6 +33903,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"StatusEffectName" 		"particles/status_fx/status_effect_techies_stasis.vpcf"
 				"StatusEffectPriority"  "10"
@@ -33818,6 +33918,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"StatusEffectName" 		"particles/status_fx/status_effect_rupture.vpcf"
 				"StatusEffectPriority"  "10"
@@ -33912,6 +34013,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"StatusEffectName" 		"particles/status_fx/status_effect_rupture.vpcf"
 				"StatusEffectPriority"  "10"
@@ -34483,6 +34585,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%move_slow"
@@ -34540,6 +34643,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%damage_per_instance"
@@ -35109,6 +35213,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-20"
@@ -35622,6 +35727,7 @@
 			{
 				"IsBuff"				"0"
 				"IsDebuff"				"1"
+				"IsStunDebuff"				"1"
 				"sIHidden"				"0"
 				"IsPurgable"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
@@ -35961,6 +36067,7 @@
 				"ThinkInterval"  "0.5"
 				"IsHidden"		"0"
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"AttachEffect"
 				{
 					"EffectName"        "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
@@ -36127,6 +36234,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
 				"OnCreated"
 				{
@@ -36291,6 +36399,7 @@
 			"modifier_conquest_boss_slow_effect"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"IsHidden"		"0"
 				"EffectName"		"particles/econ/items/warlock/warlock_staff_hellborn/venom_upheaval.vpcf"
@@ -36481,6 +36590,7 @@
 				"IsHidden"	"0"
 				"Passive"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/econ/events/ti6/radiance_ti6.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
@@ -36539,6 +36649,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/econ/courier/courier_greevil_green/courier_greevil_green_ambient_2.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
@@ -36576,6 +36687,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.5"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"OnIntervalThink"
@@ -37260,6 +37372,7 @@
 			"poison_cloud_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsHidden"		"0"
 				"IsPurgable"	"0"
 				"Properties"
@@ -37893,6 +38006,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%move_slow_per_stack"
@@ -38006,6 +38120,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%damage_per_instance"
@@ -38182,6 +38297,7 @@
 			"modifier_descent_poison_aura_effect"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsHidden"		"0"
 				"IsPurgable"	"0"
 				"Properties"
@@ -38836,6 +38952,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"StatusEffectName" 		"particles/status_fx/status_effect_rupture.vpcf"
 				"StatusEffectPriority"  "10"
@@ -38982,6 +39099,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"OnCreated"
 				{
@@ -39011,6 +39129,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"OnCreated"
 				{
@@ -39114,6 +39233,7 @@
 			"modifier_autumn_slow"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"EffectName"		"particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap_debuff.vpcf"
@@ -39269,6 +39389,7 @@
 				"IsHidden"					"0"
 				"IsPurgable"				"0"
 				"IsDebuff"					"1"
+				"IsStunDebuff"					"1"
 
 				"EffectName"				"particles/units/heroes/hero_ursa/ursa_fury_swipes_debuff.vpcf"
 				"EffectAttachType"			"follow_overhead"
@@ -39332,6 +39453,7 @@
 				"IsHidden"					"0"
 				"IsPurgable"				"0"
 				"IsDebuff"					"1"
+				"IsStunDebuff"					"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"EffectName"				"particles/neutral_fx/gnoll_poison_debuff.vpcf"
 				"EffectAttachType"			"attach_hitloc"
@@ -40419,6 +40541,7 @@
 				"ThinkInterval"  "0.5"
 				"IsHidden"		"0"
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -40769,6 +40892,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/econ/items/legion/legion_fallen/legion_fallen_press_buff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
@@ -40876,6 +41000,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -41011,6 +41136,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%move_slow"
@@ -41456,6 +41582,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"StatusEffectName" 		"particles/status_fx/status_effect_rupture.vpcf"
 				"StatusEffectPriority"  "10"
@@ -41630,6 +41757,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%damage_per_instance"
@@ -41758,6 +41886,7 @@
 				}
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/econ/courier/courier_trail_hw_2012/courier_trail_hw_2012_ghosts.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
@@ -41841,6 +41970,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
@@ -42062,6 +42192,7 @@
 			"modifier_autumn_mage_debuff"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -43375,6 +43506,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/units/heroes/hero_keeper_of_the_light/fire_temple_doombringer_debuff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
@@ -43430,6 +43562,7 @@
 				"Passive"			"1"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"ThinkInterval"  "0.5"
@@ -43910,6 +44043,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -43998,6 +44132,7 @@
 				"ThinkInterval"  "0.5"
 				"IsHidden"		"0"
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"EffectName"	"particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"OnCreated"
@@ -44124,6 +44259,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_bane/bane_enfeeble.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
@@ -44156,6 +44292,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OnCreated"
 				{
 					"RunScript"
@@ -44403,6 +44540,7 @@
 			"modifier_flame_orchid_burn"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"ThinkInterval"  "0.5"
@@ -45084,6 +45222,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "1.0"
 				"EffectName"	"particles/items_fx/aura_vlads_ring.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -45243,6 +45382,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_shield.vpcf"
 				"EffectAttachType"	"follow_overhead"
 			}
@@ -45830,6 +45970,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "1.0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
@@ -46709,6 +46850,7 @@
 			{
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_dummy_timer"
@@ -46902,6 +47044,7 @@
 			"modifier_flame_orchid_burn"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"ThinkInterval"  "0.5"
@@ -47177,6 +47320,7 @@
 				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"IsBuff"				"0"
 				"IsDebuff"				"1"
+				"IsStunDebuff"				"1"
 				"IsHidden"				"0"
 				"IsPurgable"			"0"
 				"OnCreated"
@@ -47464,6 +47608,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "1.0"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
@@ -48156,6 +48301,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "100"
@@ -48263,6 +48409,7 @@
 				"TextureName"	"dragon_knight_breathe_fire"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
@@ -48518,6 +48665,7 @@
 				"ThinkInterval"  "0.5"
 				"IsHidden"		"0"
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"AttachEffect"
 				{
 					"EffectName"        "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
@@ -48588,6 +48736,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow_percentage"
@@ -49561,6 +49710,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_doom_bringer/doom_bringer_doom.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"States"
@@ -49659,6 +49809,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_doom_bringer/doom_bringer_doom.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"States"
@@ -50017,6 +50168,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-200"
@@ -50199,6 +50351,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BONUS_DAY_VISION" "-5000"
@@ -51440,6 +51593,7 @@
 			"modifier_crimsyth_recruiter_armor_loss"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/redfall/crimsyth_recruiter_buff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
@@ -52028,7 +52182,8 @@
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"IsDebuff"			"1"
-				"ThinkInterval"  "0.5"
+				"IsStunDebuff"			"1"
+				"ThinkInterval"  "<% RUBY_DRAGON_TICK_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -52858,6 +53013,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Duration"  "20"
 			}
 
@@ -53482,6 +53638,7 @@
 			"shredder_max_thinker_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"ThinkInterval"	"0.5"
 				"OnIntervalThink"
@@ -54073,6 +54230,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
 				{
@@ -54243,6 +54401,7 @@
 			{
 				"IsHidden" "0"
 				"IsDebuff" "1"
+				"IsStunDebuff" "1"
 				"OnCreated"
 				{
 					"RunScript"
@@ -54329,6 +54488,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
 				{
@@ -54748,6 +54908,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_slow"
@@ -54932,6 +55093,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
 				{
@@ -55152,6 +55314,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
 				{
@@ -55500,6 +55663,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -55538,6 +55702,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_slow"
@@ -55849,6 +56014,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
 				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
@@ -55982,6 +56148,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -56062,6 +56229,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 		}
 	}
@@ -56304,6 +56472,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BONUS_DAY_VISION" "-70"
@@ -56609,6 +56778,7 @@
 				"IsHidden"	"0"
 				"ThinkInterval"  "1.0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -56805,6 +56975,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -56965,6 +57136,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attackspeed_loss"
@@ -57086,6 +57258,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
 				{
@@ -57124,6 +57297,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"crystal_maiden_crystal_nova"
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -57233,6 +57407,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attackspeed_loss"
@@ -57519,6 +57694,7 @@
 			"modifier_flame_orchid_burn"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"ThinkInterval"  "0.5"
@@ -57702,6 +57878,7 @@
 			"modifier_henchman_burn_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"ThinkInterval"	"0.5"
 				"OnIntervalThink"
@@ -57761,6 +57938,7 @@
 			"modifier_flame_orchid_burn"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"ThinkInterval"  "0.5"
@@ -58002,6 +58180,7 @@
 			"modifier_henchman_burn_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"ThinkInterval"	"0.5"
 				"OnIntervalThink"
@@ -58331,6 +58510,7 @@
 			"modifier_flame_orchid_burn"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"ThinkInterval"  "0.5"
@@ -58448,6 +58628,7 @@
 			"modifier_flame_orchid_burn"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"ThinkInterval"  "0.5"
@@ -58540,6 +58721,7 @@
 			"modifier_flame_orchid_burn"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"ThinkInterval"  "0.5"
@@ -58644,6 +58826,7 @@
 			"modifier_spirit_boss_burn"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"ThinkInterval"  "0.5"
@@ -59128,6 +59311,7 @@
 			{
 				"IsHidden" "0"
 				"IsDebuff" "1"
+				"IsStunDebuff" "1"
 				"OnCreated"
 				{
 					"RunScript"
@@ -59546,6 +59730,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 		}
 	}
@@ -59621,6 +59806,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 		}
 	}
@@ -59776,6 +59962,7 @@
 			"poison_cloud_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsHidden"		"0"
 				"IsPurgable"	"0"
 				"Properties"
@@ -59890,6 +60077,7 @@
 				"Passive"	"0"
 				"IsHidden" "0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.03"
 				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
 				"EffectAttachType"	"attach_hitloc"
@@ -60230,6 +60418,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -60306,6 +60495,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -60426,6 +60616,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
@@ -60631,6 +60822,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-500"
@@ -60893,6 +61085,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -61050,6 +61243,7 @@
 			"modifier_shadow_cloud_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"Properties"
 				{
@@ -61157,6 +61351,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-100"
@@ -61232,6 +61427,7 @@
 				"Passive"	"0"
 				"IsHidden" "0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.5"
 				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
 				"EffectAttachType"	"attach_hitloc"
@@ -61525,6 +61721,7 @@
 			"modifier_chilled"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -61838,6 +62035,7 @@
 				"IsHidden" "0"
 				"TextureName"	"seafortress/medusa_passive"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.5"
 			}
 		}
@@ -61898,6 +62096,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_ember_spirit/ember_spirit_searing_chains_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"States"
@@ -62087,6 +62286,7 @@
 			"modifier_animated_arms_slow"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-70"
@@ -62298,6 +62498,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"EffectName"		"particles/units/heroes/hero_abaddon/abaddon_frost_slow.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
@@ -62368,6 +62569,7 @@
 				"IsHidden"	"0"
 				"TextureName"	"seafortress/jailer_passive"	
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_oracle/oracle_fortune_purge.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"States"
@@ -62381,6 +62583,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OverrideAnimation"	"ACT_DOTA_FLAIL"
 			}
 			"modifier_jailer_in_combat"
@@ -62416,6 +62619,7 @@
 				"ThinkInterval"  "0.5"
 				"IsHidden"		"0"
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"AttachEffect"
 				{
 					"EffectName"        "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
@@ -63468,6 +63672,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-5"
@@ -63583,6 +63788,7 @@
 			"modifier_creature_fragmentor_aura_debuff"
 			{
 				"IsDebuff"				"1"
+				"IsStunDebuff"				"1"
 				"IsHidden"				"0"
 				"IsPurgable"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
@@ -63684,6 +63890,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"EffectName"		"particles/roshpit/squid_goo.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"Properties"
@@ -63783,6 +63990,7 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_vengeful/vengeful_wave_of_terror_recipient.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
@@ -63833,6 +64041,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "20"
 				"Properties"
@@ -64774,6 +64983,7 @@
 			"modifier_starfall_aura_debuff"
 			{
 				"IsDebuff"				"1"
+				"IsStunDebuff"				"1"
 				"IsHidden"				"0"
 				"IsPurgable"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
@@ -64903,6 +65113,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
 				{
@@ -64999,6 +65210,7 @@
 			"modifier_dragoon_poison_nova"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "0.2"
 				"StatusEffectName" 		"particles/status_fx/status_effect_poison_venomancer.vpcf"
 				"StatusEffectPriority"  "10"
@@ -65168,6 +65380,7 @@
 			"modifier_saltwater_demon_debuff"
 			{
 				"IsDebuff"				"1"
+				"IsStunDebuff"				"1"
 				"IsHidden"				"0"
 				"IsPurgable"			"0"
 				"EffectName"		"particles/roshpit/sea_fortress/saltwater_demon_aura_ring.vpcf"
@@ -65343,6 +65556,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/generic_gameplay/generic_slowed_cold.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -65526,6 +65740,7 @@
 			"modifier_pirate_aura_debuff"
 			{
 				"IsDebuff"				"1"
+				"IsStunDebuff"				"1"
 				"IsHidden"				"0"
 				"IsPurgable"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
@@ -65903,6 +66118,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/seafortress/deep_maledict.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"OnTakeDamage"
@@ -66693,6 +66909,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 				    "MODIFIER_STATE_SILENCED" "MODIFIER_STATE_VALUE_ENABLED"
@@ -67277,6 +67494,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 
 			}
 			"modifier_demon_farmer_aura_str"
@@ -67473,6 +67691,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -67578,6 +67797,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -67863,6 +68083,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
@@ -68146,6 +68367,7 @@
 				"Passive"			"1"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"EffectName"		"particles/roshpit/arkimus/channel_energy.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"OnCreated"
@@ -68328,6 +68550,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Passive"	"1"
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"

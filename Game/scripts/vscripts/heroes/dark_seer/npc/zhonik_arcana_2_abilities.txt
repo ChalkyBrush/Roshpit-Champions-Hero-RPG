@@ -185,11 +185,13 @@
 				"TextureName"	"zonik/zhonik_rune_r_3_arcana2"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 			"modifier_tempo_flux_invisible"
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 			"modifier_arcana_missles_d_d_agility"
 			{

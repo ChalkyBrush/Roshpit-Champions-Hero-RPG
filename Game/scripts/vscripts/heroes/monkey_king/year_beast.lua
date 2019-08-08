@@ -39,30 +39,6 @@ function hawk_screech(event)
 		bProvidesVision = false,
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
-	local q_3_level = caster:GetRuneValue("q", 3)
-	if q_3_level > 0 then
-		local modifiers = caster:FindAllModifiers()
-		for i = 1, #modifiers, 1 do
-			local modifier = modifiers[i]
-			local modifierMaker = modifier:GetCaster()
-			if not modifier.djanghorQ3Increase then
-				modifier.djanghorQ3Increase = 0
-			end
-			if modifierMaker then
-				if (modifierMaker:GetEntityIndex() == caster:GetEntityIndex() or modifierMaker:GetEntityIndex() == caster.InventoryUnit:GetEntityIndex()) then
-					local durationRemaining = modifier:GetRemainingTime()
-					if durationRemaining > 0 then
-						local durationIncrease = 0.3 + DJANGHOR_Q3_BUFF_DURATION_INCREASE * q_3_level
-						if modifier.djanghorQ3Increase >= DJANGHOR_Q3_MAX_APPLY_COUNT then
-						else
-							modifier.djanghorQ3Increase = modifier.djanghorQ3Increase + 1
-							modifier:SetDuration(durationRemaining + durationIncrease, true)
-						end
-					end
-				end
-			end
-		end
-	end
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_armor_buff", {duration = duration})
 	ability.q_1_level = caster:GetRuneValue("q", 1)

@@ -153,6 +153,7 @@
 			"modifier_leshrac_arcana_slow"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"Properties"
 				{

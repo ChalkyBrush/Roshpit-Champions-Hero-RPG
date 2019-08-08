@@ -156,6 +156,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"phantom_lancer_sunwarrior_phantom_edge"
 				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
 				"StatusEffectPriority"  "10"
@@ -186,6 +187,7 @@
 			"modifier_paladin_glyph_1_2_effect"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-160"

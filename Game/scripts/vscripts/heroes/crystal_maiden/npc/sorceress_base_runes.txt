@@ -316,7 +316,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% SORCERESS_E1_STACKS %>"
 			}
 		}
 		"Modifiers"
@@ -551,6 +551,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"OnDestroy"
 				{
@@ -580,7 +581,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"<% SORCERESS_R4_FIRE_AMP_PER_ATR_PCT %>"
 			}
 		}
 	}

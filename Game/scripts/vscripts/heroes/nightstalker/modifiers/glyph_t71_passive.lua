@@ -28,6 +28,7 @@ function class:GetPostmitigationAmplify(data)
     if self.postmitigation_active_until <= GameRules:GetGameTime() then
         return CHERNOBOG_T71_POSTMIT
     end
+    return 0
 end
 function class:IsHidden()
     return true

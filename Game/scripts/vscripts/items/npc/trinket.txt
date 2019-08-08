@@ -158,6 +158,15 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_sapphire_lotus_buff_mana"
+			{
+			    "Passive"			"0"
+				"IsHidden"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS" "1"
+				}
+			}
 		}
 	}
 

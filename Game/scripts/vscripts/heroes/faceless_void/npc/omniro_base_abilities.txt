@@ -263,6 +263,7 @@
 			"modifier_omnimace_poison_debuff"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"		"0.5"
 				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -326,6 +327,7 @@
 			"modifier_ice_debuff"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"1"
 				"TextureName"	"omniro/omniro_element_ice"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
@@ -342,6 +344,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"	"omniro/omniro_element_shadow"
 				"OnCreated"
 				{
@@ -406,6 +409,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 		
 				"EffectName"		"particles/roshpit/jex/jex_root.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -439,6 +443,7 @@
 				"TextureName"	"omniro/omniro_element_undead"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"		"particles/econ/courier/courier_trail_hw_2012/courier_trail_hw_2012_ghosts.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
@@ -704,6 +709,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 			
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
@@ -721,6 +727,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"omniro/omniro_element_time"
 				"StatusEffectName" 		"particles/status_fx/status_effect_faceless_timewalk.vpcf" 	   
 				"StatusEffectPriority"  "20"
@@ -743,6 +750,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/items2_fx/veil_of_discord_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"TextureName"	"omniro/omniro_element_arcane"
@@ -798,6 +806,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"ThinkInterval"  "1.0"
 				"TextureName"	"omniro/omniro_element_ghost"
 				"OnIntervalThink"
@@ -823,6 +832,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"	"omniro/omniro_element_water"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"

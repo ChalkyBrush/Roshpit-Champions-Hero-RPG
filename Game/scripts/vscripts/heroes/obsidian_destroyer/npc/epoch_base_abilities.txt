@@ -207,6 +207,7 @@
 			"modifier_time_bound"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"ThinkInterval"	"1"
 				"OnIntervalThink"
 				{
@@ -244,6 +245,7 @@
 			"modifier_space_link"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"ThinkInterval"	"1"
 				"OnIntervalThink"
 				{
@@ -297,6 +299,7 @@
 			"modifier_epoch_glyph_1_1_effect"
 			{
 				"IsDebuff" "1"
+				"IsStunDebuff" "1"
 				"IsHidden" "0"
 				"Passive"  "0"
 				"Properties"
@@ -307,6 +310,7 @@
 			"modifier_epoch_glyph_6_1_effect"
 			{
 				"IsDebuff" "1"
+				"IsStunDebuff" "1"
 				"IsHidden" "0"
 				"Passive"  "0"
 				"Properties"
@@ -378,6 +382,7 @@
 			"modifier_time_bind"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Duration"  "10"
 				"OnCreated"
 				{
@@ -491,6 +496,7 @@
 			"modifier_time_bind_two"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Duration"  "10"
 				"OnCreated"
 				{
@@ -703,6 +709,7 @@
 			"modifier_time_bind_four"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Duration"  "10"
 				"OnCreated"
 				{
@@ -1135,6 +1142,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 				"TextureName"		"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_sanity_eclipse"
 				"OnCreated"
 				{
@@ -1408,6 +1416,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
 				"States"
 				{
@@ -1417,6 +1426,7 @@
 			"modifier_eternity_flood_locked"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 
 				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
 				"EffectAttachType"	"follow_overhead"
@@ -1433,6 +1443,7 @@
 			"modifier_eternity_flood_locked_rune_r_3_exploding"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 
 				"ThinkInterval"  "0.32"

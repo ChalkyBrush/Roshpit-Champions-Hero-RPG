@@ -96,6 +96,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"auriun/auriun_rune_q_4_arcana1"
 			}
 			"modifier_heavens_shield"

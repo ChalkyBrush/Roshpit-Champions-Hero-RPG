@@ -116,6 +116,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"OverrideAnimation"	"ACT_DOTA_IDLE"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
@@ -210,6 +211,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"TextureName"	"phantom_lancer_sunwarrior_phantom_edge"
 				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
 				"StatusEffectPriority"  "10"
@@ -236,6 +238,7 @@
 			"modifier_paladin_glyph_1_2_effect"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-160"
@@ -812,6 +815,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Duration"	"5"
 				"OverrideAnimation"	"ACT_DOTA_IDLE"
 				"ThinkInterval"  "0.03"
@@ -864,6 +868,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"Duration"	"0.33"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
@@ -1077,6 +1082,7 @@
 			{
 				"TextureName"	"rpc/paladin_e_4"
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsHidden"		"0"
 				"EffectName"	"particles/roshpit/paladin/paladin_d_c_debuff.vpcf"
 				"EffectAttachType"	"follow_overhead"
@@ -1280,6 +1286,7 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 		}
 
@@ -1391,6 +1398,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
 
 				"EffectName"		"particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_force_debuff_gold.vpcf"
 				"EffectAttachType"	"follow_origin"

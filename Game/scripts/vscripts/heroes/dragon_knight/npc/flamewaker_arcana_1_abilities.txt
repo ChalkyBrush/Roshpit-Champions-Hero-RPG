@@ -134,6 +134,7 @@
         	{
         		"IsHidden" "0"
         		"IsDebuff" "1"
+        		"IsStunDebuff" "1"
         		"TextureName"	"flamewaker/flamewaker_b_a_arcana1"
         	}
         	"modifier_flamewaker_arcana_b_a_effect_stacking_invisible"
@@ -173,6 +174,7 @@
         	{
         		"IsHidden"	"0"
         		"IsDebuff"	"1"
+        		"IsStunDebuff"	"1"
         		"TextureName"	"flamewaker/flamewaker_d_a_arcana1"
         		"OnCreated"
         		{

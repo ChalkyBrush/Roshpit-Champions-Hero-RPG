@@ -200,11 +200,13 @@
 			"modifier_axe_rune_r_3_arcana1_invisible"
 			{
 			    "IsDebuff"  "1"
+			    "IsStunDebuff"  "1"
 				"IsHidden"	"1"
 			}
 			"modifier_axe_rune_r_3_arcana1_visible"
 			{
 			    "IsDebuff"  "1"
+			    "IsStunDebuff"  "1"
 				"IsHidden"	"0"
 				"TextureName"	"axe/axe_rune_r_3_arcana1"
 			}

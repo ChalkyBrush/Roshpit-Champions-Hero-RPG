@@ -385,6 +385,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff" "1"
+				"IsStunDebuff" "1"
 				"EffectName"	"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType"	"attach_orign"
 				"ThinkInterval"  "0.5"
@@ -951,6 +952,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"EffectName"	"particles/econ/items/invoker/glorious_inspiration/invoker_forge_spirit_ambient_esl.vpcf"
 				"EffectAttachType"	"origin"
 				"TextureName"	"ember_spirit_sleight_of_fist"
@@ -1277,6 +1279,7 @@
 			"shadow_gate_aura"
 			{
 				"IsDebuff"		"1"
+				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"IsHidden"		"1"
 				"ThinkInterval"	"0.5"
@@ -1294,6 +1297,7 @@
 			"modifier_shadow_gate_b_d_effect"
 			{
 				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"Passive"	"0"
 				"Duration"	"0.5"
