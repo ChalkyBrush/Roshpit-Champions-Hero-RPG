@@ -18951,7 +18951,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"2"
 			}
 		}
 		"Modifiers"
@@ -19216,7 +19216,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.04"
 			}
 		}
 	}
@@ -48685,7 +48685,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"300"
+				"property_one"			"150"
 			}
 			"02"
 			{
@@ -49528,7 +49528,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -132479,7 +132479,7 @@
 				"EffectAttachType" 	"attach_origin"
 				"IsDebuff"			"1"
 				"IsStunDebuff"			"1"
-				"ThinkInterval"  "0.5"
+				"ThinkInterval"  "0.2"
 				"OnIntervalThink"
 				{
 					"RunScript"
