@@ -12432,7 +12432,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_gravekeepers_gauntlet"							"Gravekeeper's Gauntlet"
 		"item_property_gravekeeper_gauntlet"				"Gravekeeper"
-		"property_gravekeeper_gauntlet_description"		"Successive attacks on the same target increase all Pre-Mitigation damage you deal to it by 10%, and each stack also drains 3 movespeed from the unit. Changing attack targets restarts the effect."
+		"property_gravekeeper_gauntlet_description"		"Successive attacks on the same target sap its vitality while empowering you. Each stack increases all Pre-Mitigation damage you deal by 10%, while also draining 3 movespeed from it and giving it to you. Changing attack targets removes all existing stacks. Only <font color='#ccff66'>8</font> stacks can be applied per second, no matter how quickly you attack."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"Grave Target"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"Losing movespeed and taking additional damage with each stack."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"Gravekeeper"
@@ -12576,7 +12576,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
 		"item_property_ruby_dragon"					"Ruby Dragon"
-		"property_ruby_dragon_description"			"When you finish casting @Ability4 - summon a ruby dragon that breathes fire on enemies that deals @special_property1x your Strength on impact and @special_property2x your Strength every 0.5 seconds for 3 seconds as burn damage.<br>All damage dealt directly by items is enhanced by @special_property3% for each 10 points of Strength."
+		"property_ruby_dragon_description"			"Casting @Ability4 summons an invulnerable Ruby Dragon which patrols the sky around you for <font color='#ccff66'>15</font> seconds. It will bombard enemies with fire breath, dealing <font color='#ccff66'>5000</font>x your Strength on impact; targets will then burn for <font color='#ccff66'>9</font> seconds, taking <font color='#ccff66'>1500</font>x your Strength every <font color='#ccff66'>0.2</font> seconds. Each time a single unit is struck by fire breath, it will generate a new burn debuff, and each burn debuff deals damage and expires independently."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
