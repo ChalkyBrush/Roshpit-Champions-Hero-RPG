@@ -2440,3 +2440,179 @@ function wb_black_hole_think(event)
 		caster.interval = 0
 	end
 end
+
+function gigarraun_passive_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local fissure_ability = caster:FindAbilityByName("gigarraun_fissure")
+	local soulstorm = caster:FindAbilityByName("winterblight_soulfire_storm")
+	soulstorm:SetOverrideCastPoint(0)
+	if not caster.silence_counter then
+		caster.silence_counter = 0
+	end
+	if caster:IsSilenced() then
+		caster.silence_counter = caster.silence_counter + 1
+	else
+		caster.silence_counter = 0
+	end
+	if not caster.bkbs then
+		caster.bkbs = 0
+	end
+	if caster.bkbs < 1 and caster:GetHealth() < caster:GetMaxHealth()*0.7 then
+		local bkb = caster:FindAbilityByName("creature_black_king_bar")
+		bkb:ApplyDataDrivenModifier(caster, caster, "modifier_black_King_bar_immunity", {duration = 7})
+		caster.bkbs = 1
+	elseif caster.bkbs < 2 and caster:GetHealth() < caster:GetMaxHealth()*0.3 then
+		local bkb = caster:FindAbilityByName("creature_black_king_bar")
+		bkb:ApplyDataDrivenModifier(caster, caster, "modifier_black_King_bar_immunity", {duration = 10})
+		caster.bkbs = 2
+	end
+	if caster.silence_counter >= 6 then
+		caster.silence_counter = 0
+		caster.jumpBack = true
+		EmitSoundOn("Winterblight.Gigarraun.Push", caster)
+		StartAnimation(caster, {duration=1.8, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.2})
+		caster.moveDirection = caster:GetForwardVector()*-1
+		caster.moveDirection = WallPhysics:rotateVector(caster.moveDirection, 2*math.pi*RandomInt(-3, 3)/20)
+		caster.lift_force = 80
+
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_gigarraun_jumping", {duration = 4})
+		EmitSoundOn("Winterblight.Gigarraun.BackJump", caster)
+	end
+	if not caster.castLock then
+		if fissure_ability:IsFullyCastable() then
+		    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 3000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		    if #enemies > 0 then    
+				local order =
+				{
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = fissure_ability:entindex(),
+					Position = enemies[1]:GetAbsOrigin(),
+					Queue = true
+				}
+				caster:Stop()
+				ExecuteOrderFromTable(order)
+				caster.castLock = true
+				Timers:CreateTimer(2, function()
+					caster.castLock = false
+				end)
+		    end
+		elseif soulstorm:IsFullyCastable() then
+		    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		    if #enemies > 0 then    
+				local order =
+				{
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = soulstorm:entindex(),
+					Position = enemies[1]:GetAbsOrigin(),
+					Queue = true
+				}
+				caster:Stop()
+				ExecuteOrderFromTable(order)
+				caster.castLock = true
+				Timers:CreateTimer(0.5, function()
+					caster.castLock = false
+				end)
+		    end
+		end
+	end
+end
+
+function gigarraun_spell_cast(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.unit
+	local executedAbility = event.event_ability
+	if executedAbility:GetAbilityName() == "gigarraun_fissure" then
+		caster.jumpBack = true
+		EmitSoundOn("Winterblight.Gigarraun.Push", caster)
+		StartAnimation(caster, {duration=1.8, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.2})
+		caster.moveDirection = caster:GetForwardVector()*-1
+		caster.moveDirection = WallPhysics:rotateVector(caster.moveDirection, 2*math.pi*RandomInt(-3, 3)/20)
+		caster.lift_force = 80
+
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_gigarraun_jumping", {duration = 4})
+		EmitSoundOn("Winterblight.Gigarraun.BackJump", caster)
+	elseif executedAbility:GetAbilityName() == "winterblight_soulfire_storm" then
+		if not caster:HasModifier("modifier_gigarraun_jumping") then
+			StartAnimation(caster, {duration=1, activity=ACT_DOTA_ATTACK, rate=1.2})
+		end
+		executedAbility:EndCooldown()
+		executedAbility:StartCooldown(2.5)
+	end
+end
+
+function gigarraun_jumping_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local stun_duration = 1.5
+	if caster.jumpBack then
+		local push_force = 30
+		caster.lift_force = caster.lift_force - 7
+		caster:SetAbsOrigin(caster:GetAbsOrigin()+caster.moveDirection*push_force + Vector(0,0,caster.lift_force))
+		local height_diff = caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster)
+		CustomAbilities:QuickAttachParticle("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_echoslam_start_dust.vpcf", caster, 3)
+		if caster.lift_force < 0 or height_diff < -50 then
+			if height_diff < -50 then
+				caster:RemoveModifierByName("modifier_gigarraun_jumping")
+				CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_echoslam_start.vpcf", caster:GetAbsOrigin(), 4)
+				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+				if #enemies > 0 then
+					for _,enemy in pairs(enemies) do
+						ApplyDamage({victim = enemy, attacker = caster, damage = event.back_damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+						Filters:ApplyStun(caster, stun_duration, enemy)
+					end
+				end
+				EmitSoundOn("Winterblight.Gigarraun.SmallLand", caster)
+				Timers:CreateTimer(0.06, function()
+					FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+					caster.jumpBack = false
+					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 3000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+					if #enemies > 0 then
+						Timers:CreateTimer(0.3, function()
+							caster.jumpForward = true
+							StartAnimation(caster, {duration=3, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.2})
+							caster.moveDirection = ((enemies[1]:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+							caster.lift_force = 50
+							local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), enemies[1]:GetAbsOrigin())
+							caster.push_force = math.max(distance/50, 10) + 10
+							caster.push_force = math.min(caster.push_force, 70)
+							ability:ApplyDataDrivenModifier(caster, caster, "modifier_gigarraun_jumping", {duration = 4})
+							EmitSoundOn("Winterblight.Gigarraun.ForwardJump", caster)
+						end)
+					end
+				end)
+			end
+		end
+	elseif caster.jumpForward then
+		local push_force = caster.push_force
+		caster.lift_force = caster.lift_force - 3
+		caster:SetAbsOrigin(caster:GetAbsOrigin()+caster.moveDirection*push_force + Vector(0,0,caster.lift_force))
+		local height_diff = caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster)
+		if caster.lift_force < 0 or height_diff < -50 then
+			if height_diff < 0 then
+				EmitSoundOn("Winterblight.Gigarraun.BigLand", caster)
+				caster:RemoveModifierByName("modifier_gigarraun_jumping")
+				StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.3})
+				local damage_point = caster:GetAbsOrigin()+caster:GetForwardVector()*30
+				CustomAbilities:QuickAttachParticle("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_echoslam_start_dust.vpcf", caster, 3)
+				local pfx = CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_echoslam_start.vpcf", damage_point, 4)
+				ParticleManager:SetParticleControl(pfx, 11, Vector(100,100,100))
+				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+				if #enemies > 0 then
+					for _,enemy in pairs(enemies) do
+						ApplyDamage({victim = enemy, attacker = caster, damage = event.main_damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+						Filters:ApplyStun(caster, stun_duration, enemy)
+					end
+				end
+				Timers:CreateTimer(0.06, function()
+					FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+					caster.jumpForward = false
+					
+				end)
+			end
+		end
+	end
+end

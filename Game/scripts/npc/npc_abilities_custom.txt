@@ -83940,7 +83940,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"2.4"
+		"AbilityCooldown"				"3.6"
 		"AbilityDuration"				"0.3 0.45 0.6"
 
 		// Damage.
@@ -83977,6 +83977,82 @@
 			}
 		}
 	}
+
+	"gigarraun_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"sorceress/sorceress_rune_r_2_arcana1"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"back_damage"			"1000 5000 100000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"main_damage"			"10000 50000 500000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_gigarraun_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"gigarraun_passive_think"
+					}
+				}
+				"OnAbilityExecuted"
+				// Any ability (including items) was used by the unit with this modifier.
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"gigarraun_spell_cast"
+					}
+				}
+			}
+			"modifier_gigarraun_jumping"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"gigarraun_jumping_think"
+						"back_damage"	"%back_damage"
+						"main_damage"	"%main_damage"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-600"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+
+	}
+
+
 
 
 	"soul_ferrier_passive"
