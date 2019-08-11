@@ -3044,48 +3044,50 @@ function tiamat_boss_think(event)
 		end
 	end
 	if not caster.castLock then
-		local charge_ability = caster:FindAbilityByName("tiamat_scorch_charge")
-		if charge_ability:IsFullyCastable() then
-		    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-		    if #enemies > 0 then
-		    	local targetDirection = ((enemies[1]:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-		    	local target_point = caster:GetAbsOrigin()+targetDirection*RandomInt(1200, 2200)
-				local order =
-				{
-					UnitIndex = caster:entindex(),
-					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-					AbilityIndex = charge_ability:entindex(),
-					Position = target_point,
-					Queue = true
-				}
-				caster:Stop()
-				ExecuteOrderFromTable(order)
-				caster.castLock = true
-				Timers:CreateTimer(0.8, function()
-					caster.castLock = false
-				end)
-		    end
-		end
-		local fire_ability = caster:FindAbilityByName("tiamat_fire_breath")
-		if fire_ability:IsFullyCastable() then
-		    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-		    if #enemies > 0 then
-		    	local target_point = enemies[1]:GetAbsOrigin()
-				local order =
-				{
-					UnitIndex = caster:entindex(),
-					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-					AbilityIndex = fire_ability:entindex(),
-					Position = target_point,
-					Queue = true
-				}
-				caster:Stop()
-				ExecuteOrderFromTable(order)
-				caster.castLock = true
-				Timers:CreateTimer(0.8, function()
-					caster.castLock = false
-				end)
-		    end
+		if not caster:HasModifier("modifier_boss_between_phase") then
+			local charge_ability = caster:FindAbilityByName("tiamat_scorch_charge")
+			if charge_ability:IsFullyCastable() then
+			    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			    if #enemies > 0 then
+			    	local targetDirection = ((enemies[1]:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+			    	local target_point = caster:GetAbsOrigin()+targetDirection*RandomInt(1200, 2200)
+					local order =
+					{
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+						AbilityIndex = charge_ability:entindex(),
+						Position = target_point,
+						Queue = true
+					}
+					caster:Stop()
+					ExecuteOrderFromTable(order)
+					caster.castLock = true
+					Timers:CreateTimer(0.8, function()
+						caster.castLock = false
+					end)
+			    end
+			end
+			local fire_ability = caster:FindAbilityByName("tiamat_fire_breath")
+			if fire_ability:IsFullyCastable() then
+			    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			    if #enemies > 0 then
+			    	local target_point = enemies[1]:GetAbsOrigin()
+					local order =
+					{
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+						AbilityIndex = fire_ability:entindex(),
+						Position = target_point,
+						Queue = true
+					}
+					caster:Stop()
+					ExecuteOrderFromTable(order)
+					caster.castLock = true
+					Timers:CreateTimer(0.8, function()
+						caster.castLock = false
+					end)
+			    end
+			end
 		end
 	end	
 	if ability.interval >= 80 then
@@ -3203,6 +3205,8 @@ function tiamat_fire_bomb_explosion(bomb, caster, ability, aoeSize)
 		radius = 290
 	elseif aoeSize == 3 then
 		radius = 400
+	elseif aoeSize == 4 then
+		radius = 500
 	end
 	fireThinker.radius = radius
 

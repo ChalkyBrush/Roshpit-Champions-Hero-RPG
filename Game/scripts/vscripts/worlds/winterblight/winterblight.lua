@@ -809,6 +809,8 @@ function Winterblight:MithrilReward(position, code)
           end)
           reward = reward*1.3
           stonesReward = stonesReward*1.3
+          local bonus_mult = Winterblight.TiamatBossLevel*0.06
+          reward = reward + reward*bonus_mult
         end
 
         local mithrilReward = reward*Events.ResourceBonus+(stonesReward*(Winterblight.Stones))

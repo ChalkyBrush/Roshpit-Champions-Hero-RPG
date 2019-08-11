@@ -4430,7 +4430,7 @@ function Winterblight:TiamatBossDie(boss)
 	boss.dying = true
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, boss:GetAbsOrigin(), 2400, 60, false)
 	local ability = boss:FindAbilityByName("tiamat_boss_passive")
-
+	Winterblight.TiamatBossLevel = boss.boss_level
 	ability:ApplyDataDrivenModifier(boss, boss, "modifier_boss_dying", {})
 	ability:ApplyDataDrivenModifier(boss, boss, "modifier_boss_disarmed", {})
 	-- EmitSoundOn("Winterblight.AzaleaBoss.Death1.VO", boss)
@@ -4490,12 +4490,8 @@ function Winterblight:TiamatBossDie(boss)
 		-- end)
 		Timers:CreateTimer(0.8, function()
 			local position = boss:GetAbsOrigin()
-			ability:ApplyDataDrivenModifier(boss, boss, "modifier_boss_frozen", {})
-			Timers:CreateTimer(6.5, function()
-				Winterblight:objectShake(boss, 48, 15, true, true, true, "Winterblight.AzaleaBoss.DeathShaking", 24)
-				-- Events:smoothSizeChange(boss, boss:GetModelScale(), boss:GetModelScale()-0.5, 5)
-			end)
-			Timers:CreateTimer(8, function()
+			Winterblight:objectShake(boss, 48, 15, true, true, true, "Winterblight.AzaleaBoss.DeathShaking", 24)
+			Timers:CreateTimer(1.5, function()
 				for i = 0, 3, 1 do
 					Timers:CreateTimer(0.1 * i, function()
 						local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)

@@ -1,5 +1,4 @@
 function Winterblight:InitWinterForest()
-	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-6400, 200), 8000, 999999, false)
 	if not Winterblight.CavernPrecached then
 		Winterblight.CavernPrecached = true
 		Precache:WinterblightCavern()
